@@ -1119,8 +1119,6 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 
 		# Regexps should match until we reach a , . ; - or the end of the text
 
-		$log->debug("parse_specific_ingredients_from_text - text: $text") if $log->is_debug();
-
 		# text in this order: ingredient - quantity - percent
 		# e.g.
 		# - minimum content of fruit : 150g
@@ -1154,9 +1152,6 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			)
 			)
 		{
-			$log->debug("parse_specific_ingredients_from_text - text in this order: ingredient - quantity - percent")
-				if $log->is_debug();
-
 			my $before = $1;
 			$ingredient = $2;
 			# 2 groups captured by $percent_or_quantity_regexp:
@@ -1165,12 +1160,6 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$matched_text = $&;
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
-
-			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
-			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
-				if $log->is_debug();
-			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_unit: $percent_or_quantity_unit")
-				if $log->is_debug();
 		}
 		# text in this order: quantity - ingredient - percent
 		# e.g.
@@ -1207,9 +1196,6 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			)
 			)
 		{
-			$log->debug("parse_specific_ingredients_from_text - text in this order: quantity - ingredient - percent")
-				if $log->is_debug();
-
 			my $before = $1;
 			# 2 groups captured by $percent_or_quantity_regexp:
 			$percent_or_quantity_value = $2;
@@ -1218,12 +1204,6 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$matched_text = $&;
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
-
-			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
-			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
-				if $log->is_debug();
-			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_unit: $percent_or_quantity_unit")
-				if $log->is_debug();
 		}
 
 		# Keeping English and French first, since those are (by far) the most common languages OFF is used in/with
@@ -1596,17 +1576,6 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 							)
 						{
 							$new_ingredient = $` . $';
-
-							$debug_parse_processing_from_ingredient and $log->debug(
-								"processing - found processing",
-								{
-									ingredient => $ingredient,
-									new_ingredient => $new_ingredient,
-									processing => $ingredient_processing_regexp_ref->[0],
-									regexp => $regexp
-								}
-							) if $log->is_debug();
-
 							$removed_a_processing = 1;
 
 							my $processing = $ingredient_processing_regexp_ref->[0];
@@ -1630,15 +1599,6 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 								= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
 
 							if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-								$debug_parse_processing_from_ingredient and $log->debug(
-									"processing - found existing ingredient, stop matching",
-									{
-										ingredient => $ingredient,
-										new_ingredient => $new_ingredient,
-										new_ingredient_id => $new_ingredient_id
-									}
-								) if $log->is_debug();
-
 								$found_a_known_ingredient = 1;
 							}
 							else {
@@ -1658,15 +1618,6 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 
 			my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
 			if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-				$debug_parse_processing_from_ingredient and $log->debug(
-					"processing - found existing ingredient after removing processing",
-					{
-						ingredient => $ingredient,
-						new_ingredient => $new_ingredient,
-						new_ingredient_id => $new_ingredient_id,
-						new_processings => \@new_processings,
-					}
-				) if $log->is_debug();
 				$ingredient = $new_ingredient;
 				$ingredient_id = $new_ingredient_id;
 				$ingredient_recognized = 1;
@@ -1685,17 +1636,6 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 			}
 		}
 	}
-
-	$debug_parse_processing_from_ingredient
-		and $log->debug(
-		"processing - return",
-		{
-			processings => \@processings,
-			ingredient => $ingredient,
-			ingredient_id => $ingredient_id,
-			ingredient_recognized => $ingredient_recognized
-		}
-		) if $log->is_debug();
 
 	return (\@processings, $ingredient, $ingredient_id, $ingredient_recognized);
 }
@@ -1821,10 +1761,6 @@ sub select_ingredients_lc ($product_ref) {
 	if (defined $product_ref->{lc}) {    # Should always be defined, except in old unit tests
 		unshift @ingredients_text_fields, "ingredients_text_" . $product_ref->{lc};
 	}
-
-	$log->debug("select_ingredients_lc - ingredients_text_fields",
-		{ingredients_text_fields => \@ingredients_text_fields})
-		if $log->is_debug();
 
 	foreach my $ingredient_text_field (@ingredients_text_fields) {
 		if (    (defined $product_ref->{$ingredient_text_field})
@@ -2076,18 +2012,12 @@ Text to analyze
 		my $vegetarian = undef;
 		my @processings = ();
 
-		$debug_ingredients and $log->debug("analyze_ingredients_function", {string => $s}) if $log->is_debug();
 		# find the first separator or ( or [ or : etc.
 		if ($s =~ $separators) {
 
 			$before = $`;
 			my $sep = $1;
 			$after = $';
-
-			$debug_ingredients
-				and $log->debug("found the first separator",
-				{string => $s, before => $before, sep => $sep, after => $after})
-				if $log->is_debug();
 
 			# If the first separator is a column : or a start of parenthesis etc. we may have sub ingredients
 
@@ -2120,10 +2050,6 @@ Text to analyze
 
 				$ending = '(' . $ending . ')';
 
-				$debug_ingredients and $log->debug("try to match until the ending separator",
-					{sep => $sep, ending => $ending, after => $after})
-					if $log->is_debug();
-
 				# try to match until the ending separator
 				if ($after =~ /^($match)$ending/i) {
 
@@ -2135,9 +2061,6 @@ Text to analyze
 					# e.g. (Contains milk.) -> Contains milk.
 					$between =~ s/(\s|\.)+$//;
 
-					$debug_ingredients and $log->debug("parse_ingredients_text - sub-ingredients found: $between")
-						if $log->is_debug();
-
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 					# tomatoes (145g per 100g of finished product)
@@ -2146,15 +2069,6 @@ Text to analyze
 						$percent_or_quantity_unit = $2;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
-						$debug_ingredients
-							and $log->debug(
-							"separator found after percent",
-							{
-								between => $between,
-								percent_or_quantity_value => $percent_or_quantity_value,
-								percent_or_quantity_unit => $percent_or_quantity_unit
-							}
-							) if $log->is_debug();
 					}
 
 					# sel marin (France, Italie)
@@ -2182,10 +2096,6 @@ Text to analyze
 					# 一部に卵・小麦・乳成分・大豆を含む (contains (を含む) parts of (一部に), eggs, wheat, milk, soybeans (卵・小麦・乳成分・大豆)
 					# 香料(乳由来) (Spices (from milk origin))
 					my $cano = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between);
-					$log->debug("parse_ingredients_text - BEFORE $cano.")
-						if $log->is_debug();
-					$log->debug("parse_ingredients_text - BEFORE2 $ingredients_lc:$between.")
-						if $log->is_debug();
 					if (
 						(
 							# only one sub-ingredient
@@ -2221,10 +2131,6 @@ Text to analyze
 						#   allergen advice: for allergens including cereals containing gluten, see ingredients
 						#   in bold. May contain traces of nuts.")
 						$between = ">allergens<:" . $between;
-
-						$log->debug(
-							"parse_ingredients_text - sub-ingredients: single allergen or keyword for allergen.")
-							if $log->is_debug();
 					}
 
 					# # allergens or traces
@@ -2269,63 +2175,31 @@ Text to analyze
 
 					# }
 
-					$debug_ingredients and $log->debug(
-						"initial processing of percent and origins",
-						{
-							between => $between,
-							after => $after,
-							percent_or_quantity_value => $percent_or_quantity_value,
-							percent_or_quantity_unit => $percent_or_quantity_unit
-						}
-					) if $log->is_debug();
-
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
 						and ($` !~ /\s*(allergens)\s*/i)
 						and ($between !~ /^$percent_or_quantity_regexp$/i))
 					{
 						$between_level = $level + 1;
-						$log->debug(
-							"parse_ingredients_text - sub-ingredients: between contains a separator and is not origin nor allergen nor has percent",
-							{between => $between}
-						) if $log->is_debug();
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						$log->debug(
-							"parse_ingredients_text - sub-ingredients: between does not contain a separator or is origin or allergen or has percent",
-							{between => $between}
-						) if $log->is_debug();
-
 						if ($between =~ /^$percent_or_quantity_regexp(?:$per_100g_regexp)?$/i) {
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
-							$log->debug(
-								"parse_ingredients_text - sub-ingredients: between is a percent",
-								{
-									between => $between,
-									percent_or_quantity_value => $percent_or_quantity_value,
-									percent_or_quantity_unit => $percent_or_quantity_unit
-								}
-							) if $log->is_debug();
 							$between = '';
 						}
 						else {
 							# label? (organic)
 							# origin? (origine : France)
 							# allergens? (豚肉を含む) - (contains (を含む) pork (豚肉)) - in Japanese allergens are not separated from the ingredients list
-							$log->debug("parse_ingredients_text - sub-ingredients: label? origin? allergen? ($between)")
-								if $log->is_debug();
 
 							# try to remove the origin and store it as property
 							if ($between
 								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
 								)
 							{
-								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
-									if $log->is_debug();
-
 								$between = '';
 								# rm first occurence (origin:)
 								my $origin_string = $1;
@@ -2356,9 +2230,6 @@ Text to analyze
 							# try to remove the allergens and store them as allergens
 							# in Japanese allergens are not separated from the ingredients list, instead they are in parenthesis.
 							if ($between =~ /\s*(?:>allergens<:)(.*)$/i) {
-								$log->debug("parse_ingredients_text - sub-ingredients: contains allergens in $between")
-									if $log->is_debug();
-
 								$between = '';
 								# rm first occurence (allergens:)
 								my $allergen_string = $1;
@@ -2380,39 +2251,15 @@ Text to analyze
 								else {
 									$product_ref->{"allergens"} = $allergens;
 								}
-
-								$log->debug("parse_ingredients_text - sub-ingredients: allergens. $allergens")
-									if $log->is_debug();
-
-								$log->debug("parse_ingredients_text - sub-ingredients: allergens in product. ",
-									$product_ref->{"allergens"})
-									if $log->is_debug();
-
-								$log->debug("parse_ingredients_text - sub-ingredients: traces in product. ",
-									$product_ref->{"traces"})
-									if $log->is_debug();
-
 								$between = '';
-
 							}
 
 							else {
-								$log->debug(
-									"parse_ingredients_text - sub-ingredients: origin not explicitly written in: $between"
-								) if $log->is_debug();
-
 								# origins:   Fraise (France)
 								my $originid = canonicalize_taxonomy_tag($ingredients_lc, "origins", $between);
 								if (exists_taxonomy_tag("origins", $originid)) {
 									$origin = $originid;
-									$debug_ingredients
-										and
-										$log->debug("between is an origin", {between => $between, origin => $origin})
-										if $log->is_debug();
 									$between = '';
-									$log->debug(
-										"parse_ingredients_text - sub-ingredients: between is an origin: $between")
-										if $log->is_debug();
 								}
 								# put origins first because the country can be associated with the label "Made in ..."
 								# Skip too short entries (1 or 2 letters) to avoid false positives
@@ -2433,15 +2280,6 @@ Text to analyze
 										my $label_ingredient_id
 											= get_inherited_property("labels", $labelid, "ingredients:en");
 
-										$debug_ingredients and $log->debug(
-											"between is a known label",
-											{
-												between => $between,
-												label => $labelid,
-												label_ingredient_id => $label_ingredient_id
-											}
-										) if $log->is_debug();
-
 										if (defined $label_ingredient_id) {
 											$between = $label_ingredient_id;
 										}
@@ -2457,9 +2295,6 @@ Text to analyze
 											$between);
 										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
 											push @processings, $processingid;
-											$debug_ingredients and $log->debug("between is a processing",
-												{between => $between, processing => $processingid})
-												if $log->is_debug();
 											$between = '';
 										}
 									}
@@ -2487,21 +2322,10 @@ Text to analyze
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
 				$after = $';
-				$debug_ingredients
-					and $log->debug(
-					"after started with a percent",
-					{
-						after => $after,
-						percent_or_quantity_value => $percent_or_quantity_value,
-						percent_or_quantity_unit => $percent_or_quantity_unit
-					}
-					) if $log->is_debug();
 			}
 		}
 		else {
 			# no separator found: only one ingredient
-			$debug_ingredients and $log->debug("no separator found, only one ingredient", {string => $s})
-				if $log->is_debug();
 			$before = $s;
 		}
 
@@ -2510,10 +2334,6 @@ Text to analyze
 		# trim leading and trailing whitespaces or hyphens
 		$before =~ s/(\s|-)+$//;
 		$before =~ s/^(\s|-)+//;
-
-		$debug_ingredients and $log->debug("processed first separator",
-			{string => $s, before => $before, between => $between, after => $after})
-			if $log->is_debug();
 
 		my @ingredients = ();
 
@@ -2530,12 +2350,6 @@ Text to analyze
 			my $canon_ingredient = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $before);
 
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
-
-				$debug_ingredients
-					and $log->debug(
-					"parse_ingredient_text - and - whole ingredient >$before< containing 'and' is unknown ingredient")
-					if $log->is_debug();
-
 				# Create a copy of $ingredients1 and $ingredients2, as we will remove percents to $ingredientX,
 				# but we will push $ingredientX_orig if it is a known ingredient after we remove the processing
 				my $ingredient1_orig = $ingredient1;
@@ -2571,9 +2385,6 @@ Text to analyze
 			# e.g. if we have "Vegetables (97%) (Potatoes, Tomatoes)"
 			if (($before =~ /^\s*$/) and ($between !~ /^\s*$/) and ((scalar @{$ingredients_ref}) > 0)) {
 				my $last_ingredient = (scalar @{$ingredients_ref}) - 1;
-				$debug_ingredients and $log->debug("between applies to last ingredient",
-					{between => $between, last_ingredient => $ingredients_ref->[$last_ingredient]{text}})
-					if $log->is_debug();
 
 				(defined $ingredients_ref->[$last_ingredient]{ingredients})
 					or $ingredients_ref->[$last_ingredient]{ingredients} = [];
@@ -2591,17 +2402,10 @@ Text to analyze
 		my $i = 0;    # Counter for ingredients, used to know if it is the last ingredient
 
 		# Note: we use a while loop instead of a foreach as we may modify the array @ingredients when we split ingredients
-		$debug_ingredients
-			and
-			$log->debug("initial number of ingredients", {count => scalar @ingredients, ingredients => \@ingredients})
-			if $log->is_debug();
 		while (@ingredients) {
 
 			my $ingredient = shift @ingredients;
 			chomp($ingredient);
-
-			$debug_ingredients and $log->debug("analyzing ingredient", {ingredient => $ingredient})
-				if $log->is_debug();
 
 			# Repeat the removal of parts of the ingredient (that corresponds to labels, origins, processing, % etc.)
 			# as long as we have removed something and that we haven't recognized the ingredient
@@ -2619,15 +2423,6 @@ Text to analyze
 				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
-					$debug_ingredients and $log->debug(
-						"percent found after",
-						{
-							ingredient => $ingredient,
-							percent_or_quantity_value => $percent_or_quantity_value,
-							percent_or_quantity_unit => $percent_or_quantity_unit,
-							new_ingredient => $`
-						}
-					) if $log->is_debug();
 					$ingredient = $`;
 				}
 
@@ -2637,15 +2432,6 @@ Text to analyze
 				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
-					$debug_ingredients and $log->debug(
-						"percent found before",
-						{
-							ingredient => $ingredient,
-							percent_or_quantity_value => $percent_or_quantity_value,
-							percent_or_quantity_unit => $percent_or_quantity_unit,
-							new_ingredient => $'
-						}
-					) if $log->is_debug();
 					$ingredient = $';
 				}
 
@@ -2719,9 +2505,6 @@ Text to analyze
 									$ingredient = $label;
 								}
 							}
-							$debug_ingredients
-								and $log->debug("found label", {ingredient => $ingredient, labelid => $labelid})
-								if $log->is_debug();
 						}
 					}
 				}
@@ -2778,16 +2561,6 @@ Text to analyze
 
 						my $origin_id = canonicalize_taxonomy_tag($ingredients_lc, "origins", $maybe_origin);
 						if ((exists_taxonomy_tag("origins", $origin_id)) and ($origin_id ne "en:unknown")) {
-
-							$debug_ingredients and $log->debug(
-								"ingredient includes known origin",
-								{
-									ingredient => $ingredient,
-									new_ingredient => $maybe_ingredient,
-									origin_id => $origin_id
-								}
-							) if $log->is_debug();
-
 							$origin = $origin_id;
 							$ingredient = $maybe_ingredient;
 							$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
@@ -2823,15 +2596,6 @@ Text to analyze
 
 							my $label_ingredient_id = get_inherited_property("labels", $label_id, "ingredients:en");
 
-							$debug_ingredients and $log->debug(
-								"between is a known label",
-								{
-									between => $between,
-									label => $label_id,
-									label_ingredient_id => $label_ingredient_id
-								}
-							) if $log->is_debug();
-
 							if (defined $label_ingredient_id) {
 
 								# The label is specific to an ingredient
@@ -2844,24 +2608,10 @@ Text to analyze
 								else {
 									$labels = $label_id;
 								}
-
-								$debug_ingredients and $log->debug(
-									"unknown ingredient is a label, add label and add corresponding ingredient",
-									{
-										ingredient => $ingredient,
-										label_id => $label_id,
-										ingredient_id => $ingredient_id
-									}
-								) if $log->is_debug();
 							}
 							else {
 								# The label is not specific to an ingredient
-
 								$skip_ingredient = 1;
-								$debug_ingredients and $log->debug(
-									"unknown ingredient is a label, add label and skip ingredient",
-									{ingredient => $ingredient, label_id => $label_id}
-								) if $log->is_debug();
 							}
 						}
 					}
@@ -3096,9 +2846,6 @@ Text to analyze
 							}
 							# Did we recognize one of the two ingredients?
 							if ($ingredients_recognized >= 1) {
-								$debug_ingredients
-									and $log->debug("parse_ingredient_text - split $ingredient1 - $ingredient2")
-									if $log->is_debug();
 								$ingredient = $ingredient1_orig;
 								$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
 								unshift @ingredients, "$ingredient2_orig";
@@ -3145,16 +2892,6 @@ Text to analyze
 
 					if ($exists_in_taxonomy) {
 						$ingredient_id = $parent_plus_child_ingredient_id;
-						$log->debug(
-							"parse_ingredient_text - parent + child ingredient recognized",
-							{
-								parent => $parent_ingredient_text,
-								child => $ingredient,
-								parent_plus_child_ingredient_text => $parent_plus_child_ingredient_text,
-								parent_plus_child_ingredient_id => $parent_plus_child_ingredient_id
-							}
-
-						) if $log->is_debug();
 					}
 				}
 
@@ -3252,8 +2989,6 @@ Text to analyze
 	};
 
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, undef, 0, $text);
-
-	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
 
 	return;
 }
@@ -3991,16 +3726,6 @@ sub compute_ingredients_percent_min_max_values ($total_min, $total_max, $ingredi
 		}
 	}
 
-	$log->debug(
-		"compute_ingredients_percent_min_max_values - done",
-		{
-			ingredients_ref => $ingredients_ref,
-			total_min => $total_min,
-			total_max => $total_max,
-			changed_total => $changed_total
-		}
-	) if $log->is_debug();
-
 	return $changed_total;
 }
 
@@ -4075,20 +3800,6 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 		$percent_mode = "absolute";    # percents are absolute (relative to the whole product)
 	}
 
-	$log->debug(
-		"init_percent_values - percent mode",
-		{
-			percent_mode => $percent_mode,
-			ingredients_ref => $ingredients_ref,
-			total_min => $total_min,
-			total_max => $total_max,
-			percent_sum => $percent_sum,
-			all_ingredients_have_a_set_percent => $all_ingredients_have_a_set_percent,
-			quantity_sum => $quantity_sum,
-			all_ingredients_have_a_set_quantity => $all_ingredients_have_a_set_quantity,
-		}
-	) if $log->is_debug();
-
 	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
@@ -4144,8 +3855,6 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 			}
 		}
 	}
-
-	$log->debug("init_percent_values - result", {ingredients_ref => $ingredients_ref}) if $log->is_debug();
 
 	return;
 }
@@ -4433,10 +4142,6 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 				$ingredient_ref->{percent_max} = $total_max;
 				$changed++;
 			}
-
-			$log->debug("set_percent_sub_ingredients", {ingredient_ref => $ingredient_ref, changed => $changed})
-				if $log->is_debug();
-
 		}
 	}
 
@@ -4506,8 +4211,6 @@ sub compute_ingredients_percent_estimates ($total, $ingredients_ref) {
 		}
 	}
 
-	$log->debug("compute_ingredients_percent_estimates - done", {ingredients_ref => $ingredients_ref})
-		if $log->is_debug();
 	return;
 }
 
@@ -5035,8 +4738,6 @@ sub normalize_enumeration (
 	$do_not_output_parent = undef
 	)
 {
-	$log->debug("normalize_enumeration", {category => $category, types => $types}) if $log->is_debug();
-
 	# If there is a trailing space, save it and output it
 	my $trailing_space = "";
 	if ($types =~ /\s+$/) {
@@ -5074,9 +4775,6 @@ sub normalize_fr_a_et_b_de_c ($a, $b, $c) {
 }
 
 sub normalize_additives_enumeration ($ingredients_lc, $enumeration) {
-
-	$log->debug("normalize_additives_enumeration", {enumeration => $enumeration}) if $log->is_debug();
-
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
 
@@ -5086,8 +4784,6 @@ sub normalize_additives_enumeration ($ingredients_lc, $enumeration) {
 }
 
 sub normalize_vitamin ($lc, $a) {
-
-	$log->debug("normalize vitamin", {vitamin => $a}) if $log->is_debug();
 	$a =~ s/\s+$//;
 	$a =~ s/^\s+//;
 
@@ -5116,8 +4812,6 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 	# The ?: makes the group non-capturing, so that the split does not create an extra item for the group
 	my @vitamins = split(/(?:\(|\)|\/| \/ | - |, |,|$and)+/i, $vitamins_list);
 
-	$log->debug("splitting vitamins", {vitamins_list => $vitamins_list, vitamins => \@vitamins}) if $log->is_debug();
-
 	# first output "vitamines," so that the current additive class is set to "vitamins"
 	my $split_vitamins_list;
 
@@ -5138,17 +4832,12 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 
 	$split_vitamins_list .= ", " . join(", ", map {normalize_vitamin($lc, $_)} @vitamins);
 
-	$log->debug("vitamins split", {input => $vitamins_list, output => $split_vitamins_list}) if $log->is_debug();
-
 	return $split_vitamins_list;
 }
 
 sub normalize_allergen ($type, $lc, $allergen) {
 
 	# $type  ->  allergens or traces
-
-	$log->debug("normalize allergen", {allergen => $allergen})
-		if $log->is_debug();
 
 	my $of = ' - ';
 	if (defined $of{$lc}) {
@@ -5175,13 +4864,8 @@ sub normalize_allergens_enumeration ($type, $lc, $before, $allergens_list, $afte
 	# $type    ->  allergens or traces
 	# $before  ->  may contain an opening parenthesis
 
-	$log->debug("splitting allergens", {input => $allergens_list, before => $before, after => $after})
-		if $log->is_debug();
-
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$lc} || " will not match ";
-
-	$log->debug("splitting allergens", {input => $allergens_list}) if $log->is_debug();
 
 	# remove stopwords at the end
 	# e.g. Kann Spuren von Senf und Sellerie enthalten.
@@ -5189,8 +4873,6 @@ sub normalize_allergens_enumeration ($type, $lc, $before, $allergens_list, $afte
 		my $stopwords = $allergens_stopwords{$lc};
 		$allergens_list =~ s/( ($stopwords)\b)+(\.|$)/$3/ig;
 	}
-
-	$log->debug("splitting allergens after removing stopwords", {input => $allergens_list}) if $log->is_debug();
 
 	my @allergens = split(/\(|\)|\/| \/ | - |, |,|$and/i, $allergens_list);
 
@@ -5204,8 +4886,6 @@ sub normalize_allergens_enumeration ($type, $lc, $before, $allergens_list, $afte
 	if ((defined $after) and ($after eq ')') and ($before !~ /\(/)) {
 		$split_allergens_list .= $after;
 	}
-
-	$log->debug("allergens split", {input => $allergens_list, output => $split_allergens_list}) if $log->is_debug();
 
 	return $split_allergens_list;
 }
@@ -5902,10 +5582,6 @@ sub split_generic_name_from_ingredients ($product_ref, $language) {
 		and (defined $product_ref->{"ingredients_text_$language"}))
 	{
 
-		$log->debug("split_generic_name_from_ingredients",
-			{language => $language, "ingredients_text_$language" => $product_ref->{"ingredients_text_$language"}})
-			if $log->is_debug();
-
 		foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
 			if ($product_ref->{"ingredients_text_$language"} =~ /(\s*)\b($regexp(\s*)(-|:|\r|\n)+(\s*))/is) {
 
@@ -5919,9 +5595,6 @@ sub split_generic_name_from_ingredients ($product_ref, $language) {
 					)
 				{
 					$product_ref->{"generic_name_$language"} = $generic_name;
-					$log->debug("split_generic_name_from_ingredients",
-						{language => $language, generic_name => $generic_name})
-						if $log->is_debug();
 				}
 				last;
 			}
@@ -5942,9 +5615,6 @@ The function can be applied multiple times on the ingredients list.
 =cut
 
 sub clean_ingredients_text_for_lang ($text, $language) {
-
-	$log->debug("clean_ingredients_text_for_lang - start", {language => $language, text => $text}) if $log->is_debug();
-
 	# Remove phrases before ingredients list, but only when they are at the very beginning of the text
 
 	foreach my $regexp (@{$phrases_before_ingredients_list{$language}}) {
@@ -5976,8 +5646,6 @@ sub clean_ingredients_text_for_lang ($text, $language) {
 	$text =~ s/^\s*(:|-)\s*//;
 	$text =~ s/\s+$//;
 
-	$log->debug("clean_ingredients_text_for_lang - done", {language => $language, text => $text}) if $log->is_debug();
-
 	return $text;
 }
 
@@ -5994,13 +5662,7 @@ If there are multiple "Ingredients:" listed, it would keep only the last one if 
 =cut
 
 sub cut_ingredients_text_for_lang ($text, $language) {
-
-	$log->debug("cut_ingredients_text_for_lang - start", {language => $language, text => $text}) if $log->is_debug();
-
 	# Remove phrases before ingredients list lowercase
-
-	$log->debug("cut_ingredients_text_for_lang - 1", {language => $language, text => $text}) if $log->is_debug();
-
 	my $cut = 0;
 
 	if (defined $phrases_before_ingredients_list{$language}) {
@@ -6010,9 +5672,6 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 			# if we have multiple times "Ingredients:" (e.g. for products with 2 sub-products)
 			if ($text =~ /^(.*?)\b$regexp(\s*)(-|:|\r|\n)+(\s*)/is) {
 				$text = ucfirst($');
-				$log->debug("removed phrases_before_ingredients_list",
-					{removed => $1, kept => $text, regexp => $regexp})
-					if $log->is_debug();
 				$cut = 1;
 				last;
 			}
@@ -6020,9 +5679,6 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	}
 
 	# Remove phrases before ingredients list UPPERCASE
-
-	$log->debug("cut_ingredients_text_for_lang - 2", {language => $language, text => $text}) if $log->is_debug();
-
 	if ((not $cut) and (defined $phrases_before_ingredients_list_uppercase{$language})) {
 
 		foreach my $regexp (@{$phrases_before_ingredients_list_uppercase{$language}}) {
@@ -6031,8 +5687,6 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 			if ($text =~ /^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])/s) {
 				$text =~ s/^(.*?)\b$regexp(\s*)(\s|-|:|\r|\n)+(\s*)(?=(\w?)(\w?)[a-z])//s;
 				$text = ucfirst($text);
-				$log->debug("removed phrases_before_ingredients_list_uppercase", {kept => $text, regexp => $regexp})
-					if $log->is_debug();
 				$cut = 1;
 				last;
 			}
@@ -6041,22 +5695,16 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 
 	# Remove phrases after ingredients list
 
-	$log->debug("cut_ingredients_text_for_lang - 3", {language => $language, text => $text}) if $log->is_debug();
-
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
 			if ($text =~ /(?:$symbols_regexp)?\s*\b$regexp\b(.*)$/is) {
 				$text = $`;
-				$log->debug("removed phrases_after_ingredients_list", {removed => $1, kept => $text, regexp => $regexp})
-					if $log->is_debug();
 			}
 		}
 	}
 
 	# Remove phrases
-
-	$log->debug("cut_ingredients_text_for_lang - 4", {language => $language, text => $text}) if $log->is_debug();
 
 	if (defined $ignore_phrases{$language}) {
 
@@ -6074,11 +5722,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 		}
 	}
 
-	$log->debug("cut_ingredients_text_for_lang - 5", {language => $language, text => $text}) if $log->is_debug();
-
 	$text = clean_ingredients_text_for_lang($text, $language);
-
-	$log->debug("cut_ingredients_text_for_lang - done", {language => $language, text => $text}) if $log->is_debug();
 
 	return $text;
 }
@@ -6630,9 +6274,6 @@ my %ingredients_categories_and_types = (
 );
 
 sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
-	$log->debug("develop_ingredients_categories_and_types", {ingredients_lc => $ingredients_lc, text => $text})
-		if $log->is_debug();
-
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
 		my $percent_or_quantity_regexp = $percent_or_quantity_regexps{$ingredients_lc};
@@ -6839,8 +6480,6 @@ It does the following:
 sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 	not defined $text and return;
-
-	$log->debug("preparse_ingredients_text", {text => $text}) if $log->is_debug();
 
 	# if we're called twice with the same input in succession, such as in update_all_products.pl,
 	# cache the result, so we can instantly return the 2nd time.
@@ -7072,8 +6711,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# aceite de girasol (70%) y aceite de oliva virgen (30%)
 	$text =~ s/($cbrackets)$and/$1, /ig;
 
-	$log->debug("preparse_ingredients_text - before language specific preparsing", {text => $text}) if $log->is_debug();
-
 	if ($ingredients_lc eq 'de') {
 		# deletes comma in "Bienenwachs, weiß und gelb" since it is just one ingredient
 		$text =~ s/Bienenwachs, weiß und gelb/Bienenwachs weiß und gelb/ig;
@@ -7278,8 +6915,6 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/^(\s|\.|,|;|-)+//;
 	$text =~ s/(\s|,|;|-)+$//;
 
-	$log->debug("preparse_ingredients_text result", {text => $text}) if $log->is_debug();
-
 	$prev_return = $text;
 	return $text;
 }
@@ -7373,7 +7008,6 @@ sub extract_additives_from_text ($product_ref) {
 			}
 
 			push @ingredients_ids, $ingredientid;
-			$log->debug("ingredient 3", {ingredient => $ingredient}) if $log->is_debug();
 		}
 	}
 
@@ -7411,8 +7045,6 @@ sub extract_additives_from_text ($product_ref) {
 
 			if (exists_taxonomy_tag("additives_classes", $canon_ingredient_additive_class)) {
 				$current_additive_class = $canon_ingredient_additive_class;
-				$log->debug("current additive class", {current_additive_class => $canon_ingredient_additive_class})
-					if $log->is_debug();
 				$match = 1;
 			}
 
@@ -7975,9 +7607,6 @@ sub detect_allergens_from_ingredients ($product_ref) {
 
 	# Check the allergens:en property of each ingredient
 
-	$log->debug("detect_allergens_from_ingredients -- start", {ingredients => $product_ref->{ingredients}})
-		if $log->is_debug();
-
 	if (not defined $product_ref->{ingredients}) {
 		return;
 	}
@@ -7992,15 +7621,9 @@ sub detect_allergens_from_ingredients ($product_ref) {
 			}
 		}
 		my $allergens = get_inherited_property("ingredients", $ingredient_ref->{id}, "allergens:en");
-		$log->debug(
-			"detect_allergens_from_ingredients -- ingredient",
-			{id => $ingredient_ref->{id}, allergens => $allergens}
-		) if $log->is_debug();
 
 		if (defined $allergens) {
 			$product_ref->{"allergens_from_ingredients"} .= $allergens . ', ';
-			$log->debug("detect_allergens_from_ingredients -- found allergen", {allergens => $allergens})
-				if $log->is_debug();
 		}
 	}
 	return;
@@ -8086,8 +7709,6 @@ Allergens detected using 2. or 3. are marked with <span class="allergen">
 =cut
 
 sub detect_allergens_from_text ($product_ref) {
-
-	$log->debug("detect_allergens_from_text - start", {}) if $log->is_debug();
 
 	if ((scalar keys %allergens_stopwords) == 0) {
 		init_allergens_regexps();
@@ -8241,8 +7862,6 @@ sub detect_allergens_from_text ($product_ref) {
 		# print STDERR "\n";
 	}
 
-	$log->debug("detect_allergens_from_text - done", {}) if $log->is_debug();
-
 	return;
 }
 
@@ -8342,9 +7961,6 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref) {
 
 		($percent, $water_percent)
 			= add_ingredients_matching_function($product_ref->{ingredients}, $match_function_ref);
-
-		$log->debug("estimate_ingredients_matching_function", {percent => $percent, water_percent => $water_percent})
-			if $log->is_debug();
 
 		# For product categories where water is not consumed (e.g canned vegetables),
 		# we recompute the percent of matching ingredients in the product without water

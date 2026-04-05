@@ -1805,6 +1805,24 @@ check_quality_and_test_product_has_quality_tag(
 	'0 ingredients provided, at least 3 expecte, but do not raise error', 0
 );
 
+# category minimum number of ingredients. Single ingredient equals category
+$product_ref = {
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
+	],
+	ingredients => [{id => 'en:mozzarella'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'ingredient matches category', 0
+);
+
 # product quantity warnings and errors
 $product_ref = {product_quantity => "123456789",};
 check_quality_and_test_product_has_quality_tag(

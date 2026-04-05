@@ -814,10 +814,6 @@ sub compute_environmental_score ($product_ref) {
 				$product_ref->{environmental_score_data}{"scores"}{$cc}
 					= $product_ref->{environmental_score_data}{agribalyse}{score};
 
-				$log->debug("compute_environmental_score - agribalyse score",
-					{cc => $cc, agribalyse_score => $product_ref->{environmental_score_data}{agribalyse}{score}})
-					if $log->is_debug();
-
 				# Add adjustments (maluses or bonuses)
 
 				my $bonus = 0;
@@ -837,13 +833,6 @@ sub compute_environmental_score ($product_ref) {
 
 					if (defined $value) {
 						$bonus += $value;
-						$log->debug(
-							"compute_environmental_score - add adjustment",
-							{
-								adjustment => $adjustment,
-								value => $value
-							}
-						) if $log->is_debug();
 					}
 					if (defined $product_ref->{environmental_score_data}{adjustments}{$adjustment}{warning}) {
 						$missing_data_warning = 1;
@@ -881,14 +870,6 @@ sub compute_environmental_score ($product_ref) {
 				else {
 					$product_ref->{environmental_score_data}{"grades"}{$cc} = "f";
 				}
-
-				$log->debug(
-					"compute_environmental_score - final score and grade",
-					{
-						score => $product_ref->{environmental_score_data}{"scores"}{$cc},
-						grade => $product_ref->{environmental_score_data}{"grades"}{$cc}
-					}
-				) if $log->is_debug();
 			}
 
 			# The following values correspond to the Environmental-Score for France.
@@ -1321,32 +1302,20 @@ sub aggregate_origins_of_ingredients ($default_origins_ref, $aggregated_origins_
 		# If the ingredient has specified origins, use them
 		if (defined $ingredient_ref->{origins}) {
 			$ingredient_origins_ref = [split(/,/, $ingredient_ref->{origins})];
-			$log->debug("aggregate_origins_of_ingredients - ingredient has specified origins",
-				{ingredient_id => $ingredient_ref->{id}, ingredient_origins_ref => $ingredient_origins_ref})
-				if $log->is_debug();
 		}
 		# Otherwise, if the ingredient has sub ingredients, use the origins of the sub ingredients
 		elsif (defined $ingredient_ref->{ingredients}) {
-			$log->debug("aggregate_origins_of_ingredients - ingredient has subingredients",
-				{ingredient_id => $ingredient_ref->{id}})
-				if $log->is_debug();
 			aggregate_origins_of_ingredients($default_origins_ref, $aggregated_origins_ref,
 				$ingredient_ref->{ingredients});
 		}
 		# Else use default origins
 		else {
 			$ingredient_origins_ref = $default_origins_ref;
-			$log->debug("aggregate_origins_of_ingredients - use default origins",
-				{ingredient_id => $ingredient_ref->{id}, ingredient_origins_ref => $ingredient_origins_ref})
-				if $log->is_debug();
 		}
 
 		# If we are not using the origins of the sub ingredients,
 		# aggregate the origins of the ingredient
 		if (defined $ingredient_origins_ref) {
-			$log->debug("aggregate_origins_of_ingredients - adding origins",
-				{ingredient_id => $ingredient_ref->{id}, ingredient_origins_ref => $ingredient_origins_ref})
-				if $log->is_debug();
 			foreach my $origin_id (@$ingredient_origins_ref) {
 				if (not defined $environmental_score_data{origins}{$origin_id}) {
 
@@ -1483,15 +1452,6 @@ sub compute_environmental_score_origins_of_ingredients_adjustment ($product_ref)
 		@origins_from_categories = ("en:unknown");
 	}
 
-	$log->debug(
-		"compute_environmental_score_origins_of_ingredients_adjustment - origins field",
-		{
-			origins_tags => $product_ref->{origins_tags},
-			origins_from_origins_field => \@origins_from_origins_field,
-			origins_from_categories => \@origins_from_categories
-		}
-	) if $log->is_debug();
-
 	# Sum the % values/estimates of all ingredients by origins
 
 	my %aggregated_origins = ();
@@ -1541,10 +1501,6 @@ sub compute_environmental_score_origins_of_ingredients_adjustment ($product_ref)
 	}
 
 	my $epi_value = $epi_score / 10 - 5;
-
-	$log->debug("compute_environmental_score_origins_of_ingredients_adjustment - aggregated origins",
-		{aggregated_origins => \@aggregated_origins})
-		if $log->is_debug();
 
 	# EPI score is not counted if we already have a bonus for the production system
 	# In this case, we set the EPI score to 0
@@ -1607,11 +1563,6 @@ $product_ref->{adjustments}{packaging} hash with:
 =cut
 
 sub compute_environmental_score_packaging_adjustment ($product_ref) {
-
-	$log->debug("compute_environmental_score_packaging_adjustment - packagings data structure",
-		{packagings => $product_ref->{packagings}})
-		if $log->is_debug();
-
 	# Sum the scores of all packagings components
 	# Create a copy of the packagings structure, so that we can add Eco-score elements to it
 
@@ -1676,8 +1627,6 @@ sub compute_environmental_score_packaging_adjustment ($product_ref) {
 
 					if (defined $packaging_ref->{shape}) {
 						$weight = get_inherited_property("packaging_shapes", $packaging_ref->{shape}, "weight:en");
-						$log->debug("aluminium", {weight => $weight, shape => $packaging_ref->{shape}})
-							if $log->is_debug();
 						if (not defined $weight) {
 							$weight = "heavy";
 						}
