@@ -1985,11 +1985,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 	my $text = $product_ref->{ingredients_text};
 
-	$log->debug("extracting ingredients from text", {text => $text}) if $log->is_debug();
-
 	$text = preparse_ingredients_text($ingredients_lc, $text);
-
-	$log->debug("preparsed ingredients from text", {text => $text}) if $log->is_debug();
 
 	# Remove allergens and traces that have been preparsed
 	# jus de pomme, eau, sucre. Traces possibles de c\x{e9}leri, moutarde et gluten.",
@@ -1997,7 +1993,12 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 	my $traces = $Lang{traces}{$ingredients_lc};
 	my $allergens = $Lang{allergens}{$ingredients_lc};
-	$text =~ s/\b($traces|$allergens)\s?:\s?([^,\.]+)//ig;
+	if (defined $traces and defined $allergens) {
+		$text =~ s/\b($traces|$allergens)\s?:\s?([^,\.]+)//ig;
+	}
+	else {
+		$log->warn("No translation for traces or allergens", {ingredients_lc => $ingredients_lc}) if $log->is_warn();
+	}
 
 	# unify newline feeds to \n
 	$text =~ s/\r\n/\n/g;

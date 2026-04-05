@@ -16,6 +16,15 @@ Disallow: /facets
 Allow: /cgi/product_image.pl
 Allow: /cgi/opensearch.pl
 
+User-agent: meta-externalagent/1.1
+Disallow: /
+
+User-agent: meta-webindexer
+Disallow: /
+
+User-agent: Applebot
+Disallow: /
+
 User-agent: SEOkicks-Robot
 Disallow: /
 

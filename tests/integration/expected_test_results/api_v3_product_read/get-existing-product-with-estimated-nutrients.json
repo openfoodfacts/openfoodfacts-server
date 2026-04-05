@@ -142,7 +142,7 @@
          "en:food-groups-3-unknown",
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
-         "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
@@ -154,7 +154,7 @@
       "data_quality_warnings_tags" : [
          "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
-         "en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars",
+         "en:nutrition-sugars-plus-starch-greater-than-carbohydrates",
          "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
          "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
@@ -633,7 +633,7 @@
             "percent_max" : 12.5,
             "percent_min" : 0,
             "text" : "sugar",
-            "vegan" : "yes",
+            "vegan" : "maybe",
             "vegetarian" : "yes"
          }
       ],

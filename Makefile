@@ -130,6 +130,8 @@ dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes r
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
+# we also need to clone_deps to ensure all cited docker compose files are available
+# so, in some way, it's part of creating folders
 create_folders: clone_deps
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
@@ -231,11 +233,11 @@ build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
-	${DOCKER_COMPOSE_BUILD} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test: create_folders
 # Run build_lang.pl in test env
-	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
@@ -375,14 +377,14 @@ update_tests_results: build_taxonomies_test build_lang_test build_pro_platform_t
 update_unit_tests_results:
 	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener/tests backend bash update_unit_tests_results.sh
+	${DOCKER_COMPOSE_TEST} run --rm backend bash tests/update_unit_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 
 update_integration_tests_results:
 	@echo "🥫 Updated expected integration test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
-	${DOCKER_COMPOSE_INT_TEST} exec -w /opt/product-opener/tests backend bash update_integration_tests_results.sh
+	${DOCKER_COMPOSE_INT_TEST} exec backend bash tests/update_integration_tests_results.sh
 	${DOCKER_COMPOSE_INT_TEST} stop
 
 bash:
