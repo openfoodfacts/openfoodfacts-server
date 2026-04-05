@@ -47,7 +47,8 @@ my $request_ref = ProductOpener::Display::init_request();
 my $code = normalize_code(single_param('code'));
 my $id = single_param('id');
 my $ocr_engine = single_param('ocr_engine');
-my $annotations = single_param('annotations') | 0;
+my $annotations_param = single_param('annotations');
+my $annotations = (defined $annotations_param ? $annotations_param : 0) | 0;
 
 $log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 

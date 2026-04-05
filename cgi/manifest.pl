@@ -44,7 +44,8 @@ my $short_name = $options{site_name};
 my $long_name = $short_name;
 
 # https://stackoverflow.com/a/16533563/11963
-$short_name =~ s/\b([A-Z])[a-z]+(?=\s+[A-Z][a-z])|\G(?!^)\s+([A-Z])[a-z]+/$1$2/g;
+$short_name
+	=~ s/\b([A-Z])[a-z]+(?=\s+[A-Z][a-z])|\G(?!^)\s+([A-Z])[a-z]+/((defined $1) ? $1 : '') . ((defined $2) ? $2 : '')/ge;
 
 if ($request_ref->{cc} eq 'world') {
 	$long_name .= " " . uc($lc);

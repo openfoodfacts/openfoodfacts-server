@@ -75,7 +75,12 @@ use Log::Any qw($log);
 # Yuka sends a POSTDATA parameter in JSON:
 # "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
 # This needs to be done before init_request() as the body contains user_id and password for authentication
-if ((user_agent() =~ /Symfony HttpClient/) and (request_method() eq 'GET') and (not param("code"))) {
+my $user_agent = user_agent();
+if (    (defined $user_agent)
+	and ($user_agent =~ /Symfony HttpClient/)
+	and (request_method() eq 'GET')
+	and (not param("code")))
+{
 
 	my $r = Apache2::RequestUtil->request();
 
@@ -136,7 +141,7 @@ if (0) {
 
 # Allow apps to create products without barcodes
 # Assign a code and return it in the response.
-if ($code eq "new") {
+if ((defined $code) and ($code eq "new")) {
 
 	($code, $product_id) = assign_new_code();
 	$response{code} = $code . "";    # Make sure the code is returned as a string

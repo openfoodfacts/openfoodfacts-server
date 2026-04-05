@@ -291,6 +291,17 @@ $tt = Template->new(
 		COMPILE_EXT => '.ttc',    # compile templates to Perl code for much faster reload
 		COMPILE_DIR => $data_root . "/tmp/templates",
 		ENCODING => 'UTF-8',
+		FILTERS => {
+			# UTF-8-safe ucfirst filter to avoid "Wide character in ucfirst" warnings
+			# Standard Perl ucfirst doesn't handle multi-byte UTF-8 characters properly
+			ucfirst => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Use uc() on first character which works correctly with UTF-8
+				# when utf8 flag is set (Template Toolkit handles this with ENCODING => 'UTF-8')
+				return uc(substr($text, 0, 1)) . substr($text, 1);
+			},
+		},
 	}
 );
 
@@ -7701,10 +7712,12 @@ sub display_page ($request_ref) {
 				$osubdomain = $request_ref->{cc};
 			}
 			if (($olc eq $lc)) {
-				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
+				$selected_lang
+					= "<a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a>\n";
 			}
 			else {
-				$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a></li>";
+				$langs
+					.= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a></li>";
 			}
 		}
 	}
@@ -10742,7 +10755,7 @@ sub display_properties ($request_ref) {
 
 	my $html;
 	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html, $request_ref)
-		|| return "template error: " . $tt->error();
+		|| return "template error: " . ($tt->error() // 'unknown error');
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{page_type} = "properties";
