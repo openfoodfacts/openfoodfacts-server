@@ -1,21 +1,23 @@
+# Open Food Facts Data Fields
+
 This file describes the fields from the CSV export of the products in the Open Food Facts database.
 
-See https://world.openfoodfacts.org/data for more information.
+See [the data page](https://world.openfoodfacts.org/data) for more information.
 
 The file encoding is Unicode UTF-8. The character that separates fields is <tab> (tabulation).
 
-# Generalities
+## Generalities
 
-- fields that end with `_t` are dates in the UNIX timestamp format (number of seconds since Jan 1st 1970)
-- fields that end with `_datetime` are dates in the iso8601 format: `yyyy-mm-ddThh:mn:ssZ`
-- fields that end with `_tags` are comma separated list of tags (e.g. `categories_tags` is the set of normalized tags computed from the `categories` field)
-- fields that end with a language 2 letter code (e.g. `fr` for French) is the set of tags in that language
-- fields that end with `_100g` correspond to the amount of a nutriment (in g, or kJ for energy) for 100 g or 100 ml of product
-- fields that end with `_serving` correspond to the amount of a nutriment (in g, or kJ for energy) for 1 serving of the product
+- fields that end with **`_t`** are dates in the UNIX timestamp format (number of seconds since Jan 1st 1970)
+- fields that end with **`_datetime`** are dates in the iso8601 format: `yyyy-mm-ddThh:mn:ssZ`
+- fields that end with **`_tags`** are comma separated list of tags (e.g. `categories_tags` is the set of normalized tags computed from the `categories` field)
+- fields that end with a **`language 2 letter code`** (e.g. `fr` for French) is the set of tags in that language
+- fields that end with **`_100g`** correspond to the amount of a nutriment (in g, or kJ for energy) for 100 g or 100 ml of product
+- fields that end with **`_serving`** correspond to the amount of a nutriment (in g, or kJ for energy) for 1 serving of the product
 
-# List of fields
+## List of fields
 
-## general information
+### general information
 
 - `code`
   - barcode of the product (can be EAN-13 or internal codes for some food stores); for products without a barcode, Open Food Facts assigns a number starting with the 200 reserved prefix
@@ -49,7 +51,7 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
   - quantity and unit
   - example: `1 BAR (62 g)`
 
-## tags
+### tags
 
 - `packaging` : shape, material
 - `packaging_tags`
@@ -79,7 +81,7 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
 - `countries_tags`
 - `countries_en`
 
-## ingredients
+### ingredients
 
 - `ingredients_text`
 - `ingredients_tags`
@@ -90,7 +92,7 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
 - `traces_tags`
 - `traces_en`
 
-## misc. data
+### misc. data
 
 - `serving_size` : text describing the serving size
 - `serving_quantity` : normalized serving size in grams or ml
@@ -104,7 +106,7 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
   - example: `en:e296,en:e330,en:e552,en:e950,en:e955`
 - `additives_en`
 - `nutriscore_score`
-  - nutrition grade ('a' to 'e'). see https://fr.openfoodfacts.org/nutriscore
+  - nutrition grade ('a' to 'e'). see [the Nutri-Score page](https://fr.openfoodfacts.org/nutriscore)
 - `nutriscore_grade`
 - `nova_group`
 - `pnns_groups_1`
@@ -137,9 +139,9 @@ The file encoding is Unicode UTF-8. The character that separates fields is <tab>
 - `image_nutrition_url`
 - `image_nutrition_small_url`
 
-## nutrition facts
+### nutrition facts
 
-Please see https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts for more information on nutrients.
+Please see [the Nutrients Handling guide](https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts) for more information on nutrients.
 
 - `energy-kj_100g`
 - `energy-kcal_100g`
