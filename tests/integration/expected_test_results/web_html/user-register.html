@@ -430,11 +430,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_days_2025', 1, 180);
+    setBannerCookie('donation_march_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_days_2025') !== '') {
+  if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -1646,7 +1646,7 @@ function togglePasswordVisibility(FieldID) {
         <input type="hidden" name="action" value="process" />
         <input type="hidden" name="type" value="add" />
         
-            <input type="submit" name=".submit" class="button" value= "Register" />
+            <input type="submit" name=".submit" class="button" value= "Register" onclick="trackMatomoEvent('user', 'signup_submit');" />
         
     </form>
 
@@ -1872,6 +1872,7 @@ proCheckbox.addEventListener('change', function() {
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 
 <script>
 $(document).foundation({
