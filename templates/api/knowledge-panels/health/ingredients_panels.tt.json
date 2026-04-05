@@ -24,7 +24,7 @@
 {
     "element_type": "panel_group",
     "panel_group_element": {
-        "title": "[% edq(lang('attribute_group_processing_name')) FILTER ucfirst %]",
+        "title": "[% edq(lang('attribute_group_processing_name')).ucfirst %]",
         "panel_ids": ["nova"],
     },
 }, 
@@ -33,7 +33,7 @@
 {
     "element_type": "panel_group",
     "panel_group_element": {
-        "title": "[% edq(lang('additives_p')) FILTER ucfirst %]",
+        "title": "[% edq(lang('additives_p')).ucfirst %]",
         "panel_ids": ["additives"],
     },
 }, 
