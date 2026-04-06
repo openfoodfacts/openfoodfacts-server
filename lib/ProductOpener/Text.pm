@@ -307,7 +307,10 @@ sub remove_tags_and_quote ($s) {
 	$s =~ s/<(([^>]|\n)*)>//g;
 	$s =~ s/</&lt;/g;
 	$s =~ s/>/&gt;/g;
-	$s =~ s/"/&quot;/g;
+	# Note: do NOT encode " as &quot; here. This function is used to sanitize values
+	# before storing them in the database. HTML encoding of " must only happen at
+	# render time, not at storage time. Storing &quot; causes data consumers (e.g.
+	# Robotoff) to receive HTML-encoded text instead of the original ingredient text.
 
 	# Remove whitespace
 	$s =~ s/^\s+|\s+$//g;

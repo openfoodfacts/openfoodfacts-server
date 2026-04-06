@@ -6,7 +6,7 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Text qw/normalize_percentages remove_email/;
+use ProductOpener::Text qw/normalize_percentages remove_email remove_tags_and_quote/;
 
 # Patterns according to Unicode CDLR v29
 # Pattern	# Locales using it
@@ -65,5 +65,21 @@ is(normalize_percentages('2.50%', 'en'), "2.5%");
 is(remove_email('test@example.com'), '');
 is(remove_email('test string'), "test string");
 is(remove_email('no email address'), 'no email address');
+
+# Test remove_tags_and_quote
+# HTML tags should be stripped
+is(remove_tags_and_quote('<b>bold</b>'), 'bold', 'HTML tags are stripped');
+is(remove_tags_and_quote('<script>alert(1)</script>'), 'alert(1)', 'script tags are stripped');
+# Stray < and > are encoded to prevent XSS
+is(remove_tags_and_quote('a < b'), 'a &lt; b', 'stray < is encoded');
+is(remove_tags_and_quote('a > b'), 'a &gt; b', 'stray > is encoded');
+# Double-quote must NOT be encoded - it is valid text content and must be stored as-is
+# so that data consumers (e.g. Robotoff) receive the raw ingredient text without HTML encoding
+is(remove_tags_and_quote('3% Heidelbeersaft" aus Konzentrat'), '3% Heidelbeersaft" aus Konzentrat',
+	'double-quote is preserved, not encoded as &quot;');
+# undef input returns empty string
+is(remove_tags_and_quote(undef), '', 'undef returns empty string');
+# Leading/trailing whitespace is removed
+is(remove_tags_and_quote("  trimmed  "), 'trimmed', 'whitespace is trimmed');
 
 done_testing();
