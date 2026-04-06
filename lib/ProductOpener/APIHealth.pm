@@ -52,8 +52,8 @@ use vars @EXPORT_OK;
 use ProductOpener::API qw/add_error/;
 use ProductOpener::Config qw/$health_check_api_key/;
 use ProductOpener::Health qw/:all/;
-use ProductOpener::Minion qw/perform_health_check/;
-use ProductOpener::Redis qw/perform_health_check/;
+use ProductOpener::Minion qw//;
+use ProductOpener::Redis qw//;
 
 my %checks = (
 	'minion_database:responseTime' => \&ProductOpener::Minion::perform_health_check,
