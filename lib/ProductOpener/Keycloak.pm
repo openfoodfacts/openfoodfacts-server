@@ -498,6 +498,7 @@ sub perform_health_check() {
 			observedValue => $duration_ms,
 			observedUnit => 'ms',
 			time => current_time_iso8601(),
+			links => {self => $endpoint_check->{url}},
 		);
 		$result{output} = $output if not $ok;
 		push @results, \%result;

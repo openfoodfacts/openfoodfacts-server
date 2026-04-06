@@ -158,26 +158,32 @@ sub perform_health_check() {
 
 	my $time = current_time_iso8601();
 
+	my $links;
+	if (defined $server_options{minion_backend} and ref($server_options{minion_backend}) eq 'HASH') {
+		my $pg_url = sanitize_url($server_options{minion_backend}{Pg});
+		$links = {self => $pg_url} if defined $pg_url;
+	}
+
 	if ($ok) {
-		return [
-			{
-				status => $status_pass,
-				componentType => $componentType,
-				observedValue => $duration_ms,
-				observedUnit => 'ms',
-				time => $time,
-			}
-		];
+		my %result = (
+			status => $status_pass,
+			componentType => $componentType,
+			observedValue => $duration_ms,
+			observedUnit => 'ms',
+			time => $time,
+		);
+		$result{links} = $links if defined $links;
+		return [\%result];
 	}
 	else {
-		return [
-			{
-				status => $status_fail,
-				componentType => $componentType,
-				output => 'Minion database connection is not working',
-				time => $time,
-			}
-		];
+		my %result = (
+			status => $status_fail,
+			componentType => $componentType,
+			output => 'Minion database connection is not working',
+			time => $time,
+		);
+		$result{links} = $links if defined $links;
+		return [\%result];
 	}
 }
 

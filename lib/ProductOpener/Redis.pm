@@ -788,6 +788,7 @@ sub perform_health_check() {
 				componentType => 'datastore',
 				output => 'Redis client is not connected',
 				time => current_time_iso8601(),
+				links => {self => sanitize_url($redis_url)},
 			}
 		];
 	}
@@ -809,6 +810,8 @@ sub perform_health_check() {
 
 	my $time = current_time_iso8601();
 
+	my $links = {self => sanitize_url($redis_url)};
+
 	if ($ok) {
 		return [
 			{
@@ -817,6 +820,7 @@ sub perform_health_check() {
 				observedValue => $duration_ms,
 				observedUnit => 'ms',
 				time => $time,
+				links => $links,
 			}
 		];
 	}
@@ -827,6 +831,7 @@ sub perform_health_check() {
 				componentType => 'datastore',
 				output => 'Redis did not respond to PING',
 				time => $time,
+				links => $links,
 			}
 		];
 	}

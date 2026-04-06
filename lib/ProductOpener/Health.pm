@@ -42,6 +42,7 @@ BEGIN {
 		$status_warn
 
 		&current_time_iso8601
+		&sanitize_url
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -63,6 +64,21 @@ L<https://inadarei.github.io/rfc-healthcheck/>.
 
 sub current_time_iso8601() {
 	return DateTime->now(time_zone => 'UTC')->iso8601 . 'Z';
+}
+
+=head2 sanitize_url($url)
+
+Strip userinfo (credentials) from a URL before including it in a response.
+
+Handles any URL scheme, e.g. C<postgresql://user:pass@host/db> becomes
+C<postgresql://host/db>.
+
+=cut
+
+sub sanitize_url ($url) {
+	return unless defined $url;
+	$url =~ s{^([a-z][a-z0-9+\-.]*://)([^\@/]*\@)}{$1}i;
+	return $url;
 }
 
 1;
