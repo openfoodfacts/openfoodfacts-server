@@ -13206,6 +13206,7 @@ it: Bevande a base di tè
 lt: Arbatos gėrimai, Nealkoholiniai gaivieji gėrimai su arbatos ekstraktu ir cukrumi bei saldikliais
 nl: Dranken op basis van thee
 pt: Bebidas à base de chá
+sv: Tebaserade drycker
 agribalyse_proxy_food_code:en: 18015
 agribalyse_proxy_food_name:en: Still soft drink with tea extract, with sugar and artificial sweetener(s)
 ciqual_food_code:en: 18062
@@ -44633,6 +44634,7 @@ lt: Pasternoko traškučiai
 nl: Pastinaakchips
 
 < en:Crisps
+< en:Sweet potatoes and their products
 en: Sweet potato crisps
 de: Süßkartoffelchips
 fi: Bataattilastut
@@ -44975,12 +44977,13 @@ wikidata:en: Q1524389
 en: Flavoured corn crisps, Flavoured corn chips, Flavoured tortilla chips
 fr: Chips de maïs aromatisées
 
-< en:Cereals and potatoes
 < en:Chips and fries
+< en:Sweet potatoes and their products
 en: Sweet potato fries
-Fr: Frites de patate douce
+fr: Frites de patate douce
+wikidata:en: Q17105567
 
-< en:Cereals and potatoes
+< en:Sweet potatoes and their products
 en: Mashed sweet potatoes, Sweet potato puree cooked with cream
 fr: Purées de patates douces, Purée de patates douces cuisinée à la crème, Purée de patate douce cuisinée à la crème
 agribalyse_food_code:en: 4103
@@ -81495,6 +81498,11 @@ en: Krögarpytt
 sv: Krögarpytt
 
 < en:Meals
+en: Sweet potato dishes
+intake24_category_code:en: POTD
+wikidata:en: Q138773658
+
+< en:Meals
 en: Chop suey
 xx: Chop suey
 fr: Chop suey
@@ -82894,8 +82902,10 @@ fr: Soupes de crevettes
 nl: Erwtensoepen
 
 < en:Soups
+< en:Sweet potato dishes
 en: Sweet potato soups
 nl: Zoete aardappelsoepen
+wikidata:en: Q1012556
 
 < en:Reheatable soups
 < en:Soups
@@ -84871,6 +84881,7 @@ ciqual_food_name:fr: Légume cuit (aliment moyen)
 en: Prepared carrots
 
 < en:Prepared vegetables
+< en:Sweet potatoes and their products
 en: Prepared sweet potatoes
 nl: Geprepareerde zoete aardappelen
 
@@ -107178,7 +107189,9 @@ hr: Baba ghanoush
 nl: Baba ghanoush, Baba ganush
 wikidata:en: Q1072192
 
+< en:Plant-based spreads
 < en:Salted spreads
+< en:Sweet potato dishes
 en: Sweet potato spreads
 de: Süßkartoffel-Aufstriche, Süßkartoffel-Aufstrich
 fr: Tartinades de patates douces
@@ -113290,7 +113303,12 @@ ciqual_food_name:en: Spinach w cream sauce
 ciqual_food_name:fr: Épinards à la crème
 
 < en:Cereals and potatoes
+en: Sweet potatoes and their products
+food_groups:en: en:potatoes
+pnns_group_2:en: Potatoes
+
 < en:Root vegetables
+< en:Sweet potatoes and their products
 en: Sweet potatoes, Sweet potato
 bg: Сладки картофи
 de: Süßkartoffeln
@@ -120671,16 +120689,22 @@ ciqual_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou vég�
 
 #Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians
 < en:Meat analogues
-en: Fish analogues, Plant-based fish, Plantbased fish
+en: Fish analogues, Plant-based fish, Plantbased fish, Vegan fish
+da: Plantebaserede fisk, Veganske fisk
 hr: Analozi ribe
 nl: Plantaardige vissen
 pl: Zastępniki ryb
+sv: Växtbaserade fiskar, Veganska fiskar
 
 < en:Fish analogues
-en: Salmon analogues
+en: Salmon analogues, Vegan salmon
+da: Plantebaserede laks, Veganske laks
+sv: Växtbaserade laxar, Veganska laxar
 
 < en:Fish analogues
-en: Tuna analogues
+en: Tuna analogues, Vegan tuna
+da: Plantebaserede tun, Veganske tun
+sv: Växtbaserade tonfiskar, Veganska tonfiskar
 
 < en:Dairy substitutes
 < en:Plant-based foods
@@ -122530,6 +122554,9 @@ es: Termogénicos, Productos termogénicos
 fr: Produits thermogéniques
 hr: Termogenika
 wikidata:en: Q7783178
+
+< en:Bodybuilding supplements
+en: HMB supplements, HMB
 
 < en:Dietary supplements
 en: Ayurvedic supplements, Ayurvedic medicines
