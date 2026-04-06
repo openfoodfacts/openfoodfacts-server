@@ -57,7 +57,7 @@ use ProductOpener::Redis qw/perform_health_check/;
 
 my %checks = (
 	'minion_database:responseTime' => \&ProductOpener::Minion::perform_health_check,
-	'redis:responseTime'           => \&ProductOpener::Redis::perform_health_check,
+	'redis:responseTime' => \&ProductOpener::Redis::perform_health_check,
 );
 
 =head2 read_health_api ( $request_ref )

@@ -156,6 +156,8 @@ sub perform_health_check() {
 	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
 	my $componentType = 'datastore';
 
+	my $time = current_time_iso8601();
+
 	if ($ok) {
 		return [
 			{
@@ -164,6 +166,7 @@ sub perform_health_check() {
 				output => 'Minion database query duration measured successfully',
 				observedValue => $duration_ms,
 				observedUnit => 'ms',
+				time => $time,
 			}
 		];
 	}
@@ -173,6 +176,7 @@ sub perform_health_check() {
 				status => $status_fail,
 				componentType => $componentType,
 				output => 'Minion database connection is not working',
+				time => $time,
 			}
 		];
 	}

@@ -32,6 +32,7 @@ use ProductOpener::PerlStandards;
 use Exporter qw< import >;
 
 use Log::Any qw($log);
+use DateTime;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -39,6 +40,8 @@ BEGIN {
 		$status_fail
 		$status_pass
 		$status_warn
+
+		&current_time_iso8601
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -49,6 +52,18 @@ use vars @EXPORT_OK;
 $status_fail = 'fail';
 $status_pass = 'pass';
 $status_warn = 'warn';
+
+=head2 current_time_iso8601()
+
+Return the current time as an ISO 8601 / RFC 3339 string in UTC, suitable for
+the C<time> field of a health-check object as described in
+L<https://inadarei.github.io/rfc-healthcheck/>.
+
+=cut
+
+sub current_time_iso8601() {
+	return DateTime->now(time_zone => 'UTC')->iso8601 . 'Z';
+}
 
 1;
 
