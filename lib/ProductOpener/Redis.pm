@@ -782,13 +782,18 @@ sub perform_health_check() {
 	}
 
 	if (!defined $redis_client) {
+		my $sanitized = sanitize_url($redis_url);
+		my $self_url
+			= defined($sanitized)
+			? (($sanitized =~ m{://}) ? $sanitized : 'redis://' . $sanitized)
+			: undef;
 		return [
 			{
 				status => $status_fail,
 				componentType => 'datastore',
 				output => 'Redis client is not connected',
 				time => current_time_iso8601(),
-				links => {self => sanitize_url($redis_url)},
+				(defined($self_url) ? (links => {self => $self_url}) : ()),
 			}
 		];
 	}
@@ -810,7 +815,12 @@ sub perform_health_check() {
 
 	my $time = current_time_iso8601();
 
-	my $links = {self => sanitize_url($redis_url)};
+	my $redis_sanitized = sanitize_url($redis_url);
+	my $redis_self_url
+		= defined($redis_sanitized)
+		? (($redis_sanitized =~ m{://}) ? $redis_sanitized : 'redis://' . $redis_sanitized)
+		: undef;
+	my $links = defined($redis_self_url) ? {self => $redis_self_url} : {};
 
 	if ($ok) {
 		return [

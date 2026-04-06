@@ -157,9 +157,12 @@ sub read_health_api ($request_ref) {
 		}
 	}
 
-	$response_ref->{checks} = \%check_results;
 	$response_ref->{content_type} = 'application/health+json';
-	$response_ref->{status} = $status;
+	$response_ref->{status_code} = ($status eq $status_fail ? 503 : 200);
+	$response_ref->{body} = {
+		status => $status,
+		checks => \%check_results,
+	};
 
 	$log->debug("read_health_api - stop", {status => $status}) if $log->is_debug();
 
