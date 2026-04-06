@@ -276,7 +276,6 @@ is(preprocess_product_field('packaging', 'Aluminium, Can, abc@gmail.com'), 'Alum
 is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green Dot');
 is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
 # Double-quote in ingredient text must be stored as-is, not HTML-encoded as &quot;
-# (Regression test for https://github.com/openfoodfacts/openfoodfacts-server/issues/12772)
 is(
 	preprocess_product_field(
 		'ingredients_text', '3% Heidelbeersaft" aus Heidelbeersaftkonzentrat, 1,8% Apfelpflanzenkonzentrate'
