@@ -128,9 +128,6 @@ requires 'Text::Levenshtein';
 # To handle IP and IP blocks white lists
 requires 'Net::CIDR'; # libnet-cidr-perl
 
-# HealthCheck API
-requires 'HealthCheck', '>= 1.9.2, < 2.0';
-
 on 'test' => sub {
   requires 'Test2::V0';
   requires 'Mock::Quick';

@@ -398,8 +398,11 @@ Reference to the customized product object.
 
 sub send_api_response ($request_ref) {
 
-	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
+	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || '200';
 	delete $request_ref->{api_response}{status_code};
+
+	my $content_type = $request_ref->{api_response}{content_type} || $request_ref->{content_type} || 'application/json';
+	delete $request_ref->{api_response}{content_type};
 
 	# Make sure we include convert_blessed to cater for blessed objects, like booleans
 	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
@@ -415,7 +418,7 @@ sub send_api_response ($request_ref) {
 		$allow_credentials = 1;
 	}
 	write_cors_headers($allow_credentials);
-	print header(-status => $status_code, -type => 'application/json', -charset => 'utf-8');
+	print header(-status => $status_code, -type => $content_type, -charset => 'utf-8');
 	# write json response
 	print $json;
 

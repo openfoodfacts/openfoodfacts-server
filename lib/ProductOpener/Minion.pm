@@ -45,7 +45,7 @@ BEGIN {
 		&queue_job
 		&write_minion_log
 
-		&get_health_check
+		&perform_health_check
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -55,8 +55,10 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Health qw/:all/;
 
-use HealthCheck;
+use Time::HiRes qw/gettimeofday tv_interval/;
+
 use Minion;
 
 # Minion backend
@@ -109,20 +111,71 @@ sub write_minion_log($message) {
 	return;
 }
 
-sub get_health_check() {
-	my $health_check = HealthCheck->new();
-	$health_check->add_check(
-		"minion_db",
-		sub {
-			my $ok = eval {
-				my $db = ProductOpener::Minion::get_minion()->backend->pg->db;
-				$db->query('SELECT 1');
-				1;
-			};
-			return $ok ? 'OK' : 'WARNING';
-		},
-	);
-	return $health_check;
+=head2 perform_health_check()
+
+Execute a component health check and return a health-check result object.
+
+This sub documents the expected interface for health checks used by
+C<ProductOpener::APIHealth>. Implementations should perform one focused check and
+return an array reference of check objects compatible with
+L<https://inadarei.github.io/rfc-healthcheck/>.
+
+Each check object in the returned array reference must include:
+
+=over 4
+
+=item * C<status>
+
+String indicating the check result. Expected values are C<pass>, C<warn> or
+C<fail>.
+
+=item * C<output>
+
+Human-readable message describing the outcome.
+
+=back
+
+Additional RFC fields (for example C<componentType>, C<time>,
+C<observedValue>, C<observedUnit> and C<links>) may be included when relevant.
+If C<componentId> is included, it should be a stable UUID.
+
+The sub should not die. If an internal error occurs, return one check object
+with C<status =E<gt> 'fail'> and a meaningful C<output> message.
+
+=cut
+
+sub perform_health_check() {
+	my $start = [gettimeofday()];
+
+	my $ok = eval {
+		my $db = ProductOpener::Minion::get_minion()->backend->pg->db;
+		$db->query('SELECT 1');
+		1;
+	};
+
+	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+	my $componentType = 'datastore';
+
+	if ($ok) {
+		return [
+			{
+				status => $status_pass,
+				componentType => $componentType,
+				output => 'Minion database query duration measured successfully',
+				observedValue => $duration_ms,
+				observedUnit => 'ms',
+			}
+		];
+	}
+	else {
+		return [
+			{
+				status => $status_fail,
+				componentType => $componentType,
+				output => 'Minion database connection is not working',
+			}
+		];
+	}
 }
 
 1;
