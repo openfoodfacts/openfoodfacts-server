@@ -52,14 +52,15 @@ use vars @EXPORT_OK;
 use ProductOpener::API qw/add_error/;
 use ProductOpener::Config qw/$health_check_api_key/;
 use ProductOpener::Health qw/:all/;
+use ProductOpener::Version qw/$version/;
 use ProductOpener::Data qw//;
 use ProductOpener::Keycloak qw//;
 use ProductOpener::Minion qw//;
 use ProductOpener::Redis qw//;
 
 my %checks = (
-	'off_query:availability' => \&ProductOpener::Data::perform_health_check,
-	'keycloak:availability' => \&ProductOpener::Keycloak::perform_health_check,
+	'off_query:responseTime' => \&ProductOpener::Data::perform_health_check,
+	'keycloak:responseTime' => \&ProductOpener::Keycloak::perform_health_check,
 	'minion_database:responseTime' => \&ProductOpener::Minion::perform_health_check,
 	'redis:responseTime' => \&ProductOpener::Redis::perform_health_check,
 );
@@ -138,7 +139,9 @@ sub read_health_api ($request_ref) {
 
 				my $full_name;
 				if (exists $check_entry_copy{componentName}) {
-					$full_name = $check_name . ':' . $check_entry_copy{componentName};
+					my ($component_part, $measurement_part) = split(/:/, $check_name, 2);
+					$full_name = $component_part . '_' . $check_entry_copy{componentName};
+					$full_name .= ':' . $measurement_part if defined $measurement_part;
 					delete $check_entry_copy{componentName};
 				}
 				else {
@@ -159,10 +162,17 @@ sub read_health_api ($request_ref) {
 
 	$response_ref->{content_type} = 'application/health+json';
 	$response_ref->{status_code} = ($status eq $status_fail ? 503 : 200);
-	$response_ref->{body} = {
+
+	my %body = (
 		status => $status,
+		version => $version,
+		description => 'health of Product Opener API',
 		checks => \%check_results,
-	};
+	);
+	if ($status ne $status_pass) {
+		$body{output} = $output || 'One or more health checks failed';
+	}
+	$response_ref->{body} = \%body;
 
 	$log->debug("read_health_api - stop", {status => $status}) if $log->is_debug();
 
