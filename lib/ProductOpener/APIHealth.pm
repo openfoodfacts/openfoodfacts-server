@@ -52,10 +52,14 @@ use vars @EXPORT_OK;
 use ProductOpener::API qw/add_error/;
 use ProductOpener::Config qw/$health_check_api_key/;
 use ProductOpener::Health qw/:all/;
+use ProductOpener::Data qw//;
+use ProductOpener::Keycloak qw//;
 use ProductOpener::Minion qw//;
 use ProductOpener::Redis qw//;
 
 my %checks = (
+	'off_query:availability' => \&ProductOpener::Data::perform_health_check,
+	'keycloak:availability' => \&ProductOpener::Keycloak::perform_health_check,
 	'minion_database:responseTime' => \&ProductOpener::Minion::perform_health_check,
 	'redis:responseTime' => \&ProductOpener::Redis::perform_health_check,
 );
@@ -130,16 +134,18 @@ sub read_health_api ($request_ref) {
 					$status = $status_fail;
 				}
 
+				my %check_entry_copy = %{$check_entry};
+
 				my $full_name;
-				if (exists $check_entry->{componentName}) {
-					$full_name = $check_name . ':' . $check_entry->{componentName};
-					delete $check_entry->{componentName};
+				if (exists $check_entry_copy{componentName}) {
+					$full_name = $check_name . ':' . $check_entry_copy{componentName};
+					delete $check_entry_copy{componentName};
 				}
 				else {
 					$full_name = $check_name;
 				}
 
-				$check_results{$full_name} = $result;
+				$check_results{$full_name} = [\%check_entry_copy];
 			}
 			else {
 				$log->error('Health check returned invalid result entry', {check => $check_name, entry => $check_entry})

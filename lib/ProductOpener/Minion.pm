@@ -163,7 +163,6 @@ sub perform_health_check() {
 			{
 				status => $status_pass,
 				componentType => $componentType,
-				output => 'Minion database query duration measured successfully',
 				observedValue => $duration_ms,
 				observedUnit => 'ms',
 				time => $time,

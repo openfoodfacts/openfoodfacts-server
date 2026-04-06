@@ -814,7 +814,6 @@ sub perform_health_check() {
 			{
 				status => $status_pass,
 				componentType => 'datastore',
-				output => 'Redis responded to PING',
 				observedValue => $duration_ms,
 				observedUnit => 'ms',
 				time => $time,
