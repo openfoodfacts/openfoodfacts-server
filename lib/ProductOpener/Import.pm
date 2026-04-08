@@ -702,7 +702,8 @@ sub set_field_value (
 
 	my $code = $imported_product_ref->{code};
 
-	$log->debug("defined and non empty value for field", {field => $field, value => $imported_product_ref->{$field}})
+	$log->debug("set_field_value - defined value for field",
+		{field => $field, value => $imported_product_ref->{$field}})
 		if $log->is_debug();
 
 	if (($field =~ /product_name/) or ($field eq "brands")) {
@@ -786,9 +787,17 @@ sub set_field_value (
 		}
 	}
 
-	# for tag fields, only add entries to it, do not remove other entries
-
 	if (defined $tags_fields{$field}) {
+
+		# for tag fields, if we have an empty value, we skip it as it's a sign the value was not defined in the provided data
+		next if ($imported_product_ref->{$field} eq "");
+
+		# if we have a '-' value, we will remove existing values
+		if ($imported_product_ref->{$field} eq '-') {
+			$imported_product_ref->{$field} = '';
+			$log->debug("field has value '-', will remove existing values for field", {field => $field, code => $code})
+				if $log->is_debug();
+		}
 
 		# Keep track of the current tags (if any) so that we know if they changed
 		my $current_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags") || [];
@@ -1026,6 +1035,7 @@ sub import_tags_sources_fields (
 	$modified_fields_ref, $differing_ref, $differing_fields_ref, $time,
 	)
 {
+	$log->debug("importing tags_sources fields") if $log->is_debug();
 
 	# Make a deep copy
 	my $old_tags_sources = dclone($product_ref->{tags_sources} || {});
@@ -1040,17 +1050,29 @@ sub import_tags_sources_fields (
 
 			# Check it's a writable tags field
 			if (not defined $writable_tags_fields{$tags_field}) {
-				$log->error("skipping non writable tags field",
-					{field => $field, source => $source, tags_field => $tags_field, value => $imported_product_ref->{$field}})
-					if $log->is_error();
+				$log->error(
+					"skipping non writable tags field",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_error();
 				next;
 			}
 
 			# Check the source is "packaging", "manufacturer" or starts with "label" or "database"
 			if ($source !~ /^packaging|manufacturer|label.*|database.*$/) {
-				$log->error("skipping unknown source",
-					{field => $field, source => $source, tags_field => $tags_field, value => $imported_product_ref->{$field}})
-					if $log->is_error();
+				$log->error(
+					"skipping unknown source",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_error();
 				next;
 			}
 
@@ -1058,13 +1080,28 @@ sub import_tags_sources_fields (
 			# (in the CSV undefined values are not distinguishable from empty strings)
 			# Real empty tags values (existing tags_sources but with empty tags array) are indicated with the value '-'
 			if ($imported_product_ref->{$field} eq '') {
-				$log->debug("skipping empty value",
-					{field => $field, source => $source, tags_field => $tags_field, value => $imported_product_ref->{$field}})
-					if $log->is_error();
+				$log->debug(
+					"skipping empty value",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_debug();
 				next;
 			}
 			elsif ($imported_product_ref->{$field} eq '-') {
 				# Empty tags list
+				$log->debug(
+					"dash value",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_debug();
 				$imported_product_ref->{$field} = '';
 			}
 

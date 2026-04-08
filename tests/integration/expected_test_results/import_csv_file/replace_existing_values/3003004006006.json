@@ -29,15 +29,8 @@
    ],
    "complete" : 0,
    "completeness" : 0.0,
-   "correctors_tags" : [
-      "test-user"
-   ],
-   "countries" : "en",
-   "countries_hierarchy" : [
-      "en:en"
-   ],
+   "correctors_tags" : [],
    "countries_imported" : "en",
-   "countries_lc" : "en",
    "countries_tags" : [
       "en:en"
    ],
@@ -109,11 +102,10 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-org"
+      "producer-test-org",
+      "producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -633,19 +625,39 @@
             "tags" : []
          }
       },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:en"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-org"
+            ]
+         }
+      },
       "traces" : {
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:lupin"
+            ]
          }
       }
    },
-   "traces" : "Lupin",
-   "traces_hierarchy" : [
+   "traces_imported" : "Lupin",
+   "traces_tags" : [
       "en:lupin"
    ],
-   "traces_imported" : "Lupin",
-   "traces_lc" : "en",
-   "traces_tags" : [],
    "weighers_tags" : []
 }

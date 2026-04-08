@@ -14,33 +14,18 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "en:eggs",
-   "allergens_hierarchy" : [
-      "en:eggs"
-   ],
    "allergens_imported" : "en:eggs",
-   "allergens_lc" : "lc",
    "allergens_tags" : [
+      "en:eggs",
       "lc:œufs"
    ],
    "amino_acids_tags" : [],
-   "brands" : "Auchan",
-   "brands_hierarchy" : [
-      "xx:Auchan"
-   ],
+   "brands" : "auchan",
    "brands_imported" : "Auchan",
-   "brands_lc" : "xx",
    "brands_tags" : [
       "xx:auchan"
    ],
-   "categories" : "en:eggs",
-   "categories_hierarchy" : [
-      "en:eggs-and-their-products",
-      "en:farming-products",
-      "en:eggs"
-   ],
    "categories_imported" : "en:eggs",
-   "categories_lc" : "lc",
    "categories_properties" : {
       "agribalyse_proxy_food_code:en" : "22000"
    },
@@ -77,12 +62,7 @@
    "complete" : 0,
    "completeness" : 0.5,
    "correctors_tags" : [],
-   "countries" : "en:france",
-   "countries_hierarchy" : [
-      "en:france"
-   ],
    "countries_imported" : "en:france",
-   "countries_lc" : "lc",
    "countries_tags" : [
       "en:france"
    ],
@@ -166,11 +146,10 @@
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
    ],
-   "data_sources" : "Producers, Producer - auchan-apaw",
    "data_sources_imported" : "Producers, Producer - auchan-apaw",
    "data_sources_tags" : [
-      "producers",
-      "producer-auchan-apaw"
+      "producer-auchan-apaw",
+      "producers"
    ],
    "ecoscore_tags" : [
       "b"
@@ -1374,6 +1353,45 @@
             "last_updated_t" : "--ignore--",
             "tags" : [
                "lc:ŒUFS"
+            ]
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:eggs"
+            ]
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:Auchan"
+            ]
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:eggs"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:france"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - auchan-apaw"
             ]
          }
       },

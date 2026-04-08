@@ -65,8 +65,24 @@ my @tests = (
 	},
 	{
 		test_case => "new_tags",
-		csv_files => ["new_tags_1.csv", "new_tags_2_empty_values.csv", "new_tags_3_dash_values.csv", "new_tags_4_updates.csv"]
-	}
+		csv_files => ["new_tags_1.csv"]
+	},
+	# Update with empty values in tag fields, should not change the initial values
+	{
+		test_case => "new_tags_empty_values",
+		csv_files => ["new_tags_1.csv", "new_tags_2_empty_values.csv"]
+	},
+	# Update with '-( values in tag fields, should remove the initial values
+	{
+		test_case => "new_tags_dash_values",
+		csv_files => ["new_tags_1.csv", "new_tags_3_dash_values.csv"]
+	},
+	# Updates
+	# Update with empty values in tag fields, should not change the initial values
+	{
+		test_case => "new_tags_updates",
+		csv_files => ["new_tags_1.csv", "new_tags_4_updates.csv"]
+	},
 );
 
 # Testing import of a csv file
