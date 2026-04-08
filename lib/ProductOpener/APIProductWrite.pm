@@ -844,7 +844,7 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 	}
 	# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
 	# tags_sources currently only works for taxonomized fields
-	elsif ((defined $writable_tags_fields{$field}) and (defined $taxonomy_fields{$field})) {
+	elsif (defined $writable_tags_fields{$field}) {
 
 		set_field_input_tags_for_source($product_ref, $target_lc, $field, $source, $value, $add_tags);
 	}
@@ -867,11 +867,6 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 			my $ingredients_text_with_allergens = $field;
 			$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
 			delete $product_ref->{$ingredients_text_with_allergens};
-		}
-		# For some tags fields that are not taxonomized (e.g. emb_codes),
-		# we still need to call the old compute_field_tags() function
-		elsif (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
-			compute_field_tags($product_ref, $target_lc, $field);
 		}
 	}
 

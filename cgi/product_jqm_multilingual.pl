@@ -398,19 +398,8 @@ else {
 		my $add_tags = 0;
 		if ((defined $tags_fields{$field}) and (defined single_param("add_$field"))) {
 
-			my $additional_fields = remove_tags_and_quote(decode utf8 => single_param("add_$field"));
-
-			param(-name => $field, -value => $additional_fields);
+			param(-name => $field, -value => single_param("add_$field"));
 			$add_tags = 1;
-
-			$log->debug(
-				"add_field",
-				{
-					field => $field,
-					code => $code,
-					additional_fields => $additional_fields,
-				}
-			) if $log->is_debug();
 		}
 
 		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source, $add_tags);

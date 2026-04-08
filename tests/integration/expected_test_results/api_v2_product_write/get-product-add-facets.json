@@ -6,22 +6,29 @@
          "acme",
          "acme-incorporated",
          "aldi",
+         "aliment",
          "another-brand-1",
          "another-brand-2",
+         "base",
          "bio",
+         "boisson",
+         "cafe",
          "charcuterie",
          "commerce",
+         "de",
          "derive",
          "equitable",
-         "es-caf�",
          "es-gold-meal",
          "et",
          "fluide",
          "lait",
          "laitier",
+         "origine",
          "poudre",
          "produit",
          "saucisse",
+         "vegetale",
+         "vegetaux",
          "viande"
       ],
       "added_countries_tags" : [],
@@ -45,15 +52,17 @@
          "another-brand-1",
          "another-brand-2"
       ],
-      "categories" : "Laits, Saucisses, es:Caf�",
+      "categories" : "Laits, Saucisses, Cafés",
       "categories_hierarchy" : [
+         "en:plant-based-foods-and-beverages",
          "en:dairies",
+         "en:plant-based-foods",
          "en:meats-and-their-products",
          "en:milks-liquid-and-powder",
          "en:prepared-meats",
          "en:milks",
          "en:sausages",
-         "es:Caf�"
+         "en:coffees"
       ],
       "categories_lc" : "fr",
       "categories_properties" : {
@@ -72,18 +81,17 @@
          "agribalyse-19041"
       ],
       "categories_tags" : [
+         "en:plant-based-foods-and-beverages",
          "en:dairies",
+         "en:plant-based-foods",
          "en:meats-and-their-products",
          "en:milks-liquid-and-powder",
          "en:prepared-meats",
          "en:milks",
          "en:sausages",
-         "es:caf�"
+         "en:coffees"
       ],
       "checkers_tags" : [],
-      "cities_tags" : [
-         "hellean-morbihan-france"
-      ],
       "code" : "1234567890341",
       "codes_tags" : [
          "code-13",
@@ -99,7 +107,7 @@
          "1xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.3,
+      "completeness" : 0.2,
       "correctors_tags" : [
          "tests"
       ],
@@ -588,17 +596,21 @@
       "editors_tags" : [
          "tests"
       ],
-      "emb_codes" : "",
-      "emb_codes_hierarchy" : [],
+      "emb_codes" : "FR 56.081 CE, FR 56.082 CE",
+      "emb_codes_hierarchy" : [
+         "FR 56081 CE",
+         "FR 56082 CE"
+      ],
       "emb_codes_lc" : "fr",
       "emb_codes_tags" : [
-         "fr-56-082-ec"
+         "fr-56081-ce",
+         "fr-56082-ce"
       ],
       "entry_dates_tags" : "--ignore--",
-      "food_groups" : "en:milk-and-yogurt",
+      "food_groups" : "en:teas-and-herbal-teas-and-coffees",
       "food_groups_tags" : [
-         "en:milk-and-dairy-products",
-         "en:milk-and-yogurt"
+         "en:beverages",
+         "en:teas-and-herbal-teas-and-coffees"
       ],
       "id" : "1234567890341",
       "images" : {},
@@ -741,14 +753,14 @@
       "packagings" : [],
       "packagings_materials" : {},
       "photographers_tags" : [],
-      "pnns_groups_1" : "Milk and dairy products",
+      "pnns_groups_1" : "Beverages",
       "pnns_groups_1_tags" : [
-         "milk-and-dairy-products",
+         "beverages",
          "known"
       ],
-      "pnns_groups_2" : "Milk and yogurt",
+      "pnns_groups_2" : "Teas and herbal teas and coffees",
       "pnns_groups_2_tags" : [
-         "milk-and-yogurt",
+         "teas-and-herbal-teas-and-coffees",
          "known"
       ],
       "popularity_key" : 0,
@@ -756,14 +768,14 @@
       "removed_countries_tags" : [],
       "rev" : 2,
       "schema_version" : 998,
-      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
          "en:ingredients-to-be-completed",
          "en:expiration-date-to-be-completed",
-         "en:packaging-code-completed",
+         "en:packaging-code-to-be-completed",
          "en:characteristics-to-be-completed",
          "en:origins-to-be-completed",
          "en:categories-completed",
@@ -773,12 +785,15 @@
          "en:product-name-to-be-completed",
          "en:photos-to-be-uploaded"
       ],
-      "stores" : "",
-      "stores_hierarchy" : [],
+      "stores" : "Carrefour, Ecomarché",
+      "stores_hierarchy" : [
+         "Carrefour",
+         "Ecomarché"
+      ],
       "stores_lc" : "fr",
       "stores_tags" : [
-         "ecomarch�",
-         "carrefour"
+         "carrefour",
+         "ecomarche"
       ],
       "traces" : "es:Moutarde, Lait, es:abcd, Gluten",
       "traces_hierarchy" : [

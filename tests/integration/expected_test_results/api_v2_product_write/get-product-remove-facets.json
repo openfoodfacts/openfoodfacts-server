@@ -24,7 +24,6 @@
       ],
       "categories_tags" : [],
       "checkers_tags" : [],
-      "cities_tags" : [],
       "code" : "1234567890341",
       "codes_tags" : [
          "code-13",
@@ -544,12 +543,15 @@
          "en:product-name-to-be-completed",
          "en:photos-to-be-uploaded"
       ],
-      "stores" : "",
-      "stores_hierarchy" : [],
+      "stores" : "Carrefour, Ecomarché",
+      "stores_hierarchy" : [
+         "Carrefour",
+         "Ecomarché"
+      ],
       "stores_lc" : "fr",
       "stores_tags" : [
-         "ecomarch�",
-         "carrefour"
+         "carrefour",
+         "ecomarche"
       ],
       "traces" : "",
       "traces_hierarchy" : [],
