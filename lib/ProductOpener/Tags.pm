@@ -4859,6 +4859,9 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 		if (($field eq "allergens") or ($field eq "traces")) {
 			$normalized_tag = canonicalize_allergens_taxonomy_tag($tag_lc, $tag);
 		}
+		elsif ($field eq 'emb_codes') {
+			$normalized_tag = normalize_packager_codes($tag);
+		}
 		elsif (defined $taxonomy_fields{$field}) {
 			$normalized_tag = canonicalize_taxonomy_tag($tag_lc, $field, $tag);
 		}
@@ -4975,6 +4978,18 @@ sub generate_field_tags_from_all_sources ($product_ref, $tagtype, $normalize = 0
 	if ($tagtype eq "brands") {
 		$product_ref->{$tagtype}
 			= join(", ", map {display_taxonomy_tag("en", $tagtype, $_)} @{$product_ref->{$tagtype . "_tags"}});
+	}
+
+	# For EMB codes, also generate the cities_tags
+	if ($tagtype eq 'emb_codes') {
+		$product_ref->{"cities_tags"} = [];
+		foreach my $tag (@{$product_ref->{$tagtype . "_tags"}}) {
+			my $city_code = get_city_code($tag);
+			if (defined $emb_codes_cities{$city_code}) {
+				push @{$product_ref->{"cities_tags"}},
+					get_string_id_for_lang("no_language", $emb_codes_cities{$city_code});
+			}
+		}
 	}
 
 	$log->debug("generate_field_tags_from_all_sources - result",
