@@ -41332,12 +41332,12 @@ lt: Velykų maistas, valykiniai šokoladai
 nl: Paasproducten
 pt: Alimentos da páscoa
 
-< en:Chocolate eggs
+# don't put in chocolate eggs, not all easter eggs are made of chocolate
 < en:Easter food
 en: Easter eggs, Easter chocolate eggs
 bg: Великденски яйца
 de: Osterschokoladeneier
-es: Huevos de Pascua de chocolate
+es: Huevos de Pascua, Huevos de Pascua de chocolate
 fi: pääsiäissuklaamunat
 fr: Œufs de Pâques, oeuf de pâques, Oeufs de pâques en chocolat, oeuf de pâques en chocolat
 hr: Uskrsna jaja
@@ -45596,6 +45596,7 @@ food_groups:en: en:cheese
 google_product_taxonomy_id:en: 429
 intake24_category_code:en: CHES
 nova:en: 3
+plant_alternative:en: en:cheese-substitutes
 pnns_group_2:en: Cheese
 who_id:en: 8
 wikidata:en: Q10943
@@ -51522,6 +51523,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Butter (Perishable)
 incompatible_with:en: categories:en:Goat butters, Sheep butters
 intake24_category_code:en: BUTR
+plant_alternative:en: en:plant-based-spreads
 wikidata:en: Q34172
 
 < en:Butters
@@ -52119,6 +52121,7 @@ agribalyse_proxy_food_name:fr: Lait demi-écrémé, UHT
 food_groups:en: en:milk-and-yogurt
 google_product_taxonomy_id:en: 418
 intake24_category_code:en: MDNK
+plant_alternative:en: en:plant-based-milk-alternatives
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q8495
 
@@ -59372,6 +59375,7 @@ food_of_animal_origin:en: yes
 gpc_category_code:en: 10006210
 gpc_category_description:en: Definition: Includes any products that can be described/observed as bird eggs in the shell that have been sorted to remove eggs of lower quality such as cracked and dirty eggs and are often sorted by size. Eggs may be unwashed, washed, washed and oiled, aged, and/or pasteurized in the shell. Definition Excludes: Specifically excludes nest-run eggs, checked and dirty eggs, and individually cooked eggs.
 gpc_category_name:en: In Shell Table Eggs
+plant_alternative:en: en:egg-substitutes
 pnns_group_2:en: Eggs
 wikidata:en: Q659503
 
@@ -71035,16 +71039,20 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Fruits
-en: Pomegranates
+en: Pomegranates, Pomegranate pulp and pips
 da: Granatæbler
 es: Granadas
-fr: Grenades
+fr: Grenades, Pulpe et pépins de grenade
 hr: Pitomi šipak
 ja: ザクロ
 lt: Granatų vaisiai, Granatos
 nb: Granatepler
 nl: Granaatappels
 sv: Granatäpplen
+agribalyse_proxy_food_code:en: 13018
+ciqual_proxy_food_code:en: 13018
+ciqual_proxy_food_name:en: Pomegranate, pulp and pips, raw
+ciqual_proxy_food_name:fr: Grenade, pulpe et pépins, crue
 sales_format:en: weight, package
 
 < en:Fresh fruits
@@ -71056,13 +71064,13 @@ hr: Svježi šipak
 lt: Švieži granatų vaisiai
 sv: Ferska granatäpplen
 
-< en:Fruits
-en: Pomegranate pulp and pips
-fr: Pulpe et pépins de grenade
-agribalyse_food_code:en: 13018
-ciqual_food_code:en: 13018
-ciqual_food_name:en: Pomegranate, pulp and pips, raw
-ciqual_food_name:fr: Grenade, pulpe et pépins, crue
+< en:Pomegranates
+en: Pomegranate seeds
+da: Granatæblekerner
+fi: Granaattiomenan siemen
+fr: graines de grenade
+nb: Granateplekjerner
+sv: Granatäppelkärnor
 
 < en:Fruits
 en: Quinces
@@ -84919,6 +84927,10 @@ en: Carrot salads
 nl: Wortelsalades
 
 < en:Prepared vegetables
+en: Green beans wrapped in bacon
+fr: Haricots verts enveloppés de bacon, Fagots de haricots verts enrobés de bacon
+
+< en:Prepared vegetables
 en: Celeriac in remoulade sauce
 fr: Céleris Rémoulade, Céleri Rémoulade, Céleris Rémoulades
 hr: Celer u remulade umaku
@@ -86366,6 +86378,7 @@ tr: Et
 zh: 肉类, 肉
 food_groups:en: en:meat-other-than-poultry
 intake24_category_code:en: MEAT
+plant_alternative:en: en:meat-analogues
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en: Meat
 
@@ -102145,6 +102158,7 @@ sv: Fiskar, fisk
 tr: Balık
 zh: 鱼类
 intake24_category_code:en: RWFH
+plant_alternative:en: en:fish-analogues
 wikidata:en: Q600396
 
 < en:Fishes
@@ -114572,14 +114586,6 @@ pt: Pulsos
 ru: Зернобобовые
 intake24_category_code:en: PEAS
 wikidata:en: Q2727662
-
-< en:Seeds
-en: Pomegranate seeds
-da: Granatæblekerner
-fi: Granaattiomenan siemen
-fr: graines de grenade
-nb: Granateplekjerner
-sv: Granatäppelkärnor
 
 < en:Pulses
 en: Cooked pulses
