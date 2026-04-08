@@ -44,14 +44,19 @@ let feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
 
+const escapeAttrMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '`': '&#x60;'
+};
+
 function escapeHtmlAttr(input) {
-    return String(input).
-        replace(/&/g, '&amp;').
-        replace(/</g, '&lt;').
-        replace(/>/g, '&gt;').
-        replace(/"/g, '&quot;').
-        replace(/'/g, '&#39;').
-        replace(/`/g, '&#x60;');
+    return String(input).replace(/[&<>"'`]/g, function (ch) {
+        return escapeAttrMap[ch];
+    });
 }
 
 
