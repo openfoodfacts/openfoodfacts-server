@@ -120,27 +120,40 @@ function add_language_tab(lc, language) {
 }
 
 function update_image(imagefield) {
-
-    const cropImg = document.getElementById('crop_' + imagefield);
-    const normalizeEl = document.getElementById('normalize_' + imagefield);
-    const whiteMagicEl = document.getElementById('white_magic_' + imagefield);
-    const normalizeChecked = normalizeEl ? normalizeEl.checked : false;
-    const whiteMagicChecked = whiteMagicEl ? whiteMagicEl.checked : false;
-
-    if (cropImg) {
-        const params = new URLSearchParams();
-        params.append('code', code);
-        params.append('imgid', imagefield_imgid[imagefield]);
-        params.append('angle', String(angles[imagefield]));
-        params.append('normalize', normalizeChecked ? '1' : '0');
-        params.append('white_magic', whiteMagicChecked ? '1' : '0');
-        cropImg.src = '/cgi/product_image_rotate.pl?' + params.toString();
+    function byId(id) {
+        return document.getElementById(id);
     }
 
-    const msgDiv = document.querySelector('div[id="cropbuttonmsg_' + imagefield + '"]');
-    if (msgDiv) {
-        msgDiv.style.display = 'none';
+    const cropImg = byId('crop_' + imagefield);
+    const normalizeEl = byId('normalize_' + imagefield);
+    const whiteMagicEl = byId('white_magic_' + imagefield);
+    const normalizeChecked = Boolean(normalizeEl && normalizeEl.checked);
+    const whiteMagicChecked = Boolean(whiteMagicEl && whiteMagicEl.checked);
+
+    function hideCropMsg() {
+        const byIdMsg = byId('cropbuttonmsg_' + imagefield);
+        const byClassMsg = document.querySelector('.cropbuttonmsg_' + imagefield);
+        const msg = byIdMsg || byClassMsg;
+        if (msg) {
+            msg.style.display = 'none';
+        }
     }
+
+    if (!cropImg) {
+        hideCropMsg();
+
+        return;
+    }
+
+    const url = new URL('/cgi/product_image_rotate.pl', window.location.origin);
+    url.searchParams.set('code', code);
+    url.searchParams.set('imgid', imagefield_imgid[imagefield]);
+    url.searchParams.set('angle', String(angles[imagefield] || 0));
+    url.searchParams.set('normalize', normalizeChecked ? '1' : '0');
+    url.searchParams.set('white_magic', whiteMagicChecked ? '1' : '0');
+
+    cropImg.src = url.toString();
+    hideCropMsg();
 }
 
 function rotate_image(event) {
@@ -235,7 +248,7 @@ function change_image(imagefield, imgid) {
     html += '<div id="cropimgdiv_' + imagefield + '" class="cropimgdiv" ' + cropimgdiv_style + '><img src="' + img_path + image.imgid + image_size + '.jpg" id="' + 'crop_' + imagefield + '"/></div>';
 
     html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
-    html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label><br/>';
+    html += '<input type="checkbox" id="normalize_' + imagefield + '" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label><br/>';
     html += '<input type="checkbox" id="white_magic_' + imagefield + '" style="display:inline" /><label for="white_magic_' + imagefield +
         '" style="display:inline">' + lang().product_js_image_white_magic + '</label>';
     html += '</div><div class="small-6 medium-5 large-4 columns" style="float:right;padding-top:1rem">';
@@ -249,6 +262,18 @@ function change_image(imagefield, imgid) {
     current_cropbox = 'cropbox_' + imagefield;
     $('div[id="cropbox_' + imagefield + '"]').html(html);
     $('div[id="cropimgdiv_' + imagefield + '"]').height($('div[id="cropimgdiv_' + imagefield + '"]').width());
+
+    const normalizeEl = document.getElementById('normalize_' + imagefield);
+    if (normalizeEl) {
+        normalizeEl.addEventListener('change', function () {
+            update_image(imagefield);
+            try {
+                this.blur();
+            } catch (e) {
+                // ignore blur errors
+            }
+        });
+    }
 
     $("#white_magic_" + imagefield).change(function () {
         $('.cropbuttonmsg_' + imagefield).hide();
