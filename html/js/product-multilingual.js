@@ -121,10 +121,26 @@ function add_language_tab(lc, language) {
 
 function update_image(imagefield) {
 
-    $('#crop_' + imagefield).attr("src", "/cgi/product_image_rotate.pl?code=" + code + "&imgid=" + imagefield_imgid[imagefield] +
-        "&angle=" + angles[imagefield] + "&normalize=" + $("#normalize_" + imagefield).prop('checked') +
-        "&white_magic=" + $("#white_magic_" + imagefield).prop('checked'));
-    $('div[id="cropbuttonmsg_' + imagefield + '"]').hide();
+    const cropImg = document.getElementById('crop_' + imagefield);
+    const normalizeEl = document.getElementById('normalize_' + imagefield);
+    const whiteMagicEl = document.getElementById('white_magic_' + imagefield);
+    const normalizeChecked = normalizeEl ? normalizeEl.checked : false;
+    const whiteMagicChecked = whiteMagicEl ? whiteMagicEl.checked : false;
+
+    if (cropImg) {
+        const params = new URLSearchParams();
+        params.append('code', code);
+        params.append('imgid', imagefield_imgid[imagefield]);
+        params.append('angle', String(angles[imagefield]));
+        params.append('normalize', normalizeChecked ? '1' : '0');
+        params.append('white_magic', whiteMagicChecked ? '1' : '0');
+        cropImg.src = '/cgi/product_image_rotate.pl?' + params.toString();
+    }
+
+    const msgDiv = document.querySelector('div[id="cropbuttonmsg_' + imagefield + '"]');
+    if (msgDiv) {
+        msgDiv.style.display = 'none';
+    }
 }
 
 function rotate_image(event) {
