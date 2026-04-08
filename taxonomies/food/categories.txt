@@ -1,3 +1,8 @@
+## Wikidata mappings
+
+# Wikidata categories correspond to Q2095 (food), Q746549 (human food), Q124794 (food product) etc.
+# Query all elements: https://query.wikidata.org/#SELECT%20%3Fitem%20%3FitemLabel%20WHERE%20%7B%0A%20%20%3Fitem%20%28wdt%3AP279%20%7C%20wdt%3AP31%29%2A%20%3FfoodClass%20.%0A%20%20VALUES%20%3FfoodClass%20%7B%20wd%3AQ2095%20wd%3AQ746549%20wd%3AQ2080352%20wd%3AQ124794%20%7D%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%7D
+
 # please keep an extra line between synonyms
 # also: don't add synonyms if they are already the name of an individual category, in that case add the synonym to the category
 
@@ -142,18 +147,22 @@ ru: Непищевые продукты, Не еда
 < en:Non food products
 en: Open Beauty Facts, OBF, Cosmetics, Hygiene
 xx: Open Beauty Facts, OBF
+pt: Fatos de beleza abertos, obf, cosméticos, higiene
 
 < en:Non food products
 en: Open Pet Food Facts, OPFF, pet food
 xx: Open Pet Food Facts, OPFF, pet food
+pt: Fatos abertos sobre alimentos para animais de estimação, opff, alimentos para animais de estimação
 
 < en:Non food products
 en: Open Products Facts, OPF
 xx: Open Products Facts, OPF
+pt: Fatos sobre produtos abertos, opf
 
 < en:Open Products Facts
 en: kitchenware
 nl: Keukenproducten, Keukenbenodigdheden
+pt: Utensílios de cozinha
 google_product_taxonomy_id:en: 668
 wikidata:en: Q1521410
 
@@ -166,6 +175,7 @@ fr: livres
 hr: knjige, knjiga
 ja: 本
 nl: Boeken
+pt: Livros
 sv: böcker, bok
 google_product_taxonomy_id:en: 784
 wikidata:en: Q571
@@ -175,6 +185,7 @@ en: detergents
 hr: deterdženti, deterdžent
 ja: 洗剤
 nl: Detergenten
+pt: Detergentes
 tr: Deterjan
 wikidata:en: Q334637
 
@@ -191,6 +202,7 @@ it: Biscotti a sigaretta
 ja: タバコ, 煙草
 nl_be: Sigaretten
 pl: Papierosy
+pt: Cigarros
 ru: Сигареты
 tr: Sigara
 google_product_taxonomy_id:en: 3151
@@ -200,6 +212,7 @@ en: Bulk
 fr: Vrac
 hr: Rasuti
 nl: Verpakkingsvrij
+pt: Massa
 
 en: Artisan products
 ca: Prouctes artesans
@@ -228,6 +241,7 @@ hr: Ručno rađeni grisini
 hu: Kézműves kenyérrudacskák, Kézzel készült kenyérrudacskák
 it: Grissini artigianali, Grissini fatti a mano
 nl: Handgemaakte broodstengels
+pt: Pãozinhos artesanais
 ro: Grisine artizanale
 
 en: Pasteurised products
@@ -319,6 +333,7 @@ it: Dal 4to mese, Dal quarto mese, A partire dal quarto mese, A partire dal 4to 
 lt: Nuo 4 mėnesių
 nl: Vanaf 4 maanden, Vanaf 4 maand
 nl_be: Vanaf 4 maanden
+pt: A partir de 4 meses
 
 < en:Baby foods
 en: From 6 months
@@ -333,6 +348,7 @@ it: Dal 6to mese, Dal sesto mese, A partire dal sesto mese, A partire dal 6to me
 lt: Nuo 6 mėnesių
 nl: Vanaf 6 maanden, Vanaf 6 maand
 nl_be: Vanaf 6 maanden
+pt: A partir dos 6 meses
 ru: С 6 месяцев, Для детей от 6 месяцев
 
 < en:Baby foods
@@ -348,6 +364,7 @@ it: Dall'8vo mese, Dall'ottavo mese, A partire dall'ottavo mese, A partire dall'
 lt: Nuo 8 mėnesių
 nl: Vanaf 8 maanden, Vanaf 8 maand
 nl_be: Vanaf 8 maanden
+pt: A partir de 8 meses
 ru: С 8 месяцев, Для детей от 8 месяцев
 
 < en:Baby foods
@@ -363,6 +380,7 @@ it: Dal 10mo mese, Dal decimo mese, A partire dal decimo mese, A partire dal 10m
 lt: Nuo 10 mėnesių
 nl: Vanaf 10 maanden, Vanaf 10 maand
 nl_be: Vanaf 10 maanden
+pt: A partir de 10 meses
 
 < en:Baby foods
 en: From 12 months old, from 1 year of age
@@ -377,6 +395,7 @@ it: Dal 12mo mese, Dal dodicesimo mese, A partire dal dodicesimo mese, A partire
 lt: Nuo 12 mėnesių, Nuo 1 metų
 nl: Vanaf 12 maanden, Vanaf 12 maand
 nl_be: Vanaf 12 maanden, Vanaf 1 jaar
+pt: A partir dos 12 meses, a partir de 1 ano
 
 < en:Baby foods
 en: From 15 months
@@ -389,6 +408,7 @@ hu: 15 hónapos kortól
 it: Dal 15mo mese, Dal quindicesimo mese, A partire dal quindicesimo mese, A partire dal 15mo mese
 lt: Nuo 15 mėnesių
 nl: Vanaf 15 maanden, Vanaf 15 maand
+pt: A partir dos 15 meses
 
 < en:Baby foods
 en: From 18 months
@@ -401,6 +421,7 @@ hu: 18 hónapos kortól, Egy és fél éves kortól, Másfél éves kortól
 it: Dal 18mo mese, Dal diciottesimo mese, A partire dal diciottesimo mese, A partire dal 18mo mese
 lt: Nuo 18 mėnesių
 nl: Vanaf 18 maanden, Vanaf 18 maand
+pt: A partir dos 18 meses
 intake24_category_code:en: 19TODSFD
 
 < en:Baby foods
@@ -414,6 +435,7 @@ hu: 24 hónapos kortól, 2 éves kortól, Két éves kortól
 it: Dal 24mo mese, Dal ventiquattresimo mese, A partire dal ventiquattresimo mese, A partire dal 24mo mese, A partire dal secondo anno, Dal secondo anno
 lt: Nuo 24 mėnesių
 nl: Vanaf 24 maanden, Vanaf 24 maand
+pt: A partir de 24 meses
 
 < en:Baby foods
 en: From 3 years
@@ -425,6 +447,7 @@ hu: 3 éves kortól
 it: Dal terzo anno, Da tre anni, Da 3 anni
 lt: Nuo 3 metų
 nl: Vanaf 3 jaar
+pt: A partir de 3 anos
 ru: С 3-х лет, С 3 лет, С трёх лет
 
 < en:Baby foods
@@ -441,6 +464,7 @@ it: Snack e dolci per neonati
 lt: Kūdikių užkandžiai ir desertai
 nl: Snacks en toetjes voor babies
 nl_be: Snacks en desserts voor babies
+pt: Lanches e sobremesas para bebês
 ro: Snack-uri și deserturi bebeluși, Snack-uri și deserturi pentru bebeluși
 
 < en:Snacks and desserts for babies
@@ -454,6 +478,7 @@ hu: Babakekszek, Baba kekszek, Kekszek csecsemőknek, Csecsemő kekszek
 it: Biscotti per neonati
 lt: Sausainiai kūdikiams
 nl: Babykoekjes, Koekjes voor babies
+pt: Biscoitos para bebês, biscoitos para bebês, biscoitos para bebês
 ro: Biscuiți pentru bebeluși, Biscuiți bebeluși
 agribalyse_food_code:en: 24689
 ciqual_food_code:en: 24689
@@ -463,6 +488,7 @@ ciqual_food_name:fr: Biscuit pour bébé
 < en:Snacks and desserts for babies
 en: Cocoa powder for baby beverage
 fr: Poudre cacaotée pour bébé
+pt: Cacau em pó para bebida de bebê
 ciqual_food_code:en: 42501
 ciqual_food_name:en: Cocoa powder for baby beverage
 ciqual_food_name:fr: Poudre cacaotée pour bébé
@@ -478,10 +504,12 @@ hu: Bébiitalok, Babaitalok, Baba ital
 it: Bevande per neonati
 lt: Kūdikių gėrimai
 nl: Babydranken, Babydrank
+pt: Bebidas para bebês
 ro: Băuturi pentru bebeluși, Băuturi bebeluși
 
 < en:Baby drinks
 en: Specialised baby drinks
+pt: Bebidas especializadas para bebês
 gpc_category_code:en: 10000105
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a beverage specifically labelled and marketed for a baby or infant. These products have been treated or packaged in such a way as to extend their consumable life. Includes juice, juice drinks, nursery water and dairy based drinks. Definition Excludes: Excludes products such as Formula, Baby and Infant Food, Adult variants of the above.
 gpc_category_name:en: Baby/Infant - Specialised Beverages (Shelf Stable)
@@ -493,6 +521,7 @@ hr: Biljni napitak za bebe
 hu: Növényi alapú bébiitalok
 lt: Augaliniai gėrimai kūdikiams
 nl: Dranken voor babies gebaseerd op planten
+pt: Bebida vegetal para bebê
 ciqual_food_code:en: 13160
 ciqual_food_name:en: Plant-based beverage for baby
 ciqual_food_name:fr: Boisson à base de plantes pour bébé
@@ -501,6 +530,7 @@ ciqual_food_name:fr: Boisson à base de plantes pour bébé
 en: Milky cereal-based beverages, Milky cereal-based beverage
 fr: Boissons infantile lactée aux céréales, Boisson infantile lactée aux céréales
 hu: Tejes gabonaalapú bébiitalok
+pt: Bebidas lácteas à base de cereais, bebidas lácteas à base de cereais
 agribalyse_proxy_food_code:en: 13173
 ciqual_food_code:en: 13182
 ciqual_food_name:en: Milky cereal-based beverage(average)
@@ -509,6 +539,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées (aliment moyen)
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast
 fr: Boisson lactée pour petit-déjeuner bébé avec céréales
+pt: Bebida láctea à base de cereais para o café da manhã do bebê
 agribalyse_food_code:en: 13173
 ciqual_food_code:en: 13173
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast
@@ -518,6 +549,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeun
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage with fruits for baby's snack from 4/6 months
 fr: Boisson lactée pour goûter bébé dès 4/6 mois avec céréales et fruits
+pt: Bebida láctea à base de cereais com frutas para o lanche do bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13162
 ciqual_food_code:en: 13162
 ciqual_food_name:en: Dairy cereal-based beverage with fruits for baby's snack from 4/6 months
@@ -527,6 +559,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées aux fruits pour le go
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage with vegetables for baby's dinner from 4/6 months
 fr: Boisson lactée pour dîner bébé dès 4/6 mois avec céréales et légumes
+pt: Bebida láctea à base de cereais com vegetais para o jantar do bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13161
 ciqual_food_code:en: 13161
 ciqual_food_name:en: Dairy cereal-based beverage with vegetables for baby's dinner from 4/6 months
@@ -536,6 +569,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées aux légumes pour dî
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast from 4/6 months
 fr: Boisson lactée pour petit-déjeuner bébé dès 4/6 mois avec céréales
+pt: Bebida láctea à base de cereais para o pequeno-almoço do bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13163
 ciqual_food_code:en: 13163
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 4/6 months
@@ -545,6 +579,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeun
 < en:From 6 months
 en: Fruit-based beverages for baby from 4/6 months
 fr: Boissons aux fruits pour bébé dès 4/6 mois
+pt: Bebidas à base de fruta para bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13159
 ciqual_food_code:en: 13159
 ciqual_food_name:en: Fruit-based beverage for baby from 4/6 months
@@ -554,6 +589,7 @@ ciqual_food_name:fr: Boisson aux fruits pour bébé dès 4/6mois
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast from 8/9 months
 fr: Boisson lactée pour petit-déjeuner bébé dès 8/9 mois avec céréales
+pt: Bebida láctea à base de cereais para o pequeno-almoço do bebé a partir dos 8/9 meses
 agribalyse_food_code:en: 13169
 ciqual_food_code:en: 13169
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 8/9 months
@@ -563,6 +599,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeun
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast from 12 months
 fr: Boisson lactée pour petit-déjeuner bébé dès 12 mois avec céréales
+pt: Bebida láctea à base de cereais para o pequeno-almoço do bebé a partir dos 12 meses
 agribalyse_food_code:en: 13170
 ciqual_food_code:en: 13170
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 12 months
@@ -613,11 +650,13 @@ it: Dessert per neonati a base di latticini, Dessert per neonati a base di prodo
 lt: Kūdikių pieniški desertai, Pieniški desertai kūdikiams
 nl: Babymelktoetjes, Babymelktoetje, Melktoetje voor babies
 nl_be: Babymelkdesserten, Melkdesserten voor babies, Melkdessert voor babies
+pt: Sobremesas lácteas para bebês, sobremesas lácteas para bebês, sobremesas lácteas para bebês
 ro: Deserturi cu lactate pentru bebeluși, Deserturi cu lactate bebeluși
 
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with custard
 fr: Crème dessert pour bébé
+pt: Sobremesa láctea para bebê com creme
 agribalyse_food_code:en: 13164
 ciqual_food_code:en: 13164
 ciqual_food_name:en: Dairy dessert for baby, custard type
@@ -626,6 +665,7 @@ ciqual_food_name:fr: Dessert lacté infantile type crème dessert
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with semolina
 fr: Dessert lacté pour bébé à la semoule
+pt: Sobremesa láctea para bebê com semolina
 agribalyse_food_code:en: 13165
 ciqual_food_code:en: 13165
 ciqual_food_name:en: Dairy dessert for baby, with rice or semolina
@@ -634,6 +674,7 @@ ciqual_food_name:fr: Dessert lacté infantile au riz ou à la semoule
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with rice
 fr: Dessert lacté pour bébé au riz
+pt: Sobremesa láctea para bebê com arroz
 agribalyse_food_code:en: 13165
 ciqual_food_code:en: 13165
 ciqual_food_name:en: Dairy dessert for baby, with rice or semolina
@@ -642,6 +683,7 @@ ciqual_food_name:fr: Dessert lacté infantile au riz ou à la semoule
 < en:Dairy dessert for baby
 en: Plain dairy dessert for baby
 fr: Dessert lacté pour bébé nature
+pt: Sobremesa láctea simples para bebê
 agribalyse_food_code:en: 13166
 ciqual_food_code:en: 13166
 ciqual_food_name:en: Dairy dessert for baby, plain with sugar or with fruits
@@ -651,6 +693,7 @@ ciqual_food_name:fr: Dessert lacté infantile nature sucré ou aux fruits
 en: Dairy dessert for baby with sugar
 fr: Dessert lacté pour bébé sucré
 hu: Cukros tejdesszert babáknak
+pt: Sobremesa láctea para bebê com açúcar
 agribalyse_food_code:en: 13166
 ciqual_food_code:en: 13166
 ciqual_food_name:en: Dairy dessert for baby, plain with sugar or with fruits
@@ -659,6 +702,7 @@ ciqual_food_name:fr: Dessert lacté infantile nature sucré ou aux fruits
 < en:Dairy dessert for baby
 en: Plain dairy dessert for baby with fruits
 fr: Dessert lacté pour bébé aux fruits
+pt: Sobremesa láctea simples para bebê com frutas
 agribalyse_food_code:en: 13166
 ciqual_food_code:en: 13166
 ciqual_food_name:en: Dairy dessert for baby, plain with sugar or with fruits
@@ -696,6 +740,7 @@ hu: Csecsemőtápszerek, tápszerek, Anyatej-helyettesítő tápszerek a 6. hón
 it: Latte artificiale per neonati fino al sesto mese, Latte artificiale per neonati fino al 6to mese
 lt: Mišiniai kūdikiams
 nl: Baby-startmelk tot 6 maanden
+pt: Fórmulas infantis, bebê começa a receber leite até os 6 meses
 ro: Formula pentru bebeluși, Formula bebeluși, Formula bebelusi, Formula pentru bebelusi
 gpc_category_code:en: 10000575
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a food specifically labelled and marketed for a baby or infant. It is typically a powdered and ready to drink formula designed as a replacement for breast milk during nursing and is intended to provide a healthy, balanced diet for babies and infants of all ages. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Baby and Infant Beverages and adult variants of food formulas.
@@ -704,6 +749,7 @@ gpc_category_name:en: Baby/Infant - Formula (Shelf Stable)
 < en:Infant formulas
 en: Ready to feed baby milks
 fr: Laits infantiles prêts à consommer, Laits infantiles prêts à consommer
+pt: Pronto para alimentar o bebê com leite
 agribalyse_proxy_food_code:en: 19013
 
 < en:Dehydrated products
@@ -711,6 +757,7 @@ agribalyse_proxy_food_code:en: 19013
 en: Baby milks in powder, Infant formulas in powder
 fr: Laits infantiles en poudre
 hu: Csecsemőtápszerek tejporból
+pt: Leites infantis em pó, fórmulas infantis em pó
 agribalyse_proxy_food_code:en: 3000
 agribalyse_proxy_food_name:en: Baby milk, first age, powder, non rehydrated
 agribalyse_proxy_food_name:fr: poudre soluble (préparation pour nourrissons)
@@ -720,6 +767,7 @@ agribalyse_proxy_food_name:fr: poudre soluble (préparation pour nourrissons)
 < en:Ready to feed baby milks
 en: Ready to feed baby first milk
 fr: Laits 1er âge prêts à consommer, Laits premier âge prêts à consommer
+pt: Pronto para alimentar o bebê com o primeiro leite
 agribalyse_food_code:en: 19013
 ciqual_food_code:en: 19013
 ciqual_food_name:en: Baby milk, first milk, ready to feed
@@ -731,6 +779,7 @@ ca: Primera llet des dels 6 mesos
 de: Pre-Nahrung, Pre-Milch, Pre
 hr: Prethrana
 nl: Baby-startmelk vanaf 6 maanden
+pt: Pré-alimentação, bebê começa a amamentar a partir dos 6 meses
 
 < en:Infant formulas
 en: Baby start milk from 10 months
@@ -738,10 +787,12 @@ ca: Primera llet des dels 10 mesos
 de: 1-Nahrung, 1er-Babymilch
 hr: Početno mlijeko za bebe od 10 mjeseci
 nl: Baby-startmelk vanaf 10 maanden
+pt: Bebê começa a receber leite a partir dos 10 meses
 
 < en:Baby milks in powder
 en: First age baby milk powder, First milk powder, First infant milk formula in powder
 fr: Lait 1er âge en poudre soluble, Lait premier âge en poudre soluble, Préparation pour nourrissons en poudre soluble
+pt: Leite em pó para bebês da primeira idade, primeiro leite em pó, primeira fórmula láctea infantil em pó
 agribalyse_food_code:en: 3000
 ciqual_food_code:en: 3000
 ciqual_food_name:en: Baby milk, first age, powder
@@ -755,11 +806,13 @@ fr: Laits 2ème âge, lait 2eme age, lait deuxieme age, laits deuxieme age, lait
 hr: Mlijeko za bebe od 5 mjeseci
 it: Latte artificiale di proseguimento dal quinto mese, Latte artificiale di proseguimento dal 5to mese, Latte di proseguimento per neonati dal quinto mese, Latte di proseguimento per neonati dal 5to mese
 nl: Baby-opvolgmelk
+pt: Leite de acompanhamento para bebês a partir dos 5 meses
 
 < en:Baby follow-on milk from 5 months
 < en:Baby milks in powder
 en: Second age baby milk powder, Second milk powder, Second infant milk formula in powder
 fr: Lait 2ème âge en poudre soluble, Lait deuxième âge en poudre soluble, Préparation de suite en poudre soluble
+pt: Leite em pó para bebês de segunda idade, segundo leite em pó, segunda fórmula láctea infantil em pó
 agribalyse_food_code:en: 3002
 ciqual_food_code:en: 3002
 ciqual_food_name:en: Baby milk, second age, powder
@@ -769,6 +822,7 @@ ciqual_food_name:fr: Lait 2e âge, poudre soluble (préparation de suite)
 < en:Ready to feed baby milks
 en: Ready to feed baby follow on milk
 fr: Lait 2e âge prêt à consommer, Lait deuxième âge prêt à consommer
+pt: Leite de continuação pronto para consumo
 agribalyse_food_code:en: 19014
 ciqual_food_code:en: 19014
 ciqual_food_name:en: Baby milk, follow on milk, ready to feed
@@ -783,6 +837,7 @@ fr: Laits de suite à partir de 2 ans
 hr: Mlijeko za bebe od 2 godine
 it: Latte artificiale di proseguimento dal secondo anno, Latte artificiale di proseguimento dal 2o anno, Latte di proseguimento per neonati dal secondo anno, Latte di proseguimento per neonati dal 2o anno
 nl: Baby-opvolgmelk vanaf 2 jaar
+pt: Leite de acompanhamento para bebês a partir dos 2 anos
 
 < en:Baby milks
 en: Baby follow-on milk from 3 years
@@ -793,6 +848,7 @@ fr: Laits de suite à partir de 3 ans
 hr: Mlijeko za bebe od 3 godine
 it: Latte artificiale di proseguimento dal terzo anno, Latte artificiale di proseguimento dal 3o anno, Latte di proseguimento per neonati dal terzo anno, Latte di proseguimento per neonati dal 3o anno
 nl: Baby-opvolgmelk vanaf 3 jaar
+pt: Leite de acompanhamento para bebês a partir dos 3 anos
 
 < en:Baby milks
 en: Growth milks
@@ -803,11 +859,13 @@ fr: Laits de croissance, lait de croissance, lait destiné aux enfants à partir
 hr: Mlijeka za rast
 it: Latte della crescita, Latte per la crescita
 nl: Peutermelk
+pt: Leites de crescimento
 
 < en:Growth milks
 < en:Ready to feed baby milks
 en: Ready to feed baby growing up milk
 fr: Lait de croissance pour enfants en bas âge, Aliment lacté liquide destiné aux enfants en bas âge
+pt: Pronto para alimentar o bebê crescendo com leite
 agribalyse_food_code:en: 19012
 ciqual_food_code:en: 19012
 ciqual_food_name:en: Baby milk, growing up milk, ready to feed
@@ -819,6 +877,7 @@ ca: Llet contra els refluxs
 fr: Lait anti-reflux
 hr: Mlijeko protiv refluksa
 it: Latte antirigurgito, Latte antireflusso
+pt: Leite anti-refluxo
 wikidata:en: Q16034323
 
 < en:Baby milks
@@ -828,6 +887,7 @@ fr: Laits hypoallergéniques, Laits HA
 hr: Hipoalergena mlijeka
 it: Latte ipoallergenico
 nl: Hypoallergene melk
+pt: Leites hipoalergênicos
 
 < en:Baby milks
 en: Milks for premature babies
@@ -837,6 +897,7 @@ fr: Laits pour bébé prématurés
 hr: Mlijeka za nedonoščad
 it: Latte per neonati prematuri
 nl: Melk voor premature baby's
+pt: Leites para bebês prematuros
 
 #fr:Laits maternisés
 
@@ -849,6 +910,7 @@ hr: Večernji obroci za bebe
 hu: Vacsora bébiételek
 it: Pasti serali per neonati
 nl: Baby-avondmaaltijden, Baby-avondmaaltijd
+pt: Refeições noturnas para bebês
 ro: Cină pentru bebeluși, Cină bebeluși
 
 < en:Baby foods
@@ -861,6 +923,7 @@ hr: Glavni obroci za bebe
 hu: Bébi főételek
 it: Pasti principali per neonati
 nl: Babymaaltijden, Babymaaltijd
+pt: Refeições principais para bebês, refeições principais para bebês
 
 < en:Main meals for babies
 en: Baby dishes
@@ -870,6 +933,7 @@ fr: Assiettes pour bébé
 hr: Posuđe za bebe
 it: Piatti per neonati
 nl: Babyschotels, Babyschotel
+pt: Pratos de bebê
 
 < en:Main meals for babies
 en: Vegetables menus for babies
@@ -878,6 +942,7 @@ fr: Menus Légumes pour bébé
 hr: Jelovnici s povrćem za bebe
 it: Pasti per neonati a base di verdure
 nl: Babygroentemaaltijden, Babygroentemaaltijd
+pt: Menus de vegetais para bebês
 
 < en:Main meals for babies
 en: Fish menus for babies
@@ -886,6 +951,7 @@ fr: Menus Poissons pour bébé
 hr: Riblji jelovnici za bebe
 it: Pasti per neonati a base di pesce
 nl: Babyvismaaltijden, Babyvismaaltijd
+pt: Menus de peixe para bebês
 
 < en:Main meals for babies
 en: Meat menus for babies
@@ -895,6 +961,7 @@ fr: Menus Viandes pour bébé
 hr: Mesni jelovnici za bebe
 it: Pasti per neonati a base di carne
 nl: Babyvleesmaaltijden, Babyvleesmaaltijd
+pt: Menus de carne para bebês
 
 < en:Main meals for babies
 fr: Petits pots pour bébé, petits pots bébé, petit pot bébé, petits pots pour bébés, petits pots, petit pot
@@ -905,6 +972,7 @@ nl: Babypotjes, Babypotje
 < en:Main meals for babies
 en: Baby food jar with vegetables from 4-6 months
 fr: Petits pots aux légumes pour bébés dès 4-6 mois
+pt: Pote de comida para bebê com vegetais de 4 a 6 meses
 agribalyse_food_code:en: 20246
 ciqual_food_code:en: 20246
 ciqual_food_name:en: Baby food jar with vegetables, from 4-6 months
@@ -914,6 +982,7 @@ ciqual_food_name:fr: Petit pot légumes, dès 4-6 mois
 < en:Main meals for babies
 en: Baby food jar with vegetables and starch from 4-6 months
 fr: Petit pots aux légumes avec féculents pour bébés dès 4/6 mois
+pt: Pote de comida para bebê com vegetais e amido de 4 a 6 meses
 agribalyse_food_code:en: 20247
 ciqual_food_code:en: 20247
 ciqual_food_name:en: Baby food jar with vegetables and starch, from 4-6 months
@@ -922,6 +991,7 @@ ciqual_food_name:fr: Petit pot légumes, avec féculent, dès 4/6 mois
 < en:Main meals for babies
 en: Baby food jar with banana
 fr: Petits pots aux fruits avec bananes pour bébé
+pt: Pote de comida para bebê com banana
 agribalyse_food_code:en: 13157
 ciqual_food_code:en: 13157
 ciqual_food_name:en: Baby food jar with banana
@@ -933,6 +1003,7 @@ fr: Petits pots aux fruits sans banane pour bébé
 hr: Posuda za dječju hranu bez banane
 it: Vasetti di cibo per bambini senza banana
 nl: Babypotje zonder banaan
+pt: Pote de comida para bebê sem banana
 agribalyse_food_code:en: 13158
 ciqual_food_code:en: 13158
 ciqual_food_name:en: Baby food jar without banana
