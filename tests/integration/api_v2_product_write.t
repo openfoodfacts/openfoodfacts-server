@@ -556,12 +556,13 @@ my $tests_ref = [
 			lc => "es",    # lc is the language of the interface
 			lang => "fr",    # lang is the main language of the product
 			code => "1234567890341",
-			categories => "Milk, Café",
-			traces => "Gluten",
-			allergens => "Crustaceans",
-			brands => "Another brand 1, Another brand 2",
-			emb_codes => "FR 56082 CE",
-			labels => "Gold meal"
+			add_categories => "Milk, Café",
+			add_traces => "Gluten",
+			add_allergens => "Crustaceans",
+			add_brands => "Another brand 1, Another brand 2",
+			add_emb_codes => "FR 56082 CE",
+			add_labels => "Gold meal",
+			add_stores => "Ecomarché, Carrefour"
 		}
 	},
 	{
@@ -569,7 +570,31 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/1234567890341',
 	},
-
+	# Remove acets
+	{
+		test_case => 'post-product-remove-facets',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "es",    # lc is the language of the interface
+			lang => "fr",    # lang is the main language of the product
+			code => "1234567890341",
+			categories => "",
+			traces => "",
+			allergens => "",
+			brands => "",
+			emb_codes => "",
+			labels => ""
+		}
+	},
+	{
+		test_case => 'get-product-remove-facets',
+		method => 'GET',
+		path => '/api/v2/product/1234567890341',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);
