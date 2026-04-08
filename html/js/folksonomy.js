@@ -44,6 +44,16 @@ let feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
 
+function escapeHtmlAttr(input) {
+    return String(input).
+        replace(/&/g, '&amp;').
+        replace(/</g, '&lt;').
+        replace(/>/g, '&gt;').
+        replace(/"/g, '&quot;').
+        replace(/'/g, '&#39;').
+        replace(/`/g, '&#x60;');
+}
+
 
 // eslint-disable-next-line no-unused-vars
 function folskonomy_engine_init() {
@@ -132,15 +142,15 @@ function folskonomy_engine_init() {
           return null;
         }
       
-        const property = results[1];
-      
-        const webComponentHTML = `
-          <div style="padding: 32px;">
-            <folksonomy-property-products property-name="${property}"></folksonomy-property-products>
-          </div>
-        `;
-      
-        $("#main_column").append(webComponentHTML);
+                const property = results[1];
+
+                const webComponentHTML = `
+                    <div style="padding: 32px;">
+                        <folksonomy-property-products property-name="${escapeHtmlAttr(property)}"></folksonomy-property-products>
+                    </div>
+                `;
+
+                $("#main_column").append(webComponentHTML);
       }
       
 
@@ -507,7 +517,7 @@ function editPropertyValue(_this) {
     const version = $(_this).parent().parent().children(".version").data("version");
 
     // build UI: make value editable
-    $(_this).parent().parent().children(".value").html('<input id="fe_' + property_id + '_form_value" type="text" maxlength="255" name="value" value="'+oldValue+'"  autofocus required />');
+    $(_this).parent().parent().children(".value").html('<input id="fe_' + property_id + '_form_value" type="text" maxlength="255" name="value" value="' + escapeHtmlAttr(oldValue) + '"  autofocus required />');
     //$(_this).parent().parent().children(".value").text('<input class="fe_form_value" type="text" maxlength="255" name="value" autofocus required>'+_value+'</input>');
     // replace [Edit] by [Save]
     $(_this).hide();
