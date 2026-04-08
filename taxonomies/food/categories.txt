@@ -39253,7 +39253,6 @@ agribalyse_proxy_food_code:en: 31004
 wikidata:en: Q2164820
 #all agribalyse milk chocolate categories have the same CO2 score
 
-#Do not put this category under chocolates since "filled chocolate eggs" are bonbons, not chocolate
 < en:Cocoa and its products
 en: Chocolate eggs
 bg: Шоколадови яйца
@@ -39265,8 +39264,11 @@ fr: Oeufs en chocolat, Oeuf en chocolat
 hr: Čokoladna jaja
 hu: Csokoládé tojás
 it: Uovo di Cioccolato
+lt: Šokoladiniai kiaušiniai
 nl: Chocolade eieren
 sv: Chokladägg
+comment:en: Do not put this category under chocolates since "filled chocolate eggs" are bonbons, not chocolate
+wikidata:en: Q21156490
 
 < en:Chocolate molds
 < en:Milk chocolates
@@ -39573,8 +39575,8 @@ lt: Baltas šokolado batonėlis su praline
 nl: Witte chocoladereep met praliné
 
 < en:Chocolate molds
-< en:Easter food
-en: Chocolate rabbits, Easter rabbits
+< en:Easter chocolates
+en: Easter chocolate rabbits, Chocolate rabbits, Easter rabbits
 de: Schokoladenhasen
 es: Conejos De Chocolate, Conejos De Pascua
 fi: suklaapuput
@@ -39585,7 +39587,6 @@ it: Conigli di cioccolato, Coniglietti di cioccolato, Conigli pasquali di ciocco
 ja: うさぎ型のチョコレート
 lt: Šokoladiniai kiškiai, Šokoladiniai zuikiai, Vėlykiniai kiškiai
 nl: Chocolade paashazen
-#wikidata:en:
 
 < en:Chocolates
 en: Chocolates with sweeteners
@@ -41318,34 +41319,35 @@ ja: ロクム
 tr: Lokumlar
 wikidata:en: Q182339
 
-< en:Festive foods
-en: Easter food, Easter chocolates
-bg: Великденска храна
-de: Osterschokoladen
-es: Comida de Pascua
-fi: Pääsiäisruoat
-fr: Aliments de Pâques, chocolats de Pâques, Chocolat de Pâques
-hr: Uskrsna hrana
-hu: Húsvéti csokoládék
-it: Cibi per Pasqua
-lt: Velykų maistas, valykiniai šokoladai
-nl: Paasproducten
-pt: Alimentos da páscoa
-
-# don't put in chocolate eggs, not all easter eggs are made of chocolate
-< en:Easter food
-en: Easter eggs, Easter chocolate eggs
+< en:Easter foods and drinks
+en: Easter eggs
 bg: Великденски яйца
-de: Osterschokoladeneier
-es: Huevos de Pascua, Huevos de Pascua de chocolate
-fi: pääsiäissuklaamunat
-fr: Œufs de Pâques, oeuf de pâques, Oeufs de pâques en chocolat, oeuf de pâques en chocolat
+da: Påskeæg
+es: Huevos de Pascua
+fi: Pääsiäismunat
+fr: Œufs de Pâques, oeuf de pâques
 hr: Uskrsna jaja
-hu: Húsvéti csokoládé tojás
+hu: Húsvéti tojás
 it: Uova di pasqua
-lt: Velykiniai kiaušiniai, šokoladiniai kiaušiniai, velykiniai šokoladiniai kiaušiniai
+lt: Velykiniai kiaušiniai
 nl: Paaseieren
 pt: Ovos da páscoa
+sv: Påskägg
+wikidata:en: Q163886
+
+< en:Chocolate eggs
+< en:Easter chocolates
+< en:Easter eggs
+en: Easter chocolate eggs, Chocolate Easter eggs
+da: Påskechokoladeæg, Chokoladepåskeæg
+de: Osterschokoladeneier
+es: Huevos de Pascua de chocolate
+fi: Pääsiäissuklaamunat
+fr: Œufs de pâques en chocolat, Oeufs de pâques en chocolat, oeuf de pâques en chocolat
+hu: Húsvéti csokoládé tojás
+lt: Velykiniai šokoladiniai kiaušiniai
+sv: Påskchokladägg, Chokladpåskägg
+wikidata:en: Q117662368
 
 < en:Bonbons
 < en:Chocolate eggs
@@ -41392,6 +41394,32 @@ hr: Svečana jela
 lt: Šventiniai maisto produktai
 nl: Feestdagenproducten
 ru: Праздничные продукты
+
+< en:Festive foods
+en: Easter foods and drinks, Easter food
+bg: Великденска храна
+da: Påskemad og -drikke
+es: Comida de Pascua
+fi: Pääsiäisruoat
+fr: Aliments de Pâques
+hr: Uskrsna hrana
+it: Cibi per Pasqua
+lt: Velykų maistas
+nl: Paasproducten
+pt: Alimentos da páscoa
+sv: Påskmat och -dryckor
+wikidata:en: Q10647926
+
+< en:Cocoa and its products
+< en:Easter foods and drinks
+en: Easter chocolates
+da: Påskechokolader
+de: Osterschokoladen
+fr: Chocolats de Pâques, Chocolat de Pâques
+hu: Húsvéti csokoládék
+lt: Valykiniai šokoladai
+sv: Påskchoklader
+comment:en: This category is not under chocolates since some of its children are “filled chocolates” and as such are bonbons, not chocolates.
 
 < en:Festive foods
 en: Christmas foods and drinks
