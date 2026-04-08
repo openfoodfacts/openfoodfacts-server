@@ -336,8 +336,32 @@ sub export_csv ($args_ref) {
 								if (    (defined $product_ref->{$field . "_tags"})
 									and (scalar @{$product_ref->{$field . "_tags"}} > 0))
 								{
-									# Export the tags field in the main language of the product
-									$populated_fields{$group_prefix . $field} = $field_sort_key;
+									# If we have tags_sources data for the tags, we export the input tags for each source in a separate column
+									# and we do not export the main tags field which is a computed field from all sources,
+									# to avoid confusion between the input tags and the computed tags
+									if (defined $product_ref->{tags_sources}{$field}) {
+										foreach my $source (sort keys %{$product_ref->{tags_sources}{$field}}) {
+											if (    (defined $product_ref->{tags_sources}{$field}{$source}{tags})
+												and (scalar @{$product_ref->{tags_sources}{$field}{$source}{tags}} > 0))
+											{
+												# For the allergens and traces fields, skip the ingredients source unless the "export_canonicalized_tags_fields" option is set to true, to avoid confusion between the input tags and the computed tags
+												if (    (($field eq "allergens") or ($field eq "traces"))
+													and ($source eq "ingredients")
+													and (not $export_canonicalized_tags_fields))
+												{
+													next;
+												}
+												$populated_fields{"tags_sources.${field}.${source}.tags"}
+													= $field_sort_key . "_tags:${source}";
+												$populated_fields{"tags_sources.${field}.${source}.last_updated_t"}
+													= $field_sort_key . "_last_updated_t:${source}";
+											}
+										}
+									}
+									else {
+										# Export the tags field in the main language of the product
+										$populated_fields{$group_prefix . $field} = $field_sort_key;
+									}
 									# Also possibly export the canonicalized tags
 									if ($export_canonicalized_tags_fields) {
 										$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
@@ -535,6 +559,28 @@ sub export_csv ($args_ref) {
 				elsif ($field =~ /^nutrition\./) {
 					$value = deep_get($product_ref, split(/\./, $field));
 				}
+				# Tags sources fields
+				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.last_updated_t$/) {
+					my ($tags_field, $source) = ($1, $2);
+					my $last_updated_t
+						= deep_get($product_ref, ("tags_sources", $tags_field, $source, "last_updated_t"));
+					if (defined $last_updated_t) {
+						$value = int($last_updated_t);
+					}
+				}
+				# $populated_fields{"tags_sources.${field}.${source}.tags"} = $field_sort_key . "_tags:${source}";
+				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.tags$/) {
+					my ($tags_field, $source) = ($1, $2);
+					my $tags_ref = deep_get($product_ref, ("tags_sources", $tags_field, $source, "tags"));
+					if (defined $tags_ref) {
+						$value = join(',', @$tags_ref);
+						# Special value - if there are no tags, so that we can differentiate tags fields that are not set
+						# versus empty tags fields
+						if ($value eq '') {
+							$value = '-';
+						}
+					}
+				}
 				# Source specific fields
 				elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
 					my $source_id = $1;
@@ -609,13 +655,22 @@ sub export_csv ($args_ref) {
 					elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
 						$value = join(",", @{$product_ref->{$field}});
 					}
-					elsif ((defined $taxonomy_fields{$field}) and (defined $product_ref->{$field . "_hierarchy"})) {
+					# For tags field, we export [field]_tags in the main language of the product if we do not have tags_sources data for this field,
+					# to avoid confusion between the input tags and the computed tags
+					elsif ( (defined $taxonomy_fields{$field})
+						and (defined $product_ref->{$field . "_tags"})
+						and (not deep_exists($product_ref, ("tags_sources", $field))))
+					{
 						# we do not know the language of the current value of $product_ref->{$field}
 						# so regenerate it in the main language of the product
-						# Note: some fields like nova_groups and food_groups do not have a _hierarchy subfield,
-						# but they are not entered directly, but computed from other fields, so we can take their values as is.
+						# Note: for taxonomy fields, this field is the computed tags field from all input tags_sources
 						$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field,
-							$product_ref->{$field . "_hierarchy"});
+							$product_ref->{$field . "_tags"});
+						# Special value - if there are no tags, so that we can differentiate tags fields that are not set
+						# versus empty tags fields
+						if ($value eq '') {
+							$value = '-';
+						}
 					}
 					# packagings field of the form packaging_2_number_of_units
 					elsif ($field =~ /^packaging_(\d+)_(.*)$/) {

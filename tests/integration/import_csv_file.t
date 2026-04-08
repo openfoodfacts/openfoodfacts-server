@@ -63,6 +63,10 @@ my @tests = (
 		test_case => "agena",
 		csv_files => ["agena.csv"],
 	},
+	{
+		test_case => "new_tags",
+		csv_files => ["new_tags_1.csv", "new_tags_2_empty_values.csv", "new_tags_3_dash_values.csv", "new_tags_4_updates.csv"]
+	}
 );
 
 # Testing import of a csv file

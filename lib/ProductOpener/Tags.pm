@@ -109,7 +109,6 @@ BEGIN {
 		&display_tag_name
 		&display_tag_link
 		&display_tags_list
-		&display_comma_separated_tags_list_in_lc
 		&display_parents_and_children
 		&display_tags_hierarchy
 		&export_tags_hierarchy
@@ -3330,42 +3329,6 @@ sub get_taxonomy_tag_and_link_for_lang ($target_lc, $tagtype, $tagid) {
 	return $tag_ref;
 }
 
-=head2 display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref)
-
-Returns a comma-separated list of links for the tags in the input list,
-with the display text in the target language.
-
-Note: if a tag is not available in the target language, it is prefixed with the language.
-
-=head3 Arguments
-
-=head4 $target_lc
-
-The desired language for the display text.
-
-=head4 $tagtype
-
-The tag type of the tags in the input list.
-
-=head4 $tags_ref
-
-A reference to a list of tagids.
-
-=head3 Return value
-
-A comma-separated list of links for the tags in the input list, with the display text in the target language.
-
-=cut
-
-sub display_comma_separated_tags_list_in_lc ($target_lc, $tagtype, $tags_ref) {
-
-	if (not defined $tags_ref) {
-		return '';
-	}
-
-	return join(", ", map {display_taxonomy_tag($target_lc, $tagtype, $_)} @$tags_ref);
-}
-
 =head2 display_tags_list ($tagtype, $tags_list_ref)
 
 Returns a comma-separated list of links for the tags in the input list.
@@ -4839,7 +4802,11 @@ Optional flag to indicate whether to add the input tags to existing tags (defaul
 
 =cut
 
-sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags, $add = 0) {
+sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $input_tags, $add = 0,
+	$last_updated_t = undef)
+{
+
+	$last_updated_t //= time();
 
 	if ($field eq "allergens") {
 
@@ -4865,7 +4832,8 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 			$input_tags =~ s/\s+$//;
 			$traces_value =~ s/\s+$//;
 			# We add the traces to the existing traces field
-			set_field_input_tags_for_source($product_ref, $tag_lc, "traces", $source, $traces_value, 1);
+			set_field_input_tags_for_source($product_ref, $tag_lc, "traces", $source, $traces_value, 1,
+				$last_updated_t);
 		}
 	}
 
@@ -4943,7 +4911,7 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 		deep_set($product_ref, "tags_sources", $field, $source, "tags", \@normalized_input_tags);
 	}
 
-	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", time());
+	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", $last_updated_t);
 
 	# We generate the [field]_tags field from all sources, passing 1 to normalize the tags
 	# (lowercase / unaccent based on the tag language)
@@ -5008,6 +4976,10 @@ sub generate_field_tags_from_all_sources ($product_ref, $tagtype, $normalize = 0
 		$product_ref->{$tagtype}
 			= join(", ", map {display_taxonomy_tag("en", $tagtype, $_)} @{$product_ref->{$tagtype . "_tags"}});
 	}
+
+	$log->debug("generate_field_tags_from_all_sources - result",
+		{$tagtype . "_tags" => $product_ref->{$tagtype . "_tags"}})
+		if $log->is_debug();
 
 	return;
 }

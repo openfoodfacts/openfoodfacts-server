@@ -706,7 +706,7 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 		# For taxonomized tags fields, we display only the input tags for the source
 		my $input_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags");
 		if (defined $input_tags_ref) {
-			$value = display_comma_separated_tags_list_in_lc($lc, $field, $input_tags_ref);
+			$value = list_taxonomy_tags_in_language($lc, $field, $input_tags_ref);
 		}
 	}
 

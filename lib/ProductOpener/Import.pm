@@ -698,6 +698,7 @@ sub set_field_value (
 	$modified_fields_ref, $differing_ref, $differing_fields_ref, $time
 	)
 {
+	my $source = get_source_for_site_and_org($Org_id);
 
 	my $code = $imported_product_ref->{code};
 
@@ -789,103 +790,23 @@ sub set_field_value (
 
 	if (defined $tags_fields{$field}) {
 
-		my $current_field = $product_ref->{$field};
-
-		# we may want to replace brands completely at some point
-		# disabling for now
-
-		#if ($field eq 'brands') {
-		#	$product_ref->{$field} = "";
-		#	delete $product_ref->{$field . "_tags"};
-		#}
-
-		# If we are on the producers platform, remove existing values for brands
-		if (($server_options{producers_platform}) and ($field eq "brands")) {
-			$product_ref->{$field} = "";
-			delete $product_ref->{$field . "_tags"};
-		}
-
-		# If we are on the producers platform, replace existing values by producer supplied values for allergens and traces
-		if (deep_exists(\%options, "replace_existing_values_when_importing_those_tags_fields", $field)) {
-			if ($imported_product_ref->{$field} ne "") {
-				$product_ref->{$field} = "";
-				delete $product_ref->{$field . "_tags"};
-			}
-		}
-
-		# existing is the list of already existing tags
-		# that will be completed with more values
-		my %existing = ();
-		if (defined $product_ref->{$field . "_tags"}) {
-			foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
-				$existing{$tagid} = 1;
-			}
-		}
-		# process each provided value
-		foreach my $tag (split(/,/, $imported_product_ref->{$field})) {
-
-			my $tagid;
-
-			next
-				if $tag =~ /^\s*($empty_regexp|$unknown_regexp|$not_applicable_regexp)\s*$/i;
-
-			$tag =~ s/^\s+//;
-			$tag =~ s/\s+$//;
-			# normalize field in different ways depending on its type
-			if ($field eq 'emb_codes') {
-				$tag = normalize_packager_codes($tag);
-			}
-
-			if (defined $taxonomy_fields{$field}) {
-				$tagid = get_taxonomyid($imported_product_ref->{lc},
-					canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
-			}
-			else {
-				$tagid = get_string_id_for_lang("no_language", $tag);
-			}
-			# if the tag was not already in the existing tags, add it
-			if (not exists $existing{$tagid}) {
-				$log->debug("adding tagid to field", {field => $field, tagid => $tagid})
-					if $log->is_debug();
-				$product_ref->{$field} .= ", $tag";
-				$existing{$tagid} = 1;
-			}
-			else {
-				#print "- $tagid already in $field\n";
-				# replace eventual tagid by it's plain value
-				# update the case (e.g. for brands)
-				if ($field eq "brands") {
-					my $regexp = $tag;
-					$regexp =~ s/( |-)/\( \|-\)/g;
-					$product_ref->{$field} =~ s/\b$tagid\b/$tag/i;
-					$product_ref->{$field} =~ s/\b$regexp\b/$tag/i;
-				}
-			}
-		}
-		# remove leading comma
-		if ((defined $product_ref->{$field}) and ($product_ref->{$field} =~ /^, /)) {
-			$product_ref->{$field} = $';
-		}
-
-		my $tag_lc = $product_ref->{lc};
+		# Keep track of the current tags (if any) so that we know if they changed
+		my $current_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags") || [];
+		my $current_tags = join(",", @$current_tags_ref);
 
 		# If an import_lc was passed as a parameter, assume the imported values are in the import_lc language
-		if (defined $args_ref->{import_lc}) {
-			$tag_lc = $args_ref->{import_lc};
-		}
-		# emb_codes noramlization
-		if ($field eq 'emb_codes') {
-			# French emb codes
-			$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-			$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
-		}
+		my $tag_lc = $imported_product_ref->{lc} // $args_ref->{import_lc} // "en";
+
+		set_field_input_tags_for_source($product_ref, $tag_lc, $field, $source, $imported_product_ref->{$field});
+
+		my $new_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags") || [];
+		my $new_tags = join(",", @$new_tags_ref);
+
 		# post processing according to the type of action
 		# $current_field is the value before update
-		if (not defined $current_field) {
-			$log->debug("added value to field", {field => $field, value => $product_ref->{$field}})
+		if (($current_tags eq "") and ($new_tags ne "")) {
+			$log->debug("added value to field", {field => $field, new_value => $new_tags})
 				if $log->is_debug();
-			# recompute tags
-			compute_field_tags($product_ref, $tag_lc, $field);
 			# rembember it was added
 			push @$modified_fields_ref, $field;
 			# upddate stats
@@ -894,23 +815,18 @@ sub set_field_value (
 			defined $stats_ref->{"products_info_added_" . $field} or $stats_ref->{"products_info_added_" . $field} = {};
 			$stats_ref->{"products_info_added_field_" . $field}{$code} = 1;
 		}
-		elsif ($current_field ne $product_ref->{$field}) {
-			$log->debug("changed value for field",
-				{field => $field, value => $product_ref->{$field}, old_value => $current_field})
+		elsif ($current_tags ne $new_tags) {
+			$log->debug("changed value for tags field",
+				{field => $field, old_value => $current_tags, new_value => $new_tags})
 				if $log->is_debug();
-			# recompute tags
-			compute_field_tags($product_ref, $tag_lc, $field);
 			# rembember it was added
 			push @$modified_fields_ref, $field;
 			# upddate stats
 			$$modified_ref++;
 			$stats_ref->{products_info_changed}{$code} = 1;
-			defined $stats_ref->{"products_info_changed_" . $current_field}
-				or $stats_ref->{"products_info_changed_" . $current_field} = {};
-			$stats_ref->{"products_info_changed_field_" . $current_field}{$code} = 1;
-		}
-		elsif ($field eq "brands") {    # we removed it earlier
-			compute_field_tags($product_ref, $tag_lc, $field);
+			defined $stats_ref->{"products_info_changed_" . $field}
+				or $stats_ref->{"products_info_changed_" . $field} = {};
+			$stats_ref->{"products_info_changed_field_" . $field}{$code} = 1;
 		}
 	}
 	# Processing non tag field
@@ -1097,6 +1013,90 @@ sub compare_old_and_new_objects (
 		$stats_ref->{"products_${field}_updated"}{$code} = 1;
 	}
 	return;
+}
+
+=head2 import_tags_sources_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $time)
+
+Import input tags values in tags_sources, from new fields like tags_sources.[tags field].[source].tags/last_update_t
+
+=cut
+
+sub import_tags_sources_fields (
+	$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
+	$modified_fields_ref, $differing_ref, $differing_fields_ref, $time,
+	)
+{
+
+	# Make a deep copy
+	my $old_tags_sources = dclone($product_ref->{tags_sources} || {});
+
+	# If an import_lc was passed as a parameter, assume the imported values are in the import_lc language
+	my $tag_lc = $imported_product_ref->{lc} // $args_ref->{import_lc} // "en";
+
+	# Go through each field to find fields of the form tags_sources.[tag field].[source].tags|last_updated_t
+	foreach my $field (sort keys %$imported_product_ref) {
+		if ($field =~ /^tags_sources\.([^\.]+)\.([^\.]+).tags$/) {
+			my ($tags_field, $source) = ($1, $2);
+
+			# Check it's a writable tags field
+			if (not defined $writable_tags_fields{$tags_field}) {
+				$log->error("skipping non writable tags field",
+					{field => $field, source => $source, tags_field => $tags_field, value => $imported_product_ref->{$field}})
+					if $log->is_error();
+				next;
+			}
+
+			# Check the source is "packaging", "manufacturer" or starts with "label" or "database"
+			if ($source !~ /^packaging|manufacturer|label.*|database.*$/) {
+				$log->error("skipping unknown source",
+					{field => $field, source => $source, tags_field => $tags_field, value => $imported_product_ref->{$field}})
+					if $log->is_error();
+				next;
+			}
+
+			# If the value is an empty string, we skip it, as it means does not exist in the product
+			# (in the CSV undefined values are not distinguishable from empty strings)
+			# Real empty tags values (existing tags_sources but with empty tags array) are indicated with the value '-'
+			if ($imported_product_ref->{$field} eq '') {
+				$log->debug("skipping empty value",
+					{field => $field, source => $source, tags_field => $tags_field, value => $imported_product_ref->{$field}})
+					if $log->is_error();
+				next;
+			}
+			elsif ($imported_product_ref->{$field} eq '-') {
+				# Empty tags list
+				$imported_product_ref->{$field} = '';
+			}
+
+			# We should also have a last_updated_t field
+			my $last_updated_t = $imported_product_ref->{"tags_sources.${tags_field}.${source}.last_updated_t"};
+			# Convert it to a number
+			if (defined $last_updated_t) {
+				$last_updated_t += 0;
+			}
+
+			$log->debug(
+				"importing tags_sources field",
+				{
+					field => $field,
+					tags_field => $tags_field,
+					source => $source,
+					last_updated_t => $last_updated_t,
+					value => $imported_product_ref->{$field}
+				}
+			) if $log->is_debug();
+
+			set_field_input_tags_for_source($product_ref, $tag_lc, $tags_field, $source,
+				$imported_product_ref->{$field},
+				0, $last_updated_t);
+		}
+	}
+
+	compare_old_and_new_objects(
+		$imported_product_ref->{code}, "tags_sources", $old_tags_sources,
+		$product_ref->{tags_sources}, $stats_ref, $modified_ref,
+		$modified_fields_ref, $differing_ref, $differing_fields_ref
+	);
 }
 
 =head2 import_nutrients_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
@@ -2238,6 +2238,12 @@ sub import_csv_file ($args_ref) {
 				);
 			}
 		}
+
+		# Tags sources input fields of the form tags_sources.[tags field].[source].tags/last_update_t
+		import_tags_sources_fields(
+			$args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,
+			\@modified_fields, \$differing, \%differing_fields, $time,
+		);
 
 		# Nutrients
 

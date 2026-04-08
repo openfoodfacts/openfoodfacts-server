@@ -63,7 +63,7 @@ use vars @EXPORT_OK;
 use Log::Any qw($log);
 
 use ProductOpener::Tags
-	qw/generate_field_tags_from_all_sources compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list display_comma_separated_tags_list_in_lc display_taxonomy_tag/;
+	qw/generate_field_tags_from_all_sources compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list list_taxonomy_tags_in_language display_taxonomy_tag/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
@@ -1030,7 +1030,7 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 				# We generate fields like "labels" and "categories" with the _hierarchy tags that contain unnormalized entries for unrecognized tags
 				# (e.g. with accents and case)
 				$product_ref->{$tagtype}
-					= display_comma_separated_tags_list_in_lc($target_lc, $tagtype,
+					= list_taxonomy_tags_in_language($target_lc, $tagtype,
 					[get_minimal_tags_subset($tagtype, $tags_ref)]);
 			}
 		}
