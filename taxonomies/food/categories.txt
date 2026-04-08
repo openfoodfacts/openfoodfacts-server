@@ -73046,6 +73046,7 @@ nl: Tamarinde pasta
 < en:Plant-based foods
 en: Culinary plants, condiment plants, edible plants
 ca: Plantes culinàries, condiments vegetals, plantes comestibles
+da: Kulinariske planter, Spiselige planter
 de: Eßbare Pflanzen
 es: Plantas culinarias
 fi: ruokakasvit
@@ -73057,6 +73058,7 @@ it: Erbe e piante aromatiche
 lt: Prieskoniniai augalai, kulinariniai augalai
 nl: Plantaardige smaakmakers
 pt: Plantas para culinária
+sv: Kulinariska växter, Ätbara växter
 
 #mix of plant-based ingredients primarily coconot, peanut and spices
 < en:Condiments
@@ -73096,6 +73098,7 @@ agribalyse_proxy_food_name:fr: Raifort, cru
 < en:Culinary plants
 en: Aromatic plants
 ca: Plantes aromàtiques
+da: Aromatiske planter
 de: Gewürzpflanzen
 es: Plantas aromáticas
 fi: aromaattiset kasvit
@@ -73107,6 +73110,7 @@ nl: Aromatische planten
 pt: Plantas aromáticas
 sv: Aromatiska växter
 zh: 芳香植物
+wikidata:en: Q2247340
 
 < en:Aromatic plants
 < en:Fresh plant-based foods
@@ -73193,7 +73197,7 @@ pt: Plantas aromáticas em vaso
 en: Herbs, Aromatic herbs, Fresh herbs
 bg: Ароматични пресни подправки
 ca: Herbes aromàtiques
-da: Urter
+da: Urter, Aromatiske urter, Friske urter
 de: Kräuter
 es: Hierbas aromáticas
 fi: mausteyrtit, vihreitä kasvinosia mausteita
@@ -73225,8 +73229,9 @@ wikidata:en: Q193798
 wikipedia:en: https://en.wikipedia.org/wiki/Silybum_marianum
 
 < en:Aromatic herbs
-en: Basil, Thai basil, Sweet basil
+en: Basils, Basil, Thai basil, Sweet basil
 bg: Босилек
+da: Basilikummer, Basilikum
 de: Basilikum
 es: Albahaca, Alhábega
 fi: basilika
@@ -73238,14 +73243,16 @@ la: Ocimum basilicum
 lt: Bazilikas
 nl: Basilicums
 pl: Bazylia
+sv: Basilikor, Basilika
 agribalyse_proxy_food_code:en: 11033
 agribalyse_proxy_food_name:en: Basil, fresh
 agribalyse_proxy_food_name:fr: Basilic, frais
 wikidata:en: Q38859
 
-< en:Basil
+< en:Basils
 < en:Fresh aromatic plants
-en: Fresh basil
+en: Fresh basils, Fresh basil
+da: Friske basilikummer
 de: frisches Basilikum
 es: Albahaca fresca
 fr: Basilic fraîche, Basilic frais
@@ -73253,22 +73260,30 @@ hr: Svježi bosiljak
 lt: Šviežias bazilikas
 nl: Verse basilicums
 pl: Bazylia świeża
+sv: Färska basilikor
 agribalyse_food_code:en: 11033
 ciqual_food_code:en: 11033
 ciqual_food_name:en: Basil, fresh
 ciqual_food_name:fr: Basilic, frais
 sales_format:en: package, item
 
-< en:Basil
+< en:Basils
+en: Genovese basils
+da: Genovesiske basilikummer
+es: Albahaca genovesa
 it: Basilico Genovese
+ja: ジェノベーゼバジル
+la: Ocimum basilicum ‘Genovese’
+sv: Genovesiska basilikor
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0194
 protected_name_type:en: pdo
-#wikidata:en:
+wikidata:en: Q1061638
 
-< en:Basil
+< en:Basils
 < en:Frozen aromatic plants
-en: Frozen basil
+en: Frozen basils, Frozen basil
+da: Frosne basilikummer
 de: gefrorenes Basilikum
 es: Albahaca congelada
 fr: Basilic surgelé
@@ -73276,36 +73291,49 @@ hr: Smrznuti bosiljak
 it: Basilico surgelato
 lt: Šadytas bazilikas
 nl: Bevroren basilicums
+sv: Frysta basilikor
 
-< en:Basil
+< en:Basils
 < en:Ground dried aromatic plants
-en: Ground dried basil
+en: Ground dried basils, Ground dried basil
+da: Malede tørrede basilikummer
 de: trocken gemahlenes Basilikum
 es: Albahaca seca molida
 fr: Basilic séché moulu, basilic sec moulu
 hr: Samljeveni suhi bosiljak
 lt: Maltas džiovintas bazilikas
 nl: Gedroogde gemalen basilicums
+sv: Malna torkade basilikor
+agribalyse_proxy_food_code:en: 11032
+ciqual_proxy_food_code:en: 11032
+ciqual_proxy_food_name:en: Basil, dried
+ciqual_proxy_food_name:fr: Basilic, séché
 
-< en:Basil
-en: Dried basil
+< en:Basils
+en: Dried basils, Dried basil
+da: Tørrede basilikummer
+de: Getrockneter Basilikum
 fr: Basilic séché
 hr: Sušeni bosiljak
 lt: Džiovintas bazilikas
+sv: Torkade basilikor
 agribalyse_food_code:en: 11032
 ciqual_food_code:en: 11032
 ciqual_food_name:en: Basil, dried
 ciqual_food_name:fr: Basilic, séché
+wikidata:en: Q68497188
 
-< en:Basil
+< en:Basils
 < en:Potted aromatic plants
-en: Potted basil
+en: Potted basils, Potted basil
+da: Basilikummer i krukke
 de: Basilikum im Topf
 es: Macetas de albahaca, Albahaca en maceta
 fr: Basilic en pot
 hr: Bosiljak u saksiji
 lt: Bazilikas vazonėlyje
 nl: Basilicums in pot
+sv: Basilikor i kruka
 
 < en:Aromatic herbs
 en: Chives, Chive
