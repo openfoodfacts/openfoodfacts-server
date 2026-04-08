@@ -749,9 +749,12 @@ const maximumRecentEntriesPerTag = 10;
 
     };
 
-    $('#back-btn').click(function () {
-        window.location.href = window.location.origin + '/product/' + encodeURIComponent(code);
-    });
+    const backBtn = document.getElementById('back-btn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function () {
+            window.location.href = window.location.origin + '/product/' + encodeURIComponent(code);
+        });
+    }
 
     initLanguageAdding();
 
