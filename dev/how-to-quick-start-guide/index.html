@@ -1861,6 +1861,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#4-creating-a-user-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Creating a User Account
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Creating a User Account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-a-new-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Register a New User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Email Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#visual-studio-code" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2933,6 +2972,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#4-creating-a-user-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Creating a User Account
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Creating a User Account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-a-new-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Register a New User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Email Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#visual-studio-code" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3401,6 +3479,25 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 <p>To have all site pages on your dev instance, see <a href="../how-to-use-pages-from-openfoodfacts-web/">Using pages from openfoodfacts-web</a></p>
 <p><a href="../how-to-use-repl/">Using Repl</a> offers you a way to play with perl.</p>
 <p>Specific notes are provided on <a href="../how-to-update-agribalyse-ecoscore/">applying AGRIBALYSE updates to support the Ecoscore</a> calculation.</p>
+<h2 id="4-creating-a-user-account">4. Creating a User Account<a class="headerlink" href="#4-creating-a-user-account" title="Permanent link">#</a></h2>
+<p>To test the application, you'll need to create a user account. All user authentication is handled through Keycloak.</p>
+<h3 id="register-a-new-user">Register a New User<a class="headerlink" href="#register-a-new-user" title="Permanent link">#</a></h3>
+<ol>
+<li>Go to <code>http://world.openfoodfacts.localhost/</code></li>
+<li>Click <strong>"Sign in"</strong> - you'll be redirected to the Keycloak login page</li>
+<li>Click <strong>"Register"</strong> to create a new account</li>
+<li>Fill in the registration form and submit</li>
+</ol>
+<h3 id="email-verification">Email Verification<a class="headerlink" href="#email-verification" title="Permanent link">#</a></h3>
+<p>After registering, Keycloak will ask you to verify your email address. In the local development environment, <strong>emails are not sent to real email addresses</strong>. Instead, they're captured by a local email server.</p>
+<p><strong>To verify your email:</strong></p>
+<ol>
+<li>Open <code>http://localhost:5605/</code> in your browser (SMTP4Dev interface)</li>
+<li>You'll see your verification email with subject "Verify email"</li>
+<li>Click on the email to open it</li>
+<li>Click the verification link inside the email</li>
+<li>Your account will be activated!</li>
+</ol>
 <h2 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">#</a></h2>
 <p><strong>WARNING</strong>: Devcontainer support is currently experimental. It's recommended to run the normal docker commands before, and stop the containers: <code>make dev down</code>. Note that <code>make dev</code>, <code>make test</code>, and so on may currently conflict with the devcontainer.</p>
 <p>This repository comes with a configuration for Visual Studio Code (VS Code) <a href="https://code.visualstudio.com/docs/remote/containers">development containers (devcontainer)</a>. This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.</p>
