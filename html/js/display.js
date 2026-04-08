@@ -152,7 +152,12 @@ $(function () {
             }
         }
     }).on("select2:select", function (e) {
-        let subdomain = e.params.data.id;
+        let subdomain = e.params.data.id || '';
+        if (typeof subdomain !== 'string') {
+            subdomain = String(subdomain);
+        }
+        // Restrict the subdomain to safe characters (alphanumeric and hyphen)
+        subdomain = subdomain.replace(/[^A-Za-z0-9-]/g, '');
         if (!subdomain) {
             subdomain = 'world';
         }

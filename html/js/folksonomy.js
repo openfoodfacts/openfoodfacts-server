@@ -44,19 +44,8 @@ let feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
 
-const escapeAttrMap = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;',
-    '`': '&#x60;'
-};
-
 function escapeHtmlAttr(input) {
-    return String(input).replace(/[&<>"'`]/g, function (ch) {
-        return escapeAttrMap[ch];
-    });
+    return window.offUtils.escapeAttr(input);
 }
 
 
@@ -149,24 +138,24 @@ function folskonomy_engine_init() {
       
                 const property = results[1];
 
-                const webComponentHTML = `
-                    <div style="padding: 32px;">
-                        <folksonomy-property-products property-name="${escapeHtmlAttr(property)}"></folksonomy-property-products>
-                    </div>
-                `;
-
-                $("#main_column").append(webComponentHTML);
+                // Create the web component using DOM methods to avoid building HTML strings
+                const _container = document.createElement('div');
+                _container.style.padding = '32px';
+                const _wc = document.createElement('folksonomy-property-products');
+                // setAttribute ensures the value is assigned safely
+                _wc.setAttribute('property-name', property);
+                _container.appendChild(_wc);
+                document.getElementById('main_column').appendChild(_container);
       }
       
 
     if (pageType === "properties") {
-        const webComponentHTML = `
-          <div style="padding: 32px;">
-            <folksonomy-properties></folksonomy-properties>
-          </div>
-        `;
-
-        $("#main_column").append(webComponentHTML);
+                // Create the web component using DOM methods instead of concatenating HTML
+                const _container2 = document.createElement('div');
+                _container2.style.padding = '32px';
+                const _wc2 = document.createElement('folksonomy-properties');
+                _container2.appendChild(_wc2);
+                document.getElementById('main_column').appendChild(_container2);
     }
 }
 

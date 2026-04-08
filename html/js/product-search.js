@@ -1,5 +1,13 @@
 /*global lang */
 
+function escapeHtml(s) {
+	return window.offUtils.escapeHtml(s);
+}
+
+function escapeAttr(s) {
+	return window.offUtils.escapeAttr(s);
+}
+
 // match_product_to_preference checks if a product matches
 // a given set of preferences and scores the product according to
 // the preferences
@@ -219,7 +227,7 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 
 
 function product_edit_url(product) {
-	return `/cgi/product.pl?type=edit&code=${product.code}`;
+	return `/cgi/product.pl?type=edit&code=${encodeURIComponent(product.code)}`;
 }
 
 
@@ -238,7 +246,7 @@ function display_products(target, product_groups, user_prefs) {
 
 		$.each(product_group, function (key, product) {
 
-			let product_html = `<li><a href="${product.url}" class="list_product_a" title="${product.product_display_name}">`;
+			let product_html = `<li><a href="${escapeAttr(product.url)}" class="list_product_a" title="${escapeAttr(product.product_display_name)}">`;
 
 			// Add a colored banner to show how the product matches the user's preferences
 			if (user_prefs.use_ranking) {
@@ -250,18 +258,18 @@ function display_products(target, product_groups, user_prefs) {
 			product_html += '<div class="list_product_img_div">';
 
 			if (product.image_front_small_url) {
-				product_html += `<img src="${product.image_front_small_url}" class="list_product_img" alt="${product.product_display_name}" loading="lazy">`;
+				product_html += `<img src="${escapeAttr(product.image_front_small_url)}" class="list_product_img" alt="${escapeAttr(product.product_display_name)}" loading="lazy">`;
 			}
 			else {
-				product_html += `<img src="/images/icons/dist/packaging.svg" style="filter:invert(.9)" class="list_product_img" alt="${product.product_display_name}" loading="lazy">`;
+				product_html += `<img src="/images/icons/dist/packaging.svg" style="filter:invert(.9)" class="list_product_img" alt="${escapeAttr(product.product_display_name)}" loading="lazy">`;
 			}
 
 			product_html += "</div>";
 
 			if (product.product_display_name) {
-				product_html += '<div class="list_product_name">' + product.product_display_name + "</div>";
+				product_html += '<div class="list_product_name">' + escapeHtml(product.product_display_name) + "</div>";
 			} else {
-				product_html += '<div class="list_product_name">' + product.code + "</div>";
+				product_html += '<div class="list_product_name">' + escapeHtml(product.code) + "</div>";
 			}
 
 			product_html += '<div class="list_product_sc">';
@@ -278,13 +286,13 @@ function display_products(target, product_groups, user_prefs) {
 						title += " - " + attribute.missing;
 					}
 
-					product_html += '<img class="list_product_icons" src="' + attribute.icon_url + '" title="' + title + '" alt="' + attribute.title + '" loading="lazy">';
+					product_html += '<img class="list_product_icons" src="' + escapeAttr(attribute.icon_url) + '" title="' + escapeAttr(title) + '" alt="' + escapeAttr(attribute.title) + '" loading="lazy">';
 				}
 			});
 			product_html += '</div>';
 			// add some specific fields
 			if (user_prefs.display.display_barcode) {
-				product_html += `<span class="list_display_barcode">${product.code}</span>`;
+				product_html += `<span class="list_display_barcode">${escapeHtml(product.code)}</span>`;
 			}
 
 			product_html += "</div>";
@@ -294,9 +302,9 @@ function display_products(target, product_groups, user_prefs) {
 				const edit_title = lang().edit_product_page;
 				product_html += `
 				<a class="list_edit_link"
-				    alt="Edit ${product.product_display_name}"
-				    href="${edit_url}"
-				    title="${edit_title}">
+					alt="Edit ${escapeAttr(product.product_display_name)}"
+					href="${escapeAttr(edit_url)}"
+					title="${escapeAttr(edit_title)}">
 					<img src="/images/icons/dist/edit.svg">
 				</a>
 				`;
@@ -392,7 +400,7 @@ function display_product_summary(target, product) {
 
 	let attributes_html = '';
 
-	$.each(product.match_attributes.mandatory.concat(product.match_attributes.very_important, product.match_attributes.important), function (key, attribute) {
+		$.each(product.match_attributes.mandatory.concat(product.match_attributes.very_important, product.match_attributes.important), function (key, attribute) {
 
 		// vary the color from green to red
 		let grade = "unknown";
@@ -401,41 +409,54 @@ function display_product_summary(target, product) {
 			grade = attribute.grade;
 		}
 
-		// card_html will be either a <div> or a <a> element, depending on whether it is linked to a knowledge panel
-		let card_html = 'class="attribute_card grade_' + grade + '">' +
+		// Build the card inner content and escape all user-controlled values
+		let card_inner = '<div class="attribute_card grade_' + grade + '">' +
 			'<div><div class="attr_card_header">' +
-			'<div class="img_attr"><img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;" alt="'+ attribute.name +' icon"></div>' +
-			'<div class="attr_text"><h4 class="grade_' + grade + '_title attr_title">' + attribute.title + '</h4>';
+			'<div class="img_attr"><img src="' + escapeAttr(attribute.icon_url) + '" style="height:72px;float:right;margin-left:0.5rem;" alt="' + escapeAttr(attribute.name) + ' icon"></div>' +
+			'<div class="attr_text"><h4 class="grade_' + grade + '_title attr_title">' + escapeHtml(attribute.title) + '</h4>';
 
 		if (attribute.description_short) {
-			card_html += '<span>' + attribute.description_short + '</span>';
+			card_inner += '<span>' + escapeHtml(attribute.description_short) + '</span>';
 		}
 
 		if (attribute.missing) {
-			card_html += "<p class='attribute_missing'>" + attribute.missing + "</p>";
+			card_inner += "<p class='attribute_missing'>" + escapeHtml(attribute.missing) + "</p>";
 		}
-		card_html += "</div></div></div>";
+		card_inner += "</div></div></div></div>";
+
+		let card_html;
 		// check if the product attribute has an associated knowledge panel that exists
 		if (attribute.panel_id) {
 			// note: on the website, the id for the panel contains : instead of - (e.g. for the ingredients_analysis_en:vegan panel)
 			const panel_element_id = 'panel_' + attribute.panel_id.replace(':', '-');
 			if (document.getElementById(panel_element_id)) {
-				// onclick : open the panel content + reflow to make sur all column content is shown
-				card_html = '<a href="#' + panel_element_id
-					+ '" onclick="document.getElementById(\'' + panel_element_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
+				card_html = '<a href="#' + escapeAttr(panel_element_id) + '" data-panel="' + escapeAttr(panel_element_id) + '" class="open-product-panel">' + card_inner + '</a>';
 			}
 			else {
-				card_html = '<div ' + card_html + '</div>';
+				card_html = '<div>' + card_inner + '</div>';
 			}
 		}
 		else {
-			card_html = '<div ' + card_html + '</div>';
+			card_html = '<div>' + card_inner + '</div>';
 		}
 
 		attributes_html += '<li>' + card_html + '</li>';
-	});
+		});
 
 	$(target).html('<ul id="attributes_grid" class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">' + attributes_html + '</ul>');
+
+	// Attach click handlers to open product knowledge panels (avoid inline onclick)
+	$(target).find('.open-product-panel').on('click', function (e) {
+		e.preventDefault();
+		const panel = this.dataset.panel;
+		if (panel) {
+			const el = document.getElementById(panel + '_content');
+			if (el) {
+				el.classList.add('active');
+				$(document).foundation('equalizer', 'reflow');
+			}
+		}
+	});
 
 	$(document).foundation('equalizer', 'reflow');
 }

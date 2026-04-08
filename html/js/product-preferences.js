@@ -1,3 +1,24 @@
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+// This file is part of Product Opener.
+//
+// Product Opener
+// Copyright (C) 2011-2026 Association Open Food Facts
+// Contact: contact@openfoodfacts.org
+// Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+//
+// Product Opener is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 /*global lang */
 /*global preferences_text*/ // depends on which type of page the preferences are shown on
 /*global default_preferences*/ // depends on flavor: OFF, OBF etc.
@@ -11,6 +32,14 @@ let use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('
 let reset_message;
 
 const staticBaseUri = `${document.location.protocol}//static.${document.querySelector('html').dataset.serverdomain}`;
+
+function escapeHtml(s) {
+  return window.offUtils.escapeHtml(s);
+}
+
+function escapeAttr(s) {
+  return window.offUtils.escapeAttr(s);
+}
 
 function get_user_product_preferences() {
     // Retrieve user preferences from local storage
@@ -62,9 +91,9 @@ function display_selected_preferences(target_selected_summary, product_preferenc
         $.each(attribute_group.attributes, function(key, attribute) {
 
             if ((product_preferences[attribute.id]) && (product_preferences[attribute.id] != "not_important")) {
-                const attribute_html = '<li>' + attribute.setting_name + '</li>';
-                selected_preference_groups[product_preferences[attribute.id]].push(attribute_html);
-            }
+            const attribute_html = '<li>' + escapeHtml(attribute.setting_name) + '</li>';
+            selected_preference_groups[product_preferences[attribute.id]].push(attribute_html);
+          }
         });
     });
 
@@ -146,7 +175,12 @@ function setCookie(name, value, days) {
         date.setTime(date.getTime() + (days*24*60*60*1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + (encodeURIComponent(value) || "")  + expires + "; path=/";
+  let cookieStr = name + "=" + (encodeURIComponent(value) || "")  + expires + "; path=/";
+  // Add Secure and a SameSite directive when served over HTTPS
+  if (window.location && window.location.protocol === 'https:') {
+    cookieStr += "; Secure; SameSite=Lax";
+  }
+  document.cookie = cookieStr;
 }
 
 // callback function when the unwanted ingredients input field is changed
@@ -337,7 +371,7 @@ function display_user_product_preferences(target_selected, target_selection_form
           attribute_name_and_parameters_html =
             '<div style="display: flex; flex-direction: column; align-items: flex-start;width: 100%;">' +
               '<label for="attribute_unwanted_ingredients_names">' +
-                "<span class='attribute_name' style=\"margin-bottom: 0.5rem;\">" + attribute.setting_name + "</span>" +
+                "<span class='attribute_name' style=\"margin-bottom: 0.5rem;\">" + escapeHtml(attribute.setting_name) + "</span>" +
               "</label>" +
               '<input type="text" name="attribute_unwanted_ingredients_names" id="attribute_unwanted_ingredients_names" ' +
                 'class="text" ' +
@@ -347,13 +381,13 @@ function display_user_product_preferences(target_selected, target_selection_form
                 'style="width: 100%;"/>' +
             "</div>";
         } else {
-          attribute_name_and_parameters_html = "<span class='attribute_name'>" + attribute.setting_name + "</span>";
+          attribute_name_and_parameters_html = "<span class='attribute_name'>" + escapeHtml(attribute.setting_name) + "</span>";
         }
 
         attribute_group_html +=
-          "<li id='attribute_" + attribute.id + "' class='attribute'>" +
+          "<li id='attribute_" + escapeAttr(attribute.id) + "' class='attribute'>" +
           "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
-          "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
+          "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + escapeAttr(attribute.icon_url) + "' class='match_icons' alt=''></div>" +
           attribute_name_and_parameters_html +
           "</div>" +
           "<div class='attribute_group'>";
@@ -368,13 +402,13 @@ function display_user_product_preferences(target_selected, target_selection_form
           }
 
           attribute_group_html +=
-            "<div class='attribute_item'><input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id +
-            "' value='" + preference.id + "' type='radio' name='" + attribute.id + "'" + checked + ">" +
-            "<label for='attribute_" + attribute.id + "_" + preference.id + "'>" + preference.name + "</label></input></div>";
+            "<div class='attribute_item'><input class='attribute_radio' id='attribute_" + escapeAttr(attribute.id) + "_" + escapeAttr(preference.id) +
+            "' value='" + escapeAttr(preference.id) + "' type='radio' name='" + escapeAttr(attribute.id) + "'" + checked + ">" +
+            "<label for='attribute_" + escapeAttr(attribute.id) + "_" + escapeAttr(preference.id) + "'>" + escapeHtml(preference.name) + "</label></input></div>";
         });
 
         if (attribute.description_short) {
-          attribute_group_html += "<p class='attribute_description_short'>" + attribute.description_short + "</p>";
+          attribute_group_html += "<p class='attribute_description_short'>" + escapeHtml(attribute.description_short) + "</p>";
         }
 
         attribute_group_html += "<hr style='clear:left;border:none;margin:0;margin-bottom:0.5rem;padding:0;'>";

@@ -24,6 +24,7 @@ function gulpLogAndExit(error) {
 }
 
 const jsSrc = [
+  "./html/js/off-utils.js",
   "./html/js/display*.js",
   "./html/js/product-*.js",
   "./html/js/tagify-init.js",

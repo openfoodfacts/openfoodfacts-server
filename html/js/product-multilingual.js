@@ -1029,18 +1029,7 @@ $('#manage_images_accordion').on('toggled', function () {
 });
 
 function escapeHtml(text) {
-    const escapeMap = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#39;',
-        '`': '&#x60;'
-    };
-
-    return String(text).replace(/[&<>"'`]/g, function (ch) {
-        return escapeMap[ch];
-    });
+    return window.offUtils.escapeHtml(text);
 }
 
 async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copyData = null) {

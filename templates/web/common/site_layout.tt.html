@@ -24,13 +24,17 @@
     <script type="importmap">
     {
         "imports": {
+			"off-utils": "[% static_subdomain %]/js/dist/off-utils.js",
             "@openfoodfacts/openfoodfacts-webcomponents": "[% static_subdomain %]/js/dist/off-webcomponents.bundled.js",
             "leaflet": "[% static_subdomain %]/js/dist/leaflet-src.js",
             "leaflet.markercluster": "[% static_subdomain %]/js/dist/leaflet.markercluster.js",
-            "jsvectormap": "[% static_subdomain %]/js/dist/jsvectormap.esm.js"
+			"jsvectormap": "[% static_subdomain %]/js/dist/jsvectormap.esm.js"
         }
     }
     </script>
+	<script type="module">
+		import 'off-utils';
+	</script>
     <script type="module" src="[% static_subdomain %]/js/dist/off-webcomponents.bundled.js"></script>
 	[% header %]
     <style media="all">

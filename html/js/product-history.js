@@ -40,14 +40,18 @@ function activate_product_revert_buttons_in_history () {
                     // we don't pass cc and lc, as they will get the right default value from the subdomain
                 }),
                 success: function(data) {
-                    let message = data.status;
+                    const message = data.status;
+                    const $res = $('#revert_result_' + rev);
+                    $res.empty();
                     if (data.status === 'success') {
-                        message = message + ' - <a href="/product/' + code +'">' + data.result.lc_name + '</a>';
+                        // Append text then a safe link node
+                        $res.text(message + ' - ');
+                        const $a = $('<a>').attr('href', '/product/' + encodeURIComponent(code)).text(data.result.lc_name);
+                        $res.append($a);
                     }
                     else {
-                        message = message + ' - ' + data.result.lc_name;
+                        $res.text(message + ' - ' + data.result.lc_name);
                     }
-                    $('#revert_result_' + rev).html(message);
                 }
             });
         }
