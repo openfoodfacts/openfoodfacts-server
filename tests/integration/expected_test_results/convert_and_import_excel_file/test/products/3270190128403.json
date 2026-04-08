@@ -41,36 +41,13 @@
    "amino_acids_tags" : [],
    "brand_owner" : "Carrefour",
    "brand_owner_imported" : "Carrefour",
-   "brands" : "Carrefour Bio, Carrefour",
-   "brands_hierarchy" : [
-      "xx:carrefour-bio",
-      "xx:Carrefour"
-   ],
+   "brands" : "Carrefour BIO, carrefour",
    "brands_imported" : "Carrefour Bio, Carrefour",
-   "brands_lc" : "xx",
    "brands_tags" : [
       "xx:carrefour-bio",
       "xx:carrefour"
    ],
-   "categories" : "Plant-based foods and beverages, Plant-based foods, Legumes and their products, Cereals and potatoes, Fruits and vegetables based foods, Legumes, Seeds, Legume seeds, Vegetables based foods, Pulses, Lentils, Green lentils",
-   "categories_hierarchy" : [
-      "en:plant-based-foods-and-beverages",
-      "en:plant-based-foods",
-      "en:fruits-and-vegetables-based-foods",
-      "en:legumes-and-their-products",
-      "en:vegetable-based-foods-and-beverages",
-      "en:cereals-and-potatoes",
-      "en:legumes",
-      "en:seeds",
-      "en:vegetables-based-foods",
-      "en:legume-seeds",
-      "en:vegetables",
-      "en:pulses",
-      "en:lentils",
-      "en:green-lentils"
-   ],
    "categories_imported" : "Plant-based foods and beverages, Plant-based foods, Legumes and their products, Cereals and potatoes, Fruits and vegetables based foods, Legumes, Seeds, Legume seeds, Vegetables based foods, Pulses, Lentils, Green lentils",
-   "categories_lc" : "fr",
    "categories_properties" : {
       "agribalyse_proxy_food_code:en" : "20585"
    },
@@ -119,14 +96,9 @@
       "3xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0.8625,
+   "completeness" : 0.7625,
    "correctors_tags" : [],
-   "countries" : "France",
-   "countries_hierarchy" : [
-      "en:france"
-   ],
    "countries_imported" : "France",
-   "countries_lc" : "fr",
    "countries_tags" : [
       "en:france"
    ],
@@ -196,11 +168,10 @@
    "data_quality_warnings_tags" : [
       "en:nutrition-value-under-0-01-g-salt"
    ],
-   "data_sources" : "Producers, Producer - carrefour",
    "data_sources_imported" : "Producers, Producer - carrefour",
    "data_sources_tags" : [
-      "producers",
-      "producer-carrefour"
+      "producer-carrefour",
+      "producers"
    ],
    "ecoscore_tags" : [
       "a-plus"
@@ -208,9 +179,7 @@
    "editors_tags" : [
       "test-user"
    ],
-   "emb_codes" : "EMB 43062A",
    "emb_codes_imported" : "EMB 43062A",
-   "emb_codes_orig" : "EMB 43062A",
    "emb_codes_tags" : [
       "emb-43062a"
    ],
@@ -731,17 +700,7 @@
    "ingredients_without_ecobalyse_ids_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "known_ingredients_n" : 1,
-   "labels" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France",
-   "labels_hierarchy" : [
-      "en:organic",
-      "en:eu-organic",
-      "en:eu-agriculture",
-      "en:fr-bio-01",
-      "en:french-agriculture",
-      "fr:ab-agriculture-biologique"
-   ],
    "labels_imported" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France, en:organic",
-   "labels_lc" : "fr",
    "labels_tags" : [
       "en:organic",
       "en:eu-organic",
@@ -777,13 +736,12 @@
    "link" : "https://www.carrefour.fr/p/lentilles-bio-vertes-carrefour-bio-3270190128403",
    "link_imported" : "https://www.carrefour.fr/p/lentilles-bio-vertes-carrefour-bio-3270190128403",
    "main_countries_tags" : [],
-   "manufacturing_places" : "Chaspuzac, Haute-Loire, Auvergne, France",
    "manufacturing_places_imported" : "Chaspuzac,Haute-Loire,Auvergne,France",
    "manufacturing_places_tags" : [
-      "chaspuzac",
-      "haute-loire",
       "auvergne",
-      "france"
+      "chaspuzac",
+      "france",
+      "haute-loire"
    ],
    "max_imgid" : 1,
    "minerals_tags" : [],
@@ -1627,12 +1585,7 @@
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
-   "origins" : "France",
-   "origins_hierarchy" : [
-      "en:france"
-   ],
    "origins_imported" : "France",
-   "origins_lc" : "fr",
    "origins_tags" : [
       "en:france"
    ],
@@ -1640,13 +1593,7 @@
    "owner" : "org-test-org",
    "owner_fields" : "--ignore--",
    "owners_tags" : "org-test-org",
-   "packaging" : "carton",
-   "packaging_hierarchy" : [
-      "en:paper-or-cardboard",
-      "en:cardboard"
-   ],
    "packaging_imported" : "carton",
-   "packaging_lc" : "fr",
    "packaging_materials_tags" : [
       "en:cardboard"
    ],
@@ -1676,12 +1623,7 @@
       "en:paper-or-cardboard" : {}
    },
    "packagings_n" : 1,
-   "periods_after_opening" : "48 mois",
-   "periods_after_opening_hierarchy" : [
-      "en:48-months"
-   ],
    "periods_after_opening_imported" : "48 mois",
-   "periods_after_opening_lc" : "fr",
    "periods_after_opening_tags" : [
       "en:48-months"
    ],
@@ -1744,13 +1686,13 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded",
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-completed",
       "en:ingredients-completed",
       "en:expiration-date-to-be-completed",
-      "en:packaging-code-completed",
+      "en:packaging-code-to-be-completed",
       "en:characteristics-to-be-completed",
       "en:origins-completed",
       "en:categories-completed",
@@ -1765,7 +1707,6 @@
       "en:front-photo-selected",
       "en:photos-uploaded"
    ],
-   "stores" : "Carrefour",
    "stores_imported" : "Carrefour",
    "stores_tags" : [
       "carrefour"
@@ -1777,20 +1718,131 @@
             "tags" : []
          }
       },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:carrefour-bio",
+               "xx:Carrefour"
+            ]
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:plant-based-foods-and-beverages",
+               "en:plant-based-foods",
+               "en:legumes-and-their-products",
+               "en:cereals-and-potatoes",
+               "en:fruits-and-vegetables-based-foods",
+               "en:vegetables",
+               "en:seeds",
+               "en:legume-seeds",
+               "en:vegetables-based-foods",
+               "en:pulses",
+               "en:lentils",
+               "en:green-lentils"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:france"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - carrefour"
+            ]
+         }
+      },
+      "emb_codes" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "EMB 43062A"
+            ]
+         }
+      },
+      "labels" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:organic",
+               "en:eu-organic",
+               "en:fr-bio-01",
+               "fr:ab-agriculture-biologique",
+               "en:french-agriculture"
+            ]
+         }
+      },
+      "manufacturing_places" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Chaspuzac",
+               "Haute-Loire",
+               "Auvergne",
+               "France"
+            ]
+         }
+      },
+      "origins" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:france"
+            ]
+         }
+      },
+      "packaging" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:cardboard"
+            ]
+         }
+      },
+      "periods_after_opening" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:48-months"
+            ]
+         }
+      },
+      "stores" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Carrefour"
+            ]
+         }
+      },
       "traces" : {
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:gluten"
+            ]
          }
       }
    },
-   "traces" : "Gluten",
-   "traces_hierarchy" : [
+   "traces_imported" : "Gluten",
+   "traces_tags" : [
       "en:gluten"
    ],
-   "traces_imported" : "Gluten",
-   "traces_lc" : "fr",
-   "traces_tags" : [],
    "unknown_ingredients_n" : 0.0,
    "vitamins_tags" : [],
    "weighers_tags" : []

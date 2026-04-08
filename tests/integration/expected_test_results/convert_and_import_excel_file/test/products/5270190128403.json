@@ -12,12 +12,8 @@
    "additives_tags" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
-   "brands" : "World Test",
-   "brands_hierarchy" : [
-      "xx:World Test"
-   ],
+   "brands" : "world-test",
    "brands_imported" : "World Test",
-   "brands_lc" : "xx",
    "brands_tags" : [
       "xx:world-test"
    ],
@@ -48,12 +44,7 @@
    "complete" : 0,
    "completeness" : 0.4,
    "correctors_tags" : [],
-   "countries" : "en",
-   "countries_hierarchy" : [
-      "fr:en"
-   ],
    "countries_imported" : "en",
-   "countries_lc" : "fr",
    "countries_tags" : [
       "fr:en"
    ],
@@ -129,11 +120,10 @@
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
    ],
-   "data_sources" : "Producers, Producer - world-test-food",
    "data_sources_imported" : "Producers, Producer - world-test-food",
    "data_sources_tags" : [
-      "producers",
-      "producer-world-test-food"
+      "producer-world-test-food",
+      "producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -1269,12 +1259,7 @@
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
-   "origins" : "Martinique",
-   "origins_hierarchy" : [
-      "en:martinique"
-   ],
    "origins_imported" : "Martinique",
-   "origins_lc" : "fr",
    "origins_tags" : [
       "en:martinique"
    ],
@@ -1347,6 +1332,39 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:World Test"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "fr:en"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - world-test-food"
+            ]
+         }
+      },
+      "origins" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:martinique"
+            ]
          }
       },
       "traces" : {

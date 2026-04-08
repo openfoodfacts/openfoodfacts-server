@@ -10,21 +10,12 @@
    "additives_tags" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
-   "brands" : "Test",
-   "brands_hierarchy" : [
-      "xx:Test"
-   ],
+   "brands" : "test",
    "brands_imported" : "Test",
-   "brands_lc" : "xx",
    "brands_tags" : [
       "xx:test"
    ],
-   "categories" : "Test category",
-   "categories_hierarchy" : [
-      "en:Test category"
-   ],
    "categories_imported" : "Test category",
-   "categories_lc" : "en",
    "categories_properties" : {},
    "categories_properties_tags" : [
       "all-products",
@@ -55,12 +46,7 @@
    "complete" : 0,
    "completeness" : 0.4,
    "correctors_tags" : [],
-   "countries" : "Etats-Unis",
-   "countries_hierarchy" : [
-      "en:Etats-Unis"
-   ],
    "countries_imported" : "Etats-Unis",
-   "countries_lc" : "en",
    "countries_tags" : [
       "en:etats-unis"
    ],
@@ -140,11 +126,10 @@
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
    ],
-   "data_sources" : "Producers, Producer - test-food-company",
    "data_sources_imported" : "Producers, Producer - test-food-company",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-food-company"
+      "producer-test-food-company",
+      "producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -766,6 +751,39 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:Test"
+            ]
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:Test category"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:Etats-Unis"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-food-company"
+            ]
          }
       },
       "traces" : {

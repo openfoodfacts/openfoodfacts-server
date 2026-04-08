@@ -9,12 +9,8 @@
    ],
    "added_countries_tags" : [],
    "allergens_tags" : [],
-   "brands" : "Adelie",
-   "brands_hierarchy" : [
-      "xx:Adelie"
-   ],
+   "brands" : "adelie",
    "brands_imported" : "Adelie",
-   "brands_lc" : "xx",
    "brands_tags" : [
       "xx:adelie"
    ],
@@ -45,12 +41,7 @@
    "complete" : 0,
    "completeness" : 0.2,
    "correctors_tags" : [],
-   "countries" : "fr",
-   "countries_hierarchy" : [
-      "en:france"
-   ],
    "countries_imported" : "fr",
-   "countries_lc" : "fr",
    "countries_tags" : [
       "en:france"
    ],
@@ -122,11 +113,10 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-org"
+      "producer-test-org",
+      "producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -653,6 +643,31 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:Adelie"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:france"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-org"
+            ]
          }
       },
       "traces" : {

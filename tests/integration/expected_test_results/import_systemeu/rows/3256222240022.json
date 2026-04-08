@@ -1,11 +1,7 @@
 {
-   "allergens" : "",
-   "brands" : "U",
-   "categories" : "Sirops",
    "code" : "3256222240022",
    "data_sources" : "",
    "ingredients_text_fr" : "Sucre, eau, jus de fruits à base de concentrés 15,8 % (cerise 6%, sureau, mûre 4,1%), arômes naturels, acidifiant : acide citrique.",
-   "labels" : "Transformé en France",
    "lc" : "fr",
    "nutrition.input_sets.packaging.as_sold.100g.nutrients.carbohydrates.unit" : "g",
    "nutrition.input_sets.packaging.as_sold.100g.nutrients.carbohydrates.value" : "79",
@@ -39,5 +35,13 @@
    "nutrition.input_sets.packaging.as_sold.100g.per_unit" : "g",
    "obsolete" : "0",
    "product_name_fr" : "Sirop de recette gourmande cerise/mûre bouteille de 70cl",
-   "quantity" : "0.7000 l"
+   "quantity" : "0.7000 l",
+   "tags_sources.allergens.packaging.last_updated_t" : "",
+   "tags_sources.allergens.packaging.tags" : "",
+   "tags_sources.brands.packaging.last_updated_t" : "1775664849",
+   "tags_sources.brands.packaging.tags" : "xx:U",
+   "tags_sources.categories.packaging.last_updated_t" : "1775664849",
+   "tags_sources.categories.packaging.tags" : "en:syrups",
+   "tags_sources.labels.packaging.last_updated_t" : "1775664849",
+   "tags_sources.labels.packaging.tags" : "en:transformed-in-france"
 }

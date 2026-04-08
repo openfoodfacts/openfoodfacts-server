@@ -5,12 +5,8 @@
    ],
    "added_countries_tags" : [],
    "allergens_tags" : [],
-   "brands" : "Default brand",
-   "brands_hierarchy" : [
-      "xx:Default brand"
-   ],
+   "brands" : "default-brand",
    "brands_imported" : "Default brand",
-   "brands_lc" : "xx",
    "brands_tags" : [
       "xx:default-brand"
    ],
@@ -41,12 +37,7 @@
    "complete" : 0,
    "completeness" : 0.1,
    "correctors_tags" : [],
-   "countries" : "en",
-   "countries_hierarchy" : [
-      "en:en"
-   ],
    "countries_imported" : "en",
-   "countries_lc" : "en",
    "countries_tags" : [
       "en:en"
    ],
@@ -118,11 +109,10 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - world-test-food",
    "data_sources_imported" : "Producers, Producer - world-test-food",
    "data_sources_tags" : [
-      "producers",
-      "producer-world-test-food"
+      "producer-world-test-food",
+      "producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -577,6 +567,31 @@
          "ingredients" : {
             "last_updated_t" : "--ignore--",
             "tags" : []
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:Default brand"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:en"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - world-test-food"
+            ]
          }
       },
       "traces" : {
