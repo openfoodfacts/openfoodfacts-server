@@ -394,12 +394,14 @@ else {
 
 		}
 
-		# add_brands=additional brand : only add if it does not exist yet
+		# add_brands=additional brand : add a tag
+		my $add_tags = 0;
 		if ((defined $tags_fields{$field}) and (defined single_param("add_$field"))) {
 
 			my $additional_fields = remove_tags_and_quote(decode utf8 => single_param("add_$field"));
 
-			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
+			param(-name => $field, -value => $additional_fields);
+			$add_tags = 1;
 
 			$log->debug(
 				"add_field",
@@ -407,13 +409,11 @@ else {
 					field => $field,
 					code => $code,
 					additional_fields => $additional_fields,
-					existing_value => $product_ref->{$field}
 				}
 			) if $log->is_debug();
-			next;
 		}
 
-		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source);
+		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source, $add_tags);
 
 		if (defined $language_fields{$field}) {
 

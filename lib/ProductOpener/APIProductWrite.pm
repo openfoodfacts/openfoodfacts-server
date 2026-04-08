@@ -814,9 +814,13 @@ Field value.
 
 Source of the field value: "packaging" on the public platform, "manufacturer" on the producer platform.
 
+=head4 $add_tags (input)
+
+If set to 1, we will add the tags to existing values
+
 =cut
 
-sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source) {
+sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source, $add_tags = 0) {
 
 	$log->debug("update_product_field_api_v2_and_cgi", {field => $field, value => $value, source => $source})
 		if $log->is_debug();
@@ -842,7 +846,7 @@ sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value
 	# tags_sources currently only works for taxonomized fields
 	elsif ((defined $writable_tags_fields{$field}) and (defined $taxonomy_fields{$field})) {
 
-		set_field_input_tags_for_source($product_ref, $target_lc, $field, $source, $value);
+		set_field_input_tags_for_source($product_ref, $target_lc, $field, $source, $value, $add_tags);
 	}
 	elsif ($field eq "lang") {
 		# strip variants fr-BE fr_BE

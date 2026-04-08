@@ -570,7 +570,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/1234567890341',
 	},
-	# Remove acets
+	# Remove facets
 	{
 		test_case => 'post-product-remove-facets',
 		method => 'POST',
