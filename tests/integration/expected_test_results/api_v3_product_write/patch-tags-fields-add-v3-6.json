@@ -49,7 +49,6 @@
          "Végétarien",
          "Something-unrecognized-in-french"
       ],
-      "stores" : "Carrefour, Mon Ptit magasin",
       "stores_tags" : [
          "carrefour",
          "mon-ptit-magasin"
@@ -115,6 +114,15 @@
                "tags" : [
                   "en:vegetarian",
                   "fr:Something unrecognized in French"
+               ]
+            }
+         },
+         "stores" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "Carrefour",
+                  "Mon Ptit magasin"
                ]
             }
          },

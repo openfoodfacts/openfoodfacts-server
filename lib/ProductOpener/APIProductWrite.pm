@@ -225,30 +225,24 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 			200
 		);
 	}
+	elsif (not defined $writable_tags_fields{$field}) {
+		add_error(
+			$response_ref,
+			{
+				message => {id => "invalid_field"},
+				field => {id => $field},
+				impact => {id => "field_ignored"},
+			},
+			200
+		);
+	}
 	else {
 		# Generate a comma separated list of tags, so that we can use existing functions to add tags
 		my $tags_list = join(',', @$value);
 
-		# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
-		# tags_sources currently only works for taxonomized fields
-		if ((defined $writable_tags_fields{$field}) and (defined $taxonomy_fields{$field})) {
-
-			set_field_input_tags_for_source($product_ref, $tags_lc, $field, $source, $tags_list, $add_to_existing_tags);
-		}
-		else {
-			if ($add_to_existing_tags) {
-				add_tags_to_field($product_ref, $tags_lc, $field, $tags_list);
-			}
-			else {
-				$product_ref->{$field} = $tags_list;
-			}
-
-			# For some tags fields that are not taxonomized (e.g. emb_codes),
-			# we still need to call the old compute_field_tags() function
-			if (defined $tags_fields{$field} and not defined $taxonomy_fields{$field}) {
-				compute_field_tags($product_ref, $tags_lc, $field);
-			}
-		}
+		# Writable tags fields (e.g. categories_tags) are processed in a specific way,
+		# in order to update the tags_sources structure and generate the field_tags structure tags_sources
+		set_field_input_tags_for_source($product_ref, $tags_lc, $field, $source, $tags_list, $add_to_existing_tags);
 
 		$request_ref->{updated_product_fields}{tags_sources}{$field} = 1;
 		$request_ref->{updated_product_fields}{$field} = 1;    # joined inputs, can be in any language
