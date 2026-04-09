@@ -10,7 +10,8 @@ subtest 'implementation level below 5 never emits headers' => sub {
 	local $oidc_options{oidc_implementation_level} = 4;
 	local $oidc_options{oidc_auth_legacy_headers_mode} = 'legacy';
 
-	my ($emit, $reason, $mode) = ProductOpener::Auth::_should_emit_auth_deprecated_headers({endpoint => 'cgi/session.pl'});
+	my ($emit, $reason, $mode)
+		= ProductOpener::Auth::_should_emit_auth_deprecated_headers({endpoint => 'cgi/session.pl'});
 	is($emit, 0, 'headers are not emitted');
 	is($reason, 'implementation_level_below_5', 'suppression reason is explicit');
 	is($mode, undef, 'mode is irrelevant before level 5');
@@ -20,7 +21,8 @@ subtest 'legacy mode keeps current behavior' => sub {
 	local $oidc_options{oidc_implementation_level} = 5;
 	local $oidc_options{oidc_auth_legacy_headers_mode} = 'legacy';
 
-	my ($emit, $reason, $mode) = ProductOpener::Auth::_should_emit_auth_deprecated_headers({endpoint => 'cgi/session.pl'});
+	my ($emit, $reason, $mode)
+		= ProductOpener::Auth::_should_emit_auth_deprecated_headers({endpoint => 'cgi/session.pl'});
 	is($emit, 1, 'headers are emitted');
 	is($reason, 'legacy_allowed', 'legacy mode allows emission');
 	is($mode, 'legacy', 'legacy mode is selected');
@@ -30,7 +32,8 @@ subtest 'off mode disables deprecated headers explicitly' => sub {
 	local $oidc_options{oidc_implementation_level} = 5;
 	local $oidc_options{oidc_auth_legacy_headers_mode} = 'off';
 
-	my ($emit, $reason, $mode) = ProductOpener::Auth::_should_emit_auth_deprecated_headers({endpoint => 'cgi/session.pl'});
+	my ($emit, $reason, $mode)
+		= ProductOpener::Auth::_should_emit_auth_deprecated_headers({endpoint => 'cgi/session.pl'});
 	is($emit, 0, 'headers are not emitted');
 	is($reason, 'mode_off', 'off mode blocks emission');
 	is($mode, 'off', 'off mode is selected');
@@ -73,7 +76,8 @@ subtest 'unknown mode falls back to legacy behavior' => sub {
 	local $oidc_options{oidc_implementation_level} = 5;
 	local $oidc_options{oidc_auth_legacy_headers_mode} = 'surprise-value';
 
-	my ($emit, $reason, $mode) = ProductOpener::Auth::_should_emit_auth_deprecated_headers({endpoint => 'cgi/session.pl'});
+	my ($emit, $reason, $mode)
+		= ProductOpener::Auth::_should_emit_auth_deprecated_headers({endpoint => 'cgi/session.pl'});
 	is($emit, 1, 'fallback emits headers');
 	is($reason, 'legacy_allowed', 'fallback uses legacy policy');
 	is($mode, 'legacy', 'unknown mode normalizes to legacy');
