@@ -25,14 +25,25 @@ barcodeModalButton.addEventListener("click", function () {
 
 // Function to handle barcode detection
 function onBarcodeDetected(barcode) {
-  const url = new URL(window.location.href);
-  const baseUrl = `${url.protocol}//${url.hostname}`;
-  const redirectionUrl =
-    baseUrl +
-    "/cgi/search.pl?search_terms=" +
-    encodeURIComponent(barcode) +
-    "&search_simple=1&action=process";
-  window.location.href = redirectionUrl;
+  // Support complex GS1 barcodes (DataMatrix/QR payloads may include parentheses,
+  // FNC1 (ASCII 29), or other characters). Avoid stripping GS1-specific
+  // characters; only remove dangerous control chars that could break headers
+  // or logs (CR/LF/NUL). Use the URL API to build the redirect safely.
+  function removeControlChars(str) {
+    return Array.from(String(str)).filter((ch) => {
+      const code = ch.charCodeAt(0);
+
+      return code !== 0 && code !== 10 && code !== 13;
+    }).join('');
+  }
+
+  const sanitized = removeControlChars(barcode).trim();
+  const redirectUrl = new URL('/cgi/search.pl', window.location.origin);
+  // URLSearchParams will percent-encode the value as needed.
+  redirectUrl.searchParams.set('search_terms', sanitized);
+  redirectUrl.searchParams.set('search_simple', '1');
+  redirectUrl.searchParams.set('action', 'process');
+  window.location.href = redirectUrl.toString();
 }
 
 // Handle barcode scanner state changes
