@@ -13206,6 +13206,7 @@ it: Bevande a base di tè
 lt: Arbatos gėrimai, Nealkoholiniai gaivieji gėrimai su arbatos ekstraktu ir cukrumi bei saldikliais
 nl: Dranken op basis van thee
 pt: Bebidas à base de chá
+sv: Tebaserade drycker
 agribalyse_proxy_food_code:en: 18015
 agribalyse_proxy_food_name:en: Still soft drink with tea extract, with sugar and artificial sweetener(s)
 ciqual_food_code:en: 18062
@@ -39252,7 +39253,6 @@ agribalyse_proxy_food_code:en: 31004
 wikidata:en: Q2164820
 #all agribalyse milk chocolate categories have the same CO2 score
 
-#Do not put this category under chocolates since "filled chocolate eggs" are bonbons, not chocolate
 < en:Cocoa and its products
 en: Chocolate eggs
 bg: Шоколадови яйца
@@ -39264,8 +39264,11 @@ fr: Oeufs en chocolat, Oeuf en chocolat
 hr: Čokoladna jaja
 hu: Csokoládé tojás
 it: Uovo di Cioccolato
+lt: Šokoladiniai kiaušiniai
 nl: Chocolade eieren
 sv: Chokladägg
+comment:en: Do not put this category under chocolates since "filled chocolate eggs" are bonbons, not chocolate
+wikidata:en: Q21156490
 
 < en:Chocolate molds
 < en:Milk chocolates
@@ -39572,8 +39575,8 @@ lt: Baltas šokolado batonėlis su praline
 nl: Witte chocoladereep met praliné
 
 < en:Chocolate molds
-< en:Easter food
-en: Chocolate rabbits, Easter rabbits
+< en:Easter chocolates
+en: Easter chocolate rabbits, Chocolate rabbits, Easter rabbits
 de: Schokoladenhasen
 es: Conejos De Chocolate, Conejos De Pascua
 fi: suklaapuput
@@ -39584,7 +39587,6 @@ it: Conigli di cioccolato, Coniglietti di cioccolato, Conigli pasquali di ciocco
 ja: うさぎ型のチョコレート
 lt: Šokoladiniai kiškiai, Šokoladiniai zuikiai, Vėlykiniai kiškiai
 nl: Chocolade paashazen
-#wikidata:en:
 
 < en:Chocolates
 en: Chocolates with sweeteners
@@ -41317,34 +41319,35 @@ ja: ロクム
 tr: Lokumlar
 wikidata:en: Q182339
 
-< en:Festive foods
-en: Easter food, Easter chocolates
-bg: Великденска храна
-de: Osterschokoladen
-es: Comida de Pascua
-fi: Pääsiäisruoat
-fr: Aliments de Pâques, chocolats de Pâques, Chocolat de Pâques
-hr: Uskrsna hrana
-hu: Húsvéti csokoládék
-it: Cibi per Pasqua
-lt: Velykų maistas, valykiniai šokoladai
-nl: Paasproducten
-pt: Alimentos da páscoa
-
-< en:Chocolate eggs
-< en:Easter food
-en: Easter eggs, Easter chocolate eggs
+< en:Easter foods and drinks
+en: Easter eggs
 bg: Великденски яйца
-de: Osterschokoladeneier
-es: Huevos de Pascua de chocolate
-fi: pääsiäissuklaamunat
-fr: Œufs de Pâques, oeuf de pâques, Oeufs de pâques en chocolat, oeuf de pâques en chocolat
+da: Påskeæg
+es: Huevos de Pascua
+fi: Pääsiäismunat
+fr: Œufs de Pâques, oeuf de pâques
 hr: Uskrsna jaja
-hu: Húsvéti csokoládé tojás
+hu: Húsvéti tojás
 it: Uova di pasqua
-lt: Velykiniai kiaušiniai, šokoladiniai kiaušiniai, velykiniai šokoladiniai kiaušiniai
+lt: Velykiniai kiaušiniai
 nl: Paaseieren
 pt: Ovos da páscoa
+sv: Påskägg
+wikidata:en: Q163886
+
+< en:Chocolate eggs
+< en:Easter chocolates
+< en:Easter eggs
+en: Easter chocolate eggs, Chocolate Easter eggs
+da: Påskechokoladeæg, Chokoladepåskeæg
+de: Osterschokoladeneier
+es: Huevos de Pascua de chocolate
+fi: Pääsiäissuklaamunat
+fr: Œufs de pâques en chocolat, Oeufs de pâques en chocolat, oeuf de pâques en chocolat
+hu: Húsvéti csokoládé tojás
+lt: Velykiniai šokoladiniai kiaušiniai
+sv: Påskchokladägg, Chokladpåskägg
+wikidata:en: Q117662368
 
 < en:Bonbons
 < en:Chocolate eggs
@@ -41391,6 +41394,32 @@ hr: Svečana jela
 lt: Šventiniai maisto produktai
 nl: Feestdagenproducten
 ru: Праздничные продукты
+
+< en:Festive foods
+en: Easter foods and drinks, Easter food
+bg: Великденска храна
+da: Påskemad og -drikke
+es: Comida de Pascua
+fi: Pääsiäisruoat
+fr: Aliments de Pâques
+hr: Uskrsna hrana
+it: Cibi per Pasqua
+lt: Velykų maistas
+nl: Paasproducten
+pt: Alimentos da páscoa
+sv: Påskmat och -dryckor
+wikidata:en: Q10647926
+
+< en:Cocoa and its products
+< en:Easter foods and drinks
+en: Easter chocolates
+da: Påskechokolader
+de: Osterschokoladen
+fr: Chocolats de Pâques, Chocolat de Pâques
+hu: Húsvéti csokoládék
+lt: Valykiniai šokoladai
+sv: Påskchoklader
+comment:en: This category is not under chocolates since some of its children are “filled chocolates” and as such are bonbons, not chocolates.
 
 < en:Festive foods
 en: Christmas foods and drinks
@@ -44633,6 +44662,7 @@ lt: Pasternoko traškučiai
 nl: Pastinaakchips
 
 < en:Crisps
+< en:Sweet potatoes and their products
 en: Sweet potato crisps
 de: Süßkartoffelchips
 fi: Bataattilastut
@@ -44975,12 +45005,13 @@ wikidata:en: Q1524389
 en: Flavoured corn crisps, Flavoured corn chips, Flavoured tortilla chips
 fr: Chips de maïs aromatisées
 
-< en:Cereals and potatoes
 < en:Chips and fries
+< en:Sweet potatoes and their products
 en: Sweet potato fries
-Fr: Frites de patate douce
+fr: Frites de patate douce
+wikidata:en: Q17105567
 
-< en:Cereals and potatoes
+< en:Sweet potatoes and their products
 en: Mashed sweet potatoes, Sweet potato puree cooked with cream
 fr: Purées de patates douces, Purée de patates douces cuisinée à la crème, Purée de patate douce cuisinée à la crème
 agribalyse_food_code:en: 4103
@@ -45593,6 +45624,7 @@ food_groups:en: en:cheese
 google_product_taxonomy_id:en: 429
 intake24_category_code:en: CHES
 nova:en: 3
+plant_alternative:en: en:cheese-substitutes
 pnns_group_2:en: Cheese
 who_id:en: 8
 wikidata:en: Q10943
@@ -51519,6 +51551,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Butter (Perishable)
 incompatible_with:en: categories:en:Goat butters, Sheep butters
 intake24_category_code:en: BUTR
+plant_alternative:en: en:plant-based-spreads
 wikidata:en: Q34172
 
 < en:Butters
@@ -52116,6 +52149,7 @@ agribalyse_proxy_food_name:fr: Lait demi-écrémé, UHT
 food_groups:en: en:milk-and-yogurt
 google_product_taxonomy_id:en: 418
 intake24_category_code:en: MDNK
+plant_alternative:en: en:plant-based-milk-alternatives
 pnns_group_2:en: Milk and yogurt
 wikidata:en: Q8495
 
@@ -59369,6 +59403,7 @@ food_of_animal_origin:en: yes
 gpc_category_code:en: 10006210
 gpc_category_description:en: Definition: Includes any products that can be described/observed as bird eggs in the shell that have been sorted to remove eggs of lower quality such as cracked and dirty eggs and are often sorted by size. Eggs may be unwashed, washed, washed and oiled, aged, and/or pasteurized in the shell. Definition Excludes: Specifically excludes nest-run eggs, checked and dirty eggs, and individually cooked eggs.
 gpc_category_name:en: In Shell Table Eggs
+plant_alternative:en: en:egg-substitutes
 pnns_group_2:en: Eggs
 wikidata:en: Q659503
 
@@ -69416,6 +69451,7 @@ ciqual_food_name:en: Blueberry, raw
 ciqual_food_name:fr: Myrtille, crue
 expected_ingredients:en: en:blueberry
 sales_format:en: weight, package
+wikidata:en: Q137373435
 
 < en:Blueberries
 < en:Fresh fruits
@@ -69591,6 +69627,7 @@ ciqual_food_code:en: 13014
 ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
 sales_format:en: weight, package
+wikidata:en: Q14458220
 
 #agribalyse_food_code:en:13014_1
 #ciqual_food_code:en:13014
@@ -70098,7 +70135,7 @@ pl: Pomarańcza, Pomarańcze
 ru: Апельсины
 tr: Portakal
 intake24_category_code:en: ORNG
-
+wikidata:en: Q13191
 
 < en:Fresh fruits
 < en:Oranges
@@ -70233,6 +70270,7 @@ ciqual_food_name:fr: Raisin, cru
 intake24_category_code:en: GRPS
 sales_format:en: weight, package
 season_in_country_fr:en: 9,10
+wikidata:en: Q10978
 
 < en:Grapes
 it: Uva di Puglia
@@ -71032,16 +71070,20 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Fruits
-en: Pomegranates
+en: Pomegranates, Pomegranate pulp and pips
 da: Granatæbler
 es: Granadas
-fr: Grenades
+fr: Grenades, Pulpe et pépins de grenade
 hr: Pitomi šipak
 ja: ザクロ
 lt: Granatų vaisiai, Granatos
 nb: Granatepler
 nl: Granaatappels
 sv: Granatäpplen
+agribalyse_proxy_food_code:en: 13018
+ciqual_proxy_food_code:en: 13018
+ciqual_proxy_food_name:en: Pomegranate, pulp and pips, raw
+ciqual_proxy_food_name:fr: Grenade, pulpe et pépins, crue
 sales_format:en: weight, package
 
 < en:Fresh fruits
@@ -71053,13 +71095,13 @@ hr: Svježi šipak
 lt: Švieži granatų vaisiai
 sv: Ferska granatäpplen
 
-< en:Fruits
-en: Pomegranate pulp and pips
-fr: Pulpe et pépins de grenade
-agribalyse_food_code:en: 13018
-ciqual_food_code:en: 13018
-ciqual_food_name:en: Pomegranate, pulp and pips, raw
-ciqual_food_name:fr: Grenade, pulpe et pépins, crue
+< en:Pomegranates
+en: Pomegranate seeds
+da: Granatæblekerner
+fi: Granaattiomenan siemen
+fr: graines de grenade
+nb: Granateplekjerner
+sv: Granatäppelkärnor
 
 < en:Fruits
 en: Quinces
@@ -73043,6 +73085,7 @@ nl: Tamarinde pasta
 < en:Plant-based foods
 en: Culinary plants, condiment plants, edible plants
 ca: Plantes culinàries, condiments vegetals, plantes comestibles
+da: Kulinariske planter, Spiselige planter
 de: Eßbare Pflanzen
 es: Plantas culinarias
 fi: ruokakasvit
@@ -73054,6 +73097,7 @@ it: Erbe e piante aromatiche
 lt: Prieskoniniai augalai, kulinariniai augalai
 nl: Plantaardige smaakmakers
 pt: Plantas para culinária
+sv: Kulinariska växter, Ätbara växter
 
 #mix of plant-based ingredients primarily coconot, peanut and spices
 < en:Condiments
@@ -73093,6 +73137,7 @@ agribalyse_proxy_food_name:fr: Raifort, cru
 < en:Culinary plants
 en: Aromatic plants
 ca: Plantes aromàtiques
+da: Aromatiske planter
 de: Gewürzpflanzen
 es: Plantas aromáticas
 fi: aromaattiset kasvit
@@ -73104,6 +73149,7 @@ nl: Aromatische planten
 pt: Plantas aromáticas
 sv: Aromatiska växter
 zh: 芳香植物
+wikidata:en: Q2247340
 
 < en:Aromatic plants
 < en:Fresh plant-based foods
@@ -73190,7 +73236,7 @@ pt: Plantas aromáticas em vaso
 en: Herbs, Aromatic herbs, Fresh herbs
 bg: Ароматични пресни подправки
 ca: Herbes aromàtiques
-da: Urter
+da: Urter, Aromatiske urter, Friske urter
 de: Kräuter
 es: Hierbas aromáticas
 fi: mausteyrtit, vihreitä kasvinosia mausteita
@@ -73222,8 +73268,9 @@ wikidata:en: Q193798
 wikipedia:en: https://en.wikipedia.org/wiki/Silybum_marianum
 
 < en:Aromatic herbs
-en: Basil, Thai basil, Sweet basil
+en: Basils, Basil, Thai basil, Sweet basil
 bg: Босилек
+da: Basilikummer, Basilikum
 de: Basilikum
 es: Albahaca, Alhábega
 fi: basilika
@@ -73235,14 +73282,16 @@ la: Ocimum basilicum
 lt: Bazilikas
 nl: Basilicums
 pl: Bazylia
+sv: Basilikor, Basilika
 agribalyse_proxy_food_code:en: 11033
 agribalyse_proxy_food_name:en: Basil, fresh
 agribalyse_proxy_food_name:fr: Basilic, frais
 wikidata:en: Q38859
 
-< en:Basil
+< en:Basils
 < en:Fresh aromatic plants
-en: Fresh basil
+en: Fresh basils, Fresh basil
+da: Friske basilikummer
 de: frisches Basilikum
 es: Albahaca fresca
 fr: Basilic fraîche, Basilic frais
@@ -73250,22 +73299,30 @@ hr: Svježi bosiljak
 lt: Šviežias bazilikas
 nl: Verse basilicums
 pl: Bazylia świeża
+sv: Färska basilikor
 agribalyse_food_code:en: 11033
 ciqual_food_code:en: 11033
 ciqual_food_name:en: Basil, fresh
 ciqual_food_name:fr: Basilic, frais
 sales_format:en: package, item
 
-< en:Basil
+< en:Basils
+en: Genovese basils
+da: Genovesiske basilikummer
+es: Albahaca genovesa
 it: Basilico Genovese
+ja: ジェノベーゼバジル
+la: Ocimum basilicum ‘Genovese’
+sv: Genovesiska basilikor
 origins:en: en:italy
 protected_name_file_number:en: PDO-IT-0194
 protected_name_type:en: pdo
-#wikidata:en:
+wikidata:en: Q1061638
 
-< en:Basil
+< en:Basils
 < en:Frozen aromatic plants
-en: Frozen basil
+en: Frozen basils, Frozen basil
+da: Frosne basilikummer
 de: gefrorenes Basilikum
 es: Albahaca congelada
 fr: Basilic surgelé
@@ -73273,36 +73330,49 @@ hr: Smrznuti bosiljak
 it: Basilico surgelato
 lt: Šadytas bazilikas
 nl: Bevroren basilicums
+sv: Frysta basilikor
 
-< en:Basil
+< en:Basils
 < en:Ground dried aromatic plants
-en: Ground dried basil
+en: Ground dried basils, Ground dried basil
+da: Malede tørrede basilikummer
 de: trocken gemahlenes Basilikum
 es: Albahaca seca molida
 fr: Basilic séché moulu, basilic sec moulu
 hr: Samljeveni suhi bosiljak
 lt: Maltas džiovintas bazilikas
 nl: Gedroogde gemalen basilicums
+sv: Malna torkade basilikor
+agribalyse_proxy_food_code:en: 11032
+ciqual_proxy_food_code:en: 11032
+ciqual_proxy_food_name:en: Basil, dried
+ciqual_proxy_food_name:fr: Basilic, séché
 
-< en:Basil
-en: Dried basil
+< en:Basils
+en: Dried basils, Dried basil
+da: Tørrede basilikummer
+de: Getrockneter Basilikum
 fr: Basilic séché
 hr: Sušeni bosiljak
 lt: Džiovintas bazilikas
+sv: Torkade basilikor
 agribalyse_food_code:en: 11032
 ciqual_food_code:en: 11032
 ciqual_food_name:en: Basil, dried
 ciqual_food_name:fr: Basilic, séché
+wikidata:en: Q68497188
 
-< en:Basil
+< en:Basils
 < en:Potted aromatic plants
-en: Potted basil
+en: Potted basils, Potted basil
+da: Basilikummer i krukke
 de: Basilikum im Topf
 es: Macetas de albahaca, Albahaca en maceta
 fr: Basilic en pot
 hr: Bosiljak u saksiji
 lt: Bazilikas vazonėlyje
 nl: Basilicums in pot
+sv: Basilikor i kruka
 
 < en:Aromatic herbs
 en: Chives, Chive
@@ -81493,6 +81563,11 @@ en: Krögarpytt
 sv: Krögarpytt
 
 < en:Meals
+en: Sweet potato dishes
+intake24_category_code:en: POTD
+wikidata:en: Q138773658
+
+< en:Meals
 en: Chop suey
 xx: Chop suey
 fr: Chop suey
@@ -82892,8 +82967,10 @@ fr: Soupes de crevettes
 nl: Erwtensoepen
 
 < en:Soups
+< en:Sweet potato dishes
 en: Sweet potato soups
 nl: Zoete aardappelsoepen
+wikidata:en: Q1012556
 
 < en:Reheatable soups
 < en:Soups
@@ -84869,6 +84946,7 @@ ciqual_food_name:fr: Légume cuit (aliment moyen)
 en: Prepared carrots
 
 < en:Prepared vegetables
+< en:Sweet potatoes and their products
 en: Prepared sweet potatoes
 nl: Geprepareerde zoete aardappelen
 
@@ -84906,6 +84984,10 @@ lt: Tarkuotos morkos be prieskonių
 < en:Prepared vegetables
 en: Carrot salads
 nl: Wortelsalades
+
+< en:Prepared vegetables
+en: Green beans wrapped in bacon
+fr: Haricots verts enveloppés de bacon, Fagots de haricots verts enrobés de bacon
 
 < en:Prepared vegetables
 en: Celeriac in remoulade sauce
@@ -86355,6 +86437,7 @@ tr: Et
 zh: 肉类, 肉
 food_groups:en: en:meat-other-than-poultry
 intake24_category_code:en: MEAT
+plant_alternative:en: en:meat-analogues
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en: Meat
 
@@ -102134,6 +102217,7 @@ sv: Fiskar, fisk
 tr: Balık
 zh: 鱼类
 intake24_category_code:en: RWFH
+plant_alternative:en: en:fish-analogues
 wikidata:en: Q600396
 
 < en:Fishes
@@ -107176,7 +107260,9 @@ hr: Baba ghanoush
 nl: Baba ghanoush, Baba ganush
 wikidata:en: Q1072192
 
+< en:Plant-based spreads
 < en:Salted spreads
+< en:Sweet potato dishes
 en: Sweet potato spreads
 de: Süßkartoffel-Aufstriche, Süßkartoffel-Aufstrich
 fr: Tartinades de patates douces
@@ -113288,7 +113374,12 @@ ciqual_food_name:en: Spinach w cream sauce
 ciqual_food_name:fr: Épinards à la crème
 
 < en:Cereals and potatoes
+en: Sweet potatoes and their products
+food_groups:en: en:potatoes
+pnns_group_2:en: Potatoes
+
 < en:Root vegetables
+< en:Sweet potatoes and their products
 en: Sweet potatoes, Sweet potato
 bg: Сладки картофи
 de: Süßkartoffeln
@@ -114554,14 +114645,6 @@ pt: Pulsos
 ru: Зернобобовые
 intake24_category_code:en: PEAS
 wikidata:en: Q2727662
-
-< en:Seeds
-en: Pomegranate seeds
-da: Granatæblekerner
-fi: Granaattiomenan siemen
-fr: graines de grenade
-nb: Granateplekjerner
-sv: Granatäppelkärnor
 
 < en:Pulses
 en: Cooked pulses
@@ -120669,16 +120752,22 @@ ciqual_food_name:fr: Saucisse végétale au tofu (convient aux véganes ou vég�
 
 #Meat and fish categories are separated while Fish analogues is under meat analogue. This difference is intended, since fishes are animals and therefore considered as meat by vegetarians
 < en:Meat analogues
-en: Fish analogues, Plant-based fish, Plantbased fish
+en: Fish analogues, Plant-based fish, Plantbased fish, Vegan fish
+da: Plantebaserede fisk, Veganske fisk
 hr: Analozi ribe
 nl: Plantaardige vissen
 pl: Zastępniki ryb
+sv: Växtbaserade fiskar, Veganska fiskar
 
 < en:Fish analogues
-en: Salmon analogues
+en: Salmon analogues, Vegan salmon
+da: Plantebaserede laks, Veganske laks
+sv: Växtbaserade laxar, Veganska laxar
 
 < en:Fish analogues
-en: Tuna analogues
+en: Tuna analogues, Vegan tuna
+da: Plantebaserede tun, Veganske tun
+sv: Växtbaserade tonfiskar, Veganska tonfiskar
 
 < en:Dairy substitutes
 < en:Plant-based foods
@@ -122529,6 +122618,9 @@ fr: Produits thermogéniques
 hr: Termogenika
 wikidata:en: Q7783178
 
+< en:Bodybuilding supplements
+en: HMB supplements, HMB
+
 < en:Dietary supplements
 en: Ayurvedic supplements, Ayurvedic medicines
 wikidata:en: Q112879390
@@ -123546,7 +123638,7 @@ it: Frittelle salate
 nl: Hartige gefrituurde producten
 #wikidata:en:
 
-< en:Salty Fritters
+< en:Salty fritters
 en: Vegetable fritters
 fr: Beignets de légumes
 agribalyse_food_code:en: 25556
@@ -123556,16 +123648,21 @@ ciqual_food_name:fr: Beignet de légumes
 intake24_category_code:en: 19VFRIT
 intake24_category_code:fr: 19VFRIT
 
-< en:Salty snacks
+< en:Vegetable fritters
+en: Bhaji, baji, bhajee
+xx: Bhaji, baji, bhajee
+wikidata:en: Q680242
+
+< en:Salty fritters
 en: Pakora
 xx: Pakora
-Wikidata:en: Q1126275
+wikidata:en: Q1126275
 
 < en:Pakora
 en: Chicken pakora
 
 < en:Sweet snacks
-en: Sweet Fritters
+en: Sweet fritters
 de: Süße Krapfen
 fi: makeat fritit, Makeat uppopaistokset
 fr: Beignets sucrés
