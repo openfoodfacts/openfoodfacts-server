@@ -65,7 +65,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libwww-perl \
         libimage-magick-perl \
         libxml-encoding-perl  \
-        libtext-unaccent-perl \
         libmime-lite-perl \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
@@ -73,7 +72,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         #11866: Delete following after Keycloak Migration:
         libcrypt-passwdmd5-perl \
         libencode-detect-perl \
-        libgraphics-color-perl \
         libbarcode-zbar-perl \
         libxml-feedpp-perl \
         liburi-find-perl \
@@ -83,7 +81,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libdigest-md5-perl \
         libtime-local-perl \
         libdbd-pg-perl \
-        libtemplate-perl \
         liburi-escape-xs-perl \
         libxml-libxslt-perl \
         libdata-table-perl \
@@ -93,11 +90,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libfile-copy-recursive-perl \
         libemail-stuffer-perl \
         liblist-moreutils-perl \
-        libexcel-writer-xlsx-perl \
         libpod-simple-perl \
-        liblog-any-perl \
         liblog-log4perl-perl \
-        liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
         libemail-valid-perl
@@ -151,15 +145,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         liblinux-usermod-perl \
         # Locale::Maketext::Lexicon::Getcontext
         liblocale-maketext-lexicon-perl \
-        # Log::Any::Adapter::TAP
-        liblog-any-adapter-tap-perl \
         # Math::Random::Secure
         libcrypt-random-source-perl \
         libmath-random-isaac-perl \
         libtest-sharedfork-perl \
         libtest-warn-perl \
-        # Mojo::Pg
-        libsql-abstract-perl \
         # MongoDB
         libauthen-sasl-saslprep-perl \
         libauthen-scram-perl \
@@ -167,7 +157,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libclass-xsaccessor-perl \
         libconfig-autoconf-perl \
         libdigest-hmac-perl \
-        libpath-tiny-perl \
         libsafe-isa-perl \
         # Spreadsheet::CSV
         libspreadsheet-parseexcel-perl \
