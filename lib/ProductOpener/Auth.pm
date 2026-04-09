@@ -870,13 +870,66 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	return;
 }
 
-=head2 write_auth_deprecated_headers()
+=head2 _should_emit_auth_deprecated_headers($context_ref)
+
+Returns if deprecated auth headers should be emitted and why.
+
+=head3 Arguments
+
+=head4 Reference to a hash containing optional endpoint and version information. $context_ref
+
+=head3 Return values
+
+Returns a list: ($should_emit, $reason, $mode)
+
+=cut
+
+sub _should_emit_auth_deprecated_headers($context_ref = {}) {
+	my $implementation_level = get_oidc_implementation_level();
+	if ($implementation_level < 5) {
+		return (0, 'implementation_level_below_5', undef);
+	}
+
+	my $mode = lc($oidc_options{oidc_auth_legacy_headers_mode} // 'legacy');
+
+	if ($mode eq 'off') {
+		return (0, 'mode_off', $mode);
+	}
+
+	if ($mode eq 'transitional') {
+		my %endpoint_allowlist = (
+			'cgi/session.pl' => 1,
+			'cgi/sso.pl' => 1,
+		);
+
+		my $endpoint = $context_ref->{endpoint} // '';
+		if (($endpoint ne '') and (not $endpoint_allowlist{$endpoint})) {
+			return (0, 'transitional_endpoint_blocked', $mode);
+		}
+
+		my $api_version = $context_ref->{api_version};
+		if (defined $api_version and ($api_version =~ /^(\d+)$/) and ($1 >= 3)) {
+			return (0, 'transitional_api_version_blocked', $mode);
+		}
+
+		return (1, 'transitional_allowed', $mode);
+	}
+
+	if ($mode ne 'legacy') {
+		# Fail-safe: unknown values keep legacy behavior.
+		$mode = 'legacy';
+	}
+
+	return (1, 'legacy_allowed', $mode);
+}
+
+=head2 write_auth_deprecated_headers($context_ref)
 
 Writes the deprecation notice for old authentication sites as HTTP headers.
 
 =head3 Arguments
 
-None.
+=head4 Optional reference to a hash containing endpoint and flow metadata. $context_ref
 
 =head3 Return values
 
@@ -884,10 +937,27 @@ None.
 
 =cut
 
-sub write_auth_deprecated_headers() {
-	if (get_oidc_implementation_level() >= 5) {
-		# Add the deprecation warning once we have fully migrated to Keycloak
-		#10558: We still need to implement the mechanism for creating client_id / secrets for API users
+sub write_auth_deprecated_headers($context_ref = {}) {
+	my ($should_emit, $reason, $mode) = _should_emit_auth_deprecated_headers($context_ref);
+
+	if ($log->is_info()) {
+		$log->info(
+			'deprecated_auth_headers_decision',
+			{
+				emit => $should_emit,
+				reason => $reason,
+				mode => $mode,
+				implementation_level => get_oidc_implementation_level(),
+				endpoint => $context_ref->{endpoint},
+				flow => $context_ref->{flow},
+				api_version => $context_ref->{api_version},
+			}
+		);
+	}
+
+	if ($should_emit) {
+		# Add the deprecation warning once we have fully migrated to Keycloak.
+		#10558: We still need to implement the mechanism for creating client_id / secrets for API users.
 		my $r = Apache2::RequestUtil->request();
 		$r->err_headers_out->set('Deprecation', 'Mon, 01 Jan 2026 00:00:00 GMT');
 		$r->err_headers_out->set('Sunset', 'Tue, 01 Jan 2027 18:00:00 GMT');

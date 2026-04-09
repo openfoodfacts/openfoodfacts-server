@@ -230,7 +230,8 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 	client_id => $ProductOpener::Config2::oidc_client_id,
 	client_secret => $ProductOpener::Config2::oidc_client_secret,
 	oidc_implementation_level => $ProductOpener::Config2::oidc_implementation_level,
-	oidc_discovery_url => $ProductOpener::Config2::oidc_discovery_url
+	oidc_discovery_url => $ProductOpener::Config2::oidc_discovery_url,
+	oidc_auth_legacy_headers_mode => $ProductOpener::Config2::oidc_auth_legacy_headers_mode,
 );
 
 # Slack options
