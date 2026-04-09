@@ -215,7 +215,10 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     ) && \
     # first install some dependencies that are not well handled
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
+    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . && \
+    # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
+    # without adding an unresolved dependency back into cpanfile.
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Test2::Harness::Renderer::JUnit" \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
 
