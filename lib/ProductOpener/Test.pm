@@ -760,12 +760,7 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 			my @keys = split(/\./, $field);
 			my $final_key = pop(@keys);
 			for my $item_ref (_get_sub_fields($object_ref, @keys)) {
-				if ($final_key ne "*") {
-					if ((ref($item_ref) eq 'HASH') and (defined $item_ref->{$final_key})) {
-						$item_ref->{$final_key} = $transformation->($item_ref->{$final_key});
-					}
-				}
-				else {
+				if ($final_key eq '*') {
 					if (ref($item_ref) eq 'ARRAY') {
 						for my $index (0 .. (scalar @$item_ref) - 1) {
 							$item_ref->[$index] = $transformation->($item_ref->[$index]);
@@ -777,6 +772,24 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 						}
 					}
 					# Note: * on a scalar means nothing
+				}
+				# If the final key contains a * (with something else), treat the * as a wildcard for any character
+				# and apply the transformation to all fields that match the pattern
+				elsif ($final_key =~ /\*/) {
+					if (ref($item_ref) eq 'HASH') {
+						my $regex = $final_key;
+						$regex =~ s/\*/.*/g;
+						foreach my $key (keys %$item_ref) {
+							if ($key =~ /^$regex$/) {
+								$item_ref->{$key} = $transformation->($item_ref->{$key});
+							}
+						}
+					}
+				}
+				else {
+					if ((ref($item_ref) eq 'HASH') and (defined $item_ref->{$final_key})) {
+						$item_ref->{$final_key} = $transformation->($item_ref->{$final_key});
+					}
 				}
 			}
 		}
@@ -869,6 +882,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 				created_datetime last_modified_datetime last_updated_datetime
 				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
 				tags_sources.*.*.last_updated_t
+				*last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],

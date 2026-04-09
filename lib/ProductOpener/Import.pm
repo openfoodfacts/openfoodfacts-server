@@ -1134,6 +1134,8 @@ sub import_tags_sources_fields (
 		$product_ref->{tags_sources}, $stats_ref, $modified_ref,
 		$modified_fields_ref, $differing_ref, $differing_fields_ref
 	);
+
+	return;
 }
 
 =head2 import_nutrients_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
