@@ -513,7 +513,7 @@ You need to install [wget for windows](https://eternallybored.org/misc/wget/). T
 When running `make import_sample_data`
 
 ```bash
-<hl>Software error:</h1>
+<h1>Software error:</h1>
 <pre>MongoDB: :SelectionError: No writable server available. MongoDB server status:
 Topology type: Single; Member status:
 mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to 'mongodb:27017': Temporary failure in name resolution )
