@@ -1029,8 +1029,7 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 			# We generate fields like "labels" and "categories" with the _hierarchy tags that contain unnormalized entries for unrecognized tags
 			# (e.g. with accents and case)
 			$product_ref->{$tagtype}
-				= list_taxonomy_tags_in_language($target_lc, $tagtype,
-				[get_minimal_tags_subset($tagtype, $tags_ref)]);
+				= list_taxonomy_tags_in_language($target_lc, $tagtype, [get_minimal_tags_subset($tagtype, $tags_ref)]);
 		}
 	}
 
@@ -1038,7 +1037,7 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 	if (defined $product_ref->{states_tags}) {
 		$product_ref->{states_hierarchy} = $product_ref->{states_tags};
 		$product_ref->{states}
-				= list_taxonomy_tags_in_language($target_lc, $tagtype, $product_ref->{states_tags});
+			= list_taxonomy_tags_in_language($target_lc, $tagtype, $product_ref->{states_tags});
 	}
 
 	delete $product_ref->{tags_sources};
