@@ -243,6 +243,9 @@ my @ignored_fields_for_revision_check = (
 	"traces_lc"
 );
 
+# Some fields have nested keys we want to ignore for the revision check, e.g. the "last_updated_t" field in the "tags_sources" field.
+my %ignored_keys = ("last_updated_t" => 1,);
+
 # Make a clean copy before comparing products.
 sub _normalize_product_for_comparison ($value, $normalization_failed_ref) {
 
@@ -250,6 +253,7 @@ sub _normalize_product_for_comparison ($value, $normalization_failed_ref) {
 		# Walk through nested hashes so the same clean up happens everywhere.
 		my %normalized_hash = ();
 		foreach my $key (keys %{$value}) {
+			next if defined $ignored_keys{$key};
 			$normalized_hash{$key}
 				= _normalize_product_for_comparison($value->{$key}, $normalization_failed_ref);
 		}
