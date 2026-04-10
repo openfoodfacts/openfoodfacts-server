@@ -995,6 +995,8 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 
 	$log->debug("convert_product_schema_1004_to_1003", {product_ref => $product_ref}) if $log->is_debug();
 
+	my $target_lc = $product_ref->{lang} // "en";
+
 	foreach my $tagtype (@writable_tags_fields_list) {
 		if (defined $product_ref->{$tagtype . "_tags"}) {
 			# Save the normalized tags as we will call generate_field_tags_from_all_sources which will overwrite them
@@ -1016,7 +1018,6 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 
 			# We also set the [tagtype]_lc to the value of the lang field (main language of product)
 			# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags
-			my $target_lc = $product_ref->{lang} // "en";
 			$product_ref->{$tagtype . "_lc"} = $target_lc;
 			my $tags_ref = $product_ref->{$tagtype . "_hierarchy"};
 			if (($tagtype eq "traces") or ($tagtype eq "allergens")) {
