@@ -391,10 +391,11 @@ sub export_csv ($args_ref) {
 								# If we have tags_sources data for the tags, we export the input tags for each source in a separate column
 								# and we do not export the main tags field which is a computed field from all sources,
 								# to avoid confusion between the input tags and the computed tags
+								# If the tags are defined but are empty, we still import the field (it will have a special value '-' so that when imported, existing tags are removed)
 								if (defined $product_ref->{tags_sources}{$field}) {
 									foreach my $source (sort keys %{$product_ref->{tags_sources}{$field}}) {
-										if (    (defined $product_ref->{tags_sources}{$field}{$source}{tags})
-											and (scalar @{$product_ref->{tags_sources}{$field}{$source}{tags}} > 0))
+										if (defined $product_ref->{tags_sources}{$field}{$source}{tags})
+
 										{
 											# For the allergens and traces fields, skip the ingredients source unless the "export_canonicalized_tags_fields" option is set to true, to avoid confusion between the input tags and the computed tags
 											if (    (($field eq "allergens") or ($field eq "traces"))
