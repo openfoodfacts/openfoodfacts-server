@@ -274,6 +274,8 @@ sub export_csv ($args_ref) {
 
 					my $group_id = $group_ref->[0];
 
+					# Special handling for some groups like nutrition and packaging that have a very specific nested structure
+
 					if ($group_id eq "nutrition") {
 
 						add_nutrition_fields_from_product_to_populated_fields(
@@ -283,8 +285,10 @@ sub export_csv ($args_ref) {
 							,    # Skip estimated nutrients unless export_computed_fields is set to true
 							$export_nutrition_aggregated_set
 						);
+						next;
 					}
-					elsif ($group_id eq "packaging") {
+
+					if ($group_id eq "packaging") {
 						# packaging data will be exported in the CSV file in columns named like packaging_1_number_of_units
 						if (defined $product_ref->{packagings}) {
 							my $i = 0;    # number of the packaging component
@@ -306,93 +310,96 @@ sub export_csv ($args_ref) {
 								}
 							}
 						}
+						next;
 					}
-					elsif ($group_id eq "images") {
+
+					if ($group_id eq "images") {
 						if ($args_ref->{include_images_paths}) {
 							if (defined $product_ref->{images}) {
 								include_image_paths($product_ref, \%populated_fields, \%other_images);
 							}
 						}
+						next;
 					}
-					else {
+				
+					# All other groups:
 
-						foreach my $field (@{$group_ref->[1]}) {
+					foreach my $field (@{$group_ref->[1]}) {
 
-							# Prefix fields that are not primary data, but that are computed by OFF, with the "off:" prefix
-							my $group_prefix = "";
-							if ($group_id eq "off") {
-								$group_prefix = "off:";
-							}
+						# Prefix fields that are not primary data, but that are computed by OFF, with the "off:" prefix
+						my $group_prefix = "";
+						if ($group_id eq "off") {
+							$group_prefix = "off:";
+						}
 
-							$item_number++;
-							my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
+						$item_number++;
+						my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
 
-							if ($field =~ /_value_unit$/) {
-								# Column can contain value + unit, value, or unit for a specific field
-								$field = $`;
-							}
+						if ($field =~ /_value_unit$/) {
+							# Column can contain value + unit, value, or unit for a specific field
+							$field = $`;
+						}
 
-							if (defined $tags_fields{$field}) {
-								if (    (defined $product_ref->{$field . "_tags"})
-									and (scalar @{$product_ref->{$field . "_tags"}} > 0))
-								{
-									# If we have tags_sources data for the tags, we export the input tags for each source in a separate column
-									# and we do not export the main tags field which is a computed field from all sources,
-									# to avoid confusion between the input tags and the computed tags
-									if (defined $product_ref->{tags_sources}{$field}) {
-										foreach my $source (sort keys %{$product_ref->{tags_sources}{$field}}) {
-											if (    (defined $product_ref->{tags_sources}{$field}{$source}{tags})
-												and (scalar @{$product_ref->{tags_sources}{$field}{$source}{tags}} > 0))
-											{
-												# For the allergens and traces fields, skip the ingredients source unless the "export_canonicalized_tags_fields" option is set to true, to avoid confusion between the input tags and the computed tags
-												if (    (($field eq "allergens") or ($field eq "traces"))
-													and ($source eq "ingredients")
-													and (not $export_canonicalized_tags_fields))
-												{
-													next;
-												}
-												$populated_fields{"tags_sources.${field}.${source}.tags"}
-													= $field_sort_key . "_tags:${source}";
-												$populated_fields{"tags_sources.${field}.${source}.last_updated_t"}
-													= $field_sort_key . "_last_updated_t:${source}";
-											}
-										}
-									}
-									else {
-										# Export the tags field in the main language of the product
-										$populated_fields{$group_prefix . $field} = $field_sort_key;
-									}
-									# Also possibly export the canonicalized tags
-									if ($export_canonicalized_tags_fields) {
-										$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
-									}
-								}
-							}
-							elsif (defined $language_fields{$field}) {
-								if (defined $product_ref->{languages_codes}) {
-									foreach my $l (keys %{$product_ref->{languages_codes}}) {
-										if (    (defined $product_ref->{$field . "_$l"})
-											and ($product_ref->{$field . "_$l"} ne ""))
+						if (defined $tags_fields{$field}) {
+							if (    (defined $product_ref->{$field . "_tags"})
+								and (scalar @{$product_ref->{$field . "_tags"}} > 0))
+							{
+								# If we have tags_sources data for the tags, we export the input tags for each source in a separate column
+								# and we do not export the main tags field which is a computed field from all sources,
+								# to avoid confusion between the input tags and the computed tags
+								if (defined $product_ref->{tags_sources}{$field}) {
+									foreach my $source (sort keys %{$product_ref->{tags_sources}{$field}}) {
+										if (    (defined $product_ref->{tags_sources}{$field}{$source}{tags})
+											and (scalar @{$product_ref->{tags_sources}{$field}{$source}{tags}} > 0))
 										{
-											# Add language code to sort key
-											$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
+											# For the allergens and traces fields, skip the ingredients source unless the "export_canonicalized_tags_fields" option is set to true, to avoid confusion between the input tags and the computed tags
+											if (    (($field eq "allergens") or ($field eq "traces"))
+												and ($source eq "ingredients")
+												and (not $export_canonicalized_tags_fields))
+											{
+												next;
+											}
+											$populated_fields{"tags_sources.${field}.${source}.tags"}
+												= $field_sort_key . "_tags:${source}";
+											$populated_fields{"tags_sources.${field}.${source}.last_updated_t"}
+												= $field_sort_key . "_last_updated_t:${source}";
 										}
 									}
 								}
-							}
-							else {
-								my $key = $field;
-								# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
-								# which is only present if the Environmental-Score fields have been localized (done only once after)
-								# we check for .values (with an s) instead
-								if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
-									$key = $key . "s";
-								}
-								# Allow returning fields that are not at the root of the product structure
-								# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
-								if (deep_exists($product_ref, split(/\./, $key))) {
+								else {
+									# Export the tags field in the main language of the product
 									$populated_fields{$group_prefix . $field} = $field_sort_key;
 								}
+								# Also possibly export the canonicalized tags
+								if ($export_canonicalized_tags_fields) {
+									$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
+								}
+							}
+						}
+						elsif (defined $language_fields{$field}) {
+							if (defined $product_ref->{languages_codes}) {
+								foreach my $l (keys %{$product_ref->{languages_codes}}) {
+									if (    (defined $product_ref->{$field . "_$l"})
+										and ($product_ref->{$field . "_$l"} ne ""))
+									{
+										# Add language code to sort key
+										$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
+									}
+								}
+							}
+						}
+						else {
+							my $key = $field;
+							# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
+							# which is only present if the Environmental-Score fields have been localized (done only once after)
+							# we check for .values (with an s) instead
+							if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
+								$key = $key . "s";
+							}
+							# Allow returning fields that are not at the root of the product structure
+							# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
+							if (deep_exists($product_ref, split(/\./, $key))) {
+								$populated_fields{$group_prefix . $field} = $field_sort_key;
 							}
 						}
 					}
