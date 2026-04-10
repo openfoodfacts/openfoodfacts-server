@@ -1036,7 +1036,7 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 	# Also generate states and states_hierarchy
 	if (defined $product_ref->{states_tags}) {
 		$product_ref->{states_hierarchy} = $product_ref->{states_tags};
-		$product_ref->{$tagtype}
+		$product_ref->{states}
 				= list_taxonomy_tags_in_language($target_lc, $tagtype, $product_ref->{states_tags});
 	}
 
