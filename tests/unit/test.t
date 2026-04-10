@@ -176,18 +176,12 @@ is(
 );
 
 # CSV object with last_updated_t field
-$obj = { "tags_sources.brands.packaging.last_updated_t" => 123456788 };
+$obj = {"tags_sources.brands.packaging.last_updated_t" => 123456788};
 normalize_product_for_test_comparison($obj);
-is(
-	$obj,
-	{ "tags_sources.brands.packaging.last_updated_t" => "--ignore--" }
-);
+is($obj, {"tags_sources.brands.packaging.last_updated_t" => "--ignore--"});
 
-$obj = { "last_updated_t" => 123456788 };
+$obj = {"last_updated_t" => 123456788};
 normalize_product_for_test_comparison($obj);
-is(
-	$obj,
-	{ "last_updated_t" => "--ignore--" }
-);
+is($obj, {"last_updated_t" => "--ignore--"});
 
 done_testing();

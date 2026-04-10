@@ -83,23 +83,23 @@ is(
 	["en:frozen-carrots", "en:frozen-soups"]
 );
 
-# display_comma_separated_tags_list_in_lc()
+# list_taxonomy_tags_in_language()
 
-is(display_comma_separated_tags_list_in_lc("fr", "categories", undef), "");
-is(display_comma_separated_tags_list_in_lc("fr", "categories", []), "");
-is(display_comma_separated_tags_list_in_lc("en", "categories", ["en:vegetables", "en:carrots"]), "Vegetables, Carrots");
+is(list_taxonomy_tags_in_language("fr", "categories", undef), "");
+is(list_taxonomy_tags_in_language("fr", "categories", []), "");
+is(list_taxonomy_tags_in_language("en", "categories", ["en:vegetables", "en:carrots"]), "Vegetables, Carrots");
 is(
-	display_comma_separated_tags_list_in_lc(
+	list_taxonomy_tags_in_language(
 		"en", "categories", ["en:vegetables", "en:carrots", "en:Some unknown carrot species"]
 	),
 	"Vegetables, Carrots, Some unknown carrot species"
 );
-is(display_comma_separated_tags_list_in_lc("fr", "categories", ["en:vegetables", "en:carrots"]), "Légumes, Carottes");
-is(display_comma_separated_tags_list_in_lc("fr", "brands", ["xx:aldi", "xx:marks-spencers", "xx:Marque Inconnue"]),
+is(list_taxonomy_tags_in_language("fr", "categories", ["en:vegetables", "en:carrots"]), "Légumes, Carottes");
+is(list_taxonomy_tags_in_language("fr", "brands", ["xx:aldi", "xx:marks-spencers", "xx:Marque Inconnue"]),
 	"Aldi, Marks & Spencers, Marque Inconnue");
 
 is(
-	display_comma_separated_tags_list_in_lc(
+	list_taxonomy_tags_in_language(
 		"en", "categories", ["en:vegetables", "de:Toutafé", "fr:Catégorie tout à fait inconnue"]
 	),
 	"Vegetables, de:Toutafé, fr:Catégorie tout à fait inconnue"
