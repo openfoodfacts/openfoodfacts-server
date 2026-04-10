@@ -6,7 +6,7 @@
 # - handle variations using the synonyms (e.g. missing or added separators like ' or spaces, possibly missing 's)
 
 # The brands taxonomy should not be used to:
-# - handle misspelings (do not add misspellings in the taxonomy as synonyms)
+# - handle misspellings (do not add misspellings in the taxonomy as synonyms)
 # - handle parent / child brands (too much potential for errors and conflicts, especially in an international setting and with products from different types)
 # Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
 # You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
@@ -233,7 +233,7 @@ xx: Crownfield
 xx: Culinea
 
 xx: Daelmans
-wikidate:en: Q136842173
+wikidata:en: Q136842173
 
 xx: DA
 
@@ -432,7 +432,7 @@ xx: Go-Tan, Go Tan
 wikidata:en: Q137442304
 
 xx: Go Vega!
-commemt:en: no trademark found in Benelux or EU
+comment:en: no trademark found in Benelux or EU
 wikidata:en: Q137177089
 
 xx: Grainway
@@ -519,7 +519,7 @@ wikidata:en: Q137151953
 xx: Indus
 
 xx: innocent
-#web:en: https://www.innocentdrinks.com
+wikidata:en: Q138566349
 
 xx: Ísey
 wikidata:en: Q16422529
@@ -559,7 +559,7 @@ xx: Kiekeboe
 wikidata:en: Q136880977
 
 xx: Kaptein
-wikidate:en: Q136825884
+wikidata:en: Q136825884
 
 xx: Kavli
 wikidata:en: Q1208110
@@ -720,6 +720,9 @@ wikidata:en: Q557614
 
 xx: Melkan
 # dairy producer
+
+xx: Menguy's
+wikidata:en: Q138566377
 
 xx: Milbona
 wikidata:en: Q136824789

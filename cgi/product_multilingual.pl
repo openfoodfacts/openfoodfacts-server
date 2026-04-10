@@ -176,7 +176,7 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 
 my $request_ref = ProductOpener::Display::init_request();
 
-if ($User_id eq 'unwanted-user-french') {
+if ((defined $User_id) and ($User_id eq 'unwanted-user-french')) {
 	display_error_and_exit(
 		$request_ref,
 		"<b>Il y a des problèmes avec les modifications de produits que vous avez effectuées. Ce compte est temporairement bloqué, merci de nous contacter.</b>",

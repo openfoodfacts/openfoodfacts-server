@@ -111,6 +111,50 @@ use Excel::Writer::XLSX;
 use Data::DeepAccess qw(deep_get deep_exists);
 use Apache2::RequestRec;
 
+# Known array fields in the product structure
+# Trying to access these with non-numeric indices will cause warnings
+my %array_fields = (
+	ingredients => 1,
+	packagings => 1,
+);
+
+=head1 FUNCTIONS
+
+=head2 is_valid_field_path($field_path)
+
+Validates a field path before it's used with deep_get or deep_exists.
+Returns true if the path is valid, false otherwise.
+
+A path is invalid if it tries to access a known array field with a non-numeric index.
+For example, "ingredients.id" is invalid (should be "ingredients.0.id"),
+but "environmental_score_data.adjustments.packaging.value" is valid.
+
+=cut
+
+sub is_valid_field_path ($field_path) {
+	# Split by dots and filter out empty strings
+	my @path_parts = grep {defined && length} split(/\./, $field_path);
+
+	# Empty path is invalid
+	return 0 if scalar @path_parts == 0;
+
+	# Check if any part tries to access an array field with a non-numeric key
+	for (my $i = 0; $i < scalar @path_parts - 1; $i++) {
+		my $current_part = $path_parts[$i];
+		my $next_part = $path_parts[$i + 1];
+
+		# If current part is a known array field, next part must be numeric
+		if (exists $array_fields{$current_part} && $next_part !~ /^\d+$/) {
+			$log->debug(
+				"Invalid field path: $field_path - trying to access array field '$current_part' with non-numeric index '$next_part'"
+			) if $log->is_debug();
+			return 0;
+		}
+	}
+
+	return 1;
+}
+
 =head1 FUNCTIONS
 
 =head2 export_csv( FILEHANDLE, QUERY[, OPTIONS ] )
@@ -369,37 +413,40 @@ sub export_csv ($args_ref) {
 								else {
 									# Export the tags field in the main language of the product
 									$populated_fields{$group_prefix . $field} = $field_sort_key;
-								}
-								# Also possibly export the canonicalized tags
-								if ($export_canonicalized_tags_fields) {
-									$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
-								}
-							}
-						}
-						elsif (defined $language_fields{$field}) {
-							if (defined $product_ref->{languages_codes}) {
-								foreach my $l (keys %{$product_ref->{languages_codes}}) {
-									if (    (defined $product_ref->{$field . "_$l"})
-										and ($product_ref->{$field . "_$l"} ne ""))
-									{
-										# Add language code to sort key
-										$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
+									# Also possibly export the canonicalized tags
+									if ($export_canonicalized_tags_fields) {
+										$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
 									}
 								}
 							}
-						}
-						else {
-							my $key = $field;
-							# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
-							# which is only present if the Environmental-Score fields have been localized (done only once after)
-							# we check for .values (with an s) instead
-							if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
-								$key = $key . "s";
+							elsif (defined $language_fields{$field}) {
+								if (defined $product_ref->{languages_codes}) {
+									foreach my $l (keys %{$product_ref->{languages_codes}}) {
+										if (    (defined $product_ref->{$field . "_$l"})
+											and ($product_ref->{$field . "_$l"} ne ""))
+										{
+											# Add language code to sort key
+											$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
+										}
+									}
+								}
 							}
-							# Allow returning fields that are not at the root of the product structure
-							# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
-							if (deep_exists($product_ref, split(/\./, $key))) {
-								$populated_fields{$group_prefix . $field} = $field_sort_key;
+							else {
+								my $key = $field;
+								# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
+								# which is only present if the Environmental-Score fields have been localized (done only once after)
+								# we check for .values (with an s) instead
+								if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
+									$key = $key . "s";
+								}
+								# Allow returning fields that are not at the root of the product structure
+								# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
+								# Validate the field path before calling deep_exists to avoid warnings
+								if (   is_valid_field_path($key)
+									&& deep_exists($product_ref, grep {defined && length} split(/\./, $key)))
+								{
+									$populated_fields{$group_prefix . $field} = $field_sort_key;
+								}
 							}
 						}
 					}
@@ -560,33 +607,14 @@ sub export_csv ($args_ref) {
 				# Nutrition fields: input sets
 				elsif ($field =~ /^nutrition\.input_sets\.(.*)$/) {
 					# the field key is of the form nutrition.input_sets.<input_set_id>.<property> that exactly matches the input set keys
-					$value = deep_get($input_sets_hash_ref, split(/\./, $1));
+					my @path_parts = grep {defined && length} split(/\./, $1);
+					$value = deep_get($input_sets_hash_ref, @path_parts) if scalar @path_parts > 0;
 				}
 				# Nutrition: other fields
 				elsif ($field =~ /^nutrition\./) {
-					$value = deep_get($product_ref, split(/\./, $field));
-				}
-				# Tags sources fields
-				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.last_updated_t$/) {
-					my ($tags_field, $source) = ($1, $2);
-					my $last_updated_t
-						= deep_get($product_ref, ("tags_sources", $tags_field, $source, "last_updated_t"));
-					if (defined $last_updated_t) {
-						$value = int($last_updated_t);
-					}
-				}
-				# $populated_fields{"tags_sources.${field}.${source}.tags"} = $field_sort_key . "_tags:${source}";
-				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.tags$/) {
-					my ($tags_field, $source) = ($1, $2);
-					my $tags_ref = deep_get($product_ref, ("tags_sources", $tags_field, $source, "tags"));
-					if (defined $tags_ref) {
-						$value = join(',', @$tags_ref);
-						# Special value - if there are no tags, so that we can differentiate tags fields that are not set
-						# versus empty tags fields
-						if ($value eq '') {
-							$value = '-';
-						}
-					}
+					my @path_parts = grep {defined && length} split(/\./, $field);
+					$value = deep_get($product_ref, @path_parts)
+						if is_valid_field_path($field) && scalar @path_parts > 0;
 				}
 				# Source specific fields
 				elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
@@ -688,7 +716,9 @@ sub export_csv ($args_ref) {
 					# Allow returning fields that are not at the root of the product structure
 					# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
 					elsif ($field =~ /\./) {
-						$value = deep_get($product_ref, split(/\./, $field));
+						my @path_parts = grep {defined && length} split(/\./, $field);
+						$value = deep_get($product_ref, @path_parts)
+							if is_valid_field_path($field) && scalar @path_parts > 0;
 					}
 					# Fields like "obsolete" : output 1 for true values or 0
 					elsif ($field eq "obsolete") {
