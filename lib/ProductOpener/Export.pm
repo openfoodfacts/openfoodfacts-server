@@ -365,7 +365,7 @@ sub export_csv ($args_ref) {
 						}
 						next;
 					}
-				
+
 					# All other groups:
 
 					foreach my $field (@{$group_ref->[1]}) {
@@ -413,40 +413,40 @@ sub export_csv ($args_ref) {
 								else {
 									# Export the tags field in the main language of the product
 									$populated_fields{$group_prefix . $field} = $field_sort_key;
-									# Also possibly export the canonicalized tags
-									if ($export_canonicalized_tags_fields) {
-										$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
+								}
+								# Also possibly export the canonicalized tags
+								if ($export_canonicalized_tags_fields) {
+									$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
+								}
+							}
+						}
+						elsif (defined $language_fields{$field}) {
+							if (defined $product_ref->{languages_codes}) {
+								foreach my $l (keys %{$product_ref->{languages_codes}}) {
+									if (    (defined $product_ref->{$field . "_$l"})
+										and ($product_ref->{$field . "_$l"} ne ""))
+									{
+										# Add language code to sort key
+										$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
 									}
 								}
 							}
-							elsif (defined $language_fields{$field}) {
-								if (defined $product_ref->{languages_codes}) {
-									foreach my $l (keys %{$product_ref->{languages_codes}}) {
-										if (    (defined $product_ref->{$field . "_$l"})
-											and ($product_ref->{$field . "_$l"} ne ""))
-										{
-											# Add language code to sort key
-											$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
-										}
-									}
-								}
+						}
+						else {
+							my $key = $field;
+							# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
+							# which is only present if the Environmental-Score fields have been localized (done only once after)
+							# we check for .values (with an s) instead
+							if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
+								$key = $key . "s";
 							}
-							else {
-								my $key = $field;
-								# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
-								# which is only present if the Environmental-Score fields have been localized (done only once after)
-								# we check for .values (with an s) instead
-								if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
-									$key = $key . "s";
-								}
-								# Allow returning fields that are not at the root of the product structure
-								# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
-								# Validate the field path before calling deep_exists to avoid warnings
-								if (   is_valid_field_path($key)
-									&& deep_exists($product_ref, grep {defined && length} split(/\./, $key)))
-								{
-									$populated_fields{$group_prefix . $field} = $field_sort_key;
-								}
+							# Allow returning fields that are not at the root of the product structure
+							# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
+							# Validate the field path before calling deep_exists to avoid warnings
+							if (   is_valid_field_path($key)
+								&& deep_exists($product_ref, grep {defined && length} split(/\./, $key)))
+							{
+								$populated_fields{$group_prefix . $field} = $field_sort_key;
 							}
 						}
 					}
@@ -615,6 +615,28 @@ sub export_csv ($args_ref) {
 					my @path_parts = grep {defined && length} split(/\./, $field);
 					$value = deep_get($product_ref, @path_parts)
 						if is_valid_field_path($field) && scalar @path_parts > 0;
+				}
+				# Tags sources fields
+				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.last_updated_t$/) {
+					my ($tags_field, $source) = ($1, $2);
+					my $last_updated_t
+						= deep_get($product_ref, ("tags_sources", $tags_field, $source, "last_updated_t"));
+					if (defined $last_updated_t) {
+						$value = int($last_updated_t);
+					}
+				}
+				# $populated_fields{"tags_sources.${field}.${source}.tags"} = $field_sort_key . "_tags:${source}";
+				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.tags$/) {
+					my ($tags_field, $source) = ($1, $2);
+					my $tags_ref = deep_get($product_ref, ("tags_sources", $tags_field, $source, "tags"));
+					if (defined $tags_ref) {
+						$value = join(',', @$tags_ref);
+						# Special value - if there are no tags, so that we can differentiate tags fields that are not set
+						# versus empty tags fields
+						if ($value eq '') {
+							$value = '-';
+						}
+					}
 				}
 				# Source specific fields
 				elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
