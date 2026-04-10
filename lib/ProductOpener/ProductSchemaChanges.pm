@@ -1014,8 +1014,10 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 
 			# We keep [$tagtype_]tags as is: it contains normalized tags
 
-			if ($tagtype ne "states") {
-
+			if ($tagtype eq "states") {
+				delete $product_ref->{$tagtype . "_hierarchy"};
+			}
+			else {
 				# We also set the [tagtype]_lc to the value of the lang field (main language of product)
 				# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags
 				my $target_lc = $product_ref->{lang} // "en";
