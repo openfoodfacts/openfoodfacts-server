@@ -324,6 +324,29 @@ To have all site pages on your dev instance, see [Using pages from openfoodfacts
 
 Specific notes are provided on [applying AGRIBALYSE updates to support the Ecoscore](how-to-update-agribalyse-ecoscore.md) calculation.
 
+## 4. Creating a User Account
+
+To test the application, you'll need to create a user account. All user authentication is handled through Keycloak.
+
+### Register a New User
+
+1. Go to `http://world.openfoodfacts.localhost/`
+2. Click **"Sign in"** - you'll be redirected to the Keycloak login page
+3. Click **"Register"** to create a new account
+4. Fill in the registration form and submit
+
+### Email Verification
+
+After registering, Keycloak will ask you to verify your email address. In the local development environment, **emails are not sent to real email addresses**. Instead, they're captured by a local email server.
+
+**To verify your email:**
+
+1. Open `http://localhost:5605/` in your browser (SMTP4Dev interface)
+2. You'll see your verification email with subject "Verify email"
+3. Click on the email to open it
+4. Click the verification link inside the email
+5. Your account will be activated!
+
 ## Visual Studio Code
 
 **WARNING**: Devcontainer support is currently experimental. It's recommended to run the normal docker commands before, and stop the containers: `make dev down`. Note that `make dev`, `make test`, and so on may currently conflict with the devcontainer.
