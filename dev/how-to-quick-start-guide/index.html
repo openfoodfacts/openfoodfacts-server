@@ -3605,7 +3605,7 @@ make<span class="w"> </span><span class="o">(</span><span class="nv">e</span><sp
 <p>You need to install <a href="https://eternallybored.org/misc/wget/">wget for windows</a>. The referenced version is able to use the Windows Certificate Store, whereas the standard <a href="https://gnuwin32.sourceforge.net/packages/wget.htm">gnuwin32 version</a> will give errors about not being able to verify the server certificate.</p>
 <h3 id="make-makefile154-import_sample_data-error-22">make: *** [Makefile:154: import_sample_data] Error 22<a class="headerlink" href="#make-makefile154-import_sample_data-error-22" title="Permanent link">#</a></h3>
 <p>When running <code>make import_sample_data</code></p>
-<div class="highlight"><pre><span></span><code>&lt;hl&gt;Software<span class="w"> </span>error:&lt;/h1&gt;
+<div class="highlight"><pre><span></span><code>&lt;h1&gt;Software<span class="w"> </span>error:&lt;/h1&gt;
 &lt;pre&gt;MongoDB:<span class="w"> </span>:SelectionError:<span class="w"> </span>No<span class="w"> </span>writable<span class="w"> </span>server<span class="w"> </span>available.<span class="w"> </span>MongoDB<span class="w"> </span>server<span class="w"> </span>status:
 Topology<span class="w"> </span>type:<span class="w"> </span>Single<span class="p">;</span><span class="w"> </span>Member<span class="w"> </span>status:
 mongodb:27017<span class="w"> </span><span class="o">(</span>type:<span class="w"> </span>Unknown,<span class="w"> </span>error:<span class="w"> </span>MongoDB::NetworkError:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;mongodb:27017&#39;</span>:<span class="w"> </span>Temporary<span class="w"> </span>failure<span class="w"> </span><span class="k">in</span><span class="w"> </span>name<span class="w"> </span>resolution<span class="w"> </span><span class="o">)</span>
@@ -3620,7 +3620,7 @@ For<span class="w"> </span>help,<span class="w"> </span>please<span class="w"> <
 
 <span class="s1">[Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to &#39;</span>mongodb:27017<span class="err">&#39;</span>:<span class="w"> </span>Temporary<span class="w"> </span>failure<span class="w"> </span><span class="k">in</span><span class="w"> </span>name<span class="w"> </span>resolution<span class="w"> </span><span class="o">)</span>
 
-make:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>Makefile:154:<span class="w"> </span>import_sample<span class="w"> </span>data<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">22</span>
+make:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>Makefile:154:<span class="w"> </span>import_sample_data<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">22</span>
 </code></pre></div>
 <p><strong>Solution:</strong>
 The cause of this issue is that you already have the mongodb database server running on your local machine at port 27017.</p>
