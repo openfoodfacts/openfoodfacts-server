@@ -4,7 +4,7 @@
 # - The id of the nutrient start with zz: , it should not be changed as this is is used in the database to store nutrition facts
 # - The second entry must be the English en: entry
 # - The third entry must be the English entry with the xx: prefix. This entry will be used for languages for which we have no translation.
-# - Always set the unit:en property. If there is not unit (e.g. for the pH), use unit:en with no value.
+# - Always set the unit:en property. If there is no unit (e.g. for the pH), use unit:en with no value.
 # - The "automatically_computed:en: yes" property is used for nutrients (or scores) that are not entered by users, but computed by Product Opener
 # (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
 # See also: https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts
