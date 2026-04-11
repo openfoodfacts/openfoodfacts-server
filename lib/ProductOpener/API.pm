@@ -588,7 +588,9 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 	$response_ref->{code} = $code;
 
 	# Add a warning if the normalized code is different from the requested code
-	if ($code ne $requested_code) {
+	my $normalized_code = (defined $code) ? $code : '';
+	my $req_code = (defined $requested_code) ? $requested_code : '';
+	if ($normalized_code ne $req_code) {
 		add_warning(
 			$response_ref,
 			{
