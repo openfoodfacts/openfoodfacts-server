@@ -117,4 +117,14 @@ is([gen_tags_list_with_parents("en", "test", ["yaourts à la banane"])], ["en:ya
 is([gen_tags_list_with_parents("fr", "test", ["yaourts à la banane"])], ["en:yogurts", "en:banana-yogurts"]);
 is([gen_tags_list_with_parents("fr", "test", ["yaourts au schtroumpf"])], ["fr:yaourts au schtroumpf"]);
 
+# canonicalize_tag2
+is(canonicalize_tag2("stores", "abc"), "abc");
+is(canonicalize_tag2("stores", "Abc Def"), "Abc Def");
+is(canonicalize_tag2("stores", "Café L'Artémis"), "Café L'Artémis");
+
+# display_tag_link
+is(display_tag_link("stores", "abc"), "abc");
+is(display_tag_link("stores", "Abc Def"), "abc");
+is(display_tag_link("stores", "Café L'Artémis"), "abc");
+
 done_testing();

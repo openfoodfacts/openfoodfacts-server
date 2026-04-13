@@ -26,7 +26,6 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&get_urlid
 		&get_fileid
 		&store
 		&retrieve
@@ -239,21 +238,6 @@ sub get_url_id_for_lang ($lc, $input) {
 	$log->trace("get_urlid", {in => $input, out => $string}) if $log->is_trace();
 
 	return $string;
-}
-
-sub get_urlid ($input, $unaccent = undef, $lc = undef) {
-
-	my $file = $input;
-
-	$file = get_fileid($file, $unaccent, $lc);
-
-	if ($file =~ /[^a-zA-Z0-9-]/) {
-		$file = URI::Escape::XS::encodeURIComponent($file);
-	}
-
-	$log->trace("get_urlid", {in => $input, out => $file}) if $log->is_trace();
-
-	return $file;
 }
 
 sub store ($file, $ref) {

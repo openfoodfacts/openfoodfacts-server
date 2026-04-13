@@ -3164,8 +3164,10 @@ sub display_tag_link ($tagtype, $tag) {
 		$tag_lc = "no_language";
 	}
 
-	my $tagid = get_string_id_for_lang($tag_lc, $tag);
-	my $tagurl = get_urlid($tagid, 0, $tag_lc);
+	# 20260413 - with the new tags refactor, we now do not normalize tags
+	# my $tagid = get_string_id_for_lang($tag_lc, $tag);
+	my $tagid = $tag;
+	my $tagurl = $tag;
 
 	my $display_tag = display_tag_name($tagtype, $tag);
 
@@ -3589,7 +3591,6 @@ sub list_taxonomy_tags_in_language ($target_lc, $tagtype, $tags_ref) {
 sub canonicalize_tag2 ($tagtype, $tag) {
 	return $tag if !defined $tag;
 
-	#$tag = lc($tag);
 	my $canon_tag = $tag;
 	$canon_tag =~ s/^ //g;
 	$canon_tag =~ s/ $//g;
@@ -3605,10 +3606,6 @@ sub canonicalize_tag2 ($tagtype, $tag) {
 		and (defined $canon_tags{$lc}{$tagtype}{$tagid}))
 	{
 		$canon_tag = $canon_tags{$lc}{$tagtype}{$tagid};
-	}
-	elsif ($canon_tag eq $tagid) {
-		$canon_tag =~ s/-/ /g;
-		$canon_tag = ucfirst($tag);
 	}
 
 	#$canon_tag =~ s/(-|\'|_|\n)/ /g;	# - and ' might be added back
@@ -3634,6 +3631,9 @@ sub canonicalize_tag2 ($tagtype, $tag) {
 
 sub get_taxonomyid ($tag_lc, $tagid) {
 
+	# 20260413 tag refactor: do not normalize tags in URLs (but taxonomized entries are already canonicalized)
+	return $tagid;
+
 	# $tag_lc  ->  Default tag language if tagid is not prefixed by a language code
 	if ($tagid =~ /^(\w\w):/) {
 		return lc($1) . ':' . get_string_id_for_lang(lc($1), $');
@@ -3644,6 +3644,9 @@ sub get_taxonomyid ($tag_lc, $tagid) {
 }
 
 sub get_taxonomyurl ($tag_lc, $tagid) {
+
+	# 20260413 tag refactor: do not normalize tags in URLs (but taxonomized entries are already canonicalized)
+	return $tagid;
 
 	# $tag_lc  ->  Default tag language if tagid is not prefixed by a language code
 	if ($tagid =~ /^(\w\w):/) {
@@ -4918,7 +4921,7 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 
 	# We generate the [field]_tags field from all sources, passing 1 to normalize the tags
 	# (lowercase / unaccent based on the tag language)
-	generate_field_tags_from_all_sources($product_ref, $field, 1);
+	generate_field_tags_from_all_sources($product_ref, $field, 0);
 
 	return;
 }
