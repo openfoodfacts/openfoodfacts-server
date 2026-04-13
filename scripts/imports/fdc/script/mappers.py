@@ -192,9 +192,7 @@ def parse_product_nutrients(product: dict, nutrients_mapping: dict) -> dict:
         unit = nutrient_info.get("unitName")
 
         target_col = f"{nutrient_name_off} - {preparation} for 100g/100ml in {unit}"
-
-        if target_col:
-            row[target_col] = amount
+        row[target_col] = amount
 
     return row
 
