@@ -626,7 +626,7 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 		if ($update_expected_results) {
 			open(my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json")
-				or confess("Could not create $expected_results_dir/$code.json: $!\n");
+				or confess("Could not create $expected_results_dir/$code.json for code $code: $!\n");
 			print $result $json->pretty->encode($product_ref);
 			close($result);
 		}

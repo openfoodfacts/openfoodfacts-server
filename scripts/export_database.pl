@@ -212,11 +212,6 @@ XML
 
 	foreach my $field (@export_fields) {
 
-		# Add "url" field right after "code" field
-		if ($field eq 'code') {
-			$csv .= "url\t";
-		}
-
 		# Add "created_datetime", "last_modified_datetime", "last_image_datetime" fields right after
 		# "created_t", "last_modified_t" and "last_image_t"
 		if ($field =~ /_t$/) {
@@ -233,6 +228,11 @@ XML
 		# and which do not exist with the 2026 tag refactor
 		else {
 			$csv .= $field . "\t";
+		}
+
+		# Add "url" field right after "code" field
+		if ($field eq 'code') {
+			$csv .= "url\t";
 		}
 
 		# If the field is a taxonomy, add a localized version of this field ending
@@ -559,7 +559,8 @@ XML
 		rename "$csv_filename.temp2", $csv_filename;
 	}
 	else {
-		print STDERR "Not overwriting previous CSV. Old size = $csv_size_old, new size = $csv_size_new.\n";
+		print STDERR
+			"Not overwriting previous CSV $csv_filename - Old size = $csv_size_old, new size = $csv_size_new.\n";
 		unlink "$csv_filename.temp2";
 		$errors++;
 	}
