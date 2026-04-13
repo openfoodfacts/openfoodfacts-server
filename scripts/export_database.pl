@@ -110,7 +110,7 @@ my %tags_fields = (
 	manufacturing_places => 1,
 	emb_codes => 1,
 	cities => 1,
-	allergen => 1,
+	allergens => 1,
 	traces => 1,
 	additives => 1,
 	ingredients_from_palm_oil => 1,
@@ -212,8 +212,6 @@ XML
 
 	foreach my $field (@export_fields) {
 
-		$csv .= $field . "\t";
-
 		# Add "url" field right after "code" field
 		if ($field eq 'code') {
 			$csv .= "url\t";
@@ -229,6 +227,12 @@ XML
 		# with _tag
 		if (defined $tags_fields{$field}) {
 			$csv .= $field . '_tags' . "\t";
+		}
+		# Otherwise we had the field
+		# We now don't export fields like "countries", "categories" etc. which could be in any language
+		# and which do not exist with the 2026 tag refactor
+		else {
+			$csv .= $field . "\t";
 		}
 
 		# If the field is a taxonomy, add a localized version of this field ending
@@ -353,8 +357,10 @@ XML
 					$field_value = sanitize_field_content($field_value, $BAD, "$code barcode -> field $field:");
 				}
 
-				# Add field value to CSV file
-				$csv .= $field_value . "\t";
+				# Add field value to CSV file, except for tags fields for which we add the _tags field which contains the normalized tags
+				if (not defined $tags_fields{$field}) {
+					$csv .= $field_value . "\t";
+				}
 
 				# If current field is "code", add the product url after it; example:
 				# 9542013592	http://world-fr.openfoodfacts.org/produit/0009542013592/gourmet-truffles-lindt
