@@ -513,7 +513,7 @@ You need to install [wget for windows](https://eternallybored.org/misc/wget/). T
 When running `make import_sample_data`
 
 ```bash
-<hl>Software error:</h1>
+<h1>Software error:</h1>
 <pre>MongoDB: :SelectionError: No writable server available. MongoDB server status:
 Topology type: Single; Member status:
 mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to 'mongodb:27017': Temporary failure in name resolution )
@@ -528,7 +528,7 @@ and the time and date of the error.
 
 [Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to 'mongodb:27017': Temporary failure in name resolution )
 
-make: *** [Makefile:154: import_sample data] Error 22
+make: *** [Makefile:154: import_sample_data] Error 22
 ```
 
 **Solution:**
