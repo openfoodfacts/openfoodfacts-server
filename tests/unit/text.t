@@ -6,7 +6,7 @@ use utf8;
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Text qw/normalize_percentages remove_email remove_tags_and_quote/;
+use ProductOpener::Text qw/normalize_percentages remove_email remove_tags remove_tags_and_quote/;
 
 # Patterns according to Unicode CDLR v29
 # Pattern	# Locales using it
@@ -67,19 +67,24 @@ is(remove_email('test string'), "test string");
 is(remove_email('no email address'), 'no email address');
 
 # Test remove_tags_and_quote
-# HTML tags should be stripped
-is(remove_tags_and_quote('<b>bold</b>'), 'bold', 'HTML tags are stripped');
-is(remove_tags_and_quote('<script>alert(1)</script>'), 'alert(1)', 'script tags are stripped');
-# Stray < and > are encoded to prevent XSS
-is(remove_tags_and_quote('a < b'), 'a &lt; b', 'stray < is encoded');
-is(remove_tags_and_quote('a > b'), 'a &gt; b', 'stray > is encoded');
-# Double-quote must NOT be encoded - it is valid text content and must be stored as-is
-# so that data consumers (e.g. Robotoff) receive the raw ingredient text without HTML encoding
-is(remove_tags_and_quote('3% Heidelbeersaft" aus Konzentrat'), '3% Heidelbeersaft" aus Konzentrat',
-	'double-quote is preserved, not encoded as &quot;');
-# undef input returns empty string
-is(remove_tags_and_quote(undef), '', 'undef returns empty string');
-# Leading/trailing whitespace is removed
-is(remove_tags_and_quote("  trimmed  "), 'trimmed', 'whitespace is trimmed');
+is(remove_tags_and_quote('<b>bold</b>'), 'bold', 'remove_tags_and_quote: HTML tags are stripped');
+is(remove_tags_and_quote('a < b'), 'a &lt; b', 'remove_tags_and_quote: stray < is encoded');
+is(remove_tags_and_quote('a > b'), 'a &gt; b', 'remove_tags_and_quote: stray > is encoded');
+is(remove_tags_and_quote('say "hello"'), 'say &quot;hello&quot;', 'remove_tags_and_quote: " is encoded as &quot;');
+is(remove_tags_and_quote(undef), '', 'remove_tags_and_quote: undef returns empty string');
+is(remove_tags_and_quote("  trimmed  "), 'trimmed', 'remove_tags_and_quote: whitespace is trimmed');
+
+# Test remove_tags
+is(remove_tags('<b>bold</b>'), 'bold', 'remove_tags: HTML tags are stripped');
+is(remove_tags('<script>alert(1)</script>'), 'alert(1)', 'remove_tags: script tags are stripped');
+# " must not be stored as &quot; in product fields (issue #12772)
+is(
+	remove_tags('3% Heidelbeersaft" aus Konzentrat'),
+	'3% Heidelbeersaft" aus Konzentrat',
+	'remove_tags: " is preserved as-is'
+);
+is(remove_tags('< 1% sugar'), '< 1% sugar', 'remove_tags: stray < is not encoded');
+is(remove_tags(undef), '', 'remove_tags: undef returns empty string');
+is(remove_tags("  trimmed  "), 'trimmed', 'remove_tags: whitespace is trimmed');
 
 done_testing();

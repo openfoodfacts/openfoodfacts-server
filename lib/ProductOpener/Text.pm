@@ -24,10 +24,10 @@ ProductOpener::Text - formats decimal numbers and percentages according to local
 
 =head1 SYNOPSIS
 
-C<ProductOpener::Text> is used to format decimal numbers and percentages according to locale. 
-	
+C<ProductOpener::Text> is used to format decimal numbers and percentages according to locale.
+
 	use ProductOpener::Text qw/:all/;
-	
+
 	my $decf = get_decimal_formatter($lc);
 	my $perf = get_percent_formatter($lc, 0);
 	$salt = $decf->format(g_to_unit($salt, $unit));
@@ -56,6 +56,7 @@ BEGIN {
 		&escape_char
 		&escape_single_quote_and_newlines
 
+		&remove_tags
 		&remove_tags_and_quote
 		&xml_escape
 		&regexp_escape
@@ -82,7 +83,7 @@ Two scalar variables text and locale are passed as arguments. Locale is two lett
 
 =head3 Return values
 
-The function returns a scalar variable that is the result of concatenation of regex, percentage formatting on locale basis. 
+The function returns a scalar variable that is the result of concatenation of regex, percentage formatting on locale basis.
 If text (scalar variable passed as argument) is not defined or percent sign is not found, the function simply returns the scalar variable text(passed as argument) for performance reasons.
 
 =cut
@@ -307,9 +308,7 @@ sub remove_tags_and_quote ($s) {
 	$s =~ s/<(([^>]|\n)*)>//g;
 	$s =~ s/</&lt;/g;
 	$s =~ s/>/&gt;/g;
-	# Do not encode " here; this runs before storing data.
-	# Encoding should happen at render time, not storage,
-	# or consumers like Robotoff will see &quot; instead of the original text.
+	$s =~ s/"/&quot;/g;
 
 	# Remove whitespace
 	$s =~ s/^\s+|\s+$//g;
@@ -346,9 +345,15 @@ sub remove_email ($s) {
 
 sub remove_tags ($s) {
 
+	if (not defined $s) {
+		$s = "";
+	}
+
 	# Remove tags
-	$s =~ s/</&lt;/g;
-	$s =~ s/>/&gt;/g;
+	$s =~ s/<(([^>]|\n)*)>//g;
+
+	# Remove whitespace
+	$s =~ s/^\s+|\s+$//g;
 
 	return $s;
 }

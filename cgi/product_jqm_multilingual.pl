@@ -56,7 +56,7 @@ use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Text qw/remove_tags_and_quote/;
+use ProductOpener::Text qw/remove_tags remove_tags_and_quote/;
 use ProductOpener::API qw/get_initialized_response check_user_permission/;
 use ProductOpener::APIProductWrite
 	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field/;
@@ -467,7 +467,7 @@ else {
 						next;
 					}
 
-					$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8 => single_param($field_lc));
+					$product_ref->{$field_lc} = remove_tags(decode utf8 => single_param($field_lc));
 					compute_field_tags($product_ref, $lc, $field_lc);
 				}
 			}

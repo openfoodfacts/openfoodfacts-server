@@ -136,7 +136,7 @@ use ProductOpener::Mail qw/send_email/;
 use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
 use ProductOpener::MainCountries qw/compute_main_countries/;
-use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
+use ProductOpener::Text qw/remove_email remove_tags remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
 use ProductOpener::Food qw/%nutrients_lists %cc_nutrient_table/;
@@ -3135,7 +3135,7 @@ sub review_product_type ($product_ref) {
 
 Process the edit_rules (see C<@edit_rules> in in Config file).
 
-Note: edit 
+Note: edit
 
 =head3 where it applies
 
@@ -3234,7 +3234,7 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 
 sub preprocess_product_field ($field, $value) {
 
-	$value = remove_tags_and_quote($value);
+	$value = remove_tags($value);
 	if ($field ne 'customer_service' && $field ne 'other_information') {
 		$value = remove_email($value);
 	}
