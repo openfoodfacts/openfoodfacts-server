@@ -49,7 +49,7 @@ is(canonicalize_taxonomy_tag('en', 'categories', 'https://www.wikidata.org/wiki/
 
 is(display_taxonomy_tag("en", "categories", "en:beverages"), "Beverages");
 is(display_taxonomy_tag("fr", "categories", "en:beverages"), "Boissons");
-is(display_taxonomy_tag("en", "categories", "en:doesnotexist"), "Doesnotexist");
+is(display_taxonomy_tag("en", "categories", "en:doesnotexist"), "doesnotexist");
 is(display_taxonomy_tag("fr", "categories", "en:doesnotexist"), "en:doesnotexist");
 
 is(display_taxonomy_tag_link("fr", "categories", "en:doesnotexist"),
@@ -60,7 +60,7 @@ is(display_tags_hierarchy_taxonomy("fr", "categories", ["en:doesnotexist"]),
 
 is(
 	display_tags_hierarchy_taxonomy("en", "categories", ["en:doesnotexist"]),
-	'<a href="/facets/categories/Doesnotexist" class="tag user_defined">Doesnotexist</a>'
+	'<a href="/facets/categories/doesnotexist" class="tag user_defined">doesnotexist</a>'
 );
 
 # test canonicalize_taxonomy_tags
@@ -506,7 +506,7 @@ is(
 		'html_lang' => ' lang="fr"',
 		'known' => 1,
 		'tagid' => 'en:strawberry-yogurts',
-		'tagurl' => 'yaourts-a-la-fraise'
+		'tagurl' => 'Yaourts%20%C3%A0%20la%20fraise'
 	}
 ) or diag Dumper $tag_ref;
 
@@ -612,7 +612,7 @@ is(
 		'html_lang' => ' lang="fr"',
 		'known' => 1,
 		'tagid' => 'en:organic',
-		'tagurl' => 'bio'
+		'tagurl' => 'Bio'
 	}
 ) or diag Dumper $tag_ref;
 
@@ -621,12 +621,12 @@ is(
 	$tag_ref,
 	{
 		'css_class' => 'tag user_defined ',
-		'display' => 'Some unknown label',
+		'display' => 'some unknown label',
 		'display_lc' => 'fr',
 		'html_lang' => ' lang="fr"',
 		'known' => 0,
 		'tagid' => 'fr:some unknown label',
-		'tagurl' => 'some-unknown-label'
+		'tagurl' => 'some%20unknown%20label'
 	}
 
 ) or diag Dumper $tag_ref;
@@ -636,7 +636,7 @@ $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "test", "en:smartphones");
 is(
 	$tag_ref,
 	{
-		'tagurl' => 'telephones-intelligents',
+		'tagurl' => 'T%C3%A9l%C3%A9phones%20intelligents',
 		'tagid' => 'en:smartphones',
 		'display_lc' => 'fr',
 		'known' => 1,
@@ -657,7 +657,7 @@ is(
 		'known' => 1,
 		'display_lc' => 'de',
 		'tagid' => 'en:smartphones',
-		'tagurl' => 'smartphones'
+		'tagurl' => 'Smartphones'
 	}
 
 ) or diag Dumper $tag_ref;
@@ -695,7 +695,7 @@ is(canonicalize_taxonomy_tag("de", "test", "special value for German 3"), "xx:la
 is(display_taxonomy_tag("fr", "test", "fr:french-entry"), "French entry");
 is(display_taxonomy_tag("fr", "test", "french entry"), "French entry");
 is(display_taxonomy_tag("de", "test", "fr:french-entry"), "Special value for German");
-is(display_taxonomy_tag("de", "test", "french entry"), "French entry");
+is(display_taxonomy_tag("de", "test", "French entry"), "French entry");
 
 is(display_taxonomy_tag("fr", "test", "fr:french-entry-with-default-value"), "French entry with default value");
 is(display_taxonomy_tag("en", "test", "fr:french-entry-with-default-value"), "French entry with default value");
@@ -767,7 +767,7 @@ is(
 			"en:one-percent-for-the-planet"
 		]
 	),
-	"fr:un label français inconnu, Organic, A New English label, Missing language prefix, Fair trade, One-percent-for-the-planet"
+	"fr:un label français inconnu, Organic, A New English label, missing language prefix, Fair trade, one-percent-for-the-planet"
 );
 
 is(
@@ -782,7 +782,7 @@ is(
 			"en:one-percent-for-the-planet"
 		]
 	),
-	"Un label français inconnu, Bio, en:A New English label, Missing language prefix, Commerce équitable, en:one-percent-for-the-planet"
+	"un label français inconnu, Bio, en:A New English label, missing language prefix, Commerce équitable, en:one-percent-for-the-planet"
 );
 
 is(
@@ -797,7 +797,7 @@ is(
 			"en:one-percent-for-the-planet"
 		]
 	),
-	"fr:un label français inconnu, Ecológico, en:A New English label, Missing language prefix, Comercio justo, en:one-percent-for-the-planet"
+	"fr:un label français inconnu, Ecológico, en:A New English label, missing language prefix, Comercio justo, en:one-percent-for-the-planet"
 );
 
 # canonicalize_taxonomy_tag can now return 0 or 1 to indicate if the tag matched an existing taxonomy entry
@@ -975,5 +975,7 @@ foreach my $test_ref (@tests) {
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
 		$update_expected_results, {id => $testid});
 }
+
+is(display_taxonomy_tag("en", "ingredients", "en:apple"), "apple");
 
 done_testing();

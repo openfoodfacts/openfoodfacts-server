@@ -1148,7 +1148,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20241206 - the letter A at the end of an entry should not be a stopword in English";
+my $BUILD_TAGS_VERSION = "20260413 - do not capitalize the first letter of all entries names and synonyms";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -1576,7 +1576,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 				# first entry gives id of tag
 				$lc_tag = $tags[0];
-				$lc_tag = ucfirst($lc_tag);
 				$lc_tagid = get_string_id_for_lang($lc, $lc_tag);
 
 				# check if we already have an entry listed for one of the synonyms
@@ -4292,9 +4291,6 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 					$display = "$tag_lc:$display";
 				}
 			}
-			else {
-				$display = ucfirst($display);
-			}
 			# print STDERR "display_taxonomy_tag - no translation available for $taxonomy $tagid in target language $lc or tag language $tag_lc - result: $display\n";
 		}
 	}
@@ -4309,6 +4305,9 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 			$display .= " - " . ucfirst($synonyms_for{$taxonomy}{$target_lc}{$tagid}[1]);
 		}
 	}
+
+	$log->debug("display_taxonomy_tag",
+		{target_lc => $target_lc, tagtype => $tagtype, tag => $tag, tagid => $tagid, display => $display});
 
 	return $display;
 

@@ -3143,8 +3143,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc, $tagtype, $canon_tagid);
 			$new_tagid = get_taxonomyid($lc, $display_tag);
-			$log->debug("displaying taxonomy tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
-				if $log->is_debug();
+
 			if ($new_tagid !~ /^(\w\w):/) {
 				$new_tagid = $lc . ':' . $new_tagid;
 			}
@@ -3152,6 +3151,16 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			$request_ref->{current_link} .= $new_tagid_path;
 			$request_ref->{world_current_link}
 				.= canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid, $tag_prefix);
+
+			$log->debug(
+				"displaying taxonomy tag",
+				{
+					canon_tagid => $canon_tagid,
+					display_tag => $display_tag,
+					new_tagid => $new_tagid,
+					new_tagid_path => $new_tagid_path
+				}
+			) if $log->is_debug();
 		}
 		else {
 			$display_tag = canonicalize_tag2($tagtype, $tagid);
