@@ -81,6 +81,7 @@ use HTTP::Cookies;
 use HTTP::Request::Common;
 use Encode;
 use JSON::MaybeXS;
+use URI::Escape::XS qw(uri_unescape);
 use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;
@@ -642,6 +643,98 @@ sub normalize_api_response_for_test_comparison ($response_ref) {
 	return;
 }
 
+sub parse_query_string_parameters_from_url ($url) {
+
+	my %parameters = ();
+	my $query_string = "";
+	if (defined $url) {
+		my ($path, $query) = split(/\?/, $url, 2);
+		$query_string = $query // "";
+	}
+	$query_string =~ s/^\?//;
+	return \%parameters if ($query_string eq "");
+
+	foreach my $pair (split(/[&;]/, $query_string)) {
+		next if ($pair eq "");
+		my ($key, $value) = split(/=/, $pair, 2);
+		$key //= "";
+		$value //= "";
+		$key =~ s/\+/ /g;
+		$value =~ s/\+/ /g;
+		$key = uri_unescape($key);
+		$value = uri_unescape($value);
+
+		if (defined $parameters{$key}) {
+			if (ref($parameters{$key}) eq "ARRAY") {
+				push(@{$parameters{$key}}, $value);
+			}
+			else {
+				$parameters{$key} = [$parameters{$key}, $value];
+			}
+		}
+		else {
+			$parameters{$key} = $value;
+		}
+	}
+
+	return \%parameters;
+}
+
+sub get_api_call_metadata ($test_ref) {
+
+	my $content_type;
+	my $body;
+
+	if (defined $test_ref->{body}) {
+		$content_type = "application/json; charset=utf-8";
+		my $decoded_body = eval {decode_json($test_ref->{body})};
+		if (defined $decoded_body) {
+			if (ref($decoded_body) eq "HASH") {
+				$body = $decoded_body;
+			}
+			else {
+				$body = {value => $decoded_body};
+			}
+		}
+		else {
+			$body = {raw_body => $test_ref->{body}};
+		}
+	}
+	elsif (defined $test_ref->{form}) {
+		$body = clone($test_ref->{form});
+		my $is_multipart = 0;
+		foreach my $value (values %{$test_ref->{form}}) {
+			if (ref($value) eq 'ARRAY') {
+				$is_multipart = 1;
+				last;
+			}
+		}
+		$content_type = $is_multipart ? "multipart/form-data" : "application/x-www-form-urlencoded";
+	}
+
+	return {
+		api_call => {
+			url => $test_ref->{url},
+			method => $test_ref->{method},
+			parameters => parse_query_string_parameters_from_url($test_ref->{url}),
+			'content-type' => $content_type,
+			body => $body,
+		}
+	};
+}
+
+sub write_expected_result_metadata ($expected_result_file, $test_ref, $update_expected_results) {
+	return if (not $update_expected_results);
+
+	my $metadata_ref = get_api_call_metadata($test_ref);
+	open(my $metadata_fh, ">:encoding(UTF-8)", $expected_result_file . ".metadata")
+		or confess("Could not create " . $expected_result_file . ".metadata: $!");
+	print $metadata_fh $json->pretty->encode($metadata_ref);
+	close($metadata_fh);
+
+	return;
+}
+
 sub execute_request ($test_ref, $ua) {
 
 	# We may have a test case specific user agent
@@ -810,14 +903,16 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 
 	if ((($expected_type eq 'text') or ($expected_type eq 'html'))) {
 		# Check that the file is the same as expected (useful for HTML content or dynamic robots.txt)
+		my $expected_result_file = "$expected_result_dir/$test_case.$expected_type";
 		is(
 			compare_file_to_expected_results(
-				$response_content, "$expected_result_dir/$test_case.$expected_type",
+				$response_content, $expected_result_file,
 				$update_expected_results, $test_ref
 			),
 			1,
 			"$test_case - result"
 		);
+		write_expected_result_metadata($expected_result_file, $test_ref, $update_expected_results);
 	}
 	# Otherwise we expect the result is JSON
 	elsif ($expected_type eq 'json') {
@@ -869,6 +964,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 				1,
 				"$test_case - result"
 			);
+			write_expected_result_metadata("$expected_result_dir/$test_case.json", $test_ref, $update_expected_results);
 
 		}
 	}
