@@ -3156,7 +3156,9 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 		else {
 			$display_tag = canonicalize_tag2($tagtype, $tagid);
 			# Use "no_language" normalization for tags types without a taxonomy
-			$new_tagid = get_string_id_for_lang("no_language", $display_tag);
+			# Tag refactor: we don't normalize tags
+			#$new_tagid = get_string_id_for_lang("no_language", $display_tag);
+			$new_tagid = $display_tag;
 			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $new_tagid;
@@ -3206,7 +3208,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 		$request_ref->{header} .= '<meta name="robots" content="noindex">' . "\n";
 	}
 
-	return;
+	return $request_ref->{tags};
 }
 
 =head2 generate_title_from_request_tags ($tags_ref)
@@ -4832,7 +4834,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							}
 						}
 						else {
-							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
+							$tagid2 = canonicalize_tag2($tagtype, $tag2);
 							# EU packager codes are normalized to have -ec at the end
 							if ($tagtype eq 'emb_codes') {
 								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
@@ -4873,7 +4875,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 						}
 					}
 					else {
-						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+						$tagid = canonicalize_tag2($tagtype, $tag);
 						# EU packager codes are normalized to have -ec at the end
 						if ($tagtype eq 'emb_codes') {
 							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
@@ -8122,7 +8124,7 @@ JS
 	}
 
 	$title = product_name_brand_quantity($product_ref);
-	my $titleid = get_string_id_for_lang($lc, product_name_brand($product_ref));
+	my $titleid = $title;
 
 	if (not $title) {
 		$title = $code;

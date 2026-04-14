@@ -3167,7 +3167,7 @@ sub display_tag_link ($tagtype, $tag) {
 	# 20260413 - with the new tags refactor, we now do not normalize tags
 	# my $tagid = get_string_id_for_lang($tag_lc, $tag);
 	my $tagid = $tag;
-	my $tagurl = $tag;
+	my $tagurl = get_urlid($tagid, 0, $tag_lc);
 
 	my $display_tag = display_tag_name($tagtype, $tag);
 
@@ -3591,6 +3591,7 @@ sub list_taxonomy_tags_in_language ($target_lc, $tagtype, $tags_ref) {
 sub canonicalize_tag2 ($tagtype, $tag) {
 	return $tag if !defined $tag;
 
+	#$tag = lc($tag);
 	my $canon_tag = $tag;
 	$canon_tag =~ s/^ //g;
 	$canon_tag =~ s/ $//g;

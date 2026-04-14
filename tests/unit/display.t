@@ -507,4 +507,22 @@ is([ProductOpener::Display::get_search_field_title_and_details("nova_group")],
 	["NOVA group", "", "", "allowDecimals:false,\n"]);
 is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", " (g for 100 g / 100 ml)", "g", ""]);
 
+# canonicalize_request_tags_and_redirect_to_canonical_url
+my $tags_ref = ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url(
+	{tags => [{tagtype => "stores", tagid => "Super Marché"}]});
+is(
+	$tags_ref[
+		{
+			'canon_tagid' => undef,
+			'display_tag' => "Super March\x{e9}",
+			'new_tagid' => "Super March\x{e9}",
+			'new_tagid_path' => '/facets/stores/Super%20March%C3%A9',
+			'tagid' => "Super March\x{e9}",
+			'tagtype' => 'stores',
+			'tagtype_name' => 'store',
+			'tagtype_path' => '/facets/stores'
+		}
+	]
+) or diag Dumper $tags_ref;
+
 done_testing();
