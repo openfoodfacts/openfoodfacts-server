@@ -8124,7 +8124,7 @@ JS
 	}
 
 	$title = product_name_brand_quantity($product_ref);
-	my $titleid = $title;
+	my $titleid = get_string_id_for_lang($lc, product_name_brand($product_ref));
 
 	if (not $title) {
 		$title = $code;

@@ -125,7 +125,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
-	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter encode_canonical_json/;
+	qw/get_string_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter encode_canonical_json/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -2874,7 +2874,7 @@ sub product_url ($code_or_ref) {
 	my $titleid = '';
 	if (defined $ref) {
 		my $full_name = product_name_brand($ref);
-		$titleid = get_url_id_for_lang($product_lc, $full_name);
+		$titleid = get_string_id_for_lang($lc, $full_name);
 		if ($titleid ne '') {
 			$titleid = '/' . $titleid;
 		}
