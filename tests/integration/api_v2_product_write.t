@@ -519,7 +519,7 @@ my $tests_ref = [
 		path => '/api/v3.5/product/2234567890002?fields=raw'
 		,    # we need to specify fields=raw so that we are not redirected to the petfood site
 	},
-	# Facets
+	# Facets (aka tags)
 	{
 		test_case => 'post-product-facets',
 		method => 'POST',
