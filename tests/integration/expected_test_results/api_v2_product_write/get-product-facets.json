@@ -4,7 +4,6 @@
       "_id" : "1234567890341",
       "_keywords" : [
          "acme",
-         "acme-incorporated",
          "aldi",
          "bio",
          "charcuterie",
@@ -12,6 +11,7 @@
          "derive",
          "equitable",
          "et",
+         "incorporated",
          "saucisse",
          "viande"
       ],
@@ -29,8 +29,8 @@
       "brands" : "Aldi, ACME, ACME Incorporated",
       "brands_tags" : [
          "aldi",
-         "acme",
-         "acme-incorporated"
+         "ACME",
+         "ACME Incorporated"
       ],
       "categories" : "Saucisses",
       "categories_hierarchy" : [
@@ -410,7 +410,7 @@
       ],
       "emb_codes_lc" : "fr",
       "emb_codes_tags" : [
-         "fr-56-081-ec"
+         "FR 56.081 EC"
       ],
       "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:processed-meat",
@@ -604,8 +604,8 @@
       "traces_lc" : "fr",
       "traces_tags" : [
          "en:milk",
-         "es:abcd",
-         "es:moutarde"
+         "es:Moutarde",
+         "es:abcd"
       ],
       "weighers_tags" : []
    },

@@ -4,25 +4,26 @@
       "_id" : "1234567890341",
       "_keywords" : [
          "acme",
-         "acme-incorporated",
          "aldi",
          "aliment",
-         "another-brand-1",
-         "another-brand-2",
+         "another",
          "base",
          "bio",
          "boisson",
+         "brand",
          "cafe",
          "charcuterie",
          "commerce",
          "de",
          "derive",
          "equitable",
-         "es-gold-meal",
+         "es-gold",
          "et",
          "fluide",
+         "incorporated",
          "lait",
          "laitier",
+         "meal",
          "origine",
          "poudre",
          "produit",
@@ -47,10 +48,10 @@
       "brands" : "Aldi, ACME, ACME Incorporated, Another brand 1, Another brand 2",
       "brands_tags" : [
          "aldi",
-         "acme",
-         "acme-incorporated",
-         "another-brand-1",
-         "another-brand-2"
+         "ACME",
+         "ACME Incorporated",
+         "Another brand 1",
+         "Another brand 2"
       ],
       "categories" : "Laits, Saucisses, Cafés",
       "categories_hierarchy" : [
@@ -607,8 +608,8 @@
       ],
       "emb_codes_lc" : "fr",
       "emb_codes_tags" : [
-         "fr-56-081-ec",
-         "fr-56-082-ec"
+         "FR 56.081 EC",
+         "FR 56.082 EC"
       ],
       "entry_dates_tags" : "--ignore--",
       "food_groups" : "en:teas-and-herbal-teas-and-coffees",
@@ -633,7 +634,7 @@
       "labels_tags" : [
          "en:fair-trade",
          "en:organic",
-         "es:gold-meal"
+         "es:Gold meal"
       ],
       "lang" : "fr",
       "languages" : {},
@@ -810,8 +811,8 @@
       ],
       "stores_lc" : "fr",
       "stores_tags" : [
-         "carrefour",
-         "ecomarche"
+         "Carrefour",
+         "Ecomarché"
       ],
       "traces" : "es:Moutarde, Lait, es:abcd, Gluten",
       "traces_hierarchy" : [
@@ -824,8 +825,8 @@
       "traces_tags" : [
          "en:gluten",
          "en:milk",
-         "es:abcd",
-         "es:moutarde"
+         "es:Moutarde",
+         "es:abcd"
       ],
       "weighers_tags" : []
    },

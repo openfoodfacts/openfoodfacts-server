@@ -1,8 +1,8 @@
 {
    "_id" : "4270190128403",
    "_keywords" : [
-      "test",
-      "test-category"
+      "category",
+      "test"
    ],
    "added_countries_tags" : [],
    "additives_n" : 0,
@@ -10,10 +10,10 @@
    "additives_tags" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
-   "brands" : "test",
+   "brands" : "Test",
    "brands_imported" : "Test",
    "brands_tags" : [
-      "xx:test"
+      "xx:Test"
    ],
    "categories_imported" : "Test category",
    "categories_properties" : {},
@@ -26,7 +26,7 @@
       "agribalyse-unknown"
    ],
    "categories_tags" : [
-      "en:test-category"
+      "en:Test category"
    ],
    "checkers_tags" : [],
    "code" : "4270190128403",
@@ -48,7 +48,7 @@
    "correctors_tags" : [],
    "countries_imported" : "Etats-Unis",
    "countries_tags" : [
-      "en:etats-unis"
+      "en:Etats-Unis"
    ],
    "created_t" : "--ignore--",
    "creator" : "test-user",
@@ -128,8 +128,8 @@
    ],
    "data_sources_imported" : "Producers, Producer - test-food-company",
    "data_sources_tags" : [
-      "producer-test-food-company",
-      "producers"
+      "Producer - test-food-company",
+      "Producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -393,7 +393,7 @@
    ],
    "ingredients" : [
       {
-         "id" : "fr:white-peaches",
+         "id" : "fr:White peaches",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 75.0,
          "percent_max" : 100.0,
@@ -401,7 +401,7 @@
          "text" : "White peaches"
       },
       {
-         "id" : "fr:high-fructose-corn-syrup",
+         "id" : "fr:high fructose corn syrup",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 25.0,
          "percent_max" : 50.0,
@@ -411,16 +411,16 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "fr:white-peaches",
-         "fr:high-fructose-corn-syrup"
+         "fr:White peaches",
+         "fr:high fructose corn syrup"
       ],
       "en:vegan-status-unknown" : [
-         "fr:white-peaches",
-         "fr:high-fructose-corn-syrup"
+         "fr:White peaches",
+         "fr:high fructose corn syrup"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:white-peaches",
-         "fr:high-fructose-corn-syrup"
+         "fr:White peaches",
+         "fr:high fructose corn syrup"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -436,14 +436,14 @@
    ],
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
-      "fr:white-peaches",
-      "fr:high-fructose-corn-syrup"
+      "fr:White peaches",
+      "fr:high fructose corn syrup"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
-      "fr:white-peaches",
-      "fr:high-fructose-corn-syrup"
+      "fr:White peaches",
+      "fr:high fructose corn syrup"
    ],
    "ingredients_text" : "White peaches, high fructose corn syrup",
    "ingredients_text_fr" : "White peaches, high fructose corn syrup",
@@ -455,13 +455,13 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "fr:high-fructose-corn-syrup",
-      "fr:white-peaches"
+      "fr:White peaches",
+      "fr:high fructose corn syrup"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "fr:high-fructose-corn-syrup",
-      "fr:white-peaches"
+      "fr:White peaches",
+      "fr:high fructose corn syrup"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
    "interface_version_created" : "import_csv_file - version 2019/09/17",

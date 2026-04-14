@@ -27,9 +27,9 @@
          "en:nuts",
          "en:peanuts",
          "en:soybeans",
+         "en:Unrecognized Allergen",
          "en:mango",
-         "en:shellfish",
-         "en:unrecognized-allergen"
+         "en:shellfish"
       ],
       "allergens_tags_en" : [
          "Eggs",
@@ -40,18 +40,18 @@
          "Nuts",
          "Peanuts",
          "Soybeans",
+         "Unrecognized Allergen",
          "Mango",
-         "Shellfish",
-         "Unrecognized-allergen"
+         "Shellfish"
       ],
-      "brands" : "Aldi, some-brand",
+      "brands" : "Aldi, Some brand",
       "brands_tags" : [
          "xx:aldi",
-         "xx:some-brand"
+         "xx:Some brand"
       ],
       "brands_tags_en" : [
          "Aldi",
-         "some-brand"
+         "Some brand"
       ],
       "categories_tags" : [
          "en:plant-based-foods-and-beverages",
@@ -70,7 +70,7 @@
          "en:fairtrade-international",
          "en:vegan",
          "en:max-havelaar",
-         "en:something-unrecognized"
+         "en:Something unrecognized"
       ],
       "labels_tags_en" : [
          "Vegetarian",
@@ -79,7 +79,7 @@
          "Fairtrade International",
          "Vegan",
          "Max Havelaar",
-         "Something-unrecognized"
+         "Something unrecognized"
       ],
       "tags_sources" : {
          "allergens" : {
