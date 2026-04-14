@@ -647,11 +647,10 @@ sub parse_query_string_parameters_from_url ($url) {
 
 	my %parameters = ();
 	my $query_string = "";
-	if (defined $url) {
-		my ($path, $query) = split(/\?/, $url, 2);
-		$query_string = $query // "";
+	if ((defined $url) and ($url ne "")) {
+		($query_string) = $url =~ /\?(.*)\z/;
+		$query_string //= "";
 	}
-	$query_string =~ s/^\?//;
 	return \%parameters if ($query_string eq "");
 
 	foreach my $pair (split(/[&;]/, $query_string)) {
@@ -659,8 +658,6 @@ sub parse_query_string_parameters_from_url ($url) {
 		my ($key, $value) = split(/=/, $pair, 2);
 		$key //= "";
 		$value //= "";
-		$key =~ s/\+/ /g;
-		$value =~ s/\+/ /g;
 		$key = uri_unescape($key);
 		$value = uri_unescape($value);
 
@@ -702,13 +699,7 @@ sub get_api_call_metadata ($test_ref) {
 	}
 	elsif (defined $test_ref->{form}) {
 		$body = clone($test_ref->{form});
-		my $is_multipart = 0;
-		foreach my $value (values %{$test_ref->{form}}) {
-			if (ref($value) eq 'ARRAY') {
-				$is_multipart = 1;
-				last;
-			}
-		}
+		my $is_multipart = (grep {ref($_) eq 'ARRAY'} values %{$test_ref->{form}}) > 0;
 		$content_type = $is_multipart ? "multipart/form-data" : "application/x-www-form-urlencoded";
 	}
 
@@ -727,8 +718,9 @@ sub write_expected_result_metadata ($expected_result_file, $test_ref, $update_ex
 	return if (not $update_expected_results);
 
 	my $metadata_ref = get_api_call_metadata($test_ref);
-	open(my $metadata_fh, ">:encoding(UTF-8)", $expected_result_file . ".metadata")
-		or confess("Could not create " . $expected_result_file . ".metadata: $!");
+	my $metadata_file = $expected_result_file . ".metadata";
+	open(my $metadata_fh, ">:encoding(UTF-8)", $metadata_file)
+		or confess("Could not create " . $metadata_file . ": $!");
 	print $metadata_fh $json->pretty->encode($metadata_ref);
 	close($metadata_fh);
 
@@ -936,6 +928,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		# If the request was a setup request, we don't need to save or check the response
 		# otherwise, save or check the response
 		if (not $test_ref->{setup}) {
+			my $expected_result_file = "$expected_result_dir/$test_case.json";
 
 			# normalize for comparison
 			if (ref($decoded_json) eq 'HASH') {
@@ -958,13 +951,13 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 
 			is(
 				compare_to_expected_results(
-					$decoded_json, "$expected_result_dir/$test_case.json",
+					$decoded_json, $expected_result_file,
 					$update_expected_results, $test_ref
 				),
 				1,
 				"$test_case - result"
 			);
-			write_expected_result_metadata("$expected_result_dir/$test_case.json", $test_ref, $update_expected_results);
+			write_expected_result_metadata($expected_result_file, $test_ref, $update_expected_results);
 
 		}
 	}
