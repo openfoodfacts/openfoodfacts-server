@@ -123,8 +123,9 @@ is(canonicalize_tag2("stores", "Abc Def"), "Abc Def");
 is(canonicalize_tag2("stores", "Café L'Artémis"), "Café L'Artémis");
 
 # display_tag_link
-is(display_tag_link("stores", "abc"), "abc");
-is(display_tag_link("stores", "Abc Def"), "abc");
-is(display_tag_link("stores", "Café L'Artémis"), "abc");
+is(display_tag_link("stores", "abc"), '<a href="/facets/stores/abc">abc</a>');
+is(display_tag_link("stores", "Abc Def"), '<a href="/facets/stores/Abc%20Def">Abc Def</a>');
+is(display_tag_link("stores", "Café L'Artémis"),
+	'<a href="/facets/stores/Caf%C3%A9%20L\'Art%C3%A9mis">Café L\'Artémis</a>');
 
 done_testing();
