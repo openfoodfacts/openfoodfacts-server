@@ -9456,13 +9456,17 @@ CSS
 							$value = $decf->format(g_to_unit($value, $unit));
 						}
 					}
-					# too small values are converted to e notation: 7.18e-05
-					if (($value . ' ') =~ /e/) {
-						# use %f (outputs extras 0 in the general case)
-						$value = sprintf("%f", g_to_unit($value, $unit));
+
+					if (defined $value) {
+						# too small values are converted to e notation: 7.18e-05
+						if (($value . ' ') =~ /e/) {
+							# use %f (outputs extras 0 in the general case)
+							$value = sprintf("%f", g_to_unit($value, $unit));
+						}
+
+						$values = "$value $unit";
 					}
 
-					$values = "$value $unit";
 					if (   (not defined $value)
 						or ($comparison_ref->{nutrients}{$nid} eq ''))
 					{

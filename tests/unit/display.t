@@ -131,8 +131,8 @@ my $display_module = mock 'ProductOpener::Display' => (
 
 display_tag($facets_ref);
 
-is($facets_ref->{'current_link'}, '/facets/categories/breads/data-quality');
-is($facets_ref->{'redirect'}, '/facets/categories/breads/data-quality');
+is($facets_ref->{'current_link'}, '/facets/categories/Breads/data-quality');
+is($facets_ref->{'redirect'}, '/facets/categories/Breads/data-quality');
 
 $request_ref->{body_json}{labels_tags} = 'en:organic';
 is(request_param($request_ref, 'unexisting_field'), undef);
@@ -511,7 +511,8 @@ is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", 
 my $tags_ref = ProductOpener::Display::canonicalize_request_tags_and_redirect_to_canonical_url(
 	{tags => [{tagtype => "stores", tagid => "Super Marché"}]});
 is(
-	$tags_ref[
+	$tags_ref,
+	[
 		{
 			'canon_tagid' => undef,
 			'display_tag' => "Super March\x{e9}",
