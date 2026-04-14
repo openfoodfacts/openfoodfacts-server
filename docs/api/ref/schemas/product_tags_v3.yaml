@@ -12,8 +12,15 @@ components:
             description: |
               All the relevant data on the sources of the different tags of the product.
               The data is sorted by the sources from which the tags are obtained, e.g. packaging, producer, predicted.
+              The current sources are:
+                - packaging: what is written on the packaging of the product
+                - manufacturer: information that was sent directly from the manufacturer to Open Food Facts, through our producers platform
+                - ingredients: information that is derived from the ingredients list (e.g. allergens and traces)
+                - database-* (e.g. database-usda): information from another open database
+                - label-* (e.g. label-non-gmo-project): information from a label organization (e.g. some labels send us lists of products that have the label)
+              New sources may be added at anytime, so we are using patternProperties to make sure parsing does not break if a new source is encountered.
             patternProperties:
-              "^[a-z]+(_[a-z]+)*$":
+              "^[a-z]+(_-[a-z]+)*$":
                 type: object
                 properties:
                   last_updated_t:
