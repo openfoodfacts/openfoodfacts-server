@@ -18,7 +18,7 @@ my %default_product = (
 	code => "120989380970",
 	product_name => "dummy",
 	data_quality_errors_tags =>
-		["en:energy-value-in-kcal-does-not-match-value-in-kj", "en:nutrition-saturated-fat-greater-than-fat",],
+		["en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj", "en:nutrition-saturated-fat-greater-than-fat",],
 	knowledge_panels_en => {},
 );
 
