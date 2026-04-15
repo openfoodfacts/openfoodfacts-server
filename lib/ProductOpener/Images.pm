@@ -1634,6 +1634,7 @@ Select and possibly crop an uploaded image to represent the front, ingredients, 
  1: crop done
 -1: image not found
 -2: image cannot be read
+-3: no stored dimensions for the requested coordinates_image_size
 
 =cut
 
@@ -1736,6 +1737,21 @@ sub process_image_crop ($user_id, $product_ref, $image_type, $image_lc, $imgid, 
 	my $oh = $source->Get('height');
 	my $w = $product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{w};
 	my $h = $product_ref->{images}{uploaded}{$imgid}{sizes}{$coordinates_image_size}{h};
+
+	# Check that stored dimensions exist for the requested coordinates_image_size
+	if (!$w || !$h) {
+		$log->error(
+			"missing or zero image dimensions for coordinates_image_size",
+			{
+				product_id => $product_id,
+				imgid => $imgid,
+				coordinates_image_size => $coordinates_image_size,
+				w => $w,
+				h => $h
+			}
+		) if $log->is_error();
+		return -3;
+	}
 
 	if (($angle % 180) == 90) {
 		my $z = $w;
