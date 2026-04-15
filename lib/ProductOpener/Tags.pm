@@ -108,6 +108,7 @@ BEGIN {
 		&display_tag_name
 		&display_tag_link
 		&display_tags_list
+		&display_tag_and_parents_taxonomy
 		&display_parents_and_children
 		&display_tags_hierarchy
 		&export_tags_hierarchy
