@@ -681,6 +681,10 @@ sub get_api_call_metadata ($test_ref) {
 
 	my $content_type;
 	my $body;
+	my $path = $test_ref->{url};
+	if (defined $path) {
+		$path =~ s/^https?:\/\/[^\/]+//;
+	}
 
 	if (defined $test_ref->{body}) {
 		$content_type = "application/json; charset=utf-8";
@@ -705,7 +709,7 @@ sub get_api_call_metadata ($test_ref) {
 
 	return {
 		api_call => {
-			url => $test_ref->{url},
+			path => $path,
 			method => $test_ref->{method},
 			parameters => parse_query_string_parameters_from_url($test_ref->{url}),
 			'content-type' => $content_type,
