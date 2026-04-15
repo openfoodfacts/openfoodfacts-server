@@ -137,29 +137,31 @@ subtest 'user deletion from redis to minion' => sub {
 };
 
 subtest 'push_product_update_to_redis skips empty code' => sub {
-	my $xadd_called = 0;
-	my $redis_mock = mock 'AnyEvent::RipeRedis' => (override => ['xadd' => sub {$xadd_called++}]);
+	# Our fix returns before the !$redis_url block, so $sent_warning_about_missing_redis_url
+	# stays 0 for empty/undef code, proving the early return fires first.
+	local $ProductOpener::Redis::sent_warning_about_missing_redis_url = 0;
 
 	# undef code
 	push_product_update_to_redis({code => undef}, {}, 'updated');
-	is($xadd_called, 0, 'xadd not called for undef code');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'undef code returns before redis_url check');
 
 	# empty string code
 	push_product_update_to_redis({code => ''}, {}, 'updated');
-	is($xadd_called, 0, 'xadd not called for empty code');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'empty code returns before redis_url check');
 };
 
 subtest 'push_ocr_ready_to_redis skips empty code' => sub {
-	my $xadd_called = 0;
-	my $redis_mock = mock 'AnyEvent::RipeRedis' => (override => ['xadd' => sub {$xadd_called++}]);
+	# Our fix returns before the !$redis_url block, so $sent_warning_about_missing_redis_url
+	# stays 0 for empty/undef code, proving the early return fires first.
+	local $ProductOpener::Redis::sent_warning_about_missing_redis_url = 0;
 
 	# undef code
 	push_ocr_ready_to_redis(undef, 'front_en', 'https://example.com/1.json');
-	is($xadd_called, 0, 'xadd not called for undef code');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'undef code returns before redis_url check');
 
 	# empty string code
 	push_ocr_ready_to_redis('', 'front_en', 'https://example.com/1.json');
-	is($xadd_called, 0, 'xadd not called for empty code');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'empty code returns before redis_url check');
 };
 
 done_testing();
