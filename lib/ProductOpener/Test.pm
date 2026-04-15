@@ -92,6 +92,9 @@ use Log::Any qw($log);
 
 no warnings qw(experimental::signatures);
 
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
+my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
+
 =head2 read_gzip_file($filepath)
 
 Read gzipped file and return binary content
@@ -404,9 +407,6 @@ If the test fail, the test reference will be output in the C<diag>
 
 sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-	# Make sure we include convert_blessed to cater for blessed objects, like booleans
-	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
-
 	my $desc = undef;
 	if (defined $test_ref) {
 		$desc = $test_ref->{desc} // $test_ref->{id};
@@ -609,7 +609,6 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 	ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
-	my $json = JSON->new->allow_nonref->canonical;
 	my %codes = ();
 
 	foreach my $product_ref (@$array_ref) {

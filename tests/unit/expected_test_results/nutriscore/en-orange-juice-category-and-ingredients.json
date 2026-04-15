@@ -98,14 +98,18 @@
          "percent_max" : 8.9,
          "percent_min" : 0,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
@@ -154,7 +158,8 @@
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-e-2023-e"
+      "en:nutriscore-2021-e-2023-e",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",

@@ -230,7 +230,10 @@ sub analyze_request($request_ref) {
 		$request_ref->{no_index} = 1;
 	}
 
-	check_and_update_rate_limits($request_ref);
+	# Check and update rate limits if not disabled (default is ENABLED for production safety)
+	if (not $rate_limiter_disabled) {
+		check_and_update_rate_limits($request_ref);
+	}
 
 	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => sanitize($request_ref)})
 		if $log->is_debug();
@@ -333,6 +336,13 @@ sub api_route($request_ref) {
 	my $api_version = $api =~ /v(\d+(\.\d+)?)/ ? $1 : 0;
 	my $api_action = $components[2];    # product
 
+	# API action is required
+	if (not defined $api_action) {
+		$request_ref->{status_code} = 404;
+		$request_ref->{error_message} = lang("error_invalid_address");
+		return;
+	}
+
 	# If the api_action is different than "search", check if it is the local path for "product"
 	# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
 	# this is so that we can quickly add /api/v3/ to get the API
@@ -368,6 +378,11 @@ sub api_route($request_ref) {
 		$request_ref->{tagtype} = $components[3];
 		param("tagid", $components[4]);
 		$request_ref->{tagid} = $components[4];
+	}
+	elsif ($api_action eq "current-user") {    # api/v3/current-user/[sub_action]
+		my $sub_action = $components[3] // '';
+		$request_ref->{current_user_sub_action} = $sub_action;
+		$api_action = 'current_user';    # map to 'current_user' in the dispatch table
 	}
 	elsif ($api_action eq "geoip") {    # api/v3/geoip/
 		$request_ref->{geoip_ip} = remote_addr();

@@ -19,17 +19,17 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Test
-	qw/compare_csv_file_to_expected_results init_expected_results remove_all_products remove_all_users/;
+use ProductOpener::Test qw/:all/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::APITest qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use Getopt::Long;
 use JSON;
 
 use File::Basename "dirname";
+use File::Path qw/remove_tree/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -117,7 +117,7 @@ my $separator = "\t";
 # Note: the test update seems to fail if the expected results files already exist.
 # remove tests/integration/expected_test_results/export_database/ before updating expected results.
 if ($update_expected_results) {
-	#remove_tree($expected_result_dir . "/export_database");
+	remove_tree($expected_result_dir . "/export_database");
 }
 
 # unlink CSV export if it exists, and launch script
@@ -151,7 +151,6 @@ open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not c
 $export_args_ref->{filehandle} = $exported_csv;
 $export_args_ref->{export_computed_fields} = 1;
 $export_args_ref->{export_canonicalized_tags_fields} = 1;
-$export_args_ref->{export_nutrition_aggregated_set} = 1;
 $export_args_ref->{include_images_paths} = 1;
 
 export_csv($export_args_ref);
@@ -161,5 +160,27 @@ close($exported_csv);
 ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
 	"${expected_result_dir}/export_more_fields",
 	$update_expected_results, "csv-export-more-fields");
+
+# Nutrition aggregated set export
+
+$exported_csv_file = "/tmp/export_nutrition_aggregated_set.csv";
+open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
+
+$export_args_ref = {
+	filehandle => $exported_csv,
+	separator => $separator,
+	query => $query_ref,
+	cc => "en",
+	export_nutrition_aggregated_set => 1
+};
+
+export_csv($export_args_ref);
+
+close($exported_csv);
+
+ProductOpener::Test::compare_csv_file_to_expected_results(
+	$exported_csv_file, "${expected_result_dir}/export_nutrition_aggregated_set",
+	$update_expected_results, "csv-export-nutrition-aggregated-set"
+);
 
 done_testing();
