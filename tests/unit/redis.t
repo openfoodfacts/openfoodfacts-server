@@ -142,20 +142,24 @@ subtest 'push_product_update_to_redis skips empty code' => sub {
 	local $ProductOpener::Redis::sent_warning_about_missing_redis_url = 0;
 
 	push_product_update_to_redis({code => undef}, {}, 'updated');
-	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'undef code: early return before redis_url check');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url,
+		0, 'undef code: early return before redis_url check');
 
 	push_product_update_to_redis({code => ''}, {}, 'updated');
-	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'empty code: early return before redis_url check');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url,
+		0, 'empty code: early return before redis_url check');
 };
 
 subtest 'push_ocr_ready_to_redis skips empty code' => sub {
 	local $ProductOpener::Redis::sent_warning_about_missing_redis_url = 0;
 
 	push_ocr_ready_to_redis(undef, 'front_en', 'https://example.com/1.json');
-	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'undef code: early return before redis_url check');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url,
+		0, 'undef code: early return before redis_url check');
 
 	push_ocr_ready_to_redis('', 'front_en', 'https://example.com/1.json');
-	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'empty code: early return before redis_url check');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url,
+		0, 'empty code: early return before redis_url check');
 };
 
 done_testing();
