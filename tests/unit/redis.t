@@ -7,7 +7,7 @@ $Data::Dumper::Terse = 1;
 use Test2::Plugin::UTF8;
 use Log::Any::Adapter 'TAP';
 
-use ProductOpener::Redis qw/process_xread_stream_reply/;
+use ProductOpener::Redis qw/process_xread_stream_reply push_product_update_to_redis push_ocr_ready_to_redis/;
 use ProductOpener::Config qw/%oidc_options/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
@@ -134,6 +134,32 @@ subtest 'user deletion from redis to minion' => sub {
 	is($call_count, 2, 'process_xread_stream_reply caused 2 calls to Minion->enqueue');
 	is($user1_called, 1, 'process_xread_stream_reply called Minion->enqueue with user1');
 	is($user2_called, 1, 'process_xread_stream_reply called Minion->enqueue with user2');
+};
+
+subtest 'push_product_update_to_redis skips empty code' => sub {
+	my $xadd_called = 0;
+	my $redis_mock = mock 'AnyEvent::RipeRedis' => (override => ['xadd' => sub {$xadd_called++}]);
+
+	# undef code
+	push_product_update_to_redis({code => undef}, {}, 'updated');
+	is($xadd_called, 0, 'xadd not called for undef code');
+
+	# empty string code
+	push_product_update_to_redis({code => ''}, {}, 'updated');
+	is($xadd_called, 0, 'xadd not called for empty code');
+};
+
+subtest 'push_ocr_ready_to_redis skips empty code' => sub {
+	my $xadd_called = 0;
+	my $redis_mock = mock 'AnyEvent::RipeRedis' => (override => ['xadd' => sub {$xadd_called++}]);
+
+	# undef code
+	push_ocr_ready_to_redis(undef, 'front_en', 'https://example.com/1.json');
+	is($xadd_called, 0, 'xadd not called for undef code');
+
+	# empty string code
+	push_ocr_ready_to_redis('', 'front_en', 'https://example.com/1.json');
+	is($xadd_called, 0, 'xadd not called for empty code');
 };
 
 done_testing();
