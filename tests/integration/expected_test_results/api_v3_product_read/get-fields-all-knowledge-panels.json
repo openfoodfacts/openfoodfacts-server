@@ -693,7 +693,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Water: 75.0% (estimate)"
+               "title" : "water: 75.0% (estimate)"
             },
             "topics" : [
                "health"
@@ -704,7 +704,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Test_ingredient: 25.0% (estimate)"
+               "title" : "test_ingredient: 25.0% (estimate)"
             },
             "topics" : [
                "health"
@@ -823,7 +823,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test_ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test_ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },
@@ -852,7 +852,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test_ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test_ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },
@@ -881,7 +881,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    Test_ingredient\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Unrecognized ingredients:</strong>\n                    test_ingredient\n                \n                    ",
                      "type" : "summary"
                   }
                },
@@ -1898,7 +1898,7 @@
                   "text_element" : {
                      "evaluation" : "good",
                      "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
-                     "icon_alt" : "Recycle",
+                     "icon_alt" : "recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
                      "type" : "summary"
@@ -1909,7 +1909,7 @@
                   "text_element" : {
                      "evaluation" : "bad",
                      "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
-                     "icon_alt" : "Discard",
+                     "icon_alt" : "discard",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
                      "type" : "summary"

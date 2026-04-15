@@ -185,7 +185,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Eau : 75.0% (estimation)"
+               "title" : "eau : 75.0% (estimation)"
             },
             "topics" : [
                "health"
@@ -211,7 +211,7 @@
                      "edit_field_type" : "ingredients_text",
                      "edit_field_value" : "water, test_ingredient",
                      "html" : "water, test_ingredient",
-                     "language" : "Anglais",
+                     "language" : "anglais",
                      "lc" : "en"
                   }
                },
@@ -1390,7 +1390,7 @@
                   "text_element" : {
                      "evaluation" : "good",
                      "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Boîte\n                                    \n                                </strong>\n                                    \n                                        (Bois)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Couvercle\n                                    \n                                </strong>\n                                    \n                                        (Acier)\n                                    \n                                    \n                                        - En contact avec l'aliment\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
-                     "icon_alt" : "Recycler",
+                     "icon_alt" : "recycler",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
                      "type" : "summary"
@@ -1401,7 +1401,7 @@
                   "text_element" : {
                      "evaluation" : "bad",
                      "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastique)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
-                     "icon_alt" : "Jeter",
+                     "icon_alt" : "jeter",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
                      "type" : "summary"

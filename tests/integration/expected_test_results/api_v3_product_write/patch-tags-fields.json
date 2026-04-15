@@ -18,7 +18,7 @@
       }
    ],
    "product" : {
-      "allergens" : "Milk, Eggs, Peanuts, Nuts, Fish, Shellfish, Gluten, Soybeans, Mango, Kiwi, Unrecognized Allergen",
+      "allergens" : "milk, eggs, peanuts, nuts, fish, shellfish, gluten, soybeans, mango, kiwi, Unrecognized Allergen",
       "allergens_hierarchy" : [
          "en:eggs",
          "en:fish",
@@ -47,17 +47,17 @@
          "en:shellfish"
       ],
       "allergens_tags_en" : [
-         "Eggs",
-         "Fish",
-         "Gluten",
-         "Kiwi",
-         "Milk",
-         "Nuts",
-         "Peanuts",
-         "Soybeans",
+         "eggs",
+         "fish",
+         "gluten",
+         "kiwi",
+         "milk",
+         "nuts",
+         "peanuts",
+         "soybeans",
          "Unrecognized Allergen",
-         "Mango",
-         "Shellfish"
+         "mango",
+         "shellfish"
       ],
       "brands" : "Aldi, Some brand",
       "brands_tags" : [
@@ -114,7 +114,7 @@
          "Max Havelaar",
          "Something unrecognized"
       ],
-      "traces" : "Gluten",
+      "traces" : "gluten",
       "traces_hierarchy" : [
          "en:gluten"
       ],
@@ -123,7 +123,7 @@
          "en:gluten"
       ],
       "traces_tags_en" : [
-         "Gluten"
+         "gluten"
       ]
    },
    "status" : "success_with_errors",

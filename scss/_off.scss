@@ -2021,3 +2021,7 @@ div.form-field-with-btn {
   transition: opacity 0.3s ease-out;
 }
 
+// Capitalize language name in product edit form tabs
+.tab_language::first-letter {
+  text-transform: capitalize
+}
