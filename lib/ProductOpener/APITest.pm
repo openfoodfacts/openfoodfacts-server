@@ -681,10 +681,11 @@ sub get_api_call_metadata ($test_ref) {
 
 	my $content_type;
 	my $body;
-	# Store only the API path in metadata (without scheme + host).
+	# Store only the API path in metadata (without scheme + host + query string).
 	my $path = $test_ref->{url};
 	if (defined $path) {
 		$path =~ s/^https?:\/\/[^\/]+//;
+		$path =~ s/\?.*$//;
 	}
 
 	if (defined $test_ref->{body}) {
