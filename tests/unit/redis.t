@@ -137,31 +137,25 @@ subtest 'user deletion from redis to minion' => sub {
 };
 
 subtest 'push_product_update_to_redis skips empty code' => sub {
-	# Our fix returns before the !$redis_url block, so $sent_warning_about_missing_redis_url
-	# stays 0 for empty/undef code, proving the early return fires first.
+	# If the early return fires, $sent_warning_about_missing_redis_url stays 0
+	# (the !$redis_url block, which sets it, is never reached).
 	local $ProductOpener::Redis::sent_warning_about_missing_redis_url = 0;
 
-	# undef code
 	push_product_update_to_redis({code => undef}, {}, 'updated');
-	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'undef code returns before redis_url check');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'undef code: early return before redis_url check');
 
-	# empty string code
 	push_product_update_to_redis({code => ''}, {}, 'updated');
-	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'empty code returns before redis_url check');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'empty code: early return before redis_url check');
 };
 
 subtest 'push_ocr_ready_to_redis skips empty code' => sub {
-	# Our fix returns before the !$redis_url block, so $sent_warning_about_missing_redis_url
-	# stays 0 for empty/undef code, proving the early return fires first.
 	local $ProductOpener::Redis::sent_warning_about_missing_redis_url = 0;
 
-	# undef code
 	push_ocr_ready_to_redis(undef, 'front_en', 'https://example.com/1.json');
-	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'undef code returns before redis_url check');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'undef code: early return before redis_url check');
 
-	# empty string code
 	push_ocr_ready_to_redis('', 'front_en', 'https://example.com/1.json');
-	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'empty code returns before redis_url check');
+	is($ProductOpener::Redis::sent_warning_about_missing_redis_url, 0, 'empty code: early return before redis_url check');
 };
 
 done_testing();
