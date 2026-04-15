@@ -363,7 +363,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 
 			my $allergen = display_taxonomy_tag($target_lc, "allergens", $allergen_id);
 
-			$attribute_ref->{name} = $allergen;
+			$attribute_ref->{name} = ucfirst($allergen);
 			$attribute_ref->{setting_name} = sprintf(
 				lang_in_other_lc($target_lc, "without_s"),
 				display_taxonomy_tag($target_lc, "allergens", $allergen_id)

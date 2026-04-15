@@ -103,7 +103,7 @@ sub display_field ($product_ref, $field) {
 			to_do => [],
 			done => [],
 		);
-		my $state_items = $product_ref->{$field . "_hierarchy"};
+		my $state_items = $product_ref->{$field . "_tags"};
 		foreach my $val (@{$state_items}) {
 			if (index($val, 'empty') != -1 or $val =~ /(en:|-)to-be-/sxmn) {
 				push(@{$states{to_do}}, $val);
