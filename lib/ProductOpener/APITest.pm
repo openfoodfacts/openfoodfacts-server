@@ -681,6 +681,7 @@ sub get_api_call_metadata ($test_ref) {
 
 	my $content_type;
 	my $body;
+	# Store only the API path in metadata (without scheme + host).
 	my $path = $test_ref->{url};
 	if (defined $path) {
 		$path =~ s/^https?:\/\/[^\/]+//;
@@ -711,6 +712,7 @@ sub get_api_call_metadata ($test_ref) {
 		api_call => {
 			path => $path,
 			method => $test_ref->{method},
+			# Keep query parameters available as a parsed object for schema checks.
 			parameters => parse_query_string_parameters_from_url($test_ref->{url}),
 			'content-type' => $content_type,
 			body => $body,
