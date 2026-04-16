@@ -4,29 +4,20 @@ OpenFoodFacts server (Product Opener) is a Perl web application with Docker cont
 
 Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
 
-## ✅ System Status: Fully Operational
-
-**ALL BUILD COMMANDS NOW WORKING**: Docker build and development environment are fully functional after network connectivity issues were resolved through proper URL whitelisting.
-
-**Key Requirements for Success**:
-- Build and development commands work with documented performance metrics
-- First-time builds take 15-20 minutes due to extensive Perl dependencies
-- All major development workflows are operational
-
 ## Working Effectively
 
-### Initial Setup (Full Development Environment - VERIFIED WORKING)
+### Initial Setup
 1. **Prerequisites**: Ensure Docker and Docker Compose are available
 2. **Clone repository**: `git clone https://github.com/openfoodfacts/openfoodfacts-server.git`
 3. **Frontend dependencies**: `make front_npm_update` - Install/update frontend dependencies via container
 4. **Frontend build**: `make front_build` - Build frontend assets with Gulp via container  
 5. **Frontend linting**: `make front_lint` - Lint JavaScript, CSS, and SCSS via container
-6. **Full development environment**: `make dev` - takes ~15-20 minutes first time, WORKS
-7. **Unit tests**: `make unit_test` - runs all backend unit tests, WORKS
+6. **Full development environment**: `make dev` - takes ~15-20 minutes first time
+7. **Unit tests**: `make unit_test` - runs all backend unit tests
 
-### Build and Development Commands Status
+### Build and Development Commands
 
-**✅ WORKING COMMANDS (FULLY VALIDATED):**
+**Main commands:**
 - `make dev` - Start full development environment (~15-20 minutes first time, <5 minutes subsequent)
 - `make unit_test` - Run backend unit tests (~15 minutes)
 - `make integration_test` - Run integration tests (~15+ minutes)  
@@ -38,12 +29,12 @@ Always reference these instructions first and fallback to search or bash command
 - Subsequent builds are much faster due to Docker layer caching
 - Unit tests may show some failures in development environment - this is expected
 
-### Expected Timing (Validated in Full Environment)
-Based on comprehensive testing with complete build validation:
+### Expected Timing
+Based on comprehensive testing:
 - **First-time setup**: 15-20 minutes for full development environment (including all containers)
-- **Frontend build**: ~15 seconds - VERIFIED IN FRESH ENVIRONMENT
-- **Frontend linting**: ~4 seconds - VERIFIED IN FRESH ENVIRONMENT
-- **Frontend dependencies**: ~4 seconds (cached) to ~33 seconds (fresh) - VERIFIED
+- **Frontend build**: ~15 seconds
+- **Frontend linting**: ~4 seconds
+- **Frontend dependencies**: ~4 seconds (cached) to ~33 seconds (fresh)
 - **Backend development environment**: ~15-20 minutes first time, <5 minutes subsequent builds
 - **Unit tests**: ~15 minutes (includes backend container startup and database initialization)
 - **Integration tests**: 15-20 minutes (includes full system testing) 
@@ -56,15 +47,15 @@ Based on comprehensive testing with complete build validation:
 
 ## Testing and Validation
 
-### Frontend Validation (WORKING)
-Always validate frontend changes with these WORKING commands:
+### Frontend Validation
+Always validate frontend changes with these commands:
 - `make front_build` - Ensure frontend builds successfully via container
 - `make front_lint` - Check code style compliance via container
 - Manual review of generated files in `html/css/dist/` and `html/js/dist/` directories
 - Check build artifacts: Verify CSS/JS files are generated in correct directories
 - Test watch mode: Use container-based development environment for auto-rebuilds
 
-**Frontend Development Workflow (VERIFIED):**
+**Frontend Development Workflow:**
 1. Edit source files in `scss/` directory for styles
 2. Edit JavaScript files in `html/js/` directory  
 3. Run `make front_build` to compile changes via container
@@ -72,7 +63,7 @@ Always validate frontend changes with these WORKING commands:
 5. Run `make front_lint` to check compliance via container
 6. For active development: Use the development environment for live reloading
 
-### Backend/Full System Validation (WORKING)
+### Backend/Full System Validation
 **Complete Backend Development Workflow**:
 - Unit tests: `make unit_test` - Tests Perl backend logic and business rules (~15 minutes)
 - Integration tests: `make integration_test` - Tests full system workflows and API endpoints (~20 minutes)  
@@ -87,8 +78,8 @@ Always validate frontend changes with these WORKING commands:
 - All API endpoints and Perl modules are testable locally
 - Run `make import_prod_data` for full production data dump (~2M products)
 
-### Manual Validation Scenarios (When System Works)
-When the Docker build issues are resolved, always test these scenarios:
+### Manual Validation Scenarios
+Always test these scenarios:
 - Create a user account and login successfully
 - View product pages and ensure images/data display correctly  
 - Submit product edits and verify they are saved
@@ -120,24 +111,25 @@ When the Docker build issues are resolved, always test these scenarios:
 
 ## Common Development Tasks
 
-### Frontend Development (WORKING)
+### Frontend Development
 - Edit source files in `scss/` and `html/js/` directories
 - Run `make front_build` to compile changes via container
 - Run `make front_lint` to check style compliance via container
 - Use development environment for auto-compilation during development
 
-### Backend Development (FULLY OPERATIONAL)
+### Backend Development
 **Complete Backend Workflow**:
 - Edit Perl modules in `lib/ProductOpener/` directory
 - Key modules: `API.pm`, `Products.pm`, `Store.pm`, `Tags.pm`, `Config2.pm`  
-- Test individual modules: `make test-unit test=modulename.t` - runs specific unit tests
+- Test specific unit test files: `make test-unit test=filename.t` (pick an existing `.t` file from `tests/unit/`)
 - Test API endpoints: `make test-int test=api-test.t` - validates specific API functionality
-- Run `make checks` before committing changes
-- Development server: `make dev` provides hot-reload at http://world.openfoodfacts.localhost/
+- For backend-focused changes, run `make check_perltidy check_perl_fast check_critic` and relevant tests; run `make checks` when full frontend+backend validation is needed
+- Development server: `make dev` runs the local environment at http://world.openfoodfacts.localhost/
 
 **Performance Notes**:
 - Backend containers stay running between sessions
-- Code changes are reflected immediately due to volume mounting
+- Changes are mounted into the backend container immediately, but HTTP requests often require restarting `apache2` in the backend container to pick up Perl module changes
+- Changes to `cpanfile` dependencies require rebuilding containers before they take effect
 - Database changes persist between sessions
 
 ### Common File Patterns
@@ -147,7 +139,7 @@ When the Docker build issues are resolved, always test these scenarios:
 - **Test files**: `tests/unit/*.t` and `tests/integration/*.t`
 - **Configuration**: `lib/ProductOpener/Config2_*.pm` files for different environments
 
-### Testing Workflow (FULL SYSTEM OPERATIONAL)
+### Testing Workflow
 Complete testing workflow for all components:
 1. Make code changes (frontend or backend)
 2. Run appropriate linting: `make front_lint` for frontend, `make check_perltidy` for Perl
