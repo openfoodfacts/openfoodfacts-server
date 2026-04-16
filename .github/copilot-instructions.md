@@ -121,14 +121,15 @@ Always test these scenarios:
 **Complete Backend Workflow**:
 - Edit Perl modules in `lib/ProductOpener/` directory
 - Key modules: `API.pm`, `Products.pm`, `Store.pm`, `Tags.pm`, `Config2.pm`  
-- Test specific unit test files: `make test-unit test=filename.t` (pick an existing `.t` file from `tests/unit/`)
+- Test specific unit test files: `make test-unit test=filename.t` (for example: `make test-unit test=additives.t`)
 - Test API endpoints: `make test-int test=api-test.t` - validates specific API functionality
-- For backend-focused changes, run `make check_perltidy check_perl_fast check_critic` and relevant tests; run `make checks` when full frontend+backend validation is needed
+- For backend-focused changes, run `make check_perltidy`, `make check_perl_fast`, `make check_critic`, and relevant tests
+- Run `make checks` when full frontend+backend validation is needed
 - Development server: `make dev` runs the local environment at http://world.openfoodfacts.localhost/
 
 **Performance Notes**:
 - Backend containers stay running between sessions
-- Changes are mounted into the backend container immediately, but HTTP requests often require restarting `apache2` in the backend container to pick up Perl module changes
+- Changes are mounted into the backend container immediately, but HTTP requests often require restarting the backend container to pick up Perl module changes (use the Makefile target `make restart_backend`)
 - Changes to `cpanfile` dependencies require rebuilding containers before they take effect
 - Database changes persist between sessions
 
