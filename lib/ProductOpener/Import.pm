@@ -87,6 +87,7 @@ use ProductOpener::Store qw/get_string_id_for_lang retrieve retrieve_object stor
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Images qw/get_imagefield_from_string process_image_crop process_image_upload/;
 use ProductOpener::Lang qw/$lc  lang/;
 use ProductOpener::Mail qw/:all/;

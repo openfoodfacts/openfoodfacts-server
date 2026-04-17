@@ -55,6 +55,7 @@ use vars @EXPORT_OK;
 use ProductOpener::KnowledgePanels
 	qw(create_panel_from_json_template add_taxonomy_properties_in_target_languages_to_object);
 use ProductOpener::Tags qw(:all);
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Display qw/:all/;

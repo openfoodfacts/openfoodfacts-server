@@ -129,6 +129,7 @@ use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Users qw(:all);
 use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);

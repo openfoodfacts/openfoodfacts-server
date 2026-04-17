@@ -9,7 +9,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
 use ProductOpener::ProducersFood qw/:all/;

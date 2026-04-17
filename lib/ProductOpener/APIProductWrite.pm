@@ -57,8 +57,8 @@ use ProductOpener::API
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::Tags
-	qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags %tags_fields %taxonomy_fields set_field_input_tags_for_source/;
+use ProductOpener::Tags qw/%language_fields %writable_tags_fields %tags_fields %taxonomy_fields/;
+use ProductOpener::ProductsTags qw/add_tags_to_field compute_field_tags set_field_input_tags_for_source/;
 use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Auth qw/get_azp/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;

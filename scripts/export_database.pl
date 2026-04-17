@@ -433,7 +433,7 @@ XML
 
 				$main_cid = $product_ref->{categories_tags}[(scalar @{$product_ref->{categories_tags}}) - 1];
 
-				$main_cid = canonicalize_tag2("categories", $main_cid);
+				$main_cid = canonicalize_taxonomy_tag($lc, "categories", $main_cid);
 				$main_cid_lc = cached_display_taxonomy_tag($lc, 'categories', $main_cid);
 			}
 

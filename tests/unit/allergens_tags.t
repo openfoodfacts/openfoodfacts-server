@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Ingredients qw/detect_allergens_from_text extract_ingredients_from_text/;
 use ProductOpener::Products qw/compute_languages/;
 

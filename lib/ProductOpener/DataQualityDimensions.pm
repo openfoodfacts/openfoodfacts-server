@@ -46,7 +46,7 @@ BEGIN {
 }
 
 use ProductOpener::DataQualityFood qw(is_european_product);
-use ProductOpener::Tags qw(add_tag get_all_tags_having_property);
+use ProductOpener::ProductsTags qw/add_tag get_all_tags_having_property/;
 use ProductOpener::Nutrition qw(has_non_estimated_nutrition_data has_no_nutrition_data_on_packaging);
 
 =head1 FUNCTIONS

@@ -12,6 +12,7 @@ use JSON;
 
 use ProductOpener::Products qw/compute_languages/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Ingredients qw/detect_allergens_from_text extract_ingredients_from_text/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 

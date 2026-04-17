@@ -63,7 +63,8 @@ use vars @EXPORT_OK;
 use Log::Any qw($log);
 
 use ProductOpener::Tags
-	qw/generate_field_tags_from_all_sources compute_field_tags get_minimal_tags_subset get_property @writable_tags_fields_list list_taxonomy_tags_in_language display_taxonomy_tag/;
+	qw/get_minimal_tags_subset get_property @writable_tags_fields_list list_taxonomy_tags_in_language display_taxonomy_tag/;
+use ProductOpener::ProductsTags qw/generate_field_tags_from_all_sources compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;

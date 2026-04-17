@@ -118,6 +118,7 @@ use ProductOpener::Store qw/get_string_id_for_lang unac_string_perl/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Products qw/remove_fields/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/extract_text_from_image/;

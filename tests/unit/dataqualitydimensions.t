@@ -6,7 +6,7 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 
 use ProductOpener::DataQualityDimensions qw/compute_accuracy_score compute_completeness_score/;
-use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::FoodProducts qw/:all/;
 use boolean qw/:all/;
 

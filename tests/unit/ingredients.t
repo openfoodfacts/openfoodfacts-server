@@ -9,7 +9,7 @@ use Log::Any::Adapter 'TAP';
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
