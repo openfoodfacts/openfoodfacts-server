@@ -43,13 +43,17 @@ components:
                         example: ["en:organic"]
             example:
               packaging:
-                last_updated_t: "2026-02-22T10:00:00Z"
-                tags:
-                  - en:organic
-                  - en:vegetarian
-              producer:
-                tags:
-                  - en:fair_trade
-              predicted:
-                tags:
-                  - en:organic
+                categories:
+                  last_updated_t: "2026-02-22T10:00:00Z"
+                  tags:
+                    - en:organic
+                    - en:vegetarian
+                labels:
+                  last_updated_t: "2026-02-22T10:00:00Z"
+                  tags:
+                    - en:fair-trade
+              manufacturer:
+                categories:
+                  last_updated_t: "2026-02-22T10:00:00Z"
+                  tags:
+                    - en:organic

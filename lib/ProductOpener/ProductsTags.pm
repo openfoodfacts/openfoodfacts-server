@@ -61,8 +61,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Tags
-	qw/get_inherited_property_from_tags get_property canonicalize_taxonomy_tag
+use ProductOpener::Tags qw/get_inherited_property_from_tags get_property canonicalize_taxonomy_tag
 	list_taxonomy_tags_in_language canonicalize_allergens_taxonomy_tag exists_taxonomy_tag
 	gen_tags_list_with_parents display_taxonomy_tag get_city_code
 	init_emb_codes gen_tags_hierarchy_taxonomy

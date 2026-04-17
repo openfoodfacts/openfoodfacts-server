@@ -17,7 +17,6 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 init_emb_codes();
 
-
 my $product_ref = {test_tags => ['en:test']};
 
 # verify has_tag works correctly
@@ -281,7 +280,6 @@ compute_field_tags($product_ref, "fr", "stores");
 is($product_ref->{stores_tags}, ["intermarche"]);
 compute_field_tags($product_ref, "de", "stores");
 is($product_ref->{stores_tags}, ["intermarche"]);
-
 
 # Test add_tags_to_field
 
