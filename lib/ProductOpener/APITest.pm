@@ -94,7 +94,7 @@ no warnings qw(experimental::signatures);
 # Should be used internally only (see: construct_test_url to build urls in tests)
 my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
 my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
-my $METADATA_JSON_ENCODER = JSON::MaybeXS->new(utf8 => 1, pretty => 1);
+my $metadata_json_encoder = JSON::MaybeXS->new(utf8 => 1, pretty => 1);
 
 =head2 wait_auth()
 
@@ -729,7 +729,7 @@ sub write_expected_result_metadata ($expected_result_file, $test_ref, $update_ex
 	my $metadata_file = $expected_result_file . ".metadata";
 	open(my $metadata_fh, ">:encoding(UTF-8)", $metadata_file)
 		or confess("Could not create " . $metadata_file . ": $!");
-	print $metadata_fh $METADATA_JSON_ENCODER->encode($metadata_ref);
+	print $metadata_fh $metadata_json_encoder->encode($metadata_ref);
 	close($metadata_fh);
 
 	return;
