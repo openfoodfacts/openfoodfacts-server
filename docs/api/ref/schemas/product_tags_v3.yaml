@@ -22,18 +22,25 @@ components:
             patternProperties:
               "^[a-z]+(_-[a-z]+)*$":
                 type: object
-                properties:
-                  last_updated_t:
-                    type: string
+                description: |
+                  A tag type such as "categories", "labels", "stores"
+                patternProperties:
+                  "^[a-z]+(_-[a-z]+)*$":
+                    type: object
                     description: |
-                      Timestamp indicating when tags related to this source were last updated.
-                  tags:
-                    type: array
-                    description: |
-                      The specific tags related to this source.
-                    items:
-                      type: string
-                    example: ["en:organic"]
+                      A source such as "packaging", "manufacturer" or "ingredients"
+                    properties:
+                      last_updated_t:
+                        type: string
+                        description: |
+                          Timestamp indicating when tags related to this source were last updated.
+                      tags:
+                        type: array
+                        description: |
+                          The specific tags related to this source.
+                        items:
+                          type: string
+                        example: ["en:organic"]
             example:
               packaging:
                 last_updated_t: "2026-02-22T10:00:00Z"

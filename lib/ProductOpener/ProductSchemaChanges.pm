@@ -454,11 +454,8 @@ sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref)
 
 		my @nutrients = keys %hash_nutrients;
 
-		# Generates the nutrition sets,
-		# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
-		# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
-		# otherwise, we set the source to "packaging" (for organizations that start with user-
-		# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
+		# Generates the nutrition sets
+		# Nutrition data did not have a source before, we use the default source corresponding to the site (off or off-pro) and organization
 		my $source = get_source_for_site_and_org();
 		foreach my $set_type (keys %$new_nutrition_sets_ref) {
 			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
@@ -923,13 +920,8 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 
 	$product_ref->{tags_sources} = {};
 
-	# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
-	# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
-	# otherwise, we set the source to "packaging" (for organizations that start with user-
-	# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
+	# Tags did not have a source before, we use the default source corresponding to the site (off or off-pro) and organization
 	my $source = get_source_for_site_and_org();
-
-	# TODO: special case for ingredients_tags
 
 	# We go through the input tags fields (e.g. categories, labels) that can be written directly
 	# and that are not derived from other fields (e.g. states_tags, ingredients_tags)
@@ -950,7 +942,7 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 				# we create a tags_source.categories with the minimal tags subset to generate categories_tags
 
 				my $source_ref = {
-					last_updated_t => time() + 0,
+					last_updated_t => $product_ref->{last_updated_t} // $product_ref->{last_modified_t},
 					tags => [get_minimal_tags_subset($tagtype, $tags_hierarchy_or_tags_field)],
 				};
 

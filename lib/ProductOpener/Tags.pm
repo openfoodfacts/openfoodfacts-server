@@ -2977,7 +2977,15 @@ sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
 	# If the tagtype is not a taxonomy, we just unique the tags and return them in the same order
 	if (not defined $all_parents{$tagtype}) {
 		my %seen = ();
-		return grep {$_ ne ''} grep {!$seen{$_}++} @$tags_ref;
+		my @unique_tags = ();
+		foreach my $tag (@$tags_ref) {
+			next if $tag eq '';
+			if (not exists $seen{$tag}) {
+				push @unique_tags, $tag;
+				$seen{$tag} = 1;
+			}
+		}
+		return @unique_tags;
 	}
 
 	my %tags = ();
