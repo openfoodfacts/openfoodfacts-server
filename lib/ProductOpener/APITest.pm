@@ -728,7 +728,7 @@ sub write_expected_result_metadata ($expected_result_file, $test_ref, $update_ex
 	my $metadata_file = $expected_result_file . ".metadata";
 	open(my $metadata_fh, ">:encoding(UTF-8)", $metadata_file)
 		or confess("Could not create " . $metadata_file . ": $!");
-	print $metadata_fh $json->pretty->encode($metadata_ref);
+	print $metadata_fh JSON::MaybeXS->new(utf8 => 1, pretty => 1)->encode($metadata_ref);
 	close($metadata_fh);
 
 	return;
