@@ -82,7 +82,7 @@ $material-icons: "Material Icons";
   text-transform: none;
   display: inline-block;
   white-space: nowrap;
-  word-wrap: normal;
+  overflow-wrap: normal;
   direction: ltr;
   font-feature-settings: "liga";
   -webkit-font-feature-settings: "liga";
@@ -296,7 +296,7 @@ ul.products {
   margin: 10px;
   padding: 10px;
   width: 120px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   text-decoration: none !important;
 }
 
@@ -461,7 +461,7 @@ nav.tab-bar > div {
 p.details {
   color: gray;
   font-size: 0.8em;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .select2-dropdown.select2-dropdown--below {
@@ -758,7 +758,7 @@ html[dir="rtl"] {
   border-radius: 8px;
   padding: 10px;
   display: block;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #product_banner {
@@ -919,7 +919,7 @@ html[dir="rtl"] {
 // from https://www.w3.org/WAI/tutorials/forms/labels/
 .visuallyhidden {
   border: 0;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
