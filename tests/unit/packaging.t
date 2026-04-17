@@ -53,6 +53,18 @@ my @tests = (
 		expected_output => undef,
 	},
 	{
+		desc => "number_of_units above maximum should be rejected",
+		lc => "en",
+		input => {"number_of_units" => 9223372036854775807, "shape" => "en:bottle"},
+		expected_output => {'shape' => 'en:bottle'},
+	},
+	{
+		desc => "number_of_units at maximum (10000) should be accepted",
+		lc => "en",
+		input => {"number_of_units" => 10000, "shape" => "en:bottle"},
+		expected_output => {'number_of_units' => 10000, 'shape' => 'en:bottle'},
+	},
+	{
 		desc => "Value 0 should be considered empty, 1 value is not 0",
 		lc => "en",
 		input => {
