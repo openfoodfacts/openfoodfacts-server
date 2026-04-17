@@ -1,28 +1,36 @@
 {
-   "brands" : "",
-   "brands_hierarchy" : [],
+   "brands" : "Some brand",
+   "brands_hierarchy" : [
+      "xx:Some brand"
+   ],
    "brands_lc" : "en",
    "brands_tags" : [
-      "xx:some-brand"
+      "xx:Some brand"
    ],
-   "brands_tags_en" : [
-      "some-brand"
+   "categories" : "Coffees, de:Toutafé, de:alonbon, Something Unrecognized",
+   "categories_hierarchy" : [
+      "en:coffees",
+      "de:Toutafé",
+      "de:alonbon",
+      "en:Something Unrecognized"
    ],
-   "categories" : "",
-   "categories_hierarchy" : [],
    "categories_lc" : "en",
    "categories_tags" : [
-      "en:plant-based-foods-and-beverages",
-      "en:plant-based-foods",
-      "en:coffees"
+      "en:coffees",
+      "de:Toutafé",
+      "de:alonbon",
+      "en:Something Unrecognized"
    ],
-   "categories_tags_en" : [
-      "Plant-based foods and beverages",
-      "Plant-based foods",
-      "Coffees"
+   "labels" : "Organic, Vegan, Max Havelaar, Something Unrecognized",
+   "labels_hierarchy" : [
+      "en:vegetarian",
+      "en:fair-trade",
+      "en:organic",
+      "en:fairtrade-international",
+      "en:vegan",
+      "en:max-havelaar",
+      "en:Something Unrecognized"
    ],
-   "labels" : "",
-   "labels_hierarchy" : [],
    "labels_lc" : "en",
    "labels_tags" : [
       "en:vegetarian",
@@ -31,16 +39,7 @@
       "en:fairtrade-international",
       "en:vegan",
       "en:max-havelaar",
-      "en:something-unrecognized"
-   ],
-   "labels_tags_en" : [
-      "Vegetarian",
-      "Fair trade",
-      "Organic",
-      "Fairtrade International",
-      "Vegan",
-      "Max Havelaar",
-      "Something-unrecognized"
+      "en:Something Unrecognized"
    ],
    "schema_version" : 1003
 }

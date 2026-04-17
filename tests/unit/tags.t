@@ -9,8 +9,6 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
-# Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
-use ProductOpener::Display qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results
 	normalize_product_for_test_comparison/;
 
@@ -421,8 +419,8 @@ my $tagtype = "editors";
 
 is(get_fileid($yuka_uuid), $yuka_uuid);
 
-my $display_tag = canonicalize_tag2($tagtype, $yuka_uuid);
-my $newtagid = get_fileid($display_tag);
+my $display_tag = display_tag($tagtype, $yuka_uuid);
+my $newtagid = canonicalize_tag($tagtype, $yuka_uuid);
 
 is($display_tag, $yuka_uuid);
 is($newtagid, $yuka_uuid);

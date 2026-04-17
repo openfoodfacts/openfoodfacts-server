@@ -117,15 +117,25 @@ is([gen_tags_list_with_parents("en", "test", ["yaourts à la banane"])], ["en:ya
 is([gen_tags_list_with_parents("fr", "test", ["yaourts à la banane"])], ["en:yogurts", "en:banana-yogurts"]);
 is([gen_tags_list_with_parents("fr", "test", ["yaourts au schtroumpf"])], ["fr:yaourts au schtroumpf"]);
 
-# canonicalize_tag2
-is(canonicalize_tag2("stores", "abc"), "abc");
-is(canonicalize_tag2("stores", "Abc Def"), "Abc Def");
-is(canonicalize_tag2("stores", "Café L'Artémis"), "Café L'Artémis");
+# canonicalize_tag
+is(canonicalize_tag("stores", "abc"), "abc");
+is(canonicalize_tag("stores", "Abc Def"), "Abc Def");
+is(canonicalize_tag("stores", "Café L'Artémis"), "Café L'Artémis");
 
 # display_tag_link
 is(display_tag_link("stores", "abc"), '<a href="/facets/stores/abc">abc</a>');
 is(display_tag_link("stores", "Abc Def"), '<a href="/facets/stores/Abc%20Def">Abc Def</a>');
 is(display_tag_link("stores", "Café L'Artémis"),
 	'<a href="/facets/stores/Caf%C3%A9%20L\'Art%C3%A9mis">Café L\'Artémis</a>');
+
+# Packager codes
+
+is(canonicalize_tag("emb_codes", "fr-85-222-003-ce"), "fr-85-222-003-ec");
+is(canonicalize_tag("emb_codes", "fr-85-222-003-ec"), "fr-85-222-003-ec");
+is(canonicalize_tag("emb_codes", "EMB 62863C"), "emb-62863c");
+
+is(display_tag("emb_codes", "fr-85-222-003-ce"), "FR 85.222.003 CE");
+is(display_tag("emb_codes", "fr-85-222-003-ec"), "FR 85.222.003 CE");
+is(display_tag("emb_codes", "EMB 62863C"), "EMB 62863C");
 
 done_testing();

@@ -61,7 +61,7 @@ BEGIN {
 		&display_stats
 		&display_points
 		&display_mission
-		&display_tag
+		&display_tag_page
 		&display_search_results
 		&display_error
 		&display_error_and_exit
@@ -2189,8 +2189,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 			}
 			else {
-				$display = canonicalize_tag2($tagtype, $tagid);
-				$display = display_tag_name($tagtype, $display);
+				$display = display_tag_name($tagtype, $tagid);
 			}
 
 			# Display the percent of products for each tag
@@ -3026,13 +3025,8 @@ sub display_points ($request_ref) {
 				= '/facets' . canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
 		}
 		else {
-			$display_tag = canonicalize_tag2($tagtype, $tagid);
-			$new_tagid = get_string_id_for_lang($lc, $display_tag);
-			$display_tag = display_tag_name($tagtype, $display_tag);
-			if ($tagtype eq 'emb_codes') {
-				$canon_tagid = $new_tagid;
-				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-			}
+			$new_tagid = canonicalize_tag($tagtype, $tagid);
+			$display_tag = display_tag_name($tagtype, $new_tagid);
 			$title = $display_tag;
 			$new_tagid_path = '/facets' . canonicalize_tag_link($tagtype, $new_tagid);
 			$request_ref->{current_link} = $new_tagid_path;
@@ -3163,16 +3157,8 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			) if $log->is_debug();
 		}
 		else {
-			$display_tag = canonicalize_tag2($tagtype, $tagid);
-			# Use "no_language" normalization for tags types without a taxonomy
-			# Tag refactor: we don't normalize tags
-			#$new_tagid = get_string_id_for_lang("no_language", $display_tag);
-			$new_tagid = $display_tag;
-			$display_tag = display_tag_name($tagtype, $display_tag);
-			if ($tagtype eq 'emb_codes') {
-				$canon_tagid = $new_tagid;
-				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-			}
+			$new_tagid = canonicalize_tag($tagtype, $tagid);
+			$display_tag = display_tag_name($tagtype, $new_tagid);
 			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid, $tag_prefix);
 			$request_ref->{current_link} .= $new_tagid_path;
 			my $current_lc = $lc;
@@ -3745,7 +3731,7 @@ HTML
 	return $description;
 }
 
-=head2 display_tag ($request_ref)
+=head2 display_tag_page ($request_ref)
 
 This function is called to display either:
 
@@ -3768,7 +3754,7 @@ When displaying a list of tags, the function calls display_list_of_tags().
 
 =cut
 
-sub display_tag ($request_ref) {
+sub display_tag_page ($request_ref) {
 
 	local $log->context->{tags} = $request_ref->{tags};
 
@@ -4843,11 +4829,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							}
 						}
 						else {
-							$tagid2 = canonicalize_tag2($tagtype, $tag2);
-							# EU packager codes are normalized to have -ec at the end
-							if ($tagtype eq 'emb_codes') {
-								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
-							}
+							$tagid2 = canonicalize_tag($tagtype, $tag2);
 						}
 						push @tagids, $tagid2;
 					}
@@ -4884,11 +4866,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 						}
 					}
 					else {
-						$tagid = canonicalize_tag2($tagtype, $tag);
-						# EU packager codes are normalized to have -ec at the end
-						if ($tagtype eq 'emb_codes') {
-							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-						}
+						$tagid = canonicalize_tag($tagtype, $tag);
 					}
 					$log->debug("add_params_to_query - tags param - single value",
 						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid})

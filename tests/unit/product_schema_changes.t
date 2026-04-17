@@ -1535,7 +1535,7 @@ my @tests = (
 		1003,
 		{
 			schema_version => 1004,
-			categories_tags => ["en:coffees", "de:toutafe", "de:alonbon"],
+			categories_tags => ["en:coffees", "de:Toutafé", "de:alonbon"],
 			tags_sources => {
 				categories => {
 					packaging => {
@@ -1557,47 +1557,39 @@ my @tests = (
 		{
 			schema_version => 1004,
 			brands => "Some brand",
-			brands_hierarchy => ["xx:Some brand"],
-			brands_tags => ["xx:some-brand"],
-			brands_tags_en => ["some-brand"],
-			categories => "coffee",
-			categories_hierarchy => ["en:plant-based-foods-and-beverages", "en:plant-based-foods", "en:coffees"],
-			categories_tags => ["en:plant-based-foods-and-beverages", "en:plant-based-foods", "en:coffees"],
-			categories_tags_en => ["Plant-based foods and beverages", "Plant-based foods", "Coffees"],
-			labels => "en:organic,fr:max havelaar,vegan,Something unrecognized",
-			labels_hierarchy => [
-				"en:vegetarian", "en:fair-trade",
-				"en:organic", "en:fairtrade-international",
-				"en:vegan", "en:max-havelaar",
-				"en:Something unrecognized"
-			],
+			brands_tags => ["xx:Some brand"],
+			categories_tags => ["en:coffees", "de:Toutafé", "de:alonbon", "en:Something Unrecognized"],
 			labels_tags => [
 				"en:vegetarian", "en:fair-trade",
 				"en:organic", "en:fairtrade-international",
 				"en:vegan", "en:max-havelaar",
-				"en:something-unrecognized"
-			],
-			labels_tags_en => [
-				"Vegetarian", "Fair trade",
-				"Organic", "Fairtrade International",
-				"Vegan", "Max Havelaar",
-				"Something-unrecognized"
+				"en:Something Unrecognized"
 			],
 			tags_sources => {
-				allergens => {
-					ingredients => {
+				brands => {
+					manufacturer => {
 						last_updated_t => 1775147439,
-						tags => []
+						tags => ["xx:Some brand"]
 					}
 				},
-				traces => {
-					ingredients => {
-						last_updated_t => 1775147439,
-						tags => []
+				labels => {
+					manufacturer => {
+						last_updated_t => 1775147440,
+						tags => [
+							"en:vegetarian", "en:fair-trade",
+							"en:organic", "en:fairtrade-international",
+							"en:vegan", "en:max-havelaar",
+							"en:Something Unrecognized"
+						]
+					}
+				},
+				categories => {
+					manufacturer => {
+						last_updated_t => 1775147441,
+						tags => ["en:coffees", "de:Toutafé", "de:alonbon", "en:Something Unrecognized"]
 					}
 				}
-			},
-
+			}
 		}
 	]
 );

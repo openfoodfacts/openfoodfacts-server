@@ -296,14 +296,14 @@ my $tests_ref = [
 	{
 		test_case => 'packager-code_fr-85-222-003-ce',
 		method => 'GET',
-		path => 'facets/packager-codes/FR%2085.222.003%20CE.json?fields=product_name,emb_codes_tags',
+		path => 'facets/packager-codes/fr-85-222-003-ec.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'packager-code_fr-85-222-003-ec',    # not normalized code (ec instead of ce)
 		method => 'GET',
-		path => 'facets/packager-codes/FR%2085.222.003%20EC.json?fields=product_name,emb_codes_tags',
+		path => 'facets/packager-codes/fr-85-222-003-ec.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},

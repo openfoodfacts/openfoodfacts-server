@@ -83,6 +83,7 @@ use ProductOpener::Users qw/$Org_id/;
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
 use List::Util qw/any/;
+use Storable qw/dclone/;
 
 $current_schema_version = 1004;
 
@@ -956,7 +957,7 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 				$product_ref->{tags_sources}->{$tagtype} = {$source => $source_ref};
 
 				# Regenerate the [tagtype]_tags field
-				generate_field_tags_from_all_sources($product_ref, $tagtype, 1);
+				generate_field_tags_from_all_sources($product_ref, $tagtype);
 			}
 
 			# Delete old fields
@@ -999,22 +1000,9 @@ sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
 
 	foreach my $tagtype (@writable_tags_fields_list) {
 		if (defined $product_ref->{$tagtype . "_tags"}) {
-			# Save the normalized tags as we will call generate_field_tags_from_all_sources which will overwrite them
-			$product_ref->{$tagtype . "_tags_copy"} = $product_ref->{$tagtype . "_tags"};
-
-			# We generate the _hierarchy field from input tags, with normalized set to 0 to keep unnormalized tags for unrecognized tags (e.g. with accents and case)
-			generate_field_tags_from_all_sources($product_ref, $tagtype, 0);
-
-			$log->debug("Generated field $tagtype\_tags with value ",
-				{value => join(", ", @{$product_ref->{$tagtype . "_tags"}})})
-				if $log->is_debug;
-
-			$product_ref->{$tagtype . "_hierarchy"} = $product_ref->{$tagtype . "_tags"};
-
-			$product_ref->{$tagtype . "_tags"} = $product_ref->{$tagtype . "_tags_copy"};
-			delete $product_ref->{$tagtype . "_tags_copy"};
-
-			# We keep [$tagtype_]tags as is: it contains normalized tags
+			# In the new tags schema, the *_tags fields contain what used to be in the *_hierarchy fields
+			# So we just deep copy it
+			$product_ref->{$tagtype . "_hierarchy"} = dclone($product_ref->{$tagtype . "_tags"});
 
 			# We also set the [tagtype]_lc to the value of the lang field (main language of product)
 			# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags

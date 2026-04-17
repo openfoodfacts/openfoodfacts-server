@@ -231,7 +231,7 @@ sub get_url_id_for_lang ($lc, $input) {
 	my $string = $input;
 
 	# 2024/04/13 tags refactor - tags in urls are now not normalized
-	# $string = get_string_id_for_lang($lc, $string);
+	$string = get_string_id_for_lang($lc, $string);
 
 	if ($string =~ /[^a-zA-Z0-9-]/) {
 		$string = URI::Escape::XS::encodeURIComponent($string);

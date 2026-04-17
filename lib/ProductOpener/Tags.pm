@@ -53,7 +53,8 @@ BEGIN {
 		&init_languages
 		&load_knowledge_content
 
-		&canonicalize_tag2
+		&canonicalize_tag
+		&display_tag
 		&canonicalize_tag_link
 
 		&sanitize_taxonomy_line
@@ -82,8 +83,6 @@ BEGIN {
 		%level
 		%special_tags
 		%translations_from
-
-		&get_taxonomyid
 
 		&gen_tags_hierarchy_taxonomy
 		&gen_ingredients_tags_hierarchy_taxonomy
@@ -179,6 +178,8 @@ BEGIN {
 		&set_field_input_tags_for_source
 		&generate_field_tags_from_all_sources
 
+		&get_taxonomyid
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -194,6 +195,7 @@ use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_co
 use ProductOpener::Texts qw/$lang_dir/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::IngredientsStrings qw/%may_contain_regexps/;
+use ProductOpener::PackagerCodes qw/$ec_code_regexp/;
 
 use Clone qw(clone);
 use List::MoreUtils qw(uniq);
@@ -316,8 +318,6 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	nutrition_infocard => 1,
 	environment_infocard => 1,
 );
-
-my %canon_tags = ();
 
 %stopwords = ();
 %just_synonyms = ();
@@ -2770,10 +2770,9 @@ sub retrieve_tags_taxonomy ($tagtype, $die_if_taxonomy_cannot_be_loaded = 0) {
 				$type = "without";
 				$line = $1;
 			}
-			my $tag = canonicalize_taxonomy_tag("en", $tagtype, $line);
-			my $tagid = get_taxonomyid("en", $tag);
+			my $tagid = canonicalize_taxonomy_tag("en", $tagtype, $line);
 
-			print "special_tag - line:<$line> - tag:<$tag> - tagid:<$tagid>\n";
+			print "special_tag - line:<$line> - tagid:<$tagid>\n";
 
 			if ($tagid ne "") {
 				push @{$special_tags{$tagtype}},
@@ -3018,15 +3017,14 @@ sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
 
 		foreach my $canon_tag_i (@canon_tags) {
 
-			my $tagid = get_taxonomyid($l, $canon_tag_i);
-			next if $tagid eq '';
-			if ($tagid =~ /:$/) {
+			next if $canon_tag_i eq '';
+			if ($canon_tag_i =~ /:$/) {
 				#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
 				next;
 			}
 			$tags{$canon_tag_i} = 1;
-			if (defined $all_parents{$tagtype}{$tagid}) {
-				foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+			if (defined $all_parents{$tagtype}{$canon_tag_i}) {
+				foreach my $parentid (@{$all_parents{$tagtype}{$canon_tag_i}}) {
 					$tags{$parentid} = 1;
 				}
 			}
@@ -3069,10 +3067,9 @@ sub gen_ingredients_tags_hierarchy_taxonomy ($tag_lc, $tags_list) {
 		}
 		next if $tag eq '';
 		$tag = canonicalize_taxonomy_tag($l, $tagtype, $tag);
-		my $tagid = get_taxonomyid($l, $tag);
-		next if $tagid eq '';
-		if ($tagid =~ /:$/) {
-			#print STDERR "taxonomy - empty tag: $tag - l: $l - tagid: $tagid - tag_lc: >$tags_list< \n";
+		next if $tag eq '';
+		if ($tag =~ /:$/) {
+			#print STDERR "taxonomy - empty tag: $tag - l: $l - tag_lc: >$tags_list< \n";
 			next;
 		}
 
@@ -3081,8 +3078,8 @@ sub gen_ingredients_tags_hierarchy_taxonomy ($tag_lc, $tags_list) {
 			$seen{$tag} = 1;
 		}
 
-		if (defined $all_parents{$tagtype}{$tagid}) {
-			foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+		if (defined $all_parents{$tagtype}{$tag}) {
+			foreach my $parentid (@{$all_parents{$tagtype}{$tag}}) {
 				if (not exists $seen{$parentid}) {
 					push @tags, $parentid;
 					$seen{$parentid} = 1;
@@ -3137,19 +3134,21 @@ sub get_tag_css_class ($target_lc, $tagtype, $tag) {
 
 sub display_tag_name ($tagtype, $tag) {
 
+	my $tag_name = display_tag($tagtype, $tag);
+
 	# do not display UUIDs yuka-UnY4RExZOGpoTVVWb01aajN4eUY2UHRJNDY2cWZFVzhCL1U0SVE9PQ
 	# but just yuka - user
 	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
-		$tag =~ s/\.(.*)/ - user/;
+		$tag_name =~ s/\.(.*)/ - user/;
 	}
-	return $tag;
+	return $tag_name;
 }
 
 sub display_tag_link ($tagtype, $tag) {
 
 	return "" if not defined $tag;
 
-	$tag = canonicalize_tag2($tagtype, $tag);
+	$tag = canonicalize_tag($tagtype, $tag);
 
 	my $path = $tag_type_plural{$tagtype}{$lc};
 
@@ -3163,10 +3162,8 @@ sub display_tag_link ($tagtype, $tag) {
 		$tag_lc = "no_language";
 	}
 
-	# 20260413 - with the new tags refactor, we now do not normalize tags
-	# my $tagid = get_string_id_for_lang($tag_lc, $tag);
 	my $tagid = $tag;
-	my $tagurl = get_urlid($tagid, 0, $tag_lc);
+	my $tagurl = get_tag_url_id($tagtype, $tagid);
 
 	my $display_tag = display_tag_name($tagtype, $tag);
 
@@ -3210,10 +3207,9 @@ sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = un
 
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
-	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
 	my $path = $tag_type_plural{$tagtype}{$target_lc};
-	return "/$path/" . ($tag_prefix // '') . "$tagurl";
+	return "/$path/" . ($tag_prefix // '') . $tag;
 }
 
 # The display_taxonomy_tag_link function makes many calls to other functions, in particular it calls twice display_taxonomy_tag_link
@@ -3225,8 +3221,8 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $taxonomy, $tag);
-	my $tagid = get_taxonomyid($target_lc, $tag);
-	my $tagurl = get_taxonomyurl($target_lc, $tagid);
+	my $tagid = $tag;
+	my $tagurl = $tag;
 
 	my $tag_lc;
 	if ($tag =~ /^(\w\w):/) {
@@ -3589,30 +3585,15 @@ sub list_taxonomy_tags_in_language ($target_lc, $tagtype, $tags_ref) {
 	}
 }
 
-sub canonicalize_tag2 ($tagtype, $tag) {
-	return $tag if !defined $tag;
+=head2 display_tag ($tagtype, $tagid)
 
-	#$tag = lc($tag);
-	my $canon_tag = $tag;
-	$canon_tag =~ s/^ //g;
-	$canon_tag =~ s/ $//g;
+Return the display name of a tag.
 
-	my $tagid = get_string_id_for_lang($lc, $tag);
+=cut
 
-	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
-		return $tagid;
-	}
+sub display_tag ($tagtype, $tagid) {
 
-	if (    (defined $canon_tags{$lc})
-		and (defined $canon_tags{$lc}{$tagtype})
-		and (defined $canon_tags{$lc}{$tagtype}{$tagid}))
-	{
-		$canon_tag = $canon_tags{$lc}{$tagtype}{$tagid};
-	}
-
-	#$canon_tag =~ s/(-|\'|_|\n)/ /g;	# - and ' might be added back
-
-	$tag = $canon_tag;
+	my $tag = $tagid;
 
 	if ($tagtype eq 'emb_codes') {
 
@@ -3623,6 +3604,7 @@ sub canonicalize_tag2 ($tagtype, $tag) {
 	}
 
 	elsif ($tagtype eq 'cities') {
+		my $tagid = get_string_id_for_lang("no_language", $tag);
 		if (defined $cities{$tagid}) {
 			$tag = $cities{$tagid};
 		}
@@ -3631,32 +3613,47 @@ sub canonicalize_tag2 ($tagtype, $tag) {
 	return $tag;
 }
 
-sub get_taxonomyid ($tag_lc, $tagid) {
+=head2 canonicalize_tag ($tagtype, $tag)
 
-	# 20260413 tag refactor: do not normalize tags in URLs (but taxonomized entries are already canonicalized)
-	return $tagid;
+Canonicalize a tag that is not in a taxonomy, to get a canonical id for it.
 
-	# $tag_lc  ->  Default tag language if tagid is not prefixed by a language code
-	if ($tagid =~ /^(\w\w):/) {
-		return lc($1) . ':' . get_string_id_for_lang(lc($1), $');
+For most tag types, we do not normalize input tag ids (no lowercasing, unaccenting, turning non-alphanumeric chars to dash).
+
+For EMB codes (packager codes), we have special functions to normalize the display name of the EMB code,
+and we then normalize the string.
+
+For cities, we normalize the string.
+
+=cut
+
+sub canonicalize_tag ($tagtype, $tag) {
+	return $tag if !defined $tag;
+
+	$tag =~ s/^ //g;
+	$tag =~ s/ $//g;
+
+	if ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/) {
+		my $tagid = get_string_id_for_lang("no_language", $tag);
+		return $tagid;
 	}
-	else {
-		return get_string_id_for_lang($tag_lc, $tagid);
-	}
-}
 
-sub get_taxonomyurl ($tag_lc, $tagid) {
+	if ($tagtype eq 'emb_codes') {
 
-	# 20260413 tag refactor: do not normalize tags in URLs (but taxonomized entries are already canonicalized)
-	return $tagid;
+		$tag = uc($tag);
 
-	# $tag_lc  ->  Default tag language if tagid is not prefixed by a language code
-	if ($tagid =~ /^(\w\w):/) {
-		return lc($1) . ':' . get_url_id_for_lang(lc($1), $');
+		$tag = normalize_packager_codes($tag);
+		my $tagid = get_string_id_for_lang("no_language", $tag);
+		return $tagid;
 	}
-	else {
-		return get_url_id_for_lang($tag_lc, $tagid);
+
+	if ($tagtype eq 'cities') {
+		my $tagid = get_string_id_for_lang("no_language", $tag);
+		# EU packager codes are normalized to have -ec at the end
+		$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
+		return $tagid;
 	}
+
+	return $tag;
 }
 
 =head2 canonicalize_taxonomy_tag_or_die ($tag_lc, $tagtype, $tag)
@@ -4196,7 +4193,7 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 
 	if (not defined $taxonomy) {
 
-		return canonicalize_tag2($tagtype, $tag);
+		return display_tag($tagtype, $tag);
 	}
 
 	my $tag_lc;
@@ -4427,11 +4424,11 @@ GEXF
 
 		foreach my $tagid (keys %{$level{$lc}{$tagtype}}) {
 
-			$gexf .= "\t\t\t" . "<node id=\"$tagid\" label=\"" . canonicalize_tag2($tagtype, $tagid) . "\" ";
+			$gexf .= "\t\t\t" . "<node id=\"$tagid\" label=\"" . display_tag($tagtype, $tagid) . "\" ";
 
 			$graph->add_node(
 				name => $tagid,
-				label => canonicalize_tag2($tagtype, $tagid),
+				label => display_tag($tagtype, $tagid),
 				URL => "http://$lc.openfoodfacts.org/facets/" . $tag_type_plural{$tagtype}{$lc} . "/" . $tagid
 			);
 
@@ -4653,6 +4650,33 @@ sub init_tags_texts {
 	return;
 }
 
+=head2 add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields)
+
+Add a comma separated list of values in the $lc language to a taxonomy field.
+
+Note: this function is only for fields that are generated (e.g. misc tags and data quality tags).
+It is not used for input tags fields. Instead set_field_input_tags_for_source() is used.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to the product hash.
+
+=head4 $tag_lc
+
+The language code of the tags to add.
+
+=head4 $field
+
+The field to which the tags should be added.
+
+=head4 $additional_fields
+
+A comma separated list of tags to add to the field.
+
+=cut
+
 sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 	# add a comma separated list of values in the $lc language to a taxonomy field
 
@@ -4675,7 +4699,7 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 		my $tagid;
 
 		if (defined $taxonomy_fields{$field}) {
-			$tagid = get_taxonomyid($tag_lc, canonicalize_taxonomy_tag($tag_lc, $field, $tag));
+			$tagid = canonicalize_taxonomy_tag($tag_lc, $field, $tag);
 		}
 		else {
 			$tagid = get_string_id_for_lang($tag_lc, $tag);
@@ -4686,7 +4710,6 @@ sub add_tags_to_field ($product_ref, $tag_lc, $field, $additional_fields) {
 			#print STDERR "add_tags_to_field - adding $tagid to $field: $current_value\n";
 			push @added_tags, $tag;
 		}
-
 	}
 
 	if ((scalar @added_tags) > 0) {
@@ -4865,7 +4888,9 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 			$normalized_tag = canonicalize_allergens_taxonomy_tag($tag_lc, $tag);
 		}
 		elsif ($field eq 'emb_codes') {
-			$normalized_tag = normalize_packager_codes($tag);
+			# We normalize codes (e.g. FR 69-238-010 CE" -> "FR 69.238.010 EC")
+			# and use the string id to match the canonical ids that we used before the tag refactoring (e.g. "FR 69.238.010 EC" -> "fr-69-238-010-ec")
+			$normalized_tag = get_string_id_for_lang("no_language", normalize_packager_codes($tag));
 		}
 		elsif (defined $taxonomy_fields{$field}) {
 			$normalized_tag = canonicalize_taxonomy_tag($tag_lc, $field, $tag);
@@ -4921,9 +4946,8 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 
 	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", $last_updated_t);
 
-	# We generate the [field]_tags field from all sources, passing 1 to normalize the tags
-	# (lowercase / unaccent based on the tag language)
-	generate_field_tags_from_all_sources($product_ref, $field, 0);
+	# We generate the [field]_tags field from all sources
+	generate_field_tags_from_all_sources($product_ref, $field);
 
 	return;
 }
@@ -4935,7 +4959,7 @@ including parents for taxonomy fields.
 
 =cut
 
-sub generate_field_tags_from_all_sources ($product_ref, $tagtype, $normalize = 0) {
+sub generate_field_tags_from_all_sources ($product_ref, $tagtype) {
 
 	my %all_input_tags = ();
 
@@ -4953,20 +4977,7 @@ sub generate_field_tags_from_all_sources ($product_ref, $tagtype, $normalize = 0
 
 			if (defined $product_ref->{tags_sources}{$tagtype}{$source}{tags}) {
 				foreach my $tag (@{$product_ref->{tags_sources}{$tagtype}{$source}{tags}}) {
-					# Copy the tag so that we don't modify the original tag in the source when we normalize it
-					my $tag_copy = $tag;
-					# We normalize tags that are not known taxonomy entries
-					if ($normalize) {
-						if ($taxonomy_fields{$tagtype}) {
-							# For taxonomy fields, we call get_taxonomyid to normalize entries (unaccent, lowercase based on the tag language prefix)
-							# we use "en" as the default language, but all tags will have a language prefix, so the default won't be used
-							$tag_copy = get_taxonomyid("en", $tag_copy);
-						}
-						else {
-							$tag_copy = get_string_id_for_lang("no_language", $tag_copy);
-						}
-					}
-					$all_input_tags{$tag_copy} = 1;
+					$all_input_tags{$tag} = 1;
 				}
 			}
 		}
@@ -5035,7 +5046,7 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 		$product_ref->{$field . "_hierarchy"} = [gen_tags_hierarchy_taxonomy($tag_lc, $field, $product_ref->{$field})];
 		$product_ref->{$field . "_tags"} = [];
 		foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-			push @{$product_ref->{$field . "_tags"}}, get_taxonomyid($tag_lc, $tag);
+			push @{$product_ref->{$field . "_tags"}}, $tag;
 		}
 	}
 	# tags fields without an associated taxonomy
@@ -5593,6 +5604,37 @@ sub get_minimal_tags_subset ($tagtype, $tags_ref) {
 	my @minimal_subset = grep {!$parents{$_}} @$tags_ref;
 
 	return @minimal_subset;
+}
+
+=head2 get_tag_url_id ($tagtype, $tagid)
+
+Given a tag type and a tag id, return the tag id to be used in URLs for this tag.
+
+=cut
+
+sub get_tag_url_id ($tagtype, $tagid) {
+
+	# 2024/04/13 tags refactor - tags in urls are now not normalized
+	# except cities that can have commas in their names (e.g. "Paris, Texas")
+	# urls like /facets/cities/something,else will query for a combination of tag "something" and "else"
+	# so we normalize cities tags in URLs
+	if ($tagtype eq "cities") {
+		$tagid = get_string_id_for_lang("no_language", $tagid);
+	}
+
+	if ($tagid =~ /[^a-zA-Z0-9-]/) {
+		$tagid = URI::Escape::XS::encodeURIComponent($tagid);
+	}
+
+	$log->trace("get_tag_url_id", {in => $tagid, out => $tagid}) if $log->is_trace();
+
+	return $tagid;
+}
+
+# With the 2026/04/13 tags refactor, the tag id is now the canonical id of the tag in the taxonomy, so we can return it directly.
+
+sub get_taxonomyid($target_lc, $tag) {
+	return $tag;
 }
 
 # Init the taxonomies, as most modules / scripts that load Tags.pm expect the taxonomies to be loaded
