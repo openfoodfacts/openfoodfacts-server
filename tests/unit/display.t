@@ -129,7 +129,7 @@ my $display_module = mock 'ProductOpener::Display' => (
 	]
 );
 
-display_tag($facets_ref);
+display_tag_page($facets_ref);
 
 is($facets_ref->{'current_link'}, '/facets/categories/Breads/data-quality');
 is($facets_ref->{'redirect'}, '/facets/categories/Breads/data-quality');
