@@ -167,7 +167,7 @@ boîte en carton à recycler"
 	],
 
 	# Recycling instructions for the Netherlands
-	# Tests for all types of conatiners
+	# Tests for all types of containers
 	[
 		'packaging_text_nl_fles_glasbak',
 		{
