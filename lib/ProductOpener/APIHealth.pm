@@ -68,6 +68,7 @@ my %checks = (
 sub _get_checks () {
 	return \%checks;
 }
+
 =head2 read_health_api ( $request_ref )
 
 Process API V3 GET /api/v3/health requests.

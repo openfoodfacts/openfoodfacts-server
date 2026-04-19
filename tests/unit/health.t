@@ -57,7 +57,8 @@ subtest 'api call without correct API key fails' => sub {
 	is($response->{status_code}, 401, 'read_health_api returns 401 status code on invalid API key');
 	is(scalar @{$response->{errors}}, 1, 'read_health_api adds one error to the response on invalid API key');
 	my $error_ref = $response->{errors}->[0];
-	is($error_ref->{message}->{id}, 'invalid_api_key', 'read_health_api adds error with correct message id on invalid API key');
+	is($error_ref->{message}->{id},
+		'invalid_api_key', 'read_health_api adds error with correct message id on invalid API key');
 	is($error_ref->{impact}->{id}, 'failure', 'read_health_api adds error with correct impact id on invalid API key');
 };
 
@@ -106,7 +107,8 @@ subtest 'api call with correct API key succeeds' => sub {
 
 	# Assert
 	my $response = $request_ref->{api_response};
-	is($response->{status_code}, 503, 'read_health_api returns 503 status code on valid API key'); # Note: the health check is expected to fail in the test environment without further mocks, so we check for 503 status code here
+	is($response->{status_code}, 503, 'read_health_api returns 503 status code on valid API key')
+		; # Note: the health check is expected to fail in the test environment without further mocks, so we check for 503 status code here
 	is(scalar @{$response->{errors}}, 0, 'read_health_api adds no errors to the response on valid API key');
 };
 
@@ -178,7 +180,7 @@ subtest 'api call returns data from %checks - pass' => sub {
 			];
 		},
 	);
-	
+
 	my $health_mock = mock 'ProductOpener::APIHealth' => (
 		override => [
 			'_get_checks' => sub {
@@ -197,7 +199,8 @@ subtest 'api call returns data from %checks - pass' => sub {
 	is(scalar @{$response->{errors}}, 0, 'read_health_api adds no errors');
 	is($response->{body}->{status}, 'pass', 'read_health_api returns pass status when all checks pass');
 	is($response->{body}->{description}, 'health of Product Opener API', 'read_health_api returns correct description');
-	is($response->{body}->{checks}->{check1}->[0]->{observedValue}, 42, 'read_health_api includes data from checks in the response');
+	is($response->{body}->{checks}->{check1}->[0]->{observedValue},
+		42, 'read_health_api includes data from checks in the response');
 };
 
 subtest 'api call returns data from %checks - warn' => sub {
@@ -268,7 +271,7 @@ subtest 'api call returns data from %checks - warn' => sub {
 			];
 		},
 	);
-	
+
 	my $health_mock = mock 'ProductOpener::APIHealth' => (
 		override => [
 			'_get_checks' => sub {
@@ -287,7 +290,8 @@ subtest 'api call returns data from %checks - warn' => sub {
 	is(scalar @{$response->{errors}}, 0, 'read_health_api adds no errors');
 	is($response->{body}->{status}, 'warn', 'read_health_api returns warn status when any check warns');
 	is($response->{body}->{description}, 'health of Product Opener API', 'read_health_api returns correct description');
-	is($response->{body}->{checks}->{check1}->[0]->{observedValue}, 42, 'read_health_api includes data from checks in the response');
+	is($response->{body}->{checks}->{check1}->[0]->{observedValue},
+		42, 'read_health_api includes data from checks in the response');
 };
 
 subtest 'api call returns data from %checks - fail' => sub {
@@ -358,7 +362,7 @@ subtest 'api call returns data from %checks - fail' => sub {
 			];
 		},
 	);
-	
+
 	my $health_mock = mock 'ProductOpener::APIHealth' => (
 		override => [
 			'_get_checks' => sub {
@@ -377,7 +381,8 @@ subtest 'api call returns data from %checks - fail' => sub {
 	is(scalar @{$response->{errors}}, 0, 'read_health_api adds no errors');
 	is($response->{body}->{status}, 'fail', 'read_health_api returns fail status when any check fails');
 	is($response->{body}->{description}, 'health of Product Opener API', 'read_health_api returns correct description');
-	is($response->{body}->{checks}->{check1}->[0]->{observedValue}, 42, 'read_health_api includes data from checks in the response');
+	is($response->{body}->{checks}->{check1}->[0]->{observedValue},
+		42, 'read_health_api includes data from checks in the response');
 };
 
 done_testing();
