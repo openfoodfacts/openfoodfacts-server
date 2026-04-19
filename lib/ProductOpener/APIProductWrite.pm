@@ -61,6 +61,7 @@ use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Auth qw/get_azp/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
 
 use Encode;
 
@@ -355,6 +356,10 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 		elsif ($field eq "images") {
 			update_images_selected($request_ref, $product_ref, $response_ref);
 		}
+		# Nutrition data
+		elsif ($field eq "nutrition") {
+			assign_nutrition_values_from_request_object($request_ref, $product_ref);
+		}
 		# Unrecognized field
 		else {
 			add_warning(
@@ -647,7 +652,7 @@ sub write_product_api ($request_ref) {
 			($code, my $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 			# Check if the code is valid
-			if ($code !~ /^\d{4,24}$/) {
+			if (not is_valid_code($code)) {
 
 				$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 				add_error(

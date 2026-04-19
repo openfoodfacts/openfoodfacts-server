@@ -73,7 +73,7 @@ marker_type:en: error
 show_on_producers_platform:en: yes
 
 < en:Nutrition errors
-en: Energy value in kcal does not match value computed from other nutrients
+en: Nutrition - Energy value in kcal does not match value computed from other nutrients
 da: Energimængden i kcal stemmer ikke overens med den beregnede mængde fra andre næringsstoffer
 de: Energiegehalt in kcal stimmt nicht mit dem aus anderen Nährstoffen berechneten Wert überein
 es: El valor energético en kcal no coincide con el valor calculado a partir de otros nutrientes
@@ -103,7 +103,7 @@ description:ru: Значение энергии в ккал не соответ�
 description:zh: 千卡能量值与从其他营养素计算出的值不匹配。 这通常是由于用户输入的营养成分表中的错误造成的。 有时，这是生产商造成的错误。
 
 < en:Nutrition errors
-en: Energy value in kcal does not match value in kJ
+en: Nutrition - Energy value in kcal does not match value in kJ
 da: Energimængden i kcal stemmer ikke overens med mængden i kJ
 es: El valor energético en kcal no coincide con el valor en kJ
 fr: La valeur de l'énergie en kcal ne correspond pas à la valeur en kJ
@@ -111,7 +111,7 @@ description:en: The energy value in kJ must be about 4.2 times greater than the 
 description:fr: La valeur de l'énergie en kJ doit être environ 4,2  fois plus grande que la valeur en kcal
 
 < en:Nutrition errors
-en: Energy value in kcal greater than in kJ
+en: Nutrition - Energy value in kcal greater than in kJ
 da: Energimængden i kcal er større end i kJ
 de: Energiegehalt in kcal ist größer als in kJ
 es: Valor energético en kcal mayor que en kJ
@@ -134,7 +134,7 @@ description:ru: Значение энергии в кДж должно быть 
 description:zh: kJ 的能量值必须约为 kcal 值的 4.2 倍。这些值可能会颠倒。
 
 < en:Nutrition errors
-en: Energy value in kcal and kJ are reversed
+en: Nutrition - Energy value in kcal and kJ are reversed
 #da: Energimængden i kcal og kJ er byttet rundt(?)
 de: Energiewert in kcal und kJ sind vertauscht
 es: El valor energético en kcal y kj están invertidos
@@ -175,7 +175,7 @@ description:tr: kJ cinsinden enerji değeri, kcal cinsinden değerin yaklaşık 
 description:uk: Значення енергії в кДж має бути приблизно в 4,2  рази більшим, ніж значення в ккал. Значення, здається, переплутані.
 
 < en:Nutrition errors
-en: Energy value in kJ does not match value computed from other nutrients
+en: Nutrition - Energy value in kJ does not match value computed from other nutrients
 da: Energimængden i kJ stemmer ikke overens med den udregnede mængde fra andre næringsstoffer
 de: Energiegehalt in kJ stimmt nicht mit dem aus anderen Nährstoffen berechneten Wert überein
 es: El valor energético en kJ no coincide con el valor calculado a partir de otros nutrientes
@@ -6896,14 +6896,14 @@ description:en: The product categories need to be completed.
 fix_action:en: edit_product
 
 < en:Data quality completeness nutrition
-en: Nutriments completed
+en: Nutrition completed, Nutriments completed
 ca: Nutrients completats
 cs: Výživové údaje dokončeny
 de: Nährwerte ausgefüllt
 el: Τα θρεπτικά συστατικά συμπληρώθηκαν
 es: Nutrientes completados
 fi: Ravintoarvot täytetty
-fr: Nutriments complétés
+fr: Nutrition complétée, Nutriments complétés
 he: רכיבים תזונתיים הושלמו
 hu: Tápanyagok teljes
 it: Nutrienti completati
@@ -6919,14 +6919,14 @@ vi: Dinh dưỡng đã hoàn thành
 description:en: The nutrition facts are fully completed.
 
 < en:Data quality completeness nutrition
-en: Nutriments to be completed
+en: Nutrition to be completed, Nutriments to be completed
 ca: Nutrients per completar
 cs: Výživové údaje je třeba dokončit
 de: Nährwerte müssen ausgefüllt werden
 el: Τα θρεπτικά συστατικά πρέπει να συμπληρωθούν
 es: Nutrientes por completar
 fi: Ravintoarvot täytettävä
-fr: Nutriments à compléter
+fr: Nutrition à compléter, Nutriments à compléter
 he: רכיבים תזונתיים להשלים
 hu: Tápanyagok ki kell tölteni
 it: Nutrienti da completare

@@ -886,7 +886,7 @@ sub process_image_upload ($product_ref, $imagefield, $user_id, $time, $comment, 
 
 	# debug message passed back to apps in case of an error
 
-	$$debug_string_ref = "product_id: $product_ref->{id} - user_id: $user_id - imagefield: $imagefield";
+	$$debug_string_ref = "product_id: $product_ref->{id} - user_id: " . ($user_id // '') . " - imagefield: $imagefield";
 
 	my $filehandle;
 
@@ -1014,7 +1014,7 @@ sub process_image_upload_using_filehandle ($product_ref, $filehandle, $user_id, 
 			$extension eq 'jpeg' and $extension = 'jpg';
 		}
 
-		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
+		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . ($` // ''));
 
 		$imgid = ($product_ref->{max_imgid} || 0) + 1;
 
@@ -2100,7 +2100,7 @@ sub add_images_urls_to_product ($product_ref, $target_lc, $specific_image_type =
 		# e.g. when we get partial product data from MongoDB or off-query
 		# when reading a full product with retrieve_product(), the conversion should already have been done
 		# try to convert it to the new schema
-		if (not defined $product_ref->{images}{uploaded} and not defined $product_ref->{images}{selected}) {
+		if ((not defined $product_ref->{images}{uploaded}) and (not defined $product_ref->{images}{selected})) {
 			ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object($product_ref);
 		}
 

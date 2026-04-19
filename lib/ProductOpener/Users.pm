@@ -493,7 +493,8 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		$is_spam = 1;
 	}
 	# check for spam, that may have filled the honeypot faxnumber field
-	if (single_param('faxnumber') ne "") {
+	my $faxnumber = single_param('faxnumber');
+	if ((defined $faxnumber) and ($faxnumber ne "")) {
 		$is_spam = 1;
 	}
 	if ($is_spam) {
@@ -1615,7 +1616,6 @@ sub init_user ($request_ref) {
 					{
 						user_id => $user_id,
 						user_session => $user_session,
-						stock_session => $user_ref->{'user_sessions'},
 						stock_ip => $user_ref->{'user_last_ip'},
 						current_ip => remote_addr()
 					}
