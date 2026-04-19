@@ -834,7 +834,6 @@ HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
