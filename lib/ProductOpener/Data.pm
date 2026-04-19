@@ -461,7 +461,7 @@ sub perform_health_check() {
 	if ((not defined $query_url) or ($query_url eq '')) {
 		return [
 			{
-				status => $status_fail,
+				status => $status_warn,
 				componentType => 'system',
 				output => 'OFF_QUERY URL is not configured',
 				time => current_time_iso8601(),
