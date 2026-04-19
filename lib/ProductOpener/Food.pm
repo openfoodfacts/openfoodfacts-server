@@ -270,7 +270,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
 			'nitrate-', 'acidity-',
-			'carbohydrates-total-',
+			'carbohydrates-total-', 'water-',
 		)
 	],
 	off_ca => [
