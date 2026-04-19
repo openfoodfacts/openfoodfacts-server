@@ -65,6 +65,9 @@ my %checks = (
 	'redis:responseTime' => \&ProductOpener::Redis::perform_health_check,
 );
 
+sub _get_checks () {
+	return \%checks;
+}
 =head2 read_health_api ( $request_ref )
 
 Process API V3 GET /api/v3/health requests.
@@ -109,8 +112,9 @@ sub read_health_api ($request_ref) {
 	my %check_results;
 	my $status = $status_pass;
 	my $output = '';
-	foreach my $check_name (keys %checks) {
-		my $check = $checks{$check_name};
+	my %local_checks = %{_get_checks()};
+	foreach my $check_name (keys %local_checks) {
+		my $check = $local_checks{$check_name};
 		my $result = eval {$check->()};
 		if ($@) {
 			$log->error('Health check failed with error', {check => $check_name}) if $log->is_error();
