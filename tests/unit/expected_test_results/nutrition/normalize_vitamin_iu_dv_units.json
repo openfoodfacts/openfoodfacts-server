@@ -1,0 +1,81 @@
+{
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "calcium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.26
+            },
+            "vitamin-a" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.2e-05
+            },
+            "vitamin-b1" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0012
+            },
+            "vitamin-d" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4e-06
+            },
+            "vitamin-e" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0266666666666667
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "calcium" : {
+                  "unit" : "% DV",
+                  "value" : 20,
+                  "value_string" : "20"
+               },
+               "vitamin-a" : {
+                  "unit" : "IU",
+                  "value" : 40,
+                  "value_string" : "40"
+               },
+               "vitamin-b1" : {
+                  "unit" : "% DV",
+                  "value" : 100,
+                  "value_string" : "100"
+               },
+               "vitamin-d" : {
+                  "unit" : "% DV",
+                  "value" : 20,
+                  "value_string" : "20"
+               },
+               "vitamin-e" : {
+                  "unit" : "IU",
+                  "value" : 40,
+                  "value_string" : "40"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   }
+}

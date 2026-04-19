@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "දත්ත ගුණාත්මක සම්පූර්ණත්වය"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5401,7 +5405,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "තක්සේරු කළ ලේබල නැත"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "පාරිසරික ප්‍රතිලාභ කිහිපයක්"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "ඉහළ පාරිසරික ප්‍රතිලාභ"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "ඉතා ඉහළ පාරිසරික ප්‍රතිලාභ"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "දත්ත ගුණාත්මක සම්පූර්ණත්වය"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "මෙම නිෂ්පාදනයේ දත්ත ගුණාත්මකභාවය පිළිබඳ සම්පූර්ණ තොරතුරු කිහිපයක්"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7626,96 @@ msgstr "අපට මෙය හමු නොවීය: {unwanted_ingredients}. �
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "එම මනාපයන් පදනම් වී ඇත්තේ අමුද්‍රව්‍ය ලැයිස්තුව පිළිබඳ Open Food Facts හි අවබෝධය මත වන අතර එය නිවැරදි හෝ සම්පූර්ණ නොවිය හැකි බවට සෑම විටම හැකියාවක් ඇත, සෑම විටම නිෂ්පාදනය ඔබම පරීක්ෂා කරන්න."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "දුම්පානය මරා දමයි"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "දුම්කොළ සෞඛ්‍යයට බරපතල ලෙස හානි කරයි. පටන් ගන්න එපා. දැන්ම නවත්තන්න."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "දුම්පානය අධික ලෙස ඇබ්බැහි වීමකි. ආරම්භ නොකරන්න. දුම්පානය මරා දමයි - දැන්ම නවත්වන්න. දුම්පානය ධමනි අවහිර කර හෘදයාබාධ හා ආඝාත ඇති කරයි. දුම්පානය මාරාන්තික පෙනහළු පිළිකා ඇති කරයි. ගර්භණී සමයේදී දුම්පානය ඔබේ දරුවාට හානි කරයි. දරුවන් ආරක්ෂා කරන්න: ඔබේ දුම ඔවුන්ට හුස්ම ගැනීමට ඉඩ නොදෙන්න. ඔබේ වෛද්‍යවරයාට හෝ ඔබේ ඖෂධවේදියාට දුම්පානය නැවැත්වීමට ඔබට උදව් කළ හැකිය. දුම්පානය රුධිර ප්‍රවාහය අඩු කළ හැකි අතර බෙලහීනතාවයට හේතු විය හැක. දුම්පානය සමේ වයසට යාමට හේතු වේ. දුම්පානය ශුක්‍රාණු වලට හානි කළ හැකි අතර සාරවත් බව අඩු කරයි. දුම්පානයේ බෙන්සීන්, නයිට්‍රොසැමයින්, ෆෝමල්ඩිහයිඩ් සහ හයිඩ්‍රජන් සයනයිඩ් අඩංගු වේ."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "පොදු මිල"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "යුරෝ 3.50, ඇමරිකානු ඩොලර් 2.99, GBP 4.00"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "නිෂ්පාදන ඇසුරුම්කරණයේ හෝ නිෂ්පාදකයාගේ අඩවියේ (නීති සම්පාදනය මත පදනම් වූ බදු ඇතුළුව හෝ බැහැර කරමින්) දක්වා ඇති පරිදි වට්ටම් සහ ප්‍රවර්ධන හැර, නිෂ්පාදකයා යෝජනා කළ සිල්ලර මිල (MSRP). බහු මුදල් වර්ගවල මිල ගණන් ලැයිස්තුගත කර ඇත්නම්, කොමාවෙන් වෙන් කළ ලැයිස්තුවක් භාවිතා කරන්න."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "පුද්ගලාරෝපිත දේපළ"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "පාම් තෙල් අඩංගු නොවේ."
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "පාම් තෙල් අඩංගු විය හැක"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "පාරිසරික ලේබල"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "දත්ත නොමැත"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "ඉහළ බලපෑම"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "මධ්‍යම බලපෑම"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "අඩු බලපෑම"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "බලපෑම තක්සේරු කර නොමැත"
 

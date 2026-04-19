@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -142,10 +142,6 @@ sub init_packaging_taxonomies_regexps() {
 
 		$packaging_taxonomies_regexps{$taxonomy}
 			= generate_regexps_matching_taxonomy_entries($taxonomy, "list_of_regexps", {});
-
-		$log->debug("init_packaging_taxonomies_regexps - result",
-			{taxonomy => $taxonomy, packaging_taxonomies_regexps => $packaging_taxonomies_regexps{$taxonomy}})
-			if $log->is_debug();
 	}
 
 	return;
@@ -417,8 +413,13 @@ sub get_checked_and_taxonomized_packaging_component_data ($tags_lc, $input_packa
 			}
 		);
 	}
-	# Require a positive and non zero number of units
-	elsif (($input_packaging_ref->{number_of_units} =~ /^\d+$/) and ($input_packaging_ref->{number_of_units} > 0)) {
+	# Require a positive integer no greater than 10000.
+	# Larger values overflow to a float on serialization (e.g. 9.22e+18 in JSON),
+	# which breaks integer fields in exports.
+	elsif ( ($input_packaging_ref->{number_of_units} =~ /^\d+$/)
+		and ($input_packaging_ref->{number_of_units} > 0)
+		and ($input_packaging_ref->{number_of_units} <= 10000))
+	{
 		$packaging_ref->{number_of_units} = $input_packaging_ref->{number_of_units} + 0;
 		$has_data = 1;
 	}

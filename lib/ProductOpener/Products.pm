@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -124,7 +124,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
-	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter/;
+	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter encode_canonical_json/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -139,8 +139,11 @@ use ProductOpener::MainCountries qw/compute_main_countries/;
 use ProductOpener::Text qw/remove_email remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param create_user_agent/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
-use ProductOpener::Food qw/%nutriments_lists %cc_nutriment_table/;
+use ProductOpener::Food qw/%nutrients_lists %cc_nutrient_table/;
 use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Slack qw/send_slack_message/;
+use ProductOpener::Nutrition
+	qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -156,6 +159,7 @@ use ProductOpener::BeautyProducts qw/specific_processes_for_beauty_product/;
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON;
+use Cpanel::JSON::XS ();
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_exists deep_get);
 
@@ -167,7 +171,7 @@ use ProductOpener::GeoIP;
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
-use Scalar::Util qw(looks_like_number);
+use Scalar::Util qw(blessed looks_like_number);
 
 use GS1::SyntaxEngine::FFI::GS1Encoder;
 
@@ -217,6 +221,176 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 	$product_ref->{code} = "$product_ref->{code}";
 
 	return;
+}
+
+# Changes to these fields should not trigger a new revision.
+# Add new fields here if they turn out to be safe to ignore for this check.
+my @ignored_fields_for_revision_check = (
+	"created_by_client", "entry_dates_tags",
+	"interface_version_created", "interface_version_modified",
+	"last_check_dates_tags", "last_edit_dates_tags",
+	"last_modified_by", "last_modified_by_client",
+	"last_modified_t", "last_updated_t",
+	"rev", "editors_tags",
+	"last_editor", "_keywords",
+	"allergens_from_user", "allergens_lc",
+	"categories", "categories_lc",
+	"countries", "countries_lc",
+	"labels", "labels_lc",
+	"origins", "origins_lc",
+	"traces", "traces_from_user",
+	"traces_lc"
+);
+
+# Make a clean copy before comparing products.
+sub _normalize_product_for_comparison ($value, $normalization_failed_ref) {
+
+	if (ref($value) eq 'HASH') {
+		# Walk through nested hashes so the same clean up happens everywhere.
+		my %normalized_hash = ();
+		foreach my $key (keys %{$value}) {
+			$normalized_hash{$key}
+				= _normalize_product_for_comparison($value->{$key}, $normalization_failed_ref);
+		}
+		return \%normalized_hash;
+	}
+	elsif (ref($value) eq 'ARRAY') {
+		# Changing the order can still change the meaning.
+		my @normalized_array = ();
+		foreach my $element (@{$value}) {
+			push @normalized_array, _normalize_product_for_comparison($element, $normalization_failed_ref);
+		}
+		return \@normalized_array;
+	}
+	elsif (blessed($value)) {
+		# Turn booleans into plain 1 and 0.
+		if (Cpanel::JSON::XS::is_bool($value) or (ref($value) eq 'boolean')) {
+			return $value ? "1" : "0";
+		}
+
+		# For other objects, keep the value. If JSON cannot encode it, the save will not be skipped.
+		return $value;
+	}
+	elsif (ref($value)) {
+		# If we do not know how to compare this value, keep the save.
+		${$normalization_failed_ref} = 1;
+		return;
+	}
+
+	if (defined $value) {
+		# Turn values into text so type flags do not look like product changes.
+		# Keep real text differences like "03" vs "3".
+		my $normalized_scalar = "$value";
+		$normalized_scalar =~ s/^\s+//;
+		$normalized_scalar =~ s/\s+$//;
+		return $normalized_scalar;
+	}
+
+	return $value;
+}
+
+=head2 prepare_product_for_comparison ( $product_ref )
+
+Build a product copy used for equality checks.
+
+=cut
+
+sub prepare_product_for_comparison ($product_ref) {
+
+	if ((not defined $product_ref) or (ref($product_ref) ne 'HASH')) {
+		# If we cannot compare this product safely, return an empty payload and keep the save.
+		return {};
+	}
+
+	# Drop fields that should not create a revision.
+	my %prepared_product = %{$product_ref};
+	foreach my $field (@ignored_fields_for_revision_check) {
+		delete $prepared_product{$field};
+	}
+
+	my $normalization_failed = 0;
+	my $normalized_product_ref = _normalize_product_for_comparison(\%prepared_product, \$normalization_failed);
+
+	# If normalization fails, keep the save.
+	if ($normalization_failed) {
+		return {};
+	}
+
+	return $normalized_product_ref;
+}
+
+# Turn the prepared product into JSON before comparing it.
+sub _serialize_prepared_product_for_comparison ($prepared_product_ref) {
+
+	# If nothing is left to compare, keep the save.
+	if (not keys %{$prepared_product_ref}) {
+		return;
+	}
+
+	# This encoder includes indentation, which is not really needed here, but checks showed the overhead is negligible.
+	my $comparison_json = eval {encode_canonical_json($prepared_product_ref, 1)};
+	my $serialization_failed = ($@ or (not defined $comparison_json));
+
+	# If JSON encoding fails, keep the save.
+	if ($serialization_failed) {
+		return;
+	}
+
+	return $comparison_json;
+}
+
+# Check if two products should count as the same revision.
+sub _products_are_equivalent_for_revision ($current_product_ref, $latest_product_ref) {
+
+	my $current_prepared_ref = prepare_product_for_comparison($current_product_ref);
+	my $latest_prepared_ref = prepare_product_for_comparison($latest_product_ref);
+
+	# If either side cannot be prepared, keep the save.
+	if ((not keys %{$current_prepared_ref}) or (not keys %{$latest_prepared_ref})) {
+		return 0;
+	}
+
+	my $current_comparison_json = _serialize_prepared_product_for_comparison($current_prepared_ref);
+	my $latest_comparison_json = _serialize_prepared_product_for_comparison($latest_prepared_ref);
+
+	# If either side cannot be turned into JSON, keep the save.
+	if ((not defined $current_comparison_json) or (not defined $latest_comparison_json)) {
+		return 0;
+	}
+
+	return ($current_comparison_json eq $latest_comparison_json);
+}
+
+# After a skipped save, put the stored product back into the product ref.
+sub _restore_product_state_from_latest_product ($product_ref, $latest_product_ref) {
+
+	my $restore_failed = (ref($latest_product_ref) ne 'HASH');
+
+	# If we cannot reuse the stored product safely, keep the save.
+	if ($restore_failed) {
+		return 0;
+	}
+
+	%{$product_ref} = %{$latest_product_ref};
+	return 1;
+}
+
+=head2 serialize_product_for_comparison ( $product_ref )
+
+Serialize a predictable representation of a product for comparison.
+Returns an empty string if the product cannot be prepared or serialized safely.
+
+=cut
+
+sub serialize_product_for_comparison ($product_ref) {
+
+	my $prepared_product_ref = prepare_product_for_comparison($product_ref);
+	my $comparison_json = _serialize_prepared_product_for_comparison($prepared_product_ref);
+	if (not defined $comparison_json) {
+		return '';
+	}
+
+	return $comparison_json;
 }
 
 =head2 assign_new_code ( )
@@ -441,7 +615,7 @@ sub _try_normalize_code_gs1 ($code) {
 				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
-		elsif ($code =~ /^http?s:\/\/.+/) {
+		elsif ($code =~ /^http?s:\/\/.+/i) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {
@@ -1117,6 +1291,15 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	my $rev = $product_ref->{rev};
 	my $action = "updated";
 
+	# Structural moves still need persistence side effects:
+	# - old_code: can move product directories and delete the old Mongo document.
+	# - server or old_product_type: can remove the product from its previous collection.
+	# Do not skip the save in those cases.
+	my $has_structural_move
+		= defined $product_ref->{old_code}
+		|| defined $product_ref->{old_product_type}
+		|| defined $product_ref->{server};
+
 	# Update product schema version
 	$product_ref->{schema_version} = $current_schema_version;
 
@@ -1433,14 +1616,33 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	make_sure_numbers_are_stored_as_numbers($product_ref);
 
 	$change_ref = $changes_ref->[-1];
-	my $diffs = $change_ref->{diffs};
-	my %diffs = %{$diffs};
-	if ((!$diffs) or (!keys %diffs)) {
-		$log->info("changes not stored because of empty diff", {change_ref => $change_ref}) if $log->is_info();
-		# 2019/09/12 - this was deployed today, but it causes changes not to be saved
-		# compute_product_history_and_completeness() was not written to make sure that it sees all changes
-		# keeping the log and disabling the "return 0" so that all changes are saved
-		#return 0;
+
+	# First writes and structural moves always use a regular save.
+	my $is_existing_product = ($rev > 1);
+	my $can_skip_save = ($is_existing_product and (not $has_structural_move));
+	my $should_skip_save = 0;
+
+	if ($can_skip_save) {
+		my $latest_product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/product");
+		my $has_latest_stored_product = (ref($latest_product_ref) eq 'HASH');
+		my $matches_latest_stored_product = 0;
+
+		if ($has_latest_stored_product) {
+			# Compare against the persisted product before deciding to skip.
+			$matches_latest_stored_product = _products_are_equivalent_for_revision($product_ref, $latest_product_ref);
+		}
+
+		if ($matches_latest_stored_product) {
+			# Put the persisted state back before returning from a skipped save.
+			$should_skip_save = _restore_product_state_from_latest_product($product_ref, $latest_product_ref);
+		}
+	}
+
+	if ($should_skip_save) {
+		$log->info("store_product - skipped no-op save after product comparison",
+			{code => $code, product_id => $product_id})
+			if $log->is_info();
+		return 1;    # Legacy callers treat store_product() as a success check.
 	}
 
 	# First store the product data in a .json file on disk
@@ -1477,6 +1679,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	}
 
 	# Publish information about update on Redis stream
+	my $diffs = $change_ref->{diffs} // {};
 	$log->debug("push_product_update_to_redis",
 		{code => $code, product_id => $product_id, action => $action, comment => $comment, diffs => $diffs})
 		if $log->is_debug();
@@ -1647,8 +1850,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 			}
 			else {
 				if (    ($imagetype eq "nutrition")
-					and (defined $product_ref->{no_nutrition_data})
-					and ($product_ref->{no_nutrition_data} eq 'on'))
+					and (has_no_nutrition_data_on_packaging($current_ref)))
 				{
 					$images_completeness += $image_step;
 				}
@@ -1725,16 +1927,7 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if (
-		(
-			(
-					(defined $current_ref->{nutriments})
-				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$current_ref->{nutriments}}) > 0
-			)
-		)
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
-		)
-	{
+	if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
 		$completeness += $step;
@@ -2192,16 +2385,13 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 	# Read all previous versions to see which fields have been added or edited
 
 	my @fields = (
-		'product_type', 'code',
-		'lang', 'product_name',
-		'generic_name', @ProductOpener::Config::product_fields,
-		@ProductOpener::Config::product_other_fields, 'no_nutrition_data',
-		'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens',
-		'traces', 'ingredients_text'
+		'product_type', 'code', 'lang', 'product_name', 'generic_name',
+		@ProductOpener::Config::product_fields,
+		@ProductOpener::Config::product_other_fields,
+		'serving_size', 'allergens', 'traces', 'ingredients_text'
 	);
 
-	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, nutriments => {});
+	my %previous = (uploaded_images => {}, selected_images => {}, fields => {}, packagings => {});
 	my %last = %previous;
 	my %current;
 
@@ -2226,7 +2416,8 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
+		# We use retrieve_product to get the product at a specific revision, upgrading the schema if needed
+		my $product_ref = retrieve_product($product_id, 1, $rev);
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -2255,7 +2446,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {},
 				packagings => {},
 			);
 
@@ -2269,12 +2459,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 
 			if (defined $product_ref->{images}) {
 
-				# Old revisions may have the old image schema, with uploaded and selected images at the root
-				if ((not defined $product_ref->{schema_version} or ($product_ref->{schema_version} < 1002))) {
-					ProductOpener::ProductSchemaChanges::convert_schema_1001_to_1002_refactor_images_object(
-						$product_ref);
-				}
-
 				# Uploaded images
 				if (defined $product_ref->{images}{uploaded}) {
 					foreach my $imgid (sort keys %{$product_ref->{images}{uploaded}}) {
@@ -2287,9 +2471,10 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					foreach my $image_type (sort keys %{$product_ref->{images}{selected}}) {
 						foreach my $image_lc (sort keys %{$product_ref->{images}{selected}{$image_type}}) {
 							$current{selected_images}{$image_type . '_' . $image_lc}
-								= $product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{rev} . ' '
-								. $product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry};
+								= ($product_ref->{images}{selected}{$image_type}{$image_lc}{imgid} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{rev} // '') . ' '
+								. ($product_ref->{images}{selected}{$image_type}{$image_lc}{generation}{geometry}
+									// '');
 						}
 					}
 				}
@@ -2319,15 +2504,9 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 				}
 			}
 
-			# Nutriments
-
-			if (defined $product_ref->{nutriments}) {
-				foreach my $nid (keys %{$product_ref->{nutriments}}) {
-					if ((defined $product_ref->{nutriments}{$nid}) and ($product_ref->{nutriments}{$nid} ne '')) {
-						$current{nutriments}{$nid} = $product_ref->{nutriments}{$nid};
-					}
-				}
-			}
+			# Nutrition data
+			# Record changes for all nutrition input sets
+			$current{nutrition} = get_nutrition_data_as_key_values_pairs($product_ref);
 
 			# Packagings components
 			if (defined $product_ref->{packagings}) {
@@ -2374,7 +2553,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2408,9 +2587,6 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					}
 				}
 			}
-			elsif ($group eq 'nutriments') {
-				@ids = @{$nutriments_lists{off_europe}};
-			}
 			elsif ($group eq 'packagings') {
 				@ids = ("data", "weights_measured");
 			}
@@ -2419,7 +2595,7 @@ sub compute_product_history_and_completeness ($current_product_ref, $changes_ref
 					my %seen;
 					grep {!$seen{$_}++} @_;
 				};
-				@ids = $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
+				@ids = sort $uniq->(keys %{$current{$group}}, keys %{$previous{$group}});
 			}
 
 			foreach my $id (@ids) {
@@ -2959,12 +3135,17 @@ sub review_product_type ($product_ref) {
 
 Process the edit_rules (see C<@edit_rules> in in Config file).
 
+Note: edit 
+
 =head3 where it applies
 
 It applies in all API/form that edit the product.
 It applies to apply an image crop.
 
 It does not block image upload.
+
+Note: product edit rules were designed for API v0, v1 and v2.
+In v3, parameters are passed in a currently different way, so it is very likely that some rules will not apply correctly.
 
 =head3 edit_rules structure
 
@@ -2994,12 +3175,14 @@ C<ignore> alone, ignore every edits.
 You can also have rules of the form
 C<ignore_FIELD> and C<warn_FIELD> which will ignore (or notify) edits on the specific field.
 
+C<block_FIELD> will block any edit if the field is present or match a condition (see below).
+
 Note that ignore rules also create a notification.
 
 For nutriments use C<nutriments_NUTRIMENT_NAME> for C<FIELD>.
 
 You can guard the rule on the field with a condition:
-C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
+C<block_if_CONDITION_FIELD>, C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
 This time it's to check the value the user want's to add.
 
 C<CONDITION> is one of the following:
@@ -3153,8 +3336,8 @@ sub process_product_edit_rules ($product_ref) {
 						$proceed_with_edit = 0;
 					}
 					# rules with conditions
-					elsif (
-						$action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
+					elsif ($action
+						=~ /^(ignore|warn|block)(_if_(existing|0|greater|lesser|equal|match|regexp_match))?_?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
@@ -3175,8 +3358,8 @@ sub process_product_edit_rules ($product_ref) {
 							# nutrient 100g ? remove 100g to get value in request
 							$default_field = $`;
 						}
-						elsif ($field =~ /nutriments_.*$/) {
-							# also consider nutrient_100g
+						elsif ($field =~ /nutriment_.*$/) {
+							# also consider nutriment_100g
 							$default_field = $field . "_100g";
 						}
 
@@ -3269,7 +3452,7 @@ sub process_product_edit_rules ($product_ref) {
 						}
 						else {
 							$action_log
-								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition \n";
+								= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: (none) \n";
 						}
 
 						if ($condition_ok) {
@@ -3286,6 +3469,10 @@ sub process_product_edit_rules ($product_ref) {
 									Delete($default_field);
 									$log->info("edit_rule: Removed $default_field") if $log->is_info();
 								}
+							}
+							elsif ($type eq 'block') {
+								$log->info("block action => do not proceed with edits") if $log->is_debug();
+								$proceed_with_edit = 0;
 							}
 						}
 
@@ -3326,47 +3513,13 @@ sub process_product_edit_rules ($product_ref) {
 										$emoji = ":pear:";
 									}
 
-									my $ua = create_user_agent();
-									my $server_endpoint
-										= "https://hooks.slack.com/services/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";
-
-									my $msg = $action_log;
-
-									# set custom HTTP request header fields
-									my $req = HTTP::Request->new(POST => $server_endpoint);
-									$req->header('content-type' => 'application/json');
-
-									# add POST data to HTTP request body
-									my $post_data
-										= '{"channel": "#'
-										. $channel
-										. '", "username": "editrules", "text": "'
-										. $msg
-										. '", "icon_emoji": "'
-										. $emoji . '" }';
-									$req->content_type("text/plain; charset='utf8'");
-									$req->content(Encode::encode_utf8($post_data));
-
-									my $resp = $ua->request($req);
-									if ($resp->is_success) {
-										my $message = $resp->decoded_content;
-										$log->info("Notification sent to Slack successfully", {response => $message})
-											if $log->is_info();
-									}
-									else {
-										$log->warn(
-											"Notification could not be sent to Slack",
-											{code => $resp->code, response => $resp->message}
-										) if $log->is_warn();
-									}
-
+									send_slack_message($channel, 'editrules', $action_log, $emoji);
 								}
 							}
 						}
 					}
 				}
 			}
-
 		}
 	}
 
@@ -3405,7 +3558,7 @@ sub compute_changes_diff_text ($change_ref) {
 	my $diffs = '';
 	if (defined $change_ref->{diffs}) {
 		my %diffs = %{$change_ref->{diffs}};
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutrition', 'packaging') {
 			if (defined $diffs{$group}) {
 				$diffs .= lang("change_$group") . " ";
 
@@ -3541,21 +3694,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
 
-	# Initialiaze the misc_tags, they will be populated by functions called by this function
+	# Initialize the misc_tags, they will be populated by functions called by this function
 	$product_ref->{misc_tags} = [];
-
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
 
 	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
 
@@ -3634,7 +3774,7 @@ sub is_owner_field ($product_ref, $field) {
 	return 0;
 }
 
-=head2 product_iter($initial_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
+=head2 product_iter($base_path = $BASE_DIRS{PRODUCTS}, $name_pattern = qr/product$/i, $exclude_path_pattern = qr/^(conflicting|invalid)-codes$/)
 
 Iterate over all products in the specified path whose
 name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
@@ -3643,10 +3783,11 @@ Provides default exclusions so people don't forget to apply them
 =cut
 
 sub product_iter(
-	$initial_path = $BASE_DIRS{PRODUCTS},
+	$base_path = $BASE_DIRS{PRODUCTS},
 	$name_pattern = qr/product$/i,
-	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/
+	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/,
+	$skip_until_path = undef,
 	)
 {
-	return object_iter($initial_path, $name_pattern, $exclude_path_pattern);
+	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
 }
