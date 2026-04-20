@@ -6,7 +6,7 @@
 # - handle variations using the synonyms (e.g. missing or added separators like ' or spaces, possibly missing 's)
 
 # The brands taxonomy should not be used to:
-# - handle misspelings (do not add misspellings in the taxonomy as synonyms)
+# - handle misspellings (do not add misspellings in the taxonomy as synonyms)
 # - handle parent / child brands (too much potential for errors and conflicts, especially in an international setting and with products from different types)
 # Note: an old draft owners/brands taxonomy lives in taxonomies/unused/brands.txt, but it is hierarchic, which is something we do not want in this taxonomy.
 # You can usefully read: https://wiki.openfoodfacts.org/Brands to get up and running on the subtleties of the topic.
@@ -233,7 +233,7 @@ xx: Crownfield
 xx: Culinea
 
 xx: Daelmans
-wikidate:en: Q136842173
+wikidata:en: Q136842173
 
 xx: DA
 
@@ -268,6 +268,9 @@ xx: Dekamarkt
 
 xx: Deka's Keuken
 wikidata:en: Q137458930
+
+xx: Del Monte, Del Monte Quality
+wikidata:en: Q1183805
 
 xx: Delibake
 #web:en: https://delibake.se/en/
@@ -429,7 +432,7 @@ xx: Go-Tan, Go Tan
 wikidata:en: Q137442304
 
 xx: Go Vega!
-commemt:en: no trademark found in Benelux or EU
+comment:en: no trademark found in Benelux or EU
 wikidata:en: Q137177089
 
 xx: Grainway
@@ -516,7 +519,7 @@ wikidata:en: Q137151953
 xx: Indus
 
 xx: innocent
-#web:en: https://www.innocentdrinks.com
+wikidata:en: Q138566349
 
 xx: Ísey
 wikidata:en: Q16422529
@@ -556,7 +559,7 @@ xx: Kiekeboe
 wikidata:en: Q136880977
 
 xx: Kaptein
-wikidate:en: Q136825884
+wikidata:en: Q136825884
 
 xx: Kavli
 wikidata:en: Q1208110
@@ -592,6 +595,10 @@ xx: Krekeltje
 
 xx: Kryddhuset
 #web:sv: https://kryddhusetiljung.se/
+
+#< xx:Superfruit Scandinavia
+xx: Kultures
+#web:sv: https://www.superfruit.se/kultures
 
 xx: Kung Markatta
 wikidata:en: Q10550149
@@ -714,6 +721,9 @@ wikidata:en: Q557614
 xx: Melkan
 # dairy producer
 
+xx: Menguy's
+wikidata:en: Q138566377
+
 xx: Milbona
 wikidata:en: Q136824789
 
@@ -731,6 +741,10 @@ xx: Monte Castello
 xx: Mutti
 #web:en: https://mutti-parma.com/
 wikidata:en: Q16580706
+
+xx: MYPROTEIN
+#web:en: https://www.myprotein.com/
+wikidata:en: Q20709719
 
 xx: nākd
 wikidata:en: Q137870223
@@ -818,6 +832,10 @@ wikidata:en: Q136952902
 xx: Prominent
 
 xx: ProPud
+
+xx: ProViva
+#web:sv: https://www.proviva.se/
+wikidata:en: Q139183297
 
 xx: Prung Thip, ปรุงทิพย์
 th: ปรุงทิพย์
@@ -946,6 +964,9 @@ xx: Soutenons nos agriculteurs
 
 xx: Special K
 
+#< xx:Axfood
+xx: Spicefield
+
 xx: Spree
 wikidata:en: Q7580308
 
@@ -973,6 +994,9 @@ wikidata:en: Q107071944
 
 xx: Takovo
 wikidata:en: Q58177342
+
+#< xx:Spicefield
+xx: Taste from Asia
 
 xx: Tastes Good
 wikidata:en: Q137589623
@@ -1130,6 +1154,14 @@ xx: Zeina's
 
 xx: Zeta
 wikidata:en: Q10724505
+
+xx: Zico
+comment:en: US beverage company manufacturing coconut water and coconut drinks
+wikidata:en: Q17119355
+
+xx: Zico Energy
+comment:en: Swedish energy drink company
+#web:sv: https://www.zicoenergy.se/
 
 xx: Zwagerman
 comment:en: Benelux word trademark
