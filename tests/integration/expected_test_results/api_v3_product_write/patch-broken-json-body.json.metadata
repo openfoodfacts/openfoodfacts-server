@@ -2,12 +2,12 @@
    "api_call" : {
       "path" : "/cgi/display.pl",
       "method" : "PATCH",
-      "parameters" : {
-         "/api/v3/product/1234567890003" : ""
-      },
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "raw_body" : "not json"
       },
-      "content-type" : "application/json; charset=utf-8"
+      "parameters" : {
+         "/api/v3/product/1234567890003" : ""
+      }
    }
 }

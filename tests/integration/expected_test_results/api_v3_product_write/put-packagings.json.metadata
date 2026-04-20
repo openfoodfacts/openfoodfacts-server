@@ -1,5 +1,7 @@
 {
    "api_call" : {
+      "path" : "/cgi/display.pl",
+      "method" : "PUT",
       "content-type" : "application/json; charset=utf-8",
       "body" : {
          "product" : {
@@ -14,8 +16,6 @@
       },
       "parameters" : {
          "/api/v3/product/1234567890007" : ""
-      },
-      "method" : "PUT",
-      "path" : "/cgi/display.pl"
+      }
    }
 }

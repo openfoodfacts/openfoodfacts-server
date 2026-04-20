@@ -1,16 +1,16 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
       "parameters" : {
          "/api/v3/product_services" : ""
       },
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "product" : {},
          "services" : [
             "unknown"
          ]
       },
-      "method" : "POST",
-      "path" : "/cgi/display.pl"
+      "path" : "/cgi/display.pl",
+      "method" : "POST"
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "body" : null,
+      "path" : "/cgi/display.pl",
       "content-type" : null,
+      "body" : null,
       "parameters" : {
          "/facets/categories/hazelnut-spreads/brands/nutella" : ""
       },
-      "path" : "/cgi/display.pl",
       "method" : "GET"
    }
 }

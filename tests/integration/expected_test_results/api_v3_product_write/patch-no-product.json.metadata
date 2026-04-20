@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "body" : {},
       "parameters" : {
          "/api/v3/product/1234567890004" : ""
       },
-      "content-type" : "application/json; charset=utf-8",
-      "body" : {},
       "method" : "PATCH",
+      "content-type" : "application/json; charset=utf-8",
       "path" : "/cgi/display.pl"
    }
 }

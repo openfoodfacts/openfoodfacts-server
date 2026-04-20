@@ -2,14 +2,14 @@
    "api_call" : {
       "path" : "/cgi/display.pl",
       "method" : "PATCH",
-      "parameters" : {
-         "/api/v3/product/test" : ""
-      },
       "content-type" : "application/json; charset=utf-8",
       "body" : {
          "product" : {
             "some_unrecognized_field" : "some value"
          }
+      },
+      "parameters" : {
+         "/api/v3/product/test" : ""
       }
    }
 }

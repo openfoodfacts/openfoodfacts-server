@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
-      "path" : "/cgi/display.pl",
-      "body" : null,
+      "content-type" : null,
       "parameters" : {
          "/robots.txt" : ""
       },
-      "content-type" : null
+      "body" : null,
+      "method" : "GET",
+      "path" : "/cgi/display.pl"
    }
 }

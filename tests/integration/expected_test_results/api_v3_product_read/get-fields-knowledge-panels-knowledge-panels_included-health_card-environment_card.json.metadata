@@ -1,12 +1,12 @@
 {
    "api_call" : {
+      "body" : null,
+      "method" : "GET",
+      "path" : "/cgi/display.pl",
+      "content-type" : null,
       "parameters" : {
          "/api/v3/product/4260392550101?fields" : "knowledge_panels",
          "knowledge_panels_included" : "health_card,environment_card"
-      },
-      "body" : null,
-      "method" : "GET",
-      "content-type" : null,
-      "path" : "/cgi/display.pl"
+      }
    }
 }

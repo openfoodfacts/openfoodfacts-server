@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v2/product/12345678?jqm" : "1"
-      },
+      "path" : "/cgi/display.pl",
+      "content-type" : null,
       "body" : null,
       "method" : "GET",
-      "path" : "/cgi/display.pl",
-      "content-type" : null
+      "parameters" : {
+         "/api/v2/product/12345678?jqm" : "1"
+      }
    }
 }

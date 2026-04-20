@@ -1,8 +1,8 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v3/product/1234567890006" : ""
-      },
+      "method" : "PATCH",
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/cgi/display.pl",
       "body" : {
          "product" : {
             "packagings_add" : {
@@ -12,8 +12,8 @@
             }
          }
       },
-      "content-type" : "application/json; charset=utf-8",
-      "method" : "PATCH",
-      "path" : "/cgi/display.pl"
+      "parameters" : {
+         "/api/v3/product/1234567890006" : ""
+      }
    }
 }

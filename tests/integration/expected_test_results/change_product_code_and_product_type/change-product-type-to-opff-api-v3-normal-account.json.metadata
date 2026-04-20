@@ -1,16 +1,16 @@
 {
    "api_call" : {
+      "parameters" : {
+         "/api/v3/product/1234567890302" : ""
+      },
       "method" : "PATCH",
       "content-type" : "application/json; charset=utf-8",
       "path" : "/cgi/display.pl",
       "body" : {
-         "tags_lc" : "en",
          "product" : {
             "product_type" : "petfood"
-         }
-      },
-      "parameters" : {
-         "/api/v3/product/1234567890302" : ""
+         },
+         "tags_lc" : "en"
       }
    }
 }

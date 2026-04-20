@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "parameters" : {
-         "facets/categories/desserts" : ""
-      },
-      "path" : "/cgi/display.pl",
+      "method" : "GET",
       "body" : null,
       "content-type" : null,
-      "method" : "GET"
+      "path" : "/cgi/display.pl",
+      "parameters" : {
+         "facets/categories/desserts" : ""
+      }
    }
 }

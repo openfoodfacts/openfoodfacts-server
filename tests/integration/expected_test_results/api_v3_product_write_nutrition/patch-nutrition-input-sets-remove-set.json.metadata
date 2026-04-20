@@ -3,26 +3,26 @@
       "parameters" : {
          "/api/v3.5/product/4230000001000" : ""
       },
-      "path" : "/cgi/display.pl",
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
       "body" : {
-         "fields" : "updated",
          "product" : {
             "nutrition" : {
                "input_sets" : [
                   {
+                     "per_unit" : "ml",
                      "per" : "200ml",
+                     "preparation" : "prepared",
                      "nutrients" : null,
                      "source_description" : "",
-                     "per_unit" : "ml",
-                     "preparation" : "prepared",
-                     "per_quantity" : 200,
-                     "source" : "packaging"
+                     "source" : "packaging",
+                     "per_quantity" : 200
                   }
                ]
             }
-         }
+         },
+         "fields" : "updated"
       },
-      "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8"
+      "path" : "/cgi/display.pl"
    }
 }

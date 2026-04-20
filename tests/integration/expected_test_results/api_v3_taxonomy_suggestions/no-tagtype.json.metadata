@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
       "content-type" : null,
+      "body" : null,
       "parameters" : {
          "/api/v3/taxonomy_suggestions" : ""
       },
       "path" : "/cgi/display.pl",
-      "body" : null
+      "method" : "GET"
    }
 }

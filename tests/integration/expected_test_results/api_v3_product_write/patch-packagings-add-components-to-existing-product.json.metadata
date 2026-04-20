@@ -1,41 +1,41 @@
 {
    "api_call" : {
       "path" : "/cgi/display.pl",
+      "method" : "PATCH",
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "fields" : "updated",
          "product" : {
             "packagings_add" : [
                {
-                  "number_of_units" : 2,
-                  "material" : {
-                     "lc_name" : "plastic"
+                  "shape" : {
+                     "id" : "en:bottle"
                   },
                   "recycling" : {
                      "lc_name" : "strange value"
                   },
-                  "shape" : {
-                     "id" : "en:bottle"
+                  "number_of_units" : 2,
+                  "material" : {
+                     "lc_name" : "plastic"
                   }
                },
                {
-                  "material" : {
-                     "lc_name" : "cardboard"
-                  },
                   "recycling" : {
                      "lc_name" : "to recycle"
                   },
                   "shape" : {
                      "id" : "en:box"
                   },
+                  "material" : {
+                     "lc_name" : "cardboard"
+                  },
                   "number_of_units" : 1
                }
             ]
          }
       },
-      "content-type" : "application/json; charset=utf-8",
       "parameters" : {
          "/api/v3/product/1234567890007" : ""
-      },
-      "method" : "PATCH"
+      }
    }
 }

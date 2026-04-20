@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/facets/countries/cambodia" : ""
-      },
+      "body" : null,
+      "method" : "GET",
       "content-type" : null,
       "path" : "/cgi/display.pl",
-      "body" : null,
-      "method" : "GET"
+      "parameters" : {
+         "/facets/countries/cambodia" : ""
+      }
    }
 }

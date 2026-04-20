@@ -1,5 +1,6 @@
 {
    "api_call" : {
+      "method" : "PATCH",
       "parameters" : {
          "/api/v3/product/1234567890101" : ""
       },
@@ -11,7 +12,6 @@
          "tags_lc" : "en"
       },
       "path" : "/cgi/display.pl",
-      "content-type" : "application/json; charset=utf-8",
-      "method" : "PATCH"
+      "content-type" : "application/json; charset=utf-8"
    }
 }

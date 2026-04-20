@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "path" : "/cgi/display.pl",
+      "body" : null,
       "method" : "GET",
       "content-type" : null,
-      "body" : null,
       "parameters" : {
          "facets/contributors/bob.json?fields" : "product_name"
-      },
-      "path" : "/cgi/display.pl"
+      }
    }
 }

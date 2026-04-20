@@ -3,9 +3,9 @@
       "parameters" : {
          "/api/v2/attribute_groups" : ""
       },
-      "content-type" : null,
-      "body" : null,
+      "method" : "GET",
       "path" : "/cgi/display.pl",
-      "method" : "GET"
+      "content-type" : null,
+      "body" : null
    }
 }

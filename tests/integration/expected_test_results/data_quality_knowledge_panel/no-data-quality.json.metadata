@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
       "parameters" : {
-         "/api/v2/product/200000000001?fields" : "knowledge_panels",
-         "knowledge_panels_client" : "web"
+         "knowledge_panels_client" : "web",
+         "/api/v2/product/200000000001?fields" : "knowledge_panels"
       },
       "body" : null,
+      "method" : "GET",
       "content-type" : null,
       "path" : "/cgi/display.pl"
    }

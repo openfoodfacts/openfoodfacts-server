@@ -1,15 +1,15 @@
 {
    "api_call" : {
+      "path" : "/cgi/display.pl",
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
+      "parameters" : {
+         "/api/v3/product/test" : ""
+      },
       "body" : {
          "product" : {
             "ingredients_text_en" : "milk 80%, sugar, cocoa powder"
          }
-      },
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {
-         "/api/v3/product/test" : ""
-      },
-      "path" : "/cgi/display.pl"
+      }
    }
 }

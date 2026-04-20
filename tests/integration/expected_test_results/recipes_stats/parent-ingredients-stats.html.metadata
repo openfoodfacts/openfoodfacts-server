@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "content-type" : null,
-      "path" : "/cgi/display.pl",
-      "body" : null,
       "method" : "GET",
       "parameters" : {
          "/search?parent_ingredients" : "cheese,flour,tomato,olive oil"
-      }
+      },
+      "body" : null,
+      "path" : "/cgi/display.pl",
+      "content-type" : null
    }
 }

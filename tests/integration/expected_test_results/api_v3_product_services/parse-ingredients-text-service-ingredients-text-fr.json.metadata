@@ -1,18 +1,18 @@
 {
    "api_call" : {
+      "method" : "POST",
+      "path" : "/cgi/display.pl",
       "content-type" : "application/json; charset=utf-8",
-      "parameters" : {
-         "/api/v3/product_services" : ""
-      },
       "body" : {
-         "product" : {
-            "ingredients_text_fr" : "sucre, huile de palme, eau, quelque chose d'inconnu"
-         },
          "services" : [
             "parse_ingredients_text"
-         ]
+         ],
+         "product" : {
+            "ingredients_text_fr" : "sucre, huile de palme, eau, quelque chose d'inconnu"
+         }
       },
-      "path" : "/cgi/display.pl",
-      "method" : "POST"
+      "parameters" : {
+         "/api/v3/product_services" : ""
+      }
    }
 }

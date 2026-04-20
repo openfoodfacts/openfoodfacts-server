@@ -13,10 +13,10 @@
          "fields" : "updated"
       },
       "method" : "PATCH",
-      "path" : "/cgi/display.pl",
       "parameters" : {
          "/api/v3.3/product/1234567890012" : ""
       },
+      "path" : "/cgi/display.pl",
       "content-type" : "application/json; charset=utf-8"
    }
 }

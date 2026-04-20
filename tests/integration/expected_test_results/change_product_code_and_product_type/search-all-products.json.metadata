@@ -5,9 +5,9 @@
          "action" : "process",
          "json" : "1"
       },
-      "body" : null,
+      "method" : "GET",
       "path" : "/cgi/search.pl",
       "content-type" : null,
-      "method" : "GET"
+      "body" : null
    }
 }

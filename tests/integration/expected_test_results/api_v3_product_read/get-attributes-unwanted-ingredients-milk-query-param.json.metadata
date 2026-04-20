@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "body" : null,
-      "parameters" : {
-         "attribute_unwanted_ingredients_tags" : "en:milk,en:chocolate",
-         "/api/v3/product/4260392550101?fields" : "attribute_groups"
-      },
-      "method" : "GET",
+      "content-type" : null,
       "path" : "/cgi/display.pl",
-      "content-type" : null
+      "body" : null,
+      "method" : "GET",
+      "parameters" : {
+         "/api/v3/product/4260392550101?fields" : "attribute_groups",
+         "attribute_unwanted_ingredients_tags" : "en:milk,en:chocolate"
+      }
    }
 }

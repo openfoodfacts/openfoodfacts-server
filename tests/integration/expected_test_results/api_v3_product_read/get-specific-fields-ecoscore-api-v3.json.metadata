@@ -3,9 +3,9 @@
       "parameters" : {
          "/api/v3/product/4260392550101?fields" : "ecoscore_score,ecoscore_grade,ecoscore_data"
       },
-      "body" : null,
-      "method" : "GET",
       "content-type" : null,
-      "path" : "/cgi/display.pl"
+      "path" : "/cgi/display.pl",
+      "method" : "GET",
+      "body" : null
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
+      "path" : "/cgi/display.pl",
+      "body" : null,
       "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "/categories/vitamins.json" : ""
-      },
-      "body" : null,
-      "path" : "/cgi/display.pl"
+      }
    }
 }

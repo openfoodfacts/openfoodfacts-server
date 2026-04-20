@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "path" : "/cgi/display.pl",
+      "body" : null,
       "parameters" : {
          "/product/0200000000235/only-product-nutella" : ""
       },
-      "body" : null,
-      "content-type" : null,
-      "path" : "/cgi/display.pl",
-      "method" : "GET"
+      "method" : "GET",
+      "content-type" : null
    }
 }

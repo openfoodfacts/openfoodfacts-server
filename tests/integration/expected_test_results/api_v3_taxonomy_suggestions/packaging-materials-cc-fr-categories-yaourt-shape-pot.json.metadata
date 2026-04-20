@@ -1,14 +1,14 @@
 {
    "api_call" : {
-      "body" : null,
-      "path" : "/cgi/display.pl",
+      "method" : "GET",
       "parameters" : {
-         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_materials",
          "cc" : "fr",
          "categories" : "yogurts",
+         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_materials",
          "shape" : "pot"
       },
-      "content-type" : null,
-      "method" : "GET"
+      "path" : "/cgi/display.pl",
+      "body" : null,
+      "content-type" : null
    }
 }

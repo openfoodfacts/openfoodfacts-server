@@ -1,12 +1,12 @@
 {
    "api_call" : {
       "method" : "GET",
-      "content-type" : null,
       "parameters" : {
          "string" : "01",
          "/api/v3/taxonomy_suggestions?tagtype" : "packaging_materials"
       },
       "path" : "/cgi/display.pl",
-      "body" : null
+      "body" : null,
+      "content-type" : null
    }
 }

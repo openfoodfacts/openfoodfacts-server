@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
-      "method" : "GET",
+      "content-type" : null,
+      "body" : null,
       "parameters" : {
          "/facets/categories/hazelnut-spreads" : ""
       },
-      "body" : null,
-      "content-type" : null
+      "method" : "GET",
+      "path" : "/cgi/display.pl"
    }
 }

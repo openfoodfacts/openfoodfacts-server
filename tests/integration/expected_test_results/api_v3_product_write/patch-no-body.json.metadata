@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "PATCH",
       "parameters" : {
          "/api/v3/product/1234567890002" : ""
       },
-      "content-type" : null,
       "body" : null,
+      "content-type" : null,
+      "method" : "PATCH",
       "path" : "/cgi/display.pl"
    }
 }

@@ -1,17 +1,17 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
-      "body" : {
-         "tags_lc" : "en",
-         "product" : {
-            "code" : "some invalid barcode"
-         },
-         "fields" : "updated"
-      },
       "parameters" : {
          "/api/v3/product/1234567890101" : ""
       },
-      "path" : "/cgi/display.pl"
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/cgi/display.pl",
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "code" : "some invalid barcode"
+         },
+         "tags_lc" : "en"
+      }
    }
 }

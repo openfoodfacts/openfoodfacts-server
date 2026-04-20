@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "parameters" : {
+         "facets/categories/-apples/labels/organic.json?fields" : "product_name"
+      },
       "method" : "GET",
       "content-type" : null,
       "body" : null,
-      "path" : "/cgi/display.pl",
-      "parameters" : {
-         "facets/categories/-apples/labels/organic.json?fields" : "product_name"
-      }
+      "path" : "/cgi/display.pl"
    }
 }

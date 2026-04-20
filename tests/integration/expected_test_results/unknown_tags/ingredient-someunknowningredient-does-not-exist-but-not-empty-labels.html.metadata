@@ -2,11 +2,11 @@
    "api_call" : {
       "method" : "GET",
       "body" : null,
-      "content-type" : null,
       "path" : "/cgi/display.pl",
+      "content-type" : null,
       "parameters" : {
-         "/facets/ingredients/someunknowningredient/labels" : "",
-         "no_cache" : "1"
+         "no_cache" : "1",
+         "/facets/ingredients/someunknowningredient/labels" : ""
       }
    }
 }

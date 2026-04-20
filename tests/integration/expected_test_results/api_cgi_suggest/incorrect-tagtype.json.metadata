@@ -1,9 +1,9 @@
 {
    "api_call" : {
       "content-type" : null,
-      "path" : "/cgi/suggest.pl",
       "body" : null,
       "method" : "GET",
+      "path" : "/cgi/suggest.pl",
       "parameters" : {
          "tagtype" : "not_a_taxonomy"
       }

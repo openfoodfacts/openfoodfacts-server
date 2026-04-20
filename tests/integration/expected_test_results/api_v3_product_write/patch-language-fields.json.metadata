@@ -1,17 +1,17 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
-      "method" : "PATCH",
-      "parameters" : {
-         "/api/v3/product/test" : ""
-      },
-      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "fields" : "updated,ingredients_text,ingredients,lc",
          "product" : {
             "ingredients_text_fr" : "lait 80%, sucre, poudre de cacao",
             "ingredients_text_en" : "milk 80%, sugar, cocoa powder"
          }
-      }
+      },
+      "parameters" : {
+         "/api/v3/product/test" : ""
+      },
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
+      "content-type" : "application/json; charset=utf-8"
    }
 }

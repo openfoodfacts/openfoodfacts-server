@@ -1,10 +1,10 @@
 {
    "api_call" : {
-      "method" : "GET",
-      "content-type" : null,
       "parameters" : {
          "facets/packager-codes/fr-85-222-003-ce.json?fields" : "product_name,emb_codes_tags"
       },
+      "method" : "GET",
+      "content-type" : null,
       "body" : null,
       "path" : "/cgi/display.pl"
    }

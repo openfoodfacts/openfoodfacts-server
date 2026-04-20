@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
-      "body" : null,
       "parameters" : {
          "facets/labels/fair-trade/labels/-organic.json?fields" : "product_name"
       },
+      "method" : "GET",
       "content-type" : null,
-      "method" : "GET"
+      "body" : null,
+      "path" : "/cgi/display.pl"
    }
 }

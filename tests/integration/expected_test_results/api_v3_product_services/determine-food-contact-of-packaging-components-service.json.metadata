@@ -1,6 +1,5 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
       "parameters" : {
          "/api/v3/product_services" : ""
       },
@@ -26,7 +25,8 @@
             "determine_food_contact_of_packaging_components"
          ]
       },
-      "method" : "POST",
-      "path" : "/cgi/display.pl"
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/cgi/display.pl",
+      "method" : "POST"
    }
 }

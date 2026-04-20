@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "path" : "/cgi/countries.pl",
+      "method" : "GET",
       "content-type" : null,
+      "body" : null,
       "parameters" : {
          "term" : "FR"
-      },
-      "path" : "/cgi/countries.pl",
-      "body" : null,
-      "method" : "GET"
+      }
    }
 }

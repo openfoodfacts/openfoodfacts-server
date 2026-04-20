@@ -1,17 +1,16 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
       "method" : "PATCH",
       "content-type" : "application/json; charset=utf-8",
+      "path" : "/cgi/display.pl",
       "body" : {
-         "fields" : "updated,misc_tags,weighers_tags",
          "product" : {
             "packagings_add" : [
                {
-                  "number_of_units" : 6,
                   "material" : {
                      "lc_name" : "PET"
                   },
+                  "number_of_units" : 6,
                   "shape" : {
                      "lc_name" : "bottle"
                   },
@@ -20,16 +19,17 @@
                },
                {
                   "weight_specified" : 25.5,
-                  "number_of_units" : 1,
                   "shape" : {
                      "lc_name" : "box"
                   },
+                  "number_of_units" : 1,
                   "material" : {
                      "lc_name" : "wood"
                   }
                }
             ]
          },
+         "fields" : "updated,misc_tags,weighers_tags",
          "tags_lc" : "en"
       },
       "parameters" : {

@@ -1,8 +1,8 @@
 {
    "api_call" : {
-      "path" : "/cgi/product_image_upload.pl",
-      "parameters" : {},
       "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_image_upload.pl",
       "body" : {
          "imgupload_front_en" : [
             "tests/integration/inputs/upload_images/small-img.jpg",
