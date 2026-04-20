@@ -37354,7 +37354,8 @@ ciqual_food_name:en: Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), complet, préemballé
 
 < en:Special breads
-en: Hot dog buns, Rolls for hotdog, Buns for hotdog, Rolls for hot dog, Buns for hot dog, Hot dot rolls
+en: Hot dog buns, Rolls for hotdog, Buns for hotdog, Rolls for hot dog, Buns for hot dog, Hot dog rolls
+da: Pølsebrød
 de: Hot-Dog-Brötchen
 es: Panecillos para perritos calientes, Panecillo de perrito caliente, Panecillos para hot dogs
 fi: Hot dog -sämpylät
@@ -37366,19 +37367,40 @@ lt: Dešrainių bandelės, Bandelės dešrainiams
 nl: Hotdog-broodjes, Hot-dog broodje
 pl: Bułki hot-dog, Bułki do hot-dogów
 pt: Pães para hot dog, pãos para hot dog
+sv: Korvbröd
 agribalyse_food_code:en: 7259
 ciqual_food_code:en: 7259
 ciqual_food_name:en: Rolls for hamburger/hotdog (buns), prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), préemballé
 wikidata:en: Q1047392
 
-< en:Special breads
-en: Wholemeal rolls for hotdog, Wholemeal buns for hotdog
+< en:Hot dog buns
+en: Wholemeal hot dog buns, Wholemeal rolls for hotdog, Wholemeal buns for hotdog
+da: Fuldkornspølsebrød
 fr: Pain complet pour hot dog
+sv: Fullkornskorvbröd
 agribalyse_food_code:en: 7262
 ciqual_food_code:en: 7262
 ciqual_food_name:en: Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), complet, préemballé
+
+< en:Frozen breads
+< en:Hot dog buns
+en: Frozen hot dog buns
+da: Frosne pølsebrød
+sv: Frysta korvbröd
+
+< en:Gluten-free breads
+< en:Hot dog buns
+en: Gluten-free hot dog buns
+da: Glutenfrie pølsebrød
+sv: Glutenfria korvbröd
+
+< en:Frozen hot dog buns
+< en:Gluten-free hot dog buns
+en: Frozen gluten-free hot dog buns
+da: Frosne glutenfrie pølsebrød
+sv: Frysta glutenfria korvbröd
 
 < en:Flatbreads
 en: Naans, Naan
