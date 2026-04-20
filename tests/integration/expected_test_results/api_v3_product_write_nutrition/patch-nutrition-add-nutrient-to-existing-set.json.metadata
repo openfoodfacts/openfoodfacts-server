@@ -1,0 +1,33 @@
+{
+   "api_call" : {
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
+      "parameters" : {
+         "/api/v3.5/product/4230000001000" : ""
+      },
+      "body" : {
+         "product" : {
+            "nutrition" : {
+               "input_sets" : [
+                  {
+                     "per_unit" : "g",
+                     "nutrients" : {
+                        "alcohol" : {
+                           "unit" : "g",
+                           "value_string" : "0.5"
+                        }
+                     },
+                     "per" : "100g",
+                     "preparation" : "as_sold",
+                     "source_description" : "",
+                     "source" : "packaging",
+                     "per_quantity" : 100
+                  }
+               ]
+            }
+         },
+         "fields" : "updated"
+      },
+      "content-type" : "application/json; charset=utf-8"
+   }
+}

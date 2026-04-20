@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "content-type" : null,
+      "method" : "GET",
+      "path" : "/cgi/display.pl",
+      "body" : null,
+      "parameters" : {
+         "string" : "bac-ver",
+         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_recycling",
+         "cc" : "fr"
+      }
+   }
+}

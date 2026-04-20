@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "body" : null,
+      "parameters" : {
+         "/api/v3/taxonomy_suggestions?tagtype" : "categories",
+         "lc" : "fr",
+         "string" : "frais"
+      },
+      "content-type" : null,
+      "method" : "GET",
+      "path" : "/cgi/display.pl"
+   }
+}

@@ -1,0 +1,12 @@
+{
+   "api_call" : {
+      "method" : "GET",
+      "path" : "/cgi/display.pl",
+      "body" : null,
+      "parameters" : {
+         "/api/v2/search?code" : "\u001d0102000000000398",
+         "fields" : "code,product_name"
+      },
+      "content-type" : null
+   }
+}

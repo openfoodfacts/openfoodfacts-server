@@ -1,0 +1,28 @@
+{
+   "api_call" : {
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
+      "parameters" : {
+         "/api/v3.5/product/4230000001000" : ""
+      },
+      "body" : {
+         "product" : {
+            "nutrition" : {
+               "input_sets" : [
+                  {
+                     "per_quantity" : 200,
+                     "source" : "packaging",
+                     "source_description" : "",
+                     "preparation" : "prepared",
+                     "nutrients" : null,
+                     "per" : "200ml",
+                     "per_unit" : "ml"
+                  }
+               ]
+            }
+         },
+         "fields" : "updated"
+      },
+      "content-type" : "application/json; charset=utf-8"
+   }
+}

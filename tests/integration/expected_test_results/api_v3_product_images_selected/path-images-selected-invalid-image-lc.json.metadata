@@ -1,0 +1,24 @@
+{
+   "api_call" : {
+      "body" : {
+         "product" : {
+            "images" : {
+               "selected" : {
+                  "front" : {
+                     "invalid_lc" : {
+                        "imgid" : "1"
+                     }
+                  }
+               }
+            }
+         },
+         "fields" : "updated"
+      },
+      "parameters" : {
+         "/api/v3.3/product/1234567890012" : ""
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH"
+   }
+}

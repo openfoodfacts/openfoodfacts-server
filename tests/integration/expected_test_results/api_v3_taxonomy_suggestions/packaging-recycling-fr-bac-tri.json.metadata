@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "parameters" : {
+         "cc" : "fr",
+         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_recycling",
+         "string" : "bac-tri"
+      },
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "path" : "/cgi/display.pl"
+   }
+}

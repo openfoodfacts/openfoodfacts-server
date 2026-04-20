@@ -1,0 +1,12 @@
+{
+   "api_call" : {
+      "path" : "/cgi/display.pl",
+      "method" : "GET",
+      "content-type" : null,
+      "body" : null,
+      "parameters" : {
+         "categories" : "mango nectars,beverages",
+         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_shapes"
+      }
+   }
+}

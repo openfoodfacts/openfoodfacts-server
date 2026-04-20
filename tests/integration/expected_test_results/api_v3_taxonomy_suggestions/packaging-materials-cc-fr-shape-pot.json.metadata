@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "method" : "GET",
+      "path" : "/cgi/display.pl",
+      "content-type" : null,
+      "parameters" : {
+         "cc" : "fr",
+         "shape" : "pot",
+         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_materials"
+      },
+      "body" : null
+   }
+}

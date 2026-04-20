@@ -1,0 +1,12 @@
+{
+   "api_call" : {
+      "body" : {
+         "code" : "1234567890012",
+         "imgid" : "1"
+      },
+      "path" : "/cgi/product_image_crop.pl",
+      "parameters" : {},
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST"
+   }
+}

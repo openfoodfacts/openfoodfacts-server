@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "method" : "GET",
+      "content-type" : null,
+      "path" : "/cgi/display.pl",
+      "body" : null,
+      "parameters" : {
+         "facets/categories/-apples/labels/-organic.json?fields" : "product_name"
+      }
+   }
+}

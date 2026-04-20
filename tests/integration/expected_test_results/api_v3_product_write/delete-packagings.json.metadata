@@ -1,0 +1,21 @@
+{
+   "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "body" : {
+         "product" : {
+            "packagings" : [
+               {
+                  "shape" : {
+                     "lc_name" : "bottle"
+                  }
+               }
+            ]
+         }
+      },
+      "parameters" : {
+         "/api/v3/product/1234567890007" : ""
+      },
+      "method" : "DELETE",
+      "path" : "/cgi/display.pl"
+   }
+}

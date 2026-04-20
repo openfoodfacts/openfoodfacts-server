@@ -1,0 +1,19 @@
+{
+   "api_call" : {
+      "method" : "POST",
+      "parameters" : {
+         "/api/v3/product_services" : ""
+      },
+      "path" : "/cgi/display.pl",
+      "body" : {
+         "services" : [
+            "parse_ingredients_text"
+         ],
+         "product" : {
+            "lc" : "fr",
+            "ingredients_text" : "Sucre, huile de palme, huile de NOISETTES, quelque chose d'inconnu"
+         }
+      },
+      "content-type" : "application/json; charset=utf-8"
+   }
+}

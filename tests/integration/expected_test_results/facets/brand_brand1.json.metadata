@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "parameters" : {
+         "facets/brands/brand1.json?fields" : "product_name"
+      },
+      "body" : null,
+      "path" : "/cgi/display.pl",
+      "method" : "GET",
+      "content-type" : null
+   }
+}

@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "path" : "/cgi/display.pl",
+      "body" : null,
+      "parameters" : {
+         "lc" : "fr",
+         "local_tags_list" : "banane,en:pineapple,petits pois, ÃÂ©pinards, unknown ingredient,de:Other Unknown Ingredient",
+         "/api/v3/taxonomy_canonicalize_tags?tagtype" : "ingredients"
+      },
+      "content-type" : null,
+      "method" : "GET"
+   }
+}

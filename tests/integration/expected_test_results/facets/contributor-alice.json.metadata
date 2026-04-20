@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "parameters" : {
+         "facets/contributors/alice.json?fields" : "product_name"
+      },
+      "body" : null,
+      "path" : "/cgi/display.pl",
+      "content-type" : null,
+      "method" : "GET"
+   }
+}

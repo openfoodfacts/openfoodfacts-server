@@ -1,0 +1,17 @@
+{
+   "api_call" : {
+      "body" : {
+         "tags_lc" : "en",
+         "product" : {
+            "code" : "1234567891234"
+         },
+         "fields" : "updated"
+      },
+      "path" : "/cgi/display.pl",
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {
+         "/api/v3/product/1234567890101" : ""
+      },
+      "method" : "PATCH"
+   }
+}

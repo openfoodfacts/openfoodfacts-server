@@ -1,0 +1,49 @@
+{
+   "api_call" : {
+      "parameters" : {
+         "/api/v3/product/1234567890017" : ""
+      },
+      "method" : "PATCH",
+      "path" : "/cgi/display.pl",
+      "body" : {
+         "tags_lc" : "en",
+         "product" : {
+            "packagings_add" : [
+               {
+                  "quantity_per_unit" : "25cl",
+                  "weight_measured" : "10",
+                  "material" : {
+                     "lc_name" : "PET"
+                  },
+                  "shape" : {
+                     "lc_name" : "bottle"
+                  },
+                  "number_of_units" : 6
+               },
+               {
+                  "shape" : {
+                     "lc_name" : "box"
+                  },
+                  "material" : {
+                     "lc_name" : "wood"
+                  },
+                  "number_of_units" : 1,
+                  "weight_specified" : "25.5"
+               },
+               {
+                  "shape" : {
+                     "lc_name" : "film"
+                  },
+                  "material" : {
+                     "lc_name" : "plastic"
+                  },
+                  "weight_specified" : "2,01",
+                  "number_of_units" : 1
+               }
+            ]
+         },
+         "fields" : "updated,misc_tags,weighers_tags"
+      },
+      "content-type" : "application/json; charset=utf-8"
+   }
+}

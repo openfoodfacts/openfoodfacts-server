@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "parameters" : {
+         "facets/categories/bananas/labels/organic/brands/-brand1.json?fields" : "product_name"
+      },
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "path" : "/cgi/display.pl"
+   }
+}

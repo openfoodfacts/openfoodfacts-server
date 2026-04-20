@@ -1,0 +1,29 @@
+{
+   "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "body" : {
+         "tags_lc" : "en",
+         "product" : {
+            "packagings" : [
+               {
+                  "recycling" : {
+                     "lc_name" : "discard"
+                  },
+                  "number_of_units" : 2,
+                  "shape" : {
+                     "lc_name" : "film"
+                  },
+                  "material" : {
+                     "lc_name" : "PET"
+                  }
+               }
+            ]
+         }
+      },
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
+      "parameters" : {
+         "/api/v3/product/1234567890010" : ""
+      }
+   }
+}

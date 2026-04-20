@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "method" : "GET",
+      "content-type" : null,
+      "body" : null,
+      "parameters" : {
+         "/api/v3/taxonomy_display_tags?tagtype" : "not_a_taxonomy"
+      },
+      "path" : "/cgi/display.pl"
+   }
+}

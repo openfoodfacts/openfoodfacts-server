@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "parameters" : {
+         "/facets/countries/doesnotexist/ingredients/apple" : ""
+      },
+      "body" : null,
+      "method" : "GET",
+      "content-type" : null,
+      "path" : "/cgi/display.pl"
+   }
+}
