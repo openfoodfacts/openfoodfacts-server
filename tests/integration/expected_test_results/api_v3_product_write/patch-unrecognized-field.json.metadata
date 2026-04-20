@@ -1,10 +1,10 @@
 {
    "api_call" : {
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
       "parameters" : {
          "/api/v3/product/test" : ""
       },
-      "method" : "PATCH",
-      "path" : "/cgi/display.pl",
       "content-type" : "application/json; charset=utf-8",
       "body" : {
          "product" : {

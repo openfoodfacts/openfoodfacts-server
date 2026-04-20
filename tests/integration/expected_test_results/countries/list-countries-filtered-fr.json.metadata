@@ -4,8 +4,8 @@
       "parameters" : {
          "term" : "FR"
       },
-      "method" : "GET",
+      "path" : "/cgi/countries.pl",
       "body" : null,
-      "path" : "/cgi/countries.pl"
+      "method" : "GET"
    }
 }

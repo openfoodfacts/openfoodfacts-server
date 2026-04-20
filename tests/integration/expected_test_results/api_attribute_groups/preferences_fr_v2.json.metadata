@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "method" : "GET",
+      "path" : "/cgi/display.pl",
+      "content-type" : null,
       "parameters" : {
          "/api/v2/preferences_fr" : ""
       },
-      "content-type" : null,
-      "path" : "/cgi/display.pl",
-      "body" : null,
-      "method" : "GET"
+      "body" : null
    }
 }

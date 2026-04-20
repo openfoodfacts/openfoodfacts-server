@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "path" : "/cgi/suggest.pl",
+      "parameters" : {},
       "body" : null,
       "method" : "GET",
-      "parameters" : {},
-      "content-type" : null
+      "content-type" : null,
+      "path" : "/cgi/suggest.pl"
    }
 }

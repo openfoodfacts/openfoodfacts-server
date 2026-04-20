@@ -1,11 +1,13 @@
 {
    "api_call" : {
       "path" : "/cgi/display.pl",
+      "method" : "PATCH",
       "parameters" : {
          "/api/v3/product/1234567890016" : ""
       },
-      "method" : "PATCH",
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
+         "tags_lc" : "en",
          "fields" : "packagings,packagings_complete",
          "product" : {
             "packagings" : [
@@ -13,16 +15,14 @@
                   "shape" : {
                      "lc_name" : "bottle"
                   },
-                  "number_of_units" : 1,
                   "recycling" : {
                      "lc_name" : "recycle"
-                  }
+                  },
+                  "number_of_units" : 1
                }
             ],
             "packagings_complete" : 0
-         },
-         "tags_lc" : "en"
-      },
-      "content-type" : "application/json; charset=utf-8"
+         }
+      }
    }
 }

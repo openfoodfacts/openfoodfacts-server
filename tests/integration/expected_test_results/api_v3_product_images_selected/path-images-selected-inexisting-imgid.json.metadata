@@ -1,10 +1,12 @@
 {
    "api_call" : {
-      "method" : "PATCH",
-      "path" : "/cgi/display.pl",
       "content-type" : "application/json; charset=utf-8",
+      "parameters" : {
+         "/api/v3.3/product/1234567890012" : ""
+      },
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
       "body" : {
-         "fields" : "updated",
          "product" : {
             "images" : {
                "selected" : {
@@ -15,10 +17,8 @@
                   }
                }
             }
-         }
-      },
-      "parameters" : {
-         "/api/v3.3/product/1234567890012" : ""
+         },
+         "fields" : "updated"
       }
    }
 }

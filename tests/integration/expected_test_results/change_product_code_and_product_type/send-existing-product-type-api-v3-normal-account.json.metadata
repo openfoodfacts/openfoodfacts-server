@@ -1,16 +1,16 @@
 {
    "api_call" : {
+      "method" : "PATCH",
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/cgi/display.pl",
       "parameters" : {
          "/api/v3/product/1234567890300" : ""
       },
-      "method" : "PATCH",
       "body" : {
          "product" : {
             "product_type" : "food"
          },
          "tags_lc" : "en"
-      },
-      "path" : "/cgi/display.pl",
-      "content-type" : "application/json; charset=utf-8"
+      }
    }
 }

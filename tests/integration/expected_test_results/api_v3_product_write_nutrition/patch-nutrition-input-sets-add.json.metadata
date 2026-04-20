@@ -1,118 +1,118 @@
 {
    "api_call" : {
       "content-type" : "application/json; charset=utf-8",
+      "parameters" : {
+         "/api/v3.5/product/4230000001000" : ""
+      },
+      "path" : "/cgi/display.pl",
       "body" : {
-         "fields" : "updated",
          "product" : {
             "nutrition" : {
                "input_sets" : [
                   {
-                     "source_description" : "",
+                     "preparation" : "as_sold",
+                     "per_quantity" : 100,
                      "source" : "packaging",
                      "unspecified_nutrients" : [
                         "alcohol",
                         "polyols"
                      ],
-                     "per_quantity" : 100,
                      "per_unit" : "g",
+                     "source_description" : "",
                      "nutrients" : {
-                        "proteins" : {
+                        "carbohydrates" : {
                            "unit" : "g",
-                           "value_string" : "5"
-                        },
-                        "sugars" : {
-                           "unit" : "g",
-                           "value_string" : "20"
-                        },
-                        "saturated-fat" : {
-                           "value_string" : "2",
-                           "unit" : "g"
+                           "value_string" : "30"
                         },
                         "sodium" : {
                            "value_string" : "0.59",
                            "unit" : "g"
                         },
-                        "salt" : {
-                           "unit" : "g",
-                           "value_string" : "1.5"
-                        },
-                        "energy-kj" : {
-                           "value_string" : "2000",
-                           "unit" : "kJ"
-                        },
-                        "fiber" : {
-                           "unit" : "g",
-                           "value_string" : "5"
+                        "saturated-fat" : {
+                           "value_string" : "2",
+                           "unit" : "g"
                         },
                         "fat" : {
                            "value_string" : "10",
                            "unit" : "g"
                         },
-                        "carbohydrates" : {
+                        "energy-kj" : {
+                           "value_string" : "2000",
+                           "unit" : "kJ"
+                        },
+                        "salt" : {
                            "unit" : "g",
-                           "value_string" : "30"
+                           "value_string" : "1.5"
+                        },
+                        "sugars" : {
+                           "value_string" : "20",
+                           "unit" : "g"
+                        },
+                        "fiber" : {
+                           "unit" : "g",
+                           "value_string" : "5"
+                        },
+                        "proteins" : {
+                           "value_string" : "5",
+                           "unit" : "g"
                         }
                      },
-                     "per" : "100g",
-                     "preparation" : "as_sold"
+                     "per" : "100g"
                   },
                   {
-                     "source" : "packaging",
-                     "source_description" : "",
-                     "per_quantity" : 200,
                      "unspecified_nutrients" : [
                         "fiber"
                      ],
-                     "per_unit" : "ml",
+                     "source" : "packaging",
+                     "per_quantity" : 200,
                      "preparation" : "prepared",
-                     "per" : "200ml",
                      "nutrients" : {
-                        "sugars" : {
+                        "sodium" : {
+                           "value_string" : "0.295",
+                           "unit" : "g"
+                        },
+                        "carbohydrates" : {
                            "unit" : "g",
-                           "value_string" : "10"
+                           "value_string" : "15"
+                        },
+                        "fiber" : {
+                           "unit" : "g",
+                           "value_string" : "2.5"
                         },
                         "proteins" : {
                            "value_string" : "2.5",
                            "unit" : "g"
                         },
-                        "carbohydrates" : {
-                           "value_string" : "15",
-                           "unit" : "g"
-                        },
-                        "fat" : {
+                        "salt" : {
                            "unit" : "g",
-                           "value_string" : "5"
+                           "value_string" : "0.75"
+                        },
+                        "sugars" : {
+                           "value_string" : "10",
+                           "unit" : "g"
                         },
                         "energy-kj" : {
                            "unit" : "kJ",
                            "value_string" : "1000"
                         },
-                        "fiber" : {
-                           "value_string" : "2.5",
-                           "unit" : "g"
-                        },
-                        "salt" : {
-                           "value_string" : "0.75",
-                           "unit" : "g"
-                        },
-                        "sodium" : {
-                           "value_string" : "0.295",
-                           "unit" : "g"
-                        },
                         "saturated-fat" : {
                            "unit" : "g",
                            "value_string" : "1"
+                        },
+                        "fat" : {
+                           "value_string" : "5",
+                           "unit" : "g"
                         }
-                     }
+                     },
+                     "source_description" : "",
+                     "per_unit" : "ml",
+                     "per" : "200ml"
                   }
                ]
             }
-         }
+         },
+         "fields" : "updated"
       },
-      "parameters" : {
-         "/api/v3.5/product/4230000001000" : ""
-      },
-      "method" : "PATCH",
-      "path" : "/cgi/display.pl"
+      "method" : "PATCH"
    }
 }

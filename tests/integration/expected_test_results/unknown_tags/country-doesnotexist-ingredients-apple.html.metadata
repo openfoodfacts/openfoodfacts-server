@@ -3,9 +3,9 @@
       "parameters" : {
          "/facets/countries/doesnotexist/ingredients/apple" : ""
       },
-      "body" : null,
-      "method" : "GET",
       "content-type" : null,
-      "path" : "/cgi/display.pl"
+      "path" : "/cgi/display.pl",
+      "body" : null,
+      "method" : "GET"
    }
 }

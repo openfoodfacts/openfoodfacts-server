@@ -1,30 +1,30 @@
 {
    "api_call" : {
       "content-type" : "application/json; charset=utf-8",
+      "path" : "/cgi/display.pl",
       "parameters" : {
          "/api/v3.5/product/4230000001000" : ""
       },
+      "method" : "PATCH",
       "body" : {
          "product" : {
             "nutrition" : {
                "input_sets" : [
                   {
                      "preparation" : "as_sold",
-                     "per" : "100g",
+                     "per_quantity" : 100,
+                     "source" : "packaging",
+                     "source_description" : "",
                      "nutrients" : {
                         "sodium" : null
                      },
                      "per_unit" : "g",
-                     "per_quantity" : 100,
-                     "source" : "packaging",
-                     "source_description" : ""
+                     "per" : "100g"
                   }
                ]
             }
          },
          "fields" : "updated"
-      },
-      "path" : "/cgi/display.pl",
-      "method" : "PATCH"
+      }
    }
 }

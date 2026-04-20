@@ -1,29 +1,26 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
-      "parameters" : {
-         "/api/v3/product/1234567890018" : ""
-      },
       "method" : "PATCH",
       "content-type" : "application/json; charset=utf-8",
       "body" : {
+         "tags_lc" : "en",
          "fields" : "updated,misc_tags,weighers_tags",
          "product" : {
             "packagings_add" : [
                {
                   "number_of_units" : 6,
-                  "material" : {
-                     "lc_name" : "PET"
-                  },
+                  "weight_measured" : "10 g",
                   "shape" : {
                      "lc_name" : "bottle"
                   },
-                  "quantity_per_unit" : "25cl",
-                  "weight_measured" : "10 g"
+                  "material" : {
+                     "lc_name" : "PET"
+                  },
+                  "quantity_per_unit" : "25cl"
                },
                {
-                  "weight_specified" : "25.5g",
                   "number_of_units" : 1,
+                  "weight_specified" : "25.5g",
                   "shape" : {
                      "lc_name" : "box"
                   },
@@ -32,18 +29,21 @@
                   }
                },
                {
-                  "material" : {
-                     "lc_name" : "plastic"
-                  },
+                  "number_of_units" : 1,
+                  "weight_specified" : "2,01 grams",
                   "shape" : {
                      "lc_name" : "film"
                   },
-                  "weight_specified" : "2,01 grams",
-                  "number_of_units" : 1
+                  "material" : {
+                     "lc_name" : "plastic"
+                  }
                }
             ]
-         },
-         "tags_lc" : "en"
-      }
+         }
+      },
+      "parameters" : {
+         "/api/v3/product/1234567890018" : ""
+      },
+      "path" : "/cgi/display.pl"
    }
 }

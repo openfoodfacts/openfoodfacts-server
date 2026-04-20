@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "body" : null,
       "parameters" : {
          "/api/v3/current-user/permissions" : ""
       },
       "content-type" : null,
+      "path" : "/cgi/display.pl",
       "method" : "GET",
-      "path" : "/cgi/display.pl"
+      "body" : null
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "content-type" : null,
-      "method" : "GET",
+      "path" : "/cgi/display.pl",
+      "body" : null,
       "parameters" : {
          "/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert?raw_panel" : "1"
       },
-      "body" : null,
-      "path" : "/cgi/display.pl"
+      "method" : "GET",
+      "content-type" : null
    }
 }

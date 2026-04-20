@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "method" : "PATCH",
-      "parameters" : {
-         "/api/v3/product/1234567890007" : ""
-      },
-      "path" : "/cgi/display.pl",
       "content-type" : "application/json; charset=utf-8",
       "body" : {
          "raw_body" : "{\n\t\t\t\"fields\": \"updated,misc_tags,weighers_tags\",\n\t\t\t\"tags_lc\": \"fr\",\n\t\t\t\"product\": {\n\t\t\t\t\"packagings_add\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"number_of_units\": 3,\n\t\t\t\t\t\t\"shape\": {\"lc_name\": \"bouteille\"},\n\t\t\t\t\t\t\"material\": {\"lc_name\": \"plastique\"}\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\t\"number_of_units\": 4,\n\t\t\t\t\t\t\"shape\": {\"lc_name\": \"pot\"},\n\t\t\t\t\t\t\"material\": {\"lc_name\": \"verre\"},\n\t\t\t\t\t\t\"recycling\": {\"lc_name\": \"Ã  recycler\"}\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t]\n\t\t\t}\n\t\t}"
-      }
+      },
+      "parameters" : {
+         "/api/v3/product/1234567890007" : ""
+      },
+      "method" : "PATCH",
+      "path" : "/cgi/display.pl"
    }
 }

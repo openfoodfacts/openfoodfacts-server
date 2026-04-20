@@ -1,5 +1,10 @@
 {
    "api_call" : {
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
+      "parameters" : {
+         "/api/v3/product/1234567890007" : ""
+      },
       "body" : {
          "product" : {
             "packagings_add" : [
@@ -11,11 +16,6 @@
             ]
          }
       },
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/cgi/display.pl",
-      "parameters" : {
-         "/api/v3/product/1234567890007" : ""
-      },
-      "method" : "PATCH"
+      "content-type" : "application/json; charset=utf-8"
    }
 }

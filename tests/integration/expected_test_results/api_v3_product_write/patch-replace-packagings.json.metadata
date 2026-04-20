@@ -1,38 +1,38 @@
 {
    "api_call" : {
+      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
+      "parameters" : {
+         "/api/v3/product/1234567890008" : ""
+      },
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
-         "fields" : "updated",
+         "tags_lc" : "en",
          "product" : {
             "packagings" : [
                {
                   "number_of_units" : 1,
                   "weight_measured" : 10.5,
-                  "material" : {
-                     "lc_name" : "plastic"
-                  },
                   "shape" : {
                      "lc_name" : "bag"
+                  },
+                  "material" : {
+                     "lc_name" : "plastic"
                   }
                },
                {
-                  "material" : {
-                     "lc_name" : "paper"
-                  },
+                  "weight_specified" : 0.25,
+                  "number_of_units" : 1,
                   "shape" : {
                      "lc_name" : "label"
                   },
-                  "weight_specified" : 0.25,
-                  "number_of_units" : 1
+                  "material" : {
+                     "lc_name" : "paper"
+                  }
                }
             ]
          },
-         "tags_lc" : "en"
-      },
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {
-         "/api/v3/product/1234567890008" : ""
-      },
-      "method" : "PATCH",
-      "path" : "/cgi/display.pl"
+         "fields" : "updated"
+      }
    }
 }

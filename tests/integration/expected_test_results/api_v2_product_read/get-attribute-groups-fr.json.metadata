@@ -1,12 +1,12 @@
 {
    "api_call" : {
       "parameters" : {
-         "lc" : "fr",
-         "/api/v2/product/200000000034?fields" : "attribute_groups"
+         "/api/v2/product/200000000034?fields" : "attribute_groups",
+         "lc" : "fr"
       },
       "content-type" : null,
-      "method" : "GET",
       "path" : "/cgi/display.pl",
+      "method" : "GET",
       "body" : null
    }
 }

@@ -1,9 +1,9 @@
 {
    "api_call" : {
       "path" : "/cgi/display.pl",
-      "method" : "GET",
       "content-type" : null,
       "body" : null,
+      "method" : "GET",
       "parameters" : {
          "/facets/countries/doesnotexist" : ""
       }

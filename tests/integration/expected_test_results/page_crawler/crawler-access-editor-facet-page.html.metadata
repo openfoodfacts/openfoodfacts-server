@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "body" : null,
-      "method" : "GET",
-      "content-type" : null,
-      "path" : "/cgi/display.pl",
       "parameters" : {
          "/facets/editors/unknown-user" : ""
-      }
+      },
+      "body" : null,
+      "content-type" : null,
+      "path" : "/cgi/display.pl",
+      "method" : "GET"
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
       "body" : null,
-      "method" : "GET",
-      "content-type" : null,
       "parameters" : {
          "/api/v3/product/https://id.gs1.org/01/04260392550101/10/ABC/21/123456?17=211200" : ""
-      }
+      },
+      "method" : "GET",
+      "path" : "/cgi/display.pl",
+      "content-type" : null
    }
 }

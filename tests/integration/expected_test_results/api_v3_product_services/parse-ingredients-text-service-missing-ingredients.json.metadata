@@ -1,18 +1,18 @@
 {
    "api_call" : {
       "body" : {
-         "product" : {
-            "lc" : "en"
-         },
          "services" : [
             "parse_ingredients_text"
-         ]
+         ],
+         "product" : {
+            "lc" : "en"
+         }
       },
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/cgi/display.pl",
       "parameters" : {
          "/api/v3/product_services" : ""
       },
-      "method" : "POST"
+      "path" : "/cgi/display.pl",
+      "method" : "POST",
+      "content-type" : "application/json; charset=utf-8"
    }
 }

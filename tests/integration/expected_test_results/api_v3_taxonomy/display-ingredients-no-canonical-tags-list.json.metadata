@@ -1,11 +1,11 @@
 {
    "api_call" : {
       "method" : "GET",
-      "content-type" : null,
-      "body" : null,
       "parameters" : {
          "/api/v3/taxonomy_display_tags?tagtype" : "ingredients"
       },
-      "path" : "/cgi/display.pl"
+      "path" : "/cgi/display.pl",
+      "body" : null,
+      "content-type" : null
    }
 }

@@ -1,13 +1,13 @@
 {
    "api_call" : {
+      "content-type" : null,
       "parameters" : {
-         "cc" : "fr",
          "/api/v3/taxonomy_suggestions?tagtype" : "packaging_recycling",
+         "cc" : "fr",
          "string" : "recy"
       },
-      "body" : null,
-      "method" : "GET",
       "path" : "/cgi/display.pl",
-      "content-type" : null
+      "body" : null,
+      "method" : "GET"
    }
 }

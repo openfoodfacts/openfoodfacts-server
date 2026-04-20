@@ -1,5 +1,8 @@
 {
    "api_call" : {
+      "parameters" : {
+         "/api/v3/product/1234567890101" : ""
+      },
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -7,11 +10,8 @@
          },
          "tags_lc" : "en"
       },
-      "content-type" : "application/json; charset=utf-8",
       "path" : "/cgi/display.pl",
-      "method" : "PATCH",
-      "parameters" : {
-         "/api/v3/product/1234567890101" : ""
-      }
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH"
    }
 }

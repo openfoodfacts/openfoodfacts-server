@@ -5,9 +5,9 @@
          "tagtype" : "categories",
          "term" : "frais"
       },
-      "content-type" : null,
-      "path" : "/cgi/suggest.pl",
+      "method" : "GET",
       "body" : null,
-      "method" : "GET"
+      "content-type" : null,
+      "path" : "/cgi/suggest.pl"
    }
 }

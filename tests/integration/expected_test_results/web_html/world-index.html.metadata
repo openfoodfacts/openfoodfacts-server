@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "body" : null,
+      "path" : "/cgi/display.pl",
       "parameters" : {
          "/?sort_by" : "last_modified_t"
       },
-      "content-type" : null,
       "method" : "GET",
-      "path" : "/cgi/display.pl",
-      "body" : null
+      "content-type" : null
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "method" : "GET",
+      "content-type" : null,
+      "body" : null,
+      "path" : "/cgi/search.pl",
       "parameters" : {
          "search_terms" : "tarte"
-      },
-      "content-type" : null,
-      "method" : "GET",
-      "path" : "/cgi/search.pl",
-      "body" : null
+      }
    }
 }

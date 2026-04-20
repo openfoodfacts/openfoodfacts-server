@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "content-type" : null,
       "method" : "GET",
-      "path" : "/cgi/display.pl",
+      "content-type" : null,
       "body" : null,
       "parameters" : {
          "facets/categories/-apples.json?fields" : "product_name"
-      }
+      },
+      "path" : "/cgi/display.pl"
    }
 }

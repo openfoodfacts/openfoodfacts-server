@@ -1,6 +1,5 @@
 {
    "api_call" : {
-      "method" : "PATCH",
       "body" : {
          "product" : {
             "images" : {
@@ -11,42 +10,42 @@
                      }
                   },
                   "ingredients" : {
-                     "fr" : {
-                        "generation" : {
-                           "normalize" : false,
-                           "x2" : 100,
-                           "white_magic" : true,
-                           "x1" : 10,
-                           "angle" : 90,
-                           "y1" : 20,
-                           "y2" : 200
-                        },
-                        "imgid" : "1"
-                     },
-                     "en" : {
-                        "imgid" : "1",
-                        "generation" : {
-                           "normalize" : "true",
-                           "x2" : 0,
-                           "white_magic" : "false",
-                           "x1" : 0,
-                           "angle" : 0,
-                           "y1" : 0,
-                           "y2" : 0
-                        }
-                     },
                      "es" : {
                         "imgid" : "1",
                         "generation" : {
-                           "y1" : 20,
-                           "y2" : 200,
-                           "normalize" : false,
-                           "white_magic" : true,
                            "coordinates_image_size" : "full",
-                           "x2" : 100,
+                           "y2" : 200,
                            "x1" : 10,
-                           "angle" : 90
+                           "x2" : 100,
+                           "y1" : 20,
+                           "angle" : 90,
+                           "white_magic" : true,
+                           "normalize" : false
                         }
+                     },
+                     "fr" : {
+                        "imgid" : "1",
+                        "generation" : {
+                           "normalize" : false,
+                           "y2" : 200,
+                           "x1" : 10,
+                           "y1" : 20,
+                           "x2" : 100,
+                           "angle" : 90,
+                           "white_magic" : true
+                        }
+                     },
+                     "en" : {
+                        "generation" : {
+                           "normalize" : "true",
+                           "white_magic" : "false",
+                           "y1" : 0,
+                           "x2" : 0,
+                           "angle" : 0,
+                           "y2" : 0,
+                           "x1" : 0
+                        },
+                        "imgid" : "1"
                      }
                   }
                }
@@ -54,10 +53,11 @@
          },
          "fields" : "updated"
       },
+      "method" : "PATCH",
+      "path" : "/cgi/display.pl",
       "parameters" : {
          "/api/v3.3/product/1234567890012" : ""
       },
-      "path" : "/cgi/display.pl",
       "content-type" : "application/json; charset=utf-8"
    }
 }

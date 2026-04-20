@@ -1,12 +1,12 @@
 {
    "api_call" : {
+      "path" : "/cgi/display.pl",
       "body" : null,
       "parameters" : {
-         "term" : "strawberry",
-         "/api/v3/taxonomy_suggestions?tagtype" : "categories"
+         "/api/v3/taxonomy_suggestions?tagtype" : "categories",
+         "term" : "strawberry"
       },
-      "method" : "GET",
-      "path" : "/cgi/display.pl",
-      "content-type" : null
+      "content-type" : null,
+      "method" : "GET"
    }
 }

@@ -1,16 +1,16 @@
 {
    "api_call" : {
-      "parameters" : {},
       "path" : "/cgi/product_multilingual.pl",
       "content-type" : "application/x-www-form-urlencoded",
       "body" : {
-         "user_id" : "tests",
-         "type" : "search_or_add",
-         "lang" : "en",
-         "code" : "1234567890012",
          "password" : "testtest",
-         "action" : "process"
+         "type" : "search_or_add",
+         "action" : "process",
+         "user_id" : "tests",
+         "code" : "1234567890012",
+         "lang" : "en"
       },
+      "parameters" : {},
       "method" : "POST"
    }
 }

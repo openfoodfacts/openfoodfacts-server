@@ -1,11 +1,11 @@
 {
    "api_call" : {
       "path" : "/cgi/display.pl",
-      "body" : null,
-      "method" : "GET",
       "content-type" : null,
+      "body" : null,
       "parameters" : {
          "/api/v3.1/product/4260392550101?fields" : "ecoscore_score,ecoscore_grade,ecoscore_data"
-      }
+      },
+      "method" : "GET"
    }
 }

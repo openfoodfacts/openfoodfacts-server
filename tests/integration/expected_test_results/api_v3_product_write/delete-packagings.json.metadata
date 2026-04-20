@@ -1,6 +1,10 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
+      "path" : "/cgi/display.pl",
+      "method" : "DELETE",
+      "parameters" : {
+         "/api/v3/product/1234567890007" : ""
+      },
       "body" : {
          "product" : {
             "packagings" : [
@@ -12,10 +16,6 @@
             ]
          }
       },
-      "parameters" : {
-         "/api/v3/product/1234567890007" : ""
-      },
-      "method" : "DELETE",
-      "path" : "/cgi/display.pl"
+      "content-type" : "application/json; charset=utf-8"
    }
 }

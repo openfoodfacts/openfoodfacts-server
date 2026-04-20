@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "method" : "GET",
       "parameters" : {
          "/api/v3/taxonomy_suggestions?tagtype" : "categories",
          "string" : "fraise"
       },
       "body" : null,
-      "method" : "GET",
       "path" : "/cgi/display.pl",
       "content-type" : null
    }

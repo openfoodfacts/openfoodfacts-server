@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "method" : "GET",
+      "content-type" : null,
       "path" : "/cgi/display.pl",
       "body" : null,
-      "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "/search?parent_ingredients" : "cheese,flour,tomato,olive oil"
       }

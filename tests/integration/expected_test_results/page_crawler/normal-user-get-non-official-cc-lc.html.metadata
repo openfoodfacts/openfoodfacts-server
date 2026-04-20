@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "body" : null,
       "content-type" : null,
-      "path" : "/cgi/display.pl",
-      "method" : "GET",
+      "body" : null,
       "parameters" : {
-         "lc" : "es",
-         "/?cc" : "ch"
-      }
+         "/?cc" : "ch",
+         "lc" : "es"
+      },
+      "path" : "/cgi/display.pl",
+      "method" : "GET"
    }
 }

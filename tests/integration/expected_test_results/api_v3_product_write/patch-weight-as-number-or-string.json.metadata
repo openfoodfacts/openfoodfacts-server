@@ -1,6 +1,11 @@
 {
    "api_call" : {
+      "method" : "PATCH",
+      "parameters" : {
+         "/api/v3/product/1234567890013" : ""
+      },
       "body" : {
+         "tags_lc" : "en",
          "fields" : "updated,misc_tags",
          "product" : {
             "packagings" : [
@@ -12,28 +17,23 @@
                   }
                },
                {
-                  "number_of_units" : "2",
-                  "weight_measured" : "0.43",
                   "shape" : {
                      "lc_name" : "Box"
-                  }
+                  },
+                  "weight_measured" : "0.43",
+                  "number_of_units" : "2"
                },
                {
                   "number_of_units" : 3,
-                  "weight_measured" : "0,43",
                   "shape" : {
                      "lc_name" : "Lid"
-                  }
+                  },
+                  "weight_measured" : "0,43"
                }
             ]
-         },
-         "tags_lc" : "en"
+         }
       },
       "content-type" : "application/json; charset=utf-8",
-      "parameters" : {
-         "/api/v3/product/1234567890013" : ""
-      },
-      "method" : "PATCH",
       "path" : "/cgi/display.pl"
    }
 }

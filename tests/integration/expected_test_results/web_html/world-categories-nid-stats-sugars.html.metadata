@@ -3,9 +3,9 @@
       "parameters" : {
          "facets/categories?stats_nid" : "sugars"
       },
-      "method" : "GET",
-      "content-type" : null,
+      "body" : null,
       "path" : "/cgi/display.pl",
-      "body" : null
+      "content-type" : null,
+      "method" : "GET"
    }
 }

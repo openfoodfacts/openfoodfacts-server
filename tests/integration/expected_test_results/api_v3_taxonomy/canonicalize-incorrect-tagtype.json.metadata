@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "content-type" : null,
       "body" : null,
+      "path" : "/cgi/display.pl",
       "parameters" : {
          "/api/v3/taxonomy_canonicalize_tags?tagtype" : "not_a_taxonomy"
       },
-      "method" : "GET",
-      "content-type" : null,
-      "path" : "/cgi/display.pl"
+      "method" : "GET"
    }
 }

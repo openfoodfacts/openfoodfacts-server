@@ -12,10 +12,10 @@
             ]
          }
       },
-      "path" : "/cgi/display.pl",
-      "method" : "PUT",
       "parameters" : {
          "/api/v3/product/1234567890007" : ""
-      }
+      },
+      "method" : "PUT",
+      "path" : "/cgi/display.pl"
    }
 }
