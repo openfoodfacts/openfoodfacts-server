@@ -124,6 +124,9 @@ my $parser = Text::CSV->new(
 	}
 );
 my %ranked;    # $ranked{ctag}{cat_tag}{$code}=1
+# Get Agribalyse code and proxies from categories properties
+my %categories_agb = ();
+my %categories_agb_proxy = ();
 while (<$RANK>) {
 	chomp;
 	s/\r//g;    # drop stray CRs that confuse Text::CSV
@@ -135,6 +138,12 @@ while (<$RANK>) {
 	my $country_tag = canonicalize_taxonomy_tag('en', 'countries', $country);
 	my $category_tag = canonicalize_taxonomy_tag('en', 'categories', $category);
 	$ranked{$country_tag}{$category_tag} = [$code, $recent_scans];
+	if (not exists $categories_agb{$category_tag}) {
+		$categories_agb{$category_tag} = get_inherited_property("categories", $category_tag, "agribalyse_food_code:en");
+		if (not defined $categories_agb{$category_tag}) {
+			$categories_agb_proxy{$category_tag} = get_inherited_property("categories", $category_tag, "agribalyse_proxy_food_code:en");
+		}
+	}
 }
 close $RANK;
 
@@ -151,7 +160,9 @@ my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 my @hdr = (
 	"Country", "Segmentation OFF",
 	"off_country_id", "off_category_id",
-	"category_exists_in_taxonomy", "recent_scans",
+	"category_exists_in_taxonomy",
+	"agribalyse_code", "agribalyse_proxy_code",
+	"recent_scans",
 	"url", "api_url",
 	"code", "product_name",
 	"brands", "lang",
@@ -252,7 +263,10 @@ while (<$LIST>) {
 
 		my @row = (
 			$country, $segmentation, $country_tag, $category_tag,
-			$exists_in_taxonomy || 0, $recent_scans, $url, $api_url,
+			$exists_in_taxonomy || 0, 
+			$categories_agb{$category_tag} || '',
+			$categories_agb_proxy{$category_tag} || '',
+			$recent_scans, $url, $api_url,
 			$code, $name, $brands, $lang,
 			$ingredients_lc, $ingredients_txt, @ingredients_text_lc, $img_url,
 			$img_ing, $img_nut, $img_pack
