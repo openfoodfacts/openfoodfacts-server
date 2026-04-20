@@ -690,7 +690,7 @@ sub get_api_call_metadata ($test_ref) {
 	}
 
 	# special case for cgi/display.pl? which is in fact invisible from behind the reverse proxy
-	$path =~ s/^cgi\/display\.pl\?//;
+	$path =~ s/^\/cgi\/display\.pl\?//;
 
 	if (defined $test_ref->{body}) {
 		$content_type = "application/json; charset=utf-8";
