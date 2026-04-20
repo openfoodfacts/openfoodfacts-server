@@ -2542,7 +2542,7 @@ msgstr "栄養成分表に調理済み製品の値が含まれている場合は
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr "1回分の量が小さすぎる（5 g / 5 ml以下）ため、100 g / 100 mlの値を計算してさらに栄養分析を行うことができません。"
+msgstr "1食分の量が小さすぎる（5 g / 5 ml以下）ため、100 g / 100 mlの値を計算してさらに栄養分析を行うことができません。"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -6749,7 +6749,7 @@ msgstr "製品が更新されました！"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr ""
+msgstr "ユーザーが見つかりました"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -7700,15 +7700,15 @@ msgstr "同じカテゴリー内で砂糖無添加の商品を検索:"
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr ""
+msgstr "100gあたり"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr ""
+msgstr "100mlあたり"
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr ""
+msgstr "1Lあたり"
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7721,12 +7721,12 @@ msgstr "一食当たり"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "販売時の状態"
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr ""
+msgstr "調製時の状態"
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
@@ -7854,7 +7854,7 @@ msgstr "寄付"
 
 msgctxt "qfdmo_solution_donate_description"
 msgid "Give your product a second life by donating it to associations or people in need"
-msgstr ""
+msgstr "必要としている団体や人々に寄付することで、あなたの製品に新たな命を吹き込みましょう。"
 
 msgctxt "qfdmo_solution_sell"
 msgid "Sell or exchange"
@@ -7882,7 +7882,7 @@ msgstr ""
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "製品カテゴリ"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7934,5 +7934,5 @@ msgstr "影響は評価されていない"
 
 msgctxt "detailed_data"
 msgid "Detailed data"
-msgstr ""
+msgstr "詳細情報"
 
