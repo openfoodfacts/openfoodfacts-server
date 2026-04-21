@@ -95,7 +95,7 @@ sub display_search_or_add_form($request_ref) {
 		$template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
-	# Producers platform: display an addition import products block
+	# Producers platform: display an additional import products block
 
 	if ($server_options{producers_platform}) {
 		my $html_producer = '';
