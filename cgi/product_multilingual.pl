@@ -42,7 +42,6 @@ use ProductOpener::Food
 	qw/%nutrients_tables %other_nutrients_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
 use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::URL qw(format_subdomain);
@@ -51,7 +50,6 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
 	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
@@ -95,7 +93,7 @@ sub display_search_or_add_form($request_ref) {
 		$template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
-	# Producers platform: display an addition import products block
+	# Producers platform: display an additional import products block
 
 	if ($server_options{producers_platform}) {
 		my $html_producer = '';
@@ -834,7 +832,6 @@ HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
