@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
+      "path" : "/labels",
       "content-type" : null,
-      "parameters" : {
-         "facets/labels" : ""
-      },
-      "method" : "GET",
-      "body" : null
+      "parameters" : {},
+      "body" : null,
+      "method" : "GET"
    }
 }

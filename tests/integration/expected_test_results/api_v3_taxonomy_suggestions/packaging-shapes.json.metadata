@@ -1,8 +1,8 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
+      "path" : "/api/v3/taxonomy_suggestions",
       "parameters" : {
-         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_shapes"
+         "tagtype" : "packaging_shapes"
       },
       "method" : "GET",
       "content-type" : null,

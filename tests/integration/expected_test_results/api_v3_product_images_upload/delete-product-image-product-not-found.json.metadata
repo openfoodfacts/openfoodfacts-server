@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "method" : "DELETE",
+      "path" : "/api/v3/product/1234567890073/images/uploaded/1",
       "content-type" : null,
-      "parameters" : {
-         "/api/v3/product/1234567890073/images/uploaded/1" : ""
-      },
-      "path" : "/cgi/display.pl",
+      "method" : "DELETE",
+      "parameters" : {},
       "body" : null
    }
 }

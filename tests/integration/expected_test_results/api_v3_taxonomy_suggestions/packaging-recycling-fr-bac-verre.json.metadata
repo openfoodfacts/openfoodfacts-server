@@ -2,12 +2,12 @@
    "api_call" : {
       "content-type" : null,
       "body" : null,
-      "path" : "/cgi/display.pl",
+      "path" : "/api/v3/taxonomy_suggestions",
+      "method" : "GET",
       "parameters" : {
-         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_recycling",
+         "tagtype" : "packaging_recycling",
          "string" : "bac-verre",
          "cc" : "fr"
-      },
-      "method" : "GET"
+      }
    }
 }

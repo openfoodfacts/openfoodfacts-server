@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "parameters" : {
-         "knowledge_panels_excluded" : "environment_card",
-         "/api/v3/product/4260392550101?fields" : "knowledge_panels"
-      },
       "content-type" : null,
-      "path" : "/cgi/display.pl",
+      "path" : "/api/v3/product/4260392550101",
       "method" : "GET",
-      "body" : null
+      "body" : null,
+      "parameters" : {
+         "fields" : "knowledge_panels",
+         "knowledge_panels_excluded" : "environment_card"
+      }
    }
 }

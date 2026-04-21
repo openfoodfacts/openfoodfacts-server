@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "method" : "GET",
-      "body" : null,
-      "content-type" : null,
       "path" : "/cgi/search.pl",
+      "content-type" : null,
       "parameters" : {
-         "action" : "process",
-         "json" : "1"
-      }
+         "json" : "1",
+         "action" : "process"
+      },
+      "body" : null,
+      "method" : "GET"
    }
 }

@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "body" : null,
-      "method" : "GET",
-      "parameters" : {
-         "facets/brands" : ""
-      },
       "content-type" : null,
-      "path" : "/cgi/display.pl"
+      "path" : "/brands",
+      "method" : "GET",
+      "body" : null,
+      "parameters" : {}
    }
 }

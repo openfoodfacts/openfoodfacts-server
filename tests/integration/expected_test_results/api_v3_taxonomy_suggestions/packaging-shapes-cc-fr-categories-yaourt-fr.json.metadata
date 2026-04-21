@@ -1,14 +1,14 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
       "parameters" : {
-         "lc" : "fr",
-         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_shapes",
          "categories" : "yaourt",
+         "lc" : "fr",
+         "tagtype" : "packaging_shapes",
          "cc" : "fr"
       },
       "method" : "GET",
-      "content-type" : null,
-      "body" : null
+      "path" : "/api/v3/taxonomy_suggestions",
+      "body" : null,
+      "content-type" : null
    }
 }

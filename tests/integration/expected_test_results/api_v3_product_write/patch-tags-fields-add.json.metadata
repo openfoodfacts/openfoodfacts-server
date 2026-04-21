@@ -1,13 +1,11 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v3/product/1234567890100" : ""
-      },
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890100",
+      "method" : "PATCH",
       "body" : {
          "raw_body" : "{\n\t\t\t\"fields\" : \"updated\",\n\t\t\t\"product\": { \n\t\t\t\t\"categories_tags_add\": [\"en:tea\"],\n\t\t\t\t\"stores_tags_add\": [\"Carrefour\", \"Mon Ptit magasin\"],\n\t\t\t\t\"countries_tags_fr_add\": [\"Italie\", \"en:spain\"],\n\t\t\t\t\"labels_tags_fr\": [\"vÃ©gÃ©tarien\", \"Something unrecognized in French\"]\n\t\t\t}\n\t\t}"
-      },
-      "path" : "/cgi/display.pl",
-      "content-type" : "application/json; charset=utf-8",
-      "method" : "PATCH"
+      }
    }
 }

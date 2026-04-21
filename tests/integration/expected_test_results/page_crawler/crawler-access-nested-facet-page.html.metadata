@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
-      "content-type" : null,
+      "parameters" : {},
+      "path" : "/facets/categories/hazelnut-spreads/brands/nutella",
+      "method" : "GET",
       "body" : null,
-      "parameters" : {
-         "/facets/categories/hazelnut-spreads/brands/nutella" : ""
-      },
-      "method" : "GET"
+      "content-type" : null
    }
 }

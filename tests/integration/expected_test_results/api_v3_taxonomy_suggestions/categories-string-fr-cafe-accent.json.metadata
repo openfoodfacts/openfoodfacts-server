@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "parameters" : {
-         "string" : "cafÃÂ©",
-         "lc" : "fr",
-         "/api/v3/taxonomy_suggestions?tagtype" : "categories"
-      },
-      "path" : "/cgi/display.pl",
-      "method" : "GET",
+      "body" : null,
       "content-type" : null,
-      "body" : null
+      "method" : "GET",
+      "parameters" : {
+         "lc" : "fr",
+         "string" : "cafÃÂ©",
+         "tagtype" : "categories"
+      },
+      "path" : "/api/v3/taxonomy_suggestions"
    }
 }

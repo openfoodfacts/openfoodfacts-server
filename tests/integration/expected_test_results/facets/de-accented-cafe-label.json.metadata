@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
       "body" : null,
-      "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "facets/labels/cafÃÂ©-label.json?fields" : "product_name,labels_tags"
-      }
+         "fields" : "product_name,labels_tags"
+      },
+      "path" : "/labels/cafÃ©-label.json",
+      "content-type" : null
    }
 }

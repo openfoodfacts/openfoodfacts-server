@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/facets/ingredients/someunknownandemptyingredient" : ""
-      },
-      "path" : "/cgi/display.pl",
-      "content-type" : null,
+      "path" : "/facets/ingredients/someunknownandemptyingredient",
+      "method" : "GET",
+      "parameters" : {},
       "body" : null,
-      "method" : "GET"
+      "content-type" : null
    }
 }

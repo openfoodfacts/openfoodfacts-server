@@ -5,11 +5,9 @@
          "rev" : 1,
          "fields" : "code,rev,product_name_en,brands_tags,categories_tags"
       },
+      "path" : "/api/v3.2/product_revert",
+      "content-type" : "application/json; charset=utf-8",
       "method" : "POST",
-      "parameters" : {
-         "/api/v3.2/product_revert" : ""
-      },
-      "path" : "/cgi/display.pl",
-      "content-type" : "application/json; charset=utf-8"
+      "parameters" : {}
    }
 }

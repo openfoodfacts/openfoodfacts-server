@@ -1,13 +1,10 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890009",
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
-      "parameters" : {
-         "/api/v3/product/1234567890009" : ""
-      },
       "body" : {
-         "fields" : "all",
          "tags_lc" : "en",
          "product" : {
             "packagings" : [
@@ -21,7 +18,8 @@
                   }
                }
             ]
-         }
+         },
+         "fields" : "all"
       }
    }
 }

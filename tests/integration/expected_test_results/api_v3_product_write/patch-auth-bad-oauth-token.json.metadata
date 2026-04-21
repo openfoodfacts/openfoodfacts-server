@@ -1,27 +1,25 @@
 {
    "api_call" : {
-      "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/cgi/display.pl",
       "body" : {
+         "tags_lc" : "en",
+         "fields" : "creator,editors_tags,packagings",
          "product" : {
             "packagings" : [
                {
                   "shape" : {
                      "lc_name" : "can"
                   },
+                  "number_of_units" : 1,
                   "recycling" : {
                      "lc_name" : "recycle"
-                  },
-                  "number_of_units" : 1
+                  }
                }
             ]
-         },
-         "fields" : "creator,editors_tags,packagings",
-         "tags_lc" : "en"
+         }
       },
-      "parameters" : {
-         "/api/v3/product/2234567890002" : ""
-      }
+      "method" : "PATCH",
+      "path" : "/api/v3/product/2234567890002",
+      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8"
    }
 }

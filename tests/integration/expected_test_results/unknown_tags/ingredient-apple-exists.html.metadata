@@ -1,11 +1,9 @@
 {
    "api_call" : {
       "body" : null,
-      "method" : "GET",
       "content-type" : null,
-      "path" : "/cgi/display.pl",
-      "parameters" : {
-         "/facets/ingredients/apple" : ""
-      }
+      "path" : "/facets/ingredients/apple",
+      "parameters" : {},
+      "method" : "GET"
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
       "body" : null,
-      "method" : "GET",
+      "path" : "/contributors/alice/labels/organic.json",
       "content-type" : null,
       "parameters" : {
-         "facets/contributors/alice/labels/organic.json?fields" : "product_name"
-      }
+         "fields" : "product_name"
+      },
+      "method" : "GET"
    }
 }

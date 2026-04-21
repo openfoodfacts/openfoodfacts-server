@@ -1,9 +1,8 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v3/product_services" : ""
-      },
-      "path" : "/cgi/display.pl",
+      "method" : "POST",
+      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "services" : [
             "parse_ingredients_text"
@@ -13,7 +12,6 @@
             "ingredients_text" : "Sucre, huile de palme, huile de NOISETTES, quelque chose d'inconnu"
          }
       },
-      "content-type" : "application/json; charset=utf-8",
-      "method" : "POST"
+      "path" : "/api/v3/product_services"
    }
 }

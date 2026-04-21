@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "lc" : "fr",
-         "/api/v3/taxonomy_display_tags?tagtype" : "ingredients",
-         "canonical_tags_list" : "en:banana,en:pineapple, en:garden-peas, en:spinach,fr:unknown ingredient, de:Other Unknown Ingredient"
+         "canonical_tags_list" : "en:banana,en:pineapple, en:garden-peas, en:spinach,fr:unknown ingredient, de:Other Unknown Ingredient",
+         "tagtype" : "ingredients",
+         "lc" : "fr"
       },
-      "path" : "/cgi/display.pl",
-      "body" : null
+      "body" : null,
+      "path" : "/api/v3/taxonomy_display_tags",
+      "content-type" : null
    }
 }

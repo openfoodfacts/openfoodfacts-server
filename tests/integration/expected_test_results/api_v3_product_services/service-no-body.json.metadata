@@ -1,11 +1,9 @@
 {
    "api_call" : {
       "method" : "POST",
-      "path" : "/cgi/display.pl",
-      "content-type" : null,
+      "parameters" : {},
+      "path" : "/api/v3/product_services",
       "body" : null,
-      "parameters" : {
-         "/api/v3/product_services" : ""
-      }
+      "content-type" : null
    }
 }

@@ -1,46 +1,47 @@
 {
    "api_call" : {
       "body" : {
+         "fields" : "updated",
          "product" : {
             "images" : {
                "selected" : {
                   "ingredients" : {
                      "es" : {
+                        "imgid" : "1",
                         "generation" : {
-                           "white_magic" : true,
-                           "x1" : 10,
-                           "angle" : 90,
-                           "y1" : 20,
-                           "y2" : 200,
                            "coordinates_image_size" : "full",
                            "normalize" : false,
-                           "x2" : 100
+                           "x2" : 100,
+                           "y2" : 200,
+                           "angle" : 90,
+                           "y1" : 20,
+                           "white_magic" : true,
+                           "x1" : 10
+                        }
+                     },
+                     "fr" : {
+                        "generation" : {
+                           "normalize" : false,
+                           "x2" : 100,
+                           "y2" : 200,
+                           "white_magic" : true,
+                           "y1" : 20,
+                           "angle" : 90,
+                           "x1" : 10
                         },
                         "imgid" : "1"
                      },
-                     "fr" : {
-                        "imgid" : "1",
-                        "generation" : {
-                           "x2" : 100,
-                           "normalize" : false,
-                           "y2" : 200,
-                           "y1" : 20,
-                           "angle" : 90,
-                           "x1" : 10,
-                           "white_magic" : true
-                        }
-                     },
                      "en" : {
-                        "imgid" : "1",
                         "generation" : {
-                           "white_magic" : "false",
                            "x1" : 0,
-                           "angle" : 0,
                            "y1" : 0,
+                           "angle" : 0,
+                           "white_magic" : "false",
                            "y2" : 0,
                            "normalize" : "true",
                            "x2" : 0
-                        }
+                        },
+                        "imgid" : "1"
                      }
                   },
                   "front" : {
@@ -50,14 +51,11 @@
                   }
                }
             }
-         },
-         "fields" : "updated"
+         }
       },
       "method" : "PATCH",
-      "parameters" : {
-         "/api/v3.3/product/1234567890012" : ""
-      },
-      "path" : "/cgi/display.pl",
-      "content-type" : "application/json; charset=utf-8"
+      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3.3/product/1234567890012"
    }
 }

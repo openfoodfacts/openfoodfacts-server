@@ -1,5 +1,6 @@
 {
    "api_call" : {
+      "content-type" : "multipart/form-data",
       "body" : {
          "imagefield" : "front_en",
          "code" : "1234567890017",
@@ -8,9 +9,8 @@
             "1.jpg"
          ]
       },
-      "content-type" : "multipart/form-data",
-      "method" : "POST",
       "parameters" : {},
-      "path" : "/cgi/product_image_upload.pl"
+      "path" : "/cgi/product_image_upload.pl",
+      "method" : "POST"
    }
 }

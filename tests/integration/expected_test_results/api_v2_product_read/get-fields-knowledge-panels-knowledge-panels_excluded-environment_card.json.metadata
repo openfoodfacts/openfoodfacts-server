@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
-      "content-type" : null,
-      "body" : null,
-      "method" : "GET",
       "parameters" : {
-         "/api/v2/product/200000000034?fields" : "knowledge_panels",
-         "knowledge_panels_excluded" : "environment_card"
-      }
+         "knowledge_panels_excluded" : "environment_card",
+         "fields" : "knowledge_panels"
+      },
+      "method" : "GET",
+      "content-type" : null,
+      "path" : "/api/v2/product/200000000034",
+      "body" : null
    }
 }

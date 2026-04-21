@@ -1,12 +1,12 @@
 {
    "api_call" : {
+      "body" : null,
       "parameters" : {
-         "/api/v3/product/4260392550101?fields" : "packagings",
+         "fields" : "packagings",
          "tags_lc" : "fr"
       },
-      "path" : "/cgi/display.pl",
-      "content-type" : null,
-      "body" : null,
-      "method" : "GET"
+      "method" : "GET",
+      "path" : "/api/v3/product/4260392550101",
+      "content-type" : null
    }
 }

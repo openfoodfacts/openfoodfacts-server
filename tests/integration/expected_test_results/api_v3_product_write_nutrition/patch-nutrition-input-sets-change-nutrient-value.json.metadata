@@ -1,33 +1,31 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
+      "path" : "/api/v3.5/product/4230000001000",
+      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "product" : {
             "nutrition" : {
                "input_sets" : [
                   {
-                     "per_unit" : "g",
-                     "per" : "100g",
-                     "preparation" : "as_sold",
-                     "source" : "packaging",
-                     "source_description" : "",
                      "nutrients" : {
                         "fat" : {
                            "value_string" : "11",
                            "unit" : "g"
                         }
                      },
-                     "per_quantity" : 100
+                     "per_quantity" : 100,
+                     "per_unit" : "g",
+                     "per" : "100g",
+                     "source_description" : "",
+                     "source" : "packaging",
+                     "preparation" : "as_sold"
                   }
                ]
             }
          },
          "fields" : "updated"
       },
-      "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {
-         "/api/v3.5/product/4230000001000" : ""
-      }
+      "method" : "PATCH"
    }
 }

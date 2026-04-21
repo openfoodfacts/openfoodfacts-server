@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/facets/countries/doesnotexist/ingredients" : ""
-      },
-      "path" : "/cgi/display.pl",
       "content-type" : null,
+      "body" : null,
+      "parameters" : {},
       "method" : "GET",
-      "body" : null
+      "path" : "/facets/countries/doesnotexist/ingredients"
    }
 }

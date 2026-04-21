@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "parameters" : {
-         "facets/categories/-apples.json?fields" : "product_name"
-      },
+      "body" : null,
+      "path" : "/categories/-apples.json",
       "content-type" : null,
       "method" : "GET",
-      "body" : null,
-      "path" : "/cgi/display.pl"
+      "parameters" : {
+         "fields" : "product_name"
+      }
    }
 }

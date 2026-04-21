@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
+      "path" : "/facets/editors/unknown-user",
+      "parameters" : {},
       "body" : null,
       "method" : "GET",
-      "parameters" : {
-         "/facets/editors/unknown-user" : ""
-      },
       "content-type" : null
    }
 }

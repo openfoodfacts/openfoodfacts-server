@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {
-         "facets/countries" : ""
-      },
       "content-type" : null,
-      "path" : "/cgi/display.pl",
+      "path" : "/countries",
       "method" : "GET",
+      "parameters" : {},
       "body" : null
    }
 }

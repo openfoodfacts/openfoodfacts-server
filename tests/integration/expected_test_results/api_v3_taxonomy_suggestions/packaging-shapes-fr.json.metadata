@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "path" : "/api/v3/taxonomy_suggestions",
+      "method" : "GET",
       "parameters" : {
          "lc" : "fr",
-         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_shapes"
+         "tagtype" : "packaging_shapes"
       },
-      "path" : "/cgi/display.pl",
-      "method" : "GET",
       "content-type" : null,
       "body" : null
    }

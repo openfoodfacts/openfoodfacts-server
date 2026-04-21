@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v2/product/200000000034?fields" : "nutriments.salt_100g"
-      },
       "body" : null,
-      "method" : "GET",
       "content-type" : null,
-      "path" : "/cgi/display.pl"
+      "path" : "/api/v2/product/200000000034",
+      "method" : "GET",
+      "parameters" : {
+         "fields" : "nutriments.salt_100g"
+      }
    }
 }

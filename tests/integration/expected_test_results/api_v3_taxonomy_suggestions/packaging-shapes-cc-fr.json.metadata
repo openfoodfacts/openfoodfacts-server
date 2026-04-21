@@ -4,9 +4,9 @@
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "cc" : "fr",
-         "/api/v3/taxonomy_suggestions?tagtype" : "packaging_shapes"
+         "tagtype" : "packaging_shapes",
+         "cc" : "fr"
       },
-      "path" : "/cgi/display.pl"
+      "path" : "/api/v3/taxonomy_suggestions"
    }
 }

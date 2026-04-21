@@ -1,27 +1,25 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
+      "path" : "/api/v3/product/1234567890009",
+      "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
-      "method" : "PATCH",
-      "parameters" : {
-         "/api/v3/product/1234567890009" : ""
-      },
       "body" : {
+         "tags_lc" : "en",
+         "fields" : "updated",
          "product" : {
             "packagings" : [
                {
+                  "number_of_units" : 1,
                   "material" : {
                      "lc_name" : "plastic"
                   },
-                  "number_of_units" : 1,
                   "shape" : {
                      "lc_name" : "bag"
                   }
                }
             ]
-         },
-         "fields" : "updated",
-         "tags_lc" : "en"
-      }
+         }
+      },
+      "method" : "PATCH"
    }
 }

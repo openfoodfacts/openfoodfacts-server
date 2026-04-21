@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "body" : null,
-      "method" : "GET",
-      "parameters" : {
-         "facets/categories?stats_nid" : "sugars"
-      },
+      "path" : "/categories",
       "content-type" : null,
-      "path" : "/cgi/display.pl"
+      "parameters" : {
+         "stats_nid" : "sugars"
+      },
+      "body" : null,
+      "method" : "GET"
    }
 }

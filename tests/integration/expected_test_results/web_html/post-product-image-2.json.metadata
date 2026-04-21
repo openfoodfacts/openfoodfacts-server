@@ -5,11 +5,11 @@
       "parameters" : {},
       "body" : {
          "imagefield" : "front_fr",
+         "code" : "3300000000002",
          "imgupload_front_fr" : [
             "tests/integration/inputs/upload_images/1.jpg",
             "1.jpg"
-         ],
-         "code" : "3300000000002"
+         ]
       },
       "method" : "POST"
    }

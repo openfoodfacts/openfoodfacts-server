@@ -1,33 +1,31 @@
 {
    "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
+      "method" : "PATCH",
       "body" : {
          "fields" : "updated",
          "product" : {
             "nutrition" : {
                "input_sets" : [
                   {
-                     "per" : "100g",
                      "per_unit" : "g",
-                     "preparation" : "as_sold",
-                     "source_description" : "",
-                     "source" : "packaging",
+                     "per_quantity" : 100,
                      "nutrients" : {
                         "alcohol" : {
                            "unit" : "g",
                            "value_string" : "0.5"
                         }
                      },
-                     "per_quantity" : 100
+                     "per" : "100g",
+                     "source_description" : "",
+                     "source" : "packaging",
+                     "preparation" : "as_sold"
                   }
                ]
             }
          }
       },
-      "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {
-         "/api/v3.5/product/4230000001000" : ""
-      },
-      "path" : "/cgi/display.pl"
+      "path" : "/api/v3.5/product/4230000001000"
    }
 }

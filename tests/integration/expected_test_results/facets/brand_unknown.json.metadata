@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "body" : null,
       "parameters" : {
-         "facets/brands/unknown.json?fields" : "product_name"
+         "fields" : "product_name"
       },
       "method" : "GET",
-      "content-type" : null,
-      "body" : null,
-      "path" : "/cgi/display.pl"
+      "path" : "/brands/unknown.json",
+      "content-type" : null
    }
 }

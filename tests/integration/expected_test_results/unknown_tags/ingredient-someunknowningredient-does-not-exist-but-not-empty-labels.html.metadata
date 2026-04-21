@@ -1,12 +1,9 @@
 {
    "api_call" : {
+      "path" : "/facets/ingredients/someunknowningredient/labels&no_cache=1",
+      "parameters" : {},
       "method" : "GET",
-      "body" : null,
-      "path" : "/cgi/display.pl",
       "content-type" : null,
-      "parameters" : {
-         "no_cache" : "1",
-         "/facets/ingredients/someunknowningredient/labels" : ""
-      }
+      "body" : null
    }
 }

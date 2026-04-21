@@ -4,11 +4,11 @@
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
+         "get_synonyms" : "1",
          "string" : "tart",
-         "lc" : "fr",
-         "/api/v3/taxonomy_suggestions?tagtype" : "categories",
-         "get_synonyms" : "1"
+         "tagtype" : "categories",
+         "lc" : "fr"
       },
-      "path" : "/cgi/display.pl"
+      "path" : "/api/v3/taxonomy_suggestions"
    }
 }

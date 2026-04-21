@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v3/product_services" : ""
-      },
+      "parameters" : {},
+      "method" : "POST",
       "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3/product_services",
       "body" : {
          "product" : {
             "lc" : "en"
@@ -11,8 +11,6 @@
          "services" : [
             "parse_ingredients_text"
          ]
-      },
-      "path" : "/cgi/display.pl",
-      "method" : "POST"
+      }
    }
 }

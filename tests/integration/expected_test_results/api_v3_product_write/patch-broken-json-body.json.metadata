@@ -1,13 +1,11 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
-      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890003",
       "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
       "body" : {
          "raw_body" : "not json"
-      },
-      "parameters" : {
-         "/api/v3/product/1234567890003" : ""
       }
    }
 }

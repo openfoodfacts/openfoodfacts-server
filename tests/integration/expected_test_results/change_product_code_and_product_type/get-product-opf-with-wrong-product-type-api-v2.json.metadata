@@ -1,10 +1,10 @@
 {
    "api_call" : {
+      "path" : "/api/v2/product/1234567890200",
       "method" : "GET",
       "parameters" : {
-         "/api/v2/product/1234567890200?product_type" : "food"
+         "product_type" : "food"
       },
-      "path" : "/cgi/display.pl",
       "content-type" : null,
       "body" : null
    }

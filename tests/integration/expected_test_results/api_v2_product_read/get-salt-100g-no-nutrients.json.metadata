@@ -1,11 +1,11 @@
 {
    "api_call" : {
       "body" : null,
+      "path" : "/api/v2/product/200000000036",
+      "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "/api/v2/product/200000000036?fields" : "salt_100g"
-      },
-      "path" : "/cgi/display.pl",
-      "content-type" : null
+         "fields" : "salt_100g"
+      }
    }
 }

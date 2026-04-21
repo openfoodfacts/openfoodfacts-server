@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/categories.json" : ""
-      },
-      "content-type" : null,
+      "parameters" : {},
       "method" : "GET",
-      "body" : null,
-      "path" : "/cgi/display.pl"
+      "content-type" : null,
+      "path" : "/categories.json",
+      "body" : null
    }
 }

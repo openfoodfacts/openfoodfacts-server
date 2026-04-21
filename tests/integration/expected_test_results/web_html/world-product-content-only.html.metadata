@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "body" : null,
-      "method" : "GET",
       "content-type" : null,
-      "path" : "/cgi/display.pl",
+      "path" : "/product/3300000000001/apple-pie-bob-s-pies",
+      "method" : "GET",
       "parameters" : {
-         "/product/3300000000001/apple-pie-bob-s-pies?content_only" : "1"
-      }
+         "content_only" : "1"
+      },
+      "body" : null
    }
 }

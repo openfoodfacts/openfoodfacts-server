@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "path" : "/cgi/display.pl",
-      "content-type" : null,
-      "parameters" : {
-         "/product/1000000000001/apple-pie" : ""
-      },
       "method" : "GET",
-      "body" : null
+      "body" : null,
+      "parameters" : {},
+      "content-type" : null,
+      "path" : "/product/1000000000001/apple-pie"
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v3/taxonomy_display_tags?tagtype" : "not_a_taxonomy"
-      },
-      "method" : "GET",
-      "content-type" : null,
+      "path" : "/api/v3/taxonomy_display_tags",
       "body" : null,
-      "path" : "/cgi/display.pl"
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "tagtype" : "not_a_taxonomy"
+      }
    }
 }

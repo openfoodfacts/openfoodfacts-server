@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v3/product/4260392550101" : ""
-      },
-      "method" : "GET",
+      "parameters" : {},
       "body" : null,
       "content-type" : null,
-      "path" : "/cgi/display.pl"
+      "method" : "GET",
+      "path" : "/api/v3/product/4260392550101"
    }
 }

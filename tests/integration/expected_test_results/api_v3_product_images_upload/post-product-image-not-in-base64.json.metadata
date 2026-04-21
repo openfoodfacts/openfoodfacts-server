@@ -1,13 +1,11 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
-      "method" : "POST",
       "body" : {
          "raw_body" : "{\"image_data_base64\":\"ThÃ¯s IÅ NÃT base64!!!\"}"
       },
-      "parameters" : {
-         "/api/v3/product/1234567890012/images" : ""
-      },
-      "path" : "/cgi/display.pl"
+      "parameters" : {},
+      "method" : "POST",
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3/product/1234567890012/images"
    }
 }

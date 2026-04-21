@@ -1,17 +1,15 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/cgi/display.pl",
+      "method" : "PATCH",
+      "path" : "/api/v3/product/1234567890300",
+      "parameters" : {},
       "body" : {
-         "tags_lc" : "en",
-         "fields" : "updated",
          "product" : {
             "product_name_en" : "Test product 3 - updated again"
-         }
+         },
+         "fields" : "updated",
+         "tags_lc" : "en"
       },
-      "method" : "PATCH",
-      "parameters" : {
-         "/api/v3/product/1234567890300" : ""
-      }
+      "content-type" : "application/json; charset=utf-8"
    }
 }

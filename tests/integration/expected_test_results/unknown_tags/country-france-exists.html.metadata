@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/facets/countries/france" : ""
-      },
-      "path" : "/cgi/display.pl",
+      "parameters" : {},
+      "method" : "GET",
+      "path" : "/facets/countries/france",
       "content-type" : null,
-      "body" : null,
-      "method" : "GET"
+      "body" : null
    }
 }

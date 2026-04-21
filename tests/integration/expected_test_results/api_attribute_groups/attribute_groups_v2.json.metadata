@@ -1,11 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v2/attribute_groups" : ""
-      },
-      "method" : "GET",
-      "path" : "/cgi/display.pl",
+      "body" : null,
+      "path" : "/api/v2/attribute_groups",
       "content-type" : null,
-      "body" : null
+      "method" : "GET",
+      "parameters" : {}
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "parameters" : {
-         "/api/v2/product/200000000034?fields" : "packagings"
-      },
-      "method" : "GET",
+      "path" : "/api/v2/product/200000000034",
+      "content-type" : null,
       "body" : null,
-      "path" : "/cgi/display.pl",
-      "content-type" : null
+      "parameters" : {
+         "fields" : "packagings"
+      },
+      "method" : "GET"
    }
 }

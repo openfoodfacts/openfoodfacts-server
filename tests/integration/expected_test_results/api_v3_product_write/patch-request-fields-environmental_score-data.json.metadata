@@ -1,5 +1,9 @@
 {
    "api_call" : {
+      "path" : "/api/v3.2/product/1234567890009",
+      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
       "body" : {
          "tags_lc" : "en",
          "fields" : "environmental_score_data",
@@ -9,19 +13,13 @@
                   "material" : {
                      "lc_name" : "plastic"
                   },
-                  "number_of_units" : 1,
                   "shape" : {
                      "lc_name" : "bag"
-                  }
+                  },
+                  "number_of_units" : 1
                }
             ]
          }
-      },
-      "parameters" : {
-         "/api/v3.2/product/1234567890009" : ""
-      },
-      "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/cgi/display.pl"
+      }
    }
 }

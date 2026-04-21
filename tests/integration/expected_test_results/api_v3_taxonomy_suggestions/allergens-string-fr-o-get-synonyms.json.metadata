@@ -2,13 +2,13 @@
    "api_call" : {
       "body" : null,
       "content-type" : null,
-      "method" : "GET",
       "parameters" : {
-         "/api/v3/taxonomy_suggestions?tagtype" : "allergens",
          "lc" : "fr",
+         "get_synonyms" : "1",
          "string" : "o",
-         "get_synonyms" : "1"
+         "tagtype" : "allergens"
       },
-      "path" : "/cgi/display.pl"
+      "method" : "GET",
+      "path" : "/api/v3/taxonomy_suggestions"
    }
 }

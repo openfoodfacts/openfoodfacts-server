@@ -1,10 +1,8 @@
 {
    "api_call" : {
-      "parameters" : {
-         "facets/labels/organic" : ""
-      },
+      "path" : "/labels/organic",
       "content-type" : null,
-      "path" : "/cgi/display.pl",
+      "parameters" : {},
       "body" : null,
       "method" : "GET"
    }

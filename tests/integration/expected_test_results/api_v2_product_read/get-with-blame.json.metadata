@@ -1,11 +1,11 @@
 {
    "api_call" : {
       "parameters" : {
-         "/api/v2/product/200000000034?blame" : "1"
+         "blame" : "1"
       },
-      "body" : null,
       "method" : "GET",
       "content-type" : null,
-      "path" : "/cgi/display.pl"
+      "path" : "/api/v2/product/200000000034",
+      "body" : null
    }
 }
