@@ -51,7 +51,6 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
 	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
