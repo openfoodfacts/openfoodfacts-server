@@ -682,16 +682,17 @@ sub get_api_call_metadata ($test_ref) {
 
 	my $content_type;
 	my $body;
-	# Store only the API path in metadata (without scheme + host + query string).
-	my $path = $test_ref->{url};
+	my $simplified_url = $test_ref->{url};
+
+	# Special case for /cgi/display.pl? which is in fact invisible from behind the reverse proxy
+	$simplified_url =~ s/\/cgi\/display\.pl\?//;
+
+	# Get path
+	my $path = $simplified_url;
 	if (defined $path) {
 		$path =~ s/^https?:\/\/[^\/]+//;
 		$path =~ s/\?.*$//;
 	}
-
-	# special case for cgi/display.pl? which is in fact invisible from behind the reverse proxy
-	$path =~ s/^\/cgi\/display\.pl\?//;
-
 	if (defined $test_ref->{body}) {
 		$content_type = "application/json; charset=utf-8";
 		my $decoded_body = eval {decode_json($test_ref->{body})};
@@ -718,7 +719,7 @@ sub get_api_call_metadata ($test_ref) {
 			path => $path,
 			method => $test_ref->{method},
 			# Keep query parameters available as a parsed object for schema checks.
-			parameters => parse_query_string_parameters_from_url($test_ref->{url}),
+			parameters => parse_query_string_parameters_from_url($simplified_url),
 			'content-type' => $content_type,
 			body => $body,
 		}
