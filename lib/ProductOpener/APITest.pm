@@ -910,8 +910,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		my $expected_result_file = "$expected_result_dir/$test_case.$expected_type";
 		is(
 			compare_file_to_expected_results(
-				$response_content, $expected_result_file,
-				$update_expected_results, $test_ref
+				$response_content, $expected_result_file, $update_expected_results, $test_ref
 			),
 			1,
 			"$test_case - result"
@@ -962,10 +961,7 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			}
 
 			is(
-				compare_to_expected_results(
-					$decoded_json, $expected_result_file,
-					$update_expected_results, $test_ref
-				),
+				compare_to_expected_results($decoded_json, $expected_result_file, $update_expected_results, $test_ref),
 				1,
 				"$test_case - result"
 			);
