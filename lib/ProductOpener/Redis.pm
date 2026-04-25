@@ -437,6 +437,11 @@ A product creation is considered as an update.
 
 sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
 
+	if (!defined $product_ref->{code} || $product_ref->{code} eq '') {
+		$log->warn("Skipping Redis update for product with empty code") if $log->is_warn();
+		return;
+	}
+
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
 		if (!$sent_warning_about_missing_redis_url) {
@@ -538,6 +543,11 @@ The URL where the OCR result JSON file can be found.
 =cut
 
 sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
+
+	if (!defined $code || $code eq '') {
+		$log->warn("Skipping Redis OCR event for product with empty code") if $log->is_warn();
+		return;
+	}
 
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis

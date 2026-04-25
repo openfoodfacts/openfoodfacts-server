@@ -10,15 +10,21 @@
    "amino_acids_tags" : [],
    "categories" : "lait de coco",
    "categories_hierarchy" : [
+      "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
+      "en:beverages",
       "en:plant-based-foods",
-      "en:plant-based-creams",
-      "en:plant-based-creams-for-cooking",
-      "en:coconut-milks-and-creams"
+      "en:dairy-substitutes",
+      "en:milk-substitutes",
+      "en:plant-based-beverages",
+      "en:plant-based-milk-alternatives",
+      "en:coconut-milks-and-creams",
+      "en:coconut-milks"
    ],
    "categories_lc" : "fr",
    "categories_properties" : {
       "agribalyse_food_code:en" : "18041",
+      "agribalyse_proxy_food_code:en" : "18041",
       "ciqual_food_code:en" : "18041"
    },
    "categories_properties_tags" : [
@@ -26,20 +32,30 @@
       "categories-known",
       "agribalyse-food-code-18041",
       "agribalyse-food-code-known",
-      "agribalyse-proxy-food-code-unknown",
+      "agribalyse-proxy-food-code-18041",
+      "agribalyse-proxy-food-code-known",
       "ciqual-food-code-18041",
       "ciqual-food-code-known",
       "agribalyse-known",
       "agribalyse-18041"
    ],
    "categories_tags" : [
+      "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
+      "en:beverages",
       "en:plant-based-foods",
-      "en:plant-based-creams",
-      "en:plant-based-creams-for-cooking",
-      "en:coconut-milks-and-creams"
+      "en:dairy-substitutes",
+      "en:milk-substitutes",
+      "en:plant-based-beverages",
+      "en:plant-based-milk-alternatives",
+      "en:coconut-milks-and-creams",
+      "en:coconut-milks"
    ],
-   "food_groups_tags" : [],
+   "food_groups" : "en:plant-based-milk-substitutes",
+   "food_groups_tags" : [
+      "en:beverages",
+      "en:plant-based-milk-substitutes"
+   ],
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "15006",
@@ -111,8 +127,9 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-      "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-a-2023-a",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-a-2023-b",
       "en:nutrition-data-per-100g"
    ],
    "nova_group" : 1,
@@ -124,13 +141,13 @@
    ],
    "nucleotides_tags" : [],
    "nutrient_levels" : {
-      "fat" : "low",
+      "fat" : "moderate",
       "salt" : "low",
       "saturated-fat" : "low",
       "sugars" : "low"
    },
    "nutrient_levels_tags" : [
-      "en:fat-in-low-quantity",
+      "en:fat-in-moderate-quantity",
       "en:saturated-fat-in-low-quantity",
       "en:sugars-in-low-quantity",
       "en:salt-in-low-quantity"
@@ -182,7 +199,7 @@
                "negative" : [
                   {
                      "id" : "energy",
-                     "points" : 0,
+                     "points" : 3,
                      "points_max" : 10,
                      "unit" : "kJ",
                      "value" : 178
@@ -190,7 +207,7 @@
                   {
                      "id" : "sugars",
                      "points" : 0,
-                     "points_max" : 15,
+                     "points_max" : 10,
                      "unit" : "g",
                      "value" : 0.5
                   },
@@ -207,23 +224,30 @@
                      "points_max" : 20,
                      "unit" : "g",
                      "value" : 0.03
+                  },
+                  {
+                     "id" : "non_nutritive_sweeteners",
+                     "points" : 0,
+                     "points_max" : 4,
+                     "unit" : "number",
+                     "value" : 0
                   }
                ],
                "positive" : [
                   {
                      "id" : "proteins",
-                     "new_grade" : "a",
-                     "new_score" : -3,
+                     "new_grade" : "b",
+                     "new_score" : -6,
                      "new_value" : 4.9,
-                     "points" : 1,
+                     "points" : 7,
                      "points_max" : 7,
                      "unit" : "g",
                      "value" : 3.9
                   },
                   {
                      "id" : "fiber",
-                     "new_grade" : "a",
-                     "new_score" : -3,
+                     "new_grade" : "b",
+                     "new_score" : -7,
                      "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
@@ -232,54 +256,54 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "new_grade" : "a",
-                     "new_score" : -6,
+                     "new_grade" : "b",
+                     "new_score" : -10,
                      "new_value" : 81,
-                     "points" : 1,
-                     "points_max" : 5,
+                     "points" : 2,
+                     "points_max" : 6,
                      "unit" : "%",
                      "value" : 60
                   }
                ]
             },
             "count_proteins" : 1,
-            "count_proteins_reason" : "negative_points_less_than_11",
-            "is_beverage" : 0,
+            "count_proteins_reason" : "beverage",
+            "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_points" : 0,
-            "negative_points_max" : 55,
+            "negative_points" : 3,
+            "negative_points_max" : 54,
             "positive_nutrients" : [
                "proteins",
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 2,
-            "positive_points_max" : 17
+            "positive_points" : 9,
+            "positive_points_max" : 18
          },
          "estimated" : 0,
-         "grade" : "a",
+         "grade" : "b",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : -2
+         "score" : -6
       }
    },
    "nutriscore_2021_tags" : [
       "a"
    ],
    "nutriscore_2023_tags" : [
-      "a"
+      "b"
    ],
    "nutriscore_data" : {
       "components" : {
          "negative" : [
             {
                "id" : "energy",
-               "points" : 0,
+               "points" : 3,
                "points_max" : 10,
                "unit" : "kJ",
                "value" : 178
@@ -287,7 +311,7 @@
             {
                "id" : "sugars",
                "points" : 0,
-               "points_max" : 15,
+               "points_max" : 10,
                "unit" : "g",
                "value" : 0.5
             },
@@ -304,12 +328,19 @@
                "points_max" : 20,
                "unit" : "g",
                "value" : 0.03
+            },
+            {
+               "id" : "non_nutritive_sweeteners",
+               "points" : 0,
+               "points_max" : 4,
+               "unit" : "number",
+               "value" : 0
             }
          ],
          "positive" : [
             {
                "id" : "proteins",
-               "points" : 1,
+               "points" : 7,
                "points_max" : 7,
                "unit" : "g",
                "value" : 3.9
@@ -323,37 +354,37 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 1,
-               "points_max" : 5,
+               "points" : 2,
+               "points_max" : 6,
                "unit" : "%",
                "value" : 60
             }
          ]
       },
       "count_proteins" : 1,
-      "count_proteins_reason" : "negative_points_less_than_11",
-      "grade" : "a",
-      "is_beverage" : 0,
+      "count_proteins_reason" : "beverage",
+      "grade" : "b",
+      "is_beverage" : 1,
       "is_cheese" : 0,
       "is_fat_oil_nuts_seeds" : 0,
       "is_red_meat_product" : 0,
       "is_water" : 0,
-      "negative_points" : 0,
-      "negative_points_max" : 55,
+      "negative_points" : 3,
+      "negative_points_max" : 54,
       "positive_nutrients" : [
          "proteins",
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 2,
-      "positive_points_max" : 17,
-      "score" : -2
+      "positive_points" : 9,
+      "positive_points_max" : 18,
+      "score" : -6
    },
-   "nutriscore_grade" : "a",
-   "nutriscore_score" : -2,
-   "nutriscore_score_opposite" : 2,
+   "nutriscore_grade" : "b",
+   "nutriscore_score" : -6,
+   "nutriscore_score_opposite" : 6,
    "nutriscore_tags" : [
-      "a"
+      "b"
    ],
    "nutriscore_version" : "2023",
    "nutrition" : {
@@ -1086,10 +1117,10 @@
          }
       ]
    },
-   "nutrition_grade_fr" : "a",
-   "nutrition_grades" : "a",
+   "nutrition_grade_fr" : "b",
+   "nutrition_grades" : "b",
    "nutrition_grades_tags" : [
-      "a"
+      "b"
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
@@ -1098,15 +1129,15 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 60,
    "other_nutritional_substances_tags" : [],
-   "pnns_groups_1" : "unknown",
+   "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [
-      "unknown",
-      "missing-association"
+      "beverages",
+      "known"
    ],
-   "pnns_groups_2" : "unknown",
+   "pnns_groups_2" : "Plant-based milk substitutes",
    "pnns_groups_2_tags" : [
-      "unknown",
-      "missing-association"
+      "plant-based-milk-substitutes",
+      "known"
    ],
    "traces" : "",
    "traces_from_ingredients" : "",

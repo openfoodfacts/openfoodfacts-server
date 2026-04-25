@@ -113,7 +113,7 @@ if (not(defined $image_ref)) {
 }
 
 my $imagetext;
-if ($id =~ /^(.*)_(.*)$/) {
+if ((defined $id) and ($id =~ /^(.*)_(.*)$/)) {
 	$imagetext = lang($1 . '_alt');
 }
 else {
@@ -121,7 +121,7 @@ else {
 }
 
 my $path = product_path_from_id($product_id);
-my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $imagetext;
+my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . ($imagetext // '');
 
 my $display_image_url;
 my $full_image_url;

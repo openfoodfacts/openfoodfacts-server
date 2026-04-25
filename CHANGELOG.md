@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.90.3](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.90.2...v2.90.3) (2026-03-31)
+
+
+### Bug Fixes
+
+* Add resilient OIDC/JWKS memcached caching with safe fallback ([#13288](https://github.com/openfoodfacts/openfoodfacts-server/issues/13288)) ([3a48dd6](https://github.com/openfoodfacts/openfoodfacts-server/commit/3a48dd667921e1df3e852f4341727ceaedf71335))
+* CORS: allow X-User-Agent header ([#13348](https://github.com/openfoodfacts/openfoodfacts-server/issues/13348)) ([b72d9ac](https://github.com/openfoodfacts/openfoodfacts-server/commit/b72d9ac37a2dbc8943a4966d0c626712f67b1aee))
+* product revisions get saved even when there are no meaningful changes ([#13247](https://github.com/openfoodfacts/openfoodfacts-server/issues/13247)) ([515800e](https://github.com/openfoodfacts/openfoodfacts-server/commit/515800ebe85bfd1b6c414c3c4743437d9353096b))
+* remove rate limiter from Product Opener ([#13301](https://github.com/openfoodfacts/openfoodfacts-server/issues/13301)) ([04b9c70](https://github.com/openfoodfacts/openfoodfacts-server/commit/04b9c70aab5e23a31333ae67d423114e25b8f650))
+* speed up CSV export generation ([#13375](https://github.com/openfoodfacts/openfoodfacts-server/issues/13375)) ([ccb79b8](https://github.com/openfoodfacts/openfoodfacts-server/commit/ccb79b847c062672b891c0e4a18b2edd0f16c232))
+
 ## [2.90.2](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.90.1...v2.90.2) (2026-03-24)
 
 
