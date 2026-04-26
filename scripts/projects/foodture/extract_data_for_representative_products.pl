@@ -85,7 +85,7 @@ sub decide_if_we_should_refetch_product {
 	while (my $ingredient_ref = shift @ingredients) {
 		my $id = $ingredient_ref->{id} // '';
 		# ingredient id starts with a language prefix (e.g. fr:) meaning it was not resolved in the taxonomy
-		if ($id =~ /^fr:(carne|sugar)/) {
+		if ($id =~ /^fr:(carne|sucre)/) {
 			delete $product_data{$code};
 			return 1;
 		}
