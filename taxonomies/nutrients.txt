@@ -1,7 +1,7 @@
 # Nutrients taxonomy
 #
 # Notes:
-# - The id of the nutrient start with zz: , it should not be changed as this is used in the database to store nutrition facts
+# - The ID of the nutrient starts with zz:, it should not be changed as this is used in the database to store nutrition facts
 # - The second entry must be the English en: entry
 # - The third entry must be the English entry with the xx: prefix. This entry will be used for languages for which we have no translation.
 # - Always set the unit:en property. If there is no unit (e.g. for the pH), use unit:en with no value.
