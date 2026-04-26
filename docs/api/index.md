@@ -59,8 +59,7 @@ If you need to fetch more than a few hundred products, we ask you to [download t
 
 To protect our infrastructure from abusive crawl, we also added global rate-limits on the website and API endpoints, irrespective of the IP address. A HTTP 503 response (Service Not Available) will be returned if these limits are exceeded.
 
-If you expect a high API traffic on your app or cannot, we **strongly encourage you to host local instance of Product Opener (or another API custom backend)**, and use the daily exports to update your local database.
-
+If you expect your app to generate a lot of API traffic, we **strongly encourage you to host a local instance of Product Opener (or another custom API backend)**, and use the daily exports to update your local database.
 
 ### If your users do not expect a result immediately (e.g., Inventory apps)
 
