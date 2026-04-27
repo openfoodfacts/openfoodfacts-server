@@ -4931,6 +4931,7 @@ es: crema de leche ligera espesa, nata ligera espesa
 < en:cream
 en: single cream
 bg: течна сметана
+ca: nata líquida
 de: Halbrahm, Haldsahne
 fi: ruokakerma
 fr: crème liquide, demi-crème
@@ -20510,6 +20511,9 @@ zh: 天然调味剂
 vegan:en: maybe
 vegetarian:en: maybe
 
+< en:natural flavouring
+de: natürliches Pfirsich– und Holunderblütenaroma mit anderen natürlichen Aromen
+
 < en:flavouring
 en: nature identical flavouring
 hr: prirodno identična aroma
@@ -23411,7 +23415,7 @@ en: whole wheat, whole grain wheat, wholegrain wheat, wholewheat
 ar: قمح كامل
 bg: пълнозърнеста пшеница
 da: fuldkornshvede
-de: Vollkornweizen
+de: Vollkornweizen, Weizenvollkorn
 el: σίτος ολικής αλέσεως
 es: trigo integral
 fi: täysjyvävehnä
@@ -44152,7 +44156,7 @@ fi: seljanmarjatiiviste
 
 < en:elder
 en: elderflower, elderflowers
-de: Holunderblüten
+de: Holunderblüten, Holunderblüte
 fi: seljankukka
 fr: fleurs de sureau
 hr: cvijet bazge, Sambucus nigra L
@@ -44160,6 +44164,9 @@ it: fiori di sambuco
 nl: vlierbloesem
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs-de-sureau
 # 51 products @2018-09-29
+
+< en:elderflower
+de: Aufguss aus weißem Tee und Holunderblüte
 
 #comment:en:Be sure it refers to the flower
 < en:elderflower
@@ -51682,6 +51689,7 @@ it: teste di asparagi bianchi
 < en:shoot vegetable
 en: chicory
 bg: цикория
+da: cikorie
 de: Chicoree, Zichorie, Zichorien
 es: Achicoria
 fi: sikuri
@@ -51694,17 +51702,20 @@ lv: cigoriņi
 nl: chicorij
 pl: cykoria, cykorii
 pt: chicória
+sv: cikoria
 ciqual_food_code:en: 20026
 ciqual_food_name:en: Chicory, raw
 
 < en:chicory
 en: chicory root
+da: cikorierod
 de: Chikoreewurzel, Zichorienwurzel
 fr: racine de chicorée
 hr: cikorija korijen, korijen cikorije
 it: radice di cicoria
 nl: cichoreiwortel
 pl: korzeń cykorii, korzenia cykorii
+sv: cikoriarot
 
 < en:chicory
 < en:vegetable fiber
@@ -51722,7 +51733,7 @@ lv: cigoriņu šķiedra
 nl: chichoreivezel, chichoreiwortelvezel
 pl: błonnik z cykorii, błonnik z korzenia cykorii, włókna z korzenia cykorii
 sk: vláknina z koreňa čakanky
-sv: cikoriarotfiber, fiber från cikoriarot
+sv: cikoriarotfiber, fiber från cikoriarot, cikoriafiber
 # ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
 
 < en:chicory fibre
@@ -56315,7 +56326,8 @@ ms: lada benggala
 mt: bżar ħelu
 my: ငရုပ်ပွ
 ne: भेडे खुर्सानी
-# nl: paprika # also "en: paprika", see "en: paprika or bell pepper"
+nl: paprika (vrucht), puntpaprika
+# also "en: paprika", see "en: paprika or bell pepper"
 oc: pebron
 pl: papryka słodka
 ps: خواږه مرچ
@@ -57041,6 +57053,7 @@ br: paprika
 bs: paprika
 ca: pebre vermell, piment vermell, pebre vermell picant
 cy: Paprica
+da: paprika
 # de: Paprika # also "en: bell pepper", see "en: paprika or bell pepper"
 el: πάπρικα
 eo: papriko
@@ -57140,7 +57153,7 @@ pl: ostra papryka, ostra papryka w proszku, papryka ostra, papryka ostra mielona
 en: fruit vegetable
 it: frutta verdura
 lv: Augļu dārzeņi
-nl: fruitgroente
+nl: fruitgroente, groentevrucht
 eurocode_2_group_2:en: 8.40
 
 < en:fruit vegetable
@@ -57998,7 +58011,7 @@ bg: тиква
 bn: মিষ্টিকুমড়া
 bo: ལྷོ་ཀུབ།
 br: Sitrouilhez
-ca: Carbassera de rabequet
+ca: carabassa, carbassa
 cs: dýně
 cy: pwmpen
 da: Græskar
@@ -58224,7 +58237,7 @@ ar: قرع كبير
 az: i̇ri balqabaq
 be: гарбуз вялікі
 bg: гигантска тиква
-ca: carabassa
+ca: Carbassera de rabequet
 chy: mo'ôhtáemâhoo'o
 cs: tykev velkoplodá, dýně obrovská
 # cy:pwmpen is already under pumpkin
@@ -61222,7 +61235,7 @@ en: brazil nut, brazil nuts
 bg: бразилски орехи
 cs: para ořechy
 da: paranødder
-de: Paranuss, Paranüsse, Paranusskerne
+de: Paranuss, Paranüsse, Paranüssen, Paranusskerne
 el: καρύδια Βραζιλίας
 es: nueces de Brasil, nuez de Brasil, nueces del Amazonas, coquito, coquitos
 et: brasiilia pähklid, parapähklid, parapähkleid
@@ -61268,7 +61281,7 @@ bg: кашу
 ca: anacards
 cs: kešu ořechy
 da: cashewnødder
-de: Cashewkerne, Kaschunüsse, Cashewnüsse, Cashew, Cashewnuss, cashews
+de: Cashewkerne, Kaschunüsse, Cashewnüsse, Cashewnüssen, Cashew, Cashewnuss, cashews
 el: καρύδια κάσιους
 es: anacardos, nueces de anacardos, castañas de cajú
 et: kašupähklid, India pähkel, kašupähkleid
@@ -62111,7 +62124,7 @@ en: pecan nut, pecan nuts, pecan, pecans
 bg: пеканови ядки, американски орех
 cs: pekanové ořechy
 da: pekannødder
-de: Pekannuss, Pekannüsse, Pecannüsse, Pecankerne, Pecannusskerne
+de: Pekannuss, Pekannüsse, Pekannüssen, Pecannüsse, Pecankerne, Pecannusskerne
 el: καρύδια πεκάν
 es: Nueces de pecán, pacanas, nueces pacanas, nuez pecana
 et: pekaanipähkel, pekanipähklid, pekaanipähkleid
@@ -64221,6 +64234,19 @@ eurocode_2_group_2:en: 12.20
 nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
+
+< en:herb
+en: herbal tea
+de: Kräutertee
+
+< en:herb
+de: Süßblatt
+
+< en:herbal tea
+de: Aufguss aus Schwarztee und Kräutertee
+
+< de:Süßblatt
+de: konzentrierter Steviablätter-Aufguss
 
 < en:herb
 en: herb extract
@@ -71171,7 +71197,7 @@ bo: ཇ་དམར།
 ca: te negre
 cs: černý čaj
 da: sort te
-de: Schwarztee, Schwarzer Tee
+de: Schwarztee, Schwarzer Tee, Aufguss aus Schwarztee, Gebrühter Schwarztee, Aufguss aus Schwarzem Tee
 el: μαύρο τσάι
 eo: nigra teo
 es: té negro
@@ -71233,6 +71259,10 @@ wikipedia:en: https://en.wikipedia.org/wiki/Black_tea
 # ingredient/black-tea has 751 products in 13 languages @2019-04-22
 
 < en:black tea
+< en:herbal tea
+de: Aufguss aus Schwarztee und Kräutertee
+
+< en:black tea
 en: black tea leaf, black tea leaves
 fr: feuilles de thé noir
 it: foglia di tè nero
@@ -71266,6 +71296,7 @@ fr: thé noir darjeeling
 
 < en:black tea
 fr: infusion de thé noir concentrée
+de: konzentrierter Schwarztee, konzentrierter Schwarztee-Aufguss
 
 < en:black tea
 en: black tea extract
@@ -71294,7 +71325,7 @@ ca: te verd
 cs: zelený čaj
 cy: te gwyrdd
 da: grøn te
-de: Grüner Tee, Grüntee
+de: Grüner Tee, Grüntee, Aufguss aus grünem Tee, Gebrühter Grüntee, Aufguss aus Grüntee
 el: πράσινο τσάι
 eo: verda teo
 es: té verde
@@ -71480,6 +71511,10 @@ hr: bijeli čaj
 it: tè bianco
 pl: biała herbata, herbata biała
 # ingredient/en:white-tea has 77 products @2023-07-01
+
+< en:elderflower
+< en:white tea
+de: Aufguss aus weißem Tee und Holunderblüte
 
 < en:green tea
 en: decaffeinated green tea
@@ -88225,7 +88260,7 @@ af: spaghetti
 ar: سباغيتي
 be: спагеці
 bg: спагети
-ca: espagueti
+ca: espagueti, espaguetis
 cs: špagety
 da: spaghetti
 de: spaghetti
@@ -93959,18 +93994,21 @@ de: Gurke, Gurken
 < en: bell pepper
 < en: paprika
 en: paprika or bell pepper
+bg: червен пипер, паприка
 cs: paprika
-da: paprika
 de: Paprika
 fi: paprika
 hu: paprika
+lv: paprika
 nb: paprika
-nl: paprika
+nl: paprika, paprika's, zoete peper, snack paprika
 nn: paprika
 no: paprika
+pl: papryka, papryki, paprykowy, paprykowe, paprykowa
 sl: paprika
 sv: paprika
 comment:en: Put here the name if it can have multiple meanings. The context should dtermine whether it is the spice or the vegetable.
+description:en: “Paprika” can be either the dried powder or the fruit of a plant in some languages. Put it only here if that is the case, otherwise put the ingredient under en:bell pepper or en:paprika.
 
 < en:Minerals
 < en:Vitamins
