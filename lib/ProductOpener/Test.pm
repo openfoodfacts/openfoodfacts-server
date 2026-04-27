@@ -540,7 +540,9 @@ Tests will pass when this flag is passed, and the new expected results can be di
 
 =cut
 
-sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name, $save_csv = 1) {
+sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name,
+	$save_csv = 1)
+{
 
 	# Read the CSV file
 
