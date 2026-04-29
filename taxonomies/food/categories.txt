@@ -35647,7 +35647,6 @@ gpc_category_code:en: 10000165
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products have been treated or packaged in such a way as to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Frozen and Perishable Bread Products, Dried Breads, Shelf-Stable Baking Mixes and Baking Supplies, and Pies and Pastries.
 gpc_category_name:en: Bread (Shelf Stable)
 
-
 < en:Breads
 < en:Frozen foods
 en: Frozen breads
@@ -36797,6 +36796,63 @@ xx: Taboon
 ar: طابون
 comment:en: https://www.tasteatlas.com/taboon
 wikidata:en: Q987291
+
+< en:Breads
+en: Oat breads, Oat loafs
+da: Havrebrød
+fi: Kauraleipa
+pt: Pães de aveia
+sv: Havrebröd
+
+< en:Frozen breads
+< en:Oat breads
+en: Frozen oat breads
+da: Frosne havrebrød
+pt: Pães de aveia congelados
+sv: Frysta havrebröd
+
+< en:Gluten-free breads
+< en:Oat breads
+en: Gluten-free oat breads
+da: Glutenfrie havrebrød
+pt: Pães de aveia sem glúten
+sv: Glutenfria havrebröd
+
+< en:Frozen oat breads
+< en:Gluten-free oat breads
+en: Frozen gluten-free oat breads
+da: Frosne glutenfrie havrebrød
+pt: Pães de aveia sem glúten congelados
+sv: Frysta glutenfria havrebröd
+
+< en:Oat breads
+< en:Sliced breads
+en: Sliced oat breads
+da: Skiveskårne havrebrød
+pt: Pães de aveia laminados
+sv: Skivade havrelimpor, Skivade havrebröd
+
+< en:Frozen oat breads
+< en:Sliced oat breads
+en: Frozen sliced oat breads
+da: Frosne skiveskårne havrebrød
+pt: Pães de aveia laminados congelados
+sv: Frysta skivade havrelimpor
+
+< en:Gluten-free oat breads
+< en:Sliced oat breads
+en: Sliced gluten-free oat breads
+da: Skiveskårne glutenfrie havrebrød
+pt: Pães de aveia sem glúten laminados
+sv: Skivade glutenfria havrelimpor
+
+< en:Frozen gluten-free oat breads
+< en:Frozen sliced oat breads
+< en:Sliced gluten-free oat breads
+en: Frozen sliced gluten-free oat breads
+da: Frosne skiveskårne glutenfrie havrebrød
+pt: Pães de aveia sem glúten laminados congelados
+sv: Frysta skivade glutenfria havrelimpor
 
 < en:Breads
 en: Rye breads, Wheat rye breads
