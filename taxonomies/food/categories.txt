@@ -36758,6 +36758,7 @@ wikidata:en: Q1922854
 
 < en:Breads
 en: Flatbreads, Flatbread
+da: Fladbrød
 de: Fladenbrote, Fladenbrot
 es: Panes planos
 fi: Ohutleivät, Ohutleipä
@@ -36766,8 +36767,31 @@ hr: Somuni
 it: Pane basso
 lt: Paplotėliai, Paplotėlis
 nl: Platte broden, Flat breads
+pt: Pães achatados
+sv: Flatbröd
 intake24_category_code:en: FJTA
 wikidata:en: Q666242
+
+< en:Flatbreads
+< en:Frozen breads
+en: Frozen flatbreads
+da: Frosne fladbrød
+pt: Pães achatados congelados
+sv: Frysta flatbröd
+
+< en:Flatbreads
+< en:Gluten-free breads
+en: Gluten-free flatbreads
+da: Glutenfrie fladbrød
+pt: Pães achatados sem glúten
+sv: Glutenfria flatbröd
+
+< en:Frozen flatbreads
+< en:Gluten-free flatbreads
+en: Frozen gluten-free flatbreads
+da: Frosne glutenfrie fladbrød
+pt: Pães achatados congelados sem glúten
+sv: Frysta glutenfria flatbröd
 
 < en:Flatbreads
 en: Khubz ahmar, Red breads
@@ -36954,7 +36978,7 @@ ciqual_food_name:en: Corn tortilla wrap, to be filled
 ciqual_food_name:fr: Tortilla souple (à garnir), à base de maïs
 
 < en:Corn flatbreads
-< en:Frozen breads
+< en:Frozen flatbreads
 en: Frozen corn flatbreads, Frozen corn tortilla wraps
 fr: Tortillas de maïs surgelées
 
@@ -37581,15 +37605,15 @@ da: Frosne glutenfrie pølsebrød
 sv: Frysta glutenfria korvbröd
 
 < en:Flatbreads
-en: Naans, Naan
-xx: Naans
-de: Naans
-es: Naans, Naan
+en: Naans
+xx: Naans, Naan
+da: Naanbrød
 fi: Naanit
-fr: Naans, Naan, Nân
-hr: Naans
+fr: Naans, Nân
 ja: ナン, ナーン
-nl: Naanbroden, Naanbrood, Naan
+nl: Naanbroden, Naanbrood
+pt: Pães naan
+sv: Naanbröd
 wikidata:en: Q689950
 
 < en:Naans
@@ -37627,14 +37651,14 @@ ciqual_food_name:en: Pita bread
 ciqual_food_name:fr: Pain pita
 wikidata:en: Q211340
 
-< en:Gluten-free breads
+< en:Gluten-free flatbreads
 < en:Pitas
 en: Gluten-free pitas
 da: Glutenfrie pitabrød
 pt: Pães pita sem glúten
 sv: Glutenfria pitabröd
 
-< en:Frozen breads
+< en:Frozen flatbreads
 < en:Pitas
 en: Frozen pitas
 da: Frosne pitabrød
