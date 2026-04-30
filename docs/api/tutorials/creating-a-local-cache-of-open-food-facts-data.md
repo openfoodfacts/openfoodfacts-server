@@ -20,7 +20,7 @@ We encourage developers who feel the need for very intensive operations not driv
 
 ### When NOT to Cache
 
-For applications primarily focused on user-generated requests, a local cache may not be necessary. The OFF API can handle such many such requests efficiently, and direct API usage contributes to valuable scan statistics for the project.
+For applications primarily focused on user-generated requests, a local cache may not be necessary. The OFF API can handle many such requests efficiently, and direct API usage contributes to valuable scan statistics for the project.
 
 ### Licensing and Data Sharing
 

@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "plotësia e cilësisë së të dhënave"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5401,7 +5405,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Pa etiketa të vlerësuara"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Disa përfitime mjedisore"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Përfitime të larta mjedisore"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Përfitime shumë të larta mjedisore"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Plotësia e Cilësisë së të Dhënave"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Disa informacione rreth plotësisë së cilësisë së të dhënave në këtë produkt"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7626,96 @@ msgstr "Nuk zbuluam: {unwanted_ingredients}. Mund të na kenë shpëtuar disa p�
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "Këto preferenca bazohen në kuptimin e listës së përbërësve nga Open Food Facts dhe gjithmonë ekziston mundësia që ajo të mos jetë e saktë ose e plotë, prandaj gjithmonë kontrolloni vetë produktin."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Pirja e duhanit vret"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Duhani dëmton seriozisht shëndetin. Mos e filloni. Lëreni tani."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Pirja e duhanit shkakton varësi të fortë. Mos e filloni. Pirja e duhanit vret - lëreni tani. Pirja e duhanit bllokon arteriet dhe shkakton atakë në zemër dhe goditje në tru. Pirja e duhanit shkakton kancer fatal të mushkërive. Pirja e duhanit gjatë shtatzënisë dëmton fëmijën tuaj. Mbrojini fëmijët: mos i bëni të thithin tymin tuaj. Mjeku ose farmacisti juaj mund t'ju ndihmojnë të lini duhanin. Pirja e duhanit mund të zvogëlojë rrjedhën e gjakut dhe të shkaktojë impotencë. Pirja e duhanit shkakton plakjen e lëkurës. Pirja e duhanit mund të dëmtojë spermatozoidet dhe të ulë pjellorinë. Tymi përmban benzen, nitrozamina, formaldehid dhe cianur hidrogjeni."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Çmimi publik"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Çmimi me pakicë i sugjeruar nga prodhuesi (MSRP), duke përjashtuar zbritjet dhe promovimet, siç tregohet në paketimin e produktit ose në faqen e internetit të prodhuesit (duke përfshirë ose përjashtuar taksat bazuar në legjislacion). Përdorni një listë të ndarë me presje nëse renditen çmime në monedha të shumëfishta."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Pronë e personalizuar"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Nuk përmban vaj palme"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Mund të përmbajë vaj palme"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Etiketat mjedisore"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Të dhëna që mungojnë"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Ndikim i lartë"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Ndikim mesatar"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Ndikim i ulët"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Ndikimi nuk është vlerësuar"
 

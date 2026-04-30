@@ -25,9 +25,9 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Export qw/:all/;
-use ProductOpener::Display qw/$nutriment_table search_and_export_products/;
+use ProductOpener::Display qw/$nutrient_table search_and_export_products/;
 use ProductOpener::Lang qw/$lc/;
-use ProductOpener::Food qw/%cc_nutriment_table/;
+use ProductOpener::Food qw/%cc_nutrient_table/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -152,9 +152,9 @@ if ((defined $extra_fields) and ($extra_fields ne "")) {
 }
 
 # select the nutriment table format according to the country
-$nutriment_table = $cc_nutriment_table{off_default};
-if (exists $cc_nutriment_table{"off_" . $cc}) {
-	$nutriment_table = $cc_nutriment_table{"off_" . $cc};
+$nutrient_table = $cc_nutrient_table{off_default};
+if (exists $cc_nutrient_table{"off_" . $cc}) {
+	$nutrient_table = $cc_nutrient_table{"off_" . $cc};
 }
 $request_ref->{subdomain} = $cc . '.' . $server_domain;
 

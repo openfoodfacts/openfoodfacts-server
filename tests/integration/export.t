@@ -19,17 +19,19 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Test
-	qw/compare_csv_file_to_expected_results init_expected_results remove_all_products remove_all_users/;
+use ProductOpener::Test qw/:all/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::APITest qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use Getopt::Long;
 use JSON;
 
 use File::Basename "dirname";
+use File::Path qw/remove_tree/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Remove all products
 
@@ -106,14 +108,16 @@ my $tests_ref = [
 
 execute_api_tests(__FILE__, $tests_ref);
 
-my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
-
 # Export products
 
 my $query_ref = {};
 my $separator = "\t";
 
 # Export database script to generate CSV exports of the whole database
+# remove tests/integration/expected_test_results/export_database/ before updating expected results as we get a file for each row.
+if ($update_expected_results) {
+	remove_tree($expected_result_dir . "/export_database");
+}
 
 # unlink CSV export if it exists, and launch script
 my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
@@ -121,8 +125,9 @@ unlink($csv_filename) if -e $csv_filename;
 
 my $script_out = `perl scripts/export_database.pl`;
 
-ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "_database",
-	$update_expected_results, "export_database");
+# Note we don't save the CSV file for this test as it contains modified dates
+ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "/export_database",
+	$update_expected_results, "export_database", 0);
 
 # CSV export
 
@@ -152,7 +157,30 @@ export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, "${expected_result_dir}_more_fields",
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file,
+	"${expected_result_dir}/export_more_fields",
 	$update_expected_results, "csv-export-more-fields");
+
+# Nutrition aggregated set export
+
+$exported_csv_file = "/tmp/export_nutrition_aggregated_set.csv";
+open($exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
+
+$export_args_ref = {
+	filehandle => $exported_csv,
+	separator => $separator,
+	query => $query_ref,
+	cc => "en",
+	export_nutrition_aggregated_set => 1
+};
+
+export_csv($export_args_ref);
+
+close($exported_csv);
+
+ProductOpener::Test::compare_csv_file_to_expected_results(
+	$exported_csv_file, "${expected_result_dir}/export_nutrition_aggregated_set",
+	$update_expected_results, "csv-export-nutrition-aggregated-set"
+);
 
 done_testing();

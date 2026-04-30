@@ -1,0 +1,15 @@
+components:
+  parameters:
+    TagsLc:
+      name: tags_lc
+      in: query
+      description: |
+        2 letter language code to request names of tags in a specific language.
+
+        For READ requests: if passed, all taxonomized tags of the response will include a lc_name property with the translation in the requested language, if available. Otherwise, the property value will contain the name in the original language, prefixed by the 2 language code and a colon.
+
+        For WRITE requests: if passed, taxonomized tags fields with a lc_name property will be considered to be in this language.
+      required: false
+      schema:
+        type: string
+        example: "fr"

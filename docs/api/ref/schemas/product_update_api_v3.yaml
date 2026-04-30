@@ -3,7 +3,8 @@ type: object
 description: Model for creating or updating products using the v3 version of the product update API.
 examples: []
 allOf: 
-  -  $ref: ./tags/tags-write.yaml
+  - $ref: ./product_type.yaml
+  - $ref: ./tags/tags-write.yaml
   - type: object
     properties:
       packagings:

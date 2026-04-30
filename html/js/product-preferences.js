@@ -3,11 +3,14 @@
 /*global default_preferences*/ // depends on flavor: OFF, OBF etc.
 /*global product_type */
 /*global initializeTagifyInput */
+/*global trackMatomoEvent*/
 
 let attribute_groups; // All supported attribute groups and attributes + translated strings
 let preferences; // All supported preferences + translated strings
 let use_user_product_preferences_for_ranking = JSON.parse(localStorage.getItem('use_user_product_preferences_for_ranking'));
 let reset_message;
+
+const staticBaseUri = `${document.location.protocol}//static.${document.querySelector('html').dataset.serverdomain}`;
 
 function get_user_product_preferences() {
     // Retrieve user preferences from local storage
@@ -123,6 +126,8 @@ function activate_preferences_switch_buttons(change) {
 		localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
 		use_user_product_preferences_for_ranking = this.checked;
 
+    trackMatomoEvent('personal_search', this.checked ? 'enabled' : 'disabled');
+
 		// Update the other checkbox value
 		$(".preferences_checkboxes").prop('checked',use_user_product_preferences_for_ranking);
 
@@ -216,20 +221,6 @@ function initialize_unwanted_ingredients_tagify() {
 let unwanted_ingredients_preferences_initalized = false;
 let attribute_unwanted_ingredients_enabled = false;
 
-// We use jQuery to load the CSS file dynamically
-function loadCSS(href) {
-
-    return new Promise(function(resolve, reject) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        link.href = href;
-        link.onload = resolve;
-        link.onerror = reject;
-        document.head.appendChild(link);
-    });
-}
-
 // We also want to turn the canonical ingredient tags list into local ingredient names
 // using the /api/v3/taxonomy_display_tags API
 function localize_unwanted_ingredients_tags() {
@@ -271,9 +262,8 @@ function display_unwanted_ingredients_preferences() {
             // Load tagify JS and CSS
             // We use jQuery to load the CSS file dynamically
             $.when(
-                $.getScript("/js/dist/tagify.js"), // FIX ME: use static subdomain
-                $.getScript("/js/dist/tagify-init.js"), // FIX ME: use static subdomain
-                loadCSS("/css/dist/tagify.css"),
+                $.getScript(`${staticBaseUri}/js/dist/tagify.js`),
+                $.getScript(`${staticBaseUri}/js/dist/tagify-init.js`),
                 localize_unwanted_ingredients_tags()
             ).done(function() {
                 // Initialize tagify on the unwanted ingredients input field
@@ -538,7 +528,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
       decide();
     } else {
       const script = document.createElement("script");
-      script.src = "/js/dist/external-knowledge-panels.js";
+      script.src = `${staticBaseUri}/js/dist/external-knowledge-panels.js`;
       script.onload = decide;
       document.body.appendChild(script);
     }
@@ -604,7 +594,7 @@ function display_use_preferences_switch_and_edit_preferences_button(target_selec
         mount();
       } else {
         const s = document.createElement("script");
-        s.src = "/js/dist/external-knowledge-panels.js";
+        s.src = `${staticBaseUri}/js/dist/external-knowledge-panels.js`;
         s.onload = mount;
         document.body.appendChild(s);
       }

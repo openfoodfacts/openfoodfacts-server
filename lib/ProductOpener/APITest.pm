@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -36,6 +36,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&construct_test_url
 		&create_user
+		&create_user_legacy
 		&edit_user
 		&create_user_in_keycloak
 		&create_test_users
@@ -54,6 +55,7 @@ BEGIN {
 		&execute_api_tests
 		&fake_http_server
 		&get_minion_jobs
+		&get_last_minion_job_created
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -68,7 +70,7 @@ use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Minion qw/get_minion write_minion_log/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Config qw/%oidc_options/;
-use ProductOpener::Auth qw/get_oidc_implementation_level/;
+use ProductOpener::Auth qw/get_oidc_implementation_level get_token_using_password_credentials/;
 use ProductOpener::Tags qw/country_to_cc/;
 use ProductOpener::TestDefaults qw/:all/;
 
@@ -202,9 +204,9 @@ sub new_client () {
 	return $ua;
 }
 
-=head2 create_user($ua, $args_ref)
+=head2 create_user_legacy($ua, $args_ref)
 
-Call API to create a user
+Call API to create a user. This legacy method will be deprecated at some point
 
 =head3 Arguments
 
@@ -214,10 +216,13 @@ Call API to create a user
 
 =cut
 
-sub create_user ($ua, $args_ref, $is_edit = 0) {
-	my $before_create_ts = time();
+sub create_user_legacy ($ua, $args_ref, $is_edit = 0) {
+	my $before_create_ts = get_last_minion_job_created();
 
 	my %fields = %{clone($args_ref)};
+	if (not defined $fields{email}) {
+		$fields{email} = $fields{userid} . '@example.com';
+	}
 	my $tail = tail_log_start();
 	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
@@ -242,7 +247,7 @@ Call API to edit a user, see create_user
 sub edit_user ($ua, $args_ref) {
 	($args_ref->{type} eq "edit") or confess("Action type must be 'edit' in edit_user");
 	# technically the same as create_user but need to know it is an edit so we don't wait for Keycloak events !
-	return create_user($ua, $args_ref, 1);
+	return create_user_legacy($ua, $args_ref, 1);
 }
 
 =head2 login($ua, $user_id, $password)
@@ -268,10 +273,7 @@ sub login ($ua, $user_id, $password) {
 
 =head2 create_user_in_keycloak($user_ref)
 
-Call API to create a user in Keycloak
-without creating them in ProductOpener, too.
-As create_user uses the ProductOpener API, this
-is useful for testing the Keycloak API on it's own.
+Call API to create a user in Keycloak which will in turn create the user in ProductOpener via Redis
 
 =head3 Arguments
 
@@ -280,7 +282,7 @@ is useful for testing the Keycloak API on it's own.
 =cut
 
 sub create_user_in_keycloak ($user_ref) {
-	my $before_create_ts = time();
+	my $before_create_ts = get_last_minion_job_created();
 
 	my $credential = {
 		type => 'password',
@@ -297,9 +299,14 @@ sub create_user_in_keycloak ($user_ref) {
 		attributes => {
 			name => $user_ref->{name},
 			locale => $user_ref->{preferred_language},
-			country => country_to_cc($user_ref->{country}),
+			requested_org => $user_ref->{requested_org},
+			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
+	# Only supply country if it is set
+	if ($user_ref->{country}) {
+		$keycloak_user_ref->{attributes}->{country} = country_to_cc($user_ref->{country});
+	}
 
 	my $json = encode_json($keycloak_user_ref);
 
@@ -320,6 +327,29 @@ sub create_user_in_keycloak ($user_ref) {
 	get_minion_jobs("welcome_user", $before_create_ts);
 
 	return 1;
+}
+
+=head2 create_user($ua, $user_ref)
+
+Call API to create a user in Keycloak which will in turn create the user in ProductOpener via Redis
+Also logs the user in by setting the Authorization header in the user agent
+
+=head3 Arguments
+
+=head4 $ua - user agent
+
+=head4 $user_ref - fields
+
+=cut
+
+sub create_user ($ua, $user_ref) {
+	create_user_in_keycloak($user_ref);
+
+	# Get an access token for the user and add to a client for authenticated requests
+	my $access_token = get_token_using_password_credentials($user_ref->{userid}, $user_ref->{password})->{access_token};
+	$ua->default_header('Authorization' => 'Bearer ' . $access_token);
+
+	return $access_token;
 }
 
 =head2 create_test_users($admin=undef, $moderator=undef)
@@ -358,32 +388,29 @@ sub create_test_users($admin = undef, $moderator = undef) {
 
 	# Create a normal user
 	my $ua = new_client();
-	my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-	my $resp = create_user($ua, \%create_user_args);
-	ok(!html_displays_error($resp));
+	my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+	create_user($ua, \%create_user_args);
 	$users{user} = $ua;
 
 	my $admin_ua;
 	if ($admin or $moderator) {
 		# Create an admin
 		$admin_ua = new_client();
-		$resp = create_user($admin_ua, \%admin_user_form);
-		ok(!html_displays_error($resp));
+		create_user($admin_ua, \%admin_user_form);
 		$users{admin} = $admin_ua;
 	}
 
 	if ($moderator) {
 		# Create a moderator
 		my $moderator_ua = new_client();
-		$resp = create_user($moderator_ua, \%moderator_user_form);
-		ok(!html_displays_error($resp));
+		create_user($moderator_ua, \%moderator_user_form);
 		# Admin gives moderator status
 		my %moderator_edit_form = (
 			%moderator_user_form,
 			user_group_moderator => "1",
 			type => "edit",
 		);
-		$resp = edit_user($admin_ua, \%moderator_edit_form);
+		my $resp = edit_user($admin_ua, \%moderator_edit_form);
 		ok(!html_displays_error($resp));
 		$users{moderator} = $moderator_ua;
 	}
@@ -1120,6 +1147,7 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 	my %run_jobs = ();
 	my $waiting_jobs = 0;
 	my $completed_jobs = 0;
+	my @debug_jobs = ();
 	while ($waited < $max_waiting_time and ($waiting_jobs or not $completed_jobs)) {
 		my $jobs = get_minion()->jobs({tasks => [$task_name]});
 		$waiting_jobs = 0;
@@ -1127,8 +1155,7 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 		while (my $job = $jobs->next) {
 			next if (defined $run_jobs{$job->{id}});
 			# only those who were created after the timestamp
-			# Reduce test time by one second to account for small clock differences
-			if ($job->{created} >= ($created_after_ts - 1)) {
+			if ($job->{created} >= $created_after_ts) {
 				# retrieving the job id
 				my $job_id = $job->{id};
 				# retrieving the job state
@@ -1161,6 +1188,19 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 	# sort by creation date to have jobs in predictable order
 	my @all_jobs = sort {$a->{created} <=> $b->{created}} (values %run_jobs);
 	return \@all_jobs;
+}
+
+sub get_last_minion_job_created () {
+	my $jobs = get_minion()->jobs();
+	# Allow a buffer as some differences have been observed even though docker containers should always be in sync
+	my $latest_created = time() - 2;
+	# iterate on jobs
+	while (my $job = $jobs->next) {
+		if ($job->{created} > $latest_created) {
+			$latest_created = $job->{created};
+		}
+	}
+	return $latest_created;
 }
 
 1;

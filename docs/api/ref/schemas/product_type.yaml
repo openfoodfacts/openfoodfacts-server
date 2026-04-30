@@ -1,0 +1,18 @@
+type: object
+description: Product type information
+properties:
+  product_type:
+    type: string
+    description: |
+      The product type is a fundamental separation that tells on which platform the product is made available:
+      Open Food Facts, Open Beauty Facts, Open Pet Food Facts or Open Products Facts.
+
+      Each platform has variations on the way it analyses the product.
+
+      Changing the product type moves the product to the new platform.
+      It must be done thoughtfully.
+    enum:
+      - "beauty"
+      - "food"
+      - "petfood"
+      - "product"

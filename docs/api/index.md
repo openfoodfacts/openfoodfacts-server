@@ -46,9 +46,8 @@ Before using the API, please :
 
 To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:
 
-- 100 req/min for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
-- 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests); don't use it for a search-as-you-type feature, you would be blocked very quickly.
-- 2 req/min for facet queries (such as `/categories`, `/label/organic`, `/ingredient/salt/category/breads`,...).
+- 15 req/min/IP address for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
+- 10 req/min/IP address for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests); don't use it for a search-as-you-type feature, you would be blocked very quickly.
 
 If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to [email us to explain why you reached the limits][why_reached_limits]: reverting the ban is possible.
 
@@ -56,7 +55,11 @@ If these limits are reached, we reserve the right to deny you access to the webs
 
 If your requests come from your users directly (ex: mobile app), the rate limits apply per user.
 
-If you need to fetch a significant fraction of the database, we recommend [downloading the data as a CSV or JSONL file directly](https://world.openfoodfacts.org/data). If you need to download images in bulk, we [have a guide for that](./how-to-download-images.md).
+If you need to fetch more than a few hundred products, we ask you to [download the data as a CSV or JSONL file directly](https://world.openfoodfacts.org/data). If you need to download images in bulk, we [have a guide for that](./how-to-download-images.md).
+
+To protect our infrastructure from abusive crawl, we also added global rate-limits on the website and API endpoints, irrespective of the IP address. A HTTP 503 response (Service Not Available) will be returned if these limits are exceeded.
+
+If you expect your app to generate a lot of API traffic, we **strongly encourage you to host a local instance of Product Opener (or another custom API backend)**, and use the daily exports to update your local database.
 
 ### If your users do not expect a result immediately (e.g., Inventory apps)
 

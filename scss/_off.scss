@@ -82,7 +82,7 @@ $material-icons: "Material Icons";
   text-transform: none;
   display: inline-block;
   white-space: nowrap;
-  word-wrap: normal;
+  overflow-wrap: normal;
   direction: ltr;
   font-feature-settings: "liga";
   -webkit-font-feature-settings: "liga";
@@ -203,33 +203,34 @@ hr.floatright {
   font-size: 1em;
 }
 
-.nutriment_label {
+.nutrient_label {
   text-align: left;
   width: 300px;
 }
 
-.nutriment_value {
+.nutrient_value {
   text-align: right;
 }
 
-.nutriment_subx {
+.nutrient_subx {
   font-size: 0.9em;
 }
 
-.data_table .nutriment_sub .nutriment_label {
+.data_table .nutrient_sub .nutrient_label {
   padding-left: 20px;
 }
 
-.data_table .nutriment_sub_sub .nutriment_label {
+.data_table .nutrient_sub_sub .nutrient_label {
   padding-left: 40px;
 }
 
-input.nutriment_value {
+input.nutrient_value {
   height: 2.3125rem;
   width: 5rem;
+  margin-bottom: 0;
 }
 
-select.nutriment_unit {
+select.nutrient_unit {
   margin-bottom: 0;
   width: 5rem;
 }
@@ -254,18 +255,18 @@ tbody {
   padding-left: 0.5rem;
 }
 
-.data_table .nutriment_head {
+.data_table .nutrient_head {
   background-color: #88f;
   color: #fff;
 }
 
-.data_table .nutriment_main {
+.data_table .nutrient_main {
   background-color: #ddf;
   border-top: 3px solid #fff;
 }
 
-.data_table .nutriment_sub,
-.data_table .nutriment_sub td {
+.data_table .nutrient_sub,
+.data_table .nutrient_sub td {
   background-color: #eef;
   border-top: 1px solid #ddf;
 }
@@ -274,7 +275,7 @@ tbody {
   font-size: 1em;
 }
 
-#nutriment_carbon-footprint_tr {
+#nutrient_carbon-footprint_tr {
   background-color: #dfd;
 }
 
@@ -295,7 +296,7 @@ ul.products {
   margin: 10px;
   padding: 10px;
   width: 120px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   text-decoration: none !important;
 }
 
@@ -460,7 +461,7 @@ nav.tab-bar > div {
 p.details {
   color: gray;
   font-size: 0.8em;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .select2-dropdown.select2-dropdown--below {
@@ -757,7 +758,7 @@ html[dir="rtl"] {
   border-radius: 8px;
   padding: 10px;
   display: block;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #product_banner {
@@ -918,7 +919,7 @@ html[dir="rtl"] {
 // from https://www.w3.org/WAI/tutorials/forms/labels/
 .visuallyhidden {
   border: 0;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -2014,5 +2015,9 @@ div.form-field-with-btn {
 
 .is_hidden {
   display: none;
+}
+
+#moveimagesmsg {
+  transition: opacity 0.3s ease-out;
 }
 
