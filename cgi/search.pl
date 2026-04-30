@@ -33,7 +33,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
-use ProductOpener::Food qw/%nutriments_lists/;
+use ProductOpener::Food qw/%nutrients_lists/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -114,9 +114,13 @@ $request_ref->{search} = 1;
 # rate_limiter_bucket is required for `check_and_update_rate_limits`
 $request_ref->{rate_limiter_bucket} = 'search';
 
-check_and_update_rate_limits($request_ref);
+# Check and update rate limits if not disabled (default is ENABLED for production safety)
+if (not $rate_limiter_disabled) {
+	check_and_update_rate_limits($request_ref);
+}
 
-if ($request_ref->{rate_limiter_blocking}) {
+# Block request if rate limit exceeded (only if rate limiter is not disabled)
+if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
 	# The request is blocked by the rate limiter:
 	# return directly a "too many requests" empty HTML page
 	display_too_many_requests_page_and_exit();
@@ -393,9 +397,9 @@ if ($action eq 'display') {
 	}
 
 	# Compute possible fields values
-	my @axis_values = @{$nutriments_lists{$nutriment_table}};
+	my @axis_values = @{$nutrients_lists{$nutrient_table}};
 	my %axis_labels = ();
-	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
+	foreach my $nid (@{$nutrients_lists{$nutrient_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
 		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", {nid => $nid, value => $axis_labels{$nid}}) if $log->is_debug();
 	}

@@ -12,6 +12,10 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Tags qw/exists_taxonomy_tag has_tag get_property %properties/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Nutrition qw/assign_nutrition_values_from_old_request_parameters/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Note: the categories en:unsweetened-beverages, en:sweetened-beverages, en:artificially-sweetened-beverages
 # are now only added temporarily when we compute food groups, they are not kept in the product categories
@@ -158,181 +162,9 @@ specific_processes_for_food_product($product_ref);
 
 is($product_ref->{nutrition_score_beverage}, 0);
 
-$product_ref = {nutriments => {salt => 3, salt_value => 3000, salt_unit => "mg"},};
+# Check that the nutrients defined in %nutrients_tables are defined in the nutrients taxonomy
 
-fix_salt_equivalent($product_ref);
-
-my $expected_product_ref;
-
-$expected_product_ref = {
-	nutriments => {
-		salt => 3,
-		salt_value => 3000,
-		salt_unit => "mg",
-		sodium => 1.2,
-		sodium_value => 1200,
-		sodium_unit => "mg"
-	}
-};
-
-is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
-
-$product_ref = {
-	nutriments => {"nova-group" => 4, "nova-group_100g" => 4, "nova-group_serving" => 4, "alcohol" => 12, "ph" => 7},
-	nutrition_data_per => "serving",
-	quantity => "100 g",
-	serving_size => "25 g",
-};
-
-compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
-$expected_product_ref = {
-	'nutriments' => {
-		'alcohol' => 12,
-		'alcohol_100g' => 12,
-		'alcohol_serving' => 12,
-		'nova-group' => 4,
-		'nova-group_100g' => 4,
-		'nova-group_serving' => 4,
-		'ph' => 7,
-		'ph_100g' => 7,
-		'ph_serving' => 7
-	},
-	'nutrition_data' => 'on',
-	'nutrition_data_per' => 'serving',
-	'nutrition_data_prepared_per' => '100g',
-	'product_quantity' => 100,
-	'product_quantity_unit' => "g",
-	'quantity' => '100 g',
-	'serving_quantity' => 25,
-	'serving_quantity_unit' => "g",
-	'serving_size' => '25 g'
-};
-
-is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
-
-$product_ref = {
-	nutriments => {"sugars" => 4, "salt" => 1},
-	nutrition_data_per => "serving",
-	quantity => "100 g",
-	serving_size => "25 g",
-};
-
-compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
-$expected_product_ref = {
-	'nutriments' => {
-		'sugars' => 4,
-		'sugars_100g' => 16,
-		'sugars_serving' => 4,
-		'salt' => 1,
-		'salt_100g' => 4,
-		'salt_serving' => 1,
-	},
-	'nutrition_data' => 'on',
-	'nutrition_data_per' => 'serving',
-	'nutrition_data_prepared_per' => '100g',
-	'product_quantity' => 100,
-	'product_quantity_unit' => "g",
-	'quantity' => '100 g',
-	'serving_quantity' => 25,
-	'serving_quantity_unit' => "g",
-	'serving_size' => '25 g'
-};
-
-is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
-
-$product_ref = {
-	nutriments => {
-		"energy-kcal_prepared" => 58,
-		"energy-kcal_prepared_value" => 58,
-		"salt_prepared" => 10,
-		"salt_prepared_value" => 10
-	},
-	nutrition_data_prepared_per => "serving",
-	quantity => "100 g",
-	serving_size => "25 g",
-};
-
-compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
-$expected_product_ref = {
-	'nutriments' => {
-		'energy-kcal_prepared' => 58,
-		'energy-kcal_prepared_100g' => 232,
-		'energy-kcal_prepared_serving' => 58,
-		'energy-kcal_prepared_unit' => 'kcal',
-		'energy-kcal_prepared_value' => 58,
-		'energy_prepared' => 243,
-		'energy_prepared_100g' => 972,
-		'energy_prepared_serving' => 243,
-		'energy_prepared_unit' => 'kcal',
-		'energy_prepared_value' => 58,
-		'salt_prepared' => 10,
-		'salt_prepared_100g' => 40,
-		'salt_prepared_serving' => 10,
-		'salt_prepared_value' => 10
-	},
-	'nutrition_data_per' => '100g',
-	'nutrition_data_prepared' => 'on',
-	'nutrition_data_prepared_per' => 'serving',
-	'product_quantity' => 100,
-	'product_quantity_unit' => 'g',
-	'quantity' => '100 g',
-	'serving_quantity' => 25,
-	'serving_quantity_unit' => 'g',
-	'serving_size' => '25 g'
-};
-
-is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
-
-# Unknown nutrient
-
-$product_ref = {
-	nutriments => {"fr-unknown-nutrient" => 10},
-	nutrition_data_prepared_per => "100g",
-	quantity => "100 g",
-	serving_size => "25 g",
-};
-
-compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
-$expected_product_ref = {
-	'nutriments' => {
-		'fr-unknown-nutrient' => 10,
-		'fr-unknown-nutrient_100g' => 10,
-		'fr-unknown-nutrient_serving' => '2.5'
-	},
-	'nutrition_data' => 'on',
-	'nutrition_data_per' => '100g',
-	'nutrition_data_prepared_per' => '100g',
-	'product_quantity' => 100,
-	'product_quantity_unit' => "g",
-	'quantity' => '100 g',
-	'serving_quantity' => 25,
-	'serving_quantity_unit' => "g",
-	'serving_size' => '25 g'
-};
-
-is(default_unit_for_nid("sugars"), "g");
-is(default_unit_for_nid("energy-kj"), "kJ");
-is(default_unit_for_nid("energy-kcal_prepared"), "kcal");
-
-is($product_ref, $expected_product_ref) or diag Dumper($product_ref);
-
-# Check that nutrients typed in by users in the nutrition table product edit form are recognized
-is(canonicalize_nutriment("en", "saturated"), "saturated-fat");
-is(canonicalize_nutriment("en", "of which saturated"), "saturated-fat");
-is(canonicalize_nutriment("fr", "dont sucre"), "sugars");
-is(canonicalize_nutriment("fr", "dont saturés"), "saturated-fat");
-is(canonicalize_nutriment("fr", "ARA"), "arachidonic-acid");
-is(canonicalize_nutriment("fr", "AGS"), "saturated-fat");
-is(canonicalize_nutriment("en", "some unknown nutrient"), "en-some-unknown-nutrient");
-is(canonicalize_nutriment("fr", "un nutriment inconnu"), "fr-un-nutriment-inconnu");
-
-# Check that the nutrients defined in %nutriments_tables are defined in the nutrients taxonomy
-
-foreach (@{$nutriments_tables{europe}}) {
+foreach (@{$nutrients_tables{europe}}) {
 
 	my $nid = $_;    # Copy instead of alias
 
@@ -349,203 +181,6 @@ foreach (@{$nutriments_tables{europe}}) {
 
 	ok(exists_taxonomy_tag("nutrients", $tagid), "$tagid exists in the nutrients taxonomy");
 }
-
-# Test normalize_nutriment_value_and_modifier()
-# and assign_nid_modifier_value_and_unit()
-
-$product_ref = {};
-
-my $value = "50.1";
-my $modifier;
-# test we have no modifier
-normalize_nutriment_value_and_modifier(\$value, \$modifier);
-is($value, "50.1");
-is($modifier, undef);
-# test compute_nutrition_data_per_100g_and_per_serving with various units
-assign_nid_modifier_value_and_unit($product_ref, "salt", $modifier, $value, undef);
-assign_nid_modifier_value_and_unit($product_ref, "sugars", $modifier, $value, "g");
-assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "mg");
-
-compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
-is(
-	$product_ref,
-	{
-		'nutriments' => {
-			'fat' => '0.0501',
-			'fat_100g' => '0.0501',
-			'fat_unit' => 'mg',
-			'fat_value' => '50.1',
-			'salt' => '50.1',
-			'salt_100g' => '50.1',
-			'salt_unit' => 'g',
-			'salt_value' => '50.1',
-			'sugars' => '50.1',
-			'sugars_100g' => '50.1',
-			'sugars_unit' => 'g',
-			'sugars_value' => '50.1'
-		},
-		'nutrition_data' => 'on',
-		'nutrition_data_per' => '100g',
-		'nutrition_data_prepared_per' => '100g'
-	}
-) or diag Dumper $product_ref;
-
-# test various  modifiers : - (not communicated), >=, etc.
-
-$value = '-';
-normalize_nutriment_value_and_modifier(\$value, \$modifier);
-is($value, undef);
-is($modifier, '-');
-assign_nid_modifier_value_and_unit($product_ref, "salt", $modifier, $value, "g");
-
-$value = '<= 1';
-normalize_nutriment_value_and_modifier(\$value, \$modifier);
-is($value, "1");
-is($modifier, "≤");
-assign_nid_modifier_value_and_unit($product_ref, "sugars", $modifier, $value, "g");
-
-# Delete a value, check all derived fields are deleted as well
-$value = '';
-normalize_nutriment_value_and_modifier(\$value, \$modifier);
-is($value, undef);
-is($modifier, undef);
-assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "g");
-
-# test modifiers are taken into account
-compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
-is(
-	$product_ref,
-	{
-		'nutriments' => {
-			'fat_unit' => 'mg',
-			'salt_modifier' => '-',
-			'salt_unit' => 'g',
-			'sugars' => 1,
-			'sugars_100g' => 1,
-			'sugars_modifier' => "\x{2264}",
-			'sugars_unit' => 'g',
-			'sugars_value' => 1
-		},
-		'nutrition_data' => 'on',
-		'nutrition_data_per' => '100g',
-		'nutrition_data_prepared_per' => '100g'
-	}
-) or diag Dumper $product_ref;
-
-# test reporting traces
-$value = 'Traces';
-normalize_nutriment_value_and_modifier(\$value, \$modifier);
-is($value, 0);
-is($modifier, '~');
-assign_nid_modifier_value_and_unit($product_ref, "fat", $modifier, $value, "g");
-
-# Prepared value
-
-$value = '~ 20,5 ';
-normalize_nutriment_value_and_modifier(\$value, \$modifier);
-is($value, '20,5');
-is($modifier, '~');
-assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $value, "g");
-
-# Prepared value defined in IU
-assign_nid_modifier_value_and_unit($product_ref, "vitamin-a_prepared", "", 468, "IU");
-
-# test support of traces, as well as "nearly" and prepared values
-compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
-is(
-	$product_ref,
-	{
-		'nutriments' => {
-			'fat' => 0,
-			'fat_100g' => 0,
-			'fat_modifier' => '~',
-			'fat_unit' => 'g',
-			'fat_value' => 0,
-			'salt_modifier' => '-',
-			'salt_prepared' => '20.5',
-			'salt_prepared_100g' => '20.5',
-			'salt_prepared_modifier' => '~',
-			'salt_prepared_unit' => 'g',
-			'salt_prepared_value' => '20.5',
-			'salt_unit' => 'g',
-			'sugars' => 1,
-			'sugars_100g' => 1,
-			'sugars_modifier' => "\x{2264}",
-			'sugars_unit' => 'g',
-			'sugars_value' => 1,
-			'vitamin-a_prepared' => '0.0001404',
-			'vitamin-a_prepared_100g' => '0.0001404',
-			'vitamin-a_prepared_unit' => 'IU',
-			'vitamin-a_prepared_value' => 468,
-		},
-		'nutrition_data' => 'on',
-		'nutrition_data_prepared' => 'on',
-		'nutrition_data_per' => '100g',
-		'nutrition_data_prepared_per' => '100g'
-	}
-) or diag Dumper $product_ref;
-
-# Test IU and %DV values
-$product_ref = {'nutrition_data_per' => '100g'};
-assign_nid_modifier_value_and_unit($product_ref, "vitamin-a", undef, 40, "IU");
-assign_nid_modifier_value_and_unit($product_ref, "vitamin-e", undef, 40, "IU");
-assign_nid_modifier_value_and_unit($product_ref, "calcium", undef, 20, "% DV");
-assign_nid_modifier_value_and_unit($product_ref, "vitamin-d", undef, 20, "% DV");
-assign_nid_modifier_value_and_unit($product_ref, "vitamin-b1", undef, 100, "% DV");
-
-is(
-	$product_ref,
-	{
-		nutriments => {
-			'calcium' => '0.26',
-			'calcium_unit' => '% DV',
-			'calcium_value' => 20,
-			'vitamin-a' => '1.2e-05',
-			'vitamin-a_unit' => 'IU',
-			'vitamin-a_value' => 40,
-			'vitamin-b1' => '0.0012',
-			'vitamin-b1_unit' => '% DV',
-			'vitamin-b1_value' => 100,
-			'vitamin-d' => '4e-06',
-			'vitamin-d_unit' => '% DV',
-			'vitamin-d_value' => 20,
-			'vitamin-e' => '0.0266666666666667',
-			'vitamin-e_unit' => 'IU',
-			'vitamin-e_value' => 40
-		},
-		'nutrition_data_per' => '100g',
-	}
-) or diag Dumper $product_ref;
-
-# Test that 100g values are not extrapolated where serving size <=5
-$product_ref = {
-	serving_size => '5 g',
-	nutrition_data_per => 'serving'
-};
-
-assign_nid_modifier_value_and_unit($product_ref, "fat", undef, '1', 'g');
-compute_nutrition_data_per_100g_and_per_serving($product_ref);
-
-is(
-	$product_ref,
-	{
-		'nutriments' => {
-			'fat' => '1',
-			'fat_serving' => '1',
-			'fat_unit' => 'g',
-			'fat_value' => '1',
-		},
-		'nutrition_data' => 'on',
-		'nutrition_data_per' => 'serving',
-		'nutrition_data_prepared_per' => '100g',
-		'serving_quantity' => 5,
-		'serving_quantity_unit' => "g",
-		'serving_size' => '5 g'
-	}
-) or diag Dumper $product_ref;
 
 # Testing for get_nutrient_unit both for India and a country where no unit is described
 # Test case for fetching unit for sodium in India
@@ -606,46 +241,47 @@ my @tests = (
 			'nutriments' => {}
 		},
 		expected_product_ref => {
-			'nutriments' => {
-				'energy' => '0.4',
-				'energy_100g' => '0.4',
-				'energy_unit' => 'kJ',
-				'energy_value' => '0.4',
-				'energy-kj' => '0.4',
-				'energy-kj_100g' => '0.4',
-				'energy-kj_unit' => 'kJ',
-				'energy-kj_value' => '0.4',
-				'fat' => '4',
-				'fat_100g' => '4',
-				'fat_unit' => 'g',
-				'fat_value' => '4',
-				'salt' => '1',
-				'salt_100g' => '1',
-				'salt_unit' => 'g',
-				'salt_value' => '1'
-			},
-			nutrition_data => 'on',
-			nutrition_data_per => "100g",
-			nutrition_data_prepared_per => "100g",
-		},
+			'nutriments' => {},
+			'nutrition' => {
+				'input_sets' => [
+					{
+						'nutrients' => {
+							'energy-kj' => {
+								'unit' => 'kJ',
+								'value' => '0.4',
+								'value_string' => '0.4'
+							},
+							'fat' => {
+								'unit' => 'g',
+								'value' => 4,
+								'value_string' => 4
+							},
+							'salt' => {
+								'unit' => 'g',
+								'value' => 1,
+								'value_string' => '1'
+							}
+						},
+						'per' => '100g',
+						'per_quantity' => 100,
+						'per_unit' => 'g',
+						'preparation' => 'as_sold',
+						'source' => 'packaging'
+					}
+				]
+			}
+			}
+
+		,
 	}
 );
 my %form = ();
 {
-	# monkey patch single_param
-	my $display_module = mock 'ProductOpener::Display' => (
+	# monkey patch request_param
+	my $products_module = mock 'ProductOpener::Nutrition' => (
 		override => [
-			single_param => sub {
-				my ($name) = @_;
-				return scalar $form{$name};
-			}
-		]
-	);
-	# because this is a direct import in Food we have to monkey patch here too
-	my $products_module = mock 'ProductOpener::Food' => (
-		override => [
-			single_param => sub {
-				my ($name) = @_;
+			request_param => sub {
+				my ($request_ref, $name) = @_;
 				return scalar $form{$name};
 			}
 		]
@@ -656,8 +292,8 @@ my %form = ();
 			my $desc = $test_ref->{desc};
 			my %product = %{$test_ref->{product_ref}};
 			%form = %{$test_ref->{form}};
-			assign_nutriments_values_from_request_parameters(\%product, $test_ref->{nutriment_table});
-			compute_nutrition_data_per_100g_and_per_serving(\%product);
+			assign_nutrition_values_from_old_request_parameters({}, \%product, $test_ref->{nutriment_table},
+				"packaging");
 
 			is(\%product, $test_ref->{expected_product_ref}, "Result for $id - $desc") || diag Dumper \%product;
 
@@ -668,9 +304,57 @@ my %form = ();
 	}
 }
 
-is(has_nutrition_data_for_product_type({}, ""), 0);
-is(has_nutrition_data_for_product_type({nutriments => {"sugars_100g" => 5}}, ""), 1);
-is(has_nutrition_data_for_product_type({nutriments => {"sugars_100g" => 0}}, "_prepared"), 0);
-is(has_nutrition_data_for_product_type({nutriments => {"sugars_prepared_serving" => 10}}, "_prepared"), 1);
+# test compare_nutrients
+my @comparison_tests = (
+	[
+		"nutrients-comparisons",
+		{
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						"fat" => {
+							value => 30.9
+						},
+						"salt" => {
+							value => 4
+						},
+						"energy" => {
+							value => 2252
+						},
+						"saturated-fats" => {
+							value => 2.4
+						},
+						"proteins" => {
+							value => 7.2
+						}
+					},
+					preparation => "as_sold",
+					per => "100g",
+				}
+			}
+		},
+		{
+			nutriments => {
+				energy_100g => 1055,
+				fat_100g => -10,
+				"saturated-fats_100g" => 13,
+				sugars_100g => 2,
+				salt_100g => 4
+			}
+		}
+	]
+);
+
+foreach my $test_ref (@comparison_tests) {
+	my $testid = $test_ref->[0];
+	my $product_test_ref = $test_ref->[1];
+	my $reference_test_ref = $test_ref->[2];
+
+	my $comparisons = compare_nutrients($product_test_ref, $reference_test_ref);
+
+	compare_to_expected_results($comparisons, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
+
+}
 
 done_testing();

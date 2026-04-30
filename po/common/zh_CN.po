@@ -298,7 +298,7 @@ msgstr "产品页面已被修改"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "分析成分"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
@@ -315,7 +315,7 @@ msgstr "Android APK文件"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -932,7 +932,7 @@ msgstr "隐私"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -2429,7 +2429,7 @@ msgstr "再次编辑产品"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "国家/地区"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3833,7 +3833,7 @@ msgstr "可能的改进"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4090,7 +4090,7 @@ msgstr "营养评分"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "营养价值评分"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4100,7 +4100,7 @@ msgstr "营养分数"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "营养价值评分"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4634,7 +4634,7 @@ msgstr "营养质量"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "营养价值评分"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4885,7 +4885,7 @@ msgstr "环境影响"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4898,7 +4898,7 @@ msgstr "Green-Score 是从 A 到 E 的环境评分，可以轻松比较食品对
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -5149,19 +5149,19 @@ msgstr "缺少预制产品的营养成分表"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5446,8 +5446,8 @@ msgstr "希望、任务、价值和项目"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -7231,7 +7231,7 @@ msgstr "您需要启用 cookies 才能登录。"
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "您不能删除主要联系人。请先更改它。"
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
@@ -7323,7 +7323,7 @@ msgstr "拒绝"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "以下用户请求加入该组织："
 
 msgctxt "last_login"
 msgid "Last login date"
@@ -7339,7 +7339,7 @@ msgstr ""
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "选择包含产品数据的文件"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
@@ -7347,7 +7347,7 @@ msgstr "没有 Nutri-Score 的产品数量"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "计算营养价值评分的产品百分比"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
@@ -7678,36 +7678,36 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "这些偏好基于 Open Food Facts 对成分表的理解，并且始终存在不准确或不完整的可能性，请务必亲自检查产品。"
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
-msgstr ""
+msgid "Suffering Footprint"
+msgstr "动物受苦评分轨迹"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "按产品计算动物受苦的指标"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "动物福祉"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "外部知识面板"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "面板不可用"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "此产品暂无面板可用"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "外部来源"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "提供者"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
