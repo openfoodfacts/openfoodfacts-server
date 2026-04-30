@@ -47,7 +47,7 @@ BEGIN {
 		&initialize_knowledge_panels_options
 		&create_knowledge_panels
 		&create_panel_from_json_template
-		$create_edit_history_panel
+		&create_edit_history_panel
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
