@@ -1,4 +1,4 @@
-### Tutorial: Implementing a World-Class Barcode Scan Experience for Your App
+# Implementing a World-Class Barcode Scan Experience for Your App
 
 Creating a seamless barcode scanning feature is more than just decoding a barcode; it's about crafting a user experience that feels fast, intuitive, and reliable. This guide covers how to build that experience for the entire **Open "Everything" Facts ecosystem**, including Food, Beauty, Pet Food, and general Products.
 

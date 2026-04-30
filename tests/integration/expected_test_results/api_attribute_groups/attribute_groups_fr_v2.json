@@ -1,0 +1,367 @@
+[
+   {
+      "attributes" : [
+         {
+            "default" : "very_important",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-a.svg",
+            "id" : "nutriscore",
+            "name" : "Nutri-Score",
+            "panel_id" : "nutriscore",
+            "setting_name" : "Bonne qualité nutritionnelle (Nutri-Score)",
+            "setting_note" : "Le Nutri-Score est calculé et peut être pris en compte pour tous les produits, même s'il n'est pas affiché sur l'emballage.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
+            "id" : "low_salt",
+            "name" : "Sel",
+            "setting_name" : "Sel en faible quantité",
+            "setting_note" : "Le niveau de sel est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime pauvre en sel.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-low.svg",
+            "id" : "low_sugars",
+            "name" : "Sucres",
+            "setting_name" : "Sucres en faible quantité",
+            "setting_note" : "Le taux de sucres est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en sucres.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-low.svg",
+            "id" : "low_fat",
+            "name" : "Matières grasses",
+            "setting_name" : "Matières grasses en faible quantité",
+            "setting_note" : "Le taux de graisse est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en gras.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
+            "id" : "low_saturated_fat",
+            "name" : "Acides gras saturés",
+            "setting_name" : "Acides gras saturés en faible quantité",
+            "setting_note" : "Le taux d'acides gras saturés est pris en compte par le Nutri-Score. Utilisez ce paramètre uniquement si vous suivez un régime alimentaire faible en acides gras saturés.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         }
+      ],
+      "id" : "nutritional_quality",
+      "name" : "Qualité nutritionnelle"
+   },
+   {
+      "attributes" : [
+         {
+            "default" : "important",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
+            "id" : "nova",
+            "name" : "Groupe NOVA",
+            "panel_id" : "nova",
+            "setting_name" : "Pas ou peu de transformation des aliments (groupe NOVA)",
+            "setting_note" : "Pour déterminer le niveau de transformation d'un produit, nous nous appuyons sur la liste des ingrédients (marqueurs, méthodes de transformation) et des catégories.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg",
+            "id" : "additives",
+            "name" : "Additifs",
+            "panel_id" : "additives",
+            "setting_name" : "Pas ou peu d'additifs",
+            "setting_note" : "Les additifs sont des marqueurs de l'ultra transformation des aliments et une consommation excessive de certains d'entre eux peut avoir des effets indésirables sur la santé.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         }
+      ],
+      "id" : "processing",
+      "name" : "Transformation des aliments"
+   },
+   {
+      "attributes" : [
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-gluten.svg",
+            "id" : "allergens_no_gluten",
+            "name" : "Gluten",
+            "setting_name" : "Sans Gluten",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-milk.svg",
+            "id" : "allergens_no_milk",
+            "name" : "Lait",
+            "setting_name" : "Sans Lait",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-eggs.svg",
+            "id" : "allergens_no_eggs",
+            "name" : "Œufs",
+            "setting_name" : "Sans Œufs",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg",
+            "id" : "allergens_no_nuts",
+            "name" : "Fruits à coque",
+            "setting_name" : "Sans Fruits à coque",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg",
+            "id" : "allergens_no_peanuts",
+            "name" : "Arachides",
+            "setting_name" : "Sans Arachides",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg",
+            "id" : "allergens_no_sesame_seeds",
+            "name" : "Graines de sésame",
+            "setting_name" : "Sans Graines de sésame",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg",
+            "id" : "allergens_no_soybeans",
+            "name" : "Soja",
+            "setting_name" : "Sans Soja",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg",
+            "id" : "allergens_no_celery",
+            "name" : "Céleri",
+            "setting_name" : "Sans Céleri",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg",
+            "id" : "allergens_no_mustard",
+            "name" : "Moutarde",
+            "setting_name" : "Sans Moutarde",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg",
+            "id" : "allergens_no_lupin",
+            "name" : "Lupin",
+            "setting_name" : "Sans Lupin",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg",
+            "id" : "allergens_no_fish",
+            "name" : "Poisson",
+            "setting_name" : "Sans Poisson",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg",
+            "id" : "allergens_no_crustaceans",
+            "name" : "Crustacés",
+            "setting_name" : "Sans Crustacés",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg",
+            "id" : "allergens_no_molluscs",
+            "name" : "Mollusques",
+            "setting_name" : "Sans Mollusques",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
+            "id" : "allergens_no_sulphur_dioxide_and_sulphites",
+            "name" : "Anhydride sulfureux et sulfites",
+            "setting_name" : "Sans Anhydride sulfureux et sulfites",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         }
+      ],
+      "id" : "allergens",
+      "name" : "Allergènes",
+      "warning" : "Il est toujours possible que les données sur les allergènes soient manquantes, incomplètes, incorrectes ou que la composition du produit ait changé. Si vous êtes allergique, vérifiez toujours les informations sur l'emballage réel du produit."
+   },
+   {
+      "attributes" : [
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/vegan.svg",
+            "id" : "vegan",
+            "name" : "Végétalien",
+            "setting_name" : "Végétalien",
+            "setting_note" : "Pour déterminer si un produit est végétalien, nous nous appuyons uniquement sur la liste des ingrédients.",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg",
+            "id" : "vegetarian",
+            "name" : "Végétarien",
+            "setting_name" : "Végétarien",
+            "setting_note" : "Pour déterminer si un produit est végétarien, nous nous appuyons uniquement sur la liste des ingrédients.",
+            "values" : [
+               "not_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/palm-oil-free.svg",
+            "id" : "palm_oil_free",
+            "name" : "Sans huile de palme",
+            "setting_name" : "Sans huile de palme",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         }
+      ],
+      "id" : "ingredients_analysis",
+      "name" : "Ingrédients",
+      "warning" : "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
+   },
+   {
+      "attributes" : [
+         {
+            "description" : "L'agriculture biologique vise à protéger l'environnement et à conserver la biodiversité en prohibant ou limitant l'utilisation d'engrais synthétiques, de pesticides et d'additifs alimentaires.",
+            "description_short" : "Les produits bios encouragent la durabilité écologique et la biodiversité.",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/organic.svg",
+            "id" : "labels_organic",
+            "name" : "Agriculture biologique",
+            "setting_name" : "Agriculture biologique",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         },
+         {
+            "description" : "Quand vous achetez des produits du commerce équitable, les producteurs dans les pays en développement sont payés un prix plus haut et plus équitable, ce qui les aide à atteindre des plus hauts standards sociaux et environnementaux et à les conserver.",
+            "description_short" : "Les produits du commerce équitable aident les producteurs des pays en voie de développement.",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg",
+            "id" : "labels_fair_trade",
+            "name" : "Commerce équitable",
+            "setting_name" : "Commerce équitable",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         }
+      ],
+      "id" : "labels",
+      "name" : "Labels"
+   },
+   {
+      "attributes" : [
+         {
+            "default" : "important",
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-a.svg",
+            "id" : "ecoscore",
+            "name" : "Green-Score",
+            "panel_id" : "environmental_score",
+            "setting_name" : "Faible impact environnemental (Green-Score)",
+            "setting_note" : "Le Green-Score est un score environnemental de A à E qui permet de comparer facilement l'impact des produits alimentaires sur l'environnement.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         },
+         {
+            "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+            "id" : "forest_footprint",
+            "name" : "Empreinte forêt",
+            "panel_id" : "forest_footprint",
+            "setting_name" : "Faible risque de déforestation (Empreinte forêt)",
+            "setting_note" : "L'empreinte forêt correspond au risque de déforestation associé à ses ingrédients.",
+            "values" : [
+               "not_important",
+               "important",
+               "very_important",
+               "mandatory"
+            ]
+         }
+      ],
+      "id" : "environment",
+      "name" : "Environnement"
+   }
+]

@@ -239,7 +239,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingredients"
+            "name" : "Ingredients",
+            "warning" : "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
          },
          {
             "attributes" : [
@@ -293,6 +294,7 @@
                   "id" : "forest_footprint",
                   "match" : 0,
                   "name" : "Forest footprint",
+                  "panel_id" : "forest_footprint",
                   "status" : "known",
                   "title" : "Forest footprint not computed"
                }
@@ -339,9 +341,9 @@
                {
                   "element_type" : "panel_group",
                   "panel_group_element" : {
-                     "panel_group_id" : "packaging_recycling",
+                     "panel_group_id" : "packaging",
                      "panel_ids" : [
-                        "packaging_recycling"
+                        "packaging"
                      ],
                      "title" : "Packaging"
                   }
@@ -689,13 +691,6 @@
                            "style" : "max-width:15rem",
                            "text" : "Nutrition facts",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : true,
-                           "text" : "As sold<br>for 100 g / 100 ml",
-                           "text_for_small_screens" : "100g",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -705,10 +700,16 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fat"
-                              },
+                                 "text" : "Energy"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
                               {
-                                 "text" : "?"
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fat"
                               }
                            ]
                         },
@@ -718,9 +719,6 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Saturated fat"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -730,9 +728,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Carbohydrates"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -742,9 +737,6 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Sugars"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -754,9 +746,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fiber"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -766,9 +755,6 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
-                              },
-                              {
-                                 "text" : "?"
                               }
                            ]
                         },
@@ -778,14 +764,26 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Salt"
-                              },
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
                               {
-                                 "text" : "?"
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ legumes"
                               }
                            ]
                         }
                      ],
                      "title" : "Nutrition facts"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutrition_facts_table_with_input_sets"
                   }
                }
             ],
@@ -797,6 +795,116 @@
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
                "title" : "Nutrition facts"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrition_facts_table_with_input_sets" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "style" : "max-width:15rem",
+                           "text" : "Nutrition facts",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "nutrition_facts_table_with_input_sets",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Energy"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fat"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Saturated fat"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Carbohydrates"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sugars"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fiber"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Proteins"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Salt"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ legumes"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Nutrition facts"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Nutrition facts (Detailed data)"
             },
             "topics" : [
                "health"
@@ -823,12 +931,40 @@
             ],
             "evaluation" : "unknown",
             "expanded" : false,
+            "half_width_on_mobile" : true,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"
@@ -900,33 +1036,6 @@
             "level" : "info",
             "title_element" : {
                "title" : "Packaging materials"
-            },
-            "topics" : [
-               "environment"
-            ]
-         },
-         "packaging_recycling" : {
-            "elements" : [
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_components"
-                  }
-               },
-               {
-                  "element_type" : "panel",
-                  "panel_element" : {
-                     "panel_id" : "packaging_materials"
-                  }
-               }
-            ],
-            "evaluation" : "average",
-            "expanded" : true,
-            "level" : "info",
-            "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-               "title" : "Packaging with a medium impact"
             },
             "topics" : [
                "environment"

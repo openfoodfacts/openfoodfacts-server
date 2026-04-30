@@ -10,7 +10,7 @@ info:
 
     **WARNING** v3 is under development and you should expect changes
 
-    The current version of API v3 is v3.2
+    The current version of API v3 is v3.4
     See the [change log for the API and product schema](../ref-api-and-product-schema-change-log.md)
   termsOfService: "https://world.openfoodfacts.org/terms-of-use"
   contact:
@@ -27,13 +27,13 @@ servers:
   - description: dev
     url: "https://world.openfoodfacts.net"
 paths:
-  "/api/v3/product/{barcode}":
+  "/api/v3/product/{code}":
     get:
       tags:
         - Products
       summary: Get Product Data
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: |
             The barcode of the product to be fetched
@@ -44,13 +44,9 @@ paths:
             type: string
             example: "3017620422003"
         - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
-        - $ref: "#/components/parameters/cc"
-        - $ref: "#/components/parameters/lc"
-        - schema:
-            type: string
-          in: query
-          name: tags_lc
-          description: "2 letter language code to request names of tags in a specific language.  For READ requests: if passed, all taxonomized tags of the response will include a `lc_name` property with the translation in the requested language, if available. Otherwise, the property value will contain the name in the original language, prefixed by the 2 language code and a colon."
+        - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
+        - $ref: "./parameters/tags_lc.yaml#/components/parameters/TagsLc"
         - schema:
             type: string
           in: query
@@ -63,24 +59,12 @@ paths:
             * "raw": returns all fields as stored internally in the database
             * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
 
-            Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".'
-        - schema:
-            type: string
-            example: "health_card, environment_card"
-          required: false
-          in: query
-          name: knowledge_panels_included
-          description: |-
-            When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
-        - schema:
-            type: string
-            example: "health_card, environment_card"
-          required: false
-          in: query
-          name: knowledge_panels_excluded
-          description: |-
-            When knowledge_panels are requested, you can specify which panels to exclude from the response. All the others will be included.
-            If a panel is both excluded and included (with the knowledge_panels_excluded parameter), it will be excluded.
+            Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelClient"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelsSimplified"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/ActivateKnowledgePanelPhysicalActivities"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsIncluded"
+        - $ref: "./parameters/knowledge_panels_options.yaml#/components/parameters/KnowledgePanelsExcluded"
       responses:
         "200":
           description: OK
@@ -109,14 +93,14 @@ paths:
         Retrieve information for a product with a specific barcode.
 
         The fields parameter allows to specify what fields to retrieve.
-      operationId: get-product-by-barcode
+      operationId: get-api-v3-product-code
     patch:
       tags:
-        - Products     
+        - Products
       summary: Create or Update Product
-      operationId: patch-api-v3-product-barcode
+      operationId: patch-api-v3-product-code
       description: |-
-        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
+        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "code" path component needs to contain the value "test" instead of a barcode.
 
         New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
 
@@ -132,7 +116,7 @@ paths:
           - packaging fields (e.g. packagings, packagings_add, packagings_complete)
           - image selection of uploaded images (e.g. front, ingredients, nutrition, packaging) for specific languages
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: |
             The barcode of the product to to create or update, or "test" to analyze the product data sent without creating or updating a product.
@@ -189,7 +173,7 @@ paths:
                         recycling:
                           id: "en:recycle"
                         quantity_per_unit: 25 cl
-                        weight_measured: 10                      
+                        weight_measured: 10
                     product:
                       $ref: ./schemas/product_update_api_v3.yaml
           application/xml:
@@ -202,7 +186,7 @@ paths:
           For complex structures such as the packagings object, it is possible to replace pre-existing data, or completing it:
 
           - an object sent in the packagings field will replace any pre-existing data.
-          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.       
+          - an object sent in the field suffixed with _add (e.g. packagings_add) will be merged with any pre-existing data.
       responses:
         "200":
           description: |-
@@ -271,20 +255,23 @@ paths:
                           quantity_value: 200
                           quantity_unit: ml
                           weight: 80
-  "/api/v3/product/{barcode}/images":
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
+  "/api/v3/product/{code}/images":
     post:
       tags:
-        - Images         
+        - Images
       summary: Upload Product Image
-      operationId: post-api-v3-product-barcode-images
+      operationId: post-api-v3-product-code-images
       description: |-
-        
+
         This endpoint allows to upload an image for a product. The image is uploaded in the request body as a base64 encoded string.
         Optionally, it is possible to select the uploaded image for specific information (e.g. front, ingredients, nutrition, packaging) for specific languages. Each selected image is a cropped version of the uploaded image.
-       
+
         If the product does not exist, it will be created.
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: |
             The barcode of the product corresponding to the image.
@@ -312,7 +299,7 @@ paths:
                     password:
                       type: string
                       description: Password for login
-                      format: password                      
+                      format: password
                     image_data_base64:
                       type: string
                       description: |-
@@ -327,6 +314,9 @@ paths:
               properties: {}
         description: |
           Image data for the product is passed in the image_data_base64 field as a base64 encoded string.
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
       responses:
         "200":
           description: |-
@@ -359,19 +349,19 @@ paths:
                                 patternProperties:
                                   '(?<imgid>\d+)':
                                     $ref: "./schemas/image_uploaded.yaml#/components/schemas/ImageUploaded"
-  "/api/v3/product/{barcode}/images/uploaded/{imgid}":
-    delete: 
+  "/api/v3/product/{code}/images/uploaded/{imgid}":
+    delete:
       tags:
         - Images
       summary: Delete Product Image
-      operationId: delete-api-v3-product-barcode-images-uploaded-imgid
+      operationId: delete-api-v3-product-code-images-uploaded-imgid
       description: |-
         This endpoint allows to delete an uploaded image for a product.
         Selected images that are cropped from it will also be deleted.
 
         Image deletion is allowed only for moderators and admins, so the request must be authenticated with a session cookie or userid and password.
       parameters:
-        - name: barcode
+        - name: code
           in: path
           description: |
             The barcode of the product corresponding to the image.
@@ -402,7 +392,109 @@ paths:
         "403":
           description: User not authenticated or not allowed to delete the image
         "404":
-          description: Product or image not found                 
+          description: Product or image not found
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
+  /api/v3/taxonomy_canonicalize_tags:
+    get:
+      summary: Get canonical tags for a list of local tags
+      description: |
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+
+        This API returns the canonical tags corresponding to a list of local tags in a given language.
+
+        For instance, the local French ingredient tag "sucre" corresponds to the canonical tag "en:sugar".
+      tags:
+        - Taxonomy
+      operationId: get-api-v3-taxonomy-canonicalize-tags
+      parameters:
+        - name: tagtype
+          in: query
+          required: true
+          description: The type of taxonomy to canonicalize tags for (e.g., ingredients, categories).
+          schema:
+            type: string
+            example: "ingredients"
+        - name: local_tags_list
+          in: query
+          required: true
+          description: A comma-separated list of local tags to canonicalize.
+          schema:
+            type: string
+            example: "sucre,eau"
+        - name: lc
+          in: query
+          required: false
+          description: |
+            2-letter code of the language of the user. Used for localizing some fields in returned values.
+            If not passed, the language may be inferred by the subdomain of the request.
+          schema:
+            type: string
+            example: "fr"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      canonical_tags_list:
+                        type: string
+                        example: "en:sugar,en:water"
+  /api/v3/taxonomy_display_tags:
+    get:
+      summary: Get display tags in a specific language for a list of taxonomy tags
+      description: |
+        Open Food Facts uses multilingual [taxonomies](https://wiki.openfoodfacts.org/Global_taxonomies) to normalize entries for categories, labels, ingredients, packaging shapes / materials / recycling instructions and many more fields.
+
+        This API returns display tags in a specific language for a list of canonical taxonomy tags.
+
+        For instance, the canonical ingredient tag "en:sugar" corresponds to the French display tag "sucre".
+      tags:
+        - Taxonomy
+      operationId: get-api-v3-taxonomy-display-tags
+      parameters:
+        - name: tagtype
+          in: query
+          required: true
+          description: The type of taxonomy to retrieve display tags for (e.g., ingredients, categories).
+          schema:
+            type: string
+            example: "ingredients"
+        - name: canonical_tags_list
+          in: query
+          required: true
+          description: A comma-separated list of canonical taxonomy tags to retrieve display tags for.
+          schema:
+            type: string
+            example: "en:sugar,en:water"
+        - name: lc
+          in: query
+          required: false
+          description: |
+            2-letter code of the language to return display tags in.
+          schema:
+            type: string
+            example: "fr"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      display_tags:
+                        type: array
+                        items:
+                          type: string
+                          example: "sucre, eau"
   /api/v3/taxonomy_suggestions:
     parameters: []
     get:
@@ -449,9 +541,9 @@ paths:
 
         If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
       parameters:
-        - $ref: ./api.yaml#/components/parameters/tagtype
-        - $ref: "#/components/parameters/cc"
-        - $ref: "#/components/parameters/lc"
+        - $ref: "./parameters/tagtype.yaml#/components/parameters/Tagtype"
+        - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+        - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
         - schema:
             type: string
             example: pe
@@ -487,8 +579,8 @@ paths:
           description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
   "/api/v3/tag/{tagtype}/{tag_or_tagid}":
     parameters:
-      - $ref: "#/components/parameters/cc"
-      - $ref: "#/components/parameters/lc"
+      - $ref: "./parameters/cc.yaml#/components/parameters/Cc"
+      - $ref: "./parameters/lc.yaml#/components/parameters/Lc"
       - schema:
           type: string
           example: categories
@@ -582,27 +674,225 @@ paths:
         description: |
           The code and rev fields are mandatory.
       parameters: []
+      security:
+        - cookieAuth: []
+          userAgentAuth: []
+  /api/v3/external_sources:
+    get:
+      operationId: get-api-v3-external-sources
+      tags:
+        - Knowledge Panels
+      summary: List external knowledge panel sources (JSON)
+      description: |
+        Returns the ordered list of external knowledge panel sources configured on the server.
+
+        Providers can use the `knowledge_panel_url` field to point to their own API.
+        The URL may contain **template variables** that the frontend will expand before calling:
+
+        - `$code` → product barcode
+        - `$lc`   → UI language (2 letters)
+        - `$cc`   → user/device country (2 letters)
+
+        Example:
+        `https://provider.example.com/off/v1/knowledge-panel/$code?lang=$lc&country=$cc`
+
+        The frontend percent-encodes the variable values when substituting them into the URL.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      external_sources:
+                        $ref: "#/components/schemas/ExternalKnowledgePanelList"
+  /api/v3/preferences:
+    get:
+      summary: Get List of Preference Importance Values
+      description: |
+        These parameters are used to compute the product preferences score.
+
+        for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
+      tags:
+        - Product Attributes
+      operationId: get-api-v3-preferences
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      preferences:
+                        type: array
+                        description: A list of user preference importance values.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: The ID of the preference importance.
+                              example: "important"
+                            name:
+                              type: string
+                              description: The name of the preference importance.
+                              example: "Important"
+                            factor:
+                              type: integer
+                              description: The factor associated with the preference importance (optional, not set for not_important). Indicates that the product attribute score should be multiplied by this factor when this importance is selected.
+                              example: 1
+                            minimum_match:
+                              type: integer
+                              description: The minimum match percentage required for the preference (optional, set for mandatory). Indicates that product with a lesser score for this attribute should not be considered a match.
+                              example: 20
+  /api/v3.4/attribute_groups:
+    get:
+      summary: Get List of Attribute Groups and Attributes
+      description: |
+        for an overview see [Explanation on Product Attributes](https://openfoodfacts.github.io/documentation/docs/Product-Opener/api/explain-product-attributes/)"
+      tags:
+        - Product Attributes
+      operationId: get-api-v3-4-attribute-groups
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      attribute_groups:
+                        type: array
+                        description: A list of attribute groups.
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: The ID of the attribute group.
+                              example: "nutritional_quality"
+                            name:
+                              type: string
+                              description: The name of the attribute group.
+                              example: "Nutritional quality"
+                            warning:
+                              type: string
+                              description: A warning message related to the attribute group (optional).
+                              example: "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed."
+                            attributes:
+                              type: array
+                              description: A list of attributes in the group.
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: The ID of the attribute.
+                                    example: "nutriscore"
+                                  name:
+                                    type: string
+                                    description: The name of the attribute.
+                                    example: "Nutri-Score"
+                                  icon_url:
+                                    type: string
+                                    description: The URL of the icon representing the attribute.
+                                    example: "http://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg"
+                                  setting_name:
+                                    type: string
+                                    description: The name of the setting for the attribute.
+                                    example: "Good nutritional quality (Nutri-Score)"
+                                  setting_note:
+                                    type: string
+                                    description: Additional notes about the setting (optional).
+                                    example: "The Nutri-Score is computed and can be taken into account for all products, even if it is not displayed on the packaging."
+                                  panel_id:
+                                    type: string
+                                    description: The panel ID associated with the attribute (optional).
+                                    example: "nutriscore"
+                                  description:
+                                    type: string
+                                    description: A detailed description of the attribute (optional).
+                                    example: "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
+                                  description_short:
+                                    type: string
+                                    description: A short description of the attribute (optional).
+                                    example: "Organic products promote ecological sustainability and biodiversity."
+                                  default:
+                                    type: string
+                                    description: The default value for the attribute (optional).
+                                    example: "very_important"
+                                  values:
+                                    type: array
+                                    description: The possible values for the attribute. Some attributes like allergens have only values "not_important" and "mandatory".
+                                    items:
+                                      type: string
+                                      example: "not_important"
+                                  parameters:
+                                    type: array
+                                    description: Additional parameters for the attribute (optional, used for specific attributes like Unwanted ingredients).
+                                    items:
+                                      type: object
+                                      properties:
+                                        id:
+                                          type: string
+                                          description: The ID of the parameter.
+                                          example: "attribute_unwanted_ingredients_tags"
+                                        name:
+                                          type: string
+                                          description: The name of the parameter.
+                                          example: "Unwanted ingredients"
+                                        tagtype:
+                                          type: string
+                                          description: The tag type of the parameter.
+                                          example: "ingredients"
+                                        type:
+                                          type: string
+                                          description: The type of the parameter. "tags" indicates a comma-separated list of canonical tags is expected.
+                                          enum:
+                                            - "tags"
+                                          example: "tags"
+
 components:
-  parameters:
-    cc:
-      schema:
-        type: string
-        example: "us"
-      in: query
-      name: cc
-      required: false
-      description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
-    lc:
-      schema:
-        type: string
-        example: "fr"
-      in: query
-      name: lc
-      required: false
-      description: "2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request."
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
+      description: |
+        Session cookie containing user ID, username, and session token.
+        The value is structured as: user_id&username&user_session&session_token
+        e.g. "user_id&exampleuser&user_session&abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLM".
+        The session token is obtained after successful login via the `/cgi/session.pl` endpoint.
+    userAgentAuth:
+      description: Identification using the User-Agent header. This is recommended in all requests so that we can contact you if there are issues. If we cannot identify the source of problematic API queries, we may have to block them.
+        User-Agent header in the format 'app_name/app_version (URL or contact info)'
+      type: apiKey
+      in: header
+      name: User-Agent
+
+  schemas:
+    ExternalKnowledgePanelList:
+      type: array
+      description: Ordered list of external knowledge panel sources.
+      items:
+        $ref: "./schemas/external_knowledge_panel.yaml"
+
+security:
+  - userAgentAuth: [] # No authentication required by default (for read requests), but we recommend sending a User-Agent header in all requests.
+
 tags:
   - name: Products
     description: Endpoints for managing product data, creating, updating, and reverting products.
+  - name : Product Attributes
+    description: Endpoints for retrieving product attribute groups and user preference importance values.
   - name: Images
     description: Endpoints for uploading, managing, and deleting product images.
   - name: Taxonomy

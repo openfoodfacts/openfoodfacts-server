@@ -43,7 +43,7 @@ generate_perl_html_doc_from_pod.pl scans the Perl source code of Product Opener
 for documentation in POD format to generate documentation in HTML files.
 Usage:
 
-checkbot.pl target_directory
+generate_perl_html_doc_from_pod.pl target_directory
 
 TXT
 	;

@@ -53,9 +53,6 @@
          "en:barn-eggs",
          "en:eggs-from-switzerland"
       ],
-      "en:palm-oil-content-unknown" : [
-         "fr:france"
-      ],
       "en:vegan-status-unknown" : [
          "fr:france"
       ],
@@ -64,7 +61,7 @@
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:non-vegan",
       "en:vegetarian-status-unknown"
    ],
@@ -102,11 +99,5 @@
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 1
 }
