@@ -28,14 +28,15 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
-use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/get_minion/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();

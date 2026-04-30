@@ -2,24 +2,22 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/create_user edit_product execute_api_tests new_client wait_application_ready/;
+use ProductOpener::Test qw/remove_all_products remove_all_users/;
+use ProductOpener::TestDefaults qw/%default_product_form %default_user_form/;
 
 use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 # Create some products

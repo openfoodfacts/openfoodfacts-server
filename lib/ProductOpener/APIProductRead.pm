@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -44,13 +44,16 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
+use ProductOpener::Users qw/$Owner_id/;
+use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::Ingredients qw/flatten_sub_ingredients/;
+use ProductOpener::API qw/add_error customize_response_for_product normalize_requested_code/;
+use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::Images qw(add_images_urls_to_product);
+use ProductOpener::Store qw/retrieve_object/;
 
 =head2 read_product_api ( $request_ref )
 
@@ -72,6 +75,7 @@ sub read_product_api ($request_ref) {
 	$log->debug("read_product_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
+	my $cc = $request_ref->{cc};
 
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
@@ -90,7 +94,8 @@ sub read_product_api ($request_ref) {
 	my $product_id;
 
 	# Check if the code is valid
-	if ($code !~ /^\d{4,24}$/) {
+	my $code_to_check = (defined $code) ? $code : '';
+	if (not is_valid_code($code_to_check)) {
 
 		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 		add_error(
@@ -113,12 +118,14 @@ sub read_product_api ($request_ref) {
 		my $rev = single_param("rev");
 		local $log->context->{rev} = $rev;
 		if (defined $rev) {
-			$product_ref = retrieve_product_rev($product_id, $rev);
+			$product_ref = retrieve_product($product_id, 0, $rev);
 		}
 		else {
 			$product_ref = retrieve_product($product_id);
 		}
 	}
+
+	my $requested_fields = request_param($request_ref, 'fields') || "all";
 
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
 
@@ -134,6 +141,40 @@ sub read_product_api ($request_ref) {
 			404
 		);
 		$response_ref->{result} = {id => "product_not_found"};
+	}
+	# Product with a different product type
+	# If the requested fields is "raw", we return the product even if it has a different product type
+	# This is useful in particular for tests
+	elsif ( (not $server_options{private_products})
+		and (defined $product_ref->{product_type})
+		and ($product_ref->{product_type} ne $options{product_type})
+		and (not $requested_fields eq "raw"))
+	{
+
+		# If the product has a product_type and it is not the product_type of the server,
+		# redirect to the correct server if the request includes a matching product_type parameter (or the "all" product type)
+		# unless we are on the pro platform
+
+		my $requested_product_type = single_param("product_type");
+		if (    (defined $requested_product_type)
+			and (($requested_product_type eq "all") or ($requested_product_type eq $product_ref->{product_type})))
+		{
+			redirect_to_url($request_ref, 302,
+				format_subdomain($request_ref->{subdomain}, $product_ref->{product_type}) . "/"
+					. $request_ref->{original_query_string});
+		}
+		else {
+			add_error(
+				$response_ref,
+				{
+					message => {id => "product_found_with_a_different_product_type"},
+					field => {id => "product_type", value => $product_ref->{product_type}},
+					impact => {id => "failure"},
+				},
+				404
+			);
+			$response_ref->{result} = {id => "product_found_with_a_different_product_type"};
+		}
 	}
 	else {
 		$response_ref->{result} = {id => "product_found"};
@@ -163,12 +204,12 @@ sub read_product_api ($request_ref) {
 		# Return blame information
 		if (single_param("blame")) {
 			my $path = product_path_from_id($product_id);
-			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
 			$response_ref->{blame} = {};
-			compute_product_history_and_completeness($data_root, $product_ref, $changes_ref, $response_ref->{blame});
+			compute_product_history_and_completeness($product_ref, $changes_ref, $response_ref->{blame});
 		}
 
 	}

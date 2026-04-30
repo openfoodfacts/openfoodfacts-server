@@ -2,13 +2,13 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 
 use JSON;
 
-use ProductOpener::Test qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 use ProductOpener::Display;
-use ProductOpener::KnowledgePanelsContribution qw/:all/;
+use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 
 # results of tests are json files
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
@@ -72,7 +72,8 @@ foreach my $test_ref (@tests) {
 	create_contribution_card_panel(
 		\%product,
 		$test_ref->{"lc"} // $default_lc,
-		$test_ref->{"cc"} // $default_cc, \%options
+		$test_ref->{"cc"} // $default_cc,
+		\%options, {}
 	);
 	# we are only interested in knowledge_panels
 	my $panels_ref = $product{knowledge_panels_en};

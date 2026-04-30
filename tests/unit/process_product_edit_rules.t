@@ -2,15 +2,14 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
-use Test::MockModule;
 
 use ProductOpener::Config qw/@edit_rules/;
 use ProductOpener::Users qw/$User_id/;
 
 use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 use ProductOpener::Products qw/process_product_edit_rules/;
 
 my %base_product = (%default_product,);
@@ -86,9 +85,45 @@ my @tests = (
 		result => 1,
 	},
 	{
+		id => "ignore_ingredients_text_fr",
+		desc => "Remove edit on a ingredients text in french",
+		edit_rules => [{name => "Disallow ingredients", actions => [["ignore_ingredients_text_fr"]]},],
+		product => {},
+		form => {ingredients_text_fr => "NOPE"},
+		delete_param => ["ingredients_text_fr", "ingredients_text"],
+		result => 1,
+	},
+	{
+		id => "ignore_nutrients_salt",
+		desc => "Remove edit on a salt nutrient",
+		edit_rules => [{name => "Disallow salt", actions => [["ignore_nutriments_salt"]]},],
+		product => {nutrients => {salt_100g => 1}},
+		form => {nutriments_salt => 2},
+		delete_param => ["nutriments_salt"],
+		result => 1,
+	},
+	{
+		id => "block_nutrients_salt_100g",
+		desc => "Block edit on a salt nutrient",
+		edit_rules => [{name => "Block salt", actions => [["block_nutriments_salt_100g"]]},],
+		product => {nutrients => {salt_100g => 1}},
+		form => {nutriments_salt_100g => 2},
+		result => 0,
+	},
+	{
+		id => "ignore_nutrients_salt_100g",
+		desc => "Remove edit on a salt nutrient",
+		edit_rules => [{name => "Disallow salt", actions => [["ignore_nutriments_salt_100g"]]},],
+		product => {nutrients => {salt_100g => 1}},
+		form => {nutriments_salt_100g => 2},
+		delete_param => ["nutriments_salt_100g", "nutriments_salt"],
+		result => 1,
+	},
+	{
 		id => "ignore_if_existing_ingredients_text_fr",
 		desc => "Remove edit on a ingredients text in french if one already exists",
-		edit_rules => [{name => "Disallow ingredients", actions => [["ignore_if_existing_ingredients_text_fr"]]},],
+		edit_rules =>
+			[{name => "Disallow ingredients if exists", actions => [["ignore_if_existing_ingredients_text_fr"]]},],
 		product => {ingredients_text_fr => "YES"},
 		form => {ingredients_text_fr => "NOPE"},
 		delete_param => ["ingredients_text_fr", "ingredients_text"],
@@ -118,7 +153,7 @@ my @tests = (
 			[{name => "Disallow ingredients", actions => [["ignore_if_0_nutriment_fruits-vegetables-nuts"]]},],
 		form => {"nutriment_fruits-vegetables-nuts" => 0},
 		result => 1,
-		delete_param => ["nutriment_fruits-vegetables-nuts"],
+		delete_param => ["nutriment_fruits-vegetables-nuts", "nutriment_fruits-vegetables-nuts_100g"],
 	},
 	{
 		id => "ignore_if_equal_nutriments_sugar",
@@ -127,7 +162,7 @@ my @tests = (
 		product => {"nutriment" => {"sugar_100g" => 22}},
 		form => {"nutriment_sugar" => 100},
 		result => 1,
-		delete_param => ["nutriment_sugar"],
+		delete_param => ["nutriment_sugar", "nutriment_sugar_100g"],
 	},
 	{
 		id => "ignore_if_match_serving_size",
@@ -145,6 +180,14 @@ my @tests = (
 		form => {"brands" => "Another, Acme inc."},
 		result => 1,
 		delete_param => ["brands"],
+	},
+	{
+		id => "block_if_regexp_match_brand",
+		desc => "Block edit if string value match a regexp",
+		edit_rules =>
+			[{name => "Disallow ingredients", actions => [["block_if_regexp_match_brands", "(acme|hacky)"]]},],
+		form => {"brands" => "Another, Acme inc."},
+		result => 0,
 	},
 	{
 		id => "combine_actions",
@@ -168,7 +211,10 @@ my @tests = (
 			"brands" => "Another, Acme inc."
 		},
 		result => 1,
-		delete_param => ["ingredients_text_fr", "ingredients_text", "nutriment_sugar", "serving_size", "brands"],
+		delete_param => [
+			"ingredients_text_fr", "ingredients_text", "nutriment_sugar", "nutriment_sugar_100g",
+			"serving_size", "brands"
+		],
 	},
 	# FIXME: add tests on warning and slack notifications
 );
@@ -178,29 +224,39 @@ my @edit_rules_backup = @edit_rules;
 # a global for fake CGI parameters
 my %form = ();
 
-sub fake_single_param ($name) {
-	return scalar $form{$name};
-}
-
 # removed params
 my @removed = ();
 
-sub fake_delete ($name) {
-	push @removed, $name;
-	return;
-}
-
 {
 	# monkey patch single_param
-	my $display_module = Test::MockModule->new('ProductOpener::Display');
-	$display_module->mock('single_param', \&fake_single_param);
+	my $display_module = mock 'ProductOpener::Display' => (
+		override => [
+			single_param => sub ($name) {
+				return scalar $form{$name};
+			}
+		]
+	);
 	# because this is a direct import in Products we have to monkey patch here, there also
-	my $products_module = Test::MockModule->new('ProductOpener::Products');
-	$products_module->mock('single_param', \&fake_single_param);
+	my $products_module = mock 'ProductOpener::Products' => (
+		override => [
+			single_param => sub ($name) {
+				return scalar $form{$name};
+			},
+			Delete => sub ($name) {
+				push @removed, $name;
+				return;
+			}
+		]
+	);
 	# patch CGI Delete
-	my $cgi_module = Test::MockModule->new('CGI');
-	$cgi_module->mock('Delete', \&fake_delete);
-	$products_module->mock('Delete', \&fake_delete);
+	my $cgi_module = mock 'CGI' => (
+		override => [
+			Delete => sub($name) {
+				push @removed, $name;
+				return;
+			}
+		]
+	);
 
 	foreach my $test_ref (@tests) {
 		# use eval to ensure edit_rules changes will be reverted
@@ -215,7 +271,7 @@ sub fake_delete ($name) {
 			@removed = ();
 			my $result = process_product_edit_rules(\%product);
 			is($result, $test_ref->{result}, "Result for $id - $desc");
-			is_deeply(\@removed, $test_ref->{delete_param} // [], "Delete params for $id - $desc");
+			is(\@removed, $test_ref->{delete_param} // [], "Delete params for $id - $desc");
 		};
 		# restore edit_rules
 		@edit_rules = @edit_rules_backup;

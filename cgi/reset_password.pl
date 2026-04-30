@@ -27,133 +27,128 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
-use ProductOpener::Mail qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::URL qw/:all/;
+use ProductOpener::Mail qw/send_email/;
+use ProductOpener::Lang qw/$lc %Lang lang/;
+use ProductOpener::Auth qw/get_oidc_implementation_level get_oidc_configuration/;
 
 use CGI qw/:cgi :form escapeHTML/;
-use URI::Escape::XS;
+use URI::Escape::XS qw/uri_escape/;
 use Encode;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $template_data_ref = {lang => \&lang,};
+if (get_oidc_implementation_level() >= 3) {
+	# Use Keycloak to reset password if we are using Keycloak login
+	my $oidc_configuration = get_oidc_configuration();
+	unless (defined $oidc_configuration) {
+		die 'oidc_discovery_url not configured or Keycloak is no available';
+	}
 
-my $type = single_param('type') || 'send_email';
-my $action = single_param('action') || 'display';
+	my $redirect
+		= $oidc_configuration->{issuer}
+		. '/login-actions/reset-credentials?client_id='
+		. uri_escape($oidc_options{client_id});
 
-my $id = single_param('userid_or_email');
-my $resetid = single_param('resetid');
-
-$log->info("start", {type => $type, action => $action, userid_or_email => $id, resetid => $resetid}) if $log->is_info();
-
-my @errors = ();
-
-my $email_ref = undef;
-my $userid = undef;
-
-my $html = '';
-
-if (defined $User_id) {
-	display_error_and_exit($Lang{error_reset_already_connected}{$lang}, undef);
+	redirect_to_url($request_ref, 302, $redirect);
 }
+else {
+	my $template_data_ref = {lang => \&lang,};
 
-if ($action eq 'process') {
+	my $type = single_param('type') || 'send_email';
+	my $action = single_param('action') || 'display';
 
-	if ($type eq 'send_email') {
+	my $id = single_param('userid_or_email');
+	my $resetid = single_param('resetid');
 
-		# Is it an email?
+	$log->info("start", {type => $type, action => $action, userid_or_email => $id, resetid => $resetid})
+		if $log->is_info();
 
-		if ($id =~ /\@/) {
-			my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-			if (not defined $emails_ref->{$id}) {
-				# not found, try with lower case email
-				$id = lc $id;
-			}
-			if (not defined $emails_ref->{$id}) {
-				push @errors, $Lang{error_reset_unknown_email}{$lang};
+	my @errors = ();
+
+	my $user_ref = undef;
+
+	my $html = '';
+
+	if (defined $User_id) {
+		display_error_and_exit($request_ref, $Lang{error_reset_already_connected}{$lc}, undef);
+	}
+
+	if ($action eq 'process') {
+
+		if ($type eq 'send_email') {
+
+			# Is it an email?
+
+			if ($id =~ /\@/) {
+				$user_ref = retrieve_user_by_email($id);
+				if (not defined $user_ref) {
+					push @errors, $Lang{error_reset_unknown_email}{$lc};
+				}
 			}
 			else {
-				$email_ref = $emails_ref->{$id};
+				$user_ref = retrieve_user($id);
+				if (not defined $user_ref) {
+					push @errors, $Lang{error_reset_unknown_id}{$lc};
+				}
 			}
+
+		}
+		elsif (($type eq 'reset') and (defined single_param('resetid'))) {
+
+			if (length(single_param('password')) < 6) {
+				push @errors, $Lang{error_invalid_password}{$lc};
+			}
+
+			if (single_param('password') ne single_param('confirm_password')) {
+				push @errors, $Lang{error_different_passwords}{$lc};
+			}
+
 		}
 		else {
-			$id = get_string_id_for_lang("no_language", $id);
-			if (!-e "$BASE_DIRS{USERS}/$id.sto") {
-				push @errors, $Lang{error_reset_unknown_id}{$lang};
-			}
-			else {
-				$userid = $id;
-			}
+			$log->debug("invalid address", {type => $type}) if $log->is_debug();
+			display_error_and_exit($request_ref, lang("error_invalid_address"), 404);
 		}
 
-	}
-	elsif (($type eq 'reset') and (defined single_param('resetid'))) {
-
-		if (length(single_param('password')) < 6) {
-			push @errors, $Lang{error_invalid_password}{$lang};
+		if ($#errors >= 0) {
+			$log->debug("errors", {errors => \@errors}) if $log->is_debug();
+			$action = 'display';
 		}
+	}
 
-		if (single_param('password') ne single_param('confirm_password')) {
-			push @errors, $Lang{error_different_passwords}{$lang};
+	$template_data_ref->{action} = $action;
+	$template_data_ref->{type} = $type;
+
+	if ($action eq 'display') {
+		push @{$template_data_ref->{errors}}, @errors;
+
+		if ($type eq 'reset') {
+			$template_data_ref->{token} = single_param('token');
+			$template_data_ref->{resetid} = single_param('resetid');
 		}
-
-	}
-	else {
-		$log->debug("invalid address", {type => $type}) if $log->is_debug();
-		display_error_and_exit(lang("error_invalid_address"), 404);
 	}
 
-	if ($#errors >= 0) {
-		$log->debug("errors", {errors => \@errors}) if $log->is_debug();
-		$action = 'display';
-	}
-}
+	elsif ($action eq 'process') {
 
-$template_data_ref->{action} = $action;
-$template_data_ref->{type} = $type;
+		if ($type eq 'send_email') {
+			$template_data_ref->{status} = "error";
 
-if ($action eq 'display') {
-	push @{$template_data_ref->{errors}}, @errors;
-
-	if ($type eq 'reset') {
-		$template_data_ref->{token} = single_param('token');
-		$template_data_ref->{resetid} = single_param('resetid');
-	}
-}
-
-elsif ($action eq 'process') {
-
-	if ($type eq 'send_email') {
-
-		my @userids = ();
-		if (defined $email_ref) {
-			@userids = @{$email_ref};
-		}
-		elsif (defined $userid) {
-			@userids = ($userid);
-		}
-
-		$template_data_ref->{status} = "error";
-
-		foreach my $userid (@userids) {
-
-			my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
 			if (defined $user_ref) {
 
 				$user_ref->{token_t} = time();
 				$user_ref->{token} = generate_token(64);
 				$user_ref->{token_ip} = remote_addr();
 
-				store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
+				store_user_preferences($user_ref);
+				my $userid = $user_ref->{userid};
 
 				my $url
-					= format_subdomain($subdomain)
+					= $request_ref->{formatted_subdomain}
 					. "/cgi/reset_password.pl?type=reset&resetid=$userid&token="
 					. $user_ref->{token};
 
@@ -165,47 +160,46 @@ elsif ($action eq 'process') {
 				$template_data_ref->{status} = "email_sent";
 			}
 		}
-	}
-	elsif ($type eq 'reset') {
-		my $userid = get_string_id_for_lang("no_language", single_param('resetid'));
-		my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
+		elsif ($type eq 'reset') {
+			my $userid = single_param('resetid');
+			my $user_ref = retrieve_user($userid);
 
-		$log->debug("resetting password", {userid => $userid}) if $log->is_debug();
+			$log->debug("resetting password", {userid => $userid}) if $log->is_debug();
 
-		$template_data_ref->{status} = "error";
+			$template_data_ref->{status} = "error";
 
-		if (defined $user_ref) {
+			if (defined $user_ref) {
 
-			if (    (defined $user_ref->{token})
-				and (defined single_param('token'))
-				and (single_param('token') eq $user_ref->{token})
-				and (time() < ($user_ref->{token_t} + 86400 * 3)))
-			{
+				if (    (defined $user_ref->{token})
+					and (defined single_param('token'))
+					and (single_param('token') eq $user_ref->{token})
+					and (time() < ($user_ref->{token_t} + 86400 * 3)))
+				{
 
-				$log->debug("token is valid, updating password", {userid => $userid}) if $log->is_debug();
+					$log->debug("token is valid, updating password", {userid => $userid}) if $log->is_debug();
 
-				$template_data_ref->{status} = "password_reset";
+					$template_data_ref->{status} = "password_reset";
 
-				$user_ref->{encrypted_password}
-					= create_password_hash(encode_utf8(decode utf8 => single_param('password')));
+					$user_ref->{encrypted_password}
+						= create_password_hash(encode_utf8(decode utf8 => single_param('password')));
 
-				delete $user_ref->{token};
+					delete $user_ref->{token};
 
-				store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
+					store_user($user_ref);
 
-			}
-			else {
-				$log->debug("token is invalid", {userid => $userid}) if $log->is_debug();
-				display_error_and_exit($Lang{error_reset_invalid_token}{$lang}, undef);
+				}
+				else {
+					$log->debug("token is invalid", {userid => $userid}) if $log->is_debug();
+					display_error_and_exit($request_ref, $Lang{error_reset_invalid_token}{$lc}, undef);
+				}
 			}
 		}
 	}
+
+	process_template('web/pages/reset_password/reset_password.tt.html', $template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
+
+	$request_ref->{title} = $Lang{'reset_password'}{$lc};
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
-
-process_template('web/pages/reset_password/reset_password.tt.html', $template_data_ref, \$html)
-	or $html = "<p>" . $tt->error() . "</p>";
-
-$request_ref->{title} = $Lang{'reset_password'}{$lang};
-$request_ref->{content_ref} = \$html;
-display_page($request_ref);
-

@@ -26,9 +26,10 @@ gen_users_emails_list.pl - lists Open Food Facts users
 
 =head1 SYNOPSIS
 
-./gen_users_emails_list.pl [--all]
-	Option:
-	--all          allows to export all the users  
+./gen_users_emails_list.pl [--all] [--since=YYYY-MM-DD]
+Options:
+--all          allows to export all the users
+--since        only export users registered since this date (ISO 8601 format)
 
 =head1 OPTIONS
 
@@ -37,6 +38,10 @@ gen_users_emails_list.pl - lists Open Food Facts users
 =item B<--all>
 
 Export all the users, not just the ones registered to Open Food Facts newsletter.
+
+=item B<--since=YYYY-MM-DD>
+
+Only export users who registered on or after the specified date (ISO 8601 format, e.g., 2024-01-15).
 
 =back
 
@@ -64,25 +69,54 @@ use Modern::Perl '2017';
 use utf8;
 
 use CGI::Carp qw(fatalsToBrowser);
+use Time::Local;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Users qw/retrieve_user retrieve_user_preference_ids/;
+use ProductOpener::Tags qw/country_to_cc/;
 
 my @userids;
 my $arg = $ARGV[0] || "";
+my $since_date = $ARGV[1] || "";
+my $since_timestamp = 0;
 
-if (scalar $#userids < 0) {
-	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
-	@userids = sort(readdir(DH));
-	closedir(DH);
+# Parse the --since argument if provided
+if ($since_date =~ /^--since=(.+)$/) {
+	$since_date = $1;
+}
+elsif ($arg =~ /^--since=(.+)$/) {
+	$since_date = $1;
 }
 
-foreach my $userid (@userids) {
-	next if $userid eq "." or $userid eq "..";
-	next if $userid eq 'all';
+if ($since_date) {
+	if ($since_date =~ /^(\d{4})-(\d{2})-(\d{2})$/) {
+		my ($year, $month, $day) = ($1, $2, $3);
+		eval {$since_timestamp = timelocal(0, 0, 0, $day, $month - 1, $year - 1900);};
+		if ($@) {
+			die "Invalid date: $@";
+		}
+	}
+	else {
+		die "Invalid date format. Please use ISO 8601 format (YYYY-MM-DD), e.g., 2024-01-15";
+	}
+}
 
-	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid");
+if (scalar $#userids < 0) {
+	@userids = retrieve_user_preference_ids();
+}
+
+my $counter = 0;
+my $exported_counter = 0;
+
+foreach my $userid (@userids) {
+	$counter++;
+	if ($counter % 10000 == 0) {
+		print STDERR "Processed $counter users\n";
+	}
+
+	my $user_ref = retrieve_user($userid);
 
 	my $first = '';
 	if (!exists $user_ref->{discussion}) {
@@ -92,12 +126,18 @@ foreach my $userid (@userids) {
 	# print $user_ref->{email} . "\tnews_$user_ref->{newsletter}$first\tdiscussion_$user_ref->{discussion}\n";
 
 	if ($arg eq "--all" || $user_ref->{newsletter}) {
+		my $t = $user_ref->{registered_t} || 0;
+
+		# Skip users registered before the since_timestamp
+		if ($since_timestamp > 0 && $t < $since_timestamp) {
+			next;
+		}
+
 		require ProductOpener::GeoIP;
 		my $country = ProductOpener::GeoIP::get_country_code_for_ip($user_ref->{ip});
 		defined $country or $country = "";
-		my $lc = $user_ref->{initial_lc} || "";
-		my $cc = $user_ref->{initial_cc} || "";
-		my $t = $user_ref->{registered_t} || "";
+		my $lc = $user_ref->{preferred_language} || "";
+		my $cc = country_to_cc($user_ref->{country}) || "";
 		my $userid = $user_ref->{userid} || "";
 		my $newsletter = $user_ref->{newsletter} || "";
 		my $moderator = $user_ref->{moderator} || "";
@@ -109,9 +149,13 @@ foreach my $userid (@userids) {
 			. $userid . "\t"
 			. $newsletter . "\t"
 			. $moderator . "\n";
+		$exported_counter++;
 	}
 
 }
+
+print STDERR "Total processed: $counter users\n";
+print STDERR "Total exported: $exported_counter users\n";
 
 exit(0);
 

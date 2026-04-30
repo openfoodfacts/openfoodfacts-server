@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -64,24 +64,28 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Lang qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Lang qw/$lc lang/;
 use Email::Stuffer;
 use Log::Any qw($log);
 
 =head1 CONSTANTS
 
 =head2 LOG_EMAIL_START
+
 Text used before logging an email
+
 =cut
 
 $LOG_EMAIL_START = "---- EMAIL START ----\n";
 
 =head2 LOG_EMAIL_END
+
 Text used after logging an email
+
 =cut
 
-$LOG_EMAIL_END = "\n---- EMAIL END ----\n";
+$LOG_EMAIL_END = "\n---- EMAIL END ----";
 
 =head1 FUNCTIONS
 
@@ -158,7 +162,10 @@ sub send_email ($user_ref, $subject, $text) {
 	my $name = $user_ref->{name};
 
 	$text =~ s/<NAME>/$name/g;
-	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+	my $mail
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
+		->to($name . " <$email>")
+		->subject($subject)
 		->text_body($text);
 	return _send_email($mail);
 }
@@ -191,7 +198,10 @@ sub send_html_email ($user_ref, $subject, $html_content) {
 	my $email = $user_ref->{email};
 	my $name = $user_ref->{name};
 
-	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+	my $mail
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
+		->to($name . " <$email>")
+		->subject($subject)
 		->html_body($html_content);
 	return _send_email($mail);
 }
@@ -253,8 +263,11 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 =cut
 
 sub send_email_to_admin ($subject, $text) {
-	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to(lang("site_name") . " <$admin_email>")
-		->subject($subject)->text_body($text);
+	my $mail
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
+		->to($options{site_name} . " <$admin_email>")
+		->subject($subject)
+		->text_body($text);
 
 	return _send_email($mail);
 }
@@ -280,8 +293,11 @@ On the other hand, if there was no error, it returns 1 indicating that email has
 
 sub send_email_to_producers_admin ($subject, $text) {
 	my $mail
-		= Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to(lang("site_name") . " <$producers_email>")
-		->subject($subject)->text_body($text)->html_body($text);
+		= Email::Stuffer->from($options{site_name} . " <$contact_email>")
+		->to($options{site_name} . " <$producers_email>")
+		->subject($subject)
+		->text_body($text)
+		->html_body($text);
 
 	return _send_email($mail);
 }

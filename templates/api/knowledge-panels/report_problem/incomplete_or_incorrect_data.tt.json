@@ -1,0 +1,48 @@
+{
+    "level": "info",
+    "topics": [
+        "problem"
+    ],
+    "expand_for": "large",
+    "evaluation": "neutral",
+    "title_element": {
+        "title": "[% edq(lang('incomplete_or_incorrect_data_title')) %]",
+        "subtitle": "[% edq(lang('incomplete_or_incorrect_data_subtitle_off')) %]",
+        "icon_url": "[% static_subdomain %]/images/logos/off-logo-icon-light.svg",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                [% lang('incomplete_or_incorrect_data_content_correct') %]
+                [% lang('incomplete_or_incorrect_data_content_correct_off') %]
+                `         
+            },
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": "",
+                "actions": ["edit_product"]
+            }
+        },
+        [% IF panel.nutripatrol_enabled %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                [% lang('report_to_nutripatrol_explain') %]
+                `
+            },
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": "",
+                "actions": ["report_product_to_nutripatrol"]
+            }
+        },
+        [% END %]
+    ]
+}

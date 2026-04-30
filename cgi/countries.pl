@@ -27,15 +27,16 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Tags qw/country_to_cc/;
 use ProductOpener::Web qw/get_countries_options_list/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 # This script returns a list of countries in the language of the interface in a JSON format
 # it is used to display the dropdown list of countries
@@ -44,7 +45,7 @@ ProductOpener::Display::init_request();
 
 my $term = decode utf8 => single_param('term');
 
-my @options = @{get_countries_options_list($lang, undef)};
+my @options = @{get_countries_options_list($lc, undef)};
 if (defined $term and $term ne '') {
 	# filter by term
 	@options = grep {$_->{label} =~ /$term/i} @options;

@@ -2,12 +2,11 @@
 
 # Import a CSV file
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
-use Test::MockModule;
-use Test::More;
+use Test2::V0;
 
 use File::Path qw/make_path remove_tree/;
 
@@ -17,7 +16,7 @@ use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
 use ProductOpener::Products "retrieve_product";
 use ProductOpener::Store "store";
 use ProductOpener::Test qw/:all/;
-use ProductOpener::LoadData qw/:all/;
+use ProductOpener::LoadData qw/load_data/;
 
 load_data();
 
@@ -26,8 +25,7 @@ my $inputs_dir = "$test_dir/inputs/$test_id/";
 my $outputs_dir = "$test_dir/outputs/$test_id/";
 
 # fake image download using input directory instead of distant server
-sub fake_download_image ($) {
-	my $image_url = shift;
+sub fake_download_image ($image_url) {
 
 	my $fname = (split(m|/|, $image_url))[-1];
 	my $image_path = $inputs_dir . $fname;
@@ -52,17 +50,30 @@ my @tests = (
 	{
 		test_case => "replace_existing_values",
 		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_2.csv"],
-
-	}
+	},
+	{
+		test_case => "old_nutrition",
+		csv_files => ["old_nutrition.csv"],
+	},
+	{
+		test_case => "new_nutrition",
+		csv_files => ["new_nutrition.csv"],
+	},
+	{
+		test_case => "agena",
+		csv_files => ["agena.csv"],
+	},
 );
 
 # Testing import of a csv file
 foreach my $test_ref (@tests) {
 
-	my $import_module = Test::MockModule->new('ProductOpener::Import');
-
-	# mock download image to fetch image in inputs_dir
-	$import_module->mock('download_image', \&fake_download_image);
+	my $import_module = mock 'ProductOpener::Import' => (
+		override => [
+			# mock download image to fetch image in inputs_dir
+			'download_image' => \&fake_download_image
+		]
+	);
 
 	# clean data
 	remove_all_products();
@@ -84,6 +95,7 @@ foreach my $test_ref (@tests) {
 		# import file
 		my $datestring = localtime();
 		my $args = {
+			"lc" => "fr",
 			"user_id" => "test-user",
 			"org_id" => "test-org",
 			"owner_id" => "org-test-org",

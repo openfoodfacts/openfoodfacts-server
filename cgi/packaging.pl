@@ -26,20 +26,20 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/:all/;
+use ProductOpener::Texts qw/:all/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
+use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
-use ProductOpener::Products qw/:all/;
-use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Products qw/normalize_code product_id_for_owner retrieve_product/;
+use ProductOpener::Packaging qw/extract_packaging_from_image/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -47,13 +47,8 @@ my $request_ref = ProductOpener::Display::init_request();
 my $code = normalize_code(single_param('code'));
 my $id = single_param('id');
 my $ocr_engine = single_param('ocr_engine');
-my $annotations = single_param('annotations') | 0;
-
-if (not defined $ocr_engine) {
-	$ocr_engine = "tesseract";
-
-	# $ocr_engine = "google_cloud_vision";
-}
+my $annotations_param = single_param('annotations');
+my $annotations = (defined $annotations_param ? $annotations_param : 0) | 0;
 
 $log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
@@ -67,8 +62,8 @@ my $product_ref = retrieve_product($product_id);
 
 my $results_ref = {};
 
-if (($id =~ /^packaging/) and (single_param('process_image'))) {
-	extract_packaging_from_image($product_ref, $id, $ocr_engine, $results_ref);
+if (($id =~ /^packaging_(\w\w)$/) and (single_param('process_image'))) {
+	extract_packaging_from_image($product_ref, "packaging", $1, $ocr_engine, $results_ref);
 	if ($results_ref->{status} == 0) {
 		$results_ref->{packaging_text_from_image} =~ s/\n/ /g;
 		if (not $annotations) {

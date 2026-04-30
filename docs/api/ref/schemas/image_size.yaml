@@ -1,4 +1,7 @@
 type: object
+title: image_size
+description: |
+  Width and height of an image
 properties:
   h:
     type: integer

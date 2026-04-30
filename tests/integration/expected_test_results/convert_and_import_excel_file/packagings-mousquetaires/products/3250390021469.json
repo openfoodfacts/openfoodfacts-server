@@ -13,9 +13,13 @@
    "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "brands" : "Odyssee",
+   "brands_hierarchy" : [
+      "xx:Odyssee"
+   ],
    "brands_imported" : "Odyssee",
+   "brands_lc" : "xx",
    "brands_tags" : [
-      "odyssee"
+      "xx:odyssee"
    ],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -56,28 +60,68 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-to-be-completed",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutrition-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.40",
+         "ingredients" : "0.00",
+         "nutrition" : "0.00",
+         "overall" : "0.25",
+         "packaging" : "0.50"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:packaging-data-incomplete",
-      "en:ecoscore-extended-data-not-computed",
+      "en:no-nutrition-data",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
    ],
    "data_quality_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:ingredients-fr-photo-to-be-selected",
+      "en:ingredients-fr-to-be-completed",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutrition-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-completed",
+      "en:expiration-date-to-be-completed",
       "en:packaging-data-incomplete",
-      "en:ecoscore-extended-data-not-computed",
+      "en:no-nutrition-data",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-production-system-no-label",
-      "en:ecoscore-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_quality_warnings_tags" : [
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-production-system-no-label",
-      "en:ecoscore-threatened-species-ingredients-missing"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-production-system-no-label",
+      "en:environmental-score-threatened-species-ingredients-missing"
    ],
    "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
@@ -85,7 +129,14 @@
       "producers",
       "producer-test-org"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "editors_tags" : [
+      "test-user"
+   ],
+   "entry_dates_tags" : "--ignore--",
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -103,69 +154,69 @@
                "en:unknown"
             ],
             "transportation_scores" : {
-               "ad" : 0,
-               "al" : 0,
-               "at" : 0,
-               "ax" : 0,
-               "ba" : 0,
-               "be" : 0,
-               "bg" : 0,
-               "ch" : 0,
-               "cy" : 0,
-               "cz" : 0,
-               "de" : 0,
-               "dk" : 0,
-               "dz" : 0,
-               "ee" : 0,
-               "eg" : 0,
-               "es" : 0,
-               "fi" : 0,
-               "fo" : 0,
-               "fr" : 0,
-               "gg" : 0,
-               "gi" : 0,
-               "gr" : 0,
-               "hr" : 0,
-               "hu" : 0,
-               "ie" : 0,
-               "il" : 0,
-               "im" : 0,
-               "is" : 0,
-               "it" : 0,
-               "je" : 0,
-               "lb" : 0,
-               "li" : 0,
-               "lt" : 0,
-               "lu" : 0,
-               "lv" : 0,
-               "ly" : 0,
-               "ma" : 0,
-               "mc" : 0,
-               "md" : 0,
-               "me" : 0,
-               "mk" : 0,
-               "mt" : 0,
-               "nl" : 0,
-               "no" : 0,
-               "pl" : 0,
-               "ps" : 0,
-               "pt" : 0,
-               "ro" : 0,
-               "rs" : 0,
-               "se" : 0,
-               "si" : 0,
-               "sj" : 0,
-               "sk" : 0,
-               "sm" : 0,
-               "sy" : 0,
-               "tn" : 0,
-               "tr" : 0,
-               "ua" : 0,
-               "uk" : 0,
-               "us" : 0,
-               "va" : 0,
-               "world" : 0,
-               "xk" : 0
+               "ad" : 0.0,
+               "al" : 0.0,
+               "at" : 0.0,
+               "ax" : 0.0,
+               "ba" : 0.0,
+               "be" : 0.0,
+               "bg" : 0.0,
+               "ch" : 0.0,
+               "cy" : 0.0,
+               "cz" : 0.0,
+               "de" : 0.0,
+               "dk" : 0.0,
+               "dz" : 0.0,
+               "ee" : 0.0,
+               "eg" : 0.0,
+               "es" : 0.0,
+               "fi" : 0.0,
+               "fo" : 0.0,
+               "fr" : 0.0,
+               "gg" : 0.0,
+               "gi" : 0.0,
+               "gr" : 0.0,
+               "hr" : 0.0,
+               "hu" : 0.0,
+               "ie" : 0.0,
+               "il" : 0.0,
+               "im" : 0.0,
+               "is" : 0.0,
+               "it" : 0.0,
+               "je" : 0.0,
+               "lb" : 0.0,
+               "li" : 0.0,
+               "lt" : 0.0,
+               "lu" : 0.0,
+               "lv" : 0.0,
+               "ly" : 0.0,
+               "ma" : 0.0,
+               "mc" : 0.0,
+               "md" : 0.0,
+               "me" : 0.0,
+               "mk" : 0.0,
+               "mt" : 0.0,
+               "nl" : 0.0,
+               "no" : 0.0,
+               "pl" : 0.0,
+               "ps" : 0.0,
+               "pt" : 0.0,
+               "ro" : 0.0,
+               "rs" : 0.0,
+               "se" : 0.0,
+               "si" : 0.0,
+               "sj" : 0.0,
+               "sk" : 0.0,
+               "sm" : 0.0,
+               "sy" : 0.0,
+               "tn" : 0.0,
+               "tr" : 0.0,
+               "ua" : 0.0,
+               "uk" : 0.0,
+               "us" : 0.0,
+               "va" : 0.0,
+               "world" : 0.0,
+               "xk" : 0.0
             },
             "transportation_values" : {
                "ad" : 0,
@@ -303,8 +354,8 @@
             "non_recyclable_and_non_biodegradable_materials" : 0,
             "packagings" : [
                {
-                  "ecoscore_material_score" : 21,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 21,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:pp-5-polypropylene",
                   "non_recyclable_and_non_biodegradable" : "no",
                   "number_of_units" : 2,
@@ -312,15 +363,15 @@
                   "weight_specified" : 1
                },
                {
-                  "ecoscore_material_score" : 92,
-                  "ecoscore_shape_ratio" : 1,
+                  "environmental_score_material_score" : 92,
+                  "environmental_score_shape_ratio" : 1,
                   "material" : "en:non-corrugated-cardboard",
                   "number_of_units" : 1,
                   "shape" : "en:box",
                   "weight_specified" : 17
                }
             ],
-            "score" : 13,
+            "score" : 13.0,
             "value" : -9
          },
          "production_system" : {
@@ -335,6 +386,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "ingredients" : 1,
@@ -344,20 +396,20 @@
       "missing_agribalyse_match_warning" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
-   "editors_tags" : [
-      "test-user"
-   ],
-   "entry_dates_tags" : "--ignore--",
    "food_groups_tags" : [],
    "id" : "3250390021469",
+   "images" : {
+      "selected" : {
+         "ingredients" : {}
+      }
+   },
    "informers_tags" : [
       "test-user"
    ],
-   "ingredients_lc" : "fr",
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "lang" : "fr",
    "lang_imported" : "fr",
@@ -383,27 +435,27 @@
    "lc_imported" : "fr",
    "main_countries_tags" : [],
    "misc_tags" : [
+      "en:environmental-score-not-computed",
+      "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-missing-category",
-      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
-      "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:packagings-number-of-components-2",
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-complete",
       "en:packagings-not-empty",
-      "en:packagings-with-weights",
+      "en:packagings-number-of-components-2",
       "en:packagings-with-all-weights",
       "en:packagings-with-all-weights-complete",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed",
+      "en:packagings-with-weights",
       "en:main-countries-new-product"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -413,7 +465,6 @@
    ],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 0,
@@ -430,10 +481,12 @@
             "sodium" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       },
       "2023" : {
          "category_available" : 0,
@@ -451,10 +504,12 @@
             "saturated_fat" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       }
    },
    "nutriscore_2021_tags" : [
@@ -467,16 +522,15 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
-   "nutrition_data_per" : "100g",
-   "nutrition_data_prepared_per" : "100g",
+   "nutriscore_version" : "2023",
+   "nutrition" : {},
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+   "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "owner" : "org-test-org",
@@ -508,15 +562,15 @@
    "packagings_complete" : 1,
    "packagings_materials" : {
       "all" : {
-         "weight" : 19,
+         "weight" : 19.0,
          "weight_percent" : 100
       },
       "en:paper-or-cardboard" : {
-         "weight" : 17,
+         "weight" : 17.0,
          "weight_percent" : 89.4736842105263
       },
       "en:plastic" : {
-         "weight" : 2,
+         "weight" : 2.0,
          "weight_percent" : 10.5263157894737
       }
    },
@@ -537,15 +591,18 @@
    "product_name" : "Cabillaud nature 4x100g",
    "product_name_fr" : "Cabillaud nature 4x100g",
    "product_name_fr_imported" : "Cabillaud nature 4x100g",
+   "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
+   "schema_version" : 1003,
    "sources" : [
       {
          "fields" : [
             "product_name_fr",
             "brands",
             "countries",
-            "data_sources"
+            "data_sources",
+            "nutrition"
          ],
          "id" : null,
          "images" : [],
@@ -591,6 +648,5 @@
    "traces_from_user" : "(fr) ",
    "traces_hierarchy" : [],
    "traces_tags" : [],
-   "unknown_nutrients_tags" : [],
    "weighers_tags" : []
 }

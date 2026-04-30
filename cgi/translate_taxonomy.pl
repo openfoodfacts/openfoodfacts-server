@@ -26,16 +26,17 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Lang qw/:all/;
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Text qw/:all/;
+use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::Tags qw/add_user_translation/;
+use ProductOpener::Users qw/$User_id/;
+use ProductOpener::Text qw/remove_tags_and_quote/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
 use Log::Any qw($log);
-use JSON::PP;
+use JSON::MaybeXS;
 
 my $request_ref = ProductOpener::Display::init_request();
 

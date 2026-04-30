@@ -3,8 +3,7 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::MockModule;
-use Test::More;
+use Test2::V0;
 
 use ProductOpener::Tags qw/get_lc_tagid/;
 
@@ -15,27 +14,27 @@ use ProductOpener::Tags qw/get_lc_tagid/;
 =head2 Unit testing get_lc_tagid
 =cut
 
-# a fake remove stopwords
-# we prefer to use a mock for we do not have control
-# over what the original function does as it is governed by the content of the stopwords
-# global hash (also we can save time avoiding to load full taxonomies just for this test)
-sub fake_remove_stopwords($$$) {
-
-	my $tagtype = shift;
-	my $lc = shift;
-	my $tagid = shift;
-
-	# naivly remove "the" at start
-	$tagid =~ s/the-*//i;
-
-	return $tagid;
-}
-
 {
-	my $tag_module = Test::MockModule->new('ProductOpener::Tags');
-
 	# mock download image to fetch image in inputs_dir
-	$tag_module->mock('remove_stopwords', \&fake_remove_stopwords);
+	my $tag_module = mock 'ProductOpener::Tags' => (
+		override => [
+			# a fake remove stopwords
+			# we prefer to use a mock for we do not have control
+			# over what the original function does as it is governed by the content of the stopwords
+			# global hash (also we can save time avoiding to load full taxonomies just for this test)
+			remove_stopwords => sub {
+				my $tagtype = shift;
+				my $lc = shift;
+				my $tagid = shift;
+
+				# naivly remove "the" at start
+				$tagid =~ s/the-*//i;
+
+				return $tagid;
+			}
+
+		]
+	);
 
 	# this would be the section of %synonyms for our tagtype (categories)
 	my $synonyms_ref = {

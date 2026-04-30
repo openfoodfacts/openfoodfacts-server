@@ -1,16 +1,15 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-warning-comments */
-/* eslint-env jquery */
 /* eslint max-statements-per-line: ["error", { "max": 2 }] */
 /* eslint no-plusplus: ["warn", { "allowForLoopAfterthoughts": true }]*/
 /* eslint max-params: ["error", 5] */
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
 
 // Product Opener (Open Food Facts web app) uses:
-// * jQuery 2.1.4:                view-source:https://static.openfoodfacts.org/js/dist/jquery.js (~84 KB)
-//                                http://code.jquery.com/jquery-2.1.4.min.js
-// * jQuery-UI 1.12.1:            view-source:https://static.openfoodfacts.org/js/dist/jquery-ui.js (~82 KB)
-//                                http://code.jquery.com/ui/1.12.1/jquery-ui.min.js
+// * jQuery 2.2.4:                view-source:https://static.openfoodfacts.org/js/dist/jquery.js (~84 KB)
+//                                http://code.jquery.com/jquery-2.2.4.min.js
+// * jQuery-UI 1.14.1:            view-source:https://static.openfoodfacts.org/js/dist/jquery-ui.js (~35 KB)
+//                                http://code.jquery.com/ui/1.14.1/jquery-ui.min.js
 // * Tagify 3.x:                  https://github.com/yairEO/tagify (~47 KB)
 // * Foundation 5 CSS Framework:  https://sudheerdev.github.io/Foundation5CheatSheet/
 //                                See also: https://github.com/openfoodfacts/openfoodfacts-server/pull/2987
@@ -36,9 +35,11 @@
 //const corsProxy = "https://pure-63603.herokuapp.com/"; // For dev environment
 const corsProxy = "";                                        // For production
 
-const feAPI = corsProxy + "https://api.folksonomy.openfoodfacts.org";
-//const feAPI = corsProxy + "http://fr.openfoodfacts.localhost:8000"; // For dev environment
-var feAPIProductURL, code, bearer, prop;
+// FE API depends on current domain name
+const docURL = new URL(document.URL);
+const feHost = "api.folksonomy." + docURL.hostname.split(".").slice(1).join(".");
+const feAPI = corsProxy + docURL.protocol + "//" + feHost;
+let feAPIProductURL, code, bearer, prop;
 const authrenewal = 1 * 5 * 60 * 60 * 1000;
 //folksonomy_engine_init();
 
@@ -65,7 +66,6 @@ function folskonomy_engine_init() {
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 
 .feus {
-  background-color: #f7edf8;
   margin-bottom: 1rem;
 }
 
@@ -123,17 +123,34 @@ function folskonomy_engine_init() {
 
     if (pageType === "property") {
         // detect /property/test or /property/test/value/test_value
-        const results = new RegExp('/property/([^/]*)(/value/)?(.*)').exec(window.location.href);
+        // we capture a value without / and quotes (to avoid html injection)
+        const results = new RegExp("/property/([^\"'/]*)(/value/)?(.*)").exec(
+          window.location.href
+        );
         if (results === null) {
-            return null;
+          return null;
         }
+      
         const property = results[1];
-        const value = results[3];
-        displayProductsWithProperty(property, value);
-    }
+      
+        const webComponentHTML = `
+          <div style="padding: 32px;">
+            <folksonomy-property-products property-name="${property}"></folksonomy-property-products>
+          </div>
+        `;
+      
+        $("#main_column").append(webComponentHTML);
+      }
+      
 
     if (pageType === "properties") {
-        displayAllProperties();
+        const webComponentHTML = `
+          <div style="padding: 32px;">
+            <folksonomy-properties></folksonomy-properties>
+          </div>
+        `;
+
+        $("#main_column").append(webComponentHTML);
     }
 }
 
@@ -147,28 +164,34 @@ function folskonomy_engine_init() {
 function displayFolksonomyPropertyValues() {
     //$(".details").before(
     $("div#main-product").append(
-        String('<!-- ---- Folksonomy Engine ----- -->' +
-        '<div id="free_properties_1" class="feus row card ">' +
-        '<div  class="column large-12 h-space-tiny ">' +
+        String('<!-- ---- Folksonomy Engine panel ----- -->' +
+        '<section class="row">' +
+        '<div id="free_properties_1" class="large-12 column feus">' +
+        '<div class="card">' +
+        '<div class="card-section h-space-tiny">' +
         '<h2>Personalized properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
         '<p id="fe_login_info"></p>' +
         "<p>These properties are created and filed by users for any kind of usages. Feel free to add your own. " +
+        "The properties and values you create <strong>must be factual</strong>. " +
         "You can dive into <a href='/properties'>the list of properties already used by the community</a> " +
-        "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>.</p>" +
+        "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>. " +
+        "</p>" +
         "<p>Be aware the data model might be modified. Use at your own risk.</p>" +
         "<p>This is brought by the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>folksonomy engine project</a>. Don't hesitate to participate or give feedback.</p>" +
         '<form id="free_properties_form">' +
         '<table>' +
         '<tr>' +
-        '<th> </th>' +
-        '<th class="prop_title">Property <a href="/properties">🔗</a></th>' +
-        '<th class="val_title">Value</th>' +
+        '<th class="fe_tag_version_title">&nbsp;</th>' +
+        '<th class="fe_prop_doc_link_title">&nbsp;</th>' +
+        '<th class="fe_prop_title">Property <a href="https://wiki.openfoodfacts.org/Folksonomy/Property">🛈</a></th>' +
+        '<th class="fe_val_title">Value</th>' +
         '</tr>' +
         '<tbody id="free_prop_body">') +
         '</tbody>' +
         '<!-- ---- New row ---- -->' +
         '<tr id="fe_new_row">' +
         '<td><input type="hidden" name="owner"> </td>' +
+        '<td id="fe_form_new_property_doc"></td>' +
         '<td>' +
         '<input id="fe_form_new_property" name="property" class="text tagify-me" value="" lang="en" placeholder="Enter a property" ></input>' +
             '<small id="fe_prop_eg" >Example: color</small>' +
@@ -184,6 +207,8 @@ function displayFolksonomyPropertyValues() {
         '</form>' +
         '</div>' +
         '</div>' +
+        '</div>' +
+        '</section>' +
         '<!-- ----- /Folksonomy Engine ----- -->');
 
 
@@ -313,17 +338,17 @@ function displayFolksonomyPropertyValues() {
             return;
         }
         console.log("FEUS - displayFolksonomyPropertyValues() - " + JSON.stringify(data));
-        let index = data.length;
         let content = "";
         // Sort by property
         const d = data.sort(function(a,b){ return a.k <b.k ? 1 :-1; });
-        while (index--) {
+        for (let index = data.length - 1; index >= 0; index -= 1) {
             content += ('<tr>' +
                         '<td class="version" data-version="' + d[index].version + '"> </td>' +
+                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+d[index].k+'">🛈</a></td>' +
                         '<td class="property"><a href="/property/' + d[index].k + '">'                      + d[index].k + '</a></td>' +
                         '<td class="value"><a href="/property/' + d[index].k + '/value/' + d[index].v +'">' + d[index].v + '</a></td>' +
                         '<td>'+
-                        '<span class="button tiny fe_save_kv" style="display: none">save</span> '+
+                        '<span class="button tiny fe_save_kv" style="display: none">Save</span> '+
                         '<span class="button tiny fe_edit_kv">Edit</span> '+
                         '<span class="button tiny fe_del_kv">Delete</span>'+
                         '</td>' +
@@ -342,98 +367,6 @@ function displayFolksonomyPropertyValues() {
                 editPropertyValue(this);
             });
         } );
-    });
-}
-
-
-function displayProductsWithProperty(_property, _value) {
-
-    /* curl -X 'GET' \
-        'https://api.folksonomy.openfoodfacts.org/products?k=test&v=test' \
-        -H 'accept: application/json'
-    */
-    //$("#main_column p").remove();  // remove <p>Invalid address.</p>
-    $("#main_column").append('<!-- display products with property ' + _property + (_value ? ": "+ _value : '') + ' -->' +
-                                '<h2 id="property_title">Property: '+ _property + (_value ? ": "+ _value : '') + '</h2>' +
-                                '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _property + '">dedicated documentation</a>' +
-                                ' about this property on Open Food Facts wiki</p>' +
-                                '<p>List of products using this property:</p>' +
-                                '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/properties">list of all properties</a>.</div>' +
-                                '<ul id="product_list"></ul>');
-    //$("#main_column h1").remove(); // remove <h1>Error</h1>
-
-    console.log("FEUS - displayProductsWithProperty(_property) - GET " + feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''));
-    $.getJSON(feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''), function(data) {
-        console.log("FEUS - displayProductsWithProperty() - " + JSON.stringify(data));
-        let index = data.length; 
-        let content = "";
-        //const mainAPI = window.location.origin;
-        //$.getJSON(mainAPI +
-        content +=
-            '<table id="properties_list">' +
-            '<tr>' +
-            '<th class="product_code">Code</th>' +
-            '<th class="values">Values</th>' +
-            '</tr>' +
-            '<tbody id="free_prop_body">';
-        while (index--) {
-            content += ('<tr>' +
-                        '<td class="product_code">' +
-                        '<a href="/product/'+ data[index].product + '">' + data[index].product + '</a>' +
-                        '</td>' +
-                        '<td class="property_value">'+
-                        '<a href="/property/'+ _property + '/value/' + data[index].v + '">' + data[index].v + '</a>' +
-                        '</td>' +
-                        '</tr>');
-        }
-        content +=
-            '' +
-            '</tbody>' +
-            '</table>';
-        $("#product_list").append(content);
-    });
-}
-
-
-function displayAllProperties() {
-
-    /* curl -X 'GET' \
-            'https://api.folksonomy.openfoodfacts.org/keys' \
-            -H 'accept: application/json'
-    */
-    // TODO: add owner filter?
-    //$("#main_column p").remove(); // remove <p>Invalid address.</p>
-    $("#main_column").append(String('<h2 id="property_title">Properties</h2>' +
-                                '<p>List of all properties.</p>' +
-                                '<table id="properties_list">' +
-                                '<tr>' +
-                                '<th> </th>' +
-                                '<th class="property_name">Property</th>' +
-                                '<th class="count">Count</th>' +
-                                '<th class="values">Values</th>' +
-                                '<th class="doc">Documentation</th>' +
-                                '</tr>' +
-                                '<tbody id="free_prop_body">') +
-                                '</tbody>' +
-                                '</table>');
-    //$("#main_column h1").remove(); // remove <h1>Error</h1>
-    console.log("FEUS - displayAllProperties(_owner) - GET " + feAPI + "/keys");
-    $.getJSON(feAPI + "/keys", function(data) {
-        console.log("FEUS - displayAllProperties() - " + JSON.stringify(data));
-        let index = data.length;
-        let content = "";
-        // sort by count
-        const d = data.sort(function(a,b){ return a.count >b.count ?1 :-1; });
-        while (index--) {
-            content += ('<tr class="property">' +
-                        '<td> </td>' +
-                        '<td><a href="/property/'+ d[index].k + '">' + d[index].k + '</a></td>' +
-                        '<td>' + d[index].count + '</td>' +
-                        '<td>' + d[index].values + '</td>' +
-                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/' + d[index].k + '">🔗</a></td>' +
-                        '</tr>');
-        }
-        $("#properties_list").append(content);
     });
 }
 
@@ -686,10 +619,9 @@ function displayFolksonomyForm() {
     $.getJSON(feAPIProductURL, function(data) {
         console.log("FEUS - displayFolksonomyForm() - URL: " + feAPIProductURL);
         console.log("FEUS - displayFolksonomyForm() - " + JSON.stringify(data));
-        let index = data.length;
         let content = "";
         const d = data.sort(function(a,b){ return a.k <b.k ?1 :-1; });
-        while (index--) {
+        for (let index = data.length - 1; index >= 0; index -= 1) {
             content += ('<form class="free_properties_form">' +
                         '<p class="property_value">' +
                         '<label for="feus-' + d[index].k + '" class="property">' + d[index].k + '</label> ' +
@@ -771,7 +703,7 @@ function isPageType() {
 
 function loginProcess(callback) {
     // Try to authenticate using the Open Food Facts cookie first
-    var cookie = $.cookie('session') ? $.cookie('session') : "";
+    const cookie = $.cookie('session') ? $.cookie('session') : "";
     if (cookie) {
         console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
         getCredentialsFromCookie(cookie, callback);
@@ -990,7 +922,7 @@ function findOcc(arr, key) {
         // If yes! then increase the occurrence by 1
         arr2.forEach((k) => {
         if (k[key] === x[key]) {
-            k.occurrence++;
+            k.occurrence += 1;
         }
         });
     } else {

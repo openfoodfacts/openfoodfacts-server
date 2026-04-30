@@ -2,15 +2,15 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
+use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Display;
 
-use ProductOpener::Test qw/:all/;
-use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::TestDefaults qw/%default_product/;
 
-use ProductOpener::KnowledgePanelsContribution qw/:all/;
+use ProductOpener::KnowledgePanelsContribution qw/create_data_quality_panel/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -95,10 +95,11 @@ foreach my $test_ref (@tests) {
 	my $test_id = $test_ref->{id};
 	my %product = (%default_product, %{$test_ref->{product} // {}});
 	my %options = (%default_options, %{$test_ref->{options} // {}});
+	my $request_ref = {};
 	# set language
 	$ProductOpener::Display::lc = "en";
 	# run
-	create_data_quality_panel($test_ref->{tag_type}, \%product, "en", "world", \%options);
+	create_data_quality_panel($test_ref->{tag_type}, \%product, "en", "world", \%options, $request_ref);
 	my $panels_ref = $product{"knowledge_panels_en"};
 	compare_to_expected_results($panels_ref, "$expected_result_dir/$test_id.json", $update_expected_results, $test_ref);
 }

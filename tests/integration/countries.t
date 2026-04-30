@@ -2,10 +2,10 @@
 
 use ProductOpener::PerlStandards;
 
-use Test::More;
-use ProductOpener::APITest qw/:all/;
+use Test2::V0;
+use ProductOpener::APITest qw/execute_api_tests wait_application_ready/;
 
-wait_application_ready();
+wait_application_ready(__FILE__);
 
 my $tests_ref = [
 	{

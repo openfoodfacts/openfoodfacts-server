@@ -27,7 +27,7 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -44,7 +44,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 
 # Get a list of all products
@@ -95,7 +95,7 @@ while ( my $product_ref = $cursor->next ) {
 	
 	# Ingredients classes
 	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
 	compute_languages($product_ref); # need languages for allergens detection
 	detect_allergens_from_text($product_ref);

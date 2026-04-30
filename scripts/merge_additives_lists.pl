@@ -22,7 +22,7 @@
 
 use Modern::Perl '2017';
 
-use ProductOpener::Store qw/:all/;
+use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Config qw/:all/;
 
 my %additives = ();

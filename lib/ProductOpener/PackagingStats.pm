@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -69,13 +69,6 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&generate_packaging_stats_for_query
-		&add_product_components_to_stats
-		&compute_stats_for_all_weights
-		&compute_stats_for_values
-		&remove_unpopular_categories_shapes_and_materials
-		&remove_packagings_materials_stats_for_unpopular_categories
-		&store_stats
-		&export_product_packaging_components_to_csv
 		&add_product_materials_to_stats
 		&compute_stats_for_all_materials
 
@@ -88,17 +81,17 @@ use vars @EXPORT_OK;
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Store qw/store_config/;
+use ProductOpener::Tags qw/gen_tags_hierarchy_taxonomy/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Data qw/:all/;
-use ProductOpener::Packaging qw/:all/;
-use ProductOpener::Ecoscore qw/load_agribalyse_data %agribalyse/;
+use ProductOpener::Data qw/get_products_collection/;
+use ProductOpener::Packaging qw/get_parent_material/;
+use ProductOpener::EnvironmentalScore qw/load_agribalyse_data %agribalyse/;
 
 use File::Path qw(mkpath);
-use JSON::PP;
+use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
 use Text::CSV;
 
@@ -333,30 +326,24 @@ Store the stats in JSON format for internal use in Product Opener and store a co
 
 sub store_stats ($name, $packagings_stats_ref, $packagings_materials_stats_ref) {
 
-	# Create directories for the output if they do not exist yet
-	ensure_dir_created_or_die("$BASE_DIRS{PRIVATE_DATA}/categories_stats");
-	ensure_dir_created_or_die("$BASE_DIRS{PUBLIC_DATA}/categories_stats");
-
 	# Packaging stats for packaging components
-	store_json("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.$name.json",
-		$packagings_stats_ref);
-	store_json("$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_stats.$name.json",
-		$packagings_stats_ref);
+	store_config("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.$name", $packagings_stats_ref);
+	store_config("$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_stats.$name", $packagings_stats_ref);
 
 	# Packaging stats for products
-	store_json("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_materials_stats.$name.json",
+	store_config("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_materials_stats.$name",
 		$packagings_materials_stats_ref);
-	store_json("$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_materials_stats.$name.json",
+	store_config("$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_materials_stats.$name",
 		$packagings_materials_stats_ref);
 
 	# special export for French yogurts for the "What's around my yogurt?" operation in January 2023
 	# https://fr.openfoodfacts.org/categorie/desserts-lactes-fermentes/misc/en:packagings-with-weights
-	store_json(
-		"$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json",
+	store_config(
+		"$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name",
 		$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
 	);
-	store_json(
-		"$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_materials_stats.fr.fermented-dairy-desserts.$name.json",
+	store_config(
+		"$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_materials_stats.fr.fermented-dairy-desserts.$name",
 		$packagings_materials_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
 	);
 

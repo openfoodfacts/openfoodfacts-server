@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -35,7 +35,6 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&capture_ouputs
-		&compare_arr
 		&ensure_expected_results_dir
 		&compare_file_to_expected_results
 		&compare_to_expected_results
@@ -43,18 +42,21 @@ BEGIN {
 		&compare_csv_file_to_expected_results
 		&create_sto_from_json
 		&init_expected_results
+		&normalize_object_for_test_comparison
 		&normalize_org_for_test_comparison
+		&normalize_blame_for_test_comparison
 		&normalize_product_for_test_comparison
 		&normalize_products_for_test_comparison
+		&normalize_html_for_test_comparison
 		&sort_products_for_test_comparison
 		&normalize_user_for_test_comparison
 		&remove_all_products
 		&remove_all_users
 		&remove_all_orgs
-		&check_not_production
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
+		&get_base64_image_data_from_file
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -64,23 +66,34 @@ use vars @EXPORT_OK;
 use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Data qw/execute_query get_products_collection/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
+use ProductOpener::Auth qw/get_token_using_client_credentials get_oidc_implementation_level/;
+use ProductOpener::APITest qw/get_minion_jobs get_last_minion_job_created/;
 
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
 use Getopt::Long;
 use IO::Uncompress::AnyInflate qw(anyinflate $AnyInflateError);
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
 use JSON "decode_json";
 use File::Basename "fileparse";
 use File::Path qw/make_path remove_tree/;
 use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
+use URI::Escape::XS qw/uri_escape/;
+use Test::File::Contents qw/files_eq_or_diff/;
+use MIME::Base64 qw(encode_base64);
 
 use Log::Any qw($log);
+
+no warnings qw(experimental::signatures);
+
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
+my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
 =head2 read_gzip_file($filepath)
 
@@ -89,6 +102,7 @@ Read gzipped file and return binary content
 =head3 Parameters
 
 =head4 String $filepath
+
 The path of the gzipped file.
 
 =cut
@@ -109,6 +123,7 @@ Check that OCR result returned by Google Cloud Vision is as expected:
 =head3 Parameters
 
 =head4 String $ocr_result
+
 String of OCR result JSON as returned by Google Cloud Vision.
 
 =cut
@@ -134,6 +149,7 @@ There are two modes: one to update expected results, and one to test against the
 =head3 Parameters
 
 =head4 String $filepath
+
 The path of the file containing the test.
 Generally should be <pre>__FILE__</pre> within the test.
 
@@ -163,6 +179,10 @@ TXT
 
 	my $update_expected_results;
 
+	# Some tests may call init_expected_results() multiple times (as it's also called in execute_api_tests()),
+	# so we make a local copy of @ARGV as GetOptions consumes it
+	# otherwise $update_expected_results would not be set on subsequent calls
+	local (@ARGV) = @ARGV;
 	GetOptions("update-expected-results" => \$update_expected_results)
 		or confess("Error in command line arguments.\n\n" . $usage);
 
@@ -214,7 +234,18 @@ sub remove_all_products () {
 			return get_products_collection()->delete_many({});
 		}
 	);
+	execute_query(
+		sub {
+			return get_products_collection({obsolete => 1})->delete_many({});
+		}
+	);
+	execute_query(
+		sub {
+			return get_recent_changes_collection()->delete_many({});
+		}
+	);
 	# clean files
+	#11872 Note this should probably be owned by Store.pm
 	remove_tree($BASE_DIRS{PRODUCTS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
@@ -223,6 +254,9 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
+	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
+	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
 }
 
 =head2 remove_all_users ()
@@ -236,12 +270,32 @@ This function should only be called by tests, and never on production environmen
 sub remove_all_users () {
 	# Important: check we are not on a prod database
 	check_not_production();
-	# clean files
+
+	my $before_delete_ts = get_last_minion_job_created();
+	my $keycloak_users_affected = 0;
+
 	# clean files
 	remove_tree($BASE_DIRS{USERS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some users directories: " . join(":", @$err));
 	}
+	# clean keycloak
+	my @users = get_users_from_keycloak();
+	foreach (@users) {
+		foreach (@{$_}) {
+			_delete_user_from_keycloak($_);
+			# print STDERR "[" . localtime() . "] Deleted user " . $_->{username} . " from keycloak\n";
+			$keycloak_users_affected = 1;
+		}
+	}
+
+	# Wait for minion jobs triggered by Redis complete as otherwise can get race conditions with the main test
+	if ($keycloak_users_affected and get_oidc_implementation_level() > 1) {
+		my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
+		# print STDERR "[" . localtime() . "] Delete jobs: " . JSON::encode_json($jobs_ref) . "\n";
+	}
+
+	return;
 }
 
 =head2 remove_all_orgs ()
@@ -255,6 +309,12 @@ This function should only be called by tests, and never on production environmen
 sub remove_all_orgs () {
 	# Important: check we are not on a prod database
 	check_not_production();
+	# clean mongo
+	execute_query(
+		sub {
+			return get_orgs_collection()->delete_many({});
+		}
+	);
 	# clean files
 	remove_tree($BASE_DIRS{ORGS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
@@ -347,8 +407,6 @@ If the test fail, the test reference will be output in the C<diag>
 
 sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-	my $json = JSON->new->allow_nonref->canonical;
-
 	my $desc = undef;
 	if (defined $test_ref) {
 		$desc = $test_ref->{desc} // $test_ref->{id};
@@ -374,11 +432,11 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is_deeply($object_ref, $expected_object_ref, $title) or diag(explain $test_ref, explain $object_ref);
+			is($object_ref, $expected_object_ref, $title) or diag(Dumper($test_ref), Dumper($object_ref));
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag(explain $test_ref, explain $object_ref);
+			diag(Dumper($test_ref), Dumper($object_ref));
 		}
 	}
 
@@ -387,7 +445,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 
 =head2 compare_file_to_expected_results($content_str, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-Compare an string (e.g. text or HTML file) to expected results.
+Compare a file (e.g. text or HTML file) to expected results.
 
 The expected result is stored as a plain text file.
 
@@ -417,6 +475,11 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 		$desc = $test_ref->{desc} // $test_ref->{id};
 	}
 
+	# Normalize html
+	if ($expected_results_file =~ /\.html$/) {
+		normalize_html_for_test_comparison(\$content_str);
+	}
+
 	if ($update_expected_results) {
 		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
 			or confess("Could not create $expected_results_file: $!");
@@ -433,11 +496,19 @@ sub compare_file_to_expected_results ($content_str, $expected_results_file, $upd
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is($content_str, $expected_result, $title);
+
+			my $results_file = $expected_results_file . ".test";
+			open(my $result, ">:encoding(UTF-8)", $results_file)
+				or confess("Could not create $results_file: $!");
+			print $result $content_str;
+			close($result);
+
+			files_eq_or_diff($expected_results_file, $results_file, $title);
+			unlink($results_file);
 		}
 		else {
 			fail("could not load $expected_results_file");
-			diag(explain $test_ref, explain $content_str);
+			diag(Dumper($test_ref), Dumper($content_str));
 		}
 	}
 
@@ -469,7 +540,9 @@ Tests will pass when this flag is passed, and the new expected results can be di
 
 =cut
 
-sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name = "") {
+sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name,
+	$save_csv = 1)
+{
 
 	# Read the CSV file
 
@@ -492,7 +565,8 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 			$test_name);
 
 		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
-		if ($update_expected_results) {
+		# Don't do this for CSV exports that contain things that vary, like modified dates
+		if ($update_expected_results and $save_csv) {
 			my $csv_filename = $csv_file;
 			$csv_filename =~ s/.*\///;
 			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
@@ -512,6 +586,8 @@ Compare an array containing product data (e.g. the result of a CSV export) to ex
 
 The expected results are stored as individual JSON files for each of the product,
 in files named [barcode].json, with a flat key/value pairs structure corresponding to the CSV columns.
+
+We normalize some fields like creation dates that change for each test run.
 
 This is so that we can easily see diffs with git diffs:
 - we know how many products are affected
@@ -536,10 +612,11 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 	ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
-	my $json = JSON->new->allow_nonref->canonical;
 	my %codes = ();
 
 	foreach my $product_ref (@$array_ref) {
+
+		normalize_product_for_test_comparison($product_ref);
 
 		my $code = $product_ref->{code};
 		$codes{$code} = 1;
@@ -559,10 +636,10 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_product_ref = $json->decode(<$expected_result>);
-			is_deeply($product_ref, $expected_product_ref, "$test_name - $code") or diag explain $product_ref;
+			is($product_ref, $expected_product_ref, "$test_name - $code") or diag Dumper($product_ref);
 		}
 		else {
-			diag explain $product_ref;
+			diag Dumper($product_ref);
 			fail("could not load $expected_results_dir/$code.json");
 		}
 	}
@@ -618,37 +695,22 @@ sub create_sto_from_json ($json_path, $sto_path) {
 	return;
 }
 
-# this method is an helper method for normalize_product_for_test_comparison
-# $item_ref is a product hash ref, or subpart there of
-# $subfields_ref is an array of arrays of keys.
-# Each array of key leads to a sub array of $item_ref, but the last which is target element.
-# _sub_items will reach every targeted elements, running through all sub-arrays
+sub _ignore_content($content) {
+	return "--ignore--";
+}
 
-sub _sub_items ($item_ref, $subfields_ref) {
+sub _ignore_line_numbers($content) {
+	$content =~ s/\bline\s+\d+/line --ignore--/g;
+	return $content;
+}
 
-	if (scalar @$subfields_ref == 0) {
-		return $item_ref;
+sub _sort_content($content) {
+	if (ref($content) eq 'ARRAY') {
+		my @sorted = sort @$content;
+		return \@sorted;
 	}
 	else {
-		# get first level
-		my @result = ();
-		my @key = split(/\./, shift(@$subfields_ref));
-
-		if (deep_exists($item_ref, @key)) {
-			# only support array for now
-			my @sub_items = deep_get($item_ref, @key);
-			for my $sub_item (@sub_items) {
-				# recurse
-				my $sub_items_ref = _sub_items($sub_item, $subfields_ref);
-				if (ref($sub_items_ref) eq 'ARRAY') {
-					push @result, @$sub_items_ref;
-				}
-				else {
-					push @result, values %$sub_items_ref;
-				}
-			}
-		}
-		return @result;
+		return $content;
 	}
 }
 
@@ -666,41 +728,122 @@ We remove some fields and sort some lists.
 
 fields_ignore_content - array of fields which content should be ignored
 because they vary from test to test.
-Stars means there is a table of elements and we want to run through all (hash not supported yet)
+Stars means there is a table or hashmap of elements and we want to run through all.
+
+fields_ignore_line_numbers_in_content - array of fields where line numbers in content should be replaced with --ignore--
+This is useful for error messages that contain file names and line numbers that change when code is refactored.
 
 fields_sort - array of fields which content needs to be sorted to have predictable results
 
 =cut
 
 sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
+
+	my @transforms = ();
 	if (defined($specification_ref->{fields_ignore_content})) {
 		my @fields_ignore_content = @{$specification_ref->{fields_ignore_content}};
-
-		my @key;
-		for my $field_ic (@fields_ignore_content) {
-			# stars permits to loop subitems
-			my @subfield = split(/\.\*\./, $field_ic);
-			my $final_field = pop @subfield;
-			for my $item (_sub_items($object_ref, \@subfield)) {
-				@key = split(/\./, $final_field);
-				if (deep_exists($item, @key)) {
-					deep_set($item, @key, "--ignore--");
+		push @transforms, {fields => \@fields_ignore_content, transformation => \&_ignore_content};
+	}
+	if (defined($specification_ref->{fields_ignore_line_numbers_in_content})) {
+		my @fields_ignore_line_numbers = @{$specification_ref->{fields_ignore_line_numbers_in_content}};
+		push @transforms, {fields => \@fields_ignore_line_numbers, transformation => \&_ignore_line_numbers};
+	}
+	if (defined($specification_ref->{fields_sort})) {
+		my @fields_sort = @{$specification_ref->{fields_sort}};
+		push @transforms, {fields => \@fields_sort, transformation => \&_sort_content};
+	}
+	foreach my $transform (@transforms) {
+		my @fields = @{$transform->{fields}};
+		my $transformation = $transform->{transformation};
+		for my $field (@fields) {
+			my @keys = split(/\./, $field);
+			my $final_key = pop(@keys);
+			for my $item_ref (_get_sub_fields($object_ref, @keys)) {
+				if ($final_key ne "*") {
+					if ((ref($item_ref) eq 'HASH') and (defined $item_ref->{$final_key})) {
+						$item_ref->{$final_key} = $transformation->($item_ref->{$final_key});
+					}
+				}
+				else {
+					if (ref($item_ref) eq 'ARRAY') {
+						for my $index (0 .. (scalar @$item_ref) - 1) {
+							$item_ref->[$index] = $transformation->($item_ref->[$index]);
+						}
+					}
+					elsif (ref($item_ref) eq 'HASH') {
+						foreach my $key (keys %$item_ref) {
+							$item_ref->{$key} = $transformation->($item_ref->{$key});
+						}
+					}
+					# Note: * on a scalar means nothing
 				}
 			}
 		}
 	}
-	if (defined($specification_ref->{fields_sort})) {
-		my @fields_sort = @{$specification_ref->{fields_sort}};
-		my @key;
-		for my $field_s (@fields_sort) {
-			@key = split(/\./, $field_s);
-			if (deep_exists($object_ref, @key)) {
-				my @sorted = sort @{deep_get($object_ref, @key)};
-				deep_set($object_ref, @key, \@sorted);
+	return;
+}
+
+sub _get_sub_fields($object_ref, @keys) {
+	if (scalar @keys == 0) {
+		# end of recursion
+		return $object_ref;
+	}
+	else {
+		my $key = shift(@keys);
+		if ($key eq "*") {
+			my @items = ();
+			if (ref($object_ref) eq 'ARRAY') {
+				@items = @$object_ref;
+			}
+			elsif (ref($object_ref) eq 'HASH') {
+				@items = (values %$object_ref);
+			}
+			else {
+				return ();
+			}
+			# recurse on each element and cumulate result
+			my @results = ();
+			foreach my $item (@items) {
+				# scalar are not worth
+				next unless ref($item);
+				my @keys_copy = (@keys);
+				push @results, _get_sub_fields($item, @keys_copy);
+			}
+			return @results;
+		}
+		else {
+			if (defined $object_ref->{$key}) {
+				return _get_sub_fields($object_ref->{$key}, @keys);
+			}
+			else {
+				return ();
 			}
 		}
 	}
-	return;
+}
+
+=head2 normalize_blame_for_test_comparison($blame_ref)
+
+Normalize a blame to be able to compare them across tests runs.
+
+We remove time dependent fields and sort some lists.
+
+=head3 Arguments
+
+=head4 blame_ref - Hash ref containing blame information
+
+=cut
+
+sub normalize_blame_for_test_comparison ($blame_ref) {
+	my %specification = (
+		fields_ignore_content => [
+			qw(
+				*.*.previous_t *.*.t
+			)
+		],
+	);
+
+	return normalize_object_for_test_comparison($blame_ref, \%specification);
 }
 
 =head2 normalize_product_for_test_comparison($product_ref)
@@ -719,9 +862,11 @@ sub normalize_product_for_test_comparison ($product_ref) {
 	my %specification = (
 		fields_ignore_content => [
 			qw(
-				last_modified_t last_updated_t created_t owner_fields
+				last_modified_t last_updated_t nutrition.input_sets.*.last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
-				last_image_t last_image_dates_tags images.*.uploaded_t sources.*.import_t
+				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
+				created_datetime last_modified_datetime last_updated_datetime
+				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],
@@ -781,7 +926,7 @@ We remove time dependent fields, password (which encryption use salt) and sort s
 =cut
 
 sub normalize_user_for_test_comparison ($user_ref) {
-	my %specification = (fields_ignore_content => [qw(registered_t user_sessions encrypted_password ip)],);
+	my %specification = (fields_ignore_content => [qw(registered_t last_login_t user_sessions encrypted_password ip)],);
 
 	normalize_object_for_test_comparison($user_ref, \%specification);
 	return;
@@ -800,13 +945,51 @@ We remove time dependent fields, password (which encryption use salt) and sort s
 =cut
 
 sub normalize_org_for_test_comparison ($org_ref) {
-	my %specification = (fields_ignore_content => ["created_t"],);
+	my %specification = (fields_ignore_content => ["created_t", "last_logged_member_t"],);
 
 	normalize_object_for_test_comparison($org_ref, \%specification);
 	return;
 }
 
+=head2 normalize_html_for_test_comparison ($html_ref)
+
+Normalize the HTML of a web page to be able to compare them across tests runs.
+
+We remove time dependent fields.
+
+We also normalize URLS to avoid the scheme prefix (so that we avoid false positives in CodeQL)
+
+=head3 Arguments
+
+=head4 product_ref - Hash ref containing product information
+
+=cut
+
+sub normalize_html_for_test_comparison ($html_ref) {
+
+	# Remove timestamps
+	# <link rel="stylesheet" href="http://static.openfoodfacts.localhost/css/dist/app-ltr.css?v=1711465499" data-base-layout="true">
+
+	$$html_ref =~ s/\?v=\d+/\?v=--ignore--/g;
+
+	# <time datetime="2024-03-26T18:43:45">26 mars 2024, 18:43:45 CET</time>
+	$$html_ref =~ s/<time datetime="[^"]+">[^<]+<\/time>/<time datetime="--ignore--">--ignore--<\/time>/g;
+
+	# normalize URLs be removing scheme to avoid false positive alerts on security
+	$$html_ref =~ s/https?:\/\//\/\//g;
+
+	# Normalize DOCTYPE to avoid differences in case Apache version changes
+	$$html_ref =~ s/<!DOCTYPE [^>]+>/<!DOCTYPE --ignore-->/g;
+
+	# Normalize Apache version in error pages
+	# <address>Apache/2.4.66 (Debian) Server at world.openfoodfacts.localhost Port 80</address>
+	$$html_ref =~ s/<address>Apache\/[^\s]+ /<address>Apache\/--ignore-- /g;
+
+	return;
+}
+
 =head2 wait_for($code, $timeout=3, $poll_time=1)
+
 Wait for an event to happen, up to a certain amount of time
 
 =head3 parameters
@@ -838,6 +1021,100 @@ sub wait_for ($code, $timeout = 3, $poll_time = 1) {
 	}
 	# last try
 	return $code->();
+}
+
+=head2 get_base64_image_data_from_file ($path)
+
+Get the base64 encoded image data from a file.
+
+Used for API v3 image upload, where we pass the image data as base64 encoded string.
+
+=head3 Parameters
+
+=head4 $path - String
+
+The path of the image file.
+
+=head3 Return value
+
+Returns the base64 encoded image data as a string.
+
+=cut
+
+sub get_base64_image_data_from_file ($path) {
+	my $image_data = '';
+	open(my $image, "<", $path);
+	binmode($image);
+	read $image, my $content, -s $image;
+	close $image;
+	$image_data = encode_base64($content, '');    # no line breaks
+	return $image_data;
+}
+
+=head2 get_users_from_keycloak()
+
+Get a list of users registered in our Keycloak realm
+
+=head3 Return values
+
+Returns an array of users in Keycloak.
+
+=cut
+
+sub get_users_from_keycloak () {
+	unless (defined $oidc_options{oidc_discovery_url}) {
+		confess('oidc_discovery_url not configured');
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		confess('Could not get token to manage users with keycloak_users_endpoint');
+	}
+
+	my $keycloak_users_endpoint = ProductOpener::Keycloak->new()->{users_endpoint};
+	my $get_users_request = HTTP::Request->new(GET => $keycloak_users_endpoint);
+	$get_users_request->header('Accept' => 'application/json');
+	$get_users_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $get_users_response = LWP::UserAgent->new->request($get_users_request);
+	unless ($get_users_response->is_success) {
+		confess($get_users_response->content);
+	}
+
+	my @users = decode_json($get_users_response->content);
+	return @users;
+}
+
+=head2 _delete_user_from_keycloak($keycloak_user)
+
+Removes the given users from our Keycloak realm
+
+=head3 parameters
+
+=head4 $user - sub
+
+The user that will be deleted from Keycloak
+
+=cut
+
+sub _delete_user_from_keycloak ($user) {
+	unless (defined $oidc_options{oidc_discovery_url}) {
+		confess('oidc_discovery_url not configured');
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		confess('Could not get token to manage users with keycloak_users_endpoint');
+	}
+
+	my $keycloak_users_endpoint = ProductOpener::Keycloak->new()->{users_endpoint};
+	my $delete_user_request = HTTP::Request->new(DELETE => $keycloak_users_endpoint . '/' . $user->{id});
+	$delete_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $delete_user_response = LWP::UserAgent->new->request($delete_user_request);
+	unless ($delete_user_response->is_success) {
+		confess($delete_user_response->content);
+	}
+
+	return;
 }
 
 1;

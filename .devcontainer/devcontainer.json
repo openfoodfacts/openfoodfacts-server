@@ -1,11 +1,15 @@
 {
   "name": "Perl",
+  "initializeCommand": "make run_deps",
   "dockerComposeFile": [
     "../docker-compose.yml",
     "../docker/dev.yml",
+    "../docker/run.yml",
     "../docker/devcontainer.yml"
   ],
-  "containerUser": "root",
+  "containerEnv": {
+    "HOME": "/tmp"
+  },
   "capAdd": [
     "SYS_PTRACE"
   ],
@@ -16,12 +20,12 @@
   "runServices": [
     "memcached",
     "postgres",
-    "mongodb",
     "dynamicfront",
     "frontend",
     "incron",
     "minion",
-    "redis"
+    "redis-listener",
+    "keycloak"
   ],
   "workspaceFolder": "/opt/product-opener",
   "customizations": {
@@ -36,7 +40,9 @@
         "dbaeumer.vscode-eslint",
         "stylelint.vscode-stylelint",
         "syler.sass-indented",
-        "mrorz.language-gettext"
+        "mrorz.language-gettext",
+        "SonarSource.sonarlint-vscode",
+        "codecov.codecov"
       ]
     }
   },

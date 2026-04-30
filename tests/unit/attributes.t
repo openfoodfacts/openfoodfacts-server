@@ -1,35 +1,35 @@
 #!/usr/bin/perl -w
 
 use Modern::Perl '2017';
+no warnings qw(experimental::signatures);
+
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
-use JSON::PP;
+use JSON::MaybeXS;
 
-my $json = JSON::PP->new->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::TagsEntries qw/:all/;
-use ProductOpener::Test qw/:all/;
-use ProductOpener::Products qw/:all/;
+use ProductOpener::Test qw/init_expected_results/;
+use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Attributes qw/:all/;
+use ProductOpener::Attributes qw/compute_attributes/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::API qw/:all/;
+use ProductOpener::API qw/get_initialized_response/;
+use ProductOpener::LoadData qw/load_data/;
 
-load_agribalyse_data();
-load_ecoscore_data();
-
-init_packaging_taxonomies_regexps();
-
-load_forest_footprint_data();
+load_data();
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -80,16 +80,58 @@ my @tests = (
 			ingredients_text =>
 				"wheat flour (origin: UK), sugar (Paraguay), eggs, strawberries, high fructose corn syrup, rapeseed oil, macadamia nuts, milk proteins, salt, E102, E120",
 			labels_tags => ["en:organic", "en:fair-trade"],
-			nutrition_data_per => "100g",
-			nutriments => {
-				"energy_100g" => 800,
-				"fat_100g" => 12,
-				"saturated-fat_100g" => 4,
-				"sugars_100g" => 25,
-				"salt_100g" => 0.25,
-				"sodium_100g" => 0.1,
-				"proteins_100g" => 2,
-				"fiber_100g" => 3,
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							"energy-kj" => {
+								value_string => "800",
+								value => 800,
+								unit => "kJ",
+							},
+							fat => {
+								value_string => "12",
+								value => 12,
+								unit => "g",
+							},
+							"saturated-fat" => {
+								value_string => "4",
+								value => 4,
+								unit => "g",
+							},
+							sugars => {
+								value_string => "25",
+								value => 25,
+								unit => "g",
+							},
+							salt => {
+								value_string => "0.25",
+								value => 0.25,
+								unit => "g",
+							},
+							sodium => {
+								value_string => "0.1",
+								value => 0.1,
+								unit => "g",
+							},
+							proteins => {
+								value_string => "2",
+								value => 2,
+								unit => "g",
+							},
+							fiber => {
+								value_string => "3",
+								value => 3,
+								unit => "g",
+							},
+						}
+					}
+				]
 			},
 			countries_tags => ["en:united-kingdom", "en:france"],
 			packaging_text => "Cardboard box, film wrap",
@@ -104,17 +146,123 @@ my @tests = (
 			lc => "en",
 			categories => "biscuits",
 			categories_tags => ["en:biscuits"],
-			nutrition_data_per => "100g",
 			ingredients_text => "100% fruits",
-			nutriments => {
-				"energy_100g" => 2591,
-				"fat_100g" => 50,
-				"saturated-fat_100g" => 9.7,
-				"sugars_100g" => 5.1,
-				"salt_100g" => 0,
-				"sodium_100g" => 0,
-				"proteins_100g" => 29,
-				"fiber_100g" => 5.5,
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							energy => {
+								value_string => "2591",
+								value => 2591,
+								unit => "kj",
+							},
+							fat => {
+								value_string => "50",
+								value => 50,
+								unit => "g",
+							},
+							"saturated-fat" => {
+								value_string => "9.7",
+								value => 9.7,
+								unit => "g",
+							},
+							sugars => {
+								value_string => "5.1",
+								value => 5.1,
+								unit => "g",
+							},
+							salt => {
+								value_string => "0",
+								value => 0,
+								unit => "g",
+							},
+							sodium => {
+								value_string => "0",
+								value => 0,
+								unit => "g",
+							},
+							proteins => {
+								value_string => "29",
+								value => 29,
+								unit => "g",
+							},
+							fiber => {
+								value_string => "5.5",
+								value => 5.5,
+								unit => "g",
+							},
+						}
+					}
+				]
+			},
+		}
+	],
+
+	[
+		'en-nutriscore-serving-size-error',
+		{
+			lc => "en",
+			categories => "biscuits",
+			categories_tags => ["en:biscuits"],
+			serving_size => "20",
+			ingredients_text => "100% fruits",
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "20",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							energy => {
+								value_string => "2591",
+								value => 2591,
+								unit => "kj",
+							},
+							fat => {
+								value_string => "50",
+								value => 50,
+								unit => "g",
+							},
+							"saturated-fat" => {
+								value_string => "9.7",
+								value => 9.7,
+								unit => "g",
+							},
+							sugars => {
+								value_string => "5.1",
+								value => 5.1,
+								unit => "g",
+							},
+							salt => {
+								value_string => "0",
+								value => 0,
+								unit => "g",
+							},
+							sodium => {
+								value_string => "0",
+								value => 0,
+								unit => "g",
+							},
+							proteins => {
+								value_string => "29",
+								value => 29,
+								unit => "g",
+							},
+							fiber => {
+								value_string => "5.5",
+								value => 5.5,
+								unit => "g",
+							},
+						}
+					}
+				]
 			},
 		}
 	],
@@ -132,7 +280,7 @@ my @tests = (
 
 	# bug https://github.com/openfoodfacts/openfoodfacts-server/issues/6356
 	[
-		'en-ecoscore-score-at-20-threshold',
+		'en-environmental_score-score-at-20-threshold',
 		{
 			lc => "en",
 			categories => "Cocoa and hazelnuts spreads",
@@ -169,6 +317,43 @@ my @tests = (
 			categories => "Cheeses",
 			categories_tags => ["en:cheeses"],
 			ingredients_text => "some ingredient that we do not recognize",
+		}
+	],
+	# Unwanted ingredients
+	[
+		'en-unwanted-ingredients',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "palm oil, soy lecithin, potassium sorbate, sea salt",
+		},
+		{
+			attribute_unwanted_ingredients_tags => "en:salt"
+		}
+	],
+	[
+		'en-no-unwanted-ingredients',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "palm oil, soy lecithin, potassium sorbate",
+		},
+		{
+			attribute_unwanted_ingredients_tags => "en:salt"
+		}
+	],
+	[
+		'en-no-unwanted-ingredients-but-many-unknown-ingredients',
+		{
+			lc => "en",
+			categories => "Cheeses",
+			categories_tags => ["en:cheeses"],
+			ingredients_text => "something, something else",
+		},
+		{
+			attribute_unwanted_ingredients_tags => "en:salt"
 		}
 	],
 );
@@ -218,7 +403,7 @@ foreach my $test_ref (@tests) {
 		return;
 	}
 
-	walk $product_ref, sub {$_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
+	walk $product_ref, sub {return unless defined $_[0]; $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
 
 	# Save the result
 
@@ -235,10 +420,11 @@ foreach my $test_ref (@tests) {
 
 		local $/;    #Enable 'slurp' mode
 		my $expected_product_ref = $json->decode(<$expected_result>);
-		is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+		# print STDERR "testid: $testid\n";
+		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
 	}
 	else {
-		diag explain $product_ref;
+		diag Dumper $product_ref;
 		fail("could not load $expected_result_dir/$testid.json");
 	}
 }

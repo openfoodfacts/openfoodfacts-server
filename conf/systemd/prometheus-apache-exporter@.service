@@ -1,0 +1,13 @@
+[Unit]
+Description=Prometheus exporter for Apache %i
+Documentation=https://github.com/Lusitaniae/apache_exporter/
+
+[Service]
+Restart=on-failure
+User=prometheus
+# ARGS are define in environment file
+EnvironmentFile=/etc/default/prometheus-apache-%i-exporter
+ExecStart=/usr/bin/prometheus-apache-exporter $ARGS
+
+[Install]
+WantedBy=multi-user.target

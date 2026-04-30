@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -38,7 +38,6 @@ BEGIN {
 		%moderator_user_form
 		%pro_moderator_user_form
 
-		$test_password
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -46,17 +45,21 @@ BEGIN {
 use vars @EXPORT_OK;
 
 =head2 $test_password
+
 The default test password
+
 =cut
 
-$test_password = "testtest";
+my $test_password = "testtest";
 
 =head2 %default_user_form
+
 A basic user.
+
 =cut
 
 %default_user_form = (
-	email => 'test@test.com',
+	email => 'test@example.com',
 	userid => "tests",
 	name => "Test",
 	password => $test_password,
@@ -73,7 +76,9 @@ A basic user.
 );
 
 =head2 %admin_user_form
+
 a user which is an admin
+
 =cut
 
 %admin_user_form = (
@@ -84,9 +89,11 @@ a user which is an admin
 );
 
 =head2 %moderator_user_form and %pro_moderator_user_form
+
 a user which is a moderator, or a pro platform moderator
 
 NB: must be created by an admin
+
 =cut
 
 %moderator_user_form = (

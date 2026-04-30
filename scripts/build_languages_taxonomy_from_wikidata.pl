@@ -26,15 +26,16 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
-use LWP::Simple;
+use JSON::MaybeXS;
 
 # get list of languages with a 2 letter iso code (Property P217)
 # https://tools.wmflabs.org/autolist/?language=en&project=wikipedia&category=&depth=12&wdq=claim%5B218%5D&pagepile=&wdqs=&statementlist=&run=Run&mode_manual=or&mode_cat=or&mode_wdq=not&mode_wdqs=or&mode_find=or&chunk_size=10000&download=1
@@ -246,12 +247,13 @@ foreach my $qc (@languages) {
 	$qc =~ s/^Q//;
 
 	print "loading language Q$qc\n";
-	my $content = get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$qc&format=json");
-	if (not defined $content) {
-		print "http error, could not get content from wikidata\n";
+	my $resp = create_user_agent()
+		->get("https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&ids=Q$qc&format=json");
+	if (!$resp->is_success) {
+		print "http error, could not get content from wikidata:" . $resp->status_line . "\n";
 	}
 	else {
-		my $json = decode_json($content);
+		my $json = decode_json($resp->decoded_content);
 		# {"entities":{"Q39":{"pageid":153,"ns":0,"title":"Q39","lastrevid":92159404,"modified":"2013-12-08T18:12:54Z","id":"Q39","type":"item","aliases":{"de":[{"language":"de","value":"Schweizerische Eidgenossenschaft"},
 
 		$languages{$qc} = {labels => {}, aliases => {}, properties => {}};
@@ -294,7 +296,7 @@ foreach my $qc (@languages) {
 	}
 }
 
-open(my $OUT, ">:encoding(UTF-8)", "$data_root/taxonomies/languages.txt.temp");
+open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{TAXONOMIES_SRC}/languages.txt.temp");
 
 foreach my $qc (sort {$names{$a} cmp $names{$b}} keys %names) {
 

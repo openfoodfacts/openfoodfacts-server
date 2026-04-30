@@ -4,6 +4,7 @@
       "ingredients" : [
          {
             "id" : "en:cocoa",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 50,
             "percent_max" : 100,
             "percent_min" : 25,
@@ -11,12 +12,14 @@
          },
          {
             "id" : "en:sugar",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 25,
             "percent_max" : 50,
             "percent_min" : 0,
             "text" : "sugar"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 75,
       "percent_max" : 100,
       "percent_min" : 50,
@@ -24,6 +27,7 @@
    },
    {
       "id" : "en:milk",
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 25,
       "percent_max" : 50,
       "percent_min" : 0,

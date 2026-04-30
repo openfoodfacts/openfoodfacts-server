@@ -1,0 +1,438 @@
+{
+  "news": {
+    "app_update": {
+      "start_date": "2025-01-01 00:00:00",
+      "end_date": "2099-12-25 23:59:59",
+      "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+      "translations": {
+        "default": {
+          "title": "New update available!",
+          "message": "A new version of the application is available on the Google Play and F-Droid.",
+          "button_label": "Update",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Update the Open Food Facts app"
+          }
+        },
+        "fr": {
+          "title": "Nouvelle mise à jour!",
+          "message": "Une nouvelle version de l'application est disponible sur le Google Play et F-Droid.",
+          "button_label": "Mettre à jour",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_fr.svg",
+            "width": 0.2,
+            "alt": "Mettre à jour l'application Open Food Facts"
+          }
+        },
+        "ar": {
+          "title": "تحديث جديد متاح!",
+          "message": "يتوفر إصدار جديد من التطبيق على Google Play و F-Droid.",
+          "button_label": "تحديث",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ar.svg",
+            "width": 0.2,
+            "alt": "تحديث تطبيق Open Food Facts"
+          }
+        },
+        "bg": {
+          "title": "Налична е нова актуализация!",
+          "message": "Нова версия на приложението е налична в Google Play и F-Droid.",
+          "button_label": "Актуализиране",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_bg.svg",
+            "width": 0.2,
+            "alt": "Актуализирайте приложението Open Food Facts"
+          }
+        },
+        "bn": {
+          "title": "একটি নতুন আপডেট উপলব্ধ!",
+          "message": "অ্যাপ্লিকেশনের একটি নতুন সংস্করণ Google Play এবং F-Droid-এ উপলব্ধ।",
+          "button_label": "আপডেট",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_bn.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts অ্যাপ আপডেট করুন"
+          }
+        },
+        "ca": {
+          "title": "Hi ha una nova actualització disponible!",
+          "message": "Hi ha una nova versió de l'aplicació disponible a Google Play i F-Droid.",
+          "button_label": "Actualitzar",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ca.svg",
+            "width": 0.2,
+            "alt": "Actualitza l'aplicació Open Food Facts"
+          }
+        },
+        "cs": {
+          "title": "Je k dispozici nová aktualizace!",
+          "message": "Nová verze aplikace je k dispozici na Google Play a F-Droid.",
+          "button_label": "Aktualizovat",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_cs.svg",
+            "width": 0.2,
+            "alt": "Aktualizujte aplikaci Open Food Facts"
+          }
+        },
+        "da": {
+          "title": "En ny opdatering er tilgængelig!",
+          "message": "En ny version af applikationen er tilgængelig på Google Play og F-Droid.",
+          "button_label": "Opdater",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_da.svg",
+            "width": 0.2,
+            "alt": "Opdater Open Food Facts-appen"
+          }
+        },
+        "de": {
+          "title": "Ein neues Update ist verfügbar!",
+          "message": "Eine neue Version der Anwendung ist auf Google Play und F-Droid verfügbar.",
+          "button_label": "Aktualisieren",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_de.svg",
+            "width": 0.2,
+            "alt": "Aktualisieren Sie die Open Food Facts App"
+          }
+        },
+        "ee": {
+          "title": "Uus värskendus on saadaval!",
+          "message": "Rakenduse uus versioon on saadaval Google Plays ja F-Droidis.",
+          "button_label": "Värskenda",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ee.svg",
+            "width": 0.2,
+            "alt": "Värskendage Open Food Facts rakendust"
+          }
+        },
+        "el": {
+          "title": "Μια νέα ενημέρωση είναι διαθέσιμη!",
+          "message": "Μια νέα έκδοση της εφαρμογής είναι διαθέσιμη στο Google Play και στο F-Droid.",
+          "button_label": "Ενημέρωση",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_el.svg",
+            "width": 0.2,
+            "alt": "Ενημερώστε την εφαρμογή Open Food Facts"
+          }
+        },
+        "es": {
+          "title": "¡Una nueva actualización está disponible!",
+          "message": "Una nueva versión de la aplicación está disponible en Google Play y F-Droid.",
+          "button_label": "Actualizar",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_es.svg",
+            "width": 0.2,
+            "alt": "Actualizar la aplicación Open Food Facts"
+          }
+        },
+        "fa": {
+          "title": "به‌روزرسانی جدیدی در دسترس است!",
+          "message": "نسخه جدیدی از برنامه در Google Play و F-Droid موجود است.",
+          "button_label": "به‌روزرسانی",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_fa.svg",
+            "width": 0.2,
+            "alt": "برنامه Open Food Facts را به‌روزرسانی کنید"
+          }
+        },
+        "fi": {
+          "title": "Uusi päivitys on saatavilla!",
+          "message": "Sovelluksen uusi versio on saatavilla Google Playssa ja F-Droidissa.",
+          "button_label": "Päivitä",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_fi.svg",
+            "width": 0.2,
+            "alt": "Päivitä Open Food Facts -sovellus"
+          }
+        },
+        "he": {
+          "title": "עדכון חדש זמין!",
+          "message": "גרסה חדשה של האפליקציה זמינה ב-Google Play וב-F-Droid.",
+          "button_label": "עדכון",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_he.svg",
+            "width": 0.2,
+            "alt": "עדכן את אפליקציית Open Food Facts"
+          }
+        },
+        "hi": {
+          "title": "एक नया अपडेट उपलब्ध है!",
+          "message": "एप्लिकेशन का एक नया संस्करण Google Play और F-Droid पर उपलब्ध है।",
+          "button_label": "अपडेट करें",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_hi.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts ऐप को अपडेट करें"
+          }
+        },
+        "ht": {
+          "title": "Yon nouvo mizajou disponib!",
+          "message": "Yon nouvo vèsyon aplikasyon an disponib sou Google Play ak F-Droid.",
+          "button_label": "Mizajou",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ht.svg",
+            "width": 0.2,
+            "alt": "Mizajou aplikasyon Open Food Facts la"
+          }
+        },
+        "hu": {
+          "title": "Új frissítés érhető el!",
+          "message": "Az alkalmazás új verziója elérhető a Google Playen és az F-Droidon.",
+          "button_label": "Frissítés",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_hu.svg",
+            "width": 0.2,
+            "alt": "Frissítse az Open Food Facts alkalmazást"
+          }
+        },
+        "id": {
+          "title": "Pembaruan baru tersedia!",
+          "message": "Versi baru aplikasi tersedia di Google Play dan F-Droid.",
+          "button_label": "Perbarui",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_id.svg",
+            "width": 0.2,
+            "alt": "Perbarui aplikasi Open Food Facts"
+          }
+        },
+        "it": {
+          "title": "È disponibile un nuovo aggiornamento!",
+          "message": "È disponibile una nuova versione dell'applicazione su Google Play e F-Droid.",
+          "button_label": "Aggiorna",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_it.svg",
+            "width": 0.2,
+            "alt": "Aggiorna l'app Open Food Facts"
+          }
+        },
+        "ja": {
+          "title": "新しいアップデートが利用可能です！",
+          "message": "アプリケーションの新しいバージョンがGoogle PlayとF-Droidで利用可能です。",
+          "button_label": "更新",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ja.svg",
+            "width": 0.2,
+            "alt": "Open Food Factsアプリを更新する"
+          }
+        },
+        "ko": {
+          "title": "새로운 업데이트가 있습니다!",
+          "message": "애플리케이션의 새로운 버전이 Google Play와 F-Droid에서 사용할 수 있습니다.",
+          "button_label": "업데이트",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ko.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts 앱을 업데이트하세요"
+          }
+        },
+        "lu": {
+          "title": "Een nieuwe update is beschikbaar!",
+          "message": "Een nieuwe versie van de applicatie is beschikbaar op Google Play en F-Droid.",
+          "button_label": "Bijwerken",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_lu.svg",
+            "width": 0.2,
+            "alt": "Update de Open Food Facts app"
+          }
+        },
+        "lt": {
+          "title": "Yra naujas atnaujinimas!",
+          "message": "Nauja programos versija pasiekiama „Google Play“ ir „F-Droid“.",
+          "button_label": "Atnaujinti",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_lt.svg",
+            "width": 0.2,
+            "alt": "Atnaujinkite „Open Food Facts“ programą"
+          }
+        },
+        "ms": {
+          "title": "Kemas kini baharu tersedia!",
+          "message": "Versi baharu aplikasi tersedia di Google Play dan F-Droid.",
+          "button_label": "Kemas kini",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ms.svg",
+            "width": 0.2,
+            "alt": "Kemas kini aplikasi Open Food Facts"
+          }
+        },
+        "nb": {
+          "title": "En ny oppdatering er tilgjengelig!",
+          "message": "En ny versjon av applikasjonen er tilgjengelig på Google Play og F-Droid.",
+          "button_label": "Oppdater",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_nb.svg",
+            "width": 0.2,
+            "alt": "Oppdater Open Food Facts-appen"
+          }
+        },
+        "nl": {
+          "title": "Een nieuwe update is beschikbaar!",
+          "message": "Een nieuwe versie van de applicatie is beschikbaar op Google Play en F-Droid.",
+          "button_label": "Bijwerken",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_nl.svg",
+            "width": 0.2,
+            "alt": "Update de Open Food Facts app"
+          }
+        },
+        "pt": {
+          "title": "Uma nova atualização está disponível!",
+          "message": "Uma nova versão do aplicativo está disponível no Google Play e F-Droid.",
+          "button_label": "Atualizar",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_pt.svg",
+            "width": 0.2,
+            "alt": "Atualize o aplicativo Open Food Facts"
+          }
+        },
+        "pl": {
+          "title": "Dostępna jest nowa aktualizacja!",
+          "message": "Nowa wersja aplikacji jest dostępna w Google Play i F-Droid.",
+          "button_label": "Aktualizuj",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_pl.svg",
+            "width": 0.2,
+            "alt": "Zaktualizuj aplikację Open Food Facts"
+          }
+        },
+        "ro": {
+          "title": "O nouă actualizare este disponibilă!",
+          "message": "O nouă versiune a aplicației este disponibilă pe Google Play și F-Droid.",
+          "button_label": "Actualizați",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ro.svg",
+            "width": 0.2,
+            "alt": "Actualizați aplicația Open Food Facts"
+          }
+        },
+        "ru": {
+          "title": "Доступно новое обновление!",
+          "message": "Новая версия приложения доступна в Google Play и F-Droid.",
+          "button_label": "Обновить",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_ru.svg",
+            "width": 0.2,
+            "alt": "Обновите приложение Open Food Facts"
+          }
+        },
+        "sk": {
+          "title": "K dispozícii je nová aktualizácia!",
+          "message": "Nová verzia aplikácie je k dispozícii na Google Play a F-Droid.",
+          "button_label": "Aktualizovať",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_sk.svg",
+            "width": 0.2,
+            "alt": "Aktualizujte aplikáciu Open Food Facts"
+          }
+        },
+        "sl": {
+          "title": "Na voljo je nova posodobitev!",
+          "message": "Nova različica aplikacije je na voljo v Google Play in F-Droid.",
+          "button_label": "Posodobi",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_sl.svg",
+            "width": 0.2,
+            "alt": "Posodobite aplikacijo Open Food Facts"
+          }
+        },
+        "sv": {
+          "title": "En ny uppdatering är tillgänglig!",
+          "message": "En ny version av applikationen är tillgänglig på Google Play och F-Droid.",
+          "button_label": "Uppdatera",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_sv.svg",
+            "width": 0.2,
+            "alt": "Uppdatera Open Food Facts-appen"
+          }
+        },
+        "th": {
+          "title": "มีการอัปเดตใหม่!",
+          "message": "มีเวอร์ชันใหม่ของแอปพลิเคชันใน Google Play และ F-Droid",
+          "button_label": "อัปเดต",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_th.svg",
+            "width": 0.2,
+            "alt": "อัปเดตแอป Open Food Facts"
+          }
+        },
+        "tr": {
+          "title": "Yeni bir güncelleme mevcut!",
+          "message": "Uygulamanın yeni bir sürümü Google Play ve F-Droid'de mevcut.",
+          "button_label": "Güncelle",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_tr.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts uygulamasını güncelle"
+          }
+        },
+        "vi": {
+          "title": "Có bản cập nhật mới!",
+          "message": "Một phiên bản mới của ứng dụng có sẵn trên Google Play và F-Droid.",
+          "button_label": "Cập nhật",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_vi.svg",
+            "width": 0.2,
+            "alt": "Cập nhật ứng dụng Open Food Facts"
+          }
+        },
+        "zh": {
+          "title": "有新更新可用！",
+          "message": "Google Play 和 F-Droid 上有新版本的应用程序。",
+          "button_label": "更新",
+          "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_zh.svg",
+            "width": 0.2,
+            "alt": "更新 Open Food Facts 应用程序"
+          }
+        }
+      }
+    }
+  },
+  "tagline_feed": {
+    "default": {
+      "news": [
+        {
+          "id": "app_update"
+        }
+      ]
+    }
+  }
+}

@@ -3,26 +3,42 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Test::More;
+use Test2::V0;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 
-use ProductOpener::DataQuality qw/:all/;
+use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
-sub check_quality_and_test_product_has_quality_tag($$$$) {
+use Data::DeepAccess qw(deep_get);
+use boolean;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
+sub check_quality_and_test_product_has_quality_tag($$$$;$) {
 	my $product_ref = shift;
-	my $tag = shift;
+	my $tag_name = shift;
 	my $reason = shift;
 	my $yesno = shift;
+	my $tag_level = shift // 'data_quality';
+	# If the product has nutrition.input_sets, generate aggregated_set
+	if (defined $product_ref->{nutrition}{input_sets}) {
+		generate_nutrient_aggregated_set($product_ref);
+	}
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
-		ok(has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
+		ok(has_tag($product_ref, $tag_level, $tag_name), $reason)
+			or diag Dumper {tag => $tag_name, yesno => $yesno, product => $product_ref};
 	}
 	else {
-		ok(!has_tag($product_ref, 'data_quality', $tag), $reason)
-			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
+		ok(!has_tag($product_ref, $tag_level, $tag_name), $reason)
+			or diag Dumper {tag => $tag_name, yesno => $yesno, product => $product_ref};
 	}
 
 	return;
@@ -35,51 +51,75 @@ sub product_with_energy_has_quality_tag($$$) {
 
 	my $product_ref = {
 		lc => "de",
-		nutriments => {
-			energy_100g => $energy
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					nutrients => {
+						"energy-kj" => {value => $energy, unit => "kj"}
+					}
+				}
+			]
 		}
 	};
 
-	check_quality_and_test_product_has_quality_tag($product_ref, 'en:nutrition-value-over-3800-energy', $reason,
-		$yesno);
+	check_quality_and_test_product_has_quality_tag($product_ref,
+		'en:nutrition-packaging-as-sold-100g-value-over-3911-energy',
+		$reason, $yesno);
 
 	return;
 }
 
-# en:nutrition-value-over-3800-energy - does not add tag, if there is no nutriments.
-my $product_ref_without_nutriments = {lc => "de"};
+# en:nutrition-value-over-3911-energy - does not add tag, if there is no nutrients.
+my $product_ref_without_nutrients = {lc => "de"};
 check_quality_and_test_product_has_quality_tag(
-	$product_ref_without_nutriments,
-	'en:nutrition-value-over-3800-energy',
-	'product does not have en:nutrition-value-over-3800-energy tag as it has no nutrients', 0
+	$product_ref_without_nutrients,
+	'en:nutrition-packaging-as-sold-100g-value-over-3911-energy',
+	'product does not have en:nutrition-packaging-as-sold-100g-value-over-3911-energy tag as it has no nutrients', 0
 );
 
-# en:nutrition-value-over-3800-energy - does not add tag, if there is no energy.
+# en:nutrition-value-over-3911-energy - does not add tag, if there is no energy.
 my $product_ref_without_energy_value = {
 	lc => "de",
-	nutriments => {}
+	nutrition => {
+		input_sets => [
+			{
+				source => "packaging",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fat" => {value => 10, unit => "g"}
+				}
+			}
+		]
+	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref_without_energy_value,
-	'en:nutrition-value-over-3800-energy',
-	'product does not have en:nutrition-value-over-3800-energy tag as it has no energy_value', 0
+	'en:nutrition-packaging-as-sold-100g-value-over-3911-energy',
+	'product does not have en:nutrition-packaging-as-sold-100g-value-over-3911-energy tag as it has no energy_value', 0
+);
+# en:nutrition-packaging-as-sold-100g-value-over-3911-energy - does not add tag, if energy_value is below 3911 - 40
+product_with_energy_has_quality_tag(
+	40,
+	'product does not have en:nutrition-packaging-as-sold-100g-value-over-3911-energy tag as it has an energy_value below 3911: 40',
+	0
 );
 
-# en:nutrition-value-over-3800-energy - does not add tag, if energy_value is below 3800 - 3799
-product_with_energy_has_quality_tag(3799,
-	'product does not have en:nutrition-value-over-3800-energy tag as it has an energy_value below 3800: 3799', 0);
-
-# en:nutrition-value-over-3800-energy - does not add tag, if energy_value is below 3800 - 40
-product_with_energy_has_quality_tag(40,
-	'product does not have en:nutrition-value-over-3800-energy tag as it has an energy_value below 3800: 40', 0);
-
-# en:nutrition-value-over-3800-energy - does not add tag, if energy_value is equal 3800
-product_with_energy_has_quality_tag(3800,
-	'product does not have en:nutrition-value-over-3800-energy tag as it has an energy_value of 3800: 3800', 0);
-
-# en:nutrition-value-over-3800-energy - does add tag, if energy_value is above 3800
-product_with_energy_has_quality_tag(3801,
-	'product does have en:nutrition-value-over-3800-energy tag as it has an energy_value of 3800: 3801', 1);
+# en:nutrition-packaging-as-sold-100g-value-over-3911-energy - does not add tag, if energy_value is equal 3911
+product_with_energy_has_quality_tag(
+	3911,
+	'product does not have en:nutrition-packaging-as-sold-100g-value-over-3911-energy tag as it has an energy_value of 3911: 3911',
+	0
+);
+# en:nutrition-packaging-as-sold-100g-value-over-3911-energy - does add tag, if energy_value is above 3911
+product_with_energy_has_quality_tag(
+	3999,
+	'product does have en:nutrition-packaging-as-sold-100g-value-over-3911-energy tag as it has an energy_value of 3911: 3999',
+	1
+);
 
 # ingredients-de-over-30-percent-digits - with more than 30%
 my $over_30 = '(52,3 0) 0,2 (J 23 (J 2,3 g 0,15 g';
@@ -95,7 +135,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag($product_ref, 'data_quality', 'en:ingredients-de-over-30-percent-digits'),
 	'product with more than 30% digits in the language-specific ingredients has tag ingredients-over-30-percent-digits'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-de-over-30-percent-digits - with exactly 30%
 $product_ref = {
@@ -109,7 +149,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:ingredients-de-over-30-percent-digits'),
 	'product with at most 30% digits in the language-specific ingredients has no ingredients-over-30-percent-digits tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-de-over-30-percent-digits - without a text
 $product_ref = {
@@ -122,7 +162,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:ingredients-de-over-30-percent-digits'),
 	'product with no language-specific ingredients text has no ingredients-over-30-percent-digits tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-over-30-percent-digits - with more than 30%
 $product_ref = {
@@ -133,7 +173,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag($product_ref, 'data_quality', 'en:ingredients-over-30-percent-digits'),
 	'product with more than 30% digits in the ingredients has tag ingredients-over-30-percent-digits'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-over-30-percent-digits - with exactly 30%
 $product_ref = {
@@ -144,7 +184,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:ingredients-over-30-percent-digits'),
 	'product with at most 30% digits in the ingredients has no ingredients-over-30-percent-digits tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # ingredients-over-30-percent-digits - without a text
 $product_ref = {lc => 'de'};
@@ -152,7 +192,7 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:ingredients-over-30-percent-digits'),
 	'product with no ingredients text has no ingredients-over-30-percent-digits tag'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # issue 1466: Add quality facet for dehydrated products that are missing prepared values
 
@@ -164,7 +204,7 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'product without dried category with no other qualities is not flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {categories_tags => ['en:dried-products-to-be-rehydrated']};
 ProductOpener::DataQuality::check_quality($product_ref);
@@ -174,14 +214,22 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with no other qualities is flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # positive control 1
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
-	nutrition_data_prepared => 'on',
-	nutriments => {
-		energy_prepared_100g => 5
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "prepared",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 5, unit => "kj"}
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
@@ -191,15 +239,23 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with prepared data is not flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # positive control 2
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
-	nutrition_data_prepared => 'on',
-	nutriments => {
-		energy_prepared_100g => 5,
-		fat_prepared_100g => 2.7
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "prepared",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 5, unit => "kj"},
+					"fat" => {value => 2.7, unit => "g"}
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
@@ -209,27 +265,12 @@ ok(
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
 	'dried product category with 2 prepared data values is not flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
-	nutrition_data_prepared => 'on',
-	nutriments => undef
-};
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	has_tag(
-		$product_ref, 'data_quality',
-		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
-	),
-	'dried product category with undefined nutriments hash is flagged for issue 1466'
-) or diag explain $product_ref;
-
-$product_ref = {
-	categories_tags => ['en:dried-products-to-be-rehydrated'],
-	nutrition_data_prepared => 'on',
-	nutriments => {
-		energy => 46
+	nutrition => {
+		input_sets => []
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
@@ -238,13 +279,15 @@ ok(
 		$product_ref, 'data_quality',
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
-	'dried product category with nutriments hash with unrelated data is flagged for issue 1466'
-) or diag explain $product_ref;
+	'dried product category with undefined nutrition hash is flagged for issue 1466'
+) or diag Dumper $product_ref;
 
 $product_ref = {
 	categories_tags => ['en:dried-products-to-be-rehydrated'],
-	nutriments => {
-		energy_prepared_100g => 5
+	nutrition_data_prepared => 'on',
+	nutrition => {
+		no_nutrition_data_on_packaging => true,
+		input_sets => []
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
@@ -253,50 +296,14 @@ ok(
 		$product_ref, 'data_quality',
 		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
 	),
-	'dried product category with nutrition_data_prepared off is flagged for issue 1466'
-) or diag explain $product_ref;
-
-$product_ref = {
-	categories_tags => ['en:dried-products-to-be-rehydrated'],
-	nutrition_data_prepared => 'on',
-	nutriments => {
-		energy_prepared_100g => 5
-	},
-	no_nutrition_data => 'on'
-
-};
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	has_tag(
-		$product_ref, 'data_quality',
-		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
-	),
 	'dried product category with no nutrition data checked prepared data is flagged for issue 1466'
-) or diag explain $product_ref;
-
-$product_ref = {
-	categories_tags => ['en:dried-products-to-be-rehydrated'],
-	nutrition_data_prepared => 'on',
-	nutriments => {
-		energy_prepared_100g => 5
-	},
-	no_nutrition_data => 'on'
-
-};
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	has_tag(
-		$product_ref, 'data_quality',
-		'en:missing-nutrition-data-prepared-with-category-dried-products-to-be-rehydrated'
-	),
-	'dried product category with no nutrition data checked prepared data is flagged for issue 1466'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 use Log::Any::Adapter 'TAP', filter => "none";
 
 check_quality_and_test_product_has_quality_tag(
 	{
-		'ecoscore_data' => {
+		'environmental_score_data' => {
 			'adjustments' => {
 				'origins_of_ingredients' => {
 					'aggregated_origins' => [
@@ -316,7 +323,7 @@ check_quality_and_test_product_has_quality_tag(
 			}
 		}
 	},
-	"en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+	"en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
 	"origins 100 percent unknown",
 	1
 );
@@ -329,9 +336,9 @@ $product_ref = {
 };
 extract_ingredients_from_text($product_ref);
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(has_tag($product_ref, 'data_quality', 'en:all-ingredients-with-specified-percent')) or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:all-ingredients-with-specified-percent')) or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10'))
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 
 $product_ref = {
 	lc => 'en',
@@ -340,205 +347,333 @@ $product_ref = {
 extract_ingredients_from_text($product_ref);
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:all-but-one-ingredient-with-specified-percent'))
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-unspecified-percent-lesser-than-10'))
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-specified-percent-greater-than-100'))
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 
 # energy does not match nutrients
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 5,
-		"carbohydrates_value" => 10,
-		"fat_value" => 20,
-		"proteins_value" => 30,
-		"fiber_value" => 2,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 5, unit => "kj"},
+					"carbohydrates" => {value => 10, unit => "g"},
+					"fat" => {value => 20, unit => "g"},
+					"proteins" => {value => 30, unit => "g"},
+					"fiber" => {value => 2, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
-ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrients')
-	or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy not matching nutrients', 1
+);
+is(deep_get($product_ref, "nutrition", "input_sets", 0, "nutrients", "energy-kj", "value_computed"),
+	1436, 'computed energy value is correct')
+	or diag Dumper $product_ref;
 
 # energy does not match nutrients but this alert is ignored for this category
 $product_ref = {
 	categories_tags => ['en:squeezed-lemon-juices'],
-	nutriments => {
-		"energy-kj_value" => 5,
-		"carbohydrates_value" => 10,
-		"fat_value" => 20,
-		"proteins_value" => 30,
-		"fiber_value" => 2,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 5, unit => "kj"},
+					"carbohydrates" => {value => 10, unit => "g"},
+					"fat" => {value => 20, unit => "g"},
+					"proteins" => {value => 30, unit => "g"},
+					"fiber" => {value => 2, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag'
-) or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag', 0
+);
 
 $product_ref = {
 	categories_tags => ['en:sweeteners'],
-	nutriments => {
-		"energy-kj_value" => 550,
-		"carbohydrates_value" => 10,
-		"fat_value" => 20,
-		"proteins_value" => 30,
-		"fiber_value" => 2,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 550, unit => "kj"},
+					"carbohydrates" => {value => 10, unit => "g"},
+					"fat" => {value => 20, unit => "g"},
+					"proteins" => {value => 30, unit => "g"},
+					"fiber" => {value => 2, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
-ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag'
-) or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag', 0
+);
+is(deep_get($product_ref, "nutrition", "input_sets", 0, "nutrients", "energy-kj", "value_computed"),
+	1436, 'computed energy value is correct')
+	or diag Dumper $product_ref;
 
 $product_ref = {
 	categories_tags => ['en:sweet-spreads'],
-	nutriments => {
-		"energy-kj_value" => 8,
-		"fat_value" => 0.5,
-		"saturated-fat_value" => 0.1,
-		"carbohydrates_value" => 0.5,
-		"sugars_value" => 0.5,
-		"proteins_value" => 0.5,
-		"salt_value" => 0.01,
+	nutrition => {
+		input_sets => [
+			{
+				source => "packaging",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 8, unit => "kj"},
+					"fat" => {value => 0.5, unit => "g"},
+					"saturated-fat" => {value => 0.1, unit => "g"},
+					"carbohydrates" => {value => 0.5, unit => "g"},
+					"sugars" => {value => 0.5, unit => "g"},
+					"proteins" => {value => 0.5, unit => "g"},
+					"salt" => {value => 0.01, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrients but energy is lower than 55 kj'
-) or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy not matching nutrients but energy is lower than 55 kj', 0
+);
 
 # energy matches nutrients
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 1435,
-		"carbohydrates_value" => 10,
-		"fat_value" => 20,
-		"proteins_value" => 30,
-		"fiber_value" => 2,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 1435, unit => "kj"},
+					"carbohydrates" => {value => 10, unit => "g"},
+					"fat" => {value => 20, unit => "g"},
+					"proteins" => {value => 30, unit => "g"},
+					"fiber" => {value => 2, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy matching nutrients'
-) or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrients', 0
+);
 
 # Polyols in general contribute energy
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 0,
-		"carbohydrates_value" => 100,
-		"polyols_value" => 100,
-		"fat_value" => 0,
-		"proteins_value" => 0,
-		"fiber_value" => 0,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 0, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"polyols" => {value => 100, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrients - polyols')
-	or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy not matching nutrients - polyols', 1
+);
 
 # Erythritol is a polyol which does not contribute to energy
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 0,
-		"carbohydrates_value" => 100,
-		"polyols_value" => 100,
-		"erythritol_value" => 100,
-		"fat_value" => 0,
-		"proteins_value" => 0,
-		"fiber_value" => 0,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 0, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"polyols" => {value => 100, unit => "g"},
+					"erythritol" => {value => 100, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy matching nutrient - erythritol'
-) or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrient - erythritol', 0
+);
 
 # Erythritol is a polyol which does not contribute to energy
 # If we do not have a value for polyols but we have a value for erythritol,
 # we should assume that the polyols are equal to erythritol when we check the nutrients to energy computation
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 0,
-		"carbohydrates_value" => 100,
-		"erythritol_value" => 100,
-		"fat_value" => 0,
-		"proteins_value" => 0,
-		"fiber_value" => 0,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 0, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"erythritol" => {value => 100, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy matching nutrient - erythritol without polyols'
-) or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy matching nutrient - erythritol without polyols', 0
+);
 
 # Polyols in general contribute energy
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 0,
-		"carbohydrates_value" => 100,
-		"polyols_value" => 100,
-		"fat_value" => 0,
-		"proteins_value" => 0,
-		"fiber_value" => 0,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 0, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"polyols" => {value => 100, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
 	}
 };
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrient but lower than 55 kj')
-	or diag explain $product_ref;
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy not matching nutrient but lower than 55 kj', 1
+);
 
 # Erythritol is a polyol which does not contribute to energy
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 0,
-		"carbohydrates_value" => 100,
-		"polyols_value" => 100,
-		"erythritol_value" => 100,
-		"fat_value" => 0,
-		"proteins_value" => 0,
-		"fiber_value" => 0,
-	}
-};
-ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrient'
-) or diag explain $product_ref;
-
-# en:nutrition-value-negative-$nid should be raised - for nutriments (except nutriments containing "nutrition-score") below 0
-$product_ref = {
-	nutriments => {
-		"proteins_100g" => -1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 0, unit => "kj"},
+					"carbohydrates" => {value => 100, unit => "g"},
+					"polyols" => {value => 100, unit => "g"},
+					"erythritol" => {value => 100, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-value-negative-proteins',
-	'nutriment should have positive value (except nutrition-score)', 1
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy not matching nutrient', 0
 );
 
-# en:nutrition-value-negative-$nid should NOT be raised - for nutriments containing "nutrition-score" and below 0
+# en:nutrition-value-negative-$nid should be raised - for nutrients below 0
 $product_ref = {
-	nutriments => {
-		"nutrition-score-fr_100g" => -1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"proteins" => {value => -1, unit => "g"}
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-value-negative-nutrition-score-fr',
-	'nutriment should have positive value (except nutrition-score)', 0
+	'en:nutrition-producer-as-sold-100g-value-negative-proteins',
+	'nutrient should have positive value', 1
+);
+
+# en:nutrition-value-negative-$nid warning only should be raised - for nutrients containing "estimate"
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "estimate",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fruits-vegetables-nuts" => {value => -0.0000194786420834592, unit => "g"}
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-estimate-as-sold-100g-value-negative-fruits-vegetables-nuts',
+	'negative nutrients containg "estimate" should not raise error',
+	0, 'data_quality_errors'
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-estimate-as-sold-100g-value-negative-fruits-vegetables-nuts',
+	'negative nutrients containg "estimate" should raise warning only',
+	0, 'data_quality_warnings'
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-negative-fruits-vegetables-nuts',
+	'negative nutrients containg "estimate" should raise warning only',
+	1, 'data_quality_warnings'
 );
 
 # serving size should contains digits
@@ -547,20 +682,44 @@ ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 1
+	'serving size does not contain digits', 1
 );
 $product_ref = {serving_size => "120g"};
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:serving-size-is-missing-digits',
-	'serving size should contains digits', 0
+	'serving size contains digits', 0
+);
+$product_ref = {serving_size => ""};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is empty', 0
+);
+$product_ref = {serving_size => "-"};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:serving-size-is-missing-digits',
+	'serving size is -', 0
 );
 
 # serving size is missing
 $product_ref = {
-	nutrition_data => "on",
-	nutrition_data_per => "serving"
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "serving",
+				nutrients => {
+					"energy-kj" => {value => 5, unit => "kj"}
+				}
+			}
+		]
+	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
@@ -579,8 +738,18 @@ check_quality_and_test_product_has_quality_tag(
 );
 # serving size equal to 0
 $product_ref = {
-	nutrition_data => "on",
-	nutrition_data_per => "serving",
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "serving",
+				nutrients => {
+					"energy-kj" => {value => 5, unit => "kj"}
+				}
+			}
+		]
+	},
 	serving_quantity => "0",
 	serving_size => "0g"
 };
@@ -601,8 +770,18 @@ check_quality_and_test_product_has_quality_tag(
 );
 # serving size cannot be parsed
 $product_ref = {
-	nutrition_data => "on",
-	nutrition_data_per => "serving",
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "serving",
+				nutrients => {
+					"energy-kj" => {value => 5, unit => "kj"}
+				}
+			}
+		]
+	},
 	serving_size => "1 container"
 };
 check_quality_and_test_product_has_quality_tag(
@@ -622,8 +801,18 @@ check_quality_and_test_product_has_quality_tag(
 );
 # last 3 tests should not appears when expected serving size is provided
 $product_ref = {
-	nutrition_data => "on",
-	nutrition_data_per => "serving",
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "serving",
+				nutrients => {
+					"energy-kj" => {value => 5, unit => "kj"}
+				}
+			}
+		]
+	},
 	serving_quantity => "50",
 	serving_size => "50 mL"
 };
@@ -699,265 +888,490 @@ check_quality_and_test_product_has_quality_tag(
 
 # en:nutrition-3-or-more-values-are-identical
 $product_ref = {
-	nutriments => {
-		"carbohydrates_100g" => 0,
-		"fat_100g" => 0,
-		"proteins_100g" => 0,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 0, unit => "g"},
+					"fat" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-3-or-more-values-are-identical',
+	'en:nutrition-producer-as-sold-100g-3-or-more-values-are-identical',
 	'3 or more identical values and above 1 in the nutrition table', 0
 );
 $product_ref = {
-	nutriments => {
-		"carbohydrates_100g" => 1,
-		"fat_100g" => 2,
-		"proteins_100g" => 3,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 1, unit => "g"},
+					"fat" => {value => 2, unit => "g"},
+					"proteins" => {value => 3, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-3-or-more-values-are-identical',
+	'en:nutrition-producer-as-sold-100g-3-or-more-values-are-identical',
 	'3 or more identical values and above 1 in the nutrition table', 0
 );
 $product_ref = {
-	nutriments => {
-		"carbohydrates_100g" => 3,
-		"fat_100g" => 3,
-		"proteins_100g" => 3,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"fat" => {value => 3, unit => "g"},
+					"proteins" => {value => 3, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-3-or-more-values-are-identical',
+	'en:nutrition-producer-as-sold-100g-3-or-more-values-are-identical',
 	'3 or more identical values and above 1 in the nutrition table', 1
 );
 ## en:nutrition-values-are-all-identical but equal to 0
 $product_ref = {
-	nutriments => {
-		"energy-kj_100g" => 0,
-		"energy-kcal_100g" => 0,
-		"fat_100g" => 0,
-		"saturated-fat_100g" => 0,
-		"carbohydrates_100g" => 0,
-		"sugars_100g" => 0,
-		"fibers_100g" => 0,
-		"proteins_100g" => 0,
-		"salt_100g" => 0,
-		"sodium_100g" => 0,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 0, unit => "kj"},
+					"energy-kcal" => {value => 0, unit => "kcal"},
+					"fat" => {value => 0, unit => "g"},
+					"saturated-fat" => {value => 0, unit => "g"},
+					"carbohydrates" => {value => 0, unit => "g"},
+					"sugars" => {value => 0, unit => "g"},
+					"fiber" => {value => 0, unit => "g"},
+					"proteins" => {value => 0, unit => "g"},
+					"salt" => {value => 0, unit => "g"},
+					"sodium" => {value => 0, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-values-are-all-identical',
+	'en:nutrition-producer-as-sold-100g-values-are-all-identical',
 	'all identical values and above 1 in the nutrition table 1', 0
 );
 $product_ref = {
-	nutriments => {
-		"energy-kj_100g" => 2,
-		"energy-kcal_100g" => 2,
-		"fat_100g" => 2,
-		"saturated-fat_100g" => 2,
-		"carbohydrates_100g" => 2,
-		"sugars_100g" => 2,
-		"fibers_100g" => 2,
-		"proteins_100g" => 2,
-		"salt_100g" => 2,
-		"sodium_100g" => 0.8,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 2, unit => "kj"},
+					"energy-kcal" => {value => 2, unit => "kcal"},
+					"fat" => {value => 2, unit => "g"},
+					"saturated-fat" => {value => 2, unit => "g"},
+					"carbohydrates" => {value => 2, unit => "g"},
+					"sugars" => {value => 2, unit => "g"},
+					"fiber" => {value => 2, unit => "g"},
+					"proteins" => {value => 2, unit => "g"},
+					"salt" => {value => 2, unit => "g"},
+					"sodium" => {value => 0.8, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-values-are-all-identical',
+	'en:nutrition-producer-as-sold-100g-values-are-all-identical',
 	'all identical values and above 1 in the nutrition table 2', 1
 );
-## should have enough input nutriments
+## should have enough input nutrients
 $product_ref = {
-	nutriments => {
-		"energy-kj_100g" => 2,
-		"salt_100g" => 2,
-		"sodium_100g" => 0.8,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 2, unit => "kj"},
+					"salt" => {value => 2, unit => "g"},
+					"sodium" => {value => 0.8, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-values-are-all-identical',
-	'all identical values and above 1 in the nutrition table BUT not enough nutriments given', 0
+	'en:nutrition-producer-as-sold-100g-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table BUT not enough nutrients given', 0
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
-$product_ref = {nutriments => {}};
-ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
-);
 $product_ref = {
-	nutriments => {
-		"sugars_100g" => 1,
+	nutrition => {
+		input_sets => []
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	0
 );
 $product_ref = {
-	nutriments => {
-		"fructose_100g" => 1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 1, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	0
 );
+
 $product_ref = {
-	nutriments => {
-		"sugars_100g" => 2,
-		"fructose_100g" => 1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fructose" => {value => 1, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	0
 );
 $product_ref = {
-	nutriments => {
-		"sugars_100g" => 0,
-		"fructose_100g" => 2,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 2, unit => "g"},
+					"fructose" => {value => 1, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	0
 );
 $product_ref = {
-	nutriments => {
-		"sugars_100g" => 1,
-		"fructose_100g" => 1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 0, unit => "g"},
+					"fructose" => {value => 2, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	1
+);
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 1, unit => "g"},
+					"fructose" => {value => 1, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	0
 );
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	0
 );
 $product_ref = {
-	nutriments => {
-		"sugars_100g" => 20,
-		"fructose_100g" => 1,
-		"glucose_100g" => 1,
-		"maltose_100g" => 1,
-		"lactose_100g" => 1,
-		"sucrose_100g" => 1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 20, unit => "g"},
+					"fructose" => {value => 1, unit => "g"},
+					"glucose" => {value => 1, unit => "g"},
+					"maltose" => {value => 1, unit => "g"},
+					"lactose" => {value => 1, unit => "g"},
+					"sucrose" => {value => 1, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	0
 );
 $product_ref = {
-	nutriments => {
-		"sugars_100g" => 1,
-		"fructose_100g" => 1,
-		"glucose_100g" => 1,
-		"maltose_100g" => 1,
-		"lactose_100g" => 1,
-		"sucrose_100g" => 1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 4.5, unit => "g"},
+					"fructose" => {value => 1, unit => "g"},
+					"glucose" => {value => 1, unit => "g"},
+					"maltose" => {value => 1, unit => "g"},
+					"lactose" => {value => 1, unit => "g"},
+					"sucrose" => {value => 1, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 1
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	1
 );
+
 $product_ref = {
-	nutriments => {
-		"sugars_100g" => 20,
-		"fructose_100g" => 4,
-		"glucose_100g" => 4,
-		"maltose_100g" => 4,
-		"lactose_100g" => 4,
-		"sucrose_100g" => 4,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 20, unit => "g"},
+					"fructose" => {value => 4, unit => "g"},
+					"glucose" => {value => 4, unit => "g"},
+					"maltose" => {value => 4, unit => "g"},
+					"lactose" => {value => 4, unit => "g"},
+					"sucrose" => {value => 4, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
-	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars',
+	0
+);
+
+# lactose < 0.01g
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 0, unit => "g"},
+					"lactose" => {value => 0.01, unit => "g", modifier => '<'},
+				}
+			}
+		]
+	}
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag(
+		$product_ref,
+		'data_quality_errors',
+		'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars'
+	),
+	'Lactose and symbol lower than should be ignore'
+) or diag Dumper $product_ref;
+
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"sugars" => {value => 3, unit => "g"},
+					"fructose" => {value => 4, unit => "g", modifier => '<'},
+					"glucose" => {value => 4, unit => "g", modifier => '<'},
+					"maltose" => {value => 4, unit => "g", modifier => '<'},
+					"lactose" => {value => 4, unit => "g", modifier => '<'},
+					"sucrose" => {value => 4, unit => "g", modifier => '<'},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars',
+	'component sugars should not be included if they have a < modifier',
+	0
 );
 
 # salt_100g is very small warning (may be in mg)
 ## lower than 0.001
 $product_ref = {
-	nutriments => {
-		salt_100g => 0.0009,    # lower than 0.001
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 0.0009, unit => "g"}
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-value-under-0-001-g-salt',
+	'en:nutrition-producer-as-sold-100g-value-under-0-001-g-salt',
 	'value for salt is lower than 0.001g', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-value-under-0-01-g-salt',
+	'en:nutrition-producer-as-sold-100g-value-under-0-01-g-salt',
 	'value for salt is lower than 0.001g, should not trigger warning for 0.01', 0
 );
 ## lower than 0.01
 $product_ref = {
-	nutriments => {
-		salt_100g => 0.009,    # lower than 0.01
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 0.009, unit => "g"}
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-value-under-0-001-g-salt',
+	'en:nutrition-producer-as-sold-100g-value-under-0-001-g-salt',
 	'value for salt is above 0.001g', 0
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-value-under-0-01-g-salt',
+	'en:nutrition-producer-as-sold-100g-value-under-0-01-g-salt',
 	'value for salt is lower than 0.001g, and above 0.01', 1
 );
 ## above 0.01
 $product_ref = {
-	nutriments => {
-		salt_100g => 0.02,    # above 0.01
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 0.02, unit => "g"}
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-value-under-0-001-g-salt',
+	'en:nutrition-producer-as-sold-100g-value-under-0-001-g-salt',
 	'value for salt is above 0.001g', 0
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-value-under-0-01-g-salt',
+	'en:nutrition-producer-as-sold-100g-value-under-0-01-g-salt',
 	'value for salt is above 0.001g', 0
 );
 
@@ -999,99 +1413,162 @@ check_quality_and_test_product_has_quality_tag($product_ref, 'en:quantity-contai
 
 # testing of ProductOpener::DataQualityFood::check_nutrition_data kJ vs kcal
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 686,
-		"energy-kcal_value" => 165,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 686, unit => "kj"},
+					"energy-kcal" => {value => 165, unit => "kcal"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:energy-value-in-kcal-greater-than-in-kj',
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kcal-greater-than-in-kj',
 	'1 kcal = 4.184 kJ', 0
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:energy-value-in-kcal-does-not-match-value-in-kj',
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj',
 	'1 kcal = 4.184 kJ, value in kJ is between 165*3.7-2=608.5 and 165*4.7+2=777.5', 0
 );
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 100,
-		"energy-kcal_value" => 200,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 100, unit => "kj"},
+					"energy-kcal" => {value => 200, unit => "kcal"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:energy-value-in-kcal-greater-than-in-kj',
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kcal-greater-than-in-kj',
 	'1 kcal = 4.184 kJ', 1
 );
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 496,
-		"energy-kcal_value" => 105,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 496, unit => "kj"},
+					"energy-kcal" => {value => 105, unit => "kcal"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:energy-value-in-kcal-does-not-match-value-in-kj',
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj',
 	'1 kcal = 4.184 kJ, value in kJ is larger than 105*4.7+2=495.5', 1
 );
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 386,
-		"energy-kcal_value" => 105,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 386, unit => "kj"},
+					"energy-kcal" => {value => 105, unit => "kcal"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:energy-value-in-kcal-does-not-match-value-in-kj',
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kcal-does-not-match-value-in-kj',
 	'1 kcal = 4.184 kJ, value in kJ is lower than 105*3.7-2=495.5', 1
 );
 $product_ref = {
-	nutriments => {
-		"energy-kj_value" => 165,
-		"energy-kcal_value" => 686,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 165, unit => "kj"},
+					"energy-kcal" => {value => 686, unit => "kcal"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:energy-value-in-kcal-greater-than-in-kj',
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kcal-greater-than-in-kj',
 	'1 kcal = 4.184 kJ', 1
 );
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:energy-value-in-kcal-and-kj-are-reversed',
+	'en:nutrition-producer-as-sold-100g-energy-value-in-kcal-and-kj-are-reversed',
 	'1 kcal = 4.184 kJ, value in kcal is between 165*3.7-2=608.5 and 165*4.7+2=777.5', 1
 );
 
 # nutrition - saturated fat is greater than fat
 ## trigger the error because saturated-fat_100g is greated than fat
 $product_ref = {
-	nutriments => {
-		fat_100g => 0,
-		"saturated-fat_100g" => 1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fat" => {value => 0, unit => "g"},
+					"saturated-fat" => {value => 1, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-saturated-fat-greater-than-fat',
+	'en:nutrition-producer-as-sold-100g-saturated-fat-greater-than-fat',
 	'saturated fat greater than fat', 1
 );
 ## if undefined fat, error should not be triggered
 $product_ref = {
-	nutriments => {
-		"saturated-fat_100g" => 1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"saturated-fat" => {value => 1, unit => "g"},
+				}
+			}
+		]
 	}
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:nutrition-saturated-fat-greater-than-fat',
+	'en:nutrition-producer-as-sold-100g-saturated-fat-greater-than-fat',
 	'saturated fat may be greater than fat but fat is missing', 0
 );
 
@@ -1105,7 +1582,7 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "d",
+	nutriscore_grade => "d",
 	nutriscore => {
 		2023 => {"nutrients_available" => 1,},
 	},
@@ -1128,7 +1605,7 @@ $product_ref = {
 		"en:ice-cream-tubs", "en:virgin-olive-oils",
 		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
 	],
-	nutrition_grade_fr => "d",
+	nutriscore_grade => "d",
 	nutriscore => {
 		2023 => {"nutrients_available" => 1,},
 	},
@@ -1168,17 +1645,12 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "c",
+	nutrition_grade_fr => "b",
 	nutriscore => {
 		2023 => {"nutrients_available" => 1,},
 	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
-	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
-);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
@@ -1280,6 +1752,59 @@ check_quality_and_test_product_has_quality_tag(
 	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
+
+# category minimum number of ingredients. Raise error
+$product_ref = {
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
+	],
+	ingredients => [{id => 'en:buffalo milk'}, {id => 'en:salt'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'2 ingredients provided, at least 3 expected (rennet is missing)', 1
+);
+# category minimum number of ingredients. More ingredients
+$product_ref = {
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
+	],
+	ingredients => [{id => 'en:buffalo milk'}, {id => 'en:salt'}, {id => 'en:e330'}]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'4 ingredients provided, at least 3 expected', 0
+);
+# category minimum number of ingredients. No ingredients at all
+$product_ref = {
+	categories_tags => [
+		"en:dairies", "en:fermented-foods",
+		"en:fermented-milk-products", "en:cheeses",
+		"en:italien-cheeses", "en:strected-curd-cheeses",
+		"en:frozen-desserts", "en:olive-tree-products",
+		"en:mozzarella"
+	],
+	ingredients => []
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:ingredients-count-lower-than-expected-for-the-category',
+	'0 ingredients provided, at least 3 expecte, but do not raise error', 0
+);
+
 # product quantity warnings and errors
 $product_ref = {product_quantity => "123456789",};
 check_quality_and_test_product_has_quality_tag(
@@ -1342,57 +1867,364 @@ check_quality_and_test_product_has_quality_tag(
 # Nutrition errors - sugar + starch > carbohydrates
 ## without "<" symbol
 $product_ref = {
-	nutriments => {
-		"carbohydrates_100g" => 1,
-		"sugars_100g" => 2,
-		"starch_100g" => 3,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 4, unit => "g"},
+					"sugars" => {value => 2, unit => "g"},
+					"starch" => {value => 3, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
-	'sum of sugars and starch greater carbohydrates')
-	or diag explain $product_ref;
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sum of sugars and starch greater carbohydrates'
+) or diag Dumper $product_ref;
 ## with "<" symbol
 $product_ref = {
-	nutriments => {
-		"carbohydrates_100g" => 1,
-		"sugars_100g" => 1,
-		"sugars_modifier" => "<",
-		"starch_100g" => 1,
-		"starch_modifier" => "<",
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 1, unit => "g"},
+					"sugars" => {value => 1, unit => "g", modifier => "<"},
+					"starch" => {value => 1, unit => "g", modifier => "<"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(
-	!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
 	'sum of sugars and starch greater carbohydrates, presence of "<" symbol,  and sugars or starch is smaller than carbohydrates'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
+
+## with "<" symbol on sugars
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 1, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "<"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sugars greater carbohydrates but presence of "<" symbol on sugars'
+) or diag Dumper $product_ref;
+
 ## sugar or starch is greater than carbohydrates, with "<" symbol
 $product_ref = {
-	nutriments => {
-		"carbohydrates_100g" => 3,
-		"sugars_100g" => 1,
-		"starch_100g" => 5,
-		"starch_modifier" => "<",
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"sugars" => {value => 1, unit => "g", modifier => "<"},
+					"starch" => {value => 5, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(
-	has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
 	'sum of sugars and starch greater carbohydrates, presence of "<" symbol, and sugars or starch is greater than carbohydrates'
-) or diag explain $product_ref;
+
+) or diag Dumper $product_ref;
 ## should not be triggered
 $product_ref = {
-	nutriments => {
-		"carbohydrates_100g" => 3,
-		"sugars_100g" => 2,
-		"starch_100g" => 1,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"sugars" => {value => 2, unit => "g"},
+					"starch" => {value => 1, unit => "g"},
+				}
+			}
+		]
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
-	'sum of sugars and starch greater carbohydrates')
-	or diag explain $product_ref;
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sum of sugars and starch greater carbohydrates'
+) or diag Dumper $product_ref;
+
+## Carbohydrates may be quoted as 0 or traces if there are less than 0.5g
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 0, unit => "g"},
+					"sugars" => {value => 0.4, unit => "g"},
+					"starch" => {value => 0.05, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'sum of sugars and starch less than minimal traces of carbohydrates'
+) or diag Dumper $product_ref;
+
+## Don't go more than 3 significant figures for larger values
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 10, unit => "g"},
+					"sugars" => {value => 9, unit => "g"},
+					"starch" => {value => 1.09, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'check no more than 3 significant figures'
+) or diag Dumper $product_ref;
+
+## should not check if totalling nutrient is an estimate
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g", modifier => "~"},
+					"sugars" => {value => 2, unit => "g"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'check should not be triggered if carbohydrates is an estimate'
+) or diag Dumper $product_ref;
+
+## Less than or equal values should also be ignored
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "≤"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'Less than or equal values should also be ignored'
+) or diag Dumper $product_ref;
+
+## should ignore component nutrients that are estimates
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates" => {value => 3, unit => "g"},
+					"sugars" => {value => 2, unit => "g", modifier => "~"},
+					"starch" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-greater-than-carbohydrates'
+	),
+	'estimated nutrient should be ignored'
+) or diag Dumper $product_ref;
+
+# Nutrition errors - sugar + starch + fiber > total-carbohydrates
+## without "<" symbol
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates-total" => {value => 1, unit => "g"},
+					"sugars" => {value => 2, unit => "g"},
+					"starch" => {value => 3, unit => "g"},
+					"fiber" => {value => 1, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates'
+) or diag Dumper $product_ref;
+## with "<" symbol
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates-total" => {value => 1, unit => "g"},
+					"sugars" => {value => 1, unit => "g", modifier => "<"},
+					"starch" => {value => 1, unit => "g", modifier => "<"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates, presence of "<" symbol,  and sugars, starch or fiber is smaller than total carbohydrates'
+) or diag Dumper $product_ref;
+## sugar, starch or fiber is greater than total carbohydrates, with "<" symbol
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates-total" => {value => 3, unit => "g"},
+					"sugars" => {value => 5, unit => "g"},
+					"starch" => {value => 1, unit => "g", modifier => "<"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates, presence of "<" symbol, and sugars, starch or fiber is greater than total carbohydrates'
+) or diag Dumper $product_ref;
+## should not be triggered
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"carbohydrates-total" => {value => 3, unit => "g"},
+					"sugars" => {value => 2, unit => "g"},
+					"starch" => {value => 1, unit => "g"},
+				}
+			}
+		]
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total'
+	),
+	'sum of sugars, starch and fiber greater total carbohydrates'
+) or diag Dumper $product_ref;
 
 # unexpected character in ingredients
 $product_ref = {
@@ -1405,23 +2237,23 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-5-vowels'), '5 vowel in a row')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-5-consonants'), '5 consonants in a row')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-4-repeated-chars'), '4 repeated characters')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-currencies'), '$')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-arobase'), '@')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-exclamation-mark'), '!')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-question-mark'), '?')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-ending-comma'), ',')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-url'), 'detected url')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 
 # jam and related categories and fruit (specific ingredients) content
 ## missing specific ingredients
@@ -1432,7 +2264,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:missing-specific-ingredient-for-this-category'),
 	'specific ingredients missing')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ## missing specific ingredients for fruit
 $product_ref = {
 	categories_tags => ["en:jams"],
@@ -1450,7 +2282,7 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:missing-specific-ingredient-for-this-category'),
 	'specific ingredients but en:fruit missing')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ## specific ingredients for fruit ok
 $product_ref = {
 	categories_tags => ["en:jams"],
@@ -1468,14 +2300,14 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(!has_tag($product_ref, 'data_quality', 'en:missing-fruit-content-for-jams-or-jellies'),
 	'specific ingredients with en:fruit ok')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(
 	!has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-jams'
 	),
 	'en:fruit content ok'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## specific ingredients for fruit is given but content is too small
 $product_ref = {
 	categories_tags => ["en:jams"],
@@ -1493,14 +2325,14 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(!has_tag($product_ref, 'data_quality', 'en:missing-fruit-content-for-jams-or-jellies'),
 	'specific ingredients with en:fruit ok')
-	or diag explain $product_ref;
+	or diag Dumper $product_ref;
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-jams'
 	),
 	'en:fruit content too small'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## specific ingredients for fruit is given but content is too small with more specific category
 $product_ref = {
 	categories_tags => ["en:jams", "en:redcurrants-jams"],
@@ -1519,17 +2351,17 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-jams'
 	),
 	'en:fruit content too small for jam but has more specific category with smaller threshold'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-redcurrants-jams'
 	),
 	'en:fruit content too small'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## specific ingredients for fruit is given but content is too small for jams but high enough for more specific category
 $product_ref = {
 	categories_tags => ["en:jams", "en:redcurrants-jams"],
@@ -1538,9 +2370,9 @@ $product_ref = {
 		{
 			id => "en:fruit",
 			ingredient => "fruit",
-			quantity => "30 g",
-			quantity_g => 30,
-			text => "Prepared with 30g of fruit per 100g",
+			quantity => "40 g",
+			quantity_g => 40,
+			text => "Prepared with 40g of fruit per 100g",
 		},
 	]
 };
@@ -1548,17 +2380,17 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-jams'
 	),
 	'en:fruit content too small for jam but has more specific category with smaller threshold'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ok(
 	!has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-redcurrants-jams'
 	),
 	'en:fruit content too small'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## extra jams
 $product_ref = {
 	categories_tags => ["en:extra-jams"],
@@ -1577,10 +2409,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-45-for-category-extra-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-50-for-category-extra-jams'
 	),
 	'en:fruit content too small extra jams'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## Blackcurrant jams
 $product_ref = {
 	categories_tags => ["en:blackcurrant-jams"],
@@ -1599,10 +2431,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-blackcurrant-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrant-jams'
 	),
 	'en:fruit content too small blackcurrant jams'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## ginger jams
 $product_ref = {
 	categories_tags => ["en:ginger-jams"],
@@ -1621,10 +2453,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-15-for-category-ginger-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-18-for-category-ginger-jams'
 	),
 	'en:fruit content too small ginger jams'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## quince jams
 $product_ref = {
 	categories_tags => ["en:quince-jams"],
@@ -1643,10 +2475,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-quince-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-quince-jams'
 	),
 	'en:fruit content too small quince jams'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## rosehip jams
 $product_ref = {
 	categories_tags => ["en:rosehip-jams"],
@@ -1665,10 +2497,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-rosehip-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-rosehip-jams'
 	),
 	'en:fruit content too small rosehip jams'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## Sea-buckthorn jams
 $product_ref = {
 	categories_tags => ["en:sea-buckthorn-jams"],
@@ -1687,10 +2519,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-sea-buckthorn-jams'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-sea-buckthorn-jams'
 	),
 	'en:fruit content too small sea-buckthorn jams'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## marmalades
 $product_ref = {
 	categories_tags => ["en:marmalades"],
@@ -1712,7 +2544,7 @@ ok(
 		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-20-for-category-marmalades'
 	),
 	'en:fruit content too small marmalades jams'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## citrus jams
 $product_ref = {
 	categories_tags => ["en:citrus-jams"],
@@ -1734,7 +2566,7 @@ ok(
 		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-20-for-category-citrus-jams'
 	),
 	'en:fruit content too small citrus jams'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## blackcurrants jellies
 $product_ref = {
 	categories_tags => ["en:blackcurrants-jellies"],
@@ -1753,10 +2585,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-blackcurrants-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrants-jellies'
 	),
 	'en:fruit content too small blackcurrants jellies'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## passion fruit jellies
 $product_ref = {
 	categories_tags => ["en:passion-fruit-jellies"],
@@ -1775,10 +2607,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-6-for-category-passion-fruit-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-8-for-category-passion-fruit-jellies'
 	),
 	'en:fruit content too small passion fruit jellies'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## Quince jellies
 $product_ref = {
 	categories_tags => ["en:quince-jellies"],
@@ -1797,10 +2629,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-quince-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-quince-jellies'
 	),
 	'en:fruit content too small quince jellies'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## Redcurrants jellies
 $product_ref = {
 	categories_tags => ["en:redcurrants-jellies"],
@@ -1819,10 +2651,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-redcurrants-jellies'
 	),
 	'en:fruit content too small redcurrants jellies'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## sea-buckthorn jellies
 $product_ref = {
 	categories_tags => ["en:sea-buckthorn-jellies"],
@@ -1841,10 +2673,10 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-sea-buckthorn-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-sea-buckthorn-jellies'
 	),
 	'en:fruit content too small sea-buckthorn jellies'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 ## chestnut spreads
 $product_ref = {
 	categories_tags => ["en:chestnut-spreads"],
@@ -1866,14 +2698,23 @@ ok(
 		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-38-for-category-chestnut-spreads'
 	),
 	'en:fruit content too small chestnut-spreads'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
 
 # Test case for fiber content
 $product_ref = {
-	nutriments => {
-		fiber_100g => 5,
-		'soluble-fiber_100g' => 3,
-		'insoluble-fiber_100g' => 3,
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fiber" => {value => 5, unit => "g"},
+					"soluble-fiber" => {value => 3, unit => "g"},
+					"insoluble-fiber" => {value => 3, unit => "g"},
+				}
+			}
+		]
 	},
 	data_quality_errors_tags => [],
 };
@@ -1881,8 +2722,331 @@ $product_ref = {
 ProductOpener::DataQuality::check_quality($product_ref);
 
 ok(
-	has_tag($product_ref, 'data_quality_errors', 'en:nutrition-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'),
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'
+	),
 	'Soluble fiber + Insoluble fiber exceeds total fiber'
-) or diag explain $product_ref;
+) or diag Dumper $product_ref;
+
+# Test case for fiber content having "<" symbol
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fiber" => {value => 5, unit => "g"},
+					"soluble-fiber" => {value => 1, unit => "g", modifier => '<'},
+					"insoluble-fiber" => {value => 5, unit => "g"},
+				}
+			}
+		]
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'
+	),
+	'Soluble fiber + Insoluble fiber exceeds total fiber but there is < symbol'
+) or diag Dumper $product_ref;
+
+# Test case for fiber content having ">" symbol
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fiber" => {value => 5, unit => "g"},
+					"soluble-fiber" => {value => 1, unit => "g", modifier => '>'},
+					"insoluble-fiber" => {value => 5, unit => "g"},
+				}
+			}
+		]
+	},
+	data_quality_errors_tags => [],
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+
+# FIXME: missing a test here?
+
+# Test case for fiber content beside other element having "<"
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fiber" => {value => 5, unit => "g"},
+					"soluble-fiber" => {value => 1, unit => "g", modifier => '<'},
+					"insoluble-fiber" => {value => 10, unit => "g"},
+				}
+			}
+		]
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'
+	),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
+# Test case for sum fiber sub-nutrient comparison with fiber (0.01 difference should be fine)
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fiber" => {value => 3.57, unit => "g"},
+					"soluble-fiber" => {value => 1.79, unit => "g"},
+					"insoluble-fiber" => {value => 1.79, unit => "g"},
+				}
+			}
+		]
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'
+	),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
+# Test case for sum fiber sub-nutrient comparison with fiber (0.02 difference should be raise error)
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fiber" => {value => 3.57, unit => "g"},
+					"soluble-fiber" => {value => 1.79, unit => "g"},
+					"insoluble-fiber" => {value => 1.80, unit => "g"},
+				}
+			}
+		]
+	},
+	data_quality_errors_tags => [],
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:nutrition-producer-as-sold-100g-soluble-fiber-plus-insoluble-fiber-greater-than-fiber'
+	),
+	'insoluble-fiber_100g larger than fiber_100g'
+) or diag Dumper $product_ref;
+
+# Product with ingredients in multiple languages
+
+$product_ref = {
+	ingredients_text => 'wheat flour, water, eau, wasser, agua, acqua, farine de maïs',
+	ingredients_lc => 'en',
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-number-of-languages-5'), 'Multiple languages in ingredients')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-en-contains-fr'),
+	'Ingredients language mismatch: en contains fr')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-en-contains-de'),
+	'Ingredients language mismatch: en contains de')
+	or diag Dumper $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-en-contains-es'),
+	'Ingredients language mismatch: en contains es')
+	or diag Dumper $product_ref;
+
+# Product with ingredients in wrong language
+
+$product_ref = {
+	ingredients_text => 'wheat flour, water',
+	ingredients_lc => 'fr',
+};
+
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-language-mismatch-fr-contains-en'),
+	'Ingredients language mismatch: fr contains en')
+	or diag Dumper $product_ref;
+
+# Test is_european_product function
+
+# Test EU country (France should return 1)
+$product_ref = {countries_tags => ["en:france"],};
+is(is_european_product($product_ref), 1, 'France is an EU country');
+
+# Test non-EU country (USA should return 0)
+$product_ref = {countries_tags => ["en:united-states"],};
+is(is_european_product($product_ref), 0, 'USA is not an EU country');
+
+# Test another EU country (Germany should return 1)
+$product_ref = {countries_tags => ["en:germany"],};
+is(is_european_product($product_ref), 1, 'Germany is an EU country');
+
+# Test product with no countries
+$product_ref = {};
+is(is_european_product($product_ref), 0, 'Product with no countries returns 0');
+
+# Test product with multiple countries including EU
+$product_ref = {countries_tags => ["en:united-states", "en:france"],};
+is(is_european_product($product_ref), 1, 'Product with mixed countries including EU country returns 1');
+
+# Test comma-separated regional entities (if any country has it)
+$product_ref = {countries_tags => ["en:spain"],};
+is(is_european_product($product_ref), 1, 'Spain is an EU country');
+
+# tests on aggregated nutrient set
+
+# energy does not match nutrients
+$product_ref = {
+	nutrition => {
+		aggregated_set => {
+			preparation => "as_sold",
+			per => "100g",
+			nutrients => {
+				"energy-kj" => {value => 5, unit => "kj"},
+				"carbohydrates" => {value => 10, unit => "g"},
+				"fat" => {value => 20, unit => "g"},
+				"proteins" => {value => 30, unit => "g"},
+				"fiber" => {value => 2, unit => "g"},
+			}
+		}
+	}
+};
+
+# Note: currently the energy mismatch is only checked on input sets, not on the aggregated set.
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients',
+	'energy not matching nutrients', 0
+);
+
+my @tests = (
+	[
+		'all-types-of-errors-in-nutrition',
+		{
+			nutrition => {
+				input_sets => [
+					{
+						source => "packaging",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {
+							"energy-kj" => {value => 5, unit => "kj"},
+							"energy-kcal" => {value => 20, unit => "kcal"},
+							"carbohydrates" => {value => 10, unit => "mg"},
+							"fat" => {value => 70, unit => "g"},
+							"saturated-fat" => {value => 125, unit => "g"},
+							"proteins" => {value => 40, unit => "g"},
+							"fiber" => {value => 2, unit => "g"},
+							"soluble-fiber" => {value => 1, unit => "g"},
+							"insoluble-fiber" => {value => 3, unit => "g"},
+							"sugars" => {value => 11, unit => "mg"},
+							"starch" => {value => 1, unit => "g"},
+							"sodium" => {value => 5000, unit => "mg"},
+							"salt" => {value => 0.00004, unit => "mg"},
+							"lactose" => {value => 25, unit => "g"},
+						}
+					}
+				]
+			}
+		}
+	],
+	[
+		'vitamin-in-mcg-with-value-over-105',
+		{
+			nutrition => {
+				input_sets => [
+					{
+						source => "producer",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {
+							"vitamin-b12" => {value => 110, unit => "µg"},
+						}
+					}
+				]
+			}
+		}
+	],
+	[
+		'sugars-in-mcg-carbohydrates-in-g',
+		{
+			nutrition => {
+				input_sets => [
+					{
+						source => "producer",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {
+							"carbohydrates" => {value => 10, unit => "g"},
+							"sugars" => {value => 500, unit => "µg"},
+						}
+					}
+				]
+			}
+		}
+	],
+	[
+		'energy-in-kj-main-nutrients-in-mg',
+		{
+			nutrition => {
+				input_sets => [
+					{
+						source => "producer",
+						preparation => "as_sold",
+						per => "100g",
+						nutrients => {
+							"energy-kj" => {value => 500, unit => "kJ"},
+							"fat" => {value => 2000, unit => "mg"},
+							"carbohydrates" => {value => 3000, unit => "mg"},
+							"proteins" => {value => 4000, unit => "mg"},
+						}
+					}
+				]
+			}
+		}
+	],
+
+);
+
+for my $test_ref (@tests) {
+	my ($testid, $product_ref) = @$test_ref;
+	ProductOpener::DataQuality::check_quality($product_ref);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
+}
 
 done_testing();
