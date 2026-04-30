@@ -147,7 +147,7 @@ If you want to collaborate you will need to fork the repository.
 Go to https://github.com/openfoodfacts/openfoodfacts-server and click the "Fork" button.
 
 This will create a new repository in your GitHub account.
-eg. (for an hypothetical my-user-id user): https://github.com/my-user-id/openfoodfacts-server.
+eg. (for a hypothetical my-user-id user): https://github.com/my-user-id/openfoodfacts-server.
 
 This is the url you have to use in the following instructions.
 
