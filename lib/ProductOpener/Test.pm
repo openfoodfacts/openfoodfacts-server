@@ -34,7 +34,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&capture_ouputs
+		&capture_outputs
 		&ensure_expected_results_dir
 		&compare_file_to_expected_results
 		&compare_to_expected_results
