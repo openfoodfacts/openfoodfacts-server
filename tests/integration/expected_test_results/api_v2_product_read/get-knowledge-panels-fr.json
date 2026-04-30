@@ -257,6 +257,12 @@
                      ],
                      "title" : "Espèces menacées"
                   }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "forest_footprint"
+                  }
                }
             ],
             "expanded" : true,
@@ -596,7 +602,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "élevé"
+                                 "text" : "Élevé"
                               }
                            ]
                         }
@@ -670,6 +676,107 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                "subtitle" : "Produit : Some product – 100 g",
                "title" : "Impact pour ce produit: D (Score: 44/100)",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "forest_footprint" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                <p><strong>Ingrédients nécessitant du soja</strong></p>\n                <p>L'empreinte forêt est calculée en prenant en compte les ingrédients dont l'élaboration nécessite du soja dont la culture est liée à la déforestation.</p>\n                ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Ingrédient",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Type",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "% dans le produit",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Facteur de transformation<br><span style=\"font-weight:normal\">(% d'aliments après transformation)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Facteur de l'alimentation au soja<br><span style=\"font-weight:normal\">(kg de soja par kg d'aliment)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Rendement du soja<br><span style=\"font-weight:normal\">(kg de soja par m²)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Risque de déforestation<br><span style=\"font-weight:normal\">(%)</span>",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Empreinte forêt<br><span style=\"font-weight:normal\">(m² par kg d'aliment)</span>",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "forest_footprint_table",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Œuf"
+                              },
+                              {
+                                 "text" : "Oeufs Bio"
+                              },
+                              {
+                                 "text" : "10.42 %"
+                              },
+                              {
+                                 "text" : "100 %"
+                              },
+                              {
+                                 "text" : "0.028"
+                              },
+                              {
+                                 "text" : "0.18"
+                              },
+                              {
+                                 "text" : "10 %"
+                              },
+                              {
+                                 "text" : "0.00"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Ingrédients nécessitant du soja"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <h3>Empreinte forêt totale</h3>\n                    <p><strong>0.00 m² par kg d'aliment</strong></p>\n                ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
+               "name" : "Empreinte forêt",
+               "subtitle" : "Pas de risque de déforestation",
+               "title" : "Très petite empreinte forêt",
                "type" : "grade"
             },
             "topics" : [
@@ -966,7 +1073,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_estimate:&nbsp;58.3333333333333 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_estimate:&nbsp;20.8333333333333 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_estimate:&nbsp;10.4166666666667 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_estimate:&nbsp;5.20833333333333 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
                   }
                },
                {
@@ -1177,9 +1284,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
                "name" : "Matières grasses",
-               "title" : "Matières grasses en quantité modérée (8.5%)",
-               "type" : "percentage",
-               "value" : 8.5
+               "title" : "Matières grasses en quantité modérée (8.5%)"
             },
             "topics" : [
                "health"
@@ -1223,9 +1328,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/low.svg",
                "name" : "Sel",
-               "title" : "Sel en faible quantité (0.0502%)",
-               "type" : "percentage",
-               "value" : 0.0502
+               "title" : "Sel en faible quantité (0.0502%)"
             },
             "topics" : [
                "health"
@@ -1259,9 +1362,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
                "name" : "Acides gras saturés",
-               "title" : "Acides gras saturés en quantité élevée (5.6%)",
-               "type" : "percentage",
-               "value" : 5.6
+               "title" : "Acides gras saturés en quantité élevée (5.6%)"
             },
             "topics" : [
                "health"
@@ -1295,9 +1396,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/moderate.svg",
                "name" : "Sucres",
-               "title" : "Sucres en quantité modérée (12.5%)",
-               "type" : "percentage",
-               "value" : 12.5
+               "title" : "Sucres en quantité modérée (12.5%)"
             },
             "topics" : [
                "health"
@@ -1640,13 +1739,6 @@
                            "text" : "Tel que vendu<br>pour 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "product",
-                           "shown_by_default" : false,
-                           "text" : "Tel que vendu<br>par portion (10 g)",
-                           "text_for_small_screens" : "par portion",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1659,10 +1751,7 @@
                                  "text" : "Énergie"
                               },
                               {
-                                 "text" : "400 kj<br>(96 kcal)"
-                              },
-                              {
-                                 "text" : "40 kj<br>(10 kcal)"
+                                 "text" : "400 kJ<br>(140 kcal)"
                               }
                            ]
                         },
@@ -1674,10 +1763,7 @@
                                  "text" : "Matières grasses"
                               },
                               {
-                                 "text" : "8,5 g"
-                              },
-                              {
-                                 "text" : "0,85 g"
+                                 "text" : "8.5 g"
                               }
                            ]
                         },
@@ -1689,10 +1775,7 @@
                                  "text" : "Acides gras saturés"
                               },
                               {
-                                 "text" : "5,6 g"
-                              },
-                              {
-                                 "text" : "0,56 g"
+                                 "text" : "5.6 g"
                               }
                            ]
                         },
@@ -1704,10 +1787,7 @@
                                  "text" : "Glucides"
                               },
                               {
-                                 "text" : "10,5 g"
-                              },
-                              {
-                                 "text" : "1,05 g"
+                                 "text" : "10.5 g"
                               }
                            ]
                         },
@@ -1719,10 +1799,210 @@
                                  "text" : "Sucres"
                               },
                               {
-                                 "text" : "12,5 g"
+                                 "text" : "12.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fibres alimentaires"
                               },
                               {
-                                 "text" : "1,25 g"
+                                 "text" : "2 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Protéines"
+                              },
+                              {
+                                 "text" : "4.5 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sel"
+                              },
+                              {
+                                 "text" : "0.0502 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sodium"
+                              },
+                              {
+                                 "text" : "~ 0.02008 g"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ légumes‚ légumes secs"
+                              },
+                              {
+                                 "text" : "~ 58.3333333333333 %"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Tableau nutritionnel"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "nutrition_facts_table_with_input_sets"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
+               "title" : "Tableau nutritionnel"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrition_facts_table_with_input_sets" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "style" : "max-width:15rem",
+                           "text" : "Tableau nutritionnel",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Tel que vendu<br>pour 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Tel que vendu pour 100 g (packaging)",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Tel que vendu pour 100 g (estimate)",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "nutrition_facts_table_with_input_sets",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Énergie"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(140 kcal)"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(96 kcal)"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Matières grasses"
+                              },
+                              {
+                                 "text" : "8.5 g"
+                              },
+                              {
+                                 "text" : "8.5 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Acides gras saturés"
+                              },
+                              {
+                                 "text" : "5.6 g"
+                              },
+                              {
+                                 "text" : "5.6 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Glucides"
+                              },
+                              {
+                                 "text" : "10.5 g"
+                              },
+                              {
+                                 "text" : "10.5 g"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sucres"
+                              },
+                              {
+                                 "text" : "12.5 g"
+                              },
+                              {
+                                 "text" : "12.5 g"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -1737,7 +2017,10 @@
                                  "text" : "2 g"
                               },
                               {
-                                 "text" : "0,2 g"
+                                 "text" : "2 g"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -1749,10 +2032,13 @@
                                  "text" : "Protéines"
                               },
                               {
-                                 "text" : "4,5 g"
+                                 "text" : "4.5 g"
                               },
                               {
-                                 "text" : "0,45 g"
+                                 "text" : "4.5 g"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -1764,10 +2050,13 @@
                                  "text" : "Sel"
                               },
                               {
-                                 "text" : "0,05 g"
+                                 "text" : "0.0502 g"
                               },
                               {
-                                 "text" : "0,005 g"
+                                 "text" : "50.2 mg"
+                              },
+                              {
+                                 "text" : "?"
                               }
                            ]
                         },
@@ -1776,13 +2065,34 @@
                               {
                                  "level" : 0,
                                  "style" : "max-width:15rem",
-                                 "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)"
+                                 "text" : "Sodium"
                               },
                               {
-                                 "text" : "58,333 %"
+                                 "text" : "~ 0.02008 g"
                               },
                               {
-                                 "text" : "58,333 %"
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ légumes‚ légumes secs"
+                              },
+                              {
+                                 "text" : "~ 58.3333333333333 %"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "~ 58.3333333333333 %"
                               }
                            ]
                         }
@@ -1792,13 +2102,10 @@
                }
             ],
             "evaluation" : "unknown",
-            "expand_for" : "large",
             "expanded" : false,
             "level" : "info",
             "title_element" : {
-               "icon_color_from_evaluation" : true,
-               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
-               "title" : "Tableau nutritionnel"
+               "title" : "Tableau nutritionnel (Données détaillées)"
             },
             "topics" : [
                "health"
