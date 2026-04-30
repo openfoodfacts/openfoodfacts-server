@@ -32,6 +32,13 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Thành phần, chất gây dị ứng, phụ gia, thành phần dinh dưỡng, nhãn, nguồn gốc nguyên liệu và thông tin về sản phẩm %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Cơ sở dữ liệu hợp tác, tự do và cởi mở về các thành phần, và thông tin về các sản phẩm mỹ phẩm từ khắp nơi trên thế giới"
@@ -44,31 +51,12 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm mỹ phẩm từ khắp nơi trên thế giới."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về các thành phần và thông tin về nhiều sản phẩm khác nhau từ khắp nơi trên thế giới."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts thu thập thông tin và dữ liệu về nhiều loại sản phẩm từ khắp nơi trên thế giới."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm khác nhau từ khắp nơi trên thế giới."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về thành phần, thông tin dinh dưỡng và các sản phẩm thức ăn cho thú cưng từ khắp nơi trên thế giới."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts thu thập thông tin và dữ liệu về các sản phẩm thức ăn cho thú cưng từ khắp nơi trên thế giới."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm thức ăn cho thú nuôi từ khắp nơi trên thế giới."
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Thành phần, chất gây dị ứng, phụ gia, thành phần dinh dưỡng, nhãn, nguồn gốc nguyên liệu và thông tin về sản phẩm %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -83,8 +71,11 @@ msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
 msgstr "Tìm kiếm sản phẩm trên Open Beauty Facts"
 
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 msgstr "Trang sản phẩm này chưa hoàn chỉnh. Bạn có thể giúp hoàn thành nó bằng cách chỉnh sửa nó và thêm nhiều dữ liệu hơn từ ảnh chúng tôi có, hoặc bằng cách chụp nhiều ảnh hơn bằng ứng dụng dành cho <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> hoặc <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>. Cảm ơn bạn!"
 
 msgctxt "brands_example_beauty"
@@ -110,6 +101,141 @@ msgstr "Mỹ phẩm ngăn đổ mồ hôi"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "NƯỚC, NATRI LAURETH SUNFAT, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMITE DEA"
+
+# OPF
+#, fuzzy
+#| msgctxt "site_description_opf"
+#| msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về các thành phần và thông tin về nhiều sản phẩm khác nhau từ khắp nơi trên thế giới."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts thu thập thông tin và dữ liệu về nhiều loại sản phẩm từ khắp nơi trên thế giới."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm khác nhau từ khắp nơi trên thế giới."
+
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Thành phần, chất gây dị ứng, phụ gia, thành phần dinh dưỡng, nhãn, nguồn gốc nguyên liệu và thông tin về sản phẩm %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+#, fuzzy
+#| msgctxt "get_the_app_link_off"
+#| msgid "/open-food-facts-mobile-app"
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+#, fuzzy
+#| msgctxt "search_description_opensearch_obf"
+#| msgid "Open Beauty Facts product search"
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Tìm kiếm sản phẩm trên Open Beauty Facts"
+
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Trang sản phẩm này chưa hoàn chỉnh. Bạn có thể giúp hoàn thành nó bằng cách chỉnh sửa nó và thêm nhiều dữ liệu hơn từ ảnh chúng tôi có, hoặc bằng cách chụp nhiều ảnh hơn bằng ứng dụng dành cho <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> hoặc <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>. Cảm ơn bạn!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Liquid laundry detergent, Powder laundry detergent"
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr "Laundry detergent"
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ultra Clean Lavender Scent"
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Một cơ sở dữ liệu hợp tác, miễn phí và mở về thành phần, thông tin dinh dưỡng và các sản phẩm thức ăn cho thú cưng từ khắp nơi trên thế giới."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts thu thập thông tin và dữ liệu về các sản phẩm thức ăn cho thú cưng từ khắp nơi trên thế giới."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Cơ sở dữ liệu hợp tác, miễn phí và mở về các sản phẩm thức ăn cho thú nuôi từ khắp nơi trên thế giới."
+
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Thành phần, chất gây dị ứng, phụ gia, thành phần dinh dưỡng, nhãn, nguồn gốc nguyên liệu và thông tin về sản phẩm %s"
+
+#, fuzzy
+#| msgctxt "search_description_opensearch_obf"
+#| msgid "Open Beauty Facts product search"
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Tìm kiếm sản phẩm trên Open Beauty Facts"
+
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Trang sản phẩm này chưa hoàn chỉnh. Bạn có thể giúp hoàn thành nó bằng cách chỉnh sửa nó và thêm nhiều dữ liệu hơn từ ảnh chúng tôi có, hoặc bằng cách chụp nhiều ảnh hơn bằng ứng dụng dành cho <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> hoặc <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>. Cảm ơn bạn!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Dry dog food, Wet cat food"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+#, fuzzy
+#| msgctxt "get_the_app_link_off"
+#| msgid "/open-food-facts-mobile-app"
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Wet food for adult dogs"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight Chicken & Rice"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -625,6 +751,13 @@ msgstr "Chỉnh sửa sản phẩm"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Chỉnh sửa trang"
+
+#, fuzzy
+#| msgctxt "login_to_add_and_edit_products"
+#| msgid "Sign-in to add or edit products."
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Đăng nhập để thêm hoặc chỉnh sửa sản phẩm."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2212,6 +2345,13 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Tìm kiếm sản phẩm"
 
+#, fuzzy
+#| msgctxt "search_description_opensearch"
+#| msgid "Product search"
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Tìm kiếm sản phẩm"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "không chứa"
@@ -2818,8 +2958,11 @@ msgctxt "list_of_sources"
 msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Một số dữ liệu và/hoặc hình ảnh của sản phẩm này đến từ nguồn cung cấp:"
 
+#, fuzzy
+#| msgctxt "warning_not_complete"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Trang sản phẩm này chưa hoàn thành. Bạn có thể giúp hoàn thành nó bằng cách chỉnh sửa và thêm nhiều dữ liệu hơn từ các ảnh chúng tôi có hoặc bằng cách chụp thêm ảnh bằng ứng dụng cho <a href=\"https://android.openfoodfacts.org\">Android</a> hoặc <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Cảm ơn bạn!"
 
 msgctxt "title_separator"
@@ -2902,25 +3045,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "chất dinh dưỡng khác được bổ sung"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Đã bán"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Chuẩn bị"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Đơn vị"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Thành phần dinh dưỡng được chỉ định trên sản phẩm."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Thành phần dinh dưỡng được chỉ định cho sản phẩm đã chuẩn bị."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -4904,8 +5031,11 @@ msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "Tác động môi trường thấp (Green-Score)"
 
+#, fuzzy
+#| msgctxt "attribute_environmental_score_setting_note"
+#| msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 msgstr "Điểm Xanh (Green-Score) là thang điểm đánh giá môi trường từ A đến E, giúp dễ dàng so sánh tác động của các sản phẩm thực phẩm đến môi trường."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
@@ -4917,8 +5047,11 @@ msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "Tác động môi trường thấp (Green-Score)"
 
+#, fuzzy
+#| msgctxt "attribute_ecoscore_setting_note"
+#| msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 msgstr "Điểm Xanh (Green-Score) là thang điểm đánh giá môi trường từ A đến E, giúp dễ dàng so sánh tác động của các sản phẩm thực phẩm đến môi trường."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
@@ -5841,8 +5974,11 @@ msgid "The Green-Score formula is subject to change as it is regularly improved 
 msgstr "Công thức Điểm Sinh Thái có thể thay đổi vì nó thường xuyên được cải tiến để chính xác hơn."
 
 # do not translate Green-Score
+#, fuzzy
+#| msgctxt "environmental_score_warning_international"
+#| msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Điểm Sinh Thái ban đầu được phát triển cho riêng nước Pháp và đang dần được mở rộng sang các nước châu Âu khác. Công thức Điểm sinh thái có thể thay đổi do thường xuyên được cải tiến để chính xác hơn và phù hợp hơn với từng quốc gia."
 
 msgctxt "environmental_score_warning_transportation_world"
@@ -6018,28 +6154,19 @@ msgstr "Nhãn có lợi ích môi trường rất cao"
 
 msgctxt "no_assessed_labels"
 msgid "No assessed labels"
-msgstr "No assessed labels"
+msgstr "Không có nhãn nào được đánh giá"
 
-#, fuzzy
-#| msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
-#| msgid "Labels with environmental benefits"
 msgctxt "some_environmental_benefits"
 msgid "Some environmental benefits"
-msgstr "Nhãn có lợi cho môi trường"
+msgstr "Một số lợi ích về môi trường"
 
-#, fuzzy
-#| msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
-#| msgid "Labels with environmental benefits"
 msgctxt "high_environmental_benefits"
 msgid "High environmental benefits"
-msgstr "Nhãn có lợi cho môi trường"
+msgstr "Lợi ích môi trường cao"
 
-#, fuzzy
-#| msgctxt "attribute_environmental_score_e_description_short"
-#| msgid "Very high environmental impact"
 msgctxt "very_high_environmental_benefits"
 msgid "Very high environmental benefits"
-msgstr "Tác động môi trường rất cao"
+msgstr "Lợi ích môi trường rất cao"
 
 msgctxt "other"
 msgid "Other"
@@ -6710,6 +6837,13 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Đã cập nhật sản phẩm"
 
+#, fuzzy
+#| msgctxt "username"
+#| msgid "User name"
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr "Tên người dùng"
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Thao tác API không hợp lệ"
@@ -6841,6 +6975,17 @@ msgstr "Tất cả các thành phần bao bì của sản phẩm đều được
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Tên người dùng và mật khẩu không hợp lệ"
+
+#, fuzzy
+#| msgctxt "api_message_invalid_code"
+#| msgid "Invalid code"
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr "Mã không hợp lệ"
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr "Authentication required"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7189,10 +7334,6 @@ msgstr "Báo cáo sự cố"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Báo cáo sự cố"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Báo cáo sự cố."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7654,6 +7795,76 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Tìm kiếm sản phẩm cùng danh mục không chứa đường bổ sung:"
 
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "cho 1 kg"
+
+#, fuzzy
+#| msgctxt "nutrition_data_per_100g"
+#| msgid "for 100 g / 100 ml"
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "cho 100 g / 100 ml"
+
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "cho 1 kg"
+
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "cho 1 kg"
+
+#, fuzzy
+#| msgctxt "nutrition_data_per_serving"
+#| msgid "per serving"
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "mỗi khẩu"
+
+#, fuzzy
+#| msgctxt "product_as_sold"
+#| msgid "As sold"
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Đã bán"
+
+#, fuzzy
+#| msgctxt "prepared_product"
+#| msgid "Prepared"
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Chuẩn bị"
+
+#, fuzzy
+#| msgctxt "nutrition_data_exists"
+#| msgid "Nutrition facts are specified for the product as sold."
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Thành phần dinh dưỡng được chỉ định trên sản phẩm."
+
+#, fuzzy
+#| msgctxt "nutrition_data_prepared_exists"
+#| msgid "Nutrition facts are specified for the prepared product."
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Thành phần dinh dưỡng được chỉ định cho sản phẩm đã chuẩn bị."
+
+#, fuzzy
+#| msgctxt "product_add_nutrient"
+#| msgid "Add a nutrient"
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Thêm chất dinh dưỡng"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Thành phần không mong muốn"
@@ -7734,6 +7945,82 @@ msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Hút thuốc gây nghiện cao. Đừng bắt đầu. Hút thuốc gây tử vong – hãy bỏ ngay. Hút thuốc làm tắc nghẽn động mạch và gây ra các cơn đau tim và đột quỵ. Hút thuốc gây ung thư phổi tử vong. Hút thuốc khi mang thai gây hại cho em bé của bạn. Bảo vệ trẻ em: đừng để chúng hít phải khói thuốc của bạn. Bác sĩ hoặc dược sĩ có thể giúp bạn cai thuốc lá. Hút thuốc có thể làm giảm lưu lượng máu và gây liệt dương. Hút thuốc gây lão hóa da. Hút thuốc có thể gây tổn hại đến tinh trùng và làm giảm khả năng sinh sản. Khói thuốc chứa benzen, nitrosamine, formaldehyde và hydrogen cyanide."
 
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr "Reuse"
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr "Circular economy solutions nearby"
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr "Find places to repair, donate, sell or recycle"
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr "Available solutions include:"
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr "Repair"
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr "Find repair shops and services to fix your product instead of throwing it away"
+
+#, fuzzy
+#| msgctxt "donation_cta"
+#| msgid "Donate"
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Ủng hộ"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr "Give your product a second life by donating it to associations or people in need"
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr "Sell or exchange"
+
+#, fuzzy
+#| msgctxt "manage_your_products_on_the_producers_platform"
+#| msgid "Manage your products on the platform for producers"
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr "Quản lý sản phẩm của bạn trên nền tảng dành cho nhà sản xuất"
+
+#, fuzzy
+#| msgctxt "packaging_recycling"
+#| msgid "Recycling"
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Tái chế"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr "Find collection points for proper recycling when the product reaches end of life"
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr "Find solutions nearby on QFDMO"
+
+#, fuzzy
+#| msgctxt "product_created"
+#| msgid "Product created"
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr "Đã tạo sản phẩm"
+
 msgctxt "public_price"
 msgid "Public price"
 msgstr "Giá công khai"
@@ -7750,56 +8037,45 @@ msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Tài sản cá nhân"
 
-# keep the %s, it will be replaced by an allergen
-#, fuzzy
-#| msgctxt "does_not_contain_s"
-#| msgid "Does not contain: %s"
 msgctxt "does_not_contain_palm_oil"
 msgid "Does not contain palm oil"
-msgstr "Không chứa: %s"
+msgstr "Không chứa dầu cọ"
 
-#, fuzzy
-#| msgctxt "contains_palm_oil"
-#| msgid "Contains palm oil"
 msgctxt "may_contain_palm_oil"
 msgid "May contain palm oil"
-msgstr "Chứa dầu cọ"
+msgstr "Có thể chứa dầu cọ"
 
-#, fuzzy
-#| msgctxt "environmental_impact"
-#| msgid "Environmental impact"
 msgctxt "environmental_labels"
 msgid "Environmental labels"
-msgstr "Tác động môi trường"
+msgstr "Nhãn môi trường"
 
-#, fuzzy
-#| msgctxt "api_message_missing_field"
-#| msgid "Missing field"
 msgctxt "missing_data"
 msgid "Missing data"
-msgstr "Trường bị thiếu"
+msgstr "Dữ liệu bị thiếu"
 
-#, fuzzy
-#| msgctxt "attribute_environmental_score_d_description_short"
-#| msgid "High environmental impact"
 msgctxt "high_impact"
 msgid "High impact"
-msgstr "Tác động môi trường cao"
+msgstr "Tác động mạnh"
 
 msgctxt "medium_impact"
 msgid "Medium impact"
-msgstr "Medium impact"
+msgstr "Tác động trung bình"
 
-#, fuzzy
-#| msgctxt "environmental_score_impact"
-#| msgid "Impact"
 msgctxt "low_impact"
 msgid "Low impact"
-msgstr "Tác động"
+msgstr "Tác động thấp"
 
-#, fuzzy
-#| msgctxt "api_result_image_not_selected"
-#| msgid "Image not selected"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
-msgstr "Hình ảnh chưa được chọn"
+msgstr "Tác động chưa được đánh giá"
+
+#, fuzzy
+#| msgctxt "show_category_stats"
+#| msgid "Show detailed stats"
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "Hiển thị số liệu thống kê chi tiết"
+
+#~ msgctxt "report_problem_navigation"
+#~ msgid "Report a problem."
+#~ msgstr "Báo cáo sự cố."

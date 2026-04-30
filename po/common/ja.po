@@ -32,6 +32,13 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "原材料、アレルゲン、添加物、栄養成分表、ラベル、原材料の原産地、製品 %s の情報"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "協同の、無料でオープンな、世界中の化粧品の成分と情報に関するデータベース"
@@ -44,31 +51,12 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "協同の、フリーでオープンな、世界中の化粧品に関するデータベース。"
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "原材料、アレルゲン、添加物、栄養成分表、ラベル、原材料の原産地、製品 %s の情報"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -83,8 +71,11 @@ msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
 msgstr "Open Beauty Facts 製品検索"
 
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 msgstr "この製品ページは未完成です。製品ページを編集や、既存の写真からのデータの追加、<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=ja\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a> 用のアプリから画像を撮影することで完成に貢献できます。ありがとうございます！"
 
 msgctxt "brands_example_beauty"
@@ -110,6 +101,140 @@ msgstr "制汗剤ストレスプロテクト"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "水、ラウレス硫酸Ｎａ、ココアンホジ酢酸２Ｎａ、ジステアリン酸グリコール、コカミドＭＥＡ"
+
+#, fuzzy
+#| msgctxt "footer_tagline_off"
+#| msgid "A collaborative, free and open database of food products from around the world."
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "世界中から食品の、共同のフリーでオープンなデータベース。"
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "原材料、アレルゲン、添加物、栄養成分表、ラベル、原材料の原産地、製品 %s の情報"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+#, fuzzy
+#| msgctxt "get_the_app_link_off"
+#| msgid "/open-food-facts-mobile-app"
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+#, fuzzy
+#| msgctxt "search_description_opensearch_obf"
+#| msgid "Open Beauty Facts product search"
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Beauty Facts 製品検索"
+
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "この製品ページは未完成です。製品ページを編集や、既存の写真からのデータの追加、<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=ja\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a> 用のアプリから画像を撮影することで完成に貢献できます。ありがとうございます！"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Liquid laundry detergent, Powder laundry detergent"
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr "Laundry detergent"
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ultra Clean Lavender Scent"
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "原材料、アレルゲン、添加物、栄養成分表、ラベル、原材料の原産地、製品 %s の情報"
+
+#, fuzzy
+#| msgctxt "search_description_opensearch_obf"
+#| msgid "Open Beauty Facts product search"
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Beauty Facts 製品検索"
+
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "この製品ページは未完成です。製品ページを編集や、既存の写真からのデータの追加、<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=ja\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a> 用のアプリから画像を撮影することで完成に貢献できます。ありがとうございます！"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Dry dog food, Wet cat food"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+#, fuzzy
+#| msgctxt "get_the_app_link_off"
+#| msgid "/open-food-facts-mobile-app"
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Wet food for adult dogs"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight Chicken & Rice"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -625,6 +750,13 @@ msgstr "製品を編集"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "ページを編集"
+
+#, fuzzy
+#| msgctxt "login_to_add_and_edit_products"
+#| msgid "Sign-in to add or edit products."
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "サインインして製品を追加または編集します。"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2213,6 +2345,13 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr ""
 
+#, fuzzy
+#| msgctxt "search_products"
+#| msgid "Products search"
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "製品検索"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "含まない"
@@ -2817,8 +2956,11 @@ msgctxt "list_of_sources"
 msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "この商品のいくつかのデータおよび/または写真は、それらのソースから取得されます:"
 
+#, fuzzy
+#| msgctxt "warning_not_complete"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "この商品ページは完成していません。既存の写真からデータを編集または追加したり、 <a href=\"https://android.openfoodfacts.org\">Android</a> または <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a> のアプリを使用して写真を撮影して、手伝ってください。ありがとうございます!"
 
 msgctxt "title_separator"
@@ -2901,25 +3043,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "その他栄養物質を追加"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "販売"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "調整済"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "単位"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "販売された製品について栄養成分が指定されています。"
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "調整された製品について栄養成分が指定されています。"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -4904,7 +5030,7 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "低環境負荷（Green-Score）"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 msgstr ""
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
@@ -4917,8 +5043,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "低環境負荷（Green-Score）"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5840,8 +5966,11 @@ msgid "The Green-Score formula is subject to change as it is regularly improved 
 msgstr "Green-Scoreの計算式は、より正確なものにするために定期的に改善されているため、変更される可能性があります。"
 
 # do not translate Green-Score
+#, fuzzy
+#| msgctxt "environmental_score_warning_international"
+#| msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Green-Scoreは当初フランス向けに開発され、ほかのヨーロッパ諸国にも対象が拡大されています。Green-Scoreの計算式は、より正確で、より各国に適したものになるよう定期的に改善されているため、変更される可能性があります。"
 
 msgctxt "environmental_score_warning_transportation_world"
@@ -6017,28 +6146,19 @@ msgstr "環境上の非常に大きな利点を示すラベルあり"
 
 msgctxt "no_assessed_labels"
 msgid "No assessed labels"
-msgstr "No assessed labels"
+msgstr "評価ラベルなし"
 
-#, fuzzy
-#| msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
-#| msgid "Labels with environmental benefits"
 msgctxt "some_environmental_benefits"
 msgid "Some environmental benefits"
-msgstr "環境上の利点を示すラベルあり"
+msgstr "環境面での利点"
 
-#, fuzzy
-#| msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
-#| msgid "Labels with environmental benefits"
 msgctxt "high_environmental_benefits"
 msgid "High environmental benefits"
-msgstr "環境上の利点を示すラベルあり"
+msgstr "高い環境メリット"
 
-#, fuzzy
-#| msgctxt "attribute_environmental_score_e_description_short"
-#| msgid "Very high environmental impact"
 msgctxt "very_high_environmental_benefits"
 msgid "Very high environmental benefits"
-msgstr "非常に高い環境負荷"
+msgstr "非常に高い環境メリット"
 
 msgctxt "other"
 msgid "Other"
@@ -6709,6 +6829,13 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "製品が更新されました！"
 
+#, fuzzy
+#| msgctxt "username"
+#| msgid "User name"
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr "ユーザー名"
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "無効な操作"
@@ -6840,6 +6967,17 @@ msgstr "製品のすべてのパッケージ部品がリストされています
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "ユーザー名・パスワードが間違っています"
+
+#, fuzzy
+#| msgctxt "api_message_invalid_code"
+#| msgid "Invalid code"
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr "無効なコードです"
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr "Authentication required"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7187,10 +7325,6 @@ msgstr ""
 # duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
 msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_title"
@@ -7653,6 +7787,70 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "同じカテゴリー内で砂糖無添加の商品を検索:"
 
+#, fuzzy
+#| msgctxt "nutrition_data_per_100g"
+#| msgid "for 100 g / 100 ml"
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "100グラム/ 100mlで用"
+
+#, fuzzy
+#| msgctxt "nutrition_data_per_100g"
+#| msgid "for 100 g / 100 ml"
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "100グラム/ 100mlで用"
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "for 1 L"
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "for 1 kg"
+
+#, fuzzy
+#| msgctxt "nutrition_data_per_serving"
+#| msgid "per serving"
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "一食当たり"
+
+#, fuzzy
+#| msgctxt "product_as_sold"
+#| msgid "As sold"
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "販売"
+
+#, fuzzy
+#| msgctxt "prepared_product"
+#| msgid "Prepared"
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "調整済"
+
+#, fuzzy
+#| msgctxt "nutrition_data_exists"
+#| msgid "Nutrition facts are specified for the product as sold."
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "販売された製品について栄養成分が指定されています。"
+
+#, fuzzy
+#| msgctxt "nutrition_data_prepared_exists"
+#| msgid "Nutrition facts are specified for the prepared product."
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "調整された製品について栄養成分が指定されています。"
+
+#, fuzzy
+#| msgctxt "product_add_nutrient"
+#| msgid "Add a nutrient"
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "栄養成分を追加"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "不要な成分"
@@ -7733,6 +7931,82 @@ msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "喫煙は非常に中毒性があります。始めないでください。喫煙は死をもたらします。今すぐやめましょう。喫煙は動脈を詰まらせ、心臓発作や脳卒中を引き起こします。喫煙は致命的な肺がんを引き起こします。妊娠中の喫煙は胎児に悪影響を及ぼします。子供たちを守りましょう。子供たちにあなたの煙を吸わせないでください。医師または薬剤師が禁煙のお手伝いをいたします。喫煙は血流を低下させ、インポテンツを引き起こす可能性があります。喫煙は皮膚の老化を引き起こします。喫煙は精子にダメージを与え、生殖能力を低下させる可能性があります。煙にはベンゼン、ニトロソアミン、ホルムアルデヒド、シアン化水素が含まれています。"
 
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr "Reuse"
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr "Circular economy solutions nearby"
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr "Find places to repair, donate, sell or recycle"
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr "Available solutions include:"
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr "Repair"
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr "Find repair shops and services to fix your product instead of throwing it away"
+
+#, fuzzy
+#| msgctxt "donation_cta"
+#| msgid "Donate"
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "寄付"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr "Give your product a second life by donating it to associations or people in need"
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr "Sell or exchange"
+
+#, fuzzy
+#| msgctxt "manage_your_products_on_the_producers_platform"
+#| msgid "Manage your products on the platform for producers"
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr "生産者向けプラットフォームで製品を管理"
+
+#, fuzzy
+#| msgctxt "packaging_recycling"
+#| msgid "Recycling"
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "リサイクル"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr "Find collection points for proper recycling when the product reaches end of life"
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr "Find solutions nearby on QFDMO"
+
+#, fuzzy
+#| msgctxt "product_created"
+#| msgid "Product created"
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr "製品を作成しました"
+
 msgctxt "public_price"
 msgid "Public price"
 msgstr "公示価格"
@@ -7749,56 +8023,41 @@ msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "パーソナライズされた財産"
 
-# keep the %s, it will be replaced by an allergen
-#, fuzzy
-#| msgctxt "does_not_contain_s"
-#| msgid "Does not contain: %s"
 msgctxt "does_not_contain_palm_oil"
 msgid "Does not contain palm oil"
-msgstr "含まない：%s"
+msgstr "パーム油は含まれていません"
 
-#, fuzzy
-#| msgctxt "contains_palm_oil"
-#| msgid "Contains palm oil"
 msgctxt "may_contain_palm_oil"
 msgid "May contain palm oil"
-msgstr "パーム油が含まれています"
+msgstr "パーム油を含む場合があります"
 
-#, fuzzy
-#| msgctxt "environmental_impact"
-#| msgid "Environmental impact"
 msgctxt "environmental_labels"
 msgid "Environmental labels"
-msgstr "環境への影響"
+msgstr "環境ラベル"
 
-#, fuzzy
-#| msgctxt "api_message_missing_field"
-#| msgid "Missing field"
 msgctxt "missing_data"
 msgid "Missing data"
-msgstr "不足しているフィールド:"
+msgstr "欠損データ"
 
-#, fuzzy
-#| msgctxt "attribute_environmental_score_d_description_short"
-#| msgid "High environmental impact"
 msgctxt "high_impact"
 msgid "High impact"
-msgstr "高い環境負荷"
+msgstr "大きな影響"
 
 msgctxt "medium_impact"
 msgid "Medium impact"
-msgstr "Medium impact"
+msgstr "中程度の影響"
 
-#, fuzzy
-#| msgctxt "environmental_score_impact"
-#| msgid "Impact"
 msgctxt "low_impact"
 msgid "Low impact"
-msgstr "影響"
+msgstr "低影響"
 
-#, fuzzy
-#| msgctxt "api_result_image_not_selected"
-#| msgid "Image not selected"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
-msgstr "画像が選択されていません"
+msgstr "影響は評価されていない"
+
+#, fuzzy
+#| msgctxt "show_category_stats"
+#| msgid "Show detailed stats"
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "詳細な統計情報を表示"

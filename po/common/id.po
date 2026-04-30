@@ -32,6 +32,13 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Semua kandungan bahan, alergen, zat aditif, informasi nilai gizi, label, tempat asal kandungan bahan, dan informasi tentang produk %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Sebuah basis data kandungan bahan, serta informasi tentang produk - produk kosmetik dari seluruh dunia yang kolaboratif, gratis, dan terbuka,"
@@ -44,31 +51,12 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Sebuah basis data produk - produk kosmetik dari seluruh dunia yang kolaboratif, gratis, dan terbuka."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Sebuah basis data kolaboratif, gratis, dan terbuka yang berisi informasi tentang bahan-bahan dan produk-produk dari berbagai belahan dunia."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts mengumpulkan informasi dan data tentang berbagai macam produk dari seluruh dunia."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Sebuah basis data kolaboratif, gratis, dan terbuka yang berisi berbagai produk dari seluruh dunia."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Sebuah basis data kolaboratif, gratis, dan terbuka yang berisi informasi tentang bahan-bahan, fakta gizi, dan produk makanan hewan peliharaan dari seluruh dunia."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts mengumpulkan informasi dan data tentang produk makanan hewan peliharaan dari seluruh dunia."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Sebuah basis data produk makanan hewan peliharaan dari seluruh dunia yang kolaboratif, bebas, dan terbuka."
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Semua kandungan bahan, alergen, zat aditif, informasi nilai gizi, label, tempat asal kandungan bahan, dan informasi tentang produk %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -83,8 +71,11 @@ msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
 msgstr "Open Food Facts pencarian produk"
 
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu melengkapinya dengan menyuntingnya dan menambahkan lebih banyak data dari foto - foto yang kami miliki, atau dengan mengambil lebih banyak foto menggunakan aplikasi untuk <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Terima kasih!"
 
 msgctxt "brands_example_beauty"
@@ -110,6 +101,141 @@ msgstr "Antiperspiran Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/AIR, NATRIUM LAURET SULFAT, DISODIUM COCOAMPHODIACETATE, GLIKOL DISTEARAT, KOKAMIDA MEA"
+
+# OPF
+#, fuzzy
+#| msgctxt "site_description_opf"
+#| msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Sebuah basis data kolaboratif, gratis, dan terbuka yang berisi informasi tentang bahan-bahan dan produk-produk dari berbagai belahan dunia."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts mengumpulkan informasi dan data tentang berbagai macam produk dari seluruh dunia."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Sebuah basis data kolaboratif, gratis, dan terbuka yang berisi berbagai produk dari seluruh dunia."
+
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Semua kandungan bahan, alergen, zat aditif, informasi nilai gizi, label, tempat asal kandungan bahan, dan informasi tentang produk %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+#, fuzzy
+#| msgctxt "get_the_app_link_off"
+#| msgid "/open-food-facts-mobile-app"
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+#, fuzzy
+#| msgctxt "search_description_opensearch_obf"
+#| msgid "Open Beauty Facts product search"
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Food Facts pencarian produk"
+
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu melengkapinya dengan menyuntingnya dan menambahkan lebih banyak data dari foto - foto yang kami miliki, atau dengan mengambil lebih banyak foto menggunakan aplikasi untuk <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Terima kasih!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Liquid laundry detergent, Powder laundry detergent"
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr "Laundry detergent"
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ultra Clean Lavender Scent"
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Sebuah basis data kolaboratif, gratis, dan terbuka yang berisi informasi tentang bahan-bahan, fakta gizi, dan produk makanan hewan peliharaan dari seluruh dunia."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts mengumpulkan informasi dan data tentang produk makanan hewan peliharaan dari seluruh dunia."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Sebuah basis data produk makanan hewan peliharaan dari seluruh dunia yang kolaboratif, bebas, dan terbuka."
+
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Semua kandungan bahan, alergen, zat aditif, informasi nilai gizi, label, tempat asal kandungan bahan, dan informasi tentang produk %s"
+
+#, fuzzy
+#| msgctxt "search_description_opensearch_obf"
+#| msgid "Open Beauty Facts product search"
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Food Facts pencarian produk"
+
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu melengkapinya dengan menyuntingnya dan menambahkan lebih banyak data dari foto - foto yang kami miliki, atau dengan mengambil lebih banyak foto menggunakan aplikasi untuk <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Terima kasih!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Dry dog food, Wet cat food"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+#, fuzzy
+#| msgctxt "get_the_app_link_off"
+#| msgid "/open-food-facts-mobile-app"
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Wet food for adult dogs"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight Chicken & Rice"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -625,6 +751,13 @@ msgstr "Sunting produk"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Sunting halaman"
+
+#, fuzzy
+#| msgctxt "login_to_add_and_edit_products"
+#| msgid "Sign-in to add or edit products."
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Masuk untuk menambahkan atau menyunting produk."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2211,6 +2344,13 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Pencarian produk"
 
+#, fuzzy
+#| msgctxt "search_description_opensearch"
+#| msgid "Product search"
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Pencarian produk"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "tidak mengandung"
@@ -2815,8 +2955,11 @@ msgctxt "list_of_sources"
 msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Beberapa data dan/atau foto untuk ptoduk ini bersumber dari:"
 
+#, fuzzy
+#| msgctxt "warning_not_complete"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Halaman produk ini tidak lengkap. Anda dapat membantu melengkapinya dengan menyunting dan menambahkan lebih banyak data dari foto yang kami sediakan, atau dengan mengambil lebih banyak foto menggunakan aplikasi yang tersedia untuk <a href=\"https://android.openfoodfacts.org\">Android</a> atau <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Terima kasih!"
 
 msgctxt "title_separator"
@@ -2899,25 +3042,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "zat nutrisi lain yang ditambahkan"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Seperti yang dijual"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Disiapkan"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Unit"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Informasi nilai gizi ditetapkan untuk produk seperti yang dijual."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Informasi nilai gizi ditetapkan untuk produk yang disiapkan."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -4901,8 +5028,11 @@ msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "Dampak lingkungan rendah (Green-Score)"
 
+#, fuzzy
+#| msgctxt "attribute_environmental_score_setting_note"
+#| msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 msgstr "Green-Score adalah skor lingkungan dari kisaran A hingga E yang membuatnya mudah untuk membandingkan dampak produk - produk makanan terhadap lingkungan."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
@@ -4914,8 +5044,11 @@ msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "Dampak lingkungan rendah (Green-Score)"
 
+#, fuzzy
+#| msgctxt "attribute_ecoscore_setting_note"
+#| msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 msgstr "Green-Score adalah skor lingkungan dari kisaran A hingga E yang membuatnya mudah untuk membandingkan dampak produk - produk makanan terhadap lingkungan."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
@@ -5838,8 +5971,11 @@ msgid "The Green-Score formula is subject to change as it is regularly improved 
 msgstr "Formula Green-Score dapat berubah sewaktu - waktu karena ia secara reguler ditingkatkan agar penghitungannya lebih presisi."
 
 # do not translate Green-Score
+#, fuzzy
+#| msgctxt "environmental_score_warning_international"
+#| msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Green-Score pada awalnya dikembangkan untuk Perancis dan sedang diperluas ke negara - negara Eropa lainnya. Formula Green-Score dapat berubah sewaktu - sewaktu karena ia secara reguler ditingkatkan agar penghitungannya lebih presisi dan lebih cocok untuk setiap negara."
 
 msgctxt "environmental_score_warning_transportation_world"
@@ -6015,28 +6151,19 @@ msgstr "Label dengan manfaat lingkungan yang sangat tinggi"
 
 msgctxt "no_assessed_labels"
 msgid "No assessed labels"
-msgstr "No assessed labels"
+msgstr "Tidak ada label yang dinilai"
 
-#, fuzzy
-#| msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
-#| msgid "Labels with environmental benefits"
 msgctxt "some_environmental_benefits"
 msgid "Some environmental benefits"
-msgstr "Label dengan manfaat lingkungan"
+msgstr "Beberapa manfaat lingkungan"
 
-#, fuzzy
-#| msgctxt "environmental_score_production_system_labels_with_environmental_benefits"
-#| msgid "Labels with environmental benefits"
 msgctxt "high_environmental_benefits"
 msgid "High environmental benefits"
-msgstr "Label dengan manfaat lingkungan"
+msgstr "Manfaat lingkungan yang tinggi"
 
-#, fuzzy
-#| msgctxt "attribute_environmental_score_e_description_short"
-#| msgid "Very high environmental impact"
 msgctxt "very_high_environmental_benefits"
 msgid "Very high environmental benefits"
-msgstr "Dampak lingkungan sangat tinggi"
+msgstr "Manfaat lingkungan yang sangat tinggi"
 
 msgctxt "other"
 msgid "Other"
@@ -6707,6 +6834,13 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produk diperbarui"
 
+#, fuzzy
+#| msgctxt "username"
+#| msgid "User name"
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr "Nama pengguna"
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Tindakan API tidak valid"
@@ -6838,6 +6972,17 @@ msgstr "Semua bagian kemasan produk tercantum."
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Identitas pengguna dan kata sandi tidak valid"
+
+#, fuzzy
+#| msgctxt "api_message_invalid_code"
+#| msgid "Invalid code"
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr "Kode tidak valid"
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr "Authentication required"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7186,10 +7331,6 @@ msgstr "Laporkan masalah"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Laporkan masalah"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Laporkan masalah."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7651,6 +7792,76 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Cari produk dalam kategori yang sama tanpa tambahan gula:"
 
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "untuk 1 kg"
+
+#, fuzzy
+#| msgctxt "nutrition_data_per_100g"
+#| msgid "for 100 g / 100 ml"
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "untuk 100 g / 100 ml"
+
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "untuk 1 kg"
+
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "untuk 1 kg"
+
+#, fuzzy
+#| msgctxt "nutrition_data_per_serving"
+#| msgid "per serving"
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "per sajian"
+
+#, fuzzy
+#| msgctxt "product_as_sold"
+#| msgid "As sold"
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Seperti yang dijual"
+
+#, fuzzy
+#| msgctxt "prepared_product"
+#| msgid "Prepared"
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Disiapkan"
+
+#, fuzzy
+#| msgctxt "nutrition_data_exists"
+#| msgid "Nutrition facts are specified for the product as sold."
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Informasi nilai gizi ditetapkan untuk produk seperti yang dijual."
+
+#, fuzzy
+#| msgctxt "nutrition_data_prepared_exists"
+#| msgid "Nutrition facts are specified for the prepared product."
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Informasi nilai gizi ditetapkan untuk produk yang disiapkan."
+
+#, fuzzy
+#| msgctxt "product_add_nutrient"
+#| msgid "Add a nutrient"
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Tambahkan nutrisi"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Bahan-bahan yang tidak diinginkan"
@@ -7731,6 +7942,85 @@ msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Merokok sangat adiktif. Jangan mulai. Merokok mematikan – berhentilah sekarang juga. Merokok menyumbat arteri dan menyebabkan serangan jantung dan stroke. Merokok menyebabkan kanker paru-paru yang fatal. Merokok saat hamil membahayakan bayi Anda. Lindungi anak-anak: jangan biarkan mereka menghirup asap rokok Anda. Dokter atau apoteker Anda dapat membantu Anda berhenti merokok. Merokok dapat mengurangi aliran darah dan menyebabkan impotensi. Merokok menyebabkan penuaan kulit. Merokok dapat merusak sperma dan menurunkan kesuburan. Asap rokok mengandung benzena, nitrosamin, formaldehida, dan hidrogen sianida."
 
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr "Reuse"
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr "Circular economy solutions nearby"
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr "Find places to repair, donate, sell or recycle"
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+
+#, fuzzy
+#| msgctxt "f_droid_app_icon_alt_text"
+#| msgid "Available on F-Droid"
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr "Tersedia di F-Droid"
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr "Repair"
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr "Find repair shops and services to fix your product instead of throwing it away"
+
+#, fuzzy
+#| msgctxt "donation_cta"
+#| msgid "Donate"
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Berdonasi"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr "Give your product a second life by donating it to associations or people in need"
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr "Sell or exchange"
+
+#, fuzzy
+#| msgctxt "manage_your_products_on_the_producers_platform"
+#| msgid "Manage your products on the platform for producers"
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr "Kelola produk Anda di platform untuk produsen"
+
+#, fuzzy
+#| msgctxt "packaging_recycling"
+#| msgid "Recycling"
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Mendaur ulang"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr "Find collection points for proper recycling when the product reaches end of life"
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr "Find solutions nearby on QFDMO"
+
+#, fuzzy
+#| msgctxt "product_created"
+#| msgid "Product created"
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr "Produk dibuat"
+
 msgctxt "public_price"
 msgid "Public price"
 msgstr "Harga publik"
@@ -7747,56 +8037,45 @@ msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Properti yang dipersonalisasi"
 
-# keep the %s, it will be replaced by an allergen
-#, fuzzy
-#| msgctxt "does_not_contain_s"
-#| msgid "Does not contain: %s"
 msgctxt "does_not_contain_palm_oil"
 msgid "Does not contain palm oil"
-msgstr "Tidak mengandung: %s"
+msgstr "Tidak mengandung minyak sawit"
 
-#, fuzzy
-#| msgctxt "contains_palm_oil"
-#| msgid "Contains palm oil"
 msgctxt "may_contain_palm_oil"
 msgid "May contain palm oil"
-msgstr "Mengandung minyak sawit"
+msgstr "Mungkin mengandung minyak sawit"
 
-#, fuzzy
-#| msgctxt "environmental_impact"
-#| msgid "Environmental impact"
 msgctxt "environmental_labels"
 msgid "Environmental labels"
-msgstr "Dampak lingkungan"
+msgstr "Label lingkungan"
 
-#, fuzzy
-#| msgctxt "api_message_missing_field"
-#| msgid "Missing field"
 msgctxt "missing_data"
 msgid "Missing data"
-msgstr "Bidang yang hilang"
+msgstr "Data hilang"
 
-#, fuzzy
-#| msgctxt "attribute_environmental_score_d_description_short"
-#| msgid "High environmental impact"
 msgctxt "high_impact"
 msgid "High impact"
-msgstr "Dampak lingkungan tinggi"
+msgstr "Dampak tinggi"
 
 msgctxt "medium_impact"
 msgid "Medium impact"
-msgstr "Medium impact"
+msgstr "Dampak sedang"
 
-#, fuzzy
-#| msgctxt "environmental_score_impact"
-#| msgid "Impact"
 msgctxt "low_impact"
 msgid "Low impact"
-msgstr "Dampak"
+msgstr "Dampak rendah"
 
-#, fuzzy
-#| msgctxt "api_result_image_not_selected"
-#| msgid "Image not selected"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
-msgstr "Gambar tidak dipilih"
+msgstr "Dampak belum dinilai"
+
+#, fuzzy
+#| msgctxt "show_category_stats"
+#| msgid "Show detailed stats"
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "Tampilkan statistik terperinci"
+
+#~ msgctxt "report_problem_navigation"
+#~ msgid "Report a problem."
+#~ msgstr "Laporkan masalah."
