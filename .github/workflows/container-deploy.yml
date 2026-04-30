@@ -41,7 +41,7 @@ jobs:
         echo "NUTRIPATROL_URL=nutripatrol.openfoodfacts.net" >> $GITHUB_ENV
         echo "FOLKSONOMY_URL=https://api.folksonomy.openfoodfacts.net" >> $GITHUB_ENV
 
-        echo "OIDC_IMPLEMENTATION_LEVEL=2" >> $GITHUB_ENV
+        echo "OIDC_IMPLEMENTATION_LEVEL=3" >> $GITHUB_ENV
         echo "OIDC_DISCOVERY_URL=https://auth.openfoodfacts.net/realms/openfoodfacts/.well-known/openid-configuration" >> $GITHUB_ENV
 
         # deploy target
@@ -51,7 +51,7 @@ jobs:
 
     # use `sudo -u off touch /home/off/off-net/NO_DEPLOY` to stop deployment on staging 
     - name: Check for an eventual NO_DEPLOY file to put deployment on hold
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -99,7 +99,7 @@ jobs:
       run: echo Timeout && false # fail if build time out
 
     - name: Checkout git repository
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -125,7 +125,7 @@ jobs:
           git checkout -qf ${{ github.sha }}
 
     - name: Set environment variables
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -195,7 +195,7 @@ jobs:
           sed -i.bak "s/productopener.localhost/${{ env.PRODUCT_OPENER_DOMAIN }}/g" ./conf/nginx-docker/nginx.conf
 
     - name: Create Docker volumes and network
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -211,7 +211,7 @@ jobs:
 
     - name: wait for docker images to be available
       # we sometimes have the images not ready immediately after build, so we prefer to wait for it
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -240,7 +240,7 @@ jobs:
           done
 
     - name: initialize the backend
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -256,7 +256,7 @@ jobs:
 
     # NOTE: the mongodb and redis containers are deployed by openfoodfacts-shared-services 
     - name: Start services
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       with:
         host: ${{ env.SSH_HOST }}
         username: ${{ env.SSH_USERNAME }}
@@ -275,7 +275,7 @@ jobs:
           make prod_up
 
     - name: Check services are up
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
@@ -290,7 +290,7 @@ jobs:
           make livecheck
 
     - name: Cleanup obsolete Docker objects
-      uses: appleboy/ssh-action@v1.2.4
+      uses: appleboy/ssh-action@v1.2.5
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -56,6 +56,8 @@ BEGIN {
 		$oidc_client_id
 		$oidc_client_secret
 		%slack_hook_urls
+		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -109,7 +111,7 @@ $folksonomy_url = 'https://api.folksonomy.openfoodfacts.org';
 							  # Tells that session_cookie (which is normally limitted by ip)
 							  # can be trusted also for those ip addresses
 	ip_whitelist_session_cookie => ["172.19.0.1"],
-	minion_backend => {'Pg' => 'postgresql://off:Zo4pByAt2tt@10.1.0.120/minion'},
+	minion_backend => {'Pg' => 'postgresql://off:******@10.1.0.120/minion'},
 	minion_local_queue => "openfoodfacts.org",
 
 	# Only for producers platform
@@ -132,5 +134,9 @@ $oidc_discovery_url = 'http://10.1.0.104:5600/realms/openfoodfacts/.well-known/o
 
 # associate each channel (by name) with its url (containing auth)
 %slack_hook_urls = ();
+
+# Rate limiter disabled flag - set to 1 to disable application-level rate limiting
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = 0;
 
 1;

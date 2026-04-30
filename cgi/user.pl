@@ -444,7 +444,7 @@ elsif ($action eq 'process') {
 
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{add_user_existing_org}
-			= sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
+			= sprintf(lang("add_user_existing_org"), org_name($requested_org_ref) // '');
 
 		$template_data_ref->{user_org} = $user_ref->{org};
 

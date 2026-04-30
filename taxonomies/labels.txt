@@ -229,6 +229,11 @@ ru: гарантированный пищевой стандарт
 image:en: assured-food-standards.82x90.svg
 wikidata:en: Q4810404
 
+xx: Varefakta kontrolleret, Varefakta
+da: Varefakta kontrolleret
+image:da: varefakta-kontrolleret.79x90.svg
+web:en: https://varefakta.dk/en/
+
 de: Nach traditioneller Art, Hausmacher Art
 fr: À l'ancienne
 
@@ -293,6 +298,7 @@ web:en: https://beterleven.dierenbescherming.nl/zakelijk/en/what-is-the-better-l
 
 en: RSPCA Assured
 label_categories:en: en:Animal welfare
+wikidata:en: Q130711887
 
 en: Bord Bia Quality Assurance
 
@@ -534,7 +540,8 @@ web:en: https://www.climatepartner.com/en
 
 en: Carbon Trust
 xx: Carbon Trust
-# https://www.carbontrust.com/what-we-do/assurance-and-certification/product-carbon-footprint-label
+web:en: https://www.carbontrust.com/what-we-do/assurance-and-certification/product-carbon-footprint-label
+wikidata:en: Q3658279
 
 < en:Carbon Trust
 < en:Carbon compensated product
@@ -923,6 +930,7 @@ xx: Råd & Rön, Rad & Ron
 sv: Råd & Rön
 country:en: en:Sweden
 web:sv: https://www.radron.se/
+wikidata:en: Q10658633
 
 < xx:Råd & Rön
 xx: Råd & Rön: Bäst i test, Rad & Ron Bast i test
@@ -971,7 +979,8 @@ xx: ISO 3632
 
 en: ISO 9000
 xx: ISO 9000
-# The ISO 9000 family is a set of five quality management systems standards by the International Organization for Standardization that help organizations ensure they meet customer and other stakeholder needs within statutory and regulatory requirements related to a product or service.
+description:en: The ISO 9000 family is a set of five quality management systems standards by the International Organization for Standardization that help organizations ensure they meet customer and other stakeholder needs within statutory and regulatory requirements related to a product or service.
+wikidata:en: Q206008
 
 < en:ISO 9000
 en: ISO 9000-2005
@@ -992,11 +1001,12 @@ wikidata:en: Q1060682
 en: ISO 9001-2000
 xx: ISO 9001-2000
 ru: ИСО 9001-2000, ГОСТ Р ИСО 9001
-wikidata:en: Q4130719
+wikidata:en: Q1636081
 
 < en:ISO 9001
 en: ISO-9001-2008, ISO 9001 2008 certified qms
 xx: ISO 9001-2008
+wikidata:en: Q55928263
 
 < en:ISO 9001
 < ru:ГОСТ
@@ -1008,18 +1018,22 @@ xx: ISO 9001-2011
 en: ISO 9001-2015
 xx: ISO 9001-2015
 ru: ГОСТ Р ИСО 9001-2015
+wikidata:en: Q17563405
 
 en: ISO 9002
 xx: ISO 9002
 # ISO 9002 : Pour la production, l'installation et l'assistance après vente
-# wikipedia:en: https://en.wikipedia.org/wiki/ISO_9002
+# wikipedia:fr: https://fr.wikipedia.org/wiki/ISO_9002
+wikidata:en: Q3146946
 
 en: ISO 13485
 xx: ISO 13485
-# ISO for traceability of medical devices (supplements) - https://www.iso.org/standard/59752.html
+description:en: ISO for traceability of medical devices (supplements) - https://www.iso.org/standard/59752.html
+wikidata:en: Q1654689
 
 en: ISO 14001
 xx: ISO 14001
+wikidata:en: Q1428107
 
 < en:ISO 14001
 en: ISO 14001-2008
@@ -1037,6 +1051,7 @@ en: ISO 14067:2018
 xx: ISO 14067:2018
 # ISO 14067:2018 - Greenhouse gases — Carbon footprint
 # This document specifies principles, requirements and guidelines for the quantification and reporting of the carbon footprint of a product (CFP)
+wikidata:en: Q100251155
 
 en: ISO 22000
 xx: ISO 22000
@@ -1224,6 +1239,7 @@ nb: Fairtrade Max Havelaar Norge
 en: Fairtrade Sweden
 it: Fairtrade Svezia
 sv: Fairtrade Sverige
+wikidata:en: Q31884036
 
 < en:Fairtrade International
 en: The Fairtrade Foundation
@@ -1550,12 +1566,15 @@ es: Apto para celiacos
 
 < en: Suitable for celiacs
 en: Celiac Disease Foundation
+wikidata:en: Q106919373
 
 < en: Suitable for celiacs
 en: Beyond Celiac Gluten-Free, Beyond Celiac
+wikidata:en: Q54814699
 
 < en: Suitable for celiacs
 en: Coeliac UK, Certified by Coeliac UK
+wikidata:en: Q5140611
 
 < en: Suitable for celiacs
 en: Coeliac Australia New Zealand, Coeliac Australia NZ
@@ -1564,6 +1583,7 @@ en: Coeliac Australia New Zealand, Coeliac Australia NZ
 < en: Suitable for celiacs
 en: Canadian Celiac Association - Gluten Free
 fr: Association canadienne de la maladie cœliaque - Sans gluten
+wikidata:en: Q30271057
 
 en: Grain Free
 fr: Sans grains, sans graines
@@ -1678,6 +1698,7 @@ en: Halal Monitoring Committee, HMC
 
 < en:Halal
 en: Junta Islamica
+wikidata:en: Q9016708
 
 < en:Halal
 fr: Société Française de Contrôle de Viande Halal, SFCVH, S-f-c-v-h
@@ -1768,7 +1789,7 @@ sk: Zdroj vlákniny
 sl: Vir vlaknin
 sq: Burim i fibrave
 sr: Izvor vlakana
-sv: Fiberkälla
+sv: Källa till fiber, Fiberkälla
 th: แหล่งของใยอาหาร
 tr: Lif kaynağı
 uk: Джерело клітковини
@@ -1895,7 +1916,7 @@ nl: Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pl: Wysoka zawartość białka, Bogaty w białko
 pt: Proteínas altas
 ru: Обогащено протеинами
-sv: Proteinrik
+sv: Proteinrik, Högt proteininnehåll
 th: โปรตีนสูง
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -2360,19 +2381,24 @@ pt: Keto, Certificado Keto, Amigável Keto
 ru: Кето, Кето-сертифицированный, Подходящий для Кето, кето-дружественный
 th: คีโต, ได้รับการรับรองคีโต, มิตรกับคีโต
 tr: Keto, Keto sertifikalı, Keto dostu
+wikidata:en: Q1070684
 
 # GS1: A dietary practice of eating food that is uncooked and unprocessed. Also known as Raw foodism, rawism.
 en: raw food diet, suitable for a raw food diet
+wikidata:en: Q115160304
 
 # GS1: Paleo diet is a fad diet type requiring the sole or predominant eating of foods presumed to have been available to humans during the Paleolithic era.
 en: Paleo, suitable for a paleo diet
 xx: Paleo
+wikidata:en: Q533945
 
 # GS1: A pescatarian diet excludes meat and poultry but includes fish or seafood (and may include dairy products and eggs).
 en: Pescatarian
+wikidata:en: Q1500138
 
 # GS1: A pollotarian diet, also known as a pollo-vegetarian diet, incorporates poultry, including turkey and duck, as the only source of meat in an otherwise vegetarian diet.
 en: Pollotarian
+wikidata:en: Q30969566
 
 en: Without beef, no beef, beef free, free from beef
 fr: Sans boeuf
@@ -3159,6 +3185,7 @@ nl: Weinig suiker
 pl: Niska zawartość cukru, Mała zawartość cukru
 pt: Pouco açúcar
 ru: Низкое содержание сахара
+sv: Låg sockerhalt
 th: น้ำตาลต่ำหรือไม่มีเลย
 description:en: In EU, a claim that a food is low sugar may only be made where the product contains no more than 5 g of sugars per 100 g for solids or 2,5 g of sugars per 100 ml for liquids. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
@@ -3389,10 +3416,13 @@ nl: Suikervrij, Zonder suiker
 pl: Bez cukru, Nie zawiera cukru
 pt: Sem açúcar, sem açúcares
 ru: Без сахара
+sv: Sockerfri, Sockerfria, Utan socker
 th: ไม่มีน้ำตาล
 tr: Şekersiz
 description:en: In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
+en: No carbohydrates, No carbs
+sv: Inga kolhydrater
 
 en: Lowers cholesterol
 bg: Намалява холестерола
@@ -3493,6 +3523,7 @@ pt: Feito na China
 ru: Сделано в Китае
 zh: 中国制造
 label_categories:en: en:Geographic label
+wikidata:en: Q1324638
 
 en: Made in Greece
 bg: Произведено в Гърция
@@ -3718,6 +3749,14 @@ description:fr: consignée en Suède.
 image:sv: pant-1kr.61x90.png
 label_categories:en: en:Environment, en:Packaging
 
+sv: pant 2kr
+xx: pant 2kr
+country:en: en:Sweden
+description:en: deposit in Sweden.
+description:fr: consignée en Suède.
+#image:sv: pant-2kr.61x90.png
+label_categories:en: en:Environment, en:Packaging
+
 en: metal recycles forever
 xx: metal recycles forever
 image:en: metal-recycles-forever.89x90.png
@@ -3726,7 +3765,7 @@ web:en: https://www.metalrecyclesforever.eu/
 
 en: Made in Denmark
 bg: Произведено в Дания
-da: Fremstillet i Danmark
+da: Fremstillet i Danmark, Produceret i Danmark
 de: Hergestellt in Dänemark
 es: Hecho en Dinamarca
 fi: Valmistettu Tanskassa
@@ -4054,6 +4093,7 @@ image:en: fran-sverige.90x90.svg
 label_categories:en: en:Geographic label
 origins:en: en:sweden
 web:sv: https://fransverige.se/
+wikidata:en: Q56303949
 
 xx: Kött från Sverige
 sv: Kött från Sverige
@@ -4613,9 +4653,17 @@ hu: Mesterséges adalékanyagok nélkül, Hozzáadott mesterséges adalékanyag 
 it: Senza additivi artificiali
 nl: Zonder kunstmatige toevoegingen
 pt: Sem aditivos artificiais, sem aditivo artificial
+sv: Inga konstgjorda tillsatser
 label_categories:en: en:Health, en:Additives
 
 en: No yeast, Contains no yeast
+
+en: No anticaking agent
+de: Ohne Trennmittel
+
+en: No added additives
+
+en: No added calories
 
 sv: Ä-märket
 xx: Ä-märket
@@ -4623,7 +4671,8 @@ country:en: en:Sweden
 description:en: No E (additives) numbers (except baking powder and fruit pectin), No flavoring agents except extracts, No industrial ingredients that are not traditionally included in the food. Examples: modified starch, yeast extract, bamboo fibres, No added vitamins or other added nutrients.
 image:sv: a-market.141x90.png
 label_categories:en: en:Health, en:Additives
-web:sv: https://miljomarkningar.se/a-market/
+web:sv: https://www.aktavara.org/4360/markningen
+wikidata:en: Q10725584
 
 #instruction:en:Do NOT change the english key.
 en: No alcohol, alcohol-free, without alcohol
@@ -4659,6 +4708,9 @@ pt: Contém álcool
 ru: Содержит алкоголь
 incompatible_with:en: labels:en:no-alcohol
 opposite:en: en:no-alcohol
+
+en: Don't consume with alcohol
+sv: Använd ej tilsammans med alkohol
 
 en: without allergens
 bg: без алергени
@@ -4912,7 +4964,6 @@ si: brez kofeina
 th: ไม่มีคาเฟอีน
 label_categories:en: en:Health
 
-
 #instruction:en:Do NOT change the english key.
 en: with caffeine
 bg: С кофеин
@@ -4929,6 +4980,9 @@ pl: z kofeiną
 pt: com cafeína
 ru: с кофеином
 th: มีคาเฟอีน
+
+en: high caffeine content
+sv: hög koffeinhalt
 
 en: 100% arabica
 xx: 100% arabica
@@ -5017,7 +5071,7 @@ label_categories:en: en:Health, en:Additives
 #instruction:en:Do NOT change the english key.
 en: No flavour enhancer
 ca: Sense potenciador de sabor
-de: Ohne Geschmacksverstärker, Ohne Zusatzstoff Geschmacksverstärker
+de: Ohne Geschmacksverstärker, Ohne Zusatz von Geschmackverstärkern, Ohne Zusatzstoff Geschmacksverstärker
 es: Sin potenciadores del sabor
 fi: ei arominvahventeita
 fr: sans exhausteur de goût, sans exhausteurs de goût
@@ -5154,12 +5208,14 @@ pt: Produto natural sem óleos vegetais, produto natural sem óleo vegetal
 ru: натуральный продукт без растительных жиров
 
 en: Natural ingredients, Ingredients from natural origins
+sv: 100% naturliga råvaror
 
 < en:No flavour enhancer
 #instruction:en:Do NOT change the english key.
 en: No MSG, MSG free
 bg: Без глутамат, Без МНГ, Без Мононатриев глутамат
 ca: Sense Glutamat Monosòdic, Sense GMS, Lliure de GMS
+da: Uden MSG
 de: kein MSG, MSG-frei, MSGfrei
 es: Sin glutamato, Sin glutamato monosódico, Sin glutamato de sodio, Sin GMS
 fi: natriumglutamaatiton, ei natriumglutamaattia, ilman natriumglutamaattia, MSG-vapaa
@@ -5169,12 +5225,14 @@ hu: MSG-mentes, Nátrium-glutamát mentes
 it: Senza glutammato, senza glutammato monosodico, senza glutammato di sodio, senza MSG
 pl: Bez glutaminianu sodu, Bez glutaminianu monosodowego
 pt: Sem glutamato monossódico, sem MSG
+sv: Utan MSG
 th: ไม่ใช้ผงชูรส
 label_categories:en: en:Health, en:Additives
 #additives:en: -en:e621
 
 en: No added MSG
 bg: Без добавен глутамат
+da: Uden tilsat MSG
 es: Sin GMS añadido
 fi: ei lisättyä natriumglutamaattia
 fr: Sans glutamate ajouté, sans GMS ajouté
@@ -5182,6 +5240,7 @@ hu: Hozzáadott MSG nélkül, Hozzáadott nátrium-glutamát nélkül
 nl: Geen mononatriumglutamaat toegevoegd, Geen vetsin toegevoegd
 pl: Bez dodatku glutaminianu sodu, Bez dodatku glutaminianu monosodowego
 pt: Nenhum MSG adicionado, Sem glutamato monossódico adicionado, sem MSG adicionado, nenhum MSG adicionado
+sv: Utan tillsat MSG
 label_categories:en: en:Health, en:Additives
 
 ########################## GMO ##########################
@@ -5532,7 +5591,7 @@ incompatible_with:en: labels:en:no-soy
 label_categories:en: en:Environment, en:Soy, en:Allergens
 opposite:en: en:no-soy
 
-en: Made with soy, Made from soya
+en: Made with soy, Made from soya, Made with Soy Protein
 incompatible_with:en: labels:en:no-soy
 
 #instruction:en:Do NOT change the english key.
@@ -5757,6 +5816,10 @@ se: Rekommenderas ej till barn samt gravida
 sv: Rekommenderas ej till barn samt gravida
 
 < en:Not advised for specific people
+en: Not advised for children and pregnant or breastfeeding people, Not recommended for children and pregnant or breastfeeding women
+sv: Rekommenderas ej för barn och gravida eller ammande personer, Rekommenderas ej för barn och gravida eller ammande kvinnor
+
+< en:Not advised for specific people
 en: Not recommended for children under 3 years
 ca: No recomanat per infants menors de 3 anys
 da: Ikke anbefalet til børn under 3 år
@@ -5814,7 +5877,7 @@ pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta o
 ro: din agricultură ecologică controlată, din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk
+sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -6186,6 +6249,7 @@ lt: ES žemės ūkis, Europos Sąjungos žemės ūkis
 nl: EU landbouw
 pt: Agricultura UE, Agricultura da União Europeia
 ru: EU агрокультура, агрокультура Европейского Союза
+sv: EU-jordbruk
 
 < en:EU Agriculture
 en: French agriculture
@@ -7952,6 +8016,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU organic
 en: TR-BIO-171
+xx: TR-BIO-171
 auth_address:en: 2 Tilou street, 54638, Thessaloniki, Greece
 auth_name:en: A CERT European Organization for Certification S.A.
 auth_url:en: http://www.a-cert.org
@@ -8683,6 +8748,7 @@ exceptions:en: en: in conversion products,en:wine
 
 < en:EU organic
 en: TR-BIO-139
+xx: TR-BIO-139
 auth_address:en: Rr. Kavajes”, Nd.132, Hy.9, Kati 8, Ap.43, perball pallatit me shigjeta, Tirana, Albania
 auth_name:en: Albinspekt
 auth_url:en: http://www.albinspekt.com
@@ -8863,6 +8929,7 @@ exceptions:en: en: in-conversion products,en:wine
 
 < en:EU organic
 en: TR-BIO-175
+xx: TR-BIO-175
 auth_address:en: Çinarli Mahallesi Şehit Polis Fethi Sekin Cad. No:3, 1006, Konak/IZMIR, Turkey
 auth_name:en: BAȘAK Ekolojik Ürünler Kontrol ve Sertifikasyon Hizmetleri Tic.
 auth_url:en: http://basakekolojik.com.tr
@@ -9304,7 +9371,7 @@ exceptions:en: en:wine,en:until 30 June 2021
 
 < en:EU organic
 en: TR-BIO-161
-de: TR-BIO-161
+xx: TR-BIO-161
 auth_address:en: Ackerstrasse, 5070, Frick, Switzerland
 auth_name:en: Bio.inspecta AG
 auth_url:en: http://www.bio-inspecta.ch
@@ -9631,6 +9698,7 @@ exceptions:en: en: in-conversion products,en:wine
 
 < en:EU organic
 en: TR-BIO-132
+xx: TR-BIO-132
 auth_address:en: Via dei Macabraccia 8, Casalecchio di Reno, 40033, Bologna, Italy
 auth_name:en: Bioagricert S.r.l.
 auth_url:en: http://bioagricert.org
@@ -10415,6 +10483,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU organic
 en: TR-BIO-102
+xx: TR-BIO-102
 auth_address:en: Viale Masini, 36, 40126, Bologna, Italy
 auth_name:en: CCPB Srl
 auth_url:en: http://www.ccpb.it
@@ -11102,6 +11171,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU organic
 en: TR-BIO-140
+xx: TR-BIO-140
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
 auth_name:en: CERES Certification of Environmental Standards GmbH
 auth_url:en: http://www.ceres-cert.com
@@ -13578,7 +13648,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU organic
 en: TR-BIO-154
-de: TR-BIO-154
+xx: TR-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -14066,6 +14136,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU organic
 en: TR-BIO-144
+xx: TR-BIO-144
 auth_address:en: 5700 SW 34th st, suite 349, 326048, Gainesville FL, United States of America
 auth_name:en: Florida Certified Organic Growers and Consumers, Inc. (FOG),
 auth_url:en: http:// www.qcsinfo.org
@@ -15372,6 +15443,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU organic
 en: TR-BIO-115
+xx: TR-BIO-115
 auth_address:en: Via Giovanni Brugnoli, 15, 40122, Bologna, Italy
 auth_name:en: Istituto Certificazione Etica e Ambientale
 auth_url:en: http://www.icea.info
@@ -16179,7 +16251,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU organic
 en: TR-BIO-141
-de: TR-BIO-141
+xx: TR-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
 auth_url:en: http://www.kiwabcs-oeko.com
@@ -16568,6 +16640,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU organic
 en: TR-BIO-134
+xx: TR-BIO-134
 auth_address:en: Moltkestrasse 4, 77654, Offenburg, Germany
 auth_name:en: LACON GmbH
 auth_url:en: http://www.lacon-institut.com
@@ -16892,6 +16965,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU organic
 en: TR-BIO-135
+xx: TR-BIO-135
 auth_address:en: Urquiza 1285 planta alta, S2000KPA, Rosario, Santa Fe, Argentina
 auth_name:en: Letis S.A.
 auth_url:en: http://www.letis.org
@@ -17911,6 +17985,7 @@ exceptions:en: en:in-conversion products,en:
 
 < en:EU organic
 en: TR-BIO-166
+xx: TR-BIO-166
 auth_address:en: Prof. Dr Ahmet Taner Kislali Mah.2842 Sok.No: 4, 06810, Cayyolu, Cankaya-Ankara, Turkey
 auth_name:en: ORSER
 auth_url:en: http://orser.com.tr
@@ -18001,6 +18076,7 @@ exceptions:en: en:in-conversion products,en:
 
 < en:EU organic
 en: TR-BIO-179
+xx: TR-BIO-179
 auth_address:en: 9-17 Erithrou Stavrou str., 41221, Larissa, Greece
 auth_name:en: Q-check
 auth_url:en: http://www.qcheck-cert.gr
@@ -18136,6 +18212,7 @@ exceptions:en: en:www.caae.es,en:until 30 June 2021
 
 < en:EU organic
 en: TR-BIO-178
+xx: TR-BIO-178
 auth_address:en: Avenida Emilio Lemos, 2 mod. 603, 41020, Seville, Spain
 auth_name:en: Servicio de Certificación CAAE S.L.U.
 auth_url:en: https://www.caae.es/
@@ -18626,6 +18703,7 @@ wikidata:en: Q3336915
 en: CCOF certified organic, certified CCOF organic, California Certified Organic Farmers
 fi: CCOF-sertifioitu luomu
 pl: CCOF certified organic
+wikidata:en: Q5020306
 
 < en:Organic
 en: Canada Organic, Biologique Canada Organic, Biologique Canada Canada Organic, Canada Organic Biologique Canada
@@ -18685,6 +18763,7 @@ fi: Tanskan Ø-luomumerkki
 sv: Danskt Ø-märkt
 country:en: en:Denmark
 image:en: danish-state-conrolled-organic.98x90.svg
+wikidata:en: Q12341939
 
 < en:Organic
 en: Luomu - controlled organic production
@@ -18699,6 +18778,7 @@ fi: Leppäkerttumerkki, Luomuliitto
 sv: Nyckelpigamärket
 country:en: en:Finland
 image:fi: leppäkerttumerkki.90x90.svg
+wikidata:en: Q11879828
 
 < en:Organic
 en: Tún certified organic
@@ -18731,6 +18811,7 @@ sv: KRAV, KRAV-certifierad ekologisk ingrediens
 xx: KRAV
 country:en: en:Sweden
 image:en: krav.136x90.svg
+wikidata:en: Q6336505
 
 < en:Organic
 es: Orgánico Argentina
@@ -18747,6 +18828,7 @@ country:en: en:Brazil
 
 de: ÖKO-TEST
 xx: ÖKO-TEST
+wikidata:en: Q294820
 
 < de:ÖKO-TEST
 de: ÖKO-TEST sehr gut
@@ -18774,6 +18856,7 @@ en: too good to go
 xx: too good to go
 image:en: too-good-to-go.108x90.png
 label_categories:en: en:environment
+wikidata:en: Q85810097
 wikipedia:en: https://en.wikipedia.org/wiki/Too_Good_To_Go
 
 en: Class I, class 1
@@ -19008,14 +19091,17 @@ pl: Wieprzowina bez domieszek
 pt: Carne de porco pura, Puro bife, 100% bife, bife puro, pura carne de porco, 100% carne de porco
 
 en: Rainforest Alliance
-xx: Rainforest Alliance, Rainforest Alliance People & Nature, Rainforest Alliance People and Nature, Rainforest
+xx: Rainforest Alliance, Rainforest Alliance People & Nature, Rainforest Alliance People and Nature, Rainforest, Rainforest Alliance Certified
 ca: Aliança Tropical
 cs: certifikováno rainforest alliance, certifikovano rainforest alliance
+da: Rainforest Alliance, Rainforest Alliance-certificeret
+de: Rainforest Alliance, Rainforest Alliance-zertifiziert
 es: Alianza para Bosques
 fr: Vérifié Rainforest Alliance, Certifié Rainforest Alliance
 hr: Certificirano Rainforest Alliance
 it: Alleanza della Foresta Pluviale
-sv: Rainforest Alliance, Rainforest Alliance-certifierad, Rainforest Alliance Certified
+nb: Rainforest Alliance, Rainforest Alliance-sertifisert
+sv: Rainforest Alliance, Rainforest Alliance-certifierad
 auth_url:en: https://www.rainforest-alliance.org
 wikidata:en: Q2034373
 
@@ -19870,7 +19956,7 @@ hr: Održiv
 it: Sostenibile
 nl: Duurzaam
 pt: Sustentável
-sv: Hållbar, Hållbart
+sv: Hållbar, Hållbart, Hållbart producerat och certifierad
 
 < en:Sustainable
 en: Sustainable fishery, Sustainable fishing, Sustainable Seafood
@@ -20070,7 +20156,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos, odpowiedni dla wegan
 sq: vegan
-sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt ursprung
+sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt, vegetabiliskt ursprung
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
@@ -20227,16 +20313,17 @@ en: Vege Project Vegan, Vege Project Japan Vegan
 xx: Vege Project Vegan, Vege Project Japan Vegan
 
 < en: Vegan
-en: plant based, plantbased
+en: plant-based, plant based, plantbased
 fr: à base de plantes, à base de végétaux
 sv: växtbaserad
 
 < en:Vegan
-en: certified plant based, plant based certified
-xx: certified plant based, plant based certified
+en: Certified Plant Based, plant based certified
+xx: Certified Plant Based, plant based certified
 description:en: The Certified Plant Based certification and label - delivered by the National Science Foundation, USA - make it easy for consumers to choose sustainable alternatives to meat, egg and dairy products by providing assurance that the food contains no animal-derived ingredients.
 image:en: certified-plant-based.90x90.png
 website:en: https://www.nsf.org/food-beverage/plant-based-certification
+wikidata:en: Q138685616
 
 < en:Vegetarian
 en: Vegetarian Society
@@ -20346,6 +20433,7 @@ en: V-Label International, V-LABEL.COM
 xx: V-Label International, V-LABEL.COM
 image:en: v-label-nocategory.90x90.svg
 website:en: https://www.v-label.com/
+wikidata:en: Q2505128
 
 < en:V-Label International
 en: V-Label International Vegetarian
@@ -20515,6 +20603,12 @@ pt: Sem adoçantes, sem edulcorantes, sem adoçantes, sem edulcorantes, 0% adoç
 sv: Utan sötningsmedel
 incompatible_with:en: labels:en:with-sweeteners
 opposite:en: en:With sweeteners
+
+en: With fluorite
+sv: Innehåller fluor
+
+en: With xylitol
+sv: Innehåller xylitol
 
 en: 100% muscle
 ca: Múscul 100%
@@ -21991,6 +22085,7 @@ fr: Bio Suisse
 it: Bio Suisse, BioSuisse
 nl: Bio Zwitserland
 country:en: en:Switzerland
+wikidata:en: Q864186
 
 < en:Organic
 en: Migros Bio
@@ -22307,6 +22402,7 @@ nl: Gebitsgezondheidslabels
 < en:Tooth-health related labels
 en: UFSBD
 fr: Union française pour la santé bucco-dentaire, UFSBD
+wikidata:en: Q28869311
 
 en: European Fruit Juice Control System, EQCS, European Quality Control System for Juice, European Quality Control System for Juice and Nectars from Fruits and Vegetables
 
@@ -23163,6 +23259,7 @@ wikidata:en: Q3128557
 # French quality label: https://fr.wikipedia.org/wiki/Certification_de_conformit%C3%A9_produit
 fr: Produit certifié, CQ Produit Certifié
 en: Certified product
+wikidata:en: Q2946912
 
 # Note: "es:Calidad Certificada" is a specific Spanish label, added as "Calidad Certificada de Andalucía"
 # example product: https://es.openfoodfacts.org/producto/8437002590468/aceite-de-oliva-virgen-extra-iznaoliva
