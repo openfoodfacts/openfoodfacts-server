@@ -697,7 +697,7 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "sucre",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -713,6 +713,7 @@
    ],
    "ingredients_analysis" : {
       "en:maybe-vegan" : [
+         "en:sugar",
          "en:chocolate"
       ]
    },

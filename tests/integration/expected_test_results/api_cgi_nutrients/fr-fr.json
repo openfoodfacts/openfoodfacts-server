@@ -752,6 +752,13 @@
       },
       {
          "display_in_edit_form" : false,
+         "id" : "hydroxymethylbutyrate",
+         "important" : false,
+         "name" : "HMB",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
          "name" : "PH",
@@ -867,6 +874,13 @@
          "id" : "carbohydrates-total",
          "important" : false,
          "name" : "Glucides totaux (inclut les fibres)",
+         "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "water",
+         "important" : false,
+         "name" : "Eau",
          "unit" : "g"
       }
    ]
