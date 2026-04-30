@@ -11,7 +11,7 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
+wait_application_ready(__FILE__);
 
 # Sample product
 

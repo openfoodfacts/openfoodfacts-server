@@ -5,7 +5,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
-#use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
@@ -122,10 +122,9 @@ is(
 
 ) or diag Dumper $product_ref;
 
-foreach my $tag (@{$product_ref->{categories_tags}}) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
-}
+# foreach my $tag (@{$product_ref->{categories_tags}}) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
+# }
 
 add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
 
@@ -305,10 +304,9 @@ is(
 	]
 ) or diag Dumper(\@tags);
 
-foreach my $tag (@tags) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
-}
+# foreach my $tag (@tags) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+# }
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
@@ -436,8 +434,6 @@ is(exists_taxonomy_tag("additives", "en:e330"), 1);
 is(get_inherited_property("ingredients", "en:milk", "vegetarian:en"), "yes");
 is(get_property("ingredients", "en:milk", "vegan:en"), "no");
 is(get_inherited_property("ingredients", "en:milk", "vegan:en"), "no");
-is(get_inherited_property("ingredients", "en:semi-skimmed-milk", "vegetarian:en"), "yes");
-is(get_inherited_property("ingredients", "en:semi-skimmed-milk", "vegan:en"), "no");
 
 is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
 
@@ -834,7 +830,7 @@ is(get_tag_image("en", "labels", "en:usda-organic"), "/images/lang/en/labels/usd
 is(get_tag_image("sv", "labels", "sv:ä-märket"), "/images/lang/sv/labels/ä-märket.85x90.png");   # file name is accented
 is(get_tag_image("fr", "labels", "fr:commerce-equitable"), "/images/lang/fr/labels/commerce-equitable.96x90.png")
 	;    # file name is unaccented, unaccented language
-is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.png")
+is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.svg")
 	;    # file name is unaccented, accented language
 
 # strings with multiple tags separated by /
@@ -888,6 +884,8 @@ is(
 
 # Test get_knowledge_content subroutine
 
+ProductOpener::Tags::load_knowledge_content();
+
 # a match is expected here, as lang-default/fr/knowledge_panels/additives/en_e100_world.html exists
 is(
 	get_knowledge_content("additives", "en:e100", "fr", "world"),
@@ -914,5 +912,15 @@ is(
 		'en:non-fair-trade' => 'labels:en:fair-trade',
 	}
 );
+
+is(country_to_cc('en:france'), 'fr');
+is(country_to_cc('en:world'), 'world');
+is(country_to_cc('unknown'), undef);
+is(country_to_cc(undef), undef);
+is(cc_to_country('fr'), 'en:france');
+is(cc_to_country('unknown'), '');
+is(cc_to_country(undef), '');
+
+is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
 
 done_testing();

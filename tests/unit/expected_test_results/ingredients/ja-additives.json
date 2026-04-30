@@ -32,7 +32,7 @@
          "text" : "増粘剤"
       },
       {
-         "id" : "en:e262",
+         "id" : "en:e262i",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 21.875,
          "percent_max" : 50,
@@ -50,7 +50,7 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "トレハロース",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -103,7 +103,9 @@
                "percent_estimate" : 0.341796875,
                "percent_max" : 14.2857142857143,
                "percent_min" : 0,
-               "text" : "V.C"
+               "text" : "V.C",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:vitamin-e",
@@ -111,7 +113,9 @@
                "percent_estimate" : 0.341796875,
                "percent_max" : 7.14285714285714,
                "percent_min" : 0,
-               "text" : "V.E"
+               "text" : "V.E",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -141,13 +145,9 @@
    ],
    "ingredients_analysis" : {
       "en:vegan-status-unknown" : [
-         "en:vitamin-c",
-         "en:vitamin-e",
          "en:vegetable-pigment"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:vitamin-c",
-         "en:vitamin-e",
          "en:vegetable-pigment"
       ]
    },
@@ -164,7 +164,7 @@
    ],
    "ingredients_original_tags" : [
       "en:thickener",
-      "en:e262",
+      "en:e262i",
       "en:trehalose",
       "en:modified-starch",
       "en:e640i",
@@ -181,6 +181,7 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:thickener",
+      "en:e262i",
       "en:e262",
       "en:trehalose",
       "en:added-sugar",
@@ -196,6 +197,7 @@
       "en:e415",
       "en:amino-acids",
       "en:vitamin-c",
+      "en:vitamins",
       "en:vitamin-e",
       "en:vegetable-pigment"
    ],
@@ -209,7 +211,7 @@
       "en:antioxidant",
       "en:colour",
       "en:condiment",
-      "en:e262",
+      "en:e262i",
       "en:e415",
       "en:e640i",
       "en:thickener",
@@ -223,7 +225,7 @@
       "en:antioxidant",
       "en:colour",
       "en:condiment",
-      "en:e262",
+      "en:e262i",
       "en:e415",
       "en:e640i",
       "en:modified-starch",
@@ -235,11 +237,5 @@
    "ingredients_without_ecobalyse_ids_n" : 12,
    "known_ingredients_n" : 14,
    "lc" : "ja",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 0
 }

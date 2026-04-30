@@ -42,12 +42,13 @@
       {
          "ciqual_proxy_food_code" : "19051",
          "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-         "id" : "en:raw-milk",
+         "id" : "en:milk",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 5.20833333333333,
          "percent_max" : 25,
          "percent_min" : 0,
-         "text" : "lait cru",
+         "processing" : "en:raw",
+         "text" : "lait",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
@@ -79,7 +80,7 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:raw-milk",
+         "en:milk",
          "en:raw-ham"
       ],
       "en:non-vegetarian" : [
@@ -101,7 +102,7 @@
       "en:peeled-tomatoes",
       "en:lemon",
       "en:courgette",
-      "en:raw-milk",
+      "en:milk",
       "en:aubergine",
       "en:raw-ham"
    ],
@@ -115,9 +116,8 @@
       "en:fruit",
       "en:citrus-fruit",
       "en:courgette",
-      "en:raw-milk",
-      "en:dairy",
       "en:milk",
+      "en:dairy",
       "en:aubergine",
       "en:raw-ham",
       "en:animal",
@@ -139,11 +139,5 @@
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 6,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 92.1875,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 92.1875,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 92.1875,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 92.1875
-   },
    "unknown_ingredients_n" : 0
 }

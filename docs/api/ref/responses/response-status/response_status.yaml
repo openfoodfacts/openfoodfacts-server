@@ -2,7 +2,7 @@ title: Response status
 type: object
 description: "A response object to describe if a READ or WRITE request was successful or not, and if there were errors or warnings, and what the impact of those errors or warnings was."
 examples:
-  - status_id: success_with_errors
+  - status: success_with_errors
     result:
       id: product_updated
       name: Product updated
@@ -24,7 +24,7 @@ examples:
           description: The nutrients were not updated.
           lc_description: Les nutriments n'ont pas été mis à jour.
 properties:
-  status_id:
+  status:
     type: string
     enum:
       - success
@@ -36,7 +36,7 @@ properties:
     type: object
     description: |-
       Overall result
-       of the request (e.g. a product has been created)
+      of the request (e.g. a product has been created)
     properties:
       id:
         type: string
@@ -54,6 +54,6 @@ properties:
       $ref: ./warning-or-error.yaml
   errors:
     type: array
-    description: List of errors. Errors are used to alert about something that is definitely wrong (e.g. a nutrient value thaty is impossibly high).
+    description: List of errors. Errors are used to alert about something that is definitely wrong (e.g. a nutrient value that is impossibly high).
     items:
       $ref: ./warning-or-error.yaml

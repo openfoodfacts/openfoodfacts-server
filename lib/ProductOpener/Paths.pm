@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -138,6 +138,14 @@ Directory for private data
 
 $BASE_DIRS{PRIVATE_DATA} = "$data_root/data";
 
+=head2 $BASE_DIRS{PRIVATE_DATA_TESTS}
+
+Directory for private data used in tests, such as category stats
+
+=cut
+
+$BASE_DIRS{PRIVATE_DATA_TESTS} = _source_dir() . "/tests/data";
+
 =head2 $BASE_DIRS{LANG}
 
 Directory with language files (.po). Normally linked to openfoodfacts-web
@@ -271,6 +279,12 @@ $BASE_DIRS{PUBLIC_DUMP} = "$www_root/dump";
 =cut
 
 $BASE_DIRS{PUBLIC_FILES} = "$www_root/files";
+
+=head2 $BASE_DIRS{PUBLIC_RESOURCES}
+
+=cut
+
+$BASE_DIRS{PUBLIC_RESOURCES} = "$www_root/resources";
 
 =head2 $BASE_DIRS{PUBLIC_EXPORTS}
 

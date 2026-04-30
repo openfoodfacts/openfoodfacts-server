@@ -1,5 +1,7 @@
 synonyms:fr: conteneur, container, poubelle, benne
 
+synonyms:sv: sortera, sorteras, återvinn, återvinns
+
 stopwords:en: in, the
 stopwords:bg: в, във
 stopwords:fr: le, la, dans
@@ -7,13 +9,13 @@ stopwords:it: nel, nella, nei, la, i, con, l', al, a, da
 
 # comment:en:Instructions for the Netherlands: https://kidv.nl/media/weggooiwijzer/2021_kidv_weggooiwijzer_handleiding_nl_juni_2021.pdf?1.2.2
 # comment:en:Instructions for Belgium: https://www.betersorteren.be/nl/download-de-sorteergidsen-voor-pmd-papier-karton-en-glas
-# comment:en:Instructions for Portugal: 
+# comment:en:Instructions for Portugal:
 # https://world.openfoodfacts.org/label/ecoponto-amarelo
 # https://world.openfoodfacts.org/label/ecoponto-azul
-# comment:en:Instructions for France: 
-# comment:en:Instructions for Germany: 
-# comment:en:Instructions for Italy: 
-
+# comment:en:Instructions for France:
+# comment:en:Instructions for Germany:
+# comment:en:Instructions for Italy:
+# comment:en:Instructions for Sweden: https://www.sopor.nu/
 
 
 en: reuse, re-use, to reuse, to re-use, to be reused, to be re-used, reusable, re-usable, Refillable, refill, to refill, multiple use
@@ -34,32 +36,60 @@ nb: gjenvinnes
 pt: reciclável, a reciclar, para reciclar
 # associated_materials: en:glass, en:aluminium, en:steel
 
-< en: recycle
+< en:recycle
 en: recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
 es: Contenedor verde, Al verde, Contenedor de vidrio, Recicla verde
 fr: recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre, tri verre, bac verre
 it: raccolta vetro, vetro
 nl: recyclen in de glasbak, glasbak, in de glasbak, in glasbak
 pt: Ecoponto Verde, Recicla verde
+sv: sorteras som glas, glas, glasförpackning
 # comment:en:If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
 packaging_materials:en: en:glass
 # note: for NL, even though there are different logos for recyclen in de glasbak, glasbak etc. they mean the same thing, so we keep them as one entry
 
-< en: recycle
-en: recycle in paper bin, recycle in paper container, recycle with paper
-es: Contenedor azul, Al azul, Contenedor de papel, Recicla azul
-fr: recycler dans le conteneur à papier, recycler dans le bac à papier, recycler avec le papier, dans le conteneur à papier, dans le bac à papier, avec le papier
-nl: recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papierbak
-pt: Ecoponto azul, Recicla azul
+< en:recycle in glass bin
+en: recycle in uncoloured glass bin
+sv: sorteras som ofärgat glas, ofärgat glas
+# comment:en: Sweden sorts coloured and non-coloured glass separately
+packaging_materials:en: en:uncoloured-glass
+
+< en:recycle in glass bin
+en: recycle in coloured glass bin
+sv: sorteras som färgat glas, färgat glas
+# comment:en: Sweden sorts coloured and non-coloured glass separately
+packaging_materials:en: en:coloured-glass
 
 < en:recycle
+en: recycle as paper or cardboard, recycle as cardboard or paper
+sv: sorteras som papper eller kartong
+packaging_materials:en: en:paper-or-cardboard
+
+< en:recycle as paper or cardboard
 en: recycle in paper bin, recycle in paper container, recycle with paper
 es: Contenedor azul, Al azul, Contenedor de papel, Recicla azul
 fr: recycler dans le conteneur à papier, recycler dans le bac à papier, recycler avec le papier, dans le conteneur à papier, dans le bac à papier, avec le papier
 it: raccolta carta, carta
 nl: recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papierbak
 pt: Ecoponto azul, Recicla azul
-# comment:en:If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper, it could also be cardboard
+comment:en: If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper, it could also be cardboard
+
+< en:recycle as paper or cardboard
+en: recycle in cardboard bin, recycle with cardboard
+sv: sorteras som kartong, kartong
+packaging_materials:en: en:cardboard
+
+< en:recycle as paper or cardboard
+en: recycle in paper packaging bin
+sv: sorteras som pappersförpackning, pappersförpackning
+comment:en: “Paper packaging” is a category used in Sweden to denote both cardboard and non-cardboard forms of paper used for packaging food and other types of products.
+packaging_materials:en: en:paper-packaging
+
+< en:recycle in paper bin
+en: recycle in newspaper bin
+fr: recycler dans le conteneur à journaux, recycler dans le bac à journaux, recycler avec les journaux, dans le conteneur à journaux, dans le bac à journaux, avec les journaux
+sv: sorteras som tidningar, tidningar, tidning, tidningspapper
+packaging_materials:en: en:paper
 
 # in the Netherlands for recycling of drink cartons
 < en:recycle
@@ -82,12 +112,32 @@ en: recycle with plastics
 fr: recycler avec le plastique
 it: raccolta plastica, plastica
 nl: recycle bij plastic afval, bij plastic afval, plastic afval
+sv: sorteras som plast, plast, plastförpackning
 packaging_materials:en: en:plastic
+
+< en:recycle with plastics
+en: recycle with soft plastics
+sv: sorteras som mjukplast, mjukplast
+packaging_materials:en: en:soft-plastic
+
+< en:recycle with plastics
+en: recycle with hard plastics
+sv: sorteras som hårdplast, hårdplast
+packaging_materials:en: en:hard-plastic
 
 < en:recycle
 en: recycle with metals
+es: Contenedor de metal, Al metal, Contenedor metálico, Recicla metal
+fr: recycler avec les métaux
 it: raccolta metalli, alluminio, latta, metallo, metalli
+nl: recycle bij metaal
+sv: sorteras som metall, metall
 packaging_materials:en: en:metal
+
+< en:recycle with metals
+en: recycle in metal packaging bin
+fr: recycler dans le conteneur à métaux, recycler dans le bac à métaux, dans le conteneur à métaux, dans le bac à métaux
+sv: sorteras som metallförpackning, metallförpackning
 
 #packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, metal cans or glass bottles
 < en:recycle
@@ -113,11 +163,12 @@ packaging_shapes:en: en:bottle
 nl: statiegeldblik, recycle als statiegeldblik
 packaging_shapes:en: en:can
 
-# In Croatia, there is a specific label for plastic and glass bottle with deposit
+# In Croatia and Sweden, there are specific labels for plastic and glass bottle with deposit
 < en:return to store
 en: deposit refunds
 fr: consigne remboursable
 hr: povratna naknada
+sv: panta, pant
 
 #This is green waste
 < en:recycle
@@ -126,6 +177,15 @@ fr: compostable, à composter
 it: umido, raccolta umido, compost, compostabile
 nl: recycle als GFT, gft
 
+< en:recycle as green waste
+en: recycle as food waste
+fr: biodéchets, à recycler avec les biodéchets
+sv: sorteras som matavfall, matavfall
+
+< en:recycle as green waste
+en: recycle as garden waste
+sv: sorteras som trädgårdsavfall, trädgårdsavfall
+
 #sorting bin
 < en:recycle
 en: recycle in sorting bin, sorting bin
@@ -133,9 +193,15 @@ fr: bac de tri
 
 en: discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de: wegwerfen, nicht recycelbar, zum Wegwerfen
+es: embalaje no reciclable, no reciclable
 fr: jeter, à jeter, non-recyclable
 hu: eldobható, eldobandó, eldobni, kidobható, kidobni, kidobandó, nem újrahasznosítható, szemét
 it: non riciclabile, indifferenziata
 nl: restafval, bij restafval, niet PMD
 pt: descartar, a descartar, para descartar, não-reciclável, não recicláel
+sv: sorteras som restavfall
+
+# In the UK, soft plastic packaging is accepted for recycling by many supermarkets despite not being recyclable in home (kerbside) bins
+< en:recycle
+en: recycle with bags at large supermarket, recycle at store, don't recycle at home
 
