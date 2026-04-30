@@ -433,11 +433,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_days_2025', 1, 180);
+    setBannerCookie('donation_march_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_days_2025') !== '') {
+  if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -793,6 +793,8 @@
                                 
                                     <option value="water-hardness" label="Dureté de l'eau">Dureté de l'eau</option>
                                 
+                                    <option value="water" label="Eau">Eau</option>
+                                
                                     <option value="packagings_materials.en:unknown.weight" label="Emballage – Inconnu – Poids">Emballage – Inconnu – Poids</option>
                                 
                                     <option value="packagings_materials.en:unknown.weight_100g" label="Emballage – Inconnu – Poids par 100g de produit">Emballage – Inconnu – Poids par 100g de produit</option>
@@ -858,6 +860,8 @@
                                     <option value="glucose" label="Glucose">Glucose</option>
                                 
                                     <option value="nova_group" label="Groupe NOVA">Groupe NOVA</option>
+                                
+                                    <option value="hydroxymethylbutyrate" label="HMB">HMB</option>
                                 
                                     <option value="glycemic-index" label="Indice glycémique">Indice glycémique</option>
                                 
@@ -1121,6 +1125,8 @@
                                 
                                     <option value="water-hardness" label="Dureté de l'eau">Dureté de l'eau</option>
                                 
+                                    <option value="water" label="Eau">Eau</option>
+                                
                                     <option value="packagings_materials.en:unknown.weight" label="Emballage – Inconnu – Poids">Emballage – Inconnu – Poids</option>
                                 
                                     <option value="packagings_materials.en:unknown.weight_100g" label="Emballage – Inconnu – Poids par 100g de produit">Emballage – Inconnu – Poids par 100g de produit</option>
@@ -1186,6 +1192,8 @@
                                     <option value="glucose" label="Glucose">Glucose</option>
                                 
                                     <option value="nova_group" label="Groupe NOVA">Groupe NOVA</option>
+                                
+                                    <option value="hydroxymethylbutyrate" label="HMB">HMB</option>
                                 
                                     <option value="glycemic-index" label="Indice glycémique">Indice glycémique</option>
                                 
@@ -1517,6 +1525,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="water-hardness" label="Dureté de l'eau">Dureté de l'eau</option>
                                     
+                                        <option value="water" label="Eau">Eau</option>
+                                    
                                         <option value="packagings_materials.en:unknown.weight" label="Emballage – Inconnu – Poids">Emballage – Inconnu – Poids</option>
                                     
                                         <option value="packagings_materials.en:unknown.weight_100g" label="Emballage – Inconnu – Poids par 100g de produit">Emballage – Inconnu – Poids par 100g de produit</option>
@@ -1582,6 +1592,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                         <option value="glucose" label="Glucose">Glucose</option>
                                     
                                         <option value="nova_group" label="Groupe NOVA">Groupe NOVA</option>
+                                    
+                                        <option value="hydroxymethylbutyrate" label="HMB">HMB</option>
                                     
                                         <option value="glycemic-index" label="Indice glycémique">Indice glycémique</option>
                                     
@@ -1829,6 +1841,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="water-hardness" label="Dureté de l'eau">Dureté de l'eau</option>
                                     
+                                        <option value="water" label="Eau">Eau</option>
+                                    
                                         <option value="packagings_materials.en:unknown.weight" label="Emballage – Inconnu – Poids">Emballage – Inconnu – Poids</option>
                                     
                                         <option value="packagings_materials.en:unknown.weight_100g" label="Emballage – Inconnu – Poids par 100g de produit">Emballage – Inconnu – Poids par 100g de produit</option>
@@ -1894,6 +1908,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                         <option value="glucose" label="Glucose">Glucose</option>
                                     
                                         <option value="nova_group" label="Groupe NOVA">Groupe NOVA</option>
+                                    
+                                        <option value="hydroxymethylbutyrate" label="HMB">HMB</option>
                                     
                                         <option value="glycemic-index" label="Indice glycémique">Indice glycémique</option>
                                     
@@ -2234,7 +2250,7 @@ sur les deux axes pour obtenir un nuage de produits.</p>
 						<h3 class="title-5 text-medium">Découvrez le projet</h3>
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 							<li><a class="button small white-button radius" href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
-							<li><a class="button small white-button radius" href="//world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
+							<li><a class="button small white-button radius" href="/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
 							<li><a class="button small white-button radius" href="//support.openfoodfacts.org/help/fr-fr">Questions fréquentes</a></li>
 							<li><a class="button small white-button radius" href="//blog.openfoodfacts.org/fr/">Le blog d'Open Food Facts</a></li>
 							<li><a class="button small white-button radius" href="/presse">Presse</a></li>
@@ -2314,6 +2330,7 @@ $('#result_accordion').on('toggled', function (event, accordion) {
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 <script>const folksonomy_url = "//api.folksonomy.openfoodfacts.localhost";</script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/search.js?v=--ignore--"></script>
 

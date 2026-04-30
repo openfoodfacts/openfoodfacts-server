@@ -156,6 +156,7 @@ my $obsolete = 0;
 my $fix_obsolete;
 my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 my $add_product_type = '';    # Add product type to products that don't have it, based on off/opf/obf/opff flavor
+my $force_new_version = 0;
 
 my $query_params_ref = {};    # filters for mongodb query
 
@@ -191,6 +192,7 @@ GetOptions(
 	"fix-non-string-ids" => \$fix_non_string_ids,
 	"fix-non-string-codes" => \$fix_non_string_codes,
 	"fix-string-last-modified-t" => \$fix_string_last_modified_t,
+	"force-new-version" => \$force_new_version,
 	"user-id=s" => \$User_id,
 	"comment=s" => \$comment,
 	"run-ocr" => \$run_ocr,
@@ -1447,7 +1449,7 @@ while (my $product_ref = $cursor->next) {
 
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
-			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
+			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed or $force_new_version)) {
 				store_product($User_id, $product_ref, "update_all_products.pl - " . $comment);
 				$products_new_version_created++;
 			}
