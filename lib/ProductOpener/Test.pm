@@ -322,7 +322,7 @@ sub remove_all_orgs () {
 	}
 }
 
-=head2 capture_ouputs ($meth)
+=head2 capture_outputs ($meth)
 
 Capturing out / err with Stdout/Stderr::Extended
 while following Capture::Tiny style
