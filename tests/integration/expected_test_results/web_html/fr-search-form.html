@@ -433,11 +433,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_days_2025', 1, 180);
+    setBannerCookie('donation_march_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_days_2025') !== '') {
+  if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -793,6 +793,8 @@
                                 
                                     <option value="water-hardness" label="Dureté de l'eau">Dureté de l'eau</option>
                                 
+                                    <option value="water" label="Eau">Eau</option>
+                                
                                     <option value="packagings_materials.en:unknown.weight" label="Emballage – Inconnu – Poids">Emballage – Inconnu – Poids</option>
                                 
                                     <option value="packagings_materials.en:unknown.weight_100g" label="Emballage – Inconnu – Poids par 100g de produit">Emballage – Inconnu – Poids par 100g de produit</option>
@@ -831,8 +833,6 @@
                                 
                                     <option value="carbon-footprint" label="Empreinte carbone">Empreinte carbone</option>
                                 
-                                    <option value="carbon-footprint-from-meat-or-fish" label="Empreinte carbone de la viande ou du poisson">Empreinte carbone de la viande ou du poisson</option>
-                                
                                     <option value="forest_footprint" label="Empreinte forêt">Empreinte forêt</option>
                                 
                                     <option value="iron" label="Fer">Fer</option>
@@ -849,13 +849,7 @@
                                 
                                     <option value="fructose" label="Fructose">Fructose</option>
                                 
-                                    <option value="fruits-vegetables-nuts-dried" label="Fruits‚ légumes et noix - séchés">Fruits‚ légumes et noix - séchés</option>
-                                
-                                    <option value="fruits-vegetables-nuts" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)</option>
+                                    <option value="fruits-vegetables-legumes" label="Fruits‚ légumes‚ légumes secs">Fruits‚ légumes‚ légumes secs</option>
                                 
                                     <option value="galactose" label="Galactose">Galactose</option>
                                 
@@ -866,6 +860,8 @@
                                     <option value="glucose" label="Glucose">Glucose</option>
                                 
                                     <option value="nova_group" label="Groupe NOVA">Groupe NOVA</option>
+                                
+                                    <option value="hydroxymethylbutyrate" label="HMB">HMB</option>
                                 
                                     <option value="glycemic-index" label="Indice glycémique">Indice glycémique</option>
                                 
@@ -905,8 +901,6 @@
                                 
                                     <option value="nucleotides" label="Nucléotides">Nucléotides</option>
                                 
-                                    <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
-                                
                                     <option value="ph" label="PH">PH</option>
                                 
                                     <option value="phosphorus" label="Phosphore">Phosphore</option>
@@ -932,8 +926,6 @@
                                     <option value="sucrose" label="Saccharose">Saccharose</option>
                                 
                                     <option value="environmental_score_score" label="Score Green-Score">Score Green-Score</option>
-                                
-                                    <option value="nutrition-score-fr" label="Score nutritionnel - France">Score nutritionnel - France</option>
                                 
                                     <option value="salt" label="Sel">Sel</option>
                                 
@@ -984,6 +976,8 @@
                                     <option value="phylloquinone" label="Vitamine K1">Vitamine K1</option>
                                 
                                     <option value="zinc" label="Zinc">Zinc</option>
+                                
+                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                 
                                     <option value="energy" label="Énergie">Énergie</option>
                                 
@@ -1131,6 +1125,8 @@
                                 
                                     <option value="water-hardness" label="Dureté de l'eau">Dureté de l'eau</option>
                                 
+                                    <option value="water" label="Eau">Eau</option>
+                                
                                     <option value="packagings_materials.en:unknown.weight" label="Emballage – Inconnu – Poids">Emballage – Inconnu – Poids</option>
                                 
                                     <option value="packagings_materials.en:unknown.weight_100g" label="Emballage – Inconnu – Poids par 100g de produit">Emballage – Inconnu – Poids par 100g de produit</option>
@@ -1169,8 +1165,6 @@
                                 
                                     <option value="carbon-footprint" label="Empreinte carbone">Empreinte carbone</option>
                                 
-                                    <option value="carbon-footprint-from-meat-or-fish" label="Empreinte carbone de la viande ou du poisson">Empreinte carbone de la viande ou du poisson</option>
-                                
                                     <option value="forest_footprint" label="Empreinte forêt">Empreinte forêt</option>
                                 
                                     <option value="iron" label="Fer">Fer</option>
@@ -1187,13 +1181,7 @@
                                 
                                     <option value="fructose" label="Fructose">Fructose</option>
                                 
-                                    <option value="fruits-vegetables-nuts-dried" label="Fruits‚ légumes et noix - séchés">Fruits‚ légumes et noix - séchés</option>
-                                
-                                    <option value="fruits-vegetables-nuts" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)</option>
-                                
-                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)</option>
+                                    <option value="fruits-vegetables-legumes" label="Fruits‚ légumes‚ légumes secs">Fruits‚ légumes‚ légumes secs</option>
                                 
                                     <option value="galactose" label="Galactose">Galactose</option>
                                 
@@ -1204,6 +1192,8 @@
                                     <option value="glucose" label="Glucose">Glucose</option>
                                 
                                     <option value="nova_group" label="Groupe NOVA">Groupe NOVA</option>
+                                
+                                    <option value="hydroxymethylbutyrate" label="HMB">HMB</option>
                                 
                                     <option value="glycemic-index" label="Indice glycémique">Indice glycémique</option>
                                 
@@ -1243,8 +1233,6 @@
                                 
                                     <option value="nucleotides" label="Nucléotides">Nucléotides</option>
                                 
-                                    <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
-                                
                                     <option value="ph" label="PH">PH</option>
                                 
                                     <option value="phosphorus" label="Phosphore">Phosphore</option>
@@ -1270,8 +1258,6 @@
                                     <option value="sucrose" label="Saccharose">Saccharose</option>
                                 
                                     <option value="environmental_score_score" label="Score Green-Score">Score Green-Score</option>
-                                
-                                    <option value="nutrition-score-fr" label="Score nutritionnel - France">Score nutritionnel - France</option>
                                 
                                     <option value="salt" label="Sel">Sel</option>
                                 
@@ -1322,6 +1308,8 @@
                                     <option value="phylloquinone" label="Vitamine K1">Vitamine K1</option>
                                 
                                     <option value="zinc" label="Zinc">Zinc</option>
+                                
+                                    <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                 
                                     <option value="energy" label="Énergie">Énergie</option>
                                 
@@ -1537,6 +1525,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="water-hardness" label="Dureté de l'eau">Dureté de l'eau</option>
                                     
+                                        <option value="water" label="Eau">Eau</option>
+                                    
                                         <option value="packagings_materials.en:unknown.weight" label="Emballage – Inconnu – Poids">Emballage – Inconnu – Poids</option>
                                     
                                         <option value="packagings_materials.en:unknown.weight_100g" label="Emballage – Inconnu – Poids par 100g de produit">Emballage – Inconnu – Poids par 100g de produit</option>
@@ -1575,8 +1565,6 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="carbon-footprint" label="Empreinte carbone">Empreinte carbone</option>
                                     
-                                        <option value="carbon-footprint-from-meat-or-fish" label="Empreinte carbone de la viande ou du poisson">Empreinte carbone de la viande ou du poisson</option>
-                                    
                                         <option value="forest_footprint" label="Empreinte forêt">Empreinte forêt</option>
                                     
                                         <option value="iron" label="Fer">Fer</option>
@@ -1593,13 +1581,7 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="fructose" label="Fructose">Fructose</option>
                                     
-                                        <option value="fruits-vegetables-nuts-dried" label="Fruits‚ légumes et noix - séchés">Fruits‚ légumes et noix - séchés</option>
-                                    
-                                        <option value="fruits-vegetables-nuts" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)</option>
+                                        <option value="fruits-vegetables-legumes" label="Fruits‚ légumes‚ légumes secs">Fruits‚ légumes‚ légumes secs</option>
                                     
                                         <option value="galactose" label="Galactose">Galactose</option>
                                     
@@ -1610,6 +1592,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                         <option value="glucose" label="Glucose">Glucose</option>
                                     
                                         <option value="nova_group" label="Groupe NOVA">Groupe NOVA</option>
+                                    
+                                        <option value="hydroxymethylbutyrate" label="HMB">HMB</option>
                                     
                                         <option value="glycemic-index" label="Indice glycémique">Indice glycémique</option>
                                     
@@ -1649,8 +1633,6 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="nucleotides" label="Nucléotides">Nucléotides</option>
                                     
-                                        <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
-                                    
                                         <option value="ph" label="PH">PH</option>
                                     
                                         <option value="phosphorus" label="Phosphore">Phosphore</option>
@@ -1676,8 +1658,6 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                         <option value="sucrose" label="Saccharose">Saccharose</option>
                                     
                                         <option value="environmental_score_score" label="Score Green-Score">Score Green-Score</option>
-                                    
-                                        <option value="nutrition-score-fr" label="Score nutritionnel - France">Score nutritionnel - France</option>
                                     
                                         <option value="salt" label="Sel">Sel</option>
                                     
@@ -1728,6 +1708,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                         <option value="phylloquinone" label="Vitamine K1">Vitamine K1</option>
                                     
                                         <option value="zinc" label="Zinc">Zinc</option>
+                                    
+                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                     
                                         <option value="energy" label="Énergie">Énergie</option>
                                     
@@ -1859,6 +1841,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="water-hardness" label="Dureté de l'eau">Dureté de l'eau</option>
                                     
+                                        <option value="water" label="Eau">Eau</option>
+                                    
                                         <option value="packagings_materials.en:unknown.weight" label="Emballage – Inconnu – Poids">Emballage – Inconnu – Poids</option>
                                     
                                         <option value="packagings_materials.en:unknown.weight_100g" label="Emballage – Inconnu – Poids par 100g de produit">Emballage – Inconnu – Poids par 100g de produit</option>
@@ -1897,8 +1881,6 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="carbon-footprint" label="Empreinte carbone">Empreinte carbone</option>
                                     
-                                        <option value="carbon-footprint-from-meat-or-fish" label="Empreinte carbone de la viande ou du poisson">Empreinte carbone de la viande ou du poisson</option>
-                                    
                                         <option value="forest_footprint" label="Empreinte forêt">Empreinte forêt</option>
                                     
                                         <option value="iron" label="Fer">Fer</option>
@@ -1915,13 +1897,7 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="fructose" label="Fructose">Fructose</option>
                                     
-                                        <option value="fruits-vegetables-nuts-dried" label="Fruits‚ légumes et noix - séchés">Fruits‚ légumes et noix - séchés</option>
-                                    
-                                        <option value="fruits-vegetables-nuts" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)</option>
-                                    
-                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)">Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)</option>
+                                        <option value="fruits-vegetables-legumes" label="Fruits‚ légumes‚ légumes secs">Fruits‚ légumes‚ légumes secs</option>
                                     
                                         <option value="galactose" label="Galactose">Galactose</option>
                                     
@@ -1932,6 +1908,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                         <option value="glucose" label="Glucose">Glucose</option>
                                     
                                         <option value="nova_group" label="Groupe NOVA">Groupe NOVA</option>
+                                    
+                                        <option value="hydroxymethylbutyrate" label="HMB">HMB</option>
                                     
                                         <option value="glycemic-index" label="Indice glycémique">Indice glycémique</option>
                                     
@@ -1971,8 +1949,6 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                     
                                         <option value="nucleotides" label="Nucléotides">Nucléotides</option>
                                     
-                                        <option value="nutrition-score-uk" label="Nutrition score - UK">Nutrition score - UK</option>
-                                    
                                         <option value="ph" label="PH">PH</option>
                                     
                                         <option value="phosphorus" label="Phosphore">Phosphore</option>
@@ -1998,8 +1974,6 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                         <option value="sucrose" label="Saccharose">Saccharose</option>
                                     
                                         <option value="environmental_score_score" label="Score Green-Score">Score Green-Score</option>
-                                    
-                                        <option value="nutrition-score-fr" label="Score nutritionnel - France">Score nutritionnel - France</option>
                                     
                                         <option value="salt" label="Sel">Sel</option>
                                     
@@ -2050,6 +2024,8 @@ sur les deux axes pour obtenir un nuage de produits.</p>
                                         <option value="phylloquinone" label="Vitamine K1">Vitamine K1</option>
                                     
                                         <option value="zinc" label="Zinc">Zinc</option>
+                                    
+                                        <option value="fruits-vegetables-nuts-estimate-from-ingredients" label="zz:fruits-vegetables-nuts-estimate-from-ingredients">zz:fruits-vegetables-nuts-estimate-from-ingredients</option>
                                     
                                         <option value="energy" label="Énergie">Énergie</option>
                                     
@@ -2274,7 +2250,7 @@ sur les deux axes pour obtenir un nuage de produits.</p>
 						<h3 class="title-5 text-medium">Découvrez le projet</h3>
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 							<li><a class="button small white-button radius" href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
-							<li><a class="button small white-button radius" href="//world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
+							<li><a class="button small white-button radius" href="/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
 							<li><a class="button small white-button radius" href="//support.openfoodfacts.org/help/fr-fr">Questions fréquentes</a></li>
 							<li><a class="button small white-button radius" href="//blog.openfoodfacts.org/fr/">Le blog d'Open Food Facts</a></li>
 							<li><a class="button small white-button radius" href="/presse">Presse</a></li>
@@ -2354,6 +2330,7 @@ $('#result_accordion').on('toggled', function (event, accordion) {
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 <script>const folksonomy_url = "//api.folksonomy.openfoodfacts.localhost";</script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/search.js?v=--ignore--"></script>
 

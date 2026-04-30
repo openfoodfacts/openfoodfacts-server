@@ -92,6 +92,9 @@ use Log::Any qw($log);
 
 no warnings qw(experimental::signatures);
 
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
+my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
+
 =head2 read_gzip_file($filepath)
 
 Read gzipped file and return binary content
@@ -251,6 +254,9 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
+	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
+	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
 }
 
 =head2 remove_all_users ()
@@ -401,8 +407,6 @@ If the test fail, the test reference will be output in the C<diag>
 
 sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-	my $json = JSON->new->allow_nonref->canonical;
-
 	my $desc = undef;
 	if (defined $test_ref) {
 		$desc = $test_ref->{desc} // $test_ref->{id};
@@ -536,7 +540,9 @@ Tests will pass when this flag is passed, and the new expected results can be di
 
 =cut
 
-sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name = "") {
+sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name,
+	$save_csv = 1)
+{
 
 	# Read the CSV file
 
@@ -559,7 +565,8 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 			$test_name);
 
 		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
-		if ($update_expected_results) {
+		# Don't do this for CSV exports that contain things that vary, like modified dates
+		if ($update_expected_results and $save_csv) {
 			my $csv_filename = $csv_file;
 			$csv_filename =~ s/.*\///;
 			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
@@ -605,7 +612,6 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 	ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
-	my $json = JSON->new->allow_nonref->canonical;
 	my %codes = ();
 
 	foreach my $product_ref (@$array_ref) {
@@ -856,11 +862,11 @@ sub normalize_product_for_test_comparison ($product_ref) {
 	my %specification = (
 		fields_ignore_content => [
 			qw(
-				last_modified_t last_updated_t created_t owner_fields
+				last_modified_t last_updated_t nutrition.input_sets.*.last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
-				blame.*.*.previous_t blame.*.*.t
+				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],

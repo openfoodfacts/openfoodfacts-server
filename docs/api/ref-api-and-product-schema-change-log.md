@@ -32,6 +32,12 @@ Note: API v3 is under active development, and the API and corresponding product 
 
 ## Schema version and API version change log
 
+### 2025-126-01 - Product version 1003 - API version 3.5 - New product nutrition facts structure
+
+Breaking changes:
+- The nutrition facts structure has been changed to have a structure it lacked and better align with the current uses and needs of the database (see [2025 - API - Nutrition Facts Schema and API](https://docs.google.com/document/d/19ZRrlWJraJm61E6U7AwxQ1uubPDvmSuNfl9F1oLC0Tg) for new structure and discussions)
+- **This product version is still currently under active development**
+
 ### 2025-06-11 - Product version 1002 (no change) - API version 3.4 - New attributes with parameters
 
 Breaking changes:

@@ -430,11 +430,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_days_2025', 1, 180);
+    setBannerCookie('donation_march_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_days_2025') !== '') {
+  if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -643,7 +643,7 @@
             </li>
           
             <li>
-              <a href="/etats">états</a>
+              <a href="/etats">États</a>
             </li>
           
             <li>
@@ -663,7 +663,7 @@
             </li>
           
             <li>
-              <a href="/teams">équipes</a>
+              <a href="/teams">Équipes</a>
             </li>
           
           </ul>
@@ -844,7 +844,7 @@
 						<h3 class="title-5 text-medium">Découvrez le projet</h3>
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 							<li><a class="button small white-button radius" href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
-							<li><a class="button small white-button radius" href="//world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
+							<li><a class="button small white-button radius" href="/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
 							<li><a class="button small white-button radius" href="//support.openfoodfacts.org/help/fr-fr">Questions fréquentes</a></li>
 							<li><a class="button small white-button radius" href="//blog.openfoodfacts.org/fr/">Le blog d'Open Food Facts</a></li>
 							<li><a class="button small white-button radius" href="/presse">Presse</a></li>
@@ -916,6 +916,7 @@ rank_and_display_products("#search_results", products, contributor_prefs);
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 <script type="text/javascript">
 var page_type = "products";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
@@ -932,7 +933,7 @@ var products = [
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":31.5555555555556,
+                  "match":33.6666666666667,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
@@ -961,6 +962,7 @@ var products = [
                   "title":"Matières grasses en quantité modérée"
                },
                {
+                  "description_short":"25 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
@@ -1214,7 +1216,7 @@ var products = [
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id":"forest_footprint",
-                  "match":99.9766666666667,
+                  "match":99.9782222222222,
                   "name":"Empreinte forêt",
                   "panel_id":"forest_footprint",
                   "status":"known",
@@ -1297,6 +1299,7 @@ var products = [
                   "title":"Matières grasses en quantité élevée"
                },
                {
+                  "description_short":"40 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
@@ -1632,10 +1635,11 @@ var products = [
                   "title":"Matières grasses en faible quantité"
                },
                {
+                  "description_short":"12 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "match":0,
+                  "match":1.6,
                   "name":"Sucres",
                   "panel_id":"nutrient_level_sugars",
                   "status":"known",
@@ -1968,10 +1972,11 @@ var products = [
                   "title":"Matières grasses en faible quantité"
                },
                {
+                  "description_short":"10 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "match":0,
+                  "match":8,
                   "name":"Sucres",
                   "panel_id":"nutrient_level_sugars",
                   "status":"known",
@@ -2304,10 +2309,11 @@ var products = [
                   "title":"Matières grasses en quantité modérée"
                },
                {
+                  "description_short":"20 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "match":0,
+                  "match":8,
                   "name":"Sucres",
                   "panel_id":"nutrient_level_sugars",
                   "status":"known",
@@ -2640,10 +2646,11 @@ var products = [
                   "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"e",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
+                  "description_short":"5 g / 100 g",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                   "id":"low_sugars",
-                  "match":0,
+                  "match":80,
                   "name":"Sucres",
                   "panel_id":"nutrient_level_sugars",
                   "status":"known",
@@ -2975,6 +2982,7 @@ var products = [
                   "title":"Matières grasses en quantité modérée"
                },
                {
+                  "description_short":"25 g / 100 g",
                   "grade":"e",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
@@ -3229,7 +3237,7 @@ var products = [
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id":"forest_footprint",
-                  "match":99.9766666666667,
+                  "match":99.9782222222222,
                   "name":"Empreinte forêt",
                   "panel_id":"forest_footprint",
                   "status":"known",
