@@ -936,7 +936,7 @@ sub normalize_user_for_test_comparison ($user_ref) {
 
 Normalize a org to be able to compare them across tests runs.
 
-We remove time dependent fields, password (which encryption use salt) and sort some lists.
+We remove time dependent fields, password (which encryption uses salt) and sort some lists.
 
 =head3 Arguments
 
