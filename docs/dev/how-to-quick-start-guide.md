@@ -7,7 +7,7 @@ to instantly provision a ready-to-code development environment in the cloud.
 First setup time estimate is `~10min` with the following **recommended** specs:
 * `8 GB` of RAM dedicated to Docker client
 * `6` cores dedicated to Docker client
-* `12 MB/s` internet speed
+* `12 Mbps` internet speed
 
 ## 1. Prerequisites
 
