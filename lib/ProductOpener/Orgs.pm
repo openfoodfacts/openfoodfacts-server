@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -77,7 +77,7 @@ use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
 use ProductOpener::CRM qw/:all/;
-use ProductOpener::Users qw/retrieve_user store_user $User_id %User/;
+use ProductOpener::Users qw/retrieve_user retrieve_user_preferences store_user_preferences $User_id %User/;
 use ProductOpener::Data qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -179,6 +179,7 @@ sub store_org ($org_ref) {
 		}
 	}
 
+	#11867: Move to a Job if not an admin
 	if (   (defined $previous_org_ref)
 		&& ($previous_org_ref->{valid_org} ne 'accepted')
 		&& ($org_ref->{valid_org} eq 'accepted')
@@ -221,13 +222,17 @@ or an admin that creates an org by assigning an user to it).
 
 Identifier for the org (without the "org-" prefix), or org name.
 
+=head4 $country_code
+
+Optional country code. Will default to "world" if not supplied.
+
 =head3 Return values
 
 This function returns a hash ref for the org.
 
 =cut
 
-sub create_org ($creator, $org_id_or_name) {
+sub create_org ($creator, $org_id_or_name, $country_code = "world") {
 
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
@@ -245,7 +250,7 @@ sub create_org ($creator, $org_id_or_name) {
 		admins => {},
 		members => {},
 		main_contact => undef,
-		country => $country,
+		country => $country_code,
 	};
 
 	store_org($org_ref);
@@ -370,7 +375,7 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 		# the first admin is main contact
 		if ($group eq "admins"
-			and (not exists $org_ref->{main_contact} or $org_ref->{main_contact} eq ''))
+			and (not defined $org_ref->{main_contact} or $org_ref->{main_contact} eq ''))
 		{
 			$org_ref->{main_contact} = $user_id;
 		}
@@ -378,6 +383,7 @@ sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 
 	# sync CRM
 	if ($org_ref->{valid_org} eq 'accepted') {
+		#11867: Move to a job if not an admin
 		add_user_to_company($user_id, $org_ref->{crm_org_id});
 	}
 
@@ -482,7 +488,7 @@ sub send_rejection_email ($org_ref) {
 		return;
 	}
 
-	my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+	my $language = $user_ref->{preferred_language};
 	# if template does not exist in the requested language, use English
 	my $template_name = "org_rejected.tt.html";
 	my $template_path = "emails/$language/$template_name";
@@ -549,12 +555,12 @@ sub accept_pending_user_in_org ($org_ref, $user_id) {
 	remove_user_from_org($org_ref, $user_id, ["pending"]);
 	add_user_to_org($org_ref, $user_id, ["members"]);
 
-	my $user_ref = retrieve_user($user_id);
+	my $user_ref = retrieve_user_preferences($user_id);
 	$user_ref->{org} = $org_ref->{org_id};
 	$user_ref->{org_id} = $org_ref->{org_id};
 	delete $user_ref->{requested_org};
 	delete $user_ref->{requested_org_id};
-	store_user($user_ref);
+	store_user_preferences($user_ref);
 	return;
 }
 

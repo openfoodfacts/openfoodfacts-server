@@ -118,6 +118,17 @@ descxription:it: La plastica è prodotta dal petrolio o dal gas naturale. La pla
 non_recyclable_and_non_biodegradable:en: maybe
 wikidata:en: Q11474
 
+< en:Plastic
+en: soft plastic
+da: blød plast, blød plastik
+fi: pehmeä muovi
+sv: mjukplast
+
+< en:Plastic
+en: hard plastic
+da: hård plast, hård plastik
+sv: hårdplast
+
 en: composite material, Multilayer composite, multilayer, composite, composite materials, polycoat
 ar: مادة مركبة
 ca: Material compost
@@ -741,7 +752,7 @@ wikidata:en: Q146368
 < en:Plastic
 < xx:PE
 en: LDPE 4 - Low-density polyethylene, LDPE - Low-density polyethylene, Low-density polyethylene
-xx: LDPE, 4 LDPE, LDPE 4, 04 LDPE, LDPE 04, PELD, 4 PELD, PELD 4, 04 PELD, PELD 04, LD-PE, 4 LD-PE, LD-PE 4, 04 LD-PE, LD-PE 04, PE-LD, 4 PE-LD, PE-LD 4, 04 PE-LD, PE-LD 04, ♶
+xx: LDPE, 4 LDPE, LDPE 4, 04 LDPE, LDPE 04, PELD, 4 PELD, PELD 4, 04 PELD, PELD 04, LD-PE, 4 LD-PE, LD-PE 4, 04 LD-PE, LD-PE 04, PE-LD, 4 PE-LD, PE-LD 4, 04 PE-LD, PE-LD 04, 04 PE, ♶
 bg: LDPE 4 - Полиетилен с ниска плътност, LDPE - Полиетилен с ниска плътност
 ca: LDPE 4 - Polietilè de baixa densitat, Polietilè de baixa densitat
 cs: LDPE 4 - Polyethylen s nízkou hustotou, Polyethylen s nízkou hustotou
@@ -813,7 +824,7 @@ description:pt: O Bio LDPE, ou polietileno de baixa densidade, é um tipo de pl�
 
 < en:Plastic
 en: PP 5 - Polypropylene, PP - Polypropylene, Polypropylene
-xx: PP, 5 PP, PP 5, PP 05, 05 PP, ♷
+xx: PP, 5 PP, PP 5, PP 05, 05 PP, PP5, ♷
 bg: PP 5 - Полипропилен, PP - Полипропилен
 ca: PP 5 - polipropilè, polipropilè
 cs: pp 5 - polypropylen, polypropylen
@@ -1234,6 +1245,10 @@ description:nl: Uit PETmet (gemetalliseerd Polyethylene terephthalate) samengest
 en: PEmet - Metalized polyethylene, Metalized polyethylene
 xx: PEmet, 07 PEmet, PEmet 07, 07PEmet, PEmet07, 7 PEmet, PEmet 7, 7PEmet, PEmet7, met-PE, 07 met-PE, met-PE 07, 07met-PE, met-PE07, 7 met-PE, met-PE 7, 7met-PE, met-PE7
 de: PEmet - Metallisiertes Polyethylen, Metallisiertes Polyethylen
+es: PEmet - Polietileno metalizado, Polietileno metalizado
+fr: PEmet - Polyéthylène métallisé
+it: PEmet - Polietilene metallizzato, Polietilene metallizzato
+pt: PEmet - Polietileno metalizado, Polietileno metalizado
 description:en: PEmet (metallized polyethylene)
 description:de: PEmet (Metallisiertes Polyethylen)
 description:nl: PEmet (gemetalliseerd polyethyleen)
@@ -1397,6 +1412,7 @@ wikidata:en: Q28765
 en: Paper or cardboard
 fr: Papier ou carton
 it: Carta o cartone
+sv: Papper eller kartong
 
 < en:Paper or cardboard
 en: Paper packaging
@@ -1538,6 +1554,7 @@ ja: FSCカードボード
 nl: FSC karton
 pl: Karton FSC
 pt: Cartão FSC
+ro: Carton FSC
 ru: Картон FSC
 sv: FSC kartong
 zh: FSC纸板
@@ -1661,6 +1678,7 @@ nl: FSC-papier
 pl: Papier FSC
 pt: Papel FSC
 ru: Бумага FSC
+sv: FSC-papper
 # We have a en:FSC label - https://world.openfoodfacts.org/label/FSC - https://www.wikidata.org/wiki/Q748367
 # associated_label:en: en:FSC
 
@@ -1946,6 +1964,16 @@ description:it: La produzione di alluminio dal minerale ha una grande impronta d
 description:nl: Aluminiumproductie vanuit erts heeft een grote koolstofvoetafdruk, maar door hergebruik kan dit 20x beter worden. Dun aluminium wordt bijvoorbeeld gebruikt als folie. Dun aluminium is moeilijk recycleerbaar, omdat het niet uit afvalstromen kan worden gehaald.
 description:pt: A produção de alumínio a partir do minério tem uma grande pegada de carbono, mas a reciclagem pode melhorar isso em 20 vezes. Por exemplo, alumínio fino é usado como folha. O alumínio fino é difícil de reciclar porque não pode ser extraído dos fluxos de resíduos.
 
+< en:light aluminium
+en: aluminium foil, aluminum foil, tin foil
+da: stanniol, alufolie, sølvpapir, tinfolie
+eo: aluminifolio
+fi: alumiinifolio
+se: silbabábir
+sv: aluminiumfolie
+packaging_shapes:en: en:film
+wikidata:en: Q447349
+
 en: Wood, wooden
 xx: 50 FOR, FOR 50
 bg: Дървесина
@@ -2201,6 +2229,10 @@ hu: Egyéb textilek, Egyéb textil, Egyéb textília, Más textilek
 it: Altri Tessili
 nl: Ander textiel
 pt: Outros têxteis
+ro: Alte textile
+ru: Другие текстильные изделия
+sv: Andra textilier
+description:en: Any textile (material made from threads) that is not jute or cotton
 description:nl: Elk textiel (uit draden gemaakt materiaal) dat niet jute of katoen is.
 
 # Silicates / Verre (sodo-calcique) in data from Les Mousquetaires
@@ -2270,11 +2302,13 @@ wikidata:en: Q28869937
 < en:Glass
 en: Uncoloured Glass, Uncolored Glass
 da: ufarvet glas
+fr: Verre incolore
 sv: ofärgat glas
 
 < en:Glass
 en: Coloured Glass, Colored Glass
 da: farvet glas
+fr: Verre coloré
 sv: färgat glas
 
 < en:Coloured Glass
@@ -2459,7 +2493,7 @@ nl: Papier en plastic
 pt: Papel e plástico, Papel + plástico
 
 < xx:81 C/X
-xx: 81 C/PAP
+xx: 81 C/PAP, C/PAP 81
 comment:en: This should not exist as 81 by definition contains paper/fibreboard
 
 < xx:81 C/X
@@ -2591,7 +2625,7 @@ hr: papir i karton/plastika/aluminij
 hu: Papír és karton / Műanyag / Alumínium
 
 < xx:84 C/X
-xx: 84 C/PAP
+xx: 84 C/PAP, C/PAP 84
 comment:en: This should not exist as 84 by definitions contains paper and fibreboard
 
 < xx:84 C/X
@@ -2816,7 +2850,7 @@ description:nl: Biologisch afbreekbaar plastic
 
 < en:Multilayer composite
 en: Plastic/aluminium, Plastic + aluminium
-xx: 90 C/X, 90 C/*, 90 CX, 90 C*, 90 C/ALU
+xx: 90 C/ALU, C/ALU 90, 90 C/*, 90 CX, 90 C*, 90 C/X
 de: Kunststoff/Aluminium, Kunststoff + Aluminium
 hr: plastika/aluminij
 description:en: Composite material with plastic and aluminium
@@ -2848,7 +2882,8 @@ description:en: Composite material from  PVC (Polyvinyl chloride) and aluminium
 description:nl: Uit PVC (Polyvinyl chloride) en aluminium samengesteld materiaal
 
 < xx:90 C/X
-xx: 90 C/LDPE, 90 C/PELD
+xx: 90 C/LDPE, 90 C/PELD, C/LDPE 90
+description:en: Composite material with LDPE (low density polyethylene) and aluminium
 
 < xx:90 C/X
 xx: 90 C/PP
@@ -2912,36 +2947,36 @@ description:en: Composite material from EVOH (ethylene vinyl alcohol) and alumin
 description:nl: Uit EVOH (etheen-vinylalcohol) en aluminium samengesteld materiaal
 
 < en:Multilayer composite
-en: Plastic/tinplate, Plastic + tinplate
-xx: 91 C/X, 91 C/*, 91 CX, 91 C*, 91 C/FE
+en: Plastic/steelplate, Plastic + steelplate
+xx: 91 C/FE, C/FE 91, 91 C/*, 91 CX, 91 C*, 91 C/X
 de: Kunststoff/Weißblech, Kunststoff + Weißblech, Kunststoff/Weissblech, Kunststoff + Weissblech
 hr: plastika/bijeli lim
-description:en: Composite material with plastic and tin plate
+description:en: Composite material with plastic and steel plate
 description:nl: Uit plastic en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/PET
-description:en: Composite material with PET (Polyethylene terephthalate) and tin plate
+description:en: Composite material with PET (Polyethylene terephthalate) and steel plate
 description:nl: Uit PET (Polyethylene terephthalate) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/PVDC
-description:en: Composite material with PVDC (polyvinylidene chloride) and tin plate
+description:en: Composite material with PVDC (polyvinylidene chloride) and steel plate
 description:nl: Uit PVDC (polyvinylidene chloride) en blik samengesteld materiaal
 
 < xx:91 C/PET
 xx: 91 C/rPET
-description:en: Composite material with rPET (recycled polyethylene terephthalate) and tin plate
+description:en: Composite material with rPET (recycled polyethylene terephthalate) and steel plate
 description:nl: Uit rPET (gerecycleerd polyethylene terephthalate) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/HDPE, 91 C/PEHD
-description:en: Composite material from HDPE (high density polyethylene) and tin plate
+description:en: Composite material from HDPE (high density polyethylene) and steel plate
 description:nl: Uit HDPE (high density polyethylene) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/PVC
-description:en: Composite material from  PVC (Polyvinyl chloride) and tin plate
+description:en: Composite material from  PVC (Polyvinyl chloride) and steel plate
 description:nl: Uit PVC (Polyvinyl chloride) en blik samengesteld materiaal
 
 < xx:91 C/X
@@ -2949,63 +2984,63 @@ xx: 91 C/LDPE, 91 C/PELD
 
 < xx:91 C/X
 xx: 91 C/PP
-description:en: Composite material PP (polypropylene) and tin plate
+description:en: Composite material PP (polypropylene) and steel plate
 description:nl: Uit PP (polypropyleen) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/CPP
-description:en: Composite material CPP (cast polypropylene) and tin plate
+description:en: Composite material CPP (cast polypropylene) and steel plate
 description:nl: Uit CPP (gegoten polypropyleen) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/OPP
-description:en: Composite material with OPP (orientated polypropylene) and tin plate
+description:en: Composite material with OPP (orientated polypropylene) and steel plate
 description:nl: Uit blik en OPP (georienteerd polypropyleen) samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/PC
-description:en: Composite material with tin plate and PC (polycarbonate)
+description:en: Composite material with steel plate and PC (polycarbonate)
 description:nl: Uit blik en PC (polycarbonaat) samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/PA
-description:en: Composite material with tin plate and PA (polyamide)
+description:en: Composite material with steel plate and PA (polyamide)
 description:nl: Uit blik en PA (polyamide) samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/ABS
-description:en: Composite material with ABS (acrylonitrile butadiene styrene) and tin plate
+description:en: Composite material with ABS (acrylonitrile butadiene styrene) and steel plate
 description:nl: Uit ABS (acrylonitril-butadieen-styreen) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/PLA
-description:en: Composite material with tin plate and PLA (Polylactic acid)
+description:en: Composite material with steel plate and PLA (Polylactic acid)
 description:nl: Uit blik en PLA (polymelkzuur) samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/LLDPE
-description:en: Composite material with LLDPE (linear low-density polyethylene) and tin plate
+description:en: Composite material with LLDPE (linear low-density polyethylene) and steel plate
 description:nl: Uit LLDPE (lineair lagedichtheidpolyethyleen) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/PETmet
-description:en: Composite material with tin plate and PETmet (metallized Polyethylene terephthalate)
+description:en: Composite material with steel plate and PETmet (metallized Polyethylene terephthalate)
 description:nl: Uit blik en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/PEmet
-comment:en: Is this correct? As PEmet contains another or the same metal as tin plate
-description:en: Composite material with PEmet (metallized polyethylene) and tin plate
+comment:en: Is this correct? As PEmet contains another or the same metal as steel plate
+description:en: Composite material with PEmet (metallized polyethylene) and steel plate
 description:nl: Uit PEmet (gemetalliseerd polyethyleen) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/MDPE, 91 C/PEMD
-description:en: Composite material with MDPE (Medium-density polyethylene) and tin plate
+description:en: Composite material with MDPE (Medium-density polyethylene) and steel plate
 description:nl: Uit MDPE (middendichtheids polyethyleen) en blik samengesteld materiaal
 
 < xx:91 C/X
 xx: 91 C/EVOH
-description:en: Composite material from EVOH (ethylene vinyl alcohol) and tin plate
+description:en: Composite material from EVOH (ethylene vinyl alcohol) and steel plate
 description:nl: Uit EVOH (etheen-vinylalcohol) en blik samengesteld materiaal
 
 < en:Multilayer composite
@@ -3168,7 +3203,12 @@ description:nl: Uit glas en CPP (cast polypropyleen) samengesteld materiaal
 < xx:95 C/PP
 xx: 95 C/OPP
 description:en: Composite material with glass and OPP (orientated polypropylene)
+description:de: Material aus Glas und OPP (orientiertes Polypropylen)
+description:es: Material compuesto por vidrio y OPP (polipropileno orientado)
+description:fr: Matériau composé de verre et OPP (polypropylène orienté)
+description:it: Materiale composto da vetro e OPP (polipropilene orientato)
 description:nl: Uit glas en OPP (georienteerd polypropyleen) samengesteld materiaal
+description:pt: Material composto por vidro e OPP (polipropileno orientado)
 
 < xx:95 C/PP
 xx: 95 C/BOPP
@@ -3549,6 +3589,10 @@ es: Gas
 fr: Gaz
 it: Gas
 nl: Gas
+pt: Gás
+ro: Gaz
+ru: Газ
+sv: Gas
 
 < en:Gas
 en: CO2 - Carbon dioxide, Carbon dioxide
@@ -3578,4 +3622,8 @@ fr: Autre gaz
 it: Altro gas
 nl: Andere gassen
 pt: Outros gases
+ro: Alte gaze
+ru: Другие газы
+sv: Andra gaser
+
 

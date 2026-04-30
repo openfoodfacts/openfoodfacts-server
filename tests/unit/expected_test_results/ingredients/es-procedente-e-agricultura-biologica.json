@@ -1,15 +1,16 @@
 {
    "ingredients" : [
       {
-         "ciqual_food_code" : "19023",
+         "ciqual_proxy_food_code" : "19051",
          "ecobalyse_code" : "2bf307e8-8cb0-400b-a4f1-cf615d9e96f4",
-         "id" : "en:pasteurised-whole-cow-s-milk",
+         "id" : "en:cow-s-milk",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
-         "text" : "Leche entera pasteurizada de vaca",
+         "processing" : "en:pasteurised,en:whole",
+         "text" : "Leche de vaca",
          "vegan" : "no",
          "vegetarian" : "yes"
       },
@@ -26,7 +27,7 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:pasteurised-whole-cow-s-milk"
+         "en:cow-s-milk"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -41,17 +42,14 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:pasteurised-whole-cow-s-milk",
+      "en:cow-s-milk",
       "en:kefir-lactic-ferments"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:pasteurised-whole-cow-s-milk",
+      "en:cow-s-milk",
       "en:dairy",
       "en:milk",
-      "en:whole-milk",
-      "en:cow-s-milk",
-      "en:whole-cow-s-milk",
       "en:kefir-lactic-ferments",
       "en:ferment",
       "en:microbial-culture",
@@ -73,11 +71,5 @@
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "es",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 0
 }
