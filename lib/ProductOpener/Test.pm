@@ -348,7 +348,7 @@ Returns an array with std output, std error, result of the method as array.
 
 =cut
 
-sub capture_ouputs ($meth) {
+sub capture_outputs ($meth) {
 
 	my $out = IO::Capture::Stdout::Extended->new();
 	my $err = IO::Capture::Stderr::Extended->new();
@@ -359,6 +359,11 @@ sub capture_ouputs ($meth) {
 	$out->stop();
 	$err->stop();
 	return ($out, $err, @result);
+}
+
+# Backward-compatible alias for historical typo.
+sub capture_ouputs ($meth) {
+	return capture_outputs($meth);
 }
 
 # Ensure expected_results_dir exists or reset it if needed
