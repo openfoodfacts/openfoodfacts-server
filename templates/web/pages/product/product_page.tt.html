@@ -427,14 +427,23 @@
 </div>
 </section>
 
-<section class="row">
+<section class="row" id="folksonomy_editor">
         <div class="large-12 column">
             <div class="card">
                 <div class="reblock card-section">
                     <div class="large-12 column">
-                        <folksonomy-editor product-code="[% code %]" page-type="view">
+                        <folksonomy-editor product-code="[% code %]" page-type="[% IF is_user %]edit[% ELSE %]view[%END%]">
                         </folksonomy-editor>
                     </div>
+                    [% IF not is_user %]
+                    <div class="edit_button center text-center" >
+                        <a href=[% IF oidc_implementation_level < 3 %]"/cgi/session.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=[% uri_escape(formatted_subdomain _  this_product_url _ '#folksonomy_editor') %]"[% END %] class="button small">
+                            [% display_icon('edit') %]
+                            [% lang('signin_to_edit_fe_properties') %]
+                        </a>
+                    </div>
+                    [% END %]
+
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -58,6 +58,7 @@ use ProductOpener::NutritionCiqual qw(load_ciqual_data);
 use ProductOpener::Routing qw(load_routes);
 use ProductOpener::CRM qw(init_crm_data);
 use ProductOpener::GS1 qw/load_gpc_category_codes_from_categories_taxonomy/;
+use ProductOpener::Stats qw/load_categories_stats_per_country/;
 
 =head1 FUNCTIONS
 
@@ -95,6 +96,8 @@ sub load_data() {
 	}
 
 	load_gpc_category_codes_from_categories_taxonomy();
+
+	load_categories_stats_per_country();
 
 	$log->debug("loading data - done") if $log->is_debug();
 	return;
