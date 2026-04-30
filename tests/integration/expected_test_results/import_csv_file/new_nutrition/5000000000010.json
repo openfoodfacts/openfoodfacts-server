@@ -69,7 +69,9 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [],
+   "data_quality_errors_tags" : [
+      "en:nutrition-manufacturer-prepared-100ml-energy-value-in-kcal-does-not-match-value-in-kj"
+   ],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:nutrition-data-prepared",
@@ -97,13 +99,16 @@
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
       "en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated",
+      "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label",
-      "en:environmental-score-threatened-species-ingredients-missing"
+      "en:environmental-score-threatened-species-ingredients-missing",
+      "en:nutrition-manufacturer-prepared-100ml-energy-value-in-kcal-does-not-match-value-in-kj"
    ],
    "data_quality_warnings_tags" : [
       "en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated",
+      "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label",
@@ -499,6 +504,13 @@
                "unit" : "kJ",
                "value" : 400
             },
+            "energy-kcal" : {
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100ml",
+               "unit" : "kcal",
+               "value" : 0.5
+            },
             "energy-kj" : {
                "modifier" : "≥",
                "source" : "manufacturer",
@@ -529,6 +541,11 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 0.5,
+                  "value_string" : "0.5"
+               },
                "energy-kj" : {
                   "modifier" : "≥",
                   "unit" : "kJ",

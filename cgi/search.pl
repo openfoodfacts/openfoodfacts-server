@@ -114,9 +114,13 @@ $request_ref->{search} = 1;
 # rate_limiter_bucket is required for `check_and_update_rate_limits`
 $request_ref->{rate_limiter_bucket} = 'search';
 
-check_and_update_rate_limits($request_ref);
+# Check and update rate limits if not disabled (default is ENABLED for production safety)
+if (not $rate_limiter_disabled) {
+	check_and_update_rate_limits($request_ref);
+}
 
-if ($request_ref->{rate_limiter_blocking}) {
+# Block request if rate limit exceeded (only if rate limiter is not disabled)
+if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
 	# The request is blocked by the rate limiter:
 	# return directly a "too many requests" empty HTML page
 	display_too_many_requests_page_and_exit();
