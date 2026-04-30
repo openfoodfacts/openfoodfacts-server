@@ -75,6 +75,7 @@ services:
       - icons_dist:/opt/product-opener/html/images/icons/dist
       - js_dist:/opt/product-opener/html/js/dist
       - css_dist:/opt/product-opener/html/css/dist
+      - node_modules:/opt/product-opener/node_modules
       # mount local folder for reload on dev changes, we follow Dockerfile.frontend COPYs
       - ./package.json:/opt/product-opener/package.json
       - ./package-lock.json:/opt/product-opener/package-lock.json
