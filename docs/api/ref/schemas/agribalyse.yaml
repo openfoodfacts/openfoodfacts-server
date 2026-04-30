@@ -7,7 +7,7 @@ properties:
     example: "13100"
   agribalyse_food_code:
     type: string
-    description: The specific Agribalyse food code (CIQUAL code) for the product.
+    description: The specific Agribalyse food code (CIQUAL code) for the product category.
     example: "13100"
   co2_agriculture:
     type: number
