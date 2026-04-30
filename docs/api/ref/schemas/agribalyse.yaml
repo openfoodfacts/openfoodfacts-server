@@ -3,7 +3,7 @@ description: Represents the environmental impact data for a food product categor
 properties:
   agribalyse_proxy_food_code:
     type: string
-    description: The Agribalyse proxy food code, used for broader categories or representative products.
+    description: The Agribalyse proxy food code, used for approximate product category matches.
     example: "13100"
   agribalyse_food_code:
     type: string
