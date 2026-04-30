@@ -917,7 +917,7 @@ sub sort_products_for_test_comparison ($array_ref, $sort_field) {
 
 Normalize a user to be able to compare them across tests runs.
 
-We remove time dependent fields, password (which encryption use salt) and sort some lists.
+We remove time dependent fields, password (whose encryption uses salt), and sort some lists.
 
 =head3 Arguments
 
