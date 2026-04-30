@@ -26,12 +26,14 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id init_user/;
 use ProductOpener::Lang qw/lang/;
-use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body/;
+use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body sanitize/;
+use ProductOpener::APIAttributeGroups qw/display_preferences_api display_attribute_groups_api/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -47,12 +49,11 @@ my $request_ref = {};
 my $r = Apache2::RequestUtil->request();
 $request_ref->{method} = $r->method();
 
-$log->debug("display.pl - start", {env_query_string => $env_query_string, request_ref => $request_ref})
+$log->debug("display.pl - start", {env_query_string => $env_query_string, request_ref => sanitize($request_ref)})
 	if $log->is_debug();
 
-# Special behaviors for API v3 requests
-
-my $api_pattern = qr/^\/?api\/v(3(\.\d+)?)\//;
+# Special behaviors for API v3 requests, starting by /api/v3 or on pro platform /org/org-id/api/v3
+my $api_pattern = qr!^(?:/org/[^/]+)?/?api/v(3(\.\d+)?)/!;
 my $method_pattern = qr/^(POST|PUT|PATCH)$/;
 
 if ($env_query_string =~ $api_pattern) {
@@ -105,10 +106,16 @@ $log->debug("before analyze_request", {query_string => $request_ref->{query_stri
 # analyze request will fill request with action and parameters
 analyze_request($request_ref);
 
+# If we have a redirect, execute it
+if (defined $request_ref->{redirect}) {
+	$log->debug("init_request redirect", {request_ref => sanitize($request_ref)});
+	redirect_to_url($request_ref, $request_ref->{redirect_status} // 302, $request_ref->{redirect});
+}
+
 # If we have an error, display the error page and return
 
 if (defined $request_ref->{error_message}) {
-	$log->debug("analyze_request error", {request_ref => $request_ref});
+	$log->debug("analyze_request error", {request_ref => sanitize($request_ref)});
 	display_error($request_ref, $request_ref->{error_message}, $request_ref->{status_code});
 	$log->debug("analyze_request error - return Apache2::Const::OK");
 	return Apache2::Const::OK;
@@ -121,7 +128,8 @@ if ($request_ref->{no_index} eq 1) {
 	return Apache2::Const::OK;
 }
 
-if ($request_ref->{rate_limiter_blocking}) {
+# Block request if rate limit exceeded (only if rate limiter is not disabled)
+if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
 	# The request is blocked by the rate limiter:
 	# return directly a "too many requests" empty HTML page
 	display_too_many_requests_page_and_exit();

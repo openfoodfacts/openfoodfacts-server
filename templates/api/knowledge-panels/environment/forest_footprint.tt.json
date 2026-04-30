@@ -1,0 +1,111 @@
+{
+    "level": "info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "name": "[% edq(lang('forest_footprint')) %]",
+        "title": "[% edq(lang("attribute_forest_footprint_${product.forest_footprint_data.grade}_title")) %]",
+        "subtitle": "[% edq(lang("attribute_forest_footprint_${product.forest_footprint_data.grade}_description_short")) %]",        
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-[% product.forest_footprint_data.grade %].svg",
+        "type": "grade",
+        "grade": "[% product.forest_footprint_data.grade %]"        
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                <p><strong>[% edq(lang("ingredients_requiring_soy")) %]</strong></p>
+                <p>[% edq(lang("forest_footprint_one_line_explanation")) %]</p>
+                `
+            }
+        },
+        [% IF product.forest_footprint_data.ingredients.defined && product.forest_footprint_data.ingredients.size %]
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "forest_footprint_table",
+                "title": "[% edq(lang("ingredients_requiring_soy")) %]",
+                "columns": [
+                    {
+                        "text": "[% edq(lang("ingredients_s")) FILTER ucfirst %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("type")) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("percent_in_product")) %]",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("processing_factor")) %]<br><span style=\"font-weight:normal\">([% edq(lang("percent_of_food_after_processing")) %])</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("soy_feed_factor")) %]<br><span style=\"font-weight:normal\">([% edq(lang("kg_of_soy_per_kg_of_food")) %])</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("soy_yield")) %]<br><span style=\"font-weight:normal\">([% edq(lang("kg_of_soy_per_square_meter")) %])</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("deforestation_risk")) %]<br><span style=\"font-weight:normal\">(%)</span>",
+                        "type": "text"
+                    },
+                    {
+                        "text": "[% edq(lang("forest_footprint")) %]<br><span style=\"font-weight:normal\">([% edq(lang("square_meters_per_kg_of_food")) %])</span>",
+                        "type": "text"
+                    }
+                ],
+                "rows": [
+                    [% FOREACH ingredient IN product.forest_footprint_data.ingredients %]
+                    {
+                        "values": [
+                            {
+                                "text": "[% display_taxonomy_tag(ingredient.tag_type, ingredient.tag_id) %]"
+                            },
+                            {
+                                "text": "[% ingredient.type.name %]"
+                            },
+                            {
+                                "text": "[% ingredient.percent FILTER format("%.2f"); %] %"
+                            },
+                            {
+                                "text": "[% ingredient.processing_factor * 100 FILTER format("%d"); %] %"
+                            },
+                            {
+                                "text": "[% ingredient.type.soy_feed_factor %]"
+                            },
+                            {
+                                "text": "[% ingredient.type.soy_yield %]"
+                            },
+                            {
+                                "text": "[% ingredient.type.deforestation_risk * 100 FILTER format("%d"); %] %"
+                            },
+                            {
+                                "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
+                            }
+                        ]
+                    }[% UNLESS loop.last %],[% END %]
+                    [% END %]
+                ]
+            }
+        },
+        [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                    <h3>[% edq(lang("total_forest_footprint")) %]</h3>
+                    <p><strong>[% product.forest_footprint_data.footprint_per_kg FILTER format("%.2f"); %] [% edq(lang("square_meters_per_kg_of_food")) %]</strong></p>
+                `
+            }
+        }
+    ]
+}

@@ -82,13 +82,28 @@ properties:
   popularity_tags:
     description: |
       Indicators for the popularity of a product, like the amount of scans in a specific year.
+      `popularity_tags` values from previous years are kept, if there is no popularity_tags at all, then it was never popular.
+      This field must be used with care. In countries where Open Food Facts is not widely used, 
+      a product may obtain the value "top-90-percent-scans-2021" with a single scan.
     type: array
     items:
       type: string
+    example: ["bottom-25-percent-scans-2020", "top-85-percent-scans-2021", "top-90-percent-scans-2022", "top-country-it-scans-2019", "top-100000-mg-scans-2024", ]
   scans_n:
     type: integer
+    description: |
+      Number of scans performed with the official Open Food Facts mobile application, the last year 
+      for which the product was scanned (current year excluded). This value is computed once a year by scanbot.pl.
+      It is possible that a product has never been scanned at all: `scans_n` is not given in this case.
+      See also `unique_scans_n` field.
   unique_scans_n:
     type: integer
+    description: |
+      Number of unique scans performed with the official Open Food Facts mobile application, the last year 
+      for which the product was scanned (current year excluded).
+      Unique scans means it is based on different IPs.
+      This value is computed once a year by scanbot.pl.
+      See also `scans_n` field.
   serving_quantity:
     type: string
     description: |

@@ -1,0 +1,21 @@
+type: object
+properties:
+  preparation:
+    type: string
+    enum:
+      - as_sold
+      - prepared
+    description: |
+      Indicates whether the nutrition values refer to the product *as_sold* or *prepared*.
+
+      The preparation state affects nutrient values.
+  per:
+    type: string
+    enum:
+      - 100g
+      - 100ml
+      - serving
+    description: |
+      The nutrition data on the package can be per serving, per 100g or per 100ml.
+
+      This is essential to understand if values in the `nutrients` object apply for a serving, for 100g or for 100ml.

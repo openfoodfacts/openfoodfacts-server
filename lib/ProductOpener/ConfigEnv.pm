@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -33,6 +33,6 @@ BEGIN {
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 $nutripatrol_url = $ENV{NUTRIPATROL_URL};
-$nutripatrol_url =~ s/\///;    # remove trailing slash if there is one
+$nutripatrol_url =~ s/\/$//;    # remove trailing slash if there is one
 
 1;

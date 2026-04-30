@@ -26,10 +26,10 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/init_request request_param/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers request_param/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -55,7 +55,8 @@ my $context_ref = {country => $request_ref->{country},};
 # Options define how many suggestions should be returned, in which format etc.
 my $options_ref = {limit => request_param($request_ref, 'limit')};
 
-my @suggestions = get_taxonomy_suggestions($tagtype, $search_lc, $string, $context_ref, $options_ref);
+my @suggestions
+	= get_taxonomy_suggestions($request_ref->{country}, $tagtype, $search_lc, $string, $context_ref, $options_ref);
 
 my $data = encode_json(\@suggestions);
 

@@ -1,0 +1,88 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:white-beans",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "processing" : "en:semi-dried",
+         "text" : "haricots blancs",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20072",
+         "ecobalyse_code" : "garden-peas-eu",
+         "id" : "en:large-garden-peas",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "garden peas medium",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20009",
+         "ecobalyse_code" : "carrot-non-eu",
+         "id" : "fr:carotte-parisienne",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "carottes parisiennes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:white-beans",
+      "en:large-garden-peas",
+      "fr:carotte-parisienne"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:white-beans",
+      "en:vegetable",
+      "en:legume",
+      "en:pulse",
+      "en:large-garden-peas",
+      "en:pod-and-seed-vegetable",
+      "en:pea",
+      "en:green-peas",
+      "en:garden-peas",
+      "fr:carotte-parisienne",
+      "en:root-vegetable",
+      "en:taproot-vegetable",
+      "en:carrot"
+   ],
+   "ingredients_text" : "haricots blancs demi-secs, garden peas medium, carottes parisiennes",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:white-beans"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:white-beans"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 3,
+   "lc" : "fr",
+   "unknown_ingredients_n" : 0
+}

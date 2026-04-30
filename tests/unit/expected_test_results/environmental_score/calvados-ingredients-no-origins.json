@@ -232,6 +232,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "agb_category" : 1,
          "labels" : 1,
@@ -268,10 +269,6 @@
       "en:maybe-vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:wine",
-      "en:alcohol"
-   ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -297,21 +294,14 @@
       "en:wine"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
-   "known_ingredients_n" : 2,
+   "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-computed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],
    "packaging_shapes_tags" : [],

@@ -20,35 +20,42 @@ my %brands = ();
 my %flavor_with_most_data = ();
 my %flavor_with_most_data_size = ();
 
-foreach my $flavor ("off", "obf", "opf", "opff") {
-	my $products_collection = get_products_collection({database => $flavor, timeout => $socket_timeout_ms});
+foreach my $obsolete (0, 1) {
+	foreach my $flavor ("off", "obf", "opf", "opff") {
+		my $products_collection
+			= get_products_collection({database => $flavor, obsolete => $obsolete, timeout => $socket_timeout_ms});
 
-	my $cursor = $products_collection->query({})
-		->fields({_id => 1, code => 1, owner => 1, product_name => 1, brands => 1, scans_n => 1});
-	$cursor->immortal(1);
+		my $cursor = $products_collection->query({})
+			->fields({_id => 1, code => 1, owner => 1, product_name => 1, brands => 1, scans_n => 1});
+		$cursor->immortal(1);
 
-	while (my $product_ref = $cursor->next) {
-		my $code = $product_ref->{code};
-		$flavors{all}{$code}++;
-		$flavors{$flavor}{$code}++;
-		# Check which flavor has the biggest product file
-		my $path = product_path($product_ref);
-		if (not defined $flavor_with_most_data{$code}) {
-			$flavor_with_most_data{$code} = $flavor;
-			$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
-		}
-		if (((-s "/srv/$flavor/products/$path/product.sto") || 0) > $flavor_with_most_data_size{$code}) {
-			$flavor_with_most_data{$code} = $flavor;
-			$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
-		}
-		if (($product_ref->{scans_n} || 0) > ($scans{$code} || 0)) {
-			$scans{$code} = $product_ref->{scans_n} || 0;
-		}
-		if (not defined $product_names{$code}) {
-			$product_names{$code} = $product_ref->{product_name};
-		}
-		if (not defined $brands{$code}) {
-			$brands{$code} = $product_ref->{brands};
+		while (my $product_ref = $cursor->next) {
+			my $code = $product_ref->{code};
+			$flavors{all}{$code}++;
+			$flavors{$flavor}{$code}++;
+			# Check which flavor has the biggest product file
+			my $path = product_path($product_ref);
+			if (not defined $flavor_with_most_data{$code}) {
+				$flavor_with_most_data{$code} = $flavor;
+				$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
+			}
+			if (((-s "/srv/$flavor/products/$path/product.sto") || 0) > $flavor_with_most_data_size{$code}) {
+				# retrieve the product to check it's not deleted
+				my $flavor_product_ref = retrieve("/srv/$flavor/products/$path/product.sto");
+				if ((defined $flavor_product_ref) and (not $flavor_product_ref->{deleted})) {
+					$flavor_with_most_data{$code} = $flavor;
+					$flavor_with_most_data_size{$code} = (-s "/srv/$flavor/products/$path/product.sto") || 0;
+				}
+			}
+			if (($product_ref->{scans_n} || 0) > ($scans{$code} || 0)) {
+				$scans{$code} = $product_ref->{scans_n} || 0;
+			}
+			if (not defined $product_names{$code}) {
+				$product_names{$code} = $product_ref->{product_name};
+			}
+			if (not defined $brands{$code}) {
+				$brands{$code} = $product_ref->{brands};
+			}
 		}
 	}
 }

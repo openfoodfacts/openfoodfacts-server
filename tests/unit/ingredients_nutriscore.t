@@ -6,12 +6,16 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/canonicalize_taxonomy_tag get_inherited_property/;
 use ProductOpener::Ingredients
 	qw/estimate_nutriscore_2021_milk_percent_from_ingredients estimate_nutriscore_2023_red_meat_percent_from_ingredients extract_ingredients_from_text/;
+use ProductOpener::FoodProducts qw/specific_processes_for_food_product/;
+use Data::DeepAccess qw(deep_get);
 
 my @ingredients = (
 
@@ -61,13 +65,15 @@ my @ingredients_text_tests = (
 	[
 		{
 			lc => "fr",
-			ingredients_text =>
-				"Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%, eau, huile d'olive vierge extra 3,9%, oignon, olive noire entière dénoyautée saumurée 2,5% (olive, eau, sel, correcteurs d'acidité : acide citrique, acide lactique), ail, basilic 0,9%, amidon de riz, sel"
+			ingredients_text => "Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%,
+				eau, huile d'olive vierge extra 3,9%, oignon,
+				olive noire entière dénoyautée saumurée 2,5% (olive, eau, sel, correcteurs d'acidité : acide citrique, acide lactique),
+				ail, basilic 0,9%, amidon de riz, sel"
 		},
 		# add_fruit() currently matches "olive noire entière dénoyautée saumurée 2,5% (..)" to 2.5% fruit, even though it has sub-ingredients that are not fruits
 		# TODO: investigate on actual product data to see if trying to fix this would have more true positives than false positives
-		93.8,
-		89.9
+		94.7,
+		90.8
 	],
 	# Soy beans
 	[
@@ -129,25 +135,17 @@ foreach my $test_ref (@ingredients_text_tests) {
 	my $expected_fruits_2021 = $test_ref->[1];
 	my $expected_fruits_2023 = $test_ref->[2];
 
-	extract_ingredients_from_text($product_ref);
+	specific_processes_for_food_product($product_ref);
+
+	is(deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-nuts", "value"),
+		$expected_fruits_2021)
+		or diag Dumper {ingredients => $product_ref->{ingredients}, nutrition => $product_ref->{nutrition}};
 
 	is(
-		(
-			defined $product_ref->{nutriments}
-			? $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}
-			: undef
-		),
-		$expected_fruits_2021
-	) or diag Dumper $product_ref->{ingredients};
+		deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "fruits-vegetables-legumes", "value"),
 
-	is(
-		(
-			defined $product_ref->{nutriments}
-			? $product_ref->{nutriments}{"fruits-vegetables-legumes-estimate-from-ingredients_100g"}
-			: undef
-		),
 		$expected_fruits_2023
-	) or diag Dumper $product_ref->{ingredients};
+	) or diag Dumper {ingredients => $product_ref->{ingredients}, nutrition => $product_ref->{nutrition}};
 }
 
 # test the estimate percent of milk

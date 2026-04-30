@@ -244,6 +244,7 @@
          "threatened_species" : {}
       },
       "environmental_score_not_applicable_for_category" : "en:fresh-vegetables",
+      "grade" : "not-applicable",
       "missing" : {
          "labels" : 1,
          "origins" : 1
@@ -274,11 +275,6 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:tomato",
-      "en:vegetable",
-      "en:fruit-vegetable"
-   ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -303,23 +299,16 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
-   "known_ingredients_n" : 3,
+   "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [
       "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
-      "en:environmental-score-extended-data-not-computed",
       "en:environmental-score-not-applicable",
       "en:environmental-score-not-computed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
-   },
    "packaging_materials_tags" : [
       "en:plastic"
    ],

@@ -25,7 +25,7 @@
                 // Display the link to the new Nutri-Score computation page
                 // on mobile: keep the /nutriscore-v2 link until the app can handle the new URLs
                 "html": `
-<p>&rarr; <a href="[% IF knowledge_panels_options.knowledge_panels_client == 'web' %]/new-nutriscore[% ELSE %]/nutriscore-v2[% END %]">[% lang('nutriscore_new_computation_link_text') %]</a></p>
+<p>&rarr; <a href="[% public_platform_url %][% IF knowledge_panels_options.knowledge_panels_client == 'web' %]new-nutriscore[% ELSE %]nutriscore-v2[% END %]">[% lang('nutriscore_new_computation_link_text') %]</a></p>
 `
             },
         },
