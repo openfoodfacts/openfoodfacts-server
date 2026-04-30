@@ -86,14 +86,26 @@ fr: Aliments pour animaux de compagnie
 
 en: Halloween supplies
 
-< en: Halloween supplies
+< en:Halloween supplies
 en: Halloween Costumes
 
-< en: Halloween supplies
+< en:Halloween supplies
 en: Halloween Accessories
 
-< en: Halloween supplies
+< en:Halloween supplies
+< en:Seasonal & Holiday Decorations
 en: Halloween Decorations
+
+en: St. Patrick's Day supplies
+da: Skt. Patricks dag-tilbehør
+sv: Sankt Patriks dag-tillbehör
+#wikidata:en: Q181817  # about the day, not supplies/accessories/etc.
+
+< en:Seasonal & Holiday Decorations
+< en:St. Patrick's Day supplies
+en: St. Patrick's Day decorations
+da: Skt. Patricks dag-dekorationer
+sv: Sankt Patriks dag-dekorationer
 
 
 ### Main taxonomy
@@ -10446,7 +10458,7 @@ tr: Spor Oyuncakları
 google_product_taxonomy_id:en: 1266
 wikidata:en: Q116037416
 
-# fr: Articles de sport d'extérieur pour enfant 
+# fr: Articles de sport d'extérieur pour enfant
 # fr: raquette
 # fr: boule de pétanque en plastique
 # fr: boule de pétanque
@@ -17847,6 +17859,17 @@ tr: Yüzükler
 google_product_taxonomy_id:en: 200
 wikidata:en: Q46847
 
+< en:Rings
+< en:Smart devices
+en: Smart rings
+xx: Smart rings
+ar: خاتم ذكي
+ja: スマートリング
+ko: 스마트링
+sv: Smartringar
+zh: 智能戒指
+wikidata:en: Q28136195
+
 < en:Jewelry
 en: Watch Accessories
 xx: Watch Accessories
@@ -17948,11 +17971,19 @@ google_product_taxonomy_id:en: 201
 qfdmo_name:fr: montre
 wikidata:en: Q178794
 
+< en:Smart devices
 < en:Watches
-en: Smart Watches
+en: Smart watches, Smartwatches
 xx: Smart Watches
 fr: Montres connectées, Montre connectée
 qfdmo_name:fr: montre-connectee
+wikidata:en: Q5362345
+
+< en:Smart watches
+en: WearOS smartwatches
+
+< en:Smart watches
+en: Apple smartwatches
 
 < en:Apparel & Accessories
 en: Shoe Accessories
@@ -19027,6 +19058,15 @@ google_product_taxonomy_id:en: 222
 qfdmo_name:fr: appareil-electronique
 secondhand_used:en: backmarket
 wikidata:en: Q581105
+
+< en:Electronics
+en: Smart devices
+xx: Smart devices
+ar: جهاز ذكي
+ja: スマートデバイス
+ko: 스마트 장치
+zh: 智能设备
+wikidata:en: Q11253473
 
 < en:Electronics
 en: Arcade Equipment
@@ -21688,15 +21728,6 @@ unit_name:en: Basic phone
 unit_name:fr: Téléphone basique
 
 < en:Electronics
-en: Smart watches, Smartwatches
-
-< en:Smart watches
-en: WearOS smartwatches
-
-< en:Smart watches
-en: Apple smartwatches
-
-< en:Electronics
 en: Activity tracker
 
 < en:Electronics
@@ -21722,6 +21753,7 @@ tr: Cep Telefonları
 qfdmo_id:fr: 334
 qfdmo_name:fr: telephone-mobile
 
+< en:Smart devices
 < en:Telephony
 en: Smartphones
 xx: Smartphones, Smartphone
@@ -21735,11 +21767,11 @@ unit_name:xx: smartphone
 unit_name:en: smartphone
 wikidata:en: Q17517
 
-< en: Smartphones
+< en:Smartphones
 en: Android smartphones
 fr: Smartphones Android
 
-< en: Smartphones
+< en:Smartphones
 en: iPhone smartphones
 xx: iPhone, iPhones
 fr: Smartphones iPhone
@@ -22255,6 +22287,7 @@ unit_name:fr: Ordinateur portable
 wikidata:en: Q3962
 
 < en:Computers
+< en:Smart devices
 en: Smart Glasses
 xx: Smart Glasses
 cs: Chytré brýle
@@ -22275,6 +22308,7 @@ google_product_taxonomy_id:en: 500002
 wikidata:en: Q15978715
 
 < en:Computers
+< en:Smart devices
 en: Smart speaker
 fr: Enceinte connectée
 carbon_impact_fr_impactco2:en: 26.5
@@ -22774,7 +22808,7 @@ tr: Boş Ortamlar
 google_product_taxonomy_id:en: 367
 wikidata:en: Q116961907
 
-# Médias, CD DVD et jeu vidéo, 
+# Médias, CD DVD et jeu vidéo,
 
 < en:Electronics Accessories
 en: Cable Management
@@ -25672,6 +25706,23 @@ carbon_impact_fr_impactco2:en: 0.4
 carbon_impact_fr_impactco2_link:en: https://impactco2.fr/outils/numerique/alimentationsmartphone
 unit_name:en: Smartphone external power supply
 unit_name:fr: Alimentation externe pour smartphone ou tablette
+
+< en:Power
+en: Power banks
+xx: Powerbanks
+cs: Powerbanka
+et: Akupank
+fr: Batterie externe
+ja: モバイルバッテリー
+ko: 보조 배터리
+nb: Batteribanker
+nl: Noodlader
+ru: Внешний аккумулятор
+sv: Batteripack
+tr: Taşınabilir şarj aleti
+ug: توك بانكىسى
+zh: 移动电源, 行動電源, 流動充電器
+wikidata:en: Q2208745
 
 < en:Power
 en: Surge Protection Devices
@@ -66221,12 +66272,25 @@ tr: Sanat ve Eğlence
 google_product_taxonomy_id:en: 8
 wikidata:en: Q117207300
 
-< en:Arts & Entertainment
-en: Event Tickets
-xx: Event Tickets
+en: Tickets
+ar: تذكرة
 cs: Vstupenky
 da: Billetter
 de: Eintrittskarten
+eo: Biletoj
+ja: 切符
+ko: 입장권
+sv: Biljetter
+th: ตั๋ว
+zh: 門票
+comment:en: This is not a child of Arts & Entertainment, since this can conceivably also include things like public transport tickets, tickets for swimming and gyms etc., and possibly other things that are not clear-cut Arts & Entertainment.
+wikidata:en: Q551800
+
+< en:Arts & Entertainment
+< en:Tickets
+en: Event Tickets
+xx: Event Tickets
+da: Billetter til begivenheder
 es: Entradas para eventos
 fr: Billets d'événements
 it: Biglietti per eventi
@@ -66240,6 +66304,12 @@ sv: Biljetter till evenemang
 tr: Etkinlik Biletleri
 google_product_taxonomy_id:en: 499969
 wikidata:en: Q117207304
+
+< en:Arts & Entertainment
+< en:Tickets
+en: Museum tickets
+da: Museumsbilletter
+sv: Museibiljetter
 
 < en:Arts & Entertainment
 en: Hobbies & Creative Arts
@@ -82367,8 +82437,8 @@ google_product_taxonomy_id:en: 2689
 wikidata:en: Q181331
 
 < en:General Office Supplies
-en: Rubber Bands
-xx: Rubber Bands
+en: Rubber bands
+xx: Rubber bands
 cs: Gumičky
 da: Elastikker
 de: Gummibänder
@@ -82381,7 +82451,7 @@ no: Strikk
 pl: Gumki recepturki
 pt: Elásticos
 ru: Канцелярские резинки
-sv: Gummiband
+sv: Gummisnoddar, Gummiband
 tr: Paket Lastikleri
 google_product_taxonomy_id:en: 6146
 wikidata:en: Q256817
@@ -82389,20 +82459,44 @@ wikidata:en: Q256817
 < en:General Office Supplies
 en: Staples
 xx: Staples
+ar: دبوس مزدوج السن
+ca: Grapa
+ce: Атлан
 cs: Spony do sešívaček
+cv: Такар
+cy: Stwffwl
 da: Hæfteklammer
 de: Heftklammern
+eo: Krampoj
 es: Grapas
+et: Aas
+eu: Grapa
+fa: سوزن منگنه
+fi: Niitti
 fr: Agrafes
-it: Graffette
-ja: ホッチキス針
+gl: Grampa
+hu: Tűzőkapocs
+id: Kokot
+it: Graffette, Agrafes
+ja: ホッチキス針, ステープル
+ko: 스테이플
+la: Uncinulus
+ms: Dawai kokot
+nb: Heftestifter, Stifter
 nl: Nietjes
-no: Stifter
-pl: Zszywki
-pt: Grampos
-ru: Скобы для степлеров
-sv: Häftklamrar
-tr: Zımba Telleri
+pl: Zszywki, Zszywka
+pt: Agrafos, Grampos
+pt_br: Grampos
+ro: Scoabă
+ru: Скобы для степлеров, Скоба
+sl: Sponka
+su: Eusi hékter
+sv: Häftklamrar, Häftklammer
+tr: Zımba Telleri, Zımba
+uk: Скоба
+vi: Đinh kẹp
+yi: דרעטל
+zh: 订书钉, 鋦釘, 訂書釘
 google_product_taxonomy_id:en: 948
 wikidata:en: Q377164
 
@@ -89022,6 +89116,14 @@ sv: Aerobics-brädor
 tr: Aerobik Step Tahtası
 google_product_taxonomy_id:en: 237166
 wikidata:en: Q117208648
+
+< en:Exercise & Fitness
+en: Weight cuffs, Cuff weights, Ankle and wrist weights, Ankle weights, Wrist Weights
+da: Ankel-/håndledsvægte
+de: Gewichtsmanschetten
+fi: Nilkka-/rannepaino
+sv: Ankel-/handledsvikter
+wikidata:en: Q107539625
 
 < en:Exercise & Fitness
 en: Balance Trainers
@@ -105169,7 +105271,7 @@ tr: Vajinal Duşlar ve Kremler
 google_product_taxonomy_id:en: 5821
 wikidata:en: Q117207497
 
-< fr: Produits menstruels
+< en: Menstrual products
 en: Feminine Pads & Protectors
 xx: Feminine Pads & Protectors
 cs: Dámské hygienické vložky
@@ -105189,7 +105291,7 @@ tr: Kadın Pedleri
 google_product_taxonomy_id:en: 2387
 wikidata:en: Q117207498
 
-< fr: Produits menstruels reutilisables
+< en: Reusable Menstrual Products
 en: Menstrual Cups
 xx: Menstrual Cups
 cs: Menstruační kalíšky
@@ -105209,7 +105311,7 @@ tr: Menstrüasyon Kabı
 google_product_taxonomy_id:en: 8122
 wikidata:en: Q216997
 
-< fr: Produits menstruels
+< en: Menstrual products
 en: Tampons
 xx: Tampons
 cs: Tampóny
