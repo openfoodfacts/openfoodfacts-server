@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -94,8 +94,8 @@ add_index('unique_scans_n', -1);
 add_index('users_tags', 1, 'last_modified_t', -1);
 add_index('vitamins_tags', 1, 'last_modified_t', -1);
 
-# The following were found in this file but are not in production
-# If any need to be added then a corresponding number of the above must be removed
+# The following were found in this file but are not in production.
+# If any need to be added then a corresponding number of the above must be removed.
 
 #add_index('creator_tags', 1, 'last_modified_t', -1);
 #add_index('ingredients_n_tags', 1, 'last_modified_t', -1);
@@ -109,7 +109,7 @@ add_index('vitamins_tags', 1, 'last_modified_t', -1);
 
 die "Cannot have more than 63 indexes" if (@index_list > 63);
 
-# Note need to disable timeout below as index creation can take a long time
+# Note: need to disable timeout below as index creation can take a long time.
 my $indexes = get_products_collection({timeout => 0})->indexes;
 
 # Drop indexes not in the list
@@ -129,7 +129,7 @@ while (my $existing_index = $result->next) {
 	}
 	if (!$match) {
 		print "Dropping index: $existing_index->{'name'}\n";
-		# Note, this will fail if another index is still being built
+		# Note: this will fail if another index is still being built.
 		$indexes->drop_one($existing_index->{'name'});
 	}
 }
@@ -141,7 +141,7 @@ foreach my $new_index (@index_list) {
 		$indexes->create_one($new_index, {background => 1});
 		1;
 	} or do {
-		# Timeouts are expected on large databases. The index build will continue in the background
+		# Timeouts are expected on large databases. The index build will continue in the background.
 		if ($@ !~ m/MongoDB::NetworkTimeout/) {
 			print "$@\n";
 		}

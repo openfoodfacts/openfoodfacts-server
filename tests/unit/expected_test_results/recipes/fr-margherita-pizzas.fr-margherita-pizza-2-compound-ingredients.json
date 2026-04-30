@@ -6,7 +6,7 @@
             {
                "ciqual_food_code" : "20047",
                "ecobalyse_code" : "tomato-heated-greenhouse-eu",
-               "id" : "en:chopped-tomatoes",
+               "id" : "en:chopped-tomato",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 46.6666666666667,
                "percent_max" : 70,
@@ -120,7 +120,7 @@
    "ingredients_original_tags" : [
       "en:filling",
       "en:pizza-dough",
-      "en:chopped-tomatoes",
+      "en:chopped-tomato",
       "en:cheese",
       "en:basil-leaf",
       "en:wheat-flour",
@@ -132,7 +132,7 @@
       "en:filling",
       "en:pizza-dough",
       "en:dough",
-      "en:chopped-tomatoes",
+      "en:chopped-tomato",
       "en:vegetable",
       "en:fruit-vegetable",
       "en:tomato",
@@ -171,12 +171,6 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 58.3333333333333,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 58.3333333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 58.3333333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 58.3333333333333
-   },
    "recipe" : {
       "en:cheese" : 11.6666666666667,
       "en:flour" : 20,

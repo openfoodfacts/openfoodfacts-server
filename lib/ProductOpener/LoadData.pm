@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -58,6 +58,7 @@ use ProductOpener::NutritionCiqual qw(load_ciqual_data);
 use ProductOpener::Routing qw(load_routes);
 use ProductOpener::CRM qw(init_crm_data);
 use ProductOpener::GS1 qw/load_gpc_category_codes_from_categories_taxonomy/;
+use ProductOpener::Stats qw/load_categories_stats_per_country/;
 
 =head1 FUNCTIONS
 
@@ -76,7 +77,6 @@ sub load_data() {
 	return if ($ENV{PO_NO_LOAD_DATA});
 
 	$log->debug("loading data - start") if $log->is_debug();
-	print STDERR "load_data - start\n";
 
 	init_crm_data();    # Die if CRM is configured and, required data cannot be loaded from cache or fetched from CRM
 	init_taxonomies(1);    # Die if some taxonomies cannot be loaded
@@ -97,9 +97,9 @@ sub load_data() {
 
 	load_gpc_category_codes_from_categories_taxonomy();
 
-	$log->debug("loading data - done") if $log->is_debug();
-	print STDERR "load_data - done\n";
+	load_categories_stats_per_country();
 
+	$log->debug("loading data - done") if $log->is_debug();
 	return;
 }
 

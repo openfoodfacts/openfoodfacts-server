@@ -2,7 +2,7 @@ title: Packaging component recycling instruction
 x-stoplight:
   id: 376tk8e2cmyh2
 type: object
-description: The recycling property is canonicalized using the packaging_recycling taxonomy.
+description: The recycling property is canonicalized using the packaging_recycling taxonomy. Taxonomized values are available using the partial taxonomy API, the autosuggest API or the full packaging_recycling taxonomy JSON export.
 examples:
   - id: 'en:bottle'
     lc_name: bouteille

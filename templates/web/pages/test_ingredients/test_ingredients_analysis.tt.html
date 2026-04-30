@@ -4,18 +4,61 @@
 
 <form method="get" action="/cgi/test_ingredients_analysis.pl" enctype="multipart/form-data">
     
-    Ingredients text (language code: [% lc %]): <br/>
-    <textarea id="ingredients_text" name="ingredients_text" style="height:8rem;">[% ingredients_text %]</textarea>
-    <input type="hidden" name="type" value="[% type %]"/>
-    <input type="hidden" name="action" value='process'/>
+    <div class="row">
+        <div class="medium-6 columns">
+            Ingredients text: 
+            <select name="target_lc" id="target_lc">
+                [% FOREACH language IN lang_options %]
+                    <option value="[% language.value %]" [% IF language.value== target_lc %] selected="selected" [% END %]>[% language.label %]</option>
+                [% END %]
+            </select>
+
+            <br/>
+            <textarea id="ingredients_text" name="ingredients_text" style="height:12rem;">[% ingredients_text %]</textarea>
+            
+            <input type="hidden" name="type" value="[% type %]"/>
+            <input type="hidden" name="lc" value="[% lc %]"/>
+            <input type="hidden" name="action" value='process'/>        
+
+            <p>Select an ingredient percent estimator:</p>
+            <label>
+                <input type="radio" name="estimator" value="product_opener" [% IF estimator == "product_opener" %]checked="checked"[% END %] style="margin:0">
+                Product Opener (production)
+            </label>
+            <label>
+                <input type="radio" name="estimator" value="recipe_estimator_glop" [% IF estimator == "recipe_estimator_glop" %]checked="checked"[% END %] style="margin:0">
+                Recipe Estimator - Glop (experimental)
+            </label>
+            <label>
+                <input type="radio" name="estimator" value="recipe_estimator_scipy" [% IF estimator == "recipe_estimator_scipy" %]checked="checked"[% END %] style="margin:0">
+                Recipe Estimator - Scipy (experimental)
+            </label><br>
+
+        </div>
+
+        <div class="medium-6 columns">
+            Key nutrition facts (optional, used for estimating quantity of ingredients):
+            <table>
+                [% FOREACH nutrient IN nutrients %]
+                    <tr>
+                        <td>[% display_taxonomy_tag("nutrients", 'zz:' _ nutrient) %]</td>
+                        <td>
+                            <input type="text" name="[% nutrient %]" value="[% nutrients_values.$nutrient %]" style="margin:0" />
+                        </td>
+                    </tr>
+                [% END %]
+            </table>
+        </div>
+    </div>
+
     <input type="submit" name="submit">
 
 </form>
 
 [% IF action == 'process' %]
     <h3>Ingredients parsing, % estimates and analysis</h3>
-    <h4>Preparsed ingredients text</h4>
-    <p>[% preparsed_ingredients_text %]</p>
+    Ingredient percent estimator: [% estimator %]<br>
+
     [% display_ingredients_analysis %]
     <h4>Ingredients analysis</h4>
     [% html_details %]
