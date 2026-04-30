@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -200,7 +200,7 @@ if ($move_to ne 'trash') {
 			Clone->import(qw( clone ));
 
 			foreach my $field (@fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'lang',
-				'nutriments')
+				'nutrition')
 			{
 				if (defined $product_ref->{$field}) {
 					$new_product_ref->{$field} = clone($product_ref->{$field});
