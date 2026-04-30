@@ -34,7 +34,7 @@ use ProductOpener::Lang qw/lang/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/generate_import_export_columns_groups_for_select2/;
 use ProductOpener::Tags qw/%language_fields %tags_fields display_taxonomy_tag/;
-use ProductOpener::Food qw/default_unit_for_nid/;
+use ProductOpener::Nutrition qw/default_unit_for_nid/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::CRM qw/update_template_download_date/;
@@ -264,7 +264,8 @@ foreach my $group_ref (@$select2_options_ref) {
 
 my $tagtype = "categories";
 my @category_entries
-	= ProductOpener::TaxonomySuggestions::generate_sorted_list_of_taxonomy_entries($tagtype, $request_ref->{lc}, {});
+	= ProductOpener::TaxonomySuggestions::generate_sorted_list_of_taxonomy_entries($request_ref->{cc}, $tagtype,
+	$request_ref->{lc}, {});
 foreach my $i (0 .. $#category_entries) {
 	my $category_entry = display_taxonomy_tag($request_ref->{lc}, $tagtype, $category_entries[$i]);
 	$worksheet_categories->write($i, 0, $category_entry);

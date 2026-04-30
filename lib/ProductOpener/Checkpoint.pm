@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -22,7 +22,6 @@ package ProductOpener::Checkpoint;
 
 use ProductOpener::PerlStandards;
 
-use experimental 'smartmatch';
 use File::Basename qw/basename/;
 use List::MoreUtils qw/first_index/;
 
@@ -35,24 +34,32 @@ sub new ($class) {
 		`touch $filename`;
 	}
 	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
-	my $checkpoint;
+	$checkpoint_file->autoflush;
+	my $checkpoint = '';
 	my $is_resume = first_index {$_ eq "resume"} @ARGV;
 	if ($is_resume > -1) {
 		seek($checkpoint_file, 0, 0);
 		$checkpoint = <$checkpoint_file>;
 		chomp $checkpoint if $checkpoint;
-		if ($checkpoint) {
-			print STDERR "Resuming from $checkpoint\n";
-		}
 		splice(@ARGV, $is_resume, 1);
 	}
+	my $log_filename = "$BASE_DIRS{CACHE_TMP}/$script_name.log";
+	my $mode = ($is_resume > -1 ? '>>' : '>');
+	open(my $log_file, $mode, $log_filename);
+	$log_file->autoflush;
 
 	my $self = {
 		checkpoint_file => $checkpoint_file,
+		log_file => $log_file,
 		value => $checkpoint
 	};
 
-	return bless $self, $class;
+	my $blessed = bless $self, $class;
+	if ($checkpoint) {
+		$blessed->log("Resuming from $checkpoint");
+	}
+
+	return $blessed;
 }
 
 sub update ($self, $checkpoint) {
@@ -64,9 +71,19 @@ sub update ($self, $checkpoint) {
 	return;
 }
 
+sub log ($self, $message) {
+	my $log_file = $self->{log_file};
+	my $log_message = '[' . localtime() . '] ' . $message . "\n";
+	print $log_message;
+	print $log_file $log_message;
+	return;
+}
+
 sub DESTROY {
 	my ($self) = @_;
+	$self->log("Finished");
 	close $self->{checkpoint_file};
+	close $self->{log_file};
 	return;
 }
 

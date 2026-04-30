@@ -151,3 +151,9 @@ jobs:
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: matomo
           label-operator: OR
+      - uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: https://github.com/orgs/openfoodfacts/projects/137 # Add issue to the Javascript issues across OFF project
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          labeled: JavaScript
+          label-operator: OR

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -105,10 +105,6 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# Initialisation of the payload structure
 	my $payload = {
 		ingredients => [],
-		transform => {
-			"id" => "7541cf94-1d4d-4d1c-99e3-a9d5be0e7569",
-			"mass" => 545
-		},
 		packaging => [],
 		distribution => "ambient",
 		preparation => ["refrigeration"]

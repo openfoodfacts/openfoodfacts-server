@@ -19,7 +19,7 @@ The API may return undocumented fields. You should not rely on fields that are n
 The product schema version is an integer that is incremented each time there is a change.
 It was introduced in March 2025, with a value of 1001.
 For products updated after March 2025, the product schema version is saved in the schema_version field of the product object.
-For earlier products (or earlier product revisions), the product schema version is 1000 or below. It is not stored in the database, but it can be returned for API requests with an API version lesser than 3.2.
+For earlier products (or earlier product revisions), the product schema version is 1000 or below. For such products/revisions, the schema version is not stored in the database, but can be returned for API requests with an API version lesser than 3.2.
 
 ## API version
 
@@ -31,6 +31,23 @@ When a client makes a request with a specific API version, we do our best to con
 Note: API v3 is under active development, and the API and corresponding product schema may change frequently.
 
 ## Schema version and API version change log
+
+### 2025-126-01 - Product version 1003 - API version 3.5 - New product nutrition facts structure
+
+Breaking changes:
+- The nutrition facts structure has been changed to have a structure it lacked and better align with the current uses and needs of the database (see [2025 - API - Nutrition Facts Schema and API](https://docs.google.com/document/d/19ZRrlWJraJm61E6U7AwxQ1uubPDvmSuNfl9F1oLC0Tg) for new structure and discussions)
+- **This product version is still currently under active development**
+
+### 2025-06-11 - Product version 1002 (no change) - API version 3.4 - New attributes with parameters
+
+Breaking changes:
+- product attributes can now have parameters, such as a list of tags (used for the new Unwanted ingredients attribute)
+
+To avoid displaying product attributes with parameters that apps cannot handle yet, the /api/v[0-2]/attributes_groups API
+does not return attributes with parameters.
+
+This does not affect the product READ API, if the attribute parameters are sent, then the value of the attribute will be returned
+by the product READ API (e.g. /api/v2/product) even if the version is less than 3.4.
 
 ### 2025-06-11 - Product version 1002 - API version 3.3 - New uploaded and selected images structure, new API for image upload and selection
 
@@ -59,7 +76,7 @@ There were lots of non-breaking changes (new fields) from 2012 to 2024. Those ch
 
 ### Product version 999 - Changed barcode normalization
 
-The normalization of leading 0s has been changed. See [Barcode normalization](/ref-barcode-normalization.md)
+The normalization of leading 0s has been changed. See [Barcode normalization](./ref-barcode-normalization.md)
 
 ### Product version 998 - API version 3
 

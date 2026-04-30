@@ -11,16 +11,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-my $ua = new_client();
-
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-create_user($ua, \%create_user_args);
+remove_all_users();
 
 # TODO: add more tests !
 my $tests_ref = [
@@ -57,6 +50,20 @@ my $tests_ref = [
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Credentials" => undef,
+		},
+		expected_type => "none",    # no body for OPTIONS requests
+	},
+	# redirects should include CORS
+	{
+		test_case => 'redirect-have-cors',
+		method => 'GET',
+		path => '/editors/tests',
+		expected_status_code => 301,
+		headers_in => {"Origin" => "http://other.localhost"},
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Credentials" => undef,
+			"Location" => "/facets/editors/tests",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
@@ -115,14 +122,27 @@ my $tests_ref = [
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
 	},
+	# Test sending X-User-Agent: should be accepted
+	{
+		test_case => 'options-api-v2-x-user-agent',
+		method => 'OPTIONS',
+		path => '/api/v2/product/1234567890123',
+		expected_status_code => 404,
+		headers_in => {"X-User-Agent" => "test"},
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Headers" =>
+				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
+		},
+		expected_type => "none",    # no body for OPTIONS requests
+	},
 ];
 execute_api_tests(__FILE__, $tests_ref);
 
 # Test auth.pl with authenticated user
-create_user($ua, \%default_user_form);
-
 my $auth_ua = new_client();
-login($auth_ua, "tests", 'testtest');
+create_user($auth_ua, \%default_user_form);
 
 $tests_ref = [
 	{

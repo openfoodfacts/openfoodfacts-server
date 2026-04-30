@@ -46,9 +46,6 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "en:something-strange"
-      ],
       "en:vegan-status-unknown" : [
          "en:something-strange"
       ],
@@ -57,7 +54,7 @@
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
@@ -101,11 +98,5 @@
    "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 3,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 1
 }

@@ -24,9 +24,6 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "ja:ときがわ町"
-      ],
       "en:vegan-status-unknown" : [
          "ja:ときがわ町"
       ],
@@ -35,7 +32,7 @@
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
@@ -71,11 +68,5 @@
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "ja",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
-   },
    "unknown_ingredients_n" : 1
 }

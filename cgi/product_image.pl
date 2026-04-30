@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/retrieve_object/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/canonicalize_tag_link/;
@@ -36,6 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::HTTP qw/single_param/;
+use ProductOpener::ConfigEnv qw/$nutripatrol_url/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -112,7 +113,7 @@ if (not(defined $image_ref)) {
 }
 
 my $imagetext;
-if ($id =~ /^(.*)_(.*)$/) {
+if ((defined $id) and ($id =~ /^(.*)_(.*)$/)) {
 	$imagetext = lang($1 . '_alt');
 }
 else {
@@ -120,7 +121,7 @@ else {
 }
 
 my $path = product_path_from_id($product_id);
-my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $imagetext;
+my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . ($imagetext // '');
 
 my $display_image_url;
 my $full_image_url;
@@ -214,6 +215,7 @@ $template_data_ref->{original_link} = $original_link;
 $template_data_ref->{attribution} = $attribution;
 $template_data_ref->{original_id} = $original_id;
 $template_data_ref->{code} = $code;
+$template_data_ref->{nutripatrol_url} = $nutripatrol_url;
 
 my $html;
 process_template('web/pages/product/includes/product_image.tt.html', $template_data_ref, \$html) or $html = '';
