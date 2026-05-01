@@ -2816,7 +2816,7 @@ msgstr "Una imagen ha sido enviada por el fabricante. Si cree que es incorrecta 
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr "Atención: la información nutricional no se especifica y se ha calculado a partir de la lista de ingredientes."
+msgstr "Atención: la información nutricional no se indica y se ha calculado a partir de la lista de ingredientes."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2832,15 +2832,15 @@ msgstr "Atención: la cantidad de frutas, verduras y frutos secos no se ha espec
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene especificada en la etiqueta, por lo que se ha calculado manualmente de acuerdo con la lista de ingredientes: %d"
+msgstr "Atención: la cantidad de frutas, verduras y frutos secos no se indica en la etiqueta, por lo que se ha calculado manualmente de acuerdo con la lista de ingredientes: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene especificada en la etiqueta, por lo que se ha hecho una estimación a partir de la categoría (%s) del producto: %d"
+msgstr "Atención: la cantidad de frutas, verduras y frutos secos no se indica en la etiqueta, por lo que se ha hecho una estimación a partir de la categoría (%s) del producto: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene especificada en la etiqueta, por lo que se ha calculado a partir la lista de ingredientes: %d"
+msgstr "Atención: la cantidad de frutas, verduras y frutos secos no se indica en la etiqueta, por lo que se ha calculado a partir la lista de ingredientes: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -4071,7 +4071,7 @@ msgstr "Este producto se considera una bebida para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr "Este producto no se considera una bebida para el cálculo de la puntuación Nutri-Score."
+msgstr "Este producto no se considera una bebida para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -4083,23 +4083,23 @@ msgstr "Puntos negativos"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr "Los puntos para las proteínas se cuentan porque los puntos negativos son inferiores a 11."
+msgstr "Los puntos por proteínas se cuentan porque los puntos negativos son inferiores a 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr "Los puntos para las proteínas no se cuentan porque los puntos negativos son mayores o iguales a 11."
+msgstr "Los puntos por proteínas no se cuentan porque los puntos negativos son iguales o superiores a 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr "Los puntos para las proteínas se cuentan porque los puntos para las frutas, verduras, nueces y colza / nuez / aceites de oliva son los máximos."
+msgstr "Los puntos por proteínas se cuentan porque la puntuación de las frutas, verduras, frutos secos y de los aceites de nuez/colza/oliva está al máximo."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr "Los puntos para las proteínas se cuentan porque el producto está en la categoría de quesos."
+msgstr "Los puntos por proteínas se cuentan porque el producto pertenece a la categoría de quesos."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr "El producto se encuentra en la categoría de grasas, los puntos de grasa saturada se reemplazan por los puntos de la relación grasa / grasa saturada."
+msgstr "El producto se encuentra en la categoría de grasas: los puntos por grasas saturadas se reemplazan por los del ratio grasas saturadas/grasas."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -4115,7 +4115,7 @@ msgstr "Grasas saturadas"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr "Relación grasa / grasa saturada"
+msgstr "Ratio grasas saturadas/grasas"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -6604,7 +6604,7 @@ msgstr "Recomendaciones"
 
 msgctxt "nutrient_info_salt_risk"
 msgid "A high consumption of salt (or sodium) can cause raised blood pressure, which can increase the risk of heart disease and stroke."
-msgstr "Un alto consumo de sal (o sodio) puede provocar un aumento de la presión arterial, lo que puede aumentar el riesgo de enfermedades cardíacas y accidentes cerebrovasculares."
+msgstr "Un alto consumo de sal (o sodio) puede provocar un aumento de la presión arterial y, a su vez, aumentar el riesgo de sufrir enfermedades cardiovasculares o accidentes cerebrovasculares."
 
 msgctxt "nutrient_info_salt_high_blood_pressure"
 msgid "Many people who have high blood pressure do not know it, as there are often no symptoms."
@@ -6616,19 +6616,19 @@ msgstr "La mayoría de las personas consumen demasiada sal (9-12 gramos diarios 
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr "Limita el consumo de sal y alimentos salados"
+msgstr "Limita el consumo de sal y de alimentos salados"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
-msgstr "Reduce la cantidad de sal utilizada al cocinar y no dejes que los comensales le añadan más a posteriori."
+msgstr "Reduce la cantidad de sal utilizada al cocinar y no añadas más sal en la mesa."
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr "Limita el consumo de snacks salados y elige alimentos más sanos."
+msgstr "Limita el consumo de snacks salados y elige alimentos con menos sal."
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr "Un alto consumo de azúcar puede causar aumento de peso y caries. También aumenta el riesgo de diabetes tipo 2 y enfermedades cardiovasculares."
+msgstr "Un alto consumo de azúcar puede causar aumento de peso y caries, y también aumenta el riesgo de diabetes tipo 2 y de enfermedades cardiovasculares."
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
@@ -6636,7 +6636,7 @@ msgstr "Limita el consumo de azúcar y bebidas azucaradas"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr "Las bebidas azucaradas (como refrescos, bebidas de frutas y jugos y néctares de frutas) deben limitarse tanto como sea posible (no más de 1 vaso al día)."
+msgstr "Las bebidas azucaradas, como los refrescos, las bebidas de frutas y los zumos y néctares de frutas, deben limitarse en la medida de lo posible (no más de un vaso al día)."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
@@ -6644,11 +6644,11 @@ msgstr "Elige productos con menor contenido de azúcar y reduce el consumo de pr
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Un alto consumo de grasas, especialmente grasas saturadas, puede elevar el colesterol, lo que aumenta el riesgo de enfermedades del corazón."
+msgstr "Un alto consumo de grasas, especialmente de grasas saturadas, puede aumentar el colesterol y, en consecuencia, el riesgo de enfermedades cardiovasculares."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr "Reduce el consumo de grasa y grasas saturada"
+msgstr "Reduce el consumo de grasas y grasa saturadas"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
@@ -7105,27 +7105,27 @@ msgstr "Este producto se considera un producto de carne roja para el cálculo de
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr "Los puntos por proteínas se contabilizan porque el producto se considera una bebida."
+msgstr "Los puntos por proteínas se cuentan porque el producto se considera una bebida."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr "Los puntos por proteínas se contabilizan porque el producto se considera queso."
+msgstr "Los puntos por proteínas se cuentan porque el producto se considera queso."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr "Los puntos por proteínas se contabilizan porque los puntos negativos son menos de 7."
+msgstr "Los puntos por proteínas se cuentan porque los puntos negativos son inferiores a 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr "Los puntos por proteínas se contabilizan porque los puntos negativos son menos de 11."
+msgstr "Los puntos por proteínas se cuentan porque los puntos negativos son inferiores a 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr "Los puntos por proteínas no se contabilizan porque los puntos negativos son más o igual que 7."
+msgstr "Los puntos por proteínas no se cuentan porque los puntos negativos son iguales o superiores a 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr "Los puntos por proteínas no se contabilizan porque los puntos negativos son más o igual que 11."
+msgstr "Los puntos por proteínas no se cuentan porque los puntos negativos son iguales o superiores a 11."
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
@@ -7161,19 +7161,19 @@ msgstr "¿Qué es Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr "El consumo de energía por encima de las necesidades energéticas se asocia con un mayor riesgo de aumento de peso, sobrepeso, obesidad y, en consecuencia, con el riesgo de enfermedades crónicas relacionadas con la dieta."
+msgstr "El consumo de energía por encima de las necesidades energéticas se asocia a un mayor riesgo de aumento de peso, sobrepeso y obesidad y, en consecuencia, a un mayor riesgo de enfermedades crónicas relacionadas con la dieta."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Un alto consumo de grasas, especialmente grasas saturadas, puede elevar el colesterol, lo que aumenta el riesgo de enfermedades del corazón."
+msgstr "Un alto consumo de grasas, especialmente de grasas saturadas, puede aumentar el colesterol y, en consecuencia, el riesgo de enfermedades cardiovasculares."
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Un alto consumo de grasas, especialmente grasas saturadas, puede elevar el colesterol, lo que aumenta el riesgo de enfermedades del corazón."
+msgstr "Un alto consumo de grasas, especialmente de grasas saturadas, puede aumentar el colesterol y, en consecuencia, el riesgo de enfermedades cardiovasculares."
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Un alto consumo de grasas, especialmente grasas saturadas, puede elevar el colesterol, lo que aumenta el riesgo de enfermedades del corazón."
+msgstr "Un alto consumo de grasas, especialmente de grasas saturadas, puede aumentar el colesterol y, en consecuencia, el riesgo de enfermedades cardiovasculares."
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
@@ -7181,11 +7181,11 @@ msgstr "Los edulcorantes no nutritivos pueden no aportar ningún beneficio a lar
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr "El consumo habitual de alimentos ricos en fibra (especialmente alimentos integrales) reduce el riesgo de sufrir cáncer de las vías aerodigestivas, enfermedades cardiovasculares, obesidad o diabetes."
+msgstr "El consumo habitual de alimentos ricos en fibra, especialmente de alimentos integrales, reduce el riesgo de sufrir cáncer de las vías aerodigestivas, enfermedades cardiovasculares, obesidad y diabetes."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr "El consumo de frutas, verduras y legumbres, o productos que contengan altas cantidades de estos alimentos, puede reducir el riesgo de sufrir cáncer de las vías aerodigestivas, enfermedades cardiovasculares, obesidad o diabetes."
+msgstr "El consumo de frutas, verduras y legumbres, o productos que contengan grandes cantidades de estos alimentos, puede reducir el riesgo de sufrir cáncer de las vías aerodigestivas, enfermedades cardiovasculares, obesidad y diabetes."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
