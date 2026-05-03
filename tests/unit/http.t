@@ -31,7 +31,7 @@ use ProductOpener::HTTP qw/get_cors_headers/;
 	my $expected_base_ref = {
 		"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		"Access-Control-Allow-Headers" =>
-			"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
+			"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
 		"Access-Control-Expose-Headers" => "Content-Length,Content-Range",
 	};
 

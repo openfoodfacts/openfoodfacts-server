@@ -143,9 +143,10 @@ jobs:
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: add-assets-to-release
-        uses: svenstaro/upload-release-action@2.11.4
+        uses: svenstaro/upload-release-action@2.11.5
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file_glob: /tmp/release-assets/*.tgz
+          file: /tmp/release-assets/*.tgz
+          file_glob: true
           tag: ${{ steps.release.outputs.tag_name }}
           overwrite: true

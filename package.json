@@ -36,10 +36,10 @@
     "win32"
   ],
   "dependencies": {
-    "@kristjan.esperanto/leaflet.markercluster": "^3.0.0",
-    "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.19",
+    "@kristjan.esperanto/leaflet.markercluster": "^3.0.2",
+    "@openfoodfacts/openfoodfacts-nodejs": "2.0.0-alpha.30",
     "@openfoodfacts/openfoodfacts-webcomponents": "1.16.0",
-    "@snyk/protect": "^1.1303.0",
+    "@snyk/protect": "^1.1304.1",
     "@webcomponents/webcomponentsjs": "2.8.0",
     "@yaireo/tagify": ">=4.12.0 <4.37.0",
     "blueimp-file-upload": "^10.31.0",
@@ -58,10 +58,9 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.22.0",
-    "@typescript-eslint/eslint-plugin": "^8.38.0",
-    "@typescript-eslint/parser": "^8.32.0",
-    "dotenv": "^17.2.3",
-    "eslint": "^8.57.1",
+    "@eslint/js": "^10.0.1",
+    "dotenv": "^17.4.2",
+    "eslint": "^10.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
@@ -71,11 +70,11 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svgmin": "^4.1.0",
     "gulp-terser": "^2.1.0",
-    "sass": "^1.97.3",
-    "stylelint": "^16.2.1",
-    "stylelint-config-recommended": "^14.0.0",
-    "stylelint-config-recommended-scss": "^15.0.1",
-    "stylelint-scss": "^6.12.1"
+    "sass": "^1.99.0",
+    "stylelint": "^17.6.0",
+    "stylelint-config-recommended": "^18.0.0",
+    "stylelint-config-recommended-scss": "^17.0.0",
+    "stylelint-scss": "^7.0.0"
   },
   "funding": {
     "type": "opencollective",
