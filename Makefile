@@ -609,7 +609,8 @@ clean_logs:
 	echo "" > logs/apache2/log4perl.log
 
 rotate_logs:
-	${DOCKER_COMPOSE_BUILD} run --rm --user root backend bash -c "savelog -p logs/{nginx,apache2}/*{.,_}log"
+	${DOCKER_COMPOSE_BUILD} run --rm --user root --no-deps backend bash -c "savelog -p /mnt/podata/logs/*{.,_}log" || true
+	${DOCKER_COMPOSE_BUILD} run --rm --user root --no-deps frontend bash -c "savelog -p /var/log/nginx/*{.,_}log" || true
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
