@@ -355,6 +355,9 @@ sub request_param ($request_ref, $param_name) {
 		return decode utf8 => $cgi_param;
 	}
 	else {
+		# For OPTIONS requests, CGI.pm param() does not parse the query string, so we need to get the parameter from the query string directly
+		# e.g. for OPTIONS request for /cgi/search.pl?search_terms=carrots&action=process&json=1
+		# we want to be able to get the json parameter to determine that it is an API request
 		my $query_param = scalar url_param($param_name);
 		if (defined $query_param) {
 			return decode utf8 => $query_param;
