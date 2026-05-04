@@ -35647,7 +35647,6 @@ gpc_category_code:en: 10000165
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products have been treated or packaged in such a way as to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Frozen and Perishable Bread Products, Dried Breads, Shelf-Stable Baking Mixes and Baking Supplies, and Pies and Pastries.
 gpc_category_name:en: Bread (Shelf Stable)
 
-
 < en:Breads
 < en:Frozen foods
 en: Frozen breads
@@ -36759,6 +36758,7 @@ wikidata:en: Q1922854
 
 < en:Breads
 en: Flatbreads, Flatbread
+da: Fladbrød
 de: Fladenbrote, Fladenbrot
 es: Panes planos
 fi: Ohutleivät, Ohutleipä
@@ -36767,8 +36767,31 @@ hr: Somuni
 it: Pane basso
 lt: Paplotėliai, Paplotėlis
 nl: Platte broden, Flat breads
+pt: Pães achatados
+sv: Flatbröd
 intake24_category_code:en: FJTA
 wikidata:en: Q666242
+
+< en:Flatbreads
+< en:Frozen breads
+en: Frozen flatbreads
+da: Frosne fladbrød
+pt: Pães achatados congelados
+sv: Frysta flatbröd
+
+< en:Flatbreads
+< en:Gluten-free breads
+en: Gluten-free flatbreads
+da: Glutenfrie fladbrød
+pt: Pães achatados sem glúten
+sv: Glutenfria flatbröd
+
+< en:Frozen flatbreads
+< en:Gluten-free flatbreads
+en: Frozen gluten-free flatbreads
+da: Frosne glutenfrie fladbrød
+pt: Pães achatados congelados sem glúten
+sv: Frysta glutenfria flatbröd
 
 < en:Flatbreads
 en: Khubz ahmar, Red breads
@@ -36797,6 +36820,63 @@ xx: Taboon
 ar: طابون
 comment:en: https://www.tasteatlas.com/taboon
 wikidata:en: Q987291
+
+< en:Breads
+en: Oat breads, Oat loafs
+da: Havrebrød
+fi: Kauraleipa
+pt: Pães de aveia
+sv: Havrebröd
+
+< en:Frozen breads
+< en:Oat breads
+en: Frozen oat breads
+da: Frosne havrebrød
+pt: Pães de aveia congelados
+sv: Frysta havrebröd
+
+< en:Gluten-free breads
+< en:Oat breads
+en: Gluten-free oat breads
+da: Glutenfrie havrebrød
+pt: Pães de aveia sem glúten
+sv: Glutenfria havrebröd
+
+< en:Frozen oat breads
+< en:Gluten-free oat breads
+en: Frozen gluten-free oat breads
+da: Frosne glutenfrie havrebrød
+pt: Pães de aveia sem glúten congelados
+sv: Frysta glutenfria havrebröd
+
+< en:Oat breads
+< en:Sliced breads
+en: Sliced oat breads
+da: Skiveskårne havrebrød
+pt: Pães de aveia laminados
+sv: Skivade havrelimpor, Skivade havrebröd
+
+< en:Frozen oat breads
+< en:Sliced oat breads
+en: Frozen sliced oat breads
+da: Frosne skiveskårne havrebrød
+pt: Pães de aveia laminados congelados
+sv: Frysta skivade havrelimpor
+
+< en:Gluten-free oat breads
+< en:Sliced oat breads
+en: Sliced gluten-free oat breads
+da: Skiveskårne glutenfrie havrebrød
+pt: Pães de aveia sem glúten laminados
+sv: Skivade glutenfria havrelimpor
+
+< en:Frozen gluten-free oat breads
+< en:Frozen sliced oat breads
+< en:Sliced gluten-free oat breads
+en: Frozen sliced gluten-free oat breads
+da: Frosne skiveskårne glutenfrie havrebrød
+pt: Pães de aveia sem glúten laminados congelados
+sv: Frysta skivade glutenfria havrelimpor
 
 < en:Breads
 en: Rye breads, Wheat rye breads
@@ -36898,7 +36978,7 @@ ciqual_food_name:en: Corn tortilla wrap, to be filled
 ciqual_food_name:fr: Tortilla souple (à garnir), à base de maïs
 
 < en:Corn flatbreads
-< en:Frozen breads
+< en:Frozen flatbreads
 en: Frozen corn flatbreads, Frozen corn tortilla wraps
 fr: Tortillas de maïs surgelées
 
@@ -37387,11 +37467,6 @@ fr: Pains précuits surgelés, pain précuit surgelé
 en: Frozen pre-baked hamburger buns
 fr: Pains Burger précuits surgelés, Pains pour hamburgersprécuits surgelés
 
-< en:Frozen pre-baked breads
-< en:Pitas
-en: Frozen pre-baked pitas, frozen pre-baked Pita bread
-fr: Pains Pita surgelé
-
 < en:Breads
 en: Special breads
 bg: Специални хлябове
@@ -37530,15 +37605,15 @@ da: Frosne glutenfrie pølsebrød
 sv: Frysta glutenfria korvbröd
 
 < en:Flatbreads
-en: Naans, Naan
-xx: Naans
-de: Naans
-es: Naans, Naan
+en: Naans
+xx: Naans, Naan
+da: Naanbrød
 fi: Naanit
-fr: Naans, Naan, Nân
-hr: Naans
+fr: Naans, Nân
 ja: ナン, ナーン
-nl: Naanbroden, Naanbrood, Naan
+nl: Naanbroden, Naanbrood
+pt: Pães naan
+sv: Naanbröd
 wikidata:en: Q689950
 
 < en:Naans
@@ -37557,22 +37632,53 @@ wikidata:en: Q59707
 < en:Flatbreads
 < en:Special breads
 en: Pitas, Pittas, Pita bread, pitta bread
-xx: Pitas
-de: Pitas
+xx: Pitas, Pita
+da: Pitabrød
 es: Pitas, Pan pita, Panes pita
-fi: Pitaleivät, Pita
+fi: Pitaleivät
 fr: Pains Pita, Pains pitta, Pains pitas, pain pitas, pains pour pitas, pains pour pita, pain pour pitas, Pain pita
 hr: Pitas, pita kruh
 it: Pita
 ja: ピタ, ピタパン
 lt: Pitta duonos
 nl: Pittabroden, Pittabrood, Pitta
+pt: Pães pita
 ru: Пита
+sv: Pitabröd
 agribalyse_food_code:en: 7180
 ciqual_food_code:en: 7180
 ciqual_food_name:en: Pita bread
 ciqual_food_name:fr: Pain pita
 wikidata:en: Q211340
+
+< en:Gluten-free flatbreads
+< en:Pitas
+en: Gluten-free pitas
+da: Glutenfrie pitabrød
+pt: Pães pita sem glúten
+sv: Glutenfria pitabröd
+
+< en:Frozen flatbreads
+< en:Pitas
+en: Frozen pitas
+da: Frosne pitabrød
+pt: Pães pita congelados
+sv: Frysta pitabröd
+
+< en:Frozen pitas
+< en:Gluten-free pitas
+en: Frozen gluten-free pitas
+da: Frosne glutenfrie pitabrød
+pt: Pães pita congelados sem glúten
+sv: Frysta glutenfria pitabröd
+
+< en:Frozen pitas
+< en:Frozen pre-baked breads
+en: Frozen pre-baked pitas, frozen pre-baked Pita bread
+da: Frosne forbagte pitabrød
+fr: Pains Pita surgelé
+pt: Pães pita pré-assados congelados
+sv: Frysta förbakade pitabröd
 
 < en:Special breads
 en: Kebab breads
@@ -37621,6 +37727,17 @@ wikidata:en: Q918148
 < en:Special breads
 es: Regañás, Regañá
 wikidata:en: Q6103703
+
+< en:Flatbreads
+en: Lepinja
+xx: Lepinja, Lepina, Лепиња
+mk: Лепиња
+sr: Лепиња
+wikidata:en: Q115456219
+
+< en:Frozen breads
+< en:Lepinja
+en: Frozen lepinja
 
 en: Breakfasts
 ca: Esmorzars
@@ -45205,6 +45322,12 @@ da: Dild og purløgschips
 sv: Dill och gräslökschips
 
 < en:Flavoured potato crisps
+en: Ranch crisps
+da: Ranch-chips
+sv: Ranch-chips
+comment:en: Crisps with a flavour similar to that of ranch dressing.
+
+< en:Flavoured potato crisps
 en: Salt and vinegar crisps
 da: Salt og eddike-chips, Salt & vinegar chips
 de: Salz und Essig Chips
@@ -45330,7 +45453,7 @@ ciqual_food_name:en: Sweet potato, puree, cooked with cream
 ciqual_food_name:fr: Patate douce, purée, cuisinée à la crème
 
 < en:Chips and fries
-en: Fries
+en: Potato fries, Fries
 bg: Пържени картофи
 da: Pomfritter, Pommes frites
 de: Pommes Frites
@@ -45343,6 +45466,7 @@ lt: Bulvytės
 nl: Friet
 sv: Pommes frites
 zh: 薯条
+comment:en: At some point we can hopefully move “Fries” to its own category under “Chips and fries” so the various kinds of fries (e.g., ones made from sweet potato and other(root) vegetables) can all be grouped together under this. For right now though, “Fries” has long meant potato fries, so it needs to stay a synonym for the time being. (Freso, 2026-04-25)
 google_product_taxonomy_id:en: 2392
 intake24_category_code:en: CHIP
 wikidata:en: Q152088
@@ -45427,8 +45551,8 @@ ciqual_food_code:en: 4034
 ciqual_food_name:en: Duchesse potato, frozen, cooked
 ciqual_food_name:fr: Pomme de terre duchesse, surgelée, cuite
 
-< en:Fries
-en: Takeaway fries
+< en:Potato fries
+en: Takeaway potato fries, Takeaway fries
 da: Takeaway-pomfritter
 sv: Takeaway-pommes frites
 intake24_category_code:en: TCHI
@@ -67082,10 +67206,9 @@ agribalyse_proxy_food_code:en: 4043
 agribalyse_proxy_food_name:en: Potato, pre-fried into cubes, frozen, raw
 agribalyse_proxy_food_name:fr: Pomme de terre rissolée, surgelée, crue
 
-#frozen fried potatoes in the shape of sticks
-< en:Fries
 < en:Frozen fried potatoes
-en: Frozen fries, Frozen chips, Frozen french fries
+< en:Potato fries
+en: Frozen potato fries, Frozen fries, Frozen chips, Frozen french fries
 bg: Замразени пържени картофи
 da: Frosne pomfritter
 de: Tiefkühl-Pommes
@@ -67097,9 +67220,10 @@ it: Patatine surgelate
 lt: Šaldytos bulvytės, Šaldytos gruzdintos bulvytės
 nl: Diepvriespatatten
 pl: Frytki mrożone
+description:en: frozen fried potatoes in the shape of sticks
 who_id:en: 16
 
-< en:Frozen fries
+< en:Frozen potato fries
 en: Frozen roasted French fries, Frozen baked French fries, Frozen roasted French chips
 da: Frosne ristede pomfritter
 fr: Frites de pommes de terre surgelées cuites au four, Frites de pommes de terre surgelées rôties
@@ -67108,7 +67232,7 @@ ciqual_food_code:en: 4030
 ciqual_food_name:en: French fries or chips, frozen, roasted/baked
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, rôties/cuites au four
 
-< en:Frozen fries
+< en:Frozen potato fries
 en: Frozen French fries to roast, Frozen French fries to bake, Frozen French chips to roast, Frozen French chips to bake
 da: Frosne pomfritter til ristning, Frosne pomfritter til bagning
 fr: Frites surgelées à cuire au four, Frites de pommes de terre surgelées à rôtir, Frites de pommes de terre surgelées à cuire au four
@@ -67117,8 +67241,8 @@ ciqual_food_code:en: 4044
 ciqual_food_name:en: French fries or chips, frozen, raw, intended to be roasted/baked
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson rôtie/ au four
 
-< en:Fries
-en: Microwave fries
+< en:Potato fries
+en: Microwave potato fries, Microwave fries
 da: Mikrobølgeovnspomfritter
 de: Mikrowellen-Pommes
 es: Papas fritas para microondas
@@ -67134,8 +67258,8 @@ agribalyse_proxy_food_code:en: 4045
 agribalyse_proxy_food_name:en: French fries or chips, frozen, raw, intended to be microwaved
 agribalyse_proxy_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson micro-ondes
 
-< en:Frozen fries
-< en:Microwave fries
+< en:Frozen potato fries
+< en:Microwave potato fries
 en: Frozen microwave fries, Frozen French fries intended to be microwaved, Frozen French chips intended to be microwaved
 da: Frosne mikrobølgeovnspomfritter
 fr: Frites surgelées micro-ondables, Frites de pommes de terre surgelées pour cuisson au micro-ondes
@@ -67144,7 +67268,7 @@ ciqual_food_code:en: 4045
 ciqual_food_name:en: French fries or chips, frozen, raw, intended to be microwaved
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson micro-ondes
 
-< en:Frozen fries
+< en:Frozen potato fries
 en: Frozen deep-fried French fries, Frozen deep-fried French chips
 da: Frosne friturestegte pomfritter
 fr: Frites de pommes de terre surgelées cuites en friteuse
@@ -67153,7 +67277,7 @@ ciqual_food_code:en: 4032
 ciqual_food_name:en: French fries or chips, frozen, deep-fried
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, cuites en friteuse
 
-< en:Frozen fries
+< en:Frozen potato fries
 en: Frozen French fries to deep-fry, Frozen chips to deep-fry
 da: Frosne pomfritter til friturestegning
 fr: Frites surgelées pour friteuse, Frites de pommes de terre pour cuisson en friteuse
@@ -67162,8 +67286,8 @@ ciqual_food_code:en: 4046
 ciqual_food_name:en: French fries or chips, frozen, raw, intended to be deep-fried
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson en friteuse
 
-< en:Fries
-en: Waffle fries
+< en:Potato fries
+en: Waffle potato fries, Waffle fries
 da: Vaffelpomfritter, Waffle fries
 eo: Vaflecaj terpomfritoj
 ko: 벌집감자
@@ -67171,9 +67295,9 @@ sv: Våffel pommes frites, Waffle pommes frites, Waffle fries
 zh: 薯格
 wikidata:en: Q56582296
 
-< en:Frozen fries
-< en:Waffle fries
-en: Frozen waffle fries
+< en:Frozen potato fries
+< en:Waffle potato fries
+en: Frozen waffle potato fries, Frozen waffle fries
 da: Frosne vaffelpomfritter
 sv: Frysta våffel pommes frites, Frysta waffle fries
 
@@ -91652,6 +91776,7 @@ ciqual_food_name:en: Poultry ham in cube, grated or minced
 fr: Lardons de dinde
 
 < en:Turkeys
+en: Turkey bacon
 fr: Bacons de dindes, bacons de dinde, bacon de dindes, bacon de dinde
 
 < en:Turkeys
