@@ -114,8 +114,7 @@ my $query_ref = {};
 my $separator = "\t";
 
 # Export database script to generate CSV exports of the whole database
-# Note: the test update seems to fail if the expected results files already exist.
-# remove tests/integration/expected_test_results/export_database/ before updating expected results.
+# remove tests/integration/expected_test_results/export_database/ before updating expected results as we get a file for each row.
 if ($update_expected_results) {
 	remove_tree($expected_result_dir . "/export_database");
 }
@@ -136,12 +135,16 @@ $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
 
 my $script_out = `perl scripts/export_database.pl`;
 
+<<<<<<< HEAD
 # For debugging, copy the CSV file
 # print STDERR "cp $csv_filename $expected_result_dir/export_database.csv.test \n";
 # system("cp $csv_filename $expected_result_dir/export_database.csv.test");
 
+=======
+# Note we don't save the CSV file for this test as it contains modified dates
+>>>>>>> main
 ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "/export_database",
-	$update_expected_results, "export_database");
+	$update_expected_results, "export_database", 0);
 
 # CSV export
 
