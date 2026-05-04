@@ -608,6 +608,9 @@ clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 	echo "" > logs/apache2/log4perl.log
 
+rotate_logs:
+	${DOCKER_COMPOSE_BUILD} run --rm --user root backend bash -c "savelog -p logs/{nginx,apache2}/*{.,_}log"
+
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
 # Run dependent projects
