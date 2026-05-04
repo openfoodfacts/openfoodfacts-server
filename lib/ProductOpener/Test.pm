@@ -34,7 +34,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&capture_ouputs
+		&capture_outputs
 		&ensure_expected_results_dir
 		&compare_file_to_expected_results
 		&compare_to_expected_results
@@ -322,7 +322,7 @@ sub remove_all_orgs () {
 	}
 }
 
-=head2 capture_ouputs ($meth)
+=head2 capture_outputs ($meth)
 
 Capturing out / err with Stdout/Stderr::Extended
 while following Capture::Tiny style
@@ -332,7 +332,7 @@ or verify something is present in its input / output
 
 =head3 Example usage
 
-    my ($out, $err, $csv_result) = capture_ouputs (sub {
+    my ($out, $err, $csv_result) = capture_outputs (sub {
         return scalar load_csv_or_excel_file($my_excel);
     });
 
@@ -348,7 +348,7 @@ Returns an array with std output, std error, result of the method as array.
 
 =cut
 
-sub capture_ouputs ($meth) {
+sub capture_outputs ($meth) {
 
 	my $out = IO::Capture::Stdout::Extended->new();
 	my $err = IO::Capture::Stderr::Extended->new();
