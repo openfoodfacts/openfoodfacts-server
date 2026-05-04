@@ -64,7 +64,7 @@ use vars @EXPORT_OK;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use Encode;
-use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie);
+use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie url_param);
 use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
 
@@ -355,16 +355,22 @@ sub request_param ($request_ref, $param_name) {
 		return decode utf8 => $cgi_param;
 	}
 	else {
-		my $body_json_param = deep_get($request_ref, "body_json", $param_name);
-		if (defined $body_json_param) {
-			return $body_json_param;
+		my $query_param = scalar url_param($param_name);
+		if (defined $query_param) {
+			return decode utf8 => $query_param;
 		}
 		else {
-			# For product attributes parameters, we allow cookies so that we do not have parameters
-			# included in the URL and in logs
-			# e.g. cookie("attribute_unwanted_ingredients_tags")
-			my $cookie_param = cookie($param_name);
-			return $cookie_param;    # returns undef if there's no cookie
+			my $body_json_param = deep_get($request_ref, "body_json", $param_name);
+			if (defined $body_json_param) {
+				return $body_json_param;
+			}
+			else {
+				# For product attributes parameters, we allow cookies so that we do not have parameters
+				# included in the URL and in logs
+				# e.g. cookie("attribute_unwanted_ingredients_tags")
+				my $cookie_param = cookie($param_name);
+				return $cookie_param;    # returns undef if there's no cookie
+			}
 		}
 	}
 	# We should have returned before reaching this line
