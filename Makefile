@@ -1,7 +1,7 @@
 #!/usr/bin/make
 
 ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
-    $(error "We do not suppport using cmd.exe on Windows, please run in a 'git bash' console")
+    $(error "We do not support using cmd.exe on Windows, please run in a 'git bash' console")
 endif
 
 
