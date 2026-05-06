@@ -342,7 +342,7 @@ sub _process_registered_users_stream(%message_hash) {
 		my $user_ref = retrieve_user($user_id);
 		if ($user_ref) {
 			if (defined $requested_org) {
-				$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
+				$user_ref->{requested_org} = remove_tags_and_quote($requested_org);
 
 				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
 
