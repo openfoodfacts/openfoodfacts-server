@@ -260,14 +260,7 @@ sub process_xread_stream_reply($reply_ref) {
 			my @outer = @{$outer_ref};
 			$message_id = $outer[0];
 			eval {
-				my @values = @{$outer[1]};
-
-				my %message_hash;
-				for (my $i = 0; $i < scalar(@values); $i += 2) {
-					my $key = $values[$i];
-					my $value = $values[$i + 1];
-					$message_hash{$key} = $value;
-				}
+				my %message_hash = @{$outer[1]};
 
 				if ($stream_name eq 'user-registered') {
 					_process_registered_users_stream(%message_hash);
