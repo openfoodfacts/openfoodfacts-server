@@ -42,12 +42,15 @@
       }
    ],
    "ingredients_analysis" : {
+      "may-contain-palm-oil" : [
+		  "cocoa-butter"
+      ],
       "en:maybe-vegan" : [
          "en:cane-sugar"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-free",
+      "en:may-contain-palm-oil",
       "en:maybe-vegan",
       "en:vegetarian"
    ],
@@ -72,6 +75,9 @@
       "en:disaccharide",
       "en:sugar",
       "en:cocoa-butter"
+      "en:oil-and-fat"
+      "en:vegetable-oil-and-fat"
+      "en:vegetable-oil"
    ],
    "ingredients_text" : "pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total).",
    "ingredients_with_specified_percent_n" : 1,

@@ -172,6 +172,7 @@
             },
             {
                "ciqual_food_code" : "16030",
+			   "from_palm_oil" : "maybe",
                "id" : "en:cocoa-butter",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 3.1125,
@@ -502,6 +503,7 @@
       "en:plant",
       "en:cocoa",
       "en:cocoa-butter",
+      "en:vegetable-oil",
       "en:vegetable-fat",
       "en:lactose-and-milk-proteins",
       "en:protein",
@@ -526,7 +528,6 @@
       "en:e415",
       "en:illipe-oil",
       "en:mango-kernel-oil",
-      "en:vegetable-oil",
       "en:shorea-robusta-seed-oil",
       "en:shea-butter",
       "en:palm-oil",

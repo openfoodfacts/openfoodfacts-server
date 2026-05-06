@@ -41,9 +41,13 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "may-contain-palm-oil" : [
+		  "cocoa-butter"
+      ],
+   },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-free",
+      "en:may-contain-palm-oil",
       "en:vegan",
       "en:vegetarian"
    ],
