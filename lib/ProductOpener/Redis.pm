@@ -278,6 +278,7 @@ sub process_xread_stream_reply($reply_ref) {
 				elsif ($stream_name eq 'user-updated') {
 					_process_updated_users_stream(%message_hash);
 				}
+				1;
 			} or do {
 				my $error = $@ || 'unknown error processing Redis stream message';
 				$log->warn("Error processing Redis stream message", {message_id => $message_id, error => $error})
@@ -287,7 +288,6 @@ sub process_xread_stream_reply($reply_ref) {
 				print $OUT "$stream_name - $message_id - $error\n";
 				close($OUT);
 
-				log_bad_message($message_id, $stream_name, $error);
 				return;
 			};
 			if ($message_id and (not $last_processed_message_id or $message_id gt $last_processed_message_id)) {
