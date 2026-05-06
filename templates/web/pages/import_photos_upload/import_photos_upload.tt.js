@@ -74,7 +74,7 @@ function waitForPreviousUpload(submitIndex, callback) {
  * https://opensource.org/licenses/MIT
  */
 
-'use strict';
+//'use strict';
 
 // Enable iframe cross-domain access via redirect option:
 \$('#fileupload').fileupload({
@@ -148,7 +148,7 @@ var images_processed = 0;
 		if(typeof codes[code] === 'undefined') {
 			codes[code] = true;
 
-			var data = [
+			var requestData = [
 				{name : "code", value : code},
 				{name : "comment", value : "fields added through photos upload on producer platform"}
 			];
@@ -157,7 +157,7 @@ var images_processed = 0;
 			var n = 0;
 			while (\$('#tag_' + i).length > 0) {
 				if ((\$('#tag_' + i).val() != '') && ((\$('#tagtype_' + i).val() != 'add_tag'))) {
-					data.push({
+					requestData.push({
 						name : "add_" + \$('#tagtype_' + i).val(),
 						value: \$('#tag_' + i).val()
 					});
@@ -166,14 +166,14 @@ var images_processed = 0;
 				i++;
 			}
 
-			console.log(data);
+			console.log(requestData);
 
 			if (n > 0) {
 				\$.ajax({
 					type: "GET",
 					contentType: "application/json; charset=utf-8",
 					url: "/cgi/product_jqm_multilingual.pl",
-					data: data,
+					data: requestData,
 					success: function (result) {
 						console.log("data sent");
 					}
