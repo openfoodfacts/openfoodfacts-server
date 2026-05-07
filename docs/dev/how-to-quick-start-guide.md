@@ -4,7 +4,7 @@ This guide will allow you to rapidly build a ready-to-use development environmen
 As an alternative to setting up your environment locally, follow the [Gitpod how-to guide](how-to-use-gitpod.md)
 to instantly provision a ready-to-code development environment in the cloud.
 
-First setup time estimate is `~10min` with the following specs:
+First setup time estimate is `~10min` with the following **recommended** specs:
 * `8 GB` of RAM dedicated to Docker client
 * `6` cores dedicated to Docker client
 * `12 MB/s` internet speed
@@ -116,7 +116,7 @@ After successfully installing WSL, you need to set up your Linux distribution an
 
 If you use Docker Desktop:
 
-- ensure you allow enough memory for your VMs (at least 4G)
+- ensure you allow enough memory for your VMs (**minimum 4 GB, 8 GB recommended**)
 - ensure you Enabled host networking (in Resources / Network)
 
 #### macOS Users: Use VirtioFS to Avoid File Sync Issues
@@ -324,6 +324,29 @@ To have all site pages on your dev instance, see [Using pages from openfoodfacts
 
 Specific notes are provided on [applying AGRIBALYSE updates to support the Ecoscore](how-to-update-agribalyse-ecoscore.md) calculation.
 
+## 4. Creating a User Account
+
+To test the application, you'll need to create a user account. All user authentication is handled through Keycloak.
+
+### Register a New User
+
+1. Go to `http://world.openfoodfacts.localhost/`
+2. Click **"Sign in"** - you'll be redirected to the Keycloak login page
+3. Click **"Register"** to create a new account
+4. Fill in the registration form and submit
+
+### Email Verification
+
+After registering, Keycloak will ask you to verify your email address. In the local development environment, **emails are not sent to real email addresses**. Instead, they're captured by a local email server.
+
+**To verify your email:**
+
+1. Open `http://localhost:5605/` in your browser (SMTP4Dev interface)
+2. You'll see your verification email with subject "Verify email"
+3. Click on the email to open it
+4. Click the verification link inside the email
+5. Your account will be activated!
+
 ## Visual Studio Code
 
 **WARNING**: Devcontainer support is currently experimental. It's recommended to run the normal docker commands before, and stop the containers: `make dev down`. Note that `make dev`, `make test`, and so on may currently conflict with the devcontainer.
@@ -490,7 +513,7 @@ You need to install [wget for windows](https://eternallybored.org/misc/wget/). T
 When running `make import_sample_data`
 
 ```bash
-<hl>Software error:</h1>
+<h1>Software error:</h1>
 <pre>MongoDB: :SelectionError: No writable server available. MongoDB server status:
 Topology type: Single; Member status:
 mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to 'mongodb:27017': Temporary failure in name resolution )
@@ -505,7 +528,7 @@ and the time and date of the error.
 
 [Sat Dec 17 19:52:21 2022] update_all_products from_dir_in_mongodb.pl: mongodb:27017 (type: Unknown, error: MongoDB::NetworkError: Could not connect to 'mongodb:27017': Temporary failure in name resolution )
 
-make: *** [Makefile:154: import_sample data] Error 22
+make: *** [Makefile:154: import_sample_data] Error 22
 ```
 
 **Solution:**

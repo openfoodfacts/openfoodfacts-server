@@ -86,7 +86,7 @@ jobs:
           tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
       - name: Checkout the project in case of release
         if: ${{ env.IS_RELEASE }}
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
           ref: ${{ env.RELEASE_SHA }}
@@ -121,7 +121,7 @@ jobs:
 
       - name: Add commit to release or release!
         id: release
-        uses: googleapis/release-please-action@v4.4.0
+        uses: googleapis/release-please-action@v5.0.0
         with:
           # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
           # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
@@ -143,9 +143,10 @@ jobs:
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: add-assets-to-release
-        uses: svenstaro/upload-release-action@2.11.4
+        uses: svenstaro/upload-release-action@2.11.5
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file_glob: /tmp/release-assets/*.tgz
+          file: /tmp/release-assets/*.tgz
+          file_glob: true
           tag: ${{ steps.release.outputs.tag_name }}
           overwrite: true

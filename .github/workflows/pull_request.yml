@@ -27,9 +27,12 @@ jobs:
     outputs:
       code_modified: ${{ steps.filter.outputs.code }}
       taxonomy_only: ${{ steps.filter.outputs.any_non_taxonomy == 'false' }}
+      perl_sbom: ${{ steps.filter-some.outputs.perl_sbom }}
+      docker_sbom: ${{ steps.filter-some.outputs.docker_sbom }}
+      frontend_sbom: ${{ steps.filter-some.outputs.frontend_sbom }}
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
         id: filter
         with:
           # FIXME: we need to consider more than these files
@@ -44,6 +47,20 @@ jobs:
             - '**/*'           # Catch everything
             - '!taxonomies/**' # Except taxonomy files
           predicate-quantifier: 'every'
+      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+        id: filter-some
+        with:
+          # FIXME: since this uses 'some' it isn’t able to exclude files (e.g., docker/*.md)
+          filters: |
+            perl_sbom:
+            - 'cpanfile'
+            docker_sbom:
+            - 'Dockerfile'
+            - 'docker-compose.yml'
+            frontend_sbom:
+            - 'Dockerfile.frontend'
+            - 'docker-compose.yml'
+          predicate-quantifier: 'some'
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -51,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - uses: actions/setup-node@v6
@@ -84,12 +101,12 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           # needs depth to run git log below
           fetch-depth: 50
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
         with:
           driver: docker-container
           use: true
@@ -110,7 +127,7 @@ jobs:
           echo "gid=$(id -g)" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub to enable pushing buildx cache
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -122,7 +139,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }} >> $GITHUB_OUTPUT
 
       - name: Build backend image with cache
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ./Dockerfile
@@ -307,12 +324,12 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
         with:
           driver: docker-container
           use: true
@@ -324,7 +341,7 @@ jobs:
           echo "gid=$(id -g)" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub to enable pushing buildx cache
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -336,7 +353,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
 
       - name: Build frontend image with cache
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ./Dockerfile.frontend
@@ -366,7 +383,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Setup Git and Restore Taxonomies
@@ -403,9 +420,9 @@ jobs:
       contents: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.perl_sbom == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Download backend image from artifacts
@@ -448,9 +465,9 @@ jobs:
       security-events: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.docker_sbom == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Download backend image from artifacts
@@ -473,7 +490,7 @@ jobs:
         artifact-name: backend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for backend image
-      uses: aquasecurity/trivy-action@0.34.2
+      uses: aquasecurity/trivy-action@v0.36.0
       with:
         image-ref: openfoodfacts-server/backend:dev
         format: 'sarif'
@@ -499,9 +516,9 @@ jobs:
       security-events: write
     needs: [build_frontend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.taxonomy_only == 'false'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.frontend_sbom == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: Download frontend image from artifacts
@@ -524,7 +541,7 @@ jobs:
         artifact-name: frontend-sbom
         dependency-snapshot: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     - name: Trivy scan for frontend image
-      uses: aquasecurity/trivy-action@0.34.2
+      uses: aquasecurity/trivy-action@v0.36.0
       with:
         image-ref: openfoodfacts-server/frontend:dev
         format: 'sarif'
@@ -552,7 +569,7 @@ jobs:
       unit_test_groups: ${{ steps.matrix.outputs.unit_test_groups }}
       integration_test_groups: ${{ steps.matrix.outputs.integration_test_groups }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
 
@@ -600,7 +617,7 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.unit_test_groups) }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
 
@@ -691,7 +708,7 @@ jobs:
         make codecov
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v5
+      uses: codecov/codecov-action@v6
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
@@ -717,7 +734,7 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.integration_test_groups) }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
 
@@ -801,7 +818,7 @@ jobs:
         make codecov
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v5
+      uses: codecov/codecov-action@v6
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
@@ -842,7 +859,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - uses: actions/cache/restore@v5
@@ -877,7 +894,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 1
     - name: verify apache2 envvars is correct
