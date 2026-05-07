@@ -679,8 +679,6 @@ the request object
 
 sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
 
-	$log->debug("notify_user_requested_org", {user_ref => $user_ref, org_created => $org_created}) if $log->is_debug();
-
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {
 		userid => $user_ref->{userid},
