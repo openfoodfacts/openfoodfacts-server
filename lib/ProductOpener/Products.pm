@@ -1441,7 +1441,9 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 				);
 			}
 			# On the pro platform, the _id includes the owner prefix (e.g. org-xxx/code)
-			$product_ref->{_id} = product_id_for_owner($Owner_id, $product_ref->{code}) . '';    # treat id as string;
+			my $product_owner_id = $product_ref->{owner} // $Owner_id;
+			$product_ref->{_id}
+				= product_id_for_owner($product_owner_id, $product_ref->{code}) . '';    # treat id as string;
 		}
 
 		if (object_path_exists("$BASE_DIRS{PRODUCTS}/$path")) {
@@ -1498,7 +1500,9 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 			);
 
 			# On the pro platform, the _id includes the owner prefix (e.g. org-xxx/code)
-			$product_ref->{_id} = product_id_for_owner($Owner_id, $product_ref->{code}) . '';    # treat id as string;
+			my $product_owner_id = $product_ref->{owner} // $Owner_id;
+			$product_ref->{_id}
+				= product_id_for_owner($product_owner_id, $product_ref->{code}) . '';    # treat id as string;
 
 		}
 
