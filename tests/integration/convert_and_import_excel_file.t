@@ -106,7 +106,7 @@ foreach my $test_ref (@tests) {
 	remove_all_orgs();
 
 	# step1: parse xls
-	my ($out, $err, $csv_result) = capture_ouputs(
+	my ($out, $err, $csv_result) = capture_outputs(
 		sub {
 			return scalar load_csv_or_excel_file($excel_file);
 		}

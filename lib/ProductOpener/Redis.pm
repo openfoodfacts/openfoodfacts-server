@@ -216,7 +216,6 @@ sub _read_user_streams() {
 					$log->info("[" . localtime() . "] Received data from Redis stream", {reply => $reply_ref})
 						if $log->is_info();
 					# Process any received messages
-					# TODO: Should eval here
 					my $last_processed_message_id = process_xread_stream_reply($reply_ref);
 					if ($last_processed_message_id) {
 						$search_from = $last_processed_message_id;
@@ -255,36 +254,42 @@ sub process_xread_stream_reply($reply_ref) {
 	foreach my $stream_ref (@streams) {
 		my @stream = @{$stream_ref};
 		my $message_id;
-		if ($stream[0] eq 'user-registered') {
-			$message_id = _process_registered_users_stream($stream[1]);
-		}
-		elsif ($stream[0] eq 'user-deleted') {
-			$message_id = _process_deleted_users_stream($stream[1]);
-		}
-		elsif ($stream[0] eq 'user-updated') {
-			$message_id = _process_updated_users_stream($stream[1]);
-		}
-		if ($message_id and (not $last_processed_message_id or $message_id gt $last_processed_message_id)) {
-			$last_processed_message_id = $message_id;
+		my $stream_name = $stream[0];
+
+		foreach my $outer_ref (@{$stream[1]}) {
+			my @outer = @{$outer_ref};
+			$message_id = $outer[0];
+			eval {
+				my %message_hash = @{$outer[1]};
+
+				if ($stream_name eq 'user-registered') {
+					_process_registered_users_stream(%message_hash);
+				}
+				elsif ($stream_name eq 'user-deleted') {
+					_process_deleted_users_stream(%message_hash);
+				}
+				elsif ($stream_name eq 'user-updated') {
+					_process_updated_users_stream(%message_hash);
+				}
+				1;
+			} or do {
+				my $error = $@ || 'unknown error processing Redis stream message';
+				$log->warn("Error processing Redis stream message", {message_id => $message_id, error => $error})
+					if $log->is_warn();
+
+				open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{PRIVATE_DATA}/bad-messages.log");
+				print $OUT "$stream_name - $message_id - $error\n";
+				close($OUT);
+
+				return;
+			};
+			if ($message_id and (not $last_processed_message_id or $message_id gt $last_processed_message_id)) {
+				$last_processed_message_id = $message_id;
+			}
 		}
 	}
 
 	return $last_processed_message_id,;
-}
-
-sub message_to_hash($outer_ref) {
-	my @outer = @{$outer_ref};
-	my $message_id = $outer[0];
-	my @values = @{$outer[1]};
-
-	my %message_hash;
-	for (my $i = 0; $i < scalar(@values); $i += 2) {
-		my $key = $values[$i];
-		my $value = $values[$i + 1];
-		$message_hash{$key} = $value;
-	}
-
-	return ($message_id, %message_hash);
 }
 
 sub cache_user(%message_hash) {
@@ -313,105 +318,79 @@ sub cache_user(%message_hash) {
 	return;
 }
 
-sub _process_registered_users_stream($stream_values_ref) {
-	my $last_processed_message_id;
+sub _process_registered_users_stream(%message_hash) {
+	cache_user(%message_hash);
 
-	foreach my $outer_ref (@{$stream_values_ref}) {
-		my ($message_id, %message_hash) = message_to_hash($outer_ref);
+	if ($process_global_redis_events) {
+		my $user_id = $message_hash{'userName'};
+		my $newsletter = $message_hash{'newsletter'};
+		my $requested_org = $message_hash{'requestedOrg'};
+		my $email = $message_hash{'email'};
+		my $clientId = $message_hash{'clientId'};
 
-		cache_user(%message_hash);
-
-		if ($process_global_redis_events) {
-			my $user_id = $message_hash{'userName'};
-			my $newsletter = $message_hash{'newsletter'};
-			my $requested_org = $message_hash{'requestedOrg'};
-			my $email = $message_hash{'email'};
-			my $clientId = $message_hash{'clientId'};
-
-			$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
-				if $log->is_info();
-
-			# Create the user preferences if they don't exist and set the properties
-			my $user_ref = retrieve_user($user_id);
-			if ($user_ref) {
-				if (defined $requested_org) {
-					$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
-
-					my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
-
-					if ($requested_org_id ne "") {
-						$user_ref->{requested_org_id} = $requested_org_id;
-						$user_ref->{pro} = 1;
-					}
-				}
-				store_user_preferences($user_ref);
-
-				my $args_ref = {userid => $user_id};
-
-				# Register interest in joining an organization
-				if (defined $requested_org) {
-					queue_job(
-						process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
-				}
-
-				if (not defined $clientId or $clientId ne 'OFF-PRO') {
-					# Don't send normal welcome email for users that sign-up via the pro platform
-					queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-				}
-
-				# Subscribe to newsletter
-				if (defined $newsletter and $newsletter eq 'subscribe') {
-					queue_job(
-						subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
-				}
-			}
-			else {
-				$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
-			}
-		}
-
-		$last_processed_message_id = $message_id;
-	}
-
-	return $last_processed_message_id;
-}
-
-sub _process_deleted_users_stream($stream_values_ref) {
-	my $last_processed_message_id;
-
-	foreach my $outer_ref (@{$stream_values_ref}) {
-		my ($message_id, %message_hash) = message_to_hash($outer_ref);
-
-		# Remove user from the cache
-		my $userid = $message_hash{'userName'};
-		$memd->delete("user/$userid");
-
-		my $args_ref = {
-			userid => $userid,
-			newuserid => $message_hash{'newUserName'}
-		};
-		my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id})
+		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
 			if $log->is_info();
 
-		$last_processed_message_id = $message_id;
+		# Create the user preferences if they don't exist and set the properties
+		my $user_ref = retrieve_user($user_id);
+		if ($user_ref) {
+			if (defined $requested_org) {
+				$user_ref->{requested_org} = remove_tags_and_quote($requested_org);
+
+				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+
+				if ($requested_org_id ne "") {
+					$user_ref->{requested_org_id} = $requested_org_id;
+					$user_ref->{pro} = 1;
+				}
+			}
+			store_user_preferences($user_ref);
+
+			my $args_ref = {userid => $user_id};
+
+			# Register interest in joining an organization
+			if (defined $requested_org) {
+				queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+
+			if (not defined $clientId or $clientId ne 'OFF-PRO') {
+				# Don't send normal welcome email for users that sign-up via the pro platform
+				queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+
+			# Subscribe to newsletter
+			if (defined $newsletter and $newsletter eq 'subscribe') {
+				queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+		}
+		else {
+			$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
+		}
 	}
 
-	return $last_processed_message_id;
+	return;
 }
 
-sub _process_updated_users_stream($stream_values_ref) {
-	my $last_processed_message_id;
+sub _process_deleted_users_stream(%message_hash) {
+	# Remove user from the cache
+	my $userid = $message_hash{'userName'};
+	$memd->delete("user/$userid");
 
-	foreach my $outer_ref (@{$stream_values_ref}) {
-		my ($message_id, %message_hash) = message_to_hash($outer_ref);
+	my $args_ref = {
+		userid => $userid,
+		newuserid => $message_hash{'newUserName'}
+	};
+	my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+	$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id})
+		if $log->is_info();
 
-		cache_user(%message_hash);
+	return;
+}
 
-		$last_processed_message_id = $message_id;
-	}
+sub _process_updated_users_stream(%message_hash) {
+	cache_user(%message_hash);
 
-	return $last_processed_message_id;
+	return;
 }
 
 =head2 push_product_update_to_redis ($product_ref, $change_ref, $action)
