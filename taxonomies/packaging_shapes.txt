@@ -459,7 +459,7 @@ hu: Tubus, tubusok, Cső, csövek, cső alakú
 it: Tubo, tubi
 nl: Tube, Tubes
 pt: Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
-describtion:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
+description:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
 
 # <en:Tube
 # fr:Tube avec bouchon dévissable
@@ -491,6 +491,48 @@ wikidata:en: Q3018341
 en: clipband, clip band
 description:en: A typically short (~5 cm/2″) band of some material (plastic or paper are common), reinforced with metal wires along the edges.
 wikidata:en: Q134396173
+
+< en:fastener
+en: staple, staples
+ar: دبوس مزدوج السن
+ca: grapa
+ce: атлан
+cs: spony do sešívaček
+cv: такар
+cy: stwffwl
+da: hæfteklamme
+de: Heftklammer
+eo: krampo
+es: grapa
+et: aas
+eu: grapa
+fa: سوزن منگنه
+fi: niitti
+fr: agrafe
+gl: grampa
+hu: tűzőkapocs
+id: Kokot
+it: agrafes, graffette
+ja: ホッチキス針, ステープル
+ko: 스테이플
+la: Uncinulus
+ms: dawai kokot
+nb: heftestift
+nl: nietje
+pl: zszywka, zszywki
+pt: agrafos, grampo
+pt_br: grampo
+ro: scoabă
+ru: скобы для степлеров, скоба
+sl: sponka
+su: eusi hékter
+sv: häftklammer, häftklamrar
+tr: zımba telleri, zımba
+uk: скоба
+vi: đinh kẹp
+yi: דרעטל
+zh: 订书钉, 鋦釘, 訂書釘
+wikidata:en: Q377164
 
 # fr:Liens ( collier , ficelle , ruban , ruban adhésif , bolduc , feuillard , bande , cordon , fil , elastique , bracelet…) in data from Les Mousquetaires
 en: Tie, knot
@@ -616,6 +658,7 @@ fr: Bouchon solidaire, bouchons solidaires, bouchon attaché, bouchons attachés
 en: Lid or cap, cap or lid
 fr: Bouchon ou couvercle, Couvercle ou bouchon, Bouchon (non solidaire) / Capsule / Couvercle
 it: Coperchio o tappo, tappo o coperchio
+sv: lock\, kapsyl eller kork
 
 # covering on top of wine bottle caps
 en: overcap, over cap, over capsule
@@ -628,31 +671,82 @@ de: Deckel
 el: Καπάκι
 fr: Couvercle, couvercles
 hu: Fedél, tető, fedő
-# image:xx:couvercle-1.svg (cloche)
-# image:xx:couvercle-2.svg (couvercle)
-# image:xx:couvercle-3.svg (couvercle)
-# suggest:packaging_materials:en: en:metal, en:cardboard, en:glass, en:others
-# associated_packagings: en:jar, en:bottle
 it: coperchio
 nb: Lokk
 nl: Deksel, deksels
 pl: Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt: Tampa, tampas
 sv: lock, locket
+# image:xx:couvercle-1.svg (cloche)
+# image:xx:couvercle-2.svg (couvercle)
+# image:xx:couvercle-3.svg (couvercle)
+# suggest:packaging_materials:en: en:metal, en:cardboard, en:glass, en:others
+# associated_packagings: en:jar, en:bottle
 
 < en:Lid or cap
 en: Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
+ar: غطاء قارورة
 bg: Капачка, капачка за бутилка, капачки
-da: Kapsel
+da: flaskekapsel, kapsel
+de: Flaschenverschluss
+et: pudelikork
+fa: درب بطری
 fr: Bouchon, bouchons, Bouchon de bouteille, bouchons de bouteilles, bouchons
 hu: Kupak, borosdugó, dugó
-# image:xx:bouchon-1.svg
-# associated_packagings: en:bottle
+hy: Շշի խցան
 it: tappo di bottiglia
+ja: ボトルキャップ
+jv: tutup botol
+ko: 병마개
 nl: Dop, Doppen
+nn: flaskekapsel
 pl: Kapsel
 pt: Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
+ru: бутылочная пробка
+sv: kapsyl, kapsyler
+uk: пляшковий корок
+zh: 瓶蓋
+# associated_packagings: en:bottle
+# image:xx:bouchon-1.svg
 wikidata:en: Q1440281
+
+< en:Bottle cap
+en: crown cork, crown cap
+ca: tap corona
+eo: kronfermilo
+fi: kruunukorkki
+ja: 王冠 (栓)
+ko: 크라운 코르크
+sv: kronkork
+zh: 皇冠式瓶蓋
+# associated_packagings: en:bottle
+# suggest:packaging_materials:en: en:metal
+wikidata:en: Q13845007
+
+< en:Bottle cap
+en: screw cap, screw top
+da: skruelåg
+fi: kierrekorkki
+ja: スクリューキャップ
+nn: skrukork
+zh: 螺旋蓋
+# associated_packagings: en:bottle
+# suggest:packaging_materials:en: en:metal, en:plastic
+wikidata:en: Q607619
+
+< en:Bottle cap
+en: flip-top, swing-top, Quillfeldt stopper
+ca: tap de palanca
+da: patentprop
+de: Bügelverschluss, Patentverschluss, Lochmundverschluss
+eo: krampfermilo
+fi: patenttikorkki
+ja: フリップトップ
+nb: patentkork
+sv: patentkork, bygelkork
+uk: кліп-кришка
+# associated_packagings: en:bottle
+wikidata:en: Q1020525
 
 # for salt and pepper
 < en:Lid or cap
@@ -676,6 +770,7 @@ wikidata:en: Q1020525
 < en:Bottle cap
 en: Wine cork, wine bottle cork, wine corks, wine bottle corks
 bg: Коркова тапа, Корк за вино
+fa: چوب‌پنبه شراب
 fr: bouchon de bouteille de vin, bouchons de bouteilles de vin, bouchon de vin
 hr: pluteni čep
 # image:xx:bouchon-2.svg (wine cork)
@@ -683,22 +778,26 @@ hr: pluteni čep
 it: tappo di sughero, tappo di vino, tappo di bottiglia di vino
 nl: Wijnkurk, wijnkurken, Wijn kurk
 pl: Korek do wina
+sv: vinkork
 wikidata:en: Q86511715
 
 < en:Wine cork
 en: Champagne cork
 bg: Шампанска корк
+da: champagneprop
 de: Sektverschluss
 el: Πώμα σαμπάνιας
 es: Corcho de champán
 fr: bouchon de Champagne
 hu: Pezsgő dugó
 it: tappo di champagne
+nb: sjampanjekork
 nl: Champagnestop
 pl: Korek do szampana
 pt: Tampa de champanhe
-wikidata:en: Q106910341
+sv: champagnekork
 # image:xx:bouchon-3.svg (champagne cork)
+wikidata:en: Q106910341
 
 fr: Capsule CRD, Capsule Représentative de Droit, Capsule-congé
 wikidata:en: Q2937610
@@ -719,6 +818,7 @@ nl: Capsule, Kroonkurk, Kroonkurken
 pl: Kapsułka, kapsułki
 pt: Cápsula, cápsulas
 ru: Капсула, капсулы
+sv: kapsel, kapslar
 # image:xx:capsule-metal.svg (looks like a soda capsule)
 # image:xx:capsule-autre.svg (looks like a plastic capsule for wine)
 # suggest:packaging_materials:en: en:plastic, en:metal
@@ -1118,7 +1218,7 @@ ru: весовой, без упаковки
 zh: 散装, 无包装
 
 < en:dish
-en: Bowl, bows
+en: Bowl, bowls
 bg: Купа, купи
 de: Schüssel
 el: Μπολ
@@ -1320,8 +1420,6 @@ fr: enveloppage
 pt: invólucro
 # suggest:packaging_materials:en: en:metal, en:paper, en:other
 # image:xx:enveloppage.svg
-
-fr: agrafe
 
 en: Sleeve, sleeves
 fr: Gaine, gaines, manchon, manchons, sleever, sleevers
@@ -1539,12 +1637,12 @@ description:de: hohes, rundes Gefäß, zumeist in Form eines Zylinders oder Kege
 description:es: Recipiente en forma de cilindro, cono trunco o cubo, casi siempre provisto de un asa y utilizado para transportar líquidos, polvos u objetos pequeños.
 description:fr: Récipient cylindrique, ou plus souvent tronconique, de plastique, de bois ou de métal, en général pourvu d’une anse, servant à transporter un liquide, du sable ou autres.
 description:it: contenitore di forma cilindrica
+description:nl: busvormig taps toelopend vat (met hengsel), waarin men vloeistoffen of vaste stoffen kan verplaatsen
 #suggest:packaging_materials:en: en:plastic, en:metal
 description:no: beholder til å ha sand, vann, jord, etc. i; formet slik at man kan bære den, og med ett håndtak i topp
 description:pt: vasilha de forma quase cilíndrica para o transporte de água e outros usos domésticos feita em madeira, metal ou plástico
 description:ro: vas de lemn, de metal etc. de forma unui trunchi de con cu baza mare în partea superioară, cu toartă, folosit pentru transportul (și păstrarea) unor lichide, unor materiale granulare sau pulverulente etc.
 description:sv: ihålig handtagsförsedd behållare, oftast med cirkulär bottenyta och lätt utåtgående sidor, avsedd att inrymma vatten, jord, grus, sand etc.
-descrition:nl: busvormig taps toelopend vat (met hengsel), waarin men vloeistoffen of vaste stoffen kan verplaatsen
 wikidata:en: Q47107
 # suggest:packaging_materials:en: en:plastic, en:metal
 # image:xx:seau-plastique.svg

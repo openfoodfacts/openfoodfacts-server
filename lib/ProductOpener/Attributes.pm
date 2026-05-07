@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -136,22 +136,23 @@ The return value is a reference to an array of attribute groups that contains in
 
 =head3 Caching
 
-The return value is cached for each language in the %localized_attribute_groups hash.
+The return value is cached for each language in the %cached_attribute_groups hash.
 
 =cut
 
-# Global structure to cache the return structure for each language
-my %localized_attribute_groups = ();
+# Global structure to cache the return structure for each language and API version
+my %cached_attribute_groups = ();
 
 sub list_attributes ($target_lc, $api_version) {
 
-	$log->debug("list attributes", {target_lc => $target_lc}) if $log->is_debug();
+	my $cache_key = $target_lc . "_" . $api_version;
+	$log->debug("list attributes", {cache_key => $cache_key}) if $log->is_debug();
 
 	# Construct the return structure only once for each language
 
-	if (not defined $localized_attribute_groups{$target_lc}) {
+	if (not defined $cached_attribute_groups{$cache_key}) {
 
-		$localized_attribute_groups{$target_lc} = [];
+		$cached_attribute_groups{$cache_key} = [];
 
 		if (defined $options{attribute_groups}) {
 
@@ -196,12 +197,12 @@ sub list_attributes ($target_lc, $api_version) {
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 
-				push @{$localized_attribute_groups{$target_lc}}, $group_ref;
+				push @{$cached_attribute_groups{$cache_key}}, $group_ref;
 			}
 		}
 	}
 
-	return $localized_attribute_groups{$target_lc};
+	return $cached_attribute_groups{$cache_key};
 }
 
 =head2 initialize_attribute_group ( $group_id, $target_lc )
@@ -310,6 +311,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	}
 	elsif ($attribute_id eq "forest_footprint") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-a.svg";
+		$attribute_ref->{panel_id} = "forest_footprint";
 	}
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-1.svg";
@@ -1244,12 +1246,6 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 	else {
 		$attribute_ref->{status} = "known";
 
-		my $prepared = "";
-
-		if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-			$prepared = '_prepared';
-		}
-
 		foreach my $nutrient_level_ref (@nutrient_levels) {
 			my ($nutrient_level_nid, $low, $high) = @{$nutrient_level_ref};
 
@@ -1262,7 +1258,20 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 				$high = $high / 2;
 			}
 
-			my $value = $product_ref->{nutriments}{$nid . $prepared . "_100g"};
+			my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+			$log->debug(
+				"compute attributes nutrient quantity for product - known",
+				{
+					code => $product_ref->{code},
+					level => $level,
+					nid => $nid,
+					value => $value,
+					low => $low,
+					high => $high,
+					xproduct => $product_ref
+				}
+			) if $log->is_debug();
 
 			my $match;
 
@@ -1344,10 +1353,6 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 	$allergen =~ s/_/-/g;
 
 	my $allergen_id = "en:" . $allergen;
-
-	$log->debug("compute attribute allergen for product",
-		{code => $product_ref->{code}, attribute_id => $attribute_id, allergen_id => $allergen_id})
-		if $log->is_debug();
 
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 
@@ -1625,10 +1630,6 @@ e.g. nutritional_quality, allergens, labels
 
 sub add_attribute_to_group ($product_ref, $target_lc, $group_id, $attribute_ref) {
 
-	$log->debug("add_attribute_to_group",
-		{target_lc => $target_lc, group_id => $group_id, attribute_ref => $attribute_ref})
-		if $log->is_debug();
-
 	if (defined $attribute_ref) {
 
 		# Delete fields that are returned only by /api/v2/attribute_groups to list all the available attributes
@@ -1663,8 +1664,6 @@ sub add_attribute_to_group ($product_ref, $target_lc, $group_id, $attribute_ref)
 		my $group_ref;
 		# Select the requested group
 		foreach my $each_group_ref (@{$product_ref->{"attribute_groups_" . $target_lc}}) {
-			$log->debug("add_attribute_to_group - existing group", {group_ref => $group_ref, group_id => $group_id})
-				if $log->is_debug();
 			if ($each_group_ref->{id} eq $group_id) {
 				$group_ref = $each_group_ref;
 				last;

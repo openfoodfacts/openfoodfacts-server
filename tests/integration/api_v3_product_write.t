@@ -21,11 +21,10 @@ remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
-
-my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
-$log->debug('test token', {token => $token}) if $log->is_debug();
+my $auth_header = $ua->default_headers->header('Authorization');
+$log->debug('test token header', {header => $auth_header}) if $log->is_debug();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
@@ -494,7 +493,7 @@ my $tests_ref = [
 			}
 		}',
 		headers_in => {
-			'Authorization' => 'Bearer ' . $token,
+			'Authorization' => $auth_header,
 		},
 	},
 	{

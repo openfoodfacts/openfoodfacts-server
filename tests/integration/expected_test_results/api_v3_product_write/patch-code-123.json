@@ -1,5 +1,5 @@
 {
-   "code" : "123",
+   "code" : "00000123",
    "errors" : [
       {
          "field" : {
@@ -19,5 +19,22 @@
       }
    ],
    "status" : "failure",
-   "warnings" : []
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "code",
+            "value" : "00000123"
+         },
+         "impact" : {
+            "id" : "none",
+            "lc_name" : "None",
+            "name" : "None"
+         },
+         "message" : {
+            "id" : "different_normalized_product_code",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ]
 }

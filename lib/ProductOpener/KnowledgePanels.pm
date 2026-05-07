@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -64,7 +64,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
-use ProductOpener::Food qw/%categories_nutriments_per_country/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/f_lang f_lang_in_lc lang lang_in_other_lc/;
 use ProductOpener::Display qw/:all/;
@@ -187,7 +186,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 
 	# Test panel to test the start of the API
 	# Disabled, kept as reference when we create a "Do you know" panel
-	if ($product_ref->{code} eq "3017620422003--disabled") {
+	if ((defined $product_ref->{code}) and ($product_ref->{code} eq "3017620422003--disabled")) {
 
 		my $test_panel_ref = {
 			parent_panel_id => "root",
@@ -479,8 +478,10 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 		$panel_json =~ s/^(\s*)\/\/(.*)$//mg;
 
 		# Turn relative links to absolute links using the requested country / language subdomain
-		my $formatted_subdomain = $request_ref->{formatted_subdomain};
-		$panel_json =~ s/href="\//href="$formatted_subdomain\//g;
+		my $formatted_subdomain = $request_ref->{formatted_subdomain} // '';
+		if ($formatted_subdomain) {
+			$panel_json =~ s/href="\//href="$formatted_subdomain\//g;
+		}
 
 		# Convert multilines strings between backticks `` into single line strings
 		# We use two backticks `` to remove line breaks and extra spaces
@@ -587,7 +588,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		my $grade = $product_ref->{environmental_score_data}{grade};
 		my $transportation_warning = undef;
 
-		if (defined $product_ref->{environmental_score_data}{scores}{$cc}) {
+		if ((defined $cc) and (defined $product_ref->{environmental_score_data}{scores}{$cc})) {
 			$score = $product_ref->{environmental_score_data}{scores}{$cc};
 			$grade = $product_ref->{environmental_score_data}{grades}{$cc};
 			if ($cc eq "world") {
@@ -870,10 +871,84 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
+	# Forest footprint
+	if (defined $product_ref->{forest_footprint_data}) {
+		create_panel_from_json_template("forest_footprint", "api/knowledge-panels/environment/forest_footprint.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
 	# Create the environment_card panel
 	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc);
 	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	return 1;
+}
+
+=head2 create_qfdmo_fr_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Creates a knowledge panel card that contains information about circular economy solutions
+through QFDMO (Ou et comment donner, reparer et recycler).
+
+Only created for:
+- Products on Open Products Facts (product_type "product")
+- Products with a category that has a qfdmo_name_fr property
+- Users in France (target_cc = "fr")
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Created knowledge panels will be added to product_ref
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options configuration reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 in case a panel was created, 0 otherwise
+
+=cut
+
+sub create_qfdmo_fr_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product" (Open Products Facts)
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Only show for France
+	if ($target_cc ne 'fr') {
+		return 0;
+	}
+
+	# Check if any category in the hierarchy has a qfdmo_name_fr property
+	my ($qfdmo_name_fr, $category_id) = get_inherited_property_from_categories_tags($product_ref, "qfdmo_name:fr");
+
+	# Don't create the panel if no category has QFDMO info
+	if (not defined $qfdmo_name_fr) {
+		return 0;
+	}
+
+	# Get the French name of the category with QFDMO info
+	my $category_name_fr = display_taxonomy_tag_name("fr", "categories", $category_id);
+
+	# Add QFDMO info to panel data
+	$panel_data_ref->{qfdmo_name_fr} = $qfdmo_name_fr;
+	$panel_data_ref->{category_name_fr} = $category_name_fr;
+
+	# Create QFDMO solutions panel
+	create_panel_from_json_template(
+		"repair_reuse_recycle_fr_qfdmo",
+		"api/knowledge-panels/secondhand/repair_reuse_recycle_fr_qfdmo.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+	);
+
 	return 1;
 }
 
@@ -899,6 +974,10 @@ This parameter sets the desired language for the user facing strings.
 
 Used to select secondhand options (e.g. classified ads sites) that are relevant for the user.
 
+=head3 Return value
+
+1 in case a panel was created, 0 otherwise
+
 =cut
 
 sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
@@ -915,6 +994,11 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
 	my $category_id = $product_ref->{categories_hierarchy}[-1];
 	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+
+	# Create panels for repairing and maintaining products, as they are relevant for secondhand products
+	create_epargnonsnosressources_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+	create_qfdmo_fr_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	# Create paneld for donations
 
@@ -939,6 +1023,73 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
+}
+
+=head2 create_epargnonsnosressources_panel ( $product_ref, $target_lc, $target_cc, $options_ref, $request_ref)
+
+Link to epargnonsnosressource website
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+The panel is added in the product
+
+=head4 language code $target_lc
+
+=head4 country code $target_cc
+
+=head4 options reference $options_ref
+
+=head4 request reference $request_ref
+
+=head3 Return value
+
+1 if panel created, 0 otherwise
+
+=cut
+
+sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
+
+	my $panel_data_ref = {};
+
+	# Only available for the product_type "product"
+	if ($options{product_type} ne "product") {
+		return 0;
+	}
+
+	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	my $category_id;
+	if (
+		not(ref($product_ref->{categories_hierarchy}) eq 'ARRAY'
+			and @{$product_ref->{categories_hierarchy}})
+		)
+	{
+		return 0;
+	}
+
+	# Check if the product has a category with a maintenance URL
+	my ($maintenance_url, $category_with_url)
+		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_link:en");
+
+	if (defined $maintenance_url) {
+		$category_id = $product_ref->{categories_hierarchy}[-1];
+		$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
+		$panel_data_ref->{maintenance_url} = $maintenance_url;
+		$panel_data_ref->{category_with_maintenance_url} = $category_with_url;
+
+		# Create panel for maintenance advice for France
+		if ($target_cc eq 'fr') {
+			create_panel_from_json_template(
+				"repair_fr_epargnonsnosressources",
+				"api/knowledge-panels/secondhand/repair_fr_epargnonsnosressources.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
+			);
+			return 1;
+		}
+	}
+
+	return 0;
 }
 
 sub create_carbon_footprint_panel($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
@@ -1168,7 +1319,7 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	my $panel_data_ref = data_to_display_nutriscore($product_ref, $version);
 
 	# Nutri-Score panel
-	my $grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $grade = deep_get($product_ref, "nutriscore", $version, "grade") // "unknown";
 
 	# Title
 	if ($grade eq "not-applicable") {
@@ -1344,12 +1495,26 @@ sub create_nutrition_facts_table_panel ($product_ref, $target_lc, $target_cc, $o
 	{
 
 		# Compare the product nutrition facts to the most specific category
-		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_cc, 1);
-		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
+		my $comparisons_ref = compare_product_nutrition_facts_to_categories($product_ref, $target_lc, $target_cc, 1);
 
+		# Create a first panel with the aggregated set and comparison to category (if any)
+		my $panel_data_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref);
 		create_panel_from_json_template("nutrition_facts_table",
 			"api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+
+		# Create a second detailed panel with the aggregated set + all input sets
+		my $panel_data_detailed_ref = data_to_display_nutrition_table($product_ref, $comparisons_ref, $request_ref, 1);
+		create_panel_from_json_template(
+			"nutrition_facts_table_with_input_sets",
+			"api/knowledge-panels/health/nutrition/nutrition_facts_table_with_input_sets.tt.json",
+			$panel_data_detailed_ref,
+			$product_ref,
+			$target_lc,
+			$target_cc,
+			$options_ref,
+			$request_ref
+		);
 	}
 	return;
 }
@@ -1443,12 +1608,12 @@ sub create_physical_activities_panel ($product_ref, $target_lc, $target_cc, $opt
 		if $log->is_debug();
 
 	# Generate a panel only for food products that have an energy per 100g value
-	if (    (defined $product_ref->{nutriments})
-		and (defined $product_ref->{nutriments}{energy_100g})
-		and ($product_ref->{nutriments}{energy_100g} > 0))
+	if (    (!$product_ref->{nutrition}{no_nutrition_data})
+		and (defined $product_ref->{nutrition}{aggregated_set}{nutrients}{energy})
+		and ($product_ref->{nutrition}{aggregated_set}{nutrients}{energy} > 0))
 	{
 
-		my $energy = $product_ref->{nutriments}{energy_100g};
+		my $energy = $product_ref->{nutrition}{aggregated_set}{nutrients}{energy};
 
 		# Compute energy density: low, moderate, high
 		# We might want to move it to the nutrients level at some point

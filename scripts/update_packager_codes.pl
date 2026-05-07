@@ -101,7 +101,7 @@ sub normalize_code {
 			"ES $code CE" when 'es';
 			"FI $code EC" when 'fi';
 			"FR $code CE" when 'fr';
-			"HR $code EU" when 'hr';
+			"$code" when 'hr';
 			"$code" when 'hu';
 			"$code" when 'ie';
 			"$code" when 'it';
@@ -172,7 +172,7 @@ my %approval_key = (
 	es => 'n_rgseaa',
 	fi => 'numero',
 	fr => 'numero_agrement',
-	hr => 'app_number',
+	hr => 'code',
 	hu => 'code',
 	ie => 'code',
 	it => 'code',

@@ -8,8 +8,9 @@
     [% IF product.environmental_score_data.adjustments.threatened_species.warning.defined %]
         "evaluation": "neutral",
         "title_element": {
-            "title": "[% edq(lang('environmental_score_threatened_species')) %]",
-            "subtitle": "[% edq(lang('may_contain_palm_oil')) %]",
+            "name": "[% edq(lang('environmental_score_threatened_species')) %]",
+            "value_string": "[% edq(lang('may_contain_palm_oil')) %]",
+            "type": "string",
             "icon_color_from_evaluation": true,
             "icon_url": "[% static_subdomain %]/images/icons/dist/monkey_uncertain.svg",
             "icon_size": "small",
@@ -31,8 +32,9 @@
     [% ELSIF product.environmental_score_data.adjustments.threatened_species.value.defined && product.environmental_score_data.adjustments.threatened_species.value < 0 %]
         "evaluation": "bad",
         "title_element": {
-            "title": "[% edq(lang('environmental_score_threatened_species')) %]",
-            "subtitle": "[% edq(lang('contains_palm_oil')) %]",
+            "name": "[% edq(lang('environmental_score_threatened_species')) %]",
+            "value_string": "[% edq(lang('contains_palm_oil')) %]",
+            "type": "string",
             "icon_url": "[% static_subdomain %]/images/icons/dist/palm-oil.svg",
             "icon_color_from_evaluation": true,
             "icon_size": "small",
@@ -52,8 +54,9 @@
     [% ELSE %]    
         "evaluation": "good",
         "title_element": {
-            "title": "[% edq(lang('environmental_score_threatened_species')) %]",
-            "subtitle": "[% edq(lang('environmental_score_no_species_threatening_ingredients')) %]",
+            "name": "[% edq(lang('environmental_score_threatened_species')) %]",
+            "value_string": "[% edq(lang('environmental_score_no_species_threatening_ingredients')) %]",
+            "type": "string",
             "icon_color_from_evaluation": true,
             "icon_url": "[% static_subdomain %]/images/icons/dist/monkey_happy.svg",
             "icon_size": "small",
