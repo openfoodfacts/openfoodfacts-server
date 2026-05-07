@@ -391,6 +391,7 @@ my @tests = (
 		},
 	},
 	# 365 is in fact a brand, but there's no way to tell if the user wants page 365 of the list of brands
+	# (numbers <= 500 are treated as page numbers)
 	{
 		id => 'facet-value-is-a-small-number-365',
 		input_request => {
