@@ -291,6 +291,17 @@ $tt = Template->new(
 		COMPILE_EXT => '.ttc',    # compile templates to Perl code for much faster reload
 		COMPILE_DIR => $data_root . "/tmp/templates",
 		ENCODING => 'UTF-8',
+		FILTERS => {
+			# UTF-8-safe ucfirst filter to avoid "Wide character in ucfirst" warnings
+			# Standard Perl ucfirst doesn't handle multi-byte UTF-8 characters properly
+			ucfirst => sub {
+				my $text = shift;
+				return '' unless defined $text;
+				# Use uc() on first character which works correctly with UTF-8
+				# when utf8 flag is set (Template Toolkit handles this with ENCODING => 'UTF-8')
+				return uc(substr($text, 0, 1)) . substr($text, 1);
+			},
+		},
 	}
 );
 
@@ -950,12 +961,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot|Timpibot)/i
+		=~ /\b(GoogleOther|Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|ChatGPT-User|cohere-ai|anthropic-ai|PerplexityBot|ClaudeBot|Claude-Web|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request|ImagesiftBot|Diffbot|Timpibot|meta-webindexer|meta-externalagent)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot|Timpibot)/i
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|Claude-Web|cohere-ai|anthropic-ai|ImagesiftBot|Diffbot|Timpibot|meta-webindexer|meta-externalagent|Applebot)/i
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -7701,10 +7712,12 @@ sub display_page ($request_ref) {
 				$osubdomain = $request_ref->{cc};
 			}
 			if (($olc eq $lc)) {
-				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
+				$selected_lang
+					= "<a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a>\n";
 			}
 			else {
-				$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a></li>";
+				$langs
+					.= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">" . ($Langs{$olc} // $olc) . "</a></li>";
 			}
 		}
 	}
@@ -10742,7 +10755,7 @@ sub display_properties ($request_ref) {
 
 	my $html;
 	process_template('web/common/includes/folksonomy_script.tt.html', {}, \$html, $request_ref)
-		|| return "template error: " . $tt->error();
+		|| return "template error: " . ($tt->error() // 'unknown error');
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{page_type} = "properties";

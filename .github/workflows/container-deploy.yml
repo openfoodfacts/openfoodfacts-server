@@ -269,8 +269,10 @@ jobs:
         script: |
           cd ${{ matrix.env }} && \
           make hdown && \
-          # verify dist volumes were removed
+          # verify dist volumes were removed \
           ! (docker volume list |grep po_.*_dist) && \
+          # rotate log, as it's a good occasion \
+          make rotate_logs && \
           make build_lang && \
           make prod_up
 

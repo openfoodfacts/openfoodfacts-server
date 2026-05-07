@@ -243,7 +243,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'!proteins', '-casein-',
 			'-serum-proteins-', '-nucleotides-',
 			'!salt', '-added-salt-',
-			'sodium', 'alcohol',
+			'sodium-', 'alcohol',
 			'#vitamins', 'vitamin-a-',
 			'beta-carotene-', 'vitamin-d-',
 			'vitamin-e-', 'vitamin-k-',
@@ -262,15 +262,16 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'chromium-', 'molybdenum-',
 			'iodine-', 'caffeine-',
 			'taurine-', 'methylsulfonylmethane-',
-			'ph-', '!fruits-vegetables-legumes-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'glycemic-index-', 'water-hardness-',
-			'choline-', 'phylloquinone-',
-			'beta-glucan-', 'inositol-',
-			'carnitine-', 'sulphate-',
-			'nitrate-', 'acidity-',
-			'carbohydrates-total-', 'water-',
+			'hydroxymethylbutyrate-', 'ph-',
+			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
+			'water-hardness-', 'choline-',
+			'phylloquinone-', 'beta-glucan-',
+			'inositol-', 'carnitine-',
+			'sulphate-', 'nitrate-',
+			'acidity-', 'carbohydrates-total-',
+			'water-',
 		)
 	],
 	off_ca => [
@@ -326,15 +327,16 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'fluoride-', 'selenium-',
 			'chromium-', 'molybdenum-',
 			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
-			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-',
+			'taurine-', 'hydroxymethylbutyrate-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_ru => [
@@ -455,13 +457,13 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', '!fruits-vegetables-legumes-',
-			'collagen-meat-protein-ratio-', 'cocoa-',
-			'chlorophyl-', 'carbon-footprint-',
-			'glycemic-index-', 'water-hardness-',
-			'sulfate-', 'nitrate-',
-			'acidity-', 'carbohydrates-',
-			'melatonin-',
+			'hydroxymethylbutyrate-', 'ph-',
+			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'glycemic-index-',
+			'water-hardness-', 'sulfate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-', 'melatonin-',
 		)
 	],
 	off_us_before_2017 => [
@@ -568,7 +570,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-sugars-', '-fiber-',
 			'-soluble-fiber-', '--polydextrose-',
 			'-insoluble-fiber-', '!salt',
-			'-added-salt-', '#sodium-',
+			'-added-salt-', 'sodium-',
 			'alcohol', '#vitamins',
 			'vitamin-a-', 'beta-carotene-',
 			'vitamin-d-', 'vitamin-e-',
@@ -1605,7 +1607,7 @@ sub has_category_that_should_have_prepared_nutrition_data ($product_ref) {
 
 Check that we know or can estimate the nutrients needed to compute the Nutri-Score of the product.
 
-To compute the Nutri-Score, we use the nutrition.aggregated_set 
+To compute the Nutri-Score, we use the nutrition.aggregated_set
 
 =head3 Arguments
 
@@ -1634,15 +1636,16 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 
-	my $preparation = "as_sold";
+	# by default we use the preparation of the aggregated set
+
+	my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
+	my $preparation = $aggregated_set_preparation // "as_sold";
 
 	my $category_tag = has_category_that_should_have_prepared_nutrition_data($product_ref);
 
 	if (defined $category_tag) {
 
 		$preparation = "prepared";
-
-		my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
 
 		if ((defined $aggregated_set_preparation) and ($aggregated_set_preparation eq "prepared")) {
 			$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag" . " - ";
@@ -1655,6 +1658,11 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 			add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
 			$nutrients_available = 0;
 		}
+	}
+	elsif ($aggregated_set_preparation eq "prepared") {
+		$product_ref->{nutrition_score_debug}
+			= "using prepared product data even if not necessary for category" . " - ";
+		add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
 	}
 
 	# Track the number of key nutrients present and their source
