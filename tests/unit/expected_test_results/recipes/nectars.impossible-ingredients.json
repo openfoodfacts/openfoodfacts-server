@@ -29,27 +29,19 @@
          "percent" : 30,
          "percent_estimate" : 25,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:orange-juice",
-      "en:fruit",
-      "en:citrus-fruit",
-      "en:juice",
-      "en:fruit-juice",
-      "en:orange",
-      "en:water",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 3,
@@ -84,17 +76,11 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
-   "known_ingredients_n" : 10,
+   "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50
-   },
    "recipe" : {
       "en:fruit" : 50,
       "en:sugar" : 30,

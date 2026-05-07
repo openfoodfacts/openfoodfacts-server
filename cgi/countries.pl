@@ -27,7 +27,8 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Display qw/init_request single_param/;
+use ProductOpener::Display qw/init_request/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/country_to_cc/;
 use ProductOpener::Web qw/get_countries_options_list/;

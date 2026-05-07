@@ -53,6 +53,18 @@ my @tests = (
 		expected_output => undef,
 	},
 	{
+		desc => "number_of_units above maximum should be rejected",
+		lc => "en",
+		input => {"number_of_units" => 9223372036854775807, "shape" => "en:bottle"},
+		expected_output => {'shape' => 'en:bottle'},
+	},
+	{
+		desc => "number_of_units at maximum (10000) should be accepted",
+		lc => "en",
+		input => {"number_of_units" => 10000, "shape" => "en:bottle"},
+		expected_output => {'number_of_units' => 10000, 'shape' => 'en:bottle'},
+	},
+	{
 		desc => "Value 0 should be considered empty, 1 value is not 0",
 		lc => "en",
 		input => {
@@ -155,7 +167,7 @@ boîte en carton à recycler"
 	],
 
 	# Recycling instructions for the Netherlands
-	# Tests for all types of conatiners
+	# Tests for all types of containers
 	[
 		'packaging_text_nl_fles_glasbak',
 		{
@@ -778,6 +790,60 @@ is(
 			'weight' => 500,
 			'weight_percent' => 100
 		}
+	}
+
+) or diag Dumper $product_ref->{packagings_materials};
+
+# Single packaging item with unknown weight, complete
+
+$product_ref = {
+	lc => "sv",
+	packagings => [
+		{
+			material => 'plast',
+		},
+	],
+	packagings_complete => 1
+};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+ProductOpener::Packaging::compute_weight_stats_for_parent_materials($product_ref);
+
+is(
+	$product_ref->{packagings_materials},
+	{
+		'all' => {
+			'weight_percent' => 100
+		},
+		'en:plastic' => {
+			'weight_percent' => 100
+		}
+	}
+
+) or diag Dumper $product_ref->{packagings_materials};
+
+# Single packaging item with unknown weight, incomplete
+
+$product_ref = {
+	lc => "sv",
+	packagings => [
+		{
+			material => 'plast',
+		},
+	],
+	packagings_complete => 0
+};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+ProductOpener::Packaging::compute_weight_stats_for_parent_materials($product_ref);
+
+is(
+	$product_ref->{packagings_materials},
+	{
+		'all' => {},
+		'en:plastic' => {}
 	}
 
 ) or diag Dumper $product_ref->{packagings_materials};

@@ -62,27 +62,19 @@
          "percent_max" : 5,
          "percent_min" : 5,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:apple",
-      "en:fruit",
-      "en:malaceous-fruit",
-      "en:banana",
-      "en:strawberry",
-      "en:berries",
-      "en:water",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 5,
@@ -119,18 +111,12 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
-   "known_ingredients_n" : 10,
+   "known_ingredients_n" : 5,
    "lc" : "en",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
       "en:at-least-5-ingredients-with-specified-percent"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 90,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 90,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 90,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 90
-   },
    "unknown_ingredients_n" : 0
 }

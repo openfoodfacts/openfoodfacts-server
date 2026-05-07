@@ -1,0 +1,1307 @@
+{
+   "catalogue_item_notification:catalogueItemNotificationMessage" : {
+      "sh:StandardBusinessDocumentHeader" : {
+         "sh:Receiver" : {
+            "sh:Identifier" : {
+               "$t" : "3770026870013",
+               "Authority" : "GS1"
+            }
+         },
+         "sh:Sender" : {
+            "sh:Identifier" : {
+               "Authority" : "GS1",
+               "$t" : "3034012285008"
+            }
+         },
+         "sh:HeaderVersion" : {
+            "$t" : "1.0"
+         },
+         "sh:DocumentIdentification" : {
+            "sh:CreationDateAndTime" : {
+               "$t" : "2025-05-15T09:48:06.782"
+            },
+            "sh:Standard" : {
+               "$t" : "GS1"
+            },
+            "sh:InstanceIdentifier" : {
+               "$t" : "OPENFOODFACT_00889_2025_05_15_09_48_06"
+            },
+            "sh:MultipleType" : {
+               "$t" : "false"
+            },
+            "sh:TypeVersion" : {
+               "$t" : "3.1"
+            },
+            "sh:Type" : {
+               "$t" : "catalogueItemNotification"
+            }
+         }
+      },
+      "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+      "xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+      "transaction" : {
+         "transactionIdentification" : {
+            "contentOwner" : {
+               "gln" : {
+                  "$t" : "3700749300016"
+               }
+            },
+            "entityIdentification" : {
+               "$t" : "3034012285008_0000141ed31b1e678d4f87b25c312f2f5996a9"
+            }
+         },
+         "documentCommand" : {
+            "catalogue_item_notification:catalogueItemNotification" : {
+               "catalogueItem" : {
+                  "dataRecipient" : {
+                     "$t" : "3770026870013"
+                  },
+                  "catalogueItemState" : {
+                     "catalogueItemStateCode" : {
+                        "$t" : "REGISTERED"
+                     }
+                  },
+                  "catalogueItemChildItemLink" : {
+                     "quantity" : {
+                        "$t" : "100"
+                     },
+                     "catalogueItem" : {
+                        "tradeItem" : {
+                           "tradeItemSynchronisationDates" : {
+                              "lastChangeDateTime" : {
+                                 "$t" : "2025-05-15T09:48:06.782"
+                              },
+                              "publicationDateTime" : {
+                                 "$t" : "2025-05-15T09:48:06.845"
+                              },
+                              "effectiveDateTime" : {
+                                 "$t" : "2023-07-21T00:00:00+02:00"
+                              }
+                           },
+                           "nextLowerLevelTradeItemInformation" : {
+                              "childTradeItem" : {
+                                 "gtin" : {
+                                    "$t" : "03760186970562"
+                                 },
+                                 "quantityOfNextLowerLevelTradeItem" : {
+                                    "$t" : "8"
+                                 }
+                              },
+                              "quantityOfChildren" : {
+                                 "$t" : "1"
+                              },
+                              "totalQuantityOfNextLowerLevelTradeItem" : {
+                                 "$t" : "8"
+                              }
+                           },
+                           "tradeItemInformation" : {
+                              "extension" : {
+                                 "promotional_item_information:promotionalItemInformationModule" : {
+                                    "isTradeItemAPromotionalUnit" : {
+                                       "$t" : "false"
+                                    },
+                                    "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
+                                 },
+                                 "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd",
+                                    "deliveryPurchasingInformation" : {
+                                       "startAvailabilityDateTime" : {
+                                          "$t" : "2023-07-21T00:00:00+02:00"
+                                       },
+                                       "orderQuantityMinimum" : {
+                                          "$t" : "1"
+                                       },
+                                       "orderQuantityMultiple" : {
+                                          "$t" : "1"
+                                       },
+                                       "firstOrderDateTime" : {
+                                          "$t" : "2023-07-21T00:00:00+02:00"
+                                       },
+                                       "orderableReturnableInformation" : {
+                                          "isNonSoldTradeItemReturnable" : {
+                                             "$t" : "false"
+                                          }
+                                       }
+                                    },
+                                    "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3"
+                                 },
+                                 "variable_trade_item_information:variableTradeItemInformationModule" : {
+                                    "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd",
+                                    "variableTradeItemInformation" : {
+                                       "isTradeItemAVariableUnit" : {
+                                          "$t" : "false"
+                                       }
+                                    }
+                                 },
+                                 "packaging_information:packagingInformationModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd",
+                                    "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
+                                    "packaging" : {
+                                       "packagingTypeDescription" : {
+                                          "languageCode" : "fr",
+                                          "$t" : "Container/Colis/Emballage sous vide/Colis cerclé"
+                                       },
+                                       "packagingTypeCode" : {
+                                          "$t" : "PUG"
+                                       }
+                                    }
+                                 },
+                                 "trade_item_description:tradeItemDescriptionModule" : {
+                                    "tradeItemDescriptionInformation" : {
+                                       "tradeItemDescription" : {
+                                          "$t" : "CT Force bio - Grenade (ambiant)",
+                                          "languageCode" : "fr"
+                                       },
+                                       "functionalName" : {
+                                          "languageCode" : "fr",
+                                          "$t" : "Force bio - Grenade (ambiant)"
+                                       },
+                                       "brandNameInformation" : {
+                                          "brandName" : {
+                                             "$t" : "Force Bio"
+                                          }
+                                       },
+                                       "descriptionShort" : {
+                                          "languageCode" : "fr",
+                                          "$t" : "CT Force bio - Grenade (ambiant)"
+                                       }
+                                    },
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd",
+                                    "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3"
+                                 },
+                                 "trade_item_measurements:tradeItemMeasurementsModule" : {
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd",
+                                    "tradeItemMeasurements" : {
+                                       "depth" : {
+                                          "measurementUnitCode" : "MMT",
+                                          "$t" : "297"
+                                       },
+                                       "height" : {
+                                          "$t" : "217",
+                                          "measurementUnitCode" : "MMT"
+                                       },
+                                       "width" : {
+                                          "$t" : "155",
+                                          "measurementUnitCode" : "MMT"
+                                       },
+                                       "tradeItemWeight" : {
+                                          "netWeight" : {
+                                             "measurementUnitCode" : "KGM",
+                                             "$t" : "8.8"
+                                          },
+                                          "grossWeight" : {
+                                             "measurementUnitCode" : "KGM",
+                                             "$t" : "9"
+                                          }
+                                       }
+                                    },
+                                    "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3"
+                                 },
+                                 "packaging_marking:packagingMarkingModule" : {
+                                    "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
+                                    "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd",
+                                    "packagingMarking" : {
+                                       "isTradeItemMarkedAsRecyclable" : {
+                                          "$t" : "false"
+                                       },
+                                       "isPackagingMarkedReturnable" : {
+                                          "$t" : "false"
+                                       }
+                                    }
+                                 }
+                              }
+                           },
+                           "isTradeItemAConsumerUnit" : {
+                              "$t" : "false"
+                           },
+                           "isTradeItemAnInvoiceUnit" : {
+                              "$t" : "true"
+                           },
+                           "isTradeItemAnOrderableUnit" : {
+                              "$t" : "true"
+                           },
+                           "isTradeItemABaseUnit" : {
+                              "$t" : "false"
+                           },
+                           "informationProviderOfTradeItem" : {
+                              "gln" : {
+                                 "$t" : "3700749300016"
+                              },
+                              "partyName" : {
+                                 "$t" : "ALTERFOOD-DRINKYZ"
+                              }
+                           },
+                           "targetMarket" : {
+                              "targetMarketCountryCode" : {
+                                 "$t" : "250"
+                              }
+                           },
+                           "preliminaryItemStatusCode" : {
+                              "$t" : "FINAL"
+                           },
+                           "isTradeItemAService" : {
+                              "$t" : "false"
+                           },
+                           "gtin" : {
+                              "$t" : "03760186973563"
+                           },
+                           "gdsnTradeItemClassification" : {
+                              "gpcCategoryCode" : {
+                                 "$t" : "10000219"
+                              },
+                              "gpcCategoryName" : {
+                                 "$t" : "Jus de Fruits – Prêt à boire (Périssable)"
+                              }
+                           },
+                           "tradeItemUnitDescriptorCode" : {
+                              "$t" : "CASE"
+                           },
+                           "isTradeItemADespatchUnit" : {
+                              "$t" : "true"
+                           }
+                        },
+                        "sourceDataPool" : {
+                           "$t" : "3770026870013"
+                        },
+                        "catalogueItemChildItemLink" : {
+                           "catalogueItem" : {
+                              "tradeItem" : {
+                                 "informationProviderOfTradeItem" : {
+                                    "gln" : {
+                                       "$t" : "3700749300016"
+                                    },
+                                    "partyName" : {
+                                       "$t" : "ALTERFOOD-DRINKYZ"
+                                    }
+                                 },
+                                 "isTradeItemABaseUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "isTradeItemAnInvoiceUnit" : {
+                                    "$t" : "false"
+                                 },
+                                 "isTradeItemAnOrderableUnit" : {
+                                    "$t" : "false"
+                                 },
+                                 "preliminaryItemStatusCode" : {
+                                    "$t" : "FINAL"
+                                 },
+                                 "targetMarket" : {
+                                    "targetMarketCountryCode" : {
+                                       "$t" : "250"
+                                    }
+                                 },
+                                 "tradeItemInformation" : {
+                                    "extension" : {
+                                       "product_information:productInformationModule" : {
+                                          "productInformationDetail" : {
+                                             "claimDetail" : [
+                                                {
+                                                   "claimTypeCode" : {
+                                                      "$t" : "REGULAR_LEVEL_OF"
+                                                   },
+                                                   "claimMarkedOnPackage" : {
+                                                      "$t" : "FALSE"
+                                                   },
+                                                   "claimElementCode" : {
+                                                      "$t" : "SUGARS"
+                                                   }
+                                                },
+                                                {
+                                                   "claimElementCode" : {
+                                                      "$t" : "SWEETENERS"
+                                                   },
+                                                   "claimMarkedOnPackage" : {
+                                                      "$t" : "FALSE"
+                                                   },
+                                                   "claimTypeCode" : {
+                                                      "$t" : "FREE_FROM"
+                                                   }
+                                                },
+                                                {
+                                                   "claimElementCode" : {
+                                                      "$t" : "ARTIFICIAL_SWEETENERS"
+                                                   },
+                                                   "claimMarkedOnPackage" : {
+                                                      "$t" : "FALSE"
+                                                   },
+                                                   "claimTypeCode" : {
+                                                      "$t" : "FREE_FROM"
+                                                   }
+                                                },
+                                                {
+                                                   "claimElementCode" : {
+                                                      "$t" : "SUGARS"
+                                                   },
+                                                   "claimTypeCode" : {
+                                                      "$t" : "NO_ADDED"
+                                                   },
+                                                   "claimMarkedOnPackage" : {
+                                                      "$t" : "TRUE"
+                                                   }
+                                                },
+                                                {},
+                                                {
+                                                   "claimTypeCode" : {
+                                                      "$t" : "CONTAINS"
+                                                   },
+                                                   "claimMarkedOnPackage" : {
+                                                      "$t" : "TRUE"
+                                                   },
+                                                   "claimElementCode" : {
+                                                      "$t" : "NATURALLY_OCCURING_SUGARS"
+                                                   }
+                                                }
+                                             ]
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:product_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ProductInformationModule.xsd",
+                                          "xmlns:product_information" : "urn:gs1:gdsn:product_information:xsd:3"
+                                       },
+                                       "sales_information:salesInformationModule" : {
+                                          "xmlns:sales_information" : "urn:gs1:gdsn:sales_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd",
+                                          "salesInformation" : {
+                                             "priceComparisonContentTypeCode" : {
+                                                "$t" : "PER_LITRE"
+                                             },
+                                             "priceComparisonMeasurement" : {
+                                                "measurementUnitCode" : "LTR",
+                                                "$t" : "1"
+                                             }
+                                          }
+                                       },
+                                       "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+                                          "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd",
+                                          "preparationServing" : {
+                                             "preparationInstructions" : {
+                                                "$t" : "Secouer, servez, c'est prêt. Servir frais de préférence.",
+                                                "languageCode" : "fr"
+                                             },
+                                             "preparationTypeCode" : {
+                                                "$t" : "PREPARED"
+                                             }
+                                          }
+                                       },
+                                       "nutritional_information:nutritionalInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd",
+                                          "nutrientHeader" : {
+                                             "preparationStateCode" : {
+                                                "$t" : "PREPARED"
+                                             },
+                                             "nutrientBasisQuantity" : {
+                                                "$t" : "100",
+                                                "measurementUnitCode" : "MLT"
+                                             },
+                                             "nutrientDetail" : [
+                                                {
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "ENER-"
+                                                   },
+                                                   "quantityContained" : [
+                                                      {
+                                                         "$t" : "204",
+                                                         "measurementUnitCode" : "KJO"
+                                                      },
+                                                      {
+                                                         "measurementUnitCode" : "E14",
+                                                         "$t" : "48"
+                                                      }
+                                                   ]
+                                                },
+                                                {
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "FAT"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "$t" : "0",
+                                                      "measurementUnitCode" : "GRM"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   }
+                                                },
+                                                {
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "FASAT"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "measurementUnitCode" : "GRM",
+                                                      "$t" : "0"
+                                                   }
+                                                },
+                                                {
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "CHOAVL"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "$t" : "12",
+                                                      "measurementUnitCode" : "GRM"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   }
+                                                },
+                                                {
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "SUGAR-"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "$t" : "12",
+                                                      "measurementUnitCode" : "GRM"
+                                                   }
+                                                },
+                                                {
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   },
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "PRO-"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "measurementUnitCode" : "GRM",
+                                                      "$t" : "0"
+                                                   }
+                                                },
+                                                {
+                                                   "nutrientTypeCode" : {
+                                                      "$t" : "SALTEQ"
+                                                   },
+                                                   "quantityContained" : {
+                                                      "measurementUnitCode" : "GRM",
+                                                      "$t" : "0.001"
+                                                   },
+                                                   "measurementPrecisionCode" : {
+                                                      "$t" : "APPROXIMATELY"
+                                                   }
+                                                }
+                                             ],
+                                             "nutrientBasisQuantityTypeCode" : {
+                                                "$t" : "BY_MEASURE"
+                                             },
+                                             "servingSize" : {
+                                                "measurementUnitCode" : "MLT",
+                                                "$t" : "100"
+                                             }
+                                          },
+                                          "xmlns:nutritional_information" : "urn:gs1:gdsn:nutritional_information:xsd:3",
+                                          "isNutrientRelevantDataProvided" : {
+                                             "$t" : "true"
+                                          }
+                                       },
+                                       "duty_fee_tax_information:dutyFeeTaxInformationModule" : {
+                                          "xmlns:duty_fee_tax_information" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3",
+                                          "dutyFeeTaxInformation" : {
+                                             "dutyFeeTaxTypeCode" : {
+                                                "$t" : "2G"
+                                             },
+                                             "dutyFeeTaxTypeDescription" : {
+                                                "$t" : "TVA taux réduit",
+                                                "languageCode" : "fr"
+                                             },
+                                             "dutyFeeTax" : {
+                                                "dutyFeeTaxRate" : {
+                                                   "$t" : "5.5"
+                                                }
+                                             },
+                                             "dutyFeeTaxAgencyCode" : {
+                                                "$t" : "65"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd"
+                                       },
+                                       "trade_item_lifespan:tradeItemLifespanModule" : {
+                                          "xmlns:trade_item_lifespan" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd",
+                                          "tradeItemLifespan" : {
+                                             "minimumTradeItemLifespanFromTimeOfProduction" : {
+                                                "$t" : "150"
+                                             },
+                                             "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                                "$t" : "120"
+                                             }
+                                          }
+                                       },
+                                       "allergen_information:allergenInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd",
+                                          "allergenRelatedInformation" : {
+                                             "allergenSpecificationAgency" : {
+                                                "$t" : "UE"
+                                             },
+                                             "isAllergenRelevantDataProvided" : {
+                                                "$t" : "true"
+                                             },
+                                             "allergenSpecificationName" : {
+                                                "$t" : "1169/2011"
+                                             }
+                                          },
+                                          "xmlns:allergen_information" : "urn:gs1:gdsn:allergen_information:xsd:3"
+                                       },
+                                       "farming_and_processing_information:farmingAndProcessingInformationModule" : {
+                                          "tradeItemOrganicInformation" : {
+                                             "organicClaim" : {
+                                                "organicClaimAgencyCode" : {
+                                                   "$t" : "4"
+                                                },
+                                                "organicTradeItemCode" : {
+                                                   "$t" : "2"
+                                                }
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd",
+                                          "xmlns:farming_and_processing_information" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3"
+                                       },
+                                       "promotional_item_information:promotionalItemInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd",
+                                          "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
+                                          "isTradeItemAPromotionalUnit" : {
+                                             "$t" : "false"
+                                          }
+                                       },
+                                       "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd",
+                                          "xmlns:referenced_file_detail_information" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3",
+                                          "referencedFileHeader" : [
+                                             {
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2023-07-21T00:00:00+02:00"
+                                                },
+                                                "fileFormatName" : {
+                                                   "$t" : "PNG"
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://damgenfiprod.agena3000.com/images/v1/5/1246448/document/Btw2N0oag3O8kA06uN7HB2JRGsAMyR6ogXQbTJoGoODJjKcLLdud4zHAvZeTpxAk/03760186970562_A1N1_s01.png"
+                                                },
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "PRODUCT_IMAGE"
+                                                },
+                                                "fileName" : {
+                                                   "$t" : "03760186970562_A1N1_s01.png"
+                                                },
+                                                "contentDescription" : {
+                                                   "languageCode" : "fr",
+                                                   "$t" : "visualVariantDescription :"
+                                                }
+                                             },
+                                             {
+                                                "fileFormatName" : {
+                                                   "$t" : "PDF"
+                                                },
+                                                "fileEffectiveStartDateTime" : {
+                                                   "$t" : "2024-04-11T00:00:00+02:00"
+                                                },
+                                                "fileEffectiveEndDateTime" : {
+                                                   "$t" : "2026-03-31T00:00:00+02:00"
+                                                },
+                                                "referencedFileTypeCode" : {
+                                                   "$t" : "ORGANIC_CERTIFICATE"
+                                                },
+                                                "uniformResourceIdentifier" : {
+                                                   "$t" : "https://damgenfiprod.agena3000.com/images/v1/5/1603116/document/jPrqKOCOMypeHezZotnE8eUtctKWOiuIKvZWWZcPj4OHVD6pP73DibgVLevl2QDZ/03760186970562_3700749300016_FR-BIO-01.250-0004389.2024.002_20260331.pdf"
+                                                },
+                                                "fileName" : {
+                                                   "$t" : "03760186970562_3700749300016_FR-BIO-01.250-0004389.2024.002_20260331.p"
+                                                }
+                                             }
+                                          ]
+                                       },
+                                       "packaging_information:packagingInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd",
+                                          "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
+                                          "packaging" : {
+                                             "packagingTypeCode" : {
+                                                "$t" : "BRI"
+                                             },
+                                             "packagingTypeDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "Brique"
+                                             }
+                                          }
+                                       },
+                                       "certification_information:certificationInformationModule" : {
+                                          "xmlns:certification_information" : "urn:gs1:gdsn:certification_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:certification_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CertificationInformationModule.xsd",
+                                          "certificationInformation" : {
+                                             "certificationStandard" : {
+                                                "$t" : "ECOCERT_COSMOS_ORGANIC"
+                                             },
+                                             "certificationAgency" : {
+                                                "$t" : "ORGANIC_AGENCY"
+                                             },
+                                             "certification" : {
+                                                "certificationEffectiveStartDateTime" : {
+                                                   "$t" : "2024-04-11T00:00:00+02:00"
+                                                },
+                                                "certificationEffectiveEndDateTime" : {
+                                                   "$t" : "2026-03-31T00:00:00+02:00"
+                                                },
+                                                "certificationValue" : {
+                                                   "$t" : "FR-BIO-01.250-0004389.2024.002"
+                                                }
+                                             }
+                                          }
+                                       },
+                                       "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                                          "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
+                                          "deliveryPurchasingInformation" : {
+                                             "firstOrderDateTime" : {
+                                                "$t" : "2023-07-21T00:00:00+02:00"
+                                             },
+                                             "startAvailabilityDateTime" : {
+                                                "$t" : "2023-07-21T00:00:00+02:00"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd"
+                                       },
+                                       "health_related_information:healthRelatedInformationModule" : {
+                                          "xmlns:health_related_information" : "urn:gs1:gdsn:health_related_information:xsd:3",
+                                          "healthRelatedInformation" : {
+                                             "nutritionalProgram" : {
+                                                "nutritionalScore" : {
+                                                   "$t" : "C"
+                                                },
+                                                "nutritionalProgramIngredients" : {
+                                                   "nutritionalProgramIngredientTypeCode" : {
+                                                      "$t" : "FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+                                                   },
+                                                   "nutritionalProgramIngredientMeasurement" : {
+                                                      "measurementUnitCode" : "P1",
+                                                      "$t" : "100"
+                                                   }
+                                                },
+                                                "nutritionalProgramCode" : {
+                                                   "$t" : "8"
+                                                }
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd"
+                                       },
+                                       "variable_trade_item_information:variableTradeItemInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd",
+                                          "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
+                                          "variableTradeItemInformation" : {
+                                             "isTradeItemAVariableUnit" : {
+                                                "$t" : "false"
+                                             }
+                                          }
+                                       },
+                                       "trade_item_measurements:tradeItemMeasurementsModule" : {
+                                          "tradeItemMeasurements" : {
+                                             "depth" : {
+                                                "measurementUnitCode" : "MMT",
+                                                "$t" : "72"
+                                             },
+                                             "netContent" : {
+                                                "measurementUnitCode" : "LTR",
+                                                "$t" : "1"
+                                             },
+                                             "width" : {
+                                                "$t" : "71",
+                                                "measurementUnitCode" : "MMT"
+                                             },
+                                             "height" : {
+                                                "measurementUnitCode" : "MMT",
+                                                "$t" : "214"
+                                             },
+                                             "tradeItemWeight" : {
+                                                "grossWeight" : {
+                                                   "measurementUnitCode" : "KGM",
+                                                   "$t" : "1.1"
+                                                },
+                                                "netWeight" : {
+                                                   "$t" : "1.1",
+                                                   "measurementUnitCode" : "KGM"
+                                                }
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd",
+                                          "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3"
+                                       },
+                                       "trade_item_description:tradeItemDescriptionModule" : {
+                                          "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd",
+                                          "tradeItemDescriptionInformation" : {
+                                             "tradeItemDescription" : {
+                                                "languageCode" : "fr",
+                                                "$t" : "Force bio - Grenade (ambiant)"
+                                             },
+                                             "regulatedProductName" : {
+                                                "sequenceNumber" : "1",
+                                                "$t" : "Force bio - Grenade (ambiant)",
+                                                "languageCode" : "fr"
+                                             },
+                                             "brandNameInformation" : {
+                                                "brandName" : {
+                                                   "$t" : "Force Bio"
+                                                }
+                                             },
+                                             "descriptionShort" : {
+                                                "$t" : "Force bio - Grenade (ambiant)",
+                                                "languageCode" : "fr"
+                                             },
+                                             "functionalName" : {
+                                                "$t" : "Force bio - Grenade (ambiant)",
+                                                "languageCode" : "fr"
+                                             }
+                                          }
+                                       },
+                                       "diet_information:dietInformationModule" : {
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:diet_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DietInformationModule.xsd",
+                                          "xmlns:diet_information" : "urn:gs1:gdsn:diet_information:xsd:3",
+                                          "dietInformation" : {
+                                             "dietTypeInformation" : [
+                                                {
+                                                   "dietTypeCode" : {
+                                                      "$t" : "VEGAN"
+                                                   }
+                                                },
+                                                {
+                                                   "dietTypeCode" : {
+                                                      "$t" : "VEGETARIAN"
+                                                   }
+                                                }
+                                             ]
+                                          }
+                                       },
+                                       "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+                                          "ingredientStatement" : {
+                                             "$t" : "Ingrédients : Jus de grenade issu de l'agriculture biologique.",
+                                             "languageCode" : "fr",
+                                             "sequenceNumber" : "1"
+                                          },
+                                          "xmlns:food_and_beverage_ingredient" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3",
+                                          "juiceContentPercent" : {
+                                             "$t" : "100"
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd",
+                                          "isIngredientRelevantDataProvided" : {
+                                             "$t" : "TRUE"
+                                          }
+                                       },
+                                       "packaging_marking:packagingMarkingModule" : {
+                                          "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd",
+                                          "packagingMarking" : {
+                                             "packagingDate" : {
+                                                "tradeItemDateOnPackagingTypeCode" : {
+                                                   "$t" : "BEST_BEFORE_DATE"
+                                                }
+                                             },
+                                             "packagingMarkedLabelAccreditationCode" : [
+                                                {
+                                                   "$t" : "AGRICULTURE_BIOLOGIQUE"
+                                                },
+                                                {
+                                                   "$t" : "EU_ORGANIC_FARMING"
+                                                },
+                                                {
+                                                   "$t" : "ECOCERT_CERTIFICATE"
+                                                },
+                                                {
+                                                   "$t" : "PME_PLUS"
+                                                }
+                                             ],
+                                             "isPackagingMarkedReturnable" : {
+                                                "$t" : "false"
+                                             },
+                                             "localPackagingMarkedLabelAccreditationCodeReference" : {
+                                                "$t" : "NO_FSC"
+                                             }
+                                          }
+                                       },
+                                       "place_of_item_activity:placeOfItemActivityModule" : {
+                                          "importClassification" : {
+                                             "importClassificationTypeCode" : {
+                                                "$t" : "CUSTOMS_TARIFF_NUMBER"
+                                             },
+                                             "importClassificationValue" : {
+                                                "$t" : "20098999"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd",
+                                          "xmlns:place_of_item_activity" : "urn:gs1:gdsn:place_of_item_activity:xsd:3",
+                                          "placeOfProductActivity" : {
+                                             "countryOfOrigin" : {
+                                                "countryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             }
+                                          }
+                                       },
+                                       "alcohol_information:alcoholInformationModule" : {
+                                          "xmlns:alcohol_information" : "urn:gs1:gdsn:alcohol_information:xsd:3",
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:alcohol_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AlcoholInformationModule.xsd",
+                                          "alcoholInformation" : {
+                                             "isTradeItemAQualityVintageAlcoholProduct" : {
+                                                "$t" : "false"
+                                             }
+                                          }
+                                       },
+                                       "marketing_information:marketingInformationModule" : {
+                                          "xmlns:marketing_information" : "urn:gs1:gdsn:marketing_information:xsd:3",
+                                          "marketingInformation" : {
+                                             "tradeItemMarketingMessage" : {
+                                                "$t" : "Des jus de fruits ou de superfruits en passant par une citronnade, Force Bio propose une gamme complète qui mise sur la transparence et le goût. \nBio et engagé, découvrez des produits savoureux et fruités qui apportent énergie et vitalité !\nProfitez des bienfaits apportés par nos jus de fruits bio à travers leurs différentes saveurs classiques ou plus originales.",
+                                                "languageCode" : "fr",
+                                                "sequenceNumber" : "1"
+                                             }
+                                          },
+                                          "xsi:schemaLocation" : "urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd"
+                                       }
+                                    }
+                                 },
+                                 "tradeItemSynchronisationDates" : {
+                                    "publicationDateTime" : {
+                                       "$t" : "2025-05-15T09:48:06.845"
+                                    },
+                                    "lastChangeDateTime" : {
+                                       "$t" : "2025-05-15T09:48:06.782"
+                                    },
+                                    "effectiveDateTime" : {
+                                       "$t" : "2023-07-21T00:00:00+02:00"
+                                    }
+                                 },
+                                 "avpList" : {
+                                    "stringAVP" : {
+                                       "attributeName" : "isCitesCertificateRequired",
+                                       "$t" : "false"
+                                    }
+                                 },
+                                 "isTradeItemAConsumerUnit" : {
+                                    "$t" : "true"
+                                 },
+                                 "gdsnTradeItemClassification" : {
+                                    "gpcCategoryCode" : {
+                                       "$t" : "10000219"
+                                    },
+                                    "gpcCategoryName" : {
+                                       "$t" : "Jus de Fruits – Prêt à boire (Périssable)"
+                                    }
+                                 },
+                                 "gtin" : {
+                                    "$t" : "03760186970562"
+                                 },
+                                 "isTradeItemADespatchUnit" : {
+                                    "$t" : "false"
+                                 },
+                                 "tradeItemUnitDescriptorCode" : {
+                                    "$t" : "BASE_UNIT_OR_EACH"
+                                 },
+                                 "isTradeItemAService" : {
+                                    "$t" : "false"
+                                 },
+                                 "displayUnitInformation" : {
+                                    "isTradeItemADisplayUnit" : {
+                                       "$t" : "FALSE"
+                                    }
+                                 },
+                                 "tradeItemContactInformation" : [
+                                    {
+                                       "contactTypeCode" : {
+                                          "$t" : "BZL"
+                                       },
+                                       "targetMarketCommunicationChannel" : [
+                                          {
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             },
+                                             "communicationChannel" : {
+                                                "communicationValue" : {
+                                                   "$t" : "hello@alterfood.fr"
+                                                },
+                                                "communicationChannelCode" : {
+                                                   "$t" : "EMAIL"
+                                                }
+                                             }
+                                          },
+                                          {
+                                             "communicationChannel" : {
+                                                "communicationChannelCode" : {
+                                                   "$t" : "TELEPHONE"
+                                                },
+                                                "communicationValue" : {
+                                                   "$t" : "01 58 18 35 80"
+                                                }
+                                             },
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             }
+                                          }
+                                       ],
+                                       "structuredAddress" : {
+                                          "countryCode" : {
+                                             "$t" : "250"
+                                          },
+                                          "city" : {
+                                             "$t" : "Paris"
+                                          },
+                                          "streetAddress" : {
+                                             "$t" : "4, rue de Sèze"
+                                          },
+                                          "postalCode" : {
+                                             "$t" : "75009"
+                                          }
+                                       },
+                                       "contactAddress" : {
+                                          "$t" : "4, rue de Sèze"
+                                       },
+                                       "contactName" : {
+                                          "$t" : "Alterfood Drinkyz"
+                                       }
+                                    },
+                                    {
+                                       "targetMarketCommunicationChannel" : [
+                                          {
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             },
+                                             "communicationChannel" : {
+                                                "communicationChannelCode" : {
+                                                   "$t" : "TELEPHONE"
+                                                },
+                                                "communicationValue" : {
+                                                   "$t" : "01 58 18 35 80"
+                                                }
+                                             }
+                                          },
+                                          {
+                                             "communicationChannel" : {
+                                                "communicationChannelCode" : {
+                                                   "$t" : "EMAIL"
+                                                },
+                                                "communicationValue" : {
+                                                   "$t" : "hello@alterfood.fr"
+                                                }
+                                             },
+                                             "targetMarket" : {
+                                                "targetMarketCountryCode" : {
+                                                   "$t" : "250"
+                                                }
+                                             }
+                                          }
+                                       ],
+                                       "structuredAddress" : {
+                                          "city" : {
+                                             "$t" : "Paris"
+                                          },
+                                          "countryCode" : {
+                                             "$t" : "250"
+                                          },
+                                          "postalCode" : {
+                                             "$t" : "75009"
+                                          }
+                                       },
+                                       "contactAddress" : {
+                                          "$t" : "4, rue de Sèze"
+                                       },
+                                       "contactName" : {
+                                          "$t" : "Alterfood Drinkyz"
+                                       },
+                                       "contactTypeCode" : {
+                                          "$t" : "CXC"
+                                       }
+                                    }
+                                 ]
+                              },
+                              "sourceDataPool" : {
+                                 "$t" : "3770026870013"
+                              },
+                              "dataRecipient" : {
+                                 "$t" : "3770026870013"
+                              },
+                              "catalogueItemState" : {
+                                 "catalogueItemStateCode" : {
+                                    "$t" : "REGISTERED"
+                                 }
+                              }
+                           },
+                           "quantity" : {
+                              "$t" : "8"
+                           }
+                        },
+                        "catalogueItemState" : {
+                           "catalogueItemStateCode" : {
+                              "$t" : "REGISTERED"
+                           }
+                        },
+                        "dataRecipient" : {
+                           "$t" : "3770026870013"
+                        }
+                     }
+                  },
+                  "tradeItem" : {
+                     "isTradeItemAService" : {
+                        "$t" : "false"
+                     },
+                     "gtin" : {
+                        "$t" : "03760186976564"
+                     },
+                     "gdsnTradeItemClassification" : {
+                        "gpcCategoryCode" : {
+                           "$t" : "10000219"
+                        },
+                        "gpcCategoryName" : {
+                           "$t" : "Jus de Fruits – Prêt à boire (Périssable)"
+                        }
+                     },
+                     "tradeItemUnitDescriptorCode" : {
+                        "$t" : "PALLET"
+                     },
+                     "isTradeItemADespatchUnit" : {
+                        "$t" : "true"
+                     },
+                     "nextLowerLevelTradeItemInformation" : {
+                        "quantityOfChildren" : {
+                           "$t" : "1"
+                        },
+                        "childTradeItem" : {
+                           "quantityOfNextLowerLevelTradeItem" : {
+                              "$t" : "100"
+                           },
+                           "gtin" : {
+                              "$t" : "03760186973563"
+                           }
+                        },
+                        "totalQuantityOfNextLowerLevelTradeItem" : {
+                           "$t" : "100"
+                        }
+                     },
+                     "tradeItemInformation" : {
+                        "extension" : {
+                           "packaging_marking:packagingMarkingModule" : {
+                              "packagingMarking" : {
+                                 "isPackagingMarkedReturnable" : {
+                                    "$t" : "false"
+                                 },
+                                 "isTradeItemMarkedAsRecyclable" : {
+                                    "$t" : "false"
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd",
+                              "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3"
+                           },
+                           "trade_item_measurements:tradeItemMeasurementsModule" : {
+                              "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3",
+                              "tradeItemMeasurements" : {
+                                 "depth" : {
+                                    "$t" : "1200",
+                                    "measurementUnitCode" : "MMT"
+                                 },
+                                 "height" : {
+                                    "measurementUnitCode" : "MMT",
+                                    "$t" : "1235"
+                                 },
+                                 "width" : {
+                                    "$t" : "800",
+                                    "measurementUnitCode" : "MMT"
+                                 },
+                                 "tradeItemWeight" : {
+                                    "grossWeight" : {
+                                       "$t" : "915",
+                                       "measurementUnitCode" : "KGM"
+                                    },
+                                    "netWeight" : {
+                                       "$t" : "880",
+                                       "measurementUnitCode" : "KGM"
+                                    }
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd"
+                           },
+                           "trade_item_hierarchy:tradeItemHierarchyModule" : {
+                              "xmlns:trade_item_hierarchy" : "urn:gs1:gdsn:trade_item_hierarchy:xsd:3",
+                              "tradeItemHierarchy" : {
+                                 "quantityOfTradeItemsContainedInACompleteLayer" : {
+                                    "$t" : "20"
+                                 },
+                                 "quantityOfCompleteLayersContainedInATradeItem" : {
+                                    "$t" : "5"
+                                 }
+                              },
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_hierarchy:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHierarchyModule.xsd"
+                           },
+                           "trade_item_description:tradeItemDescriptionModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd",
+                              "tradeItemDescriptionInformation" : {
+                                 "descriptionShort" : {
+                                    "languageCode" : "fr",
+                                    "$t" : "PL Force bio - Grenade (ambiant)"
+                                 },
+                                 "brandNameInformation" : {
+                                    "brandName" : {
+                                       "$t" : "Force Bio"
+                                    }
+                                 },
+                                 "functionalName" : {
+                                    "languageCode" : "fr",
+                                    "$t" : "Force bio - Grenade (ambiant)"
+                                 },
+                                 "tradeItemDescription" : {
+                                    "$t" : "PL Force bio - Grenade (ambiant)",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3"
+                           },
+                           "packaging_information:packagingInformationModule" : {
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd",
+                              "packaging" : {
+                                 "packagingTypeCode" : {
+                                    "$t" : "PX"
+                                 },
+                                 "packagingTypeDescription" : {
+                                    "$t" : "Palette",
+                                    "languageCode" : "fr"
+                                 },
+                                 "platformTermsAndConditionsCode" : {
+                                    "$t" : "2"
+                                 },
+                                 "platformTypeCode" : {
+                                    "$t" : "11"
+                                 }
+                              },
+                              "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3"
+                           },
+                           "variable_trade_item_information:variableTradeItemInformationModule" : {
+                              "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd",
+                              "variableTradeItemInformation" : {
+                                 "isTradeItemAVariableUnit" : {
+                                    "$t" : "false"
+                                 }
+                              }
+                           },
+                           "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                              "deliveryPurchasingInformation" : {
+                                 "orderQuantityMultiple" : {
+                                    "$t" : "1"
+                                 },
+                                 "orderQuantityMinimum" : {
+                                    "$t" : "1"
+                                 },
+                                 "startAvailabilityDateTime" : {
+                                    "$t" : "2023-07-21T00:00:00+02:00"
+                                 },
+                                 "firstOrderDateTime" : {
+                                    "$t" : "2023-07-21T00:00:00+02:00"
+                                 },
+                                 "orderableReturnableInformation" : {
+                                    "isNonSoldTradeItemReturnable" : {
+                                       "$t" : "false"
+                                    }
+                                 }
+                              },
+                              "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd"
+                           },
+                           "promotional_item_information:promotionalItemInformationModule" : {
+                              "isTradeItemAPromotionalUnit" : {
+                                 "$t" : "false"
+                              },
+                              "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
+                           }
+                        }
+                     },
+                     "tradeItemSynchronisationDates" : {
+                        "lastChangeDateTime" : {
+                           "$t" : "2025-05-15T09:48:06.782"
+                        },
+                        "publicationDateTime" : {
+                           "$t" : "2025-05-15T09:48:06.845"
+                        },
+                        "effectiveDateTime" : {
+                           "$t" : "2023-07-21T00:00:00+02:00"
+                        }
+                     },
+                     "isTradeItemAConsumerUnit" : {
+                        "$t" : "false"
+                     },
+                     "informationProviderOfTradeItem" : {
+                        "gln" : {
+                           "$t" : "3700749300016"
+                        },
+                        "partyName" : {
+                           "$t" : "ALTERFOOD-DRINKYZ"
+                        }
+                     },
+                     "isTradeItemAnOrderableUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemAnInvoiceUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemABaseUnit" : {
+                        "$t" : "false"
+                     },
+                     "targetMarket" : {
+                        "targetMarketCountryCode" : {
+                           "$t" : "250"
+                        }
+                     },
+                     "preliminaryItemStatusCode" : {
+                        "$t" : "FINAL"
+                     }
+                  },
+                  "sourceDataPool" : {
+                     "$t" : "3770026870013"
+                  }
+               },
+               "isReload" : {
+                  "$t" : "true"
+               },
+               "catalogueItemNotificationIdentification" : {
+                  "entityIdentification" : {
+                     "$t" : "OPENFOODFACT_00889_2025_05_15_09_48_06"
+                  },
+                  "contentOwner" : {
+                     "gln" : {
+                        "$t" : "3700749300016"
+                     }
+                  }
+               },
+               "documentStatusCode" : {
+                  "$t" : "ORIGINAL"
+               },
+               "creationDateTime" : {
+                  "$t" : "2025-05-15T09:48:06.782"
+               }
+            },
+            "documentCommandHeader" : {
+               "type" : "CHANGE_BY_REFRESH",
+               "documentCommandIdentification" : {
+                  "contentOwner" : {
+                     "gln" : {
+                        "$t" : "3700749300016"
+                     }
+                  },
+                  "entityIdentification" : {
+                     "$t" : "3034012285008_0000141ed31b1e678d4f87b25c312f2f5996a9"
+                  }
+               }
+            }
+         }
+      },
+      "xsi:schemaLocation" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd",
+      "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader"
+   },
+   "encoding" : "UTF-8",
+   "version" : "1.0"
+}

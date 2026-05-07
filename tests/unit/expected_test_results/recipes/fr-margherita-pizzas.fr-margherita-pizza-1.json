@@ -126,30 +126,6 @@
       "en:non-vegan",
       "en:maybe-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
-      "en:cereal-flour",
-      "en:tomato-puree",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato",
-      "en:water",
-      "en:mozzarella",
-      "en:dairy",
-      "en:cheese",
-      "en:sunflower-oil",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:vegetable-oil",
-      "en:yeast",
-      "en:salt",
-      "en:herb",
-      "en:spice",
-      "en:condiment"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 9,
    "ingredients_n_tags" : [
@@ -209,17 +185,11 @@
       "en:yeast"
    ],
    "ingredients_without_ecobalyse_ids_n" : 4,
-   "known_ingredients_n" : 22,
+   "known_ingredients_n" : 9,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 26.15625,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 26.15625,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 26.15625,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 26.15625
-   },
    "recipe" : {
       "en:cheese" : 17,
       "en:flour" : 33,

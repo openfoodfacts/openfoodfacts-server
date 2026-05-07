@@ -27,7 +27,7 @@ use Log::Any qw($log);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -252,6 +252,6 @@ if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
 }
 
 if ($stats_ref->{error}) {
-	print STDERR "An error occured: " . $stats_ref->{error}{error} . "\n";
+	print STDERR "An error occurred: " . $stats_ref->{error}{error} . "\n";
 	exit(1);
 }

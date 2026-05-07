@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -145,7 +145,7 @@ sub load_forest_footprint_data() {
 								if (defined $taxonomy_fields{$tagtype}) {
 									$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
 
-									if (not exists_taxonomy_tag($tagtype, $tagid)) {
+									if (($tagtype ne "brands") and (not exists_taxonomy_tag($tagtype, $tagid))) {
 
 										$log->error(
 											"forest footprint condition does not exist in taxonomy",
@@ -193,10 +193,11 @@ sub load_forest_footprint_data() {
 
 						my $tagid;
 
+						# Check that the tags used to configure the forest footprint exist in the taxonomies
 						if (defined $taxonomy_fields{$tagtype}) {
 							$tagid = canonicalize_taxonomy_tag($language, $tagtype, $value);
 
-							if (not exists_taxonomy_tag($tagtype, $tagid)) {
+							if (($tagtype ne "brands") and (not exists_taxonomy_tag($tagtype, $tagid))) {
 
 								$log->error("forest footprint ingredient or category tag does not exist in taxonomy",
 									{tagtype => $tagtype, tagid => $tagid})
