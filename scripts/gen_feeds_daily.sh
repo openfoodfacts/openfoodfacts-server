@@ -43,8 +43,17 @@ if [ -n "$IS_PRO_PLATFORM" ]; then
     report_failed_commands $0
 fi
 
+# on Sunday, fix non normalized barcodes
+if [ "$(date +%u)" = "7" ]
+then
+    ./fix_non_normalized_codes.pl --skip-sto || report_error $? "fix_non_normalized_codes.pl"
+fi
+
 ./remove_empty_products.pl || report_error $? "remove_empty_products.pl"
 ./gen_top_tags_per_country.pl  || report_error $? "gen_top_tags_per_country.pl"
+
+# Generate the MongoDB dumps and jsonl export
+./mongodb_dump.sh $OFF_PUBLIC_DATA_DIR $PRODUCT_OPENER_FLAVOR $MONGODB_HOST $PRODUCT_OPENER_FLAVOR_SHORT || report_error $? "mongodb_dump.sh"
 
 # Generate the CSV and RDF exports
 ./export_database.pl || report_error $? "export_database.pl"
@@ -69,10 +78,7 @@ mc cp \
     s3/$PRODUCT_OPENER_FLAVOR-ds \
     || report_error $? "mc.cp.csv"
 
-# Generate the MongoDB dumps and jsonl export
 cd $OFF_SCRIPTS_DIR
-
-./mongodb_dump.sh $OFF_PUBLIC_DATA_DIR $PRODUCT_OPENER_FLAVOR $MONGODB_HOST $PRODUCT_OPENER_FLAVOR_SHORT || report_error $? "mongodb_dump.sh"
 
 # Small products data and images export for Docker dev environments
 # for about 1/100000th of the products contained in production.

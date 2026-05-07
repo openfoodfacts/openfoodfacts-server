@@ -26,13 +26,13 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
 use ProductOpener::Orgs qw/:all/;
-use ProductOpener::Tags qw/canonicalize_tag_link/;
+use ProductOpener::Tags qw/canonicalize_tag_link country_to_cc/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::CRM qw/get_company_url/;
 
@@ -472,6 +472,7 @@ foreach my $member_id (sort keys %{$org_ref->{members}}) {
 		$user_is_admin{$member_id} = 0;
 	}
 	my $member_user_ref = retrieve_user($member_id);
+	$member_user_ref->{user_cc} = country_to_cc($member_user_ref->{country});
 	push @org_members, $member_user_ref;
 }
 $template_data_ref->{org_members} = \@org_members;

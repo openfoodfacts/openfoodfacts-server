@@ -12,7 +12,31 @@ If you are new to tests, please read:
 - [Test::More module doc](https://perldoc.perl.org/Test::More)
 
 
-## Helpers
+## Unit and Integration tests
+
+Unit tests are located in `tests/unit/`.
+
+Integration tests are in `tests/integration/`.
+
+Most integration tests issue queries to an open food facts
+
+For some tests, we store expected results in form of HTML and JSON files (and some other formats like CSV).
+See below on how you can use this mechanism and how to regenerate those files in case your modification affect them
+(for example if you change the HTML of product pages).
+
+## Integration with docker compose
+
+Using Makefile targets, tests are run
+* with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name [changes container, network and volumes names](https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name))
+* with a specific exposed port for Mongodb, to avoid clashes with the dev instance.
+
+## Writing tests
+
+You can read other tests to understand how we write them (get inspiration from recently created tests).
+
+One effective way is to create a list of tests each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an `id` and/or a `desc` (description) and use it as last argument to check functions (like `ok`, `is`, …) to easily see tests running and identify failing tests.
+
+### Helpers
 
 We have some helper functions for tests.
 
@@ -23,31 +47,11 @@ See mainly:
 and other modules with Test in their name!
 
 
-## Unit and Integration tests
-
-Unit tests are located in `tests/unit/`.
-
-Integration tests are in `tests/integration/`.
-
-Most integration tests issue queries to an open food facts
-
-## Integration with docker compose
-
-Using Makefile targets, tests are run 
-* with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name [changes container, network and volumes names](https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name))
-* with a specific exposed port for Mongodb, to avoid clashes with the dev instance.
-
-## Writing tests
-
-You can read other tests to understand how we write them (get inspiration from recently created tests).
-
-One effective way is to create a list of tests each represented by a hashmap with inputs and expected outputs and run them in a loop. Add an `id` and/or a `desc` (description) and use it as last argument to check functions (like `ok`, `is`, …) to easily see tests running and identify failing tests.
-
 ### Using JSON files to save expected results of tests
 
 If the output of the function you are testing is small (e.g. a function that returns one single value), the expected return value can be stored in the .t test file.
 
-If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to store the expected result of each test. 
+If your outputs are complex and/or large (e.g. for unit tests of functions that return a complex structure, or for API integration tests that return a JSON response), you can use json files to store the expected result of each test.
 
 [Test.pm](https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Test.html) contains helper functions to compare results to expected results and to update the expected results. For instance if your function returns a reference $results_ref to a complex object (like a product):
 
@@ -78,6 +82,7 @@ To run a single test you can use:
    ```bash
    make test-int test="filename.t"
    ```
+## Regenerating tests results
 
 If you made a change that affects stored expected results, you can use:
 
@@ -96,6 +101,10 @@ If you regenerate test results, be sure to check carefully that the changes in y
 
 **NOTE:** When making changes to language files (.pot, .po), make sure to run `make build_lang_test` so that the language files are rebuild in the test environment, before regenerating expected results for integration tests.
 
+### Github action helper
+
+You can trigger an update of tests results using a special comment on your PR.
+See [How to use automated PR actions - updating tests-results](./how-to-use-automated-pr-actions.md#updating-tests-results)
 
 ## Debugging with tests
 
@@ -115,3 +124,21 @@ Read [perldoc about debugger](https://perldoc.perl.org/perldebug) to learn more.
 
 > :pencil: Note: With this method, in integration tests that issue requests to the server, you won't be able to run the debugger inside the server code, only in the test.
 
+## Some known errors
+
+### test stops with Error 137
+
+Sometimes you may get a test failing with no output but *error 137*.
+It may simply means that the backend container was stopped.
+Most of the time this is due to a fatal error that makes apache ends.
+
+Beware that you may also have a completely unrelated message when running with the debugger,
+mostly due to the fact that it is an abrupt kill of the process.
+For example it can be a misleading message from `SSLeay.pm`
+(because your test stop while waiting for the apache server to be ready)
+
+The right reflex is to look at last logs in logs/apache (`ls -ltr logs/apache`)
+and understand what is missing.
+
+It might be as simple as a  `make build_taxonomies_test` or `make build_lang_test` is needed
+(it is not run automatically for the single test targets)
