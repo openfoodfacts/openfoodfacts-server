@@ -67,7 +67,7 @@ foreach my $server (qw/off obf opff opf/) {
 	}
 }
 
-my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/product$/i, qr/^(conflicting|invalid)-codes$/, $last_processed_path);
+my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/product$/i, qr/^(conflicting|invalid|other-flavors)-codes$/, $last_processed_path);
 
 my $count = 0;
 while (my $path = $next->()) {
