@@ -20,8 +20,8 @@ msgid "A collaborative, free and open database of ingredients, nutrition facts a
 msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
 
 msgctxt "tagline_off"
-msgid   "Open Food Facts gathers information and data on food products from around the world."
-msgstr  "Open Food Facts gathers information and data on food products from around the world."
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts gathers information and data on food products from around the world."
 
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -33,8 +33,8 @@ msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
 msgctxt "product_description_off"
-msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact, and information on product %s"
-msgstr "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact,and information on product %s"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -93,6 +93,7 @@ msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
+# OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of information on various products from around the world."
 msgstr "A collaborative, free and open database of information on various products from around the world."
@@ -113,6 +114,14 @@ msgstr "Ingredients, CO2 impact, Durability, labels, origin of ingredients and i
 msgctxt "get_the_app_link_opf"
 msgid "/open-products-facts-mobile-app"
 msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Products Facts product search"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
@@ -138,14 +147,6 @@ msgctxt "ingredients_text_example_product"
 msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
 msgstr "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
 
-msgctxt "search_description_opensearch_opf"
-msgid "Open Products Facts product search"
-msgstr "Open Products Facts product search"
-
-msgctxt "warning_not_complete_opf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-
 # OPFF
 msgctxt "site_description_opff"
 msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
@@ -162,6 +163,14 @@ msgstr "A collaborative, free and open database of pet food products from around
 msgctxt "product_description_opff"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
 msgstr "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts product search"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "brands_example_petfood"
 msgid "Purina, Pedigree"
@@ -191,16 +200,6 @@ msgstr "Wet food for adult dogs"
 msgctxt "product_name_example_petfood"
 msgid "Senior Dog Delight Chicken & Rice"
 msgstr "Senior Dog Delight Chicken & Rice"
-
-msgctxt "search_description_opensearch_opff"
-msgid "Open Pet Food Facts product search"
-msgstr "Open Pet Food Facts product search"
-
-msgctxt "warning_not_complete_opff"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-
-# End of overrides by flavor or product type
 
 msgctxt "1_product"
 msgid "1 product"
@@ -269,6 +268,10 @@ msgstr "There is already an existing organization with the name %s."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Your request to join the organization is pending approval of the organization administrator."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -2884,8 +2887,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Some of the data and/or photos for this product come from those sources:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -5509,7 +5512,7 @@ msgstr "Vision, Mission, Values and Programs"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -6752,7 +6755,7 @@ msgstr "Product updated"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr "User found"
+msgstr ""
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6888,11 +6891,11 @@ msgstr "Invalid user id and password"
 
 msgctxt "api_message_invalid_token"
 msgid "Invalid access_token"
-msgstr "Invalid access_token"
+msgstr ""
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7703,15 +7706,15 @@ msgstr "Search for products in the same category without added sugars:"
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr "for 100 g"
+msgstr ""
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr "for 100 ml"
+msgstr ""
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr "for 1 L"
+msgstr ""
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7724,20 +7727,20 @@ msgstr "per serving"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr "As sold"
+msgstr ""
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr "Prepared"
+msgstr ""
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
-msgstr "Nutrition facts are specified for the product as sold:"
+msgstr ""
 
 msgctxt "nutrition_data_exists_prepared"
 msgid "Nutrition facts are specified for the prepared product:"
-msgstr "Nutrition facts are specified for the prepared product:"
+msgstr ""
 
 msgctxt "product_js_add_a_nutrient"
 msgid "Add a nutrient"
@@ -7781,7 +7784,7 @@ msgstr "Those preferences are based on Open Food Facts' understanding of the ing
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"
-msgstr "Suffering Footprint"
+msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7825,31 +7828,31 @@ msgstr "Smoking is highly addictive. Don't start. Smoking kills – quit now. Sm
 
 msgctxt "reuse_card_title"
 msgid "Reuse"
-msgstr "Reuse"
+msgstr ""
 
 msgctxt "qfdmo_solutions_title"
 msgid "Circular economy solutions nearby"
-msgstr "Circular economy solutions nearby"
+msgstr ""
 
 msgctxt "qfdmo_solutions_subtitle"
 msgid "Find places to repair, donate, sell or recycle"
-msgstr "Find places to repair, donate, sell or recycle"
+msgstr ""
 
 msgctxt "qfdmo_solutions_description"
 msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
-msgstr "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
 
 msgctxt "qfdmo_solutions_intro"
 msgid "Available solutions include:"
-msgstr "Available solutions include:"
+msgstr ""
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr "Repair"
+msgstr ""
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
-msgstr "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
 
 msgctxt "qfdmo_solution_donate"
 msgid "Donate"
@@ -7857,35 +7860,35 @@ msgstr "Donate"
 
 msgctxt "qfdmo_solution_donate_description"
 msgid "Give your product a second life by donating it to associations or people in need"
-msgstr "Give your product a second life by donating it to associations or people in need"
+msgstr ""
 
 msgctxt "qfdmo_solution_sell"
 msgid "Sell or exchange"
-msgstr "Sell or exchange"
+msgstr ""
 
 msgctxt "qfdmo_solution_sell_description"
 msgid "Sell or exchange your product on second-hand platforms"
-msgstr "Sell or exchange your product on second-hand platforms"
+msgstr ""
 
 msgctxt "qfdmo_solution_recycle"
 msgid "Recycle"
-msgstr "Recycle"
+msgstr ""
 
 msgctxt "qfdmo_solution_recycle_description"
 msgid "Find collection points for proper recycling when the product reaches end of life"
-msgstr "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
-msgstr "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
 
 msgctxt "qfdmo_solutions_find_nearby"
 msgid "Find solutions nearby on QFDMO"
-msgstr "Find solutions nearby on QFDMO"
+msgstr ""
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr "Product category"
+msgstr ""
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7937,4 +7940,5 @@ msgstr "Impact not assessed"
 
 msgctxt "detailed_data"
 msgid "Detailed data"
-msgstr "Detailed data"
+msgstr ""
+
