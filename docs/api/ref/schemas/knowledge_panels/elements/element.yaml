@@ -5,7 +5,7 @@ type: object
 description: |
   Each element object contains one specific element object such as a text element or an image element.
 properties:
-  type:
+  element_type:
     type: string
     enum:
       - text
@@ -16,8 +16,8 @@ properties:
       - table
     description: |
       The type of the included element object.
-      The type also indicates which field contains the included element object.
-      e.g. if the type is "text", the included element object will be in the "text_element" field.
+      The element_type also indicates which field contains the included element object.
+      e.g. if the element_type is "text", the included element object will be in the "text_element" field.
 
       Note that in the future, new type of element may be added,
       so your code should ignore unrecognized types, and unknown properties.
@@ -28,7 +28,7 @@ properties:
   image_element:
     $ref: ./image_element.yaml
   action_element:
-    type: string
+    $ref: ./action_element.yaml
   panel_element:
     $ref: ./panel_element.yaml
   panel_group_element:
@@ -36,4 +36,4 @@ properties:
   table_element:
     $ref: ./table_element.yaml
 required:
-  - type
+  - element_type

@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -358,10 +358,6 @@ msgstr ""
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org /images/svg/donate-icon.svg\" alt=\"திறந்த உணவு உண்மைகளுக்கு நன்கொடை\" /></a><p><<site_name>> என்பது தொழில்துறையிலிருந்து சுயாதீனமான ஒரு இலாப நோக்கற்ற சங்கத்தால் உருவாக்கப்பட்டது. இது அனைவருக்காகவும், அனைவராலும் உருவாக்கப்பட்டது, மேலும் இது எல்லோராலும் நிதியளிக்கப்படுகிறது. நீங்கள் <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">திறந்த உணவு உண்மைகளுக்கு நன்கொடை அளிப்பதன் மூலம் எங்கள் பணியை மேலும் ஆதரிக்கலாம். <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo தேடு பொறியைப் பயன்படுத்தி</a>.<br/><b>நன்றி!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -685,7 +681,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "கண்டறியக்கூடிய குறியீடுகள்"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -705,7 +701,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "கண்டறியும் குறியீடு"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -730,7 +726,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "பிழை"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -940,7 +936,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "பயன்பாட்டு விதிமுறைகள்"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1468,7 +1464,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 msgctxt "names"
 msgid "Names"
@@ -1569,11 +1565,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "ஊட்டச்சத்து உண்மைகள்"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "ஊட்டச்சத்து உண்மைகள்"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1637,7 +1633,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "ஒரு பரிமாறலுக்கு"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1645,7 +1641,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "ஊட்டச்சத்து உண்மைகள்"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1854,7 +1850,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "ஒரு ஊட்டச்சத்தைச் சேர்க்கவும்."
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2018,7 +2014,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "தயாரிப்புகள்"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2074,7 +2070,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "கடவுச்சொல்லை மீட்டமைக்க"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2415,7 +2411,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "பரிமாறும் அளவு"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2495,7 +2491,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "கடைகள்"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2511,7 +2507,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "கடை"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2572,7 +2568,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "தெரியவில்லை"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2794,7 +2790,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -3448,7 +3444,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "தோற்றம்"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3456,7 +3452,7 @@ msgstr ""
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "ஊட்டச்சத்து உண்மைகள்"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3706,6 +3702,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "தரவு தர முழுமை"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4319,7 +4319,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "முடிந்தது"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4422,7 +4422,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "தவறான பார்கோடு"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4617,17 +4617,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "நியூட்ரி-ஸ்கோர் பொருந்தாது"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "வகைக்குப் பொருந்தாது: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4665,7 +4665,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "உணவு பதப்படுத்தும் நிலை தெரியவில்லை"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4844,7 +4844,7 @@ msgstr "சுற்றுச்சூழல்"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4857,7 +4857,7 @@ msgstr "பசுமை ஸ்கோர் என்பது A முதல் 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4938,7 +4938,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4966,7 +4966,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 msgctxt "contact_address"
 msgid "Address"
@@ -5102,29 +5102,33 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "தயாரிக்கப்பட்ட பொருளின் ஊட்டச்சத்து தகவல்கள் இல்லை."
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "பச்சை-ஸ்கோர்"
+msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "இதர"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "இதர"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5142,7 +5146,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "வடிவம்"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5150,7 +5154,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "பொருள்"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5401,7 +5405,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -5444,6 +5448,10 @@ msgstr "பச்சை-ஸ்கோர் கணக்கிடப்படவ�
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "மிகக் குறைந்த சுற்றுச்சூழல் பாதிப்பு"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "துல்லியமான வகை இல்லை."
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5954,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "மதிப்பிடப்பட்ட லேபிள்கள் இல்லை"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "சில சுற்றுச்சூழல் நன்மைகள்"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "உயர் சுற்றுச்சூழல் நன்மைகள்"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "மிக உயர்ந்த சுற்றுச்சூழல் நன்மைகள்"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6090,6 +6114,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "தயாரிக்கப்பட்ட பொருளின் ஊட்டச்சத்து தகவல்கள் இல்லை:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6105,6 +6133,14 @@ msgstr "பங்களிப்பு"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "பங்களிப்பு"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "தரவு தர முழுமை"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "இந்த தயாரிப்பின் தரவு தர முழுமை பற்றிய சில தகவல்கள்"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6177,6 +6213,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "தயாரிக்கப்பட்ட ஊட்டச்சத்து உண்மைகள் இல்லை"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6316,22 +6356,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "மிகவும் நல்ல பொருத்தம்"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "நல்ல பொருத்தம்"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "மோசமான பொருத்தம்"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "தெரியாத பொருத்தம்"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6341,7 +6381,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "பொருந்தவில்லை"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6362,6 +6402,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "இந்த தயாரிப்புக்கு எங்களிடம் உள்ள வகை கிரீன்-ஸ்கோரைக் கணக்கிடும் அளவுக்கு துல்லியமாக இல்லை. இன்னும் துல்லியமான தயாரிப்பு வகையைச் சேர்க்க முடியுமா?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6517,7 +6561,7 @@ msgstr "உள்நுழை"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "வெளியேறு"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6710,7 +6754,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "அலகுகளின் எண்ணிக்கை"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6742,19 +6786,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "தயாரிப்பில் உள்ள அதே வடிவம் மற்றும் பொருளின் பேக்கேஜிங் அலகுகளின் எண்ணிக்கையை உள்ளிடவும்."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "மறுசுழற்சி வழிமுறைகளில் பட்டியலிடப்பட்டுள்ள வடிவப் பெயரை உள்ளிடவும், அல்லது ஒரு வடிவத்தைத் தேர்ந்தெடுக்கவும்."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "குறிப்பிட்ட பொருளைத் தீர்மானிக்க முடிந்தால் அதை உள்ளிடவும் (ஒரு முக்கோணத்திற்குள் ஒரு பொருள் குறியீடு பெரும்பாலும் பேக்கேஜிங் பாகங்களில் காணலாம்), அல்லது உங்களுக்குத் தெரியாவிட்டால் ஒரு பொதுவான பொருளை (எடுத்துக்காட்டாக, பிளாஸ்டிக் அல்லது உலோகம்) உள்ளிடவும்."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "மறுசுழற்சி வழிமுறைகள் தயாரிப்பில் பட்டியலிடப்பட்டிருந்தால் மட்டுமே அவற்றை உள்ளிடவும்."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6764,7 +6808,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "நிகர எடை அல்லது நிகர அளவை உள்ளிட்டு அலகைக் குறிப்பிடவும் (எடுத்துக்காட்டாக g அல்லது ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7341,11 +7385,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "பழுதுபார்க்கும் தன்மை குறியீடு பொருந்தாது."
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7384,17 +7428,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "தயாரிப்பு வகை"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "உணவு"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "செல்லப்பிராணி உணவு"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7491,9 +7535,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "இந்தப் படத்தை எங்கள் மதிப்பீட்டாளர்களிடம் புகாரளிக்கவும்."
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "நியூட்ரி-ஸ்கோரைக் கணக்கிடுவதற்கான பரிமாறும் அளவு மதிப்பு மற்றும்/அல்லது அலகு எங்களிடம் இல்லை."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr ""
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr ""
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "லிலோ தேடுபொறி"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "ரோபோக்களின் கடுமையான துஷ்பிரயோகம் காரணமாக, அடையாளம் தெரியாத பயனர்களுக்கு இந்தப் பக்கத்தை எங்களால் வழங்க முடியவில்லை. அனைத்து Open Food Facts-ஐயும் அணுக இலவச Open Food Facts கணக்கை உருவாக்கவும்."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr ""
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "தயாரிப்பு தகவல்"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "மூலப் பொருள் தகவல்"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7507,7 +7583,139 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "பொருட்களில் சேர்க்கப்பட்ட சர்க்கரைகளின் மதிப்பிடப்பட்ட அளவு"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "சேர்க்கப்பட்ட சர்க்கரைகளின் அளவு"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "சர்க்கரை சேர்க்கப்படாத அதே வகையிலான தயாரிப்புகளைத் தேடுங்கள்:"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "தேவையற்ற பொருட்கள்"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "இந்த விருப்பம் மூலப்பொருள் பட்டியலைப் பற்றிய ஓபன் ஃபுட் ஃபேக்ட்ஸின் புரிதலை அடிப்படையாகக் கொண்டது மற்றும் துல்லியமாக இருக்காது, எப்போதும் தயாரிப்பை நீங்களே சரிபார்க்கவும்."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "தேவையற்ற பொருட்களின் இருப்பு தெரியவில்லை."
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "தேவையற்ற பொருட்கள் எதுவும் கண்டறியப்படவில்லை."
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "தேவையற்ற பொருட்கள் உள்ளன"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "சில பொருட்கள் அங்கீகரிக்கப்படவில்லை."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "நாங்கள் இதைக் கண்டறியவில்லை: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "எங்களுக்கு இது தெரியவில்லை: {unwanted_ingredients}. சில பொருட்களை நாங்கள் தவறவிட்டிருக்கலாம், தயவுசெய்து எப்போதும் மூலப்பொருள் பட்டியலைச் சரிபார்க்கவும்."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "அந்த விருப்பத்தேர்வுகள் மூலப்பொருள் பட்டியலைப் பற்றிய ஓபன் ஃபுட் ஃபேக்ட்ஸின் புரிதலை அடிப்படையாகக் கொண்டவை, மேலும் அது துல்லியமாகவோ அல்லது முழுமையாகவோ இல்லாமல் இருக்க எப்போதும் வாய்ப்பு உள்ளது, எப்போதும் தயாரிப்பை நீங்களே சரிபார்க்கவும்."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "புகைபிடித்தல் கொல்லும்"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "புகையிலை உடல்நலத்திற்குக் கடுமையான தீங்கு விளைவிக்கிறது. தொடங்காதே. இப்போதே நிறுத்து."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "புகைபிடித்தல் மிகவும் அடிமையாக்கும். தொடங்காதே. புகைபிடித்தல் கொல்லும் - இப்போதே நிறுத்து. புகைபிடித்தல் தமனிகளை அடைத்து மாரடைப்பு மற்றும் பக்கவாதத்தை ஏற்படுத்துகிறது. புகைபிடித்தல் ஆபத்தான நுரையீரல் புற்றுநோயை ஏற்படுத்துகிறது. கர்ப்பமாக இருக்கும்போது புகைபிடித்தல் உங்கள் குழந்தைக்கு தீங்கு விளைவிக்கும். குழந்தைகளைப் பாதுகாக்கவும்: உங்கள் புகையை அவர்களை சுவாசிக்க வைக்காதீர்கள். உங்கள் மருத்துவர் அல்லது உங்கள் மருந்தாளர் புகைபிடிப்பதை நிறுத்த உங்களுக்கு உதவ முடியும். புகைபிடித்தல் இரத்த ஓட்டத்தைக் குறைத்து ஆண்மைக் குறைவை ஏற்படுத்தும். புகைபிடித்தல் சருமத்தின் வயதை ஏற்படுத்துகிறது. புகைபிடித்தல் விந்தணுக்களை சேதப்படுத்தும் மற்றும் கருவுறுதலைக் குறைக்கும். புகையில் பென்சீன், நைட்ரோசமைன்கள், ஃபார்மால்டிஹைட் மற்றும் ஹைட்ரஜன் சயனைடு உள்ளன."
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "பொது விலை"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 யூரோ, 2.99 அமெரிக்க டாலர், 4.00 ஜிபிபி"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "தயாரிப்பு பேக்கேஜிங் அல்லது உற்பத்தியாளரின் தளத்தில் (சட்டத்தின் அடிப்படையில் வரிகள் உட்பட அல்லது விலக்கு) குறிப்பிடப்பட்டுள்ளபடி, தள்ளுபடிகள் மற்றும் விளம்பரங்களைத் தவிர்த்து, உற்பத்தியாளர் பரிந்துரைக்கும் சில்லறை விலை (MSRP). பல நாணயங்களில் விலைகள் பட்டியலிடப்பட்டிருந்தால், காற்புள்ளியால் பிரிக்கப்பட்ட பட்டியலைப் பயன்படுத்தவும்."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "தனிப்பயனாக்கப்பட்ட சொத்து"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "பாமாயில் இல்லை"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "பாமாயில் இருக்கலாம்"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "சுற்றுச்சூழல் லேபிள்கள்"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "தரவு இல்லை"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "அதிக தாக்கம்"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "நடுத்தர தாக்கம்"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "குறைந்த தாக்கம்"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "தாக்கம் மதிப்பிடப்படவில்லை"
 

@@ -49,6 +49,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --check-quality	run quality checks
 --compute-codes
 --fix-serving-size-mg-to-ml
+--fix-product-id-missing-owner-prefix	fix products on the pro platform where the _id field is missing the owner prefix (e.g. code instead of org-xxx/code)
 --index		specifies that the keywords used by the free text search function (name, brand etc.) need to be reindexed. -- TBD
 --user		create a separate .sto file and log the change in the product history, with the corresponding user
 --team		optional team for the user that is credited with the change
@@ -61,7 +62,7 @@ TXT
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/retrieve_object store_object/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$User_id %User/;
@@ -83,6 +84,7 @@ use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/load_data/;
 use ProductOpener::Redis qw/push_product_update_to_redis/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -149,12 +151,14 @@ my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
 my $fix_non_string_codes = '';
+my $fix_product_id_missing_owner_prefix = '';
 my $fix_string_last_modified_t = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
 my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 my $add_product_type = '';    # Add product type to products that don't have it, based on off/opf/obf/opff flavor
+my $force_new_version = 0;
 
 my $query_params_ref = {};    # filters for mongodb query
 
@@ -189,7 +193,9 @@ GetOptions(
 	"fix-rev-not-incremented" => \$fix_rev_not_incremented,
 	"fix-non-string-ids" => \$fix_non_string_ids,
 	"fix-non-string-codes" => \$fix_non_string_codes,
+	"fix-product-id-missing-owner-prefix" => \$fix_product_id_missing_owner_prefix,
 	"fix-string-last-modified-t" => \$fix_string_last_modified_t,
+	"force-new-version" => \$force_new_version,
 	"user-id=s" => \$User_id,
 	"comment=s" => \$comment,
 	"run-ocr" => \$run_ocr,
@@ -276,6 +282,7 @@ if (    (not $process_ingredients)
 	and (not $fix_non_string_ids)
 	and (not $fix_non_string_codes)
 	and (not $fix_string_last_modified_t)
+	and (not $fix_product_id_missing_owner_prefix)
 	and (not $compute_sort_key)
 	and (not $remove_team)
 	and (not $remove_category)
@@ -323,6 +330,16 @@ my $query_ref = {};
 
 add_params_to_query($query_params_ref, $query_ref);
 
+# Query products on the pro platform where _id is missing the owner prefix
+# (e.g. _id = "5060323905388" instead of "org-xxx/5060323905388")
+# This can happen after a barcode change due to a bug in store_product()
+if ($fix_product_id_missing_owner_prefix) {
+	# On the pro platform, valid _id values always contain '/' (owner/code format)
+	# Barcodes (all digits) do not contain '/', so we look for _id starting with a digit
+	$query_ref->{_id} = {'$regex' => '^\d'};
+	$query_ref->{owner} = {'$exists' => 1};
+}
+
 # Query products that have the _id field stored as a number
 if ($fix_non_string_ids) {
 	$query_ref->{_id} = {'$type' => "long"};
@@ -346,7 +363,10 @@ if ($add_product_type) {
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
 
 if ((defined $server_options{private_products}) and ($server_options{private_products})) {
-	if ((not $all_owners) and (not defined $query_ref->{owners_tags})) {
+	if (    (not $all_owners)
+		and (not defined $query_ref->{owners_tags})
+		and (not $fix_product_id_missing_owner_prefix))
+	{
 		print STDERR "On producers platform, --query owners_tags=... or --all-owners must be set.\n";
 		exit();
 	}
@@ -386,7 +406,7 @@ my $products_collection = get_products_collection({obsolete => $obsolete, timeou
 # Collections for saving current / obsolete products
 my %products_collections = (
 	current => get_products_collection({timeout => $socket_timeout_ms}),
-	obsolete => get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms}),
+	obsolete => get_products_collection({obsolete => 1, timeout => $socket_timeout_ms}),
 );
 
 my $products_count = "";
@@ -465,6 +485,43 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	next if $just_print_codes;
+
+	# Fix products on the pro platform where _id is missing the owner prefix
+	if ($fix_product_id_missing_owner_prefix) {
+		my $owner = $product_ref->{owner};
+		if ((not defined $owner) or ($owner eq '')) {
+			print STDERR ". Error: no owner field for product $code with _id $productid\n";
+			next;
+		}
+		my $correct_product_id = $owner . "/" . $code;
+		print STDERR " - fixing _id: $productid -> $correct_product_id";
+		if (!$pretend) {
+			# Read from disk using the correct owner-prefixed product_id
+			my $fixed_product_ref = retrieve_product($correct_product_id);
+			if (defined $fixed_product_ref) {
+				# Fix the _id in the product data
+				$fixed_product_ref->{_id} = $correct_product_id;
+				my $fixed_path = product_path($fixed_product_ref);
+				# Update the .sto file with the corrected _id
+				store_object("$BASE_DIRS{PRODUCTS}/$fixed_path/product", $fixed_product_ref);
+				# Delete the old MongoDB document with the wrong _id
+				$products_collection->delete_one({"_id" => $productid});
+				# Insert the product with the correct _id
+				my $collection = "current";
+				if ($fixed_product_ref->{obsolete}) {
+					$collection = "obsolete";
+				}
+				$products_collections{$collection}
+					->replace_one({"_id" => $correct_product_id}, $fixed_product_ref, {upsert => 1});
+				$products_changed++;
+				print STDERR ". Fixed";
+			}
+			else {
+				print STDERR ". Error: could not load product from disk using product_id $correct_product_id";
+			}
+		}
+		next;
+	}
 
 	if (!$mongodb_to_mongodb) {
 		# read product data from .sto file
@@ -955,7 +1012,6 @@ while (my $product_ref = $cursor->next) {
 				if ($product_ref->{nutrition_data_per} eq "100g") {
 					print STDERR "code $code deleting serving size " . $product_ref->{serving_size} . "\n";
 					delete $product_ref->{serving_size};
-					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 
@@ -969,7 +1025,6 @@ while (my $product_ref = $cursor->next) {
 					print STDERR "code $code changing " . $product_ref->{serving_size} . "\n";
 					$product_ref->{serving_size} =~ s/(\d)\s?(mg)\b/$1 ml/i;
 					print STDERR "code $code changed to " . $product_ref->{serving_size} . "\n";
-					ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					$product_values_changed = 1;
 				}
 			}
@@ -1201,7 +1256,6 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutriscore) {
-			fix_salt_equivalent($product_ref);
 			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
@@ -1210,41 +1264,8 @@ while (my $product_ref = $cursor->next) {
 			compute_codes($product_ref);
 		}
 
-		if ($compute_carbon) {
-			compute_carbon_footprint_from_ingredients($product_ref);
-			compute_carbon_footprint_from_meat_or_fish($product_ref);
-			compute_nutrition_data_per_100g_and_per_serving($product_ref);
-			delete $product_ref->{environment_infocard};
-			delete $product_ref->{environment_infocard_en};
-			delete $product_ref->{environment_infocard_fr};
-		}
-
-		# Fix energy-kcal values so that energy-kcal and energy-kcal/100g is stored in kcal instead of kJ
-		if ($reassign_energy_kcal) {
-			foreach my $product_type ("", "_prepared") {
-
-				# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/3561
-				# for details
-
-				if (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {
-					if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
-						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
-					}
-					# Reassign so that the energy-kcal field is recomputed
-					assign_nid_modifier_value_and_unit(
-						$product_ref,
-						"energy-kcal" . $product_type,
-						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
-						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
-						$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}
-					);
-				}
-			}
-			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
-		}
-
 		if ($compute_serving_size) {
-			ProductOpener::Food::compute_nutrition_data_per_100g_and_per_serving($product_ref);
+			normalize_product_quantity_and_serving_size($product_ref);
 		}
 
 		if ($check_quality) {
@@ -1319,33 +1340,10 @@ while (my $product_ref = $cursor->next) {
 						$product_ref->{nutriments}{'salt_modifier'},
 						$salt, $product_ref->{nutriments}{'salt_unit'});
 
-					fix_salt_equivalent($product_ref);
-					compute_nutrition_data_per_100g_and_per_serving($product_ref);
 					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
 				}
-			}
-		}
-
-		if (0) {    # fix float numbers for salt
-			if ((defined $product_ref->{nutriments}) and ($product_ref->{nutriments}{salt_value})) {
-
-				my $salt = $product_ref->{nutriments}{salt_value};
-				if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
-					$salt = $` . '.' . $1;
-				}
-				if ($salt =~ /\.(\d+)([0-8]+)9999/) {
-					$salt = $` . '.' . $1 . ($2 + 1);
-				}
-
-				assign_nid_modifier_value_and_unit($product_ref, 'salt', $product_ref->{nutriments}{'salt_modifier'},
-					$salt, $product_ref->{nutriments}{'salt_unit'});
-
-				fix_salt_equivalent($product_ref);
-				compute_nutrition_data_per_100g_and_per_serving($product_ref);
-				compute_nutriscore($product_ref);
-				compute_nutrient_levels($product_ref);
 			}
 		}
 
@@ -1505,7 +1503,7 @@ while (my $product_ref = $cursor->next) {
 
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
-			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
+			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed or $force_new_version)) {
 				store_product($User_id, $product_ref, "update_all_products.pl - " . $comment);
 				$products_new_version_created++;
 			}

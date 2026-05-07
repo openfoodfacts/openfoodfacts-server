@@ -51,7 +51,8 @@
             [% END %]
         </div>
 
-        <!-- Ingredients Form -->
+        [% IF options.product_type == 'food' || options.product_type == 'petfood' || options.product_type == 'beauty' %]
+        <!-- Ingredients Form - only on food, petfood and beauty -->
 
         <h3>[% lang('search_ingredients') %]</h3>
 
@@ -69,8 +70,10 @@
                 </div>
             [% END %]
         </div>
+        [% END %]
 
-        <!-- Nutriments Form -->
+        [% IF options.product_type == 'food' || options.product_type == 'petfood' %]
+        <!-- Nutriments Form - only of food and petfood -->
 
         <h3>[% lang('search_nutriments') %]</h3>
 
@@ -99,6 +102,7 @@
                 </div>
             [% END %]
         </div>
+        [% END %]
 
         <!-- Different types to display results -->
 
@@ -158,6 +162,11 @@
                                         <option value="[% field.value %]" label="[% field.label %]"[% IF field.value == axis.selected_field_value %] selected="selected"[% END %]>[% field.label %]</option>
                                     [% END %]
                                 </select>
+                                <!-- hidden (unless the field value is "folksonomy") field for axis_[id]_folksonomy_property -->
+                                <div id="axis_[% axis.id %]_folksonomy_property_div" [% IF axis.selected_field_value != 'folksonomy' %]style="display:none"[% END %]>
+                                    <label for="axis_[% axis.id %]_folksonomy_property">[% lang('folksonomy_property') %]</label>
+                                    <input type="text" name="axis_[% axis.id %]_folksonomy_property" id="axis_[% axis.id %]_folksonomy_property" value="[% axis.folksonomy_property_value %]" />
+                                </div>
                             </div>
                         [% END %]
                     </div>

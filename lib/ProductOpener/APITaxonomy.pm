@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -52,6 +52,7 @@ use ProductOpener::API qw/add_error/;
 use Tie::IxHash;
 
 use Encode;
+use boolean;
 
 =head2 taxonomy_canonicalize_tags_api ( $request_ref )
 
@@ -124,8 +125,8 @@ sub taxonomy_canonicalize_tags_api ($request_ref) {
 
 		# Also return the canonical tags as an array, and indicate if they exist in the taxonomy
 		$response_ref->{canonical_tags}
-			= map {{tag => $_, exists_in_taxonomy => exists_taxonomy_tag($tagtype, $_) ? JSON::true : JSON::false}}
-			@canonical_tags;
+			= [map {{tag => $_, exists_in_taxonomy => exists_taxonomy_tag($tagtype, $_) ? true : false}}
+				@canonical_tags];
 	}
 
 	return;

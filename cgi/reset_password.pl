@@ -27,14 +27,13 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Mail qw/send_email/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Auth qw/get_oidc_implementation_level get_oidc_configuration/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -44,7 +43,8 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-if (get_oidc_implementation_level() >= 5) {
+if (get_oidc_implementation_level() >= 3) {
+	# Use Keycloak to reset password if we are using Keycloak login
 	my $oidc_configuration = get_oidc_configuration();
 	unless (defined $oidc_configuration) {
 		die 'oidc_discovery_url not configured or Keycloak is no available';
@@ -144,11 +144,11 @@ else {
 				$user_ref->{token} = generate_token(64);
 				$user_ref->{token_ip} = remote_addr();
 
-				store_user_session($user_ref);
+				store_user_preferences($user_ref);
 				my $userid = $user_ref->{userid};
 
 				my $url
-					= format_subdomain($subdomain)
+					= $request_ref->{formatted_subdomain}
 					. "/cgi/reset_password.pl?type=reset&resetid=$userid&token="
 					. $user_ref->{token};
 

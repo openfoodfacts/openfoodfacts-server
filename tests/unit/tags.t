@@ -5,7 +5,7 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
-#use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
@@ -912,5 +912,15 @@ is(
 		'en:non-fair-trade' => 'labels:en:fair-trade',
 	}
 );
+
+is(country_to_cc('en:france'), 'fr');
+is(country_to_cc('en:world'), 'world');
+is(country_to_cc('unknown'), undef);
+is(country_to_cc(undef), undef);
+is(cc_to_country('fr'), 'en:france');
+is(cc_to_country('unknown'), '');
+is(cc_to_country(undef), '');
+
+is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
 
 done_testing();

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -48,7 +48,6 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang retrieve_config/;
-use ProductOpener::Display qw/$country/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/@sorted_packager_codes normalize_packager_codes/;
@@ -82,15 +81,17 @@ sub load_categories_packagings_stats_for_suggestions() {
 	return $categories_packagings_stats_for_suggestions_ref;
 }
 
-=head2 get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref )
+=head2 get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref )
 
 Generate taxonomy suggestions with matched synonyms information.
 
-=head2 get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref )
+=head2 get_taxonomy_suggestions ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref )
 
 Generate taxonomy suggestions (without matched synonyms information).
 
 =head3 Parameters
+
+=head4 $country		country id (e.g. "en:world", "en:united-states")
 
 =head4 $tagtype		id of the taxonomy (required)
 
@@ -113,7 +114,7 @@ Restart memcached if you want fresh results (e.g. when taxonomy are category sta
 
 =cut
 
-sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+sub get_taxonomy_suggestions_with_synonyms ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref) {
 
 	$log->debug(
 		"get_taxonomy_suggestions - start",
@@ -143,7 +144,7 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 	if (not defined $results_ref) {
 		$log->debug("suggestions are not cached", {key => $key}) if $log->is_debug();
 
-		my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
+		my @tags = generate_sorted_list_of_taxonomy_entries($country, $tagtype, $search_lc, $context_ref);
 
 		my @filtered_tags
 			= filter_suggestions_matching_string_with_synonyms(\@tags, $tagtype, $search_lc, $string, $options_ref);
@@ -159,19 +160,19 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 	return @$results_ref;
 }
 
-sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+sub get_taxonomy_suggestions ($country, $tagtype, $search_lc, $string, $context_ref, $options_ref) {
 	return
 		map {$_->{tag}}
-		get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
+		get_taxonomy_suggestions_with_synonyms($country, $tagtype, $search_lc, $string, $context_ref, $options_ref);
 }
 
-=head2 generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref)
+=head2 generate_sorted_list_of_taxonomy_entries($couuntry, $tagtype, $search_lc, $context_ref)
 
 Generate a sorted list of canonicalized taxonomy entries from which we will generate suggestions
 
 =cut
 
-sub generate_sorted_list_of_taxonomy_entries ($tagtype, $search_lc, $context_ref) {
+sub generate_sorted_list_of_taxonomy_entries ($country, $tagtype, $search_lc, $context_ref) {
 
 	my @tags;
 	my %seen_tags = ();    # Used to not add the same tag several times
@@ -183,7 +184,8 @@ sub generate_sorted_list_of_taxonomy_entries ($tagtype, $search_lc, $context_ref
 	# search for entries in a taxonomy
 	else {
 		# Generate popular suggestions
-		@tags = generate_popular_suggestions_according_to_context($tagtype, $search_lc, $context_ref, \%seen_tags);
+		@tags = generate_popular_suggestions_according_to_context($country, $tagtype, $search_lc, $context_ref,
+			\%seen_tags);
 
 		# add all remaining entries in alphabetical order
 		foreach my $tag (
@@ -199,7 +201,7 @@ sub generate_sorted_list_of_taxonomy_entries ($tagtype, $search_lc, $context_ref
 	return @tags;
 }
 
-=head2 generate_popular_suggestions_according_to_context($tagtype, $search_lc, $context_ref, $seen_tags_ref)
+=head2 generate_popular_suggestions_according_to_context($country, $tagtype, $search_lc, $context_ref, $seen_tags_ref)
 
 Given a specific context (e.g. the product's country, categories, or the packaging component shape),
 we can generate popular suggestions sorted by popularity in this context.
@@ -210,7 +212,7 @@ For other taxonomy types, an empty list is returned.
 
 =cut
 
-sub generate_popular_suggestions_according_to_context ($tagtype, $search_lc, $context_ref, $seen_tags_ref) {
+sub generate_popular_suggestions_according_to_context ($country, $tagtype, $search_lc, $context_ref, $seen_tags_ref) {
 
 	my @tags = ();
 

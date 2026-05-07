@@ -11,11 +11,12 @@ services:
     image: ghcr.io/openfoodfacts/openfoodfacts-auth:testcontainer
     environment:
       - KC_SPI_EVENTS_LISTENER_REDIS_EVENT_LISTENER_REDIS_URL=${REDIS_URL}
+      - KC_LOG_LEVEL=info
 
   backend:
     depends_on:
       postgres:
-        condition: service_started
+        condition: service_healthy
       mongodb:
         condition: service_started
       dynamicfront:
