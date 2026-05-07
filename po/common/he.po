@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "רכיבים, אלרגנים, תוספים, מידע תזונתי, תוויות, מקורות, השפעת CO2 ומידע על המוצר %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "מסד נתונים שיתופי, חופשי ופתוח של רכיבים ומידע על מוצרי טיפוח מכל רחבי העולם"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי טיפוח מכל רחבי העולם."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "מסד נתונים שיתופי, חינמי ופתוח של רכיבים ופרטים על מגוון מוצרים מכל רחבי העולם."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "מיזם Open Products Facts אוסף מידע ונתונים על מגוון רחב של מוצרים מכל רחבי העולם."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "מסד הנתונים השיתופי, החופשי והפתוח של מגוון מוצרים מכל רחבי העולם."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "מסד נתונים שיתופי, חינמי ופתוח של רכיבים, עובדות תזונתיות ופרטים על מוצרי מזון לחיות מחמד מכל רחבי העולם."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "מיזם Open Pet Food Facts אוסף מידע ונתונים על מוצרי מזון לחיות מחמד מכל רחבי העולם."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי מזון לחיות מחמד מכל רחבי העולם."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "רכיבים INCI, אלרגנים, תוספים, תוויות, מקור הרכיבים ומידע על המוצר %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "חיפוש מוצרים ב־Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "עמוד מוצר זה לוקה בחסר. ניתן לסייע להשלים אותו על ידי עריכה או הוספת נתונים נוספים מהתמונות שכבר יש לנו או על ידי צילום תמונות נוספות באמצעות יישומון ה־<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> או ה־<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. תודה רבה!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "דף מוצר זה אינו שלם. באפשרותך לסייע בהשלמתו על ידי עריכתו והוספת נתונים נוספים מהתמונות שיש לנו, או על ידי צילום תמונות נוספות באמצעות האפליקציה האוניברסלית לנייד עבור <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">אנדרואיד</a> או <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">אייפון/אייפד</a>. תודה!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "מונע הזעה מגן במצבי לחץ"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "מאגר מידע שיתופי, חינמי ופתוח של מידע על מוצרים שונים מרחבי העולם."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "מיזם Open Products Facts אוסף מידע ונתונים על מגוון רחב של מוצרים מכל רחבי העולם."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "מסד הנתונים השיתופי, החופשי והפתוח של מגוון מוצרים מכל רחבי העולם."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "רכיבים, השפעת CO2, עמידות, תוויות, מקור הרכיבים ומידע על המוצר %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "חיפוש מוצרים ב־Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "דף מוצר זה אינו שלם. באפשרותך לסייע בהשלמתו על ידי עריכתו והוספת נתונים נוספים מהתמונות שיש לנו, או על ידי צילום תמונות נוספות באמצעות אפליקציית Open Food Facts האוניברסלית עבור <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">אנדרואיד</a> או <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">אייפון/אייפד</a>. תודה!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "מסד נתונים שיתופי, חינמי ופתוח של רכיבים, עובדות תזונתיות ופרטים על מוצרי מזון לחיות מחמד מכל רחבי העולם."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "מיזם Open Pet Food Facts אוסף מידע ונתונים על מוצרי מזון לחיות מחמד מכל רחבי העולם."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "מסד נתונים חופשי, פתוח ושיתופי של מוצרי מזון לחיות מחמד מכל רחבי העולם."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "רכיבים, אלרגנים, תוספים, עובדות תזונה, תוויות, מקור החומרים והמידע על המוצר %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "חיפוש מוצרים ב־Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "דף מוצר זה אינו שלם. באפשרותך לסייע בהשלמתו על ידי עריכתו והוספת נתונים נוספים מהתמונות שיש לנו, או על ידי צילום תמונות נוספות באמצעות אפליקציית Open Food Facts האוניברסלית עבור <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">אנדרואיד</a> או <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">אייפון/אייפד</a>. תודה!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "בונזו, קט-לי"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "מזון יבש לכלבים, מזון רטוב לחתולים"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "עוף, קמח תירס ללא גלוטן, תירס מלא, שומן מן החי, קמח סויה"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "מזון רטוב לכלבים בוגרים"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "עוף ואורז לכלבים בוגרים"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -178,6 +268,10 @@ msgstr "כבר קיים ארגון בשם הזה %s."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "בקשתך להצטרף לארגון ממתינה לאישור הנהלת הארגון."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -623,6 +717,10 @@ msgstr "עריכת מוצר"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "עריכת העמוד"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "היכנס כדי להוסיף או לערוך נכסים"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2181,6 +2279,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "חיפוש מוצרים"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "חיפוש מוצרים"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "אינו מכיל"
@@ -2783,8 +2885,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "חלק מהנתונים ו/או התמונות למוצר הזה מגיעים מהמקורות שלנו:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "עמוד המוצר לוקה בחסר. ניתן לסייע בהשלמתו על ידי עריכה והוספת עוד נתונים מהתמונות שיש לנו או על ידי צילום באמצעות היישומון עבור <a href=\"https://android.openfoodfacts.org\">Android</a> או <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. תודה רבה לך!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "דף מוצר זה אינו שלם. באפשרותך לסייע בהשלמתו על ידי עריכתו והוספת נתונים נוספים מהתמונות שיש לנו, או על ידי צילום תמונות נוספות באמצעות אפליקציית המובייל עבור <a href=\"https://android.openfoodfacts.org\">אנדרואיד</a> או <a href=\"https://ios.openfoodfacts.org\">אייפון/אייפד</a>. תודה!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2866,25 +2968,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "חומר תזונתי אחר נוסף"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "כפי שנמכר"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "מוכן"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "יחידה"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "העובדות התזונתיות מצוינות עבור המוצר כפי שנמכר."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "העובדות התזונתיות מצוינות עבור המוצר המוגמר."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -4869,8 +4955,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "השפעה סביבתית נמוכה (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score הוא ציון סביבתי מ־A עד E שמקל על ההשוואה של מוצרי מזון על הסביבה."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "הציון הירוק הוא ציון סביבתי מ-A+ עד F, המאפשר להשוות בקלות את ההשפעה של מוצרי מזון על הסביבה."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4882,8 +4968,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "השפעה סביבתית נמוכה (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score הוא ציון סביבתי מ־A עד E שמקל על ההשוואה של מוצרי מזון על הסביבה."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "הציון הירוק הוא ציון סביבתי מ-A+ עד F, המאפשר להשוות בקלות את ההשפעה של מוצרי מזון על הסביבה."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5424,7 +5510,7 @@ msgstr "חזון, שליחות, ערכים ותכניות"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5806,8 +5892,8 @@ msgstr "נוסחת Green-Score עשויה להשתנות כיוון שהיא מ�
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score פותח במקור בצרפת והוא מתפשט למדינות אירופיות נוספות. נוסחת Green-Score עשויה להשתנות כיוון שהיא משתפרת באופן תמידי כדי שתהיה מדויקת, ככל הניתן, לכל מדינה ומדינה."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "ה-Green-Score פותח בתחילה עבור צרפת והוא מורחב למדינות אירופאיות אחרות. נוסחת ה-Green-Score כפופה לשינויים שכן היא משתפרת באופן קבוע כדי להפוך אותה למדויקת יותר ומותאמת יותר לכל מדינה."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6665,6 +6751,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "המוצר עודכן"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "פעולת API שגויה"
@@ -6796,6 +6886,14 @@ msgstr "כל חלקי האריזה של המוצר מפורטים."
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "מזהה משתמש וסיסמה שגויים"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7140,14 +7238,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "דיווח על תקלה"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "דיווח על תקלה"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "דיווח על תקלה."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7609,6 +7702,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "חיפוש מוצרים באותה קטגוריה ללא תוספת סוכר:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "לקילו"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "לכל הגשה"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "הוספת רכיב תזונתי"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "מרכיבים לא רצויים"
@@ -7689,6 +7824,70 @@ msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "עישון הוא ממכר מאוד. אל תתחילו. עישון הורג - הפסיקו עכשיו. עישון סותם את העורקים וגורם להתקפי לב ושבץ מוחי. עישון גורם לסרטן ריאות קטלני. עישון במהלך ההריון פוגע בתינוקכם. הגנו על ילדים: אל תכריחו אותם לנשום את העשן שלכם. הרופא או הרוקח שלכם יכולים לעזור לכם להפסיק לעשן. עישון עלול להפחית את זרימת הדם ולגרום לאין-אונות. עישון גורם להזדקנות העור. עישון עלול לפגוע בזרע ולהפחית את הפוריות. עשן מכיל בנזן, ניטרוסמינים, פורמלדהיד ומימן ציאניד."
 
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "תרומה"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "מיחזור"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
+
 msgctxt "public_price"
 msgid "Public price"
 msgstr "מחיר ציבורי"
@@ -7736,4 +7935,8 @@ msgstr "השפעה נמוכה"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "ההשפעה לא הוערכה"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
 
