@@ -1,9 +1,7 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-warning-comments */
-/* eslint max-statements-per-line: ["error", { "max": 2 }] */
 /* eslint no-plusplus: ["warn", { "allowForLoopAfterthoughts": true }]*/
 /* eslint max-params: ["error", 5] */
 /* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
+
 
 // Product Opener (Open Food Facts web app) uses:
 // * jQuery 2.2.4:                view-source:https://static.openfoodfacts.org/js/dist/jquery.js (~84 KB)
@@ -45,7 +43,7 @@ const authrenewal = 1 * 5 * 60 * 60 * 1000;
 
 
 // eslint-disable-next-line no-unused-vars
-function folskonomy_engine_init() {
+function folksonomy_engine_init() {
     const pageType = isPageType(); // test page type
     console.log("FEUS - Folksonomy Engine User Script - 2021-11-19T16:49 - mode: " + pageType);
 
@@ -125,30 +123,26 @@ function folskonomy_engine_init() {
         // detect /property/test or /property/test/value/test_value
         // we capture a value without / and quotes (to avoid html injection)
         const results = new RegExp("/property/([^\"'/]*)(/value/)?(.*)").exec(
-          window.location.href
+            window.location.href
         );
         if (results === null) {
-          return null;
+            return null;
         }
-      
+
         const property = results[1];
-      
-        const webComponentHTML = `
-          <div style="padding: 32px;">
-            <folksonomy-property-products property-name="${property}"></folksonomy-property-products>
-          </div>
-        `;
-      
-        $("#main_column").append(webComponentHTML);
-      }
-      
+
+        const $webComponent = $("<folksonomy-property-products>").attr("property-name", property);
+        const $wrapper = $("<div>").css("padding", "32px").append($webComponent);
+
+        $("#main_column").append($wrapper);
+    }
 
     if (pageType === "properties") {
         const webComponentHTML = `
-          <div style="padding: 32px;">
-            <folksonomy-properties></folksonomy-properties>
-          </div>
-        `;
+            <div style="padding: 32px;">
+              <folksonomy-properties></folksonomy-properties>
+            </div>
+          `;
 
         $("#main_column").append(webComponentHTML);
     }
@@ -183,7 +177,7 @@ function displayFolksonomyPropertyValues() {
         '<tr>' +
         '<th class="fe_tag_version_title">&nbsp;</th>' +
         '<th class="fe_prop_doc_link_title">&nbsp;</th>' +
-        '<th class="fe_prop_title">Property <a href="https://wiki.openfoodfacts.org/Folksonomy/Property">🛈</a></th>' +
+        '<th class="fe_prop_title">Property <a href="https://wiki.openfoodfacts.org/Folksonomy/Property">ðŸ›ˆ</a></th>' +
         '<th class="fe_val_title">Value</th>' +
         '</tr>' +
         '<tbody id="free_prop_body">') +
@@ -338,13 +332,14 @@ function displayFolksonomyPropertyValues() {
             return;
         }
         console.log("FEUS - displayFolksonomyPropertyValues() - " + JSON.stringify(data));
+        let index = data.length;
         let content = "";
         // Sort by property
         const d = data.sort(function(a,b){ return a.k <b.k ? 1 :-1; });
-        for (let index = data.length - 1; index >= 0; index -= 1) {
+        while (index--) {
             content += ('<tr>' +
                         '<td class="version" data-version="' + d[index].version + '"> </td>' +
-                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+d[index].k+'">🛈</a></td>' +
+                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+d[index].k+'">ðŸ›ˆ</a></td>' +
                         '<td class="property"><a href="/property/' + d[index].k + '">'                      + d[index].k + '</a></td>' +
                         '<td class="value"><a href="/property/' + d[index].k + '/value/' + d[index].v +'">' + d[index].v + '</a></td>' +
                         '<td>'+
@@ -357,7 +352,11 @@ function displayFolksonomyPropertyValues() {
         $("#free_prop_body").prepend(content);
         $(".fe_del_kv").on("click", function() {
             console.log("FEUS - displayFolksonomyPropertyValues() - 'Delete' pressed");
-            isWellLoggedIn() ? delPropertyValue($(this)) : loginProcess(); 
+                        if (isWellLoggedIn()) {
+                delPropertyValue($(this));
+            } else {
+                loginProcess();
+            }
         } );
         $(".fe_edit_kv").on("click", function() {
             console.log("FEUS - displayFolksonomyPropertyValues() - 'Edit' pressed");
@@ -370,6 +369,139 @@ function displayFolksonomyPropertyValues() {
     });
 }
 
+
+/* eslint-disable no-unused-vars */
+function displayProductsWithProperty(_property, _value) {
+
+
+    /* curl -X 'GET' \
+        'https://api.folksonomy.openfoodfacts.org/products?k=test&v=test' \
+        -H 'accept: application/json'
+    */
+    //$("#main_column p").remove();  // remove <p>Invalid address.</p>
+    $("#main_column").append('<!-- display products with property ' + _property + (_value ? ": "+ _value : '') + ' -->' +
+                        '<h2 id="property_title">Folksonomy property: '+ _property + (_value ? ": "+ _value : '') + '</h2>' +
+                        '<p>You should find a <a href="https://wiki.openfoodfacts.org/Folksonomy/Property/'+ _property + '">dedicated documentation</a>' +
+                        ' about this property on Open Food Facts wiki</p>' +
+                        '<p>List of products using this property:</p>' +
+                        '<div id="fe_infobox" style="float: right; border: solid black; width: 20%">Tip: you can also find the <a href="/properties">list of all properties</a>.</div>' +
+                        '<ul id="product_list"></ul>');
+    //$("#main_column h1").remove(); // remove <h1>Error</h1>
+
+    console.log("FEUS - displayProductsWithProperty(_property) - GET " + feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''));
+    $.getJSON(feAPI + "/products?k=" + _property + (_value ? "&v="+ _value : ''), function(data) {
+        console.log("FEUS - displayProductsWithProperty() - " + JSON.stringify(data));
+        let index = data.length; 
+        let content = "";
+        //const mainAPI = window.location.origin;
+        //$.getJSON(mainAPI +
+        content +=
+            '<table id="properties_list">' +
+            '<tr>' +
+            '<th class="product_code">Product barcode</th>' +
+            '<th class="values">Corresponding value</th>' +
+            '</tr>' +
+            '<tbody id="free_prop_body">';
+        while (index--) {
+            content += ('<tr>' +
+                        '<td class="product_code">' +
+                        '<a href="/product/'+ data[index].product + '">' + data[index].product + '</a>' +
+                        '</td>' +
+                        '<td class="property_value">'+
+                        '<a href="/property/'+ _property + '/value/' + data[index].v + '">' + data[index].v + '</a>' +
+                        '</td>' +
+                        '</tr>');
+        }
+        content +=
+            '' +
+            '</tbody>' +
+            '</table>';
+        $("#product_list").append(content);
+    });
+}
+
+
+/* eslint-disable no-unused-vars */
+function displayAllProperties() {
+
+
+    /* curl -X 'GET' \
+            'https://api.folksonomy.openfoodfacts.org/keys' \
+            -H 'accept: application/json'
+    */
+    // NOTE: add owner filter?
+    //$("#main_column p").remove(); // remove <p>Invalid address.</p>
+
+    // Display empty table
+    $("#main_column").append(String('<h2 id="property_title">Properties</h2>' +
+                        "<p>Open Food Facts allows anyone to reuse contributed properties or create new ones " +
+                        "(see the <a href='https://wiki.openfoodfacts.org/Folksonomy_Engine'>Folksonomy Engine project</a>). " + 
+                        "Here's the list of all contributed properties.</p>" +
+                        '<table id="properties_list">' +
+                        '<tr>' +
+                        '<th> </th>' +
+                        '<th class="property_name">Property</th>' +
+                        '<th class="doc">Documentation</th>' +
+                        '<th class="count">Count</th>' +
+                        '<th class="values">Values</th>' +
+                        '</tr>' +
+                        '<tbody id="free_prop_body">') +
+                        '</tbody>' +
+                        '</table>');
+    //$("#main_column h1").remove(); // remove <h1>Error</h1>
+
+    // Populate table
+    console.log("FEUS - displayAllProperties(_owner) - GET " + feAPI + "/keys");
+    $.getJSON(feAPI + "/keys", function(data) {
+        console.log("FEUS - displayAllProperties() - " + JSON.stringify(data));
+        let index = data.length;
+        let content = "";
+        // sort by count
+        const d = data.sort(function(a, b) {
+            return a.count > b.count ? 1 : -1;
+        });
+        while (index--) {
+            content += ('<tr class="property">' +
+                        '<td> </td>' +
+                        '<td><a href="/property/'+ d[index].k + '">' + d[index].k + '</a></td>' +
+                        '<td><a href="https://wiki.openfoodfacts.org/Folksonomy/Property/' + d[index].k + '">ðŸ›ˆ</a></td>' +
+                        '<td>' + d[index].count + '</td>' +
+                        '<td>' + d[index].values + '</td>' +
+                        '</tr>');
+        }
+        $("#properties_list").append(content);
+    });
+}
+
+/**
+ * restrictFolksonomyForGuests()
+ * Use Case:
+ *   Used to enforce read-only mode on the folksonomy interface for non-logged-in users.
+ *   A custom login modal is shown to promote login/signup.
+ * 
+ * Intended For:
+ *   Guest users who are not authenticated.
+ *   This ensures that while guests can view all properties, they cannot add, edit, or delete any entries.
+ * @returns {void}
+ */
+function restrictFolksonomyForGuests() {
+
+    setTimeout(() => {
+        document.querySelectorAll(".fe_edit_kv, .fe_del_kv, #new_kv_button").forEach((btn) => {
+            // Remove any existing event listeners to prevent conflicts.
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+
+            // Block action and show the login modal instead.
+            newBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                showLoginPromptDialog();
+            });
+        });
+
+    }, 500); // Delay ensures buttons are available before modifying them.
+}
+document.addEventListener("DOMContentLoaded", restrictFolksonomyForGuests);
 
 function delPropertyValue(_this) {
 
@@ -457,7 +589,7 @@ function addKV(_code, _k, _v, _owner) {
     }).
         then((res) => {
         resStatus = res.status;
-        if (res.status == 200) {
+        if (res.status === 200) {
             // update UI
             // 1. Add a new row to the table
             $("#free_prop_body").append('<tr>'+
@@ -470,8 +602,20 @@ function addKV(_code, _k, _v, _owner) {
                                         '<span class="button tiny fe_del_kv">Delete</span>'+
                                         '</td>'+
                                         '</tr>');
-            $(".fe_del_kv").click( function() { isWellLoggedIn() ? delPropertyValue($(this)) : loginProcess(); } );
-            $(".fe_edit_kv").click( function() { isWellLoggedIn() ? editPropertyValue($(this)) : loginProcess(); } );
+            $(".fe_del_kv").click(function() {
+                if (isWellLoggedIn()) {
+                    delPropertyValue($(this));
+                } else {
+                    loginProcess();
+                }
+            });
+            $(".fe_edit_kv").click(function() {
+                if (isWellLoggedIn()) {
+                    editPropertyValue($(this));
+                } else {
+                    loginProcess();
+                }
+            });
             // 2. clear the form
             $("#fe_form_new_property").val("");
             $("#fe_form_new_value").val("");
@@ -619,9 +763,12 @@ function displayFolksonomyForm() {
     $.getJSON(feAPIProductURL, function(data) {
         console.log("FEUS - displayFolksonomyForm() - URL: " + feAPIProductURL);
         console.log("FEUS - displayFolksonomyForm() - " + JSON.stringify(data));
+        let index = data.length;
         let content = "";
-        const d = data.sort(function(a,b){ return a.k <b.k ?1 :-1; });
-        for (let index = data.length - 1; index >= 0; index -= 1) {
+        const d = data.sort(function(a, b) {
+            return a.k < b.k ? 1 : -1;
+        });
+        while (index--) {
             content += ('<form class="free_properties_form">' +
                         '<p class="property_value">' +
                         '<label for="feus-' + d[index].k + '" class="property">' + d[index].k + '</label> ' +
@@ -654,15 +801,21 @@ function displayFolksonomyForm() {
  */
 function isPageType() {
     // Detect API page. Example: https://world.openfoodfacts.org/api/v0/product/3599741003380.json
-    if (new RegExp('api/v0/').test(document.URL) === true) { return "api"; }
+    if (new RegExp("api/v0/").test(document.URL) === true) {
+        return "api";
+    }
 
     // Detect API page. Examples:
     // * https://world.openfoodfacts.org/property/test
     // * https://world.openfoodfacts.org/property/test/value/test
-    if (new RegExp('/property/').test(document.URL) === true) { return "property"; }
+    if (new RegExp("/property/").test(document.URL) === true) {
+        return "property";
+    }
 
     // Detect properties page. Example: https://world.openfoodfacts.org/properties
-    if (new RegExp('properties$').test(document.URL) === true) { return "properties"; }
+    if (new RegExp("properties$").test(document.URL) === true) {
+        return "properties";
+    }
 
     // Detect producers platform
     //if (new RegExp('\\.pro\\.open').test(document.URL) === true) { proPlatform = true; }
@@ -677,15 +830,23 @@ function isPageType() {
     }
 
     // Detect other error pages
-    if ($("body").hasClass("error_page")) { return "error page"; }
+    if ($("body").hasClass("error_page")) {
+        return "error page";
+    }
 
     // Detect page containing a list of products (home page, search results...)
-    if ($("body").hasClass("list_of_products_page")) { return "list"; }
+    if ($("body").hasClass("list_of_products_page")) {
+        return "list";
+    }
     // Hack for Open Products Facts, Open Pet Food Facts, Open Beauty Facts
-    if ($(".products")[0]) { return "list"; }
+    if ($(".products")[0]) {
+        return "list";
+    }
 
     // Detect search form
-    if (new RegExp('cgi/search.pl$').test(document.URL) === true) { return "search form"; }
+    if (new RegExp("cgi/search.pl$").test(document.URL) === true) {
+        return "search form";
+    }
 
     // Detect recentchanges
     if ($("body").hasClass("recent_changes_page")) { return "recent changes"; }
@@ -707,14 +868,93 @@ function loginProcess(callback) {
     if (cookie) {
         console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
         getCredentialsFromCookie(cookie, callback);
-        
         //return;
     }
     else {
-        window.alert("You must be logged in first!");
-
+        // Use custom login prompt dialog rather than normal alert
+        showLoginPromptDialog(false);
         //return;
     }
+}
+    
+/**
+ * showLoginPromptDialog()
+ * Use Case:
+ *   This function displays a custom login modal when a non-logged-in user
+ *   attempts to perform a write action (add/edit/delete) on folksonomy properties.
+ * 
+ * Functionality:
+ *    it creates and opens a dialog with "Login", "Sign up" and "Cancel" buttons.
+ **/
+
+function showLoginPromptDialog(showSignup = true) {
+    const brownColor = '#6D4C41'; 
+   // custom dialog for promoting login
+    const dialogElement = $('<div>').addClass('login-prompt-dialog').attr('id', 'loginPromptDialog').css({
+        'position': 'fixed',
+        'top': '50%',
+        'left': '50%',
+        'transform': 'translate(-50%, -50%)',
+        'background-color': 'white',
+        'border': '2px solid #6D4C41',
+        'border-radius': '15px',
+        'padding': '10px',
+        'z-index': 1000,
+        'text-align': 'center',
+      }).append(
+        $('<h2>').text('Login Required').css('color', brownColor),
+        $('<p>').text('You need to be logged in to perform this action.'),
+        $('<div>').css({
+          'display': 'flex',
+          'justify-content': 'space-around',
+          'margin-top': '10px'
+        }).append(
+          $('<a>').attr('href', '/cgi/session.pl').text('Login').addClass('login-button').css({
+            'background-color': brownColor,
+            'color': 'white',
+            'padding': '10px 20px',
+            'text-decoration': 'none',
+            'margin': '5px',
+            'border-radius': '5px',
+            'cursor': 'pointer',
+            'border': 'none'
+          })
+        ),
+        $('<button>').text('Cancel').css({
+            'margin-top': '15px',
+            'padding': '8px 16px',
+            'background-color': '#d9534f',
+            'color': 'white',
+            'border': 'none',
+            'border-radius': '5px',
+            'cursor': 'pointer'
+          }).on('click', function() {
+            dialogElement.remove();
+          })
+      );
+  
+    const buttonContainer = dialogElement.find('div').first(); // Get the button container
+  
+    // show signup when trying to access folksonomy engine 
+    if (showSignup) {
+      const signupLink = $('<a>').attr('href', '/cgi/user.pl').text('Sign Up').addClass('signup-button').css({
+        'background-color': brownColor,
+        'color': 'white',
+        'padding': '10px 20px',
+        'text-decoration': 'none',
+        'margin': '5px',
+        'border-radius': '5px',
+        'cursor': 'pointer',
+        'border': 'none'
+      });
+      buttonContainer.append(signupLink);
+      buttonContainer.css('justify-content', 'space-around'); 
+    } else {
+      buttonContainer.css('justify-content', 'center'); // Center the Login button if no signup
+    }
+  
+    $('body').append(dialogElement);
+  }
     // TODO: Reenable login ?
     // Else display a form
     // const loginWindow =
@@ -746,7 +986,6 @@ function loginProcess(callback) {
     //     });
     // });
 
-}
 
 
 function getCredentialsFromCookie(_cookie, callback) {
@@ -922,7 +1161,7 @@ function findOcc(arr, key) {
         // If yes! then increase the occurrence by 1
         arr2.forEach((k) => {
         if (k[key] === x[key]) {
-            k.occurrence += 1;
+            k.occurrence++;
         }
         });
     } else {

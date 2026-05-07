@@ -26,6 +26,7 @@ module.exports = [
   {
     ignores: [
       "html/js/dist/",
+      "html/dump/",
       "html/js/datatables.*.js",
       "html/js/jquery*.js",
       "html/js/sigma.*.js",
