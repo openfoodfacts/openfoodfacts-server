@@ -1050,6 +1050,63 @@ sub check_energy_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data
 	return;
 }
 
+sub modifier_is_ignored ($nutrients_ref, $nid) {
+	# If the nutrient is estimated or quoted as less than or less than or equal to a value
+	# then we don't include it in checks
+	my $modifier = deep_get($nutrients_ref, $nid, "modifier") // "";
+	if ($modifier =~ /[<~≤]/) {
+		return 1;
+	}
+	return 0;
+}
+
+sub min_nutrient_value ($nutrients_ref, $nid) {
+	if (modifier_is_ignored($nutrients_ref, $nid)) {
+		return 0;
+	}
+	return get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $nid) // 0;
+}
+
+# Following trace amounts were obtained from https://www.nutricalc.co.uk/expert-papers/declaring-low-values-of-nutrients-on-food-labels/
+my %trace_amounts = (
+	"fat" => 0.5,
+	"carbohydrates" => 0.5,
+	"carbohydrates-total" => 0.5,
+	"sugars" => 0.5,
+	"proteins" => 0.5,
+	"saturated-fat" => 0.1,
+	"salt" => 0.0125
+);
+
+sub nutrient_total_less_than_parts($nutrients_ref, $total_nid, @parts_nids) {
+	if (modifier_is_ignored($nutrients_ref, $total_nid)) {
+		return 0;
+	}
+	my $total = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, $total_nid);
+	if (not defined $total) {
+		return 0;
+	}
+
+	# Total may be quoted as zero even if there is a trace amount
+	if ($total == 0) {
+		$total = $trace_amounts{$total_nid} // 0;
+	}
+
+	my $parts = 0;
+	foreach my $part (@parts_nids) {
+		$parts += min_nutrient_value($nutrients_ref, $part);
+	}
+	# increased threshold from 0.001 to 0.01 (see issue #10491)
+	my $tolerance = 0.01;
+	if ($total >= 10) {
+		$tolerance = 0.1;
+	}
+	if (sprintf("%.2f", $parts) > sprintf("%.2f", $total + $tolerance)) {
+		return 1;
+	}
+	return 0;
+}
+
 =head2 check_specific_nutrients_for_input_set ( $product_ref, $nutrition_set_ref, $set_id, $data_quality_tags )
 
 Checks related to specific nutrients for a given input set.
@@ -1064,134 +1121,40 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 		return;
 	}
 
-	my $carbohydrates = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "carbohydrates");
-	my $sugars = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sugars") || 0;
-	my $starch = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "starch") || 0;
-	my $fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fiber") || 0;
-	my $sugars_modifier = deep_get($nutrients_ref, "sugars", "modifier");
-	my $starch_modifier = deep_get($nutrients_ref, "starch", "modifier");
-	my $fiber_modifier = deep_get($nutrients_ref, "fiber", "modifier");
-
 	# sugar + starch cannot be greater than carbohydrates
 	# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
-	if (
-		(defined $carbohydrates)
-		and (
-			# without "<" symbol, check sum of sugar and starch is not greater than carbohydrates
-			(
-					(($sugars + $starch) > ($carbohydrates) + 0.001)
-				and not(defined $sugars_modifier)
-				and not(defined $starch_modifier)
-			)
-			or
-			# with "<" symbol, check only that sugar or starch are not greater than carbohydrates
-			(
-				(((defined $sugars_modifier) and ($sugars_modifier eq "<")) and ($sugars > ($carbohydrates) + 0.001))
-				or (    ((defined $starch_modifier) and ($starch_modifier eq "<"))
-					and ($starch > ($carbohydrates) + 0.001))
-			)
-		)
-		)
-	{
-
+	if (nutrient_total_less_than_parts($nutrients_ref, "carbohydrates", "sugars", "starch")) {
 		push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-sugars-plus-starch-greater-than-carbohydrates";
 	}
 
 	# sugar + starch + fiber cannot be greater than total carbohydrates
 	# do not raise error if sugar, starch or fiber contains "<" symbol (see issue #9267)
-	my $carbohydrates_total = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "carbohydrates-total");
-	if (
-		(defined $carbohydrates_total)
-		and (
-			# without "<" symbol, check sum of sugar, starch and fiber is not greater than carbohydrates
-			(
-					($sugars + $starch + $fiber > ($carbohydrates_total) + 0.001)
-				and not(defined $sugars_modifier)
-				and not(defined $starch_modifier)
-				and not(defined $fiber_modifier)
-			)
-			or
-			# with "<" symbol, check only that sugar, starch or fiber are not greater than carbohydrates
-			(
-				(
-						((defined $sugars_modifier) and ($sugars_modifier eq "<"))
-					and ($sugars > $carbohydrates_total + 0.001)
-				)
-				or (    ((defined $starch_modifier) and ($starch_modifier eq "<"))
-					and ($starch > $carbohydrates_total + 0.001))
-				or (    ((defined $fiber_modifier) and ($fiber_modifier eq "<"))
-					and ($fiber > $carbohydrates_total + 0.001))
-			)
-		)
-		)
-	{
-
+	if (nutrient_total_less_than_parts($nutrients_ref, "carbohydrates-total", "sugars", "starch", "fiber")) {
 		push @{$product_ref->{$data_quality_tags}},
 			"en:${set_id}-sugars-plus-starch-plus-fiber-greater-than-carbohydrates-total";
 	}
 
 	# sum of nutrients that compose sugar can not be greater than sugar value
-
-	if (deep_exists($nutrients_ref, "sugars", "value")) {
-		my $fructose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fructose") || 0;
-		my $glucose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "glucose") || 0;
-		my $galactose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "galactose") || 0;
-		my $maltose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "maltose") || 0;
-		my $lactose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "lactose") || 0;
-		my $sucrose = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sucrose") || 0;
-		my $lactose_modifier = deep_get($nutrients_ref, "lactose", "modifier");
-
-		# sometimes lactose < 0.01 is written below the nutrition table together whereas
-		# sugar is 0 in the nutrition table (#10715)
-		# ignore lactose when having "<" symbol
-		if ((defined $lactose_modifier) and (($lactose_modifier eq '<') or ($lactose_modifier eq '≤'))) {
-			$lactose = 0;
-		}
-
-		my $total_sugar = $fructose + $glucose + $galactose + $maltose + $lactose + $sucrose;
-
-		if ($total_sugar > $sugars + 0.001) {
-			# strictly speaking: also includes galactose, despite the label name
-			push @{$product_ref->{$data_quality_tags}},
-				"en:${set_id}-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
-		}
+	# strictly speaking: also includes galactose, despite the label name
+	if (
+		nutrient_total_less_than_parts(
+			$nutrients_ref, "sugars", "fructose", "glucose", "galactose", "maltose", "lactose", "sucrose"
+		)
+		)
+	{
+		push @{$product_ref->{$data_quality_tags}},
+			"en:${set_id}-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 	}
 
-	my $fat = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "fat");
-	my $saturated_fat = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "saturated-fat");
-
-	if (    (defined $saturated_fat)
-		and (defined $fat)
-		and ($saturated_fat > ($fat + 0.001)))
-	{
-
+	if (nutrient_total_less_than_parts($nutrients_ref, "fat", "saturated-fat")) {
 		push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-saturated-fat-greater-than-fat";
-
 	}
 
 	# sum of nutrients that compose fiber can not be greater than the value of fiber
 	# ignore if there is "<" symbol (example: <1 + 5 = 5, issue #11075)
-	if (deep_exists($nutrients_ref, "fiber", "value")) {
-		my $soluble_fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "soluble-fiber") || 0;
-		my $insoluble_fiber = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "insoluble-fiber") || 0;
-		my $soluble_fiber_modifier = deep_get($nutrients_ref, "soluble-fiber", "modifier");
-		my $insoluble_fiber_modifier = deep_get($nutrients_ref, "insoluble-fiber", "modifier");
-		# Do not count soluble or insoluble fiber if they have "<" modifier
-		if ((defined $soluble_fiber_modifier) and ($soluble_fiber_modifier eq '<')) {
-			$soluble_fiber = 0;
-		}
-		if ((defined $insoluble_fiber_modifier) and ($insoluble_fiber_modifier eq '<')) {
-			$insoluble_fiber = 0;
-		}
-
-		my $total_fiber = $soluble_fiber + $insoluble_fiber;
-
-		# increased threshold from 0.001 to 0.01 (see issue #10491)
-		# make sure that floats stop after 2 decimals
-		if (sprintf("%.2f", $total_fiber) > sprintf("%.2f", $fiber + 0.01)) {
-			push @{$product_ref->{$data_quality_tags}},
-				"en:${set_id}-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
-		}
+	if (nutrient_total_less_than_parts($nutrients_ref, "fiber", "soluble-fiber", "insoluble-fiber")) {
+		push @{$product_ref->{$data_quality_tags}},
+			"en:${set_id}-soluble-fiber-plus-insoluble-fiber-greater-than-fiber";
 	}
 
 	# Too small salt value? (e.g. g entered in mg)

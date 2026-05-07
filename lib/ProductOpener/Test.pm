@@ -34,7 +34,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&capture_ouputs
+		&capture_outputs
 		&ensure_expected_results_dir
 		&compare_file_to_expected_results
 		&compare_to_expected_results
@@ -91,6 +91,9 @@ use MIME::Base64 qw(encode_base64);
 use Log::Any qw($log);
 
 no warnings qw(experimental::signatures);
+
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
+my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
 =head2 read_gzip_file($filepath)
 
@@ -319,7 +322,7 @@ sub remove_all_orgs () {
 	}
 }
 
-=head2 capture_ouputs ($meth)
+=head2 capture_outputs ($meth)
 
 Capturing out / err with Stdout/Stderr::Extended
 while following Capture::Tiny style
@@ -329,7 +332,7 @@ or verify something is present in its input / output
 
 =head3 Example usage
 
-    my ($out, $err, $csv_result) = capture_ouputs (sub {
+    my ($out, $err, $csv_result) = capture_outputs (sub {
         return scalar load_csv_or_excel_file($my_excel);
     });
 
@@ -345,7 +348,7 @@ Returns an array with std output, std error, result of the method as array.
 
 =cut
 
-sub capture_ouputs ($meth) {
+sub capture_outputs ($meth) {
 
 	my $out = IO::Capture::Stdout::Extended->new();
 	my $err = IO::Capture::Stderr::Extended->new();
@@ -403,9 +406,6 @@ If the test fail, the test reference will be output in the C<diag>
 =cut
 
 sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
-
-	# Make sure we include convert_blessed to cater for blessed objects, like booleans
-	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
 	my $desc = undef;
 	if (defined $test_ref) {
@@ -540,7 +540,9 @@ Tests will pass when this flag is passed, and the new expected results can be di
 
 =cut
 
-sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name = "") {
+sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name,
+	$save_csv = 1)
+{
 
 	# Read the CSV file
 
@@ -563,7 +565,8 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 			$test_name);
 
 		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
-		if ($update_expected_results) {
+		# Don't do this for CSV exports that contain things that vary, like modified dates
+		if ($update_expected_results and $save_csv) {
 			my $csv_filename = $csv_file;
 			$csv_filename =~ s/.*\///;
 			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
@@ -609,7 +612,6 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 	ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
-	my $json = JSON->new->allow_nonref->canonical;
 	my %codes = ();
 
 	foreach my $product_ref (@$array_ref) {

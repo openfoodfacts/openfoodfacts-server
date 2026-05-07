@@ -62,6 +62,7 @@ use Log::Any qw($log);
 use Storable qw(dclone);
 use Text::Fuzzy;
 use Data::DeepAccess qw(deep_get deep_exists);
+use Encode qw(encode_utf8);
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -1081,7 +1082,10 @@ sub compare_old_and_new_objects (
 {
 
 	# See if the objects have changed by comparing their JSON representation (with sorted keys)
-	my $json = JSON->new->allow_nonref->canonical;
+	# We need convert_blessed here, otherwise we get this error:
+	# encountered object '1', but neither allow_blessed, convert_blessed nor allow_tags settings are enabled (or TO_JSON/FREEZE method missing) at /srv/off/lib/ProductOpener/Import.pm line 1086.
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/13221
+	my $json = JSON->new->allow_nonref->convert_blessed->canonical;
 
 	if ($json->encode($old_object_ref) ne $json->encode($new_object_ref)) {
 		$$differing_ref++;
@@ -1190,7 +1194,7 @@ sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_re
 					{
 						code => $code,
 						nutrition_data_per_field => $nutrition_data_per_field,
-						$imported_nutrition_data_per_value => $imported_nutrition_data_per_value
+						imported_nutrition_data_per_value => $imported_nutrition_data_per_value
 					}
 				) if $log->is_debug();
 				$imported_nutrition_data_per_value = "100g";
@@ -1882,8 +1886,8 @@ sub import_csv_file ($args_ref) {
 			next;
 		}
 
-		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
-			$log->error("Error - code not a number with 8 or more digits",
+		if (not is_valid_code($code)) {
+			$log->error("Error - code is not valid",
 				{i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref})
 				if $log->is_error();
 			next;
@@ -2489,7 +2493,8 @@ sub import_csv_file ($args_ref) {
 					}
 
 					# Add a hash of the URL
-					my $md5 = md5_hex($image_url);
+					# Note md5_hex croaks if supplied with unicode characters above 255
+					my $md5 = md5_hex(encode_utf8($image_url));
 					$filename = $md5 . "_" . $filename;
 
 					my $images_download_dir = $args_ref->{images_download_dir};
@@ -2817,8 +2822,8 @@ sub update_export_status_for_csv_file ($args_ref) {
 			next;
 		}
 
-		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
-			$log->error("Error - code not a number with 8 or more digits",
+		if (not is_valid_code($code)) {
+			$log->error("Error - code is not valid",
 				{i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref})
 				if $log->is_error();
 			next;

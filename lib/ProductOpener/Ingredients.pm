@@ -312,11 +312,11 @@ sub init_allergens_regexps() {
 		foreach my $suffix (sort {length($b) <=> length($a)} @allergenssuffixes) {
 			# simple singulars and plurals
 			my $singular = $suffix;
-			$suffix =~ s/s$//;
-			$allergens_regexps{$allergens_lc} .= '|' . $suffix . '|' . $suffix . 's';
+			$singular =~ s/s$//;
+			$allergens_regexps{$allergens_lc} .= '|' . $singular . '|' . $singular . 's';
 
-			my $unaccented_suffix = unac_string_perl($suffix);
-			if ($unaccented_suffix ne $suffix) {
+			my $unaccented_suffix = unac_string_perl($singular);
+			if ($unaccented_suffix ne $singular) {
 				$allergens_regexps{$allergens_lc} .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
 			}
 
@@ -718,11 +718,11 @@ sub init_labels_regexps() {
 
 				# simple singulars and plurals
 				my $singular = $synonym;
-				$synonym =~ s/s$//;
-				$label_regexp .= '|' . $synonym . '|' . $synonym . 's';
+				$singular =~ s/s$//;
+				$label_regexp .= '|' . $singular . '|' . $singular . 's';
 
-				my $unaccented_synonym = unac_string_perl($synonym);
-				if ($unaccented_synonym ne $synonym) {
+				my $unaccented_synonym = unac_string_perl($singular);
+				if ($unaccented_synonym ne $singular) {
 					$label_regexp .= '|' . $unaccented_synonym . '|' . $unaccented_synonym . 's';
 				}
 
@@ -1381,11 +1381,12 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		it => "(?:paese di (?:molitura|coltivazione del grano))",
 		lv => "(?:izcelsmes valsts)",
 		mk => "(?:земја на потекло)",
+		nb => "(?:opprinnelse)",
 		pl => "(?:kraj pochodzenia)",
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
 		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
-		sv => "(?:ursprung|odlade inom)",
+		sv => "(?:ursprung(?:sland)?|odlade inom)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -1985,11 +1986,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 	my $text = $product_ref->{ingredients_text};
 
-	$log->debug("extracting ingredients from text", {text => $text}) if $log->is_debug();
-
 	$text = preparse_ingredients_text($ingredients_lc, $text);
-
-	$log->debug("preparsed ingredients from text", {text => $text}) if $log->is_debug();
 
 	# Remove allergens and traces that have been preparsed
 	# jus de pomme, eau, sucre. Traces possibles de c\x{e9}leri, moutarde et gluten.",
@@ -1997,7 +1994,12 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 	my $traces = $Lang{traces}{$ingredients_lc};
 	my $allergens = $Lang{allergens}{$ingredients_lc};
-	$text =~ s/\b($traces|$allergens)\s?:\s?([^,\.]+)//ig;
+	if (defined $traces and defined $allergens) {
+		$text =~ s/\b($traces|$allergens)\s?:\s?([^,\.]+)//ig;
+	}
+	else {
+		$log->warn("No translation for traces or allergens", {ingredients_lc => $ingredients_lc}) if $log->is_warn();
+	}
 
 	# unify newline feeds to \n
 	$text =~ s/\r\n/\n/g;
@@ -7020,8 +7022,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|\)|\]|$)/replace_additive($3,$6,$9) . $12/ieg;
 
 	# E100 et E120 -> E100, E120
-	$text =~ s/\be($additivesregexp)$and/e$1, /ig;
-	$text =~ s/${and}e($additivesregexp)/, e$1/ig;
+	$text =~ s/\be($additivesregexp)$and/'e' . ((defined $1) ? $1 : '') . ', '/ige;
+	$text =~ s/${and}e($additivesregexp)/', e' . ((defined $1) ? $1 : '')/ige;
 
 	# E100 E122 -> E100, E122
 	$text =~ s/\be($additivesregexp)\s+e(?=\d)/e$1, e/ig;
@@ -8177,7 +8179,8 @@ sub detect_allergens_from_text ($product_ref) {
 
 			$product_ref->{"ingredients_text_with_allergens_" . $language} = $text;
 
-			if ($language eq $ingredients_lc) {
+			my $ingredients_language = (defined $ingredients_lc) ? $ingredients_lc : '';
+			if ($language eq $ingredients_language) {
 				$product_ref->{"ingredients_text_with_allergens"} = $text;
 			}
 
