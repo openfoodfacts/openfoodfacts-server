@@ -58775,23 +58775,62 @@ wco_hs_heading:en: 20.08
 #do not put in nut butters, peanut is not a nut
 < en:Legume butters
 en: Peanut butters, peanut paste, peanut creme
+af: Grondboontjiebotter
+ar: زبدة فول سوداني
 bg: Фъстъчено масло
 ca: Mantega de cacauet
+cs: Burákové máslo
+cy: Menyn cnau mwnci
+da: Jordnøddesmør
 de: Erdnussbutter
-es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní
-fi: maapähkinävoit
-fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide
+el: Φιστικοβούτυρο
+eo: Arakida buteroj
+es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní, Mantequilla de maní
+et: Maapähklivõi
+eu: Kakahuete-gurin
+fa: کره بادام زمینی
+fi: Maapähkinävoit
+fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide, Beurre d'arachide
+fy: Nútsjesmoar
+ga: Im piseanna talún
+gl: Manteiga de cacahuete
 he: חמאות בוטנים
 hr: Maslaci od kikirikija
-it: Burri di arachidi
-ja: ピーナッツバター
-lt: Žemės riešutų sviestai, žemės riešutų pastos
+hu: Mogyoróvaj
+hy: Գետնանուշի կարագ
+id: Selai kacang
+is: Hnetusmjör
+it: Burri di arachidi, Burro di arachidi
+ja: ピーナッツバター, ピーナッツ・バター, ピーナツ・バター
+jv: Selé kacang
+kn: ಪೀನಟ್ ಬಟರ್
+ko: 땅콩버터
+la: Butyrum arachidum
+ln: Mwǎmba-ngúba
+lt: Žemės riešutų sviestai, Žemės riešutų pastos, Žemės riešutų sviestas
+lv: Zemesriekstu sviests
+mg: Menaka voanjo
+mi: Pīnati pata
+mk: Путер од кикиритки
+ms: Mentega kacang
+nb: Peanøttsmør
 nl: Pindakazen, Pindakaas
-pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych
+nn: Peanøttsmør
+pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych, Masło orzechowe
 pt: Manteigas de amendoim
+ro: Unt de arahide
 ru: Арахисовая паста, Арахисовые пасты
+sk: Arašidové maslo
+sl: Arašidovo maslo
+sn: Dovi
+sr: Путер од кикирикија
 sv: Jordnötssmör
-tr: Yerfıstığı ezmesi
+sw: Siagi ya karanga
+th: เนยถั่วลิสง
+tr: Yerfıstığı ezmesi, Fıstık ezmesi
+uk: Арахісова паста
+vi: Bơ đậu phộng
+zh: 花生酱
 agribalyse_food_code:en: 15202
 ciqual_food_code:en: 15202
 ciqual_food_name:en: Peanut butter or peanut paste
@@ -58802,19 +58841,40 @@ wco_hs_heading:en: 20.08
 wikidata:en: Q147651
 
 < en:Peanut butters
+en: Creamy peanut butters
+da: Cremede jordnøddesmør, Creamy jordnøddesmør
+pt: Manteigas de amendoim cremosas
+sv: Jordnötssmör utan bitar, Creamy jordnötssmör
+wikidata:en: Q134165564
+
+< en:Peanut butters
 en: Crunchy peanut butters
+da: Sprøde jordnøddesmør, Crunchy jordnøddesmør
 fr: Beurres de cacahuetes croustillants
 hr: Hrskavi maslaci od kikirikija
 lt: Traškūs žemės riešutų sviestai
 nl: Pindakzen met stukjes pinda
+pt: Manteigas de amendoim crocantes
+sv: Jordnötssmör med bitar, Crunchy jordnötssmör
 
-#contains only peanut, no added whatever
 < en:Peanut butters
 en: Pure peanut butters
+da: Rene jordnøddesmør
 fr: Pur beurre de cacahuettes
 hr: Čisti maslac od kikirikija
 lt: Žemės riešutų sviestai (100%)
 nl: Pindakazen (100% pinda)
+pt: Manteigas de amendoim puras
+sv: Rena jordnötssmör, 100% jordnötssmör
+comment:en: contains only peanut, no added whatever
+expected_ingredients:en: en:peanut
+
+< en:Crunchy peanut butters
+< en:Pure peanut butters
+en: Crunchy pure peanut butters, Pure crunchy peanut butters
+da: Sprøde rene jordnøddesmør, Rene sprøde jordnøddesmør
+pt: Manteigas de amendoim puras e crocantes, Manteigas de amendoim crocantes puras
+sv: Rena jordnötssmör med bitarm, 100% jordnötssmör med bitar
 
 < en:Legume butters
 en: Flavoured peanut butters
@@ -84904,7 +84964,7 @@ ciqual_food_code:en: 20240
 ciqual_food_name:en: Piperade, Basque-style (fondue of sweet peppers and tomatoes flavoured with onions and garlics)
 ciqual_food_name:fr: Piperade basquaise
 
-< en:Fermented vegetables
+
 en: Sauerkrauts
 af: Suurkool
 ar: ساوركراوت
@@ -84968,6 +85028,32 @@ protected_name_file_number:en: PGI-FR-01066
 protected_name_type:en: pgi
 wikidata:en: Q12699
 
+< en:Fermented vegetables
+< en:Sauerkrauts
+en: Sauerkrauts without garnish, Sauerkraut without garnish
+fr: Choucroutes sans garniture
+hr: Kiseli kupus bez ukrasa
+lt: Rauginti kopūstai be garnyro
+nl: Zuurkolen zonder garnering
+
+< en:Sauerkrauts without garnish
+en: Cooked sauerkrauts without garnish, Cooked sauerkraut without garnish
+fr: Choucroutes cuites sans garnitures, Choucroute sans garniture égouttée cuite
+hr: Kuhani kiseli kupus bez ukrasa
+lt: Kepti rauginti kopūstai be garnyro
+nl: Zuurkolen zonder garnering (uitgelekt, gekookt)
+agribalyse_food_code:en: 25220
+ciqual_food_code:en: 25220
+ciqual_food_name:en: Sauerkraut, without garnish, drained, cooked
+ciqual_food_name:fr: Choucroute, sans garniture, égouttée, cuite
+
+< en:Sauerkrauts without garnish
+en: Raw sauerkrauts without garnish
+fr: Choucroutes crues sans garnitures
+ciqual_food_code:en: 25004
+ciqual_food_name:en: Sauerkraut, without garnish, drained
+ciqual_food_name:fr: Choucroute, sans garniture, égouttée
+
 < en:Meals
 < en:Sauerkrauts
 en: Sauerkraut with garnish
@@ -84980,29 +85066,9 @@ ciqual_food_code:en: 25003
 ciqual_food_name:en: Sauerkraut, with garnish
 ciqual_food_name:fr: Choucroute garnie
 
-< en:Sauerkrauts
-en: Sauerkraut without garnish
-fr: Choucroutes sans garniture
-hr: Kiseli kupus bez ukrasa
-lt: Rauginti kopūstai be garnyro
-nl: Zuurkolen zonder garnering
-agribalyse_food_code:en: 25220
-ciqual_food_code:en: 25004
-ciqual_food_name:en: Sauerkraut, without garnish, drained
-ciqual_food_name:fr: Choucroute, sans garniture, égouttée
-
-< en:Sauerkraut without garnish
-en: Cooked sauerkraut without garnish
-fr: Choucroute, sans garniture égouttée cuite
-hr: Kuhani kiseli kupus bez ukrasa
-lt: Kepti rauginti kopūstai be garnyro
-nl: Zuurkolen zonder garnering (uitgelekt, gekookt)
-ciqual_food_code:en: 25220
-ciqual_food_name:en: Sauerkraut, without garnish, drained, cooked
-ciqual_food_name:fr: Choucroute, sans garniture, égouttée, cuite
-
 < en:Meals
-fr: Choucroutes de la Mer
+< en:Sauerkrauts
+fr: Choucroutes de la mer
 
 < en:Vegetables based foods
 en: Fermented vegetables
@@ -85751,8 +85817,18 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
-< en:Frozen foods
 < en:Meals
+< en:Sandwiches
+en: Pizza sub sandwiches
+description:en: heated sandwich filled like a pizza
+
+< en:Meals
+en: Pizza sub toasts
+fr: Tartines salés à cuire, Tartines style pizza
+description:en: heated bread topped like a pizza
+
+< en:Frozen foods
+< en:Pizza sub toasts
 en: Frozen topped baguettes
 de: Tiefgefrorene belegte Baguettes
 fr: Baguettes garnies surgelées
