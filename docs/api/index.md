@@ -2,9 +2,8 @@
 
 Everything you need to know about Open Food Facts API.
 
-> [CAUTION]
-> 👮‍♂️🚥Are you going to use our API?
-> Please **read this documentation entirely** before using it.
+> [!CAUTION]
+> Are you going to use our API? Please **read this documentation <ins>entirely</ins>** before using it.
 
 ## Overview
 
@@ -47,9 +46,8 @@ Before using the API, please :
 
 To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:
 
-- 100 req/min for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
-- 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests); don't use it for a search-as-you-type feature, you would be blocked very quickly.
-- 2 req/min for facet queries (such as `/categories`, `/label/organic`, `/ingredient/salt/category/breads`,...).
+- 15 req/min/IP address for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
+- 10 req/min/IP address for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests); don't use it for a search-as-you-type feature, you would be blocked very quickly.
 
 If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to [email us to explain why you reached the limits][why_reached_limits]: reverting the ban is possible.
 
@@ -57,7 +55,11 @@ If these limits are reached, we reserve the right to deny you access to the webs
 
 If your requests come from your users directly (ex: mobile app), the rate limits apply per user.
 
-If you need to fetch a significant fraction of the database, we recommend [downloading the data as a CSV or JSONL file directly](https://world.openfoodfacts.org/data). If you need to download images in bulk, we [have a guide for that](./how-to-download-images.md).
+If you need to fetch more than a few hundred products, we ask you to [download the data as a CSV or JSONL file directly](https://world.openfoodfacts.org/data). If you need to download images in bulk, we [have a guide for that](./how-to-download-images.md).
+
+To protect our infrastructure from abusive crawl, we also added global rate-limits on the website and API endpoints, irrespective of the IP address. A HTTP 503 response (Service Not Available) will be returned if these limits are exceeded.
+
+If you expect your app to generate a lot of API traffic, we **strongly encourage you to host a local instance of Product Opener (or another custom API backend)**, and use the daily exports to update your local database.
 
 ### If your users do not expect a result immediately (e.g., Inventory apps)
 
@@ -101,7 +103,7 @@ We ask you to **always use a custom User-Agent to identify your app** (to not ri
 - READ operations (getting info about a product, etc...) do not require authentication other than the custom User-Agent.
 - WRITE operations (Editing an Existing Product, Uploading images…) **require authentication**. We do this as another layer of protection against spam.
 
-Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/) for your app (and notify reuse@openfoodfacts.org of the account name, so that we grant it special app privileges). From there, you have two options:
+Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/) for your app and fill out the [API usage form](https://docs.google.com/forms/d/e/1FAIpQLSdIE3D8qvjC_zRJw1W8OmuHhsWJ_NSckiiniAHlfaVwUZCziQ/viewform) so that we can identify your usage and prevent potential bans. From there, you have two options:
 
 - **The preferred one**:
   Use the login API to get a session cookie and use this cookie for authentication in your subsequent requests. However, the session must always be used from the same IP address, and there's a limit on sessions per user (currently 10) with older sessions being automatically logged out to stay within the limit.

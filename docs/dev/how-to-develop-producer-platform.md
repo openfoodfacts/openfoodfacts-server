@@ -8,9 +8,9 @@ Here is how to develop for the producers platform using docker.
 
 ### Shell Setup:
 You will need two types of shells:
-- Shell for OpenFoodFacts:
+- **Shell for OpenFoodFacts**:
   - Use this shell for general development on the OpenFoodFacts platform.
-- Shell for OpenFoodFacts-Pro: Use this shell when working on the OpenFoodFacts-Pro platform.
+- **Shell for OpenFoodFacts-Pro**: Use this shell when working on the OpenFoodFacts-Pro platform.
   - To set up the shell, run the command: `. env/setenv.sh off-pro` (this simply sets some environment variables that will override the ones in `.env`).
   - Once the shell is set up, your prompt will show `(pro)` to indicate that you are in the producers environment.
 
@@ -22,9 +22,9 @@ To develop on the producers platform, follow these steps:
   - If you encounter any issues with CSS not showing up, you can run `make build_lang` in the *pro* shell.
 
 ### Working with Product Import/Export and Interacting with the Public Platform:
-If you need to work on product import/export or interact with the public platform, you must start the following services: `PostgreSQL`, `MongoDB`, and the `Minion`. Here's how:
+If you need to work on product import/export or interact with the public platform, you must start the following services: `PostgreSQL`, and the `Minion`. Here's how:
 
-- In a *non-pro* shell (OpenFoodFacts shell), run the command `docker compose up postgres minion mongodb`.
+- In a *non-pro* shell (OpenFoodFacts shell), run the command `docker compose up postgres minion`.
   - This command starts the necessary services in the background.
 
 #### Note: The setup does not currently support running the http server for both public and pro platform at the same time. Therefore, to access the public platform, you need to follow these steps:

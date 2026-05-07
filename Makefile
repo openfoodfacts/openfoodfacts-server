@@ -1,7 +1,7 @@
 #!/usr/bin/make
 
 ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
-    $(error "We do not suppport using cmd.exe on Windows, please run in a 'git bash' console")
+    $(error "We do not support using cmd.exe on Windows, please run in a 'git bash' console")
 endif
 
 
@@ -66,9 +66,11 @@ DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://b
 	ODOO_CRM_URL="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
+	OIDC_IMPLEMENTATION_LEVEL=3 \
 	PO_COMMON_PREFIX=test_ \
 	docker compose --env-file=${ENV_FILE}
 DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
+    REDIS_URL= \
 	${DOCKER_COMPOSE_TEST_BASE}
 # Enable Redis only for integration tests.
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
@@ -128,6 +130,8 @@ dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes r
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
+# we also need to clone_deps to ensure all cited docker compose files are available
+# so, in some way, it's part of creating folders
 create_folders: clone_deps
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
@@ -183,6 +187,11 @@ restart: run_deps
 	${DOCKER_COMPOSE} restart backend frontend
 	@echo "🥫  started service at http://openfoodfacts.localhost"
 
+restart_backend:
+	@echo "🥫 Restarting backend container …"
+	${DOCKER_COMPOSE} restart backend
+	@echo "🥫 Apache restarted successfully at http://openfoodfacts.localhost"
+
 stop: stop_deps
 	@echo "🥫 Stopping containers …"
 	${DOCKER_COMPOSE} stop
@@ -224,11 +233,11 @@ build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
-	${DOCKER_COMPOSE_BUILD} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test: create_folders
 # Run build_lang.pl in test env
-	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
@@ -277,7 +286,7 @@ front_npm_update:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm update
 
 front_lint:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint --fix
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
 
 front_build:
 	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
@@ -290,13 +299,15 @@ lint: lint_perltidy lint_taxonomies
 tests: build_taxonomies_test build_lang_test build_pro_platform_test unit_test integration_test brands_sort_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
-unit_test: create_folders
+unit_test: create_folders build_pro_platform_test
 	@echo "🥫 Running unit tests …"
 	mkdir -p tests/unit/outputs/
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🥫 Running tests with yath (parallel jobs: ${CPU_COUNT})"
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit.xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
+
 
 integration_test: create_folders
 	@echo "🥫 Running integration tests …"
@@ -306,7 +317,9 @@ integration_test: create_folders
 # note that we don't launch the frontend because it causes issues,
 # as we use localhost in tests (which is the backend)
 # Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
+# Also need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
 	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
+	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
@@ -341,6 +354,8 @@ test-int: guard-test create_folders
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
+# Need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
+	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
@@ -362,13 +377,14 @@ update_tests_results: build_taxonomies_test build_lang_test build_pro_platform_t
 update_unit_tests_results:
 	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener/tests backend bash update_unit_tests_results.sh
+	${DOCKER_COMPOSE_TEST} run --rm backend bash tests/update_unit_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 
 update_integration_tests_results:
 	@echo "🥫 Updated expected integration test results with actuals for easy Git diff"
+	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
-	${DOCKER_COMPOSE_INT_TEST} exec -w /opt/product-opener/tests backend bash update_integration_tests_results.sh
+	${DOCKER_COMPOSE_INT_TEST} exec backend bash tests/update_integration_tests_results.sh
 	${DOCKER_COMPOSE_INT_TEST} stop
 
 bash:
@@ -434,7 +450,7 @@ check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
-TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep -E 'taxonomies.*/.*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep -P 'taxonomies/(beauty/|food/|petfood/|product/|)[^/]+\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
 # TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
@@ -519,7 +535,7 @@ _clean_old_external_volumes:
 	( docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images ) || true
 
 save_orgs_to_mongodb:
-	@echo "🥫 Saving exsiting orgs into MongoDB …"
+	@echo "🥫 Saving existing orgs into MongoDB …"
 	${DOCKER_COMPOSE_BUILD} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
 
 _bind_local:
@@ -539,7 +555,7 @@ endif
 
 build_asyncapi:
 	npm list -g @asyncapi/cli || npm install -g @asyncapi/cli
-	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.0.0 --use-new-generator --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
+	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.5.4 --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
 
 #------------#
 # Production #
@@ -564,6 +580,11 @@ create_external_networks:
 	docker network create --driver=bridge --subnet="172.30.0.0/16" ${COMPOSE_PROJECT_NAME}_webnet \
 	|| echo "network already exists"
 
+
+update_all_packager_codes:
+	@echo "🥫 Downloading packager codes (production only) …"
+	${DOCKER_COMPOSE} run --rm backend bash /opt/product-opener/scripts/packager-codes/update_all_packager_codes.sh
+
 #---------#
 # Cleanup #
 #---------#
@@ -586,6 +607,10 @@ clean_folders: clean_logs
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 	echo "" > logs/apache2/log4perl.log
+
+rotate_logs:
+	${DOCKER_COMPOSE_BUILD} run --rm --user root --no-deps backend bash -c "savelog -p /mnt/podata/logs/*{.,_}log" || true
+	${DOCKER_COMPOSE_BUILD} run --rm --user root --no-deps frontend bash -c "savelog -p /var/log/nginx/*{.,_}log" || true
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 
@@ -634,3 +659,87 @@ guard-%: # guard clause for targets that require an environment variable (usuall
    		echo "Environment variable '$*' is not set"; \
    		exit 1; \
 	fi;
+
+# Dynamic unit test groups for parallel execution in CI
+# Usage: make unit_test_group TEST_GROUP=1
+# Groups are dynamically balanced by execution time using greedy algorithm
+
+# Generate dynamic test groups if not cached or if forced
+.test_groups_cache/unit_groups.mk: scripts/dynamic_test_grouper.py
+	@echo "🥫 Generating dynamic unit test groups (auto-calculated count)..."
+	@mkdir -p .test_groups_cache
+	@python3 scripts/dynamic_test_grouper.py --type=unit > .test_groups_cache/unit_groups.mk
+
+# Include the dynamically generated groups
+-include .test_groups_cache/unit_groups.mk
+
+# Get unit test group tests from dynamically generated groups
+get_unit_group_tests = $(UNIT_GROUP_$(1)_TESTS)
+
+# Unit test group runner for CI parallelization
+unit_test_group: create_folders build_pro_platform_test
+ifeq ($(TEST_GROUP),)
+	$(error TEST_GROUP is required. Usage: make unit_test_group TEST_GROUP=1)
+endif
+	@echo "🥫 Running unit test group $(TEST_GROUP) …"
+	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_unit_group_tests,$(TEST_GROUP))"
+	mkdir -p tests/unit/outputs/
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
+	@echo "🥫 Running all tests in group $(TEST_GROUP) with parallel execution and JUnit XML generation..."
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/unit/outputs/junit_group_$(TEST_GROUP).xml" -T --rm backend yath test --renderer=Formatter --renderer=JUnit --job-count=${CPU_COUNT} $(addprefix tests/unit/,$(call get_unit_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_TEST} stop
+	@echo "🥫 Unit test group $(TEST_GROUP) completed successfully"
+	# Update timing data from test results
+	@python3 scripts/dynamic_test_grouper.py --type=unit --update-timings --junit-dir=tests/unit/outputs/
+
+# Force regeneration of unit test groups (ignores cache)
+regenerate_unit_groups:
+	@echo "🥫 Forcing regeneration of unit test groups (auto-calculated count)..."
+	@python3 scripts/dynamic_test_grouper.py --type=unit --force > .test_groups_cache/unit_groups.mk
+	@echo "🥫 Unit test groups regenerated"
+
+# Dynamic integration test groups for parallel execution in CI
+# Usage: make integration_test_group TEST_GROUP=1
+# Groups are dynamically balanced by execution time using greedy algorithm
+
+# Generate dynamic integration test groups if not cached or if forced
+.test_groups_cache/integration_groups.mk: scripts/dynamic_test_grouper.py
+	@echo "🥫 Generating dynamic integration test groups (auto-calculated count)..."
+	@mkdir -p .test_groups_cache
+	@python3 scripts/dynamic_test_grouper.py --type=integration > .test_groups_cache/integration_groups.mk
+
+# Include the dynamically generated groups
+-include .test_groups_cache/integration_groups.mk
+
+# Get the tests for a specific group from dynamically generated groups
+get_group_tests = $(INTEGRATION_GROUP_$(1)_TESTS)
+
+integration_test_group: create_folders
+ifeq ($(TEST_GROUP),)
+	$(error TEST_GROUP is required. Usage: make integration_test_group TEST_GROUP=1)
+endif
+	@echo "🥫 Running integration test group $(TEST_GROUP) …"
+	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
+	mkdir -p tests/integration/outputs/
+	${DOCKER_COMPOSE_INT_TEST} up -d backend
+	@echo "🥫 Running all tests in group $(TEST_GROUP) with both console output and JUnit XML generation..."
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))
+	${DOCKER_COMPOSE_INT_TEST} stop
+	@echo "🥫 Integration test group $(TEST_GROUP) completed successfully"
+	# Update timing data from test results
+	@python3 scripts/dynamic_test_grouper.py --type=integration --update-timings --junit-dir=tests/integration/outputs/
+
+# Force regeneration of integration test groups (ignores cache)
+regenerate_integration_groups:
+	@echo "🥫 Forcing regeneration of integration test groups (auto-calculated count)..."
+	@python3 scripts/dynamic_test_grouper.py --type=integration --force > .test_groups_cache/integration_groups.mk
+	@echo "🥫 Integration test groups regenerated"
+
+# Force regeneration of both unit and integration test groups
+regenerate_test_groups: regenerate_unit_groups regenerate_integration_groups
+
+# Clean test group cache
+clean_test_groups:
+	@echo "🥫 Cleaning test group cache..."
+	@rm -rf .test_groups_cache
+	@echo "🥫 Test group cache cleaned"
