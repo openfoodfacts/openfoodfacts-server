@@ -3,6 +3,7 @@
 /*global default_preferences*/ // depends on flavor: OFF, OBF etc.
 /*global product_type */
 /*global initializeTagifyInput */
+/*global trackMatomoEvent*/
 
 let attribute_groups; // All supported attribute groups and attributes + translated strings
 let preferences; // All supported preferences + translated strings
@@ -124,6 +125,8 @@ function activate_preferences_switch_buttons(change) {
 
 		localStorage.setItem('use_user_product_preferences_for_ranking', this.checked);
 		use_user_product_preferences_for_ranking = this.checked;
+
+    trackMatomoEvent('personal_search', this.checked ? 'enabled' : 'disabled');
 
 		// Update the other checkbox value
 		$(".preferences_checkboxes").prop('checked',use_user_product_preferences_for_ranking);

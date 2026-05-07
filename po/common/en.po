@@ -270,6 +270,10 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Your request to join the organization is pending approval of the organization administrator."
 
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr "Your organization request has been received and is being processed."
+
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
 msgstr "Admin Status Updated"
@@ -5508,8 +5512,8 @@ msgstr "Vision, Mission, Values and Programs"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -6750,6 +6754,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Product updated"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr "User found"
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Invalid API action"
@@ -6881,6 +6889,14 @@ msgstr "All the packaging parts of the product are listed."
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Invalid user id and password"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr "Invalid access_token"
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr "Authentication required"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
