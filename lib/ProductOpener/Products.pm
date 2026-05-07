@@ -1152,7 +1152,10 @@ sub change_product_code ($product_ref, $new_code) {
 	else {
 		# check that the new code is available
 		# On the pro platform, product_id includes the owner prefix (e.g. org-xxx/code)
-		my $new_product_id = product_id_for_owner($Owner_id, $new_code);
+		# Use the product owner instead of the current Owner_id, which can differ for moderators
+		# or when editing products from another organization. Fallback to Owner_id if needed.
+		my $product_owner_id = $product_ref->{owner} // $Owner_id;
+		my $new_product_id = product_id_for_owner($product_owner_id, $new_code);
 		if (object_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_product_id) . "/product")) {
 			$log->warn("cannot change product code, because the new code already exists",
 				{code => $code, new_code => $new_code})
