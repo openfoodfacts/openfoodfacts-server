@@ -137,6 +137,20 @@ my $tests_ref = [
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
+	{
+		test_case => 'options-facet-preflight',
+		method => 'OPTIONS',
+		path => '/facets/contributors/tests',
+		expected_status_code => 200,
+		headers_in => {
+			"Access-Control-Request-Method" => "GET",
+		},
+		headers => {
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "none",
+	},
 ];
 execute_api_tests(__FILE__, $tests_ref);
 
