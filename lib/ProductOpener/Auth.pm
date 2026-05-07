@@ -187,9 +187,11 @@ sub signin_callback ($request_ref) {
 	my %cookie_ref = cookie($cookie_name);
 	# verify we are in the right sign-in process, thanks to the randomly generated token
 	my $nonce = $cookie_ref{'nonce'};
-	if (not($state eq $nonce)) {
-		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Invalid Nonce during OIDC login', 500);
+	my ($state_is_valid, $error_message, $error_status) = _validate_oidc_state_and_nonce($state, $nonce, 'login');
+	if (not $state_is_valid) {
+		$log->info('invalid OIDC callback state', {nonce => $nonce, expected_nonce => $state, context => 'login'})
+			if $log->is_info();
+		display_error_and_exit($request_ref, $error_message, $error_status);
 	}
 
 	# validation against JWKS
@@ -221,6 +223,28 @@ sub signin_callback ($request_ref) {
 	init_user($request_ref);
 
 	return $cookie_ref{'return_url'};
+}
+
+=head2 _validate_oidc_state_and_nonce($state, $nonce, $context)
+
+Validate OIDC state and nonce values before comparing them.
+
+=cut
+
+sub _validate_oidc_state_and_nonce ($state, $nonce, $context = 'login') {
+	if ((not defined $state) or ($state eq '')) {
+		return (0, "Missing OIDC state during $context", 400);
+	}
+
+	if ((not defined $nonce) or ($nonce eq '')) {
+		return (0, "Missing OIDC nonce during $context", 400);
+	}
+
+	if ($state ne $nonce) {
+		return (0, "Invalid Nonce during OIDC $context", 500);
+	}
+
+	return (1, undef, undef);
 }
 
 =head2 password_signin($username, $password, $request_ref)
@@ -481,9 +505,11 @@ sub signout_callback ($request_ref) {
 	my $state = single_param('state');
 	my %cookie_ref = cookie($cookie_name);
 	my $nonce = $cookie_ref{'nonce'};
-	if (not($state eq $nonce)) {
-		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
-		display_error_and_exit($request_ref, 'Invalid Nonce during OIDC logout', 500);
+	my ($state_is_valid, $error_message, $error_status) = _validate_oidc_state_and_nonce($state, $nonce, 'logout');
+	if (not $state_is_valid) {
+		$log->info('invalid OIDC callback state', {nonce => $nonce, expected_nonce => $state, context => 'logout'})
+			if $log->is_info();
+		display_error_and_exit($request_ref, $error_message, $error_status);
 	}
 
 	param('length', 'logout');
