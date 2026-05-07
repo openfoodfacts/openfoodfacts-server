@@ -86,7 +86,7 @@ jobs:
           tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
       - name: Checkout the project in case of release
         if: ${{ env.IS_RELEASE }}
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
           ref: ${{ env.RELEASE_SHA }}
@@ -121,7 +121,7 @@ jobs:
 
       - name: Add commit to release or release!
         id: release
-        uses: googleapis/release-please-action@v4.4.0
+        uses: googleapis/release-please-action@v5.0.0
         with:
           # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
           # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
