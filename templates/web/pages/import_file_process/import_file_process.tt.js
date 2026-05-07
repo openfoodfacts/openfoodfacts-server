@@ -14,7 +14,7 @@ var statuses = {
   \$.ajax({
     url: '/cgi/import_file_job_status.pl?file_id=[% process_file_id %]&import_id=[% process_import_id %]',
     success: function(data) {
-      \$('#result').html(statuses[data.job_info.state]);
+      \$('#result').text(statuses[data.job_info.state]);
 	  job_info_state = data.job_info.state;
     },
     complete: function() {
@@ -26,7 +26,7 @@ var statuses = {
 	if (job_info_state == "finished") {
 	}
 	  poll_n++;
-	  \$('#poll').html(poll_n);
+	  \$('#poll').text(poll_n);
     }
   });
 })();

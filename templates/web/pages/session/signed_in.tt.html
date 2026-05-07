@@ -2,10 +2,7 @@
 <h1>[% lang('hello')%] [% user_name %]!</h1>
 
 [% IF !server_options_producers_platform %]
-    [% IF lc == "en" or lc == "fr" %]
-        <h3>[% lang('you_can_also_help_us') %]</h3>
-        <p>[% lang('bottom_content') %]</p>
-    [% END %]
+    [% INCLUDE 'web/common/includes/help_us_block.tt.html' %]
 [% ELSE %]
 
     <h3>[% lang("resources") %]</h3>

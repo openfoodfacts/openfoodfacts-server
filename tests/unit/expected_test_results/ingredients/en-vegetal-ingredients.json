@@ -8,8 +8,8 @@
          "percent_max" : 100,
          "percent_min" : 20,
          "text" : "Gelatin",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:charcoal",
@@ -19,8 +19,8 @@
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "Charcoal",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:ferment",
@@ -30,8 +30,8 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "ferments",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:rennet",
@@ -41,8 +41,8 @@
          "percent_max" : 25,
          "percent_min" : 0,
          "text" : "rennet",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:flavouring",
@@ -52,8 +52,8 @@
          "percent_max" : "5",
          "percent_min" : 0,
          "text" : "flavours",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -112,11 +112,5 @@
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 4,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 1
 }
