@@ -406,7 +406,7 @@ my $products_collection = get_products_collection({obsolete => $obsolete, timeou
 # Collections for saving current / obsolete products
 my %products_collections = (
 	current => get_products_collection({timeout => $socket_timeout_ms}),
-	obsolete => get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms}),
+	obsolete => get_products_collection({obsolete => 1, timeout => $socket_timeout_ms}),
 );
 
 my $products_count = "";
