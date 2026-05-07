@@ -1,3 +1,8 @@
+## Wikidata mappings
+
+# Wikidata categories correspond to Q2095 (food), Q746549 (human food), Q124794 (food product) etc.
+# Query all elements: https://query.wikidata.org/#SELECT%20%3Fitem%20%3FitemLabel%20WHERE%20%7B%0A%20%20%3Fitem%20%28wdt%3AP279%20%7C%20wdt%3AP31%29%2A%20%3FfoodClass%20.%0A%20%20VALUES%20%3FfoodClass%20%7B%20wd%3AQ2095%20wd%3AQ746549%20wd%3AQ2080352%20wd%3AQ124794%20%7D%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%7D
+
 # please keep an extra line between synonyms
 # also: don't add synonyms if they are already the name of an individual category, in that case add the synonym to the category
 
@@ -142,18 +147,22 @@ ru: Непищевые продукты, Не еда
 < en:Non food products
 en: Open Beauty Facts, OBF, Cosmetics, Hygiene
 xx: Open Beauty Facts, OBF
+pt: Fatos de beleza abertos, obf, cosméticos, higiene
 
 < en:Non food products
 en: Open Pet Food Facts, OPFF, pet food
 xx: Open Pet Food Facts, OPFF, pet food
+pt: Fatos abertos sobre alimentos para animais de estimação, opff, alimentos para animais de estimação
 
 < en:Non food products
 en: Open Products Facts, OPF
 xx: Open Products Facts, OPF
+pt: Fatos sobre produtos abertos, opf
 
 < en:Open Products Facts
 en: kitchenware
 nl: Keukenproducten, Keukenbenodigdheden
+pt: Utensílios de cozinha
 google_product_taxonomy_id:en: 668
 wikidata:en: Q1521410
 
@@ -166,6 +175,7 @@ fr: livres
 hr: knjige, knjiga
 ja: 本
 nl: Boeken
+pt: Livros
 sv: böcker, bok
 google_product_taxonomy_id:en: 784
 wikidata:en: Q571
@@ -175,6 +185,7 @@ en: detergents
 hr: deterdženti, deterdžent
 ja: 洗剤
 nl: Detergenten
+pt: Detergentes
 tr: Deterjan
 wikidata:en: Q334637
 
@@ -191,6 +202,7 @@ it: Biscotti a sigaretta
 ja: タバコ, 煙草
 nl_be: Sigaretten
 pl: Papierosy
+pt: Cigarros
 ru: Сигареты
 tr: Sigara
 google_product_taxonomy_id:en: 3151
@@ -200,6 +212,7 @@ en: Bulk
 fr: Vrac
 hr: Rasuti
 nl: Verpakkingsvrij
+pt: Massa
 
 en: Artisan products
 ca: Prouctes artesans
@@ -228,6 +241,7 @@ hr: Ručno rađeni grisini
 hu: Kézműves kenyérrudacskák, Kézzel készült kenyérrudacskák
 it: Grissini artigianali, Grissini fatti a mano
 nl: Handgemaakte broodstengels
+pt: Pãozinhos artesanais
 ro: Grisine artizanale
 
 en: Pasteurised products
@@ -319,6 +333,7 @@ it: Dal 4to mese, Dal quarto mese, A partire dal quarto mese, A partire dal 4to 
 lt: Nuo 4 mėnesių
 nl: Vanaf 4 maanden, Vanaf 4 maand
 nl_be: Vanaf 4 maanden
+pt: A partir de 4 meses
 
 < en:Baby foods
 en: From 6 months
@@ -333,6 +348,7 @@ it: Dal 6to mese, Dal sesto mese, A partire dal sesto mese, A partire dal 6to me
 lt: Nuo 6 mėnesių
 nl: Vanaf 6 maanden, Vanaf 6 maand
 nl_be: Vanaf 6 maanden
+pt: A partir dos 6 meses
 ru: С 6 месяцев, Для детей от 6 месяцев
 
 < en:Baby foods
@@ -348,6 +364,7 @@ it: Dall'8vo mese, Dall'ottavo mese, A partire dall'ottavo mese, A partire dall'
 lt: Nuo 8 mėnesių
 nl: Vanaf 8 maanden, Vanaf 8 maand
 nl_be: Vanaf 8 maanden
+pt: A partir de 8 meses
 ru: С 8 месяцев, Для детей от 8 месяцев
 
 < en:Baby foods
@@ -363,6 +380,7 @@ it: Dal 10mo mese, Dal decimo mese, A partire dal decimo mese, A partire dal 10m
 lt: Nuo 10 mėnesių
 nl: Vanaf 10 maanden, Vanaf 10 maand
 nl_be: Vanaf 10 maanden
+pt: A partir de 10 meses
 
 < en:Baby foods
 en: From 12 months old, from 1 year of age
@@ -377,6 +395,7 @@ it: Dal 12mo mese, Dal dodicesimo mese, A partire dal dodicesimo mese, A partire
 lt: Nuo 12 mėnesių, Nuo 1 metų
 nl: Vanaf 12 maanden, Vanaf 12 maand
 nl_be: Vanaf 12 maanden, Vanaf 1 jaar
+pt: A partir dos 12 meses, a partir de 1 ano
 
 < en:Baby foods
 en: From 15 months
@@ -389,6 +408,7 @@ hu: 15 hónapos kortól
 it: Dal 15mo mese, Dal quindicesimo mese, A partire dal quindicesimo mese, A partire dal 15mo mese
 lt: Nuo 15 mėnesių
 nl: Vanaf 15 maanden, Vanaf 15 maand
+pt: A partir dos 15 meses
 
 < en:Baby foods
 en: From 18 months
@@ -401,6 +421,7 @@ hu: 18 hónapos kortól, Egy és fél éves kortól, Másfél éves kortól
 it: Dal 18mo mese, Dal diciottesimo mese, A partire dal diciottesimo mese, A partire dal 18mo mese
 lt: Nuo 18 mėnesių
 nl: Vanaf 18 maanden, Vanaf 18 maand
+pt: A partir dos 18 meses
 intake24_category_code:en: 19TODSFD
 
 < en:Baby foods
@@ -414,6 +435,7 @@ hu: 24 hónapos kortól, 2 éves kortól, Két éves kortól
 it: Dal 24mo mese, Dal ventiquattresimo mese, A partire dal ventiquattresimo mese, A partire dal 24mo mese, A partire dal secondo anno, Dal secondo anno
 lt: Nuo 24 mėnesių
 nl: Vanaf 24 maanden, Vanaf 24 maand
+pt: A partir de 24 meses
 
 < en:Baby foods
 en: From 3 years
@@ -425,6 +447,7 @@ hu: 3 éves kortól
 it: Dal terzo anno, Da tre anni, Da 3 anni
 lt: Nuo 3 metų
 nl: Vanaf 3 jaar
+pt: A partir de 3 anos
 ru: С 3-х лет, С 3 лет, С трёх лет
 
 < en:Baby foods
@@ -441,6 +464,7 @@ it: Snack e dolci per neonati
 lt: Kūdikių užkandžiai ir desertai
 nl: Snacks en toetjes voor babies
 nl_be: Snacks en desserts voor babies
+pt: Lanches e sobremesas para bebês
 ro: Snack-uri și deserturi bebeluși, Snack-uri și deserturi pentru bebeluși
 
 < en:Snacks and desserts for babies
@@ -454,6 +478,7 @@ hu: Babakekszek, Baba kekszek, Kekszek csecsemőknek, Csecsemő kekszek
 it: Biscotti per neonati
 lt: Sausainiai kūdikiams
 nl: Babykoekjes, Koekjes voor babies
+pt: Biscoitos para bebês, biscoitos para bebês, biscoitos para bebês
 ro: Biscuiți pentru bebeluși, Biscuiți bebeluși
 agribalyse_food_code:en: 24689
 ciqual_food_code:en: 24689
@@ -463,6 +488,7 @@ ciqual_food_name:fr: Biscuit pour bébé
 < en:Snacks and desserts for babies
 en: Cocoa powder for baby beverage
 fr: Poudre cacaotée pour bébé
+pt: Cacau em pó para bebida de bebê
 ciqual_food_code:en: 42501
 ciqual_food_name:en: Cocoa powder for baby beverage
 ciqual_food_name:fr: Poudre cacaotée pour bébé
@@ -478,10 +504,12 @@ hu: Bébiitalok, Babaitalok, Baba ital
 it: Bevande per neonati
 lt: Kūdikių gėrimai
 nl: Babydranken, Babydrank
+pt: Bebidas para bebês
 ro: Băuturi pentru bebeluși, Băuturi bebeluși
 
 < en:Baby drinks
 en: Specialised baby drinks
+pt: Bebidas especializadas para bebês
 gpc_category_code:en: 10000105
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a beverage specifically labelled and marketed for a baby or infant. These products have been treated or packaged in such a way as to extend their consumable life. Includes juice, juice drinks, nursery water and dairy based drinks. Definition Excludes: Excludes products such as Formula, Baby and Infant Food, Adult variants of the above.
 gpc_category_name:en: Baby/Infant - Specialised Beverages (Shelf Stable)
@@ -493,6 +521,7 @@ hr: Biljni napitak za bebe
 hu: Növényi alapú bébiitalok
 lt: Augaliniai gėrimai kūdikiams
 nl: Dranken voor babies gebaseerd op planten
+pt: Bebida vegetal para bebê
 ciqual_food_code:en: 13160
 ciqual_food_name:en: Plant-based beverage for baby
 ciqual_food_name:fr: Boisson à base de plantes pour bébé
@@ -501,6 +530,7 @@ ciqual_food_name:fr: Boisson à base de plantes pour bébé
 en: Milky cereal-based beverages, Milky cereal-based beverage
 fr: Boissons infantile lactée aux céréales, Boisson infantile lactée aux céréales
 hu: Tejes gabonaalapú bébiitalok
+pt: Bebidas lácteas à base de cereais, bebidas lácteas à base de cereais
 agribalyse_proxy_food_code:en: 13173
 ciqual_food_code:en: 13182
 ciqual_food_name:en: Milky cereal-based beverage(average)
@@ -509,6 +539,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées (aliment moyen)
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast
 fr: Boisson lactée pour petit-déjeuner bébé avec céréales
+pt: Bebida láctea à base de cereais para o café da manhã do bebê
 agribalyse_food_code:en: 13173
 ciqual_food_code:en: 13173
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast
@@ -518,6 +549,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeun
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage with fruits for baby's snack from 4/6 months
 fr: Boisson lactée pour goûter bébé dès 4/6 mois avec céréales et fruits
+pt: Bebida láctea à base de cereais com frutas para o lanche do bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13162
 ciqual_food_code:en: 13162
 ciqual_food_name:en: Dairy cereal-based beverage with fruits for baby's snack from 4/6 months
@@ -527,6 +559,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées aux fruits pour le go
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage with vegetables for baby's dinner from 4/6 months
 fr: Boisson lactée pour dîner bébé dès 4/6 mois avec céréales et légumes
+pt: Bebida láctea à base de cereais com vegetais para o jantar do bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13161
 ciqual_food_code:en: 13161
 ciqual_food_name:en: Dairy cereal-based beverage with vegetables for baby's dinner from 4/6 months
@@ -536,6 +569,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées aux légumes pour dî
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast from 4/6 months
 fr: Boisson lactée pour petit-déjeuner bébé dès 4/6 mois avec céréales
+pt: Bebida láctea à base de cereais para o pequeno-almoço do bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13163
 ciqual_food_code:en: 13163
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 4/6 months
@@ -545,6 +579,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeun
 < en:From 6 months
 en: Fruit-based beverages for baby from 4/6 months
 fr: Boissons aux fruits pour bébé dès 4/6 mois
+pt: Bebidas à base de fruta para bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13159
 ciqual_food_code:en: 13159
 ciqual_food_name:en: Fruit-based beverage for baby from 4/6 months
@@ -554,6 +589,7 @@ ciqual_food_name:fr: Boisson aux fruits pour bébé dès 4/6mois
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast from 8/9 months
 fr: Boisson lactée pour petit-déjeuner bébé dès 8/9 mois avec céréales
+pt: Bebida láctea à base de cereais para o pequeno-almoço do bebé a partir dos 8/9 meses
 agribalyse_food_code:en: 13169
 ciqual_food_code:en: 13169
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 8/9 months
@@ -563,6 +599,7 @@ ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeun
 < en:Milky cereal-based beverages
 en: Dairy cereal-based beverage for baby's breakfast from 12 months
 fr: Boisson lactée pour petit-déjeuner bébé dès 12 mois avec céréales
+pt: Bebida láctea à base de cereais para o pequeno-almoço do bebé a partir dos 12 meses
 agribalyse_food_code:en: 13170
 ciqual_food_code:en: 13170
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 12 months
@@ -613,11 +650,13 @@ it: Dessert per neonati a base di latticini, Dessert per neonati a base di prodo
 lt: Kūdikių pieniški desertai, Pieniški desertai kūdikiams
 nl: Babymelktoetjes, Babymelktoetje, Melktoetje voor babies
 nl_be: Babymelkdesserten, Melkdesserten voor babies, Melkdessert voor babies
+pt: Sobremesas lácteas para bebês, sobremesas lácteas para bebês, sobremesas lácteas para bebês
 ro: Deserturi cu lactate pentru bebeluși, Deserturi cu lactate bebeluși
 
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with custard
 fr: Crème dessert pour bébé
+pt: Sobremesa láctea para bebê com creme
 agribalyse_food_code:en: 13164
 ciqual_food_code:en: 13164
 ciqual_food_name:en: Dairy dessert for baby, custard type
@@ -626,6 +665,7 @@ ciqual_food_name:fr: Dessert lacté infantile type crème dessert
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with semolina
 fr: Dessert lacté pour bébé à la semoule
+pt: Sobremesa láctea para bebê com semolina
 agribalyse_food_code:en: 13165
 ciqual_food_code:en: 13165
 ciqual_food_name:en: Dairy dessert for baby, with rice or semolina
@@ -634,6 +674,7 @@ ciqual_food_name:fr: Dessert lacté infantile au riz ou à la semoule
 < en:Dairy dessert for baby
 en: Dairy dessert for baby with rice
 fr: Dessert lacté pour bébé au riz
+pt: Sobremesa láctea para bebê com arroz
 agribalyse_food_code:en: 13165
 ciqual_food_code:en: 13165
 ciqual_food_name:en: Dairy dessert for baby, with rice or semolina
@@ -642,6 +683,7 @@ ciqual_food_name:fr: Dessert lacté infantile au riz ou à la semoule
 < en:Dairy dessert for baby
 en: Plain dairy dessert for baby
 fr: Dessert lacté pour bébé nature
+pt: Sobremesa láctea simples para bebê
 agribalyse_food_code:en: 13166
 ciqual_food_code:en: 13166
 ciqual_food_name:en: Dairy dessert for baby, plain with sugar or with fruits
@@ -651,6 +693,7 @@ ciqual_food_name:fr: Dessert lacté infantile nature sucré ou aux fruits
 en: Dairy dessert for baby with sugar
 fr: Dessert lacté pour bébé sucré
 hu: Cukros tejdesszert babáknak
+pt: Sobremesa láctea para bebê com açúcar
 agribalyse_food_code:en: 13166
 ciqual_food_code:en: 13166
 ciqual_food_name:en: Dairy dessert for baby, plain with sugar or with fruits
@@ -659,6 +702,7 @@ ciqual_food_name:fr: Dessert lacté infantile nature sucré ou aux fruits
 < en:Dairy dessert for baby
 en: Plain dairy dessert for baby with fruits
 fr: Dessert lacté pour bébé aux fruits
+pt: Sobremesa láctea simples para bebê com frutas
 agribalyse_food_code:en: 13166
 ciqual_food_code:en: 13166
 ciqual_food_name:en: Dairy dessert for baby, plain with sugar or with fruits
@@ -696,6 +740,7 @@ hu: Csecsemőtápszerek, tápszerek, Anyatej-helyettesítő tápszerek a 6. hón
 it: Latte artificiale per neonati fino al sesto mese, Latte artificiale per neonati fino al 6to mese
 lt: Mišiniai kūdikiams
 nl: Baby-startmelk tot 6 maanden
+pt: Fórmulas infantis, bebê começa a receber leite até os 6 meses
 ro: Formula pentru bebeluși, Formula bebeluși, Formula bebelusi, Formula pentru bebelusi
 gpc_category_code:en: 10000575
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a food specifically labelled and marketed for a baby or infant. It is typically a powdered and ready to drink formula designed as a replacement for breast milk during nursing and is intended to provide a healthy, balanced diet for babies and infants of all ages. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Baby and Infant Beverages and adult variants of food formulas.
@@ -704,6 +749,7 @@ gpc_category_name:en: Baby/Infant - Formula (Shelf Stable)
 < en:Infant formulas
 en: Ready to feed baby milks
 fr: Laits infantiles prêts à consommer, Laits infantiles prêts à consommer
+pt: Pronto para alimentar o bebê com leite
 agribalyse_proxy_food_code:en: 19013
 
 < en:Dehydrated products
@@ -711,6 +757,7 @@ agribalyse_proxy_food_code:en: 19013
 en: Baby milks in powder, Infant formulas in powder
 fr: Laits infantiles en poudre
 hu: Csecsemőtápszerek tejporból
+pt: Leites infantis em pó, fórmulas infantis em pó
 agribalyse_proxy_food_code:en: 3000
 agribalyse_proxy_food_name:en: Baby milk, first age, powder, non rehydrated
 agribalyse_proxy_food_name:fr: poudre soluble (préparation pour nourrissons)
@@ -720,6 +767,7 @@ agribalyse_proxy_food_name:fr: poudre soluble (préparation pour nourrissons)
 < en:Ready to feed baby milks
 en: Ready to feed baby first milk
 fr: Laits 1er âge prêts à consommer, Laits premier âge prêts à consommer
+pt: Pronto para alimentar o bebê com o primeiro leite
 agribalyse_food_code:en: 19013
 ciqual_food_code:en: 19013
 ciqual_food_name:en: Baby milk, first milk, ready to feed
@@ -731,6 +779,7 @@ ca: Primera llet des dels 6 mesos
 de: Pre-Nahrung, Pre-Milch, Pre
 hr: Prethrana
 nl: Baby-startmelk vanaf 6 maanden
+pt: Pré-alimentação, bebê começa a amamentar a partir dos 6 meses
 
 < en:Infant formulas
 en: Baby start milk from 10 months
@@ -738,10 +787,12 @@ ca: Primera llet des dels 10 mesos
 de: 1-Nahrung, 1er-Babymilch
 hr: Početno mlijeko za bebe od 10 mjeseci
 nl: Baby-startmelk vanaf 10 maanden
+pt: Bebê começa a receber leite a partir dos 10 meses
 
 < en:Baby milks in powder
 en: First age baby milk powder, First milk powder, First infant milk formula in powder
 fr: Lait 1er âge en poudre soluble, Lait premier âge en poudre soluble, Préparation pour nourrissons en poudre soluble
+pt: Leite em pó para bebês da primeira idade, primeiro leite em pó, primeira fórmula láctea infantil em pó
 agribalyse_food_code:en: 3000
 ciqual_food_code:en: 3000
 ciqual_food_name:en: Baby milk, first age, powder
@@ -755,11 +806,13 @@ fr: Laits 2ème âge, lait 2eme age, lait deuxieme age, laits deuxieme age, lait
 hr: Mlijeko za bebe od 5 mjeseci
 it: Latte artificiale di proseguimento dal quinto mese, Latte artificiale di proseguimento dal 5to mese, Latte di proseguimento per neonati dal quinto mese, Latte di proseguimento per neonati dal 5to mese
 nl: Baby-opvolgmelk
+pt: Leite de acompanhamento para bebês a partir dos 5 meses
 
 < en:Baby follow-on milk from 5 months
 < en:Baby milks in powder
 en: Second age baby milk powder, Second milk powder, Second infant milk formula in powder
 fr: Lait 2ème âge en poudre soluble, Lait deuxième âge en poudre soluble, Préparation de suite en poudre soluble
+pt: Leite em pó para bebês de segunda idade, segundo leite em pó, segunda fórmula láctea infantil em pó
 agribalyse_food_code:en: 3002
 ciqual_food_code:en: 3002
 ciqual_food_name:en: Baby milk, second age, powder
@@ -769,6 +822,7 @@ ciqual_food_name:fr: Lait 2e âge, poudre soluble (préparation de suite)
 < en:Ready to feed baby milks
 en: Ready to feed baby follow on milk
 fr: Lait 2e âge prêt à consommer, Lait deuxième âge prêt à consommer
+pt: Leite de continuação pronto para consumo
 agribalyse_food_code:en: 19014
 ciqual_food_code:en: 19014
 ciqual_food_name:en: Baby milk, follow on milk, ready to feed
@@ -783,6 +837,7 @@ fr: Laits de suite à partir de 2 ans
 hr: Mlijeko za bebe od 2 godine
 it: Latte artificiale di proseguimento dal secondo anno, Latte artificiale di proseguimento dal 2o anno, Latte di proseguimento per neonati dal secondo anno, Latte di proseguimento per neonati dal 2o anno
 nl: Baby-opvolgmelk vanaf 2 jaar
+pt: Leite de acompanhamento para bebês a partir dos 2 anos
 
 < en:Baby milks
 en: Baby follow-on milk from 3 years
@@ -793,6 +848,7 @@ fr: Laits de suite à partir de 3 ans
 hr: Mlijeko za bebe od 3 godine
 it: Latte artificiale di proseguimento dal terzo anno, Latte artificiale di proseguimento dal 3o anno, Latte di proseguimento per neonati dal terzo anno, Latte di proseguimento per neonati dal 3o anno
 nl: Baby-opvolgmelk vanaf 3 jaar
+pt: Leite de acompanhamento para bebês a partir dos 3 anos
 
 < en:Baby milks
 en: Growth milks
@@ -803,11 +859,13 @@ fr: Laits de croissance, lait de croissance, lait destiné aux enfants à partir
 hr: Mlijeka za rast
 it: Latte della crescita, Latte per la crescita
 nl: Peutermelk
+pt: Leites de crescimento
 
 < en:Growth milks
 < en:Ready to feed baby milks
 en: Ready to feed baby growing up milk
 fr: Lait de croissance pour enfants en bas âge, Aliment lacté liquide destiné aux enfants en bas âge
+pt: Pronto para alimentar o bebê crescendo com leite
 agribalyse_food_code:en: 19012
 ciqual_food_code:en: 19012
 ciqual_food_name:en: Baby milk, growing up milk, ready to feed
@@ -819,6 +877,7 @@ ca: Llet contra els refluxs
 fr: Lait anti-reflux
 hr: Mlijeko protiv refluksa
 it: Latte antirigurgito, Latte antireflusso
+pt: Leite anti-refluxo
 wikidata:en: Q16034323
 
 < en:Baby milks
@@ -828,6 +887,7 @@ fr: Laits hypoallergéniques, Laits HA
 hr: Hipoalergena mlijeka
 it: Latte ipoallergenico
 nl: Hypoallergene melk
+pt: Leites hipoalergênicos
 
 < en:Baby milks
 en: Milks for premature babies
@@ -837,6 +897,7 @@ fr: Laits pour bébé prématurés
 hr: Mlijeka za nedonoščad
 it: Latte per neonati prematuri
 nl: Melk voor premature baby's
+pt: Leites para bebês prematuros
 
 #fr:Laits maternisés
 
@@ -849,6 +910,7 @@ hr: Večernji obroci za bebe
 hu: Vacsora bébiételek
 it: Pasti serali per neonati
 nl: Baby-avondmaaltijden, Baby-avondmaaltijd
+pt: Refeições noturnas para bebês
 ro: Cină pentru bebeluși, Cină bebeluși
 
 < en:Baby foods
@@ -861,6 +923,7 @@ hr: Glavni obroci za bebe
 hu: Bébi főételek
 it: Pasti principali per neonati
 nl: Babymaaltijden, Babymaaltijd
+pt: Refeições principais para bebês, refeições principais para bebês
 
 < en:Main meals for babies
 en: Baby dishes
@@ -870,6 +933,7 @@ fr: Assiettes pour bébé
 hr: Posuđe za bebe
 it: Piatti per neonati
 nl: Babyschotels, Babyschotel
+pt: Pratos de bebê
 
 < en:Main meals for babies
 en: Vegetables menus for babies
@@ -878,6 +942,7 @@ fr: Menus Légumes pour bébé
 hr: Jelovnici s povrćem za bebe
 it: Pasti per neonati a base di verdure
 nl: Babygroentemaaltijden, Babygroentemaaltijd
+pt: Menus de vegetais para bebês
 
 < en:Main meals for babies
 en: Fish menus for babies
@@ -886,6 +951,7 @@ fr: Menus Poissons pour bébé
 hr: Riblji jelovnici za bebe
 it: Pasti per neonati a base di pesce
 nl: Babyvismaaltijden, Babyvismaaltijd
+pt: Menus de peixe para bebês
 
 < en:Main meals for babies
 en: Meat menus for babies
@@ -895,6 +961,7 @@ fr: Menus Viandes pour bébé
 hr: Mesni jelovnici za bebe
 it: Pasti per neonati a base di carne
 nl: Babyvleesmaaltijden, Babyvleesmaaltijd
+pt: Menus de carne para bebês
 
 < en:Main meals for babies
 fr: Petits pots pour bébé, petits pots bébé, petit pot bébé, petits pots pour bébés, petits pots, petit pot
@@ -905,6 +972,7 @@ nl: Babypotjes, Babypotje
 < en:Main meals for babies
 en: Baby food jar with vegetables from 4-6 months
 fr: Petits pots aux légumes pour bébés dès 4-6 mois
+pt: Pote de comida para bebê com vegetais de 4 a 6 meses
 agribalyse_food_code:en: 20246
 ciqual_food_code:en: 20246
 ciqual_food_name:en: Baby food jar with vegetables, from 4-6 months
@@ -914,6 +982,7 @@ ciqual_food_name:fr: Petit pot légumes, dès 4-6 mois
 < en:Main meals for babies
 en: Baby food jar with vegetables and starch from 4-6 months
 fr: Petit pots aux légumes avec féculents pour bébés dès 4/6 mois
+pt: Pote de comida para bebê com vegetais e amido de 4 a 6 meses
 agribalyse_food_code:en: 20247
 ciqual_food_code:en: 20247
 ciqual_food_name:en: Baby food jar with vegetables and starch, from 4-6 months
@@ -922,6 +991,7 @@ ciqual_food_name:fr: Petit pot légumes, avec féculent, dès 4/6 mois
 < en:Main meals for babies
 en: Baby food jar with banana
 fr: Petits pots aux fruits avec bananes pour bébé
+pt: Pote de comida para bebê com banana
 agribalyse_food_code:en: 13157
 ciqual_food_code:en: 13157
 ciqual_food_name:en: Baby food jar with banana
@@ -933,6 +1003,7 @@ fr: Petits pots aux fruits sans banane pour bébé
 hr: Posuda za dječju hranu bez banane
 it: Vasetti di cibo per bambini senza banana
 nl: Babypotje zonder banaan
+pt: Pote de comida para bebê sem banana
 agribalyse_food_code:en: 13158
 ciqual_food_code:en: 13158
 ciqual_food_name:en: Baby food jar without banana
@@ -7373,6 +7444,27 @@ ciqual_food_name:en: Coconut water
 ciqual_food_name:fr: Eau de coco
 wikidata:en: Q633401
 
+< en:Desserts
+< en:Plant-based beverages
+en: Rose hip soups, Rosehip soups
+da: Hybensupper
+de: Schwedische Hagebuttensuppen
+eo: Rozbera supoj
+es: Sopa de escaramujo
+ja: ローズヒップスープ
+jv: Sop rose hip
+ko: 뉘폰소파, 로즈힙 수프
+nb: Nypesupper
+nl: Rozenbottelsoep
+nn: Nypesupper
+ru: Суп из шиповника
+sv: Nyponsoppor
+uk: Шипшиновий суп
+uz: Naʼmatakli shoʻrva
+zh: 玫瑰果汤
+description:en: Rose hip soup ([…]) is a Swedish soup made from rose hips. It is served as a beverage or as a dessert […]. (Wikipedia)
+wikidata:en: Q904185
+
 < en:Plant-based beverages
 en: Juices and nectars, fruit-juices-and-nectars
 bg: Сок и нектар
@@ -8434,6 +8526,20 @@ lt: Braškių sultys
 nl: Aardbeiensappen, Aardbeiensap
 pl: Soki truskawkowe
 wikidata:en: Q1068602
+
+#< en:Dates and their products
+< en:Plant-based beverages
+en: Date juices, Date palm juices, Date palm saps, Khejur ras
+ar: عصير التمر
+bn: খেজুরের রস, খেজুর রস
+ca: Saba de palmera
+da: Daddeljuicer, Daddelsafter
+fr: Jus de datte
+sl: Datljev sok
+sv: Dadeljuicer, Dadelsafter
+#min: Sari kurma
+comment:en: This is sap from the date palm tree, not from “juicing” date fruits.
+wikidata:en: Q13057671
 
 < en:Fruit juices
 en: Cranberry juices, cranberry juice
@@ -10080,13 +10186,17 @@ nl: Rooibos melanges
 
 < en:Herbal teas
 en: Rose hip
+da: Hyben
 de: Hagebutte
 es: Escaramujo
 fr: Cynorrhodon
 hr: Šipak
 la: Rosa Canina
+nb: Nyper
 nl: Rozebottel
+nn: Nyper
 pl: Owoc róży, Owoce róży
+sv: Nypon
 wikidata:en: Q146066
 
 < en:Herbal teas
@@ -10821,14 +10931,18 @@ hu: Limelé koncentrátum
 nl: Limoensapconcentraten, geconcentreerde limoensappen
 
 < en:Plant-based foods and beverages
-en: Dairy substitutes, Dairies substitutes
+en: Dairy substitutes, Dairies substitutes, Dairy alternatives, Dairy analogues
 bg: Заместители на млечни продукти
+da: Alternativer til mejeriprodukter
 fr: Substituts de produits laitiers
 hr: Mliječne zamjene
 hu: Tejtermékek helyettesítői, Tejtermékhelyettesítők
 nl: Zuivelvervangers
 pl: Zastępniki nabiału, Substytuty nabiału
+pt: Alternativas aos produtos lácteos
+sv: Alternativ till mejeriprodukter
 incompatible_with:en: categories:en:dairies
+wikidata:en: Q139604162
 
 < en:Dairy substitutes
 en: Mascarpone substitutes
@@ -35441,6 +35555,7 @@ pl: Ser panierowany
 < en:Frozen foods
 en: Frozen breaded cheeses
 fr: Fromages panés surgelés
+nl: Kaassouflés
 
 < en:Breaded cheeses
 en: Breaded camemberts
@@ -35536,7 +35651,6 @@ gpc_category_code:en: 10000165
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products have been treated or packaged in such a way as to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Frozen and Perishable Bread Products, Dried Breads, Shelf-Stable Baking Mixes and Baking Supplies, and Pies and Pastries.
 gpc_category_name:en: Bread (Shelf Stable)
 
-
 < en:Breads
 < en:Frozen foods
 en: Frozen breads
@@ -35551,11 +35665,41 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Bread (Perishable)
 
 < en:Breads
-en: Ciabatta
-xx: Ciabatta
+en: Ciabattas, Ciabatta
+xx: Ciabatta, Ciabattas
+ar: شباتة
+be: Чыябата
 bg: Чабата
+ca: Xapata
+da: Ciabattabrød
+el: Τσιαμπάτα
+eu: Txapata
+hi: चबाटा
+hy: Չիաբատտա
+it: Ciabatte
+ja: チャバッタ
+ka: Ჩიაბატა
+ko: 치아바타
+lt: Čiabata
+lv: Čabata
+nb: Ciabattaer
+nn: Ciabattaer, Ciabattaar
+ru: Чиабатта
+sr: Ћабата
+sv: Ciabattor
+uk: Чіабата
+zh: 拖鞋麵包
 sales_format:en: package, item
 wikidata:en: Q246703
+
+< en:Ciabattas
+en: Plain ciabattas
+sv: Naturella ciabattor
+
+< en:Ciabattas
+en: Ciabattas with olives
+da: Ciabattabrød med oliven
+sv: Ciabattor med oliv
 
 < en:Breads
 en: Pinsa breads
@@ -36218,18 +36362,56 @@ fr: Fougasses aux olives
 
 < en:Breads
 en: Baguettes, French bread
-de: Baguettes, Baguette
+xx: Baguettes, Baguette
+ar: خبز فرنسي
+az: Baget çörəyi
+be: Французскі багет
+bg: Франзела
+bn: বাগেট
+ca: Baguet
+cs: Bageta
+cv: Багет
+da: Baguetter
+el: Μπαγκέτα
+eo: Bastonpanoj
 es: Baguetes
-fi: patongit
-fr: Baguettes, baguette, Baguettes de pain
+fa: باگت
+fi: Patongit, Patonki
+fr: Baguettes, Baguettes de pain
+gl: Bagueta
 hr: Bageti
+ht: Bagèt
+hy: Ֆրանսիական բագետ
 it: Baguette
 ja: バゲット
-lt: Baguettes, Prancūziška duona
-nl: Stokbroden, Baguettes, Baguette
+ka: Ბაგეტი
+kk: Багета
+ko: 바게트
+lt: Prancūziškas batonas, Prancūziška duona
+lv: Bagete
+mk: Багет
+ml: ബാഗെറ്റ്
+mt: Bagett
+nb: Bagetter
+nl: Stokbroden, Stokbrood
+nn: Bagettar
+pa: ਬਾਗੇਤ
+pl: Bagietka
 pt: Baguetes
 ro: Baghete
-zh: 法式面包, 法式长棍面包
+ru: Французский багет
+sk: Bageta
+sl: Bageta
+sr: Багет
+sv: Baguetter
+ta: பகெத்
+th: บาแก็ต
+tr: Francala
+tt: Француз багет икмәге
+uk: Французький багет
+ur: باگیت
+vi: Bánh mì Pháp
+zh: 法式面包, 法式长棍面包, 法式長棍麵包
 agribalyse_food_code:en: 7001
 ciqual_food_code:en: 7001
 ciqual_food_name:en: Bread, French bread, baguette
@@ -36240,12 +36422,16 @@ wikidata:en: Q208172
 < en:Baguettes
 < en:Frozen breads
 en: Frozen baguettes
+da: Frosne baguetter
 fr: Baguettes surgelées
+sv: Frysta baguetter
 
 < en:Baguettes
 < fr:Pains de tradition française
-en: Traditional French baguette, French traditional baguette
+en: Traditional French baguettes, Traditional French baguette, French traditional baguette
+da: Traditionelle franske baguetter
 fr: Baguettes de tradition française, Baguette de tradition française, baguettes traditionnelles françaises, baguette traditionnelle française, baguettes traditionnelles de France, baguette traditionnelle de France, baguettes tradition, baguette tradition, Baguettes de pain de tradition française
+sv: Traditionella franska baguetter
 agribalyse_food_code:en: 7007
 ciqual_food_code:en: 7007
 ciqual_food_name:en: Bread, French bread, baguette, unsalted
@@ -36253,7 +36439,7 @@ ciqual_food_name:fr: Pain, baguette, de tradition française
 sales_format:en: weight, package
 
 < en:Baguettes
-en: Country-style French baguette bread, Country-style French bread bread
+en: Country-style French baguette breads, Country-style French baguette bread, Country-style French bread bread
 fr: Baguette de campagne, Boule de pain de campagne
 agribalyse_food_code:en: 7100
 ciqual_food_code:en: 7100
@@ -36262,7 +36448,9 @@ ciqual_food_name:fr: Pain, baguette ou boule, de campagne
 
 < en:Baguettes
 en: Unsalted baguettes, Unsalted French bread, French bread without salt
+da: Usaltede baguetter, Baguetter uden salt
 fr: Baguettes de pain sans sel
+sv: Osaltade baguetter, Baguetter utan salt
 agribalyse_food_code:en: 7160
 ciqual_food_code:en: 7160
 ciqual_food_name:en: Bread, French bread, without salt
@@ -36271,11 +36459,31 @@ ciqual_food_name:fr: Pain, baguette, sans sel
 < en:Baguettes
 < en:Sourdough breads
 en: Sourdough baguettes, French baguette with yeast
+da: Surdejsbaguetter
 fr: Baguettes au levain, Baguette de pain au levain, Baguette au levain
+sv: Surdegsbaguetter
 agribalyse_food_code:en: 7002
 ciqual_food_code:en: 7002
 ciqual_food_name:en: Bread, French bread (baguette or ball), with yeast
 ciqual_food_name:fr: Pain, baguette ou boule, au levain
+
+< en:Baguettes
+< en:Gluten-free breads
+en: Gluten-free baguettes
+da: Glutenfrie baguetter
+sv: Glutenfria baguetter
+
+< en:Baguettes
+en: Mini baguettes
+da: Minibaguetter
+fi: Minipatongit
+sv: Minibaguetter
+
+< en:Gluten-free baguettes
+< en:Mini baguettes
+en: Gluten-free mini baguettes
+da: Glutenfrie minibaguetter
+sv: Glutenfria minibaguetter
 
 < en:Breads
 fr: Pains de tradition française, pain de tradition française, pains traditionnels français, pain traditionnel français, pains traditionnels de France, pain traditionnel de France, pains tradition, pain tradition
@@ -36515,6 +36723,12 @@ ciqual_food_name:en: Biscuit, extruded and grilled, fruits filling
 ciqual_food_name:fr: Tartine craquante, extrudée et grillée, fourrée aux fruits
 # Example: Cracottes fraises
 
+< en:Crispbreads
+< en:Gluten-free breads
+en: Gluten-free crispbreads
+da: Glutenfrie knækbrød
+sv: Glutenfria knäckebröd
+
 < en:Breads
 < en:Products without gluten
 en: Gluten-free breads, Gluten free bread
@@ -36548,6 +36762,7 @@ wikidata:en: Q1922854
 
 < en:Breads
 en: Flatbreads, Flatbread
+da: Fladbrød
 de: Fladenbrote, Fladenbrot
 es: Panes planos
 fi: Ohutleivät, Ohutleipä
@@ -36556,8 +36771,37 @@ hr: Somuni
 it: Pane basso
 lt: Paplotėliai, Paplotėlis
 nl: Platte broden, Flat breads
+pt: Pães achatados
+sv: Flatbröd
 intake24_category_code:en: FJTA
 wikidata:en: Q666242
+
+< en:Flatbreads
+< en:Frozen breads
+en: Frozen flatbreads
+da: Frosne fladbrød
+pt: Pães achatados congelados
+sv: Frysta flatbröd
+
+< en:Flatbreads
+< en:Gluten-free breads
+en: Gluten-free flatbreads
+da: Glutenfrie fladbrød
+pt: Pães achatados sem glúten
+sv: Glutenfria flatbröd
+
+< en:Frozen flatbreads
+< en:Gluten-free flatbreads
+en: Frozen gluten-free flatbreads
+da: Frosne glutenfrie fladbrød
+pt: Pães achatados congelados sem glúten
+sv: Frysta glutenfria flatbröd
+
+< en:Flatbreads
+en: Khubz ahmar, Red breads
+xx: Khubz ahmar
+ar: خبز ِاحمر
+wikidata:en: Q94968509
 
 < en:Flatbreads
 en: Piadina
@@ -36573,6 +36817,70 @@ origins:en: en:italy
 protected_name_file_number:en: PGI-IT-1067
 protected_name_type:en: pgi
 wikidata:en: Q926532
+
+< en:Flatbreads
+en: Taboon
+xx: Taboon
+ar: طابون
+comment:en: https://www.tasteatlas.com/taboon
+wikidata:en: Q987291
+
+< en:Breads
+en: Oat breads, Oat loafs
+da: Havrebrød
+fi: Kauraleipa
+pt: Pães de aveia
+sv: Havrebröd
+
+< en:Frozen breads
+< en:Oat breads
+en: Frozen oat breads
+da: Frosne havrebrød
+pt: Pães de aveia congelados
+sv: Frysta havrebröd
+
+< en:Gluten-free breads
+< en:Oat breads
+en: Gluten-free oat breads
+da: Glutenfrie havrebrød
+pt: Pães de aveia sem glúten
+sv: Glutenfria havrebröd
+
+< en:Frozen oat breads
+< en:Gluten-free oat breads
+en: Frozen gluten-free oat breads
+da: Frosne glutenfrie havrebrød
+pt: Pães de aveia sem glúten congelados
+sv: Frysta glutenfria havrebröd
+
+< en:Oat breads
+< en:Sliced breads
+en: Sliced oat breads
+da: Skiveskårne havrebrød
+pt: Pães de aveia laminados
+sv: Skivade havrelimpor, Skivade havrebröd
+
+< en:Frozen oat breads
+< en:Sliced oat breads
+en: Frozen sliced oat breads
+da: Frosne skiveskårne havrebrød
+pt: Pães de aveia laminados congelados
+sv: Frysta skivade havrelimpor
+
+< en:Gluten-free oat breads
+< en:Sliced oat breads
+en: Sliced gluten-free oat breads
+da: Skiveskårne glutenfrie havrebrød
+pt: Pães de aveia sem glúten laminados
+sv: Skivade glutenfria havrelimpor
+
+< en:Frozen gluten-free oat breads
+< en:Frozen sliced oat breads
+< en:Sliced gluten-free oat breads
+en: Frozen sliced gluten-free oat breads
+da: Frosne skiveskårne glutenfrie havrebrød
+pt: Pães de aveia sem glúten laminados congelados
+sv: Frysta skivade glutenfria havrelimpor
 
 < en:Breads
 en: Rye breads, Wheat rye breads
@@ -36674,7 +36982,7 @@ ciqual_food_name:en: Corn tortilla wrap, to be filled
 ciqual_food_name:fr: Tortilla souple (à garnir), à base de maïs
 
 < en:Corn flatbreads
-< en:Frozen breads
+< en:Frozen flatbreads
 en: Frozen corn flatbreads, Frozen corn tortilla wraps
 fr: Tortillas de maïs surgelées
 
@@ -37163,11 +37471,6 @@ fr: Pains précuits surgelés, pain précuit surgelé
 en: Frozen pre-baked hamburger buns
 fr: Pains Burger précuits surgelés, Pains pour hamburgersprécuits surgelés
 
-< en:Frozen pre-baked breads
-< en:Pitas
-en: Frozen pre-baked pitas, frozen pre-baked Pita bread
-fr: Pains Pita surgelé
-
 < en:Breads
 en: Special breads
 bg: Специални хлябове
@@ -37257,7 +37560,8 @@ ciqual_food_name:en: Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), complet, préemballé
 
 < en:Special breads
-en: Hot dog buns, Rolls for hotdog, Buns for hotdog, Rolls for hot dog, Buns for hot dog, Hot dot rolls
+en: Hot dog buns, Rolls for hotdog, Buns for hotdog, Rolls for hot dog, Buns for hot dog, Hot dog rolls
+da: Pølsebrød
 de: Hot-Dog-Brötchen
 es: Panecillos para perritos calientes, Panecillo de perrito caliente, Panecillos para hot dogs
 fi: Hot dog -sämpylät
@@ -37269,30 +37573,51 @@ lt: Dešrainių bandelės, Bandelės dešrainiams
 nl: Hotdog-broodjes, Hot-dog broodje
 pl: Bułki hot-dog, Bułki do hot-dogów
 pt: Pães para hot dog, pãos para hot dog
+sv: Korvbröd
 agribalyse_food_code:en: 7259
 ciqual_food_code:en: 7259
 ciqual_food_name:en: Rolls for hamburger/hotdog (buns), prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), préemballé
 wikidata:en: Q1047392
 
-< en:Special breads
-en: Wholemeal rolls for hotdog, Wholemeal buns for hotdog
+< en:Hot dog buns
+en: Wholemeal hot dog buns, Wholemeal rolls for hotdog, Wholemeal buns for hotdog
+da: Fuldkornspølsebrød
 fr: Pain complet pour hot dog
+sv: Fullkornskorvbröd
 agribalyse_food_code:en: 7262
 ciqual_food_code:en: 7262
 ciqual_food_name:en: Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), complet, préemballé
 
+< en:Frozen breads
+< en:Hot dog buns
+en: Frozen hot dog buns
+da: Frosne pølsebrød
+sv: Frysta korvbröd
+
+< en:Gluten-free breads
+< en:Hot dog buns
+en: Gluten-free hot dog buns
+da: Glutenfrie pølsebrød
+sv: Glutenfria korvbröd
+
+< en:Frozen hot dog buns
+< en:Gluten-free hot dog buns
+en: Frozen gluten-free hot dog buns
+da: Frosne glutenfrie pølsebrød
+sv: Frysta glutenfria korvbröd
+
 < en:Flatbreads
-en: Naans, Naan
-xx: Naans
-de: Naans
-es: Naans, Naan
+en: Naans
+xx: Naans, Naan
+da: Naanbrød
 fi: Naanit
-fr: Naans, Naan, Nân
-hr: Naans
+fr: Naans, Nân
 ja: ナン, ナーン
-nl: Naanbroden, Naanbrood, Naan
+nl: Naanbroden, Naanbrood
+pt: Pães naan
+sv: Naanbröd
 wikidata:en: Q689950
 
 < en:Naans
@@ -37311,22 +37636,53 @@ wikidata:en: Q59707
 < en:Flatbreads
 < en:Special breads
 en: Pitas, Pittas, Pita bread, pitta bread
-xx: Pitas
-de: Pitas
+xx: Pitas, Pita
+da: Pitabrød
 es: Pitas, Pan pita, Panes pita
-fi: Pitaleivät, Pita
+fi: Pitaleivät
 fr: Pains Pita, Pains pitta, Pains pitas, pain pitas, pains pour pitas, pains pour pita, pain pour pitas, Pain pita
 hr: Pitas, pita kruh
 it: Pita
 ja: ピタ, ピタパン
 lt: Pitta duonos
 nl: Pittabroden, Pittabrood, Pitta
+pt: Pães pita
 ru: Пита
+sv: Pitabröd
 agribalyse_food_code:en: 7180
 ciqual_food_code:en: 7180
 ciqual_food_name:en: Pita bread
 ciqual_food_name:fr: Pain pita
 wikidata:en: Q211340
+
+< en:Gluten-free flatbreads
+< en:Pitas
+en: Gluten-free pitas
+da: Glutenfrie pitabrød
+pt: Pães pita sem glúten
+sv: Glutenfria pitabröd
+
+< en:Frozen flatbreads
+< en:Pitas
+en: Frozen pitas
+da: Frosne pitabrød
+pt: Pães pita congelados
+sv: Frysta pitabröd
+
+< en:Frozen pitas
+< en:Gluten-free pitas
+en: Frozen gluten-free pitas
+da: Frosne glutenfrie pitabrød
+pt: Pães pita congelados sem glúten
+sv: Frysta glutenfria pitabröd
+
+< en:Frozen pitas
+< en:Frozen pre-baked breads
+en: Frozen pre-baked pitas, frozen pre-baked Pita bread
+da: Frosne forbagte pitabrød
+fr: Pains Pita surgelé
+pt: Pães pita pré-assados congelados
+sv: Frysta förbakade pitabröd
 
 < en:Special breads
 en: Kebab breads
@@ -37375,6 +37731,31 @@ wikidata:en: Q918148
 < en:Special breads
 es: Regañás, Regañá
 wikidata:en: Q6103703
+
+< en:Flatbreads
+en: Lepinja
+xx: Lepinja, Lepina, Лепиња
+mk: Лепиња
+sr: Лепиња
+wikidata:en: Q115456219
+
+< en:Frozen breads
+< en:Lepinja
+en: Frozen lepinja
+
+< en:Breads
+en: Somun (Turkish), Turkish somun
+tr: Somun
+wikidata:en: Q3491553
+
+< en:Flatbreads
+en: Somun (Balkan), Balkan somun
+bs: Somun
+wikidata:en: Q108181168
+
+< en:Frozen breads
+< en:Somun (Balkan)
+en: Frozen Balkan somun
 
 en: Breakfasts
 ca: Esmorzars
@@ -38897,6 +39278,23 @@ ja: どら焼き, 銅鑼焼き, どらやき
 nl: Dorayaki
 wikidata:en: Q1051482
 
+< en:Cakes
+en: Nut rolls
+ar: لفائف الجوز
+hr: Orahnjača
+jv: Kacang gulung
+mk: Оревњача
+uk: Горіховий рулет
+wikidata:en: Q3449298
+
+< en:Cakes
+en: Makowiec
+xx: Makowiec
+hr: Makovnjača
+sk: Makovník
+sr: Маковњача
+uk: Маківник
+wikidata:en: Q755372
 
 < en:Cakes
 nl: Roze koeken
@@ -39081,9 +39479,23 @@ en: Candied bananas
 en: Candied lime
 fr: Citron vert confit
 
+< en:Dates and their products
 < en:Fruit confectioneries
 en: Filled dates
+da: Fyldte dadler
 fr: Dattes fourrées
+sv: Dadlar med fyllning
+
+< en:Dates and their products
+< en:Snacks
+en: Flavoured dried dates, Flavored dried dates
+da: Tørrede dadler med smag
+sv: Torkade dadlar med smak
+
+< en:Flavoured dried dates
+en: Cola-flavoured dried dates
+da: Tørrede dadler med cola-smag
+sv: Torkade dadlar med kolasmak
 
 < en:Candied fruits
 en: Candied peel
@@ -40550,9 +40962,12 @@ wikidata:en: Q15985102
 fr: Orangettes
 
 < en:Chocolate covered fruits
+< en:Dates and their products
 en: Chocolate-covered dates
-fr: Dattes chcolat
+da: Dadler med chokoladeovertræk
+fr: Dattes enrobées de chocolat, Dattes chocolat
 nl: Chocodadels, Met chocolade bedekte dadels, Dadels (Chocolade bedekt)
+sv: Dadlar med chokladöverdrag, Chokladdoppade dadlar
 
 < en:Chocolate covered fruits
 en: Chocolate-covered figs
@@ -44776,6 +45191,13 @@ nl: Aardappelchips met zout
 sv: Saltade potatischips
 opposite:en: en:flavoured-potato-crisps
 
+< en:Potato crisps with salt
+en: Potato crisps with sea salt
+da: Kartoffelchips med havsalt
+fr: Chips de pomme de terre au sel de mer
+nl: Aardappelchips met zeezout
+sv: Potatischips med havssalt
+
 < en:Potato crisps
 en: Potato crisps in sunflower oil
 bg: Картофен чипс със слънчогледово олио
@@ -44913,13 +45335,28 @@ nl: Barbecuesmaak chips
 pl: Chipsy barbecue, Czipsy barbecue
 
 < en:Flavoured potato crisps
+en: Dill and chive crisps
+da: Dild og purløgschips
+sv: Dill och gräslökschips
+
+< en:Flavoured potato crisps
+en: Ranch crisps
+da: Ranch-chips
+sv: Ranch-chips
+comment:en: Crisps with a flavour similar to that of ranch dressing.
+
+< en:Flavoured potato crisps
 en: Salt and vinegar crisps
+da: Salt og eddike-chips, Salt & vinegar chips
 de: Salz und Essig Chips
 fi: Suola-etikka-perunalastut
 fr: Chips au sel et vinaigre
 hr: Sol i ocat čips
+ja: ソルト・アンド・ビネガー・チップス
 lt: Druskos ir acto traškučiai
 nl: Zout en azijn chips
+sv: Salt och vinäger-chips, Salt & vinegar chips
+wikidata:en: Q132398209
 
 < en:Salt and vinegar crisps
 en: Salt and malt vinegar crisps
@@ -44928,6 +45365,12 @@ fr: Chips au sel et vinaigre de malt
 hr: Sol i čips od octa od slada
 lt: Druskos ir salyklo acto traškučiai
 nl: Zout-azijn chips
+
+< en:Flavoured potato crisps
+en: Sour cream and onion crisps, Sourcream and onion crisps, Sour cream and onion chips, Sourcream and onion chips
+da: Syrnet fløde og løg-chips, Sourcream & onion chips
+sv: Gräddfil och lök-chips, Sourcream & onion chips
+wikidata:en: Q139326200
 
 < en:Flavoured potato crisps
 en: Sour cream and sweet chilli crisps
@@ -45028,7 +45471,7 @@ ciqual_food_name:en: Sweet potato, puree, cooked with cream
 ciqual_food_name:fr: Patate douce, purée, cuisinée à la crème
 
 < en:Chips and fries
-en: Fries
+en: Potato fries, Fries
 bg: Пържени картофи
 da: Pomfritter, Pommes frites
 de: Pommes Frites
@@ -45041,6 +45484,7 @@ lt: Bulvytės
 nl: Friet
 sv: Pommes frites
 zh: 薯条
+comment:en: At some point we can hopefully move “Fries” to its own category under “Chips and fries” so the various kinds of fries (e.g., ones made from sweet potato and other(root) vegetables) can all be grouped together under this. For right now though, “Fries” has long meant potato fries, so it needs to stay a synonym for the time being. (Freso, 2026-04-25)
 google_product_taxonomy_id:en: 2392
 intake24_category_code:en: CHIP
 wikidata:en: Q152088
@@ -45114,17 +45558,19 @@ ciqual_food_code:en: 4021
 ciqual_food_name:en: Dauphine potato, frozen, cooked
 ciqual_food_name:fr: Pomme de terre dauphine, surgelée, cuite
 
+< en:Duchesse potatoes
 < en:Frozen fried potatoes
 en: Frozen duchesse potatoes, Frozen cooked duchesse potato
 da: Frosne duchesse-kartofler
 fr: Pommes duchesses surgelées, Pomme de terre duchesse surgelée, Pomme de terre duchesse cuite surgelée
+sv: Frysta duchessepotatisar
 agribalyse_food_code:en: 4034
 ciqual_food_code:en: 4034
 ciqual_food_name:en: Duchesse potato, frozen, cooked
 ciqual_food_name:fr: Pomme de terre duchesse, surgelée, cuite
 
-< en:Fries
-en: Takeaway fries
+< en:Potato fries
+en: Takeaway potato fries, Takeaway fries
 da: Takeaway-pomfritter
 sv: Takeaway-pommes frites
 intake24_category_code:en: TCHI
@@ -51167,10 +51613,17 @@ fr: Crèmes légères, crèmes fraîches légères, Crème fraîche légère, cr
 fr: Crèmes allégées en matière grasse, Crèmes fraîches allégées en matière grasse, Crème fraîche allégée, Crèmes fraîches allégées, Crème fraîche allegée en matière grasse
 nl: Cremes fraiches light
 
-#According to French regulation Crème Fraîche is a cream that did not undergo other heat treatment than pasteurization and that have #been packaged on the place of production under 24h
-< en:Creams
+< en:Fermented creams
+en: Crèmes fraîches
+da: Cremefraicher, Creme fraicher, Crème fraîcher
 fr: Crèmes fraîches
+nb: Creme fraicher, Crème fraîcher
 nl: Cremes fraiches
+nn: Creme fraichar, Crème fraîchar
+sv: Crème fraicher
+comment:en: According to French regulation Crème Fraîche is a cream that did not undergo other heat treatment than pasteurization and that have been packaged on the place of production under 24h.
+plant_alternative:en: en:creme-fraiche-substitutes
+wikidata:en: Q1142459
 
 < fr:Crèmes entières
 #AOP French cream, it contains no additives and have at least 35% fat.
@@ -51199,7 +51652,7 @@ wikidata:en: Q30737789
 
 < en:Creams
 < en:Fermented milk products
-en: Fermented creams, Thick cream
+en: Fermented creams, Thick cream, Soured creams
 de: Fermentierter Rahm, Gesäuerter Rahm
 fi: Fermentoidut kermat
 fr: Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse, crème épaisse
@@ -51286,7 +51739,7 @@ ciqual_food_name:en: Thick cream, light, 15-20% fat, refrigerated
 ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, épaisse, rayon frais
 
 < en:Fermented creams
-en: Sour creams, Crèmes fraîches
+en: Sour creams
 bg: Заквасена сметана
 cs: Zakysaná smetana
 de: Sauerrahm
@@ -51349,8 +51802,9 @@ agribalyse_proxy_food_code:en: 19431
 agribalyse_proxy_food_name:en: Thick cream, 30% fat, refrigerated
 agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 
+< en:Dairy substitutes
 < en:Plant-based foods
-en: Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes
+en: Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes, Vegan creams
 da: Plantebaserede fløder
 de: Pflanzliche Sahne, Pflanzenbasierte Sahne
 es: Natas vegetales
@@ -51360,17 +51814,36 @@ hr: Kreme na biljnoj bazi
 it: Panna vegetale
 nl: Plantaardige romen
 pl: Śmietanki roślinne, Śmietany roślinne, Śmietanki na bazie roślin
+pt: Alternativas às natas
 sv: Växtbaserade grädden
 wikidata:en: Q4258412
+
+< en:Cereals and their products
+< en:Plant-based creams
+en: Cereal-based creams
+da: Kornbaserede fløder
+pt: Natas à base de cereais
+sv: Spannmålsgrädder
 
 < en:Plant-based creams
 en: Pressurized whipped cream substitutes
 fr: Substituts de crème fouettée sous pression
 
 < en:Plant-based creams
-en: Sour cream substitutes
+en: Sour cream substitutes, Sour cream alternatives
+da: Rømmeerstatninger
 fr: Substituts de crème épaisse
+pt: Alternativas ao creme azedo
 sv: Gräddfilsersättningar
+
+< en:Plant-based creams
+en: Crème fraîche substitutes
+da: Cremefraiche-erstatninger, Creme fraiche-erstatninger, Crème fraîche-erstatninger
+fr: Substituts de crèmes fraîches
+nb: Creme fraiche-erstatninger, Crème fraîche-erstatninger
+nn: Creme fraiche-erstatningar, Crème fraîche-erstatningar
+pt: Alternativas ao crème fraîche
+sv: Crème fraiche-ersättningar
 
 < en:Plant-based creams
 en: Plant-based creams for cooking, Dairy-free creams for cooking
@@ -51383,14 +51856,16 @@ hr: Biljne kreme za kuhanje
 it: Panna da cucina vegetale
 nl: Plantaardige kookromen
 pl: Śmietanki roślinne do gotowania, Śmietany roślinne do gotowania, Śmietanki na bazie roślin do gotowania
+pt: Natas à base de plantas para cozinhar
 ro: Smântână vegetală de gătit
-sv: Växtbaserade grädden för matlagning
+sv: Växtbaserade grädden för matlagning, Växtbaserade matbaser, Växtbaserade matlagningsbaser
 
 < en:Plant-based foods
 en: Coconut milks and creams
 da: Kokosmælke og -fløder
 fr: Laits et crèmes de coco
 hr: Kokosovo mlijeko i kreme
+pt: Leites e cremes de coco
 sv: Kokosmjölkar och -grädder
 agribalyse_food_code:en: 18041
 ciqual_food_code:en: 18041
@@ -51406,6 +51881,7 @@ fr: Crèmes végétales à base d'amande pour cuisiner
 hr: Kreme na bazi badema za kuhanje
 nl: Amandelcreme voor koken
 pl: Śmietanki migdałowe do gotowania, Śmietany migdałowe do gotowania, Śmietanki na bazie migdałów do gotowania
+pt: Natas à base de amêndoas para cozinhar
 sv: Mandelbaserade grädden för matlagning
 
 < en:Coconut milks and creams
@@ -51420,14 +51896,17 @@ hr: Kokosovo kreme, Kreme za kuhanje na bazi kokosa
 it: Creme a base di cocco per la cottura
 nl: Kookkokosromen
 pl: Śmietanki kokosowe do gotowania, Śmietany kokosowe do gotowania, Śmietanki na bazie kokosa do gotowania
+pt: Cremes de coco, Natas à base de coco para cozinhar
 sv: Kokosgrädder, Kokosbaserade grädden för matlagning, Kokosnötbaserade grädden för matlagning
 wikidata:en: Q1139302
 
 < en:Plant-based creams for cooking
 en: Lentil-based creams for cooking
 da: Linsebaserede fløder til madlavning
+pt: Natas à base de lentilhas para cozinhar
 sv: Linsbaserade grädden för matlagning
 
+< en:Cereal-based creams
 < en:Plant-based creams for cooking
 en: Millet-based creams for cooking
 da: Hirsebaserede fløder til madlavning
@@ -51435,8 +51914,10 @@ es: Natas vegetales a base de mijo para cocinar
 fr: Crèmes végétales à base de millet pour cuisiner
 hr: Kreme na bazi prosa za kuhanje
 nl: Gierstroom voor koken
+pt: Natas à base de milhete para cozinhar
 sv: Hirsbaserade grädden för matlagning
 
+< en:Cereal-based creams
 < en:Plant-based creams for cooking
 en: Oat-based creams for cooking
 da: Havrebaserede fløder til madlavning
@@ -51445,8 +51926,10 @@ fr: Crèmes végétales à base d'avoine pour cuisiner
 hr: Kreme na bazi zobi za kuhanje
 nl: Kookhaverroom, Kookhaverromen, Haverroom voor koken
 pl: Śmietanki owsiane do gotowania, Śmietany owsiane do gotowania, Śmietanki na bazie owsa do gotowania
+pt: Natas à base de aveia para cozinhar
 sv: Havrebaserade grädden för matlagning
 
+< en:Cereal-based creams
 < en:Plant-based creams for cooking
 en: Rice-based creams for cooking
 da: Risbaserede fløder til madlavning
@@ -51455,6 +51938,7 @@ fr: Crèmes végétales à base de riz pour cuisiner
 hr: Kreme na bazi riže za kuhanje
 nl: Plantaardige rijstcremes
 pl: Śmietanki ryżowe do gotowania, Śmietany ryżowe do gotowania, Śmietanki na bazie ryżu do gotowania
+pt: Natas à base de arroz para cozinhar
 sv: Risbaserade grädden för matlagning
 
 < en:Plant-based creams for cooking
@@ -51468,12 +51952,14 @@ hr: sojina vrhnja za kuhanje
 it: Creme a base di soia per cucina
 nl: Plantaardige sojaromen
 pl: Śmietanki sojowe do gotowania, Śmietany sojowe do gotowania, Śmietanki na bazie soi do gotowania
+pt: Natas à base de soja para cozinhar
 sv: Sojabaserade grädden för matlagning
 agribalyse_food_code:en: 11214
 ciqual_food_code:en: 11214
 ciqual_food_name:en: Soy cream preparation
 ciqual_food_name:fr: Préparation culinaire à base de soja, type "crème de soja"
 
+< en:Cereal-based creams
 < en:Plant-based creams for cooking
 en: Spelt-based creams for cooking
 da: Speltbaserede fløder til madlavning
@@ -51481,6 +51967,7 @@ es: Natas vegetales a base de espelta para cocinar
 fr: Crèmes végétales à base d'épeautre pour cuisiner
 hr: Kreme za kuhanje na bazi pira
 nl: Plantaardige speltromen
+pt: Natas à base de espelta para cozinhar
 sv: Speltbaserade grädden för matlagning
 
 < en:Plant-based foods
@@ -58288,23 +58775,62 @@ wco_hs_heading:en: 20.08
 #do not put in nut butters, peanut is not a nut
 < en:Legume butters
 en: Peanut butters, peanut paste, peanut creme
+af: Grondboontjiebotter
+ar: زبدة فول سوداني
 bg: Фъстъчено масло
 ca: Mantega de cacauet
+cs: Burákové máslo
+cy: Menyn cnau mwnci
+da: Jordnøddesmør
 de: Erdnussbutter
-es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní
-fi: maapähkinävoit
-fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide
+el: Φιστικοβούτυρο
+eo: Arakida buteroj
+es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní, Mantequilla de maní
+et: Maapähklivõi
+eu: Kakahuete-gurin
+fa: کره بادام زمینی
+fi: Maapähkinävoit
+fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide, Beurre d'arachide
+fy: Nútsjesmoar
+ga: Im piseanna talún
+gl: Manteiga de cacahuete
 he: חמאות בוטנים
 hr: Maslaci od kikirikija
-it: Burri di arachidi
-ja: ピーナッツバター
-lt: Žemės riešutų sviestai, žemės riešutų pastos
+hu: Mogyoróvaj
+hy: Գետնանուշի կարագ
+id: Selai kacang
+is: Hnetusmjör
+it: Burri di arachidi, Burro di arachidi
+ja: ピーナッツバター, ピーナッツ・バター, ピーナツ・バター
+jv: Selé kacang
+kn: ಪೀನಟ್ ಬಟರ್
+ko: 땅콩버터
+la: Butyrum arachidum
+ln: Mwǎmba-ngúba
+lt: Žemės riešutų sviestai, Žemės riešutų pastos, Žemės riešutų sviestas
+lv: Zemesriekstu sviests
+mg: Menaka voanjo
+mi: Pīnati pata
+mk: Путер од кикиритки
+ms: Mentega kacang
+nb: Peanøttsmør
 nl: Pindakazen, Pindakaas
-pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych
+nn: Peanøttsmør
+pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych, Masło orzechowe
 pt: Manteigas de amendoim
+ro: Unt de arahide
 ru: Арахисовая паста, Арахисовые пасты
+sk: Arašidové maslo
+sl: Arašidovo maslo
+sn: Dovi
+sr: Путер од кикирикија
 sv: Jordnötssmör
-tr: Yerfıstığı ezmesi
+sw: Siagi ya karanga
+th: เนยถั่วลิสง
+tr: Yerfıstığı ezmesi, Fıstık ezmesi
+uk: Арахісова паста
+vi: Bơ đậu phộng
+zh: 花生酱
 agribalyse_food_code:en: 15202
 ciqual_food_code:en: 15202
 ciqual_food_name:en: Peanut butter or peanut paste
@@ -58315,19 +58841,40 @@ wco_hs_heading:en: 20.08
 wikidata:en: Q147651
 
 < en:Peanut butters
+en: Creamy peanut butters
+da: Cremede jordnøddesmør, Creamy jordnøddesmør
+pt: Manteigas de amendoim cremosas
+sv: Jordnötssmör utan bitar, Creamy jordnötssmör
+wikidata:en: Q134165564
+
+< en:Peanut butters
 en: Crunchy peanut butters
+da: Sprøde jordnøddesmør, Crunchy jordnøddesmør
 fr: Beurres de cacahuetes croustillants
 hr: Hrskavi maslaci od kikirikija
 lt: Traškūs žemės riešutų sviestai
 nl: Pindakzen met stukjes pinda
+pt: Manteigas de amendoim crocantes
+sv: Jordnötssmör med bitar, Crunchy jordnötssmör
 
-#contains only peanut, no added whatever
 < en:Peanut butters
 en: Pure peanut butters
+da: Rene jordnøddesmør
 fr: Pur beurre de cacahuettes
 hr: Čisti maslac od kikirikija
 lt: Žemės riešutų sviestai (100%)
 nl: Pindakazen (100% pinda)
+pt: Manteigas de amendoim puras
+sv: Rena jordnötssmör, 100% jordnötssmör
+comment:en: contains only peanut, no added whatever
+expected_ingredients:en: en:peanut
+
+< en:Crunchy peanut butters
+< en:Pure peanut butters
+en: Crunchy pure peanut butters, Pure crunchy peanut butters
+da: Sprøde rene jordnøddesmør, Rene sprøde jordnøddesmør
+pt: Manteigas de amendoim puras e crocantes, Manteigas de amendoim crocantes puras
+sv: Rena jordnötssmör med bitarm, 100% jordnötssmör med bitar
 
 < en:Legume butters
 en: Flavoured peanut butters
@@ -59264,7 +59811,8 @@ fr: Miels de jujubier du Yémen
 nl: Jujubehoningen uit Yemen
 
 en: Eggs and their products
-Fr: Œufs et dérivés
+fr: Œufs et dérivés
+nl: Eieren en afgeleide producten
 
 < en:Eggs and their products
 en: Scrambled egg, Egg scrambled with added fat, Scrambled eggs with added fat
@@ -61179,7 +61727,7 @@ wikidata:en: Q57656262
 en: Extra-virgin olive oils, Extra virgin olive oil
 bg: Маслиново масло екстра върджин, Дървено масло екстра върджин, Зехтин екстра върджин
 ca: Oli d'oliva verge extra
-de: Native Olivenöle Extra, Natives Olivenöl Extra
+de: Native Olivenöle Extra, Natives Olivenöl Extra, Olivenöl extra nativ
 es: Aceites de oliva virgen extra, Aceite de oliva virgen extra
 fi: Ekstra-neitsytoliiviöljyt, Extra-neitsytoliiviöljyt
 fr: Huiles d'olive vierges extra, Huile d'olive vierge extra
@@ -66777,10 +67325,9 @@ agribalyse_proxy_food_code:en: 4043
 agribalyse_proxy_food_name:en: Potato, pre-fried into cubes, frozen, raw
 agribalyse_proxy_food_name:fr: Pomme de terre rissolée, surgelée, crue
 
-#frozen fried potatoes in the shape of sticks
-< en:Fries
 < en:Frozen fried potatoes
-en: Frozen fries, Frozen chips, Frozen french fries
+< en:Potato fries
+en: Frozen potato fries, Frozen fries, Frozen chips, Frozen french fries
 bg: Замразени пържени картофи
 da: Frosne pomfritter
 de: Tiefkühl-Pommes
@@ -66792,9 +67339,10 @@ it: Patatine surgelate
 lt: Šaldytos bulvytės, Šaldytos gruzdintos bulvytės
 nl: Diepvriespatatten
 pl: Frytki mrożone
+description:en: frozen fried potatoes in the shape of sticks
 who_id:en: 16
 
-< en:Frozen fries
+< en:Frozen potato fries
 en: Frozen roasted French fries, Frozen baked French fries, Frozen roasted French chips
 da: Frosne ristede pomfritter
 fr: Frites de pommes de terre surgelées cuites au four, Frites de pommes de terre surgelées rôties
@@ -66803,7 +67351,7 @@ ciqual_food_code:en: 4030
 ciqual_food_name:en: French fries or chips, frozen, roasted/baked
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, rôties/cuites au four
 
-< en:Frozen fries
+< en:Frozen potato fries
 en: Frozen French fries to roast, Frozen French fries to bake, Frozen French chips to roast, Frozen French chips to bake
 da: Frosne pomfritter til ristning, Frosne pomfritter til bagning
 fr: Frites surgelées à cuire au four, Frites de pommes de terre surgelées à rôtir, Frites de pommes de terre surgelées à cuire au four
@@ -66812,8 +67360,8 @@ ciqual_food_code:en: 4044
 ciqual_food_name:en: French fries or chips, frozen, raw, intended to be roasted/baked
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson rôtie/ au four
 
-< en:Fries
-en: Microwave fries
+< en:Potato fries
+en: Microwave potato fries, Microwave fries
 da: Mikrobølgeovnspomfritter
 de: Mikrowellen-Pommes
 es: Papas fritas para microondas
@@ -66829,8 +67377,8 @@ agribalyse_proxy_food_code:en: 4045
 agribalyse_proxy_food_name:en: French fries or chips, frozen, raw, intended to be microwaved
 agribalyse_proxy_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson micro-ondes
 
-< en:Frozen fries
-< en:Microwave fries
+< en:Frozen potato fries
+< en:Microwave potato fries
 en: Frozen microwave fries, Frozen French fries intended to be microwaved, Frozen French chips intended to be microwaved
 da: Frosne mikrobølgeovnspomfritter
 fr: Frites surgelées micro-ondables, Frites de pommes de terre surgelées pour cuisson au micro-ondes
@@ -66839,7 +67387,7 @@ ciqual_food_code:en: 4045
 ciqual_food_name:en: French fries or chips, frozen, raw, intended to be microwaved
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson micro-ondes
 
-< en:Frozen fries
+< en:Frozen potato fries
 en: Frozen deep-fried French fries, Frozen deep-fried French chips
 da: Frosne friturestegte pomfritter
 fr: Frites de pommes de terre surgelées cuites en friteuse
@@ -66848,7 +67396,7 @@ ciqual_food_code:en: 4032
 ciqual_food_name:en: French fries or chips, frozen, deep-fried
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, cuites en friteuse
 
-< en:Frozen fries
+< en:Frozen potato fries
 en: Frozen French fries to deep-fry, Frozen chips to deep-fry
 da: Frosne pomfritter til friturestegning
 fr: Frites surgelées pour friteuse, Frites de pommes de terre pour cuisson en friteuse
@@ -66856,6 +67404,21 @@ agribalyse_food_code:en: 4046
 ciqual_food_code:en: 4046
 ciqual_food_name:en: French fries or chips, frozen, raw, intended to be deep-fried
 ciqual_food_name:fr: Frites de pommes de terre, surgelées, pour cuisson en friteuse
+
+< en:Potato fries
+en: Waffle potato fries, Waffle fries
+da: Vaffelpomfritter, Waffle fries
+eo: Vaflecaj terpomfritoj
+ko: 벌집감자
+sv: Våffel pommes frites, Waffle pommes frites, Waffle fries
+zh: 薯格
+wikidata:en: Q56582296
+
+< en:Frozen potato fries
+< en:Waffle potato fries
+en: Frozen waffle potato fries, Frozen waffle fries
+da: Frosne vaffelpomfritter
+sv: Frysta våffel pommes frites, Frysta waffle fries
 
 < en:Fried potato cubes
 < en:Frozen fried potatoes
@@ -72115,15 +72678,21 @@ intake24_category_code:en: DRIF
 pnns_group_2:en: Dried fruits
 who_id:en: 16
 
+< en:Fruits based foods
+en: Dates and their products
+da: Dadler og daddelprodukter
+sv: Dadlar och dadelprodukter
+wikidata:en: Q134392902
+
+< en:Dates and their products
 < en:Fruits
-# <en:category:en:Dried fruits
 en: Dates, date
 ar: تمر
 be: Фінікі
 bg: Фурми
 ca: dàtil
 cs: datle
-da: Daddel, dadler
+da: Dadler, Daddel
 de: Datteln, Dattel
 el: Χουρμάς
 eo: daktilo
@@ -72149,48 +72718,55 @@ pl: Daktyle
 ro: Curmală
 ru: финик, финики
 sk: Datľa
-sv: dadlar
+sv: Dadlar, Dadel
 tr: Hurma
 tt: хөрмә җимеше
 uk: фініки
 zh: 椰枣
-# ingredient/dates has 827 products in 11 languages @2018-09-29
-# category/dates has 311 products @2019-05-24
+#ang: fingeræppel
+#atj: Pikesaniminan
+#nah: Zōyacapolin
+#scn: Dàttula
+#zh-cn: 椰枣
 agribalyse_proxy_food_code:en: 13011
 agribalyse_proxy_food_name:en: Date, pulp and peel, dried
 agribalyse_proxy_food_name:fr: Datte, pulpe et peau, sèche
 description:en: Date, the fruit of the date palm (Phoenix dactylifera). Dry or soft dates are eaten out-of-hand, or may be pitted and stuffed with fillings such as almonds, walnuts, pecans, candied orange and lemon peel, tahini, marzipan or cream cheese.
 google_product_taxonomy_id:en: 6812
-# ang:fingeræppel
-# atj:Pikesaniminan
-# nah:Zōyacapolin
-# scn:Dàttula
-# zh-cn:椰枣
 sales_format:en: weight, package
 wikidata:en: Q1652093
 wikipedia:en: https://en.wikipedia.org/wiki/Date_palm#Fruits
+# ingredient/dates has 827 products in 11 languages @2018-09-29
+# category/dates has 311 products @2019-05-24
 
 < en:Dates
 < en:Fruit pastes
+en: Date pastes
+da: Daddelpastaer
 fr: Pâtes de dattes
-agribalyse_food_code:en: 13011
-ciqual_food_code:en: 13011
-ciqual_food_name:en: Date, pulp and peel, dried
-ciqual_food_name:fr: Datte, pulpe et peau, sèche
+sv: Dadelpastaer
+agribalyse_proxy_food_code:en: 13011
+ciqual_proxy_food_code:en: 13011
+ciqual_proxy_food_name:en: Date, pulp and peel, dried
+ciqual_proxy_food_name:fr: Datte, pulpe et peau, sèche
 
 < en:Dates
 en: Pitted dates
 bg: Обезкостени фурми
+da: Udkernede dadler, Udstenede dadler
 de: entkernte Datteln
 es: Dátiles sin hueso, Dátiles deshuesados
 fr: Dattes dénoyautées
 hr: Datulje bez koštice
 lt: Datulės be kauliukų
 nl: Ontpitte dadels
-ru: Финики без косточки
+ru: Финики без косточки, финики без косточек
+sv: Urkärnade dadlar
+wikidata:en: Q26979615
 
 < en:Dates
 en: Whole dates
+da: Hele dadler
 de: ganze Datteln
 es: Dátiles con hueso
 fi: Kokonaiset taatelit
@@ -72199,42 +72775,65 @@ he: תמרים שלמים
 hr: Cijele datulje
 nl: Dadels met pit
 ru: Финики с косточкой
+sv: Hela dadlar
+
+< en:Dates
+< en:Dried fruits
+en: Dried dates, Dried date pulp and peel
+da: Tørrede dadler
+de: Getrocknete Datteln
+fr: Datte pulpe et peau sèche
+ml: കാരക്ക
+sv: Torkade dadlar
+agribalyse_food_code:en: 13011
+ciqual_food_code:en: 13011
+ciqual_food_name:en: Date, pulp and peel, dried
+ciqual_food_name:fr: Datte, pulpe et peau, sèche
+wikidata:en: Q68495949
+
+< en:Dates
+< en:Frozen fruits
+en: Frozen dates
+da: Frosne dadler
+sv: Frysta dadlar
+agribalyse_proxy_food_code:en: 13011
+ciqual_proxy_food_code:en: 13011
+ciqual_proxy_food_name:en: Date, pulp and peel, dried
+ciqual_proxy_food_name:fr: Datte, pulpe et peau, sèche
 
 < en:Dates
 en: Deglet Noor dates
+da: Deglet Noor-dadler
 de: Deglet Nour Datteln
 fr: Dattes Deglet Nour
 hr: Deglet noor datulje
 it: Datteri Deglet Noor
 nl: Deglet Noor dadels
+sv: Deglet Noor dadlar
 wikidata:en: Q1182886
 
 < en:Dates
 en: Medjool dates, Dates (Medjool)
+da: Medjool-dadler
 de: Medjool Datteln
 fr: Dattes Medjool, dates medjool
 hr: Medjool datulje
 it: Datteri Medjoul, Datteri Medjool
 nl: Medjoul dadels
+sv: Medjool dadlar
 sales_format:en: weight, package
 wikidata:en: Q16774413
 
 < en:Dates
 en: Mazafati dates
 bg: Фурми Мазафати
+da: Mazafati-dadler
 de: Mazafati Datteln
 fr: Dattes Mazafati
 hr: Mazafati datulje
 nl: Mazafati dadels
+sv: Mazafati dadlar
 wikidata:en: Q25047430
-
-< en:Dates
-en: Dried date pulp and peel
-fr: Datte pulpe et peau sèche
-agribalyse_food_code:en: 13011
-ciqual_food_code:en: 13011
-ciqual_food_name:en: Date, pulp and peel, dried
-ciqual_food_name:fr: Datte, pulpe et peau, sèche
 
 < en:Dried fruits
 en: Dried apples
@@ -73319,7 +73918,7 @@ en: Fresh basils, Fresh basil
 da: Friske basilikummer
 de: frisches Basilikum
 es: Albahaca fresca
-fr: Basilic fraîche, Basilic frais
+fr: Basilic frais
 hr: Svježi bosiljak
 lt: Šviežias bazilikas
 nl: Verse basilicums
@@ -78604,11 +79203,16 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Croatian meat products
+< en:Hams
+en: Dalmatian hams, Dalmatian prosciutto
 hr: Dalmatinski pršut
+ko: 달마치야 햄
+sh: Dalmatinski pršut
+sr: Далматински пршут
 origins:en: en:croatia
 protected_name_file_number:en: PGI-HR-01205
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q56408977
 
 < en:Croatian meat products
 hr: Drniški pršut
@@ -82815,6 +83419,39 @@ agribalyse_food_code:en: 26267
 ciqual_food_code:en: 26267
 ciqual_food_name:en: Goat cheese and spinach tart
 
+< en:Salted pies
+en: Börek
+xx: Börek
+ad: Burekas
+ar: بوريك
+az: Piroq
+bg: Бюрек
+bs: Burek
+cs: Burek
+el: Μπουρέκι
+fa: بورک
+he: בורקס
+hr: Burek
+hy: Բյորեկ
+ja: ブレク
+jv: Börék
+ka: ბორექი
+ko: 뵈레크
+ku: Boregl
+lt: Burekas
+mk: Бурек
+no: Børek
+pl: Burek
+ru: Бурекас
+sh: Burek
+sl: Burek
+sq: Byreku
+sr: Бурек
+sv: Burek
+uk: Бурек
+uz: Boʻrek
+wikidata:en: Q8196212
+
 #Belgian meal
 < en:Meals
 en: Waterzooi
@@ -83245,17 +83882,6 @@ ciqual_food_code:en: 25935
 ciqual_food_name:en: Soup, tomatoes, dehydrated and reconstituted
 ciqual_food_name:fr: Soupe à la tomate, déshydratée reconstituée
 
-< en:Dehydrated soups
-< en:Leek and potato soups
-en: Dehydrated leek and potato soups, Dehydrated leek and potato soup
-fr: Soupe aux poireaux et pommes de terre déshydratée
-hr: Dehidrirana juha od poriluka i krumpira
-lt: Greito paruošimo sriubos su bulvėmis ir porais
-agribalyse_food_code:en: 25925
-ciqual_food_code:en: 25925
-ciqual_food_name:en: Soup, leek and potato, dehydrated and reconstituted
-ciqual_food_name:fr: Soupe aux poireaux et pommes de terre, déshydratée reconstituée
-
 < en:Reheatable soups
 < en:Vegetable soups
 en: Reheatable tomatoes and vermicelli soup
@@ -83366,11 +83992,31 @@ ciqual_food_name:en: Soup, split peas, prepacked, to be reheated
 ciqual_food_name:fr: Soupe aux pois cassés, préemballée à réchauffer
 
 < en:Vegetable soups
-en: Leek and potato soups, Leek and potato soup
-da: Porre- og kartoffelsupper
+en: Leek and potato soups, Leek and potato soup, Potato and leek soups
+da: Porre- og kartoffelsupper, Kartoffel- og porresupper
+fi: Peruna- ja purjokeitto
 fr: Soupe aux poireaux et aux pommes de terre
 hr: Juha od poriluka i krumpira
 lt: Porų ir bulvių sriubos
+nb: Potet og purre supper
+sv: Potatis och purjolökssoppor
+
+< en:Canned vegetable soups
+< en:Leek and potato soups
+en: Canned leek and potato soups, Canned potato and leek soups
+da: Porre- og kartoffelsupper på dåse, Kartoffel- og porresupper på dåse
+sv: Potatis och purjolökssoppor på burk
+
+< en:Dehydrated vegetable soups
+< en:Leek and potato soups
+en: Dehydrated leek and potato soups, Dehydrated leek and potato soup
+fr: Soupe aux poireaux et pommes de terre déshydratée
+hr: Dehidrirana juha od poriluka i krumpira
+lt: Greito paruošimo sriubos su bulvėmis ir porais
+agribalyse_food_code:en: 25925
+ciqual_food_code:en: 25925
+ciqual_food_name:en: Soup, leek and potato, dehydrated and reconstituted
+ciqual_food_name:fr: Soupe aux poireaux et pommes de terre, déshydratée reconstituée
 
 < en:Leek and potato soups
 < en:Reheatable vegetable soups
@@ -84543,6 +85189,11 @@ ciqual_food_name:fr: Palet ou galette de légumes, préfrit, surgelé, cuit
 en: Frozen potato buns
 da: Frosne kartoffelboller
 sv: Frysta potatisbullar
+
+< en:Frozen plant-based foods
+< en:Potato croquettes
+en: Frozen potato croquettes
+sv: Frysta potatiskroketter
 
 < en:Breaded products
 < en:Prepared vegetables
@@ -91244,6 +91895,7 @@ ciqual_food_name:en: Poultry ham in cube, grated or minced
 fr: Lardons de dinde
 
 < en:Turkeys
+en: Turkey bacon
 fr: Bacons de dindes, bacons de dinde, bacon de dindes, bacon de dinde
 
 < en:Turkeys
@@ -91390,9 +92042,18 @@ xx: Bierschinken
 wikidata:en: Q857992
 
 < en:Prepared pork meats
-de: Kasseler, Kassler
+en: Kasseler, Kassler
 xx: Kasseler, Kassler
+de: Kasseler, Kassler
 wikidata:en: Q650685
+
+< en:Kasseler
+en: Cooked kasseler
+de: Gekochtes Kasseler
+
+< en:Kasseler
+en: Raw kasseler
+de: Rohes Kasseler
 
 < en:Prepared pork meats
 en: Porchetta
@@ -91765,6 +92426,14 @@ hr: Talijanske šunke
 it: Prosciutti italiani
 origins:en: en:italy
 #wikidata:en:
+
+< en:Hams
+en: Dalmatian hams, Dalmatian prosciutto
+hr: Dalmatinski pršut
+ko: 달마치야 햄
+sh: Dalmatinski pršut
+sr: Далматински пршут
+wikidata:en: Q56408977
 
 < en:Dried hams
 < en:Italian hams
@@ -108530,12 +109199,29 @@ nl: Speltstropen
 en: Coconut blossom syrups, coconut flower syrups
 fr: Sirops de fleur de coco
 
+< en:Dates and their products
 < en:Simple syrups
-en: Date syrups
+en: Date syrups, Date honeys, Date molasses
+ar: رب تمر
+da: Daddelsirupper
+de: Dattelhonig
+eo: Daktilsiropoj
+es: Miel de dátil
+fa: شیره خرما
+fi: Taatelisiirappi
 fr: Sirops de datte, mélasses de datte
 he: סירופ תמרים
 hr: Sirupi od datulja
-nl: Dadelsiroop, Dadelsiropen
+id: Madu kurma
+ig: Mmanụ aṅụ
+it: Miele di datteri
+ja: デーツシロップ
+ko: 대추야자 꿀
+nl: Dadelsiropen, Dadelsiroop, Dadelhoning
+ru: Финиковый мёд
+sl: Datljev sirup
+sv: Dadelsiraper
+uk: Фініковий мед
 wikidata:en: Q2916133
 
 < en:Fruit syrups
@@ -109010,21 +109696,27 @@ hr: Konzervirana paprika
 it: Peperoni in scatola
 nl: Pepers in blik/pot
 
-
 < en:Canned plant-based foods
 < en:Prepared potatoes
-en: Canned potatoes, Canned potatoes
+en: Canned potatoes
 bg: Картофи от консерва
-da: Dåsekartofler
+da: Dåsekartofler, Kartofler på dåse
 es: Patatas en conserva
 fr: Pommes de terre en conserve, Pommes de terre appertisées
 hr: Konzervirani krumpir
 it: Patate in scatola
 nl: Aardappel in blik/pot
 pt: Batatas em lata
+sv: Potatisar på burk, Burkpotatisar
 ciqual_food_code:en: 4011
 ciqual_food_name:en: Potato, canned, drained
 ciqual_food_name:fr: Pomme de terre, appertisée, égouttée
+
+< en:Canned potatoes
+en: Canned new potatoes
+da: Nye kartofler på dåse
+fr: Pommes de terres nouvelles en conserve
+sv: Nya potatisar på burk
 
 < en:Canned vegetables
 en: Canned salsifis
@@ -109092,8 +109784,8 @@ ru: Маринованные растительные продукты
 sv: Inlagda växter
 intake24_category_code:en: PION
 
-< en:Canned vegetables
 < en:Plant-based pickles
+< en:Prepared vegetables
 en: Pickled vegetables, Vegetable pickles
 da: Syltede grøntsager
 de: Eingelegtes Gemüse
@@ -109177,17 +109869,8 @@ sv: Gurkor i lag, Inlagda gurkor
 tr: Salatalık turşusu, Hıyar turşusu
 wikidata:en: Q1365891
 
-< en:Cucumbers
-en: Small cucumbers, Gherkins (non-pickled)
-sv: Smågurkor
-
-< en:Small cucumbers
-en: Gherkins
-comment:en: “Gherkins” can refer to both non-pickled and pickled small cucumbers
-
-< en:Gherkins
 < en:Pickled cucumbers
-en: Pickled gherkins, Gherkins (pickled), Pickled small cucumbers
+en: Pickled gherkins, Gherkins (pickled), Pickled small cucumbers, Gherkins
 bg: Кисели краставички
 de: Essiggurken
 es: Pepinillos, Pepinillos encurtidos
@@ -109198,7 +109881,8 @@ hu: Csemegeuborka
 it: Cetriolini
 nl: Ingemaakte Augurken
 sv: Smågurkor i lag, Inlagda smågurkor
-comment:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
+comment:en: “Gherkins” can refer to both non-pickled and pickled small cucumbers, but in actual use on products it seems like it far more often refers to pickled small cucumbers than small cucumbers in general.
+description:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
 intake24_category_code:en: GHRK
 intake24_category_code:fr: GHRK
 
@@ -109249,8 +109933,8 @@ fr: Cornichons mi-fins
 < en:Gherkins
 fr: Cornichons malossol
 
-< en:Gherkins
-en: Gherkins in sweet and sour sauce
+< en:Pickled gherkins
+en: Sweet and sour gherkins, Gherkins in sweet and sour sauce
 fr: Cornichons aigres-doux, Cornichon aigre-doux
 hr: Kornišoni u slatko-kiselom umaku
 nl: Zoetzure augurken
@@ -111054,6 +111738,10 @@ pl: Ogórki świeże
 sales_format:en: weight, package
 season_in_country_fr:en: 5,6,7,8,9,10
 
+< en:Cucumbers
+en: Small cucumbers, Gherkins (non-pickled)
+sv: Smågurkor
+
 < en:Vegetables
 en: Endives, Endive, Escaroles
 ca: endívia
@@ -111992,7 +112680,7 @@ da: Peberfrugter
 de: Paprika, Süße Pfeffer
 es: Pimientos
 fi: Makea paprikat
-fr: Poivrons, Poivron, Capsicum annuum, piment doux, Piment Poivron
+fr: Poivrons, Poivron, piment doux, Piment Poivron
 hr: Slatke paprike
 ja: ピーマン
 la: Capsicum annuum
@@ -121851,6 +122539,35 @@ wikidata:en: Q627331
 < en:Potato preparations
 en: Bubble and squeak
 description:en: Bubble and squeak is a British dish made from cooked potatoes and cabbage, mixed together and fried.
+wikidata:en: Q573516
+
+< en:Potato preparations
+en: Duchesse potatoes
+ca: Patates duquessa
+cz: Bramborové pusinky
+da: Duchesse-kartofler, Pommes duchesse
+de: Herzoginkartoffeln
+es: Patatas duquesa
+fi: Duchesseperunat
+fr: Pommes duchesses, Pomme de terre duchesse
+hu: Hercegnőburgonya
+it: Patate duchesse
+ja: ポメ・デュセス
+jv: Duchess kenthang
+ko: 폼 뒤셰스
+lv: Kartupelu rozites
+nl: Hertoginnenaardappelen
+pl: Rozetki ziemniaczne
+ru: Картофельные розочки, Картофель дюшес
+sv: Duchessepotatisar, Pommes duchesse
+uk: Картопля Дюшес
+uz: Dyushes kartoshka
+vi: Khoai tây nữ Công tước
+agribalyse_proxy_food_code:en: 4034
+ciqual_proxy_food_code:en: 4034
+ciqual_proxy_food_name:en: Duchesse potato, frozen, cooked
+ciqual_proxy_food_name:fr: Pomme de terre duchesse, surgelée, cuite
+wikidata:en: Q1148776
 
 < en:Potato preparations
 en: Hash Browns, hashed browns
@@ -121862,6 +122579,11 @@ en: Potato buns
 da: Kartoffelboller
 sv: Potatisbullar
 wikidata:en: Q106491332
+
+< en:Potato preparations
+en: Potato croquettes
+sv: Potatiskroketter
+wikidata:en: Q31843329
 
 < en:Potato preparations
 < fr:Purées
@@ -123418,6 +124140,7 @@ nl: Forelterinnes, Forelterrine
 ### Extra categories
 
 en: Specific products
+fr: Produits spécifiques
 nl: Specifieke producten
 
 < en:Specific products
@@ -123453,6 +124176,7 @@ fr: Plats susceptibles de contenir de la viande de cheval - lots retirés de la 
 
 < en:Specific products
 en: Products for specific diets
+fr: Produits pour régimes spécifiques
 nl: Producten voor specifieke diëten
 
 < en:Products for specific diets
