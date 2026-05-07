@@ -619,6 +619,9 @@
          "en:nutriscore-missing-nutrition-data-saturated-fat",
          "en:nutriscore-missing-nutrition-data-sugars",
          "en:nutriscore-not-computed",
+         "en:nutrition-data-per-100g",
+         "en:nutrition-data-per-serving",
+         "en:nutrition-grade-computed-for-prepared-product",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
          "en:nutrition-no-fruits-vegetables-nuts",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -651,7 +654,7 @@
                "is_water" : 0,
                "proteins" : null,
                "saturated_fat" : null,
-               "sodium" : null,
+               "sodium" : 66.6666666666667,
                "sugars" : null
             },
             "estimated" : 0,
@@ -659,7 +662,7 @@
             "nutrients_available" : 0,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 0,
-            "preparation" : "as_sold"
+            "preparation" : "prepared"
          },
          "2023" : {
             "category_available" : 1,
@@ -673,7 +676,7 @@
                "is_red_meat_product" : 0,
                "is_water" : 0,
                "proteins" : null,
-               "salt" : null,
+               "salt" : 0.166666666666667,
                "saturated_fat" : null,
                "sugars" : null
             },
@@ -682,7 +685,7 @@
             "nutrients_available" : 0,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 0,
-            "preparation" : "as_sold"
+            "preparation" : "prepared"
          }
       },
       "nutriscore_2021_tags" : [
@@ -759,7 +762,7 @@
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold proteins",
+      "nutrition_score_debug" : "using prepared product data even if not necessary for category - missing prepared energy - missing prepared fat - missing prepared saturated-fat - missing prepared sugars - missing prepared proteins",
       "nutrition_score_warning_no_fiber" : 1,
       "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
       "packaging_materials_tags" : [],

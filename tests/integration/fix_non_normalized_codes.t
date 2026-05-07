@@ -117,12 +117,12 @@ is(
 	[
 		# progress indicator
 		"0 processed",
-		# removed product_broken_code
-		"Removed broken-123",
 		# product_non_normalized_code : normalized the code
 		"Updated product in place: 0000012345670 and 12345670 have the same path /mnt/podata/products/000/001/234/5670/product",
 		# product_non_normalized_code : normalized the code
 		"Updated product in place: 0000012345678 and 12345678 have the same path /mnt/podata/products/000/001/234/5678/product",
+		# removed product_broken_code
+		"Removed broken-123",
 		# product_int_code
 		"Int codes: refresh 1, removed 2",
 		# product_broken_code and product_non_normalized_code* removed from mongo directly

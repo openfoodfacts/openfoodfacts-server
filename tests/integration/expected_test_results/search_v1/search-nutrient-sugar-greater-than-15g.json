@@ -617,14 +617,18 @@
                "percent_min" : 20,
                "rank" : 3,
                "text" : "sugar",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             }
          ],
-         "ingredients_analysis" : {},
+         "ingredients_analysis" : {
+            "en:maybe-vegan" : [
+               "en:sugar"
+            ]
+         },
          "ingredients_analysis_tags" : [
             "en:palm-oil-free",
-            "en:vegan",
+            "en:maybe-vegan",
             "en:vegetarian"
          ],
          "ingredients_hierarchy" : [

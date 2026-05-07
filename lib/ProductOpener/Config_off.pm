@@ -61,6 +61,7 @@ BEGIN {
 		$events_password
 
 		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 
 		$facets_kp_url
 		$redis_url
@@ -497,6 +498,10 @@ $folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
+# If $rate_limiter_disabled is set to 1, rate limiting is completely disabled
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ProductOpener::Config2::rate_limiter_disabled;
 
 # server options
 
@@ -952,6 +957,7 @@ $options{import_export_fields_groups} = [
 	],
 	["ingredients", ["ingredients_text", "allergens", "traces"]],
 	["nutrition"],
+	["nutrition_other"],
 	["packaging"],
 	[
 		"other",
