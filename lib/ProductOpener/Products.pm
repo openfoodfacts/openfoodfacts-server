@@ -3785,7 +3785,7 @@ Provides default exclusions so people don't forget to apply them
 sub product_iter(
 	$base_path = $BASE_DIRS{PRODUCTS},
 	$name_pattern = qr/product$/i,
-	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/,
+	$exclude_path_pattern = qr/^(conflicting|invalid|other-flavors)-codes$/,
 	$skip_until_path = undef,
 	)
 {
