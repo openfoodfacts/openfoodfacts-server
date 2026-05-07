@@ -2379,13 +2379,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			# ignore errors for ingredients for beauty, pet food, products
 			# TODO: reenable when we have cleaned the ingredients taxonomy for beauty, pet food, products
 			my $taxonomy_with_duplicate_tolerated;
-			if ($options{product_type} eq "food") {
+			if ($options{product_type} ne "food") {
 				$taxonomy_with_duplicate_tolerated
-					= (($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+					= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
 			}
 			else {
 				$taxonomy_with_duplicate_tolerated
-					= (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
+					= (($tagtype eq "packaging") or ($tagtype eq "inci_functions"));
 			}
 
 			unless ($only_duplicate_errors and $taxonomy_with_duplicate_tolerated) {
