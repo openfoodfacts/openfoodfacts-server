@@ -438,9 +438,9 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $expected_ingredients_ref = $test_ref->[1];
 
-	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
+	# print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
-	parse_ingredients_text_service($product_ref, {});
+	parse_ingredients_text_service($product_ref, {}, {});
 
 	is($product_ref->{ingredients}, $expected_ingredients_ref)
 		# using print + join instead of diag so that we don't have

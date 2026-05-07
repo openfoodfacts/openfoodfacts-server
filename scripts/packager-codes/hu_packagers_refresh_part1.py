@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -67,13 +67,15 @@ deactivate
 import polars as pl
 import re
 
+
 def handle_dates(text: str) -> str:
     # different variants
     # 2022.02.03
     # 2022.02
     # 2022-02-03
     # 202202.03
-    split_text = re.split(r"\d{4}[\.|\-]*\s*\d{2}[\.|\-](?:\d{2})*", text, maxsplit=1)
+    split_text = re.split(
+        r"\d{4}[\.|\-]*\s*\d{2}[\.|\-](?:\d{2})*", text, maxsplit=1)
     first_text = split_text[0]
 
     return first_text
@@ -94,7 +96,7 @@ def read_input_file(file_name: str) -> pl.dataframe.frame.DataFrame:
     df = pl.read_csv(file_name, separator=',', truncate_ragged_lines=True)
 
     # parsing issue:
-    # address is found in next column (3), 
+    # address is found in next column (3),
     # leaving address column (2) null
     df = df.with_columns(
         pl.when(pl.col(df.columns[2]).is_null())
@@ -121,15 +123,16 @@ def read_input_file(file_name: str) -> pl.dataframe.frame.DataFrame:
     df = df.with_columns((pl.col('code') + " ES").alias(df.columns[0]))
 
     # rm duplicates
-    df = df.lazy().group_by('code').agg(pl.first('name'), pl.first('address')).sort('code').collect()
+    df = df.lazy().group_by('code').agg(pl.first('name'),
+                                        pl.first('address')).sort('code').collect()
 
     # add lost record during conversion into csv
     # HU 13 TCS 003 ES;Magyar Agrár- és Élettudományi Egyetem Kaposvári Campus;7400 Kaposvár, Guba Sándor u. 40. / Somogy
     df = df.with_columns(pl.when(pl.col('code') == "HU 13 TCS 003 ES")
-        .then(pl.lit("Magyar Agrár- és Élettudományi Egyetem Kaposvári Campus"))
-        .otherwise(pl.col('name'))
-        .alias('name')
-    )
+                         .then(pl.lit("Magyar Agrár- és Élettudományi Egyetem Kaposvári Campus"))
+                         .otherwise(pl.col('name'))
+                         .alias('name')
+                         )
 
     # all others missing 'name' are strikethrough text
     df = df.filter(pl.col('name').is_not_null())
@@ -140,7 +143,8 @@ def read_input_file(file_name: str) -> pl.dataframe.frame.DataFrame:
 
     # sometimes dates inside text
     # last update is text before first date occurence
-    df = df.with_columns(pl.col('name').map_elements(lambda x: handle_dates(x), return_dtype=str))
+    df = df.with_columns(pl.col('name').map_elements(
+        lambda x: handle_dates(x), return_dtype=str))
 
     df = df.with_columns(pl.col('name').str.strip_chars())
     df = df.with_columns(pl.col('name').str.replace_all('  ', ' '))
@@ -159,9 +163,10 @@ def read_input_file(file_name: str) -> pl.dataframe.frame.DataFrame:
     df = df.filter(pl.col('address').str.len_chars() > 6)
 
     # remove "/ <county>" at the end of the address
-    # but not 10/A. 
+    # but not 10/A.
     # smallest county is "Vas"
-    df = df.with_columns(pl.col('address').map_elements(lambda x: handle_county(x), return_dtype=str))
+    df = df.with_columns(pl.col('address').map_elements(
+        lambda x: handle_county(x), return_dtype=str))
     # remove "(text)" in middle of address
     # as well as "(begining of text" at end of the line
     df = df.with_columns(
@@ -180,18 +185,17 @@ def read_input_file(file_name: str) -> pl.dataframe.frame.DataFrame:
     # keep 2 first parts of teach line
     # postal code city, street, additional information
     df = df.with_columns(
-        address=pl.col('address').str.split(",").list.slice(0, 2).list.join(",")
+        address=pl.col('address').str.split(
+            ",").list.slice(0, 2).list.join(",")
     )
 
     return df
-
 
 
 if __name__ == "__main__":
     input_file = 'enged_2024_05_22.csv'
     code_prefix = 'HU'
     output_file = f'{code_prefix}-merge-UTF-8_no_coord.csv'
-
 
     df = read_input_file(input_file)
 

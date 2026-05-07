@@ -6,9 +6,6 @@ Disallow: /code
 Disallow: /api
 Disallow: /additives
 Disallow: /additifs
-Disallow: /additives-debug
-Disallow: /additives-next
-Disallow: /additives-prev
 Disallow: /allergen
 Disallow: /allergens
 Disallow: /allergene
@@ -20,9 +17,6 @@ Disallow: /acides-amines
 Disallow: /brands
 Disallow: /marques
 Disallow: /categories
-Disallow: /categories-debug
-Disallow: /categories-next
-Disallow: /categories-prev
 Disallow: /categories-properties
 Disallow: /checker
 Disallow: /checkers
@@ -71,6 +65,7 @@ Disallow: /data-sources
 Disallow: /source-de-donnees
 Disallow: /sources-de-donnees
 Disallow: /debug
+Disallow: /environmental-score
 Disallow: /editor
 Disallow: /editors
 Disallow: /editeur
@@ -116,9 +111,6 @@ Disallow: /known-nutrients
 Disallow: /nutriment-connu
 Disallow: /nutriments-connus
 Disallow: /labels
-Disallow: /labels-debug
-Disallow: /labels-next
-Disallow: /labels-prev
 Disallow: /language
 Disallow: /languages
 Disallow: /langue
@@ -206,6 +198,7 @@ Disallow: /store
 Disallow: /stores
 Disallow: /magasin
 Disallow: /magasins
+Disallow: /taxonomies-enhancer
 Disallow: /team
 Disallow: /teams
 Disallow: /trace
@@ -305,4 +298,23 @@ User-agent: DataForSeoBot
 Disallow: /
 
 User-agent: AhrefsBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+User-agent: cohere-ai
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: Diffbot
+Disallow: /
+User-agent: ImagesiftBot
+Disallow: /
+User-agent: ChatGPT-User
 Disallow: /

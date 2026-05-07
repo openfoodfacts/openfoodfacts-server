@@ -1,0 +1,33 @@
+{
+    "level": "info",
+    "topics": [
+        "secondhand"
+    ],
+    "expand_for": "large",
+    "title_element": {
+        "title": "[% edq(lang('donated_products_title')) %]",
+        "subtitle": "[% edq(lang('donated_products_subtitle')) %]",
+        //"icon_url": "[% static_subdomain %]/images/panels/report_problem/signalconso.png",
+    },
+    "elements": [
+        [% IF cc == 'fr' %]
+        // In France, display the donated_products_fr_geev panel
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "donated_products_fr_geev",
+            },
+        },
+        [% ELSE %]
+        // In other countries, display a message that we don't have donation options yet
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+                <p>Donation options are not yet available in your country.</p>
+                `
+            },
+        },  
+        [% END %]  
+    ]
+}

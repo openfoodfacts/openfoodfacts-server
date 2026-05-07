@@ -1,0 +1,34 @@
+include:
+  - ${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml
+
+services:
+  frontend:
+    depends_on:
+        backend:
+          condition: service_started
+
+  keycloak:
+    image: ghcr.io/openfoodfacts/openfoodfacts-auth:testcontainer
+    environment:
+      - KC_SPI_EVENTS_LISTENER_REDIS_EVENT_LISTENER_REDIS_URL=${REDIS_URL}
+      - KC_LOG_LEVEL=info
+
+  backend:
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongodb:
+        condition: service_started
+      dynamicfront:
+        condition: service_started
+      incron:
+        condition: service_started
+      minion:
+        condition: service_started
+      redis:
+        condition: service_started
+      redis-listener:
+        condition: service_started
+      keycloak:
+        # Keycloak takes a while to start so need to wait until it is healthy
+        condition: service_healthy

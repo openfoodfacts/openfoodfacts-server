@@ -32,18 +32,24 @@ my $publish = $ARGV[1] // 1;
 print STDERR "tagtype: $tagtype\n";
 
 if ($tagtype eq '*') {
+	print "::group::Building all taxonomies\n";
 	my $errors_ref = ProductOpener::Tags::build_all_taxonomies($publish);
 	foreach my $taxonomy (keys %{$errors_ref}) {
 		if (@{$errors_ref->{$taxonomy}}) {
-			print STDERR (scalar @{$errors_ref->{$taxonomy}}) . " errors while building $taxonomy taxonomy\n";
+			print STDERR "::error::"
+				. (scalar @{$errors_ref->{$taxonomy}})
+				. " errors while building $taxonomy taxonomy\n";
 		}
 	}
+	print "::endgroup::\n";
 }
 else {
+	print "::group::Building $tagtype taxonomy\n";
 	my @errors = ProductOpener::Tags::build_tags_taxonomy($tagtype, $publish);
 	if (@errors) {
-		print STDERR (scalar @errors) . " errors while building $tagtype taxonomy\n";
+		print STDERR "::error::" . (scalar @errors) . " errors while building $tagtype taxonomy\n";
 	}
+	print "::endgroup::\n";
 }
 
 print STDERR "done building tags taxonomy\n";

@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -61,10 +61,12 @@ def extract_row_from_online_table(row: list) -> dict:
     row_data = {}
     # start by code_prefix (and end by code_suffix)
     if not row[0].strip().startswith(f'{code_prefix} '):
-        approval_number = f"{code_prefix} {row[0].replace('-', '').strip()} {code_suffix}"
+        approval_number = f"{code_prefix} {
+            row[0].replace('-', '').strip()} {code_suffix}"
     else:
         approval_number = row[0].strip()
-    address = row[2].replace('<br/>', ', ').strip() + ", " + row[3] + ", " + row[4]
+    address = row[2].replace('<br/>', ', ').strip() + \
+        ", " + row[3] + ", " + row[4]
     address = address.replace(' ', '')
     address = address.replace(',,', ',')
     address = address.replace(', ,', ',')
@@ -91,13 +93,13 @@ def contains_number_check(value: str) -> bool:
 def parse_from_website(url: str) -> pl.dataframe.frame.DataFrame:
     try:
         html_content = requests.get(url, headers=headers).text
-    except requests.exceptions.ConnectionError :
+    except requests.exceptions.ConnectionError:
         print(f"parse_from_website, cannot get url {url}")
 
     if not html_content:
         print(f"parse_from_website, error with request {url}")
         sys.exit(1)
-    
+
     soup = BeautifulSoup(html_content, 'html.parser')
 
     tables = soup.find_all('table')
@@ -105,9 +107,10 @@ def parse_from_website(url: str) -> pl.dataframe.frame.DataFrame:
     data_rows = []
     for table in tables:
         for tr in table.find_all('tr'):
-            raw_row_data = [td.get_text(separator=", ") for td in tr.find_all('td')]
+            raw_row_data = [td.get_text(separator=", ")
+                            for td in tr.find_all('td')]
             print(f"parse_from_website, raw_row_data: {raw_row_data}")
-            
+
             contains_number = contains_number_check(raw_row_data[0])
 
             # ignore []

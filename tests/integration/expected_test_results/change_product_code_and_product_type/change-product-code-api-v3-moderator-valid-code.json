@@ -1,0 +1,24 @@
+{
+   "code" : "1234567890101",
+   "errors" : [],
+   "product" : {},
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "code",
+            "value" : "1234567890102"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      }
+   ]
+}

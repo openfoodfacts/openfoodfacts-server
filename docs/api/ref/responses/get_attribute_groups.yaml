@@ -2,6 +2,7 @@ type: array
 description: |
   List of groups of attributes for personal search in a specific language.
 items:
+  title: attribute_group
   type: object
   properties:
     id:
@@ -15,6 +16,7 @@ items:
       description: |
         Attributes that are part of this group
       items:
+        title: attribute
         type: object
         properties:
           id:
@@ -35,10 +37,10 @@ items:
           default:
             type: string
             enum:
-            - "mandatory"
-            - "very_important"
-            - "important"
-            - "not_important"
+              - "mandatory"
+              - "very_important"
+              - "important"
+              - "not_important"
             description: Indicates the default setting for this attribute
           panel_id:
             type: string

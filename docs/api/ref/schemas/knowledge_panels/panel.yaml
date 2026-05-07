@@ -1,6 +1,4 @@
 title: panel
-x-stoplight:
-  id: mj9nhz3mqn05c
 type: object
 description: Each panel contains an optional title and an optional array of elements.
 properties:
@@ -13,6 +11,20 @@ properties:
   expand_for:
     type: string
     description: 'If set to "large", the content of the panel should be expanded on large screens, but it should still be possible to unexpand it.'
+  evaluation:
+    type: string
+    description: An evaluation status specifically for this title element. This can be used to directly color the icon if 'icon_color_from_evaluation' is true and this field is present, or it might provide context for the title itself. e.g. bad is red. Please be careful in choosing colors, to avoid 50 shades of red.
+    example: "bad"
+    enum:
+      - good
+      - average
+      - neutral
+      - bad
+      - unknown
+  half_width_on_mobile:
+    type: boolean
+    description: If true, suggests that this panel could be rendered as half-width on mobile devices, allowing for side-by-side display with another half-width panel if applicable.
+    example: true
   title_element:
     $ref: ./elements/title_element.yaml
   elements:
@@ -24,7 +36,7 @@ properties:
     type: string
     description: |
       a message level, as levels we use in log.
-      It might help theming the panel visualy
+      It might help theming the panel visually. Some possible values: info, recommendation
     example: info
   size:
     type: string
@@ -39,3 +51,4 @@ properties:
     items:
       type: string
       example: health
+    description: topics currently include health, environment, problem

@@ -1,0 +1,22 @@
+{
+   "code" : "1234567890101",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "new_code"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "error_new_code_already_exists",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

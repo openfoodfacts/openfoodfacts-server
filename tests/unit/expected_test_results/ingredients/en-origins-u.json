@@ -25,11 +25,9 @@
          "en:u"
       ],
       "en:vegan-status-unknown" : [
-         "en:something",
          "en:u"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:something",
          "en:u"
       ]
    },
@@ -38,10 +36,7 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
-   "ingredients_hierarchy" : [
-      "en:something",
-      "en:u"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -66,13 +61,12 @@
       "en:u"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:something",
+      "en:u"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 0,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 2
 }

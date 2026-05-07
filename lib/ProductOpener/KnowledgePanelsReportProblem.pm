@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -48,7 +48,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::KnowledgePanels qw(create_panel_from_json_template);
-use ProductOpener::Tags qw(:all);
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::ConfigEnv qw/:all/;
 
 use Encode;
 use Data::DeepAccess qw(deep_get);
@@ -76,7 +77,7 @@ We may display country specific recommendations from health authorities, or coun
 
 =cut
 
-sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create contribution card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -87,15 +88,14 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	# + add promo message for the pro platform ("Are you the owner? Add your contact information")
 
 	# Panel to tell users that they can fix the data themselves
-
+	# or report to nutripatrol
 	create_panel_from_json_template(
 		"incomplete_or_incorrect_data",
 		"api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json",
-		{}, $product_ref, $target_lc, $target_cc, $options_ref
+		{nutripatrol_enabled => !!$nutripatrol_url},
+		$product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 	);
 	push(@panels, "incomplete_or_incorrect_data");
-
-	# TODO: add a panel for Nutri-Patrol once it is ready
 
 	# Panels to report product issues to local authorities
 
@@ -106,7 +106,7 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 		create_panel_from_json_template(
 			"fr_report_product_signalconso",
 			"api/knowledge-panels/report_problem/fr_report_product_signalconso.tt.json",
-			{}, $product_ref, $target_lc, $target_cc, $options_ref
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 		);
 		push(@panels, "fr_report_product_signalconso");
 	}
@@ -114,7 +114,7 @@ sub create_report_problem_card_panel ($product_ref, $target_lc, $target_cc, $opt
 	my $panel_data_ref = {report_problem_panels => \@panels,};
 	create_panel_from_json_template("report_problem_card",
 		"api/knowledge-panels/report_problem/report_problem_card.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return 1;
 }

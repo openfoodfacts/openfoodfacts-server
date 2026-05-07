@@ -339,7 +339,7 @@ function display_products(target, product_groups, user_prefs) {
 
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
-			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-6 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + '" style="list-style:none">'
+			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-5 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + '" style="list-style:none">'
 			+ products_html.join("")
 			+ '</ul>'
 		);
@@ -467,7 +467,8 @@ function rank_and_display_products(target, products, contributor_prefs) {
 
 /* exported search_products */
 
-function search_products(target, products, search_api_url) {
+/* eslint-disable max-params */
+function search_products(target, products, search_api_url, contributor_prefs) {
 
 	// Retrieve generic search results from the search API
 
@@ -476,7 +477,7 @@ function search_products(target, products, search_api_url) {
 		if (data.products) {
 
 			Array.prototype.push.apply(products, data.products);
-			rank_and_display_products(target, products);
+			rank_and_display_products(target, products, contributor_prefs);
 		}
 	});
 }

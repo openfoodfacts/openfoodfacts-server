@@ -11,32 +11,57 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 # Create some products
 
 my @products = (
 	{
+		# this product has less than 95% ingredients with nutrition data, so nutrients won't be estimated
 		%{dclone(\%default_product_form)},
 		(
 			code => '4260392550101',
-			product_name => "Some product",
-			generic_name => "Tester",
-			ingredients_text => "apple, milk, eggs, palm oil",
-			categories => "cookies",
-			labels => "organic",
 			origin => "france",
 			packaging_text_en =>
 				"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+			nutriment_salt => '50.2',
+			nutriment_salt_unit => 'mg',
+			nutriment_sugars => '12.5',
+			"nutriment_saturated-fat" => '5.6',
+			nutriment_fiber => 2,
+			"nutriment_energy-kj" => 400,
+			nutriment_proteins => 4.5,
+			nutriment_carbohydrates => 10.5,
+			nutriment_fat => 8.5,
+		)
+	},
+	# product with 100% of ingredients with nutrition data, so nutrients will be estimated
+	{
+		%{dclone(\%default_product_form)},
+		(
+			lc => "en",
+			lang => "en",
+			code => '200000000035',
+			product_name => "Some product 2 with all ingredients having nutrition data",
+			generic_name => "Tester 2",
+			ingredients_text => "milk, eggs, sugar",
+			categories => "cookies",
+			nutriment_salt => '50.2',
+			nutriment_salt_unit => 'mg',
+			nutriment_sugars => '12.5',
+			"nutriment_saturated-fat" => '5.6',
+			nutriment_fiber => 2,
+			"nutriment_energy-kj" => 400,
+			nutriment_proteins => 4.5,
+			nutriment_carbohydrates => 10.5,
+			nutriment_fat => 8.5,
 		)
 	},
 );
@@ -57,6 +82,18 @@ my $tests_ref = [
 		test_case => 'get-existing-product',
 		method => 'GET',
 		path => '/api/v3/product/4260392550101',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-api-v3-1',
+		method => 'GET',
+		path => '/api/v3.1/product/4260392550101',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-leading-zero',
+		method => 'GET',
+		path => '/api/v3/product/04260392550101',
 		expected_status_code => 200,
 	},
 	{
@@ -96,6 +133,35 @@ my $tests_ref = [
 		query_string => '?fields=product_name,categories_tags,categories_tags_en',
 		expected_status_code => 200,
 	},
+	# in API 3.1 ecoscore fields are renamed to environmental_score
+	{
+		test_case => 'get-specific-fields-ecoscore-api-v3',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=ecoscore_score,ecoscore_grade,ecoscore_data',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-specific-fields-ecoscore-api-v3-1',
+		method => 'GET',
+		path => '/api/v3.1/product/4260392550101',
+		query_string => '?fields=ecoscore_score,ecoscore_grade,ecoscore_data',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-specific-fields-environmental-score-api-v3',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=environmental_score_score,environmental_score_grade,environmental_score_data',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-specific-fields-environmental-score-api-v3-1',
+		method => 'GET',
+		path => '/api/v3.1/product/4260392550101',
+		query_string => '?fields=environmental_score_score,environmental_score_grade,environmental_score_data',
+		expected_status_code => 200,
+	},
 	{
 		test_case => 'get-images-to-update',
 		method => 'GET',
@@ -107,6 +173,13 @@ my $tests_ref = [
 		test_case => 'get-attribute-groups',
 		method => 'GET',
 		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=attribute_groups',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-attribute-groups-api-v3-1',
+		method => 'GET',
+		path => '/api/v3.1/product/4260392550101',
 		query_string => '?fields=attribute_groups',
 		expected_status_code => 200,
 	},
@@ -173,6 +246,29 @@ my $tests_ref = [
 		query_string => '?fields=attribute_groups,all,knowledge_panels',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'get-fields-knowledge-panels-knowledge-panels_included-health_card-environment_card',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-fields-knowledge-panels-knowledge-panels_excluded-environment_card',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=knowledge_panels&knowledge_panels_excluded=environment_card',
+		expected_status_code => 200,
+	},
+	{
+		test_case =>
+			'get-fields-knowledge-panels-knowledge-panels_included-health_card-environment_card-knowledge_panels_excluded-health_card',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string =>
+			'?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card&knowledge_panels_excluded=health_card',
+		expected_status_code => 200,
+	},
 	# Test authentication
 	# (currently not needed for READ requests, but it could in the future, for instance to get personalized results)
 	{
@@ -189,7 +285,59 @@ my $tests_ref = [
 		query_string => '?fields=code,product_name&user_id=tests&password=bad_password',
 		expected_status_code => 403,
 	},
+	{
+		test_case => 'get-specific-fields-environmental-score-api-v3-1',
+		method => 'GET',
+		path => '/api/v3.1/product/4260392550101',
+		query_string => '?fields=environmental_score_score,environmental_score_grade,environmental_score_data',
+		expected_status_code => 200,
+	},
 
+	# Get attributes with unwanted_ingredients using a cookie
+	{
+		test_case => 'get-attributes-unwanted-ingredients-milk',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=attribute_groups',
+		cookies => [{name => "attribute_unwanted_ingredients_tags", value => "en:milk,en:chocolate"}],
+		expected_status_code => 200,
+	},
+	# Get attributes with unwanted_ingredients using a query parameter
+	{
+		test_case => 'get-attributes-unwanted-ingredients-milk-query-param',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=attribute_groups&attribute_unwanted_ingredients_tags=en:milk,en:chocolate',
+		expected_status_code => 200,
+	},
+
+	# Get simplified knowledge panels
+	{
+		test_case => 'get-knowledge-panels-simplified',
+		method => 'GET',
+		path => '/api/v3/product/4260392550101',
+		query_string => '?fields=knowledge_panels&activate_knowledge_panels_simplified=true',
+		expected_status_code => 200,
+	},
+	# v3.5 new nutrition schema
+	{
+		test_case => 'get-existing-product-api-v3-5',
+		method => 'GET',
+		path => '/api/v3.5/product/4260392550101',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-estimated-nutrients',
+		method => 'GET',
+		path => '/api/v3/product/200000000035',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-estimated-nutrients-api-v3-5',
+		method => 'GET',
+		path => '/api/v3.5/product/200000000035',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

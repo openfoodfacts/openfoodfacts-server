@@ -67,22 +67,25 @@ export_csv_file.pl --query field_name=field_value --query other_field_name=other
 TXT
 	;
 
-my %query_fields_values = ();
-my $fields;
-my $extra_fields;
+my $fields = '';
+my $extra_fields = '';
 my $separator = "\t";
-my $include_images_paths;
-my $query_codes_from_file;
-my $export_computed_fields;
-my $export_canonicalized_tags_fields;
+my $include_images_paths = 0;
+my $query_codes_from_file = '';
+my $export_nutrition_aggregated_set = 0;
+my $export_computed_fields = 0;
+my $export_canonicalized_tags_fields = 0;
+
+my $query_params_ref = {};    # filters for mongodb query
 
 GetOptions(
 	"fields=s" => \$fields,
 	"extra_fields=s" => \$extra_fields,
-	"query=s%" => \%query_fields_values,
+	"query=s%" => $query_params_ref,
 	"separator=s" => \$separator,
 	"include-images-paths" => \$include_images_paths,
 	"query-codes-from-file=s" => \$query_codes_from_file,
+	"export-nutrition-aggregated-set" => \$export_nutrition_aggregated_set,
 	"export-computed-fields" => \$export_computed_fields,
 	"export-canonicalized-tags-fields" => \$export_canonicalized_tags_fields,
 ) or die("Error in command line arguments:\n\n$usage");
@@ -95,17 +98,14 @@ print STDERR "export_csv_file.pl
 - query fields values:
 ";
 
-my $query_ref = {};
 my $request_ref = {};
-
-foreach my $field (sort keys %query_fields_values) {
-	print STDERR "-- $field: $query_fields_values{$field}\n";
-	param($field, $query_fields_values{$field});
-}
 
 # Construct the MongoDB query
 
-add_params_to_query($request_ref, $query_ref);
+# Build the mongodb query from the --query parameters
+my $query_ref = {};
+
+add_params_to_query($query_params_ref, $query_ref);
 
 use boolean;
 
@@ -119,7 +119,7 @@ foreach my $field (sort keys %{$query_ref}) {
 	}
 }
 
-if (defined $query_codes_from_file) {
+if ($query_codes_from_file) {
 	my @codes = ();
 	open(my $in, "<", "$query_codes_from_file") or die("Cannot read $query_codes_from_file: $!\n");
 	while (<$in>) {
@@ -138,6 +138,10 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $args_ref = {filehandle => *STDOUT, separator => $separator, query => $query_ref};
 
+if ($export_nutrition_aggregated_set) {
+	$args_ref->{export_nutrition_aggregated_set} = 1;
+}
+
 if ($export_computed_fields) {
 	$args_ref->{export_computed_fields} = 1;
 }
@@ -146,17 +150,20 @@ if ($export_canonicalized_tags_fields) {
 	$args_ref->{export_canonicalized_tags_fields} = 1;
 }
 
-if ((defined $fields) and ($fields ne "")) {
+if ($fields) {
 	$args_ref->{fields} = [split(/,/, $fields)];
 }
 
-if ((defined $extra_fields) and ($extra_fields ne "")) {
+if ($extra_fields) {
 	$args_ref->{extra_fields} = [split(/,/, $extra_fields)];
 }
 
-if (defined $include_images_paths) {
+if ($include_images_paths) {
 	$args_ref->{include_images_paths} = 1;
 }
+
+# go for a large timeout
+$args_ref->{mongo_timeout_ms} = 2 * 60000;
 
 export_csv($args_ref);
 

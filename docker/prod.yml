@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   memcached:
     restart: always
@@ -13,6 +12,10 @@ services:
     networks: 
     - webnet
   incron:
+    restart: always
+    networks:
+    - webnet
+  redis-listener:
     restart: always
     networks:
     - webnet

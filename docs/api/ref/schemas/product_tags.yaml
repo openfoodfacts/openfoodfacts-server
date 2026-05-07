@@ -1,119 +1,54 @@
 type: object
 description: |
   Data about a product which is represented as tags
-properties:
+allOf:
+  - $ref: './product_base_tags.yaml'
+  - type: object
+    properties:
+      brands_hierarchy:
+        type: array
+        description: |
+          An array of brands tag entries (for display and editing).
+      
+          That is the id of brands found in taxonomy + 
+          brands not found in taxonomy (as-is, with no normalization).
+      
+          This is the field that should be used for display purposes, as it is not lossy.
+        items:
+          $ref: ./tags/taxonomy_tag_entry.yaml      
+      brands_lc:
+        type: string
+        description: Language code of the last edit for brands
+      
+      categories_hierarchy:
+        type: array
+        description: |
+          An array of categories tag entries (for display and editing).
+      
+          That is the id of categories found in taxonomy + 
+          categories not found in taxonomy (as-is, with no normalization).
+      
+          This is the field that should be used for display purposes, as it is not lossy.
+        items:
+          $ref: ./tags/taxonomy_tag_entry.yaml      
+      categories_lc:
+        type: string
+        description: Language code of the last edit for categories
 
-  brands:
-    type: string
-    description: List of brands (not taxonomized)
-  brands_tags:
-    type: array
-    items:
-      type: string
-      description: List of brands (tags, not taxonomized)
+      countries_hierarchy:
+        type: array
+        items:
+          type: string
+      countries_lc:
+        type: string
+        description: Countries language code
 
-  categories:
-    type: string
-  categories_hierarchy:
-    type: array
-    items:
-      type: string
-  categories_lc:
-    type: string
-    description: Categories language code
-  categories_tags:
-    type: array
-    items:
-      type: string
+      emb_codes_orig:
+        type: string
 
-  checkers_tags:
-    type: array
-    items:
-      type: string
-      description:  List of checkers (users who checked the product) tags
-  cities:
-    type: string
-  cities_tags:
-    type: array
-    items:
-      type: object
-  correctors_tags:
-    type: array
-    items:
-      type: string
-
-  countries:
-    type: string
-    description: |
-      List of countries where the product is sold.
-  countries_hierarchy:
-    type: array
-    items:
-      type: string
-  countries_lc:
-    type: string
-    description: Countries language code
-  countries_tags:
-    type: array
-    items:
-      type: string
-  ecoscore_tags:
-    description: |
-      All ecoscore of a product.
-      Most of the time it's only one value,
-      but it might eventually be more for products composed of sub-products.
-      See also: `ecoscore_score`, `ecoscore_grade`.
-    type: array
-    items:
-      type: string
-
-  emb_codes:
-    type: string
-    description: |
-      Packager code. EMB is the French system of traceability codes for packager.
-    example: EMB 2013330
-  emb_codes_orig:
-    type: string
-  emb_codes_tags:
-    type: array
-    items:
-      type: object
-
-
-  labels:
-    type: string
-  labels_hierarchy:
-    type: array
-    items:
-      type: string
-  labels_lc:
-    type: string
-  labels_tags:
-    type: array
-    items:
-      type: string
-
-  entry_dates_tags:
-    description: |
-      The data as a series of tag: `yyyy-mm-dd`, `yyyy-mm`, `yyyy`
-    type: array
-    items:
-      type: string
-    example: ["2016-03-11","2016-03","2016"]
-
-  manufacturing_places:
-    type: string
-    description: |
-      Places where the product was manufactured or transformed.
-  manufacturing_places_tags:
-    type: array
-    items:
-      type: object
-  nova_groups_tags:
-    type: array
-    items:
-      type: string
-  nutrient_levels_tags:
-    type: array
-    items:
-      type: string
+      labels_hierarchy:
+        type: array
+        items:
+          type: string
+      labels_lc:
+        type: string

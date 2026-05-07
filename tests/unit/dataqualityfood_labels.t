@@ -6,17 +6,23 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
 use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::Ingredients qw/:all/;
+use ProductOpener::FoodProducts qw/:all/;
 
 sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $product_ref = shift;
 	my $tag = shift;
 	my $reason = shift;
 	my $yesno = shift;
+	# Add default lc if not present to avoid warnings in processing
+	$product_ref->{lc} //= 'en';
+	specific_processes_for_food_product($product_ref);
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
 		ok(has_tag($product_ref, 'data_quality', $tag), $reason)
@@ -34,21 +40,8 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 # unknown ingredient -> warnings
 my $product_ref = {
 	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:totoro",
-		}
-	],
+	ingredients_text_en => "Lentils, green bell pepper, totoro",
+	lc => "en",
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -74,23 +67,8 @@ check_quality_and_test_product_has_quality_tag(
 # non-vegan/non-vegetarian ingredient -> error
 $product_ref = {
 	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:chicken",
-			vegan => "no",
-			vegetarian => "no"
-		}
-	],
+	ingredients_text_en => "Lentils, green bell pepper, chicken",
+	lc => "en",
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -116,23 +94,7 @@ check_quality_and_test_product_has_quality_tag(
 # non-vegan/vegatarian ingredient -> error
 $product_ref = {
 	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:honey",
-			vegan => "no",
-			vegetarian => "yes"
-		}
-	],
+	ingredients_text => "Lentils, green bell pepper, honey",
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
@@ -158,50 +120,31 @@ check_quality_and_test_product_has_quality_tag(
 # ignore compunds
 $product_ref = {
 	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:worcester",
-			ingredients => [
-				{
-					id => "en:soy-sauce",
-					vegan => "yes",
-					vegetarian => "yes",
-				},
-			],
-			vegan => "maybe",
-			vegetarian => "maybe",
-		},
-		{
-			id => "en:honey",
-			vegan => "yes",
-			vegetarian => "yes"
-		}
-	],
+	ingredients_text_en => "lentils, worcester sauce (vegetables), honey",
+	lc => "en",
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:vegan-label-but-non-vegan-ingredient',
-	'should not be raised when ingredient contain sub-ingredients', 0
+	'en:vegan-label-but-non-vegan-ingredient', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'should not be raised when ingredient contain sub-ingredients', 0
+	'en:vegetarian-label-but-non-vegetarian-ingredient -- should not be raised when ingredient contain sub-ingredients',
+	0
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'should not be raised when ingredient contain sub-ingredients', 0
+	'en:vegan-label-but-could-not-confirm-for-all-ingredients -- should not be raised when ingredient contain sub-ingredients',
+	0
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'should not be raised when ingredient contain sub-ingredients', 0
+	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients -- should not be raised when ingredient contain sub-ingredients',
+	0
 );
 
 # labels claim vs input nutrition data, based on EU regulation: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
@@ -214,18 +157,36 @@ check_quality_and_test_product_has_quality_tag(
 $product_ref = {
 	countries_tags => ["en:united-states",],
 	labels_tags => ["en:low-energy",],
-	nutriments => {
-		"energy-kcal_100g" => 100,    # is above limitation
-		"energy-kj_100g" => 420,    # is not above limitation
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"energy-kj" => {
+						value_string => "100",
+						unit => "kJ"
+					},
+					"energy-kcal" => {
+						value_string => "420",
+						unit => "kcal"
+					},
+				}
+			}
+		]
 	},
 	quantity => "500 mg",
-	},
-	check_quality_and_test_product_has_quality_tag(
+};
+
+check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:low-energy-label-claim-but-energy-above-limitation',
-	'non-EU countries, should not raise facet',
-	0
-	);
+	'non-EU countries, should not raise facet', 0
+);
 
 # solid
 $product_ref = {
@@ -262,40 +223,143 @@ $product_ref = {
 		"en:high-in-iodine", "en:source-of-omega-3",
 		"en:high-in-omega-3",
 	],
-	nutriments => {
-		"energy-kcal_100g" => 100,    # is above 40 and 4
-		"energy-kj_100g" => 420,    # is above 170 and 17
-		fat_100g => 4,    # is above 3 and 0.5
-		"monounsaturated-fat_100g" => 1,    # less than 45% of the fat
-		"polyunsaturated-fat_100g" => 1,    # less than 45% of the fat
-		"unsaturated-fat_100g" => 1,    # less than 45% of the fat
-		"saturated-fat_100g" => 2,    # above 1.5
-		sugars_100g => 6,    # above 5 and 0.5
-		sodium_100g => 0.4,    # above 0.12 and 0.04 and 0.005
-		salt_100g => 1,    # above 0.3 and 0.1 and 0.0125
-		fiber_100g => 2,    # below 3 and 6
-		"vitamin-a_100g" => 0.0007,    # below 0.0008 and 0.0016
-		"vitamin-d_100g" => 0.000004,    # below 0.000005 and 0.00001
-		"vitamin-e_100g" => 0.009,    # below 0.01 and 0.02
-		"vitamin-c_100g" => 0.05,    # below 0.06 and 0.12
-		"vitamin-b1_100g" => 0.0013,    # below 0.0014 and 0.0028
-		"vitamin-b2_100g" => 0.0015,    # below 0.0016 and 0.0032
-		"vitamin-b3_100g" => 0.017,    # below 0.018 and 0.036
-		"vitamin-b6_100g" => 0.001,    # below 0.002 and 0.004
-		"vitamin-b9_100g" => 0.0001,    # below 0.0002 and 0.0004
-		"vitamin-b12_100g" => 0.0000009,    # below 0.000001 and 0.000002
-		"biotin_100g" => 0.00014,    # below 0.00015 and 0.0003
-		"pantothenic-acid_100g" => 0.005,    # below 0.006 and 0.012
-		"calcium_100g" => 0.7,    # below 0.8 and 1.6
-		"phosphorus_100g" => 0.7,    # below 0.8 and 1.6
-		"iron_100g" => 0.013,    # below 0.014 and 0.028
-		"magnesium_100g" => 0.2,    # below 0.3 and 0.6
-		"zinc_100g" => 0.014,    # below 0.015 and 0.03
-		"iodine_100g" => 0.00014,    # below 0.00015 and 0.0003
-		"alpha-linolenic-acid_100g" => 0.2    # below 0.3 and 0.6
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"energy-kcal" => {
+						value => 100,    # is above 40 and 4
+						unit => "kcal"
+					},
+					"energy-kj" => {
+						value => 420,    # is above 170 and 17
+						unit => "kJ"
+					},
+					"fat" => {
+						value => 4,    # is above 3 and 0.5
+						unit => "g"
+					},
+					"monounsaturated-fat" => {
+						value => 1,    # less than 45% of the fat
+						unit => "g"
+					},
+					"polyunsaturated-fat" => {
+						value => 1,    # less than 45% of the fat
+						unit => "g"
+					},
+					"unsaturated-fat" => {
+						value => 1,    # less than 45% of the fat
+						unit => "g"
+					},
+					"saturated-fat" => {
+						value => 2,    # above 1.5
+						unit => "g"
+					},
+					"sugars" => {
+						value => 6,    # above 5 and 0.5
+						unit => "g"
+					},
+					"sodium" => {
+						value => 0.4,    # above 0.12 and 0.04 and 0.005
+						unit => "g"
+					},
+					"salt" => {
+						value => 1,    # above 0.3 and 0.1 and 0.0125
+						unit => "g"
+					},
+					"fiber" => {
+						value => 2,    # below 3 and 6
+						unit => "g"
+					},
+					"vitamin-a" => {
+						value => 0.00011,    # below 0.00012 and 0.00024 (15% of 800 µg and 1600 µg)
+						unit => "g"
+					},
+					"vitamin-d" => {
+						value => 0.00000074,    # below 0.00000075 and 0.0000015 (15% of 5 µg and 10 µg)
+						unit => "g"
+					},
+					"vitamin-e" => {
+						value => 0.0014,    # below 0.0015 and 0.003 (15% of 10 mg and 20 mg)
+						unit => "g"
+					},
+					"vitamin-c" => {
+						value => 0.008,    # below 0.009 and 0.018 (15% of 60 mg and 120 mg)
+						unit => "g"
+					},
+					"vitamin-b1" => {
+						value => 0.0002,    # below 0.00021 and 0.00042 (15% of 1.4 mg and 2.8 mg)
+						unit => "g"
+					},
+					"vitamin-b2" => {
+						value => 0.00023,    # below 0.00024 and 0.00048 (15% of 1.6 mg and 3.2 mg)
+						unit => "g"
+					},
+					"vitamin-b3" => {
+						value => 0.0026,    # below 0.0027 and 0.0054 (15% of 18 mg and 36 mg)
+						unit => "g"
+					},
+					"vitamin-b6" => {
+						value => 0.0002,    # below 0.0003 and 0.0006 (15% of 2 mg and 4 mg)
+						unit => "g"
+					},
+					"vitamin-b9" => {
+						value => 0.00002,    # below 0.00003 and 0.00006 (15% of 200 µg and 400 µg)
+						unit => "g"
+					},
+					"vitamin-b12" => {
+						value => 0.00000014,    # below 0.00000015 and 0.0000003 (15% of 1 µg and 2 µg)
+						unit => "g"
+					},
+					"biotin" => {
+						value => 0.0000224,    # below 0.0000225 and 0.000045 (15% of 0.15 mg and 0.3 mg)
+						unit => "g"
+					},
+					"pantothenic-acid" => {
+						value => 0.0008,    # below 0.0009 and 0.0018 (15% of 6 mg and 12 mg)
+						unit => "g"
+					},
+					"calcium" => {
+						value => 0.11,    # below 0.12 and 0.24 (15% of 800 mg and 1600 mg)
+						unit => "g"
+					},
+					"phosphorus" => {
+						value => 0.11,    # below 0.12 and 0.24 (15% of 800 mg and 1600 mg)
+						unit => "g"
+					},
+					"iron" => {
+						value => 0.002,    # below 0.0021 and 0.0042 (15% of 14 mg and 28 mg)
+						unit => "g"
+					},
+					"magnesium" => {
+						value => 0.044,    # below 0.045 and 0.09 (15% of 300 mg and 600 mg)
+						unit => "g"
+					},
+					"zinc" => {
+						value => 0.00224,    # below 0.00225 and 0.0045 (15% of 15 mg and 30 mg)
+						unit => "g"
+					},
+					"iodine" => {
+						value => 0.0000224,    # below 0.0000225 and 0.000045 (15% of 150 µg and 300 µg)
+						unit => "g"
+					},
+					"alpha-linolenic-acid" => {
+						value => 0.2,    # below 0.3 and 0.6
+						unit => "g"
+					},
+				},
+			},
+		],
 	},
 	quantity => "500 mg",
 };
+
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:low-energy-label-claim-but-energy-above-limitation',
@@ -398,182 +462,182 @@ check_quality_and_test_product_has_quality_tag(
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-a-source-label-claim-but-vitamin-a-below-0.0008',
+	'en:vitamin-a-source-label-claim-but-vitamin-a-below-0.00012',
 	'under limitation for vitamin-a source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-a-label-claim-but-vitamin-a-below-0.0016',
+	'en:rich-in-vitamin-a-label-claim-but-vitamin-a-below-0.00024',
 	'under limitation for rich in vitamin-a label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-d-source-label-claim-but-vitamin-d-below-5e-06',
+	'en:vitamin-d-source-label-claim-but-vitamin-d-below-7.5e-07',
 	'under limitation for vitamin-d source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-d-label-claim-but-vitamin-d-below-1e-05',
+	'en:rich-in-vitamin-d-label-claim-but-vitamin-d-below-1.5e-06',
 	'under limitation for rich in vitamin-d label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-e-source-label-claim-but-vitamin-e-below-0.01',
+	'en:vitamin-e-source-label-claim-but-vitamin-e-below-0.0015',
 	'under limitation for vitamin-e source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-e-label-claim-but-vitamin-e-below-0.02',
+	'en:rich-in-vitamin-e-label-claim-but-vitamin-e-below-0.003',
 	'under limitation for rich in vitamin-e label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-c-source-label-claim-but-vitamin-c-below-0.06',
+	'en:vitamin-c-source-label-claim-but-vitamin-c-below-0.009',
 	'under limitation for vitamin-c source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-c-label-claim-but-vitamin-c-below-0.12',
+	'en:rich-in-vitamin-c-label-claim-but-vitamin-c-below-0.018',
 	'under limitation for rich in vitamin-c label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b1-source-label-claim-but-vitamin-b1-below-0.0014',
+	'en:vitamin-b1-source-label-claim-but-vitamin-b1-below-0.00021',
 	'under limitation for vitamin-b1 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b1-label-claim-but-vitamin-b1-below-0.0028',
+	'en:rich-in-vitamin-b1-label-claim-but-vitamin-b1-below-0.00042',
 	'under limitation for rich in vitamin-b1 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b2-source-label-claim-but-vitamin-b2-below-0.0016',
+	'en:vitamin-b2-source-label-claim-but-vitamin-b2-below-0.00024',
+	'under limitation for vitamin-b2 source label', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:rich-in-vitamin-b2-label-claim-but-vitamin-b2-below-0.00048',
+	'under limitation for rich in vitamin-b2 label', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vitamin-b3-source-label-claim-but-vitamin-b3-below-0.0027',
 	'under limitation for vitamin-b3 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b2-label-claim-but-vitamin-b2-below-0.0032',
+	'en:rich-in-vitamin-b3-label-claim-but-vitamin-b3-below-0.0054',
 	'under limitation for rich in vitamin-b3 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b3-source-label-claim-but-vitamin-b3-below-0.018',
-	'under limitation for vitamin-b3 source label', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:rich-in-vitamin-b3-label-claim-but-vitamin-b3-below-0.036',
-	'under limitation for rich in vitamin-b3 label', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vitamin-b6-source-label-claim-but-vitamin-b6-below-0.002',
+	'en:vitamin-b6-source-label-claim-but-vitamin-b6-below-0.0003',
 	'under limitation for vitamin-b6 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b6-label-claim-but-vitamin-b6-below-0.004',
+	'en:rich-in-vitamin-b6-label-claim-but-vitamin-b6-below-0.0006',
 	'under limitation for rich in vitamin-b6 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b9-source-label-claim-but-vitamin-b9-below-0.0002',
+	'en:vitamin-b9-source-label-claim-but-vitamin-b9-below-3e-05',
 	'under limitation for vitamin-b9 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b9-label-claim-but-vitamin-b9-below-0.0004',
+	'en:rich-in-vitamin-b9-label-claim-but-vitamin-b9-below-6e-05',
 	'under limitation for rich in vitamin-b9 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:vitamin-b12-source-label-claim-but-vitamin-b12-below-1e-06',
+	'en:vitamin-b12-source-label-claim-but-vitamin-b12-below-1.5e-07',
 	'under limitation for vitamin-b12 source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:rich-in-vitamin-b12-label-claim-but-vitamin-b12-below-2e-06',
+	'en:rich-in-vitamin-b12-label-claim-but-vitamin-b12-below-3e-07',
 	'under limitation for rich in vitamin-b12 label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:source-of-biotin-label-claim-but-biotin-below-0.00015',
+	'en:source-of-biotin-label-claim-but-biotin-below-2.25e-05',
 	'under limitation for biotin source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-biotin-label-claim-but-biotin-below-0.0003',
+	'en:high-in-biotin-label-claim-but-biotin-below-4.5e-05',
 	'under limitation for high in biotin label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:source-of-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.006',
+	'en:source-of-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.0009',
 	'under limitation for pantothenic-acid source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.012',
+	'en:high-in-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.0018',
 	'under limitation for high in pantothenic-acid label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:calcium-source-label-claim-but-calcium-below-0.8',
+	'en:calcium-source-label-claim-but-calcium-below-0.12',
 	'under limitation for calcium source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-calcium-label-claim-but-calcium-below-1.6',
+	'en:high-in-calcium-label-claim-but-calcium-below-0.24',
 	'under limitation for high in calcium label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:phosphore-source-label-claim-but-phosphorus-below-0.8',
+	'en:phosphore-source-label-claim-but-phosphorus-below-0.12',
 	'under limitation for phosphore source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-phosphore-label-claim-but-phosphorus-below-1.6',
+	'en:high-in-phosphore-label-claim-but-phosphorus-below-0.24',
 	'under limitation for high in phosphore label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:iron-source-label-claim-but-iron-below-0.014',
+	'en:iron-source-label-claim-but-iron-below-0.0021',
 	'under limitation for iron source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-iron-label-claim-but-iron-below-0.028',
+	'en:high-in-iron-label-claim-but-iron-below-0.0042',
 	'under limitation for high in iron label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:magnesium-source-label-claim-but-magnesium-below-0.3',
+	'en:magnesium-source-label-claim-but-magnesium-below-0.045',
 	'under limitation for magnesium source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-magnesium-label-claim-but-magnesium-below-0.6',
+	'en:high-in-magnesium-label-claim-but-magnesium-below-0.09',
 	'under limitation for high in magnesium label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:zinc-source-label-claim-but-zinc-below-0.015',
+	'en:zinc-source-label-claim-but-zinc-below-0.00225',
 	'under limitation for zinc source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-zinc-label-claim-but-zinc-below-0.03',
+	'en:high-in-zinc-label-claim-but-zinc-below-0.0045',
 	'under limitation for high in zinc label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:iodine-source-label-claim-but-iodine-below-0.00015',
+	'en:iodine-source-label-claim-but-iodine-below-2.25e-05',
 	'under limitation for iodine source label', 1
 );
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
-	'en:high-in-iodine-label-claim-but-iodine-below-0.0003',
+	'en:high-in-iodine-label-claim-but-iodine-below-4.5e-05',
 	'under limitation for high in iodine label', 1
 );
 check_quality_and_test_product_has_quality_tag(
@@ -598,19 +662,55 @@ $product_ref = {
 		"en:high-monounsaturated-fat", "en:rich-in-polyunsaturated-fatty-acids",
 		"en:rich-in-unsaturated-fatty-acids", "en:low-content-of-saturated-fat",
 	],
-	nutriments => {
-		"energy-kcal_value" => 200,    # needed to calculate computed energy values
-		"energy-kj_value" => 840,    # needed to calculate computed energy values
-		fat_100g => 4,
-		fat_value => 4,    # needed to calculate computed energy values
-		"monounsaturated-fat_100g" => 3,    # more than 45% of the fat
-		"polyunsaturated-fat_100g" => 3,    # more than 45% of the fat
-		"unsaturated-fat_100g" => 3,    # more than 45% of the fat
-		"saturated-fat_100g" => 3,    # more than 45% of the fat
-		"carbohydrates_value" => 10,    # needed to calculate computed energy values
-		"proteins_value" => 40,    # needed to calculate computed energy values
-								   # "energy-kcal_value_computed" => 276, # for information only
-								   # "energy-kj_value_computed" => 1168, # for information only
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"energy-kcal" => {
+						value => 200,
+						unit => "kcal"
+					},
+					"energy-kj" => {
+						value => 840,
+						unit => "kJ"
+					},
+					"fat" => {
+						value => 4,    # more than 45% of the fat
+						unit => "g"
+					},
+					"monounsaturated-fat" => {
+						value => 3,    # more than 45% of the fat
+						unit => "g"
+					},
+					"polyunsaturated-fat" => {
+						value => 3,    # more than 45% of the fat
+						unit => "g"
+					},
+					"unsaturated-fat" => {
+						value => 3,    # more than 45% of the fat
+						unit => "g"
+					},
+					"saturated-fat" => {
+						value => 3,    # more than 45% of the fat
+						unit => "g"
+					},
+					"carbohydrates" => {
+						value => 10,
+						unit => "g"
+					},
+					"proteins" => {
+						value => 40,
+						unit => "g"
+					},
+				},
+			},
+		],
 	},
 	quantity => "500 mg",
 };
@@ -638,15 +738,43 @@ check_quality_and_test_product_has_quality_tag(
 $product_ref = {
 	countries_tags => ["en:croatia",],
 	labels_tags => ["en:source-of-fibre", "en:high-fibres",],
-	nutriments => {
-		"energy-kcal_value" => 400,    # needed to calculate computed energy values
-		"energy-kj_value" => 1800,    # needed to calculate computed energy values
-		fat_value => 60,    # needed to calculate computed energy values
-		"carbohydrates_value" => 60,    # needed to calculate computed energy values
-		"proteins_value" => 60,    # needed to calculate computed energy values
-								   # "energy-kcal_value_computed" => 1020, # for information only
-								   # "energy-kj_value_computed" => 4260, # for information only
-		fiber_100g => 7,    # above 6
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"energy-kcal" => {
+						value => 1020,
+						unit => "kcal"
+					},
+					"energy-kj" => {
+						value => 4260,
+						unit => "kJ"
+					},
+					"fat" => {
+						value => 60,
+						unit => "g"
+					},
+					"carbohydrates" => {
+						value => 60,
+						unit => "g"
+					},
+					"proteins" => {
+						value => 60,
+						unit => "g"
+					},
+					"fiber" => {
+						value => 7,    # above 6
+						unit => "g"
+					},
+				},
+			},
+		],
 	},
 	quantity => "500 mg",
 };
@@ -664,15 +792,39 @@ check_quality_and_test_product_has_quality_tag(
 $product_ref = {
 	countries_tags => ["en:croatia",],
 	labels_tags => ["en:source-of-proteins", "en:high-proteins",],
-	nutriments => {
-		"energy-kcal_value" => 400,    # needed to calculate computed energy values
-		"energy-kj_value" => 1800,    # needed to calculate computed energy values
-		fat_value => 60,    # needed to calculate computed energy values
-		"carbohydrates_value" => 60,    # needed to calculate computed energy values
-		"proteins_value" => 21,    # needed to calculate computed energy values
-								   # "energy-kcal_value_computed" => 864, # for information only
-								   # "energy-kj_value_computed" => 3597, # for information only
-		proteins_100g => 21,    # above 20 and 12
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"energy-kcal" => {
+						value => 864,
+						unit => "kcal"
+					},
+					"energy-kj" => {
+						value => 3587,
+						unit => "kJ"
+					},
+					"fat" => {
+						value => 60,
+						unit => "g"
+					},
+					"carbohydrates" => {
+						value => 60,
+						unit => "g"
+					},
+					"proteins" => {
+						value => 21,    # below 12% and 20%
+						unit => "g"
+					},
+				},
+			},
+		],
 	},
 	quantity => "500 mg",
 };
@@ -693,31 +845,73 @@ $product_ref = {
 	countries_tags => ["en:croatia",],
 	labels_tags => ["en:no-added-sugar", "en:no-added-sodium", "en:no-added-salt",],
 	quantity => "500 mg",
-	ingredients_tags => ["en:cane-sugar", "en:added-sugar", "en:disaccharide", "en:salt",],
+	ingredients_text_en => "Cane sugar, salt, water",
+	lc => "en",
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:no-added-sugar-label-claim-but-contains-added-sugar',
 	'added sugar detected beside label', 1
 );
+
+$product_ref = {
+	countries_tags => ["en:croatia",],
+	labels_tags => ["en:no-added-sugar", "en:no-added-sodium", "en:no-added-salt",],
+	quantity => "500 mg",
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"sodium" => {
+						value => 1,
+						unit => "g"
+					},
+					"salt" => {
+						value => 2.5,    # above 0.0125
+						unit => "g"
+					},
+				},
+			},
+		],
+	},
+};
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:no-added-sodium-or-no-added-salt-label-claim-but-sodium-or-salt-above-limitation',
 	'added sodium detected beside label', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:no-added-sodium-or-no-added-salt-label-claim-but-sodium-or-salt-above-limitation',
-	'added salt detected beside label', 1
 );
 
 ## omega-3, trigger with sum of epa and dha instead of ala
 $product_ref = {
 	countries_tags => ["en:croatia",],
 	labels_tags => ["en:source-of-omega-3", "en:high-in-omega-3",],
-	nutriments => {
-		"eicosapentaenoic-acid_100g" => 0.01,
-		"docosahexaenoic-acid_100g" => 0.01,    # sum is below 0.04 and 0.08
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"eicosapentaenoic-acid" => {
+						value => 0.01,    # sum is below 0.04 and 0.08
+						unit => "g"
+					},
+					"docosahexaenoic-acid" => {
+						value => 0.01,    # sum is below 0.04 and 0.08
+						unit => "g"
+					},
+				},
+			},
+		],
 	},
 	quantity => "500 mg",
 };
@@ -739,9 +933,27 @@ check_quality_and_test_product_has_quality_tag(
 $product_ref = {
 	countries_tags => ["en:croatia",],
 	labels_tags => ["en:low-energy",],
-	nutriments => {
-		"energy-kcal_100g" => 21,    # is above 20
-		"energy-kj_100g" => 81,    # is above 80
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"energy-kcal" => {
+						value => 21,    # is above 20
+						unit => "kcal"
+					},
+					"energy-kj" => {
+						value => 81,    # is above 80
+						unit => "kJ"
+					},
+				},
+			},
+		],
 	},
 	quantity => "1L",
 };
@@ -755,8 +967,23 @@ check_quality_and_test_product_has_quality_tag(
 $product_ref = {
 	countries_tags => ["en:croatia",],
 	labels_tags => ["en:low-fat",],
-	nutriments => {
-		fat_100g => 1.6,    # is above 1.5 (default limit) but below 1.8 (limit for skimmed-milk)
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					fat => {
+						value => 1.6,    # is above 1.5 (default limit) but below 1.8 (limit for skimmed-milk)
+						unit => "g"
+					},
+				},
+			},
+		],
 	},
 	quantity => "1L",
 	categories_tags => ["en:semi-skimmed-milks"],
@@ -771,8 +998,23 @@ check_quality_and_test_product_has_quality_tag(
 $product_ref = {
 	countries_tags => ["en:croatia",],
 	labels_tags => ["en:low-content-of-saturated-fat",],
-	nutriments => {
-		"saturated-fat_100g" => 0.8,    # above 0.75
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"saturated-fat" => {
+						value => 0.8,    # above 0.75
+						unit => "g"
+					},
+				},
+			},
+		],
 	},
 	quantity => "1L",
 };
@@ -786,8 +1028,23 @@ check_quality_and_test_product_has_quality_tag(
 $product_ref = {
 	countries_tags => ["en:croatia",],
 	labels_tags => ["en:low-sugar",],
-	nutriments => {
-		sugars_100g => 3,    # above 2.5
+	nutrition => {
+		input_sets => [
+			{
+				preparation => "as_sold",
+				per => "100g",
+				per_quantity => 100,
+				per_unit => "g",
+				source => "packaging",
+				source_description => "",
+				nutrients => {
+					"sugars" => {
+						value => 3,    # above 2.5
+						unit => "g"
+					},
+				},
+			},
+		],
 	},
 	quantity => "1L",
 };
@@ -808,6 +1065,19 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:very-low-sodium-or-very-low-salt-label-claim-but-sodium-or-salt-above-limitation',
 	'label should not be triggered for waters category', 0
+);
+
+# check opposites labels, labels that should not appear at the same time on the same product
+$product_ref = {labels_tags => ["en:pasteurized", "en:unpasteurized", "en:vegetarian"],};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:mutually-exclusive-tags-for-labels-non-vegetarian-and-labels-vegetarian',
+	'having these labels should NOT trigger facet', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:mutually-exclusive-tags-for-labels-pasteurized-and-labels-unpasteurized',
+	'having these two labels should trigger facet', 1
 );
 
 done_testing();

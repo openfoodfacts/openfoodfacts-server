@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -63,24 +63,28 @@ my %product_type_features = (
 		nova => 1,
 		nutrition => 1,
 		nutriscore => 1,
-		ecoscore => 1,
+		environmental_score => 1,
 		forest_footprint => 1,
 		user_preferences => 1,
 		popularity => 1,    # indicates if we have computed popularity from scan data
 	},
-	pet_food => {
+	petfood => {
 		health_card => 1,
 		ingredients => 1,
 		additives => 1,
 		nova => 1,
 		nutrition => 1,
+		user_preferences => 1,
 	},
 	beauty => {
 		health_card => 1,
 		ingredients => 1,
+		user_preferences => 1,
 	},
-	products => {
-
+	product => {
+		user_preferences => 1,
+		health_card => 1,
+		food_recommendations => 1,
 	},
 );
 
@@ -107,7 +111,13 @@ Currently not used, may be used later to determine features based on product fie
 =cut
 
 sub feature_enabled($feature, $product_ref = undef) {
-	my $enabled = deep_get(\%product_type_features, $options{product_type}, $feature);
+	# If we have a product reference, and the product type is set, use it
+	# otherwise use the product type of the site instance (e.g. "Open Food Facts" -> "food")
+	my $product_type
+		= ((defined $product_ref) and (defined $product_ref->{product_type}))
+		? $product_ref->{product_type}
+		: $options{product_type};
+	my $enabled = deep_get(\%product_type_features, $product_type, $feature);
 	$log->debug("feature_enabled", {feature => $feature, product_type => $options{product_type}, enabled => $enabled})
 		if $log->is_debug();
 	return $enabled;

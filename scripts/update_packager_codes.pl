@@ -28,7 +28,7 @@ use experimental qw/switch/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes
 	qw/$ec_code_regexp %geocode_addresses %packager_codes get_canon_local_authority normalize_packager_codes/;
@@ -101,10 +101,10 @@ sub normalize_code {
 			"ES $code CE" when 'es';
 			"FI $code EC" when 'fi';
 			"FR $code CE" when 'fr';
-			"HR $code EU" when 'hr';
+			"$code" when 'hr';
 			"$code" when 'hu';
 			"$code" when 'ie';
-			"$code EC" when 'it';
+			"$code" when 'it';
 			"LT $code EC" when 'lt';
 			"$code" when 'lu';
 			"PL $code EC" when 'pl';
@@ -121,11 +121,6 @@ sub normalize_code {
 }
 
 my %code_processor = (
-	it => sub {
-		my ($c) = @_;
-		$c =~ s/^CE //sxm;
-		return $c;
-	},
 	uk => sub {
 		my ($c) = @_;
 		$c =~ s/(\s|\/)*ec$//isxm;
@@ -177,10 +172,10 @@ my %approval_key = (
 	es => 'n_rgseaa',
 	fi => 'numero',
 	fr => 'numero_agrement',
-	hr => 'app_number',
+	hr => 'code',
 	hu => 'code',
 	ie => 'code',
-	it => 'approvalnumber',
+	it => 'code',
 	lt => 'vet_approval_no',
 	lu => 'code',
 	pl => 'code',

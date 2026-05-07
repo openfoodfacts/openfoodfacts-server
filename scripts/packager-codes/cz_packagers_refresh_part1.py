@@ -1,7 +1,7 @@
 '''
 This file is part of Product Opener.
 Product Opener
-Copyright (C) 2011-2023 Association Open Food Facts
+Copyright (C) 2011-2024 Association Open Food Facts
 Contact: contact@openfoodfacts.org
 Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 Product Opener is free software: you can redistribute it and/or modify
@@ -65,15 +65,17 @@ def read_input_file() -> pl.dataframe.frame.DataFrame:
             file_path = os.path.join(current_directory, filename)
 
             try:
-                df = pl.read_csv(filename)  
+                df = pl.read_csv(filename)
 
                 df = df.select(df.columns[0:3])
-                
+
                 new_column_names = ['code', 'name', 'address']
-                df = df.rename({i: j for i, j in zip(df.columns, new_column_names)})
-                
+                df = df.rename(
+                    {i: j for i, j in zip(df.columns, new_column_names)})
+
                 # append suffix EK at the end of the packaging codes
-                df = df.with_columns((pl.col(df.columns[0]) + " ES").alias(df.columns[0]))
+                df = df.with_columns(
+                    (pl.col(df.columns[0]) + " ES").alias(df.columns[0]))
 
                 dfs.append(df)
 
@@ -87,13 +89,13 @@ def read_input_file() -> pl.dataframe.frame.DataFrame:
     return result_df
 
 
-
 if __name__ == "__main__":
     output_file = 'CZ-merge-UTF-8_no_coord.csv'
 
     df = read_input_file()
 
     # rm duplicates
-    df = df.lazy().group_by('code').agg(pl.first('name'), pl.first('address')).sort('code').collect()
+    df = df.lazy().group_by('code').agg(pl.first('name'),
+                                        pl.first('address')).sort('code').collect()
 
     df.write_csv(output_file, separator=';')

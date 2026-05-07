@@ -7,8 +7,8 @@
          "percent_max" : 100,
          "percent_min" : 50,
          "text" : "vitamin a",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "11058",
@@ -22,17 +22,20 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:vitamin-a"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:vitamin-a"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:vitamin-a",
-      "en:vitamins",
-      "en:salt"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
@@ -57,13 +60,12 @@
       "en:vitamin-a"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:salt",
+      "en:vitamin-a"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 2,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 0
 }
