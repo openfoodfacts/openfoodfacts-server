@@ -61,7 +61,6 @@ function folskonomy_engine_init() {
  * (Use //ajax... so that https or http is selected as appropriate to avoid "mixed content".)
  */
 
-/* Removed CDN imports for jquery-ui and font-awesome as they are already bundled or deprecated */
 
 @import url("https://rawgit.com/free-jqgrid/jqGrid/master/css/ui.jqgrid.css");
 
