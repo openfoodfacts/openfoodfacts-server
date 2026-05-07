@@ -199,7 +199,8 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 		my $added_sugars_percent_estimate = estimate_added_sugars_percent_from_ingredients($product_ref);
 
 		# Get the % of added sugars from the nutrition facts if it is available
-		my $added_sugars_percent_nutrition_facts = deep_get($product_ref, qw(nutriments added-sugars_100g));
+		my $added_sugars_percent_nutrition_facts
+			= deep_get($product_ref, qw(nutrition aggregated_set nutrients added-sugars value));
 
 		my $panel_data_ref = {
 			ingredients_added_sugars => \@added_sugars_ingredients,

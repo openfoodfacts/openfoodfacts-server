@@ -1,7 +1,7 @@
 #!/usr/bin/make
 
 ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
-    $(error "We do not suppport using cmd.exe on Windows, please run in a 'git bash' console")
+    $(error "We do not support using cmd.exe on Windows, please run in a 'git bash' console")
 endif
 
 
@@ -130,6 +130,8 @@ dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes r
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
+# we also need to clone_deps to ensure all cited docker compose files are available
+# so, in some way, it's part of creating folders
 create_folders: clone_deps
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
@@ -231,11 +233,11 @@ build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
-	${DOCKER_COMPOSE_BUILD} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 build_lang_test: create_folders
 # Run build_lang.pl in test env
-	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
+	${DOCKER_COMPOSE_TEST} run --rm --no-deps -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
 # use this in dev if you messed up with permissions or user uid/gid
 reset_owner:
@@ -315,7 +317,9 @@ integration_test: create_folders
 # note that we don't launch the frontend because it causes issues,
 # as we use localhost in tests (which is the backend)
 # Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
+# Also need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
 	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
+	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit.xml" -T backend yath --renderer=Formatter --renderer=JUnit tests/integration
@@ -350,6 +354,8 @@ test-int: guard-test create_folders
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
+# Need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
+	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
@@ -371,13 +377,14 @@ update_tests_results: build_taxonomies_test build_lang_test build_pro_platform_t
 update_unit_tests_results:
 	@echo "🥫 Updated expected unit test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener/tests backend bash update_unit_tests_results.sh
+	${DOCKER_COMPOSE_TEST} run --rm backend bash tests/update_unit_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 
 update_integration_tests_results:
 	@echo "🥫 Updated expected integration test results with actuals for easy Git diff"
+	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
-	${DOCKER_COMPOSE_INT_TEST} exec -w /opt/product-opener/tests backend bash update_integration_tests_results.sh
+	${DOCKER_COMPOSE_INT_TEST} exec backend bash tests/update_integration_tests_results.sh
 	${DOCKER_COMPOSE_INT_TEST} stop
 
 bash:
@@ -528,7 +535,7 @@ _clean_old_external_volumes:
 	( docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images ) || true
 
 save_orgs_to_mongodb:
-	@echo "🥫 Saving exsiting orgs into MongoDB …"
+	@echo "🥫 Saving existing orgs into MongoDB …"
 	${DOCKER_COMPOSE_BUILD} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
 
 _bind_local:
@@ -548,7 +555,7 @@ endif
 
 build_asyncapi:
 	npm list -g @asyncapi/cli || npm install -g @asyncapi/cli
-	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.0.0 --use-new-generator --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
+	cd docs/events && asyncapi generate fromTemplate openfoodfacts-server.yaml @asyncapi/html-template@3.5.4 --param singleFile=true outFilename=openfoodfacts-server.html --force-write --output=.
 
 #------------#
 # Production #
@@ -600,6 +607,10 @@ clean_folders: clean_logs
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 	echo "" > logs/apache2/log4perl.log
+
+rotate_logs:
+	${DOCKER_COMPOSE_BUILD} run --rm --user root --no-deps backend bash -c "savelog -p /mnt/podata/logs/*{.,_}log" || true
+	${DOCKER_COMPOSE_BUILD} run --rm --user root --no-deps frontend bash -c "savelog -p /var/log/nginx/*{.,_}log" || true
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 

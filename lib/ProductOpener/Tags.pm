@@ -3118,6 +3118,8 @@ sub display_tag_name ($tagtype, $tag) {
 
 sub display_tag_link ($tagtype, $tag) {
 
+	return "" if not defined $tag;
+
 	$tag = canonicalize_tag2($tagtype, $tag);
 
 	my $path = $tag_type_plural{$tagtype}{$lc};
@@ -4062,6 +4064,7 @@ sub get_taxonomy_tag_synonyms ($target_lc, $tagtype, $tagid) {
 sub exists_taxonomy_tag ($tagtype, $tagid) {
 
 	my $taxonomy = $taxonomy_fields{$tagtype};
+	return 0 if not defined $taxonomy;
 
 	return (    (exists $translations_from{$taxonomy})
 			and (exists $translations_from{$taxonomy}{$tagid})

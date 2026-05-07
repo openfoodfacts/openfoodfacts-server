@@ -71,6 +71,17 @@ my @products = (
 			nutriment_fat => 8.5,
 		)
 	},
+	# Product with no nutrition data and no ingredients (so nutrition won't be estimated)
+	{
+		(
+			lc => "en",
+			lang => "en",
+			code => '200000000036',
+			product_name => "Some product 3 with no nutrition data and no ingredients",
+			generic_name => "Tester 3",
+			categories => "cookies",
+		)
+	},
 );
 
 foreach my $product_form_override (@products) {
@@ -247,6 +258,14 @@ my $tests_ref = [
 		test_case => 'get-salt-100g',
 		method => 'GET',
 		path => '/api/v2/product/200000000034',
+		query_string => '?fields=salt_100g',
+		expected_status_code => 200,
+	},
+	# bug when a product has no nutrients but we request a specific nutrient with v2
+	{
+		test_case => 'get-salt-100g-no-nutrients',
+		method => 'GET',
+		path => '/api/v2/product/200000000036',
 		query_string => '?fields=salt_100g',
 		expected_status_code => 200,
 	},

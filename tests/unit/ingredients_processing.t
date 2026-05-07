@@ -898,31 +898,31 @@ my @tests = (
 			{
 				'id' => 'en:shallot',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:geschält',
+				'processing' => 'en:peeled-or-shelled',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:geschält',
+				'processing' => 'en:peeled-or-shelled',
 				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
 				'is_in_taxonomy' => 1,
-				'processing' => "de:geschält",
+				'processing' => "en:peeled-or-shelled",
 				'text' => 'mandeln'
 			},
 			{
 				'id' => 'en:passionfruit',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:ungeschält',
+				'processing' => 'en:unpeeled-or-unshelled',
 				'text' => 'passionsfrucht'
 			},
 			{
 				'id' => 'en:celery',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:ungeschält',
+				'processing' => 'en:unpeeled-or-unshelled',
 				'text' => 'sellerie'
 			}
 		]
@@ -3074,6 +3074,38 @@ my @tests = (
 				'is_in_taxonomy' => 1,
 				'processing' => 'en:dried,en:reconstituted',
 				'text' => "молоко"
+			}
+		],
+	],
+	# sv; two different note marks getting parsed the same
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/13024
+	[
+		{
+			lc => "sv",
+			ingredients_text => 'dadelsirap¹. ¹Från kontrollerat ekologiskt jordbruk.'
+		},
+		[
+			# This should match the below test exactly
+			{
+				'id' => 'en:date',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:syrup',
+				'text' => "dadel"
+			}
+		],
+	],
+	[
+		{
+			lc => "sv",
+			ingredients_text => 'dadelsirap*. *Från kontrollerat ekologiskt jordbruk.'
+		},
+		[
+			# This should match the above test exactly
+			{
+				'id' => 'en:date',
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:syrup',
+				'text' => "dadel"
 			}
 		],
 	],

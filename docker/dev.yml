@@ -125,10 +125,12 @@ services:
             - be-fr.${PRODUCT_OPENER_DOMAIN}
 
 volumes:
-  product_images:
   html_data:
   other_servers:
   products:
+  icons_dist:
+  js_dist:
+  css_dist:
   # those one are volumes shared between off and pro, so we assign hard-coded names
   # see docs/dev/explain-pro-dev-setup.md
   # PO_COMMON_PREFIX is there to separate envs, eg. for tests
@@ -138,6 +140,8 @@ volumes:
     name: ${PO_COMMON_PREFIX:-}po_orgs
   export_files:
     name: ${PO_COMMON_PREFIX:-}po_export_files
+  product_images:
+    name: ${PO_COMMON_PREFIX:-}po_off_product_images
   podata:
 
 networks:

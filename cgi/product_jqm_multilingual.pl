@@ -49,7 +49,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
+use ProductOpener::Nutrition qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
@@ -75,7 +75,12 @@ use Log::Any qw($log);
 # Yuka sends a POSTDATA parameter in JSON:
 # "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
 # This needs to be done before init_request() as the body contains user_id and password for authentication
-if ((user_agent() =~ /Symfony HttpClient/) and (request_method() eq 'GET') and (not param("code"))) {
+my $user_agent = user_agent();
+if (    (defined $user_agent)
+	and ($user_agent =~ /Symfony HttpClient/)
+	and (request_method() eq 'GET')
+	and (not param("code")))
+{
 
 	my $r = Apache2::RequestUtil->request();
 
@@ -136,7 +141,7 @@ if (0) {
 
 # Allow apps to create products without barcodes
 # Assign a code and return it in the response.
-if ($code eq "new") {
+if ((defined $code) and ($code eq "new")) {
 
 	($code, $product_id) = assign_new_code();
 	$response{code} = $code . "";    # Make sure the code is returned as a string
@@ -158,6 +163,8 @@ elsif (not is_valid_code($code)) {
 	$response{status_verbose} = 'no code or invalid code';
 }
 else {
+
+	my $source = get_source_for_site_and_org($Org_id);
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 	my $product_ref = retrieve_product($product_id);
@@ -469,7 +476,8 @@ else {
 
 	# Nutrition data
 
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
+	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 
