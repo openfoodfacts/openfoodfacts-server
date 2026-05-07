@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -53,7 +53,6 @@ use ProductOpener::Lang qw/%tag_type_from_plural %tag_type_from_singular %tag_ty
 use ProductOpener::API qw/:all/;
 use ProductOpener::Tags
 	qw/%taxonomy_fields canonicalize_taxonomy_tag_linkeddata canonicalize_taxonomy_tag_weblink get_taxonomyid/;
-use ProductOpener::Food qw/%nutriments_labels/;
 use ProductOpener::Texts
 	qw/%texts %texts_translated_route_to_text_id %texts_text_id_to_translated_route init_translated_text_routes_for_all_languages load_texts_from_lang_directory/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
@@ -157,9 +156,6 @@ sub load_routes() {
 	foreach my $text_id (sort keys %texts_text_id_to_translated_route) {
 		foreach my $target_lc (sort keys %{$texts_text_id_to_translated_route{$text_id}}) {
 			my $translated_route = $texts_text_id_to_translated_route{$text_id}{$target_lc};
-			$log->debug("adding translated text route",
-				{text_id => $text_id, target_lc => $target_lc, translated_route => $translated_route})
-				if $log->is_debug();
 			push @translated_text_route, [
 				$translated_route,
 				\&text_route,
@@ -234,9 +230,13 @@ sub analyze_request($request_ref) {
 		$request_ref->{no_index} = 1;
 	}
 
-	check_and_update_rate_limits($request_ref);
+	# Check and update rate limits if not disabled (default is ENABLED for production safety)
+	if (not $rate_limiter_disabled) {
+		check_and_update_rate_limits($request_ref);
+	}
 
-	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("request analyzed", {lc => $request_ref->{lc}, request_ref => sanitize($request_ref)})
+		if $log->is_debug();
 
 	return 1;
 }
@@ -336,6 +336,13 @@ sub api_route($request_ref) {
 	my $api_version = $api =~ /v(\d+(\.\d+)?)/ ? $1 : 0;
 	my $api_action = $components[2];    # product
 
+	# API action is required
+	if (not defined $api_action) {
+		$request_ref->{status_code} = 404;
+		$request_ref->{error_message} = lang("error_invalid_address");
+		return;
+	}
+
 	# If the api_action is different than "search", check if it is the local path for "product"
 	# so that urls like https://fr.openfoodfacts.org/api/v3/produit/4324232423 work (produit instead of product)
 	# this is so that we can quickly add /api/v3/ to get the API
@@ -371,6 +378,11 @@ sub api_route($request_ref) {
 		$request_ref->{tagtype} = $components[3];
 		param("tagid", $components[4]);
 		$request_ref->{tagid} = $components[4];
+	}
+	elsif ($api_action eq "current-user") {    # api/v3/current-user/[sub_action]
+		my $sub_action = $components[3] // '';
+		$request_ref->{current_user_sub_action} = $sub_action;
+		$api_action = 'current_user';    # map to 'current_user' in the dispatch table
 	}
 	elsif ($api_action eq "geoip") {    # api/v3/geoip/
 		$request_ref->{geoip_ip} = remote_addr();
@@ -412,7 +424,7 @@ sub api_route($request_ref) {
 		$request_ref->{rate_limiter_bucket} = "product";
 	}
 
-	$log->debug("api_route", {request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("api_route", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 	return 1;
 }
 
@@ -530,7 +542,7 @@ sub text_route($request_ref) {
 
 # en/nova-groups-for-food-processing -> nova, ...
 sub redirect_text_route($request_ref) {
-	$log->debug("redirect_text_route", {request_ref => $request_ref}) if $log->is_debug();
+	$log->debug("redirect_text_route", {request_ref => sanitize($request_ref)}) if $log->is_debug();
 
 	my $text = $request_ref->{components}[1];
 	$request_ref->{redirect}
@@ -607,23 +619,11 @@ sub facets_route($request_ref) {
 
 	$log->debug("facets_route - components: ", @{$request_ref->{components}}) if $log->is_debug();
 
-	# special case: list of (categories) tags with stats for a nutriment
-	if (    ($#components == 1)
-		and (defined $tag_type_from_plural{$target_lc}{$components[0]})
-		and ($tag_type_from_plural{$target_lc}{$components[0]} eq "categories")
-		and (defined $nutriments_labels{$target_lc}{$components[1]}))
-	{
-
-		$request_ref->{groupby_tagtype} = $tag_type_from_plural{$target_lc}{$components[0]};
-		$request_ref->{stats_nid} = $nutriments_labels{$target_lc}{$components[1]};
-		$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$target_lc};
-		$canon_rel_url_suffix .= "/" . $components[1];
-		pop @components;
-		pop @components;
-		$log->debug(
-			"facets_route - request looks like a list of tags - categories with nutrients",
-			{groupby => $request_ref->{groupby_tagtype}, stats_nid => $request_ref->{stats_nid}}
-		) if $log->is_debug();
+	# categories group by can have a stats_nid parameter to add nutrition stats to list of categories
+	if (defined single_param("stats_nid")) {
+		$request_ref->{stats_nid} = single_param("stats_nid");
+		$log->debug("facets_route - got stats_nid parameter", {stats_nid => $request_ref->{stats_nid}})
+			if $log->is_debug();
 	}
 
 	# if we have at least one component, check if the last component is a plural of a tagtype -> list of tags
@@ -746,11 +746,7 @@ sub register_route($routes_to_register) {
 		else {
 			# use a hash key for fast match
 			# do not overwrite existing routes (e.g. a text route that matches a well known route)
-			if (exists $routes{$pattern}) {
-				$log->debug("route already exists", {pattern => $pattern}) if $log->is_debug();
-			}
-			else {
-				$log->debug("added route", {pattern => $pattern}) if $log->is_debug();
+			if (not exists $routes{$pattern}) {
 				$routes{$pattern} = {handler => $handler, opt => $opt};
 			}
 		}
@@ -771,7 +767,7 @@ sub match_route ($request_ref) {
 
 	# Simple routing with fast hash key match with first component #
 	# api -> api_route
-	if (exists $routes{$request_ref->{components}[0]}) {
+	if ((exists $request_ref->{components}[0]) and (exists $routes{$request_ref->{components}[0]})) {
 		my $route = $routes{$request_ref->{components}[0]};
 		$log->debug("route matched", {route => $request_ref->{components}[0]}) if $log->is_debug();
 		if ((not defined $route->{opt}{onlyif}) or ($route->{opt}{onlyif}($request_ref))) {

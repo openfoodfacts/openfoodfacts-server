@@ -50,8 +50,19 @@ my @tests = (
 	{
 		test_case => "replace_existing_values",
 		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_2.csv"],
-
-	}
+	},
+	{
+		test_case => "old_nutrition",
+		csv_files => ["old_nutrition.csv"],
+	},
+	{
+		test_case => "new_nutrition",
+		csv_files => ["new_nutrition.csv"],
+	},
+	{
+		test_case => "agena",
+		csv_files => ["agena.csv"],
+	},
 );
 
 # Testing import of a csv file
@@ -84,6 +95,7 @@ foreach my $test_ref (@tests) {
 		# import file
 		my $datestring = localtime();
 		my $args = {
+			"lc" => "fr",
 			"user_id" => "test-user",
 			"org_id" => "test-org",
 			"owner_id" => "org-test-org",
@@ -96,7 +108,7 @@ foreach my $test_ref (@tests) {
 		print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
 
 		# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
-		my ($out, $err) = capture_ouputs(
+		my ($out, $err) = capture_outputs(
 			sub {
 				$stats_ref = ProductOpener::Import::import_csv_file($args);
 			}

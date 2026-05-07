@@ -1,0 +1,147 @@
+{
+   "nutrition_table" : {
+      "header" : {
+         "columns" : [
+            {
+               "class" : "product",
+               "col_id" : "as_sold_",
+               "name" : "As sold<br>for 100 g / 100 ml",
+               "per" : null,
+               "preparation" : "as_sold",
+               "scope" : "product",
+               "short_name" : null
+            }
+         ],
+         "name" : "Nutrition facts"
+      },
+      "id" : "nutrition",
+      "rows" : [
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Energy",
+            "nid" : "energy"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fat",
+            "nid" : "fat"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 1,
+            "name" : "Saturated fat",
+            "nid" : "saturated-fat"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Carbohydrates",
+            "nid" : "carbohydrates"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 1,
+            "name" : "Sugars",
+            "nid" : "sugars"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fiber",
+            "nid" : "fiber"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Proteins",
+            "nid" : "proteins"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Salt",
+            "nid" : "salt"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
+         }
+      ]
+   }
+}
