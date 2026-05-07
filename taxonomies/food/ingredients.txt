@@ -1040,9 +1040,6 @@ sv: modifierad potatisstärkelse
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# description:en:FERMENT is an agent, such as an enzyme, bacterium, or fungus, that brings about fermentation.
-# comment:en:Ferment is thus more generic than enzyme.
-
 en: ferment
 az: fermentlər
 ba: Ферменттар
@@ -1076,10 +1073,13 @@ uz: fermentlar
 # be-tarask:Фэрмэнты
 # tyv:Ферментилер
 # xal:Фермент
+comment:en: Ferment is more generic than enzyme.
+description:en: FERMENT is an agent, such as an enzyme, bacterium, or fungus, that brings about fermentation.
 #ferments for yoghurts do not make them nova 3, commenting the line below
 #nova:en:3
 vegan:en: maybe
 vegetarian:en: maybe
+wikidata:en: Q2098111
 
 # comment:en:The list of products is very very wrong. So uncommenting it for the moment.
 # comment:en:en:coagulating enzyme Might need to be merged with en:rennet.
@@ -1239,7 +1239,7 @@ es: levadura natural de masa madre, levadura de masa madre
 fr: Starters pour levain
 hr: predjelo od kiselog tijesta
 it: lievito madre
-wikidata:en: Q904889
+wikidata:en: Q96694045
 # ingredient/en:sourdough-culture has 43 products in 2 languages @2020-06-08
 
 < en:lactic ferments
@@ -23834,12 +23834,6 @@ ru: цельно зерновая мука из твердых сортов пш
 sv: fullkornsdurumvetemjöl, fullkornsmjöl av durumvete
 
 < en:durum wheat
-< en:wheat sourdough
-en: durum wheat sourdough
-hr: pšenično durum kiselo tijesto
-it: lievito di grano duro
-
-< en:durum wheat
 < en:semolina
 # <en:Couscous
 en: durum wheat semolina, durum semolina
@@ -36686,9 +36680,6 @@ en: yeast extract aroma, yeast extract flavour
 it: aroma di estratto di lievito
 pl: aromat z ekstraktu drożdżowego, aromat ekstraktu drożdżowego
 
-
-# description:en:Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
-
 < en:dough
 en: sourdough
 an: Emprenyatuera
@@ -36696,7 +36687,7 @@ ar: خبز عجينة متخمرة
 bg: Квас
 ca: Massa mare
 cs: Kvásek
-da: Surdej
+da: surdej
 de: Sauerteig
 eo: Acidpasto
 es: Masa madre
@@ -36720,44 +36711,59 @@ ru: Хлебная закваска
 sh: Кисело тесто
 sk: Kvások
 sr: Кисело тесто
-sv: Surdeg
+sv: surdeg
 zh: 老麵
+#nap: Criscito
+description:en: Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
 likely_allergens:en: en:gluten
-# nap:Criscito
-wikidate:en: Q2098111
+wikidata:en: Q904889
 wikipedia:en: https://en.wikipedia.org/wiki/Sourdough
 
 < en:sourdough
 en: natural sourdough
+da: naturlig surdej
 de: Natursauerteig
 hr: prirodno kiselo tijesto
 it: lievito madre naturale
 pl: zakwas naturalny
 
 < en:sourdough
-en: dehydrated sourdough, sourdough powder
+en: dehydrated sourdough
+da: dehydreret surdej
 de: Sauerteig getrocknet
 fi: kuivattu taikinajuuri
 fr: levain sec, levain déshydraté
 hr: dehidrirano kiselo tijesto
 it: lievito naturale secco
-nl: zuurdesempoeder, desempoeder
 pl: zakwas w proszku, sproszkowany zakwas
 
 < en:dehydrated sourdough
-en: devitalised and dehydrated sourdough
+en: sourdough powder
+da: surdejspulver
+nl: zuurdesempoeder, desempoeder
+sv: surdegspulver
+
+< en:sourdough
+en: devitalised sourdough
+fr: levain dévitalisé
+
+< en:dehydrated sourdough
+< en:devitalised sourdough
+en: dehydrated and devitalised sourdough
 fr: levain déshydraté et dévitalisé
 hr: devitalizirano i dehidrirano kiselo tijesto
 it: pasta madre devitalizzata e disidratata
 nl: geïnactiveerde desempoeder
 
 < en:sourdough
+< en:wheat
 en: wheat sourdough
 bg: пшенична закваска, пшеничен квас
-ca: massa mare de blat, massa mare natural de blat
+ca: massa mare de blat
 cs: pšeničny kvas, pšeničný kvas
+da: hvedesurdej
 de: Weizensauerteig
-es: masa madre de trigo, masa madre natural de trigo
+es: masa madre de trigo
 fi: vehnätaikinanjuuri, vehnähapantaikina
 fr: levain de blé, levain panaire de blé
 hr: pšenično kiselo tijesto
@@ -36769,8 +36775,16 @@ pl: zakwas pszenny
 sv: vetesurdeg, surdeg av vete, surdeg på vete
 allergens:en: en:gluten
 
+< en:natural sourdough
 < en:wheat sourdough
-en: dried wheat sourdough, dehydrated wheat sourdough
+en: natural wheat sourdough
+ca: massa mare natural de blat
+da: naturlig hvedesurdej
+es: masa madre natural de trigo
+
+< en:dehydrated sourdough
+< en:wheat sourdough
+en: dehydrated wheat sourdough, dried wheat sourdough
 es: masa madre deshidratada de trigo
 fi: kuivattu vehnätaikinanjuuri
 fr: levain de blé déshydraté
@@ -36780,10 +36794,25 @@ lt: sausas kviečių raugas, sausas kvietiniai raugas, sausas kvietinės raugas,
 nl: gedroogde tarwezuurdesem
 pl: suszony zakwas pszenny, suchy zakwas pszenny
 
+< en:dehydrated wheat sourdough
+< en:sourdough powder
+en: wheat sourdough powder
+da: hvedesurdejspulver
+sv: surdegspulver av vete
+
+< en:devitalised sourdough
 < en:wheat sourdough
+en: devitalised wheat sourdough
 fr: levain de blé dévitalisé
 nl: geïnactiveerd tarwedesem
 
+< en:durum wheat
+< en:wheat sourdough
+en: durum wheat sourdough
+hr: pšenično durum kiselo tijesto
+it: lievito di grano duro
+
+< en:rye
 < en:sourdough
 en: rye sourdough
 bg: ръжена закваска
@@ -36798,15 +36827,20 @@ nl: roggezuurdesem, roggedesem
 pl: zakwas żytni
 sv: rågsurdeg, surdeg av råg
 allergens:en: en:gluten
+wikidata:en: Q107263089
 # ingredient/en:rye-sourdough has 47 products in 3 languages @2020-06-12
 
+< en:natural sourdough
 < en:rye sourdough
 en: natural rye sourdough
+da: naturlig rugsurdej
 it: pasta madre di segale naturale
 pl: naturalny zakwas żytni, zakwas naturalny żytni
 
 < en:rye sourdough
+< en:wholemeal rye
 en: whole rye sourdough
+da: fuldkornsrugsurdej
 de: Roggenvollkornsauerteig
 fi: täysjyväruistaikinajuuri
 hr: cijelo raženo kiselo tijesto
@@ -36814,16 +36848,22 @@ it: pasta madre di segale integrale
 sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg, surdeg av fullkornsråg
 
 < en:rye sourdough
+en: devitalised rye sourdough
 fr: levain de seigle dévitalisé
 nl: geïnactiveerd roggedesempoeder
 
-< en:rye sourdough
+< en:dehydrated and devitalised sourdough
+< en:devitalised rye sourdough
+en: dehydrated and devitalised rye sourdough
 fr: levain de seigle déshydraté et dévitalisé
 
 < en:rye sourdough
+< en:sourdough powder
 en: rye sourdough powder
+da: rugsurdejspulver
 it: polvere di pasta madre di segale
 nl: rogge zuurdesempoeder, gedroogd roggedesem
+sv: surdegspulver av råg
 
 < en:rye sourdough
 < en:wheat sourdough
@@ -36846,22 +36886,41 @@ en: wheat and whole rye sourdough
 sv: surdeg på fullkornsråg och vete
 
 < en:sourdough
-nl: speltzuurdesempoeder
+< en:spelt
+en: spelt sourdough
+da: speltsurdej
+nl: speltzuurdesem
+sv: surdeg av spelt
 
+< en:sourdough powder
+< en:spelt sourdough
+en: spelt sourdough powder
+da: speltsurdejspulver
+nl: speltzuurdesempoeder
+sv: surdegspulver av spelt
+
+< en:rice
 < en:sourdough
-en: natural rice sourdough
+en: rice sourdough
 da: rissurdej
+fr: levain de riz
+nl: rijstzuurdesem
+sv: rissurdeg
+
+< en:natural sourdough
+< en:rice sourdough
+en: natural rice sourdough
+da: naturlig rissurdej
 de: reisnatursauerteigeisnatursauerteig
 es: masa fermentada de arroz
 fi: hapatettu riisitaikina
 fr: levain naturel de riz
 hr: prirodno kiselo tijesto od riže
 it: lievito madre naturale di riso
-nl: rijstzuurdesem
 pl: naturalny zakwas ryżowy
-sv: rissurdeg
 
 < en:sourdough
+en: inactive sourdough starter
 es: masa madre inactiva
 hr: inaktivni suhi kvasac
 
