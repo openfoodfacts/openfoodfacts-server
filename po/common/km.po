@@ -27,7 +27,7 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
@@ -70,7 +70,7 @@ msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -3703,6 +3703,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ភាពពេញលេញនៃគុណភាពទិន្នន័យ"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr ""
@@ -5401,7 +5405,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -5958,6 +5962,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "គ្មានស្លាកសញ្ញាវាយតម្លៃ"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "អត្ថប្រយោជន៍បរិស្ថានមួយចំនួន"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "អត្ថប្រយោជន៍បរិស្ថានខ្ពស់។"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "អត្ថប្រយោជន៍បរិស្ថានខ្ពស់ណាស់។"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6113,6 +6133,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ភាពពេញលេញនៃគុណភាពទិន្នន័យ"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "ព័ត៌មានមួយចំនួនអំពីភាពពេញលេញនៃគុណភាពទិន្នន័យនៅលើផលិតផលនេះ។"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -7598,4 +7626,96 @@ msgstr "យើងរកមិនឃើញ៖ {unwanted_ingredients}. យើង�
 msgctxt "attribute_group_ingredients_analysis_warning"
 msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
 msgstr "ចំណូលចិត្តទាំងនោះគឺផ្អែកលើការយល់ដឹងរបស់ Open Food Facts អំពីបញ្ជីគ្រឿងផ្សំ ហើយតែងតែមានលទ្ធភាពដែលវាប្រហែលជាមិនត្រឹមត្រូវ ឬពេញលេញ សូមពិនិត្យមើលផលិតផលដោយខ្លួនឯងជានិច្ច។"
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "ការជក់បារីសម្លាប់"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "ថ្នាំជក់បំផ្លាញសុខភាពយ៉ាងធ្ងន់ធ្ងរ។ កុំចាប់ផ្តើម។ ឈប់ឥឡូវនេះ។"
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "ការជក់បារីមានការញៀនខ្លាំង។ កុំចាប់ផ្តើម។ ការជក់បារីសម្លាប់ - ឈប់ឥឡូវនេះ។ ការជក់បារីធ្វើឱ្យស្ទះសរសៃឈាម ហើយបណ្តាលឱ្យគាំងបេះដូង និងដាច់សរសៃឈាមខួរក្បាល។ ការជក់បារីបណ្តាលឱ្យស្លាប់មហារីកសួត។ ការជក់បារីពេលមានផ្ទៃពោះ ប៉ះពាល់ដល់កូនរបស់អ្នក។ ការពារកុមារ៖ កុំធ្វើឱ្យពួកគេដកដង្ហើមផ្សែងរបស់អ្នក។ គ្រូពេទ្យ ឬឱសថការីរបស់អ្នកអាចជួយអ្នកឱ្យឈប់ជក់បារី។ ការជក់បារីអាចកាត់បន្ថយលំហូរឈាម និងបណ្តាលឱ្យងាប់លិង្គ។ ការជក់បារីធ្វើឱ្យស្បែកឆាប់ចាស់។ ការជក់បារីអាចបំផ្លាញមេជីវិតឈ្មោល និងកាត់បន្ថយការមានកូន។ ផ្សែងមានផ្ទុក benzene, nitrosamines, formaldehyde និង hydrogen cyanide ។"
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "តម្លៃសាធារណៈ"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 EUR, 2.99 USD, 4.00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ក្រុមហ៊ុនផលិតបានស្នើតម្លៃលក់រាយ (MSRP) ដោយមិនរាប់បញ្ចូលការបញ្ចុះតម្លៃ និងការផ្សព្វផ្សាយ ដូចដែលបានបង្ហាញនៅលើការវេចខ្ចប់ផលិតផល ឬគេហទំព័ររបស់អ្នកផលិត (រួមទាំង ឬមិនរាប់បញ្ចូលពន្ធដោយផ្អែកលើច្បាប់)។ ប្រើបញ្ជីដែលបំបែកដោយសញ្ញាក្បៀស ប្រសិនបើតម្លៃជារូបិយប័ណ្ណច្រើនត្រូវបានរាយបញ្ជី។"
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "ទ្រព្យសម្បត្តិផ្ទាល់ខ្លួន"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "មិនមានប្រេងដូងទេ។"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "អាចមានប្រេងដូង"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "ស្លាកសញ្ញាបរិស្ថាន"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "បាត់ទិន្នន័យ"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "ផលប៉ះពាល់ខ្ពស់។"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "ផលប៉ះពាល់មធ្យម"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "ផលប៉ះពាល់ទាប"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "ផលប៉ះពាល់មិនត្រូវបានវាយតម្លៃទេ"
 
