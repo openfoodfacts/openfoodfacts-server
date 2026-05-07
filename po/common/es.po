@@ -150,7 +150,7 @@ msgstr "ADVERTENCIA: No añadas ingredientes si esto no es relevante para la cat
 # OPFF
 msgctxt "site_description_opff"
 msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Una base de datos colaborativa, gratuita y abierta de ingredientes, información nutricional e información sobre productos alimenticios para mascotas de todo el mundo."
+msgstr "Una base de datos colaborativa, gratuita y abierta de ingredientes y e información nutricional sobre productos alimenticios de todo el mundo para mascotas."
 
 msgctxt "tagline_opff"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
@@ -162,11 +162,11 @@ msgstr "Una base de datos colaborativa, gratuita y abierta sobre productos alime
 
 msgctxt "product_description_opff"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
-msgstr "Ingredientes, alérgenos, aditivos, información nutricional, etiquetas, origen de los ingredientes e información sobre el producto %s"
+msgstr "Ingredientes, alérgenos, aditivos, información nutricional, etiquetado especial, origen de los ingredientes e información sobre el producto %s"
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Búsqueda de productos en Open Pet Food Facts"
+msgstr "Búsqueda de productos en Open Pets Food Facts"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -268,6 +268,10 @@ msgstr "Ya existe una organización con el nombre %s."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Tu solicitud para unirte a la organización está pendiente de aprobación por parte del administrador de la organización."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -1105,7 +1109,7 @@ msgstr "Gráficos y mapas"
 
 msgctxt "hello"
 msgid "Hello"
-msgstr "Hola"
+msgstr "Hola, "
 
 msgctxt "high"
 msgid "high"
@@ -1560,7 +1564,7 @@ msgstr "Mover las imágenes a otro producto"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr "%s productos"
+msgstr "Productos %s "
 
 msgctxt "name"
 msgid "Name"
@@ -1769,7 +1773,7 @@ msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Para obtener más información sobre <<site_name>>, visite <a href=\"https://blog.openfoodfacts.org/es/\">nuestro blog</a>!</p>\n"
+msgstr "<p>Para obtener más información sobre <<site_name>>, visite <a href=\"https://blog.openfoodfacts.org/en/\">nuestro blog</a>!</p>\n"
 "<p>Últimas noticias:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -1931,7 +1935,7 @@ msgstr "Hay Exploradores de %d países y Embajadores de %d países."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
-msgstr "%s tiene %d Exploradores y %d Embajadores"
+msgstr "%s Tiene %d Exploradores y %d Embajadores"
 
 msgctxt "points_ranking"
 msgid "Ranking"
@@ -1943,7 +1947,7 @@ msgstr "Ranking de los contribuyentes y de los países"
 
 msgctxt "points_user"
 msgid "%s is an Explorer for %d countries and an Ambassador for %d countries."
-msgstr "%s es un explorador de %d países y embajador de %d países"
+msgstr "%s Es un explorador de %d países y Embajador de %d países"
 
 msgctxt "previous"
 msgid "Previous"
@@ -2840,7 +2844,7 @@ msgstr "Atención: la cantidad de frutas, verduras y frutos secos no se indica e
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Atención: la cantidad de frutas, verduras y frutos secos no se indica en la etiqueta, por lo que se ha calculado a partir de la lista de ingredientes: %d"
+msgstr "Atención: la cantidad de frutas, verduras y frutos secos no se indica en la etiqueta, por lo que se ha calculado a partir la lista de ingredientes: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -4446,7 +4450,7 @@ msgstr "Puedes unirte a un mínimo de 1 y un máximo de 3 equipos. Los productos
 
 msgctxt "teams_names_warning"
 msgid "Team names are public. Do not create teams with names containing personal data (e.g. family names), trademarks (unless you own them), or anything offensive."
-msgstr "Los nombres de los equipos son públicos. No crees equipos con nombres que contengan datos personales, por ejemplo, apellidos, marcas comerciales (a menos que te pertenezcan) o cualquier término ofensivo."
+msgstr "Los nombres de los equipos son públicos. No crees equipos con nombres que contengan datos personales, por ejemplo, apellidos, marcas comerciales (a menos que te pertenezcan) o cualquier termino ofensivo."
 
 # keep %s, it can be a number "Team 1" or a name "Team XYZ"
 msgctxt "team_s"
@@ -6648,7 +6652,7 @@ msgstr "Un alto consumo de grasas, especialmente de grasas saturadas, puede aume
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr "Reduce el consumo de grasas y grasas saturadas"
+msgstr "Reduce el consumo de grasas y grasa saturadas"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
@@ -6888,7 +6892,7 @@ msgstr "Token de acceso inválido"
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr "Autenticación requerida"
+msgstr "Autorización requerida"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7133,7 +7137,7 @@ msgstr "¡Descubre el nuevo Nutri-Score!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr "<p>El cálculo del Nutri-Score está evolucionando para ofrecer mejores recomendaciones basadas en las evidencias científicas más recientes.</p><p>Mejoras principales:</p><ul><li>Mejor puntuación para algunos pescados grasos y aceites ricos en grasas buenas.</li><li>Mejor puntuación para productos integrales ricos en fibra.</li><li>Peor puntuación para productos que contienen mucha sal o azúcar.</li><li>Peor puntuación para carnes rojas (en comparación con la carne de aves).</li></ul>"
+msgstr "<p>El cálculo del Nutri-Score está evolucionando para ofrecer mejores recomendaciones basadas en las evidencias científicas más reciente.</p><p>Mejoras principales:</p><ul><li>Mejor puntuación para algunos pescados grasos y aceites ricos en grasas buenas.</li><li>Mejor puntuación para productos integrales ricos en fibra.</li><li>Peor puntuación para productos que contienen mucha sal o azúcar.</li><li>Peor puntuación para carnes rojas (en comparación con la carne de aves).</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
@@ -7141,7 +7145,7 @@ msgstr "Descubre todas las mejoras del nuevo Nutri-Score"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr "El Nutri-Score es un sistema de etiquetado que indica la calidad nutricional general de los productos alimenticios."
+msgstr "El Nutri-Score es un sistema de etiquetato que indica la calidad nutricional general de los productos alimenticios."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
@@ -7777,7 +7781,7 @@ msgstr "Estas preferencias se basan en la comprensión de Open Food Facts sobre 
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"
-msgstr "Huella de sufrimiento"
+msgstr "Huella ascendente"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7825,7 +7829,7 @@ msgstr "Reutilizar"
 
 msgctxt "qfdmo_solutions_title"
 msgid "Circular economy solutions nearby"
-msgstr "Soluciones de economía circular cercanas"
+msgstr "Soluciones económicas circulares cercanas"
 
 msgctxt "qfdmo_solutions_subtitle"
 msgid "Find places to repair, donate, sell or recycle"
@@ -7873,7 +7877,7 @@ msgstr "Encuentra puntos de recolección para un reciclado adecuado cuando el pr
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
-msgstr "Utilice Que Faire De Mes Objets (Francia) para encontrar soluciones cerca de usted:"
+msgstr "Utilice el objeto Que Faire De Mes (Francia) para encontrar soluciones cerca de usted:"
 
 msgctxt "qfdmo_solutions_find_nearby"
 msgid "Find solutions nearby on QFDMO"
