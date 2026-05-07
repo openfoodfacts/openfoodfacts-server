@@ -1,3 +1,4 @@
+# Get the Nutri-Score
 
 ### Introduction
 
@@ -17,13 +18,13 @@
 Please use only the official assets to display the Nutri-Score. You can get v1 logos here: [NutriScore variants](https://drive.google.com/drive/u/1/folders/13SL2hgqYHSLMhYjMze9nYXV9GOdGMBgc)
 Those are v1 assets, and although they can be used during the transition period, we recommand using the blue banner version to avoid any ambiguity.
 
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable.svg>
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable.svg
 
 ### Getting ready for Nutri-Score V2
 
@@ -33,13 +34,13 @@ Those are v1 assets, and although they can be used during the transition period,
 
 #### New transition assets for Nutri-Score V2
 
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b-new-en.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d-new-en.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown-new-en.svg>
-- <https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable-new-en.svg>
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-b-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown-new-en.svg
+- https://static.openfoodfacts.org/images/attributes/dist/nutriscore-not-applicable-new-en.svg
 
 #### Available languages
 
@@ -54,20 +55,20 @@ Here are the different messages to use according to the state:
 
 #### Add a message if we have a category but no Nutri-Score
 
-```
+```sh title="Data completion flow"
 if "en:categories-completed" in states_tags AND nutrition_grade=Null
 ```
 
-```
+```sh title="Data completion flow"
 "We could not compute an Nutri-Score for this product. It might be that the category is an exception. If you believe this is an error, you can email contact@thenameofyourapp.org"
 ```
 
-- List of exceptions: <https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf>
+- List of exceptions: https://www.santepubliquefrance.fr/content/download/150262/file/QR_scientifique_technique_150421.pdf
 - You can get states with [https://world.openfoodfacts.org/api/v0/product/3414280980209.json?fields=environmental_score_grade,states_tags](https://world.openfoodfacts.org/api/v2/product/3414280980209.json?fields=environmental_score_grade,states_tags)
 
 #### Add a message if we have a category but no nutrition
 
-```
+```sh title="Data completion flow"
 if "en:categories-completed" in states_tags  AND "en:nutrition-facts-to-be-completed" in states_tags
 ```
 
@@ -80,7 +81,7 @@ Note: We [now have a convenient API to automatically extract nutrition from an i
 
 #### Add a message if we have nutrition but no category
 
-```
+```sh title="Data completion flow"
 if "en:categories-to-be-completed" in states_tags AND "en:nutrition-facts-completed" in states_tags
 ```
 
@@ -94,7 +95,7 @@ if "en:categories-to-be-completed" in states_tags AND "en:nutrition-facts-comple
 
 #### Add a message if we have no category and no nutrition
 
-```
+```sh title="Data completion flow"
 if "en:categories-to-be-completed" in states_tags  AND "en:nutrition-facts-to-be-completed" in states_tags
 ```
 
@@ -108,40 +109,40 @@ Note: We [now have a convenient API to automatically extract nutrition from an i
 
 #### Add a message if the nutrition image is missing
 
-```
+```sh title="Data completion flow"
 if "en:nutrition-photo-to-be-selected" in states_tags OR "en:photos-to-be-uploaded" in states_tags
 ```
 
 #### Add a message if the nutrition image is obsolete using the image refresh API
 
-- <https://github.com/openfoodfacts/api-documentation/issues/15>
+- https://github.com/openfoodfacts/api-documentation/issues/15
 
 #### Add Nutri-Score disclaimers
 
 ##### a message if fibers are missing
 
-```
+```sh title="Data completion flow"
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 ```
 
 ##### a message if fruit/nuts are missing
 
-```
+```sh title="Data completion flow"
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
 ```
 
 ##### a message if fruits/nuts is an estimate from ingredients
 
-```
+```sh title="Data completion flow"
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d%"
 ```
 
 ##### a message if fruits/nuts is an estimate from category
 
-```
+```sh title="Data completion flow"
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d%"
 ```

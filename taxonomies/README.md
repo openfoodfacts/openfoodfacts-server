@@ -39,3 +39,7 @@ The `knowledge_panels` folder, found in repositories like **[openfoodfacts-web](
 * **Purpose**: Knowledge Panels are designed to deliver rich, contextual information, insights, and recommendations to users. They transform raw product data (e.g., nutrition facts, ingredients) into easily understandable, ready-to-display formats like tables, charts, or explanatory texts.
 * 
 Knowledge Panels are a key component in enhancing user experience by providing comprehensive and digestible information about food products.
+
+--- 
+### Adding official warnings
+* See /docs/dev/how-to-add-generic-recommendation-panel.md on how to add official warnings

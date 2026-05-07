@@ -1,0 +1,30 @@
+{
+    "level" :"recommendation",
+    "topics": [
+        "health"
+    ],
+    "evaluation": "[% panel.evaluation %]",
+    "title_element": {
+        "title": "[% panel.title %]",
+        "subtitle": "[% panel.subtitle %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/[% panel.icon %]",
+        "icon_color_from_evaluation": true,
+        "evaluation": "[% panel.evaluation %]",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "quote",
+                "html": `
+                [% panel.text %]
+                    `,
+                "source_text": "[% panel.source %]",
+                "source_url": "[% panel.source_url %]",
+                "source_language": "[% panel.source_language %]",
+            }
+        },
+    ],
+}
+
+

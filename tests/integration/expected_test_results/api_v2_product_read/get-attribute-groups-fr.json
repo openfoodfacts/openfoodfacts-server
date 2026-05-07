@@ -245,7 +245,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingrédients"
+            "name" : "Ingrédients",
+            "warning" : "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes" : [
@@ -278,15 +279,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Impact modéré sur l'environnement",
+                  "description_short" : "Impact environnemental élevé",
                   "grade" : "c",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                   "id" : "ecoscore",
-                  "match" : 47,
+                  "match" : 44,
                   "name" : "Green-Score",
                   "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Green-Score C"
+                  "title" : "Green-Score D"
                },
                {
                   "description" : "",
@@ -296,6 +297,7 @@
                   "id" : "forest_footprint",
                   "match" : 99.9351851851852,
                   "name" : "Empreinte forêt",
+                  "panel_id" : "forest_footprint",
                   "status" : "known",
                   "title" : "Très petite empreinte forêt"
                }

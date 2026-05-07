@@ -11,6 +11,10 @@ use JSON;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ProductSchemaChanges qw/convert_product_schema/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
+use ProductOpener::Tags qw/init_taxonomies/;
+
+# We need to load taxonomies (nutrients) for some schema upgrades
+init_taxonomies(1);
 
 #use Test::MockTime qw(set_fixed_time);
 #set_fixed_time(1650000000);  # freeze time to a known epoch
@@ -20,6 +24,192 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 #my $mockNutrition = MockClass->new('Nutrition');
 
 my @tests = (
+
+	# Very old schema, some missing fields like nutrition_data_per
+	[
+		'998-to-1003-new-nutrition-schema-bug',
+		1003,
+		{
+			'nutriments' => {
+				'carbohydrates_unit' => 'g',
+				'proteins' => 0,
+				'saturated-fat_value' => 0,
+				'sugars' => '8.8',
+				'sugars_value' => '8.8',
+				'energy' => 255,
+				'proteins_value' => 0,
+				'fat' => 0,
+				'energy_value' => '60.866796666667',
+				'saturated-fat' => 0,
+				'carbohydrates_100g' => '8.8',
+				'energy-kcal_value_computed' => '35.2',
+				'energy-kcal_unit' => 'kcal',
+				'energy-kcal' => '60.866796666667',
+				'proteins_100g' => 0,
+				'saturated-fat_unit' => 'g',
+				'energy_unit' => 'kcal',
+				'carbohydrates_value' => '8.8',
+				'energy_100g' => 255,
+				'energy-kcal_100g' => '60.866796666667',
+				'saturated-fat_100g' => 0,
+				'sugars_unit' => 'g',
+				'proteins_unit' => 'g',
+				'fat_100g' => 0,
+				'sugars_100g' => '8.8',
+				'fat_unit' => 'g',
+				'fat_value' => 0,
+				'energy-kcal_value' => '60.866796666667',
+				'carbohydrates' => '8.8'
+			},
+			'product_type' => 'food',
+			'product_name' => 'Ice guava',
+			'_id' => '9310495085590',
+			'id' => '9310495085590',
+			'code' => '9310495085590',
+			'lc' => 'en',
+		},
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-with-nutriments-estimated-from-ingredients',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+				"energy-kj_100g" => 1634,
+				"carbohydrates_100g" => 78.9,
+			},
+			"nutriments_estimated" => {
+				"alcohol_100g" => 0,
+				"beta-carotene_100g" => 0.0000048596,
+				"calcium_100g" => 0.12227384,
+				"carbohydrates_100g" => 56.5243,
+				"cholesterol_100g" => 0,
+			}
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-with-nutriments-estimated-from-ingredients',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+				"energy-kj_100g" => 1634,
+				"carbohydrates_100g" => 78.9,
+			},
+			"nutriments_estimated" => {
+				"alcohol_100g" => 0,
+				"beta-carotene_100g" => 0.0000048596,
+				"calcium_100g" => 0.12227384,
+				"carbohydrates_100g" => 56.5243,
+				"cholesterol_100g" => 0,
+			}
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-energy-in-kj-without-energy-kj-or-energy-kcal',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-energy-in-kcal-without-energy-kj-or-energy-kcal',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+
+				"energy" => 340,
+				"energy_100g" => 340,
+				"energy_prepared" => 44,
+				"energy_prepared_100g" => 44,
+				"energy_prepared_unit" => "kcal",
+				"energy_prepared_value" => 44,
+				"energy_unit" => "kcal",
+				"energy_value" => 340,
+			},
+		}
+	],
+
+	# In the old nutrition schema, we allowed unknown nutrients that were not in the taxonomy
+	[
+		'1002-to-1003-new-nutrition-schema-unknown-nutrients',
+		1003,
+		{
+			"lang" => "da",
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"serving_quantity" => 1000,
+			"serving_quantity_unit" => "ml",
+			"nutriments" => {
+
+				# unknown nutrient prefixed with language
+				'fr-nitrate' => 0.38,
+				'fr-nitrate_100g' => 0.38,
+				'fr-nitrate_label' => "Nitrate",
+				'fr-nitrate_serving' => 0.0038,
+				'fr-nitrate_unit' => "g",
+				'fr-nitrate_value' => 0.38,
+
+				# unknown nutrient not prefixed with language (old fields)
+				'sulfat' => 0.0141,
+				'sulfat_100g' => 0.0141,
+				'sulfat_label' => "Sulfat",
+				'sulfat_serving' => 0.141,
+				'sulfat_unit' => "mg",
+				'sulfat_value' => 14.1,
+
+				# unknown nutrient that is not in the taxonomy
+				'en-some-unknown-nutrient' => 1.23,
+				'en-some-unknown-nutrient_100g' => 1.23,
+				'en-some-unknown-nutrient_label' => "Some unknown nutrient",
+				'en-some-unknown-nutrient_unit' => "g",
+				'en-some-unknown-nutrient_value' => 1.23,
+			},
+		}
+	],
 
 	[
 		'1002-to-1003-new-nutrition-schema-per-100g',
@@ -177,6 +367,7 @@ my @tests = (
 				"vitamin-d_value" => 11,
 
 				"added-sugars_modifier" => "-",
+				"alcohol_prepared_modifier" => "-",
 			},
 		}
 	],
@@ -504,6 +695,56 @@ my @tests = (
 				"sugars_serving" => 100,
 				"sugars_unit" => "g",
 				"sugars_value" => 100
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-no_nutrition_data_on_packaging',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"no_nutrition_data" => "on",
+			"nutrition" => {
+				"aggregated_set" => undef,
+				"nutrient_sets" => []
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-no_nutrition',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+		}
+	],
+
+	[
+		'1003-to-1002-no-aggregated-set-input-set-per-serving-without-serving-quantity',
+		1002,
+		{
+			"schema_version" => 1003,
+			"nutrition" => {
+				"nutrient_sets" => [
+					{
+						"nutrients" => {
+							"carbohydrates" => {
+								"source" => "manufacturer",
+								"source_per" => "serving",
+								"unit" => "g",
+								"value" => 100,
+								"value_string" => "100"
+							},
+						},
+						"per" => "serving",
+						"preparation" => "as_sold"
+					}
+				]
 			},
 		}
 	],
@@ -1216,16 +1457,15 @@ my @tests = (
 	],
 );
 
-foreach my $test_ref (@tests) {
+# We run the tests in reverse order so that we output last the most recent tests added on top
+foreach my $test_ref (reverse @tests) {
 
 	my $testid = $test_ref->[0];
 	my $target_schema_version = $test_ref->[1];
 	my $product_ref = $test_ref->[2];
 
 	convert_product_schema($product_ref, $target_schema_version);
-	if (substr($testid, 0, 12) eq "1002-to-1003") {
-		normalize_product_for_test_comparison($product_ref);
-	}
+	normalize_product_for_test_comparison($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

@@ -11,21 +11,20 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
 
 # Create some products
 
 my @products = (
 	{
+		# this product has less than 95% ingredients with nutrition data, so nutrients won't be estimated
 		%{dclone(\%default_product_form)},
 		(
 			lc => "en",
@@ -48,6 +47,39 @@ my @products = (
 			nutriment_proteins => 4.5,
 			nutriment_carbohydrates => 10.5,
 			nutriment_fat => 8.5,
+		)
+	},
+	# product with 100% of ingredients with nutrition data, so nutrients will be estimated
+	{
+		%{dclone(\%default_product_form)},
+		(
+			lc => "en",
+			lang => "en",
+			code => '200000000035',
+			product_name => "Some product 2 with all ingredients having nutrition data",
+			generic_name => "Tester 2",
+			ingredients_text => "milk, eggs, sugar",
+			categories => "cookies",
+			nutriment_salt => '50.2',
+			nutriment_salt_unit => 'mg',
+			nutriment_sugars => '12.5',
+			"nutriment_saturated-fat" => '5.6',
+			nutriment_fiber => 2,
+			"nutriment_energy-kj" => 400,
+			nutriment_proteins => 4.5,
+			nutriment_carbohydrates => 10.5,
+			nutriment_fat => 8.5,
+		)
+	},
+	# Product with no nutrition data and no ingredients (so nutrition won't be estimated)
+	{
+		(
+			lc => "en",
+			lang => "en",
+			code => '200000000036',
+			product_name => "Some product 3 with no nutrition data and no ingredients",
+			generic_name => "Tester 3",
+			categories => "cookies",
 		)
 	},
 );
@@ -179,6 +211,13 @@ my $tests_ref = [
 			'?fields=knowledge_panels&knowledge_panels_included=health_card,environment_card&knowledge_panels_excluded=health_card',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'get-with-blame',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?blame=1',
+		expected_status_code => 200,
+	},
 	# Test authentication
 	# (currently not needed for READ requests, but it could in the future, for instance to get personalized results)
 	{
@@ -196,6 +235,45 @@ my $tests_ref = [
 		query_string => '?fields=code,product_name&user_id=tests&password=bad_password',
 		expected_status_code => 403,
 		expected_type => "html",
+	},
+	# Nutrition facts using old nutriments structure
+	# This is to ensure backward compatibility once we migrate to the new nutrition structure
+	{
+		test_case => 'get-nutriments',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=nutriments',
+		expected_status_code => 200,
+	},
+	# ?fields=nutriments.salt_100g
+	{
+		test_case => 'get-nutriments-salt-100g',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=nutriments.salt_100g',
+		expected_status_code => 200,
+	},
+	# ?fields=salt_100g
+	{
+		test_case => 'get-salt-100g',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=salt_100g',
+		expected_status_code => 200,
+	},
+	# bug when a product has no nutrients but we request a specific nutrient with v2
+	{
+		test_case => 'get-salt-100g-no-nutrients',
+		method => 'GET',
+		path => '/api/v2/product/200000000036',
+		query_string => '?fields=salt_100g',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-with-estimated-nutrients',
+		method => 'GET',
+		path => '/api/v2/product/200000000035',
+		expected_status_code => 200,
 	},
 ];
 

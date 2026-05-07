@@ -27,8 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$country/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Lang qw/$lc lang/;
@@ -84,7 +83,7 @@ my $output_csv = Text::CSV->new(
 ) or die "Cannot use CSV: " . Text::CSV->error_diag();
 
 $lc = "fr";
-$country = "en:france";
+my $country = "en:france";
 
 # We use a mapping table to convert Systeme U categories to OFF categories when possible
 my $categories_csv_file = $BASE_DIRS{SCRIPTS} . "/imports/systemeu/systeme-u-rubriques.csv";
