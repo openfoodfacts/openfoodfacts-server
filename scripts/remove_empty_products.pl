@@ -48,7 +48,10 @@ while (my $product_ref = $cursor->next) {
 
 	if ((defined $product_ref) and ($code ne '')) {
 
-		if (($product_ref->{empty} == 1) and (time() > $product_ref->{last_modified_t} + 86400)) {
+		if (    (defined $product_ref->{empty})
+			and ($product_ref->{empty} == 1)
+			and (time() > $product_ref->{last_modified_t} + 86400))
+		{
 			$product_ref->{deleted} = 'on';
 			my $comment = "[$0] automatic removal of product without information or images";
 			# Apply the deletion. Use specific user "remove-empty-products".

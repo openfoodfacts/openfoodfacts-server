@@ -25,9 +25,13 @@ import re
 CONFIG_FILE = 'packager_sources_config.json'
 TEXT_REPLACEMENTS_FILE = 'packager_text_replacements_config.json'
 
+
 def load_config():
     """
     Load configuration from JSON file.
+    
+    Note: Configuration structure is validated by tests using JSON schema.
+    See tests/packager_sources_config_schema.json and test_validate_config_with_schema().
 
     Returns:
         configuration dictionary
@@ -39,6 +43,7 @@ def load_config():
     try:
         with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
+        
     except FileNotFoundError as e:
         raise FileNotFoundError(f"Configuration file '{CONFIG_FILE}' not found") from e
     except json.JSONDecodeError as e:

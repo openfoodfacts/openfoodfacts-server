@@ -40,6 +40,7 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
@@ -55,13 +56,6 @@
    ],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {
-      "nova-group" : 1,
-      "nova-group_100g" : 1,
-      "nova-group_serving" : 1,
-      "nutrition-score-fr" : 0,
-      "nutrition-score-fr_100g" : 0
-   },
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -94,10 +88,12 @@
             "sugars_points" : 0,
             "sugars_value" : 0
          },
+         "estimated" : 0,
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
          "score" : 0
       },
       "2023" : {
@@ -182,10 +178,12 @@
             "positive_points" : 0,
             "positive_points_max" : 18
          },
+         "estimated" : 0,
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
          "score" : 0
       }
    },
@@ -284,8 +282,7 @@
       "a"
    ],
    "nutriscore_version" : "2023",
-   "nutrition_data_per" : "100g",
-   "nutrition_data_prepared_per" : "100g",
+   "nutrition" : {},
    "nutrition_grade_fr" : "a",
    "nutrition_grades" : "a",
    "nutrition_grades_tags" : [
@@ -308,6 +305,5 @@
    "traces_from_ingredients" : "",
    "traces_from_user" : "(en) ",
    "traces_hierarchy" : [],
-   "traces_tags" : [],
-   "unknown_nutrients_tags" : []
+   "traces_tags" : []
 }

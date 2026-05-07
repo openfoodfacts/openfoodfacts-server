@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -49,7 +49,7 @@ use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API
-	qw/add_error add_warning check_user_permission customize_response_for_product normalize_requested_code/;
+	qw/add_error add_warning check_user_permission customize_response_for_product normalize_requested_code sanitize/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
@@ -139,12 +139,12 @@ Process API v3 product image upload requests.
 
 sub upload_product_image_api ($request_ref) {
 
-	$log->debug("image_product_upload_api - start", {request => $request_ref}) if $log->is_debug();
+	$log->debug("image_product_upload_api - start", {request => sanitize($request_ref)}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
 	my $request_body_ref = $request_ref->{body_json};
 
-	$log->debug("image_product_upload_api - body", {request_body => $request_body_ref}) if $log->is_debug();
+	$log->debug("image_product_upload_api - body", {request_body => sanitize($request_body_ref)}) if $log->is_debug();
 
 	my $error = 0;
 
@@ -326,7 +326,7 @@ sub upload_product_image_api ($request_ref) {
 		}
 	}
 
-	$log->debug("image_product_upload_api - stop", {request => $request_ref}) if $log->is_debug();
+	$log->debug("image_product_upload_api - stop", {request => sanitize($request_ref)}) if $log->is_debug();
 
 	return;
 }

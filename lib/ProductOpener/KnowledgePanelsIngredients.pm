@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -186,6 +186,10 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 	# Go through the ingredients structure, and check if they have the added_sugar:en:yes property
 	my @added_sugars_ingredients = get_ingredients_with_parent($product_ref->{ingredients}, "en:added-sugar");
 
+	#Remove duplicates from list of sugars
+	my %seen;
+	@added_sugars_ingredients = grep {!$seen{$_}++} @added_sugars_ingredients;
+
 	$log->debug("added sugars", {added_sugars_ingredients => \@added_sugars_ingredients})
 		if $log->is_debug();
 
@@ -195,7 +199,8 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 		my $added_sugars_percent_estimate = estimate_added_sugars_percent_from_ingredients($product_ref);
 
 		# Get the % of added sugars from the nutrition facts if it is available
-		my $added_sugars_percent_nutrition_facts = deep_get($product_ref, qw(nutriments added-sugars_100g));
+		my $added_sugars_percent_nutrition_facts
+			= deep_get($product_ref, qw(nutrition aggregated_set nutrients added-sugars value));
 
 		my $panel_data_ref = {
 			ingredients_added_sugars => \@added_sugars_ingredients,
