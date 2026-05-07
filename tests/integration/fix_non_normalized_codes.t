@@ -10,12 +10,17 @@ use ProductOpener::TestDefaults qw/%default_product %default_product_form/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/product_path product_path_from_id retrieve_product/;
-use ProductOpener::Store qw/retrieve store/;
+use ProductOpener::Store qw/retrieve_object store_object link_object/;
+
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 
 no warnings qw(experimental::signatures);
 
+wait_application_ready(__FILE__);
 remove_all_products();
-wait_application_ready();
 
 sub test_product_path ($code) {
 	my $path = product_path_from_id("$code");
@@ -26,7 +31,7 @@ sub test_product_path ($code) {
 sub retrieve_test_product ($code) {
 	# bare retrieve for test product with strange data
 	my $path = test_product_path($code);
-	return retrieve("$path/product.sto");
+	return retrieve_object("$path/product");
 }
 
 # create product in a very minimal way, should be enough for our tests
@@ -39,9 +44,9 @@ sub make_product ($product_ref, $products_collection) {
 	if (!$only_mongo) {
 		# use store instead of store_product to avoid normalizations
 		`mkdir -p $product_path`;
-		store("$product_path/$rev.sto", $product_ref);
-		symlink("$rev.sto", "$product_path/product.sto");
-		print STDERR "made product $code - product_path: $product_path\n";
+		store_object("$product_path/$rev", $product_ref);
+		link_object($rev, "$product_path/product");
+		# print STDERR "made product $code - product_path: $product_path\n";
 	}
 	# and index in mongo
 	$products_collection->insert_one($product_ref);
@@ -96,12 +101,12 @@ foreach my $product_ref (@products) {
 	my $code = $product_ref->{code};
 	make_product($product_ref, $products_collection);
 	my $new_code = $product_ref->{code};
-	print STDERR "made product code $code normalized to $new_code\n";
+	# print STDERR "made product code $code normalized to $new_code\n";
 }
 
 # launch script
 my $script_out = `perl scripts/fix_non_normalized_codes.pl`;
-print STDERR $script_out;
+# print STDERR $script_out;
 # print($script_out."\n\n");
 # check output precisely
 $script_out =~ s/\n\s*\n/\n/sg;    # trim empty lines
@@ -110,12 +115,14 @@ my @outputs = split("\n", $script_out);
 is(
 	\@outputs,
 	[
+		# progress indicator
+		"0 processed",
+		# product_non_normalized_code : normalized the code
+		"Updated product in place: 0000012345670 and 12345670 have the same path /mnt/podata/products/000/001/234/5670/product",
+		# product_non_normalized_code : normalized the code
+		"Updated product in place: 0000012345678 and 12345678 have the same path /mnt/podata/products/000/001/234/5678/product",
 		# removed product_broken_code
 		"Removed broken-123",
-		# product_non_normalized_code : normalized the code
-		"Updated product in place: 0000012345670 and 12345670 have the same path /mnt/podata/products/000/001/234/5670/product.sto",
-		# product_non_normalized_code : normalized the code
-		"Updated product in place: 0000012345678 and 12345678 have the same path /mnt/podata/products/000/001/234/5678/product.sto",
 		# product_int_code
 		"Int codes: refresh 1, removed 2",
 		# product_broken_code and product_non_normalized_code* removed from mongo directly
@@ -128,7 +135,7 @@ my %fixed_product;
 # product_ok is there
 $product_ref = retrieve_product("2000000000001");
 delete $product_ref->{schema_version};
-is($product_ref, \%product_ok);
+is($product_ref, \%product_ok) or print STDERR Dumper $product_ref;
 $product_ref = $products_collection->find_id("2000000000001");
 is($product_ref, \%product_ok);
 

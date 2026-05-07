@@ -7,7 +7,7 @@ components:
         id:
           type: string
         ingredients:
-          $ref: "#/components/schemas/Ingredients"
+          $ref: "./ingredient.yaml#/components/schemas/Ingredients"
         percent:
           type: integer
           description: The percentage of the ingredient.
@@ -38,4 +38,4 @@ components:
         This structure gives the different ingredients and some information about them,
         like estimate on their quantity.
       items:
-        $ref: "#/components/schemas/Ingredient"
+        $ref: "./ingredient.yaml#/components/schemas/Ingredient"

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -165,8 +165,6 @@ sub load_ciqual_table() {
 				else {
 					# TODO: some nutrients are not automatically recognized yet
 					# (e.g. most fatty acids identified with column names like ag_18_3_a_lino_g)
-					$log->debug("unrecognized column name (nutrient) in CIQUAL table", {column_name => $nutrient})
-						if $log->is_debug();
 				}
 			}
 			$col++;
@@ -271,8 +269,6 @@ sub load_ciqual_calnut_table() {
 				else {
 					# TODO: some nutrients are not automatically recognized yet
 					# (e.g. most fatty acids identified with column names like ag_18_3_a_lino_g)
-					$log->debug("unrecognized column name (nutrient) in CIQUAL table", {column_name => $nutrient})
-						if $log->is_debug();
 				}
 			}
 			$col++;

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -84,7 +84,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config2;
 use ProductOpener::Tags qw/country_to_cc/;
-use ProductOpener::Users qw/retrieve_user store_user/;
+use ProductOpener::Users qw/retrieve_user retrieve_user_preferences store_user_preferences/;
 use ProductOpener::Orgs qw/retrieve_org is_user_in_org_group/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/retrieve store/;
@@ -114,11 +114,11 @@ sub sync_org_with_crm($org_ref, $salesperson_user_id) {
 	eval {
 		my $partner_id;
 		if (defined $main_contact_user) {
-			my $user_ref = retrieve_user($main_contact_user);
+			my $user_ref = retrieve_user_preferences($main_contact_user);
 			$partner_id = $user_ref->{crm_user_id} // find_or_create_contact($user_ref);
 			defined $partner_id or die "Failed to get contact";
 			$user_ref->{crm_user_id} = $partner_id;
-			store_user($user_ref);
+			store_user_preferences($user_ref);
 		}
 
 		my $company_id = find_or_create_company($org_ref, $partner_id);
@@ -372,7 +372,7 @@ Set the off_org field of a contact to the org_id
 =cut
 
 sub link_org_with_company($org_ref, $company_id) {
-	my $user_ref = retrieve_user($org_ref->{main_contact});
+	my $user_ref = retrieve_user_preferences($org_ref->{main_contact});
 	my $country_id = _get_country_id($org_ref->{country});
 	my $req = make_odoo_request(
 		'res.partner',
@@ -478,7 +478,7 @@ the id of the created company
 =cut
 
 sub create_company ($org_ref) {
-	my $main_contact_user_ref = retrieve_user($org_ref->{main_contact});
+	my $main_contact_user_ref = retrieve_user_preferences($org_ref->{main_contact});
 
 	my $company = {
 		name => $org_ref->{name},
@@ -591,7 +591,7 @@ the contact_id, undef if an error occurred while getting the contact_id
 =cut
 
 sub add_user_to_company($user_id, $company_id) {
-	my $user_ref = retrieve_user($user_id);
+	my $user_ref = retrieve_user_preferences($user_id);
 	my $contact_id = find_contact($user_ref);
 	if (not defined $contact_id) {
 		$contact_id = create_contact($user_ref);
@@ -601,12 +601,12 @@ sub add_user_to_company($user_id, $company_id) {
 	}
 	add_contact_to_company($contact_id, $company_id);
 	$user_ref->{crm_user_id} = $contact_id;
-	store_user($user_ref);
+	store_user_preferences($user_ref);
 	return $contact_id;
 }
 
 sub remove_user_from_company($user_id, $company_id) {
-	my $user_ref = retrieve_user($user_id);
+	my $user_ref = retrieve_user_preferences($user_id);
 	my $req = make_odoo_request('res.partner', 'write',
 		[[$company_id], {child_ids => [[$commands{unlink}, $user_ref->{crm_user_id}]]}]);
 	my $result = make_odoo_request('res.partner', 'write', [[$user_ref->{crm_user_id}], {parent_id => 0}]);
@@ -645,12 +645,12 @@ sub change_company_main_contact ($org_ref, $user_id) {
 		return;
 	}
 
-	my $user_ref = retrieve_user($user_id);
+	my $user_ref = retrieve_user_preferences($user_id);
 
 	# find or create contact
 	if (not defined $user_ref->{crm_user_id}) {
 		defined add_user_to_company($user_id, $org_ref->{crm_org_id}) or return;
-		$user_ref = retrieve_user($user_id);
+		$user_ref = retrieve_user_preferences($user_id);
 	}
 
 	# change opportunity main contact

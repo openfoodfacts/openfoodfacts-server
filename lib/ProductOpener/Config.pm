@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -22,6 +22,7 @@ package ProductOpener::Config;
 
 use utf8;
 use Modern::Perl '2017';
+use Exporter qw< import >;
 
 # Config.pm will dynamically load Config_off.pm or Config_obf.pm etc.
 # based on the value of the PRODUCT_OPENER_FLAVOR_SHORT environment variable
@@ -111,17 +112,16 @@ autoload("ProductOpener::Config_$flavor");
 
 %ProductOpener::Config::admins = map {$_ => 1} qw(
 	alex-off
-	cha-delh
 	charlesnepote
 	gala-nafikova
 	hangy
 	manoncorneille
+	mellie-mellow
 	raphael0202
 	stephane
 	tacinte
 	teolemon
 	g123k
-	valimp
 );
 
 =head2 Available product types and flavors
@@ -144,6 +144,16 @@ $ProductOpener::Config::options{product_types_domains} = {
 	petfood => "openpetfoodfacts.org",
 	beauty => "openbeautyfacts.org",
 	product => "openproductsfacts.org"
+};
+
+$ProductOpener::Config::options{product_types_preparations} = {
+	food => ["as_sold", "prepared"],
+	petfood => ["as_sold"],
+};
+
+$ProductOpener::Config::options{product_types_pers} = {
+	food => ["100g", "100ml", "1l", "serving"],
+	petfood => ["1kg"],
 };
 
 $ProductOpener::Config::options{other_servers} = {
@@ -214,5 +224,16 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 	# Schools
 	'163.5.0.0/16'    # EPITECH https://bgpview.io/prefix/163.5.0.0/16
 ];
+
+# OIDC options.
+%ProductOpener::Config::oidc_options = (
+	client_id => $ProductOpener::Config2::oidc_client_id,
+	client_secret => $ProductOpener::Config2::oidc_client_secret,
+	oidc_implementation_level => $ProductOpener::Config2::oidc_implementation_level,
+	oidc_discovery_url => $ProductOpener::Config2::oidc_discovery_url
+);
+
+# Slack options
+%ProductOpener::Config::slack_hook_urls = %ProductOpener::Config2::slack_hook_urls || ();
 
 1;

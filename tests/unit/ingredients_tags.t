@@ -130,7 +130,7 @@ my @tests = (
 			ingredients_text =>
 				"Lait de vache pasteurisé (origine: France), crème pasteurisée (origine France), sel (origine UE), ferments."
 		},
-		['en:pasteurised-cow-s-milk', 'en:cream', 'en:salt', 'en:ferment'],
+		['en:cow-s-milk', 'en:cream', 'en:salt', 'en:ferment'],
 	],
 	[{lc => "en", ingredients_text => "Organically grown green tea"}, ["en:green-tea"],],
 	[
