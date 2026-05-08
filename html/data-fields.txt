@@ -11,7 +11,7 @@ CSV files use <tab> as field separator.
 
 General field conventions:
 - fields ending with _t are UNIX timestamps (seconds since 1970-01-01)
-- fields ending with _datetime are ISO 8601 timestamps (yyyy-mm-ddThh:mm:ssZ)
+- fields ending with _datetime are ISO 8601 timestamps (yyyy-mm-ddThh:mm:ssZ), e.g. 2026-05-08T08:16:15Z
 - fields ending with _tags are normalized/tagified values, generally for search/filtering
 - fields ending with _hierarchy are non-lossy hierarchical tag entries for display/editing
 - fields ending with _lc indicate the language used for the last edit of the corresponding field
@@ -167,5 +167,5 @@ NOTES
 ======================================================================
 
 - Field availability depends on product type, country/language context, and schema_version.
-- Some legacy names still exist for backward compatibility (for example ecoscore_*).
+- Some fields exist under both ecoscore_* and environmental_score_* naming, depending on API/export context.
 - For strict machine-readable definitions, always rely on OpenAPI and export source schemas.
