@@ -1,230 +1,171 @@
-This file describes the fields from the CSV export of the products in the Open Food Facts database.
+This file describes fields used in Open Food Facts data exports.
 
-See https://world.openfoodfacts.org/data for more information.
+See https://world.openfoodfacts.org/data for downloads.
 
-The file encoding is Unicode UTF-8. The character that separates fields is <tab> (tabulation).
+Primary documentation sources used for this file:
+- OpenAPI product schema: docs/api/ref/api.yaml and docs/api/ref/schemas/product*.yaml
+- openfoodfacts-exports service: https://github.com/openfoodfacts/openfoodfacts-exports
 
-Generalities:
+The file encoding is UTF-8.
+CSV files use <tab> as field separator.
 
-- fields that end with _t are dates in the UNIX timestamp format (number of seconds since Jan 1st 1970)
-- fields that end with _datetime are dates in the iso8601 format: yyyy-mm-ddThh:mn:ssZ
-- fields that end with _tags are comma separated list of tags (e.g. categories_tags is the set of normalized tags computed from the categories field)
-- fields that end with a language 2 letter code (e.g. fr for French) is the set of tags in that language
-- fields that end with _100g correspond to the amount of a nutriment (in g, or kJ for energy) for 100 g or 100 ml of product
-- fields that end with _serving correspond to the amount of a nutriment (in g, or kJ for energy) for 1 serving of the product
+General field conventions:
+- fields ending with _t are UNIX timestamps (seconds since 1970-01-01)
+- fields ending with _datetime are ISO 8601 timestamps (yyyy-mm-ddThh:mm:ssZ)
+- fields ending with _tags are normalized/tagified values, generally for search/filtering
+- fields ending with _hierarchy are non-lossy hierarchical tag entries for display/editing
+- fields ending with _lc indicate the language used for the last edit of the corresponding field
+- fields ending with _<language_code> are localized values (e.g. ingredients_text_fr)
+- nutriments use suffixes such as _100g, _serving, _value, _unit and prepared_* variants
 
-List of fields:
+======================================================================
+MONGODB DUMP (products JSON/JSONL export)
+======================================================================
 
-# general information:
+The MongoDB dump contains the full product document structure.
+The canonical reference is the OpenAPI Product schema.
 
-code : barcode of the product (can be EAN-13 or internal codes for some food stores), for products without a barcode, Open Food Facts assigns a number starting with the 200 reserved prefix
-url : url of the product page on Open Food Facts
-creator : contributor who first added the product
-created_t : date that the product was added (UNIX timestamp format)
-created_datetime : date that the product was added (iso8601 format: yyyy-mm-ddThh:mn:ssZ)
-last_modified_t : date that the product page was last modified
-last_modified_datetime
-product_name : name of the product
-abbreviated_product_name
-generic_name
-quantity : quantity and unit
+Main field groups (non-exhaustive):
 
-# tags:
+1) Identification / base
+- code
+- id
+- product_name
+- abbreviated_product_name
+- generic_name
+- quantity
+- product_quantity
+- product_quantity_unit
+- lang / lc
+- schema_version
 
-packaging : shape, material
-packaging_tags
-packaging_en
-packaging_text
-brands
-brands_tags
-categories
-categories_tags
-categories_en
-origins : origins of ingredients
-origins_tags
-origins_en
-manufacturing_places : places where manufactured or transformed
-manufacturing_places_tags
-labels
-labels_tags
-labels_en
-emb_codes
-emb_codes_tags
-first_packaging_code_geo : coordinates corresponding to the first packaging code indicated
-cities
-cities_tags
-purchase_places
-stores
-countries : list of countries where the product is sold
-countries_tags
-countries_en
+2) Metadata / history
+- creator
+- created_t
+- last_modified_by
+- last_modified_t
+- last_updated_t
+- rev
+- editors_tags
+- photographers_tags
+- languages_tags
+- entry_dates_tags
+- last_edit_dates_tags
 
-# ingredients:
+3) Tags and classifications
+- brands / brands_tags / brands_hierarchy
+- categories / categories_tags / categories_hierarchy
+- labels / labels_tags / labels_hierarchy
+- countries / countries_tags / countries_hierarchy
+- origins / origins_tags / origins_hierarchy
+- manufacturing_places / manufacturing_places_tags
+- emb_codes / emb_codes_tags
+- states / states_tags / states_hierarchy
+- food_groups / food_groups_tags
 
-ingredients_text
-ingredients_tags
-ingredients_analysis_tags
-allergens
-allergens_en
-traces
-traces_tags
-traces_en
+4) Ingredients / allergens
+- ingredients_text
+- ingredients (structured list)
+- ingredients_tags
+- ingredients_analysis_tags
+- ingredients_n
+- ingredients_from_palm_oil_n
+- allergens / allergens_tags / allergens_hierarchy
+- traces / traces_tags / traces_hierarchy
 
-# misc. data:
+5) Nutrition
+- no_nutrition_data
+- nutrition_data_per
+- nutrition_data_prepared_per
+- nutriments (dynamic nutrient object)
+- nutrient_levels / nutrient_levels_tags
+- serving_size
+- serving_quantity
+- serving_quantity_unit
 
-serving_size : text describing the serving size
-serving_quantity :  : normalized serving size in grams or ml
-no_nutrition_data : When a product does not have nutrition data displayed on the packaging, the user can check the field "Nutrition facts are not specified on the product". By doing so, the no_nutrition_data field takes the value "on". This case is frequent (thousands of products)
-additives_n : number of food additives
-additives
-additives_tags
-additives_en
-nutriscore_score : nutrition grade ('a' to 'e'). see https://fr.openfoodfacts.org/nutriscore
-nutriscore_grade
-nova_group
-pnns_groups_1
-pnns_groups_2
-food_groups
-food_groups_tags
-food_groups_en
-states
-states_tags
-states_en
-brand_owner
-ecoscore_score
-ecoscore_grade
-nutrient_levels_tags
-product_quantity
-owner
-data_quality_errors_tags
-unique_scans_n
-popularity_tags
-completeness
-data_quality_dimensions
-last_image_t
-last_image_datetime
-main_category
-main_category_en
-image_url
-image_small_url
-image_ingredients_url
-image_ingredients_small_url
-image_nutrition_url
-image_nutrition_small_url
+6) Scores and computed indicators
+- nutriscore_grade
+- nutriscore_score
+- nutriscore_data
+- nutriscore (2021/2023 details)
+- nova_group
+- nova_groups
+- nova_groups_tags
+- ecoscore_grade / ecoscore_score / ecoscore_tags
+- ecoscore_data
+- environment_impact_level / environment_impact_level_tags
 
-# nutrition facts:
-# Please see https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts for more information on nutrients
+7) Packaging and images
+- packaging
+- packaging_text
+- packaging_tags
+- packagings (structured components)
+- packagings_complete
+- images
+- selected_images
+- image_url / image_small_url / image_thumb_url
+- image_<type>[_<size>]_url pattern (front, ingredients, nutrition, packaging, other)
+- last_image_t
 
-energy-kj_100g
-energy-kcal_100g
-energy_100g
-energy-from-fat_100g
-fat_100g
-saturated-fat_100g
--butyric-acid_100g
--caproic-acid_100g
--caprylic-acid_100g
--capric-acid_100g
--lauric-acid_100g
--myristic-acid_100g
--palmitic-acid_100g
--stearic-acid_100g
--arachidic-acid_100g
--behenic-acid_100g
--lignoceric-acid_100g
--cerotic-acid_100g
--montanic-acid_100g
--melissic-acid_100g
-monounsaturated-fat_100g
-polyunsaturated-fat_100g
-omega-3-fat_100g
--alpha-linolenic-acid_100g
--eicosapentaenoic-acid_100g
--docosahexaenoic-acid_100g
-omega-6-fat_100g
--linoleic-acid_100g
--arachidonic-acid_100g
--gamma-linolenic-acid_100g
--dihomo-gamma-linolenic-acid_100g
-omega-9-fat_100g
--oleic-acid_100g
--elaidic-acid_100g
--gondoic-acid_100g
--mead-acid_100g
--erucic-acid_100g
--nervonic-acid_100g
-trans-fat_100g
-cholesterol_100g
-carbohydrates_100g
-sugars_100g
--sucrose_100g
--glucose_100g
--fructose_100g
--lactose_100g
--maltose_100g
--maltodextrins_100g
-starch_100g
-polyols_100g
--erythritol_100g: erythritol is a polyol which is not providing any energy. As such, it needs not be taken into account when computing the energy of a product. Eryhtritol is now displayed on nutrition facts sheet of some products, mainly in the USA.
-fiber_100g
-soluble-fiber_100g
-insoluble-fiber_100g
-proteins_100g
-casein_100g
-serum-proteins_100g
-nucleotides_100g
-salt_100g
-sodium_100g
-alcohol_100g : % vol of alcohol
-vitamin-a_100g
-beta-carotene_100g
-vitamin-d_100g
-vitamin-e_100g
-vitamin-k_100g
-vitamin-c_100g
-vitamin-b1_100g
-vitamin-b2_100g
-vitamin-pp_100g
-vitamin-b6_100g
-vitamin-b9_100g
-folates_100g
-vitamin-b12_100g
-biotin_100g: also known as Vitamine B8
-pantothenic-acid_100g: also known as Vitamine B5
-silica_100g
-bicarbonate_100g
-potassium_100g
-chloride_100g
-calcium_100g
-phosphorus_100g
-iron_100g
-magnesium_100g
-zinc_100g
-copper_100g
-manganese_100g
-fluoride_100g
-selenium_100g
-chromium_100g
-molybdenum_100g
-iodine_100g
-caffeine_100g
-taurine_100g
-ph_100g: pH (no unit)
-fruits-vegetables-nuts_100g: % of fruits, vegetables and nuts (excluding potatoes, yams, manioc)
-fruits-vegetables-nuts-dried_100g
-fruits-vegetables-nuts-estimate_100g
-fruits-vegetables-nuts-estimate-from-ingredients_100g
-collagen-meat-protein-ratio_100g
-cocoa_100g
-chlorophyl_100g
-carbon-footprint_100g: carbon footprint (as indicated on the packaging of some products)
-carbon-footprint-from-meat-or-fish_100g
-nutrition-score-fr_100g : Nutri-Score - Nutrition score derived from the UK FSA score and adapted for the French market (formula defined by the team of Professor Hercberg)
-nutrition-score-uk_100g : nutrition score defined by the UK Food Standards Administration (FSA)
-glycemic-index_100g
-water-hardness_100g
-holine_100g
-phylloquinone_100g
-beta-glucan_100g
-inositol_100g
-carnitine_100g
+8) Data quality and sources
+- data_quality_bugs_tags
+- data_quality_errors_tags
+- data_quality_warnings_tags
+- data_quality_info_tags
+- data_sources
+- data_sources_tags
+- sources
+- sources_fields
+
+For complete definitions (types, meaning, nested objects), refer to OpenAPI schema files.
+
+======================================================================
+CSV EXPORTS
+======================================================================
+
+There are multiple CSV/TSV exports with different field sets.
+
+A) Full historical TSV export (server-side export_database.pl)
+- Starts from configured export groups (ProductOpener::Config_off import_export_fields_groups)
+- Adds derived columns such as:
+  - url (after code)
+  - *_datetime for *_t fields
+  - *_tags for selected tag fields
+  - localized taxonomy values for selected fields
+  - first_packaging_code_geo (from first emb code)
+  - main_category and localized main_category_<lc>
+  - selected image URLs (front/ingredients/nutrition)
+  - nutrient columns as <nutrient>_100g
+- Nutrient list follows nutrients taxonomy/export logic and evolves over time.
+
+B) Generic CSV export endpoint (ProductOpener::Export::export_csv)
+- Exports populated fields (or explicit requested fields)
+- Supports optional computed fields and canonicalized tags
+- Supports optional image local paths
+- Supports dynamic columns for:
+  - language-specific text fields
+  - nutrition fields
+  - packaging component fields (e.g. packaging_1_shape)
+
+C) openfoodfacts-exports mobile TSV
+Source: openfoodfacts_exports/exports/csv/mobile.py
+Columns:
+- code
+- product_name
+- quantity
+- brands
+- nutrition_grade_fr (alias of nutriscore_grade)
+- nova_group
+- environmental_score_grade
+
+D) openfoodfacts-exports parquet datasets
+Source: openfoodfacts_exports/exports/parquet/common.py and food.py
+These files define current normalized field sets used for modern exports.
+
+======================================================================
+NOTES
+======================================================================
+
+- Field availability depends on product type, country/language context, and schema_version.
+- Some legacy names still exist for backward compatibility (for example ecoscore_*).
+- For strict machine-readable definitions, always rely on OpenAPI and export source schemas.
