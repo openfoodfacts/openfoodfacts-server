@@ -24,7 +24,7 @@
             "percent_max" : 20,
             "percent_min" : 10,
             "text" : "sugar",
-            "vegan" : "yes",
+            "vegan" : "maybe",
             "vegetarian" : "yes"
          },
          {
@@ -42,26 +42,8 @@
       "ingredients_text" : "milk 80%, sugar, cocoa powder",
       "ingredients_text_en" : "milk 80%, sugar, cocoa powder",
       "ingredients_text_fr" : "lait 80%, sucre, poudre de cacao",
-      "lc" : "en",
-      "schema_version" : 999
+      "lc" : "en"
    },
-   "status" : "success_with_warnings",
-   "warnings" : [
-      {
-         "field" : {
-            "default_value" : "en",
-            "id" : "tags_lc"
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
-         }
-      }
-   ]
+   "status" : "success",
+   "warnings" : []
 }

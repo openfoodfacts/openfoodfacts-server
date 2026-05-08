@@ -1,0 +1,47 @@
+{
+    "level" :"recommendation",
+    "topics": [
+        "health"
+    ],
+    "title_element": {
+        "title": "Trouvez votre motivation et arrêtez de fumer avec Tabac info service",
+        "subtitle": "Informations, conseils et méthodes pour arrêter de fumer",
+        "icon_url": "[% static_subdomain %]/images/panels/recommendations/fr/tabac-info-service.svg",        
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "quote",
+                "html": `
+                <p>Au programme du site <a href="https://www.tabac-info-service.fr/">Tabac info service</a> édité par Santé publique France :</p>
+
+                <h6><b><a href="https://www.tabac-info-service.fr/je-trouve-ma-motivation">Je trouve ma motivation</a></b></h6>
+
+                <p>Faites le plein de motivation !! Rien de tel pour trouver le courage de vous lancer, et de tenir bon dans votre arrêt du tabac</p>
+
+                <h6><b><a href="https://www.tabac-info-service.fr/j-arrete-de-fumer">J'arrête de fumer</a></b></h6>
+
+                <p>C’est parti ! Découvrez tous nos conseils et stratégies pour vous débarrasser de la cigarette. Et composez votre propre méthode pour arrêter de fumer !</p>
+
+                <h6><b><a href="https://www.tabac-info-service.fr/questions-reponses">Questions / Réponses</a></b></h6>
+
+                <p>Vous vous posez des questions sur l'arrêt, sur les traitements existants, les méthodes pour y arriver, ... ? Dans cette rubrique, Tabac info service répond aux questions les plus fréquemment posées et vous donne les clés pour mieux appréhender votre démarche d'arrêt du tabac.</p>
+
+                <h6><b>Je me fais accompagner</b></h6>
+
+                <p><a href="https://www.tabac-info-service.fr/je-me-fais-accompagner/le-39-89">Le 39 89</a>
+<br>            Contacter un professionnel de l'arrêt du tabac</p>
+
+                <p><a href="https://www.tabac-info-service.fr/je-trouve-un-tabacologue">Je trouve un tabacologue</a>
+<br>            Consulter un professionnel près de chez vous</p>
+
+                <p><a href="https://www.tabac-info-service.fr/je-me-fais-accompagner/je-telecharge-l-application-pour-arreter-de-fumer">Je télécharge l’application Tabac info service pour arrêter de fumer</a></p>
+                    `,
+                "source_text": "Tabac-info-service.fr est un site internet conçu sous l’égide de Santé publique France",
+                "source_url": "https://www.tabac-info-service.fr/",
+                "source_language": "fr",
+            }
+        },
+    ],
+}

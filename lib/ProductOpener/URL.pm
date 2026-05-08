@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,6 +50,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&format_subdomain
+		&get_cookie_domain
 		&get_owner_pretty_path
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -129,6 +130,31 @@ sub subdomain_supports_https ($sd) {
 	return 1 if grep {$_ eq '*'} @ssl_subdomains;
 	return grep {$_ eq $sd} @ssl_subdomains;
 
+}
+
+=head2 get_cookie_domain( )
+
+C<get_cookie_domain()> gets the domain that should be used for cookies.
+
+=head3 Arguments
+
+None.
+
+=head3 Return Values
+
+A URL that the server should use when emitting cookies.
+
+=cut
+
+sub get_cookie_domain() {
+	my $cookie_domain = '.' . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
+	$cookie_domain =~ s/\.pro\./\./;    # e.g. .pro.openfoodfacts.org -> .openfoodfacts.org
+	if (defined $server_options{cookie_domain}) {
+		$cookie_domain
+			= '.' . $server_options{cookie_domain}; # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
+	}
+
+	return $cookie_domain;
 }
 
 =head2 get_owner_pretty_path ($owner_id)

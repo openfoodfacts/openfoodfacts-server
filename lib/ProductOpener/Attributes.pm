@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -136,22 +136,23 @@ The return value is a reference to an array of attribute groups that contains in
 
 =head3 Caching
 
-The return value is cached for each language in the %localized_attribute_groups hash.
+The return value is cached for each language in the %cached_attribute_groups hash.
 
 =cut
 
-# Global structure to cache the return structure for each language
-my %localized_attribute_groups = ();
+# Global structure to cache the return structure for each language and API version
+my %cached_attribute_groups = ();
 
-sub list_attributes ($target_lc) {
+sub list_attributes ($target_lc, $api_version) {
 
-	$log->debug("list attributes", {target_lc => $target_lc}) if $log->is_debug();
+	my $cache_key = $target_lc . "_" . $api_version;
+	$log->debug("list attributes", {cache_key => $cache_key}) if $log->is_debug();
 
 	# Construct the return structure only once for each language
 
-	if (not defined $localized_attribute_groups{$target_lc}) {
+	if (not defined $cached_attribute_groups{$cache_key}) {
 
-		$localized_attribute_groups{$target_lc} = [];
+		$cached_attribute_groups{$cache_key} = [];
 
 		if (defined $options{attribute_groups}) {
 
@@ -164,21 +165,44 @@ sub list_attributes ($target_lc) {
 
 				foreach my $attribute_id (@{$attributes_ref}) {
 
+					# If API version is < 3.4, do not return attributes that have parameters
+					# (currently only unwanted_ingredients)
+					if (($api_version < 3.4) and ($attribute_id eq "unwanted_ingredients")) {
+						next;
+					}
+
 					my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
 
 					# Add the possible values for the attribute
 					$attribute_ref->{values}
 						= deep_get(\%options, "attribute_values", $attribute_id) || $options{attribute_values_default};
 
+					# Default preference
+					if (defined $options{attribute_default_preferences}{$attribute_ref->{id}}) {
+						$attribute_ref->{default} = $options{attribute_default_preferences}{$attribute_ref->{id}};
+					}
+
+					# Add parameters for attributes that have them
+					if ($attribute_id eq "unwanted_ingredients") {
+						$attribute_ref->{parameters} = [
+							{
+								id => "attribute_unwanted_ingredients_tags",
+								name => lang_in_other_lc($target_lc, "attribute_unwanted_ingredients_name"),
+								type => "tags",
+								tagtype => "ingredients",
+							}
+						];
+					}
+
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 
-				push @{$localized_attribute_groups{$target_lc}}, $group_ref;
+				push @{$cached_attribute_groups{$cache_key}}, $group_ref;
 			}
 		}
 	}
 
-	return $localized_attribute_groups{$target_lc};
+	return $cached_attribute_groups{$cache_key};
 }
 
 =head2 initialize_attribute_group ( $group_id, $target_lc )
@@ -287,6 +311,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	}
 	elsif ($attribute_id eq "forest_footprint") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/forest-footprint-a.svg";
+		$attribute_ref->{panel_id} = "forest_footprint";
 	}
 	elsif ($attribute_id eq "nova") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nova-group-1.svg";
@@ -320,6 +345,9 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 	}
 	elsif ($attribute_id eq "repairability_index_france") {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/lang/fr/labels/indice-de-reparabilite-10.152x90.svg";
+	}
+	elsif ($attribute_id eq "unwanted_ingredients") {
+		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/contains-unwanted-ingredients.svg";
 	}
 
 	# Initialize name and setting name if a language is requested
@@ -429,6 +457,8 @@ Computes a nutritional quality attribute based on the Nutri-Score.
 =head3 Arguments
 
 =head4 product reference $product_ref
+
+#11872 Find and replace Storable with JSON
 
 Loaded from the MongoDB database, Storable files, or the OFF API.
 
@@ -753,10 +783,9 @@ sub compute_attribute_environmental_score ($product_ref, $target_lc, $target_cc)
 		$attribute_ref->{match} = 0;
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = lang_in_other_lc($target_lc, "attribute_environmental_score_unknown_title");
-			$attribute_ref->{description}
-				= lang_in_other_lc($target_lc, "attribute_environmental_score_unknown_description");
 			$attribute_ref->{description_short}
-				= lang_in_other_lc($target_lc, "attribute_environmental_score_unknown_description_short");
+				= lang_in_other_lc($target_lc,
+				"attribute_environmental_score_unknown_description_short_missing_precise_category");
 		}
 	}
 
@@ -1205,18 +1234,17 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 				display_taxonomy_tag($target_lc, "nutrients", "zz:$nid"),
 				lang_in_other_lc($target_lc, "unknown_quantity")
 			);
-			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
+			if (has_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data")) {
+				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts_prepared");
+			}
+			else {
+				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
+			}
 			$attribute_ref->{panel_id} = "nutrition_facts_table";
 		}
 	}
 	else {
 		$attribute_ref->{status} = "known";
-
-		my $prepared = "";
-
-		if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-			$prepared = '_prepared';
-		}
 
 		foreach my $nutrient_level_ref (@nutrient_levels) {
 			my ($nutrient_level_nid, $low, $high) = @{$nutrient_level_ref};
@@ -1230,7 +1258,20 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 				$high = $high / 2;
 			}
 
-			my $value = $product_ref->{nutriments}{$nid . $prepared . "_100g"};
+			my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+			$log->debug(
+				"compute attributes nutrient quantity for product - known",
+				{
+					code => $product_ref->{code},
+					level => $level,
+					nid => $nid,
+					value => $value,
+					low => $low,
+					high => $high,
+					xproduct => $product_ref
+				}
+			) if $log->is_debug();
 
 			my $match;
 
@@ -1313,10 +1354,6 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 
 	my $allergen_id = "en:" . $allergen;
 
-	$log->debug("compute attribute allergen for product",
-		{code => $product_ref->{code}, attribute_id => $attribute_id, allergen_id => $allergen_id})
-		if $log->is_debug();
-
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 
 	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
@@ -1362,6 +1399,7 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 				. " ingredients ("
 				. $product_ref->{unknown_ingredients_n}
 				. " unknown)";
+			$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "too_many_unknown_ingredients");
 		}
 	}
 	else {
@@ -1390,13 +1428,12 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 		$attribute_ref->{match} = 0;
 	}
 
+	my $allergen_name = display_taxonomy_tag($target_lc, "allergens", $allergen_id);
+
 	# No match: mark the attribute unknown
 	if (not defined $attribute_ref->{match}) {
 		$attribute_ref->{status} = "unknown";
-		$attribute_ref->{title} = sprintf(
-			lang_in_other_lc($target_lc, "presence_unknown_s"),
-			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
-		);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "presence_unknown_s"), $allergen_name);
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$allergen-content-unknown.svg";
 
 		if (not($product_ref->{ingredients_n})) {
@@ -1411,25 +1448,16 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 		}
 	}
 	elsif ($attribute_ref->{match} == 100) {
-		$attribute_ref->{title} = sprintf(
-			lang_in_other_lc($target_lc, "does_not_contain_s"),
-			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
-		);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "does_not_contain_s"), $allergen_name);
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-$allergen.svg";
 	}
 	elsif ($attribute_ref->{match} == 20) {
-		$attribute_ref->{title} = sprintf(
-			lang_in_other_lc($target_lc, "may_contain_s"),
-			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
-		);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "may_contain_s"), $allergen_name);
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/may-contain-$allergen.svg";
 	}
 	elsif ($attribute_ref->{match} == 0) {
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/contains-$allergen.svg";
-		$attribute_ref->{title} = sprintf(
-			lang_in_other_lc($target_lc, "contains_s"),
-			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
-		);
+		$attribute_ref->{title} = sprintf(lang_in_other_lc($target_lc, "contains_s"), $allergen_name);
 	}
 
 	return $attribute_ref;
@@ -1602,10 +1630,6 @@ e.g. nutritional_quality, allergens, labels
 
 sub add_attribute_to_group ($product_ref, $target_lc, $group_id, $attribute_ref) {
 
-	$log->debug("add_attribute_to_group",
-		{target_lc => $target_lc, group_id => $group_id, attribute_ref => $attribute_ref})
-		if $log->is_debug();
-
 	if (defined $attribute_ref) {
 
 		# Delete fields that are returned only by /api/v2/attribute_groups to list all the available attributes
@@ -1640,8 +1664,6 @@ sub add_attribute_to_group ($product_ref, $target_lc, $group_id, $attribute_ref)
 		my $group_ref;
 		# Select the requested group
 		foreach my $each_group_ref (@{$product_ref->{"attribute_groups_" . $target_lc}}) {
-			$log->debug("add_attribute_to_group - existing group", {group_ref => $group_ref, group_id => $group_id})
-				if $log->is_debug();
 			if ($each_group_ref->{id} eq $group_id) {
 				$group_ref = $each_group_ref;
 				last;
@@ -1690,6 +1712,8 @@ Needed for some country specific attributes like the Environmental-Score.
 Defines how some attributes should be computed (or not computed)
 
 - skip_[attribute_id] : do not compute a specific attribute
+- attribute_unwanted_ingredients_tags : a comma separated list of unwanted ingredients
+  (e.g. "palm oil, titanium dioxide") to compute the unwanted ingredients attribute
 
 =head3 Return values
 
@@ -1739,6 +1763,17 @@ sub compute_attributes ($product_ref, $target_lc, $target_cc, $options_ref) {
 		foreach my $analysis ("vegan", "vegetarian", "palm-oil-free") {
 			$attribute_ref = compute_attribute_ingredients_analysis($product_ref, $target_lc, $analysis);
 			add_attribute_to_group($product_ref, $target_lc, "ingredients_analysis", $attribute_ref);
+		}
+		# Unwanted ingredients
+		my $unwanted_ingredients_tags = $options_ref->{"attribute_unwanted_ingredients_tags"};
+		if (defined $unwanted_ingredients_tags) {
+			my @unwanted_ingredients = map {s/^\s+|\s+$//gr} split /,/, $unwanted_ingredients_tags;
+			# Only compute the unwanted ingredients attribute if we do have unwanted ingredients
+			if (scalar(@unwanted_ingredients) > 0) {
+				$attribute_ref
+					= compute_attribute_unwanted_ingredients($product_ref, $target_lc, \@unwanted_ingredients);
+				add_attribute_to_group($product_ref, $target_lc, "ingredients", $attribute_ref);
+			}
 		}
 	}
 
@@ -1912,6 +1947,122 @@ sub compute_attribute_repairability_index_france ($product_ref, $target_lc, $tar
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_repairability_index_france_unknown_description_short");
 		}
+	}
+
+	return $attribute_ref;
+}
+
+=head2 compute_attribute_unwanted_ingredients($product_ref, $target_lc, $unwanted_ingredients_ref)
+
+Checks if the product contains any unwanted ingredients specified by the user.
+
+=head3 Arguments
+
+=head4 product reference $product_ref
+
+Loaded from the MongoDB database, Storable files, or the OFF API.
+
+=head4 language code $target_lc
+
+Returned attributes contain both data and strings intended to be displayed to users.
+
+=head4 unwanted ingredients array reference $unwanted_ingredients_ref
+
+Array reference containing ingredient tags to avoid (e.g. ["en:garlic", "en:mango"]).
+
+=head3 Return value
+
+The return value is a reference to the resulting attribute data structure.
+
+=head4 % Match
+
+- 100: none of the unwanted ingredients are present
+- 0: at least one unwanted ingredient is present
+
+=cut
+
+sub compute_attribute_unwanted_ingredients ($product_ref, $target_lc, $unwanted_ingredients_ref) {
+	my $attribute_id = "unwanted_ingredients";
+	my $attribute_ref = initialize_attribute($attribute_id, $target_lc);
+	$attribute_ref->{status} = "unknown";
+
+	# By default, link to the ingredients panel
+	$attribute_ref->{panel_id} = "ingredients";
+
+	# In theory, should not happen, as the cookie is set only if unwanted ingredients are defined
+	if (!defined $unwanted_ingredients_ref || ref($unwanted_ingredients_ref) ne 'ARRAY' || !@$unwanted_ingredients_ref)
+	{
+		$attribute_ref->{debug} = "no unwanted ingredients defined";
+	}
+	# If we don't have ingredients, return unknown
+	elsif ((not defined $product_ref->{ingredients_tags}) or (scalar @{$product_ref->{ingredients_tags}} == 0)) {
+		$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "missing_ingredients_list");
+	}
+	else {
+		# We have ingredients, check for unwanted ingredients
+
+		my @found_unwanted_ingredients = ();
+		foreach my $ingredient (@$unwanted_ingredients_ref) {
+			if (has_tag($product_ref, "ingredients", $ingredient)) {
+				push @found_unwanted_ingredients, $ingredient;
+			}
+		}
+
+		if (scalar @found_unwanted_ingredients > 0) {
+			# At least one unwanted ingredient is present
+			my $unwanted_ingredients
+				= join(", ", map {display_taxonomy_tag($target_lc, "ingredients", $_)} @found_unwanted_ingredients);
+			$attribute_ref->{status} = "known";
+			$attribute_ref->{match} = 0;
+			$attribute_ref->{title} = lang_in_other_lc($target_lc, "contains_unwanted_ingredients");
+			$attribute_ref->{description_short} = $unwanted_ingredients;
+			$attribute_ref->{description}
+				= lang_in_other_lc($target_lc, "attribute_unwanted_ingredients_name")
+				. lang_in_other_lc($target_lc, "sep") . ": "
+				. $unwanted_ingredients;
+			$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/contains-unwanted-ingredients.svg";
+		}
+		else {
+			# No unwanted ingredients detected
+
+			# Check that we do not have too many unknown ingredients, otherwise mark as unknown
+			if ($product_ref->{unknown_ingredients_n} <= $product_ref->{ingredients_n} / 10) {
+
+				my $unwanted_ingredients
+					= join(', ', map {display_taxonomy_tag($target_lc, "ingredients", $_)} @$unwanted_ingredients_ref);
+
+				$attribute_ref->{status} = "known";
+				$attribute_ref->{match} = 100;
+				$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/no-unwanted-ingredients.svg";
+				$attribute_ref->{title} = lang_in_other_lc($target_lc, "no_unwanted_ingredients");
+				$attribute_ref->{description_short} = f_lang_in_lc(
+					$target_lc,
+					"f_we_did_not_detect_unwanted_ingredients",
+					{
+						unwanted_ingredients => $unwanted_ingredients
+					}
+				);
+				$attribute_ref->{description} = f_lang_in_lc(
+					$target_lc,
+					"f_we_did_not_detect_unwanted_ingredients_warning",
+					{
+						unwanted_ingredients => $unwanted_ingredients
+					}
+				);
+			}
+			else {
+				# Keep status unknown if too many unknown ingredients
+				# link to the ingredients analysis details
+				$attribute_ref->{description_short} = lang_in_other_lc($target_lc, "too_many_unknown_ingredients");
+				$attribute_ref->{panel_id} = "ingredients_analysis_details";
+			}
+		}
+	}
+
+	if ($attribute_ref->{status} eq "unknown") {
+		$attribute_ref->{title} = lang_in_other_lc($target_lc, "presence_of_unwanted_ingredients_unknown");
+		$attribute_ref->{icon_url}
+			= "$static_subdomain/images/attributes/dist/unwanted-ingredients-content-unknown.svg";
 	}
 
 	return $attribute_ref;

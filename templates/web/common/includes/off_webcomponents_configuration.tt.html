@@ -5,6 +5,11 @@
     "apiUrl": "[% robotoff_domain %]/api/v1",
     "imgUrl": "[% images_domain %]/images/products"
   }'
-  openfoodfacts-api-url="[% static_subdomain %]"
+  [% IF (folksonomy_uri.defined) && (folksonomy_uri.length> 0) %]
+  folksonomy-configuration='{
+  "apiUrl": "[% folksonomy_uri %]"
+  }'
+  [% END %]
+  openfoodfacts-api-url="[% api_domain %]"
   assets-images-path="[% static_subdomain %]/css/dist/images"
-></off-webcomponents-configuration>
+  ></off-webcomponents-configuration>

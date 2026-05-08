@@ -27,14 +27,13 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$subdomain init_request/;
+use ProductOpener::Texts qw/:all/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -58,10 +57,11 @@ else {
 	$long_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 }
 
-my $description = lang("search_description_opensearch");
+# TODO: flavor specific string
+my $description = lang("search_description_opensearch_$flavor");
 my $image_tag = $options{opensearch_image};
 
-my $uri = format_subdomain($subdomain);
+my $uri = $request_ref->{formatted_subdomain};
 
 my $xml = <<XML
 <?xml version="1.0" encoding="UTF-8"?>

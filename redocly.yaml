@@ -3,9 +3,9 @@ theme:
     schemaDefinitionsTagName: Schemas
 apis:
   main:
-    root: docs/api/ref/api.yml
+    root: docs/api/ref/api.yaml
   test:
-    root: docs/api/ref/api-v3.yml
+    root: docs/api/ref/api-v3.yaml
 extends:
   - recommended
 rules:

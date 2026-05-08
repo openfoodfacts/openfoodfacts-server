@@ -8,12 +8,13 @@
             {
                "ciqual_proxy_food_code" : "19051",
                "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-               "id" : "en:pasteurised-cow-s-milk",
+               "id" : "en:cow-s-milk",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 43.75,
                "percent_max" : 100,
                "percent_min" : 12.5,
-               "text" : "llet de vaca pasteuritzada",
+               "processing" : "en:pasteurised",
+               "text" : "llet de vaca",
                "vegan" : "no",
                "vegetarian" : "yes"
             },
@@ -84,7 +85,7 @@
       ],
       "en:non-vegan" : [
          "en:mozzarella",
-         "en:pasteurised-cow-s-milk"
+         "en:cow-s-milk"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -101,7 +102,7 @@
    "ingredients_original_tags" : [
       "en:mozzarella",
       "en:anti-caking-agent",
-      "en:pasteurised-cow-s-milk",
+      "en:cow-s-milk",
       "en:salt",
       "en:lactic-ferments",
       "en:rennet",
@@ -113,10 +114,8 @@
       "en:dairy",
       "en:cheese",
       "en:anti-caking-agent",
-      "en:pasteurised-cow-s-milk",
-      "en:milk",
-      "en:pasteurised-milk",
       "en:cow-s-milk",
+      "en:milk",
       "en:salt",
       "en:lactic-ferments",
       "en:ferment",
@@ -148,11 +147,5 @@
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 7,
    "lc" : "ca",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 0
 }

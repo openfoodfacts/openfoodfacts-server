@@ -51,7 +51,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -106,7 +106,7 @@ sub add_back_field_values_removed_by_user ($current_product_ref, $changes_ref, $
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
+		my $product_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/$rev");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -219,7 +219,7 @@ while (my $product_ref = $cursor->next) {
 	
 	$n++;
 
-	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+	my $changes_ref = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 	if ( not defined $changes_ref ) {
 		next;
 	}

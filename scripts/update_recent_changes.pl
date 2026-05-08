@@ -12,8 +12,8 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Store qw/retrieve_object/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -58,10 +58,10 @@ while (my $product_ref = $cursor->next) {
 	my $code = $product_ref->{code};
 	my $path = product_path($product_ref);
 
-	my $changes_path = "$BASE_DIRS{PRODUCTS}/$path/changes.sto";
+	my $changes_path = "$BASE_DIRS{PRODUCTS}/$path/changes";
 	print STDERR "updating product $code from $changes_path\n";
 
-	my $changes_ref = retrieve($changes_path);
+	my $changes_ref = retrieve_object($changes_path);
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}

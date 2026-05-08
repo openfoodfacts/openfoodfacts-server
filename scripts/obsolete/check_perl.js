@@ -25,7 +25,7 @@ async function main() {
   // 0 = node; 1 = check_perl.js
   for (const arg of process.argv.slice(2)) {
     const files = await glob(arg);
-    for (var i = 0; i < files.length; ++i) {
+    for (let i = 0; i < files.length; ++i) {
       filesToCheck.push(files[i]);
     }
   }
