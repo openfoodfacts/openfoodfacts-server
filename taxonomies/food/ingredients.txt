@@ -116,6 +116,8 @@ synonyms:pt: oliva, oliveira
 
 synonyms:pt: láctico, lático, lácteo
 
+synonyms:da: ristet, ristede
+synonyms:sv: rostat, rostad, rostade
 
 # comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
@@ -1038,9 +1040,6 @@ sv: modifierad potatisstärkelse
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# description:en:FERMENT is an agent, such as an enzyme, bacterium, or fungus, that brings about fermentation.
-# comment:en:Ferment is thus more generic than enzyme.
-
 en: ferment
 az: fermentlər
 ba: Ферменттар
@@ -1074,10 +1073,13 @@ uz: fermentlar
 # be-tarask:Фэрмэнты
 # tyv:Ферментилер
 # xal:Фермент
+comment:en: Ferment is more generic than enzyme.
+description:en: FERMENT is an agent, such as an enzyme, bacterium, or fungus, that brings about fermentation.
 #ferments for yoghurts do not make them nova 3, commenting the line below
 #nova:en:3
 vegan:en: maybe
 vegetarian:en: maybe
+wikidata:en: Q2098111
 
 # comment:en:The list of products is very very wrong. So uncommenting it for the moment.
 # comment:en:en:coagulating enzyme Might need to be merged with en:rennet.
@@ -1237,7 +1239,7 @@ es: levadura natural de masa madre, levadura de masa madre
 fr: Starters pour levain
 hr: predjelo od kiselog tijesta
 it: lievito madre
-wikidata:en: Q904889
+wikidata:en: Q96694045
 # ingredient/en:sourdough-culture has 43 products in 2 languages @2020-06-08
 
 < en:lactic ferments
@@ -20668,6 +20670,19 @@ it: aroma di brandy
 pl: aromat brandy
 
 < en:flavouring
+en: chili pepper flavouring
+da: chilipeppersmag
+fi: chilipippuriaromi
+nl: chilipepersmaak
+sv: chilipepparsmak
+
+< en:flavouring
+en: sweet chili pepper flavouring
+da: sød chilipeppersmag, sød chili-smag, sød chili smag
+fr: base aromatisante piment doux
+sv: söt chilipepparsmak, söt chili-smak
+
+< en:flavouring
 en: maple flavouring
 fr: arôme d'érable
 hr: aroma javora
@@ -23817,12 +23832,6 @@ nl: volkoren tarwegriesmeel
 pl: pełnoziarnista mąka z pszenicy durum, pełnoziarnista mąka z pszenicy twardej, mąka pełnoziarnista z pszenicy twardej
 ru: цельно зерновая мука из твердых сортов пшеницы
 sv: fullkornsdurumvetemjöl, fullkornsmjöl av durumvete
-
-< en:durum wheat
-< en:wheat sourdough
-en: durum wheat sourdough
-hr: pšenično durum kiselo tijesto
-it: lievito di grano duro
 
 < en:durum wheat
 < en:semolina
@@ -36671,9 +36680,6 @@ en: yeast extract aroma, yeast extract flavour
 it: aroma di estratto di lievito
 pl: aromat z ekstraktu drożdżowego, aromat ekstraktu drożdżowego
 
-
-# description:en:Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
-
 < en:dough
 en: sourdough
 an: Emprenyatuera
@@ -36681,7 +36687,7 @@ ar: خبز عجينة متخمرة
 bg: Квас
 ca: Massa mare
 cs: Kvásek
-da: Surdej
+da: surdej
 de: Sauerteig
 eo: Acidpasto
 es: Masa madre
@@ -36705,44 +36711,59 @@ ru: Хлебная закваска
 sh: Кисело тесто
 sk: Kvások
 sr: Кисело тесто
-sv: Surdeg
+sv: surdeg
 zh: 老麵
+#nap: Criscito
+description:en: Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
 likely_allergens:en: en:gluten
-# nap:Criscito
-wikidate:en: Q2098111
+wikidata:en: Q904889
 wikipedia:en: https://en.wikipedia.org/wiki/Sourdough
 
 < en:sourdough
 en: natural sourdough
+da: naturlig surdej
 de: Natursauerteig
 hr: prirodno kiselo tijesto
 it: lievito madre naturale
 pl: zakwas naturalny
 
 < en:sourdough
-en: dehydrated sourdough, sourdough powder
+en: dehydrated sourdough
+da: dehydreret surdej
 de: Sauerteig getrocknet
 fi: kuivattu taikinajuuri
 fr: levain sec, levain déshydraté
 hr: dehidrirano kiselo tijesto
 it: lievito naturale secco
-nl: zuurdesempoeder, desempoeder
 pl: zakwas w proszku, sproszkowany zakwas
 
 < en:dehydrated sourdough
-en: devitalised and dehydrated sourdough
+en: sourdough powder
+da: surdejspulver
+nl: zuurdesempoeder, desempoeder
+sv: surdegspulver
+
+< en:sourdough
+en: devitalised sourdough
+fr: levain dévitalisé
+
+< en:dehydrated sourdough
+< en:devitalised sourdough
+en: dehydrated and devitalised sourdough
 fr: levain déshydraté et dévitalisé
 hr: devitalizirano i dehidrirano kiselo tijesto
 it: pasta madre devitalizzata e disidratata
 nl: geïnactiveerde desempoeder
 
 < en:sourdough
+< en:wheat
 en: wheat sourdough
 bg: пшенична закваска, пшеничен квас
-ca: massa mare de blat, massa mare natural de blat
+ca: massa mare de blat
 cs: pšeničny kvas, pšeničný kvas
+da: hvedesurdej
 de: Weizensauerteig
-es: masa madre de trigo, masa madre natural de trigo
+es: masa madre de trigo
 fi: vehnätaikinanjuuri, vehnähapantaikina
 fr: levain de blé, levain panaire de blé
 hr: pšenično kiselo tijesto
@@ -36754,8 +36775,16 @@ pl: zakwas pszenny
 sv: vetesurdeg, surdeg av vete, surdeg på vete
 allergens:en: en:gluten
 
+< en:natural sourdough
 < en:wheat sourdough
-en: dried wheat sourdough, dehydrated wheat sourdough
+en: natural wheat sourdough
+ca: massa mare natural de blat
+da: naturlig hvedesurdej
+es: masa madre natural de trigo
+
+< en:dehydrated sourdough
+< en:wheat sourdough
+en: dehydrated wheat sourdough, dried wheat sourdough
 es: masa madre deshidratada de trigo
 fi: kuivattu vehnätaikinanjuuri
 fr: levain de blé déshydraté
@@ -36765,10 +36794,25 @@ lt: sausas kviečių raugas, sausas kvietiniai raugas, sausas kvietinės raugas,
 nl: gedroogde tarwezuurdesem
 pl: suszony zakwas pszenny, suchy zakwas pszenny
 
+< en:dehydrated wheat sourdough
+< en:sourdough powder
+en: wheat sourdough powder
+da: hvedesurdejspulver
+sv: surdegspulver av vete
+
+< en:devitalised sourdough
 < en:wheat sourdough
+en: devitalised wheat sourdough
 fr: levain de blé dévitalisé
 nl: geïnactiveerd tarwedesem
 
+< en:durum wheat
+< en:wheat sourdough
+en: durum wheat sourdough
+hr: pšenično durum kiselo tijesto
+it: lievito di grano duro
+
+< en:rye
 < en:sourdough
 en: rye sourdough
 bg: ръжена закваска
@@ -36783,15 +36827,20 @@ nl: roggezuurdesem, roggedesem
 pl: zakwas żytni
 sv: rågsurdeg, surdeg av råg
 allergens:en: en:gluten
+wikidata:en: Q107263089
 # ingredient/en:rye-sourdough has 47 products in 3 languages @2020-06-12
 
+< en:natural sourdough
 < en:rye sourdough
 en: natural rye sourdough
+da: naturlig rugsurdej
 it: pasta madre di segale naturale
 pl: naturalny zakwas żytni, zakwas naturalny żytni
 
 < en:rye sourdough
+< en:wholemeal rye
 en: whole rye sourdough
+da: fuldkornsrugsurdej
 de: Roggenvollkornsauerteig
 fi: täysjyväruistaikinajuuri
 hr: cijelo raženo kiselo tijesto
@@ -36799,16 +36848,22 @@ it: pasta madre di segale integrale
 sv: surdeg av fullkornsrågmjöl, surdeg av fullkornsrågmöl, surdeg på fullkornsråg, surdeg av fullkornsråg
 
 < en:rye sourdough
+en: devitalised rye sourdough
 fr: levain de seigle dévitalisé
 nl: geïnactiveerd roggedesempoeder
 
-< en:rye sourdough
+< en:dehydrated and devitalised sourdough
+< en:devitalised rye sourdough
+en: dehydrated and devitalised rye sourdough
 fr: levain de seigle déshydraté et dévitalisé
 
 < en:rye sourdough
+< en:sourdough powder
 en: rye sourdough powder
+da: rugsurdejspulver
 it: polvere di pasta madre di segale
 nl: rogge zuurdesempoeder, gedroogd roggedesem
+sv: surdegspulver av råg
 
 < en:rye sourdough
 < en:wheat sourdough
@@ -36831,22 +36886,41 @@ en: wheat and whole rye sourdough
 sv: surdeg på fullkornsråg och vete
 
 < en:sourdough
-nl: speltzuurdesempoeder
+< en:spelt
+en: spelt sourdough
+da: speltsurdej
+nl: speltzuurdesem
+sv: surdeg av spelt
 
+< en:sourdough powder
+< en:spelt sourdough
+en: spelt sourdough powder
+da: speltsurdejspulver
+nl: speltzuurdesempoeder
+sv: surdegspulver av spelt
+
+< en:rice
 < en:sourdough
-en: natural rice sourdough
+en: rice sourdough
 da: rissurdej
+fr: levain de riz
+nl: rijstzuurdesem
+sv: rissurdeg
+
+< en:natural sourdough
+< en:rice sourdough
+en: natural rice sourdough
+da: naturlig rissurdej
 de: reisnatursauerteigeisnatursauerteig
 es: masa fermentada de arroz
 fi: hapatettu riisitaikina
 fr: levain naturel de riz
 hr: prirodno kiselo tijesto od riže
 it: lievito madre naturale di riso
-nl: rijstzuurdesem
 pl: naturalny zakwas ryżowy
-sv: rissurdeg
 
 < en:sourdough
+en: inactive sourdough starter
 es: masa madre inactiva
 hr: inaktivni suhi kvasac
 
@@ -58863,8 +58937,6 @@ sv: blandade bönor
 ##########################
 
 
-# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse).
-# Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
 < en:vegetable
 en: legume
 af: Peulgewas
@@ -58873,7 +58945,7 @@ ar: بقول
 bg: бобово растение
 ca: llegum
 cs: luštěnina
-da: Bælgfrugt
+da: bælgfrugt
 de: Hülsenfrucht
 el: Όσπρια
 eo: Guŝo
@@ -58918,7 +58990,7 @@ sh: Mahuna
 sk: Strukoviny
 sl: Strok
 sr: махуна
-sv: ärtväxter
+sv: ärtväxt, ärtväxter
 sw: Jamii kunde
 ta: அவரை
 th: ถั่ว
@@ -58928,28 +59000,29 @@ uk: бобові культури
 uz: dukkakli don ekinlari
 vi: Quả đậu
 zh: 荚果
+#ast: Llegume
+#csb: Łušćinowy płod
+#eml: Scurnècia
+#hsb: Łušćinowy płód
+#hsb: Łušćinowy płód
+#nan: Ngeh-kó
+#new: बूबः
+#scn: Vaiana
+#sco: legume
+#sgs: Onkštėnis augals
+#sr-ec: махуна
+#sr-el: Mahuna
+#war: Legume
+#yue: 豆類
+#zh-cn: 荚果
+#zh-hans: 荚果
+#zh-hant: 莢果
+#zh-hk: 莢果
+#zh-sg: 荚果
+#zh-tw: 莢果
+description:en: A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
 vegan:en: yes
 vegetarian:en: yes
-# ast:Llegume
-# csb:Łušćinowy płod
-# eml:Scurnècia
-# hsb:Łušćinowy płód
-# hsb:Łušćinowy płód
-# nan:Ngeh-kó
-# new:बूबः
-# scn:Vaiana
-# sco:legume
-# sgs:Onkštėnis augals
-# sr-ec:махуна
-# sr-el:Mahuna
-# war:Legume
-# yue:豆類
-# zh-cn:荚果
-# zh-hans:荚果
-# zh-hant:莢果
-# zh-hk:莢果
-# zh-sg:荚果
-# zh-tw:莢果
 wikidata:en: Q145909
 
 < en:legume
@@ -58960,9 +59033,10 @@ it: legumi secchi
 lv: žāvēti pākšaugi
 nl: gedroogde peulvruchten
 pt: pulso
+sv: baljfrukt
+comment:it: "en:pulse" e "en:legumes" in italiano spesso si confondono perché entrambi i termini vengono generalmente tradotti come "legumi", anche se tecnicamente sarebbe più preciso distinguere tra "legumi secchi" (pulses) e "leguminose" (legume plants).
 eurocode_2_group_2:en: 7.10
 wikidata:en: Q2727662
-#comment:it: "en:pulse" e "en:legumes" in italiano spesso si confondono perché entrambi i termini vengono generalmente tradotti come "legumi", anche se tecnicamente sarebbe più preciso distinguere tra "legumi secchi" (pulses) e "leguminose" (legume plants).
 
 # description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 
@@ -61950,23 +62024,23 @@ wikidata:en: Q11027461
 < en:nut
 en: peanut, peanuts
 ar: فول سوداني
-ay: Chuqupa
-az: Araxis
+ay: chuqupa
+az: araxis
 bg: фъстък, фъстъци
 bs: kikiriki
-ca: Cacauet, cacauets
+ca: cacauet, cacauets
 cs: arašídy
-da: jordnødder, jordnød, peanuts
+da: jordnød, jordnødder, peanuts
 de: Erdnuss, Erdnüsse, Erdnüssen, Erdnusse, Erdnusskerne
 el: αραχίδες, αραχίδα, αραπικα φιστικια
 eo: ternukso
 es: cacahuetes, cacahuete, cacahuates, cacahuate, maní
-et: Maapähkel, maapähklid, maapähkleid
+et: maapähkel, maapähklid, maapähkleid
 fi: maapähkinä, maapähkinät, maapähkinää
 fr: arachides, arachide, cacahuètes, cacahuète, cacahouètes, cacahouète
-ga: Cnó talún, piseanna
+ga: cnó talún, piseanna
 gu: મગફળી
-ha: Gyaɗa
+ha: gyaɗa
 he: בוטן, בוטנים, חמאת בוטנים
 hr: kikiriki, kikirikija
 hu: földimogyoró, amerikaimogyoró
@@ -61975,9 +62049,9 @@ it: arachide, arachidi
 ja: ラッカセイ, 落花生
 ka: არაქისი
 ko: 땅콩
-ku: Fistiqa axê
+ku: fistiqa axê
 la: arachis hypogaea
-ln: Ngúba
+ln: ngúba
 lt: žemės riešutai, žemės riešutų
 lv: zemesrieksti, zemesriekstus, zemesriekstu
 mr: भुईमूग
@@ -61985,50 +62059,43 @@ mt: karawett
 nb: peanøtter
 nl: pinda, pinda's, aardnoot, aardnoten, pindanoten, pindas, vliespinda's
 nn: peanøtter
-nv: Neeshchʼííłbáhí
+nv: neeshchʼííłbáhí
 pl: orzeszki, orzeszki arachidowe, orzeszki ziemne, arachidowe, orzechy arachidowe, orzeszków ziemnych, orzeszków arachidowych, orzechów ziemnych, orzechów arachidowych, orzechy ziemne
-pt: amendois, amendoins, amendoim
+pt: amendoim, amendois, amendoins
 ro: alune, arahide
 ru: арахис
 sk: arašidy
 sl: arašidi, araśidi, kikiriki
-sn: Nzungu
+sn: nzungu
 sr: кикирики
-sv: jordnötter
+sv: jordnöt, jordnötter, jordnöts
 th: ถั่วลิสง
-tr: Yer fıstığı, yerfıstığı
+tr: yer fıstığı, yerfıstığı
 tt: җир чикләвеге
-uz: Yeryongʻoq
+uz: yeryongʻoq
 yi: סטאשקע
-za: Duhdoem
+za: duhdoem
 zh: 花生仁, 花生
-# ceb:Mani
-# hak:Thì-thèu
-# mrj:Кӹдӓлӓн пӱкш
-# scn:Calacavisi
-# tt-cyrl:җир чикләвеге
+#ceb: Mani
+#hak: Thì-thèu
+#mrj: Кӹдӓлӓн пӱкш
+#scn: Calacavisi
+#tt-cyrl: җир чикләвеге
 allergens:en: en:peanuts
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:arachide
-# 1147 products in 9 languages @2018-10-05
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
-# 806 products in 19 languages @2018-10-06
 ciqual_food_code:en: 15001
 ciqual_food_name:en: Peanut
 ecobalyse:en: peanut-non-eu
 ecobalyse_labels_en_organic:en: peanut-organic
+wikidata:en: Q37383
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:arachide
+# 1147 products in 9 languages @2018-10-05
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
+# 806 products in 19 languages @2018-10-06
 
 < en:peanut
-en: peanut paste
-de: Erdnusspaste
-es: pasta de cacahuete, pasta de maní
-hr: pasta od kikirikija, kikiriki pasta
-it: crema di arachidi
-pl: pasta z orzechów arachidowych, pasta z orzeszków arachidowych
-
-< en:peanut
-en: roasted peanuts
+en: roasted peanut, roasted peanuts
 bg: печени фъстъци
-da: ristede peanuts
+da: ristet jordnød, ristede peanuts
 de: geröstete Erdnüsse
 es: cacahuetes tostados, maní tostado
 fi: paahdettu maapähkinä, paahdetut maapähkinät
@@ -62038,16 +62105,20 @@ it: arachidi tostate
 ja: ローストピーナッツ
 lt: skrudinti žemės riešutai
 nl: geroosterde pinda's, geroosterde pindanoten
+pt: amendoim torrado
 ru: арахис обжаренный
+sv: rostad jordnöt, rostade jordnötter
 tr: kavrulmuş yer fıstığı, kavrulmuş yerfıstığı
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes-grillées
-# 66 products in 6 languages @2018-10-06
 ciqual_food_code:en: 15037
 ciqual_food_name:en: Peanut, grilled
 ciqual_food_name:fr: Cacahuète, grillée
+wikidata:en: Q110495337
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes-grillées
+# 66 products in 6 languages @2018-10-06
 
-< en:roasted peanuts
-en: organic roasted peanuts
+< en:roasted peanut
+en: organic roasted peanut, organic roasted peanuts
+da: økologisk ristet jordnød
 de: geröstete biologisch Erdnüsse
 el: φυστίκια ψημένος βιολογική
 es: cacahuetes tostados ecológicos
@@ -62056,33 +62127,40 @@ fr: arachides grillées biologique
 hr: organski prženi kikiriki
 it: arachidi tostate biologiche
 nl: biologische geroosterde pinda's
-sv: ekologisk rostade jordnötter
+pt: amendoim torrado biológico
+sv: ekologisk rostad jordnöt, ekologiska rostade jordnötter, ekologisk rostade jordnötter
 # ingredient/nl:biologische-geroosterde-pinda-s has 1 product @2019-05-24
 
-< en:roasted peanuts
-en: milled roasted peanuts
+< en:roasted peanut
+en: milled roasted peanut, milled roasted peanuts
+da: malet ristet jordnød
 de: Erdnüsse geröstet und gemahlen, geröstete und gemahlene Erdnüsse, gemahlene geröstete Erdnüsse, geröstete gemahlene Erdnüsse
 es: cacahuetes tostados molidos
 fr: cacahuètes grillées moulues, arachides grillées moulues
 hr: mljeveni prženi kikiriki
 it: arachidi tostate macinate
 nl: geroosterde germalen pinda's
-pt: amendoins torrados moídos
+pt: amendoim torrado moído, amendoins torrados moídos
+sv: mald rostad jordnöt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuètes-grillées-moulues
 # 53 products in 6 languages @2018-10-06
 
 < en:peanut
-en: shelled peanuts
+en: shelled peanut, shelled peanuts
+da: afskallet jordnød, jordnød uden skal
 de: geschälte Erdnüsse
 fi: kuoreton maapähkinä, kuorettomat maapähkinät
 fr: cacahuètes décortiquées
 hr: kikiriki bez opne
 it: arachidi sgusciate
 nl: Pinda's in de dop
+pt: amendoim sem casca
+sv: jordnöt utan skal, jordnötter utan skal
 # ingredient/nl:pinda-s-in-de-dop has 1 product @2019-05-24
 
 < en:peanut
 en: peanut with shell
+da: jordnød med skal
 de: Erdnüsse mit Schale
 es: cacahuete con cáscara
 fi: kuorellinen maapähkinä
@@ -62091,64 +62169,113 @@ hr: kikiriki s ljuskom
 it: arachidi con guscio
 nl: pinda met schil
 pt: amendoim com casca
+sv: jordnöt med skal, jordnötter med skal
 
 < en:peanut
 en: peanut flour
+ar: دقيق الفول السوداني
 bg: фъстъчено брашно, брашно от фъстъци
+ca: flor del cacauet
+da: jordnøddemel
 de: Erdnussmehl
-es: Harina de cacahuete, harina de maní
+es: harina de cacahuete, harina de maní
 fr: farine d'arachide
 hr: brašno od kikirikija
-it: Farina di arachidi
-nl: Pinda bloem
+it: farina di arachidi
+jv: glepung kacang
+ko: 땅콩가루
+nl: pinda bloem, pindameel
 pl: mąka arachidowa, mąka z orzeszków ziemnych, mąki arachidowej
+pt: farinha de amendoim
+sl: arašidova moka
+sv: jordnötsmjöl
+zh: 花生粉
+wikidata:en: Q7157936
 # ingredient/en:peanut-flour has 786 products in 3 languages @2020-06-11
 
-# <en:compound
-# <en:roasted peanuts
-en: honey roasted peanuts
+#< en:compound
+#< en:roasted peanut
+en: honey roasted peanut, honey roasted peanuts
 de: honiggeröstete Erdnüsse
 es: cacahuetes tostados con miel, maní tostado con miel, maníes tostados con miel, cacahuate tostado con miel, cacahuete tostado con miel, cacahuetes tostados con miel
 fi: hunajapaahdettu maapähkinä
 hr: u medu pečeni kikiriki
 it: arachidi tostate al miele
-sv: honungsrostade jordnötter
+pt: amendoim torrado com mel
+sv: honungsrostad jordnöt, honungsrostade jordnötter
 allergens:en: en:peanuts
+vegan:en: no
+vegetarian:en: yes
+wikidata:en: Q18349953
 # usage:en:honey roasted peanuts (peanuts, honey, sugar, corn starch, cottonseed oil and salt)
 # mainIngredient:en:peanuts
 
 #en:compound
 #en:category:en:Peanut butters
 < en:peanut
-en: peanut butter, peanut paste, Peanut butter or peanut paste
-bg: фъстъчено масло, фъстъчена паста
-cs: arašídové máslo, arašídová pasta
+en: peanut butter
+bg: фъстъчено масло
+cs: arašídové máslo
+da: jordnøddesmør
 de: Erdnussbutter
 es: crema de cacahuete, crema de maní
-fr: beurre d'arachide, beurre de cacahuète, beurre de cacahouète, pâte d'arachide
+fr: beurre d'arachide, beurre de cacahuète, beurre de cacahouète
 hr: kikiriki maslac
-it: Burro di arachidi
+it: burro di arachidi
 ja: ピーナッツバーター
 nb: peanøttssmör
 nl: pindakaas
-pl: Masło z orzeszków ziemnych
-pt: Manteiga de amendoim
-sv: jordnöttssmör
-ciqual_food_code:en: 15202
-ciqual_food_name:en: Peanut butter or peanut paste
-ciqual_food_name:fr: Beurre de cacahuète ou Pâte d'arachide
+pl: masło z orzeszków ziemnych
+pt: manteiga de amendoim
+sv: jordnötssmör
+ciqual_proxy_food_code:en: 15202
+ciqual_proxy_food_name:en: Peanut butter or peanut paste
+ciqual_proxy_food_name:fr: Beurre de cacahuète ou Pâte d'arachide
 from_palm_oil:en: no
 vegan:en: yes
 vegetarian:en: yes
+wikidata:en: Q147651
 # ingredient/en:peanut-butter has 2899 products in 13 languages @2021-07-12
 
 < en:peanut butter
 en: crunchy peanut butter
+da: sprødt jordnøddesmør
 de: knusprige Erdnussbutter
 es: crema de cacahuete crujiente, crema de cacahuete con trozos
 hr: hrskavi maslac od kikirikija
 it: burro di arachidi croccante
+pt: manteiga de amendoim crocante
+sv: jordnötssmör med bitar
 
+< en:peanut
+en: peanut paste
+bg: фъстъчена паста
+cs: arašídová pasta
+da: jordnøddepasta
+de: Erdnusspaste
+eo: pasto de ternukso
+es: pasta de cacahuete, pasta de maní
+fr: pâte d'arachide
+hr: pasta od kikirikija, kikiriki pasta
+it: crema di arachidi
+pl: pasta z orzechów arachidowych, pasta z orzeszków arachidowych
+pt: pasta de amendoim
+sl: arašidova krema
+sv: jordnötspasta
+zh: 花生糊
+ciqual_proxy_food_code:en: 15202
+ciqual_proxy_food_name:en: Peanut butter or peanut paste
+ciqual_proxy_food_name:fr: Beurre de cacahuète ou Pâte d'arachide
+wikidata:en: Q15734719
+
+< en:peanut butter
+< en:peanut paste
+en: peanut butter or peanut paste
+da: jordnøddesmør eller -pasta
+sv: jordnötssmör eller -pasta
+ciqual_food_code:en: 15202
+ciqual_food_name:en: Peanut butter or peanut paste
+ciqual_food_name:fr: Beurre de cacahuète ou Pâte d'arachide
 
 ###################################################################################################
 #
