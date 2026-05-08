@@ -3417,6 +3417,8 @@ th: ไม่มีน้ำตาล
 tr: Şekersiz
 description:en: In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
+en: No carbohydrates, No carbs
+sv: Inga kolhydrater
 
 en: Lowers cholesterol
 bg: Намалява холестерола
@@ -3741,6 +3743,14 @@ country:en: en:Sweden
 description:en: deposit in Sweden.
 description:fr: consignée en Suède.
 image:sv: pant-1kr.61x90.png
+label_categories:en: en:Environment, en:Packaging
+
+sv: pant 2kr
+xx: pant 2kr
+country:en: en:Sweden
+description:en: deposit in Sweden.
+description:fr: consignée en Suède.
+#image:sv: pant-2kr.61x90.png
 label_categories:en: en:Environment, en:Packaging
 
 en: metal recycles forever
@@ -4695,6 +4705,9 @@ ru: Содержит алкоголь
 incompatible_with:en: labels:en:no-alcohol
 opposite:en: en:no-alcohol
 
+en: Don't consume with alcohol
+sv: Använd ej tilsammans med alkohol
+
 en: without allergens
 bg: без алергени
 ca: sense al·lèrgens
@@ -4947,7 +4960,6 @@ si: brez kofeina
 th: ไม่มีคาเฟอีน
 label_categories:en: en:Health
 
-
 #instruction:en:Do NOT change the english key.
 en: with caffeine
 bg: С кофеин
@@ -4964,6 +4976,9 @@ pl: z kofeiną
 pt: com cafeína
 ru: с кофеином
 th: มีคาเฟอีน
+
+en: high caffeine content
+sv: hög koffeinhalt
 
 en: 100% arabica
 xx: 100% arabica
@@ -5797,6 +5812,10 @@ se: Rekommenderas ej till barn samt gravida
 sv: Rekommenderas ej till barn samt gravida
 
 < en:Not advised for specific people
+en: Not advised for children and pregnant or breastfeeding people, Not recommended for children and pregnant or breastfeeding women
+sv: Rekommenderas ej för barn och gravida eller ammande personer, Rekommenderas ej för barn och gravida eller ammande kvinnor
+
+< en:Not advised for specific people
 en: Not recommended for children under 3 years
 ca: No recomanat per infants menors de 3 anys
 da: Ikke anbefalet til børn under 3 år
@@ -6226,6 +6245,7 @@ lt: ES žemės ūkis, Europos Sąjungos žemės ūkis
 nl: EU landbouw
 pt: Agricultura UE, Agricultura da União Europeia
 ru: EU агрокультура, агрокультура Европейского Союза
+sv: EU-jordbruk
 
 < en:EU Agriculture
 en: French agriculture
@@ -7992,6 +8012,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU organic
 en: TR-BIO-171
+xx: TR-BIO-171
 auth_address:en: 2 Tilou street, 54638, Thessaloniki, Greece
 auth_name:en: A CERT European Organization for Certification S.A.
 auth_url:en: http://www.a-cert.org
@@ -8723,6 +8744,7 @@ exceptions:en: en: in conversion products,en:wine
 
 < en:EU organic
 en: TR-BIO-139
+xx: TR-BIO-139
 auth_address:en: Rr. Kavajes”, Nd.132, Hy.9, Kati 8, Ap.43, perball pallatit me shigjeta, Tirana, Albania
 auth_name:en: Albinspekt
 auth_url:en: http://www.albinspekt.com
@@ -8903,6 +8925,7 @@ exceptions:en: en: in-conversion products,en:wine
 
 < en:EU organic
 en: TR-BIO-175
+xx: TR-BIO-175
 auth_address:en: Çinarli Mahallesi Şehit Polis Fethi Sekin Cad. No:3, 1006, Konak/IZMIR, Turkey
 auth_name:en: BAȘAK Ekolojik Ürünler Kontrol ve Sertifikasyon Hizmetleri Tic.
 auth_url:en: http://basakekolojik.com.tr
@@ -9344,7 +9367,7 @@ exceptions:en: en:wine,en:until 30 June 2021
 
 < en:EU organic
 en: TR-BIO-161
-de: TR-BIO-161
+xx: TR-BIO-161
 auth_address:en: Ackerstrasse, 5070, Frick, Switzerland
 auth_name:en: Bio.inspecta AG
 auth_url:en: http://www.bio-inspecta.ch
@@ -9671,6 +9694,7 @@ exceptions:en: en: in-conversion products,en:wine
 
 < en:EU organic
 en: TR-BIO-132
+xx: TR-BIO-132
 auth_address:en: Via dei Macabraccia 8, Casalecchio di Reno, 40033, Bologna, Italy
 auth_name:en: Bioagricert S.r.l.
 auth_url:en: http://bioagricert.org
@@ -10455,6 +10479,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU organic
 en: TR-BIO-102
+xx: TR-BIO-102
 auth_address:en: Viale Masini, 36, 40126, Bologna, Italy
 auth_name:en: CCPB Srl
 auth_url:en: http://www.ccpb.it
@@ -11142,6 +11167,7 @@ exceptions:en: en: except products covered by Annex III,en:in-conversion product
 
 < en:EU organic
 en: TR-BIO-140
+xx: TR-BIO-140
 auth_address:en: Vorderhaslach 1, 91230, Happurg, Germany
 auth_name:en: CERES Certification of Environmental Standards GmbH
 auth_url:en: http://www.ceres-cert.com
@@ -13618,7 +13644,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU organic
 en: TR-BIO-154
-de: TR-BIO-154
+xx: TR-BIO-154
 auth_address:en: BP 47, 32600, L'Isle-Jourdain, France
 auth_name:en: Ecocert SA
 auth_url:en: http://www.ecocert.com
@@ -14106,6 +14132,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU organic
 en: TR-BIO-144
+xx: TR-BIO-144
 auth_address:en: 5700 SW 34th st, suite 349, 326048, Gainesville FL, United States of America
 auth_name:en: Florida Certified Organic Growers and Consumers, Inc. (FOG),
 auth_url:en: http:// www.qcsinfo.org
@@ -15412,6 +15439,7 @@ exceptions:en: en:except products covered by Annex III,en:in conversion products
 
 < en:EU organic
 en: TR-BIO-115
+xx: TR-BIO-115
 auth_address:en: Via Giovanni Brugnoli, 15, 40122, Bologna, Italy
 auth_name:en: Istituto Certificazione Etica e Ambientale
 auth_url:en: http://www.icea.info
@@ -16219,7 +16247,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU organic
 en: TR-BIO-141
-de: TR-BIO-141
+xx: TR-BIO-141
 auth_address:en: Marientorgraben 3-5, 90402, Nürnberg, Germany
 auth_name:en: Kiwa BCS Öko-Garantie GmbH
 auth_url:en: http://www.kiwabcs-oeko.com
@@ -16608,6 +16636,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU organic
 en: TR-BIO-134
+xx: TR-BIO-134
 auth_address:en: Moltkestrasse 4, 77654, Offenburg, Germany
 auth_name:en: LACON GmbH
 auth_url:en: http://www.lacon-institut.com
@@ -16932,6 +16961,7 @@ exceptions:en: en:except products covered by Annex III,en:in-conversion products
 
 < en:EU organic
 en: TR-BIO-135
+xx: TR-BIO-135
 auth_address:en: Urquiza 1285 planta alta, S2000KPA, Rosario, Santa Fe, Argentina
 auth_name:en: Letis S.A.
 auth_url:en: http://www.letis.org
@@ -17951,6 +17981,7 @@ exceptions:en: en:in-conversion products,en:
 
 < en:EU organic
 en: TR-BIO-166
+xx: TR-BIO-166
 auth_address:en: Prof. Dr Ahmet Taner Kislali Mah.2842 Sok.No: 4, 06810, Cayyolu, Cankaya-Ankara, Turkey
 auth_name:en: ORSER
 auth_url:en: http://orser.com.tr
@@ -18041,6 +18072,7 @@ exceptions:en: en:in-conversion products,en:
 
 < en:EU organic
 en: TR-BIO-179
+xx: TR-BIO-179
 auth_address:en: 9-17 Erithrou Stavrou str., 41221, Larissa, Greece
 auth_name:en: Q-check
 auth_url:en: http://www.qcheck-cert.gr
@@ -18176,6 +18208,7 @@ exceptions:en: en:www.caae.es,en:until 30 June 2021
 
 < en:EU organic
 en: TR-BIO-178
+xx: TR-BIO-178
 auth_address:en: Avenida Emilio Lemos, 2 mod. 603, 41020, Seville, Spain
 auth_name:en: Servicio de Certificación CAAE S.L.U.
 auth_url:en: https://www.caae.es/
@@ -23212,6 +23245,10 @@ opposite:en: en:unfiltered
 en: Rinsed and ready to eat
 sv: Sköljd & färdig att äta, Sköljd och färdig att äta
 #processing:en: en:rinsed
+
+xx: UHT
+#processing:en: en:uht
+wikidata:en: Q1562464
 
 fr: Haute Valeur Environnementale, HVE
 xx: Haute Valeur Environnementale, HVE

@@ -499,7 +499,7 @@
          "unit" : "g"
       },
       {
-         "display_in_edit_form" : true,
+         "display_in_edit_form" : false,
          "id" : "sodium",
          "important" : false,
          "name" : "Sodium",
@@ -748,6 +748,13 @@
          "id" : "methylsulfonylmethane",
          "important" : false,
          "name" : "Methylsulfonylmethane",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "hydroxymethylbutyrate",
+         "important" : false,
+         "name" : "HMB",
          "unit" : "mg"
       },
       {

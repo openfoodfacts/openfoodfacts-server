@@ -493,7 +493,8 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		$is_spam = 1;
 	}
 	# check for spam, that may have filled the honeypot faxnumber field
-	if (single_param('faxnumber') ne "") {
+	my $faxnumber = single_param('faxnumber');
+	if ((defined $faxnumber) and ($faxnumber ne "")) {
 		$is_spam = 1;
 	}
 	if ($is_spam) {
@@ -677,6 +678,8 @@ the request object
 =cut
 
 sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
+
+	$log->debug("notify_user_requested_org", {user_ref => $user_ref, org_created => $org_created}) if $log->is_debug();
 
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {
