@@ -179,6 +179,10 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Votre demande pour rejoindre l'organisation est en attente d'approbation de l'administrateur de l'organisation."
 
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr "Votre demande d'organisation a bien été reçue et est en cours de traitement."
+
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
 msgstr "Statut d'administrateur mis à jour"
@@ -5427,8 +5431,8 @@ msgstr "Vision, mission, valeurs et programmes"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
