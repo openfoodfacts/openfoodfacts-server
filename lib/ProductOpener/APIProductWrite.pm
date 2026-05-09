@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -652,7 +652,7 @@ sub write_product_api ($request_ref) {
 			($code, my $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 			# Check if the code is valid
-			if ($code !~ /^\d{4,24}$/) {
+			if (not is_valid_code($code)) {
 
 				$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 				add_error(

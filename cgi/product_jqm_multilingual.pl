@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -75,7 +75,12 @@ use Log::Any qw($log);
 # Yuka sends a POSTDATA parameter in JSON:
 # "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
 # This needs to be done before init_request() as the body contains user_id and password for authentication
-if ((user_agent() =~ /Symfony HttpClient/) and (request_method() eq 'GET') and (not param("code"))) {
+my $user_agent = user_agent();
+if (    (defined $user_agent)
+	and ($user_agent =~ /Symfony HttpClient/)
+	and (request_method() eq 'GET')
+	and (not param("code")))
+{
 
 	my $r = Apache2::RequestUtil->request();
 
@@ -136,7 +141,7 @@ if (0) {
 
 # Allow apps to create products without barcodes
 # Assign a code and return it in the response.
-if ($code eq "new") {
+if ((defined $code) and ($code eq "new")) {
 
 	($code, $product_id) = assign_new_code();
 	$response{code} = $code . "";    # Make sure the code is returned as a string
@@ -471,8 +476,8 @@ else {
 
 	# Nutrition data
 
-	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
-	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
+	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 

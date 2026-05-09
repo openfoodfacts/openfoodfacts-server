@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -55,13 +55,16 @@ use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 use ProductOpener::Food
 	qw/assign_categories_properties_to_product compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set compute_estimated_nutrients/;
+use ProductOpener::Nutrition
+	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 
 use Log::Any qw($log);
+
+use Data::DeepAccess qw(deep_exists);
 
 =head2 specific_processes_for_food_product ( $ingredients_ref )
 
@@ -115,6 +118,31 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	# Determine packaging components in contact with food
 	determine_food_contact_of_packaging_components_service($product_ref);
+
+	# Add some labels from nutrition data (e.g. glycemic index, carbon footprint)
+	add_labels_from_nutrition_data($product_ref);
+
+	# Add misc tags for nutrition data per X (done last as compute_nutriscore() removes misc_tags starting with en:nutrition)
+	add_misc_tags_for_input_nutrition_data_pers($product_ref);
+
+	return;
+}
+
+sub add_labels_from_nutrition_data ($product_ref) {
+
+	if (deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', 'carbon-footprint'))
+
+	{
+		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
+		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
+	}
+
+	if (deep_exists($product_ref, 'nutrition', 'aggregated_set', 'nutrients', 'glycemic-index'))
+
+	{
+		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
+		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
+	}
 
 	return;
 }

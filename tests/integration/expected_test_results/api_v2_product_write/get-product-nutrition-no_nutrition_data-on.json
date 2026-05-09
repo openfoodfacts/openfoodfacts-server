@@ -48,7 +48,7 @@
          "en:ingredients-en-photo-to-be-selected",
          "en:ingredients-en-to-be-completed",
          "en:categories-to-be-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -82,7 +82,7 @@
          "en:ingredients-en-photo-to-be-selected",
          "en:ingredients-en-to-be-completed",
          "en:categories-to-be-completed",
-         "en:nutriments-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -393,6 +393,7 @@
       "main_countries_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-fiber",
          "en:nutriscore-missing-nutrition-data",
@@ -411,6 +412,7 @@
          "en:packagings-number-of-components-0",
          "en:main-countries-new-product"
       ],
+      "no_nutrition_data" : "on",
       "nova_group_debug" : "no nova group when the product does not have ingredients",
       "nova_group_error" : "missing_ingredients",
       "nova_groups_tags" : [
@@ -418,7 +420,6 @@
       ],
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
-      "nutriments" : {},
       "nutriscore" : {
          "2021" : {
             "category_available" : 0,

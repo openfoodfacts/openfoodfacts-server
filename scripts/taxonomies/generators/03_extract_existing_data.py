@@ -191,28 +191,28 @@ def main():
     # Extract and save full category data
     full_output = output_dir / "existing_categories_data.json"
     with open(full_output, 'w', encoding='utf-8') as f:
-        json.dump(categories, f, indent=2, ensure_ascii=False)
+        json.dump(categories, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved full category data to {full_output}")
     
     # Extract Wikidata mappings
     wikidata_mappings = extract_wikidata_mappings(categories)
     wikidata_output = output_dir / "existing_wikidata_mappings.json"
     with open(wikidata_output, 'w', encoding='utf-8') as f:
-        json.dump(wikidata_mappings, f, indent=2, ensure_ascii=False)
+        json.dump(wikidata_mappings, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved {len(wikidata_mappings)} Wikidata mappings to {wikidata_output}")
     
     # Extract carbon impact data
     carbon_data = extract_carbon_impact_data(categories)
     carbon_output = output_dir / "existing_carbon_impact_data.json"
     with open(carbon_output, 'w', encoding='utf-8') as f:
-        json.dump(carbon_data, f, indent=2, ensure_ascii=False)
+        json.dump(carbon_data, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved {len(carbon_data)} carbon impact entries to {carbon_output}")
     
     # Extract all properties
     properties_data = extract_all_properties(categories)
     properties_output = output_dir / "existing_properties.json"
     with open(properties_output, 'w', encoding='utf-8') as f:
-        json.dump(properties_data, f, indent=2, ensure_ascii=False)
+        json.dump(properties_data, f, indent=2, ensure_ascii=False, sort_keys=True)
     print(f"Saved properties for {len(properties_data)} categories to {properties_output}")
     
     print("\n=== Summary ===")

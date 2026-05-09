@@ -20,8 +20,8 @@
 
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
-/*global lang admin initializeTagifyInput other_nutrients*/
-/*exported upload_image update_image update_nutrition_image_copy*/
+/*global lang admin initializeTagifyInput other_nutrients:writable trackMatomoEvent*/ // we change other_nutrients to remove nutrients when they are added
+/* exported upload_image update_image update_nutrition_image_copy */
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -334,14 +334,19 @@ $.fn.isVisible = function () {
 };
 
 function update_nutrition_image_copy() {
+    const nutrition_table_width = Math.ceil($('#nutrition_data_table')[0].getBoundingClientRect().width);
+    const nutrition_width = Math.floor($('#nutrition')[0].getBoundingClientRect().width);
+
     // width big enough to display a copy next to nutrition table?
-    if ($("#nutrition_data_table").isVisible() && $('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+    
+    if ($("#nutrition_data_table").isVisible() && nutrition_width - nutrition_table_width > 405) {
         const position = $('html[dir=rtl]').length ? 'right' : 'left';
-        $('#nutrition_image_copy').css(position, $('#nutrition_data_table').width() + 10).show();
+        $('#nutrition_image_copy').css(position, nutrition_table_width + 10).show();
     } else {
         $('#nutrition_image_copy').hide();
     }
-}
+}        
+
 
 function update_display(imagefield, first_display, protected_product) {
 
@@ -358,11 +363,15 @@ function update_display(imagefield, first_display, protected_product) {
         }
 
         if (stringStartsWith(imagefield, 'nutrition')) {
+            const nutrition_table_width = Math.ceil($('#nutrition_data_table')[0].getBoundingClientRect().width);
+            const nutrition_width = Math.floor($('#nutrition')[0].getBoundingClientRect().width);
+
             // width big enough to display a copy next to nutrition table?
-            if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
+            if (nutrition_width - nutrition_table_width > 405) {
+
 
                 if ((!first_display) || ($('#nutrition_image_copy').html() === '')) {
-                    $('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", $('#nutrition_data_table').width() + 10);
+                    $('#nutrition_image_copy').html('<img src="' + img_path + display_url + '" />').css("left", nutrition_table_width + 10);
                 }
             }
         }
@@ -489,7 +498,7 @@ const maximumRecentEntriesPerTag = 10;
             settings = $.extend(settings, options);
             img_path = settings.img_path;
             code = $("#code").val();
-            code = code.replace(/\W/g, '');
+            code = code.replace(/\s/g, '');
 
             return this.each(function () {
 
@@ -645,6 +654,7 @@ const maximumRecentEntriesPerTag = 10;
 
                                     $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
                                     change_image(imagefield, data.result.image.imgid);
+                                    trackMatomoEvent('Product', 'Image Upload', imagefield);
                                 }
 
                                 if (data.result.error) {
@@ -688,7 +698,7 @@ const maximumRecentEntriesPerTag = 10;
                             }
                         },
                         progress: function (e, data) {
-                            $("#progressmeter_" + imagefield).css('width', parseInt(data.loaded / data.total * 100, 10) + "%");
+                            $("#progressmeter_" + imagefield).css('width', Number.parseInt(data.loaded / data.total * 100, 10) + "%");
                         }
 
                     });
@@ -871,9 +881,13 @@ $(function () {
     $('#add_nutrient_select').val(null).trigger('change');
 
     $("#add_nutrient_select").on("select2:select", function (e) {
-        // get the selected id, and show the corresponding line with id "nutrient_<id>_tr"
+        // get the selected id, and show the corresponding row with id "nutrient_<id>_tr"
+        // move the corresponding row to the bottom of the table, just before the add_nutrient_tr row
         const id = e.params.data.id;
-        $("#nutrient_" + id + "_tr").show();
+        const nutrientRow = $('#nutrient_' + id + '_tr');
+        const inputRow = $('#add_nutrient_tr');
+        nutrientRow.insertBefore(inputRow);
+        nutrientRow.show();
 
         // remove the selected nutrient from the other_nutrients array
         other_nutrients = other_nutrients.filter(function (item) {
@@ -969,53 +983,82 @@ $('#manage_images_accordion').on('toggled', function () {
     toggle_manage_images_buttons();
 });
 
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+
+
+    return div.innerHTML;
+}
+
+async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copyData = null) {
+
+    const deleteBtn = document.getElementById('delete_images');
+    const moveBtn = document.getElementById('move_images');
+    const msgDiv = document.querySelector('div[id="moveimagesmsg"]');
+
+    deleteBtn.classList.add('disabled');
+    moveBtn.classList.add('disabled');
+
+    msgDiv.innerHTML = '<img src="/images/misc/loading2.gif" /> ' + escapeHtml(loadingMsg);
+    msgDiv.style.display = 'block';
+    msgDiv.style.opacity = '1';
+
+    const formData = new FormData(document.getElementById('product_form'));
+    formData.append('code', code);
+    formData.append('move_to_override', moveTo);
+    if (copyData !== null) {
+        formData.append('copy_data_override', copyData);
+    }
+
+    formData.append('imgids', get_list_of_imgids());
+
+    try {
+        const response = await fetch("/cgi/product_image_move.pl", {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+            msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(data.error);
+            msgDiv.style.opacity = '1';
+        } else {
+            const linkHtml = data.code ? ` &rarr; <a href="${encodeURI(data.url)}">${escapeHtml(data.code)}</a>` : '';
+            msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
+            msgDiv.style.opacity = '1';
+        }
+        $([]).selectcrop('init_images', data.images);
+        $(".select_crop").selectcrop('show');
+    } catch (error) {
+        msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(error.message);
+        msgDiv.style.opacity = '1';
+    } finally {
+        setTimeout(() => {
+            msgDiv.style.opacity = '0';
+        }, 1700);
+        setTimeout(() => {
+            msgDiv.style.display = 'none';
+        }, 2000);
+        toggle_manage_images_buttons();
+    }
+}
+
 $("#delete_images").click({}, function (event) {
 
     event.stopPropagation();
     event.preventDefault();
 
-    if (!$("#delete_images").hasClass("disabled")) {
-
-        $("#delete_images").addClass("disabled");
-        $("#move_images").addClass("disabled");
-
-        $('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_deleting_images);
-        $('div[id="moveimagesmsg"]').show();
-
-        get_list_of_imgids();
-
-        $("#product_form").ajaxSubmit({
-
-            url: "/cgi/product_image_move.pl",
-            data: { code: code, move_to_override: "trash", imgids: get_list_of_imgids() },
-            dataType: 'json',
-            success: function (data) {
-
-                if (data.error) {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + data.error);
-                } else {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_deleted);
-                }
-                $([]).selectcrop('init_images', data.images);
-                $(".select_crop").selectcrop('show');
-
-            },
-            error: function (textStatus) {
-                $('div[id="moveimagesmsg"]').html(lang().product_js_images_delete_error + ' - ' + textStatus);
-            },
-            complete: function () {
-                $('div[id="moveimagesmsg"]').delay(2000).fadeOut(300);
-                $("#delete_images").addClass("disabled");
-                $("#move_images").addClass("disabled");
-                $("#manage .ui-selected").first().each(function () {
-                    $("#delete_images").removeClass("disabled");
-                    $("#move_images").removeClass("disabled");
-                });
-            },
-        });
-
+    if ($("#delete_images").hasClass("disabled")) {
+      return;
     }
 
+    performImageAction(lang().product_js_deleting_images, lang().product_js_images_deleted, lang().product_js_images_delete_error, "trash");
 });
 
 $("#move_images").click({}, function (event) {
@@ -1023,48 +1066,11 @@ $("#move_images").click({}, function (event) {
     event.stopPropagation();
     event.preventDefault();
 
-    if (!$("#move_images").hasClass("disabled")) {
-
-        $("#delete_images").addClass("disabled");
-        $("#move_images").addClass("disabled");
-
-        $('div[id="moveimagesmsg"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_moving_images);
-        $('div[id="moveimagesmsg"]').show();
-
-        get_list_of_imgids();
-
-        $("#product_form").ajaxSubmit({
-
-            url: "/cgi/product_image_move.pl",
-            data: { code: code, move_to_override: $("#move_to").val(), copy_data_override: $("#copy_data").prop("checked"), imgids: get_list_of_imgids() },
-            dataType: 'json',
-            success: function (data) {
-
-                if (data.error) {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + data.error);
-                } else {
-                    $('div[id="moveimagesmsg"]').html(lang().product_js_images_moved + ' &rarr; ' + data.link);
-                }
-                $([]).selectcrop('init_images', data.images);
-                $(".select_crop").selectcrop('show');
-
-            },
-            error: function (textStatus) {
-                $('div[id="moveimagesmsg"]').html(lang().product_js_images_move_error + ' - ' + textStatus);
-            },
-            complete: function () {
-                $('div[id="moveimagesmsg"]').delay(2000).fadeOut(300);
-                $("#move_images").addClass("disabled");
-                $("#move_images").addClass("disabled");
-                $("#manage .ui-selected").first().each(function () {
-                    $("#move_images").removeClass("disabled");
-                    $("#move_images").removeClass("disabled");
-                });
-            }
-        });
-
+    if ($("#move_images").hasClass("disabled")) {
+      return;
     }
 
+    performImageAction(lang().product_js_moving_images, lang().product_js_images_moved, lang().product_js_images_move_error, document.getElementById('move_to').value, document.getElementById('copy_data').checked);
 });
 
 // Nutrition facts
@@ -1087,6 +1093,12 @@ $(function () {
             // clear the values: inputs with class nutrient_value that are inside a cell with the input_set_class
             $('.' + input_set_class + ' input.nutrient_value').val('');
         }
+        
+        
+        // Recalculate nutrition image position after table resize
+        setTimeout(update_nutrition_image_copy, 50);
+        
+        
     });
 
     $('#no_nutrition_data').on('change', function() {
@@ -1111,27 +1123,72 @@ $(function () {
 
 });
 
-function show_warning(should_show, nutrient_id, warning_message){
+// eslint-disable-next-line max-params
+function show_warning(should_show, input_id, nutrient_id, per, preparation, warning_message){
+    const question_mark_id = `#nutrient_question_mark_${nutrient_id}_${preparation}_${per}`;
+    const warning_id = `#nutrient_sugars_warning_${nutrient_id}_${preparation}_${per}`;
+    
     if(should_show) {
-        $('#nutriment_'+nutrient_id).css("background-color", "rgb(255 237 235)");
-        $('#nutriment_question_mark_'+nutrient_id).css("display", "inline-table");
-        $('#nutriment_sugars_warning_'+nutrient_id).text(warning_message);
+        $(input_id).css("background-color", "rgb(255 237 235)");
+        $(question_mark_id).css("display", "inline-table");
+        $(warning_id).text(warning_message);
     }
     // clear the warning only if the warning message we don't show is the same as the existing warning
     // so that we don't remove a warning on sugars > 100g if we change carbohydrates
-    else if (warning_message == $('#nutriment_sugars_warning_'+nutrient_id).text()) {
-        $('#nutriment_'+nutrient_id).css("background-color", "white");
-        $('#nutriment_question_mark_'+nutrient_id).css("display", "none");
+    else if (warning_message == $(warning_id).text()) {
+        $(input_id).css("background-color", "white");
+        $(question_mark_id).css("display", "none");
     }
 }
 
-function check_nutrient(nutrient_id) {
+function get_nutrient_unit(nutrient_id) {
+    // line selector case (user chooses a unit from a list for the whole row of the nutrient)
+    const select = $(`#global_nutrient_${nutrient_id}_unit`);
+    if (select.length) {
+        
+        return select.val();
+    }
+    // per-cell selector case (user chooses a unit from a list for one particular cell)
+    const selectPerCell = $(`#nutrient_${nutrient_id}_tr select.nutrient_unit`).first();
+    if (selectPerCell.length) {
+        return selectPerCell.val();
+    }
+    // fixed unit case (for nutrients with only one unit, e.g. kJ for energy-kj)
+    
+    return $(`#nutrient_${nutrient_id}_tr .nutrient_unit`).first().text().trim();
+}
+
+function get_nutrient_value(nutrient_id, per, preparation, wanted_unit) {
+
+    const input_id = `#nutrition_input_sets_${preparation}_${per}_nutrients_${nutrient_id}_value_string`;
+
+    let value = Number.parseFloat(($(input_id).val() || '').replace(',', '.'));
+    
+    if (!Number.isNaN(value)) {
+        const current_unit = get_nutrient_unit(nutrient_id);
+
+        const factor = {
+            'g': 1,
+            'mg': 0.001,
+            'µg': 0.000001
+        };
+
+        if (factor[current_unit] !== null && factor[wanted_unit] !== null) {
+            value *= (factor[current_unit] / factor[wanted_unit]);
+        }
+
+        return value;
+    }
+}
+
+function check_nutrient(nutrient_id, per, preparation, id) {
     // check the changed nutrient value
-    const nutrient_value = $('#nutriment_' + nutrient_id).val().replace(',','.').replace(/^(<|>|~)/, '');
-    const nutrient_unit = $('#nutriment_' + nutrient_id + '_unit').val();
+    const nutrient_value = $('#' + id).val().replace(',', '.').replace(/^(<|>|~)/, '');
+    const nutrient_unit = get_nutrient_unit(nutrient_id);
 
     // define the max valid value
     let max;
+    const per_serving = (per === "serving");  // true if "serving", false if "100g"
     let percent;
 
     if (nutrient_id == 'energy-kj') {
@@ -1156,38 +1213,62 @@ function check_nutrient(nutrient_id) {
 
     let is_above_or_below_max;
     if (max) {
-        is_above_or_below_max = (isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
+        is_above_or_below_max = (Number.isNaN(nutrient_value) && nutrient_value != '-') || nutrient_value < 0 || nutrient_value > max;
         // if the nutrition facts are indicated per serving, the value can be above 100
-        if ((nutrient_value > max) && ($('#nutrition_data_per_serving').is(':checked')) && !percent) {
+        if ((nutrient_value > max) && per_serving && !percent) {
             is_above_or_below_max = false;
         }
-        show_warning(is_above_or_below_max, nutrient_id, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
+        show_warning(is_above_or_below_max, "#"+id, nutrient_id, per, preparation, lang().product_js_enter_value_between_0_and_max.replace('{max}', max));
     }
 
     // check that nutrients are sound (e.g. sugars is not above carbohydrates)
     // but only if the changed nutrient does not have a warning
     // otherwise we may clear the sugars or saturated-fat warning
     if (! is_above_or_below_max) {
-        const fat_value = $('#nutriment_fat').val().replace(',','.');
-        const carbohydrates_value = $('#nutriment_carbohydrates').val().replace(',','.');
-        const sugars_value = $('#nutriment_sugars').val().replace(',','.');
-        const saturated_fats_value = $('#nutriment_saturated-fat').val().replace(',','.');
+        const fat_value = get_nutrient_value("fat", per, preparation, nutrient_unit);
+        const carbohydrates_value = get_nutrient_value("carbohydrates", per, preparation, nutrient_unit);
+        const sugars_value = get_nutrient_value("sugars", per, preparation, nutrient_unit);
+        const saturated_fats_value = get_nutrient_value("saturated-fat", per, preparation, nutrient_unit);
 
-        const is_sugars_above_carbohydrates = parseFloat(carbohydrates_value) < parseFloat(sugars_value);
-        show_warning(is_sugars_above_carbohydrates, 'sugars', lang().product_js_sugars_warning);
+        const is_sugars_above_carbohydrates = Number.parseFloat(carbohydrates_value) < Number.parseFloat(sugars_value);
+        const sugars_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_sugars_value_string`;
+        show_warning(is_sugars_above_carbohydrates, sugars_input_id, "sugars", per, preparation, lang().product_js_sugars_warning);
 
-        const is_fat_above_saturated_fats = parseFloat(fat_value) < parseFloat(saturated_fats_value);
-        show_warning(is_fat_above_saturated_fats, 'saturated-fat', lang().product_js_saturated_fat_warning);
+        const is_fat_above_saturated_fats = Number.parseFloat(fat_value) < Number.parseFloat(saturated_fats_value);
+        const saturated_fat_input_id = `nutrition_input_sets_${preparation}_${per}_nutrients_saturated-fat_value_string`;
+        show_warning(is_fat_above_saturated_fats, saturated_fat_input_id, "saturated-fat", per, preparation, lang().product_js_saturated_fat_warning);
     }
 }
 
 $(function () {
-    $('.nutriment_value_as_sold').each(function () {
-        const nutrient_id = this.id.replace('nutriment_', '');
+    $('.nutrient_value').each(function () {
+        // looking at the template of nutrient inputs, their ids are
+        // nutrition_input_sets_[preparation]_[per]_nutrients_[nutrient id]_value_string
+        const id = this.id;
+        const idParts = this.id.split('_');
+        // preparation can be "as_sold" of "prepared"
+        // so the index of the nutrient id and of the preparation can vary because of preparation
+        // the index of "nutrients" is used to retrieve the id and the per values
+        const nutrientIndex = idParts.indexOf('nutrients');
+
+        if (nutrientIndex === -1) {
+            // we can't analyze it because we can't get nutrient_id, per and preparation
+            return;
+        }
+
+        const nutrient_id = idParts[nutrientIndex + 1]; // nutrient id is after "nutrients" (index can vary depending on preparation)
+        const per = idParts[nutrientIndex - 1];        // per value is before "nutrients" (index can vary depending on preparation)
+        const preparation = idParts.slice(3, nutrientIndex - 1).join('_'); 
+
         this.oninput = function() {
-            check_nutrient(nutrient_id);
+            check_nutrient(nutrient_id, per, preparation, id);
         };
-        check_nutrient(nutrient_id);
+        check_nutrient(nutrient_id, per, preparation, id);
     });
+
+     $('.nutrient_unit').on('change', function () {
+        $('.nutrient_value').trigger('input');
+    });
+    
     }
 );

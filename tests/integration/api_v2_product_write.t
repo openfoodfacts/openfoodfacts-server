@@ -6,7 +6,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 use Log::Any qw($log);
 
-use ProductOpener::APITest qw/create_user execute_api_tests new_client wait_application_ready/;
+use ProductOpener::APITest qw/create_user_in_keycloak execute_api_tests new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
 use ProductOpener::TestDefaults qw/%default_user_form/;
 use ProductOpener::Auth qw/get_token_using_password_credentials/;
@@ -19,10 +19,8 @@ wait_application_ready(__FILE__);
 remove_all_products();
 remove_all_users();
 
-my $ua = new_client();
-
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-create_user($ua, \%create_user_args);
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+create_user_in_keycloak(\%create_user_args);
 
 my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
 $log->debug('test token', {token => $token}) if $log->is_debug();
@@ -241,6 +239,13 @@ my $tests_ref = [
 			no_nutrition_data => 'on',
 		}
 	},
+	# should get nutrition.no_nutrition_data_on_packaging = true
+	{
+		test_case => 'get-product-nutrition-no_nutrition_data-on-api-v3-6',
+		method => 'GET',
+		path => '/api/v3.6/product/1234567890007',
+	},
+	# should get no_nutrition_data = on (schema downgrade)
 	{
 		test_case => 'get-product-nutrition-no_nutrition_data-on',
 		method => 'GET',
@@ -485,7 +490,34 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v3.5/product/2234567890001',
 	},
-
+	# New fields for new nutrition schema for Open Pet Food Facts
+	{
+		test_case => 'post-product-nutrition-new-fields-open-pet-food-facts',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "2234567890002",
+			product_type => 'petfood',    # This works only partly, it will allow using the 1kg fields,
+			 # but we will only get nutrients that exists for food (so we will get biotin and beta-carotene but not the others)
+			product_name_en => "Test new nutrition fields - Open Pet Food Facts",
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-fat_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-protein_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-ash_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-fibre_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_value_string" => '3',
+			"nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_unit" => 'mg',
+			"nutrition_input_sets_as_sold_1kg_nutrients_biotin_value_string" => '50',
+			"nutrition_input_sets_as_sold_1kg_nutrients_biotin_unit" => 'µg',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-new-fields-open-pet-food-facts-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/2234567890002?fields=raw'
+		,    # we need to specify fields=raw so that we are not redirected to the petfood site
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);

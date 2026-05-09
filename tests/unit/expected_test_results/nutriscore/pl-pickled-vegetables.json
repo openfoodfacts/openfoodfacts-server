@@ -16,14 +16,9 @@
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
-      "en:fruits-and-vegetables-based-foods",
-      "en:vegetable-based-foods-and-beverages",
-      "en:canned-foods",
-      "en:vegetables-based-foods",
-      "en:canned-plant-based-foods",
       "en:pickles",
-      "en:canned-vegetables",
       "en:plant-based-pickles",
+      "en:prepared-vegetables",
       "en:pickled-vegetables"
    ],
    "categories_lc" : "pl",
@@ -39,14 +34,9 @@
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
-      "en:fruits-and-vegetables-based-foods",
-      "en:vegetable-based-foods-and-beverages",
-      "en:canned-foods",
-      "en:vegetables-based-foods",
-      "en:canned-plant-based-foods",
       "en:pickles",
-      "en:canned-vegetables",
       "en:plant-based-pickles",
+      "en:prepared-vegetables",
       "en:pickled-vegetables"
    ],
    "food_groups" : "en:salty-and-fatty-products",
@@ -182,6 +172,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -189,7 +180,8 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-c-2023-d"
+      "en:nutriscore-2021-c-2023-d",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -228,15 +220,15 @@
             "fiber" : 1.67696666666667,
             "fiber_points" : 1,
             "fiber_value" : 1.68,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 99.5718363463368,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 99.6,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 69.7666666666667,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 69.8,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 10,
-            "positive_points" : 6,
+            "positive_points" : 3,
             "proteins" : 0.7,
             "proteins_points" : 0,
             "proteins_value" : 0.7,
@@ -256,7 +248,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : 4
+         "score" : 7
       },
       "2023" : {
          "category_available" : 1,
@@ -302,10 +294,10 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "points" : 5,
+                     "points" : 2,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 88.4
+                     "value" : 61.9
                   }
                ]
             },
@@ -322,7 +314,7 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 5,
+            "positive_points" : 2,
             "positive_points_max" : 10
          },
          "estimated" : 1,
@@ -331,7 +323,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : 15
+         "score" : 18
       }
    },
    "nutriscore_2021_tags" : [
@@ -382,10 +374,10 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 5,
+               "points" : 2,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 88.4
+               "value" : 61.9
             }
          ]
       },
@@ -403,13 +395,13 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 5,
+      "positive_points" : 2,
       "positive_points_max" : 10,
-      "score" : 15
+      "score" : 18
    },
    "nutriscore_grade" : "d",
-   "nutriscore_score" : 15,
-   "nutriscore_score_opposite" : -15,
+   "nutriscore_score" : 18,
+   "nutriscore_score_opposite" : -18,
    "nutriscore_tags" : [
       "d"
    ],
@@ -486,7 +478,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 20.8513333333333
+               "value" : 20.8513333333333,
+               "value_computed" : 20.8025066666667
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -524,7 +517,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 88.3920076117983
+               "value" : 61.9333333333333
             },
             "fruits-vegetables-nuts" : {
                "modifier" : "~",
@@ -532,7 +525,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 99.5718363463368
+               "value" : 69.7666666666667
             },
             "galactose" : {
                "modifier" : "~",
@@ -646,6 +639,7 @@
                "value" : 0.7
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -812,6 +806,10 @@
                   "unit" : "g",
                   "value" : 0.7
                },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 5
+               },
                "saturated-fat" : {
                   "unit" : "g",
                   "value" : 0
@@ -885,12 +883,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 20.8513333333333,
+                  "value_computed" : 20.8025066666667,
                   "value_string" : "20.8513333333333"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
                   "value" : 87.469,
+                  "value_computed" : 87.18462,
                   "value_string" : "87.469"
                },
                "fat" : {
@@ -914,14 +914,14 @@
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 88.3920076117983,
-                  "value_string" : "88.3920076117983"
+                  "value" : 61.9333333333333,
+                  "value_string" : "61.9333333333333"
                },
                "fruits-vegetables-nuts" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 99.5718363463368,
-                  "value_string" : "99.5718363463368"
+                  "value" : 69.7666666666667,
+                  "value_string" : "69.7666666666667"
                },
                "galactose" : {
                   "modifier" : "~",
@@ -1011,6 +1011,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.331787933333333,
+                  "value_computed" : 0.323456,
                   "value_string" : "0.331787933333333"
                },
                "saturated-fat" : {
@@ -1029,6 +1030,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.1293824,
+                  "value_computed" : 0.132715173333333,
                   "value_string" : "0.1293824"
                },
                "starch" : {
@@ -1139,9 +1141,9 @@
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "as_sold fiber estimated",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 88.3920076117983,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 61.9333333333333,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 99.5718363463368,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 69.7666666666667,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Salty snacks",
    "pnns_groups_1_tags" : [

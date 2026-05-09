@@ -4,6 +4,10 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.25
+               },
                "sodium" : {
                   "unit" : "g",
                   "value" : 0.1,

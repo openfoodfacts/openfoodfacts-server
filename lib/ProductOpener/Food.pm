@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -44,21 +44,17 @@ BEGIN {
 	@EXPORT_OK = qw(
 		%nutriments_labels
 
-		%cc_nutriment_table
-		%nutriments_tables
+		%cc_nutrient_table
+		%nutrients_tables
 		%valid_nutrients
 
-		%other_nutriments_lists
-		%nutriments_lists
+		%other_nutrients_lists
+		%nutrients_lists
 
 		@nutrient_levels
 
-		%categories_nutriments_per_country
-
 		&normalize_nutriment_value_and_modifier
 		&assign_nid_modifier_value_and_unit
-
-		&canonicalize_nutriment
 
 		&is_beverage_for_nutrition_score_2021
 		&is_fat_oil_nuts_seeds_for_nutrition_score
@@ -73,11 +69,9 @@ BEGIN {
 		&evaluate_nutrient_level
 		&compute_units_of_alcohol
 
-		&compare_nutriments
+		&compare_nutrients
 
 		&extract_nutrition_from_image
-
-		&default_unit_for_nid
 
 		&create_nutrients_level_taxonomy
 
@@ -161,71 +155,6 @@ sub check_nutriscore_categories_exist_in_taxonomy() {
 	return;
 }
 
-# Load nutrient stats for all categories and countries
-# the stats are displayed on category pages and used in product pages,
-# as well as in data quality checks and improvement opportunity detection
-
-if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
-	foreach my $file (readdir($dh)) {
-		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
-			my $country_cc = $1;
-			$categories_nutriments_per_country{$country_cc}
-				= retrieve(
-				"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$country_cc.sto");
-		}
-	}
-	closedir $dh;
-}
-
-=head2 default_unit_for_nid ( $nid)
-
-Return the default unit that we convert everything to internally
-
-=head3 Parameters
-
-$nid: String
-
-=head3 Return values
-
-Default value for that certain unit
-
-=cut
-
-sub default_unit_for_nid ($nid) {
-
-	$nid =~ s/_prepared//;
-
-	my %default_unit_for_nid_map = (
-		"energy-kj" => "kJ",
-		"energy-kcal" => "kcal",
-		"energy" => "kJ",
-		"alcohol" => "% vol",
-		"water-hardness" => "mmol/l"
-	);
-
-	if (exists($default_unit_for_nid_map{$nid})) {
-		return $default_unit_for_nid_map{$nid};
-	}
-	elsif (($nid =~ /^fruits/) or ($nid =~ /^collagen/)) {
-		return "%";
-	}
-	else {
-		return "g";
-	}
-}
-
-sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit) {
-
-	## FIXME
-	## This is an old function called by code that was written for the old nutrition schema
-	## It does nothing for now as we are migrating the code to use the new schema
-	## It needs to be removed once the migration is complete
-
-	die;
-
-	return;
-}
-
 # For fat, saturated fat, sugars, salt: https://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (['fat', 3, 20], ['saturated-fat', 1.5, 5], ['sugars', 5, 12.5], ['salt', 0.3, 1.5],);
 
@@ -235,7 +164,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 # vitamin-a- : do not show by default in the form
 # !proteins : important, always show even if value has not been entered
 
-%cc_nutriment_table = (
+%cc_nutrient_table = (
 	off_default => "off_europe",
 	off_ca => "off_ca",
 	off_ru => "off_ru",
@@ -246,7 +175,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	opff_default => "opff_europe"
 );
 
-=head2 %nutriments_tables
+=head2 %nutrients_tables
 
 An array that condition how nutrients are displayed.
 
@@ -277,7 +206,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 =cut
 
 # http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
-%nutriments_tables = (
+%nutrients_tables = (
 	off_europe => [
 		(
 			'!energy-kj', '!energy-kcal',
@@ -314,7 +243,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'!proteins', '-casein-',
 			'-serum-proteins-', '-nucleotides-',
 			'!salt', '-added-salt-',
-			'sodium', 'alcohol',
+			'sodium-', 'alcohol',
 			'#vitamins', 'vitamin-a-',
 			'beta-carotene-', 'vitamin-d-',
 			'vitamin-e-', 'vitamin-k-',
@@ -333,8 +262,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'chromium-', 'molybdenum-',
 			'iodine-', 'caffeine-',
 			'taurine-', 'methylsulfonylmethane-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'hydroxymethylbutyrate-', 'ph-',
+			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
 			'cocoa-', 'chlorophyl-',
 			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'choline-',
@@ -342,6 +271,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
 			'acidity-', 'carbohydrates-total-',
+			'water-',
 		)
 	],
 	off_ca => [
@@ -397,8 +327,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'fluoride-', 'selenium-',
 			'chromium-', 'molybdenum-',
 			'iodine-', 'caffeine-',
-			'taurine-', 'ph-',
-			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'taurine-', 'hydroxymethylbutyrate-',
+			'ph-', '!fruits-vegetables-legumes-',
 			'collagen-meat-protein-ratio-', 'cocoa-',
 			'chlorophyl-', 'carbon-footprint-',
 			'glycemic-index-', 'water-hardness-',
@@ -462,15 +392,15 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'total-carboydrates-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'total-carboydrates-',
 		)
 	],
 	off_us => [
@@ -527,8 +457,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
+			'hydroxymethylbutyrate-', 'ph-',
+			'!fruits-vegetables-legumes-', 'collagen-meat-protein-ratio-',
 			'cocoa-', 'chlorophyl-',
 			'carbon-footprint-', 'glycemic-index-',
 			'water-hardness-', 'sulfate-',
@@ -640,7 +570,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-sugars-', '-fiber-',
 			'-soluble-fiber-', '--polydextrose-',
 			'-insoluble-fiber-', '!salt',
-			'-added-salt-', '#sodium-',
+			'-added-salt-', 'sodium-',
 			'alcohol', '#vitamins',
 			'vitamin-a-', 'beta-carotene-',
 			'vitamin-d-', 'vitamin-e-',
@@ -659,15 +589,15 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-',
 		)
 	],
 	off_in => [
@@ -724,15 +654,15 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'selenium-', 'chromium-',
 			'molybdenum-', 'iodine-',
 			'caffeine-', 'taurine-',
-			'ph-', 'fruits-vegetables-nuts-',
-			'fruits-vegetables-nuts-dried-', 'collagen-meat-protein-ratio-',
-			'cocoa-', 'chlorophyl-',
-			'carbon-footprint-', 'glycemic-index-',
-			'water-hardness-', 'choline-',
-			'phylloquinone-', 'beta-glucan-',
-			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-',
-			'acidity-', 'carbohydrates-total-',
+			'ph-', '!fruits-vegetables-legumes-',
+			'collagen-meat-protein-ratio-', 'cocoa-',
+			'chlorophyl-', 'carbon-footprint-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
+			'carbohydrates-total-',
 		)
 	],
 	# https://eur-lex.europa.eu/eli/reg/2009/767/2018-12-26
@@ -757,10 +687,10 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 # Compute a hash of all nutrients that are valid in at least one region for the site flavor (opf, off, ...)
 %valid_nutrients = ();
 
-foreach my $region (keys %nutriments_tables) {
+foreach my $region (keys %nutrients_tables) {
 	# Use the flavor (off, opff) to select regions that start with the flavor
 	next if $region !~ /^$flavor\_/;
-	foreach (@{$nutriments_tables{$region}}) {
+	foreach (@{$nutrients_tables{$region}}) {
 		my $nutriment = $_;    # copy instead of alias
 		$nutriment =~ s/^(-|!)+//g;
 		$nutriment =~ s/-$//g;
@@ -770,62 +700,27 @@ foreach my $region (keys %nutriments_tables) {
 
 # Compute the list of nutriments that are not shown by default so that they can be suggested
 
-foreach my $region (keys %nutriments_tables) {
+foreach my $region (keys %nutrients_tables) {
 
-	$nutriments_lists{$region} = [];
-	$other_nutriments_lists{$region} = [];
+	$nutrients_lists{$region} = [];
+	$other_nutrients_lists{$region} = [];
 
-	foreach (@{$nutriments_tables{$region}}) {
+	foreach (@{$nutrients_tables{$region}}) {
 
 		my $nutriment = $_;    # copy instead of alias
 
 		if ($nutriment =~ /-$/) {
 			$nutriment = $`;
 			$nutriment =~ s/^(-|!)+//g;
-			push @{$other_nutriments_lists{$region}}, $nutriment;
+			push @{$other_nutrients_lists{$region}}, $nutriment;
 		}
 
 		next if $nutriment =~ /\#/;
 
 		$nutriment =~ s/^(-|!)+//g;
 		$nutriment =~ s/-$//g;
-		push @{$nutriments_lists{$region}}, $nutriment;
+		push @{$nutrients_lists{$region}}, $nutriment;
 	}
-}
-
-=head2 canonicalize_nutriment ( $product_ref )
-
-Canonicalizes the nutrients input by the user in the nutrition table product edit.
-This sub converts these nutrients (which are arguments to this function), into a recognizable/standard form.
-
-=head3 Parameters
-
-Two strings are passed,
-$target_lc: The language in which the nutriment is (example: "en", "fr")
-$nutrient: The nutrient that needs to be canonicalized. (the user input nutrient, example: "AGS", "unsaturated-fat")
-
-=head3 Return values
-
-Returns the $nid (a string)
-
-Example: For the parameter "dont saturés", we get the $nid as "saturated fat"
-
-=cut
-
-sub canonicalize_nutriment ($target_lc, $nutrient) {
-
-	my $nid = canonicalize_taxonomy_tag($target_lc, "nutrients", $nutrient);
-
-	if ($nid =~ /^zz:/) {
-		# Recognized nutrients start with zz: -> remove zz: to get the nid
-		$nid = $';
-	}
-	else {
-		# Unrecognized nutrients start with the language code (e.g. fr:)
-		# -> turn it to fr-
-		$nid = get_string_id_for_lang($lc, $nid);
-	}
-	return $nid;
 }
 
 =head2 is_beverage_for_nutrition_score_2021 ( $product_ref )
@@ -1443,7 +1338,7 @@ sub compute_nutriscore_data ($product_ref, $preparation, $version = "2021") {
 	# If the preparation needed for the Nutri-Score does not match the aggregated set preparation,
 	# we temporarily rename the aggregated set so that we get undef values for the nutrients
 	my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
-	if ($preparation ne $aggregated_set_preparation) {
+	if ((defined $aggregated_set_preparation) and ($preparation ne $aggregated_set_preparation)) {
 		$product_ref->{nutrition}->{aggregated_set_temp_for_nutriscore}
 			= $product_ref->{nutrition}->{aggregated_set};
 		delete $product_ref->{nutrition}->{aggregated_set};
@@ -1692,7 +1587,7 @@ Return the product category tag that should have prepared nutrition data, or und
 
 =cut
 
-sub has_category_that_should_have_prepared_nutrition_data($product_ref) {
+sub has_category_that_should_have_prepared_nutrition_data ($product_ref) {
 
 	foreach my $category_tag (
 		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
@@ -1712,7 +1607,7 @@ sub has_category_that_should_have_prepared_nutrition_data($product_ref) {
 
 Check that we know or can estimate the nutrients needed to compute the Nutri-Score of the product.
 
-To compute the Nutri-Score, we use the nutrition.aggregated_set 
+To compute the Nutri-Score, we use the nutrition.aggregated_set
 
 =head3 Arguments
 
@@ -1741,15 +1636,16 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 
-	my $preparation = "as_sold";
+	# by default we use the preparation of the aggregated set
+
+	my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
+	my $preparation = $aggregated_set_preparation // "as_sold";
 
 	my $category_tag = has_category_that_should_have_prepared_nutrition_data($product_ref);
 
 	if (defined $category_tag) {
 
 		$preparation = "prepared";
-
-		my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
 
 		if ((defined $aggregated_set_preparation) and ($aggregated_set_preparation eq "prepared")) {
 			$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag" . " - ";
@@ -1762,6 +1658,11 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 			add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
 			$nutrients_available = 0;
 		}
+	}
+	elsif ($aggregated_set_preparation eq "prepared") {
+		$product_ref->{nutrition_score_debug}
+			= "using prepared product data even if not necessary for category" . " - ";
+		add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
 	}
 
 	# Track the number of key nutrients present and their source
@@ -2265,31 +2166,47 @@ sub compute_units_of_alcohol ($product_ref, $serving_size_in_ml) {
 	}
 }
 
-sub compare_nutriments ($a_ref, $b_ref) {
+=head2 compare_nutrients ($a_ref, $b_ref)
 
-	# $a_ref can be a product, a category, ajr etc. -> needs {nutriments}{$nid} values
+For each comparable nutrient in both $a_ref and $b_ref, compute what percent the $a_ref value differs from the $b_ref value
 
-	my %nutriments = ();
+=head3 Arguments
 
-	foreach my $nid (keys %{$b_ref->{nutriments}}) {
-		next if $nid !~ /_100g$/;
-		$log->trace("compare_nutriments", {nid => $nid}) if $log->is_trace();
-		if ($b_ref->{nutriments}{$nid} ne '') {
-			$nutriments{$nid} = $b_ref->{nutriments}{$nid};
-			if (    ($b_ref->{nutriments}{$nid} > 0)
-				and (defined $a_ref->{nutriments}{$nid})
-				and ($a_ref->{nutriments}{$nid} ne ''))
-			{
-				$nutriments{"${nid}_%"}
-					= ($a_ref->{nutriments}{$nid} - $b_ref->{nutriments}{$nid}) / $b_ref->{nutriments}{$nid} * 100;
+=head4 $a_ref - ref to a product, a category, ajr etc.
+
+=head4 $b_ref - ref to a structure with nutrient values to compare to
+
+=head3 Return values
+
+=head4 $nutrients_ref - ref to a hash with the nutrient values from $b_ref and the percent difference between $a_ref and $b_ref values
+
+=cut
+
+sub compare_nutrients ($a_ref, $b_ref) {
+
+	# $a_ref can be a product, a category, ajr etc. -> needs {nutrition}{aggregated_set}{$nid}{value}
+	# $b_ref is the value references
+	my $nutrients_ref = {};
+
+	foreach my $nid (keys %{$b_ref->{values}}) {
+
+		my $a_value = deep_get($a_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+		my $b_value = $b_ref->{values}{$nid}{mean};
+
+		$log->trace("compare_nutrients", {nid => $nid, a_value => $a_value, b_value => $b_value}) if $log->is_trace();
+
+		if ($b_value ne '') {    # do the following if the comparison quantity exists, ie is not ""
+
+			deep_set($nutrients_ref, $nid, "mean", $b_value);
+
+			if (($b_value > 0) and (defined $a_value)) {
+				# compute what percent the $a_ref value differs from the $b_ref value
+				deep_set($nutrients_ref, ${nid}, "mean_percent", ($a_value - $b_value) / $b_value * 100);
 			}
-			$log->trace("compare_nutriments",
-				{nid => $nid, value => $nutriments{$nid}, percent => $nutriments{"$nid.%"}})
-				if $log->is_trace();
 		}
 	}
 
-	return \%nutriments;
+	return $nutrients_ref;
 
 }
 

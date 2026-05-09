@@ -129,13 +129,15 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-a-2023-b"
+      "en:nutriscore-2021-a-2023-b",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 1,
    "nova_group_debug" : "",
@@ -464,7 +466,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 0
+               "value" : 0,
+               "value_computed" : 33.536
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -645,6 +648,7 @@
                "value" : 4.6e-07
             },
             "sodium" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -801,6 +805,10 @@
                   "unit" : "g",
                   "value" : 0.6
                },
+               "sodium" : {
+                  "unit" : "g",
+                  "value_computed" : 0.012
+               },
                "sugars" : {
                   "unit" : "g",
                   "value" : 0.5
@@ -866,12 +874,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 0,
+                  "value_computed" : 33.536,
                   "value_string" : "0"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
                   "value" : 0,
+                  "value_computed" : 140.08,
                   "value_string" : "0"
                },
                "fat" : {
@@ -992,6 +1002,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.007592,
+                  "value_computed" : 0.00612,
                   "value_string" : "0.007592"
                },
                "saturated-fat" : {
@@ -1010,6 +1021,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.002448,
+                  "value_computed" : 0.0030368,
                   "value_string" : "0.002448"
                },
                "starch" : {

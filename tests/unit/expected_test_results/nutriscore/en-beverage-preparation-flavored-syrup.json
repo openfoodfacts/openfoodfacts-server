@@ -78,7 +78,7 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -92,10 +92,14 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
@@ -143,13 +147,15 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutrition-grade-computed-for-prepared-product",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-d-2023-d"
+      "en:nutriscore-2021-d-2023-d",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 4,
    "nova_group_debug" : "",
@@ -184,7 +190,6 @@
       "en:sugars-in-low-quantity",
       "en:salt-in-low-quantity"
    ],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -446,6 +451,7 @@
                "value" : 0
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -491,6 +497,10 @@
                "proteins" : {
                   "unit" : "g",
                   "value" : 0
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.025
                },
                "saturated-fat" : {
                   "unit" : "g",

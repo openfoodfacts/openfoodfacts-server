@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -59,7 +59,7 @@ It is also used in the C<scripts/export_csv_file.pl> script.
 =head1 DESCRIPTION
 
 Use the list of fields from C<Product::Opener::Config::options{import_export_fields_groups}>
-and the list of nutrients from C<Product::Opener::Food::nutriments_tables> to list fields
+and the list of nutrients from C<Product::Opener::Food::nutrients_tables> to list fields
 that need to be exported.
 
 The results of the query are scanned a first time to compute the list of non-empty columns.
@@ -97,7 +97,7 @@ use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_taxonomy_tags_in_language/;
 use ProductOpener::Display qw/search_and_export_products/;
-use ProductOpener::Food qw/%nutriments_tables/;
+use ProductOpener::Food qw/%nutrients_tables/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/product_path/;
 use ProductOpener::Images qw/add_images_urls_to_product $valid_image_types_regexp/;
@@ -110,6 +110,50 @@ use Text::CSV;
 use Excel::Writer::XLSX;
 use Data::DeepAccess qw(deep_get deep_exists);
 use Apache2::RequestRec;
+
+# Known array fields in the product structure
+# Trying to access these with non-numeric indices will cause warnings
+my %array_fields = (
+	ingredients => 1,
+	packagings => 1,
+);
+
+=head1 FUNCTIONS
+
+=head2 is_valid_field_path($field_path)
+
+Validates a field path before it's used with deep_get or deep_exists.
+Returns true if the path is valid, false otherwise.
+
+A path is invalid if it tries to access a known array field with a non-numeric index.
+For example, "ingredients.id" is invalid (should be "ingredients.0.id"),
+but "environmental_score_data.adjustments.packaging.value" is valid.
+
+=cut
+
+sub is_valid_field_path ($field_path) {
+	# Split by dots and filter out empty strings
+	my @path_parts = grep {defined && length} split(/\./, $field_path);
+
+	# Empty path is invalid
+	return 0 if scalar @path_parts == 0;
+
+	# Check if any part tries to access an array field with a non-numeric key
+	for (my $i = 0; $i < scalar @path_parts - 1; $i++) {
+		my $current_part = $path_parts[$i];
+		my $next_part = $path_parts[$i + 1];
+
+		# If current part is a known array field, next part must be numeric
+		if (exists $array_fields{$current_part} && $next_part !~ /^\d+$/) {
+			$log->debug(
+				"Invalid field path: $field_path - trying to access array field '$current_part' with non-numeric index '$next_part'"
+			) if $log->is_debug();
+			return 0;
+		}
+	}
+
+	return 1;
+}
 
 =head1 FUNCTIONS
 
@@ -193,6 +237,7 @@ sub export_csv ($args_ref) {
 	my $query_ref = $args_ref->{query};
 	my $fields_ref = $args_ref->{fields};
 	my $extra_fields_ref = $args_ref->{extra_fields};
+	my $export_nutrition_aggregated_set = $args_ref->{export_nutrition_aggregated_set};
 	my $export_computed_fields
 		= $args_ref->{export_computed_fields};    # Fields like the Nutri-Score score computed by OFF
 	my $export_canonicalized_tags_fields
@@ -275,8 +320,13 @@ sub export_csv ($args_ref) {
 
 					if ($group_id eq "nutrition") {
 
-						add_nutrition_fields_from_product_to_populated_fields($product_ref, \%populated_fields,
-							sprintf("%08d", $group_number * 1000));
+						add_nutrition_fields_from_product_to_populated_fields(
+							$product_ref, \%populated_fields,
+							sprintf("%08d", $group_number * 1000),
+							$export_computed_fields
+							,    # Skip estimated nutrients unless export_computed_fields is set to true
+							$export_nutrition_aggregated_set
+						);
 					}
 					elsif ($group_id eq "packaging") {
 						# packaging data will be exported in the CSV file in columns named like packaging_1_number_of_units
@@ -360,7 +410,10 @@ sub export_csv ($args_ref) {
 								}
 								# Allow returning fields that are not at the root of the product structure
 								# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
-								if (deep_exists($product_ref, split(/\./, $key))) {
+								# Validate the field path before calling deep_exists to avoid warnings
+								if (   is_valid_field_path($key)
+									&& deep_exists($product_ref, grep {defined && length} split(/\./, $key)))
+								{
 									$populated_fields{$group_prefix . $field} = $field_sort_key;
 								}
 							}
@@ -523,11 +576,14 @@ sub export_csv ($args_ref) {
 				# Nutrition fields: input sets
 				elsif ($field =~ /^nutrition\.input_sets\.(.*)$/) {
 					# the field key is of the form nutrition.input_sets.<input_set_id>.<property> that exactly matches the input set keys
-					$value = deep_get($input_sets_hash_ref, split(/\./, $1));
+					my @path_parts = grep {defined && length} split(/\./, $1);
+					$value = deep_get($input_sets_hash_ref, @path_parts) if scalar @path_parts > 0;
 				}
 				# Nutrition: other fields
 				elsif ($field =~ /^nutrition\./) {
-					$value = deep_get($product_ref, split(/\./, $field));
+					my @path_parts = grep {defined && length} split(/\./, $field);
+					$value = deep_get($product_ref, @path_parts)
+						if is_valid_field_path($field) && scalar @path_parts > 0;
 				}
 				# Source specific fields
 				elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
@@ -620,7 +676,9 @@ sub export_csv ($args_ref) {
 					# Allow returning fields that are not at the root of the product structure
 					# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
 					elsif ($field =~ /\./) {
-						$value = deep_get($product_ref, split(/\./, $field));
+						my @path_parts = grep {defined && length} split(/\./, $field);
+						$value = deep_get($product_ref, @path_parts)
+							if is_valid_field_path($field) && scalar @path_parts > 0;
 					}
 					# Fields like "obsolete" : output 1 for true values or 0
 					elsif ($field eq "obsolete") {

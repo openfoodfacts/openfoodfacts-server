@@ -42,11 +42,13 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-e-2023-e"
+      "en:nutriscore-2021-e-2023-e",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
@@ -65,7 +67,6 @@
       "en:sugars-in-moderate-quantity",
       "en:salt-in-low-quantity"
    ],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -334,6 +335,7 @@
                "value" : 0
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -383,6 +385,10 @@
                "proteins" : {
                   "unit" : "g",
                   "value" : 0
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0
                },
                "saturated-fat" : {
                   "unit" : "g",

@@ -338,7 +338,7 @@
             "name" : "Green-Score",
             "panel_id" : "environmental_score",
             "setting_name" : "Low environmental impact (Green-Score)",
-            "setting_note" : "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment.",
+            "setting_note" : "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment.",
             "values" : [
                "not_important",
                "important",
@@ -350,6 +350,7 @@
             "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
             "id" : "forest_footprint",
             "name" : "Forest footprint",
+            "panel_id" : "forest_footprint",
             "setting_name" : "Low risk of deforestation (Forest footprint)",
             "setting_note" : "The forest footprint corresponds to the risk of deforestation associated with its ingredients.",
             "values" : [

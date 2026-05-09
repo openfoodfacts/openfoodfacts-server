@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -309,7 +309,7 @@ my %gs1_maps = (
 		"BLEU_BLANC_COEUR" => "fr:bleu-blanc-coeur",
 		"BIO_LABEL_GERMAN" => "de:EG-Öko-Verordnung",
 		"BIO_PARTENAIRE" => "fr:biopartenaire",
-		"CERTIFIED_PLANT_BASED" => "en:certified plant based",
+		"CERTIFIED_PLANT_BASED" => "en:certified-plant-based",
 		"CROSSED_GRAIN_SYMBOL" => "en:crossed-grain-symbol",
 		"DEMETER" => "en:demeter",
 		"DEMETER_LABEL" => "en:demeter",
@@ -1172,7 +1172,7 @@ sub assign_field ($results_ref, $target_field, $target_value) {
 
 sub extract_nutrient_quantity_contained ($preparation, $per, $results_ref, $nid, $nutrient_detail_ref) {
 
-	my $nutrient_field = "nutrition.input_sets.manufacturer.$preparation.$per.$nid";
+	my $nutrient_field = "nutrition.input_sets.manufacturer.$preparation.$per.nutrients.$nid";
 
 	my $nutrient_value;
 	my $nutrient_unit;
@@ -1213,10 +1213,10 @@ sub extract_nutrient_quantity_contained ($preparation, $per, $results_ref, $nid,
 		# energy: based on the nutrient unit, assign the energy-kj or energy-kcal field
 		if ($nid eq "energy") {
 			if ($nutrient_unit eq "kcal") {
-				$nutrient_field =~ s/\.energy$/\.energy-kcal/;
+				$nutrient_field =~ s/\.energy.*$/\.energy-kcal/;
 			}
 			else {
-				$nutrient_field =~ s/\.energy$/\.energy-kj/;
+				$nutrient_field =~ s/\.energy.*$/\.energy-kj/;
 			}
 		}
 
@@ -1374,12 +1374,6 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 				# in that case, the last values (e.g. for 100g) will override previous values (e.g. for 100ml)
 
 				foreach my $nutrient_header_ref (@{$json_ref->{$source_field}}) {
-
-					my $preparation = "as_sold";
-
-					if ($nutrient_header_ref->{preparationStateCode} eq "PREPARED") {
-						$preparation = "prepared";
-					}
 
 					my $preparation = $gs1_maps{preparationStateCode}{$nutrient_header_ref->{preparationStateCode}};
 

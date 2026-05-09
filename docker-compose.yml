@@ -23,6 +23,8 @@
     - GOOGLE_CLOUD_VISION_API_URL
     - CROWDIN_PROJECT_IDENTIFIER
     - CROWDIN_PROJECT_KEY
+    - BREVO_API_KEY
+    - BREVO_LIST_ID
     - GEOLITE2_PATH
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
@@ -47,9 +49,6 @@
   depends_on:
     memcached:
         condition: service_started
-    # commented out as it prevents "make dev" to work for off-pro
-    #postgres:
-    #    condition: service_healthy
   volumes:
     # pointer to openfoodfacts-web/lang
     - ${WEB_RESOURCES_PATH}/lang:/mnt/podata/lang
@@ -120,10 +119,6 @@ services:
       - "$MINION_MODE"
       - "-q"
       - "$MINION_QUEUE"
-    #depends_on:
-      # commented out as it prevents "make dev" to work for off-pro
-      #postgres:
-      #  condition: service_healthy
   incron:
     <<: *backend-conf
     # This service watches for new images to trigger ocr and robotoff processing
@@ -182,3 +177,13 @@ volumes:
   # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
   build_cache:
   other_servers:
+  # volumes redefined in other docker compose
+  html_data:
+  users:
+  products:
+  product_images:
+  orgs:
+  export_files:
+  podata:
+
+

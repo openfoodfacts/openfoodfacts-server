@@ -3,12 +3,13 @@
       "header" : {
          "columns" : [
             {
-               "col_id" : "100g",
+               "class" : "product",
+               "col_id" : "as_sold_",
                "name" : "As sold<br>for 100 g / 100 ml",
-               "per" : "100g",
-               "product_type" : "",
+               "per" : null,
+               "preparation" : "as_sold",
                "scope" : "product",
-               "short_name" : "100g"
+               "short_name" : null
             }
          ],
          "name" : "Nutrition facts"
@@ -18,7 +19,21 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Energy",
+            "nid" : "energy"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -32,7 +47,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -46,7 +61,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -60,7 +75,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -74,7 +89,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -88,7 +103,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -102,7 +117,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -112,6 +127,20 @@
             "level" : 0,
             "name" : "Salt",
             "nid" : "salt"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
          }
       ]
    }

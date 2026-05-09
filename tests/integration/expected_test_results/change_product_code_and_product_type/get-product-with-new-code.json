@@ -59,7 +59,7 @@
          "en:ingredients-en-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-to-be-completed",
+         "en:nutrition-to-be-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -83,6 +83,7 @@
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
+         "en:no-nutrition-data",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown"
@@ -93,7 +94,7 @@
          "en:ingredients-en-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-to-be-completed",
+         "en:nutrition-to-be-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -102,6 +103,7 @@
          "en:brands-to-be-completed",
          "en:expiration-date-to-be-completed",
          "en:no-packaging-data",
+         "en:no-nutrition-data",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
@@ -404,6 +406,7 @@
       "main_countries_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-fiber",
          "en:nutriscore-missing-nutrition-data",
@@ -429,7 +432,6 @@
       ],
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
-      "nutriments" : {},
       "nutriscore" : {
          "2021" : {
             "category_available" : 0,

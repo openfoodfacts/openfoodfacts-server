@@ -964,13 +964,244 @@ my @tests = (
 			}
 		}
 	],
+	# Salt and sodium in g
+	[
+		"salt-and-sodium-in-g",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2.0",
+								value => 2,
+								unit => "g",
+							},
+							salt => {
+								value_string => "5.0",
+								value => 5,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+	# Salt in g and sodium in mg
+	[
+		"salt-in-g-and-sodium-in-mg",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2000.0",
+								value => 2000,
+								unit => "mg",
+							},
+							salt => {
+								value_string => "5.0",
+								value => 5,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
 
+	],
+	# Sodium in mg and salt in mg
+	[
+		"sodium-and-salt-in-mg",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							salt => {
+								value_string => "5000.0",
+								value => 5000,
+								unit => "mg",
+							},
+							sodium => {
+								value_string => "2000.0",
+								value => 2000,
+								unit => "mg",
+							},
+						}
+					}
+				]
+			}
+		}
+	],
+	# Sodium in mg only
+	[
+		"sodium-in-mg-only",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "2000.0",
+								value => 2000,
+								unit => "mg",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+
+	# As sold data per 100g and prepared data for 100ml
+	[
+		"as_sold_per_100g_and_prepared_per_100ml",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sugars => {
+								value_string => "25.0",
+								value => 25,
+								unit => "g",
+							}
+						}
+					},
+					{
+						preparation => "prepared",
+						per => "100ml",
+						per_quantity => "100",
+						per_unit => "ml",
+						source => "packaging",
+						nutrients => {
+							sugars => {
+								value_string => "5.2",
+								value => 5.2,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+
+	# pb on Japanese product: https://world.openfoodfacts.org/product/8718989958732/milk-chocolate-plus
+	[
+		"as_sold_per_serving_plus_estimated_per_100g",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "200",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sugars => {
+								value_string => "6.3",
+								value => 6.3,
+								unit => "g",
+							}
+						}
+					},
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "estimate",
+						nutrients => {
+							sugars => {
+								value => 3,
+								unit => "g",
+							}
+						}
+					}
+				]
+			}
+		}
+	],
+
+	[
+		# an unknown source should be considered less important than known sources
+		"unknown_source_less_important_than_known_sources",
+		{
+			nutrition => {
+				input_sets => [
+					{
+						preparation => "as_sold",
+						per => "100g",
+						per_quantity => "100",
+						per_unit => "g",
+						source => "unknown_source",
+						nutrients => {
+							sodium => {
+								value_string => "2.0",
+								value => 2,
+								unit => "g",
+								modifier => "<="
+							}
+						}
+					},
+					{
+						preparation => "as_sold",
+						per => "serving",
+						per_quantity => "10",
+						per_unit => "g",
+						source => "packaging",
+						nutrients => {
+							sodium => {
+								value_string => "0.1",
+								value => 0.1,
+								unit => "g",
+							},
+
+						}
+					}
+				]
+			}
+		}
+	]
 );
 
 foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
+
+	ProductOpener::Nutrition::add_computed_values_to_nutrient_sets($product_ref->{nutrition}{input_sets});
 
 	my $nutrient_set_preferred_ref
 		= generate_nutrient_aggregated_set_from_sets($product_ref->{nutrition}{input_sets});
@@ -1826,6 +2057,82 @@ compare_to_expected_results(
 	is($value, 3.0,
 		"get_non_estimated_nutrient_per_100g_or_100ml_for_preparation returns value from highest priority set (manufacturer over packaging)"
 	);
+}
+
+# Test that get_nutrition_input_sets_in_a_hash normalizes "_prepared" to "prepared"
+# for backwards compatibility with products stored via old-style API params
+{
+	my $product_ref = {
+		nutrition => {
+			input_sets => [
+				{
+					source => "packaging",
+					preparation => "_prepared",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sugars => {
+							value => 5.0,
+							unit => "g"
+						}
+					}
+				},
+				{
+					source => "packaging",
+					preparation => "as_sold",
+					per => "100g",
+					per_quantity => 100,
+					per_unit => "g",
+					nutrients => {
+						sugars => {
+							value => 10.0,
+							unit => "g"
+						}
+					}
+				}
+			]
+		}
+	};
+	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+
+	# The "_prepared" key should be normalized to "prepared" in the hash
+	ok(defined $input_sets_hash_ref->{packaging}{prepared},
+		"get_nutrition_input_sets_in_a_hash normalizes _prepared to prepared in the hash key");
+	ok(!defined $input_sets_hash_ref->{packaging}{_prepared},
+		"get_nutrition_input_sets_in_a_hash does not keep _prepared as a key");
+	is($input_sets_hash_ref->{packaging}{prepared}{"100g"}{nutrients}{sugars}{value},
+		5.0, "get_nutrition_input_sets_in_a_hash normalizes _prepared: nutrient value is preserved");
+
+	# The preparation field inside the set should also be normalized
+	is($input_sets_hash_ref->{packaging}{prepared}{"100g"}{preparation},
+		"prepared", "get_nutrition_input_sets_in_a_hash normalizes _prepared in the set's preparation field");
+
+	# The as_sold set should be unaffected
+	ok(defined $input_sets_hash_ref->{packaging}{as_sold},
+		"get_nutrition_input_sets_in_a_hash keeps as_sold unchanged");
+	is($input_sets_hash_ref->{packaging}{as_sold}{"100g"}{nutrients}{sugars}{value},
+		10.0, "get_nutrition_input_sets_in_a_hash: as_sold nutrient value is preserved");
+}
+
+# Test that sort_sets_by_priority correctly handles both "prepared" and previously stored "_prepared"
+# After normalization, "prepared" should get priority 0 (highest for preparation)
+{
+	my @input_sets = (
+		{
+			source => "packaging",
+			preparation => "as_sold",
+			per => "100g",
+		},
+		{
+			source => "packaging",
+			preparation => "prepared",
+			per => "100g",
+		},
+	);
+	my @sorted = sort_sets_by_priority(\@input_sets);
+	is($sorted[0]->{preparation},
+		"prepared", "sort_sets_by_priority: prepared (priority 0) sorts before as_sold (priority 1)");
 }
 
 done_testing();

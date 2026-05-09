@@ -499,7 +499,7 @@
          "unit" : "g"
       },
       {
-         "display_in_edit_form" : true,
+         "display_in_edit_form" : false,
          "id" : "sodium",
          "important" : false,
          "name" : "Sodium",
@@ -752,6 +752,13 @@
       },
       {
          "display_in_edit_form" : false,
+         "id" : "hydroxymethylbutyrate",
+         "important" : false,
+         "name" : "HMB",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
          "name" : "PH",
@@ -759,16 +766,9 @@
       },
       {
          "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts",
-         "important" : false,
-         "name" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-dried",
-         "important" : false,
-         "name" : "Fruits‚ légumes et noix - séchés",
+         "id" : "fruits-vegetables-legumes",
+         "important" : true,
+         "name" : "Fruits‚ légumes‚ légumes secs",
          "unit" : "%"
       },
       {
@@ -874,6 +874,13 @@
          "id" : "carbohydrates-total",
          "important" : false,
          "name" : "Glucides totaux (inclut les fibres)",
+         "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "water",
+         "important" : false,
+         "name" : "Eau",
          "unit" : "g"
       }
    ]

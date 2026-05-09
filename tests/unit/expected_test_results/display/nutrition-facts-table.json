@@ -3,10 +3,11 @@
       "header" : {
          "columns" : [
             {
-               "col_id" : "100g",
+               "class" : "product",
+               "col_id" : "as_sold_100g",
                "name" : "As sold<br>for 100 g / 100 ml",
                "per" : "100g",
-               "product_type" : "",
+               "preparation" : "as_sold",
                "scope" : "product",
                "short_name" : "100g"
             }
@@ -18,11 +19,11 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
                   "type" : "normal",
-                  "value" : "0 kj<br>(0 kcal)"
+                  "value" : "0 kJ<br>(0 kcal)"
                }
             ],
             "level" : 0,
@@ -32,7 +33,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:fatPer100g\" content=\"0\"",
                   "type" : "normal",
@@ -46,7 +47,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -60,7 +61,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"0\"",
                   "type" : "normal",
@@ -74,7 +75,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -88,7 +89,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -102,7 +103,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:proteinsPer100g\" content=\"0\"",
                   "type" : "normal",
@@ -116,7 +117,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:saltPer100g\" content=\"3.75\"",
                   "type" : "normal",
@@ -130,30 +131,16 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
-                  "rdfa" : " property=\"food:calciumPer100g\" content=\"0.3\"",
+                  "rdfa" : "",
                   "type" : "normal",
-                  "value" : "300 mg"
+                  "value" : "?"
                }
             ],
             "level" : 0,
-            "name" : "Calcium",
-            "nid" : "calcium"
-         },
-         {
-            "columns" : [
-               {
-                  "class" : null,
-                  "percent" : null,
-                  "rdfa" : " property=\"food:caffeinePer100g\" content=\"2\"",
-                  "type" : "normal",
-                  "value" : "2,000 mg"
-               }
-            ],
-            "level" : 0,
-            "name" : "Caffeine",
-            "nid" : "caffeine"
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
          }
       ]
    }

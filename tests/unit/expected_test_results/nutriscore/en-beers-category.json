@@ -37,10 +37,12 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:nutrients-not-estimated-from-ingredients-no-ingredients",
       "en:nutriscore-not-applicable",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
@@ -49,7 +51,6 @@
    ],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -153,6 +154,7 @@
                "value" : 0.2
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -202,6 +204,10 @@
                "proteins" : {
                   "unit" : "g",
                   "value" : 0.2
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.5
                },
                "saturated-fat" : {
                   "unit" : "g",

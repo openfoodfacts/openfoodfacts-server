@@ -42,7 +42,7 @@
          "1xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.1,
+      "completeness" : 0.2,
       "correctors_tags" : [
          "tests"
       ],
@@ -55,7 +55,7 @@
          "en:ingredients-en-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-to-be-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -71,12 +71,14 @@
          "completeness" : {
             "general_information" : "0.20",
             "ingredients" : "0.00",
-            "nutrition" : "0.00",
-            "overall" : "0.17",
+            "nutrition" : "0.33",
+            "overall" : "0.25",
             "packaging" : "0.50"
          }
       },
-      "data_quality_errors_tags" : [],
+      "data_quality_errors_tags" : [
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
+      ],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
          "en:food-groups-1-unknown",
@@ -89,7 +91,7 @@
          "en:ingredients-en-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-to-be-completed",
+         "en:nutrition-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -101,13 +103,22 @@
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:serving-quantity-defined-but-quantity-undefined",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
          "en:environmental-score-production-system-no-label",
-         "en:environmental-score-threatened-species-ingredients-missing"
+         "en:environmental-score-threatened-species-ingredients-missing",
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients"
       ],
       "data_quality_warnings_tags" : [
+         "en:nutrition-packaging-as-sold-100g-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
+         "en:nutrition-energy-value-in-kj-does-not-match-value-computed-from-other-nutrients",
+         "en:nutrition-energy-value-in-kj-may-not-match-value-computed-from-other-nutrients",
          "en:serving-quantity-defined-but-quantity-undefined",
          "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:environmental-score-packaging-packaging-data-missing",
@@ -408,10 +419,13 @@
       "main_countries_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-sugars",
          "en:nutriscore-not-computed",
+         "en:nutrition-data-per-100g",
+         "en:nutrition-data-per-serving",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
          "en:nutrition-no-fruits-vegetables-nuts",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -427,7 +441,6 @@
       ],
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
-      "nutriments" : {},
       "nutriscore" : {
          "2021" : {
             "category_available" : 0,
@@ -508,7 +521,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kJ",
-                  "value" : 450
+                  "value" : 450,
+                  "value_computed" : 1783.7
                },
                "energy-kcal" : {
                   "source" : "packaging",
@@ -522,7 +536,8 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "kJ",
-                  "value" : 450
+                  "value" : 450,
+                  "value_computed" : 1783.7
                },
                "fat" : {
                   "source" : "packaging",
@@ -546,6 +561,7 @@
                   "value" : 8.2
                },
                "salt" : {
+                  "modifier" : "~",
                   "source" : "packaging",
                   "source_index" : 0,
                   "source_per" : "100g",
@@ -564,7 +580,15 @@
                   "source_index" : 0,
                   "source_per" : "100g",
                   "unit" : "g",
-                  "value" : 0.472
+                  "value" : 0.472,
+                  "value_computed" : 0.48
+               },
+               "water" : {
+                  "source" : "packaging",
+                  "source_index" : 0,
+                  "source_per" : "100g",
+                  "unit" : "g",
+                  "value" : 10
                }
             },
             "per" : "100g",
@@ -586,6 +610,7 @@
                   "energy-kj" : {
                      "unit" : "kJ",
                      "value" : 450,
+                     "value_computed" : 1783.7,
                      "value_string" : "450"
                   },
                   "fiber" : {
@@ -598,6 +623,10 @@
                      "value" : 8.2,
                      "value_string" : "8.2"
                   },
+                  "salt" : {
+                     "unit" : "g",
+                     "value_computed" : 1.18
+                  },
                   "saturated-fat" : {
                      "unit" : "g",
                      "value" : 3.1,
@@ -606,7 +635,13 @@
                   "sodium" : {
                      "unit" : "g",
                      "value" : 0.472,
+                     "value_computed" : 0.48,
                      "value_string" : "0.472"
+                  },
+                  "water" : {
+                     "unit" : "g",
+                     "value" : 10,
+                     "value_string" : "10"
                   }
                },
                "per" : "100g",
@@ -671,10 +706,10 @@
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10g",
-      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
-         "en:nutrition-facts-to-be-completed",
+         "en:nutrition-facts-completed",
          "en:ingredients-to-be-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
@@ -689,7 +724,7 @@
       ],
       "states_tags" : [
          "en:to-be-completed",
-         "en:nutrition-facts-to-be-completed",
+         "en:nutrition-facts-completed",
          "en:ingredients-to-be-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",

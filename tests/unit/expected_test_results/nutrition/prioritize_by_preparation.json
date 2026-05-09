@@ -3,6 +3,7 @@
       "aggregated_set" : {
          "nutrients" : {
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -30,6 +31,10 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.25
+               },
                "sodium" : {
                   "unit" : "g",
                   "value" : 0.1,
@@ -53,6 +58,11 @@
                   "unit" : "g",
                   "value" : 6.2,
                   "value_string" : "6.2"
+               },
+               "salt" : {
+                  "modifier" : "<=",
+                  "unit" : "g",
+                  "value_computed" : 5
                },
                "sodium" : {
                   "modifier" : "<=",

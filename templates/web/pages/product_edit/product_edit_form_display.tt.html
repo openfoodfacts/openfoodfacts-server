@@ -263,9 +263,8 @@
 
                                                     <input class="nutrient_value soft-background" id="[% nutrient_id %]_value_string" name="[% nutrient_id %]_value_string" value="[% nutrient.input_sets.$preparation.$per.value_string %]" autocomplete="off"/>
 
-                                                    <!-- FIXME checks need to be made to work on all columns -->
-                                                    <span id="nutrient_question_mark_[% nutrient.nid %]" class="question_mark">?</span>
-                                                    <span id="nutrient_sugars_warning_[% nutrient.nid %]" class="sugars_warning">Please enter a valid value.</span>
+                                                    <span id="nutrient_question_mark_[% nutrient.nid %]_[% preparation %]_[% per %]" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_[% nutrient.nid %]_[% preparation %]_[% per %]" class="sugars_warning">Please enter a valid value.</span>
 
                                                     <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
                                                     <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
@@ -291,6 +290,7 @@
                                             [% IF nutrient.unit.defined %]
                                                 [% IF nutrient.units_options.size < 2 %]
                                                     <span class="nutrient_unit">[% nutrient.input_sets.$preparation.$per.unit %]</span>
+                                                    <input type="hidden" class="global_nutrient_unit" id="global_nutrient_[% nutrient.nid %]_unit" name="[% nutrient_id %]_unit" value="[% nutrient.input_sets.$preparation.$per.unit %]" />
                                                 [% ELSE %]
                                                     <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_[% nutrient.nid %]_unit" name="[% nutrient_id %]_unit">
                                                         [% FOREACH unit IN nutrient.units_options %]

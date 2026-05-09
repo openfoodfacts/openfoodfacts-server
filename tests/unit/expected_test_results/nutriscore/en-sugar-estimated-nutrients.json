@@ -46,14 +46,18 @@
          "percent_max" : 100,
          "percent_min" : 100,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
@@ -86,6 +90,7 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-energy",
       "en:nutriscore-estimated-fat",
       "en:nutriscore-estimated-saturated-fat",
@@ -390,7 +395,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 1700
+               "value" : 1700,
+               "value_computed" : 1696.6
             },
             "energy-kcal" : {
                "modifier" : "~",
@@ -398,7 +404,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 399
+               "value" : 399,
+               "value_computed" : 399.2
             },
             "energy-kj" : {
                "modifier" : "~",
@@ -406,7 +413,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "kJ",
-               "value" : 1700
+               "value" : 1700,
+               "value_computed" : 1696.6
             },
             "fat" : {
                "modifier" : "~",
@@ -566,7 +574,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0054
+               "value" : 0.0054,
+               "value_computed" : 0.005425
             },
             "saturated-fat" : {
                "modifier" : "~",
@@ -590,7 +599,8 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00217
+               "value" : 0.00217,
+               "value_computed" : 0.00216
             },
             "starch" : {
                "modifier" : "~",
@@ -771,12 +781,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 399,
+                  "value_computed" : 399.2,
                   "value_string" : "399"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
                   "value" : 1700,
+                  "value_computed" : 1696.6,
                   "value_string" : "1700"
                },
                "fat" : {
@@ -897,6 +909,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.0054,
+                  "value_computed" : 0.005425,
                   "value_string" : "0.0054"
                },
                "saturated-fat" : {
@@ -915,6 +928,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.00217,
+                  "value_computed" : 0.00216,
                   "value_string" : "0.00217"
                },
                "starch" : {

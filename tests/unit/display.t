@@ -10,6 +10,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::APIAttributeGroups qw/display_preferences_api display_attribute_groups_api/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Food qw/check_nutriscore_categories_exist_in_taxonomy/;
 use ProductOpener::Web qw/display_field/;
 use ProductOpener::Lang qw/$lc lang separator_before_colon/;
 use ProductOpener::HTTP qw/request_param/;
@@ -138,7 +139,7 @@ is(request_param($request_ref, 'unexisting_field'), undef);
 is(request_param($request_ref, 'labels_tags'), 'en:organic') or diag Dumper request_param($request_ref, 'labels_tags');
 
 # tests of the display of products with the new nutrition schema (version 1003)
-my @tests = (
+my @display_tests = (
 	[
 		"nutrition-facts-table",
 		{
@@ -191,7 +192,8 @@ my @tests = (
 							value => 1.5
 						}
 					},
-					preparation => "as_sold"
+					preparation => "as_sold",
+					per => "100g"
 				}
 			}
 		}
@@ -248,7 +250,8 @@ my @tests = (
 							value => 1.5
 						}
 					},
-					preparation => "as_sold"
+					preparation => "as_sold",
+					per => "100ml"
 				}
 			}
 		}
@@ -309,10 +312,66 @@ my @tests = (
 							value => 0.25
 						}
 					},
-					preparation => "as_sold"
+					preparation => "as_sold",
+					per => "100g"
 				}
 			}
 		}
+	],
+	[
+		"nutrition-facts-table-with-comparisons",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "food",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						carbohydrates => {
+							unit => "g",
+							value => 0
+						},
+						energy => {
+							unit => "kJ",
+							value => 0
+						},
+						fat => {
+							unit => "g",
+							value => 0
+						},
+						salt => {
+							unit => "g",
+							value => 3.75
+						}
+					},
+					preparation => "as_sold",
+					per => "100g"
+				}
+			}
+		},
+		[
+			{
+				name => "Spreads",
+				n => 1,
+				count => 100,
+				values => {
+					energy => {mean => 10},
+					fat => {mean => 20},
+					"saturated-fat" => {mean => 30},
+					sugars => {mean => 40},
+					salt => {mean => 50}
+				},
+				id => "en:spreads",
+				show => 1,
+				link => "/facets/categories/en:spreads"
+			}
+		]
 	]
 );
 
@@ -320,7 +379,54 @@ my @tests = (
 build_all_taxonomies(0);
 $ProductOpener::Display::nutriment_table = 'off_europe';
 
-foreach my $test_ref (@tests) {
+# populate the hash for the comparison column tests
+%ProductOpener::Stats::categories_stats_per_country = (
+	'fr' => {
+		'fr:pates-a-tartiner' => {
+			stats => 1,
+			id => 'fr:pates-a-tartiner',
+			count => 100,
+			n => 1,
+			values => {
+				energy => {mean => 10},
+				fat => {mean => 20},
+				"saturated-fats" => {mean => 30},
+				sugars => {mean => 40},
+				salt => {mean => 50}
+			},
+		},
+		'fr:boissons' => {
+			stats => 1,
+			id => 'fr:boissons',
+			count => 50,
+			n => 1,
+			values => {
+				energy => {mean => 50},
+				fat => {mean => 0},
+				'saturated-fat' => {mean => 0},
+				sugars => {mean => 12},
+				salt => {mean => 0},
+			},
+		},
+	},
+	'en' => {
+		'en:snacks' => {
+			stats => 1,
+			id => 'en:snacks',
+			count => 25,
+			n => 1,
+			values => {
+				energy => {mean => 500},
+				fat => {mean => 25},
+				'saturated-fat' => {mean => 6},
+				sugars => {mean => 35},
+				salt => {mean => 1.5},
+			},
+		},
+	},
+);
+
+foreach my $test_ref (@display_tests) {
 	my $testid = $test_ref->[0];
 	my $product_test_ref = $test_ref->[1];
 	my $comparisons_ref = $test_ref->[2];
@@ -332,5 +438,73 @@ foreach my $test_ref (@tests) {
 		$update_expected_results, {id => $testid});
 
 }
+
+# test the generation of the comparison column of products with the new nutrition schema (version 1003)
+my @comparison_tests = (
+	[
+		"comparisons",
+		{
+			product => {
+				nutrition_data => "on",
+				serving_size => "100g",
+				serving_quantity => 100,
+				nutrition_data_per => "100g",
+				product_type => "food",
+				code => "0000109165808",
+				id => "0000109165808",
+				categories => "",
+				categories_tags => [],
+				nutrition => {
+					aggregated_set => {
+						nutrients => {
+							"fat" => {
+								value => 30.9
+							},
+							"salt" => {
+								value => undef
+							},
+							"energy" => {
+								value => 2252
+							},
+						},
+						preparation => "as_sold",
+						per => "100g",
+					}
+				},
+				categories_tags => [
+					"en:breakfasts", "en:spreads",
+					"en:sweet-spreads", "fr:pates-a-tartiner",
+					"en:hazelnut-spreads", "en:chocolate-spreads",
+					"en:cocoa-and-hazelnuts-spreads"
+				]
+			},
+			target_lc => "fr",
+			target_cc => "fr",
+			max_number_of_categories => 3
+		},
+	]
+);
+
+foreach my $test_ref (@comparison_tests) {
+	my $testid = $test_ref->[0];
+	my $product_test_ref = $test_ref->[1]{product};
+	my $target_cc = $test_ref->[1]{target_cc};
+	my $target_lc = $test_ref->[1]{target_lc};
+	my $max_number_of_categories = $test_ref->[1]{max_number_of_categories};
+
+	my $comparisons
+		= compare_product_nutrition_facts_to_categories($product_test_ref, $target_lc, $target_cc,
+		$max_number_of_categories);
+
+	compare_to_expected_results($comparisons, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
+
+}
+
+is([ProductOpener::Display::get_search_field_title_and_details("additives_n")],
+	["Number of additives", "", "", "allowDecimals:false,\n"]);
+is([ProductOpener::Display::get_search_field_title_and_details("nova_group")],
+	["NOVA group", "", "", "allowDecimals:false,\n"]);
+is([ProductOpener::Display::get_search_field_title_and_details("fat")], ["Fat", " (g for 100 g / 100 ml)", "g", ""]);
 
 done_testing();

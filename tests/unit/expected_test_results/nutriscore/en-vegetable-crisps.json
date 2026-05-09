@@ -111,6 +111,7 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
+      "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-from-category",
@@ -118,7 +119,8 @@
       "en:nutrition-fruits-vegetables-legumes-from-category",
       "en:nutrition-fruits-vegetables-legumes-from-category-en-parsnip-crisps",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-a-2023-a"
+      "en:nutriscore-2021-a-2023-a",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -431,7 +433,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 55.87
+               "value" : 55.87,
+               "value_computed" : 55.8508
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -591,6 +594,7 @@
                "value" : 20
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -757,6 +761,10 @@
                   "unit" : "g",
                   "value" : 20
                },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.025
+               },
                "saturated-fat" : {
                   "unit" : "g",
                   "value" : 0
@@ -830,12 +838,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 55.87,
+                  "value_computed" : 55.8508,
                   "value_string" : "55.87"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
                   "value" : 235.1,
+                  "value_computed" : 234.77,
                   "value_string" : "235.1"
                },
                "fat" : {
@@ -956,6 +966,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.059,
+                  "value_computed" : 0.059375,
                   "value_string" : "0.059"
                },
                "saturated-fat" : {
@@ -974,6 +985,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.02375,
+                  "value_computed" : 0.0236,
                   "value_string" : "0.02375"
                },
                "starch" : {

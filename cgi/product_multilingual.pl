@@ -39,10 +39,9 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/send_email_to_admin/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food
-	qw/%nutriments_tables %other_nutriments_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
+	qw/%nutrients_tables %other_nutrients_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
 use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::URL qw(format_subdomain);
@@ -51,7 +50,6 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
 	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
@@ -95,7 +93,7 @@ sub display_search_or_add_form($request_ref) {
 		$template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
-	# Producers platform: display an addition import products block
+	# Producers platform: display an additional import products block
 
 	if ($server_options{producers_platform}) {
 		my $html_producer = '';
@@ -176,7 +174,7 @@ sub create_packaging_components_from_request_parameters ($product_ref) {
 
 my $request_ref = ProductOpener::Display::init_request();
 
-if ($User_id eq 'unwanted-user-french') {
+if ((defined $User_id) and ($User_id eq 'unwanted-user-french')) {
 	display_error_and_exit(
 		$request_ref,
 		"<b>Il y a des problèmes avec les modifications de produits que vous avez effectuées. Ce compte est temporairement bloqué, merci de nous contacter.</b>",
@@ -672,7 +670,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	}
 
 	# Update the nutrients
-	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutriment_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	# Process packaging components
 	create_packaging_components_from_request_parameters($product_ref);
@@ -827,7 +825,6 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	$request_ref->{header} .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
 HTML
 		;
 
@@ -835,7 +832,6 @@ HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
@@ -1071,7 +1067,7 @@ CSS
 	my $checked = '';
 	my $tablestyle = 'display: table;';
 	my $disabled = '';
-	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {
+	if (has_no_nutrition_data_on_packaging($product_ref)) {
 		$checked = 'checked="checked"';
 		$tablestyle = 'display: none;';
 		$disabled = 'disabled="disabled"';
@@ -1143,7 +1139,7 @@ CSS
 	$template_data_ref_display->{nutrients} = \@nutrients;
 	$template_data_ref_display->{input_sets} = \%input_sets;
 
-	foreach my $nutrient (@{$nutriments_tables{$nutriment_table}}) {
+	foreach my $nutrient (@{$nutrients_tables{$nutrient_table}}) {
 
 		my $nutrient_ref = {};
 
@@ -1289,7 +1285,7 @@ CSS
 
 		# if the product is in a category that should have prepared nutrition data, we will check the checkbox for prepared nutrition data
 		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {
-			my $default_prepared_per = get_default_nutrition_per_for_product($product_ref, "prepared");
+			my $default_prepared_per = get_default_per_for_product($product_ref, "prepared");
 			$input_sets{'prepared'}{$default_prepared_per}{'shown'} = 1;
 		}
 	}
@@ -1301,7 +1297,7 @@ CSS
 	my $other_nutrients = '';
 	# Add an empty value for the select2 placeholder
 	$other_nutrients .= '{ "id" : "", "text" : ""},' . "\n";
-	foreach my $nid (@{$other_nutriments_lists{$nutriment_table}}) {
+	foreach my $nid (@{$other_nutrients_lists{$nutrient_table}}) {
 
 		# Some nutrients cannot be entered directly by users, so don't suggest them
 		my $automatically_computed = get_property("nutrients", "zz:$nid", "automatically_computed:en");

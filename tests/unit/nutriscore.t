@@ -790,8 +790,8 @@ my @tests = (
 	],
 
 	# spring waters
-	["spring-water-no-nutrition", {lc => "en", categories => "spring water", nutriments => {}}],
-	["flavored-spring-water-no-nutrition", {lc => "en", categories => "flavoured spring water", nutriments => {}}],
+	["spring-water-no-nutrition", {lc => "en", categories => "spring water"}],
+	["flavored-spring-water-no-nutrition", {lc => "en", categories => "flavoured spring water"}],
 	[
 		"flavored-spring-with-nutrition",
 		{
@@ -2352,6 +2352,59 @@ my @tests = (
 			lc => "en",
 			categories => "ground coffee",
 			ingredients_text => "ground coffee",
+		}
+	],
+
+	# Bug: product in a regular category (not requiring prepared data) but the only input set
+	# has preparation = "prepared". check_availability_of_nutrients_needed_for_nutriscore finds
+	# the nutrients in aggregated_set (which has preparation = "prepared") and returns
+	# nutrients_available=1 with preparation="as_sold". Then compute_nutriscore_data is called
+	# with preparation="as_sold", but the aggregated_set has preparation="prepared", so it hides
+	# the aggregated_set and all nutrients become undef -> nutriscore computation fails.
+	[
+		"cookies-with-only-prepared-nutrition-data",
+		{
+			lc => "en",
+			categories => "cookies",
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3460
+							},
+							fat => {
+								unit => "g",
+								value => 90
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 15
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "prepared",
+					}
+				]
+			}
 		}
 	],
 );

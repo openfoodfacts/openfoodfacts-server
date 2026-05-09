@@ -298,6 +298,7 @@
                "id" : "forest_footprint",
                "match" : 0,
                "name" : "Forest footprint",
+               "panel_id" : "forest_footprint",
                "status" : "known",
                "title" : "Forest footprint not computed"
             }
@@ -354,7 +355,7 @@
       "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
       "en:nutrition-photo-to-be-selected",
       "en:categories-completed",
-      "en:nutriments-to-be-completed",
+      "en:nutrition-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -379,6 +380,7 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
+      "en:no-nutrition-data",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -390,7 +392,7 @@
       "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
       "en:nutrition-photo-to-be-selected",
       "en:categories-completed",
-      "en:nutriments-to-be-completed",
+      "en:nutrition-to-be-completed",
       "en:packaging-photo-to-be-selected",
       "en:packagings-completed",
       "en:front-photo-to-be-selected",
@@ -400,6 +402,7 @@
       "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
+      "en:no-nutrition-data",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
@@ -765,6 +768,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:environmental-score-not-computed",
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -799,7 +803,6 @@
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,

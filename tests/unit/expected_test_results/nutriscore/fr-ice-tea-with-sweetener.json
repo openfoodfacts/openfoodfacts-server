@@ -77,7 +77,7 @@
          "percent_max" : 4.5,
          "percent_min" : 1.2,
          "text" : "sucre",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -168,7 +168,9 @@
                "percent_estimate" : 0.05,
                "percent_max" : 0.1,
                "percent_min" : 0,
-               "text" : "citrate trisodique"
+               "text" : "citrate trisodique",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -229,17 +231,18 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:sodium-citrate"
+      "en:maybe-vegan" : [
+         "en:sugar",
+         "en:flavouring"
       ],
-      "en:vegetarian-status-unknown" : [
-         "en:sodium-citrate"
+      "en:maybe-vegetarian" : [
+         "en:flavouring"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 16,
@@ -335,13 +338,15 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-d-2023-d"
+      "en:nutriscore-2021-d-2023-d",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 4,
    "nova_group_debug" : "",
@@ -388,7 +393,6 @@
       "en:sugars-in-moderate-quantity",
       "en:salt-in-low-quantity"
    ],
-   "nutriments" : {},
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -687,7 +691,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 20.42112
+               "value" : 20.42112,
+               "value_computed" : 20.421156
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -847,6 +852,7 @@
                "value" : 0
             },
             "salt" : {
+               "modifier" : "~",
                "source" : "packaging",
                "source_index" : 0,
                "source_per" : "100g",
@@ -1013,6 +1019,10 @@
                   "unit" : "g",
                   "value" : 0
                },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.025
+               },
                "saturated-fat" : {
                   "unit" : "g",
                   "value" : 0
@@ -1086,12 +1096,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 20.42112,
+                  "value_computed" : 20.421156,
                   "value_string" : "20.42112"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
                   "value" : 86.70432,
+                  "value_computed" : 86.496258,
                   "value_string" : "86.70432"
                },
                "fat" : {
@@ -1212,6 +1224,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.007087225,
+                  "value_computed" : 0.0056487375,
                   "value_string" : "0.007087225"
                },
                "saturated-fat" : {
@@ -1230,6 +1243,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.002259495,
+                  "value_computed" : 0.00283489,
                   "value_string" : "0.002259495"
                },
                "starch" : {

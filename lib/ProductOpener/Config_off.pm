@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -61,6 +61,7 @@ BEGIN {
 		$events_password
 
 		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 
 		$facets_kp_url
 		$redis_url
@@ -498,6 +499,10 @@ $folksonomy_url = $ProductOpener::Config2::folksonomy_url;
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
 
+# If $rate_limiter_disabled is set to 1, rate limiting is completely disabled
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ProductOpener::Config2::rate_limiter_disabled;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
@@ -581,11 +586,6 @@ my @related_applications = (
 		'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner'
 	},
 	{'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948'},
-	{
-		'platform' => 'windows',
-		'id' => '9nblggh0dkqr',
-		'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr'
-	},
 );
 
 my $manifest = {

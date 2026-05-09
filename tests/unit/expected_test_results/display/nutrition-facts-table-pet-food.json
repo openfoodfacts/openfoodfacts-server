@@ -3,10 +3,11 @@
       "header" : {
          "columns" : [
             {
-               "col_id" : "100g",
+               "class" : "product",
+               "col_id" : "as_sold_100g",
                "name" : "As sold<br>for 1 kg",
                "per" : "100g",
-               "product_type" : "",
+               "preparation" : "as_sold",
                "scope" : "product",
                "short_name" : "100g"
             }
@@ -18,11 +19,11 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
                   "type" : "normal",
-                  "value" : "0 kj<br>(0 kcal)"
+                  "value" : "0 kJ<br>(0 kcal)"
                }
             ],
             "level" : 0,
@@ -32,11 +33,11 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:fatPer100g\" content=\"2\"",
                   "type" : "normal",
-                  "value" : "20 g"
+                  "value" : "2 g"
                }
             ],
             "level" : 0,
@@ -46,7 +47,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -60,7 +61,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"0\"",
                   "type" : "normal",
@@ -74,7 +75,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -88,11 +89,11 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : " property=\"food:fiberPer100g\" content=\"0.25\"",
                   "type" : "normal",
-                  "value" : "2.5 g"
+                  "value" : "0.25 g"
                }
             ],
             "level" : 0,
@@ -102,7 +103,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -116,7 +117,7 @@
          {
             "columns" : [
                {
-                  "class" : null,
+                  "class" : "product",
                   "percent" : null,
                   "rdfa" : "",
                   "type" : "normal",
@@ -126,6 +127,20 @@
             "level" : 0,
             "name" : "Salt",
             "nid" : "salt"
+         },
+         {
+            "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               }
+            ],
+            "level" : 0,
+            "name" : "Fruits‚ vegetables‚ legumes",
+            "nid" : "fruits-vegetables-legumes"
          }
       ]
    }
