@@ -108,7 +108,7 @@ foreach my $test_ref (@tests) {
 		print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
 
 		# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
-		my ($out, $err) = capture_ouputs(
+		my ($out, $err) = capture_outputs(
 			sub {
 				$stats_ref = ProductOpener::Import::import_csv_file($args);
 			}

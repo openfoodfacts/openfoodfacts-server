@@ -10931,14 +10931,18 @@ hu: Limelé koncentrátum
 nl: Limoensapconcentraten, geconcentreerde limoensappen
 
 < en:Plant-based foods and beverages
-en: Dairy substitutes, Dairies substitutes
+en: Dairy substitutes, Dairies substitutes, Dairy alternatives, Dairy analogues
 bg: Заместители на млечни продукти
+da: Alternativer til mejeriprodukter
 fr: Substituts de produits laitiers
 hr: Mliječne zamjene
 hu: Tejtermékek helyettesítői, Tejtermékhelyettesítők
 nl: Zuivelvervangers
 pl: Zastępniki nabiału, Substytuty nabiału
+pt: Alternativas aos produtos lácteos
+sv: Alternativ till mejeriprodukter
 incompatible_with:en: categories:en:dairies
+wikidata:en: Q139604162
 
 < en:Dairy substitutes
 en: Mascarpone substitutes
@@ -37728,6 +37732,31 @@ wikidata:en: Q918148
 es: Regañás, Regañá
 wikidata:en: Q6103703
 
+< en:Flatbreads
+en: Lepinja
+xx: Lepinja, Lepina, Лепиња
+mk: Лепиња
+sr: Лепиња
+wikidata:en: Q115456219
+
+< en:Frozen breads
+< en:Lepinja
+en: Frozen lepinja
+
+< en:Breads
+en: Somun (Turkish), Turkish somun
+tr: Somun
+wikidata:en: Q3491553
+
+< en:Flatbreads
+en: Somun (Balkan), Balkan somun
+bs: Somun
+wikidata:en: Q108181168
+
+< en:Frozen breads
+< en:Somun (Balkan)
+en: Frozen Balkan somun
+
 en: Breakfasts
 ca: Esmorzars
 da: Morgenmad
@@ -45311,6 +45340,12 @@ da: Dild og purløgschips
 sv: Dill och gräslökschips
 
 < en:Flavoured potato crisps
+en: Ranch crisps
+da: Ranch-chips
+sv: Ranch-chips
+comment:en: Crisps with a flavour similar to that of ranch dressing.
+
+< en:Flavoured potato crisps
 en: Salt and vinegar crisps
 da: Salt og eddike-chips, Salt & vinegar chips
 de: Salz und Essig Chips
@@ -51578,10 +51613,17 @@ fr: Crèmes légères, crèmes fraîches légères, Crème fraîche légère, cr
 fr: Crèmes allégées en matière grasse, Crèmes fraîches allégées en matière grasse, Crème fraîche allégée, Crèmes fraîches allégées, Crème fraîche allegée en matière grasse
 nl: Cremes fraiches light
 
-#According to French regulation Crème Fraîche is a cream that did not undergo other heat treatment than pasteurization and that have #been packaged on the place of production under 24h
-< en:Creams
+< en:Fermented creams
+en: Crèmes fraîches
+da: Cremefraicher, Creme fraicher, Crème fraîcher
 fr: Crèmes fraîches
+nb: Creme fraicher, Crème fraîcher
 nl: Cremes fraiches
+nn: Creme fraichar, Crème fraîchar
+sv: Crème fraicher
+comment:en: According to French regulation Crème Fraîche is a cream that did not undergo other heat treatment than pasteurization and that have been packaged on the place of production under 24h.
+plant_alternative:en: en:creme-fraiche-substitutes
+wikidata:en: Q1142459
 
 < fr:Crèmes entières
 #AOP French cream, it contains no additives and have at least 35% fat.
@@ -51610,7 +51652,7 @@ wikidata:en: Q30737789
 
 < en:Creams
 < en:Fermented milk products
-en: Fermented creams, Thick cream
+en: Fermented creams, Thick cream, Soured creams
 de: Fermentierter Rahm, Gesäuerter Rahm
 fi: Fermentoidut kermat
 fr: Crèmes épaisses, crèmes fraîches épaisses, Crème fraîche épaisse, crème épaisse
@@ -51697,7 +51739,7 @@ ciqual_food_name:en: Thick cream, light, 15-20% fat, refrigerated
 ciqual_food_name:fr: Crème de lait, 15 à 20% MG, légère, épaisse, rayon frais
 
 < en:Fermented creams
-en: Sour creams, Crèmes fraîches
+en: Sour creams
 bg: Заквасена сметана
 cs: Zakysaná smetana
 de: Sauerrahm
@@ -51760,8 +51802,9 @@ agribalyse_proxy_food_code:en: 19431
 agribalyse_proxy_food_name:en: Thick cream, 30% fat, refrigerated
 agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 
+< en:Dairy substitutes
 < en:Plant-based foods
-en: Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes
+en: Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes, Vegan creams
 da: Plantebaserede fløder
 de: Pflanzliche Sahne, Pflanzenbasierte Sahne
 es: Natas vegetales
@@ -51771,17 +51814,36 @@ hr: Kreme na biljnoj bazi
 it: Panna vegetale
 nl: Plantaardige romen
 pl: Śmietanki roślinne, Śmietany roślinne, Śmietanki na bazie roślin
+pt: Alternativas às natas
 sv: Växtbaserade grädden
 wikidata:en: Q4258412
+
+< en:Cereals and their products
+< en:Plant-based creams
+en: Cereal-based creams
+da: Kornbaserede fløder
+pt: Natas à base de cereais
+sv: Spannmålsgrädder
 
 < en:Plant-based creams
 en: Pressurized whipped cream substitutes
 fr: Substituts de crème fouettée sous pression
 
 < en:Plant-based creams
-en: Sour cream substitutes
+en: Sour cream substitutes, Sour cream alternatives
+da: Rømmeerstatninger
 fr: Substituts de crème épaisse
+pt: Alternativas ao creme azedo
 sv: Gräddfilsersättningar
+
+< en:Plant-based creams
+en: Crème fraîche substitutes
+da: Cremefraiche-erstatninger, Creme fraiche-erstatninger, Crème fraîche-erstatninger
+fr: Substituts de crèmes fraîches
+nb: Creme fraiche-erstatninger, Crème fraîche-erstatninger
+nn: Creme fraiche-erstatningar, Crème fraîche-erstatningar
+pt: Alternativas ao crème fraîche
+sv: Crème fraiche-ersättningar
 
 < en:Plant-based creams
 en: Plant-based creams for cooking, Dairy-free creams for cooking
@@ -51794,14 +51856,16 @@ hr: Biljne kreme za kuhanje
 it: Panna da cucina vegetale
 nl: Plantaardige kookromen
 pl: Śmietanki roślinne do gotowania, Śmietany roślinne do gotowania, Śmietanki na bazie roślin do gotowania
+pt: Natas à base de plantas para cozinhar
 ro: Smântână vegetală de gătit
-sv: Växtbaserade grädden för matlagning
+sv: Växtbaserade grädden för matlagning, Växtbaserade matbaser, Växtbaserade matlagningsbaser
 
 < en:Plant-based foods
 en: Coconut milks and creams
 da: Kokosmælke og -fløder
 fr: Laits et crèmes de coco
 hr: Kokosovo mlijeko i kreme
+pt: Leites e cremes de coco
 sv: Kokosmjölkar och -grädder
 agribalyse_food_code:en: 18041
 ciqual_food_code:en: 18041
@@ -51817,6 +51881,7 @@ fr: Crèmes végétales à base d'amande pour cuisiner
 hr: Kreme na bazi badema za kuhanje
 nl: Amandelcreme voor koken
 pl: Śmietanki migdałowe do gotowania, Śmietany migdałowe do gotowania, Śmietanki na bazie migdałów do gotowania
+pt: Natas à base de amêndoas para cozinhar
 sv: Mandelbaserade grädden för matlagning
 
 < en:Coconut milks and creams
@@ -51831,14 +51896,17 @@ hr: Kokosovo kreme, Kreme za kuhanje na bazi kokosa
 it: Creme a base di cocco per la cottura
 nl: Kookkokosromen
 pl: Śmietanki kokosowe do gotowania, Śmietany kokosowe do gotowania, Śmietanki na bazie kokosa do gotowania
+pt: Cremes de coco, Natas à base de coco para cozinhar
 sv: Kokosgrädder, Kokosbaserade grädden för matlagning, Kokosnötbaserade grädden för matlagning
 wikidata:en: Q1139302
 
 < en:Plant-based creams for cooking
 en: Lentil-based creams for cooking
 da: Linsebaserede fløder til madlavning
+pt: Natas à base de lentilhas para cozinhar
 sv: Linsbaserade grädden för matlagning
 
+< en:Cereal-based creams
 < en:Plant-based creams for cooking
 en: Millet-based creams for cooking
 da: Hirsebaserede fløder til madlavning
@@ -51846,8 +51914,10 @@ es: Natas vegetales a base de mijo para cocinar
 fr: Crèmes végétales à base de millet pour cuisiner
 hr: Kreme na bazi prosa za kuhanje
 nl: Gierstroom voor koken
+pt: Natas à base de milhete para cozinhar
 sv: Hirsbaserade grädden för matlagning
 
+< en:Cereal-based creams
 < en:Plant-based creams for cooking
 en: Oat-based creams for cooking
 da: Havrebaserede fløder til madlavning
@@ -51856,8 +51926,10 @@ fr: Crèmes végétales à base d'avoine pour cuisiner
 hr: Kreme na bazi zobi za kuhanje
 nl: Kookhaverroom, Kookhaverromen, Haverroom voor koken
 pl: Śmietanki owsiane do gotowania, Śmietany owsiane do gotowania, Śmietanki na bazie owsa do gotowania
+pt: Natas à base de aveia para cozinhar
 sv: Havrebaserade grädden för matlagning
 
+< en:Cereal-based creams
 < en:Plant-based creams for cooking
 en: Rice-based creams for cooking
 da: Risbaserede fløder til madlavning
@@ -51866,6 +51938,7 @@ fr: Crèmes végétales à base de riz pour cuisiner
 hr: Kreme na bazi riže za kuhanje
 nl: Plantaardige rijstcremes
 pl: Śmietanki ryżowe do gotowania, Śmietany ryżowe do gotowania, Śmietanki na bazie ryżu do gotowania
+pt: Natas à base de arroz para cozinhar
 sv: Risbaserade grädden för matlagning
 
 < en:Plant-based creams for cooking
@@ -51879,12 +51952,14 @@ hr: sojina vrhnja za kuhanje
 it: Creme a base di soia per cucina
 nl: Plantaardige sojaromen
 pl: Śmietanki sojowe do gotowania, Śmietany sojowe do gotowania, Śmietanki na bazie soi do gotowania
+pt: Natas à base de soja para cozinhar
 sv: Sojabaserade grädden för matlagning
 agribalyse_food_code:en: 11214
 ciqual_food_code:en: 11214
 ciqual_food_name:en: Soy cream preparation
 ciqual_food_name:fr: Préparation culinaire à base de soja, type "crème de soja"
 
+< en:Cereal-based creams
 < en:Plant-based creams for cooking
 en: Spelt-based creams for cooking
 da: Speltbaserede fløder til madlavning
@@ -51892,6 +51967,7 @@ es: Natas vegetales a base de espelta para cocinar
 fr: Crèmes végétales à base d'épeautre pour cuisiner
 hr: Kreme za kuhanje na bazi pira
 nl: Plantaardige speltromen
+pt: Natas à base de espelta para cozinhar
 sv: Speltbaserade grädden för matlagning
 
 < en:Plant-based foods
@@ -58013,6 +58089,7 @@ wco_hs_heading:en: 08.02
 en: Peanuts, ground nuts, groundnuts
 bg: Фъстъци
 ca: Cacauets
+da: Jordnødder, Peanuts
 de: Erdnüsse
 es: Cacahuetes, Cacahuates, Manís
 fi: maapähkinät
@@ -58699,23 +58776,62 @@ wco_hs_heading:en: 20.08
 #do not put in nut butters, peanut is not a nut
 < en:Legume butters
 en: Peanut butters, peanut paste, peanut creme
+af: Grondboontjiebotter
+ar: زبدة فول سوداني
 bg: Фъстъчено масло
 ca: Mantega de cacauet
+cs: Burákové máslo
+cy: Menyn cnau mwnci
+da: Jordnøddesmør
 de: Erdnussbutter
-es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní
-fi: maapähkinävoit
-fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide
+el: Φιστικοβούτυρο
+eo: Arakida buteroj
+es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní, Mantequilla de maní
+et: Maapähklivõi
+eu: Kakahuete-gurin
+fa: کره بادام زمینی
+fi: Maapähkinävoit
+fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide, Beurre d'arachide
+fy: Nútsjesmoar
+ga: Im piseanna talún
+gl: Manteiga de cacahuete
 he: חמאות בוטנים
 hr: Maslaci od kikirikija
-it: Burri di arachidi
-ja: ピーナッツバター
-lt: Žemės riešutų sviestai, žemės riešutų pastos
+hu: Mogyoróvaj
+hy: Գետնանուշի կարագ
+id: Selai kacang
+is: Hnetusmjör
+it: Burri di arachidi, Burro di arachidi
+ja: ピーナッツバター, ピーナッツ・バター, ピーナツ・バター
+jv: Selé kacang
+kn: ಪೀನಟ್ ಬಟರ್
+ko: 땅콩버터
+la: Butyrum arachidum
+ln: Mwǎmba-ngúba
+lt: Žemės riešutų sviestai, Žemės riešutų pastos, Žemės riešutų sviestas
+lv: Zemesriekstu sviests
+mg: Menaka voanjo
+mi: Pīnati pata
+mk: Путер од кикиритки
+ms: Mentega kacang
+nb: Peanøttsmør
 nl: Pindakazen, Pindakaas
-pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych
+nn: Peanøttsmør
+pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych, Masło orzechowe
 pt: Manteigas de amendoim
+ro: Unt de arahide
 ru: Арахисовая паста, Арахисовые пасты
+sk: Arašidové maslo
+sl: Arašidovo maslo
+sn: Dovi
+sr: Путер од кикирикија
 sv: Jordnötssmör
-tr: Yerfıstığı ezmesi
+sw: Siagi ya karanga
+th: เนยถั่วลิสง
+tr: Yerfıstığı ezmesi, Fıstık ezmesi
+uk: Арахісова паста
+vi: Bơ đậu phộng
+zh: 花生酱
 agribalyse_food_code:en: 15202
 ciqual_food_code:en: 15202
 ciqual_food_name:en: Peanut butter or peanut paste
@@ -58726,19 +58842,49 @@ wco_hs_heading:en: 20.08
 wikidata:en: Q147651
 
 < en:Peanut butters
-en: Crunchy peanut butters
+en: Creamy peanut butters, Smooth peanut butters
+da: Cremede jordnøddesmør, Creamy jordnøddesmør
+pt: Manteigas de amendoim cremosas
+sv: Jordnötssmör utan bitar, Creamy jordnötssmör
+incompatible_with:en: categories:en:crunchy-peanut-butters
+wikidata:en: Q134165564
+
+< en:Peanut butters
+en: Crunchy peanut butters, Chunky peanut butters
+da: Sprøde jordnøddesmør, Crunchy jordnøddesmør
 fr: Beurres de cacahuetes croustillants
 hr: Hrskavi maslaci od kikirikija
 lt: Traškūs žemės riešutų sviestai
 nl: Pindakzen met stukjes pinda
+pt: Manteigas de amendoim crocantes
+sv: Jordnötssmör med bitar, Crunchy jordnötssmör
+incompatible_with:en: categories:en:creamy-peanut-butters
 
-#contains only peanut, no added whatever
 < en:Peanut butters
 en: Pure peanut butters
+da: Rene jordnøddesmør
 fr: Pur beurre de cacahuettes
 hr: Čisti maslac od kikirikija
 lt: Žemės riešutų sviestai (100%)
 nl: Pindakazen (100% pinda)
+pt: Manteigas de amendoim puras
+sv: Rena jordnötssmör, 100% jordnötssmör
+comment:en: contains only peanut, no added whatever
+expected_ingredients:en: en:peanut
+
+< en:Creamy peanut butters
+< en:Pure peanut butters
+en: Creamy pure peanut butters, Pure creamy peanut butters
+da: Cremede rene jordnøddesmør, Rene cremede jordnøddesmør
+pt: Manteigas de amendoim puras e cremosas, Manteigas de amendoim cremosas puras
+sv: Rena jordnötssmör utan bitar, 100% jordnötssmör utan bitar
+
+< en:Crunchy peanut butters
+< en:Pure peanut butters
+en: Crunchy pure peanut butters, Pure crunchy peanut butters
+da: Sprøde rene jordnøddesmør, Rene sprøde jordnøddesmør
+pt: Manteigas de amendoim puras e crocantes, Manteigas de amendoim crocantes puras
+sv: Rena jordnötssmör med bitar, 100% jordnötssmör med bitar
 
 < en:Legume butters
 en: Flavoured peanut butters
@@ -73782,7 +73928,7 @@ en: Fresh basils, Fresh basil
 da: Friske basilikummer
 de: frisches Basilikum
 es: Albahaca fresca
-fr: Basilic fraîche, Basilic frais
+fr: Basilic frais
 hr: Svježi bosiljak
 lt: Šviežias bazilikas
 nl: Verse basilicums
@@ -84828,7 +84974,6 @@ ciqual_food_code:en: 20240
 ciqual_food_name:en: Piperade, Basque-style (fondue of sweet peppers and tomatoes flavoured with onions and garlics)
 ciqual_food_name:fr: Piperade basquaise
 
-< en:Fermented vegetables
 en: Sauerkrauts
 af: Suurkool
 ar: ساوركراوت
@@ -84892,6 +85037,32 @@ protected_name_file_number:en: PGI-FR-01066
 protected_name_type:en: pgi
 wikidata:en: Q12699
 
+< en:Fermented vegetables
+< en:Sauerkrauts
+en: Sauerkrauts without garnish, Sauerkraut without garnish
+fr: Choucroutes sans garniture
+hr: Kiseli kupus bez ukrasa
+lt: Rauginti kopūstai be garnyro
+nl: Zuurkolen zonder garnering
+ciqual_food_code:en: 25004
+ciqual_food_name:en: Sauerkraut, without garnish, drained
+ciqual_food_name:fr: Choucroute, sans garniture, égouttée
+
+< en:Sauerkrauts without garnish
+en: Cooked sauerkrauts without garnish, Cooked sauerkraut without garnish
+fr: Choucroutes cuites sans garnitures, Choucroute sans garniture égouttée cuite
+hr: Kuhani kiseli kupus bez ukrasa
+lt: Kepti rauginti kopūstai be garnyro
+nl: Zuurkolen zonder garnering (uitgelekt, gekookt)
+agribalyse_food_code:en: 25220
+ciqual_food_code:en: 25220
+ciqual_food_name:en: Sauerkraut, without garnish, drained, cooked
+ciqual_food_name:fr: Choucroute, sans garniture, égouttée, cuite
+
+< en:Sauerkrauts without garnish
+en: Raw sauerkrauts without garnish
+fr: Choucroutes crues sans garnitures
+
 < en:Meals
 < en:Sauerkrauts
 en: Sauerkraut with garnish
@@ -84904,29 +85075,9 @@ ciqual_food_code:en: 25003
 ciqual_food_name:en: Sauerkraut, with garnish
 ciqual_food_name:fr: Choucroute garnie
 
-< en:Sauerkrauts
-en: Sauerkraut without garnish
-fr: Choucroutes sans garniture
-hr: Kiseli kupus bez ukrasa
-lt: Rauginti kopūstai be garnyro
-nl: Zuurkolen zonder garnering
-agribalyse_food_code:en: 25220
-ciqual_food_code:en: 25004
-ciqual_food_name:en: Sauerkraut, without garnish, drained
-ciqual_food_name:fr: Choucroute, sans garniture, égouttée
-
-< en:Sauerkraut without garnish
-en: Cooked sauerkraut without garnish
-fr: Choucroute, sans garniture égouttée cuite
-hr: Kuhani kiseli kupus bez ukrasa
-lt: Kepti rauginti kopūstai be garnyro
-nl: Zuurkolen zonder garnering (uitgelekt, gekookt)
-ciqual_food_code:en: 25220
-ciqual_food_name:en: Sauerkraut, without garnish, drained, cooked
-ciqual_food_name:fr: Choucroute, sans garniture, égouttée, cuite
-
 < en:Meals
-fr: Choucroutes de la Mer
+< en:Sauerkrauts
+fr: Choucroutes de la mer
 
 < en:Vegetables based foods
 en: Fermented vegetables
@@ -85675,8 +85826,18 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
-< en:Frozen foods
 < en:Meals
+< en:Sandwiches
+en: Pizza sub sandwiches
+description:en: heated sandwich filled like a pizza
+
+< en:Meals
+en: Pizza sub toasts
+fr: Tartines salés à cuire, Tartines style pizza
+description:en: heated bread topped like a pizza
+
+< en:Frozen foods
+< en:Pizza sub toasts
 en: Frozen topped baguettes
 de: Tiefgefrorene belegte Baguettes
 fr: Baguettes garnies surgelées
@@ -91906,9 +92067,18 @@ xx: Bierschinken
 wikidata:en: Q857992
 
 < en:Prepared pork meats
-de: Kasseler, Kassler
+en: Kasseler, Kassler
 xx: Kasseler, Kassler
+de: Kasseler, Kassler
 wikidata:en: Q650685
+
+< en:Kasseler
+en: Cooked kasseler
+de: Gekochtes Kasseler
+
+< en:Kasseler
+en: Raw kasseler
+de: Rohes Kasseler
 
 < en:Prepared pork meats
 en: Porchetta
@@ -102893,6 +103063,10 @@ fr: Préparations de thon
 en: Salmon preparations
 fr: Préparations de saumon
 
+< en:Salmon preparations
+en: Salmon tartares
+fr: Tartares de saumon
+
 < en:Fish preparations
 en: Fish (Freshly prepared)
 gpc_category_code:en: 10000016
@@ -109639,8 +109813,8 @@ ru: Маринованные растительные продукты
 sv: Inlagda växter
 intake24_category_code:en: PION
 
-< en:Canned vegetables
 < en:Plant-based pickles
+< en:Prepared vegetables
 en: Pickled vegetables, Vegetable pickles
 da: Syltede grøntsager
 de: Eingelegtes Gemüse
@@ -109724,17 +109898,8 @@ sv: Gurkor i lag, Inlagda gurkor
 tr: Salatalık turşusu, Hıyar turşusu
 wikidata:en: Q1365891
 
-< en:Cucumbers
-en: Small cucumbers, Gherkins (non-pickled)
-sv: Smågurkor
-
-< en:Small cucumbers
-en: Gherkins
-comment:en: “Gherkins” can refer to both non-pickled and pickled small cucumbers
-
-< en:Gherkins
 < en:Pickled cucumbers
-en: Pickled gherkins, Gherkins (pickled), Pickled small cucumbers
+en: Pickled gherkins, Gherkins (pickled), Pickled small cucumbers, Gherkins
 bg: Кисели краставички
 de: Essiggurken
 es: Pepinillos, Pepinillos encurtidos
@@ -109745,7 +109910,8 @@ hu: Csemegeuborka
 it: Cetriolini
 nl: Ingemaakte Augurken
 sv: Smågurkor i lag, Inlagda smågurkor
-comment:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
+comment:en: “Gherkins” can refer to both non-pickled and pickled small cucumbers, but in actual use on products it seems like it far more often refers to pickled small cucumbers than small cucumbers in general.
+description:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
 intake24_category_code:en: GHRK
 intake24_category_code:fr: GHRK
 
@@ -109796,8 +109962,8 @@ fr: Cornichons mi-fins
 < en:Gherkins
 fr: Cornichons malossol
 
-< en:Gherkins
-en: Gherkins in sweet and sour sauce
+< en:Pickled gherkins
+en: Sweet and sour gherkins, Gherkins in sweet and sour sauce
 fr: Cornichons aigres-doux, Cornichon aigre-doux
 hr: Kornišoni u slatko-kiselom umaku
 nl: Zoetzure augurken
@@ -111600,6 +111766,10 @@ hr: Svježi krastavci
 pl: Ogórki świeże
 sales_format:en: weight, package
 season_in_country_fr:en: 5,6,7,8,9,10
+
+< en:Cucumbers
+en: Small cucumbers, Gherkins (non-pickled)
+sv: Smågurkor
 
 < en:Vegetables
 en: Endives, Endive, Escaroles
