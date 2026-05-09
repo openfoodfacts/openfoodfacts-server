@@ -86,7 +86,7 @@ jobs:
           tar czf /tmp/release-assets/frontend-dist.tgz -C /tmp/frontend-dist .
       - name: Checkout the project in case of release
         if: ${{ env.IS_RELEASE }}
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
           ref: ${{ env.RELEASE_SHA }}
