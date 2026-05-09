@@ -4,6 +4,7 @@
    "product" : {
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:plastic",
                "lc_name" : "Plastic"
@@ -19,6 +20,7 @@
             }
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:cardboard",
                "lc_name" : "Cardboard"
@@ -37,22 +39,6 @@
    },
    "status" : "success_with_warnings",
    "warnings" : [
-      {
-         "field" : {
-            "default_value" : "en",
-            "id" : "tags_lc"
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
-         }
-      },
       {
          "field" : {
             "id" : "recycling",

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -26,8 +26,8 @@ use Exporter qw< import >;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
-use LWP::UserAgent;
 use JSON::MaybeXS;
 
 if ((not defined $crowdin_project_identifier) or ($crowdin_project_identifier eq '')) {
@@ -42,7 +42,7 @@ sub create_export {
 	my $url
 		= "https://api.crowdin.com/api/project/$crowdin_project_identifier/reports/top-members/export?json&format=csv&key="
 		. $crowdin_project_key;
-	my $ua = LWP::UserAgent->new();
+	my $ua = create_user_agent();
 
 	my $request = HTTP::Request->new(POST => $url);
 	my $res = $ua->request($request);
@@ -78,7 +78,7 @@ sub download_export {
 		. $crowdin_project_key
 		. "&hash="
 		. $hash;
-	my $ua = LWP::UserAgent->new();
+	my $ua = create_user_agent();
 
 	my $request = HTTP::Request->new(GET => $url);
 	my $res = $ua->request($request);

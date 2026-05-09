@@ -24,6 +24,8 @@ use Modern::Perl '2017';
 
 use utf8;
 
+#11872 Use PO Storable
+
 use Storable qw(lock_store lock_nstore lock_retrieve);
 use JSON;
 

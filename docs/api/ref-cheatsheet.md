@@ -39,15 +39,69 @@ add_labels
 add_brands
 ```
 
+### Adding nutrition facts for the prepared product
+You can send prepared nutritional values
+* nutriment_energy-kj (regular)
+* nutriment_energy-kj_prepared (prepared)
+
+## Read Product Data
+
+### Get product with blame information
+
+To get information about who last modified each field of a product, add the `blame` parameter:
+
+```text
+https://world.openfoodfacts.org/api/v2/product/3017620422003.json?blame=1
+```
+
+This returns additional `blame` information showing:
+- `userid`: Who last modified each field
+- `t`: Timestamp of the modification
+- `rev`: Revision number
+- `value`: Current value of the field
+
+### Limit response fields
+
+Use the `fields` parameter to get only specific product data:
+
+```text
+https://world.openfoodfacts.org/api/v2/product/3017620422003.json?fields=product_name,brands,nutriments
+```
+
 ## Search for Products
 
 **Important:** full text search currently works only for v1 API (or search-a-licious, which is in beta)
 
-[documentation for v1 Search API](https://wiki.openfoodfacts.org/API/Read/Search)
+* [Documentation for v1 Search API](https://wiki.openfoodfacts.org/API/Read/Search)
 
-[Reference documentation for v2 search API](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search)
+* [Reference documentation for v2 search API](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search)
 
-The future of search is the [search-a-licious project](https://github.com/openfoodfacts/search-a-licious), deployed, in beta, at [search.openfoodfacts.org](https://search.openfoodfacts.org/).
+* The future of search in Open Food Facts is the [search-a-licious project](https://github.com/openfoodfacts/search-a-licious), deployed, in beta, at [search.openfoodfacts.org](https://search.openfoodfacts.org/). It has an API: [Search-a-licious API](https://search.openfoodfacts.org/docs)
+
+## Get suggestions for fields
+### New solution: Search-a-licious (has all actually used values)
+Get brands, categories, labels… suggestions using the [Search-a-licious API](https://search.openfoodfacts.org/docs). 
+You can also use the classic suggest.pl route
+
+### Legacy solution: suggest.pl (has all taxonomized values, and only taxonomized values)
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=emb_codes&term=FR
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=categories&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=labels&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=ingredients&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=packaging_shapes&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=packaging_materials&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=packaging_shapes&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=languages&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=stores&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=brands&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=countries&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=traces&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=origins&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=states&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=nutrients&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=additives&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=allergens&term=f
+* https://world.openfoodfacts.org/cgi/suggest.pl?tagtype=minerals&term=f
 
 ### Get data for a list of products
 
@@ -55,4 +109,48 @@ You can use comma to separate multiple values of a query parameter. This allows 
 
 ```text
 https://world.openfoodfacts.org/api/v2/search?code=3263859883713,8437011606013,6111069000451&fields=code,product_name
+```
+
+## Get taxonomy-based suggestions (v3 API)
+
+The v3 API provides suggestions based on taxonomy fields such as synonyms, categories, and packaging shapes.
+
+### Reference documentation:
+https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/taxonomy_suggestions
+
+### Example requests:
+Get suggestions from synonyms
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=labels&lc=fr&string=f&get_synonyms=1
+```
+Get suggestions for a specific category
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=categories&string=organic
+```
+Get suggestions based on packaging shape
+```text
+https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=packaging_materials&shape=box
+```
+
+## Get partial taxonomy entries (v2 API)
+
+Use `/api/v2/taxonomy` when you want selected taxonomy entries only (instead of downloading a full taxonomy).
+
+### Common parameters
+- `tagtype`: taxonomy to query (`categories`, `labels`, `ingredients`, etc.)
+- `tags`: comma-separated list of taxonomy tags/ids
+- `fields`: comma-separated list of fields to return (for example: `name,description,children,parents,wikidata`)
+- `include_children=1`: include children entries in the response
+- `include_parents=1`: include parent entries in the response
+- `include_root_entries=1`: include root taxonomy entries in the response
+- `lc`: language(s), comma-separated (for example: `en,fr`)
+- `cc`: optional country context
+
+### Example requests
+```text
+https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
+```
+
+```text
+https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=categories&tags=en:carrot-juices&fields=name,parents,children,wikidata,auth_url&lc=en,fr&cc=fr
 ```

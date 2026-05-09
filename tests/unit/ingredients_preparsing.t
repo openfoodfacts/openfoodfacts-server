@@ -1231,7 +1231,15 @@ my @tests = (
 		id => '229',
 		lc => 'ru',
 		ingredients_text => 'Масло (Пальмовое), масло растительное (подсолнечное, соевое)',
-	}
+	},
+	# additive class + additive
+	# émulsifiant e471, émulsifiant lécithine de soja
+	{
+		id => '230',
+		lc => 'fr',
+		ingredients_text =>
+			'émulsifiant e471, émulsifiant lécithine de soja, acidifiant acide citrique, acidifiant e330, emulsifiant lecithine de tournesol, émulsifiant lécithine',
+	},
 );
 
 foreach my $test_ref (@tests) {

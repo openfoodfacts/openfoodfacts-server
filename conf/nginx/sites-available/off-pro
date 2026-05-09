@@ -21,7 +21,7 @@ server {
 	listen [::]:80;
 
 	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name *.pro.openfoodfacts.org;
+	server_name pro.openfoodfacts.org *.pro.openfoodfacts.org;
 
 	root /srv/off-pro/html;
 
@@ -56,7 +56,7 @@ server {
 		gunzip on;
 	}
 
-	location ~ ^/(favicon.ico) {
+	location ~ ^/(favicon.ico|robots.txt) {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;

@@ -23,6 +23,7 @@
                   "id" : "low_salt",
                   "match" : 96.6533333333333,
                   "name" : "Sel",
+                  "panel_id" : "nutrient_level_salt",
                   "status" : "known",
                   "title" : "Sel en faible quantité"
                },
@@ -33,6 +34,7 @@
                   "id" : "low_fat",
                   "match" : 60.5882352941176,
                   "name" : "Matières grasses",
+                  "panel_id" : "nutrient_level_fat",
                   "status" : "known",
                   "title" : "Matières grasses en quantité modérée"
                },
@@ -43,6 +45,7 @@
                   "id" : "low_sugars",
                   "match" : 20,
                   "name" : "Sucres",
+                  "panel_id" : "nutrient_level_sugars",
                   "status" : "known",
                   "title" : "Sucres en quantité modérée"
                },
@@ -53,6 +56,7 @@
                   "id" : "low_saturated_fat",
                   "match" : 17.6,
                   "name" : "Acides gras saturés",
+                  "panel_id" : "nutrient_level_saturated_fat",
                   "status" : "known",
                   "title" : "Acides gras saturés en quantité élevée"
                }
@@ -241,7 +245,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingrédients"
+            "name" : "Ingrédients",
+            "warning" : "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes" : [
@@ -274,15 +279,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Impact modéré sur l'environnement",
+                  "description_short" : "Impact environnemental élevé",
                   "grade" : "c",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                   "id" : "ecoscore",
-                  "match" : 47,
+                  "match" : 44,
                   "name" : "Green-Score",
                   "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Green-Score C"
+                  "title" : "Green-Score D"
                },
                {
                   "description" : "",
@@ -292,6 +297,7 @@
                   "id" : "forest_footprint",
                   "match" : 99.9351851851852,
                   "name" : "Empreinte forêt",
+                  "panel_id" : "forest_footprint",
                   "status" : "known",
                   "title" : "Très petite empreinte forêt"
                }

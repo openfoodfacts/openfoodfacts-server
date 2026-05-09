@@ -49,25 +49,11 @@ grep -Z -l -r '"ALI - PRODUITS POUR ANIMAUX' $DATA_TMP_DIR/data | xargs --null -
 # fix them by removing the second one:
 find $DATA_TMP_DIR/data/ -name "*.xml" -type f -exec sed -i 's/<\/TabNutXMLPF><TabNutXMLPF>.*/<\/TabNutXMLPF>/g' {} \;
 
-# Unzip images
-# TODO: we get images from time to time in .zip files, but the .xml files we get
-# for products could have images from earlier zip files, so currently we unzip
-# all images we got.
-# Carrefour will soon send us CSV files with images urls, so this process will
-# eventually be replaced (i.e. not worth improving it now)
-# create the images dir if it does not exist yet
 mkdir -p $IMAGES_TMP_DIR
-# unzip -j: create all files in destination folder, without any path
-# note: carrefour now uploads images in the data-test directory
-unzip -j -o "$OFF_SFTP_HOME_DIR/carrefour/data-test/*.zip" -d "$IMAGES_TMP_DIR/"
-# copy images.rules used to determine the image type from the image file name
-cp ./scripts/imports/carrefour/images.rules $IMAGES_TMP_DIR
 
 # Convert Carrefour XML files to one OFF csv file
 echo "Convert Carrefour XML files to OFF csv file"
 ./scripts/imports/carrefour/convert_carrefour_data.pl $DATA_TMP_DIR/data ./scripts/imports/carrefour/Nomenclature_OpenFoodFacts.csv > $DATA_TMP_DIR/carrefour-data.tsv || exit 101;
-
-# Note: for testing, we can import products under the carrefour-test-off2 org
 
 # import data
 echo "Import data"

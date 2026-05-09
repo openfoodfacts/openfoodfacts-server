@@ -4,6 +4,7 @@
    "product" : {
       "packagings" : [
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:wood",
                "lc_name" : "Bois"
@@ -19,6 +20,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:glass",
                "lc_name" : "Verre"
@@ -37,6 +39,7 @@
             }
          },
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:steel",
                "lc_name" : "Acier"
@@ -52,6 +55,7 @@
             }
          },
          {
+            "food_contact" : 0,
             "material" : {
                "id" : "en:plastic",
                "lc_name" : "Plastique"
