@@ -1298,6 +1298,7 @@ lt: Žiedadulkės
 nl: Pollen
 nl_be: Pollen
 ro: Polen
+pt: Pólen
 zh: 花粉
 ciqual_food_code:en: 31111
 ciqual_food_name:en: Pollen, fresh
@@ -1314,6 +1315,7 @@ hr: Djelomično osušeni pelud
 hu: Részlegesen szárított virágpor
 it: Pollen parzialmente essiccato
 nl: Gedeeltelijk gedroogd stuifmeel
+pt: Pólen parcialmente seco
 ciqual_food_code:en: 31109
 ciqual_food_name:en: Pollen, partially dried
 ciqual_food_name:fr: Pollen, partiellement séché
@@ -1328,6 +1330,7 @@ hr: Svježi pelud
 hu: Friss virágpor
 it: Pollen fresco
 nl: Verse pollen
+pt: Pólen fresco
 ciqual_food_code:en: 31111
 ciqual_food_name:en: Pollen, fresh
 ciqual_food_name:fr: Pollen,frais
@@ -1354,6 +1357,7 @@ hu: Mézalapú készítmények
 it: Preparati a base di miele
 lt: Medaus pagrindo preparatai
 nl: Bereidingen op basis van honing
+pt: Preparações à base de mel
 
 < en:Honey-based preparations
 en: Blends of honey and propolis
@@ -1363,6 +1367,7 @@ hr: Mješavine meda i propolisa
 hu: Méz és propolisz keverékei
 it: Miscele di miele e propoli, Mix di miele e propoli
 nl: Mengsels van honing en propolis, Mengelingen van honing en propolis
+pt: Misturas de mel e própolis
 
 < en:Honey-based preparations
 en: Honey and royal jelly mixtures
@@ -1372,6 +1377,7 @@ hr: Mješavine meda i matične mliječi
 hu: Méz és méhpempő keverékei
 it: Miscele a base di miele e pappa reale, Mix di miele e pappa reale
 nl: Mengsels van honing en koninginnegelei, Mengelingen van koninginnegelei
+pt: Misturas de mel e geleia real
 
 en: Beverages and beverages preparations, Beverages and preparations
 de: Getränke und Getränkezubereitungen
@@ -1382,6 +1388,7 @@ hu: Italok és italalapú készítmények, Italok és italkészítmények
 it: Bevande e preparati per bevande
 nl: Dranken en drankbereidingen
 pl: Napoje i składniki do napojów
+pt: Bebidas e preparações de bebidas
 description:en: This mixes ready to drink beverages and not-ready to drink beverages
 incompatible_with:en: categories:en:meals
 
@@ -1394,6 +1401,7 @@ hr: Pripravci za piće
 hu: Italkészítmények
 it: Preparati per bevande
 nl: Drankbereidingen
+pt: Preparações de bebidas
 default_nutrition_prepared_per:en: 100ml
 description:en: Any product which purpose it is to create a beverage which uses water (hor or cold) in some way (diluting, infusing, dissolving, etc).
 
@@ -1710,6 +1718,7 @@ fr: Kits de fabrication d'alcool
 hr: Pribor za pravljenje alkohola
 it: Kit per la produzione di alcolici
 nl: Alcohol maak kits
+pt: Kits para fazer álcool
 gpc_category_code:en: 10000142
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an alcoholic drink making kit. These products are total units that include most of the necessary ingredients and equipment required to produce various flavours of beer, wine or spirits. Definition Excludes: Excludes products such as Alcohol Making Accessories sold separately, Non-Alcoholic Drink Making Kits, Alcohol Flavouring Kits and Pre-Made Alcohol.
 gpc_category_name:en: Alcohol Making Kits
@@ -1740,6 +1749,7 @@ hr: Aromatizirana pića
 hu: Ízesített italok
 it: Bevande aromatizzate
 nl: Smaakdranken
+pt: Bebidas aromatizadas
 gpc_category_code:en: 10000201
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a sweet, ready to drink, carbonated or non-carbonated beverage that includes no dairy/dairy-substitute ingredients. These products are usually artificially flavoured and coloured. Products include carbonated drinks which contain caffeine and those sweetened with sugar or artificial sweeteners. Also includes fruit based carbonated drinks. Definition Excludes: Specifically excludes all non carbonated juice based drinks and 100% juices. Excludes products such as Not Ready to Drink Flavoured Drinks, all Juice Drinks and Dairy and Dairy Substitute Drinks.
 gpc_category_name:en: Drinks Flavoured - Ready to Drink
@@ -1753,6 +1763,7 @@ hr: Prethodno miješana alkoholna pića
 hu: Előkevert alkoholos italok
 it: Bevande alcoliche pre-miscelate
 nl: Voorgemengde alcoholische dranken
+pt: Bebidas alcoólicas pré-misturadas
 gpc_category_code:en: 10000144
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an alcoholic beverage that is pre-mixed with another drink, usually a soft drink. Also includes soft or milk based drinks which have spirits added during the production process. Includes pre-mixed cocktails, such as Vodka Martini and mixed wine drinks such as Spritzers and Bucks Fizz. Definition Excludes: Excludes products such as Spirits, Beer Mixed Drinks, Non-alcoholic Mixers/Coolers, Liqueurs and Alcoholic Jellies.
 gpc_category_name:en: Alcoholic Pre-mixed Drinks
@@ -1826,6 +1837,7 @@ hr: Alkoholna pića na bazi votke
 hu: Vodkaalapú alkoholos italok
 it: Bevande alcoliche a base di vodka
 nl: Vodka-gebaseerde alcoholische dranken
+pt: Bebidas alcoólicas à base de vodka
 ro: Băuturi alcoolice pe bază de vodcă
 
 < en:Premixed alcoholic beverages
@@ -1911,6 +1923,7 @@ hr: Pastis
 hu: Pastis
 nl: Pastis, Anijsdranken
 ro: Pastis
+xx: Pastis
 agribalyse_food_code:en: 1000
 ciqual_food_code:en: 1000
 ciqual_food_name:en: Pastis (anise-flavoured spirit)
@@ -1926,6 +1939,7 @@ hu: Abszint
 it: Assenzio
 nl: Absint
 pl: Absynt
+pt: Absinto
 google_product_taxonomy_id:en: 505761
 wikidata:en: Q170210
 
@@ -1954,14 +1968,17 @@ wikidata:en: Q170219
 < en:Alcoholic beverages
 en: Shoshu
 ja: 焼酎
+xx: Shoshu
 
 < en:Shoshu
 en: Awamori
+xx: Awamori
 agribalyse_proxy_food_code:en: 1026
 cagribalyse_proxy_food_name:en: Sake or rice wine
 
 < en:Shoshu
 en: Kome-shochu
+xx: Kome-shochu
 agribalyse_proxy_food_code:en: 1026
 cagribalyse_proxy_food_name:en: Sake or rice wine
 
@@ -2286,6 +2303,7 @@ hr: Opatsko pivo
 hu: Apátsági sörök
 it: Birre d'abbazia
 nl: Abdijbieren
+pt: Cervejas de abadia
 agribalyse_food_code:en: 5011
 ciqual_food_code:en: 5011
 ciqual_food_name:en: Beer, specialty, from abbey or regional (varying alcohol content)
@@ -2296,6 +2314,7 @@ wikidata:en: Q1050906
 < en:Abbey ales
 en: Single ales
 nl: Enkel
+pt: Cervejas ale simples
 
 < en:Abbey ales
 en: Belgian-style Dubbel ales, Double ales, Double beer
@@ -2337,6 +2356,7 @@ es: Cerveza rubia
 fr: Bières blondes, bière blonde
 hr: Plavokosi ales
 nl: Blonde bieren
+pt: Cervejas ale loira
 ro: Beri blonde, Bere blondă, Bere blonda
 wikidata:en: Q2792509
 
@@ -2351,6 +2371,7 @@ xx: American-style blonde ales, American blonde, American blonde ales
 < en:Ales
 en: Dark ales, Dark ale
 lt: Tamsusis elis
+pt: Cervejas ale escura
 wikidata:en: Q2905033
 
 < en:Dark ales
