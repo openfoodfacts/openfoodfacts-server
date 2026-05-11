@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: openfoodfacts\n"
+"POT-Creation-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Project-Id-Version: openfoodfacts\n"
-"Language-Team: Ukrainian\n"
-"Last-Translator: \n"
-"POT-Creation-Date: \n"
 "X-Generator: Poedit 2.1\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: openfoodfacts\n"
@@ -32,6 +32,13 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Складники, речовини що викликають алергічну реакцію, добавки, харчова цінність, походження складників та дані продукту %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Кооперативна, безкоштовна і відкрита база даних інгредієнтів, та інформація про косметичні продукти з усього світу"
@@ -44,31 +51,12 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Кооперативна, безкоштовна та відкрита база даних косметичних продуктів з усього світу."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Колективна, безкоштовна та відкрита база даних інгредієнтів, фактів про харчування та інформації про продукти харчування з усього світу."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts збирає інформацію та дані про широкий спектр продуктів з усього світу."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Спільна база даних про продукти з усього світу з відкритим доступом."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Колективна, безплатна та відкрита база даних інгредієнтів, фактів про харчування та інформації про харчові продукти з усього світу."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts збирає інформацію та дані про корми для домашніх тварин з усього світу."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Спільна, безкоштовна та відкрита база даних продуктів харчування для домашніх тварин з усього світу."
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Складники, речовини що викликають алергічну реакцію, добавки, харчова цінність, походження складників та дані продукту %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -83,8 +71,11 @@ msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
 msgstr "Пошук продуктів Open Beauty Facts"
 
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 msgstr "Ця сторінка продукту не є повною. Ви можете допомогти її заповнити, редагуючи її та додаючи більше даних з наших фотографій або роблячи більше фотографій, використовуючи додаток для <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">Iphone/Ipad</a>. Дякуємо вам!"
 
 msgctxt "brands_example_beauty"
@@ -110,6 +101,141 @@ msgstr "Дезодорант захист від стресу"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "АКВА/ВОДА, ЛАУРЕТСУЛЬФАТ НАТРІЮ, ДИНАТРІЄВИЙ КОКОАМФОДІАЦЕТАТ, ГЛІКОЛЕВИЙ ДИСТЕАРАТ, КОКАМІД MEA"
+
+# OPF
+#, fuzzy
+#| msgctxt "site_description_opf"
+#| msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Колективна, безкоштовна та відкрита база даних інгредієнтів, фактів про харчування та інформації про продукти харчування з усього світу."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts збирає інформацію та дані про широкий спектр продуктів з усього світу."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Спільна база даних про продукти з усього світу з відкритим доступом."
+
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Складники, речовини що викликають алергічну реакцію, добавки, харчова цінність, походження складників та дані продукту %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+#, fuzzy
+#| msgctxt "get_the_app_link_off"
+#| msgid "/open-food-facts-mobile-app"
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+#, fuzzy
+#| msgctxt "search_description_opensearch_obf"
+#| msgid "Open Beauty Facts product search"
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Пошук продуктів Open Beauty Facts"
+
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ця сторінка продукту не є повною. Ви можете допомогти її заповнити, редагуючи її та додаючи більше даних з наших фотографій або роблячи більше фотографій, використовуючи додаток для <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">Iphone/Ipad</a>. Дякуємо вам!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Liquid laundry detergent, Powder laundry detergent"
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr "Laundry detergent"
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ultra Clean Lavender Scent"
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Колективна, безплатна та відкрита база даних інгредієнтів, фактів про харчування та інформації про харчові продукти з усього світу."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts збирає інформацію та дані про корми для домашніх тварин з усього світу."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Спільна, безкоштовна та відкрита база даних продуктів харчування для домашніх тварин з усього світу."
+
+#, fuzzy
+#| msgctxt "product_description"
+#| msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Складники, речовини що викликають алергічну реакцію, добавки, харчова цінність, походження складників та дані продукту %s"
+
+#, fuzzy
+#| msgctxt "search_description_opensearch_obf"
+#| msgid "Open Beauty Facts product search"
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Пошук продуктів Open Beauty Facts"
+
+#, fuzzy
+#| msgctxt "warning_not_complete_obf"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ця сторінка продукту не є повною. Ви можете допомогти її заповнити, редагуючи її та додаючи більше даних з наших фотографій або роблячи більше фотографій, використовуючи додаток для <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">Iphone/Ipad</a>. Дякуємо вам!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Dry dog food, Wet cat food"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+#, fuzzy
+#| msgctxt "get_the_app_link_off"
+#| msgid "/open-food-facts-mobile-app"
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Wet food for adult dogs"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight Chicken & Rice"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -319,9 +445,11 @@ msgid "Get It On Google Play"
 msgstr "Завантажити з Google Play"
 
 msgctxt "app_please_take_pictures"
-msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+msgid ""
+"<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Цього продукту ще немає в базі даних <<site_name>>. Чи могли б ви зробити кілька знімків продукту, штрих-коду, списку складників і харчової цінності, щоб додати їх на <a href=\"https://world-uk.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+msgstr ""
+"<p>Цього продукту ще немає в базі даних <<site_name>>. Чи могли б ви зробити кілька знімків продукту, штрих-коду, списку складників і харчової цінності, щоб додати їх на <a href=\"https://world-uk.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Заздалегідь дякую!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -624,6 +752,13 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Перевірити сторінку"
 
+#, fuzzy
+#| msgctxt "login_to_add_and_edit_products"
+#| msgid "Sign-in to add or edit products."
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Увійдіть, щоб додавати або редагувати продукти."
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr "Відредагувати загальнодоступний профіль"
@@ -891,10 +1026,12 @@ msgid "/cgi/top_translators.pl"
 msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
-msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+msgid ""
+"Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr "Підпишіться на наші сторінки <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
+msgstr ""
+"Підпишіться на наші сторінки <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 
@@ -1050,7 +1187,8 @@ msgid "The picture is too small. Please do not upload pictures found on the Inte
 msgstr "Зображення є надто дрібним. Будь ласка, не завантажуйте фото з Інтернету, а надсилайте фото зроблені вами."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
-msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
+msgid ""
+"The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
 msgstr "Неможливо прочитати штрих-код зображення або зображення не мвсьить в собі штрих-коду."
 
@@ -1292,10 +1430,12 @@ msgid "Last picture date"
 msgstr "Дати останнього фото"
 
 msgctxt "licence_accept"
-msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
+msgid ""
+"By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "Додаючи інформацію, дату і/або зображення, ви погоджуєтеся внести свій вклад за <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</а> ліцензія, для інформації та даних, а також за <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> ліцензія для зображень.\n"
+msgstr ""
+"Додаючи інформацію, дату і/або зображення, ви погоджуєтеся внести свій вклад за <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</а> ліцензія, для інформації та даних, а також за <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> ліцензія для зображень.\n"
 "Ви приймаєте його за допомогою посилання на продукт, який ви вносите."
 
 msgctxt "link"
@@ -1335,9 +1475,13 @@ msgid "Sign-in to add or edit products."
 msgstr "Увійдіть, щоб додавати або редагувати продукти."
 
 msgctxt "login_to_add_products"
-msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
+msgid ""
+"<p>Please sign-in to add or edit a product.</p>\n"
+"\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr "<p>Для того щоб додати або відредагувати продукцію, увійдіть, будь ласка.</p>\n\n"
+msgstr ""
+"<p>Для того щоб додати або відредагувати продукцію, увійдіть, будь ласка.</p>\n"
+"\n"
 "<p>Якщо у вас ще немає облікового запису на<<site_name>>, ви можете <a href=\"/cgi/user.pl\">зареєструватись за 10 секунд</a>.</p>\n"
 
 msgctxt "login_username_email"
@@ -1649,9 +1793,11 @@ msgid "Nutrition facts"
 msgstr "Харчова цінність"
 
 msgctxt "nutrition_data_table_note"
-msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
+msgid ""
+"The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr "За замовчуванням у таблиці перераховані поживні речовини, які часто вказуються. Залиште поле порожнім, якщо цього немає на етикетці.<br/>Ви можете додати додаткові поживні речовини (вітаміни, мінерали, холестерин тощо), \n"
+msgstr ""
+"За замовчуванням у таблиці перераховані поживні речовини, які часто вказуються. Залиште поле порожнім, якщо цього немає на етикетці.<br/>Ви можете додати додаткові поживні речовини (вітаміни, мінерали, холестерин тощо), \n"
 "ввівши перші літери їх назви в останньому рядку таблиці."
 
 msgctxt "nutrition_data_table_asterisk"
@@ -1673,9 +1819,11 @@ msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
-msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
+msgid ""
+"<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr "<p>Щоб дізнатися більше про <<site_name>>, відвідуй <a href=\"https://blog.openfoodfacts.org/en/\">наш блог</a>!</p>\n"
+msgstr ""
+"<p>Щоб дізнатися більше про <<site_name>>, відвідуй <a href=\"https://blog.openfoodfacts.org/en/\">наш блог</a>!</p>\n"
 "<p>Останні новини:</p>\n"
 
 msgctxt "on_the_blog_title"
@@ -1683,7 +1831,8 @@ msgid "News"
 msgstr "Новини"
 
 msgctxt "openfoodhunt_points"
-msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
+msgid ""
+"It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
 msgstr "Це <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> з суботи 21 лютого 2015 року по неділю 1 березня! Учасники отримують нагороду бали Дослідника за продукцію, яку вони представляють та оцінки Амбасадора за нових учасників, яких вони приєднують. Оцінки оновлюються кожні 30 хвилин."
 
@@ -2080,22 +2229,36 @@ msgid "Reset password"
 msgstr "Скинути пароль"
 
 msgctxt "reset_password_email_body"
-msgid "Hello <NAME>,\n\n"
-"You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+msgid ""
+"Hello <NAME>,\n"
+"\n"
+"You asked for your password to be reset on https://openfoodfacts.org\n"
+"\n"
+"for the username: <USERID>\n"
+"\n"
 "To continue the password reset, click on the link below.\n"
-"If you did not ask for the password reset, you can ignore this message.\n\n"
-"<RESET_URL>\n\n"
-"See you soon,\n\n"
+"If you did not ask for the password reset, you can ignore this message.\n"
+"\n"
+"<RESET_URL>\n"
+"\n"
+"See you soon,\n"
+"\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr "Привіт <NAME>,\n\n"
-"Ви просили скинути ваш пароль на https://openfoodfacts.org\n\n"
-"для імені користувача: <USERID>\n\n"
+msgstr ""
+"Привіт <NAME>,\n"
+"\n"
+"Ви просили скинути ваш пароль на https://openfoodfacts.org\n"
+"\n"
+"для імені користувача: <USERID>\n"
+"\n"
 "Для того, щоб продовжити цю операцію, натисніть на посилання нижче.\n"
-"Якщо ви не запитували про скидання пароля, ви можете проігнорувати це повідомлення. \n\n"
-"<RESET_URL>\n\n"
-"До зустрічі,\n\n"
+"Якщо ви не запитували про скидання пароля, ви можете проігнорувати це повідомлення. \n"
+"\n"
+"<RESET_URL>\n"
+"\n"
+"До зустрічі,\n"
+"\n"
 "Стефані\n"
 "https://openfoodfacts.org\n"
 
@@ -2179,6 +2342,13 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Пошук товару"
 
+#, fuzzy
+#| msgctxt "search_description_opensearch"
+#| msgid "Product search"
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Пошук товару"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "не містить в собі"
@@ -2240,9 +2410,11 @@ msgid "Results on a graph"
 msgstr "Результати висвітлено на графіку"
 
 msgctxt "search_graph_instructions"
-msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
+msgid ""
+"Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr "Оберіть, що ви хочете відобразити на горизонтальній осі, або виберіть дві осі, щоб \n"
+msgstr ""
+"Оберіть, що ви хочете відобразити на горизонтальній осі, або виберіть дві осі, щоб \n"
 "отримати хмару продуктів(розсіяна діаграма)."
 
 msgctxt "search_graph_link"
@@ -2675,9 +2847,11 @@ msgid "View results from the entire world"
 msgstr "Переглянути результати з усього світу"
 
 msgctxt "warning_3rd_party_content"
-msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
+msgid ""
+"Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr "Інформація та дані повинні бути взяті з упаковки та етикетки продукту (а не з інших сайтів або сайту виробника), і ви повинні зробити фотографії самостійно.<br/>\n"
+msgstr ""
+"Інформація та дані повинні бути взяті з упаковки та етикетки продукту (а не з інших сайтів або сайту виробника), і ви повинні зробити фотографії самостійно.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Чому це важливо</a>"
 
 msgctxt "website"
@@ -2781,8 +2955,11 @@ msgctxt "list_of_sources"
 msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Деякі дані та/або фотографії цього продукту отримані з таких джерел:"
 
+#, fuzzy
+#| msgctxt "warning_not_complete"
+#| msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 msgstr "Сторінка цієї продукції є незавершеною. Ви можете допомогти її завершити відредагувавши її та додавши більше інформації з поточних зображень або ж використати більше зображень за допомогою програми <a href=\"https://android.openfoodfacts.org\">Android</a> або <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Дякуємо!"
 
 msgctxt "title_separator"
@@ -2799,7 +2976,8 @@ msgstr "Нашим перекладачам"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr "Ми хочемо сказати Дякую чудовим перекладачам, які дають змогу предствляти такі бренди як: Open Food Facts, Open Beauty Facts, та Open Pet Food Facts на різних мовах!\n"
+msgstr ""
+"Ми хочемо сказати Дякую чудовим перекладачам, які дають змогу предствляти такі бренди як: Open Food Facts, Open Beauty Facts, та Open Pet Food Facts на різних мовах!\n"
 "<a href=\"https://translate.openfoodfacts.org/\"> Ви можете приєднатися до нас у цій глобальній роботі: це не вимагає ніяких технічних знань.</a>"
 
 msgctxt "translators_renewal_notice"
@@ -2866,25 +3044,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "додану іншу поживну речовину"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Продано"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Підготовлено"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Одиниця вимірювання"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "На товарі, що продається зазначено харчову цінність."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Зазначено харчову цінність для підготовленої продукції."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -3326,7 +3488,8 @@ msgstr "Допоможіть перекласти %s до %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr "Ви можете запропонувати свої переклади для записів, що подані нижчі, які ще не були перекладеними вашою мовою. Посилання, що виділене блакитним кольором та чорно-білий текст (також англійською) відповідно відображають продукцію, що не була локалізованою та початковий вхід включаючи факультативні синоніми відокремлені комами. Введіть текст свого перекладу в графі перекладу беручи до уваги синоніми, після цього натисніть кнопку «Зберегти».\n"
+msgstr ""
+"Ви можете запропонувати свої переклади для записів, що подані нижчі, які ще не були перекладеними вашою мовою. Посилання, що виділене блакитним кольором та чорно-білий текст (також англійською) відповідно відображають продукцію, що не була локалізованою та початковий вхід включаючи факультативні синоніми відокремлені комами. Введіть текст свого перекладу в графі перекладу беручи до уваги синоніми, після цього натисніть кнопку «Зберегти».\n"
 "Дякуємо!"
 
 msgctxt "translate_taxonomy_add"
@@ -3661,7 +3824,8 @@ msgstr "Дані про товари та фото, які ви надсилає
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr "Дані про товари та фото стануть загальнодоступними в базі даних Open Food Facts за посиланням <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Ліцензія для відкритої бази даних</a>. \n"
+msgstr ""
+"Дані про товари та фото стануть загальнодоступними в базі даних Open Food Facts за посиланням <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Ліцензія для відкритої бази даних</a>. \n"
 "Вміст особистого характеру доступний за посиланням <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Ліцензія для вмісту бази даних</a> та зображень товарів є доступними за посиланням <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Ліцензія на зазначення авторства., копірайт-ліцензія Share-alike</a>."
 
 # "product data" in this sentence means data for many products, not just one product
@@ -3826,7 +3990,8 @@ msgstr "Ваші товари"
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr "Ваш обліковий запис ще не пов’язаний з нашою компанією.\n"
+msgstr ""
+"Ваш обліковий запис ще не пов’язаний з нашою компанією.\n"
 "Щоб активуват вільний доступ до платформи виробників, будь ласка, зв’яжіть з нами за адресою <a href=\"mailto:producers@openfoodfacts.org\"> >producers@openfoodfacts.org</a>."
 
 msgctxt "import_products"
@@ -4871,8 +5036,11 @@ msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "Низький вплив на навколишнє середовище (Green-Score)"
 
+#, fuzzy
+#| msgctxt "attribute_environmental_score_setting_note"
+#| msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 msgstr "Зелена оцінка – це екологічна оцінка від A до E, яка дає змогу легко порівнювати вплив харчових продуктів на довкілля."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
@@ -4884,8 +5052,11 @@ msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "Низький вплив на навколишнє середовище (Green-Score)"
 
+#, fuzzy
+#| msgctxt "attribute_ecoscore_setting_note"
+#| msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
 msgstr "Зелена оцінка – це екологічна оцінка від A до E, яка дає змогу легко порівнювати вплив харчових продуктів на довкілля."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
@@ -5808,8 +5979,11 @@ msgid "The Green-Score formula is subject to change as it is regularly improved 
 msgstr "Формула Green-Score підлягає змінам, оскільки вона регулярно вдосконалюється, щоб зробити її більш точною."
 
 # do not translate Green-Score
+#, fuzzy
+#| msgctxt "environmental_score_warning_international"
+#| msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Green-Score спочатку був розроблений для Франції, і його поширюють в інших європейських країнах. Формула Green-Score може змінюватися, оскільки її регулярно вдосконалюють, щоб зробити її більш точною та підходящою для кожної країни."
 
 msgctxt "environmental_score_warning_transportation_world"
@@ -6668,6 +6842,13 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Продукт оновлено"
 
+#, fuzzy
+#| msgctxt "username"
+#| msgid "User name"
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr "Ім’я користувача"
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Неправильна дія API"
@@ -6799,6 +6980,17 @@ msgstr "Перераховані всі пакувальні частини пр
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Неправильний логін і пароль"
+
+#, fuzzy
+#| msgctxt "api_message_invalid_code"
+#| msgid "Invalid code"
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr "Неправильний код"
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr "Authentication required"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7133,7 +7325,8 @@ msgstr "підсолоджувачі"
 # sweetener (additive), singular
 msgctxt "sweetener"
 msgid "sweetener"
-msgstr "підсолоджувач sweetener\n"
+msgstr ""
+"підсолоджувач sweetener\n"
 "gassing agent\n"
 "strengthening agent\n"
 "filler\n"
@@ -7158,10 +7351,6 @@ msgstr "Повідомити про проблему"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Повідомити про проблему"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Повідомити про проблему."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7623,6 +7812,76 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Пошук продуктів у тій самій категорії без доданого цукру:"
 
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "для 1 кг"
+
+#, fuzzy
+#| msgctxt "nutrition_data_per_100g"
+#| msgid "for 100 g / 100 ml"
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "на 100 г / 100 мл"
+
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "для 1 кг"
+
+#, fuzzy
+#| msgctxt "analytical_constituents_per_1kg"
+#| msgid "for 1 kg"
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "для 1 кг"
+
+#, fuzzy
+#| msgctxt "nutrition_data_per_serving"
+#| msgid "per serving"
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "в одній порції"
+
+#, fuzzy
+#| msgctxt "product_as_sold"
+#| msgid "As sold"
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Продано"
+
+#, fuzzy
+#| msgctxt "prepared_product"
+#| msgid "Prepared"
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Підготовлено"
+
+#, fuzzy
+#| msgctxt "nutrition_data_exists"
+#| msgid "Nutrition facts are specified for the product as sold."
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "На товарі, що продається зазначено харчову цінність."
+
+#, fuzzy
+#| msgctxt "nutrition_data_prepared_exists"
+#| msgid "Nutrition facts are specified for the prepared product."
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Зазначено харчову цінність для підготовленої продукції."
+
+#, fuzzy
+#| msgctxt "product_add_nutrient"
+#| msgid "Add a nutrient"
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Додати поживну речовину"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Небажані інгредієнти"
@@ -7703,6 +7962,85 @@ msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Куріння викликає сильну залежність. Не починайте. Куріння вбиває – киньте зараз. Куріння закупорює артерії та спричиняє серцеві напади та інсульти. Куріння спричиняє смертельний рак легенів. Куріння під час вагітності шкодить вашій дитині. Захистіть дітей: не змушуйте їх вдихати ваш дим. Ваш лікар або фармацевт може допомогти вам кинути палити. Куріння може зменшити кровотік і спричинити імпотенцію. Куріння спричиняє старіння шкіри. Куріння може пошкодити сперму та знизити фертильність. Дим містить бензол, нітрозаміни, формальдегід та ціаністий водень."
 
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr "Reuse"
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr "Circular economy solutions nearby"
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr "Find places to repair, donate, sell or recycle"
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+
+#, fuzzy
+#| msgctxt "f_droid_app_icon_alt_text"
+#| msgid "Available on F-Droid"
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr "Доступно на F-Droid"
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr "Repair"
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr "Find repair shops and services to fix your product instead of throwing it away"
+
+#, fuzzy
+#| msgctxt "donation_cta"
+#| msgid "Donate"
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Підтримати проект"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr "Give your product a second life by donating it to associations or people in need"
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr "Sell or exchange"
+
+#, fuzzy
+#| msgctxt "manage_your_products_on_the_producers_platform"
+#| msgid "Manage your products on the platform for producers"
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr "Розпоряджайтесь своїми товарами на платформі розробників"
+
+#, fuzzy
+#| msgctxt "packaging_recycling"
+#| msgid "Recycling"
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Переробка"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr "Find collection points for proper recycling when the product reaches end of life"
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr "Find solutions nearby on QFDMO"
+
+#, fuzzy
+#| msgctxt "product_created"
+#| msgid "Product created"
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr "Продукцію виготовлено"
+
 msgctxt "public_price"
 msgid "Public price"
 msgstr "Публічна ціна"
@@ -7751,3 +8089,13 @@ msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Вплив не оцінено"
 
+#, fuzzy
+#| msgctxt "show_category_stats"
+#| msgid "Show detailed stats"
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "Показати детальну статистику"
+
+#~ msgctxt "report_problem_navigation"
+#~ msgid "Report a problem."
+#~ msgstr "Повідомити про проблему."
