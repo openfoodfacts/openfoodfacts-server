@@ -898,31 +898,31 @@ my @tests = (
 			{
 				'id' => 'en:shallot',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:geschält',
+				'processing' => 'en:peeled-or-shelled',
 				'text' => 'Schalotte'
 			},
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:geschält',
+				'processing' => 'en:peeled-or-shelled',
 				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:almond',
 				'is_in_taxonomy' => 1,
-				'processing' => "de:geschält",
+				'processing' => "en:peeled-or-shelled",
 				'text' => 'mandeln'
 			},
 			{
 				'id' => 'en:passionfruit',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:ungeschält',
+				'processing' => 'en:unpeeled-or-unshelled',
 				'text' => 'passionsfrucht'
 			},
 			{
 				'id' => 'en:celery',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:ungeschält',
+				'processing' => 'en:unpeeled-or-unshelled',
 				'text' => 'sellerie'
 			}
 		]

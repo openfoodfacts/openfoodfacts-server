@@ -415,6 +415,7 @@
       "en:nutriscore-not-computed",
       "en:nutrition-data-per-100ml",
       "en:nutrition-data-per-1l",
+      "en:nutrition-grade-computed-for-prepared-product",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -434,7 +435,7 @@
       "2021" : {
          "category_available" : 0,
          "data" : {
-            "energy" : null,
+            "energy" : 400,
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
@@ -443,7 +444,7 @@
             "is_water" : 0,
             "proteins" : null,
             "saturated_fat" : null,
-            "sodium" : null,
+            "sodium" : 200.0,
             "sugars" : null
          },
          "estimated" : 0,
@@ -451,12 +452,12 @@
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
          "nutriscore_computed" : 0,
-         "preparation" : "as_sold"
+         "preparation" : "prepared"
       },
       "2023" : {
          "category_available" : 0,
          "data" : {
-            "energy" : null,
+            "energy" : 400,
             "fiber" : null,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
@@ -465,7 +466,7 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "proteins" : null,
-            "salt" : null,
+            "salt" : 0.5,
             "saturated_fat" : null,
             "sugars" : null
          },
@@ -474,7 +475,7 @@
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
          "nutriscore_computed" : 0,
-         "preparation" : "as_sold"
+         "preparation" : "prepared"
       }
    },
    "nutriscore_2021_tags" : [
@@ -580,7 +581,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold proteins",
+   "nutrition_score_debug" : "using prepared product data even if not necessary for category - missing prepared fat - missing prepared saturated-fat - missing prepared sugars - missing prepared proteins",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "owner" : "org-test-org",

@@ -30,7 +30,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/write_cors_headers request_param single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutrients_lists/;
@@ -127,9 +127,9 @@ if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
 	return Apache2::Const::OK;
 }
 
-my $action = single_param('action') || 'display';
+my $action = request_param($request_ref, 'action') || 'display';
 
-if ((defined single_param('search_terms')) and (not defined single_param('action'))) {
+if ((defined request_param($request_ref, 'search_terms')) and (not defined request_param($request_ref, 'action'))) {
 	$action = 'process';
 }
 
@@ -138,9 +138,40 @@ if ((defined single_param('search_terms')) and (not defined single_param('action
 # For instance api_version=3 enables the new format of the packagings field
 foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss', 'api_version') {
 
-	if (defined single_param($parameter)) {
-		$request_ref->{$parameter} = single_param($parameter);
+	my $parameter_value = request_param($request_ref, $parameter);
+
+	if (defined $parameter_value) {
+		$request_ref->{$parameter} = $parameter_value;
 	}
+}
+
+my $is_api_search_request
+	= (defined $request_ref->{json})
+	or (defined $request_ref->{jsonp})
+	or (defined $request_ref->{jqm})
+	or (defined $request_ref->{jqm_loadmore})
+	or (defined $request_ref->{xml})
+	or (defined $request_ref->{rss});
+
+if ($is_api_search_request) {
+
+	$log->debug("API search request",
+		{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
+		if $log->is_debug();
+	write_cors_headers();
+
+	# Preflight requests only need the CORS headers.
+	if (request_method() eq 'OPTIONS') {
+
+		$log->debug("API search preflight request",
+			{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
+			if $log->is_debug();
+		print header(-status => 200, -type => 'application/json', -charset => 'utf-8');
+		exit(0);
+	}
+}
+else {
+	$log->debug("Web search request", {path => request_uri(), query_string => query_string()}) if $log->is_debug();
 }
 
 # if the query request json or xml, either through the json=1 parameter or a .json extension

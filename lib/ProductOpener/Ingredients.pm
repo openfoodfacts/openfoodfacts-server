@@ -196,11 +196,11 @@ sub init_allergens_regexps() {
 		foreach my $suffix (sort {length($b) <=> length($a)} @allergenssuffixes) {
 			# simple singulars and plurals
 			my $singular = $suffix;
-			$suffix =~ s/s$//;
-			$allergens_regexps{$allergens_lc} .= '|' . $suffix . '|' . $suffix . 's';
+			$singular =~ s/s$//;
+			$allergens_regexps{$allergens_lc} .= '|' . $singular . '|' . $singular . 's';
 
-			my $unaccented_suffix = unac_string_perl($suffix);
-			if ($unaccented_suffix ne $suffix) {
+			my $unaccented_suffix = unac_string_perl($singular);
+			if ($unaccented_suffix ne $singular) {
 				$allergens_regexps{$allergens_lc} .= '|' . $unaccented_suffix . '|' . $unaccented_suffix . 's';
 			}
 
@@ -297,11 +297,11 @@ sub init_labels_regexps() {
 
 				# simple singulars and plurals
 				my $singular = $synonym;
-				$synonym =~ s/s$//;
-				$label_regexp .= '|' . $synonym . '|' . $synonym . 's';
+				$singular =~ s/s$//;
+				$label_regexp .= '|' . $singular . '|' . $singular . 's';
 
-				my $unaccented_synonym = unac_string_perl($synonym);
-				if ($unaccented_synonym ne $synonym) {
+				my $unaccented_synonym = unac_string_perl($singular);
+				if ($unaccented_synonym ne $singular) {
 					$label_regexp .= '|' . $unaccented_synonym . '|' . $unaccented_synonym . 's';
 				}
 
