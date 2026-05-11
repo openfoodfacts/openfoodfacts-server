@@ -1,0 +1,191 @@
+{
+   "forest_footprint_data" : {
+      "footprint_per_kg" : 1324.5,
+      "grade" : "e",
+      "ingredients" : [
+         {
+            "category" : "cocoa",
+            "category_type" : "ingredients",
+            "deforestation_risk" : "100",
+            "footprint_per_kg" : 1125,
+            "label" : "",
+            "matching_tag_id" : "en:cocoa-paste",
+            "origin" : "en:other",
+            "origin_footprint_per_kg" : "1500",
+            "percent" : 60,
+            "percent_estimate" : 60,
+            "processing_factor" : "1.25",
+            "tag_id" : "en:cocoa-paste",
+            "tag_type" : "ingredients"
+         },
+         {
+            "category" : "cocoa",
+            "category_type" : "ingredients",
+            "deforestation_risk" : "100",
+            "footprint_per_kg" : 199.5,
+            "label" : "",
+            "matching_tag_id" : "en:cocoa-butter",
+            "origin" : "en:other",
+            "origin_footprint_per_kg" : "1500",
+            "percent" : 10,
+            "percent_estimate" : 10,
+            "processing_factor" : "1.33",
+            "tag_id" : "en:cocoa-butter",
+            "tag_type" : "ingredients"
+         }
+      ],
+      "ingredients_count" : 2,
+      "ingredients_from_soy_count" : 0,
+      "total_ingredients_count" : 2
+   },
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "31074",
+         "ecobalyse_code" : "6f3939f7-408c-45d5-8653-61f3336bf305",
+         "id" : "en:dark-chocolate",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "16030",
+               "id" : "en:cocoa-paste",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 60,
+               "percent_max" : 100,
+               "percent_min" : 20,
+               "text" : "pâte de cacao",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "31016",
+               "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+               "id" : "en:sugar",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 20,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "sucre",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "16030",
+               "id" : "en:cocoa-butter",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 10,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "beurre de cacao",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:emulsifier",
+               "ingredients" : [
+                  {
+                     "ciqual_food_code" : "42200",
+                     "id" : "en:soya-lecithin",
+                     "is_in_taxonomy" : 1,
+                     "percent_estimate" : 5,
+                     "percent_max" : 25,
+                     "percent_min" : 0,
+                     "text" : "lécithine de soja",
+                     "vegan" : "yes",
+                     "vegetarian" : "yes"
+                  }
+               ],
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "émulsifiant"
+            },
+            {
+               "id" : "en:vanilla",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5,
+               "percent_max" : 20,
+               "percent_min" : 0,
+               "text" : "vanille",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "Chocolat noir",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 7,
+   "ingredients_n_tags" : [
+      "7",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:dark-chocolate",
+      "en:cocoa-paste",
+      "en:sugar",
+      "en:cocoa-butter",
+      "en:emulsifier",
+      "en:vanilla",
+      "en:soya-lecithin"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:dark-chocolate",
+      "en:chocolate",
+      "en:cocoa-paste",
+      "en:plant",
+      "en:cocoa",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:cocoa-butter",
+      "en:emulsifier",
+      "en:vanilla",
+      "en:soya-lecithin",
+      "en:e322",
+      "en:e322i"
+   ],
+   "ingredients_text" : "Chocolat noir (pâte de cacao, sucre, beurre de cacao, émulsifiant : lécithine de soja, vanille)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:emulsifier",
+      "en:vanilla"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cocoa-butter",
+      "en:cocoa-paste",
+      "en:emulsifier",
+      "en:soya-lecithin",
+      "en:vanilla"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 7,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:forest-footprint-computed",
+      "en:forest-footprint-e"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

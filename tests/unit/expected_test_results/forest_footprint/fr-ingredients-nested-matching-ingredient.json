@@ -4,6 +4,8 @@
       "grade" : "e",
       "ingredients" : [
          {
+            "category" : "chicken",
+            "category_type" : "ingredients_from_soy",
             "conditions_tags" : [],
             "footprint_per_kg" : 2.85956544780074,
             "matching_tag_id" : "en:chicken-meat",
@@ -19,7 +21,10 @@
                "soy_yield" : 0.3145
             }
          }
-      ]
+      ],
+      "ingredients_count" : 0,
+      "ingredients_from_soy_count" : 1,
+      "total_ingredients_count" : 1
    },
    "ingredients" : [
       {

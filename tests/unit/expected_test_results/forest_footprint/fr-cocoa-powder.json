@@ -1,0 +1,85 @@
+{
+   "forest_footprint_data" : {
+      "footprint_per_kg" : 1770,
+      "grade" : "e",
+      "ingredients" : [
+         {
+            "category" : "cocoa",
+            "category_type" : "ingredients",
+            "deforestation_risk" : "100",
+            "footprint_per_kg" : 1770,
+            "label" : "",
+            "matching_tag_id" : "en:cocoa-powder",
+            "origin" : "en:other",
+            "origin_footprint_per_kg" : "1500",
+            "percent" : 100,
+            "percent_estimate" : 100,
+            "processing_factor" : "1.18",
+            "tag_id" : "en:fat-reduced-cocoa-powder",
+            "tag_type" : "ingredients"
+         }
+      ],
+      "ingredients_count" : 1,
+      "ingredients_from_soy_count" : 0,
+      "total_ingredients_count" : 1
+   },
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "18100",
+         "id" : "en:fat-reduced-cocoa-powder",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "Cacao maigre en poudre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:fat-reduced-cocoa-powder"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:fat-reduced-cocoa-powder",
+      "en:plant",
+      "en:cocoa",
+      "en:cocoa-powder"
+   ],
+   "ingredients_text" : "Cacao maigre en poudre",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:fat-reduced-cocoa-powder"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:forest-footprint-computed",
+      "en:forest-footprint-e"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}
