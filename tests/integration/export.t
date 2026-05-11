@@ -135,14 +135,11 @@ $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
 
 my $script_out = `perl scripts/export_database.pl`;
 
-<<<<<<< HEAD
 # For debugging, copy the CSV file
 # print STDERR "cp $csv_filename $expected_result_dir/export_database.csv.test \n";
 # system("cp $csv_filename $expected_result_dir/export_database.csv.test");
 
-=======
 # Note we don't save the CSV file for this test as it contains modified dates
->>>>>>> main
 ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "/export_database",
 	$update_expected_results, "export_database", 0);
 
