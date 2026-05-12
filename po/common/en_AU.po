@@ -271,7 +271,7 @@ msgstr "Your request to join the organization is pending approval of the organiz
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "Your organization request has been received and is being processed."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -5512,7 +5512,7 @@ msgstr "Vision, Mission, Values and Programs"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -6755,7 +6755,7 @@ msgstr "Product updated"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr ""
+msgstr "User found"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6891,11 +6891,11 @@ msgstr "Invalid user id and password"
 
 msgctxt "api_message_invalid_token"
 msgid "Invalid access_token"
-msgstr ""
+msgstr "Invalid access_token"
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr ""
+msgstr "Authentication required"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7706,15 +7706,15 @@ msgstr "Search for products in the same category without added sugars:"
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr ""
+msgstr "for 100 g"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr ""
+msgstr "for 100 ml"
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr ""
+msgstr "for 1 L"
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7727,20 +7727,20 @@ msgstr "per serving"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "As sold"
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr ""
+msgstr "Prepared"
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
-msgstr ""
+msgstr "Nutrition facts are specified for the product as sold:"
 
 msgctxt "nutrition_data_exists_prepared"
 msgid "Nutrition facts are specified for the prepared product:"
-msgstr ""
+msgstr "Nutrition facts are specified for the prepared product:"
 
 msgctxt "product_js_add_a_nutrient"
 msgid "Add a nutrient"
@@ -7784,7 +7784,7 @@ msgstr "Those preferences are based on Open Food Facts' understanding of the ing
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"
-msgstr ""
+msgstr "Suffering Footprint"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7828,31 +7828,31 @@ msgstr "Smoking is highly addictive. Don't start. Smoking kills – quit now. Sm
 
 msgctxt "reuse_card_title"
 msgid "Reuse"
-msgstr ""
+msgstr "Reuse"
 
 msgctxt "qfdmo_solutions_title"
 msgid "Circular economy solutions nearby"
-msgstr ""
+msgstr "Circular economy solutions nearby"
 
 msgctxt "qfdmo_solutions_subtitle"
 msgid "Find places to repair, donate, sell or recycle"
-msgstr ""
+msgstr "Find places to repair, donate, sell or recycle"
 
 msgctxt "qfdmo_solutions_description"
 msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
-msgstr ""
+msgstr "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
 
 msgctxt "qfdmo_solutions_intro"
 msgid "Available solutions include:"
-msgstr ""
+msgstr "Available solutions include:"
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr ""
+msgstr "Repair"
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
-msgstr ""
+msgstr "Find repair shops and services to fix your product instead of throwing it away"
 
 msgctxt "qfdmo_solution_donate"
 msgid "Donate"
@@ -7860,35 +7860,35 @@ msgstr "Donate"
 
 msgctxt "qfdmo_solution_donate_description"
 msgid "Give your product a second life by donating it to associations or people in need"
-msgstr ""
+msgstr "Give your product a second life by donating it to associations or people in need"
 
 msgctxt "qfdmo_solution_sell"
 msgid "Sell or exchange"
-msgstr ""
+msgstr "Sell or exchange"
 
 msgctxt "qfdmo_solution_sell_description"
 msgid "Sell or exchange your product on second-hand platforms"
-msgstr ""
+msgstr "Sell or exchange your product on second-hand platforms"
 
 msgctxt "qfdmo_solution_recycle"
 msgid "Recycle"
-msgstr ""
+msgstr "Recycle"
 
 msgctxt "qfdmo_solution_recycle_description"
 msgid "Find collection points for proper recycling when the product reaches end of life"
-msgstr ""
+msgstr "Find collection points for proper recycling when the product reaches end of life"
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
-msgstr ""
+msgstr "Use the Que Faire De Mes Objets (France) to find solutions near you:"
 
 msgctxt "qfdmo_solutions_find_nearby"
 msgid "Find solutions nearby on QFDMO"
-msgstr ""
+msgstr "Find solutions nearby on QFDMO"
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "Product category"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7940,5 +7940,65 @@ msgstr "Impact not assessed"
 
 msgctxt "detailed_data"
 msgid "Detailed data"
+msgstr "Detailed data"
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
 msgstr ""
 
