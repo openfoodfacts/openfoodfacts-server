@@ -179,6 +179,10 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Votre demande pour rejoindre l'organisation est en attente d'approbation de l'administrateur de l'organisation."
 
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr "Votre demande d'organisation a bien été reçue et est en cours de traitement."
+
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
 msgstr "Statut d'administrateur mis à jour"
@@ -5427,8 +5431,8 @@ msgstr "Vision, mission, valeurs et programmes"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -7613,6 +7617,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Rechercher des produits de la même catégorie sans sucres ajoutés :"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "pour 100 g"
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "pour 100 ml"
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "pour 1 L"
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "pour 1 kg"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "par portion"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Tel que vendu"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Preparé"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Les informations nutritionnelles sont spécifiées pour le produit tel que vendu :"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Les informations nutritionnelles sont spécifiées pour le produit préparé :"
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Ajouter un nutriment"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Ingrédients indésirables"
@@ -7650,12 +7696,12 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr "Empreinte Souffrance"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr "Indicateur de la quantité de souffrance animale calculée par produit."
+msgstr "Indicateur de la quantité de souffrance animale calculée par produit"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
@@ -7717,6 +7763,70 @@ msgctxt "may_contain_palm_oil"
 msgid "May contain palm oil"
 msgstr "Pourrait contenir de l'huile de palme"
 
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr "Réemploi"
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr "Solutions d'économie circulaire à proximité"
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr "Trouvez des lieux pour réparer, donner, vendre ou recycler"
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr "Si vous êtes en France, vous pouvez trouver des solutions à proximité pour prolonger la vie de ce produit ou le recycler de manière responsable."
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr "Les solutions disponibles incluent :"
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr "Réparer"
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr "Trouvez des ateliers de réparation et des services pour réparer votre produit au lieu de le jeter"
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Donner"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr "Donnez une seconde vie à votre produit en le donnant à des associations ou des personnes dans le besoin"
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr "Vendre ou échanger"
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr "Vendez ou échangez votre produit sur des plateformes de seconde main"
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Recycler"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr "Trouvez des points de collecte pour un recyclage approprié lorsque le produit arrive en fin de vie"
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr "Utilisez le service Que Faire De Mes Objets ? pour trouver des solutions près de chez vous :"
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr "Trouver des solutions à proximité sur QFDMO"
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr "Catégorie de produit"
+
 msgctxt "environmental_labels"
 msgid "Environmental labels"
 msgstr "Labels environnementaux"
@@ -7740,3 +7850,67 @@ msgstr "Faible impact"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Impact non évalué"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "Données détaillées"
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr "Vous pouvez utiliser ce formulaire pour analyser une liste d'ingrédients."
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr "Ce formulaire est un outil de démonstration et de test. Pour une utilisation en production, veuillez installer le logiciel Recipe Estimator disponible en open source sur <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr "Les ingrédients sont associés à la taxonomie des ingrédients d'Open Food Facts, et leur quantité est estimée à l'aide de différents algorithmes."
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr "Langue du texte des ingrédients"
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr "Texte des ingrédients"
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr "Sélectionner un estimateur de pourcentage d'ingrédients :"
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr "utilise une combinaison de règles et d'heuristiques, ainsi qu'un ensemble limité de valeurs nutritionnelles et de contraintes sur les ingrédients"
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "1ère version (Glop) - utilise les valeurs nutritionnelles pour déterminer la quantité des ingrédients"
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "2ème version (Scipy) - utilise les valeurs nutritionnelles pour déterminer la quantité des ingrédients"
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr "Données nutritionnelles"
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr "Analyse des ingrédients et estimation des quantités"
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr "Estimateur de pourcentage d'ingrédients :"
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr "Expérimental : utilise l'API Ecobalyse pour estimer l'impact environnemental des ingrédients."
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr "Requête Ecobalyse"
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr "Réponse Ecobalyse"

@@ -30,10 +30,10 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/write_cors_headers request_param single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
-use ProductOpener::Food qw/%nutriments_lists/;
+use ProductOpener::Food qw/%nutrients_lists/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
@@ -114,18 +114,22 @@ $request_ref->{search} = 1;
 # rate_limiter_bucket is required for `check_and_update_rate_limits`
 $request_ref->{rate_limiter_bucket} = 'search';
 
-check_and_update_rate_limits($request_ref);
+# Check and update rate limits if not disabled (default is ENABLED for production safety)
+if (not $rate_limiter_disabled) {
+	check_and_update_rate_limits($request_ref);
+}
 
-if ($request_ref->{rate_limiter_blocking}) {
+# Block request if rate limit exceeded (only if rate limiter is not disabled)
+if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
 	# The request is blocked by the rate limiter:
 	# return directly a "too many requests" empty HTML page
 	display_too_many_requests_page_and_exit();
 	return Apache2::Const::OK;
 }
 
-my $action = single_param('action') || 'display';
+my $action = request_param($request_ref, 'action') || 'display';
 
-if ((defined single_param('search_terms')) and (not defined single_param('action'))) {
+if ((defined request_param($request_ref, 'search_terms')) and (not defined request_param($request_ref, 'action'))) {
 	$action = 'process';
 }
 
@@ -134,9 +138,40 @@ if ((defined single_param('search_terms')) and (not defined single_param('action
 # For instance api_version=3 enables the new format of the packagings field
 foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss', 'api_version') {
 
-	if (defined single_param($parameter)) {
-		$request_ref->{$parameter} = single_param($parameter);
+	my $parameter_value = request_param($request_ref, $parameter);
+
+	if (defined $parameter_value) {
+		$request_ref->{$parameter} = $parameter_value;
 	}
+}
+
+my $is_api_search_request
+	= (defined $request_ref->{json})
+	or (defined $request_ref->{jsonp})
+	or (defined $request_ref->{jqm})
+	or (defined $request_ref->{jqm_loadmore})
+	or (defined $request_ref->{xml})
+	or (defined $request_ref->{rss});
+
+if ($is_api_search_request) {
+
+	$log->debug("API search request",
+		{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
+		if $log->is_debug();
+	write_cors_headers();
+
+	# Preflight requests only need the CORS headers.
+	if (request_method() eq 'OPTIONS') {
+
+		$log->debug("API search preflight request",
+			{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
+			if $log->is_debug();
+		print header(-status => 200, -type => 'application/json', -charset => 'utf-8');
+		exit(0);
+	}
+}
+else {
+	$log->debug("Web search request", {path => request_uri(), query_string => query_string()}) if $log->is_debug();
 }
 
 # if the query request json or xml, either through the json=1 parameter or a .json extension
@@ -393,9 +428,9 @@ if ($action eq 'display') {
 	}
 
 	# Compute possible fields values
-	my @axis_values = @{$nutriments_lists{$nutriment_table}};
+	my @axis_values = @{$nutrients_lists{$nutrient_table}};
 	my %axis_labels = ();
-	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
+	foreach my $nid (@{$nutrients_lists{$nutrient_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
 		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", {nid => $nid, value => $axis_labels{$nid}}) if $log->is_debug();
 	}

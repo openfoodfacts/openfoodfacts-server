@@ -6,11 +6,6 @@
 # This script should be run only inside the po_backend_1 container
 # or the test version of it
 
-if ! [ -d unit ];
-then
-    cd /opt/product-opener/test
-fi
-
 # Remove the categories stats file as it will not be present
 # for tests run through GitHub actions
 rm /mnt/podata/data/categories_stats/
@@ -19,7 +14,7 @@ rm /mnt/podata/data/categories_stats/*.*
 # Unit tests
 
 # all tests use init_expected_results function
-for FILE in $(grep -l init_expected_results unit/*.t);
+for FILE in $(grep -l init_expected_results tests/unit/*.t);
 do
     perl $FILE --update-expected-results
 done

@@ -1,0 +1,15 @@
+{
+   "api_call" : {
+      "method" : "PATCH",
+      "path" : "/api/v3/product/1234567890300",
+      "parameters" : {},
+      "body" : {
+         "product" : {
+            "product_name_en" : "Test product 3 - updated again"
+         },
+         "fields" : "updated",
+         "tags_lc" : "en"
+      },
+      "content-type" : "application/json; charset=utf-8"
+   }
+}

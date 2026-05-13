@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -55,8 +55,6 @@ use ProductOpener::URL qw(format_subdomain);
 use ProductOpener::Images qw(add_images_urls_to_product);
 use ProductOpener::Store qw/retrieve_object/;
 
-my $cc;
-
 =head2 read_product_api ( $request_ref )
 
 Process API V3 READ product requests.
@@ -77,6 +75,7 @@ sub read_product_api ($request_ref) {
 	$log->debug("read_product_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
+	my $cc = $request_ref->{cc};
 
 	# Is a sample product requested?
 	if ((defined $request_ref->{code}) and ($request_ref->{code} eq "example")) {
@@ -95,7 +94,8 @@ sub read_product_api ($request_ref) {
 	my $product_id;
 
 	# Check if the code is valid
-	if ($code !~ /^\d{4,24}$/) {
+	my $code_to_check = (defined $code) ? $code : '';
+	if (not is_valid_code($code_to_check)) {
 
 		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 
@@ -129,6 +129,8 @@ sub read_product_api ($request_ref) {
 		}
 	}
 
+	my $requested_fields = request_param($request_ref, 'fields') || "all";
+
 	if ((not defined $product_ref) or (not defined $product_ref->{code})) {
 
 		# Return an error if we could not find a product
@@ -144,9 +146,13 @@ sub read_product_api ($request_ref) {
 		);
 		$response_ref->{result} = {id => "product_not_found"};
 	}
+	# Product with a different product type
+	# If the requested fields is "raw", we return the product even if it has a different product type
+	# This is useful in particular for tests
 	elsif ( (not $server_options{private_products})
 		and (defined $product_ref->{product_type})
-		and ($product_ref->{product_type} ne $options{product_type}))
+		and ($product_ref->{product_type} ne $options{product_type})
+		and (not $requested_fields eq "raw"))
 	{
 
 		# If the product has a product_type and it is not the product_type of the server,

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,6 +50,8 @@ BEGIN {
 		$google_cloud_vision_api_url
 		$crowdin_project_identifier
 		$crowdin_project_key
+		$brevo_api_key
+		$list_id
 		$robotoff_url
 		$query_url
 		$events_url
@@ -63,6 +65,7 @@ BEGIN {
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 		$crm_url
 		$crm_api_url
 		$crm_username
@@ -112,6 +115,9 @@ $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vis
 
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
+
+$brevo_api_key = $ENV{BREVO_API_KEY};
+$list_id = $ENV{BREVO_LIST_ID};
 
 my $postgres_host = $ENV{POSTGRES_HOST} || "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
@@ -180,6 +186,10 @@ if ($producers_platform) {
 $build_cache_repo = $ENV{BUILD_CACHE_REPO};
 
 $rate_limiter_blocking_enabled = $ENV{RATE_LIMITER_BLOCKING_ENABLED} // "0";
+
+# Rate limiter disabled flag - set to 1 to disable application-level rate limiting
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ENV{RATE_LIMITER_DISABLED} // "0";
 
 # Odoo CRM
 $crm_url = $ENV{ODOO_CRM_URL};
