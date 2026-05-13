@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "method" : "GET",
+      "parameters" : {
+         "tagtype" : "ingredients",
+         "lc" : "fr",
+         "local_tags_list" : "banane,en:pineapple,petits pois, ÃÂ©pinards, unknown ingredient,de:Other Unknown Ingredient"
+      },
+      "path" : "/api/v3/taxonomy_canonicalize_tags",
+      "body" : null,
+      "content-type" : null
+   }
+}

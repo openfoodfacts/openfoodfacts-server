@@ -1,0 +1,22 @@
+{
+   "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "images" : {
+               "selected" : {
+                  "front" : {
+                     "de" : {
+                        "imgid" : "10"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "path" : "/api/v3.3/product/1234567890012"
+   }
+}
