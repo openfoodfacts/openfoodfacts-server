@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "body" : null,
+      "path" : "/categories/-apples/labels/organic.json",
+      "content-type" : null,
+      "parameters" : {
+         "fields" : "product_name"
+      },
+      "method" : "GET"
+   }
+}

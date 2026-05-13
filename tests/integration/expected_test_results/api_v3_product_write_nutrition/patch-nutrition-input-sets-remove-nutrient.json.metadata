@@ -1,0 +1,28 @@
+{
+   "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
+      "method" : "PATCH",
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "nutrition" : {
+               "input_sets" : [
+                  {
+                     "per_quantity" : 100,
+                     "nutrients" : {
+                        "sodium" : null
+                     },
+                     "per_unit" : "g",
+                     "per" : "100g",
+                     "source_description" : "",
+                     "source" : "packaging",
+                     "preparation" : "as_sold"
+                  }
+               ]
+            }
+         }
+      },
+      "path" : "/api/v3.5/product/4230000001000"
+   }
+}

@@ -58089,6 +58089,7 @@ wco_hs_heading:en: 08.02
 en: Peanuts, ground nuts, groundnuts
 bg: Фъстъци
 ca: Cacauets
+da: Jordnødder, Peanuts
 de: Erdnüsse
 es: Cacahuetes, Cacahuates, Manís
 fi: maapähkinät
@@ -58841,14 +58842,15 @@ wco_hs_heading:en: 20.08
 wikidata:en: Q147651
 
 < en:Peanut butters
-en: Creamy peanut butters
+en: Creamy peanut butters, Smooth peanut butters
 da: Cremede jordnøddesmør, Creamy jordnøddesmør
 pt: Manteigas de amendoim cremosas
 sv: Jordnötssmör utan bitar, Creamy jordnötssmör
+incompatible_with:en: categories:en:crunchy-peanut-butters
 wikidata:en: Q134165564
 
 < en:Peanut butters
-en: Crunchy peanut butters
+en: Crunchy peanut butters, Chunky peanut butters
 da: Sprøde jordnøddesmør, Crunchy jordnøddesmør
 fr: Beurres de cacahuetes croustillants
 hr: Hrskavi maslaci od kikirikija
@@ -58856,6 +58858,7 @@ lt: Traškūs žemės riešutų sviestai
 nl: Pindakzen met stukjes pinda
 pt: Manteigas de amendoim crocantes
 sv: Jordnötssmör med bitar, Crunchy jordnötssmör
+incompatible_with:en: categories:en:creamy-peanut-butters
 
 < en:Peanut butters
 en: Pure peanut butters
@@ -58869,12 +58872,19 @@ sv: Rena jordnötssmör, 100% jordnötssmör
 comment:en: contains only peanut, no added whatever
 expected_ingredients:en: en:peanut
 
+< en:Creamy peanut butters
+< en:Pure peanut butters
+en: Creamy pure peanut butters, Pure creamy peanut butters
+da: Cremede rene jordnøddesmør, Rene cremede jordnøddesmør
+pt: Manteigas de amendoim puras e cremosas, Manteigas de amendoim cremosas puras
+sv: Rena jordnötssmör utan bitar, 100% jordnötssmör utan bitar
+
 < en:Crunchy peanut butters
 < en:Pure peanut butters
 en: Crunchy pure peanut butters, Pure crunchy peanut butters
 da: Sprøde rene jordnøddesmør, Rene sprøde jordnøddesmør
 pt: Manteigas de amendoim puras e crocantes, Manteigas de amendoim crocantes puras
-sv: Rena jordnötssmör med bitarm, 100% jordnötssmör med bitar
+sv: Rena jordnötssmör med bitar, 100% jordnötssmör med bitar
 
 < en:Legume butters
 en: Flavoured peanut butters
@@ -85837,7 +85847,7 @@ en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
 ca: Pizzes i quiches
 de: Pizzas - Kuchen und Quiches
-es: Pizzas - empanadas y quiches
+es: Pizzas - tartas y quiches
 fi: pizzat ja piirakat
 fr: Pizzas tartes salées et quiches
 hr: Pizze pite i quichevi
@@ -86982,6 +86992,7 @@ lt: Makaronų salotos su vištiena
 
 < en:Pies
 en: Double crust pies, Two-crust pies, 2 crust pies
+es: Empanadas grandes
 fr: Tourtes, Tourte
 hr: Pite s dvije kore
 nl: Pasteitjes
@@ -100017,7 +100028,7 @@ gpc_category_name:en: Pickles/Relishes/Chutneys/Olives Variety Packs
 en: Pies
 bg: Пайове
 ca: Pastissos
-es: Empanadas
+es: Tartas
 fi: piirakat
 fr: Tartes
 hr: Pite, pita
@@ -123805,6 +123816,13 @@ da: Dumplings med grøntsager
 lt: Koldūnai su daržovėmis
 nb: Dumplings med grønnsaker
 sv: Dumplingar med grönsaker, Dumplings med grönsaker
+
+# Empanadas are dumpling consumed in Spain and latin America. They are called "Empanadas" in latin America, while this word designate double crust pies in Spain. The dumplings are called "Empanadillas" in Spain.
+< en:Dumplings
+xx: Empanadas
+en: Empanadas
+es: Empanadas, Empanadillas
+wikidata:en: Q747457
 
 < en:Dumplings
 en: Chinese dumplings, Chinese dumpling, Dim Sum

@@ -1,0 +1,39 @@
+{
+   "api_call" : {
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "packagings_add" : [
+               {
+                  "number_of_units" : 2,
+                  "recycling" : {
+                     "lc_name" : "strange value"
+                  },
+                  "shape" : {
+                     "id" : "en:bottle"
+                  },
+                  "material" : {
+                     "lc_name" : "plastic"
+                  }
+               },
+               {
+                  "material" : {
+                     "lc_name" : "cardboard"
+                  },
+                  "shape" : {
+                     "id" : "en:box"
+                  },
+                  "recycling" : {
+                     "lc_name" : "to recycle"
+                  },
+                  "number_of_units" : 1
+               }
+            ]
+         }
+      },
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890007",
+      "content-type" : "application/json; charset=utf-8"
+   }
+}

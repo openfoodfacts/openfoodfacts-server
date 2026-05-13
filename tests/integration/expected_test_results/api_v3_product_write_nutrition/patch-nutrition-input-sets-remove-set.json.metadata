@@ -1,0 +1,26 @@
+{
+   "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
+      "method" : "PATCH",
+      "body" : {
+         "product" : {
+            "nutrition" : {
+               "input_sets" : [
+                  {
+                     "source" : "packaging",
+                     "preparation" : "prepared",
+                     "source_description" : "",
+                     "per" : "200ml",
+                     "per_unit" : "ml",
+                     "per_quantity" : 200,
+                     "nutrients" : null
+                  }
+               ]
+            }
+         },
+         "fields" : "updated"
+      },
+      "path" : "/api/v3.5/product/4230000001000"
+   }
+}

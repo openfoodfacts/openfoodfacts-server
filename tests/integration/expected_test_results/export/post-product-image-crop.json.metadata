@@ -1,0 +1,19 @@
+{
+   "api_call" : {
+      "body" : {
+         "y2" : 200,
+         "x2" : 100,
+         "imgid" : "1",
+         "x1" : 10,
+         "y1" : 20,
+         "code" : "3661344653573",
+         "coordinates_image_size" : "full",
+         "id" : "ingredients_fr",
+         "angle" : 0
+      },
+      "path" : "/cgi/product_image_crop.pl",
+      "parameters" : {},
+      "method" : "POST",
+      "content-type" : "application/x-www-form-urlencoded"
+   }
+}
