@@ -28,23 +28,67 @@ use CGI qw/:cgi :form escapeHTML/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers request_param single_param/;
 use ProductOpener::Users qw/$Owner_id/;
-use ProductOpener::Products qw/normalize_code normalize_search_terms product_exists product_id_for_owner product_url/;
-use ProductOpener::Food qw/%nutriments_lists/;
+use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
+use ProductOpener::Food qw/%nutrients_lists/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
+use ProductOpener::Routing qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
+
+=head1 NAME
+
+search.pl - Search products
+
+=head1 DESCRIPTION
+
+CGI script to search products.
+
+This script displays the search form, and processes the search request.
+
+Search URL example:
+
+/cgi/search.pl?action=display&tagtype_0=categories&tag_contains_0=contains&tag_0=smartphones&sort_by=unique_scans_n&page_size=20&axis_x=ingredients_n&axis_y=unknown_ingredients_n&graph=1&action=display
+
+=head2 Graphs
+
+Search results can be displayed as graphs (histograms or scatter plots), by passing the following parameters:
+
+ graph=1
+ axis_x=FIELD_NAME
+ axis_y=FIELD_NAME
+
+The axis can be:
+- a nutrient
+- other product fields: number of ingredients, number of known ingredients, number of unknown ingredients, product quantity, nova group, environmental score, packaging materials weights
+- a Folksonomy Engine property: e.g. manufacturer_suggested_retail_price:eu:eur (the value must be numeric)
+
+=head3 Folksonomy Engine properties
+
+Folksonomy Engine properties can be used as axis by passing the property value prefixed by folksonomy
+(e.g. axis_x=folksonomy.manufacturer_suggested_retail_price:eu:eur).
+Or axis_x=folksonomy and an additional axis_x_folksonomy_property (easier for the search form)
+(e.g. axis_x=folksonomy&axis_x_folksonomy_property=manufacturer_suggested_retail_price:eu:eur).
+
+The current (October 2025) Folksonomy Engine API does not allow getting the list of properties for multiple barcodes.
+
+The current strategy is to:
+- get all the products matching the search criteria from the Product Opener database (MongoDB or off-query)
+- get all products having the Folksonomy Engine property set
+- filter the products matching both criteria
+
+=cut
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -67,10 +111,25 @@ if (user_agent() =~ /apps-spreadsheets/) {
 }
 
 $request_ref->{search} = 1;
+# rate_limiter_bucket is required for `check_and_update_rate_limits`
+$request_ref->{rate_limiter_bucket} = 'search';
 
-my $action = single_param('action') || 'display';
+# Check and update rate limits if not disabled (default is ENABLED for production safety)
+if (not $rate_limiter_disabled) {
+	check_and_update_rate_limits($request_ref);
+}
 
-if ((defined single_param('search_terms')) and (not defined single_param('action'))) {
+# Block request if rate limit exceeded (only if rate limiter is not disabled)
+if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
+	# The request is blocked by the rate limiter:
+	# return directly a "too many requests" empty HTML page
+	display_too_many_requests_page_and_exit();
+	return Apache2::Const::OK;
+}
+
+my $action = request_param($request_ref, 'action') || 'display';
+
+if ((defined request_param($request_ref, 'search_terms')) and (not defined request_param($request_ref, 'action'))) {
 	$action = 'process';
 }
 
@@ -79,9 +138,40 @@ if ((defined single_param('search_terms')) and (not defined single_param('action
 # For instance api_version=3 enables the new format of the packagings field
 foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss', 'api_version') {
 
-	if (defined single_param($parameter)) {
-		$request_ref->{$parameter} = single_param($parameter);
+	my $parameter_value = request_param($request_ref, $parameter);
+
+	if (defined $parameter_value) {
+		$request_ref->{$parameter} = $parameter_value;
 	}
+}
+
+my $is_api_search_request
+	= (defined $request_ref->{json})
+	or (defined $request_ref->{jsonp})
+	or (defined $request_ref->{jqm})
+	or (defined $request_ref->{jqm_loadmore})
+	or (defined $request_ref->{xml})
+	or (defined $request_ref->{rss});
+
+if ($is_api_search_request) {
+
+	$log->debug("API search request",
+		{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
+		if $log->is_debug();
+	write_cors_headers();
+
+	# Preflight requests only need the CORS headers.
+	if (request_method() eq 'OPTIONS') {
+
+		$log->debug("API search preflight request",
+			{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
+			if $log->is_debug();
+		print header(-status => 200, -type => 'application/json', -charset => 'utf-8');
+		exit(0);
+	}
+}
+else {
+	$log->debug("Web search request", {path => request_uri(), query_string => query_string()}) if $log->is_debug();
 }
 
 # if the query request json or xml, either through the json=1 parameter or a .json extension
@@ -98,9 +188,9 @@ if ((defined single_param('json')) or (defined single_param('jsonp')) or (define
 
 my @search_fields
 	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries
-	ingredients additives allergens traces nutrition_grades nova_groups ecoscore languages creator editors states);
+	ingredients additives allergens traces nutrition_grades nova_groups environmental_score languages creator editors states);
 
-$admin and push @search_fields, "lang";
+$request_ref->{admin} and push @search_fields, "lang";
 
 my %search_tags_fields = (
 	packaging => 1,
@@ -154,7 +244,7 @@ if (    (not defined single_param('json'))
 	if ((defined $code) and (length($code) > 0)) {
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
-		my $product_ref = product_exists($product_id);    # returns 0 if not
+		my $product_ref = retrieve_product($product_id);
 
 		if ($product_ref) {
 			$log->info("product code exists, redirecting to product page", {code => $code});
@@ -205,7 +295,6 @@ for (my $i = 0; defined single_param("nutriment_$i"); $i++) {
 my $sort_by = remove_tags_and_quote(decode utf8 => single_param("sort_by"));
 if (    ($sort_by ne 'created_t')
 	and ($sort_by ne 'last_modified_t')
-	and ($sort_by ne 'last_modified_t_complete_first')
 	and ($sort_by ne 'scans_n')
 	and ($sort_by ne 'unique_scans_n')
 	and ($sort_by ne 'product_name')
@@ -215,16 +304,33 @@ if (    ($sort_by ne 'created_t')
 	$sort_by = 'unique_scans_n';
 }
 
-my $limit = 0 + (single_param('page_size') || $page_size);
-if (($limit < 2) or ($limit > 1000)) {
-	$limit = $page_size;
+my $limit = 0 + (single_param('page_size') || $options{default_web_products_page_size});
+
+if (defined $request_ref->{user_id}) {
+	if ($limit > $options{max_products_page_size_for_logged_in_users}) {
+		$limit = $options{max_products_page_size_for_logged_in_users};
+	}
 }
+elsif ($limit > $options{max_products_page_size}) {
+	$limit = $options{max_products_page_size};
+}
+
+$request_ref->{page_size} = $limit;
 
 my $graph_ref = {graph_title => remove_tags_and_quote(decode utf8 => single_param("graph_title"))};
 my $map_title = remove_tags_and_quote(decode utf8 => single_param("map_title"));
 
 foreach my $axis ('x', 'y') {
-	$graph_ref->{"axis_$axis"} = remove_tags_and_quote(decode utf8 => single_param("axis_$axis"));
+	my $axis_field = remove_tags_and_quote(decode utf8 => single_param("axis_$axis"));
+	# If the value is "folksonomy", check for the additional folksonomy property parameter
+	if ($axis_field eq 'folksonomy') {
+		my $folksonomy_property
+			= remove_tags_and_quote(decode utf8 => single_param("axis_${axis}_folksonomy_property"));
+		if (defined $folksonomy_property) {
+			$axis_field .= ".$folksonomy_property";
+		}
+	}
+	$graph_ref->{"axis_$axis"} = $axis_field;
 }
 
 foreach my $series (@search_series, "nutrition_grades") {
@@ -322,17 +428,19 @@ if ($action eq 'display') {
 	}
 
 	# Compute possible fields values
-	my @axis_values = @{$nutriments_lists{$nutriment_table}};
+	my @axis_values = @{$nutrients_lists{$nutrient_table}};
 	my %axis_labels = ();
-	foreach my $nid (@{$nutriments_lists{$nutriment_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
+	foreach my $nid (@{$nutrients_lists{$nutrient_table}}, "fruits-vegetables-nuts-estimate-from-ingredients") {
 		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", {nid => $nid, value => $axis_labels{$nid}}) if $log->is_debug();
 	}
 
 	my @other_search_fields = (
-		"additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
-		"fruits-vegetables-nuts-estimate-from-ingredients",
-		"forest_footprint", "product_quantity", "nova_group", 'ecoscore_score',
+		"additives_n", "ingredients_n",
+		"known_ingredients_n", "unknown_ingredients_n",
+		"fruits-vegetables-nuts-estimate-from-ingredients", "forest_footprint",
+		"product_quantity", "nova_group",
+		'environmental_score_score', "folksonomy",
 	);
 
 	# Add the fields related to packaging
@@ -350,6 +458,8 @@ if ($action eq 'display') {
 		push @axis_values, $field;
 		$axis_labels{$field} = $title;
 	}
+
+	$axis_labels{"folksonomy"} = lang("folksonomy_property");
 
 	my @sorted_axis_values = ("", sort({lc($axis_labels{$a}) cmp lc($axis_labels{$b})} @axis_values));
 
@@ -426,15 +536,25 @@ if ($action eq 'display') {
 
 	push @{$template_data_ref->{selected_sort_by_value}}, $sort_by;
 
-	my @size_array = (20, 50, 100, 250, 500, 1000);
+	my @size_array = (20, 50, 100);
 	push @{$template_data_ref->{size_options}}, @size_array;
 
 	$template_data_ref->{axes} = [];
 	foreach my $axis ('x', 'y') {
+		my $selected_field_value = $graph_ref->{"axis_$axis"};
+		my $folksonomy_property_value;
+		# If the field starts with folksonomy. , separate it
+		if (defined $selected_field_value) {
+			if ($selected_field_value =~ /^folksonomy\.(.+)$/) {
+				$selected_field_value = 'folksonomy';
+				$folksonomy_property_value = $1;
+			}
+		}
 		push @{$template_data_ref->{axes}},
 			{
 			id => $axis,
-			selected_field_value => $graph_ref->{"axis_" . $axis},
+			selected_field_value => $selected_field_value,
+			folksonomy_property_value => $folksonomy_property_value,
 			};
 	}
 
@@ -454,19 +574,21 @@ if ($action eq 'display') {
 
 	}
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 .select2-container--default .select2-results > .select2-results__options {
     max-height: 400px
 }
 CSS
 		;
 
-	$scripts .= <<HTML
-<script type="text/javascript" src="/js/dist/search.js"></script>
+	$request_ref->{scripts} .= <<HTML
+<script>const folksonomy_url = "$folksonomy_url";</script>
+<script type="text/javascript" src="$static_subdomain/js/dist/search.js?v=$file_timestamps{"js/dist/search.js"}"></script>
+
 HTML
 		;
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 var select2_options = {
 		placeholder: "$Lang{select_a_field}{$lc}",
 		allowClear: true
@@ -482,7 +604,8 @@ var select2_options = {
 JS
 		;
 
-	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
+	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html, $request_ref)
+		or $html = '';
 	$html .= "<p>" . $tt->error() . "</p>";
 
 	${$request_ref->{content_ref}} .= $html;
@@ -676,9 +799,8 @@ elsif ($action eq 'process') {
 	# Graphs
 
 	foreach my $axis ('x', 'y') {
-		if ((defined single_param("axis_$axis")) and (single_param("axis_$axis") ne '')) {
-			$current_link
-				.= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("axis_$axis"));
+		if ((defined $graph_ref->{"axis_$axis"}) and ($graph_ref->{"axis_$axis"} ne '')) {
+			$current_link .= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent($graph_ref->{"axis_$axis"});
 		}
 	}
 
@@ -713,8 +835,11 @@ elsif ($action eq 'process') {
 	my $graph = single_param("graph") || '';
 	my $download = single_param("download") || '';
 
-	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
+	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
+	print $OUT remote_addr() . "\t"
+		. time() . "\t"
+		. (decode utf8 => single_param('search_terms') || "no_search_terms")
+		. " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 
@@ -754,10 +879,11 @@ HTML
 		$graph_ref->{type} = "scatter_plot";
 		$request_ref->{current_link} .= "&graph=1";
 
-		# We want existing values for axis fields
+		# We want existing values for axis fields, so we add them to the query
+		# unless the field starts with "folksonomy.", as we cannot filter on Folksonomy Engine properties in MongoDB
 		foreach my $axis ('x', 'y') {
 
-			if ($graph_ref->{"axis_$axis"} ne "") {
+			if (($graph_ref->{"axis_$axis"} ne "") and ($graph_ref->{"axis_$axis"} !~ /^folksonomy\./)) {
 				my $field = $graph_ref->{"axis_$axis"};
 				# Get the field path components
 				my @fields = get_search_field_path_components($field);
@@ -801,7 +927,8 @@ HTML
 		${$request_ref->{content_ref}}
 			.= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
 
-		$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $country);
+		$request_ref->{title}
+			= lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $request_ref->{country});
 
 		#This is used to have a special share button on some browsers
 		if (not defined $request_ref->{jqm}) {
@@ -824,15 +951,6 @@ HTML
 
 			write_cors_headers();
 			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
-		}
-
-		if (single_param('search_terms')) {
-			open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
-			print $OUT remote_addr() . "\t"
-				. time() . "\t"
-				. decode utf8 => single_param('search_terms')
-				. "\tpage: $page\n";
-			close($OUT);
 		}
 	}
 }

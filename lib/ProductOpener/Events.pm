@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -54,12 +54,12 @@ use vars @EXPORT_OK;
 use Log::Any qw($log);
 
 use Encode;
-use JSON::PP;
-use LWP::UserAgent;
+use JSON::MaybeXS;
 use HTTP::Request::Common;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/display_date_iso/;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 =head1 FUNCTIONS
 
@@ -90,7 +90,7 @@ sub send_event ($event_ref) {
 			$event_ref->{timestamp} = display_date_iso(time());
 		}
 
-		my $ua = LWP::UserAgent->new();
+		my $ua = create_user_agent();
 		my $endpoint = "$events_url/events";
 		$ua->timeout(2);
 

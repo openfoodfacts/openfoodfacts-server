@@ -15,11 +15,11 @@
                "description" : "",
                "description_short" : "Données manquantes pour calculer le Nutri-Score",
                "grade" : "unknown",
-               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-unknown.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-unknown-new-fr.svg",
                "id" : "nutriscore",
                "match" : 0,
                "name" : "Nutri-Score",
-               "panel_id" : "nutriscore",
+               "panel_id" : "nutriscore_2023",
                "status" : "unknown",
                "title" : "Nutri-Score inconnu"
             },
@@ -29,6 +29,7 @@
                "id" : "low_salt",
                "missing" : "Données nutritionnelles manquantes",
                "name" : "Sel",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Sel en quantité inconnue"
             },
@@ -38,6 +39,7 @@
                "id" : "low_fat",
                "missing" : "Données nutritionnelles manquantes",
                "name" : "Matières grasses",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Matières grasses en quantité inconnue"
             },
@@ -47,6 +49,7 @@
                "id" : "low_sugars",
                "missing" : "Données nutritionnelles manquantes",
                "name" : "Sucres",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Sucres en quantité inconnue"
             },
@@ -56,6 +59,7 @@
                "id" : "low_saturated_fat",
                "missing" : "Données nutritionnelles manquantes",
                "name" : "Acides gras saturés",
+               "panel_id" : "nutrition_facts_table",
                "status" : "unknown",
                "title" : "Acides gras saturés en quantité inconnue"
             }
@@ -244,7 +248,8 @@
             }
          ],
          "id" : "ingredients_analysis",
-         "name" : "Ingrédients"
+         "name" : "Ingrédients",
+         "warning" : "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
       },
       {
          "attributes" : [
@@ -277,16 +282,15 @@
       {
          "attributes" : [
             {
-               "description" : "",
-               "description_short" : "Impact environnemental inconnu",
+               "description_short" : "Catégorie précise manquante",
                "grade" : "unknown",
-               "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-unknown.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/green-score-unknown.svg",
                "id" : "ecoscore",
                "match" : 0,
-               "name" : "Eco-Score",
-               "panel_id" : "ecoscore",
+               "name" : "Green-Score",
+               "panel_id" : "environmental_score",
                "status" : "unknown",
-               "title" : "Eco-Score non calculé"
+               "title" : "Green-Score non calculé"
             },
             {
                "description" : "",
@@ -296,6 +300,7 @@
                "id" : "forest_footprint",
                "match" : 0,
                "name" : "Empreinte forêt",
+               "panel_id" : "forest_footprint",
                "status" : "known",
                "title" : "Empreinte forêt non calculée"
             }
@@ -344,12 +349,37 @@
       "en:code-missing",
       "en:created-missing"
    ],
+   "data_quality_completeness_tags" : [
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutrition-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed"
+   ],
+   "data_quality_dimensions" : {
+      "accuracy" : {
+         "overall" : "0.00"
+      },
+      "completeness" : {
+         "general_information" : "0.00",
+         "ingredients" : "0.00",
+         "nutrition" : "0.00",
+         "overall" : "0.10",
+         "packaging" : "0.50"
+      }
+   },
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:ecoscore-extended-data-not-computed",
+      "en:no-nutrition-data",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -358,23 +388,37 @@
       "en:main-language-missing",
       "en:code-missing",
       "en:created-missing",
+      "en:photo-and-data-to-be-checked-by-an-experienced-contributor",
+      "en:nutrition-photo-to-be-selected",
+      "en:categories-to-be-completed",
+      "en:nutrition-to-be-completed",
+      "en:packaging-photo-to-be-selected",
+      "en:packagings-completed",
+      "en:front-photo-to-be-selected",
+      "en:product-name-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:brands-to-be-completed",
+      "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
       "en:all-but-one-ingredient-with-specified-percent",
-      "en:ecoscore-extended-data-not-computed",
+      "en:no-nutrition-data",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-      "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:environmental-score-packaging-packaging-data-missing",
+      "en:environmental-score-production-system-no-label"
    ],
-   "ecoscore_data" : {
+   "ecoscore_tags" : [
+      "unknown"
+   ],
+   "environmental_score_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
             "aggregated_origins" : [
@@ -589,7 +633,6 @@
             "warning" : "origins_are_100_percent_unknown"
          },
          "packaging" : {
-            "non_recyclable_and_non_biodegradable_materials" : 1,
             "value" : -15,
             "warning" : "packaging_data_missing"
          },
@@ -606,6 +649,7 @@
       "agribalyse" : {
          "warning" : "missing_agribalyse_match"
       },
+      "grade" : "unknown",
       "missing" : {
          "categories" : 1,
          "labels" : 1,
@@ -616,15 +660,19 @@
       "missing_key_data" : 1,
       "status" : "unknown"
    },
-   "ecoscore_grade" : "unknown",
-   "ecoscore_tags" : [
+   "environmental_score_grade" : "unknown",
+   "environmental_score_tags" : [
       "unknown"
    ],
    "food_groups_tags" : [],
+   "images" : {
+      "selected" : {}
+   },
    "ingredients" : [
       {
          "from_palm_oil" : "yes",
          "id" : "en:palm-kernel-fat",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -642,12 +690,6 @@
       "en:palm-oil",
       "en:vegan",
       "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:palm-kernel-fat",
-      "en:oil-and-fat",
-      "en:vegetable-oil-and-fat",
-      "en:palm-kernel-oil-and-fat"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 1,
@@ -676,7 +718,11 @@
       "en:palm-kernel-fat"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 4,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:palm-kernel-fat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
@@ -686,25 +732,25 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:environmental-score-not-computed",
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-category",
-      "en:nutrition-not-enough-data-to-compute-nutrition-score",
+      "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
       "en:nutriscore-missing-nutrition-data-fat",
-      "en:nutriscore-missing-nutrition-data-saturated-fat",
-      "en:nutriscore-missing-nutrition-data-sugars",
-      "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
-      "en:nutrition-no-fiber",
+      "en:nutriscore-missing-nutrition-data-saturated-fat",
+      "en:nutriscore-missing-nutrition-data-sodium",
+      "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-not-computed",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-      "en:packagings-number-of-components-0",
-      "en:packagings-not-complete",
+      "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
-      "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-not-computed"
+      "en:packagings-not-complete",
+      "en:packagings-number-of-components-0"
    ],
    "nova_group_debug" : "no nova group when the product does not have a category",
    "nova_group_error" : "missing_category",
@@ -714,12 +760,6 @@
    "nucleotides_tags" : [],
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "nutriscore" : {
       "2021" : {
          "category_available" : 0,
@@ -736,10 +776,12 @@
             "sodium" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       },
       "2023" : {
          "category_available" : 0,
@@ -757,10 +799,12 @@
             "saturated_fat" : null,
             "sugars" : null
          },
+         "estimated" : 0,
          "grade" : "unknown",
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
-         "nutriscore_computed" : 0
+         "nutriscore_computed" : 0,
+         "preparation" : "as_sold"
       }
    },
    "nutriscore_2021_tags" : [
@@ -773,16 +817,76 @@
    "nutriscore_tags" : [
       "unknown"
    ],
-   "nutriscore_version" : "2021",
-   "nutrition_data_per" : "100g",
-   "nutrition_data_prepared_per" : "100g",
+   "nutriscore_version" : "2023",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0,
+                  "value_string" : "0"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : 100,
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "estimate",
+            "source_description" : "Estimate from ingredients"
+         }
+      ]
+   },
    "nutrition_grade_fr" : "unknown",
    "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+   "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
@@ -810,6 +914,5 @@
    "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
-   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

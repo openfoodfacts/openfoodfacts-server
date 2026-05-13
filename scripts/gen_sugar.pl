@@ -28,7 +28,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang store/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/$static_subdomain/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -48,14 +48,14 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 print STDERR ("Please fix this script before using it:\n"
 		. "1- do not write to lang/ (its git controlled)\n"
-		. "2- use Paths.pm for pathes (not /srv/sugar),\n"
+		. "2- use Paths.pm for paths (not /srv/sugar),\n"
 		. "3- only do one script of gen_sugar.pl and gen_sucre.pl,\n"
-		. "5- use matomo instead of GA\n"
 		. "4- fix bugs\n"
+		. "5- use matomo instead of GA\n"
 		. "Or perhaps rework all this to use a single html page + json data\n");
 die();
 
@@ -68,7 +68,7 @@ my @fields = qw (
 	origins
 	ingredients
 	labels
-	nutriments
+	nutrition
 	traces
 	users
 	photographers
@@ -92,12 +92,10 @@ foreach my $l ('en') {
 
 	$lc = $l;
 
-	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
+	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutrition => 1};
 	my %tags = ();
 
 	my $query_ref = {lc => $lc, states_tags => 'en:complete'};
-	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
-	# -> does not seem to work for sugars, maybe some string values?!
 
 	my $cursor = get_products_collection()->query($query_ref);
 
@@ -136,7 +134,9 @@ HTML
 
 		$k++;
 
-		($product_ref->{"nutriments"}{"sugars_100g"}) < 0.01 and next;
+		my $sugar_value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", "sugars", "value");
+
+		if ((not defined $sugar_value) or ($sugar_value < 0.01)) {next;}
 
 		$kk++;
 
@@ -178,7 +178,7 @@ HTML
 
 		my $qx = $q * $x;
 
-		my $s = $qx * $product_ref->{"nutriments"}{"sugars_100g"} / 100;
+		my $s = $qx * $sugar_value / 100;
 		my $sucres_g = int($s + 0.4999);
 		my $sc = $s / 4;
 		my $small = int($sc + 0.4999);
@@ -244,7 +244,7 @@ HTML
 				. "</td><td>"
 				. $product_ref->{quantity}
 				. "</td><td>$q x $x = $qx</td><td>$s</td><td>$sc</td><td>"
-				. $product_ref->{"nutriments"}{"sugars_100g"}
+				. $sugar_value
 				. "</td></tr>\n";
 
 			my $description
@@ -524,7 +524,7 @@ $zoom
 <div id="sharebuttons">
 <div style="float:left;margin-right:15px;width:150px;color:darkblue;background:white;padding:10px;">See if your friends know the answer!</div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
-src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;count=vertical&amp;lang=fr&amp;text=How%20much%20sugar%20in%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
+src="https://platform.x.com/widgets/tweet_button.html?via=OpenFoodFactsUK&amp;count=vertical&amp;lang=fr&amp;text=How%20much%20sugar%20in%20$escapedname%20%3F" style="width:65px; height:63px;"></iframe></div>
 <div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://howmuchsugar.in/$id" layout="box_count"></fb:like></div>
 <div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://howmuchsugar.in/$id"></g:plusone></div>
 </div>

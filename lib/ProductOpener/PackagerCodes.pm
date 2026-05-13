@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -184,16 +184,24 @@ sub normalize_packager_codes ($codes) {
 }
 
 my %local_ec = (
+	AT => "EG",
+	CY => "EK",
+	CZ => "ES",
 	DE => "EG",
+	DK => "EF",
 	EE => "EÜ",
 	ES => "CE",
 	FI => "EY",
 	FR => "CE",
 	HR => "EU",
+	HU => "ES",
+	IE => "EC",
 	IT => "CE",
+	LU => "CE",
 	NL => "EG",
 	PL => "WE",
 	PT => "CE",
+	SI => "ES",
 	UK => "EC",
 );
 

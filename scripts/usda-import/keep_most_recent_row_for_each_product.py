@@ -1,8 +1,9 @@
 import pandas as pd
 import sys
 
-if  (len(sys.argv) != 2):
-    sys.stderr.write("Usage: python keep_most_recent_row_for_ech_product.pl [input CSV file] > [output CSV file]\n")
+if (len(sys.argv) != 2):
+    sys.stderr.write(
+        "Usage: python keep_most_recent_row_for_ech_product.pl [input CSV file] > [output CSV file]\n")
     sys.exit()
 
 input_csv_file = sys.argv[1]

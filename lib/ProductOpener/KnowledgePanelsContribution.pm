@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -60,6 +60,8 @@ Creates a knowledge panel card that contains all knowledge panels related to con
 
 =head4 product reference $product_ref
 
+#11872 Find and replace Storable with JSON
+
 Loaded from the MongoDB database, Storable files, or the OFF API.
 
 =head4 language code $target_lc
@@ -75,21 +77,22 @@ We may display country specific recommendations from health authorities, or coun
 
 =cut
 
-sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_contribution_card_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create contribution card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	my @panels = ();
-	for my $tag_type (qw(data_quality_errors data_quality_warnings data_quality_info)) {
+	for my $tag_type (qw(data_quality_errors data_quality_warnings data_quality_info data_quality_completeness)) {
 		# we need to create it first because it can condition contribution panel display
-		my $created = create_data_quality_panel($tag_type, $product_ref, $target_lc, $target_cc, $options_ref);
+		my $created
+			= create_data_quality_panel($tag_type, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		push(@panels, $created) if $created;
 	}
 	if (@panels) {
 		my $panel_data_ref = {quality_panels => \@panels,};
 		create_panel_from_json_template("contribution_card",
 			"api/knowledge-panels/contribution/contribution_card.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 	return !!@panels;
 }
@@ -127,7 +130,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_data_quality_panel ($tags_type, $product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_data_quality_panel ($tags_type, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create quality errors panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -147,7 +150,7 @@ sub create_data_quality_panel ($tags_type, $product_ref, $target_lc, $target_cc,
 			$panel_data_ref->{tags_type} = $tags_type;
 			$panel_data_ref->{quality_actions} = $quality_tags_by_action;
 			create_panel_from_json_template($tags_type, "api/knowledge-panels/contribution/data_quality_tags.tt.json",
-				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 			$created = 1;
 		}
 	}

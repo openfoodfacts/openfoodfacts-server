@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -135,6 +135,8 @@ digit grouping separators or used to indicate decimals.
 
 sub convert_string_to_number ($value) {
 
+	return if (not defined $value);
+
 	$value =~ s/(\d) (\d)/$1$2/g;
 
 	# In some languages like French, a comma is used instead of a dot to indicate decimals
@@ -169,7 +171,10 @@ sub round_to_max_decimal_places ($value, $max_decimal_places) {
 	if (defined $value) {
 
 		# Round to the maximum number of decimal places
-		$return_value = sprintf("%.${max_decimal_places}f", $value) + 0;
+		$return_value = sprintf("%.${max_decimal_places}f", $value);
+		# Necessary to remove trailing 0s, otherwise we get those trailing 0s in the JSON output of the API
+		$return_value =~ s/\.(0+$)//;
+		$return_value += 0;
 	}
 
 	return $return_value;

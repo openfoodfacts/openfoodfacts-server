@@ -1,6 +1,7 @@
 [
    {
       "id" : "en:water",
+      "is_in_taxonomy" : 1,
       "percent" : 60,
       "percent_estimate" : 60,
       "percent_max" : 60,
@@ -12,6 +13,7 @@
       "ingredients" : [
          {
             "id" : "en:apple",
+            "is_in_taxonomy" : 1,
             "percent" : 16,
             "percent_estimate" : 16,
             "percent_max" : 16,
@@ -20,6 +22,7 @@
          },
          {
             "id" : "en:mango",
+            "is_in_taxonomy" : 1,
             "percent" : 12,
             "percent_estimate" : 12,
             "percent_max" : 12,
@@ -28,12 +31,14 @@
          },
          {
             "id" : "en:citrus-fruit",
+            "is_in_taxonomy" : 1,
             "percent_estimate" : 12,
             "percent_max" : 12,
             "percent_min" : 12,
             "text" : "citrus"
          }
       ],
+      "is_in_taxonomy" : 1,
       "percent_estimate" : 40,
       "percent_max" : 40,
       "percent_min" : 40,

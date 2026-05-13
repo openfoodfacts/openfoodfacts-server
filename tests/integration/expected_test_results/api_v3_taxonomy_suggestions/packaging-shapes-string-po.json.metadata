@@ -1,0 +1,12 @@
+{
+   "api_call" : {
+      "path" : "/api/v3/taxonomy_suggestions",
+      "parameters" : {
+         "string" : "po",
+         "tagtype" : "packaging_shapes"
+      },
+      "method" : "GET",
+      "content-type" : null,
+      "body" : null
+   }
+}

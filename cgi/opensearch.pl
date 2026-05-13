@@ -27,20 +27,19 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Display qw/$cc $subdomain init_request/;
+use ProductOpener::Texts qw/:all/;
+use ProductOpener::Display qw/init_request/;
 use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::URL qw/format_subdomain/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 
 use ProductOpener::Lang qw/$lc lang/;
 
@@ -48,20 +47,21 @@ my $request_ref = ProductOpener::Display::init_request();
 
 # https://developer.mozilla.org/en-US/Add-ons/Creating_OpenSearch_plugins_for_Firefox
 # Maximum of 16 characters
-my $short_name = lang("site_name");
+my $short_name = $options{site_name};
 # Maximum of 48 characters
 my $long_name = $short_name;
-if ($cc eq 'world') {
+if ($request_ref->{cc} eq 'world') {
 	$long_name .= " " . uc($lc);
 }
 else {
-	$long_name .= " " . uc($cc) . "/" . uc($lc);
+	$long_name .= " " . uc($request_ref->{cc}) . "/" . uc($lc);
 }
 
-my $description = lang("search_description_opensearch");
+# TODO: flavor specific string
+my $description = lang("search_description_opensearch_$flavor");
 my $image_tag = $options{opensearch_image};
 
-my $uri = format_subdomain($subdomain);
+my $uri = $request_ref->{formatted_subdomain};
 
 my $xml = <<XML
 <?xml version="1.0" encoding="UTF-8"?>

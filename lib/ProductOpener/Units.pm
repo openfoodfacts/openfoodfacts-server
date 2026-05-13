@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -41,12 +41,16 @@ BEGIN {
 
 		&unit_to_kcal
 
+		&unit_to_kj
+
 		&unit_to_mmoll
 		&mmoll_to_unit
 
 		&normalize_serving_size
 		&normalize_quantity
 		&extract_standard_unit
+		&get_standard_unit
+		&normalize_product_quantity_and_serving_size
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -74,6 +78,23 @@ sub unit_to_kcal ($value, $unit) {
 	($unit eq 'kj') and return int($value / 4.184 + 0.5);
 
 	# return value without modification if it's already in kcal
+	return $value + 0;    # + 0 to make sure the value is treated as number
+}
+
+=head2 unit_to_kj($value, $unit)
+
+Converts <xx><unit> into <xx> kJ.
+
+=cut
+
+sub unit_to_kj ($value, $unit) {
+	$unit = lc($unit);
+
+	(not defined $value) and return $value;
+
+	($unit eq 'kcal') and return int($value * 4.184);
+
+	# return value without modification if it's already in kj
 	return $value + 0;    # + 0 to make sure the value is treated as number
 }
 
@@ -304,9 +325,35 @@ Returns undef if no unit was detected.
 
 sub extract_standard_unit ($quantity_field) {
 
-	my $standard_unit = undef;
-
 	my (undef, undef, $unit) = parse_quantity_unit($quantity_field);
+
+	my $standard_unit = get_standard_unit($unit);
+
+	return $standard_unit;
+}
+
+=head2 get_standard_unit ($unit)
+
+Converts the given unit to its corresponding standard unit.
+
+e.g. "kg" -> "g"
+	 "l"  -> "ml"
+
+=head3 Parameters
+
+=head4 $unit
+
+Unit to convert.
+
+=head3 Return values
+
+Standard unit corresponding to the given unit.
+
+=cut
+
+sub get_standard_unit ($unit) {
+
+	my $standard_unit = undef;
 
 	if (defined $unit) {
 
@@ -318,7 +365,6 @@ sub extract_standard_unit ($quantity_field) {
 			$standard_unit = $units{$unit_id}{standard_unit};    # standard_unit can be undefined
 		}
 	}
-
 	return $standard_unit;
 }
 
@@ -341,6 +387,51 @@ sub normalize_serving_size ($serving) {
 
 		return unit_to_g($q, $u);
 	}
+	return;
+}
+
+=head2 normalize_product_quantity_and_serving_size ($product_ref)
+
+Normalize the product quantity and serving size fields.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+Reference to a product.
+
+=cut
+
+sub normalize_product_quantity_and_serving_size ($product_ref) {
+
+	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	(defined $product_ref->{product_quantity_unit}) and delete $product_ref->{product_quantity_unit};
+	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
+		my $product_quantity = normalize_quantity($product_ref->{quantity});
+		if (defined $product_quantity) {
+			$product_ref->{product_quantity} = $product_quantity;
+		}
+		my $product_quantity_unit = extract_standard_unit($product_ref->{quantity});
+		if (defined $product_quantity_unit) {
+			$product_ref->{product_quantity_unit} = $product_quantity_unit;
+		}
+	}
+
+	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
+		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
+
+		my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
+		if (defined $serving_quantity_unit) {
+			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
+		}
+	}
+	else {
+		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
+		(defined $product_ref->{serving_size})
+			and ($product_ref->{serving_size} eq "")
+			and delete $product_ref->{serving_size};
+	}
+
 	return;
 }
 

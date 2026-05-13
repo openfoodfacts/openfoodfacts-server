@@ -30,6 +30,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
@@ -42,7 +43,7 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
 use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
@@ -87,7 +88,7 @@ else {
 	$template_data_ref->{i} = $i;
 	$template_data_ref->{add_fields_options} = \@add_fields_options;
 
-	$scripts .= <<JS
+	$request_ref->{scripts} .= <<JS
     <!-- The template to display files available for upload -->
     <script id="template-upload" type="text/x-tmpl">
       {\% for (var i=0, file; file=o.files[i]; i++) { \%}
@@ -176,14 +177,16 @@ else {
 JS
 		;
 
-	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html)
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html',
+		$template_data_ref, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js)
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js',
+		$template_data_ref, \$js, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 
-	$initjs .= $js;
+	$request_ref->{initjs} .= $js;
 
-	$header .= <<HTML
+	$request_ref->{header} .= <<HTML
 <script>
 // Keep track of codes that we have seen so that we can submit field values only once
 var codes = {};
@@ -214,7 +217,7 @@ function waitForPreviousUpload(submitIndex, callback) {
 HTML
 		;
 
-	$initjs .= <<JS
+	$request_ref->{initjs} .= <<JS
 
 /*
  * jQuery File Upload Demo
@@ -340,7 +343,7 @@ var images_processed = 0;
 JS
 		;
 
-	$styles .= <<CSS
+	$request_ref->{styles} .= <<CSS
 
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 

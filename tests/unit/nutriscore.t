@@ -11,8 +11,11 @@ use Log::Any::Adapter 'TAP';
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
-use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text extract_ingredients_from_text/;
-use ProductOpener::Nutriscore qw/compute_nutriscore_grade/;
+use ProductOpener::FoodProducts qw/:all/;
+use ProductOpener::ProducersFood qw/:all/;
+use ProductOpener::Ingredients qw/extract_additives_from_text extract_ingredients_from_text/;
+use ProductOpener::Nutriscore
+	qw/compute_nutriscore_grade get_value_with_one_less_negative_point_2023 get_value_with_one_more_positive_point_2023/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
@@ -33,14 +36,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "cookies",
-			nutriments => {
-				energy_100g => 3460,
-				fat_100g => 90,
-				"saturated-fat_100g" => 15,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				fiber_100g => 0,
-				proteins_100g => 0
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3460
+							},
+							fat => {
+								unit => "g",
+								value => 90
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 15
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -49,14 +82,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "olive oils",
-			nutriments => {
-				energy_100g => 3460,
-				fat_100g => 92,
-				"saturated-fat_100g" => 14,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				fiber_100g => 0,
-				proteins_100g => 0
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3460
+							},
+							fat => {
+								unit => "g",
+								value => 92
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 14
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -65,14 +128,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "colza oils",
-			nutriments => {
-				energy_100g => 3760,
-				fat_100g => 100,
-				"saturated-fat_100g" => 7,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				fiber_100g => 0,
-				proteins_100g => 0
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3760
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 7
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -81,14 +174,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "walnut oils",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 100,
-				"saturated-fat_100g" => 10,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				fiber_100g => 0,
-				proteins_100g => 0
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -97,14 +220,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "sunflower oils",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 100,
-				"saturated-fat_100g" => 10,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				fiber_100g => 0,
-				proteins_100g => 0
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -115,14 +268,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "sunflower oils",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 100,
-				"saturated-fat_100g" => 10,
-				carbohydrates_100g => 0,
-				sodium_100g => 0,
-				fiber_100g => 0,
-				proteins_100g => 0
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							carbohydrates => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -134,13 +317,40 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "sunflower oils",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 100,
-				carbohydrates_100g => 0,
-				sodium_100g => 0,
-				fiber_100g => 0,
-				proteins_100g => 0
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							carbohydrates => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold",
+					}
+				]
 			}
 		}
 	],
@@ -151,14 +361,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "breakfast cereals",
-			nutriments => {
-				energy_100g => 2450,
-				fat_100g => 100,
-				"saturated-fat_100g" => 1.03,
-				sugars_100g => 31,
-				sodium_100g => 0.221,
-				fiber_100g => 6.9,
-				proteins_100g => 10.3
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 2450
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 1.03
+							},
+							sugars => {
+								unit => "g",
+								value => 31
+							},
+							sodium => {
+								unit => "g",
+								value => 0.221
+							},
+							fiber => {
+								unit => "g",
+								value => 6.9
+							},
+							proteins => {
+								unit => "g",
+								value => 10.3
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				]
 			}
 		}
 	],
@@ -170,14 +410,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "dairy drinks",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 10,
-				"saturated-fat_100g" => 5,
-				sugars_100g => 10,
-				sodium_100g => 0,
-				fiber_100g => 2,
-				proteins_100g => 5
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 10
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Water, sugar"
 		}
@@ -187,14 +457,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "milk",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 10,
-				"saturated-fat_100g" => 5,
-				sugars_100g => 10,
-				sodium_100g => 0,
-				fiber_100g => 2,
-				proteins_100g => 5
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 10
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Milk"
 		}
@@ -204,14 +504,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "dairy drinks",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 10,
-				"saturated-fat_100g" => 5,
-				sugars_100g => 10,
-				sodium_100g => 0,
-				fiber_100g => 2,
-				proteins_100g => 5
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 10
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Fresh milk 80%, sugar"
 		}
@@ -221,14 +551,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "beverages",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 10,
-				"saturated-fat_100g" => 5,
-				sugars_100g => 20,
-				sodium_100g => 0,
-				fiber_100g => 2,
-				proteins_100g => 5
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 20
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Fresh milk 80%, sugar"
 		}
@@ -239,14 +599,44 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "dairy drinks",
-			nutriments => {
-				energy_100g => 3378,
-				fat_100g => 10,
-				"saturated-fat_100g" => 5,
-				sugars_100g => 20,
-				sodium_100g => 0,
-				fiber_100g => 2,
-				proteins_100g => 5
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3378
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 5
+							},
+							sugars => {
+								unit => "g",
+								value => 20
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 5
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 			ingredients_text => "Milk, sugar"
 		}
@@ -258,15 +648,46 @@ my @tests = (
 		{
 			lc => "fr",
 			categories => "meals",
-			nutriments => {
-				energy_100g => 667,
-				fat_100g => 8.4,
-				"saturated-fat_100g" => 1.2,
-				sugars_100g => 1.1,
-				sodium_100g => 0.4,
-				fiber_100g => 10.9,
-				proteins_100g => 2.4
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 667
+							},
+							fat => {
+								unit => "g",
+								value => 8.4
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 1.2
+							},
+							sugars => {
+								unit => "g",
+								value => 1.1
+							},
+							sodium => {
+								unit => "g",
+								value => 0.4
+							},
+							fiber => {
+								unit => "g",
+								value => 10.9
+							},
+							proteins => {
+								unit => "g",
+								value => 2.4
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
+
 			ingredients_text => "Pleurotes* 69% (Origine UE), chapelure de mais"
 		}
 	],
@@ -279,14 +700,44 @@ my @tests = (
 			categories => "gaspachos",
 			ingredients_text =>
 				"Tomate,concombre,poivron,oignon,eau,huile d'olive vierge extra (1,1%),vinaigre de vin,pain de riz,sel,ail,jus de citron,teneur en légumes: 89%",
-			nutriments => {
-				energy_100g => 148,
-				fat_100g => 10,
-				"saturated-fat_100g" => 0.2,
-				sugars_100g => 3,
-				sodium_100g => 0.2,
-				fiber_100g => 1.1,
-				proteins_100g => 0.9
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 148
+							},
+							fat => {
+								unit => "g",
+								value => 10
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.2
+							},
+							sugars => {
+								unit => "g",
+								value => 3
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 1.1
+							},
+							proteins => {
+								unit => "g",
+								value => 0.9
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
 
@@ -299,36 +750,94 @@ my @tests = (
 			lc => "en",
 			categories => "fruit-nectar",
 			ingredients_text => "Orange 47%, Water, Sugar, Carrots 10%",
-			nutriments => {
-				energy_100g => 250,
-				fat_100g => 0,
-				sugars_100g => 12,
-				sodium_100g => 0.2,
-				fiber_100g => 0,
-				proteins_100g => 0.5
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 250
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 12
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0.5
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
 
 	],
 
 	# spring waters
-	["spring-water-no-nutrition", {lc => "en", categories => "spring water", nutriments => {}}],
-	["flavored-spring-water-no-nutrition", {lc => "en", categories => "flavoured spring water", nutriments => {}}],
+	["spring-water-no-nutrition", {lc => "en", categories => "spring water"}],
+	["flavored-spring-water-no-nutrition", {lc => "en", categories => "flavoured spring water"}],
 	[
 		"flavored-spring-with-nutrition",
 		{
 			lc => "en",
 			categories => "flavoured spring water",
-			nutriments => {
-				energy_100g => 378,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 3,
-				sodium_100g => 0,
-				fiber_100g => 0,
-				proteins_100g => 0
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 378
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 3
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 
 	# Cocoa and chocolate powders
@@ -337,16 +846,47 @@ my @tests = (
 		{
 			lc => "en",
 			"categories" => "cocoa and chocolate powders",
-			nutriments => {
-				energy_prepared_100g => 287,
-				fat_prepared_100g => 0,
-				"saturated-fat_prepared_100g" => 1.1,
-				sugars_prepared_100g => 6.3,
-				sodium_prepared_100g => 0.045,
-				fiber_prepared_100g => 1.9,
-				proteins_prepared_100g => 3.8
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 287
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 1.1
+							},
+							sugars => {
+								unit => "g",
+								value => 6.3
+							},
+							sodium => {
+								unit => "g",
+								value => 0.045
+							},
+							fiber => {
+								unit => "g",
+								value => 1.9
+							},
+							proteins => {
+								unit => "g",
+								value => 3.8
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "prepared"
+					}
+				],
+			},
 		}
+
 	],
 
 	# fruits and vegetables estimates from category or from ingredients
@@ -356,32 +896,94 @@ my @tests = (
 			lc => "en",
 			categories => "orange juices",
 			ingredients_text => "orange juice 50%, water, sugar",
-			nutriments => {
-				energy_100g => 182,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 8.9,
-				sodium_100g => 0.2,
-				fiber_100g => 0.5,
-				proteins_100g => 0.2
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 182
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 8.9
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 0.2
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	[
 		"en-orange-juice-category",
 		{
 			lc => "en",
 			categories => "orange juices",
-			nutriments => {
-				energy_100g => 182,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 8.9,
-				sodium_100g => 0.2,
-				fiber_100g => 0.5,
-				proteins_100g => 0.2
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 182
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 8.9
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 0.2
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# potatoes should not count as vegetables
 	[
@@ -389,16 +991,47 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "potatoes, vegetables",
-			nutriments => {
-				energy_100g => 182,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 8.9,
-				sodium_100g => 0.2,
-				fiber_100g => 0.5,
-				proteins_100g => 0.2
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 182
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 8.9
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 0.2
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 
 	# categories without Nutri-Score
@@ -408,16 +1041,47 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "beers",
-			nutriments => {
-				energy_100g => 182,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 8.9,
-				sodium_100g => 0.2,
-				fiber_100g => 0.5,
-				proteins_100g => 0.2
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 182
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 8.9
+							},
+							sodium => {
+								unit => "g",
+								value => 0.2
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 0.2
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 
 	# Nutri-Score from estimated nutrients
@@ -452,15 +1116,43 @@ my @tests = (
 			lc => "en",
 			categories => "sodas",
 			ingredients_text => "apple juice, water, sugar, aspartame",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 4.5,
-				sodium_100g => 0.01,
-				proteins_100g => 0,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 4.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# Erythritol is not counted as a non-nutritive sweetener
 	[
@@ -469,15 +1161,43 @@ my @tests = (
 			lc => "en",
 			categories => "sodas",
 			ingredients_text => "apple juice, water, sugar, erythritol",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 4.5,
-				sodium_100g => 0.01,
-				proteins_100g => 0,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 4.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	[
 		"fr-ice-tea-with-sweetener",
@@ -486,15 +1206,43 @@ my @tests = (
 			categories => "ice teas",
 			ingredients_text =>
 				"Eau, sucre, fructose, acidifiants (acide citrique, acide malique), extrait de the noir (1,2g/l), jus de pêche à base de concentré (0,1%), correcteur d'acidité (citrate trisodique), arômes, antioxydant (acide ascorbique), édulcorant (glycosides de steviol)",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 4.5,
-				sodium_100g => 0.01,
-				proteins_100g => 0,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 4.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# vegetables flour / powder etc. do not count as vegetable for the Nutri-Score
 	[
@@ -504,15 +1252,43 @@ my @tests = (
 			categories => "soup",
 			ingredients_text =>
 				"soy beans 30%, cooked soy beans 25%, soy beans powder 20%, cut freeze dried soy beans 15%, soy beans flour 10%",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 1.5,
-				sodium_100g => 0.01,
-				proteins_100g => 20,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 1.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 20
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# vegetables that are deep fried do not count as vegetables for the Nutri-Score
 	[
@@ -521,15 +1297,43 @@ my @tests = (
 			lc => "en",
 			categories => "Parsnip Crisps",
 			ingredients_text => "parsnip 70%, red beet 30%",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 1.5,
-				sodium_100g => 0.01,
-				proteins_100g => 20,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 1.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 20
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# vegetables that are processed (e.g. flour) do not count as vegetables for the Nutri-Score
 	# for some categories, we assume the vegetables are processed (e.g. soy beans in tofu)
@@ -539,15 +1343,43 @@ my @tests = (
 			lc => "en",
 			categories => "tofu",
 			ingredients_text => "soy beans 90%, water 9%, salt 1%",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 0,
-				"saturated-fat_100g" => 0,
-				sugars_100g => 1.5,
-				sodium_100g => 0.01,
-				proteins_100g => 20,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 1.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 20
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# For red meat products, the number of maximum protein points is set at 2 points
 	[
@@ -555,30 +1387,86 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "beef steaks",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 20,
-				"saturated-fat_100g" => 10,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				proteins_100g => 50,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	[
 		"en-red-meat-ambiguous-category-no-ingredients",
 		{
 			lc => "en",
 			categories => "sausages",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 20,
-				"saturated-fat_100g" => 10,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				proteins_100g => 50,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	[
 		"en-red-meat-ambiguous-category-ingredients-with-lots-of-meat",
@@ -586,15 +1474,43 @@ my @tests = (
 			lc => "en",
 			categories => "sausages",
 			ingredients_text => "pork meat, lamb meat, chicken meat, salt 1%",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 20,
-				"saturated-fat_100g" => 10,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				proteins_100g => 50,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	[
 		"en-red-meat-ambiguous-category-ingredients-with-no-meat",
@@ -602,15 +1518,43 @@ my @tests = (
 			lc => "en",
 			categories => "sausages",
 			ingredients_text => "salmon, wheat flour, salt 1%",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 20,
-				"saturated-fat_100g" => 10,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				proteins_100g => 50,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	[
 		"en-red-meat-ambiguous-category-ingredients-with-very-little-meat",
@@ -618,15 +1562,43 @@ my @tests = (
 			lc => "en",
 			categories => "sausages",
 			ingredients_text => "eggs, wheat flour, water, rice flour, lamb 2%, salt 1%",
-			nutriments => {
-				energy_100g => 82,
-				fat_100g => 20,
-				"saturated-fat_100g" => 10,
-				sugars_100g => 0,
-				sodium_100g => 0,
-				proteins_100g => 50,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 20
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 10
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 50
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# Milk: considered a beverage in 2023 Nutri-Score
 	[
@@ -634,15 +1606,43 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "milk",
-			nutriments => {
-				energy_100g => 195,
-				fat_100g => 1.6,
-				"saturated-fat_100g" => 1,
-				sugars_100g => 4.8,
-				salt_100g => 0.1,
-				proteins_100g => 3.3,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 195
+							},
+							fat => {
+								unit => "g",
+								value => 1.6
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 1
+							},
+							sugars => {
+								unit => "g",
+								value => 4.8
+							},
+							salt => {
+								unit => "g",
+								value => 0.1
+							},
+							proteins => {
+								unit => "g",
+								value => 3.3
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# Plant beverages: considered a beverage in 2023 Nutri-Score
 	[
@@ -651,16 +1651,47 @@ my @tests = (
 			lc => "fr",
 			categories => "boissons végétales de soja",
 			ingredients_text => "Eau, fèves de soja 8%",
-			nutriments => {
-				energy_100g => 178,
-				fat_100g => 2.6,
-				"saturated-fat_100g" => 0.6,
-				sugars_100g => 0.5,
-				salt_100g => 0.03,
-				fiber_100g => 0.5,
-				proteins_100g => 3.9,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 178
+							},
+							fat => {
+								unit => "g",
+								value => 2.6
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.6
+							},
+							sugars => {
+								unit => "g",
+								value => 0.5
+							},
+							salt => {
+								unit => "g",
+								value => 0.03
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 3.9
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# Cherry tomatoes
 	[
@@ -669,16 +1700,47 @@ my @tests = (
 			lc => "en",
 			categories => "cherry tomatoes",
 			ingredients_text => "cherry tomatoes",
-			nutriments => {
-				energy_100g => 81,
-				fat_100g => 0.26,
-				"saturated-fat_100g" => 0.056,
-				sugars_100g => 2.48,
-				fiber_100g => 1.2,
-				salt_100g => 0,
-				proteins_100g => 0.86,
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 81
+							},
+							fat => {
+								unit => "g",
+								value => 0.26
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.056
+							},
+							sugars => {
+								unit => "g",
+								value => 2.48
+							},
+							fiber => {
+								unit => "g",
+								value => 1.2
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0.86
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# olive oil
 	[
@@ -687,16 +1749,47 @@ my @tests = (
 			lc => "en",
 			categories => "olive oil",
 			ingredients_text => "olive oil",
-			nutriments => {
-				energy_100g => 3367,
-				fat_100g => 91,
-				"saturated-fat_100g" => 17,
-				sugars_100g => 0,
-				fiber_100g => 0,
-				salt_100g => 0,
-				proteins_100g => 0,
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3367
+							},
+							fat => {
+								unit => "g",
+								value => 91
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 17
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# olive oil, no ingredients specified
 	[
@@ -704,16 +1797,47 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "olive oil",
-			nutriments => {
-				energy_100g => 3367,
-				fat_100g => 91,
-				"saturated-fat_100g" => 17,
-				sugars_100g => 0,
-				fiber_100g => 0,
-				salt_100g => 0,
-				proteins_100g => 0,
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3367
+							},
+							fat => {
+								unit => "g",
+								value => 91
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 17
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# olive oil, unrecognized ingredients specified
 	[
@@ -722,16 +1846,47 @@ my @tests = (
 			lc => "en",
 			categories => "olive oil",
 			ingredients_text => "some very fancy but unrecognized way of writing olive oil",
-			nutriments => {
-				energy_100g => 3367,
-				fat_100g => 91,
-				"saturated-fat_100g" => 17,
-				sugars_100g => 0,
-				fiber_100g => 0,
-				salt_100g => 0,
-				proteins_100g => 0,
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3367
+							},
+							fat => {
+								unit => "g",
+								value => 91
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 17
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# avocado oil
 	[
@@ -740,16 +1895,47 @@ my @tests = (
 			lc => "en",
 			categories => "avocado oil",
 			ingredients_text => "avocado",
-			nutriments => {
-				energy_100g => 3448,
-				fat_100g => 91.6,
-				"saturated-fat_100g" => 16.4,
-				sugars_100g => 0,
-				fiber_100g => 0,
-				salt_100g => 0,
-				proteins_100g => 0,
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3448
+							},
+							fat => {
+								unit => "g",
+								value => 91.6
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 16.4
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# mixed oil (isio 4 olive)
 	[
@@ -759,16 +1945,47 @@ my @tests = (
 			categories => "huile végétale",
 			ingredients_text =>
 				"Huile de colza 45%, huile de tournesol 30%, huile d'olive vierge extra 20%, huile de lin 5%, vitamine D",
-			nutriments => {
-				energy_100g => 3700,
-				fat_100g => 100,
-				"saturated-fat_100g" => 9.8,
-				sugars_100g => 0,
-				fiber_100g => 0,
-				salt_100g => 0,
-				proteins_100g => 0,
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3700
+							},
+							fat => {
+								unit => "g",
+								value => 100
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 9.8
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# rapeseed oil
 	[
@@ -777,16 +1994,47 @@ my @tests = (
 			lc => "fr",
 			categories => "huile de colza",
 			ingredients_text => "Huile de colza",
-			nutriments => {
-				energy_100g => 3400,
-				fat_100g => 92,
-				"saturated-fat_100g" => 7.3,
-				sugars_100g => 0,
-				fiber_100g => 0,
-				salt_100g => 0,
-				proteins_100g => 0,
-			}
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3400
+							},
+							fat => {
+								unit => "g",
+								value => 92
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 7.3
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							salt => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
 		}
+
 	],
 	# Coconut milk -> for cooking, not considered a beverage in 2023 Nutri-Score
 	[
@@ -795,16 +2043,47 @@ my @tests = (
 			lc => "fr",
 			categories => "lait de coco",
 			ingredients_text => "Noix de coco 60%, eau",
-			nutriments => {
-				energy_100g => 178,
-				fat_100g => 2.6,
-				"saturated-fat_100g" => 0.6,
-				sugars_100g => 0.5,
-				salt_100g => 0.03,
-				fiber_100g => 0.5,
-				proteins_100g => 3.9,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 178
+							},
+							fat => {
+								unit => "g",
+								value => 2.6
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.6
+							},
+							sugars => {
+								unit => "g",
+								value => 0.5
+							},
+							salt => {
+								unit => "g",
+								value => 0.03
+							},
+							fiber => {
+								unit => "g",
+								value => 0.5
+							},
+							proteins => {
+								unit => "g",
+								value => 3.9
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	# For products that contain water that is not consumed (e.g. canned vegetables)
 	# the % of fruits/vegetables must be estimated on the product without water
@@ -814,16 +2093,47 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
 			categories => "plat préparé",
-			nutriments => {
-				energy_100g => 315,
-				fat_100g => 0.9,
-				"saturated-fat_100g" => 0.1,
-				sugars_100g => 3.6,
-				salt_100g => 0.80,
-				fiber_100g => 5.3,
-				proteins_100g => 5.0,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 315
+							},
+							fat => {
+								unit => "g",
+								value => 0.9
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.1
+							},
+							sugars => {
+								unit => "g",
+								value => 3.6
+							},
+							salt => {
+								unit => "g",
+								value => 0.80
+							},
+							fiber => {
+								unit => "g",
+								value => 5.3
+							},
+							proteins => {
+								unit => "g",
+								value => 5.0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
 		}
+
 	],
 	[
 		"fr-canned-green-beans",
@@ -831,16 +2141,47 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
 			categories => "haricots verts en conserve",
-			nutriments => {
-				energy_100g => 315,
-				fat_100g => 0.9,
-				"saturated-fat_100g" => 0.1,
-				sugars_100g => 3.6,
-				salt_100g => 1.2,
-				fiber_100g => 5.3,
-				proteins_100g => 5.0,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 315
+							},
+							fat => {
+								unit => "g",
+								value => 0.9
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.1
+							},
+							sugars => {
+								unit => "g",
+								value => 3.6
+							},
+							salt => {
+								unit => "g",
+								value => 1.2
+							},
+							fiber => {
+								unit => "g",
+								value => 5.3
+							},
+							proteins => {
+								unit => "g",
+								value => 5.0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
-		},
+		}
+
 	],
 	# canned fruits: water is counted as it is consumed
 	[
@@ -849,16 +2190,47 @@ my @tests = (
 			lc => "fr",
 			ingredients_text => "eau 80%, sucre 10%, ananas 10%",
 			categories => "ananas en conserve",
-			nutriments => {
-				energy_100g => 315,
-				fat_100g => 0.9,
-				"saturated-fat_100g" => 0.1,
-				sugars_100g => 3.6,
-				salt_100g => 1.2,
-				fiber_100g => 5.3,
-				proteins_100g => 5.0,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 315
+							},
+							fat => {
+								unit => "g",
+								value => 0.9
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0.1
+							},
+							sugars => {
+								unit => "g",
+								value => 3.6
+							},
+							salt => {
+								unit => "g",
+								value => 1.2
+							},
+							fiber => {
+								unit => "g",
+								value => 5.3
+							},
+							proteins => {
+								unit => "g",
+								value => 5.0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
 			},
-		},
+		}
+
 	],
 	# Flavored syrup: beverage preparations should use the beverage formula
 	[
@@ -867,14 +2239,172 @@ my @tests = (
 			lc => "en",
 			categories => "flavored syrup",
 			ingredients_text => "apple juice, water, sugar, aspartame",
-			nutriments => {
-				energy_prepared_100g => 82,
-				fat_prepared_100g => 0,
-				"saturated-fat_prepared_100g" => 0,
-				sugars_prepared_100g => 4.5,
-				sodium_prepared_100g => 0.01,
-				proteins_prepared_100g => 0,
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 4.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "prepared"
+					}
+				],
 			},
+		}
+
+	],
+
+	# orange
+	[
+		"en-orange",
+		{
+			lc => "en",
+			categories => "oranges",
+			ingredients_text => "orange",
+		}
+	],
+
+	# pickled vegetable with water and dill: water should not be counted in fruits/vegetables
+	# dill should be counted
+	[
+		"pl-pickled-vegetables",
+		{
+			lc => "pl",
+			categories => "pickled vegetables",
+			ingredients_text => "52% rzodkiew biała, woda, koper, 0,6% czosnek, sól, chrzan",
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 53
+							},
+							fat => {
+								unit => "g",
+								value => 0.1
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 2
+							},
+							proteins => {
+								unit => "g",
+								value => 0.7
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				]
+			},
+		}
+	],
+
+	# dill
+	[
+		"en-dill",
+		{
+			lc => "en",
+			categories => "dill",
+			ingredients_text => "dill",
+		}
+	],
+
+	# Ground coffee
+	# should not have a Nutri-Score from estimated nutrients from ingredients
+	[
+		"en-ground-coffee",
+		{
+			lc => "en",
+			categories => "ground coffee",
+			ingredients_text => "ground coffee",
+		}
+	],
+
+	# Bug: product in a regular category (not requiring prepared data) but the only input set
+	# has preparation = "prepared". check_availability_of_nutrients_needed_for_nutriscore finds
+	# the nutrients in aggregated_set (which has preparation = "prepared") and returns
+	# nutrients_available=1 with preparation="as_sold". Then compute_nutriscore_data is called
+	# with preparation="as_sold", but the aggregated_set has preparation="prepared", so it hides
+	# the aggregated_set and all nutrients become undef -> nutriscore computation fails.
+	[
+		"cookies-with-only-prepared-nutrition-data",
+		{
+			lc => "en",
+			categories => "cookies",
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 3460
+							},
+							fat => {
+								unit => "g",
+								value => 90
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 15
+							},
+							sugars => {
+								unit => "g",
+								value => 0
+							},
+							sodium => {
+								unit => "g",
+								value => 0
+							},
+							fiber => {
+								unit => "g",
+								value => 0
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "prepared",
+					}
+				]
+			}
 		}
 	],
 );
@@ -886,29 +2416,60 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
-	# We need salt_value to compute sodium_100g with fix_salt_equivalent
-	foreach my $prepared ('', '_prepared') {
-		if (deep_exists($product_ref, "nutriments", "salt${prepared}_100g")) {
-			$product_ref->{nutriments}{"salt${prepared}_value"} = $product_ref->{nutriments}{"salt${prepared}_100g"};
-		}
-		if (deep_exists($product_ref, "nutriments", "sodium${prepared}_100g")) {
-			$product_ref->{nutriments}{"sodium${prepared}_value"}
-				= $product_ref->{nutriments}{"sodium${prepared}_100g"};
-		}
-	}
-
-	fix_salt_equivalent($product_ref);
-	compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
-	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
-	special_process_product($product_ref);
-	compute_estimated_nutrients($product_ref);
-	compute_nutriscore($product_ref);
 
-	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+	specific_processes_for_food_product($product_ref);
+
+	# Detect possible improvements
+	detect_possible_improvements_nutriscore($product_ref, 2023);
+
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
+		$update_expected_results, {id => $testid});
 }
 
 is(compute_nutriscore_grade(1.56, 1, 0), "c");
+
+# Tests for detecting possible improvements
+
+# 2023 thresholds:
+
+#my %points_thresholds_2023 = (
+#
+#	# negative points
+#
+#	energy => [335, 670, 1005, 1340, 1675, 2010, 2345, 2680, 3015, 3350],    # kJ / 100g
+#	energy_beverages => [30, 90, 150, 210, 240, 270, 300, 330, 360, 390],    # kJ /100g or 100ml
+#	sugars => [3.4, 6.8, 10, 14, 17, 20, 24, 27, 31, 34, 37, 41, 44, 48, 51],    # g / 100g
+#	sugars_beverages => [0.5, 2, 3.5, 5, 6, 7, 8, 9, 10, 11],    # g / 100g or 100ml
+#	saturated_fat => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],    # g / 100g
+#	salt => [0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4],    # g / 100g
+#
+#	# for fats
+#	energy_from_saturated_fat => [120, 240, 360, 480, 600, 720, 840, 960, 1080, 1200],    # g / 100g
+#	saturated_fat_ratio => [10, 16, 22, 28, 34, 40, 46, 52, 58, 64],    # %
+#
+#	# positive points
+#	fruits_vegetables_legumes => [40, 60, 80, 80, 80],    # %
+#	fruits_vegetables_legumes_beverages => [40, 40, 60, 60, 80, 80],
+#	fiber => [3.0, 4.1, 5.2, 6.3, 7.4],    # g / 100g - AOAC method
+#	proteins => [2.4, 4.8, 7.2, 9.6, 12, 14, 17],    # g / 100g
+#	proteins_beverages => [1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0],    # g / 100g
+#);
+
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 0), undef);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 3), undef);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 4), 3.4);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 7), 6.8);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 10), 6.8);
+is(get_value_with_one_less_negative_point_2023(0, "sugars", 60), 51);
+is(get_value_with_one_less_negative_point_2023(1, "sugars", 3), 2);
+is(get_value_with_one_less_negative_point_2023(1, "saturated_fat", 7), 6);
+
+is(get_value_with_one_more_positive_point_2023(0, "proteins", 0), 2.5);
+is(get_value_with_one_more_positive_point_2023(0, "proteins", 5), 7.3);
+is(get_value_with_one_more_positive_point_2023(1, "proteins", 2), 2.2);
+is(get_value_with_one_more_positive_point_2023(0, "proteins", 20), undef);
+
+is(get_value_with_one_more_positive_point_2023(0, "fruits_vegetables_legumes", 45), 61);
 
 done_testing();

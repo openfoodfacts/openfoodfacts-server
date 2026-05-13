@@ -6,6 +6,7 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
@@ -181,7 +182,7 @@ my @tests = (
 	],
 
 	# Use the ingredients taxonomy to add allergens
-	[{lc => "fr", ingredients_text => "semoule de blé dur, pousses de soja"}, ["en:gluten"], []],
+	[{lc => "fr", ingredients_text => "semoule de blé dur, pousses de soja"}, ["en:gluten", "en:soybeans"], []],
 
 	# Japanese allergens are in parenthesis
 	[
@@ -189,7 +190,8 @@ my @tests = (
 			lc => "ja",
 			ingredients_text => "香料 (ラッカセイ, 種実類,魚)"
 		},
-		["en:peanuts",],    # allergens
+		# This seems incorrect: peanuts, nuts, fish should be allergens, not traces
+		["en:fish", "en:peanuts",],    # allergens
 		["en:fish", "en:nuts", "en:peanuts",],    # traces
 	],
 	# Japanese allergens are in parenthesis with specific words
@@ -218,6 +220,17 @@ my @tests = (
 		},
 		["en:gluten",],    # allergens
 		[],    # traces
+	],
+	# allergens that are in the ingredients taxonomy with the allergens:en: property
+	[
+		{
+			lc => "en",
+			ingredients_text => "avocado, mango, cheese, eggs",
+			allergens => "gluten, monkfish",
+			traces => "white lupin, strange ingredient, grey shrimp",
+		},
+		['en:eggs', 'en:gluten', 'en:milk', 'en:fish'],
+		['en:crustaceans', 'en:strange-ingredient', "en:lupin"],
 	],
 
 );

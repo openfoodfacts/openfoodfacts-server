@@ -26,18 +26,18 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Lang qw/$lc/;
-use ProductOpener::Display qw/$nutriment_table init_request/;
+use ProductOpener::Display qw/$nutrient_table init_request/;
 use ProductOpener::HTTP qw/write_cors_headers/;
-use ProductOpener::Food qw/%nutriments_tables get_nutrient_unit/;
+use ProductOpener::Food qw/%nutrients_tables get_nutrient_unit/;
 use ProductOpener::Tags qw/display_taxonomy_tag get_property/;
 
 use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;
-use JSON::PP;
+use JSON::MaybeXS;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-# Turn the flat nutriments table array into a nested array of nutrients
+# Turn the flat nutrients table array into a nested array of nutrients
 # The level of each nutrient is indicated by leading dashes before its id:
 # nutrient
 # -sub-nutrient
@@ -47,13 +47,13 @@ my @table = ();
 my $parent_level0;
 my $parent_level1;
 
-foreach (@{$nutriments_tables{$nutriment_table}}) {
+foreach (@{$nutrients_tables{$nutrient_table}}) {
 	my $nid = $_;    # Copy instead of alias
 
 	$nid =~ /^#/ and next;
-	my $important = ($nid =~ /^!/) ? JSON::PP::true : JSON::PP::false;
+	my $important = ($nid =~ /^!/) ? JSON::MaybeXS::true : JSON::MaybeXS::false;
 	$nid =~ s/!//g;
-	my $default_edit_form = $nid =~ /-$/ ? JSON::PP::false : JSON::PP::true;
+	my $default_edit_form = $nid =~ /-$/ ? JSON::MaybeXS::false : JSON::MaybeXS::true;
 	$nid =~ s/-$//g;
 
 	my $onid = $nid =~ s/^(\-+)//gr;
@@ -100,7 +100,7 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 		$log->error(
 			"invalid nesting of nutrients",
 			{
-				nutriment_table => $nutriment_table,
+				nutrient_table => $nutrient_table,
 				nid => $nid,
 				prefix_length => $prefix_length,
 				current_ref => $current_ref,

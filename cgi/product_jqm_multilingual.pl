@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,25 +39,27 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw/write_cors_headers single_param redirect_to_url/;
 use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
+use ProductOpener::Nutrition qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::API qw/get_initialized_response/;
-use ProductOpener::APIProductWrite qw/skip_protected_field/;
+use ProductOpener::API qw/get_initialized_response check_user_permission/;
+use ProductOpener::APIProductWrite
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -65,9 +67,44 @@ use Apache2::Const ();
 use CGI qw/:cgi :form :cgi-lib escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
-use Encode;
-use JSON::PP;
+use Encode qw/decode encode /;
+use JSON::MaybeXS;
 use Log::Any qw($log);
+
+# hack to get params in body of GET requests from Yuka
+# Yuka sends a POSTDATA parameter in JSON:
+# "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
+# This needs to be done before init_request() as the body contains user_id and password for authentication
+my $user_agent = user_agent();
+if (    (defined $user_agent)
+	and ($user_agent =~ /Symfony HttpClient/)
+	and (request_method() eq 'GET')
+	and (not param("code")))
+{
+
+	my $r = Apache2::RequestUtil->request();
+
+	my $content = '';
+
+	{
+		use bytes;
+
+		my $offset = 0;
+		my $cnt = 0;
+		do {
+			$cnt = $r->read($content, 262144, $offset);
+			$offset += $cnt;
+		} while ($cnt == 262144);
+	}
+
+	my $postdata_params_ref = eval {JSON::MaybeXS->new->utf8->decode($content)};
+	if (defined $postdata_params_ref) {
+
+		foreach my $key (sort keys %$postdata_params_ref) {
+			param($key, encode('UTF-8', $postdata_params_ref->{$key}));
+		}
+	}
+}
 
 my $request_ref = ProductOpener::Display::init_request();
 
@@ -87,9 +124,24 @@ my $product_id;
 
 $log->debug("start", {code => $code, lc => $lc}) if $log->is_debug();
 
+# Store parameters for debug purposes
+# Change 0 to 1 to activate
+if (0) {
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit($request_ref, "Missing path", 503);
+
+	open(
+		my $out,
+		">",
+		"$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code . "_" . ($User_id || "unidentified")
+	);
+	print $out encode_json(Vars());
+	close $out;
+
+}
+
 # Allow apps to create products without barcodes
 # Assign a code and return it in the response.
-if ($code eq "new") {
+if ((defined $code) and ($code eq "new")) {
 
 	($code, $product_id) = assign_new_code();
 	$response{code} = $code . "";    # Make sure the code is returned as a string
@@ -99,7 +151,12 @@ my $original_code = $code;
 
 $code = normalize_code($code);
 
-if (not is_valid_code($code)) {
+if (not defined $User_id) {
+	$log->info("no user credentials", {code => $code, original_code => $original_code}) if $log->is_info();
+	$response{status} = 0;
+	$response{status_verbose} = 'no user credentials';
+}
+elsif (not is_valid_code($code)) {
 
 	$log->info("invalid code", {code => $code, original_code => $original_code}) if $log->is_info();
 	$response{status} = 0;
@@ -107,12 +164,29 @@ if (not is_valid_code($code)) {
 }
 else {
 
+	my $source = get_source_for_site_and_org($Org_id);
+
 	my $product_id = product_id_for_owner($Owner_id, $code);
 	my $product_ref = retrieve_product($product_id);
 
 	if (not defined $product_ref) {
-		$product_ref = init_product($User_id, $Org_id, $code, $country);
+		$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 		$product_ref->{interface_version_created} = $interface_version;
+	}
+	else {
+		# There is an existing product
+		# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+		# unless we are on the pro platform
+
+		if (    (not $server_options{private_products})
+			and (defined $product_ref->{product_type})
+			and ($product_ref->{product_type} ne $options{product_type}))
+		{
+			redirect_to_url($request_ref, 307,
+					  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+					. '/cgi/product_jqm.pl?code='
+					. $code);
+		}
 	}
 
 	# Process edit rules
@@ -138,12 +212,6 @@ else {
 	exists $product_ref->{new_server} and delete $product_ref->{new_server};
 
 	my @errors = ();
-
-	# Store parameters for debug purposes
-	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit($request_ref, "Missing path", 503);
-	open(my $out, ">", "$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code);
-	print $out encode_json(Vars());
-	close $out;
 
 	# Fix too low salt values
 	# 2020/02/25 - https://github.com/openfoodfacts/openfoodfacts-server/issues/2945
@@ -219,23 +287,28 @@ else {
 		}
 	}
 
-	# 26/01/2017 - disallow barcode changes until we fix bug #677
-	if ($User{moderator} and (defined single_param('new_code'))) {
+	# Change code or product type
 
-		change_product_server_or_code($product_ref, single_param('new_code'), \@errors);
-		$code = $product_ref->{code};
+	push @errors,
+		process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("new_code"));
+	$code = $product_ref->{code};
 
-		if ($#errors >= 0) {
-			$response{status} = 0;
-			$response{status_verbose} = 'new code is invalid';
+	push @errors,
+		process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("product_type"));
 
-			my $data = encode_json(\%response);
+	# Display an error message and exit if we have a fatal error (no permission to change barcode or product type, or invalid barcode or product type)
+	if ($#errors >= 0) {
+		$response{status} = 0;
+		$response{status_verbose} = join(",", @errors);
 
-			write_cors_headers();
-			print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		my $data = encode_json(\%response);
 
-			exit(0);
-		}
+		write_cors_headers();
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+
+		exit(0);
 	}
 
 	#my @app_fields = qw(product_name brands quantity);
@@ -243,12 +316,8 @@ else {
 		= qw(product_name generic_name quantity packaging brands categories labels origins manufacturing_places emb_codes link expiration_date purchase_places stores countries  );
 
 	# admin field to set a creator
-	if ($admin) {
+	if ($request_ref->{admin}) {
 		push @app_fields, "creator";
-	}
-
-	if ($admin or ($User_id eq "ecoscore-impact-estimator")) {
-		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -366,7 +435,7 @@ else {
 				}
 
 			}
-			elsif ($field eq "ecoscore_extended_data") {
+			elsif ($field eq "environmental_score_extended_data") {
 				# we expect a JSON value
 				if (defined single_param($field)) {
 					$product_ref->{$field} = decode_json(single_param($field));
@@ -407,7 +476,8 @@ else {
 
 	# Nutrition data
 
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
+	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 
