@@ -1,8 +1,8 @@
 {
    "api_call" : {
       "path" : "/contributors/alice.json",
-      "content-type" : null,
       "method" : "GET",
+      "content-type" : null,
       "parameters" : {
          "fields" : "product_name"
       },

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
+      "body" : null,
+      "content-type" : null,
       "parameters" : {
          "fields" : "product_name,emb_codes_tags"
       },
-      "path" : "/packager-codes/fr-85-222-003-ce.json",
-      "content-type" : null,
-      "body" : null
+      "method" : "GET",
+      "path" : "/packager-codes/fr-85-222-003-ce.json"
    }
 }

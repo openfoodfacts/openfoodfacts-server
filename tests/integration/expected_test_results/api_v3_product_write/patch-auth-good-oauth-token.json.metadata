@@ -1,8 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {},
       "path" : "/api/v3/product/2234567890001",
       "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
       "body" : {
          "tags_lc" : "en",
          "fields" : "creator,editors_tags,packagings,created_by_client,last_modified_by_client",
@@ -12,14 +13,13 @@
                   "shape" : {
                      "lc_name" : "can"
                   },
+                  "number_of_units" : 1,
                   "recycling" : {
                      "lc_name" : "recycle"
-                  },
-                  "number_of_units" : 1
+                  }
                }
             ]
          }
-      },
-      "method" : "PATCH"
+      }
    }
 }

@@ -1,12 +1,12 @@
 {
    "api_call" : {
       "content-type" : null,
-      "method" : "GET",
-      "body" : null,
+      "path" : "/cgi/nutrients.pl",
       "parameters" : {
-         "cc" : "fr",
-         "lc" : "fr"
+         "lc" : "fr",
+         "cc" : "fr"
       },
-      "path" : "/cgi/nutrients.pl"
+      "body" : null,
+      "method" : "GET"
    }
 }

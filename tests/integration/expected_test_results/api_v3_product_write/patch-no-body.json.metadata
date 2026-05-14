@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "method" : "PATCH",
-      "body" : null,
+      "path" : "/api/v3/product/1234567890002",
       "content-type" : null,
+      "method" : "PATCH",
       "parameters" : {},
-      "path" : "/api/v3/product/1234567890002"
+      "body" : null
    }
 }

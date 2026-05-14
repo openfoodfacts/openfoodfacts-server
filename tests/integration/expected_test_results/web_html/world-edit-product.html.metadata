@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "body" : null,
       "parameters" : {
-         "type" : "edit",
-         "code" : "3300000000001"
+         "code" : "3300000000001",
+         "type" : "edit"
       },
       "method" : "GET",
-      "path" : "/cgi/product.pl",
-      "content-type" : null
+      "body" : null,
+      "content-type" : null,
+      "path" : "/cgi/product.pl"
    }
 }

@@ -3,9 +3,9 @@
       "parameters" : {
          "fields" : "images,owner,selected_images"
       },
-      "content-type" : null,
+      "body" : null,
       "path" : "/api/v2/product/0900000000139",
-      "method" : "GET",
-      "body" : null
+      "content-type" : null,
+      "method" : "GET"
    }
 }

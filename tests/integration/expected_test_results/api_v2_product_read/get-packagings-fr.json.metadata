@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "body" : null,
       "path" : "/api/v2/product/200000000034",
-      "content-type" : null,
+      "body" : null,
       "method" : "GET",
+      "content-type" : null,
       "parameters" : {
-         "fields" : "packagings",
-         "tags_lc" : "fr"
+         "tags_lc" : "fr",
+         "fields" : "packagings"
       }
    }
 }

@@ -3,10 +3,10 @@
       "body" : null,
       "content-type" : null,
       "parameters" : {
-         "tagtype" : "packaging_materials",
-         "cc" : "fr"
+         "cc" : "fr",
+         "tagtype" : "packaging_materials"
       },
-      "method" : "GET",
-      "path" : "/api/v3/taxonomy_suggestions"
+      "path" : "/api/v3/taxonomy_suggestions",
+      "method" : "GET"
    }
 }

@@ -1,21 +1,21 @@
 {
    "api_call" : {
-      "path" : "/cgi/product_multilingual.pl",
-      "content-type" : "application/x-www-form-urlencoded",
-      "method" : "POST",
-      "parameters" : {},
       "body" : {
-         "no_nutrition_data" : "on",
-         "type" : "edit",
          "password" : "testtest",
-         "product_name_fr" : "Nom du produit en franÃ§ais",
-         "categories" : "Breakfast cereals",
-         "user_id" : "tests",
-         "action" : "process",
-         "product_name_en" : "English product name",
-         "labels" : "Organic, Gluten-Free",
          "code" : "1234567890012",
-         "lang" : "en"
-      }
+         "product_name_en" : "English product name",
+         "action" : "process",
+         "user_id" : "tests",
+         "type" : "edit",
+         "lang" : "en",
+         "labels" : "Organic, Gluten-Free",
+         "no_nutrition_data" : "on",
+         "categories" : "Breakfast cereals",
+         "product_name_fr" : "Nom du produit en franÃ§ais"
+      },
+      "path" : "/cgi/product_multilingual.pl",
+      "method" : "POST",
+      "content-type" : "application/x-www-form-urlencoded",
+      "parameters" : {}
    }
 }

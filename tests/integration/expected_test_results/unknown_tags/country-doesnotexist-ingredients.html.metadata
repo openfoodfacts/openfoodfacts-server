@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "content-type" : null,
       "body" : null,
       "parameters" : {},
-      "method" : "GET",
-      "path" : "/facets/countries/doesnotexist/ingredients"
+      "content-type" : null,
+      "path" : "/facets/countries/doesnotexist/ingredients",
+      "method" : "GET"
    }
 }

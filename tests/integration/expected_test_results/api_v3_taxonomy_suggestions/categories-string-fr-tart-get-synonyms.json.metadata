@@ -1,14 +1,14 @@
 {
    "api_call" : {
-      "body" : null,
-      "content-type" : null,
+      "path" : "/api/v3/taxonomy_suggestions",
       "method" : "GET",
+      "content-type" : null,
+      "body" : null,
       "parameters" : {
-         "get_synonyms" : "1",
-         "string" : "tart",
          "tagtype" : "categories",
-         "lc" : "fr"
-      },
-      "path" : "/api/v3/taxonomy_suggestions"
+         "lc" : "fr",
+         "string" : "tart",
+         "get_synonyms" : "1"
+      }
    }
 }

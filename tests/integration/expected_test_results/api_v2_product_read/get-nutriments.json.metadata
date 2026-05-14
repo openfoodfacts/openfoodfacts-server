@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
+      "body" : null,
+      "path" : "/api/v2/product/200000000034",
       "parameters" : {
          "fields" : "nutriments"
       },
-      "body" : null,
       "content-type" : null,
-      "path" : "/api/v2/product/200000000034"
+      "method" : "GET"
    }
 }

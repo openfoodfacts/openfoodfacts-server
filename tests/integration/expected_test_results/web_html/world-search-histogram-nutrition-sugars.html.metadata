@@ -3,13 +3,13 @@
       "path" : "/cgi/search.pl",
       "content-type" : null,
       "body" : null,
+      "method" : "GET",
       "parameters" : {
-         "action" : "process",
-         "graph_type" : "histogram",
          "search_terms" : "apple",
          "axis_x" : "sugars",
-         "graph" : "1"
-      },
-      "method" : "GET"
+         "graph" : "1",
+         "action" : "process",
+         "graph_type" : "histogram"
+      }
    }
 }

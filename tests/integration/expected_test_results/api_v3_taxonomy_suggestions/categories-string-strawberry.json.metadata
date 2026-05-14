@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "method" : "GET",
+      "content-type" : null,
+      "body" : null,
       "parameters" : {
-         "tagtype" : "categories",
-         "string" : "strawberry"
+         "string" : "strawberry",
+         "tagtype" : "categories"
       },
       "path" : "/api/v3/taxonomy_suggestions",
-      "body" : null,
-      "content-type" : null
+      "method" : "GET"
    }
 }

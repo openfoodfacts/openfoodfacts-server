@@ -2,11 +2,11 @@
    "api_call" : {
       "path" : "/cgi/suggest.pl",
       "method" : "GET",
-      "content-type" : null,
+      "body" : null,
       "parameters" : {
          "tagtype" : "categories",
          "term" : "fraise"
       },
-      "body" : null
+      "content-type" : null
    }
 }

@@ -3,10 +3,10 @@
       "path" : "/api/v3/taxonomy_suggestions",
       "method" : "GET",
       "parameters" : {
-         "lc" : "fr",
-         "tagtype" : "packaging_shapes"
+         "tagtype" : "packaging_shapes",
+         "lc" : "fr"
       },
-      "content-type" : null,
-      "body" : null
+      "body" : null,
+      "content-type" : null
    }
 }
