@@ -7950,7 +7950,7 @@ msgstr "Vous pouvez utiliser ce formulaire pour analyser une liste d'ingrédient
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
-msgstr ""
+msgstr "Ce formulaire est un outil de démonstration et de test. Pour une utilisation en production, veuillez installer le logiciel Recipe Estimator, disponible en open source sur <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
 
 msgctxt "test_ingredients_taxonomy_mapping_description"
 msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
@@ -7966,19 +7966,19 @@ msgstr "Liste des ingrédients"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "Sélectionnez un estimateur de pourcentage d'ingrédients :"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
-msgstr ""
+msgstr "utilise une combinaison de règles et d'heuristiques, ainsi qu'un ensemble limité de contraintes sur les informations nutritionnelles et les ingrédients"
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "1ère version (Glop) - utilise les informations nutritionnelles pour déterminer la quantité d'ingrédients"
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "2ème version (Scipy) - utilise les informations nutritionnelles pour déterminer la quantité d'ingrédients"
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
