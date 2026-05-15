@@ -2,24 +2,24 @@
    "api_call" : {
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
-      "path" : "/api/v3/product/1234567890009",
       "method" : "PATCH",
       "body" : {
+         "tags_lc" : "en",
          "product" : {
             "packagings" : [
                {
+                  "shape" : {
+                     "lc_name" : "bag"
+                  },
                   "number_of_units" : 1,
                   "material" : {
                      "lc_name" : "plastic"
-                  },
-                  "shape" : {
-                     "lc_name" : "bag"
                   }
                }
             ]
          },
-         "fields" : "ecoscore_data",
-         "tags_lc" : "en"
-      }
+         "fields" : "ecoscore_data"
+      },
+      "path" : "/api/v3/product/1234567890009"
    }
 }

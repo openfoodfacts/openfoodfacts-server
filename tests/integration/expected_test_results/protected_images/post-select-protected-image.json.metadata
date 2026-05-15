@@ -1,16 +1,16 @@
 {
    "api_call" : {
-      "content-type" : "multipart/form-data",
-      "path" : "/cgi/product_image_upload.pl",
-      "parameters" : {},
       "body" : {
-         "code" : "0900000000139",
-         "imagefield" : "front_en",
          "imgupload_front_en" : [
             "tests/integration/inputs/upload_images/1.jpg",
             "1.jpg"
-         ]
+         ],
+         "code" : "0900000000139",
+         "imagefield" : "front_en"
       },
-      "method" : "POST"
+      "parameters" : {},
+      "content-type" : "multipart/form-data",
+      "method" : "POST",
+      "path" : "/cgi/product_image_upload.pl"
    }
 }
