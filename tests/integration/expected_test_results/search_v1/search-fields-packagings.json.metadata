@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "content-type" : null,
       "path" : "/cgi/search.pl",
       "parameters" : {
          "action" : "process",
-         "json" : "1",
-         "fields" : "code,packaging_text_en,packagings"
+         "fields" : "code,packaging_text_en,packagings",
+         "json" : "1"
       },
-      "body" : null,
-      "method" : "GET"
+      "content-type" : null,
+      "method" : "GET",
+      "body" : null
    }
 }

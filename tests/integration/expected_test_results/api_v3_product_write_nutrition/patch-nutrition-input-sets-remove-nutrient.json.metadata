@@ -1,5 +1,7 @@
 {
    "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -7,22 +9,20 @@
                "input_sets" : [
                   {
                      "per" : "100g",
-                     "nutrients" : {
-                        "sodium" : null
-                     },
+                     "per_unit" : "g",
                      "source_description" : "",
                      "per_quantity" : 100,
                      "preparation" : "as_sold",
-                     "per_unit" : "g",
-                     "source" : "packaging"
+                     "source" : "packaging",
+                     "nutrients" : {
+                        "sodium" : null
+                     }
                   }
                ]
             }
          }
       },
-      "method" : "PATCH",
-      "path" : "/api/v3.5/product/4230000001000",
       "parameters" : {},
-      "content-type" : "application/json; charset=utf-8"
+      "path" : "/api/v3.5/product/4230000001000"
    }
 }

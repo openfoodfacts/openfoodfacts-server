@@ -1,7 +1,7 @@
 {
    "api_call" : {
       "parameters" : {},
-      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3/product/1234567890018",
       "method" : "PATCH",
       "body" : {
          "tags_lc" : "en",
@@ -22,26 +22,26 @@
                   "shape" : {
                      "lc_name" : "box"
                   },
+                  "weight_specified" : "25.5g",
                   "material" : {
                      "lc_name" : "wood"
                   },
-                  "number_of_units" : 1,
-                  "weight_specified" : "25.5g"
+                  "number_of_units" : 1
                },
                {
                   "shape" : {
                      "lc_name" : "film"
                   },
-                  "number_of_units" : 1,
+                  "weight_specified" : "2,01 grams",
                   "material" : {
                      "lc_name" : "plastic"
                   },
-                  "weight_specified" : "2,01 grams"
+                  "number_of_units" : 1
                }
             ]
          },
          "fields" : "updated,misc_tags,weighers_tags"
       },
-      "path" : "/api/v3/product/1234567890018"
+      "content-type" : "application/json; charset=utf-8"
    }
 }

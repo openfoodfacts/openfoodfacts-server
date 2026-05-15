@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "body" : null,
       "parameters" : {
-         "string" : "jus de fruits au lait",
+         "tagtype" : "categories",
          "lc" : "fr",
-         "tagtype" : "categories"
+         "string" : "jus de fruits au lait"
       },
-      "path" : "/cgi/suggest.pl",
+      "body" : null,
       "method" : "GET",
+      "path" : "/cgi/suggest.pl",
       "content-type" : null
    }
 }

@@ -1,9 +1,8 @@
 {
    "api_call" : {
       "content-type" : "application/json; charset=utf-8",
-      "parameters" : {},
-      "method" : "PATCH",
       "body" : {
+         "tags_lc" : "en",
          "product" : {
             "packagings" : [
                {
@@ -17,9 +16,10 @@
                }
             ]
          },
-         "fields" : "creator,editors_tags,packagings,created_by_client,last_modified_by_client",
-         "tags_lc" : "en"
+         "fields" : "creator,editors_tags,packagings,created_by_client,last_modified_by_client"
       },
-      "path" : "/api/v3/product/2234567890001"
+      "method" : "PATCH",
+      "path" : "/api/v3/product/2234567890001",
+      "parameters" : {}
    }
 }

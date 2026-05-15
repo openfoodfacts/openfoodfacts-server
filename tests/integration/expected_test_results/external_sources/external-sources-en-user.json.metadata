@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "path" : "/api/v3/external_sources",
       "method" : "GET",
-      "content-type" : null,
+      "parameters" : {},
       "body" : null,
-      "parameters" : {}
+      "path" : "/api/v3/external_sources",
+      "content-type" : null
    }
 }

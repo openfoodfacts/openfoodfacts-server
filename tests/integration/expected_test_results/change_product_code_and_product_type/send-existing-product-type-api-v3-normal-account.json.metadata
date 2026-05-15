@@ -1,14 +1,14 @@
 {
    "api_call" : {
       "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {},
       "path" : "/api/v3/product/1234567890300",
       "body" : {
          "product" : {
             "product_type" : "food"
          },
          "tags_lc" : "en"
-      }
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {}
    }
 }

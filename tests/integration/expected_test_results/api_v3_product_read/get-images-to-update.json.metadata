@@ -1,10 +1,10 @@
 {
    "api_call" : {
-      "path" : "/api/v3/product/4260392550101",
-      "method" : "GET",
       "parameters" : {
          "fields" : "images_to_update_en"
       },
+      "path" : "/api/v3/product/4260392550101",
+      "method" : "GET",
       "content-type" : null,
       "body" : null
    }
