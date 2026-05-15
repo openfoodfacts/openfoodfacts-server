@@ -255,7 +255,7 @@ uk: листя
 # the ends/small amounts cut off, e.g. beans.
 # possible false positive "trimmed with"="garnished with", but no instances in the data currently.
 en: trimmed
-sv: klippt
+sv: klippt, klippta, klippte
 
 en: cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
@@ -274,7 +274,6 @@ pt: cortado, cortada, cortados, cortadas
 sv: skuren
 uk: різаний, різана, різане, різані, нарізаний, нарізана, нарізане, нарізані, порізаний, порізана, порізане, порізані
 
-# <en:cut
 < en:cut
 en: thick cut
 es: cortada gruesa, cortado grueso, cortados gruesos, cortadas gruesas
@@ -2805,23 +2804,41 @@ uk: гомогенізований, гомогенізована, гомоген
 wikidata:en: Q1165158
 wikipedia:en: https://en.wikipedia.org/wiki/Homogenization_(chemistry)
 
-# for ingredients, lactose-free is not a processing but involves a chemical process,
-# use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose),
-# which are easier to digest for those with lactose intolerance.
-en: lactose-free
+en: lactose-free, lactose free
 bg: без лактоза, безлактозно
+bn: ল্যাকটোজ মুক্ত
+br: hep laktoz
 ca: sense lactosa
-de: laktosefreie
+de: laktosefrei, laktosefreie
 es: sin lactosa
+et: laktoosivaba
+fi: laktoositon
 fr: sans lactose
+gl: sen lactosa
+hi: लैक्टोज मुक्त
 hr: bez laktoze
+hu: laktózmentes
+hy: առանց լակտոզի
+id: bebas laktosa
 it: delattosato, senza lattosio
-nl: lactosevrije
+ka: ულაქტოზო
+mk: без лактоза
+ml: ലാക്ടോസ് രഹിതം
+ms: bebas laktosa
+nb: laktosefri
+ne: ल्याक्टोज निःशुल्क
+nl: lactose vrij, lactosevrije
 pl: bez laktozy
 pt: sem lactose
 ro: fără lactoză
-sv: laktosfri
+ru: без лактозы
+se: laktosakeahtes
+sq: pa laktozë
+sv: laktosfri, laktosfritt, laktosfria
+tr: laktozsuz
 uk: без лактози, безлактозний, безлактозна, безлактозне, безлактозні
+description:en: for ingredients, “lactose-free” is not a processing per se, but involves a chemical process, use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose), which are easier to digest for those with lactose intolerance.
+wikidata:en: Q11874508
 
 # result of a filtration
 en: filtrate

@@ -1,0 +1,29 @@
+{
+   "api_call" : {
+      "method" : "PATCH",
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "brands_tags" : [
+               "Some brand"
+            ],
+            "unknown_tags" : [
+               "some value"
+            ],
+            "categories_tags" : [
+               "coffee"
+            ],
+            "labels_tags" : [
+               "en:organic",
+               "fr:max havelaar",
+               "vegan",
+               "Something unrecognized"
+            ],
+            "stores_tags" : "comma,separated,list"
+         }
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3/product/1234567890100",
+      "parameters" : {}
+   }
+}
