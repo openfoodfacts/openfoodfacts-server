@@ -1,17 +1,16 @@
 {
    "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
       "method" : "PATCH",
       "body" : {
          "fields" : "updated",
          "product" : {
-            "brands_tags" : [
-               "Some brand"
-            ],
-            "unknown_tags" : [
-               "some value"
-            ],
             "categories_tags" : [
                "coffee"
+            ],
+            "brands_tags" : [
+               "Some brand"
             ],
             "labels_tags" : [
                "en:organic",
@@ -19,11 +18,12 @@
                "vegan",
                "Something unrecognized"
             ],
-            "stores_tags" : "comma,separated,list"
+            "stores_tags" : "comma,separated,list",
+            "unknown_tags" : [
+               "some value"
+            ]
          }
       },
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product/1234567890100",
-      "parameters" : {}
+      "path" : "/api/v3/product/1234567890100"
    }
 }

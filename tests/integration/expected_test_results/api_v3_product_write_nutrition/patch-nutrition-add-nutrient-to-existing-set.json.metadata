@@ -1,7 +1,7 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "body" : {
          "fields" : "updated",
@@ -9,18 +9,18 @@
             "nutrition" : {
                "input_sets" : [
                   {
-                     "per_unit" : "g",
-                     "per_quantity" : 100,
+                     "source_description" : "",
                      "nutrients" : {
                         "alcohol" : {
-                           "unit" : "g",
-                           "value_string" : "0.5"
+                           "value_string" : "0.5",
+                           "unit" : "g"
                         }
                      },
-                     "per" : "100g",
-                     "source_description" : "",
+                     "preparation" : "as_sold",
+                     "per_quantity" : 100,
+                     "per_unit" : "g",
                      "source" : "packaging",
-                     "preparation" : "as_sold"
+                     "per" : "100g"
                   }
                ]
             }

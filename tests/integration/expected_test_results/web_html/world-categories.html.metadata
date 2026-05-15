@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "path" : "/categories/desserts",
       "content-type" : null,
-      "body" : null,
+      "path" : "/categories/desserts",
+      "method" : "GET",
       "parameters" : {},
-      "method" : "GET"
+      "body" : null
    }
 }

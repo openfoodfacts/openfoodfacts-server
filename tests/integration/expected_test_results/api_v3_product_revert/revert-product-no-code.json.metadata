@@ -1,8 +1,8 @@
 {
    "api_call" : {
-      "parameters" : {},
       "method" : "POST",
       "path" : "/api/v3/product_revert",
+      "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
       "body" : {
          "rev" : 1,
