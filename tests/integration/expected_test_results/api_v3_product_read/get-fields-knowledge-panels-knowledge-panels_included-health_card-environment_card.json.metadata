@@ -2,11 +2,11 @@
    "api_call" : {
       "body" : null,
       "parameters" : {
-         "fields" : "knowledge_panels",
-         "knowledge_panels_included" : "health_card,environment_card"
+         "knowledge_panels_included" : "health_card,environment_card",
+         "fields" : "knowledge_panels"
       },
+      "content-type" : null,
       "path" : "/api/v3/product/4260392550101",
-      "method" : "GET",
-      "content-type" : null
+      "method" : "GET"
    }
 }

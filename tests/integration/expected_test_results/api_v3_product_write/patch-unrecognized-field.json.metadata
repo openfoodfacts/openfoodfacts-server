@@ -1,5 +1,6 @@
 {
    "api_call" : {
+      "path" : "/api/v3/product/test",
       "body" : {
          "product" : {
             "some_unrecognized_field" : "some value"
@@ -7,7 +8,6 @@
       },
       "method" : "PATCH",
       "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product/test",
       "parameters" : {}
    }
 }

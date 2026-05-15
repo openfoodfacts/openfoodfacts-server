@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "parameters" : {
-         "code" : "https://example.com/01/02000000000398?17=271200",
-         "fields" : "code,product_name"
-      },
-      "body" : null,
       "method" : "GET",
-      "content-type" : null,
-      "path" : "/api/v2/search"
+      "body" : null,
+      "parameters" : {
+         "fields" : "code,product_name",
+         "code" : "https://example.com/01/02000000000398?17=271200"
+      },
+      "path" : "/api/v2/search",
+      "content-type" : null
    }
 }

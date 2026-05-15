@@ -1,7 +1,7 @@
 {
    "api_call" : {
-      "method" : "PATCH",
       "body" : {
+         "fields" : "updated,attribute_groups,knowledge_panels",
          "product" : {
             "packagings" : [
                {
@@ -15,11 +15,11 @@
                }
             ]
          },
-         "fields" : "updated,attribute_groups,knowledge_panels",
          "tags_lc" : "en"
       },
+      "path" : "/api/v3/product/1234567890009",
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
-      "path" : "/api/v3/product/1234567890009"
+      "method" : "PATCH"
    }
 }

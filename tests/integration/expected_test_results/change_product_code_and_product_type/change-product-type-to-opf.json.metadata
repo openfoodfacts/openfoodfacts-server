@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "method" : "POST",
+      "content-type" : "application/x-www-form-urlencoded",
+      "parameters" : {},
       "path" : "/cgi/product_jqm_multilingual.pl",
+      "method" : "POST",
       "body" : {
          "product_type" : "product",
          "code" : "1234567890200"
-      },
-      "content-type" : "application/x-www-form-urlencoded",
-      "parameters" : {}
+      }
    }
 }

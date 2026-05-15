@@ -3,12 +3,12 @@
       "method" : "GET",
       "body" : null,
       "parameters" : {
-         "tag_0" : "breakfast_cereals",
          "tagtype_0" : "categories",
-         "json" : "1",
-         "ingredients_from_palm_oil" : "without",
+         "tag_0" : "breakfast_cereals",
          "tag_contains_0" : "contains",
-         "action" : "process"
+         "json" : "1",
+         "action" : "process",
+         "ingredients_from_palm_oil" : "without"
       },
       "path" : "/cgi/search.pl",
       "content-type" : null

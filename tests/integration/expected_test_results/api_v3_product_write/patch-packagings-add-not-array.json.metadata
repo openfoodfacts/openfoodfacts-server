@@ -1,5 +1,6 @@
 {
    "api_call" : {
+      "method" : "PATCH",
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890006",
@@ -11,7 +12,6 @@
                }
             }
          }
-      },
-      "method" : "PATCH"
+      }
    }
 }

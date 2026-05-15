@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product/1234567890012/images",
       "method" : "POST",
       "body" : {
          "image_data_base64" : "dGhpcyBpcyBhIHRleHQgZmlsZQo="
       },
-      "parameters" : {}
+      "path" : "/api/v3/product/1234567890012/images",
+      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8"
    }
 }

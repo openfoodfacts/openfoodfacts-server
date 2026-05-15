@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "method" : "GET",
-      "body" : null,
       "parameters" : {},
+      "method" : "GET",
+      "path" : "/product/1000000000001/apple-pie",
       "content-type" : null,
-      "path" : "/product/1000000000001/apple-pie"
+      "body" : null
    }
 }

@@ -1,19 +1,19 @@
 {
    "api_call" : {
+      "path" : "/cgi/product_image_crop.pl",
+      "parameters" : {},
+      "method" : "POST",
       "content-type" : "application/x-www-form-urlencoded",
       "body" : {
-         "x2" : 100,
-         "coordinates_image_size" : "full",
-         "id" : "nutrition_fr",
-         "y1" : 20,
-         "code" : "1234567890012",
          "x1" : 10,
-         "angle" : 0,
+         "coordinates_image_size" : "full",
+         "y1" : 20,
+         "imgid" : "25",
+         "x2" : 100,
+         "id" : "nutrition_fr",
          "y2" : 200,
-         "imgid" : "25"
-      },
-      "parameters" : {},
-      "path" : "/cgi/product_image_crop.pl",
-      "method" : "POST"
+         "code" : "1234567890012",
+         "angle" : 0
+      }
    }
 }
