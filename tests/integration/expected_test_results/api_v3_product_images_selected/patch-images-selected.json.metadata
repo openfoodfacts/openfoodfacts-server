@@ -1,8 +1,5 @@
 {
    "api_call" : {
-      "parameters" : {},
-      "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -11,28 +8,15 @@
                   "ingredients" : {
                      "en" : {
                         "generation" : {
+                           "normalize" : "true",
+                           "y1" : 0,
+                           "x2" : 0,
                            "y2" : 0,
                            "x1" : 0,
-                           "x2" : 0,
-                           "y1" : 0,
-                           "angle" : 0,
                            "white_magic" : "false",
-                           "normalize" : "true"
+                           "angle" : 0
                         },
                         "imgid" : "1"
-                     },
-                     "es" : {
-                        "imgid" : "1",
-                        "generation" : {
-                           "normalize" : false,
-                           "x2" : 100,
-                           "y1" : 20,
-                           "angle" : 90,
-                           "white_magic" : true,
-                           "coordinates_image_size" : "full",
-                           "x1" : 10,
-                           "y2" : 200
-                        }
                      },
                      "fr" : {
                         "imgid" : "1",
@@ -42,9 +26,22 @@
                            "x2" : 100,
                            "y1" : 20,
                            "normalize" : false,
-                           "x1" : 10,
-                           "y2" : 200
+                           "y2" : 200,
+                           "x1" : 10
                         }
+                     },
+                     "es" : {
+                        "generation" : {
+                           "white_magic" : true,
+                           "angle" : 90,
+                           "normalize" : false,
+                           "y1" : 20,
+                           "x2" : 100,
+                           "x1" : 10,
+                           "y2" : 200,
+                           "coordinates_image_size" : "full"
+                        },
+                        "imgid" : "1"
                      }
                   },
                   "front" : {
@@ -56,6 +53,9 @@
             }
          }
       },
-      "path" : "/api/v3.3/product/1234567890012"
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3.3/product/1234567890012",
+      "method" : "PATCH",
+      "parameters" : {}
    }
 }

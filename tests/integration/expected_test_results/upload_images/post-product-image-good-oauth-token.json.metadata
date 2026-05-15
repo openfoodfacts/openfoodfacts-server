@@ -3,14 +3,14 @@
       "method" : "POST",
       "parameters" : {},
       "content-type" : "multipart/form-data",
+      "path" : "/cgi/product_image_upload.pl",
       "body" : {
-         "imagefield" : "front_en",
-         "code" : "1234567890017",
          "imgupload_front_en" : [
             "tests/integration/inputs/upload_images/1.jpg",
             "1.jpg"
-         ]
-      },
-      "path" : "/cgi/product_image_upload.pl"
+         ],
+         "imagefield" : "front_en",
+         "code" : "1234567890017"
+      }
    }
 }

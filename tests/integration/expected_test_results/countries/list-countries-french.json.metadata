@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "body" : null,
+      "path" : "/cgi/countries.pl",
       "content-type" : null,
       "parameters" : {},
-      "path" : "/cgi/countries.pl",
-      "method" : "GET"
+      "method" : "GET",
+      "body" : null
    }
 }

@@ -1,8 +1,7 @@
 {
    "api_call" : {
-      "method" : "DELETE",
       "parameters" : {},
-      "content-type" : "application/json; charset=utf-8",
+      "method" : "DELETE",
       "path" : "/api/v3/product/1234567890007",
       "body" : {
          "product" : {
@@ -14,6 +13,7 @@
                }
             ]
          }
-      }
+      },
+      "content-type" : "application/json; charset=utf-8"
    }
 }

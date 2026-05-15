@@ -1,14 +1,14 @@
 {
    "api_call" : {
+      "path" : "/cgi/search.pl",
       "parameters" : {
-         "action" : "process",
          "json" : "1",
          "fields" : "attribute_groups",
-         "attribute_unwanted_ingredients_tags" : "en:water"
+         "attribute_unwanted_ingredients_tags" : "en:water",
+         "action" : "process"
       },
-      "body" : null,
-      "method" : "GET",
       "content-type" : null,
-      "path" : "/cgi/search.pl"
+      "method" : "GET",
+      "body" : null
    }
 }

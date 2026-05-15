@@ -1,11 +1,6 @@
 {
    "api_call" : {
-      "method" : "POST",
-      "parameters" : {},
       "body" : {
-         "services" : [
-            "determine_food_contact_of_packaging_components"
-         ],
          "product" : {
             "packagings" : [
                {
@@ -13,8 +8,8 @@
                   "material" : "en:plastic"
                },
                {
-                  "material" : "en:plastic",
-                  "shape" : "en:film"
+                  "shape" : "en:film",
+                  "material" : "en:plastic"
                },
                {
                   "shape" : "en:label",
@@ -22,9 +17,14 @@
                }
             ],
             "lc" : "en"
-         }
+         },
+         "services" : [
+            "determine_food_contact_of_packaging_components"
+         ]
       },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "POST",
       "path" : "/api/v3/product_services",
-      "content-type" : "application/json; charset=utf-8"
+      "parameters" : {}
    }
 }

@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "path" : "/ingredients",
       "content-type" : null,
-      "method" : "GET",
-      "body" : null,
       "parameters" : {
-         "status" : "unknown",
-         "filter" : "bon"
-      }
+         "filter" : "bon",
+         "status" : "unknown"
+      },
+      "path" : "/ingredients",
+      "body" : null,
+      "method" : "GET"
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
       "content-type" : null,
+      "body" : null,
       "parameters" : {
          "fields" : "product_name"
       },
-      "body" : null,
-      "path" : "/categories/-apples.json"
+      "path" : "/categories/-apples.json",
+      "method" : "GET"
    }
 }

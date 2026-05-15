@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "method" : "GET",
       "parameters" : {},
+      "method" : "GET",
+      "body" : null,
       "content-type" : null,
-      "path" : "/facets/ingredients/someunknownandemptyingredient",
-      "body" : null
+      "path" : "/facets/ingredients/someunknownandemptyingredient"
    }
 }

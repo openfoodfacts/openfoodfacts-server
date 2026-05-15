@@ -2,9 +2,9 @@
    "api_call" : {
       "body" : null,
       "parameters" : {
-         "tagtype" : "categories",
          "get_synonyms" : "1",
          "string" : "tart",
+         "tagtype" : "categories",
          "lc" : "fr"
       },
       "content-type" : null,
