@@ -10375,11 +10375,30 @@ Reference to an HTML list of ingredients in ordered nested list format that corr
 
 =cut
 
-sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref, $ingredients_list_ref) {
+sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref, $ingredients_list_ref, $depth = 0) {
 
-	${$ingredients_list_ref} .= "<ol id=\"ordered_ingredients_list\">\n";
+	# Add table header on the outermost call only
+	if ($depth == 0) {
+		${$ingredients_list_ref}
+			.= '<table id="ordered_ingredients_list" style="border-collapse:collapse;width:100%;font-size:0.85rem">'
+			. "\n<thead><tr>"
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Ingredient</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">Taxonomy ID</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegan</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">vegetarian</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">palm_oil</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">ciqual_proxy</th>'
+			. '<th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">percent</th>'
+			. '<th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">min</th>'
+			. '<th style="text-align:right;border-bottom:2px solid #ccc;padding:2px 6px">max</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">origin</th>'
+			. '<th style="text-align:left;border-bottom:2px solid #ccc;padding:2px 6px">labels</th>'
+			. "</tr></thead>\n<tbody>\n";
+	}
 
 	my $i = 0;
+	my $padding_style = $depth > 0 ? ' style="padding-left:' . ($depth * 1.5) . 'em"' : '';
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
@@ -10399,33 +10418,43 @@ sub display_nested_list_of_ingredients ($ingredients_ref, $ingredients_text_ref,
 			${$ingredients_text_ref} .= " " . $ingredient_ref->{percent} . "%";
 		}
 
-		${$ingredients_list_ref}
-			.= "<li>" . "<span$class>" . $ingredient_ref->{text} . "</span>" . " -> " . $ingredient_ref->{id};
+		my $r1 = sub {defined $_[0] ? sprintf("%.1f", $_[0]) : ''};
+		my $percent_display = $r1->($ingredient_ref->{percent} // $ingredient_ref->{percent_estimate});
 
-		foreach my $property (
-			qw(origin labels vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code percent_min percent percent_estimate percent_max)
-			)
-		{
-			if (defined $ingredient_ref->{$property}) {
-				# Skip percent_estimate if percent is defined
-				if (($property eq 'percent_estimate') and (defined $ingredient_ref->{percent})) {
-					next;
-				}
-				${$ingredients_list_ref} .= ' – ' . $property . ":&nbsp;" . $ingredient_ref->{$property};
-			}
+		${$ingredients_list_ref} .= "<tr>";
+		${$ingredients_list_ref}
+			.= "<td$padding_style style=\"padding:2px 6px\"><span$class>" . $ingredient_ref->{text} . "</span></td>";
+		${$ingredients_list_ref} .= '<td style="padding:2px 6px">' . $ingredient_ref->{id} . "</td>";
+
+		foreach my $property (qw(vegan vegetarian from_palm_oil ciqual_food_code ciqual_proxy_food_code)) {
+			${$ingredients_list_ref}
+				.= '<td style="padding:2px 6px">' . ($ingredient_ref->{$property} // '') . "</td>";
 		}
+
+		${$ingredients_list_ref} .= '<td style="text-align:right;padding:2px 6px">' . $percent_display . "</td>";
+		${$ingredients_list_ref}
+			.= '<td style="text-align:right;padding:2px 6px">' . $r1->($ingredient_ref->{percent_min}) . "</td>";
+		${$ingredients_list_ref}
+			.= '<td style="text-align:right;padding:2px 6px">' . $r1->($ingredient_ref->{percent_max}) . "</td>";
+
+		foreach my $property (qw(origin labels)) {
+			${$ingredients_list_ref}
+				.= '<td style="padding:2px 6px">' . ($ingredient_ref->{$property} // '') . "</td>";
+		}
+
+		${$ingredients_list_ref} .= "</tr>\n";
 
 		if (defined $ingredient_ref->{ingredients}) {
 			${$ingredients_text_ref} .= " (";
 			display_nested_list_of_ingredients($ingredient_ref->{ingredients},
-				$ingredients_text_ref, $ingredients_list_ref);
+				$ingredients_text_ref, $ingredients_list_ref, $depth + 1);
 			${$ingredients_text_ref} .= ")";
 		}
-
-		${$ingredients_list_ref} .= "</li>\n";
 	}
 
-	${$ingredients_list_ref} .= "</ol>\n";
+	if ($depth == 0) {
+		${$ingredients_list_ref} .= "</tbody></table>\n";
+	}
 
 	return;
 }

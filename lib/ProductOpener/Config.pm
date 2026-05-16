@@ -113,7 +113,8 @@ autoload("ProductOpener::Config_$flavor");
 %ProductOpener::Config::admins = map {$_ => 1} qw(
 	alex-off
 	charlesnepote
-	gala-nafikova
+	galina-off
+	meriem1994
 	hangy
 	manoncorneille
 	mellie-mellow
