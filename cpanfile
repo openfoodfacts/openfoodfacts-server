@@ -121,7 +121,7 @@ requires 'Crypt::JWT';
 requires 'Module::Load';
 
 # To measure the time taken by requests
-requires 'Time::Monotonic';
+requires 'Time::HiRes';
 
 # To measure similarity between words and find possible typo
 requires 'Text::Levenshtein';
