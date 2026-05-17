@@ -68,7 +68,7 @@ autoload("ProductOpener::Config_$flavor");
 		lowercase => 1,
 	},
 	# French has very few actual conflicts caused by unaccenting (one counter example is "pâtes" and "pâtés")
-	# Accents or often not present in capital letters (beginning of word, or in all caps text).
+	# Accents are often not present in capital letters (beginning of word, or in all caps text).
 	fr => {
 		unaccent => 1,
 		lowercase => 1,
