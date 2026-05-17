@@ -43,7 +43,7 @@ autoload("ProductOpener::Config_$flavor");
 # tag ids are also used in URLs.
 
 # unaccent:
-# - useful when accents are sometimes ommited (e.g. in French accents are often not present on capital letters),
+# - useful when accents are sometimes omitted (e.g. in French accents are often not present on capital letters),
 # either in print, or when typed by users.
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
