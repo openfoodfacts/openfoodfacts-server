@@ -100,10 +100,10 @@ requires 'Apache2::Connection::XForwardedFor';
 
 # GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
-requires 'Imager', '>= 1.025, < 1.026';
-requires 'Imager::zxing', '>= 1.001, < 1.002';
+requires 'Imager';
+requires 'Imager::zxing';
 requires 'Imager::File::AVIF';
-requires 'Imager::File::HEIF';
+# requires 'Imager::File::HEIF'; # FIXME: Currently does not install in trixie - claims it cannot find libheif-dev.
 requires 'Imager::File::JPEG';
 requires 'Imager::File::PNG';
 requires 'Imager::File::WEBP';
