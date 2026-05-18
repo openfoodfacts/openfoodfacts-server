@@ -164,12 +164,23 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         pkg-config \
         libzxing-dev \
         # Imager::zxing - decoders
-        libavif-dev \
+        lbavif-dev \
+        libaom-dev \
+        libavcodec-dev \
+        libavutil-dev \
+        libdav1d-dev \
         libde265-dev \
+        libgif-dev \
         libheif-dev \
         libjpeg-dev \
+        libjpeg62-turbo-dev \
+        libopenh264-dev \
+        libopenjp2-7-dev \
         libpng-dev \
+        librav1e-dev \
+        libturbojpeg0-dev \
         libwebp-dev \
+        libx264-dev \
         libx265-dev
 
 # Run www-data user AS host user 'off' or developper uid
@@ -197,12 +208,34 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     # also run apt update if needed because some package might need to apt install
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
-    ) && \
-    # first install some dependencies that are not well handled
-    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . && \
-    # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
-    # without adding an unresolved dependency back into cpanfile.
+    )
+
+# first install some dependencies that are not well handled
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    set -x && \
+    rm -rf /root/.cpanm/work/* && \
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" \
+    # in case of errors show build.log, but still, fail
+    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+
+# Install from cpanfile
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    set -x && \
+    rm -rf /root/.cpanm/work/* && \
+    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
+    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+
+# Install the JUnit renderer separately so tests can keep using --renderer=JUnit
+# without adding an unresolved dependency back into cpanfile.
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    set -x && \
+    rm -rf /root/.cpanm/work/* && \
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Test2::Harness::Renderer::JUnit" \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
