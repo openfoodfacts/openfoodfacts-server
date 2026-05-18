@@ -1,20 +1,20 @@
 {
    "api_call" : {
+      "content-type" : "application/x-www-form-urlencoded",
       "parameters" : {},
       "body" : {
-         "user_id" : "tests",
-         "code" : "1234567890012",
-         "nutrition_input_sets_prepared_serving_nutrients_salt_value_string" : "50",
-         "type" : "edit",
-         "password" : "testtest",
          "nutrition_input_sets_as_sold_100g_nutrients_saturated-fat_unit" : "g",
-         "serving_size" : "30 g",
-         "nutrition_input_sets_as_sold_100g_nutrients_saturated-fat_value_string" : "5.0",
          "nutrition_input_sets_prepared_serving_nutrients_salt_unit" : "mg",
-         "action" : "process",
-         "lang" : "en"
+         "type" : "edit",
+         "code" : "1234567890012",
+         "nutrition_input_sets_as_sold_100g_nutrients_saturated-fat_value_string" : "5.0",
+         "password" : "testtest",
+         "serving_size" : "30 g",
+         "user_id" : "tests",
+         "lang" : "en",
+         "nutrition_input_sets_prepared_serving_nutrients_salt_value_string" : "50",
+         "action" : "process"
       },
-      "content-type" : "application/x-www-form-urlencoded",
       "path" : "/cgi/product_multilingual.pl",
       "method" : "POST"
    }

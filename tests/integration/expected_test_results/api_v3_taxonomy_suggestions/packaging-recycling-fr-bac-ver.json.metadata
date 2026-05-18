@@ -1,13 +1,13 @@
 {
    "api_call" : {
+      "method" : "GET",
       "body" : null,
       "path" : "/api/v3/taxonomy_suggestions",
       "content-type" : null,
-      "method" : "GET",
       "parameters" : {
-         "string" : "bac-ver",
          "tagtype" : "packaging_recycling",
-         "cc" : "fr"
+         "cc" : "fr",
+         "string" : "bac-ver"
       }
    }
 }

@@ -1,15 +1,15 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3/product/1234567890101",
       "method" : "PATCH",
       "body" : {
-         "tags_lc" : "en",
-         "fields" : "updated",
          "product" : {
             "code" : "some invalid barcode"
-         }
+         },
+         "tags_lc" : "en",
+         "fields" : "updated"
       },
-      "path" : "/api/v3/product/1234567890101",
+      "content-type" : "application/json; charset=utf-8",
       "parameters" : {}
    }
 }

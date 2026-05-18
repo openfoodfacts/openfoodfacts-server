@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "method" : "GET",
-      "path" : "/facets/countries/France",
+      "content-type" : null,
       "body" : null,
+      "method" : "GET",
       "parameters" : {},
-      "content-type" : null
+      "path" : "/facets/countries/France"
    }
 }

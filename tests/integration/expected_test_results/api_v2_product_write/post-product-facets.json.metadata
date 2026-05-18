@@ -1,22 +1,22 @@
 {
    "api_call" : {
       "path" : "/cgi/product_jqm_multilingual.pl",
-      "method" : "POST",
-      "content-type" : "application/x-www-form-urlencoded",
       "parameters" : {},
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
       "body" : {
-         "traces" : "Moutarde, milk, abcd",
-         "user_id" : "tests",
-         "lc" : "es",
+         "labels" : "Bio, Fair trade",
          "password" : "testtest",
-         "cc" : "uk",
          "lang" : "fr",
          "categories" : "Sausages",
-         "labels" : "Bio, Fair trade",
          "brands" : "ACME, ACME Incorporated, ALDI",
-         "allergens" : "Eggs, xyz",
+         "cc" : "uk",
          "code" : "1234567890341",
-         "emb_codes" : "FR 56081 CE"
+         "emb_codes" : "FR 56081 CE",
+         "allergens" : "Eggs, xyz",
+         "user_id" : "tests",
+         "lc" : "es",
+         "traces" : "Moutarde, milk, abcd"
       }
    }
 }

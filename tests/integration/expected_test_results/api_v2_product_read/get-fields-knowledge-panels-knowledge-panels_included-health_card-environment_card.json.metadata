@@ -3,10 +3,10 @@
       "path" : "/api/v2/product/200000000034",
       "body" : null,
       "method" : "GET",
-      "content-type" : null,
       "parameters" : {
          "fields" : "knowledge_panels",
          "knowledge_panels_included" : "health_card,environment_card"
-      }
+      },
+      "content-type" : null
    }
 }

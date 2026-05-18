@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "content-type" : "application/x-www-form-urlencoded",
+      "path" : "/cgi/product_jqm_multilingual.pl",
       "parameters" : {},
+      "content-type" : "application/x-www-form-urlencoded",
       "body" : {
          "new_code" : "some invalid barcode",
          "code" : "1234567890100"
       },
-      "method" : "POST",
-      "path" : "/cgi/product_jqm_multilingual.pl"
+      "method" : "POST"
    }
 }

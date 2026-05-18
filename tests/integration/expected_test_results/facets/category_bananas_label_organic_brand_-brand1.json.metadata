@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "path" : "/categories/Bananas/labels/Organic/brands/-Brand1.json",
-      "content-type" : null,
-      "method" : "GET",
       "body" : null,
+      "content-type" : null,
+      "path" : "/categories/Bananas/labels/Organic/brands/-Brand1.json",
+      "method" : "GET",
       "parameters" : {
          "fields" : "product_name"
       }

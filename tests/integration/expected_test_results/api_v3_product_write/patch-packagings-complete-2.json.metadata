@@ -1,35 +1,35 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product/1234567890016",
       "method" : "PATCH",
-      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
+         "fields" : "packagings,packagings_complete",
          "product" : {
             "packagings_complete" : 2,
             "packagings" : [
+               {
+                  "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "bottle"
+                  },
+                  "recycling" : {
+                     "lc_name" : "recycle"
+                  }
+               },
                {
                   "recycling" : {
                      "lc_name" : "recycle"
                   },
                   "number_of_units" : 1,
                   "shape" : {
-                     "lc_name" : "bottle"
-                  }
-               },
-               {
-                  "shape" : {
                      "lc_name" : "lid"
-                  },
-                  "recycling" : {
-                     "lc_name" : "recycle"
-                  },
-                  "number_of_units" : 1
+                  }
                }
             ]
          },
-         "fields" : "packagings,packagings_complete",
          "tags_lc" : "en"
-      }
+      },
+      "path" : "/api/v3/product/1234567890016",
+      "parameters" : {}
    }
 }

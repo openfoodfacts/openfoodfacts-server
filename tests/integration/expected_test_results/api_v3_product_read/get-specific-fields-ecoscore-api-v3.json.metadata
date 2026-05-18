@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "method" : "GET",
       "body" : null,
-      "path" : "/api/v3/product/4260392550101",
-      "content-type" : null,
       "parameters" : {
          "fields" : "ecoscore_score,ecoscore_grade,ecoscore_data"
       },
-      "method" : "GET"
+      "content-type" : null,
+      "path" : "/api/v3/product/4260392550101"
    }
 }

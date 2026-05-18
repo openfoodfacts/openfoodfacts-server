@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "content-type" : null,
       "parameters" : {
-         "cc" : "world",
-         "lc" : "es"
+         "lc" : "es",
+         "cc" : "world"
       },
+      "body" : null,
       "method" : "GET",
       "path" : "/",
-      "body" : null
+      "content-type" : null
    }
 }

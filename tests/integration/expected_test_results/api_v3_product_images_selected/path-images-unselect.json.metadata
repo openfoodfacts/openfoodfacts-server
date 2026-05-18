@@ -1,11 +1,7 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
-      "path" : "/api/v3.3/product/1234567890012",
-      "parameters" : {},
       "body" : {
-         "fields" : "updated",
          "product" : {
             "images" : {
                "selected" : {
@@ -14,7 +10,11 @@
                   }
                }
             }
-         }
-      }
+         },
+         "fields" : "updated"
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3.3/product/1234567890012",
+      "parameters" : {}
    }
 }

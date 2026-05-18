@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "content-type" : null,
       "parameters" : {
          "code" : "3300000000013",
          "id" : "front_fr"
       },
-      "path" : "/cgi/product_image.pl",
       "body" : null,
+      "path" : "/cgi/product_image.pl",
+      "content-type" : null,
       "method" : "GET"
    }
 }

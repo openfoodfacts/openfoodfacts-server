@@ -1,12 +1,12 @@
 {
    "api_call" : {
+      "method" : "GET",
       "body" : null,
-      "content-type" : null,
-      "path" : "/api/v3/product/4260392550101",
       "parameters" : {
-         "fields" : "knowledge_panels",
-         "knowledge_panels_excluded" : "environment_card"
+         "knowledge_panels_excluded" : "environment_card",
+         "fields" : "knowledge_panels"
       },
-      "method" : "GET"
+      "content-type" : null,
+      "path" : "/api/v3/product/4260392550101"
    }
 }

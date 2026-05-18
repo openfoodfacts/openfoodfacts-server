@@ -1,15 +1,15 @@
 {
    "api_call" : {
-      "parameters" : {
-         "search_terms" : "apple",
-         "graph" : "1",
-         "graph_type" : "histogram",
-         "action" : "process",
-         "axis_x" : "sugars"
-      },
+      "method" : "GET",
       "content-type" : null,
       "path" : "/cgi/search.pl",
       "body" : null,
-      "method" : "GET"
+      "parameters" : {
+         "graph" : "1",
+         "axis_x" : "sugars",
+         "action" : "process",
+         "search_terms" : "apple",
+         "graph_type" : "histogram"
+      }
    }
 }

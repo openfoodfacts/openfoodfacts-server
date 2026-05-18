@@ -1,12 +1,6 @@
 {
    "api_call" : {
-      "parameters" : {},
-      "path" : "/api/v3/product/1234567890009",
-      "content-type" : "application/json; charset=utf-8",
-      "method" : "PATCH",
       "body" : {
-         "fields" : "ecoscore_data",
-         "tags_lc" : "en",
          "product" : {
             "packagings" : [
                {
@@ -19,7 +13,13 @@
                   "number_of_units" : 1
                }
             ]
-         }
-      }
+         },
+         "tags_lc" : "en",
+         "fields" : "ecoscore_data"
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3/product/1234567890009",
+      "parameters" : {},
+      "method" : "PATCH"
    }
 }

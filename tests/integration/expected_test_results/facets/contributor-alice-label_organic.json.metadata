@@ -3,9 +3,9 @@
       "parameters" : {
          "fields" : "product_name"
       },
-      "body" : null,
       "method" : "GET",
+      "path" : "/contributors/alice/labels/Organic.json",
       "content-type" : null,
-      "path" : "/contributors/alice/labels/Organic.json"
+      "body" : null
    }
 }

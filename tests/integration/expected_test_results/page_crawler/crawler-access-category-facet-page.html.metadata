@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "path" : "/facets/categories/Hazelnut spreads",
+      "method" : "GET",
       "body" : null,
-      "content-type" : null,
       "parameters" : {},
-      "method" : "GET"
+      "content-type" : null,
+      "path" : "/facets/categories/Hazelnut spreads"
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
       "method" : "GET",
-      "content-type" : null,
-      "path" : "/contributors/bob.json",
       "parameters" : {
          "fields" : "product_name"
       },
+      "content-type" : null,
+      "path" : "/contributors/bob.json",
       "body" : null
    }
 }

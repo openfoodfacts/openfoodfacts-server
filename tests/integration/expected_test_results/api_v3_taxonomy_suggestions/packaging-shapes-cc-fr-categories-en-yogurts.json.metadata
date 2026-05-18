@@ -1,13 +1,13 @@
 {
    "api_call" : {
       "parameters" : {
-         "cc" : "fr",
+         "categories" : "en:yogurts",
          "tagtype" : "packaging_shapes",
-         "categories" : "en:yogurts"
+         "cc" : "fr"
       },
-      "method" : "GET",
-      "content-type" : null,
+      "body" : null,
       "path" : "/api/v3/taxonomy_suggestions",
-      "body" : null
+      "method" : "GET",
+      "content-type" : null
    }
 }
