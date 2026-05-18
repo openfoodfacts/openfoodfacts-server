@@ -57,6 +57,8 @@ synonyms:sv: matvaror, matvara, mat
 
 synonyms:hu: koncentrátumból, sűrítményből, koncentrátum, sűrítmény
 
+synonyms:da: glutenfri, glutenfrie, glutenfrit
+
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, base
 stopwords:ca: als, a les, de, el, del, de la, la, té, i, amb, base
 stopwords:nl: bevat, en
@@ -36360,7 +36362,7 @@ fr: Fougasses au chorizo
 < en:Filled fougasse
 fr: Fougasses aux olives
 
-< en:Breads
+< en:Bread loaves
 en: Baguettes, French bread
 xx: Baguettes, Baguette
 ar: خبز فرنسي
@@ -36572,8 +36574,20 @@ wikidata:en: Q1820454
 # How should I translate this in ja? パン粉 would probably be closer to en:Panko, but what about en:Bread crumbs?
 
 < en:Breads
+en: Bread loaves, Bread loaf, Loaf of bread
+is: Hleifur
+ru: Буха́нка
+sv: Brödlimpor, Limpor, Limpa
+yi: לאַבן
+description:en: western style style of bread prepared in oblong shape (wikidata)
+wikidata:en: Q137778889
+
+< en:Breads
 en: Bread rolls, Buns, rolls
+af: Broodrolletjie
+da: Rundstykker
 de: Brötchen, Semmeln
+eo: Bulkoj
 fi: Sämpylät
 fr: Petits pains, Buns (petits pains)
 hr: Buns
@@ -36581,24 +36595,56 @@ it: Panini inglesi
 ja: ロールパン
 lt: Bandelės
 nl: Broodjes
-sv: Bullars
+pl: Bułka
+sv: Bullar
+zh: 圆面包, 圓麵包
 intake24_category_code:en: BRDR
+wikidata:en: Q23004
 
 < en:Bread rolls
 en: Soft bread rolls
+da: Boller
 nl: Zachte broodjes, puntjes, bollen
 
 < en:Breads
 en: Breadsticks, Grissini, Bread sticks
+ar: إصبع الخبز
 bg: Гризини
+ca: Bastonet de pa
+da: Grissini
 de: Brotstangen, Grissini
-es: Colines
-fi: leipätikut
-fr: Gressins, gressin
-hr: grisini
-it: Grissini
+el: Κριτσίνι
+eo: Grisino
+es: Colines, Grisín
+et: Grissini
+eu: Ogi mehe
+fa: نان سوپ
+fi: Leipätikut, Grissini
+fr: Gressins, Gressin
+hr: Grisini
+hu: Grissino
+io: Bastonpano
+it: Grissini, Grissino
+ja: グリッシーニ
+jv: Roti stik
+ko: 막대빵
 lt: Duonos lazdelės
+lv: Grisīni
+mk: Стапчиња леб
+ms: Roti batang
+nb: Grissini
 nl: Soepstengels, Soepstengel
+pl: Grissini
+pt: Gressino
+ro: Grisină
+ru: Гриссини
+sl: Grisin
+sr: Грисине
+sv: Grissini
+tr: Grissini
+uk: Грісіні
+vi: Bánh mì que
+zh: 面包棒
 agribalyse_food_code:en: 7525
 ciqual_food_code:en: 7525
 ciqual_food_name:en: Grissini or bread stick
@@ -36745,11 +36791,41 @@ nl: Glutenvrije broden, Glutenvrij brood, Broden zonder gluten
 pl: Pieczywo bezglutenowe
 pt: Pães sem glúten
 ro: Pâini fără gluten, Pâine fără gluten
+sv: Glutenfria bröd
 agribalyse_food_code:en: 7130
 ciqual_food_code:en: 7130
 ciqual_food_name:en: Bread, gluten free
 ciqual_food_name:fr: Pain, sans gluten
 wikidata:en: Q90410085
+
+< en:Bread rolls
+< en:Gluten-free breads
+en: Gluten-free bread rolls
+da: Glutenfri rundstykker
+de: Glutenfreies Brötchen
+fr: Petits pains sans gluten
+hr: Buns bez glutena
+it: Panini inglesi senza glutine
+lt: Bandelės be glitimo
+nl: Glutenvrije broodjes
+sv: Glutenfria bullar
+
+< en:Breadsticks
+< en:Gluten-free breads
+en: Gluten-free breadsticks, Gluten-free grissini
+bg: Гризини без глутен
+da: Glutenfri grissini
+de: Glutenfreies Brotstangen
+es: Colines sin gluten
+fr: Gressins sans gluten
+hr: Grisini bez glutena
+it: Grissini senza glutine
+lt: Duonos lazdelės be glitimo
+nl: Glutenvrije soepstengels
+pl: Grissini bezglutenowe
+pt: Gressino sem glúten
+ro: Grisină fără gluten
+sv: Glutenfria grissini
 
 < en:Gluten-free breads
 en: Arepas, corn flat breads
@@ -36824,6 +36900,41 @@ xx: Taboon
 ar: طابون
 comment:en: https://www.tasteatlas.com/taboon
 wikidata:en: Q987291
+
+< en:Flatbreads
+en: Tandoor breads, Tannour breads
+ar: خبز التنور
+az: Təndir çörəyi
+bn: তন্দুর রুটি
+ce: Тандыр Хьокхам
+fa: نان تنور
+fr: Pain tandoori
+gl: Pan do Tandoor
+hi: तंदूर की रोटी
+hy: Թոնիր նան
+jv: Roti tandoor
+kk: Тандыр-нан
+ko: 탄두르빵
+ky: Тандыр-нан
+ms: Roti tempayan
+nl: Tandooribrood
+ru: Тандырный хлеб
+sv: Tannourbröd
+tk: Tamdyr çöregi
+tr: Tandır ekmeği
+uk: Тандир-нан
+uz: Tandir noni
+wikidata:en: Q2669274
+
+< en:Flatbreads
+en: Tunnbröd, Thin breads, Polar breads
+xx: Tunnbröd
+fr: Pains polaires
+ja: トゥンブロード
+ko: 툰브뢰드
+mk: Тунброд
+description:en: Tunnbröd (Swedish: [ˈtɵ̂nːbrøːd]; literally 'thinbread') is a Swedish version of flatbread. Tunnbröd can be soft or crisp, and comes in many variants depending on choice of grain, leavening agent (or lack thereof) and rolling pin. (Wikipedia)
+wikidata:en: Q255048
 
 < en:Breads
 en: Oat breads, Oat loafs
@@ -37589,6 +37700,12 @@ agribalyse_food_code:en: 7262
 ciqual_food_code:en: 7262
 ciqual_food_name:en: Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), complet, préemballé
+
+< en:Hot dog buns
+< en:Sourdough breads
+en: Sourdough hot dog buns
+da: Surdejspølsebrød
+sv: Surdegskorvbröd
 
 < en:Frozen breads
 < en:Hot dog buns
@@ -85847,7 +85964,7 @@ en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
 ca: Pizzes i quiches
 de: Pizzas - Kuchen und Quiches
-es: Pizzas - empanadas y quiches
+es: Pizzas - tartas y quiches
 fi: pizzat ja piirakat
 fr: Pizzas tartes salées et quiches
 hr: Pizze pite i quichevi
@@ -85872,6 +85989,10 @@ gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Perishable)
 < en:Pizzas pies and quiches
 en: Mini appetizer pizzas
 fr: Mini pizzas apéritives
+
+< en:Pizzas pies and quiches
+en: Pizza pockets
+fr: Pizzas pocket
 
 < en:Meals
 < en:Pizzas pies and quiches
@@ -85946,7 +86067,6 @@ ciqual_food_name:fr: Pizza jambon fromage champignons ou pizza royale, reine ou 
 < en:Pizzas
 fr: Pizzas savoyardes, Pizza savoyarde
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Cheese and mushrooms pizza
 fr: Pizza champignons fromage
@@ -85957,20 +86077,36 @@ ciqual_food_code:en: 25477
 ciqual_food_name:en: Pizza, cheese and mushrooms
 ciqual_food_name:fr: Pizza champignons fromage
 
-< en:Pizzas
 < en:Vegetarian pizzas
-en: Margherita Pizza, Cheese and tomato pizza
+en: Margherita pizzas, Margherita pizza, Pizza Margherita
+ar: بيتزا_مارغيريتا
 bg: Пица Маргарита
+da: Margherita-pizzaer
 de: Pizza Margherita
 es: Pizza margherita
+fa: پیتزا مارگریتا
 fi: margherita-pizza
-fr: Pizzas margherita, pizza margherita, pizzas marguerite, Pizza au fromage et aux tomates
+fr: Pizzas margherita, pizza margherita, pizzas marguerite
 hr: Pizza margherita
 it: Pizza margherita
 ja: マルゲリータ
-lt: Margarita picos, Picos su sūriu ir pomidorų padažu
+ko: 마르게리타 피자
+lt: Margarita picos
 nl: Pizza Margherita
-#wikidata:en:
+sv: Margherita-pizzor
+zh: 瑪格麗塔披薩, 瑪格麗特披薩
+agribalyse_food_code:en: 25404
+ciqual_food_code:en: 25404
+ciqual_food_name:en: Pizza, cheese and tomato or Margherita pizza
+ciqual_food_name:fr: Pizza au fromage ou Pizza margherita
+wikidata:en: Q500724
+
+< en:Vegetarian pizzas
+en: Cheese and tomato pizzas, Cheese and tomato pizza
+da: Ost- og tomatpizzaer, Pizzaer med ost og tomat
+fr: Pizzas tomates fromage, Pizza au fromage et aux tomates
+lt: Picos su sūriu ir pomidorų padažu
+sv: Ost- och tomatpizzor
 agribalyse_food_code:en: 25404
 ciqual_food_code:en: 25404
 ciqual_food_name:en: Pizza, cheese and tomato or Margherita pizza
@@ -85978,15 +86114,19 @@ ciqual_food_name:fr: Pizza au fromage ou Pizza margherita
 
 < en:Pizzas
 en: Vegetarian pizzas
+da: Vegetariske pizzaer
 fr: Pizzas végétariennes, pizza végétarienne
+sv: Vegetarianska pizzor
 agribalyse_proxy_food_code:en: 25472
 ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_proxy_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
-< en:Pizzas
-en: Plant-based pizzas, Vegetal pizzas, vegan pizzas
-fr: Pizzas végétales, pizzas végétaliennes, pizzas véganes, pizza végétale, pizza végétalienne, pizza végane
+< en:Vegetarian pizzas
+en: Vegan pizzas, Plant-based pizzas, Vegetal pizzas
+da: Veganske pizzaer
+fr: Pizzas véganes, Pizzas végétales, pizzas végétaliennes, pizza végétale, pizza végétalienne, pizza végane
+sv: Veganska pizzor
 agribalyse_proxy_food_code:en: 25472
 ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
@@ -86129,7 +86269,7 @@ bg: Пица с шунка
 de: Schinkenpizzas
 es: Pizzas de jamón york
 fi: kinkkupizzat
-fr: Pizzas au jambon
+fr: Pizzas au jambon, Pizza au jambon
 hr: Pizze sa šunkom
 it: Pizze al prosciutto
 lt: Picos su kumpiu
@@ -86139,8 +86279,8 @@ agribalyse_proxy_food_name:en: Pizza, cured ham
 agribalyse_proxy_food_name:fr: Pizza au speck ou jambon cru
 
 < en:Ham pizzas
-en: Cured Ham Pizza
-fr: Pizza au jambon, Pizza au jambon cru
+en: Cured ham pizza
+fr: Pizza au jambon cru
 hr: Pizza sa suhom šunkom
 lt: Picos su vytintu kumpiu
 agribalyse_food_code:en: 26274
@@ -86168,7 +86308,6 @@ ciqual_food_code:en: 26271
 ciqual_food_name:en: Pizza, kebab
 ciqual_food_name:fr: Pizza kebab
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Vegetable pizza, Four seasons pizza, Pizza quattro stagioni
 es: Pizzas de verduras
@@ -86182,7 +86321,6 @@ ciqual_food_code:en: 25472
 ciqual_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Cheese pizzas
 bg: Пица със сирена
@@ -86258,7 +86396,7 @@ agribalyse_proxy_food_code:en: 25478
 agribalyse_proxy_food_name:en: Pizza, four cheeses
 agribalyse_proxy_food_name:fr: Pizza 4 fromages
 
-< en:Cheese pizzas
+< en:Pizzas
 en: Cheese and onion pizza with lardoons
 fr: Pizza aux lardons oignons et fromage
 hr: Pizza od sira i luka s pečenjem
@@ -86268,7 +86406,7 @@ ciqual_food_code:en: 25570
 ciqual_food_name:en: Pizza, lardoons onions and cheese
 ciqual_food_name:fr: Pizza aux lardons, oignons et fromage
 
-< en:Cheese pizzas
+< en:Pizzas
 en: Pizza with raclette cheese and lardoons, Pizza with tartiflette cheese and lardoons
 fr: Pizza type raclette, Pizza type tartiflette, Pizza à la montagnarde, Pizzas raclette
 hr: Pizza s raclette sirom i pečenicama
@@ -86992,6 +87130,7 @@ lt: Makaronų salotos su vištiena
 
 < en:Pies
 en: Double crust pies, Two-crust pies, 2 crust pies
+es: Empanadas grandes
 fr: Tourtes, Tourte
 hr: Pite s dvije kore
 nl: Pasteitjes
@@ -100027,7 +100166,7 @@ gpc_category_name:en: Pickles/Relishes/Chutneys/Olives Variety Packs
 en: Pies
 bg: Пайове
 ca: Pastissos
-es: Empanadas
+es: Tartas
 fi: piirakat
 fr: Tartes
 hr: Pite, pita
@@ -100503,6 +100642,7 @@ nl: Producten verkocht i de jaren 90
 en: Products without gluten, gluten-free products, gluten free
 bg: Продукти без глутен
 cs: Bezlepkové potraviny
+da: Produkter uden gluten, Glutenfri produkter
 de: Glutenfrei
 es: Productos sin gluten
 fi: gluteeniton
@@ -100515,6 +100655,7 @@ nl: Glutenvrije producten
 pl: Produkty bezglutenowe
 pt: Produtos sem glútem
 ru: Безглютеновые продукты
+sv: Produkter utan gluten, Glutenfria produkter
 
 < en:Products without gluten
 en: Gluten free bread mixes
@@ -123815,6 +123956,13 @@ da: Dumplings med grøntsager
 lt: Koldūnai su daržovėmis
 nb: Dumplings med grønnsaker
 sv: Dumplingar med grönsaker, Dumplings med grönsaker
+
+# Empanadas are dumpling consumed in Spain and latin America. They are called "Empanadas" in latin America, while this word designate double crust pies in Spain. The dumplings are called "Empanadillas" in Spain.
+< en:Dumplings
+xx: Empanadas
+en: Empanadas
+es: Empanadas, Empanadillas
+wikidata:en: Q747457
 
 < en:Dumplings
 en: Chinese dumplings, Chinese dumpling, Dim Sum

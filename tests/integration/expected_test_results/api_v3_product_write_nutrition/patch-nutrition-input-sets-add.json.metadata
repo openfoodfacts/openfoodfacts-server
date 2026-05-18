@@ -1,0 +1,116 @@
+{
+   "api_call" : {
+      "path" : "/api/v3.5/product/4230000001000",
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "nutrition" : {
+               "input_sets" : [
+                  {
+                     "nutrients" : {
+                        "carbohydrates" : {
+                           "value_string" : "30",
+                           "unit" : "g"
+                        },
+                        "energy-kj" : {
+                           "value_string" : "2000",
+                           "unit" : "kJ"
+                        },
+                        "fat" : {
+                           "value_string" : "10",
+                           "unit" : "g"
+                        },
+                        "proteins" : {
+                           "unit" : "g",
+                           "value_string" : "5"
+                        },
+                        "sugars" : {
+                           "value_string" : "20",
+                           "unit" : "g"
+                        },
+                        "saturated-fat" : {
+                           "unit" : "g",
+                           "value_string" : "2"
+                        },
+                        "salt" : {
+                           "unit" : "g",
+                           "value_string" : "1.5"
+                        },
+                        "sodium" : {
+                           "value_string" : "0.59",
+                           "unit" : "g"
+                        },
+                        "fiber" : {
+                           "value_string" : "5",
+                           "unit" : "g"
+                        }
+                     },
+                     "source" : "packaging",
+                     "source_description" : "",
+                     "preparation" : "as_sold",
+                     "per" : "100g",
+                     "unspecified_nutrients" : [
+                        "alcohol",
+                        "polyols"
+                     ],
+                     "per_quantity" : 100,
+                     "per_unit" : "g"
+                  },
+                  {
+                     "unspecified_nutrients" : [
+                        "fiber"
+                     ],
+                     "per" : "200ml",
+                     "per_unit" : "ml",
+                     "per_quantity" : 200,
+                     "source_description" : "",
+                     "source" : "packaging",
+                     "nutrients" : {
+                        "sodium" : {
+                           "value_string" : "0.295",
+                           "unit" : "g"
+                        },
+                        "salt" : {
+                           "value_string" : "0.75",
+                           "unit" : "g"
+                        },
+                        "fiber" : {
+                           "unit" : "g",
+                           "value_string" : "2.5"
+                        },
+                        "saturated-fat" : {
+                           "unit" : "g",
+                           "value_string" : "1"
+                        },
+                        "sugars" : {
+                           "value_string" : "10",
+                           "unit" : "g"
+                        },
+                        "proteins" : {
+                           "unit" : "g",
+                           "value_string" : "2.5"
+                        },
+                        "fat" : {
+                           "value_string" : "5",
+                           "unit" : "g"
+                        },
+                        "energy-kj" : {
+                           "unit" : "kJ",
+                           "value_string" : "1000"
+                        },
+                        "carbohydrates" : {
+                           "value_string" : "15",
+                           "unit" : "g"
+                        }
+                     },
+                     "preparation" : "prepared"
+                  }
+               ]
+            }
+         }
+      },
+      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH"
+   }
+}

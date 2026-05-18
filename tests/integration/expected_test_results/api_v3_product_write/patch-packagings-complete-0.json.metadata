@@ -1,0 +1,26 @@
+{
+   "api_call" : {
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890016",
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "body" : {
+         "tags_lc" : "en",
+         "fields" : "packagings,packagings_complete",
+         "product" : {
+            "packagings_complete" : 0,
+            "packagings" : [
+               {
+                  "shape" : {
+                     "lc_name" : "bottle"
+                  },
+                  "recycling" : {
+                     "lc_name" : "recycle"
+                  },
+                  "number_of_units" : 1
+               }
+            ]
+         }
+      }
+   }
+}

@@ -1,0 +1,31 @@
+{
+   "api_call" : {
+      "parameters" : {},
+      "content-type" : "application/json; charset=utf-8",
+      "path" : "/api/v3.5/product/4230000001000",
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "nutrition" : {
+               "input_sets" : [
+                  {
+                     "preparation" : "as_sold",
+                     "source_description" : "",
+                     "nutrients" : {
+                        "fat" : {
+                           "value_string" : "11",
+                           "unit" : "g"
+                        }
+                     },
+                     "source" : "packaging",
+                     "per_unit" : "g",
+                     "per_quantity" : 100,
+                     "per" : "100g"
+                  }
+               ]
+            }
+         }
+      },
+      "method" : "PATCH"
+   }
+}

@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "parameters" : {
+         "tagtype" : "not_a_taxonomy"
+      },
+      "body" : null,
+      "method" : "GET",
+      "path" : "/api/v3/taxonomy_canonicalize_tags",
+      "content-type" : null
+   }
+}

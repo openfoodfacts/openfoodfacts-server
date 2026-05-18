@@ -1,0 +1,22 @@
+{
+   "api_call" : {
+      "path" : "/cgi/product_jqm_multilingual.pl",
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "body" : {
+         "user_id" : "tests",
+         "traces" : "",
+         "lc" : "es",
+         "lang" : "fr",
+         "categories" : "",
+         "cc" : "uk",
+         "labels" : "",
+         "brands" : "",
+         "password" : "testtest",
+         "emb_codes" : "",
+         "allergens" : "",
+         "code" : "1234567890341"
+      }
+   }
+}

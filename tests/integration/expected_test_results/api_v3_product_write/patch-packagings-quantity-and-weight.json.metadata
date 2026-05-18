@@ -1,0 +1,37 @@
+{
+   "api_call" : {
+      "method" : "PATCH",
+      "path" : "/api/v3/product/1234567890008",
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
+      "body" : {
+         "tags_lc" : "en",
+         "fields" : "updated,misc_tags,weighers_tags",
+         "product" : {
+            "packagings_add" : [
+               {
+                  "material" : {
+                     "lc_name" : "PET"
+                  },
+                  "shape" : {
+                     "lc_name" : "bottle"
+                  },
+                  "number_of_units" : 6,
+                  "weight_measured" : 10,
+                  "quantity_per_unit" : "25cl"
+               },
+               {
+                  "material" : {
+                     "lc_name" : "wood"
+                  },
+                  "shape" : {
+                     "lc_name" : "box"
+                  },
+                  "weight_specified" : 25.5,
+                  "number_of_units" : 1
+               }
+            ]
+         }
+      }
+   }
+}

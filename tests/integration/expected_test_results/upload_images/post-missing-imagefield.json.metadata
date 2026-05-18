@@ -1,0 +1,15 @@
+{
+   "api_call" : {
+      "path" : "/cgi/product_image_upload.pl",
+      "method" : "POST",
+      "parameters" : {},
+      "body" : {
+         "imgupload_front_en" : [
+            "tests/integration/inputs/upload_images/1.jpg",
+            "1.jpg"
+         ],
+         "code" : "1234567890015"
+      },
+      "content-type" : "multipart/form-data"
+   }
+}

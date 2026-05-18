@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "path" : "/api/v3/taxonomy_suggestions",
+      "body" : null,
+      "parameters" : {
+         "string" : "frais",
+         "lc" : "fr",
+         "tagtype" : "categories"
+      },
+      "method" : "GET",
+      "content-type" : null
+   }
+}

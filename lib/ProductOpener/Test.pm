@@ -67,6 +67,7 @@ use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Cache qw/$memd/;
 use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
 use ProductOpener::Auth qw/get_token_using_client_credentials get_oidc_implementation_level/;
@@ -258,9 +259,13 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# flush Memcached to avoid stale cache entries (search results) from previous test files
+	$memd->flush_all();
 	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
 	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
 	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
+
+	return;
 }
 
 =head2 remove_all_users ()

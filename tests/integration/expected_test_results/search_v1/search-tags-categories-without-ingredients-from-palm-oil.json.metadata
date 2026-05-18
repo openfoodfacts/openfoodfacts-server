@@ -1,0 +1,16 @@
+{
+   "api_call" : {
+      "method" : "GET",
+      "body" : null,
+      "content-type" : null,
+      "parameters" : {
+         "action" : "process",
+         "tag_0" : "breakfast_cereals",
+         "ingredients_from_palm_oil" : "without",
+         "tag_contains_0" : "contains",
+         "tagtype_0" : "categories",
+         "json" : "1"
+      },
+      "path" : "/cgi/search.pl"
+   }
+}

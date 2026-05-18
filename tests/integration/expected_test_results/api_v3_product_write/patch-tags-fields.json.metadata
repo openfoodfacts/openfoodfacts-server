@@ -1,0 +1,46 @@
+{
+   "api_call" : {
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "traces_tags" : [
+               "en:wheat"
+            ],
+            "categories_tags" : [
+               "coffee"
+            ],
+            "labels_tags" : [
+               "en:organic",
+               "fr:max havelaar",
+               "vegan",
+               "Something unrecognized"
+            ],
+            "allergens_tags" : [
+               "en:milk",
+               "en:eggs",
+               "en:peanuts",
+               "en:tree-nuts",
+               "en:fish",
+               "en:shellfish",
+               "en:wheat",
+               "en:soy",
+               "en:mango",
+               "kiwi",
+               "Unrecognized Allergen"
+            ],
+            "stores_tags" : "comma,separated,list",
+            "brands_tags" : [
+               "Some brand",
+               "Aldi"
+            ],
+            "unknown_tags" : [
+               "some value"
+            ]
+         }
+      },
+      "method" : "PATCH",
+      "path" : "/api/v3/product/1234567890100",
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {}
+   }
+}

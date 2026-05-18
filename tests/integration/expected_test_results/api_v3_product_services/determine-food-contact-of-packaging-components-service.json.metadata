@@ -1,0 +1,30 @@
+{
+   "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
+      "body" : {
+         "services" : [
+            "determine_food_contact_of_packaging_components"
+         ],
+         "product" : {
+            "packagings" : [
+               {
+                  "shape" : "en:tray",
+                  "material" : "en:plastic"
+               },
+               {
+                  "material" : "en:plastic",
+                  "shape" : "en:film"
+               },
+               {
+                  "material" : "en:paper",
+                  "shape" : "en:label"
+               }
+            ],
+            "lc" : "en"
+         }
+      },
+      "method" : "POST",
+      "path" : "/api/v3/product_services"
+   }
+}
