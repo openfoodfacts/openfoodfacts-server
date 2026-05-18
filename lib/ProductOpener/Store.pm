@@ -143,6 +143,8 @@ sub get_string_id_for_lang ($lc, $string) {
 		# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 		if ($string !~ /^[a-z\-]+\.[a-zA-Z0-9-_]{8}[a-zA-Z0-9-_]+$/) {
 			$string =~ tr/\N{U+1E9E}/\N{U+00DF}/;    # Actual lower-case for capital ß
+			# Remove UTF-16 surrogate characters (U+D800–U+DFFF) that cause lc() to warn
+			$string =~ s/[\x{D800}-\x{DFFF}]//g;
 			$string = lc($string);
 			$string =~ tr/./-/;
 		}

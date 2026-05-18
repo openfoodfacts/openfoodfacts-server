@@ -886,7 +886,7 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
 
 					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",
-						$product_ref->{nutriments}{$nid . $product_type} / 100.0 * $product_ref->{serving_quantity})
+						($product_ref->{nutriments}{$nid . $product_type} // 0) / 100.0 * $product_ref->{serving_quantity})
 						+ 0.0;
 				}
 				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
