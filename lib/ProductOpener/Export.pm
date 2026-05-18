@@ -626,7 +626,6 @@ sub export_csv ($args_ref) {
 						$value = int($last_updated_t);
 					}
 				}
-				# $populated_fields{"tags_sources.${field}.${source}.tags"} = $field_sort_key . "_tags:${source}";
 				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.tags$/) {
 					my ($tags_field, $source) = ($1, $2);
 					my $tags_ref = deep_get($product_ref, ("tags_sources", $tags_field, $source, "tags"));

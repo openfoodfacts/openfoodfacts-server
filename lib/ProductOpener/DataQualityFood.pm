@@ -51,7 +51,7 @@ BEGIN {
 use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::ProductsTags qw/:all/;
+use ProductOpener::ProductsTags qw(:all);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::Units qw(extract_standard_unit);
 use ProductOpener::Nutrition qw(:all);
