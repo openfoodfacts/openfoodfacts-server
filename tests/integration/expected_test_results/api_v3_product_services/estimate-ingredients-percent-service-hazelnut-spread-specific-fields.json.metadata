@@ -1,0 +1,11 @@
+{
+   "api_call" : {
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/api/v3/product_services",
+      "body" : {
+         "raw_body" : "{\n\t\t\t\"services\":[\"estimate_ingredients_percent\"],\n            \"fields\": [\"ingredients_percent_analysis\"],\n    \"product\": {\n\t\t\"product_name_en\": \"My hazelnut spread\",\n\t\t\"product_name_fr\": \"Ma pÃ¢te aux noisettes\",\n        \"ingredients\": [\n            {\n                \"id\": \"en:sugar\",\n                \"text\": \"Sucre\",\n                \"vegan\": \"yes\",\n                \"vegetarian\": \"yes\"\n            },\n            {\n                \"ciqual_food_code\": \"16129\",\n                \"from_palm_oil\": \"yes\",\n                \"id\": \"en:palm-oil\",\n                \"text\": \"huile de palme\",\n                \"vegan\": \"yes\",\n                \"vegetarian\": \"yes\"\n            },\n            {\n                \"ciqual_food_code\": \"17210\",\n                \"from_palm_oil\": \"no\",\n                \"id\": \"en:hazelnut-oil\",\n                \"percent\": 13,\n                \"text\": \"huile de NOISETTES\",\n                \"vegan\": \"yes\",\n                \"vegetarian\": \"yes\"\n            }\n        ]\n    }\n}"
+      },
+      "content-type" : "application/json; charset=utf-8"
+   }
+}

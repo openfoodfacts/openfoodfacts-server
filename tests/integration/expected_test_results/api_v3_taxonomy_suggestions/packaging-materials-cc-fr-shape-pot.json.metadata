@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "content-type" : null,
+      "path" : "/api/v3/taxonomy_suggestions",
+      "method" : "GET",
+      "parameters" : {
+         "shape" : "pot",
+         "tagtype" : "packaging_materials",
+         "cc" : "fr"
+      },
+      "body" : null
+   }
+}

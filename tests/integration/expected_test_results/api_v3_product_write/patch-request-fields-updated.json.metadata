@@ -1,0 +1,25 @@
+{
+   "api_call" : {
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890009",
+      "method" : "PATCH",
+      "body" : {
+         "product" : {
+            "packagings" : [
+               {
+                  "shape" : {
+                     "lc_name" : "bag"
+                  },
+                  "number_of_units" : 1,
+                  "material" : {
+                     "lc_name" : "plastic"
+                  }
+               }
+            ]
+         },
+         "tags_lc" : "en",
+         "fields" : "updated"
+      },
+      "content-type" : "application/json; charset=utf-8"
+   }
+}

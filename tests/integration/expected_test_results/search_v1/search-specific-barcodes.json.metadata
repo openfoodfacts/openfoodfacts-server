@@ -1,0 +1,12 @@
+{
+   "api_call" : {
+      "path" : "/api/v2/search",
+      "parameters" : {
+         "code" : "2000000000398,2000000000381,2000000000343",
+         "fields" : "code,product_name"
+      },
+      "content-type" : null,
+      "method" : "GET",
+      "body" : null
+   }
+}

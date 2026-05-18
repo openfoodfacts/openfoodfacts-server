@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.91.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.91.0...v2.91.1) (2026-05-12)
+
+
+### Bug Fixes
+
+* small display improvements to test_ingredients_analysis.pl tool ([#13589](https://github.com/openfoodfacts/openfoodfacts-server/issues/13589)) ([f83d028](https://github.com/openfoodfacts/openfoodfacts-server/commit/f83d028c6a5c94f96fb7a73e4c1bf3639b460613))
+
 ## [2.91.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.90.3...v2.91.0) (2026-05-07)
 
 

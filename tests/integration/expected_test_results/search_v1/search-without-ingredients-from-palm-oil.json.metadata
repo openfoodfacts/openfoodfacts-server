@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "path" : "/cgi/search.pl",
+      "body" : null,
+      "method" : "GET",
+      "content-type" : null,
+      "parameters" : {
+         "action" : "process",
+         "ingredients_from_palm_oil" : "without",
+         "json" : "1"
+      }
+   }
+}
