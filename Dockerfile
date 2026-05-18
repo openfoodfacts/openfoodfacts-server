@@ -8,22 +8,7 @@ ARG CPANMOPTS=
 ######################
 # Base modperl image stage
 ######################
-FROM debian:bullseye-slim AS modperl
-
-# BEGIN zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
-
-# Install ca-certificates, so that apt can connect to github pages with HTTPS
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ca-certificates
-
-# Add backport repo
-COPY --chown=root:root ./docker/zxing-cpp-backport.gpg /usr/share/keyrings/
-COPY --chown=root:root  ./docker/zxing-cpp-backport.sources /etc/apt/sources.list.d/
-
-# END zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
+FROM debian:trixie-slim AS modperl
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
