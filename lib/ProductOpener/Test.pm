@@ -260,6 +260,8 @@ sub remove_all_products () {
 	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
 	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
 	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
+
+	return;
 }
 
 =head2 remove_all_users ()
