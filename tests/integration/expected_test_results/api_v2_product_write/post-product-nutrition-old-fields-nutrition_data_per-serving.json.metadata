@@ -1,0 +1,20 @@
+{
+   "api_call" : {
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "body" : {
+         "nutrition_data_per" : "serving",
+         "product_name_en" : "Test old nutrition fields - per serving",
+         "serving_size" : "10g",
+         "nutriment_energy" : "5",
+         "password" : "testtest",
+         "nutriment_fat_unit" : "g",
+         "nutriment_energy_unit" : "kcal",
+         "nutriment_fat" : "2",
+         "code" : "1234567890008",
+         "user_id" : "tests"
+      },
+      "parameters" : {},
+      "path" : "/cgi/product_jqm_multilingual.pl"
+   }
+}

@@ -333,7 +333,7 @@ sub org_route($request_ref) {
 sub api_route($request_ref) {
 	my @components = @{$request_ref->{components}};
 	my $api = $components[1];    # v0, v3.1
-	my $api_version = $api =~ /v(\d+(\.\d+)?)/ ? $1 : 0;
+	my $api_version = (defined $api and $api =~ /v(\d+(\.\d+)?)/) ? $1 : 0;
 	my $api_action = $components[2];    # product
 
 	# API action is required

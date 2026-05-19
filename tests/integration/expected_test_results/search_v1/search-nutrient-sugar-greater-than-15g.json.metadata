@@ -1,0 +1,13 @@
+{
+   "api_call" : {
+      "body" : null,
+      "method" : "GET",
+      "parameters" : {
+         "action" : "process",
+         "json" : "1",
+         "sugars_100g" : ">15"
+      },
+      "content-type" : null,
+      "path" : "/cgi/search.pl"
+   }
+}

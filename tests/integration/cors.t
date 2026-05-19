@@ -217,6 +217,7 @@ $tests_ref = [
 			"Access-Control-Allow-Headers" =>
 				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
 		},
+		expected_type => "none",    # we only check CORS headers, not the search results body
 	},
 	{
 		test_case => 'options-search-v1',
