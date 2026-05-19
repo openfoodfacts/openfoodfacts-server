@@ -2504,8 +2504,8 @@ sub generate_tags_taxonomy_extract ($tagtype, $tags_ref, $options_ref, $lcs_ref)
 		{tagtype => $tagtype, tags_ref => $tags_ref, options_ref => $options_ref, lcs_ref => $lcs_ref})
 		if $log->is_debug();
 
-	# Return empty hash if the taxonomy does not exist
-	if (not defined $translations_to{$tagtype}) {
+	# Return empty hash if tagtype is not defined or the taxonomy does not exist
+	if ((not defined $tagtype) or (not defined $translations_to{$tagtype})) {
 		$log->debug("taxonomy not found", {tagtype => $tagtype}) if $log->is_debug();
 		return {};
 	}
@@ -4303,6 +4303,11 @@ Can be - to indicate that the tag is a negative tag
 =cut
 
 sub canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef) {
+
+	if (not defined $tagtype) {
+		$log->warn("canonicalize_tag_link called with undefined tagtype", {tagid => $tagid}) if $log->is_warn();
+		return '';
+	}
 
 	if (defined $taxonomy_fields{$tagtype}) {
 		die "ERROR: canonicalize_tag_link called for a taxonomy tagtype: $tagtype - tagid: $tagid - $!";

@@ -1551,8 +1551,16 @@ sub display_mission ($request_ref) {
 
 	my $missionid = $request_ref->{missionid};
 
-	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html");
-	my $html = join('', (<$IN>));
+	my $html = '';
+	if (
+		open(
+			my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html"
+		)
+		)
+	{
+		$html = join('', (<$IN>));
+		close($IN);
+	}
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{canon_url} = "/facets" . canonicalize_tag_link("missions", $missionid);
@@ -2929,11 +2937,11 @@ sub display_points_ranking ($tagtype, $tagid, $request_ref) {
 
 		$html
 			.= "<tr><td><a href=\"$link\">$display_key</a></td><td>$rank</td><td>"
-			. $points_ref->{$tagid}{$key}
+			. ($points_ref->{$tagid}{$key} // '')
 			. "</td><td>"
-			. $ambassadors_ranks{$key}
+			. ($ambassadors_ranks{$key} // '')
 			. "</td><td>"
-			. $ambassadors_points_ref->{$tagid}{$key}
+			. ($ambassadors_points_ref->{$tagid}{$key} // '')
 			. "</td></tr>\n";
 
 	}
@@ -3059,7 +3067,7 @@ sub display_points ($request_ref) {
 
 	my $description = '';
 
-	if ($tagtype eq 'users') {
+	if ((defined $tagtype) and ($tagtype eq 'users')) {
 		my $user_ref = retrieve_user($tagid);
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
@@ -4359,7 +4367,7 @@ HTML
 	# If we have no resultings products or aggregated tags, and the tag value does not exist in the taxonomy,
 	# we do not output the tag value in the page title and content
 	if (
-		($request_ref->{structured_response}{count} == 0)
+		(($request_ref->{structured_response}{count} // 0) == 0)
 		and (
 			(
 				(
@@ -4706,7 +4714,10 @@ sub add_params_and_filters_to_query ($request_ref, $query_ref) {
 		# Some parameters like page / page_size and sort_by are related to the query
 		# but not query filters, we set them at the request object level
 		elsif (($field eq "page") or ($field eq "page_size")) {
-			$request_ref->{$field} = $params_ref->{$field} + 0;    # Make sure we have a number
+			my $numeric_param = $params_ref->{$field};
+			$numeric_param =~ s/\D.*$//    # Strip anything from the first non-digit (e.g. "50?sort_by=...")
+				if defined $numeric_param;
+			$request_ref->{$field} = ($numeric_param // 0) + 0;    # Make sure we have a number
 			delete $params_ref->{$field};
 		}
 
@@ -5545,7 +5556,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			# For non API queries, we will display the products in a template (this is for SEO, before personal search products are displayed through Javascript)
 			if (not defined $request_ref->{api}) {
-				my $product_display_name = $product_ref->{product_display_name};
+				my $product_display_name = $product_ref->{product_display_name} // '';
 				# Prevent the quantity "750 g" to be split on two lines
 				$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 
@@ -9713,7 +9724,7 @@ sub display_product_api ($request_ref) {
 		$response{status_verbose} = 'no code or invalid code';
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		if ($request_ref->{api_version} >= 1) {
+		if (($request_ref->{api_version} // 0) >= 1) {
 			$request_ref->{status_code} = 404;
 		}
 		$response{status} = 0;
@@ -9766,7 +9777,7 @@ sub display_product_api ($request_ref) {
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ($request_ref->{api_version} <= 1) {
+		if (not defined $request_ref->{api_version} or $request_ref->{api_version} <= 1) {
 
 			if (defined $product_ref->{ingredients}) {
 
