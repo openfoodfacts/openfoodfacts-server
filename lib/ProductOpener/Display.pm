@@ -1552,7 +1552,12 @@ sub display_mission ($request_ref) {
 	my $missionid = $request_ref->{missionid};
 
 	my $html = '';
-	if (open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html")) {
+	if (
+		open(
+			my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html"
+		)
+		)
+	{
 		$html = join('', (<$IN>));
 		close($IN);
 	}
