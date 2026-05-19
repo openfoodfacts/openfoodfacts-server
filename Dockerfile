@@ -164,7 +164,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         pkg-config \
         libzxing-dev \
         # Imager::zxing - decoders
-        lbavif-dev \
+        libavif-dev \
         libaom-dev \
         libavcodec-dev \
         libavutil-dev \
