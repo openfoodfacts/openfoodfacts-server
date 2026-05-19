@@ -169,7 +169,7 @@ my $tests_ref = [
 			"Access-Control-Request-Method" => "GET",
 		},
 		headers => {
-			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
+			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
 		expected_type => "none",
