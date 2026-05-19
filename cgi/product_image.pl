@@ -169,7 +169,7 @@ if (defined $image_ref->{rev}) {
 	}
 }
 
-my $photographer_link;
+my $photographer_link = "";
 if (defined $photographer) {
 	$photographer_link
 		= "<a href=\"" . canonicalize_tag_link("photographers", $photographer) . "\" rel=\"author\">$photographer</a>";

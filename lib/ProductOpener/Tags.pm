@@ -4306,7 +4306,7 @@ sub canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef) {
 
 	if (not defined $tagtype) {
 		$log->warn("canonicalize_tag_link called with undefined tagtype", {tagid => $tagid}) if $log->is_warn();
-		return '/';
+		return '';
 	}
 
 	if (defined $taxonomy_fields{$tagtype}) {
