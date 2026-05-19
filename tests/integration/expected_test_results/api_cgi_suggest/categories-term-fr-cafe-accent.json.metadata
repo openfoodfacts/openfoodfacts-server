@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "parameters" : {
-         "tagtype" : "categories",
-         "term" : "CafÃÂ©",
-         "lc" : "fr"
-      },
       "body" : null,
+      "content-type" : null,
       "method" : "GET",
-      "path" : "/cgi/suggest.pl",
-      "content-type" : null
+      "parameters" : {
+         "lc" : "fr",
+         "tagtype" : "categories",
+         "term" : "CafÃÂ©"
+      },
+      "path" : "/cgi/suggest.pl"
    }
 }

@@ -94,7 +94,7 @@ no warnings qw(experimental::signatures);
 # Should be used internally only (see: construct_test_url to build urls in tests)
 my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
 my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
-my $metadata_json_encoder = JSON::MaybeXS->new(utf8 => 1, pretty => 1);
+my $metadata_json_encoder = JSON::MaybeXS->new(canonical => 1, utf8 => 1, pretty => 1);
 
 =head2 wait_auth()
 

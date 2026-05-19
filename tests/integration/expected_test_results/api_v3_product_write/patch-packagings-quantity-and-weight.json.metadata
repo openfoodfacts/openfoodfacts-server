@@ -5,21 +5,21 @@
          "product" : {
             "packagings_add" : [
                {
-                  "weight_measured" : 10,
-                  "shape" : {
-                     "lc_name" : "bottle"
-                  },
-                  "quantity_per_unit" : "25cl",
                   "material" : {
                      "lc_name" : "PET"
                   },
-                  "number_of_units" : 6
+                  "number_of_units" : 6,
+                  "quantity_per_unit" : "25cl",
+                  "shape" : {
+                     "lc_name" : "bottle"
+                  },
+                  "weight_measured" : 10
                },
                {
-                  "number_of_units" : 1,
                   "material" : {
                      "lc_name" : "wood"
                   },
+                  "number_of_units" : 1,
                   "shape" : {
                      "lc_name" : "box"
                   },
@@ -30,8 +30,8 @@
          "tags_lc" : "en"
       },
       "content-type" : "application/json; charset=utf-8",
-      "parameters" : {},
       "method" : "PATCH",
+      "parameters" : {},
       "path" : "/api/v3/product/1234567890008"
    }
 }
