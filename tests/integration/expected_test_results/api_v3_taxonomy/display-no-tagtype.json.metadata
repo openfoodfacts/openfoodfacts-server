@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "body" : null,
-      "content-type" : null,
+      "method" : "GET",
       "path" : "/api/v3/taxonomy_display_tags",
       "parameters" : {},
-      "method" : "GET"
+      "content-type" : null,
+      "body" : null
    }
 }

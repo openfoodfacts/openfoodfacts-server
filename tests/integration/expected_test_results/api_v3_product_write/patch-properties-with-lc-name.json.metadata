@@ -1,27 +1,27 @@
 {
    "api_call" : {
+      "path" : "/api/v3/product/1234567890010",
+      "parameters" : {},
       "body" : {
          "tags_lc" : "en",
          "product" : {
             "packagings" : [
                {
-                  "number_of_units" : 2,
                   "material" : {
                      "lc_name" : "PET"
+                  },
+                  "recycling" : {
+                     "lc_name" : "discard"
                   },
                   "shape" : {
                      "lc_name" : "film"
                   },
-                  "recycling" : {
-                     "lc_name" : "discard"
-                  }
+                  "number_of_units" : 2
                }
             ]
          }
       },
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {},
       "method" : "PATCH",
-      "path" : "/api/v3/product/1234567890010"
+      "content-type" : "application/json; charset=utf-8"
    }
 }

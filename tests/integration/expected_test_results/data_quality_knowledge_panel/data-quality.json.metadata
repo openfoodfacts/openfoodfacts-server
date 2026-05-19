@@ -4,9 +4,9 @@
          "fields" : "knowledge_panels",
          "knowledge_panels_client" : "web"
       },
-      "method" : "GET",
-      "body" : null,
       "content-type" : null,
-      "path" : "/api/v2/product/200000000002"
+      "path" : "/api/v2/product/200000000002",
+      "body" : null,
+      "method" : "GET"
    }
 }

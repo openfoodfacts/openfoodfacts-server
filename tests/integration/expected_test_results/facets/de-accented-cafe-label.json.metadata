@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "content-type" : null,
-      "method" : "GET",
-      "path" : "/labels/cafÃ©-label.json",
       "parameters" : {
          "fields" : "product_name,labels_tags"
       },
-      "body" : null
+      "path" : "/labels/cafÃ©-label.json",
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET"
    }
 }

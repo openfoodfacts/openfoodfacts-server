@@ -1,10 +1,9 @@
 {
    "api_call" : {
-      "parameters" : {},
-      "method" : "PATCH",
       "path" : "/api/v3/product/1234567890009",
+      "parameters" : {},
       "body" : {
-         "fields" : "updated,attribute_groups,knowledge_panels",
+         "tags_lc" : "en",
          "product" : {
             "packagings" : [
                {
@@ -18,8 +17,9 @@
                }
             ]
          },
-         "tags_lc" : "en"
+         "fields" : "updated,attribute_groups,knowledge_panels"
       },
-      "content-type" : "application/json; charset=utf-8"
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH"
    }
 }

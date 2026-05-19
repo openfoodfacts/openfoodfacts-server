@@ -1,14 +1,14 @@
 {
    "api_call" : {
-      "method" : "PATCH",
-      "path" : "/api/v3/product/1234567890300",
-      "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
       "body" : {
+         "tags_lc" : "en",
          "product" : {
             "product_type" : "invalid product type"
-         },
-         "tags_lc" : "en"
-      }
+         }
+      },
+      "method" : "PATCH",
+      "path" : "/api/v3/product/1234567890300"
    }
 }

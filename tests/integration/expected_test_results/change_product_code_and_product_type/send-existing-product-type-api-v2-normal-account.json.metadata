@@ -5,8 +5,8 @@
          "product_type" : "food",
          "code" : "1234567890102"
       },
-      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
       "path" : "/cgi/product_jqm_multilingual.pl",
-      "method" : "POST"
+      "content-type" : "application/x-www-form-urlencoded"
    }
 }

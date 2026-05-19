@@ -2,11 +2,11 @@
    "api_call" : {
       "method" : "GET",
       "path" : "/api/v3/product/4260392550101",
-      "parameters" : {
-         "activate_knowledge_panels_simplified" : "true",
-         "fields" : "knowledge_panels"
-      },
       "body" : null,
-      "content-type" : null
+      "content-type" : null,
+      "parameters" : {
+         "fields" : "knowledge_panels",
+         "activate_knowledge_panels_simplified" : "true"
+      }
    }
 }

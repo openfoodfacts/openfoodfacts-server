@@ -1,12 +1,12 @@
 {
    "api_call" : {
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "path" : "/api/v2/search",
       "parameters" : {
          "code" : "(01)02000000000398(22)2A",
          "fields" : "code,product_name"
-      },
-      "content-type" : null,
-      "method" : "GET",
-      "body" : null,
-      "path" : "/api/v2/search"
+      }
    }
 }

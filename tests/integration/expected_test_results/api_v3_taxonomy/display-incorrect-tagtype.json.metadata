@@ -1,10 +1,10 @@
 {
    "api_call" : {
+      "path" : "/api/v3/taxonomy_display_tags",
       "method" : "GET",
       "parameters" : {
          "tagtype" : "not_a_taxonomy"
       },
-      "path" : "/api/v3/taxonomy_display_tags",
       "content-type" : null,
       "body" : null
    }

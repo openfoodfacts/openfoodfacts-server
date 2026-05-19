@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "path" : "/api/v2/preferences",
       "body" : null,
+      "path" : "/api/v2/preferences",
+      "content-type" : null,
       "method" : "GET",
-      "parameters" : {},
-      "content-type" : null
+      "parameters" : {}
    }
 }
