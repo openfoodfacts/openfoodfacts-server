@@ -1,18 +1,18 @@
 {
    "api_call" : {
-      "content-type" : "application/x-www-form-urlencoded",
       "body" : {
          "code" : "1234567890008",
-         "password" : "testtest",
-         "user_id" : "tests",
+         "nutriment_energy" : "",
          "nutriment_fat" : "",
-         "product_name_en" : "Test old nutrition fields - remove value",
-         "nutrition_data_per" : "100g",
          "nutriment_salt" : "",
-         "nutriment_energy" : ""
+         "nutrition_data_per" : "100g",
+         "password" : "testtest",
+         "product_name_en" : "Test old nutrition fields - remove value",
+         "user_id" : "tests"
       },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
       "parameters" : {},
-      "path" : "/cgi/product_jqm_multilingual.pl",
-      "method" : "POST"
+      "path" : "/cgi/product_jqm_multilingual.pl"
    }
 }

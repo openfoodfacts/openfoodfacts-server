@@ -1,13 +1,13 @@
 {
    "api_call" : {
       "body" : {
-         "imgid" : "1",
          "code" : "1234567890012",
-         "id" : "ingredients_es"
+         "id" : "ingredients_es",
+         "imgid" : "1"
       },
-      "method" : "POST",
-      "path" : "/cgi/product_image_crop.pl",
       "content-type" : "application/x-www-form-urlencoded",
-      "parameters" : {}
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_image_crop.pl"
    }
 }

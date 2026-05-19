@@ -3,12 +3,11 @@
       "body" : {
          "fields" : "updated",
          "product" : {
-            "stores_tags" : "comma,separated,list",
-            "categories_tags" : [
-               "coffee"
-            ],
             "brands_tags" : [
                "Some brand"
+            ],
+            "categories_tags" : [
+               "coffee"
             ],
             "labels_tags" : [
                "en:organic",
@@ -16,14 +15,15 @@
                "vegan",
                "Something unrecognized"
             ],
+            "stores_tags" : "comma,separated,list",
             "unknown_tags" : [
                "some value"
             ]
          }
       },
-      "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
+      "parameters" : {},
       "path" : "/api/v3/product/1234567890100"
    }
 }

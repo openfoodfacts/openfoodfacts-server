@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "method" : "GET",
+      "body" : null,
       "content-type" : null,
-      "path" : "/cgi/suggest.pl",
+      "method" : "GET",
       "parameters" : {
          "tagtype" : "categories",
          "term" : "strawberry"
       },
-      "body" : null
+      "path" : "/cgi/suggest.pl"
    }
 }

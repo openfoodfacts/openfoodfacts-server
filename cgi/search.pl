@@ -304,7 +304,9 @@ if (    ($sort_by ne 'created_t')
 	$sort_by = 'unique_scans_n';
 }
 
-my $limit = 0 + (single_param('page_size') || $options{default_web_products_page_size});
+my $page_size_param = single_param('page_size') || $options{default_web_products_page_size};
+$page_size_param =~ s/\D.*$//;    # Strip anything from the first non-digit (e.g. "50?sort_by=...")
+my $limit = 0 + ($page_size_param || $options{default_web_products_page_size});
 
 if (defined $request_ref->{user_id}) {
 	if ($limit > $options{max_products_page_size_for_logged_in_users}) {

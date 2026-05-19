@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "method" : "GET",
-      "content-type" : null,
-      "parameters" : {
-         "term" : "frais",
-         "tagtype" : "categories",
-         "lc" : "fr"
-      },
       "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "lc" : "fr",
+         "tagtype" : "categories",
+         "term" : "frais"
+      },
       "path" : "/cgi/suggest.pl"
    }
 }

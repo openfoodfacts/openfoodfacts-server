@@ -1,8 +1,5 @@
 {
    "api_call" : {
-      "path" : "/api/v3/product/test",
-      "content-type" : "application/json; charset=utf-8",
-      "method" : "PATCH",
       "body" : {
          "fields" : "updated,ingredients,nutriments,nutriments_estimated,nutriscore_grade,nutriscore_score,nutriscore_data",
          "product" : {
@@ -13,6 +10,9 @@
             "lang" : "fr"
          }
       },
-      "parameters" : {}
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/test"
    }
 }

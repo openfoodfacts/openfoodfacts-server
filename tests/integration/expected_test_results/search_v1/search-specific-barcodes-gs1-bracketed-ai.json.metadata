@@ -3,10 +3,10 @@
       "body" : null,
       "content-type" : null,
       "method" : "GET",
-      "path" : "/api/v2/search",
       "parameters" : {
          "code" : "(01)02000000000398(22)2A",
          "fields" : "code,product_name"
-      }
+      },
+      "path" : "/api/v2/search"
    }
 }

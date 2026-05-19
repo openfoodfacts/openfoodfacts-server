@@ -1,12 +1,12 @@
 {
    "api_call" : {
       "body" : null,
-      "path" : "/api/v3/product/4260392550101",
+      "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "lc" : "fr",
-         "fields" : "knowledge_panels"
+         "fields" : "knowledge_panels",
+         "lc" : "fr"
       },
-      "content-type" : null
+      "path" : "/api/v3/product/4260392550101"
    }
 }

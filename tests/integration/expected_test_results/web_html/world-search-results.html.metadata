@@ -1,11 +1,11 @@
 {
    "api_call" : {
       "body" : null,
-      "path" : "/cgi/search.pl",
-      "method" : "GET",
       "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "search_terms" : "apple"
-      }
+      },
+      "path" : "/cgi/search.pl"
    }
 }

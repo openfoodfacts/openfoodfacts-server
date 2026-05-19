@@ -1,11 +1,11 @@
 {
    "api_call" : {
+      "body" : null,
+      "content-type" : null,
       "method" : "GET",
       "parameters" : {
          "parent_ingredients" : "cheese,flour,tomato,olive oil"
       },
-      "path" : "/search",
-      "body" : null,
-      "content-type" : null
+      "path" : "/search"
    }
 }

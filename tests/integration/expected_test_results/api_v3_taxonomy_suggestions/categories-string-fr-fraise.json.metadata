@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "path" : "/api/v3/taxonomy_suggestions",
       "body" : null,
       "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "lc" : "fr",
-         "tagtype" : "categories",
-         "string" : "fraise"
+         "string" : "fraise",
+         "tagtype" : "categories"
       },
-      "method" : "GET"
+      "path" : "/api/v3/taxonomy_suggestions"
    }
 }

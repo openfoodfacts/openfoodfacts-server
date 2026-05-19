@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
+      "body" : null,
       "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "lc" : "fr"
       },
-      "path" : "/api/v3/external_sources",
-      "body" : null
+      "path" : "/api/v3/external_sources"
    }
 }

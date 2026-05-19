@@ -6,26 +6,26 @@
             "nutrition" : {
                "input_sets" : [
                   {
-                     "preparation" : "as_sold",
                      "nutrients" : {
                         "alcohol" : {
                            "unit" : "g",
                            "value_string" : "0.5"
                         }
                      },
-                     "source_description" : "",
-                     "source" : "packaging",
                      "per" : "100g",
                      "per_quantity" : 100,
-                     "per_unit" : "g"
+                     "per_unit" : "g",
+                     "preparation" : "as_sold",
+                     "source" : "packaging",
+                     "source_description" : ""
                   }
                ]
             }
          }
       },
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
-      "path" : "/api/v3.5/product/4230000001000",
-      "content-type" : "application/json; charset=utf-8"
+      "path" : "/api/v3.5/product/4230000001000"
    }
 }

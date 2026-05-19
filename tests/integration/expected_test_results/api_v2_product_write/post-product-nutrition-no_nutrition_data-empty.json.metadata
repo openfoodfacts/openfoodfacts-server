@@ -1,15 +1,15 @@
 {
    "api_call" : {
-      "content-type" : "application/x-www-form-urlencoded",
       "body" : {
-         "user_id" : "tests",
-         "product_name_en" : "Test no_nutrition_data empty",
          "code" : "1234567890007",
+         "no_nutrition_data" : "",
          "password" : "testtest",
-         "no_nutrition_data" : ""
+         "product_name_en" : "Test no_nutrition_data empty",
+         "user_id" : "tests"
       },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
       "parameters" : {},
-      "path" : "/cgi/product_jqm_multilingual.pl",
-      "method" : "POST"
+      "path" : "/cgi/product_jqm_multilingual.pl"
    }
 }

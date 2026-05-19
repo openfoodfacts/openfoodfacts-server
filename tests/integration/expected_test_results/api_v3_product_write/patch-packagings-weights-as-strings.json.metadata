@@ -1,47 +1,47 @@
 {
    "api_call" : {
-      "path" : "/api/v3/product/1234567890017",
       "body" : {
+         "fields" : "updated,misc_tags,weighers_tags",
          "product" : {
             "packagings_add" : [
                {
-                  "number_of_units" : 6,
-                  "weight_measured" : "10",
-                  "quantity_per_unit" : "25cl",
                   "material" : {
                      "lc_name" : "PET"
                   },
+                  "number_of_units" : 6,
+                  "quantity_per_unit" : "25cl",
                   "shape" : {
                      "lc_name" : "bottle"
-                  }
+                  },
+                  "weight_measured" : "10"
                },
                {
-                  "shape" : {
-                     "lc_name" : "box"
-                  },
                   "material" : {
                      "lc_name" : "wood"
                   },
-                  "weight_specified" : "25.5",
-                  "number_of_units" : 1
+                  "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "box"
+                  },
+                  "weight_specified" : "25.5"
                },
                {
-                  "shape" : {
-                     "lc_name" : "film"
-                  },
                   "material" : {
                      "lc_name" : "plastic"
                   },
                   "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "film"
+                  },
                   "weight_specified" : "2,01"
                }
             ]
          },
-         "fields" : "updated,misc_tags,weighers_tags",
          "tags_lc" : "en"
       },
-      "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
-      "method" : "PATCH"
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890017"
    }
 }

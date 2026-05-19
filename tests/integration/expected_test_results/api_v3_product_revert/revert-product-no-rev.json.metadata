@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "parameters" : {},
-      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "code" : "1234567890100",
          "fields" : "code,rev,product_name_en,brands_tags,categories_tags"
       },
-      "path" : "/api/v3/product_revert",
-      "method" : "POST"
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/api/v3/product_revert"
    }
 }

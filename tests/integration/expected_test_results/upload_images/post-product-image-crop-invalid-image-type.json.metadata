@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "parameters" : {},
-      "content-type" : "application/x-www-form-urlencoded",
-      "path" : "/cgi/product_image_crop.pl",
-      "method" : "POST",
       "body" : {
-         "id" : "invalid_image_type_fr",
          "code" : "1234567890012",
+         "id" : "invalid_image_type_fr",
          "imgid" : "1"
-      }
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_image_crop.pl"
    }
 }

@@ -1,12 +1,12 @@
 {
    "api_call" : {
       "body" : {
-         "services" : [
-            "parse_ingredients_text"
-         ],
          "product" : {
             "lc" : "en"
-         }
+         },
+         "services" : [
+            "parse_ingredients_text"
+         ]
       },
       "content-type" : "application/json; charset=utf-8",
       "method" : "POST",

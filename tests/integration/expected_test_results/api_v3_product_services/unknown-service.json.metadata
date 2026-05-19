@@ -1,14 +1,14 @@
 {
    "api_call" : {
-      "path" : "/api/v3/product_services",
-      "parameters" : {},
-      "method" : "POST",
-      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "product" : {},
          "services" : [
             "unknown"
          ]
-      }
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/api/v3/product_services"
    }
 }

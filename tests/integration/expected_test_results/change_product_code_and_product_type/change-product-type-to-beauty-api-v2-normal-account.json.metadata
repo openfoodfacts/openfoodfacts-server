@@ -4,9 +4,9 @@
          "code" : "1234567890202",
          "product_type" : "beauty"
       },
-      "parameters" : {},
+      "content-type" : "application/x-www-form-urlencoded",
       "method" : "POST",
-      "path" : "/cgi/product_jqm_multilingual.pl",
-      "content-type" : "application/x-www-form-urlencoded"
+      "parameters" : {},
+      "path" : "/cgi/product_jqm_multilingual.pl"
    }
 }

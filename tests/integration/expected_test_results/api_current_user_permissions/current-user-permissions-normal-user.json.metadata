@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "method" : "GET",
-      "path" : "/api/v3/current-user/permissions",
-      "content-type" : null,
       "body" : null,
-      "parameters" : {}
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/api/v3/current-user/permissions"
    }
 }

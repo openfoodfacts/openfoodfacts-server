@@ -524,7 +524,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 
 			# Save the JSON file so that it can be more easily debugged, and that we can monitor issues
 			my $target_dir = "$BASE_DIRS{PUBLIC_FILES}/debug/knowledge_panels/";
-			my $filename = $panel_id . $product_ref->{code} . ".json";
+			my $filename = $panel_id . ($product_ref->{code} // '') . ".json";
 			my $target_file = "$target_dir/" . $filename;
 			my $url = "/files/debug/knowledge_panels/" . $filename;
 			ensure_dir_created_or_die($target_dir);

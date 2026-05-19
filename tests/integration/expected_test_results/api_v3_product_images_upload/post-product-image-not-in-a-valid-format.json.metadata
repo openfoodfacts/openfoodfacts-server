@@ -3,9 +3,9 @@
       "body" : {
          "image_data_base64" : "dGhpcyBpcyBhIHRleHQgZmlsZQo="
       },
-      "path" : "/api/v3/product/1234567890012/images",
-      "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
-      "method" : "POST"
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890012/images"
    }
 }

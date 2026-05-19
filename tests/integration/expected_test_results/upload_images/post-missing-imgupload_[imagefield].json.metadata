@@ -7,6 +7,8 @@
       "path" : "/cgi/product_image_upload.pl",
       "method" : "POST",
       "content-type" : "application/x-www-form-urlencoded",
-      "parameters" : {}
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_image_upload.pl"
    }
 }
