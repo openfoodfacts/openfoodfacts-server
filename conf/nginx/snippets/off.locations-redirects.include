@@ -21,7 +21,7 @@ location = /faire-un-don-a-open-food-facts {
 }
 
 location = /donner-a-open-food-facts {
-        try_files /donate/fr.html =404;
+	try_files /donate/fr.html =404;
 }
 
 # AR
