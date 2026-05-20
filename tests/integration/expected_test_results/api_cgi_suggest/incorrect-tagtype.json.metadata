@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/cgi/suggest.pl",
       "parameters" : {
          "tagtype" : "not_a_taxonomy"
@@ -7,5 +8,14 @@
       "body" : null,
       "method" : "GET",
       "content-type" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "tagtype" : "not_a_taxonomy"
+      },
+      "path" : "/cgi/suggest.pl"
+>>>>>>> main
    }
 }

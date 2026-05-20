@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
       "body" : {
@@ -20,6 +21,28 @@
          "fields" : "updated"
       },
       "method" : "PATCH",
+=======
+      "body" : {
+         "fields" : "updated",
+         "product" : {
+            "packagings" : [
+               {
+                  "material" : {
+                     "lc_name" : "plastic"
+                  },
+                  "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "bag"
+                  }
+               }
+            ]
+         },
+         "tags_lc" : "en"
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+>>>>>>> main
       "path" : "/api/v3/product/1234567890009"
    }
 }

@@ -1128,6 +1128,7 @@ that require a lot of resources (especially aggregation queries).
 =cut
 
 sub display_no_index_page_and_exit () {
+	write_cors_headers();
 	my $html
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>NOINDEX</h1><p>We detected that your browser is a web crawling bot, and this page should not be indexed by web crawlers. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 	my $http_headers_ref = {
@@ -1155,6 +1156,7 @@ Return a page with a 429 status code and a message explaining that the user is s
 =cut
 
 sub display_too_many_requests_page_and_exit() {
+	write_cors_headers();
 	my $http_headers_ref = {
 		'-status' => 429,
 		'-charset' => 'UTF-8',

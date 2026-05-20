@@ -1,11 +1,20 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/api/v2/product/12345678",
+=======
+      "body" : null,
+      "content-type" : null,
+>>>>>>> main
       "method" : "GET",
       "parameters" : {
          "jqm" : "1"
       },
+<<<<<<< HEAD
       "body" : null,
       "content-type" : null
+=======
+      "path" : "/api/v2/product/12345678"
+>>>>>>> main
    }
 }

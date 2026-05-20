@@ -1,10 +1,15 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/api/v3/product/1234567890009",
       "method" : "PATCH",
       "body" : {
          "fields" : "all",
          "tags_lc" : "en",
+=======
+      "body" : {
+         "fields" : "all",
+>>>>>>> main
          "product" : {
             "packagings" : [
                {
@@ -17,9 +22,19 @@
                   }
                }
             ]
+<<<<<<< HEAD
          }
       },
       "parameters" : {},
       "content-type" : "application/json; charset=utf-8"
+=======
+         },
+         "tags_lc" : "en"
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890009"
+>>>>>>> main
    }
 }

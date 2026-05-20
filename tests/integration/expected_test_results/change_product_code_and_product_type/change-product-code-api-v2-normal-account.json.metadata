@@ -4,9 +4,16 @@
          "code" : "1234567890100",
          "new_code" : "1234567890131"
       },
+<<<<<<< HEAD
       "parameters" : {},
       "content-type" : "application/x-www-form-urlencoded",
       "path" : "/cgi/product_jqm_multilingual.pl",
       "method" : "POST"
+=======
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_jqm_multilingual.pl"
+>>>>>>> main
    }
 }

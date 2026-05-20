@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/cgi/product.pl",
       "parameters" : {},
       "content-type" : "application/x-www-form-urlencoded",
@@ -10,5 +11,17 @@
          "action" : "process",
          "type" : "edit"
       }
+=======
+      "body" : {
+         "action" : "process",
+         "code" : "1234567890102",
+         "product_name" : "Test product 2 - updated",
+         "type" : "edit"
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product.pl"
+>>>>>>> main
    }
 }

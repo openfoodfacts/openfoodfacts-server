@@ -4,8 +4,15 @@
       "content-type" : null,
       "path" : "/cgi/search.pl",
       "body" : null,
+      "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "search_terms" : "apple"
+<<<<<<< HEAD
       }
+=======
+      },
+      "path" : "/cgi/search.pl"
+>>>>>>> main
    }
 }

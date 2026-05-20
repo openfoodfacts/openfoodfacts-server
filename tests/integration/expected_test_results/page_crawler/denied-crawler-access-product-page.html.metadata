@@ -1,9 +1,17 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "path" : "/product/0200000000235/only-product-nutella",
       "parameters" : {},
       "body" : null,
       "content-type" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/product/0200000000235/only-product-nutella"
+>>>>>>> main
    }
 }

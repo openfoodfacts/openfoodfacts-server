@@ -5,12 +5,21 @@
             "nutrition" : {
                "input_sets" : [
                   {
+<<<<<<< HEAD
                      "per" : "200ml",
                      "preparation" : "prepared",
                      "per_unit" : "ml",
                      "source" : "packaging",
                      "nutrients" : null,
                      "per_quantity" : 200,
+=======
+                     "nutrients" : null,
+                     "per" : "200ml",
+                     "per_quantity" : 200,
+                     "per_unit" : "ml",
+                     "preparation" : "prepared",
+                     "source" : "packaging",
+>>>>>>> main
                      "source_description" : ""
                   }
                ]
@@ -18,9 +27,15 @@
          },
          "fields" : "updated"
       },
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
+<<<<<<< HEAD
       "path" : "/api/v3.5/product/4230000001000",
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {}
+=======
+      "parameters" : {},
+      "path" : "/api/v3.5/product/4230000001000"
+>>>>>>> main
    }
 }

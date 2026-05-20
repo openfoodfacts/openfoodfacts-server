@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/api/v2/product/0900000000139",
       "parameters" : {
          "fields" : "images,owner,selected_images"
@@ -7,5 +8,14 @@
       "body" : null,
       "method" : "GET",
       "content-type" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "fields" : "images,owner,selected_images"
+      },
+      "path" : "/api/v2/product/0900000000139"
+>>>>>>> main
    }
 }

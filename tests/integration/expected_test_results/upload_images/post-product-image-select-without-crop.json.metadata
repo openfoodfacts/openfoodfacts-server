@@ -1,13 +1,23 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : "application/x-www-form-urlencoded",
+=======
+>>>>>>> main
       "body" : {
          "code" : "1234567890012",
-         "imgid" : "1",
-         "id" : "ingredients_es"
+         "id" : "ingredients_es",
+         "imgid" : "1"
       },
+<<<<<<< HEAD
       "method" : "POST",
       "path" : "/cgi/product_image_crop.pl",
       "parameters" : {}
+=======
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_image_crop.pl"
+>>>>>>> main
    }
 }

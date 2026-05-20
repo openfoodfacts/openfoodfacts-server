@@ -1,7 +1,10 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
+=======
+>>>>>>> main
       "body" : {
          "fields" : "packagings",
          "product" : {
@@ -19,7 +22,14 @@
          },
          "tags_lc" : "en"
       },
+<<<<<<< HEAD
       "path" : "/api/v3/product/1234567890009",
       "method" : "PATCH"
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890009"
+>>>>>>> main
    }
 }

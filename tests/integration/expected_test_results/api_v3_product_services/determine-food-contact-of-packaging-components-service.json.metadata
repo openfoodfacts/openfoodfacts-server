@@ -10,8 +10,8 @@
                   "shape" : "en:tray"
                },
                {
-                  "shape" : "en:film",
-                  "material" : "en:plastic"
+                  "material" : "en:plastic",
+                  "shape" : "en:film"
                },
                {
                   "material" : "en:paper",
@@ -24,7 +24,7 @@
          ]
       },
       "method" : "POST",
-      "path" : "/api/v3/product_services",
-      "parameters" : {}
+      "parameters" : {},
+      "path" : "/api/v3/product_services"
    }
 }

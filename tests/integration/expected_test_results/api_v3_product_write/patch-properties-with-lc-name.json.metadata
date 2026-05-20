@@ -6,6 +6,7 @@
          "product" : {
             "packagings" : [
                {
+<<<<<<< HEAD
                   "recycling" : {
                      "lc_name" : "discard"
                   },
@@ -13,6 +14,15 @@
                   "material" : {
                      "lc_name" : "PET"
                   },
+=======
+                  "material" : {
+                     "lc_name" : "PET"
+                  },
+                  "number_of_units" : 2,
+                  "recycling" : {
+                     "lc_name" : "discard"
+                  },
+>>>>>>> main
                   "shape" : {
                      "lc_name" : "film"
                   }
@@ -21,7 +31,12 @@
          },
          "tags_lc" : "en"
       },
+<<<<<<< HEAD
+=======
+      "content-type" : "application/json; charset=utf-8",
+>>>>>>> main
       "method" : "PATCH",
+      "parameters" : {},
       "path" : "/api/v3/product/1234567890010"
    }
 }

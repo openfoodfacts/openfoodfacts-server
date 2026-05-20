@@ -1,6 +1,7 @@
 {
    "api_call" : {
       "body" : {
+<<<<<<< HEAD
          "tags_lc" : "en",
          "product" : {
             "packagings" : [
@@ -17,6 +18,24 @@
                   "shape" : {
                      "lc_name" : "Box"
                   }
+=======
+         "fields" : "updated,misc_tags",
+         "product" : {
+            "packagings" : [
+               {
+                  "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "Bottle"
+                  },
+                  "weight_measured" : 0.43
+               },
+               {
+                  "number_of_units" : "2",
+                  "shape" : {
+                     "lc_name" : "Box"
+                  },
+                  "weight_measured" : "0.43"
+>>>>>>> main
                },
                {
                   "weight_measured" : "0,43",
@@ -27,11 +46,20 @@
                }
             ]
          },
+<<<<<<< HEAD
          "fields" : "updated,misc_tags"
       },
       "method" : "PATCH",
       "path" : "/api/v3/product/1234567890013",
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {}
+=======
+         "tags_lc" : "en"
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890013"
+>>>>>>> main
    }
 }

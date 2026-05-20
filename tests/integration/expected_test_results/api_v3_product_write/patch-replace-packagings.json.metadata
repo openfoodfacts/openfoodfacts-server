@@ -5,6 +5,7 @@
          "product" : {
             "packagings" : [
                {
+<<<<<<< HEAD
                   "weight_measured" : 10.5,
                   "shape" : {
                      "lc_name" : "bag"
@@ -23,14 +24,38 @@
                   "shape" : {
                      "lc_name" : "label"
                   }
+=======
+                  "material" : {
+                     "lc_name" : "plastic"
+                  },
+                  "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "bag"
+                  },
+                  "weight_measured" : 10.5
+               },
+               {
+                  "material" : {
+                     "lc_name" : "paper"
+                  },
+                  "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "label"
+                  },
+                  "weight_specified" : 0.25
+>>>>>>> main
                }
             ]
          },
          "fields" : "updated"
       },
-      "path" : "/api/v3/product/1234567890008",
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
+<<<<<<< HEAD
       "content-type" : "application/json; charset=utf-8"
+=======
+      "path" : "/api/v3/product/1234567890008"
+>>>>>>> main
    }
 }

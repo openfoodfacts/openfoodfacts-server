@@ -8,6 +8,12 @@
          }
       },
       "content-type" : "application/json; charset=utf-8",
+<<<<<<< HEAD
       "parameters" : {}
+=======
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/test"
+>>>>>>> main
    }
 }

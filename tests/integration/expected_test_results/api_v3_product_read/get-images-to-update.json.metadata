@@ -1,11 +1,20 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/api/v3/product/4260392550101",
+=======
+      "body" : null,
+      "content-type" : null,
+>>>>>>> main
       "method" : "GET",
       "parameters" : {
          "fields" : "images_to_update_en"
       },
+<<<<<<< HEAD
       "content-type" : null,
       "body" : null
+=======
+      "path" : "/api/v3/product/4260392550101"
+>>>>>>> main
    }
 }

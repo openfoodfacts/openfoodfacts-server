@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : null,
       "method" : "GET",
       "body" : null,
@@ -8,5 +9,15 @@
          "tagtype" : "emb_codes",
          "string" : "fr 56"
       }
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "string" : "fr 56",
+         "tagtype" : "emb_codes"
+      },
+      "path" : "/api/v3/taxonomy_suggestions"
+>>>>>>> main
    }
 }

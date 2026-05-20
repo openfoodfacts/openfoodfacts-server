@@ -1,9 +1,17 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/marques",
       "body" : null,
       "parameters" : {},
       "method" : "GET",
       "content-type" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/marques"
+>>>>>>> main
    }
 }

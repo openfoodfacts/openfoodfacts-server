@@ -7,6 +7,7 @@
             "images" : {
                "selected" : {
                   "front" : {
+<<<<<<< HEAD
                      "en" : {
                         "imgid" : "1"
                      }
@@ -49,13 +50,64 @@
                         },
                         "imgid" : "1"
                      }
+=======
+                     "en" : {
+                        "imgid" : "1"
+                     }
+                  },
+                  "ingredients" : {
+                     "en" : {
+                        "generation" : {
+                           "angle" : 0,
+                           "normalize" : "true",
+                           "white_magic" : "false",
+                           "x1" : 0,
+                           "x2" : 0,
+                           "y1" : 0,
+                           "y2" : 0
+                        },
+                        "imgid" : "1"
+                     },
+                     "es" : {
+                        "generation" : {
+                           "angle" : 90,
+                           "coordinates_image_size" : "full",
+                           "normalize" : false,
+                           "white_magic" : true,
+                           "x1" : 10,
+                           "x2" : 100,
+                           "y1" : 20,
+                           "y2" : 200
+                        },
+                        "imgid" : "1"
+                     },
+                     "fr" : {
+                        "generation" : {
+                           "angle" : 90,
+                           "normalize" : false,
+                           "white_magic" : true,
+                           "x1" : 10,
+                           "x2" : 100,
+                           "y1" : 20,
+                           "y2" : 200
+                        },
+                        "imgid" : "1"
+                     }
+>>>>>>> main
                   }
                }
             }
          }
       },
+<<<<<<< HEAD
       "method" : "PATCH",
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {}
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3.3/product/1234567890012"
+>>>>>>> main
    }
 }

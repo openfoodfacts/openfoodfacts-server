@@ -1,8 +1,12 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
+=======
+>>>>>>> main
       "body" : {
+         "fields" : "updated",
          "product" : {
             "packagings_add" : [
                {
@@ -18,6 +22,7 @@
                   }
                },
                {
+<<<<<<< HEAD
                   "shape" : {
                      "id" : "en:box"
                   },
@@ -27,13 +32,28 @@
                   },
                   "recycling" : {
                      "lc_name" : "to recycle"
+=======
+                  "material" : {
+                     "lc_name" : "cardboard"
+                  },
+                  "number_of_units" : 1,
+                  "recycling" : {
+                     "lc_name" : "to recycle"
+                  },
+                  "shape" : {
+                     "id" : "en:box"
+>>>>>>> main
                   }
                }
             ]
-         },
-         "fields" : "updated"
+         }
       },
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
+<<<<<<< HEAD
+=======
+      "parameters" : {},
+>>>>>>> main
       "path" : "/api/v3/product/1234567890007"
    }
 }

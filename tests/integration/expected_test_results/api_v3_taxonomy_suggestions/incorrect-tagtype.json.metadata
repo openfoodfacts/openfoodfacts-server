@@ -1,8 +1,14 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "content-type" : null,
       "body" : null,
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+>>>>>>> main
       "parameters" : {
          "tagtype" : "not_a_taxonomy"
       },

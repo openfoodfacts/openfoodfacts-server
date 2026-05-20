@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "path" : "/api/v3.1/product/4260392550101",
       "body" : null,
@@ -7,5 +8,14 @@
          "fields" : "ecoscore_score,ecoscore_grade,ecoscore_data"
       },
       "content-type" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "fields" : "ecoscore_score,ecoscore_grade,ecoscore_data"
+      },
+      "path" : "/api/v3.1/product/4260392550101"
+>>>>>>> main
    }
 }

@@ -1,13 +1,22 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
+=======
+>>>>>>> main
       "body" : {
          "product" : {
             "some_unrecognized_field" : "some value"
          }
       },
+<<<<<<< HEAD
       "method" : "PATCH",
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+>>>>>>> main
       "path" : "/api/v3/product/test"
    }
 }

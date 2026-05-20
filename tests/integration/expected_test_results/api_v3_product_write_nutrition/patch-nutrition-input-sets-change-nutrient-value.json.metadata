@@ -1,9 +1,12 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "PATCH",
       "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
       "path" : "/api/v3.5/product/4230000001000",
+=======
+>>>>>>> main
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -16,16 +19,33 @@
                            "unit" : "g"
                         }
                      },
+<<<<<<< HEAD
                      "per_quantity" : 100,
                      "source_description" : "",
                      "preparation" : "as_sold",
                      "per" : "100g",
                      "source" : "packaging",
                      "per_unit" : "g"
+=======
+                     "per" : "100g",
+                     "per_quantity" : 100,
+                     "per_unit" : "g",
+                     "preparation" : "as_sold",
+                     "source" : "packaging",
+                     "source_description" : ""
+>>>>>>> main
                   }
                ]
             }
          }
+<<<<<<< HEAD
       }
+=======
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3.5/product/4230000001000"
+>>>>>>> main
    }
 }

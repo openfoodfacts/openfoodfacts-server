@@ -1,8 +1,14 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "POST",
       "content-type" : null,
       "body" : null,
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "POST",
+>>>>>>> main
       "parameters" : {},
       "path" : "/api/v3/product_services"
    }

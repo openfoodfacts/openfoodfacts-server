@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "content-type" : null,
       "path" : "/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert",
@@ -7,5 +8,14 @@
          "raw_panel" : "1"
       },
       "body" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "raw_panel" : "1"
+      },
+      "path" : "/produit/3300000000002/tarte-aux-pommes-et-aux-framboise-bio-les-tartes-de-robert"
+>>>>>>> main
    }
 }

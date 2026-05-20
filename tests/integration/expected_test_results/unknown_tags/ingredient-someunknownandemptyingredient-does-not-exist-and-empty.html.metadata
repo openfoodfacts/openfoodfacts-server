@@ -1,9 +1,17 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/facets/ingredients/someunknownandemptyingredient",
       "body" : null,
       "content-type" : null,
       "parameters" : {},
       "method" : "GET"
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/facets/ingredients/someunknownandemptyingredient"
+>>>>>>> main
    }
 }

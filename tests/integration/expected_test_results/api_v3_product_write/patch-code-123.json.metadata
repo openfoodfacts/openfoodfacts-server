@@ -1,13 +1,23 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
+=======
+>>>>>>> main
       "body" : {
          "product" : {
             "ingredients_text_en" : "milk 80%, sugar, cocoa powder"
          }
       },
+<<<<<<< HEAD
       "path" : "/api/v3/product/123",
       "method" : "PATCH"
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/123"
+>>>>>>> main
    }
 }

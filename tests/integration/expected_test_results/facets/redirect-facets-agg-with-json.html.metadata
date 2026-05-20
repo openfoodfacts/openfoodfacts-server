@@ -1,9 +1,16 @@
 {
    "api_call" : {
+      "body" : null,
       "content-type" : null,
+<<<<<<< HEAD
       "path" : "/categories.json",
       "method" : "GET",
       "body" : null,
       "parameters" : {}
+=======
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/categories.json"
+>>>>>>> main
    }
 }
