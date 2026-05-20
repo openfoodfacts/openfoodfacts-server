@@ -3577,7 +3577,8 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 
 	my $taxonomy = $taxonomy_fields{$tagtype};
 	if (not defined $taxonomy) {
-		die("canonicalize_taxonomy_tag: unknown tag type $tagtype, cannot canonicalize tag $tag");
+		$log->warn("canonicalize_taxonomy_tag() called for not taxonomized tagtype: $tagtype") if $log->is_warn();
+		return canonicalize_tag($tagtype, $tag);
 	}
 
 	if (not defined $tag) {
