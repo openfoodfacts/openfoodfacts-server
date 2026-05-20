@@ -5,9 +5,9 @@
       "parameters" : {},
       "body" : {
          "user_id" : "tests",
-         "code" : "1234567890007",
          "product_name_en" : "Test no_nutrition_data on",
          "password" : "testtest",
+         "code" : "1234567890007",
          "no_nutrition_data" : "on"
       },
       "path" : "/cgi/product_jqm_multilingual.pl"

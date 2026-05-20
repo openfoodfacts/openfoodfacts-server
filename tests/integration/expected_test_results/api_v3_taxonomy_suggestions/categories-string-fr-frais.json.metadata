@@ -6,8 +6,8 @@
          "tagtype" : "categories",
          "string" : "frais"
       },
-      "method" : "GET",
       "path" : "/api/v3/taxonomy_suggestions",
-      "content-type" : null
+      "content-type" : null,
+      "method" : "GET"
    }
 }

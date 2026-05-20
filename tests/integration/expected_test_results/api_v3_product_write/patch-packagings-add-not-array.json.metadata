@@ -1,8 +1,7 @@
 {
    "api_call" : {
       "parameters" : {},
-      "path" : "/api/v3/product/1234567890006",
-      "method" : "PATCH",
+      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "product" : {
             "packagings_add" : {
@@ -12,6 +11,7 @@
             }
          }
       },
-      "content-type" : "application/json; charset=utf-8"
+      "path" : "/api/v3/product/1234567890006",
+      "method" : "PATCH"
    }
 }

@@ -1,8 +1,7 @@
 {
    "api_call" : {
-      "content-type" : "multipart/form-data",
-      "path" : "/cgi/product_image_upload.pl",
       "method" : "POST",
+      "content-type" : "multipart/form-data",
       "body" : {
          "imgupload_front_en" : [
             "tests/integration/inputs/upload_images/pulses-cereals.jpg",
@@ -11,6 +10,7 @@
          "imagefield" : "front_en",
          "code" : "0900000000139"
       },
-      "parameters" : {}
+      "parameters" : {},
+      "path" : "/cgi/product_image_upload.pl"
    }
 }

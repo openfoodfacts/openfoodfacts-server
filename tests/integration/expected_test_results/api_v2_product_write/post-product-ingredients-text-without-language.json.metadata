@@ -1,21 +1,21 @@
 {
    "api_call" : {
-      "method" : "POST",
       "content-type" : "application/x-www-form-urlencoded",
       "parameters" : {},
+      "method" : "POST",
       "body" : {
-         "serving_size" : "20 g",
-         "lang" : "fr",
-         "password" : "testtest",
-         "code" : "1234567890004",
-         "product_name" : "Some sausages",
-         "ingredients_text" : "Pork meat, salt",
-         "user_id" : "tests",
          "traces" : "Moutarde, milk, abcd",
-         "categories" : "Sausages",
-         "quantity" : "250 g",
+         "cc" : "uk",
          "lc" : "en",
-         "cc" : "uk"
+         "product_name" : "Some sausages",
+         "code" : "1234567890004",
+         "lang" : "fr",
+         "ingredients_text" : "Pork meat, salt",
+         "quantity" : "250 g",
+         "categories" : "Sausages",
+         "serving_size" : "20 g",
+         "user_id" : "tests",
+         "password" : "testtest"
       },
       "path" : "/cgi/product_jqm_multilingual.pl"
    }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "path" : "/api/v3/product/1234567890300",
-      "method" : "GET",
+      "content-type" : null,
       "parameters" : {
          "product_type" : "all"
       },
-      "body" : null,
-      "content-type" : null
+      "path" : "/api/v3/product/1234567890300",
+      "method" : "GET",
+      "body" : null
    }
 }

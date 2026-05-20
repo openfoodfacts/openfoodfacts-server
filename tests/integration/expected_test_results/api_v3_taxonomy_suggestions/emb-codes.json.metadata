@@ -1,12 +1,12 @@
 {
    "api_call" : {
-      "body" : null,
-      "parameters" : {
-         "string" : "fr 56",
-         "tagtype" : "emb_codes"
-      },
+      "content-type" : null,
       "method" : "GET",
+      "body" : null,
       "path" : "/api/v3/taxonomy_suggestions",
-      "content-type" : null
+      "parameters" : {
+         "tagtype" : "emb_codes",
+         "string" : "fr 56"
+      }
    }
 }

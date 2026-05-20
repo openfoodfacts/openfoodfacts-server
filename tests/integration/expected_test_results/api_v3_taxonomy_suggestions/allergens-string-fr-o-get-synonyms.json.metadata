@@ -1,14 +1,14 @@
 {
    "api_call" : {
-      "parameters" : {
-         "tagtype" : "allergens",
-         "string" : "o",
-         "lc" : "fr",
-         "get_synonyms" : "1"
-      },
-      "body" : null,
-      "content-type" : null,
       "method" : "GET",
-      "path" : "/api/v3/taxonomy_suggestions"
+      "content-type" : null,
+      "body" : null,
+      "path" : "/api/v3/taxonomy_suggestions",
+      "parameters" : {
+         "string" : "o",
+         "tagtype" : "allergens",
+         "get_synonyms" : "1",
+         "lc" : "fr"
+      }
    }
 }

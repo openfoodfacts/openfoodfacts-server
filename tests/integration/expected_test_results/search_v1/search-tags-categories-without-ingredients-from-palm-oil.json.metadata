@@ -1,16 +1,16 @@
 {
    "api_call" : {
-      "content-type" : null,
       "parameters" : {
          "json" : "1",
          "action" : "process",
          "ingredients_from_palm_oil" : "without",
-         "tag_contains_0" : "contains",
          "tag_0" : "breakfast_cereals",
-         "tagtype_0" : "categories"
+         "tagtype_0" : "categories",
+         "tag_contains_0" : "contains"
       },
       "method" : "GET",
+      "path" : "/cgi/search.pl",
       "body" : null,
-      "path" : "/cgi/search.pl"
+      "content-type" : null
    }
 }

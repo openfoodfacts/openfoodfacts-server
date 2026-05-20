@@ -16,9 +16,9 @@
             ]
          }
       },
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {},
       "method" : "PATCH",
-      "path" : "/api/v3/product/1234567890009"
+      "path" : "/api/v3/product/1234567890009",
+      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {}
    }
 }

@@ -1,15 +1,15 @@
 {
    "api_call" : {
+      "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
       "method" : "PATCH",
       "path" : "/api/v3/product/test",
       "body" : {
          "fields" : "updated,ingredients_text,ingredients,lc",
          "product" : {
-            "ingredients_text_fr" : "lait 80%, sucre, poudre de cacao",
-            "ingredients_text_en" : "milk 80%, sugar, cocoa powder"
+            "ingredients_text_en" : "milk 80%, sugar, cocoa powder",
+            "ingredients_text_fr" : "lait 80%, sucre, poudre de cacao"
          }
-      },
-      "content-type" : "application/json; charset=utf-8"
+      }
    }
 }

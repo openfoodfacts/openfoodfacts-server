@@ -1,6 +1,6 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
+      "method" : "POST",
       "body" : {
          "product" : {
             "ingredients_text" : "Sucre, huile de palme, huile de NOISETTES, quelque chose d'inconnu",
@@ -10,8 +10,8 @@
             "parse_ingredients_text"
          ]
       },
+      "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
-      "path" : "/api/v3/product_services",
-      "method" : "POST"
+      "path" : "/api/v3/product_services"
    }
 }
