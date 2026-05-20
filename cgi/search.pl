@@ -153,7 +153,6 @@ if (user_agent() =~ /apps-spreadsheets/) {
 
 $request_ref->{search} = 1;
 
-
 # Check if request is from intake24 (case-insensitive) to exempt from rate limiting
 my $user_agent_header = get_http_request_header('X-User-Agent');
 my $is_intake24_request = (defined $user_agent_header) && ($user_agent_header =~ /intake24/i);
