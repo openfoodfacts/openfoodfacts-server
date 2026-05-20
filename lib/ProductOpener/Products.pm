@@ -1151,7 +1151,12 @@ sub change_product_code ($product_ref, $new_code) {
 	}
 	else {
 		# check that the new code is available
-		if (object_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_code) . "/product")) {
+		# On the pro platform, product_id includes the owner prefix (e.g. org-xxx/code)
+		# Use the product owner instead of the current Owner_id, which can differ for moderators
+		# or when editing products from another organization. Fallback to Owner_id if needed.
+		my $product_owner_id = $product_ref->{owner} // $Owner_id;
+		my $new_product_id = product_id_for_owner($product_owner_id, $new_code);
+		if (object_exists("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($new_product_id) . "/product")) {
 			$log->warn("cannot change product code, because the new code already exists",
 				{code => $code, new_code => $new_code})
 				if $log->is_warn();
@@ -1288,7 +1293,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	my $code = $product_ref->{code};
 	my $product_id = $product_ref->{_id};
 	my $path = product_path($product_ref);
-	my $rev = $product_ref->{rev};
+	my $rev = $product_ref->{rev} // 0;
 	my $action = "updated";
 
 	# Structural moves still need persistence side effects:
@@ -1435,7 +1440,10 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 					}
 				);
 			}
-			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
+			# On the pro platform, the _id includes the owner prefix (e.g. org-xxx/code)
+			my $product_owner_id = $product_ref->{owner} // $Owner_id;
+			$product_ref->{_id}
+				= product_id_for_owner($product_owner_id, $product_ref->{code}) . '';    # treat id as string;
 		}
 
 		if (object_path_exists("$BASE_DIRS{PRODUCTS}/$path")) {
@@ -1491,7 +1499,10 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 				}
 			);
 
-			$product_ref->{_id} = $product_ref->{code} . '';    # treat id as string;
+			# On the pro platform, the _id includes the owner prefix (e.g. org-xxx/code)
+			my $product_owner_id = $product_ref->{owner} // $Owner_id;
+			$product_ref->{_id}
+				= product_id_for_owner($product_owner_id, $product_ref->{code}) . '';    # treat id as string;
 
 		}
 
@@ -2973,6 +2984,8 @@ sub compute_codes ($product_ref) {
 
 	my $code = $product_ref->{code};
 
+	return if not defined $code;
+
 	my @codes = ();
 
 	push @codes, "code-" . length($code);
@@ -3785,7 +3798,7 @@ Provides default exclusions so people don't forget to apply them
 sub product_iter(
 	$base_path = $BASE_DIRS{PRODUCTS},
 	$name_pattern = qr/product$/i,
-	$exclude_path_pattern = qr/^(conflicting|invalid)-codes$/,
+	$exclude_path_pattern = qr/^(conflicting|invalid|other-flavors)-codes$/,
 	$skip_until_path = undef,
 	)
 {

@@ -372,21 +372,21 @@
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
+<!-- Donation banner TOP END -->
+<!-- Donation banner @ footer start-->
 
-<!-- Donation banner @ footer -->
-
-
+<!-- Donation banner @ footer end-->
 <!-- end templates/web/common/includes/donate_banner.tt.html -->
 
 								
 
 
-
+<!-- Donation banner TOP start -->
 <section id="donation-banner-top" class="donation-banner row">
 
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
-      <p>Help us inform millions of consumers around the world about what they eat</p>
+      <p>We still need €120,000 to finish 2026!</p>
     </div>
     <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
   </div>
@@ -399,25 +399,25 @@
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">Please give to our 2026 Fundraiser</h3>
+        <h3 class="donation-banner__main-title">Become an Open Food Facts patron</h3>
       </div>
       <div style="padding:1rem;">
-        <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+        <p>Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:</p>
         <ul>
           <li>
-            keeping our database open & available to all,
+            keep Open Food Facts open & available to all,
             <ul>
-              <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+              <li>support infrastructure, the website, mobile app and API with a small permanent team</li>
             </ul>
           </li>
           <li>
             <p>remain independent of the food industry,</p>
           </li>
           <li>
-            <p>engage a community of committed citizens,</p>
+            <p>support the community</p>
           </li>
           <li>
-            <p>support the advancement of public health research.</p>
+            <p>support science</p>
           </li>
         </ul>
       </div>
@@ -426,13 +426,13 @@
       <div class="donation-banner__actions-section__financial">
         <p>
           
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+          If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!
           
         </p>
       </div>
       <div class="donation-banner__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>I SUPPORT</button>
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
+          <button>Donate</button>
         </a>
       </div>
     </div>
@@ -18711,7 +18711,7 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                 
 
-                                    <tr id="nutrient_sodium_tr" class="nutrient_main" >
+                                    <tr id="nutrient_sodium_tr" class="nutrient_main" style="display:none">
                                         <td>
                                             <label class="nutrient_label" for="nutrient_sodium">
                                                 Sodium
@@ -28270,6 +28270,258 @@ You accept to be credited by re-users by a link to the product your are contribu
 
                                 
 
+                                    <tr id="nutrient_hydroxymethylbutyrate_tr" class="nutrient_main" style="display:none">
+                                        <td>
+                                            <label class="nutrient_label" for="nutrient_hydroxymethylbutyrate">
+                                                HMB
+                                                
+                                            </label>
+                                        </td>
+
+                                        <!-- loop on preparation and per to get the input sets for the selected source -->
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100g" >
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100g_nutrients_hydroxymethylbutyrate_value_string" name="nutrition_input_sets_as_sold_100g_nutrients_hydroxymethylbutyrate_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_hydroxymethylbutyrate_as_sold_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_hydroxymethylbutyrate_as_sold_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_hydroxymethylbutyrate_unit" id="nutrition_input_sets_as_sold_100g_nutrients_hydroxymethylbutyrate_unit" name="nutrition_input_sets_as_sold_100g_nutrients_hydroxymethylbutyrate_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100ml_nutrients_hydroxymethylbutyrate_value_string" name="nutrition_input_sets_as_sold_100ml_nutrients_hydroxymethylbutyrate_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_hydroxymethylbutyrate_as_sold_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_hydroxymethylbutyrate_as_sold_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_hydroxymethylbutyrate_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_hydroxymethylbutyrate_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_hydroxymethylbutyrate_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_1l_nutrients_hydroxymethylbutyrate_value_string" name="nutrition_input_sets_as_sold_1l_nutrients_hydroxymethylbutyrate_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_hydroxymethylbutyrate_as_sold_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_hydroxymethylbutyrate_as_sold_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_hydroxymethylbutyrate_unit" id="nutrition_input_sets_as_sold_1l_nutrients_hydroxymethylbutyrate_unit" name="nutrition_input_sets_as_sold_1l_nutrients_hydroxymethylbutyrate_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_serving_nutrients_hydroxymethylbutyrate_value_string" name="nutrition_input_sets_as_sold_serving_nutrients_hydroxymethylbutyrate_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_hydroxymethylbutyrate_as_sold_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_hydroxymethylbutyrate_as_sold_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_hydroxymethylbutyrate_unit" id="nutrition_input_sets_as_sold_serving_nutrients_hydroxymethylbutyrate_unit" name="nutrition_input_sets_as_sold_serving_nutrients_hydroxymethylbutyrate_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100g" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100g_nutrients_hydroxymethylbutyrate_value_string" name="nutrition_input_sets_prepared_100g_nutrients_hydroxymethylbutyrate_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_hydroxymethylbutyrate_prepared_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_hydroxymethylbutyrate_prepared_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_hydroxymethylbutyrate_unit" id="nutrition_input_sets_prepared_100g_nutrients_hydroxymethylbutyrate_unit" name="nutrition_input_sets_prepared_100g_nutrients_hydroxymethylbutyrate_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100ml_nutrients_hydroxymethylbutyrate_value_string" name="nutrition_input_sets_prepared_100ml_nutrients_hydroxymethylbutyrate_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_hydroxymethylbutyrate_prepared_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_hydroxymethylbutyrate_prepared_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_hydroxymethylbutyrate_unit" id="nutrition_input_sets_prepared_100ml_nutrients_hydroxymethylbutyrate_unit" name="nutrition_input_sets_prepared_100ml_nutrients_hydroxymethylbutyrate_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_1l_nutrients_hydroxymethylbutyrate_value_string" name="nutrition_input_sets_prepared_1l_nutrients_hydroxymethylbutyrate_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_hydroxymethylbutyrate_prepared_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_hydroxymethylbutyrate_prepared_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_hydroxymethylbutyrate_unit" id="nutrition_input_sets_prepared_1l_nutrients_hydroxymethylbutyrate_unit" name="nutrition_input_sets_prepared_1l_nutrients_hydroxymethylbutyrate_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_serving_nutrients_hydroxymethylbutyrate_value_string" name="nutrition_input_sets_prepared_serving_nutrients_hydroxymethylbutyrate_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_hydroxymethylbutyrate_prepared_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_hydroxymethylbutyrate_prepared_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_hydroxymethylbutyrate_unit" id="nutrition_input_sets_prepared_serving_nutrients_hydroxymethylbutyrate_unit" name="nutrition_input_sets_prepared_serving_nutrients_hydroxymethylbutyrate_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+
+                                        <!-- Global nutrient unit column-->
+                                        <td class="nutrient_unit_col">
+                                            
+                                                
+                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_hydroxymethylbutyrate_unit" name="nutrition_input_sets_prepared_serving_nutrients_hydroxymethylbutyrate_unit">
+                                                        
+                                                            <option value="g"  >g</option>
+                                                        
+                                                            <option value="mg" selected="selected" >mg</option>
+                                                        
+                                                            <option value="µg"  >mcg/µg</option>
+                                                        
+                                                    </select>
+                                                
+                                            
+                                        </td>
+
+                                    </tr>
+
+                                
+
                                     <tr id="nutrient_ph_tr" class="nutrient_main" style="display:none">
                                         <td>
                                             <label class="nutrient_label" for="nutrient_ph">
@@ -33329,10 +33581,10 @@ by typing the first letters of their name in the last row of the table.</p>
       			<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
+<!-- Donation banner TOP END -->
+<!-- Donation banner @ footer start-->
 
-<!-- Donation banner @ footer -->
-
-
+<!-- Donation banner @ footer end-->
 <!-- end templates/web/common/includes/donate_banner.tt.html -->
 
 				
@@ -33340,9 +33592,9 @@ by typing the first letters of their name in the last row of the table.</p>
 <section class="donation-banner-footer row">
   <div class="donation-banner-footer__left-aside">
     <div class="donation-banner-footer__hook-section">
-      <p>Help us inform millions of consumers around the world about what they eat</p>
+      <p>We still need €120,000 to finish 2026!</p>
     </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="The Open Food Facts community during the Open Food Facts Days" />
   </div>
   <div>
     <div>
@@ -33353,36 +33605,36 @@ by typing the first letters of their name in the last row of the table.</p>
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Please give to our 2026 Fundraiser</h3>
+        <h3 class="donation-banner-footer__main-title">Become an Open Food Facts patron</h3>
       </div>
-      <p>Your donations fund the day-to-day operations of our non-profit association:</p>
+      <p>Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:</p>
       <ul>
         <li>
-          keeping our database open & available to all,
+          keep Open Food Facts open & available to all,
           <ul>
-            <li>technical infrastructure (website/mobile app) & a small permanent team</li>
+            <li>support infrastructure, the website, mobile app and API with a small permanent team</li>
           </ul>
         </li>
         <li>
           <p>remain independent of the food industry,</p>
         </li>
         <li>
-          <p>engage a community of committed citizens,</p>
+          <p>support the community</p>
         </li>
         <li>
-          <p>support the advancement of public health research.</p>
+          <p>support science</p>
         </li>
       </ul>
     </div>
     <div class="donation-banner-footer__actions-section">
       <div class="donation-banner-footer__actions-section__financial">
         <p>
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.
+          If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!
         </p>
       </div>
       <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>I SUPPORT</button>
+        <a href="//world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
+          <button>Donate</button>
         </a>
       </div>
     </div>
@@ -33641,7 +33893,6 @@ $(document).on("focus", ".select2", function (e) {
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/cropper.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery.form.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/tagify.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="//static.openfoodfacts.localhost/js/dist/jquery.fileupload.js"></script>
@@ -33716,6 +33967,7 @@ var other_nutrients = [
 { "id" : "serum-proteins", "text" : "Serum proteins"},
 { "id" : "nucleotides", "text" : "Nucleotides"},
 { "id" : "added-salt", "text" : "Added salt"},
+{ "id" : "sodium", "text" : "Sodium"},
 { "id" : "vitamin-a", "text" : "Vitamin A"},
 { "id" : "beta-carotene", "text" : "Beta carotene"},
 { "id" : "vitamin-d", "text" : "Vitamin D (D3)"},
@@ -33750,6 +34002,7 @@ var other_nutrients = [
 { "id" : "caffeine", "text" : "Caffeine"},
 { "id" : "taurine", "text" : "Taurine"},
 { "id" : "methylsulfonylmethane", "text" : "Methylsulfonylmethane"},
+{ "id" : "hydroxymethylbutyrate", "text" : "HMB"},
 { "id" : "ph", "text" : "PH"},
 { "id" : "fruits-vegetables-legumes", "text" : "Fruits‚ vegetables‚ legumes"},
 { "id" : "collagen-meat-protein-ratio", "text" : "Collagen/Meat protein ratio (maximum)"},

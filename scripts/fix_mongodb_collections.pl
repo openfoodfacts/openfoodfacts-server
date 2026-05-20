@@ -67,7 +67,8 @@ foreach my $server (qw/off obf opff opf/) {
 	}
 }
 
-my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/product$/i, qr/^(conflicting|invalid)-codes$/, $last_processed_path);
+my $next = product_iter($BASE_DIRS{PRODUCTS}, qr/product$/i, qr/^(conflicting|invalid|other-flavors)-codes$/,
+	$last_processed_path);
 
 my $count = 0;
 while (my $path = $next->()) {
@@ -78,11 +79,13 @@ while (my $path = $next->()) {
 	my $product_ref = retrieve_object($path);
 	my $product_id = $product_ref->{_id};
 	my $code = $product_ref->{code};
+	my $made_change = 0;
 	if (not defined $product_id) {
 		$product_id = $code . '';    # Ensure it is a string
 		$product_ref->{_id} = $code . '';
 		if ($do_update) {
 			store_object($path, $product_ref);
+			$made_change = 1;
 		}
 		$checkpoint->log("$product_id had no id. Setting to code");
 	}
@@ -121,6 +124,7 @@ while (my $path = $next->()) {
 		if ($do_update) {
 			# Bypass normal MongoDB logic in store product
 			store_object($path, $product_ref);
+			$made_change = 1;
 		}
 	}
 
@@ -132,12 +136,7 @@ while (my $path = $next->()) {
 		if (not $expected_collection ~~ @collection_ids) {
 			if ($do_update) {
 				$collections{$expected_collection}->insert_one($product_ref);
-				# If we are adding to food then send an event for query
-				if ($expected_collection eq 'food' or $expected_collection = 'food_obsolete') {
-					push_product_update_to_redis($product_ref,
-						{"userid" => 'fix_mongodb_collections', "comment" => 'Was missing from MongoDB'},
-						"reprocessed");
-				}
+				$made_change = 1;
 			}
 			$checkpoint->log("$product_id not found in expected $expected_collection collection");
 		}
@@ -146,16 +145,17 @@ while (my $path = $next->()) {
 		if ($collection_id ne $expected_collection) {
 			if ($do_update) {
 				$collections{$collection_id}->delete_one($filter);
-
-				# If we are deleting from food then send an event for query
-				if ($collection_id eq 'food' or $collection_id = 'food_obsolete') {
-					push_product_update_to_redis($product_ref,
-						{"userid" => 'fix_mongodb_collections', "comment" => "Should not have been in MongoDB"},
-						"reprocessed");
-				}
+				$made_change = 1;
 			}
 			$checkpoint->log("$product_id ($expected_collection) deleted from $collection_id");
 		}
+	}
+
+	if ($made_change) {
+		# Send an event for off-query if we made any changes
+		push_product_update_to_redis($product_ref,
+			{"userid" => 'fix_mongodb_collections', "comment" => 'Fixed MongoDB collection'},
+			"reprocessed");
 	}
 
 	$checkpoint->update($path);
