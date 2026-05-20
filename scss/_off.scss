@@ -1299,6 +1299,8 @@ $border-pink: #ff6e78;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    margin-bottom: 2em;
+    text-align: center;
     z-index: 1;
     p {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -1314,13 +1316,15 @@ $border-pink: #ff6e78;
     }
   }
   &__left-aside {
-    width: 60%;
     margin: 0 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     img {
       transform: translatey(-15px);
+    } 
+    @media #{$medium-up} {
+      width: 60%;
     }
   }
   &__aside {
