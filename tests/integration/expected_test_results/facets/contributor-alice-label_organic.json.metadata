@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
       "body" : null,
-      "path" : "/contributors/alice/labels/organic.json",
+      "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "fields" : "product_name"
       },
-      "content-type" : null
+      "path" : "/contributors/alice/labels/organic.json"
    }
 }

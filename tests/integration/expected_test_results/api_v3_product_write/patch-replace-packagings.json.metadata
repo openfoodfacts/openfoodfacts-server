@@ -1,6 +1,5 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -10,27 +9,28 @@
                      "lc_name" : "plastic"
                   },
                   "number_of_units" : 1,
-                  "weight_measured" : 10.5,
                   "shape" : {
                      "lc_name" : "bag"
-                  }
+                  },
+                  "weight_measured" : 10.5
                },
                {
-                  "shape" : {
-                     "lc_name" : "label"
-                  },
-                  "weight_specified" : 0.25,
                   "material" : {
                      "lc_name" : "paper"
                   },
-                  "number_of_units" : 1
+                  "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "label"
+                  },
+                  "weight_specified" : 0.25
                }
             ]
          },
          "tags_lc" : "en"
       },
-      "path" : "/api/v3/product/1234567890008",
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
-      "parameters" : {}
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890008"
    }
 }

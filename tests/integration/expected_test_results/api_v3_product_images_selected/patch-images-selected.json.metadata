@@ -5,47 +5,47 @@
          "product" : {
             "images" : {
                "selected" : {
+                  "front" : {
+                     "en" : {
+                        "imgid" : "1"
+                     }
+                  },
                   "ingredients" : {
                      "en" : {
                         "generation" : {
+                           "angle" : 0,
                            "normalize" : "true",
-                           "y1" : 0,
-                           "x2" : 0,
-                           "y2" : 0,
-                           "x1" : 0,
                            "white_magic" : "false",
-                           "angle" : 0
+                           "x1" : 0,
+                           "x2" : 0,
+                           "y1" : 0,
+                           "y2" : 0
+                        },
+                        "imgid" : "1"
+                     },
+                     "es" : {
+                        "generation" : {
+                           "angle" : 90,
+                           "coordinates_image_size" : "full",
+                           "normalize" : false,
+                           "white_magic" : true,
+                           "x1" : 10,
+                           "x2" : 100,
+                           "y1" : 20,
+                           "y2" : 200
                         },
                         "imgid" : "1"
                      },
                      "fr" : {
-                        "imgid" : "1",
                         "generation" : {
-                           "white_magic" : true,
-                           "angle" : 90,
-                           "x2" : 100,
-                           "y1" : 20,
-                           "normalize" : false,
-                           "y2" : 200,
-                           "x1" : 10
-                        }
-                     },
-                     "es" : {
-                        "generation" : {
-                           "white_magic" : true,
                            "angle" : 90,
                            "normalize" : false,
-                           "y1" : 20,
-                           "x2" : 100,
+                           "white_magic" : true,
                            "x1" : 10,
-                           "y2" : 200,
-                           "coordinates_image_size" : "full"
+                           "x2" : 100,
+                           "y1" : 20,
+                           "y2" : 200
                         },
-                        "imgid" : "1"
-                     }
-                  },
-                  "front" : {
-                     "en" : {
                         "imgid" : "1"
                      }
                   }
@@ -54,8 +54,8 @@
          }
       },
       "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3.3/product/1234567890012",
       "method" : "PATCH",
-      "parameters" : {}
+      "parameters" : {},
+      "path" : "/api/v3.3/product/1234567890012"
    }
 }

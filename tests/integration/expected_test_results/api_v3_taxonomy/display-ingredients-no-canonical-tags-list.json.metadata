@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "path" : "/api/v3/taxonomy_display_tags",
+      "body" : null,
       "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "tagtype" : "ingredients"
       },
-      "method" : "GET",
-      "body" : null
+      "path" : "/api/v3/taxonomy_display_tags"
    }
 }
