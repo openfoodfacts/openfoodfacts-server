@@ -648,9 +648,9 @@ sub normalize_health_response_for_test_comparison ($response_ref) {
 	my %specification = (fields_ignore_content => ["checks.*.*.time", "checks.*.*.observedValue"],);
 
 	normalize_object_for_test_comparison($response_ref, \%specification);
-  return;
+	return;
 }
-  
+
 sub parse_query_string_parameters_from_url ($url) {
 
 	my %parameters = ();
