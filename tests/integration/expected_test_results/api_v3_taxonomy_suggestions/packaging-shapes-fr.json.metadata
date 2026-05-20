@@ -4,13 +4,9 @@
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "tagtype" : "packaging_shapes",
-         "lc" : "fr"
+         "lc" : "fr",
+         "tagtype" : "packaging_shapes"
       },
-<<<<<<< HEAD
-      "body" : null,
-=======
->>>>>>> main
       "path" : "/api/v3/taxonomy_suggestions"
    }
 }

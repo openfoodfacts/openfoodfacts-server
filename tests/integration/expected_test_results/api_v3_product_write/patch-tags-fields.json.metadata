@@ -3,15 +3,12 @@
       "body" : {
          "fields" : "updated",
          "product" : {
-<<<<<<< HEAD
-=======
             "brands_tags" : [
                "Some brand"
             ],
             "categories_tags" : [
                "coffee"
             ],
->>>>>>> main
             "labels_tags" : [
                "en:organic",
                "fr:max havelaar",
@@ -19,23 +16,6 @@
                "Something unrecognized"
             ],
             "stores_tags" : "comma,separated,list",
-<<<<<<< HEAD
-            "brands_tags" : [
-               "Some brand"
-            ],
-            "unknown_tags" : [
-               "some value"
-            ],
-            "categories_tags" : [
-               "coffee"
-            ]
-         }
-      },
-      "method" : "PATCH",
-      "path" : "/api/v3/product/1234567890100",
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {}
-=======
             "unknown_tags" : [
                "some value"
             ]
@@ -45,6 +25,5 @@
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890100"
->>>>>>> main
    }
 }

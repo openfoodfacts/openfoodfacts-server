@@ -10,16 +10,6 @@
       "content-type" : "application/x-www-form-urlencoded",
       "method" : "POST",
       "parameters" : {},
-<<<<<<< HEAD
-      "body" : {
-         "user_id" : "tests",
-         "product_name_en" : "Test no_nutrition_data on",
-         "password" : "testtest",
-         "code" : "1234567890007",
-         "no_nutrition_data" : "on"
-      },
-=======
->>>>>>> main
       "path" : "/cgi/product_jqm_multilingual.pl"
    }
 }

@@ -1,15 +1,6 @@
 {
    "api_call" : {
-      "content-type" : null,
-      "method" : "GET",
       "body" : null,
-<<<<<<< HEAD
-      "parameters" : {
-         "tagtype" : "packaging_shapes",
-         "lc" : "fr",
-         "cc" : "fr",
-         "categories" : "yaourt"
-=======
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
@@ -17,7 +8,6 @@
          "cc" : "fr",
          "lc" : "fr",
          "tagtype" : "packaging_shapes"
->>>>>>> main
       },
       "path" : "/api/v3/taxonomy_suggestions"
    }

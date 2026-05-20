@@ -1,24 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/cgi/product_multilingual.pl",
-      "content-type" : "application/x-www-form-urlencoded",
-      "body" : {
-         "product_name_fr" : "Nom du produit en franÃ§ais",
-         "product_name_en" : "English product name",
-         "categories" : "Breakfast cereals",
-         "labels" : "Organic, Gluten-Free",
-         "type" : "edit",
-         "no_nutrition_data" : "on",
-         "lang" : "en",
-         "user_id" : "tests",
-         "code" : "1234567890012",
-         "password" : "testtest",
-         "action" : "process"
-      },
-      "method" : "POST",
-      "parameters" : {}
-=======
       "body" : {
          "action" : "process",
          "categories" : "Breakfast cereals",
@@ -36,6 +17,5 @@
       "method" : "POST",
       "parameters" : {},
       "path" : "/cgi/product_multilingual.pl"
->>>>>>> main
    }
 }

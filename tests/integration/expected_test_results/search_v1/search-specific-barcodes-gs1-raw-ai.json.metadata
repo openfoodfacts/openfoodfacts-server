@@ -1,15 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "parameters" : {
-         "fields" : "code,product_name",
-         "code" : "01020000000003980217231231"
-      },
-      "method" : "GET",
-      "body" : null,
-      "path" : "/api/v2/search",
-      "content-type" : null
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
@@ -18,6 +8,5 @@
          "fields" : "code,product_name"
       },
       "path" : "/api/v2/search"
->>>>>>> main
    }
 }

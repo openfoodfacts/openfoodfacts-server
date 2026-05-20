@@ -1,21 +1,8 @@
 {
    "api_call" : {
       "body" : {
+         "fields" : "updated,ingredients,nutriments,nutriments_estimated,nutriscore_grade,nutriscore_score,nutriscore_data",
          "product" : {
-<<<<<<< HEAD
-            "lang" : "fr",
-            "categories_tags_fr" : [
-               "confiture"
-            ],
-            "ingredients_text_fr" : "Sucre 300g, pommes 100g"
-         },
-         "fields" : "updated,ingredients,nutriments,nutriments_estimated,nutriscore_grade,nutriscore_score,nutriscore_data"
-      },
-      "method" : "PATCH",
-      "path" : "/api/v3/product/test",
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {}
-=======
             "categories_tags_fr" : [
                "confiture"
             ],
@@ -27,6 +14,5 @@
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/test"
->>>>>>> main
    }
 }

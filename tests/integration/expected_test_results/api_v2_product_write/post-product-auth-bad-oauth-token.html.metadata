@@ -1,25 +1,6 @@
 {
    "api_call" : {
       "body" : {
-<<<<<<< HEAD
-         "code" : "1234567890006",
-         "product_name" : "Product name",
-         "lc" : "fr",
-         "nutriment_salt" : "50.2",
-         "cc" : "be",
-         "ingredients_text_fr" : "Farine de blÃ©, eau, sel, sucre",
-         "nutriment_sugars" : "12.5",
-         "quantity" : "250 g",
-         "serving_size" : "20 g",
-         "categories" : "Cookies",
-         "nutriment_salt_unit" : "mg",
-         "labels" : "Bio, Max Havelaar"
-      },
-      "path" : "/cgi/product_jqm_multilingual.pl",
-      "content-type" : "application/x-www-form-urlencoded",
-      "parameters" : {},
-      "method" : "POST"
-=======
          "categories" : "Cookies",
          "cc" : "be",
          "code" : "1234567890006",
@@ -37,6 +18,5 @@
       "method" : "POST",
       "parameters" : {},
       "path" : "/cgi/product_jqm_multilingual.pl"
->>>>>>> main
    }
 }

@@ -1,7 +1,5 @@
 {
    "api_call" : {
-      "method" : "PATCH",
-      "path" : "/api/v3/product/2234567890002",
       "body" : {
          "fields" : "creator,editors_tags,packagings",
          "product" : {
@@ -20,12 +18,8 @@
          "tags_lc" : "en"
       },
       "content-type" : "application/json; charset=utf-8",
-<<<<<<< HEAD
-      "parameters" : {}
-=======
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/2234567890002"
->>>>>>> main
    }
 }

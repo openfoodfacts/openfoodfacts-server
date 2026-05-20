@@ -11,16 +11,9 @@
             ]
          }
       },
-<<<<<<< HEAD
-      "method" : "DELETE",
-      "path" : "/api/v3/product/1234567890007",
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {}
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "DELETE",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890007"
->>>>>>> main
    }
 }

@@ -1,10 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/api/v3/product_services",
-      "parameters" : {},
-=======
->>>>>>> main
       "body" : {
          "product" : {},
          "services" : [
@@ -12,12 +7,8 @@
          ]
       },
       "content-type" : "application/json; charset=utf-8",
-<<<<<<< HEAD
-      "method" : "POST"
-=======
       "method" : "POST",
       "parameters" : {},
       "path" : "/api/v3/product_services"
->>>>>>> main
    }
 }

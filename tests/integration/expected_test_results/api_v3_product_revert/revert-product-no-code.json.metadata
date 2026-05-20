@@ -1,15 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product_revert",
-      "body" : {
-         "rev" : 1,
-         "fields" : "code,rev,product_name_en,brands_tags,categories_tags"
-      },
-      "method" : "POST",
-      "parameters" : {}
-=======
       "body" : {
          "fields" : "code,rev,product_name_en,brands_tags,categories_tags",
          "rev" : 1
@@ -18,6 +8,5 @@
       "method" : "POST",
       "parameters" : {},
       "path" : "/api/v3/product_revert"
->>>>>>> main
    }
 }

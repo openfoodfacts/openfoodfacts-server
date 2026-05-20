@@ -1,22 +1,11 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "method" : "POST",
-      "content-type" : "application/x-www-form-urlencoded",
       "body" : {
          "code" : "1234567890016",
          "imagefield" : "front_en"
       },
-=======
-      "body" : {
-         "code" : "1234567890016",
-         "imagefield" : "front_en"
-      },
-      "path" : "/cgi/product_image_upload.pl",
-      "method" : "POST",
       "content-type" : "application/x-www-form-urlencoded",
       "method" : "POST",
->>>>>>> main
       "parameters" : {},
       "path" : "/cgi/product_image_upload.pl"
    }

@@ -1,10 +1,6 @@
 {
    "api_call" : {
       "body" : {
-<<<<<<< HEAD
-         "nutriment_alcohol_unit" : "g",
-         "nutriment_fiber" : "4.5",
-=======
          "code" : "1234567890008",
          "nutriment_alcohol" : "0.0",
          "nutriment_alcohol_unit" : "g",
@@ -16,7 +12,6 @@
          "nutriment_fat_unit" : "g",
          "nutriment_fiber" : "4.5",
          "nutriment_fiber_unit" : "g",
->>>>>>> main
          "nutriment_proteins" : "8.2",
          "nutriment_proteins_unit" : "g",
          "nutriment_salt" : "1.2",
@@ -27,34 +22,6 @@
          "nutriment_sodium_unit" : "g",
          "nutriment_water" : "10.0",
          "nutriment_water_unit" : "g",
-<<<<<<< HEAD
-         "product_name_en" : "Test old nutrition fields",
-         "user_id" : "tests",
-         "nutriment_sodium_unit" : "g",
-         "nutriment_sodium" : "0.472",
-         "nutriment_proteins_unit" : "g",
-         "nutriment_alcohol" : "0.0",
-         "nutriment_energy_unit" : "kJ",
-         "nutriment_fat" : "12.5",
-         "nutriment_energy" : "450",
-         "nutriment_saturated-fat_unit" : "g",
-         "password" : "testtest",
-         "nutriment_fat_unit" : "g",
-         "nutrition_data_per" : "100g",
-         "nutriment_salt_unit" : "g",
-         "nutriment_water" : "10.0",
-         "code" : "1234567890008",
-         "nutriment_carbohydrates_unit" : "g",
-         "nutriment_fiber_unit" : "g",
-         "nutriment_carbohydrates" : "67.4",
-         "nutriment_salt" : "1.2",
-         "nutriment_saturated-fat" : "3.1"
-      },
-      "path" : "/cgi/product_jqm_multilingual.pl",
-      "content-type" : "application/x-www-form-urlencoded",
-      "parameters" : {},
-      "method" : "POST"
-=======
          "nutrition_data_per" : "100g",
          "password" : "testtest",
          "product_name_en" : "Test old nutrition fields",
@@ -64,6 +31,5 @@
       "method" : "POST",
       "parameters" : {},
       "path" : "/cgi/product_jqm_multilingual.pl"
->>>>>>> main
    }
 }

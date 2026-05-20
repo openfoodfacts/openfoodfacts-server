@@ -1,56 +1,11 @@
 {
    "api_call" : {
-      "path" : "/api/v3.3/product/1234567890012",
       "body" : {
          "fields" : "updated",
          "product" : {
             "images" : {
                "selected" : {
                   "front" : {
-<<<<<<< HEAD
-                     "en" : {
-                        "imgid" : "1"
-                     }
-                  },
-                  "ingredients" : {
-                     "fr" : {
-                        "imgid" : "1",
-                        "generation" : {
-                           "x2" : 100,
-                           "y1" : 20,
-                           "angle" : 90,
-                           "normalize" : false,
-                           "y2" : 200,
-                           "x1" : 10,
-                           "white_magic" : true
-                        }
-                     },
-                     "en" : {
-                        "generation" : {
-                           "white_magic" : "false",
-                           "y2" : 0,
-                           "x1" : 0,
-                           "normalize" : "true",
-                           "angle" : 0,
-                           "x2" : 0,
-                           "y1" : 0
-                        },
-                        "imgid" : "1"
-                     },
-                     "es" : {
-                        "generation" : {
-                           "x1" : 10,
-                           "y2" : 200,
-                           "white_magic" : true,
-                           "coordinates_image_size" : "full",
-                           "y1" : 20,
-                           "x2" : 100,
-                           "angle" : 90,
-                           "normalize" : false
-                        },
-                        "imgid" : "1"
-                     }
-=======
                      "en" : {
                         "imgid" : "1"
                      }
@@ -93,21 +48,14 @@
                         },
                         "imgid" : "1"
                      }
->>>>>>> main
                   }
                }
             }
          }
       },
-<<<<<<< HEAD
-      "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {}
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3.3/product/1234567890012"
->>>>>>> main
    }
 }

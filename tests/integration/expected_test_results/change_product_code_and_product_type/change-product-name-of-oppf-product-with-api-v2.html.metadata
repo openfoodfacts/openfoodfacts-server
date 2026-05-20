@@ -6,16 +6,9 @@
          "product_name" : "Test product 3 - update with API v2",
          "type" : "edit"
       },
-<<<<<<< HEAD
-      "method" : "POST",
-      "path" : "/cgi/product_jqm_multilingual.pl",
-      "parameters" : {},
-      "content-type" : "application/x-www-form-urlencoded"
-=======
       "content-type" : "application/x-www-form-urlencoded",
       "method" : "POST",
       "parameters" : {},
       "path" : "/cgi/product_jqm_multilingual.pl"
->>>>>>> main
    }
 }

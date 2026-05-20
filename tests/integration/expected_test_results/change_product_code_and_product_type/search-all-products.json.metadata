@@ -5,18 +5,9 @@
       "method" : "GET",
       "parameters" : {
          "action" : "process",
-<<<<<<< HEAD
-         "no_cache" : "1",
-         "json" : "1"
-      },
-      "content-type" : null,
-      "path" : "/cgi/search.pl",
-      "method" : "GET"
-=======
          "json" : "1",
          "no_cache" : "1"
       },
       "path" : "/cgi/search.pl"
->>>>>>> main
    }
 }

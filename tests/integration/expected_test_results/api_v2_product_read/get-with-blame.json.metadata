@@ -1,14 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "method" : "GET",
-      "parameters" : {
-         "blame" : "1"
-      },
-      "path" : "/api/v2/product/200000000034",
-      "body" : null,
-      "content-type" : null
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
@@ -16,6 +7,5 @@
          "blame" : "1"
       },
       "path" : "/api/v2/product/200000000034"
->>>>>>> main
    }
 }

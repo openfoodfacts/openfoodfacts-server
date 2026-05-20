@@ -1,10 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "method" : "POST",
-      "content-type" : "multipart/form-data",
-=======
->>>>>>> main
       "body" : {
          "code" : "0900000000139",
          "imagefield" : "front_en",
@@ -13,11 +8,8 @@
             "pulses-cereals.jpg"
          ]
       },
-<<<<<<< HEAD
-=======
       "content-type" : "multipart/form-data",
       "method" : "POST",
->>>>>>> main
       "parameters" : {},
       "path" : "/cgi/product_image_upload.pl"
    }

@@ -1,30 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "content-type" : "application/x-www-form-urlencoded",
-      "method" : "POST",
-      "path" : "/cgi/product.pl",
-      "body" : {
-         "nutriment_salt" : "0.7",
-         "ingredients_text_fr" : "Farine de blÃ©, eau, sel, sucre",
-         "cc" : "be",
-         "product_name_fr" : "New French product name",
-         "labels" : "Bio, Max Havelaar",
-         "product_name_en" : "Changed product name",
-         "type" : "edit",
-         "sorted_langs" : "en,fr",
-         "quantity" : "250 g",
-         "nutriment_fat" : "12.7",
-         "nutriment_salt_unit" : "mg",
-         "categories" : "Changed category",
-         "lc" : "fr",
-         "code" : "0200000000134",
-         "action" : "process",
-         "serving_size" : "20 g",
-         "nutriment_sugars" : "7"
-      },
-      "parameters" : {}
-=======
       "body" : {
          "action" : "process",
          "categories" : "Changed category",
@@ -48,6 +23,5 @@
       "method" : "POST",
       "parameters" : {},
       "path" : "/cgi/product.pl"
->>>>>>> main
    }
 }

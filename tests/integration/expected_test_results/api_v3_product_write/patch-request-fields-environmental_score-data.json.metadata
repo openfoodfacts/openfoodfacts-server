@@ -1,9 +1,5 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {},
-      "method" : "PATCH",
-      "path" : "/api/v3.2/product/1234567890009",
       "body" : {
          "fields" : "environmental_score_data",
          "product" : {
@@ -18,10 +14,6 @@
                   }
                }
             ]
-<<<<<<< HEAD
-         }
-      }
-=======
          },
          "tags_lc" : "en"
       },
@@ -29,6 +21,5 @@
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3.2/product/1234567890009"
->>>>>>> main
    }
 }

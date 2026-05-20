@@ -1,14 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/categories",
-      "parameters" : {
-         "stats_nid" : "sugars"
-      },
-      "body" : null,
-      "method" : "GET",
-      "content-type" : null
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
@@ -16,6 +7,5 @@
          "stats_nid" : "sugars"
       },
       "path" : "/categories"
->>>>>>> main
    }
 }

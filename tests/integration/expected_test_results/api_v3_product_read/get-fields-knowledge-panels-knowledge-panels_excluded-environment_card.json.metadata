@@ -1,22 +1,12 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/api/v3/product/4260392550101",
-      "method" : "GET",
-      "content-type" : null,
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
->>>>>>> main
       "parameters" : {
          "fields" : "knowledge_panels",
          "knowledge_panels_excluded" : "environment_card"
       },
-<<<<<<< HEAD
-      "body" : null
-=======
       "path" : "/api/v3/product/4260392550101"
->>>>>>> main
    }
 }

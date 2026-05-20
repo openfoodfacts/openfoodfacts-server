@@ -1,14 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/contributors/bob.json",
-      "content-type" : null,
-      "parameters" : {
-         "fields" : "product_name"
-      },
-      "method" : "GET",
-      "body" : null
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
@@ -16,6 +7,5 @@
          "fields" : "product_name"
       },
       "path" : "/contributors/bob.json"
->>>>>>> main
    }
 }

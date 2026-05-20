@@ -1,17 +1,11 @@
 {
    "api_call" : {
-      "path" : "/",
       "body" : null,
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
          "sort_by" : "last_modified_t"
       },
-<<<<<<< HEAD
-      "method" : "GET",
-      "content-type" : null
-=======
       "path" : "/"
->>>>>>> main
    }
 }
