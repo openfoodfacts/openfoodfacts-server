@@ -22,6 +22,9 @@
 
 use Modern::Perl '2017';
 use utf8;
+use feature 'signatures';
+no warnings 'experimental::signatures';
+use Term::ANSIColor;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -29,29 +32,82 @@ use ProductOpener::Tags qw/:all/;
 my $tagtype = $ARGV[0] // '*';
 my $publish = $ARGV[1] // 1;
 
-print STDERR "tagtype: $tagtype\n";
+my $IS_GITHUB_CI = $ENV{GITHUB_ACTIONS} // 0;
+
+sub print_group ($name) {
+	if ($IS_GITHUB_CI) {
+		print "::group::$name\n";
+	}
+	else {
+		print "\n" . colored("--- $name ---", 'bold blue') . "\n";
+	}
+	return;
+}
+
+sub print_endgroup () {
+	if ($IS_GITHUB_CI) {
+		print "::endgroup::\n";
+	}
+	else {
+		print "\n";
+	}
+	return;
+}
+
+sub print_error ($msg) {
+	if ($IS_GITHUB_CI) {
+		print STDERR "::error::$msg\n";
+	}
+	else {
+		print STDERR colored("ERROR: ", 'red'), "$msg\n";
+	}
+	return;
+}
+
+sub print_success ($msg) {
+	print colored("$msg", 'green bold'), "\n";
+	return;
+}
+
+sub print_info ($msg) {
+	print colored("$msg", 'bold'), "\n";
+	return;
+}
+
+print_info("Building tags taxonomy (tagtype: $tagtype)");
+
+my $has_any_errors = 0;
 
 if ($tagtype eq '*') {
-	print "::group::Building all taxonomies\n";
+	print_group("Building all taxonomies");
 	my $errors_ref = ProductOpener::Tags::build_all_taxonomies($publish);
-	foreach my $taxonomy (keys %{$errors_ref}) {
+	foreach my $taxonomy (sort keys %{$errors_ref}) {
 		if (@{$errors_ref->{$taxonomy}}) {
-			print STDERR "::error::"
-				. (scalar @{$errors_ref->{$taxonomy}})
-				. " errors while building $taxonomy taxonomy\n";
+			print_error((scalar @{$errors_ref->{$taxonomy}}) . " errors while building $taxonomy taxonomy");
+			$has_any_errors = 1;
 		}
 	}
-	print "::endgroup::\n";
+	if (!$has_any_errors) {
+		print_success("All taxonomies built successfully");
+	}
+	print_endgroup();
 }
 else {
-	print "::group::Building $tagtype taxonomy\n";
+	print_group("Building $tagtype taxonomy");
 	my @errors = ProductOpener::Tags::build_tags_taxonomy($tagtype, $publish);
 	if (@errors) {
-		print STDERR "::error::" . (scalar @errors) . " errors while building $tagtype taxonomy\n";
+		print_error((scalar @errors) . " errors while building $tagtype taxonomy");
+		$has_any_errors = 1;
 	}
-	print "::endgroup::\n";
+	else {
+		print_success("$tagtype taxonomy built successfully");
+	}
+	print_endgroup();
 }
 
-print STDERR "done building tags taxonomy\n";
+if ($has_any_errors) {
+	print_error("Completed with errors");
+	exit(1);
+}
 
 exit(0);
