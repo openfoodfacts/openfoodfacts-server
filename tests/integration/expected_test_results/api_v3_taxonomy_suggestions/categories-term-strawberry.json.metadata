@@ -3,18 +3,10 @@
       "body" : null,
       "content-type" : null,
       "method" : "GET",
-      "body" : null,
-      "path" : "/api/v3/taxonomy_suggestions",
       "parameters" : {
-<<<<<<< HEAD
-         "term" : "strawberry",
-         "tagtype" : "categories"
-      }
-=======
          "tagtype" : "categories",
          "term" : "strawberry"
       },
       "path" : "/api/v3/taxonomy_suggestions"
->>>>>>> main
    }
 }

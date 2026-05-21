@@ -1,21 +1,14 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
       "body" : {
          "fields" : "creator,editors_tags,packagings",
          "product" : {
             "packagings" : [
                {
-                  "recycling" : {
-                     "lc_name" : "recycle"
-                  },
                   "number_of_units" : 1,
-<<<<<<< HEAD
-=======
                   "recycling" : {
                      "lc_name" : "recycle"
                   },
->>>>>>> main
                   "shape" : {
                      "lc_name" : "can"
                   }
@@ -24,15 +17,9 @@
          },
          "tags_lc" : "en"
       },
-<<<<<<< HEAD
-      "path" : "/api/v3/product/2234567890002",
-      "parameters" : {},
-      "method" : "PATCH"
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/2234567890002"
->>>>>>> main
    }
 }

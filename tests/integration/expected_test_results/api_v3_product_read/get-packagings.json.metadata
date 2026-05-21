@@ -1,14 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "content-type" : null,
-      "path" : "/api/v3/product/4260392550101",
-      "parameters" : {
-         "fields" : "packagings"
-      },
-      "body" : null,
-      "method" : "GET"
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
@@ -16,6 +7,5 @@
          "fields" : "packagings"
       },
       "path" : "/api/v3/product/4260392550101"
->>>>>>> main
    }
 }

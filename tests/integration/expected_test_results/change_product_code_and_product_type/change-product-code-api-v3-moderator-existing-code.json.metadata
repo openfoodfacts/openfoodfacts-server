@@ -1,18 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/api/v3/product/1234567890101",
-      "parameters" : {},
-      "content-type" : "application/json; charset=utf-8",
-      "body" : {
-         "product" : {
-            "code" : "1234567891234"
-         },
-         "fields" : "updated",
-         "tags_lc" : "en"
-      },
-      "method" : "PATCH"
-=======
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -24,6 +11,5 @@
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890101"
->>>>>>> main
    }
 }

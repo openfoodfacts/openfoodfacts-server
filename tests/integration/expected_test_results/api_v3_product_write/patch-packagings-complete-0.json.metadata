@@ -1,9 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "content-type" : "application/json; charset=utf-8",
-=======
->>>>>>> main
       "body" : {
          "fields" : "packagings,packagings_complete",
          "product" : {
@@ -17,14 +13,6 @@
                      "lc_name" : "bottle"
                   }
                }
-<<<<<<< HEAD
-            ]
-         }
-      },
-      "path" : "/api/v3/product/1234567890016",
-      "parameters" : {},
-      "method" : "PATCH"
-=======
             ],
             "packagings_complete" : 0
          },
@@ -34,6 +22,5 @@
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890016"
->>>>>>> main
    }
 }

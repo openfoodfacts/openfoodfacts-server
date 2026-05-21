@@ -1,26 +1,13 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-=======
       "body" : null,
       "content-type" : null,
->>>>>>> main
       "method" : "GET",
-      "body" : null,
-      "path" : "/api/v3/taxonomy_suggestions",
-      "content-type" : null,
       "parameters" : {
-<<<<<<< HEAD
-         "tagtype" : "packaging_materials",
-         "cc" : "fr",
-         "shape" : "pot"
-      }
-=======
          "cc" : "fr",
          "shape" : "pot",
          "tagtype" : "packaging_materials"
       },
       "path" : "/api/v3/taxonomy_suggestions"
->>>>>>> main
    }
 }

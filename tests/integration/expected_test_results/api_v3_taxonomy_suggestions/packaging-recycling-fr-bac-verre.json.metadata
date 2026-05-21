@@ -1,16 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "content-type" : null,
-      "body" : null,
-      "path" : "/api/v3/taxonomy_suggestions",
-      "method" : "GET",
-      "parameters" : {
-         "string" : "bac-verre",
-         "cc" : "fr",
-         "tagtype" : "packaging_recycling"
-      }
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
@@ -20,6 +9,5 @@
          "tagtype" : "packaging_recycling"
       },
       "path" : "/api/v3/taxonomy_suggestions"
->>>>>>> main
    }
 }

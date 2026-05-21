@@ -1,22 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/cgi/product_image_crop.pl",
-      "body" : {
-         "angle" : 0,
-         "coordinates_image_size" : "full",
-         "imgid" : "25",
-         "y1" : 20,
-         "y2" : 200,
-         "x1" : 10,
-         "id" : "nutrition_fr",
-         "x2" : 100,
-         "code" : "1234567890012"
-      },
-      "parameters" : {},
-      "method" : "POST",
-      "content-type" : "application/x-www-form-urlencoded"
-=======
       "body" : {
          "angle" : 0,
          "code" : "1234567890012",
@@ -32,6 +15,5 @@
       "method" : "POST",
       "parameters" : {},
       "path" : "/cgi/product_image_crop.pl"
->>>>>>> main
    }
 }

@@ -1,12 +1,6 @@
 {
    "api_call" : {
-      "method" : "POST",
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product_services",
       "body" : {
-         "services" : [
-            "determine_food_contact_of_packaging_components"
-         ],
          "product" : {
             "lc" : "en",
             "packagings" : [
@@ -22,13 +16,6 @@
                   "material" : "en:paper",
                   "shape" : "en:label"
                }
-<<<<<<< HEAD
-            ],
-            "lc" : "en"
-         }
-      },
-      "parameters" : {}
-=======
             ]
          },
          "services" : [
@@ -39,6 +26,5 @@
       "method" : "POST",
       "parameters" : {},
       "path" : "/api/v3/product_services"
->>>>>>> main
    }
 }

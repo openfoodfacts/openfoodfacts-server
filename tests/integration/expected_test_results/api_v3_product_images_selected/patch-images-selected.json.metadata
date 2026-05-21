@@ -1,9 +1,5 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3.3/product/1234567890012",
-      "parameters" : {},
-      "method" : "PATCH",
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -15,31 +11,10 @@
                      }
                   },
                   "ingredients" : {
-                     "es" : {
-                        "generation" : {
-                           "x1" : 10,
-                           "y2" : 200,
-                           "white_magic" : true,
-                           "x2" : 100,
-                           "y1" : 20,
-                           "coordinates_image_size" : "full",
-                           "angle" : 90,
-                           "normalize" : false
-                        },
-                        "imgid" : "1"
-                     },
                      "en" : {
                         "generation" : {
                            "angle" : 0,
                            "normalize" : "true",
-<<<<<<< HEAD
-                           "angle" : 0,
-                           "y1" : 0,
-                           "x2" : 0,
-                           "y2" : 0,
-                           "white_magic" : "false",
-                           "x1" : 0
-=======
                            "white_magic" : "false",
                            "x1" : 0,
                            "x2" : 0,
@@ -58,21 +33,11 @@
                            "x2" : 100,
                            "y1" : 20,
                            "y2" : 200
->>>>>>> main
                         },
                         "imgid" : "1"
                      },
                      "fr" : {
                         "generation" : {
-<<<<<<< HEAD
-                           "normalize" : false,
-                           "angle" : 90,
-                           "x2" : 100,
-                           "y1" : 20,
-                           "x1" : 10,
-                           "y2" : 200,
-                           "white_magic" : true
-=======
                            "angle" : 90,
                            "normalize" : false,
                            "white_magic" : true,
@@ -80,7 +45,6 @@
                            "x2" : 100,
                            "y1" : 20,
                            "y2" : 200
->>>>>>> main
                         },
                         "imgid" : "1"
                      }
@@ -88,14 +52,10 @@
                }
             }
          }
-<<<<<<< HEAD
-      }
-=======
       },
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3.3/product/1234567890012"
->>>>>>> main
    }
 }

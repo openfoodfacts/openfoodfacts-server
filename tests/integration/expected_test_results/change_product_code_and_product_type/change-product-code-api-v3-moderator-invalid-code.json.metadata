@@ -1,18 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/api/v3/product/1234567890101",
-      "method" : "PATCH",
-      "body" : {
-         "product" : {
-            "code" : "some invalid barcode"
-         },
-         "tags_lc" : "en",
-         "fields" : "updated"
-      },
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {}
-=======
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -24,6 +11,5 @@
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890101"
->>>>>>> main
    }
 }

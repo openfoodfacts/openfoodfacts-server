@@ -1,26 +1,16 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "parameters" : {},
-=======
->>>>>>> main
       "body" : {
-         "services" : [
-            "parse_ingredients_text"
-         ],
          "product" : {
             "ingredients_text_fr" : "sucre, huile de palme, eau, quelque chose d'inconnu"
-         }
+         },
+         "services" : [
+            "parse_ingredients_text"
+         ]
       },
-<<<<<<< HEAD
-      "path" : "/api/v3/product_services",
-      "content-type" : "application/json; charset=utf-8",
-      "method" : "POST"
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "POST",
       "parameters" : {},
       "path" : "/api/v3/product_services"
->>>>>>> main
    }
 }

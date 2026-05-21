@@ -1,23 +1,12 @@
 {
    "api_call" : {
       "body" : null,
-<<<<<<< HEAD
-      "method" : "GET",
-      "path" : "/api/v3/taxonomy_suggestions",
-=======
->>>>>>> main
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
-<<<<<<< HEAD
-         "tagtype" : "packaging_materials",
-         "string" : "pet-1"
-      }
-=======
          "string" : "pet-1",
          "tagtype" : "packaging_materials"
       },
       "path" : "/api/v3/taxonomy_suggestions"
->>>>>>> main
    }
 }

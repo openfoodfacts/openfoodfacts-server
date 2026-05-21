@@ -1,18 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "content-type" : "application/x-www-form-urlencoded",
-      "parameters" : {},
-      "body" : {
-         "lang" : "en",
-         "type" : "search_or_add",
-         "code" : "1234567890012",
-         "action" : "process",
-         "password" : "testtest",
-         "user_id" : "tests"
-      },
-      "method" : "POST",
-=======
       "body" : {
          "action" : "process",
          "code" : "1234567890012",
@@ -24,7 +11,6 @@
       "content-type" : "application/x-www-form-urlencoded",
       "method" : "POST",
       "parameters" : {},
->>>>>>> main
       "path" : "/cgi/product_multilingual.pl"
    }
 }

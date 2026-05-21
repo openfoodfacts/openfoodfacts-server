@@ -1,20 +1,11 @@
 {
    "api_call" : {
-      "path" : "/api/v2/product/200000000034",
-      "content-type" : null,
       "body" : null,
-<<<<<<< HEAD
-      "method" : "GET",
-      "parameters" : {
-         "fields" : "attribute_groups"
-      }
-=======
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
          "fields" : "attribute_groups"
       },
       "path" : "/api/v2/product/200000000034"
->>>>>>> main
    }
 }

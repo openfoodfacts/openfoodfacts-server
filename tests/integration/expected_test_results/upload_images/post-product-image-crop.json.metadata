@@ -1,22 +1,6 @@
 {
    "api_call" : {
       "body" : {
-<<<<<<< HEAD
-         "y1" : 20,
-         "y2" : 200,
-         "code" : "1234567890012",
-         "id" : "ingredients_fr",
-         "x2" : 100,
-         "x1" : 10,
-         "angle" : 0,
-         "imgid" : "1",
-         "coordinates_image_size" : "full"
-      },
-      "path" : "/cgi/product_image_crop.pl",
-      "parameters" : {},
-      "method" : "POST",
-      "content-type" : "application/x-www-form-urlencoded"
-=======
          "angle" : 0,
          "code" : "1234567890012",
          "coordinates_image_size" : "full",
@@ -31,6 +15,5 @@
       "method" : "POST",
       "parameters" : {},
       "path" : "/cgi/product_image_crop.pl"
->>>>>>> main
    }
 }

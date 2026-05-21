@@ -1,29 +1,11 @@
 {
    "api_call" : {
       "body" : {
-<<<<<<< HEAD
-         "cc" : "uk",
-         "quantity" : "250 g",
-         "ingredients_text" : "Pork meat, wheat, salt",
          "allergens" : "Eggs",
-         "lc" : "en",
-         "lang" : "fr",
-         "categories" : "Sausages",
-         "traces" : "Moutarde, milk, abcd",
-         "product_name" : "Some sausages",
-         "code" : "1234567890004",
-         "serving_size" : "20 g",
-         "user_id" : "tests",
-         "password" : "testtest"
-      },
-      "parameters" : {},
-      "content-type" : "application/x-www-form-urlencoded",
-      "method" : "POST",
-=======
          "categories" : "Sausages",
          "cc" : "uk",
          "code" : "1234567890004",
-         "ingredients_text" : "Pork meat, salt",
+         "ingredients_text" : "Pork meat, wheat, salt",
          "lang" : "fr",
          "lc" : "en",
          "password" : "testtest",
@@ -36,7 +18,6 @@
       "content-type" : "application/x-www-form-urlencoded",
       "method" : "POST",
       "parameters" : {},
->>>>>>> main
       "path" : "/cgi/product_jqm_multilingual.pl"
    }
 }

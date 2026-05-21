@@ -1,23 +1,12 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "content-type" : null,
-=======
->>>>>>> main
       "body" : null,
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
-<<<<<<< HEAD
-         "term" : "fraise",
-         "tagtype" : "categories"
-      },
-      "method" : "GET",
-=======
          "tagtype" : "categories",
          "term" : "fraise"
       },
->>>>>>> main
       "path" : "/cgi/suggest.pl"
    }
 }

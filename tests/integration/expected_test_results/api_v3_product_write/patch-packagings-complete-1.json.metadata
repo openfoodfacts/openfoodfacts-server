@@ -15,12 +15,6 @@
                },
                {
                   "number_of_units" : 1,
-<<<<<<< HEAD
-                  "shape" : {
-                     "lc_name" : "lid"
-                  },
-=======
->>>>>>> main
                   "recycling" : {
                      "lc_name" : "recycle"
                   },
@@ -30,14 +24,6 @@
                }
             ],
             "packagings_complete" : 1
-<<<<<<< HEAD
-         }
-      },
-      "parameters" : {},
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product/1234567890016",
-      "method" : "PATCH"
-=======
          },
          "tags_lc" : "en"
       },
@@ -45,6 +31,5 @@
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890016"
->>>>>>> main
    }
 }

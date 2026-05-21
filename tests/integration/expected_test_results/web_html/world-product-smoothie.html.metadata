@@ -1,20 +1,11 @@
 {
    "api_call" : {
       "body" : null,
-<<<<<<< HEAD
-      "parameters" : {
-         "user_agent" : "smoothie"
-      },
-      "method" : "GET",
-      "path" : "/product/3300000000001/apple-pie-bob-s-pies",
-      "content-type" : null
-=======
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
          "user_agent" : "smoothie"
       },
       "path" : "/product/3300000000001/apple-pie-bob-s-pies"
->>>>>>> main
    }
 }

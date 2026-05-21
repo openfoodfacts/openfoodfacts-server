@@ -1,20 +1,11 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "method" : "GET",
-      "body" : null,
-      "parameters" : {
-         "fields" : "attribute_groups"
-      },
-      "content-type" : null,
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
          "fields" : "attribute_groups"
       },
->>>>>>> main
       "path" : "/api/v3.1/product/4260392550101"
    }
 }

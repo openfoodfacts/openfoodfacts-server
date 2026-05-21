@@ -6,23 +6,11 @@
             "nutrition" : {
                "input_sets" : [
                   {
-<<<<<<< HEAD
-                     "source_description" : "",
-                     "source" : "packaging",
-                     "preparation" : "as_sold",
-                     "per_unit" : "g",
-                     "per_quantity" : 100,
-                     "per" : "100g",
-=======
->>>>>>> main
                      "nutrients" : {
                         "alcohol" : {
                            "unit" : "g",
                            "value_string" : "0.5"
                         }
-<<<<<<< HEAD
-                     }
-=======
                      },
                      "per" : "100g",
                      "per_quantity" : 100,
@@ -30,22 +18,14 @@
                      "preparation" : "as_sold",
                      "source" : "packaging",
                      "source_description" : ""
->>>>>>> main
                   }
                ]
             }
          }
       },
-<<<<<<< HEAD
-      "method" : "PATCH",
-      "path" : "/api/v3.5/product/4230000001000",
-      "parameters" : {},
-      "content-type" : "application/json; charset=utf-8"
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3.5/product/4230000001000"
->>>>>>> main
    }
 }

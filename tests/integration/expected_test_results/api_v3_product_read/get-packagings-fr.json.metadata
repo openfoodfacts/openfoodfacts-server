@@ -4,16 +4,9 @@
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "tags_lc" : "fr",
-         "fields" : "packagings"
+         "fields" : "packagings",
+         "tags_lc" : "fr"
       },
-<<<<<<< HEAD
-      "content-type" : null,
-      "path" : "/api/v3/product/4260392550101",
-      "method" : "GET",
-      "body" : null
-=======
       "path" : "/api/v3/product/4260392550101"
->>>>>>> main
    }
 }

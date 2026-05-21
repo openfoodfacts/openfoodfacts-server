@@ -1,24 +1,13 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/api/v2/product/200000000034",
-      "content-type" : null,
-      "body" : null,
-=======
       "body" : null,
       "content-type" : null,
->>>>>>> main
       "method" : "GET",
       "parameters" : {
          "fields" : "knowledge_panels",
-<<<<<<< HEAD
-         "knowledge_panels_excluded" : "health_card"
-      }
-=======
          "knowledge_panels_excluded" : "health_card",
          "knowledge_panels_included" : "health_card,environment_card"
       },
       "path" : "/api/v2/product/200000000034"
->>>>>>> main
    }
 }

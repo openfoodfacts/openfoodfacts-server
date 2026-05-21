@@ -1,31 +1,8 @@
 {
    "api_call" : {
       "body" : {
+         "fields" : "updated",
          "product" : {
-            "brands_tags" : [
-               "Some brand",
-               "Aldi"
-            ],
-<<<<<<< HEAD
-=======
-            "categories_tags" : [
-               "coffee"
-            ],
->>>>>>> main
-            "labels_tags" : [
-               "en:organic",
-               "fr:max havelaar",
-               "vegan",
-               "Something unrecognized"
-            ],
-            "stores_tags" : "comma,separated,list",
-<<<<<<< HEAD
-            "traces_tags" : [
-               "en:wheat"
-            ],
-            "categories_tags" : [
-               "coffee"
-            ],
             "allergens_tags" : [
                "en:milk",
                "en:eggs",
@@ -38,24 +15,32 @@
                "en:mango",
                "kiwi",
                "Unrecognized Allergen"
-=======
+            ],
+            "brands_tags" : [
+               "Some brand",
+               "Aldi"
+            ],
+            "categories_tags" : [
+               "coffee"
+            ],
+            "labels_tags" : [
+               "en:organic",
+               "fr:max havelaar",
+               "vegan",
+               "Something unrecognized"
+            ],
+            "stores_tags" : "comma,separated,list",
+            "traces_tags" : [
+               "en:wheat"
+            ],
             "unknown_tags" : [
                "some value"
->>>>>>> main
             ]
-         },
-         "fields" : "updated"
+         }
       },
-<<<<<<< HEAD
-      "path" : "/api/v3/product/1234567890100",
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {},
-      "method" : "PATCH"
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890100"
->>>>>>> main
    }
 }

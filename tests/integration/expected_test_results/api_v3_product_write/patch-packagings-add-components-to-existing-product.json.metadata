@@ -9,9 +9,6 @@
                      "lc_name" : "plastic"
                   },
                   "number_of_units" : 2,
-                  "shape" : {
-                     "id" : "en:bottle"
-                  },
                   "recycling" : {
                      "lc_name" : "strange value"
                   },
@@ -29,28 +26,14 @@
                   },
                   "shape" : {
                      "id" : "en:box"
-<<<<<<< HEAD
-                  },
-                  "material" : {
-                     "lc_name" : "cardboard"
-                  },
-                  "number_of_units" : 1
-=======
                   }
->>>>>>> main
                }
             ]
          }
       },
       "content-type" : "application/json; charset=utf-8",
-<<<<<<< HEAD
-      "path" : "/api/v3/product/1234567890007",
-      "parameters" : {},
-      "method" : "PATCH"
-=======
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890007"
->>>>>>> main
    }
 }

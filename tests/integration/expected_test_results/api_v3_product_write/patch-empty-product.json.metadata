@@ -1,14 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "content-type" : "application/json; charset=utf-8",
-      "body" : {
-         "product" : {}
-      },
-      "path" : "/api/v3/product/1234567890005",
-      "parameters" : {},
-      "method" : "PATCH"
-=======
       "body" : {
          "product" : {}
       },
@@ -16,6 +7,5 @@
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/1234567890005"
->>>>>>> main
    }
 }

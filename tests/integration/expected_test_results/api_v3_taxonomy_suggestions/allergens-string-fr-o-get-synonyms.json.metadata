@@ -1,20 +1,8 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "path" : "/api/v3/taxonomy_suggestions",
-=======
->>>>>>> main
       "body" : null,
-      "method" : "GET",
-<<<<<<< HEAD
       "content-type" : null,
-      "parameters" : {
-         "lc" : "fr",
-         "string" : "o",
-         "tagtype" : "allergens",
-         "get_synonyms" : "1"
-      }
-=======
+      "method" : "GET",
       "parameters" : {
          "get_synonyms" : "1",
          "lc" : "fr",
@@ -22,6 +10,5 @@
          "tagtype" : "allergens"
       },
       "path" : "/api/v3/taxonomy_suggestions"
->>>>>>> main
    }
 }

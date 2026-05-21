@@ -1,23 +1,13 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "method" : "GET",
-      "content-type" : null,
-      "path" : "/api/v3/taxonomy_display_tags",
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
->>>>>>> main
       "parameters" : {
          "canonical_tags_list" : "en:banana,en:pineapple, en:garden-peas, en:spinach,fr:unknown ingredient, de:Other Unknown Ingredient",
          "lc" : "fr",
          "tagtype" : "ingredients"
       },
-<<<<<<< HEAD
-      "body" : null
-=======
       "path" : "/api/v3/taxonomy_display_tags"
->>>>>>> main
    }
 }

@@ -1,16 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "method" : "GET",
-      "parameters" : {
-         "term" : "fraise",
-         "tagtype" : "categories",
-         "lc" : "fr"
-      },
-      "path" : "/cgi/suggest.pl",
-      "content-type" : null,
-      "body" : null
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
@@ -20,6 +9,5 @@
          "term" : "fraise"
       },
       "path" : "/cgi/suggest.pl"
->>>>>>> main
    }
 }

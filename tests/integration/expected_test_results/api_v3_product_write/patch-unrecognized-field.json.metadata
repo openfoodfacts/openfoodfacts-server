@@ -5,15 +5,9 @@
             "some_unrecognized_field" : "some value"
          }
       },
-<<<<<<< HEAD
-      "path" : "/api/v3/product/test",
-      "parameters" : {},
-      "method" : "PATCH"
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3/product/test"
->>>>>>> main
    }
 }

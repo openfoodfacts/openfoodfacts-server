@@ -1,10 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8",
-=======
->>>>>>> main
       "body" : {
          "product" : {
             "packagings_add" : {
@@ -14,11 +9,8 @@
             }
          }
       },
-<<<<<<< HEAD
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
->>>>>>> main
       "parameters" : {},
       "path" : "/api/v3/product/1234567890006"
    }

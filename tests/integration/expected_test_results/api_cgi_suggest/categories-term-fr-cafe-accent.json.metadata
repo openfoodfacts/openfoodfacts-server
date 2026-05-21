@@ -1,16 +1,5 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "parameters" : {
-         "lc" : "fr",
-         "tagtype" : "categories",
-         "term" : "CafÃÂ©"
-      },
-      "method" : "GET",
-      "path" : "/cgi/suggest.pl",
-      "body" : null,
-      "content-type" : null
-=======
       "body" : null,
       "content-type" : null,
       "method" : "GET",
@@ -20,6 +9,5 @@
          "term" : "CafÃÂ©"
       },
       "path" : "/cgi/suggest.pl"
->>>>>>> main
    }
 }

@@ -1,23 +1,11 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "method" : "PATCH",
-=======
->>>>>>> main
       "body" : {
+         "fields" : "updated",
          "product" : {
             "nutrition" : {
                "input_sets" : [
                   {
-<<<<<<< HEAD
-                     "source_description" : "",
-                     "source" : "packaging",
-                     "preparation" : "prepared",
-                     "per_unit" : "ml",
-                     "per_quantity" : 200,
-                     "nutrients" : null,
-                     "per" : "200ml"
-=======
                      "nutrients" : null,
                      "per" : "200ml",
                      "per_quantity" : 200,
@@ -25,22 +13,14 @@
                      "preparation" : "prepared",
                      "source" : "packaging",
                      "source_description" : ""
->>>>>>> main
                   }
                ]
             }
-         },
-         "fields" : "updated"
+         }
       },
-<<<<<<< HEAD
-      "path" : "/api/v3.5/product/4230000001000",
-      "parameters" : {},
-      "content-type" : "application/json; charset=utf-8"
-=======
       "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3.5/product/4230000001000"
->>>>>>> main
    }
 }

@@ -2,18 +2,11 @@
    "api_call" : {
       "body" : null,
       "content-type" : null,
-      "body" : null,
       "method" : "GET",
       "parameters" : {
-<<<<<<< HEAD
-         "tagtype" : "packaging_shapes",
-         "lc" : "fr"
-      }
-=======
          "lc" : "fr",
          "tagtype" : "packaging_shapes"
       },
       "path" : "/api/v3/taxonomy_suggestions"
->>>>>>> main
    }
 }

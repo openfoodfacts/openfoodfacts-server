@@ -1,20 +1,11 @@
 {
    "api_call" : {
-<<<<<<< HEAD
-      "parameters" : {},
-      "path" : "/api/v3/product_services",
-=======
->>>>>>> main
       "body" : {
          "raw_body" : "{\n\t\"services\":[\"parse_ingredients_text\"],\n\t\"product\": {\n\t\t\"ingredients_text_es\": \"azÃºcar, aceite de palma, agua, algo desconocido\",\n\t\t\"ingredients_text_en\": \"sugar, palm oil, water, something unknown\"\n\t}\n}\n"
       },
       "content-type" : "application/json; charset=utf-8",
-<<<<<<< HEAD
-      "method" : "POST"
-=======
       "method" : "POST",
       "parameters" : {},
       "path" : "/api/v3/product_services"
->>>>>>> main
    }
 }
