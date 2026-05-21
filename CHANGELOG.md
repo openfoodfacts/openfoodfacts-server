@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.92.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.91.1...v2.92.0) (2026-05-21)
+
+
+### Features
+
+* harmonize to donorbox ([#13623](https://github.com/openfoodfacts/openfoodfacts-server/issues/13623)) ([3cde26a](https://github.com/openfoodfacts/openfoodfacts-server/commit/3cde26a57c6745c21ee6eaa731c736307be304c3))
+* Modify donation banner for 2026 campaign ([3fd17ee](https://github.com/openfoodfacts/openfoodfacts-server/commit/3fd17ee598917f016e781316362ba5925e74aa0c))
+* Modify donation banner for 2026 campaign ([#13622](https://github.com/openfoodfacts/openfoodfacts-server/issues/13622)) ([3fd17ee](https://github.com/openfoodfacts/openfoodfacts-server/commit/3fd17ee598917f016e781316362ba5925e74aa0c))
+* Update donation form integration with Donorbox ([#13619](https://github.com/openfoodfacts/openfoodfacts-server/issues/13619)) ([57bd285](https://github.com/openfoodfacts/openfoodfacts-server/commit/57bd285b38eec3fa57d7e620f804f52bb86c246c))
+
+
+### Bug Fixes
+
+* add CORS headers to 429 and NOINDEX responses ([b911ad8](https://github.com/openfoodfacts/openfoodfacts-server/commit/b911ad822189bd5e0085c70116552bed44757f59))
+* fix some production log warnings ([6035f6d](https://github.com/openfoodfacts/openfoodfacts-server/commit/6035f6d3705a2c2f4316b6869eed7701b7bc2885))
+* flush memcached in remove_all_results in tests ([#13591](https://github.com/openfoodfacts/openfoodfacts-server/issues/13591)) ([0bd226e](https://github.com/openfoodfacts/openfoodfacts-server/commit/0bd226e80b2efdd411062a31177f8c9f6606c974))
+
 ## [2.91.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.91.0...v2.91.1) (2026-05-12)
 
 
