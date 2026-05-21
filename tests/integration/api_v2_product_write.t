@@ -595,6 +595,30 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/1234567890341',
 	},
+	# Some apps (such as the OFF app as of 2026/05) are sending back existing values from categories_tags
+	# that include tags from tags_sources + their parents. We will change the API to remove parents and keep only children.
+	# This test verifies that we only keep the children tags.
+	{
+		test_case => 'post-product-categories-tags-with-parents',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "en",    # lc is the language of the interface
+			lang => "en",    # lang is the main language of the product
+			code => "1234567890342",
+			categories => "dairies, yogurts, strawberry yogurts, flavoured yogurts",
+			labels => "organic, AB Agriculture biologique, rainforest alliance, fair trade"
+		}
+	},
+	# we use v3.6 to get the tag_sources
+	{
+		test_case => 'get-product-categories-tags-with-parents',
+		method => 'GET',
+		path => '/api/v3.6/product/1234567890342',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref, undef, 0);

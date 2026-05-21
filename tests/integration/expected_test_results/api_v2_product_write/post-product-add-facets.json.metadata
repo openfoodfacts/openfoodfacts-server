@@ -1,23 +1,23 @@
 {
    "api_call" : {
-      "path" : "/cgi/product_jqm_multilingual.pl",
-      "parameters" : {},
-      "content-type" : "application/x-www-form-urlencoded",
-      "method" : "POST",
       "body" : {
-         "code" : "1234567890341",
-         "add_categories" : "Milk, CafÃ©",
-         "add_brands" : "Another brand 1, Another brand 2",
          "lang" : "fr",
-         "lc" : "es",
-         "user_id" : "tests",
-         "cc" : "uk",
-         "add_emb_codes" : "FR 56082 CE",
-         "add_stores" : "EcomarchÃ©, Carrefour",
+         "code" : "1234567890341",
+         "add_brands" : "Another brand 1, Another brand 2",
+         "add_labels" : "Gold meal",
          "password" : "testtest",
          "add_allergens" : "Crustaceans",
+         "user_id" : "tests",
+         "add_stores" : "EcomarchÃ©, Carrefour",
+         "lc" : "es",
+         "add_emb_codes" : "FR 56082 CE",
          "add_traces" : "Gluten",
-         "add_labels" : "Gold meal"
-      }
+         "cc" : "uk",
+         "add_categories" : "Milk, CafÃ©"
+      },
+      "parameters" : {},
+      "method" : "POST",
+      "path" : "/cgi/product_jqm_multilingual.pl",
+      "content-type" : "application/x-www-form-urlencoded"
    }
 }

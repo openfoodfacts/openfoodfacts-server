@@ -1,22 +1,22 @@
 {
    "api_call" : {
-      "path" : "/cgi/product_jqm_multilingual.pl",
-      "parameters" : {},
-      "content-type" : "application/x-www-form-urlencoded",
       "body" : {
+         "code" : "1234567890341",
+         "lang" : "fr",
+         "traces" : "",
+         "labels" : "",
          "categories" : "",
+         "allergens" : "",
          "password" : "testtest",
          "emb_codes" : "",
-         "cc" : "uk",
-         "brands" : "",
-         "traces" : "",
-         "lang" : "fr",
-         "labels" : "",
-         "code" : "1234567890341",
          "user_id" : "tests",
-         "allergens" : "",
-         "lc" : "es"
+         "brands" : "",
+         "lc" : "es",
+         "cc" : "uk"
       },
-      "method" : "POST"
+      "path" : "/cgi/product_jqm_multilingual.pl",
+      "parameters" : {},
+      "method" : "POST",
+      "content-type" : "application/x-www-form-urlencoded"
    }
 }

@@ -1,0 +1,18 @@
+{
+   "api_call" : {
+      "path" : "/cgi/product_jqm_multilingual.pl",
+      "parameters" : {},
+      "method" : "POST",
+      "body" : {
+         "user_id" : "tests",
+         "lc" : "en",
+         "lang" : "en",
+         "code" : "1234567890342",
+         "password" : "testtest",
+         "cc" : "uk",
+         "labels" : "organic, AB Agriculture biologique, rainforest alliance, fair trade",
+         "categories" : "dairies, yogurts, strawberry yogurts, flavoured yogurts"
+      },
+      "content-type" : "application/x-www-form-urlencoded"
+   }
+}
