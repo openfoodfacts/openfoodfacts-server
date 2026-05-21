@@ -194,7 +194,7 @@ my $interrupted = 0;
 $SIG{INT} = $SIG{TERM} = sub {
 	$interrupted = 1;
 	print "\n" . colored("Interrupted, terminating workers...\n", "bold white");
-	local $SIG{INT}  = 'IGNORE';    # Avoid recursion
+	local $SIG{INT} = 'IGNORE';    # Avoid recursion
 	local $SIG{TERM} = 'IGNORE';
 	terminate_workers();
 	exit 1;
