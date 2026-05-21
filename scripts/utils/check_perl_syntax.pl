@@ -25,7 +25,6 @@
 
 use ProductOpener::PerlStandards;
 use File::Find;
-use POSIX ":sys_wait_h";
 use Term::ANSIColor;
 use Getopt::Long qw(:config pass_through);
 
@@ -142,6 +141,15 @@ my $finished = 0;
 my $started = 0;
 my $fast_failing = 0;
 
+sub terminate_workers {
+	my @pids = keys %running;
+	return unless @pids;
+	kill 'TERM', @pids;
+	# Give workers a moment to terminate gracefully
+	select(undef, undef, undef, 0.25);
+	kill 'KILL', @pids;
+}
+
 sub wait_for_worker() {
 	my $pid = wait();
 	if ($pid <= 0) {
@@ -173,7 +181,7 @@ sub wait_for_worker() {
 				$fast_failing = 1;
 				print colored("warning: ", "bold yellow")
 					. "Fast-fail enabled, terminating remaining workers... (pass --no-fast-fail to disable)\n";
-				kill 'KILL', keys %running;
+				terminate_workers();
 			}
 		}
 	}
@@ -186,9 +194,9 @@ my $interrupted = 0;
 $SIG{INT} = $SIG{TERM} = sub {
 	$interrupted = 1;
 	print "\n" . colored("Interrupted, terminating workers...\n", "bold white");
-	# Kill the entire process group to ensure all workers and their children are gone
-	local $SIG{INT} = 'IGNORE';    # Avoid recursion
-	kill 'KILL', -$$;
+	local $SIG{INT}  = 'IGNORE';    # Avoid recursion
+	local $SIG{TERM} = 'IGNORE';
+	terminate_workers();
 	exit 1;
 };
 
@@ -250,6 +258,7 @@ print "\r" . (" " x 80) . "\r";
 
 if (@failed) {
 	print colored("error: ", "bold red") . "Check failed. See above for details.\n";
+	exit 1;
 }
 else {
 	print colored("All files passed syntax check.\n", "bold green");
