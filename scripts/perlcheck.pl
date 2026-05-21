@@ -26,17 +26,20 @@
 use ProductOpener::PerlStandards;
 use File::Find;
 use Term::ANSIColor;
-use Getopt::Long qw(:config pass_through);
+use Getopt::Long qw(:config);
 
 # Parse options
 my $no_fast_fail = 0;
-GetOptions("no-fast-fail" => \$no_fast_fail);
+GetOptions("no-fast-fail" => \$no_fast_fail)
+	or die "Usage: $0 [--no-fast-fail] [files or directories...]\n";
 
 # Determine number of workers
 my $max_workers = $ENV{CPU_COUNT};
-if (!$max_workers) {
-	$max_workers = `nproc 2>/dev/null` || 8;
-	chomp $max_workers;
+if (!defined $max_workers || $max_workers !~ /^\d+$/ || $max_workers < 1) {
+	$max_workers = 1;
+}
+else {
+	$max_workers = int($max_workers);
 }
 my $perlcheck_ignore_file = $ENV{PERLCHECK_IGNORE} || '.perlcheckignore';
 
