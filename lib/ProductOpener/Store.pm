@@ -69,7 +69,7 @@ use File::Copy::Recursive qw/dirmove/;
 use Cwd qw/abs_path/;
 use Carp qw/carp/;
 
-# Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
+# Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise perlcheck gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
 # Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json_for_config = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->canonical->indent->indent_length(1)->utf8;

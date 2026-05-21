@@ -34,7 +34,7 @@ ifeq ($(shell test $(CPU_COUNT) -gt 8; echo $$?),0)
   export CPU_COUNT=8
 endif
 
-export CHECK_PERL_EXCLUDES ?= .check_perl_excludes
+export PERLCHECK_IGNORE ?= .perlcheckignore
 
 # tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
@@ -413,14 +413,12 @@ check_translations:
 	@echo "🥫 Checking translations"
 	${DOCKER_COMPOSE_BUILD} run --rm backend scripts/check-translations.sh
 
-CHECK_PERL := "scripts/utils/check_perl_syntax.pl"
+CHECK_PERL := "scripts/perlcheck.pl"
 
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
-# IMPORTANT: We exclude some files that are in .check_perl_excludes
+# IMPORTANT: We exclude some files that are in .perlcheckignore
 check_perl:
 	$(MAKE) check_perl_args args="--no-fast-fail"
-
-CHECK_PERL := "scripts/utils/check_perl_syntax.pl"
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"

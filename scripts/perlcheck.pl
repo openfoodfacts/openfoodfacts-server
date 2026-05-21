@@ -38,30 +38,80 @@ if (!$max_workers) {
 	$max_workers = `nproc 2>/dev/null` || 8;
 	chomp $max_workers;
 }
-my $check_perl_excludes_file = $ENV{CHECK_PERL_EXCLUDES} || '.check_perl_excludes';
+my $perlcheck_ignore_file = $ENV{PERLCHECK_IGNORE} || '.perlcheckignore';
 
-sub load_excludes ($file) {
-	my %excludes;
+sub load_ignore ($file) {
+	my @patterns;
 	if (-f $file) {
 		open my $fh, '<', $file or die "Cannot open $file: $!";
 		while (<$fh>) {
 			chomp;
 			# Skip blank lines and comments
 			next if /^\s*$/ || /^\s*#/;
-			$excludes{$_} = 1;
+			push @patterns, gitignore_to_regex($_);
 		}
 		close $fh;
 	}
-	return %excludes;
+	return @patterns;
 }
 
-my %excludes = load_excludes($check_perl_excludes_file);
+sub gitignore_to_regex ($pattern) {
+	my $original = $pattern;
+	my $negate = ($pattern =~ s/^!//);
+	my $dir_only = ($pattern =~ s{/$}{});
 
-# Warn if any excludes don't exist
-for my $exclude (keys %excludes) {
-	if (!-e $exclude) {
-		print colored("warning: ", "bold yellow") . "Excluded file not found: $exclude\n";
+	# Escape regex special chars
+	my $regex = $pattern;
+	$regex =~ s/([.+^$()\[\]{}|\\])/\\$1/g;
+
+	# Handle **
+	$regex =~ s{/\*\*/}{/(?:[^/]*/)*?}g;
+	$regex =~ s{^\*\*/}{(?:[^/]*/)*?}g;
+	$regex =~ s{/\*\*$}{/(?:.*)?}g;
+
+	# Handle * and ?
+	$regex =~ s/\*/[^\\\/]*/g;
+	$regex =~ s/\?/[^\\\/]/g;
+
+	if ($pattern =~ m{/}) {
+		if ($pattern =~ m{^/}) {
+			$regex = '^' . substr($regex, 1);
+		}
+		else {
+			$regex = '^' . $regex;
+		}
 	}
+	else {
+		$regex = '(^|/)' . $regex;
+	}
+
+	if ($dir_only) {
+		$regex .= '/';
+	}
+	else {
+		$regex .= '(?:/|$)';
+	}
+
+	return {
+		regex => qr/$regex/,
+		negate => $negate,
+		original => $original,
+	};
+}
+
+my @ignore_patterns = load_ignore($perlcheck_ignore_file);
+
+sub is_ignored ($path, $is_dir) {
+	my $ignored = 0;
+	my $test_path = $path;
+	$test_path .= '/' if $is_dir;
+
+	for my $p (@ignore_patterns) {
+		if ($test_path =~ $p->{regex}) {
+			$ignored = $p->{negate} ? 0 : 1;
+		}
+	}
+	return $ignored;
 }
 
 # Find files to check using native File::Find
@@ -85,9 +135,9 @@ foreach my $arg (@roots) {
 	}
 	my $path = $arg;
 	$path = normalize_path($path);
-	if ($excludes{$path}) {
+	if (is_ignored($path, 0)) {
 		print colored("warning: ", "bold yellow")
-			. "File '$path' is explicitly specified but is in the excludes list. Skipping.\n";
+			. "File '$path' is explicitly specified but matches an exclude pattern. Skipping.\n";
 	}
 	else {
 		$explicit_files{$path} = 1;
@@ -106,9 +156,9 @@ sub on_wanted() {
 		return;
 	}
 
-	# Prune hidden directories (except .) and obsolete directories
+	# Prune hidden directories (except .) and obsolete directories, or if ignored
 	if (-d $_) {
-		if (($path ne '.' && $path =~ m{(^|/)\.}) || $path =~ m{(^|/)obsolete($|/)}) {
+		if (($path ne '.' && $path =~ m{(^|/)\.}) || $path =~ m{(^|/)obsolete($|/)} || is_ignored($path, 1)) {
 			$File::Find::prune = 1;
 			return;
 		}
@@ -118,7 +168,7 @@ sub on_wanted() {
 	return unless $path =~ /\.(pl|pm|t)$/;
 
 	# Skip explicitly excluded files
-	return if $excludes{$path};
+	return if is_ignored($path, 0);
 
 	push @files, $path;
 	return;
@@ -141,7 +191,7 @@ my $finished = 0;
 my $started = 0;
 my $fast_failing = 0;
 
-sub terminate_workers {
+sub terminate_workers() {
 	my @pids = keys %running;
 	return unless @pids;
 	kill 'TERM', @pids;
