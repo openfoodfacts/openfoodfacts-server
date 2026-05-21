@@ -23,8 +23,7 @@
 # This script performs parallel syntax checks (perl -c) on Perl files.
 # It uses native Perl File::Find for discovery and a fork-based worker pool.
 
-use strict;
-use warnings;
+use ProductOpener::PerlStandards;
 use File::Find;
 use POSIX ":sys_wait_h";
 use Term::ANSIColor;
@@ -42,8 +41,7 @@ if (!$max_workers) {
 }
 my $check_perl_excludes_file = $ENV{CHECK_PERL_EXCLUDES} || '.check_perl_excludes';
 
-sub load_excludes {
-	my ($file) = @_;
+sub load_excludes ($file) {
 	my %excludes;
 	if (-f $file) {
 		open my $fh, '<', $file or die "Cannot open $file: $!";
@@ -75,8 +73,7 @@ if (!@roots) {
 }
 
 # Normalize "./path" to "path"
-sub normalize_path {
-	my ($path) = @_;
+sub normalize_path ($path) {
 	$path =~ s/^\.\///;
 	return $path;
 }
@@ -100,7 +97,7 @@ foreach my $arg (@roots) {
 }
 
 # Collect files to check, applying excludes and pruning directories
-sub on_wanted {
+sub on_wanted() {
 	my $path = $File::Find::name;
 	$path = normalize_path($path);
 
@@ -145,7 +142,7 @@ my $finished = 0;
 my $started = 0;
 my $fast_failing = 0;
 
-sub wait_for_worker {
+sub wait_for_worker() {
 	my $pid = wait();
 	if ($pid <= 0) {
 		return;    # No children
