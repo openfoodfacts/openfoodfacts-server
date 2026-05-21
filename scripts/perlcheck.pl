@@ -196,8 +196,9 @@ sub terminate_workers() {
 	return unless @pids;
 	kill 'TERM', @pids;
 	# Give workers a moment to terminate gracefully
-	select(undef, undef, undef, 0.25);
+	sleep 1;
 	kill 'KILL', @pids;
+	return;
 }
 
 sub wait_for_worker() {
