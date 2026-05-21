@@ -64,7 +64,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Tags qw/get_inherited_property_from_tags get_property canonicalize_taxonomy_tag
 	list_taxonomy_tags_in_language canonicalize_allergens_taxonomy_tag exists_taxonomy_tag
 	gen_tags_list_with_parents display_taxonomy_tag get_city_code
-	init_emb_codes gen_tags_hierarchy_taxonomy
+	init_emb_codes gen_tags_hierarchy_taxonomy get_minimal_tags_subset
 	%taxonomy_fields %tags_fields %emb_codes_cities/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
@@ -404,7 +404,6 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 	}
 
 	my @normalized_input_tags = ();
-	my %seen = ();
 	my $and = $and{$tag_lc} || " and ";
 
 	foreach my $tag (split(/,/, $input_tags)) {
@@ -453,29 +452,18 @@ sub set_field_input_tags_for_source ($product_ref, $tag_lc, $field, $source, $in
 			}
 		}
 
-		foreach my $canon_tag (@canon_tags) {
-			if (not exists $seen{$canon_tag}) {
-				$seen{$canon_tag} = 1;
-				push @normalized_input_tags, $canon_tag;
-			}
-		}
+		push @normalized_input_tags, @canon_tags;
 	}
 
-	if (    ($add)
-		and (defined $product_ref->{tags_sources}{$field}{$source}{tags})
-		and (scalar @{$product_ref->{tags_sources}{$field}{$source}{tags}} > 0))
-	{
-		my %existing = map {$_ => 1} @{$product_ref->{tags_sources}{$field}{$source}{tags}};
-		foreach my $tag (@normalized_input_tags) {
-			if (not exists $existing{$tag}) {
-				push @{$product_ref->{tags_sources}{$field}{$source}{tags}}, $tag;
-			}
-		}
+	my @tags_to_store = @normalized_input_tags;
+
+	if ($add) {
+		my $existing_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags") // [];
+		@tags_to_store = (@$existing_tags_ref, @normalized_input_tags);
 	}
 
-	else {
-		deep_set($product_ref, "tags_sources", $field, $source, "tags", \@normalized_input_tags);
-	}
+	my @minimal_tags_subset = get_minimal_tags_subset($field, \@tags_to_store);
+	deep_set($product_ref, "tags_sources", $field, $source, "tags", \@minimal_tags_subset);
 
 	deep_set($product_ref, "tags_sources", $field, $source, "last_updated_t", $last_updated_t);
 

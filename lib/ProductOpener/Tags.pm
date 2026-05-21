@@ -5074,8 +5074,10 @@ sub get_minimal_tags_subset ($tagtype, $tags_ref) {
 		}
 	}
 
-	# Return the minimal subset of tagids that are not parents of any other tagid in the input list
-	my @minimal_subset = grep {!$parents{$_}} @$tags_ref;
+	# Return the minimal subset of tagids that are not parents of any other tagid in the input list.
+	# Also remove duplicates while preserving the order of first occurrence.
+	my %seen = ();
+	my @minimal_subset = grep {(!$parents{$_}) and (not $seen{$_}++)} @$tags_ref;
 
 	return @minimal_subset;
 }
