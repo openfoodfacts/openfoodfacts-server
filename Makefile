@@ -34,7 +34,7 @@ ifeq ($(shell test $(CPU_COUNT) -gt 8; echo $$?),0)
   export CPU_COUNT=8
 endif
 
-CHECK_PERL_EXCLUDES ?= .check_perl_excludes
+export CHECK_PERL_EXCLUDES ?= .check_perl_excludes
 
 # tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
