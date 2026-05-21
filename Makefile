@@ -413,20 +413,25 @@ check_translations:
 	@echo "🥫 Checking translations"
 	${DOCKER_COMPOSE_BUILD} run --rm backend scripts/check-translations.sh
 
+CHECK_PERL := "scripts/utils/check_perl_syntax.pl"
+
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
 # IMPORTANT: We exclude some files that are in .check_perl_excludes
 check_perl:
 	$(MAKE) check_perl_args args="--no-fast-fail"
 
+CHECK_PERL := "scripts/utils/check_perl_syntax.pl"
+
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
 	test -z "${TO_CHECK}" || \
-	  ${DOCKER_COMPOSE_BUILD} run --rm backend perl scripts/utils/check_perl_syntax.pl ${TO_CHECK}
+	  ${DOCKER_COMPOSE_BUILD} run --rm backend \
+		${CHECK_PERL} ${TO_CHECK}
 
 # check only specified files/directories or with custom flags (e.g. make check_perl_args args="--no-fast-fail lib/")
 check_perl_args:
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend \
-		perl scripts/utils/check_perl_syntax.pl $(args)
+		${CHECK_PERL} $(args)
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
