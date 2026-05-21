@@ -1,12 +1,22 @@
 {
    "api_call" : {
+<<<<<<< HEAD
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+>>>>>>> main
       "parameters" : {
          "knowledge_panels_client" : "web",
          "fields" : "knowledge_panels"
       },
+<<<<<<< HEAD
       "method" : "GET",
       "content-type" : null,
       "path" : "/api/v2/product/200000000001",
       "body" : null
+=======
+      "path" : "/api/v2/product/200000000001"
+>>>>>>> main
    }
 }

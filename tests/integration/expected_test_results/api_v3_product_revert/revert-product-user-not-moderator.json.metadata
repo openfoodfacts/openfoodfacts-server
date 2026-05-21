@@ -4,9 +4,15 @@
       "path" : "/api/v3/product_revert",
       "parameters" : {},
       "body" : {
+<<<<<<< HEAD
          "rev" : 1,
          "fields" : "code,rev,product_name_en,brands_tags,categories_tags",
          "code" : "1234567890100"
+=======
+         "code" : "1234567890100",
+         "fields" : "code,rev,product_name_en,brands_tags,categories_tags",
+         "rev" : 1
+>>>>>>> main
       },
       "method" : "POST"
    }

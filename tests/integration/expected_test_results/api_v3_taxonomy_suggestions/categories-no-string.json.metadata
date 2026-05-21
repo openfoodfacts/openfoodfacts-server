@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/api/v3/taxonomy_suggestions",
       "body" : null,
       "method" : "GET",
@@ -7,5 +8,14 @@
       "parameters" : {
          "tagtype" : "categories"
       }
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "tagtype" : "categories"
+      },
+      "path" : "/api/v3/taxonomy_suggestions"
+>>>>>>> main
    }
 }

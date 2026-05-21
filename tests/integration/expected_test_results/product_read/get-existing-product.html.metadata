@@ -1,9 +1,17 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "parameters" : {},
       "path" : "/product/2000000000034/some-product",
       "content-type" : null,
       "body" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/product/2000000000034/some-product"
+>>>>>>> main
    }
 }

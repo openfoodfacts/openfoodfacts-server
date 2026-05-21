@@ -1,16 +1,30 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "parameters" : {},
       "path" : "/cgi/product_image_upload.pl",
       "body" : {
+=======
+      "body" : {
+         "code" : "1234567890014",
+>>>>>>> main
          "imagefield" : "front_en",
          "imgupload_front_en" : [
             "tests/integration/inputs/upload_images/front_en.3.full.jpg",
             "front_en.3.full.jpg"
+<<<<<<< HEAD
          ],
          "code" : "1234567890014"
       },
       "content-type" : "multipart/form-data",
       "method" : "POST"
+=======
+         ]
+      },
+      "content-type" : "multipart/form-data",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_image_upload.pl"
+>>>>>>> main
    }
 }

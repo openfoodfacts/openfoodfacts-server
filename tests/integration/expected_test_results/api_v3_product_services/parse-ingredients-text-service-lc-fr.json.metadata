@@ -1,8 +1,11 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : "application/json; charset=utf-8",
       "method" : "POST",
       "parameters" : {},
+=======
+>>>>>>> main
       "body" : {
          "services" : [
             "parse_ingredients_text"
@@ -12,6 +15,12 @@
             "lc" : "fr"
          }
       },
+<<<<<<< HEAD
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "POST",
+      "parameters" : {},
+>>>>>>> main
       "path" : "/api/v3/product_services"
    }
 }

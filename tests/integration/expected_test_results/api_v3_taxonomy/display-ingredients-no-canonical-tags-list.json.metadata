@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "content-type" : null,
       "path" : "/api/v3/taxonomy_display_tags",
@@ -7,5 +8,14 @@
          "tagtype" : "ingredients"
       },
       "body" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "tagtype" : "ingredients"
+      },
+      "path" : "/api/v3/taxonomy_display_tags"
+>>>>>>> main
    }
 }

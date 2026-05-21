@@ -1,9 +1,15 @@
 {
    "api_call" : {
       "body" : null,
+<<<<<<< HEAD
       "parameters" : {},
       "method" : "DELETE",
       "content-type" : null,
+=======
+      "content-type" : null,
+      "method" : "DELETE",
+      "parameters" : {},
+>>>>>>> main
       "path" : "/api/v3/product/1234567890012/images/uploaded/2"
    }
 }

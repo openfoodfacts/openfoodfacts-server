@@ -1660,7 +1660,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 			$nutrients_available = 0;
 		}
 	}
-	elsif ($aggregated_set_preparation eq "prepared") {
+	elsif ((defined $aggregated_set_preparation) and ($aggregated_set_preparation eq "prepared")) {
 		$product_ref->{nutrition_score_debug}
 			= "using prepared product data even if not necessary for category" . " - ";
 		add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");

@@ -1293,7 +1293,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	my $code = $product_ref->{code};
 	my $product_id = $product_ref->{_id};
 	my $path = product_path($product_ref);
-	my $rev = $product_ref->{rev};
+	my $rev = $product_ref->{rev} // 0;
 	my $action = "updated";
 
 	# Structural moves still need persistence side effects:
@@ -3002,6 +3002,8 @@ sub compute_keywords ($product_ref) {
 sub compute_codes ($product_ref) {
 
 	my $code = $product_ref->{code};
+
+	return if not defined $code;
 
 	my @codes = ();
 

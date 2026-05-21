@@ -1,9 +1,17 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "parameters" : {},
       "path" : "/facets/ingredients/apple",
       "body" : null,
       "content-type" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/facets/ingredients/apple"
+>>>>>>> main
    }
 }

@@ -1,9 +1,17 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/product/1000000000001/apple-pie",
       "content-type" : null,
       "method" : "GET",
       "parameters" : {},
       "body" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/product/1000000000001/apple-pie"
+>>>>>>> main
    }
 }

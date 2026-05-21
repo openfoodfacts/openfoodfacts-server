@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : null,
       "method" : "GET",
       "body" : null,
@@ -8,5 +9,15 @@
          "json" : "1",
          "action" : "process"
       }
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "action" : "process",
+         "json" : "1"
+      },
+      "path" : "/cgi/search.pl"
+>>>>>>> main
    }
 }

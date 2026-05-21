@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : null,
       "body" : null,
       "method" : "GET",
@@ -10,5 +11,17 @@
          "action" : "process",
          "fields" : "code,packaging_text_en,packagings"
       }
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "action" : "process",
+         "api_version" : "3",
+         "fields" : "code,packaging_text_en,packagings",
+         "json" : "1"
+      },
+      "path" : "/cgi/search.pl"
+>>>>>>> main
    }
 }

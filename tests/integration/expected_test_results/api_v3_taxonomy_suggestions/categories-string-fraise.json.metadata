@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : null,
       "body" : null,
       "method" : "GET",
@@ -8,5 +9,15 @@
          "string" : "fraise",
          "tagtype" : "categories"
       }
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "string" : "fraise",
+         "tagtype" : "categories"
+      },
+      "path" : "/api/v3/taxonomy_suggestions"
+>>>>>>> main
    }
 }

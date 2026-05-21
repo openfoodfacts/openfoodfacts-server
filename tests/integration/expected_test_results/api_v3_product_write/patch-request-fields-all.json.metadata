@@ -1,7 +1,11 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "PATCH",
+=======
+>>>>>>> main
       "body" : {
+         "fields" : "all",
          "product" : {
             "packagings" : [
                {
@@ -15,11 +19,17 @@
                }
             ]
          },
-         "tags_lc" : "en",
-         "fields" : "all"
+         "tags_lc" : "en"
       },
+<<<<<<< HEAD
       "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
       "path" : "/api/v3/product/1234567890109"
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890009"
+>>>>>>> main
    }
 }

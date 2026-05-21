@@ -1,11 +1,21 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "body" : null,
       "parameters" : {
          "tagtype" : "ingredients"
       },
       "content-type" : null,
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "path" : "/api/v3/taxonomy_canonicalize_tags",
+      "parameters" : {
+         "tagtype" : "ingredients"
+      },
+>>>>>>> main
       "path" : "/api/v3/taxonomy_canonicalize_tags"
    }
 }

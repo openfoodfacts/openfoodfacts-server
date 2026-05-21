@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "parameters" : {},
       "body" : {
          "imgid" : "1",
@@ -9,5 +10,16 @@
       "path" : "/cgi/product_image_crop.pl",
       "content-type" : "application/x-www-form-urlencoded",
       "method" : "POST"
+=======
+      "body" : {
+         "code" : "1234567890012",
+         "id" : "ingredients_es",
+         "imgid" : "1"
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_image_crop.pl"
+>>>>>>> main
    }
 }

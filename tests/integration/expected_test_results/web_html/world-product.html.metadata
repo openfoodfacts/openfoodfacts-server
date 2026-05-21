@@ -1,9 +1,15 @@
 {
    "api_call" : {
       "body" : null,
+      "content-type" : null,
+      "method" : "GET",
       "parameters" : {},
+<<<<<<< HEAD
       "method" : "GET",
       "path" : "/product/3300000000001/apple-pie-bob-s-pies",
       "content-type" : null
+=======
+      "path" : "/product/3300000000001/apple-pie-bob-s-pies"
+>>>>>>> main
    }
 }

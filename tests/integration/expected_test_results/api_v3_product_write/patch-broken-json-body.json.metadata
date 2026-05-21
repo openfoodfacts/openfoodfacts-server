@@ -1,11 +1,20 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "parameters" : {},
+=======
+>>>>>>> main
       "body" : {
          "raw_body" : "not json"
       },
       "content-type" : "application/json; charset=utf-8",
+<<<<<<< HEAD
       "path" : "/api/v3/product/1234567890003",
       "method" : "PATCH"
+=======
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890003"
+>>>>>>> main
    }
 }

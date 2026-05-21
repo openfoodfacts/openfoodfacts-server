@@ -2,13 +2,16 @@
    "api_call" : {
       "body" : {
          "product" : {
-            "unknown_tags" : [
-               "some value"
-            ],
             "brands_tags" : [
                "Some brand",
                "Aldi"
             ],
+<<<<<<< HEAD
+=======
+            "categories_tags" : [
+               "coffee"
+            ],
+>>>>>>> main
             "labels_tags" : [
                "en:organic",
                "fr:max havelaar",
@@ -16,6 +19,7 @@
                "Something unrecognized"
             ],
             "stores_tags" : "comma,separated,list",
+<<<<<<< HEAD
             "traces_tags" : [
                "en:wheat"
             ],
@@ -34,13 +38,24 @@
                "en:mango",
                "kiwi",
                "Unrecognized Allergen"
+=======
+            "unknown_tags" : [
+               "some value"
+>>>>>>> main
             ]
          },
          "fields" : "updated"
       },
+<<<<<<< HEAD
       "path" : "/api/v3/product/1234567890100",
       "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
       "method" : "PATCH"
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890100"
+>>>>>>> main
    }
 }

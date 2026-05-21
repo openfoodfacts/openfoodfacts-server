@@ -3,10 +3,16 @@
       "path" : "/",
       "content-type" : null,
       "body" : null,
+      "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "cc" : "ch",
          "lc" : "es"
       },
+<<<<<<< HEAD
       "method" : "GET"
+=======
+      "path" : "/"
+>>>>>>> main
    }
 }

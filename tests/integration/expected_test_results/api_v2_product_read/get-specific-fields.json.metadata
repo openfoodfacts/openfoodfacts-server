@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/api/v2/product/200000000034",
       "parameters" : {
          "fields" : "product_name,categories_tags,categories_tags_en"
@@ -7,5 +8,14 @@
       "body" : null,
       "method" : "GET",
       "content-type" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "fields" : "product_name,categories_tags,categories_tags_en"
+      },
+      "path" : "/api/v2/product/200000000034"
+>>>>>>> main
    }
 }

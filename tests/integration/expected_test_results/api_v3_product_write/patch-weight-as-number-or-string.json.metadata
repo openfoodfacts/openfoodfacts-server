@@ -1,14 +1,15 @@
 {
    "api_call" : {
       "body" : {
+         "fields" : "updated,misc_tags",
          "product" : {
             "packagings" : [
                {
-                  "weight_measured" : 0.43,
+                  "number_of_units" : 1,
                   "shape" : {
                      "lc_name" : "Bottle"
                   },
-                  "number_of_units" : 1
+                  "weight_measured" : 0.43
                },
                {
                   "number_of_units" : "2",
@@ -26,12 +27,17 @@
                }
             ]
          },
-         "tags_lc" : "en",
-         "fields" : "updated,misc_tags"
+         "tags_lc" : "en"
       },
       "content-type" : "application/json; charset=utf-8",
+<<<<<<< HEAD
       "path" : "/api/v3/product/1234567890013",
       "parameters" : {},
       "method" : "PATCH"
+=======
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890013"
+>>>>>>> main
    }
 }

@@ -2,10 +2,18 @@
    "api_call" : {
       "body" : null,
       "content-type" : null,
+<<<<<<< HEAD
       "path" : "/packager-codes/fr-85-222-003-ec.json",
       "method" : "GET",
       "parameters" : {
          "fields" : "product_name,emb_codes_tags"
       }
+=======
+      "method" : "GET",
+      "parameters" : {
+         "fields" : "product_name,emb_codes_tags"
+      },
+      "path" : "/packager-codes/fr-85-222-003-ce.json"
+>>>>>>> main
    }
 }

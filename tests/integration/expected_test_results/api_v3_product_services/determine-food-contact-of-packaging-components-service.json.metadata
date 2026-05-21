@@ -8,23 +8,37 @@
             "determine_food_contact_of_packaging_components"
          ],
          "product" : {
+            "lc" : "en",
             "packagings" : [
                {
-                  "shape" : "en:tray",
-                  "material" : "en:plastic"
+                  "material" : "en:plastic",
+                  "shape" : "en:tray"
                },
                {
-                  "shape" : "en:film",
-                  "material" : "en:plastic"
+                  "material" : "en:plastic",
+                  "shape" : "en:film"
                },
                {
                   "material" : "en:paper",
                   "shape" : "en:label"
                }
+<<<<<<< HEAD
             ],
             "lc" : "en"
          }
       },
       "parameters" : {}
+=======
+            ]
+         },
+         "services" : [
+            "determine_food_contact_of_packaging_components"
+         ]
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/api/v3/product_services"
+>>>>>>> main
    }
 }

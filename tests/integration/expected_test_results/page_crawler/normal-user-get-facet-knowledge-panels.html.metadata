@@ -1,8 +1,14 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/facets/categories/Cakes",
       "content-type" : null,
       "body" : null,
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+>>>>>>> main
       "parameters" : {},
       "method" : "GET"
    }

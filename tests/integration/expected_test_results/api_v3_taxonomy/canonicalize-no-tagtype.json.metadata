@@ -1,9 +1,18 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "GET",
       "body" : null,
       "parameters" : {},
       "path" : "/api/v3/taxonomy_canonicalize_tags",
       "content-type" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "path" : "/api/v3/taxonomy_canonicalize_tags",
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/api/v3/taxonomy_canonicalize_tags"
+>>>>>>> main
    }
 }

@@ -1,12 +1,22 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : null,
       "path" : "/api/v3/product/4260392550101",
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+>>>>>>> main
       "parameters" : {
-         "lc" : "fr",
-         "fields" : "attribute_groups"
+         "fields" : "attribute_groups",
+         "lc" : "fr"
       },
+<<<<<<< HEAD
       "body" : null,
       "method" : "GET"
+=======
+      "path" : "/api/v3/product/4260392550101"
+>>>>>>> main
    }
 }

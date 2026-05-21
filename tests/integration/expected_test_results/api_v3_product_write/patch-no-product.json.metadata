@@ -3,7 +3,13 @@
       "method" : "PATCH",
       "body" : {},
       "content-type" : "application/json; charset=utf-8",
+<<<<<<< HEAD
       "path" : "/api/v3/product/1234567890004",
       "parameters" : {}
+=======
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890004"
+>>>>>>> main
    }
 }

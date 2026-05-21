@@ -1,9 +1,21 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/cgi/product_jqm_multilingual.pl",
+=======
+      "body" : {
+         "code" : "1234567890007",
+         "no_nutrition_data" : "on",
+         "password" : "testtest",
+         "product_name_en" : "Test no_nutrition_data on",
+         "user_id" : "tests"
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+>>>>>>> main
       "method" : "POST",
       "content-type" : "application/x-www-form-urlencoded",
       "parameters" : {},
+<<<<<<< HEAD
       "body" : {
          "password" : "testtest",
          "product_name_en" : "Test no_nutrition_data on",
@@ -11,5 +23,8 @@
          "user_id" : "tests",
          "code" : "1234567890007"
       }
+=======
+      "path" : "/cgi/product_jqm_multilingual.pl"
+>>>>>>> main
    }
 }

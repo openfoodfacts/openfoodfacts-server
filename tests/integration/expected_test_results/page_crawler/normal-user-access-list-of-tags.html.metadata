@@ -1,9 +1,17 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/facets/categories",
       "content-type" : null,
       "parameters" : {},
       "body" : null,
       "method" : "GET"
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/facets/categories"
+>>>>>>> main
    }
 }

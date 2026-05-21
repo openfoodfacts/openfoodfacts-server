@@ -1,5 +1,6 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "path" : "/api/v2/product/200000000034",
       "content-type" : null,
       "parameters" : {
@@ -7,5 +8,14 @@
       },
       "body" : null,
       "method" : "GET"
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {
+         "fields" : "knowledge_panels"
+      },
+      "path" : "/api/v2/product/200000000034"
+>>>>>>> main
    }
 }

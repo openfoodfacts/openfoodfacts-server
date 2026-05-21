@@ -2,8 +2,13 @@
    "api_call" : {
       "parameters" : {},
       "body" : null,
-      "path" : "/api/v2/attribute_groups",
+      "content-type" : null,
       "method" : "GET",
+<<<<<<< HEAD
       "content-type" : null
+=======
+      "parameters" : {},
+      "path" : "/api/v2/attribute_groups"
+>>>>>>> main
    }
 }

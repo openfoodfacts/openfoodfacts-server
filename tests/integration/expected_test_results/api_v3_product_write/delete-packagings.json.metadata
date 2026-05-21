@@ -1,7 +1,10 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "method" : "DELETE",
       "content-type" : "application/json; charset=utf-8",
+=======
+>>>>>>> main
       "body" : {
          "product" : {
             "packagings" : [
@@ -13,6 +16,11 @@
             ]
          }
       },
+<<<<<<< HEAD
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "DELETE",
+>>>>>>> main
       "parameters" : {},
       "path" : "/api/v3/product/1234567890007"
    }

@@ -1,12 +1,18 @@
 {
    "api_call" : {
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "categories" : "mango nectars,beverages",
          "tagtype" : "packaging_shapes"
       },
+<<<<<<< HEAD
       "content-type" : null,
       "method" : "GET",
       "body" : null,
+=======
+>>>>>>> main
       "path" : "/api/v3/taxonomy_suggestions"
    }
 }

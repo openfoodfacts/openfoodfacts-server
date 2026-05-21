@@ -1,9 +1,16 @@
 {
    "api_call" : {
       "body" : null,
+<<<<<<< HEAD
       "parameters" : {},
       "method" : "GET",
       "path" : "/categories/Desserts",
       "content-type" : null
+=======
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/categories/desserts"
+>>>>>>> main
    }
 }

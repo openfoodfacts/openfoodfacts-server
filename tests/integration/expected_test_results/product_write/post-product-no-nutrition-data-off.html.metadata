@@ -1,6 +1,7 @@
 {
    "api_call" : {
       "body" : {
+<<<<<<< HEAD
          "product_name_en" : "English product name updated",
          "no_nutrition_data_displayed" : 1,
          "user_id" : "tests",
@@ -16,5 +17,22 @@
       "path" : "/cgi/product_multilingual.pl",
       "content-type" : "application/x-www-form-urlencoded",
       "parameters" : {}
+=======
+         "action" : "process",
+         "code" : "1234567890012",
+         "labels" : "Fair Trade",
+         "lang" : "en",
+         "no_nutrition_data_displayed" : 1,
+         "password" : "testtest",
+         "product_name_en" : "English product name updated",
+         "product_name_fr" : "Nom du produit en franÃ§ais mis Ã  jour",
+         "type" : "edit",
+         "user_id" : "tests"
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_multilingual.pl"
+>>>>>>> main
    }
 }

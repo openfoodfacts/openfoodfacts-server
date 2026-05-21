@@ -1,9 +1,17 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "content-type" : null,
       "path" : "/countries",
       "method" : "GET",
       "parameters" : {},
       "body" : null
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+      "path" : "/countries"
+>>>>>>> main
    }
 }

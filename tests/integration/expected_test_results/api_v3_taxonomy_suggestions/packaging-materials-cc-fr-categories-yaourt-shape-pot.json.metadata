@@ -1,7 +1,15 @@
 {
    "api_call" : {
+<<<<<<< HEAD
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+>>>>>>> main
       "parameters" : {
+         "categories" : "yogurts",
          "cc" : "fr",
+<<<<<<< HEAD
          "categories" : "yogurts",
          "tagtype" : "packaging_materials",
          "shape" : "pot"
@@ -9,6 +17,11 @@
       "content-type" : null,
       "method" : "GET",
       "body" : null,
+=======
+         "shape" : "pot",
+         "tagtype" : "packaging_materials"
+      },
+>>>>>>> main
       "path" : "/api/v3/taxonomy_suggestions"
    }
 }

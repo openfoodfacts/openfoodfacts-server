@@ -9,14 +9,23 @@
             "packagings" : [
                {
                   "number_of_units" : 1,
+<<<<<<< HEAD
                   "shape" : {
                      "lc_name" : "bottle"
                   },
                   "recycling" : {
                      "lc_name" : "recycle"
+=======
+                  "recycling" : {
+                     "lc_name" : "recycle"
+                  },
+                  "shape" : {
+                     "lc_name" : "bottle"
+>>>>>>> main
                   }
                },
                {
+                  "number_of_units" : 1,
                   "recycling" : {
                      "lc_name" : "recycle"
                   },
@@ -29,7 +38,14 @@
          },
          "tags_lc" : "en"
       },
+<<<<<<< HEAD
       "path" : "/api/v3/product/1234567890016",
       "parameters" : {}
+=======
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890016"
+>>>>>>> main
    }
 }

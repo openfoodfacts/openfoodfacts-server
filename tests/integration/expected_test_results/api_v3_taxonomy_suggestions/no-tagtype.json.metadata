@@ -1,9 +1,16 @@
 {
    "api_call" : {
+<<<<<<< HEAD
       "parameters" : {},
       "content-type" : null,
       "method" : "GET",
       "body" : null,
+=======
+      "body" : null,
+      "content-type" : null,
+      "method" : "GET",
+      "parameters" : {},
+>>>>>>> main
       "path" : "/api/v3/taxonomy_suggestions"
    }
 }
