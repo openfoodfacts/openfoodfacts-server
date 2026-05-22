@@ -158,8 +158,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libapache2-mod-perl2-dev \
         # OpenSSL dev needed by OIDC::Lite
         libssl-dev \
-        # needed for  Imager::File::WEBP
-        libwebpmux3 \
         # libheif 1.19+ in trixie uses plugins for codec support
         # needed by Imager::File::HEIF configure test
         libheif-plugin-x265 \
@@ -167,25 +165,13 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Imager::zxing - build deps
         pkg-config \
         libzxing-dev \
-        # Imager::zxing - decoders
+        # Imager and Imager::File::* build dependencies
         libavif-dev \
-        libaom-dev \
-        libavcodec-dev \
-        libavutil-dev \
-        libdav1d-dev \
         libde265-dev \
-        libgif-dev \
         libheif-dev \
         libjpeg-dev \
-        libjpeg62-turbo-dev \
-        libopenh264-dev \
-        libopenjp2-7-dev \
         libpng-dev \
-        librav1e-dev \
-        libturbojpeg0-dev \
-        libwebp-dev \
-        libx264-dev \
-        libx265-dev
+        libwebp-dev
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
