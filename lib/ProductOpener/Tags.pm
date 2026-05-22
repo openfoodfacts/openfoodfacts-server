@@ -205,6 +205,7 @@ use GraphViz2;
 use JSON::MaybeXS;
 
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
+use Time::HiRes qw(gettimeofday tv_interval);
 
 binmode STDERR, ":encoding(UTF-8)";
 
@@ -1355,6 +1356,7 @@ Like "categories", "ingredients"
 =cut
 
 sub build_tags_taxonomy ($tagtype, $publish) {
+	my $t_start = [gettimeofday];
 	binmode STDERR, ":encoding(UTF-8)";
 	binmode STDIN, ":encoding(UTF-8)";
 	binmode STDOUT, ":encoding(UTF-8)";
@@ -1720,6 +1722,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		close($IN);
 
+		my $t_phase1 = [gettimeofday];
+		$log->info("Taxonomy Phase 1 (Read) completed", { 
+			tagtype => $tagtype, 
+			duration => tv_interval($t_start, $t_phase1) 
+		});
+
 		if (scalar @taxonomy_errors) {
 
 			$log->error("Errors in the $tagtype taxonomy definition:");
@@ -1951,6 +1959,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 			}
 		}
+
+		my $t_phase2 = [gettimeofday];
+		$log->info("Taxonomy Phase 2 (Synonyms) completed", { 
+			tagtype => $tagtype, 
+			duration => tv_interval($t_phase1, $t_phase2) 
+		});
 
 		# 3rd phase: compute the hierarchy
 		# there we will associate each tags with its parent
@@ -2460,6 +2474,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			store_config("$result_dir/$tagtype.errors", {errors => \@taxonomy_errors});
 			put_to_cache($tagtype, $cache_prefix);
 		}
+
+		my $t_end = [gettimeofday];
+		$log->info("Taxonomy build finished", { 
+			tagtype => $tagtype, 
+			total_duration => tv_interval($t_start, $t_end) 
+		});
 	}
 
 	return @taxonomy_errors;
