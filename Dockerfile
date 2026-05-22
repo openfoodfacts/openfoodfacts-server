@@ -160,6 +160,10 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libssl-dev \
         # needed for  Imager::File::WEBP
         libwebpmux3 \
+        # libheif 1.19+ in trixie uses plugins for codec support
+        # needed by Imager::File::HEIF configure test
+        libheif-plugin-x265 \
+        libheif-plugin-libde265 \
         # Imager::zxing - build deps
         pkg-config \
         libzxing-dev \

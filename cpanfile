@@ -103,7 +103,7 @@ requires 'GS1::SyntaxEngine::FFI';
 requires 'Imager';
 requires 'Imager::zxing';
 requires 'Imager::File::AVIF';
-# requires 'Imager::File::HEIF'; # FIXME: Currently does not install in trixie - claims it cannot find libheif-dev.
+requires 'Imager::File::HEIF';
 requires 'Imager::File::JPEG';
 requires 'Imager::File::PNG';
 requires 'Imager::File::WEBP';
