@@ -46377,7 +46377,8 @@ intake24_category_code:en: 19LDFC
 < en:Cheeses
 en: Sliced cheeses
 ca: Formatges en talls
-de: Scheibenkäse, Käseaufschnitt, Schnittkäse
+de: Scheibenkäse, Käseaufschnitt
+# de:Schnittkäse means it's easy to slice but not that it's already sliced
 es: Quesos en lonchas, Lonchas de queso, Quesos en fetas
 fi: siivutetut juustot
 fr: Fromages en tranches, tranches de fromage, tranches de fromages
@@ -46390,7 +46391,7 @@ nl: Kazen in plakjes
 pl: Sery w plastrach
 pt: Queijos em fatias
 tr: Dilim peynir
-#previous german word Schnittkäse means it's easy to slice but not that it's already sliced
+plant_alternative:en: en:sliced-cheese-substitutes
 
 < en:Sliced cheeses
 en: Sliced mozzarellas, Sliced mozzarella
@@ -51406,6 +51407,7 @@ lt: Tarkuoti sūriai, Tarkuotas sūris
 nl: Geraspte kazen
 pt: Queijos ralados
 ru: Тертый сыр
+plant_alternative:en: en:shredded-cheese-substitutes
 wikidata:en: Q3088336
 
 < en:Grated cheese
@@ -54587,6 +54589,7 @@ ciqual_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a
 # as it is child of both en:salted-spreads (linked to the en:salty-and-fatty-products food group) and en:cheese
 food_groups:en: en:cheese
 intake24_category_code:en: SPRD
+plant_alternative:en: en:cheese-spreads-substitutes
 pnns_group_2:en: Cheese
 
 < en:Cheese spreads
@@ -106625,8 +106628,16 @@ en: Liverwurst spread substitutes
 
 < en:Plant-based spreads
 < en:Salted spreads
-en: Cheese spreads substitutes, Plant-based spread-cheese type with soybean prepacked
-fr: Substituts de fromages à tartiner, Spécialité végétale type fromage à tartiner au soja préemballée
+en: Cheese spreads substitutes
+fr: Substituts de fromages à tartiner
+agribalyse_proxy_food_code:en: 1027
+ciqual_proxy_food_code:en: 1027
+ciqual_proxy_food_name:en: Plant-based spread-cheese type, with soybean, prepacked
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage à tartiner, au soja, préemballée
+
+< en:Cheese spreads substitutes
+en: Soy-based cheese spread substitutes, Soy-based cheese spreads
+fr: Spécialité végétale type fromage à tartiner au soja préemballée
 agribalyse_food_code:en: 1027
 ciqual_food_code:en: 1027
 ciqual_food_name:en: Plant-based spread-cheese type, with soybean, prepacked
@@ -121790,27 +121801,37 @@ hr: Zamjene za sir
 it: Formaggi vegani
 nl: Veganistische kazen, Kaasvervangers, Plantaardige kazen
 pl: Zastępniki sera
+agribalyse_proxy_food_code:en: 1029
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage, sans soja, préemballée
 gpc_category_code:en: 10006996
 gpc_category_description:en: Definition: Includes any products that can be described/observed as food made from non-dairy products, separated from the whey, sometimes fermented, and usually pressed, cooked, smoked, matured, or heated and mixed with artificial ingredients, such as emulsifiers, colourings and flavourings. These products must be refrigerated to extend their consumable life. These products can be with added ingredients, such as herbs and nuts, in blocks, rolls, slices, grated, cubes, spreadable and portions. Definition Excludes: Excludes products such as Frozen, Shelf Stable and Perishable Cheeses, and Shelf Stable and Frozen Cheese Substitutes and Cheese-Based/Flavoured Meals.
 gpc_category_name:en: Cheese Substitutes (Perishable)
 
 < en:Cheese substitutes
-en: Sliced cheese substitutes, Plant-based cheese without soybean prepacked sliced
-fr: Substituts de fromage en tranche, Spécialité végétale type fromage en tranche sans soja préemballée
-hr: Narezane zamjene za sir
-pl: Zastępniki sera w plastrach
-agribalyse_food_code:en: 1029_1
-ciqual_food_code:en: 1029
-ciqual_food_name:en: Plant-based cheese, without soybean, prepacked, sliced
-ciqual_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
+en: Cashew-based cheese substitutes, Cashew-based cheeses
+agribalyse_food_code:en: 1028
+ciqual_food_code:en: 1028
+ciqual_food_name:en: Plant-based cheese, with cashew, prepacked
 
 < en:Cheese substitutes
-en: Shredded cheese substitutes, Plant-based cheese without soybean prepacked shredded
-fr: Susbtituts du fromage râpé, Spécialité végétale type fromage râpé sans soja préemballée
-agribalyse_food_code:en: 1029_2
-ciqual_food_code:en: 1029
-ciqual_food_name:en: Plant-based cheese, without soybean, prepacked, shredded
-ciqual_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
+en: Sliced cheese substitutes, Sliced plant-based cheeses
+fr: Substituts de fromage en tranche
+hr: Narezane zamjene za sir
+pl: Zastępniki sera w plastrach
+agribalyse_proxy_food_code:en: 1029_1
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, sliced
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
+
+< en:Cheese substitutes
+en: Shredded cheese substitutes, Shredded plant-based cheeses
+fr: Susbtituts du fromage râpé
+agribalyse_proxy_food_code:en: 1029_2
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, shredded
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
 
 < en:Legumes and their products
 en: Puffed pulse cakes, pulse cakes, cakes of pulses
