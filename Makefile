@@ -511,7 +511,7 @@ rebuild_taxonomies: jobs ?= $(CPU_COUNT)
 rebuild_taxonomies:
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend \
-	  scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
+	  scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}" -v
 
 build_taxonomies_test: name ?= *
 build_taxonomies_test: jobs ?= $(CPU_COUNT)

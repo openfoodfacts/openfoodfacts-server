@@ -20,10 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
-use feature 'signatures';
-no warnings 'experimental::signatures';
+use ProductOpener::PerlStandards;
 use Term::ANSIColor;
 
 use ProductOpener::Config qw/:all/;
@@ -75,12 +72,15 @@ Log::Log4perl->init(
 Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
 
 my $tagtype = $ARGV[0];
+
 my $publish = 1;
 my $max_workers = 1;
+my $verbose = 0;
 
 GetOptions(
 	"publish=i" => \$publish,
-	"jobs|j=i"  => \$max_workers,
+	"jobs|j=i" => \$max_workers,
+	"verbose|v" => \$verbose,
 ) or die("Error in command line arguments\n");
 
 $tagtype = '*' if !defined $tagtype || $tagtype eq '';
@@ -108,13 +108,13 @@ my $total_count = 0;
 
 sub print_status ($children) {
 	return unless $is_terminal && !$IS_GITHUB_CI;
-	my @active = sort map { $_->{taxonomy} } values %$children;
+	my @active = sort map {$_->{taxonomy}} values %$children;
 	if (@active) {
 		my $label = colored("Building ($built_count/$total_count): ", 'bold green');
 		my $names = join(", ", @active);
 		# \r returns to start of line, \e[K clears to end of line
 		print "\r" . $label . $names . "\e[K";
-		$| = 1; # Flush STDOUT
+		$| = 1;    # Flush STDOUT
 	}
 }
 
@@ -130,8 +130,9 @@ sub build_taxonomy ($taxonomy) {
 	print "Building $taxonomy taxonomy...\n";
 	my @errors = ProductOpener::Tags::build_tags_taxonomy($taxonomy, $publish);
 	if (@errors) {
+		print_error("Failed to build $taxonomy taxonomy with " . scalar(@errors) . " error(s):");
 		foreach my $error (@errors) {
-			print_error(ProductOpener::Tags::_taxonomy_error_display($error) . " while building $taxonomy taxonomy");
+			print_error(ProductOpener::Tags::_taxonomy_error_display($error));
 		}
 		return 0;
 	}
@@ -146,7 +147,7 @@ sub wait_for_child ($children, $has_any_errors_ref) {
 	if ($pid > 0 && exists $children->{$pid}) {
 		my $child = delete $children->{$pid};
 		my $fh = $child->{reader};
-		my $log = do { local $/; <$fh> };
+		my $log = do {local $/; <$fh>};
 		close $fh;
 
 		$built_count++;
@@ -154,8 +155,11 @@ sub wait_for_child ($children, $has_any_errors_ref) {
 		if ($? != 0) {
 			$$has_any_errors_ref = 1;
 			clear_status();
-			print $log;
-			print_error("Error building $child->{taxonomy} taxonomy (exit code: $?)");
+			print map {colored("[$child->{taxonomy}] ", 'red') . $_ . "\n"} split("\n", $log);
+		}
+		elsif ($verbose) {
+			clear_status();
+			print map {colored("[$child->{taxonomy}] ", 'green') . $_ . "\n"} split("\n", $log);
 		}
 		print_status($children);
 	}
@@ -165,8 +169,11 @@ print_info("Building tags taxonomy (tagtype: $tagtype, max_workers: $max_workers
 
 my @taxonomy_list;
 if ($tagtype eq '*') {
-	my %TAXONOMIES = %ProductOpener::Tags::taxonomy_fields;
-	@taxonomy_list = grep { $_ ne "traces" && rindex($_, 'data_quality_', 0) != 0 } sort keys %TAXONOMIES;
+	@taxonomy_list = (@ProductOpener::Tags::taxonomy_fields, 'test');
+	# Exclude "traces" and any taxonomy starting with "data_quality_"
+	@taxonomy_list = grep {$_ ne "traces" && rindex($_, 'data_quality_', 0) != 0}
+		sort @taxonomy_list;
+	print_info("Found " . scalar(@taxonomy_list) . " taxonomies to build: " . join(", ", @taxonomy_list));
 }
 else {
 	@taxonomy_list = ($tagtype);
@@ -175,7 +182,7 @@ else {
 $total_count = scalar @taxonomy_list;
 
 my $has_any_errors = 0;
-my %children;
+my %children;    ## { pid => { taxonomy => ..., reader => ... } }
 
 foreach my $taxonomy (@taxonomy_list) {
 	# If we reached the max number of workers, wait for one to finish
@@ -200,12 +207,13 @@ foreach my $taxonomy (@taxonomy_list) {
 
 		my $success = build_taxonomy($taxonomy);
 		exit($success ? 0 : 1);
-	} else {
+	}
+	else {
 		# Parent process
 		close $writer;
 		$children{$pid} = {
 			taxonomy => $taxonomy,
-			reader   => $reader,
+			reader => $reader,
 		};
 		print_status(\%children);
 	}
