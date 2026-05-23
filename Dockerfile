@@ -202,10 +202,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
       apt-get update || true \
     ) && \
     # install cpm for parallel installation
-    cpanm --notest --quiet --skip-satisfied "App::cpm" && \
-    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \
-    export PERL_MB_OPT="--install_base /tmp/local/" && \
-    export PERL5LIB="/tmp/local/lib/perl5/"
+    cpanm --notest --quiet --skip-satisfied "App::cpm"
+
+ENV PERL_MM_OPT="INSTALL_BASE=/tmp/local/" \
+    PERL_MB_OPT="--install_base /tmp/local/" \
+    PERL5LIB="/tmp/local/lib/perl5/"
 
 # first install some dependencies that are not well handled
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
