@@ -187,9 +187,6 @@ FROM modperl AS builder
 ARG CPANMOPTS
 WORKDIR /tmp
 
-# Install Product Opener from the workdir.
-COPY ./cpanfile* /tmp/
-
 # install cpm for parallel installation
 # we also add apt cache as some libraries might be installed from apt
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
@@ -214,24 +211,20 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
-    cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap"
+    # Not well handled by cpm for some reason, and not available in apt: install them first
+    cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
+    # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
+    # without adding an unresolved dependency back into cpanfile.
+    cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
 
 # Add ProductOpener runtime dependencies from cpan
+COPY ./cpanfile* /tmp/
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
     cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
-
-# Install the JUnit renderer separately so tests can keep using --renderer=JUnit
-# without adding an unresolved dependency back into cpanfile.
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
-    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
-    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
-    set -x && \
-    cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
 
 ######################
 # backend production image stage
