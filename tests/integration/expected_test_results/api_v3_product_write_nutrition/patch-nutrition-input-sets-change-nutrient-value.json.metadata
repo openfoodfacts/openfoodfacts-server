@@ -1,6 +1,5 @@
 {
    "api_call" : {
-      "method" : "PATCH",
       "body" : {
          "fields" : "updated",
          "product" : {
@@ -13,18 +12,19 @@
                            "value_string" : "11"
                         }
                      },
-                     "source" : "packaging",
-                     "preparation" : "as_sold",
-                     "per_quantity" : 100,
-                     "source_description" : "",
                      "per" : "100g",
-                     "per_unit" : "g"
+                     "per_quantity" : 100,
+                     "per_unit" : "g",
+                     "preparation" : "as_sold",
+                     "source" : "packaging",
+                     "source_description" : ""
                   }
                ]
             }
          }
       },
       "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
       "parameters" : {},
       "path" : "/api/v3.5/product/4230000001000"
    }

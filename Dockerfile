@@ -3,7 +3,7 @@
 ARG USER_UID=1000
 ARG USER_GID=1000
 # options for cpan installs
-ARG CPANMOPTS=
+ARG CPANMOPTS=""
 
 ######################
 # Base modperl image stage
@@ -189,46 +189,48 @@ WORKDIR /tmp
 
 # Install Product Opener from the workdir.
 COPY ./cpanfile* /tmp/
-# Add ProductOpener runtime dependencies from cpan
+
+# install cpm for parallel installation
 # we also add apt cache as some libraries might be installed from apt
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
     # also run apt update if needed because some package might need to apt install
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
-    )
+    ) && \
+    # install cpm for parallel installation
+    cpanm --notest --quiet --skip-satisfied "App::cpm" && \
+    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \
+    export PERL_MB_OPT="--install_base /tmp/local/" && \
+    export PERL5LIB="/tmp/local/lib/perl5/"
 
 # first install some dependencies that are not well handled
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
-    rm -rf /root/.cpanm/work/* && \
-    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" \
-    # in case of errors show build.log, but still, fail
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+    cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap"
 
-# Install from cpanfile
+# Add ProductOpener runtime dependencies from cpan
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
-    rm -rf /root/.cpanm/work/* && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 
 # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
 # without adding an unresolved dependency back into cpanfile.
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
-    rm -rf /root/.cpanm/work/* && \
-    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Test2::Harness::Renderer::JUnit" \
-    # in case of errors show build.log, but still, fail
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+    cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
 
 ######################
 # backend production image stage

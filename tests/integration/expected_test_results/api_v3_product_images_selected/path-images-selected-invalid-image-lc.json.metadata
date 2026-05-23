@@ -1,6 +1,7 @@
 {
    "api_call" : {
       "body" : {
+         "fields" : "updated",
          "product" : {
             "images" : {
                "selected" : {
@@ -11,12 +12,11 @@
                   }
                }
             }
-         },
-         "fields" : "updated"
+         }
       },
-      "parameters" : {},
-      "path" : "/api/v3.3/product/1234567890012",
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
-      "content-type" : "application/json; charset=utf-8"
+      "parameters" : {},
+      "path" : "/api/v3.3/product/1234567890012"
    }
 }

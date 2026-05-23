@@ -78,7 +78,9 @@ if (defined $User_id) {
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
 		write_auth_deprecated_headers();
-		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+		if (defined $request_ref->{cookie}) {
+			$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+		}
 		$r->headers_out->set(Location => "$url");
 		$r->status(302);
 		return 302;
