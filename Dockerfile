@@ -201,16 +201,15 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     # install cpm for parallel installation
     cpanm --notest --quiet --skip-satisfied "App::cpm"
 
-ENV PERL_MM_OPT="INSTALL_BASE=/tmp/local/" \
-    PERL_MB_OPT="--install_base /tmp/local/" \
-    PERL5LIB="/tmp/local/lib/perl5/"
-
 # first install some dependencies that are not well handled
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
+    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \ 
+    export PERL_MB_OPT="--install_base /tmp/local/" && \
+    export PERL5LIB="/tmp/local/lib/perl5/" && \
     # Not well handled by cpm for some reason, and not available in apt: install them first
     cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
     # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
@@ -224,6 +223,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
+    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \ 
+    export PERL_MB_OPT="--install_base /tmp/local/" && \
+    export PERL5LIB="/tmp/local/lib/perl5/" && \
     cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 
 ######################
