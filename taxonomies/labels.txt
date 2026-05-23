@@ -82,6 +82,12 @@ synonyms:bg: морска храна
 synonyms:fi: merenantimet, merenelävät
 synonyms:ru: дары моря, морепродукты
 
+# https://www.lexology.com/library/detail.aspx?g=59a9ec86-f345-4c3c-8209-7947c0ed40f1
+synonyms:en: contains, with, source of
+synonyms:da: indeholder, med, kilde til
+synonyms:fr: contient, source de, avec du, avec
+synonyms:sv: innehåller, med, källa till
+
 synonyms:en: without, 0%, free, contains no
 synonyms:da: uden, ingen, intet, nul, 0%, fri for
 synonyms:de: ohne, 0%
@@ -2122,7 +2128,7 @@ da: Kilde til vitamin B12
 de: Vitamin B12-Quelle
 es: Fuente de vitamina B12
 fi: B12-vitamiinin lähde
-fr: Source de vitamine B12
+fr: Source de vitamine B12, Avec vitamine B12
 hr: izvor vitamina B12
 hu: B12-vitaminforrás
 it: Fonte di vitamina B12
@@ -2290,6 +2296,7 @@ sv: Berikad med vitamin D
 
 < en:Enriched with vitamins
 en: Enriched with vitamin B12
+fr: Enrichi en vitamine B12
 sv: Berikad med vitamin B12
 
 en: Enriched with minerals
@@ -20818,7 +20825,7 @@ th: ไม่มีส่วนผสมของถั่วลิสงค์
 en: No nuts, nut free
 de: Ohne Nüsse, nussfrei
 es: Sin frutos secos, sin nueces
-fr: Sans fruits à coque, sans fruits secs
+fr: Sans fruits à coque, sans fruits secs, Sans noix
 it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
