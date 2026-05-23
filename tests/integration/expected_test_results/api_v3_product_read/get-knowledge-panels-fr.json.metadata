@@ -3,10 +3,10 @@
       "body" : null,
       "content-type" : null,
       "method" : "GET",
-      "path" : "/api/v3/product/4260392550101",
       "parameters" : {
-         "lc" : "fr",
-         "fields" : "knowledge_panels"
-      }
+         "fields" : "knowledge_panels",
+         "lc" : "fr"
+      },
+      "path" : "/api/v3/product/4260392550101"
    }
 }

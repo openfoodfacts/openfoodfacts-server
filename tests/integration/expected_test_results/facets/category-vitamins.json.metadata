@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
       "body" : null,
+      "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "fields" : "product_name,labels_tags"
       },
-      "path" : "/categories/vitamins.json",
-      "content-type" : null
+      "path" : "/categories/vitamins.json"
    }
 }
