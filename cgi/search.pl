@@ -355,6 +355,7 @@ foreach my $series (@search_series, "nutrition_grades") {
 if ($action eq 'display') {
 
 	$template_data_ref->{search_terms} = $search_terms;
+	$template_data_ref->{search_type} = $search_type;
 
 	my $active_list = 'active';
 	my $active_map = '';
@@ -640,6 +641,12 @@ elsif ($action eq 'process') {
 		$page = 1;
 	}
 
+	# Search type (name, generic_name, or all)
+	my $search_type = remove_tags_and_quote(decode utf8 => single_param('search_type')) || 'all';
+	if (($search_type ne 'name') and ($search_type ne 'generic_name') and ($search_type ne 'all')) {
+		$search_type = 'all';
+	}
+
 	# Search terms
 
 	if ((defined $search_terms) and ($search_terms ne '')) {
@@ -664,8 +671,18 @@ elsif ($action eq 'process') {
 				}
 			}
 			if (scalar keys %terms > 0) {
-				$query_ref->{_keywords} = {'$all' => [keys %terms]};
+				my $keywords_field = '_keywords';
+				if ($search_type eq 'name') {
+					$keywords_field = '_keywords_product_name';
+				}
+				elsif ($search_type eq 'generic_name') {
+					$keywords_field = '_keywords_generic_name';
+				}
+				$query_ref->{$keywords_field} = {'$all' => [keys %terms]};
 				$current_link .= "\&search_terms=" . URI::Escape::XS::encodeURIComponent($search_terms);
+				if ($search_type ne 'all') {
+					$current_link .= "\&search_type=$search_type";
+				}
 			}
 		}
 	}

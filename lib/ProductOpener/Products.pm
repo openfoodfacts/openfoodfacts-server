@@ -2967,6 +2967,8 @@ sub compute_keywords ($product_ref) {
 	my @tag_fields = qw(brands categories origins labels);
 
 	my %keywords;
+	my %keywords_product_name;
+	my %keywords_generic_name;
 
 	my $product_lc = $product_ref->{lc} || $lc;
 
@@ -2984,9 +2986,24 @@ sub compute_keywords ($product_ref) {
 		}
 	}
 
+	# Extract keywords from product_name and generic_name separately
+	foreach my $word (split(/,|'|'|\s/, $product_ref->{product_name} // '')) {
+		my $wordid = get_string_id_for_lang($product_lc, $word);
+		if (length($wordid) >= 2) {
+			$keywords_product_name{normalize_search_terms($wordid)} = 1;
+		}
+	}
+
+	foreach my $word (split(/,|'|'|\s/, $product_ref->{generic_name} // '')) {
+		my $wordid = get_string_id_for_lang($product_lc, $word);
+		if (length($wordid) >= 2) {
+			$keywords_generic_name{normalize_search_terms($wordid)} = 1;
+		}
+	}
+
 	foreach my $value (@text_values) {
 
-		foreach my $word (split(/,|'|’|\s/, $value)) {
+		foreach my $word (split(/,|'|'|\s/, $value)) {
 			my $wordid = get_string_id_for_lang($product_lc, $word);
 			if (length($wordid) >= 2) {
 				$keywords{normalize_search_terms($wordid)} = 1;
@@ -2995,6 +3012,8 @@ sub compute_keywords ($product_ref) {
 	}
 
 	$product_ref->{_keywords} = [sort keys %keywords];
+	$product_ref->{_keywords_product_name} = [sort keys %keywords_product_name];
+	$product_ref->{_keywords_generic_name} = [sort keys %keywords_generic_name];
 
 	return;
 }
