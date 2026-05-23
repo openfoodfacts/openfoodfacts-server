@@ -21,7 +21,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
-use Term::ANSIColor;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -71,8 +70,6 @@ Log::Log4perl->init(
 
 Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
 
-my $tagtype = $ARGV[0];
-
 my $publish = 1;
 my $max_workers = 1;
 my $verbose = 0;
@@ -83,6 +80,12 @@ GetOptions(
 	"verbose|v" => \$verbose,
 ) or die("Error in command line arguments\n");
 
+if ($max_workers < 1) {
+	print_error("Invalid number of workers: $max_workers. Must be at least 1.");
+	exit(1);
+}
+
+my $tagtype = $ARGV[0];
 $tagtype = '*' if !defined $tagtype || $tagtype eq '';
 
 my $IS_GITHUB_CI = $ENV{GITHUB_ACTIONS} // 0;
