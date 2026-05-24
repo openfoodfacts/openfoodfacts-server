@@ -271,7 +271,7 @@ msgstr "Uw verzoek om lid te worden van de organisatie is in afwachting van goed
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "Uw organisatieverzoek is ontvangen en wordt verwerkt."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -2837,15 +2837,15 @@ msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten is niet gespecific
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar werd geschat op basis van de ingrediëntenlijst: %d%%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar werd geschat op basis van de ingrediëntenlijst: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, deze is geschat op basis van de categorie (%s) van het product:%d%%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, deze is geschat op basis van de categorie (%s) van het product:%d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar werd geschat op basis van de ingrediëntenlijst: %d%%"
+msgstr "Waarschuwing: de hoeveelheid fruit, groenten en noten staat niet op het etiket, maar werd geschat op basis van de ingrediëntenlijst: %d%"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -6048,23 +6048,23 @@ msgstr "IK STEUN"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "We hebben nog €120.000 nodig om 2026 af te ronden!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr ""
+msgstr "Word een Open Food Facts mecenas"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr ""
+msgstr "Elke maand verwelkomen we 8 miljoen bezoekers, en via de API zelfs nog veel meer. Uw steun is essentieel voor:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr ""
+msgstr "Open Food Facts open houden & beschikbaar houden voor iedereen,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr ""
+msgstr "Ondersteuning van de infrastructuur, de website, de mobiele app en de API door een klein, vast team."
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6072,15 +6072,15 @@ msgstr "onafhankelijk blijven van de voedingsindustrie,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "steun de gemeenschap"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr ""
+msgstr "steun wetenschap"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr ""
+msgstr "Als elke bezoeker deze maand op 'Doneren' zou klikken en slechts €1 zou geven, zouden we meer dan 8 keer ons jaarbudget binnenhalen!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -7982,27 +7982,27 @@ msgstr "Gedetailleerde gegevens"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
-msgstr ""
+msgstr "Met dit formulier kunt u een ingrediëntenlijst analyseren."
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
-msgstr ""
+msgstr "Dit formulier is een demonstratie- en testtool. Voor gebruik in een productieomgeving dient u de Recipe Estimator-software te installeren, die als open source beschikbaar is op <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
 
 msgctxt "test_ingredients_taxonomy_mapping_description"
 msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
-msgstr ""
+msgstr "De ingrediënten worden gekoppeld aan de ingrediëntenclassificatie van Open Food Facts en de hoeveelheid ervan wordt geschat met behulp van verschillende algoritmes."
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
-msgstr ""
+msgstr "Taal van ingrediëntenlijst"
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
-msgstr ""
+msgstr "Ingrediëntentekst"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "Selecteer een methode om het percentage ingrediënten te schatten:"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
@@ -8010,33 +8010,33 @@ msgstr ""
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "1e versie (Glop) - gebruikt voedingswaarden om de hoeveelheid ingrediënten te bepalen"
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "2e versie (Scipy) - gebruikt voedingswaarden om de hoeveelheid ingrediënten te bepalen"
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "Voedingswaarden"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
-msgstr ""
+msgstr "Ingrediënten verwerken en hoeveelheid schatten"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
-msgstr ""
+msgstr "Schattingstool voor het percentage ingrediënten:"
 
 msgctxt "test_ingredients_ecobalyse_experimental"
 msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
-msgstr ""
+msgstr "Experimenteel: gebruik de Ecobalyse API om de milieu-impact van de ingrediënten te schatten."
 
 msgctxt "test_ingredients_ecobalyse_request"
 msgid "Ecobalyse request"
-msgstr ""
+msgstr "Ecobalyse-verzoek"
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
-msgstr ""
+msgstr "Ecobalyse-reactie"
 
