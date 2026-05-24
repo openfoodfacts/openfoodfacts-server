@@ -87,6 +87,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
       apt-get update || true \
     ) && \
     apt-get install -y --no-install-recommends \
+        curl \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
@@ -173,6 +174,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libpng-dev \
         libwebp-dev
 
+RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm -o /tmp/cpm && \
+    mv /tmp/cpm /usr/bin/cpm && \
+    chmod +x /usr/bin/cpm && \
+    /usr/bin/cpm --version
+
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
 ARG USER_GID
@@ -185,32 +191,33 @@ RUN usermod --uid $USER_UID www-data && \
 ######################
 FROM modperl AS builder
 ARG CPANMOPTS
+
+ARG PO_LIB_DIR=/tmp/local
+
 WORKDIR /tmp
 
-# install cpm for parallel installation
-# we also add apt cache as some libraries might be installed from apt
+# run apt update if needed because some package might need to apt install
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
-    # also run apt update if needed because some package might need to apt install
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
-    ) && \
-    # install cpm for parallel installation
-    cpanm --notest --quiet --skip-satisfied "App::cpm"
+    )
 
-# first install some dependencies that are not well handled
+# Not well handled by cpm for some reason, and not available in apt: install them first
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
-    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \ 
-    export PERL_MB_OPT="--install_base /tmp/local/" && \
-    export PERL5LIB="/tmp/local/lib/perl5/" && \
-    # Not well handled by cpm for some reason, and not available in apt: install them first
+    # Install package dependencies in $PO_LIB_DIR
+    export PERL_MM_OPT="INSTALL_BASE=$PO_LIB_DIR" && \
+    export PERL_MB_OPT="--install_base $PO_LIB_DIR" && \
+    export PERL5LIB="$PO_LIB_DIR/lib/perl5/:$PERL5LIB" && \
+    export PATH="$PO_LIB_DIR/bin:$PATH" && \
+    # first install some dependencies that are not well handled
     cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
     # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
     # without adding an unresolved dependency back into cpanfile.
@@ -223,6 +230,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
+    # Install package dependencies in $PO_LIB_DIR
     export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \ 
     export PERL_MB_OPT="--install_base /tmp/local/" && \
     export PERL5LIB="/tmp/local/lib/perl5/" && \
