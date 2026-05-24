@@ -352,6 +352,12 @@ foreach my $series (@search_series, "nutrition_grades") {
 	}
 }
 
+# Search type (name, generic_name, or all)
+my $search_type = remove_tags_and_quote(decode utf8 => single_param('search_type')) || 'all';
+if (($search_type ne 'name') and ($search_type ne 'generic_name') and ($search_type ne 'all')) {
+	$search_type = 'all';
+}
+
 if ($action eq 'display') {
 
 	$template_data_ref->{search_terms} = $search_terms;
@@ -639,12 +645,6 @@ elsif ($action eq 'process') {
 	my $page = 0 + (single_param('page') || 1);
 	if (($page < 1) or ($page > 1000)) {
 		$page = 1;
-	}
-
-	# Search type (name, generic_name, or all)
-	my $search_type = remove_tags_and_quote(decode utf8 => single_param('search_type')) || 'all';
-	if (($search_type ne 'name') and ($search_type ne 'generic_name') and ($search_type ne 'all')) {
-		$search_type = 'all';
 	}
 
 	# Search terms

@@ -17,9 +17,9 @@
             <div class="large-12 columns">
                 <label for="search_type">[% lang ('search_type') %]</label>
                 <select name="search_type" id="search_type">
-                    <option value="all" [% IF search_type == 'all' %]selected="selected"[% END %]>[% lang('search_type_all') %]</option>
-                    <option value="name" [% IF search_type == 'name' %]selected="selected"[% END %]>[% lang('search_type_name') %]</option>
-                    <option value="generic_name" [% IF search_type == 'generic_name' %]selected="selected"[% END %]>[% lang('search_type_generic_name') %]</option>
+                    <option value="all" [% IF search_type eq 'all' %]selected="selected"[% END %]>[% lang('search_type_all') %]</option>
+                    <option value="name" [% IF search_type eq 'name' %]selected="selected"[% END %]>[% lang('search_type_name') %]</option>
+                    <option value="generic_name" [% IF search_type eq 'generic_name' %]selected="selected"[% END %]>[% lang('search_type_generic_name') %]</option>
                 </select>
             </div>
         </div>

@@ -2991,6 +2991,7 @@ sub compute_keywords ($product_ref) {
 		my $wordid = get_string_id_for_lang($product_lc, $word);
 		if (length($wordid) >= 2) {
 			$keywords_product_name{normalize_search_terms($wordid)} = 1;
+			$keywords{normalize_search_terms($wordid)} = 1;  # ADD THIS LINE
 		}
 	}
 
@@ -2998,6 +2999,7 @@ sub compute_keywords ($product_ref) {
 		my $wordid = get_string_id_for_lang($product_lc, $word);
 		if (length($wordid) >= 2) {
 			$keywords_generic_name{normalize_search_terms($wordid)} = 1;
+			$keywords{normalize_search_terms($wordid)} = 1;  # ADD THIS LINE
 		}
 	}
 
