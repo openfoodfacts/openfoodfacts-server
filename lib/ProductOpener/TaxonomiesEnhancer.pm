@@ -248,10 +248,6 @@ This function does not return a value but modifies the `missing_stop_words_befor
 sub detect_missing_stop_words_before_list {
 	my ($ingredients1, $ingredients2, $lang1, $lang2, $missing_stop_words_before) = @_;
 
-	$log->debug(
-		"check_ingredients_between_languages > detect_missing_stop_words_before_list - start, lang1: $lang1, lang2: $lang2"
-	) if $log->is_debug();
-
 	# Return if first ingredient in ingredients1 is unknown or first ingredient in ingredients2 is known
 	if (!$ingredients1->[0]{is_in_taxonomy} || $ingredients2->[0]{is_in_taxonomy}) {
 		$log->debug(
@@ -263,15 +259,9 @@ sub detect_missing_stop_words_before_list {
 	# Iterate on all first unknown ingredient from ingredients2 until we find first ingredients1
 	my $previous_ingredients_object;
 	foreach my $i (0 .. $#$ingredients2) {
-		$log->debug(
-			"check_ingredients_between_languages > detect_missing_stop_words_before_list -   search for first known ingredient in ingredients1: $ingredients2->[$i]{text}"
-		) if $log->is_debug();
 		# based on previous return condition, first iteration will be else
 		if ($ingredients2->[$i]{id} eq $ingredients1->[0]{id}) {
 			unless (exists $missing_stop_words_before->{$previous_ingredients_object->{id}}) {
-				$log->debug(
-					"check_ingredients_between_languages > detect_missing_stop_words_before_list -   adding stopword before, first time: $previous_ingredients_object->{id}"
-				) if $log->is_debug();
 				$missing_stop_words_before->{$lang2} = $previous_ingredients_object->{id};
 			}
 			last;
@@ -353,10 +343,6 @@ This function does not return a value but modifies the `missing_stop_words_after
 sub detect_missing_stop_words_after_list {
 	my ($ingredients1, $ingredients2, $lang1, $lang2, $missing_stop_words_after) = @_;
 
-	$log->debug(
-		"check_ingredients_between_languages > detect_missing_stop_words_after_list - start, lang1: $lang1, lang2: $lang2"
-	) if $log->is_debug();
-
 	# Check if all known ingredients up to len(lang2) have the same ID at the same position
 	my $translation_difference_count = 0;
 	my $translation_difference_accepted_percentage = 0.5;
@@ -390,26 +376,16 @@ sub detect_missing_stop_words_after_list {
 		&& !$ingredients2->[@$ingredients1]{is_in_taxonomy})
 	{
 		my $unknown_ingredient_object = $ingredients2->[@$ingredients1];
-		$log->debug(
-			"check_ingredients_between_languages > detect_missing_stop_words_after_list -   should push $unknown_ingredient_object->{id}"
-		) if $log->is_debug();
 
 		if (exists $missing_stop_words_after->{$lang2}) {
 			my $index_existing_value = get_ingredient_index($ingredients2, $missing_stop_words_after->{$lang2});
 			my $index_new_value = get_ingredient_index($ingredients2, $unknown_ingredient_object->{id});
-
-			$log->debug(
-				"check_ingredients_between_languages > detect_missing_stop_words_after_list -   adding stopword after, not first time: previously: $missing_stop_words_after->{$lang2} (index: $index_existing_value), newly: $unknown_ingredient_object->{id} ($index_new_value), check index"
-			) if $log->is_debug();
 
 			if ($index_new_value < $index_existing_value) {
 				$missing_stop_words_after->{$lang2} = $unknown_ingredient_object->{id};
 			}
 		}
 		else {
-			$log->debug(
-				"check_ingredients_between_languages > detect_missing_stop_words_after_list -   adding stopword after, first time: $unknown_ingredient_object->{id}"
-			) if $log->is_debug();
 			$missing_stop_words_after->{$lang2} = $unknown_ingredient_object->{id};
 		}
 	}
@@ -472,9 +448,6 @@ sub find_smallest_value_key {
 	my $smallest_key = undef;
 
 	foreach my $key (keys %$hashmap) {
-		$log->debug(
-			"check_ingredients_between_languages > find_smallest_value_key - next key: $key. Distance: $hashmap->{$key}"
-		) if $log->is_debug();
 		if (!defined $smallest_value || $hashmap->{$key} < $smallest_value) {
 			$smallest_value = $hashmap->{$key};
 			$smallest_key = $key;
@@ -594,34 +567,20 @@ sub detect_missing_ingredients {
 			# prevent to divide by zero
 			elsif (length($unknown_ingredient_object->{text}) > 0) {
 				my @unique_synonyms = remove_duplicates(@synonyms);
-				$log->debug("check_ingredients_between_languages > detect_missing_ingredients -   retrieved "
-						. scalar(@unique_synonyms)
-						. " unique synonyms: "
-						. join(", ", @unique_synonyms))
-					if $log->is_debug();
 				# Levenshtein distance for each synonym
 				#  acceptance of 40%, for example in Croatian: secer -> šećer
 				my %synonym_distance;
 				foreach my $synonym (@unique_synonyms) {
 					my $lev_distance = distance($unknown_ingredient_object->{text}, $synonym);
 					$synonym_distance{$synonym} = $lev_distance / length($unknown_ingredient_object->{text});
-					$log->debug(
-						"check_ingredients_between_languages > detect_missing_ingredients -   levenshtein synonyms distance between the ingredient $unknown_ingredient_object->{text} and the synonym $synonym is $lev_distance"
-					) if $log->is_debug();
 				}
 
 				my $key_for_smallest_levenshtein_value = find_smallest_value_key(\%synonym_distance);
-				$log->debug(
-					"check_ingredients_between_languages > detect_missing_ingredients -   levenshtein synonyms smallest distance: $key_for_smallest_levenshtein_value"
-				) if $log->is_debug();
 
 				if (defined $key_for_smallest_levenshtein_value) {
 					my $smallest_levenshtein_value = $synonym_distance{$key_for_smallest_levenshtein_value};
 
 					if ($smallest_levenshtein_value <= 0.4) {
-						$log->debug(
-							"check_ingredients_between_languages > detect_missing_ingredients:   the key with the smallest value is '$key_for_smallest_levenshtein_value' and its value is $smallest_levenshtein_value, which is equal to or less than the threshold."
-						) if $log->is_debug();
 						unless (exists $ingredients_typo->{$unknown_ingredient_object->{text}}) {
 							$key_for_smallest_levenshtein_value =~ s/\s+/-/g;
 							$log->debug(
@@ -689,8 +648,6 @@ This function does not return any value. It performs the extraction and detectio
 sub check_ingredients_between_languages {
 	my ($product_ref) = @_;
 
-	$log->debug("check_ingredients_between_languages - start $product_ref->{code}") if $log->is_debug();
-
 	delete $product_ref->{"taxonomies_enhancer_tags"} if exists $product_ref->{"taxonomies_enhancer_tags"};
 
 	# Create a new hash for ingredients_text_<something> fields to not impact $product_ref
@@ -699,7 +656,6 @@ sub check_ingredients_between_languages {
 		# ingredients_text_fi yes, ingredients_text_with_allergens_fi no
 		if ($key =~ /^ingredients_text_[a-z]{2}$/) {
 			$ingredients_hash{$key} = $product_ref->{$key};
-			$log->debug("Added key: $key with value: $product_ref->{$key}") if $log->is_debug();
 		}
 	}
 
@@ -754,23 +710,14 @@ sub check_ingredients_between_languages {
 	}
 
 	foreach my $lang (keys %missing_stop_words_before) {
-		$log->debug(
-			"check_ingredients_between_languages - detected: en:possible-stop-word-before-$missing_stop_words_before{$lang}"
-		) if $log->is_debug();
 		add_tag($product_ref, "taxonomies_enhancer",
 			get_string_id_for_lang("en", "possible-stop-word-before-$missing_stop_words_before{$lang}"));
 	}
 	foreach my $lang (keys %missing_stop_words_after) {
-		$log->debug(
-			"check_ingredients_between_languages - detected: en:possible-stop-word-after-$missing_stop_words_after{$lang}"
-		) if $log->is_debug();
 		add_tag($product_ref, "taxonomies_enhancer",
 			get_string_id_for_lang("en", "possible-stop-word-after-$missing_stop_words_after{$lang}"));
 	}
 	foreach my $new_ingredient_id (keys %missing_ingredients) {
-		$log->debug(
-			"check_ingredients_between_languages - detected: en:ingredients-$new_ingredient_id-is-new-translation-for-$missing_ingredients{$new_ingredient_id}"
-		) if $log->is_debug();
 		add_tag(
 			$product_ref,
 			"taxonomies_enhancer",
@@ -780,9 +727,6 @@ sub check_ingredients_between_languages {
 		);
 	}
 	foreach my $ingredient_with_typo (keys %ingredients_typo) {
-		$log->debug(
-			"check_ingredients_between_languages - detected: en:ingredients-$ingredient_with_typo-is-possible-typo-for-$ingredients_typo{$ingredient_with_typo}"
-		) if $log->is_debug();
 		add_tag(
 			$product_ref,
 			"taxonomies_enhancer",
@@ -794,9 +738,6 @@ sub check_ingredients_between_languages {
 	# ignore if there are too many discrepencies found, it might be comparison of old ingredient list in a lang and new ingredient list in other lang, example 8014190017627
 	if (scalar(keys %mismatch_in_taxonomy) < 2) {
 		foreach my $ingredient_id1 (keys %mismatch_in_taxonomy) {
-			$log->debug(
-				"check_ingredients_between_languages - detected: en:ingredients-taxonomy-between-$ingredient_id1-and-$mismatch_in_taxonomy{$ingredient_id1}-should-be-same-id"
-			) if $log->is_debug();
 			add_tag(
 				$product_ref,
 				"taxonomies_enhancer",

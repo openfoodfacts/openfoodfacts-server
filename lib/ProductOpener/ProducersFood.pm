@@ -102,8 +102,6 @@ sub detect_possible_improvements_nutriscore_2023 ($product_ref) {
 
 	my $version = 2023;
 
-	$log->debug("detect_possible_improvements_nutriscore_2023 - start") if $log->debug();
-
 	my $nutriscore_ref = $product_ref->{nutriscore}{$version};
 
 	return if not((defined $nutriscore_ref) and ($nutriscore_ref->{nutriscore_computed}));
@@ -217,8 +215,6 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 
 	my $categories_stats_ref = $categories_stats_per_country{"world"};
 
-	$log->debug("detect_possible_improvements_compare_nutrition_facts - start") if $log->debug();
-
 	return if not defined $product_ref->{nutriments};
 	return if not defined $product_ref->{categories_tags};
 
@@ -239,9 +235,6 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 		my $specific_category = $product_ref->{categories_tags}[$i];
 		$product_ref->{compared_to_category} = $specific_category;
 
-		$log->debug("detect_possible_improvements_compare_nutrition_facts", {specific_category => $specific_category})
-			if $log->is_debug();
-
 		# check major nutrients
 		my @nutrients = qw(fat saturated-fat sugars salt);
 
@@ -259,17 +252,6 @@ sub detect_possible_improvements_compare_nutrition_facts ($product_ref) {
 				and ($product_ref->{nutriments}{$nid . "_100g"} ne "")
 				and (defined $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}))
 			{
-
-				$log->debug(
-					"detect_possible_improvements_compare_nutrition_facts",
-					{
-						nid => $nid,
-						product_100g => $product_ref->{nutriments}{$nid . "_100g"},
-						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"mean"},
-						category_std => $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
-					}
-				) if $log->is_debug();
-
 				next if ($product_ref->{nutriments}{$nid . "_100g"} < $minimum_thresholds{$nid});
 
 				my $improvements_tag;

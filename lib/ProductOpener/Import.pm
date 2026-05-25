@@ -701,9 +701,6 @@ sub set_field_value (
 
 	my $code = $imported_product_ref->{code};
 
-	$log->debug("defined and non empty value for field", {field => $field, value => $imported_product_ref->{$field}})
-		if $log->is_debug();
-
 	if (($field =~ /product_name/) or ($field eq "brands")) {
 		$stats_ref->{products_with_info}{$code} = 1;
 	}
@@ -734,14 +731,6 @@ sub set_field_value (
 				or (($field eq "serving_size") and ($product_ref->{$field} eq "serving"))
 				)
 			{
-				$log->debug(
-					"setting _imported field value",
-					{
-						field => $field,
-						imported_value => $imported_product_ref->{$field},
-						current_value => $product_ref->{$field}
-					}
-				) if $log->is_debug();
 				$product_ref->{$field . "_imported"} = $imported_product_ref->{$field};
 				$$modified_ref++;
 				defined $stats_ref->{"products_imported_field_" . $field . "_updated"}
@@ -757,14 +746,6 @@ sub set_field_value (
 			{
 				# we had a bug that caused serving_size to be set to "serving", this value should be overridden
 				return if (($field eq "serving_size") and ($product_ref->{"serving_size"} eq "serving"));
-				$log->debug(
-					"skipping field that was already imported",
-					{
-						field => $field,
-						imported_value => $imported_product_ref->{$field},
-						current_value => $product_ref->{$field}
-					}
-				) if $log->is_debug();
 				return;
 			}
 		}
@@ -772,14 +753,6 @@ sub set_field_value (
 		else {
 			# Tags field will be added, we can import them
 			if ((not defined $tags_fields{$field}) and (defined $product_ref->{owner_fields}{$field})) {
-				$log->debug(
-					"skipping field that was already imported by the owner",
-					{
-						field => $field,
-						imported_value => $imported_product_ref->{$field},
-						current_value => $product_ref->{$field}
-					}
-				) if $log->is_debug();
 				return;
 			}
 		}
@@ -845,8 +818,6 @@ sub set_field_value (
 			}
 			# if the tag was not already in the existing tags, add it
 			if (not exists $existing{$tagid}) {
-				$log->debug("adding tagid to field", {field => $field, tagid => $tagid})
-					if $log->is_debug();
 				$product_ref->{$field} .= ", $tag";
 				$existing{$tagid} = 1;
 			}
@@ -882,8 +853,6 @@ sub set_field_value (
 		# post processing according to the type of action
 		# $current_field is the value before update
 		if (not defined $current_field) {
-			$log->debug("added value to field", {field => $field, value => $product_ref->{$field}})
-				if $log->is_debug();
 			# recompute tags
 			compute_field_tags($product_ref, $tag_lc, $field);
 			# rembember it was added
@@ -895,9 +864,6 @@ sub set_field_value (
 			$stats_ref->{"products_info_added_field_" . $field}{$code} = 1;
 		}
 		elsif ($current_field ne $product_ref->{$field}) {
-			$log->debug("changed value for field",
-				{field => $field, value => $product_ref->{$field}, old_value => $current_field})
-				if $log->is_debug();
 			# recompute tags
 			compute_field_tags($product_ref, $tag_lc, $field);
 			# rembember it was added
@@ -962,14 +928,6 @@ sub set_field_value (
 		if ($new_field_value eq '-') {
 			# existing value?
 			if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
-				$log->debug(
-					"removing existing value for field",
-					{
-						field => $field,
-						existing_value => $product_ref->{$field},
-						new_value => $new_field_value
-					}
-				) if $log->is_debug();
 				$$differing_ref++;
 				$differing_fields_ref->{$field}++;
 
@@ -985,8 +943,6 @@ sub set_field_value (
 			if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
 
 				if ($args_ref->{skip_existing_values}) {
-					$log->debug("skip existing value for field", {field => $field, value => $product_ref->{$field}})
-						if $log->is_debug();
 					next;
 				}
 
@@ -1005,14 +961,6 @@ sub set_field_value (
 
 				if (lc($current_value) ne lc($new_field_value)) {
 					# if ($current_value ne $new_field_value) {
-					$log->debug(
-						"differing value for field",
-						{
-							field => $field,
-							existing_value => $product_ref->{$field},
-							new_value => $new_field_value
-						}
-					) if $log->is_debug();
 					$$differing_ref++;
 					$differing_fields_ref->{$field}++;
 
@@ -1027,14 +975,6 @@ sub set_field_value (
 				}
 				elsif (($field eq 'quantity') and ($product_ref->{$field} ne $new_field_value)) {
 					# normalize quantity
-					$log->debug(
-						"normalizing quantity",
-						{
-							field => $field,
-							existing_value => $product_ref->{$field},
-							new_value => $new_field_value
-						}
-					) if $log->is_debug();
 					$product_ref->{$field} = $new_field_value;
 					push @$modified_fields_ref, $field;
 					$$modified_ref++;
@@ -1046,10 +986,6 @@ sub set_field_value (
 				}
 			}
 			else {
-				$log->debug(
-					"setting previously unexisting value for field",
-					{field => $field, new_value => $new_field_value}
-				) if $log->is_debug();
 				$product_ref->{$field} = $new_field_value;
 
 				# do not count the import id as a change
@@ -1177,15 +1113,6 @@ sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_re
 			my $nutrition_data_per_field = "nutrition_data" . $type . "_per";
 			my $imported_nutrition_data_per_value = $imported_product_ref->{$nutrition_data_per_field};
 
-			$log->debug(
-				"nutrition_data_per_field imported value",
-				{
-					code => $code,
-					nutrition_data_per_field => $nutrition_data_per_field,
-					imported_nutrition_data_per_value => $imported_nutrition_data_per_value
-				}
-			) if $log->is_debug();
-
 			# Set nutrition_data_per to 100g if it was not provided and we have nutrition data in the csv file
 			if ((not defined $imported_nutrition_data_per_value) or ($imported_nutrition_data_per_value eq "")) {
 
@@ -1216,14 +1143,6 @@ sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_re
 			}
 			# otherwise, assign the per serving value, and assign serving size
 			else {
-				$log->debug(
-					"nutrition_data_per_field corresponds to serving size",
-					{
-						code => $code,
-						nutrition_data_per_field => $nutrition_data_per_field,
-						$imported_nutrition_data_per_value => $imported_nutrition_data_per_value
-					}
-				) if $log->is_debug();
 				if (   (not defined $product_ref->{serving_size})
 					or ($product_ref->{serving_size} ne $imported_nutrition_data_per_value))
 				{
@@ -1290,7 +1209,6 @@ sub import_packaging_components (
 		{
 			$input_packaging_ref->{$field} = $imported_product_ref->{"packaging_${i}_${field}"};
 		}
-		$log->debug("input_packaging_ref", {i => $i, input_packaging_ref => $input_packaging_ref}) if $log->is_debug();
 
 		# Taxonomize the input packaging component data
 		push @input_packagings,
@@ -1334,16 +1252,6 @@ sub import_packaging_components (
 	# Check if the packagings data has changed
 	my @diffs = data_diff($original_packagings_ref, $product_ref->{packagings});
 	if (scalar @diffs > 0) {
-		$log->debug(
-			"packagings diff",
-			{
-				original_packagings => $original_packagings_ref,
-				input_packagings => \@input_packagings,
-				new_packagings => $product_ref->{packagings},
-				data_is_complete => $data_is_complete,
-				diffs => \@diffs
-			}
-		) if $log->is_debug();
 		$stats_ref->{products_packagings_updated}{$code} = 1;
 		if (scalar @$original_packagings_ref == 0) {
 			$stats_ref->{products_packagings_created}{$code} = 1;
@@ -1950,8 +1858,6 @@ sub import_csv_file ($args_ref) {
 					$file =~ s/^\s+//;
 					$file =~ s/\s+$//;
 
-					$log->debug("images", {file => $file}) if $log->is_debug();
-
 					defined $images_ref->{$code} or $images_ref->{$code} = {};
 					if ($imagefield ne "other") {
 						$images_ref->{$code}{$imagefield} = $file;
@@ -1959,9 +1865,6 @@ sub import_csv_file ($args_ref) {
 					else {
 						$k++;
 						$images_ref->{$code}{$imagefield . "_$k"} = $file;
-
-						$log->debug("images - other", {file => $file, imagefield => $imagefield, k => $k})
-							if $log->is_debug();
 
 						# No front image yet? --> take this one
 						if (not(defined $images_ref->{$code}{front})) {
@@ -2023,8 +1926,6 @@ sub import_csv_file ($args_ref) {
 		}
 
 		if (not $product_ref) {
-			$log->debug("product does not exist yet", {code => $code, product_id => $product_id}) if $log->is_debug();
-
 			if ($args_ref->{skip_not_existing_products}) {
 				$log->debug("skip not existing product", {code => $code, product_id => $product_id})
 					if $log->is_debug();
@@ -2033,9 +1934,6 @@ sub import_csv_file ($args_ref) {
 			}
 			else {
 				$new++;
-
-				$log->debug("creating not existing product", {code => $code, product_id => $product_id})
-					if $log->is_debug();
 
 				$stats_ref->{products_created}{$code} = 1;
 
@@ -2051,7 +1949,6 @@ sub import_csv_file ($args_ref) {
 			}
 		}
 		else {
-			$log->debug("product already exists", {code => $code, product_id => $product_id}) if $log->is_debug();
 			$existing++;
 			$stats_ref->{products_already_existing}{$code} = 1;
 		}
@@ -2339,7 +2236,6 @@ sub import_csv_file ($args_ref) {
 
 		# Skip further processing if we have not modified any of the fields
 
-		$log->debug("number of modifications", {code => $code, modified => $modified}) if $log->is_debug();
 		if ($modified == 0) {
 			$log->debug("skipping - no modifications", {code => $code}) if $log->is_debug();
 			$stats_ref->{products_data_not_updated}{$code} = 1;
@@ -2349,7 +2245,6 @@ sub import_csv_file ($args_ref) {
 				if $log->is_debug();
 		}
 		else {
-			$log->debug("updating product", {code => $code, modified => $modified}) if $log->is_debug();
 			$stats_ref->{products_data_updated}{$code} = 1;
 
 			analyze_and_enrich_product_data($product_ref, $response_ref);
@@ -2395,10 +2290,6 @@ sub import_csv_file ($args_ref) {
 				else {
 					delete $product_ref->{to_be_automatically_exported};
 				}
-
-				$log->debug("storing product",
-					{code => $code, product_id => $product_id, org_id => $org_id, Owner_id => $Owner_id})
-					if $log->is_debug();
 
 				store_product($user_id, $product_ref, "Editing product (import) - " . ($product_comment || ""));
 
@@ -2465,10 +2356,6 @@ sub import_csv_file ($args_ref) {
 				}
 			}
 
-			$log->debug("image file",
-				{field => $field, imagefield => $imagefield, field_value => $imported_product_ref->{$field}})
-				if $log->is_debug();
-
 			next if !defined $imported_product_ref->{$field};
 
 			# We may have several URLs separated by commas
@@ -2501,8 +2388,6 @@ sub import_csv_file ($args_ref) {
 
 					if ((defined $images_download_dir) and ($images_download_dir ne '')) {
 						if (not -d $images_download_dir) {
-							$log->debug("Creating images_download_dir", {images_download_dir => $images_download_dir})
-								if $log->is_debug();
 							ensure_dir_created($images_download_dir)
 								or $log->warn("Could not create images_download_dir",
 								{images_download_dir => $images_download_dir, error => $!})
@@ -2519,9 +2404,6 @@ sub import_csv_file ($args_ref) {
 						}
 						# Check if the image exists
 						elsif (-e $file) {
-
-							$log->debug("we already have downloaded image file", {file => $file}) if $log->is_debug();
-
 							# Is the image readable?
 							my $magick = Image::Magick->new();
 							my $imagemagick_error = $magick->Read($file);
@@ -2549,8 +2431,6 @@ sub import_csv_file ($args_ref) {
 									$new_imagefield = $imagefield . '.' . $image_number;
 								}
 
-								$log->debug("assigning image file", {new_imagefield => $new_imagefield, file => $file})
-									if $log->is_debug();
 								(defined $images_ref->{$code}) or $images_ref->{$code} = {};
 								$images_ref->{$code}{$new_imagefield} = $file;
 							}
@@ -2586,13 +2466,9 @@ sub import_csv_file ($args_ref) {
 								my $uri = URI->new($image_url);
 								$image_url = $uri->canonical;
 
-								$log->debug("download image file", {file => $file, image_url => $image_url})
-									if $log->is_debug();
-
 								my $response = download_image($image_url);
 
 								if ($response->is_success) {
-									$log->debug("downloaded image file", {file => $file}) if $log->is_debug();
 									open(my $out, ">", $file);
 									print $out $response->decoded_content;
 									close($out);
@@ -2622,9 +2498,6 @@ sub import_csv_file ($args_ref) {
 											$new_imagefield = $imagefield . '.' . $image_number;
 										}
 
-										$log->debug("assigning image file",
-											{new_imagefield => $new_imagefield, file => $file})
-											if $log->is_debug();
 										(defined $images_ref->{$code}) or $images_ref->{$code} = {};
 										$images_ref->{$code}{$new_imagefield} = $file;
 
@@ -2632,7 +2505,8 @@ sub import_csv_file ($args_ref) {
 									}
 								}
 								else {
-									$log->debug("could not download image file", {file => $file, response => $response})
+									$log->debug("could not download image file",
+										{file => $file, content => $response->content})
 										if $log->is_debug();
 								}
 							}

@@ -1341,8 +1341,6 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 
 	my $categories_stats_ref = $categories_stats_per_country{"world"};
 
-	$log->debug("compare_nutrition_facts_with_products_from_same_category - start") if $log->debug();
-
 	return if not defined $product_ref->{nutrition};
 	return if not defined $product_ref->{categories_tags};
 
@@ -1363,10 +1361,6 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 		my $specific_category = $product_ref->{categories_tags}[$i];
 		$product_ref->{compared_to_category} = $specific_category;
 
-		$log->debug("compare_nutrition_facts_with_products_from_same_category",
-			{specific_category => $specific_category})
-			if $log->is_debug();
-
 		# check major nutrients
 		my @nutrients = qw(energy fat saturated-fat carbohydrates sugars fiber proteins salt);
 
@@ -1383,17 +1377,6 @@ sub compare_nutrition_facts_with_products_from_same_category ($product_ref) {
 				# note: we remove the bottom and top 5% before computing the std (to remove data errors that change the mean and std)
 				# the computed std is smaller.
 				# Too many values are outside mean +- 3 * std, try 4 * std
-
-				$log->debug(
-					"compare_nutrition_facts_with_products_from_same_category",
-					{
-						nid => $nid,
-						product_100g => $value,
-						category_100g => $categories_stats_ref->{$specific_category}{values}{$nid}{"100g"},
-						category_std => $categories_stats_ref->{$specific_category}{values}{$nid}{"std"}
-					}
-				) if $log->is_debug();
-
 				if (
 					$value < (
 						$categories_stats_ref->{$specific_category}{values}{$nid}{"100g"}
@@ -1545,9 +1528,6 @@ sub check_ingredients ($product_ref) {
 			my $ingredients_text_lc = "ingredients_text_" . ${display_lc};
 
 			if (defined $product_ref->{$ingredients_text_lc}) {
-
-				$log->debug("ingredients text", {quality => $product_ref->{$ingredients_text_lc}}) if $log->is_debug();
-
 				if (calculate_digit_percentage($product_ref->{$ingredients_text_lc}) > 0.3) {
 					push @{$product_ref->{data_quality_warnings_tags}},
 						'en:ingredients-' . $display_lc . '-over-30-percent-digits';
@@ -1807,8 +1787,11 @@ sub check_categories ($product_ref) {
 		# category might be provided but not ingredients
 		# consider only when some ingredients are provided
 		if ($number_of_ingredients > 0 && $number_of_ingredients < $minimum_number_of_ingredients) {
-			push @{$product_ref->{data_quality_errors_tags}},
-				"en:ingredients-count-lower-than-expected-for-the-category";
+			# Only flag the error if the only ingredient isn't the category itself, i.e a compound ingredient
+			if ($number_of_ingredients > 1 or ($product_ref->{ingredients}[0]{id} ne $category_id3)) {
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:ingredients-count-lower-than-expected-for-the-category";
+			}
 		}
 	}
 
@@ -2687,8 +2670,6 @@ sub check_incompatible_tags ($product_ref) {
 	my @tagtypes_to_check = ("categories", "labels");
 
 	foreach my $tagtype_to_check (@tagtypes_to_check) {
-		$log->debug("check_incompatible_tags: tagtype_to_check $tagtype_to_check") if $log->debug();
-
 		# we don't need to care about inherited properties
 		# as every tag parent is also in the _tags field
 		# thus, incompatibilities will pop-up
@@ -2698,20 +2679,12 @@ sub check_incompatible_tags ($product_ref) {
 		foreach my $tags_having_property (keys %{$incompatible_with_hash}) {
 			my $incompatible_tags = %{$incompatible_with_hash}{$tags_having_property};
 
-			$log->debug("check_incompatible_tags: tags_having_property: "
-					. $tags_having_property
-					. ", incompatible_tags: "
-					. $incompatible_tags)
-				if $log->debug();
-
 			# there can be more than a single incompatible_tags (comma (followed or
 			# not-followed by space (remember that spaces are converted as hyphen) ) separated):
 			#   categories:en:short-grain-rices, categories:en:medium-grain-rices
 			my @all_incompatible_tags = split(/,-*/, $incompatible_tags);
 
 			foreach my $incompatible_tag (@all_incompatible_tags) {
-				$log->debug("check_incompatible_tags: incompatible_tag: " . $incompatible_tag) if $log->debug();
-
 				# split by ":" and produce 2 element list
 				#   for example, labels:en:contains-gluten -> (labels, en:contains-gluten)
 				my ($tagtype, $tagid) = split(/:/, $incompatible_tag, 2);

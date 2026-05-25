@@ -98,10 +98,6 @@ sub convert_product_schema ($product_ref, $to_version) {
 		$from_version = 1000;
 	}
 
-	$log->debug("convert_product_schema - from_version: $from_version, to_version: $to_version",
-		{product_ref => $product_ref})
-		if $log->is_debug();
-
 	if ($from_version < $to_version) {
 		# incrementally upgrade schema
 		for (my $schema_version = $from_version; $schema_version < $to_version; $schema_version++) {
