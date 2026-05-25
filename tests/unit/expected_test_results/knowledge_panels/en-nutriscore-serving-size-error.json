@@ -1036,7 +1036,7 @@
             {
                "element_type" : "text",
                "text_element" : {
-                  "html" : "\nVous avez rencontré un problème avec ce produit : <b>étiquetage non conforme, produit périmé encore en vente,\nprésence d'un corps étranger, etc.</b> ?<br>\nFaites un signalement à l'entreprise et à la répression des fraudes sur <a href=\"https://server_domain/fr/alimentaire-codebarres/faire-un-signalement?gtin=&utm_source=openfoodfacts&utm_campaign=product_page_panel\">SignalConso</a>,\nun outil de la Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF).\n                "
+                  "html" : "\nVous avez rencontré un problème avec ce produit : <b>étiquetage non conforme, produit périmé encore en vente,\nprésence d'un corps étranger, etc.</b> ?<br>\nFaites un signalement à l'entreprise et à la répression des fraudes sur <a href=\"https://server_domain/fr/alimentaire-codebarres/faire-un-signalement?gtin=&utm_source=openfoodfacts&utm_campaign=product_page_panel\" onclick=\"if (window._paq) { window._paq.push(['trackEvent', 'SignalConso', 'click']); }\">SignalConso</a>,\nun outil de la Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF).\n                "
                }
             },
             {
