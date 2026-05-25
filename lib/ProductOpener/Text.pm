@@ -129,7 +129,7 @@ sub _get_cldr ($locale) {
 
 }
 
-=head2 get_decimal_formatter( LOCALE )
+=head2 get_decimal_formatter( LOCALE, MAXIMUM_FRACTION_DIGITS = undef )
 
 C<get_decimal_formatter()> formats decimal numbers. It can parse and format decimal numbers in any locale. The formatting is locale sensitive.
 This function allows to control the display of leading and trailing zeros, grouping separators, and the decimal separator.
@@ -140,6 +140,9 @@ The decimal sign could be a '.' (most languages), or it could be a ',' (de - DEC
 
 A scalar variable locale is passed as argument. Locale is two letter language code (ur for Urdu, de for German, en for English, etc)
 
+An optional maximum_fraction_digits argument can be passed to cap the number of
+displayed decimal digits.
+
 =head3 Return values
 
 The function returns a scalar variable that is formatted on the basis of locale.
@@ -148,16 +151,29 @@ The function returns a scalar variable that is formatted on the basis of locale.
 
 %ProductOpener::Text::decimal_formatters = ();
 
-sub get_decimal_formatter ($locale) {
+sub get_decimal_formatter ($locale, $maximum_fraction_digits = undef) {
 
-	my $decf = $ProductOpener::Text::decimal_formatters{$locale};
+	my $formatters_ref = $ProductOpener::Text::decimal_formatters{$locale};
+	if (not(defined $formatters_ref)) {
+		$formatters_ref = {};
+		$ProductOpener::Text::decimal_formatters{$locale} = $formatters_ref;
+	}
+
+	my $formatter_key = defined $maximum_fraction_digits ? $maximum_fraction_digits : 'default';
+	my $decf = $formatters_ref->{$formatter_key};
 	if (defined $decf) {
 		return $decf;
 	}
 
 	my $cldr = _get_cldr($locale);
-	$decf = $cldr->decimal_formatter;
-	$ProductOpener::Text::decimal_formatters{$locale} = $decf;
+	if (defined $maximum_fraction_digits) {
+		$decf = $cldr->decimal_formatter(maximum_fraction_digits => $maximum_fraction_digits);
+	}
+	else {
+		$decf = $cldr->decimal_formatter;
+	}
+
+	$formatters_ref->{$formatter_key} = $decf;
 	return $decf;
 
 }

@@ -199,6 +199,56 @@ my @display_tests = (
 		}
 	],
 	[
+		"nutrition-facts-table-rounded-values",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "food",
+			code => "0000109165808",
+			id => "0000109165808",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+						carbohydrates => {
+							unit => "g",
+							value => 0.125
+						},
+						energy => {
+							unit => "kJ",
+							value => 0
+						},
+						"energy-kcal" => {
+							unit => "kcal",
+							value => 0
+						},
+						fat => {
+							unit => "g",
+							value => 3.3333
+						},
+						proteins => {
+							unit => "g",
+							value => 1.555
+						},
+						salt => {
+							unit => "g",
+							value => 0.125
+						},
+						sodium => {
+							unit => "g",
+							value => 0.05
+						}
+					},
+					preparation => "as_sold",
+					per => "100g"
+				}
+			}
+		}
+	],
+	[
 		"nutrition-facts-table-liquid",
 		{
 			nutrition_data => "on",

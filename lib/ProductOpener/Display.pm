@@ -9355,8 +9355,20 @@ CSS
 	my @nutrients = @{$nutrients_tables{$nutrient_table || "off_europe"}}
 		;    # Note: some tests may not have $nutrient_table initialized
 
-	my $decf = get_decimal_formatter($lc);
+	my $decf = get_decimal_formatter($lc, 2);
 	my $perf = get_percent_formatter($lc, 0);
+	my $format_nutrition_value = sub ($value) {
+
+		return if not defined $value;
+
+		my $value_to_format = $value;
+		if (($value_to_format . ' ') =~ /e/i) {
+			# Convert scientific notation to a decimal string before locale formatting.
+			$value_to_format = sprintf("%.15f", $value_to_format);
+		}
+
+		return $decf->format($value_to_format);
+	};
 
 	foreach my $nutrient (@nutrients) {
 
@@ -9435,13 +9447,7 @@ CSS
 							$stat_value = $stat_value;
 						}
 						else {
-							$stat_value = $decf->format(g_to_unit($stat_value, $unit));
-						}
-
-						# too small values are converted to e notation: 7.18e-05
-						if (($stat_value . ' ') =~ /e/) {
-							# use %f (outputs extras 0 in the general case)
-							$stat_value = sprintf("%f", g_to_unit($stat_value, $unit));
+							$stat_value = $format_nutrition_value->(g_to_unit($stat_value, $unit));
 						}
 
 						$values = "$stat_value $unit";
@@ -9464,13 +9470,8 @@ CSS
 							$value = $value;
 						}
 						else {
-							$value = $decf->format(g_to_unit($value, $unit));
+							$value = $format_nutrition_value->(g_to_unit($value, $unit));
 						}
-					}
-					# too small values are converted to e notation: 7.18e-05
-					if (($value . ' ') =~ /e/) {
-						# use %f (outputs extras 0 in the general case)
-						$value = sprintf("%f", g_to_unit($value, $unit));
 					}
 
 					$values = "$value $unit";
@@ -9551,11 +9552,7 @@ CSS
 						my $formatted_value = $value;
 
 						if ($value ne '?') {
-							# too small values are converted to e notation: 7.18e-05
-							if (($formatted_value . ' ') =~ /e/) {
-								# use %f (outputs extras 0 in the general case)
-								$formatted_value = sprintf("%f", $value);
-							}
+							$formatted_value = $format_nutrition_value->($value);
 						}
 
 						if (defined $nutrient_set_unit) {
@@ -9593,7 +9590,7 @@ CSS
 							and (defined $unit)
 							and ($nutrient_set_unit eq '% DV'))
 						{
-							$value_unit .= ' (' . $value . ' ' . $nutrient_set_unit . ')';
+							$value_unit .= ' (' . $format_nutrition_value->($value) . ' ' . $nutrient_set_unit . ')';
 						}
 					}
 
