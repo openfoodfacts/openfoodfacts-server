@@ -63,7 +63,8 @@ sub log_request_stats($stats_ref) {
 	set_request_stats_time_end($stats_ref, "request");
 
 	# Turn all keys ending with _start and _end to a key with the suffix _duration
-	foreach my $key (keys %$stats_ref) {
+	my @start_keys = grep { /_start$/ } keys %$stats_ref;
+	foreach my $key (@start_keys) {
 		if ($key =~ /_start$/) {
 			my $duration_key = $key;
 			$duration_key =~ s/_start$/_duration/;
