@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.93.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.92.0...v2.93.0) (2026-05-26)
+
+
+### Features
+
+* restructure tags schema and API to separate sources and parents ([#13239](https://github.com/openfoodfacts/openfoodfacts-server/issues/13239)) ([32d0c84](https://github.com/openfoodfacts/openfoodfacts-server/commit/32d0c84d2107d4464a7a5d93f634f449f6fd3ae8))
+
+
+### Bug Fixes
+
+* install self-contained cpm ([4389784](https://github.com/openfoodfacts/openfoodfacts-server/commit/4389784afcec969a60e5ef495ebb062f9b043dc2))
+
 ## [2.92.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.91.1...v2.92.0) (2026-05-21)
 
 
