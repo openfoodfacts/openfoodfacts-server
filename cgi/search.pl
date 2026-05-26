@@ -677,7 +677,7 @@ elsif ($action eq 'process') {
 				$log->debug("taxonomy", {tag => $tag, tagid => $tagid}) if $log->is_debug();
 			}
 			else {
-				$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+				$tagid = canonicalize_tag($tagtype, $tag);
 			}
 
 			if ($tagtype eq 'additives') {

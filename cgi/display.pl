@@ -171,9 +171,9 @@ if ((defined $request_ref->{api}) and (defined $request_ref->{api_action})) {
 		# /api/v0/search
 		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set
 		# because of missing fields like nova_group or nutriscore_data, but not for all products.
-		# this does not seem to happen with display_tag()
+		# this does not seem to happen with display_tag_page()
 		# display_search_results($request_ref);
-		display_tag($request_ref);
+		display_tag_page($request_ref);
 	}
 	elsif ($request_ref->{api_action} =~ /^preferences(_(\w\w))?$/) {
 		# /api/v0/preferences or /api/v0/preferences_[language code]
@@ -231,7 +231,7 @@ elsif (defined $request_ref->{points}) {
 elsif ((defined $request_ref->{groupby_tagtype})
 	or ((defined $request_ref->{tagtype}) and (defined $request_ref->{tagid})))
 {
-	display_tag($request_ref);
+	display_tag_page($request_ref);
 }
 
 exit 0;

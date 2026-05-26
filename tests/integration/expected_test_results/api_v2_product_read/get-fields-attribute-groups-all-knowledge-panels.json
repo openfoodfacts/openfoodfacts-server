@@ -3,10 +3,15 @@
    "product" : {
       "_id" : "0200000000034",
       "_keywords" : [
-         "cookie",
+         "and",
+         "biscuit",
+         "cake",
+         "cracker",
          "organic",
          "product",
+         "snack",
          "some",
+         "sweet",
          "tester"
       ],
       "added_countries_tags" : [],
@@ -21,14 +26,13 @@
          "en:e322i"
       ],
       "allergens" : "",
-      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs",
-      "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
          "en:apple",
          "en:eggs",
          "en:milk",
          "en:soybeans"
       ],
+      "allergens_lc" : "en",
       "allergens_tags" : [
          "en:apple",
          "en:eggs",
@@ -109,7 +113,7 @@
                   "match" : 100,
                   "name" : "Gluten",
                   "status" : "known",
-                  "title" : "Does not contain: Gluten"
+                  "title" : "Does not contain: gluten"
                },
                {
                   "debug" : "en:milk in allergens",
@@ -119,7 +123,7 @@
                   "match" : 0,
                   "name" : "Milk",
                   "status" : "known",
-                  "title" : "Contains: Milk"
+                  "title" : "Contains: milk"
                },
                {
                   "debug" : "en:eggs in allergens",
@@ -129,7 +133,7 @@
                   "match" : 0,
                   "name" : "Eggs",
                   "status" : "known",
-                  "title" : "Contains: Eggs"
+                  "title" : "Contains: eggs"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -139,7 +143,7 @@
                   "match" : 100,
                   "name" : "Nuts",
                   "status" : "known",
-                  "title" : "Does not contain: Nuts"
+                  "title" : "Does not contain: nuts"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -149,7 +153,7 @@
                   "match" : 100,
                   "name" : "Peanuts",
                   "status" : "known",
-                  "title" : "Does not contain: Peanuts"
+                  "title" : "Does not contain: peanuts"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -159,7 +163,7 @@
                   "match" : 100,
                   "name" : "Sesame seeds",
                   "status" : "known",
-                  "title" : "Does not contain: Sesame seeds"
+                  "title" : "Does not contain: sesame seeds"
                },
                {
                   "debug" : "en:soybeans in allergens",
@@ -169,7 +173,7 @@
                   "match" : 0,
                   "name" : "Soybeans",
                   "status" : "known",
-                  "title" : "Contains: Soybeans"
+                  "title" : "Contains: soybeans"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -179,7 +183,7 @@
                   "match" : 100,
                   "name" : "Celery",
                   "status" : "known",
-                  "title" : "Does not contain: Celery"
+                  "title" : "Does not contain: celery"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -189,7 +193,7 @@
                   "match" : 100,
                   "name" : "Mustard",
                   "status" : "known",
-                  "title" : "Does not contain: Mustard"
+                  "title" : "Does not contain: mustard"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -199,7 +203,7 @@
                   "match" : 100,
                   "name" : "Lupin",
                   "status" : "known",
-                  "title" : "Does not contain: Lupin"
+                  "title" : "Does not contain: lupin"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -209,7 +213,7 @@
                   "match" : 100,
                   "name" : "Fish",
                   "status" : "known",
-                  "title" : "Does not contain: Fish"
+                  "title" : "Does not contain: fish"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -219,7 +223,7 @@
                   "match" : 100,
                   "name" : "Crustaceans",
                   "status" : "known",
-                  "title" : "Does not contain: Crustaceans"
+                  "title" : "Does not contain: crustaceans"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -229,7 +233,7 @@
                   "match" : 100,
                   "name" : "Molluscs",
                   "status" : "known",
-                  "title" : "Does not contain: Molluscs"
+                  "title" : "Does not contain: molluscs"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -239,7 +243,7 @@
                   "match" : 100,
                   "name" : "Sulphur dioxide and sulphites",
                   "status" : "known",
-                  "title" : "Does not contain: Sulphur dioxide and sulphites"
+                  "title" : "Does not contain: sulphur dioxide and sulphites"
                }
             ],
             "id" : "allergens",
@@ -442,7 +446,7 @@
                   "match" : 100,
                   "name" : "Gluten",
                   "status" : "known",
-                  "title" : "Does not contain: Gluten"
+                  "title" : "Does not contain: gluten"
                },
                {
                   "debug" : "en:milk in allergens",
@@ -452,7 +456,7 @@
                   "match" : 0,
                   "name" : "Milk",
                   "status" : "known",
-                  "title" : "Contains: Milk"
+                  "title" : "Contains: milk"
                },
                {
                   "debug" : "en:eggs in allergens",
@@ -462,7 +466,7 @@
                   "match" : 0,
                   "name" : "Eggs",
                   "status" : "known",
-                  "title" : "Contains: Eggs"
+                  "title" : "Contains: eggs"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -472,7 +476,7 @@
                   "match" : 100,
                   "name" : "Nuts",
                   "status" : "known",
-                  "title" : "Does not contain: Nuts"
+                  "title" : "Does not contain: nuts"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -482,7 +486,7 @@
                   "match" : 100,
                   "name" : "Peanuts",
                   "status" : "known",
-                  "title" : "Does not contain: Peanuts"
+                  "title" : "Does not contain: peanuts"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -492,7 +496,7 @@
                   "match" : 100,
                   "name" : "Sesame seeds",
                   "status" : "known",
-                  "title" : "Does not contain: Sesame seeds"
+                  "title" : "Does not contain: sesame seeds"
                },
                {
                   "debug" : "en:soybeans in allergens",
@@ -502,7 +506,7 @@
                   "match" : 0,
                   "name" : "Soybeans",
                   "status" : "known",
-                  "title" : "Contains: Soybeans"
+                  "title" : "Contains: soybeans"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -512,7 +516,7 @@
                   "match" : 100,
                   "name" : "Celery",
                   "status" : "known",
-                  "title" : "Does not contain: Celery"
+                  "title" : "Does not contain: celery"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -522,7 +526,7 @@
                   "match" : 100,
                   "name" : "Mustard",
                   "status" : "known",
-                  "title" : "Does not contain: Mustard"
+                  "title" : "Does not contain: mustard"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -532,7 +536,7 @@
                   "match" : 100,
                   "name" : "Lupin",
                   "status" : "known",
-                  "title" : "Does not contain: Lupin"
+                  "title" : "Does not contain: lupin"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -542,7 +546,7 @@
                   "match" : 100,
                   "name" : "Fish",
                   "status" : "known",
-                  "title" : "Does not contain: Fish"
+                  "title" : "Does not contain: fish"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -552,7 +556,7 @@
                   "match" : 100,
                   "name" : "Crustaceans",
                   "status" : "known",
-                  "title" : "Does not contain: Crustaceans"
+                  "title" : "Does not contain: crustaceans"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -562,7 +566,7 @@
                   "match" : 100,
                   "name" : "Molluscs",
                   "status" : "known",
-                  "title" : "Does not contain: Molluscs"
+                  "title" : "Does not contain: molluscs"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -572,7 +576,7 @@
                   "match" : 100,
                   "name" : "Sulphur dioxide and sulphites",
                   "status" : "known",
-                  "title" : "Does not contain: Sulphur dioxide and sulphites"
+                  "title" : "Does not contain: sulphur dioxide and sulphites"
                }
             ],
             "id" : "allergens",
@@ -702,7 +706,7 @@
             "name" : "Labels"
          }
       ],
-      "categories" : "cookies",
+      "categories" : "Biscuits",
       "categories_hierarchy" : [
          "en:snacks",
          "en:sweet-snacks",
@@ -2034,7 +2038,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "Recycle"
+                                 "text" : "recycle"
                               },
                               {
                                  "evaluation" : "neutral",
@@ -2051,7 +2055,7 @@
                                  "text" : "Glass"
                               },
                               {
-                                 "text" : "Reuse"
+                                 "text" : "reuse"
                               },
                               {
                                  "evaluation" : "good",
@@ -2069,7 +2073,7 @@
                               },
                               {
                                  "evaluation" : "good",
-                                 "text" : "Recycle"
+                                 "text" : "recycle"
                               },
                               {
                                  "evaluation" : "good",
@@ -2087,7 +2091,7 @@
                               },
                               {
                                  "evaluation" : "bad",
-                                 "text" : "Discard"
+                                 "text" : "discard"
                               },
                               {
                                  "evaluation" : "bad",
@@ -2222,7 +2226,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "Egg"
+                                 "text" : "egg"
                               },
                               {
                                  "text" : "Oeufs Bio"
@@ -2395,7 +2399,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Apple: 58.3% (estimate)"
+               "title" : "apple: 58.3% (estimate)"
             },
             "topics" : [
                "health"
@@ -2406,7 +2410,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Milk: 20.8% (estimate)"
+               "title" : "milk: 20.8% (estimate)"
             },
             "topics" : [
                "health"
@@ -2417,7 +2421,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Egg: 10.4% (estimate)"
+               "title" : "egg: 10.4% (estimate)"
             },
             "topics" : [
                "health"
@@ -2428,7 +2432,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Palm oil: 5.2% (estimate)"
+               "title" : "palm oil: 5.2% (estimate)"
             },
             "topics" : [
                "health"
@@ -2472,7 +2476,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "— Soya lecithin: 2.6% (estimate)"
+               "title" : "— soya lecithin: 2.6% (estimate)"
             },
             "topics" : [
                "health"
@@ -2494,7 +2498,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<strong>Allergens:</strong> \n                    Apple, Eggs, Milk, Soybeans\n                "
+                     "html" : "<strong>Allergens:</strong> \n                    apple, eggs, milk, soybeans\n                "
                   }
                },
                {
@@ -2590,7 +2594,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Non-vegan ingredients:</strong>\n                    Milk, Egg\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Non-vegan ingredients:</strong>\n                    milk, egg\n                \n                    ",
                      "type" : "summary"
                   }
                }
@@ -2613,7 +2617,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Ingredients that contain palm oil:</strong>\n                    Palm oil\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Ingredients that contain palm oil:</strong>\n                    palm oil\n                \n                    ",
                      "type" : "summary"
                   }
                }
@@ -3667,7 +3671,7 @@
                   "text_element" : {
                      "evaluation" : "good",
                      "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 × \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
-                     "icon_alt" : "Recycle",
+                     "icon_alt" : "recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
                      "type" : "summary"
@@ -3678,7 +3682,7 @@
                   "text_element" : {
                      "evaluation" : "bad",
                      "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    \n                                    <br>\n                            \n                        \n                        ",
-                     "icon_alt" : "Discard",
+                     "icon_alt" : "discard",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
                      "type" : "summary"
@@ -3832,7 +3836,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n        <ul>\n            \n                <li><a href=\"http://world.openfoodfacts.localhost/facets/labels/organic\">Organic</a></li>\n            \n        </ul>\n        "
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"http://world.openfoodfacts.localhost/facets/labels/Organic\">Organic</a></li>\n            \n        </ul>\n        "
                   }
                }
             ],
@@ -3960,7 +3964,7 @@
          }
       },
       "known_ingredients_n" : 8,
-      "labels" : "organic",
+      "labels" : "Organic",
       "labels_hierarchy" : [
          "en:organic"
       ],
@@ -4439,7 +4443,7 @@
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
-      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states" : "To be completed, Nutrition facts completed, Ingredients completed, Expiration date to be completed, Packaging code to be completed, Characteristics to be completed, Origins to be completed, Categories completed, Brands to be completed, Packaging to be completed, Quantity completed, Product name completed, Photos to be uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -4471,9 +4475,8 @@
          "en:photos-to-be-uploaded"
       ],
       "traces" : "",
-      "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
+      "traces_lc" : "en",
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "vitamins_tags" : [],

@@ -1,23 +1,111 @@
 {
-   "allergens" : "en:mustard",
-   "allergens_from_ingredients" : "Saumon, oeufs, blé",
-   "allergens_hierarchy" : [
-      "en:eggs",
-      "en:fish",
-      "en:gluten",
-      "en:mustard"
-   ],
    "allergens_tags" : [
       "en:eggs",
       "en:fish",
       "en:gluten",
       "en:mustard"
    ],
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "26036",
+         "id" : "en:salmon",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "text" : "Saumon",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "22000",
+         "ecobalyse_code" : "egg-indoor-code3",
+         "id" : "en:egg",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "oeufs",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "id" : "en:wheat",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "blé",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:chocolate",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "chocolat",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:salmon",
+         "en:egg"
+      ],
+      "en:non-vegetarian" : [
+         "en:salmon"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
    "ingredients_lc" : "fr",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:salmon",
+      "en:egg",
+      "en:wheat",
+      "en:chocolate"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:salmon",
+      "en:fish",
+      "en:oily-fish",
+      "en:egg",
+      "en:wheat",
+      "en:cereal",
+      "en:chocolate"
+   ],
    "ingredients_text" : "Saumon, oeufs, blé, chocolat",
    "ingredients_text_fr" : "Saumon, oeufs, blé, chocolat",
    "ingredients_text_with_allergens" : "<span class=\"allergen\">Saumon</span>, <span class=\"allergen\">oeufs</span>, <span class=\"allergen\">blé</span>, chocolat",
    "ingredients_text_with_allergens_fr" : "<span class=\"allergen\">Saumon</span>, <span class=\"allergen\">oeufs</span>, <span class=\"allergen\">blé</span>, chocolat",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:chocolate"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:chocolate",
+      "en:salmon",
+      "en:wheat"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 4,
    "languages" : {
       "en:french" : 1
    },
@@ -32,12 +120,38 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "en:lupin",
-   "traces_from_ingredients" : "",
-   "traces_hierarchy" : [
-      "en:lupin"
-   ],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:gluten",
+               "en:eggs",
+               "en:fish"
+            ]
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:mustard"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:lupin"
+            ]
+         }
+      }
+   },
    "traces_tags" : [
       "en:lupin"
-   ]
+   ],
+   "unknown_ingredients_n" : 0
 }
