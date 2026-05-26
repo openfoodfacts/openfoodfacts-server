@@ -24622,6 +24622,8 @@ pl: płatki jęczmienne
 ro: fulgi de orz
 ru: хлопья ячменные
 sv: kornflingor
+ciqual_proxy_food_code:en: 9320
+ciqual_proxy_food_name:en: Barley, wholegrain, raw
 
 < en:barley flakes
 < en:wholemeal barley
@@ -25834,6 +25836,9 @@ ru: овсяная мука, мука овсяная
 sk: ovsená múka
 sl: ovsena moka
 sv: havremjöl
+ciqual_proxy_food_code:en: 9311
+ciqual_proxy_food_name:en: Oatmeal flakes
+ciqual_proxy_food_name:fr: Flocon d'avoine
 wikidata:en: Q84470231
 #1041 @2021-09-22
 
@@ -27160,8 +27165,8 @@ vi: Bột mì
 zh: 小麥麵粉
 carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 carbon_footprint_fr_foodges_value:fr: 1.2
-ciqual_proxy_food_code:en: 9410
-ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
+ciqual_proxy_food_code:en: 9435
+ciqual_proxy_food_name:fr: Farine de blé
 ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
 ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
 wikidata:en: Q2249305
@@ -27187,6 +27192,8 @@ nl: gemout tarwemeel, tarwemoutmeel, tarwemoutbloem
 pl: mąka słodowa pszenna, mąka pszenna słodowana, mąka pszenna słodowa, mąka ze słodu pszennego
 pt: farinha de malte de trigo
 sv: vetemaltmjöl
+ciqual_proxy_food_code:en: 9435
+ciqual_proxy_food_name:fr: Farine de blé
 
 < en:wheat malt
 fr: blé malté torréfié concassé
@@ -29934,6 +29941,8 @@ it: riso soffiato
 nl: gepofte rijst, rijst pofte
 pt: arroz tufado
 sv: riskrisp, puffat ris
+ciqual_proxy_food_code:en: 32006
+ciqual_proxy_food_name:en: Puffed rice, plain, fortified with vitamins and minerals
 # ingredient/fr:riz-soufflé has 180 products in 10 languages @2018-12-19
 # ingredient/fr:riz-croustillant has 44 products in 2 languages @2018-12-19
 # usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
@@ -32343,6 +32352,12 @@ fr: sirop d'amidon
 hr: škrobni sirup
 it: sciroppo di amido
 
+< en:syrup
+nl: speltstroop
+ciqual_proxy_food_code:en: 31016
+ciqual_proxy_food_name:en: Sugar, white
+ciqual_proxy_food_name:fr: Sucre blanc
+
 < en:starch syrup
 en: corn starch syrup
 fr: sirop d'amidon de maïs
@@ -32374,6 +32389,8 @@ pl: syrop klonowy
 ro: sirop de arţar
 ru: кленовый сироп
 sv: lönnsirap
+ciqual_food_code:en: 31034
+ciqual_food_name:en: maple syrup
 vegan:en: yes
 vegetarian:en: yes
 
@@ -32385,6 +32402,8 @@ fr: sirop d’érable canadien
 hr: kanadski javorov sirup
 hu: kanadai juharszirup
 it: sciroppo d'acero canadese
+ciqual_food_code:en: 31034
+ciqual_food_name:en: maple syrup
 
 < en:maple syrup
 en: pure maple syrup
@@ -32395,6 +32414,8 @@ fi: Puhdas vaahterasiirappi
 fr: Sirop d'érable pur
 hr: čisti javorov sirup
 it: sciroppo d'acero puro
+ciqual_food_code:en: 31034
+ciqual_food_name:en: maple syrup
 # ingredient/fr:sirop-d-erable-pur has 20 products in french @2019-05-23
 
 < en:maple syrup
@@ -32405,6 +32426,8 @@ fr: sirop d'érable biologique
 hr: organski javorov sirup
 hu: bio juharszirup
 it: sciroppo d'acero biologico
+ciqual_food_code:en: 31034
+ciqual_food_name:en: maple syrup
 
 < en:disaccharide
 < en:syrup
@@ -47009,6 +47032,8 @@ wikidata:en: Q10978
 # wuu:葡萄
 # xmf:ჸურზენი
 # yue:提子
+ciqual_food_code:en: 13046
+ciqual_food_name:en: Raisin
 wikipedia:en: https://en.wikipedia.org/wiki/Grape
 # 18963 in 9 languages @221-10-15
 
@@ -63188,6 +63213,9 @@ lt: aguonos
 pl: mak, makowy, makowa, makowe, maku
 pt: papoila
 sv: vallmo
+ciqual_proxy_food_code:en: 11061
+ciqual_proxy_food_name:en: Poppy, seed
+ciqual_proxy_food_name:fr: Pavot, graine
 
 < en:poppy
 # processing:en: en:seed
@@ -63351,7 +63379,7 @@ es: semillas de lino, semillas de linaza, linaza
 et: Linaseemned, linaseeme
 fa: تخم کتان
 fi: pellavansiemen, pellavansiemenet, pellavansiemeniä
-fr: graine de lin, graines de lin
+fr: graine de lin, graines de lin, lin
 hr: lanene sjemenke, lan sjemenke
 hu: Lenmag
 it: semi di lino
