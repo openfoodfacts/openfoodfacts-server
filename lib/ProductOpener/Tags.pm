@@ -205,6 +205,7 @@ use GraphViz2;
 use JSON::MaybeXS;
 
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
+use Time::HiRes qw(gettimeofday tv_interval);
 
 binmode STDERR, ":encoding(UTF-8)";
 
@@ -1096,8 +1097,15 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 		# and try again to see if it is associated to a canonical tag id
 		$lc_tagid = $synonyms_ref->{$lc}{$stopped_tagid};
 		if ($warning) {
-			print STDERR "$warning tagid $tagid, trying stopped_tagid $stopped_tagid - result canon_tagid: "
-				. ($lc_tagid // "") . "\n";
+			$log->info(
+				'tagid not found, trying with stopped_tagid',
+				{
+					warning => $warning,
+					tagid => $tagid,
+					stopped_tagid => $stopped_tagid,
+					canon_tagid => $lc_tagid // ""
+				}
+			);
 		}
 
 	}
@@ -1125,7 +1133,7 @@ sub get_file_from_cache ($source, $target) {
 		copy($local_cache_source, $target);
 		if ($source =~ /\.result\.json$/) {
 			# Only give one message rather than one for each individual file
-			print "Fetched $source from GitHub cache\n";
+			$log->info('Fetched source from GitHub cache', {source => $source});
 		}
 
 		return 2;
@@ -1183,7 +1191,8 @@ sub get_from_cache ($tagtype, @files) {
 		$got_from_cache = get_file_from_cache("$cache_prefix.extended.json", "$tag_www_root.extended.json");
 	}
 	if ($got_from_cache) {
-		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
+		$log->info('obtained taxonomy from cache',
+			{tagtype => $tagtype, origin => ('', 'local', 'GitHub')[$got_from_cache]});
 		$cache_prefix = '';
 		# Clean up old cache files when fetching from cache
 		my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
@@ -1218,11 +1227,11 @@ sub put_file_to_cache ($source, $target) {
 		);
 
 		if (!$response->is_success()) {
-			print "Error uploading to GitHub cache for $target: ${\$response->message()}\n";
+			$log->error('Error uploading to GitHub cache', {target => $target, message => $response->message()});
 		}
 		elsif ($target =~ /\.result\.json$/) {
 			# Only give one message rather than one for each individual file
-			print "Uploaded $target to GitHub cache\n";
+			$log->info('Uploaded target to GitHub cache', {target => $target});
 		}
 	}
 
@@ -1284,7 +1293,8 @@ sub cleanup_old_cache_files ($tagtype, $cache_root) {
 			}
 		}
 		my $deleted_count = scalar(@hashes_to_delete);
-		print "Cleaned up $deleted_count old cache set(s) ($deleted_files files) for $tagtype taxonomy\n";
+		$log->info('Cleaned up old cache set(s) for taxonomy',
+			{count => $deleted_count, files => $deleted_files, tagtype => $tagtype});
 	}
 
 	return;
@@ -1346,6 +1356,7 @@ Like "categories", "ingredients"
 =cut
 
 sub build_tags_taxonomy ($tagtype, $publish) {
+	my $t_start = [gettimeofday];
 	binmode STDERR, ":encoding(UTF-8)";
 	binmode STDIN, ":encoding(UTF-8)";
 	binmode STDOUT, ":encoding(UTF-8)";
@@ -1400,7 +1411,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		return;
 	}
 
-	print("building taxonomy for $tagtype - publish: $publish\n");
+	$log->info('building taxonomy', {tagtype => $tagtype, publish => $publish});
 
 	# Concatenate taxonomy files if needed
 	my $file_path;
@@ -1493,6 +1504,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 	# $tagtype -> $canon_tagid -> "$property:$lc" stores the value for property
 	$properties{$tagtype} = {};
 
+	# Local cache for string normalization to avoid expensive Unicode NFC
+	my %id_cache;
+	my $get_id = sub ($l, $s) {
+		return "" if not defined $s or $s eq "";
+		return $id_cache{"$l|$s"} //= get_string_id_for_lang($l, $s);
+	};
+
 	my @taxonomy_errors = ();
 
 	if (open(my $IN, "<:encoding(UTF-8)", $file_path)) {
@@ -1503,9 +1521,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		my $lc_tagid;
 		# Canonical id of the tag (main language prefix + normalized form in the main language)
 		# e.g. "en:coffee-with-milk"
-		my $canon_tagid;
+		my $canon_tagid = undef;
 
-		# print STDERR "Tags.pm - load_tags_taxonomy - tagtype: $tagtype \n";
+		$log->debug('load_tags_taxonomy', {tagtype => $tagtype}) if $log->is_debug();
 
 		# 1st phase: read translations and synonyms
 
@@ -1541,7 +1559,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				$line =~ s/^\s+//;    # normalize spaces
 				my @tags = split(/\s*,\s*/, $line);    # split on comma
 				foreach my $tag (@tags) {
-					my $tagid = get_string_id_for_lang($lc, $tag);
+					my $tagid = &$get_id($lc, $tag);
 					next if $tagid eq '';
 					defined $stopwords{$tagtype}{$lc} or $stopwords{$tagtype}{$lc} = [];
 					defined $stopwords{$tagtype}{$lc . ".strings"} or $stopwords{$tagtype}{$lc . ".strings"} = [];
@@ -1568,7 +1586,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				# first entry gives id of tag
 				$lc_tag = $tags[0];
 				$lc_tag = ucfirst($lc_tag);
-				$lc_tagid = get_string_id_for_lang($lc, $lc_tag);
+				$lc_tagid = &$get_id($lc, $lc_tag);
 
 				# check if we already have an entry listed for one of the synonyms
 				# this is useful for taxonomies that need to be merged, and that are concatenated
@@ -1595,7 +1613,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					if ((defined $canon_tagid) and (defined $translations_to{$tagtype}{$canon_tagid}{$lc})) {
 						# in this case change current_tag
 						$lc_tag = $translations_to{$tagtype}{$canon_tagid}{$lc};
-						$lc_tagid = get_string_id_for_lang($lc, $lc_tag);
+						$lc_tagid = &$get_id($lc, $lc_tag);
 					}
 
 				}
@@ -1640,7 +1658,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				# note: Include the main tag as a synonym of itself,
 				# useful later to compute other synonyms
 				foreach my $tag (@tags) {
-					my $tagid = get_string_id_for_lang($lc, $tag);
+					my $tagid = &$get_id($lc, $tag);
 					next if $tagid eq '';
 
 					# Check if the synonym is already associated with another tag
@@ -1704,17 +1722,26 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 			}
 			else {
-				$log->info("unrecognized line in taxonomy", {tagtype => $tagtype, line => $line}) if $log->is_info();
+				$log->debug("unrecognized line in taxonomy", {tagtype => $tagtype, line => $line}) if $log->is_warn();
 			}
 
 		}
 
 		close($IN);
 
+		my $t_phase1 = [gettimeofday];
+		$log->info(
+			"Taxonomy Phase 1 (Read) completed",
+			{
+				tagtype => $tagtype,
+				duration => tv_interval($t_start, $t_phase1)
+			}
+		);
+
 		if (scalar @taxonomy_errors) {
 
-			print STDERR "Errors in the $tagtype taxonomy definition:\n";
-			print STDERR join("", map {_taxonomy_error_display($_)} @taxonomy_errors);
+			$log->error("Errors in the $tagtype taxonomy definition:");
+			$log->error(join('', map {_taxonomy_error_display($_)} @taxonomy_errors));
 			# do we only have duplicate synonyms errors ?
 			my $only_duplicate_errors = !(first {$_->{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
@@ -1773,13 +1800,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		for (my $pass = 1; $pass <= $max_pass; $pass++) {
 
-			print STDERR "computing synonyms - $tagtype - pass $pass\n";
+			$log->info('computing synonyms', {tagtype => $tagtype, pass => $pass});
 
 			foreach my $lc (sort keys %{$synonyms{$tagtype}}) {
 
-				# this list will contain all tags that are possible synonyms
+				# this Trie will contain all tags that are possible synonyms
 				# that are smaller than current tag and that we may substitute in it
-				my @smaller_synonyms = ();
+				my $substitutable_trie = {};
 
 				# synonyms don't support non roman languages at this point
 				next if ($lc eq 'ar');
@@ -1801,24 +1828,34 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# the canonical tagid this tag is a synonym for
 					my $lc_tagid1 = $synonyms{$tagtype}{$lc}{$tagid};
 
-					#print "computing synonyms for $tagid (canon: $lc_tagid1)\n";
-
+					# Add to Trie if it qualifies as a substitutor
 					# Does $tagid have other synonyms?
 					if (scalar @{$synonyms_for{$tagtype}{$lc}{$lc_tagid1}} > 1) {
 						# limit length of synonyms for performance
 						if (length($tagid) < (30 / $pass)) {
-							push @smaller_synonyms, $tagid;
-							#print "$tagid (canon: $lc_tagid1) has other synonyms\n";
+							my $curr = $substitutable_trie;
+							foreach my $w (split('-', $tagid)) {
+								$curr = $curr->{$w} //= {};
+							}
+							$curr->{_ID} = $tagid;
 						}
 					}
 
-					# try each candidate synonyms
-					foreach my $tagid2 (@smaller_synonyms) {
+					# Search for substitutable segments in tagid using the Trie
+					my @words = split('-', $tagid);
+					my %matches_by_tagid2;
+					for (my $i = 0; $i < @words; $i++) {
+						my $curr = $substitutable_trie;
+						for (my $j = $i; $j < @words; $j++) {
+							$curr = $curr->{$words[$j]} or last;
+							if (exists $curr->{_ID}) {
+								push @{$matches_by_tagid2{$curr->{_ID}}}, [$i, $j];
+							}
+						}
+					}
 
-						last if length($tagid2) > $max_length;    # avoid generating long strings
-
-						# try to avoid looping:
-						# e.g. bio, agriculture biologique, biologique -> agriculture bio -> agriculture agriculture biologique etc.
+					foreach my $tagid2 (sort {length($a) <=> length($b) || $a cmp $b} keys %matches_by_tagid2) {
+						last if length($tagid2) > $max_length;
 
 						# canonical tagid for tagid2
 						my $lc_tagid2 = $synonyms{$tagtype}{$lc}{$tagid2};
@@ -1828,81 +1865,68 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 						# do not apply same synonym twice
 						next
-							if ((defined $synonym_contains_synonyms{$lc}{$tagid})
-							and (defined $synonym_contains_synonyms{$lc}{$tagid}{$lc_tagid2}));
+							if (defined $synonym_contains_synonyms{$lc}{$tagid}
+							and defined $synonym_contains_synonyms{$lc}{$tagid}{$lc_tagid2});
 
-						my $replace;
-						my $before = '';
-						my $after = '';
-
-						# replace whole words/phrases only
-
-						# String comparisons are many times faster than the regexps, as long as tags only ever need simple string matching.
-						# despite how convoluted it is, this is still faster than the regexp.
-						# looks in the middle of $tagid
-						#if ($tagid =~ /-${tagid2}-/) {
-						if (index($tagid, "-${tagid2}-") >= 0) {
-							$replace = "-${tagid2}-";
-							$before = '-';
-							$after = '-';
+						# Find the match with highest priority
+						my $match;
+						# Priority 1: Middle
+						foreach my $m (@{$matches_by_tagid2{$tagid2}}) {
+							if ($m->[0] > 0 && $m->[1] < $#words) {
+								$match = $m;
+								last;
+							}
 						}
-						# looks at the end of $tagid
-						#elsif ($tagid =~ /-${tagid2}$/) {
-						elsif (rindex($tagid, "-${tagid2}") + length("-${tagid2}") == length($tagid)) {
-							$replace = "-${tagid2}\$";
-							$before = '-';
+						# Priority 2: End
+						if (!$match) {
+							foreach my $m (@{$matches_by_tagid2{$tagid2}}) {
+								if ($m->[1] == $#words && $m->[0] > 0) {
+									$match = $m;
+									last;
+								}
+							}
 						}
-						# looks at the start of $tagid
-						#elsif ($tagid =~ /^${tagid2}-/) {
-						elsif (index($tagid, "${tagid2}-") == 0) {
-							$replace = "^${tagid2}-";
-							$after = '-';
+						# Priority 3: Start
+						if (!$match) {
+							foreach my $m (@{$matches_by_tagid2{$tagid2}}) {
+								if ($m->[0] == 0 && $m->[1] < $#words) {
+									$match = $m;
+									last;
+								}
+							}
 						}
-						# note that exact match is not a case here (eliminated earlier)
 
-						if (defined $replace) {
-
-							#print "computing synonyms for $tagid ($lc_tagid1): replace: $replace \n";
-
+						if ($match) {
+							my ($start_idx, $end_idx) = @$match;
 							# now that we know we have a candidate, we will substitute with all its synonyms
 							foreach my $tagid2_s (sort keys %{$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid2}}) {
 
 								# don't replace a synonym by itself
 								next if $tagid2_s eq $tagid2;
 
-								# oeufs, oeufs frais -> oeufs frais frais -> oeufs frais frais frais
 								# synonym already contained? skip if we are not shortening
-								next if ((length($tagid2_s) > length($tagid2)) and ($tagid =~ /${tagid2_s}/));
-								next if ($tagid2_s =~ /$tagid/);
+								next if ((length($tagid2_s) > length($tagid2)) and ($tagid =~ /\Q$tagid2_s\E/));
+								next if ($tagid2_s =~ /\Q$tagid\E/);
 
 								# generate the tag with substitution
-								my $tagid_new = $tagid;
-								my $replaceby = "${before}${tagid2_s}${after}";
-								# TODO: why do we need /e here ?
-								$tagid_new =~ s/$replace/$replaceby/e;
-
-								#print "computing synonyms for $tagid ($tagid0): replaceby: $replaceby - tagid4: $tagid4\n";
+								my @new_words = @words;
+								splice(@new_words, $start_idx, $end_idx - $start_idx + 1, $tagid2_s);
+								my $tagid_new = join('-', @new_words);
 
 								if (not defined $synonyms_for_extended{$tagtype}{$lc}{$lc_tagid1}{$tagid_new}) {
 									# register substitution as a new synonym
 									$synonyms_for_extended{$tagtype}{$lc}{$lc_tagid1}{$tagid_new} = 1;
 									# register in synonyms
 									$synonyms{$tagtype}{$lc}{$tagid_new} = $lc_tagid1;
-									# and register the supstitution happened
-									if (defined $synonym_contains_synonyms{$lc}{$tagid_new}) {
-										# we inherit substitutions already made on original tagid
-										$synonym_contains_synonyms{$lc}{$tagid_new}
-											= clone($synonym_contains_synonyms{$lc}{$tagid});
-									}
-									else {
-										$synonym_contains_synonyms{$lc}{$tagid_new} = {};
-									}
+									# and register the substitution happened
+									$synonym_contains_synonyms{$lc}{$tagid_new}
+										= defined $synonym_contains_synonyms{$lc}{$tagid}
+										? {%{$synonym_contains_synonyms{$lc}{$tagid}}}
+										: {};
 									$synonym_contains_synonyms{$lc}{$tagid_new}{$lc_tagid2} = 1;
-									# print STDERR "synonyms_extended : synonyms{$tagtype}{$lc}{$tagid_new} = $lc_tagid1 (tagid: $tagid - tagid2: $tagid2 - tagid2_c: $lc_tagid2 - tagid2_s: $tagid2_s - replace: $replace - replaceby: $replaceby)\n";
 								}
 							}
 						}
-
 					}
 
 				}    # end of substitutions on a tagid
@@ -1942,6 +1966,15 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				}
 			}
 		}
+
+		my $t_phase2 = [gettimeofday];
+		$log->info(
+			"Taxonomy Phase 2 (Synonyms) completed",
+			{
+				tagtype => $tagtype,
+				duration => tv_interval($t_phase1, $t_phase2)
+			}
+		);
 
 		# 3rd phase: compute the hierarchy
 		# there we will associate each tags with its parent
@@ -2025,8 +2058,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							if ((not defined $canon_tagid) and (defined $possible_canon_tagid)) {
 								# this is the first line of a block
 								$canon_tagid = "$lc:" . $possible_canon_tagid;
-								print STDERR
-									"taxonomy : $tagtype : we already have a canon_tagid $canon_tagid for the tag $tag\n";
+								$log->warn(
+									'already have a canon_tagid for the tag',
+									{
+										tagtype => $tagtype,
+										canon_tagid => $canon_tagid,
+										tag => $tag
+									}
+								);
 								last;
 							}
 						}
@@ -2067,8 +2106,14 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					$properties{$tagtype}{$canon_tagid}{"$property:$lc"} = $line;
 				}
 				else {
-					print STDERR "taxonomy : $tagtype : discarding orphan line : $property : "
-						. substr($line, 0, 50) . "...\n";
+					$log->warn(
+						'discarding orphan line in taxonomy',
+						{
+							tagtype => $tagtype,
+							property => $property,
+							line => substr($line, 0, 50) . "..."
+						}
+					);
 				}
 			}
 		}
@@ -2369,10 +2414,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		if (scalar @taxonomy_errors) {
 
-			print STDERR "Errors in the $tagtype taxonomy definition:\n";
-			print STDERR join("", map {_taxonomy_error_display($_)} @taxonomy_errors);
+			$log->error("Errors in the $tagtype taxonomy definition:");
+			$log->error(join('', map {_taxonomy_error_display($_)} @taxonomy_errors));
 			# do we only have duplicate synonyms errors ?
-			my $only_duplicate_errors = !(first {%{$_}{type} ne "duplicate_synonym"} @taxonomy_errors);
+			my $only_duplicate_errors = !(first {$_->{type} ne "duplicate_synonym"} @taxonomy_errors);
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
 
@@ -2418,8 +2463,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 		}
 
-		$log->error("taxonomy errors", {errors => \@taxonomy_errors}) if $log->is_error();
-
 		my $taxonomy_ref = {
 			stopwords => $stopwords{$tagtype},
 			synonyms => $synonyms{$tagtype},
@@ -2441,6 +2484,15 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			store_config("$result_dir/$tagtype.errors", {errors => \@taxonomy_errors});
 			put_to_cache($tagtype, $cache_prefix);
 		}
+
+		my $t_end = [gettimeofday];
+		$log->info(
+			"Taxonomy build finished",
+			{
+				tagtype => $tagtype,
+				total_duration => tv_interval($t_start, $t_end)
+			}
+		);
 	}
 
 	return @taxonomy_errors;
@@ -4870,9 +4922,15 @@ sub add_users_translations_to_taxonomy ($tagtype) {
 						$translations{$l} = $users_translations_ref->{$l}{$tagid}{to};
 					}
 					else {
-						print STDERR "ignoring translation for already existing translation:\n";
-						print STDERR "existing: " . $translations{$l} . "\n";
-						print STDERR "new: " . $users_translations_ref->{$l}{$tagid}{to} . "\n";
+						$log->warn(
+							'ignoring translation for already existing translation',
+							{
+								lc => $l,
+								tagid => $tagid,
+								existing => $translations{$l},
+								new => $users_translations_ref->{$l}{$tagid}{to}
+							}
+						);
 					}
 				}
 			}
@@ -5111,7 +5169,7 @@ The user country as a 2-letters code (fr, it, ch) or `world`
 =head3 Return value
 
 If a content exists for the tag type, tag value, language code and country code, return the HTML text,
-return undef otherwise. 
+return undef otherwise.
 
 =cut
 
