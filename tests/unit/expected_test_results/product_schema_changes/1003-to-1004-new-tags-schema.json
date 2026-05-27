@@ -22,9 +22,9 @@
       "en:sweet-spreads",
       "en:oilseed-purees",
       "en:legume-butters",
-      "en:peanut-butters",
       "fr:pates-a-tartiner",
       "en:nut-butters",
+      "en:peanut-butters",
       "fr:Catégorie inconnue en français"
    ],
    "ingredients_analysis_tags" : [
@@ -42,7 +42,17 @@
       "en:salt"
    ],
    "lc" : "fr",
+   "purchase_places_tags" : [
+      "france",
+      "paris",
+      "saint-maur-des-fosses"
+   ],
    "schema_version" : 1004,
+   "stores_tags" : [
+      "biocoop",
+      "intermarche",
+      "trader-joe-s"
+   ],
    "tags_sources" : {
       "allergens" : {
          "packaging" : {
@@ -68,6 +78,26 @@
                "en:nut-butters",
                "en:peanut-butters",
                "fr:Catégorie inconnue en français"
+            ]
+         }
+      },
+      "purchase_places" : {
+         "packaging" : {
+            "last_updated_t" : null,
+            "tags" : [
+               "saint-maur-des-fosses",
+               "paris",
+               "france"
+            ]
+         }
+      },
+      "stores" : {
+         "packaging" : {
+            "last_updated_t" : null,
+            "tags" : [
+               "intermarche",
+               "biocoop",
+               "trader-joe-s"
             ]
          }
       }
