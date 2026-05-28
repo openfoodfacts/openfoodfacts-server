@@ -1,0 +1,32 @@
+{
+   "allergens_tags" : [
+      "en:celery",
+      "en:crustaceans",
+      "en:lupin"
+   ],
+   "tags_sources" : {
+      "allergens" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:celery",
+               "en:crustaceans",
+               "en:lupin"
+            ]
+         }
+      },
+      "traces" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:eggs",
+               "en:mustard"
+            ]
+         }
+      }
+   },
+   "traces_tags" : [
+      "en:eggs",
+      "en:mustard"
+   ]
+}
