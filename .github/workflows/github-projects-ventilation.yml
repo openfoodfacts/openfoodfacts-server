@@ -44,7 +44,7 @@ jobs:
     name: Ventilate issues to the right GitHub projects
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@5afcf98fcd03f1c2f92c3c83f58ae24323cc57fd
+      - uses: actions/add-to-project@5afcf98fcd03f1c2f92c3c83f58ae24323cc57fd # v2.0.0
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/12 # add to openfoodfacts-server
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
