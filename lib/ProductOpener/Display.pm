@@ -61,7 +61,7 @@ BEGIN {
 		&display_stats
 		&display_points
 		&display_mission
-		&display_tag
+		&display_tag_page
 		&display_search_results
 		&display_error
 		&display_error_and_exit
@@ -129,6 +129,7 @@ use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Tags qw(:all);
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Users qw(:all);
 use ProductOpener::Texts qw(%texts);
 use ProductOpener::Lang qw(:all);
@@ -1128,6 +1129,7 @@ that require a lot of resources (especially aggregation queries).
 =cut
 
 sub display_no_index_page_and_exit () {
+	write_cors_headers();
 	my $html
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>NOINDEX</h1><p>We detected that your browser is a web crawling bot, and this page should not be indexed by web crawlers. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 	my $http_headers_ref = {
@@ -1155,6 +1157,7 @@ Return a page with a 429 status code and a message explaining that the user is s
 =cut
 
 sub display_too_many_requests_page_and_exit() {
+	write_cors_headers();
 	my $http_headers_ref = {
 		'-status' => 429,
 		'-charset' => 'UTF-8',
@@ -1551,8 +1554,16 @@ sub display_mission ($request_ref) {
 
 	my $missionid = $request_ref->{missionid};
 
-	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html");
-	my $html = join('', (<$IN>));
+	my $html = '';
+	if (
+		open(
+			my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/" . $request_ref->{lc} . "/$missionid.html"
+		)
+		)
+	{
+		$html = join('', (<$IN>));
+		close($IN);
+	}
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{canon_url} = "/facets" . canonicalize_tag_link("missions", $missionid);
@@ -2189,8 +2200,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 			}
 			else {
-				$display = canonicalize_tag2($tagtype, $tagid);
-				$display = display_tag_name($tagtype, $display);
+				$display = display_tag_name($tagtype, $tagid);
 			}
 
 			# Display the percent of products for each tag
@@ -2929,11 +2939,11 @@ sub display_points_ranking ($tagtype, $tagid, $request_ref) {
 
 		$html
 			.= "<tr><td><a href=\"$link\">$display_key</a></td><td>$rank</td><td>"
-			. $points_ref->{$tagid}{$key}
+			. ($points_ref->{$tagid}{$key} // '')
 			. "</td><td>"
-			. $ambassadors_ranks{$key}
+			. ($ambassadors_ranks{$key} // '')
 			. "</td><td>"
-			. $ambassadors_points_ref->{$tagid}{$key}
+			. ($ambassadors_points_ref->{$tagid}{$key} // '')
 			. "</td></tr>\n";
 
 	}
@@ -3026,13 +3036,8 @@ sub display_points ($request_ref) {
 				= '/facets' . canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
 		}
 		else {
-			$display_tag = canonicalize_tag2($tagtype, $tagid);
-			$new_tagid = get_string_id_for_lang($lc, $display_tag);
-			$display_tag = display_tag_name($tagtype, $display_tag);
-			if ($tagtype eq 'emb_codes') {
-				$canon_tagid = $new_tagid;
-				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-			}
+			$new_tagid = canonicalize_tag($tagtype, $tagid);
+			$display_tag = display_tag_name($tagtype, $new_tagid);
 			$title = $display_tag;
 			$new_tagid_path = '/facets' . canonicalize_tag_link($tagtype, $new_tagid);
 			$request_ref->{current_link} = $new_tagid_path;
@@ -3059,7 +3064,7 @@ sub display_points ($request_ref) {
 
 	my $description = '';
 
-	if ($tagtype eq 'users') {
+	if ((defined $tagtype) and ($tagtype eq 'users')) {
 		my $user_ref = retrieve_user($tagid);
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
@@ -3143,8 +3148,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc, $tagtype, $canon_tagid);
 			$new_tagid = get_taxonomyid($lc, $display_tag);
-			$log->debug("displaying taxonomy tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
-				if $log->is_debug();
+
 			if ($new_tagid !~ /^(\w\w):/) {
 				$new_tagid = $lc . ':' . $new_tagid;
 			}
@@ -3152,16 +3156,20 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 			$request_ref->{current_link} .= $new_tagid_path;
 			$request_ref->{world_current_link}
 				.= canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid, $tag_prefix);
+
+			$log->debug(
+				"displaying taxonomy tag",
+				{
+					canon_tagid => $canon_tagid,
+					display_tag => $display_tag,
+					new_tagid => $new_tagid,
+					new_tagid_path => $new_tagid_path
+				}
+			) if $log->is_debug();
 		}
 		else {
-			$display_tag = canonicalize_tag2($tagtype, $tagid);
-			# Use "no_language" normalization for tags types without a taxonomy
-			$new_tagid = get_string_id_for_lang("no_language", $display_tag);
-			$display_tag = display_tag_name($tagtype, $display_tag);
-			if ($tagtype eq 'emb_codes') {
-				$canon_tagid = $new_tagid;
-				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-			}
+			$new_tagid = canonicalize_tag($tagtype, $tagid);
+			$display_tag = display_tag_name($tagtype, $new_tagid);
 			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid, $tag_prefix);
 			$request_ref->{current_link} .= $new_tagid_path;
 			my $current_lc = $lc;
@@ -3206,7 +3214,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 		$request_ref->{header} .= '<meta name="robots" content="noindex">' . "\n";
 	}
 
-	return;
+	return $request_ref->{tags};
 }
 
 =head2 generate_title_from_request_tags ($tags_ref)
@@ -3734,7 +3742,7 @@ HTML
 	return $description;
 }
 
-=head2 display_tag ($request_ref)
+=head2 display_tag_page ($request_ref)
 
 This function is called to display either:
 
@@ -3757,7 +3765,7 @@ When displaying a list of tags, the function calls display_list_of_tags().
 
 =cut
 
-sub display_tag ($request_ref) {
+sub display_tag_page ($request_ref) {
 
 	local $log->context->{tags} = $request_ref->{tags};
 
@@ -4359,7 +4367,7 @@ HTML
 	# If we have no resultings products or aggregated tags, and the tag value does not exist in the taxonomy,
 	# we do not output the tag value in the page title and content
 	if (
-		($request_ref->{structured_response}{count} == 0)
+		(($request_ref->{structured_response}{count} // 0) == 0)
 		and (
 			(
 				(
@@ -4706,7 +4714,10 @@ sub add_params_and_filters_to_query ($request_ref, $query_ref) {
 		# Some parameters like page / page_size and sort_by are related to the query
 		# but not query filters, we set them at the request object level
 		elsif (($field eq "page") or ($field eq "page_size")) {
-			$request_ref->{$field} = $params_ref->{$field} + 0;    # Make sure we have a number
+			my $numeric_param = $params_ref->{$field};
+			$numeric_param =~ s/\D.*$//    # Strip anything from the first non-digit (e.g. "50?sort_by=...")
+				if defined $numeric_param;
+			$request_ref->{$field} = ($numeric_param // 0) + 0;    # Make sure we have a number
 			delete $params_ref->{$field};
 		}
 
@@ -4832,11 +4843,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 							}
 						}
 						else {
-							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
-							# EU packager codes are normalized to have -ec at the end
-							if ($tagtype eq 'emb_codes') {
-								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
-							}
+							$tagid2 = canonicalize_tag($tagtype, $tag2);
 						}
 						push @tagids, $tagid2;
 					}
@@ -4873,11 +4880,7 @@ sub add_params_to_query ($params_ref, $query_ref) {
 						}
 					}
 					else {
-						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
-						# EU packager codes are normalized to have -ec at the end
-						if ($tagtype eq 'emb_codes') {
-							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
-						}
+						$tagid = canonicalize_tag($tagtype, $tag);
 					}
 					$log->debug("add_params_to_query - tags param - single value",
 						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid})
@@ -5545,7 +5548,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			# For non API queries, we will display the products in a template (this is for SEO, before personal search products are displayed through Javascript)
 			if (not defined $request_ref->{api}) {
-				my $product_display_name = $product_ref->{product_display_name};
+				my $product_display_name = $product_ref->{product_display_name} // '';
 				# Prevent the quantity "750 g" to be split on two lines
 				$product_display_name =~ s/(.*) (.*?)/$1\&nbsp;$2/;
 
@@ -9454,13 +9457,17 @@ CSS
 							$value = $decf->format(g_to_unit($value, $unit));
 						}
 					}
-					# too small values are converted to e notation: 7.18e-05
-					if (($value . ' ') =~ /e/) {
-						# use %f (outputs extras 0 in the general case)
-						$value = sprintf("%f", g_to_unit($value, $unit));
+
+					if (defined $value) {
+						# too small values are converted to e notation: 7.18e-05
+						if (($value . ' ') =~ /e/) {
+							# use %f (outputs extras 0 in the general case)
+							$value = sprintf("%f", g_to_unit($value, $unit));
+						}
+
+						$values = "$value $unit";
 					}
 
-					$values = "$value $unit";
 					if (   (not defined $value)
 						or ($comparison_ref->{nutrients}{$nid} eq ''))
 					{
@@ -9713,7 +9720,7 @@ sub display_product_api ($request_ref) {
 		$response{status_verbose} = 'no code or invalid code';
 	}
 	elsif ((not defined $product_ref) or (not defined $product_ref->{code})) {
-		if ($request_ref->{api_version} >= 1) {
+		if (($request_ref->{api_version} // 0) >= 1) {
 			$request_ref->{status_code} = 404;
 		}
 		$response{status} = 0;
@@ -9766,7 +9773,7 @@ sub display_product_api ($request_ref) {
 
 		# 2021-02-25: we now store only nested ingredients, flatten them if the API is <= 1
 
-		if ($request_ref->{api_version} <= 1) {
+		if (not defined $request_ref->{api_version} or $request_ref->{api_version} <= 1) {
 
 			if (defined $product_ref->{ingredients}) {
 

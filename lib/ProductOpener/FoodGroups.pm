@@ -54,6 +54,7 @@ use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Food qw/is_beverage_for_nutrition_score_2021/;
 
 use Log::Any qw($log);

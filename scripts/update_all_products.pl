@@ -65,6 +65,7 @@ use ProductOpener::Store qw/retrieve_object store_object/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Images qw/process_image_crop/;
 use ProductOpener::Lang qw/$lc/;

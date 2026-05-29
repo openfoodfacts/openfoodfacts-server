@@ -20,8 +20,8 @@ msgid "A collaborative, free and open database of ingredients, nutrition facts a
 msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
 
 msgctxt "tagline_off"
-msgid   "Open Food Facts gathers information and data on food products from around the world."
-msgstr  "Open Food Facts gathers information and data on food products from around the world."
+msgid "Open Food Facts gathers information and data on food products from around the world."
+msgstr "Open Food Facts gathers information and data on food products from around the world."
 
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -33,8 +33,8 @@ msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
 msgctxt "product_description_off"
-msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact, and information on product %s"
-msgstr "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact,and information on product %s"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -93,6 +93,7 @@ msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
+# OPF
 msgctxt "site_description_opf"
 msgid "A collaborative, free and open database of information on various products from around the world."
 msgstr "A collaborative, free and open database of information on various products from around the world."
@@ -113,6 +114,14 @@ msgstr "Ingredients, CO2 impact, Durability, labels, origin of ingredients and i
 msgctxt "get_the_app_link_opf"
 msgid "/open-products-facts-mobile-app"
 msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Products Facts product search"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
@@ -138,14 +147,6 @@ msgctxt "ingredients_text_example_product"
 msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
 msgstr "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
 
-msgctxt "search_description_opensearch_opf"
-msgid "Open Products Facts product search"
-msgstr "Open Products Facts product search"
-
-msgctxt "warning_not_complete_opf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-
 # OPFF
 msgctxt "site_description_opff"
 msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
@@ -162,6 +163,14 @@ msgstr "A collaborative, free and open database of pet food products from around
 msgctxt "product_description_opff"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
 msgstr "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts product search"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "brands_example_petfood"
 msgid "Purina, Pedigree"
@@ -191,16 +200,6 @@ msgstr "Wet food for adult dogs"
 msgctxt "product_name_example_petfood"
 msgid "Senior Dog Delight Chicken & Rice"
 msgstr "Senior Dog Delight Chicken & Rice"
-
-msgctxt "search_description_opensearch_opff"
-msgid "Open Pet Food Facts product search"
-msgstr "Open Pet Food Facts product search"
-
-msgctxt "warning_not_complete_opff"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-
-# End of overrides by flavor or product type
 
 msgctxt "1_product"
 msgid "1 product"
@@ -2888,8 +2887,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Some of the data and/or photos for this product come from those sources:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -6048,6 +6047,46 @@ msgstr "Each donation counts! We appreciate your support in bringing further foo
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "I SUPPORT"
+
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "We still need €120,000 to finish 2026!"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "Become an Open Food Facts patron"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "keep Open Food Facts open & available to all,"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "support infrastructure, the website, mobile app and API with a small permanent team"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "remain independent of the food industry,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "support the community"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "support science"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Donate"
 
 msgctxt "donation_cta"
 msgid "Donate"

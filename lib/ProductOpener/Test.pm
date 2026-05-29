@@ -67,6 +67,7 @@ use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Cache qw/$memd/;
 use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
 use ProductOpener::Auth qw/get_token_using_client_credentials get_oidc_implementation_level/;
@@ -91,6 +92,10 @@ use MIME::Base64 qw(encode_base64);
 use Log::Any qw($log);
 
 no warnings qw(experimental::signatures);
+
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 
 # Make sure we include convert_blessed to cater for blessed objects, like booleans
 my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
@@ -254,9 +259,13 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# flush Memcached to avoid stale cache entries (search results) from previous test files
+	$memd->flush_all();
 	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
 	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
 	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
+
+	return;
 }
 
 =head2 remove_all_users ()
@@ -625,7 +634,7 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 		if ($update_expected_results) {
 			open(my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json")
-				or confess("Could not create $expected_results_dir/$code.json: $!\n");
+				or confess("Could not create $expected_results_dir/$code.json for code $code: $!\n");
 			print $result $json->pretty->encode($product_ref);
 			close($result);
 		}
@@ -759,12 +768,7 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 			my @keys = split(/\./, $field);
 			my $final_key = pop(@keys);
 			for my $item_ref (_get_sub_fields($object_ref, @keys)) {
-				if ($final_key ne "*") {
-					if ((ref($item_ref) eq 'HASH') and (defined $item_ref->{$final_key})) {
-						$item_ref->{$final_key} = $transformation->($item_ref->{$final_key});
-					}
-				}
-				else {
+				if ($final_key eq '*') {
 					if (ref($item_ref) eq 'ARRAY') {
 						for my $index (0 .. (scalar @$item_ref) - 1) {
 							$item_ref->[$index] = $transformation->($item_ref->[$index]);
@@ -776,6 +780,24 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 						}
 					}
 					# Note: * on a scalar means nothing
+				}
+				# If the final key contains a * (with something else), treat the * as a wildcard for any character
+				# and apply the transformation to all fields that match the pattern
+				elsif ($final_key =~ /\*/) {
+					if (ref($item_ref) eq 'HASH') {
+						my $regex = $final_key;
+						$regex =~ s/\*/.*/g;
+						foreach my $key (keys %$item_ref) {
+							if ($key =~ /^$regex$/) {
+								$item_ref->{$key} = $transformation->($item_ref->{$key});
+							}
+						}
+					}
+				}
+				else {
+					if ((ref($item_ref) eq 'HASH') and (defined $item_ref->{$final_key})) {
+						$item_ref->{$final_key} = $transformation->($item_ref->{$final_key});
+					}
 				}
 			}
 		}
@@ -867,6 +889,8 @@ sub normalize_product_for_test_comparison ($product_ref) {
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
 				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
+				tags_sources.*.*.last_updated_t
+				*last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],
