@@ -1,10 +1,10 @@
 {
    "ingredients" : [
       {
-         "id" : "en:something",
+         "id" : "en:Something",
          "ingredients" : [
             {
-               "id" : "en:u",
+               "id" : "en:U",
                "is_in_taxonomy" : 0,
                "percent_estimate" : 100,
                "percent_max" : 100,
@@ -21,14 +21,14 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:something",
-         "en:u"
+         "en:Something",
+         "en:U"
       ],
       "en:vegan-status-unknown" : [
-         "en:u"
+         "en:U"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:u"
+         "en:U"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -43,13 +43,13 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:something",
-      "en:u"
+      "en:Something",
+      "en:U"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:something",
-      "en:u"
+      "en:Something",
+      "en:U"
    ],
    "ingredients_text" : "Something (U)",
    "ingredients_with_specified_percent_n" : 0,
@@ -57,13 +57,13 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:something",
-      "en:u"
+      "en:Something",
+      "en:U"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "en:something",
-      "en:u"
+      "en:Something",
+      "en:U"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 0,

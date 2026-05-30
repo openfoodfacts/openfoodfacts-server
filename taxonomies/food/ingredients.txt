@@ -1708,7 +1708,7 @@ so: Ensiim
 sq: enzima
 sr: Ензим
 su: Énzim
-sv: enzym
+sv: enzym, enzymer
 sw: kimeng'enya
 ta: நொதியம்
 te: ఎంజైము
@@ -3735,6 +3735,7 @@ tr: yağsız süt tozu, kaymağı alınmış süt tozu
 ciqual_food_code:en: 19054
 ciqual_food_name:en: Milk, powder, skimmed
 ciqual_food_name:fr: Lait en poudre, écrémé
+wikidata:en: Q120598270
 
 < en:milk powder
 en: whole milk powder, dried whole milk, powdered whole milk, whole powdered milk, whole dry milk, dry whole milk
@@ -19295,7 +19296,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sparkling_wine
 < en:sparkling wine
 fr: vin cremant de Loire aop
 
-
 < en:wine
 en: white wine
 af: Witwyn
@@ -19304,7 +19304,7 @@ ba: Аҡ шарап
 bg: Бяло вино
 ca: vi blanc
 cy: Gwin gwyn
-da: Hvidvin
+da: hvidvin
 de: Weißwein, Weisswein
 es: vino blanco
 eu: Ardo zuri
@@ -19329,18 +19329,19 @@ pt: vinho branco
 ro: vin alb
 ru: Белое вино
 sr: бијело вино
-sv: Vitt vin
+sv: vitt vin
 tr: Beyaz şarap
 uk: Біле вино
 vi: Rượu vang trắng
 zh: 白葡萄酒
+#ast: Vinu blanco
+#en-gb: white wine
+#gsw: Wysswy
+#yue: 白葡萄酒
+agribalyse_proxy_food_code:en: 5215
 ciqual_proxy_food_code:en: 5215
 ciqual_proxy_food_name:fr: Vin blanc (sec)
 description:en: WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
-# ast:Vinu blanco
-# en-gb:white wine
-# gsw:Wysswy
-# yue:白葡萄酒
 wikidata:en: Q10210
 wikipedia:en: https://en.wikipedia.org/wiki/White_wine
 # en:white-wine has 2793 products in 5 languages @2018-10-29
@@ -19356,12 +19357,18 @@ hr: suho bijelo vino
 hu: száraz fehérbor
 it: vino bianco secco
 nl: droge witte wijn
+ru: сухое белое вино
+zh: 乾白葡萄酒
+agribalyse_food_code:en: 5215
 ciqual_food_code:en: 5215
+ciqual_food_name:en: Wine, white, dry
 ciqual_food_name:fr: Vin blanc (sec)
+wikidata:en: Q11060609
 # 2019-05-29
 
 < en:white wine
 en: white wine from France
+da: hvidvin fra Frankrig, fransk hvidvin
 de: Weißwein aus Frankreich, französischer Weißwein
 fr: vin blanc de France, vin blanc arbois aoc, vin blanc coteaux du layon aop, vin blanc condrieu aop, vin blanc coteaux du lyonnais aop
 hr: bijelo vino iz Francuske
@@ -19414,8 +19421,6 @@ ru: мюскаде
 wikipedia:en: https://en.wikipedia.org/wiki/Muscadet
 # fr:muscadet has 82 products in 1 language @2018-10-29
 
-# description:en:RED WINE is a type of wine made from dark-colored (black) grape varieties. The actual color of the wine can range from intense violet, typical of young wines, through to brick red for mature wines and brown for older red wines. The juice from most purple grapes is greenish-white, the red color coming from anthocyan pigments present in the skin of the grape
-
 # <category:en:Red wines
 < en:wine
 en: red wine
@@ -19461,28 +19466,31 @@ tr: Kırmızı şarap
 uk: Червоне вино
 vi: Rượu vang đỏ
 zh: 紅葡萄酒
+#ast: vinu tinto
+#en-ca: red wine
+#en-gb: red wine
+#gsw: Rotwy
+#lad: Vino kolorado
+#lzh: 紅酒
+#pcd: Rouche vin
+#pmo: Vin nèir
+#pt-br: Vinho tinto
+#sr-ec: Црно вино
+#sr-el: Crno vino
+#yue: 紅酒
+#zh-cn: 红葡萄酒
+#zh-hans: 红葡萄酒
+#zh-hant: 紅葡萄酒
+#zh-hk: 紅葡萄酒
+#zh-mo: 紅葡萄酒
+#zh-my: 红葡萄酒
+#zh-sg: 红葡萄酒
+#zh-tw: 紅葡萄酒
+agribalyse_food_code:en: 5214
 ciqual_food_code:en: 5214
+ciqual_food_name:en: Wine, red
 ciqual_food_name:fr: Vin rouge
-# ast:vinu tinto
-# en-ca:red wine
-# en-gb:red wine
-# gsw:Rotwy
-# lad:Vino kolorado
-# lzh:紅酒
-# pcd:Rouche vin
-# pmo:Vin nèir
-# pt-br:Vinho tinto
-# sr-ec:Црно вино
-# sr-el:Crno vino
-# yue:紅酒
-# zh-cn:红葡萄酒
-# zh-hans:红葡萄酒
-# zh-hant:紅葡萄酒
-# zh-hk:紅葡萄酒
-# zh-mo:紅葡萄酒
-# zh-my:红葡萄酒
-# zh-sg:红葡萄酒
-# zh-tw:紅葡萄酒
+description:en: RED WINE is a type of wine made from dark-colored (black) grape varieties. The actual color of the wine can range from intense violet, typical of young wines, through to brick red for mature wines and brown for older red wines. The juice from most purple grapes is greenish-white, the red color coming from anthocyan pigments present in the skin of the grape
 ecobalyse:en: 6621c18e-85de-4683-82be-7b236e68bc48
 wikidata:en: Q1827
 wikipedia:en: https://en.wikipedia.org/wiki/Red_wine
@@ -19552,14 +19560,12 @@ wikidata:en: Q771636
 wikipedia:en: https://en.wikipedia.org/wiki/Sauternes_(wine)
 # ingredient/fr:sauternes has 74 products in 4 languages @2019-02-14
 
-
-
 < en:wine
 en: rosé wine, rosé
 ar: نبيذ وردي
 bg: Розе
 ca: vi rosat
-da: Rosévin
+da: rosévin
 de: Roséwein
 es: vino rosado
 eu: Ardo gorri
@@ -19584,21 +19590,23 @@ pl: Wino różowe
 pt: Vinho rosé
 ro: vin rose
 ru: Розовое вино
-sv: Rosévin
+sv: rosévin
 uk: Рожеве вино
 vi: Rượu vang hồng
 zh: 桃红葡萄酒
+#en-ca: Rosé
+#en-gb: Rosé
+#gsw: Rosé
+#nds: Roséwien
+#vep: Ruskedvauvaz vin
+#zh-cn: 桃红葡萄酒
+#zh-hans: 桃红葡萄酒
+#zh-hant: 桃红葡萄酒
+agribalyse_food_code:en: 5216
 ciqual_food_code:en: 5216
+ciqual_food_name:en: Wine, rosé
 ciqual_food_name:fr: Vin rosé
 description:en: A ROSÉ is a type of wine that incorporates some of the color from the grape skins, but not enough to qualify it as a red wine.
-# en-ca:Rosé
-# en-gb:Rosé
-# gsw:Rosé
-# nds:Roséwien
-# vep:Ruskedvauvaz vin
-# zh-cn:桃红葡萄酒
-# zh-hans:桃红葡萄酒
-# zh-hant:桃红葡萄酒
 wikidata:en: Q12979
 wikipedia:en: https://en.wikipedia.org/wiki/Rosé
 # fr:vin-rosé has 33 products @2018-10-29
@@ -27033,7 +27041,6 @@ vegetarian:en: yes
 wikidata:en: Q36465
 wikipedia:en: https://en.wikipedia.org/wiki/Flour
 
-
 # <en:compound
 < en:flour
 en: flour blend, flour mix
@@ -27044,7 +27051,7 @@ fi: jauhoseos
 fr: mélange de farine
 hr: mješavina brašna
 it: Miscela di farina
-sv: mjölblanding
+sv: mjölblanding, mjölmix, brödmix
 # usage:en:flour blend (wheat flour, rye flour)
 # ingredient/fr:melange-de-farine has 7 products in 1 language @2020-06-08
 
@@ -30400,7 +30407,7 @@ kn: ಸಕ್ಕರೆ
 ko: 설탕
 ku: Şekir
 ky: Кант
-la: Saccharum
+la: saccharum
 li: Sókker
 ln: Sukáli
 lt: Cukrus
@@ -30890,14 +30897,111 @@ vegetarian:en: yes
 wikidata:en: Q402587
 
 en: sugarcane, sugar cane
+am: ሸንኮራ ኣገዳ
+ar: قصب السكر
+as: কুঁহিয়াৰ
+az: dərman şəkərqamışı
+be: цукровы трыснёг
 bg: захарна тръстика
+bi: sugarcane
+bn: আখ
+bo: བུར་ཤིང་།
+bs: šećerna trska
+ca: saccharum
+ch: tupu
+cs: cukrová třtina
+cy: cansen siwgr
 da: sukkerrør
 de: Zuckerrohr
+dv: އުއްދަނޑި
+el: ζαχαροκάλαμο
+eo: sukerkano
+es: caña de azúcar
+et: suhkruroog
+eu: azukre-kanabera
+fa: نیشکر
+fi: sokeriruoko
+fj: dovu
 fr: canne à sucre, cannes à sucre
-hr: šećerne repice
+ga: cána siúcra
+gl: cana de azucre
+gn: takuare'ẽ
+gu: શેરડી
+gv: cane millish
+ha: rake
+hi: गन्ना
+hr: šećerna trska
+ht: kann
+hu: cukornád
+id: tebu
+ig: okpete
+io: sukrokano
+is: sykurreyr
 it: canna da zucchero
+ja: サトウキビ
+jv: tebu
+ka: შაქრის ლერწამი
+kg: nkuku
+kn: ಕಬ್ಬು
+ko: 사탕수수
+ky: бал камыш
+#la: saccharum  # “saccharum” is also the latin word for en:sugar
+lg: kikajjo
+lt: cukranendrė
+lv: cukurniedres
+mg: fary
+mi: tō
+mk: шеќерна трска
+ml: കരിമ്പ്
+mn: чихрийн нишингэ
+mr: ऊस
+ms: tebu
+my: ကြံပင်
+nb: sukkerrør
+ne: उखु
+nl: suikerriet
+nn: sukkerrøyr
+nv: dáʼákaz łikaní
+oc: cana de sucre
+or: ଆଖୁ
+pa: ਗੰਨਾ
+pl: trzcina cukrowa
+ps: گني
+pt: cana-de-açúcar
+qu: misk'i wiru
+rn: isuka
+ro: trestie de zahăr
+ru: сахарный тростник
+sh: šećerna trska
+sk: cukrová trstina
+sl: sladkorni trst
+sn: nzimbe
+so: qassab
+sq: kallam Sheqeri
+sr: шећерна трска
+su: tiwu
+sv: sockerrör
+sw: muwa
+ta: கரும்பு
+te: చెరకు
+th: อ้อย
+tl: tubo
+to: tō
+tr: şeker kamışı
+ts: xikhovha xa chukele
+tw: ahwedeɛ
+uk: цукрова тростина
+ur: گنا
+uz: shakarqamish
+vi: mía
+yi: צוקערראר
+yo: ìrèké
+za: oij
+zh: 甘蔗
+zu: umoba
 vegan:en: yes
 vegetarian:en: yes
+wikidata:en: Q36940
 
 < en:sugarcane
 en: sugarcane juice, cane juice
@@ -35209,7 +35313,7 @@ sm: Vai
 sn: Mvura
 so: Biyo
 sq: Uji
-sr: Вода
+sr: Вода, voda
 su: Cai
 sv: vatten, bordsvatten
 sw: Maji
@@ -36746,7 +36850,7 @@ nb: surdeig
 nl: zuurdesem, zuurdeeg, desem
 nn: surdeig
 pl: Zakwas chlebowy, zakwas, zakwasu, zakwas piekarski
-pt: Massa lêveda
+pt: massa lêveda, massa fermentada
 ru: Хлебная закваска
 sh: Кисело тесто
 sk: Kvások
@@ -36958,6 +37062,13 @@ fr: levain naturel de riz
 hr: prirodno kiselo tijesto od riže
 it: lievito madre naturale di riso
 pl: naturalny zakwas ryżowy
+
+< en:rice sourdough
+< en:sourdough powder
+en: rice sourdough powder
+da: rissurdejspulver
+nl: rijstzuurdesempoeder
+sv: rissurdegspulver, surdegspulver av ris
 
 < en:sourdough
 en: inactive sourdough starter
@@ -48945,7 +49056,7 @@ en: endive, Endives
 ca: endívia
 cy: Endif
 da: endivie
-de: Endivien, Endivie
+de: Endivie, Endivien
 eo: endivio
 es: escarola, escarolas, endibia, endibias
 eu: osterzuri
@@ -49459,7 +49570,7 @@ co: spinacciu
 cs: špenát, špenát setý
 cy: Sbigoglys
 da: spinat
-de: Spinat
+de: Spinat, Spinate
 dv: ބޯވެލި
 el: Σπανάκι
 eo: spinaco
@@ -51811,7 +51922,7 @@ it: asparagi violetti
 < en:asparagus
 en: white asparagus
 bg: бяла аспержа, бели аспержи
-de: weisse Spargeln, weißer Spargel
+de: weisser Spargel, weißer Spargel, weisse Spargeln
 es: Espárrago blanco
 fi: valkoinen parsa
 fr: asperges blanches, asperge blanche, asperges blanches grosses, asperges blanches des sables des Landes IGP
@@ -51958,7 +52069,7 @@ ca: Carxofera, carxofa
 co: Artichjoccu
 cs: artyčok
 da: Artiskok
-de: Artischocke
+de: Artischocke, Artichoken
 es: alcachofa
 eu: Orburu
 fa: کنگر فرنگی
@@ -60139,7 +60250,7 @@ si: කඩල
 sl: čičerika
 so: shunburo
 sq: qiqra
-sr: леблебија, Leblebija
+sr: леблебија, leblebija, leblebije
 sv: kikärt, kikärter, kikärtor
 sw: mnjegere mkubwa
 ta: கொண்டைக் கடலை
@@ -63079,7 +63190,7 @@ sa: जीरकम्
 sd: اڇو جيرو
 si: සූදුරු
 sl: orientalska kumina
-sr: кумин, kim
+sr: кумин, kumin
 su: jinten bodas
 sv: spiskummin
 sw: jira
@@ -63192,7 +63303,7 @@ pa: چناٹو
 pl: orzeszki piniowe
 pt: pinhão
 ru: кедровый орех
-sr: пињол
+sr: пињол, pinjoli
 sv: pinjenötter, pinjekärnor
 tl: Pinyon
 tr: Çam fıstığı
@@ -64798,7 +64909,7 @@ sh: kim
 sk: kmín
 sl: kumina
 sq: qimnoni
-sr: ким
+sr: ким, kim
 sv: kummin
 te: కరం కరవే
 tg: карвиё
@@ -67979,7 +68090,7 @@ sh: Bosiljak
 sk: bazalka, bazalka pravá
 sl: Navadna bazilika
 so: Reexaan
-sr: босиљак
+sr: босиљак, bosiljak
 sv: basilika
 ta: திருநீற்றுப்பச்சை
 te: విభూది తులసి
@@ -68814,7 +68925,7 @@ fr: betterave sucrière
 gl: remolacha azucreira
 gv: beetys shugyr
 he: סלק סוכר
-hr: šećerna repa
+hr: šećerna repa, šećerne repice
 hu: cukorrépa
 hy: շաքարի ճակնդեղ
 io: betravo
@@ -87509,8 +87620,8 @@ ja: 水溶性食物繊維
 nl: oplosbare vezels
 pl: błonnik rozpuszczalny, rozpuszczalny błonnik
 
-< en:fiber
 < en:flax seed
+< en:vegetable fiber
 en: flax seed fiber, flaxseed fiber, flax fiber, flax fibers
 da: hørfrøfiber
 fi: pellavansiemenkuitu
@@ -87520,13 +87631,16 @@ it: fibra di semi di lino
 no: linfrøfiber
 sv: linfröfiber
 
-< en:fiber
 < en:sugarcane
+< en:vegetable fiber
 en: sugarcane fiber, sugarcane fibers
+da: sukkerrørsfiber
 fr: fibre de canne à sucre, fibres de canne à sucre
 hr: vlakna šećerne trske
 it: fibra di canna da zucchero
 pl: błonnik z trzciny cukrowej
+pt: fibra de cana-de-açúcar
+sv: sockerrörsfiber, sockerrörfiber
 
 < en:fiber
 en: betaglucan, β-glucane
@@ -87665,7 +87779,7 @@ it: fibra di ceci
 
 < en:vegetable fiber
 en: sugar beet fibre, sugar beet fiber
-da: sukkerrørsfiber, sukkerroefiber
+da: sukkerroefiber
 de: zuckerrübenfaser
 fi: sokerijuurikaskuitu
 fr: fibre de betterave sucrière

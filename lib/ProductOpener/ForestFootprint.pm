@@ -57,6 +57,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 
 use Storable qw(dclone freeze);

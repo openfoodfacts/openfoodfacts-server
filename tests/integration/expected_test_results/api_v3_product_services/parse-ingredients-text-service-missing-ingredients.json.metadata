@@ -1,9 +1,5 @@
 {
    "api_call" : {
-      "parameters" : {},
-      "method" : "POST",
-      "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product_services",
       "body" : {
          "product" : {
             "lc" : "en"
@@ -11,6 +7,10 @@
          "services" : [
             "parse_ingredients_text"
          ]
-      }
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/api/v3/product_services"
    }
 }

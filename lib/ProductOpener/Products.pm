@@ -115,6 +115,7 @@ BEGIN {
 		&analyze_and_enrich_product_data
 
 		&is_owner_field
+		&get_source_for_site_and_org
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -124,7 +125,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_product_schema/;
 use ProductOpener::Store
-	qw/get_string_id_for_lang get_url_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter encode_canonical_json/;
+	qw/get_string_id_for_lang retrieve_object store_object object_exists object_path_exists move_object remove_object link_object object_iter encode_canonical_json/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ConfigEnv qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
@@ -132,6 +133,7 @@ use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User init_user/;
 use ProductOpener::Orgs qw/retrieve_org/;
 use ProductOpener::Lang qw/$lc %tag_type_singular lang/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Mail qw/send_email/;
 use ProductOpener::URL qw(format_subdomain get_owner_pretty_path);
 use ProductOpener::Data qw/execute_query get_products_collection get_recent_changes_collection/;
@@ -242,6 +244,9 @@ my @ignored_fields_for_revision_check = (
 	"traces_lc"
 );
 
+# Some fields have nested keys we want to ignore for the revision check, e.g. the "last_updated_t" field in the "tags_sources" field.
+my %ignored_keys = ("last_updated_t" => 1,);
+
 # Make a clean copy before comparing products.
 sub _normalize_product_for_comparison ($value, $normalization_failed_ref) {
 
@@ -249,6 +254,7 @@ sub _normalize_product_for_comparison ($value, $normalization_failed_ref) {
 		# Walk through nested hashes so the same clean up happens everywhere.
 		my %normalized_hash = ();
 		foreach my $key (keys %{$value}) {
+			next if defined $ignored_keys{$key};
 			$normalized_hash{$key}
 				= _normalize_product_for_comparison($value->{$key}, $normalization_failed_ref);
 		}
@@ -1025,16 +1031,10 @@ sub init_product ($userid, $orgid, $code, $countryid, $client_id = undef) {
 
 	if ((defined $country) and ($country !~ /^world$/i)) {
 		if ($country !~ /a1|a2|o1/i) {
-			$product_ref->{countries} = "en:" . $country;
-			my $field = 'countries';
-			if (defined $taxonomy_fields{$field}) {
-				$product_ref->{$field . "_hierarchy"}
-					= [gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field})];
-				$product_ref->{$field . "_tags"} = [];
-				foreach my $tag (@{$product_ref->{$field . "_hierarchy"}}) {
-					push @{$product_ref->{$field . "_tags"}}, get_taxonomyid("en", $tag);
-				}
-			}
+
+			my $source = get_source_for_site_and_org($orgid);
+			set_field_input_tags_for_source($product_ref, "en", "countries", $source, $country);
+
 			# if lc is not defined or is set to en, set lc to main language of country
 			if (    ($lc eq 'en')
 				and (defined $country_languages{lc($country)})
@@ -1293,7 +1293,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	my $code = $product_ref->{code};
 	my $product_id = $product_ref->{_id};
 	my $path = product_path($product_ref);
-	my $rev = $product_ref->{rev};
+	my $rev = $product_ref->{rev} // 0;
 	my $action = "updated";
 
 	# Structural moves still need persistence side effects:
@@ -1887,7 +1887,17 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 	my @needed_fields = qw(product_name quantity packaging brands categories origins);
 	my $all_fields = 1;
 	foreach my $field (@needed_fields) {
-		if ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')) {
+		if (
+			(
+					($tags_fields{$field})
+				and
+				((not defined $product_ref->{$field . "_tags"}) or (scalar @{$product_ref->{$field . "_tags"}} == 0))
+			)
+
+			or (    (not $tags_fields{$field})
+				and ((not defined $product_ref->{$field}) or ($product_ref->{$field} eq '')))
+			)
+		{
 			$all_fields = 0;
 			push @states_tags, "en:" . get_string_id_for_lang("en", $field) . "-to-be-completed";
 		}
@@ -2005,19 +2015,9 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		delete $current_ref->{completed_t};
 	}
 
-	$product_ref->{states} = join(', ', reverse @states_tags);
-	$product_ref->{"states_hierarchy"} = [reverse @states_tags];
 	$product_ref->{"states_tags"} = [reverse @states_tags];
+	$product_ref->{states} = join(', ', @{$product_ref->{"states_tags"}});
 
-	#my $field = "states";
-	#
-	#$product_ref->{$field . "_hierarchy" } = [ gen_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field}) ];
-	#$product_ref->{$field . "_tags" } = [];
-	#foreach my $tag (@{$product_ref->{$field . "_hierarchy" }}) {
-	#		push @{$product_ref->{$field . "_tags" }}, get_taxonomyid($tag);
-	#}
-
-	# old name
 	delete $product_ref->{status};
 	delete $product_ref->{status_tags};
 
@@ -2886,7 +2886,7 @@ sub product_url ($code_or_ref) {
 	my $titleid = '';
 	if (defined $ref) {
 		my $full_name = product_name_brand($ref);
-		$titleid = get_url_id_for_lang($product_lc, $full_name);
+		$titleid = get_string_id_for_lang($lc, $full_name);
 		if ($titleid ne '') {
 			$titleid = '/' . $titleid;
 		}
@@ -2951,6 +2951,16 @@ sub product_action_url ($code, $action = "edit_product") {
 	return $url // "";
 }
 
+=head2 compute_keywords ( $product_ref )
+
+Computes the keywords for a product, based on the product name, generic name, brands, categories, origins and labels.
+Keywords are used for search in API v1 and v2.
+Only the main language of the product is indexed.
+
+This should be replaced with the Search-a-licious project using ElasticSearch.
+
+=cut
+
 sub compute_keywords ($product_ref) {
 
 	my @string_fields = qw(product_name generic_name);
@@ -2960,17 +2970,26 @@ sub compute_keywords ($product_ref) {
 
 	my $product_lc = $product_ref->{lc} || $lc;
 
-	foreach my $field (@string_fields, @tag_fields) {
+	my @text_values = ();
+	foreach my $field (@string_fields) {
 		if (defined $product_ref->{$field}) {
-			foreach my $tag (split(/,|'|’|\s/, $product_ref->{$field})) {
-				if (($field eq 'categories') or ($field eq 'labels') or ($field eq 'origins')) {
-					$tag =~ s/^\w\w://;
-				}
+			push @text_values, $product_ref->{$field};
+		}
+	}
 
-				my $tagid = get_string_id_for_lang($product_lc, $tag);
-				if (length($tagid) >= 2) {
-					$keywords{normalize_search_terms($tagid)} = 1;
-				}
+	foreach my $field (@tag_fields) {
+		if (defined $product_ref->{$field . "_tags"}) {
+			push @text_values,
+				join(",", map {display_taxonomy_tag($product_lc, $field, $_)} @{$product_ref->{$field . "_tags"}});
+		}
+	}
+
+	foreach my $value (@text_values) {
+
+		foreach my $word (split(/,|'|’|\s/, $value)) {
+			my $wordid = get_string_id_for_lang($product_lc, $word);
+			if (length($wordid) >= 2) {
+				$keywords{normalize_search_terms($wordid)} = 1;
 			}
 		}
 	}
@@ -2983,6 +3002,8 @@ sub compute_keywords ($product_ref) {
 sub compute_codes ($product_ref) {
 
 	my $code = $product_ref->{code};
+
+	return if not defined $code;
 
 	my @codes = ();
 
@@ -3801,4 +3822,55 @@ sub product_iter(
 	)
 {
 	return object_iter($base_path, $name_pattern, $exclude_path_pattern, $skip_until_path);
+}
+
+=head2 get_source_for_site_and_org ( $org_id = undef )
+
+Returns the default source of data (e.g. nutrition, tags) for the current site and organization.
+Data entered on the site will have this source.
+
+=head3 Arguments
+
+=head4 $org_id
+
+Organization id, if not provided, we try to get it from the global variable $Org_id
+
+=head3 Return values
+
+- "packaging" for the public platform
+- "manufacturer" for the pro platform
+
+=cut
+
+sub get_source_for_site_and_org ($org_id = undef) {
+
+	my $source = "packaging";
+	if ($server_options{producers_platform}) {
+		$source = "manufacturer";
+
+		# on the pro platform, we need to know the org to set the correct source for schema upgrades
+		# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
+		# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
+		# so for now we will just use the global variable if the org_id is not provided as a parameter
+
+		if (not defined $org_id) {
+			$org_id = $Org_id;
+		}
+
+		if (defined $org_id) {
+			# e.g. org-database-usda
+			if ($org_id =~ /^org-database-(.+)$/) {
+				$source = "database-" . $1;
+			}
+			# e.g. org-label-gmo-project (in practice labels should not send nutrition data)
+			if ($org_id =~ /^org-label-(.+)$/) {
+				$source = "label-" . $1;
+			}
+			# At some point we used the pro platform to allow users to bulk enter data (e.g. for scan parties)
+			elsif ($org_id =~ /^user-(.+)$/) {
+				$source = "packaging";
+			}
+		}
+	}
+	return $source;
 }
