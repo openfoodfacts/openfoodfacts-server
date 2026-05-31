@@ -32413,8 +32413,8 @@ fr: sirop d’érable canadien
 hr: kanadski javorov sirup
 hu: kanadai juharszirup
 it: sciroppo d'acero canadese
-ciqual_food_code:en: 31034
-ciqual_food_name:en: maple syrup
+ciqual_proxy_food_code:en: 31034
+ciqual_proxy_food_name:en: maple syrup
 
 < en:maple syrup
 en: pure maple syrup
@@ -32425,20 +32425,21 @@ fi: Puhdas vaahterasiirappi
 fr: Sirop d'érable pur
 hr: čisti javorov sirup
 it: sciroppo d'acero puro
-ciqual_food_code:en: 31034
-ciqual_food_name:en: maple syrup
+ciqual_proxy_food_code:en: 31034
+ciqual_proxy_food_name:en: maple syrup
 # ingredient/fr:sirop-d-erable-pur has 20 products in french @2019-05-23
 
-< en:maple syrup
-en: organic maple syrup
-da: økologisk ahornsirup
-fi: luomu vaahterasiirappi
-fr: sirop d'érable biologique
-hr: organski javorov sirup
-hu: bio juharszirup
-it: sciroppo d'acero biologico
-ciqual_food_code:en: 31034
-ciqual_food_name:en: maple syrup
+# handled by ingredients processing
+#< en:maple syrup
+#en: organic maple syrup
+#da: økologisk ahornsirup
+#fi: luomu vaahterasiirappi
+#fr: sirop d'érable biologique
+#hr: organski javorov sirup
+#hu: bio juharszirup
+#it: sciroppo d'acero biologico
+#ciqual_food_code:en: 31034
+#ciqual_food_name:en: maple syrup
 
 < en:disaccharide
 < en:syrup
@@ -47108,8 +47109,6 @@ wikidata:en: Q10978
 # wuu:葡萄
 # xmf:ჸურზენი
 # yue:提子
-ciqual_food_code:en: 13046
-ciqual_food_name:en: Raisin
 wikipedia:en: https://en.wikipedia.org/wiki/Grape
 # 18963 in 9 languages @221-10-15
 
