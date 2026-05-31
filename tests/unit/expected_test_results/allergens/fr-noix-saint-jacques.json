@@ -1,17 +1,64 @@
 {
-   "allergens" : "",
-   "allergens_from_ingredients" : "Noix de Saint-Jacques",
-   "allergens_hierarchy" : [
-      "en:molluscs"
-   ],
    "allergens_tags" : [
       "en:molluscs"
    ],
+   "ingredients" : [
+      {
+         "id" : "en:scallop",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "Noix de Saint-Jacques",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:scallop"
+      ],
+      "en:non-vegetarian" : [
+         "en:scallop"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
    "ingredients_lc" : "fr",
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:scallop"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:scallop",
+      "en:shellfish",
+      "en:mollusc"
+   ],
    "ingredients_text" : "Noix de Saint-Jacques",
    "ingredients_text_fr" : "Noix de Saint-Jacques",
    "ingredients_text_with_allergens" : "<span class=\"allergen\">Noix de Saint-Jacques</span>",
    "ingredients_text_with_allergens_fr" : "<span class=\"allergen\">Noix de Saint-Jacques</span>",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:scallop"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:scallop"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
    "lang" : "fr",
    "languages" : {
       "en:french" : 1
@@ -27,8 +74,22 @@
       "en:1"
    ],
    "lc" : "fr",
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_hierarchy" : [],
-   "traces_tags" : []
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:molluscs"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0
 }
