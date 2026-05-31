@@ -56676,6 +56676,12 @@ ciqual_food_name:en: Sweet pepper, yellow, raw
 ciqual_food_name:fr: Poivron jaune, cru
 # 1222 in 1 language @2021-10-13
 
+< en:yellow bell pepper
+en: grilled yellow bell pepper
+fr: poivron jaune grillé
+ciqual_proxy_food_code:en: 20328
+ciqual_proxy_food_name:en: Sweet pepper, yellow, sautéed/pan-fried, without added fat
+
 # green pepper should not be a synonym of green bell pepper
 
 < en:bell pepper
@@ -56743,8 +56749,8 @@ en: red grilled pepper, red grilled capsicum
 fr: poivron rouge grillée
 hr: crvena pečena paprika
 it: peperone rosso grigliato
-ciqual_food_code:en: 20329
-ciqual_food_name:en: Sweet pepper, red, sautéed/pan-fried, without added fat
+ciqual_proxy_food_code:en: 20329
+ciqual_proxy_food_name:en: Sweet pepper, red, sautéed/pan-fried, without added fat
 
 < en:sweet pepper
 en: italian pepper
