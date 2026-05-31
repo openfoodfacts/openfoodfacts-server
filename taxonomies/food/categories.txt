@@ -39547,6 +39547,32 @@ intake24_category_code:en: CONF
 pnns_group_2:en: Sweets
 
 < en:Confectioneries
+xx: Laddu, ladoo
+en: Laddu, ladoo
+wikidata:en: Q1759289
+
+< en: Laddu
+xx: Besan Laddu, besan ladoo
+en: Besan Laddu, besan ladoo
+description:en: Besan ladoo is a sweet ball from the Indian subcontinent made of chickpea flour, sugar and fat (vegetable oil or ghee)
+
+< en:Confectioneries
+xx: Chikki
+en: Chikki
+
+< en:Confectioneries
+xx: Gulab jamun
+en: Gulab jamun
+description:en: Gulab jamun is a sweet ball from the Indian subcontinent made of milk solid, wheat flour and dipped in a sugary syrup.
+wikidata:en: Q1554207
+
+< en:Confectioneries
+xx: Soan papdi
+en: Soan papdi
+description:en: Soan papdi is a confectionery from the Indian subcontinent made of wheat and pulse flour, sugar and fat (vegetable oil or ghee).
+wikidata:en: Q534126
+
+< en:Confectioneries
 fr: Bonbons dragéifiés
 #wikidata:en:
 
@@ -56352,7 +56378,7 @@ lt: Kaštonų putėsiai
 < en:Dairy desserts
 < en:Entremets - mousses and creamy puddings
 < en:Sweet mousses
-en: Dairy Mousses
+en: Dairy mousses
 fi: maitopohjaiset vaahdot
 fr: Mousses lactées, mousses au lait, mousses à base de lait
 hr: Mliječne pjene
@@ -56555,6 +56581,11 @@ intake24_category_code:en: YGRT
 intake24_category_code:fr: YGRT
 pnns_group_2:en: Dairy desserts
 
+< en:Dairy desserts
+xx: Shrikhand
+en: Shrikhand
+description:en: Dairy dessert from the Indian subcontinent.
+wikidata:en: Q2341683
 
 < en:Dairy desserts
 en: Junkets
@@ -124882,10 +124913,6 @@ ciqual_food_code:en: 23493
 ciqual_food_name:en: Apple crumble
 ciqual_food_name:fr: Crumble aux pommes
 #wikidata:en:
-
-< en:Pastries
-en: Soan papdi
-fr: Soan papdi
 
 en: stuffing
 de: Füllung
