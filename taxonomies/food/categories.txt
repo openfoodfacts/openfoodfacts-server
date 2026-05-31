@@ -57,6 +57,8 @@ synonyms:sv: matvaror, matvara, mat
 
 synonyms:hu: koncentrátumból, sűrítményből, koncentrátum, sűrítmény
 
+synonyms:da: glutenfri, glutenfrie, glutenfrit
+
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, base
 stopwords:ca: als, a les, de, el, del, de la, la, té, i, amb, base
 stopwords:nl: bevat, en
@@ -12633,6 +12635,9 @@ ru: Красные вина
 tr: Kırmızı şarap
 zh: 红葡萄酒, 红酒
 agribalyse_food_code:en: 5214
+ciqual_food_code:en: 5214
+ciqual_food_name:en: Wine, red
+ciqual_food_name:fr: Vin rouge
 wikidata:en: Q1827
 
 < en:Red wines
@@ -34079,6 +34084,9 @@ fr: Vins blancs secs
 hr: Suha bijela vina
 hu: Száraz fehérborok
 agribalyse_food_code:en: 5215
+ciqual_food_code:en: 5215
+ciqual_food_name:en: Wine, white, dry
+ciqual_food_name:fr: Vin blanc sec
 
 < en:Dry white wines
 en: 11% dry white wine
@@ -34245,6 +34253,9 @@ hu: Rozéborok, Rozé borok
 it: Vini rosé
 nl: Rosé wijnen, Rosé wijn, Rosé
 agribalyse_food_code:en: 5216
+ciqual_food_code:en: 5216
+ciqual_food_name:en: Wine, rose
+ciqual_food_name:fr: Vin rosé
 
 < en:Rosé wines
 en: 11% rosé wine
@@ -36020,6 +36031,18 @@ protected_name_file_number:en: PGI-DE-0670
 protected_name_type:en: pgi
 wikidata:en: Q2740122
 
+< en:Breads
+< en:German bakery products
+de: Weltmeisterbrot
+description:en: Bread created by Jürgen Klinsmann in connection with the 1990 football world cup. It contains flax seeds and is sprinkled with poppy seeds and sesame seeds on top.
+wikidata:en: Q56297456
+
+< de:Weltmeisterbrot
+< en:Bread rolls
+de: Weltmeisterbrötchen
+description:en: Bread created by Jürgen Klinsmann in connection with the 1990 football world cup. It contains flax seeds and is sprinkled with poppy seeds and sesame seeds on top and sunflower seeds on the bottom.
+wikidata:en: Q139881211
+
 < en:Bakery products
 en: Hungarian bakery products
 fr: Produits de boulangerie hongrois
@@ -36360,7 +36383,7 @@ fr: Fougasses au chorizo
 < en:Filled fougasse
 fr: Fougasses aux olives
 
-< en:Breads
+< en:Bread loaves
 en: Baguettes, French bread
 xx: Baguettes, Baguette
 ar: خبز فرنسي
@@ -36572,8 +36595,20 @@ wikidata:en: Q1820454
 # How should I translate this in ja? パン粉 would probably be closer to en:Panko, but what about en:Bread crumbs?
 
 < en:Breads
+en: Bread loaves, Bread loaf, Loaf of bread
+is: Hleifur
+ru: Буха́нка
+sv: Brödlimpor, Limpor, Limpa
+yi: לאַבן
+description:en: western style style of bread prepared in oblong shape (wikidata)
+wikidata:en: Q137778889
+
+< en:Breads
 en: Bread rolls, Buns, rolls
+af: Broodrolletjie
+da: Rundstykker
 de: Brötchen, Semmeln
+eo: Bulkoj
 fi: Sämpylät
 fr: Petits pains, Buns (petits pains)
 hr: Buns
@@ -36581,24 +36616,56 @@ it: Panini inglesi
 ja: ロールパン
 lt: Bandelės
 nl: Broodjes
-sv: Bullars
+pl: Bułka
+sv: Bullar
+zh: 圆面包, 圓麵包
 intake24_category_code:en: BRDR
+wikidata:en: Q23004
 
 < en:Bread rolls
 en: Soft bread rolls
+da: Boller
 nl: Zachte broodjes, puntjes, bollen
 
 < en:Breads
 en: Breadsticks, Grissini, Bread sticks
+ar: إصبع الخبز
 bg: Гризини
+ca: Bastonet de pa
+da: Grissini
 de: Brotstangen, Grissini
-es: Colines
-fi: leipätikut
-fr: Gressins, gressin
-hr: grisini
-it: Grissini
+el: Κριτσίνι
+eo: Grisino
+es: Colines, Grisín
+et: Grissini
+eu: Ogi mehe
+fa: نان سوپ
+fi: Leipätikut, Grissini
+fr: Gressins, Gressin
+hr: Grisini
+hu: Grissino
+io: Bastonpano
+it: Grissini, Grissino
+ja: グリッシーニ
+jv: Roti stik
+ko: 막대빵
 lt: Duonos lazdelės
+lv: Grisīni
+mk: Стапчиња леб
+ms: Roti batang
+nb: Grissini
 nl: Soepstengels, Soepstengel
+pl: Grissini
+pt: Gressino
+ro: Grisină
+ru: Гриссини
+sl: Grisin
+sr: Грисине
+sv: Grissini
+tr: Grissini
+uk: Грісіні
+vi: Bánh mì que
+zh: 面包棒
 agribalyse_food_code:en: 7525
 ciqual_food_code:en: 7525
 ciqual_food_name:en: Grissini or bread stick
@@ -36745,11 +36812,41 @@ nl: Glutenvrije broden, Glutenvrij brood, Broden zonder gluten
 pl: Pieczywo bezglutenowe
 pt: Pães sem glúten
 ro: Pâini fără gluten, Pâine fără gluten
+sv: Glutenfria bröd
 agribalyse_food_code:en: 7130
 ciqual_food_code:en: 7130
 ciqual_food_name:en: Bread, gluten free
 ciqual_food_name:fr: Pain, sans gluten
 wikidata:en: Q90410085
+
+< en:Bread rolls
+< en:Gluten-free breads
+en: Gluten-free bread rolls
+da: Glutenfri rundstykker
+de: Glutenfreies Brötchen
+fr: Petits pains sans gluten
+hr: Buns bez glutena
+it: Panini inglesi senza glutine
+lt: Bandelės be glitimo
+nl: Glutenvrije broodjes
+sv: Glutenfria bullar
+
+< en:Breadsticks
+< en:Gluten-free breads
+en: Gluten-free breadsticks, Gluten-free grissini
+bg: Гризини без глутен
+da: Glutenfri grissini
+de: Glutenfreies Brotstangen
+es: Colines sin gluten
+fr: Gressins sans gluten
+hr: Grisini bez glutena
+it: Grissini senza glutine
+lt: Duonos lazdelės be glitimo
+nl: Glutenvrije soepstengels
+pl: Grissini bezglutenowe
+pt: Gressino sem glúten
+ro: Grisină fără gluten
+sv: Glutenfria grissini
 
 < en:Gluten-free breads
 en: Arepas, corn flat breads
@@ -36824,6 +36921,41 @@ xx: Taboon
 ar: طابون
 comment:en: https://www.tasteatlas.com/taboon
 wikidata:en: Q987291
+
+< en:Flatbreads
+en: Tandoor breads, Tannour breads
+ar: خبز التنور
+az: Təndir çörəyi
+bn: তন্দুর রুটি
+ce: Тандыр Хьокхам
+fa: نان تنور
+fr: Pain tandoori
+gl: Pan do Tandoor
+hi: तंदूर की रोटी
+hy: Թոնիր նան
+jv: Roti tandoor
+kk: Тандыр-нан
+ko: 탄두르빵
+ky: Тандыр-нан
+ms: Roti tempayan
+nl: Tandooribrood
+ru: Тандырный хлеб
+sv: Tannourbröd
+tk: Tamdyr çöregi
+tr: Tandır ekmeği
+uk: Тандир-нан
+uz: Tandir noni
+wikidata:en: Q2669274
+
+< en:Flatbreads
+en: Tunnbröd, Thin breads, Polar breads
+xx: Tunnbröd
+fr: Pains polaires
+ja: トゥンブロード
+ko: 툰브뢰드
+mk: Тунброд
+description:en: Tunnbröd (Swedish: [ˈtɵ̂nːbrøːd]; literally 'thinbread') is a Swedish version of flatbread. Tunnbröd can be soft or crisp, and comes in many variants depending on choice of grain, leavening agent (or lack thereof) and rolling pin. (Wikipedia)
+wikidata:en: Q255048
 
 < en:Breads
 en: Oat breads, Oat loafs
@@ -37590,6 +37722,12 @@ ciqual_food_code:en: 7262
 ciqual_food_name:en: Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), complet, préemballé
 
+< en:Hot dog buns
+< en:Sourdough breads
+en: Sourdough hot dog buns
+da: Surdejspølsebrød
+sv: Surdegskorvbröd
+
 < en:Frozen breads
 < en:Hot dog buns
 en: Frozen hot dog buns
@@ -37742,6 +37880,20 @@ wikidata:en: Q115456219
 < en:Frozen breads
 < en:Lepinja
 en: Frozen lepinja
+
+< en:Breads
+en: Somun (Turkish), Turkish somun
+tr: Somun
+wikidata:en: Q3491553
+
+< en:Flatbreads
+en: Somun (Balkan), Balkan somun
+bs: Somun
+wikidata:en: Q108181168
+
+< en:Frozen breads
+< en:Somun (Balkan)
+en: Frozen Balkan somun
 
 en: Breakfasts
 ca: Esmorzars
@@ -39393,6 +39545,32 @@ th: ขนมหวาน
 food_groups:en: en:sweets
 intake24_category_code:en: CONF
 pnns_group_2:en: Sweets
+
+< en:Confectioneries
+xx: Laddu, ladoo
+en: Laddu, ladoo
+wikidata:en: Q1759289
+
+< en: Laddu
+xx: Besan Laddu, besan ladoo
+en: Besan Laddu, besan ladoo
+description:en: Besan ladoo is a sweet ball from the Indian subcontinent made of chickpea flour, sugar and fat (vegetable oil or ghee)
+
+< en:Confectioneries
+xx: Chikki
+en: Chikki
+
+< en:Confectioneries
+xx: Gulab jamun
+en: Gulab jamun
+description:en: Gulab jamun is a sweet ball from the Indian subcontinent made of milk solid, wheat flour and dipped in a sugary syrup.
+wikidata:en: Q1554207
+
+< en:Confectioneries
+xx: Soan papdi
+en: Soan papdi
+description:en: Soan papdi is a confectionery from the Indian subcontinent made of wheat and pulse flour, sugar and fat (vegetable oil or ghee).
+wikidata:en: Q534126
 
 < en:Confectioneries
 fr: Bonbons dragéifiés
@@ -44994,6 +45172,11 @@ ja: アランチーニ
 nl: Arancini
 pt: Arancini
 wikidata:en: Q268857
+
+< en:Salty snacks
+en: Corn dogs
+xx: Corn dogs
+wikidata:en: Q1133127
 
 < en:Salty snacks
 en: Onigiri
@@ -56195,7 +56378,7 @@ lt: Kaštonų putėsiai
 < en:Dairy desserts
 < en:Entremets - mousses and creamy puddings
 < en:Sweet mousses
-en: Dairy Mousses
+en: Dairy mousses
 fi: maitopohjaiset vaahdot
 fr: Mousses lactées, mousses au lait, mousses à base de lait
 hr: Mliječne pjene
@@ -56398,6 +56581,11 @@ intake24_category_code:en: YGRT
 intake24_category_code:fr: YGRT
 pnns_group_2:en: Dairy desserts
 
+< en:Dairy desserts
+xx: Shrikhand
+en: Shrikhand
+description:en: Dairy dessert from the Indian subcontinent.
+wikidata:en: Q2341683
 
 < en:Dairy desserts
 en: Junkets
@@ -58075,6 +58263,7 @@ wco_hs_heading:en: 08.02
 en: Peanuts, ground nuts, groundnuts
 bg: Фъстъци
 ca: Cacauets
+da: Jordnødder, Peanuts
 de: Erdnüsse
 es: Cacahuetes, Cacahuates, Manís
 fi: maapähkinät
@@ -58761,23 +58950,62 @@ wco_hs_heading:en: 20.08
 #do not put in nut butters, peanut is not a nut
 < en:Legume butters
 en: Peanut butters, peanut paste, peanut creme
+af: Grondboontjiebotter
+ar: زبدة فول سوداني
 bg: Фъстъчено масло
 ca: Mantega de cacauet
+cs: Burákové máslo
+cy: Menyn cnau mwnci
+da: Jordnøddesmør
 de: Erdnussbutter
-es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní
-fi: maapähkinävoit
-fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide
+el: Φιστικοβούτυρο
+eo: Arakida buteroj
+es: Mantecas de cacahuete, Cremas de cacahuete, Crema de maní, Crema de cacaheute, Pasta de maní, Mantequilla de maní
+et: Maapähklivõi
+eu: Kakahuete-gurin
+fa: کره بادام زمینی
+fi: Maapähkinävoit
+fr: Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide, Beurre d'arachide
+fy: Nútsjesmoar
+ga: Im piseanna talún
+gl: Manteiga de cacahuete
 he: חמאות בוטנים
 hr: Maslaci od kikirikija
-it: Burri di arachidi
-ja: ピーナッツバター
-lt: Žemės riešutų sviestai, žemės riešutų pastos
+hu: Mogyoróvaj
+hy: Գետնանուշի կարագ
+id: Selai kacang
+is: Hnetusmjör
+it: Burri di arachidi, Burro di arachidi
+ja: ピーナッツバター, ピーナッツ・バター, ピーナツ・バター
+jv: Selé kacang
+kn: ಪೀನಟ್ ಬಟರ್
+ko: 땅콩버터
+la: Butyrum arachidum
+ln: Mwǎmba-ngúba
+lt: Žemės riešutų sviestai, Žemės riešutų pastos, Žemės riešutų sviestas
+lv: Zemesriekstu sviests
+mg: Menaka voanjo
+mi: Pīnati pata
+mk: Путер од кикиритки
+ms: Mentega kacang
+nb: Peanøttsmør
 nl: Pindakazen, Pindakaas
-pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych
+nn: Peanøttsmør
+pl: Masło z orzeszków ziemnych, Masło z orzeszków arachidowych, Masło orzechowe
 pt: Manteigas de amendoim
+ro: Unt de arahide
 ru: Арахисовая паста, Арахисовые пасты
+sk: Arašidové maslo
+sl: Arašidovo maslo
+sn: Dovi
+sr: Путер од кикирикија
 sv: Jordnötssmör
-tr: Yerfıstığı ezmesi
+sw: Siagi ya karanga
+th: เนยถั่วลิสง
+tr: Yerfıstığı ezmesi, Fıstık ezmesi
+uk: Арахісова паста
+vi: Bơ đậu phộng
+zh: 花生酱
 agribalyse_food_code:en: 15202
 ciqual_food_code:en: 15202
 ciqual_food_name:en: Peanut butter or peanut paste
@@ -58788,19 +59016,49 @@ wco_hs_heading:en: 20.08
 wikidata:en: Q147651
 
 < en:Peanut butters
-en: Crunchy peanut butters
+en: Creamy peanut butters, Smooth peanut butters
+da: Cremede jordnøddesmør, Creamy jordnøddesmør
+pt: Manteigas de amendoim cremosas
+sv: Jordnötssmör utan bitar, Creamy jordnötssmör
+incompatible_with:en: categories:en:crunchy-peanut-butters
+wikidata:en: Q134165564
+
+< en:Peanut butters
+en: Crunchy peanut butters, Chunky peanut butters
+da: Sprøde jordnøddesmør, Crunchy jordnøddesmør
 fr: Beurres de cacahuetes croustillants
 hr: Hrskavi maslaci od kikirikija
 lt: Traškūs žemės riešutų sviestai
 nl: Pindakzen met stukjes pinda
+pt: Manteigas de amendoim crocantes
+sv: Jordnötssmör med bitar, Crunchy jordnötssmör
+incompatible_with:en: categories:en:creamy-peanut-butters
 
-#contains only peanut, no added whatever
 < en:Peanut butters
 en: Pure peanut butters
+da: Rene jordnøddesmør
 fr: Pur beurre de cacahuettes
 hr: Čisti maslac od kikirikija
 lt: Žemės riešutų sviestai (100%)
 nl: Pindakazen (100% pinda)
+pt: Manteigas de amendoim puras
+sv: Rena jordnötssmör, 100% jordnötssmör
+comment:en: contains only peanut, no added whatever
+expected_ingredients:en: en:peanut
+
+< en:Creamy peanut butters
+< en:Pure peanut butters
+en: Creamy pure peanut butters, Pure creamy peanut butters
+da: Cremede rene jordnøddesmør, Rene cremede jordnøddesmør
+pt: Manteigas de amendoim puras e cremosas, Manteigas de amendoim cremosas puras
+sv: Rena jordnötssmör utan bitar, 100% jordnötssmör utan bitar
+
+< en:Crunchy peanut butters
+< en:Pure peanut butters
+en: Crunchy pure peanut butters, Pure crunchy peanut butters
+da: Sprøde rene jordnøddesmør, Rene sprøde jordnøddesmør
+pt: Manteigas de amendoim puras e crocantes, Manteigas de amendoim crocantes puras
+sv: Rena jordnötssmör med bitar, 100% jordnötssmör med bitar
 
 < en:Legume butters
 en: Flavoured peanut butters
@@ -79008,6 +79266,10 @@ gpc_category_description:en: Definition: Includes products from two or more kind
 gpc_category_name:en: Mixed Species Meat/Poultry/Other Animal - Alternative Meat - Prepared/Processed
 
 < en:Meats and their products
+en: Marinated meats
+fr: Viandes marinées
+
+< en:Meats and their products
 en: Andorran meat products
 fr: Produits carnés andorrins
 
@@ -84890,7 +85152,6 @@ ciqual_food_code:en: 20240
 ciqual_food_name:en: Piperade, Basque-style (fondue of sweet peppers and tomatoes flavoured with onions and garlics)
 ciqual_food_name:fr: Piperade basquaise
 
-< en:Fermented vegetables
 en: Sauerkrauts
 af: Suurkool
 ar: ساوركراوت
@@ -84954,6 +85215,32 @@ protected_name_file_number:en: PGI-FR-01066
 protected_name_type:en: pgi
 wikidata:en: Q12699
 
+< en:Fermented vegetables
+< en:Sauerkrauts
+en: Sauerkrauts without garnish, Sauerkraut without garnish
+fr: Choucroutes sans garniture
+hr: Kiseli kupus bez ukrasa
+lt: Rauginti kopūstai be garnyro
+nl: Zuurkolen zonder garnering
+ciqual_food_code:en: 25004
+ciqual_food_name:en: Sauerkraut, without garnish, drained
+ciqual_food_name:fr: Choucroute, sans garniture, égouttée
+
+< en:Sauerkrauts without garnish
+en: Cooked sauerkrauts without garnish, Cooked sauerkraut without garnish
+fr: Choucroutes cuites sans garnitures, Choucroute sans garniture égouttée cuite
+hr: Kuhani kiseli kupus bez ukrasa
+lt: Kepti rauginti kopūstai be garnyro
+nl: Zuurkolen zonder garnering (uitgelekt, gekookt)
+agribalyse_food_code:en: 25220
+ciqual_food_code:en: 25220
+ciqual_food_name:en: Sauerkraut, without garnish, drained, cooked
+ciqual_food_name:fr: Choucroute, sans garniture, égouttée, cuite
+
+< en:Sauerkrauts without garnish
+en: Raw sauerkrauts without garnish
+fr: Choucroutes crues sans garnitures
+
 < en:Meals
 < en:Sauerkrauts
 en: Sauerkraut with garnish
@@ -84966,29 +85253,9 @@ ciqual_food_code:en: 25003
 ciqual_food_name:en: Sauerkraut, with garnish
 ciqual_food_name:fr: Choucroute garnie
 
-< en:Sauerkrauts
-en: Sauerkraut without garnish
-fr: Choucroutes sans garniture
-hr: Kiseli kupus bez ukrasa
-lt: Rauginti kopūstai be garnyro
-nl: Zuurkolen zonder garnering
-agribalyse_food_code:en: 25220
-ciqual_food_code:en: 25004
-ciqual_food_name:en: Sauerkraut, without garnish, drained
-ciqual_food_name:fr: Choucroute, sans garniture, égouttée
-
-< en:Sauerkraut without garnish
-en: Cooked sauerkraut without garnish
-fr: Choucroute, sans garniture égouttée cuite
-hr: Kuhani kiseli kupus bez ukrasa
-lt: Kepti rauginti kopūstai be garnyro
-nl: Zuurkolen zonder garnering (uitgelekt, gekookt)
-ciqual_food_code:en: 25220
-ciqual_food_name:en: Sauerkraut, without garnish, drained, cooked
-ciqual_food_name:fr: Choucroute, sans garniture, égouttée, cuite
-
 < en:Meals
-fr: Choucroutes de la Mer
+< en:Sauerkrauts
+fr: Choucroutes de la mer
 
 < en:Vegetables based foods
 en: Fermented vegetables
@@ -85737,8 +86004,18 @@ fr: Langòs surgelés
 en: Filled pinsa
 it: Pinsa farcita
 
-< en:Frozen foods
 < en:Meals
+< en:Sandwiches
+en: Pizza sub sandwiches
+description:en: heated sandwich filled like a pizza
+
+< en:Meals
+en: Pizza sub toasts
+fr: Tartines salés à cuire, Tartines style pizza
+description:en: heated bread topped like a pizza
+
+< en:Frozen foods
+< en:Pizza sub toasts
 en: Frozen topped baguettes
 de: Tiefgefrorene belegte Baguettes
 fr: Baguettes garnies surgelées
@@ -85748,7 +86025,7 @@ en: Pizzas pies and quiches, Pizza pies and quiches
 bg: Пица и киш
 ca: Pizzes i quiches
 de: Pizzas - Kuchen und Quiches
-es: Pizzas - empanadas y quiches
+es: Pizzas - tartas y quiches
 fi: pizzat ja piirakat
 fr: Pizzas tartes salées et quiches
 hr: Pizze pite i quichevi
@@ -85773,6 +86050,11 @@ gpc_category_name:en: Pies/Pastries/Pizzas/Quiches - Savoury (Perishable)
 < en:Pizzas pies and quiches
 en: Mini appetizer pizzas
 fr: Mini pizzas apéritives
+
+< en:Meals
+< en:Pizzas pies and quiches
+en: Pizza pockets
+fr: Pizzas pocket
 
 < en:Meals
 < en:Pizzas pies and quiches
@@ -85847,7 +86129,6 @@ ciqual_food_name:fr: Pizza jambon fromage champignons ou pizza royale, reine ou 
 < en:Pizzas
 fr: Pizzas savoyardes, Pizza savoyarde
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Cheese and mushrooms pizza
 fr: Pizza champignons fromage
@@ -85858,20 +86139,36 @@ ciqual_food_code:en: 25477
 ciqual_food_name:en: Pizza, cheese and mushrooms
 ciqual_food_name:fr: Pizza champignons fromage
 
-< en:Pizzas
 < en:Vegetarian pizzas
-en: Margherita Pizza, Cheese and tomato pizza
+en: Margherita pizzas, Margherita pizza, Pizza Margherita
+ar: بيتزا_مارغيريتا
 bg: Пица Маргарита
+da: Margherita-pizzaer
 de: Pizza Margherita
 es: Pizza margherita
+fa: پیتزا مارگریتا
 fi: margherita-pizza
-fr: Pizzas margherita, pizza margherita, pizzas marguerite, Pizza au fromage et aux tomates
+fr: Pizzas margherita, pizza margherita, pizzas marguerite
 hr: Pizza margherita
 it: Pizza margherita
 ja: マルゲリータ
-lt: Margarita picos, Picos su sūriu ir pomidorų padažu
+ko: 마르게리타 피자
+lt: Margarita picos
 nl: Pizza Margherita
-#wikidata:en:
+sv: Margherita-pizzor
+zh: 瑪格麗塔披薩, 瑪格麗特披薩
+agribalyse_food_code:en: 25404
+ciqual_food_code:en: 25404
+ciqual_food_name:en: Pizza, cheese and tomato or Margherita pizza
+ciqual_food_name:fr: Pizza au fromage ou Pizza margherita
+wikidata:en: Q500724
+
+< en:Vegetarian pizzas
+en: Cheese and tomato pizzas, Cheese and tomato pizza
+da: Ost- og tomatpizzaer, Pizzaer med ost og tomat
+fr: Pizzas tomates fromage, Pizza au fromage et aux tomates
+lt: Picos su sūriu ir pomidorų padažu
+sv: Ost- och tomatpizzor
 agribalyse_food_code:en: 25404
 ciqual_food_code:en: 25404
 ciqual_food_name:en: Pizza, cheese and tomato or Margherita pizza
@@ -85879,15 +86176,19 @@ ciqual_food_name:fr: Pizza au fromage ou Pizza margherita
 
 < en:Pizzas
 en: Vegetarian pizzas
+da: Vegetariske pizzaer
 fr: Pizzas végétariennes, pizza végétarienne
+sv: Vegetarianska pizzor
 agribalyse_proxy_food_code:en: 25472
 ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_proxy_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
-< en:Pizzas
-en: Plant-based pizzas, Vegetal pizzas, vegan pizzas
-fr: Pizzas végétales, pizzas végétaliennes, pizzas véganes, pizza végétale, pizza végétalienne, pizza végane
+< en:Vegetarian pizzas
+en: Vegan pizzas, Plant-based pizzas, Vegetal pizzas
+da: Veganske pizzaer
+fr: Pizzas véganes, Pizzas végétales, pizzas végétaliennes, pizza végétale, pizza végétalienne, pizza végane
+sv: Veganska pizzor
 agribalyse_proxy_food_code:en: 25472
 ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
@@ -86030,7 +86331,7 @@ bg: Пица с шунка
 de: Schinkenpizzas
 es: Pizzas de jamón york
 fi: kinkkupizzat
-fr: Pizzas au jambon
+fr: Pizzas au jambon, Pizza au jambon
 hr: Pizze sa šunkom
 it: Pizze al prosciutto
 lt: Picos su kumpiu
@@ -86040,8 +86341,8 @@ agribalyse_proxy_food_name:en: Pizza, cured ham
 agribalyse_proxy_food_name:fr: Pizza au speck ou jambon cru
 
 < en:Ham pizzas
-en: Cured Ham Pizza
-fr: Pizza au jambon, Pizza au jambon cru
+en: Cured ham pizza
+fr: Pizza au jambon cru
 hr: Pizza sa suhom šunkom
 lt: Picos su vytintu kumpiu
 agribalyse_food_code:en: 26274
@@ -86069,7 +86370,6 @@ ciqual_food_code:en: 26271
 ciqual_food_name:en: Pizza, kebab
 ciqual_food_name:fr: Pizza kebab
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Vegetable pizza, Four seasons pizza, Pizza quattro stagioni
 es: Pizzas de verduras
@@ -86083,7 +86383,6 @@ ciqual_food_code:en: 25472
 ciqual_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Cheese pizzas
 bg: Пица със сирена
@@ -86159,7 +86458,7 @@ agribalyse_proxy_food_code:en: 25478
 agribalyse_proxy_food_name:en: Pizza, four cheeses
 agribalyse_proxy_food_name:fr: Pizza 4 fromages
 
-< en:Cheese pizzas
+< en:Pizzas
 en: Cheese and onion pizza with lardoons
 fr: Pizza aux lardons oignons et fromage
 hr: Pizza od sira i luka s pečenjem
@@ -86169,7 +86468,7 @@ ciqual_food_code:en: 25570
 ciqual_food_name:en: Pizza, lardoons onions and cheese
 ciqual_food_name:fr: Pizza aux lardons, oignons et fromage
 
-< en:Cheese pizzas
+< en:Pizzas
 en: Pizza with raclette cheese and lardoons, Pizza with tartiflette cheese and lardoons
 fr: Pizza type raclette, Pizza type tartiflette, Pizza à la montagnarde, Pizzas raclette
 hr: Pizza s raclette sirom i pečenicama
@@ -86893,6 +87192,7 @@ lt: Makaronų salotos su vištiena
 
 < en:Pies
 en: Double crust pies, Two-crust pies, 2 crust pies
+es: Empanadas grandes
 fr: Tourtes, Tourte
 hr: Pite s dvije kore
 nl: Pasteitjes
@@ -87108,6 +87408,45 @@ lt: Mėsos padaže
 ciqual_food_code:en: 25172
 ciqual_food_name:en: Meat in sauce (average)
 ciqual_food_name:fr: Viande en sauce (aliment moyen)
+
+< en:Beef and its products
+< en:Meats in sauce
+en: Beef in sauce
+fr: Viandes de bœuf en sauce
+
+< en:Beef in sauce
+en: Beef tongues in sauce
+fr: Langues de bœuf en sauce
+
+< en:Beef tongues in sauce
+en: Tongue of beef with hot sauce
+fr: Langues de bœuf sauce piquante, Langue de bœuf sauce piquante
+hr: Goveđi jezik s ljutim umakom
+lt: Jautienos liežuvis su aštriu padažu
+nl: Kalfstong in pikante saus
+
+< en:Beef tongues in sauce
+en: Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce, Beef tongue with Madeira wine sauce
+fi: Naudan kielet madeirakastikkeella
+fr: Langues de bœuf sauce madère, Langue de bœuf sauce madère
+hr: Goveđi jezici s madeira umakom
+lt: Jautienos liežuvis su Madeira padažu
+nl: Rundertong op basis van Madeirasaus
+ciqual_food_code:en: 25201
+ciqual_food_name:en: Beef tongue with Madeira wine sauce
+ciqual_food_name:fr: Langue de bœuf sauce madère
+
+< en:Beef in sauce
+en: Ox muzzle in sauce
+fr: Museau de boeuf en sauce
+
+< en:Ox muzzle in sauce
+en: Ox muzzle in salad dressing sauce
+fr: Museau de boeuf en vinaigrette
+agribalyse_food_code:en: 25610
+ciqual_food_code:en: 25610
+ciqual_food_name:en: Ox muzzle in salad dressing sauce
+ciqual_food_name:fr: Museau de boeuf en vinaigrette
 
 < en:Prepared meats
 en: Dried meats
@@ -87878,26 +88217,6 @@ agribalyse_food_code:en: 40203
 ciqual_food_code:en: 40203
 ciqual_food_name:en: Tongue, beef, cooked
 ciqual_food_name:fr: Langue, boeuf, cuite
-
-< en:Beef preparations
-< en:Beef tongues
-en: Tongue of beef with hot sauce
-fr: Langues de bœuf sauce piquante, Langue de bœuf sauce piquante
-hr: Goveđi jezik s ljutim umakom
-lt: Jautienos liežuvis su aštriu padažu
-nl: Kalfstong in pikante saus
-
-< en:Beef preparations
-< en:Beef tongues
-en: Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce, Beef tongue with Madeira wine sauce
-fi: Naudan kielet madeirakastikkeella
-fr: Langues de bœuf sauce madère, Langue de bœuf sauce madère
-hr: Goveđi jezici s madeira umakom
-lt: Jautienos liežuvis su Madeira padažu
-nl: Rundertong op basis van Madeirasaus
-ciqual_food_code:en: 25201
-ciqual_food_name:en: Beef tongue with Madeira wine sauce
-ciqual_food_name:fr: Langue de bœuf sauce madère
 
 < en:Beef
 en: Beef knuckle
@@ -88829,14 +89148,6 @@ en: Frozen Yakitori chicken skewers, frozen yakitori chicken
 fr: Brochettes de poulet Yakitori surgelées, Yakitori de Poulet surgelé, Poulet Yakitori surgelé
 
 < en:Beef preparations
-en: Ox muzzle in salad dressing sauce
-fr: Museau de boeuf en vinaigrette
-agribalyse_food_code:en: 25610
-ciqual_food_code:en: 25610
-ciqual_food_name:en: Ox muzzle in salad dressing sauce
-ciqual_food_name:fr: Museau de boeuf en vinaigrette
-
-< en:Beef preparations
 en: Ox muzzle
 fr: Museau de boeuf
 ciqual_food_code:en: 8450
@@ -88907,6 +89218,11 @@ es: Carne de vacuno y sus productos
 fr: Viande de bœuf et dérivés, viande de boeuf et dérivés
 hr: Govedina i njeni proizvodi
 nl: Rundvlees en afgeleide producten
+
+< en:Beef and its products
+< en:Marinated meats
+en: Marinated beef meats
+fr: Viandes de bœuf marinées
 
 < en:Beef and its products
 < en:Meat preparations
@@ -89327,6 +89643,11 @@ lt: Kiauliena ir jos produktai
 nl: Varken en afgeleide producten
 pl: Wieprzowina i jej produkty
 incompatible_with:en: labels:en:kosher
+
+< en:Marinated meats
+< en:Pork and its products
+en: Marinated pork meats
+fr: Viandes de porc marinées
 
 < en:Pork and its products
 en: Pork (prepared)
@@ -90651,6 +90972,11 @@ gpc_category_description:en: Definition: Includes products from animals of the s
 gpc_category_name:en: Turkey - Prepared/Processed
 intake24_category_code:en: TURK
 
+< en:Marinated meats
+< en:Turkey and its products
+en: Marinated turkey meats
+fr: Viandes de dinde marinées
+
 < en:Meat patties
 < en:Turkey preparations
 en: Turkey patties
@@ -91247,6 +91573,19 @@ es: Pollo y sus productos
 fr: Poulet et dérivés
 hr: Piletine i njenih proizvoda
 nl: Kip en afgeleide producten
+
+< en:Chicken and its products
+< en:Marinated meats
+en: Marinated chicken meats
+fr: Viandes de poulet marinées
+
+< en:Marinated chicken meats
+en: Marinated chicken breasts
+fr: Filets de poulet marinés
+
+< en: Marinated chicken meats
+en: Marinated hacked chicken
+fr: Hachés de poulet marinés
 
 < en:Chicken and its products
 < en:Poultries
@@ -99316,6 +99655,35 @@ sv: Punschrullar, Dammsugare, Arraksrullar, 150-ohmare
 wikidata:en: Q2253902
 wikipedia:en: https://en.wikipedia.org/wiki/Punsch-roll
 
+< en:Confectioneries
+< en:Pastries
+en: Rum balls
+ar: كرات الروم
+az: Kartof şirniyyatı
+be: Бульба (дэсерт)
+ca: Boles de rom
+cs: Rumové koule
+da: Romkugler, Trøfler (wienerbrød), Trøffelkugler
+de: Rumkugeln
+eo: Rumpilkoj
+es: Bola de ron
+ga: Liathróidí rum
+hy: Կարտոֆիլ
+is: Rommkúlur
+it: Tartufo al rum
+ja: ラムボール
+jv: Bal rum
+lt: Romo kamuoliukai
+nb: Romkuler
+nn: Romkuler
+pl: Bajadera
+ru: Ромовые шарики
+sv: Rombollar
+uk: Картопля (тістечко)
+yi: רום באַללס
+zh: 朗姆酒球
+wikidata:en: Q270997
+
 < en:Pastries
 en: Churros
 xx: Churros
@@ -99928,7 +100296,7 @@ gpc_category_name:en: Pickles/Relishes/Chutneys/Olives Variety Packs
 en: Pies
 bg: Пайове
 ca: Pastissos
-es: Empanadas
+es: Tartas
 fi: piirakat
 fr: Tartes
 hr: Pite, pita
@@ -100404,6 +100772,7 @@ nl: Producten verkocht i de jaren 90
 en: Products without gluten, gluten-free products, gluten free
 bg: Продукти без глутен
 cs: Bezlepkové potraviny
+da: Produkter uden gluten, Glutenfri produkter
 de: Glutenfrei
 es: Productos sin gluten
 fi: gluteeniton
@@ -100416,6 +100785,7 @@ nl: Glutenvrije producten
 pl: Produkty bezglutenowe
 pt: Produtos sem glútem
 ru: Безглютеновые продукты
+sv: Produkter utan gluten, Glutenfria produkter
 
 < en:Products without gluten
 en: Gluten free bread mixes
@@ -102605,6 +102975,7 @@ fr: Crevettes panées
 < en:Crustaceans
 en: Shrimps
 bg: Скариди
+ca: Gambes
 de: Garnele
 es: Camarones, Camarón
 fi: pirpana
@@ -102731,6 +103102,15 @@ ciqual_food_name:fr: Crevette, crue
 wikidata:en: Q1058410
 
 < en:Prawns
+en: Blue and red shrimp, Red prawn, Aristeus antennatus
+ca: Gamba vermella, gamba roja, gamba de Palamós, gamba rosada
+es: Gamba roja, gamba rosada
+fr: Crevette rouge, gambon rouge
+it: Gambero rosso mediterraneo
+la: Aristeus antennatus
+wikidata:en: Q500678
+
+< en:Prawns
 en: Deep water pink shrimps
 fr: Crevettes roses
 agribalyse_food_code:en: 10059
@@ -102740,11 +103120,14 @@ ciqual_food_name:fr: Crevette rose, crue
 
 < en:Deep water pink shrimps
 en: Cooked Prawns
+ca: Gamba blanca, gamba d'altura
+es: Gamba blanca, gamba de altura
 fr: Crevettes roses cuites
 agribalyse_food_code:en: 10007
 ciqual_food_code:en: 10007
 ciqual_food_name:en: Shrimp or prawn, cooked
 ciqual_food_name:fr: Crevette, cuite
+wikidata:en: Q8062343
 
 
 < en:Seafood
@@ -102963,6 +103346,10 @@ fr: Préparations de thon
 < en:Fish preparations
 en: Salmon preparations
 fr: Préparations de saumon
+
+< en:Salmon preparations
+en: Salmon tartares
+fr: Tartares de saumon
 
 < en:Fish preparations
 en: Fish (Freshly prepared)
@@ -109710,8 +110097,8 @@ ru: Маринованные растительные продукты
 sv: Inlagda växter
 intake24_category_code:en: PION
 
-< en:Canned vegetables
 < en:Plant-based pickles
+< en:Prepared vegetables
 en: Pickled vegetables, Vegetable pickles
 da: Syltede grøntsager
 de: Eingelegtes Gemüse
@@ -109795,17 +110182,8 @@ sv: Gurkor i lag, Inlagda gurkor
 tr: Salatalık turşusu, Hıyar turşusu
 wikidata:en: Q1365891
 
-< en:Cucumbers
-en: Small cucumbers, Gherkins (non-pickled)
-sv: Smågurkor
-
-< en:Small cucumbers
-en: Gherkins
-comment:en: “Gherkins” can refer to both non-pickled and pickled small cucumbers
-
-< en:Gherkins
 < en:Pickled cucumbers
-en: Pickled gherkins, Gherkins (pickled), Pickled small cucumbers
+en: Pickled gherkins, Gherkins (pickled), Pickled small cucumbers, Gherkins
 bg: Кисели краставички
 de: Essiggurken
 es: Pepinillos, Pepinillos encurtidos
@@ -109816,7 +110194,8 @@ hu: Csemegeuborka
 it: Cetriolini
 nl: Ingemaakte Augurken
 sv: Smågurkor i lag, Inlagda smågurkor
-comment:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
+comment:en: “Gherkins” can refer to both non-pickled and pickled small cucumbers, but in actual use on products it seems like it far more often refers to pickled small cucumbers than small cucumbers in general.
+description:en: Pickled small cucumbers (gherkins) regardless of the method used to pickle them.
 intake24_category_code:en: GHRK
 intake24_category_code:fr: GHRK
 
@@ -109867,8 +110246,8 @@ fr: Cornichons mi-fins
 < en:Gherkins
 fr: Cornichons malossol
 
-< en:Gherkins
-en: Gherkins in sweet and sour sauce
+< en:Pickled gherkins
+en: Sweet and sour gherkins, Gherkins in sweet and sour sauce
 fr: Cornichons aigres-doux, Cornichon aigre-doux
 hr: Kornišoni u slatko-kiselom umaku
 nl: Zoetzure augurken
@@ -111671,6 +112050,10 @@ hr: Svježi krastavci
 pl: Ogórki świeże
 sales_format:en: weight, package
 season_in_country_fr:en: 5,6,7,8,9,10
+
+< en:Cucumbers
+en: Small cucumbers, Gherkins (non-pickled)
+sv: Smågurkor
 
 < en:Vegetables
 en: Endives, Endive, Escaroles
@@ -123717,6 +124100,13 @@ lt: Koldūnai su daržovėmis
 nb: Dumplings med grønnsaker
 sv: Dumplingar med grönsaker, Dumplings med grönsaker
 
+# Empanadas are dumpling consumed in Spain and latin America. They are called "Empanadas" in latin America, while this word designate double crust pies in Spain. The dumplings are called "Empanadillas" in Spain.
+< en:Dumplings
+xx: Empanadas
+en: Empanadas
+es: Empanadas, Empanadillas
+wikidata:en: Q747457
+
 < en:Dumplings
 en: Chinese dumplings, Chinese dumpling, Dim Sum
 fi: Kiinalaiset mykyt, Kiinalainen myky
@@ -124523,10 +124913,6 @@ ciqual_food_code:en: 23493
 ciqual_food_name:en: Apple crumble
 ciqual_food_name:fr: Crumble aux pommes
 #wikidata:en:
-
-< en:Pastries
-en: Soan papdi
-fr: Soan papdi
 
 en: stuffing
 de: Füllung

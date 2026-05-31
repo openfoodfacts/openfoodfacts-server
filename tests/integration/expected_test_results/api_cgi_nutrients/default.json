@@ -339,7 +339,7 @@
                      "display_in_edit_form" : false,
                      "id" : "galactose",
                      "important" : false,
-                     "name" : "Galactose",
+                     "name" : "galactose",
                      "unit" : "g"
                   },
                   {
@@ -462,7 +462,7 @@
                "display_in_edit_form" : false,
                "id" : "casein",
                "important" : false,
-               "name" : "Casein",
+               "name" : "casein",
                "unit" : "g"
             },
             {
@@ -499,7 +499,7 @@
          "unit" : "g"
       },
       {
-         "display_in_edit_form" : true,
+         "display_in_edit_form" : false,
          "id" : "sodium",
          "important" : false,
          "name" : "Sodium",
@@ -761,7 +761,7 @@
          "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
-         "name" : "PH",
+         "name" : "pH",
          "unit" : ""
       },
       {
