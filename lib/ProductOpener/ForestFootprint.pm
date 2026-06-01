@@ -113,7 +113,7 @@ sub load_forest_footprint_data() {
 			# as we can select them and stop matching if their conditions are met.
 
 			my @types = ();
-			my $errors = 0;
+
 
 			for (my $i = scalar(@{$rows[0]}) - 1; $i >= 2; $i--) {
 
