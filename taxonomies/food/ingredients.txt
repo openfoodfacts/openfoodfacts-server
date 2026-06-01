@@ -18481,6 +18481,8 @@ zh: 乙醇
 # zh-mo:乙醇
 # zh-sg:乙醇
 # zh-tw:乙醇
+ciqual_food_code:en: 1014
+ciqual_food_name:en: Pure alcohol
 wikidata:en: Q153
 wikipedia:en: https://en.wikipedia.org/wiki/Ethanol
 # fr:alcool-éthylique has 237 products in 5 languages @2018-10-29
@@ -23800,8 +23802,10 @@ it: friscello di grano duro
 en: pre-cooked durum wheat, pre-cooked durum
 fr: blé dur précuit
 hr: prethodno kuhana durum pšenica
-# 167 @2021-09-28
 it: grano duro precotto, grano duro pre cotto
+ciqual_proxy_food_code:en: 9081
+ciqual_proxy_food_name:en: Durum wheat pre-cooked, whole grain, cooked, no added salt
+# 167 @2021-09-28
 
 < en:pre-cooked durum wheat
 fr: blé dur précuit concassé, blé dur concassé précuit
@@ -24100,6 +24104,8 @@ zh: 面筋
 # zh-hans:面筋
 # zh-hant:麵筋
 # zh-hk:麵筋
+ciqual_food_code:en: 25598
+ciqual_food_name:en: Seitan, prepacked
 wikidata:en: Q943935
 wikipedia:en: https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 # ingredient/fr:seitan has 43 products @2019-02-09
@@ -24635,6 +24641,8 @@ pl: płatki jęczmienne
 ro: fulgi de orz
 ru: хлопья ячменные
 sv: kornflingor
+ciqual_proxy_food_code:en: 9320
+ciqual_proxy_food_name:en: Barley, wholegrain, raw
 
 < en:barley flakes
 < en:wholemeal barley
@@ -25515,7 +25523,9 @@ nl: amaranthmeel, amarant gemalen
 pl: mąka z amarantusa, mąka amarantusowa
 sl: amarente flour
 sv: amarantmel
-# 249 in 10 @2021-10-05
+ciqual_proxy_food_code:en: 9345
+ciqual_proxy_food_name:en: Amaranth, raw
+ciqual_proxy_food_name:fr: Amarante, crue# 249 in 10 @2021-10-05
 
 < en:amaranth flour
 < en:wholemeal flour
@@ -25523,6 +25533,9 @@ en: whole grain amaranth flour
 de: Amaranthvollkornmehl, Amaranth-Vollkornmehl
 hr: brašno od cijelog zrna amaranta
 it: farina integrale di amaranto
+ciqual_proxy_food_code:en: 9345
+ciqual_proxy_food_name:en: Amaranth, raw
+ciqual_proxy_food_name:fr: Amarante, crue
 
 < en:amaranth
 fr: amarante soufflé
@@ -25531,6 +25544,9 @@ de: gepuffter Amaranth
 es: amaranto inflado
 hr: ekspandirani amarant
 sr: експандиран амарант
+ciqual_proxy_food_code:en: 9345
+ciqual_proxy_food_name:en: Amaranth, raw
+ciqual_proxy_food_name:fr: Amarante, crue
 
 ##################################################################################
 #
@@ -25838,6 +25854,9 @@ ru: овсяная мука, мука овсяная
 sk: ovsená múka
 sl: ovsena moka
 sv: havremjöl
+ciqual_proxy_food_code:en: 9311
+ciqual_proxy_food_name:en: Oatmeal flakes
+ciqual_proxy_food_name:fr: Flocon d'avoine
 wikidata:en: Q84470231
 #1041 @2021-09-22
 
@@ -26981,8 +27000,11 @@ yi: מעל
 zh: 麵粉
 carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 carbon_footprint_fr_foodges_value:fr: 1.2
-ciqual_proxy_food_code:en: 9410
-ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
+# this better reflects what is used in practice
+ciqual_proxy_food_code:en: 9435
+ciqual_proxy_food_name:fr: Farine de blé
+#ciqual_proxy_food_code:en: 9410
+#ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
 # Ecobalyse flour is Wheat flour at industrial mill
 ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
 ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
@@ -27190,6 +27212,8 @@ nl: gemout tarwemeel, tarwemoutmeel, tarwemoutbloem
 pl: mąka słodowa pszenna, mąka pszenna słodowana, mąka pszenna słodowa, mąka ze słodu pszennego
 pt: farinha de malte de trigo
 sv: vetemaltmjöl
+ciqual_proxy_food_code:en: 9435
+ciqual_proxy_food_name:fr: Farine de blé
 
 < en:wheat malt
 fr: blé malté torréfié concassé
@@ -29937,6 +29961,8 @@ it: riso soffiato
 nl: gepofte rijst, rijst pofte
 pt: arroz tufado
 sv: riskrisp, puffat ris
+ciqual_proxy_food_code:en: 32006
+ciqual_proxy_food_name:en: Puffed rice, plain, fortified with vitamins and minerals
 # ingredient/fr:riz-soufflé has 180 products in 10 languages @2018-12-19
 # ingredient/fr:riz-croustillant has 44 products in 2 languages @2018-12-19
 # usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
@@ -32443,6 +32469,12 @@ fr: sirop d'amidon
 hr: škrobni sirup
 it: sciroppo di amido
 
+< en:syrup
+nl: speltstroop
+ciqual_proxy_food_code:en: 31016
+ciqual_proxy_food_name:en: Sugar, white
+ciqual_proxy_food_name:fr: Sucre blanc
+
 < en:starch syrup
 en: corn starch syrup
 fr: sirop d'amidon de maïs
@@ -32474,6 +32506,8 @@ pl: syrop klonowy
 ro: sirop de arţar
 ru: кленовый сироп
 sv: lönnsirap
+ciqual_food_code:en: 31034
+ciqual_food_name:en: maple syrup
 vegan:en: yes
 vegetarian:en: yes
 
@@ -32485,6 +32519,8 @@ fr: sirop d’érable canadien
 hr: kanadski javorov sirup
 hu: kanadai juharszirup
 it: sciroppo d'acero canadese
+ciqual_proxy_food_code:en: 31034
+ciqual_proxy_food_name:en: maple syrup
 
 < en:maple syrup
 en: pure maple syrup
@@ -32495,16 +32531,21 @@ fi: Puhdas vaahterasiirappi
 fr: Sirop d'érable pur
 hr: čisti javorov sirup
 it: sciroppo d'acero puro
+ciqual_proxy_food_code:en: 31034
+ciqual_proxy_food_name:en: maple syrup
 # ingredient/fr:sirop-d-erable-pur has 20 products in french @2019-05-23
 
-< en:maple syrup
-en: organic maple syrup
-da: økologisk ahornsirup
-fi: luomu vaahterasiirappi
-fr: sirop d'érable biologique
-hr: organski javorov sirup
-hu: bio juharszirup
-it: sciroppo d'acero biologico
+# handled by ingredients processing
+#< en:maple syrup
+#en: organic maple syrup
+#da: økologisk ahornsirup
+#fi: luomu vaahterasiirappi
+#fr: sirop d'érable biologique
+#hr: organski javorov sirup
+#hu: bio juharszirup
+#it: sciroppo d'acero biologico
+#ciqual_food_code:en: 31034
+#ciqual_food_name:en: maple syrup
 
 < en:disaccharide
 < en:syrup
@@ -36277,6 +36318,8 @@ ro: gluten de grâu, gluten din grâu
 sk: pšeničny gluten
 sl: pšenični gluten
 sv: vetegluten
+ciqual_proxy_food_code:en: 25598
+ciqual_proxy_food_name:en: Seitan, prepacked
 
 < en:wheat gluten
 fr: gluten vital de blé
@@ -42760,7 +42803,7 @@ bg: касис
 ca: riber negre
 cs: černého rybízu
 da: solbær
-de: schwarze Johannisbeere, schwarze Johannisbeeren, schwarzen Johannisbeeren, schwarzer Johannisbeer
+de: schwarze Johannisbeere, schwarze Johannisbeeren, schwarzen Johannisbeeren, schwarzer Johannisbeer, schwarzer Johannesbeer
 el: φραγκοστάφυλο, μαύρα φραγκοστάφυλα
 es: grosella negra, grosellas negras
 et: must sõstar, mustsõstra
@@ -42900,7 +42943,7 @@ be: Ягаднік
 bg: боровинка, боровинки
 cs: Borůvka
 da: blåbær, bølle
-de: Heidelbeeren, Blaubeeren, Heidelbeere
+de: Heidelbeeren, Blaubeeren, Heidelbeere, Heidelbeer
 eo: mirtelo
 es: arándano, arándanos, mirtilo
 et: mustikas, mustikad
@@ -44663,6 +44706,8 @@ sq: Goji
 sv: Gojibär
 te: గోజీ
 vi: Củ khởi
+ciqual_proxy_food_code:en: 13138
+ciqual_proxy_food_name:en: Goji berry, dried
 wikidata:en: Q2617260
 wikipedia:en: https://en.wikipedia.org/wiki/Goji
 
@@ -44673,6 +44718,8 @@ fi: kuivatut goji-marjat
 fr: baies de goji séchées
 hr: sušene goji bobice
 it: bacche di goji essiccate
+ciqual_food_code:en: 13138
+ciqual_food_name:en: Goji berry, dried
 # ingredient/fr:baies-de-goji-sechees has 52 products in 4 languages @2019-05-23
 
 ###################################################################################################
@@ -46047,8 +46094,10 @@ tr: ananas suyu
 zh: 菠萝汁
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'ananas
 # 287 products in 6 languages @2018-09-30
-ciqual_food_code:en: 13716
-ciqual_food_name:en: Pineapple, in pineapple juice, canned, drained
+ciqual_food_code:en: 2073
+ciqual_food_name:en: Pineapple juice, pure juice
+#ciqual_food_code:en: 13716
+#ciqual_food_name:en: Pineapple, in pineapple juice, canned, drained
 
 < en:pineapple juice
 en: concentrated pineapple juice, pineapple juice concentrate
@@ -46522,7 +46571,7 @@ en: redcurrant, red currant
 bg: червен касис, френско грозде
 cs: červený rybíz, červené rybízy, červeného rybízu
 da: røde bær, ribs
-de: rote Johannisbeere, rote Johannisbeeren, roten Johannisbeeren
+de: rote Johannisbeere, rote Johannisbeeren, roten Johannisbeeren, rote Johannesbeeren
 el: κόκκινα φραγκοστάφυλα
 es: grosella roja, grosellas rojas
 et: punase sõstra
@@ -54103,6 +54152,8 @@ tr: havuç suyu
 zh: 胡萝卜汁
 # jam:Kiarat juus
 # yue:紅蘿蔔汁
+ciqual_food_code:en: 2006
+ciqual_food_name:en: Carrot juice, pure juice
 wikidata:en: Q1190074
 wikipedia:en: https://en.wikipedia.org/wiki/Carrot_juice
 # en:carot-juice has 188 products in 4 languages 2018-10-20
@@ -54583,6 +54634,8 @@ uk: тапіока
 vi: bột năng
 zh: 木薯根淀粉
 #lfn:tapioca
+ciqual_food_code:en: 4000
+ciqual_food_name:fr: Tapioca, raw
 description:en: TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 wikidata:en: Q873761
 wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
@@ -54840,6 +54893,8 @@ de: vorgegarte Kartoffeln, Kartoffeln (vorgegart), Speisekartoffeln gekocht
 fr: pommes de terre précuites
 hr: prethodno kuhani krumpir
 it: patate precotte
+ciqual_proxy_food_code:en: 4027
+ciqual_proxy_food_name:en: Potato, sautéed/pan-fried, pre-fried, frozen, cooked
 
 < en:potato
 en: russet potatoes
@@ -55541,9 +55596,12 @@ fr: aubergine grillée, aubergines grillées
 hr: patlidžane na žaru
 it: melanzane alta griglia, melanzane grigliate
 nl: gegrilde aubergine
+ciqual_food_code:en: 20300
+ciqual_food_name:en: Eggplant, flesh and skin, roasted/baked
 # treatment:en:en:gril
 # fr:aubergine-grillée has 54 products in 1 language @2018-10-17
 # fr:aubergines-grillées has 123 products in 4 languages @2018-10-17
+
 
 < en:aubergine
 fr: aubergine préfrite, aubergines préfrites
@@ -56624,6 +56682,12 @@ ciqual_food_name:en: Sweet pepper, yellow, raw
 ciqual_food_name:fr: Poivron jaune, cru
 # 1222 in 1 language @2021-10-13
 
+< en:yellow bell pepper
+en: grilled yellow bell pepper
+fr: poivron jaune grillé
+ciqual_proxy_food_code:en: 20328
+ciqual_proxy_food_name:en: Sweet pepper, yellow, sautéed/pan-fried, without added fat
+
 # green pepper should not be a synonym of green bell pepper
 
 < en:bell pepper
@@ -56688,8 +56752,11 @@ ciqual_food_name:fr: Poivron rouge, cru
 
 < en:red bell pepper
 en: red grilled pepper, red grilled capsicum
+fr: poivron rouge grillée
 hr: crvena pečena paprika
 it: peperone rosso grigliato
+ciqual_proxy_food_code:en: 20329
+ciqual_proxy_food_name:en: Sweet pepper, red, sautéed/pan-fried, without added fat
 
 < en:sweet pepper
 en: italian pepper
@@ -58642,6 +58709,8 @@ fr: courgette grillée, courgettes grillées
 hr: tikvice na žaru
 it: zucchine grigliate
 nl: gegrilde courgette
+ciqual_food_code:en: 20313
+ciqual_food_name:en: Courgette or zucchini, flesh and skin, roasted/baked
 # en:grilled-courgette has 238 products in 5 languages @2018-10-26
 
 < en:Courgette
@@ -59404,7 +59473,7 @@ es: judías mungo, habas de mungo
 et: munguba
 fa: ماش
 fi: mungpapu
-fr: haricot mungo
+fr: haricot mungo, haricots mungo
 gu: મગ
 he: מש
 hi: मूँग
@@ -59447,7 +59516,6 @@ vi: đậu xanh
 za: duhheu
 zh: 綠豆
 #579 @2021-10-06
-eurocode_2_group_3:en: 7.10.38
 #aeb: لوبيا
 #arz:بقله الماش
 #cdo:liŏh-dâu
@@ -59458,6 +59526,9 @@ eurocode_2_group_3:en: 7.10.38
 #pnb:مونگ
 #wuu:绿豆
 #yue:綠豆
+ciqual_food_code:en: 20530
+ciqual_food_name:en: Beans, mung, mature, seeds, dried
+eurocode_2_group_3:en: 7.10.38
 wikidata:en: Q484447
 wikipedia:en: https://en.wikipedia.org/wiki/Mung_bean
 
@@ -60921,6 +60992,8 @@ hr: brašno od leće
 it: farina di lenticchie
 nl: linsenmeel
 sv: linsmjöl
+ciqual_proxy_food_code:en: 20359
+ciqual_proxy_food_name:en: Lentil, dried (average)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:linssijauho
 # 1 entry @ 2019-10-31
 
@@ -61410,7 +61483,7 @@ en: almond paste
 de: Mandelmus, Mandelpaste, Mandelmasse
 es: masa fina de mazapán, pasta de almendra
 fi: mantelitahna
-fr: pâte d'amande, pâte d'amandes, purée d'amande, purée d'amandes
+fr: pâte d'amande, pâte d'amandes, purée d'amande, purée d'amandes, beurre d'amande
 hr: pasta od badema, bademova pasta
 it: pasta di mandorle
 ja: アーモンドペースト
@@ -63040,6 +63113,9 @@ sr: Семенке чиа
 sv: chiafrö, chiafrön
 th: เมล็ดชีอา
 zh: 奇亞籽
+ciqual_proxy_food_code:en: 15047
+ciqual_proxy_food_name:en: Seeds, chia, dried
+ciqual_proxy_food_name:fr: Chia, graine, séchée
 description:en: Chia is grown commercially for its seed, a food rich in omega-3 fatty acids since the seeds yield 25–30% extractable oil, including α-linolenic acid.
 description:it: I semi di chia, ricchi di omega-3, sono paragonabili dal punto di vista nutrizionale a quelli del lino e del sesamo.
 # ingredient/chia-seed 2376 in 18 @2021-08-20
@@ -63050,6 +63126,9 @@ wikidata:en: Q27688832
 en: white chia seed, white chia seeds
 fr: graine de chia blanches
 nl: witte chiazaad
+ciqual_proxy_food_code:en: 15047
+ciqual_proxy_food_name:en: Seeds, chia, dried
+ciqual_proxy_food_name:fr: Chia, graine, séchée
 
 < en:chia seed
 en: dried chia seeds
@@ -63332,7 +63411,7 @@ it: pasta di semi di canapa
 
 < en:pumpkin
 < en:seed
-en: pumpkin seed
+en: pumpkin seed, seeds of squash
 ar: لب
 be: насенне гарбуза
 bg: тиквено семе, тиквени семена
@@ -63365,6 +63444,8 @@ tt: кабак төше
 uk: насіння гарбуза
 vi: hạt bí
 zh: 南瓜籽, 南瓜子
+ciqual_proxy_food_code:en: 15064
+ciqual_proxy_food_name:en: Pumpkin and squash, seed, dried
 wikidata:en: Q3056521
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-courge
 # 234 products in 5 languages @2018-10-07
@@ -63400,6 +63481,9 @@ lt: aguonos
 pl: mak, makowy, makowa, makowe, maku
 pt: papoila
 sv: vallmo
+ciqual_proxy_food_code:en: 11061
+ciqual_proxy_food_name:en: Poppy, seed
+ciqual_proxy_food_name:fr: Pavot, graine
 
 < en:poppy
 # processing:en: en:seed
@@ -65654,6 +65738,9 @@ carbon_footprint_fr_foodges_value:fr: 2.2
 # vls:kanêel
 # yue:肉桂
 # zh-tw:陰香
+ciqual_proxy_food_code:en: 11025
+ciqual_proxy_food_name:en: Cinnamon, powder
+ciqual_proxy_food_name:fr: Cannelle, poudre
 wikidata:en: Q28165
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
@@ -71954,6 +72041,8 @@ nl: vanillepoeder
 pl: wanilia w proszku
 pt: vanille em pó
 sv: vaniljpulver
+ciqual_proxy_food_code:en: 11057
+ciqual_proxy_food_name:en: Vanilla, pod
 # ingredient/fr:vanille-en-poudre has 110 products in 10 languages @2019-02-24
 
 < en:Bourbon vanilla
@@ -73348,9 +73437,11 @@ zh: 食用蕈, 蕈類
 # en:mushroom has 1817 products in 16 languages @2018-11-02
 carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
 carbon_footprint_fr_foodges_value:fr: 1.9
-ciqual_food_code:en: 20010
-ciqual_food_name:en: Mushroom, all types, raw
-ciqual_food_name:fr: Champignon, tout type, cru
+ciqual_food_code:en: 20056
+ciqual_food_name:en: Button mushroom or cultivated mushroom, raw
+#ciqual_food_code:en: 20010
+#ciqual_food_name:en: Mushroom, all types, raw
+#ciqual_food_name:fr: Champignon, tout type, cru
 ecobalyse:en: mushroom-eu
 eurocode_2_group_2:en: 8.50
 nutriscore_fruits_vegetables_nuts:en: yes
@@ -74333,6 +74424,8 @@ nl: shiitake, zwarte paddestoel, Chinese champignons, chinese paddenstoel
 pl: shiitake, grzyby shiitake, grzybów shiitake
 pt: Shiitake
 sv: svart champinjon
+ciqual_proxy_food_code:en: 20211
+ciqual_proxy_food_name:en: Shiitake mushroom, dried
 # fr:champignon-noir has 111 products in 2 languages @2018-11-01
 # ingredient/fr:Lentinus-edodes has 21 products in french @2018-01-22
 eurocode_2_group_3:en: 8.50.55
@@ -74345,6 +74438,8 @@ fr: champignon noir déshydraté
 hr: dehidrirane shiitake
 it: shiitake disidratato
 pl: grzyby suszone shiitake, suszone grzyby shiitake
+ciqual_food_code:en: 20211
+ciqual_food_name:en: Shiitake mushroom, dried
 
 < en:shiitake
 fr: champignon noir réhydraté, champignons noirs réhydratés
@@ -77455,6 +77550,9 @@ de: Wildlachs
 fr: saumon sauvage
 hr: divlji losos
 it: salmone selvatico
+ciqual_food_code:en: 26161
+ciqual_food_name:en: Salmon, wild, raw
+ciqual_food_name:fr: Saumon, cru, sauvage
 
 < en:salmon
 en: raw salmon
@@ -79492,6 +79590,8 @@ fi: savustettu kirjolohi
 fr: Truite arc-en-ciel fumée
 hr: dimljena kalifornijska pastrva
 it: trota iridea affumicata
+ciqual_proxy_food_code:en: 27009
+ciqual_proxy_food_name:en: Rainbow trout, raw, farmed
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:savustettu-kirjolohi
 # 1 entry @ 2019-10-31
 
@@ -91686,7 +91786,6 @@ tr: Soya sütü
 uk: Соєве молоко
 vi: Sữa đậu nành
 zh: 豆浆
-description:en: SOY MILK or soymilk is a plant-based drink produced by soaking and grinding soybeans, boiling the mixture, and filtering out remaining particulates.
 # ast:Bebida de soya
 # bar:Sojamilli
 # cdo:Dâu-ciŏng
@@ -91702,6 +91801,9 @@ description:en: SOY MILK or soymilk is a plant-based drink produced by soaking a
 # zh-hk:豆漿
 # zh-sg:豆浆
 # zh-tw:豆漿
+ciqual_food_code:en: 18900
+ciqual_food_name:en: Soy drink, plain, not fortified, prepacked
+description:en: SOY MILK or soymilk is a plant-based drink produced by soaking and grinding soybeans, boiling the mixture, and filtering out remaining particulates.
 wikidata:en: Q192199
 wikipedia:en: https://en.wikipedia.org/wiki/Soy_milk
 # ingredient/fr:tonyu has 105 products in 4 languages @2019-04-08
