@@ -3,7 +3,9 @@
       "body" : null,
       "content-type" : null,
       "method" : "GET",
-      "parameters" : {},
+      "parameters" : {
+         "fields" : "labels,stores,emb_codes,categories,labels"
+      },
       "path" : "/api/v3.6/product/200000000036"
    }
 }
