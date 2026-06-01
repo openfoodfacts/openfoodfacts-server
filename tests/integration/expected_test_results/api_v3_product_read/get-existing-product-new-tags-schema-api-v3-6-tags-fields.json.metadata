@@ -4,7 +4,7 @@
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "fields" : "stores,emb_codes,categories,origins,labels"
+         "fields" : "labels_tags,stores_tags,emb_codes_tags,categories_tags,origins_tags"
       },
       "path" : "/api/v3.6/product/200000000036"
    }

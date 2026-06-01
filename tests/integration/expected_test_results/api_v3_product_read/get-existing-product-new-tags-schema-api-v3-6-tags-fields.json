@@ -2,10 +2,29 @@
    "code" : "0200000000036",
    "errors" : [],
    "product" : {
-      "categories" : "Biscuits, Coffees",
-      "emb_codes" : "FR 56.081 CE, FR 56.082 CE",
-      "labels" : "Fair trade, EU Organic",
-      "stores" : "Carrefour, Méga-Marché"
+      "categories_tags" : [
+         "en:plant-based-foods-and-beverages",
+         "en:plant-based-foods",
+         "en:snacks",
+         "en:sweet-snacks",
+         "en:biscuits-and-cakes",
+         "en:biscuits-and-crackers",
+         "en:biscuits",
+         "en:coffees"
+      ],
+      "emb_codes_tags" : [
+         "fr-56-081-ec",
+         "fr-56-082-ec"
+      ],
+      "labels_tags" : [
+         "en:fair-trade",
+         "en:organic",
+         "en:eu-organic"
+      ],
+      "stores_tags" : [
+         "Carrefour",
+         "Méga-Marché"
+      ]
    },
    "result" : {
       "id" : "product_found",

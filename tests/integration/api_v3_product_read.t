@@ -362,11 +362,20 @@ my $tests_ref = [
 		path => '/api/v3.6/product/200000000036',
 		expected_status_code => 200,
 	},
+	# Those fields don't exist in v3.6
 	{
 		test_case => 'get-existing-product-new-tags-schema-api-v3-6-fields',
 		method => 'GET',
 		path => '/api/v3.6/product/200000000036',
-		query_string => '?fields=labels,stores,emb_codes,categories,labels',
+		query_string => '?fields=stores,emb_codes,categories,origins,labels',
+		expected_status_code => 200,
+	},
+	# _tags fields exist in v3.6
+	{
+		test_case => 'get-existing-product-new-tags-schema-api-v3-6-tags-fields',
+		method => 'GET',
+		path => '/api/v3.6/product/200000000036',
+		query_string => '?fields=labels_tags,stores_tags,emb_codes_tags,categories_tags,origins_tags',
 		expected_status_code => 200,
 	},
 	# in v3.5, asking for ?fields=stores,emb_codes,origin should still work and return the correct fields
@@ -375,7 +384,7 @@ my $tests_ref = [
 		test_case => 'get-existing-product-new-tags-schema-api-v3-5-fields',
 		method => 'GET',
 		path => '/api/v3.5/product/200000000036',
-		query_string => '?fields=stores,emb_codes,origin,categories,labels',
+		query_string => '?fields=stores,emb_codes,origins,categories,labels',
 		expected_status_code => 200,
 	},
 ];
