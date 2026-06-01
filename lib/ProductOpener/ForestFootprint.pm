@@ -604,6 +604,7 @@ sub compute_footprint_of_category ($product_ref, $footprints_ref) {
 					}
 				);
 
+				$current_ingredient_category = $category_id;
 				last;
 			}
 		}
