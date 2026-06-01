@@ -459,7 +459,7 @@ sub compute_footprints_of_ingredients ($product_ref, $footprints_ref, $ingredien
 			last;
 		}
 
-		# Check if the ingredient belongs to one of the ingredients categories for which their is a forest footprint
+		# Check if the ingredient belongs to one of the ingredients categories for which there is a forest footprint
 
 		$log->debug("compute_footprints_of_ingredients - checking ingredient match",
 			{ingredient_id => $ingredient_ref->{id}})
