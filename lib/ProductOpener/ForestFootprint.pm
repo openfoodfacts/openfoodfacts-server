@@ -563,7 +563,7 @@ The footprints are stored in $footprints_ref
 
 sub compute_footprint_of_category ($product_ref, $footprints_ref) {
 
-	# Check if the ingredient belongs to one of the categories for which their is a forest footprint
+	# Check if the ingredient belongs to one of the categories for which there is a forest footprint
 
 	$log->debug(
 		"compute_footprint_of_category - checking category match",
