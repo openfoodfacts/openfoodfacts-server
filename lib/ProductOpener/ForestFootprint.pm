@@ -247,9 +247,9 @@ The forest footprint and computations details are stored in the product referenc
 
 Returned values:
 
-- environmental_score_score : numeric Environmental-Score value
-- environmental_score_grade : corresponding A to E grade
-- forest_footprint_data : forest footprint computation details
+- forest_footprint_data.footprint_per_kg : numeric forest footprint value per kg
+- forest_footprint_data.grade : corresponding forest footprint grade
+- forest_footprint_data : forest footprint computation details (including ingredient-level details)
 
 =cut
 
