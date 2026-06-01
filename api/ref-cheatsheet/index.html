@@ -780,6 +780,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Search for Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structured-filter-based-search-api-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured (filter-based) search — API v2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-plain-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-text / plain-text search
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2708,6 +2736,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Search for Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structured-filter-based-search-api-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured (filter-based) search — API v2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-plain-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-text / plain-text search
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2913,16 +2969,18 @@ add_brands
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/product/3017620422003.json?fields=product_name,brands,nutriments
 </code></pre></div>
 <h2 id="search-for-products">Search for Products<a class="headerlink" href="#search-for-products" title="Permanent link">#</a></h2>
-<p><strong>Important:</strong> full text search currently works only for v1 API (or search-a-licious, which is in beta)</p>
-<ul>
-<li><a href="https://wiki.openfoodfacts.org/API/Read/Search">Documentation for v1 Search API</a></li>
-</ul>
+<h3 id="structured-filter-based-search-api-v2">Structured (filter-based) search — API v2<a class="headerlink" href="#structured-filter-based-search-api-v2" title="Permanent link">#</a></h3>
+<p>Structured search by tags, nutrients, categories, brands, and other fields is available via the <code>/api/v2/search</code> endpoint:</p>
 <ul>
 <li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Reference documentation for v2 search API</a></li>
 </ul>
-<ul>
-<li>The future of search in Open Food Facts is the <a href="https://github.com/openfoodfacts/search-a-licious">search-a-licious project</a>, deployed, in beta, at <a href="https://search.openfoodfacts.org/">search.openfoodfacts.org</a>. It has an API: <a href="https://search.openfoodfacts.org/docs">Search-a-licious API</a></li>
-</ul>
+<blockquote>
+<p><strong>Note:</strong> <code>/api/v3/search</code> is not yet implemented.</p>
+</blockquote>
+<h3 id="full-text-plain-text-search">Full-text / plain-text search<a class="headerlink" href="#full-text-plain-text-search" title="Permanent link">#</a></h3>
+<p><strong>Full-text search is not available in the v2 or v3 server-side API.</strong></p>
+<p>For full-text search, we are building <a href="https://search.openfoodfacts.org/">Search-a-licious</a>, which will be deployed at <a href="https://search.openfoodfacts.org/">search.openfoodfacts.org</a>. Search-a-licious will have a dedicated API: <a href="https://search.openfoodfacts.org/docs">Search-a-licious API documentation</a>.</p>
+<p>The legacy v1 search endpoint (<code>/cgi/search.pl</code>) supports keyword search but is not recommended for new integrations.</p>
 <h2 id="get-suggestions-for-fields">Get suggestions for fields<a class="headerlink" href="#get-suggestions-for-fields" title="Permanent link">#</a></h2>
 <h3 id="new-solution-search-a-licious-has-all-actually-used-values">New solution: Search-a-licious (has all actually used values)<a class="headerlink" href="#new-solution-search-a-licious-has-all-actually-used-values" title="Permanent link">#</a></h3>
 <p>Get brands, categories, labels… suggestions using the <a href="https://search.openfoodfacts.org/docs">Search-a-licious API</a>. 

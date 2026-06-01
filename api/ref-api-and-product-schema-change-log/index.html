@@ -661,6 +661,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-05-27-product-version-1004-api-version-36-new-tags-schema-with-tags_sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-05-27 — Product version 1004 — API version 3.6 — New tags schema with tags_sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2025-126-01-product-version-1003-api-version-35-new-product-nutrition-facts-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2577,6 +2588,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#2026-05-27-product-version-1004-api-version-36-new-tags-schema-with-tags_sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026-05-27 — Product version 1004 — API version 3.6 — New tags schema with tags_sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#2025-126-01-product-version-1003-api-version-35-new-product-nutrition-facts-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2749,6 +2771,14 @@ For each of those API version, we have a corresponding product schema version.</
 <p>When a client makes a request with a specific API version, we do our best to convert the response to the corresponding product schema version.</p>
 <p>Note: API v3 is under active development, and the API and corresponding product schema may change frequently.</p>
 <h2 id="schema-version-and-api-version-change-log">Schema version and API version change log<a class="headerlink" href="#schema-version-and-api-version-change-log" title="Permanent link">#</a></h2>
+<h3 id="2026-05-27-product-version-1004-api-version-36-new-tags-schema-with-tags_sources">2026-05-27 — Product version 1004 — API version 3.6 — New tags schema with tags_sources<a class="headerlink" href="#2026-05-27-product-version-1004-api-version-36-new-tags-schema-with-tags_sources" title="Permanent link">#</a></h3>
+<p>Breaking changes for product read API responses:</p>
+<ul>
+<li>The <code>*_hierarchy</code> and <code>*_lc</code> fields for writable taxonomy fields (categories, labels, brands, etc.) have been removed. Their content is now stored in the new <code>tags_sources</code> structure, keyed by source.</li>
+<li>The <code>*_tags</code> fields now contain the canonical form of input tags (or unnormalized input tags for non taxonomized fields or entries that do not exist in the taxonomy) + their parents if they exist ().</li>
+<li>A new <code>tags_sources</code> top-level field holds the minimal input tags per source and per tag type, enabling provenance tracking.</li>
+</ul>
+<p>See <code>convert_schema_1003_to_1004_refactor_tags</code> and the downgrade function <code>convert_schema_1004_to_1003_refactor_tags</code> in <code>ProductSchemaChanges.pm</code> for the full transformation logic.</p>
 <h3 id="2025-126-01-product-version-1003-api-version-35-new-product-nutrition-facts-structure">2025-126-01 - Product version 1003 - API version 3.5 - New product nutrition facts structure<a class="headerlink" href="#2025-126-01-product-version-1003-api-version-35-new-product-nutrition-facts-structure" title="Permanent link">#</a></h3>
 <p>Breaking changes:</p>
 <ul>

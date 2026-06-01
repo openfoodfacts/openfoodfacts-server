@@ -505,6 +505,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Reference Documentation (OpenAPI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-v2-vs-v3-feature-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API v2 vs v3 — Feature availability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2623,6 +2651,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Reference Documentation (OpenAPI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-v2-vs-v3-feature-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API v2 vs v3 — Feature availability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2692,13 +2748,34 @@ Are you going to use our API? Please <strong>read this documentation <ins>entire
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>Open Food Facts is a food products database made by everyone, for everyone, that can help you make better choices about what you eat. Being open data, anyone can reuse it for any purpose.</p>
 <p>The Open Food Facts API enables developers to get information like ingredients and nutritional values of products, and even add more <em>facts</em> to the products database. You can use the API to build applications that allow users to contribute to the database and make healthier food choices.</p>
-<p><strong>The current version of the API is <code>2</code>.</strong></p>
+<table>
+<thead>
+<tr>
+<th>API version</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v3</strong> (latest: <strong>v3.6</strong>)</td>
+<td>✅ <strong>Current</strong> — recommended for all new integrations</td>
+<td>v3.6 introduces a new tags schema (<code>tags_sources</code>); see the <a href="ref-api-and-product-schema-change-log/">change log</a></td>
+</tr>
+<tr>
+<td><strong>v2</strong></td>
+<td>⚠️ <strong>Deprecated</strong> — still supported for backward compatibility</td>
+<td>Migrate to v3 for new integrations</td>
+</tr>
+<tr>
+<td>v1 / v0</td>
+<td>Legacy — not recommended</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.</p>
-</blockquote>
-<p><strong>The next version of the API is <code>3</code>.</strong></p>
-<blockquote>
-<p>This version is in active development and may be subject to frequent changes.</p>
 </blockquote>
 <h2 id="before-you-start">Before You Start<a class="headerlink" href="#before-you-start" title="Permanent link">#</a></h2>
 <ul>
@@ -2744,18 +2821,18 @@ Are you going to use our API? Please <strong>read this documentation <ins>entire
 <ul>
 <li>If you submit the product's <strong>nutritional values</strong> and <strong>category</strong>, you'll get the <strong>Nutri-Score</strong>.</li>
 <li>If you submit the product <strong>ingredients</strong>, you'll get the <strong>NOVA group</strong> (about food ultra-processing), <strong>additives</strong>, <strong>allergens</strong>, <strong>normalized ingredients</strong>, <strong>vegan</strong>, <strong>vegetarian</strong>…</li>
-<li>If you submit the product's <strong>category</strong> and <strong>labels</strong>, you'll get the <strong>Eco-Score</strong> (a rating of the product's environmental impact)</li>
+<li>If you submit the product's <strong>category</strong> and <strong>labels</strong>, you'll get the <strong>Green-Score</strong> (a rating of the product's environmental impact)</li>
 </ul>
 <h2 id="api-deployments">API Deployments<a class="headerlink" href="#api-deployments" title="Permanent link">#</a></h2>
 <p>The OpenFoodFacts API has two deployments.</p>
 <ul>
 <li>Production: https://world.openfoodfacts.org</li>
-<li>Staging: https://world.openfoodfacts.net</li>
+<li>Staging: https://world.openfoodfacts.net (need extra http basic auth with username <code>off</code> and password <code>off</code>, see below)</li>
 </ul>
 <p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario.</p>
 <p>While testing your applications, <strong>make all API requests to the staging environment</strong>. This way, we can ensure the product database is safe.</p>
 <p>Staging require an http basic auth to avoid search engine indexing. The username is <code>off</code>, and the password <code>off</code>. Here is a small javascript code that you can test in your browser console:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://world.openfoodfacts.net/api/v2/product/3274080005003.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://world.openfoodfacts.net/api/v3.6/product/3274080005003.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Basic &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">btoa</span><span class="p">(</span><span class="s2">&quot;off:off&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">},</span>
 <span class="p">})</span>
@@ -2784,17 +2861,91 @@ Are you going to use our API? Please <strong>read this documentation <ins>entire
 </ul>
 <blockquote>
 <p>Production and staging have different account databases, so <strong>the account you create in the production environment will only work for production requests</strong>. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.</p>
-<p>Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.</p>
+<p>Note: Open Food Facts is migrating to Keycloak as its authentication system. OIDC-based authentication (OAuth 2.0 bearer tokens) 
+will be supported in the future. The legacy username/password approach will remain available for backward compatibility.</p>
 </blockquote>
 <p>^[user_id_not_email]: user_id is the username of your account. You must not use your email address.</p>
 <h2 id="reference-documentation-openapi">Reference Documentation (OpenAPI)<a class="headerlink" href="#reference-documentation-openapi" title="Permanent link">#</a></h2>
 <p>We are building a complete OpenAPI reference. Here is a list of the current API documentation available:</p>
 <ul>
-<li><a href="ref-v2/">OpenAPI documentation (v2)</a></li>
-<li><a href="ref-v3/">OpenAPI documentation for v3</a> (under active development, may change frequently)</li>
+<li><a href="ref-v3/">OpenAPI documentation for v3</a> <em>(current — latest sub-version v3.6)</em></li>
+<li><a href="ref-v2/">OpenAPI documentation (v2)</a> <em>(deprecated)</em></li>
 <li>A <a href="ref-cheatsheet/">cheatsheet</a> listing some common patterns.</li>
 <li>A <a href="ref-api-and-product-schema-change-log/">change log for the API and product schema</a></li>
 </ul>
+<h3 id="search">Search<a class="headerlink" href="#search" title="Permanent link">#</a></h3>
+<p>Structured (filter-based) search by categories, brands, nutrients, and other fields is available in API v2 via the <code>/api/v2/search</code> endpoints.</p>
+<blockquote>
+<p><strong>Note:</strong> Full-text / plain-text search is <strong>not</strong> available in the v2 server-side API.
+Full-text search will be available in <a href="https://search.openfoodfacts.org/">Search-a-licious</a>, which will provide a dedicated search API at <a href="https://search.openfoodfacts.org/docs">search.openfoodfacts.org</a>.</p>
+</blockquote>
+<h3 id="api-v2-vs-v3-feature-availability">API v2 vs v3 — Feature availability<a class="headerlink" href="#api-v2-vs-v3-feature-availability" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>API v2</th>
+<th>API v3</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read product</td>
+<td>✅</td>
+<td>✅</td>
+<td></td>
+</tr>
+<tr>
+<td>Write product</td>
+<td>✅</td>
+<td>✅</td>
+<td></td>
+</tr>
+<tr>
+<td>Structured search</td>
+<td>✅ <code>/api/v2/search</code></td>
+<td>❌ Not available</td>
+<td></td>
+</tr>
+<tr>
+<td>Full-text search</td>
+<td>⚠️ Legacy <code>/cgi/search.pl</code> only</td>
+<td>❌ Not available</td>
+<td>Use <a href="https://search.openfoodfacts.org/">Search-a-licious</a></td>
+</tr>
+<tr>
+<td>Image upload</td>
+<td>✅</td>
+<td>✅ <code>/api/v3.3/product/*/images</code></td>
+<td>New structured endpoint since v3.3</td>
+</tr>
+<tr>
+<td>Image selection</td>
+<td>✅</td>
+<td>✅ (v3.3+)</td>
+<td></td>
+</tr>
+<tr>
+<td>Attribute groups</td>
+<td>✅</td>
+<td>✅ <code>/api/v3/attribute_groups</code></td>
+<td>Attributes with parameters excluded from v2 response (since v3.4)</td>
+</tr>
+<tr>
+<td>Taxonomy suggestions</td>
+<td>✅</td>
+<td>✅ <code>/api/v3/taxonomy_suggestions</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Tags sources</td>
+<td>❌</td>
+<td>✅ <code>tags_sources</code> field</td>
+<td>New in v3.6; see change log</td>
+</tr>
+</tbody>
+</table>
 <h2 id="tutorials">Tutorials<a class="headerlink" href="#tutorials" title="Permanent link">#</a></h2>
 <ul>
 <li>A comprehensive introduction to <a href="tutorial-off-api/">Using the Open Food Facts API</a>.</li>
