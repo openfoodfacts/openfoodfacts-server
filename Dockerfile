@@ -102,6 +102,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
       apt-get update || true \
     ) && \
     apt-get install -y --no-install-recommends \
+        curl \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
@@ -187,6 +188,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libwebp-dev \
         libx265-dev
 
+RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm -o /tmp/cpm && \
+    mv /tmp/cpm /usr/bin/cpm && \
+    chmod +x /usr/bin/cpm && \
+    /usr/bin/cpm --version
+
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
 ARG USER_GID
@@ -199,6 +205,9 @@ RUN usermod --uid $USER_UID www-data && \
 ######################
 FROM modperl AS builder
 ARG CPANMOPTS
+
+ARG PO_LIB_DIR=/tmp/local
+
 WORKDIR /tmp
 
 # Install Product Opener from the workdir.
@@ -214,11 +223,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
     ) && \
-    # install cpm for parallel installation
-    cpanm --notest --quiet --skip-satisfied "App::cpm" && \
-    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \
-    export PERL_MB_OPT="--install_base /tmp/local/" && \
-    export PERL5LIB="/tmp/local/lib/perl5/" && \
+    # Install package dependencies in $PO_LIB_DIR
+    export PERL_MM_OPT="INSTALL_BASE=$PO_LIB_DIR" && \
+    export PERL_MB_OPT="--install_base $PO_LIB_DIR" && \
+    export PERL5LIB="$PO_LIB_DIR/lib/perl5/:$PERL5LIB" && \
+    export PATH="$PO_LIB_DIR/bin:$PATH" && \
     # first install some dependencies that are not well handled
     cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
     cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g && \

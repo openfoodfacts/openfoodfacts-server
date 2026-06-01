@@ -2,12 +2,6 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "en:milk",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [
-      "en:milk"
-   ],
    "allergens_tags" : [
       "en:milk"
    ],
@@ -1142,10 +1136,22 @@
       "milk-and-yogurt",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:milk"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

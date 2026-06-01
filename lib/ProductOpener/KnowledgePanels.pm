@@ -62,6 +62,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Ingredients qw/:all/;
@@ -991,8 +992,8 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		return 0;
 	}
 
-	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
-	my $category_id = $product_ref->{categories_hierarchy}[-1];
+	# Add the name of the most specific category (last in categories_tags) to the panel data
+	my $category_id = $product_ref->{categories_tags}[-1];
 	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 
 	# Create panels for repairing and maintaining products, as they are relevant for secondhand products
@@ -1058,11 +1059,11 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 		return 0;
 	}
 
-	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	# Add the name of the most specific category (last in categories_tags) to the panel data
 	my $category_id;
 	if (
-		not(ref($product_ref->{categories_hierarchy}) eq 'ARRAY'
-			and @{$product_ref->{categories_hierarchy}})
+		not(ref($product_ref->{categories_tags}) eq 'ARRAY'
+			and @{$product_ref->{categories_tags}})
 		)
 	{
 		return 0;
@@ -1073,7 +1074,7 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_link:en");
 
 	if (defined $maintenance_url) {
-		$category_id = $product_ref->{categories_hierarchy}[-1];
+		$category_id = $product_ref->{categories_tags}[-1];
 		$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 		$panel_data_ref->{maintenance_url} = $maintenance_url;
 		$panel_data_ref->{category_with_maintenance_url} = $category_with_url;

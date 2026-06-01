@@ -232,6 +232,7 @@ sub get_url_id_for_lang ($lc, $input) {
 
 	my $string = $input;
 
+	# 2024/04/13 tags refactor - tags in urls are now not normalized
 	$string = get_string_id_for_lang($lc, $string);
 
 	if ($string =~ /[^a-zA-Z0-9-]/) {
@@ -247,7 +248,8 @@ sub get_urlid ($input, $unaccent = undef, $lc = undef) {
 
 	my $file = $input;
 
-	$file = get_fileid($file, $unaccent, $lc);
+	# 2024/04/13 tags refactor - tags in urls are now not normalized
+	# $file = get_fileid($file, $unaccent, $lc);
 
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
