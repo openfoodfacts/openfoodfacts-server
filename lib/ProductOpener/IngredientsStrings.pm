@@ -94,8 +94,9 @@ use vars @EXPORT_OK;
 # U+2219 "∙" (Bullet Operator )
 # U+22C5 "⋅" (Dot Operator)
 # U+30FB "・" (Katakana Middle Dot)
+# U+25CF "●" (Black Circle). Commonly used as an ingredient separator on Japanese product labels.
 $middle_dot
-	= qr/(?: \N{U+00B7} |\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5}|\N{U+30FB})/i;
+	= qr/(?: \N{U+00B7} |\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5}|\N{U+30FB}|\N{U+25CF})/i;
 
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
