@@ -533,10 +533,8 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 
 	# Country and preferred language
 	# Still allow these to be sent for legacy API support
-	my $preferred_language = remove_tags_and_quote(single_param('preferred_language'));
-	$user_ref->{preferred_language} = $preferred_language if $preferred_language;
-	my $country = remove_tags_and_quote(single_param('country'));
-	$user_ref->{country} = $country if $country;
+	$user_ref->{preferred_language} = remove_tags_and_quote(single_param('preferred_language')) || $request_ref->{lc};
+	$user_ref->{country} = remove_tags_and_quote(single_param('country')) || $request_ref->{country};
 
 	# Is there a checkbox to make a professional account
 	if (defined single_param("pro_checkbox")) {

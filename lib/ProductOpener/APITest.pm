@@ -218,7 +218,7 @@ Call API to create a user. This legacy method will be deprecated at some point
 
 =cut
 
-sub create_user_legacy ($ua, $args_ref, $is_edit = 0) {
+sub create_user_legacy ($ua, $args_ref, $is_edit = 0, $prefix = 'world') {
 	my $before_create_ts = get_last_minion_job_created();
 
 	my %fields = %{clone($args_ref)};
@@ -226,7 +226,7 @@ sub create_user_legacy ($ua, $args_ref, $is_edit = 0) {
 		$fields{email} = $fields{userid} . '@example.com';
 	}
 	my $tail = tail_log_start();
-	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
+	my $response = $ua->post("http://$prefix.$TEST_MAIN_DOMAIN/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
 		diag("Couldn't create user with " . Dumper(\%fields) . "\n");
 		diag Dumper $response;

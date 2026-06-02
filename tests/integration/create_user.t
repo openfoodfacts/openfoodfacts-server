@@ -70,4 +70,22 @@ $user = retrieve_user('bobnocountry');
 is($user->{email}, 'bobnocountry@example.com', "User created");
 is($user->{country}, "", "User created with no country");
 
+# Check legacy method sets locale and country from domain. This is how the Dart SDK currently does it
+my $userid = "bobchit";
+%create_user_args = (
+	userid => $userid,
+	name => $userid,
+	email => "$userid\@example.com",
+	password => 'testtest',
+	confirm_password => 'testtest',
+	action => 'process',
+	type => 'add'
+);
+# Note prefix here needs to be included in dev.yml extra_hosts
+create_user_legacy($ua, \%create_user_args, 0, 'ch-it');
+$user = retrieve_user($userid);
+is($user->{email}, "$userid\@example.com", "Legacy user created");
+is($user->{preferred_language}, "it", "Language set to Italian");
+is($user->{country}, "en:switzerland", "Country set to Switzerland");
+
 done_testing();
