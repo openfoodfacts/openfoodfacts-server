@@ -1056,7 +1056,8 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	my @tags_fields = grep {$_ =~ /^(.*)_tags$/} keys %$product_ref;
 	# We also need to add the corresponding fields that can get added by the schema conversion
 	# e.g. for categories_tags: categories, categories_lc, categories_hierarchy
-	my @tags_corresponding_fields = map { (my $base = $_) =~ s/_tags$//; ($base, "${base}_lc", "${base}_hierarchy") } @tags_fields;
+	my @tags_corresponding_fields
+		= map {(my $base = $_) =~ s/_tags$//; ($base, "${base}_lc", "${base}_hierarchy")} @tags_fields;
 
 	my @temporarily_added_fields = ();
 
@@ -1069,7 +1070,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		"tags_sources",
 		@tags_fields,
 		@tags_corresponding_fields
-	)
+		)
 	{
 		if ((not defined $customized_product_ref->{$needed_field}) and (defined $product_ref->{$needed_field})) {
 			$customized_product_ref->{$needed_field} = $product_ref->{$needed_field};
@@ -1082,8 +1083,8 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 	# Record which tags_corresponding_fields were absent from $customized_product_ref before the conversion
 	# so that fields created by api_compatibility_for_product_response can be removed afterwards
-	my %tags_corresponding_fields_to_remove = map { $_ => 1 }
-		grep { not defined $customized_product_ref->{$_} } @tags_corresponding_fields;
+	my %tags_corresponding_fields_to_remove = map {$_ => 1}
+		grep {not defined $customized_product_ref->{$_}} @tags_corresponding_fields;
 
 	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
 
