@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.93.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.93.0...v2.93.1) (2026-06-01)
+
+
+### Bug Fixes
+
+* Forest Footprint documentation typo ([#13676](https://github.com/openfoodfacts/openfoodfacts-server/issues/13676)) ([a06c058](https://github.com/openfoodfacts/openfoodfacts-server/commit/a06c05889001be398cfb4056b3ba96e23e52faed))
+* keep original unnormalized input values when upgrading non taxonomized fields ([#13660](https://github.com/openfoodfacts/openfoodfacts-server/issues/13660)) ([2040b1a](https://github.com/openfoodfacts/openfoodfacts-server/commit/2040b1ad1b38d02beee49f816bb623ab36000c92))
+* priority user agent (intake24) and CORS fix for /cgi/search.pl (Albane cohort) ([#13628](https://github.com/openfoodfacts/openfoodfacts-server/issues/13628)) ([a901171](https://github.com/openfoodfacts/openfoodfacts-server/commit/a901171d68c0bed42c74c8d7bf5cf3db59afd182))
+* typo in documentation ([#13677](https://github.com/openfoodfacts/openfoodfacts-server/issues/13677)) ([84c9b8c](https://github.com/openfoodfacts/openfoodfacts-server/commit/84c9b8cb20d5a5bc6c0d9d6f60822bd2ff838e36))
+* typo on mismatch ([#13675](https://github.com/openfoodfacts/openfoodfacts-server/issues/13675)) ([5e73db5](https://github.com/openfoodfacts/openfoodfacts-server/commit/5e73db53315732e2aace70123076eeb1e1573627))
+
 ## [2.93.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.92.0...v2.93.0) (2026-05-26)
 
 

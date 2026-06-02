@@ -63,7 +63,7 @@ use vars @EXPORT_OK;
 use Log::Any qw($log);
 
 use ProductOpener::Tags
-	qw/get_minimal_tags_subset get_property @writable_tags_fields_list list_taxonomy_tags_in_language display_taxonomy_tag/;
+	qw/get_minimal_tags_subset get_property %taxonomy_fields @writable_tags_fields_list list_taxonomy_tags_in_language display_taxonomy_tag/;
 use ProductOpener::ProductsTags qw/generate_field_tags_from_all_sources compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
@@ -875,8 +875,8 @@ sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($
 				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
 				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
 
-				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
-					;    # $unit will be undef if the nutrient is not in the taxonomy
+				my $unit = get_property("nutrients", "zz:$nid", "unit:en");
+				# $unit will be undef if the nutrient is not in the taxonomy
 
 				# petfood, Value for 100g is 10x smaller than in the nutrition table (kg)
 				if (    (defined $product_ref->{product_type})
@@ -929,22 +929,34 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 
 	foreach my $tagtype (@writable_tags_fields_list) {
 
-		# we put the content of fields like categories_hierarchy inside categories_tags
-		# for some very old revisions we may not have the _hierarchy field, but only the _tags field, so we use it as a fallback
-		my $tags_hierarchy_or_tags_field = $product_ref->{$tagtype . "_hierarchy"}
-			// $product_ref->{$tagtype . "_tags"};
+		# Reconstruct the input tags list for this tagtype
+		my $input_tags_ref;
 
-		if (defined $tags_hierarchy_or_tags_field) {
+		# If the tagtype has no taxonomy (e.g. stores, purchase_places), then the input tags are in the "stores" and "purchase_places"
+		# and they don't have a language
+		if (not exists $taxonomy_fields{$tagtype}) {
+			$input_tags_ref = [split(/,\s*/, $product_ref->{$tagtype})];
+		}
+		else {
 
-			if (scalar @{$tags_hierarchy_or_tags_field} > 0) {
+			# For taxonomy fields like categories, the input tags were in the [tagtype]_hierarchy field
 
-				$product_ref->{$tagtype . "_tags"} = $tags_hierarchy_or_tags_field;
+			# we put the content of fields like categories_hierarchy inside categories_tags
+			# for some very old revisions we may not have the _hierarchy field, but only the _tags field, so we use it as a fallback
+			$input_tags_ref = $product_ref->{$tagtype . "_hierarchy"} // $product_ref->{$tagtype . "_tags"};
+		}
+
+		if (defined $input_tags_ref) {
+
+			if (scalar @{$input_tags_ref} > 0) {
+
+				$product_ref->{$tagtype . "_tags"} = $input_tags_ref;
 
 				# we create a tags_source.categories with the minimal tags subset to generate categories_tags
 
 				my $source_ref = {
 					last_updated_t => $product_ref->{last_updated_t} // $product_ref->{last_modified_t},
-					tags => [get_minimal_tags_subset($tagtype, $tags_hierarchy_or_tags_field)],
+					tags => [get_minimal_tags_subset($tagtype, $input_tags_ref)],
 				};
 
 				$product_ref->{tags_sources}->{$tagtype} = {$source => $source_ref};
