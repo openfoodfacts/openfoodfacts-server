@@ -163,7 +163,8 @@ my $force_new_version = 0;
 my $fix_to_be_exported = 0
 	; # Reset the en:to-be-exported status for product that have en:exported with the last_exported_t data within a specific time frame
 
-my %fix_to_be_exported_orgs = (); # Used to record which orgs had products with en:exported status that were updated with the --fix-to-be-exported option.
+my %fix_to_be_exported_orgs = ()
+	; # Used to record which orgs had products with en:exported status that were updated with the --fix-to-be-exported option.
 
 my $query_params_ref = {};    # filters for mongodb query
 
@@ -1376,7 +1377,8 @@ while (my $product_ref = $cursor->next) {
 			add_tag($product_ref, "states", "en:to-be-exported");
 			$product_values_changed = 1;
 			# Record the org from the owner field
-			defined $fix_to_be_exported_orgs{$product_ref->{owner}} or $fix_to_be_exported_orgs{$product_ref->{owner}} = 0;
+			defined $fix_to_be_exported_orgs{$product_ref->{owner}}
+				or $fix_to_be_exported_orgs{$product_ref->{owner}} = 0;
 			$fix_to_be_exported_orgs{$product_ref->{owner}}++;
 		}
 
