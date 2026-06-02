@@ -1973,10 +1973,17 @@ sub import_csv_file_task ($job, $args_ref) {
 
 	write_minion_log("import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref));
 
-	ProductOpener::Import::import_csv_file($args_ref);
-
-	write_minion_log("import_csv_file_task - job: $job_id done");
-	$job->finish("done");
+	my $stats_ref = ProductOpener::Import::import_csv_file($args_ref);
+	# $stats_ref->{error} can be defined in case of error
+	# in which case we should mark the import as failed instead of done
+	if (defined $stats_ref->{error}) {
+		write_minion_log("import_csv_file_task - job: $job_id error: " . $stats_ref->{error});
+		$job->fail({error => [$stats_ref->{error}{error}]});
+	}
+	else {
+		write_minion_log("import_csv_file_task - job: $job_id done");
+		$job->finish("done");
+	}
 
 	return;
 }
