@@ -94,6 +94,7 @@ use Encode;
 use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
 use Data::Compare;
+use Time::Local;
 
 use Log::Any::Adapter 'TAP';
 
@@ -339,14 +340,14 @@ my $query_ref = {};
 add_params_to_query($query_params_ref, $query_ref);
 
 # --fix-to-be-exported: filter on states_tags en:exported
-# and last_updated_t between April 1st 2026 and June 2nd 2026
+# and last_exported_t between April 1st 2026 and June 2nd 2026
 # as we had an issue with exports to the public platform silently failing and products marked as exported  without actually being exported
 # we want to reset the en:to-be-exported status for those products so that they can be exported correctly.
 if ($fix_to_be_exported) {
 	$query_ref->{'states_tags'} = 'en:exported';
-	my $start_t = timegm(0, 0, 0, 1, 3 - 1, 2026 - 1900);    # April 1st 2026
-	my $end_t = timegm(0, 0, 0, 2, 5 - 1, 2026 - 1900);    # June 2nd 2026
-	$query_ref->{'last_updated_t'} = {'$gte' => $start_t, '$lte' => $end_t};
+	my $start_t = timegm(0, 0, 0, 1, 4 - 1, 2026 - 1900);    # April 1st 2026
+	my $end_t = timegm(0, 0, 0, 2, 6 - 1, 2026 - 1900);    # June 2nd 2026
+	$query_ref->{'last_exported_t'} = {'$gte' => $start_t, '$lte' => $end_t};
 }
 
 # Query products on the pro platform where _id is missing the owner prefix
