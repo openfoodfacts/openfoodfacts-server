@@ -4552,6 +4552,7 @@ de: Verarbeitungsbüffelmolke
 
 < en:whey
 en: whey product, whey based formula
+bg: суроватъчен продукт
 ca: producte del sèrum de la llet
 cs: Syrovátkový produkt
 da: valleprodukt
@@ -4562,7 +4563,11 @@ fr: produit de lactosérum, produit de petit-lait, produit à base de lactoséru
 hr: mliječni derivat
 hu: tejsavó alapú termék
 it: derivati del siero di latte, preparazione del siero di latte
+nl: weiproduct, wei-product
 pl: produkt serwatkowy
+pt: produto de soro de leite
+ro: produs din zer
+sk: srvatkový výrobok
 sv: vassleprodukt
 nova:en: 4
 # ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
@@ -9696,9 +9701,27 @@ it: preparazione di carne di manzo essiccata
 # see ingredients_processings.txt
 < en:meat
 en: mechanically separated meat
+bg: механично отделено месо
+cs: strojně oddělené maso
+da: maskinsepareret kød
+de: Separatorenfleisch, mechanisch separiertes Fleisch
+el: μηχανικά διαχωρισμένο κρέας
+es: carne separada mecánicamente
+et: mehaaniliselt eraldatud liha
+fi: mekaanisesti erotettu liha
 fr: viande séparée mécaniquement, viandes séparées mécaniquement
 hr: mehanički otkošeno meso
+hu: gépi úton szétválasztott hús
 it: carne separata meccanicamente
+lt: mechaniškai atskirta mėsa
+lv: mehāniski atdalīta gaļa
+nl: machinaal gescheiden vlees, separatorvlees
+pl: mięso oddzielone mechanicznie, MOM
+pt: carne separada mecanicamente
+ro: carne separată mecanic
+sk: strojovo oddelené mäso
+sl: mehansko ločeno meso
+sv: maskinurbenat kött
 nova:en: 4
 # We also have a "mechanically separated" ingredients_processing, but it currently fails in some languages
 # like French where we can have "viande séparée mécaniquement de poulet" or "viande de poulet séparée mécaniquement"
@@ -23067,9 +23090,22 @@ it: estruso di cereal
 
 < en:cereal
 en: hydrolysed cereal, hydrolysed cereals
+bg: хидролизирани зърнени храни
+cs: hydrolyzované cereálie
+da: hydrolyseret korn
+de: hydrolysiertes Getreide
+es: cereal hidrolizado, cereales hidrolizados
+fi: hydrolysoitu vilja, hydrolysoidut viljat
 fr: céréales hydrolysées
 hr: hidrolizirane žitarice
-it: idrolizzato
+hu: hidrolizált gabona, hidrolizált gabonafélék
+it: cereali idrolizzati, idrolizzato di cereali
+nl: gehydrolyseerd graan, gehydrolyseerde granen
+pl: zboża hydrolizowane, hydrolizowane zboża
+pt: cereal hidrolisado, cereais hidrolisados
+ro: cereale hidrolizate
+sk: hydrolyzované obilniny
+sv: hydrolyserat spannmål, hydrolyserade spannmål
 nova:en: 4
 
 < en:cereal
@@ -27904,8 +27940,22 @@ ro: făină de soia degrasată, faina de soia degrasata
 
 < en: flour
 en: modified flour
+bg: модифицирано брашно
+cs: modifikovaná mouka
+da: modificeret mel
+de: modifiziertes Mehl
+es: harina modificada
+fi: muunnettu jauho
 fr: farine modifiée
+hr: modificirano brašno
+hu: módosított liszt
 it: farina modificata
+nl: gemodificeerd meel
+pl: mąka modyfikowana
+pt: farinha modificada
+ro: făină modificată
+sk: modifikovaná múka
+sv: modifierat mjöl
 nova:en: 4
 
 < en:corn
@@ -33846,6 +33896,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Whey_protein
 < en:whey protein
 en: concentrated whey protein
 bg: протеинов концентрат от млечна суроватка
+ca: concentrat de proteïna de sèrum de llet
+cs: koncentrát syrovátkových bílkovin
 da: koncentreret valleprotein, valleproteinkoncentrat
 de: konzentriertes Molkeprotein, Molkeneiweißkonzentrat, Molkeneiweiß-Konzentrat
 es: concentrado de proteína de suero
@@ -33854,7 +33906,11 @@ fr: concentré de protéines de lactosérum, concentré de protéines de sérum
 hr: koncentrat bjelančevina sirutke
 hu: sűrített savófehérje, sűrített tejsavófehérje
 it: concentrato di proteine del siero di latte, Proteine del siero di latte concentrate
+nl: geconcentreerd wei-eiwit, wei-eiwitconcentraat
 pl: koncentrat białek serwatkowych, koncentrat białka serwatkowego, koncentrat białek serwatki
+pt: concentrado de proteína de soro de leite
+ro: concentrat de proteine din zer
+sk: koncentrát srvátkových bielkovín
 sv: vassleproteinkoncentrat
 nova:en: 4
 
@@ -37486,6 +37542,9 @@ pl: sok z jagód, soku z jagód, sok jagodowy
 
 # don't put under fruit juice, because concentrate fruit juices that are not reconstituted to 100% of their initial volume don't count for the nutriscore
 en: fruit juice concentrate
+bg: концентрат от плодов сок
+ca: concentrat de suc de fruites
+cs: ovocný koncentrát, koncentrát ovocné šťávy
 da: Frugtjuicekoncentrat
 de: Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat
 es: Jugo de frutas concentrado
@@ -37493,10 +37552,14 @@ fi: hedelmämehutiiviste
 fr: jus concentré de fruits, jus de fruits concentrés
 he: תרכיז מיץ פרות, תרכיז מיץ פירות, תרכיז מיצי פירות
 hr: koncentrirani voćni sok
+hu: gyümölcslé-koncentrátum, sűrített gyümölcslé
 it: Concentrato di succo di frutta
 nl: vruchtensapconcentraat
 pl: Koncentrat soku owocowego, zagęszczone soki owocowe
+pt: concentrado de sumo de fruta, concentrado de suco de fruta
+ro: concentrat de suc de fructe
 ru: Концентрат фруктового сока
+sk: koncentrát ovocnej šťavy
 sv: fruktjuicekoncentrat
 nova:en: 4
 
@@ -91733,14 +91796,22 @@ de: kakaohaltiges Getränkepulver
 # <en:compound
 < en:preparation
 en: soy preparation
+bg: соев препарат
+ca: preparació de soja
+cs: sójový přípravek
+da: sojapræparat
 de: Sojabereitung, Soja-Produkt, Sojaprodukt, Sojamittel, Sojaerzeugnis
 es: preparación de soja
 fi: Soijavalmiste
 fr: préparation à base de soja
 hr: pripravak od soje
+hu: szójakészítmény
 it: preparazione di soia
 nl: sojabereiding
+pl: preparat sojowy
 pt: preparado à base de soja
+ro: preparat din soia
+sk: sójový prípravok
 sv: sojabönsberedning
 allergens:en: en:soybeans
 nova:en: 4
