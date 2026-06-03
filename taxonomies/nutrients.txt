@@ -1,10 +1,10 @@
 # Nutrients taxonomy
 #
 # Notes:
-# - The id of the nutrient start with zz: , it should not be changed as this is is used in the database to store nutrition facts
+# - The ID of the nutrient starts with zz:, it should not be changed as this is used in the database to store nutrition facts
 # - The second entry must be the English en: entry
 # - The third entry must be the English entry with the xx: prefix. This entry will be used for languages for which we have no translation.
-# - Always set the unit:en property. If there is not unit (e.g. for the pH), use unit:en with no value.
+# - Always set the unit:en property. If there is no unit (e.g. for the pH), use unit:en with no value.
 # - The "automatically_computed:en: yes" property is used for nutrients (or scores) that are not entered by users, but computed by Product Opener
 # (e.g. the NOVA group, Nutrition score, % of fruits/vegetables estimated by ingredients analysis etc.)
 # See also: https://wiki.openfoodfacts.org/Nutrients_handling_in_Open_Food_Facts
@@ -684,7 +684,7 @@ bg: Палмитинова киселина
 ca: àcid palmític
 cs: Kyselina palmitová
 da: Palmitinsyre
-de: Palitinsäure
+de: Palmitinsäure
 el: Παλμιτικό οξύ
 eo: palmitata acido
 es: Ácido palmítico
@@ -955,7 +955,7 @@ ar: حمض السيروتيك
 bg: Церотична киселина
 ca: Àcid ceròtic
 da: cerotinsyre
-de: Cerotinsäure, Xerotinsaeure
+de: Cerotinsäure, Xerotinsäure
 el: Κηροτικό οξύ
 es: Ácido cerótico
 fa: سروتیک اسید
@@ -1420,7 +1420,7 @@ bs: Arahidonska kiselina
 ca: àcid araquidònic
 cs: kyselina arachidonová
 da: arachidonsyre
-de: Arachidonsaeure
+de: Arachidonsäure
 el: Αραχιδονικό οξύ, AA, ARA
 es: Ácido araquidónico, AA, ARA
 eu: Azido arakidoniko
@@ -3667,7 +3667,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
 
 zz: vitamin-d
 xx: Vitamin D (D3), Vitamin D, D, Vitamin D3, D3
-en: Vitamin D (D3), Vitamin D, D, Vitamin D3, D3
+en: Vitamin D (D3), Vitamin D, D, Vitamin D3, D3, Vit. D
 af: Vitamien D
 ar: فيتامين دي
 az: D vitamini
@@ -3744,6 +3744,51 @@ iu_value:en: 0.025
 unit:en: µg
 wikidata:en: Q175621
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_D
+
+zz: vitamin-d2
+xx: Vitamin D2, Vitamin D₂, D2, D₂
+en: Ergocalciferol (Vitamin D₂), Ergocalciferol
+ar: إرغوكالسيفيرول, فيتامين د 2
+be: Эргакальцыферол
+bn: আর্গোক্যালসিফেরল
+ca: Ergocalciferol
+cs: Ergokalciferol (Vitamín D2), Ergokalciferol, Vitamín D₂, Vitamín D2
+cy: Ergocalcifferol
+de: Ergocalciferol (Vitamin D₂), Ergocalciferol
+el: Εργοκαλσιφερόλη
+eo: Ergokalciferolo (Vitamino D₂), Ergokalciferolo, Vitamino D₂, Vitamino D2
+es: Ergocalciferol
+eu: Ergokaltziferol
+fa: ارگوکالسیفرول
+fi: D₂-vitamiini (Ergokalsiferoli), Ergokalsiferoli, D₂-vitamiini, D2-vitamiini
+fr: Ergocalciférol (vitamine D₂), Ergocalciférol, Vitamine D₂, Vitamine D2
+gl: Ergocalciferol
+hi: एर्गोकैल्सिफेरॉल
+hy: Էրգոկալցիֆերոլ
+id: Ergokalsiferol
+it: Ergocalciferolo (Vitamina D2), Ergocalciferolo, Vitamina D₂, Vitamina D2
+ja: エルゴカルシフェロール
+ko: 에르고칼시페롤
+nb: Ergokalsiferol (D₂-vitamin), Ergokalsiferol, D₂-vitamin, D2-vitamin
+nl: Ergocalciferol
+nn: Ergokalsiferol (D₂-vitamin), Ergokalsiferol, D₂-vitamin, D2-vitamin
+oc: Ergocalciferol
+or: ଏର୍ଗୋକ୍ୟାଲସିଫେରଲ
+pl: Ergokalcyferol (Witamina D₂), Ergokalcyferol, Witamina D₂, Witamina D2
+pt: Ergocalciferol
+ro: Ergocalciferol (Vitamina D₂), Ergocalciferol, Vitamina D₂, Vitamina D2
+ru: Эргокальциферол (Витамин D₂), Эргокальциферол, Витамин D₂, Витамин D2
+sh: Ergokalciferol
+sk: Erkalciol
+sl: Ergokalciferol
+sr: Ергокалциферол
+sv: Vitamin D₂
+tr: Ergokalsiferol
+uk: Ергокальциферол (Вітамин D₂), Ергокальциферол, Вітамин D₂, Вітамин D2
+vi: Ergocalciferol
+zh: 麦角钙化醇
+unit:en: µg
+wikidata:en: Q139200
 
 zz: vitamin-e
 xx: Vitamin E, Vitamin E, Tocopherol
@@ -4534,7 +4579,7 @@ nl: Nitriet, Nitrieten
 
 zz: potassium
 xx: Potassium
-en: Potassium
+en: Potassium, Potas.
 af: kalium
 am: ፖታሺየም
 an: Potasio
@@ -6300,7 +6345,7 @@ fi: Hedelmät\, vihannekset\, palkokasvit
 fr: Fruits\, légumes\, légumes secs
 he: פירות\, ירקות\, קטניות
 it: Frutta\, verdura\, legumi
-ja: 果物\、野菜\、豆類
+ja: 果物、野菜、豆類
 ko: 과일\, 야채\, 콩류
 nl: Fruit\, groenten\, peulvruchten
 pl: Owoce\, warzywa\, rośliny strączkowe
