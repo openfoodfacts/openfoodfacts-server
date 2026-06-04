@@ -61,7 +61,6 @@ BEGIN {
 		$redis_url
 		$folksonomy_url
 		$recipe_estimator_url
-		$recipe_estimator_scipy_url
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
@@ -152,14 +151,13 @@ $redis_url = $ENV{REDIS_URL};
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
 $folksonomy_url = $ENV{FOLKSONOMY_URL};
-# To test a locally running recipe-estimator with product opener in a docker dev environment:
-# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
-$recipe_estimator_scipy_url = $ENV{RECIPE_ESTIMATOR_SCIPY_URL};
 
-#$recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-#$recipe_estimator_scipy_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
+$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
 
 %server_options = (
 	producers_platform => $producers_platform,

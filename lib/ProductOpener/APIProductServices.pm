@@ -148,8 +148,17 @@ sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $s
 	);
 
 	if (not $response->is_success) {
-		$log->error("add_product_data_from_external_service - error response", {response => $response})
-			if $log->is_error();
+		# Log the error and add an error to the response object but do not fail fatally, as this is an enrichment service and we can still return a product object without the enriched data
+		$log->error(
+			"add_product_data_from_external_service - error response",
+			{
+				url => $url,
+				services_ref => $services_ref,
+				response_status => $response->status_line,
+				response_content => $response->decoded_content,
+				request_body => $body_ref
+			}
+		) if $log->is_error();
 		add_error(
 			$response_ref,
 			{

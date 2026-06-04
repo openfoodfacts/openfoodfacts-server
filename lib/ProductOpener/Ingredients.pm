@@ -3087,19 +3087,13 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 		# We can be passed an external percent estimate service to call in $services_ref
 		if (    (defined $services_ref->{estimate_ingredients_percent})
-			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_glop"))
+			and ($services_ref->{estimate_ingredients_percent} =~ /^recipe_estimator(_glop|_scipy|_cvxpy)?$/))
 		{
 			# Use the recipe estimator service
 			my $services_url = $recipe_estimator_url;
-			my $services_ref = undef;
-			my $request_ref = {};
-			add_product_data_from_external_service({$request_ref}, $product_ref, $services_url, $services_ref, undef);
-		}
-		elsif ( (defined $services_ref->{estimate_ingredients_percent})
-			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_scipy"))
-		{
-			# Use the recipe estimator service
-			my $services_url = $recipe_estimator_scipy_url;
+			# Change the URL for the glop, scipy or cvxpy version of the recipe estimator if specified
+			# /api/v3/estimate_recipe -> /api/v3/estimate_recipe_glop for the glop version, /api/v3/estimate_recipe_scipy for the scipy version, /api/v3/estimate_recipe_cvxpy for the cvxpy version
+			$services_url .= $1 if defined $1;
 			my $services_ref = undef;
 			my $request_ref = {};
 			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);

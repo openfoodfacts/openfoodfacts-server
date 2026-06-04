@@ -72,7 +72,6 @@ BEGIN {
 		$mongodb_timeout_ms
 
 		$recipe_estimator_url
-		$recipe_estimator_scipy_url
 
 		$memd_servers
 
@@ -252,13 +251,12 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
-# recipe-estimator product service
-# To test a locally running recipe-estimator with product opener in a docker dev environment:
-# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
 $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
-$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
