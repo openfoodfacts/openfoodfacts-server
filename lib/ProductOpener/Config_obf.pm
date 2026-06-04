@@ -256,7 +256,12 @@ $query_url = $ProductOpener::Config2::query_url;
 $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
 # To test a locally running recipe-estimator with Product Opener in a docker dev environment:
 # run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+# $recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)

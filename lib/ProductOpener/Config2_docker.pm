@@ -61,6 +61,7 @@ BEGIN {
 		$redis_url
 		$folksonomy_url
 		$recipe_estimator_url
+		$recipe_estimator_service
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
@@ -157,7 +158,13 @@ $folksonomy_url = $ENV{FOLKSONOMY_URL};
 $recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
 # To test a locally running recipe-estimator with Product Opener in a docker dev environment:
 # run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+$recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ENV{RECIPE_ESTIMATOR_SERVICE} || "product_opener";
+$recipe_estimator_service = "recipe_estimator_cvxpy";
 
 %server_options = (
 	producers_platform => $producers_platform,

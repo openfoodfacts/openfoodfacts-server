@@ -3077,6 +3077,12 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 	parse_ingredients_text_service($product_ref, {}, []);
 
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-product-opener");
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-recipe-estimator");
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-recipe-estimator-glop");
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-recipe-estimator-scipy");
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-recipe-estimator-cvxpy");
+
 	if (defined $product_ref->{ingredients}) {
 
 		# - Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
@@ -3086,8 +3092,9 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
 
 		# We can be passed an external percent estimate service to call in $services_ref
+		my $ingredients_percent_estimated = 0;
 		if (    (defined $services_ref->{estimate_ingredients_percent})
-			and ($services_ref->{estimate_ingredients_percent} =~ /^recipe_estimator(_glop|_scipy|_cvxpy)?$/))
+			and ($services_ref->{estimate_ingredients_percent} =~ /^recipe_estimator(_.+)?$/))
 		{
 			# Use the recipe estimator service
 			my $services_url = $recipe_estimator_url;
@@ -3096,10 +3103,23 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 			$services_url .= $1 if defined $1;
 			my $services_ref = undef;
 			my $request_ref = {};
-			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
+			$ingredients_percent_estimated
+				= add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref,
+				undef);
+		}
+
+		# IF we don't have an estimate_ingredients_percent service or if we had an error when calling it
+		# we compute a simple estimate based on the legacy Product Opener algorithm
+		if (not $ingredients_percent_estimated) {
+			estimate_ingredients_percent_service($product_ref, {}, []);
+			$product_ref->{estimate_ingredients_percent_service} = "product_opener";
+			add_tag($product_ref, "misc", "en:estimated-ingredients-with-product-opener");
 		}
 		else {
-			estimate_ingredients_percent_service($product_ref, {}, []);
+			$product_ref->{estimate_ingredients_percent_service} = $services_ref->{estimate_ingredients_percent};
+			my $service_name = $services_ref->{estimate_ingredients_percent};
+			$service_name =~ s/_/-/g;
+			add_tag($product_ref, "misc", "en:estimated-ingredients-with-" . $service_name);
 		}
 	}
 	else {
