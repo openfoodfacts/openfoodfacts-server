@@ -68,6 +68,7 @@ BEGIN {
 		$process_global_redis_events
 
 		$recipe_estimator_url
+		$recipe_estimator_service
 
 		$mongodb
 		$mongodb_host

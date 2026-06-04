@@ -72,6 +72,7 @@ BEGIN {
 		$mongodb_timeout_ms
 
 		$recipe_estimator_url
+		$recipe_estimator_service
 
 		$memd_servers
 
