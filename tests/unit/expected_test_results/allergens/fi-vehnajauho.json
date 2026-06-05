@@ -2,6 +2,7 @@
    "allergens_tags" : [
       "en:gluten"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
@@ -70,7 +71,8 @@
    "lc" : "fi",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:all-ingredients-with-specified-percent"
+      "en:all-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "tags_sources" : {
       "allergens" : {
