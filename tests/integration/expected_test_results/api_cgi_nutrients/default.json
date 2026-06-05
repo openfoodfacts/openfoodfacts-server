@@ -530,7 +530,7 @@
          "display_in_edit_form" : false,
          "id" : "vitamin-d",
          "important" : false,
-         "name" : "Vitamin D (D3)",
+         "name" : "Vitamin D",
          "unit" : "µg"
       },
       {
@@ -538,6 +538,13 @@
          "id" : "vitamin-d2",
          "important" : false,
          "name" : "Ergocalciferol (Vitamin D₂)",
+         "unit" : "µg"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "vitamin-d3",
+         "important" : false,
+         "name" : "Cholecalciferol (Vitamin D₃)",
          "unit" : "µg"
       },
       {
