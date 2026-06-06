@@ -45,11 +45,11 @@ while (my $path = $next->()) {
 	}
 	next if ($path =~ /.*scans$/);    # We expect scans to not have an STO file
 									  # print "$path\n";
-        eval {
-	  store_object($path, retrieve_object($path));
-	  1;
-        } or do {
-          $checkpoint->log("Error processing: $path, $@");
+	eval {
+		store_object($path, retrieve_object($path));
+		1;
+	} or do {
+		$checkpoint->log("Error processing: $path, $@");
 	};
 	# Sleep for a bit so we don't overwhelm the server
 	sleep(0.002);
