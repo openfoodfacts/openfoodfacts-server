@@ -7,6 +7,7 @@
       "en:molluscs",
       "fr:banane"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
@@ -198,6 +199,9 @@
       "en:1"
    ],
    "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {
