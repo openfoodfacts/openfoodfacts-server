@@ -24,6 +24,18 @@
             "time" : "--ignore--"
          }
       ],
+      "memcached:responseTime" : [
+         {
+            "componentType" : "datastore",
+            "links" : {
+               "self" : "memcached://memcached:11211"
+            },
+            "observedUnit" : "ms",
+            "observedValue" : "--ignore--",
+            "status" : "pass",
+            "time" : "--ignore--"
+         }
+      ],
       "minion_database:responseTime" : [
          {
             "componentType" : "datastore",
