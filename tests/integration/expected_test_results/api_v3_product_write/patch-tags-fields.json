@@ -18,19 +18,63 @@
       }
    ],
    "product" : {
-      "brands" : "Some brand",
+      "allergens" : "milk, eggs, peanuts, nuts, fish, shellfish, gluten, soybeans, mango, kiwi, Unrecognized Allergen",
+      "allergens_hierarchy" : [
+         "en:eggs",
+         "en:fish",
+         "en:gluten",
+         "en:kiwi",
+         "en:milk",
+         "en:nuts",
+         "en:peanuts",
+         "en:soybeans",
+         "en:Unrecognized Allergen",
+         "en:mango",
+         "en:shellfish"
+      ],
+      "allergens_lc" : "en",
+      "allergens_tags" : [
+         "en:eggs",
+         "en:fish",
+         "en:gluten",
+         "en:kiwi",
+         "en:milk",
+         "en:nuts",
+         "en:peanuts",
+         "en:soybeans",
+         "en:Unrecognized Allergen",
+         "en:mango",
+         "en:shellfish"
+      ],
+      "allergens_tags_en" : [
+         "eggs",
+         "fish",
+         "gluten",
+         "kiwi",
+         "milk",
+         "nuts",
+         "peanuts",
+         "soybeans",
+         "Unrecognized Allergen",
+         "mango",
+         "shellfish"
+      ],
+      "brands" : "Aldi, Some brand",
       "brands_tags" : [
-         "some-brand"
+         "aldi",
+         "Some brand"
       ],
       "brands_tags_en" : [
-         "some-brand"
+         "Aldi",
+         "Some brand"
       ],
-      "categories" : "coffee",
+      "categories" : "Coffees",
       "categories_hierarchy" : [
          "en:plant-based-foods-and-beverages",
          "en:plant-based-foods",
          "en:coffees"
       ],
+      "categories_lc" : "en",
       "categories_tags" : [
          "en:plant-based-foods-and-beverages",
          "en:plant-based-foods",
@@ -41,7 +85,7 @@
          "Plant-based foods",
          "Coffees"
       ],
-      "labels" : "en:organic,fr:max havelaar,vegan,Something unrecognized",
+      "labels" : "Organic, Vegan, Max Havelaar, Something unrecognized",
       "labels_hierarchy" : [
          "en:vegetarian",
          "en:fair-trade",
@@ -51,6 +95,7 @@
          "en:max-havelaar",
          "en:Something unrecognized"
       ],
+      "labels_lc" : "en",
       "labels_tags" : [
          "en:vegetarian",
          "en:fair-trade",
@@ -58,7 +103,7 @@
          "en:fairtrade-international",
          "en:vegan",
          "en:max-havelaar",
-         "en:something-unrecognized"
+         "en:Something unrecognized"
       ],
       "labels_tags_en" : [
          "Vegetarian",
@@ -67,7 +112,18 @@
          "Fairtrade International",
          "Vegan",
          "Max Havelaar",
-         "Something-unrecognized"
+         "Something unrecognized"
+      ],
+      "traces" : "gluten",
+      "traces_hierarchy" : [
+         "en:gluten"
+      ],
+      "traces_lc" : "en",
+      "traces_tags" : [
+         "en:gluten"
+      ],
+      "traces_tags_en" : [
+         "gluten"
       ]
    },
    "status" : "success_with_errors",

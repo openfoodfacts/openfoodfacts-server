@@ -537,7 +537,7 @@ Constructs the URL to send the HTTP request to for the API.
 
 =head3 Arguments
 
-Takes in two string arguments, One being the the target and other a prefix. 
+Takes in two string arguments, One being the target and other a prefix. 
 The prefix could be simply the country code (eg: US for America or "World") OR something like ( {country-code}-{language-code} )
 
 An example below
