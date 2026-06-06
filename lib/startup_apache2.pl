@@ -173,4 +173,6 @@ chmod_recursive(S_IRWXU | S_IRWXG | S_IRWXO, $BASE_DIRS{CACHE_TMP});
 
 $log->info('product opener started', {version => $version});
 
+# Dummy change to trigger CI/CD for Perl, without actual changes to logic.
+
 1;
