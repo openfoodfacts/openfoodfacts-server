@@ -61,6 +61,7 @@ use ProductOpener::Redis qw//;
 my %checks = (
 	'off_query:responseTime' => \&ProductOpener::Data::perform_health_check,
 	'keycloak:responseTime' => \&ProductOpener::Keycloak::perform_health_check,
+	'memcached:responseTime' => \&ProductOpener::Cache::perform_health_check,
 	'minion_database:responseTime' => \&ProductOpener::Minion::perform_health_check,
 	'redis:responseTime' => \&ProductOpener::Redis::perform_health_check,
 );
