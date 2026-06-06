@@ -103,7 +103,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Brevo qw/add_contact_to_list/;
 use ProductOpener::CRM qw/update_contact_last_login/;
 use ProductOpener::Auth qw/:all/;
-use ProductOpener::Keycloak qw/:all/;
+use ProductOpener::Keycloak;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Minion qw/queue_job write_minion_log/;
 use ProductOpener::Tags qw/display_taxonomy_tag_name country_to_cc cc_to_country/;
