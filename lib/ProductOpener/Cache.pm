@@ -51,6 +51,7 @@ use JSON::MaybeXS;
 use Digest::MD5 qw(md5_hex);
 use Log::Any qw($log);
 use Devel::Size qw(total_size);
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 # special logger to make it easy to measure memcached hit and miss rates
 our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
