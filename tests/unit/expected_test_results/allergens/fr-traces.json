@@ -1,5 +1,6 @@
 {
    "allergens_tags" : [],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [],
    "ingredients_lc" : "fr",
    "ingredients_n" : 0,
@@ -38,6 +39,9 @@
       "en:1"
    ],
    "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {
