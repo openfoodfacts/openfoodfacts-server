@@ -1,5 +1,45 @@
 # Changelog
 
+## [2.93.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.93.0...v2.93.1) (2026-06-01)
+
+
+### Bug Fixes
+
+* Forest Footprint documentation typo ([#13676](https://github.com/openfoodfacts/openfoodfacts-server/issues/13676)) ([a06c058](https://github.com/openfoodfacts/openfoodfacts-server/commit/a06c05889001be398cfb4056b3ba96e23e52faed))
+* keep original unnormalized input values when upgrading non taxonomized fields ([#13660](https://github.com/openfoodfacts/openfoodfacts-server/issues/13660)) ([2040b1a](https://github.com/openfoodfacts/openfoodfacts-server/commit/2040b1ad1b38d02beee49f816bb623ab36000c92))
+* priority user agent (intake24) and CORS fix for /cgi/search.pl (Albane cohort) ([#13628](https://github.com/openfoodfacts/openfoodfacts-server/issues/13628)) ([a901171](https://github.com/openfoodfacts/openfoodfacts-server/commit/a901171d68c0bed42c74c8d7bf5cf3db59afd182))
+* typo in documentation ([#13677](https://github.com/openfoodfacts/openfoodfacts-server/issues/13677)) ([84c9b8c](https://github.com/openfoodfacts/openfoodfacts-server/commit/84c9b8cb20d5a5bc6c0d9d6f60822bd2ff838e36))
+* typo on mismatch ([#13675](https://github.com/openfoodfacts/openfoodfacts-server/issues/13675)) ([5e73db5](https://github.com/openfoodfacts/openfoodfacts-server/commit/5e73db53315732e2aace70123076eeb1e1573627))
+
+## [2.93.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.92.0...v2.93.0) (2026-05-26)
+
+
+### Features
+
+* restructure tags schema and API to separate sources and parents ([#13239](https://github.com/openfoodfacts/openfoodfacts-server/issues/13239)) ([32d0c84](https://github.com/openfoodfacts/openfoodfacts-server/commit/32d0c84d2107d4464a7a5d93f634f449f6fd3ae8))
+
+
+### Bug Fixes
+
+* install self-contained cpm ([4389784](https://github.com/openfoodfacts/openfoodfacts-server/commit/4389784afcec969a60e5ef495ebb062f9b043dc2))
+
+## [2.92.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.91.1...v2.92.0) (2026-05-21)
+
+
+### Features
+
+* harmonize to donorbox ([#13623](https://github.com/openfoodfacts/openfoodfacts-server/issues/13623)) ([3cde26a](https://github.com/openfoodfacts/openfoodfacts-server/commit/3cde26a57c6745c21ee6eaa731c736307be304c3))
+* Modify donation banner for 2026 campaign ([3fd17ee](https://github.com/openfoodfacts/openfoodfacts-server/commit/3fd17ee598917f016e781316362ba5925e74aa0c))
+* Modify donation banner for 2026 campaign ([#13622](https://github.com/openfoodfacts/openfoodfacts-server/issues/13622)) ([3fd17ee](https://github.com/openfoodfacts/openfoodfacts-server/commit/3fd17ee598917f016e781316362ba5925e74aa0c))
+* Update donation form integration with Donorbox ([#13619](https://github.com/openfoodfacts/openfoodfacts-server/issues/13619)) ([57bd285](https://github.com/openfoodfacts/openfoodfacts-server/commit/57bd285b38eec3fa57d7e620f804f52bb86c246c))
+
+
+### Bug Fixes
+
+* add CORS headers to 429 and NOINDEX responses ([b911ad8](https://github.com/openfoodfacts/openfoodfacts-server/commit/b911ad822189bd5e0085c70116552bed44757f59))
+* fix some production log warnings ([6035f6d](https://github.com/openfoodfacts/openfoodfacts-server/commit/6035f6d3705a2c2f4316b6869eed7701b7bc2885))
+* flush memcached in remove_all_results in tests ([#13591](https://github.com/openfoodfacts/openfoodfacts-server/issues/13591)) ([0bd226e](https://github.com/openfoodfacts/openfoodfacts-server/commit/0bd226e80b2efdd411062a31177f8c9f6606c974))
+
 ## [2.91.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.91.0...v2.91.1) (2026-05-12)
 
 

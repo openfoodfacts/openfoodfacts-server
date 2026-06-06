@@ -11,7 +11,7 @@ $Data::Dumper::Sortkeys = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;

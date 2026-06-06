@@ -4,8 +4,8 @@
       "content-type" : null,
       "method" : "GET",
       "parameters" : {
-         "term" : "strawberry",
-         "tagtype" : "categories"
+         "tagtype" : "categories",
+         "term" : "strawberry"
       },
       "path" : "/api/v3/taxonomy_suggestions"
    }
