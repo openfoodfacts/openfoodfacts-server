@@ -441,7 +441,11 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is($object_ref, $expected_object_ref, $title) or diag(Dumper($test_ref), Dumper($object_ref));
+			# Normalize both objects through JSON round-trip for consistent boolean types
+			# (JSON::PP::Boolean vs Cpanel::JSON::XS::Boolean mismatch)
+			my $normalized_object_ref = $json->decode($json->encode($object_ref));
+			my $normalized_expected_object_ref = $json->decode($json->encode($expected_object_ref));
+			is($normalized_object_ref, $normalized_expected_object_ref, $title) or diag(Dumper($test_ref), Dumper($object_ref));
 		}
 		else {
 			fail("could not load $expected_results_file");
@@ -645,7 +649,10 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_product_ref = $json->decode(<$expected_result>);
-			is($product_ref, $expected_product_ref, "$test_name - $code") or diag Dumper($product_ref);
+			# Normalize both objects through JSON round-trip for consistent boolean types
+			my $normalized_product_ref = $json->decode($json->encode($product_ref));
+			my $normalized_expected_product_ref = $json->decode($json->encode($expected_product_ref));
+			is($normalized_product_ref, $normalized_expected_product_ref, "$test_name - $code") or diag Dumper($product_ref);
 		}
 		else {
 			diag Dumper($product_ref);
