@@ -10339,9 +10339,11 @@ nn: lammekjøtt
 sv: Lammkött
 carbon_footprint_fr_foodges_ingredient:fr: Côtelettes d'Agneau
 carbon_footprint_fr_foodges_value:fr: 55
-ciqual_food_code:en: 21523
-ciqual_food_name:en: Lamb cutlet, grilled
-ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
+ciqual_proxy_food_code:en: 21500
+ciqual_proxy_food_name:en: Lamb, raw (average)
+#ciqual_food_code:en: 21523
+#ciqual_food_name:en: Lamb cutlet, grilled
+#ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
 ecobalyse:en: 45e3cd64-1647-4841-bacb-795e2aae4f02
 ecobalyse_labels_en_organic:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
 wikidata:en: Q643419
@@ -10352,9 +10354,11 @@ en: lamb cutlet
 fr: côtelette d'agneau, côtelettes d'agneau, côte d'agneau, côtes d'agneau
 hr: janjeći kotlet
 it: costoletta di agnello
-ciqual_food_code:en: 21501
-ciqual_food_name:en: Lamb cutlet, grilled
-ciqual_food_name:fr: Agneau, côtelette, grillée
+#ciqual_food_code:en: 21501
+#ciqual_food_name:en: Lamb cutlet, grilled
+#ciqual_food_name:fr: Agneau, côtelette, grillée
+ciqual_food_code:en: 21500
+ciqual_food_name:en: Lamb, raw (average)
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
 < en:lamb
