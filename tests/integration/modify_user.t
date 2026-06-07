@@ -16,7 +16,7 @@ create_user($ua, \%create_user_args);
 
 #editing the user preferences
 my %edit_form = (
-	email => 'notbob@example.com',
+	email => 'noreply@openfoodfacts.net',
 	name => 'NotTest',
 	userid => 'tests',
 	pro_checkbox => 1,
@@ -27,12 +27,12 @@ my %edit_form = (
 
 );
 my $url_edit = construct_test_url("/cgi/user.pl", "world");
-my $response_edit = $ua->post($url_edit, \%edit_form);
+my $response_edit = $ua->post($url_edit, Content => \%edit_form);
 
 #checking if the changes were saved
 my $url_check = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 my $response_check = $ua->get($url_check);
-like($response_check->content, qr/notbob\@example\.com/, "the new email has been well saved");
+like($response_check->content, qr/noreply\@openfoodfacts\.net/, "the new email has been well saved");
 like($response_check->content, qr/NotTest/, "the new name has been well saved");
 like($response_check->content, qr/value=.fr.\s+selected/, "new language saved");
 like($response_check->content, qr/value=.en:france.\s+selected/, "new country saved");
