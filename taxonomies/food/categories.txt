@@ -39550,6 +39550,32 @@ intake24_category_code:en: CONF
 pnns_group_2:en: Sweets
 
 < en:Confectioneries
+xx: Laddu, ladoo
+en: Laddu, ladoo
+wikidata:en: Q1759289
+
+< en: Laddu
+xx: Besan Laddu, besan ladoo
+en: Besan Laddu, besan ladoo
+description:en: Besan ladoo is a sweet ball from the Indian subcontinent made of chickpea flour, sugar and fat (vegetable oil or ghee)
+
+< en:Confectioneries
+xx: Chikki
+en: Chikki
+
+< en:Confectioneries
+xx: Gulab jamun
+en: Gulab jamun
+description:en: Gulab jamun is a sweet ball from the Indian subcontinent made of milk solid, wheat flour and dipped in a sugary syrup.
+wikidata:en: Q1554207
+
+< en:Confectioneries
+xx: Soan papdi
+en: Soan papdi
+description:en: Soan papdi is a confectionery from the Indian subcontinent made of wheat and pulse flour, sugar and fat (vegetable oil or ghee).
+wikidata:en: Q534126
+
+< en:Confectioneries
 fr: Bonbons dragéifiés
 #wikidata:en:
 
@@ -45293,10 +45319,14 @@ ciqual_food_name:fr: Chips de pommes de terre, standard
 wikidata:en: Q173265
 
 < en:Potato crisps
-en: Potato crisps à l'ancienne, Old-fashioned style potato crisps
-fr: Chips de pommes de terre à l'ancienne
-hr: Čips od krumpira à l'ancienne
-lt: Senamadiški bulvių traškučiai
+en: Old-fashioned style potato crisps, Potato crisps à l'ancienne, Old-fashioned crisps
+de: Klassische Chips
+fi: Vanhanaikaiset perunalastut
+fr: Chips de pommes de terre à l'ancienne, Chips à l'ancienne
+hr: Čips od krumpira à l'ancienne, Starinski čips
+it: Patatine all'antica
+lt: Senamadiški bulvių traškučiai, Senoviniai traškučiai
+nl: Traditionele chips
 agribalyse_food_code:en: 4037
 ciqual_food_code:en: 4037
 ciqual_food_name:en: Potato crisps, à l'ancienne (old-fashioned style)
@@ -45525,16 +45555,6 @@ fr: Chips à la crème fraîche et au piment doux
 hr: Kiselo vrhnje i slatki chilli čips
 lt: Grietinės ir saldžiųjų čili traškučių
 nl: Zure room en chili chips
-
-< en:Potato crisps
-en: Old-fashioned crisps
-de: Klassische Chips
-fi: vanhanaikaiset perunalastut
-fr: Chips à l'ancienne
-hr: Starinski čips
-it: Patatine all'antica
-lt: Senoviniai traškučiai
-nl: Traditionele chips
 
 < en:Potato crisps
 en: Crisps of red potatoes, red potato crisps, red potatoes crisps
@@ -56355,7 +56375,7 @@ lt: Kaštonų putėsiai
 < en:Dairy desserts
 < en:Entremets - mousses and creamy puddings
 < en:Sweet mousses
-en: Dairy Mousses
+en: Dairy mousses
 fi: maitopohjaiset vaahdot
 fr: Mousses lactées, mousses au lait, mousses à base de lait
 hr: Mliječne pjene
@@ -56558,6 +56578,11 @@ intake24_category_code:en: YGRT
 intake24_category_code:fr: YGRT
 pnns_group_2:en: Dairy desserts
 
+< en:Dairy desserts
+xx: Shrikhand
+en: Shrikhand
+description:en: Dairy dessert from the Indian subcontinent.
+wikidata:en: Q2341683
 
 < en:Dairy desserts
 en: Junkets
@@ -77547,15 +77572,12 @@ pl: Sosy wegetariańskie, wegetariańskie sosy
 sv: Vegetariska såser
 
 < en:Sauces
-en: Other sauces
-
-< en:Other sauces
 en: Shelf-stable other sauces
 gpc_category_code:en: 10000280
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury liquid, paste, spread or granulated substance, which is usually served as an accompaniment to savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Products include liquids, spreads and granules flavoured with, but not necessarily made from fish, meat, mushrooms, seafood or vegetables. Definition Excludes: Specifically excludes Tomato Ketchup/ Ketchup Substitutes, Mustard/Mustard Substitutes and Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces, Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
 gpc_category_name:en: Other Sauces Dipping/Condiments/Savoury Toppings/Savoury Spreads/Marinades (Shelf Stable)
 
-< en:Other sauces
+< en:Sauces
 en: Refrigerated other sauces
 gpc_category_code:en: 10000054
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury liquid, paste, spread or granulated substance, which is usually served as an accompaniment to savoury foods. These products can be blended with other ingredients. These products must be refrigerated to extend their consumable life. Products include liquids and spreads flavoured with, but not necessarily made from fish, meat, mushrooms, sea food or vegetables. Definition Excludes: Specifically excludes Tomato Ketchup/ Ketchup Substitutes, Mustard/Mustard Substitutes and Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces, Frozen and Shelf Stable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
@@ -77663,6 +77685,10 @@ nl: Satésauzen
 < en:Sauces
 en: Alfredo sauces
 wikidata:en: Q23930012
+
+< en:Sauces
+en: Fajitas sauces
+fr: Sauces pour fajitas
 
 < en:Sauces
 en: Taco sauces
@@ -124885,10 +124911,6 @@ ciqual_food_code:en: 23493
 ciqual_food_name:en: Apple crumble
 ciqual_food_name:fr: Crumble aux pommes
 #wikidata:en:
-
-< en:Pastries
-en: Soan papdi
-fr: Soan papdi
 
 en: stuffing
 de: Füllung
