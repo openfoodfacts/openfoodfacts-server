@@ -34,10 +34,6 @@ synonyms:fr: % de matières grasses, % MG
 
 synonyms:fr: premier cru, 1er cru
 
-synonyms:en: Sandwich made with loaf bread, Club sandwich
-
-synonyms:en: Sandwich made with French bread, Baguette sandwich
-
 synonyms:ru: икра овощная, овощная икра
 
 synonyms:fr: thon-crudités, crudités-thon
@@ -41227,7 +41223,28 @@ nl: Paranoten in chocolade
 opposite:en: en:brazil-nuts
 
 < en:Chocolate covered nuts
-en: Chocolate coated peanuts, Chocolate covered peanuts, Sugar and chocolate coated peanuts
+en: Chocolate covered almonds, Chocolate coated almonds
+de: Mandeln mit Schokoladenüberzug, Schokolierte Mandeln
+es: Almendras recubiertas de chocolate
+fr: Amandes enrobées de chocolat, Amandes chocolatées
+hr: Bademi preliveni čokoladom
+it: Mandorle al cioccolato
+lt: Migdolai šokolade
+nl: Amandelen in chocolade
+pt: Amêndoas cobertas com chocolate
+
+< en:Chocolate covered nuts
+en: Chocolate covered cashews
+fr: Noix de cajou enrobées de chocolat
+
+< en:Chocolate covered nuts
+en: Chocolate covered hazelnuts, Chocolate-coated hazelnuts
+fr: Noisettes enrobées de chocolat
+hr: Lješnjaci preliveni čokoladom
+lt: Lazdyno riešutai šokolade
+
+< en:Chocolate covered nuts
+en: Chocolate covered peanuts, Chocolate coated peanuts, Sugar and chocolate coated peanuts
 de: Erdnüsse mit Schokoladenüberzug
 es: Cacahuetes recubiertos de chocolate, Maní recubierto de chocolate
 fi: Suklaalla päällystetyt maapähkinät
@@ -41244,28 +41261,15 @@ ciqual_food_name:en: Sugar and chocolate coated peanut
 ciqual_food_name:fr: Cacahuètes enrobées de chocolat dragéifiées
 
 < en:Chocolate covered nuts
-en: Chocolate coated almonds, Chocolate covered almonds
-de: Mandeln mit Schokoladenüberzug, Schokolierte Mandeln
-es: Almendras recubiertas de chocolate
-fr: Amandes enrobées de chocolat, Amandes chocolatées
-hr: Bademi preliveni čokoladom
-it: Mandorle al cioccolato
-lt: Migdolai šokolade
-nl: Amandelen in chocolade
-pt: Amêndoas cobertas com chocolate
+en: Chocolate covered pistachios, Chocolate coated pistachios
+
+< en:Chocolate covered nuts
+en: Chocolate covered walnuts
+fr: Noix enrobées de chocolat
 
 < en:Bonbons
-en: Chocolate coated coffee beans
+en: Chocolate covered coffee beans, Chocolate coated coffee beans
 fr: Grains de café enrobés de chocolat
-
-< en:Chocolate covered nuts
-en: Chocolate coated pistachios, Chocolate covered pistachios
-
-< en:Chocolate covered nuts
-en: Chocolate covered hazelnuts, Chocolate-coated hazelnuts
-fr: Noisettes enrobées de chocolat
-hr: Lješnjaci preliveni čokoladom
-lt: Lazdyno riešutai šokolade
 
 < en:Confectioneries
 en: Candies, candy, sweets
@@ -56874,22 +56878,24 @@ ciqual_food_code:en: 23008
 ciqual_food_name:en: Dessert, Opera cake type
 wikidata:en: Q1858875
 
-< en:Sweet pies
-en: Raspberries sponge cake, Sponge sandwich cake filled and topped with raspberries
-fr: Framboisier
+< en:Pastries
+en: Framboisiers, Raspberries sponge cake, Sponge sandwich cake filled and topped with raspberries
+fr: Framboisiers, Framboisier
 agribalyse_food_code:en: 23009
 ciqual_food_code:en: 23009
 ciqual_food_name:en: Sponge sandwich cake filled and topped with strawberries or raspberries
 ciqual_food_name:fr: Fraisier ou framboisier
+description:en: The framboisier is a pastry made of sponge cake, raspberries and a cream made of milk, eggs and sugar.
 wikidata:en: Q3080422
 
-< en:Sweet pies
-en: Sponge sandwich cake filled and topped with strawberries
-fr: Fraisier
+< en:Pastries
+en: Fraisiers, Sponge sandwich cake filled and topped with strawberries
+fr: Fraisiers, Fraisier
 agribalyse_food_code:en: 23009
 ciqual_food_code:en: 23009
 ciqual_food_name:en: Sponge sandwich cake filled and topped with strawberries or raspberries
 ciqual_food_name:fr: Fraisier ou framboisier
+description:en: The fraisier is a pastry made of sponge cake, strawberries and a cream made of milk, eggs and sugar.
 wikidata:en: Q3080408
 
 < en:Fruits based foods
@@ -100851,12 +100857,35 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Sandwiches/Filled Rolls/Wraps (Frozen)
 
 < en:Sandwiches
-en: Sandwich made with loaf bread, Club sandwich
-es: sándwich de pan de molde, sándwich club
-fr: sandwich club, sandwich triangle, sandwich pain de mie
+en: Club sandwiches, Sandwich made with loaf bread, Club sandwich, Clubhouse sandwiches
+am: ክለብ ሳንድዊች
+ar: شطيرة النادي
+da: Club sandwicher, Club sandwich
+de: Club-Sandwich
+el: Κλαμπ σάντουιτς
+eo: Klubsandviĉoj
+es: Sándwich de pan de molde, sándwich club, Club sandwich
+fa: ساندویچ کلاب
+fr: Sandwich club, sandwich triangle, sandwich pain de mie, Club sandwich
 hr: Sendvič od pogače
-it: tramezzino, sandwich club
-nl: club sandwich, sandwich met witbrood
+hu: Klubszendvics
+hy: Քլաբ սենդվիչ
+id: Roti lapis klub
+it: Tramezzino, sandwich club, Club sandwich
+ja: アメリカンクラブハウスサンド
+jv: Club roti isi
+ko: 클럽 샌드위치
+nb: Club sandwicher
+nl: Club sandwich, Clubsandwich, sandwich met witbrood
+nn: Club sandwichar
+ru: Клубный сэндвич
+sr: Клуб сендвич
+sv: Club sandwichar
+tr: Kulüp sandviç
+uk: Клубний сендвіч
+ur: کلب سینڈوچ
+uz: Klab-sendvich
+zh: 俱乐部三明治
 wikidata:en: Q1093380
 
 < en:Sandwiches
@@ -100867,13 +100896,15 @@ it: Panini polari, panino polare, panini fatti con pane polare
 nl: Poolse broodjes, poolse sandwich, broodjes op poolbrood
 
 < en:Sandwiches
-en: Baguette sandwiches, French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
+en: Baguette sandwiches, French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches, Sandwich made with French bread, Baguette sandwich
+da: Baguette-sandwicher
 de: Baguette-Sandwiches, Sandwiches auf Baguette, Sandwiches mit Baguette
 es: Bocadillos de pan francés, Bocadillos en pan francés, Bocadillos hechos con pan francés
 fr: Sandwich baguette
 hr: Sendviči s francuskim kruhom
 it: Panini al pane francese, Panini su pane francese, Panini fatti con pane francese
 nl: Broodjes op Frans brood, Broodjes gemaakt met Frans brood, Baguette broodjes
+sv: Baguette sandwichar
 ciqual_food_code:en: 25543
 ciqual_food_name:en: Sandwich on french bread (average)
 ciqual_food_name:fr: Sandwich baguette (aliment moyen)
