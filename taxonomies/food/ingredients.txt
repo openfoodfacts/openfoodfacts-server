@@ -2443,6 +2443,8 @@ pt: manteiga com sal
 ciqual_food_code:en: 16403
 ciqual_food_name:en: Butter, 80% fat, salted
 ciqual_food_name:fr: Beurre à 80% MG, salé
+usda_ndb_code:en: 1001
+usda_ndb_name:en: Butter, salted
 wikipedia:fr: https://fr.wikipedia.org/wiki/Beurre_salé
 # ingredient/salted-butter has 633 products in 8 languages @2019-07-10
 
@@ -3544,7 +3546,7 @@ ca: llet desnatada condensada ensucrada, llet descremada condensada ensucrada, l
 da: sockrad kondenserad mjölk
 de: gezuckerte Kondensmagermilch, Kondensmagermilch gezuckert
 el: ζαχαρούχο συμπυκνωμένο αποβουτυρωμένο γάλα
-es: leche desnatada condensada azucarada, leche descremada condensada azucarada, leche desnatada azucarada condensada, leche descremada azucarada condensada, dulce de leche
+es: leche desnatada condensada azucarada, leche descremada condensada azucarada, leche desnatada azucarada condensada, leche descremada azucarada condensada
 fi: makeutettu tiivistetty vähärasvainen maito
 fr: lait écrémé condensé sucré, lait concentré sucré écrémé
 hr: zasladeno kondenzirano obrano mlijeko
@@ -3584,7 +3586,7 @@ bn: আঠালো মিঠাই
 ca: almívar de llet, confitura de llet, llet confitada
 cs: kokosový karamel
 eo: laktokaramelo
-es: confitura de leche, leche confitada
+es: confitura de leche, leche confitada, dulce de leche
 fa: دولسه ولتی
 fr: confiture de lait
 ga: doce de leite
@@ -3604,6 +3606,8 @@ zh: 牛奶焦糖
 ciqual_food_code:en: 31040
 ciqual_food_name:en: Dulce de leche or confiture de lait
 ciqual_food_name:fr: Confiture de lait
+usda_ndb_code:en: 1225
+usda_ndb_name:en: Dulce de Leche
 wikidata:en: Q17072931
 wikipedia:en: https://en.wikipedia.org/wiki/Dulce_de_leche
 
@@ -5078,6 +5082,8 @@ vi: Kem chua
 zh: 酸忌廉
 # bxr:Зөөхэй
 # yue:酸忌廉
+usda_proxy_ndb_code:en: 1179
+usda_proxy_ndb_name:en: Sour cream, light
 wikipedia:en: https://en.wikipedia.org/wiki/Sour_cream
 # ingredient/Sour-cream has 773 products in 7 languages @2019-07-12
 
@@ -6109,6 +6115,8 @@ fr: fromage suisse
 hr: švicarski sir
 it: formaggio svizzero, formaggi svizzeri
 nl: Zwitserse kaas
+usda_ndb_code:en: 1040
+usda_ndb_name:en: Cheese, swiss
 # fr:fromage-suisse has 21 products in 3 languages @2018-10-27
 
 < en:cheese
@@ -6129,6 +6137,8 @@ hr: umak od sira
 it: salsa al formaggio
 nl: kaassaus
 sv: ostsås
+usda_ndb_code:en: 1164
+usda_ndb_name:en: Cheese sauce, prepared from recipe
 wikidata:en: Q27972032
 # ingredient/en:cheese-sauce has 425 products in 2 languages @2020-06-07
 
@@ -6261,6 +6271,8 @@ description:it: Il Brie è un formaggio francese vaccino a pasta molle e crosta 
 description:nl: Brie is een Franse witschimmelkaas.
 description:nn: Brie er en fransk ost fra Brie-regionen sør for Paris.
 description:pt: Os chamados brie são uma família de queijos de pasta mole e crosta branca, originários da região de Brie, na França.
+usda_ndb_code:en: 1006
+usda_ndb_name:en: Cheese, brie
 wikidata:en: Q193411
 wikipedia:en: https://en.wikipedia.org/wiki/Brie
 # 85 in 3 @ 2021-08-25
@@ -6340,7 +6352,15 @@ sr: kamamber
 uk: Камамбер
 yi: קאמעמבערט
 zh: 卡芒贝尔奶酪
-# 113 in 8 @2020-08-29
+# be-tarask:Камамбэр
+# gsw:Dr Kamamber-Chees
+# yue:金文拔芝士
+# zh-cn:卡芒贝尔奶酪
+# zh-hans:卡芒贝尔奶酪
+# zh-hant:卡芒貝爾奶酪
+# zh-hant:卡芒貝爾芝士
+# zh-sg:卡芒贝尔奶酪
+# zh-tw:卡芒貝爾乾酪
 ciqual_food_code:en: 12001
 ciqual_food_name:en: Camembert cheese, from cow's milk
 ciqual_food_name:fr: Camembert, sans précision
@@ -6351,17 +6371,11 @@ description:fr: Camembert est une appellation générique qui désigne général
 description:it: Il camembert è un formaggio francese a pasta molle e crosta fiorita prodotto in Normandia.
 description:nl: Camembert is een Franse witte schimmelkaas, die van koemelk wordt gemaakt en Penicillium camemberti.
 description:pt: Camembert ou camember é uma variedade de queijo de pasta mole, originária da região da Normandia, França
-# be-tarask:Камамбэр
-# gsw:Dr Kamamber-Chees
-# yue:金文拔芝士
-# zh-cn:卡芒贝尔奶酪
-# zh-hans:卡芒贝尔奶酪
-# zh-hant:卡芒貝爾奶酪
-# zh-hant:卡芒貝爾芝士
-# zh-sg:卡芒贝尔奶酪
-# zh-tw:卡芒貝爾乾酪
+usda_ndb_code:en: 1007
+usda_ndb_name:en: Cheese, camembert
 wikidata:en: Q131480
 wikipedia:en: https://en.wikipedia.org/wiki/Camembert
+# 113 in 8 @2020-08-29
 
 < en:camembert
 en: camembert from pasteurised milk
@@ -6475,18 +6489,6 @@ sv: cheddar, cheddarost
 uk: Чеддер
 vi: Pho mát Cheddar
 zh: 車打芝士
-# en:cheddar has 10196 products @2021-08-14
-ciqual_food_code:en: 12726
-ciqual_food_name:en: Cheddar cheese, from cow's milk
-ciqual_food_name:fr: Cheddar
-description:en: CHEDDAR cheese is a relatively hard, off-white, sometimes sharp-tasting, natural cheese.
-description:de: Cheddar ist eine aus Kuhmilch hergestellte Käsesorte, die 48 bis 50 % Fett in der Trockenmasse enthält, ursprünglich aus Großbritannien stammt und heute weltweit produziert wird.
-description:es: El cheddar es un queso pálido de sabor agrio, originalmente producido en la villa de Cheddar, en Somerset, Inglaterra.
-description:fr: Le cheddar est un fromage jaune pâle au goût prononcé au lait de vache. Il est originaire du village anglais de Cheddar dans le Somerset.
-description:it: Il cheddar è un formaggio a pasta dura, di colore che può variare dal giallo pallido fino all'arancione, dal gusto deciso. Ha origine nel villaggio inglese di Cheddar, nel Somerset, da cui prende il nome.
-description:nl: Cheddar is een gele tot oranje-gele, wat pittig smakende van koemelk gemaakte harde kaas die oorspronkelijk alleen gemaakt werd in Cheddar, een dorp in het Engelse Somerset.
-description:pt: O cheddar é uma variedade de queijo originalmente inglês. É alaranjado por corantes. De cor amarelada, apresenta consistência firme.
-description:sv: Cheddar är en engelsk ost, ljust gul till orange i färgen och med skarp smak, ursprungligen tillverkad i den engelska byn Cheddar i Somerset.
 # ast:Quesu cheddar
 # de-ch:Cheddar
 # en-ca:Cheddar cheese
@@ -6500,8 +6502,22 @@ description:sv: Cheddar är en engelsk ost, ljust gul till orange i färgen och 
 # zh-hk:車打芝士
 # zh-sg:切达干酪
 # zh-tw:切達起司
+ciqual_food_code:en: 12726
+ciqual_food_name:en: Cheddar cheese, from cow's milk
+ciqual_food_name:fr: Cheddar
+description:en: CHEDDAR cheese is a relatively hard, off-white, sometimes sharp-tasting, natural cheese.
+description:de: Cheddar ist eine aus Kuhmilch hergestellte Käsesorte, die 48 bis 50 % Fett in der Trockenmasse enthält, ursprünglich aus Großbritannien stammt und heute weltweit produziert wird.
+description:es: El cheddar es un queso pálido de sabor agrio, originalmente producido en la villa de Cheddar, en Somerset, Inglaterra.
+description:fr: Le cheddar est un fromage jaune pâle au goût prononcé au lait de vache. Il est originaire du village anglais de Cheddar dans le Somerset.
+description:it: Il cheddar è un formaggio a pasta dura, di colore che può variare dal giallo pallido fino all'arancione, dal gusto deciso. Ha origine nel villaggio inglese di Cheddar, nel Somerset, da cui prende il nome.
+description:nl: Cheddar is een gele tot oranje-gele, wat pittig smakende van koemelk gemaakte harde kaas die oorspronkelijk alleen gemaakt werd in Cheddar, een dorp in het Engelse Somerset.
+description:pt: O cheddar é uma variedade de queijo originalmente inglês. É alaranjado por corantes. De cor amarelada, apresenta consistência firme.
+description:sv: Cheddar är en engelsk ost, ljust gul till orange i färgen och med skarp smak, ursprungligen tillverkad i den engelska byn Cheddar i Somerset.
+usda_ndb_code:en: 1009
+usda_ndb_name:en: Cheese, cheddar (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q217525
 wikipedia:en: https://en.wikipedia.org/wiki/Cheddar_cheese
+# en:cheddar has 10196 products @2021-08-14
 
 < en:cheddar
 en: mild cheddar, mild cheddar cheese
@@ -6588,6 +6604,8 @@ ko: 콜비 치즈
 pt: Colby
 zh: 考爾比芝士
 description:en: Type of semi-hard cheese.
+usda_ndb_code:en: 1011
+usda_ndb_name:en: Cheese, colby
 wikidata:en: Q1056769
 
 < en:cheese
@@ -6696,6 +6714,13 @@ tl: Keso de bola
 tr: Edam peyniri
 uk: Едам
 zh: 埃德姆芝士
+# ast:Quesu edam
+# de-ch:Edamer
+# en-ca:Edam
+# en-gb:Edam
+# gsw:Edamer
+# pt-br:Edam
+# yue:艾登芝士
 ciqual_food_code:en: 12729
 ciqual_food_name:en: Edam cheese, from cow's milk
 ciqual_food_name:fr: Edam
@@ -6705,13 +6730,8 @@ description:es: El queso edam es un queso neerlandés que se ha elaborado tradic
 description:it: L'edam è un formaggio a base di latte vaccino con l'aggiunta di caglio animale tipico dei Paesi Bassi, venduto in forme dalla pasta giallo tenue e con una sottile protezione di cera rossastra.
 description:nl: Edammer kaas of kortweg edammer is een bolvormige Nederlandse harde kaassoort, die van oorsprong verhandeld werd vanuit de stad Edam. De bekende kleur van de kaas is rood.
 description:pt: O queijo Edam é um queijo semi-duro típico da cidade de Edam, na província da Holanda do Norte, nos Países Baixos.
-# ast:Quesu edam
-# de-ch:Edamer
-# en-ca:Edam
-# en-gb:Edam
-# gsw:Edamer
-# pt-br:Edam
-# yue:艾登芝士
+usda_ndb_code:en: 1018
+usda_ndb_name:en: Cheese, edam
 wikidata:en: Q597473
 wikipedia:en: https://en.wikipedia.org/wiki/Edam_cheese
 # fr:edam has 206 products in 11 languages @2018-10-28
@@ -6880,6 +6900,8 @@ fr: fromage à la crème
 hr: krem sir
 it: formaggio cremoso
 pl: serek śmietankowy
+usda_ndb_code:en: 1017
+usda_ndb_name:en: Cheese, cream
 
 < en:cream cheese
 en: fresh cream cheese
@@ -6994,7 +7016,7 @@ de: Speisequarkzubereitung
 # Speisequarkzubereitung (Speisequark, Joghurt mild aus entrahmter Milch)
 
 < en:Lean stern
-de: Magerquarkpulver
+de: magerquarkpulver
 
 < en:cheese
 en: cottage cheese
@@ -7058,21 +7080,23 @@ sv: Fetaost
 tr: Beyaz peynir
 uk: Фета
 zh: 菲達芝士
+# be-tarask:Фэта
+# yue:菲達芝士
 ciqual_food_code:en: 12061
 ciqual_food_name:en: Feta cheese, from ewe's milk
 ciqual_food_name:fr: Feta de brebis
 description:en: FETA is a greek brined curd white cheese from sheep's milk or from a mixture of sheep and goat's milk.
-# 775 in 7 @2021-08-30
 description:de: Der Feta ist ein Salzlakenkäse.
 description:es: Feta es un queso clásico de Grecia, fundamentado en la cuajada del queso que se cura en salmuera.
 description:fr: Feta désigne un fromage caillé en saumure originaire de Grèce.
 description:it: La feta è un formaggio tradizionale greco, a pasta semidura ma friabile, bianchissimo e piuttosto salato.
 description:nl: Feta is een Griekse kaas gemaakt van schapenmelk, eventueel aangevuld met geitenmelk.
 description:pt: Feta é um queijo coalhado típico da Grécia, feito tradicionalmente com leite de ovelha e de cabra.
-# be-tarask:Фэта
-# yue:菲達芝士
+usda_ndb_code:en: 1019
+usda_ndb_name:en: Cheese, feta
 wikidata:en: Q182760
 wikipedia:en: https://en.wikipedia.org/wiki/Feta
+# 775 in 7 @2021-08-30
 
 < en:feta
 en: Feta cheese from ewe's milk
@@ -7098,6 +7122,8 @@ ru: Фонтина
 uk: Фонтіна
 zh: 芳提娜芝士
 description:en: Fontina is a cow's milk cheese, produced worldwide.
+usda_ndb_code:en: 1020
+usda_ndb_name:en: Cheese, fontina
 wikidata:en: Q534043
 wikipedia:en: https://en.wikipedia.org/wiki/Fontina
 
@@ -7213,23 +7239,25 @@ sl: Gavda
 tr: Gouda peyniri
 uk: Гауда
 zh: 豪达奶酪
-ciqual_food_code:en: 12736
-ciqual_food_name:en: Gouda cheese, from cow's milk
-ciqual_food_name:fr: Gouda
-description:en: GOUDA is a mild, yellow cheese made from cow's milk.
-# fr:gouda has 92 products @2018-10-28
-description:de: Gouda (ndl. Goudse kaas) ist die Bezeichnung für verschiedene Schnittkäse, die nach dem Vorbild eines traditionell aus der niederländischen Stadt Gouda stammenden Käses produziert werden. Heute wird Käse unter dem Namen Gouda international produziert, während der Gouda Holland seit 2010 als geschützte geographische Angabe (g.g.A.) eingetragen und geschützt ist.
-description:es: El gouda es un queso blanco neerlandés denominado así por la ciudad de Gouda. El término "gouda" es hoy en día un nombre genérico, que no está limitado a los quesos de origen neerlandés.
-description:it: Il gouda è il formaggio più conosciuto e più consumato dei Paesi Bassi.
-description:nl: Goudse kaas is een van oorsprong Nederlandse harde kaas. Het is een van de bekendste en meest gegeten kaassoorten.
 # ast:Quesu gouda
 # en-ca:Gouda cheese
 # en-gb:Gouda cheese
 # lfn:Gauda
 # wuu:高达奶酪
 # yue:高達芝士
+ciqual_food_code:en: 12736
+ciqual_food_name:en: Gouda cheese, from cow's milk
+ciqual_food_name:fr: Gouda
+description:en: GOUDA is a mild, yellow cheese made from cow's milk.
+description:de: Gouda (ndl. Goudse kaas) ist die Bezeichnung für verschiedene Schnittkäse, die nach dem Vorbild eines traditionell aus der niederländischen Stadt Gouda stammenden Käses produziert werden. Heute wird Käse unter dem Namen Gouda international produziert, während der Gouda Holland seit 2010 als geschützte geographische Angabe (g.g.A.) eingetragen und geschützt ist.
+description:es: El gouda es un queso blanco neerlandés denominado así por la ciudad de Gouda. El término "gouda" es hoy en día un nombre genérico, que no está limitado a los quesos de origen neerlandés.
+description:it: Il gouda è il formaggio più conosciuto e più consumato dei Paesi Bassi.
+description:nl: Goudse kaas is een van oorsprong Nederlandse harde kaas. Het is een van de bekendste en meest gegeten kaassoorten.
+usda_ndb_code:en: 1022
+usda_ndb_name:en: Cheese, gouda
 wikidata:en: Q593675
 wikipedia:en: https://en.wikipedia.org/wiki/Gouda_cheese
+# fr:gouda has 92 products @2018-10-28
 
 
 
@@ -7323,6 +7351,8 @@ ciqual_food_name:en: Gruyere cheese, from cow's milk
 ciqual_food_name:fr: Gruyère
 description:en: Gruyere is a hard cheese mad from cow milk. It originates either from Switzerland or France.
 description:nl: Gruyere is een harde kaas van koemelk, hetzij uit Zwitserland, hetzij uit Frankrijk.
+usda_ndb_code:en: 1023
+usda_ndb_name:en: Cheese, gruyere
 # fr:gruyere has 104 products in 7 languages @2021-08-14
 
 < en:gruyère
@@ -7865,6 +7895,8 @@ jv: Kèju Muenster
 sv: Muenster
 th: มึนสเตอร์ชีส
 description:en: American cheese.
+usda_ndb_code:en: 1030
+usda_ndb_name:en: Cheese, muenster
 wikidata:en: Q6931973
 
 #category/munsters
@@ -8082,6 +8114,8 @@ ru: Пекорино
 sv: pecorino, pecorino-ost
 uk: Пекоріно
 zh: 義大利綿羊乾酪
+usda_ndb_code:en: 1038
+usda_ndb_name:en: Cheese, romano
 wikidata:en: Q677640
 wikipedia:en: https://en.wikipedia.org/wiki/Pecorino
 # fr:pecorino has 45 products in 3 languages @2018-10-27
@@ -8164,13 +8198,15 @@ pt: Provolone
 ru: Проволоне
 sw: Provolone
 zh: 波羅伏洛芝士
-# fr:provolone has 28 products in 4 languages @2018-10-28
+# yue:布旺倫芝士
 ciqual_food_code:en: 12716
 ciqual_food_name:en: Provolone cheese, from cow's milk
 ciqual_food_name:fr: Provolone
-# yue:布旺倫芝士
+usda_ndb_code:en: 1035
+usda_ndb_name:en: Cheese, provolone
 wikidata:en: Q1900114
 wikipedia:en: https://en.wikipedia.org/wiki/Provolone
+# fr:provolone has 28 products in 4 languages @2018-10-28
 
 
 
@@ -8361,10 +8397,6 @@ sv: Roquefortost
 tr: Rokfor peyniri
 uk: Рокфор
 zh: 罗克福干酪
-# ingredient/fr:roquefort has 74 products in 4 languages @2019-04-03
-ciqual_food_code:en: 12500
-ciqual_food_name:en: Roquefort cheese, from ewe's milk
-ciqual_food_name:fr: Roquefort
 # be-tarask:Ракфор
 # zh-cn:罗克福奶酪
 # zh-hans:罗克福奶酪
@@ -8372,8 +8404,14 @@ ciqual_food_name:fr: Roquefort
 # zh-hk:羅克福芝士
 # zh-sg:罗克福奶酪
 # zh-tw:羅克福乾酪
+ciqual_food_code:en: 12500
+ciqual_food_name:en: Roquefort cheese, from ewe's milk
+ciqual_food_name:fr: Roquefort
+usda_ndb_code:en: 1039
+usda_ndb_name:en: Cheese, roquefort
 wikidata:en: Q189221
 wikipedia:en: https://en.wikipedia.org/wiki/Roquefort
+# ingredient/fr:roquefort has 74 products in 4 languages @2019-04-03
 
 #category/saint-nectaire
 < en:cheese
@@ -8625,6 +8663,8 @@ description:fr: Les fromages à pâte persillée ou à pâte à moisissure inter
 description:it: L\'erborinatura è una tecnica di lavorazione casearia che consente lo sviluppo di muffe nella pasta del formaggio con la conseguente comparsa di caratteristiche striature e chiazze blu-verdi.
 description:nl: Blauwschimmelkaas, ook wel blauwaderkaas genoemd, is een type schimmelkaas met een blauwe schimmel (Penicillium roqueforti) als opvallendste kenmerk.
 description:pt: Os queijos azuis têm uma produção mais elaborada, resultando assim numa massa macia e quebradiça, permeada por veios azulados que dão uma característica peculiar que dá nome a esse tipo de queijo.
+usda_ndb_code:en: 1004
+usda_ndb_name:en: Cheese, blue
 wikidata:en: Q746471
 wikipedia:en: https://en.wikipedia.org/wiki/Blue_cheese
 
@@ -8983,6 +9023,8 @@ carbon_footprint_fr_foodges_value:fr: 0.5
 ciqual_food_code:en: 11058
 ciqual_food_name:fr: Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
 description:en: SALT - is a mineral composed primarily of sodium chloride (NaCl), a chemical compound belonging to the larger class of salts "sodium chloride" is defined in minerals.txt
+usda_ndb_code:en: 2047
+usda_ndb_name:en: Salt, table
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q11254
@@ -12067,10 +12109,6 @@ vi: Thịt muối
 wa: lård
 yi: שפעק
 zh: 煙肉
-# ingredient/bacon has 807 products in 16 languages @2019-05-10
-ciqual_food_code:en: 28858
-ciqual_food_name:en: Pancetta, dried
-ciqual_food_name:fr: Pancetta ou Poitrine roulée sèche
 # ast:Panceta
 # atj:Morasikan
 # be-tarask:Бэкон
@@ -12079,10 +12117,16 @@ ciqual_food_name:fr: Pancetta ou Poitrine roulée sèche
 # sco:baucon
 # wuu:烟肉
 # yue:煙肉
+ciqual_food_code:en: 28858
+ciqual_food_name:en: Pancetta, dried
+ciqual_food_name:fr: Pancetta ou Poitrine roulée sèche
+usda_ndb_code:en: 4002
+usda_ndb_name:en: Lard
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q11106
 wikipedia:en: https://en.wikipedia.org/wiki/Bacon
+# ingredient/bacon has 807 products in 16 languages @2019-05-10
 
 < en:pork
 en: pork heart
@@ -13544,9 +13588,10 @@ de: Froschschenkel
 fr: Cuisses de grenouilles
 hr: žablji kraci
 it: cosce di rana
+usda_proxy_ndb_code:en: 80200
+usda_proxy_ndb_name:en: Frog legs, raw
 wikidata:en: Q1258910
 wikipedia:en: https://en.wikipedia.org/wiki/Frog_legs
-
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -13738,6 +13783,8 @@ zh: 玉米澱粉
 ciqual_food_code:en: 9510
 ciqual_food_name:en: Maize/corn starch
 ciqual_food_name:fr: Amidon de maïs ou fécule de maïs
+usda_ndb_code:en: 20027
+usda_ndb_name:en: Cornstarch
 wikipedia:en: https://en.wikipedia.org/wiki/Corn_starch
 #76146 in 38 @2021-09-28
 
@@ -13883,7 +13930,6 @@ pl: skrobia ze słodkich ziemniaków, skrobia z batatów, skrobia ze słodkiego 
 
 # en:modified potato starch is listed under en:thickener
 
-# Wikipedia: Arrowroot is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
 
 < en:starch
 en: arrowroot, arrowroot power, arrowroot starch, arrowroot flour
@@ -13891,6 +13937,9 @@ de: Pfeilwurzelstärke, Pfeilwurzelmehl
 fr: Arrow-root/Marante/Herbe aux flèches
 hr: arrowroot
 it: radice di maranta
+description:en: Arrowroot is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
+usda_ndb_code:en: 20003
+usda_ndb_name:en: Arrowroot flour
 
 < en:starch
 # <en:wheat
@@ -14519,9 +14568,6 @@ sv: Animaliskt fett
 tr: Hayvansal yağ
 uk: Тваринні жири
 zh: 動物脂肪
-# ingredient/animal-fat has 3013 products in 11 languages @2019-07-10
-vegan:en: no
-vegetarian:en: no
 # kk-arab:جانۋار مايى
 # kk-cn:جانۋار مايى
 # kk-cyrl:Жануар майы
@@ -14530,8 +14576,13 @@ vegetarian:en: no
 # kk-tr:Janwar maýı
 # zh-hans:动物性油脂
 # zh-hant:動物性油脂
+vegan:en: no
+vegetarian:en: no
+usda_ndb_code:en: 4609
+usda_ndb_name:en: Animal fat, bacon grease
 wikidata:en: Q1423543
 wikipedia:en: https://en.wikipedia.org/wiki/Animal_fat
+# ingredient/animal-fat has 3013 products in 11 languages @2019-07-10
 
 < en:animal fat
 en: suet
@@ -14676,17 +14727,19 @@ th: ไขมันเนย
 tl: taba ng gatas
 uk: Молочний жир
 zh: 乳脂
-# ingredient/butterfat has 9828 products in 35 languages @2019-07-10
-ciqual_food_code:en: 16401
-ciqual_food_name:en: Butter oil or concentrated butter
-vegan:en: no
-vegetarian:en: yes
 # en-gb:butterfat
 # zh-hans:乳脂
 # zh-hant:乳脂
 # zh-hk:乳脂
+ciqual_food_code:en: 16401
+ciqual_food_name:en: Butter oil or concentrated butter
+usda_ndb_code:en: 1003
+usda_ndb_name:en: Butter oil, anhydrous
+vegan:en: no
+vegetarian:en: yes
 wikidata:en: Q909729
 wikipedia:en: https://en.wikipedia.org/wiki/Butterfat
+# ingredient/butterfat has 9828 products in 35 languages @2019-07-10
 
 # description:en:CLARIFIED BUTTER is milk fat rendered from butter to separate the milk solids and water from the butterfat
 # comment:en:Not sure if this is really different from butterfat. Maybe the clarification is a special process.
@@ -15369,8 +15422,10 @@ sk: palmový tuk
 sl: palmina rastlinska maščoba
 sr: palmina mast
 sv: palmfett
-# 9007 in 34 @2021-09-09
+usda_ndb_code:en: 4055
+usda_ndb_name:en: Oil, palm
 description:en: the solid state of the vegetable oil, obtained from the fruit of oil palms.
+# 9007 in 34 @2021-09-09
 
 #processing:en en:non-hydrogenated
 #<en:palm fat
@@ -15512,6 +15567,8 @@ sv: palmkärnolja, palmkärna, palmkärn
 te: పామ్‌కెర్నల్‌ నూనె
 uk: Пальмоядрова олія
 from_palm_oil:en: yes
+usda_ndb_code:en: 4513
+usda_ndb_name:en: Vegetable oil, palm kernel
 wikidata:en: Q1960534
 wikipedia:en: https://en.wikipedia.org/wiki/Palm_kernel_oil
 # usage:de:Pflanzenfett (Palm, Palmkern)
@@ -15685,12 +15742,14 @@ tr: Hindistan cevizi yağı
 uk: Кокосове масло
 vi: Dầu dừa
 zh: 椰子油
+# sco:coconut ile
+# yue:椰油
 ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
 from_palm_oil:en: no
+usda_ndb_code:en: 4047
+usda_ndb_name:en: Oil, coconut
 wikidata:en: Q216235
-# sco:coconut ile
-# yue:椰油
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_oil
 
 #<en:coconut oil
@@ -15842,7 +15901,8 @@ de: Haferöl, Haferkernöl
 es: aceite vegetal avena
 hr: zobeno ulje
 it: olio di avena
-
+usda_ndb_code:en: 4588
+usda_ndb_name:en: Oil, oat
 
 < en:vegetable oil
 en: olive oil
@@ -16219,11 +16279,13 @@ hu: kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it: Olio di canola
 ja: キャノーラ油, なたね油
 nl: canola olie, canolaolie
-# sv: rybsolja, rypsolja # duplicate, unclear which is correct
 tr: kanola yağı
+# sv: rybsolja, rypsolja # duplicate, unclear which is correct
 description:en: Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 description:es: El aceite de colza (aceite de nabina o de canola) es el extracto de la semilla de la colza, usado sobre todo en el norte de Europa como condimento y para el alumbrado.
 description:pt: Canola é um cultivo criado para ter baixo teor de ácido erúcico. O termo canola (Brassica napus L., Brassica rapa L., e Brassica juncea) se refere a variedades de plantas de três espécies da família das crucíferas, pertencentes ao gênero Brassica, que produzem um óleo comestível.
+usda_ndb_code:en: 4582
+usda_ndb_name:en: Oil, canola
 wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
 
 #process:en: en:fully hydrogenated
@@ -16387,6 +16449,8 @@ ciqual_food_name:fr: Huile de noix
 description:en: WALNUT OIL is oil extracted from walnuts, Juglans regia
 from_palm_oil:en: no
 nutriscore_fruits_vegetables_nuts:en: yes
+usda_ndb_code:en: 4528
+usda_ndb_name:en: Oil, walnut
 wikidata:en: Q1434098
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut_oil
 
@@ -16400,7 +16464,8 @@ fr: Huile de moutarde/Huile de graines de moutarde/Huile de sénevé
 hr: ulje senfa
 it: olio di senape
 ru: масло-горчицы, масло горчицы, эфирное масло горчицы, горчичное масло, масло горчичное
-
+usda_ndb_code:en: 4583
+usda_ndb_name:en: Oil, mustard
 # ingredient/fr:huile-vierge-de-noix has 21 products in french @2019-04-24
 
 # description:en:COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
@@ -16470,6 +16535,8 @@ nl: avocado-olie, avocado olie
 pl: olej z awokado
 sv: avokadoolja
 from_palm_oil:en: no
+usda_ndb_code:en: 4581
+usda_ndb_name:en: Oil, avocado
 wikidata:en: Q2918735
 
 < en:vegetable oil
@@ -16883,6 +16950,8 @@ uk: Рисова олія
 zh: 米糠油
 description:en: RICE BRAN OIL is the oil extracted from the hard outer brown layer of rice called chaff (rice husk).
 from_palm_oil:en: no
+usda_ndb_code:en: 4037
+usda_ndb_name:en: Oil, rice bran
 wikidata:en: Q175933
 wikipedia:en: https://en.wikipedia.org/wiki/Rice_bran_oil
 
@@ -17048,6 +17117,8 @@ ciqual_food_code:en: 17210
 ciqual_food_name:en: Hazelnut oil
 ciqual_food_name:fr: Huile de noisette
 from_palm_oil:en: no
+usda_ndb_code:en: 4532
+usda_ndb_name:en: Oil, hazelnut
 wikidata:en: Q1112606
 
 < en:hazelnut oil
@@ -17085,6 +17156,8 @@ fr: huile d'amande
 hr: bademovo ulje
 it: olio di mandorle
 nl: amandelolie
+usda_ndb_code:en: 4529
+usda_ndb_name:en: Oil, almond
 
 < en:almond oil
 < en:hazelnut oil
@@ -17679,6 +17752,11 @@ vegan:en: no
 vegetarian:en: no
 wikidata:en: Q1786125
 
+< en:fish oil
+en: salmon fish oil, salmon oil
+usda_ndb_code:en: 4593
+usda_ndb_name:en: Fish oil, salmon
+
 < en:oil
 en: marine oil
 fr: huile marine
@@ -17752,10 +17830,12 @@ zh: 雞油
 ciqual_food_code:en: 16540
 ciqual_food_name:en: Chicken fat
 ciqual_food_name:fr: Graisse de poulet
-# 4183 in 20 @2021-09-12
 description:nl: vet van een kip, vet dat vrijkomt als men een kip braadt of grilt.
+usda_ndb_code:en: 4542
+usda_ndb_name:en: Fat, chicken
 wikidata:en: Q5096296
 wikipedia:en: https://en.wikipedia.org/wiki/Chicken_fat
+# 4183 in 20 @2021-09-12
 # kippenvet (kippenvet, antioxidant:rozemarijnextract)
 
 # from:en:goose
@@ -17774,6 +17854,8 @@ ru: гусиный жир
 ciqual_food_code:en: 16560
 ciqual_food_name:en: Goose fat
 ciqual_food_name:fr: Graisse d'oie
+usda_ndb_code:en: 4576
+usda_ndb_name:en: Fat, goose
 wikidata:en: Q68187377
 # 146 in 5 @2021-09-12
 
@@ -17785,6 +17867,8 @@ it: grasso di tacchino
 pl: tłuszcz z indyka, tłuszcz drobiowy z indyka
 ciqual_food_code:en: 16570
 ciqual_food_name:en: Goose fat
+usda_ndb_code:en: 4575
+usda_ndb_name:en: Fat, turkey
 wikidata:en: Q102318348
 
 en: vinegar
@@ -17913,6 +17997,8 @@ he: חומץ מזוקק
 hr: destilirani ocat
 it: aceto distillato
 pl: Ocet destylowany
+usda_ndb_code:en: 2053
+usda_ndb_name:en: Vinegar, distilled
 
 < en:distilled vinegar
 < en:white vinegar
@@ -18042,6 +18128,8 @@ pl: ocet cydrowy
 pt: vinagre de sidra
 sv: cidervinäger
 #ast:Vinagre de sidra
+usda_ndb_code:en: 2048
+usda_ndb_name:en: Vinegar, cider
 
 < en:cider vinegar
 en: apple cider vinegar
@@ -18128,6 +18216,8 @@ zh: 意大利香醋
 ciqual_food_code:en: 11091
 ciqual_food_name:en: Vinegar, balsamic
 ciqual_food_name:fr: Vinaigre balsamique
+usda_ndb_code:en: 2069
+usda_ndb_name:en: Vinegar, balsamic
 wikidata:en: Q170037
 wikipedia:en: https://en.wikipedia.org/wiki/Balsamic_vinegar
 #2233 @2021-09-26
@@ -18289,6 +18379,8 @@ it: aceto di vino rosso
 nl: rode wijnazijn
 pl: ocet winny czerwony
 sv: rödvinsvinäger
+usda_ndb_code:en: 2068
+usda_ndb_name:en: Vinegar, red wine
 
 < en:vinegar
 en: spirit vinegar
