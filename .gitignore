@@ -56,6 +56,9 @@ Thumbs.db
 .vscode/settings.json
 .idea/
 
+# Backup files
+*.bak
+
 # Logs
 logs/
 !scripts/utils/logs
