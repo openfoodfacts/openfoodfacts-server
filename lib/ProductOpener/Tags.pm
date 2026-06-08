@@ -4149,8 +4149,8 @@ sub display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 		}
 	}
 
-	$log->debug("display_taxonomy_tag",
-		{target_lc => $target_lc, tagtype => $tagtype, tag => $tag, tagid => $tagid, display => $display});
+	#$log->debug("display_taxonomy_tag",
+	#	{target_lc => $target_lc, tagtype => $tagtype, tag => $tag, tagid => $tagid, display => $display});
 
 	return $display;
 
