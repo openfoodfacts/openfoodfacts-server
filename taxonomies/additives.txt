@@ -8029,8 +8029,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q221945
 
-# comment:en:Put the plural form in E322 and the specific singular forms as i and ii. Any origin soy or sunflower can be added to the ingredients.
-
 en: E322, Lecithins, Phosphatides
 xx: E322
 ar: E322, ليسيثين
@@ -8060,14 +8058,14 @@ ru: E322, Лецитины, е322, соевый лецитин-e322
 sk: E322, Lecitíny, Fosfatidy
 sl: E322, Lecitini, fosfatidi
 sv: E322, Lecitiner, Fosfatider
-tr: E322
 additives_classes:en: en:antioxidant, en:emulsifier
+comment:en: Put the plural form in E322 and the specific singular forms as i and ii. Any origin soy or sunflower can be added to the ingredients.
+description:en: is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogeLECITHINnizing liquid mixtures, and repelling sticking materials. The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
 e_number:en: 322
 organic_eu:en: authorized
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q241595
-# description:en: is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogeLECITHINnizing liquid mixtures, and repelling sticking materials. The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
 
 # comment:en:Put the plural form in E322 and the specific singular forms as i and ii. Any lecitin with origin soy or sunflower can be added to the ingredients taxonomy (for the moment).
 < en:E322
@@ -8149,6 +8147,7 @@ e_number:en: 322
 organic_eu:en: authorized
 wikidata:en: Q241595
 
+< en:E322
 en: E322a, Oat lecithin
 xx: E322a
 ar: E322a, ليسيثين الشوفان
@@ -11544,6 +11543,7 @@ vegetarian:en: yes
 wikidata:en: Q4783458
 
 
+#< en:tree gum
 #comment:en:The flour variant is also used as an additive (with an additive class). Beware carob (or variants) is something different.
 en: E410, Locust bean gum, Carob bean gum, Carob gum, garrofin gum, peruvian carob gum
 xx: E410
@@ -11598,6 +11598,7 @@ e_number:en: 411
 vegan:en: yes
 vegetarian:en: yes
 
+#< en:tree gum
 en: E412, Guar gum, Gum cyamopsis, guar flour
 xx: E412
 bg: E412, Гума гуар, Гума циамопсис, Гуарова гума
@@ -11633,6 +11634,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q422071
 
+#< en:tree gum
 en: E413, Tragacanth, Tragacanth gum
 xx: E413
 ar: E413, صمغ الكثيراء
@@ -11679,6 +11681,7 @@ wikidata:en: Q423901
 # ingredient/fr:gomme-adragante has 62 products in 4 languages @2019-03-23
 # additive/e413-tragacanth has 286 products in 6 languages @2019-03-24
 
+#< en:tree gum
 en: E414, Acacia gum, gum arabic, gum acacia, arabic gum, Gum arabic, E-414, E 414, INS414, INS 414
 xx: E414
 ar: E414, صمغ عربي
@@ -11749,9 +11752,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q535814
 
-
-#   XANTHAN GUM   is a polysaccharide with many industrial uses, including as a common food additive.
-
+#< en:tree gum
 en: E415, Xanthan gum, xanthan, E-415, e 415
 xx: E415
 ar: E415, صمغ الكزانتان
@@ -11789,7 +11790,14 @@ sl: E415, Ksantan gumi
 sv: E415, Xantangummi, Xantan, Xanthangummi
 tr: E415, Ksantan zamkı, Ksantan gam, Ksantan gum, Ksantan gamı
 zh: E415, 黄原胶
+#sco: Xanthan gum
+#zh-cn: 黄原胶# zh-hans: 黄原胶
+#zh-hant: 黃原膠
+#zh-hk: 黃原膠
+#zh-sg: 黄原胶
+#zh-tw: 黃原膠
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
+description:en: XANTHAN GUM is a polysaccharide with many industrial uses, including as a common food additive.
 e_number:en: 415
 efsa_evaluation:en: Re‐evaluation of xanthan gum (E 415) as a food additive
 efsa_evaluation_adi_established:en: en:no
@@ -11800,13 +11808,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q410768
 wikipedia:en: https://en.wikipedia.org/wiki/Xanthan_gum
-# sco:Xanthan gum
-# zh-cn:黄原胶# zh-hans:黄原胶
-# zh-hant:黃原膠
-# zh-hk:黃原膠
-# zh-sg:黄原胶
-# zh-tw:黃原膠
 
+#< en:tree gum
 en: E416, Karaya-gum, Katilo, Kadaya, Gum sterculia, Sterculia, Karaya, gum karaya, Kullo
 xx: E416
 bg: E416, Гума карая, Катило, кадая, гума sterculia, Sterculia, карая, гума карая, куло
@@ -11841,6 +11844,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q421167
 
+#< en:tree gum
 en: E417, Tara gum
 xx: E417
 bg: E417, Гума тара
@@ -11879,6 +11883,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tara_spinosa#Uses
 #description:en:TARA GUM is produced by separating and grinding the endosperm of T. spinosa seeds. Tara gum is used as a thickening agent and stabilizer in a number of food applications.
 # ingredient/fr:gomme-tara has 254 products in 6 languages -@2019-05-12
 
+#< en:tree gum
 en: E418, Gellan gum, gellan, E-418, E 418, INS418, INS-418, INS 418
 xx: E418
 ar: E418, صمغ الجيلان
@@ -11907,6 +11912,8 @@ sk: E418, Guma gellan
 sl: E418, Gelanski gumi
 sv: E418, Gellangummi
 zh: E418, 結蘭膠
+#en-ca: Gellan gum
+#en-gb: Gellan gum
 additives_classes:en: en:stabiliser, en:thickener
 description:en: GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
 e_number:en: 418
@@ -11918,9 +11925,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q416694
 wikipedia:en: https://en.wikipedia.org/wiki/Gellan_gum
-# en-ca:Gellan gum
-# en-gb:Gellan gum
 
+#< en:tree gum
 en: E419, Gum ghatti
 xx: E419
 ar: E419, صمغ غاتي
