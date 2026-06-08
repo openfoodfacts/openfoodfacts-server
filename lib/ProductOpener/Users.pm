@@ -599,16 +599,15 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	$user_ref->{display_barcode} = !!remove_tags_and_quote(single_param("display_barcode"));
 	$user_ref->{edit_link} = !!remove_tags_and_quote(single_param("edit_link"));
 
-	# Check input parameters, redisplay if necessary
-
-	if (length($user_ref->{name}) < 2) {
-		push @{$errors_ref}, $Lang{error_no_name}{$lc};
-	}
-	elsif (length($user_ref->{name}) > 60) {
-		push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
-	}
-
 	if (get_oidc_implementation_level() < 5) {
+		# Check input parameters, redisplay if necessary. Delegate all validation to Keycloak from level 5
+		if (length($user_ref->{name}) < 2) {
+			push @{$errors_ref}, $Lang{error_no_name}{$lc};
+		}
+		elsif (length($user_ref->{name}) > 60) {
+			push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
+		}
+
 		# Show additional fields until Keycloak is managing user registration
 		my $address;
 		eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
