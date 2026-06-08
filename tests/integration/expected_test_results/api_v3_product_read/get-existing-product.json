@@ -89,7 +89,6 @@
       ],
       "data_quality_info_tags" : [
          "en:packaging-data-incomplete",
-         "en:ingredients-percent-analysis-ok",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown"
@@ -110,7 +109,6 @@
          "en:brands-to-be-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-data-incomplete",
-         "en:ingredients-percent-analysis-ok",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
@@ -142,7 +140,7 @@
                   {
                      "epi_score" : 0,
                      "origin" : "en:unknown",
-                     "percent" : 100,
+                     "percent" : 100.0,
                      "transportation_score" : 0
                   }
                ],
@@ -425,7 +423,7 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
-      "estimate_ingredients_percent_service" : "product_opener",
+      "estimate_ingredients_percent_service" : "recipe_estimator_cvxpy",
       "food_groups_tags" : [],
       "generic_name" : "default_name",
       "generic_name_en" : "default_name",
@@ -440,9 +438,8 @@
             "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
             "id" : "en:water",
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 75,
-            "percent_max" : 100,
-            "percent_min" : 50,
+            "percent_estimate" : 76.47,
+            "quantity_estimate" : 76.47,
             "text" : "water",
             "vegan" : "yes",
             "vegetarian" : "yes"
@@ -450,9 +447,8 @@
          {
             "id" : "en:test_ingredient",
             "is_in_taxonomy" : 0,
-            "percent_estimate" : 25,
-            "percent_max" : 50,
-            "percent_min" : 0,
+            "percent_estimate" : 23.53,
+            "quantity_estimate" : 23.53,
             "text" : "test_ingredient"
          }
       ],
@@ -487,7 +483,6 @@
          "en:water",
          "en:test_ingredient"
       ],
-      "ingredients_percent_analysis" : 1,
       "ingredients_sweeteners_n" : 0,
       "ingredients_tags" : [
          "en:water",
@@ -500,7 +495,7 @@
       "ingredients_with_specified_percent_n" : 0,
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 2,
-      "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_with_unspecified_percent_sum" : 100.0,
       "ingredients_without_ciqual_codes" : [
          "en:test_ingredient"
       ],
@@ -537,7 +532,7 @@
       "minerals_tags" : [],
       "misc_tags" : [
          "en:environmental-score-not-computed",
-         "en:estimated-ingredients-with-product-opener",
+         "en:estimated-ingredients-with-recipe-estimator-cvxpy",
          "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
          "en:nutriscore-2021-c-2023-c",
          "en:nutriscore-2021-same-as-2023",
@@ -970,6 +965,251 @@
       "product_quantity_unit" : "g",
       "product_type" : "food",
       "quantity" : "100 g",
+      "recipe_estimator" : {
+         "ingredient_count" : 2,
+         "might_be_us" : false,
+         "nutrients" : {
+            "alcohol" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "calcium" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.00713,
+               "weighting" : 0
+            },
+            "carbohydrates" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "cholesterol" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "copper" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 1.7e-05,
+               "weighting" : 0
+            },
+            "energy" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "fat" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "fiber" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "folates" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "fructose" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "glucose" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "iron" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 3e-05,
+               "weighting" : 0
+            },
+            "lactose" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "magnesium" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.00099,
+               "weighting" : 0
+            },
+            "maltose" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "manganese" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 8.2e-07,
+               "weighting" : 0
+            },
+            "monounsaturated-fat" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "pantothenic-acid" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "phosphorus" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "polyols" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "polyunsaturated-fat" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "potassium" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.00073,
+               "weighting" : 0
+            },
+            "proteins" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "salt" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0076,
+               "weighting" : 0
+            },
+            "saturated-fat" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "sodium" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0024,
+               "weighting" : 0
+            },
+            "starch" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "sucrose" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "sugars" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "vitamin-b1" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "vitamin-b12" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "vitamin-b2" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "vitamin-b6" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "vitamin-c" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "vitamin-d" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "vitamin-pp" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 0.0,
+               "weighting" : 0
+            },
+            "water" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 100.0,
+               "weighting" : 0
+            },
+            "zinc" : {
+               "ingredient_count" : 1,
+               "notes" : "Not listed on product",
+               "unweighted_total" : 1.1e-05,
+               "weighting" : 0
+            }
+         },
+         "penalties" : {
+            "ingredient_more_than_previous_penalty" : 0,
+            "ingredient_not_half_previous_penalty" : 147.05,
+            "mass_less_than_100_penalty" : 0,
+            "mass_more_than_100_penalty" : 0.0,
+            "nutrient_penalty" : 0,
+            "total" : 147.05
+         },
+         "status" : 0,
+         "status_message" : "optimal",
+         "time" : 0.31
+      },
       "removed_countries_tags" : [],
       "rev" : 1,
       "schema_version" : 999,
