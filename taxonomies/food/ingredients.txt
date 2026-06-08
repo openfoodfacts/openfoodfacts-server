@@ -1379,7 +1379,7 @@ fr: ferments du kéfir, culture de kéfir, cultures de kéfir
 hr: kefirna kultura
 hu: kefirkultúra
 it: coltura di kefir, fermenti di kefir, fermenti vivi di kefir
-pl: kultury kefirowe, żywe kultury bakterii kefirowych
+pl: kultury kefirowe, żywe kultury bakterii kefirowych, żywe kultury bakterii i drożdży kefirowych
 
 < en:kefir ferments
 < en:lactic ferments
@@ -13667,7 +13667,7 @@ hr: modificirani škrob, modificiran škrob
 hu: Módosított keményítő
 is: umbreytt sterkja
 it: amido modificato, Amidi modificati
-ja: 加工デンプン
+ja: 加工デンプン, 加工でん粉
 ko: 가공 전분
 lt: modifikuotas krakmolas
 lv: Modificēta ciete
@@ -17822,7 +17822,7 @@ id: vinegar
 io: vinagro
 is: edik
 it: aceto
-ja: 酢, 醸造酢
+ja: 酢, 醸造酢, 食酢
 kk: сірке суы
 kn: ವಿನಿಗರ್
 ko: 식초
@@ -24789,7 +24789,7 @@ id: Malt
 io: Malto
 is: Malt
 it: malto
-ja: 麦芽
+ja: 麦芽, モルト
 ko: 엿기름
 lb: Malz
 lt: Salyklas
@@ -30401,7 +30401,7 @@ id: gula
 is: sykur, matarsykur
 it: zucchero, zuccheri, lo zucchero, diversi zuccheri
 iu: ᓱᑲᒃ
-ja: 砂糖, 糖類
+ja: 砂糖, 糖類, 砂糖類
 jv: Gula
 ka: შაქარი
 kk: Қант
@@ -32304,7 +32304,7 @@ fr: sirop de maïs à haute teneur en fructose, sirop de glucose-fructose de ma�
 hr: visokofruktozni kukuruzni sirup, izoglukozni sirup
 hu: Izocukor
 it: Sciroppo di mais ad alto contenuto di fruttosio
-ja: 異性化糖, ぶどう糖果糖液糖
+ja: 異性化糖, ぶどう糖果糖液糖, 異性化液糖
 ko: 고과당 옥수수 시럽
 nl: maïsglucose-fructosestroop
 pl: Syrop kukurydziany o wysokiej zawartości fruktozy
@@ -33237,10 +33237,15 @@ it: proteine vegetali testurizzate
 
 < en:plant protein
 en: almond protein
+da: mandelprotein
 de: Mandelprotein
 fr: protéine d'amande
 it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
+nb: mandelprotein
+nn: mandelprotein
 pl: białko migdałowe
+sv: mandelprotein
+allergens:en: en:nuts
 
 < en:plant protein
 en: pea protein
@@ -34079,23 +34084,25 @@ sv: kakao
 tr: Kakao
 yi: קאקאו
 zh: 可可粉
+#bar: Gaugau
+#nah: Cacahuatetl
+#scn: Cacau
+#sgs: Kakava
+#sr-ec: какао
+#sr-el: Kakao
+#yue: 唂咕粉
+#zh-hans: 可可粉
+#zh-hant: 可可粉
+#zh-hk: 可可粉
 ciqual_proxy_food_code:en: 18100
 ciqual_proxy_food_name:en: Cocoa powder, without sugar, powder, instant
 ciqual_proxy_food_name:fr: Cacao, non sucré, poudre soluble
-# bar:Gaugau
-# nah:Cacahuatetl
-# scn:Cacau
-# sgs:Kakava
-# sr-ec:какао
-# sr-el:Kakao
-# yue:唂咕粉
-# zh-hans:可可粉
-# zh-hant:可可粉
-# zh-hk:可可粉
 vegan:en: yes
 vegetarian:en: yes
+wikidata:en: Q45912917
 
 < en:cocoa
+en: raw cocoa
 fr: cacao cru
 # 20@2019-06-09
 
@@ -34133,8 +34140,6 @@ en: highly fat reduced cocoa, highly reduced fat cocoa
 de: Sehr fettarme Kokosnuss
 fr: cacao fortement dégraissé
 hr: kakao sa smanjenim udjelom masti
-
-# description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
 < en:cocoa
 en: cocoa butter, cacao butter, cocoa fat
@@ -34184,17 +34189,18 @@ th: เนยโกโก้
 tr: kakao yağı
 uk: Какао-олія
 uz: Kakao moyi, kakao yogi
-# ingredient/cocoa-butter has 26027 products in 39 languages @2019-05-25
+#nds-nl: Kakoubutter
+#sco: cocoa butter
+#wuu: 可可脂
+#yue: 唂咕脂
+#wuu: 可可脂
 ciqual_food_code:en: 16030
 ciqual_food_name:en: Cocoa butter
 ciqual_food_name:fr: Beurre de cacao
-# nds-nl:Kakoubutter
-# sco:cocoa butter
-# wuu:可可脂
-# yue:唂咕脂
-# wuu:可可脂
+description:en: COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 wikidata:en: Q251106
 wikipedia:en: https://en.wikipedia.org/wiki/Cocoa_butter
+# ingredient/cocoa-butter has 26027 products in 39 languages @2019-05-25
 
 < en:cocoa butter
 en: raw cacao butter
@@ -34227,7 +34233,7 @@ es: Pasta de cacao, masa del cacao, masa de cacao
 et: kakaomass, kakaopasta
 fi: kaakaomassa, kaakaomassaa
 fr: pâte de cacao, cacao en pâte, masse de cacao
-hr: kakaova masa, kakao masa
+hr: kakaova masa, kakao masa, kakao pasta
 hu: kakaómassza
 is: kakómassi
 it: pasta di cacao, massa di cacao
@@ -34248,10 +34254,11 @@ sv: kakaomassa
 tg: какаои судашуда
 tr: kakao kitlesi
 uz: qirilgan kakao
-# ingredient/cocoa-paste has 14530 products in 32 languages @2019-05-25
 ciqual_proxy_food_code:en: 16030
 ciqual_proxy_food_name:en: Cocoa butter
 ciqual_proxy_food_name:fr: Beurre de cacao
+wikidata:en: Q1721876
+# ingredient/cocoa-paste has 14530 products in 32 languages @2019-05-25
 
 < en:cocoa paste
 en: cocoa paste processed with alkali, alkalized cocoa paste
@@ -34261,19 +34268,9 @@ fr: Pâte de cacao alcalinisée
 hr: kakao pasta obrađena alkalijom
 it: pasta di cacao lavorata con alcali
 
-< en:cocoa paste
-en: organic cocoa paste
-da: økologisk kakaomasse
-de: Bio-Kakaomasse
-fi: luomu kaakaomassa
-fr: pâte de cacao bio
-hr: organska kakao pasta
-it: pasta di cacao biologica
-# ingredient/fr:pate-de-cacao-bio has 24 products 2019-05-23
-
 < en:cocoa
-en: cocoa powder
 #en:processing:en:powder
+en: cocoa powder
 ar: مسحوق الكاكاو
 az: Kakao tozu
 be: Какава-парашок
@@ -34289,7 +34286,7 @@ fa: پودر کاکائو
 fi: kaakaojauhe, kaakaojauhetta
 fr: poudre de cacao, cacao en poudre
 he: אבקת קקאו
-# hr:kakao prah, kakaov prah # see ingredients_processing.txt
+#hr: kakao prah, kakaov prah # see ingredients_processing.txt
 hu: kakaópor
 id: Kakao padat
 it: cacao in polvere
@@ -34308,38 +34305,37 @@ ru: какао-порошок, тертое какао
 sv: kakaopulver
 tr: kakao tozu
 uk: Какао-порошок
-# ingredient/cocoa-powder has 4521 products in 23 languages @2019-05-25
+#be-tarask: Какава-парашок
+#nds-nl: Kakoupouder
 ciqual_food_code:en: 18100
 ciqual_food_name:en: Cocoa powder, without sugar, powder, instant
 ciqual_food_name:fr: Cacao, non sucré, poudre soluble
-# be-tarask:Какава-парашок
-# nds-nl:Kakoupouder
 wikidata:en: Q1062396
-
-< en:cocoa powder
-fr: poudre de cacao cru
+# ingredient/cocoa-powder has 4521 products in 23 languages @2019-05-25
 
 < en:cocoa powder
 en: raw cacao powder, Instant cocoa powder without sugar
 de: Rohes Kakaopulver
-fr: Poudre de cacao brute, Cacao non sucré en poudre soluble
+fr: poudre de cacao cru, poudre de cacao brute, Cacao non sucré en poudre soluble
 hr: sirovi kakao prah
 it: cacao crudo in polvere
 
 < en:cocoa powder
+< en:fat reduced cocoa
+#en:processing: en:powder
 en: fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder, cocoa powder with low fat content
 bg: обеэмаслено какао на прах, какао на прах с намалено маслено съдържание, нискомаслено какао на прах, какао на прах с ниска масленост
 ca: cacau desgreixat en pols, cacau en pols reduït en greix
 cs: Kakaový prášek se sníženým obsahem tuku
-da: fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
-de: fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt, stark entöltes Kakaopulver
+da: fedtfattigt kakaopulver, fedtreduceret kakaopulver
+de: fettarmes Kakaopulver, Kakaopulver stark entölt, stark entöltes Kakaopulver, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt
 es: cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, cacao en polvo reducido en grasa, cacao deshidratado rebajado en grasa, cacao en polvo semidesgrasado, cacao semidesgrasado en polvo
 et: lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi: vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
-fr: poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, poudre de cacao à teneur réduite en matières grasses, poudre de cacao allegee
+fr: poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre, poudre de cacao à teneur réduite en matières grasses, poudre de cacao allegee
 hr: kakao u prahu smanjene masnoce, nemasni kakao prah, nemasni kakao u prahu, kakao prah smanjene masti, kakaov prahu smanjene masti, kakaov prah smanjene masti, kakao smanjene masnoće u prahu, kakaov prahu smanjene mast, kakao prah sa reduciranim sadržajem kakao maslaca, kakaov prah smanje masti, kakaov prah smanjene masti min, kakaov prah smanjenje masti
 hu: zsírszegény kakaópor
-it: cacao magro in polvere, cacao scremato in polvere
+it: cacao magro in polvere, cacao scremato in polvere, cacao fortemente sgrassato ed cacao in polvere
 lt: liesi kakavos milteliai
 lv: kakao pulveris ar zemu tauku saturu
 nb: fettredusert kakaopulver, fett redusert kakaopulver
@@ -34349,41 +34345,15 @@ pt: cacau magro em pó
 ro: cacao pudra degresata, pudră de cacao cu conţinut redus de grăsime
 ru: какао порошок с пониженным содержанием жира
 sk: kakaový prášok so zníženým množstvom tuku
-sv: fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver, fettfattig kakaopulver, lågfett kakaopulver
+sv: fettreducerat kakaopulver, fettreducerad kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver, fettfattig kakaopulver, lågfett kakaopulver
 # ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
+# ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
 
 < en:fat reduced cocoa powder
 en: 3% fat reduced cocoa powder
 sv: 3% fettreducerat kakaopulver
 
-#<en:cocoa powder
-#<en:fat reduced cocoa
-#en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder
-#en:processing:en:powder
-#bg:обеэмаслено какао на прах
-#ca:cacau desgreixat en pols
-#cs:Kakaový prášek se sníženým obsahem tuku
-#da:skummet kakaopulver
-#de:fettarmes Kakaopulver, Kakaopulver stark entölt, mageres Kakaopulver, fettreduziertes Kakaopulver, Magerkakaopulver, stark entöltes Kakaopulver
-#es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado
-#et:lahja kakaopulber
-#fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
-#fr:poudre de cacao maigre, poudre de cacao dégraissé, cacao dégraissé en poudre, cacao en poudre dégraissé, cacao maigre en poudre, cacao sec dégraissé, cacao en poudre fortement dégraissé, cacao fortement dégraissé en poudre
-#hr:kakao u prahu smanjene masnoce
-#hu:zsírszegény kakaópor
-#it:cacao magro in polvere, cacao scremato in polvere, cacao fortemente sgrassato ed cacao in polvere
-#lt:liesi kakavos milteliai
-#lv:kakao pulveris ar zemu tauku saturu
-#nl:magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
-#pl:niskotłuszczowe kakao w proszku
-#pt:cacau magro em pó
-#ro:cacao pudra degresata
-#ru:обезжиренный какаопорошок
-#sv:fettreducerat kakaopulver, skummet kakaopulver
-# ingredient/fr:poudre-de-cacao-maigre has 843 products in 8 languages @2019-05-25
-# ingredient/fr:cacao-en-poudre-fortement-dégraissé has 76 products @2019-05-25
-
-< en:cocoa-powder
+< en:cocoa powder
 #en:processing:en:powder
 en: cocoa powder processed with alkali, alkalized cocoa powder
 de: Kakaopulver mit Alkalisalzen versetzt
@@ -34392,13 +34362,15 @@ fr: Cacao en poudre alcalinisé
 hr: kakao prah obrađen alkalijom
 it: Polvere di cacao processata con alcalinizzanti
 
-< en:cocoa-powder
+< en:cocoa powder
 en: skimmed cocoa powder
-de: Magerkakaopulver, entrahmtes Kakaopulver
+da: skummet kakaopulver
+de: Magerkakaopulver, entrahmtes Kakaopulver, mageres Kakaopulver
 hr: obrani kakao prah
 it: Polvere di cacao magra
 ja: 脱脂ココアパウダー
 ru: обезжиренный какаопорошок, сухой обезжиренный остаток какао
+sv: skummet kakaopulver
 
 < en:cocoa powder
 en: cocoa powder with reduced cocoa butter content
@@ -34430,6 +34402,7 @@ hr: organska kakao masa i organski kakao maslac
 it: massa di cacao biologica e burro di cacao biologico
 
 < en:cocoa
+en: cocoa extract
 bg: екстракт от какао
 de: Kakao-Extrakt
 fi: kaakaouute
@@ -34437,8 +34410,6 @@ fr: extrait de cacao
 it: estratto di cacao
 nl: cacao-extract
 # ingredient/fr:extrait-de-cacao has 67 products in 4 languages @2019-05-25
-
-# comment:en:the wikidata-page mixes cocoa and cocoa bean
 
 < en:cocoa
 en: cocoa bean, cocoa beans, cacao bean
@@ -34451,7 +34422,7 @@ es: Cacao en grano
 et: kakaooad, kakaopuu seemned
 fi: kaakaopapu, kaakaopavut
 fr: fèves de cacao, grains de cacao, cacao en grains
-hr: kakaovog zrna, kakaa u zrnu
+hr: kakaovog zrna, kakaa u zrnu, zrna kakaovca
 hu: kakaóbab
 id: Biji kakao
 it: fave di cacao, semi di cacao, granelli di cacao
@@ -34465,26 +34436,17 @@ sq: Gatim me kakao
 sv: kakaoböna, kakaobönor
 uk: Какао-боби
 zh: 可可豆
-# nds-nl:Kakouboon
-# sco:cocoa bean
-# yue:可可豆
-# zh-cn:可可豆
-# zh-hans:可可豆
-# zh-hant:可可豆
-# zh-hk:可可豆
-# zh-sg:可可豆
-# zh-tw:可可豆
+#nds-nl: Kakouboon
+#sco: cocoa bean
+#yue: 可可豆
+#zh-cn: 可可豆
+#zh-hans: 可可豆
+#zh-hant: 可可豆
+#zh-hk: 可可豆
+#zh-sg: 可可豆
+#zh-tw: 可可豆
 wikidata:en: Q208008
 # ingredient/fr:fèves-de-cacao has 341 products in 6 languages @2019-05-26
-
-< en:cocoa bean
-en: organic cocoa beans
-de: bio Kakaobohnen
-fi: luomukaakaopapu, luomukaakaopavut, luomu kaakaopapu, luomu kaakaopavut
-fr: fèves de cacao bio
-hr: organska zrna kakaovca
-it: fave di cacao biologiche
-nl: bio cacaobonen
 
 < en:cocoa bean
 en: cocoa nibs, cocoa bean chips
@@ -37479,6 +37441,10 @@ vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits
 # 1687 products in 6 languages @2018-10-04
+
+< en:fruit juice
+en: berry-juice
+pl: sok z jagód, soku z jagód, sok jagodowy
 
 # don't put under fruit juice, because concentrate fruit juices that are not reconstituted to 100% of their initial volume don't count for the nutriscore
 en: fruit juice concentrate
@@ -59998,7 +59964,7 @@ es: Pasta de judía dulce
 fr: Pâte de haricots
 hr: pasta od slatkog graha
 it: Pasta di fagioli
-ja: 餡, こしあん
+ja: 餡, こしあん, あん, あんこ, つぶあん
 jv: Pasta kacang legi
 ko: 콩소
 pa: ਮਿੱਠੀ ਬੀਨ ਦਾ ਪੇਸਟ
@@ -61206,7 +61172,7 @@ mt: lewż
 nb: mandel, mandler
 nl: amandel, amandelen, krokante amandelen, bruine amandelen, bruine amandel
 oc: Almendra
-pl: migdały, orzechy migdałowe, migdał
+pl: migdały, orzechy migdałowe, migdał, migdałów
 pt: amêndoa, amêndoas
 ro: migdale
 ru: миндаль
@@ -82553,7 +82519,7 @@ hi: isabgol
 hr: psyllium, vlakna psylliuma
 it: psyllium, fibra di psillio
 nl: Psyllium, psylliumvezels, psylliumvezel, vlozaadvezels
-pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik, błonnik z babki płesznik, łupiny nasienne babki płesznik
+pl: Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik, błonnik z babki płesznik, łupiny nasienne babki płesznik, łuski psyllium - łuski nasion babki jajowatej
 ro: Psyllium
 ru: Подорожник
 sd: اسپنگر
@@ -84334,6 +84300,7 @@ fi: kahvipavut
 fr: café en grains
 hr: zrna kave
 it: chicchi di caffè
+ja: コーヒー豆, 珈琲豆
 nl: koffiebonen
 
 < en:coffee

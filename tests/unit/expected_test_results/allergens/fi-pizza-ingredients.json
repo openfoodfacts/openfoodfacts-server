@@ -3,6 +3,7 @@
       "en:gluten",
       "en:milk"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:filling",
@@ -509,7 +510,8 @@
    "lc" : "fi",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:at-least-5-ingredients-with-specified-percent"
+      "en:at-least-5-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "tags_sources" : {
       "allergens" : {
