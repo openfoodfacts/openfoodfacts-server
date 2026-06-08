@@ -1638,7 +1638,8 @@ description:en: Caramel color or caramel coloring is a water-soluble food colori
 e_number:en: 150a
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
-efsa_evaluation_adi:en: 300 #not the ADI of E150a alone but an ADI shared by the four E150(a,b,c,d)
+# 300 is not the ADI of E150a alone but an ADI shared by the four E150(a,b,c,d)
+efsa_evaluation_adi:en: 300
 efsa_evaluation_date:en: 2012-12-03
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:no-group
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
@@ -9926,9 +9927,8 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q2634889 # Q723683
+wikidata:en: Q6731399
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_phosphate
-
 
 # description:en:Monomagnesium phosphate is one of the forms of magnesium phosphate. chemical formula Mg(H2PO4)2.
 
