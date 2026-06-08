@@ -24,7 +24,7 @@ ProductOpener::ForestFootprint - compute the forest footprint of a food product
 
 =head1 SYNOPSIS
 
-C<ProductOpener::EnvironmentalScore> is used to compute the forest footprint of a food product.
+C<ProductOpener::ForestFootprint> is used to compute the forest footprint of a food product.
 
 =head1 DESCRIPTION
 
