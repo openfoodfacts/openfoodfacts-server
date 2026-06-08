@@ -1373,17 +1373,18 @@ es: bifidobacterias y otros fermentos lácticos
 fr: ferments lactiques dont bifidobacterium
 
 < en:ferment
-en: kefir ferments, kefir cultures, live kefir cultures, active kefir cultures, kefir grains microflora
+en: kefir ferment, kefir ferments, kefir cultures, live kefir cultures, active kefir cultures, kefir grains microflora
 es: fermentos de kéfir, cultivos microbianos de kéfir, levaduras de kéfir, fermentos propios del kéfir
 fr: ferments du kéfir, culture de kéfir, cultures de kéfir
 hr: kefirna kultura
 hu: kefirkultúra
 it: coltura di kefir, fermenti di kefir, fermenti vivi di kefir
 pl: kultury kefirowe, żywe kultury bakterii kefirowych, żywe kultury bakterii i drożdży kefirowych
+comment:en: maybe this needs children categories for bacteria and yeast/fungus ferments/cultures
 
-< en:kefir ferments
+< en:kefir ferment
 < en:lactic ferments
-en: kefir lactic ferments
+en: kefir lactic ferment, kefir lactic ferments
 es: fermentos lácticos de kéfir, fermentos lácticos de gránulos de kéfir
 fr: ferments lactiques du kéfir
 hr: kefir mliječni fermenti
@@ -37482,7 +37483,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Juice
 # 1687 products in 6 languages @2018-10-04
 
 < en:fruit juice
-en: berry-juice
+en: berry juice
 pl: sok z jagód, soku z jagód, sok jagodowy
 
 # don't put under fruit juice, because concentrate fruit juices that are not reconstituted to 100% of their initial volume don't count for the nutriscore
@@ -46513,7 +46514,7 @@ pt: concentrado de polme de framboesa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-framboise-concentrée
 # 51 products in 4 languages @2018-09-27
 
-< en:fruit juice
+< en:berry juice
 < en:raspberry
 en: raspberry juice
 bg: сок от малина, сок от малини
@@ -46881,7 +46882,7 @@ fr: préparation de fraise
 hr: pripravak od jagoda, pripravak od jagode
 it: preparazione di fragole
 
-< en:fruit juice
+< en:berry juice
 < en:strawberry
 en: strawberry juice
 bg: ягодов сок, сок от ягоди
