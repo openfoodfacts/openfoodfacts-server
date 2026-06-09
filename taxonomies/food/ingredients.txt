@@ -23248,9 +23248,9 @@ it: sorgo
 nl: kafferkoren, sorghum, sorgum
 pl: sorgo
 sk: cirok
-ciqual_food_code:en: 9360
-ciqual_food_name:en: Sorghum, whole, raw
-ciqual_food_name:fr: Sorgho entier, cru
+ciqual_proxy_food_code:en: 9360
+ciqual_proxy_food_name:en: Sorghum, whole, raw
+ciqual_proxy_food_name:fr: Sorgho entier, cru
 wikipedia:en: https://en.wikipedia.org/wiki/Sorghum
 
 < en:cereal flour
@@ -23270,6 +23270,8 @@ de: Sorghumvollkornmehl, Sorghum-Vollkornmehl
 fr: Farine complète de sorgo/Farine complète de sorgho
 hr: brašno od cijelog sirka
 it: farina di sorgo integrale
+usda_ndb_code:en: 20648
+usda_ndb_name:en: Sorghum flour, whole-grain
 
 ##################################################################################
 #
@@ -23284,6 +23286,8 @@ es: triticale
 hr: tritikale
 it: triticale
 pl: pszenżyto, pszenżyta
+usda_ndb_code:en: 20069
+usda_ndb_name:en: Triticale
 wikipedia:en: https://en.wikipedia.org/wiki/Triticale
 
 < en:triticale
@@ -23489,9 +23493,11 @@ en: sprouted wheat
 de: Weizensprossen, Weizenkeimlinge
 fr: Blé germé
 hr: proklijala pšenica
-# 69 in 3 @2021-10-22
 it: germogli di grano, grano in germogli
 pl: kiełki pszenicy
+usda_ndb_code:en: 20087
+usda_ndb_name:en: Wheat, sprouted
+# 69 in 3 @2021-10-22
 
 < en:wheat
 en: cooked wheat
@@ -23720,6 +23726,8 @@ sv: vetekli
 ciqual_food_code:en: 9621
 ciqual_food_name:en: Wheat bran
 ciqual_food_name:fr: Son de blé
+usda_ndb_code:en: 20077
+usda_ndb_name:en: Wheat bran, crude
 wikidata:en: Q10714691
 #4215 @2022-01-13
 
@@ -23847,14 +23855,16 @@ sv: durumvete
 tr: durum buğdayı
 vi: lúa mì cứng
 zh: 硬粒小麦
+# xmf:კიჭიბე ქობალკაკალი
 ciqual_proxy_food_code:en: 9060
 ciqual_proxy_food_name:en: Durum wheat, whole, raw
 ciqual_proxy_food_name:fr: Blé dur entier, cru
 ecobalyse:en: 2e196834-d2b1-4786-9265-db4440c8517c
 ecobalyse_origins_en_european_union:en: 0d5d65e0-6ffc-4ffa-9966-944bc3ed62c8
 ecobalyse_origins_en_france:en: 28013f55-a3ce-4ae6-9a97-133ce7724ece
+usda_ndb_code:en: 20076
+usda_ndb_name:en: Wheat, durum
 wikidata:en: Q618324
-# xmf:კიჭიბე ქობალკაკალი
 wikipedia:en: https://en.wikipedia.org/wiki/Durum
 
 #<en:durum wheat
@@ -24127,10 +24137,12 @@ pl: kielki pszenicy
 pt: gérmen de trigo
 ro: germeni de grâu
 sv: vetegroddar
-# ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
 ciqual_food_code:en: 9660
 ciqual_food_name:en: Wheat germ
+usda_ndb_code:en: 20078
+usda_ndb_name:en: Wheat germ, crude
 wikipedia:en: https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
+# ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
 
 < en:cereal flour
 < en:wheat
@@ -24236,6 +24248,11 @@ hr: griz brašno
 it: farina di semola
 pl: mąka pszenna semolina
 
+< en:semolina
+en: enriched semolina
+usda_ndb_code:en: 20066
+usda_ndb_name:en: Semolina, enriched
+
 # TODO Question: should we split ?
 
 < en:semolina
@@ -24336,22 +24353,22 @@ tt: күскүс
 uk: Кус-кус
 wa: Couscousse
 zh: 古斯米
-ciqual_food_code:en: 9683
-ciqual_food_name:en: Couscous (durum wheat semolina pre-cooked with steam), cooked, unsalted
-ciqual_food_name:fr: Couscous (semoule de blé dur roulée précuite à la vapeur), cuite, non salée
-# ingredient/fr:couscous has 57 products @2019-02-21
-vegan:en: yes
-vegetarian:en: yes
 # aeb-arab:كسكسي
 # aeb-latn:kosksi
 # ceb:Kuskus
 # kab:seksou
 # scn:Cuscusu
 # sco:couscous
+ciqual_food_code:en: 9683
+ciqual_food_name:en: Couscous (durum wheat semolina pre-cooked with steam), cooked, unsalted
+ciqual_food_name:fr: Couscous (semoule de blé dur roulée précuite à la vapeur), cuite, non salée
+usda_ndb_code:en: 20028
+usda_ndb_name:en: Couscous, dry
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q76605
 wikipedia:en: https://en.wikipedia.org/wiki/Couscous
-# cous cous (semola di grano duro)
-# Couscous * (durum wheat semolina)
+# ingredient/fr:couscous has 57 products @2019-02-21
 
 ##################################################################################
 #
@@ -24390,15 +24407,16 @@ pl: kasza bulgur
 pt: bulgur, triguilho
 ru: булгур
 uk: булгур
-# tr:sv:sr:sl:pl:nl:nb:jv:it:id:gl:eu:et:es:da:cs:ca:bulgur
 zh: 布格麦
-ciqual_food_code:en: 9690
-ciqual_food_name:en: Wheat bulgur, raw
-ciqual_food_name:fr: Boulgour de blé, cru
-wikidata:en: Q250432
 # azb:یارما
 # ckb:ساوار
 #mai:दलिया
+ciqual_food_code:en: 9690
+ciqual_food_name:en: Wheat bulgur, raw
+ciqual_food_name:fr: Boulgour de blé, cru
+usda_ndb_code:en: 20012
+usda_ndb_name:en: Bulgur, dry
+wikidata:en: Q250432
 wikipedia:en: https://en.wikipedia.org/wiki/Bulgur
 
 #en:processing: en:en:pre-cooked
@@ -24602,9 +24620,6 @@ wa: oidje
 yi: גערשט
 za: mienhhaeux
 zh: 大麦
-allergens:en: en:gluten
-comment:en: the translations taken from wikipedia need to be checked. they can refer to the plant species.
-description:en: barley (hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
 # als:gärste
 # arc:ܣܥܪܬܐ
 # ast:cebada
@@ -24645,6 +24660,9 @@ description:en: barley (hordeum vulgare), a member of the grass family, is a maj
 # wuu:大麦
 # zh-min-nan:tōa-be̍h
 # yue:大麥
+allergens:en: en:gluten
+comment:en: the translations taken from wikipedia need to be checked. they can refer to the plant species.
+description:en: barley (hordeum vulgare), a member of the grass family, is a major cereal grain grown in temperate climates globally
 wikidata:en: Q61665121
 wikipedia:en: https://en.wikipedia.org/wiki/Barley
 #23663 @2021-10-20
@@ -24760,6 +24778,8 @@ hr: oljušteni ječam
 it: orzo decorticato
 pl: kasza pęczak, pęczak
 description:en: Hulled barley is a whole grain barley with only the inedible outer shell removed.
+usda_proxy_ndb_code:en: 20004
+usda_proxy_ndb_name:en: Barley, hulled
 
 < en:hulled barley
 pl: pęczak obtaczany, pęczak jęczmienny kujawski
@@ -25165,11 +25185,6 @@ uz: marjumak
 vi: kiều mạch
 wa: boûkete
 zh: 蕎麥, 荞麦
-ciqual_proxy_food_code:en: 9380
-ciqual_proxy_food_name:en: Buckwheat, whole, raw
-ciqual_proxy_food_name:fr: Sarrasin entier, cru
-#plant:wikidata:en:Q132734
-wikidata:en: Q4536337
 #azb:اکین قاراباشاغی
 #csb:bùkwita
 #dsb:hejduša
@@ -25191,6 +25206,13 @@ wikidata:en: Q4536337
 #zh-hk:蕎麥
 #zh-sg:荞麦
 #zh-tw:蕎麥
+ciqual_proxy_food_code:en: 9380
+ciqual_proxy_food_name:en: Buckwheat, whole, raw
+ciqual_proxy_food_name:fr: Sarrasin entier, cru
+#plant:wikidata:en:Q132734
+usda_ndb_code:en: 20008
+usda_ndb_name:en: Buckwheat
+wikidata:en: Q4536337
 wikipedia:en: https://en.wikipedia.org/wiki/Buckwheat
 #1604 @2021-10-07
 
