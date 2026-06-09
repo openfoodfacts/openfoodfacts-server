@@ -51287,13 +51287,6 @@ uk: брюссельська капуста
 uz: bryussel karami
 vi: cải brussels
 zh: 抱子甘藍
-ciqual_food_code:en: 20058
-ciqual_food_name:en: Brussels sprout, raw
-ciqual_food_name:fr: Chou de Bruxelles, cru
-ecobalyse:en: brussels-sprout-fr
-ecobalyse_labels_en_organic:en: brussels-sprout-organic
-# fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
-eurocode_2_group_3:en: 8.15.40
 # hsb:pupkaty kał, pupak
 # kk-arab:بريۋسسەل قىرىققاباتى
 # kk-cn:بريۋسسەل قىرىققاباتى
@@ -51316,7 +51309,24 @@ eurocode_2_group_3:en: 8.15.40
 # zh-hk:抱子甘藍
 # zh-sg:抱子甘蓝
 # zh-tw:抱子甘藍
+ciqual_proxy_food_code:en: 20058
+ciqual_proxy_food_name:en: Brussels sprout, raw
+ciqual_proxy_food_name:fr: Chou de Bruxelles, cru
+ecobalyse:en: brussels-sprout-fr
+ecobalyse_labels_en_organic:en: brussels-sprout-organic
+eurocode_2_group_3:en: 8.15.40
+usda_ndb_proxy_code:en: 11098
+usda_ndb_proxy_name:en: Brussels sprouts, raw
 wikidata:en: Q150463
+# fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
+
+< en:brussels sprouts
+en: raw brussels sprouts
+ciqual_food_code:en: 20058
+ciqual_food_name:en: Brussels sprout, raw
+ciqual_food_name:fr: Chou de Bruxelles, cru
+usda_ndb_code:en: 11098
+usda_ndb_name:en: Brussels sprouts, raw
 
 # Brassica oleracea var. sabellica
 # be careful with the translation found on packages.
