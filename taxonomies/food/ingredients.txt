@@ -49891,15 +49891,6 @@ vi: Rau chân vịt
 wa: Spinasse
 za: byaekbohcaiq
 zh: 菠菜
-carbon_footprint_fr_foodges_ingredient:fr: Epinard
-carbon_footprint_fr_foodges_value:fr: 0.5
-# fr:épinard 1204 in 9 languages products @2018-10-14
-ciqual_food_code:en: 20059
-ciqual_food_name:en: Spinach, raw
-ciqual_food_name:fr: Épinard, cru
-ecobalyse:en: f46de7f5-4bf0-45f4-b75b-3e00164dd9ca
-ecobalyse_labels_en_organic:en: 49ad2a72-d196-4379-8f23-212b27d44917
-eurocode_2_group_3:en: 8.10.24
 # azb:ایسپاناق
 # bar:Spinat
 # bho:पालकी
@@ -49919,8 +49910,27 @@ eurocode_2_group_3:en: 8.10.24
 # roa-tara:spinace
 # yue:菠菜
 # zh-tw:菠菜
+carbon_footprint_fr_foodges_ingredient:fr: Epinard
+carbon_footprint_fr_foodges_value:fr: 0.5
+ciqual_proxy_food_code:en: 20059
+ciqual_proxy_food_name:en: Spinach, raw
+ciqual_proxy_food_name:fr: Épinard, cru
+ecobalyse:en: f46de7f5-4bf0-45f4-b75b-3e00164dd9ca
+ecobalyse_labels_en_organic:en: 49ad2a72-d196-4379-8f23-212b27d44917
+eurocode_2_group_3:en: 8.10.24
+usda_ndb_proxy_code:en: 11457
+usda_ndb_proxy_name:en: Spinach, raw
 wikidata:en: Q81464
 wikipedia:en: https://en.wikipedia.org/wiki/Spinach
+# fr:épinard 1204 in 9 languages products @2018-10-14
+
+< en:spinach
+en: raw spinach
+ciqual_food_code:en: 20059
+ciqual_food_name:en: Spinach, raw
+ciqual_food_name:fr: Épinard, cru
+usda_ndb_code:en: 11457
+usda_ndb_name:en: Spinach, raw
 
 < en:spinach
 en: baby spinach
