@@ -42739,7 +42739,7 @@ ru: Ацерола
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.48
 
-< en:acerola
+#< en:acerola
 < en:fruit juice
 en: acerola juice
 bg: сок от ацерола
@@ -42752,11 +42752,17 @@ it: estratto d'acerola
 nl: acerola-extract
 pl: sok z aceroli
 ru: Сок ацеролы
+usda_ndb_proxy_code:en: 9002
+usda_ndb_proxy_name:en: Acerola juice, raw
 # ingredient/acerola-juice has 18 products in 2 languages @2018-10-03
-# en:process:en:powdered
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-concentré-d'acérola
 # 3 products in 1 language @2018-10-03
 # ingredient/fr:extrait-d'acérola has 215 products in 4 languages @2018-10-03
+
+< en:acerola juice
+en: raw acerola juice
+usda_ndb_code:en: 9002
+usda_ndb_name:en: Acerola juice, raw
 
 < en:acerola juice
 en: acerola juice from concentrate
