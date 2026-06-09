@@ -54968,11 +54968,6 @@ yi: מאניאק
 yo: ẹ̀gẹ́
 za: moegsawz
 zh: 木薯
-ciqual_food_code:en: 54031
-ciqual_food_name:en: Cassava or manioc, roots, raw
-ciqual_food_name:fr: Manioc, racine crue
-#650 in 10 @2021-10-18
-eurocode_2_group_3:en: 8.34.50
 #ban:kaséla
 #bcl:balinghoy
 #bjn:jawaw
@@ -54992,9 +54987,24 @@ eurocode_2_group_3:en: 8.34.50
 #war:bilanghoy
 #wuu:木薯
 #yue:木薯
+ciqual_proxy_food_code:en: 54031
+ciqual_proxy_food_name:en: Cassava or manioc, roots, raw
+ciqual_proxy_food_name:fr: Manioc, racine crue
+eurocode_2_group_3:en: 8.34.50
 nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 11134
+usda_ndb_proxy_name:en: Cassava, raw
 wikidata:en: Q43304555
 wikipedia:en: https://en.wikipedia.org/wiki/Cassava
+#650 in 10 @2021-10-18
+
+< en:cassava
+en: raw cassava
+ciqual_food_code:en: 54031
+ciqual_food_name:en: Cassava or manioc, roots, raw
+ciqual_food_name:fr: Manioc, racine crue
+usda_ndb_code:en: 11134
+usda_ndb_name:en: Cassava, raw
 
 < en:cassava
 < en:flour
