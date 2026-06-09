@@ -42453,11 +42453,18 @@ pl: skórka pomarańczowa, skórka pomarańczy, skórka z pomarańczy
 pt: casca de laranja, gasca de laranja, raspa de laranja
 sv: apelsinskal
 tr: portakal kabuğu
+usda_ndb_proxy_code:en: 9216
+usda_ndb_proxy_name:en: Orange peel, raw
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:zeste-d'orange
 # 136 products in 4 languages @2018-09-28
 
 < en:orange zest
-en: oganic orange zest
+en: raw orange peel
+usda_ndb_code:en: 9216
+usda_ndb_name:en: Orange peel, raw
+
+< en:orange zest
+en: organic orange zest, oganic orange zest
 hr: bio korica naranče
 it: scorza d'arancia biologica
 
