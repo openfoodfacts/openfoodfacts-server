@@ -51429,14 +51429,7 @@ tr: kara lahana
 uk: браунколь
 vi: cải xoăn
 zh: 羽衣甘藍
-ciqual_food_code:en: 20218
-ciqual_food_name:en: Curly kale, raw
-ciqual_food_name:fr: Chou frisé, cru
-ecobalyse:en: curly-kale-fr
-ecobalyse_labels_en_organic:en: curly-kale-organic
-# 2029 in 13 languages @2021-10-19
-eurocode_2_group_3:en: 8.15.55
-#arz:كرنب اجعد
+# arz:كرنب اجعد
 # ckb:کەیڵ
 # frr:greenkual
 # hsb:zeleny kał
@@ -51446,9 +51439,26 @@ eurocode_2_group_3:en: 8.15.55
 # pcd:chou-crolèi
 # roa-tara:cavole rizze
 # sco:kail
-#vec:càvorlo riso
-#wuu:羽衣甘蓝
+# vec:càvorlo riso
+# wuu:羽衣甘蓝
+ciqual_proxy_food_code:en: 20218
+ciqual_proxy_food_name:en: Curly kale, raw
+ciqual_proxy_food_name:fr: Chou frisé, cru
+ecobalyse:en: curly-kale-fr
+ecobalyse_labels_en_organic:en: curly-kale-organic
+eurocode_2_group_3:en: 8.15.55
+usda_ndb_proxy_code:en: 11233
+usda_ndb_proxy_name:en: Kale, raw
 wikidata:en: Q45989
+# 2029 in 13 languages @2021-10-19
+
+< en:kale
+en: raw kale
+ciqual_food_code:en: 20218
+ciqual_food_name:en: Curly kale, raw
+ciqual_food_name:fr: Chou frisé, cru
+usda_ndb_code:en: 11233
+usda_ndb_name:en: Kale, raw
 
 < en:kale
 en: kale sprouts
