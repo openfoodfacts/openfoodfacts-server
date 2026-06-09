@@ -56431,7 +56431,6 @@ wikidata:en: Q2964630
 wikipedia:en: https://en.wikipedia.org/wiki/Horseradish
 # 1390 in 4 languages @2021-09-16
 
-
 < en:horseradish
 en: horseradish paste
 de: Meerrettichpaste
@@ -56727,18 +56726,6 @@ wa: Rådisse
 yi: רעטעך
 za: lauxbaeg
 zh: 萝卜
-carbon_footprint_fr_foodges_ingredient:fr: Radis de saison
-carbon_footprint_fr_foodges_value:fr: 0.6
-#carbon_footprint_fr_foodges_ingredient:fr:Radis serre chauffée
-#carbon_footprint_fr_foodges_value:fr:8.4
-# ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
-# category/radish has 2 products @2019-05-22
-# usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
-ciqual_food_code:en: 20045
-ciqual_food_name:en: Radish, raw
-ciqual_food_name:fr: Radis rouge, cru
-ecobalyse:en: radish-organic
-eurocode_2_group_3:en: 8.38.50
 # aeb-arab:فجل
 # azb:قیرمیزی تورپ
 # bar:Radi
@@ -56768,8 +56755,30 @@ eurocode_2_group_3:en: 8.38.50
 # yue:蘿蔔
 # zh-tw:蘿蔔
 # for the plant
+carbon_footprint_fr_foodges_ingredient:fr: Radis de saison
+carbon_footprint_fr_foodges_value:fr: 0.6
+#carbon_footprint_fr_foodges_ingredient:fr:Radis serre chauffée
+#carbon_footprint_fr_foodges_value:fr:8.4
+ciqual_proxy_food_code:en: 20045
+ciqual_proxy_food_name:en: Radish, raw
+ciqual_proxy_food_name:fr: Radis rouge, cru
+ecobalyse:en: radish-organic
+eurocode_2_group_3:en: 8.38.50
+usda_ndb_proxy_code:en: 11429
+usda_ndb_proxy_name:en: Radishes, raw
 wikidata:en: Q7224565
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
+# ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
+# category/radish has 2 products @2019-05-22
+# usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
+
+< en:radish
+en: raw radish
+ciqual_food_code:en: 20045
+ciqual_food_name:en: Radish, raw
+ciqual_food_name:fr: Radis rouge, cru
+usda_ndb_code:en: 11429
+usda_ndb_name:en: Radishes, raw
 
 < en:radish
 en: Black radish
