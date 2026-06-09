@@ -55752,19 +55752,29 @@ th: อาร์ทิโชก
 tr: devedikeni
 yi: ארטישאק
 zh: 刺苞菜蓟
-ciqual_food_code:en: 20054
-ciqual_food_name:en: Cardoon, raw
-ciqual_food_name:fr: Cardon, cru
 #arz:خرشف
 #ast:cardu
 #kab:taga
 #pam:cardoon
 #diq:kenger
 #scn:carduni
-#plant:wikidata:en:Q7186137
+ciqual_proxy_food_code:en: 20054
+ciqual_proxy_food_name:en: Cardoon, raw
+ciqual_proxy_food_name:fr: Cardon, cru
+usda_ndb_proxy_code:en: 11122
+usda_ndb_proxy_name:en: Cardoon, raw
 wikidata:en: Q7223635
+#plant:wikidata:en:Q7186137
 wikipedia:en: https://en.wikipedia.org/wiki/Cardoon
 #30 in 5 @2021-10-21
+
+< en:cardoon
+en: raw cardoon
+ciqual_food_code:en: 20054
+ciqual_food_name:en: Cardoon, raw
+ciqual_food_name:fr: Cardon, cru
+usda_ndb_code:en: 11122
+usda_ndb_name:en: Cardoon, raw
 
 # en:Daikon cress
 # de:Daikonkresse
@@ -55977,16 +55987,6 @@ wa: Åberdjene
 yi: פאטלעזשאן
 za: lwggwz
 zh: 茄子
-#carbon_footprint_fr_foodges_ingredient:fr:Aubergine
-#carbon_footprint_fr_foodges_value:fr:1.2
-carbon_footprint_fr_foodges_ingredient:fr: Aubergine serre chauffée
-carbon_footprint_fr_foodges_value:fr: 6.2
-# en:aubergine has 733 products in 9 languages @2018-10-17
-ciqual_food_code:en: 20053
-ciqual_food_name:en: Eggplant, raw
-ecobalyse:en: eggplant-eu
-ecobalyse_origins_en_france:en: eggplant-fr
-eurocode_2_group_3:en: 8.40.15
 # ace:Truëng
 # ang:Ǣȝƿyrt
 # azb:بادیمجان
@@ -56028,8 +56028,27 @@ eurocode_2_group_3:en: 8.40.15
 # wuu:落苏
 # yue:矮瓜
 # zh-tw:茄
+#carbon_footprint_fr_foodges_ingredient:fr:Aubergine
+#carbon_footprint_fr_foodges_value:fr:1.2
+carbon_footprint_fr_foodges_ingredient:fr: Aubergine serre chauffée
+carbon_footprint_fr_foodges_value:fr: 6.2
+ciqual_proxy_food_code:en: 20053
+ciqual_proxy_food_name:en: Eggplant, raw
+ecobalyse:en: eggplant-eu
+ecobalyse_origins_en_france:en: eggplant-fr
+eurocode_2_group_3:en: 8.40.15
+usda_ndb_proxy_code:en: 11209
+usda_ndb_proxy_name:en: Eggplant, raw
 wikidata:en: Q7540
 wikipedia:en: https://en.wikipedia.org/wiki/Eggplant
+# en:aubergine has 733 products in 9 languages @2018-10-17
+
+< en:aubergine
+en: raw aubergine
+ciqual_food_code:en: 20053
+ciqual_food_name:en: Eggplant, raw
+usda_ndb_code:en: 11209
+usda_ndb_name:en: Eggplant, raw
 
 #comment:en:This can be seen as compound ingredient, i.e.:melanzane grigliate (melanzane, olio di girasole)
 
