@@ -50559,12 +50559,6 @@ vi: mùi tây
 wa: pierzin
 yi: פעטרישקע
 zh: 香芹
-ciqual_proxy_food_code:en: 11014
-ciqual_proxy_food_name:en: Parsley, fresh
-ciqual_proxy_food_name:fr: Persil, frais
-# en:22363 in 51 @2021-09-16
-eurocode_2_group_2:en: 8.10
-eurocode_2_group_3:en: 8.10.60
 # aeb-arab:معدنوس
 # aeb-latn:ma3dnous
 # azb:جعفری
@@ -50585,9 +50579,17 @@ eurocode_2_group_3:en: 8.10.60
 # vls:perselle
 # xmf:მაკინდოლი
 # yue:番茜
+ciqual_proxy_food_code:en: 11014
+ciqual_proxy_food_name:en: Parsley, fresh
+ciqual_proxy_food_name:fr: Persil, frais
+eurocode_2_group_2:en: 8.10
+eurocode_2_group_3:en: 8.10.60
+usda_ndb_proxy_code:en: 11297
+usda_ndb_proxy_name:en: Parsley, fresh
 wikidata:en: q65522500
 # plant: wikidata:en:q25284
 wikipedia:en: https://en.wikipedia.org/wiki/parsley
+# en:22363 in 51 @2021-09-16
 
 < en:parsley
 en: fresh parsley
@@ -50598,6 +50600,8 @@ it: prezzemolo fresco
 ciqual_food_code:en: 11014
 ciqual_food_name:en: Parsley, fresh
 ciqual_food_name:fr: Persil, frais
+usda_ndb_code:en: 11297
+usda_ndb_name:en: Parsley, fresh
 
 < en:parsley
 en: flatleaf parsley
