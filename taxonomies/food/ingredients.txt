@@ -54475,7 +54475,8 @@ sv: svart morot, svart morots
 wikidata:en: Q11767451
 # fr:carotte-noire has 122 products in 4 languages @2018-10-20
 
-< en:black carrot
+#< en:black carrot
+< en:vegetable juice
 en: black carrot juice
 bg: сок от черен морков
 de: schwarzer Karottensaft
@@ -54520,7 +54521,7 @@ it: estratto di carota nera, estratto di carote nere
 
 # description:en:Carrot juice has a particularly high content of β-carotene, a source of vitamin A, but it is also high in B complex vitamins like folate, and many minerals including calcium, copper, magnesium, potassium, phosphorus, and iron.
 
-< en:carrot
+#< en:carrot
 < en:vegetable juice
 en: carrot juice
 az: Yerkökü şirəsi
@@ -54554,9 +54555,16 @@ tr: havuç suyu
 zh: 胡萝卜汁
 # jam:Kiarat juus
 # yue:紅蘿蔔汁
+usda_ndb_proxy_code:en: 11655
+usda_ndb_proxy_name:en: Carrot juice, canned
 wikidata:en: Q1190074
 wikipedia:en: https://en.wikipedia.org/wiki/Carrot_juice
 # en:carot-juice has 188 products in 4 languages 2018-10-20
+
+< en:carrot juice
+en: canned carrot juice
+usda_ndb_code:en: 11655
+usda_ndb_name:en: Carrot juice, canned
 
 # Is used as colour, but always mentioned as such
 
