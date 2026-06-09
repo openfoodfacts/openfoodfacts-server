@@ -44641,7 +44641,8 @@ eurocode_2_group_3:en: 9.30.54
 
 ###################################################################################################
 #
-#                                Fig
+#                                
+
 #
 ###################################################################################################
 
@@ -44673,16 +44674,23 @@ ru: инжир
 sk: Figa
 sv: fikon
 tr: incir
-ciqual_food_code:en: 13012
-ciqual_food_name:en: Fig, raw
-ciqual_food_name:fr: Figue, crue
-openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fig
 # ast:figu
 # kab:Tabexsist
 # nah:Hicox
 # scn:Ficu
+ciqual_food_code:en: 13012
+ciqual_food_name:en: Fig, raw
+ciqual_food_name:fr: Figue, crue
+openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fig
+usda_ndb_proxy_code:en: 9089
+usda_ndb_proxy_name:en: Figs, raw
 wikidata:en: Q2746643
 # 570 products @2018-09-29
+
+< en:fig
+en: raw fig
+usda_ndb_code:en: 9089
+usda_ndb_name:en: Figs, raw
 
 < en:fig
 en: organic fig
@@ -44829,18 +44837,23 @@ zh: 鵝莓
 ciqual_food_code:en: 13020
 ciqual_food_name:en: Gooseberry, raw
 ciqual_food_name:fr: Groseille à maquereau, crue
-#34 in 5 @2021-09-15
 eurocode_2_group_3:en: 9.30.30
+usda_ndb_proxy_code:en: 9107
+usda_ndb_proxy_name:en: Gooseberries, raw
 wikidata:en: Q17638951
 wikipedia:en: https://en.wikipedia.org/wiki/Gooseberry
+#34 in 5 @2021-09-15
 
-#processing:en: en:juice
-#<en:gooseberry
-#<en:fruit juice
-#en:gooseberry juice
-#de:Stachelbeersaft
-#fi:karviaismehu, karviaistäysmehu
-#sv:krusbärjuice
+< en:gooseberry
+en: raw gooseberry
+usda_ndb_code:en: 9107
+usda_ndb_name:en: Gooseberries, raw
+
+<en:fruit juice
+en:gooseberry juice
+de:Stachelbeersaft
+fi:karviaismehu, karviaistäysmehu
+sv:krusbärjuice
 
 ###################################################################################################
 #
