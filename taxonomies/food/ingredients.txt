@@ -41760,8 +41760,15 @@ pl: Sok limonkowy, sok z limonek
 pt: Suco de lima, sumo de lima
 ru: Лаймовый сок
 sv: limejuice, limesaft
+usda_ndb_proxy_code:en: 9160
+usda_ndb_proxy_name:en: Lime juice, raw
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-citron-vert
 # 342 products @2018-10-01
+
+< en:lime juice
+en: raw lime juice
+usda_ndb_code:en: 9160
+usda_ndb_name:en: Lime juice, raw
 
 < en:lime juice
 en: lime juice concentrate
@@ -41889,7 +41896,6 @@ ciqual_food_name:fr: Mandarine, pulpe, crue
 # 1133 in 6 languages @2021-10-05
 
 < en:fruit juice
-< en:mandarin
 en: tangerine juice, mandarin juice
 cs: mandarinková šťáva
 de: Mandarinesaft, Mandarinensaft
@@ -41899,8 +41905,15 @@ hr: sok od mandarine
 it: succo di mandarino
 nl: mandarijnsap
 pl: sok mandarynkowy
+usda_ndb_proxy_code:en: 9221
+usda_ndb_proxy_name:en: Tangerine juice, raw
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-mandarine
 # 168 in 3 languages @2021-10-07
+
+< en:tangerine juice
+en: raw tangerine juice
+usda_ndb_code:en: 9221
+usda_ndb_name:en: Tangerine juice, raw
 
 < en:tangerine juice
 en: concentrated mandarin juice
