@@ -27880,10 +27880,12 @@ hr: brašno od prosa
 hu: kölesliszt
 it: farina di miglio
 pl: mąka jaglana
-# ingredient/fr:farine-de-millet has 40 products in 4 languages @2018-09-22
 ciqual_food_code:en: 9555
 ciqual_food_name:en: Millet flour
 ciqual_food_name:fr: Farine de millet
+usda_ndb_code:en: 20647
+usda_ndb_name:en: Millet flour
+# ingredient/fr:farine-de-millet has 40 products in 4 languages @2018-09-22
 
 < en:millet flour
 < en:wholemeal flour
@@ -28016,11 +28018,14 @@ en: soya flour restructured and rehydrated
 it: farina di soia ristrutturata e reidratata
 
 < en:soya flour
+en: low fat soy flour
 fr: farine de soja degraissée
 hr: obezmašćeno sojino brašno, odmašćeno sojino brašno
 it: farina di soia sgrassata, farina di soia senza grassi
 pl: odtłuszczona mąka sojowa
 ro: făină de soia degrasată, faina de soia degrasata
+usda_ndb_code:en: 16118
+usda_ndb_name:en: Soy flour, low-fat
 
 < en: flour
 en: modified flour
