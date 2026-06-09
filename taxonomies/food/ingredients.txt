@@ -55108,8 +55108,6 @@ hr: tigrovo mlijeko
 it: latte di chufa
 
 
-# description:en:Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers.
-# In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
 < en:root vegetable
 < en:tuber
 en: yam
@@ -55117,10 +55115,18 @@ de: Yam, Yamswurzel, Yamswurzeln
 fr: igname
 hr: jam
 it: yam
+description:en:Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers. In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
 eurocode_2_group_3:en: 8.34.40
 nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 11601
+usda_ndb_proxy_name:en: Yam, raw
 wikidata:en: Q8047551
 wikipedia:en: https://en.wikipedia.org/wiki/Yam_(vegetable)
+
+< en:yam
+en: raw yam
+usda_ndb_code:en: 11601
+usda_ndb_name:en: Yam, raw
 
 < en:yam
 en: chinese yam
