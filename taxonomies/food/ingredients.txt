@@ -50034,8 +50034,8 @@ eurocode_2_group_3:en: 8.10.34
 # comment:en:The wikidata-page refers to plant and not the vegetable. The translations are taken from the wikipedia-pages.
 
 < en:cress
-en: Watercress
-af: Bronkors
+en: watercress
+af: bronkors
 an: Berro
 ar: جرجير الماء
 ca: creixen
@@ -50060,12 +50060,6 @@ sr: Поточарка
 tr: Su teresi
 vi: Cải xoong
 zh: 西洋菜
-# ingredient/watercress has 107 products in 4 languages @2019-04-13
-# ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
-ciqual_food_code:en: 20022
-ciqual_food_name:en: Watercress, raw
-ciqual_food_name:fr: Cresson de fontaine, cru
-eurocode_2_group_3:en: 8.10.36
 # sco:Kerse
 # sr-ec:Поточарка
 # yue:西洋菜
@@ -50075,8 +50069,24 @@ eurocode_2_group_3:en: 8.10.36
 # zh-hk:西洋菜
 # zh-sg:西洋菜
 # zh-tw:水芥菜
+ciqual_proxy_food_code:en: 20022
+ciqual_proxy_food_name:en: Watercress, raw
+ciqual_proxy_food_name:fr: Cresson de fontaine, cru
+eurocode_2_group_3:en: 8.10.36
+usda_ndb_proxy_code:en: 11591
+usda_ndb_proxy_name:en: Watercress, raw
 wikidata:en: Q150452
 wikipedia:en: https://en.wikipedia.org/wiki/Watercress
+# ingredient/watercress has 107 products in 4 languages @2019-04-13
+# ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
+
+< en:watercress
+en: raw watercress
+ciqual_food_code:en: 20022
+ciqual_food_name:en: Watercress, raw
+ciqual_food_name:fr: Cresson de fontaine, cru
+usda_ndb_code:en: 11591
+usda_ndb_name:en: Watercress, raw
 
 # description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb.
 
