@@ -53271,12 +53271,6 @@ uk: Цибуля шалот
 ur: قفلوط
 vi: Hẹ tây
 zh: 火葱
-ciqual_food_code:en: 20097
-ciqual_food_name:en: Shallot, raw
-ciqual_food_name:fr: Échalote, crue
-ecobalyse:en: shallot-fr
-ecobalyse_labels_en_organic:en: shallot-organic
-eurocode_2_group_3:en: 8.30.20
 # en-gb:shallot
 # mai:छ्यापी
 # nan:âng-chhang-thâu
@@ -53289,8 +53283,24 @@ eurocode_2_group_3:en: 8.30.20
 # zh-hk:火蔥
 # zh-sg:火葱
 # zh-tw:分蔥
+ciqual_food_proxy_code:en: 20097
+ciqual_food_proxy_name:en: Shallot, raw
+ciqual_food_proxy_name:fr: Échalote, crue
+ecobalyse:en: shallot-fr
+ecobalyse_labels_en_organic:en: shallot-organic
+eurocode_2_group_3:en: 8.30.20
+usda_ndb_proxy_code:en: 11677
+usda_ndb_proxy_name:en: Shallots, raw
 wikidata:en: Q193498
 wikipedia:en: https://en.wikipedia.org/wiki/Shallot
+
+< en:shallot
+en: raw shallot
+ciqual_food_code:en: 20097
+ciqual_food_name:en: Shallot, raw
+ciqual_food_name:fr: Échalote, crue
+usda_ndb_code:en: 11677
+usda_ndb_name:en: Shallots, raw
 
 < en:shallot
 en: red shallot
