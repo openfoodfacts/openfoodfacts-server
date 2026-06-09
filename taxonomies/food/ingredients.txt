@@ -53565,11 +53565,6 @@ wo: laac
 yi: קנאבל
 za: suenq
 zh: 蒜
-# en:garlic has 22470 products in 18 languages @2018-10-23
-ciqual_food_code:en: 11000
-ciqual_food_name:en: Garlic, fresh
-ciqual_food_name:fr: Ail, cru
-eurocode_2_group_3:en: 8.30.40
 # aeb-arab:راس ثوم
 # ang:garleac
 # arz:ثوم
@@ -53624,8 +53619,23 @@ eurocode_2_group_3:en: 8.30.40
 # zh-hans:蒜
 # zh-hant:蒜
 # zh-tw:大蒜
+ciqual_proxy_food_code:en: 11000
+ciqual_proxy_food_name:en: Garlic, fresh
+ciqual_proxy_food_name:fr: Ail, cru
+eurocode_2_group_3:en: 8.30.40
+usda_ndb_proxy_code:en: 11215
+usda_ndb_proxy_name:en: Garlic, raw
 wikidata:en: Q21546392
 wikipedia:en: https://en.wikipedia.org/wiki/Garlic
+# en:garlic has 22470 products in 18 languages @2018-10-23
+
+< en:garlic
+en: raw garlic, fresh garlic
+ciqual_proxy_food_code:en: 11000
+ciqual_proxy_food_name:en: Garlic, fresh
+ciqual_proxy_food_name:fr: Ail, cru
+usda_ndb_code:en: 11215
+usda_ndb_name:en: Garlic, raw
 
 < en:garlic
 en: tender garlic
