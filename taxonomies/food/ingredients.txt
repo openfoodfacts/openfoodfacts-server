@@ -50895,15 +50895,23 @@ ru: капуста
 sv: kål
 to: kāpisi
 tr: lahana
-# fr:chou has 374 products in 4 languages @2018-10-20
-eurocode_2_group_3:en: 8.15.20
 # ksh:kappes
 # mdf:капста
 # sco:cabbitch
 # szl:kapusta gowjasto
+eurocode_2_group_3:en: 8.15.20
+usda_ndb_proxy_code:en: 11109
+usda_ndb_proxy_name:en: Cabbage, raw
 wikidata:en: Q14328596
 wikipedia:en: https://en.wikipedia.org/wiki/Cabbage
+# fr:chou has 374 products in 4 languages @2018-10-20
 
+< en:cabbage
+en: raw cabbage
+usda_ndb_code:en: 11109
+usda_ndb_name:en: Cabbage, raw
+
+< en:cabbage
 fr: Chou pommé, Chou cabus
 carbon_footprint_fr_foodges_ingredient:fr: Chou pommé
 carbon_footprint_fr_foodges_value:fr: 0.8
