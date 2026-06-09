@@ -43665,7 +43665,7 @@ ciqual_food_code:en: 13008
 ciqual_food_name:en: Cherry, pitted, raw
 ciqual_food_name:fr: Cerise, dénoyautée, crue
 
-< en:cherry
+< en:fruit juice
 en: cherry juice
 bg: сок от череши
 de: Kirschsaft
@@ -43677,8 +43677,15 @@ it: Succo di ciliegia
 nl: kersensap
 pl: sok wiśniowy, sok z wiśni
 ru: Вишневый сок
+usda_ndb_proxy_code:en: 9546
+usda_ndb_proxy_name:en: Cherry juice, tart
 
-< en:cherry
+< en:cherry juice
+en: tart cherry juice
+usda_ndb_code:en: 9546
+usda_ndb_name:en: Cherry juice, tart
+
+< en:cherry juice
 en: cherry juice from concentrated cherry juice
 bg: сок от череши от концентрат
 de: Kirschsaft aus Kirschsaftkonzentrat
@@ -43727,7 +43734,7 @@ ciqual_food_name:fr: Griotte, crue
 # 182 products in 7 languages @2018-09-29
 eurocode_2_group_3:en: 9.20.45
 
-< en:sour cherry
+< en:cherry juice
 en: sour cherry juice
 bg: сок от вишни, сок от вишна
 de: Sauerkirschsaft, Sauerkirschensaft
@@ -43736,7 +43743,7 @@ fr: jus de cerise aigre
 hr: koncentrirani sok višnje
 it: Succo di amarena
 
-< en:sour cherry
+< en:cherry juice
 de: Sauerkirschsaft aus Sauerkirschsaftkonzentrat
 hr: sok višnje od koncentriranog soka, sok od višnje od koncentriranog soka
 
@@ -44369,6 +44376,8 @@ nl: Medjool dadels
 pl: daktyle medjool, daktyle odmiany medjoool
 pt: Tâmaras Medjool
 ru: меджул даты
+usda_ndb_code:en: 9421
+usda_ndb_name:en: Dates, medjool
 # 9in3@2019-06-04
 
 < en:date
