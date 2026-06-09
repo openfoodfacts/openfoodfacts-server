@@ -67642,11 +67642,16 @@ zh: 迷迭香
 # zh-hk:迷迭香
 # zh-sg:迷迭香
 # zh-tw:迷迭香
-# 4543 in 27 @2021-09-16
+ciqual_proxy_food_code:en: 11068
+ciqual_proxy_food_name:en: Rosemary, fresh
+ciqual_proxy_food_name:fr: Romarin, frais
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.60
+usda_ndb_proxy_code:en: 2063
+usda_ndb_proxy_name:en: Rosemary, fresh
 wikidata:en: Q68315046
 wikipedia:en: https://en.wikipedia.org/wiki/rosemary
+# 4543 in 27 @2021-09-16
 
 < en:rosemary
 en: fresh rosemary
@@ -67655,6 +67660,8 @@ it: rosmarino fresco
 ciqual_food_code:en: 11068
 ciqual_food_name:en: Rosemary, fresh
 ciqual_food_name:fr: Romarin, frais
+usda_ndb_code:en: 2063
+usda_ndb_name:en: Rosemary, fresh
 
 < en:rosemary
 en: Dried rosemary
@@ -67747,15 +67754,22 @@ sv: citrongräs, citrongras
 th: ตะไคร้
 vi: Sả chanh
 zh: 柠檬草
-# ingredient/lemongrass has 713 products in 10 languages @2019-05-17
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.44
 # bcl:Tanglad
 # pam:Salé
 # roa-tara:citronelle
 # zh-tw:檸檬茅
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.44
+usda_ndb_proxy_code:en: 11972
+usda_ndb_proxy_name:en: Lemon grass (citronella), raw
 wikidata:en: Q33913
 wikipedia:en: https://en.wikipedia.org/wiki/Cymbopogon
+# ingredient/lemongrass has 713 products in 10 languages @2019-05-17
+
+< en:lemongrass
+en: raw lemongrass
+usda_ndb_code:en: 11972
+usda_ndb_name:en: Lemon grass (citronella), raw
 
 ###################################################################################################
 #
