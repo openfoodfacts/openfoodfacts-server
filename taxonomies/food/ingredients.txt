@@ -51796,18 +51796,27 @@ zh: 旱芹
 # xmf:სონა
 # yue:西芹
 allergens:en: en:celery
-# fr:celeri has 4877 products in 10 languages @2018-10-21
 carbon_footprint_fr_foodges_ingredient:fr: Céleri
 carbon_footprint_fr_foodges_value:fr: 0.8
-ciqual_proxy_food_code:en: 20055
-ciqual_proxy_food_name:fr: Céleri-rave, cru
+ciqual_proxy_proxy_food_code:en: 20055
+ciqual_proxy_proxy_food_name:fr: Céleri-rave, cru
 description:en: CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
 ecobalyse:en: celery-eu
 ecobalyse_labels_en_organic:en: celery-organic
 ecobalyse_origins_en_france:en: celery-fr
 eurocode_2_group_3:en: 8.20.10
+usda_ndb_proxy_code:en: 11143
+usda_ndb_proxy_name:en: Celery, raw
 wikidata:en: Q23012379
 wikipedia:en: https://en.wikipedia.org/wiki/Celery
+# fr:celeri has 4877 products in 10 languages @2018-10-21
+
+< en:celery
+en: raw celery
+ciqual_proxy_food_code:en: 20055
+ciqual_proxy_food_name:fr: Céleri-rave, cru
+usda_ndb_code:en: 11143
+usda_ndb_name:en: Celery, raw
 
 < en:celery
 en: celery stalk
@@ -52090,14 +52099,21 @@ sv: rabarber
 tr: ravent
 wa: rubåbe
 zh: 大黄
-# 502 in 4  languages @2021-10-25
-# category/rhubarbs has 4 products 22019-05-22
-eurocode_2_group_3:en: 8.20.50
 #als:rabarbr
 #sco:rhubarub
+eurocode_2_group_3:en: 8.20.50
+usda_ndb_proxy_code:en: 9307
+usda_ndb_proxy_name:en: Rhubarb, raw
 wikidata:en: Q20767168
 # plant:wikidata:en:Q7535
 wikipedia:en: https://en.wikipedia.org/wiki/Rhubarb
+# 502 in 4 languages @2021-10-25
+# category/rhubarbs has 4 products 22019-05-22
+
+< en:rhubarb
+en: raw rhubarb
+usda_ndb_code:en: 9307
+usda_ndb_name:en: Rhubarb, raw
 
 < en:rhubarb
 en: rhubarb juice
@@ -52192,13 +52208,6 @@ vi: Măng tây
 wa: Aspedje
 yi: אספארגוס
 zh: 芦笋
-carbon_footprint_fr_foodges_ingredient:fr: Asperges en boite Chine
-carbon_footprint_fr_foodges_value:fr: 2.4
-description:en: Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
-# en:asparagus has 301 products in 6 languages @2018-11-11
-eurocode_2_group_3:en: 8.25.10
-#carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
-#carbon_footprint_fr_foodges_value:fr:0.9
 # als:Schbargl
 # ang:eorþnafela
 # ast:espárragu
@@ -52221,8 +52230,22 @@ eurocode_2_group_3:en: 8.25.10
 # zh-my:芦笋
 # zh-sg:芦笋
 # zh-tw:蘆筍
+carbon_footprint_fr_foodges_ingredient:fr: Asperges en boite Chine
+carbon_footprint_fr_foodges_value:fr: 2.4
+#carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
+#carbon_footprint_fr_foodges_value:fr:0.9
+description:en: Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
+# en:asparagus has 301 products in 6 languages @2018-11-11
+eurocode_2_group_3:en: 8.25.10
+usda_ndb_proxy_code:en: 11011
+usda_ndb_proxy_name:en: Asparagus, raw
 wikidata:en: Q23041045
 wikipedia:en: https://en.wikipedia.org/wiki/Asparagus
+
+< en:asparagus
+en: raw asparagus
+usda_ndb_code:en: 11011
+usda_ndb_name:en: Asparagus, raw
 
 < en:asparagus
 fr: asperges fraîches
