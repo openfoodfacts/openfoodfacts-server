@@ -46439,7 +46439,7 @@ sv: granatäppelkärnor
 # 4 products in 3 languages @2018-10-03
 
 < en:fruit juice
-< en:pomegranate
+#< en:pomegranate
 en: pomegranate juice, juice of pomegranate
 da: granatæblesaft
 de: Granatapfelsaft
@@ -46449,8 +46449,15 @@ fr: jus de grenade
 hr: sok od nara
 it: succo di melagrana
 pl: sok z granatu
+usda_ndb_proxy_code:en: 9442
+usda_ndb_proxy_name:en: Pomegranate juice, bottled
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-grenade
 # 61 products in 3 languages @2018-10-03
+
+< en:pomegranate juice
+en: bottled pomegranate juice
+usda_ndb_code:en: 9442
+usda_ndb_name:en: Pomegranate juice, bottled
 
 < en:pomegranate juice
 en: pure pomegranate juice
