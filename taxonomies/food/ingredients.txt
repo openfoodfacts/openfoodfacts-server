@@ -46997,21 +46997,6 @@ ur: تُوت علیق
 vi: Dâu tây vườn
 za: Godumh
 zh: 草莓
-#carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
-#carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr: Fraise hors saison sous serre (France)
-carbon_footprint_fr_foodges_value:fr: 3.5
-#carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
-#carbon_footprint_fr_foodges_value:fr:0.8
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
-# 2504 products in 15 languages @2018-10-01
-ciqual_food_code:en: 13014
-ciqual_food_name:en: Strawberry, raw
-ciqual_food_name:fr: Fraise, crue
-ecobalyse:en: e5bf7d33-6afe-46d6-ac06-f69c5769b10e
-ecobalyse_origins_en_european_union:en: ce20da3d-0ce4-49e9-8942-6d99ff0221b1
-ecobalyse_origins_en_france:en: 3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b
-eurocode_2_group_3:en: 9.30.15
 # aeb-arab:كعبة فراز
 # ary:لفريز
 # ast:fresón
@@ -47037,17 +47022,43 @@ eurocode_2_group_3:en: 9.30.15
 # vls:Freize
 # xmf:ციმუა
 # yue:士多啤梨
+#carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+#carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr: Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_value:fr: 3.5
+#carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
+#carbon_footprint_fr_foodges_value:fr:0.8
+ciqual_food_code:en: 13014
+ciqual_food_name:en: Strawberry, raw
+ciqual_food_name:fr: Fraise, crue
+ecobalyse:en: e5bf7d33-6afe-46d6-ac06-f69c5769b10e
+ecobalyse_origins_en_european_union:en: ce20da3d-0ce4-49e9-8942-6d99ff0221b1
+ecobalyse_origins_en_france:en: 3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b
+eurocode_2_group_3:en: 9.30.15
+usda_ndb_proxy_code:en: 9316
+usda_ndb_proxy_name:en: Strawberries, raw
 wikidata:en: Q14458220
 wikipedia:en: https://en.wikipedia.org/wiki/Strawberry
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
+# 2504 products in 15 languages @2018-10-01
 
 < en:strawberry
-en: strawberry pieces
-de: Erdbeerstücke, Erdbeerstücken, Erdbeerstückchen
-es: trozos de fresa, fresa en trozos
-fr: morceaux de fraise
-hr: komadići jagoda
-it: pezzi di fragole
-pl: kawałki truskawek
+en: raw strawberry
+ciqual_food_code:en: 13014
+ciqual_food_name:en: Strawberry, raw
+ciqual_food_name:fr: Fraise, crue
+usda_ndb_code:en: 9316
+usda_ndb_name:en: Strawberries, raw
+
+#should be handles by ingredients processing
+#< en:strawberry
+#en: strawberry pieces
+#de: Erdbeerstücke, Erdbeerstücken, Erdbeerstückchen
+#es: trozos de fresa, fresa en trozos
+#fr: morceaux de fraise
+#hr: komadići jagoda
+#it: pezzi di fragole
+#pl: kawałki truskawek
 
 #<en:compound
 en: strawberry filling
