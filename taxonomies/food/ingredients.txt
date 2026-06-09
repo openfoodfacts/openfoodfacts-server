@@ -5082,8 +5082,8 @@ vi: Kem chua
 zh: 酸忌廉
 # bxr:Зөөхэй
 # yue:酸忌廉
-usda_proxy_ndb_code:en: 1179
-usda_proxy_ndb_name:en: Sour cream, light
+usda_ndb_proxy_code:en: 1179
+usda_ndb_proxy_name:en: Sour cream, light
 wikipedia:en: https://en.wikipedia.org/wiki/Sour_cream
 # ingredient/Sour-cream has 773 products in 7 languages @2019-07-12
 
@@ -13588,8 +13588,8 @@ de: Froschschenkel
 fr: Cuisses de grenouilles
 hr: žablji kraci
 it: cosce di rana
-usda_proxy_ndb_code:en: 80200
-usda_proxy_ndb_name:en: Frog legs, raw
+usda_ndb_proxy_code:en: 80200
+usda_ndb_proxy_name:en: Frog legs, raw
 wikidata:en: Q1258910
 wikipedia:en: https://en.wikipedia.org/wiki/Frog_legs
 
@@ -24778,8 +24778,8 @@ hr: oljušteni ječam
 it: orzo decorticato
 pl: kasza pęczak, pęczak
 description:en: Hulled barley is a whole grain barley with only the inedible outer shell removed.
-usda_proxy_ndb_code:en: 20004
-usda_proxy_ndb_name:en: Barley, hulled
+usda_ndb_proxy_code:en: 20004
+usda_ndb_proxy_name:en: Barley, hulled
 
 < en:hulled barley
 pl: pęczak obtaczany, pęczak jęczmienny kujawski
@@ -25480,8 +25480,8 @@ ciqual_food_name:en: Millet, whole
 ciqual_food_name:fr: Mil entier, cru
 comment:en: does not contain gluten
 description:en: Millets are a group of highly variable small-seeded grasses, widely grown around the world as cereal crops or grains for fodder and human food
-usda_proxy_ndb_code:en: 20031
-usda_proxy_ndb_name:en: Millet, raw
+usda_ndb_proxy_code:en: 20031
+usda_ndb_proxy_name:en: Millet, raw
 wikidata:en: Q259438
 # 2479 in 16 @2021-10-13
 
@@ -25948,8 +25948,8 @@ ru: овсяная мука, мука овсяная
 sk: ovsená múka
 sl: ovsena moka
 sv: havremjöl
-usda_proxy_ndb_code:en: 20132
-usda_proxy_ndb_name:en: Oat flour, partially debranned
+usda_ndb_proxy_code:en: 20132
+usda_ndb_proxy_name:en: Oat flour, partially debranned
 wikidata:en: Q84470231
 #1041 @2021-09-22
 
@@ -26042,8 +26042,8 @@ sv: havrekli
 ciqual_food_code:en: 9640
 ciqual_food_name:en: Oat bran
 ciqual_food_name:fr: Son d'avoine
-usda_proxy_ndb_code:en: 20033
-usda_proxy_ndb_name:en: Oat bran, raw
+usda_ndb_proxy_code:en: 20033
+usda_ndb_proxy_name:en: Oat bran, raw
 wikidata:en: Q15818990
 #1256 @2021-09-22
 
@@ -28625,8 +28625,8 @@ it: crusca di mais
 ciqual_food_code:en: 9641
 ciqual_food_name:en: Maize/corn bran
 ciqual_food_name:fr: Son de maïs
-usda_proxy_ndb_code:en: 20015
-usda_proxy_ndb_name:en: Corn bran, crude
+usda_ndb_proxy_code:en: 20015
+usda_ndb_proxy_name:en: Corn bran, crude
 
 < en:Maize bran
 en: crude corn bran
@@ -29587,10 +29587,18 @@ sv: vildris
 ciqual_food_code:en: 9108
 ciqual_food_name:en: Wild rice, raw
 ciqual_food_name:fr: Riz sauvage, cru
+usda_ndb_proxy_code:en: 20088
+usda_ndb_proxy_name:en: Wild rice, raw
 wikipedia:en: Q108537241
 # 499 in 7 languages @2021-09-13
 
 < en:wild rice
+en: raw wild rice
+usda_ndb_code:en: 20088
+usda_ndb_name:en: Wild rice, raw
+
+< en:wild rice
+en: cooked wild rice
 fr: riz sauvage cuit
 
 #comment:en:This just seems a synonym of wild rice
@@ -30030,8 +30038,15 @@ nl: rijstzemelen
 pt: farelo de arroz
 sv: riskli
 zh: 米糠
+usda_ndb_proxy_code:en: 20060
+usda_ndb_proxy_name:en: Rice bran, crude
 wikidata:en: Q34041491
 #772 in 9 @2021-10-03
+
+< en:rice bran
+en: crude rice bran
+usda_ndb_code:en: 20060
+usda_ndb_name:en: Rice bran, crude
 
 # see ingredients_processing.txt
 < en:rice
