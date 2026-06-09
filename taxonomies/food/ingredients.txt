@@ -53929,11 +53929,6 @@ ur: ثوم معمر
 vi: hành tăm
 wa: brele
 zh: 蝦夷蔥
-ciqual_food_code:en: 11003
-ciqual_food_name:en: Chive or spring onion, fresh
-ciqual_food_name:fr: Ciboule ou Ciboulette, fraîche
-# 4350 in 20 @2021-10-19
-eurocode_2_group_3:en: 8.30.50
 # ang:secglēac
 # csb:łëczk
 # de-ch:Schnittlauch
@@ -53952,9 +53947,24 @@ eurocode_2_group_3:en: 8.30.50
 # zh-hans:蝦夷蔥
 # zh-hant:蝦夷蔥
 # zh-tw:細香蔥
+ciqual_proxy_food_code:en: 11003
+ciqual_proxy_food_name:en: Chive or spring onion, fresh
+ciqual_proxy_food_name:fr: Ciboule ou Ciboulette, fraîche
+eurocode_2_group_3:en: 8.30.50
+usda_ndb_proxy_code:en: 11156
+usda_ndb_proxy_name:en: Chives, raw
 #plant: wikidata:en:Q51148
 wikidata:en: Q61046162
 wikipedia:en: https://en.wikipedia.org/wiki/Chives
+# 4350 in 20 @2021-10-19
+
+< en:chives
+en: fresh chives
+ciqual_food_code:en: 11003
+ciqual_food_name:en: Chive or spring onion, fresh
+ciqual_food_name:fr: Ciboule ou Ciboulette, fraîche
+usda_ndb_code:en: 11156
+usda_ndb_name:en: Chives, raw
 
 < en:chives
 en: chive seasoning
@@ -54264,6 +54274,8 @@ hr: sušena mrkva
 it: carota essiccata
 pl: suszona marchewka, suszona marchew
 ru: морковь сушёная
+usda_ndb_code:en: 11683
+usda_ndb_name:en: Carrot, dehydrated
 
 < en:carrot
 en: cooked carrot
