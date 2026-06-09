@@ -49323,18 +49323,25 @@ tr: hindiba
 uk: цикорій салатний
 vi: rau cúc đắng
 zh: 苦苣
-# wikidata:en:Q28604477 what is this?
-# category/endives has 8 products @2019-05-22
-# ingredient/endive has 125 products @2019-05-22
-ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
-ecobalyse_labels_en_organic:en: 6842d570-6b53-49f3-ba9c-984b55e40171
-ecobalyse_origins_en_france:en: b26efb2f-8811-4fbb-9d01-3d7f0d8135ef
-eurocode_2_group_3:en: 8.10.10
 # nds-nl:andievie
 # pcd:indife
 # scn:nirvia
 # sr-ec:ендивија
+ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
+ecobalyse_labels_en_organic:en: 6842d570-6b53-49f3-ba9c-984b55e40171
+ecobalyse_origins_en_france:en: b26efb2f-8811-4fbb-9d01-3d7f0d8135ef
+eurocode_2_group_3:en: 8.10.10
+usda_ndb_proxy_code:en: 11213
+usda_ndb_proxy_name:en: Endive, raw
 wikidata:en: Q178547
+# wikidata:en:Q28604477 what is this?
+# category/endives has 8 products @2019-05-22
+# ingredient/endive has 125 products @2019-05-22
+
+< en:endive
+en: raw endive
+usda_ndb_code:en: 11213
+usda_ndb_name:en: Endive, raw
 
 en: Red endive
 it: indivia rossa
@@ -49370,15 +49377,22 @@ pt: radicchio
 ru: радиккьо
 sh: radiccio di treviso
 sv: radicchiosallad, rosensallat, rosésallat
-# 703 in 7 @2021-10-03
-eurocode_2_group_3:en: 8.10.10
 #arz:هندباء
 # en-ca:radicchio
 # en-gb:radicchio
 # pt-br:radicchio
 # vec:radicio
+eurocode_2_group_3:en: 8.10.10
+usda_ndb_proxy_code:en: 11952
+usda_ndb_proxy_name:en: Radicchio, raw
 wikidata:en: Q767765
 wikipedia:en: https://en.wikipedia.org/wiki/Radicchio
+# 703 in 7 @2021-10-03
+
+< en:radicchio
+en: raw radicchio
+usda_ndb_code:en: 11952
+usda_ndb_name:en: Radicchio, raw
 
 < en:endive
 en: curly endive, frisée lettuce
