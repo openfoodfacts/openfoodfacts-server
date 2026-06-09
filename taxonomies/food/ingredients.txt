@@ -45301,15 +45301,6 @@ vi: Vải
 vo: licidafluk
 za: Laehcei
 zh: 荔枝
-# ingredient/fr:litchi has 65 products in 6 languages @2019-03-01
-ciqual_food_code:en: 13023
-ciqual_food_name:en: Lychee, pulp, raw
-ciqual_food_name:fr: Litchi, pulpe, cru
-description:en: LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
-ecobalyse:en: e9764c3c-554f-4f1e-9ba1-8debc869e6ba
-ecobalyse_labels_en_organic:en: 03ecc69a-01a4-4ca2-83ba-77e8310d034a
-eurocode_2_group_2:en: 9.25
-eurocode_2_group_3:en: 9.25.40
 # bcl:Litsiyas
 # be-tarask:Лічы
 # cdo:Liĕk-chiĕ
@@ -45332,11 +45323,27 @@ eurocode_2_group_3:en: 9.25.40
 # zh-hans:荔枝
 # zh-hant:荔枝
 # zh-tw:荔枝
+ciqual_food_code:en: 13023
+ciqual_food_name:en: Lychee, pulp, raw
+ciqual_food_name:fr: Litchi, pulpe, cru
+description:en: LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
+ecobalyse:en: e9764c3c-554f-4f1e-9ba1-8debc869e6ba
+ecobalyse_labels_en_organic:en: 03ecc69a-01a4-4ca2-83ba-77e8310d034a
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.40
+usda_ndb_code:en: 9164
+usda_ndb_name:en: Litchis, raw
 # wikidata:en:Q13182 refers to the plant
 wikipedia:en: https://en.wikipedia.org/wiki/Lychee
+# ingredient/fr:litchi has 65 products in 6 languages @2019-03-01
 
 < en:lychee
-en: Lychee pulp
+en: raw lychee
+usda_ndb_code:en: 9164
+usda_ndb_name:en: Litchis, raw
+
+< en:lychee
+en: lychee pulp
 de: Litschipulpe
 es: Pulpa de lichi
 fr: Pulpe de litchi
