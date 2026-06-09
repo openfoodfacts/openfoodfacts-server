@@ -68712,13 +68712,6 @@ ur: تلسی نازبو
 uz: Rayhon
 vi: Húng quế
 zh: 羅勒
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:basilic
-# 3605 products in 14 languages @2108-10-10
-ciqual_food_code:en: 11033
-ciqual_food_name:en: Basil, fresh
-ciqual_food_name:fr: Basilic, frais
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.12
 # aeb-arab:حبق
 # ang:Eorþmistel
 # azb:ریحان
@@ -68739,8 +68732,17 @@ eurocode_2_group_3:en: 12.20.12
 # sr-el:bosiljak
 # yue:九層塔
 # zh-hk:羅勒
+ciqual_proxy_food_code:en: 11033
+ciqual_proxy_food_name:en: Basil, fresh
+ciqual_proxy_food_name:fr: Basilic, frais
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.12
+usda_ndb_proxy_code:en: 2044
+usda_ndb_proxy_name:en: Basil, fresh
 wikidata:en: Q38859
 wikipedia:en: https://en.wikipedia.org/wiki/Basil
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:basilic
+# 3605 products in 14 languages @2108-10-10
 
 < en:basil
 en: Fresh basil
@@ -68751,6 +68753,8 @@ it: basilico fresco
 ciqual_food_code:en: 11033
 ciqual_food_name:en: Basil, fresh
 ciqual_food_name:fr: Basilic, frais
+usda_ndb_code:en: 2044
+usda_ndb_name:en: Basil, fresh
 
 < en:basil
 en: basil leaf, basil leaves
