@@ -924,6 +924,15 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "haricots blancs demi-secs, garden peas medium, carottes parisiennes",
 		}
 	],
+	# JA check usage of “●” as separator
+	# https://github.com/openfoodfacts/openfoodfacts-server/pull/13691
+	[
+		'ja-black-circle-separator',
+		{
+			lc => 'ja',
+			ingredients_text => '小麦粉●砂糖●植物油脂●食塩●香料●乳化剤',
+		},
+	],
 );
 
 foreach my $test_ref (@tests) {
