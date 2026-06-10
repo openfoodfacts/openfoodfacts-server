@@ -26128,18 +26128,28 @@ vi: diêm mạch
 # war:chenopodium quinoa
 #wuu:藜麦
 # yue:藜麥
-ciqual_food_code:en: 9340
-ciqual_food_name:en: Quinoa, raw
-ciqual_food_name:fr: Quinoa, cru
+ciqual_proxy_food_code:en: 9340
+ciqual_proxy_food_name:en: Quinoa, raw
+ciqual_proxy_food_name:fr: Quinoa, cru
 ifct_food_code:en: A009
 ifct_food_name:en: Quinoa
 nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 20035
+usda_ndb_proxy_name:en: Quinoa, uncooked
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q139925
 wikipedia:en: https://en.wikipedia.org/wiki/Quinoa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
 # 425 products in 6 languages @2018-09-22
+
+< en:quinoa
+en: raw quinoa, uncooked quinoa
+ciqual_food_code:en: 9340
+ciqual_food_name:en: Quinoa, raw
+ciqual_food_name:fr: Quinoa, cru
+usda_ndb_code:en: 20035
+usda_ndb_name:en: Quinoa, uncooked
 
 < en:quinoa
 < en:seed
