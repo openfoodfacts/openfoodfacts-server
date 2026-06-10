@@ -60,5 +60,4 @@ is($user_ref->{name}, 'NotTest', "the name has not been changed");
 is($user_ref->{preferred_language}, 'fr', "language not changed");
 is($user_ref->{country}, 'en:france', "country not changed");
 
-
 done_testing();
