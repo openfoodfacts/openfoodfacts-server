@@ -34,10 +34,6 @@ synonyms:fr: % de matières grasses, % MG
 
 synonyms:fr: premier cru, 1er cru
 
-synonyms:en: Sandwich made with loaf bread, Club sandwich
-
-synonyms:en: Sandwich made with French bread, Baguette sandwich
-
 synonyms:ru: икра овощная, овощная икра
 
 synonyms:fr: thon-crudités, crudités-thon
@@ -41227,7 +41223,28 @@ nl: Paranoten in chocolade
 opposite:en: en:brazil-nuts
 
 < en:Chocolate covered nuts
-en: Chocolate coated peanuts, Chocolate covered peanuts, Sugar and chocolate coated peanuts
+en: Chocolate covered almonds, Chocolate coated almonds
+de: Mandeln mit Schokoladenüberzug, Schokolierte Mandeln
+es: Almendras recubiertas de chocolate
+fr: Amandes enrobées de chocolat, Amandes chocolatées
+hr: Bademi preliveni čokoladom
+it: Mandorle al cioccolato
+lt: Migdolai šokolade
+nl: Amandelen in chocolade
+pt: Amêndoas cobertas com chocolate
+
+< en:Chocolate covered nuts
+en: Chocolate covered cashews
+fr: Noix de cajou enrobées de chocolat
+
+< en:Chocolate covered nuts
+en: Chocolate covered hazelnuts, Chocolate-coated hazelnuts
+fr: Noisettes enrobées de chocolat
+hr: Lješnjaci preliveni čokoladom
+lt: Lazdyno riešutai šokolade
+
+< en:Chocolate covered nuts
+en: Chocolate covered peanuts, Chocolate coated peanuts, Sugar and chocolate coated peanuts
 de: Erdnüsse mit Schokoladenüberzug
 es: Cacahuetes recubiertos de chocolate, Maní recubierto de chocolate
 fi: Suklaalla päällystetyt maapähkinät
@@ -41244,28 +41261,15 @@ ciqual_food_name:en: Sugar and chocolate coated peanut
 ciqual_food_name:fr: Cacahuètes enrobées de chocolat dragéifiées
 
 < en:Chocolate covered nuts
-en: Chocolate coated almonds, Chocolate covered almonds
-de: Mandeln mit Schokoladenüberzug, Schokolierte Mandeln
-es: Almendras recubiertas de chocolate
-fr: Amandes enrobées de chocolat, Amandes chocolatées
-hr: Bademi preliveni čokoladom
-it: Mandorle al cioccolato
-lt: Migdolai šokolade
-nl: Amandelen in chocolade
-pt: Amêndoas cobertas com chocolate
+en: Chocolate covered pistachios, Chocolate coated pistachios
+
+< en:Chocolate covered nuts
+en: Chocolate covered walnuts
+fr: Noix enrobées de chocolat
 
 < en:Bonbons
-en: Chocolate coated coffee beans
+en: Chocolate covered coffee beans, Chocolate coated coffee beans
 fr: Grains de café enrobés de chocolat
-
-< en:Chocolate covered nuts
-en: Chocolate coated pistachios, Chocolate covered pistachios
-
-< en:Chocolate covered nuts
-en: Chocolate covered hazelnuts, Chocolate-coated hazelnuts
-fr: Noisettes enrobées de chocolat
-hr: Lješnjaci preliveni čokoladom
-lt: Lazdyno riešutai šokolade
 
 < en:Confectioneries
 en: Candies, candy, sweets
@@ -46400,7 +46404,8 @@ intake24_category_code:en: 19LDFC
 < en:Cheeses
 en: Sliced cheeses
 ca: Formatges en talls
-de: Scheibenkäse, Käseaufschnitt, Schnittkäse
+de: Scheibenkäse, Käseaufschnitt
+# de:Schnittkäse means it's easy to slice but not that it's already sliced
 es: Quesos en lonchas, Lonchas de queso, Quesos en fetas
 fi: siivutetut juustot
 fr: Fromages en tranches, tranches de fromage, tranches de fromages
@@ -46413,7 +46418,7 @@ nl: Kazen in plakjes
 pl: Sery w plastrach
 pt: Queijos em fatias
 tr: Dilim peynir
-#previous german word Schnittkäse means it's easy to slice but not that it's already sliced
+plant_alternative:en: en:sliced-cheese-substitutes
 
 < en:Sliced cheeses
 en: Sliced mozzarellas, Sliced mozzarella
@@ -51429,6 +51434,7 @@ lt: Tarkuoti sūriai, Tarkuotas sūris
 nl: Geraspte kazen
 pt: Queijos ralados
 ru: Тертый сыр
+plant_alternative:en: en:shredded-cheese-substitutes
 wikidata:en: Q3088336
 
 < en:Grated cheese
@@ -54610,6 +54616,7 @@ ciqual_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a
 # as it is child of both en:salted-spreads (linked to the en:salty-and-fatty-products food group) and en:cheese
 food_groups:en: en:cheese
 intake24_category_code:en: SPRD
+plant_alternative:en: en:cheese-spreads-substitutes
 pnns_group_2:en: Cheese
 
 < en:Cheese spreads
@@ -56874,22 +56881,24 @@ ciqual_food_code:en: 23008
 ciqual_food_name:en: Dessert, Opera cake type
 wikidata:en: Q1858875
 
-< en:Sweet pies
-en: Raspberries sponge cake, Sponge sandwich cake filled and topped with raspberries
-fr: Framboisier
+< en:Pastries
+en: Framboisiers, Raspberries sponge cake, Sponge sandwich cake filled and topped with raspberries
+fr: Framboisiers, Framboisier
 agribalyse_food_code:en: 23009
 ciqual_food_code:en: 23009
 ciqual_food_name:en: Sponge sandwich cake filled and topped with strawberries or raspberries
 ciqual_food_name:fr: Fraisier ou framboisier
+description:en: The framboisier is a pastry made of sponge cake, raspberries and a cream made of milk, eggs and sugar.
 wikidata:en: Q3080422
 
-< en:Sweet pies
-en: Sponge sandwich cake filled and topped with strawberries
-fr: Fraisier
+< en:Pastries
+en: Fraisiers, Sponge sandwich cake filled and topped with strawberries
+fr: Fraisiers, Fraisier
 agribalyse_food_code:en: 23009
 ciqual_food_code:en: 23009
 ciqual_food_name:en: Sponge sandwich cake filled and topped with strawberries or raspberries
 ciqual_food_name:fr: Fraisier ou framboisier
+description:en: The fraisier is a pastry made of sponge cake, strawberries and a cream made of milk, eggs and sugar.
 wikidata:en: Q3080408
 
 < en:Fruits based foods
@@ -100851,12 +100860,35 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Sandwiches/Filled Rolls/Wraps (Frozen)
 
 < en:Sandwiches
-en: Sandwich made with loaf bread, Club sandwich
-es: sándwich de pan de molde, sándwich club
-fr: sandwich club, sandwich triangle, sandwich pain de mie
+en: Club sandwiches, Sandwich made with loaf bread, Club sandwich, Clubhouse sandwiches
+am: ክለብ ሳንድዊች
+ar: شطيرة النادي
+da: Club sandwicher, Club sandwich
+de: Club-Sandwich
+el: Κλαμπ σάντουιτς
+eo: Klubsandviĉoj
+es: Sándwich de pan de molde, sándwich club, Club sandwich
+fa: ساندویچ کلاب
+fr: Sandwich club, sandwich triangle, sandwich pain de mie, Club sandwich
 hr: Sendvič od pogače
-it: tramezzino, sandwich club
-nl: club sandwich, sandwich met witbrood
+hu: Klubszendvics
+hy: Քլաբ սենդվիչ
+id: Roti lapis klub
+it: Tramezzino, sandwich club, Club sandwich
+ja: アメリカンクラブハウスサンド
+jv: Club roti isi
+ko: 클럽 샌드위치
+nb: Club sandwicher
+nl: Club sandwich, Clubsandwich, sandwich met witbrood
+nn: Club sandwichar
+ru: Клубный сэндвич
+sr: Клуб сендвич
+sv: Club sandwichar
+tr: Kulüp sandviç
+uk: Клубний сендвіч
+ur: کلب سینڈوچ
+uz: Klab-sendvich
+zh: 俱乐部三明治
 wikidata:en: Q1093380
 
 < en:Sandwiches
@@ -100867,13 +100899,15 @@ it: Panini polari, panino polare, panini fatti con pane polare
 nl: Poolse broodjes, poolse sandwich, broodjes op poolbrood
 
 < en:Sandwiches
-en: Baguette sandwiches, French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
+en: Baguette sandwiches, French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches, Sandwich made with French bread, Baguette sandwich
+da: Baguette-sandwicher
 de: Baguette-Sandwiches, Sandwiches auf Baguette, Sandwiches mit Baguette
 es: Bocadillos de pan francés, Bocadillos en pan francés, Bocadillos hechos con pan francés
 fr: Sandwich baguette
 hr: Sendviči s francuskim kruhom
 it: Panini al pane francese, Panini su pane francese, Panini fatti con pane francese
 nl: Broodjes op Frans brood, Broodjes gemaakt met Frans brood, Baguette broodjes
+sv: Baguette sandwichar
 ciqual_food_code:en: 25543
 ciqual_food_name:en: Sandwich on french bread (average)
 ciqual_food_name:fr: Sandwich baguette (aliment moyen)
@@ -106654,8 +106688,16 @@ en: Liverwurst spread substitutes
 
 < en:Plant-based spreads
 < en:Salted spreads
-en: Cheese spreads substitutes, Plant-based spread-cheese type with soybean prepacked
-fr: Substituts de fromages à tartiner, Spécialité végétale type fromage à tartiner au soja préemballée
+en: Cheese spreads substitutes
+fr: Substituts de fromages à tartiner
+agribalyse_proxy_food_code:en: 1027
+ciqual_proxy_food_code:en: 1027
+ciqual_proxy_food_name:en: Plant-based spread-cheese type, with soybean, prepacked
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage à tartiner, au soja, préemballée
+
+< en:Cheese spreads substitutes
+en: Soy-based cheese spread substitutes, Soy-based cheese spreads
+fr: Spécialité végétale type fromage à tartiner au soja préemballée
 agribalyse_food_code:en: 1027
 ciqual_food_code:en: 1027
 ciqual_food_name:en: Plant-based spread-cheese type, with soybean, prepacked
@@ -121819,27 +121861,37 @@ hr: Zamjene za sir
 it: Formaggi vegani
 nl: Veganistische kazen, Kaasvervangers, Plantaardige kazen
 pl: Zastępniki sera
+agribalyse_proxy_food_code:en: 1029
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage, sans soja, préemballée
 gpc_category_code:en: 10006996
 gpc_category_description:en: Definition: Includes any products that can be described/observed as food made from non-dairy products, separated from the whey, sometimes fermented, and usually pressed, cooked, smoked, matured, or heated and mixed with artificial ingredients, such as emulsifiers, colourings and flavourings. These products must be refrigerated to extend their consumable life. These products can be with added ingredients, such as herbs and nuts, in blocks, rolls, slices, grated, cubes, spreadable and portions. Definition Excludes: Excludes products such as Frozen, Shelf Stable and Perishable Cheeses, and Shelf Stable and Frozen Cheese Substitutes and Cheese-Based/Flavoured Meals.
 gpc_category_name:en: Cheese Substitutes (Perishable)
 
 < en:Cheese substitutes
-en: Sliced cheese substitutes, Plant-based cheese without soybean prepacked sliced
-fr: Substituts de fromage en tranche, Spécialité végétale type fromage en tranche sans soja préemballée
-hr: Narezane zamjene za sir
-pl: Zastępniki sera w plastrach
-agribalyse_food_code:en: 1029_1
-ciqual_food_code:en: 1029
-ciqual_food_name:en: Plant-based cheese, without soybean, prepacked, sliced
-ciqual_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
+en: Cashew-based cheese substitutes, Cashew-based cheeses
+agribalyse_food_code:en: 1028
+ciqual_food_code:en: 1028
+ciqual_food_name:en: Plant-based cheese, with cashew, prepacked
 
 < en:Cheese substitutes
-en: Shredded cheese substitutes, Plant-based cheese without soybean prepacked shredded
-fr: Susbtituts du fromage râpé, Spécialité végétale type fromage râpé sans soja préemballée
-agribalyse_food_code:en: 1029_2
-ciqual_food_code:en: 1029
-ciqual_food_name:en: Plant-based cheese, without soybean, prepacked, shredded
-ciqual_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
+en: Sliced cheese substitutes, Sliced plant-based cheeses
+fr: Substituts de fromage en tranche
+hr: Narezane zamjene za sir
+pl: Zastępniki sera w plastrach
+agribalyse_proxy_food_code:en: 1029_1
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, sliced
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
+
+< en:Cheese substitutes
+en: Shredded cheese substitutes, Shredded plant-based cheeses
+fr: Susbtituts du fromage râpé
+agribalyse_proxy_food_code:en: 1029_2
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, shredded
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
 
 < en:Legumes and their products
 en: Puffed pulse cakes, pulse cakes, cakes of pulses

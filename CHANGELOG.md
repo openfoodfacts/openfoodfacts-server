@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.94.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.93.1...v2.94.0) (2026-06-08)
+
+
+### Features
+
+* FDC import script ([#13320](https://github.com/openfoodfacts/openfoodfacts-server/issues/13320)) ([264c146](https://github.com/openfoodfacts/openfoodfacts-server/commit/264c14656160c64fd03e17492d55bd616ec2551e))
+
+
+### Bug Fixes
+
+* add U+25CF (●) to ingredient separators for Japanese labels ([#13691](https://github.com/openfoodfacts/openfoodfacts-server/issues/13691)) ([ed740f6](https://github.com/openfoodfacts/openfoodfacts-server/commit/ed740f628c4d910b9b93a7165e04cb6ca8c45b82))
+* backward compatibility for API ask for refactored tags fields ([#13689](https://github.com/openfoodfacts/openfoodfacts-server/issues/13689)) ([345779e](https://github.com/openfoodfacts/openfoodfacts-server/commit/345779e90063ebf88045304f19ca19b6d9f7c1ad))
+* Issues found during STO to JSON migration ([#13714](https://github.com/openfoodfacts/openfoodfacts-server/issues/13714)) ([ccfee79](https://github.com/openfoodfacts/openfoodfacts-server/commit/ccfee790ee44dc1c32e590fd66e836543d45f847))
+* nginx priority map ([#13723](https://github.com/openfoodfacts/openfoodfacts-server/issues/13723)) ([4068a1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/4068a1e315810bfd08310adb68475126ecbe5fd2))
+* reset to-be-exported on pro platform ([#13703](https://github.com/openfoodfacts/openfoodfacts-server/issues/13703)) ([ac8cc84](https://github.com/openfoodfacts/openfoodfacts-server/commit/ac8cc84534d856ce82fd465587e7995079cc2841))
+* use recipe estimator for ingredient analysis (and test tool) ([#13715](https://github.com/openfoodfacts/openfoodfacts-server/issues/13715)) ([1768b7d](https://github.com/openfoodfacts/openfoodfacts-server/commit/1768b7d208e874cec225fa3116ec45edd8a23228))
+
 ## [2.93.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.93.0...v2.93.1) (2026-06-01)
 
 
