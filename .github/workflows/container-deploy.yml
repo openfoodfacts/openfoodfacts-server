@@ -41,7 +41,7 @@ jobs:
         echo "NUTRIPATROL_URL=nutripatrol.openfoodfacts.net" >> $GITHUB_ENV
         echo "FOLKSONOMY_URL=https://api.folksonomy.openfoodfacts.net" >> $GITHUB_ENV
 
-        echo "OIDC_IMPLEMENTATION_LEVEL=3" >> $GITHUB_ENV
+        echo "OIDC_IMPLEMENTATION_LEVEL=5" >> $GITHUB_ENV
         echo "OIDC_DISCOVERY_URL=https://auth.openfoodfacts.net/realms/openfoodfacts/.well-known/openid-configuration" >> $GITHUB_ENV
 
         # deploy target
@@ -306,7 +306,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make prune
 
-    - uses: basos9/grafana-annotation-action@v1.0.3
+    - uses: basos9/grafana-annotation-action@v1.1.0
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org

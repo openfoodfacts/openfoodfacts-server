@@ -94,7 +94,7 @@ no warnings qw(experimental::signatures);
 # Should be used internally only (see: construct_test_url to build urls in tests)
 my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
 my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
-my $metadata_json_encoder = JSON::MaybeXS->new(utf8 => 1, pretty => 1);
+my $metadata_json_encoder = JSON::MaybeXS->new(canonical => 1, utf8 => 1, pretty => 1);
 
 =head2 wait_auth()
 
@@ -218,7 +218,7 @@ Call API to create a user. This legacy method will be deprecated at some point
 
 =cut
 
-sub create_user_legacy ($ua, $args_ref, $is_edit = 0) {
+sub create_user_legacy ($ua, $args_ref, $is_edit = 0, $prefix = 'world') {
 	my $before_create_ts = get_last_minion_job_created();
 
 	my %fields = %{clone($args_ref)};
@@ -226,7 +226,7 @@ sub create_user_legacy ($ua, $args_ref, $is_edit = 0) {
 		$fields{email} = $fields{userid} . '@example.com';
 	}
 	my $tail = tail_log_start();
-	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
+	my $response = $ua->post("http://$prefix.$TEST_MAIN_DOMAIN/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
 		diag("Couldn't create user with " . Dumper(\%fields) . "\n");
 		diag Dumper $response;
@@ -537,7 +537,7 @@ Constructs the URL to send the HTTP request to for the API.
 
 =head3 Arguments
 
-Takes in two string arguments, One being the the target and other a prefix. 
+Takes in two string arguments, One being the target and other a prefix. 
 The prefix could be simply the country code (eg: US for America or "World") OR something like ( {country-code}-{language-code} )
 
 An example below

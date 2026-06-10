@@ -2,12 +2,6 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "en:soybeans, en:soybeans, en:soybeans, en:soybeans, en:soybeans",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [
-      "en:soybeans"
-   ],
    "allergens_tags" : [
       "en:soybeans"
    ],
@@ -34,6 +28,7 @@
       "en:meals",
       "en:soups"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:one-dish-meals",
    "food_groups_tags" : [
       "en:composite-foods",
@@ -152,6 +147,7 @@
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
       "en:at-least-5-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
@@ -899,10 +895,22 @@
       "one-dish-meals",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:soybeans"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

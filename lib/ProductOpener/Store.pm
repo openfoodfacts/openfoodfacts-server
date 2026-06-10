@@ -143,6 +143,8 @@ sub get_string_id_for_lang ($lc, $string) {
 		# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 		if ($string !~ /^[a-z\-]+\.[a-zA-Z0-9-_]{8}[a-zA-Z0-9-_]+$/) {
 			$string =~ tr/\N{U+1E9E}/\N{U+00DF}/;    # Actual lower-case for capital ß
+				# Remove UTF-16 surrogate characters (U+D800–U+DFFF) that cause lc() to warn
+			$string =~ s/[\x{D800}-\x{DFFF}]//g;
 			$string = lc($string);
 			$string =~ tr/./-/;
 		}
@@ -230,6 +232,7 @@ sub get_url_id_for_lang ($lc, $input) {
 
 	my $string = $input;
 
+	# 2024/04/13 tags refactor - tags in urls are now not normalized
 	$string = get_string_id_for_lang($lc, $string);
 
 	if ($string =~ /[^a-zA-Z0-9-]/) {
@@ -245,7 +248,8 @@ sub get_urlid ($input, $unaccent = undef, $lc = undef) {
 
 	my $file = $input;
 
-	$file = get_fileid($file, $unaccent, $lc);
+	# 2024/04/13 tags refactor - tags in urls are now not normalized
+	# $file = get_fileid($file, $unaccent, $lc);
 
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
@@ -433,7 +437,7 @@ sub store_object ($path, $ref) {
 	}
 	else {
 		# Remove the STO file if it exists
-		if (-e ($sto_path)) {
+		if (-e ($sto_path) || -l ($sto_path)) {
 			unlink($sto_path);
 		}
 	}

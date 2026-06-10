@@ -2,10 +2,6 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "gaspachos",
@@ -47,6 +43,7 @@
       "en:cold-soups",
       "en:gazpacho"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:soups",
    "food_groups_tags" : [
       "en:fruits-and-vegetables",
@@ -139,7 +136,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "fr:pain-de-riz",
+         "id" : "fr:pain de riz",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 0.226704545454545,
          "percent_max" : 1.1,
@@ -182,13 +179,13 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "fr:pain-de-riz"
+         "fr:pain de riz"
       ],
       "en:vegan-status-unknown" : [
-         "fr:pain-de-riz"
+         "fr:pain de riz"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:pain-de-riz"
+         "fr:pain de riz"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -211,7 +208,7 @@
       "en:water",
       "en:extra-virgin-olive-oil",
       "en:wine-vinegar",
-      "fr:pain-de-riz",
+      "fr:pain de riz",
       "en:salt",
       "en:garlic",
       "en:lemon-juice"
@@ -237,7 +234,7 @@
       "en:virgin-olive-oil",
       "en:wine-vinegar",
       "en:vinegar",
-      "fr:pain-de-riz",
+      "fr:pain de riz",
       "en:salt",
       "en:garlic",
       "en:lemon-juice",
@@ -251,7 +248,7 @@
    "ingredients_with_unspecified_percent_n" : 10,
    "ingredients_with_unspecified_percent_sum" : 98.9,
    "ingredients_without_ciqual_codes" : [
-      "fr:pain-de-riz"
+      "fr:pain de riz"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
@@ -259,7 +256,7 @@
       "en:lemon-juice",
       "en:salt",
       "en:wine-vinegar",
-      "fr:pain-de-riz"
+      "fr:pain de riz"
    ],
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 10,
@@ -267,6 +264,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -1292,10 +1290,20 @@
          "text" : "teneur en légumes: 89%"
       }
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 1,
    "vitamins_tags" : []

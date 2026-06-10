@@ -34,10 +34,6 @@ synonyms:fr: % de matières grasses, % MG
 
 synonyms:fr: premier cru, 1er cru
 
-synonyms:en: Sandwich made with loaf bread, Club sandwich
-
-synonyms:en: Sandwich made with French bread, Baguette sandwich
-
 synonyms:ru: икра овощная, овощная икра
 
 synonyms:fr: thon-crudités, crudités-thon
@@ -56,6 +52,8 @@ synonyms:sv: djupfrysta, frysta, djupfryst, fryst
 synonyms:sv: matvaror, matvara, mat
 
 synonyms:hu: koncentrátumból, sűrítményből, koncentrátum, sűrítmény
+
+synonyms:da: glutenfri, glutenfrie, glutenfrit
 
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, base
 stopwords:ca: als, a les, de, el, del, de la, la, té, i, amb, base
@@ -7787,7 +7785,6 @@ hu: Klementinlevek, Klementinlé
 it: Succo di mandarancio, Succo di clementina
 lt: Klementinų sultys
 nl: Clementinesappen, Clementinesap
-nl_be: Clementinesappen, Clementinesap
 #wikidata:en:
 
 < en:Clementine juices
@@ -12633,6 +12630,9 @@ ru: Красные вина
 tr: Kırmızı şarap
 zh: 红葡萄酒, 红酒
 agribalyse_food_code:en: 5214
+ciqual_food_code:en: 5214
+ciqual_food_name:en: Wine, red
+ciqual_food_name:fr: Vin rouge
 wikidata:en: Q1827
 
 < en:Red wines
@@ -34079,6 +34079,9 @@ fr: Vins blancs secs
 hr: Suha bijela vina
 hu: Száraz fehérborok
 agribalyse_food_code:en: 5215
+ciqual_food_code:en: 5215
+ciqual_food_name:en: Wine, white, dry
+ciqual_food_name:fr: Vin blanc sec
 
 < en:Dry white wines
 en: 11% dry white wine
@@ -34245,6 +34248,9 @@ hu: Rozéborok, Rozé borok
 it: Vini rosé
 nl: Rosé wijnen, Rosé wijn, Rosé
 agribalyse_food_code:en: 5216
+ciqual_food_code:en: 5216
+ciqual_food_name:en: Wine, rose
+ciqual_food_name:fr: Vin rosé
 
 < en:Rosé wines
 en: 11% rosé wine
@@ -35729,6 +35735,10 @@ fr: Pains au maïs
 hr: Kruhovi s kukuruzom
 nl: Maisbroden
 
+< en:Breads
+fr: Pains pur petit épeautre
+sales_format:en: package, weight
+
 < en:Cereals and potatoes
 en: Bakery products
 de: Backwaren
@@ -36019,6 +36029,18 @@ origins:en: en:germany
 protected_name_file_number:en: PGI-DE-0670
 protected_name_type:en: pgi
 wikidata:en: Q2740122
+
+< en:Breads
+< en:German bakery products
+de: Weltmeisterbrot
+description:en: Bread created by Jürgen Klinsmann in connection with the 1990 football world cup. It contains flax seeds and is sprinkled with poppy seeds and sesame seeds on top.
+wikidata:en: Q56297456
+
+< de:Weltmeisterbrot
+< en:Bread rolls
+de: Weltmeisterbrötchen
+description:en: Bread created by Jürgen Klinsmann in connection with the 1990 football world cup. It contains flax seeds and is sprinkled with poppy seeds and sesame seeds on top and sunflower seeds on the bottom.
+wikidata:en: Q139881211
 
 < en:Bakery products
 en: Hungarian bakery products
@@ -36360,7 +36382,7 @@ fr: Fougasses au chorizo
 < en:Filled fougasse
 fr: Fougasses aux olives
 
-< en:Breads
+< en:Bread loaves
 en: Baguettes, French bread
 xx: Baguettes, Baguette
 ar: خبز فرنسي
@@ -36572,8 +36594,20 @@ wikidata:en: Q1820454
 # How should I translate this in ja? パン粉 would probably be closer to en:Panko, but what about en:Bread crumbs?
 
 < en:Breads
+en: Bread loaves, Bread loaf, Loaf of bread
+is: Hleifur
+ru: Буха́нка
+sv: Brödlimpor, Limpor, Limpa
+yi: לאַבן
+description:en: western style style of bread prepared in oblong shape (wikidata)
+wikidata:en: Q137778889
+
+< en:Breads
 en: Bread rolls, Buns, rolls
+af: Broodrolletjie
+da: Rundstykker
 de: Brötchen, Semmeln
+eo: Bulkoj
 fi: Sämpylät
 fr: Petits pains, Buns (petits pains)
 hr: Buns
@@ -36581,24 +36615,56 @@ it: Panini inglesi
 ja: ロールパン
 lt: Bandelės
 nl: Broodjes
-sv: Bullars
+pl: Bułka
+sv: Bullar
+zh: 圆面包, 圓麵包
 intake24_category_code:en: BRDR
+wikidata:en: Q23004
 
 < en:Bread rolls
 en: Soft bread rolls
+da: Boller
 nl: Zachte broodjes, puntjes, bollen
 
 < en:Breads
 en: Breadsticks, Grissini, Bread sticks
+ar: إصبع الخبز
 bg: Гризини
+ca: Bastonet de pa
+da: Grissini
 de: Brotstangen, Grissini
-es: Colines
-fi: leipätikut
-fr: Gressins, gressin
-hr: grisini
-it: Grissini
+el: Κριτσίνι
+eo: Grisino
+es: Colines, Grisín
+et: Grissini
+eu: Ogi mehe
+fa: نان سوپ
+fi: Leipätikut, Grissini
+fr: Gressins, Gressin
+hr: Grisini
+hu: Grissino
+io: Bastonpano
+it: Grissini, Grissino
+ja: グリッシーニ
+jv: Roti stik
+ko: 막대빵
 lt: Duonos lazdelės
+lv: Grisīni
+mk: Стапчиња леб
+ms: Roti batang
+nb: Grissini
 nl: Soepstengels, Soepstengel
+pl: Grissini
+pt: Gressino
+ro: Grisină
+ru: Гриссини
+sl: Grisin
+sr: Грисине
+sv: Grissini
+tr: Grissini
+uk: Грісіні
+vi: Bánh mì que
+zh: 面包棒
 agribalyse_food_code:en: 7525
 ciqual_food_code:en: 7525
 ciqual_food_name:en: Grissini or bread stick
@@ -36745,11 +36811,41 @@ nl: Glutenvrije broden, Glutenvrij brood, Broden zonder gluten
 pl: Pieczywo bezglutenowe
 pt: Pães sem glúten
 ro: Pâini fără gluten, Pâine fără gluten
+sv: Glutenfria bröd
 agribalyse_food_code:en: 7130
 ciqual_food_code:en: 7130
 ciqual_food_name:en: Bread, gluten free
 ciqual_food_name:fr: Pain, sans gluten
 wikidata:en: Q90410085
+
+< en:Bread rolls
+< en:Gluten-free breads
+en: Gluten-free bread rolls
+da: Glutenfri rundstykker
+de: Glutenfreies Brötchen
+fr: Petits pains sans gluten
+hr: Buns bez glutena
+it: Panini inglesi senza glutine
+lt: Bandelės be glitimo
+nl: Glutenvrije broodjes
+sv: Glutenfria bullar
+
+< en:Breadsticks
+< en:Gluten-free breads
+en: Gluten-free breadsticks, Gluten-free grissini
+bg: Гризини без глутен
+da: Glutenfri grissini
+de: Glutenfreies Brotstangen
+es: Colines sin gluten
+fr: Gressins sans gluten
+hr: Grisini bez glutena
+it: Grissini senza glutine
+lt: Duonos lazdelės be glitimo
+nl: Glutenvrije soepstengels
+pl: Grissini bezglutenowe
+pt: Gressino sem glúten
+ro: Grisină fără gluten
+sv: Glutenfria grissini
 
 < en:Gluten-free breads
 en: Arepas, corn flat breads
@@ -36824,6 +36920,41 @@ xx: Taboon
 ar: طابون
 comment:en: https://www.tasteatlas.com/taboon
 wikidata:en: Q987291
+
+< en:Flatbreads
+en: Tandoor breads, Tannour breads
+ar: خبز التنور
+az: Təndir çörəyi
+bn: তন্দুর রুটি
+ce: Тандыр Хьокхам
+fa: نان تنور
+fr: Pain tandoori
+gl: Pan do Tandoor
+hi: तंदूर की रोटी
+hy: Թոնիր նան
+jv: Roti tandoor
+kk: Тандыр-нан
+ko: 탄두르빵
+ky: Тандыр-нан
+ms: Roti tempayan
+nl: Tandooribrood
+ru: Тандырный хлеб
+sv: Tannourbröd
+tk: Tamdyr çöregi
+tr: Tandır ekmeği
+uk: Тандир-нан
+uz: Tandir noni
+wikidata:en: Q2669274
+
+< en:Flatbreads
+en: Tunnbröd, Thin breads, Polar breads
+xx: Tunnbröd
+fr: Pains polaires
+ja: トゥンブロード
+ko: 툰브뢰드
+mk: Тунброд
+description:en: Tunnbröd (Swedish: [ˈtɵ̂nːbrøːd]; literally 'thinbread') is a Swedish version of flatbread. Tunnbröd can be soft or crisp, and comes in many variants depending on choice of grain, leavening agent (or lack thereof) and rolling pin. (Wikipedia)
+wikidata:en: Q255048
 
 < en:Breads
 en: Oat breads, Oat loafs
@@ -37589,6 +37720,12 @@ agribalyse_food_code:en: 7262
 ciqual_food_code:en: 7262
 ciqual_food_name:en: Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr: Pain pour hamburger ou hot dog (bun), complet, préemballé
+
+< en:Hot dog buns
+< en:Sourdough breads
+en: Sourdough hot dog buns
+da: Surdejspølsebrød
+sv: Surdegskorvbröd
 
 < en:Frozen breads
 < en:Hot dog buns
@@ -39409,6 +39546,32 @@ intake24_category_code:en: CONF
 pnns_group_2:en: Sweets
 
 < en:Confectioneries
+xx: Laddu, ladoo
+en: Laddu, ladoo
+wikidata:en: Q1759289
+
+< en: Laddu
+xx: Besan Laddu, besan ladoo
+en: Besan Laddu, besan ladoo
+description:en: Besan ladoo is a sweet ball from the Indian subcontinent made of chickpea flour, sugar and fat (vegetable oil or ghee)
+
+< en:Confectioneries
+xx: Chikki
+en: Chikki
+
+< en:Confectioneries
+xx: Gulab jamun
+en: Gulab jamun
+description:en: Gulab jamun is a sweet ball from the Indian subcontinent made of milk solid, wheat flour and dipped in a sugary syrup.
+wikidata:en: Q1554207
+
+< en:Confectioneries
+xx: Soan papdi
+en: Soan papdi
+description:en: Soan papdi is a confectionery from the Indian subcontinent made of wheat and pulse flour, sugar and fat (vegetable oil or ghee).
+wikidata:en: Q534126
+
+< en:Confectioneries
 fr: Bonbons dragéifiés
 #wikidata:en:
 
@@ -41060,7 +41223,28 @@ nl: Paranoten in chocolade
 opposite:en: en:brazil-nuts
 
 < en:Chocolate covered nuts
-en: Chocolate coated peanuts, Chocolate covered peanuts, Sugar and chocolate coated peanuts
+en: Chocolate covered almonds, Chocolate coated almonds
+de: Mandeln mit Schokoladenüberzug, Schokolierte Mandeln
+es: Almendras recubiertas de chocolate
+fr: Amandes enrobées de chocolat, Amandes chocolatées
+hr: Bademi preliveni čokoladom
+it: Mandorle al cioccolato
+lt: Migdolai šokolade
+nl: Amandelen in chocolade
+pt: Amêndoas cobertas com chocolate
+
+< en:Chocolate covered nuts
+en: Chocolate covered cashews
+fr: Noix de cajou enrobées de chocolat
+
+< en:Chocolate covered nuts
+en: Chocolate covered hazelnuts, Chocolate-coated hazelnuts
+fr: Noisettes enrobées de chocolat
+hr: Lješnjaci preliveni čokoladom
+lt: Lazdyno riešutai šokolade
+
+< en:Chocolate covered nuts
+en: Chocolate covered peanuts, Chocolate coated peanuts, Sugar and chocolate coated peanuts
 de: Erdnüsse mit Schokoladenüberzug
 es: Cacahuetes recubiertos de chocolate, Maní recubierto de chocolate
 fi: Suklaalla päällystetyt maapähkinät
@@ -41077,28 +41261,15 @@ ciqual_food_name:en: Sugar and chocolate coated peanut
 ciqual_food_name:fr: Cacahuètes enrobées de chocolat dragéifiées
 
 < en:Chocolate covered nuts
-en: Chocolate coated almonds, Chocolate covered almonds
-de: Mandeln mit Schokoladenüberzug, Schokolierte Mandeln
-es: Almendras recubiertas de chocolate
-fr: Amandes enrobées de chocolat, Amandes chocolatées
-hr: Bademi preliveni čokoladom
-it: Mandorle al cioccolato
-lt: Migdolai šokolade
-nl: Amandelen in chocolade
-pt: Amêndoas cobertas com chocolate
+en: Chocolate covered pistachios, Chocolate coated pistachios
+
+< en:Chocolate covered nuts
+en: Chocolate covered walnuts
+fr: Noix enrobées de chocolat
 
 < en:Bonbons
-en: Chocolate coated coffee beans
+en: Chocolate covered coffee beans, Chocolate coated coffee beans
 fr: Grains de café enrobés de chocolat
-
-< en:Chocolate covered nuts
-en: Chocolate coated pistachios, Chocolate covered pistachios
-
-< en:Chocolate covered nuts
-en: Chocolate covered hazelnuts, Chocolate-coated hazelnuts
-fr: Noisettes enrobées de chocolat
-hr: Lješnjaci preliveni čokoladom
-lt: Lazdyno riešutai šokolade
 
 < en:Confectioneries
 en: Candies, candy, sweets
@@ -45010,6 +45181,11 @@ pt: Arancini
 wikidata:en: Q268857
 
 < en:Salty snacks
+en: Corn dogs
+xx: Corn dogs
+wikidata:en: Q1133127
+
+< en:Salty snacks
 en: Onigiri
 xx: Onigiri
 de: Onigiri
@@ -45147,10 +45323,14 @@ ciqual_food_name:fr: Chips de pommes de terre, standard
 wikidata:en: Q173265
 
 < en:Potato crisps
-en: Potato crisps à l'ancienne, Old-fashioned style potato crisps
-fr: Chips de pommes de terre à l'ancienne
-hr: Čips od krumpira à l'ancienne
-lt: Senamadiški bulvių traškučiai
+en: Old-fashioned style potato crisps, Potato crisps à l'ancienne, Old-fashioned crisps
+de: Klassische Chips
+fi: Vanhanaikaiset perunalastut
+fr: Chips de pommes de terre à l'ancienne, Chips à l'ancienne
+hr: Čips od krumpira à l'ancienne, Starinski čips
+it: Patatine all'antica
+lt: Senamadiški bulvių traškučiai, Senoviniai traškučiai
+nl: Traditionele chips
 agribalyse_food_code:en: 4037
 ciqual_food_code:en: 4037
 ciqual_food_name:en: Potato crisps, à l'ancienne (old-fashioned style)
@@ -45379,16 +45559,6 @@ fr: Chips à la crème fraîche et au piment doux
 hr: Kiselo vrhnje i slatki chilli čips
 lt: Grietinės ir saldžiųjų čili traškučių
 nl: Zure room en chili chips
-
-< en:Potato crisps
-en: Old-fashioned crisps
-de: Klassische Chips
-fi: vanhanaikaiset perunalastut
-fr: Chips à l'ancienne
-hr: Starinski čips
-it: Patatine all'antica
-lt: Senoviniai traškučiai
-nl: Traditionele chips
 
 < en:Potato crisps
 en: Crisps of red potatoes, red potato crisps, red potatoes crisps
@@ -46234,7 +46404,8 @@ intake24_category_code:en: 19LDFC
 < en:Cheeses
 en: Sliced cheeses
 ca: Formatges en talls
-de: Scheibenkäse, Käseaufschnitt, Schnittkäse
+de: Scheibenkäse, Käseaufschnitt
+# de:Schnittkäse means it's easy to slice but not that it's already sliced
 es: Quesos en lonchas, Lonchas de queso, Quesos en fetas
 fi: siivutetut juustot
 fr: Fromages en tranches, tranches de fromage, tranches de fromages
@@ -46247,7 +46418,7 @@ nl: Kazen in plakjes
 pl: Sery w plastrach
 pt: Queijos em fatias
 tr: Dilim peynir
-#previous german word Schnittkäse means it's easy to slice but not that it's already sliced
+plant_alternative:en: en:sliced-cheese-substitutes
 
 < en:Sliced cheeses
 en: Sliced mozzarellas, Sliced mozzarella
@@ -51263,6 +51434,7 @@ lt: Tarkuoti sūriai, Tarkuotas sūris
 nl: Geraspte kazen
 pt: Queijos ralados
 ru: Тертый сыр
+plant_alternative:en: en:shredded-cheese-substitutes
 wikidata:en: Q3088336
 
 < en:Grated cheese
@@ -54444,6 +54616,7 @@ ciqual_proxy_food_name:en: Uncured soft cheese, spreadable, around 25% fat, in a
 # as it is child of both en:salted-spreads (linked to the en:salty-and-fatty-products food group) and en:cheese
 food_groups:en: en:cheese
 intake24_category_code:en: SPRD
+plant_alternative:en: en:cheese-spreads-substitutes
 pnns_group_2:en: Cheese
 
 < en:Cheese spreads
@@ -56209,7 +56382,7 @@ lt: Kaštonų putėsiai
 < en:Dairy desserts
 < en:Entremets - mousses and creamy puddings
 < en:Sweet mousses
-en: Dairy Mousses
+en: Dairy mousses
 fi: maitopohjaiset vaahdot
 fr: Mousses lactées, mousses au lait, mousses à base de lait
 hr: Mliječne pjene
@@ -56412,6 +56585,11 @@ intake24_category_code:en: YGRT
 intake24_category_code:fr: YGRT
 pnns_group_2:en: Dairy desserts
 
+< en:Dairy desserts
+xx: Shrikhand
+en: Shrikhand
+description:en: Dairy dessert from the Indian subcontinent.
+wikidata:en: Q2341683
 
 < en:Dairy desserts
 en: Junkets
@@ -56703,22 +56881,24 @@ ciqual_food_code:en: 23008
 ciqual_food_name:en: Dessert, Opera cake type
 wikidata:en: Q1858875
 
-< en:Sweet pies
-en: Raspberries sponge cake, Sponge sandwich cake filled and topped with raspberries
-fr: Framboisier
+< en:Pastries
+en: Framboisiers, Raspberries sponge cake, Sponge sandwich cake filled and topped with raspberries
+fr: Framboisiers, Framboisier
 agribalyse_food_code:en: 23009
 ciqual_food_code:en: 23009
 ciqual_food_name:en: Sponge sandwich cake filled and topped with strawberries or raspberries
 ciqual_food_name:fr: Fraisier ou framboisier
+description:en: The framboisier is a pastry made of sponge cake, raspberries and a cream made of milk, eggs and sugar.
 wikidata:en: Q3080422
 
-< en:Sweet pies
-en: Sponge sandwich cake filled and topped with strawberries
-fr: Fraisier
+< en:Pastries
+en: Fraisiers, Sponge sandwich cake filled and topped with strawberries
+fr: Fraisiers, Fraisier
 agribalyse_food_code:en: 23009
 ciqual_food_code:en: 23009
 ciqual_food_name:en: Sponge sandwich cake filled and topped with strawberries or raspberries
 ciqual_food_name:fr: Fraisier ou framboisier
+description:en: The fraisier is a pastry made of sponge cake, strawberries and a cream made of milk, eggs and sugar.
 wikidata:en: Q3080408
 
 < en:Fruits based foods
@@ -77401,15 +77581,12 @@ pl: Sosy wegetariańskie, wegetariańskie sosy
 sv: Vegetariska såser
 
 < en:Sauces
-en: Other sauces
-
-< en:Other sauces
 en: Shelf-stable other sauces
 gpc_category_code:en: 10000280
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury liquid, paste, spread or granulated substance, which is usually served as an accompaniment to savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Products include liquids, spreads and granules flavoured with, but not necessarily made from fish, meat, mushrooms, seafood or vegetables. Definition Excludes: Specifically excludes Tomato Ketchup/ Ketchup Substitutes, Mustard/Mustard Substitutes and Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces, Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
 gpc_category_name:en: Other Sauces Dipping/Condiments/Savoury Toppings/Savoury Spreads/Marinades (Shelf Stable)
 
-< en:Other sauces
+< en:Sauces
 en: Refrigerated other sauces
 gpc_category_code:en: 10000054
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury liquid, paste, spread or granulated substance, which is usually served as an accompaniment to savoury foods. These products can be blended with other ingredients. These products must be refrigerated to extend their consumable life. Products include liquids and spreads flavoured with, but not necessarily made from fish, meat, mushrooms, sea food or vegetables. Definition Excludes: Specifically excludes Tomato Ketchup/ Ketchup Substitutes, Mustard/Mustard Substitutes and Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces, Frozen and Shelf Stable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
@@ -77517,6 +77694,10 @@ nl: Satésauzen
 < en:Sauces
 en: Alfredo sauces
 wikidata:en: Q23930012
+
+< en:Sauces
+en: Fajitas sauces
+fr: Sauces pour fajitas
 
 < en:Sauces
 en: Taco sauces
@@ -79090,6 +79271,10 @@ en: Mixed meats
 gpc_category_code:en: 10005778
 gpc_category_description:en: Definition: Includes products from two or more kind of animal that have been subjected to one or more further manufacturing processes such as being cooked, dried, cured, ground, or reformed. Definition Excludes: Specifically excludes Meat/Poultry/Other Animal Sausages - Prepared/Processed. Excludes Mixed Species Meat/Poultry/Other Animal - Unprepared/Unprocessed.
 gpc_category_name:en: Mixed Species Meat/Poultry/Other Animal - Alternative Meat - Prepared/Processed
+
+< en:Meats and their products
+en: Marinated meats
+fr: Viandes marinées
 
 < en:Meats and their products
 en: Andorran meat products
@@ -85875,6 +86060,11 @@ fr: Mini pizzas apéritives
 
 < en:Meals
 < en:Pizzas pies and quiches
+en: Pizza pockets
+fr: Pizzas pocket
+
+< en:Meals
+< en:Pizzas pies and quiches
 en: Pizzas
 bg: Пица
 ca: Pizzes
@@ -85946,7 +86136,6 @@ ciqual_food_name:fr: Pizza jambon fromage champignons ou pizza royale, reine ou 
 < en:Pizzas
 fr: Pizzas savoyardes, Pizza savoyarde
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Cheese and mushrooms pizza
 fr: Pizza champignons fromage
@@ -85957,20 +86146,36 @@ ciqual_food_code:en: 25477
 ciqual_food_name:en: Pizza, cheese and mushrooms
 ciqual_food_name:fr: Pizza champignons fromage
 
-< en:Pizzas
 < en:Vegetarian pizzas
-en: Margherita Pizza, Cheese and tomato pizza
+en: Margherita pizzas, Margherita pizza, Pizza Margherita
+ar: بيتزا_مارغيريتا
 bg: Пица Маргарита
+da: Margherita-pizzaer
 de: Pizza Margherita
 es: Pizza margherita
+fa: پیتزا مارگریتا
 fi: margherita-pizza
-fr: Pizzas margherita, pizza margherita, pizzas marguerite, Pizza au fromage et aux tomates
+fr: Pizzas margherita, pizza margherita, pizzas marguerite
 hr: Pizza margherita
 it: Pizza margherita
 ja: マルゲリータ
-lt: Margarita picos, Picos su sūriu ir pomidorų padažu
+ko: 마르게리타 피자
+lt: Margarita picos
 nl: Pizza Margherita
-#wikidata:en:
+sv: Margherita-pizzor
+zh: 瑪格麗塔披薩, 瑪格麗特披薩
+agribalyse_food_code:en: 25404
+ciqual_food_code:en: 25404
+ciqual_food_name:en: Pizza, cheese and tomato or Margherita pizza
+ciqual_food_name:fr: Pizza au fromage ou Pizza margherita
+wikidata:en: Q500724
+
+< en:Vegetarian pizzas
+en: Cheese and tomato pizzas, Cheese and tomato pizza
+da: Ost- og tomatpizzaer, Pizzaer med ost og tomat
+fr: Pizzas tomates fromage, Pizza au fromage et aux tomates
+lt: Picos su sūriu ir pomidorų padažu
+sv: Ost- och tomatpizzor
 agribalyse_food_code:en: 25404
 ciqual_food_code:en: 25404
 ciqual_food_name:en: Pizza, cheese and tomato or Margherita pizza
@@ -85978,15 +86183,19 @@ ciqual_food_name:fr: Pizza au fromage ou Pizza margherita
 
 < en:Pizzas
 en: Vegetarian pizzas
+da: Vegetariske pizzaer
 fr: Pizzas végétariennes, pizza végétarienne
+sv: Vegetarianska pizzor
 agribalyse_proxy_food_code:en: 25472
 ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_proxy_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
-< en:Pizzas
-en: Plant-based pizzas, Vegetal pizzas, vegan pizzas
-fr: Pizzas végétales, pizzas végétaliennes, pizzas véganes, pizza végétale, pizza végétalienne, pizza végane
+< en:Vegetarian pizzas
+en: Vegan pizzas, Plant-based pizzas, Vegetal pizzas
+da: Veganske pizzaer
+fr: Pizzas véganes, Pizzas végétales, pizzas végétaliennes, pizza végétale, pizza végétalienne, pizza végane
+sv: Veganska pizzor
 agribalyse_proxy_food_code:en: 25472
 ciqual_proxy_food_code:en: 25472
 ciqual_proxy_food_name:en: Pizza, vegetables or pizza 4 seasons
@@ -86129,7 +86338,7 @@ bg: Пица с шунка
 de: Schinkenpizzas
 es: Pizzas de jamón york
 fi: kinkkupizzat
-fr: Pizzas au jambon
+fr: Pizzas au jambon, Pizza au jambon
 hr: Pizze sa šunkom
 it: Pizze al prosciutto
 lt: Picos su kumpiu
@@ -86139,8 +86348,8 @@ agribalyse_proxy_food_name:en: Pizza, cured ham
 agribalyse_proxy_food_name:fr: Pizza au speck ou jambon cru
 
 < en:Ham pizzas
-en: Cured Ham Pizza
-fr: Pizza au jambon, Pizza au jambon cru
+en: Cured ham pizza
+fr: Pizza au jambon cru
 hr: Pizza sa suhom šunkom
 lt: Picos su vytintu kumpiu
 agribalyse_food_code:en: 26274
@@ -86168,7 +86377,6 @@ ciqual_food_code:en: 26271
 ciqual_food_name:en: Pizza, kebab
 ciqual_food_name:fr: Pizza kebab
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Vegetable pizza, Four seasons pizza, Pizza quattro stagioni
 es: Pizzas de verduras
@@ -86182,7 +86390,6 @@ ciqual_food_code:en: 25472
 ciqual_food_name:en: Pizza, vegetables or pizza 4 seasons
 ciqual_food_name:fr: Pizza aux légumes ou Pizza 4 saisons
 
-< en:Pizzas
 < en:Vegetarian pizzas
 en: Cheese pizzas
 bg: Пица със сирена
@@ -86258,7 +86465,7 @@ agribalyse_proxy_food_code:en: 25478
 agribalyse_proxy_food_name:en: Pizza, four cheeses
 agribalyse_proxy_food_name:fr: Pizza 4 fromages
 
-< en:Cheese pizzas
+< en:Pizzas
 en: Cheese and onion pizza with lardoons
 fr: Pizza aux lardons oignons et fromage
 hr: Pizza od sira i luka s pečenjem
@@ -86268,7 +86475,7 @@ ciqual_food_code:en: 25570
 ciqual_food_name:en: Pizza, lardoons onions and cheese
 ciqual_food_name:fr: Pizza aux lardons, oignons et fromage
 
-< en:Cheese pizzas
+< en:Pizzas
 en: Pizza with raclette cheese and lardoons, Pizza with tartiflette cheese and lardoons
 fr: Pizza type raclette, Pizza type tartiflette, Pizza à la montagnarde, Pizzas raclette
 hr: Pizza s raclette sirom i pečenicama
@@ -87209,6 +87416,45 @@ ciqual_food_code:en: 25172
 ciqual_food_name:en: Meat in sauce (average)
 ciqual_food_name:fr: Viande en sauce (aliment moyen)
 
+< en:Beef and its products
+< en:Meats in sauce
+en: Beef in sauce
+fr: Viandes de bœuf en sauce
+
+< en:Beef in sauce
+en: Beef tongues in sauce
+fr: Langues de bœuf en sauce
+
+< en:Beef tongues in sauce
+en: Tongue of beef with hot sauce
+fr: Langues de bœuf sauce piquante, Langue de bœuf sauce piquante
+hr: Goveđi jezik s ljutim umakom
+lt: Jautienos liežuvis su aštriu padažu
+nl: Kalfstong in pikante saus
+
+< en:Beef tongues in sauce
+en: Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce, Beef tongue with Madeira wine sauce
+fi: Naudan kielet madeirakastikkeella
+fr: Langues de bœuf sauce madère, Langue de bœuf sauce madère
+hr: Goveđi jezici s madeira umakom
+lt: Jautienos liežuvis su Madeira padažu
+nl: Rundertong op basis van Madeirasaus
+ciqual_food_code:en: 25201
+ciqual_food_name:en: Beef tongue with Madeira wine sauce
+ciqual_food_name:fr: Langue de bœuf sauce madère
+
+< en:Beef in sauce
+en: Ox muzzle in sauce
+fr: Museau de boeuf en sauce
+
+< en:Ox muzzle in sauce
+en: Ox muzzle in salad dressing sauce
+fr: Museau de boeuf en vinaigrette
+agribalyse_food_code:en: 25610
+ciqual_food_code:en: 25610
+ciqual_food_name:en: Ox muzzle in salad dressing sauce
+ciqual_food_name:fr: Museau de boeuf en vinaigrette
+
 < en:Prepared meats
 en: Dried meats
 bg: Сушено месо
@@ -87978,26 +88224,6 @@ agribalyse_food_code:en: 40203
 ciqual_food_code:en: 40203
 ciqual_food_name:en: Tongue, beef, cooked
 ciqual_food_name:fr: Langue, boeuf, cuite
-
-< en:Beef preparations
-< en:Beef tongues
-en: Tongue of beef with hot sauce
-fr: Langues de bœuf sauce piquante, Langue de bœuf sauce piquante
-hr: Goveđi jezik s ljutim umakom
-lt: Jautienos liežuvis su aštriu padažu
-nl: Kalfstong in pikante saus
-
-< en:Beef preparations
-< en:Beef tongues
-en: Beef tongues with Madeira Sauce, Beef tongue with Madeira Sauce, Beef tongue with Madeira wine sauce
-fi: Naudan kielet madeirakastikkeella
-fr: Langues de bœuf sauce madère, Langue de bœuf sauce madère
-hr: Goveđi jezici s madeira umakom
-lt: Jautienos liežuvis su Madeira padažu
-nl: Rundertong op basis van Madeirasaus
-ciqual_food_code:en: 25201
-ciqual_food_name:en: Beef tongue with Madeira wine sauce
-ciqual_food_name:fr: Langue de bœuf sauce madère
 
 < en:Beef
 en: Beef knuckle
@@ -88929,14 +89155,6 @@ en: Frozen Yakitori chicken skewers, frozen yakitori chicken
 fr: Brochettes de poulet Yakitori surgelées, Yakitori de Poulet surgelé, Poulet Yakitori surgelé
 
 < en:Beef preparations
-en: Ox muzzle in salad dressing sauce
-fr: Museau de boeuf en vinaigrette
-agribalyse_food_code:en: 25610
-ciqual_food_code:en: 25610
-ciqual_food_name:en: Ox muzzle in salad dressing sauce
-ciqual_food_name:fr: Museau de boeuf en vinaigrette
-
-< en:Beef preparations
 en: Ox muzzle
 fr: Museau de boeuf
 ciqual_food_code:en: 8450
@@ -89007,6 +89225,11 @@ es: Carne de vacuno y sus productos
 fr: Viande de bœuf et dérivés, viande de boeuf et dérivés
 hr: Govedina i njeni proizvodi
 nl: Rundvlees en afgeleide producten
+
+< en:Beef and its products
+< en:Marinated meats
+en: Marinated beef meats
+fr: Viandes de bœuf marinées
 
 < en:Beef and its products
 < en:Meat preparations
@@ -89427,6 +89650,11 @@ lt: Kiauliena ir jos produktai
 nl: Varken en afgeleide producten
 pl: Wieprzowina i jej produkty
 incompatible_with:en: labels:en:kosher
+
+< en:Marinated meats
+< en:Pork and its products
+en: Marinated pork meats
+fr: Viandes de porc marinées
 
 < en:Pork and its products
 en: Pork (prepared)
@@ -90751,6 +90979,11 @@ gpc_category_description:en: Definition: Includes products from animals of the s
 gpc_category_name:en: Turkey - Prepared/Processed
 intake24_category_code:en: TURK
 
+< en:Marinated meats
+< en:Turkey and its products
+en: Marinated turkey meats
+fr: Viandes de dinde marinées
+
 < en:Meat patties
 < en:Turkey preparations
 en: Turkey patties
@@ -91347,6 +91580,19 @@ es: Pollo y sus productos
 fr: Poulet et dérivés
 hr: Piletine i njenih proizvoda
 nl: Kip en afgeleide producten
+
+< en:Chicken and its products
+< en:Marinated meats
+en: Marinated chicken meats
+fr: Viandes de poulet marinées
+
+< en:Marinated chicken meats
+en: Marinated chicken breasts
+fr: Filets de poulet marinés
+
+< en: Marinated chicken meats
+en: Marinated hacked chicken
+fr: Hachés de poulet marinés
 
 < en:Chicken and its products
 < en:Poultries
@@ -99416,6 +99662,35 @@ sv: Punschrullar, Dammsugare, Arraksrullar, 150-ohmare
 wikidata:en: Q2253902
 wikipedia:en: https://en.wikipedia.org/wiki/Punsch-roll
 
+< en:Confectioneries
+< en:Pastries
+en: Rum balls
+ar: كرات الروم
+az: Kartof şirniyyatı
+be: Бульба (дэсерт)
+ca: Boles de rom
+cs: Rumové koule
+da: Romkugler, Trøfler (wienerbrød), Trøffelkugler
+de: Rumkugeln
+eo: Rumpilkoj
+es: Bola de ron
+ga: Liathróidí rum
+hy: Կարտոֆիլ
+is: Rommkúlur
+it: Tartufo al rum
+ja: ラムボール
+jv: Bal rum
+lt: Romo kamuoliukai
+nb: Romkuler
+nn: Romkuler
+pl: Bajadera
+ru: Ромовые шарики
+sv: Rombollar
+uk: Картопля (тістечко)
+yi: רום באַללס
+zh: 朗姆酒球
+wikidata:en: Q270997
+
 < en:Pastries
 en: Churros
 xx: Churros
@@ -100504,6 +100779,7 @@ nl: Producten verkocht i de jaren 90
 en: Products without gluten, gluten-free products, gluten free
 bg: Продукти без глутен
 cs: Bezlepkové potraviny
+da: Produkter uden gluten, Glutenfri produkter
 de: Glutenfrei
 es: Productos sin gluten
 fi: gluteeniton
@@ -100516,6 +100792,7 @@ nl: Glutenvrije producten
 pl: Produkty bezglutenowe
 pt: Produtos sem glútem
 ru: Безглютеновые продукты
+sv: Produkter utan gluten, Glutenfria produkter
 
 < en:Products without gluten
 en: Gluten free bread mixes
@@ -100583,12 +100860,35 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Sandwiches/Filled Rolls/Wraps (Frozen)
 
 < en:Sandwiches
-en: Sandwich made with loaf bread, Club sandwich
-es: sándwich de pan de molde, sándwich club
-fr: sandwich club, sandwich triangle, sandwich pain de mie
+en: Club sandwiches, Sandwich made with loaf bread, Club sandwich, Clubhouse sandwiches
+am: ክለብ ሳንድዊች
+ar: شطيرة النادي
+da: Club sandwicher, Club sandwich
+de: Club-Sandwich
+el: Κλαμπ σάντουιτς
+eo: Klubsandviĉoj
+es: Sándwich de pan de molde, sándwich club, Club sandwich
+fa: ساندویچ کلاب
+fr: Sandwich club, sandwich triangle, sandwich pain de mie, Club sandwich
 hr: Sendvič od pogače
-it: tramezzino, sandwich club
-nl: club sandwich, sandwich met witbrood
+hu: Klubszendvics
+hy: Քլաբ սենդվիչ
+id: Roti lapis klub
+it: Tramezzino, sandwich club, Club sandwich
+ja: アメリカンクラブハウスサンド
+jv: Club roti isi
+ko: 클럽 샌드위치
+nb: Club sandwicher
+nl: Club sandwich, Clubsandwich, sandwich met witbrood
+nn: Club sandwichar
+ru: Клубный сэндвич
+sr: Клуб сендвич
+sv: Club sandwichar
+tr: Kulüp sandviç
+uk: Клубний сендвіч
+ur: کلب سینڈوچ
+uz: Klab-sendvich
+zh: 俱乐部三明治
 wikidata:en: Q1093380
 
 < en:Sandwiches
@@ -100599,13 +100899,15 @@ it: Panini polari, panino polare, panini fatti con pane polare
 nl: Poolse broodjes, poolse sandwich, broodjes op poolbrood
 
 < en:Sandwiches
-en: Baguette sandwiches, French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches
+en: Baguette sandwiches, French bread sandwiches, Sandwiches on French bread, Sandwiches made with French bread, Baguette sandwiches, Sandwich made with French bread, Baguette sandwich
+da: Baguette-sandwicher
 de: Baguette-Sandwiches, Sandwiches auf Baguette, Sandwiches mit Baguette
 es: Bocadillos de pan francés, Bocadillos en pan francés, Bocadillos hechos con pan francés
 fr: Sandwich baguette
 hr: Sendviči s francuskim kruhom
 it: Panini al pane francese, Panini su pane francese, Panini fatti con pane francese
 nl: Broodjes op Frans brood, Broodjes gemaakt met Frans brood, Baguette broodjes
+sv: Baguette sandwichar
 ciqual_food_code:en: 25543
 ciqual_food_name:en: Sandwich on french bread (average)
 ciqual_food_name:fr: Sandwich baguette (aliment moyen)
@@ -102705,6 +103007,7 @@ fr: Crevettes panées
 < en:Crustaceans
 en: Shrimps
 bg: Скариди
+ca: Gambes
 de: Garnele
 es: Camarones, Camarón
 fi: pirpana
@@ -102831,6 +103134,15 @@ ciqual_food_name:fr: Crevette, crue
 wikidata:en: Q1058410
 
 < en:Prawns
+en: Blue and red shrimp, Red prawn, Aristeus antennatus
+ca: Gamba vermella, gamba roja, gamba de Palamós, gamba rosada
+es: Gamba roja, gamba rosada
+fr: Crevette rouge, gambon rouge
+it: Gambero rosso mediterraneo
+la: Aristeus antennatus
+wikidata:en: Q500678
+
+< en:Prawns
 en: Deep water pink shrimps
 fr: Crevettes roses
 agribalyse_food_code:en: 10059
@@ -102840,11 +103152,14 @@ ciqual_food_name:fr: Crevette rose, crue
 
 < en:Deep water pink shrimps
 en: Cooked Prawns
+ca: Gamba blanca, gamba d'altura
+es: Gamba blanca, gamba de altura
 fr: Crevettes roses cuites
 agribalyse_food_code:en: 10007
 ciqual_food_code:en: 10007
 ciqual_food_name:en: Shrimp or prawn, cooked
 ciqual_food_name:fr: Crevette, cuite
+wikidata:en: Q8062343
 
 
 < en:Seafood
@@ -106373,8 +106688,16 @@ en: Liverwurst spread substitutes
 
 < en:Plant-based spreads
 < en:Salted spreads
-en: Cheese spreads substitutes, Plant-based spread-cheese type with soybean prepacked
-fr: Substituts de fromages à tartiner, Spécialité végétale type fromage à tartiner au soja préemballée
+en: Cheese spreads substitutes
+fr: Substituts de fromages à tartiner
+agribalyse_proxy_food_code:en: 1027
+ciqual_proxy_food_code:en: 1027
+ciqual_proxy_food_name:en: Plant-based spread-cheese type, with soybean, prepacked
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage à tartiner, au soja, préemballée
+
+< en:Cheese spreads substitutes
+en: Soy-based cheese spread substitutes, Soy-based cheese spreads
+fr: Spécialité végétale type fromage à tartiner au soja préemballée
 agribalyse_food_code:en: 1027
 ciqual_food_code:en: 1027
 ciqual_food_name:en: Plant-based spread-cheese type, with soybean, prepacked
@@ -121538,27 +121861,37 @@ hr: Zamjene za sir
 it: Formaggi vegani
 nl: Veganistische kazen, Kaasvervangers, Plantaardige kazen
 pl: Zastępniki sera
+agribalyse_proxy_food_code:en: 1029
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage, sans soja, préemballée
 gpc_category_code:en: 10006996
 gpc_category_description:en: Definition: Includes any products that can be described/observed as food made from non-dairy products, separated from the whey, sometimes fermented, and usually pressed, cooked, smoked, matured, or heated and mixed with artificial ingredients, such as emulsifiers, colourings and flavourings. These products must be refrigerated to extend their consumable life. These products can be with added ingredients, such as herbs and nuts, in blocks, rolls, slices, grated, cubes, spreadable and portions. Definition Excludes: Excludes products such as Frozen, Shelf Stable and Perishable Cheeses, and Shelf Stable and Frozen Cheese Substitutes and Cheese-Based/Flavoured Meals.
 gpc_category_name:en: Cheese Substitutes (Perishable)
 
 < en:Cheese substitutes
-en: Sliced cheese substitutes, Plant-based cheese without soybean prepacked sliced
-fr: Substituts de fromage en tranche, Spécialité végétale type fromage en tranche sans soja préemballée
-hr: Narezane zamjene za sir
-pl: Zastępniki sera w plastrach
-agribalyse_food_code:en: 1029_1
-ciqual_food_code:en: 1029
-ciqual_food_name:en: Plant-based cheese, without soybean, prepacked, sliced
-ciqual_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
+en: Cashew-based cheese substitutes, Cashew-based cheeses
+agribalyse_food_code:en: 1028
+ciqual_food_code:en: 1028
+ciqual_food_name:en: Plant-based cheese, with cashew, prepacked
 
 < en:Cheese substitutes
-en: Shredded cheese substitutes, Plant-based cheese without soybean prepacked shredded
-fr: Susbtituts du fromage râpé, Spécialité végétale type fromage râpé sans soja préemballée
-agribalyse_food_code:en: 1029_2
-ciqual_food_code:en: 1029
-ciqual_food_name:en: Plant-based cheese, without soybean, prepacked, shredded
-ciqual_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
+en: Sliced cheese substitutes, Sliced plant-based cheeses
+fr: Substituts de fromage en tranche
+hr: Narezane zamjene za sir
+pl: Zastępniki sera w plastrach
+agribalyse_proxy_food_code:en: 1029_1
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, sliced
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
+
+< en:Cheese substitutes
+en: Shredded cheese substitutes, Shredded plant-based cheeses
+fr: Susbtituts du fromage râpé
+agribalyse_proxy_food_code:en: 1029_2
+ciqual_proxy_food_code:en: 1029
+ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, shredded
+ciqual_proxy_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
 
 < en:Legumes and their products
 en: Puffed pulse cakes, pulse cakes, cakes of pulses
@@ -124630,10 +124963,6 @@ ciqual_food_code:en: 23493
 ciqual_food_name:en: Apple crumble
 ciqual_food_name:fr: Crumble aux pommes
 #wikidata:en:
-
-< en:Pastries
-en: Soan papdi
-fr: Soan papdi
 
 en: stuffing
 de: Füllung

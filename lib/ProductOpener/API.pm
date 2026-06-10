@@ -784,7 +784,8 @@ my %api_version_to_schema_version = (
 	"3.2" => 1001,
 	"3.3" => 1002,
 	"3.4" => 1002,    # change only for the /api/3.4/attribute_groups endpoint, not for product schema
-	"3.5" => 1003,
+	"3.5" => 1003,    # new nutrition schema
+	"3.6" => 1004,    # new tags schema with tags_sources
 );
 
 sub api_compatibility_for_product_response ($product_ref, $api_version) {
@@ -881,6 +882,12 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	# Used to handle old API V2 requests for specific nutrients
 	my @old_requested_nutrients = ();
 
+	# Record if we were asked for all fields
+	my $all_fields_requested = 0;
+	# Record asked fields, used to make sure we do not remove asked fields that are not part of the product,
+	# but are added by conversion functions (e.g. "categories", "stores")
+	my %asked_fields = map {$_ => 1} @fields;
+
 	# lets compute each requested field
 	foreach my $field (@fields) {
 
@@ -891,6 +898,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 			# Return all fields of the product, with processing that depends on the API version used
 			# e.g. in API v3, the "packagings" structure is more verbose than the stored version
 			push @fields, sort keys %{$product_ref};
+			$all_fields_requested = 1;
 			next;
 		}
 
@@ -1044,13 +1052,24 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	# Some fields like serving_quantity and serving_quantity_unit may be created by the schema conversion
 	# so we record that they were temporarily added so that they can be removed afterwards
 
+	# We also need the *_tags fields to convert to the old tags schema for API versions < 3.6
+	my @tags_fields = grep {$_ =~ /^(.*)_tags$/} keys %$product_ref;
+	# We also need to add the corresponding fields that can get added by the schema conversion
+	# e.g. for categories_tags: categories, categories_lc, categories_hierarchy
+	my @tags_corresponding_fields
+		= map {(my $base = $_) =~ s/_tags$//; ($base, "${base}_lc", "${base}_hierarchy")} @tags_fields;
+
 	my @temporarily_added_fields = ();
 
 	foreach my $needed_field (
 		"schema_version", "serving_size",
 		"serving_quantity", "serving_quantity_unit",
 		"nutrition_data", "nutrition_data_per",
-		"nutrition_data_prepared_per"
+		"nutrition_data_prepared_per",
+		# tags_sources is needed to convert to old tags schema
+		"tags_sources",
+		@tags_fields,
+		@tags_corresponding_fields
 		)
 	{
 		if ((not defined $customized_product_ref->{$needed_field}) and (defined $product_ref->{$needed_field})) {
@@ -1061,6 +1080,11 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 				if $log->is_debug();
 		}
 	}
+
+	# Record which tags_corresponding_fields were absent from $customized_product_ref before the conversion
+	# so that fields created by api_compatibility_for_product_response can be removed afterwards
+	my %tags_corresponding_fields_to_remove = map {$_ => 1}
+		grep {not defined $customized_product_ref->{$_}} @tags_corresponding_fields;
 
 	api_compatibility_for_product_response($customized_product_ref, $request_ref->{api_version});
 
@@ -1086,11 +1110,20 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		}
 	}
 
-	# Remove temporarily added fields
-	foreach my $temporarily_added_field (@temporarily_added_fields) {
-		delete $customized_product_ref->{$temporarily_added_field};
-	}
+	# Remove temporarily added fields (unless we were asked for all fields)
+	if (not $all_fields_requested) {
+		foreach my $temporarily_added_field (@temporarily_added_fields) {
+			delete $customized_product_ref->{$temporarily_added_field};
+		}
 
+		# Remove tags corresponding fields that were created by api_compatibility_for_product_response
+		# and were not originally requested (i.e. were absent before the conversion and are not part of %asked_fields)
+		foreach my $field (keys %tags_corresponding_fields_to_remove) {
+			if (defined $customized_product_ref->{$field} and not defined $asked_fields{$field}) {
+				delete $customized_product_ref->{$field};
+			}
+		}
+	}
 	return $customized_product_ref;
 }
 

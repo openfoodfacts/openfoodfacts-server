@@ -2,12 +2,6 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "en:mustard",
-   "allergens_from_user" : "(pl) ",
-   "allergens_hierarchy" : [
-      "en:mustard"
-   ],
    "allergens_tags" : [
       "en:mustard"
    ],
@@ -39,6 +33,7 @@
       "en:prepared-vegetables",
       "en:pickled-vegetables"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:salty-and-fatty-products",
    "food_groups_tags" : [
       "en:salty-snacks",
@@ -172,6 +167,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
@@ -1155,10 +1151,22 @@
       "salty-and-fatty-products",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(pl) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:mustard"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

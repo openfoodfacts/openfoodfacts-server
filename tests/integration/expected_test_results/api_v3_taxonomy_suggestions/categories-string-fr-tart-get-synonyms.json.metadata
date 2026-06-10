@@ -5,9 +5,9 @@
       "method" : "GET",
       "parameters" : {
          "get_synonyms" : "1",
+         "lc" : "fr",
          "string" : "tart",
-         "tagtype" : "categories",
-         "lc" : "fr"
+         "tagtype" : "categories"
       },
       "path" : "/api/v3/taxonomy_suggestions"
    }

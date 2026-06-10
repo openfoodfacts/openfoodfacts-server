@@ -1,25 +1,25 @@
 {
    "api_call" : {
-      "parameters" : {},
-      "path" : "/api/v3/product/1234567890009",
-      "content-type" : "application/json; charset=utf-8",
       "body" : {
-         "tags_lc" : "en",
+         "fields" : "packagings",
          "product" : {
             "packagings" : [
                {
-                  "shape" : {
-                     "lc_name" : "bag"
-                  },
                   "material" : {
                      "lc_name" : "plastic"
                   },
-                  "number_of_units" : 1
+                  "number_of_units" : 1,
+                  "shape" : {
+                     "lc_name" : "bag"
+                  }
                }
             ]
          },
-         "fields" : "packagings"
+         "tags_lc" : "en"
       },
-      "method" : "PATCH"
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890009"
    }
 }

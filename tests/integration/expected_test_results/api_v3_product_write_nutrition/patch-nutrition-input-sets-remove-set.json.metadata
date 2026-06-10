@@ -1,26 +1,26 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
-      "parameters" : {},
-      "method" : "PATCH",
       "body" : {
+         "fields" : "updated",
          "product" : {
             "nutrition" : {
                "input_sets" : [
                   {
-                     "source" : "packaging",
-                     "preparation" : "prepared",
-                     "source_description" : "",
+                     "nutrients" : null,
                      "per" : "200ml",
-                     "per_unit" : "ml",
                      "per_quantity" : 200,
-                     "nutrients" : null
+                     "per_unit" : "ml",
+                     "preparation" : "prepared",
+                     "source" : "packaging",
+                     "source_description" : ""
                   }
                ]
             }
-         },
-         "fields" : "updated"
+         }
       },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
       "path" : "/api/v3.5/product/4230000001000"
    }
 }

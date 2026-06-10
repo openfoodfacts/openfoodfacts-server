@@ -65,6 +65,7 @@ use ProductOpener::Store qw/retrieve_object store_object/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Users qw/$User_id %User/;
 use ProductOpener::Images qw/process_image_crop/;
 use ProductOpener::Lang qw/$lc/;
@@ -93,6 +94,7 @@ use Encode;
 use JSON::MaybeXS;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
 use Data::Compare;
+use Time::Local;
 
 use Log::Any::Adapter 'TAP';
 
@@ -159,6 +161,11 @@ my $fix_obsolete;
 my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 my $add_product_type = '';    # Add product type to products that don't have it, based on off/opf/obf/opff flavor
 my $force_new_version = 0;
+my $fix_to_be_exported = 0
+	; # Reset the en:to-be-exported status for product that have en:exported with the last_exported_t data within a specific time frame
+
+my %fix_to_be_exported_orgs = ()
+	; # Used to record which orgs had products with en:exported status that were updated with the --fix-to-be-exported option.
 
 my $query_params_ref = {};    # filters for mongodb query
 
@@ -226,6 +233,7 @@ GetOptions(
 	"fix-obsolete" => \$fix_obsolete,
 	"fix-last-modified-t" => \$fix_last_modified_t,
 	"add-product-type" => \$add_product_type,
+	"fix-to-be-exported" => \$fix_to_be_exported,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -308,6 +316,7 @@ if (    (not $process_ingredients)
 	and (not $fix_obsolete)
 	and (not $fix_last_modified_t)
 	and (not $add_product_type)
+	and (not $fix_to_be_exported)
 	and (not $analyze_and_enrich_product_data))
 {
 	die("Missing fields to update or --count option:\n$usage");
@@ -329,6 +338,17 @@ load_data();
 my $query_ref = {};
 
 add_params_to_query($query_params_ref, $query_ref);
+
+# --fix-to-be-exported: filter on states_tags en:exported
+# and last_exported_t between April 1st 2026 and June 2nd 2026
+# as we had an issue with exports to the public platform silently failing and products marked as exported  without actually being exported
+# we want to reset the en:to-be-exported status for those products so that they can be exported correctly.
+if ($fix_to_be_exported) {
+	$query_ref->{'states_tags'} = 'en:exported';
+	my $start_t = timegm(0, 0, 0, 1, 4 - 1, 2026 - 1900);    # April 1st 2026
+	my $end_t = timegm(0, 0, 0, 2, 6 - 1, 2026 - 1900);    # June 2nd 2026
+	$query_ref->{'last_exported_t'} = {'$gte' => $start_t, '$lte' => $end_t};
+}
 
 # Query products on the pro platform where _id is missing the owner prefix
 # (e.g. _id = "5060323905388" instead of "org-xxx/5060323905388")
@@ -1347,6 +1367,22 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+		# Fix products to_be_exported status if last_exported_t is within a specific time frame, as we had an issue with exports to the public platform silently failing and products marked as exported  without actually being exported
+		# The en:exported states_tag and the last_exported_t have been added to the query,
+		# so we can apply the fix to all selected products in this loop
+		if ($fix_to_be_exported) {
+			# Remove en:exported from states_tags and add en:to-be-exported
+
+			print STDERR "fixing to_be_exported status for product $code\n";
+			remove_tag($product_ref, "states", "en:exported");
+			add_tag($product_ref, "states", "en:to-be-exported");
+			$product_values_changed = 1;
+			# Record the org from the owner field
+			defined $fix_to_be_exported_orgs{$product_ref->{owner}}
+				or $fix_to_be_exported_orgs{$product_ref->{owner}} = 0;
+			$fix_to_be_exported_orgs{$product_ref->{owner}}++;
+		}
+
 		if ($process_packagings) {
 			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
@@ -1653,5 +1689,13 @@ print STDERR "products_changed: $products_changed\n";
 print STDERR "products_new_version_created: $products_new_version_created\n";
 print STDERR "products_silently_updated: $products_silently_updated\n";
 print STDERR "products_pushed_to_redis: $products_pushed_to_redis\n";
+
+# List orgs with products that had their to-be-exported status fixed
+if ($fix_to_be_exported) {
+	print "\nOrgs with products that had their to-be-exported status fixed:\n";
+	foreach my $org (sort keys %fix_to_be_exported_orgs) {
+		print "$org\t" . $fix_to_be_exported_orgs{$org} . "\n";
+	}
+}
 
 exit(0);
