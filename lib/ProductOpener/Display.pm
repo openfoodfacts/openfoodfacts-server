@@ -1361,13 +1361,14 @@ sub display_text_content ($request_ref, $textid, $text_lc, $file) {
 			}
 			$html =~ s/<\/h1>/ - $owner_user_or_org<\/h1>/;
 		}
+	}
 
-		if (get_oidc_implementation_level() >= 3) {
-			# Use the Keycloak login link once we have migrated the Login user interface
-			#11867: Should be full URL
-			my $escaped_canon_url = uri_escape($request_ref->{formatted_subdomain});
-			$html =~ s/<escaped_subdomain>/$escaped_canon_url/g;
-		}
+	if (get_oidc_implementation_level() >= 3) {
+		# Use the Keycloak login link once we have migrated the Login user interface
+		#11867: Should be full URL
+		my $login_link = 'href="/cgi/oidc_signin.pl?return_url='
+			. uri_escape($request_ref->{formatted_subdomain} . '/' . $request_ref->{original_query_string}) . '"';
+		$html =~ s/href="\/cgi\/user.pl"/$login_link/g;
 	}
 
 	$log->debug("displaying text from file",
