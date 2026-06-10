@@ -35,7 +35,12 @@
             <label>
                 <input type="radio" name="estimator" value="recipe_estimator_scipy" [% IF estimator == "recipe_estimator_scipy" %]checked="checked"[% END %] style="margin:0">
                 Recipe Estimator - [% lang("test_ingredients_recipe_estimator_scipy_description") %]
-            </label><br>
+            </label>
+            <label>
+                <input type="radio" name="estimator" value="recipe_estimator_cvxpy" [% IF estimator == "recipe_estimator_cvxpy" %]checked="checked"[% END %] style="margin:0">
+                Recipe Estimator - [% lang("test_ingredients_recipe_estimator_cvxpy_description") %]
+            </label>            
+            <br>
 
         </div>
 
