@@ -26646,14 +26646,7 @@ tt: борай
 uk: спельта
 wa: speate
 zh: 斯佩耳特小麦
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épeautre
-# 278 products in 6 languages @2018-09-22
 allergens:en: en:gluten
-ciqual_food_code:en: 9001
-ciqual_food_name:en: Spelt, raw
-ciqual_food_name:fr: Épeautre, cru
-description:en: SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
-wikidata:en: Q158767
 # als:Schwobakorn
 # ast:espelta
 # dag:sipɛlit
@@ -26663,7 +26656,21 @@ wikidata:en: Q158767
 # nds:Dinkelweite
 # sco:spelt
 # yue:古麥
+ciqual_food_proxy_code:en: 9001
+ciqual_food_proxy_name:en: Spelt, raw
+ciqual_food_proxy_name:fr: Épeautre, cru
+description:en: SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
+usda_ndb_proxy_code:en: 20140
+usda_ndb_proxy_name:en: Spelt, uncooked
+wikidata:en: Q158767
 wikipedia:en: https://en.wikipedia.org/wiki/Spelt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:épeautre
+# 278 products in 6 languages @2018-09-22
+
+< en:spelt
+en: raw spelt, uncooked spelt
+usda_ndb_code:en: 20140
+usda_ndb_name:en: Spelt, uncooked
 
 < en:spelt
 en: whole spelt
