@@ -28038,6 +28038,7 @@ nl: geel maïsmeel
 sv: gult majsmjöl
 # ingredient/fr:farine-de-mais-jaune has 38 products @2019-06-02
 
+
 < en:corn flour
 en: white corn flour
 da: hvidt majsmel
@@ -28051,7 +28052,6 @@ it: farina di mais bianco, farina di mais bianco masa
 nb: hvitt maismel
 nl: wit maïsmeel, witte masa maïsmeel
 sv: vitt majsmjöl
-
 usda_ndb_code:en: 20316
 usda_ndb_name:en: Corn flour, whole-grain, white
 
@@ -28072,12 +28072,21 @@ fr: farine de mais compléte
 hr: kukuruzno brašno od cjelovitog zrna
 it: farina di mais integrale
 sv: fullkornsmajsmjöl
+usda_ndb_proxy_code:en: 20016
+usda_ndb_proxy_name:en: Corn flour, whole-grain, yellow
 # ingredient/en:whole-grain-corn-flour has 176 products in 2 languages @2020-06-11
 
 < en: whole grain corn flour
+< en:wholemeal flour
 en: white whole grain corn flour, white whole-grain corn flour
 usda_ndb_code:en: 20316
 usda_ndb_name:en: Corn flour, whole-grain, white
+
+< en: yellow corn flour
+< en:wholemeal flour
+en: yellow whole-grain corn flour
+usda_ndb_code:en: 20016
+usda_ndb_name:en: Corn flour, whole-grain, yellow
 
 #category/rice-flours
 < en:flour
