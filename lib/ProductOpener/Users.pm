@@ -483,9 +483,6 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
-	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
-	$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
-
 	# Check for spam
 	my $is_spam = undef;
 	# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
@@ -504,6 +501,11 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		close($log);
 		# bail out, return 200 status code
 		display_error_and_exit($request_ref, "", 200);
+	}
+
+	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
+	if (defined single_param('name')) {
+		$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
 	}
 
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
@@ -532,10 +534,13 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	}
 
 	# Country and preferred language
-	# Still allow these to be sent for legacy API support
-	$user_ref->{preferred_language} = remove_tags_and_quote(single_param('preferred_language')) || $request_ref->{lc};
-	$user_ref->{country} = remove_tags_and_quote(single_param('country')) || $request_ref->{country};
-
+	# Still allow these to be sent for legacy API support, but don't update if supplied by the preferences form
+	# Which we deduce by the absence of a name field
+	if (defined single_param('name')) {
+		$user_ref->{preferred_language}
+			= remove_tags_and_quote(single_param('preferred_language')) || $request_ref->{lc};
+		$user_ref->{country} = remove_tags_and_quote(single_param('country')) || $request_ref->{country};
+	}
 	# Is there a checkbox to make a professional account
 	if (defined single_param("pro_checkbox")) {
 
