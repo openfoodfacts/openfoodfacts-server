@@ -483,12 +483,18 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
-	# Check for spam
 	my $is_spam = undef;
-	# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
-	if (is_suspicious_name($user_ref->{name})) {
-		$is_spam = 1;
+	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
+	if (defined single_param('name')) {
+		$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
+
+		# Check for spam
+		# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
+		if (is_suspicious_name($user_ref->{name})) {
+			$is_spam = 1;
+		}
 	}
+
 	# check for spam, that may have filled the honeypot faxnumber field
 	my $faxnumber = single_param('faxnumber');
 	if ((defined $faxnumber) and ($faxnumber ne "")) {
@@ -501,11 +507,6 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 		close($log);
 		# bail out, return 200 status code
 		display_error_and_exit($request_ref, "", 200);
-	}
-
-	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
-	if (defined single_param('name')) {
-		$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
 	}
 
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
