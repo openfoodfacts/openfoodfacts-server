@@ -15121,7 +15121,7 @@ sv: fullhärdade vegetabiliska oljor
 # ingredient/en:fully-hydrogenated-vegetable-oils has 130 products in 2 languages @2020-06-08
 
 < en:vegetable oil and fat
-en: Argan oil
+en: rrgan oil
 ar: زيت أركان
 az: Arqan yağı
 ca: Oli d’argània
@@ -15155,6 +15155,23 @@ vi: Dầu Argan
 description:en: argan oil is found in argan tree
 wikipedia:en: Q45418
 
+< en:vegetable oil
+en: avocado oil
+bg: авокадово масло, авокадово олио
+da: avocadoolie
+de: Avocadoöl
+es: Aceite de aguacate
+fi: avokadoöljy
+fr: huile d'avocat
+hr: ulje avokada
+hu: avokádóolaj
+it: olio di avocado
+nb: avokadoolje
+nl: avocado-olie, avocado olie
+pl: olej z awokado
+sv: avokadoolja
+from_palm_oil:en: no
+wikidata:en: Q2918735
 
 # description:en:PALM OIL is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
@@ -16497,6 +16514,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Walnut_oil
 
 < en:walnut oil
 fr: huile vierge de noix
+# ingredient/fr:huile-vierge-de-noix has 21 products in french @2019-04-24
 
 < en:vegetable oil
 en: mustard oil
@@ -16506,12 +16524,8 @@ hr: ulje senfa
 it: olio di senape
 ru: масло-горчицы, масло горчицы, эфирное масло горчицы, горчичное масло, масло горчичное
 
-# ingredient/fr:huile-vierge-de-noix has 21 products in french @2019-04-24
-
-# description:en:COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
-
 < en:vegetable oil
-en: Cottonseed oil, cotton seed oil
+en: cottonseed oil, cotton seed oil
 ar: زيت بذرة القطن
 az: Pambıq yağı
 be: Баваўняны алей
@@ -16540,11 +16554,12 @@ zh: 棉籽油
 ciqual_food_code:en: 17170
 ciqual_food_name:en: Cottonseed oil
 ciqual_food_name:fr: Huile de coton
+description:en:COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
 from_palm_oil:en: no
 wikidata:en: Q811663
 wikipedia:en: https://en.wikipedia.org/wiki/Cottonseed_oil
 
-< en:Cottonseed oil
+< en:cottonseed oil
 en: hydrogenated cottonseed oil
 de: hydriertes Baumwollsamenöl
 es: aceite hidrogenado de algodón
@@ -16558,24 +16573,6 @@ de: Baumwollsaatfett, Baumwollfett
 fr: matières grasses de coton, matières grasses végétales de coton
 hr: mast sjemenki pamuka
 it: grasso di semi di cotone
-
-< en:vegetable oil
-en: avocado oil
-bg: авокадово масло, авокадово олио
-da: avocadoolie
-de: Avocadoöl
-es: Aceite de aguacate
-fi: avokadoöljy
-fr: huile d'avocat
-hr: ulje avokada
-hu: avokádóolaj
-it: olio di avocado
-nb: avokadoolje
-nl: avocado-olie, avocado olie
-pl: olej z awokado
-sv: avokadoolja
-from_palm_oil:en: no
-wikidata:en: Q2918735
 
 < en:vegetable oil
 en: corn oil, maize oil
