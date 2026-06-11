@@ -15800,6 +15800,12 @@ en: fractionated palm shortening
 usda_ndb_code:en: 4570
 usda_ndb_name:en: Shortening, confectionery, fractionated palm
 
+< en:palm
+< en: shortening
+en: fractionated confectionery shortening
+usda_ndb_code:en: 4570
+usda_ndb_name:en: Shortening, confectionery, fractionated palm
+
 < en:palm oil
 en: palm olein, palmolein, palmolein oil
 bg: палмов олеин
@@ -17786,12 +17792,11 @@ usda_ndb_code:en: 4554
 usda_ndb_name:en: Shortening industrial, soybean (hydrogenated) and cottonseed
 
 < en:shortening
-en: hydrogenated soybean and palm shortening  
+en: household hydrogenated soybean and palm shortening  
 usda_ndb_code:en: 4559
 usda_ndb_name:en: Shortening household soybean (hydrogenated) and palm
 
-# description:en:Shorea robusta, the SAL tree, is a species of tree in the family Dipterocarpaceae.
-# WARNING: do not put "sal" as a synonym in languages where it also means salt
+
 
 ################# mixed animal and vegetable fats/oils
 
