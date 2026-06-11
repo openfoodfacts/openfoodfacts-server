@@ -76016,6 +76016,17 @@ carbon_footprint_fr_foodges_value:fr: 10.7
 fr: poissons entiers pêchés en Méditerranée
 
 < en:fish
+en: bluefish
+la: Pomatomus saltatrix
+usda_ndb_proxy_code:en: 15005
+usda_ndb_proxy_name:en: Fish, bluefish, raw
+
+< en:bluefish
+en: raw bluefish
+usda_ndb_code:en: 15005
+usda_ndb_name:en: Fish, bluefish, raw
+
+< en:fish
 < en:white fish
 en: alaska pollock, Alaskan pollock, Theragra chalcogramma
 xx: Gadus chalcogrammus
@@ -76449,7 +76460,6 @@ ud: Нальым
 uk: минь річковий
 vi: Cá tuyết sông
 zh: 江鱈
-description:en: The burbot (Lota lota) is the only gadiform (cod-like) freshwater fish.
 # ang:ǣlepūte
 # be-tarask:Мянтуз
 # csb:Mińtus
@@ -76477,8 +76487,16 @@ description:en: The burbot (Lota lota) is the only gadiform (cod-like) freshwate
 # zh-hk:江鱈
 # zh-sg:江鳕
 # zh-tw:江鱈
+description:en: The burbot (Lota lota) is the only gadiform (cod-like) freshwater fish.
+usda_ndb_proxy_code:en: 15006
+usda_ndb_proxy_name:en: Fish, burbot, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Burbot
 # ingredient/fr:lotte has 10 products in french @2018-12-31
+
+< en:burbot
+en: raw burbot
+usda_ndb_code:en: 15006
+usda_ndb_name:en: Fish, burbot, raw
 
 < en:fish
 en: bogue
@@ -82794,12 +82812,6 @@ vi: Tôm
 wa: Gurnåte
 za: Gungq
 zh: 虾
-# ingredient/fr:crevette has 840 products in 7 languages @2019-01-06
-ciqual_food_code:en: 10021
-ciqual_food_name:en: Shrimp or prawn, raw
-ciqual_food_name:fr: Crevette, crue
-comment:en: The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
-ecobalyse:en: fresh-shrimps
 # ace:Udeuëng
 # chr:ᎽᏈ
 # chy:Hetótóhne
@@ -82812,8 +82824,16 @@ ecobalyse:en: fresh-shrimps
 # pt-br:Camarão
 # scn:Gàmmaru
 # yue:蝦
+ciqual_food_code:en: 10021
+ciqual_food_name:en: Shrimp or prawn, raw
+ciqual_food_name:fr: Crevette, crue
+comment:en: The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
+ecobalyse:en: fresh-shrimps
+usda_ndb_proxy_code:en: 15270
+usda_ndb_proxy_name:en: Crustaceans, shrimp, raw
 wikidata:en: Q1517781
 wikipedia:en: https://en.wikipedia.org/wiki/Shrimp
+# ingredient/fr:crevette has 840 products in 7 languages @2019-01-06
 
 < en:shrimp
 en: cooked shrimp, cooked prawn
@@ -82824,6 +82844,11 @@ ciqual_food_name:en: Shrimp or prawn, cooked
 ciqual_food_name:fr: Crevette, cuite
 
 < en:shrimp
+en: raw shrimp
+usda_ndb_code:en: 15270
+usda_ndb_name:en: Crustaceans, shrimp, raw
+
+< en:raw shrimp
 en: raw peeled shrimp
 ca: gamba pelada crua
 es: gamba pelada cruda
