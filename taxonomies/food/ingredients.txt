@@ -4105,8 +4105,14 @@ it: Yogurt magro
 nl: magere yoghurt
 usda_ndb_code:en: 1117
 usda_ndb_name:en: Yogurt, plain, low fat
+comment:en: should this be split in multiple ones?
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:rasvaton-jogurtti
 # 2 entries @ 2019-11-02
+
+< en:yogurt
+en: skim milk plain yogurt
+usda_ndb_code:en: 1118
+usda_ndb_name:en: Yogurt, plain, skim milk
 
 < en:yogurt
 en: whole milk yogurt
