@@ -437,7 +437,7 @@ sub store_object ($path, $ref) {
 	}
 	else {
 		# Remove the STO file if it exists
-		if (-e ($sto_path)) {
+		if (-e ($sto_path) || -l ($sto_path)) {
 			unlink($sto_path);
 		}
 	}

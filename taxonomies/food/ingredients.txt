@@ -1373,17 +1373,18 @@ es: bifidobacterias y otros fermentos lácticos
 fr: ferments lactiques dont bifidobacterium
 
 < en:ferment
-en: kefir ferments, kefir cultures, live kefir cultures, active kefir cultures, kefir grains microflora
+en: kefir ferment, kefir ferments, kefir cultures, live kefir cultures, active kefir cultures, kefir grains microflora
 es: fermentos de kéfir, cultivos microbianos de kéfir, levaduras de kéfir, fermentos propios del kéfir
 fr: ferments du kéfir, culture de kéfir, cultures de kéfir
 hr: kefirna kultura
 hu: kefirkultúra
 it: coltura di kefir, fermenti di kefir, fermenti vivi di kefir
 pl: kultury kefirowe, żywe kultury bakterii kefirowych, żywe kultury bakterii i drożdży kefirowych
+comment:en: maybe this needs children categories for bacteria and yeast/fungus ferments/cultures
 
-< en:kefir ferments
+< en:kefir ferment
 < en:lactic ferments
-en: kefir lactic ferments
+en: kefir lactic ferment, kefir lactic ferments
 es: fermentos lácticos de kéfir, fermentos lácticos de gránulos de kéfir
 fr: ferments lactiques du kéfir
 hr: kefir mliječni fermenti
@@ -6117,6 +6118,8 @@ en: paneer
 xx: paneer
 hi: पनीर
 description:en: fresh cheese common in the Indian subcontinent also called Indian cottage cheese
+ifct_food_code:en: L003
+ifct_food_name:en: Paneer
 wikidata:en: Q1139546
 wikipedia:en: https://en.wikipedia.org/wiki/Paneer
 
@@ -10045,6 +10048,8 @@ pt: Língua de vaca
 ciqual_food_code:en: 40202
 ciqual_food_name:en: Tongue, beef, raw
 ciqual_food_name:fr: Langue, boeuf, crue
+ifct_food_code:en: O029
+ifct_food_name:en: Beef, tongue
 
 < en:beef tongue
 en: cooked beef tongue
@@ -10132,6 +10137,8 @@ ciqual_food_name:fr: Coeur, boeuf, cuit
 ecobalyse:en: ce073919-1aff-4892-a1f5-b25ee94bccd8
 ecobalyse_labels_en_organic:en: 4e3009f3-1b33-41d7-b6f3-dc7230331da0
 ecobalyse_origins_en_france:en: 41d65ed4-230f-4a47-a67c-9a8015f50420
+ifct_food_code:en: O031
+ifct_food_name:en: Beef, heart
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q63327617
@@ -10177,6 +10184,8 @@ hr: goveda jetra
 it: fegato di manzo
 pl: wątroba wołowa, wątroby wołowe, wątroby wołowej
 sv: nötlever
+ifct_food_code:en: O032
+ifct_food_name:en: Beef, liver
 # ingredient/fr:foie-de-boeuf has 13 products in french @2019-05-24
 
 < en:beef liver
@@ -10201,6 +10210,8 @@ it: fegato di vitello cotto
 ciqual_food_code:en: 40107
 ciqual_food_name:en: Liver, calf, cooked
 ciqual_food_name:fr: Foie, veau, cuit
+ifct_food_code:en: O042
+ifct_food_name:en: Calf, liver
 
 < en:animal
 en: cow
@@ -10240,6 +10251,8 @@ es: callos de vacuno
 hr: goveđi tripice
 it: trippa di manzo
 pl: flaki wołowe, żołądki wołowe
+ifct_food_code:en: O033
+ifct_food_name:en: Beef, tripe
 
 < en:beef meat
 en: beef lung
@@ -11823,6 +11836,8 @@ ciqual_food_code:en: 28001
 ciqual_food_name:en: Pork, shoulder, raw
 ciqual_food_name:fr: Porc, épaule, crue
 description:de: Als Schweinebug (auch Schweineschulter) wird das Vorderbein vom Schwein bezeichnet. Es befindet sich direkt neben dem Schweinenacken.
+ifct_food_code:en: O048
+ifct_food_name:en: Pork, shoulder
 wikidata:en: Q2255700
 wikipedia:de: https://de.wikipedia.org/wiki/Schweinebug
 
@@ -12098,6 +12113,8 @@ pl: serca wieprzowe, serce wieprzowe
 ciqual_food_code:en: 40060
 ciqual_food_name:en: Heart, pork, raw
 ciqual_food_name:fr: Coeur, porc, cru
+ifct_food_code:en: O052
+ifct_food_name:en: Pork, heart
 vegan:en: no
 vegetarian:en: no
 #141 @2021-09-20
@@ -12285,6 +12302,8 @@ sv: sida av gris
 ciqual_food_code:en: 28100
 ciqual_food_name:en: Pork, chop, raw
 ciqual_food_name:fr: Porc, côte, crue
+ifct_food_code:en: O049
+ifct_food_name:en: Pork, chops
 
 < en:Pork chops
 en: Grilled pork chop
@@ -12432,6 +12451,8 @@ pt: presunto
 ru: Ветчина
 sv: skinka, skinka av gris, svinskinka
 zh: 火腿
+ifct_food_code:en: O050
+ifct_food_name:en: Pork, ham
 
 # type of dried ham from portugal
 #  < en:ham
@@ -12758,6 +12779,8 @@ ciqual_food_code:en: 40119
 ciqual_food_name:en: Liver, pork, raw
 ciqual_food_name:fr: Foie, porc, cru
 #yue:豬膶
+ifct_food_code:en: O053
+ifct_food_name:en: Pork, liver
 wikidata:en: Q18384179
 #1372 @2021-09-20
 
@@ -17530,6 +17553,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Essential_oil
 < en:essential oil
 en: orange essential oil, orange oil
 bg: портокалово масло
+da: appelsinolie
 de: Orangenöl
 es: aceite esencial de naranja, aceite esencial de piel de naranja
 fi: appelsiiniöljy
@@ -17537,8 +17561,11 @@ fr: huile essentielle d'orange, huile d'orange
 hr: eterično ulje naranče
 hu: narancs illóolaj, narancsos illóolaj
 it: olio essenziale di arancio
+nb: appelsinolje
 nl: sinaasappelolie
 pl: olejek pomarańczowy
+sv: apelsinolja
+wikidata:en: Q516584
 
 < en:orange essential oil
 en: blood orange essential oil
@@ -24567,6 +24594,8 @@ description:en: barley (hordeum vulgare), a member of the grass family, is a maj
 # wuu:大麦
 # zh-min-nan:tōa-be̍h
 # yue:大麥
+ifct_food_code:en: A004
+ifct_food_name:en: Barley
 wikidata:en: Q61665121
 wikipedia:en: https://en.wikipedia.org/wiki/Barley
 #23663 @2021-10-20
@@ -25437,6 +25466,8 @@ it: miglio di coda di volpe
 en: finger millet, Ragi
 hr: prst proso
 it: miglio cinese
+ifct_food_code:en: A010
+ifct_food_name:en: Ragi
 
 < en:millet
 en: kodo millet
@@ -26066,12 +26097,6 @@ th: กีนัว
 tr: kinoa
 uk: кіноа
 vi: diêm mạch
-ciqual_food_code:en: 9340
-ciqual_food_name:en: Quinoa, raw
-ciqual_food_name:fr: Quinoa, cru
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
-# 425 products in 6 languages @2018-09-22
-nutriscore_fruits_vegetables_nuts:en: no
 # tl:,sv:,ro:,pt:,oc:,nn:,nb:,it:,gl:,fr:,ca:
 # arn:dawe
 # ast:quinua
@@ -26082,10 +26107,18 @@ nutriscore_fruits_vegetables_nuts:en: no
 # war:chenopodium quinoa
 #wuu:藜麦
 # yue:藜麥
+ciqual_food_code:en: 9340
+ciqual_food_name:en: Quinoa, raw
+ciqual_food_name:fr: Quinoa, cru
+ifct_food_code:en: A009
+ifct_food_name:en: Quinoa
+nutriscore_fruits_vegetables_nuts:en: no
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q139925
 wikipedia:en: https://en.wikipedia.org/wiki/Quinoa
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa
+# 425 products in 6 languages @2018-09-22
 
 < en:quinoa
 < en:seed
@@ -29925,6 +29958,8 @@ it: fiocchi di riso
 ja: ライスフレーク
 pl: płatki ryżowe
 pt: flocos de arroz
+ifct_food_code:en: A011
+ifct_food_name:en: Rice, flakes
 # ingredient/fr:flocons-de-riz has 47 products in 6 languages @2018-12-19
 
 # see ingredients_processing.txt
@@ -30174,6 +30209,7 @@ description:en: Locust bean gum is produced from the endosperm, which accounts f
 
 
 < en:E410
+< en:tree gum
 en: peruvian carob gum
 de: Peruanisches Johannisbrotkernmehl
 es: goma garrofín peruana
@@ -30196,6 +30232,7 @@ sv: guarkärnmjöl, guarkärnamjöl
 
 # This identical the the flour variant
 
+< en:tree gum
 en: guar gum
 bg: гума гуар
 ca: goma guar
@@ -30611,7 +30648,6 @@ vegetarian:en: yes
 wikidata:en: Q9280616
 wikipedia:en: https://en.wikipedia.org/wiki/Muscovado
 
-# nova:en:invert-sugar
 < en:monosaccharide
 en: invert sugar, inverted sugar
 bg: инвертна захар
@@ -30633,6 +30669,7 @@ pt: açúcar invertido
 ro: zahăr invertit, zahar invertit
 sv: invertsocker
 nova:en: 4
+#nova:en: invert-sugar
 wikidata:en: Q412082
 wikipedia:en: https://en.wikipedia.org/wiki/Inverted_sugar_syrup
 
@@ -34450,6 +34487,7 @@ wikidata:en: Q208008
 
 < en:cocoa bean
 en: cocoa nibs, cocoa bean chips
+da: kakaonibs
 de: Kakaonibs, Kakao-Nibs, kakaobohnenchips, Kakaokernbruch
 es: pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fi: Kaakaopapusipsit
@@ -34497,6 +34535,10 @@ sq: rrënjë kakaoje
 sv: kakaofiber
 uk: какао-волокна
 zh: 可可纤维
+
+< en:cocoa
+en: cocoa shell nibs
+sv: kakaoskalsbitar
 
 #<en:compound
 en: cocoa bar
@@ -37443,7 +37485,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Juice
 # 1687 products in 6 languages @2018-10-04
 
 < en:fruit juice
-en: berry-juice
+en: berry juice
 pl: sok z jagód, soku z jagód, sok jagodowy
 
 # don't put under fruit juice, because concentrate fruit juices that are not reconstituted to 100% of their initial volume don't count for the nutriscore
@@ -39046,14 +39088,6 @@ vi: lê
 vo: bün
 wa: poere
 zh: 梨
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
-#carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
-#carbon_footprint_fr_foodges_value:fr:0.5
-carbon_footprint_fr_foodges_ingredient:fr: Poire (Argentine)
-carbon_footprint_fr_foodges_value:fr: 1
-ecobalyse:en: bb00f430-ffda-46a3-ba45-267b0064a43e
-ecobalyse_origins_en_france:en: eab762ca-1edc-4fcc-ba6d-c247bbab0ec8
-wikidata:en: Q13099586
 # ast:pera
 # dsb:Kšuška
 # fur:piruç
@@ -39065,6 +39099,16 @@ wikidata:en: Q13099586
 # rup:pearã
 # sco:peer
 # zh-min-nan:梨
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
+#carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
+#carbon_footprint_fr_foodges_value:fr:0.5
+carbon_footprint_fr_foodges_ingredient:fr: Poire (Argentine)
+carbon_footprint_fr_foodges_value:fr: 1
+ecobalyse:en: bb00f430-ffda-46a3-ba45-267b0064a43e
+ecobalyse_origins_en_france:en: eab762ca-1edc-4fcc-ba6d-c247bbab0ec8
+ifct_food_code:en: E051
+ifct_food_name:en: Pear
+wikidata:en: Q13099586
 wikipedia:en: https://en.wikipedia.org/wiki/Pear
 # 130 products in 5 languages @2018-09-28
 
@@ -39237,11 +39281,13 @@ ciqual_food_name:en: Plum, raw
 ciqual_food_name:fr: Prune, crue
 ecobalyse:en: b83a6d8e-5afa-447b-be7b-5df9573e7d3b
 ecobalyse_labels_en_organic:en: 10af6fa1-e374-4748-b8a8-f735d2813489
-# 35 products in 1 language @2018-09-30
 eurocode_2_group_3:en: 9.20.30
+ifct_food_code:en: E054
+ifct_food_name:en: Plum
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:prune
 wikidata:en: Q12372598
 wikipedia:en: https://en.wikipedia.org/wiki/Plum
+# 35 products in 1 language @2018-09-30
 
 < en:plum
 en: plum sugar
@@ -40688,6 +40734,8 @@ zh: 西柚
 ciqual_proxy_food_code:en: 13040
 ciqual_proxy_food_name:en: Grapefruit, pulp, raw
 ciqual_proxy_food_name:fr: Pomelo (dit Pamplemousse), pulpe, cru
+ifct_food_code:en: E056
+ifct_food_name:en: Pummelo
 wikidata:en: Q21552830
 wikipedia:en: https://en.wikipedia.org/wiki/Grapefruit
 # 1494 @2021-10-25
@@ -41342,6 +41390,8 @@ tr: limon suyu
 zh: 柠檬汁
 ciqual_food_code:en: 2028
 ciqual_food_name:fr: Jus de citron, pur jus
+ifct_food_code:en: E033
+ifct_food_name:en: Lemon, juice
 
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-juice
 # 9259 products in 16 languages @2018-10-01
@@ -42180,6 +42230,8 @@ hr: sok od naranče s voćnom pulpom
 it: succo d'arancia con polpa
 nl: Sinaasappelsap met vruchtvlees
 pl: sok pomarańczowy z miąższem
+ifct_food_code:en: E047
+ifct_food_name:en: Orange, pulp
 # ingredient/fr:jus-d'orange-avec-pulpe has 38 products in 2 languages @2018-09-28
 
 < en:orange juice with pulp
@@ -43212,6 +43264,8 @@ ciqual_food_name:fr: Carambole, pulpe, crue
 #vep:karambol
 #wuu:杨桃
 #yue:楊桃
+ifct_food_code:en: E062
+ifct_food_name:en: Star fruit
 wikidata:en: Q181560
 
 
@@ -43933,6 +43987,8 @@ pl: woda kokosowa
 pt: Água de cocô
 ciqual_food_code:en: 18011
 ciqual_food_name:en: Coconut water
+ifct_food_code:en: K002
+ifct_food_name:en: Coconut water
 wikidata:en: Q633401
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_water
 
@@ -44475,6 +44531,8 @@ tr: incir
 ciqual_food_code:en: 13012
 ciqual_food_name:en: Fig, raw
 ciqual_food_name:fr: Figue, crue
+ifct_food_code:en: E020
+ifct_food_name:en: Figs
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fig
 # ast:figu
 # kab:Tabexsist
@@ -44628,10 +44686,12 @@ zh: 鵝莓
 ciqual_food_code:en: 13020
 ciqual_food_name:en: Gooseberry, raw
 ciqual_food_name:fr: Groseille à maquereau, crue
-#34 in 5 @2021-09-15
 eurocode_2_group_3:en: 9.30.30
+ifct_food_code:en: E021
+ifct_food_name:en: Gooseberry
 wikidata:en: Q17638951
 wikipedia:en: https://en.wikipedia.org/wiki/Gooseberry
+#34 in 5 @2021-09-15
 
 #processing:en: en:juice
 #<en:gooseberry
@@ -45087,15 +45147,6 @@ vi: Vải
 vo: licidafluk
 za: Laehcei
 zh: 荔枝
-# ingredient/fr:litchi has 65 products in 6 languages @2019-03-01
-ciqual_food_code:en: 13023
-ciqual_food_name:en: Lychee, pulp, raw
-ciqual_food_name:fr: Litchi, pulpe, cru
-description:en: LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
-ecobalyse:en: e9764c3c-554f-4f1e-9ba1-8debc869e6ba
-ecobalyse_labels_en_organic:en: 03ecc69a-01a4-4ca2-83ba-77e8310d034a
-eurocode_2_group_2:en: 9.25
-eurocode_2_group_3:en: 9.25.40
 # bcl:Litsiyas
 # be-tarask:Лічы
 # cdo:Liĕk-chiĕ
@@ -45118,8 +45169,19 @@ eurocode_2_group_3:en: 9.25.40
 # zh-hans:荔枝
 # zh-hant:荔枝
 # zh-tw:荔枝
+ciqual_food_code:en: 13023
+ciqual_food_name:en: Lychee, pulp, raw
+ciqual_food_name:fr: Litchi, pulpe, cru
+description:en: LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
+ecobalyse:en: e9764c3c-554f-4f1e-9ba1-8debc869e6ba
+ecobalyse_labels_en_organic:en: 03ecc69a-01a4-4ca2-83ba-77e8310d034a
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.40
+ifct_food_code:en: E035
+ifct_food_name:en: Litchi
 # wikidata:en:Q13182 refers to the plant
 wikipedia:en: https://en.wikipedia.org/wiki/Lychee
+# ingredient/fr:litchi has 65 products in 6 languages @2019-03-01
 
 < en:lychee
 en: Lychee pulp
@@ -45144,6 +45206,8 @@ es: rambután
 fr: Ramboutan, Litchi chevelu
 hr: rambutan
 it: rambutan
+ifct_food_code:en: E059
+ifct_food_name:en: Rambutan
 
 < en:fruit
 en: longan
@@ -45975,9 +46039,6 @@ ur: انناس
 yi: אנאנאס
 za: Bohloz
 zh: 鳳梨
-ecobalyse:en: c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a
-ecobalyse_labels_en_organic:en: 0f52bae1-07d0-446d-ae5b-f246f894ac3b
-wikidata:en: Q10817602
 # bjn:Kanas
 # chy:Šéstotó'emeno
 # ckb:ئەنەناس
@@ -45992,6 +46053,11 @@ wikidata:en: Q10817602
 # zh-my:黄梨
 # zh-sg:黄梨
 # zh-tw:鳳梨
+ecobalyse:en: c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a
+ecobalyse_labels_en_organic:en: 0f52bae1-07d0-446d-ae5b-f246f894ac3b
+ifct_food_code:en: E053
+ifct_food_name:en: Pineapple
+wikidata:en: Q10817602
 wikipedia:en: https://en.wikipedia.org/wiki/Pineapple
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pineapple
 # 2512 products in 11 languages @2018-09-30
@@ -46273,6 +46339,8 @@ de: Rahmapfel
 es: chirimoya
 hr: kremasta jabuka
 it: mela crema, frutto dell'Annona reticulata
+ifct_food_code:en: E016
+ifct_food_name:en: Custard apple
 wikipedia:en: https://en.wikipedia.org/wiki/Custard_apple
 
 < en:fruit
@@ -46448,7 +46516,7 @@ pt: concentrado de polme de framboesa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-framboise-concentrée
 # 51 products in 4 languages @2018-09-27
 
-< en:fruit juice
+< en:berry juice
 < en:raspberry
 en: raspberry juice
 bg: сок от малина, сок от малини
@@ -46747,21 +46815,6 @@ ur: تُوت علیق
 vi: Dâu tây vườn
 za: Godumh
 zh: 草莓
-#carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
-#carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr: Fraise hors saison sous serre (France)
-carbon_footprint_fr_foodges_value:fr: 3.5
-#carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
-#carbon_footprint_fr_foodges_value:fr:0.8
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
-# 2504 products in 15 languages @2018-10-01
-ciqual_food_code:en: 13014
-ciqual_food_name:en: Strawberry, raw
-ciqual_food_name:fr: Fraise, crue
-ecobalyse:en: e5bf7d33-6afe-46d6-ac06-f69c5769b10e
-ecobalyse_origins_en_european_union:en: ce20da3d-0ce4-49e9-8942-6d99ff0221b1
-ecobalyse_origins_en_france:en: 3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b
-eurocode_2_group_3:en: 9.30.15
 # aeb-arab:كعبة فراز
 # ary:لفريز
 # ast:fresón
@@ -46787,8 +46840,25 @@ eurocode_2_group_3:en: 9.30.15
 # vls:Freize
 # xmf:ციმუა
 # yue:士多啤梨
+#carbon_footprint_fr_foodges_ingredient:fr:Fraise saison (France)
+#carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr: Fraise hors saison sous serre (France)
+carbon_footprint_fr_foodges_value:fr: 3.5
+#carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
+#carbon_footprint_fr_foodges_value:fr:0.8
+ciqual_food_code:en: 13014
+ciqual_food_name:en: Strawberry, raw
+ciqual_food_name:fr: Fraise, crue
+ecobalyse:en: e5bf7d33-6afe-46d6-ac06-f69c5769b10e
+ecobalyse_origins_en_european_union:en: ce20da3d-0ce4-49e9-8942-6d99ff0221b1
+ecobalyse_origins_en_france:en: 3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b
+eurocode_2_group_3:en: 9.30.15
+ifct_food_code:en: E063
+ifct_food_name:en: Strawberry
 wikidata:en: Q14458220
 wikipedia:en: https://en.wikipedia.org/wiki/Strawberry
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
+# 2504 products in 15 languages @2018-10-01
 
 < en:strawberry
 en: strawberry pieces
@@ -46814,7 +46884,7 @@ fr: préparation de fraise
 hr: pripravak od jagoda, pripravak od jagode
 it: preparazione di fragole
 
-< en:fruit juice
+< en:berry juice
 < en:strawberry
 en: strawberry juice
 bg: ягодов сок, сок от ягоди
@@ -49251,15 +49321,6 @@ vi: Chi Rau diếp, Xà lách
 wa: Salåde
 za: byaekaengjgwx
 zh: 莴苣属, 萵苣
-ciqual_food_code:en: 20031
-ciqual_food_name:en: Lettuce, raw
-ciqual_food_name:fr: Laitue, crue
-ecobalyse:en: e1495d32-01f6-462c-9157-b8351574d412
-ecobalyse_labels_en_organic:en: 83adcc36-72b1-4bff-b7bb-c6ac6f2a4a0b
-ecobalyse_origins_en_european_union:en: 2b5cc667-b981-4d27-8b1a-c435fab2043e
-ecobalyse_origins_en_france:en: 6348bb16-2d8c-4b82-8dbc-8b7dc587c09b
-# 2021 in 5 languages @2021-08-10
-eurocode_2_group_3:en: 8.10.12
 # aeb-arab:خسّ
 # ang:Leahtric
 # atj:Katiapi
@@ -49283,9 +49344,20 @@ eurocode_2_group_3:en: 8.10.12
 # wuu:莴苣
 # yue:生菜
 # zh-tw:萵苣
+ciqual_food_code:en: 20031
+ciqual_food_name:en: Lettuce, raw
+ciqual_food_name:fr: Laitue, crue
+ecobalyse:en: e1495d32-01f6-462c-9157-b8351574d412
+ecobalyse_labels_en_organic:en: 83adcc36-72b1-4bff-b7bb-c6ac6f2a4a0b
+ecobalyse_origins_en_european_union:en: 2b5cc667-b981-4d27-8b1a-c435fab2043e
+ecobalyse_origins_en_france:en: 6348bb16-2d8c-4b82-8dbc-8b7dc587c09b
+eurocode_2_group_3:en: 8.10.12
+ifct_food_code:en: C025
+ifct_food_name:en: Lettuce
 #plant:wikidata:en:Q83193
 wikidata:en: Q104666136
 wikipedia:en: https://en.wikipedia.org/wiki/Lettuce
+# 2021 in 5 languages @2021-08-10
 
 #category/romaine-lettuce
 < en:lettuce
@@ -49611,15 +49683,6 @@ vi: Rau chân vịt
 wa: Spinasse
 za: byaekbohcaiq
 zh: 菠菜
-carbon_footprint_fr_foodges_ingredient:fr: Epinard
-carbon_footprint_fr_foodges_value:fr: 0.5
-# fr:épinard 1204 in 9 languages products @2018-10-14
-ciqual_food_code:en: 20059
-ciqual_food_name:en: Spinach, raw
-ciqual_food_name:fr: Épinard, cru
-ecobalyse:en: f46de7f5-4bf0-45f4-b75b-3e00164dd9ca
-ecobalyse_labels_en_organic:en: 49ad2a72-d196-4379-8f23-212b27d44917
-eurocode_2_group_3:en: 8.10.24
 # azb:ایسپاناق
 # bar:Spinat
 # bho:पालकी
@@ -49639,8 +49702,19 @@ eurocode_2_group_3:en: 8.10.24
 # roa-tara:spinace
 # yue:菠菜
 # zh-tw:菠菜
+carbon_footprint_fr_foodges_ingredient:fr: Epinard
+carbon_footprint_fr_foodges_value:fr: 0.5
+ciqual_food_code:en: 20059
+ciqual_food_name:en: Spinach, raw
+ciqual_food_name:fr: Épinard, cru
+ecobalyse:en: f46de7f5-4bf0-45f4-b75b-3e00164dd9ca
+ecobalyse_labels_en_organic:en: 49ad2a72-d196-4379-8f23-212b27d44917
+eurocode_2_group_3:en: 8.10.24
+ifct_food_code:en: C033
+ifct_food_name:en: Spinach
 wikidata:en: Q81464
 wikipedia:en: https://en.wikipedia.org/wiki/Spinach
+# fr:épinard 1204 in 9 languages products @2018-10-14
 
 < en:spinach
 en: baby spinach
@@ -49849,11 +49923,6 @@ tr: tere
 uk: кресс-салат
 ur: ہالوں
 zh: 水芹
-ciqual_food_code:en: 20199
-ciqual_food_name:en: Garden cress, raw
-ciqual_food_name:fr: Cresson alénois, cru
-# 8 in 4 @2021-10-04
-eurocode_2_group_3:en: 8.10.30
 #ace:camcuruih
 #aeb:حبة الرشاد
 #azb:وزه ری
@@ -49865,8 +49934,15 @@ eurocode_2_group_3:en: 8.10.30
 #lez:цiуьлуьк
 #mzn:شاهین
 #wuu:家独行菜
+ciqual_food_code:en: 20199
+ciqual_food_name:en: Garden cress, raw
+ciqual_food_name:fr: Cresson alénois, cru
+eurocode_2_group_3:en: 8.10.30
+ifct_food_code:en: C021
+ifct_food_name:en: Garden cress
 wikidata:en: Q27033
 wikipedia:en: https://en.wikipedia.org/wiki/Garden_cress
+# 8 in 4 @2021-10-04
 
 < en:leaf vegetable
 en: vine leaf, vine leaves
@@ -50252,12 +50328,6 @@ vi: mùi tây
 wa: pierzin
 yi: פעטרישקע
 zh: 香芹
-ciqual_proxy_food_code:en: 11014
-ciqual_proxy_food_name:en: Parsley, fresh
-ciqual_proxy_food_name:fr: Persil, frais
-# en:22363 in 51 @2021-09-16
-eurocode_2_group_2:en: 8.10
-eurocode_2_group_3:en: 8.10.60
 # aeb-arab:معدنوس
 # aeb-latn:ma3dnous
 # azb:جعفری
@@ -50278,9 +50348,17 @@ eurocode_2_group_3:en: 8.10.60
 # vls:perselle
 # xmf:მაკინდოლი
 # yue:番茜
+ciqual_proxy_food_code:en: 11014
+ciqual_proxy_food_name:en: Parsley, fresh
+ciqual_proxy_food_name:fr: Persil, frais
+eurocode_2_group_2:en: 8.10
+eurocode_2_group_3:en: 8.10.60
+ifct_food_code:en: C028
+ifct_food_name:en: Parsley
 wikidata:en: q65522500
 # plant: wikidata:en:q25284
 wikipedia:en: https://en.wikipedia.org/wiki/parsley
+# en:22363 in 51 @2021-09-16
 
 < en:parsley
 en: fresh parsley
@@ -50514,10 +50592,12 @@ ciqual_food_code:en: 20016
 ciqual_food_name:en: Cauliflower, raw
 ecobalyse:en: cauliflower-fr
 ecobalyse_labels_en_organic:en: cauliflower-organic
-# en:cauliflower has 660 products in 5 languages @2018-10-17
 eurocode_2_group_3:en: 8.15.15
+ifct_food_code:en: D036
+ifct_food_name:en: Cauliflower
 wikidata:en: Q23900272
 wikipedia:en: https://en.wikipedia.org/wiki/Cauliflower
+# en:cauliflower has 660 products in 5 languages @2018-10-17
 
 < en:cauliflower
 en: cauliflower florets
@@ -51455,7 +51535,8 @@ pl: seler naciowy, selera naciowego
 ciqual_food_code:en: 20023
 ciqual_food_name:en: Celery stalk, raw
 ciqual_food_name:fr: Céleri branche, cru
-
+ifct_food_code:en: D037
+ifct_food_name:en: Celery stalk
 # 88 in 3 languages @2021-12-01
 
 < en:celery
@@ -54603,6 +54684,8 @@ zh: 木薯根淀粉
 ciqual_food_code:en: 4000
 ciqual_food_name:fr: Tapioca, raw
 description:en: TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
+ifct_food_code:en: F015
+ifct_food_name:en: Tapioca
 wikidata:en: Q873761
 wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
 
@@ -55690,6 +55773,8 @@ ciqual_proxy_food_name:fr: Betterave rouge, crue
 ecobalyse:en: beetroot-fr
 ecobalyse_labels_en_organic:en: beetroot-organic
 eurocode_2_group_3:en: 8.38.55
+ifct_food_code:en: F001
+ifct_food_name:en: Beet root
 wikidata:en: Q99548274
 wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
 
@@ -56332,6 +56417,8 @@ fr: racine de lotus
 hr: lotusov korijen
 it: radice di loto
 ja: レンコン, 蓮根, れんこん
+ifct_food_code:en: F005
+ifct_food_name:en: Lotus root
 
 < en:pod and seed vegetable
 en: okra
@@ -58246,6 +58333,8 @@ zh: 荸荠
 # zh-hans:荸荠
 # zh-hant:荸薺
 # zh-hk:荸薺
+ifct_food_code:en: F016
+ifct_food_name:en: Water Chestnut
 wikidata:en: Q932664
 # fr:châtaigne-d'eau has 87 products in 5 languages @2018-10-15
 
@@ -61184,6 +61273,13 @@ th: อัลมอนด์
 tr: badem
 tt: бәдәм җимеше
 za: Makgai
+# ast:Almendra
+# ext:Cascavel
+# pcd:Aminte
+# scn:Mènnula
+# sco:Awmond
+# wuu:扁桃仁
+# yue:大杏仁, 杏仁
 carbon_footprint_fr_foodges_ingredient:fr: Amandes
 carbon_footprint_fr_foodges_value:fr: 5.9
 ciqual_food_code:en: 15041
@@ -61196,13 +61292,8 @@ description:fr: L'amandier (Prunus dulcis) est une espèce d'arbres de la famill
 description:nl: De amandelboom (Prunus dulcis) komt van de rozenfamilie en is een kleine loofboom met als vrucht de amandel.
 description:pt: Prunus dulcis, popularmente conhecida como amendoeira é uma espécie de árvores de folhas caducas da família Rosaceae. A semente do seu fruto é geralmente considerada como um fruto seco: a amêndoa.
 ecobalyse_labels_en_organic:en: almond-inshell-organic
-# ast:Almendra
-# ext:Cascavel
-# pcd:Aminte
-# scn:Mènnula
-# sco:Awmond
-# wuu:扁桃仁
-# yue:大杏仁, 杏仁
+ifct_food_code:en: H001
+ifct_food_name:en: Almond
 wikidata:en: Q184357
 # ingredient/almond has 25389 products in 38 languages @2021-08-17
 # TODO Split French and English
@@ -61570,6 +61661,8 @@ tr: kaju
 zh: 腰果
 ciqual_proxy_food_code:en: 15055
 ciqual_proxy_food_name:en: Cashew nut, dry-grilled, unsalted
+ifct_food_code:en: H005
+ifct_food_name:en: Cashew nut
 wikidata:en: Q28788216
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
@@ -62686,6 +62779,8 @@ description:fr: La noix est un fruit comestible à coque. Elle est produite par 
 description:it: La noce è il frutto degli alberi del genere Juglans.
 description:nl: Met walnoot of okkernoot wordt meestal gedoeld op de vrucht van de gewone walnoten- of okkernotenboom (Juglans regia).
 ecobalyse:en: walnut-husked-fr
+ifct_food_code:en: H021
+ifct_food_name:en: Walnut
 wikidata:en: Q208021
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut
 
@@ -63220,6 +63315,8 @@ sv: spiskumminfrön
 ciqual_food_code:en: 11042
 ciqual_food_name:en: Cumin, seed
 ciqual_food_name:fr: Cumin, graine
+ifct_food_code:en: G025
+ifct_food_name:en: Cumin seeds
 wikidata:en: Q57328174
 wikipedia:en: https://en.wikipedia.org/wiki/Cumin
 
@@ -63486,6 +63583,8 @@ ciqual_food_name:en: Poppy, seed
 ciqual_food_name:fr: Pavot, graine
 description:en: The seed of the poppy.
 description:nl: De populaire naam van het zaad uit de maanbol van de klaproos.
+ifct_food_code:en: G032
+ifct_food_name:en: Poppy seeds
 nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q2007388
 wikipedia:en: https://en.wikipedia.org/wiki/Poppy_seed
@@ -63567,9 +63666,11 @@ ecobalyse:en: sunflower-non-eu
 ecobalyse_labels_en_organic:en: sunflower-organic
 ecobalyse_origins_en_european_union:en: sunflower-eu
 ecobalyse_origins_en_france:en: sunflower-fr
-# 7103 in 28 @2021-09-07
+ifct_food_code:en: H020
+ifct_food_name:en: Sunflower seeds
 nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q1076906
+# 7103 in 28 @2021-09-07
 
 # <en:sunflower seed
 # en:shelled sunflower seeds
@@ -63627,6 +63728,7 @@ ro: semințe de in
 ru: семена льна
 sv: linfrön, linfrö
 tr: keten
+# nah:Lino xināchtli
 ciqual_food_code:en: 15034
 ciqual_food_name:en: Flaxseed
 ciqual_food_name:fr: Lin, graine
@@ -63636,10 +63738,11 @@ description:es: El lino o linaza (Linum usitatissimum) es una planta herbácea d
 description:fr: Le lin cultivé (Linum usitatissimum) est une espèce de la famille des Linaceae. C'est une plante, largement cultivée pour ses fibres textiles et ses graines oléagineuses.
 description:it: Il lino comune (Linum usitatissimum) è una pianta della famiglia delle Linaceae.
 description:nl: Vlas (Linum usitatissimum) is een plant uit de vlasfamilie (Linaceae). Er zijn rassen met bruine zaden en rassen met gele zaden.
-# ingredient/fr:graine-de-lin has 449 in 7 languages products @2018-10-08
+ifct_food_code:en: H014
+ifct_food_name:en: Linseeds
 nutriscore_fruits_vegetables_nuts:en: no
-# nah:Lino xināchtli
 wikidata:en: Q911332
+# ingredient/fr:graine-de-lin has 449 in 7 languages products @2018-10-08
 
 < en:flax seed
 de: Leinsaat geschrotet, geschrotete Leinsaat, geschrotete Leinsamen, Leinsamen geschrotet
@@ -64779,6 +64882,7 @@ fr: plantes aromatiques déshydratées
 fr: extraits naturels et aromates
 
 < en:spice
+< en:tree gum
 en: asafoetida, hing
 ar: حِلْتِيت‎
 de: Teufelsdreck
@@ -64813,6 +64917,8 @@ th: มหาหิงคุ์
 tl: inggo, asapetida
 tr: şeytantersi, hıthıt
 description:en: A resinous gum from the stem and roots of Ferula species such as Ferula foetida and Ferula assa-foetida, having a strong, unpleasant smell, with culinary and medical uses
+ifct_food_code:en: G019
+ifct_food_name:en: Asafoetida
 
 < en:seed
 < en:spice
@@ -65166,6 +65272,8 @@ ru: Мацис
 sk: Muškátový kvet
 sv: muskotblomma
 uk: Мацис
+ifct_food_code:en: G027
+ifct_food_name:en: Mace
 wikidata:en: Q1882876
 
 ###################################################################################################
@@ -65256,9 +65364,6 @@ uk: куркума
 ur: ہلدی
 vi: nghệ
 zh: 薑黃
-ciqual_proxy_food_code:en: 11089
-ciqual_proxy_food_name:en: Turmeric, powder
-ciqual_proxy_food_name:fr: Curcuma, poudre
 # ace:kunyèt
 # azb:kurkuma
 # bcl:kalawag
@@ -65277,6 +65382,11 @@ ciqual_proxy_food_name:fr: Curcuma, poudre
 # tcy:ಮಂಜೊಲ್
 # yue:黃薑
 # zh-tw:薑黃
+ciqual_proxy_food_code:en: 11089
+ciqual_proxy_food_name:en: Turmeric, powder
+ciqual_proxy_food_name:fr: Curcuma, poudre
+ifct_food_code:en: G033
+ifct_food_name:en: Turmeric powder
 wikidata:en: Q42562
 wikipedia:en: https://en.wikipedia.org/wiki/Turmeric
 # 19427s in 32 @2021-09-18
@@ -65377,9 +65487,6 @@ ur: جائفل
 vi: hạt nhục đậu khấu
 yi: מושקאט נוס
 zh: 肉豆蔻
-ciqual_food_code:en: 11048
-ciqual_food_name:en: Nutmeg
-ciqual_food_name:fr: Noix de muscade
 # ceb:moskada
 # en-ca:nutmeg
 # en-gb:nutmeg
@@ -65387,6 +65494,11 @@ ciqual_food_name:fr: Noix de muscade
 # nrm:muscade
 # zh-cn:肉豆蔻
 # zh-hk:肉豆蔻
+ciqual_food_code:en: 11048
+ciqual_food_name:en: Nutmeg
+ciqual_food_name:fr: Noix de muscade
+ifct_food_code:en: G028
+ifct_food_name:en: Nutmeg
 wikidata:en: Q83165
 wikipedia:en: https://en.wikipedia.org/wiki/Nutmeg
 # 6807 in 22 @202109-23
@@ -65986,9 +66098,6 @@ ur: میتھی
 vi: cỏ ca ri
 yi: באקסהארן
 zh: 胡芦巴
-# fr:fenugrec has 171 products in 5 languages @2018-10-23
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.36
 #ach:haleuba
 #arz:حلبة
 #azb:چمن اوْتو
@@ -66000,8 +66109,13 @@ eurocode_2_group_3:en: 12.20.36
 #mai:मेथी
 #mad:klabhet
 #wuu:胡芦巴
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.36
+ifct_food_code:en: C020
+ifct_food_name:en: Fenugreek leaves
 wikidata:en: Q133205
 wikipedia:en: https://en.wikipedia.org/wiki/Fenugreek
+# fr:fenugrec has 171 products in 5 languages @2018-10-23
 
 < en:fenugreek
 en: fenugreek leaf, fenugreek leaves
@@ -66044,6 +66158,8 @@ pl: nasiona kozieradki, nasiono kozieradki
 ciqual_food_code:en: 11077
 ciqual_food_name:en: Fenugreek, seed
 ciqual_food_name:fr: Fenugrec, graine
+ifct_food_code:en: G026
+ifct_food_name:en: Fenugreek seeds
 wikidata:en: Q57659978
 #223 @2021-09-19
 
@@ -66790,10 +66906,12 @@ sv: korianderblad
 ciqual_food_code:en: 11094
 ciqual_food_name:en: Coriander, fresh
 ciqual_food_name:fr: Coriandre, fraiche
-# 4528 in 9 @2021-09-28
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.38
+ifct_food_code:en: G009
+ifct_food_name:en: Coriander, leaves
 wikidata:en: Q65523167
+# 4528 in 9 @2021-09-28
 
 #processing:en: en:dried
 #<en:coriander leaf
@@ -67304,6 +67422,8 @@ fr: feuilles de menthe
 hr: list metvice
 it: foglio di menta, foglie di menta intere
 pl: liść mięty, liście mięty
+ifct_food_code:en: G016
+ifct_food_name:en: Mint leaves
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/mint-leaves
 # 50 products in 2 languages @2018-10-10
 
@@ -75538,9 +75658,6 @@ tr: hamsi
 uk: Анчоусові
 vi: Họ Cá trổng
 zh: 鳀科
-ciqual_food_code:en: 26079
-ciqual_food_name:en: Common anchovy, raw
-ciqual_food_name:fr: Anchois commun, cru
 # cdo:Dĭng-hiŏng-kó̤
 # kk-arab:انتشوۋس
 # kk-cn:انتشوۋس
@@ -75557,6 +75674,11 @@ ciqual_food_name:fr: Anchois commun, cru
 # zh-hk:鯷科
 # zh-sg:鳀科
 # zh-tw:鯷科
+ciqual_food_code:en: 26079
+ciqual_food_name:en: Common anchovy, raw
+ciqual_food_name:fr: Anchois commun, cru
+ifct_food_code:en: P003
+ifct_food_name:en: Anchovy
 wikidata:en: Q192662
 wikipedia:en: https://en.wikipedia.org/wiki/Anchovy
 # 2820 in 19 @2021-09-12
@@ -77277,6 +77399,11 @@ fr: pangasius, pangas
 hr: pangas
 it: pangasio
 la: Pangasius hypophtalmus
+ciqual_proxy_food_code:en: 27017
+ciqual_proxy_food_name:en: Brown bullhead, raw
+ciqual_proxy_food_name:fr: Pangasius ou Poisson-chat, cru
+ifct_food_code:en: S005
+ifct_food_name:en: Pangas
 
 < en:pangas
 en: Raw brown bullhead
@@ -77490,13 +77617,6 @@ th: ปลาแซลมอน
 tr: Sombalığı
 vi: Cá hồi
 zh: 鮭魚
-# ingredient/salmon has 1659 products in 6 languages @2018-12-29
-carbon_footprint_fr_foodges_ingredient:fr: Pavé de Truite ou Saumon d'élevage
-carbon_footprint_fr_foodges_value:fr: 6.6
-ciqual_food_code:en: 26036
-ciqual_food_name:en: Salmon, raw, farmed
-ciqual_food_name:fr: Saumon, cru, élevage
-description:en: Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
 # atj:Ocacamekw
 # chr:ᏎᎼᏂ
 # chy:Ma'nomá'ne
@@ -77505,9 +77625,18 @@ description:en: Salmon is the common name for several species of ray-finned fish
 # sco:salmon
 # wuu:鲑鱼
 # yue:三文魚
+carbon_footprint_fr_foodges_ingredient:fr: Pavé de Truite ou Saumon d'élevage
+carbon_footprint_fr_foodges_value:fr: 6.6
+ciqual_food_code:en: 26036
+ciqual_food_name:en: Salmon, raw, farmed
+ciqual_food_name:fr: Saumon, cru, élevage
+description:en: Salmon is the common name for several species of ray-finned fish in the family Salmonidae.
+ifct_food_code:en: P068
+ifct_food_name:en: Salmon
 # wikidata:en:Q2796766
 # wikipedia:en:https://en.wikipedia.org/wiki/Salmon
 wikipedia:en: https://en.wikipedia.org/wiki/Salmon_as_food
+# ingredient/salmon has 1659 products in 6 languages @2018-12-29
 #TODO check proxy
 
 < en:salmon
@@ -77935,9 +78064,6 @@ tr: sardalya
 uk: сардина європейська
 vi: cá mòi
 zh: 沙丁魚
-ciqual_food_code:en: 26065
-ciqual_food_name:en: European pilchard or sardine, raw
-ciqual_food_name:fr: Sardine, crue
 # ast:parrocha
 # csb:sardinka
 # de-ch:sardine
@@ -77951,6 +78077,11 @@ ciqual_food_name:fr: Sardine, crue
 # zh-hk:沙甸魚
 # zh-sg:沙丁鱼
 # zh-tw:沙丁魚
+ciqual_food_code:en: 26065
+ciqual_food_name:en: European pilchard or sardine, raw
+ciqual_food_name:fr: Sardine, crue
+ifct_food_code:en: P071
+ifct_food_name:en: Sardine
 #wikidata:en:Q208600
 wikidata:en: Q7423795
 wikipedia:en: https://en.wikipedia.org/wiki/European_pilchard
@@ -78243,6 +78374,8 @@ de: Tilapia
 fr: tilapia
 hr: tilapija
 it: tilapia
+ifct_food_code:en: P083
+ifct_food_name:en: Tilapia
 wikidata:en: Q47793
 wikipedia:en: https://en.wikipedia.org/wiki/Tilapia
 
@@ -78313,7 +78446,12 @@ tr: orkinos
 uk: тунець
 ur: ٹیونا
 zh: 鮪魚, 吞拿魚
-# ingredient/tuna has 1347 products in 10 languages @2019-01-02
+# eml:Tôṅ
+# nan:Chhńg-á
+# pt-br:Atum
+# scn:Tunnu
+# wuu:金枪鱼属
+# xmf:თინუსი
 carbon_footprint_fr_foodges_ingredient:fr: Thon en boîte
 carbon_footprint_fr_foodges_value:fr: 4
 ciqual_proxy_food_code:en: 26053
@@ -78326,15 +78464,12 @@ description:fr: Thunnus est un genre de poissons de la famille des Scombridés1.
 description:it: Thunnus è un genere della famiglia Scombridae che raggruppa otto specie di grandi pesci pelagici predatori, conosciuti comunemente come tonni.
 description:nl: Tonijnen zijn enkele soorten oceaanvissen uit de familie van makrelen (Scombridae).
 description:pt: Os atuns (género Thunnus) são um dos grupos de espécies de peixes mais importantes do ponto de vista pesqueiro.
-# eml:Tôṅ
-# nan:Chhńg-á
-# pt-br:Atum
-# scn:Tunnu
-# wuu:金枪鱼属
-# xmf:თინუსი
+ifct_food_code:en: P084
+ifct_food_name:en: Tuna
 wikidata:en: Q2346039
 wikipedia:en: https://en.wikipedia.org/wiki/Tuna
 # 2838 @2021-09-02
+# ingredient/tuna has 1347 products in 10 languages @2019-01-02
 
 < en:Tuna
 en: Raw tuna
@@ -79869,6 +80004,8 @@ it: triglia
 ciqual_food_code:en: 26091
 ciqual_food_name:en: Mullet, raw
 ciqual_food_name:fr: Mulet, cru
+ifct_food_code:en: P039
+ifct_food_name:en: Mullet
 wikidata:en: Q756996
 wikipedia:fr: https://fr.wikipedia.org/wiki/Mulet_(poisson)
 
@@ -80444,13 +80581,15 @@ pt: Polvo
 ru: осьминоги
 te: అక్టోపస్
 zh: 章鱼属, 章魚丁
-# ingredient/fr:poulpes has 51 products @2019-01-02
+# nds:Kraken an sik
 ciqual_food_code:en: 10018
 ciqual_food_name:en: Octopus, common, raw
 ciqual_food_name:fr: Poulpe, cru
-# nds:Kraken an sik
+ifct_food_code:en: R003
+ifct_food_name:en: Octopus
 wikidata:en: Q611843
 wikipedia:en: https://en.wikipedia.org/wiki/Octopus
+# ingredient/fr:poulpes has 51 products @2019-01-02
 
 < en:octopus
 en: Common cooked octopus
@@ -80613,10 +80752,6 @@ tt: үстричә
 uk: Устриця
 vi: Hàu
 zh: 牡蠣
-# ingredient/fr:huitre has 11 products @2018-01-14
-ciqual_food_code:en: 10011
-ciqual_food_name:en: Oyster, raw
-ciqual_food_name:fr: Huître, sans précision, crue
 # ang:Ostre
 # be-tarask:Вустрыцы
 # cdo:Diê
@@ -80637,7 +80772,13 @@ ciqual_food_name:fr: Huître, sans précision, crue
 # zh-hk:牡蠣
 # zh-sg:牡蛎
 # zh-tw:牡蠣
+ciqual_food_code:en: 10011
+ciqual_food_name:en: Oyster, raw
+ciqual_food_name:fr: Huître, sans précision, crue
+ifct_food_code:en: Q006
+ifct_food_name:en: Oyster
 wikipedia:en: https://en.wikipedia.org/wiki/Oyster
+# ingredient/fr:huitre has 11 products @2018-01-14
 
 < en:oyster
 fr: extrait d'huître
@@ -81570,13 +81711,15 @@ zh: 甲壳亚门
 # vls:Kriftachtign
 # yue:甲殼動物
 allergens:en: en:crustaceans
-# ingredient/fr:crustacé has 2263 products @2019-01-06
 carbon_footprint_fr_foodges_ingredient:fr: Moules/autres crustacés
 carbon_footprint_fr_foodges_value:fr: 10.7
+ifct_food_code:en: Q001
+ifct_food_name:en: Crab
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q25364
 wikipedia:en: https://en.wikipedia.org/wiki/Crustacean
+# ingredient/fr:crustacé has 2263 products @2019-01-06
 
 < en:crustacean
 fr: extrait de crustacé
@@ -83698,7 +83841,15 @@ wikidata:en: Q5618000
 wikipedia:en: https://en.wikipedia.org/wiki/Gum_base
 # ingredient/fr:gomme-base has 435 products in 4 languages @2019-05-18
 
-
+< en:plant
+en: tree gum, plant gum, vegetable gum
+da: plantegummi
+nb: plantegummi
+sv: vegetabilisk gummi
+description:en: sap or other resinous material associated with certain species of the plant kingdom (Wikidata)
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q3633062
 
 # description:en:MENTHOL is an organic compound made synthetically or obtained from the oils of corn mint, peppermint, or other mints. Commonly used in oral hygiene products and bad-breath remedies, such as mouthwash, toothpaste, mouth and tongue sprays, and more generally as a food flavor agent; such as in chewing gum and candy.
 
