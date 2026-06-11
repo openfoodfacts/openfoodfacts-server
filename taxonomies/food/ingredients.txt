@@ -16948,8 +16948,15 @@ ciqual_food_name:en: Sesame oil
 ciqual_food_name:fr: Huile de sésame
 description:en: SESAME OIL is an edible vegetable oil derived from sesame seeds.
 from_palm_oil:en: no
+usda_ndb_proxy_code:en: 4058
+usda_ndb_proxy_name:en: Oil, sesame, salad or cooking
 wikidata:en: Q212317
 wikipedia:en: https://en.wikipedia.org/wiki/Sesame_oil
+
+< en:sesame oil
+en: salad or cooking sesame oil
+usda_ndb_code:en: 4058
+usda_ndb_name:en: Oil, sesame, salad or cooking
 
 < en:sesame oil
 en: toasted sesame oil, roasted sesame oil
@@ -17160,7 +17167,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rice_bran_oil
 
 
 < en:vegetable fat
-en: shea butter, shea, shea fat
+en: shea butter, shea, shea fat, sheanut oil
 ak: Nkuto
 ar: زبدة الشيا
 bg: Масло от ший, ший
@@ -17194,12 +17201,14 @@ ciqual_food_code:en: 16110
 ciqual_food_name:en: Shea butter
 ciqual_food_name:fr: Huile ou beurre de karité
 description:en: SHEA BUTTER is a fat extracted from the nut of the African shea tree (Vitellaria paradoxa). Shea butter is edible and is used in food preparation in some African countries. Occasionally, shea butter is mixed with other oils as a substitute for cocoa butter, although the taste is noticeably different.
-# ingredient/fr:beurre-de-karité has 93 products in 6 languages @2019-04-16
 from_palm_oil:en: no
+usda_ndb_proxy_code:en: 4536
+usda_ndb_proxy_name:en: Oil, sheanut
 wikidata:en: Q495857
 wikipedia:en: https://en.wikipedia.org/wiki/Shea_butter
+# ingredient/fr:beurre-de-karité has 93 products in 6 languages @2019-04-16
 
-< en:shea
+# < en:shea why is this here?
 < en:vegetable oil
 en: shea oil
 da: sheaolie
@@ -17209,6 +17218,8 @@ it: olio di karité
 pl: olej shea, olej roślinny shea
 ro: ulei de shea
 sv: sheaolja
+usda_ndb_code:en: 4536
+usda_ndb_name:en: Oil, sheanut
 
 < en:vegetable fat
 en: illipe oil, illipe
