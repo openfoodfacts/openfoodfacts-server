@@ -469,6 +469,7 @@ wikidata:en: Q53792073
 # comment:en: en:lecithines is part of the additives
 
 # nova:en:lecithin
+# < en:vegetable oil
 < en:E322i
 en: soya lecithin, soy lecithin, soybean lecithin, emulsifer soya lecithin
 bg: соев лецитин, соеви лецитини
@@ -17103,9 +17104,16 @@ description:nl: Sojaolie is uit sojazaad gewonnen spijsolie. Sojaolie is de mees
 description:pt: O óleo de soja é extraído da semente de soja e é utilizado como fonte de alimento.
 description:sv: Sojaolja är en fet olja, som kan utvinnas genom pressning eller extraktion av sojabönor.
 from_palm_oil:en: no
+usda_ndb_proxy_code:en: 4044
+usda_ndb_proxy_name:en: Oil, soybean, salad or cooking
 wikidata:en: Q926892
 wikipedia:en: https://en.wikipedia.org/wiki/Soybean_oil
 # ingredient/soya-oil has 41836 products 1in 28 languages @2021-08-16
+
+< en:soya oil
+en: salad or cooking soybean oil
+usda_ndb_code:en: 4044
+usda_ndb_name:en: Oil, soybean, salad or cooking
 
 < en:soya oil
 en: non-gmo soybean oil
@@ -17526,6 +17534,8 @@ fr: tournesol oléique
 hr: visoko oleinskog suncokreta
 it: girasole alto oleico
 pl: wysoko oleinowy olej słonecznikowy
+usda_ndb_proxy_code:en: 4584
+usda_ndb_proxy_name:en: Oil, sunflower, high oleic (70% and over)
 # ingredient/fr:tournesol-oléique has 55 products in french @2019-02-22
 # huiles végétales (tournesol oléique, colza, tournesol)
 
@@ -17541,6 +17551,13 @@ it: olio di girasole alto oleico
 nl: high oleic zonnebloemolie
 pt: óleo refinado de girassol alto oleíco
 ru: масло подсолнечное высокоолеиновое рафинированное дезодорированное
+usda_ndb_proxy_code:en: 4584
+usda_ndb_proxy_name:en: Oil, sunflower, high oleic (70% and over)
+
+< en:sunflower oil
+en: high oleic sunflower oil (70% and over)
+usda_ndb_code:en: 4584
+usda_ndb_name:en: Oil, sunflower, high oleic (70% and over)
 
 # cold pressed in contrast to chemically treated
 
