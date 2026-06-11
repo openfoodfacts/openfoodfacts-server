@@ -17744,7 +17744,7 @@ it: olio di timo
 
 < en:oil
 # from:en:fish
-en: fish oil, marine oil
+en: fish oil
 ar: زيت السمك
 az: Balıq yağı
 cs: Rybí tuk
@@ -17784,6 +17784,8 @@ zh: 魚油
 allergens:en: en:fish
 description:en: FISH OIL is oil derived from the tissues of oily fish
 from_palm_oil:en: no
+usda_ndb_proxy_code:en: 4589
+usda_ndb_proxy_name:en: Fish oil, cod liver
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q1786125
@@ -17795,6 +17797,11 @@ hr: morsko ulje
 from_palm_oil:en: no
 vegan:en: no
 vegetarian:en: no
+
+< en:fish oil
+en: cod liver fish oil
+usda_ndb_code:en: 4589
+usda_ndb_name:en: Fish oil, cod liver
 
 < en:animal fat
 < en:fat
