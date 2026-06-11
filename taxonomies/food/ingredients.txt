@@ -14455,7 +14455,7 @@ ciqual_food_name:fr: Huile pour friture, sans précision
 
 < en:oil and fat
 #  nova:en:fats
-en: fat, fats, shortening
+en: fat, fats
 af: vet
 ak: sradeɛ
 an: graixa
@@ -14584,6 +14584,9 @@ hu: teljesen hidrogénezett zsír
 it: grassi totalmente idrogenati
 nl: volledig gehydrogeneerde vet
 pl: tłuszcz całkowicie uwodorniony, tłuszcze całkowicie uwodornione
+
+< en: fat
+en: shortening
 
 ######################################## animal fat #################################
 
@@ -17692,6 +17695,13 @@ fr: huiles végétales de tournesol et de colza, huiles de tournesol et de colza
 
 # description:en:Shorea robusta, the SAL tree, is a species of tree in the family Dipterocarpaceae.
 # WARNING: do not put "sal" as a synonym in languages where it also means salt
+
+################# mixed animal and vegetable fats/oils
+
+< en:shortening
+en: beef tallow and cottonseed shortening
+usda_ndb_code:en: 4550
+usda_ndb_name:en: Shortening frying (heavy duty), beef tallow and cottonseed
 
 < en:plant
 en: sal tree, shorea robusta, sal
