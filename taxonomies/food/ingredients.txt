@@ -15184,6 +15184,20 @@ usda_ndb_code:en: 4534
 usda_ndb_name:en: Oil, babassu
 
 < en:vegetable oil
+en: camelina oil
+de: Leindotteröl
+fi: camelinaöljy, ruistankioöljy, kituvapellavaöljy
+fr: huile de caméline
+hr: kamelinovo ulje
+hu: camelina olaj, sárgarepce olaj
+it: cammello
+pl: olej rydzowy, oleje rydzowe, oleju rydzowego
+description:en: CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources.
+# ingredient/fr:huile-de-cameline has 10 products @2019-06-03
+from_palm_oil:en: no
+wikipedia:en: https://en.wikipedia.org/wiki/Camelina_sativa
+
+< en:vegetable oil
 en: cocoa butter, cacao butter, cocoa fat
 ar: زبدة الكاكاو
 bg: какаово масло
@@ -17137,20 +17151,6 @@ it: Olio di semi di soia idrogenato
 
 < en:soya oil
 fr: huile de soja entièrement raffinée
-
-< en:vegetable oil
-en: camelina oil
-de: Leindotteröl
-fi: camelinaöljy, ruistankioöljy, kituvapellavaöljy
-fr: huile de caméline
-hr: kamelinovo ulje
-hu: camelina olaj, sárgarepce olaj
-it: cammello
-pl: olej rydzowy, oleje rydzowe, oleju rydzowego
-description:en: CAMELINA sativa is a flowering plant in the family Brassicaceae and is usually known in English as camelina. The crop is being researched due to its exceptionally high level (up to 45%) of omega-3 fatty acids, which is uncommon in vegetable sources.
-# ingredient/fr:huile-de-cameline has 10 products @2019-06-03
-from_palm_oil:en: no
-wikipedia:en: https://en.wikipedia.org/wiki/Camelina_sativa
 
 < en:vegetable oil
 # producedFrom:en:rice
