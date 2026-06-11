@@ -483,15 +483,18 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	# Assigning 'userid' to 0 -- if userid is not defined
 	$user_ref->{userid} = remove_tags_and_quote(single_param('userid'));
 
-	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
-	$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
-
-	# Check for spam
 	my $is_spam = undef;
-	# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
-	if (is_suspicious_name($user_ref->{name})) {
-		$is_spam = 1;
+	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
+	if (defined single_param('name')) {
+		$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
+
+		# Check for spam
+		# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
+		if (is_suspicious_name($user_ref->{name})) {
+			$is_spam = 1;
+		}
 	}
+
 	# check for spam, that may have filled the honeypot faxnumber field
 	my $faxnumber = single_param('faxnumber');
 	if ((defined $faxnumber) and ($faxnumber ne "")) {
@@ -532,12 +535,13 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	}
 
 	# Country and preferred language
-	if (get_oidc_implementation_level() < 5) {
-		# Show additional fields until Keycloak is managing user registration
-		$user_ref->{preferred_language} = remove_tags_and_quote(single_param("preferred_language"));
-		$user_ref->{country} = remove_tags_and_quote(single_param("country"));
+	# Still allow these to be sent for legacy API support, but don't update if supplied by the preferences form
+	# Which we deduce by the absence of a name field
+	if (defined single_param('name')) {
+		$user_ref->{preferred_language}
+			= remove_tags_and_quote(single_param('preferred_language')) || $request_ref->{lc};
+		$user_ref->{country} = remove_tags_and_quote(single_param('country')) || $request_ref->{country};
 	}
-
 	# Is there a checkbox to make a professional account
 	if (defined single_param("pro_checkbox")) {
 
@@ -601,16 +605,15 @@ sub check_user_form ($request_ref, $type, $user_ref, $errors_ref) {
 	$user_ref->{display_barcode} = !!remove_tags_and_quote(single_param("display_barcode"));
 	$user_ref->{edit_link} = !!remove_tags_and_quote(single_param("edit_link"));
 
-	# Check input parameters, redisplay if necessary
-
-	if (length($user_ref->{name}) < 2) {
-		push @{$errors_ref}, $Lang{error_no_name}{$lc};
-	}
-	elsif (length($user_ref->{name}) > 60) {
-		push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
-	}
-
 	if (get_oidc_implementation_level() < 5) {
+		# Check input parameters, redisplay if necessary. Delegate all validation to Keycloak from level 5
+		if (length($user_ref->{name}) < 2) {
+			push @{$errors_ref}, $Lang{error_no_name}{$lc};
+		}
+		elsif (length($user_ref->{name}) > 60) {
+			push @{$errors_ref}, $Lang{error_name_too_long}{$lc};
+		}
+
 		# Show additional fields until Keycloak is managing user registration
 		my $address;
 		eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
@@ -678,6 +681,8 @@ the request object
 =cut
 
 sub notify_user_requested_org ($user_ref, $org_created, $request_ref) {
+
+	$log->debug("notify_user_requested_org", {user_ref => $user_ref, org_created => $org_created}) if $log->is_debug();
 
 	# the template for the email, we will build it gradually
 	my $template_data_ref = {

@@ -1,7 +1,7 @@
 #!/usr/bin/make
 
 ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
-    $(error "We do not suppport using cmd.exe on Windows, please run in a 'git bash' console")
+    $(error "We do not support using cmd.exe on Windows, please run in a 'git bash' console")
 endif
 
 
@@ -66,7 +66,7 @@ DOCKER_COMPOSE_TEST_BASE=WEB_RESOURCES_PATH=./web-default ROBOTOFF_URL="http://b
 	ODOO_CRM_URL="" \
 	MONGO_EXPOSE_PORT=27027 MONGODB_CACHE_SIZE=4 \
 	COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test \
-	OIDC_IMPLEMENTATION_LEVEL=3 \
+	OIDC_IMPLEMENTATION_LEVEL=5 \
 	PO_COMMON_PREFIX=test_ \
 	docker compose --env-file=${ENV_FILE}
 DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfacts-shared-services/docker-compose.yml" \
@@ -535,7 +535,7 @@ _clean_old_external_volumes:
 	( docker volume inspect ${COMPOSE_PROJECT_NAME}_product_images|grep /rpool/off/clones && docker volume rm ${COMPOSE_PROJECT_NAME}_product_images ) || true
 
 save_orgs_to_mongodb:
-	@echo "🥫 Saving exsiting orgs into MongoDB …"
+	@echo "🥫 Saving existing orgs into MongoDB …"
 	${DOCKER_COMPOSE_BUILD} run --rm backend perl -I/opt/product-opener/lib /opt/product-opener/scripts/migrations/2024_06_save_existing_orgs_to_mongodb.pl "/mnt/podata/orgs"
 
 _bind_local:
@@ -607,6 +607,10 @@ clean_folders: clean_logs
 clean_logs:
 	( rm -f logs/* logs/apache2/* logs/nginx/* || true )
 	echo "" > logs/apache2/log4perl.log
+
+rotate_logs:
+	${DOCKER_COMPOSE_BUILD} run --rm --user root --no-deps backend bash -c "savelog -p /mnt/podata/logs/*{.,_}log" || true
+	${DOCKER_COMPOSE_BUILD} run --rm --user root --no-deps frontend bash -c "savelog -p /var/log/nginx/*{.,_}log" || true
 
 clean: goodbye hdown prune prune_deps prune_cache clean_folders
 

@@ -30,7 +30,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/write_cors_headers request_param single_param get_http_request_header/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutrients_lists/;
@@ -97,6 +97,47 @@ my $template_data_ref = {};
 
 my $html;
 
+# /cgi/search.pl is "v1" of the search API.
+# The api_version parameter enables clients to request the product data to be returned in the format of a different version
+# For instance api_version=3 enables the new format of the packagings field
+# We need to detect API requests EARLY so we can write CORS headers before error handling
+foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss', 'api_version') {
+
+	my $parameter_value = request_param($request_ref, $parameter);
+
+	if (defined $parameter_value) {
+		$request_ref->{$parameter} = $parameter_value;
+	}
+}
+
+my $is_api_search_request
+	= (defined $request_ref->{json})
+	or (defined $request_ref->{jsonp})
+	or (defined $request_ref->{jqm})
+	or (defined $request_ref->{jqm_loadmore})
+	or (defined $request_ref->{xml})
+	or (defined $request_ref->{rss});
+
+# Write CORS headers early for API requests, before any error handling
+# This ensures error responses (like 503 from rate limiting) also have proper CORS headers
+if ($is_api_search_request) {
+
+	$log->debug("API search request",
+		{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
+		if $log->is_debug();
+	write_cors_headers();
+
+	# Preflight requests only need the CORS headers.
+	if (request_method() eq 'OPTIONS') {
+
+		$log->debug("API search preflight request",
+			{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
+			if $log->is_debug();
+		print header(-status => 200, -type => 'application/json', -charset => 'utf-8');
+		exit(0);
+	}
+}
+
 # Automated requests by Google Spreadsheet can overload the server
 # https://github.com/openfoodfacts/openfoodfacts-server/issues/4357
 # User-Agent: Mozilla/5.0 (compatible; GoogleDocs; apps-spreadsheets; +http://docs.google.com)
@@ -111,8 +152,16 @@ if (user_agent() =~ /apps-spreadsheets/) {
 }
 
 $request_ref->{search} = 1;
+
+# Check if request is from intake24 (case-insensitive) to exempt from rate limiting
+my $user_agent_header = get_http_request_header('X-User-Agent');
+my $is_intake24_request = (defined $user_agent_header) && ($user_agent_header =~ /intake24/i);
+
 # rate_limiter_bucket is required for `check_and_update_rate_limits`
-$request_ref->{rate_limiter_bucket} = 'search';
+# Skip rate limiting for intake24 requests
+if (not $is_intake24_request) {
+	$request_ref->{rate_limiter_bucket} = 'search';
+}
 
 # Check and update rate limits if not disabled (default is ENABLED for production safety)
 if (not $rate_limiter_disabled) {
@@ -127,20 +176,13 @@ if ((not $rate_limiter_disabled) && $request_ref->{rate_limiter_blocking}) {
 	return Apache2::Const::OK;
 }
 
-my $action = single_param('action') || 'display';
+my $action = request_param($request_ref, 'action') || 'display';
 
-if ((defined single_param('search_terms')) and (not defined single_param('action'))) {
+if ((defined request_param($request_ref, 'search_terms')) and (not defined request_param($request_ref, 'action'))) {
 	$action = 'process';
 }
-
-# /cgi/search.pl is "v1" of the search API.
-# The api_version parameter enables clients to request the product data to be returned in the format of a different version
-# For instance api_version=3 enables the new format of the packagings field
-foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss', 'api_version') {
-
-	if (defined single_param($parameter)) {
-		$request_ref->{$parameter} = single_param($parameter);
-	}
+else {
+	$log->debug("Web search request", {path => request_uri(), query_string => query_string()}) if $log->is_debug();
 }
 
 # if the query request json or xml, either through the json=1 parameter or a .json extension
@@ -644,7 +686,7 @@ elsif ($action eq 'process') {
 				$log->debug("taxonomy", {tag => $tag, tagid => $tagid}) if $log->is_debug();
 			}
 			else {
-				$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+				$tagid = canonicalize_tag($tagtype, $tag);
 			}
 
 			if ($tagtype eq 'additives') {

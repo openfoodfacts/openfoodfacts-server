@@ -10,26 +10,13 @@
       "testo"
    ],
    "added_countries_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "brands" : "Testo",
-   "brands_hierarchy" : [
+   "brands_imported" : "Testo",
+   "brands_tags" : [
       "xx:Testo"
    ],
-   "brands_imported" : "Testo",
-   "brands_lc" : "xx",
-   "brands_tags" : [
-      "xx:testo"
-   ],
-   "categories" : "Test products",
-   "categories_hierarchy" : [
-      "fr:Test products"
-   ],
    "categories_imported" : "Test products",
-   "categories_lc" : "fr",
    "categories_properties" : {},
    "categories_properties_tags" : [
       "all-products",
@@ -40,7 +27,7 @@
       "agribalyse-unknown"
    ],
    "categories_tags" : [
-      "fr:test-products"
+      "fr:Test products"
    ],
    "checkers_tags" : [],
    "code" : "5228857000839",
@@ -60,12 +47,7 @@
    "complete" : 0,
    "completeness" : 0.3,
    "correctors_tags" : [],
-   "countries" : "fr",
-   "countries_hierarchy" : [
-      "en:france"
-   ],
    "countries_imported" : "fr",
-   "countries_lc" : "fr",
    "countries_tags" : [
       "en:france"
    ],
@@ -137,11 +119,10 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-org"
+      "Producer - test-org",
+      "Producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -410,12 +391,7 @@
       "test-user"
    ],
    "interface_version_created" : "import_csv_file - version 2019/09/17",
-   "labels" : "Bio",
-   "labels_hierarchy" : [
-      "en:organic"
-   ],
    "labels_imported" : "Bio",
-   "labels_lc" : "fr",
    "labels_tags" : [
       "en:organic"
    ],
@@ -566,7 +542,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "serving_size_value" : "33",
    "serving_size_value_imported" : "33",
    "sources" : [
@@ -592,21 +568,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-completed",
-      "en:brands-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -622,10 +583,61 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:Testo"
+            ]
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "fr:Test products"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:france"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-org"
+            ]
+         }
+      },
+      "labels" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:organic"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "weighers_tags" : []
 }
