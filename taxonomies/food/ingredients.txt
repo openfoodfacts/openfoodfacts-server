@@ -15327,6 +15327,42 @@ usda_ndb_code:en: 4541
 usda_ndb_name:en: Oil, cupu assu
 
 < en:vegetable oil
+en: grape seed oil
+bg: Олио от гроздови семки
+ca: oli de llavors de raïm
+cs: Hroznový olej
+de: Traubenkernöl
+es: Aceite de pepitas de uva, aceite de semilla de uva
+eu: Mahats-pipiten olio
+fa: روغن هسته انگور
+fi: rypäleensiemenöljy
+fr: huile de pépins de raisin
+he: תרכובת
+hr: ulje sjemenki grožđa
+hu: szőlőmagolaj, szőlőolaj
+id: grape seed oil
+it: Olio di vinaccioli
+ja: グレープシードオイル
+ko: 포도씨유
+lt: Vynuogių sėklų aliejus
+nb: Druekjerneolje
+nl: druivenpitolie, druivepitolie
+pl: olej z pestek winogron
+pt: Óleo de uva
+ru: Масло виноградных косточек
+zh: 葡萄籽油
+ciqual_food_code:en: 17350
+ciqual_food_name:en: Grapeseed oil
+ciqual_food_name:fr: Huile de pépins de raisin
+description:en: GRAPE SEED OIL (also called grapeseed oil or grape oil) is pressed from the seeds of grapes, and is thus an abundant by-product of winemaking.
+ecobalyse:en: 1e3d325d-b369-4f03-b3a3-f4261924fca4
+from_palm_oil:en: no
+usda_ndb_code:en: 4517
+usda_ndb_name:en: Oil, grapeseed
+wikidata:en: Q898982
+wikipedia:en: https://en.wikipedia.org/wiki/Grape_seed_oil
+
+< en:vegetable oil
 en: linseed oil, flaxseed oil
 ar: زيت بذر الكتان
 be: Ільняны алей
@@ -15389,13 +15425,18 @@ usda_ndb_code:en: 4707
 usda_ndb_name:en: Oil, flaxseed, contains added sliced flaxseed
 
 < en:linseed oil
-en: Organic linseed oil
+en: organic linseed oil
 fi: luomu pellavaöljy
 hr: organsko laneno ulje
 hu: bio lenmagolaj
 it: olio di lino biologico
 nl: olie van biologisch geteelde zaden van de vlasplant
 # ingredient/nl:olie-van-biologisch-geteelde-zaden-van-de-vlasplant has 2 products @2019-05-24
+
+< en:vegetable oil
+en: nutmeg butter oil
+usda_ndb_code:en: 4572
+usda_ndb_name:en: Oil, nutmeg butter
 
 # description:en:PALM OIL is an edible vegetable oil derived from the mesocarp (reddish pulp) of the fruit of the oil palms
 
@@ -15637,43 +15678,6 @@ en: babassu
 hr: babasu
 it: babassu
 wikidata:en: Q239507
-
-< en:vegetable oil
-en: Grape seed oil
-bg: Олио от гроздови семки
-ca: oli de llavors de raïm
-cs: Hroznový olej
-de: Traubenkernöl
-es: Aceite de pepitas de uva, aceite de semilla de uva
-eu: Mahats-pipiten olio
-fa: روغن هسته انگور
-fi: rypäleensiemenöljy
-fr: huile de pépins de raisin
-he: תרכובת
-hr: ulje sjemenki grožđa
-hu: szőlőmagolaj, szőlőolaj
-id: grape seed oil
-it: Olio di vinaccioli
-ja: グレープシードオイル
-ko: 포도씨유
-lt: Vynuogių sėklų aliejus
-nb: Druekjerneolje
-nl: druivenpitolie, druivepitolie
-pl: olej z pestek winogron
-pt: Óleo de uva
-ru: Масло виноградных косточек
-zh: 葡萄籽油
-ciqual_food_code:en: 17350
-ciqual_food_name:en: Grapeseed oil
-ciqual_food_name:fr: Huile de pépins de raisin
-description:en: GRAPE SEED OIL (also called grapeseed oil or grape oil) is pressed from the seeds of grapes, and is thus an abundant by-product of winemaking.
-ecobalyse:en: 1e3d325d-b369-4f03-b3a3-f4261924fca4
-from_palm_oil:en: no
-usda_ndb_code:en: 4517
-usda_ndb_name:en: Oil, grapeseed
-wikidata:en: Q898982
-wikipedia:en: https://en.wikipedia.org/wiki/Grape_seed_oil
-
 
 < en:palm oil
 en: palm olein, palmolein, palmolein oil
