@@ -17697,11 +17697,16 @@ en: wheat germ oil
 usda_ndb_code:en: 4038
 usda_ndb_name:en: Oil, wheat germ
 
-# mix of oils
+######################### mix of oils and fats
 
 < en:colza oil
 < en:sunflower oil
 fr: huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
+
+< en:shortening
+en: hydrogenated soybean and palm shortening  
+usda_ndb_code:en: 4559
+usda_ndb_name:en: Shortening household soybean (hydrogenated) and palm
 
 # description:en:Shorea robusta, the SAL tree, is a species of tree in the family Dipterocarpaceae.
 # WARNING: do not put "sal" as a synonym in languages where it also means salt
