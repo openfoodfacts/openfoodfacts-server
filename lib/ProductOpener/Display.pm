@@ -7841,6 +7841,11 @@ sub display_page ($request_ref) {
 	if (($user_agent =~ /smoothie/i) or (single_param('content_only'))) {
 		$template_data_ref->{content_only} = 1;
 	}
+
+	# Moved log_request_stats before generating the template so that we can put request duration
+	# in a comment at the end of the HTML page
+	log_request_stats($request_ref->{stats});
+
 	process_template('web/common/site_layout.tt.html', $template_data_ref, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
@@ -7889,8 +7894,6 @@ sub display_page ($request_ref) {
 		if $log->is_debug();
 
 	print $html;
-
-	log_request_stats($request_ref->{stats});
 
 	return;
 }
