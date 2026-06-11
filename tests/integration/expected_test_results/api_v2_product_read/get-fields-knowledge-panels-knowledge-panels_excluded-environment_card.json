@@ -208,7 +208,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Apple: 58.3% (estimate)"
+               "title" : "apple: 58.3% (estimate)"
             },
             "topics" : [
                "health"
@@ -219,7 +219,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Milk: 20.8% (estimate)"
+               "title" : "milk: 20.8% (estimate)"
             },
             "topics" : [
                "health"
@@ -230,7 +230,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Egg: 10.4% (estimate)"
+               "title" : "egg: 10.4% (estimate)"
             },
             "topics" : [
                "health"
@@ -241,7 +241,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "Palm oil: 5.2% (estimate)"
+               "title" : "palm oil: 5.2% (estimate)"
             },
             "topics" : [
                "health"
@@ -285,7 +285,7 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "title" : "— Soya lecithin: 2.6% (estimate)"
+               "title" : "— soya lecithin: 2.6% (estimate)"
             },
             "topics" : [
                "health"
@@ -307,7 +307,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<strong>Allergens:</strong> \n                    Apple, Eggs, Milk, Soybeans\n                "
+                     "html" : "<strong>Allergens:</strong> \n                    apple, eggs, milk, soybeans\n                "
                   }
                },
                {
@@ -375,7 +375,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;13050 – percent_min:&nbsp;16.6666666666667 – percent_estimate:&nbsp;58.3333333333333 – percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_proxy_food_code:&nbsp;19051 – percent_min:&nbsp;0 – percent_estimate:&nbsp;20.8333333333333 – percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg – vegan:&nbsp;no – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;22000 – percent_min:&nbsp;0 – percent_estimate:&nbsp;10.4166666666667 – percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil – vegan:&nbsp;yes – vegetarian:&nbsp;yes – from_palm_oil:&nbsp;yes – ciqual_food_code:&nbsp;16129 – percent_min:&nbsp;0 – percent_estimate:&nbsp;5.20833333333333 – percent_max:&nbsp;25</li>\n<li><span>coloring</span> -> en:colour – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20<ol id=\"ordered_ingredients_list\">\n<li><span>curcumin</span> -> en:e100 – vegan:&nbsp;yes – vegetarian:&nbsp;yes – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;20</li>\n</ol>\n</li>\n<li><span>emulsifier</span> -> en:emulsifier – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667<ol id=\"ordered_ingredients_list\">\n<li><span>soy lecithin</span> -> en:soya-lecithin – vegan:&nbsp;yes – vegetarian:&nbsp;yes – ciqual_food_code:&nbsp;42200 – percent_min:&nbsp;0 – percent_estimate:&nbsp;2.60416666666666 – percent_max:&nbsp;16.6666666666667</li>\n</ol>\n</li>\n</ol>\n"
+                     "html" : "<table id=\"ordered_ingredients_list\" style=\"border-collapse:collapse;width:100%;font-size:0.85rem\">\n<thead><tr><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Ingredient</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">Taxonomy ID</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegan</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">vegetarian</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">palm_oil</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">ciqual_proxy</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">percent</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">min</th><th style=\"text-align:right;border-bottom:2px solid #ccc;padding:2px 6px\">max</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">origin</th><th style=\"text-align:left;border-bottom:2px solid #ccc;padding:2px 6px\">labels</th></tr></thead>\n<tbody>\n<tr><td style=\"padding:2px 6px\"><span>apple</span></td><td style=\"padding:2px 6px\">en:apple</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">13050</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">58.3</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"text-align:right;padding:2px 6px\">100.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>milk</span></td><td style=\"padding:2px 6px\">en:milk</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">19051</td><td style=\"text-align:right;padding:2px 6px\">20.8</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">50.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>eggs</span></td><td style=\"padding:2px 6px\">en:egg</td><td style=\"padding:2px 6px\">no</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">22000</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">10.4</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">33.3</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>palm oil</span></td><td style=\"padding:2px 6px\">en:palm-oil</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">16129</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">5.2</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">25.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>coloring</span></td><td style=\"padding:2px 6px\">en:colour</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">20.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding-left:1.5em\" style=\"padding:2px 6px\"><span>curcumin</span></td><td style=\"padding:2px 6px\">en:e100</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">20.0</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding:2px 6px\"><span>emulsifier</span></td><td style=\"padding:2px 6px\">en:emulsifier</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n<tr><td style=\"padding-left:1.5em\" style=\"padding:2px 6px\"><span>soy lecithin</span></td><td style=\"padding:2px 6px\">en:soya-lecithin</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\">yes</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\">42200</td><td style=\"padding:2px 6px\"></td><td style=\"text-align:right;padding:2px 6px\">2.6</td><td style=\"text-align:right;padding:2px 6px\">0.0</td><td style=\"text-align:right;padding:2px 6px\">16.7</td><td style=\"padding:2px 6px\"></td><td style=\"padding:2px 6px\"></td></tr>\n</tbody></table>\n"
                   }
                },
                {
@@ -403,7 +403,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Non-vegan ingredients:</strong>\n                    Milk, Egg\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Non-vegan ingredients:</strong>\n                    milk, egg\n                \n                    ",
                      "type" : "summary"
                   }
                }
@@ -426,7 +426,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                \n                    <strong>Ingredients that contain palm oil:</strong>\n                    Palm oil\n                \n                    ",
+                     "html" : "\n                \n                    <strong>Ingredients that contain palm oil:</strong>\n                    palm oil\n                \n                    ",
                      "type" : "summary"
                   }
                }
@@ -1430,7 +1430,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n        <ul>\n            \n                <li><a href=\"http://world.openfoodfacts.localhost/facets/labels/organic\">Organic</a></li>\n            \n        </ul>\n        "
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"http://world.openfoodfacts.localhost/facets/labels/Organic\">Organic</a></li>\n            \n        </ul>\n        "
                   }
                }
             ],

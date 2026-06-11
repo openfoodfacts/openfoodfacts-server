@@ -13,9 +13,9 @@
       "tests/unit/nutrition.t",
       "tests/unit/packaging_stats.t",
       "tests/unit/products.t",
-      "tests/unit/send_image_to_cloud_vision.t",
-      "tests/unit/taxonomies_enhancer.t",
-      "tests/unit/units.t"
+      "tests/unit/routing.t",
+      "tests/unit/taxonomies.t",
+      "tests/unit/texts.t"
     ],
     "total_time": 450.0
   },
@@ -33,9 +33,9 @@
       "tests/unit/nutrition_ciqual.t",
       "tests/unit/parse_origins_from_text.t",
       "tests/unit/products_comparison.t",
-      "tests/unit/spam_user.t",
-      "tests/unit/taxonomy_suggestions.t",
-      "tests/unit/vitamins.t"
+      "tests/unit/send_image_to_cloud_vision.t",
+      "tests/unit/taxonomies_enhancer.t",
+      "tests/unit/units.t"
     ],
     "total_time": 450.0
   },
@@ -52,11 +52,12 @@
       "tests/unit/nova.t",
       "tests/unit/nutrition_estimation.t",
       "tests/unit/paths.t",
-      "tests/unit/recipes.t",
-      "tests/unit/store.t",
-      "tests/unit/templates.t"
+      "tests/unit/products_tags.t",
+      "tests/unit/spam_user.t",
+      "tests/unit/taxonomy_suggestions.t",
+      "tests/unit/vitamins.t"
     ],
-    "total_time": 420.0
+    "total_time": 450.0
   },
   {
     "tests": [
@@ -71,9 +72,9 @@
       "tests/unit/numbers.t",
       "tests/unit/packager_codes.t",
       "tests/unit/process_product_edit_rules.t",
-      "tests/unit/redis.t",
-      "tests/unit/tags.t",
-      "tests/unit/test.t"
+      "tests/unit/recipes.t",
+      "tests/unit/store.t",
+      "tests/unit/templates.t"
     ],
     "total_time": 420.0
   },
@@ -90,9 +91,9 @@
       "tests/unit/nutrient_levels.t",
       "tests/unit/packaging.t",
       "tests/unit/producers.t",
-      "tests/unit/reuse_knowledge_panels.t",
-      "tests/unit/tags_unit.t",
-      "tests/unit/text.t"
+      "tests/unit/redis.t",
+      "tests/unit/tags.t",
+      "tests/unit/test.t"
     ],
     "total_time": 420.0
   },
@@ -109,9 +110,9 @@
       "tests/unit/nutriscore.t",
       "tests/unit/packaging_food_contact.t",
       "tests/unit/product_schema_changes.t",
-      "tests/unit/routing.t",
-      "tests/unit/taxonomies.t",
-      "tests/unit/texts.t"
+      "tests/unit/reuse_knowledge_panels.t",
+      "tests/unit/tags_unit.t",
+      "tests/unit/text.t"
     ],
     "total_time": 420.0
   }
