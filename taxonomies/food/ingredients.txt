@@ -4431,13 +4431,20 @@ en: acid whey
 fr: Lactosérum acide
 hr: kisela sirutka
 it: siero di latte acido
+usda_ndb_proxy_code:en: 1112
+usda_ndb_proxy_name:en: Whey, acid, fluid
 vegan:en: no
 vegetarian:en: yes
 
-en: acid whey
+< en:acid whey
 en: dried acid whey
 usda_ndb_code:en: 1113
 usda_ndb_name:en: Whey, acid, dried
+
+< en:acid whey
+en: fluid acid whey
+usda_ndb_code:en: 1112
+usda_ndb_name:en: Whey, acid, fluid
 
 < en:whey
 en: whey powder, powdered whey, milk whey powder
