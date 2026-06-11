@@ -15527,6 +15527,20 @@ it: olio di lino biologico
 nl: olie van biologisch geteelde zaden van de vlasplant
 # ingredient/nl:olie-van-biologisch-geteelde-zaden-van-de-vlasplant has 2 products @2019-05-24
 
+# <en:mango
+< en:vegetable oil
+en: mango kernel oil, mango oil, mango kernel
+de: Mangokernöl
+es: aceite de mango, aceite de semillas de mango, aceite de semilla de mango, semilla de mango, aceite de semillas de mango
+fi: mangoydinöljy, mangoöljy
+fr: huile de noyaux de mangue, huile végétale de noyau de mangue, graisses végétales de noyaux de mangue, matières grasses de noyaux de mangue, matières grasses végétales de noyaux de mangue, graisses végétales de noyau de mangue, matières grasses de noyau de mangue, graisses végétales de mangue, matières grasses végétales de mangue, matières grasse de mangue, huile de mangue, huile végétale de mangue
+hr: mangove koštice
+hu: mangómagolaj, mangóolaj
+it: Burro di mango
+# ingredient/fr:noyaux-de-mangue has 31 products in french @2019-03-01
+# matières grasses végétales (palme, karité, sal, noyaux de mangue, illipé, kokum gurgi dans des proportions variables)
+from_palm_oil:en: no
+
 < en:vegetable oil
 en: nutmeg butter oil
 usda_ndb_code:en: 4572
@@ -16316,7 +16330,6 @@ de: Haferöl, Haferkernöl
 es: aceite vegetal avena
 hr: zobeno ulje
 it: olio di avena
-
 
 < en:vegetable oil
 en: olive oil
@@ -17656,20 +17669,6 @@ fr: huile vierge de noix
 < en:colza oil
 < en:sunflower oil
 fr: huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
-
-# <en:mango
-< en:vegetable oil
-en: mango kernel oil, mango oil, mango kernel
-de: Mangokernöl
-es: aceite de mango, aceite de semillas de mango, aceite de semilla de mango, semilla de mango, aceite de semillas de mango
-fi: mangoydinöljy, mangoöljy
-fr: huile de noyaux de mangue, huile végétale de noyau de mangue, graisses végétales de noyaux de mangue, matières grasses de noyaux de mangue, matières grasses végétales de noyaux de mangue, graisses végétales de noyau de mangue, matières grasses de noyau de mangue, graisses végétales de mangue, matières grasses végétales de mangue, matières grasse de mangue, huile de mangue, huile végétale de mangue
-hr: mangove koštice
-hu: mangómagolaj, mangóolaj
-it: Burro di mango
-# ingredient/fr:noyaux-de-mangue has 31 products in french @2019-03-01
-# matières grasses végétales (palme, karité, sal, noyaux de mangue, illipé, kokum gurgi dans des proportions variables)
-from_palm_oil:en: no
 
 # description:en:Shorea robusta, the SAL tree, is a species of tree in the family Dipterocarpaceae.
 # WARNING: do not put "sal" as a synonym in languages where it also means salt
