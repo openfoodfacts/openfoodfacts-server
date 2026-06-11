@@ -15767,8 +15767,6 @@ es: aceite de palma interestificado y fraccionado
 hr: frakcioniranog i interesterificiranog palminog ulja
 it: olio di palma frazionato e interesterificato
 
-# comment:en:palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
-
 < en:palm oil
 en: palm
 bg: палмова, палмово, палма
@@ -15794,6 +15792,13 @@ ru: пальмовое
 sk: palma
 sl: palmovo
 sv: Palm
+comment:en:palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
+
+< en:palm
+< en: shortening
+en: fractionated palm shortening
+usda_ndb_code:en: 4570
+usda_ndb_name:en: Shortening, confectionery, fractionated palm
 
 < en:palm oil
 en: palm olein, palmolein, palmolein oil
