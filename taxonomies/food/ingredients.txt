@@ -694,6 +694,8 @@ fr: gélatine non porcine
 de: schweinefreie Gelatine
 es: gelatina no porcina
 it: gelatina non suina
+vegan:en: no
+vegetarian:en: no
 # ingredient/fr:gélatine-non-porcine has 1 product in french @2019-02-10
 
 < en:gelatin
@@ -714,6 +716,8 @@ pl: żelatyna drobiowa
 pt: gelatina de aves
 sr: želatin od peradi
 zh: 家禽明胶
+vegan:en: no
+vegetarian:en: no
 # ingredient/fr:gélatine-de-volaille has 17 products in french @2019-02-10
 
 < en:gelatin
@@ -747,6 +751,20 @@ it: Gelatina kosher
 nl: koosjere gelatine
 pl: koszerna żelatyna
 pt: gelatina kosher
+vegan:en: no
+vegetarian:en: no
+
+< en:gelatin
+# from:en:fish
+en: isinglass
+allergens:en: en:fish
+vegan:en: no
+vegetarian:en: no
+
+< en:E120
+en: carmine, carmines
+vegan:en: no
+vegetarian:en: no
 
 < en:E440
 de: flüssiges pektin
@@ -75681,6 +75699,8 @@ ifct_food_code:en: P003
 ifct_food_name:en: Anchovy
 wikidata:en: Q192662
 wikipedia:en: https://en.wikipedia.org/wiki/Anchovy
+vegan:en: no
+vegetarian:en: no
 # 2820 in 19 @2021-09-12
 
 < en:anchovy
@@ -75703,6 +75723,8 @@ nl: ansjovispasta
 pl: pasta z anchois
 wikidata:en: Q3897482
 wikipedia:en: https://en.wikipedia.org/wiki/Anchovy_paste
+vegan:en: no
+vegetarian:en: no
 # ingredient/fr:pâte-d’anchois has 101 products @2019-01-06
 
 #process:en: en:extract
@@ -75732,6 +75754,8 @@ fi: anjovisfilee
 fr: filets d'anchois
 hr: filet inćuna, fileti inćuna
 it: Filetti d'acciuga
+vegan:en: no
+vegetarian:en: no
 # ingredient/fr:filets-d'anchois has 36 products in 4 languages @2019-01-06
 
 #process:en: en:salted
@@ -75747,6 +75771,8 @@ it: Filetti d'acciuga
 en: marinated anchovy fillets
 hr: fileti mariniranih incuna
 it: filetti di acciuga marinati
+vegan:en: no
+vegetarian:en: no
 
 < en:anchovy
 en: European anchovy
@@ -75770,6 +75796,8 @@ description:en: The European anchovy (Engraulis encrasicolus) is a forage fish s
 wikidata:en: 188387
 # translations can not be trusted
 wikipedia:en: https://en.wikipedia.org/wiki/European_anchovy
+vegan:en: no
+vegetarian:en: no
 # ingredient/fr:Engraulis-encrasicolus has 32 products @2019-01-12
 # ingredient/fr:Engraulis-encrasicholus has 1 product @2019-01-12
 
