@@ -75271,7 +75271,7 @@ vegetarian:en: no
 wikidata:en: Q600396
 wikipedia:en: https://en.wikipedia.org/wiki/Fish
 
-# Fish are classified as while or oily
+# Fish are classified as white or oily
 < en:fish
 en: oily fish
 es: pescado azul
@@ -75362,10 +75362,11 @@ it: proteine di pesce
 
 # description:fr:Un fumet de poisson est un fond préparé à partir de poisson.
 
-< en:fish
-# <en:broth
+#< en:fish
+< en:broth
 fr: fumet de poisson, fumet
 it: fumetto di pesce
+comment:en: sounds like a compound and not a fish
 wikidata:en: Q30748629
 wikipedia:fr: https://fr.wikipedia.org/wiki/Fumet_de_poisson
 # ingredient/fr:fumet has 45 products in french @2019-03-01
@@ -75381,7 +75382,7 @@ fr: fumet de poisson aromatisé
 fr: jus de poisson
 
 < en:broth
-< en:fish
+#< en:fish
 en: fish stock
 bg: рибен бульон
 de: fischbrühe
@@ -75394,11 +75395,12 @@ sv: fiskbuljong
 # ingredient/en:fish-stock has 54 products in 2 languages @2020-06-13
 
 < en:broth
-< en:clam
+# < en:clam
 it: brodo di vongole
 
 < en:fish
 de: Fischmuskeleiweiß
+comment:en: Put under protein?
 
 < en:fish
 en: roe, hard roe
@@ -75417,7 +75419,6 @@ it: salema
 ciqual_food_code:en: 26111
 ciqual_food_name:en: Salema, raw
 ciqual_food_name:fr: Saupe, crue
-description:en: ROCKFISH is a common term for several species of fish, referring to their tendency to hide among rocks.
 
 < en:fish
 en: rockfish
@@ -75427,6 +75428,7 @@ fr: poissons de roche
 hr: kamenjar
 it: pesce di scoglio, scorfano
 ja: 根魚
+description:en: ROCKFISH is a common term for several species of fish, referring to their tendency to hide among rocks.
 wikidata:en: Q26261896
 wikipedia:en: https://en.wikipedia.org/wiki/Rockfish
 # ingredient/fr:poissons-de-roche has 5 products @2019-01-01
@@ -75476,6 +75478,16 @@ zh: 淡水鱼
 # zh-hk:淡水魚
 wikidata:en: Q1072742
 wikipedia:en: https://en.wikipedia.org/wiki/Freshwater_fish
+
+< en:fish
+en: flatfish
+usda_ndb_proxy_code:en: 15028
+usda_ndb_proxy_name:en: Fish, flatfish (flounder and sole species), raw
+
+< en:flatfish
+en: raw flatfish
+usda_ndb_code:en: 15028
+usda_ndb_name:en: Fish, flatfish (flounder and sole species), raw
 
 < en:fish
 en: yellowstripe scad
