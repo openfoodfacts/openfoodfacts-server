@@ -186,7 +186,8 @@ e.g. food, pet food and beauty products have an "ingredients" image type.
 
 %valid_image_types = (
 	front => 1,
-	packaging => 1
+	packaging => 1,
+	other => 1,
 );
 
 if (feature_enabled("ingredients")) {
