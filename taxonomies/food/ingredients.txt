@@ -76859,9 +76859,8 @@ ciqual_food_code:en: 26055
 ciqual_food_name:en: European plaice, raw
 ciqual_food_name:fr: Carrelet ou plie, cru
 
-# description:en:The name "FLOUNDER" is used for several only distantly related species, though all are in the suborder Pleuronectoidei
 
-< en:fish
+< en:flatfish
 < en:white fish
 en: flounder
 ar: مفلطح
@@ -76877,6 +76876,7 @@ pl: Flądra
 pt: Linguado
 tl: Tatampal
 tr: Bayağı pisi balığı
+description:en:The name "FLOUNDER" is used for several only distantly related species, though all are in the suborder Pleuronectoidei
 wikidata:en: Q4246303
 wikipedia:en: https://en.wikipedia.org/wiki/Flounder
 
@@ -78241,9 +78241,7 @@ ciqual_food_code:en: 26084
 ciqual_food_name:en: Megrim, raw
 ciqual_food_name:fr: Cardine franche, crue
 
-# description:en:SOLE is a fish belonging to several families. Generally speaking, they are members of the family Soleidae, but, outside Europe, the name sole is also applied to various other similar flatfish, especially other members of the sole suborder Soleoidei as well as members of the flounder family.
-
-< en:fish
+< en:flatfish
 < en:white fish
 en: sole
 ar: سمك موسى
@@ -78258,6 +78256,7 @@ it: Sogliola
 ja: ウシノシタ
 ms: Ikan sebelah
 zh: 龍脷
+description:en: SOLE is a fish belonging to several families. Generally speaking, they are members of the family Soleidae, but, outside Europe, the name sole is also applied to various other similar flatfish, especially other members of the sole suborder Soleoidei as well as members of the flounder family.
 
 < en:fish
 en: Tonguesole, tropical sole, tongue sole
