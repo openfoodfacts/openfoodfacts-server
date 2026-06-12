@@ -75607,7 +75607,6 @@ pl: filet z mintaja, filety z mintaja
 sv: alaska pollock-filé, filé av alaska pollock
 # ingredient/alaskan-pollock-fillet has 88 products @2018-12-29
 
-# description:en:An anchovy is a small, common forage fish of the family Engraulidae.
 
 < en:fish
 < en:oily fish
@@ -75677,6 +75676,7 @@ zh: 鳀科
 ciqual_food_code:en: 26079
 ciqual_food_name:en: Common anchovy, raw
 ciqual_food_name:fr: Anchois commun, cru
+description:en: An anchovy is a small, common forage fish of the family Engraulidae.
 ifct_food_code:en: P003
 ifct_food_name:en: Anchovy
 wikidata:en: Q192662
@@ -76044,6 +76044,18 @@ ciqual_food_name:en: Bogue, raw
 ciqual_food_name:fr: Bogue, crue
 wikidata:en: Q950498
 
+< en:saltwater fish
+en: butterfish
+la: Peprilus triacanthus
+comment:en: the name "butterfish" is applied to different species depending on the region. In Hawaii and Japan, it often refers to sablefish (black cod), which is prized for its extremely high fat content and buttery texture. In New Zealand and Australia, it can refer to yet another species entirely.
+usda_ndb_proxy_code:en: 15007
+usda_ndb_proxy_name:en: Fish, butterfish, raw
+
+< en:butterfish
+en: raw butterfish
+usda_ndb_code:en: 15007
+usda_ndb_name:en: Fish, butterfish, raw
+
 < en:fish
 en: capelin, caplin
 ar: كبلين
@@ -76120,12 +76132,18 @@ fr: carpe
 hr: šaran
 it: carpa
 nl: karper
-ciqual_food_code:en: 27003
-ciqual_food_name:en: Carp, raw, farmed
-ciqual_food_name:fr: Carpe, crue, élevage
-# TODO check if alternative
+ciqual_food_proxy_code:en: 27003
+ciqual_food_proxy_name:en: Carp, raw, farmed
+ciqual_food_proxy_name:fr: Carpe, crue, élevage
+usda_ndb_proxy_code:en: 15008
+usda_ndb_proxy_name:en: Fish, carp, raw
 
 < en:carp
+en: raw carp
+usda_ndb_code:en: 15008
+usda_ndb_name:en: Fish, carp, raw
+
+< en:raw carp
 en: farmed raw Carp
 fr: Carpe crue élevage
 it: carpa cruda d'allevamento
