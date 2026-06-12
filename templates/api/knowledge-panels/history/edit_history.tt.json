@@ -1,0 +1,82 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": false,
+    "expand_for": "large",
+    "evaluation": "unknown",
+    "title_element": {
+        "title": "[% edq(lang('history')) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
+        "icon_color_from_evaluation": true,
+    },
+    "elements": [
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "edit_history",
+                "title": "[% edq(lang('history')) %]",
+                // Create a structure to check if we already have seen a column for a given scope
+                // so that we can mark the first one as the default column for the group
+                [% SET has_permission_product_revert = has_permission("product_revert") %]              
+                "columns": [
+                    {
+                        "text": "[% lang('date') %]",
+                        "type": "text",
+                        "style": "max-width:15rem",
+                    },
+                    {
+                        "text": "[% lang('contributor') %]",
+                        "type": "text",
+                        "style": "max-width:15rem",
+                    },
+                    {
+                        "text": "[% lang('changes') %]",
+                        "type": "text",
+                        "style": "max-width:15rem",
+                    },
+                    {
+                        "text": "[% lang('permalink') %]",
+                        "type": "text",
+                        "style": "max-width:15rem",
+                    },
+                    [% IF has_permission_product_revert AND product.rev != row.number %]
+                        {
+                            "text": "[% lang('revert') %]",
+                            "type": "text"
+                        },
+                    [% END %]
+        
+                ],
+                "rows": [
+                    [% FOREACH row IN revisions %]
+                    {
+                        "values": [
+                            {
+                                "text": "[% row.date %]",
+                                "style": "max-width:15rem"
+                            },
+                            {
+                                "html_element": "[% display_editor_link(row.userid) %]"
+                            },
+                            {
+                                "text": "[% row.diffs %] [% IF row.comment %] [% row.comment %] [% ELSE %] - [% END %]"
+                            },
+                            {
+                                "html_element": "<a href="[% this_product_url %]?rev=[% row.number %]">[% lang('view') %]</a>"
+                            }
+                            [% IF has_permission_product_revert AND product.rev != row.number %]
+                                {
+                                    "html_element": "<a class="button tiny alert product_revert_button" data-code="[% product.code %]" data-rev="[% row.number %]">[% lang('revert') %]</a> <span id="revert_result_[% row.number %]"></span>"
+                                },
+                            [% END %]
+                        ]
+                    },
+                    [% END %]
+                ]
+            }
+        },
+
+    ]
+}
