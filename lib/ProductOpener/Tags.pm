@@ -3239,7 +3239,7 @@ sub display_tag_and_parents_taxonomy ($tagtype, $tagid) {
 	return $html;
 }
 
-sub display_parents_and_children ($target_lc, $tagtype, $tagid) {
+sub display_parents_and_children ($target_lc, $tagtype, $tagid, $product_counts = undef) {
 
 	$target_lc =~ s/_.*//;
 	my $html = '';
@@ -3252,12 +3252,24 @@ sub display_parents_and_children ($target_lc, $tagtype, $tagid) {
 			$html .= "<p>" . lang("tag_belongs_to") . "</p>\n";
 			$html .= "<p>" . display_tag_and_parents_taxonomy($tagtype, $tagid) . "</p>\n";
 		}
-
+		
 		if ((defined $direct_children{$tagtype}) and (defined $direct_children{$tagtype}{$tagid})) {
 			$html .= "<p>" . lang("tag_contains") . "</p><ul>\n";
+
 			foreach my $childid (sort keys %{$direct_children{$tagtype}{$tagid}}) {
-				$html .= "<li>" . display_taxonomy_tag_link($target_lc, $tagtype, $childid) . "</li>\n";
+
+				# default name without count
+				my $label = display_taxonomy_tag_link($target_lc, $tagtype, $childid);
+
+				# if counts available → append
+				if ($product_counts && exists $product_counts->{$childid}) {
+					my $count = $product_counts->{$childid};
+					$label =~ s{>([^<]+)</a>}{>$1 ($count)</a>};
+				}
+
+				$html .= "<li>$label</li>\n";
 			}
+
 			$html .= "</ul>\n";
 		}
 	}
