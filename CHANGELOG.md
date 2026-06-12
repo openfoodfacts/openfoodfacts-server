@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.95.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.94.0...v2.95.0) (2026-06-12)
+
+
+### Features
+
+* Add health check endpoint ([#13405](https://github.com/openfoodfacts/openfoodfacts-server/issues/13405)) ([06ddb56](https://github.com/openfoodfacts/openfoodfacts-server/commit/06ddb566bfdf3619a1a453fd9305d4646fd0bb86))
+* Move to Keycloak Level 5 (full implementation) ([#13559](https://github.com/openfoodfacts/openfoodfacts-server/issues/13559)) ([5faeab0](https://github.com/openfoodfacts/openfoodfacts-server/commit/5faeab0a10c6b647b6d14a8c94ea31c4c872b57a))
+
+
+### Bug Fixes
+
+* handle CORS preflight before authentication ([#13573](https://github.com/openfoodfacts/openfoodfacts-server/issues/13573)) ([70f244c](https://github.com/openfoodfacts/openfoodfacts-server/commit/70f244c42ee3c344edf524ae32144a5180febf93))
+* recipe-estimator config for docker ([#13734](https://github.com/openfoodfacts/openfoodfacts-server/issues/13734)) ([0ff088c](https://github.com/openfoodfacts/openfoodfacts-server/commit/0ff088c7a1b9621fbbcd184de668c2eb7a9fce5e))
+* Updating preferences on staging is wiping the user name in keycloak ([#13747](https://github.com/openfoodfacts/openfoodfacts-server/issues/13747)) ([e26177e](https://github.com/openfoodfacts/openfoodfacts-server/commit/e26177eb26b2dbb799081f54dd59b5f33fee0fa6))
+
 ## [2.94.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.93.1...v2.94.0) (2026-06-08)
 
 
