@@ -12,7 +12,7 @@ jobs:
     if: |
       github.event.issue.pull_request &&
       (github.event.comment.body == '/lint')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
     - &step-reaction-seen
       name: Add “seen” reaction to comment
@@ -80,7 +80,7 @@ jobs:
     if: |
       github.event.issue.pull_request &&
       (github.event.comment.body == '/update_tests_results')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
     - *step-reaction-seen
     - *get-repository-owner-branch
