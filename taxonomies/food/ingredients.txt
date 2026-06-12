@@ -76256,6 +76256,7 @@ nl: kabeljauwlever, schelvislever
 nn: torskelever
 ru: печень трески
 wikidata:en: Q33247820
+comment:en: probably we need an ingredient fish liver as it has other nutritional values
 #45 in 4 @2021-09-22
 
 < en:cod
@@ -76295,9 +76296,6 @@ uk: Тріска атлантична, Gadus morhua
 wikidata:en: Q199788
 wikipedia:en: https://en.wikipedia.org/wiki/Atlantic_cod
 
-
-# en:description:The Pacific cod, Gadus macrocephalus, is a species of ray-finned fish in the family Gadidae.
-
 < en:cod
 en: pacific cod
 af: Pasifiese kabeljou
@@ -76320,6 +76318,7 @@ ru: Тихоокеанская треска
 sv: Stillahavstorsk
 vi: Cá tuyết Thái Bình Dương
 zh: 大头鳕
+description:en: The Pacific cod, Gadus macrocephalus, is a species of ray-finned fish in the family Gadidae.
 wikidata:en: Q783575
 wikipedia:en: https://en.wikipedia.org/wiki/Pacific_cod
 # ingredient/fr:Gadus-macrocephalus has 20 products in 3 languages @2018-12-31
@@ -76344,7 +76343,6 @@ vegetarian:en: no
 #                                Corvina
 #
 ###################################################################################################
-# description:en:The corvina, also known as the corvina drum (Cilus gilberti), is a saltwater fish of the Sciaenidae family (commonly called croakers or drums).
 
 < en:fish
 en: corvina
@@ -76354,9 +76352,10 @@ it: corvina
 la: Cilus gilberti
 pl: Corvina
 zh: 吉氏毛突石首魚
-# ingredient/corvina has 2 products @2019-01-13
+description:en: The corvina, also known as the corvina drum (Cilus gilberti), is a saltwater fish of the Sciaenidae family (commonly called croakers or drums).
 wikidata:en: Q2017562
 wikipedia:en: https://en.wikipedia.org/wiki/Cilus_gilberti
+# ingredient/corvina has 2 products @2019-01-13
 
 
 # en:description:The deepwater redfish (Sebastes mentella), also known as the beaked redfish, ocean perch,[2] Atlantic redfish, Norway haddock, red perch, golden redfish, or hemdurgan
@@ -76464,13 +76463,25 @@ ciqual_food_name:fr: Congre, cru
 wikidata:en: Q212552
 wikipedia:en: https://en.wikipedia.org/wiki/European_conger
 
+< en:freshwater fish
+en: cusk
+la: Brosme brosme
+usda_ndb_proxy_code:en: 15022
+usda_ndb_proxy_name:en: Fish, cusk, raw
+
+< en:cusk
+en: raw cusk
+comment:en: the word cusk could also refer to Lota lota, but that is usually called freshwater cusk
+usda_ndb_code:en: 15022
+usda_ndb_name:en: Fish, cusk, raw
+
 ###################################################################################################
 #
 #                                Garfish
 #
 ###################################################################################################
 
-< en:fish
+#< en:fish
 < en:oily fish
 en: garfish, garpike
 de: Hornhecht, Belone belone
