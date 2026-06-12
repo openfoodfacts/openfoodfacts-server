@@ -96,13 +96,12 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::API qw/add_error customize_response_for_product init_api_response/;
 use ProductOpener::EnvironmentalImpact;
 use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::Store qw/$json_for_objects/;
 
-use JSON::MaybeXS;
+use Cpanel::JSON::XS;
 use Storable qw/dclone/;
 use Encode;
 use Types::Serialiser;
-
-my $json_utf8 = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head2 add_product_data_from_external_service ($request_ref, $product_ref, $url, $services_ref)
 
@@ -162,7 +161,7 @@ sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $s
 
 	my $response = $ua->post(
 		$url,
-		Content => $json_utf8->encode($body_ref),
+		Content => $json_for_objects->encode($body_ref),
 		"Content-Type" => "application/json; charset=utf-8",
 	);
 
@@ -201,7 +200,7 @@ sub add_product_data_from_external_service ($request_ref, $product_ref, $url, $s
 		my $decoded_json;
 		my $json_decode_error;
 		eval {
-			$decoded_json = $json_utf8->decode($response_content);
+			$decoded_json = $json_for_objects->decode($response_content);
 			1;
 		} or do {
 			$json_decode_error = $@;
