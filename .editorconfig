@@ -30,3 +30,7 @@ indent_style = unset
 indent_size = unset
 insert_final_newline = unset
 trim_trailing_whitespace = false
+
+# Makefiles require tabs for indentation
+[Makefile]
+indent_style = tab

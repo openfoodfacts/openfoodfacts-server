@@ -34,6 +34,8 @@ ifeq ($(shell test $(CPU_COUNT) -gt 8; echo $$?),0)
   export CPU_COUNT=8
 endif
 
+export PERLCHECK_IGNORE ?= .perlcheckignore
+
 # tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
 
@@ -407,24 +409,27 @@ bash_test:
 # We have to finally filter out "." as this will the output if we have no file
 TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
-check_perl_fast:
-	@echo "🥫 Checking ${TO_CHECK}"
-	test -z "${TO_CHECK}" || \
-	  ${DOCKER_COMPOSE_BUILD} run --rm backend make -j ${CPU_COUNT} ${TO_CHECK} || \
-	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
-
 check_translations:
 	@echo "🥫 Checking translations"
 	${DOCKER_COMPOSE_BUILD} run --rm backend scripts/check-translations.sh
 
+CHECK_PERL := "scripts/perlcheck.pl"
+
 # check all perl files compile (takes time, but needed to check a function rename did not break another module !)
-# IMPORTANT: We exclude some files that are in .check_perl_excludes
+# IMPORTANT: We exclude some files that are in .perlcheckignore
 check_perl:
-	@echo "🥫 Checking all perl files"
-	ALL_PERL_FILES=$$(find . -regex ".*\.\(p[lm]\|t\)"|grep -v "/\."|grep -v "/obsolete/"| grep -vFf .check_perl_excludes) ; \
-	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend make -j ${CPU_COUNT} $$ALL_PERL_FILES  || \
-	  ( echo "Perl syntax errors! Look at 'failed--compilation' in above logs" && false )
-	@if grep -E '^\s*$$' .check_perl_excludes; then echo "No blank line accepted in .check_perl_excludes, fix it"; false; fi
+	$(MAKE) check_perl_args args="--no-fast-fail"
+
+check_perl_fast:
+	@echo "🥫 Checking ${TO_CHECK}"
+	test -z "${TO_CHECK}" || \
+	  ${DOCKER_COMPOSE_BUILD} run --rm backend \
+		${CHECK_PERL} ${TO_CHECK}
+
+# check only specified files/directories or with custom flags (e.g. make check_perl_args args="--no-fast-fail lib/")
+check_perl_args:
+	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend \
+		${CHECK_PERL} $(args)
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
