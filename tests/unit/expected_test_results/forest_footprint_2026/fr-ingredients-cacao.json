@@ -1,18 +1,35 @@
 {
    "forest_footprint_2026" : {
-      "ingredients" : [
-         {
-            "equivalence_ingredient" : 1,
-            "equivalence_ingredient_category" : 1,
+      "grade" : "a",
+      "primary_ingredients" : {
+         "en:cocoa" : {
             "footprint_per_kg" : 0,
-            "ingredient_category_id" : "en:cocoa",
-            "ingredient_id" : "en:cocoa",
-            "origin_footprint" : 0,
-            "percent" : 100,
-            "primary_ingredient_id" : "en:cocoa",
-            "risk_factor" : 1
+            "grade" : "a",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0,
+                  "ingredient_category_id" : "en:cocoa",
+                  "ingredient_id" : "en:cocoa",
+                  "origin_footprint" : 0,
+                  "percent" : 100,
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1
+               }
+            ]
+         },
+         "en:coffee" : {
+            "footprint_per_kg" : 0,
+            "grade" : "a",
+            "ingredients" : []
+         },
+         "en:palm-oil" : {
+            "footprint_per_kg" : 0,
+            "grade" : "a",
+            "ingredients" : []
          }
-      ],
+      },
       "total_footprint_per_kg" : 0
    },
    "ingredients" : [
