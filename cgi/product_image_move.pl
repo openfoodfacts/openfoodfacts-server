@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
@@ -75,12 +75,7 @@ my $request_ref = ProductOpener::Display::init_request();
 $log->debug("parsing code", {user => $User_id, code => $code, cc => $request_ref->{cc}, lc => $lc, ip => remote_addr()})
 	if $log->is_debug();
 
-# Add a CORS header to allow cross-domain requests (especially from Nutripatrol)
 my $r = Apache2::RequestUtil->request();
-# We need to allows credentials (cookies) to authenticate the user
-my $allow_credentials = 1;
-my $sub_domain_only = 1;
-write_cors_headers($allow_credentials, $sub_domain_only);
 
 # If the requests is an OPTIONS request, we return the headers and exit
 if ($r->method_number == Apache2::Const::M_OPTIONS) {

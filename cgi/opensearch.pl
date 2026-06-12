@@ -29,7 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/init_request/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw//;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -83,7 +83,6 @@ $image_tag
 XML
 	;
 
-write_cors_headers();
 print header(
 	-type => 'application/opensearchdescription+xml',
 	-charset => 'utf-8',

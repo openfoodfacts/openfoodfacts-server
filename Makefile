@@ -74,7 +74,7 @@ DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfact
 	${DOCKER_COMPOSE_TEST_BASE}
 # Enable Redis only for integration tests.
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
-DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
+DOCKER_COMPOSE_INT_TEST=PRODUCT_OPENER_HOST_PORT= COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
 	REDIS_URL="redis:6379" \
 	${DOCKER_COMPOSE_TEST_BASE}
 
@@ -318,6 +318,7 @@ integration_test: create_folders
 # as we use localhost in tests (which is the backend)
 # Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
 # Also need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
+	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
 	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
@@ -356,6 +357,7 @@ test-int: guard-test create_folders
 # this is the place where variables are important
 # Need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
 	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart

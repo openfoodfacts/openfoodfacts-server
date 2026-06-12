@@ -27,7 +27,7 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Display qw/$nutrient_table init_request/;
-use ProductOpener::HTTP qw/write_cors_headers/;
+use ProductOpener::HTTP qw//;
 use ProductOpener::Food qw/%nutrients_tables get_nutrient_unit/;
 use ProductOpener::Tags qw/display_taxonomy_tag get_property/;
 
@@ -113,7 +113,6 @@ foreach (@{$nutrients_tables{$nutrient_table}}) {
 
 my %result = (nutrients => \@table);
 my $data = encode_json(\%result);
-write_cors_headers();
 print header(
 	-type => 'application/json',
 	-content_language => $lc,

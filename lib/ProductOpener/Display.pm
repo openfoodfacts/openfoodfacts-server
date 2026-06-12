@@ -124,7 +124,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
+	qw(set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -1129,7 +1129,6 @@ that require a lot of resources (especially aggregation queries).
 =cut
 
 sub display_no_index_page_and_exit () {
-	write_cors_headers();
 	my $html
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>NOINDEX</h1><p>We detected that your browser is a web crawling bot, and this page should not be indexed by web crawlers. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 	my $http_headers_ref = {
@@ -1157,7 +1156,6 @@ Return a page with a 429 status code and a message explaining that the user is s
 =cut
 
 sub display_too_many_requests_page_and_exit() {
-	write_cors_headers();
 	my $http_headers_ref = {
 		'-status' => 429,
 		'-charset' => 'UTF-8',
@@ -9959,7 +9957,6 @@ sub display_structured_response ($request_ref) {
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
 		my $status_code = $request_ref->{status_code} // "200";
-		write_cors_headers();
 		print header(
 			-status => $status_code,
 			-type => 'text/xml',
@@ -9987,7 +9984,6 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'text/javascript',
@@ -9997,7 +9993,6 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
@@ -10083,7 +10078,6 @@ XML
 XML
 		;
 
-	write_cors_headers();
 	print header(-type => 'application/rss+xml', -charset => 'utf-8') . $xml;
 
 	return;
