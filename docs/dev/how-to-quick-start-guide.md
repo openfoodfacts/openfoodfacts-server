@@ -7,7 +7,7 @@ to instantly provision a ready-to-code development environment in the cloud.
 First setup time estimate is `~10min` with the following **recommended** specs:
 * `8 GB` of RAM dedicated to Docker client
 * `6` cores dedicated to Docker client
-* `12 MB/s` internet speed
+* `12 Mbps` internet speed
 
 ## 1. Prerequisites
 
@@ -147,7 +147,7 @@ If you want to collaborate you will need to fork the repository.
 Go to https://github.com/openfoodfacts/openfoodfacts-server and click the "Fork" button.
 
 This will create a new repository in your GitHub account.
-eg. (for an hypothetical my-user-id user): https://github.com/my-user-id/openfoodfacts-server.
+eg. (for a hypothetical my-user-id user): https://github.com/my-user-id/openfoodfacts-server.
 
 This is the url you have to use in the following instructions.
 
@@ -353,7 +353,7 @@ After registering, Keycloak will ask you to verify your email address. In the lo
 
 This repository comes with a configuration for Visual Studio Code (VS Code) [development containers (devcontainer)](https://code.visualstudio.com/docs/remote/containers). This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.
 
-To use the devcontainer, install [prerequisites](#1-prerequisites), [clone the repository from GitHub](#2-clone-the-repository-from-github), and [(optionally) review Product Opener's environment](#3-optional-review-product-openers-environment). Additionally, install [Visual Studio Code](https://code.visualstudio.com/). VS Code will automatically recommend some extensions, but if you don't want to install all of them, please do install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) manually. You can then use the extension command **Remote-Containers: Reopen Folder in Container**, which will automatically build the container and start the services. No need to use `make`!
+To use the devcontainer, install [prerequisites](#1-prerequisites), [fork and clone the repository from GitHub](#2-fork-and-clone-the-repository-from-github), and [(optionally) review Product Opener's environment](#2-3-optional-review-product-openers-environment). Additionally, install [Visual Studio Code](https://code.visualstudio.com/). VS Code will automatically recommend some extensions, but if you don't want to install all of them, please do install [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) manually. You can then use the extension command **Remote-Containers: Reopen Folder in Container**, which will automatically build the container and start the services. No need to use `make`!
 
 ## Troubleshooting
 
