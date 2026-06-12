@@ -1,0 +1,29 @@
+{
+   "forest_footprint_2026" : {
+      "ingredients" : [
+         {
+            "equivalence_1" : 1,
+            "equivalence_2" : 2,
+            "footprint_per_kg" : 0.786,
+            "ingredient_category_id" : "en:pate-de-cacao",
+            "ingredient_id" : "en:pate-de-cacao",
+            "origin_footprint" : 0.393,
+            "percent" : 100,
+            "primary_ingredient_id" : "en:cacao",
+            "risk_factor" : 1
+         }
+      ],
+      "total_footprint_per_kg" : 0.786
+   },
+   "ingredients" : [
+      {
+         "id" : "en:pate-de-cacao",
+         "percent" : 100,
+         "text" : "pâte de cacao"
+      }
+   ],
+   "lc" : "fr",
+   "origins_tags" : [
+      "en:brazil"
+   ]
+}
