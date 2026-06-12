@@ -66,10 +66,14 @@ then
     export APACHE_MPM_MAX_REQUEST_WORKERS=10
 fi
 # MinSpareServers: minimum number of server processes which are kept spare
-# we use StartServers value
-export APACHE_MPM_MIN_SPARSE_SERVERS=${APACHE_MPM_START_SERVERS}
+# we use MAX_REQUEST_WORKERS / 3 - START_SERVERS
+export APACHE_MPM_MIN_SPARE_SERVERS=$(( (APACHE_MPM_MAX_REQUEST_WORKERS / 3) - APACHE_MPM_START_SERVERS))
+if [ "$APACHE_MPM_MIN_SPARE_SERVERS" -lt 1 ]
+then
+    export APACHE_MPM_MIN_SPARE_SERVERS=1
+fi
 # MaxSpareServers: maximum number of server processes which are kept spare
 # we use MinSpareServers * 2
-export APACHE_MPM_MAX_SPARSE_SERVERS=$((APACHE_MPM_MIN_SPARSE_SERVERS * 2))
-# corresponds to max request workers + sparse servers
-export APACHE_MPM_SERVER_LIMIT=$((APACHE_MPM_MAX_REQUEST_WORKERS + APACHE_MPM_MAX_SPARSE_SERVERS))
+export APACHE_MPM_MAX_SPARE_SERVERS=$((APACHE_MPM_MIN_SPARE_SERVERS * 2))
+# corresponds to max request workers
+export APACHE_MPM_SERVER_LIMIT=$APACHE_MPM_MAX_REQUEST_WORKERS
