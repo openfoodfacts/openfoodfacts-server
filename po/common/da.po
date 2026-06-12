@@ -2837,11 +2837,11 @@ msgstr "Advarsel: Mængden af ​​frugt, grønsager og nødder er ikke specifi
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Advarsel: Mængden af ​​frugt, grøntsager og nødder er ikke angivet på etiketten, men er et manuelt estimat baseret på ingredienslisten: %d%%"
+msgstr "Advarsel: Mængden af ​​frugt, grøntsager og nødder er ikke angivet på etiketten, men er et manuelt estimat baseret på ingredienslisten: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Advarsel: Mængden af ​​frugt, grøntsager og nødder er ikke angivet på etiketten, men er estimeret ud fra kategorien (%s) for produktet: %d%%"
+msgstr "Advarsel: Mængden af ​​frugt, grøntsager og nødder er ikke angivet på etiketten, men er estimeret ud fra kategorien (%s) for produktet: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
@@ -6046,6 +6046,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "JEG STØTTER"
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "forblive uafhængig af fødevareindustrien,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Donér"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Donér"
@@ -7974,6 +8014,10 @@ msgstr ""
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"

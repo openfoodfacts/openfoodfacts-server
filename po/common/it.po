@@ -25,7 +25,7 @@ msgstr "Open Food Facts raccoglie informazioni e dati su prodotti alimentari pro
 
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Un database collaborativo, libero e aperto di prodotti alimentari provenienti da tutto il mondo."
+msgstr "Un archivio collaborativo, gratuito e aperto di prodotti alimentari provenienti da tutto il mondo."
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
@@ -440,7 +440,7 @@ msgstr "Asse verticale"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Codice a Barre"
+msgstr "Codice a barre"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -624,7 +624,7 @@ msgstr "Prodotti venduti in %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "paese"
+msgstr "Paese"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -1028,7 +1028,7 @@ msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Stampa se"
+msgstr "Stampa"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
@@ -5507,7 +5507,7 @@ msgstr "Nome del prodotto con abbreviazioni mostrate sulle ricevute"
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr "Visione, missione, valori e programmi"
+msgstr "Visione, Missione, Valori e Programmi"
 
 # Do not translate
 msgctxt "footer_vision_link"
@@ -6050,23 +6050,23 @@ msgstr "SOSTENGO"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Ci servono ancora 120.000 € per concludere il 2026!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Diventa sostenitore di Open Food Facts"
+msgstr ""
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Ogni mese serviamo 8 milioni di visitatori, e molte più volte tramite l'API. Il tuo supporto è essenziale per:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "mantenere Open Food Facts aperto e disponibile a tutti,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "sostenere infrastruttura, sito web, app mobile e API con un piccolo team permanente"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6074,19 +6074,19 @@ msgstr "rimanere indipendenti dall'industria alimentare,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "sostenere la comunità"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "sostenere la scienza"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Se ogni visitatore questo mese cliccasse su Dona e desse solo 1 €, otterremmo oltre 8 volte il nostro budget annuale!"
+msgstr ""
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
-msgstr "Dona"
+msgstr "Effettua una donazione"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -8016,6 +8016,10 @@ msgstr ""
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"

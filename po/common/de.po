@@ -271,7 +271,7 @@ msgstr "Ihr Wunsch, der Organisation beizutreten, muss noch vom Administrator de
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "Die Anfrage Ihrer Organisation wurde empfangen und wird bearbeitet."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -6048,39 +6048,39 @@ msgstr "ICH UNTERSTÜTZE"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr "Uns fehlen noch 120.000 € für 2026!"
+msgstr ""
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr "Werden Sie Förderer von Open Food Facts"
+msgstr "Werde ein Open Food Facts Patron"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr "Jeden Monat erreichen wir 8 Millionen Besucher, und über die API ein Vielfaches davon. Ihre Unterstützung ist entscheidend, um:"
+msgstr ""
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr "Open Food Facts offen und für alle verfügbar zu halten,"
+msgstr ""
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr "Infrastruktur, Website, mobile App und API mit einem kleinen festen Team zu unterstützen"
+msgstr ""
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr "unabhängig von der Lebensmittelindustrie zu bleiben,"
+msgstr "unabhängig von der Lebensmittelindustrie bleiben,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr "die Community zu unterstützen"
+msgstr ""
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr "die Wissenschaft zu unterstützen"
+msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr "Wenn jeder Besucher in diesem Monat auf Spenden klickt und nur 1 € gibt, hätten wir mehr als das Achtfache unseres Jahresbudgets!"
+msgstr "Wenn jeder Besucher diesen Monat auf „Spenden“ klicken und nur 1 € spenden würde, kämen wir auf mehr als das Achtfache unseres Jahresbudgets!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -7664,7 +7664,7 @@ msgstr "Oder geben Sie den Strichcode manuell ein"
 
 msgctxt "scan"
 msgid "Scan"
-msgstr "Einlesen"
+msgstr "Scannen"
 
 msgctxt "reset_preferences_details_beauty"
 msgid "Organic farming and fair trade"
@@ -7692,11 +7692,11 @@ msgstr "Es fehlen die Angaben zur Portionsgröße und/oder Einheit, um den Nutri
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
-msgstr "&lt;<<site_name>>&gt; wird von einem gemeinnützigen Verein betrieben, der unabhängig von der Industrie ist. Es wird für alle, von allen und mit Mitteln von allen erstellt. Sie können unsere Arbeit unterstützen, indem Sie an Open Food Facts spenden.<br/><b>Vielen Dank!</b>"
+msgstr "<<site_name>> wird von einem gemeinnützigen Verein betrieben, der unabhängig von der Industrie ist. Es wird für alle, von allen und mit Mitteln von allen erstellt. Sie können unsere Arbeit unterstützen, indem Sie an Open Food Facts spenden.<br/><b>Vielen Dank!</b>"
 
 msgctxt "bottom_content_split_with_lilo"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
-msgstr "&lt;<<site_name>>&gt; wird von einem gemeinnützigen Verein erstellt, der unabhängig von der Industrie ist. Es wird für alle, von allen und mit Mitteln von allen erstellt. Sie können unsere Arbeit unterstützen, indem Sie an Open Food Facts spenden und auch die Suchmaschine Lilo verwenden.<br/><b>Vielen Dank!</b>"
+msgstr "<<site_name>> wird von einem gemeinnützigen Verein erstellt, der unabhängig von der Industrie ist. Es wird für alle, von allen und mit Mitteln von allen erstellt. Sie können unsere Arbeit unterstützen, indem Sie an Open Food Facts spenden und auch die Suchmaschine Lilo verwenden.<br/><b>Vielen Dank!</b>"
 
 msgctxt "lilo_search_engine"
 msgid "Lilo search engine"
@@ -7982,7 +7982,7 @@ msgstr "Detaillierte Daten"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
-msgstr ""
+msgstr "Sie können dieses Formular zur Analyse einer Zutatenliste nutzen."
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
@@ -7994,11 +7994,11 @@ msgstr ""
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
-msgstr ""
+msgstr "Sprache der Liste der Zutaten"
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
-msgstr ""
+msgstr "Liste der Zutaten"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
@@ -8006,23 +8006,27 @@ msgstr ""
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
-msgstr ""
+msgstr "nutzt eine Kombination aus Regeln und Heuristik, sowie eine begrenzte Anzahl an Nährwertangaben und eingeschränkten Zutaten"
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "1. Version (Glop) - verwendet Nährwertangaben, um die Anzahl der Zutaten zu bestimmen"
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "2. Version (Scipy) - verwendet Nährwertangaben, um die Anzahl der Zutaten zu bestimmen"
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "Nährwertangaben"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
-msgstr ""
+msgstr "Zutatenanalyse und Mengenschätzung"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
@@ -8030,13 +8034,13 @@ msgstr ""
 
 msgctxt "test_ingredients_ecobalyse_experimental"
 msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
-msgstr ""
+msgstr "Experimentell: nutzt die Ecobalyse API, um die Umweltauswirkungen der Inhaltsstoffe zu schätzen."
 
 msgctxt "test_ingredients_ecobalyse_request"
 msgid "Ecobalyse request"
-msgstr ""
+msgstr "Ecobalyse Anfrage"
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
-msgstr ""
+msgstr "Ecobalyse Antwort"
 
