@@ -79242,7 +79242,18 @@ en: raw lingcod
 usda_ndb_code:en: 15045
 usda_ndb_name:en: Fish, lingcod, raw
 
-< en:fish
+< en:saltwater fish
+en: mahi-mahi
+usda_ndb_proxy_code:en: 15023
+usda_ndb_proxy_name:en: Fish, mahimahi, raw
+
+< en:mahi-mahi
+en: raw mahimahi
+la: Coryphaena hippurus
+usda_ndb_code:en: 15023
+usda_ndb_name:en: Fish, mahimahi, raw
+
+#< en:fish
 < en:white fish
 en: seabream, seabreams
 af: Sparidae
