@@ -76154,8 +76154,8 @@ ciqual_food_name:fr: Carpe, crue, élevage
 < en:carp
 fr: carpe de Dombes
 
-< en:fish
-en: cisco
+< en:freshwater fish
+en: cisco, lake herring, tullibee, chub
 la: Coregonus artedi
 usda_ndb_proxy_code:en: 15013
 usda_ndb_proxy_name:en: Fish, cisco, raw
@@ -76203,17 +76203,17 @@ sv: Torsk, Torskfiskar, Torskfisk
 tr: Morina
 vi: Cá tuyết
 zh: 鱈魚
-# ingredient/cod has 401 products in 5 languages @2018-12-29
-ciqual_food_code:en: 26043
-ciqual_food_name:en: Cod, raw
-ciqual_food_name:fr: Cabillaud, cru
 # en-ca:Cod
 # en-gb:Cod
 # sco:Cod
 # wuu:鳕鱼
 # yue:鱈魚
+ciqual_food_code:en: 26043
+ciqual_food_name:en: Cod, raw
+ciqual_food_name:fr: Cabillaud, cru
 wikidata:en: Q13194939
 wikipedia:en: https://en.wikipedia.org/wiki/Cod
+# ingredient/cod has 401 products in 5 languages @2018-12-29
 
 < en:cod
 en: salted dried cod
