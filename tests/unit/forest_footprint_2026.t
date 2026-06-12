@@ -41,7 +41,7 @@ my @tests = (
 			lc => "fr",
 			ingredients => [
 				{
-					id => "en:cacao",
+					id => "en:cocoa",
 					percent => 50,
 					text => "cacao",
 				}
@@ -54,7 +54,7 @@ my @tests = (
 			lc => "fr",
 			ingredients => [
 				{
-					id => "en:cacao",
+					id => "en:cocoa",
 					percent => 50,
 					text => "cacao",
 				}
@@ -68,7 +68,7 @@ my @tests = (
 			lc => "fr",
 			ingredients => [
 				{
-					id => "en:cacao",
+					id => "en:cocoa",
 					percent => 50,
 					text => "cacao",
 				}
@@ -83,7 +83,7 @@ my @tests = (
 			lc => "fr",
 			ingredients => [
 				{
-					id => "en:cacao",
+					id => "en:cocoa",
 					percent => 100,
 					text => "cacao",
 				}
@@ -98,7 +98,7 @@ my @tests = (
 			lc => "fr",
 			ingredients => [
 				{
-					id => "en:pate-de-cacao",
+					id => "en:cocoa-paste",
 					percent => 100,
 					text => "pâte de cacao",
 				}
@@ -112,7 +112,7 @@ my @tests = (
 			lc => "fr",
 			ingredients => [
 				{
-					id => "en:beurre-de-cacao",
+					id => "en:cocoa-butter",
 					percent => 100,
 					text => "beurre de cacao",
 				}
@@ -126,7 +126,7 @@ my @tests = (
 			lc => "fr",
 			ingredients => [
 				{
-					id => "en:cacao",
+					id => "en:cocoa",
 					percent => 50,
 					text => "cacao",
 				}

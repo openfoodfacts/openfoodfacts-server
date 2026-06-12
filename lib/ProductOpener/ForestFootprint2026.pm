@@ -38,7 +38,7 @@ ForestFootprint module. Instead of using soy-based calculations, it uses:
 - Label-based risk reduction percentages
 
 The computation formula is:
-    footprint = percent_estimate * equivalence_1 * equivalence_2 * origin_footprint * (risk_factor / 100)
+    footprint = percent_estimate * equivalence_ingredient * equivalence_ingredient_category * origin_footprint * (risk_factor / 100)
 
 =cut
 
@@ -136,7 +136,7 @@ sub load_ingredients_equivalence ($) {
 			my $ingredient_id = $row_ref->{ingredient_id};
 			my $ingredient_fr = $row_ref->{ingredient_fr};
 			my $ingredient_category_id = $row_ref->{ingredient_category_id};
-			my $equivalence = $row_ref->{equivalence} + 0;
+			my $equivalence = _parse_decimal($row_ref->{equivalence});
 
 			if ($ingredient_id eq "") {
 				$log->warn("ingredient_fr has no ingredient_id", {ingredient_fr => $ingredient_fr})
@@ -188,7 +188,7 @@ sub load_ingredient_categories_equivalence ($) {
 
 			my $ingredient_category_id = $row_ref->{ingredient_category_id};
 			my $primary_ingredient_id = $row_ref->{primary_ingredient_id};
-			my $equivalence = $row_ref->{equivalence} + 0;
+			my $equivalence = _parse_decimal($row_ref->{equivalence});
 
 			if ($ingredient_category_id eq "") {
 				$log->warn("ingredient_category_fr has no ingredient_category_id",
@@ -247,9 +247,9 @@ sub load_labels_risk ($) {
 			}
 
 			$forest_footprint_2026_data{labels_risk}{$label_id} = {
-				cocoa => ($row_ref->{"cocoa.footprint"} // 100) + 0,
-				coffee => ($row_ref->{"coffee.footprint"} // 100) + 0,
-				"palm-oil" => ($row_ref->{"palm-oil.footprint"} // 100) + 0,
+				cocoa => _parse_decimal($row_ref->{"cocoa.footprint"}),
+				coffee => _parse_decimal($row_ref->{"coffee.footprint"}),
+				"palm-oil" => _parse_decimal($row_ref->{"palm-oil.footprint"}),
 			};
 		}
 
@@ -297,9 +297,9 @@ sub load_origins_footprint ($) {
 			}
 
 			$forest_footprint_2026_data{origins_footprint}{$origin_id} = {
-				cocoa => ($row_ref->{"cocoa.footprint"} // 0) + 0,
-				coffee => ($row_ref->{"coffee.footprint"} // 0) + 0,
-				"palm-oil" => ($row_ref->{"palm-oil.footprint"} // 0) + 0,
+				cocoa => _parse_decimal($row_ref->{"cocoa.footprint"}),
+				coffee => _parse_decimal($row_ref->{"coffee.footprint"}),
+				"palm-oil" => _parse_decimal($row_ref->{"palm-oil.footprint"}),
 			};
 		}
 
@@ -444,7 +444,7 @@ sub get_forest_footprint_2026_ingredient_footprint {
 	my $ingredient_data = $forest_footprint_2026_data{ingredients}{$ingredient_id};
 
 	my $ingredient_category_id = $ingredient_data->{ingredient_category_id};
-	my $equivalence_1 = $ingredient_data->{equivalence};
+	my $equivalence_ingredient = $ingredient_data->{equivalence};
 
 	if (not exists $forest_footprint_2026_data{ingredient_categories}{$ingredient_category_id}) {
 		$log->debug("ingredient category not in forest footprint 2026 data",
@@ -456,7 +456,7 @@ sub get_forest_footprint_2026_ingredient_footprint {
 	my $category_data = $forest_footprint_2026_data{ingredient_categories}{$ingredient_category_id};
 
 	my $primary_ingredient_id = $category_data->{primary_ingredient_id};
-	my $equivalence_2 = $category_data->{equivalence};
+	my $equivalence_ingredient_category = $category_data->{equivalence};
 
 	my $primary_ingredient = get_primary_ingredient_name($primary_ingredient_id);
 
@@ -465,8 +465,8 @@ sub get_forest_footprint_2026_ingredient_footprint {
 			ingredient_category_id => $ingredient_category_id,
 			primary_ingredient_id => $primary_ingredient_id,
 			primary_ingredient => $primary_ingredient,
-			equivalence_1 => $equivalence_1,
-			equivalence_2 => $equivalence_2,})
+			equivalence_ingredient => $equivalence_ingredient,
+			equivalence_ingredient_category => $equivalence_ingredient_category,})
 		if $log->is_debug();
 
 	my $origin_footprint = get_origin_footprint($product_ref, $primary_ingredient);
@@ -487,12 +487,12 @@ sub get_forest_footprint_2026_ingredient_footprint {
 		$percent = 100;
 	}
 
-	my $footprint_per_kg = ($percent / 100) * $equivalence_1 * $equivalence_2 * $origin_footprint * $risk_factor;
+	my $footprint_per_kg = ($percent / 100) * $equivalence_ingredient * $equivalence_ingredient_category * $origin_footprint * $risk_factor;
 
 	$log->debug("computed footprint",
 		{percent => $percent,
-			equivalence_1 => $equivalence_1,
-			equivalence_2 => $equivalence_2,
+			equivalence_ingredient => $equivalence_ingredient,
+			equivalence_ingredient_category => $equivalence_ingredient_category,
 			origin_footprint => $origin_footprint,
 			risk_factor => $risk_factor,
 			footprint_per_kg => $footprint_per_kg,})
@@ -503,8 +503,8 @@ sub get_forest_footprint_2026_ingredient_footprint {
 		ingredient_category_id => $ingredient_category_id,
 		primary_ingredient_id => $primary_ingredient_id,
 		percent => $percent,
-		equivalence_1 => $equivalence_1,
-		equivalence_2 => $equivalence_2,
+		equivalence_ingredient => $equivalence_ingredient,
+		equivalence_ingredient_category => $equivalence_ingredient_category,
 		origin_footprint => $origin_footprint,
 		risk_factor => $risk_factor,
 		footprint_per_kg => $footprint_per_kg,
@@ -576,6 +576,23 @@ sub get_label_risk {
 	}
 
 	return $risk_factor;
+}
+
+sub _parse_decimal ($) {
+
+	my ($value) = @_;
+
+	if (not defined $value or $value eq "" or $value eq "#N/A") {
+		return 0;
+	}
+
+	# Convert European decimal notation (comma) to dot notation
+	$value =~ s/,/./g;
+
+	# Remove any non-numeric characters except dot and minus
+	$value =~ s/[^0-9\.\-]//g;
+
+	return $value + 0;
 }
 
 1;
