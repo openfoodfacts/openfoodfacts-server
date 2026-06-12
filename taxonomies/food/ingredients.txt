@@ -76926,9 +76926,6 @@ ciqual_food_name:fr: Grondin, cru
 wikidata:en: Q250699
 wikipedia:en: https://en.wikipedia.org/wiki/Triglidae
 
-
-# en:description:The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
-
 < en:fish
 < en:white fish
 en: haddock
@@ -76973,10 +76970,6 @@ sv: Kolja
 tr: Mezgit
 uk: Пікша
 zh: 黑線鱈
-# ingredient/fr:Melanogrammus-aeglefinus has 16 products @2019-01-14
-ciqual_food_code:en: 26122
-ciqual_food_name:en: Haddock, raw
-ciqual_food_name:fr: Églefin, cru
 # en-gb:haddock
 # pcd:Éqhélfin
 # sco:haddock
@@ -76986,8 +76979,24 @@ ciqual_food_name:fr: Églefin, cru
 # zh-hk:黑線鱈
 # zh-sg:黑线鳕
 # zh-tw:黑線鱈
+ciqual_food_proxy_code:en: 26122
+ciqual_food_proxy_name:en: Haddock, raw
+ciqual_food_proxy_name:fr: Églefin, cru
+description:en: The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
+usda_ndb_proxy_code:en: 15033
+usda_ndb_proxy_name:en: Fish, haddock, raw
 wikidata:en: Q202406
 wikipedia:en: https://en.wikipedia.org/wiki/Haddock
+# ingredient/fr:Melanogrammus-aeglefinus has 16 products @2019-01-14
+
+< en:haddock
+en: raw haddock
+fr: Églefin cru
+ciqual_food_code:en: 26122
+ciqual_food_name:en: Haddock, raw
+ciqual_food_name:fr: Églefin, cru
+usda_ndb_code:en: 15033
+usda_ndb_name:en: Fish, haddock, raw
 
 
 # en:description:The term hake /heɪk/ refers to fish in either of:Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
