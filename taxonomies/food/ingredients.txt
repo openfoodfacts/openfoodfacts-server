@@ -4108,9 +4108,9 @@ hr: obrani jogurt
 hu: sovány joghurt
 it: Yogurt magro
 nl: magere yoghurt
+comment:en: should this be split in multiple ones?
 usda_ndb_code:en: 1117
 usda_ndb_name:en: Yogurt, plain, low fat
-comment:en: should this be split in multiple ones?
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:rasvaton-jogurtti
 # 2 entries @ 2019-11-02
 
@@ -15391,7 +15391,7 @@ zh: 棉籽油
 ciqual_food_code:en: 17170
 ciqual_food_name:en: Cottonseed oil
 ciqual_food_name:fr: Huile de coton
-description:en:COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
+description:en: COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
 from_palm_oil:en: no
 usda_ndb_proxy_code:en: 4502
 usda_ndb_proxy_name:en: Oil, cottonseed, salad or cooking
@@ -15795,7 +15795,7 @@ ru: пальмовое
 sk: palma
 sl: palmovo
 sv: Palm
-comment:en:palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
+comment:en: palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
 
 #< en:palm makes a loop
 < en:shortening
@@ -16761,12 +16761,11 @@ usda_ndb_code:en: 4645
 usda_ndb_name:en: Oil, industrial, canola (partially hydrogenated) oil for deep fat frying
 
 #process:en: en:fully hydrogenated (probably has a specific nutritional profile)
-<en:canola oil
-en:fully hydrogenated canola oil
-de:ganz gehärtetes Canola-Öl, vollständig hydriertes Canola-Öl
-fi:kokonaan kovetettu rypsiöljy
-sv:fullhärdad rypsolja
-
+< en:canola oil
+en: fully hydrogenated canola oil
+de: ganz gehärtetes Canola-Öl, vollständig hydriertes Canola-Öl
+fi: kokonaan kovetettu rypsiöljy
+sv: fullhärdad rypsolja
 
 < en:rapeseed oil
 en: low erucic acid rapeseed oil
@@ -17421,7 +17420,7 @@ kn: ಅಶ್ವಕರ್ಣ ಎಣ್ಣೆ
 nl: sal
 pl: olej z sal
 te: సాల్‌సీడ్ నూనె
-description:en:SAL OIL (Shorea robusta seed oil) is an edible oil extracted from the seeds of Shorea robusta.
+description:en: SAL OIL (Shorea robusta seed oil) is an edible oil extracted from the seeds of Shorea robusta.
 from_palm_oil:en: no
 wikidata:en: Q15087371
 wikipedia:en: https://en.wikipedia.org/wiki/Shorea_robusta_seed_oil
