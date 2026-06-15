@@ -122,12 +122,15 @@ sub load_forest_footprint_2026_data() {
 	load_labels_risk($data_dir);
 	load_origins_footprint($data_dir);
 
-	$log->info("loaded forest footprint 2026 data",
-		{ingredients => scalar(keys %{$forest_footprint_2026_data{ingredients}}),
+	$log->info(
+		"loaded forest footprint 2026 data",
+		{
+			ingredients => scalar(keys %{$forest_footprint_2026_data{ingredients}}),
 			ingredient_categories => scalar(keys %{$forest_footprint_2026_data{ingredient_categories}}),
 			labels_risk => scalar(keys %{$forest_footprint_2026_data{labels_risk}}),
-			origins_footprint => scalar(keys %{$forest_footprint_2026_data{origins_footprint}}),})
-		if $log->is_info();
+			origins_footprint => scalar(keys %{$forest_footprint_2026_data{origins_footprint}}),
+		}
+	) if $log->is_info();
 
 	return;
 }
@@ -217,9 +220,10 @@ sub load_ingredient_categories_equivalence ($) {
 			my $equivalence = _parse_decimal($row_ref->{equivalence});
 
 			if ($ingredient_category_id eq "") {
-				$log->warn("ingredient_category_fr has no ingredient_category_id",
-					{ingredient_category_fr => $row_ref->{ingredient_category_fr}})
-					if $log->is_warn();
+				$log->warn(
+					"ingredient_category_fr has no ingredient_category_id",
+					{ingredient_category_fr => $row_ref->{ingredient_category_fr}}
+				) if $log->is_warn();
 				next;
 			}
 
@@ -372,10 +376,7 @@ sub compute_forest_footprint_2026 ($product_ref) {
 	}
 
 	if (defined $product_ref->{ingredients}) {
-		compute_footprints_of_ingredients_2026(
-			$product_ref,
-			$product_ref->{ingredients}
-		);
+		compute_footprints_of_ingredients_2026($product_ref, $product_ref->{ingredients});
 	}
 
 	# Calculate total footprint and grades
@@ -398,7 +399,8 @@ sub compute_forest_footprint_2026 ($product_ref) {
 		# Calculate overall total footprint
 		$product_ref->{forest_footprint_2026}{total_footprint_per_kg} = 0;
 		foreach my $primary_id (@primary_ingredients) {
-			$product_ref->{forest_footprint_2026}{total_footprint_per_kg} += $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{footprint_per_kg};
+			$product_ref->{forest_footprint_2026}{total_footprint_per_kg}
+				+= $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{footprint_per_kg};
 		}
 
 		# Calculate overall grade
@@ -447,24 +449,9 @@ sub compute_footprints_of_ingredients_2026 ($product_ref, $ingredients_ref) {
 
 		if (defined $ingredient_footprint_ref) {
 			# Directly add to the appropriate primary_ingredient
-			my $primary_id = $ingredient_footprint_ref->{primary_ingredient_id};
-
-			# Find matching primary ingredient
-			foreach my $primary (@primary_ingredients) {
-				if ($primary_id =~ /cocoa/i && $primary eq 'en:cocoa') {
-					push @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary}{ingredients}}, $ingredient_footprint_ref;
-					last;
-				}
-				elsif ($primary_id =~ /coffee/i && $primary eq 'en:coffee') {
-					push @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary}{ingredients}}, $ingredient_footprint_ref;
-					last;
-				}
-				elsif ($primary_id =~ /palm/i && $primary eq 'en:palm-oil') {
-					push @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary}{ingredients}}, $ingredient_footprint_ref;
-					last;
-				}
-			}
-
+			my $primary_ingredient_id = $ingredient_footprint_ref->{primary_ingredient_id};
+			push @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id}{ingredients}},
+				$ingredient_footprint_ref;
 			$ingredients_with_footprint += 1;
 		}
 	}
@@ -508,8 +495,7 @@ sub get_forest_footprint_2026_ingredient_footprint {
 	}
 
 	if (not exists $forest_footprint_2026_data{ingredients}{$ingredient_id}) {
-		$log->debug("ingredient not in forest footprint 2026 data",
-			{ingredient_id => $ingredient_id})
+		$log->debug("ingredient not in forest footprint 2026 data", {ingredient_id => $ingredient_id})
 			if $log->is_debug();
 		return undef;
 	}
@@ -520,9 +506,10 @@ sub get_forest_footprint_2026_ingredient_footprint {
 	my $equivalence_ingredient = $ingredient_data->{equivalence};
 
 	if (not exists $forest_footprint_2026_data{ingredient_categories}{$ingredient_category_id}) {
-		$log->debug("ingredient category not in forest footprint 2026 data",
-			{ingredient_category_id => $ingredient_category_id})
-			if $log->is_debug();
+		$log->debug(
+			"ingredient category not in forest footprint 2026 data",
+			{ingredient_category_id => $ingredient_category_id}
+		) if $log->is_debug();
 		return undef;
 	}
 
@@ -549,7 +536,12 @@ sub get_forest_footprint_2026_ingredient_footprint {
 		$percent = 100;
 	}
 
-	my $footprint_per_kg = ($percent / 100) * $equivalence_ingredient * $equivalence_ingredient_category * $origin_footprint * $risk_factor;
+	my $footprint_per_kg
+		= ($percent / 100)
+		* $equivalence_ingredient
+		* $equivalence_ingredient_category
+		* $origin_footprint
+		* $risk_factor;
 
 	my $footprint_ref = {
 		ingredient_id => $ingredient_id,
@@ -574,7 +566,7 @@ sub get_primary_ingredient_name ($) {
 		my $name = $1;
 		# Map ingredient names to footprint categories
 		if ($name eq 'cacao') {
-			return 'cocoa';  # cacao -> cocoa for footprint lookup
+			return 'cocoa';    # cacao -> cocoa for footprint lookup
 		}
 		return $name;
 	}
@@ -672,7 +664,8 @@ sub calculate_forest_footprint_2026_grade ($) {
 	# Check if any calculated primary ingredients are present
 	foreach my $primary_id (@primary_ingredients) {
 		if (defined $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}
-			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}} > 0) {
+			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}} > 0)
+		{
 			$has_calculated_ingredient = 1;
 			last;
 		}
@@ -730,7 +723,8 @@ sub calculate_forest_footprint_2026_grade ($) {
 
 		# Only consider if this primary ingredient is present (has ingredients)
 		if (defined $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}
-			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}} > 0) {
+			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}} > 0)
+		{
 			if ($grade_score > $final_grade_score) {
 				$final_grade = $grade;
 				$final_grade_score = $grade_score;
