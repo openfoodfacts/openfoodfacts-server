@@ -157,11 +157,11 @@ my @tests = (
 	],
 	[{lc => "fr", ingredients_text => "Artichaut coupé"}, ["en:artichoke"],],
 	[{lc => "fr", ingredients_text => "Artichaut coupe"}, ["en:artichoke"],],
-	[{lc => "fr", ingredients_text => "Banane cuite"}, ["en:banana"],],
-	[{lc => "fr", ingredients_text => "Banane coupée cuite"}, ["en:banana"],],
+	[{lc => "fr", ingredients_text => "Banane cuite"}, ["en:raw-banana"],],
+	[{lc => "fr", ingredients_text => "Banane coupée cuite"}, ["en:raw-banana"],],
 	[{lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, ["fr:Fromage étrange à pâte cuite"],],
-	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
-	[{lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, ["en:banana"],],
+	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:raw-banana"],],
+	[{lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, ["en:raw-banana"],],
 	[
 		{
 			lc => "fr",
@@ -196,7 +196,7 @@ my @tests = (
 	],
 	[
 		{lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"},
-		["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]
+		["en:unrefined-cane-sugar", "en:raw-banana", "en:tomato", "en:unrefined-sugar"]
 	],
 
 	[
@@ -321,7 +321,7 @@ my @tests = (
 		{lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"},
 		["en:vegetable-oil", "en:oil", "en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
 	],
-	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
+	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:raw-banana"],],
 	[
 		{lc => "fr", ingredients_text => "Ingrédient inconnu coupée et cuite au naturel"},
 		["fr:Ingrédient inconnu coupée et cuite au naturel"],
