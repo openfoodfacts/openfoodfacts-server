@@ -14,7 +14,7 @@ https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/containe
 
 ## Production environment
 
-When you do a Product Opener realese, it's also a good time to do contents release.
+When you do a Product Opener release, it's also a good time to do content release.
 Go to https://github.com/openfoodfacts/openfoodfacts-web/pulls?q=is%3Apr+is%3Aopen+release and create the release.
 
 Product Opener is deployed on a container in Proxmox.
