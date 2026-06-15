@@ -75140,17 +75140,7 @@ yo: eja
 za: Duzbya
 zh: 鱼, 魚
 zu: inhlanzi
-allergens:en: en:fish
 # ingredient/fish has 7147 products in 12 languages @2018-12-21
-#carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
-#carbon_footprint_fr_foodges_value:fr:10.2
-carbon_footprint_fr_foodges_ingredient:fr: Poisson sauvage (filet)
-carbon_footprint_fr_foodges_value:fr: 11.5
-ciqual_proxy_food_code:en: 26140
-ciqual_proxy_food_name:en: Fish, cooked (average)
-description:en: Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
-vegan:en: no
-vegetarian:en: no
 # ace:Eungkôt
 # ang:Fisc
 # arz:سمك
@@ -75268,6 +75258,16 @@ vegetarian:en: no
 # zh-mo:鱼
 # zh-sg:鱼
 # zh-tw:魚
+allergens:en: en:fish
+#carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
+#carbon_footprint_fr_foodges_value:fr:10.2
+carbon_footprint_fr_foodges_ingredient:fr: Poisson sauvage (filet)
+carbon_footprint_fr_foodges_value:fr: 11.5
+ciqual_proxy_food_code:en: 26140
+ciqual_proxy_food_name:en: Fish, cooked (average)
+description:en: Fish are gill-bearing aquatic craniate animals that lack limbs with digits.
+vegan:en: no
+vegetarian:en: no
 wikidata:en: Q600396
 wikipedia:en: https://en.wikipedia.org/wiki/Fish
 
@@ -78395,7 +78395,17 @@ ciqual_food_code:en: 26058
 ciqual_food_name:en: Common sole, raw
 ciqual_food_name:fr: Sole, crue
 
-# description:en:Surimi refers to a paste made from fish or other meat.
+< en:fish
+en: spot
+la: Leiostomus xanthurus
+description:en: Spot (Leiostomus xanthurus) — a small Atlantic croaker in the drum family, named for the distinctive dark spot behind its gill cover. It's a popular recreational and bait fish along the US East Coast.
+usda_ndb_proxy_code:en: 15103
+usda_ndb_proxy_name:en: Fish, spot, raw
+
+< en:spot
+en: raw spot
+usda_ndb_code:en: 15103
+usda_ndb_name:en: Fish, spot, raw
 
 < en:fish
 en: surimi
@@ -78414,6 +78424,7 @@ zh: 魚漿
 # zh-hans: 魚漿
 # zh-hant: 魚漿
 # zh-hk: 魚漿
+description:en: Surimi refers to a paste made from fish or other meat.
 wikidata:en: Q815740
 wikipedia:en: https://en.wikipedia.org/wiki/Surimi
 # ingredient/fr:surimi has 145 products in 2 languages @2019-01-12
