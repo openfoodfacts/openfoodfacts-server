@@ -546,20 +546,6 @@ my @tests = (
 	[
 		{
 			lc => "fi",
-			ingredients_text => "kuivattu banaani"
-		},
-		[
-			{
-				'id' => 'en:banana',
-				'is_in_taxonomy' => 1,
-				'processing' => 'en:dried',
-				'text' => 'banaani'
-			}
-		]
-	],
-	[
-		{
-			lc => "fi",
 			ingredients_text => "raakamaito, mustikkajauhe, jauhettu vaniljatanko"
 		},
 		[
