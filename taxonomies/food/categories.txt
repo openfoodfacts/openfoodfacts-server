@@ -53743,23 +53743,39 @@ fr: Boissons au lait végétal fermentées
 
 < en:Dairy substitutes
 en: Milk substitutes, milk replacements, milk substitute, milk replacement
+af: Melk plaasvervanger
+ar: بديل الحليب
 bg: Млечни заместители
-ca: Substitutius de la llet
-cs: Náhražky mléka
+ca: Substitutius de la llet, Substitut de la llet
+cs: Náhražky mléka, Náhražka mléka
 da: Mælkeerstatning
 de: Milchersatz
-es: Sustitutos de la leche
-fi: maidon korvike
+el: Υποκατάστατο γάλακτος
+eo: Laktosurogatoj
+es: Sustitutos de la leche, Sucedáneo lácteo
+fi: Maidon korvike
 fr: Substituts du lait, Substitut du lait
 he: תחליף חלב
 hr: Zamjene za mlijeko
-hu: Tejpótlók
+hu: Tejpótlók, Tejhelyettesítő
+hy: Կաթի փոխարինիչ
+id: Pengganti susu
 it: Sostituto del latte
+ja: 代用乳
+jv: Sesulih susu
+ko: 우유 대용물
 lt: Pieno pakaitalai, Pieno pakaitalas
+mk: Замена за млеко
+ms: Pengganti susu
 nl: Melkvervangers, Melkvervanger
 pl: Zastępniki mleka
-pt: Substitutos do leite
-ru: Заменители молока, заменитель молока
+pt: Substitutos do leite, Substituto do leite
+ru: Заменители молока, Заменитель молока
+sl: Mlečni nadomestek
+sv: Mjölkersättningar
+tr: Süt ikamesi
+uk: Замінник молока
+zh: 代乳品
 food_groups:en: en:plant-based-milk-substitutes
 google_product_taxonomy_id:en: 5724
 pnns_group_2:en: Plant-based milk substitutes
@@ -53768,21 +53784,44 @@ wikidata:en: Q1626970
 < en:Milk substitutes
 < en:Plant-based beverages
 en: Plant-based milk alternatives, Plant milks, Vegetable milks, Vegetable drinks, Non-dairy milks
-bg: Растителни млека
-ca: Begudes vegetals, Begudes no làctiques
+af: Plantmelk
+ar: حليب النبات
+bg: Растителни млека, Растително мляко
+bn: উদ্ভিজ্জ দুধ
+ca: Begudes vegetals, Begudes no làctiques, Llet vegetal
+cs: Rostlinné mléko
+da: Plantedrikke
 de: Pflanzenmilch, Pflanzenmilche, Pflanzenmilchen
-es: Bebidas vegetales, Leches vegetales, Leche vegetal
-fi: Kasvipohjaiset maidonkorvikkeet
-fr: Boissons végétales, Laits végétaux, lait végétal, laits végétaliens
+eo: Vegetala laktoj
+es: Bebidas vegetales, Leches vegetales, Leche vegetal, Bebida vegetal
+fa: شیر گیاهی
+fi: Kasvipohjaiset maidonkorvikkeet, Kasvimaito
+fr: Boissons végétales, Laits végétaux, Lait végétal, Laits végétaliens
+gl: Leite vexetal
 he: חלב מן הצומח
-hr: Biljnih mliječnih alternativa
-hu: Névényi tejek, Zöldség tejek, Zöldség italok
+hr: Biljnih mliječnih alternativa, Biljno mlijeko
+hu: Névényi tejek, Zöldség tejek, Zöldség italok, Növényi tej
+hy: Բուսական կաթ
+id: Susu nabati
 it: Latte vegetale
+ja: 植物性ミルク
+jv: Susu tuwuhan
+ko: 식물성 밀크
 lt: Augalinis pienas
+mk: Растително млеко
+ms: Susu tumbuhan
 nl: Plantaardige melken
 pl: Mleka roślinne
-pt: Leites de planta
+pt: Leites de planta, Leite vegetal
 ru: Растительное молоко
+sk: Rastlinné mlieko
+sl: Rastlinsko mleko
+so: Caanaha dhirta
+sv: Växtmjölk
+tr: Bitkisel süt
+tt: Үсемлек сөте
+uk: Рослинне молоко
+vi: Sữa thực vật
 zh: 植物奶
 food_groups:en: en:plant-based-milk-substitutes
 pnns_group_2:en: Plant-based milk substitutes
@@ -53795,17 +53834,24 @@ description:en: Plant-based milks made to have foaming and other qualities simil
 < en:Cereals and their products
 < en:Plant-based milk alternatives
 en: Cereal-based drinks, Cereal milks, Cereal drinks, Grain milks
+ar: حليب الحبوب
+ca: Llet de gra
 de: Getreidemilch, Getreidemilche, Getreidemilchen
-es: Bebidas de cereales, Leches de cereales
-fi: kasvimaidot
+eo: Grena laktosurogatoj
+es: Bebidas de cereales, Leches de cereales, Leche de grano
+fi: Kasvimaidot
 fr: Boissons végétales de céréales, Laits de céréales
 hr: Pića na bazi žitarica
 hu: Gabona tejek
 it: Latte di cereali
+ja: グレインミルク
 lt: Grūdų pienas, Grūdų gėrimai
 nl: Tarwemelken
+pl: Mleko zbożowe
 pt: Leites de cereais
 ru: Зерновое молоко
+sv: Gryndrycker
+uk: Зернове молоко
 agribalyse_proxy_food_code:en: 18905
 ciqual_proxy_food_code:en: 18905
 ciqual_proxy_food_name:en: Oat-based drink, plain
@@ -53820,7 +53866,6 @@ fr: Boissons à l'amarante, Laits d'amarante
 hr: Pića na bazi amaranta
 hu: Bársonyvirág tej
 nl: Amaranthmelken
-#wikidata:en:
 
 < en:Cereal-based drinks
 en: Barley-based drinks, Barley milks, Barley drinks
@@ -53831,7 +53876,6 @@ hr: Pića na bazi ječma
 hu: Árpa tej
 lt: Miežių pienas, miežių gėrimai
 nl: Gerstemelken
-#wikidata:en:
 
 < en:Cereal-based drinks
 en: Buckwheat-based drinks, Buckwheat milks, Buckwheat drinks
@@ -53841,7 +53885,6 @@ fr: Boissons au sarrasin, Boissons végétales de sarrasin, Laits de sarrasin
 hr: Pića na bazi heljde
 lt: Grikių pienas
 nl: Boekweitdranken
-#wikidata:en:
 
 < en:Cereal-based drinks
 en: Canary grass-based drinks, Canary grass milks, Canary grass drinks
@@ -53850,7 +53893,6 @@ es: Bebidas de alpiste, Leches de alpiste
 fr: Boissons végétales d'alpiste, Laits d'alpiste
 hr: Pića na bazi kanarinske trave
 nl: Kanariegrasdranken
-#wikidata:en:
 
 < en:Cereal-based drinks
 en: Maize-based drinks, Maize milks, Corn milks, Maize drinks, Corn drinks
@@ -53861,7 +53903,6 @@ fr: Boissons au maïs, Boissons végétales de maïs, Laits de maïs
 hr: Pića na bazi kukuruza
 it: Latte di mais
 nl: Maisdranken
-#wikidata:en:
 
 < en:Cereal-based drinks
 en: Millet-based drinks, Millet milks, Millet drinks
@@ -53871,47 +53912,90 @@ fr: Boissons au millet, Boissons végétales de millet, Laits de millet
 hr: Pića na bazi prosa
 it: Latte di miglio
 nl: Gierstdranken
-#wikidata:en:
 
 < en:Cereal-based drinks
-en: Oat-based drinks, Oat milks, Oat drinks, Plain oat-based drinks
+en: Oat-based drinks, Oat milks, Oat drinks
+af: Hawermelk
+ar: حليب الشوفان
 bg: Напитка с овес
 ca: Beguda de civada
-da: havredrikke, havremælk
+cs: Ovesné mléko
+cy: Llaeth ceirch
+da: Havredrikke, Havremælk
 de: Hafermilch, Hafermilche, Hafermilchen, Hafer-Drinks, Hafer-Drink, Haferdrink, Haferdrinks
-es: Bebidas de avena, Leches de avena
-fi: kaurajuomat
-fr: Boissons à l'avoine, laits d'avoine, lait d’avoine, Boissons à base d'avoine
+eo: Avenlaktoj
+es: Bebidas de avena, Leches de avena, Bebida de avena
+et: Kaerahelbepiim
+fa: شیر جو دوسر
+fi: Kaurajuomat, Kauramaito
+fr: Boissons à l'avoine, Laits d'avoine, Lait d’avoine, Boissons à base d'avoine, Lait d'avoine
 he: חלב שיבולת, חלב שיבולת שועל, משקאות שיבולת שועל, משקאות שיבולת, חלבי שיבולת, חלבי שיבולת שועל
 hr: Pića na bazi zobi
+hu: Zabtej
+hy: Վարսակի կաթ
+id: Sari gandum
+io: Avena lakto
 it: Bevanda di avena
-ja: オートミルク
+ja: オートミルク, オーツ・ミルク
+jv: Susu oat
+ko: 귀리유
 lt: Avižų pienas
+nb: Havredrikk
 nl: Haverdranken, Havermoutmelken, Havermelken, Havermelk
-pl: Mleka owsiane
-pt: Bebidas de aveia
-sv: Havredrycker, havredryck
+pl: Mleka owsiane, Mleko owsiane
+pt: Bebidas de aveia, Leite de aveia
+ru: Овсяное молоко
+se: Hávvarmielki
+sk: Ovsené mlieko
+sl: Ovseno mleko
+sr: Овсено млеко
+sv: Havredrycker, Havremjölk
+uk: Вівсяне молоко
+vi: Sữa yến mạch
+wa: Laecea d' avoenne
 zh: 燕麦奶
+agribalyse_proxy_food_code:en: 18905
+ciqual_proxy_food_code:en: 18905
+ciqual_proxy_food_name:en: Oat-based drink, plain
+ciqual_proxy_food_name:fr: Boisson à base d'avoine, nature
+wikidata:en: Q20972637
+
+< en:Oat-based drinks
+en: Plain oat-based drinks, Natural oat milks, Natural oat drinks, Plain oat milks, Plain oat drinks
+de: Natürliche Hafermilch, Natürliche Hafergetränke, Einfache Hafermilch, Einfache Hafergetränke
+es: Bebidas de avena naturales, Leches de avena naturales
+fr: Boissons végétales d’avoine riz nature, Boissons végétales d'avoine riz nature, Laits d'avoine nature, Boissons à base d'avoine nature
+hr: Obična pića na bazi sobi
+it: Latte di avena naturale
+nl: Natuurlijke haverdranken
+sv: Naturelle havredrycker
 agribalyse_food_code:en: 18905
 ciqual_food_code:en: 18905
 ciqual_food_name:en: Oat-based drink, plain
 ciqual_food_name:fr: Boisson à base d'avoine, nature
-wikidata:en: Q20972637
+opposite:en: en:flavoured-oat-based-drinks
 
-< en:Oat-based drinks
+< en:Plain oat-based drinks
 en: Unsweetened plain oat-based drinks, Unsweetened natural oat milks
 fr: Boissons végétales d'avoine nature non sucrées
+sv: Osötade naturelle havredrycker
 
-< en:Oat-based drinks
+< en:Plain oat-based drinks
 en: Sweetened plain oat-based drinks, Sweetened natural oat milks
 fr: Boissons végétales d'avoine nature sucrées
+sv: Sötade naturelle havredrycker
 
 < en:Oat-based drinks
+en: Flavoured oat-based drinks
+sv: Havredrycker med smak
+opposite:en: en:plain-oat-based-drinks
+
+< en:Flavoured oat-based drinks
 en: Cocoa oat-based drinks, Cocoa oat milks
 fr: Boissons végétales d'avoine au cacao
-sv: chokladhavredryck, kakaohavredryck, havredryck choklad
+sv: Chokladhavredrycker, Kakaohavredrycker, havredryck choklad
 
-< en:Oat-based drinks
+< en:Flavoured oat-based drinks
 en: Vanilla oat-based drinks, Vanilla oat milks
 fr: Boissons végétales d'avoine à la vanille
 
@@ -53920,10 +54004,20 @@ en: UHT oat based drinks
 
 < en:Oat-based drinks
 < en:Plant-based barista milk alternatives
-en: Barista oat drinks, Barista oat milks
+en: Oat-based barista drinks, Barista oat drinks, Barista oat milks
 da: Barista-havredrikke
 sv: Barista-havredrycker
 description:en: Oat milks made to have foaming and other qualities similar to dairy milks, esp. for use in coffee.
+
+< en:Oat-based barista drinks
+< en:Plain oat-based drinks
+en: Plain oat-based barista drinks, Plain barista oat drinks, Plain barista oat milks
+sv: Naturelle barista-havredrycker
+
+< en:Flavoured oat-based drinks
+< en:Oat-based barista drinks
+en: Flavoured oat-based barista drinks, Flavoured barista oat drinks, Flavoured barista oat milks
+sv: Barista-havredrycker med smak
 
 < en:Cereal-based drinks
 en: Quinoa-based drinks, Quinoa milks, Quinoa drinks
@@ -53934,7 +54028,6 @@ fr: Boissons au quinoa, Boissons végétales de quinoa, Laits de quinoa
 hr: Pića na bazi kvinoje
 nl: Quinoamelken, Quinoadranken
 pt: Bebidas de quinoa
-#wikidata:en:
 
 < en:Cereal-based drinks
 en: Rice-based drinks, Rice milks, Rice drinks
@@ -53962,7 +54055,7 @@ ciqual_food_name:fr: Boisson à base de riz, nature
 wikidata:en: Q715187
 
 < en:Rice-based drinks
-en: Plain rice-based drinks, Natural rice milks, Natural rice drinks, Plain rice milks, Plain rice drinks, Plain rice-based drinks
+en: Plain rice-based drinks, Natural rice milks, Natural rice drinks, Plain rice milks, Plain rice drinks
 de: Natürliche Reismilch, Natürliche Reisgetränke, Einfache Reismilch, Einfache Reisgetränke
 es: Bebidas de arroz naturales, Leches de arroz naturales
 fr: Boissons végétales de riz nature, Laits de riz nature, Boissons à base de riz nature
@@ -53973,7 +54066,6 @@ agribalyse_food_code:en: 18904
 ciqual_food_code:en: 18904
 ciqual_food_name:en: Rice-based drink, plain
 ciqual_food_name:fr: Boisson à base de riz, nature
-#wikidata:en:
 
 < en:Rice-based drinks
 en: Vanilla rice-based drinks, Vanilla rice milks, Vanilla rice drinks
