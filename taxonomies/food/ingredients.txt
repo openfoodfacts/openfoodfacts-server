@@ -75831,10 +75831,6 @@ sv: Marulk
 tr: Fener balığı
 uk: Морський чорт
 zh: 釣鮟鱇
-# ingredient/en:angler-fish has 2 products @2019-01-12
-ciqual_food_code:en: 26018
-ciqual_food_name:en: Anglerfish, raw
-ciqual_food_name:fr: Lotte ou baudroie, crue
 # pcd:Crapoe
 # zh-cn:钓鮟鱇
 # zh-hans:钓齾龌
@@ -75842,7 +75838,13 @@ ciqual_food_name:fr: Lotte ou baudroie, crue
 # zh-hk:釣鮟鱇
 # zh-sg:钓鮟鱇
 # zh-tw:釣鮟鱇
+ciqual_food_code:en: 26018
+ciqual_food_name:en: Anglerfish, raw
+ciqual_food_name:fr: Lotte ou baudroie, crue
+usda_ndb_proxy_code:en: 15054
+usda_ndb_proxy_name:en: Fish, monkfish, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Anglerfish
+# ingredient/en:angler-fish has 2 products @2019-01-12
 
 < en:Anglerfish
 en: Raw anglerfish
@@ -75851,6 +75853,8 @@ it: rana pescatrice cruda
 ciqual_food_code:en: 26018
 ciqual_food_name:en: Anglerfish, raw
 ciqual_food_name:fr: Lotte ou baudroie, crue
+usda_ndb_code:en: 15054
+usda_ndb_name:en: Fish, monkfish, raw
 
 < en:fish
 fr: loup
