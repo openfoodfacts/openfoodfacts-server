@@ -98,6 +98,7 @@ use ProductOpener::EnvironmentalImpact;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Store qw/$json_for_objects/;
 
+use Cpanel::JSON::XS;
 use Storable qw/dclone/;
 use Encode;
 use Types::Serialiser;
