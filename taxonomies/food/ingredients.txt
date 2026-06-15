@@ -55263,11 +55263,12 @@ tr: Avokado
 uk: авокадо
 vo: Avokaado
 zh: 鳄梨
+# nah:Āhuacatl
 carbon_footprint_fr_foodges_ingredient:fr: Avocat
 carbon_footprint_fr_foodges_value:fr: 2.4
-ciqual_food_code:en: 13004
-ciqual_food_name:en: Avocado, pulp, raw
-ciqual_food_name:fr: Avocat, pulpe, cru
+ciqual_proxy_food_code:en: 13004
+ciqual_proxy_food_name:en: Avocado, pulp, raw
+ciqual_proxy_food_name:fr: Avocat, pulpe, cru
 description:en: The AVOCADO (Persea americana) is a tree classified as a member of the flowering plant family Lauraceae. The fruit of the plant, also called an avocado, is botanically a large berry containing a single large seed.
 description:de: Die Avocado (Persea americana) ist eine Pflanzenart aus der Familie der Lorbeergewächse (Lauraceae). Die Avocadofrucht ist eine einsamige Beere. Im deutschen Handel findet sich hauptsächlich der weltweit meistverbreitete Typ Fuerte.
 description:es: Persea americana, llamado popularmente aguacate, palto o aguacatero, es una especie arbórea del género Persea perteneciente a la familia Lauraceae, cuyo fruto, el aguacate o palta, es una baya comestible.
@@ -55275,12 +55276,32 @@ description:fr: L'avocatier (Persea americana) est une espèce d'arbres fruitier
 description:it: L'avocado (Persea americana) è una specie arborea da frutto che appartiene alla famiglia delle Lauracee.
 description:nl: De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
 ecobalyse:en: avocado-non-eu
-# 858 in 12 @2021-09-21
 eurocode_2_group_3:en: 8.40.60
-# nah:Āhuacatl
+usda_ndb_proxy_code:en: 9037
+usda_ndb_proxy_name:en: Avocados, raw, all commercial varieties
 wikidata:en: Q961769
 wikipedia:en: https://en.wikipedia.org/wiki/Avocado
+# 858 in 12 @2021-09-21
 
+< en:avocado
+en: raw avocado
+ciqual_food_code:en: 13004
+ciqual_food_name:en: Avocado, pulp, raw
+ciqual_food_name:fr: Avocat, pulpe, cru
+usda_ndb_code:en: 9037
+usda_ndb_name:en: Avocados, raw, all commercial varieties
+
+< en:raw avocado
+en: raw avocado from california
+usda_ndb_code:en: 9038
+usda_ndb_name:en: Avocados, raw, California
+
+< en:raw avocado
+en: raw avocado from florida
+usda_ndb_code:en: 9039
+usda_ndb_name:en: Avocados, raw, Florida
+
+# <en:compound
 en: Guacamole
 it: guacamole
 ciqual_food_code:en: 25620
