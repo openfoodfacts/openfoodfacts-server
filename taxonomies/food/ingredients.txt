@@ -42800,11 +42800,6 @@ ur: سیاہ توت
 vi: mâm xôi
 wa: meumeure
 zh: 黑莓
-ciqual_food_code:en: 13029
-ciqual_food_name:en: Blackberry, raw
-ciqual_food_name:fr: Mûre (de ronce), crue
-# 404 products in 7 languages @21018-10-01
-eurocode_2_group_3:en: 9.30.24
 # ang:blæcberige
 # bar:mur
 # kab:tizwal
@@ -42813,29 +42808,36 @@ eurocode_2_group_3:en: 9.30.24
 # tuk:böwürslen
 # udm:лыз эмезь
 # yue:黑啤梨
+ciqual_food_code:en: 13029
+ciqual_food_name:en: Blackberry, raw
+ciqual_food_name:fr: Mûre (de ronce), crue
+# 404 products in 7 languages @21018-10-01
+eurocode_2_group_3:en: 9.30.24
+usda_ndb_proxy_code:en: 9048
+usda_ndb_proxy_name:en: Blackberries, frozen, unsweetened
 wikidata:en: Q19842373
 
 < en:blackberry
+en: frozen blackberr
+usda_ndb_code:en: 9048
+usda_ndb_name:en: Blackberries, frozen, unsweetened
+
+< en:blackberry
 en: Rubus fruticosus
+xx: Rubus fruticosus
 ar: عليق شجيري
 cy: Llwyn mwyar duon
 eo: Arbusta rubuso
-es: Rubus fruticosus
 et: Pampel
-eu: Rubus fruticosus
 fr: Ronce commune
 gl: Silva brava
-hr: rubus fructicosus L
 hu: Vadszeder
-it: Rubus fruticosus
 ka: მაყვალი
-la: Rubus fruticosus
 lb: Schwaarzbier
 lt: Bedyglė gervuogė
 nl: Gewone braam
 nn: Bjørnebær
 no: Bjørnebær
-oc: Rubus fruticosus
 pl: Jeżyna krzewiasta
 pt: Amora-silvestre
 ro: Mur
@@ -42843,8 +42845,6 @@ sc: Ru
 se: Čáhppesváđot
 sk: Ostružina černicová
 sl: Navadna robida
-uk: Rubus fruticosus
-vi: Rubus fruticosus
 wa: Meuronî
 zh: 欧洲黑莓
 wikidata:en: Q13541716
