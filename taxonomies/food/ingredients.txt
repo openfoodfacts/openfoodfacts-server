@@ -37156,18 +37156,6 @@ xh: Isiqhamo
 yo: èso
 za: mak
 zh: 水果
-carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen importé par bateau et camion
-carbon_footprint_fr_foodges_value:fr: 1.3
-eurocode_2_group_1:en: 9
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
-# 963 products in 9 languages @2018-09-26
-nutriscore_fruits_vegetables_nuts:en: yes
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
-#carbon_footprint_fr_foodges_value:fr:2.3
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
-#carbon_footprint_fr_foodges_value:fr:27.4
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
-#carbon_footprint_fr_foodges_value:fr:0.3
 # aeb-arab:غلة
 # arz:فواكه
 # ast:Fruta
@@ -37213,10 +37201,22 @@ nutriscore_fruits_vegetables_nuts:en: yes
 # zh-my:水果
 # zh-sg:水果
 # zh-tw:水果
+carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_value:fr: 1.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+#carbon_footprint_fr_foodges_value:fr:2.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+#carbon_footprint_fr_foodges_value:fr:27.4
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
+#carbon_footprint_fr_foodges_value:fr:0.3
+eurocode_2_group_1:en: 9
+nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1364
 wikipedia:en: https://en.wikipedia.org/wiki/Fruit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
+# 963 products in 9 languages @2018-09-26
 
 < en:fruit
 en: fruit puree
