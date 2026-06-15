@@ -77,6 +77,8 @@ BEGIN {
 		$oidc_client_id
 		$oidc_client_secret
 		%slack_hook_urls
+		$health_check_api_key
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -221,5 +223,8 @@ if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
 		$slack_hook_urls{$+{channel}} = $+{url};
 	}
 }
+
+# Health check API key
+$health_check_api_key = $ENV{HEALTH_CHECK_API_KEY};
 
 1;

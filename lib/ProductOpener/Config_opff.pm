@@ -106,6 +106,8 @@ BEGIN {
 
 		$build_cache_repo
 		$serialize_to_json
+
+		$health_check_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
