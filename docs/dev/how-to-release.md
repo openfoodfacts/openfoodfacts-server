@@ -14,6 +14,9 @@ https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/containe
 
 ## Production environment
 
+When you do a Product Opener release, it's also a good time to do content release.
+Go to https://github.com/openfoodfacts/openfoodfacts-web/pulls?q=is%3Apr+is%3Aopen+release and create the release.
+
 Product Opener is deployed on a container in Proxmox.
 The container is a debian server, it must follow the `backend` container version.
 
@@ -50,6 +53,12 @@ To deploy you need to execute the following steps:
 1. update the frontend assets
    ```bash
    sudo -u off /srv/$SERVICE/scripts/deploy/install-dist-files.sh $VERSION $SERVICE
+   ```
+1. update openfoodfacts-web content (using version you just released):
+   ```bash
+   cd /srv/openfoodfacts-web/
+   git fetch
+   git checkout <content-version>
    ```
 1. restart services
    ```bash
