@@ -108501,28 +108501,64 @@ wikidata:en: Q5339301
 
 < en:Cucurbitacea seeds
 < en:Pumpkin seeds and their products
-en: Pumpkin seeds, Squash seeds, raw pumpkin seeds
+en: Pumpkin seeds, Squash seeds, raw pumpkin seeds, Dried pumpkin and squash seeds
+ar: لب
+be: Насенне гарбуза
 bg: Тиквено семе
+ca: Llavor de carabassa
+da: Græskarkerner
 de: Kürbiskerne
+el: Πασατέμπος
 es: Semillas de calabaza, Pepitas de calabaza, Pipas de calabaza
+eu: Kuia-pipita
+fa: تخم‌کدو
 fi: kurpitsan siemenet
 fr: Graines de courge, graines de citrouille
 hr: Sjemenke bundeve
-it: Semi di zucca
+id: Biji labu
+it: Semi di zucca, Seme di zucca
 ja: かぼちゃの種
+jv: Wiji waluh
+ko: 호박씨
+la: Cucurbitae semen
+ln: Mbíka
 nl: Pompoenpitten
 pl: Pestki dyni
+pt: Semente de abóbora
+ru: Семя тыквы
+sl: Bučno seme
+sv: Pumpakärnor
+ta: பூசணி விதை
+tr: Kabak çekirdeği
+tt: Кабак төше
+uk: Насіння гарбуза
+vi: Hạt bí
+zh: 南瓜籽
+agribalyse_food_code:en: 15064
+ciqual_food_code:en: 15064
+ciqual_food_name:en: Pumpkin and squash, seed, dried
 sales_format:en: package, weight
 wikidata:en: Q3056521
 
 < en:Pumpkin seeds
 en: Roasted pumpkin seeds
+da: Ristede græskarkerner
 de: geröstete Kürbiskerne
 es: Semillas de calabaza tostadas, Pipas de calabaza tostadas
 fr: Graines de courge grillées
 hr: Pečene sjemenke bundeve
 nl: Geroosterde pompoenpitten
 pl: Prażone pestki dyni
+sv: Rostade pumpakärnor
+opposite:en: en:non-roasted-pumpkin-seeds
+
+< en:Pumpkin seeds
+en: Non-roasted pumpkin seeds, Pumpkin seeds (non-roasted)
+da: Ikke-ristede græskarkerner
+fr: Graines de courge non-grillées
+nl: Ongeroosterd pompoenpitten, Pompoenpitten (ongeroosterd)
+sv: Orostade pumpakärnor
+opposite:en: en:roasted-pumpkin-seeds
 
 < en:Pumpkin seeds
 en: Unshelled pumpkin seeds, In-shell pumpkin seeds
@@ -108532,6 +108568,7 @@ fr: Graines de courge en coque
 hr: Sjemenke bundeve bez ljuske
 nl: Pompoenpitten in de schil
 pl: Pestki dyni niełuskane
+opposite:en: en:shelled-pumpkin-seeds
 
 < en:Pumpkin seeds
 en: Shelled pumpkin seeds
@@ -108541,6 +108578,7 @@ fr: Graines de courge décortiquées
 hr: Oljuštene sjemenke bundeve
 nl: Gepelde pompoenpitten
 pl: Pestki dyni łuskane
+opposite:en: en:unshelled-pumpkin-seeds
 
 < en:Roasted pumpkin seeds
 < en:Unshelled pumpkin seeds
@@ -108558,7 +108596,8 @@ fr: Graines de courge décortiquées grillées
 hr: Pečene oljuštene sjemenke bundeve
 nl: Geroosterde gepelde pompoenpitten
 
-< en:Roasted shelled pumpkin seeds
+< en:Non-roasted pumpkin seeds
+< en:Shelled pumpkin seeds
 en: Non-roasted unsalted shelled pumpkin seeds, Pumpkin seeds (non-roasted/shelled/unsalted)
 fr: Graines de courge (non-grillées/non-salées/décortiquées)
 nl: Pompoenpitten (gepeld/ongeroosterd/ongezouten)
