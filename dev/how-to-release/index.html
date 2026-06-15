@@ -2439,6 +2439,8 @@ and the <code>docker/prod.yml</code> overlay.</p>
 the action is triggered. You can see it at
 https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/container-build.yml</p>
 <h2 id="production-environment">Production environment<a class="headerlink" href="#production-environment" title="Permanent link">#</a></h2>
+<p>When you do a Product Opener release, it's also a good time to do content release.
+Go to https://github.com/openfoodfacts/openfoodfacts-web/pulls?q=is%3Apr+is%3Aopen+release and create the release.</p>
 <p>Product Opener is deployed on a container in Proxmox.
 The container is a debian server, it must follow the <code>backend</code> container version.</p>
 <p>In the command lines, I use $SERVICE and $VERSION variables,
@@ -2467,6 +2469,11 @@ corresponding to the service short name (off, off-pro, obf, opf, opff) and the v
 </code></pre></div></li>
 <li>update the frontend assets
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>/srv/<span class="nv">$SERVICE</span>/scripts/deploy/install-dist-files.sh<span class="w"> </span><span class="nv">$VERSION</span><span class="w"> </span><span class="nv">$SERVICE</span>
+</code></pre></div></li>
+<li>update openfoodfacts-web content (using version you just released):
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/srv/openfoodfacts-web/
+git<span class="w"> </span>fetch
+git<span class="w"> </span>checkout<span class="w"> </span>&lt;content-version&gt;
 </code></pre></div></li>
 <li>restart services
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
