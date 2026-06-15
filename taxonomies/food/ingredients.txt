@@ -78266,7 +78266,7 @@ ciqual_food_code:en: 26084
 ciqual_food_name:en: Megrim, raw
 ciqual_food_name:fr: Cardine franche, crue
 
-< en:fish
+< en:saltwater fish
 en: scup, porgy
 la: Stenotomus chrysops
 description:en: Scup (Stenotomus chrysops) is a species of saltwater fish, also commonly known as porgy.
@@ -78277,6 +78277,18 @@ usda_ndb_proxy_name:en: Fish, scup, raw
 en: raw scup
 usda_ndb_code:en: 15090
 usda_ndb_name:en: Fish, scup, raw
+
+< en:saltwater fish
+en: sheepshead
+la: Archosargus probatocephalus
+description:en: The sheepshead (Archosargus probatocephalus) is a saltwater fish found along the Atlantic and Gulf coasts of North America. It's famous for one very distinctive feature: its teeth look remarkably human, with flat incisors and molars used to crush hard-shelled prey like oysters, clams, barnacles, and crabs.
+usda_ndb_proxy_code:en: 15097
+usda_ndb_proxy_name:en: Fish, sheepshead, raw
+
+< en:sheepshead
+en: raw sheepshead
+usda_ndb_code:en: 15097
+usda_ndb_name:en: Fish, sheepshead, raw
 
 < en:flatfish
 < en:white fish
