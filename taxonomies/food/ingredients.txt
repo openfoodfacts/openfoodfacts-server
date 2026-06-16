@@ -44892,6 +44892,11 @@ ciqual_food_name:en: Guava, pulp, raw
 ciqual_food_name:fr: Goyave, pulpe, crue
 # 302 in 7 @2021-09-29
 
+< en:fruit
+en: horned melon, kiwano
+description:en: The horned melon (kiwano) is a tropical fruit native to sub-Saharan Africa, though it's now grown in other warm regions like New Zealand, Australia, and California. The flavor is mild and refreshing — often described as a blend of cucumber, banana, and lime, with a slightly tart note.
+usda_ndb_code:en: 9451
+usda_ndb_name:en: Horned melon (Kiwano)
 
 ###################################################################################################
 #
@@ -45587,7 +45592,6 @@ hr: gorka dinja
 it: melone amaro, momordic
 ja: ゴーヤ, ニガウリ, 苦瓜, にがうり
 nl: Sopropo
-
 
 #category/honeydew-melons
 < en:melon
@@ -63422,7 +63426,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cumin
 #pt:cominho em pó
 
 
-< en:melon
+# < en:melon made from
 < en:seed
 en: melon seed
 de: Melonenkerne, Melonensamen
