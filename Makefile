@@ -247,7 +247,7 @@ reset_owner:
 
 init_backend: build_taxonomies build_lang build_pro_platform
 
-create_mongodb_indexes: run_deps
+create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
