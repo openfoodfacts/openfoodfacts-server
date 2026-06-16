@@ -44615,7 +44615,14 @@ th: ผลมะเดื่ออบแห้ง
 ciqual_food_code:en: 13013
 ciqual_food_name:en: Fig, dried
 ciqual_food_name:fr: Figue, sèche
+usda_ndb_proxy_code:en: 9094
+usda_ndb_proxy_name:en: Figs, dried, uncooked
 # 325 in 10 @2021-09-14
+
+< en:dried fig
+en: uncooked dried figs
+usda_ndb_code:en: 9094
+usda_ndb_name:en: Figs, dried, uncooked
 
 < en:fig
 en: fig paste
@@ -47122,10 +47129,10 @@ de: Mehrfruchtsaft aus Mehrfruchtsaftkonzentrat
 #
 ###################################################################################################
 
-# description:en:A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis.
+# 
 # Note that in french often 'raisin' is used to indicate the dried one
 
-< en:berries
+# < en:berries is this relevant?
 < en:fruit
 en: grape, vine fruit, mixed vine fruit
 af: druiwe
@@ -47234,12 +47241,6 @@ wa: roejhén
 yi: וויינטרויבן
 za: makit
 zh: 葡萄
-carbon_footprint_fr_foodges_ingredient:fr: Raisin
-carbon_footprint_fr_foodges_value:fr: 0.8
-ciqual_food_code:en: 13112
-ciqual_food_name:en: Grape, raw
-ciqual_food_name:fr: Raisin, cru
-wikidata:en: Q10978
 # aeb-arab:عنب
 # ang:ƿīnberȝe
 # arc:ܥܢܒܬܐ
@@ -47301,8 +47302,22 @@ wikidata:en: Q10978
 # wuu:葡萄
 # xmf:ჸურზენი
 # yue:提子
+carbon_footprint_fr_foodges_ingredient:fr: Raisin
+carbon_footprint_fr_foodges_value:fr: 0.8
+ciqual_food_code:en: 13112
+ciqual_food_name:en: Grape, raw
+ciqual_food_name:fr: Raisin, cru
+description:en: A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis.
+usda_ndb_proxy_code:en: 9131
+usda_ndb_proxy_name:en: Grapes, american type (slip skin), raw
+wikidata:en: Q10978
 wikipedia:en: https://en.wikipedia.org/wiki/Grape
 # 18963 in 9 languages @221-10-15
+
+< en:grape
+en: raw american type grapes
+usda_ndb_code:en: 9131
+usda_ndb_name:en: Grapes, american type (slip skin), raw
 
 < en:grape
 en: grape seed, grape seeds
