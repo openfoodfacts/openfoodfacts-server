@@ -38401,10 +38401,6 @@ uk: журавлина
 vi: mạn việt quất
 wa: bicoine
 zh: 小紅莓
-ciqual_food_code:en: 13113
-ciqual_food_name:en: Cranberry, raw
-ciqual_food_name:fr: Canneberge ou cranberry, crue
-wikidata:en: Q13181
 # ast:arándanu coloráu
 # atj:mickekominan
 # bat-smg:spangoulė
@@ -38417,6 +38413,10 @@ wikidata:en: Q13181
 # udm:нюрмульы
 # vep:garbol
 # yue:金啤梨
+ciqual_food_code:en: 13113
+ciqual_food_name:en: Cranberry, raw
+ciqual_food_name:fr: Canneberge ou cranberry, crue
+wikidata:en: Q13181
 wikipedia:en: https://en.wikipedia.org/wiki/Cranberry
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
 # 7222 in 27 @2021-09-29
@@ -42869,10 +42869,17 @@ ciqual_food_name:fr: Cassis, cru
 description:de: Die Schwarze Johannisbeere ist eine Pflanzenart aus der Gattung Johannisbeeren. Manchmal wird die französische Bezeichnung Cassis für ihre Früchte verwendet.
 description:fr: Fruit formé de baies noires formant des grappes, pulpeuses, à la peau lisse, fortement aromatiques, utilisé pour faire des liqueurs, des sirops, des gelées…
 description:nl: de vrucht (bes) van de Ribes nigrum
-# 3581 in 22 @2021-09-12
 eurocode_2_group_3:en: 9.30.32
+usda_ndb_proxy_code:en: 9083
+usda_ndb_proxy_name:en: Currants, european black, raw
 wikidata:en: Q2941309
 wikipedia:en: https://en.wikipedia.org/wiki/Blackcurrant
+# 3581 in 22 @2021-09-12
+
+< en:blackcurrant
+en: raw european black currants
+usda_ndb_code:en: 9083
+usda_ndb_name:en: Currants, european black, raw
 
 < en:blackcurrant
 en: blackcurrant pieces
@@ -45022,7 +45029,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 # description:en:Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
 
 < en:berries
-en: lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain cranberry, mountain cranberries, red whortleberry, red whortleberries
+en: lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain xry, mountain cranberries, red whortleberry, red whortleberries
 ca: nabius
 da: tyttebær
 de: Preiselbeere, Preiselbeeren
