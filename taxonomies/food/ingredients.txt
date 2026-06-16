@@ -44909,6 +44909,17 @@ en: raw java plum
 usda_ndb_code:en: 9145
 usda_ndb_name:en: Java-plum, (jambolan), raw
 
+< en:fruit
+en: jujube
+description:en: Jujube (also called Chinese date or red date) is a small fruit from the Ziziphus jujuba tree, native to China but now grown throughout Asia, the Middle East, and parts of Europe and America. Fresh jujubes taste crisp and mildly sweet, similar to an apple.
+usda_ndb_proxy_code:en: 9146
+usda_ndb_proxy_name:en: Jujube, raw
+
+< en:jujube
+en: raw jujube
+usda_ndb_code:en: 9146
+usda_ndb_name:en: Jujube, raw
+
 ###################################################################################################
 #
 #                                Kiwi
@@ -44992,12 +45003,6 @@ uk: ківі
 ur: کيوی
 vi: quả dương đào
 zh: 奇異果
-ciqual_food_code:en: 13021
-ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
-ciqual_food_name:fr: Kiwi, pulpe et graines, cru
-ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
-ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
-ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
 # ang:cīnisc gōsberige
 # arz:كيوي
 # atj:wamin ka kawisitc
@@ -45019,9 +45024,28 @@ ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
 # zh-cn:奇異果
 # zh-hans:奇異果
 # zh-hant:奇異果
+ciqual_food_code:en: 13021
+ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
+ciqual_food_name:fr: Kiwi, pulpe et graines, cru
+ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
+ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
+ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
+usda_ndb_proxy_code:en: 9148
+usda_ndb_proxy_name:en: Kiwifruit, green, raw
 wikidata:en: Q13194
 wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 #1182 in 24 @2021-10-13
+
+<en: kiwi
+en: raw zespri sungold kiwifruit 
+comment:en: note that this also a specific brand, but all from New Zealnd have this brand, but are now grown elsewhere.
+usda_ndb_code:en: 9520
+usda_ndb_name:en: Kiwifruit, ZESPRI SunGold, raw
+
+<en: kiwi
+en: raw green kiwi
+usda_ndb_code:en: 9148
+usda_ndb_name:en: Kiwifruit, green, raw
 
 #<en:kiwi
 #en:organic kiwi
