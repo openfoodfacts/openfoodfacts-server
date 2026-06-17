@@ -1146,7 +1146,7 @@ sub cleanup_old_cache_files ($tagtype, $cache_root) {
 }
 
 sub put_to_cache ($tagtype, $cache_prefix) {
-	my $tag_data_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result//$tagtype";
+	my $tag_data_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/$tagtype";
 	my $tag_www_root = "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype";
 	my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
 
