@@ -1,6 +1,8 @@
 name: '💥 Auto-Label Merge Conflicts on PRs'
 on:
   push:
+    branches:
+      - main
   pull_request_target:
     types: [synchronize]
 
