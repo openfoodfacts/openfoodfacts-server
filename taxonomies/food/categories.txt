@@ -7418,6 +7418,7 @@ sv: Växtbaserade drycker
 th: เครื่องดื่มจากพืช
 tr: Bitkisel içecekler, Bitki kaynaklı içecekler, Bitki içecekleri
 zh: 植物性饮料
+fdc_branded_category:en: Coffee/Tea/Substitutes
 
 < en:Coconuts and their products
 < en:Fruit-based beverages
@@ -35691,8 +35692,13 @@ gpc_category_code:en: 10000165
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products have been treated or packaged in such a way as to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Frozen and Perishable Bread Products, Dried Breads, Shelf-Stable Baking Mixes and Baking Supplies, and Pies and Pastries.
 gpc_category_name:en: Bread (Shelf Stable)
 
-< en:Breads
 < en:Frozen foods
+en: Frozen breads and frozen doughs
+fr: Pain et pâtes surgelés
+fdc_branded_category:en: Frozen Bread & Dough
+
+< en:Breads
+< en:Frozen breads and frozen doughs
 en: Frozen breads
 de: Tiefkühlbrote
 es: Pan congelado
@@ -38312,7 +38318,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Baking/Cooking Mixes (Perishable)
 
 < en:Baking Mixes
-< en:Frozen foods
+< en:Frozen breads and frozen doughs
 en: Frozen baking mixes
 gpc_category_code:en: 10000068
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a quantity of frozen, pre-mixed dough, batter or powder that is specifically intended to produce bread, cakes, biscuits, desserts, or other products. Products may be ready to use (where no additional ingredients need to be added to the mix prior to use) or require the addition of wet ingredients such as water, milk, oil, fat or egg. These products must be frozen to extend their consumable life. Definition Excludes: Excludes products such as Soups, Perishable or Shelf-Stable Baking Mixes, all Part Baked and Baked Products.
@@ -42887,6 +42893,11 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Vegetable Based Products / Meals - Ready to Eat (Shelf Stable)
 
 < en:Canned foods
+en: Canned fishes and canned meats
+fr: Viandes et poissons en conserve
+fdc_branded_category:en: Canned Fish and Meat
+
+< en:Canned fishes and canned meats
 < en:Meats
 en: Canned meats
 bg: Месо в консерва
@@ -43343,7 +43354,12 @@ ciqual_food_name:en: Gnocchi, from potato, cooked
 ciqual_food_name:fr: Gnocchi à la pomme de terre, cuit
 wikidata:en: Q14906720
 
+en: Grain based products and meals
+fr: Produits et repas à base de céréales
+fdc_branded_category:en: Grain Based Products / Meals
+
 < en:Cereals and potatoes
+< en:Grain based products and meals
 en: Cereals and their products, Cereals
 bg: Зърнени продукти
 ca: Cereals i derivats
@@ -46198,6 +46214,11 @@ ciqual_food_name:en: Processed cheese, around 20% fat, in wedges or cubes
 en: Cheese appetizers
 fr: Fromages apéritif
 
+en: Cheeses and cheese substitutes
+fr: Fromages et substituts du fromage
+fdc_branded_category:en: Cheese/Cheese Substitutes
+
+< en:Cheeses and cheese substitutes
 < en:Fermented milk products
 en: Cheeses
 af: Kaas
@@ -51686,6 +51707,11 @@ ciqual_food_code:en: 19433
 ciqual_food_name:en: cream, light, 4 to 8% fat, liquid or thick
 ciqual_food_name:fr: Spécialité à base de crème légère 8% MG, fluide ou épaisse
 
+en: Creams and cream substitutes
+fr: Crèmes et crèmes végétales
+fdc_branded_category:en: Cream/Cream Substitutes
+
+< en:Creams and cream substitutes
 < en:Dairies
 en: Creams
 bg: Кремове
@@ -52011,6 +52037,7 @@ agribalyse_proxy_food_code:en: 19431
 agribalyse_proxy_food_name:en: Thick cream, 30% fat, refrigerated
 agribalyse_proxy_food_name:fr: Crème de lait, 30% MG, épaisse, rayon frais
 
+< en:Creams and cream substitutes
 < en:Dairy substitutes
 < en:Plant-based foods
 en: Plant-based creams, Plant creams, Dairy-free creams, Dairy-free cream substitutes, Vegan creams
@@ -52179,6 +52206,11 @@ nl: Plantaardige speltromen
 pt: Natas à base de espelta para cozinhar
 sv: Speltbaserade grädden för matlagning
 
+en: Eggs and egg substitutes
+fr: Œufs et substituts des œufs
+fdc_branded_category:en: Eggs/Eggs Substitutes;Eggs & Egg Substitutes
+
+< en:Eggs and egg substitutes
 < en:Plant-based foods
 en: Egg substitutes
 fr: Substituts des œufs, substituts des oeufs
@@ -52221,7 +52253,12 @@ pl: Masło kozie
 #wikidata:en:
 incompatible_with:en: categories:en:Sheep butters, Butters
 
+en: Butters and butter substitutes
+fr: Beurres et beurres de fruits à coques
+fdc_branded_category:en: Butter/Butter Substitutes
+
 < en:Animal fats
+< en:Butters and butter substitutes
 < en:Dairy spread
 < en:Milkfat
 en: Butters, cow butters
@@ -55761,6 +55798,11 @@ fr: Yaourts natures au lait thermisé
 en: Plain yogurts with UHT milk
 fr: Yaourts natures au lait UHT
 
+en: Desserts and toppings
+fr: Desserts et nappages
+fdc_branded_category:en: Desserts/Dessert Sauces/Toppings
+
+< en:Desserts and toppings
 en: Desserts
 bg: Десерти
 ca: Postres
@@ -60267,6 +60309,7 @@ ciqual_food_name:en: Omelette, with mushrooms
 ciqual_food_name:fr: Omelette aux champignons
 #wikidata:en:
 
+< en:Eggs and egg substitutes
 < en:Eggs and their products
 < en:Farming products
 en: Eggs, Bird eggs
@@ -67845,6 +67888,11 @@ ciqual_food_name:en: Frozen dessert, Sundae ice cream type
 ciqual_food_name:fr: Dessert glacé, type sundae
 
 < en:Frozen desserts
+en: Ice creams and frozen yogurts
+fr: Glaces et yaourts glacés
+fdc_branded_category:en: Ice Cream & Frozen Yogurt
+
+< en:Ice creams and frozen yogurts
 en: Ice creams and sorbets, Flavoured ice creams, Flavoured sorbets, Flavoured ice pops
 bg: Сладолед и сорбе
 ca: Sorbets i gelats
@@ -68829,7 +68877,7 @@ intake24_category_code:en: ILOL
 who_id:en: 5
 wikidata:en: Q855373
 
-< en:Frozen desserts
+< en:Ice creams and frozen yogurts
 en: Frozen yogurts, Frozen yoghurts, Frozen yogurt
 bg: Замразено кисело мляко
 de: Gefrorener Joghurt
@@ -77696,6 +77744,11 @@ pnns_group_2:en: Dressings and sauces
 who_id:en: 17
 wikidata:en: Q178359
 
+< en:Sauces
+en: Salad dressings and mayonnaises
+fr: Sauces salades et mayonnaises
+fdc_branded_category:en: Salad Dressing & Mayonnaise
+
 < en:Frozen foods
 < en:Sauces
 en: Frozen sauces, Sauces (frozen)
@@ -78286,7 +78339,7 @@ nl: Piccalilli
 wikidata:en: Q1363716
 
 
-< en:Sauces
+< en:Salad dressings and mayonnaises
 en: Salad dressings, dressings, Salad sauce
 bg: Салатен сос
 ca: Amaniments, Salses per amanides
@@ -78368,6 +78421,7 @@ nl: Vinaigrette lightdressings
 < en:Dips
 < en:Salad dressings
 en: Dressings and Dips (Shelf Stable)
+fdc_branded_category:en: Dressings/Dips (Shelf Stable)
 gpc_category_code:en: 10000200
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a pourable or spoonable substance, or a dehydrated combination of ingredients to which water or milk can be added to form a liquid. These products are usually served as an accompaniment to snacks or starters, such as crisps, tortilla chips, raw vegetables and pappadums, or poured cold over salads or vegetables. Products include dairy or mayonnaise based dressings, garlic and herb dips, cheese dips and taramasalata. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as, Frozen and Perishable Dressings and Dips and Sauces, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
 gpc_category_name:en: Dressings/Dips (Shelf Stable)
@@ -78922,7 +78976,7 @@ ciqual_food_name:fr: Sauce au poivre vert, préemballée
 en: Fried potato sauces
 nl: Fritessauzen, Fritessaus
 
-< en:Sauces
+< en:Salad dressings and mayonnaises
 en: Mayonnaises, Mayo
 bg: Майонеза
 ca: Maioneses
@@ -81881,6 +81935,7 @@ gpc_category_code:en: 10006750
 gpc_category_description:en: Definition: Ready-made combination meal or microwave meal is a pre-packaged shelf stable full meal.  The meal requires no preparation other than cooking and contains all the elements typically contained in a single-serving meal.  A ready-made meal (also known as a TV Dinner) must have a main component and at least one additional component such as a side item, a dessert and/or beverage. These products require cooking prior to consumption. These products do not need to be refrigerated or frozen to extend their consumable life. Definition Excludes: Excludes products such as Non-Combination Meals, Perishable Not Ready to Eat Combination Meals, Frozen Not Ready to Eat Combination Meals, Ready to Eat Combination Meals, Ready-Made Combination Meal Variety Packs, Prepared/Processed Products, and Unprepared Meals.
 gpc_category_name:en: Ready-Made Combination Meals - Not Ready to Eat (Shelf Stable)
 
+< en:Grain based products and meals
 < en:Meals
 en: Grain based meals
 gpc_category_code:en: 10000294
@@ -89713,6 +89768,12 @@ agribalyse_food_code:en: 25089
 ciqual_food_code:en: 25089
 ciqual_food_name:en: Veal escalope cordon bleu (topped with a ham slice and Gruyere sauce)
 
+en: Fresh meats and fresh seafood
+fr: Viandes et produits de la mer frais
+comment:en: Poultry is not explicitly included in the canonic category name because the poultry category is under meat in OFF
+fdc_branded_category:en: Fresh Meat, Poultry and Seafood
+
+< en:Fresh meats and fresh seafood
 < en:Meats
 en: Fresh meats
 bg: Прясно месо
@@ -99755,6 +99816,7 @@ de: Maultaschen, Maultasche
 wikidata:en: Q20055
 
 < en:Biscuits and cakes
+< en:Desserts and toppings
 en: Pastries, pastry
 ca: Pastisseria
 da: Bagværk
@@ -103415,6 +103477,11 @@ plant_alternative:en: en:fish-analogues
 wikidata:en: Q600396
 
 < en:Fishes
+< en:Fresh meats and fresh seafood
+en: Fresh fishes
+fr: Poissons frais
+
+< en:Fishes
 en: Shelf-stable unprepared fishes
 gpc_category_code:en: 10000283
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of fish or a combination of fish, which has not gone through any further manufacturing processes, such as reformed, cooked, dried and salted, however these products can be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. However products may contain a small quantity of vegetables such as those in a sauce or stuffing/filling. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Fish with additional vegetables, dough or grains, Frozen and Perishable Unprepared and Unprocessed Fish, all Prepared and Processed Fish.
@@ -103738,7 +103805,7 @@ ciqual_food_code:en: 26022
 ciqual_food_name:en: Whiting, steamed
 ciqual_food_name:fr: Merlan, cuit à la vapeur
 
-< en:Canned foods
+< en:Canned fishes and canned meats
 < en:Fishes
 en: Canned fishes, canned fish
 bg: Рибени консерви
@@ -103759,6 +103826,7 @@ ru: Рыбные консервы
 th: ปลากระป๋อง
 tr: Konserve balık
 zh: 罐头鱼
+fdc_branded_category:en: Canned Seafood
 intake24_category_code:en: OILY
 
 < en:Sardines
@@ -106712,6 +106780,12 @@ fr: Salades de fruits de mer
 en: Marinated seafood
 fr: Fruits de mer marinés
 
+en: Dips and pâté
+fr: Trempettes et pâté
+comment:en: Hummus is not explicitly included in the canonic category name because the hummus category is under dips in OFF
+fdc_branded_category:en: Dips/Hummus/Pate
+
+< en:Dips and pâté
 < en:Sauces
 en: Dips, Dipping sauces
 bg: Дипове
@@ -106773,6 +106847,7 @@ sv: Bredbara pålägg, Bredbara smörgåspålägg, Smörgåspålägg
 tr: Ekmeğe sürülen ürünler, Sürülebilir ürünler
 zh: 塗抺食品
 
+< en:Butters and butter substitutes
 < en:Spreads
 en: Spreadable fats
 ca: Greixos d'untar
@@ -122045,6 +122120,7 @@ en: Tuna analogues, Vegan tuna
 da: Plantebaserede tun, Veganske tun
 sv: Växtbaserade tonfiskar, Veganska tonfiskar
 
+< en:Cheeses and cheese substitutes
 < en:Dairy substitutes
 < en:Plant-based foods
 < en:Vegan products
@@ -122322,6 +122398,11 @@ ciqual_proxy_food_name:en: Salty snacks, crackers, plain
 ciqual_proxy_food_name:fr: Biscuit apéritif, crackers, nature
 comment:en: Crackers are used a thin hard bread that need to be covered with something sweet or savoury
 
+< en:Crackers(Appetizers)
+en: Flavoured crackers, Flavored crackers
+fr: Biscuits apéritifs aromatisés
+fdc_branded_category:en: Flavored Snack Crackers
+
 #small crackers (max 5 cm) for appetizers
 < en:Crackers(Appetizers)
 en: Small Crackers
@@ -122526,7 +122607,12 @@ gpc_category_code:en: 10006746
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a type of food usually consumed between meals. They contain peanuts, peanut flavoured extracts,  cheese and/or cheese flavouring extracts, which are blended with other ingredients, reconstituted, and pressed into bite size shapes, or sliced products, which are fried in oil or oven-baked. These products are usually packaged in airtight bags, tubes, or plastic containers.
 gpc_category_name:en: Doodles/ Puffs
 
+en: Crusts and dough
+fr: Croûtes et pâtes
+fdc_branded_category:en: Crusts & Dough
+
 < en:Cereals and their products
+< en:Crusts and dough
 en: Pie dough
 de: Kuchenteig
 es: Masa de tarta
@@ -122735,6 +122821,7 @@ ciqual_food_name:en: Shortbread dough, pure butter, frozen, raw
 ciqual_food_name:fr: Pâte sablée pur beurre, surgelée, crue
 
 < en:Bakery products
+< en:Crusts and dough
 en: Pizza dough, Pizzas dough, Pizza base
 bg: Тесто за пица
 de: Pizzateige
@@ -124604,6 +124691,7 @@ ciqual_food_name:en: Mashed potatoes w fresh tome cheese
 ciqual_food_name:fr: Aligot (purée de pomme de terre à la tomme fraîche)
 wikidata:en: Q2724885
 
+< en:Dips and pâté
 < fr:Charcuteries diverses
 en: Pâté, Paté, Pate
 de: Pasteten
@@ -125149,6 +125237,7 @@ en: Rasam
 fr: Rasam
 
 < en:Cooking helpers
+< en:Desserts and toppings
 en: Toppings
 de: Garnierungen
 fi: päällysteet
@@ -125637,4 +125726,3 @@ fr: Spirales de blé dur complet
 
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
-
