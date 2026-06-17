@@ -14592,8 +14592,6 @@ sv: Animaliskt fett
 tr: Hayvansal yağ
 uk: Тваринні жири
 zh: 動物脂肪
-usda_ndb_code:en: 4609
-usda_ndb_name:en: Animal fat, bacon grease
 # kk-arab:جانۋار مايى
 # kk-cn:جانۋار مايى
 # kk-cyrl:Жануар майы
@@ -14602,6 +14600,8 @@ usda_ndb_name:en: Animal fat, bacon grease
 # kk-tr:Janwar maýı
 # zh-hans:动物性油脂
 # zh-hant:動物性油脂
+usda_ndb_code:en: 4609
+usda_ndb_name:en: Animal fat, bacon grease
 vegan:en: no
 vegetarian:en: no
 wikidata:en: Q1423543
@@ -44865,7 +44865,7 @@ eurocode_2_group_3:en: 9.30.54
 
 ###################################################################################################
 #
-#                                
+#
 
 #
 ###################################################################################################
@@ -46854,7 +46854,6 @@ tl: Prambuwesas
 ty: Rahipere
 uz: Malina
 zh: 樹莓
-ciqual_food_name:fr: Framboise, crue
 # atj:Mikominan
 # bat-smg:Avietė
 # chr:ᏒᏗᏩᎵ
@@ -46868,6 +46867,7 @@ ciqual_food_name:fr: Framboise, crue
 # 2014 in 12 languages @2018-09-27
 ciqual_proxy_food_code:en: 13015
 ciqual_proxy_food_name:en: Raspberry, raw
+ciqual_proxy_food_name:fr: Framboise, crue
 ecobalyse:en: 50939126-d4a5-4b94-b110-63e8b9e66173
 ecobalyse_labels_en_organic:en: 091cda9d-3c9d-444c-ad0e-1d6f34491767
 eurocode_2_group_3:en: 9.30.20
@@ -67681,9 +67681,9 @@ nl: korianderblad, korianderblaadjes, koriander blaadjes
 nn: korianderblad
 pl: liście kolendry
 sv: korianderblad
-ciqual_proxy-food_name:fr: Coriandre, fraiche
 ciqual_proxy_food_code:en: 11094
 ciqual_proxy_food_name:en: Coriander, fresh
+ciqual_proxy_food_name:fr: Coriandre, fraiche
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.38
 usda_ndb_proxy_code:en: 11165
