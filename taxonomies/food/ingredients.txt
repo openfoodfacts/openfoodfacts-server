@@ -14592,6 +14592,8 @@ sv: Animaliskt fett
 tr: Hayvansal yağ
 uk: Тваринні жири
 zh: 動物脂肪
+usda_ndb_code:en: 4609
+usda_ndb_name:en: Animal fat, bacon grease
 # kk-arab:جانۋار مايى
 # kk-cn:جانۋار مايى
 # kk-cyrl:Жануар майы
@@ -14602,8 +14604,6 @@ zh: 動物脂肪
 # zh-hant:動物性油脂
 vegan:en: no
 vegetarian:en: no
-usda_ndb_code:en: 4609
-usda_ndb_name:en: Animal fat, bacon grease
 wikidata:en: Q1423543
 wikipedia:en: https://en.wikipedia.org/wiki/Animal_fat
 # ingredient/animal-fat has 3013 products in 11 languages @2019-07-10
@@ -15446,9 +15446,9 @@ sk: palmový tuk
 sl: palmina rastlinska maščoba
 sr: palmina mast
 sv: palmfett
+description:en: the solid state of the vegetable oil, obtained from the fruit of oil palms.
 usda_ndb_code:en: 4055
 usda_ndb_name:en: Oil, palm
-description:en: the solid state of the vegetable oil, obtained from the fruit of oil palms.
 # 9007 in 34 @2021-09-09
 
 #processing:en en:non-hydrogenated
@@ -27035,7 +27035,7 @@ it: farina integrale di teff avorio
 fr: teff soufflé
 
 < en:teff
-en: cooked teff 
+en: cooked teff
 usda_ndb_code:en: 20143
 usda_ndb_name:en: Teff, cooked
 
@@ -45075,11 +45075,11 @@ en: raw gooseberry
 usda_ndb_code:en: 9107
 usda_ndb_name:en: Gooseberries, raw
 
-<en:fruit juice
-en:gooseberry juice
-de:Stachelbeersaft
-fi:karviaismehu, karviaistäysmehu
-sv:krusbärjuice
+< en:fruit juice
+en: gooseberry juice
+de: Stachelbeersaft
+fi: karviaismehu, karviaistäysmehu
+sv: krusbärjuice
 
 ###################################################################################################
 #
@@ -46854,6 +46854,7 @@ tl: Prambuwesas
 ty: Rahipere
 uz: Malina
 zh: 樹莓
+ciqual_food_name:fr: Framboise, crue
 # atj:Mikominan
 # bat-smg:Avietė
 # chr:ᏒᏗᏩᎵ
@@ -46867,7 +46868,6 @@ zh: 樹莓
 # 2014 in 12 languages @2018-09-27
 ciqual_proxy_food_code:en: 13015
 ciqual_proxy_food_name:en: Raspberry, raw
-ciqual_food_name:fr: Framboise, crue
 ecobalyse:en: 50939126-d4a5-4b94-b110-63e8b9e66173
 ecobalyse_labels_en_organic:en: 091cda9d-3c9d-444c-ad0e-1d6f34491767
 eurocode_2_group_3:en: 9.30.20
@@ -53889,14 +53889,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Garlic
 # en:garlic has 22470 products in 18 languages @2018-10-23
 
 < en:garlic
-en: raw garlic, fresh garlic
-ciqual_proxy_food_code:en: 11000
-ciqual_proxy_food_name:en: Garlic, fresh
-ciqual_proxy_food_name:fr: Ail, cru
-usda_ndb_code:en: 11215
-usda_ndb_name:en: Garlic, raw
-
-< en:garlic
 en: tender garlic
 da: hvidløgsskud
 de: Knoblauchsprossen, Knoblauch-Sprossen
@@ -54071,18 +54063,23 @@ nl: gedroogde knoflook
 nn: tørket hvitløk
 pl: suszony czosnek, czosnek suszony
 sv: torkad vitlök, torkad hvidlök
-# fr:ailséché contains 35 products in 8 languages @2018-10-22
+# fr:ail séché contains 35 products in 8 languages @2018-10-22
 ciqual_food_code:en: 11023
 ciqual_food_name:en: Garlic, powder, dried
 ciqual_food_name:fr: Ail séché, poudre
 
 < en:garlic
+en: fresh garlic, raw garlic
 bg: пресен чесън
-en: fresh garlic
 fr: ail frais
 hr: svježi češnjak
 it: aglio fresco
 # fr:ail-frais has 31 products in 1 language @2018-10-22
+ciqual_proxy_food_code:en: 11000
+ciqual_proxy_food_name:en: Garlic, fresh
+ciqual_proxy_food_name:fr: Ail, cru
+usda_ndb_code:en: 11215
+usda_ndb_name:en: Garlic, raw
 
 < en:garlic
 < en:vegetable extract
@@ -55380,7 +55377,7 @@ de: Yam, Yamswurzel, Yamswurzeln
 fr: igname
 hr: jam
 it: yam
-description:en:Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers. In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
+description:en: Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers. In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
 eurocode_2_group_3:en: 8.34.40
 nutriscore_fruits_vegetables_nuts:en: no
 usda_ndb_proxy_code:en: 11601
@@ -55975,8 +55972,8 @@ description:nl: De bernagie (Borago officinalis), ook vaak komkommerkruid genoem
 description:pt: Borragem (Borago officinalis L.), é uma planta herbácea anual mediterrânea. Folhas e flores são utilizadas.
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.20
-usda_ndb_proxy_code:en: 11613
 usda_ndb_proxy-name:en: Borage, raw
+usda_ndb_proxy_code:en: 11613
 wikidata:en: Q147075
 wikipedia:en: https://en.wikipedia.org/wiki/Borage
 # 27 in 4 @2021-09-05
@@ -59004,9 +59001,9 @@ zh: 芜菁
 # yue:大頭菜
 carbon_footprint_fr_foodges_ingredient:fr: Navet
 carbon_footprint_fr_foodges_value:fr: 0.9
-ciqual_proxy_food_code:en: 20064
-ciqual_proxy_food_name:en: Turnip, peeled, raw
-ciqual_proxy_food_name:fr: Navet, pelé, cru
+ciqual_food_code:en: 20064
+ciqual_food_name:en: Turnip, peeled, raw
+ciqual_food_name:fr: Navet, pelé, cru
 ecobalyse:en: turnip-non-eu
 ecobalyse_labels_en_organic:en: turnip-organic
 ecobalyse_origins_en_european_union:en: turnip-eu
@@ -59017,14 +59014,6 @@ usda_ndb_proxy_name:en: Turnips, raw
 wikidata:en: Q3916957
 wikipedia:en: https://en.wikipedia.org/wiki/Turnip
 # ingredient/turnip has 592 products in 7 languages @2019-05-18
-
-< en:turnip
-en: turnip
-ciqual_food_code:en: 20064
-ciqual_food_name:en: Turnip, peeled, raw
-ciqual_food_name:fr: Navet, pelé, cru
-usda_ndb_code:en: 11564
-usda_ndb_name:en: Turnips, raw
 
 # description:en:Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
@@ -67692,9 +67681,9 @@ nl: korianderblad, korianderblaadjes, koriander blaadjes
 nn: korianderblad
 pl: liście kolendry
 sv: korianderblad
+ciqual_proxy-food_name:fr: Coriandre, fraiche
 ciqual_proxy_food_code:en: 11094
 ciqual_proxy_food_name:en: Coriander, fresh
-ciqual_proxy-food_name:fr: Coriandre, fraiche
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.38
 usda_ndb_proxy_code:en: 11165
@@ -67717,10 +67706,10 @@ wikidata:en: Q65523167
 # 4528 in 9 @2021-09-28
 
 # processing:en: en:dried
-<en:coriander leaf
-en:dried coriander leaf
-fr:feuille de coriandre séchée
-hu:száritott korianderlevél
+< en:coriander leaf
+en: dried coriander leaf
+fr: feuille de coriandre séchée
+hu: száritott korianderlevél
 
 ###################################################################################################
 #
@@ -68722,8 +68711,8 @@ wikidata:en: Q3215980
 wikipedia:en: https://en.wikipedia.org/wiki/Thyme
 # 7086 in 18 @2021-09-16
 
-<en:thyme
-en:fresh thyme
+< en:thyme
+en: fresh thyme
 ciqual_food_code:en: 11070
 ciqual_food_name:en: Thyme, fresh
 ciqual_food_name:fr: Thym, frais
@@ -68741,15 +68730,15 @@ usda_ndb_name:en: Thyme, fresh
 # ingredient/fr:thym-bio has 10 products in 3 languages @2019-05-25
 
 #processing:en: en:dried kept here due to nutrition ciqual
-<en:thyme
-en:dried thyme
-de:getrockneter Thymian, Thymian getrocknet
-es:tomillo deshidratado, tomillo seco
-fi:kuivattu timjami
-fr:thym déshydraté, thym deshydrate
-ciqual_food_code:en:11038
-ciqual_food_name:en:Thyme, dried
-ciqual_food_name:fr:Thym, séché
+< en:thyme
+en: dried thyme
+de: getrockneter Thymian, Thymian getrocknet
+es: tomillo deshidratado, tomillo seco
+fi: kuivattu timjami
+fr: thym déshydraté, thym deshydrate
+ciqual_food_code:en: 11038
+ciqual_food_name:en: Thyme, dried
+ciqual_food_name:fr: Thym, séché
 
 #processing:en: en:powder
 #<en:thyme
@@ -91896,11 +91885,9 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20904
 ciqual_food_name:en: Tofu, plain
 ciqual_food_name:fr: Tofu, nature
-vegan:en: yes
-usda_ndb_code:en: 43299
-usda_ndb_name:en: Soybean, curd cheese
 usda_ndb_code:en: 16129
 usda_ndb_name:en: Tofu, fried
+vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q177378
 wikipedia:en: https://en.wikipedia.org/wiki/Tofu
