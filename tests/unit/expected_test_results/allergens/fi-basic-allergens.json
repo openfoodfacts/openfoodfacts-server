@@ -105,7 +105,6 @@
          "text" : "pähkinöitä"
       },
       {
-         "ciqual_proxy_food_code" : "20055",
          "ecobalyse_code" : "celery-eu",
          "id" : "en:celery",
          "is_in_taxonomy" : 1,
@@ -223,12 +222,13 @@
    "ingredients_with_unspecified_percent_n" : 12,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:celery",
       "fi:_kananmunat_",
       "fi:_nilviäisiä_",
       "fi:_äyriäiset_",
       "fi:pähkinöitä"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
       "en:fish",
       "en:mustard",
