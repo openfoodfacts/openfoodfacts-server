@@ -58,17 +58,17 @@ my $tests_ref = [
 	{
 		test_case => 'country-france-exists',
 		method => 'GET',
-		path => '/facets/countries/france',
+		path => '/facets/countries/France',
 		expected_status_code => 200,
 		expected_type => 'html',
 	},
 	{
 		test_case => 'country-cambodia-exists-but-empty',
 		method => 'GET',
-		path => '/facets/countries/cambodia',
+		path => '/facets/countries/Cambodia',
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => 'cambodia',
+		response_content_must_match => 'Cambodia',
 	},
 	{
 		test_case => 'country-doesnotexist',

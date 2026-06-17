@@ -17,7 +17,6 @@ my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Test qw/init_expected_results/;
 use ProductOpener::Products qw/analyze_and_enrich_product_data/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
@@ -28,10 +27,11 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::LoadData qw/load_data/;
-
-load_data();
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+
+load_data();
 
 my @tests = (
 
@@ -375,58 +375,8 @@ foreach my $test_ref (@tests) {
 
 	compute_attributes($product_ref, $product_ref->{lc}, "world", $options_ref);
 
-	# Travis and docker has a different $server_domain, so we need to change the resulting URLs
-	#          $got->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.off.travis-ci.org/images/attributes/nutriscore-unknown.svg'
-	#     $expected->{attribute_groups_fr}[0]{attributes}[0]{icon_url} = 'https://static.openfoodfacts.dev/images/attributes/nutriscore-unknown.svg'
-
-	# code below from https://www.perlmonks.org/?node_id=1031287
-
-	use Scalar::Util qw/reftype/;
-
-	sub walk {
-		my ($entry, $code) = @_;
-		my $type = reftype($entry);
-		$type //= "SCALAR";
-
-		if ($type eq "HASH") {
-			walk($_, $code) for values %$entry;
-		}
-		elsif ($type eq "ARRAY") {
-			walk($_, $code) for @$entry;
-		}
-		elsif ($type eq "SCALAR") {
-			$code->($_[0]);    # alias of entry
-		}
-		else {
-			warn "unknown type $type";
-		}
-		return;
-	}
-
-	walk $product_ref, sub {return unless defined $_[0]; $_[0] =~ s/https?:\/\/([^\/]+)\//https:\/\/server_domain\//;};
-
-	# Save the result
-
-	if ($update_expected_results) {
-		open(my $result, ">:encoding(UTF-8)", "$expected_result_dir/$testid.json")
-			or die("Could not create $expected_result_dir/$testid.json: $!\n");
-		print $result $json->pretty->encode($product_ref);
-		close($result);
-	}
-
-	# Compare the result with the expected result
-
-	if (open(my $expected_result, "<:encoding(UTF-8)", "$expected_result_dir/$testid.json")) {
-
-		local $/;    #Enable 'slurp' mode
-		my $expected_product_ref = $json->decode(<$expected_result>);
-		# print STDERR "testid: $testid\n";
-		is($product_ref, $expected_product_ref) or diag Dumper $product_ref;
-	}
-	else {
-		diag Dumper $product_ref;
-		fail("could not load $expected_result_dir/$testid.json");
-	}
+	normalize_product_for_test_comparison($product_ref);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
 done_testing();
