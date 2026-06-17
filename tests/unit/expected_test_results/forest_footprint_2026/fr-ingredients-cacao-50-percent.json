@@ -1,21 +1,28 @@
 {
    "forest_footprint_2026" : {
-      "grade" : "a",
+      "grade" : "c",
       "primary_ingredients" : {
          "en:cocoa" : {
-            "footprint_per_kg" : 0,
-            "grade" : "a",
+            "footprint_per_kg" : 0.148,
+            "grade" : "c",
             "ingredients" : [
                {
+                  "deforestation_risk" : 1,
                   "equivalence_ingredient" : 1,
                   "equivalence_ingredient_category" : 1,
-                  "footprint_per_kg" : 0,
+                  "footprint_per_kg" : 0.148,
+                  "grade" : "c",
                   "ingredient_category_id" : "en:cocoa",
                   "ingredient_id" : "en:cocoa",
-                  "origin_footprint" : 0,
+                  "label_id" : null,
+                  "labels_ids" : [],
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
                   "percent" : 50,
+                  "primary_ingredient" : "cocoa",
                   "primary_ingredient_id" : "en:cocoa",
-                  "risk_factor" : 1
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
                }
             ]
          },
@@ -30,7 +37,7 @@
             "ingredients" : []
          }
       },
-      "total_footprint_per_kg" : 0
+      "total_footprint_per_kg" : 0.148
    },
    "ingredients" : [
       {

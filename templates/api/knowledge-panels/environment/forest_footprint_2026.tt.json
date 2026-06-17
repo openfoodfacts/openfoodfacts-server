@@ -1,0 +1,125 @@
+{
+    "level": "info",
+    "topics": [
+        "environment"
+    ],
+    "expanded": false,
+    "title_element": {
+        "name": "Forest Footprint 2026",
+        "title": "Forest Footprint 2026 - grade [% product.forest_footprint_2026.grade %]",
+        "subtitle": "Under development - shown to moderators only for debugging purposes",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-[% product.forest_footprint_2026.grade %].svg",
+        "type": "grade",
+        "grade": "[% product.forest_footprint_2026.grade %]"
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                <p><strong>Forest Footprint 2026</strong></p>
+                <p>The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes.</p>
+                <p><strong>Overall grade:</strong> [% product.forest_footprint_2026.grade.ucfirst %]</p>
+                <p><strong>Total forest footprint:</strong> [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                `
+            }
+        },
+        [% FOREACH primary_id IN ['en:cocoa', 'en:coffee', 'en:palm-oil'] %]
+        [% IF product.forest_footprint_2026.primary_ingredients.${primary_id}.ingredients.defined && product.forest_footprint_2026.primary_ingredients.${primary_id}.ingredients.size %]
+        [% SET primary = product.forest_footprint_2026.primary_ingredients.${primary_id} %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                <h3>[% display_taxonomy_tag("ingredients", primary_id).ucfirst %]</h3>
+                <p><strong>Primary ingredient grade:</strong> [% primary.grade.ucfirst %]</p>
+                <p><strong>Primary ingredient forest footprint:</strong> [% primary.footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                `
+            }
+        },
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "forest_footprint_2026_[% primary_id %]_table",
+                "title": "[% display_taxonomy_tag("ingredients", primary_id) %]",
+                "columns": [
+                    {
+                        "text": "Ingredient",
+                        "type": "text"
+                    },
+                    {
+                        "text": "% in the product",
+                        "type": "text"
+                    },
+                    {
+                        "text": "Primary ingredient",
+                        "type": "text"
+                    },
+                    {
+                        "text": "Transformation factor",
+                        "type": "text"
+                    },
+                    {
+                        "text": "Origin",
+                        "type": "text"
+                    },
+                    {
+                        "text": "Forest footprint for the origin",
+                        "type": "text"
+                    },
+                    {
+                        "text": "Label",
+                        "type": "text"
+                    },
+                    {
+                        "text": "Deforestation risk",
+                        "type": "text"
+                    },
+                    {
+                        "text": "Forest footprint (m² per kg)",
+                        "type": "text"
+                    },
+                ],
+                "rows": [
+                    [% FOREACH ingredient IN primary.ingredients %]
+                    {
+                        "values": [
+                            {
+                                "text": "[% display_taxonomy_tag("ingredients", ingredient.ingredient_id) %]"
+                            },
+                            {
+                                "text": "[% ingredient.percent FILTER format("%.2f"); %] %"
+                            },
+                            {
+                                "text": "[% display_taxonomy_tag("ingredients", ingredient.primary_ingredient_id) %]"
+                            },
+                            {
+                                "text": "[% ingredient.transformation_factor FILTER format("%.2f"); %]"
+                            },
+                            {
+                                "text": "[% display_taxonomy_tag("origins", ingredient.origin_id) %]"
+                            },
+                            {
+                                "text": "[% ingredient.origin_footprint FILTER format("%.3f"); %]"
+                            },
+                            {
+                                "text": "[% IF ingredient.label_id.defined %][% display_taxonomy_tag("labels", ingredient.label_id) %][% ELSE %]-[% END %]"
+                            },
+                            {
+                                "text": "[% ingredient.risk_factor * 100 FILTER format("%.0f"); %] %"
+                            },
+                            {
+                                "text": "[% ingredient.footprint_per_kg FILTER format("%.2f"); %]"
+                            },
+                        ]
+                    }[% UNLESS loop.last %],[% END %]
+                    [% END %]
+                ]
+            }
+        }[% UNLESS loop.last %],[% END %]
+        [% END %]
+        [% END %]
+    ]
+}

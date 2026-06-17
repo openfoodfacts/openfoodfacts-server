@@ -61,6 +61,7 @@ use ProductOpener::Nutrition
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
+use ProductOpener::ForestFootprint2026 qw/compute_forest_footprint_2026/;
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 
 use Log::Any qw($log);
@@ -118,6 +119,7 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	compute_environmental_score($product_ref);
 	compute_forest_footprint($product_ref);
+	compute_forest_footprint_2026($product_ref);
 
 	# Determine packaging components in contact with food
 	determine_food_contact_of_packaging_components_service($product_ref);

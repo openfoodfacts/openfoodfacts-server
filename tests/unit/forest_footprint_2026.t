@@ -135,6 +135,15 @@ my @tests = (
 			labels_tags => ["en:utz"],
 		}
 	],
+	[
+		'fr-chocolate-cookies',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Farine, eau, chocolat (beurre de cacao, pâte de cacao, cacao maigre, lait), oeufs, huile de palme, café, sucre, sel
+",
+		}
+	],
 
 );
 

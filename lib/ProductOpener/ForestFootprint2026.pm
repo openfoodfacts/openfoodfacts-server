@@ -38,7 +38,7 @@ ForestFootprint module. Instead of using soy-based calculations, it uses:
 - Label-based risk reduction percentages
 
 The computation formula is:
-    footprint = percent_estimate * equivalence_ingredient * equivalence_ingredient_category * origin_footprint * (risk_factor / 100)
+    footprint = percent_estimate * equivalence_ingredient * equivalence_ingredient_category * origin_footprint * risk_factor
 
 =cut
 
@@ -111,7 +111,12 @@ Loads data needed to compute the forest footprint using the 2026 algorithm.
 
 =cut
 
+my $forest_footprint_data_loaded = 0;
+
 sub load_forest_footprint_2026_data() {
+
+	return if $forest_footprint_data_loaded;
+	$forest_footprint_data_loaded = 1;
 
 	my $errors = 0;
 
@@ -393,12 +398,16 @@ sub compute_forest_footprint_2026 ($product_ref) {
 			# Calculate grade for this primary ingredient
 			$primary_data->{grade} = _get_grade_for_ef($primary_data->{footprint_per_kg}, $primary_id);
 		}
+		else {
+			# No ingredients for this primary ingredient, remove it from the structure
+			delete $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id};
+		}
 	}
 
 	if ($has_ingredients) {
 		# Calculate overall total footprint
 		$product_ref->{forest_footprint_2026}{total_footprint_per_kg} = 0;
-		foreach my $primary_id (@primary_ingredients) {
+		foreach my $primary_id (keys %{$product_ref->{forest_footprint_2026}{primary_ingredients}}) {
 			$product_ref->{forest_footprint_2026}{total_footprint_per_kg}
 				+= $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{footprint_per_kg};
 		}
@@ -416,18 +425,9 @@ sub compute_forest_footprint_2026 ($product_ref) {
 
 sub compute_footprints_of_ingredients_2026 ($product_ref, $ingredients_ref) {
 
-	my $ranked = 0;
-
 	my $ingredients_with_footprint = 0;
 
 	foreach my $ingredient_ref (@$ingredients_ref) {
-
-		if ($ingredient_ref->{rank}) {
-			$ranked = 1;
-		}
-		elsif ($ranked) {
-			last;
-		}
 
 		$log->debug("compute_footprints_of_ingredients_2026 - checking ingredient",
 			{ingredient_id => $ingredient_ref->{id}})
@@ -518,7 +518,9 @@ sub get_forest_footprint_2026_ingredient_footprint {
 	my $primary_ingredient_id = $category_data->{primary_ingredient_id};
 	my $equivalence_ingredient_category = $category_data->{equivalence};
 	my $primary_ingredient = get_primary_ingredient_name($primary_ingredient_id);
-	my $origin_footprint = get_origin_footprint($product_ref, $primary_ingredient);
+	my $origin_data = get_origin_footprint_data($product_ref, $primary_ingredient);
+	my $origin_id = $origin_data->{origin_id};
+	my $origin_footprint = $origin_data->{origin_footprint};
 
 	if (not defined $origin_footprint) {
 		$log->debug("no origin footprint found", {primary_ingredient => $primary_ingredient})
@@ -526,7 +528,8 @@ sub get_forest_footprint_2026_ingredient_footprint {
 		return undef;
 	}
 
-	my $risk_factor = get_label_risk($product_ref, $primary_ingredient);
+	my $label_data = get_label_risk_data($product_ref, $primary_ingredient);
+	my $risk_factor = $label_data->{risk_factor};
 
 	my $percent = $ingredient_ref->{percent};
 	if (not defined $percent) {
@@ -542,15 +545,20 @@ sub get_forest_footprint_2026_ingredient_footprint {
 		* $equivalence_ingredient_category
 		* $origin_footprint
 		* $risk_factor;
+	my $transformation_factor = $equivalence_ingredient * $equivalence_ingredient_category;
 
 	my $footprint_ref = {
 		ingredient_id => $ingredient_id,
 		ingredient_category_id => $ingredient_category_id,
 		primary_ingredient_id => $primary_ingredient_id,
+		primary_ingredient => $primary_ingredient,
 		percent => $percent,
 		equivalence_ingredient => $equivalence_ingredient,
 		equivalence_ingredient_category => $equivalence_ingredient_category,
+		transformation_factor => $transformation_factor,
+		origin_id => $origin_id,
 		origin_footprint => $origin_footprint,
+		label_id => $label_data->{label_id},
 		risk_factor => $risk_factor,
 		footprint_per_kg => $footprint_per_kg,
 	};
@@ -574,53 +582,83 @@ sub get_primary_ingredient_name ($) {
 	return $primary_ingredient_id;
 }
 
-sub get_origin_footprint {
+sub get_origin_footprint_data {
 
 	my ($product_ref, $primary_ingredient) = @_;
 
-	my $origins_tags = $product_ref->{origins_tags};
-
-	if (not defined $origins_tags) {
-		return 0;
-	}
-
-	foreach my $origin_tag (@$origins_tags) {
-		if (exists $forest_footprint_2026_data{origins_footprint}{$origin_tag}) {
-			my $origin_data = $forest_footprint_2026_data{origins_footprint}{$origin_tag};
-			if (defined $origin_data->{$primary_ingredient}) {
-				return $origin_data->{$primary_ingredient};
-			}
-		}
-	}
-
-	return 0;
-}
-
-sub get_label_risk {
-
-	my ($product_ref, $primary_ingredient) = @_;
-
-	my $labels_tags = $product_ref->{labels_tags};
-
-	if (not defined $labels_tags) {
-		return 1;
-	}
-
-	my $risk_factor = 1;
-
-	foreach my $label_tag (@$labels_tags) {
-		if (exists $forest_footprint_2026_data{labels_risk}{$label_tag}) {
-			my $label_data = $forest_footprint_2026_data{labels_risk}{$label_tag};
-			if (defined $label_data->{$primary_ingredient}) {
-				my $label_risk = $label_data->{$primary_ingredient} / 100;
-				if ($label_risk < $risk_factor) {
-					$risk_factor = $label_risk;
+	if (defined $product_ref->{origins_tags}) {
+		foreach my $origin_tag (@{$product_ref->{origins_tags}}) {
+			next if not defined $origin_tag or $origin_tag eq "";
+			if (exists $forest_footprint_2026_data{origins_footprint}{$origin_tag}) {
+				my $origin_data = $forest_footprint_2026_data{origins_footprint}{$origin_tag};
+				if (defined $origin_data->{$primary_ingredient}) {
+					return {
+						origin_id => $origin_tag,
+						origin_footprint => $origin_data->{$primary_ingredient},
+					};
 				}
 			}
 		}
 	}
 
-	return $risk_factor;
+	my $default_origin_id = "en:unknown";
+	if (exists $forest_footprint_2026_data{origins_footprint}{$default_origin_id}) {
+		$log->debug("using default origin for forest footprint 2026", {origin_id => $default_origin_id})
+			if $log->is_debug();
+		my $origin_data = $forest_footprint_2026_data{origins_footprint}{$default_origin_id};
+		return {
+			origin_id => $default_origin_id,
+			origin_footprint => $origin_data->{$primary_ingredient} // 0,
+		};
+	}
+
+	return {
+		origin_id => undef,
+		origin_footprint => 0,
+	};
+}
+
+sub get_origin_footprint {
+
+	my ($product_ref, $primary_ingredient) = @_;
+	my $origin_data = get_origin_footprint_data($product_ref, $primary_ingredient);
+	return $origin_data->{origin_footprint};
+}
+
+sub get_label_risk_data {
+
+	my ($product_ref, $primary_ingredient) = @_;
+
+	my $risk_factor = 1;
+	my $label_id;
+
+	if (defined $product_ref->{labels_tags}) {
+		foreach my $label_tag (@{$product_ref->{labels_tags}}) {
+			next if not defined $label_tag or $label_tag eq "";
+			if (exists $forest_footprint_2026_data{labels_risk}{$label_tag}) {
+				my $label_data = $forest_footprint_2026_data{labels_risk}{$label_tag};
+				if (defined $label_data->{$primary_ingredient}) {
+					my $label_risk = $label_data->{$primary_ingredient} / 100;
+					if ($label_risk < $risk_factor) {
+						$risk_factor = $label_risk;
+						$label_id = $label_tag;
+					}
+				}
+			}
+		}
+	}
+
+	return {
+		label_id => $label_id,
+		risk_factor => $risk_factor,
+	};
+}
+
+sub get_label_risk {
+
+	my ($product_ref, $primary_ingredient) = @_;
+	my $label_data = get_label_risk_data($product_ref, $primary_ingredient);
+	return $label_data->{risk_factor};
 }
 
 sub _parse_decimal ($) {

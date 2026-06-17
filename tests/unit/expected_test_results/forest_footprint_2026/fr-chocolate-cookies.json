@@ -1,0 +1,303 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "forest_footprint_2026" : {
+      "grade" : "b",
+      "primary_ingredients" : {
+         "en:cocoa" : {
+            "footprint_per_kg" : 0.06475,
+            "grade" : "b",
+            "ingredients" : [
+               {
+                  "deforestation_risk" : 1,
+                  "equivalence_ingredient" : 1.5,
+                  "equivalence_ingredient_category" : 2,
+                  "footprint_per_kg" : 0.0485625,
+                  "grade" : "b",
+                  "ingredient_category_id" : "en:cocoa-paste",
+                  "ingredient_id" : "en:cocoa-butter",
+                  "label_id" : null,
+                  "labels_ids" : [],
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 5.46875,
+                  "primary_ingredient" : "cocoa",
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 3
+               },
+               {
+                  "deforestation_risk" : 1,
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 2,
+                  "footprint_per_kg" : 0.0161875,
+                  "grade" : "b",
+                  "ingredient_category_id" : "en:cocoa-paste",
+                  "ingredient_id" : "en:cocoa-paste",
+                  "label_id" : null,
+                  "labels_ids" : [],
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 2.734375,
+                  "primary_ingredient" : "cocoa",
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 2
+               }
+            ]
+         },
+         "en:coffee" : {
+            "footprint_per_kg" : 0,
+            "grade" : "a",
+            "ingredients" : []
+         },
+         "en:palm-oil" : {
+            "footprint_per_kg" : 0.00150390625,
+            "grade" : "b",
+            "ingredients" : [
+               {
+                  "deforestation_risk" : 1,
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.00150390625,
+                  "grade" : "b",
+                  "ingredient_category_id" : "en:palm-oil",
+                  "ingredient_id" : "en:palm-oil",
+                  "label_id" : null,
+                  "labels_ids" : [],
+                  "origin_footprint" : 0.055,
+                  "origin_id" : "en:unknown",
+                  "percent" : 2.734375,
+                  "primary_ingredient" : "palm-oil",
+                  "primary_ingredient_id" : "en:palm-oil",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "total_footprint_per_kg" : 0.06625390625
+   },
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9435",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 56.25,
+         "percent_max" : 100,
+         "percent_min" : 12.5,
+         "text" : "Farine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 21.875,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:chocolate",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "16030",
+               "id" : "en:cocoa-butter",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5.46875,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "beurre de cacao",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "16030",
+               "id" : "en:cocoa-paste",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 2.734375,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "pâte de cacao",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "18100",
+               "id" : "en:fat-reduced-cocoa",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.3671875,
+               "percent_max" : 11.1111111111111,
+               "percent_min" : 0,
+               "text" : "cacao maigre",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "19051",
+               "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+               "id" : "en:milk",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 1.3671875,
+               "percent_max" : 8.33333333333333,
+               "percent_min" : 0,
+               "text" : "lait",
+               "vegan" : "no",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.9375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "chocolat",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "22000",
+         "ecobalyse_code" : "egg-indoor-code3",
+         "id" : "en:egg",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.46875,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "oeufs",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "16129",
+         "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+         "from_palm_oil" : "yes",
+         "id" : "en:palm-oil",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.734375,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "huile de palme",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "18003",
+         "ecobalyse_code" : "coffee-ground",
+         "id" : "en:coffee",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.3671875,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "café",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "sucre",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk",
+         "en:egg"
+      ],
+      "en:palm-oil" : [
+         "en:palm-oil"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 12,
+   "ingredients_n_tags" : [
+      "12",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:flour",
+      "en:water",
+      "en:chocolate",
+      "en:egg",
+      "en:palm-oil",
+      "en:coffee",
+      "en:sugar",
+      "en:salt",
+      "en:cocoa-butter",
+      "en:cocoa-paste",
+      "en:fat-reduced-cocoa",
+      "en:milk"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:flour",
+      "en:water",
+      "en:chocolate",
+      "en:egg",
+      "en:palm-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:palm-oil-and-fat",
+      "en:coffee",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:salt",
+      "en:cocoa-butter",
+      "en:plant",
+      "en:cocoa",
+      "en:cocoa-paste",
+      "en:fat-reduced-cocoa",
+      "en:milk",
+      "en:dairy"
+   ],
+   "ingredients_text" : "Farine, eau, chocolat (beurre de cacao, pâte de cacao, cacao maigre, lait), oeufs, huile de palme, café, sucre, sel\n",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 11,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:chocolate"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:chocolate",
+      "en:cocoa-butter",
+      "en:cocoa-paste",
+      "en:fat-reduced-cocoa",
+      "en:salt"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 12,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

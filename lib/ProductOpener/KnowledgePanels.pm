@@ -130,6 +130,7 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 
 	# some info about users
 	$knowledge_panels_options_ref->{user_logged_in} = defined $User_id;
+	$knowledge_panels_options_ref->{moderator} = 1 if $request_ref->{moderator} || $request_ref->{admin};
 
 	return;
 }
@@ -875,6 +876,16 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Forest footprint
 	if (defined $product_ref->{forest_footprint_data}) {
 		create_panel_from_json_template("forest_footprint", "api/knowledge-panels/environment/forest_footprint.tt.json",
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
+	}
+
+	# Forest footprint 2026 - moderator-only debugging panel
+	if (    $options_ref->{moderator}
+		and defined $product_ref->{forest_footprint_2026}
+		and defined $product_ref->{forest_footprint_2026}{primary_ingredients})
+	{
+		create_panel_from_json_template("forest_footprint_2026",
+			"api/knowledge-panels/environment/forest_footprint_2026.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 
