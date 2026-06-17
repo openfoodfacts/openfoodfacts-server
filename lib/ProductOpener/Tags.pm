@@ -584,7 +584,7 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 					$propagate = scalar %unfound_properties;
 				}
 				else {
-					# check if we have at least one unfonud property which not "undef"
+					# check if we have at least one unfound property which not "undef"
 					for my $property (keys %unfound_properties) {
 						if (!defined $unfound_properties{$tagid}{$property}) {
 							$propagate = 1;
