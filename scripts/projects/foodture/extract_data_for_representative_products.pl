@@ -28,27 +28,60 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/search_and_export_products/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all add_images_urls_to_product/;
 use ProductOpener::Lang qw/$lc  %lang_lc/;
-use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/product_url/;
-use ProductOpener::Food qw/%nutrients_tables/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Data qw/get_products_collection/;
-use ProductOpener::Text qw/xml_escape/;
 use LWP::UserAgent;
 use JSON::MaybeXS;
 use Text::CSV;
 
 # This script:
-# - reads a list of countries and categories from foodture/FOODTURE_liste_extraction_OFF.csv
+# - reads a list of categories (and other columns) from foodture/16.06.2026_Correspondance_FT_OFF_pour_extract.csv
 # - reads a list of most scanned products by country and category from foodture/ranked_products_202602231414.csv
-# - for each product matching a country/category pair from the first list, we fetch its data from the OFF API (using LWP::UserAgent and caching in foodture/api_cache)
+# - for each product matching a category from the first list and 1 country from the EU27
+# + Norway, Switzerland, UK, Serbia and Montenegro),
+# we fetch its data from the OFF API (using LWP::UserAgent and caching in foodture/api_cache)
 # - we then extract / process the needed data to output a new CSV file containing representative products
+
+my @countries = qw/
+Austria
+Belgium
+Bulgaria
+Croatia
+Cyprus
+Czechia
+Denmark
+Estonia
+Finland
+France
+Germany
+Greece
+Hungary
+Ireland
+Italy
+Latvia
+Lithuania
+Luxembourg
+Malta
+Montenegro
+Netherlands
+Norway
+Poland
+Portugal
+Romania
+Serbia
+Slovakia
+Slovenia
+Spain
+Sweden
+Switzerland
+UK
+/;
+
+my %countries_names = map {canonicalize_taxonomy_tag('en', 'countries', $_) => display_taxonomy_tag('en', 'countries', canonicalize_taxonomy_tag('en', 'countries', $_))} @countries;
+my @countries_tags = sort keys %countries_names;
 
 # Languages to output ingredients in
 my @ingredient_languages = qw/en fr/;
@@ -158,6 +191,7 @@ open my $OUT, '>:encoding(UTF-8)', $out_file or die "Cannot write $out_file: $!\
 my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 	or die "Cannot create CSV writer: " . Text::CSV->error_diag();
 my @hdr = (
+	"L1", "L2", "Food Product L7", "Batch 1?",
 	"Country", "Segmentation OFF",
 	"off_country_id", "off_category_id",
 	"category_exists_in_taxonomy",
@@ -196,138 +230,145 @@ my $n = 0;
 my $total_products = 0;    # number of products with actual data (used for avg_percent)
 while (<$LIST>) {
 	chomp;
-	my ($country, $segmentation) = split /\t/, $_, 2;
+	my ($l1, $l2, $l7, $segmentation, $batch1) = split /\t/, $_, 5;
 
 	# Skip hidden lines without segmentation
 	# next if (not defined $segmentation) or ($segmentation eq '') or ($segmentation =~ /N\/D/i);
 
-	my $country_tag = canonicalize_taxonomy_tag('en', 'countries', $country);
-	# For testing skip if country is not en:france
-	# next unless $country_tag eq 'en:france';
 	my $last_category = $segmentation;
 	$last_category =~ s/.*>//;
 	my $exists_in_taxonomy;
 	my $category_tag = canonicalize_taxonomy_tag('en', 'categories', $last_category, \$exists_in_taxonomy);
 
-	print STDERR
-		"Processing $country / $last_category ($country_tag / $category_tag (known: $exists_in_taxonomy))...\n";
+	# Loop on countries
+	foreach my $country_tag (@countries_tags) {
 
-	# find the matching product
-	if (defined $ranked{$country_tag}{$category_tag}) {
+		print STDERR
+			"Processing $country / $last_category ($country_tag / $category_tag (known: $exists_in_taxonomy))...\n";
 
-		my ($code, $recent_scans) = @{$ranked{$country_tag}{$category_tag}};
+		# find the matching product
+		if (defined $ranked{$country_tag}{$category_tag}) {
 
-		# ensure product data fetched
-		unless (exists $product_data{$code}) {
-			my $cache_file = "$cache_dir/$code.json";
-			if (-e $cache_file) {
-				open my $cf, '<:encoding(UTF-8)', $cache_file;
-				local $/;
-				my $json = <$cf>;
-				close $cf;
-				$product_data{$code} = decode_json($json);
-				decide_if_we_should_refetch_product($code);
-			}
+			my ($code, $recent_scans) = @{$ranked{$country_tag}{$category_tag}};
 
-			if (not defined $product_data{$code}) {
-				my $resp = $ua->get($baseurl . $code);
-				if ($resp->is_success) {
-					my $data = decode_json($resp->decoded_content);
-					$product_data{$code} = $data;
-					open my $cf, '>:encoding(UTF-8)', $cache_file or warn "Cannot write cache $cache_file: $!\n";
-					print $cf encode_json($data);
-					close $cf;
-				}
-				else {
-					warn "failed to fetch product $code: " . $resp->status_line . "\n";
-					next;
-				}
-			}
-		}
+			my $product_ref = {};
 
-		my $product_ref = $product_data{$code}{product} // next;
+			# If we have the --only-output-codes option, don't fetch product data
+			unless ($ARGV[0] eq '--only-output-codes') {
 
-		my $url = "https://world.openfoodfacts.org" . product_url($code);
-		my $api_url = $baseurl . $code;
-		my $brands = $product_ref->{brands} // '';
+				# ensure product data fetched
+				unless (exists $product_data{$code}) {
+					my $cache_file = "$cache_dir/$code.json";
+					if (-e $cache_file) {
+						open my $cf, '<:encoding(UTF-8)', $cache_file;
+						local $/;
+						my $json = <$cf>;
+						close $cf;
+						$product_data{$code} = decode_json($json);
+						decide_if_we_should_refetch_product($code);
+					}
 
-		my $name = $product_ref->{product_name} // '';
-		my $lang = $product_ref->{lang} // '';
-		my $ingredients_txt = $product_ref->{ingredients_text} // '';
-		my $ingredients_lc = $product_ref->{ingredients_lc} // '';
-		my @ingredients_text_lc = map {$product_ref->{"ingredients_text_$_"} // ''} @ingredient_languages;
-		my $img_url = $product_ref->{image_url} // '';
-		my $img_ing = $product_ref->{image_ingredients_url} // '';
-		my $img_nut = $product_ref->{image_nutrition_url} // '';
-		my $img_pack = $product_ref->{image_packaging_url} // '';
-
-		my @row = (
-			$country, $segmentation, $country_tag, $category_tag,
-			$exists_in_taxonomy || 0, 
-			$categories_agb{$category_tag} || '',
-			$categories_agb_proxy{$category_tag} || '',
-			$recent_scans, $url, $api_url,
-			$code, $name, $brands, $lang,
-			$ingredients_lc, $ingredients_txt, @ingredients_text_lc, $img_url,
-			$img_ing, $img_nut, $img_pack
-		);
-
-		# top 10 ingredients by quantity
-
-		my %ingredients;
-		if (ref $product_ref->{ingredients} eq 'ARRAY') {
-			collect_ingredients($_, \%ingredients) for @{$product_ref->{ingredients}};
-		}
-		my @sorted = sort {$ingredients{$b} <=> $ingredients{$a}} keys %ingredients;
-
-		# accumulate into global ingredients sum
-		for my $id (keys %ingredients) {
-			$all_ingredients_sum{$id} += $ingredients{$id};
-			$all_ingredients_count{$id}++;
-		}
-		$total_products++;
-
-		for my $i (1 .. 10) {
-			my $idx = $i - 1;
-			my $id = $sorted[$idx] // '';
-			my $pct = defined $id ? $ingredients{$id} : '';
-			my @translations = ();
-			push @row, $id, $ingredients_in_taxonomy{$id} // '';
-			foreach my $target_lc (@ingredient_languages) {
-				push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
-			}
-			my $parents = display_tag_and_parents_taxonomy("ingredients", $id);
-			# Remove HTML tags
-			$parents =~ s/<[^>]*>//g;
-			push @row, $parents, $pct;
-		}
-
-		# packaging values (five first elements)
-		for my $j (1 .. 5) {
-			my $idx = $j - 1;
-			for my $f (qw(number_of_units shape material quantity_per_unit)) {
-				my $val = '';
-				if (ref $product_ref->{packagings} eq 'ARRAY' && defined $product_ref->{packagings}[$idx]) {
-					$val = $product_ref->{packagings}[$idx]{$f} // '';
-					if (ref($val) eq 'HASH') {
-						$val = $val->{id} // '';
+					if (not defined $product_data{$code}) {
+						my $resp = $ua->get($baseurl . $code);
+						if ($resp->is_success) {
+							my $data = decode_json($resp->decoded_content);
+							$product_data{$code} = $data;
+							open my $cf, '>:encoding(UTF-8)', $cache_file or warn "Cannot write cache $cache_file: $!\n";
+							print $cf encode_json($data);
+							close $cf;
+						}
+						else {
+							warn "failed to fetch product $code: " . $resp->status_line . "\n";
+							next;
+						}
 					}
 				}
-				push @row, $val;
+
+				$product_ref = $product_data{$code}{product} // next;
 			}
+
+			my $url = "https://world.openfoodfacts.org" . product_url($code);
+			my $api_url = $baseurl . $code;
+			my $brands = $product_ref->{brands} // '';
+
+			my $name = $product_ref->{product_name} // '';
+			my $lang = $product_ref->{lang} // '';
+			my $ingredients_txt = $product_ref->{ingredients_text} // '';
+			my $ingredients_lc = $product_ref->{ingredients_lc} // '';
+			my @ingredients_text_lc = map {$product_ref->{"ingredients_text_$_"} // ''} @ingredient_languages;
+			my $img_url = $product_ref->{image_url} // '';
+			my $img_ing = $product_ref->{image_ingredients_url} // '';
+			my $img_nut = $product_ref->{image_nutrition_url} // '';
+			my $img_pack = $product_ref->{image_packaging_url} // '';
+
+			my @row = (
+				$l1, $l2, $l7, $segmentation, $category_tag, $batch, $country_tag, $country_names{$country_tag} // '',
+				$exists_in_taxonomy || 0, 
+				$categories_agb{$category_tag} || '',
+				$categories_agb_proxy{$category_tag} || '',
+				$recent_scans, $url, $api_url,
+				$code, $name, $brands, $lang,
+				$ingredients_lc, $ingredients_txt, @ingredients_text_lc, $img_url,
+				$img_ing, $img_nut, $img_pack
+			);
+
+			# top 10 ingredients by quantity
+
+			my %ingredients;
+			if (ref $product_ref->{ingredients} eq 'ARRAY') {
+				collect_ingredients($_, \%ingredients) for @{$product_ref->{ingredients}};
+			}
+			my @sorted = sort {$ingredients{$b} <=> $ingredients{$a}} keys %ingredients;
+
+			# accumulate into global ingredients sum
+			for my $id (keys %ingredients) {
+				$all_ingredients_sum{$id} += $ingredients{$id};
+				$all_ingredients_count{$id}++;
+			}
+			$total_products++;
+
+			for my $i (1 .. 10) {
+				my $idx = $i - 1;
+				my $id = $sorted[$idx] // '';
+				my $pct = defined $id ? $ingredients{$id} : '';
+				my @translations = ();
+				push @row, $id, $ingredients_in_taxonomy{$id} // '';
+				foreach my $target_lc (@ingredient_languages) {
+					push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
+				}
+				my $parents = display_tag_and_parents_taxonomy("ingredients", $id);
+				# Remove HTML tags
+				$parents =~ s/<[^>]*>//g;
+				push @row, $parents, $pct;
+			}
+
+			# packaging values (five first elements)
+			for my $j (1 .. 5) {
+				my $idx = $j - 1;
+				for my $f (qw(number_of_units shape material quantity_per_unit)) {
+					my $val = '';
+					if (ref $product_ref->{packagings} eq 'ARRAY' && defined $product_ref->{packagings}[$idx]) {
+						$val = $product_ref->{packagings}[$idx]{$f} // '';
+						if (ref($val) eq 'HASH') {
+							$val = $val->{id} // '';
+						}
+					}
+					push @row, $val;
+				}
+			}
+
+			$csv_out->print($OUT, \@row);
+
 		}
-
-		$csv_out->print($OUT, \@row);
-
+		else {
+			# no product matched this country/category – output identifiers anyway
+			my @row = ($country, $segmentation, $country_tag, $category_tag);
+			push @row, ('') x (scalar(@hdr) - scalar(@row));
+			$csv_out->print($OUT, \@row);
+		}
+		$n++;
+		#$n > 600 and last;    # for testing, limit to 100 lines
 	}
-	else {
-		# no product matched this country/category – output identifiers anyway
-		my @row = ($country, $segmentation, $country_tag, $category_tag);
-		push @row, ('') x (scalar(@hdr) - scalar(@row));
-		$csv_out->print($OUT, \@row);
-	}
-	$n++;
-	#$n > 600 and last;    # for testing, limit to 100 lines
 }
 close $LIST;
 close $OUT;
