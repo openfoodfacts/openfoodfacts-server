@@ -139,7 +139,7 @@ foreach my $new_index (@index_list) {
 	my $new_keys = join(',', @{$new_index});
 	print "Creating index: $new_keys\n";
 	eval {
-		$indexes->create_one($new_index, {background => 1});
+		$indexes->create_one($new_index);
 		1;
 	} or do {
 		# Timeouts are expected on large databases. The index build will continue in the background.
