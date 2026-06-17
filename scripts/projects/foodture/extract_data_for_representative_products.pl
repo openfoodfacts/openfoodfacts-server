@@ -20,10 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
-
-use CGI::Carp qw(fatalsToBrowser);
+use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -181,7 +178,7 @@ while (<$RANK>) {
 close $RANK;
 
 # read target country/category pairs and output rows as we go
-my $list_file = "foodture/FOODTURE_liste_extraction_OFF.csv";
+my $list_file = "foodture/16.06.2026_Correspondance_FT_OFF_pour_extract.csv";
 open my $LIST, '<:encoding(UTF-8)', $list_file or die "Cannot open $list_file: $!\n";
 <$LIST>;    # skip header
 
@@ -191,9 +188,9 @@ open my $OUT, '>:encoding(UTF-8)', $out_file or die "Cannot write $out_file: $!\
 my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 	or die "Cannot create CSV writer: " . Text::CSV->error_diag();
 my @hdr = (
-	"L1", "L2", "Food Product L7", "Batch 1?",
-	"Country", "Segmentation OFF",
-	"off_country_id", "off_category_id",
+	"L1", "L2", "Food Product L7", "Segmentation OFF", "off_category_id", "Batch 1?",
+	"Country", 
+	"off_country_id", 
 	"category_exists_in_taxonomy",
 	"agribalyse_code", "agribalyse_proxy_code",
 	"recent_scans",
@@ -230,7 +227,9 @@ my $n = 0;
 my $total_products = 0;    # number of products with actual data (used for avg_percent)
 while (<$LIST>) {
 	chomp;
+
 	my ($l1, $l2, $l7, $segmentation, $batch1) = split /\t/, $_, 5;
+	print STDERR "Processing category: $l1 / $l2 / $l7 / $segmentation ($batch1)...\n";
 
 	# Skip hidden lines without segmentation
 	# next if (not defined $segmentation) or ($segmentation eq '') or ($segmentation =~ /N\/D/i);
@@ -244,7 +243,7 @@ while (<$LIST>) {
 	foreach my $country_tag (@countries_tags) {
 
 		print STDERR
-			"Processing $country / $last_category ($country_tag / $category_tag (known: $exists_in_taxonomy))...\n";
+			"Processing country: $country_tag / $last_category ($category_tag (known: $exists_in_taxonomy))...\n";
 
 		# find the matching product
 		if (defined $ranked{$country_tag}{$category_tag}) {
@@ -302,7 +301,7 @@ while (<$LIST>) {
 			my $img_pack = $product_ref->{image_packaging_url} // '';
 
 			my @row = (
-				$l1, $l2, $l7, $segmentation, $category_tag, $batch, $country_tag, $country_names{$country_tag} // '',
+				$l1, $l2, $l7, $segmentation, $category_tag, $batch1, $countries_names{$country_tag} // '', $country_tag,
 				$exists_in_taxonomy || 0, 
 				$categories_agb{$category_tag} || '',
 				$categories_agb_proxy{$category_tag} || '',
@@ -362,7 +361,10 @@ while (<$LIST>) {
 		}
 		else {
 			# no product matched this country/category – output identifiers anyway
-			my @row = ($country, $segmentation, $country_tag, $category_tag);
+			my @row = ($l1, $l2, $l7, $segmentation, $category_tag, $batch1, $countries_names{$country_tag} // '', $country_tag,
+				$exists_in_taxonomy || 0, 
+				$categories_agb{$category_tag} || '',
+				$categories_agb_proxy{$category_tag} || '');
 			push @row, ('') x (scalar(@hdr) - scalar(@row));
 			$csv_out->print($OUT, \@row);
 		}
