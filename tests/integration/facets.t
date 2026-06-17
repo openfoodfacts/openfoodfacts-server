@@ -159,7 +159,7 @@ my @products = (
 			labels => "en:organic,en:fair-trade",
 			origins => "en:martinique",
 			lc => "en",
-			ingredients_text_en => "Cocoa, sugar, vanilla, vitamiun C",
+			ingredients_text_en => "Cocoa, sugar, vanilla, vitamin C",
 		),
 	},
 	# German product with accents in labels
