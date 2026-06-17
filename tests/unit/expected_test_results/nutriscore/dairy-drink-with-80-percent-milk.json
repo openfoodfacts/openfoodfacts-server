@@ -2,12 +2,6 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "en:milk",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [
-      "en:milk"
-   ],
    "allergens_tags" : [
       "en:milk"
    ],
@@ -35,6 +29,7 @@
       "en:dairies",
       "en:dairy-drinks"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:milk-and-yogurt",
    "food_groups_tags" : [
       "en:milk-and-dairy-products",
@@ -64,7 +59,7 @@
          "percent_max" : 20,
          "percent_min" : 20,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
@@ -112,6 +107,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -1142,10 +1138,22 @@
       "milk-and-yogurt",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:milk"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

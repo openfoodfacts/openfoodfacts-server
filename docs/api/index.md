@@ -11,13 +11,13 @@ Open Food Facts is a food products database made by everyone, for everyone, that
 
 The Open Food Facts API enables developers to get information like ingredients and nutritional values of products, and even add more _facts_ to the products database. You can use the API to build applications that allow users to contribute to the database and make healthier food choices.
 
-**The current version of the API is `2`.**
+| API version | Status | Notes |
+|-------------|--------|-------|
+| **v3** (latest: **v3.6**) | ✅ **Current** — recommended for all new integrations | v3.6 introduces a new tags schema (`tags_sources`); see the [change log](ref-api-and-product-schema-change-log.md) |
+| **v2** | ⚠️ **Deprecated** — still supported for backward compatibility | Migrate to v3 for new integrations |
+| v1 / v0 | Legacy — not recommended | |
 
 > Data in the Open Food Facts database is provided voluntarily by users who want to support the program. As a result, there are no assurances that the data is accurate, complete, or reliable. The user assumes the entire risk of using the data.
-
-**The next version of the API is `3`.**
-
-> This version is in active development and may be subject to frequent changes.
 
 ## Before You Start
 
@@ -46,9 +46,8 @@ Before using the API, please :
 
 To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:
 
-- 100 req/min for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
-- 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests); don't use it for a search-as-you-type feature, you would be blocked very quickly.
-- 2 req/min for facet queries (such as `/categories`, `/label/organic`, `/ingredient/salt/category/breads`,...).
+- 15 req/min/IP address for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
+- 10 req/min/IP address for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests); don't use it for a search-as-you-type feature, you would be blocked very quickly.
 
 If these limits are reached, we reserve the right to deny you access to the website and the API through IP address ban. If your IP has been banned, feel free to [email us to explain why you reached the limits][why_reached_limits]: reverting the ban is possible.
 
@@ -56,7 +55,11 @@ If these limits are reached, we reserve the right to deny you access to the webs
 
 If your requests come from your users directly (ex: mobile app), the rate limits apply per user.
 
-If you need to fetch a significant fraction of the database, we recommend [downloading the data as a CSV or JSONL file directly](https://world.openfoodfacts.org/data). If you need to download images in bulk, we [have a guide for that](./how-to-download-images.md).
+If you need to fetch more than a few hundred products, we ask you to [download the data as a CSV or JSONL file directly](https://world.openfoodfacts.org/data). If you need to download images in bulk, we [have a guide for that](./how-to-download-images.md).
+
+To protect our infrastructure from abusive crawl, we also added global rate-limits on the website and API endpoints, irrespective of the IP address. A HTTP 503 response (Service Not Available) will be returned if these limits are exceeded.
+
+If you expect your app to generate a lot of API traffic, we **strongly encourage you to host a local instance of Product Opener (or another custom API backend)**, and use the daily exports to update your local database.
 
 ### If your users do not expect a result immediately (e.g., Inventory apps)
 
@@ -68,14 +71,14 @@ If you need to fetch a significant fraction of the database, we recommend [downl
 
 - If you submit the product's **nutritional values** and **category**, you'll get the **Nutri-Score**.
 - If you submit the product **ingredients**, you'll get the **NOVA group** (about food ultra-processing), **additives**, **allergens**, **normalized ingredients**, **vegan**, **vegetarian**…
-- If you submit the product's **category** and **labels**, you'll get the **Eco-Score** (a rating of the product's environmental impact)
+- If you submit the product's **category** and **labels**, you'll get the **Green-Score** (a rating of the product's environmental impact)
 
 ## API Deployments
 
 The OpenFoodFacts API has two deployments.
 
 - Production: https://world.openfoodfacts.org
-- Staging: https://world.openfoodfacts.net
+- Staging: https://world.openfoodfacts.net (need extra http basic auth with username `off` and password `off`, see below)
 
 Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario.
 
@@ -84,7 +87,7 @@ While testing your applications, **make all API requests to the staging environm
 Staging require an http basic auth to avoid search engine indexing. The username is `off`, and the password `off`. Here is a small javascript code that you can test in your browser console:
 
 ```js 
-fetch("https://world.openfoodfacts.net/api/v2/product/3274080005003.json", {
+fetch("https://world.openfoodfacts.net/api/v3.6/product/3274080005003.json", {
   method: "GET",
   headers: { Authorization: "Basic " + btoa("off:off") },
 })
@@ -116,7 +119,8 @@ We however ask that you send the [`app_name`, `app_version` and `app_uuid` param
 
 > Production and staging have different account databases, so **the account you create in the production environment will only work for production requests**. If you want to query (WRITE requests) the staging environment, you'll need to create another account there too.
 
-> Note: we're currently moving to a modern Auth system (Keycloak), so we will have new Auth options, hopefully this year.
+> Note: Open Food Facts is migrating to Keycloak as its authentication system. OIDC-based authentication (OAuth 2.0 bearer tokens) 
+will be supported in the future. The legacy username/password approach will remain available for backward compatibility.
 
 ^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
 
@@ -124,10 +128,31 @@ We however ask that you send the [`app_name`, `app_version` and `app_uuid` param
 
 We are building a complete OpenAPI reference. Here is a list of the current API documentation available:
 
-- [OpenAPI documentation (v2)](../api/ref-v2.md)
-- [OpenAPI documentation for v3](../api/ref-v3.md) (under active development, may change frequently)
+- [OpenAPI documentation for v3](../api/ref-v3.md) *(current — latest sub-version v3.6)*
+- [OpenAPI documentation (v2)](../api/ref-v2.md) *(deprecated)*
 - A [cheatsheet](../api/ref-cheatsheet.md) listing some common patterns.
 - A [change log for the API and product schema](../api/ref-api-and-product-schema-change-log.md)
+
+### Search
+
+Structured (filter-based) search by categories, brands, nutrients, and other fields is available in API v2 via the `/api/v2/search` endpoints.
+
+> **Note:** Full-text / plain-text search is **not** available in the v2 server-side API.
+> Full-text search will be available in [Search-a-licious](https://search.openfoodfacts.org/), which will provide a dedicated search API at [search.openfoodfacts.org](https://search.openfoodfacts.org/docs).
+
+### API v2 vs v3 — Feature availability
+
+| Feature | API v2 | API v3 | Notes |
+|---------|--------|--------|-------|
+| Read product | ✅ | ✅ | |
+| Write product | ✅ | ✅ | |
+| Structured search | ✅ `/api/v2/search` | ❌ Not available | |
+| Full-text search | ⚠️ Legacy `/cgi/search.pl` only | ❌ Not available | Use [Search-a-licious](https://search.openfoodfacts.org/) |
+| Image upload | ✅ | ✅ `/api/v3.3/product/*/images` | New structured endpoint since v3.3 |
+| Image selection | ✅ | ✅ (v3.3+) | |
+| Attribute groups | ✅ | ✅ `/api/v3/attribute_groups` | Attributes with parameters excluded from v2 response (since v3.4) |
+| Taxonomy suggestions | ✅ | ✅ `/api/v3/taxonomy_suggestions` | |
+| Tags sources | ❌ | ✅ `tags_sources` field | New in v3.6; see change log |
 
 ## Tutorials
 

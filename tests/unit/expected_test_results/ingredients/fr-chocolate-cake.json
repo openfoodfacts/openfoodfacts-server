@@ -1,7 +1,8 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "9410",
+         "ciqual_proxy_food_code" : "9435",
          "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
@@ -30,7 +31,7 @@
                "is_in_taxonomy" : 1,
                "percent_estimate" : 11,
                "text" : "sucre",
-               "vegan" : "yes",
+               "vegan" : "maybe",
                "vegetarian" : "yes"
             },
             {
@@ -287,7 +288,8 @@
    "known_ingredients_n" : 19,
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 0
 }

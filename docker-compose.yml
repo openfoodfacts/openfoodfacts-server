@@ -42,7 +42,7 @@
     - OIDC_CLIENT_ID
     - OIDC_CLIENT_SECRET
     - RECIPE_ESTIMATOR_URL
-    - RECIPE_ESTIMATOR_SCIPY_URL
+    - RECIPE_ESTIMATOR_SERVICE
     - SLACK_HOOK_URLS
     #11901: Remove once production is migrated
     - SERIALIZE_TO_JSON
@@ -177,3 +177,13 @@ volumes:
   # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
   build_cache:
   other_servers:
+  # volumes redefined in other docker compose
+  html_data:
+  users:
+  products:
+  product_images:
+  orgs:
+  export_files:
+  podata:
+
+

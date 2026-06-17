@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:emulsifier",
@@ -54,13 +55,14 @@
          "percent_max" : 1,
          "percent_min" : 0,
          "text" : "sokeri",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
       "en:maybe-vegan" : [
-         "en:flavouring"
+         "en:flavouring",
+         "en:sugar"
       ],
       "en:maybe-vegetarian" : [
          "en:flavouring"
@@ -120,7 +122,8 @@
    "known_ingredients_n" : 5,
    "lc" : "fi",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 0
 }
