@@ -26,7 +26,7 @@ use ProductOpener::Data qw/get_products_collection/;
 my @index_list = ();
 
 sub add_index {
-	push(@index_list, \@_);
+	push(@index_list, [@_]);
 	return 1;
 }
 
