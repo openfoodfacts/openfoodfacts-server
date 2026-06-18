@@ -14,7 +14,7 @@ You can get information about absence or unawareness of the presence of:
 - allergens
 - additives
 
-**Important!** Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, read: [https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt)
+**Important!** Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, read: [https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/food/ingredients.txt](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/food/ingredients.txt)
 
 
 ## Introduction 
@@ -108,8 +108,8 @@ Open Food Facts uses optical character recognition (OCR) to retrieve ingredient 
 
 ### Send the ingredients
 
-* [Please look at the reference located](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl)
+* [Please look at the reference V3](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/products/patch-api-v3-product-code/)
 
 ### Refresh product to display the result to your user
 
-* [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-)
+* [Please look at the reference](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/products/get-api-v3-product-code/)
