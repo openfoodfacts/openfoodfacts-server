@@ -30,7 +30,7 @@ In this case:
 
 The current version number of the Open Food Facts API is v0.
 
-[https://us.openfoodfacts.org/api/v0](https://us.openfoodfacts.org/api/v3)
+[https://us.openfoodfacts.org/api/v3](https://us.openfoodfacts.org/api/v3)
 
 ---
 
