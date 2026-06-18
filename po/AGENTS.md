@@ -18,7 +18,7 @@ Never translate brand names, project names, or proprietary scoring systems. They
 * **Green-Score** (e.g., *Reject*: "Pontuação Verde", "Puntuación Verde")
 * **Nutri-Score**
 * **Eco-Score**
-* **Nova** (when referring to the Nova food classification system)
+* **NOVA** (when referring to the Nova food classification system)
 
 ### 2. 🧩 Placeholder & Syntax Parity (The `gettext` Check)
 Act as a strict compiler. A single missed placeholder breaks the application.
@@ -29,7 +29,7 @@ Act as a strict compiler. A single missed placeholder breaks the application.
 ### 3. 🔗 URL & Domain Consistency
 Web addresses must route users to their localized interfaces.
 * Verify all localized URLs point to the correct regional subdomain.
-* If the source string contains `world.openfoodfacts.org` (or a variant), ensure the translated string adapts the prefix to match the target language code of the filename. 
+* If the source string contains `world.openfoodfacts.org` (or a variant), ensure the translated string adapts the prefix to match the target language code of the filename, it should be lowercase, we dont support language variants, so convert pt_BR to pt, zh_TW to zh
     * *Example:* If reviewing `fr.po`, `world.openfoodfacts.org` must become `world-fr.openfoodfacts.org` or `fr.openfoodfacts.org` depending on standard routing.
 
 ### 4. 🧠 Contextual & Typographical Quality
