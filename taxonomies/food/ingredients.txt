@@ -39384,8 +39384,6 @@ en: organic plum
 hr: eko šljiva
 it: prugna biologica
 
-# description:en:A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
-# wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
 
 # Some langauges seem to give the specific plum cultivars used for making "dried plums" a name
 # similar to "prune", and then have the concept of "dried prune".
@@ -39394,7 +39392,7 @@ it: prugna biologica
 # This is the dried fruit, whether it has its own name, or is "dried plum/prune".
 # description:fr:Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
 < en:plum
-en: prune
+en: prune, dried plum
 ar: برقوق مجفف, خوخ مجفف
 bg: сини сливи, синя слива
 da: sveske, svesker
@@ -39421,19 +39419,28 @@ uk: чорнослив
 vi: mận khô
 wa: souwêye pronne
 zh: 梅乾
-ciqual_food_code:en: 13042
-ciqual_food_name:en: Prune
-ciqual_food_name:fr: Pruneau, sec
-openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:pruneau
 # chy:náhkôhematôtse
 # de-ch:Trockenpflaume
 # en-ca:prune
 # en-gb:prune
 # pcd:pronnieu
 # yue:西梅乾
+ciqual_food_code:en: 13042
+ciqual_food_name:en: Prune
+ciqual_food_name:fr: Pruneau, sec
+comment:en: wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
+description:en: A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum. 
+openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:pruneau
+usda_ndb_proxy_code:en: 9291
+usda_ndb_proxy_name:en: Plums, dried (prunes), uncooked
 wikidata:en: Q6766526
 wikipedia:en: https://en.wikipedia.org/wiki/Prune
 # 1092 in 13 @2021-09-15
+
+< en:prune
+en: uncooked dried plum
+usda_ndb_code:en: 9291
+usda_ndb_name:en: Plums, dried (prunes), uncooked
 
 #processing:en: en:juice
 #<en:prune
