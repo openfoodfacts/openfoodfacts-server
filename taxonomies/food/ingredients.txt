@@ -38606,14 +38606,6 @@ uz: अं
 vi: Xoài
 za: Makmanghgoj
 zh: 芒果
-carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
-carbon_footprint_fr_foodges_value:fr: 0.8
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
-# 1597 products in 10 languages @2018-09-27
-ciqual_food_code:en: 13025
-ciqual_food_name:en: Mango, pulp, raw
-ecobalyse:en: db0e5f44-34b4-4160-b003-77c828d75e60
-ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
 # ace:Mamplam
 # atj:Wamincic ka mirokisitc
 # bcl:Mangga
@@ -38637,8 +38629,18 @@ ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
 # udm:Манго
 # war:Mangga
 # yue:芒果
+carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
+carbon_footprint_fr_foodges_value:fr: 0.8
+ciqual_proxy_food_code:en: 13025
+ciqual_proxy_food_name:en: Mango, pulp, raw
+ecobalyse:en: db0e5f44-34b4-4160-b003-77c828d75e60
+ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
+usda_ndb_proxy_code:en: 9176
+usda_ndb_proxy_name:en: Mangos, raw
 wikidata:en: Q3919027
 wikipedia:en: https://en.wikipedia.org/wiki/Mango
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
+# 1597 products in 10 languages @2018-09-27
 
 < en:mango
 fr: Mangue importée en avion
@@ -38661,6 +38663,16 @@ it: Mango importato via nave
 nl: Mango geïmporteerd per boot
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr: 0.8
+
+< en:mango
+en: raw mango
+usda_ndb_code:en: 9176
+usda_ndb_name:en: Mangos, raw
+
+< en:mango
+en: raw mango pulp
+ciqual_food_code:en: 13025
+ciqual_food_name:en: Mango, pulp, raw
 
 < en:mango
 en: mango juice
