@@ -54,6 +54,10 @@ To deploy you need to execute the following steps:
    ```bash
    sudo -u off /srv/$SERVICE/scripts/deploy/install-dist-files.sh $VERSION $SERVICE
    ```
+1. updated MongoDB indexes (if necessary)
+   ```bash
+   sudo -u off bash -c "cd /srv/$SERVICE; source env/setenv.sh $SERVICE; perl ./scripts/create_mongodb_indexes.pl"
+   ```
 1. update openfoodfacts-web content (using version you just released):
    ```bash
    cd /srv/openfoodfacts-web/
