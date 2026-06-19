@@ -47393,19 +47393,32 @@ carbon_footprint_fr_foodges_ingredient:fr: Fraise hors saison sous serre (France
 carbon_footprint_fr_foodges_value:fr: 3.5
 #carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
 #carbon_footprint_fr_foodges_value:fr:0.8
-ciqual_food_code:en: 13014
-ciqual_food_name:en: Strawberry, raw
-ciqual_food_name:fr: Fraise, crue
+ciqual_proxy_food_code:en: 13014
+ciqual_proxy_food_name:en: Strawberry, raw
+ciqual_proxy_food_name:fr: Fraise, crue
 ecobalyse:en: e5bf7d33-6afe-46d6-ac06-f69c5769b10e
 ecobalyse_origins_en_european_union:en: ce20da3d-0ce4-49e9-8942-6d99ff0221b1
 ecobalyse_origins_en_france:en: 3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b
 eurocode_2_group_3:en: 9.30.15
 ifct_food_code:en: E063
 ifct_food_name:en: Strawberry
+usda_ndb_proxy_code:en: 9318
+usda_ndb_proxy_name:en: Strawberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q14458220
 wikipedia:en: https://en.wikipedia.org/wiki/Strawberry
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/strawberry
 # 2504 products in 15 languages @2018-10-01
+
+< en:strawberry
+en: raw strawberry
+ciqual_food_code:en: 13014
+ciqual_food_name:en: Strawberry, raw
+ciqual_food_name:fr: Fraise, crue
+
+< en:strawberry
+en: unsweetened frozen strawberry
+usda_ndb_code:en: 9318
+usda_ndb_name:en: Strawberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
 
 < en:strawberry
 en: strawberry pieces
