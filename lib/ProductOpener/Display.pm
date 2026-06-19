@@ -5210,6 +5210,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	$template_data_ref->{sort_options} = [];
 
+	my $current_link = $request_ref->{current_link};
+	if (index($current_link, "?") == -1) {
+		$current_link .= "?";
+	}
+	else {
+		$current_link .= "&";
+	}
 	# Nutri-Score and Environmental-Score are only for food products
 	# and currently scan data is only loaded for Open Food Facts
 	if (feature_enabled("popularity")) {
@@ -5217,7 +5224,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "popularity",
-			link => $request_ref->{current_link} . "?sort_by=popularity",
+			link => $current_link . "sort_by=popularity",
 			name => lang("sort_by_popularity")
 			};
 	}
@@ -5225,7 +5232,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "nutriscore_score",
-			link => $request_ref->{current_link} . "?sort_by=nutriscore_score",
+			link => $current_link . "sort_by=nutriscore_score",
 			name => lang("sort_by_nutriscore_score")
 			};
 	}
@@ -5234,7 +5241,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "environmental_score_score",
-			link => $request_ref->{current_link} . "?sort_by=environmental_score_score",
+			link => $current_link . "sort_by=environmental_score_score",
 			name => lang("sort_by_environmental_score_score")
 			};
 	}
@@ -5242,13 +5249,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "created_t",
-		link => $request_ref->{current_link} . "?sort_by=created_t",
+		link => $current_link . "sort_by=created_t",
 		name => lang("sort_by_created_t")
 		};
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "last_modified_t",
-		link => $request_ref->{current_link} . "?sort_by=last_modified_t",
+		link => $current_link . "sort_by=last_modified_t",
 		name => lang("sort_by_last_modified_t")
 		};
 
