@@ -9970,7 +9970,7 @@ usda_ndb_name:en: Game meat, antelope, raw
 en: bear
 
 < en:bear
-< en: meat
+< en:meat
 en: bear meat
 usda_ndb_proxy_ode:en: 17146
 usda_ndb_proxy_name:en: Game meat, bear, raw
@@ -9979,6 +9979,20 @@ usda_ndb_proxy_name:en: Game meat, bear, raw
 en: game meat, bear, raw
 usda_ndb_code:en: 17146
 usda_ndb_name:en: Game meat, bear, raw
+
+< en:animal
+en:beaver
+
+< en:beaver
+< en: meat
+en: beaver meat
+usda_ndb_code:en: 17150
+usda_ndb_name:en: Game meat, beaver, raw
+
+< en:beaver meat
+en: raw beaver meat
+usda_ndb_code:en: 17150
+usda_ndb_name:en: Game meat, beaver, raw
 
 < en:animal
 en: beef, steers
