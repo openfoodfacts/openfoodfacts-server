@@ -38141,8 +38141,7 @@ it: banana Cavendish
 < en:cavendish banana
 es: plátano de canarias i.g.p., plátanos de canarias, platano canario
 
-# "plantain" is ambiguous, in ingredients lists it refers to plantain bananas, or the plantain plant used for fibers
-< en:banana
+< en:fruit
 < en:fruit vegetable
 en: plantain banana
 de: Plantainbanane
@@ -38150,11 +38149,29 @@ fr: banane plantain, bananes plantain
 hr: trputac banana
 it: banana platano
 la: musa paradisiaca
+ciqual_proxy_food_code:en: 53100
+ciqual_proxy_food_name:en: Plantain banana, raw
+ciqual_proxy_food_name:fr: Banane plantain, crue
+eurocode_2_group_3:en: 8.40.56
+usda_ndb_proxy_code:en: 9542
+usda_ndb_proxy_name:en: Plantains, green, raw
+#no ingredients @2021-09-10
+
+< en:plantain banana
+en: raw plantain banana
 ciqual_food_code:en: 53100
 ciqual_food_name:en: Plantain banana, raw
 ciqual_food_name:fr: Banane plantain, crue
-#no ingredients @2021-09-10
-eurocode_2_group_3:en: 8.40.56
+
+< en:plantain banana
+en: raw yellow plantains
+usda_ndb_code:en: 9277
+usda_ndb_name:en: Plantains, yellow, raw
+
+< en:plantain banana
+en: raw green plantain
+usda_ndb_code:en: 9542
+usda_ndb_name:en: Plantains, green, raw
 
 # <en:vegetable fibre
 < en:plant
@@ -38166,8 +38183,10 @@ hr: trputac
 it: piantaggine
 nl: weegbree
 pl: plantan, plantany, plantana
+comment:en: "plantain" is ambiguous, in ingredients lists it refers to plantain bananas, or the plantain plant used for fibers
 # ingredient/fr:plantain has 51 products @2019-02-25
 # fibres végétales (chicorée, pomme de terre, pois, riz, plantain, psyllium)
+
 
 < en:banana
 en: green banana flour
