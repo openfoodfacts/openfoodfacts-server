@@ -38816,7 +38816,10 @@ sk: Broskyňa
 sv: persika, persikor
 tr: şeftali
 zh: 桃子
-# ingredient/peach 6059 products in 7 languages @2021-08-19
+# nah:Durazno
+# scn:pèrsica
+# szl:Fyrzicha
+# zh-min-nan:Thô-á
 carbon_footprint_fr_foodges_ingredient:fr: Pêche "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr: 1
 comment:en: The wikipedia entry mixes the name of the tree and the name of the fruit
@@ -38832,12 +38835,11 @@ ecobalyse:en: fa9e9f34-acc9-4974-89c4-003d2428f502
 ecobalyse_labels_en_organic:en: peach-organic
 ecobalyse_origins_en_france:en: a0012089-de27-45ae-89d1-863f71a06e72
 eurocode_2_group_3:en: 9.20.20
+usda_ndb_proxy_code:en: 9236
+usda_ndb_proxy_name:en: Peaches, yellow, raw
 wikidata:en: Q13411121
-# nah:Durazno
-# scn:pèrsica
-# szl:Fyrzicha
-# zh-min-nan:Thô-á
 wikipedia:en: https://en.wikipedia.org/wiki/Peach
+# ingredient/peach 6059 products in 7 languages @2021-08-19
 
 #process:en:halved
 #<en:peach
@@ -38887,6 +38889,14 @@ fr: pêche blanche
 hr: bijela breskva
 it: pesca bianca
 # ingredient/white-peach 48 products in 6 languages @2021-08-19
+
+< en:peach
+en: yellow peach
+
+< en:yellow peach
+en: raw yellow peach
+usda_ndb_code:en: 9236
+usda_ndb_name:en: Peaches, yellow, raw
 
 #process:en:pureed
 #<en:white peach
