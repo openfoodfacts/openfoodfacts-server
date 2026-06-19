@@ -46684,12 +46684,29 @@ fr: kaki
 hr: dragun
 it: cachi
 pl: kaki
-ciqual_food_code:en: 13066
-ciqual_food_name:en: Persimmon, pulp, raw
-ciqual_food_name:fr: Kaki, pulpe, cru
+ciqual_proxy_food_code:en: 13066
+ciqual_proxy_food_name:en: Persimmon, pulp, raw
+ciqual_proxy_food_name:fr: Kaki, pulpe, cru
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.44
+usda_ndb_proxy_code:en: 9265
+usda_ndb_proxy_name:en: Persimmons, native, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Diospyros_kaki
+
+< en:persimmon
+en:dried japanese persimmon
+usda_ndb_code:en: 9264
+usda_ndb_name:en: Persimmons, japanese, dried
+
+< en:persimmon
+en: raw japanese persimmon
+usda_ndb_code:en: 9263
+usda_ndb_name:en: Persimmons, japanese, raw
+
+< en:persimmon
+en: raw native persimmon
+usda_ndb_code:en: 9265
+usda_ndb_name:en: Persimmons, native, raw
 
 < en:persimmon
 en: persimmon juice
@@ -46699,8 +46716,8 @@ hr: sok od kakija
 it: succo di cachi
 
 < en:persimmon
-en: Persimmon pulp
-fr: Pulpe de kaki
+en: raw persimmon pulp, persimmon pulp
+fr: pulpe de kaki
 it: polpa di cachi
 ciqual_food_code:en: 13066
 ciqual_food_name:en: Persimmon, pulp, raw
