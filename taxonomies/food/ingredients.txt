@@ -45886,12 +45886,6 @@ tr: nektarin
 uk: нектарин
 vi: du đào
 zh: 桃駁李
-#plant:wikidata:en:Q3408651
-ciqual_food_code:en: 13030
-ciqual_food_name:en: Nectarine, pulp and peel, raw
-ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
-#94 in 5 @2021-10-28
-eurocode_2_group_3:en: 9.20.15
 #aeb:خوخ
 #koi:нектарин
 #lbe:нектарин
@@ -45899,7 +45893,26 @@ eurocode_2_group_3:en: 9.20.15
 #scn:pèrsica
 #udm:нектарин
 #yue:桃駁李
+ciqual_proxy_food_code:en: 13030
+ciqual_proxy_food_name:en: Nectarine, pulp and peel, raw
+ciqual_proxy_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
+eurocode_2_group_3:en: 9.20.15
+usda_ndb_proxy_code:en: 9191
+usda_ndb_proxy_name:en: Nectarines, raw
 wikidata:en: Q841156
+#plant:wikidata:en:Q3408651
+#94 in 5 @2021-10-28
+
+< en:nectarine
+en: raw nectarine
+usda_ndb_code:en: 9191
+usda_ndb_name:en: Nectarines, raw
+
+< en:nectarine
+en: raw nectarine pulp and skin
+ciqual_food_code:en: 13030
+ciqual_food_name:en: Nectarine, pulp and peel, raw
+ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
 
 < en:nectarine
 de: Nektarinenmark
