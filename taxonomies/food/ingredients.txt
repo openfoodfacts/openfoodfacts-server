@@ -9956,18 +9956,29 @@ wikidata:en: Q12958
 en: antelope
 
 < en:antelope
+< en:meat
 en: antelope meat
 usda_ndb_proxy_code:en: 17144
 usda_ndb_proxy_name:en: Game meat, antelope, raw
 
-< en:antelope
+< en:antelope meat
 en: raw antelope meat
 usda_ndb_code:en: 17144
 usda_ndb_name:en: Game meat, antelope, raw
 
-en: raw antelope meat
-usda_ndb_code:en: 17144
-usda_ndb_name:en: Game meat, antelope, raw
+< en:animal
+en: bear
+
+< en:bear
+< en: meat
+en: bear meat
+usda_ndb_proxy_ode:en: 17146
+usda_ndb_proxy_name:en: Game meat, bear, raw
+
+< en:bear meat
+en: game meat, bear, raw
+usda_ndb_code:en: 17146
+usda_ndb_name:en: Game meat, bear, raw
 
 < en:animal
 en: beef, steers
