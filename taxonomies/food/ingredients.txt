@@ -45297,17 +45297,21 @@ ciqual_food_name:en: Lychee, pulp, raw
 ciqual_food_name:fr: Litchi, pulpe, cru
 
 < en:lychee
-es: Lichis deshuesados
-fr: Litchis dénoyautés
-it: Litchi senza nocciolo
+es: lichis deshuesados
+fr: litchis dénoyautés
+it: litchi senza nocciolo
+
+< en:lychee
+en: dried lychee, dried litchi
+usda_ndb_code:en: 9165
+usda_ndb_name:en: Litchis, dried
 
 < en:fruit
-en: Rambutan
+en: rambutan
+xx: rambutan
 de: Rambutan
 es: rambután
 fr: Ramboutan, Litchi chevelu
-hr: rambutan
-it: rambutan
 ifct_food_code:en: E059
 ifct_food_name:en: Rambutan
 
@@ -45317,6 +45321,7 @@ de: Longan
 fr: longane, longani, oeil du dragon
 hr: longan
 it: longan
+
 
 
 ###################################################################################################
