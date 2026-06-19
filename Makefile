@@ -247,7 +247,7 @@ reset_owner:
 
 init_backend: build_taxonomies build_lang build_pro_platform
 
-create_mongodb_indexes: run_deps
+create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
@@ -494,24 +494,32 @@ build_packager_codes: create_folders
 	@echo "🥫 build packager codes"
 	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
 
+build_taxonomies: name ?= *
+build_taxonomies: jobs ?= $(CPU_COUNT)
 build_taxonomies: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend \
+	  scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
 # a version where we force building without using cache
 # use it when you are developing in Tags.pm and want to iterate
 # at the end, change the $BUILD_TAGS_VERSION in Tags.pm
+rebuild_taxonomies: name ?= *
+rebuild_taxonomies: jobs ?= $(CPU_COUNT)
 rebuild_taxonomies:
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend \
+	  scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}" -v
 
+build_taxonomies_test: name ?= *
+build_taxonomies_test: jobs ?= $(CPU_COUNT)
 build_taxonomies_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
 build_pro_platform: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local

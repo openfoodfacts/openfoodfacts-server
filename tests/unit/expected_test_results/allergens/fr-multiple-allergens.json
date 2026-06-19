@@ -54,7 +54,6 @@
                "text" : "moutarde"
             },
             {
-               "ciqual_proxy_food_code" : "20055",
                "ecobalyse_code" : "celery-eu",
                "id" : "en:celery",
                "is_in_taxonomy" : 1,
@@ -141,11 +140,12 @@
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:celery",
       "en:soya",
       "en:spice",
       "fr:crème de cassis"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 4,
    "ingredients_without_ecobalyse_ids" : [
       "en:lupin-bean",
       "en:mustard",
