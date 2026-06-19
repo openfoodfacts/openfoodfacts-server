@@ -39362,8 +39362,8 @@ sv: plommon
 th: พรุน
 uk: слива, сливи
 wa: pronne
-ciqual_food_code:en: 13100
-ciqual_food_name:en: Plum, raw
+ciqual_proxy_food_code:en: 13100
+ciqual_proxy_food_name:en: Plum, raw
 ciqual_food_name:fr: Prune, crue
 ecobalyse:en: b83a6d8e-5afa-447b-be7b-5df9573e7d3b
 ecobalyse_labels_en_organic:en: 10af6fa1-e374-4748-b8a8-f735d2813489
@@ -39371,11 +39371,22 @@ eurocode_2_group_3:en: 9.20.30
 ifct_food_code:en: E054
 ifct_food_name:en: Plum
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:prune
+usda_ndb_proxy_code:en: 9279
+usda_ndb_proxy_name:en: Plums, raw
 wikidata:en: Q12372598
 wikipedia:en: https://en.wikipedia.org/wiki/Plum
 # 35 products in 1 language @2018-09-30
 
 < en:plum
+en: raw plum
+ciqual_food_code:en: 13100
+ciqual_food_name:en: Plum, raw
+ciqual_food_name:fr: Prune, crue
+usda_ndb_code:en: 9279
+usda_ndb_name:en: Plums, raw
+
+#< en:plum sounds more like sugar
+< en:sugar
 en: plum sugar
 it: zucchero di prugna
 
@@ -39384,8 +39395,7 @@ en: organic plum
 hr: eko šljiva
 it: prugna biologica
 
-
-# Some langauges seem to give the specific plum cultivars used for making "dried plums" a name
+# Some languages seem to give the specific plum cultivars used for making "dried plums" a name
 # similar to "prune", and then have the concept of "dried prune".
 # Also some languages call the tree "plum", and the fruit "prune".
 
