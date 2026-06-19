@@ -47828,7 +47828,8 @@ nl: rode druivensap
 
 # description:en:A RAISIN is a dried grape.
 
-< en:grape
+# madefrom:en: grape
+< en:fruit
 en: raisin, raisins
 ar: زبيب
 az: Kişmiş
@@ -47899,12 +47900,6 @@ uk: Родзинки
 vi: Nho khô
 yi: ראזשינקע
 zh: 葡萄乾
-carbon_footprint_fr_foodges_ingredient:fr: Raisin
-carbon_footprint_fr_foodges_value:fr: 0.8
-ciqual_food_code:en: 13046
-ciqual_food_name:en: Raisin
-ciqual_food_name:fr: Raisin, sec
-openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisin-sec
 # arc:ܐܦܫܬܐ
 # atj:Coweminak
 # bar:Weinberl
@@ -47920,8 +47915,21 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisin-sec
 # pt-br:passa
 # sco:raisin
 # yue:提子乾
+carbon_footprint_fr_foodges_ingredient:fr: Raisin
+carbon_footprint_fr_foodges_value:fr: 0.8
+ciqual_food_code:en: 13046
+ciqual_food_name:en: Raisin
+ciqual_food_name:fr: Raisin, sec
+openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisin-sec
+usda_ndb_proxy_code:en: 9298
+usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q13186
 wikipedia:en: https://en.wikipedia.org/wiki/Raisin
+
+< en:raisin
+en: dark seedless raisin
+usda_ndb_code:en: 9298
+usda_ndb_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
 
 < en:raisin
 fr: raisins secs réhydratés
