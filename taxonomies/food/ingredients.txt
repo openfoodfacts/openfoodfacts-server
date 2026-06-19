@@ -41920,8 +41920,15 @@ wikidata:en: Q190024
 wikipedia:en: https://en.wikipedia.org/wiki/Mandarin_orange
 
 < en:mandarin
-en: tangerine, tangerines
+en: tangerine, tangerines, mandarin orange
 hr: crvena mandarina
+usda_ndb_proxy_code:en: 9218
+usda_ndb_proxy_name:en: Tangerines, (mandarin oranges), raw
+
+< en:tangerine
+en: raw tangerine
+usda_ndb_code:en: 9218
+usda_ndb_name:en: Tangerines, (mandarin oranges), raw
 
 < en:citrus oil
 < en:tangerine
@@ -49472,9 +49479,6 @@ uk: тамаринд
 vi: me
 yi: טאמארינד
 zh: 酸豆
-ciqual_food_code:en: 13079
-ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
-ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # ace:mè
 # azb:تمرهیندی
 # be-tarask:тамарынд
@@ -49488,9 +49492,25 @@ ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # zh-hant:羅望子
 # zh-tw:羅望子
 # tree:wikidata:en:Q80235
+ciqual_proxy_food_code:en: 13079
+ciqual_proxy_food_name:en: Tamarind, immature fruit, pulp, raw
+ciqual_proxy_food_name:fr: Tamarin, fruit immature, pulpe, cru
+usda_ndb_proxy_code:en: 9322
+usda_ndb_proxy_name:en: Tamarinds, raw
 wikidata:en: Q28178875
 wikipedia:en: https://en.wikipedia.org/wiki/Tamarind
 # ingredient/fr:tamarin has 107 products in 5 languages @2019-02-07
+
+< en:tamarind
+en: raw tamarind
+usda_ndb_code:en: 9322
+usda_ndb_name:en: Tamarinds, raw
+
+< en:tamarind
+en raw immature tamarind pulp
+ciqual_food_code:en: 13079
+ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
+ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 
 #processing:en: en:extract
 #<en:tamarind
