@@ -934,7 +934,7 @@ sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
 
 		# If the tagtype has no taxonomy (e.g. stores, purchase_places), then the input tags are in the "stores" and "purchase_places"
 		# and they don't have a language
-		if (not exists $taxonomy_fields{$tagtype}) {
+		if ((defined $product_ref->{$tagtype}) and (not exists $taxonomy_fields{$tagtype})) {
 			$input_tags_ref = [split(/,\s*/, $product_ref->{$tagtype})];
 		}
 		else {
