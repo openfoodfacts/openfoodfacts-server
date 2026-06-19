@@ -46202,36 +46202,46 @@ la: Passiflora edulis, Passiflora edulis sims
 
 < en:fruit juice
 #processing:en: en:juice
-< en:passionfruit
+# < en:passionfruit, there is a better food composition link
 en: passion fruit juice, passionfruit juice
 it: succo di frutto della passione
-#de:Maracujasaft, Passionsfruchtsaft
-#es:zumo de maracuyá, jugo de maracuyá
-#fi:passiohedelmämehu
-#fr:jus de fruit de la passion, jus de fruits de la passion
-#hr:sok od marakuje
-#it:succo di frutto della passione
-#nb:pasjonsfruktjuice
-#nl:passievruchtsap
-#pt:Suco de maracujá, sumo de maracujá
-#sv:passionsfruktjuice, passionsfrukts
+de: Maracujasaft, Passionsfruchtsaft
+es: zumo de maracuyá, jugo de maracuyá
+fi: passiohedelmämehu
+fr: jus de fruit de la passion, jus de fruits de la passion
+hr: sok od marakuje
+it: succo di frutto della passione
+nb: pasjonsfruktjuice
+nl: passievruchtsap
+pt: suco de maracujá, sumo de maracujá
+sv: passionsfruktjuice, passionsfrukts
+usda_ndb_proxy_code:en: 9232
+usda_ndb_proxy_name:en: Passion-fruit juice, purple, raw
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion
 # 262 products in 6 languages @2018-09-29
 
-#processing:en: en:from concentrate
-#processing:en: en:juice
 < en:passion fruit juice
-#en:reconstituted passion fruit juice, passion fruit from concentrate
-#cs:koncentrovaná šťáva z maracuji
+en: raw purple passion-fruit juice
+usda_ndb_code:en: 9232
+usda_ndb_name:en: Passion-fruit juice, purple, raw
+
+< en:passion fruit juice
+en: raw yellow passion-fruit juice
+usda_ndb_code:en: 9233
+usda_ndb_name:en: Passion-fruit juice, yellow, raw
+
+< en:passion fruit juice
+en: reconstituted passion fruit juice, passion fruit from concentrate
+cs: koncentrovaná šťáva z maracuji
 # we keep this as unparsable
 de: Maracujasaft aus Maracujasaftkonzentrat, Passionfruchtsaft aus Konzentrat
-#es:zumo de maracuyá a partir de concentrado, jugo de maracuyá a partir de concentrado, zumo de maracuyá procedente de concentrado, jugo de maracuyá procedente de concentrado
-#fi:tiivisteestä valmistettu passionhedelmämehu, tiivisteestä valmistettu passiohedelmätäysmehu
-#fr:jus de fruit de la passion à base de concentré
-#hr:sok od marakuje od koncentriranog soka škrob
-#lt:pasiflorų sultys iš koncentrąto
-#sk:marakujová štava z koncentrátu
-#sv:passionsfruktsjuice från koncentrat
+es: zumo de maracuyá a partir de concentrado, jugo de maracuyá a partir de concentrado, zumo de maracuyá procedente de concentrado, jugo de maracuyá procedente de concentrado
+fi: tiivisteestä valmistettu passionhedelmämehu, tiivisteestä valmistettu passiohedelmätäysmehu
+fr: jus de fruit de la passion à base de concentré
+hr: sok od marakuje od koncentriranog soka škrob
+lt: pasiflorų sultys iš koncentrąto
+sk: marakujová štava z koncentrátu
+sv: passionsfruktsjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion-à-base-de-concentré
 # 82 products in 4 languages @2018-09-29
 
