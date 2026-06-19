@@ -47944,11 +47944,9 @@ hr: koncentrat grožđica
 it: concentrato di uva passa
 # 1314 products in 6 languages @2018-10-02
 
-# description:en:SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
-# maybe it is necessary to split between dried and fresh
 
 < en:grape
-en: sultana, sultanas, Thompson seedless, sultanina
+en: sultana, sultanas, sultanina
 af: sultana
 ar: العنب الكشمشي
 bg: султанина, светли стафиди
@@ -47974,34 +47972,51 @@ ko: 설태너
 mk: суво грозје
 ms: sultana
 nl: sultana, sultanas
-pl: rodzynki sułtańskie, rodzynki sułtanki, rodzynki thompson jumbo
+pl: rodzynki sułtańskie, rodzynki sułtanki
 pt: sultanina, sultanas
 ro: sultanină
 ru: белый кишмиш
 si: සුල්තානා
 sl: sultanina
-sv: sultanvindruva, sultandruva, Thompson-druva, Thompson-druvor
+sv: sultanvindruva, sultandruva
 tr: sultaniye üzümü
 uk: кишмиш
 uz: kishmish
 zh: 蘇丹娜葡萄
+comment:en: This ingredient refers to the UNDRIED grape. The name is often used for the dries version
+description:en: SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 # 46 products in 3 languages @2018-10-02
 
-< en:raisin
 < en:sultana
-en: sultana raisin, Raisin Thompson Seedless
+en: Thompson Seedless
+sv: Thompson-druva, Thompson-druvor
+
+# madefrom:en:sultana
+< en:sultana
+en: sultana raisin, golden raisin
 fr: raisins secs sultanines
-sv: sultanrussin, Thompson-russin
+sv: sultanrussin
+comment:en: the parent is kept as that is often used as its name
+usda_ndb_proxy_code:en: 9297
+usda_ndb_proxy_name:en: Raisins, golden, seedless
+
+< en:sultana
+en: seedless golden raisins
+usda_ndb_code:en: 9297
+usda_ndb_name:en: Raisins, golden, seedless
+
+< en:sultana raisin
+en: Raisin Thompson Seedless
+pl: rodzynki thompson jumbo
+sv: Thompson-russin
 
 #<en:compound
 en: oiled sultana
 de: Sultaninen geölt
 it: uva sultanina oleosa
-
-# description:en:Zante currants, Corinth raisins, or Corinthian raisins, also called simply currants, are dried berries of the small, sweet, seedless grape cultivar 'Black Corinth' (Vitis vinifera).
 
 < en:raisin
 en: California seedless raisins
@@ -48018,6 +48033,7 @@ en: California seedless Thompson raisin, California seedless Thompson raisins
 sv: kaliforniska Thompson-russin utan kärnor
 
 # < en:grape (made from)
+< en:fruit
 en: Corinthian raisins, zante currants
 da: Korend
 de: korinthische Rosinen, Korinthiaki, Korinthe, Korinthen
