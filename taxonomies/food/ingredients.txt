@@ -46378,14 +46378,35 @@ zh: 鳳梨
 # zh-my:黄梨
 # zh-sg:黄梨
 # zh-tw:鳳梨
+ciqual_proxy_food_code:en: 13002
+ciqual_proxy_food_name:en: Pineapple, pulp, raw
+ciqual_proxy_food_name:fr: Ananas, pulpe, cru
 ecobalyse:en: c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a
 ecobalyse_labels_en_organic:en: 0f52bae1-07d0-446d-ae5b-f246f894ac3b
 ifct_food_code:en: E053
 ifct_food_name:en: Pineapple
+usda_ndb_proxy_code:en: 9266
+usda_ndb_proxy_name:en: Pineapple, raw, all varieties
 wikidata:en: Q10817602
 wikipedia:en: https://en.wikipedia.org/wiki/Pineapple
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pineapple
 # 2512 products in 11 languages @2018-09-30
+
+< en:pineapple
+en: raw pineapple
+usda_ndb_code:en: 9266
+usda_ndb_name:en: Pineapple, raw, all varieties
+
+< en:pineapple
+en: raw pineapple pulp
+ciqual_food_code:en: 13002
+ciqual_food_name:en: Pineapple, pulp, raw
+ciqual_food_name:fr: Ananas, pulpe, cru
+
+< en:pineapple
+en: raw extra sweet pineapple
+usda_ndb_code:en: 9430
+usda_ndb_name:en: Pineapple, raw, extra sweet variety
 
 < en:pineapple
 en: pineapple segments, pineapple chunks, pineapple rings
@@ -46420,9 +46441,6 @@ fr: purée d'ananas, pulpe d'ananas victoria
 hr: pire od ananasa
 it: purea di ananas
 nl: ananaspuree
-ciqual_food_code:en: 13002
-ciqual_food_name:en: Pineapple, pulp, raw
-ciqual_food_name:fr: Ananas, pulpe, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-d'ananas
 # 60 in 4 languages @2021-09-26
 
