@@ -42041,17 +42041,6 @@ yi: מאראנץ
 yo: ọsàn
 za: Makdoengj
 zh: 橙
-#carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
-#carbon_footprint_fr_foodges_value:fr:0.8
-carbon_footprint_fr_foodges_ingredient:fr: Orange fraîche
-carbon_footprint_fr_foodges_value:fr: 0.8
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/orange
-# 2121 products in 8 languages @2018-09-28
-ciqual_proxy_food_code:en: 13034
-ciqual_proxy_food_name:en: Orange, pulp, raw
-ecobalyse:en: f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1
-ecobalyse_origins_en_european_union:en: af47d8b1-2c50-4f3f-8d10-1941133bd100
-wikidata:en: Q13191
 # ast:Naranxa
 # bho:संतरा
 # chr:ᎣᏂᏥ
@@ -42091,7 +42080,20 @@ wikidata:en: Q13191
 # zh-my:橙
 # zh-sg:橙
 # zh-tw:橙
+#carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
+#carbon_footprint_fr_foodges_value:fr:0.8
+carbon_footprint_fr_foodges_ingredient:fr: Orange fraîche
+carbon_footprint_fr_foodges_value:fr: 0.8
+ciqual_proxy_food_code:en: 13034
+ciqual_proxy_food_name:en: Orange, pulp, raw
+ecobalyse:en: f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1
+ecobalyse_origins_en_european_union:en: af47d8b1-2c50-4f3f-8d10-1941133bd100
+wikidata:en: Q13191
+usda_ndb_proxy_code:en: 9200
+usda_ndb_proxy_name:en: Oranges, raw, all commercial varieties
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/orange
+# 2121 products in 8 languages @2018-09-28
 
 < en:orange
 en: eating orange
@@ -42105,11 +42107,15 @@ fr: orange à jus
 nl: sapsinaasappel
 
 < en:orange
+en: raw orange
+usda_ndb_code:en: 9200
+usda_ndb_name:en: Oranges, raw, all commercial varieties
+
+< en:orange
 en: raw florida oranges
 usda_ndb_code:en: 9203
 usda_ndb_name:en: Oranges, raw, Florida
 
-# description:en:Orange juice is the liquid extract of the orange tree fruit, produced by squeezing oranges.
 
 < en:fruit juice
 < en:orange
@@ -42161,14 +42167,22 @@ uk: Апельсиновий сік
 vi: Nước cam
 yi: מאראנצן זאפט
 zh: 橙汁
-# orange-juice 1401 products in 9 languages @2018-09-28
-ciqual_proxy_food_code:en: 2070
-ciqual_proxy_food_name:en: Orange juice, pure juice
-wikidata:en: Q219059
 # ast:Zusmiu de naranxa
 # nds:Sjuderaans
 # sco:Oranger juice
+ciqual_proxy_food_code:en: 2070
+ciqual_proxy_food_name:en: Orange juice, pure juice
+description:en: Orange juice is the liquid extract of the orange tree fruit, produced by squeezing oranges.
+usda_ndb_proxy_code:en: 9209
+usda_ndb_proxy_name:en: Orange juice, chilled, includes from concentrate
+wikidata:en: Q219059
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_juice
+# orange-juice 1401 products in 9 languages @2018-09-28
+
+< en:orange juice
+en: chilled orange juice
+usda_ndb_code:en: 9209
+usda_ndb_name:en: Orange juice, chilled, includes from concentrate
 
 < en:orange juice
 fr: Jus d'orange IGP Valencia
