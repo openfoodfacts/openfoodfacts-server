@@ -41559,7 +41559,7 @@ it: ripieno al limone
 # description:en:A lime is a hybrid citrus fruit
 
 < en:citrus fruit
-< en:fruit
+#  < en:fruit what is the reason for this parent?
 en: lime
 af: Lemmetjie
 ar: ليم
@@ -41626,13 +41626,6 @@ uk: Лайм
 ur: گلگل
 vi: Chanh
 zh: 青檸
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
-# 251 products @2018-10-01
-carbon_footprint_fr_foodges_ingredient:fr: Citron
-carbon_footprint_fr_foodges_value:fr: 0.9
-ciqual_food_code:en: 13067
-ciqual_food_name:en: Lime, pulp, raw
-ciqual_food_name:fr: Citron vert ou Lime, pulpe, cru
 # aeb-arab:كعبة ليم
 # aeb-latn:lim
 # chr:ᎳᎢᎻ
@@ -41648,8 +41641,17 @@ ciqual_food_name:fr: Citron vert ou Lime, pulpe, cru
 # yue:青檸
 # zh-hans:青檸
 # zh-hant:萊姆
+carbon_footprint_fr_foodges_ingredient:fr: Citron
+carbon_footprint_fr_foodges_value:fr: 0.9
+ciqual_proxy_food_code:en: 13067
+ciqual_proxy_food_name:en: Lime, pulp, raw
+ciqual_proxy_food_name:fr: Citron vert ou Lime, pulpe, cru
+usda_ndb_proxy_code:en: 9159
+usda_ndb_proxy_name:en: Limes, raw
 wikidata:en: Q13195
 wikipedia:en: https://en.wikipedia.org/wiki/Lime_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
+# 251 products @2018-10-01
 
 < en:lime
 en: lime pulp
@@ -41657,12 +41659,17 @@ fr: Pulpe de citron vert
 it: polpa di lime
 
 < en:lime pulp
-en: Raw lime pulp
-fr: Pulpe de citron vert cru
+en: raw lime pulp
+fr: pulpe de citron vert cru
 it: polpa di lime cruda
 ciqual_food_code:en: 13067
 ciqual_food_name:en: Lime, pulp, raw
 ciqual_food_name:fr: Citron vert ou Lime, pulpe, cru
+
+< en:lime
+en: raw lime
+usda_ndb_code:en: 9159
+usda_ndb_name:en: Limes, raw
 
 < en:fruit juice
 < en:lime
