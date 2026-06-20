@@ -64942,7 +64942,7 @@ usda_ndb_code:en: 12013
 usda_ndb_name:en: Seeds, lotus seeds, dried
 
 < en:lotus seed
-en: raw lotus seeds, 
+en: raw lotus seeds
 usda_ndb_code:en: 12205
 usda_ndb_name:en: Seeds, lotus seeds, raw
 
@@ -64989,9 +64989,18 @@ vi: hạt bí
 zh: 南瓜籽, 南瓜子
 ciqual_proxy_food_code:en: 15064
 ciqual_proxy_food_name:en: Pumpkin and squash, seed, dried
+usda_ndb_proxy_code:en: 12014
+usda_ndb_proxy_name:en: Seeds, pumpkin and squash seed kernels, dried
 wikidata:en: Q3056521
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-courge
 # 234 products in 5 languages @2018-10-07
+
+< en:pumpkin seed
+en: dried pumpkin and squash seed kernels
+ciqual_food_code:en: 15064
+ciqual_food_name:en: Pumpkin and squash, seed, dried
+usda_ndb_code:en: 12014
+usda_ndb_name:en: Seeds, pumpkin and squash seed kernels, dried
 
 < en:pumpkin seed
 en: pumpkin seed flour
