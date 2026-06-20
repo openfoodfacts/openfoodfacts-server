@@ -63351,6 +63351,7 @@ en: hazelnut kernels
 de: ganze Haselnüsse, Haselnüsse ganz
 es: avellanas en grano
 fr: noisettes entières
+hr: lješnjak jezgra
 it: nocciole intere
 pt: avelã inteira, avelãs inteiras
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-entières
@@ -63362,10 +63363,6 @@ nl: hele gegrilde hazelnoten
 pt: avelã inteira torrada, avelâs inteiras torradas, avelã inteira tostada, avelâs inteiras tostadas
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-entières-torréfiées
 # 15 products in 1 language @2018-10-007
-
-< en:hazelnut
-en: hazelnut kernel
-hr: lješnjak jezgra
 
 #processing:en: en:chopped
 #< en:hazelnut
@@ -63494,6 +63491,23 @@ ru: ядро ореха фундука дробленое
 # fr:noisette chilienne
 # nl:Chileense hazelnoot
 # de:chilenische Haselnüsse
+
+###################################################################################################
+#
+#                                Maca
+#
+###################################################################################################
+
+< en:nut
+en: hickorynut
+description:en: A hickory nut is the edible nut produced by trees in the genus Carya — the same genus that includes pecans. They're native mostly to North America, with a few species in Asia. Encased in a thick, husk-like outer covering that splits open (fully or partially, depending on species) when ripe, revealing a hard shell. Inside that shell is the actual nutmeat. Flavor varies a lot by species — some, like shagbark hickory, are sweet and rich (similar to a pecan, which makes sense given the family connection), while others, like pignut hickory, can be bitter or astringent.
+usda_ndb_proxy_code:en: 12130
+usda_ndb_proxy_name:en: Nuts, hickorynuts, dried
+
+< en:hickorynut
+en: dried hickorynut
+usda_ndb_code:en: 12130
+usda_ndb_name:en: Nuts, hickorynuts, dried
 
 ###################################################################################################
 #
