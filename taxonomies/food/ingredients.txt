@@ -62466,7 +62466,6 @@ usda_ndb_name:en: Nuts, acorn flour, full fat
 #                                Almond
 #
 ###################################################################################################
-# Almonds
 
 #comment:en:do NOT add the state of the almond, i.e. peeled, crushed, etc. This is detected in the processing taxonomy
 
@@ -62536,6 +62535,8 @@ description:pt: Prunus dulcis, popularmente conhecida como amendoeira é uma esp
 ecobalyse_labels_en_organic:en: almond-inshell-organic
 ifct_food_code:en: H001
 ifct_food_name:en: Almond
+usda_ndb_code:en: 12061
+usda_ndb_name:en: Nuts, almonds
 wikidata:en: Q184357
 # ingredient/almond has 25389 products in 38 languages @2021-08-17
 # TODO Split French and English
@@ -62616,6 +62617,8 @@ fr: amandes blanchies, amandes blanches
 hr: blanšira bademe, blanširani bademi
 it: mandorle sbianchite
 pl: migdały blanszowane
+usda_ndb_code:en: 12062
+usda_ndb_name:en: Nuts, almonds, blanched
 # ingredient/fr:amandes-blanchies has 31 products in 5 languages @2018-10-06
 
 < en:blanches almonds
@@ -62652,16 +62655,6 @@ nl: amandelen in poedervorm
 pt: amêndoa em pó, amêndoas em pó
 sv: mandelpulver
 # ingredient/fr:amande-en-poudre has 233 products in 8 languages @2018-10-06
-
-
-< en:almond paste
-en: prepacked Almond paste
-fr: Pâte d'amande préemballée
-it: pasta di mandorle preconfezionata
-sv: färdigförpackad mandelmassa
-ciqual_food_code:en: 15201
-ciqual_food_name:en: Almond paste or marzipan, prepacked
-ciqual_food_name:fr: Pâte d'amande, préemballée
 
 < en:almond
 en: almond flour
@@ -62792,8 +62785,19 @@ sv: mandelpasta
 ciqual_proxy_food_code:en: 15201
 ciqual_proxy_food_name:en: Almond paste or marzipan, prepacked
 ciqual_proxy_food_name:fr: Pâte d'amande, préemballée
+usda_ndb_code:en: 12071
+usda_ndb_name:en: Nuts, almond paste
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-d'amande
 # 216 products in 5 languages @2018-10-06
+
+< en:almond paste
+en: prepacked Almond paste
+fr: Pâte d'amande préemballée
+it: pasta di mandorle preconfezionata
+sv: färdigförpackad mandelmassa
+ciqual_food_code:en: 15201
+ciqual_food_name:en: Almond paste or marzipan, prepacked
+ciqual_food_name:fr: Pâte d'amande, préemballée
 
 < en:almond
 fr: amandes caramélisées
