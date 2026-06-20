@@ -65495,8 +65495,20 @@ ecobalyse_origins_en_france:en: sunflower-fr
 ifct_food_code:en: H020
 ifct_food_name:en: Sunflower seeds
 nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 12036
+usda_ndb_proxy_name:en: Seeds, sunflower seed kernels, dried
 wikidata:en: Q1076906
 # 7103 in 28 @2021-09-07
+
+< en:sunflower seed
+en: dried sunflower seed kernels
+usda_ndb_code:en: 12036
+usda_ndb_name:en: Seeds, sunflower seed kernels, dried
+
+< en:sunflower seed
+en: partially defatted sunflower seed flour
+usda_ndb_code:en: 12041
+usda_ndb_name:en: Seeds, sunflower seed flour, partially defatted
 
 # <en:sunflower seed
 # en:shelled sunflower seeds
@@ -65512,7 +65524,24 @@ en: sunflower seed paste
 de: Sonnenblumenkernmus
 hr: pasta od suncokretovih sjemenki
 it: pasta di semi di girasole
+usda_ndb_code:en: 12040
+usda_ndb_name:en: Seeds, sunflower seed butter, without salt
 
+###################################################################################################
+#
+#                                Watermelon seeds
+#
+###################################################################################################
+
+< en:seed
+en: watermelon seed kernels
+usda_ndb_proxy_code:en: 12174
+usda_ndb_proxy_name:en: Seeds, watermelon seed kernels, dried
+
+< en:watermelon seed kernels
+en: dried watermelon seed kernels
+usda_ndb_code:en: 12174
+usda_ndb_name:en: Seeds, watermelon seed kernels, dried
 
 # The context should make clear what it is used for (seeds or oil from seeds)
 en: flax
