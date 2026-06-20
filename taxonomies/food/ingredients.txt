@@ -65277,11 +65277,14 @@ ro: semințe de susan, seminte de susan
 sk: sezamové semeno
 sl: sezamovo seme
 sv: sesamfrön, sesamfrö
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-sesame
-# 1632 products in 11 languages @2018-10-05
 ciqual_food_code:en: 15010
 ciqual_food_name:en: Sesame seed
 ciqual_food_name:fr: Sésame, graine
+usda_ndb_proxy_code:en: 12201
+usda_ndb_proxy_name:en: Seeds, sesame seed kernels, dried (decorticated)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-sesame
+# 1632 products in 11 languages @2018-10-05
+
 
 < en:sesame seeds
 < en:white sesame
@@ -65292,7 +65295,7 @@ it: semi di sesamo bianchi
 pl: sezam biały, biały sezam
 
 < en:sesame seeds
-en: Husked sesame seed
+en: husked sesame seed
 fr: graine de sésame décortiquée
 hr: oljušteni sezam
 it: semi di sesamo decorticati
@@ -65300,6 +65303,13 @@ pl: sezam łuszczony, sezamu łuszczonego
 ciqual_food_code:en: 15035
 ciqual_food_name:en: Sesame seed, husked
 ciqual_food_name:fr: Sésame, graine décortiquée
+usda_ndb_proxy_code:en: 12201
+usda_ndb_proxy_name:en: Seeds, sesame seed kernels, dried (decorticated)
+
+< en:husked sesame seed
+en: decorticated dried sesame seed kernel
+usda_ndb_code:en: 12201
+usda_ndb_name:en: Seeds, sesame seed kernels, dried (decorticated)
 
 < en:Husked sesame seed
 en: Husked and grilled sesame seed
@@ -65328,6 +65338,26 @@ fr: sésame complet
 # 35 products in 4 languages @2018-10-05
 
 < en:sesame
+en: high-fat sesame flour
+usda_ndb_code:en: 12170
+usda_ndb_name:en: Seeds, sesame flour, high-fat
+
+< en:sesame
+en: low-fat sesame flour
+usda_ndb_code:en: 12033
+usda_ndb_name:en: Seeds, sesame flour, low-fat
+
+< en:sesame
+en: partially defatted sesame flour
+usda_ndb_code:en: 12032
+usda_ndb_name:en: Seeds, sesame flour, partially defatted
+
+< en:sesame
+en: partially defatted sesame meal
+usda_ndb_code:en: 12034
+usda_ndb_name:en: Seeds, sesame meal, partially defatted
+
+< en:sesame
 en: sesame paste, sesame seed paste
 bg: паста от сусам
 de: Sesampaste, Sesammus
@@ -65341,6 +65371,8 @@ nl: sesampasta
 pl: pasta sezamowa
 ro: pastă de susan, pastă de seminte de susan
 sv: sesampasta, sesam-kräm, sesam pasta
+usda_ndb_code:en: 12169
+usda_ndb_name:en: Seeds, sesame butter, paste
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
 # 105 products in 4 languages @2018-10-05
 
