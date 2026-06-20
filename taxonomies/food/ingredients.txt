@@ -60044,6 +60044,13 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Navette_(plante)
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+< en:vegetable
+en: pod and seed vegetable
+fr: légumes à gousse et à graines
+it: baccello e seme vegetale
+lv: pākšu un sēklu dārzenis
+nl: peul- en zaadgroente
+eurocode_2_group_2:en: 8.45
 
 ###########################
 #
@@ -60053,7 +60060,6 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Navette_(plante)
 #########################
 
 
-# description:en:A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
 # comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
 < en:legume
@@ -60132,11 +60138,6 @@ ud: Фасоль
 uk: квасоля звичайна
 vi: Đậu cô ve
 zh: 菜豆
-# ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
-carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
-carbon_footprint_fr_foodges_value:fr: 2
-eurocode_2_group_3:en: 7.10.30
-rare_crop:en: yes
 # azb:عادی لوْبیا
 # bar:Fisoin
 # chr:ᏚᏯ
@@ -60160,7 +60161,13 @@ rare_crop:en: yes
 # zh-hans:菜豆
 # zh-hant:菜豆
 # zh-tw:長豇豆
+carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
+carbon_footprint_fr_foodges_value:fr: 2
+description:en: A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
+eurocode_2_group_3:en: 7.10.30
+rare_crop:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Phaseolus_vulgaris
+# ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
 
 < en:beans
 en: bean sprouts, beansprouts
@@ -60170,9 +60177,7 @@ hr: klice graha
 lt: šparaginės pupelės
 lv: diedzētas pupinas
 
-
 < en:legume
-< en:pod and seed vegetable
 en: green bean, green beans, French bean
 ar: الفاصوليا الخضراء
 az: göy lobya
@@ -60292,7 +60297,6 @@ ciqual_food_name:fr: Haricot beurre, cru
 eurocode_2_group_3:en: 8.45.25
 wikidata:en: Q68189268
 
-# description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
 
 < en:green bean
 < en:pod and seed vegetable
@@ -60305,12 +60309,13 @@ hr: pljosnati grah
 nl: snijboon
 nn: snittebønne
 sv: romanabönor
+# nds_nl:klemboon, sniejboon
+#pap:sneibonchi
 ciqual_food_code:en: 20269
 ciqual_food_name:en: Flat bean, raw
 ciqual_food_name:fr: Haricot plat, cru
+description:en: FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
 eurocode_2_group_3:en: 8.45.40
-# nds_nl:klemboon, sniejboon
-#pap:sneibonchi
 wikidata:en: Q1828227
 wikipedia:en: https://en.wikipedia.org/wiki/Flat_bean
 
@@ -60376,7 +60381,7 @@ sv: blandade bönor
 ##########################
 
 
-< en:vegetable
+< en:pod and seed vegetable
 en: legume
 af: Peulgewas
 an: Legumbre
@@ -60407,7 +60412,6 @@ ia: Legumine
 id: Kacang-kacangan
 is: Baun
 it: leguminose
-#comment:it:vedi commento su "en:pulses" per distinzione con "en:legume"
 ja: 豆果
 ko: 협과
 la: Legumen
@@ -60459,6 +60463,7 @@ zh: 荚果
 #zh-hk: 莢果
 #zh-sg: 荚果
 #zh-tw: 莢果
+comment:it: "en:pulse" e "en:legumes" in italiano spesso si confondono perché entrambi i termini vengono generalmente tradotti come "legumi", anche se tecnicamente sarebbe più preciso distinguere tra "legumi secchi" (pulses) e "leguminose" (legume plants).
 description:en: A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
 vegan:en: yes
 vegetarian:en: yes
@@ -60477,9 +60482,6 @@ comment:it: "en:pulse" e "en:legumes" in italiano spesso si confondono perché e
 eurocode_2_group_2:en: 7.10
 wikidata:en: Q2727662
 
-# description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
-
-#category/butter-beans
 < en:pod and seed vegetable
 en: lima bean, lima beans, butter bean
 ca: garrofó, fesol de la peladilla, mongeta de Lima
@@ -60515,19 +60517,20 @@ sw: mfiwi
 tl: patani
 vi: dâu ngu
 zh: 棉豆
+#ban:kara, kekara
+#ilo:patani
 ciqual_food_code:en: 20126
 ciqual_food_name:en: Lima bean, raw
 ciqual_food_name:fr: Haricot de Lima, cru
-#528 @2021-10-27
+description:en: Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 # eurocode 8.45.25 is for fresh Lima beans
+# eurocode 7.10.34 is for dried lima beans
+# eurocode_2_group_3:en: 7.10.34
 eurocode_2_group_3:en: 8.45.25
-#ban:kara, kekara
-#ilo:patani
 #plant: wikidata:en:Q1166136
 wikidata:en: Q104007010
 wikipedia:en: https://en.wikipedia.org/wiki/Lima_bean
-# eurocode 7.10.34 is for dried lima beans
-# eurocode_2_group_3:en: 7.10.34
+#528 @2021-10-27
 
 < en:lima bean
 < en:pulse
@@ -61721,14 +61724,6 @@ usda_ndb_name:en: Chickpea flour (besan)
 wikidata:en: Q651829
 wikipedia:en: https://en.wikipedia.org/wiki/Gram_flour
 #1086 in 17 @2021-10-16
-
-< en:vegetable
-en: pod and seed vegetable
-it: baccello e seme vegetale
-lv: pākšu un sēklu dārzenis
-nl: peul- en zaadgroente
-eurocode_2_group_2:en: 8.45
-
 
 < en:pea
 en: green peas
