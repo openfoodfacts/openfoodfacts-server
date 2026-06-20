@@ -92314,7 +92314,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Muesli
 de: Saatenmischung
 # usage:de: Saatenmischung (Sonnenblumenkerne, Buchweizen, Kürbiskerne, Leinsamen, Quinoa, Hirse, Mohn)
 
-# description:en:TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
 
 # <en:compound
 en: tofu, Tofus, bean curds
@@ -92410,14 +92409,25 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20904
 ciqual_food_name:en: Tofu, plain
 ciqual_food_name:fr: Tofu, nature
-usda_ndb_code:en: 16129
-usda_ndb_name:en: Tofu, fried
+description:en: TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
+usda_ndb_proxy_code:en: 16281
+usda_ndb_proxy_name:en: HOUSE FOODS Premium Firm Tofu
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q177378
 wikipedia:en: https://en.wikipedia.org/wiki/Tofu
 # ingredient/fr:tofu has 369 products in 7 languages@2019-05-17
 # usage:fr:Tofu (graines de soja, eau, agents de coagulation :chlorure de magnésium, sulfate de calcium)
+
+< en:tofu
+en: firm tofu
+usda_ndb_code:en: 16281
+usda_ndb_name:en: HOUSE FOODS Premium Firm Tofu
+
+< en:tofu
+en: soft tofu
+usda_ndb_code:en: 16279
+usda_ndb_name:en: HOUSE FOODS Premium Soft Tofu
 
 < en:tofu
 en: fried tofu
