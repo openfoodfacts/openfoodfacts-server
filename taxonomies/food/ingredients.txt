@@ -11883,6 +11883,7 @@ ciqual_food_name:fr: Bœuf, steak haché 20% MG, cuit
 #                                Goat
 #
 ###################################################################################################
+
 < en:animal
 en: goat
 bg: Коза
@@ -11893,7 +11894,6 @@ hr: jarac
 pt: Cabra
 nutriscore_red_meat:en: yes
 
-# description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
 < en:goat
 < en:meat
@@ -11924,13 +11924,21 @@ sr: јаретина
 ta: ஆட்டிறைச்சி
 vi: Thịt dê
 zh: 山羊肉
-# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
-ciqual_food_code:en: 21800
-ciqual_food_name:en: Young goat, raw
-ciqual_food_name:fr: Chevreau, cru
 # sr-ec:јаретина
+ciqual_proxy_food_code:en: 21800
+ciqual_proxy_food_name:en: Young goat, raw
+ciqual_proxy_food_name:fr: Chevreau, cru
+description:en: GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
+usda_ndb_proxy_code:en: 17168
+usda_ndb_proxy_name:en: Game meat, goat, raw
 wikidata:en: Q449506
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_meat
+# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
+
+< en:goat meat
+en: raw goat meat
+usda_ndb_code:en: 17168
+usda_ndb_name:en: Game meat, goat, raw
 
 < en:goat
 < en:meat
