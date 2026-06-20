@@ -86556,12 +86556,6 @@ xh: Inkuku
 yi: האן
 za: Gaeq
 zh: 鸡
-# ingredient/chicken has 872 products @2019-05-18
-# category/chickens has 3369 products in 18 languages @2019-05-18
-carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
-carbon_footprint_fr_foodges_value:fr: 4.9
-ciqual_proxy_food_code:en: 36005
-ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
 # aeb-ara:دجاج
 # ang:Cicen
 # arz:فرخه
@@ -86632,8 +86626,16 @@ ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
 # yue:雞
 # zh-hans:鸡
 # zh-hant:雞
+carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr: 4.9
+ciqual_proxy_food_code:en: 36005
+ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
+usda_ndb_proxy_code:en: 5332
+usda_ndb_proxy_name:en: Chicken, ground, raw
 wikidata:en: Q780
 wikipedia:en: https://en.wikipedia.org/wiki/Chicken_as_food
+# ingredient/chicken has 872 products @2019-05-18
+# category/chickens has 3369 products in 18 languages @2019-05-18
 
 < en:chicken
 en: free range chicken
@@ -86658,6 +86660,11 @@ fr: poulet entier, poulets entiers
 it: pollo intero
 ciqual_proxy_food_code:en: 36005
 ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
+
+< en:chicken
+en: raw ground chicken
+usda_ndb_code:en: 5332
+usda_ndb_name:en: Chicken, ground, raw
 
 < en:animal protein
 < en:chicken
@@ -86700,7 +86707,6 @@ zh: 鸡心
 ciqual_food_code:en: 40054
 ciqual_food_name:en: Heart, chicken, raw
 ciqual_food_name:fr: Coeur, poulet, cru
-
 
 # <en:liver
 < en:chicken
@@ -86919,7 +86925,6 @@ it: carne di pollo compresi i succhi naturali di pollo
 < en:chicken meat including chicken juices
 en: cooked chicken with natural juices
 it: pollo cotto con succhi naturali
-
 
 < en:chicken meat
 en: chicken fillet
