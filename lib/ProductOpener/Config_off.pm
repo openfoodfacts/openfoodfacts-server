@@ -196,9 +196,9 @@ $flavor = 'off';
 	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases/latest",
 	f_droid_app_link => "https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web",
-	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utm_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utm_medium=web",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web",
 	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
 	x_account => "OpenFoodFacts",
 	x_account_fr => "OpenFoodFactsfr",
