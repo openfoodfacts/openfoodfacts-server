@@ -60947,8 +60947,13 @@ fr: flageolets verts extra-fins
 nl: extra fijne groene flageolets
 # ingredient/fr:flageolets-verts-extra-fins has 30 products in 2 languages @2019-02-25
 
-# description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
-# only "sweet" varieties of lupin are used for human food
+###################################################################################################
+#
+#
+#                        Lupin bean
+#
+#
+###################################################################################################
 
 < en:pulse
 en: lupin bean, lupine bean, lupin, lupines, lupine, sweet lupin, lupini, lupini beans
@@ -61017,15 +61022,26 @@ zh: 羽扇豆, 鲁冰花
 # zh-sg:羽扇豆
 # zh-tw:羽扇豆
 allergens:en: en:lupin
-ciqual_food_code:en: 20534
-ciqual_food_name:en: lupin grain, raw
-ciqual_food_name:fr: Lupin, graine crue
-# 957 in 12 @2021-10-01
+ciqual_proxy_food_code:en: 20534
+ciqual_proxy_food_name:en: lupin grain, raw
+ciqual_proxy_food_name:fr: Lupin, graine crue
+description:en: Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals. Only "sweet" varieties of lupin are used for human food
 eurocode_2_group_3:en: 7.10.xx
 rare_crop:en: yes
 #plant:wikidata:en:Q156811
+usda_ndb_proxy_code:en: 16076
+usda_ndb_proxy_name:en: Lupins, mature seeds, raw
 wikidata:en: Q13582643
 wikipedia:en: https://en.wikipedia.org/wiki/Lupin_bean
+# 957 in 12 @2021-10-01
+
+< en:lupin
+en: raw mature lupin
+ciqual_food_code:en: 20534
+ciqual_food_name:en: lupin grain, raw
+ciqual_food_name:fr: Lupin, graine crue
+usda_ndb_code:en: 16076
+usda_ndb_name:en: Lupins, mature seeds, raw
 
 < en:lupin
 en: white lupin, white lupine
