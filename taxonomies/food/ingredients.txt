@@ -28545,6 +28545,23 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20900
 ciqual_food_name:en: Soya flour
 ciqual_food_name:fr: Farine de soja
+usda_ndb_proxy_code:en: 16115
+usda_ndb_proxy_name:en: Soy flour, full-fat, raw
+
+< en:soya flour
+en: defatted soy flour
+usda_ndb_code:en: 16117
+usda_ndb_name:en: Soy flour, defatted
+
+< en:soya flour
+en: raw full-fat soy flour
+usda_ndb_code:en: 16115
+usda_ndb_name:en: Soy flour, full-fat, raw
+
+< en:soya flour
+en: raw defatted soy meal
+usda_ndb_code:en: 16119
+usda_ndb_name:en: Soy meal, defatted, raw
 
 < en:soya flour
 en: restructured soya flour
