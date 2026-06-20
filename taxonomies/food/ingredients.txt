@@ -13197,7 +13197,7 @@ hr: juneće meso
 hu: borjúhús
 it: carne di vitello
 nl: kalfsvlees
-pl: mięso cielęce
+pl: mięso cielęce, cielęcina
 sv: kalvkött
 carbon_footprint_fr_foodges_ingredient:fr: Viande de veau France
 carbon_footprint_fr_foodges_value:fr: 20.5
@@ -18794,13 +18794,14 @@ hr: crni vinski ocat
 hu: vörösborecet
 it: aceto di vino rosso
 nl: rode wijnazijn
-pl: ocet winny czerwony
+pl: ocet winny czerwony, ocet z czerwonego wina, ocet winny z czerwonego wina
 sv: rödvinsvinäger
 usda_ndb_code:en: 2068
 usda_ndb_name:en: Vinegar, red wine
 
 < en:vinegar
 en: spirit vinegar
+bg: спиртен оцет
 cs: Ovocný ocet
 de: Branntweinessig, Weingeistessig
 el: ξύδι από οίνο
@@ -18812,6 +18813,11 @@ it: aceto di acqua-vite
 lv: spirta etiķis
 nl: brandewijnazijn
 pl: Ocet spirytusowy, octu spirytusowego
+
+#<en:compound
+< en:vinegar
+en: spirit-apple vinegar
+pl: ocet spirytusowo-jabłkowy, ocet jabłkowo-spirytusowy
 
 < en:vinegar
 en: tarragon vinegar
@@ -23535,6 +23541,7 @@ hr: žitarice cijelog zrna, proizvodi od cjelovitih žitarica od cijelog zrna
 hu: teljes kiőrlésű gabona
 it: cereali integrali, cereale integrale
 nl: Volkorengraan
+pl: zboża pełnoziarniste
 
 < en:cereal
 en: cereals containing gluten
@@ -24811,7 +24818,7 @@ ms: Kuskus
 nb: couscous
 nl: couscous
 oc: couscous
-pl: Kuskus, kuskus pszenny
+pl: Kuskus, kuskus pszenny, kasza kuskus, kasza kuskus z pszenicy
 pt: cuscuz
 ro: Cuș cuș
 ru: Кускус
@@ -33992,7 +33999,7 @@ fr: protéine d'amande
 it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
 nb: mandelprotein
 nn: mandelprotein
-pl: białko migdałowe
+pl: białko migdałowe, białko z migdałów
 sv: mandelprotein
 allergens:en: en:nuts
 
@@ -34028,6 +34035,7 @@ fr: isolat de protéines de pois
 hr: izolat proteina graška
 hu: borsófehérje izolátum
 it: proteine isolate del pisello
+pl: izolowane białko grochowe
 ro: izolat proteic de mazăre
 
 < en:pea protein
@@ -34781,6 +34789,7 @@ es: mezcla de proteínas
 fr: mélange de protéines
 hr: proteinska mješavina
 it: Mix di proteine
+pl: mieszanka białkowa
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -35492,6 +35501,7 @@ es: crema de chocolate
 fr: Crème de chocolat
 hr: čokoladna krema
 it: crema al cioccolato
+pl: krem czekoladowy
 
 < en:chocolate
 en: dark chocolate, black chocolate, plain chocolate
@@ -38454,7 +38464,7 @@ fr: demi-abricots, demi abricots
 #processing:en: en:purée
 < en:apricot
 en: apricot puree
-bg: пюре от кайсии, пюре от кайсия
+bg: пюре от кайсии, пюре от кайсия, кайсиево пюре
 de: Aprikosenpüree, Aprikosenmark
 es: Puré de albaricoques
 fi: aprikoosipyree
@@ -38553,6 +38563,7 @@ ciqual_food_name:fr: Abricot, dénoyauté, sec
 
 < en:tree nut
 en: apricot kernels
+bg: кайсиеви ядки
 de: Aprikosenkerne
 es: huesos de albaricoque
 fi: aprikoosinsiemen, aprikoosinsiemenet
@@ -42673,7 +42684,7 @@ oc: Irange
 or: କମଳା
 os: Апельсин
 pa: ਸੰਗਤਰਾ
-pl: pomarańcza, pomarańczowy, pomarańczowa, pomarańczowe, pomarańczy
+pl: pomarańcza, pomarańczowy, pomarańczowa, pomarańczowe, pomarańczy, pomarańcze
 ps: مالټه
 pt: laranja
 qu: Chilina
@@ -43052,7 +43063,7 @@ it: cellule arancioni
 
 < en:orange
 en: orange zest, orange peel
-bg: портокалови кори, портокалови корички
+bg: портокалови кори, портокалови корички, портокалова кора
 ca: pell de taronja
 cs: pomerančová kůra, pomerančové kůry
 da: orangeskal
@@ -44345,7 +44356,7 @@ hr: višnja, višnje, od višnje
 it: amarene
 la: prunus cerasus
 nl: morellen, kriek, krieken, zure kers
-pl: wiśnia, wiśnie, wiśniowy, wiśniowe, wiśniowa, wiśniowego, wiśniowych, wiśniowej
+pl: wiśnia, wiśnie, wiśniowy, wiśniowe, wiśniowa, wiśniowego, wiśniowych, wiśniowej, wiśni
 pt: ginjas
 ciqual_food_code:en: 13110
 ciqual_food_name:en: Morello cherry, raw
@@ -44643,7 +44654,7 @@ ml: തേങ്ങ
 nb: kokos, kokosnøtt
 nl: kokosnoot, kokos
 nn: kokosnøtt
-pl: kokos, kokosa, orzecha kokosowego, kokosowy, kokosowa, kokosowe
+pl: kokos, kokosa, orzech kokosowy, orzecha kokosowego, kokosowy, kokosowa, kokosowe
 pt: cocos
 ro: nucă de cocos, nuca de cocos
 ru: кокос
@@ -45429,6 +45440,7 @@ ciqual_food_name:fr: Figue, sèche
 
 < en:fig
 en: fig paste
+bg: смокинова паста, паста от смокини
 de: Feigenpaste
 fr: pâte de figue
 hr: pasta od smokava
@@ -53919,6 +53931,7 @@ sv: lökextrakt
 
 # <en:compound
 en: fried onion
+bg: пържен лук
 cs: smažená cibule
 de: röstzwiebeln
 it: cipolla fritta
@@ -54052,7 +54065,7 @@ en: leek
 ar: كراث
 az: kəvər soğanı
 be: цыбуля парэй
-bg: праз
+bg: праз, праз лук
 bn: পলাণ্ডু
 bo: ཀེའུ་ཙོང་།
 br: pour
@@ -63963,7 +63976,7 @@ lv: pistāciju rieksti, pistācijas rieksti
 mt: pistaċċi
 nb: Pistasjnøtter
 nl: pistachenoten, pistache, pistaches
-pl: orzechy pistacjowe, pistacje
+pl: orzechy pistacjowe, pistacje, pistacja, pistacji
 pt: pistácios, pistácio, pistáchio, pistáchios, pistache, pistaches, pistacho, pistachos, pistacios
 ro: fistic
 ru: фисташки
@@ -64010,6 +64023,7 @@ fr: pistaches en coques, pistache coque, Pistaches coques ouvertes naturellement
 it: Pistacchi in guscio
 nb: Pistasjnøtter med skall
 nl: pistaches met schelp, pistachenoten zonder dop
+pl: pistacje w łupinie
 ru: Орехи фисташковые неочищенные
 
 < en:grilled pistachio nut
@@ -64324,6 +64338,7 @@ wikidata:en: Q40763
 
 < en:seed
 en: oilseed, oilseeds
+bg: маслодайни семена
 de: Ölsamen
 it: semi oleosi
 
@@ -64808,7 +64823,7 @@ nn: russenøtter
 nv: Neeshchʼííʼ
 oc: Pinhon
 pa: چناٹو
-pl: orzeszki piniowe
+pl: orzeszki piniowe, orzeszki pinii, orzechy piniowe, orzechy pinii
 pt: pinhão
 ru: кедровый орех
 sr: пињол, pinjoli
@@ -75610,7 +75625,7 @@ eurocode_2_group_3:en: 8.50.10
 en: champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, cup mushroom
 af: Sampioen
 ar: غاريقون ثنائي البوغ
-bg: култивирана печурка, печурки
+bg: култивирана печурка, печурки, гъби Печурка
 ca: xampinyó, bolet cultivat
 cs: pečárka dvouvýtrusá
 cy: Madarch meithrin
@@ -87694,7 +87709,7 @@ af: Kalkoen
 ar: دجاج رومي
 az: Hinduşka
 ba: Күркә
-bg: пуйки
+bg: пуйка, пуйки
 bn: টার্কি
 bs: Ćurka
 ca: Gall dindi, gall d'indi
@@ -87790,6 +87805,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Turkey_(bird)
 
 < en:turkey
 en: turkey heart
+bg: пуешко сърце
 de: Putenherz
 fr: Coeur de dinde
 hr: pureće srce
@@ -87801,6 +87817,7 @@ ciqual_food_name:fr: Coeur, dinde, cru
 
 < en:turkey
 en: turkey liver
+bg: пуешки черен дроб
 cs: krůtí játra
 de: Putenleber, Truthahnleber
 fr: Foie de dinde
@@ -88970,7 +88987,7 @@ nb: eggeplomme
 nl: eigeel
 nn: eggeplomme
 no: eggeplomme
-pl: żółtko jaja, żółtka jaj, żółtko jaj
+pl: żółtko jaja, żółtka jaj, żółtko jaj, żółtko
 pt: gema de ovo
 ru: желток, яичный желток
 sh: Žumanjak
@@ -89054,6 +89071,7 @@ fr: jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules éle
 hr: žumanjak kokoši slobodnog uzgoja
 it: tuorlo d'uovo di gallina allevata all'aperto
 nl: Eigeel van vrije uitloop eieren, scharreleigeelpoeder, scharrelkippenei-eigeel, scharrelkippenei-eigeelpoeder
+pl: żółtko jaja kurzego z chowu z wolnego wybiegu, żółtko jaja kurzego z chowu na wolnym wybiegu, żółtko z jaja kurzego z chowu na wolnym wybiegu, żółtko jaja w proszku z chowu na wolnym wybiegu
 pt: gema de ovo de galinhas criadas ao ar livre
 # ingredient/fr:jaune-d’oeuf-de-poules-élevées-en-plein-air has 61 products in 2 languages @2018-12-18
 
