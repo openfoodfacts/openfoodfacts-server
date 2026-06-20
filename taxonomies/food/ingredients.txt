@@ -61070,7 +61070,7 @@ nl: gerehydrateerde vermicelli van erwten
 nl: veldbonen
 
 < en:pod and seed vegetable
-en: broad bean, fava bean, faba bean, Vicia faba, horse bean
+en: broad bean, fava bean, faba bean, Vicia faba, horse bean, broadbean
 am: ባቄላ
 ar: فول
 ay: Jawasa
@@ -61139,16 +61139,6 @@ uz: Boqla
 vi: Đậu răng ngựa
 wa: Grosse feve
 zh: 蚕豆
-# ingredient/fr:feve has 54 products in french @2019-02-17
-ciqual_food_code:en: 20518
-ciqual_food_name:en: Broad bean, dried
-ciqual_food_name:fr: Fève, sèche
-ecobalyse:en: broad-beans-eu
-ecobalyse_origins_en_france:en: broad-beans-fr
-#eurocode 8.45.20 is for fresh broad beans
-#eurocode_2_group_3:en: 7.10.20 is for dried broad beans
-eurocode_2_group_3:en: 8.45.20
-rare_crop:en: yes
 # aeb-arab:فول
 # arz:فول
 # azb:آت پاخلاسی
@@ -61183,15 +61173,35 @@ rare_crop:en: yes
 # zh-hk:蠶豆
 # zh-sg:蚕豆
 # zh-tw:蠶豆
+ciqual_proxy_food_code:en: 20518
+ciqual_proxy_food_name:en: Broad bean, dried
+ciqual_proxy_food_name:fr: Fève, sèche
+ecobalyse:en: broad-beans-eu
+ecobalyse_origins_en_france:en: broad-beans-fr
+#eurocode 8.45.20 is for fresh broad beans
+#eurocode_2_group_3:en: 7.10.20 is for dried broad beans
+eurocode_2_group_3:en: 8.45.20
+rare_crop:en: yes
+usda_ndb_proxy_code:en: 16052
+usda_ndb_proxy_name:en: Broadbeans (fava beans), mature seeds, raw
 wikidata:en: Q131342
 wikipedia:en: https://en.wikipedia.org/wiki/Vicia_faba
+# ingredient/fr:feve has 54 products in french @2019-02-17
 
 < en:broad bean
 < en:pulse
 en: dried broad bean
 fr: fève sêche, fèves sèches
 it: fava secca
+ciqual_food_code:en: 20518
+ciqual_food_name:en: Broad bean, dried
+ciqual_food_name:fr: Fève, sèche
 eurocode_2_group_3:en: 7.10.20
+
+< en:broad bean
+en: raw mature broad beans
+usda_ndb_code:en: 16052
+usda_ndb_name:en: Broadbeans (fava beans), mature seeds, raw
 
 < en:preparation
 en: faba bean preparation
