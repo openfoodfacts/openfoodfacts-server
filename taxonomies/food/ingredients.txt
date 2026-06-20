@@ -64481,6 +64481,28 @@ wikidata:en: Q27658833
 #nl:biologisch venkelzaad
 # ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
+###################################################################################################
+#
+#                                Breadfruit seeds
+#
+###################################################################################################
+
+< en:seed
+en: breadfruit seeds
+usda_ndb_proxy_code:en: 12001
+usda_ndb_proxy_name:en: Seeds, breadfruit seeds, raw
+
+< en:breadfruit seeds
+en: raw breadfruit seeds
+usda_ndb_code:en: 12001
+usda_ndb_name:en: Seeds, breadfruit seeds, raw
+
+###################################################################################################
+#
+#                                Chia seeds
+#
+###################################################################################################
+
 < en:seed
 en: chia
 xx: chia
@@ -64488,7 +64510,7 @@ bg: чиа
 es: chía negra
 hr: biljke chia
 la: Salvia hispanica
-nl: salvia hispanica
+nl: chia
 pl: szałwia hiszpańska, chia, salvia hispanica, szałwii hiszpańskiej
 description:en: SALVIA HISPANICA, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
 # ingredient/chia has 430 products @2021-08-20
@@ -64532,9 +64554,11 @@ ciqual_proxy_food_name:en: Seeds, chia, dried
 ciqual_proxy_food_name:fr: Chia, graine, séchée
 description:en: Chia is grown commercially for its seed, a food rich in omega-3 fatty acids since the seeds yield 25–30% extractable oil, including α-linolenic acid.
 description:it: I semi di chia, ricchi di omega-3, sono paragonabili dal punto di vista nutrizionale a quelli del lino e del sesamo.
-# ingredient/chia-seed 2376 in 18 @2021-08-20
 nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 12006
+usda_ndb_proxy_name:en: Seeds, chia seeds, dried
 wikidata:en: Q27688832
+# ingredient/chia-seed 2376 in 18 @2021-08-20
 
 < en: chia seed
 en: white chia seed, white chia seeds
@@ -64552,6 +64576,8 @@ it: semi di chia secchi
 ciqual_food_code:en: 15047
 ciqual_food_name:en: Seeds, chia, dried
 ciqual_food_name:fr: Chia, graine, séchée
+usda_ndb_code:en: 12006
+usda_ndb_name:en: Seeds, chia seeds, dried
 
 # description:en:Cumin is a flowering plant in the family Apiaceae, native to a territory including Middle East and stretching east to India.[2] Its seeds – each one contained within a fruit, which is dried – are used in the cuisines of many cultures in both whole and ground form.
 # The plant is only used for the seeds, so cumin implies cumin seeds
