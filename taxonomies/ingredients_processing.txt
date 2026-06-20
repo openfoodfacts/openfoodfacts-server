@@ -279,7 +279,7 @@ uk: листя
 # the ends/small amounts cut off, e.g. beans.
 # possible false positive "trimmed with"="garnished with", but no instances in the data currently.
 en: trimmed
-sv: klippt
+sv: klippt, klippta, klippte
 
 en: cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
@@ -298,7 +298,6 @@ pt: cortado, cortada, cortados, cortadas
 sv: skuren
 uk: різаний, різана, різане, різані, нарізаний, нарізана, нарізане, нарізані, порізаний, порізана, порізане, порізані
 
-# <en:cut
 < en:cut
 en: thick cut
 es: cortada gruesa, cortado grueso, cortados gruesos, cortadas gruesas
@@ -873,11 +872,6 @@ es: partido, partida, partidos, partidas
 pl: łamane, łamana, łamany
 pt: partido, partida, partidos, partidas
 
-#de:comment:geschält is a generic term and can mean en:peeled or en:shelled
-de: geschält, geschälte, geschälter, geschälten, geschältes
-
-de: ungeschält, ungeschälte, ungeschälter, ungeschältes
-
 #es:comment:deshuesadas is a generic term and can mean en:pitted or en:boned
 #process of removing the bone from meat
 en: boned
@@ -929,27 +923,20 @@ en: machine boned
 hr: strojno otkošteno
 it: disossato meccanicamente
 
-#en:description:To remove the outer covering or shell of something
-< en:peeled
-en: shelled
-ca: sense closca, pelat, pelats, pelada, pelades
-cs: loupaná
-es: sin cascara, pelada, pelado, peladas, pelados
-fi: kuoreton, kuorettomat
-fr: décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées, émondé, émondée, émondés, émondées
-hr: oljuštene, oljušteni, golice, bez opne
-it: decorticato, decorticati, decorticata, decorticate, sbucciati, sgusciato, sgusciati, sgusciata, sgusciate
-pl: łuskany, łuskana, łuskane, obłuskany, obłuskana, obłuskane
-pt: descascado, descascada, descascados, descascadas, sem casca, sem cascas
-uk: лущений, лущена, лущене, лущені
+en: peeled or shelled
+de: geschält, geschälte, geschälter, geschälten, geschältes
+sv: skalad, skalat, skalade, utan skal
+comment:en: de:geschält is a generic term and can mean en:peeled or en:shelled
 
-en: unshelled, in shell
+en: unpeeled or unshelled
+de: ungeschält, ungeschälte, ungeschälter, ungeschältes
+sv: med skal
 
-# en:description:With the outermost layer or skin removed
+< en:peeled or shelled
 en: peeled, hulled
 bg: обелен, обелено, обелена, обелени, белен, белена, белено, белени, грухана
 ca: sense pell
-da: afskallede
+da: skrællet, skrællede, uden skræl
 # de:geschälte is a separate entry
 es: sin piel, repelada, repelado, repeladas, repelados, descascarrillado, descascarrillada, descascarrillados, descascarrilladas, descascarilladas
 fi: kuoritut
@@ -960,9 +947,30 @@ it: pelato, pelati, pelata, pelate
 nl: gepeld, gepelde
 pl: obrany, obrana, obrane
 pt: pelado, pelada, pelados, peladas, sem pele, sem peles
-sv: skalade
 uk: чищений, чищена, чищене, чищені
+description:en: With the outermost layer or skin removed
+wikidata:en: Q23022934
 # en:wiktionary:peeled
+
+< en:peeled
+en: shelled
+ca: sense closca, pelat, pelats, pelada, pelades
+cs: loupaná
+da: afskallet, afskallede, uden skal
+es: sin cascara, pelada, pelado, peladas, pelados
+fi: kuoreton, kuorettomat
+fr: décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées, émondé, émondée, émondés, émondées
+hr: oljuštene, oljušteni, golice, bez opne
+it: decorticato, decorticati, decorticata, decorticate, sbucciati, sgusciato, sgusciati, sgusciata, sgusciate
+pl: łuskany, łuskana, łuskane, obłuskany, obłuskana, obłuskane
+pt: descascado, descascada, descascados, descascadas, sem casca, sem cascas
+uk: лущений, лущена, лущене, лущені
+description:en: To remove the outer covering or shell of something
+
+< en:unpeeled or unshelled
+en: unshelled, in shell
+da: med skal
+pt: com casca, com cascas
 
 en: scalding
 da: skoldning, skoldet, skoldede
@@ -2218,7 +2226,7 @@ sv: högpastöriserad
 < en:sterilized
 en: UHT, UHT pasteurised, UHT sterilised, ultra heat treated
 xx: UHT
-bg: UHT, UHT пастьоризирано
+bg: UHT, UHT пастьоризирано, обработена с изключително висока температура
 ca: UHT, esterilitzada UHT
 de: UHT, H-, Haltbar, Haltbare
 es: UHT, esterelizada UHT, esterilizada UHT
@@ -2229,6 +2237,7 @@ hu: UHT, pasztőrözött UHT
 it: UHT, pastorizzato UHT, UHT sterilizzato, uht verhit
 nl: UHT, UHT-gesteriliseerde
 sv: UHT, UHT-behandlad
+wikidata:en: Q1562464
 
 en: thermised, thermized, thermalised, thermalized
 bg: термизиран, термизирана, термизирано, термизирани
@@ -2503,6 +2512,7 @@ pl: smażony, smażona, smażone
 pt: frito, frita, fritos, fritas
 sv: friterad, friterade, stekt
 uk: смажений, смажена, смажене, смажені, обсмажений, обсмажена, обсмажене, обсмажені, засмажений, засмажена, засмажене, засмажені
+wikidata:en: Q300472
 # en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
 en: roasted, baked
@@ -2523,6 +2533,8 @@ pt: assado, assada, assados, assadas
 sk: pražené
 sv: rostad, rostat, rostade, bakad
 uk: печений, печена, печене, печені, запечений, запечена, запечене, запечені
+comment:en: In the actual translations on products, there is not always a difference between toasted and roasted
+wikidata:en: Q4865573
 
 #< en:roasted
 en: dry roasted
@@ -2537,12 +2549,10 @@ nl: droog geroosterd, droog geroosterde, droog geroosterde, droog geroosterde
 pl: prażony na sucho, prażone na sucho, prażona na sucho, prażone na sucho
 pt: torrado a seco, torrada a seco, torrados a seco, torradas a seco
 sv: torrostad, torrostade
-
-#comment:en:In the actual translations on products, there is not always a difference between toasted and roasted
+wikidata:en: Q10860338
 
 en: chargrilled, char grilled
 
-# en:description:To lightly cook by browning via direct exposure to a fire or other heat source.
 en: toasted
 ca: torrat, torrats, torrada, torrades
 de: geröstet, geröstete, geröstetes, gerösteter, getoastet, getoastete, getoasteter, getoastetes
@@ -2555,6 +2565,8 @@ nl: geroosterd, geroosterde, getoaste
 pl: prażony, prażone, prażona, prażonego, prażonej, prażonych
 pt: tostado, tostada, tostados, tostadas, torrado, torrada, torrados, torradas
 sl: praženi
+comment:en: In the actual translations on products, there is not always a difference between toasted and roasted
+description:en: To lightly cook by browning via direct exposure to a fire or other heat source.
 
 en: untoasted
 de: ungeröstet, ungeröstete, ungerösteter, ungeröstetes
@@ -3068,7 +3080,7 @@ en: with sunflower oil
 af: met sonneblomolie
 ar: بزيت عباد الشمس
 az: günəbaxan yağı ilə
-bg: с олио от слънчоглед
+bg: със слълчогледово олио, със слълчогледово масло, с олио от слънчоглед
 bn: সূর্যমুখী তেল দিয়ে
 ca: amb oli de gira-sol
 cs: se slunečnicovým olejem
@@ -3314,6 +3326,7 @@ zh: 未经辐照，未经辐照处理，无辐照
 #en:description:complete or partial removal of impurities in sugars, oils, fats and other natural materials by chemical/physical treatment
 < en:purified
 en: refined, partially refined
+bg: рафинирано, рафинирана, рафиниран
 fr: raffiné, partiellement raffiné, raffinée, partiellement raffinée, raffinés, partiellement raffinés, raffinées, partiellement raffinées
 hr: rafinirano, djelomično rafinirano
 nl: geraffineerd, geraffineerde
@@ -3330,7 +3343,7 @@ pt: refinado fisicamente, refinada fisicamente, refinados fisicamente, refinadas
 #fr:Dessucré, partiellement dessucré
 #hr:bez šećera, sa smanjenom količinom šećera
 en: Homogenized
-bg: Хомогенизирано
+bg: Хомогенизирано, хомогенизиран, хомогенизирана
 ca: homogeneïtzat
 de: homogenisiert, homogenisierte, homogenisierter, homogenisiertes, homogenisierten, homogenisiertem
 es: homogeneizado
@@ -3345,23 +3358,41 @@ uk: гомогенізований, гомогенізована, гомоген
 wikidata:en: Q1165158
 wikipedia:en: https://en.wikipedia.org/wiki/Homogenization_(chemistry)
 
-# for ingredients, lactose-free is not a processing but involves a chemical process,
-# use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose),
-# which are easier to digest for those with lactose intolerance.
-en: lactose-free
+en: lactose-free, lactose free
 bg: без лактоза, безлактозно
+bn: ল্যাকটোজ মুক্ত
+br: hep laktoz
 ca: sense lactosa
-de: laktosefreie
+de: laktosefrei, laktosefreie
 es: sin lactosa
+et: laktoosivaba
+fi: laktoositon
 fr: sans lactose
+gl: sen lactosa
+hi: लैक्टोज मुक्त
 hr: bez laktoze
+hu: laktózmentes
+hy: առանց լակտոզի
+id: bebas laktosa
 it: delattosato, senza lattosio
-nl: lactosevrije
+ka: ულაქტოზო
+mk: без лактоза
+ml: ലാക്ടോസ് രഹിതം
+ms: bebas laktosa
+nb: laktosefri
+ne: ल्याक्टोज निःशुल्क
+nl: lactose vrij, lactosevrije
 pl: bez laktozy
 pt: sem lactose
 ro: fără lactoză
-sv: laktosfri
+ru: без лактозы
+se: laktosakeahtes
+sq: pa laktozë
+sv: laktosfri, laktosfritt, laktosfria
+tr: laktozsuz
 uk: без лактози, безлактозний, безлактозна, безлактозне, безлактозні
+description:en: for ingredients, “lactose-free” is not a processing per se, but involves a chemical process, use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose), which are easier to digest for those with lactose intolerance.
+wikidata:en: Q11874508
 
 # result of a filtration
 en: filtrate
@@ -3600,7 +3631,7 @@ zh: 无味, 无味
 
 # en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en: smoked
-bg: пушено
+bg: пушено, пушен, пушена, опушен, опушено, опушена
 ca: fumat, fumada
 da: røget, røgede
 de: geräuchert, geräucherte, geräucherter, geräuchertes, geräucherten, geräuchertem
@@ -3938,7 +3969,6 @@ pt: nâo hidrogenada
 ro: nehidrogenate, nehidrogenat
 sv: ohärdad
 
-#en:description:Breakdown into simpler chemical constituents by appropriate treatment with water and possibly either enzymes or acid/alkali
 en: hydrolysed, hydrolized
 af: gehidroliseer
 ar: متحلل
@@ -3955,7 +3985,7 @@ es: hidrolizado, hidrolizada, hidrolizados, hidrolizadas
 et: hüdrolüüsitud
 fa: هیدرولیز شده
 fi: hydrolysoitu
-fr: Hydrolisé, hydrolisée, hydrolisés, hydrolisées
+fr: hydrolisé, hydrolisée, hydrolisés, hydrolisées
 he: שעבר הידרוליזה
 hi: हाइड्रोलाइज्ड
 hr: hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
@@ -3971,20 +4001,22 @@ ms: hidrolisis
 nb: hydrolysert
 nl: gehydrolyseerd, gehydrolyseerde
 pl: hydrolizat, hydrolizowane
-pt: hidrolisado, hidrolisada, hidrolisados, hidrolisadas
+pt: hidrolisada, hidrolisado, hidrolisados, hidrolisadas
 ro: hidrolizat, hidrolizate
 ru: гидролизованный
 sk: hydrolyzovaný, hydrolyzovaná, hydrolyzované
 sl: hidroliziran
 sq: hidrolizuar
 sr: хидролизовано
-sv: hydrolyserat
+sv: hydrolyserat, hydrolyserad, hydrolyserade
 th: ไฮโดรไลซ์
 tr: hidrolize
 uk: гідролізований, гідролізована, гідролізоване, гідролізовані
 vi: thủy phân
 zh: 水解的
+description:en: Breakdown into simpler chemical constituents by appropriate treatment with water and possibly either enzymes or acid/alkali.
 nova:en: 4
+wikidata:en: Q103135
 
 #en:description:Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
 en: hydrogenated, hardened, partially hardened
