@@ -87611,6 +87611,11 @@ wikidata:en: Q6072584
 wikipedia:en: https://en.wikipedia.org/wiki/Quail
 # ingredient/fr:cailles has 4 products @2019-05-31
 
+###################################################################################################
+#
+#                                Goose
+#
+###################################################################################################
 
 < en:poultry
 en: goose
@@ -87649,11 +87654,39 @@ sv: gåslever
 ciqual_food_code:en: 40120
 ciqual_food_name:en: Liver, goose, raw
 ciqual_food_name:fr: Foie, oie, cru
+usda_ndb_proxy_code:en: 5150
+usda_ndb_proxy_name:en: Goose, liver, raw
 wikidata:en: Q103819968
 #51 in 5 @2021-09-11
 
 < en:goose liver
+en: raw goose liver
+usda_ndb_code:en: 5150
+usda_ndb_name:en: Goose, liver, raw
+
+< en:goose liver
 fr: foie gras d'oie
+
+###################################################################################################
+#
+#                                Guinea hen
+#
+###################################################################################################
+
+< en:poultry
+en: guinea hen
+usda_ndb_proxy_code:en: 5152
+usda_ndb_proxy_name:en: Guinea hen, meat only, raw
+
+< en:guinea hen
+en: rawguinea hen meat and skin
+usda_ndb_code:en: 5151
+usda_ndb_name:en: Guinea hen, meat and skin, raw
+
+< en:guinea hen
+en: raw guinea hen meat
+usda_ndb_code:en: 5152
+usda_ndb_name:en: Guinea hen, meat only, raw
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -87681,6 +87714,14 @@ wikipedia:en: https://en.wikipedia.org/wiki/Partridge
 
 < en:partridge
 es: fumé de perdiz
+
+en: guinea hen, meat and skin, raw
+usda_ndb_code:en: 5151
+usda_ndb_name:en: Guinea hen, meat and skin, raw
+
+en: guinea hen, meat only, raw
+usda_ndb_code:en: 5152
+usda_ndb_name:en: Guinea hen, meat only, raw
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
