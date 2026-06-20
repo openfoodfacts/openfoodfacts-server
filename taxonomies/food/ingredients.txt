@@ -10381,6 +10381,8 @@ ifct_food_name:en: Calf, liver
 
 < en:animal
 en: caribou
+la: Rangifer tarandus
+description:en: "Caribou" is the term used in North America (Canada, Alaska) for wild populations. "Reindeer" is used in Europe and Asia, and also refers to the domesticated populations found especially in places like Scandinavia and Russia.
 
 < en:caribou
 < en:meat
@@ -11429,13 +11431,15 @@ fi: poro
 fr: renne
 hr: sob
 it: Renna
+la: Rangifer tarandus (Reindeer)
 nb: rein
 pl: ren
 sv: ren
-# ingredient/fr:renne has 1 product in 1 language @2020-06-08
+description:en:  "Reindeer" is used in Europe and Asia, and also refers to the domesticated populations found especially in places like Scandinavia and Russia. "Caribou" is the term used in North America (Canada, Alaska) for wild populations.
 nutriscore_red_meat:en: yes
 wikidata:en: Q5410921
 wikipedia:en: https://en.wikipedia.org/wiki/Reindeer
+# ingredient/fr:renne has 1 product in 1 language @2020-06-08
 
 < en:reindeer
 < en:venison
@@ -11959,6 +11963,24 @@ ciqual_food_code:en: 21801
 ciqual_food_name:en: Young goat, cooked
 ciqual_food_name:fr: Chevreau, cuit
 
+###################################################################################################
+#
+#                                Moose
+#
+###################################################################################################
+
+< en:game animal
+en: moose
+
+< en:moose
+en: moose meat
+usda_ndb_proxy_code:en: 17172
+usda_ndb_proxy_name:en: Game meat, moose, raw
+
+< en:moose meat
+en: raw moose meat
+usda_ndb_code:en: 17172
+usda_ndb_name:en: Game meat, moose, raw
 
 ###################################################################################################
 #
