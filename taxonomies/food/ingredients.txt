@@ -60380,7 +60380,6 @@ sv: blandade bönor
 #
 ##########################
 
-
 < en:pod and seed vegetable
 en: legume
 af: Peulgewas
@@ -60478,11 +60477,25 @@ lv: žāvēti pākšaugi
 nl: gedroogde peulvruchten
 pt: pulso
 sv: baljfrukt
+comment:en: 
 comment:it: "en:pulse" e "en:legumes" in italiano spesso si confondono perché entrambi i termini vengono generalmente tradotti come "legumi", anche se tecnicamente sarebbe più preciso distinguere tra "legumi secchi" (pulses) e "leguminose" (legume plants).
+description:en: pulse = just the dry, harvested seed of specific legume crops. The UN Food and Agriculture Organization (FAO) recognizes 11 categories of pulses: Dry beans — includes kidney beans, navy beans, pinto beans, black beans, lima beans, mung beans, adzuki beans; Dry broad beans — fava beans, horse beans, broad beans (in dried form); Dry peas — includes split peas, whole dried peas (green or yellow); Chickpeas — also called garbanzo beans; Dry cowpeas — black-eyed peas, blackeye beans; Pigeon peas — also called Congo beans or gandules; Lentils — includes red, green, brown, black (beluga), French (Puy); Bambara beans — also called Bambara groundnuts (earth peas); Vetches — common vetch; Lupins — lupin beans (also called lupini beans); Minor pulses — a catch-all for less common ones, such as lablab, jack beans, winged beans, yam beans
 eurocode_2_group_2:en: 7.10
 wikidata:en: Q2727662
 
-< en:pod and seed vegetable
+< en:legume
+en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
+la: Lablab purpureus
+description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
+usda_ndb_proxy_code:en: 16067
+usda_ndb_proxy_name:en: Hyacinth beans, mature seeds, raw
+
+< en:hyacinth bean
+en: raw mature hyacinth bean
+usda_ndb_code:en: 16067
+usda_ndb_name:en: Hyacinth beans, mature seeds, raw
+
+< en:legume
 en: lima bean, lima beans, butter bean
 ca: garrofó, fesol de la peladilla, mongeta de Lima
 da: limabønne, månebønne, sukkerbønne
@@ -60925,16 +60938,6 @@ nl: groene flageolets
 fr: flageolets verts extra-fins
 nl: extra fijne groene flageolets
 # ingredient/fr:flageolets-verts-extra-fins has 30 products in 2 languages @2019-02-25
-
-< en:pulse
-en: hyacinth bean
-usda_ndb_proxy_code:en: 16067
-usda_ndb_proxy_name:en: Hyacinth beans, mature seeds, raw
-
-< en:hyacinth bean
-en: raw mature hyacinth bean
-usda_ndb_code:en: 16067
-usda_ndb_name:en: Hyacinth beans, mature seeds, raw
 
 # description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
 # only "sweet" varieties of lupin are used for human food
