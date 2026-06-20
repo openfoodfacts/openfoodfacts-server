@@ -33,12 +33,15 @@ BEGIN {
 		&safe_cache_set
 		&get_cache_results
 		&set_cache_results
+
+		&perform_health_check
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Health qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Data qw/can_use_cache_results/;
@@ -48,6 +51,7 @@ use JSON::MaybeXS;
 use Digest::MD5 qw(md5_hex);
 use Log::Any qw($log);
 use Devel::Size qw(total_size);
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 # special logger to make it easy to measure memcached hit and miss rates
 our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
@@ -226,6 +230,78 @@ sub set_cache_results ($key, $results, $data_debug_ref) {
 	}
 
 	return;
+}
+
+=head2 perform_health_check()
+
+Execute a component health check and return a health-check result object.
+
+This sub documents the expected interface for health checks used by
+C<ProductOpener::APIHealth>. Implementations should perform one focused check and
+return an array reference of check objects compatible with
+L<https://inadarei.github.io/rfc-healthcheck/>.
+
+Each check object in the returned array reference must include:
+
+=over 4
+
+=item * C<status>
+
+String indicating the check result. Expected values are C<pass>, C<warn> or
+C<fail>.
+
+=item * C<output>
+
+Human-readable message describing the outcome.
+
+=back
+
+Additional RFC fields (for example C<componentType>, C<time>,
+C<observedValue>, C<observedUnit> and C<links>) may be included when relevant.
+If C<componentId> is included, it should be a stable UUID.
+
+The sub should not die. If an internal error occurs, return one check object
+with C<status =E<gt> 'fail'> and a meaningful C<output> message.
+
+=cut
+
+sub perform_health_check() {
+	my $key = 'health_check';
+	my $start = [gettimeofday()];
+
+	my $ok = eval {$memd->set($key, $start, 1);};
+
+	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+
+	my $time = current_time_iso8601();
+
+	my $memd_servers_str = defined($memd_servers) ? join(',', @$memd_servers) : undef;
+	my $memd_self_url = defined($memd_servers_str) ? 'memcached://' . $memd_servers_str : undef;
+	my $links = defined($memd_self_url) ? {self => $memd_self_url} : {};
+
+	if ($ok) {
+		return [
+			{
+				status => $status_pass,
+				componentType => 'datastore',
+				observedValue => $duration_ms,
+				observedUnit => 'ms',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
+	else {
+		return [
+			{
+				status => $status_fail,
+				componentType => 'datastore',
+				output => 'Memcached did not respond to set',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
 }
 
 1;
