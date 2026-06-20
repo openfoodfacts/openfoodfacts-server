@@ -60483,6 +60483,14 @@ description:en: pulse = just the dry, harvested seed of specific legume crops. T
 eurocode_2_group_2:en: 7.10
 wikidata:en: Q2727662
 
+###################################################################################################
+#
+#
+#                        Hyacint beans
+#
+#
+###################################################################################################
+
 < en:legume
 en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
 la: Lablab purpureus
@@ -61946,11 +61954,15 @@ fr: pois carrés d'Alvaiázere
 it: cicerchia di Alvaiázere
 rare_crop:en: yes
 
-# description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
-# comment:en:The wikidata entry is more about the plant, so translations can be wrong.
+###################################################################################################
+#
+#
+#                        Lentils
+#
+#
+###################################################################################################
 
 < en:legume
-< en:pulse
 en: lentils, lentil, Masoor dal, Masur dal
 am: ምስ'ር
 ar: عدس
@@ -62058,6 +62070,8 @@ carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_proxy_food_code:en: 20504
 ciqual_proxy_food_name:en: Lentil, dried
 ciqual_proxy_food_name:fr: Lentille, sèche
+comment:en: The wikidata entry is more about the plant, so translations can be wrong.
+description:en: The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
 eurocode_2_group_3:en: 7.10.25
@@ -62082,6 +62096,7 @@ it: lenticchie pardina
 pt: lentilhas pardina
 
 < en:lentils
+< en:pulse
 en: Dried lentils
 de: Getrocknete Linsen
 es: Lentejas secas
@@ -62189,6 +62204,13 @@ ciqual_food_name:en: Lentil, pink or red, dried
 ciqual_food_name:fr: Lentille corail, sèche
 # ingredient/fr:lentilles-rouges has 40 products in 3 languages @2019-06-02
 # ingredient/fr:lentilles-corail has 131 products in 6 languages @2019-06-02
+usda_ndb_proxy_code:en: 16144
+usda_ndb_proxy_name:en: Lentils, pink or red, raw
+
+< en:red lentils
+en: raw pink or red lentils
+usda_ndb_code:en: 16144
+usda_ndb_name:en: Lentils, pink or red, raw
 
 # <en:aggregate
 < en:green lentils
