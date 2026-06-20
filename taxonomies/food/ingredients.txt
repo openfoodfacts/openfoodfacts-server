@@ -64734,11 +64734,6 @@ tl: Pinyon
 tr: Çam fıstığı
 uk: кедрові горішки
 zh: 松子
-ciqual_food_code:en: 15025
-ciqual_food_name:en: Pine nuts
-ciqual_food_name:fr: Pignon de pin
-# ingredient/fr:pignons has 98 products in 4 languages @2018-12-05
-nutriscore_fruits_vegetables_nuts:en: no
 # aeb-arab:بندق
 # ast:Piñón
 # ceb:Pinyon
@@ -64755,7 +64750,19 @@ nutriscore_fruits_vegetables_nuts:en: no
 # zh-hk:松子
 # zh-sg:松子
 # zh-tw:松子
+ciqual_food_code:en: 15025
+ciqual_food_name:en: Pine nuts
+ciqual_food_name:fr: Pignon de pin
+nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 12147
+usda_ndb_proxy_name:en: Nuts, pine nuts, dried
 wikipedia:en: https://en.wikipedia.org/wiki/Pine_nut
+# ingredient/fr:pignons has 98 products in 4 languages @2018-12-05
+
+< en:pine nuts
+en: dried pine nuts
+usda_ndb_code:en: 12147
+usda_ndb_name:en: Nuts, pine nuts, dried
 
 < en:pine nuts
 fr: pignons de cedre, Pignons de cèdre décortiqués
