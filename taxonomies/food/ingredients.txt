@@ -65020,6 +65020,12 @@ sv: ekologisk pumpafrö, ekologiska pumpafrön
 #de:geschrotete Kürbiskerne # see ingredients_processing.txt
 #es:semillas de calabaza troceadas
 
+###################################################################################################
+#
+#                                Poppy seeds
+#
+###################################################################################################
+
 < en:plant
 en: poppy
 de: Mohn
@@ -65088,8 +65094,35 @@ hr: plavi mak
 it: semi di papavero blu
 #110 in 4 @2021-09-10
 
+###################################################################################################
+#
+#                                Safflower seeds
+#
+###################################################################################################
+
 < en:seed
-< en:sunflower
+en: safflower seed kernels
+usda_ndb_proxy_code:en: 12021
+usda_ndb_proxy_name:en: Seeds, safflower seed kernels, dried
+
+< en:safflower seed kernels
+en: dried safflower seed kernels
+usda_ndb_code:en: 12021
+usda_ndb_name:en: Seeds, safflower seed kernels, dried
+
+< en:safflower seed kernels
+en: partially defatted safflower seed meal
+usda_ndb_code:en: 12022
+usda_ndb_name:en: Seeds, safflower seed meal, partially defatted
+
+###################################################################################################
+#
+#                                Sunflower seeds
+#
+###################################################################################################
+
+< en:seed
+# < en:sunflower
 en: sunflower seed, sunflower seeds, sunflower kernels
 af: Sonneblomsaad
 ar: حب الشمس
