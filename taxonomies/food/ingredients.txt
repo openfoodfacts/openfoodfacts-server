@@ -64924,7 +64924,35 @@ en: hemp seed paste
 de: Hanfsamenmus
 it: pasta di semi di canapa
 
-< en:pumpkin
+###################################################################################################
+#
+#                                Lotus seeds
+#
+###################################################################################################
+
+< en:seed
+en: lotus seed
+description:en: Lotus seeds are the edible seeds of the lotus plant (Nelumbo nucifera), an aquatic plant grown widely across Asia, particularly in China, India, and Southeast Asia. Fresh seeds have a mild, slightly sweet, nutty flavor and a crisp texture, often eaten raw or lightly cooked. Dried seeds are used in soups, congee, and herbal tonics
+usda_ndb_proxy_code:en: 12205
+usda_ndb_proxy_name:en: Seeds, lotus seeds, raw
+
+< en:lotus seed
+en: dried lotus seeds
+usda_ndb_code:en: 12013
+usda_ndb_name:en: Seeds, lotus seeds, dried
+
+< en:lotus seed
+en: raw lotus seeds, 
+usda_ndb_code:en: 12205
+usda_ndb_name:en: Seeds, lotus seeds, raw
+
+###################################################################################################
+#
+#                                Pumpkin seeds
+#
+###################################################################################################
+
+# < en:pumpkin
 < en:seed
 en: pumpkin seed, seeds of squash
 ar: لب
