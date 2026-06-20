@@ -43,7 +43,7 @@ autoload("ProductOpener::Config_$flavor");
 # tag ids are also used in URLs.
 
 # unaccent:
-# - useful when accents are sometimes ommited (e.g. in French accents are often not present on capital letters),
+# - useful when accents are sometimes omitted (e.g. in French accents are often not present on capital letters),
 # either in print, or when typed by users.
 # - dangerous if different words (in the same context like ingredients or category names) have the same unaccented form
 # lowercase:
@@ -68,7 +68,7 @@ autoload("ProductOpener::Config_$flavor");
 		lowercase => 1,
 	},
 	# French has very few actual conflicts caused by unaccenting (one counter example is "pâtes" and "pâtés")
-	# Accents or often not present in capital letters (beginning of word, or in all caps text).
+	# Accents are often not present in capital letters (beginning of word, or in all caps text).
 	fr => {
 		unaccent => 1,
 		lowercase => 1,
@@ -236,5 +236,8 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 
 # Slack options
 %ProductOpener::Config::slack_hook_urls = %ProductOpener::Config2::slack_hook_urls || ();
+
+# Health check API key
+$ProductOpener::Config::health_check_api_key = $ProductOpener::Config2::health_check_api_key || undef;
 
 1;

@@ -10,6 +10,10 @@ on:
     paths:
       - 'docs/api/ref/**/*.yaml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint-api:
     name: Lint OpenAPI Spec Files

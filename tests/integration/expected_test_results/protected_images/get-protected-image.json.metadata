@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "path" : "/api/v2/product/0900000000139",
+      "body" : null,
       "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "fields" : "images,owner,selected_images"
       },
-      "method" : "GET",
-      "body" : null
+      "path" : "/api/v2/product/0900000000139"
    }
 }

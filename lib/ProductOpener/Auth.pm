@@ -424,6 +424,10 @@ sub access_to_protected_resource ($request_ref) {
 
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
+	# Already logged in. Redirect to the requested url
+	if (defined $request_ref->{return_url}) {
+		redirect_to_url($request_ref, 302, $request_ref->{return_url});
+	}
 	return;
 }
 
