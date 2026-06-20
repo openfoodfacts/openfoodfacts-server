@@ -63654,11 +63654,18 @@ ciqual_food_code:en: 15001
 ciqual_food_name:en: Peanut
 ecobalyse:en: peanut-non-eu
 ecobalyse_labels_en_organic:en: peanut-organic
+usda_ndb_proxy_code:en: 16087
+usda_ndb_proxy_name:en: Peanuts, all types, raw
 wikidata:en: Q37383
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:arachide
 # 1147 products in 9 languages @2018-10-05
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
 # 806 products in 19 languages @2018-10-06
+
+< en:peanut
+en: raw peanut
+usda_ndb_code:en: 16087
+usda_ndb_name:en: Peanuts, all types, raw
 
 < en:peanut
 en: roasted peanut, roasted peanuts
