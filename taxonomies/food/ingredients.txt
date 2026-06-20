@@ -63214,10 +63214,9 @@ usda_ndb_name:en: Nuts, ginkgo nuts, dried
 #                                Hazelnut
 #
 ###################################################################################################
-# description:en: The HAZELNUT is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
 
 < en:tree nut
-en: hazelnut, hazelnuts
+en: hazelnut, hazelnuts, filbert
 af: Haselneut
 an: Avellana
 ar: بندق
@@ -63269,13 +63268,6 @@ uk: ліщинні горіхи
 ur: بندق
 vi: Hạt phỉ
 zh: 榛子, 榛仁
-# 4124 products @2018-10-07
-ciqual_food_code:en: 15004
-ciqual_food_name:en: Hazelnut
-ciqual_food_name:fr: Noisette
-ecobalyse:en: hazelnut-unshelled-non-eu
-ecobalyse_origins_en_european_union:en: hazelnut-unshelled-eu
-openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
 # aeb-arab:بوفريوة
 # ast:Ablana
 # lad:Avyána
@@ -63284,14 +63276,29 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
 # zh-hans:榛子
 # zh-hant:榛子
 # zh-hk:榛子
+ciqual_food_code:en: 15004
+ciqual_food_name:en: Hazelnut
+ciqual_food_name:fr: Noisette
+description:en: The HAZELNUT is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
+ecobalyse:en: hazelnut-unshelled-non-eu
+ecobalyse_origins_en_european_union:en: hazelnut-unshelled-eu
+openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
+usda_ndb_code:en: 12120
+usda_ndb_name:en: Nuts, hazelnuts or filberts
 wikidata:en: Q578307
 wikipedia:en: https://en.wikipedia.org/wiki/Hazelnut
+# 4124 products @2018-10-07
 
 < en:hazelnut
 en: Piedmont hazelnut, PGI Piedmont hazelnut
 fr: noisette du Piémont, noisettes du Piémont
 it: nocciola Piemonte
 protected_name_type:en: en:pgi
+
+< en:hazelnut
+en: blanched hazelnut
+usda_ndb_code:en: 12121
+usda_ndb_name:en: Nuts, hazelnuts or filberts, blanched
 
 < en:Piedmont hazelnut
 < en:ground hazelnuts
@@ -63361,9 +63368,9 @@ en: hazelnut kernel
 hr: lješnjak jezgra
 
 #processing:en: en:chopped
-< en:hazelnut
-en: chopped hazelnuts
-it: nocciole tritate
+#< en:hazelnut
+#en: chopped hazelnuts
+#it: nocciole tritate
 #de:Gehackte Haselnüsse
 #es:avellanas troceados
 #fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
