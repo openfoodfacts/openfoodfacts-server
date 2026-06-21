@@ -63399,9 +63399,9 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-entiè
 # 15 products in 1 language @2018-10-007
 
 #processing:en: en:chopped
-#< en:hazelnut
-#en: chopped hazelnuts
-#it: nocciole tritate
+< en:hazelnut
+en: chopped hazelnuts
+it: nocciole tritate
 #de:Gehackte Haselnüsse
 #es:avellanas troceados
 #fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
@@ -64525,12 +64525,12 @@ usda_ndb_proxy_code:en: 12004
 usda_ndb_proxy_name:en: Seeds, breadnut tree seeds, raw
 
 < en:breadnut tree seeds
-en: seeds, breadnut tree seeds, dried
+en: dried breadnut tree seeds
 usda_ndb_code:en: 12005
 usda_ndb_name:en: Seeds, breadnut tree seeds, dried
 
 < en:breadnut tree seeds
-en: seeds, breadnut tree seeds, raw
+en: raw breadnut tree seeds
 usda_ndb_code:en: 12004
 usda_ndb_name:en: Seeds, breadnut tree seeds, raw
 
