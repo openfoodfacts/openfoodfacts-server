@@ -66427,9 +66427,11 @@ sv: curry
 ta: கறி
 te: కర్రీ
 zh: 咖哩
-ciqual_food_code:en: 11005
-ciqual_food_name:en: Curry, powder
-ciqual_food_name:fr: Curry, poudre
+ciqual_proxy_food_code:en: 11005
+ciqual_proxy_food_name:en: Curry, powder
+ciqual_proxy_food_name:fr: Curry, poudre
+usda_ndb_proxy_code:en: 2015
+usda_ndb_proxy_name:en: Spices, curry powder
 wikidata:en: Q1144935
 # 972 in 10 @2021-09-17
 
@@ -66437,42 +66439,47 @@ wikidata:en: Q1144935
 # With the translations be careful that they refer to the powder and not plain curry
 
 #processing:en: en:powder
-#<en:curry
-#en:curry powder
-#ar:مسحوق الكاري
-#bg:къри на прах
-#ca:Curri en pols
-#cs:Kari koření
-#da:Karry
-#de:Currypulver
-#eo:karea pulvoro
-#es:curry en polvo
-#fa:ادویه کاری
-#fi:curryjauhe
-#fr:curry en poudre, poudre de curry
-#he:תבלין קארי
-#hu:curry por
-#id:Bubuk kari
-#it:curry in polvere
-#ja:カレー粉
-#ko:커리 가루
-#lt:Karis (prieskoniai)
-#ms:Serbuk kari
-#ne:गरम मसला
-#nl:kerriepoeder, currypoeder
-#pt:Caril em pó
-#u:Карри (приправа)
-#sl:Karijev prašek
-#sv:currypulver
-#uk:Карі (приправа)
-#zh:咖喱粉
+< en:curry
+en: curry powder
+ar: مسحوق الكاري
+bg: къри на прах
+ca: Curri en pols
+cs: Kari koření
+da: Karry
+de: Currypulver
+eo: karea pulvoro
+es: curry en polvo
+fa: ادویه کاری
+fi: curryjauhe
+fr: curry en poudre, poudre de curry
+he: תבלין קארי
+hu: curry por
+id: Bubuk kari
+it: curry in polvere
+ja: カレー粉
+ko: 커리 가루
+lt: Karis (prieskoniai)
+ms: Serbuk kari
+ne: गरम मसला
+nl: kerriepoeder, currypoeder
+pt: Caril em pó
+uk: Карри (приправа)
+sl: Karijev prašek
+sv: currypulver
+uk: Карі (приправа)
+zh: 咖喱粉
 # en-ca:curry powder
 # en-gb:curry powder
 # yue:咖喱粉
-#description:en: CURRY POWDER is a spice mix originating from the Indian subcontinent.
-#wikidata:en: Q1144935
-#wikipedia:en: https://en.wikipedia.org/wiki/Curry_powder
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
+ciqual_food_code:en: 11005
+ciqual_food_name:en: Curry, powder
+ciqual_food_name:fr: Curry, poudre
+description:en: CURRY POWDER is a spice mix originating from the Indian subcontinent.
+openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
+usda_ndb_code:en: 2015
+usda_ndb_name:en: Spices, curry powder
+wikidata:en: Q1144935
+wikipedia:en: https://en.wikipedia.org/wiki/Curry_powder
 # 231 products in 8 languages @2018-10-11
 
 < en:spice
