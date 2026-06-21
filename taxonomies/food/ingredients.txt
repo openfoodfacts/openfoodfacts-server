@@ -69685,19 +69685,30 @@ ro: asmățui
 sk: trebuľka voňavá
 sl: krebuljica
 sv: körvel
-# 392 in 8 @2021-09-15
+ciqual_proxy_food_code:en: 11002
+ciqual_proxy_food_name:en: Chervil, fresh
+ciqual_proxy_food_name:fr: Cerfeuil, frais
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.22
+usda_ndb_proxy_code:en: 2008
+usda_ndb_proxy_name:en: Spices, chervil, dried
 wikidata:en: Q21281535
 wikipedia:en: https://en.wikipedia.org/wiki/Chervil
+# 392 in 8 @2021-09-15
 
 < en:chervil
 en: fresh chervil
 it: cerfoglio fresco
+nl: verse kervel
 ciqual_food_code:en: 11002
 ciqual_food_name:en: Chervil, fresh
 ciqual_food_name:fr: Cerfeuil, frais
 
+< en:chervil
+en: dried chervil
+nl: gedroogde kervel
+usda_ndb_code:en: 2008
+usda_ndb_name:en: Spices, chervil, dried
 
 ###################################################################################################
 #
