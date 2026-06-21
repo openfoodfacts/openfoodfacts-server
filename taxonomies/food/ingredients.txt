@@ -68281,12 +68281,6 @@ ur: شِبِت
 vi: thì là
 wo: anet
 zh: 蒔蘿
-ciqual_food_code:en: 11093
-ciqual_food_name:en: Dill, fresh
-comment:en: the wikidata page mixes the common name and latin name
-description:en: dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.32
 # aeb-arab:شبت
 # aeb-latn:ch'ebt
 # arz:شبت
@@ -68306,10 +68300,25 @@ eurocode_2_group_3:en: 12.20.32
 # sgs:kraps
 # tyv:койнут
 # yue:莳萝
-#plant: wikidata:en:q26686
+ciqual_proxy_food_code:en: 11093
+ciqual_proxy_food_name:en: Dill, fresh
+comment:en: the wikidata page mixes the common name and latin name
+description:en: dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.32
+usda_ndb_proxy_code:en: 2045
+usda_ndb_proxy_name:en: Dill weed, fresh
 wikidata:en: Q59659860
+#plant: wikidata:en:q26686
 wikipedia:en: https://en.wikipedia.org/wiki/Dill
 # 2303 in 24 @2021-09-16
+
+< en:dill
+en: fresh dill
+ciqual_food_code:en: 11093
+ciqual_food_name:en: Dill, fresh
+usda_ndb_code:en: 2045
+usda_ndb_name:en: Dill weed, fresh
 
 #comment:en:kept separate as it is another ingredient than the leaves
 < en:dill
@@ -68337,7 +68346,7 @@ nl: dillezaad
 #fr:aneth déshydraté
 #pl:suszony koperek
 
-< en:dill
+# < en:compound
 en: dill butter
 de: Dillbutter, Dill-Butter
 fi: tillivoi
