@@ -60271,18 +60271,6 @@ ta: பச்சை அவரை
 tl: sitaw
 uk: стручкова квасоля
 zh: 豆角
-carbon_footprint_fr_foodges_ingredient:fr: Haricot vert frais locaux
-carbon_footprint_fr_foodges_value:fr: 0.7
-#carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
-#carbon_footprint_fr_foodges_value:fr:22.8
-ciqual_food_code:en: 20061
-ciqual_food_name:en: French bean, raw
-ciqual_food_name:fr: Haricot vert, cru
-ecobalyse:en: french-bean-non-eu
-ecobalyse_origins_en_european_union:en: french-bean-eu
-ecobalyse_origins_en_france:en: french-bean-fr
-#4192 in 16 @2021-10-01
-eurocode_2_group_3:en: 8.45.30
 #arz:فاصوليا خضرا
 #bcl:balatong
 #chy:tó'êsemónêškeho
@@ -60293,7 +60281,19 @@ eurocode_2_group_3:en: 8.45.30
 #scn:fasulina
 #war:hantak
 #yue:荳角
+carbon_footprint_fr_foodges_ingredient:fr: Haricot vert frais locaux
+carbon_footprint_fr_foodges_value:fr: 0.7
+#carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
+#carbon_footprint_fr_foodges_value:fr:22.8
+ciqual_food_code:en: 20061
+ciqual_food_name:en: French bean, raw
+ciqual_food_name:fr: Haricot vert, cru
+ecobalyse:en: french-bean-non-eu
+ecobalyse_origins_en_european_union:en: french-bean-eu
+ecobalyse_origins_en_france:en: french-bean-fr
+eurocode_2_group_3:en: 8.45.30
 wikidata:en: Q2987371
+#4192 in 16 @2021-10-01
 
 #<en:green bean
 #fr:haricots verts tres fins issus de l'agriculture biologique
@@ -60649,11 +60649,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lima_bean
 #528 @2021-10-27
 
 < en:lima bean
+en: fresh lima bean
+eurocode_2_group_3:en: 8.45.25
+
+< en:lima bean
 < en:pulse
 en: dried lima bean
 fr: haricot de Lima sec, haricots de Lima secs
 it: fagioli di Lima secchi
 eurocode_2_group_3:en: 7.10.34
+
 
 < en:lima bean
 en: large lima beans
@@ -60994,8 +60999,6 @@ en: raw mature mungo bean
 usda_ndb_code:en: 16083
 usda_ndb_name:en: Mungo beans, mature seeds, raw
 
-
-
 < en:pulse
 en: borlotti bean, borlotti, cranberry bean
 de: Borlotti Bohnen, Borlottibohnen
@@ -61208,7 +61211,7 @@ it: granella di lupini
 nl: lupinegrut
 
 #processing:en: en:flour
-< en:flour
+# < en:flour gives the wrong ciqual
 < en:lupin bean
 en: lupin flour, lupine flour
 bg: брашно от лупина
@@ -61233,8 +61236,6 @@ nl: vermicelli van erwten
 fr: vermicelle de pois réhydraté, vermicelles de pois réhydratés
 nl: gerehydrateerde vermicelli van erwten
 # ingredient/fr:vermicelles-de-pois-réhydratés has 43 products @2019-02-18
-
-# description:en:Vicia faba, also known in the culinary sense as the broad bean, fava bean, or faba bean is a species of flowering plant in the pea and bean family Fabaceae.
 
 ###################################################################################################
 #
@@ -61366,6 +61367,7 @@ zh: 蚕豆
 ciqual_proxy_food_code:en: 20518
 ciqual_proxy_food_name:en: Broad bean, dried
 ciqual_proxy_food_name:fr: Fève, sèche
+description:en: Vicia faba, also known in the culinary sense as the broad bean, fava bean, or faba bean is a species of flowering plant in the pea and bean family Fabaceae.
 ecobalyse:en: broad-beans-eu
 ecobalyse_origins_en_france:en: broad-beans-fr
 #eurocode 8.45.20 is for fresh broad beans
@@ -61774,15 +61776,6 @@ vi: đậu gà
 wa: poes d' souke
 yi: נאהיט
 zh: 鹰嘴豆
-carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
-carbon_footprint_fr_foodges_value:fr: 1.5
-# ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
-ciqual_food_code:en: 20532
-ciqual_food_name:fr: Pois chiche, appertisé, égoutté
-ecobalyse:en: chickpea-fr
-ecobalyse_labels_en_organic:en: chickpea-organic
-eurocode_2_group_3:en: 7.10.15
-rare_crop:en: yes
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
 # azb:نوخود
@@ -61801,9 +61794,18 @@ rare_crop:en: yes
 # sco:chickpea
 #wuu:鹰嘴豆
 # yue:三角豆
+carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
+carbon_footprint_fr_foodges_value:fr: 1.5
+ciqual_food_code:en: 20532
+ciqual_food_name:fr: Pois chiche, appertisé, égoutté
+ecobalyse:en: chickpea-fr
+ecobalyse_labels_en_organic:en: chickpea-organic
+eurocode_2_group_3:en: 7.10.15
+rare_crop:en: yes
 # wikidata:en:Q81375 # this is actually the plant not the legume
 wikidata:en: Q33832605
 wikipedia:en: https://en.wikipedia.org/wiki/Chickpea
+# ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
 
 < en:chickpea
 en: pedrosillano chickpeas
