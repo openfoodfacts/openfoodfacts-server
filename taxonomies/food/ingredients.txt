@@ -66309,7 +66309,6 @@ usda_ndb_name:en: Spices, caraway seed
 #                                Cayenne pepper
 #
 ###################################################################################################
-# description:en:The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
 
 < en:spice
 en: cayenne pepper, cayenne
@@ -66352,12 +66351,13 @@ th: พริกชี้ฟ้า
 tl: siling kayena
 uk: Перець каєнський
 zh: 牛角椒
-ciqual_food_code:en: 11088
-ciqual_food_name:en: Cayenne pepper
-ciqual_food_name:fr: Poivre de Cayenne ou piment de Cayenne
 # en-ca:cayenne pepper
 # en-gb:cayenne pepper
 # yue:牛角椒
+ciqual_food_code:en: 11088
+ciqual_food_name:en: Cayenne pepper
+ciqual_food_name:fr: Poivre de Cayenne ou piment de Cayenne
+description:en: The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
 wikidata:en: Q6598
 wikipedia:en: https://en.wikipedia.org/wiki/Cayenne_pepper
 # scoville:en:30000-50000
@@ -66371,6 +66371,13 @@ fr: piment de Cayenne séché
 hr: sušeni kajenski papar
 it: peperoncino di Cayenna essiccato
 nl: cayennepeper gedroogd
+
+< en: chili pepper
+< en:spice
+en: chili powder
+#comment:en: not clear what this is exactly
+usda_ndb_code:en: 2009
+usda_ndb_name:en: Spices, chili powder
 
 ###################################################################################################
 #
