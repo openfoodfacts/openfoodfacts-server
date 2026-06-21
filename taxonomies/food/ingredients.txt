@@ -57794,9 +57794,6 @@ it: insalata composta
 # ingredient/fr:salade-composée has 97 products in french @2019-04-16
 # usage:fr: Salade composée 88% : Scarole, carotte râpées, maïs (maïs, sucre, sel), emmental 12%, dés de jambon cuit supérieur 12% (jambon de porc 10,9%, sel, sirop de glucose, dextrose, arômes naturels, antioxydant : ascorbate de sodium, conservateur: nitrite de sodium), frisée, chicorée rouge.
 
-# description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
-# comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word.
-# wikipedia says "In many languages, but not English, the word paprika also refers to the plant and the fruit from which the spice is made, as well as to peppers in the Grossum group (e.g. bell peppers)."
 # do not make pepper a synonym of bell pepper
 
 < en:fruit vegetable
@@ -57864,14 +57861,6 @@ wa: poevron
 yi: פאפריקע
 yo: ata tàtàṣé
 zh: 菜椒
-carbon_footprint_fr_foodges_ingredient:fr: Poivron
-carbon_footprint_fr_foodges_value:fr: 0.9
-ciqual_food_code:en: 20041
-ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
-ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
-ecobalyse:en: bellpepper-unheated-greehouse
-# fr:poivron has 1581 products in 11 languages @2018-10-15
-eurocode_2_group_3:en: 8.40.20
 #arz:فلفل حلو
 # ast:pimientu
 # en-ca:bell pepper
@@ -57889,8 +57878,18 @@ eurocode_2_group_3:en: 8.40.20
 # zh-my:菜椒
 # zh-sg:菜椒
 # zh-tw:菜椒
+carbon_footprint_fr_foodges_ingredient:fr: Poivron
+carbon_footprint_fr_foodges_value:fr: 0.9
+ciqual_food_code:en: 20041
+ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
+ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
+comment:en: in some languages en:bell-pepper and en:parika are not distinguished, but the same word. wikipedia says "In many languages, but not English, the word paprika also refers to the plant and the fruit from which the spice is made, as well as to peppers in the Grossum group (e.g. bell peppers)."
+description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
+ecobalyse:en: bellpepper-unheated-greehouse
+eurocode_2_group_3:en: 8.40.20
 wikidata:en: Q1548030
 wikipedia:en: https://en.wikipedia.org/wiki/Bell_pepper
+# fr:poivron has 1581 products in 11 languages @2018-10-15
 
 
 # make "yellow bell pepper" the canonical name
@@ -58433,8 +58432,6 @@ wikidata:en: Q432426
 wikipedia:en: https://en.wikipedia.org/wiki/Bird%27s_eye_chili
 # ingredient/en:thai-chili has 5 products in 1 language @2020-05-25
 
-# description:en:ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
-
 < en:chili pepper
 en: allspice, all spice, jamaica pepper, myrtle pepper
 bg: бахар
@@ -58450,11 +58447,17 @@ nl: Jamaicaanse peper
 pl: ziele angielskie, ziela angielskiego
 ru: перец душистый, перец душистый молотый, душистый перец
 sv: kryddpeppar
+description:en: ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
+usda_ndb_proxy_code:en: 2001
+usda_ndb_proxy_name:en: Spices, allspice, ground
 wikidata:en: Q158468
 wikipedia:en: https://en.wikipedia.org/wiki/Allspice
 # ingredient/fr:piment-de-la-jamaïque has 148 products in 5 languages @2019-04-15
 
-# description:en:The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
+< en:allspice
+en: ground allspice
+usda_ndb_code:en: 2001
+usda_ndb_name:en: Spices, allspice, ground
 
 < en:chili pepper
 fr: piment Oiseau
@@ -64246,8 +64249,6 @@ ciqual_food_code:en: 15029
 ciqual_food_name:en: Alfalfa seeds, sprouted, raw
 ciqual_food_name:fr: Luzerne, graine germée
 
-# description:en:Anise, also called aniseed, is a flowering plant in the family Apiaceae. It is widely cultivated and used to flavor food and alcoholic drinks, especially around the Mediterranean.
-# comment:en: wikidata page Q28692 refers anise in general terms, not to the seed
 
 < en:seed
 en: aniseed, anise
@@ -64265,9 +64266,18 @@ ru: семена аниса
 sv: anis, anisfrö
 te: సోపు
 tt: әнис орлыгы
+comment:en: wikidata page Q28692 refers anise in general terms, not to the seed
+description:en: Anise, also called aniseed, is a flowering plant in the family Apiaceae. It is widely cultivated and used to flavor food and alcoholic drinks, especially around the Mediterranean.
+usda_ndb_proxy_code:en: 2002
+usda_ndb_proxy_name:en: Spices, anise seed
 wikidata:en: Q33873455
 wikipedia:en: https://en.wikipedia.org/wiki/Anise
 # ingredient/fr:graine-d'anis-vert has 25 products in 1 language @2018-10-07
+
+< en:aniseed
+en: aniseseed
+usda_ndb_code:en: 2002
+usda_ndb_name:en: Spices, anise seed
 
 < en:aniseed
 en: organic aniseed, organic anise
