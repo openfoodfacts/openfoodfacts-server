@@ -66190,9 +66190,7 @@ wikidata:en: Q104414363
 #
 #                                Caraway
 #
-###################################################################################################
-# description:en:CARAWAY (Carum carvi), is a biennial plant in the family Apiaceae. The fruits, usually used whole, have a pungent, anise-like flavor. Caraway is used as a spice in breads, especially rye bread. Caraway is also used in desserts, liquors, casseroles, and other foods.
-# comment:enThe wikidata entry is a mix of plant, seed and latin name.
+#################################################################################################### 
 
 < en:spice
 en: caraway
@@ -66271,9 +66269,16 @@ zh: 葛縷子
 # sgs:kvīns
 # sr-el:kim
 # vec:kumo
+ciqual_proxy_food_code:en: 11064
+ciqual_proxy_food_name:en: Caraway, seed
+ciqual_proxy_food_name:fr: Carvi, graine
+comment:en The wikidata entry is a mix of plant, seed and latin name.
+description:en: CARAWAY (Carum carvi), is a biennial plant in the family Apiaceae. The fruits, usually used whole, have a pungent, anise-like flavor. Caraway is used as a spice in breads, especially rye bread. Caraway is also used in desserts, liquors, casseroles, and other foods.
+usda_ndb_proxy_code:en: 2005
+usda_ndb_proxy_name:en: Spices, caraway seed
+wikipedia:en: https://en.wikipedia.org/wiki/Caraway
 # wikidata:en:Q26811 for the plant
 # wikidata:en:Q61670763 for the seed
-wikipedia:en: https://en.wikipedia.org/wiki/Caraway
 # ingredient/fr:carvi has 276 products in 7 languages @2019-05-13
 
 < en:caraway
@@ -66293,6 +66298,8 @@ ru: семена тмина
 ciqual_food_code:en: 11064
 ciqual_food_name:en: Caraway, seed
 ciqual_food_name:fr: Carvi, graine
+usda_ndb_code:en: 2005
+usda_ndb_name:en: Spices, caraway seed
 #498 @2021-09-19
 
 ###################################################################################################
