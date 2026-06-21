@@ -62514,8 +62514,8 @@ usda_ndb_code:en: 12058
 usda_ndb_name:en: Nuts, acorns, raw
 
 < en:acorn
-< en:flour
-en: full fat acorn flour, 
+# < en:flour
+en: full fat acorn flour
 usda_ndb_code:en: 12060
 usda_ndb_name:en: Nuts, acorn flour, full fat
 
@@ -62949,9 +62949,9 @@ wikidata:en: Q22810770
 
 < en:nut
 en: butternut, white walnut
-description:en: Butternuts (Juglans cinerea), also called white walnuts, are a species of walnut tree native to eastern North America. The nutmeats are eaten and used in baking. 
-usda_ndb_code:en: 12084
-usda_ndb_name:en: Nuts, butternuts, dried
+description:en: Butternuts (Juglans cinerea), also called white walnuts, are a species of walnut tree native to eastern North America. The nutmeats are eaten and used in baking.
+usda_ndb_proxy_code:en: 12084
+usda_ndb_proxy_name:en: Nuts, butternuts, dried
 
 < en:butternut
 en: dried butternut
@@ -63942,11 +63942,11 @@ sv: karamelliserade pekannötter
 en: pilinut
 description:en: A pili nut (Canarium ovatum) is a tropical tree nut native to the Philippines, particularly grown in the Bicol region. The nut has a rich, buttery flavor and texture, often compared to a cross between an almond and a macadamia nut — but generally considered even richer and more delicate. They're eaten raw, roasted, or candied, and are also used in pastries, pesto-style sauces, and as a snack food. In the Philippines they're a popular treat, especially when sugar-coated.
 usda_ndb_proxy_code:en: 12145
-usda_ndb_name:en: Nuts, pilinuts, dried
+usda_ndb_proxy_name:en: Nuts, pilinuts, dried
 
 < en:pilinut
 en: dried pilinuts
-usda_ndb_proxy_code:en: 12145
+usda_ndb_code:en: 12145
 usda_ndb_name:en: Nuts, pilinuts, dried
 
 ###################################################################################################
@@ -65012,7 +65012,7 @@ usda_ndb_proxy_name:en: Seeds, hemp seed, hulled
 # 35@2019-06-07
 
 < en:hemp seed
-en: hulled hemp seed, 
+en: hulled hemp seed
 usda_ndb_code:en: 12012
 usda_ndb_name:en: Seeds, hemp seed, hulled
 
