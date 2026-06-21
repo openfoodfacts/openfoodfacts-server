@@ -87338,6 +87338,7 @@ usda_ndb_name:en: Emu, oyster, raw
 #                                Turkey
 #
 ###################################################################################################
+
 # description:en:The TURKEY is a large bird in the genus Meleagris, which is native to the Americas. The species Meleagris gallopavo is used by humans for their meat. Compared to wild turkeys, domestic turkeys are selectively bred to grow larger in size for their meat. Americans often eat turkey on special occasions such as at Thanksgiving or Christmas.
 # comment:en:Turkey as a species is a separate item in order to designate the origin of turkey parts.
 
@@ -87439,8 +87440,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Turkey_(bird)
 # usage:en:meat extracts [turkey, chicken]
 # ingredient/fr:dinde has 161 products in 4 languages @2019-04-16
 
-# description:en:TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
-
 < en:turkey
 en: turkey heart
 de: Putenherz
@@ -87493,15 +87492,23 @@ tr: hindi eti
 uk: Індичатина
 vi: Thịt gà tây
 zh: 火雞肉
-# ingredient/fr:viande-de-dinde has 1257 products in 7 languages @2019-04-18
+# yue:火雞肉
 carbon_footprint_fr_foodges_ingredient:fr: Cuisse de dinde
 carbon_footprint_fr_foodges_value:fr: 6.6
 ciqual_food_code:en: 36301
 ciqual_food_name:en: Turkey, meat, raw
 ciqual_food_name:fr: Dinde, viande, crue
-# yue:火雞肉
+description:en: TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
+usda_ndb_proxy_code:en: 5305
+usda_ndb_proxy_name:en: Turkey, Ground, raw
 wikidata:en: Q4200953
 wikipedia:en: https://en.wikipedia.org/wiki/Turkey_as_food
+# ingredient/fr:viande-de-dinde has 1257 products in 7 languages @2019-04-18
+
+< en:turkey
+en: raw ground turkey
+usda_ndb_code:en: 5305
+usda_ndb_name:en: Turkey, Ground, raw
 
 < en:turkey meat
 de: Putenfleisch
@@ -87753,6 +87760,48 @@ usda_ndb_name:en: Ostrich, tip trimmed, raw
 en: raw ostrich top loin
 usda_ndb_code:en: 5657
 usda_ndb_name:en: Ostrich, top loin, raw
+
+###################################################################################################
+#
+#                                Pheasant
+#
+###################################################################################################
+
+< en:poultry
+en: pheasant
+usda_ndb_proxy_code:en: 5153
+usda_ndb_proxy_name:en: Pheasant, raw, meat and skin
+
+< en:pheasant
+en: raw pheasant meat and skin
+usda_ndb_code:en: 5153
+usda_ndb_name:en: Pheasant, raw, meat and skin
+
+< en:pheasant
+en: raw pheasant meat
+usda_ndb_code:en: 5154
+usda_ndb_name:en: Pheasant, raw, meat only
+
+###################################################################################################
+#
+#                                Quail
+#
+###################################################################################################
+
+< en:poultry
+en: quail
+usda_ndb_proxy_code:en: 5157
+usda_ndb_proxy_name:en: Quail, meat and skin, raw
+
+< en:quail
+en: raw quail meat and skin
+usda_ndb_code:en: 5157
+usda_ndb_name:en: Quail, meat and skin, raw
+
+< en:quail
+en: raw quail meat
+usda_ndb_code:en: 5158
+usda_ndb_name:en: Quail, meat only, raw
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
