@@ -66963,6 +66963,7 @@ wikidata:en: Q14625808
 #                                Cinnamon
 #
 ###################################################################################################
+
 < en:spice
 en: cinnamon
 af: kaneel
@@ -67052,8 +67053,6 @@ vi: quế quan
 vo: kirfat
 yi: צימערינג
 zh: 桂皮
-carbon_footprint_fr_foodges_ingredient:fr: Cannelle
-carbon_footprint_fr_foodges_value:fr: 2.2
 # aeb-arab:قرفة
 # ang:ofersǣwisc rind
 # arc:ܩܠܦܬܐ ܕܒܣܡܐ
@@ -67080,9 +67079,13 @@ carbon_footprint_fr_foodges_value:fr: 2.2
 # vls:kanêel
 # yue:肉桂
 # zh-tw:陰香
+carbon_footprint_fr_foodges_ingredient:fr: Cannelle
+carbon_footprint_fr_foodges_value:fr: 2.2
 ciqual_proxy_food_code:en: 11025
 ciqual_proxy_food_name:en: Cinnamon, powder
 ciqual_proxy_food_name:fr: Cannelle, poudre
+usda_ndb_proxy_code:en: 2010
+usda_ndb_proxy_name:en: Spices, cinnamon, ground
 wikidata:en: Q28165
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
@@ -67111,6 +67114,8 @@ ru: корица молотая
 ciqual_food_code:en: 11025
 ciqual_food_name:en: Cinnamon, powder
 ciqual_food_name:fr: Cannelle, poudre
+usda_ndb_code:en: 2010
+usda_ndb_name:en: Spices, cinnamon, ground
 # 448 in 4 languages @2021-09-20
 
 # description:en:Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
