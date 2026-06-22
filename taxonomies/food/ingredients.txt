@@ -51661,112 +51661,6 @@ eurocode_2_group_3:en: 8.15.24
 wikidata:en: q263203
 wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
 
-# en:description:CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
-# en:comment:IN french chou chinois is used for both varieties. And in other languages as well.
-
-< en:cabbage
-en: Chinese cabbage, Napa cabbage
-ar: برند
-bg: китайско зеле
-ca: col xinesa
-cs: pekingské zelí
-da: kinakål
-de: Chinakohl
-el: kινέζικο λάχανο
-eo: pekina brasiko
-es: col china
-et: pekingi lehtnaeris
-fa: کاهوی چینی
-fi: kiinankaali
-fr: chou chinois, pe-tsaï
-ga: cabáiste Síneach
-hr: kineski kupus
-id: sawi putih
-it: cavolo di pechino
-ja: ハクサイ, はくさい
-jv: sawi putih
-ko: 배추
-la: brassica rapa subsp. pekinensis
-lt: pekininis kopūstas
-lv: ķīnas kāposti
-mk: кинеска зелка
-ms: kubis cina
-nb: napakål
-nl: chinese kool
-pl: kapusta pekińska, kapusta właściwa pekińska
-pt: couve-da-china
-sk: kapusta čínska, kapusta pekinská
-sl: kitajski kapus
-sv: kinakål
-th: ผักกาดขาว
-tl: petsay
-tr: çin lahanası
-ug: يېسىۋېلەك
-uk: капуста пекінська
-uz: pekin karami
-vi: cải thảo
-zh: 大白菜
-ciqual_food_code:en: 20167
-ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-ecobalyse:en: chinese-cabbage-fr
-ecobalyse_labels_en_organic:en: chinese-cabbage-organic
-# 200 @2021-09-29
-eurocode_2_group_3:en: 8.15.28
-#arz:ملفوف برند
-#lzh:菘
-#szy:mamumuway
-# yue:紹菜
-wikidata:en: Q13360268
-wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
-
-# description:en:Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
-
-< en:cabbage
-en: pak choi, bok choy, pok choi
-ar: ملفوف صيني
-bo: ཚལ་དཀར་ཆེ་བ།
-ca: pak choi, bleda xinesa
-cs: bok čoj, pak čoj zelí, čínské
-da: bok choi, pak choi, kinesisk kål
-de: Pak Choi, Chinesischer Senfkohl
-el: mποκ τσόι
-es: bok choy, pak choi
-eu: txinatar aza
-fa: کلم چینی
-fi: pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
-fr: bok choy, pak choï, chou de Chine
-gl: col chinesa, coia chinesa, repolo chinés
-hr: pak choi
-hu: bordáskel, bok choy, pak choi, bok choi
-id: pakcoy, bok choy
-is: blaðkál, salatkál, kínverskt selleríkál
-it: bok choy, pak-choi
-ja: チンゲンサイ, チンゲン菜, 青梗菜
-kn: ಬಾಯ್ ಚಾಯ್
-ko: 청경채
-la: Brassica rapa subsp. chinensis
-mk: бок чој, пак чој
-ms: bok choy, pak choi, pok choi
-nb: bak choy, pak choy, paksoi, tai tsai
-nl: paksoi, bokchoy, pak-choi
-pl: pak choi, bok choy, pok choi, kapusta bok choy, kapusta pak choy
-pt: pak-choi, bok-choi, tsoi sum
-ru: бок-чой, пак-чо́й, кита́йская черешко́вая капу́ста
-sv: sellerikål, pak choi
-uk: бок-чой
-vi: cải thìa, cải bẹ trắng, cải chíp, bạch giới tử
-zh: 小白菜
-ciqual_food_code:en: 20167
-ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-# 128 in 5 @2021-09-29
-eurocode_2_group_3:en: 8.15.28
-#arz:ملفوف صينى
-#yue:白菜
-wikidata:en: Q18968514
-wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
-
 # Brassica oleracea var. sabellica
 # be careful with the translation found on packages.
 
@@ -53824,6 +53718,142 @@ usda_ndb_proxy_name:en: Butterbur, (fuki), raw
 en: raw fuki
 usda_ndb_code:en: 11106
 usda_ndb_name:en: Butterbur, (fuki), raw
+
+
+###################################################################################################
+#
+#                                Chinese cabbage
+#
+###################################################################################################
+
+< en:cabbage
+en: chinese cabbage
+bg: китайско зеле
+ca: col xinesa
+da: kinakål
+de: Chinakohl
+el: kινέζικο λάχανο
+es: col china
+fi: kiinankaali
+fr: chou chinois, chou de Chine
+ga: cabáiste Síneach
+gl: col chinesa, coia chinesa, repolo chinés
+hr: kineski kupus
+lv: ķīnas kāposti
+mk: кинеска зелка
+ms: kubis cina
+nl: chinese kool
+pt: couve-da-china
+sk: kapusta čínska
+sl: kitajski kapus
+sv: kinakål
+ciqual_proxy_food_code:en: 20167
+ciqual_proxy_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_proxy_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
+description:en: CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine: the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
+
+< en:chinese cabbage
+en: raw chinese cabbage
+ciqual_food_code:en: 20167
+ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+
+< en:chinese cabbage
+en: Napa cabbage
+ar: برند
+cs: pekingské zelí
+eo: pekina brasiko
+et: pekingi lehtnaeris
+fa: کاهوی چینی
+fr:  pe-tsaï
+id: sawi putih
+it: cavolo di pechino
+ja: ハクサイ, はくさい
+jv: sawi putih
+ko: 배추
+la: brassica rapa subsp. pekinensis
+lt: pekininis kopūstas
+nb: napakål
+pl: kapusta pekińska, kapusta właściwa pekińska
+sk: kapusta pekinská
+th: ผักกาดขาว
+tl: petsay
+tr: çin lahanası
+ug: يېسىۋېلەك
+uk: капуста пекінська
+uz: pekin karami
+vi: cải thảo
+zh: 大白菜
+#arz:ملفوف برند
+#lzh:菘
+#szy:mamumuway
+# yue:紹菜
+ecobalyse:en: chinese-cabbage-fr
+ecobalyse_labels_en_organic:en: chinese-cabbage-organic
+eurocode_2_group_3:en: 8.15.28
+usda_ndb_proxy_code:en: 11119
+usda_ndb_proxy_name:en: Cabbage, chinese (pe-tsai), raw
+wikidata:en: Q13360268
+wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
+# 200 @2021-09-29
+
+< en:napa cabbage
+en: raw Napa cabbage
+usda_ndb_code:en: 11119
+usda_ndb_name:en: Cabbage, chinese (pe-tsai), raw
+
+< en:chinese cabbage
+en: pak choi, bok choy, pok choi
+ar: ملفوف صيني
+bo: ཚལ་དཀར་ཆེ་བ།
+ca: pak choi, bleda xinesa
+cs: bok čoj, pak čoj zelí, čínské
+da: bok choi, pak choi, kinesisk kål
+de: Pak Choi, Chinesischer Senfkohl
+el: mποκ τσόι
+es: bok choy, pak choi
+eu: txinatar aza
+fa: کلم چینی
+fi: pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
+fr: bok choy, pak choï, 
+hr: pak choi
+hu: bordáskel, bok choy, pak choi, bok choi
+id: pakcoy, bok choy
+is: blaðkál, salatkál, kínverskt selleríkál
+it: bok choy, pak-choi
+ja: チンゲンサイ, チンゲン菜, 青梗菜
+kn: ಬಾಯ್ ಚಾಯ್
+ko: 청경채
+la: Brassica rapa subsp. chinensis
+mk: бок чој, пак чој
+ms: bok choy, pak choi, pok choi
+nb: bak choy, pak choy, paksoi, tai tsai
+nl: paksoi, bokchoy, pak-choi
+pl: pak choi, bok choy, pok choi, kapusta bok choy, kapusta pak choy
+pt: pak-choi, bok-choi, tsoi sum
+ru: бок-чой, пак-чо́й, кита́йская черешко́вая капу́ста
+sv: sellerikål, pak choi
+uk: бок-чой
+vi: cải thìa, cải bẹ trắng, cải chíp, bạch giới tử
+zh: 小白菜
+#arz:ملفوف صينى
+#yue:白菜
+description:en: Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
+eurocode_2_group_3:en: 8.15.28
+usda_ndb_proxy_code:en: 11116
+usda_ndb_proxy_name:en: Cabbage, chinese (pak-choi), raw
+wikidata:en: Q18968514
+wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
+# 128 in 5 @2021-09-29
+
+< en: pak choi
+en: raw pak choi
+usda_ndb_code:en: 11116
+usda_ndb_name:en: Cabbage, chinese (pak-choi), raw
+
+
+
 
 
 # <en:category:en:Fresh plant-based foods
