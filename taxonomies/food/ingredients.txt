@@ -66715,7 +66715,6 @@ ciqual_food_name:fr: Curcuma, poudre
 #                                Nutmeg
 #
 ###################################################################################################
-# description:en:NUTMEG is the seed or ground spice of several species of the genus Myristica.
 
 < en:spice
 en: nutmeg
@@ -66779,8 +66778,11 @@ zh: 肉豆蔻
 ciqual_food_code:en: 11048
 ciqual_food_name:en: Nutmeg
 ciqual_food_name:fr: Noix de muscade
+description:en: NUTMEG is the seed or ground spice of several species of the genus Myristica.
 ifct_food_code:en: G028
 ifct_food_name:en: Nutmeg
+usda_ndb_proxy_code:en: 2025
+usda_ndb_proxy_name:en: Spices, nutmeg, ground
 wikidata:en: Q83165
 wikipedia:en: https://en.wikipedia.org/wiki/Nutmeg
 # 6807 in 22 @202109-23
@@ -66819,12 +66821,14 @@ sv: muskotnöt
 # vls:notevaschoa
 
 #processing:en: en:ground
-#<en:nutmeg
-#en:ground nutmeg
-#de:Muskatnuss gemahlen, gemahlene Muskatnuss
-#fi:jauhettu muskottipähkinä
-#fr:muscade-moulue, noix de muscade en poudre
-#it:Noce moscata macinata
+<en: nutmeg
+en: ground nutmeg
+de: Muskatnuss gemahlen, gemahlene Muskatnuss
+fi: jauhettu muskottipähkinä
+fr: muscade-moulue, noix de muscade en poudre
+it: voce moscata macinata
+usda_ndb_code:en: 2025
+usda_ndb_name:en: Spices, nutmeg, ground
 
 #processing:en: en:extract
 #<en:nutmeg
