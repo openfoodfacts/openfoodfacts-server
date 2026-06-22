@@ -3,7 +3,7 @@
 ARG USER_UID=1000
 ARG USER_GID=1000
 # options for cpan installs
-ARG CPANMOPTS=
+ARG CPANMOPTS=""
 
 ######################
 # Base modperl image stage
@@ -65,7 +65,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libwww-perl \
         libimage-magick-perl \
         libxml-encoding-perl  \
-        libtext-unaccent-perl \
         libmime-lite-perl \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
@@ -73,7 +72,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         #11866: Delete following after Keycloak Migration:
         libcrypt-passwdmd5-perl \
         libencode-detect-perl \
-        libgraphics-color-perl \
         libbarcode-zbar-perl \
         libxml-feedpp-perl \
         liburi-find-perl \
@@ -83,7 +81,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libdigest-md5-perl \
         libtime-local-perl \
         libdbd-pg-perl \
-        libtemplate-perl \
         liburi-escape-xs-perl \
         libxml-libxslt-perl \
         libdata-table-perl \
@@ -93,11 +90,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libfile-copy-recursive-perl \
         libemail-stuffer-perl \
         liblist-moreutils-perl \
-        libexcel-writer-xlsx-perl \
         libpod-simple-perl \
-        liblog-any-perl \
         liblog-log4perl-perl \
-        liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
         libemail-valid-perl
@@ -108,6 +102,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
       apt-get update || true \
     ) && \
     apt-get install -y --no-install-recommends \
+        curl \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
@@ -151,15 +146,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         liblinux-usermod-perl \
         # Locale::Maketext::Lexicon::Getcontext
         liblocale-maketext-lexicon-perl \
-        # Log::Any::Adapter::TAP
-        liblog-any-adapter-tap-perl \
         # Math::Random::Secure
         libcrypt-random-source-perl \
         libmath-random-isaac-perl \
         libtest-sharedfork-perl \
         libtest-warn-perl \
-        # Mojo::Pg
-        libsql-abstract-perl \
         # MongoDB
         libauthen-sasl-saslprep-perl \
         libauthen-scram-perl \
@@ -167,7 +158,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libclass-xsaccessor-perl \
         libconfig-autoconf-perl \
         libdigest-hmac-perl \
-        libpath-tiny-perl \
         libsafe-isa-perl \
         # Spreadsheet::CSV
         libspreadsheet-parseexcel-perl \
@@ -198,6 +188,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libwebp-dev \
         libx265-dev
 
+RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm -o /tmp/cpm && \
+    mv /tmp/cpm /usr/bin/cpm && \
+    chmod +x /usr/bin/cpm && \
+    /usr/bin/cpm --version
+
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
 ARG USER_GID
@@ -210,6 +205,9 @@ RUN usermod --uid $USER_UID www-data && \
 ######################
 FROM modperl AS builder
 ARG CPANMOPTS
+
+ARG PO_LIB_DIR=/tmp/local
+
 WORKDIR /tmp
 
 # Install Product Opener from the workdir.
@@ -219,16 +217,23 @@ COPY ./cpanfile* /tmp/
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
     # also run apt update if needed because some package might need to apt install
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
     ) && \
+    # Install package dependencies in $PO_LIB_DIR
+    export PERL_MM_OPT="INSTALL_BASE=$PO_LIB_DIR" && \
+    export PERL_MB_OPT="--install_base $PO_LIB_DIR" && \
+    export PERL5LIB="$PO_LIB_DIR/lib/perl5/:$PERL5LIB" && \
+    export PATH="$PO_LIB_DIR/bin:$PATH" && \
     # first install some dependencies that are not well handled
-    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
-    # in case of errors show build.log, but still, fail
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+    cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
+    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g && \
+    # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
+    # without adding an unresolved dependency back into cpanfile.
+    cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
 
 ######################
 # backend production image stage

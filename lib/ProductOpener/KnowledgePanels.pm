@@ -62,6 +62,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created_or_die/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Ingredients qw/:all/;
@@ -186,7 +187,7 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref,
 
 	# Test panel to test the start of the API
 	# Disabled, kept as reference when we create a "Do you know" panel
-	if ($product_ref->{code} eq "3017620422003--disabled") {
+	if ((defined $product_ref->{code}) and ($product_ref->{code} eq "3017620422003--disabled")) {
 
 		my $test_panel_ref = {
 			parent_panel_id => "root",
@@ -478,8 +479,10 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 		$panel_json =~ s/^(\s*)\/\/(.*)$//mg;
 
 		# Turn relative links to absolute links using the requested country / language subdomain
-		my $formatted_subdomain = $request_ref->{formatted_subdomain};
-		$panel_json =~ s/href="\//href="$formatted_subdomain\//g;
+		my $formatted_subdomain = $request_ref->{formatted_subdomain} // '';
+		if ($formatted_subdomain) {
+			$panel_json =~ s/href="\//href="$formatted_subdomain\//g;
+		}
 
 		# Convert multilines strings between backticks `` into single line strings
 		# We use two backticks `` to remove line breaks and extra spaces
@@ -522,7 +525,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 
 			# Save the JSON file so that it can be more easily debugged, and that we can monitor issues
 			my $target_dir = "$BASE_DIRS{PUBLIC_FILES}/debug/knowledge_panels/";
-			my $filename = $panel_id . $product_ref->{code} . ".json";
+			my $filename = $panel_id . ($product_ref->{code} // '') . ".json";
 			my $target_file = "$target_dir/" . $filename;
 			my $url = "/files/debug/knowledge_panels/" . $filename;
 			ensure_dir_created_or_die($target_dir);
@@ -586,7 +589,7 @@ sub create_environmental_score_panel ($product_ref, $target_lc, $target_cc, $opt
 		my $grade = $product_ref->{environmental_score_data}{grade};
 		my $transportation_warning = undef;
 
-		if (defined $product_ref->{environmental_score_data}{scores}{$cc}) {
+		if ((defined $cc) and (defined $product_ref->{environmental_score_data}{scores}{$cc})) {
 			$score = $product_ref->{environmental_score_data}{scores}{$cc};
 			$grade = $product_ref->{environmental_score_data}{grades}{$cc};
 			if ($cc eq "world") {
@@ -989,8 +992,8 @@ sub create_secondhand_card_panel ($product_ref, $target_lc, $target_cc, $options
 		return 0;
 	}
 
-	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
-	my $category_id = $product_ref->{categories_hierarchy}[-1];
+	# Add the name of the most specific category (last in categories_tags) to the panel data
+	my $category_id = $product_ref->{categories_tags}[-1];
 	$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 
 	# Create panels for repairing and maintaining products, as they are relevant for secondhand products
@@ -1056,11 +1059,11 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 		return 0;
 	}
 
-	# Add the name of the most specific category (last in categories_hierarchy) to the panel data
+	# Add the name of the most specific category (last in categories_tags) to the panel data
 	my $category_id;
 	if (
-		not(ref($product_ref->{categories_hierarchy}) eq 'ARRAY'
-			and @{$product_ref->{categories_hierarchy}})
+		not(ref($product_ref->{categories_tags}) eq 'ARRAY'
+			and @{$product_ref->{categories_tags}})
 		)
 	{
 		return 0;
@@ -1071,7 +1074,7 @@ sub create_epargnonsnosressources_panel ($product_ref, $target_lc, $target_cc, $
 		= get_inherited_property_from_categories_tags($product_ref, "epargnonsnosressources_fr_link:en");
 
 	if (defined $maintenance_url) {
-		$category_id = $product_ref->{categories_hierarchy}[-1];
+		$category_id = $product_ref->{categories_tags}[-1];
 		$panel_data_ref->{category_name} = display_taxonomy_tag_name($target_lc, "categories", $category_id);
 		$panel_data_ref->{maintenance_url} = $maintenance_url;
 		$panel_data_ref->{category_with_maintenance_url} = $category_with_url;

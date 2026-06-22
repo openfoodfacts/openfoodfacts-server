@@ -81,7 +81,8 @@ BEGIN {
 }
 
 use ProductOpener::Config qw(:all);
-use ProductOpener::Tags qw(%level exists_taxonomy_tag get_inherited_property has_tag);
+use ProductOpener::Tags qw(%level exists_taxonomy_tag get_inherited_property);
+use ProductOpener::ProductsTags qw/has_tag/;
 
 use ProductOpener::DataQualityCommon qw(check_quality_common);
 use ProductOpener::DataQualityFood qw(check_quality_food);
