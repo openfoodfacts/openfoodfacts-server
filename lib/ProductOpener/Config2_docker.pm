@@ -77,6 +77,8 @@ BEGIN {
 		$oidc_client_id
 		$oidc_client_secret
 		%slack_hook_urls
+		$health_check_api_key
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -158,13 +160,11 @@ $folksonomy_url = $ENV{FOLKSONOMY_URL};
 $recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
 # To test a locally running recipe-estimator with Product Opener in a docker dev environment:
 # run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-$recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
 
 # Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
 # or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
 # or "product_opener" to use the legacy Product Opener algorithm
 $recipe_estimator_service = $ENV{RECIPE_ESTIMATOR_SERVICE} || "product_opener";
-$recipe_estimator_service = "recipe_estimator_cvxpy";
 
 %server_options = (
 	producers_platform => $producers_platform,
@@ -223,5 +223,8 @@ if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
 		$slack_hook_urls{$+{channel}} = $+{url};
 	}
 }
+
+# Health check API key
+$health_check_api_key = $ENV{HEALTH_CHECK_API_KEY};
 
 1;
