@@ -51595,71 +51595,6 @@ ecobalyse:en: white-cabbage-non-eu
 wikidata:en: Q35051
 # 930 in 13 @2021-09-29
 
-# description:en:The red cabbage (purple-leaved varieties of Brassica oleracea Capitata Group) is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation.
-
-< en:cabbage
-en: red cabbage
-bg: червено зеле
-bn: লাল বাঁধাকপি
-br: kaol ruz
-ca: col llombarda
-cs: červené zelí
-da: rødkål
-de: rotkohl, Rotkraut
-el: κόκκινο λάχανο
-eo: ruĝa brasiko
-es: cacho lombarda, col lombarda
-fa: کلم‌قرمز
-fi: punakaali
-fr: chou rouge
-ga: cabáiste dearg
-gl: lombarda
-he: כרוב אדום
-hi: लाल पत्ता गोभी
-hr: crveni kupus
-hu: vörös káposzta
-hy: կարմիր կաղամբ
-id: kol merah
-is: rauðkál
-it: cavolo rosso
-ja: 赤キャベツ, 紫キャベツ, レッドキャベツ
-ka: წითელი კომბოსტო
-ko: 적채
-lg: emboga
-lv: sarkanais galviņkāposts
-mk: црвена зелка
-ml: ചുവന്ന കാബേജ്
-ms: kubis merah
-nb: rødkål
-ne: रातो गोभी
-nl: rode kool, rodekool
-pl: czerwona kapusta, kapusta czerwona
-pt: couve-roxa
-ro: varză roșie
-sk: červená kapusta
-sq: lakër e kuqe
-sv: rödkål
-th: กะหล่ำปลีม่วง
-tr: kırmızı lahana
-uk: капуста червоноголова
-zh: 紫甘藍
-ciqual_food_code:en: 20014
-ciqual_food_name:en: Red cabbage, raw
-ciqual_food_name:fr: Chou rouge, cru
-ecobalyse:en: red-cabbage-non-eu
-ecobalyse_labels_en_organic:en: red-cabbage-organic
-# 988 in 9 @2021-09-28
-eurocode_2_group_3:en: 8.15.24
-# bar:blaukraut
-# bho:लाल पत्ता गोभी
-# frr:ruadkual
-#hsb:čerwjeny kał
-# nan:âng ko-lê-chhài
-# pcd:colé'd vaque
-# szl:modro kapusta
-# vec:Càvorlo roso
-wikidata:en: q263203
-wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
 
 # Brassica oleracea var. sabellica
 # be careful with the translation found on packages.
@@ -53859,8 +53794,8 @@ usda_ndb_name:en: Butterbur, (fuki), raw
 #
 ###################################################################################################
 
-< en:chinese cabbage
-en: mustard cabbage
+< en:cabbage
+en: mustard cabbage, gai choy, Chinese mustard
 la: Brassica juncea
 description:en: Mustard Cabbage (also called gai choy or Chinese mustard) is a leafy green vegetable common in Asian cuisine. Large, crinkled or smooth leaves, often with a pale green or yellowish color; can look somewhat like bok choy or napa cabbage. Distinctly pungent and slightly bitter, with a mustardy kick that mellows when cooked.
 
@@ -53868,6 +53803,87 @@ description:en: Mustard Cabbage (also called gai choy or Chinese mustard) is a l
 en: salted mustard cabbage
 usda_ndb_code:en: 43144
 usda_ndb_name:en: Cabbage, mustard, salted
+
+###################################################################################################
+#
+#                                Red cabbage
+#
+###################################################################################################
+
+< en:cabbage
+en: red cabbage
+bg: червено зеле
+bn: লাল বাঁধাকপি
+br: kaol ruz
+ca: col llombarda
+cs: červené zelí
+da: rødkål
+de: rotkohl, Rotkraut
+el: κόκκινο λάχανο
+eo: ruĝa brasiko
+es: cacho lombarda, col lombarda
+fa: کلم‌قرمز
+fi: punakaali
+fr: chou rouge
+ga: cabáiste dearg
+gl: lombarda
+he: כרוב אדום
+hi: लाल पत्ता गोभी
+hr: crveni kupus
+hu: vörös káposzta
+hy: կարմիր կաղամբ
+id: kol merah
+is: rauðkál
+it: cavolo rosso
+ja: 赤キャベツ, 紫キャベツ, レッドキャベツ
+ka: წითელი კომბოსტო
+ko: 적채
+lg: emboga
+lv: sarkanais galviņkāposts
+mk: црвена зелка
+ml: ചുവന്ന കാബേജ്
+ms: kubis merah
+nb: rødkål
+ne: रातो गोभी
+nl: rode kool, rodekool
+pl: czerwona kapusta, kapusta czerwona
+pt: couve-roxa
+ro: varză roșie
+sk: červená kapusta
+sq: lakër e kuqe
+sv: rödkål
+th: กะหล่ำปลีม่วง
+tr: kırmızı lahana
+uk: капуста червоноголова
+zh: 紫甘藍
+# bar:blaukraut
+# bho:लाल पत्ता गोभी
+# frr:ruadkual
+#hsb:čerwjeny kał
+# nan:âng ko-lê-chhài
+# pcd:colé'd vaque
+# szl:modro kapusta
+# vec:Càvorlo roso
+ciqual_proxy_food_code:en: 20014
+ciqual_proxy_food_name:en: Red cabbage, raw
+ciqual_proxy_food_name:fr: Chou rouge, cru
+description:en: The red cabbage (purple-leaved varieties of Brassica oleracea Capitata Group) is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation.
+ecobalyse:en: red-cabbage-non-eu
+ecobalyse_labels_en_organic:en: red-cabbage-organic
+eurocode_2_group_3:en: 8.15.24
+usda_ndb_proxy_code:en: 11112
+usda_ndb_proxy_name:en: Cabbage, red, raw
+wikidata:en: q263203
+wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
+# 988 in 9 @2021-09-28
+
+< en:red cabbage
+en: raw red cabbage
+ciqual_food_code:en: 20014
+ciqual_food_name:en: Red cabbage, raw
+ciqual_food_name:fr: Chou rouge, cru
+usda_ndb_code:en: 11112
+usda_ndb_name:en: Cabbage, red, raw
 
 # <en:category:en:Fresh plant-based foods
 < en:shoot vegetable
