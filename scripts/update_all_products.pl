@@ -1177,7 +1177,7 @@ while (my $product_ref = $cursor->next) {
 							{
 								print STDERR "rotating image $image_type $image_lc by "
 									. (
-									-$product_ref->$product_ref->{images}{selected}{$image_type}{$image_lc}{generation}
+									-$product_ref->{images}{selected}{$image_type}{$image_lc}{generation}
 										{orientation}) . "\n";
 
 								# Save product so that OCR results now:
