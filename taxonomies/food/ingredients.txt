@@ -53165,6 +53165,12 @@ en: raw arrowroot
 usda_ndb_code:en: 11697
 usda_ndb_name:en: Arrowroot, raw
 
+###################################################################################################
+#
+#                                Artichoke
+#
+###################################################################################################
+
 #category/artichokes
 < en:shoot vegetable
 en: artichoke
@@ -53217,11 +53223,17 @@ uk: Артишок іспанський
 uz: Artishok
 vi: Atisô
 zh: 朝鲜蓟
+# aeb-arab:قنّاريّة
+# aeb-latn:gannèriyya
+# ckb:ئارتیشوو
+# pcd:Àrtichoe
+# pms:Articiòch
+# yue:雅枝竹
 carbon_footprint_fr_foodges_ingredient:fr: Artichauts
 carbon_footprint_fr_foodges_value:fr: 2.5
-ciqual_food_code:en: 20052
-ciqual_food_name:en: Artichoke, globe, raw
-ciqual_food_name:fr: Artichaut, cru
+ciqual_proxy_food_code:en: 20052
+ciqual_proxy_food_name:en: Artichoke, globe, raw
+ciqual_proxy_food_name:fr: Artichaut, cru
 description:en: The globe ARTICHOKE (Cynara cardunculus var. scolymus), also known as French artichoke and green artichoke in the USA, is a variety of a species of thistle cultivated as a food. Leaves are often removed one at a time, and the fleshy base eaten, with hollandaise, vinegar, butter, mayonnaise, aioli, lemon juice, or other sauces. The fibrous upper part of each leaf is usually discarded. The heart is eaten when the inedible choke has been peeled away from the base and discarded. The thin leaves covering the choke are also edible.
 description:de: Die Artischocke (Cynara cardunculus subsp. scolymus (L.) Hegi, Syn.: Cynara scolymus L.) ist eine distelartige, kräftige Kulturpflanze aus der Familie der Korbblütler. Die Sortengruppe der Artischocken wird wegen ihrer essbaren knospigen Blütenstände angebaut und als Blütengemüse verzehrt.
 description:es: Cynara scolymus, la alcachofera, alcachofa, alcacil o alcaucil,1​ entre otros numerosos nombres vernáculos, es una planta herbácea del género Cynara en la familia Asteraceae; es cultivada desde la antigüedad como alimento en climas templados.
@@ -53232,14 +53244,24 @@ description:pt: Uma alcachofra (Cynara cardunculus subsp. scolymus) é uma plant
 ecobalyse_labels_en_organic:en: artichoke-fr
 ecobalyse_origins_en_france:en: artichoke-organic
 eurocode_2_group_3:en: 8.25.30
-# aeb-arab:قنّاريّة
-# aeb-latn:gannèriyya
-# ckb:ئارتیشوو
-# pcd:Àrtichoe
-# pms:Articiòch
-# yue:雅枝竹
+usda_ndb_proxy_code:en: 11007
+usda_ndb_proxy_name:en: Artichokes, (globe or french), raw
 wikidata:en: Q23041430
 wikipedia:en: https://en.wikipedia.org/wiki/Artichoke
+
+< en:artichoke
+en: globe artichoke
+ciqual_food_code:en: 20052
+ciqual_food_name:en: Artichoke, globe, raw
+ciqual_food_name:fr: Artichaut, cru
+
+< en:globe artichoke
+en: raw globe artichoke
+ciqual_food_code:en: 20052
+ciqual_food_name:en: Artichoke, globe, raw
+ciqual_food_name:fr: Artichaut, cru
+usda_ndb_code:en: 11007
+usda_ndb_name:en: Artichokes, (globe or french), raw
 
 #category/artichoke-hearts
 < en:artichoke
@@ -53266,6 +53288,12 @@ ciqual_food_name:en: Artichoke base, frozen, raw
 ciqual_food_name:fr: Artichaut, fond, surgelé, cru
 
 # description:en:The bamboos are evergreen perennial flowering plants in the subfamily Bambusoideae of the grass family Poaceae.
+
+###################################################################################################
+#
+#                                Bamboo
+#
+###################################################################################################
 
 < en:shoot vegetable
 en: bamboo
