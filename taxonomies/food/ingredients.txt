@@ -70288,7 +70288,6 @@ wikidata:en: Q913548
 #                                Oregano
 #
 ###################################################################################################
-# description:en:Oregano (Origanum vulgare) is a flowering plant in the mint family (Lamiaceae).
 
 < en:herb
 en: oregano
@@ -70318,12 +70317,13 @@ uk: орегано
 ciqual_proxy_food_code:en: 11035
 ciqual_proxy_food_name:en: Oregano, dried
 ciqual_proxy_food_name:fr: Origan, séché
-#plant: wikipedia:en:Q134283
-# plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
-# 9423 in 29 @2021-09-17
+description:en: Oregano (Origanum vulgare) is a flowering plant in the mint family (Lamiaceae).
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.58
+#plant: wikipedia:en:Q134283
 wikipedia:en: Q92581152
+# plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
+# 9423 in 29 @2021-09-17
 
 #processing:en:dehydrated
 < en:oregano
@@ -70336,6 +70336,8 @@ pl: suszone oregano
 ciqual_food_code:en: 11035
 ciqual_food_name:en: Oregano, dried
 ciqual_food_name:fr: Origan, séché
+usda_ndb_code:en: 2027
+usda_ndb_name:en: Spices, oregano, dried
 # ingredient/fr:origan-déshydraté has 57 products in french @2018-12-29
 
 #processing:en en:powder
