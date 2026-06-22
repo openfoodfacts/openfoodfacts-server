@@ -3,6 +3,7 @@
       "en:gluten",
       "en:milk"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:filling",
@@ -298,7 +299,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "20217",
+         "ciqual_proxy_food_code" : "20217",
          "id" : "en:rocket",
          "is_in_taxonomy" : 1,
          "percent" : 0.6,
@@ -308,7 +309,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "11033",
+         "ciqual_proxy_food_code" : "11033",
          "id" : "en:basil",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0,
@@ -586,7 +587,8 @@
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:at-least-5-ingredients-with-specified-percent"
+      "en:at-least-5-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "tags_sources" : {
       "allergens" : {

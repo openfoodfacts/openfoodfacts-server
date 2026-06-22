@@ -1,5 +1,6 @@
 {
    "allergens_from_ingredients" : "en:milk, en:fish, en:gluten, ",
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "16400",
@@ -159,5 +160,8 @@
    "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 8,
    "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

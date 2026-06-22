@@ -339,14 +339,18 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
-	# facet name that is the same as a facet type
+	# facet alias that is the same as a facet type
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/9708
 	{
 		test_case => 'category-vitamins',
 		method => 'GET',
 		path => 'facets/categories/Vitamins.json?fields=product_name,labels_tags',
-		expected_status_code => 200,
-		sort_products_by => 'product_name',
+		expected_status_code => 302,
+		headers => {
+			Location =>
+				'http://world.openfoodfacts.localhost/facets/categories/Vitamin supplements.json?fields=product_name,labels_tags',
+		},
+		expected_type => 'html',
 	},
 	# test some redirects
 	{
