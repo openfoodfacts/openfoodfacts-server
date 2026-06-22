@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "مواد تشکیل دهنده، آلرژن‌ها، افزودنی‌ها، اطلاعات تغذیه‌ای، برچسب‌ها، منشاء، میزان تأثیر CO2 و اطلاعات روی محصول %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr ""
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "یک پایگاه داده مشارکتی، رایگان و باز از مواد تشکیل دهنده و اطلاعات مربوط به محصولات مختلف از سراسر جهان."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "«اطلاعات محصولات باز» اطلاعات و داده‌های مربوط به طیف وسیعی از محصولات را از سراسر جهان جمع‌آوری می‌کند."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "یک پایگاه داده مشارکتی، رایگان و باز از محصولات مختلف از سراسر جهان."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "یک پایگاه داده مشارکتی، رایگان و باز از مواد تشکیل دهنده، اطلاعات تغذیه‌ای و اطلاعات مربوط به محصولات غذای حیوانات خانگی از سراسر جهان."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "«آمار غذای حیوانات خانگی باز» اطلاعات و داده‌های مربوط به محصولات غذای حیوانات خانگی را از سراسر جهان جمع‌آوری می‌کند."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "اطلاعات ترکیبات INCI، آلرژن‌ها، افزودنی‌ها، برچسب‌ها، منشأ ترکیبات و اطلاعات روی محصول %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr ""
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "این صفحه محصول کامل نیست. شما می‌توانید با ویرایش آن و اضافه کردن اطلاعات بیشتر از عکس‌هایی که داریم، یا با گرفتن عکس‌های بیشتر با استفاده از برنامه جهانی موبایل برای <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">اندروید</a> یا <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">آیفون/آیپد</a>به تکمیل آن کمک کنید. متشکرم!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr ""
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "یک پایگاه داده مشارکتی، رایگان و باز از اطلاعات مربوط به محصولات مختلف از سراسر جهان."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "«اطلاعات محصولات باز» اطلاعات و داده‌های مربوط به طیف وسیعی از محصولات را از سراسر جهان جمع‌آوری می‌کند."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "یک پایگاه داده مشارکتی، رایگان و باز از محصولات مختلف از سراسر جهان."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "مواد تشکیل دهنده، میزان تأثیر CO2، دوام، برچسب‌ها، منشأ مواد تشکیل دهنده و اطلاعات روی محصول %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "این صفحه محصول کامل نیست. شما می‌توانید با ویرایش آن و اضافه کردن داده‌های بیشتر از عکس‌هایی که داریم، یا با گرفتن عکس‌های بیشتر با استفاده از برنامه جهانی Open Food Facts برای <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">اندروید</a> یا <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">آیفون/آیپد</a>به تکمیل آن کمک کنید. متشکرم!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "یک پایگاه داده مشارکتی، رایگان و باز از مواد تشکیل دهنده، اطلاعات تغذیه‌ای و اطلاعات مربوط به محصولات غذای حیوانات خانگی از سراسر جهان."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "«آمار غذای حیوانات خانگی باز» اطلاعات و داده‌های مربوط به محصولات غذای حیوانات خانگی را از سراسر جهان جمع‌آوری می‌کند."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "مواد تشکیل دهنده، آلرژن‌ها، افزودنی‌ها، اطلاعات تغذیه‌ای، برچسب‌ها، منشأ مواد تشکیل دهنده و اطلاعات روی محصول %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "این صفحه محصول کامل نیست. شما می‌توانید با ویرایش آن و اضافه کردن داده‌های بیشتر از عکس‌هایی که داریم، یا با گرفتن عکس‌های بیشتر با استفاده از برنامه جهانی Open Food Facts برای <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">اندروید</a> یا <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">آیفون/آیپد</a>به تکمیل آن کمک کنید. متشکرم!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "غذای خشک سگ، غذای مرطوب گربه"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "ای ام بی ۱۲۳۴۵"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "مرغ، گلوتن ذرت، ذرت کامل، چربی حیوانی، کنجاله سویا"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "غذای مرطوب مخصوص سگ‌های بالغ"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "غذای سگ ارشد، مرغ و برنج"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -178,6 +268,10 @@ msgstr "در حال حاضر سازمانی با نام %sوجود دارد."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "درخواست شما برای عضویت در سازمان در انتظار تأیید مدیر سازمان است."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -623,6 +717,10 @@ msgstr ""
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "صفحه را ویرایش کنید"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "برای افزودن یا ویرایش ویژگی‌ها وارد شوید"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2181,6 +2279,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "جستجوی محصول"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "جستجوی محصول"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "حاوی نیست"
@@ -2784,8 +2886,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "برخی از داده‌ها و/یا عکس‌های این محصول از این منابع گرفته شده‌اند:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "این صفحه محصول کامل نیست. شما می‌توانید با ویرایش آن و اضافه کردن اطلاعات بیشتر از عکس‌هایی که داریم، یا با گرفتن عکس‌های بیشتر با استفاده از برنامه برای <a href=\"https://android.openfoodfacts.org\">اندروید</a> یا <a href=\"https://ios.openfoodfacts.org\">آیفون/آیپد</a>به تکمیل آن کمک کنید. متشکرم!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "این صفحه محصول کامل نیست. شما می‌توانید با ویرایش آن و اضافه کردن اطلاعات بیشتر از عکس‌هایی که داریم، یا با گرفتن عکس‌های بیشتر با استفاده از برنامه تلفن همراه برای <a href=\"https://android.openfoodfacts.org\">اندروید</a> یا <a href=\"https://ios.openfoodfacts.org\">آیفون/آیپد</a>به تکمیل آن کمک کنید. متشکرم!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2867,25 +2969,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "سایر مواد مغذی اضافه شده"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "همانطور که فروخته شد"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "آماده شده"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "واحد"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "اطلاعات تغذیه‌ای برای محصول به همان صورتی که فروخته شده است، ذکر شده است."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "اطلاعات تغذیه‌ای برای محصول آماده‌شده مشخص شده است."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -4870,8 +4956,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "تأثیر کم بر محیط زیست (امتیاز سبز)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "امتیاز سبز، امتیازی زیست‌محیطی از A تا E است که مقایسه تأثیر محصولات غذایی بر محیط زیست را آسان می‌کند."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "امتیاز سبز، امتیازی زیست‌محیطی از A+ تا F است که مقایسه تأثیر محصولات غذایی بر محیط زیست را آسان می‌کند."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4883,8 +4969,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "تأثیر کم بر محیط زیست (امتیاز سبز)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "امتیاز سبز، امتیازی زیست‌محیطی از A تا E است که مقایسه تأثیر محصولات غذایی بر محیط زیست را آسان می‌کند."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "امتیاز سبز، امتیازی زیست‌محیطی از A+ تا F است که مقایسه تأثیر محصولات غذایی بر محیط زیست را آسان می‌کند."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5425,7 +5511,7 @@ msgstr ""
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5807,7 +5893,7 @@ msgstr "فرمول گرین-اسکور ممکن است تغییر کند زیر�
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "امتیاز گرین در ابتدا برای فرانسه توسعه داده شد و در حال گسترش به سایر کشورهای اروپایی است. فرمول امتیاز گرین با بهبود منظم آن برای دقیق‌تر شدن و مناسب‌تر شدن برای هر کشور، ممکن است تغییر کند."
 
 msgctxt "environmental_score_warning_transportation_world"
@@ -6666,6 +6752,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "محصول به‌روزرسانی شد"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "اقدام API نامعتبر"
@@ -6797,6 +6887,14 @@ msgstr "تمام قطعات بسته بندی محصول ذکر شده است."
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "شناسه کاربری و رمز عبور نامعتبر است"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7141,14 +7239,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "گزارش مشکل"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "گزارش مشکل"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "گزارش مشکل."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7610,6 +7703,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "جستجوی محصولات در همان دسته بندی بدون قند افزوده:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "برای ۱ کیلوگرم"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "در هر وعده"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr ""
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "مواد ناخواسته"
@@ -7648,7 +7783,7 @@ msgstr "این ترجیحات بر اساس درک Open Food Facts از لیست
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"
-msgstr "اثر انگشت رنج"
+msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7689,6 +7824,70 @@ msgstr "دخانیات به طور جدی به سلامتی آسیب می‌رس
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "سیگار کشیدن بسیار اعتیادآور است. شروع نکنید. سیگار کشیدن کشنده است - همین حالا ترک کنید. سیگار کشیدن شریان‌ها را مسدود می‌کند و باعث حملات قلبی و سکته مغزی می‌شود. سیگار کشیدن باعث سرطان ریه کشنده می‌شود. سیگار کشیدن در دوران بارداری به نوزاد شما آسیب می‌رساند. از کودکان محافظت کنید: آنها را مجبور به استنشاق دود خود نکنید. پزشک یا داروساز شما می‌تواند به شما در ترک سیگار کمک کند. سیگار کشیدن ممکن است جریان خون را کاهش داده و باعث ناتوانی جنسی شود. سیگار کشیدن باعث پیری پوست می‌شود. سیگار کشیدن می‌تواند به اسپرم آسیب برساند و باروری را کاهش دهد. دود حاوی بنزن، نیتروزامین، فرمالدئید و سیانید هیدروژن است."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7737,4 +7936,68 @@ msgstr "تأثیر کم"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "تأثیر ارزیابی نشده است"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
 

@@ -56,6 +56,7 @@ BEGIN {
 		&get_recent_changes_collection
 		&remove_documents_by_ids
 		&get_orgs_collection
+		&perform_health_check
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -67,6 +68,7 @@ use experimental 'smartmatch';
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Cursor;
+use ProductOpener::Health qw/:all/;
 use ProductOpener::HTTP qw/request_param single_param get_http_request_header create_user_agent/;
 
 use Storable qw(freeze);
@@ -74,6 +76,7 @@ use MongoDB;
 use JSON::MaybeXS;
 use CGI ':cgi-lib';
 use Log::Any qw($log);
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 my $client;
 
@@ -446,6 +449,78 @@ sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) 
 	}
 
 	return {removed => $removed, errors => \@errors};
+}
+
+=head2 perform_health_check()
+
+Verify that OFF_QUERY (C<$query_url>) is reachable and report response time.
+
+=cut
+
+sub perform_health_check() {
+	if ((not defined $query_url) or ($query_url eq '')) {
+		return [
+			{
+				status => $status_warn,
+				componentType => 'system',
+				output => 'OFF_QUERY URL is not configured',
+				time => current_time_iso8601(),
+			}
+		];
+	}
+
+	my $url = $query_url;
+	$url =~ s/^\s+|\s+$//g;
+
+	my $start = [gettimeofday()];
+	my ($ok, $code, $error);
+
+	eval {
+		my $ua = create_user_agent();
+		$ua->timeout(5);
+		my $response = $ua->get($url);
+		$code = $response->code;
+		$ok = defined($code) && ($code < 500);
+		1;
+	} or do {
+		$error = $@;
+		$ok = 0;
+	};
+
+	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+	my $time = current_time_iso8601();
+
+	my $links = {self => $url};
+
+	if ($ok) {
+		return [
+			{
+				status => $status_pass,
+				componentType => 'system',
+				observedValue => $duration_ms,
+				observedUnit => 'ms',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
+
+	my $output
+		= defined($error) && ($error ne '')
+		? "OFF_QUERY endpoint request failed: $error"
+		: "OFF_QUERY endpoint unavailable" . (defined($code) ? " (HTTP $code)" : '');
+
+	return [
+		{
+			status => $status_fail,
+			componentType => 'system',
+			output => $output,
+			observedValue => $duration_ms,
+			observedUnit => 'ms',
+			time => $time,
+			links => $links,
+		}
+	];
 }
 
 1;
