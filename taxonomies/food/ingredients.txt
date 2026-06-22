@@ -70147,7 +70147,6 @@ eurocode_2_group_3:en: 12.20.72
 #                                Marjoram
 #
 ###################################################################################################
-# description:en:Marjoram (Origanum majorana) is a somewhat cold-sensitive perennial herb or undershrub with sweet pine and citrus flavors.
 
 #category/marjoram
 < en:herb
@@ -70209,9 +70208,6 @@ tr: mercanköşk
 uk: майоран
 wa: mariolinne
 zh: 墨角蘭
-# 1584 in 22 @2021-09-17
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.52
 # aeb-arab:مردقوش
 # azb:مرزه
 # be-tarask:маяран
@@ -70225,9 +70221,18 @@ eurocode_2_group_3:en: 12.20.52
 # sco:marjoram
 # sgs:meiruonā
 # yue:墨角蘭
-# plant: wikidata:en:Q22694
+ciqual_proxy_food_code:en: 11034
+ciqual_proxy_food_name:en: Marjoram, dried
+ciqual_proxy_food_name:fr: Marjolaine, séchée
+description:en: Marjoram (Origanum majorana) is a somewhat cold-sensitive perennial herb or undershrub with sweet pine and citrus flavors.
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.52
+usda_ndb_proxy_code:en: 2023
+usda_ndb_proxy_name:en: Spices, marjoram, dried
 wikidata:en: Q96181239
+# plant: wikidata:en:Q22694
 wikipedia:en: https://en.wikipedia.org/wiki/Marjoram
+# 1584 in 22 @2021-09-17
 
 < en:marjoram
 en: dried marjoram
@@ -70236,6 +70241,8 @@ it: maggiorana essiccata
 ciqual_food_code:en: 11034
 ciqual_food_name:en: Marjoram, dried
 ciqual_food_name:fr: Marjolaine, séchée
+usda_ndb_code:en: 2023
+usda_ndb_name:en: Spices, marjoram, dried
 
 
 ###################################################################################################
