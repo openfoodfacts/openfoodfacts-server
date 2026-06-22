@@ -46383,17 +46383,6 @@ ciqual_food_code:en: 13036
 ciqual_food_name:en: Watermelon, pulp, raw
 ciqual_food_name:fr: Pastèque, pulpe, crue
 
-< en:melon
-en: bitter melon, momordic
-de: Bittermelone
-es: melón amargo, momordic
-fr: melon amer, margose, momordique
-hr: gorka dinja
-it: melone amaro, momordic
-ja: ゴーヤ, ニガウリ, 苦瓜, にがうり
-nl: Sopropo
-
-
 #category/honeydew-melons
 < en:melon
 en: Honeydew melon
@@ -51343,6 +51332,15 @@ it: prezzemolo a foglia piatta
 #sr:peršunov list
 #57 in 10 @2021-09-16
 
+# SHOOT VEGETABLES (Eurocode 2 8.25)
+
+< en:vegetable
+en: shoot vegetable
+it: germoglio vegetale
+lv: šauj dārzeņus
+nl: scheutgroente
+eurocode_2_group_2:en: 8.25
+
 # BRASSICAS (Eurocode 2 8.15)
 
 < en:vegetable
@@ -52840,191 +52838,6 @@ hr: sok od rabarbare
 it: succo di rabarbaro
 nl: rabarbersap
 #25 @2021-10-25
-
-# SHOOT VEGETABLES (Eurocode 2 8.25)
-
-< en:vegetable
-en: shoot vegetable
-it: germoglio vegetale
-lv: šauj dārzeņus
-nl: scheutgroente
-eurocode_2_group_2:en: 8.25
-
-#
-< en:shoot vegetable
-en: asparagus, asparagus spears
-af: Aspersie
-ar: هليون
-az: Qulançar, Dərman qulançarı
-ba: Себен үләне
-be: Спаржа лекавая
-bg: аспержа, аспержи
-bo: འདམ་མྱུག
-bs: Šparoga
-ca: Espàrrec
-cs: Chřest lékařský
-da: Asparges
-de: Spargel, Gemüsespargel, Spargelstangen
-el: Σπαράγγι
-eo: Asparago, asparagi
-es: espárrago, espárragos, tallos de espárragos
-et: spargel, asparaagus
-eu: Себен үләне
-fa: مارچوبه
-fi: Parsa
-fr: asperge, asperges, asperges pic-nic
-gl: Esparragueira
-gv: Asparag
-he: אספרג רפואי
-hi: शतावर
-hr: ljekovita šparoga
-id: Asparagus
-io: Asparago
-is: Spergill
-it: Asparago, aspargi, asparagio
-ja: アスパラガス
-ka: სატაცური
-kk: Кәдімгі қасқыржем
-kn: ಶತಾವರಿ
-ko: 아스파라거스
-ku: Kilig, Közönséges spárga
-li: Asperge
-lt: Vaistinis smidras, šparagas
-lv: Sparģeļi
-mr: अस्पॅरॅगस
-ms: Asparagus
-my: ကညွတ်ပင်
-nb: Asparges
-ne: कुरिलो
-nl: asperge, asperges
-nn: Asparges
-nv: Chʼałdą́ą́ʼ, Jádí nátʼoh
-oc: Espargue
-pa: ਛਤਾਵਰ
-pl: Szparag, szparagi, szparagów
-pt: espargo
-qu: Isparaw
-ro: Sparanghel
-ru: спаржа
-rw: Asiperije
-sd: اسپريگس
-sh: Špargla
-sl: Beluš, špargelj
-sq: Shpargulli mjekësor
-sr: Шпаргла
-sv: Sparris
-ta: சாத்தாவாரியினம்
-te: పిల్లితేగ
-tl: Esparago
-uk: Холодок лікарський
-ur: ہلیون
-vi: Măng tây
-wa: Aspedje
-yi: אספארגוס
-zh: 芦笋
-# als:Schbargl
-# ang:eorþnafela
-# ast:espárragu
-# csb:Lékarskô szparaga
-# frr:Spargel
-# hsb:Prawy hromak
-# lfn:Asparago
-# nap:spalece, sparece
-# pcd:Aspérjhe
-# pt-br:aspargo
-# scn:spàraciu, spàriciu
-# sco:Asparagus
-# sr-ec:Шпаргла
-# sr-el:Špargla
-# vec:Spàraxo
-# yue:露筍
-# zh-cn:芦笋
-# zh-hk:蘆筍
-# zh-mo:蘆筍
-# zh-my:芦笋
-# zh-sg:芦笋
-# zh-tw:蘆筍
-carbon_footprint_fr_foodges_ingredient:fr: Asperges en boite Chine
-carbon_footprint_fr_foodges_value:fr: 2.4
-#carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
-#carbon_footprint_fr_foodges_value:fr:0.9
-description:en: Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
-# en:asparagus has 301 products in 6 languages @2018-11-11
-eurocode_2_group_3:en: 8.25.10
-usda_ndb_proxy_code:en: 11011
-usda_ndb_proxy_name:en: Asparagus, raw
-wikidata:en: Q23041045
-wikipedia:en: https://en.wikipedia.org/wiki/Asparagus
-
-< en:asparagus
-en: raw asparagus
-usda_ndb_code:en: 11011
-usda_ndb_name:en: Asparagus, raw
-
-< en:asparagus
-fr: asperges fraîches
-
-< en:asparagus
-en: green asparagus
-bg: зелена аспержа, зелени аспержи
-de: grüner Spargel, Grüne Spargeln
-es: espárragos verdes
-fi: vihreä parsa
-fr: asperges vertes
-hr: zelene šparoge
-it: asparagi verdi
-nl: groene asperges
-pl: zielone szparagi, zielony szparag, zielonych szparagów
-pt: espargos verdes
-ciqual_food_code:en: 20279
-ciqual_food_name:en: Asparagus, green, raw
-ciqual_food_name:fr: Asperge, verte, crue
-wikidata:en: Q35075688
-# 170 in 7 @2021-09-23
-
-< en:green asparagus
-es: Espárragos verdes sin pelar
-
-< en:asparagus
-en: violet asparagus
-fr: asperge violette
-it: asparagi violetti
-
-< en:asparagus
-en: white asparagus
-bg: бяла аспержа, бели аспержи
-de: weisser Spargel, weißer Spargel, weisse Spargeln
-es: Espárrago blanco
-fi: valkoinen parsa
-fr: asperges blanches, asperge blanche, asperges blanches grosses, asperges blanches des sables des Landes IGP
-hr: bijele šparoge
-it: asparagi bianchi
-nl: witte asperges
-pl: białe szparagi, biały szparag, białych szparagów
-pt: Espargos brancos
-# fr:asperges blanches has 46 products in 4 languages @2018-11-11
-
-#< en:white asparagus
-#fr: asperges blanches coupées
-
-< en: asparagus
-en: asparagus heads
-fr: pointes d'asperges moyennes
-it: teste di asparagi
-
-< en:asparagus heads
-< en:green asparagus
-en: green asparagus heads
-es: espárrago verde, espárrago verde tallos y puntas
-fr: pointes d'asperges vertes
-it: teste di asparagi verdi
-
-< en:asparagus heads
-< en:white asparagus
-en: white asparagus heads
-es: vemas de espárragos blancos
-it: teste di asparagi bianchi
-
 < en:shoot vegetable
 en: chicory
 bg: цикория
@@ -53287,7 +53100,223 @@ ciqual_food_code:en: 20232
 ciqual_food_name:en: Artichoke base, frozen, raw
 ciqual_food_name:fr: Artichaut, fond, surgelé, cru
 
-# description:en:The bamboos are evergreen perennial flowering plants in the subfamily Bambusoideae of the grass family Poaceae.
+###################################################################################################
+#
+#                                Asparagus
+#
+###################################################################################################
+
+< en:shoot vegetable
+en: asparagus, asparagus spears
+af: Aspersie
+ar: هليون
+az: Qulançar, Dərman qulançarı
+ba: Себен үләне
+be: Спаржа лекавая
+bg: аспержа, аспержи
+bo: འདམ་མྱུག
+bs: Šparoga
+ca: Espàrrec
+cs: Chřest lékařský
+da: Asparges
+de: Spargel, Gemüsespargel, Spargelstangen
+el: Σπαράγγι
+eo: Asparago, asparagi
+es: espárrago, espárragos, tallos de espárragos
+et: spargel, asparaagus
+eu: Себен үләне
+fa: مارچوبه
+fi: Parsa
+fr: asperge, asperges, asperges pic-nic
+gl: Esparragueira
+gv: Asparag
+he: אספרג רפואי
+hi: शतावर
+hr: ljekovita šparoga
+id: Asparagus
+io: Asparago
+is: Spergill
+it: Asparago, aspargi, asparagio
+ja: アスパラガス
+ka: სატაცური
+kk: Кәдімгі қасқыржем
+kn: ಶತಾವರಿ
+ko: 아스파라거스
+ku: Kilig, Közönséges spárga
+li: Asperge
+lt: Vaistinis smidras, šparagas
+lv: Sparģeļi
+mr: अस्पॅरॅगस
+ms: Asparagus
+my: ကညွတ်ပင်
+nb: Asparges
+ne: कुरिलो
+nl: asperge, asperges
+nn: Asparges
+nv: Chʼałdą́ą́ʼ, Jádí nátʼoh
+oc: Espargue
+pa: ਛਤਾਵਰ
+pl: Szparag, szparagi, szparagów
+pt: espargo
+qu: Isparaw
+ro: Sparanghel
+ru: спаржа
+rw: Asiperije
+sd: اسپريگس
+sh: Špargla
+sl: Beluš, špargelj
+sq: Shpargulli mjekësor
+sr: Шпаргла
+sv: Sparris
+ta: சாத்தாவாரியினம்
+te: పిల్లితేగ
+tl: Esparago
+uk: Холодок лікарський
+ur: ہلیون
+vi: Măng tây
+wa: Aspedje
+yi: אספארגוס
+zh: 芦笋
+# als:Schbargl
+# ang:eorþnafela
+# ast:espárragu
+# csb:Lékarskô szparaga
+# frr:Spargel
+# hsb:Prawy hromak
+# lfn:Asparago
+# nap:spalece, sparece
+# pcd:Aspérjhe
+# pt-br:aspargo
+# scn:spàraciu, spàriciu
+# sco:Asparagus
+# sr-ec:Шпаргла
+# sr-el:Špargla
+# vec:Spàraxo
+# yue:露筍
+# zh-cn:芦笋
+# zh-hk:蘆筍
+# zh-mo:蘆筍
+# zh-my:芦笋
+# zh-sg:芦笋
+# zh-tw:蘆筍
+carbon_footprint_fr_foodges_ingredient:fr: Asperges en boite Chine
+carbon_footprint_fr_foodges_value:fr: 2.4
+#carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
+#carbon_footprint_fr_foodges_value:fr:0.9
+ciqual_proxy_food_code:en: 20279
+ciqual_proxy_food_name:en: Asparagus, green, raw
+ciqual_proxy_food_name:fr: Asperge, verte, crue
+description:en: Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
+# en:asparagus has 301 products in 6 languages @2018-11-11
+eurocode_2_group_3:en: 8.25.10
+usda_ndb_proxy_code:en: 11011
+usda_ndb_proxy_name:en: Asparagus, raw
+wikidata:en: Q23041045
+wikipedia:en: https://en.wikipedia.org/wiki/Asparagus
+
+< en:asparagus
+en: raw asparagus
+usda_ndb_code:en: 11011
+usda_ndb_name:en: Asparagus, raw
+
+< en:asparagus
+fr: asperges fraîches
+
+< en:asparagus
+en: green asparagus
+bg: зелена аспержа, зелени аспержи
+de: grüner Spargel, Grüne Spargeln
+es: espárragos verdes
+fi: vihreä parsa
+fr: asperges vertes
+hr: zelene šparoge
+it: asparagi verdi
+nl: groene asperges
+pl: zielone szparagi, zielony szparag, zielonych szparagów
+pt: espargos verdes
+ciqual_food_code:en: 20279
+ciqual_food_name:en: Asparagus, green, raw
+ciqual_food_name:fr: Asperge, verte, crue
+wikidata:en: Q35075688
+# 170 in 7 @2021-09-23
+
+< en:green asparagus
+es: Espárragos verdes sin pelar
+
+< en:asparagus
+en: violet asparagus
+fr: asperge violette
+it: asparagi violetti
+
+< en:asparagus
+en: white asparagus
+bg: бяла аспержа, бели аспержи
+de: weisser Spargel, weißer Spargel, weisse Spargeln
+es: Espárrago blanco
+fi: valkoinen parsa
+fr: asperges blanches, asperge blanche, asperges blanches grosses, asperges blanches des sables des Landes IGP
+hr: bijele šparoge
+it: asparagi bianchi
+nl: witte asperges
+pl: białe szparagi, biały szparag, białych szparagów
+pt: Espargos brancos
+# fr:asperges blanches has 46 products in 4 languages @2018-11-11
+
+#< en:white asparagus
+#fr: asperges blanches coupées
+
+< en:asparagus
+en: asparagus heads
+fr: pointes d'asperges moyennes
+it: teste di asparagi
+
+< en:asparagus heads
+< en:green asparagus
+en: green asparagus heads
+es: espárrago verde, espárrago verde tallos y puntas
+fr: pointes d'asperges vertes
+it: teste di asparagi verdi
+
+< en:asparagus heads
+< en:white asparagus
+en: white asparagus heads
+es: vemas de espárragos blancos
+it: teste di asparagi bianchi
+
+< en:asparagus
+en: frozen unprepared asparagus
+usda_ndb_code:en: 11018
+usda_ndb_name:en: Asparagus, frozen, unprepared
+
+###################################################################################################
+#
+#                                Balsam pear
+#
+###################################################################################################
+
+
+< en:vegetable
+en: bitter melon, momordic, balsam pear, bitter gourd
+de: Bittermelone
+es: melón amargo, momordic
+fr: melon amer, margose, momordique
+hr: gorka dinja
+it: melone amaro, momordic
+ja: ゴーヤ, ニガウリ, 苦瓜, にがうり
+nl: Sopropo
+description:en: A balsam pear is another name for bitter melon (Momordica charantia), a tropical vine in the gourd family. It's widely grown across Asia, Africa, the Caribbean, and South America. True to both its names, it has a pronounced bitter taste — the most bitter of any commonly eaten vegetable.
+usda_ndb_proxy_code:en: 11024
+usda_ndb_proxy_name:en: Balsam-pear (bitter gourd), pods, raw
+
+< en:balsam pear
+en: leafy balsam-pear tips
+usda_ndb_code:en: 11022
+usda_ndb_name:en: Balsam-pear (bitter gourd), leafy tips, raw
+
+< en:balsam pear
+en: raw balsam-pear pods
+usda_ndb_code:en: 11024
+usda_ndb_name:en: Balsam-pear (bitter gourd), pods, raw
 
 ###################################################################################################
 #
@@ -53377,10 +53406,6 @@ ur: بانس
 vi: tre
 za: Faexcuk
 zh: 簕竹族
-# ingredient/fr:bambou has 54 products @2019-02-03
-# vegetable fiber (bamboo, chicory, potato)
-# Légumes (pousses d'haricots mungo, oignons, haricots verts, chou blanc, bambou, carottes, pommes de terre)
-eurocode_2_group_3:en: 8.25.40
 # ang:Ȝærsbēam
 # bjn:Paring
 # cdo:Dé̤ṳk
@@ -53398,10 +53423,13 @@ eurocode_2_group_3:en: 8.25.40
 # war:Kawayan
 # wuu:竹
 # yue:竹
+description:en: The bamboos are evergreen perennial flowering plants in the subfamily Bambusoideae of the grass family Poaceae.
+eurocode_2_group_3:en: 8.25.40
 wikidata:en: Q35922
 wikipedia:en: https://en.wikipedia.org/wiki/Bamboo
-
-# description:en:Bamboo shoots or bamboo sprouts are the edible shoots (new bamboo culms that come out of the ground) of many bamboo species including Bambusa vulgaris and Phyllostachys edulis.
+# ingredient/fr:bambou has 54 products @2019-02-03
+# vegetable fiber (bamboo, chicory, potato)
+# Légumes (pousses d'haricots mungo, oignons, haricots verts, chou blanc, bambou, carottes, pommes de terre)
 
 < en:bamboo
 en: bamboo shoot, bamboo sprouts
@@ -53439,9 +53467,6 @@ th: หน่อไม้
 uk: паростки бамбуку
 vi: măng
 zh: 筍
-ciqual_food_code:en: 20198
-ciqual_food_name:en: Bamboo shoots, raw
-ciqual_food_name:fr: Bambou, pousse, crue
 # bcl:lambo
 # ilo:rabong
 # lzh:筍
@@ -53451,9 +53476,23 @@ ciqual_food_name:fr: Bambou, pousse, crue
 # zh-hant:筍
 # zh-hk:筍
 # zh-tw:筍
+ciqual_proxy_food_code:en: 20198
+ciqual_proxy_food_name:en: Bamboo shoots, raw
+ciqual_proxy_food_name:fr: Bambou, pousse, crue
+description:en: Bamboo shoots or bamboo sprouts are the edible shoots (new bamboo culms that come out of the ground) of many bamboo species including Bambusa vulgaris and Phyllostachys edulis.
+usda_ndb_proxy_code:en: 11026
+usda_ndb_proxy_name:en: Bamboo shoots, raw
 wikidata:en: Q2157176
 wikipedia:en: https://en.wikipedia.org/wiki/Bamboo_shoot
 # 412 in 10 languages @2021-09-22
+
+< en:bamboo shoot
+en: raw bamboo shoot
+ciqual_food_code:en: 20198
+ciqual_food_name:en: Bamboo shoots, raw
+ciqual_food_name:fr: Bambou, pousse, crue
+usda_ndb_code:en: 11026
+usda_ndb_name:en: Bamboo shoots, raw
 
 # <en:bamboo
 < en:vegetable fiber
