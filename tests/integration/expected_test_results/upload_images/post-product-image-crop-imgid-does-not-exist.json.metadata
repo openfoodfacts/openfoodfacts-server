@@ -1,19 +1,19 @@
 {
    "api_call" : {
-      "method" : "POST",
       "body" : {
-         "x2" : 100,
-         "coordinates_image_size" : "full",
-         "y2" : 200,
-         "imgid" : "25",
          "y1" : 20,
          "angle" : 0,
+         "x1" : 10,
+         "imgid" : "25",
+         "coordinates_image_size" : "full",
+         "y2" : 200,
          "code" : "1234567890012",
-         "id" : "nutrition_fr",
-         "x1" : 10
+         "x2" : 100,
+         "id" : "nutrition_fr"
       },
       "path" : "/cgi/product_image_crop.pl",
+      "content-type" : "application/x-www-form-urlencoded",
       "parameters" : {},
-      "content-type" : "application/x-www-form-urlencoded"
+      "method" : "POST"
    }
 }

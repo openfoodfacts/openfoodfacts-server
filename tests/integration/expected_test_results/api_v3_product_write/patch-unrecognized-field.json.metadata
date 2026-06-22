@@ -1,13 +1,13 @@
 {
    "api_call" : {
-      "content-type" : "application/json; charset=utf-8",
+      "parameters" : {},
+      "path" : "/api/v3/product/test",
       "body" : {
          "product" : {
             "some_unrecognized_field" : "some value"
          }
       },
-      "path" : "/api/v3/product/test",
       "method" : "PATCH",
-      "parameters" : {}
+      "content-type" : "application/json; charset=utf-8"
    }
 }

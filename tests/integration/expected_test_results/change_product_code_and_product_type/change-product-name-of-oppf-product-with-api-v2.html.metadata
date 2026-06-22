@@ -1,14 +1,14 @@
 {
    "api_call" : {
-      "path" : "/cgi/product_jqm_multilingual.pl",
       "method" : "POST",
+      "parameters" : {},
       "content-type" : "application/x-www-form-urlencoded",
+      "path" : "/cgi/product_jqm_multilingual.pl",
       "body" : {
-         "action" : "process",
          "product_name" : "Test product 3 - update with API v2",
+         "action" : "process",
          "code" : "1234567890300",
          "type" : "edit"
-      },
-      "parameters" : {}
+      }
    }
 }

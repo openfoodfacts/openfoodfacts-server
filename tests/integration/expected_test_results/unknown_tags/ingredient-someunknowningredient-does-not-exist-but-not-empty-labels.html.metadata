@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "content-type" : null,
-      "path" : "/facets/ingredients/someunknowningredient/labels&no_cache=1",
-      "body" : null,
       "method" : "GET",
-      "parameters" : {}
+      "parameters" : {},
+      "body" : null,
+      "content-type" : null,
+      "path" : "/facets/ingredients/someunknowningredient/labels&no_cache=1"
    }
 }

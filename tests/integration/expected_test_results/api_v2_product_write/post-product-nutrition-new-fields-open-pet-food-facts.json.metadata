@@ -1,23 +1,23 @@
 {
    "api_call" : {
-      "content-type" : "application/x-www-form-urlencoded",
       "method" : "POST",
       "parameters" : {},
       "body" : {
-         "nutrition_input_sets_as_sold_1kg_nutrients_biotin_value_string" : "50",
-         "nutrition_input_sets_as_sold_1kg_nutrients_crude-fibre_value_string" : "1",
-         "nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_value_string" : "3",
-         "product_name_en" : "Test new nutrition fields - Open Pet Food Facts",
-         "user_id" : "tests",
-         "code" : "2234567890002",
-         "nutrition_input_sets_as_sold_1kg_nutrients_crude-fat_value_string" : "1",
-         "password" : "testtest",
-         "nutrition_input_sets_as_sold_1kg_nutrients_biotin_unit" : "Âµg",
          "nutrition_input_sets_as_sold_1kg_nutrients_crude-ash_value_string" : "1",
-         "nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_unit" : "mg",
+         "code" : "2234567890002",
+         "password" : "testtest",
+         "nutrition_input_sets_as_sold_1kg_nutrients_crude-protein_value_string" : "1",
+         "nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_value_string" : "3",
+         "nutrition_input_sets_as_sold_1kg_nutrients_crude-fibre_value_string" : "1",
          "product_type" : "petfood",
-         "nutrition_input_sets_as_sold_1kg_nutrients_crude-protein_value_string" : "1"
+         "product_name_en" : "Test new nutrition fields - Open Pet Food Facts",
+         "nutrition_input_sets_as_sold_1kg_nutrients_biotin_unit" : "Âµg",
+         "nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_unit" : "mg",
+         "user_id" : "tests",
+         "nutrition_input_sets_as_sold_1kg_nutrients_biotin_value_string" : "50",
+         "nutrition_input_sets_as_sold_1kg_nutrients_crude-fat_value_string" : "1"
       },
-      "path" : "/cgi/product_jqm_multilingual.pl"
+      "path" : "/cgi/product_jqm_multilingual.pl",
+      "content-type" : "application/x-www-form-urlencoded"
    }
 }

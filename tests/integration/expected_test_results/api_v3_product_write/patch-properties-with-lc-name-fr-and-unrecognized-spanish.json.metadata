@@ -1,9 +1,9 @@
 {
    "api_call" : {
-      "path" : "/api/v3/product/1234567890012",
-      "method" : "PATCH",
       "parameters" : {},
+      "path" : "/api/v3/product/1234567890012",
       "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
       "body" : {
          "raw_body" : "{\n\t\t\t\"tags_lc\": \"fr\",\n\t\t\t\"product\": {\n\t\t\t\t\"packagings\": [\n\t\t\t\t\t{\n\t\t\t\t\t\t\"number_of_units\": 2,\n\t\t\t\t\t\t\"shape\": {\"lc_name\": \"es:Something in Spanish\"},\n\t\t\t\t\t\t\"material\": {\"lc_name\": \"papier\"},\n\t\t\t\t\t\t\"recycling\": {\"lc_name\": \"Ã  recycler\"}\n\t\t\t\t\t}\n\t\t\t\t]\n\t\t\t}\n\t\t}"
       }

@@ -3,17 +3,17 @@
       "method" : "POST",
       "parameters" : {},
       "content-type" : "application/x-www-form-urlencoded",
+      "path" : "/cgi/product_image_crop.pl",
       "body" : {
-         "id" : "ingredients_fr",
-         "x1" : 10,
-         "imgid" : "1",
-         "angle" : 0,
          "code" : "1234567890012",
-         "y1" : 20,
-         "y2" : 200,
          "x2" : 100,
-         "coordinates_image_size" : "full"
-      },
-      "path" : "/cgi/product_image_crop.pl"
+         "id" : "ingredients_fr",
+         "imgid" : "1",
+         "y2" : 200,
+         "coordinates_image_size" : "full",
+         "angle" : 0,
+         "x1" : 10,
+         "y1" : 20
+      }
    }
 }

@@ -3,9 +3,9 @@
       "content-type" : null,
       "body" : null,
       "path" : "/api/v3/product/4260392550101",
+      "method" : "GET",
       "parameters" : {
          "fields" : "ecoscore_score,ecoscore_grade,ecoscore_data"
-      },
-      "method" : "GET"
+      }
    }
 }

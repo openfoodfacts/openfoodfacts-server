@@ -1,7 +1,8 @@
 {
    "api_call" : {
-      "method" : "POST",
       "parameters" : {},
+      "method" : "POST",
+      "path" : "/cgi/product_image_upload.pl",
       "body" : {
          "code" : "3300000000013",
          "imagefield" : "front_fr",
@@ -10,7 +11,6 @@
             "1.jpg"
          ]
       },
-      "path" : "/cgi/product_image_upload.pl",
       "content-type" : "multipart/form-data"
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
-      "body" : null,
       "parameters" : {
          "stats_nid" : "sugars"
       },
+      "method" : "GET",
+      "path" : "/categories",
       "content-type" : null,
-      "path" : "/categories"
+      "body" : null
    }
 }

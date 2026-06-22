@@ -1,14 +1,14 @@
 {
    "api_call" : {
-      "body" : {
-         "product" : {
-            "product_type" : "petfood"
-         },
-         "tags_lc" : "en"
-      },
-      "content-type" : "application/json; charset=utf-8",
       "parameters" : {},
       "method" : "PATCH",
-      "path" : "/api/v3/product/1234567890300"
+      "path" : "/api/v3/product/1234567890300",
+      "content-type" : "application/json; charset=utf-8",
+      "body" : {
+         "tags_lc" : "en",
+         "product" : {
+            "product_type" : "petfood"
+         }
+      }
    }
 }

@@ -1,11 +1,11 @@
 {
    "api_call" : {
-      "method" : "GET",
+      "content-type" : null,
+      "body" : null,
       "parameters" : {
          "fields" : "product_name"
       },
-      "path" : "/contributors/alice.json",
-      "body" : null,
-      "content-type" : null
+      "method" : "GET",
+      "path" : "/contributors/alice.json"
    }
 }

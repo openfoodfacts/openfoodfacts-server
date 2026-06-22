@@ -2,36 +2,36 @@
    "api_call" : {
       "parameters" : {},
       "path" : "/api/v3/product/1234567890013",
+      "content-type" : "application/json; charset=utf-8",
       "method" : "PATCH",
       "body" : {
+         "tags_lc" : "en",
+         "fields" : "updated,misc_tags",
          "product" : {
             "packagings" : [
                {
-                  "weight_measured" : 0.43,
                   "shape" : {
                      "lc_name" : "Bottle"
                   },
+                  "weight_measured" : 0.43,
                   "number_of_units" : 1
                },
                {
+                  "number_of_units" : "2",
                   "weight_measured" : "0.43",
                   "shape" : {
                      "lc_name" : "Box"
-                  },
-                  "number_of_units" : "2"
+                  }
                },
                {
-                  "number_of_units" : 3,
                   "shape" : {
                      "lc_name" : "Lid"
                   },
-                  "weight_measured" : "0,43"
+                  "weight_measured" : "0,43",
+                  "number_of_units" : 3
                }
             ]
-         },
-         "tags_lc" : "en",
-         "fields" : "updated,misc_tags"
-      },
-      "content-type" : "application/json; charset=utf-8"
+         }
+      }
    }
 }

@@ -1,5 +1,7 @@
 {
    "api_call" : {
+      "path" : "/api/v3/product/1234567890007",
+      "parameters" : {},
       "content-type" : "application/json; charset=utf-8",
       "body" : {
          "product" : {
@@ -12,8 +14,6 @@
             ]
          }
       },
-      "method" : "PUT",
-      "path" : "/api/v3/product/1234567890007",
-      "parameters" : {}
+      "method" : "PUT"
    }
 }

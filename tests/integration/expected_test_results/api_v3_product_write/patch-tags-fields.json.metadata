@@ -1,29 +1,29 @@
 {
    "api_call" : {
       "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
       "body" : {
-         "fields" : "updated",
          "product" : {
-            "unknown_tags" : [
-               "some value"
-            ],
-            "brands_tags" : [
-               "Some brand"
-            ],
             "categories_tags" : [
                "coffee"
             ],
-            "stores_tags" : "comma,separated,list",
+            "unknown_tags" : [
+               "some value"
+            ],
             "labels_tags" : [
                "en:organic",
                "fr:max havelaar",
                "vegan",
                "Something unrecognized"
-            ]
-         }
+            ],
+            "brands_tags" : [
+               "Some brand"
+            ],
+            "stores_tags" : "comma,separated,list"
+         },
+         "fields" : "updated"
       },
-      "path" : "/api/v3/product/1234567890100",
-      "method" : "PATCH",
-      "parameters" : {}
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890100"
    }
 }
