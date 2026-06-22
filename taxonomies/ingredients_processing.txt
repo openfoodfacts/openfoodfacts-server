@@ -2004,7 +2004,7 @@ sv: högpastöriserad
 < en:sterilized
 en: UHT, UHT pasteurised, UHT sterilised, ultra heat treated
 xx: UHT
-bg: UHT, UHT пастьоризирано
+bg: UHT, UHT пастьоризирано, обработена с изключително висока температура
 ca: UHT, esterilitzada UHT
 de: UHT, H-, Haltbar, Haltbare
 es: UHT, esterelizada UHT, esterilizada UHT
@@ -2599,7 +2599,7 @@ sv: oljad, oljade
 #<de:geölt
 de: mit sonnenblumenöl geölt
 en: with sunflower oil
-bg: с олио от слънчоглед
+bg: със слълчогледово олио, със слълчогледово масло, с олио от слънчоглед
 ca: amb oli de gira-sol
 es: con aceite de girasol
 fi: auringonkukkaöljyllä
@@ -2773,6 +2773,7 @@ sv: icke bestrålad, inte behandlad med bestrålning, utan bestrålning
 #en:description:complete or partial removal of impurities in sugars, oils, fats and other natural materials by chemical/physical treatment
 < en:purified
 en: refined, partially refined
+bg: рафинирано, рафинирана, рафиниран
 fr: raffiné, partiellement raffiné, raffinée, partiellement raffinée, raffinés, partiellement raffinés, raffinées, partiellement raffinées
 hr: rafinirano, djelomično rafinirano
 nl: geraffineerd, geraffineerde
@@ -2789,7 +2790,7 @@ pt: refinado fisicamente, refinada fisicamente, refinados fisicamente, refinadas
 #fr:Dessucré, partiellement dessucré
 #hr:bez šećera, sa smanjenom količinom šećera
 en: Homogenized
-bg: Хомогенизирано
+bg: Хомогенизирано, хомогенизиран, хомогенизирана
 ca: homogeneïtzat
 de: homogenisiert, homogenisierte, homogenisierter, homogenisiertes, homogenisierten, homogenisiertem
 es: homogeneizado
@@ -2804,23 +2805,41 @@ uk: гомогенізований, гомогенізована, гомоген
 wikidata:en: Q1165158
 wikipedia:en: https://en.wikipedia.org/wiki/Homogenization_(chemistry)
 
-# for ingredients, lactose-free is not a processing but involves a chemical process,
-# use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose),
-# which are easier to digest for those with lactose intolerance.
-en: lactose-free
+en: lactose-free, lactose free
 bg: без лактоза, безлактозно
+bn: ল্যাকটোজ মুক্ত
+br: hep laktoz
 ca: sense lactosa
-de: laktosefreie
+de: laktosefrei, laktosefreie
 es: sin lactosa
+et: laktoosivaba
+fi: laktoositon
 fr: sans lactose
+gl: sen lactosa
+hi: लैक्टोज मुक्त
 hr: bez laktoze
+hu: laktózmentes
+hy: առանց լակտոզի
+id: bebas laktosa
 it: delattosato, senza lattosio
-nl: lactosevrije
+ka: ულაქტოზო
+mk: без лактоза
+ml: ലാക്ടോസ് രഹിതം
+ms: bebas laktosa
+nb: laktosefri
+ne: ल्याक्टोज निःशुल्क
+nl: lactose vrij, lactosevrije
 pl: bez laktozy
 pt: sem lactose
 ro: fără lactoză
-sv: laktosfri
+ru: без лактозы
+se: laktosakeahtes
+sq: pa laktozë
+sv: laktosfri, laktosfritt, laktosfria
+tr: laktozsuz
 uk: без лактози, безлактозний, безлактозна, безлактозне, безлактозні
+description:en: for ingredients, “lactose-free” is not a processing per se, but involves a chemical process, use of enzyme lactase to break down lactose into simpler sugars (glucose and galactose), which are easier to digest for those with lactose intolerance.
+wikidata:en: Q11874508
 
 # result of a filtration
 en: filtrate
@@ -2985,7 +3004,7 @@ sv: osmakad, osmakad
 
 # en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en: smoked
-bg: пушено
+bg: пушено, пушен, пушена, опушен, опушено, опушена
 ca: fumat, fumada
 da: røget, røgede
 de: geräuchert, geräucherte, geräucherter, geräuchertes, geräucherten, geräuchertem

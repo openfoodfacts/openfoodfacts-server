@@ -1,28 +1,16 @@
 {
    "_id" : "3003004006004",
    "_keywords" : [
-      "mustard"
+      "condiment",
+      "mustard",
+      "sauce"
    ],
    "added_countries_tags" : [],
-   "allergens" : "en:mustard",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) Mustard",
-   "allergens_hierarchy" : [
-      "en:mustard"
-   ],
    "allergens_imported" : "Mustard",
-   "allergens_lc" : "en",
    "allergens_tags" : [
       "en:mustard"
    ],
-   "categories" : "mustards",
-   "categories_hierarchy" : [
-      "en:condiments",
-      "en:sauces",
-      "en:mustards"
-   ],
    "categories_imported" : "mustards",
-   "categories_lc" : "en",
    "categories_properties" : {
       "agribalyse_food_code:en" : "11013",
       "ciqual_food_code:en" : "11013"
@@ -63,12 +51,7 @@
    "correctors_tags" : [
       "test-user"
    ],
-   "countries" : "en",
-   "countries_hierarchy" : [
-      "en:en"
-   ],
    "countries_imported" : "en",
-   "countries_lc" : "en",
    "countries_tags" : [
       "en:en"
    ],
@@ -140,11 +123,10 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-org"
+      "Producer - test-org",
+      "Producers"
    ],
    "ecoscore_tags" : [
       "b"
@@ -783,7 +765,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 2,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -816,21 +798,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-completed",
-      "en:brands-to-be-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-to-be-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -846,14 +813,58 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:soybeans",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) en:soybeans",
-   "traces_hierarchy" : [
-      "en:soybeans"
-   ],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:mustard"
+            ]
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:mustards"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:en"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-org"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:soybeans"
+            ]
+         }
+      }
+   },
    "traces_imported" : "Soybeans",
-   "traces_lc" : "en",
    "traces_tags" : [
       "en:soybeans"
    ],
