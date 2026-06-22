@@ -1634,7 +1634,7 @@ print STDERR "\n";
 
 if ($prefix_packaging_tags_with_language) {
 
-	print "Results of --prefixy-packaging-tags-with-language:\n\n";
+	print "Results of --prefix-packaging-tags-with-language:\n\n";
 
 	# List all packaging tags
 	foreach my $tag (sort {$prefix_packaging_tags{$a} <=> $prefix_packaging_tags{$b}} keys %prefix_packaging_tags) {
