@@ -9,12 +9,18 @@
       "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
       "en:beverages",
+      "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:fruits-based-foods",
       "en:plant-based-beverages",
+      "en:fruit-based-beverages",
+      "en:coconuts-and-their-products",
       "en:coconut-waters"
    ],
    "categories_lc" : "en",
    "categories_properties" : {
       "agribalyse_food_code:en" : "18011",
+      "agribalyse_proxy_food_code:en" : "18309",
       "ciqual_food_code:en" : "18011"
    },
    "categories_properties_tags" : [
@@ -22,7 +28,8 @@
       "categories-known",
       "agribalyse-food-code-18011",
       "agribalyse-food-code-known",
-      "agribalyse-proxy-food-code-unknown",
+      "agribalyse-proxy-food-code-18309",
+      "agribalyse-proxy-food-code-known",
       "ciqual-food-code-18011",
       "ciqual-food-code-known",
       "agribalyse-known",
@@ -32,7 +39,12 @@
       "en:beverages-and-beverages-preparations",
       "en:plant-based-foods-and-beverages",
       "en:beverages",
+      "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:fruits-based-foods",
       "en:plant-based-beverages",
+      "en:fruit-based-beverages",
+      "en:coconuts-and-their-products",
       "en:coconut-waters"
    ],
    "estimate_ingredients_percent_service" : "product_opener",
@@ -1089,14 +1101,14 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
    "other_nutritional_substances_tags" : [],
-   "pnns_groups_1" : "Beverages",
+   "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [
-      "beverages",
+      "fruits-and-vegetables",
       "known"
    ],
-   "pnns_groups_2" : "Unsweetened beverages",
+   "pnns_groups_2" : "Fruits",
    "pnns_groups_2_tags" : [
-      "unsweetened-beverages",
+      "fruits",
       "known"
    ],
    "tags_sources" : {
