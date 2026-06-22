@@ -53526,6 +53526,190 @@ ja: クマザサ
 description:en: large species of bamboo grass
 wikidata:en: Q3015670
 
+###################################################################################################
+#
+#                                Beet(root)
+#
+###################################################################################################
+
+< en:vegetable
+en: raw beet greens
+usda_ndb_code:en: 11086
+usda_ndb_name:en: Beet greens, raw
+
+#comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
+< en:root vegetable
+< en:taproot vegetable
+en: beetroot, beet, beet root
+af: Beet
+bg: цвекло
+ca: remolatxa
+da: rødbede, rødbeder
+de: Rüben, Randen
+es: remolacha, betarraga
+fi: punajuuri
+fr: betterave, betteraves
+he: סלק
+hr: cikla, cikle, cikle u boji
+hu: cékla
+it: barbabietola
+ja: ビーツ
+lt: Burokas, burokėlis, jauni burokėliai
+nl: biet, bieten
+no: rødbete
+pl: burak, buraki, buraka, buraków, burak ćwikłowy, buraki ćwikłowe, buraka ćwikłowego, buraków ćwikłowych
+pt: beterraba
+ru: Свёкла
+sk: cvikly
+sv: rödbeta, rödbetor, rödbets
+carbon_footprint_fr_foodges_ingredient:fr: Betteraves
+carbon_footprint_fr_foodges_value:fr: 0.2
+# en:beetroot has 319 products in 5 languages @2018-10-22
+ciqual_proxy_food_code:en: 20091
+ciqual_proxy_food_name:fr: Betterave rouge, crue
+description:en: BEETROOT is the taproot portion of the beet plant
+ecobalyse:en: beetroot-fr
+ecobalyse_labels_en_organic:en: beetroot-organic
+eurocode_2_group_3:en: 8.38.55
+ifct_food_code:en: F001
+ifct_food_name:en: Beet root
+wikidata:en: Q99548274
+wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
+
+< en: red beetroot
+en: cooked red beetroot
+fr: betteraves rouges entieres cuites
+it: barbabietola rossa cotta
+
+# Sometimes it is indicated as a colour.
+
+< en:beetroot
+en: beetroot powder
+#en:processing:en:powder
+#bg:цвекло на прах
+#ca:remolatxa en pols
+#de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
+de: färbendes Lebensmittel Rote Bete Pulver
+it: polvere di barbabietola
+ro: pudră de sfeclă roșie
+#es:remolacha en polvo
+#fi:punajuurijauhe
+#fr:poudre de betterave
+#it:Polvere di barbabietola
+#pl:burak w proszku, proszek z buraka
+# fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
+
+< en:beetroot
+en: beetroot syrup
+de: Rote-Beete-Sirup
+es: sirope de remolacha, jarabe de remolacha
+hr: sirup od cikle
+it: sciroppo di barbabietola
+# TODO : merge with en:sugar beet syrup ?
+
+< en:beetroot
+en: beetroot juice
+bg: сок от цвекло
+cs: šťáva z červené řepy
+de: Randensaft
+es: jugo de remolacha
+fi: punajuurimehu, punajuuritäysmehu
+fr: jus de betterave
+hr: sok od cikle
+it: succo di barbabietola
+nl: bietensap
+no: rødbetsaft
+pl: sok z buraka, sok buraczany
+sv: rödbetsjuice
+# fr:jus-de-betterave has 46 products in 3 languages @2018-10-22
+
+< en:beetroot juice
+en: beetroot juice concentrate
+da: rødbedejuice fra koncentrat
+de: Randensaft aus Konzentrat
+es: Jugo de remolacha concentrado.
+fi: punajuurimehutiiviste
+fr: jus de betterave concentré, jus concentré de betterave
+hr: koncentrirani sok od cikle, ugośćeni sok cikle, koncentrirani sok od cikle za bojenje
+it: succo concentrato di barbabietola
+nl: bietensapconcentraat, rode bietensapconcentraat
+pl: koncentrat soku z buraka
+sk: koncentrát šťavy z cvikly
+# fr:jus-de-betterave-concentré has 71 products in 4 languages @2018-10-22
+
+< en:beetroot
+fr: concentré de betterave
+bg: концентрат от цвекло
+cs: koncentrát z červené řepy
+de: Rote-Bete-Konzentrat
+es: concentrado de remolacha
+fi: punajuuritiiviste
+it: concentrato di barbabietola
+ja: ビーツ濃縮液
+lt: raudonųjų burokėlių koncentratas
+pl: koncentrat z buraka
+pt: concentrado de beterraba
+ru: концентрат свеклы
+sk: koncentrát z cvikly
+sv: rödbetskoncentrat
+
+< en:beetroot
+# <en:fibre
+fr: fibres de betterave
+fi: juurikaskuitu
+sv: betfiber
+#  fr:fibres-de-betterave has 43 products in 1 language @2018-10-22
+
+# description:en:As beetroots do not have to be red, the red ones are kept separate
+
+< en:beetroot
+en: red beetroot
+bg: червено цвекло
+cs: červená řepa
+de: Rote Bete, Rote Beete
+es: Remolacha roja
+fr: betterave rouge, betteraves rouges
+hr: crvena cikla
+it: barbabietole rosse
+ja: 赤ビーツ
+lt: raudonieji burokėliai
+nl: rode biet
+pl: burak czerwony, buraki czerwone, buraków czerwonych, buraka czerwonego, czerwony burak, czerwone buraki, czerwonych buraków, czerwonego buraka
+pt: beterraba vermelha
+# fr:betterave-rouge has 298 products in 6 languages @2018-10-22
+ciqual_food_code:en: 20091
+ciqual_food_name:fr: Betterave rouge, crue
+
+< en:beetroot juice
+< en:red beetroot
+en: red beetroot juice
+de: Rote Betesaft, Rote Bete Saft
+#es:zumo de remolacha roja, jugo de remolacha roja
+#fr:jus de betterave rouge
+#it:succo di barbabietole rosse
+#nl:rodebietensap
+# fr:jus-de-betterave-rouge has 38 products @2018-10-21
+
+< en:beetroot juice concentrate
+< en:red beetroot juice
+en: red beetroot juice concentrate
+de: Rote Bete-Saftkonzentrat, Rote Betesaft aus Fruchtsaftkonzentrat
+#fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
+#nl:geconcentreerd rodebietensap
+# fr:jus-de-betterave-rouge-concentré has 37 products in 4 languages @2018-10-21
+
+< en:beetroot
+en: beetroot sprouts
+de: Rote-Bete-Sprossen
+es: germen de remolacha
+fi: punajuuren idut
+fr: pousses de betterave
+hr: klice cikle
+it: germogli di barbabietola
+nl: bietenkiemen
+pl: kiełki buraka
+# en:beetroot-sprouts has 1 product in 1 language @2018-10-21
+
 # description:en:HEART OF PALM is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
 
 # <en:category:en:Fresh plant-based foods
@@ -57000,180 +57184,6 @@ de: Galactooligosaccharide aus Lactose
 fr: Galacto-oligosaccharides - issus du lactose
 hr: galaktooligosaharidi koji sadrže laktozu
 it: Galatto-oligosaccaridi di lattosio
-
-# description:en:BEETROOT is the taproot portion of the beet plant
-
-#comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
-< en:root vegetable
-< en:taproot vegetable
-en: beetroot, beet, beet root
-af: Beet
-bg: цвекло
-ca: remolatxa
-da: rødbede, rødbeder
-de: Rüben, Randen
-es: remolacha, betarraga
-fi: punajuuri
-fr: betterave, betteraves
-he: סלק
-hr: cikla, cikle, cikle u boji
-hu: cékla
-it: barbabietola
-ja: ビーツ
-lt: Burokas, burokėlis, jauni burokėliai
-nl: biet, bieten
-no: rødbete
-pl: burak, buraki, buraka, buraków, burak ćwikłowy, buraki ćwikłowe, buraka ćwikłowego, buraków ćwikłowych
-pt: beterraba
-ru: Свёкла
-sk: cvikly
-sv: rödbeta, rödbetor, rödbets
-carbon_footprint_fr_foodges_ingredient:fr: Betteraves
-carbon_footprint_fr_foodges_value:fr: 0.2
-# en:beetroot has 319 products in 5 languages @2018-10-22
-ciqual_proxy_food_code:en: 20091
-ciqual_proxy_food_name:fr: Betterave rouge, crue
-ecobalyse:en: beetroot-fr
-ecobalyse_labels_en_organic:en: beetroot-organic
-eurocode_2_group_3:en: 8.38.55
-ifct_food_code:en: F001
-ifct_food_name:en: Beet root
-wikidata:en: Q99548274
-wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
-
-< en: red beetroot
-en: cooked red beetroot
-fr: betteraves rouges entieres cuites
-it: barbabietola rossa cotta
-
-# Sometimes it is indicated as a colour.
-
-< en:beetroot
-en: beetroot powder
-#en:processing:en:powder
-#bg:цвекло на прах
-#ca:remolatxa en pols
-#de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
-de: färbendes Lebensmittel Rote Bete Pulver
-it: polvere di barbabietola
-ro: pudră de sfeclă roșie
-#es:remolacha en polvo
-#fi:punajuurijauhe
-#fr:poudre de betterave
-#it:Polvere di barbabietola
-#pl:burak w proszku, proszek z buraka
-# fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
-
-< en:beetroot
-en: beetroot syrup
-de: Rote-Beete-Sirup
-es: sirope de remolacha, jarabe de remolacha
-hr: sirup od cikle
-it: sciroppo di barbabietola
-# TODO : merge with en:sugar beet syrup ?
-
-< en:beetroot
-en: beetroot juice
-bg: сок от цвекло
-cs: šťáva z červené řepy
-de: Randensaft
-es: jugo de remolacha
-fi: punajuurimehu, punajuuritäysmehu
-fr: jus de betterave
-hr: sok od cikle
-it: succo di barbabietola
-nl: bietensap
-no: rødbetsaft
-pl: sok z buraka, sok buraczany
-sv: rödbetsjuice
-# fr:jus-de-betterave has 46 products in 3 languages @2018-10-22
-
-< en:beetroot juice
-en: beetroot juice concentrate
-da: rødbedejuice fra koncentrat
-de: Randensaft aus Konzentrat
-es: Jugo de remolacha concentrado.
-fi: punajuurimehutiiviste
-fr: jus de betterave concentré, jus concentré de betterave
-hr: koncentrirani sok od cikle, ugośćeni sok cikle, koncentrirani sok od cikle za bojenje
-it: succo concentrato di barbabietola
-nl: bietensapconcentraat, rode bietensapconcentraat
-pl: koncentrat soku z buraka
-sk: koncentrát šťavy z cvikly
-# fr:jus-de-betterave-concentré has 71 products in 4 languages @2018-10-22
-
-< en:beetroot
-fr: concentré de betterave
-bg: концентрат от цвекло
-cs: koncentrát z červené řepy
-de: Rote-Bete-Konzentrat
-es: concentrado de remolacha
-fi: punajuuritiiviste
-it: concentrato di barbabietola
-ja: ビーツ濃縮液
-lt: raudonųjų burokėlių koncentratas
-pl: koncentrat z buraka
-pt: concentrado de beterraba
-ru: концентрат свеклы
-sk: koncentrát z cvikly
-sv: rödbetskoncentrat
-
-< en:beetroot
-# <en:fibre
-fr: fibres de betterave
-fi: juurikaskuitu
-sv: betfiber
-#  fr:fibres-de-betterave has 43 products in 1 language @2018-10-22
-
-# description:en:As beetroots do not have to be red, the red ones are kept separate
-
-< en:beetroot
-en: red beetroot
-bg: червено цвекло
-cs: červená řepa
-de: Rote Bete, Rote Beete
-es: Remolacha roja
-fr: betterave rouge, betteraves rouges
-hr: crvena cikla
-it: barbabietole rosse
-ja: 赤ビーツ
-lt: raudonieji burokėliai
-nl: rode biet
-pl: burak czerwony, buraki czerwone, buraków czerwonych, buraka czerwonego, czerwony burak, czerwone buraki, czerwonych buraków, czerwonego buraka
-pt: beterraba vermelha
-# fr:betterave-rouge has 298 products in 6 languages @2018-10-22
-ciqual_food_code:en: 20091
-ciqual_food_name:fr: Betterave rouge, crue
-
-< en:beetroot juice
-< en:red beetroot
-en: red beetroot juice
-de: Rote Betesaft, Rote Bete Saft
-#es:zumo de remolacha roja, jugo de remolacha roja
-#fr:jus de betterave rouge
-#it:succo di barbabietole rosse
-#nl:rodebietensap
-# fr:jus-de-betterave-rouge has 38 products @2018-10-21
-
-< en:beetroot juice concentrate
-< en:red beetroot juice
-en: red beetroot juice concentrate
-de: Rote Bete-Saftkonzentrat, Rote Betesaft aus Fruchtsaftkonzentrat
-#fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
-#nl:geconcentreerd rodebietensap
-# fr:jus-de-betterave-rouge-concentré has 37 products in 4 languages @2018-10-21
-
-< en:beetroot
-en: beetroot sprouts
-de: Rote-Bete-Sprossen
-es: germen de remolacha
-fi: punajuuren idut
-fr: pousses de betterave
-hr: klice cikle
-it: germogli di barbabietola
-nl: bietenkiemen
-pl: kiełki buraka
-# en:beetroot-sprouts has 1 product in 1 language @2018-10-21
 
 en: Konjac
 de: Konjak
