@@ -51986,33 +51986,6 @@ eurocode_2_group_3:en: 8.15.20
 wikidata:en: Q154013
 wikipedia:en: https://en.wikipedia.org/wiki/Savoy_cabbage
 
-# description:en:GAI LAN (Brassica oleracea var. alboglabra) is a leaf vegetable with thick, flat, glossy blue-green leaves with thick stems, and florets similar to (but much smaller than) broccoli
-
-< en:cabbage
-en: gai lan, chinese broccoli, chinese kale, gai-lan, kailan, kai-lan
-ca: bròquil xinès
-de: kai-lan
-eo: ĉina brokolo
-es: brassica oleracea var. alboglabra
-eu: kai-lan
-fa: کلم‌برگ چینی
-fi: härmekaali, kiinanbrokkoli, kailaan
-fr: brocoli chinois
-he: ברוקולי סיני
-hr: gai lan
-id: kailan
-it: brassica oleracea var. alboglabra
-ja: カイラン
-ko: 가이란
-ms: kailan
-nl: kailan
-sv: daggkål, kinesisk broccoli
-th: คะน้า
-za: byaekgaiqlanz
-zh: 芥藍
-wikidata:en: Q1677369
-wikipedia:en: https://en.wikipedia.org/wiki/Gai_lan
-# ingredient/en:gai-lan has 2 products in 1 language @2020-06-13
 
 # description:en:SAUERKRAUT (lit. 'sour cabbage') is finely cut raw cabbage that has been fermented by various lactic acid bacteria.
 
@@ -53777,6 +53750,47 @@ usda_ndb_code:en: 11100
 usda_ndb_name:en: Brussels sprouts, frozen, unprepared
 
 # description:en:HEART OF PALM is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
+
+
+###################################################################################################
+#
+#                                Chinese broccoli
+#
+###################################################################################################
+
+< en:cabbage
+en: gai lan, chinese broccoli, chinese kale, gai-lan, kailan, kai-lan
+ca: bròquil xinès
+de: kai-lan
+eo: ĉina brokolo
+es: brassica oleracea var. alboglabra
+eu: kai-lan
+fa: کلم‌برگ چینی
+fi: härmekaali, kiinanbrokkoli, kailaan
+fr: brocoli chinois
+he: ברוקולי סיני
+hr: gai lan
+id: kailan
+it: brassica oleracea var. alboglabra
+ja: カイラン
+ko: 가이란
+ms: kailan
+nl: kailan
+sv: daggkål, kinesisk broccoli
+th: คะน้า
+za: byaekgaiqlanz
+zh: 芥藍
+description:en: Chinese broccoli (also called gai lan or kai lan, 芥蓝) is actually a distinct vegetable from regular broccoli, though they're related. Both belong to the Brassica oleracea species and the broader cabbage family. Gai lan has long, thick green stalks with flat, broad leaves and small, scattered flower buds. Western broccoli has a large, compact floret head on a thick stalk. It's slightly more bitter and robust than regular broccoli, with an earthy, slightly peppery flavor.
+usda_ndb_proxy_code:en: 11994
+usda_ndb_proxy_name:en: Broccoli, chinese, raw
+wikidata:en: Q1677369
+wikipedia:en: https://en.wikipedia.org/wiki/Gai_lan
+# ingredient/en:gai-lan has 2 products in 1 language @2020-06-13
+
+< en:gai lan
+en: raw chinese broccoli
+usda_ndb_code:en: 11994
+usda_ndb_name:en: Broccoli, chinese, raw
 
 # <en:category:en:Fresh plant-based foods
 < en:shoot vegetable
