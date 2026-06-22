@@ -69133,7 +69133,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sumac
 #                                Tarragon
 #
 ###################################################################################################
-# description:en:TARRAGON (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
 
 < en:herb
 en: tarragon
@@ -69197,12 +69196,6 @@ tr: tarhun
 uk: тархун
 uz: sherolgʻin
 zh: 龍蒿
-ciqual_food_code:en: 11092
-ciqual_food_name:en: Tarragon, fresh
-ciqual_food_name:fr: Estragon, frais
-# 779 in 15 @2021-09-16
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.68
 # azb:ترخون
 # hsb:estragon
 # kk-arab:شىرعالجىڭ
@@ -69223,9 +69216,30 @@ eurocode_2_group_3:en: 12.20.68
 # zh-hk:龍蒿
 # zh-sg:龙蒿
 # zh-tw:龍蒿
+ciqual_proxy_food_code:en: 11092
+ciqual_proxy_food_name:en: Tarragon, fresh
+ciqual_proxy_food_name:fr: Estragon, frais
+description:en: TARRAGON (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.68
+usda_ndb_proxy_code:en: 2041
+usda_ndb_proxy_name:en: Spices, tarragon, dried
 #plant: wikidata:en:Q155814
 wikidata:en: Q103554747
 wikipedia:en: https://en.wikipedia.org/wiki/Tarragon
+# 779 in 15 @2021-09-16
+
+< en:tarragon
+en: fresh tarragon
+fr: tarragon frais
+ciqual_food_code:en: 11092
+ciqual_food_name:en: Tarragon, fresh
+ciqual_food_name:fr: Estragon, frais
+
+< en:tarragon
+en: dried tarragon
+usda_ndb_code:en: 2041
+usda_ndb_name:en: Spices, tarragon, dried
 
 #processing:en: eb:leaf
 #<en:tarragon
