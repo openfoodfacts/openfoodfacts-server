@@ -66584,7 +66584,6 @@ usda_ndb_name:en: Spices, mace, ground
 #                                Turmeric
 #
 ###################################################################################################
-# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. Note that turmeric contains some curcumine (E100).
 
 # <en:root vegetable
 < en:spice
@@ -66688,8 +66687,11 @@ zh: 薑黃
 ciqual_proxy_food_code:en: 11089
 ciqual_proxy_food_name:en: Turmeric, powder
 ciqual_proxy_food_name:fr: Curcuma, poudre
-ifct_food_code:en: G033
-ifct_food_name:en: Turmeric powder
+description:en: TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. Note that turmeric contains some curcumine (E100).
+ifct_proxy_food_code:en: G033
+ifct_proxy_food_name:en: Turmeric powder
+usda_ndb_proxy_code:en: 2043
+usda_ndb_proxy_name:en: Spices, turmeric, ground
 wikidata:en: Q42562
 wikipedia:en: https://en.wikipedia.org/wiki/Turmeric
 # 19427s in 32 @2021-09-18
@@ -66709,6 +66711,10 @@ pl: kurkuma w proszku, sproszkowana kurkuma, przyprawa kurkuma, kurkuma mielona,
 ciqual_food_code:en: 11089
 ciqual_food_name:en: Turmeric, powder
 ciqual_food_name:fr: Curcuma, poudre
+ifct_food_code:en: G033
+ifct_food_name:en: Turmeric powder
+usda_ndb_code:en: 2043
+usda_ndb_name:en: Spices, turmeric, ground
 #500  @2021-09-18
 
 # moved to E100
