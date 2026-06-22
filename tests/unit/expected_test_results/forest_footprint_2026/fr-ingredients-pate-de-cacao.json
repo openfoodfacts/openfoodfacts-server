@@ -3,41 +3,30 @@
       "grade" : "d",
       "primary_ingredients" : {
          "en:cocoa" : {
-            "footprint_per_kg" : 0.786,
+            "footprint_per_kg" : 0.393,
             "grade" : "d",
             "ingredients" : [
                {
-                  "deforestation_risk" : 1,
                   "equivalence_ingredient" : 1,
-                  "equivalence_ingredient_category" : 2,
-                  "footprint_per_kg" : 0.786,
-                  "grade" : "d",
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.393,
                   "ingredient_category_id" : "en:cocoa-paste",
                   "ingredient_id" : "en:cocoa-paste",
                   "label_id" : null,
-                  "labels_ids" : [],
                   "origin_footprint" : 0.393,
                   "origin_id" : "en:brazil",
                   "percent" : 100,
                   "primary_ingredient" : "cocoa",
                   "primary_ingredient_id" : "en:cocoa",
                   "risk_factor" : 1,
-                  "transformation_factor" : 2
+                  "transformation_factor" : 1
                }
             ]
          },
-         "en:coffee" : {
-            "footprint_per_kg" : 0,
-            "grade" : "a",
-            "ingredients" : []
-         },
-         "en:palm-oil" : {
-            "footprint_per_kg" : 0,
-            "grade" : "a",
-            "ingredients" : []
-         }
+         "en:coffee" : {},
+         "en:palm-oil" : {}
       },
-      "total_footprint_per_kg" : 0.786
+      "total_footprint_per_kg" : 0.393
    },
    "ingredients" : [
       {

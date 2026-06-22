@@ -1,17 +1,13 @@
 ingredient_fr	ingredient_id	ingredient_category_fr	ingredient_category_id	equivalence
 cacao	en:cocoa	cacao	en:cocoa	1
-pâte et beurre de cacao	en:cocoa-mass-and-cocoa-butter	pâte de cacao	en:cocoa-paste	1,2
+pâte et beurre de cacao	en:cocoa-mass-and-cocoa-butter	pâte de cacao	en:cocoa-paste	1
 pâte de cacao	en:cocoa-paste	pâte de cacao	en:cocoa-paste	1
-beurre de cacao	en:cocoa-butter	pâte de cacao	en:cocoa-paste	1,5
+beurre de cacao	en:cocoa-butter	pâte de cacao	en:cocoa-paste	1
 fèves de cacao	en:cocoa-bean	 fèves de cacao	en:cocoa-bean	1
+
+café	en:coffee	café	en:coffee	1,25		
 				
-				
-				
-café	en:coffee	café	en:coffee	1,25
-				
-				
-				
-huile de palme	en:palm-oil	huile de palme	en:palm-oil	1
-huile de palmiste	en:palm-kernel-oil	huile de palme	en:palm-oil	1
-matière grasse de palme	en:palm-fat	huile de palme	en:palm-oil	1
+huile et matière grasse de palme	en:palm-oil	huile de palme	en:palm-oil	1
+huile et matière grasse de palmiste	en:palm-kernel-oil	huile de palme	en:palm-oil	1
 palme	en:palm	huile de palme	en:palm-oil	1
+palmiste	en:palm	huile de palme	en:palm-oil	1

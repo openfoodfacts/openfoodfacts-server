@@ -274,6 +274,7 @@ sub load_labels_risk ($) {
 			next if $row_ref->{label_fr} eq "";
 
 			my $label_id = $row_ref->{label_id};
+			my $primary_ingredient_id = $row_ref->{primary_ingredient_id};
 
 			if ($label_id eq "") {
 				$log->warn("label_fr has no label_id", {label_fr => $row_ref->{label_fr}})
@@ -281,11 +282,17 @@ sub load_labels_risk ($) {
 				next;
 			}
 
-			$forest_footprint_2026_data{labels_risk}{$label_id} = {
-				cocoa => _parse_decimal($row_ref->{"cocoa.footprint"}),
-				coffee => _parse_decimal($row_ref->{"coffee.footprint"}),
-				"palm-oil" => _parse_decimal($row_ref->{"palm-oil.footprint"}),
-			};
+			if ($primary_ingredient_id eq "") {
+				$log->warn("label_fr has no primary_ingredient_id", {label_fr => $row_ref->{label_fr}})
+					if $log->is_warn();
+				next;
+			}
+
+			my $primary_ingredient = get_primary_ingredient_name($primary_ingredient_id);
+			my $footprint = _parse_decimal($row_ref->{footprint});
+
+			# Key by label_id for backward compatibility
+			$forest_footprint_2026_data{labels_risk}{$label_id}{$primary_ingredient} = $footprint;
 		}
 
 		close($io);
@@ -637,7 +644,7 @@ sub get_label_risk_data {
 			next if not defined $label_tag or $label_tag eq "";
 			if (exists $forest_footprint_2026_data{labels_risk}{$label_tag}) {
 				my $label_data = $forest_footprint_2026_data{labels_risk}{$label_tag};
-				if (defined $label_data->{$primary_ingredient}) {
+				if (exists $label_data->{$primary_ingredient}) {
 					my $label_risk = $label_data->{$primary_ingredient} / 100;
 					if ($label_risk < $risk_factor) {
 						$risk_factor = $label_risk;
@@ -760,8 +767,9 @@ sub calculate_forest_footprint_2026_grade ($) {
 		my $grade_score = _grade_to_score($grade);
 
 		# Only consider if this primary ingredient is present (has ingredients)
-		if (defined $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}
-			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}} > 0)
+		if (   defined $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}
+			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}} > 0
+			&& defined $grade)
 		{
 			if ($grade_score > $final_grade_score) {
 				$final_grade = $grade;
@@ -829,7 +837,8 @@ sub _grade_to_score {
 	my ($grade) = @_;
 
 	# Convert grade to numeric score for comparison
-	# a=0 (best), b=1, c=2, d=3 (worst), ""=-1 (not applicable)
+	# a=0 (best), b=1, c=2, d=3 (worst), undef/""=-1 (not applicable)
+	return -1 unless defined $grade;
 	if ($grade eq "a") {
 		return 0;
 	}

@@ -136,6 +136,26 @@ my @tests = (
 		}
 	],
 	[
+		'fr-ingredients-cocoa-and-palm-oil-with-rspo-label',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:cocoa",
+					percent => 50,
+					text => "cacao",
+				},
+				{
+					id => "en:palm-oil",
+					percent => 50,
+					text => "huile de palme",
+				}
+			],
+			origins_tags => ["en:unknown"],
+			labels_tags => ["en:rspo"],
+		}
+	],
+	[
 		'fr-chocolate-cookies',
 		{
 			lc => "fr",

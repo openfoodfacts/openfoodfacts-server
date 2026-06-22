@@ -1,0 +1,70 @@
+{
+   "forest_footprint_2026" : {
+      "grade" : "c",
+      "primary_ingredients" : {
+         "en:cocoa" : {
+            "footprint_per_kg" : 0.148,
+            "grade" : "c",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.148,
+                  "ingredient_category_id" : "en:cocoa",
+                  "ingredient_id" : "en:cocoa",
+                  "label_id" : null,
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 50,
+                  "primary_ingredient" : "cocoa",
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         },
+         "en:coffee" : {},
+         "en:palm-oil" : {
+            "footprint_per_kg" : 0.004125,
+            "grade" : "c",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.004125,
+                  "ingredient_category_id" : "en:palm-oil",
+                  "ingredient_id" : "en:palm-oil",
+                  "label_id" : "en:rspo",
+                  "origin_footprint" : 0.055,
+                  "origin_id" : "en:unknown",
+                  "percent" : 50,
+                  "primary_ingredient" : "palm-oil",
+                  "primary_ingredient_id" : "en:palm-oil",
+                  "risk_factor" : 0.15,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "total_footprint_per_kg" : 0.152125
+   },
+   "ingredients" : [
+      {
+         "id" : "en:cocoa",
+         "percent" : 50,
+         "text" : "cacao"
+      },
+      {
+         "id" : "en:palm-oil",
+         "percent" : 50,
+         "text" : "huile de palme"
+      }
+   ],
+   "labels_tags" : [
+      "en:rspo"
+   ],
+   "lc" : "fr",
+   "origins_tags" : [
+      "en:unknown"
+   ]
+}
