@@ -51182,7 +51182,6 @@ usda_ndb_name:en: Purslane, raw
 #                                Parsley
 #
 ###################################################################################################
-# description:en:PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
 
 #category/parsley
 < en:herb
@@ -51281,6 +51280,7 @@ zh: 香芹
 ciqual_proxy_food_code:en: 11014
 ciqual_proxy_food_name:en: Parsley, fresh
 ciqual_proxy_food_name:fr: Persil, frais
+description:en: PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
 eurocode_2_group_2:en: 8.10
 eurocode_2_group_3:en: 8.10.60
 ifct_food_code:en: C028
@@ -51309,15 +51309,17 @@ en: flatleaf parsley
 it: prezzemolo a foglia piatta
 
 #processing:en: en:dehydrated
-#<en:parsley
-#en:dehydrated parsley
-#de:Petersilie getrocknet
-#es:perejil deshidratado
-#fi:kuivattu persilja
-#fr:persil déshydraté, persil séché
-#it:prezzemolo essiccato
-#nl:Gedehydrateerde peterselie
-#ru:зелень петрушки сушёная
+< en:parsley
+en: dehydrated parsley
+de: Petersilie getrocknet
+es: perejil deshidratado
+fi: kuivattu persilja
+fr: persil déshydraté, persil séché
+it: prezzemolo essiccato
+nl: gedehydrateerde peterselie
+ru: зелень петрушки сушёная
+usda_ndb_code:en: 2029
+usda_ndb_name:en: Spices, parsley, dried
 # fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
 
 #processing:en: en:leaf
