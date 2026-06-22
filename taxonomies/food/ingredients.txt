@@ -69848,16 +69848,6 @@ uk: шавлія
 ur: مریم گلی
 vi: xô thơm
 zh: 鼠尾草
-ciqual_food_code:en: 11069
-ciqual_food_name:en: Sage, fresh
-ciqual_food_name:fr: Sauge, fraîche
-# 1379 in 15 @2021-09-16
-# TODO: split
-#ciqual_food_code:en:11037
-#ciqual_food_name:en:Sage, dried
-#ciqual_food_name:fr:Sauge, séchée
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.62
 # hsb:želbija
 # sah:шалфей
 # sr-ec:жалфија
@@ -69868,9 +69858,35 @@ eurocode_2_group_3:en: 12.20.62
 # zh-hant:鼠尾草
 # zh-hk:鼠尾草
 # zh-tw:鼠尾草
-#plant:
+ciqual_proxy_food_code:en: 11069
+ciqual_proxy_food_name:en: Sage, fresh
+ciqual_proxy_food_name:fr: Sauge, fraîche
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.62
+usda_ndb_proxy_code:en: 2038
+usda_ndb_proxy_name:en: Spices, sage, ground
 wikidata:en: Q1111359
 wikipedia:en: https://en.wikipedia.org/wiki/Salvia_officinalis
+# 1379 in 15 @2021-09-16
+
+< en:sage
+en: fresh sage
+fr: sauge fraîche
+ciqual_food_code:en: 11069
+ciqual_food_name:en: Sage, fresh
+ciqual_food_name:fr: Sauge, fraîche
+
+< en:sage
+en: dried sage
+fr: sauge séchée
+ciqual_food_code:en:11037
+ciqual_food_name:en:Sage, dried
+ciqual_food_name:fr:Sauge, séchée
+
+< en:sage
+en: ground sage
+usda_ndb_code:en: 2038
+usda_ndb_name:en: Spices, sage, ground
 
 < en:sage
 en: sage oil
