@@ -1355,19 +1355,19 @@ while (my $product_ref = $cursor->next) {
 					# Float issue, we can get things like 0.18000001, convert back to string and remove extra digit
 					# also 0.00999999925 or 0.00089999995
 					my $salt = $product_ref->{nutriments}{salt_value};
-					if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
-						$salt = $` . '.' . $1;
+					if ($salt =~ /^([^.]+)\.(\d*?[1-9]\d*?)0{2}/) {
+						$salt = $1 . '.' . $2;
 					}
-					if ($salt =~ /\.(\d+)([0-8]+)9999/) {
-						$salt = $` . '.' . $1 . ($2 + 1);
+					if ($salt =~ /^([^.]+)\.(\d+)([0-8]+)9999/) {
+						$salt = $1 . '.' . $2 . ($3 + 1);
 					}
 					$salt = $salt * 1000;
 					# The divided by 1000 value may have been of the form 9.99999925e-06: try again
-					if ($salt =~ /\.(\d*?[1-9]\d*?)0{2}/) {
-						$salt = $` . '.' . $1;
+					if ($salt =~ /^([^.]+)\.(\d*?[1-9]\d*?)0{2}/) {
+						$salt = $1 . '.' . $2;
 					}
-					if ($salt =~ /\.(\d+)([0-8]+)9999/) {
-						$salt = $` . '.' . $1 . ($2 + 1);
+					if ($salt =~ /^([^.]+)\.(\d+)([0-8]+)9999/) {
+						$salt = $1 . '.' . $2 . ($3 + 1);
 					}
 					$comment = "changing salt value from " . $product_ref->{nutriments}{salt_value} . " to " . $salt;
 
