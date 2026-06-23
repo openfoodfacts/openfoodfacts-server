@@ -2468,7 +2468,6 @@ en: whipped butter whipped with salt
 usda_ndb_code:en: 1002
 usda_ndb_name:en: Butter, whipped, with salt
 
-
 < en:butter
 en: churned butter
 ca: mantega batuda
@@ -5753,6 +5752,7 @@ hu: tehénsajt
 it: formaggio vaccino
 nl: koekaas
 pl: ser krowi, krowi ser
+ro: brânză de vaci
 
 < en:cow cheese
 fr: fromage au lait de vache bio thermisé
@@ -14638,7 +14638,10 @@ pl: tłuszcz całkowicie uwodorniony, tłuszcze całkowicie uwodornione
 en: shortening
 
 < en:shortening
-en: vegetable shortening
+en: household shortening
+
+< en:shortening
+en: industrial shortening
 
 ######################################## animal fat #################################
 
@@ -15086,6 +15089,14 @@ fi: kasvirasvavalmiste
 sv: vegetabilisk fettprodukt
 # usage:fr:préparation de matières grasses végétales (graisse de palme, huile de colza, colorant : caroténoïdes)
 
+< en:shortening
+< en:vegetable fat
+en: vegetable shortening
+
+< en:hydrogenated vegetable fat
+< en:vegetable shortening
+en: hydrogenated vegetable shortening
+
 < en:vegetable oil and fat
 en: non hydrogenated vegetable oil and fat, non hydrogenated vegetable oils and fats, vegetable oils and fats non hydrogenated
 bg: нехидрогенирани растителни масла и мазнини
@@ -15161,16 +15172,22 @@ it: oli vegetali non idrogenati
 < en:hydrogenated oil
 < en:vegetable oil
 en: hydrogenated vegetable oil
+da: hærdet vegetabilsk olie
 de: pflanzliches Öl gehärtet
 es: aceite vegetal hidrogenado
 fr: huile végétale hydrogénée
 hr: hidrogenirano biljno ulje
 hu: hidrogénezett növényi olaj
 it: Olio vegetale idrogenato
+sv: härdade vegetabiliska oljor
 tr: hidrojene bitkisel yağ
 
 < en:hydrogenated vegetable oil
-en: fully hydrogenated vegetable oils
+en: partially hydrogenated vegetable oil
+da: delvist hærdet vegetabilsk olie
+
+< en:hydrogenated vegetable oil
+en: fully hydrogenated vegetable oil, fully hydrogenated vegetable oils
 da: helt hærdet vegetabilsk olie
 de: Ganz gehärtete pflanzliche Öle, Vollständig hydrierte pflanzliche Öle
 fi: kokonaan kovetetut kasviöljyt
@@ -15182,14 +15199,25 @@ ru: дезодорированные растительные масла
 sv: fullhärdade vegetabiliska oljor
 # ingredient/en:fully-hydrogenated-vegetable-oils has 130 products in 2 languages @2020-06-08
 
-###################### specific oils in alphabetical order 
+###################### specific oils in alphabetical order
 
-< en:vegetable oil and fat
+< en:vegetable oil
+en: almond oil
+bg: бадемово олио
+de: Mandelöl
+fr: huile d'amande
+hr: bademovo ulje
+it: olio di mandorle
+nl: amandelolie
+usda_ndb_code:en: 4529
+usda_ndb_name:en: Oil, almond
+
+< en:vegetable oil
 en: apricot kernel oil
 usda_ndb_code:en: 4530
 usda_ndb_name:en: Oil, apricot kernel
 
-< en:vegetable oil and fat
+< en:vegetable oil
 en: argan oil
 ar: زيت أركان
 az: Arqan yağı
@@ -15225,13 +15253,34 @@ description:en: argan oil is found in argan tree
 wikipedia:en: Q45418
 
 < en:vegetable oil
+en: avocado oil
+bg: авокадово масло, авокадово олио
+da: avocadoolie
+de: Avocadoöl
+es: Aceite de aguacate
+fi: avokadoöljy
+fr: huile d'avocat
+hr: ulje avokada
+hu: avokádóolaj
+it: olio di avocado
+nb: avokadoolje
+nl: avocado-olie, avocado olie
+pl: olej z awokado
+sv: avokadoolja
+from_palm_oil:en: no
+usda_ndb_code:en: 4581
+usda_ndb_name:en: Oil, avocado
+wikidata:en: Q2918735
+
+< en:palm oil
 en: babassu oil, babassu
 hr: babasu
 it: babassu
-comment:en: should this count as palm oil? Babassu oil is a light, natural vegetable oil extracted from the seeds of the babassu palm tree (Orbignya phalerata), native to the Amazon rainforest region of Brazil. It's also valued for its sustainability credentials, as harvesting supports traditional Amazonian communities (particularly women harvesters known as quebradeiras de coco).
+comment:en: should this count as palm oil?
+description:en: Babassu oil is a light, natural vegetable oil extracted from the seeds of the babassu palm tree (Orbignya phalerata), native to the Amazon rainforest region of Brazil. It's also valued for its sustainability credentials, as harvesting supports traditional Amazonian communities (particularly women harvesters known as quebradeiras de coco).
 usda_ndb_code:en: 4534
 usda_ndb_name:en: Oil, babassu
-wikidata:en: Q239507
+wikidata:en: Q797592
 
 < en:vegetable oil
 en: camelina oil
@@ -15253,7 +15302,8 @@ fr: huile de noix de cajou
 hr: ulje indijskih oraha
 it: olio di anacardi
 
-< en:vegetable oil
+< en:cocoa
+< en:vegetable fat
 en: cocoa butter, cacao butter, cocoa fat
 ar: زبدة الكاكاو
 bg: какаово масло
@@ -15310,6 +15360,7 @@ ciqual_food_code:en: 16030
 ciqual_food_name:en: Cocoa butter
 ciqual_food_name:fr: Beurre de cacao
 description:en: COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
+from_palm_oil:en: no
 usda_ndb_code:en: 4501
 usda_ndb_name:en: Oil, cocoa butter
 wikidata:en: Q251106
@@ -15333,6 +15384,117 @@ hr: čisti kakao maslac
 it: Burro cocco puro
 nl: puur cacaoboter
 # ingredient/fr:pur-beurre-de-cacao has 74 products @2019-05-25
+
+< en:vegetable oil
+en: corn oil, maize oil
+ar: زيت الذرة
+be: Кукурузны алей
+bg: Царевично олио, царевично, царевично масло
+ca: Oli de blat de moro
+da: Majsolie
+de: Maiskeimöl, Maisöl
+el: Αραβοσιτέλαιο
+eo: Maizoleo
+es: Aceite de maíz
+eu: Arto olio
+fa: روغن ذرت
+fi: Maissiöljy
+fr: huile de maïs
+gl: Aceite de millo
+he: שמן תירס
+hr: kukuruzno ulje, u različitim omjerima ulja
+hu: kukoricaolaj
+id: Minyak jagung
+it: Olio di semi di mais, olio di mais
+ja: コーン油, とうもろこし油
+kk: Жүгері майы
+ko: 옥수수기름
+lt: Kukurūzų aliejus
+nb: Maisolje
+nl: Maïskiemolie, Maïsolie, maisolie
+pl: Olej kukurydziany, olej z kukurydzy
+pt: Óleo de milho
+ro: ulei de porumb
+ru: Кукурузное масло
+tr: mısır yağı, mısırözü yağı
+uk: Кукурудзяна олія
+zh: 粟米油
+# yue:粟米油
+ciqual_food_code:en: 17190
+ciqual_food_name:en: Maize/corn oil
+ciqual_food_name:fr: Huile de maïs
+description:en: Corn oil (maize oil) is oil extracted from the germ of corn (maize).
+description:de: Maiskeimöl (Maisöl) ist ein Speiseöl, das aus dem fetthaltigen Keim des Maiskorns gewonnen wird.
+description:es: El aceite de maíz es un aceite extraído del germen de maíz.
+description:fr: L'huile de maïs est une huile végétale extraite du grain de maïs.
+description:it: L'olio di semi di mais è un olio estratto dai germi dei semi di Zea mays.
+description:nl: Olie uit de zaden van Zea mays.
+description:pt: O óleo de milho é um óleo vegetal extraído a partir da prensagem de grãos de milho.
+from_palm_oil:en: no
+usda_ndb_code:en: 42289
+usda_ndb_name:en: Oil, corn and canola
+wikidata:en: Q856775
+wikipedia:en: https://en.wikipedia.org/wiki/Corn_oil
+# ingredient/corn-oil 5402 in 18 @2021-0-20
+
+< en:vegetable fat
+en: cottonseed fat
+de: Baumwollsaatfett, Baumwollfett
+fr: matières grasses de coton, matières grasses végétales de coton
+hr: mast sjemenki pamuka
+it: grasso di semi di cotone
+from_palm_oil:en: no
+
+< en:vegetable oil
+en: cottonseed oil, cotton seed oil
+ar: زيت بذرة القطن
+az: Pambıq yağı
+be: Баваўняны алей
+bg: памучно масло
+ca: Oli de llavors de cotó
+de: Baumwollsaatöl, Baumwollsamenöl
+el: Βαμβακέλαιο
+es: aceite de algodón
+fa: روغن پنبه‌دانه
+fi: puuvillansiemenöljy
+fr: huile de coton, graines de coton
+hr: ulje sjemenki pamuka
+hu: pamutmagolaj
+id: Minyak biji kapas
+it: olio di semi di cotone
+kn: ಹತ್ತಿಬೀಜದ ಎಣ್ಣೆ
+nl: katoenzaadolie, katoenzaad
+pl: Olej z nasion bawełny, olej bawełniany
+pt: Óleo de algodão
+ru: Хлопковое масло
+ta: பருத்தி விதை எண்ணெய்
+te: పత్తిగింజల నూనె
+uk: Бавовняна олія
+uz: Paxta moyi
+zh: 棉籽油
+ciqual_food_code:en: 17170
+ciqual_food_name:en: Cottonseed oil
+ciqual_food_name:fr: Huile de coton
+description:en: COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
+from_palm_oil:en: no
+usda_ndb_proxy_code:en: 4502
+usda_ndb_proxy_name:en: Oil, cottonseed, salad or cooking
+wikidata:en: Q811663
+wikipedia:en: https://en.wikipedia.org/wiki/Cottonseed_oil
+
+< en:cottonseed oil
+en: salad or cooking cottonseed oil
+usda_ndb_code:en: 4502
+usda_ndb_name:en: Oil, cottonseed, salad or cooking
+
+< en:cottonseed oil
+< en:hydrogenated vegetable oil
+en: hydrogenated cottonseed oil
+de: hydriertes Baumwollsamenöl
+es: aceite hidrogenado de algodón
+fr: Huile de graine de coton
+hr: hidrogenirano ulje sjemenki pamuka
+it: Olio di semi di cotone idrogenato
 
 < en:vegetable fat
 en: cupu assu oil
@@ -15680,7 +15842,7 @@ fr: Huile de palme fractionnée
 hr: frakcioniranog palminog ulja
 it: olio di palma frazionato
 
-< en:palm oil
+< en:fractionated palm oil
 en: fractionated and interesterified palm oil
 es: aceite de palma interestificado y fraccionado
 hr: frakcioniranog i interesterificiranog palminog ulja
@@ -15713,17 +15875,25 @@ sl: palmovo
 sv: Palm
 comment:en: palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
 
-#< en:palm makes a loop
-< en:shortening
-en: fractionated palm shortening
-usda_ndb_code:en: 4570
-usda_ndb_name:en: Shortening, confectionery, fractionated palm
+< en:palm fat
+< en:vegetable shortening
+en: palm shortening
 
-#< en:palm makes a loop
-< en:shortening
+< en:palm shortening
+en: fractionated palm shortening
+usda_ndb_proxy_code:en: 4570
+usda_ndb_proxy_name:en: Shortening, confectionery, fractionated palm
+
+< en:fractionated palm shortening
 en: fractionated confectionery palm shortening
 usda_ndb_code:en: 4570
 usda_ndb_name:en: Shortening, confectionery, fractionated palm
+
+< en:hydrogenated vegetable shortening
+< en:palm shortening
+en: hydrogenated palm shortening
+usda_ndb_code:en: 4556
+usda_ndb_name:en: Shortening frying (heavy duty), palm (hydrogenated)
 
 < en:palm oil
 en: palm olein, palmolein, palmolein oil
@@ -16015,11 +16185,6 @@ hr: palmino ulje ili ulje palminih koštica
 hu: pálma- vagy pálmamagolaj, pálmaolaj vagy pálmamagolaj
 it: olio di palma o di palmisto
 nl: palmolie of palmkernolie
-
-< en:shortening
-en: hydrogenated palm shortening
-usda_ndb_code:en: 4556
-usda_ndb_name:en: Shortening frying (heavy duty), palm (hydrogenated)
 
 < en:vegetable oil
 en: poppyseed oil
@@ -16680,32 +16845,27 @@ usda_ndb_name:en: Oil, canola
 wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
 
 < en:canola oil
+< en:partially hydrogenated vegetable oil
 en: partially hydrogenated industrial canola oil
 usda_ndb_code:en: 4645
 usda_ndb_name:en: Oil, industrial, canola (partially hydrogenated) oil for deep fat frying
 
 #process:en: en:fully hydrogenated (probably has a specific nutritional profile)
 < en:canola oil
-en: fully hydrogenated canola oil
-de: ganz gehärtetes Canola-Öl, vollständig hydriertes Canola-Öl
-fi: kokonaan kovetettu rypsiöljy
-sv: fullhärdad rypsolja
-
-< en:rapeseed oil
-en: low erucic acid rapeseed oil
-de: eurucasäurearmes Rapsöl, LEAR
-hr: ulje repice s niskim sadržajem eruka kiseline
-it: olio di colza a basso contenuto di acido erucico
-
-< en:canola oil
+< en:fully hydrogenated vegetable oil
 en: fully hydrogenated canola oil
 de: ganz gehärtetes Canola-Öl, vollständig hydriertes Canola-Öl
 fi: kokonaan kovetettu rypsiöljy
 hr: potpuno hidrogenirano ulje repice
 it: olio di canola completamente idrogenato
 sv: fullhärdad rypsolja
-# endconflict
 # ingredient/fi:kokonaan-kovetettu-rypsiöljy has 4 products in 1 language @2020-06-08
+
+< en:rapeseed oil
+en: low erucic acid rapeseed oil
+de: eurucasäurearmes Rapsöl, LEAR
+hr: ulje repice s niskim sadržajem eruka kiseline
+it: olio di colza a basso contenuto di acido erucico
 
 < en:canola oil
 en: non-gmo canola oil, non gmo canola oil
@@ -16815,7 +16975,6 @@ fi: rapsi- ja auringonkukkaöljy
 
 # producedFrom:en:walnut
 < en:vegetable oil
-# producedFrom:en:walnut
 en: walnut oil
 bg: орехово олио
 ca: Oli de nou de noguer
@@ -16845,6 +17004,8 @@ ciqual_food_name:fr: Huile de noix
 description:en: WALNUT OIL is oil extracted from walnuts, Juglans regia
 from_palm_oil:en: no
 nutriscore_fruits_vegetables_nuts:en: yes
+usda_ndb_code:en: 4528
+usda_ndb_name:en: Oil, walnut
 wikidata:en: Q1434098
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut_oil
 
@@ -16861,133 +17022,6 @@ it: olio di senape
 ru: масло-горчицы, масло горчицы, эфирное масло горчицы, горчичное масло, масло горчичное
 usda_ndb_code:en: 4583
 usda_ndb_name:en: Oil, mustard
-
-< en:vegetable oil
-en: cottonseed oil, cotton seed oil
-ar: زيت بذرة القطن
-az: Pambıq yağı
-be: Баваўняны алей
-bg: памучно масло
-ca: Oli de llavors de cotó
-de: Baumwollsaatöl, Baumwollsamenöl
-el: Βαμβακέλαιο
-es: aceite de algodón
-fa: روغن پنبه‌دانه
-fi: puuvillansiemenöljy
-fr: huile de coton, graines de coton
-hr: ulje sjemenki pamuka
-hu: pamutmagolaj
-id: Minyak biji kapas
-it: olio di semi di cotone
-kn: ಹತ್ತಿಬೀಜದ ಎಣ್ಣೆ
-nl: katoenzaadolie, katoenzaad
-pl: Olej z nasion bawełny, olej bawełniany
-pt: Óleo de algodão
-ru: Хлопковое масло
-ta: பருத்தி விதை எண்ணெய்
-te: పత్తిగింజల నూనె
-uk: Бавовняна олія
-uz: Paxta moyi
-zh: 棉籽油
-ciqual_food_code:en: 17170
-ciqual_food_name:en: Cottonseed oil
-ciqual_food_name:fr: Huile de coton
-description:en: COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
-from_palm_oil:en: no
-usda_ndb_proxy_code:en: 4502
-usda_ndb_proxy_name:en: Oil, cottonseed, salad or cooking
-wikidata:en: Q811663
-wikipedia:en: https://en.wikipedia.org/wiki/Cottonseed_oil
-
-< en:cottonseed oil
-en: salad or cooking cottonseed oil
-usda_ndb_code:en: 4502
-usda_ndb_name:en: Oil, cottonseed, salad or cooking
-
-< en:cottonseed oil
-en: hydrogenated cottonseed oil
-de: hydriertes Baumwollsamenöl
-es: aceite hidrogenado de algodón
-fr: Huile de graine de coton
-hr: hidrogenirano ulje sjemenki pamuka
-it: Olio di semi di cotone idrogenato
-
-< en:vegetable fat
-en: cottonseed fat
-de: Baumwollsaatfett, Baumwollfett
-fr: matières grasses de coton, matières grasses végétales de coton
-hr: mast sjemenki pamuka
-it: grasso di semi di cotone
-
-< en:vegetable oil
-en: avocado oil
-bg: авокадово масло, авокадово олио
-da: avocadoolie
-de: Avocadoöl
-es: Aceite de aguacate
-fi: avokadoöljy
-fr: huile d'avocat
-hr: ulje avokada
-hu: avokádóolaj
-it: olio di avocado
-nb: avokadoolje
-nl: avocado-olie, avocado olie
-pl: olej z awokado
-sv: avokadoolja
-from_palm_oil:en: no
-wikidata:en: Q2918735
-
-< en:vegetable oil
-en: corn oil, maize oil
-ar: زيت الذرة
-be: Кукурузны алей
-bg: Царевично олио, царевично, царевично масло
-ca: Oli de blat de moro
-da: Majsolie
-de: Maiskeimöl, Maisöl
-el: Αραβοσιτέλαιο
-eo: Maizoleo
-es: Aceite de maíz
-eu: Arto olio
-fa: روغن ذرت
-fi: Maissiöljy
-fr: huile de maïs
-gl: Aceite de millo
-he: שמן תירס
-hr: kukuruzno ulje, u različitim omjerima ulja
-hu: kukoricaolaj
-id: Minyak jagung
-it: Olio di semi di mais, olio di mais
-ja: コーン油, とうもろこし油
-kk: Жүгері майы
-ko: 옥수수기름
-lt: Kukurūzų aliejus
-nb: Maisolje
-nl: Maïskiemolie, Maïsolie, maisolie
-pl: Olej kukurydziany, olej z kukurydzy
-pt: Óleo de milho
-ro: ulei de porumb
-ru: Кукурузное масло
-tr: mısır yağı, mısırözü yağı
-uk: Кукурудзяна олія
-zh: 粟米油
-# yue:粟米油
-ciqual_food_code:en: 17190
-ciqual_food_name:en: Maize/corn oil
-ciqual_food_name:fr: Huile de maïs
-description:en: Corn oil (maize oil) is oil extracted from the germ of corn (maize).
-description:de: Maiskeimöl (Maisöl) ist ein Speiseöl, das aus dem fetthaltigen Keim des Maiskorns gewonnen wird.
-description:es: El aceite de maíz es un aceite extraído del germen de maíz.
-description:fr: L'huile de maïs est une huile végétale extraite du grain de maïs.
-description:it: L'olio di semi di mais è un olio estratto dai germi dei semi di Zea mays.
-description:nl: Olie uit de zaden van Zea mays.
-description:pt: O óleo de milho é um óleo vegetal extraído a partir da prensagem de grãos de milho.
-from_palm_oil:en: no
-usda_ndb_code:en: 42289
-usda_ndb_name:en: Oil, corn and canola
-wikidata:en: Q856775
-wikipedia:en: https://en.wikipedia.org/wiki/Corn_oil
-# ingredient/corn-oil 5402 in 18 @2021-0-20
 
 < en:vegetable oil
 en: peanut oil
@@ -17222,6 +17256,7 @@ nb: soyaolje
 nl: sojaolie
 pl: olej sojowy, olej roślinny sojowy, oleje roślinne sojowy
 pt: óleo de soja
+ro: ulei vegetal de soia, ulei din boabe de soia
 ru: Соевое масло, масло соевое, масло растительное соевое
 sv: Sojaolja, sojaböns olja
 uk: Соєва олія
@@ -17270,6 +17305,7 @@ pl: rafinowany olej sojowy
 sv: raffinerad sojaolja
 ecobalyse:en: 188a3d66-f214-4821-9bac-7e8fdc715721
 
+< en:hydrogenated vegetable oil
 < en:soya oil
 en: hydrogenated soy oil
 bg: хидрогенирано соево олио
@@ -17282,7 +17318,8 @@ hu: hidrogénezett szójaolaj
 it: Olio di soia idrogenato
 pt: azeite de soja hidrogenado, azeite de oliva de soja hidrogenado
 
-< en:soya oil
+< en:hydrogenated soy oil
+< en:partially hydrogenated vegetable oil
 en: partially hydrogenated soybean oil
 de: Sojabohnenöl teilweise hydriert
 es: Aceite de soja parcialmente hidrogenado
@@ -17293,15 +17330,19 @@ it: Olio di semi di soia idrogenato
 < en:soya oil
 fr: huile de soja entièrement raffinée
 
-# < en:soya oil makes a loop
-< en:shortening
+< en:hydrogenated soy oil
+< en:hydrogenated vegetable shortening
+en: hydrogenated soybean shortening
+usda_ndb_proxy_code:en: 4586
+usda_ndb_proxy_name:en: Shortening, special purpose for cakes and frostings, soybean (hydrogenated)
+
+< en:hydrogenated soybean shortening
 en: linoleic-free hydrogenated soybean shortening
 usda_ndb_code:en: 4560
 usda_ndb_name:en: Shortening frying (heavy duty), soybean (hydrogenated), linoleic (less than 1%)
 
-# < en:soya oil
-< en:shortening
-en: hydrogenated soybean shortening (special purpose for cakes and frostings)
+< en:hydrogenated soybean shortening
+en: hydrogenated soybean shortening for cakes and frostings
 usda_ndb_code:en: 4586
 usda_ndb_name:en: Shortening, special purpose for cakes and frostings, soybean (hydrogenated)
 
@@ -17340,9 +17381,8 @@ usda_ndb_name:en: Oil, rice bran
 wikidata:en: Q175933
 wikipedia:en: https://en.wikipedia.org/wiki/Rice_bran_oil
 
-
 < en:vegetable fat
-en: shea butter, shea, shea fat, sheanut oil
+en: shea butter, shea, shea fat
 ak: Nkuto
 ar: زبدة الشيا
 bg: Масло от ший, ший
@@ -17385,7 +17425,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Shea_butter
 
 # < en:shea why is this here?
 < en:vegetable oil
-en: shea oil
+en: shea oil, sheanut oil
 da: sheaolie
 de: Sheaöl
 hr: shea ulje
@@ -17393,6 +17433,7 @@ it: olio di karité
 pl: olej shea, olej roślinny shea
 ro: ulei de shea
 sv: sheaolja
+from_palm_oil:en: no
 usda_ndb_code:en: 4536
 usda_ndb_name:en: Oil, sheanut
 
@@ -17526,6 +17567,7 @@ de: Salfett
 hr: slana mast
 it: grasso di sale
 pl: tłuszcz sal, tłuszcz z sal
+from_palm_oil:en: no
 
 < en:vegetable oil
 # producedFrom:en:chia
@@ -17592,17 +17634,6 @@ hr: ulje sjemenki pistacija
 hu: pisztáciaolaj, pisztáciamag olaj
 it: olio di semi di pistacchio
 from_palm_oil:en: no
-
-< en:vegetable oil
-en: almond oil
-bg: бадемово олио
-de: Mandelöl
-fr: huile d'amande
-hr: bademovo ulje
-it: olio di mandorle
-nl: amandelolie
-usda_ndb_code:en: 4529
-usda_ndb_name:en: Oil, almond
 
 < en:almond oil
 < en:hazelnut oil
@@ -17744,12 +17775,13 @@ hu: finomított napraforgóolaj, finomított napraforgó étolaj
 it: oleo di girasole raffinato
 pl: rafinowany olej słonecznikowy
 pt: Óleo de girassol refinado
+ro: ulei rafinat de floarea-soarelui
 ru: масло подсолнечное рафинированное дезодорированное, масло подсолнечное рафинированное
 sv: raffinerad solrosolja
 ecobalyse:en: 583d00ab-0340-444b-9581-71175f0a937b
 
 < en:sunflower oil
-en: linoleic sunflower oil less than 60%)
+en: linoleic sunflower oil (less than 60%)
 usda_ndb_code:en: 4060
 usda_ndb_name:en: Oil, sunflower, linoleic (less than 60%)
 
@@ -17783,7 +17815,7 @@ ru: масло подсолнечное высокоолеиновое рафи�
 usda_ndb_proxy_code:en: 4584
 usda_ndb_proxy_name:en: Oil, sunflower, high oleic (70% and over)
 
-< en:sunflower oil
+< en:high oleic sunflower oil
 en: high oleic sunflower oil (70% and over)
 usda_ndb_code:en: 4584
 usda_ndb_name:en: Oil, sunflower, high oleic (70% and over)
@@ -17864,56 +17896,84 @@ usda_ndb_name:en: Oil, wheat germ
 < en:sunflower oil
 fr: huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
 
-< en:shortening
+< en:cottonseed fat
+< en:hydrogenated soybean shortening
+< en:industrial shortening
 en: industrial hydrogenated soybean and cottonseed shortening
 usda_ndb_code:en: 4554
 usda_ndb_name:en: Shortening industrial, soybean (hydrogenated) and cottonseed
 
-< en:shortening
+< en:household shortening
+< en:hydrogenated palm shortening
+< en:hydrogenated soybean shortening
 en: household hydrogenated soybean and palm shortening
+from_palm_oil:en: yes
 usda_ndb_code:en: 4559
 usda_ndb_name:en: Shortening household soybean (hydrogenated) and palm
 
-< en:shortening
+< en:cottonseed fat
+< en:household shortening
+< en:hydrogenated soybean shortening
 en: partially hydrogenated soybean and partially hydrogenated cottonseed household shortening
 usda_ndb_code:en: 4031
 usda_ndb_name:en: Shortening, household, soybean (partially hydrogenated)-cottonseed (partially hydrogenated)
 
-< en:shortening
+< en:corn oil
+< en:hydrogenated soybean shortening
+< en:industrial shortening
 en: partially hydrogenated soy and corn industrial shortening (for frying)
 usda_ndb_code:en: 4666
 usda_ndb_name:en: Shortening, industrial, soy (partially hydrogenated ) and corn for frying
 
-< en:shortening
+< en:hydrogenated soybean shortening
+< en:industrial shortening
 en: industrial partially hydrogenated soy shortening
 usda_ndb_code:en: 4667
 usda_ndb_name:en: Shortening, industrial, soy (partially hydrogenated ) for baking and confections
 
-< en:shortening
+< en:hydrogenated palm shortening
+< en:hydrogenated soybean shortening
 en: hydrogenated soybean and hydrogenated palm multipurpose shortening
+from_palm_oil:en: yes
 usda_ndb_code:en: 4595
 usda_ndb_name:en: Shortening, multipurpose, soybean (hydrogenated) and palm (hydrogenated)
 
-< en:shortening
-en: hydrogenated soybean palm and cottonseed baking shortening
+< en:cottonseed fat
+< en:hydrogenated palm shortening
+< en:hydrogenated soybean shortening
+en: hydrogenated soybean palm and cottonseed shortening for baking
+from_palm_oil:en: yes
 usda_ndb_code:en: 4587
 usda_ndb_name:en: Shortening, special purpose for baking, soybean (hydrogenated) palm and cottonseed
 
-
-
 ################# mixed animal and vegetable fats/oils
 
+< en:beef tallow fat
+< en:cottonseed fat
 < en:shortening
 en: beef tallow and cottonseed shortening
 usda_ndb_code:en: 4550
 usda_ndb_name:en: Shortening frying (heavy duty), beef tallow and cottonseed
+vegan:en: no
+vegetarian:en: no
 
+< en:lard
 < en:shortening
+< en:vegetable oil
+en: lard and vegetable oil shortening
+usda_ndb_proxy_code:en: 4549
+usda_ndb_proxy_name:en: Shortening industrial, lard and vegetable oil
+vegan:en: no
+vegetarian:en: no
+
+< en:industrial shortening
+< en:lard and vegetable oil shortening
 en: lard and vegetable oil industrial shortening
 usda_ndb_code:en: 4549
 usda_ndb_name:en: Shortening industrial, lard and vegetable oil
 
-< en:shortening
+< en:household shortening
+< en:lard and vegetable oil shortening
 en: lard and vegetable oil household shortening
 usda_ndb_code:en: 4544
 usda_ndb_name:en: Shortening, household, lard and vegetable oil
@@ -18453,7 +18513,7 @@ ja: ワインビネガー
 nl: wijnazijn
 pl: ocet winny, octu winnego
 pt: vinagre de vinho
-ro: oțet din vin, otet din vin, oţet de vin
+ro: oțet din vin, otet din vin, oțet de vin
 ru: Винный уксус
 sv: vinsvinäger, vinättika, vinäger av vin, vinvinäger
 carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
@@ -18494,6 +18554,7 @@ hu: alkoholecet
 it: aceto di alcool, aceto d alcol
 nl: alcoholazijn
 pt: vinagre de álcool
+ro: oțet de alcool
 sv: ättiksprit
 
 < en:alcohol vinegar
@@ -18859,6 +18920,7 @@ ja: アルコール, 酒精
 nl: alcohol
 pl: Alkohol
 pt: Álcool
+ro: alcool
 ru: Алкоголь
 sv: alkohol
 tr: alkol
@@ -18935,7 +18997,7 @@ pl: etanol, alkohol etylowy, alkoholu etylowego
 ps: اتانول
 pt: etanol
 qu: Ethanul
-ro: etanol
+ro: etanol, alcool etilic
 ru: этанол, спирт этиловый ректификованный из пищевого сырья, спирт этиловый
 sh: Alkohol
 si: එතනෝල්
@@ -21080,7 +21142,7 @@ it: Aroma artificiale
 nl: Kunstmatige smaakstoffen
 pl: Sztuczny aromat, sztuczne aromaty
 pt: Aromatizante artificial
-ro: Arome artificiale
+ro: Arome artificiale, aromă artificială
 ru: Искусственный ароматизатор
 
 # <en:compound
@@ -26956,7 +27018,7 @@ pl: płatki żytnie pełnoziarniste
 pt: flocos integrais de centeio
 
 < en:rye
-en: rye grains, rye grain
+en: rye grain, rye grains
 bg: ръжени зърна
 da: rugkorn
 de: Roggenkörner
@@ -27469,6 +27531,8 @@ de: Teff
 es: teff
 pl: teff, miłka abisyńska, tef, trawa abisyńska
 allergens:en: en:gluten
+usda_ndb_proxy_code:en: 20142
+usda_ndb_proxy_name:en: Teff, uncooked
 wikipedia:en: https://en.wikipedia.org/wiki/Teff
 
 < en:teff
@@ -27837,7 +27901,7 @@ nn: hvetemel
 no: hvetemel
 pl: mąka pszenna, mąka z pszenicy zwyczajnej
 pt: farinha de trigo
-ro: făină de grâu, fäină de grâu, faina de grau, făină din grâu, faina din grau
+ro: făină de grâu, fäină de grâu, faina de grau, făină din grâu, faina din grau, făină de grâu albă
 ru: Пшеничная мука, мука пшеничная хлебопекарная высшего сорта, мука пшеничная высшего сорта, мука пшеничная, мука пшеничная хлебопекарная первого сорта, мука пшеничная хлебопекарная высший сорт, мука пшеничная хлебопекарная второго сорта, мука пшеничная 1 сорта, мука пшеничная первого сорта, мука пшеничная хлебопекарная первый сорт, мука пшеничная общего назначения
 sa: गोधूमपिष्टम्
 sk: pšeničná múka, pšeničná mouka
@@ -28023,11 +28087,6 @@ hr: pšenično brašno 1850
 pl: mąka pszenna typ 1850, mąka pszenna 1850, mąka pszenna graham
 
 < en:wheat flour
-en: soft wheat whole-grain wheat flour
-usda_ndb_code:en: 20649
-usda_ndb_name:en: Wheat flour, whole-grain, soft wheat
-
-< en:wheat flour
 es: Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630, Harina de trigo 000 enriquecida Ley 25630
 
 < en:wheat flour
@@ -28044,6 +28103,7 @@ hu: durumbúzaliszt
 it: farina di grano duro
 nl: durum tarwemeel
 pl: mąka z pszenicy durum, mąka z pszenicy twardej, mąka makaronowa pszenna, mąka pszenna makaronowa
+ro: făină din grâu dur
 sv: durumvetemjöl, mjöl av durumvete
 uk: борошно з пшеннци тверднх сортив
 
@@ -28170,11 +28230,14 @@ fr: farine de blé tendre, farine de blés tendres
 hr: meko pšenično brašno
 it: farina di grano tenero
 pl: mąka z pszenicy miękkiej, mąka z miękkiej pszenicy
+ro: făină de grâu moale
 
 < en:soft wheat flour
-< en:wholemeal flour
+< en:whole wheat flour
 en: soft whole wheat flour, wholemeal soft wheat flour
 it: farina integrale di grano tenero, farina di grano tenero integrale
+usda_ndb_code:en: 20649
+usda_ndb_name:en: Wheat flour, whole-grain, soft wheat
 
 < en:wheat flour
 en: Wheat flour type 150
@@ -28651,7 +28714,6 @@ nl: geel maïsmeel
 sv: gult majsmjöl
 # ingredient/fr:farine-de-mais-jaune has 38 products @2019-06-02
 
-
 < en:corn flour
 en: white corn flour
 da: hvidt majsmel
@@ -28665,10 +28727,10 @@ it: farina di mais bianco, farina di mais bianco masa
 nb: hvitt maismel
 nl: wit maïsmeel, witte masa maïsmeel
 sv: vitt majsmjöl
-usda_ndb_code:en: 20316
-usda_ndb_name:en: Corn flour, whole-grain, white
+usda_ndb_proxy_code:en: 20316
+usda_ndb_proxy_name:en: Corn flour, whole-grain, white
 
-< en:corn flour
+< en:whole grain corn flour
 en: whole-grain blue corn flour
 es: harina de maiz morado
 usda_ndb_code:en: 20315
@@ -28689,14 +28751,14 @@ usda_ndb_proxy_code:en: 20016
 usda_ndb_proxy_name:en: Corn flour, whole-grain, yellow
 # ingredient/en:whole-grain-corn-flour has 176 products in 2 languages @2020-06-11
 
-< en: whole grain corn flour
-< en:wholemeal flour
+< en:white corn flour
+< en:whole grain corn flour
 en: white whole grain corn flour, white whole-grain corn flour
 usda_ndb_code:en: 20316
 usda_ndb_name:en: Corn flour, whole-grain, white
 
-< en: yellow corn flour
-< en:wholemeal flour
+< en:whole grain corn flour
+< en:yellow corn flour
 en: yellow whole-grain corn flour
 usda_ndb_code:en: 20016
 usda_ndb_name:en: Corn flour, whole-grain, yellow
@@ -29267,7 +29329,7 @@ ja: コーングリッツ
 nl: Maïsgrits, maisgrut, maïsgrut
 pl: grys kukurydziany, kasza kukurydziana, kaszka kukurydziana
 pt: grãos de milho
-ro: porumb boabe
+ro: porumb boabe, mălai
 ru: крупа кукурузная
 sk: kukuričná krupic
 sl: koruzni zdrob
@@ -29299,12 +29361,14 @@ sv: fullkornsmajsgryn
 usda_ndb_proxy_code:en: 20020
 usda_ndb_proxy_name:en: Cornmeal, whole-grain, yellow
 
-< en: wholegrain maize semolina
+< en:white corn
+< en:wholegrain maize semolina
 en: white whole-meal cornmeal
 usda_ndb_code:en: 20320
 usda_ndb_name:en: Cornmeal, whole-grain, white
 
 < en:wholegrain maize semolina
+< en:yellow corn
 en: yellow whole-grain cornmeal
 usda_ndb_code:en: 20020
 usda_ndb_name:en: Cornmeal, whole-grain, yellow
@@ -30765,7 +30829,7 @@ hu: főtt rizs
 it: Riso cotto
 nl: gekookte rijst
 pl: ryż gotowany, gotowany ryż
-ro: orez fiert
+ro: orez fiert, orez gătit
 sv: kokt ris
 # ingredient/fr:riz-cuisiné has 47 products in french @2018-12-19
 
@@ -33782,9 +33846,13 @@ el: Ολιγοσακχαρίτες mannan
 et: Mannano oligosahhariidid
 it: Mannano oligo saccaridi
 
+< en:fruit extract
 < en:sweetener
 en: monk fruit extract
+de: Mönchsfruchtextrakt
 it: estratto di frutto del monaco
+nb: balsampæreekstrakt
+sv: luo han guo-extrakt, munkfruktextrakt
 
 ##################################################################################
 #
@@ -34900,7 +34968,6 @@ en: highly fat reduced cocoa, highly reduced fat cocoa
 de: Sehr fettarme Kokosnuss
 fr: cacao fortement dégraissé
 hr: kakao sa smanjenim udjelom masti
-
 
 < en:cocoa
 en: cocoa paste, cocoa mass, chocolate liquor
@@ -37350,7 +37417,7 @@ nn: ølgjær
 pl: drożdże piekarskie
 pt: levedura para panificação
 qu: Aqha qunchu
-ro: Drojdia de bere
+ro: drojdie de panificație
 ru: Хлебопекарные дрожжи, дрожжи хлебопекарные прессованные, дрожжи хлебопекарные
 sk: Pekárske droždie, Kvasinka pivná
 uk: Пивні дріжджі
@@ -40129,7 +40196,7 @@ mt: l-isfarġel
 nl: Kweepeer, kweeperen
 pl: pigwa, pigwy, pigwowy, pigwowca
 pt: marmelos
-ro: gutuilor
+ro: gutuilor, gutuie, gutui
 sc: Mela pirongia
 sk: dule
 sl: kutine
@@ -41933,6 +42000,7 @@ nl: citroenschil, schillen citroen
 nn: citronskal
 pl: skórka cytryny, skórka z cytryny, skórka cytrynowa
 pt: casca de limão
+ro: coajă de lămâie
 sv: citronskal
 usda_ndb_proxy_code:en: 9156
 usda_ndb_proxy_name:en: Lemon peel, raw
@@ -49860,6 +49928,7 @@ fr: légumes en proportions variables, légumes en proportion variable
 hr: povrće u promijenljivom udjelu
 it: verdure in proporzione variabile
 pl: warzywa w zmiennych proporcjach
+ro: legume în proporții variabile
 
 
 < en:vegetable
@@ -53807,6 +53876,7 @@ fr: Oignon blanc
 hr: bijeli luk
 it: cipolla bianca
 pl: cebula biała, biała cebula
+ro: ceapă albă
 wikidata:en: Q7995660
 wikipedia:en: https://en.wikipedia.org/wiki/White_onion
 
@@ -53935,6 +54005,7 @@ bg: пържен лук
 cs: smažená cibule
 de: röstzwiebeln
 it: cipolla fritta
+ro: ceapă prajită
 
 # <en:compound
 en: pre fried onions
@@ -56095,6 +56166,7 @@ de: vorgegarte Kartoffeln, Kartoffeln (vorgegart), Speisekartoffeln gekocht
 fr: pommes de terre précuites
 hr: prethodno kuhani krumpir
 it: patate precotte
+ro: cartofi preprăjiți
 ciqual_proxy_food_code:en: 4027
 ciqual_proxy_food_name:en: Potato, sautéed/pan-fried, pre-fried, frozen, cooked
 
@@ -59163,6 +59235,7 @@ nb: tomatpuré
 nl: tomatenpurée, tomatenpuree
 pl: przecier pomidorowy, przecieru pomidorowego
 pt: Puré de tomate
+ro: piure de roșii, piure de tomate
 ru: томатное поре
 sk: paradajkový pretlak
 sr: pire od paradajza
@@ -59221,6 +59294,7 @@ lv: tomātu koncentrāts
 nl: tomatenconcentraat, tomaten concentraat
 pl: koncentrat pomidorowy, pasta pomidorowa
 pt: concentrado de tomate
+ro: pastă de roșii, pastă de tomate
 ru: Томатная паста, томатный концентрат, паста томатная
 sv: tomatkoncentrat
 ciqual_food_code:en: 20068
@@ -59958,7 +60032,7 @@ nv: naayízítsʼósí
 oc: Corgeta
 pl: cukinia, cukinii, kabaczek, kabaczka
 pt: curgete
-ro: Dovlecel
+ro: Dovlecel, dovlecei
 ru: кабачок, кабачки
 rw: Igihaza
 sc: corcoriga
@@ -60237,7 +60311,7 @@ nl: sperzieboon, sperziebonen, groene bonen, prinsessenboon, slaboon, prinsessen
 nn: brekkbønne
 pl: fasolka szparagowa zielona, fasolka szparagowa, fasola szparagowa zielona, fasola szparagowa
 pt: feijão-verde, vagem
-ro: fasole pastai verde
+ro: fasole pastai verde, fasole franțuzească, fasole verde păstăi
 ru: фасоль стручковая, спаржевая фасоль, зелёностручковая фасоль
 sa: निष्पावप्रभेदः
 sq: mashurka
@@ -60341,6 +60415,7 @@ fr: haricot vert plat, haricots verts plats, haricots plats
 hr: pljosnati grah
 nl: snijboon
 nn: snittebønne
+ro: fasole boabe Romano
 sv: romanabönor
 ciqual_food_code:en: 20269
 ciqual_food_name:en: Flat bean, raw
@@ -63688,6 +63763,7 @@ ja: ローストピーナッツ
 lt: skrudinti žemės riešutai
 nl: geroosterde pinda's, geroosterde pindanoten
 pt: amendoim torrado
+ro: arahide coapte
 ru: арахис обжаренный
 sv: rostad jordnöt, rostade jordnötter
 tr: kavrulmuş yer fıstığı, kavrulmuş yerfıstığı
@@ -65943,6 +66019,7 @@ fr: poivre noir concassé
 hr: mljeveni crni papar
 it: Pepe nero macerato
 nl: grove zwarte peper
+ro: piper negru măcinat
 ru: перец черный молотый, перец-чёрный-молотый
 uk: перець чорний мелений
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-noir-concassé
@@ -66028,7 +66105,7 @@ nn: smakstilsetjing
 oc: condiment
 pl: przyprawa, przyprawy, przyprawy aromatyczno-smakowe
 pt: condimento
-ro: Mirodenie, condimente
+ro: Mirodenie, condimente, condiment
 ru: приправы
 sv: smaktillsats, smaksättare, smaksättning
 tr: Çeşni
@@ -66271,7 +66348,7 @@ nb: urt, urte
 nl: Kruiden
 pl: Zioło, zioła, ziół, mieszanka ziół, mieszanka ziołowa
 pt: plantas aromáticas
-ro: Ierburi, plante aromatice
+ro: Ierburi, plante aromatice, ierburi aromatice
 sl: zelišča
 sv: örter, örtkryddor, kryddörter
 eurocode_2_group_2:en: 12.20
@@ -68210,8 +68287,8 @@ hr: engleski senf
 it: senape inglese
 nl: Engelse mosterd
 
-< en:mustard
 # <en:seed
+< en:mustard
 < en:spice
 en: mustard seed
 bg: синапено семе, синапени семена, синапени зърна
@@ -68234,7 +68311,7 @@ nl: mosterdzaad, mosterdzaden
 nn: sennepsfrø
 pl: ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, gorczycę, nasiona gorczycy, gorczycę
 pt: Semente de mostarda
-ro: boabe de muștar, boabe de mustar
+ro: boabe de muștar, boabe de mustar, semințe de muștar
 ru: горчичное зерно
 sl: gorčično seme, gorčična semena
 sr: seme slačice
@@ -68505,6 +68582,7 @@ hr: ljetni ukusan
 it: santoreggia
 nl: bonenkruid
 pl: cząber, cząbru
+ro: cimbru
 sv: kyndel
 wikidata:en: Q19787919
 wikipedia:en: https://en.wikipedia.org/wiki/Summer_savory
@@ -68921,6 +68999,7 @@ or: ଲେମନ ଗ୍ରାସ୍
 pa: ਲੈਮਨ ਗਰਾਸ
 pl: trawa cytrynowa, trawy cytrynowej
 pt: erva-principe
+ro: iarbă de lămâie
 sq: barishte
 sr: Лимун-трава
 sv: citrongräs, citrongras
@@ -69538,6 +69617,7 @@ or: ଦଅଣା
 pa: ਅਜਵਾਇਣ
 pl: tymianek, tymianku, tymiankowe, tymiankowy, tymiankowa
 pt: tomilho
+ro: cimbru de câmp
 ru: тимьян
 sv: timjan
 tr: kekik
@@ -75661,6 +75741,7 @@ nl: Parijse champignons, champignons, champignon
 pl: pieczarki, Pieczarka dwuzarodnikowa, pieczarka, pieczarek, pieczarkowy, pieczarkowa, pieczarkowe
 pt: cogumelos-de-Paris, Champignon
 qu: Champiñun
+ro: ciuperci champignon
 ru: Шампиньон двуспоровый, шампиньоны сушеные
 sl: Dvotrosni kukmak
 sv: Portabello, champinjon, champinjoner, vit champinjon, vita champinjoner, champinjon agaricus bisporus
@@ -77351,6 +77432,7 @@ hr: file aljaske polloke
 it: filetti di merluzzo d'alaska
 nl: Alaska koolvisfilet
 pl: filet z mintaja, filety z mintaja
+ro: file de cod Alaska
 sv: alaska pollock-filé, filé av alaska pollock
 # ingredient/alaskan-pollock-fillet has 88 products @2018-12-29
 
@@ -80417,11 +80499,12 @@ nb: Bukstripet bonitt
 nl: gestreepte tonijn
 pl: Bonito
 pt: bonito
+ro: ton dungat
 ru: Полосатый тунец
 si: බලයා
 sl: Črtasti tun
 su: Cakalang
-sv: Skipjack-tonfisk , Bonit
+sv: Skipjack-tonfisk, Bonit
 th: ปลาโอแถบ
 tr: Yazılı orkinos
 uk: Тунець смугастий
@@ -84070,7 +84153,7 @@ nl: garnaal, garnalen
 oc: Cambaròta
 pl: Krewetka, krewetki, krewetek, krewetkowy, krewetkowa, krewetkowe
 pt: camarão
-ro: crevete
+ro: crevete, creveți
 ru: креветки
 sv: räkor
 sw: Uduvi
@@ -84357,6 +84440,7 @@ la: Pandalus borealis
 lt: Paprastoji šiaurinė krevetė, Pandalus borealis
 nb: dypvannsreke, Pandalus borealis
 pl: krewetka północna, Pandalus borealis
+ro: Pandalus borealis
 sv: Nordhavsräka, Pandalus borealis
 vi: Tôm hồng, Pandalus borealis
 zh: 北极虾, Pandalus borealis
@@ -90417,11 +90501,6 @@ wikidata:en: Q178
 wikipedia:en: https://en.wikipedia.org/wiki/Pasta
 
 < en:pasta
-en: dry whole-wheat pasta
-usda_ndb_code:en: 20124
-usda_ndb_name:en: Pasta, whole-wheat, dry (Includes foods for USDA's Food Distribution Program)
-
-< en:pasta
 en: durum wheat semolina pasta
 bg: паста от грис от твърда пшеница
 de: Teigwaren aus Hartweizengrieß
@@ -90457,6 +90536,11 @@ en: whole durum wheat semolina pasta
 fr: pâtes alimentaires de blé dur complet
 lv: rupja maluma cieto kivešu pilnagraudu miltu makaroni
 nl: volkoren deegwaren van harde tarwe
+
+< en:pasta made from wheat flour
+en: dry whole-wheat pasta
+usda_ndb_code:en: 20124
+usda_ndb_name:en: Pasta, whole-wheat, dry (Includes foods for USDA's Food Distribution Program)
 
 < en:pasta
 en: fresh pasta
@@ -90802,7 +90886,7 @@ pa: ਨੂਡਲ
 pl: nudle, kluski, makaron typu noodle
 pt: talharim
 qu: phidiyu
-ro: macaroane
+ro: macaroane, tăiței
 ru: лапша
 sk: rezance
 sr: кнедла
@@ -92297,6 +92381,7 @@ nb: strøkavring, griljermel
 nl: paneermeel, Paneermelen
 pl: bułka tarta, bułki tartej, panier
 pt: pão ralado
+ro: pesmet
 ru: Панировочные сухари
 sk: Strúhanka
 sl: krušne drobtine
@@ -93145,6 +93230,7 @@ nn: Glasering
 or: ଚମକ
 pa: ਚਮਕ
 pl: polewa, polewy, polew
+ro: glazură
 ru: глазурь, кондитерская глазурь, глазурь кондитерская
 sq: lustrimi
 sv: glasering
@@ -96121,14 +96207,16 @@ fi: hedelmäuute
 fr: extrait de fruit
 # hr:ekstrakt voća # see ingredients_processing.txt
 it: Estratto di frutta, estratti di frutta
+nb: fruktekstrakt
 nl: vruchtenextract
+nn: fruktekstrakt
 pl: ekstrakt z owoców
 pt: extrato de fruto, extrato de fruta, extrato de frutos, extrato de frutas, extracto de fruto, extracto de fruta, extracto de frutos, extracto de frutas
 sv: fruktextrakt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
-# 54 products in 4 languages @2018-10-04
 vegan:en: maybe
 vegetarian:en: yes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
+# 54 products in 4 languages @2018-10-04
 
 < en:fruit extract
 en: apple extract, apple essence
