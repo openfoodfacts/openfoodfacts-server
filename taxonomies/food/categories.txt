@@ -71112,9 +71112,11 @@ wikidata:en: Q516494
 < en:Citrus
 en: Oranges
 bg: Портокали
+ca: Taronja
+da: Appelsiner
 de: Orangen
 es: Naranjas
-fi: appelsiinit
+fi: Appelsiinit
 fr: Oranges
 hr: Naranče
 hu: Narancsok
@@ -71123,21 +71125,44 @@ ja: オレンジ
 lt: Apelsinai
 nl: Sinaasappels
 pl: Pomarańcza, Pomarańcze
+pt: Laranja
 ru: Апельсины
+sv: Apelsiner
 tr: Portakal
+agribalyse_proxy_food_code:en: 13034
+ciqual_proxy_food_code:en: 13034
+ciqual_proxy_food_name:en: Orange, flesh without skin, without seeds, raw
 intake24_category_code:en: ORNG
 wikidata:en: Q13191
 
 < en:Fresh fruits
 < en:Oranges
 en: Fresh oranges
+da: Friske appelsiner
 de: Frische Orangen
 fr: Oranges fraîches
 hr: Svježe naranče
 lt: Švieži apelsinai
+sv: Färska apelsiner
 tr: Taze portakal
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,12
+
+< en: Oranges
+en: Navel oranges
+ca: Nàvel taronja
+da: Navleappelsiner, Navelappelsiner
+de: Navelorangen
+fr: Navel oranges
+it: Arance navel
+ja: ネーブルオレンジ
+ko: 네이블 오렌지
+pt: Laranja-da-baía
+sv: Navelapelsiner
+zh: 脐橙
+description:en: A variety of orange with a characteristic second fruit at the apex, which protrudes slightly like a human navel. (Wikipedia)
+sales_format:en: weight, package
+wikidata:en: Q3621268
 
 < en:Fresh oranges
 en: Clemenvillas
@@ -71161,7 +71186,7 @@ en: Orange pulp
 fr: Pulpe d'orange
 agribalyse_food_code:en: 13034
 ciqual_food_code:en: 13034
-ciqual_food_name:en: Orange, pulp, raw
+ciqual_food_name:en: Orange, flesh without skin, without seeds, raw
 ciqual_food_name:fr: Orange, pulpe, crue
 
 < en:Fresh fruits
