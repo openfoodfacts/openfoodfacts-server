@@ -61308,7 +61308,7 @@ it: granella di lupini
 nl: lupinegrut
 
 #processing:en: en:flour
-# < en:flour gives the wrong ciqual
+< en:flour
 < en:lupin bean
 en: lupin flour, lupine flour
 bg: брашно от лупина
@@ -61321,6 +61321,10 @@ hr: brašno od lupine
 hu: csillagfürtliszt
 it: farina di lupino
 nl: lupinemeel
+ciqual_proxy_food_code:en: 20534
+ciqual_proxy_food_name:en: lupin grain, raw
+ciqual_proxy_food_name:fr: Lupin, graine crue
+eurocode_2_group_3:en: 7.10.xx
 # 330 in 8 @2021-10-01
 
 # <en:compound
