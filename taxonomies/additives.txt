@@ -1638,7 +1638,8 @@ description:en: Caramel color or caramel coloring is a water-soluble food colori
 e_number:en: 150a
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
-efsa_evaluation_adi:en: 300 #not the ADI of E150a alone but an ADI shared by the four E150(a,b,c,d)
+# 300 is not the ADI of E150a alone but an ADI shared by the four E150(a,b,c,d)
+efsa_evaluation_adi:en: 300
 efsa_evaluation_date:en: 2012-12-03
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:no-group
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
@@ -8115,6 +8116,8 @@ additives_classes:en: en:antioxidant, en:emulsifier
 # issue with ingredient @2018-10-11 mixed with sunflower
 e_number:en: 322
 organic_eu:en: authorized
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q241595
 wikipedia:en: https://en.wikipedia.org/wiki/Lecithin
 
@@ -8145,6 +8148,8 @@ sv: E322(ii), Delvis hydrolyserad lecitin
 additives_classes:en: en:antioxidant, en:emulsifier
 e_number:en: 322
 organic_eu:en: authorized
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q241595
 
 < en:E322
@@ -8186,6 +8191,8 @@ tr: E322a, Yulaf lesitini
 uk: E322a, Вівсяний лецитин
 zh: E322a, 燕麦卵磷脂
 e_number:en: 322a
+vegan:en: yes
+vegetarian:en: yes
 
 en: E323, Anoxomer
 xx: E323
@@ -9926,9 +9933,8 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q2634889 # Q723683
+wikidata:en: Q6731399
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_phosphate
-
 
 # description:en:Monomagnesium phosphate is one of the forms of magnesium phosphate. chemical formula Mg(H2PO4)2.
 
@@ -12988,6 +12994,8 @@ fr: E441, Huile de colza superglycérinée hydrogénée
 it: E441
 nl: E441
 e_number:en: 441
+vegan:en: yes
+vegetarian:en: yes
 
 # description:en:The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
 
@@ -23467,7 +23475,7 @@ da: E950, Acesulfamkalium, Acesulfamkalium, Acesulfam K
 de: E950, Acesulfam-K
 el: E950, Ακεσουλφαμη κ, Ακεσουλφάμη
 eo: E950, Acesulfamo
-es: E950, Acesulfamo K, Acesulfamo k, Acesulfame K, Acesulfamo potásico, acesulfame potásico, acesulfamo, acelsufamo de potasio
+es: E950, Acesulfamo K, Acesulfame K, Acesulfamo potásico, acesulfame potásico, acesulfamo, acelsufamo de potasio, acesulfamo de potasio, acesulfame de potasio
 et: E950, Kaaliumatsesulfaam, Atsesulfaamkaalium, atsesulfaam-K
 fa: E950, اسسولفام پتاسیم
 fi: E950, Asesulfaami k, Asesulfaamikalium, Asesulfaamikaliumia
@@ -26595,14 +26603,30 @@ ja: 無機塩
 < en:E450
 < en:E500
 en: diphosphates and sodium carbonates
+bg: дифосфати и натриеви карбонати
+ca: difosfats i carbonats de sodi
+cs: difosforečnany a uhličitany sodné
+da: diphosphater og natriumkarbonater, diphosphater og natriumcarbonater
 de: Diphosphate und Natriumcarbonate, E 450 und E 500, E450 und E500
+el: διφωσφορικά άλατα και ανθρακικά νάτρια
 es: difosfatos y carbonatos de sodio
+et: difosfaadid ja naatriumkarbonaadid
 fi: difosfaatit ja natriumkarbonaatit
 fr: diphosphate et carbonate de calcium, diphosphates et carbonates de sodium, e450 et e500
 hr: difosfati i natrijevi karbonati
 hu: difoszfátok és nátrium-karbonátok
 it: difosfati e carbonati di sodio, E 450 ed E 500, E450 ed E500
+lt: difosfatai ir natrio karbonatai
+lv: difosfāti un nātrija karbonāti
+mt: difosfati u karbonati tas-sodju
 nl: difosfaten en natriumcarbonaten
+pl: difosforany i węglany sodu
+pt: difosfatos e carbonatos de sódio
+ro: difosfați și carbonați de sodiu
+ru: дифосфаты и карбонаты натрия
+sk: difosforečnany a uhličitany sodné
+sl: difosfati in natrijevi karbonati
+sv: difosfater och natriumkarbonater
 # fr:e450-et-e500 has 64 products in 4 languages @2018-11-04
 # ingredient/fr:diphosphate-et-carbonate-de-calcium has 678 products @2019-05-18
 
@@ -26616,23 +26640,54 @@ ru: сода, сода пищевая, гидрокарбонат натрия, 
 < en:E450
 < en:E451
 en: di- and triphosphates
+bg: ди- и трифосфати
+ca: di- i trifosfats
+cs: di- a trifosforečnany
 da: di- och triphosphater
 de: Di- und Triphosphate, Stabilisator Di- und Triphosphate
+el: δι- και τριφωσφορικά άλατα
+es: di- y trifosfatos
+et: di- ja trifosfaadid
 fi: di- ja trifosfaatit
 fr: diphosphates et triphosphates, triphosphates et diphosphates, di- et triphosphate
 hr: di- i trifosfati
+lt: di- ir trifosfatai
+lv: di- un trifosfāti
+mt: di- u trifosfati
 nl: difosfaten en trifosfaten
+pl: di- i trifosforany
+pt: di- e trifosfatos
+ro: di- și trifosfați
+ru: ди- и трифосфаты
+sk: di- a trifosforečnany
+sl: di- in trifosfati
 sv: di- och trifosfater
 
 < en:E500
 < en:E503
 en: ammonium and sodium carbonates
+bg: амониеви и натриеви карбонати
+ca: carbonats d'amoni i de sodi
+cs: uhličitany amonné a sodné
 da: ammonium- og natriumkarbonat, ammonium- og natriumcarbonat
 de: Ammonium und Natriumcarbonat
+el: ανθρακικά άλατα αμμωνίου και νατρίου
+es: carbonatos de amonio y de sodio
+et: ammoonium- ja naatriumkarbonaadid
 fi: ammonium- ja natriumkarbonaatit
 fr: carbonates d'ammonium et de sodium
+hr: amonijevi i natrijevi karbonati
+hu: ammónium- és nátrium-karbonátok
 it: carbonati di ammonio e di sodio
-lt: kildinimo medžiaga amonio karbonatas
+lt: amonio ir natrio karbonatai, kildinimo medžiaga amonio karbonatas
+lv: amonija un nātrija karbonāti
+mt: karbonati tal-ammonju u tas-sodju
 nl: ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
+pl: węglany amonu i sodu
+pt: carbonatos de amônio e de sódio, carbonatos de amónio e de sódio
+ro: carbonați de amoniu și de sodiu
+ru: карбонаты аммония и натрия
+sk: uhličitany amónne a sodné
+sl: amonijevi in natrijevi karbonati
+sv: ammonium- och natriumkarbonater
 # ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
-

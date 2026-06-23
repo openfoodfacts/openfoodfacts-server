@@ -17,6 +17,7 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "16030",
+               "from_palm_oil" : "no",
                "id" : "en:cocoa-butter",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 22,
@@ -229,7 +230,10 @@
       "en:acid",
       "en:salt",
       "en:cocoa-butter",
+      "en:oil-and-fat",
       "en:plant",
+      "en:vegetable-oil-and-fat",
+      "en:vegetable-fat",
       "en:cocoa",
       "en:sugar",
       "en:added-sugar",

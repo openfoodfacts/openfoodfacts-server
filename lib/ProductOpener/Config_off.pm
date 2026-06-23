@@ -107,6 +107,8 @@ BEGIN {
 
 		$build_cache_repo
 		$serialize_to_json
+
+		$health_check_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -412,28 +414,6 @@ $options{users_who_can_upload_small_images} = {
 			qw (
 				slack_channel_edit-alert
 			)
-		],
-	},
-	# 2025-08-25 prevent municorn-calorie-counter-app from editing nutrients
-	# see https://github.com/openfoodfacts/contributor-quality-issues/issues/18
-	{
-		name => "municorn-calorie-counter-app nutrients edition",
-		conditions => [["user_id", "municorn-calorie-counter-app"],],
-		actions => [
-			["ignore_nutriment_energy-kj"], ["ignore_nutriment_energy-kcal"],
-			["ignore_nutriment_fat"], ["ignore_nutriment_saturated-fat"],
-			["ignore_nutriment_trans-fat"], ["ignore_nutriment_monounsaturated-fat"],
-			["ignore_nutriment_polyunsaturated-fat"], ["ignore_nutriment_cholesterol"],
-			["ignore_nutriment_carbohydrates"], ["ignore_nutriment_carbohydrates-total"],
-			["ignore_nutriment_sugars"], ["ignore_nutriment_added_sugars"],
-			["ignore_nutriment_fiber"], ["ignore_nutriment_proteins"],
-			["ignore_nutriment_salt"], ["ignore_nutriment_sodium"],
-			["ignore_nutriment_alcohol"], ["ignore_nutriment_vitamin-d"],
-			["ignore_nutriment_calcium"], ["ignore_nutriment_potassium"],
-			["ignore_serving_size"],
-			# block image selection
-			["block_if_regexp_match_id", "^(front|ingredients|nutrition|packaging).*"],
-			["block_if_regexp_match_imagefield", "^(front|ingredients|nutrition|packaging).*"],
 		],
 	},
 );
