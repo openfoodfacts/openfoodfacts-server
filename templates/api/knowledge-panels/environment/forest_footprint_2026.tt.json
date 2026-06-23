@@ -5,9 +5,9 @@
     ],
     "expanded": false,
     "title_element": {
-        "name": "Forest Footprint 2026",
-        "title": "Forest Footprint 2026 - [% product.forest_footprint_2026.grade.ucfirst %]",
-        "subtitle": "Under development - shown to moderators only for debugging purposes",
+"name": "[% edq(lang('forest_footprint_2026')) %]",
+      "title": "[% edq(lang('forest_footprint_2026')) %] - [% product.forest_footprint_2026.grade.ucfirst %]",
+      "subtitle": "[% edq(lang('forest_footprint_2026_under_development')) %]",
         "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-[% product.forest_footprint_2026.grade %].svg",
         "type": "grade",
         "grade": "[% product.forest_footprint_2026.grade %]"
@@ -18,10 +18,10 @@
             "text_element": {
                 "type": "summary",
                 "html": `
-                <p><strong>Forest Footprint 2026</strong></p>
-                <p>The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes.</p>
-                <p><strong>Overall grade:</strong> [% product.forest_footprint_2026.grade.ucfirst %]</p>
-                <p><strong>Total forest footprint:</strong> [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                <p><strong>[% lang('forest_footprint_2026') %]</strong></p>
+                <p>[% lang('forest_footprint_2026_under_development') %]</p>
+                <p><strong>[% lang('forest_footprint_2026_overall_grade') %][% sep %]:</strong> [% product.forest_footprint_2026.grade.ucfirst %]</p>
+                <p><strong>[% lang('total_forest_footprint') %][% sep %]:</strong> [% product.forest_footprint_2026.total_footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
                 `
             }
         },
@@ -34,8 +34,8 @@
                 "type": "summary",
                 "html": `
                 <h3>[% display_taxonomy_tag("ingredients", primary_id).ucfirst %]</h3>
-                <p><strong>Primary ingredient grade:</strong> [% primary.grade.ucfirst %]</p>
-                <p><strong>Primary ingredient forest footprint:</strong> [% primary.footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
+                <p><strong>[% lang('forest_footprint_2026_primary_ingredient_grade') %][% sep %]:</strong> [% primary.grade.ucfirst %]</p>
+                <p><strong>[% lang('forest_footprint_2026_primary_ingredient') %][% sep %]:</strong> [% primary.footprint_per_kg FILTER format("%.2f"); %] [% lang('square_meters_per_kg_of_food') %]</p>
                 `
             }
         },
@@ -46,39 +46,39 @@
                 "title": "[% display_taxonomy_tag("ingredients", primary_id) %]",
                 "columns": [
                     {
-                        "text": "Ingredient",
+                        "text": "[% edq(lang('ingredients_s')) | ucfirst %]",
                         "type": "text"
                     },
                     {
-                        "text": "% in the product",
+                        "text": "[% edq(lang('percent_in_product')) %]",
                         "type": "text"
                     },
                     {
-                        "text": "Primary ingredient",
+                        "text": "[% edq(lang('forest_footprint_2026_primary_ingredient')) %]",
                         "type": "text"
                     },
                     {
-                        "text": "Transformation factor",
+                        "text": "[% edq(lang('processing_factor')) %]",
                         "type": "text"
                     },
                     {
-                        "text": "Origin",
+                        "text": "[% edq(lang('origin')) %]",
                         "type": "text"
                     },
                     {
-                        "text": "Forest footprint for the origin",
+                        "text": "[% edq(lang('forest_footprint_2026_origin_footprint')) %]",
                         "type": "text"
                     },
                     {
-                        "text": "Label",
+                        "text": "[% edq(lang('forest_footprint_2026_label')) %]",
                         "type": "text"
                     },
                     {
-                        "text": "Deforestation risk",
+                        "text": "[% edq(lang('deforestation_risk')) %]",
                         "type": "text"
                     },
                     {
-                        "text": "Forest footprint (m² per kg)",
+                        "text": "[% edq(lang('forest_footprint')) %]<br><span style=\"font-weight:normal\">([% edq(lang('square_meters_per_kg_of_food')) %])</span>",
                         "type": "text"
                     },
                 ],
