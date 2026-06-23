@@ -430,6 +430,7 @@
             },
             {
                "ciqual_food_code" : "16030",
+               "from_palm_oil" : "no",
                "id" : "en:cocoa-butter",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 4.16666666666667,
@@ -514,6 +515,9 @@
       "en:cocoa",
       "en:plant",
       "en:cocoa-butter",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:vegetable-fat",
       "en:sweetener",
       "en:e951"
    ],
