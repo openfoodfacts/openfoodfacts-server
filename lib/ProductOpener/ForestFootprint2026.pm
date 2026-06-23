@@ -66,8 +66,10 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ProductsTags qw/:all/;
+use ProductOpener::Numbers qw/convert_string_to_number/;
 
 use Text::CSV();
+use Data::DeepAccess qw(deep_get);
 
 my %forest_footprint_2026_data = (
 	ingredients => {},
@@ -87,19 +89,16 @@ my @primary_ingredients = qw(
 # Thresholds for each primary ingredient (EF values for grades B, C, D)
 my %grade_thresholds = (
 	'en:cocoa' => {
-		'B' => 0.065,
-		'C' => 0.168,
-		'D' => 0.168,
+		b => 0.065,
+		c => 0.168,
 	},
 	'en:coffee' => {
-		'B' => 0.022,
-		'C' => 0.044,
-		'D' => 0.044,
+		b => 0.022,
+		c => 0.044,
 	},
 	'en:palm-oil' => {
-		'B' => 0.003,
-		'C' => 0.010,
-		'D' => 0.010,
+		b => 0.003,
+		c => 0.010,
 	},
 );
 
@@ -140,15 +139,9 @@ sub load_forest_footprint_2026_data() {
 	return;
 }
 
-sub load_ingredients_equivalence ($) {
+sub load_ingredients_equivalence ($data_dir) {
 
-	my ($data_dir) = @_;
-
-	# Try loading populated file first, then fall back to original
-	my $tsv_file = "$data_dir/ingredient.ingredient_category.equivalence.populated.tsv";
-	if (not -e $tsv_file) {
-		$tsv_file = "$data_dir/ingredient.ingredient_category.equivalence.tsv";
-	}
+	my $tsv_file = "$data_dir/ingredient.ingredient_category.equivalence.tsv";
 
 	$log->debug("opening ingredients equivalence TSV file", {file => $tsv_file})
 		if $log->is_debug();
@@ -170,7 +163,7 @@ sub load_ingredients_equivalence ($) {
 			my $ingredient_id = $row_ref->{ingredient_id};
 			my $ingredient_fr = $row_ref->{ingredient_fr};
 			my $ingredient_category_id = $row_ref->{ingredient_category_id};
-			my $equivalence = _parse_decimal($row_ref->{equivalence});
+			my $equivalence = convert_string_to_number($row_ref->{equivalence});
 
 			if ($ingredient_id eq "") {
 				$log->warn("ingredient_fr has no ingredient_id", {ingredient_fr => $ingredient_fr})
@@ -194,14 +187,9 @@ sub load_ingredients_equivalence ($) {
 	return;
 }
 
-sub load_ingredient_categories_equivalence ($) {
+sub load_ingredient_categories_equivalence ($data_dir) {
 
-	my ($data_dir) = @_;
-
-	my $tsv_file = "$data_dir/ingredient_category.primary_ingredient.equivalence.populated.tsv";
-	if (not -e $tsv_file) {
-		$tsv_file = "$data_dir/ingredient_category.primary_ingredient.equivalence.tsv";
-	}
+	my $tsv_file = "$data_dir/ingredient_category.primary_ingredient.equivalence.tsv";
 
 	$log->debug("opening ingredient categories equivalence TSV file", {file => $tsv_file})
 		if $log->is_debug();
@@ -222,7 +210,7 @@ sub load_ingredient_categories_equivalence ($) {
 
 			my $ingredient_category_id = $row_ref->{ingredient_category_id};
 			my $primary_ingredient_id = $row_ref->{primary_ingredient_id};
-			my $equivalence = _parse_decimal($row_ref->{equivalence});
+			my $equivalence = convert_string_to_number($row_ref->{equivalence});
 
 			if ($ingredient_category_id eq "") {
 				$log->warn(
@@ -247,14 +235,9 @@ sub load_ingredient_categories_equivalence ($) {
 	return;
 }
 
-sub load_labels_risk ($) {
+sub load_labels_risk ($data_dir) {
 
-	my ($data_dir) = @_;
-
-	my $tsv_file = "$data_dir/label.primary_ingredient.risk.populated.tsv";
-	if (not -e $tsv_file) {
-		$tsv_file = "$data_dir/label.primary_ingredient.risk.tsv";
-	}
+	my $tsv_file = "$data_dir/label.primary_ingredient.risk.tsv";
 
 	$log->debug("opening labels risk TSV file", {file => $tsv_file})
 		if $log->is_debug();
@@ -288,11 +271,9 @@ sub load_labels_risk ($) {
 				next;
 			}
 
-			my $primary_ingredient = get_primary_ingredient_name($primary_ingredient_id);
-			my $footprint = _parse_decimal($row_ref->{footprint});
+			my $footprint = convert_string_to_number($row_ref->{footprint});
 
-			# Key by label_id for backward compatibility
-			$forest_footprint_2026_data{labels_risk}{$label_id}{$primary_ingredient} = $footprint;
+			$forest_footprint_2026_data{labels_risk}{$label_id}{$primary_ingredient_id} = $footprint;
 		}
 
 		close($io);
@@ -304,14 +285,9 @@ sub load_labels_risk ($) {
 	return;
 }
 
-sub load_origins_footprint ($) {
+sub load_origins_footprint ($data_dir) {
 
-	my ($data_dir) = @_;
-
-	my $tsv_file = "$data_dir/origin.primary_ingredient.footprint.populated.tsv";
-	if (not -e $tsv_file) {
-		$tsv_file = "$data_dir/origin.primary_ingredient.footprint.tsv";
-	}
+	my $tsv_file = "$data_dir/origin.primary_ingredient.footprint.tsv";
 
 	$log->debug("opening origins footprint TSV file", {file => $tsv_file})
 		if $log->is_debug();
@@ -338,11 +314,15 @@ sub load_origins_footprint ($) {
 				next;
 			}
 
-			$forest_footprint_2026_data{origins_footprint}{$origin_id} = {
-				cocoa => _parse_decimal($row_ref->{"cocoa.footprint"}),
-				coffee => _parse_decimal($row_ref->{"coffee.footprint"}),
-				"palm-oil" => _parse_decimal($row_ref->{"palm-oil.footprint"}),
-			};
+			# Get all columns named "[primary_ingredient].footprint" and store them in the origins_footprint hash
+			foreach my $primary_ingredient (@primary_ingredients) {
+				my $column_name = "$primary_ingredient.footprint";
+				$column_name =~ s/^en://;
+				if ($row_ref->{$column_name} ne '') {
+					my $footprint = convert_string_to_number($row_ref->{$column_name});
+					$forest_footprint_2026_data{origins_footprint}{$origin_id}{$primary_ingredient} = $footprint;
+				}
+			}
 		}
 
 		close($io);
@@ -379,8 +359,8 @@ sub compute_forest_footprint_2026 ($product_ref) {
 	$product_ref->{forest_footprint_2026} = {primary_ingredients => {}};
 
 	# Initialize each primary ingredient
-	foreach my $primary_id (@primary_ingredients) {
-		$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id} = {
+	foreach my $primary_ingredient_id (@primary_ingredients) {
+		$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id} = {
 			ingredients => [],
 			footprint_per_kg => 0,
 			grade => 'a',
@@ -393,8 +373,8 @@ sub compute_forest_footprint_2026 ($product_ref) {
 
 	# Calculate total footprint and grades
 	my $has_ingredients = 0;
-	foreach my $primary_id (@primary_ingredients) {
-		my $primary_data = $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id};
+	foreach my $primary_ingredient_id (@primary_ingredients) {
+		my $primary_data = $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id};
 		if (scalar @{$primary_data->{ingredients}} > 0) {
 			$has_ingredients = 1;
 			# Calculate footprint for this primary ingredient
@@ -403,20 +383,21 @@ sub compute_forest_footprint_2026 ($product_ref) {
 				$primary_data->{footprint_per_kg} += $ingredient_ref->{footprint_per_kg};
 			}
 			# Calculate grade for this primary ingredient
-			$primary_data->{grade} = _get_grade_for_ef($primary_data->{footprint_per_kg}, $primary_id);
+			$primary_data->{grade}
+				= _get_grade_for_footprint($primary_ingredient_id, $primary_data->{footprint_per_kg});
 		}
 		else {
 			# No ingredients for this primary ingredient, remove it from the structure
-			delete $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id};
+			delete $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id};
 		}
 	}
 
 	if ($has_ingredients) {
 		# Calculate overall total footprint
 		$product_ref->{forest_footprint_2026}{total_footprint_per_kg} = 0;
-		foreach my $primary_id (keys %{$product_ref->{forest_footprint_2026}{primary_ingredients}}) {
+		foreach my $primary_ingredient_id (keys %{$product_ref->{forest_footprint_2026}{primary_ingredients}}) {
 			$product_ref->{forest_footprint_2026}{total_footprint_per_kg}
-				+= $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{footprint_per_kg};
+				+= $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id}{footprint_per_kg};
 		}
 
 		# Calculate overall grade
@@ -487,9 +468,7 @@ does not have a forest footprint.
 
 =cut
 
-sub get_forest_footprint_2026_ingredient_footprint {
-
-	my ($product_ref, $ingredient_ref) = @_;
+sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_ref) {
 
 	my $ingredient_id = $ingredient_ref->{id};
 
@@ -524,27 +503,20 @@ sub get_forest_footprint_2026_ingredient_footprint {
 
 	my $primary_ingredient_id = $category_data->{primary_ingredient_id};
 	my $equivalence_ingredient_category = $category_data->{equivalence};
-	my $primary_ingredient = get_primary_ingredient_name($primary_ingredient_id);
-	my $origin_data = get_origin_footprint_data($product_ref, $primary_ingredient);
+	my $origin_data = get_origin_footprint_data($product_ref, $primary_ingredient_id);
 	my $origin_id = $origin_data->{origin_id};
 	my $origin_footprint = $origin_data->{origin_footprint};
 
 	if (not defined $origin_footprint) {
-		$log->debug("no origin footprint found", {primary_ingredient => $primary_ingredient})
+		$log->debug("no origin footprint found", {primary_ingredient_id => $primary_ingredient_id})
 			if $log->is_debug();
 		return undef;
 	}
 
-	my $label_data = get_label_risk_data($product_ref, $primary_ingredient);
+	my $label_data = get_label_risk_data($product_ref, $primary_ingredient_id);
 	my $risk_factor = $label_data->{risk_factor};
 
-	my $percent = $ingredient_ref->{percent};
-	if (not defined $percent) {
-		$percent = $ingredient_ref->{percent_estimate};
-	}
-	if (not defined $percent) {
-		$percent = 100;
-	}
+	my $percent = $ingredient_ref->{percent} // $ingredient_ref->{percent_estimate} // 100;
 
 	my $footprint_per_kg
 		= ($percent / 100)
@@ -558,7 +530,6 @@ sub get_forest_footprint_2026_ingredient_footprint {
 		ingredient_id => $ingredient_id,
 		ingredient_category_id => $ingredient_category_id,
 		primary_ingredient_id => $primary_ingredient_id,
-		primary_ingredient => $primary_ingredient,
 		percent => $percent,
 		equivalence_ingredient => $equivalence_ingredient,
 		equivalence_ingredient_category => $equivalence_ingredient_category,
@@ -573,35 +544,17 @@ sub get_forest_footprint_2026_ingredient_footprint {
 	return $footprint_ref;
 }
 
-sub get_primary_ingredient_name ($) {
-
-	my ($primary_ingredient_id) = @_;
-
-	if ($primary_ingredient_id =~ /^en:(.+)$/) {
-		my $name = $1;
-		# Map ingredient names to footprint categories
-		if ($name eq 'cacao') {
-			return 'cocoa';    # cacao -> cocoa for footprint lookup
-		}
-		return $name;
-	}
-
-	return $primary_ingredient_id;
-}
-
-sub get_origin_footprint_data {
-
-	my ($product_ref, $primary_ingredient) = @_;
+sub get_origin_footprint_data ($product_ref, $primary_ingredient_id) {
 
 	if (defined $product_ref->{origins_tags}) {
 		foreach my $origin_tag (@{$product_ref->{origins_tags}}) {
 			next if not defined $origin_tag or $origin_tag eq "";
 			if (exists $forest_footprint_2026_data{origins_footprint}{$origin_tag}) {
 				my $origin_data = $forest_footprint_2026_data{origins_footprint}{$origin_tag};
-				if (defined $origin_data->{$primary_ingredient}) {
+				if (defined $origin_data->{$primary_ingredient_id}) {
 					return {
 						origin_id => $origin_tag,
-						origin_footprint => $origin_data->{$primary_ingredient},
+						origin_footprint => $origin_data->{$primary_ingredient_id},
 					};
 				}
 			}
@@ -615,7 +568,7 @@ sub get_origin_footprint_data {
 		my $origin_data = $forest_footprint_2026_data{origins_footprint}{$default_origin_id};
 		return {
 			origin_id => $default_origin_id,
-			origin_footprint => $origin_data->{$primary_ingredient} // 0,
+			origin_footprint => $origin_data->{$primary_ingredient_id} // 0,
 		};
 	}
 
@@ -625,16 +578,7 @@ sub get_origin_footprint_data {
 	};
 }
 
-sub get_origin_footprint {
-
-	my ($product_ref, $primary_ingredient) = @_;
-	my $origin_data = get_origin_footprint_data($product_ref, $primary_ingredient);
-	return $origin_data->{origin_footprint};
-}
-
-sub get_label_risk_data {
-
-	my ($product_ref, $primary_ingredient) = @_;
+sub get_label_risk_data ($product_ref, $primary_ingredient_id) {
 
 	my $risk_factor = 1;
 	my $label_id;
@@ -644,8 +588,8 @@ sub get_label_risk_data {
 			next if not defined $label_tag or $label_tag eq "";
 			if (exists $forest_footprint_2026_data{labels_risk}{$label_tag}) {
 				my $label_data = $forest_footprint_2026_data{labels_risk}{$label_tag};
-				if (exists $label_data->{$primary_ingredient}) {
-					my $label_risk = $label_data->{$primary_ingredient} / 100;
+				if (exists $label_data->{$primary_ingredient_id}) {
+					my $label_risk = $label_data->{$primary_ingredient_id} / 100;
 					if ($label_risk < $risk_factor) {
 						$risk_factor = $label_risk;
 						$label_id = $label_tag;
@@ -661,30 +605,6 @@ sub get_label_risk_data {
 	};
 }
 
-sub get_label_risk {
-
-	my ($product_ref, $primary_ingredient) = @_;
-	my $label_data = get_label_risk_data($product_ref, $primary_ingredient);
-	return $label_data->{risk_factor};
-}
-
-sub _parse_decimal ($) {
-
-	my ($value) = @_;
-
-	if (not defined $value or $value eq "" or $value eq "#N/A") {
-		return 0;
-	}
-
-	# Convert European decimal notation (comma) to dot notation
-	$value =~ s/,/./g;
-
-	# Remove any non-numeric characters except dot and minus
-	$value =~ s/[^0-9\.\-]//g;
-
-	return $value + 0;
-}
-
 =head2 calculate_forest_footprint_2026_grade ($product_ref)
 
 C<calculate_forest_footprint_2026_grade()> calculates the forest footprint grade for a product.
@@ -696,20 +616,17 @@ Grades:
 
 =cut
 
-sub calculate_forest_footprint_2026_grade ($) {
-
-	my ($product_ref) = @_;
-
-	# Data is already organized in primary_ingredients, just calculate overall grade
+sub calculate_forest_footprint_2026_grade ($product_ref) {
 
 	# Check for non-calculated ingredients using ingredients_tags
 	my $has_non_calculated_ingredient = 0;
 	my $has_calculated_ingredient = 0;
 
 	# Check if any calculated primary ingredients are present
-	foreach my $primary_id (@primary_ingredients) {
-		if (defined $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}
-			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}} > 0)
+	foreach my $primary_ingredient_id (@primary_ingredients) {
+		if (defined $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id}{ingredients}
+			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id}{ingredients}}
+			> 0)
 		{
 			$has_calculated_ingredient = 1;
 			last;
@@ -751,109 +668,49 @@ sub calculate_forest_footprint_2026_grade ($) {
 		}
 	}
 
-	# Rule 1: If presence of non-calculated ingredients + absence of calculated ingredients → "unknown"
+	# If presence of non-calculated ingredients + absence of calculated ingredients → "unknown"
 	if ($has_non_calculated_ingredient && !$has_calculated_ingredient) {
 		return "unknown";
 	}
 
-	# Rule 2 & 3: Determine final grade
+	# Determine final grade
 	# Use the highest grade (worst) that applies
-	my $final_grade = "";
-	my $final_grade_score = -1;
+	my $final_grade = "a";
 
-	foreach my $primary_id (@primary_ingredients) {
+	foreach my $primary_ingredient_id (@primary_ingredients) {
 		# Get the grade from the already-populated primary_ingredients structure
-		my $grade = $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{grade};
-		my $grade_score = _grade_to_score($grade);
+		my $grade
+			= deep_get($product_ref, "forest_footprint_2026", "primary_ingredients", $primary_ingredient_id, "grade");
 
-		# Only consider if this primary ingredient is present (has ingredients)
-		if (   defined $product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}
-			&& scalar @{$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_id}{ingredients}} > 0
-			&& defined $grade)
-		{
-			if ($grade_score > $final_grade_score) {
-				$final_grade = $grade;
-				$final_grade_score = $grade_score;
-			}
+		if ((defined $grade) and ($grade gt $final_grade)) {
+			$final_grade = $grade;
 		}
-	}
 
-	# If no calculated ingredients found (all EF = 0), return "a"
-	if ($final_grade eq "") {
-		return "a";
-	}
-	if ($final_grade eq "") {
-		return "";
 	}
 
 	return lc($final_grade);
 }
 
-sub collect_all_ingredients {
+sub _get_grade_for_footprint ($primary_ingredient_id, $footprint) {
 
-	my ($ingredients_ref, $all_ingredients_ref) = @_;
+	my $thresholds = $grade_thresholds{$primary_ingredient_id};
 
-	foreach my $ingredient_ref (@$ingredients_ref) {
-		if (defined $ingredient_ref->{id}) {
-			push @$all_ingredients_ref, $ingredient_ref->{id};
-		}
+	my $grade;
 
-		# Recursively collect sub-ingredients
-		if (defined $ingredient_ref->{ingredients}) {
-			collect_all_ingredients($ingredient_ref->{ingredients}, $all_ingredients_ref);
-		}
+	if ($footprint == 0) {
+		$grade = "a";
 	}
-}
-
-sub _get_grade_for_ef {
-
-	my ($ef, $primary_id) = @_;
-
-	# If no EF, return A
-	if ($ef == 0) {
-		return "a";
+	elsif ($footprint < $thresholds->{b}) {
+		$grade = "b";
 	}
-
-	# Get thresholds for this primary ingredient
-	my $thresholds = $grade_thresholds{$primary_id};
-	if (not defined $thresholds) {
-		return "";
-	}
-
-	# Apply thresholds: B < threshold_B, C < threshold_C, D >= threshold_C
-	if ($ef < $thresholds->{'B'}) {
-		return "b";
-	}
-	elsif ($ef < $thresholds->{'C'}) {
-		return "c";
+	elsif ($footprint < $thresholds->{c}) {
+		$grade = "c";
 	}
 	else {
-		return "d";
+		$grade = "d";
 	}
-}
 
-sub _grade_to_score {
-
-	my ($grade) = @_;
-
-	# Convert grade to numeric score for comparison
-	# a=0 (best), b=1, c=2, d=3 (worst), undef/""=-1 (not applicable)
-	return -1 unless defined $grade;
-	if ($grade eq "a") {
-		return 0;
-	}
-	elsif ($grade eq "b") {
-		return 1;
-	}
-	elsif ($grade eq "c") {
-		return 2;
-	}
-	elsif ($grade eq "d") {
-		return 3;
-	}
-	else {
-		return -1;
-	}
+	return $grade;
 }
 
 1;

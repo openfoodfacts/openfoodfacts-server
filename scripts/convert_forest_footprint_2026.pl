@@ -97,13 +97,6 @@ sub populate_tsv_ids {
 			if (defined $row_ref->{$fr_field} && $row_ref->{$fr_field} ne "") {
 				my $fr_value = $row_ref->{$fr_field};
 
-				# Check if ID field is already populated
-				if (defined $row_ref->{$id_field} && $row_ref->{$id_field} ne "") {
-					print "Warning: $id_field already populated for $fr_value\n";
-					$warnings++;
-					next;
-				}
-
 				# Use canonicalize_taxonomy_tag to get the ID
 				my $exists = 0;
 				my $tagid = canonicalize_taxonomy_tag($language, $tagtype, $fr_value, \$exists);
@@ -112,7 +105,7 @@ sub populate_tsv_ids {
 					$row_ref->{$id_field} = $tagid;
 				}
 				else {
-					print "Warning: No taxonomy entry found for $fr_value ($tagtype)\n";
+					print "Warning: No taxonomy entry found for French value: $fr_value ($tagtype)\n";
 					$warnings++;
 				}
 			}
@@ -185,7 +178,6 @@ sub main {
 
 	if ($total_warnings > 0) {
 		print "\nNote: Warnings indicate taxonomy entries that were not found.\n";
-		print "This is normal for custom ingredients or labels not yet in the main taxonomy.\n";
 	}
 }
 
