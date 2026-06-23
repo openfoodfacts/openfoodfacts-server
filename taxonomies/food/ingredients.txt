@@ -42988,9 +42988,9 @@ ciqual_proxy_food_code:en: 13034
 ciqual_proxy_food_name:en: Orange, pulp, raw
 ecobalyse:en: f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1
 ecobalyse_origins_en_european_union:en: af47d8b1-2c50-4f3f-8d10-1941133bd100
-wikidata:en: Q13191
 usda_ndb_proxy_code:en: 9200
 usda_ndb_proxy_name:en: Oranges, raw, all commercial varieties
+wikidata:en: Q13191
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_(fruit)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/orange
 # 2121 products in 8 languages @2018-09-28
@@ -46149,13 +46149,13 @@ wikidata:en: Q13194
 wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 #1182 in 24 @2021-10-13
 
-<en: kiwi
+< en:kiwi
 en: raw zespri sungold kiwifruit 
 comment:en: note that this also a specific brand, but all from New Zealnd have this brand, but are now grown elsewhere.
 usda_ndb_code:en: 9520
 usda_ndb_name:en: Kiwifruit, ZESPRI SunGold, raw
 
-<en: kiwi
+< en:kiwi
 en: raw green kiwi
 usda_ndb_code:en: 9148
 usda_ndb_name:en: Kiwifruit, green, raw
@@ -47249,7 +47249,6 @@ la: Passiflora edulis, Passiflora edulis sims
 #processing:en: en:juice
 # < en:passionfruit, there is a better food composition link
 en: passion fruit juice, passionfruit juice
-it: succo di frutto della passione
 de: Maracujasaft, Passionsfruchtsaft
 es: zumo de maracuyá, jugo de maracuyá
 fi: passiohedelmämehu
@@ -47549,12 +47548,18 @@ sv: ananssirap
 tr: ananas şurubu
 zh: 菠萝糖浆
 
+###################################################################################################
+#
+#                                Pitanga
+#
+###################################################################################################
+
 < en:fruit
 en: pitanga, Surinam cherry, Brazilian cherry
 la: Eugenia uniflora
 description:en: Pitanga is a tropical fruit native to South America. The fruit is a berry with a persistent calyx up to 4 cm in diameter and eight clearly visible ribs. Its color changes from green to orange and purple as it matures. The flavor is unique — peppery and fruity, and quite complex
 usda_ndb_proxy_code:en: 9276
-usda_ndb_proxy name:en: Pitanga, (surinam-cherry), raw
+usda_ndb_proxy_name:en: Pitanga, (surinam-cherry), raw
 
 < en:pitanga
 en: raw pitanga
@@ -47778,7 +47783,7 @@ usda_ndb_proxy_name:en: Persimmons, native, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Diospyros_kaki
 
 < en:persimmon
-en:dried japanese persimmon
+en: dried japanese persimmon
 usda_ndb_code:en: 9264
 usda_ndb_name:en: Persimmons, japanese, dried
 
@@ -48127,8 +48132,8 @@ description:en: A rose apple (Syzygium jambos or related species) is a tropical 
 usda_ndb_proxy_code:en: 9312
 usda_ndb_proxy_name:en: Rose-apples, raw
 
-< en: rose apple
-en: raw rose apple 
+< en:rose apple
+en: raw rose apple
 usda_ndb_code:en: 9312
 usda_ndb_name:en: Rose-apples, raw
 
@@ -50502,7 +50507,7 @@ usda_ndb_code:en: 9322
 usda_ndb_name:en: Tamarinds, raw
 
 < en:tamarind
-en raw immature tamarind pulp
+en: raw immature tamarind pulp
 ciqual_food_code:en: 13079
 ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
 ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
