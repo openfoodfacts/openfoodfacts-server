@@ -70761,50 +70761,144 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Fruits
-en: Citrus
+en: Citrus, Citrus fruits
+ar: فاكهة حمضية
+ca: Cítric
+cs: Citrusové ovoce
+da: Citrusfrugter
 de: Zitrusfrüchte
+el: Εσπεριδοειδή
+eo: Citrusfruktoj
 es: Cítricos
-fi: sitrus
+eu: Zitriko
+fi: Sitrushedelmä, Sitrus
 fr: Agrumes
+ga: Toradh citris
+gl: Cítrico
 hr: Agrumi
-it: Agrumi
-ja: 柑橘類
+id: Buah jeruk
+it: Agrumi, Agrume
+ja: 柑橘類, 柑橘類の果実
+jv: Buah jeruk
+ka: Მეციტრუსეობა
+ko: 귤열매
 lt: Citrusiniai vaisiai
+lv: Citrusauglis
+mg: Voasary
+mk: Агруми
+ml: സിട്രസ് പഴം
+nb: Sitrusfrukter
 nl: Citrusvruchten
-pl: Cytrusy, cytrus
-ru: Цитрусовые, Плоды цитрусовых культур
+nn: Sitrusfrukter
+pl: Cytrusy, cytrus, Owoc cytrusowy
+ru: Цитрусовые, Плоды цитрусовых культур, Плод цитруса
+sl: Agrum
+sv: Citrusfruktar
+tt: Цитрус җимеше
+zh: 柑橘
+wikidata:en: Q2574750
 
 < en:Citrus
 en: Grapefruits
+ar: ليمون الجنة
+bg: Грейпфрут
+ca: Aranja
+cs: Grapefruit
+da: Grapefrugter, Grape
 de: Grapefruits
-es: Pomelos
+el: Γκρέιπφρουτ
+eo: Grapfruktoj
+es: Pomelos, Toronja
+et: Greip
+fi: Greippi
 fr: Pomélos, Pomelos
+ga: Seadóg
 hr: Grejpfrutovi
+hu: Grépfrút
+it: Pompelmo
 ja: グレープフルーツ
+ka: Გრეიპფრუტი
 la: Citrus x paradisi
-lt: Greipfrutai
+lt: Greipfrutai, Greipfrutas
+nb: Grapefrukter
 nl: Grapefruit
+nn: Grapefrukter
+pl: Grejpfrut
+pt: Toranja
 ro: Grepfrut, Grepfruturi
+ru: Грейпфрут
+sk: Grapefruit
+sl: Grenivka
+sv: Grapefruktar, Graper
+zh: 葡萄柚
+agribalyse_proxy_food_code:en: 13040
+ciqual_proxy_food_code:en: 13040
+ciqual_proxy_food_name:en: Grapefruit, pulp, raw
+ciqual_proxy_food_name:fr: Pomelo (dit Pamplemousse), pulpe, cru
 sales_format:en: weight, package
+wikidata:en: Q21552830
 
 < en:Grapefruits
 en: Fresh grapefruits
+da: Friske grapefrugter
 de: Frische Grapefruits
 fr: Pomélos frais, pomélo frais
 hr: Svježi grejpfrutovi
 lt: Švieži greipfrutai
+sv: Färska grapefruktar
+
+< en: Grapefruits
+en: Red grapefruits
+da: Røde grapefrugter
+nb: Røde grapefrukter
+nn: Raude grapefrukter
+sv: Röda grapefruktar, Röda graper
+agribalyse_proxy_food_code:en: 13180
+ciqual_proxy_food_code:en: 13180
+ciqual_proxy_food_name:en: Grapefruit, red or pink, pulp, raw
+ciqual_proxy_food_name:fr: Pomelo (dit Pamplemousse) rose, pulpe, cru
+
+< en: Red grapefruits
+en: Star Ruby grapefruits
+da: Star Ruby-grapefrugter
+la: Citrus paradisi ‘Macfadyen’
+nb: Star Ruby-grapefrukter
+nn: Star Ruby-grapefrukter
+sv: Star Ruby-grapefruktar
+comment:en: https://citrusvariety.ucr.edu/crc3770
 
 < en:Citrus
 en: Pomelos
-de: Pampelmusen
+bg: Помело
+ca: Aranja grossa, Pomelo
+da: Pomeloer
+de: Pampelmusen, Pomelo
+el: Πομέλο
+eo: Pumeloj
 es: Pomelos chinos, Pampelmusas
+et: Pomelo
+fi: Pomelo
 fr: Pamplemousses
+ga: Pomaló
 hr: Pomelo
-ja: ブンタン
+hu: Pomelo
+it: Pomelo
+ja: ブンタン, 文旦
 la: Citrus maxima
-lt: Pomelo greipfrutai, Didieji greipfrutai Pomelo
+lb: Pomelo
+lt: Pomelo greipfrutai, Didieji greipfrutai Pomelo, Didysis greipfrutas
+nb: Pomeloer
 nl: Pomelos
+nn: Pomeloar
+pl: Pomelo
+pt: Pomelo
+ru: Помело
+sk: Pumelo
+sl: Pomelo
+sv: Pomelo
+zh: 柚子
 sales_format:en: weight, package
+wikidata:en: Q353817
 
 < en:Fresh pomelos
 en: Pomelos from Corsica, Corsican pomelos
@@ -71178,24 +71272,25 @@ ciqual_food_code:en: 13614
 ciqual_food_name:en: Pummelo, pulp, raw
 ciqual_food_name:fr: Pamplemousse chinois, pulpe, cru
 
-< en:Pomelos
-en: Grapefruit pulp
+< en: Grapefruits
+en: Grapefruit pulps, Grapefruit pulp
 fr: Pulpe de pomelo, Pulpe de pamplemousse
 agribalyse_food_code:en: 13040
 ciqual_food_code:en: 13040
 ciqual_food_name:en: Grapefruit, pulp, raw
 ciqual_food_name:fr: Pomelo (dit Pamplemousse), pulpe, cru
 
-< en:Pomelos
-en: Yellow grapefruit pulp
+< en: Grapefruit pulps
+en: Yellow grapefruit pulps, Yellow grapefruit pulp
 fr: Pulpe de pomelo jaune, Pulpe de pamplemousse jaune
 agribalyse_food_code:en: 13179
 ciqual_food_code:en: 13179
 ciqual_food_name:en: Grapefruit, yellow, pulp, raw
 ciqual_food_name:fr: Pomelo (dit Pamplemousse) jaune, pulpe, cru
 
-< en:Pomelos
-en: Red grapefruit pulp
+< en: Grapefruit pulps
+< en: Red grapefruits
+en: Red grapefruit pulps, Red grapefruit pulp
 fr: Pulpe de pomelo rose, Pulpe de pamplemousse rose
 agribalyse_food_code:en: 13180
 ciqual_food_code:en: 13180
