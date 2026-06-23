@@ -1183,6 +1183,37 @@ sub _taxonomy_error_display($error_ref) {
 	return "$error{severity} - $error{type} - $line$error{msg}";
 }
 
+# Create a new prefix tree (Trie)
+sub trie_create () {
+	return {};
+}
+
+# Insert a sequence of elements into a prefix tree (Trie)
+sub trie_insert ($trie, $elements_ref, $value) {
+	my $curr = $trie;
+	foreach my $elem (@$elements_ref) {
+		$curr->{$elem} //= {};
+		$curr = $curr->{$elem};
+	}
+	$curr->{_ID} = $value;
+	return;
+}
+
+# Find all matches of trie entries within an element sequence
+sub trie_find_matches ($trie, $elements_ref) {
+	my %matches;
+	for my $i (0 .. $#$elements_ref) {
+		my $curr = $trie;
+		for my $j ($i .. $#$elements_ref) {
+			$curr = $curr->{$elements_ref->[$j]} or last;
+			if (exists $curr->{_ID}) {
+				push @{$matches{$curr->{_ID}}}, [$i, $j];
+			}
+		}
+	}
+	return \%matches;
+}
+
 =head2 build_tags_taxonomy( $tagtype, $file, $publish)
 
 Build taxonomy from the taxonomy file
@@ -1651,7 +1682,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 				# this Trie will contain all tags that are possible synonyms
 				# that are smaller than current tag and that we may substitute in it
-				my $substitutable_trie = {};
+				my $substitutable_trie = trie_create();
 
 				# synonyms don't support non roman languages at this point
 				next if ($lc eq 'ar');
@@ -1678,28 +1709,15 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					if (scalar @{$synonyms_for{$tagtype}{$lc}{$lc_tagid1}} > 1) {
 						# limit length of synonyms for performance
 						if (length($tagid) < (30 / $pass)) {
-							my $curr = $substitutable_trie;
-							foreach my $w (split('-', $tagid)) {
-								$curr = $curr->{$w} //= {};
-							}
-							$curr->{_ID} = $tagid;
+							trie_insert($substitutable_trie, [split('-', $tagid)], $tagid);
 						}
 					}
 
 					# Search for substitutable segments in tagid using the Trie
 					my @words = split('-', $tagid);
-					my %matches_by_tagid2;
-					for (my $i = 0; $i < @words; $i++) {
-						my $curr = $substitutable_trie;
-						for (my $j = $i; $j < @words; $j++) {
-							$curr = $curr->{$words[$j]} or last;
-							if (exists $curr->{_ID}) {
-								push @{$matches_by_tagid2{$curr->{_ID}}}, [$i, $j];
-							}
-						}
-					}
+					my $matches = trie_find_matches($substitutable_trie, \@words);
 
-					foreach my $tagid2 (sort {length($a) <=> length($b) || $a cmp $b} keys %matches_by_tagid2) {
+					foreach my $tagid2 (sort {length($a) <=> length($b) || $a cmp $b} keys %$matches) {
 						last if length($tagid2) > $max_length;
 
 						# canonical tagid for tagid2
@@ -1716,7 +1734,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						# Find the match with highest priority
 						my $match;
 						# Priority 1: Middle
-						foreach my $m (@{$matches_by_tagid2{$tagid2}}) {
+						foreach my $m (@{$matches->{$tagid2}}) {
 							if ($m->[0] > 0 && $m->[1] < $#words) {
 								$match = $m;
 								last;
@@ -1724,7 +1742,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						}
 						# Priority 2: End
 						if (!$match) {
-							foreach my $m (@{$matches_by_tagid2{$tagid2}}) {
+							foreach my $m (@{$matches->{$tagid2}}) {
 								if ($m->[1] == $#words && $m->[0] > 0) {
 									$match = $m;
 									last;
@@ -1733,7 +1751,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 						}
 						# Priority 3: Start
 						if (!$match) {
-							foreach my $m (@{$matches_by_tagid2{$tagid2}}) {
+							foreach my $m (@{$matches->{$tagid2}}) {
 								if ($m->[0] == 0 && $m->[1] < $#words) {
 									$match = $m;
 									last;
