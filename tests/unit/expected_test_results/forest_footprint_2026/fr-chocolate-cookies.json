@@ -90,6 +90,7 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "16030",
+               "from_palm_oil" : "maybe",
                "id" : "en:cocoa-butter",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 5.46875,
@@ -253,9 +254,10 @@
       "en:disaccharide",
       "en:salt",
       "en:cocoa-butter",
+      "en:vegetable-oil",
+      "en:cocoa-paste",
       "en:plant",
       "en:cocoa",
-      "en:cocoa-paste",
       "en:fat-reduced-cocoa",
       "en:milk",
       "en:dairy"
