@@ -6,7 +6,7 @@
     "expanded": false,
     "title_element": {
         "name": "Forest Footprint 2026",
-        "title": "Forest Footprint 2026 - grade [% product.forest_footprint_2026.grade %]",
+        "title": "Forest Footprint 2026 - [% product.forest_footprint_2026.grade.ucfirst %]",
         "subtitle": "Under development - shown to moderators only for debugging purposes",
         "icon_url": "[% static_subdomain %]/images/attributes/dist/forest-footprint-[% product.forest_footprint_2026.grade %].svg",
         "type": "grade",
