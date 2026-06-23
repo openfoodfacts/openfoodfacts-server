@@ -2508,41 +2508,37 @@
 
 
 <h1 id="explain-personal-search">Explain personal search<a class="headerlink" href="#explain-personal-search" title="Permanent link">#</a></h1>
-<p>Personal search is a feature to let users
-rank and score products according to their preferences.</p>
-<p>It can be applied on the website and the mobile.</p>
-<p>This is a very distinctive feature of Open Food Facts
-and close to our goal of enabling personalized usage of the data.</p>
-<p>Bear in mind that user preferences for food is sensitive information that must not be exposed.</p>
+<p>Personal search is a feature to let users rank and score products according to their preferences. 
+It can be applied on the website and the mobile.
+This is a very distinctive feature of Open Food Facts and close to our goal of enabling personalized usage of the data.
+Bear in mind that user preferences for food is sensitive information that must not be exposed.</p>
 <h2 id="preferences">Preferences<a class="headerlink" href="#preferences" title="Permanent link">#</a></h2>
-<p>Setting preferences happens client-side and is stored in browser or app local storage.</p>
-<p>The user can enter, for different attributes,
-how important each is according to their preferences.</p>
+<p>Setting preferences happens client-side and is stored in browser or app local storage.
+The user can enter, for different attributes, how important each is according to their preferences.</p>
 <p>Attributes are grouped into sections (called groups).</p>
-<p>The attributes are accessible using <code>/api/v1/attribute_groups_&lt;language_code&gt;[^attributes_code]</code>,
-eg <code>https://world.openfoodfacts.org/api/v1/attribute_groups_en</code>.</p>
+<p>The attributes are accessible using <code>/api/v3.4/attribute_groups_&lt;language_code&gt;[^attributes_code]</code>,
+eg <code>https://world.openfoodfacts.org/api/v3.4/attribute_groups_en</code>.</p>
+<p>Full and up-to-date reference at: https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/product-attributes/get-api-v3-4-attribute-groups/</p>
 <p>A panel is displayed in the web page using javascript to let users set their preferences<sup id="fnref:prefsjs"><a class="footnote-ref" href="#fn:prefsjs">1</a></sup>.</p>
 <h2 id="scoring">Scoring<a class="headerlink" href="#scoring" title="Permanent link">#</a></h2>
 <h3 id="computing-product-match-for-each-attribute">Computing product match for each attribute<a class="headerlink" href="#computing-product-match-for-each-attribute" title="Permanent link">#</a></h3>
 <p>On a product, for each attribute, we compute a match score for each requirement.</p>
-<p>This matching could depend on the country and maybe other data,
-for example for environmental impact.</p>
+<p>This matching could depend on the country and maybe other data, for example for environmental impact.</p>
 <p>Each attribute has a specific algorithm for computing the match score.</p>
 <p>The Attributes.pm module contains functions to compute those attributes.
-It is exposed in the API in the <code>attribute_groups</code> properties
-(not returned by default, you have to explicitly ask for it).</p>
+It is exposed in the API in the <code>attribute_groups</code> properties (not returned by default, you have to explicitly ask for it).</p>
 <p>See also: https://wiki.openfoodfacts.org/Product_Attributes</p>
 <h3 id="computing-product-match-according-to-user-preferences">Computing product match according to user preferences<a class="headerlink" href="#computing-product-match-according-to-user-preferences" title="Permanent link">#</a></h3>
 <p>We first compute a numerical score as follow:</p>
 <ul>
-<li>all "not important" attributes according to user preferences are ignored</li>
+<li>All <code>not important</code> attributes according to user preferences are ignored</li>
 <li>for each remaining attributes:<ul>
 <li>we take the weight based upon users preferences (2 for mandatory and very important, 1 for important)</li>
-<li>we take the "match" score of the product for this attribute</li>
+<li>we take the <code>match</code> score of the product for this attribute</li>
 </ul>
 </li>
-<li>the score is the weighed average of individual attribute scores; it is between 0 and 100 (as match)</li>
-<li>we also keep track of weights of unknown attributes vs weights of all attributes</li>
+<li>The score is the weighed average of individual attribute scores; it is between 0 and 100 (as match)</li>
+<li>We also keep track of weights of unknown attributes vs weights of all attributes</li>
 </ul>
 <p>The final match status is computed as follow:</p>
 <ul>
@@ -2554,18 +2550,13 @@ It is exposed in the API in the <code>attribute_groups</code> properties
 <li>does_not_match    at least one mandatory attribute score is <code>&lt;=</code> 10 (e.g. contains an allergen, is not vegan)</li>
 </ul>
 <p>For the web, this is implemented in <code>product-search.js</code>, in function <code>match_product_to_preferences</code></p>
-<p>Note: Currently, preferences_factors are hardcoded in <code>product-search.js</code>,
-  while we have a preference api /api/v2/preferences which should be used
-  but does not seem up to date.
+<p>Note: Currently, <code>preferences_factors</code> are hardcoded in <code>product-search.js</code>, while we have a preference api <code>/api/v3.4/preferences</code> which should be used but does not seem up to date.
   See issue <a href="https://github.com/openfoodfacts/openfoodfacts-server/issues/10406">#10406</a></p>
-<p>When personal search is activated,
-the match status is displayed on product pages, and on search for each item.</p>
+<p>When personal search is activated, the match status is displayed on product pages, and on search for each item.</p>
 <h2 id="ranking">Ranking<a class="headerlink" href="#ranking" title="Permanent link">#</a></h2>
 <p>On the website main search page, users can sort products of the current page
-according to their preferences. This is done in javascript.</p>
-<p>In the mobile app, this is possible on lists.</p>
-<p>The comparison is not based upon match status, but upon computed score,
-with an extra malus for does_not_match.</p>
+according to their preferences. This is done in JavaScript. In the mobile app, this is possible on lists.
+The comparison is not based upon match status, but upon computed score, with an extra malus for <code>does_not_match</code>.</p>
 <p>We guarantee this order:</p>
 <ol>
 <li>very_good_match</li>
@@ -2573,7 +2564,7 @@ with an extra malus for does_not_match.</p>
 <li>poor_match</li>
 <li>does_not_match</li>
 </ol>
-<p>But unknown_match and may_not_match may be in-between those values.</p>
+<p>But <code>unknown_match</code> and <code>may_not_match</code> may be in-between those values.</p>
 <div class="footnote">
 <hr />
 <ol>

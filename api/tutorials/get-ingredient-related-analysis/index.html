@@ -2832,7 +2832,7 @@
 <li>allergens</li>
 <li>additives</li>
 </ul>
-<p><strong>Important!</strong> Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, read: <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt">https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt</a></p>
+<p><strong>Important!</strong> Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, read: <a href="https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/food/ingredients.txt">https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/food/ingredients.txt</a></p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <ul>
 <li>If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.</li>
@@ -2886,18 +2886,18 @@
 </ul>
 <h4 id="rotating-a-photo">Rotating a photo<a class="headerlink" href="#rotating-a-photo" title="Permanent link">#</a></h4>
 <ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/cgi/product_image_crop.pl">Please look at the reference</a></li>
+<li><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/images/post-cgi-product_image_crop.pl/">Please look at the reference</a></li>
 </ul>
 <h4 id="cropping-photos">Cropping Photos<a class="headerlink" href="#cropping-photos" title="Permanent link">#</a></h4>
 <p><strong>Note</strong>: Cropping is only relevant for editing already selected images. You need to upload it first to the system, select it, retrieve its id, and then crop it.
 This is a non destructive crop. If there's an issue with the image, you should report it using the dedicated NutriPatrol API. 
 Moderators will either perform a destructive crop, or more likely delete the image.</p>
 <ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_crop.pl">Please look at the reference</a></li>
+<li><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/images/post-cgi-product_image_crop.pl/">Please look at the reference</a></li>
 </ul>
 <h4 id="unselecting-photos">Unselecting photos<a class="headerlink" href="#unselecting-photos" title="Permanent link">#</a></h4>
 <ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_unselect.pl">Please look at the reference</a></li>
+<li><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/images/post-cgi-product_image_unselect.pl/">Please look at the reference</a></li>
 </ul>
 <h3 id="get-the-optical-character-recognition-ocr-output-of-the-ingredients-photo">Get the Optical Character Recognition (OCR) output of the ingredients photo<a class="headerlink" href="#get-the-optical-character-recognition-ocr-output-of-the-ingredients-photo" title="Permanent link">#</a></h3>
 <p>Open Food Facts uses optical character recognition (OCR) to retrieve ingredient data and other information (using Robotoff) from the photos of the product labels.
@@ -2909,13 +2909,11 @@ Moderators will either perform a destructive crop, or more likely delete the ima
 </ul>
 <h4 id="api-solution">API solution<a class="headerlink" href="#api-solution" title="Permanent link">#</a></h4>
 <ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/cgi/ingredients.pl">Please look at the reference</a></li>
+<li><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/ocr/get-cgi-ingredients.pl/">Please look at the reference</a></li>
 </ul>
 <h4 id="dart-sdk-solution">Dart SDK solution<a class="headerlink" href="#dart-sdk-solution" title="Permanent link">#</a></h4>
 <ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-dart/model_OcrIngredientsResult/OcrIngredientsResult-class.html">https://openfoodfacts.github.io/openfoodfacts-dart/model_OcrIngredientsResult/OcrIngredientsResult-class.html</a> </li>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-dart/utils_OcrField/OcrField-class.html">https://openfoodfacts.github.io/openfoodfacts-dart/utils_OcrField/OcrField-class.html</a></li>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-dart/utils_OcrField/OcrFieldExtension.html">https://openfoodfacts.github.io/openfoodfacts-dart/utils_OcrField/OcrFieldExtension.html</a></li>
+<li>https://openfoodfacts.github.io/openfoodfacts-dart/file-___home_runner_work_openfoodfacts-dart_openfoodfacts-dart_lib_src_model_ocr_ingredients_result/</li>
 </ul>
 <h3 id="present-the-result-of-the-optical-character-recognition-ocr-output-to-your-user-for-human-review">Present the result of the Optical Character Recognition (OCR) output to your user for human review<a class="headerlink" href="#present-the-result-of-the-optical-character-recognition-ocr-output-to-your-user-for-human-review" title="Permanent link">#</a></h3>
 <ul>
@@ -2925,11 +2923,11 @@ Moderators will either perform a destructive crop, or more likely delete the ima
 </ul>
 <h3 id="send-the-ingredients">Send the ingredients<a class="headerlink" href="#send-the-ingredients" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl">Please look at the reference located</a></li>
+<li><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/products/patch-api-v3-product-code/">Please look at the reference V3</a></li>
 </ul>
 <h3 id="refresh-product-to-display-the-result-to-your-user">Refresh product to display the result to your user<a class="headerlink" href="#refresh-product-to-display-the-result-to-your-user" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-">Please look at the reference</a></li>
+<li><a href="https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/products/get-api-v3-product-code/">Please look at the reference</a></li>
 </ul>
 
 

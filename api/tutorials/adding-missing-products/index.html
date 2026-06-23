@@ -2675,6 +2675,7 @@
 
 <h1 id="adding-missing-products">Adding missing products<a class="headerlink" href="#adding-missing-products" title="Permanent link">#</a></h1>
 <p><strong>Dave</strong> regularly adds new products to the database and completes missing information via API calls. He has described the process below to show other developers how easy it is to contribute.</p>
+<p>Note: we have SDKs to simplify product addition (Javascript, Dart, Javascript…). Using them ensure you follow best practises.</p>
 <hr />
 <h2 id="authentication-and-header">Authentication and Header<a class="headerlink" href="#authentication-and-header" title="Permanent link">#</a></h2>
 <p>If you have an app that makes POST calls and you don't want your users to authenticate in Open Food Facts, you can create a global account. Dave has created a global account for the app he is developing with the following credentials:</p>
@@ -2691,10 +2692,10 @@
 Please refer to our <a href="../../tutorial-uploading-photo-to-a-product/">comprehensive tutorial on uploading images</a></p>
 <hr />
 <h2 id="sending-the-right-country-and-language-parameters-based-on-the-country-your-user-is-located-in-and-the-language-the-product-is-in">Sending the right country and language parameters, based on the country your user is located in, and the language the product is in.<a class="headerlink" href="#sending-the-right-country-and-language-parameters-based-on-the-country-your-user-is-located-in-and-the-language-the-product-is-in" title="Permanent link">#</a></h2>
-<p>Traditionaly we advised to define the subdomain for the query as <code>us</code>. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.
+<p>Traditionnaly, we advised to define the subdomain for the query as <code>us</code>. The subdomain automatically defines the country code (<code>cc</code>) and language of the interface (<code>lc</code>). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.
 In this case:
 <a href="https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​">https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​</a></p>
-<p>We now advise to pass the cc and lc parameters within the query, and to limit assumptions as much as you can, especially in bilingual countries (e.g. Belgium, the US…) but also other countries (some products can be imported).
+<p>We now advise to pass the <code>cc</code> and <code>lc</code> parameters within the query, and to limit assumptions as much as you can, especially in bilingual countries (e.g. Belgium, the United States…) but also other countries (some products can be imported).
 Ideally, your UI or some heuristic (traditional or using ML) on your side should determine which language(s) the data you send is in (e.g. for multilingual products, send the French ingredient list as a French ingredient list).
 We perform OCR on incoming images (even non selected ones), and make the JSON available immediately, so you can either leverage that (you upload the image, and then you select them in a second step, based on the OCR output from the Open Food Facts image server), or use on device ML to determine the proper language to send the call in.</p>
 <p><a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#cmp--parameters-cc">New documentation for cc and lc parameters​​​​​​​</a></p>
