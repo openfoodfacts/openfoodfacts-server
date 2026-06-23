@@ -48657,7 +48657,8 @@ usda_ndb_name:en: Sugar-apples, (sweetsop), raw
 # 
 # Note that in french often 'raisin' is used to indicate the dried one
 
-# < en:berries is this relevant?
+< en:berries
+# the berries parent provokes the eurocode_2_group_2 inheritance
 < en:fruit
 en: grape, vine fruit, mixed vine fruit
 af: druiwe
