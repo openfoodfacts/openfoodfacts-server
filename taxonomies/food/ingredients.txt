@@ -61792,7 +61792,6 @@ usda_ndb_name:en: Pigeon peas (red gram), mature seeds, raw
 #
 ###################################################################################################
 
-# description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
 
 < en:legume
@@ -61899,9 +61898,9 @@ carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
 carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
+description:en: The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 ecobalyse:en: chickpea-fr
 ecobalyse_labels_en_organic:en: chickpea-organic
-eurocode_2_group_3:en: 7.10.15
 rare_crop:en: yes
 # wikidata:en:Q81375 # this is actually the plant not the legume
 wikidata:en: Q33832605
@@ -61966,6 +61965,7 @@ it: ceci secchi
 ciqual_food_code:en: 20516
 ciqual_food_name:en: Chick pea, dried
 ciqual_food_name:fr: Pois chiche, sec
+eurocode_2_group_3:en: 7.10.15
 #204 @2021-10-15
 
 < en:chickpea
@@ -62168,7 +62168,6 @@ wikidata:en: Q67210631
 wikipedia:en: https://en.wikipedia.org/wiki/Snow_pea
 
 
-# description:en:SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
 
 < en:pea
 < en:pulse
@@ -62187,19 +62186,22 @@ nl: spliterwt, Spliterwten
 pl: groch łuskany, grochu łuskanego, groszek łuskany
 ru: лущеный горох
 te: split peas
-# ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
 ciqual_food_code:en: 20506
 ciqual_food_name:en: Split pea, cooked
 ciqual_food_name:fr: Pois cassé, cuit
+description:en: SPLIT PEAS are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
 eurocode_2_group_3:en: 7.10.10
-# en-ca:Split pea
-# en-gb:Split pea
 wikidata:en: Q2265406
 wikipedia:en: https://en.wikipedia.org/wiki/Split_pea
+# ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
 
 < en:split pea
-en: Cooked split peas
-fr: Pois cassés cuits
+en: dried split pea
+eurocode_2_group_3:en: 7.10.10
+
+< en:split pea
+en: cooked split peas
+fr: pois cassés cuits
 it: piselli spezzati cotti
 ciqual_food_code:en: 20506
 ciqual_food_name:en: Split pea, cooked
