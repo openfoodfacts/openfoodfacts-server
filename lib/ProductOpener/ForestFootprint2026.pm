@@ -608,7 +608,6 @@ C<calculate_forest_footprint_2026_grade()> calculates the forest footprint grade
 Grades:
 - a: Best (lowest environmental impact)
 - d: Worst (highest environmental impact)
-- "non calculé à ce jour": Not calculated (presence of unsupported ingredients)
 
 =cut
 
