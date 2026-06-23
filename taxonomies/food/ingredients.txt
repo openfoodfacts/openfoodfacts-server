@@ -10469,9 +10469,11 @@ nn: lammekjøtt
 sv: Lammkött
 carbon_footprint_fr_foodges_ingredient:fr: Côtelettes d'Agneau
 carbon_footprint_fr_foodges_value:fr: 55
-ciqual_food_code:en: 21523
-ciqual_food_name:en: Lamb cutlet, grilled
-ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
+ciqual_proxy_food_code:en: 21500
+ciqual_proxy_food_name:en: Lamb, raw (average)
+#ciqual_food_code:en: 21523
+#ciqual_food_name:en: Lamb cutlet, grilled
+#ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
 ecobalyse:en: 45e3cd64-1647-4841-bacb-795e2aae4f02
 ecobalyse_labels_en_organic:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
 wikidata:en: Q643419
@@ -10482,9 +10484,11 @@ en: lamb cutlet
 fr: côtelette d'agneau, côtelettes d'agneau, côte d'agneau, côtes d'agneau
 hr: janjeći kotlet
 it: costoletta di agnello
-ciqual_food_code:en: 21501
-ciqual_food_name:en: Lamb cutlet, grilled
-ciqual_food_name:fr: Agneau, côtelette, grillée
+#ciqual_food_code:en: 21501
+#ciqual_food_name:en: Lamb cutlet, grilled
+#ciqual_food_name:fr: Agneau, côtelette, grillée
+ciqual_food_code:en: 21500
+ciqual_food_name:en: Lamb, raw (average)
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
 < en:lamb
@@ -29334,14 +29338,16 @@ ru: крупа кукурузная
 sk: kukuričná krupic
 sl: koruzni zdrob
 sv: majsgryn
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
-# 281 products in 1 language @201809-23
-ciqual_food_code:en: 9615
-ciqual_food_name:en: Polenta or maize semolina, cooked, unsalted
-ciqual_food_name:fr: Polenta ou semoule de maïs, cuite, non salée
+ciqual_food_code:en: 9616
+ciqual_food_name:en: Polenta or maize semolina, dry
+#ciqual_food_code:en: 9615
+#ciqual_food_name:en: Polenta or maize semolina, cooked, unsalted
+#ciqual_food_name:fr: Polenta ou semoule de maïs, cuite, non salée
+wikipedia:en: https://en.wikipedia.org/wiki/Cornmeal
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-mais
 # 597 products in 15 languages @2018-09-23
-wikipedia:en: https://en.wikipedia.org/wiki/Cornmeal
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
+# 281 products in 1 language @201809-23
 
 < en:cornmeal
 fr: semoule de maïs précuite
@@ -29838,6 +29844,8 @@ fr: riz complet
 nl: volkorenrijst
 nn: fullkornris
 sv: fullkornris
+ciqual_food_code:en: 9102
+ciqual_food_name:en: Rice, wholegrain, raw
 
 #category/brown-rices
 < en:whole grain rice
@@ -41372,19 +41380,19 @@ th: คลีเมนไทน์
 uk: Клементин
 vi: Clementine
 zh: 克里曼丁红橘
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
-# 81 products @2018-10-01
-ciqual_food_code:en: 13082
-ciqual_food_name:en: Clementine, pulp, raw
-ciqual_food_name:fr: Clémentine, pulpe, crue
-ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
-wikidata:en: Q460517
 # frr:Clementiin
 # koi:Клементин
 # mrj:Клементин
 # pcd:Clémintine
 # udm:Клементин
+ciqual_food_code:en: 13082
+ciqual_food_name:en: Clementine, pulp, raw
+ciqual_food_name:fr: Clémentine, pulpe, crue
+ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
+wikidata:en: Q460517
 wikipedia:en: https://en.wikipedia.org/wiki/Clementine
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
+# 81 products @2018-10-01
 
 < en:clementine
 < en:fruit juice
@@ -49831,9 +49839,6 @@ uk: тамаринд
 vi: me
 yi: טאמארינד
 zh: 酸豆
-ciqual_food_code:en: 13079
-ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
-ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # ace:mè
 # azb:تمرهیندی
 # be-tarask:тамарынд
@@ -49846,6 +49851,9 @@ ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # yue:羅望子
 # zh-hant:羅望子
 # zh-tw:羅望子
+ciqual_food_code:en: 13079
+ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
+ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # tree:wikidata:en:Q80235
 wikidata:en: Q28178875
 wikipedia:en: https://en.wikipedia.org/wiki/Tamarind
@@ -56068,14 +56076,6 @@ wa: Crompire
 za: Majlingzsuz
 zh: 馬鈴薯
 zu: Izambane
-carbon_footprint_fr_foodges_ingredient:fr: Pomme de terre
-carbon_footprint_fr_foodges_value:fr: 0.6
-ciqual_food_code:en: 4003
-ciqual_food_name:fr: Pomme de terre, bouillie/cuite à l'eau
-ecobalyse:en: potato-industry-fr
-eurocode_2_group_3:en: 8.34.15
-# en:potato has 2269 products in 23 languages @2018-10-15
-nutriscore_fruits_vegetables_nuts:en: no
 # arz:بطاطس
 # bar:Eadäpfe
 # bho:आलू
@@ -56106,8 +56106,18 @@ nutriscore_fruits_vegetables_nuts:en: no
 # zh-hk:薯仔
 # zh-mo:馬鈴薯
 # zh-tw:馬鈴薯
+carbon_footprint_fr_foodges_ingredient:fr: Pomme de terre
+carbon_footprint_fr_foodges_value:fr: 0.6
+ciqual_proxy_food_code:en: 4003
+ciqual_proxy_food_name:en: Potato, peeled, raw
+#ciqual_food_code:fr: 4003
+#ciqual_food_name:fr: Pomme de terre, bouillie/cuite à l'eau
+ecobalyse:en: potato-industry-fr
+eurocode_2_group_3:en: 8.34.15
+nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q16587531
 wikipedia:en: https://en.wikipedia.org/wiki/Potato
+# en:potato has 2269 products in 23 languages @2018-10-15
 
 < en:potato
 en: new potato, new potatoes
@@ -56409,50 +56419,66 @@ wikipedia:en: https://en.wikipedia.org/wiki/Crudités
 < en:fruit vegetable
 en: avocado
 an: aguacate
-ar: الأفوكادو
-az: Avokado
+ar: الأفوكادو, افوكادو
+az: avokado
 bg: авокадо
 bn: আভোকাদো
 br: avoukez
 ca: alvocat
 cs: avokádo
+da: avokado, avocado
 de: Avocado
 el: αβοκάντο
 eo: avokado
 es: aguacate
-et: Avokaado
+et: avokaado
 eu: ahuakate
 fi: avokado
 fr: avocat
+ga: abhacád
 gl: aguacate
 he: אבוקדו
 hi: एवोकाडो
 hr: avokado
-ht: Zaboka
+ht: zaboka
 hu: avokádó
 hy: ավոկադո
-ia: Avocato
+ia: avocato
 id: alpukat
+ig: ube oyibo
 it: avocado
 ja: アボカド
 ka: ავოკადო
 ku: avokado
-lt: Avokadas
+kw: avokado
+lb: Avocado
+ln: sabúká
+lt: avokadas
 ma: rahopūru
+mi: rahopūru
 mk: авокадо
+ml: അവോക്കാഡോ
+ms: avokado
 nb: avokado
+ne: घ्यूँफल
 nl: avocado
+nn: avokado
 pl: awokado, smaczliwka, smaczliwki, awokada
 pt: abacate
+qu: palta
+ro: avocado
 ru: авокадо
 sk: avokádo
+sl: avokado
 sq: avokado
-sv: avokado
+sv: avokado, avocado
 te: అవోకాడో
-tr: Avokado
+tr: avokado
 uk: авокадо
 vo: Avokaado
+yi: אַװאָקאַדאָ
 zh: 鳄梨
+#nah: Āhuacatl
 carbon_footprint_fr_foodges_ingredient:fr: Avocat
 carbon_footprint_fr_foodges_value:fr: 2.4
 ciqual_food_code:en: 13004
@@ -56465,11 +56491,10 @@ description:fr: L'avocatier (Persea americana) est une espèce d'arbres fruitier
 description:it: L'avocado (Persea americana) è una specie arborea da frutto che appartiene alla famiglia delle Lauracee.
 description:nl: De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
 ecobalyse:en: avocado-non-eu
-# 858 in 12 @2021-09-21
 eurocode_2_group_3:en: 8.40.60
-# nah:Āhuacatl
 wikidata:en: Q961769
 wikipedia:en: https://en.wikipedia.org/wiki/Avocado
+# 858 in 12 @2021-09-21
 
 en: Guacamole
 it: guacamole
@@ -56478,17 +56503,22 @@ ciqual_food_name:en: Guacamole, prepacked
 
 < en:avocado
 en: hass avocado, hass avocadoes
-de: hass-avocado, hass-avocados
+da: hass-avokado
+de: Hass-Avocado, Hass-Avocados
 es: aguacate Hass, aguacates Hass
+fa: آووکادوی هاس
 fr: avocat Hass, avocats Hass
 hr: hass avokado
 it: avocado hass
 ja: ハスアボカド
 ko: 할아버지 아보카도
+la: persea americana ‘Hass’
 pt: abacate hass, abacates hass
 ru: авокадо Хасс
+sl: avokado Hass
+sv: hass-avokado, avocado (hass)
 uk: авокадо Хасс
-zh: 哈斯牛油果
+zh: 哈斯牛油果, 哈斯酪梨
 wikidata:en: Q5679460
 wikipedia:en: https://en.wikipedia.org/wiki/Hass_avocado
 
@@ -61658,15 +61688,6 @@ vi: đậu gà
 wa: poes d' souke
 yi: נאהיט
 zh: 鹰嘴豆
-carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
-carbon_footprint_fr_foodges_value:fr: 1.5
-# ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
-ciqual_food_code:en: 20532
-ciqual_food_name:fr: Pois chiche, appertisé, égoutté
-ecobalyse:en: chickpea-fr
-ecobalyse_labels_en_organic:en: chickpea-organic
-eurocode_2_group_3:en: 7.10.15
-rare_crop:en: yes
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
 # azb:نوخود
@@ -61685,9 +61706,18 @@ rare_crop:en: yes
 # sco:chickpea
 #wuu:鹰嘴豆
 # yue:三角豆
+carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
+carbon_footprint_fr_foodges_value:fr: 1.5
+ciqual_food_code:en: 20532
+ciqual_food_name:fr: Pois chiche, appertisé, égoutté
+ecobalyse:en: chickpea-fr
+ecobalyse_labels_en_organic:en: chickpea-organic
+eurocode_2_group_3:en: 7.10.15
+rare_crop:en: yes
 # wikidata:en:Q81375 # this is actually the plant not the legume
 wikidata:en: Q33832605
 wikipedia:en: https://en.wikipedia.org/wiki/Chickpea
+# ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
 
 < en:chickpea
 en: pedrosillano chickpeas
@@ -61976,15 +62006,17 @@ nl: spliterwt, Spliterwten
 pl: groch łuskany, grochu łuskanego, groszek łuskany
 ru: лущеный горох
 te: split peas
-# ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
-ciqual_food_code:en: 20506
-ciqual_food_name:en: Split pea, cooked
-ciqual_food_name:fr: Pois cassé, cuit
-eurocode_2_group_3:en: 7.10.10
 # en-ca:Split pea
 # en-gb:Split pea
+#ciqual_food_code:en: 20506
+#ciqual_food_name:en: Split pea, cooked
+#ciqual_food_name:fr: Pois cassé, cuit
+ciqual_proxy_food_code:en: 20504
+ciqual_proxy_food_name:en: Split pea, raw
+eurocode_2_group_3:en: 7.10.10
 wikidata:en: Q2265406
 wikipedia:en: https://en.wikipedia.org/wiki/Split_pea
+# ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
 
 < en:split pea
 en: Cooked split peas
@@ -62145,7 +62177,6 @@ zh: 小扁豆
 # zh-hk:小扁豆
 # zh-sg:小扁豆
 # zh-tw:小扁豆
-# wikidata:en:Q61505177 # the fruit
 carbon_footprint_fr_foodges_ingredient:fr: Lentilles vertes
 carbon_footprint_fr_foodges_value:fr: 0.3
 #ciqual_proxy_food_code:en: 20505
@@ -64063,8 +64094,10 @@ sv: pistaschmandel, pistaschnöt, pistaschnötter, pistagenöt, pistagenötter
 th: พิสตาชิโอ
 tr: antep fıstığı
 zh: 开心果, 阿月浑子
-ciqual_proxy_food_code:en: 15044
-ciqual_proxy_food_name:en: Pistachio nut, grilled
+#ciqual_food_code:en: 15044
+#ciqual_food_name:en: Pistachio nut, grilled
+ciqual_proxy_food_code:en: 15043
+ciqual_proxy_food_name:en: Pistachio nut, raw
 ecobalyse:en: pistachio-non-eu
 usda_ndb_proxy_code:en: 12151
 usda_ndb_proxy_name:en: Nuts, pistachio nuts, raw
@@ -75602,6 +75635,8 @@ zh: 美味牛肝菌
 # zh-hans:美味牛肝菌
 # zh-hant:美味牛肝菌
 # zh-tw:美味牛肝菌
+ciqual_proxy_food_code:en: 20160
+ciqual_proxy_food_name:en: Cep or boletus mushroom, raw
 wikidata:en: Q19740
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus_edulis
 # en:cep has 98 products in 5 languages @2018-11-02
@@ -75613,6 +75648,8 @@ fi: kuivattu herkkutatti
 fr: cèpes déshydratés
 hr: sušeni vrganji
 it: porcini secchi
+ciqual_food_code:en: 20160
+ciqual_food_name:en: Cep or boletus mushroom, raw
 
 < en:cep
 de: Steinpilzpulver
@@ -75752,6 +75789,8 @@ zh: 雙孢蘑菇
 # fr:champignons de Paris has 857 products in 9 languages @2018-11-01
 carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
 carbon_footprint_fr_foodges_value:fr: 1.9
+ciqual_food_code:en: 20056
+ciqual_food_name:en: Button mushroom or cultivated mushroom, raw
 description:en: AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
 # cbk:Ligbos
 # lfn:Xampinion
@@ -87061,12 +87100,6 @@ xh: Inkuku
 yi: האן
 za: Gaeq
 zh: 鸡
-# ingredient/chicken has 872 products @2019-05-18
-# category/chickens has 3369 products in 18 languages @2019-05-18
-carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
-carbon_footprint_fr_foodges_value:fr: 4.9
-ciqual_proxy_food_code:en: 36005
-ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
 # aeb-ara:دجاج
 # ang:Cicen
 # arz:فرخه
@@ -87137,8 +87170,16 @@ ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
 # yue:雞
 # zh-hans:鸡
 # zh-hant:雞
+carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
+carbon_footprint_fr_foodges_value:fr: 4.9
+#ciqual_proxy_food_code:en: 36005
+#ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
+ciqual_food_code:en: 36003
+ciqual_food_name:fr: Chicken, meat and skin, raw
 wikidata:en: Q780
 wikipedia:en: https://en.wikipedia.org/wiki/Chicken_as_food
+# ingredient/chicken has 872 products @2019-05-18
+# category/chickens has 3369 products in 18 languages @2019-05-18
 
 < en:chicken
 en: free range chicken
@@ -87440,9 +87481,11 @@ nl: kipfilet
 pl: filet z kurczaka, filety z kurczaka, filet z kurcząt, mięso z fileta kurczaka, mięso z fileta z kurczaka
 ru: Куриное филе
 sv: kycklingfilé, kycklinginnerfilé, kycklinglårfilé, filé av kyckling
+#ciqual_food_code:en: 36018
+#ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
+ciqual_food_code:en: 36019
+#ciqual_food_name:en: Chicken, breast, without skin, raw
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
-ciqual_food_code:en: 36018
-ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
 
 < en:chicken fillet
 en: chicken fillet with skin
@@ -87516,8 +87559,10 @@ sv: kycklingbröst
 tr: tavuk göğsü
 carbon_footprint_fr_foodges_ingredient:fr: Blanc de poulet
 carbon_footprint_fr_foodges_value:fr: 4.9
-ciqual_food_code:en: 36018
-ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
+#ciqual_food_code:en: 36018
+#ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
+ciqual_proxy_food_code:en: 36019
+ciqual_proxy_food_name:en: Chicken, breast, without skin, raw
 ecobalyse:en: chicken-breast-br-max
 ecobalyse_labels_en_organic:en: chicken-breast-fr-organic
 ecobalyse_origins_en_france:en: chicken-breast-fr
@@ -87555,8 +87600,10 @@ pl: udko z kurczaka, udko kurczaka, udka z kurczaka, mięso z uda kurczaka
 sv: kyckling lårkött
 carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr: 4.9
-ciqual_food_code:en: 36004
-ciqual_food_name:fr: Poulet, cuisse, viande et peau, rôtie/cuite au four
+#ciqual_food_code:en: 36004
+#ciqual_food_name:fr: Poulet, cuisse, viande et peau, rôtie/cuite au four
+ciqual_food_code:en: 36006
+ciqual_food_name:en: Chicken, leg, meat only, raw
 
 
 # <en:cutlet
@@ -87718,9 +87765,11 @@ de: Enten-Kaumagen, Enten-Kaumägen
 fr: gésier de canard
 hr: pačji želudac
 it: ventriglio d'anatra
-ciqual_food_code:en: 40700
-ciqual_food_name:en: Gizzard, chicken, raw
-ciqual_food_name:fr: Gésier, poulet, cru
+#ciqual_food_code:en: 40700
+#ciqual_food_name:en: Gizzard, chicken, raw
+#ciqual_food_name:fr: Gésier, poulet, cru
+ciqual_food_code:en: 40702
+ciqual_food_name:en: Gizzard, duck, raw
 #46 in 2 @2021-09-12
 
 # <en:compound
