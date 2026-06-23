@@ -179,6 +179,8 @@ sub main {
 	if ($total_warnings > 0) {
 		print "\nNote: Warnings indicate taxonomy entries that were not found.\n";
 	}
+
+	return;
 }
 
 main();

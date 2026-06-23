@@ -476,14 +476,10 @@ sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_re
 		{ingredient_id => $ingredient_id})
 		if $log->is_debug();
 
-	if (not defined $ingredient_id) {
-		return undef;
-	}
-
 	if (not exists $forest_footprint_2026_data{ingredients}{$ingredient_id}) {
 		$log->debug("ingredient not in forest footprint 2026 data", {ingredient_id => $ingredient_id})
 			if $log->is_debug();
-		return undef;
+		return;
 	}
 
 	my $ingredient_data = $forest_footprint_2026_data{ingredients}{$ingredient_id};
@@ -496,7 +492,7 @@ sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_re
 			"ingredient category not in forest footprint 2026 data",
 			{ingredient_category_id => $ingredient_category_id}
 		) if $log->is_debug();
-		return undef;
+		return;
 	}
 
 	my $category_data = $forest_footprint_2026_data{ingredient_categories}{$ingredient_category_id};
@@ -510,7 +506,7 @@ sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_re
 	if (not defined $origin_footprint) {
 		$log->debug("no origin footprint found", {primary_ingredient_id => $primary_ingredient_id})
 			if $log->is_debug();
-		return undef;
+		return;
 	}
 
 	my $label_data = get_label_risk_data($product_ref, $primary_ingredient_id);
