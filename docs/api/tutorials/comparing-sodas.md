@@ -28,7 +28,7 @@ In this case:
 
 #### API Version
 
-The current version number of the Open Food Facts API is v0.
+The current version number of the Open Food Facts API is v3.6.
 
 [https://us.openfoodfacts.org/api/v3](https://us.openfoodfacts.org/api/v3)
 
