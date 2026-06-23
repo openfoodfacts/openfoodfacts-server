@@ -162,7 +162,7 @@
       "en:all-but-one-ingredient-with-specified-percent",
       "en:food-groups-1-known",
       "en:food-groups-2-known",
-      "en:food-groups-3-unknown",
+      "en:food-groups-3-unknown"
    ],
    "data_quality_warnings_tags" : [],
    "data_sources_imported" : "Producers, Producer - carrefour",
@@ -799,10 +799,10 @@
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
-            "proteins" : 9.63,
-            "saturated_fat" : 0.19,
-            "sodium" : 8.4,
-            "sugars" : 0.5
+            "proteins" : 25.4,
+            "saturated_fat" : null,
+            "sodium" : 74.0,
+            "sugars" : 1.25
          },
          "estimated" : 1,
          "grade" : "unknown",
@@ -815,20 +815,19 @@
          "category_available" : 1,
          "data" : {
             "energy" : 1409,
-            "energy_from_saturated_fat" : 7.03,
-            "fat" : 0.6,
-            "fiber" : 11.6,
+            "fat" : 1.34,
+            "fiber" : 7.63,
             "fruits_vegetables_legumes" : 100,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 1,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "proteins" : 9.63,
-            "salt" : 0.021,
-            "saturated_fat" : 0.19,
-            "saturated_fat_ratio" : 31.7,
-            "sugars" : 0.5
+            "proteins" : 25.4,
+            "salt" : 0.21,
+            "saturated_fat" : null,
+            "saturated_fat_ratio" : 0,
+            "sugars" : 1.25
          },
          "estimated" : 1,
          "grade" : "unknown",
@@ -874,7 +873,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.055
+               "value" : 0.0454
             },
             "carbohydrates" : {
                "modifier" : "~",
@@ -890,7 +889,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 12.3
+               "value" : 0.064
             },
             "cholesterol" : {
                "modifier" : "~",
@@ -906,7 +905,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00027
+               "value" : 0.00071
             },
             "energy" : {
                "source" : "packaging",
@@ -935,7 +934,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.6
+               "value" : 1.34
             },
             "fiber" : {
                "modifier" : "~",
@@ -943,7 +942,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 11.6
+               "value" : 7.63
             },
             "fructose" : {
                "modifier" : "~",
@@ -983,15 +982,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.1
-            },
-            "iodine" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 1,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 1e-05
+               "value" : 0
             },
             "iron" : {
                "modifier" : "~",
@@ -999,7 +990,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0023
+               "value" : 0.00651
             },
             "lactose" : {
                "modifier" : "~",
@@ -1015,7 +1006,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.039
+               "value" : 0.062
             },
             "maltose" : {
                "modifier" : "~",
@@ -1031,15 +1022,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00044
-            },
-            "pantothenic-acid" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 1,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 0.00064
+               "value" : 0.00139
             },
             "phosphorus" : {
                "modifier" : "~",
