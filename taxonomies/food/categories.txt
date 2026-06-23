@@ -67873,6 +67873,29 @@ gpc_category_name:en: Desserts (Frozen)
 intake24_category_code:en: ICED
 
 < en:Frozen desserts
+en: Frozen dessert puff pastry, Frozen dessert puff pastry to share
+fr: Dessert glacé feuilleté, Dessert glacé feuilleté à partager
+agribalyse_food_code:en: 39516
+ciqual_food_code:en: 39516
+ciqual_food_name:en: Frozen dessert, puff pastry, to share
+ciqual_food_name:fr: Dessert glacé feuilleté, à partager
+
+< en:Frozen dessert puff pastry
+fr: Dessert glacé feuilleté vanille
+
+< en:Frozen dessert puff pastry
+fr: Dessert glacé feuilleté vanille caramel
+
+< en:Frozen dessert puff pastry
+fr: Dessert glacé feuilleté menthe chocolat
+
+< en:Frozen dessert puff pastry
+fr: Dessert glacé feuilleté vanille fruits rouges
+
+< en:Frozen dessert puff pastry
+fr: Dessert glacé feuilleté chocolat brownie
+
+< en:Frozen desserts
 en: Baked Alaska
 fr: Omelettes Norvégiennes glacées, Omelette norvégienne
 agribalyse_food_code:en: 39518
@@ -67948,32 +67971,16 @@ intake24_category_code:en: ICEC
 pnns_group_2:en: Ice cream
 who_id:en: 5
 
-< en:Frozen desserts
-en: Frozen dessert puff pastry, Frozen dessert puff pastry to share
-fr: Dessert glacé feuilleté, Dessert glacé feuilleté à partager
-agribalyse_food_code:en: 39516
-ciqual_food_code:en: 39516
-ciqual_food_name:en: Frozen dessert, puff pastry, to share
-ciqual_food_name:fr: Dessert glacé feuilleté, à partager
+< en:Ice creams and sorbets
+en: Frozen cones
+fr: Cônes glacés
 
-< en:Frozen dessert puff pastry
-fr: Dessert glacé feuilleté vanille
-
-< en:Frozen dessert puff pastry
-fr: Dessert glacé feuilleté vanille caramel
-
-< en:Frozen dessert puff pastry
-fr: Dessert glacé feuilleté menthe chocolat
-
-< en:Frozen dessert puff pastry
-fr: Dessert glacé feuilleté vanille fruits rouges
-
-< en:Frozen dessert puff pastry
-fr: Dessert glacé feuilleté chocolat brownie
-
+# do not put under sorbets, some products have a really low fruit content
+< en:Frozen cones
+fr: Cônes au sorbet
 
 < en:Ice creams and sorbets
-en: ice creams, ice cream
+en: Ice creams, ice cream
 ab: аршәы
 af: Roomys
 am: አይስ ክሬም
@@ -68134,7 +68141,6 @@ description:en: Ice cream is a sweetened frozen food typically eaten as a snack 
 # usage:fr:glace (sucre, kirsch de Bâle-Campagne)
 nova:en: 3
 
-
 < en:Ice creams
 en: Ice cream bars, Ice creams on a stick
 de: Eis am Stiel, Stieleis
@@ -68208,13 +68214,14 @@ en: Vanilla ice cream bars coated with white chocolate and almonds
 de: Vanilleeis am Stiel überzogen mit weiße Schokolade und Mandeln
 fr: Bâtonnets glacés vanille enrobés de chocolat blanc aux amandes
 
+< en:Frozen cones
 < en:Ice creams
 en: Ice cream cones, Ice cream cone
 ca: Cons de gelat
-de: Eistüten
+de: Speiseeis Hörnchen, Eistüten
 es: Conos de helado
 fi: jäätelötuutit
-fr: Cônes glacés, Cônes à la crème glacée
+fr: Cônes à la crème glacée
 he: גביעי גלידה
 hr: Korneti za sladoled
 hu: Tölcséres jégkrém
@@ -68855,6 +68862,7 @@ hr: Kadice za sladoled na biljnoj bazi
 lt: Augaliniai ledai indeliuose
 nl: Plantaardig roomijs
 
+< en:Frozen cones
 < en:Plant-based ice creams
 en: Plant-based ice cream cones
 es: Conos de helado con leche vegetal
