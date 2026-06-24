@@ -2468,7 +2468,6 @@ en: whipped butter whipped with salt
 usda_ndb_code:en: 1002
 usda_ndb_name:en: Butter, whipped, with salt
 
-
 < en:butter
 en: churned butter
 ca: mantega batuda
@@ -5753,6 +5752,7 @@ hu: tehénsajt
 it: formaggio vaccino
 nl: koekaas
 pl: ser krowi, krowi ser
+ro: brânză de vaci
 
 < en:cow cheese
 fr: fromage au lait de vache bio thermisé
@@ -10469,9 +10469,11 @@ nn: lammekjøtt
 sv: Lammkött
 carbon_footprint_fr_foodges_ingredient:fr: Côtelettes d'Agneau
 carbon_footprint_fr_foodges_value:fr: 55
-ciqual_food_code:en: 21523
-ciqual_food_name:en: Lamb cutlet, grilled
-ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
+ciqual_proxy_food_code:en: 21500
+ciqual_proxy_food_name:en: Lamb, raw (average)
+#ciqual_food_code:en: 21523
+#ciqual_food_name:en: Lamb cutlet, grilled
+#ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
 ecobalyse:en: 45e3cd64-1647-4841-bacb-795e2aae4f02
 ecobalyse_labels_en_organic:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
 wikidata:en: Q643419
@@ -10482,9 +10484,11 @@ en: lamb cutlet
 fr: côtelette d'agneau, côtelettes d'agneau, côte d'agneau, côtes d'agneau
 hr: janjeći kotlet
 it: costoletta di agnello
-ciqual_food_code:en: 21501
-ciqual_food_name:en: Lamb cutlet, grilled
-ciqual_food_name:fr: Agneau, côtelette, grillée
+#ciqual_food_code:en: 21501
+#ciqual_food_name:en: Lamb cutlet, grilled
+#ciqual_food_name:fr: Agneau, côtelette, grillée
+ciqual_food_code:en: 21500
+ciqual_food_name:en: Lamb, raw (average)
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
 < en:lamb
@@ -13202,7 +13206,7 @@ hr: juneće meso
 hu: borjúhús
 it: carne di vitello
 nl: kalfsvlees
-pl: mięso cielęce
+pl: mięso cielęce, cielęcina
 sv: kalvkött
 carbon_footprint_fr_foodges_ingredient:fr: Viande de veau France
 carbon_footprint_fr_foodges_value:fr: 20.5
@@ -14643,7 +14647,10 @@ pl: tłuszcz całkowicie uwodorniony, tłuszcze całkowicie uwodornione
 en: shortening
 
 < en:shortening
-en: vegetable shortening
+en: household shortening
+
+< en:shortening
+en: industrial shortening
 
 ######################################## animal fat #################################
 
@@ -15091,6 +15098,14 @@ fi: kasvirasvavalmiste
 sv: vegetabilisk fettprodukt
 # usage:fr:préparation de matières grasses végétales (graisse de palme, huile de colza, colorant : caroténoïdes)
 
+< en:shortening
+< en:vegetable fat
+en: vegetable shortening
+
+< en:hydrogenated vegetable fat
+< en:vegetable shortening
+en: hydrogenated vegetable shortening
+
 < en:vegetable oil and fat
 en: non hydrogenated vegetable oil and fat, non hydrogenated vegetable oils and fats, vegetable oils and fats non hydrogenated
 bg: нехидрогенирани растителни масла и мазнини
@@ -15166,16 +15181,22 @@ it: oli vegetali non idrogenati
 < en:hydrogenated oil
 < en:vegetable oil
 en: hydrogenated vegetable oil
+da: hærdet vegetabilsk olie
 de: pflanzliches Öl gehärtet
 es: aceite vegetal hidrogenado
 fr: huile végétale hydrogénée
 hr: hidrogenirano biljno ulje
 hu: hidrogénezett növényi olaj
 it: Olio vegetale idrogenato
+sv: härdade vegetabiliska oljor
 tr: hidrojene bitkisel yağ
 
 < en:hydrogenated vegetable oil
-en: fully hydrogenated vegetable oils
+en: partially hydrogenated vegetable oil
+da: delvist hærdet vegetabilsk olie
+
+< en:hydrogenated vegetable oil
+en: fully hydrogenated vegetable oil, fully hydrogenated vegetable oils
 da: helt hærdet vegetabilsk olie
 de: Ganz gehärtete pflanzliche Öle, Vollständig hydrierte pflanzliche Öle
 fi: kokonaan kovetetut kasviöljyt
@@ -15187,14 +15208,25 @@ ru: дезодорированные растительные масла
 sv: fullhärdade vegetabiliska oljor
 # ingredient/en:fully-hydrogenated-vegetable-oils has 130 products in 2 languages @2020-06-08
 
-###################### specific oils in alphabetical order 
+###################### specific oils in alphabetical order
 
-< en:vegetable oil and fat
+< en:vegetable oil
+en: almond oil
+bg: бадемово олио
+de: Mandelöl
+fr: huile d'amande
+hr: bademovo ulje
+it: olio di mandorle
+nl: amandelolie
+usda_ndb_code:en: 4529
+usda_ndb_name:en: Oil, almond
+
+< en:vegetable oil
 en: apricot kernel oil
 usda_ndb_code:en: 4530
 usda_ndb_name:en: Oil, apricot kernel
 
-< en:vegetable oil and fat
+< en:vegetable oil
 en: argan oil
 ar: زيت أركان
 az: Arqan yağı
@@ -15230,13 +15262,34 @@ description:en: argan oil is found in argan tree
 wikipedia:en: Q45418
 
 < en:vegetable oil
+en: avocado oil
+bg: авокадово масло, авокадово олио
+da: avocadoolie
+de: Avocadoöl
+es: Aceite de aguacate
+fi: avokadoöljy
+fr: huile d'avocat
+hr: ulje avokada
+hu: avokádóolaj
+it: olio di avocado
+nb: avokadoolje
+nl: avocado-olie, avocado olie
+pl: olej z awokado
+sv: avokadoolja
+from_palm_oil:en: no
+usda_ndb_code:en: 4581
+usda_ndb_name:en: Oil, avocado
+wikidata:en: Q2918735
+
+< en:palm oil
 en: babassu oil, babassu
 hr: babasu
 it: babassu
-comment:en: should this count as palm oil? Babassu oil is a light, natural vegetable oil extracted from the seeds of the babassu palm tree (Orbignya phalerata), native to the Amazon rainforest region of Brazil. It's also valued for its sustainability credentials, as harvesting supports traditional Amazonian communities (particularly women harvesters known as quebradeiras de coco).
+comment:en: should this count as palm oil?
+description:en: Babassu oil is a light, natural vegetable oil extracted from the seeds of the babassu palm tree (Orbignya phalerata), native to the Amazon rainforest region of Brazil. It's also valued for its sustainability credentials, as harvesting supports traditional Amazonian communities (particularly women harvesters known as quebradeiras de coco).
 usda_ndb_code:en: 4534
 usda_ndb_name:en: Oil, babassu
-wikidata:en: Q239507
+wikidata:en: Q797592
 
 < en:vegetable oil
 en: camelina oil
@@ -15258,7 +15311,8 @@ fr: huile de noix de cajou
 hr: ulje indijskih oraha
 it: olio di anacardi
 
-< en:vegetable oil
+< en:cocoa
+< en:vegetable fat
 en: cocoa butter, cacao butter, cocoa fat
 ar: زبدة الكاكاو
 bg: какаово масло
@@ -15315,6 +15369,7 @@ ciqual_food_code:en: 16030
 ciqual_food_name:en: Cocoa butter
 ciqual_food_name:fr: Beurre de cacao
 description:en: COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
+from_palm_oil:en: no
 usda_ndb_code:en: 4501
 usda_ndb_name:en: Oil, cocoa butter
 wikidata:en: Q251106
@@ -15338,6 +15393,117 @@ hr: čisti kakao maslac
 it: Burro cocco puro
 nl: puur cacaoboter
 # ingredient/fr:pur-beurre-de-cacao has 74 products @2019-05-25
+
+< en:vegetable oil
+en: corn oil, maize oil
+ar: زيت الذرة
+be: Кукурузны алей
+bg: Царевично олио, царевично, царевично масло
+ca: Oli de blat de moro
+da: Majsolie
+de: Maiskeimöl, Maisöl
+el: Αραβοσιτέλαιο
+eo: Maizoleo
+es: Aceite de maíz
+eu: Arto olio
+fa: روغن ذرت
+fi: Maissiöljy
+fr: huile de maïs
+gl: Aceite de millo
+he: שמן תירס
+hr: kukuruzno ulje, u različitim omjerima ulja
+hu: kukoricaolaj
+id: Minyak jagung
+it: Olio di semi di mais, olio di mais
+ja: コーン油, とうもろこし油
+kk: Жүгері майы
+ko: 옥수수기름
+lt: Kukurūzų aliejus
+nb: Maisolje
+nl: Maïskiemolie, Maïsolie, maisolie
+pl: Olej kukurydziany, olej z kukurydzy
+pt: Óleo de milho
+ro: ulei de porumb
+ru: Кукурузное масло
+tr: mısır yağı, mısırözü yağı
+uk: Кукурудзяна олія
+zh: 粟米油
+# yue:粟米油
+ciqual_food_code:en: 17190
+ciqual_food_name:en: Maize/corn oil
+ciqual_food_name:fr: Huile de maïs
+description:en: Corn oil (maize oil) is oil extracted from the germ of corn (maize).
+description:de: Maiskeimöl (Maisöl) ist ein Speiseöl, das aus dem fetthaltigen Keim des Maiskorns gewonnen wird.
+description:es: El aceite de maíz es un aceite extraído del germen de maíz.
+description:fr: L'huile de maïs est une huile végétale extraite du grain de maïs.
+description:it: L'olio di semi di mais è un olio estratto dai germi dei semi di Zea mays.
+description:nl: Olie uit de zaden van Zea mays.
+description:pt: O óleo de milho é um óleo vegetal extraído a partir da prensagem de grãos de milho.
+from_palm_oil:en: no
+usda_ndb_code:en: 42289
+usda_ndb_name:en: Oil, corn and canola
+wikidata:en: Q856775
+wikipedia:en: https://en.wikipedia.org/wiki/Corn_oil
+# ingredient/corn-oil 5402 in 18 @2021-0-20
+
+< en:vegetable fat
+en: cottonseed fat
+de: Baumwollsaatfett, Baumwollfett
+fr: matières grasses de coton, matières grasses végétales de coton
+hr: mast sjemenki pamuka
+it: grasso di semi di cotone
+from_palm_oil:en: no
+
+< en:vegetable oil
+en: cottonseed oil, cotton seed oil
+ar: زيت بذرة القطن
+az: Pambıq yağı
+be: Баваўняны алей
+bg: памучно масло
+ca: Oli de llavors de cotó
+de: Baumwollsaatöl, Baumwollsamenöl
+el: Βαμβακέλαιο
+es: aceite de algodón
+fa: روغن پنبه‌دانه
+fi: puuvillansiemenöljy
+fr: huile de coton, graines de coton
+hr: ulje sjemenki pamuka
+hu: pamutmagolaj
+id: Minyak biji kapas
+it: olio di semi di cotone
+kn: ಹತ್ತಿಬೀಜದ ಎಣ್ಣೆ
+nl: katoenzaadolie, katoenzaad
+pl: Olej z nasion bawełny, olej bawełniany
+pt: Óleo de algodão
+ru: Хлопковое масло
+ta: பருத்தி விதை எண்ணெய்
+te: పత్తిగింజల నూనె
+uk: Бавовняна олія
+uz: Paxta moyi
+zh: 棉籽油
+ciqual_food_code:en: 17170
+ciqual_food_name:en: Cottonseed oil
+ciqual_food_name:fr: Huile de coton
+description:en: COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
+from_palm_oil:en: no
+usda_ndb_proxy_code:en: 4502
+usda_ndb_proxy_name:en: Oil, cottonseed, salad or cooking
+wikidata:en: Q811663
+wikipedia:en: https://en.wikipedia.org/wiki/Cottonseed_oil
+
+< en:cottonseed oil
+en: salad or cooking cottonseed oil
+usda_ndb_code:en: 4502
+usda_ndb_name:en: Oil, cottonseed, salad or cooking
+
+< en:cottonseed oil
+< en:hydrogenated vegetable oil
+en: hydrogenated cottonseed oil
+de: hydriertes Baumwollsamenöl
+es: aceite hidrogenado de algodón
+fr: Huile de graine de coton
+hr: hidrogenirano ulje sjemenki pamuka
+it: Olio di semi di cotone idrogenato
 
 < en:vegetable fat
 en: cupu assu oil
@@ -15685,7 +15851,7 @@ fr: Huile de palme fractionnée
 hr: frakcioniranog palminog ulja
 it: olio di palma frazionato
 
-< en:palm oil
+< en:fractionated palm oil
 en: fractionated and interesterified palm oil
 es: aceite de palma interestificado y fraccionado
 hr: frakcioniranog i interesterificiranog palminog ulja
@@ -15718,17 +15884,25 @@ sl: palmovo
 sv: Palm
 comment:en: palm is a bit strange, as it refers to the entire tree. The word shows however up in listings of oils.
 
-#< en:palm makes a loop
-< en:shortening
-en: fractionated palm shortening
-usda_ndb_code:en: 4570
-usda_ndb_name:en: Shortening, confectionery, fractionated palm
+< en:palm fat
+< en:vegetable shortening
+en: palm shortening
 
-#< en:palm makes a loop
-< en:shortening
+< en:palm shortening
+en: fractionated palm shortening
+usda_ndb_proxy_code:en: 4570
+usda_ndb_proxy_name:en: Shortening, confectionery, fractionated palm
+
+< en:fractionated palm shortening
 en: fractionated confectionery palm shortening
 usda_ndb_code:en: 4570
 usda_ndb_name:en: Shortening, confectionery, fractionated palm
+
+< en:hydrogenated vegetable shortening
+< en:palm shortening
+en: hydrogenated palm shortening
+usda_ndb_code:en: 4556
+usda_ndb_name:en: Shortening frying (heavy duty), palm (hydrogenated)
 
 < en:palm oil
 en: palm olein, palmolein, palmolein oil
@@ -16020,11 +16194,6 @@ hr: palmino ulje ili ulje palminih koštica
 hu: pálma- vagy pálmamagolaj, pálmaolaj vagy pálmamagolaj
 it: olio di palma o di palmisto
 nl: palmolie of palmkernolie
-
-< en:shortening
-en: hydrogenated palm shortening
-usda_ndb_code:en: 4556
-usda_ndb_name:en: Shortening frying (heavy duty), palm (hydrogenated)
 
 < en:vegetable oil
 en: poppyseed oil
@@ -16685,32 +16854,27 @@ usda_ndb_name:en: Oil, canola
 wikipedia:en: https://en.wikipedia.org/wiki/Canola_oil
 
 < en:canola oil
+< en:partially hydrogenated vegetable oil
 en: partially hydrogenated industrial canola oil
 usda_ndb_code:en: 4645
 usda_ndb_name:en: Oil, industrial, canola (partially hydrogenated) oil for deep fat frying
 
 #process:en: en:fully hydrogenated (probably has a specific nutritional profile)
 < en:canola oil
-en: fully hydrogenated canola oil
-de: ganz gehärtetes Canola-Öl, vollständig hydriertes Canola-Öl
-fi: kokonaan kovetettu rypsiöljy
-sv: fullhärdad rypsolja
-
-< en:rapeseed oil
-en: low erucic acid rapeseed oil
-de: eurucasäurearmes Rapsöl, LEAR
-hr: ulje repice s niskim sadržajem eruka kiseline
-it: olio di colza a basso contenuto di acido erucico
-
-< en:canola oil
+< en:fully hydrogenated vegetable oil
 en: fully hydrogenated canola oil
 de: ganz gehärtetes Canola-Öl, vollständig hydriertes Canola-Öl
 fi: kokonaan kovetettu rypsiöljy
 hr: potpuno hidrogenirano ulje repice
 it: olio di canola completamente idrogenato
 sv: fullhärdad rypsolja
-# endconflict
 # ingredient/fi:kokonaan-kovetettu-rypsiöljy has 4 products in 1 language @2020-06-08
+
+< en:rapeseed oil
+en: low erucic acid rapeseed oil
+de: eurucasäurearmes Rapsöl, LEAR
+hr: ulje repice s niskim sadržajem eruka kiseline
+it: olio di colza a basso contenuto di acido erucico
 
 < en:canola oil
 en: non-gmo canola oil, non gmo canola oil
@@ -16820,7 +16984,6 @@ fi: rapsi- ja auringonkukkaöljy
 
 # producedFrom:en:walnut
 < en:vegetable oil
-# producedFrom:en:walnut
 en: walnut oil
 bg: орехово олио
 ca: Oli de nou de noguer
@@ -16850,6 +17013,8 @@ ciqual_food_name:fr: Huile de noix
 description:en: WALNUT OIL is oil extracted from walnuts, Juglans regia
 from_palm_oil:en: no
 nutriscore_fruits_vegetables_nuts:en: yes
+usda_ndb_code:en: 4528
+usda_ndb_name:en: Oil, walnut
 wikidata:en: Q1434098
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut_oil
 
@@ -16866,133 +17031,6 @@ it: olio di senape
 ru: масло-горчицы, масло горчицы, эфирное масло горчицы, горчичное масло, масло горчичное
 usda_ndb_code:en: 4583
 usda_ndb_name:en: Oil, mustard
-
-< en:vegetable oil
-en: cottonseed oil, cotton seed oil
-ar: زيت بذرة القطن
-az: Pambıq yağı
-be: Баваўняны алей
-bg: памучно масло
-ca: Oli de llavors de cotó
-de: Baumwollsaatöl, Baumwollsamenöl
-el: Βαμβακέλαιο
-es: aceite de algodón
-fa: روغن پنبه‌دانه
-fi: puuvillansiemenöljy
-fr: huile de coton, graines de coton
-hr: ulje sjemenki pamuka
-hu: pamutmagolaj
-id: Minyak biji kapas
-it: olio di semi di cotone
-kn: ಹತ್ತಿಬೀಜದ ಎಣ್ಣೆ
-nl: katoenzaadolie, katoenzaad
-pl: Olej z nasion bawełny, olej bawełniany
-pt: Óleo de algodão
-ru: Хлопковое масло
-ta: பருத்தி விதை எண்ணெய்
-te: పత్తిగింజల నూనె
-uk: Бавовняна олія
-uz: Paxta moyi
-zh: 棉籽油
-ciqual_food_code:en: 17170
-ciqual_food_name:en: Cottonseed oil
-ciqual_food_name:fr: Huile de coton
-description:en: COTTONSEED OIL is a cooking oil extracted from the seeds of cotton plants of various species
-from_palm_oil:en: no
-usda_ndb_proxy_code:en: 4502
-usda_ndb_proxy_name:en: Oil, cottonseed, salad or cooking
-wikidata:en: Q811663
-wikipedia:en: https://en.wikipedia.org/wiki/Cottonseed_oil
-
-< en:cottonseed oil
-en: salad or cooking cottonseed oil
-usda_ndb_code:en: 4502
-usda_ndb_name:en: Oil, cottonseed, salad or cooking
-
-< en:cottonseed oil
-en: hydrogenated cottonseed oil
-de: hydriertes Baumwollsamenöl
-es: aceite hidrogenado de algodón
-fr: Huile de graine de coton
-hr: hidrogenirano ulje sjemenki pamuka
-it: Olio di semi di cotone idrogenato
-
-< en:vegetable fat
-en: cottonseed fat
-de: Baumwollsaatfett, Baumwollfett
-fr: matières grasses de coton, matières grasses végétales de coton
-hr: mast sjemenki pamuka
-it: grasso di semi di cotone
-
-< en:vegetable oil
-en: avocado oil
-bg: авокадово масло, авокадово олио
-da: avocadoolie
-de: Avocadoöl
-es: Aceite de aguacate
-fi: avokadoöljy
-fr: huile d'avocat
-hr: ulje avokada
-hu: avokádóolaj
-it: olio di avocado
-nb: avokadoolje
-nl: avocado-olie, avocado olie
-pl: olej z awokado
-sv: avokadoolja
-from_palm_oil:en: no
-wikidata:en: Q2918735
-
-< en:vegetable oil
-en: corn oil, maize oil
-ar: زيت الذرة
-be: Кукурузны алей
-bg: Царевично олио, царевично, царевично масло
-ca: Oli de blat de moro
-da: Majsolie
-de: Maiskeimöl, Maisöl
-el: Αραβοσιτέλαιο
-eo: Maizoleo
-es: Aceite de maíz
-eu: Arto olio
-fa: روغن ذرت
-fi: Maissiöljy
-fr: huile de maïs
-gl: Aceite de millo
-he: שמן תירס
-hr: kukuruzno ulje, u različitim omjerima ulja
-hu: kukoricaolaj
-id: Minyak jagung
-it: Olio di semi di mais, olio di mais
-ja: コーン油, とうもろこし油
-kk: Жүгері майы
-ko: 옥수수기름
-lt: Kukurūzų aliejus
-nb: Maisolje
-nl: Maïskiemolie, Maïsolie, maisolie
-pl: Olej kukurydziany, olej z kukurydzy
-pt: Óleo de milho
-ro: ulei de porumb
-ru: Кукурузное масло
-tr: mısır yağı, mısırözü yağı
-uk: Кукурудзяна олія
-zh: 粟米油
-# yue:粟米油
-ciqual_food_code:en: 17190
-ciqual_food_name:en: Maize/corn oil
-ciqual_food_name:fr: Huile de maïs
-description:en: Corn oil (maize oil) is oil extracted from the germ of corn (maize).
-description:de: Maiskeimöl (Maisöl) ist ein Speiseöl, das aus dem fetthaltigen Keim des Maiskorns gewonnen wird.
-description:es: El aceite de maíz es un aceite extraído del germen de maíz.
-description:fr: L'huile de maïs est une huile végétale extraite du grain de maïs.
-description:it: L'olio di semi di mais è un olio estratto dai germi dei semi di Zea mays.
-description:nl: Olie uit de zaden van Zea mays.
-description:pt: O óleo de milho é um óleo vegetal extraído a partir da prensagem de grãos de milho.
-from_palm_oil:en: no
-usda_ndb_code:en: 42289
-usda_ndb_name:en: Oil, corn and canola
-wikidata:en: Q856775
-wikipedia:en: https://en.wikipedia.org/wiki/Corn_oil
-# ingredient/corn-oil 5402 in 18 @2021-0-20
 
 < en:vegetable oil
 en: peanut oil
@@ -17227,6 +17265,7 @@ nb: soyaolje
 nl: sojaolie
 pl: olej sojowy, olej roślinny sojowy, oleje roślinne sojowy
 pt: óleo de soja
+ro: ulei vegetal de soia, ulei din boabe de soia
 ru: Соевое масло, масло соевое, масло растительное соевое
 sv: Sojaolja, sojaböns olja
 uk: Соєва олія
@@ -17275,6 +17314,7 @@ pl: rafinowany olej sojowy
 sv: raffinerad sojaolja
 ecobalyse:en: 188a3d66-f214-4821-9bac-7e8fdc715721
 
+< en:hydrogenated vegetable oil
 < en:soya oil
 en: hydrogenated soy oil
 bg: хидрогенирано соево олио
@@ -17287,7 +17327,8 @@ hu: hidrogénezett szójaolaj
 it: Olio di soia idrogenato
 pt: azeite de soja hidrogenado, azeite de oliva de soja hidrogenado
 
-< en:soya oil
+< en:hydrogenated soy oil
+< en:partially hydrogenated vegetable oil
 en: partially hydrogenated soybean oil
 de: Sojabohnenöl teilweise hydriert
 es: Aceite de soja parcialmente hidrogenado
@@ -17298,15 +17339,19 @@ it: Olio di semi di soia idrogenato
 < en:soya oil
 fr: huile de soja entièrement raffinée
 
-# < en:soya oil makes a loop
-< en:shortening
+< en:hydrogenated soy oil
+< en:hydrogenated vegetable shortening
+en: hydrogenated soybean shortening
+usda_ndb_proxy_code:en: 4586
+usda_ndb_proxy_name:en: Shortening, special purpose for cakes and frostings, soybean (hydrogenated)
+
+< en:hydrogenated soybean shortening
 en: linoleic-free hydrogenated soybean shortening
 usda_ndb_code:en: 4560
 usda_ndb_name:en: Shortening frying (heavy duty), soybean (hydrogenated), linoleic (less than 1%)
 
-# < en:soya oil
-< en:shortening
-en: hydrogenated soybean shortening (special purpose for cakes and frostings)
+< en:hydrogenated soybean shortening
+en: hydrogenated soybean shortening for cakes and frostings
 usda_ndb_code:en: 4586
 usda_ndb_name:en: Shortening, special purpose for cakes and frostings, soybean (hydrogenated)
 
@@ -17345,9 +17390,8 @@ usda_ndb_name:en: Oil, rice bran
 wikidata:en: Q175933
 wikipedia:en: https://en.wikipedia.org/wiki/Rice_bran_oil
 
-
 < en:vegetable fat
-en: shea butter, shea, shea fat, sheanut oil
+en: shea butter, shea, shea fat
 ak: Nkuto
 ar: زبدة الشيا
 bg: Масло от ший, ший
@@ -17390,7 +17434,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Shea_butter
 
 # < en:shea why is this here?
 < en:vegetable oil
-en: shea oil
+en: shea oil, sheanut oil
 da: sheaolie
 de: Sheaöl
 hr: shea ulje
@@ -17398,6 +17442,7 @@ it: olio di karité
 pl: olej shea, olej roślinny shea
 ro: ulei de shea
 sv: sheaolja
+from_palm_oil:en: no
 usda_ndb_code:en: 4536
 usda_ndb_name:en: Oil, sheanut
 
@@ -17531,6 +17576,7 @@ de: Salfett
 hr: slana mast
 it: grasso di sale
 pl: tłuszcz sal, tłuszcz z sal
+from_palm_oil:en: no
 
 < en:vegetable oil
 # producedFrom:en:chia
@@ -17597,17 +17643,6 @@ hr: ulje sjemenki pistacija
 hu: pisztáciaolaj, pisztáciamag olaj
 it: olio di semi di pistacchio
 from_palm_oil:en: no
-
-< en:vegetable oil
-en: almond oil
-bg: бадемово олио
-de: Mandelöl
-fr: huile d'amande
-hr: bademovo ulje
-it: olio di mandorle
-nl: amandelolie
-usda_ndb_code:en: 4529
-usda_ndb_name:en: Oil, almond
 
 < en:almond oil
 < en:hazelnut oil
@@ -17749,12 +17784,13 @@ hu: finomított napraforgóolaj, finomított napraforgó étolaj
 it: oleo di girasole raffinato
 pl: rafinowany olej słonecznikowy
 pt: Óleo de girassol refinado
+ro: ulei rafinat de floarea-soarelui
 ru: масло подсолнечное рафинированное дезодорированное, масло подсолнечное рафинированное
 sv: raffinerad solrosolja
 ecobalyse:en: 583d00ab-0340-444b-9581-71175f0a937b
 
 < en:sunflower oil
-en: linoleic sunflower oil less than 60%)
+en: linoleic sunflower oil (less than 60%)
 usda_ndb_code:en: 4060
 usda_ndb_name:en: Oil, sunflower, linoleic (less than 60%)
 
@@ -17788,7 +17824,7 @@ ru: масло подсолнечное высокоолеиновое рафи�
 usda_ndb_proxy_code:en: 4584
 usda_ndb_proxy_name:en: Oil, sunflower, high oleic (70% and over)
 
-< en:sunflower oil
+< en:high oleic sunflower oil
 en: high oleic sunflower oil (70% and over)
 usda_ndb_code:en: 4584
 usda_ndb_name:en: Oil, sunflower, high oleic (70% and over)
@@ -17869,56 +17905,84 @@ usda_ndb_name:en: Oil, wheat germ
 < en:sunflower oil
 fr: huiles végétales de tournesol et de colza, huiles de tournesol et de colza, graisses de tournesol et de coprah
 
-< en:shortening
+< en:cottonseed fat
+< en:hydrogenated soybean shortening
+< en:industrial shortening
 en: industrial hydrogenated soybean and cottonseed shortening
 usda_ndb_code:en: 4554
 usda_ndb_name:en: Shortening industrial, soybean (hydrogenated) and cottonseed
 
-< en:shortening
+< en:household shortening
+< en:hydrogenated palm shortening
+< en:hydrogenated soybean shortening
 en: household hydrogenated soybean and palm shortening
+from_palm_oil:en: yes
 usda_ndb_code:en: 4559
 usda_ndb_name:en: Shortening household soybean (hydrogenated) and palm
 
-< en:shortening
+< en:cottonseed fat
+< en:household shortening
+< en:hydrogenated soybean shortening
 en: partially hydrogenated soybean and partially hydrogenated cottonseed household shortening
 usda_ndb_code:en: 4031
 usda_ndb_name:en: Shortening, household, soybean (partially hydrogenated)-cottonseed (partially hydrogenated)
 
-< en:shortening
+< en:corn oil
+< en:hydrogenated soybean shortening
+< en:industrial shortening
 en: partially hydrogenated soy and corn industrial shortening (for frying)
 usda_ndb_code:en: 4666
 usda_ndb_name:en: Shortening, industrial, soy (partially hydrogenated ) and corn for frying
 
-< en:shortening
+< en:hydrogenated soybean shortening
+< en:industrial shortening
 en: industrial partially hydrogenated soy shortening
 usda_ndb_code:en: 4667
 usda_ndb_name:en: Shortening, industrial, soy (partially hydrogenated ) for baking and confections
 
-< en:shortening
+< en:hydrogenated palm shortening
+< en:hydrogenated soybean shortening
 en: hydrogenated soybean and hydrogenated palm multipurpose shortening
+from_palm_oil:en: yes
 usda_ndb_code:en: 4595
 usda_ndb_name:en: Shortening, multipurpose, soybean (hydrogenated) and palm (hydrogenated)
 
-< en:shortening
-en: hydrogenated soybean palm and cottonseed baking shortening
+< en:cottonseed fat
+< en:hydrogenated palm shortening
+< en:hydrogenated soybean shortening
+en: hydrogenated soybean palm and cottonseed shortening for baking
+from_palm_oil:en: yes
 usda_ndb_code:en: 4587
 usda_ndb_name:en: Shortening, special purpose for baking, soybean (hydrogenated) palm and cottonseed
 
-
-
 ################# mixed animal and vegetable fats/oils
 
+< en:beef tallow fat
+< en:cottonseed fat
 < en:shortening
 en: beef tallow and cottonseed shortening
 usda_ndb_code:en: 4550
 usda_ndb_name:en: Shortening frying (heavy duty), beef tallow and cottonseed
+vegan:en: no
+vegetarian:en: no
 
+< en:lard
 < en:shortening
+< en:vegetable oil
+en: lard and vegetable oil shortening
+usda_ndb_proxy_code:en: 4549
+usda_ndb_proxy_name:en: Shortening industrial, lard and vegetable oil
+vegan:en: no
+vegetarian:en: no
+
+< en:industrial shortening
+< en:lard and vegetable oil shortening
 en: lard and vegetable oil industrial shortening
 usda_ndb_code:en: 4549
 usda_ndb_name:en: Shortening industrial, lard and vegetable oil
 
-< en:shortening
+< en:household shortening
+< en:lard and vegetable oil shortening
 en: lard and vegetable oil household shortening
 usda_ndb_code:en: 4544
 usda_ndb_name:en: Shortening, household, lard and vegetable oil
@@ -18458,7 +18522,7 @@ ja: ワインビネガー
 nl: wijnazijn
 pl: ocet winny, octu winnego
 pt: vinagre de vinho
-ro: oțet din vin, otet din vin, oţet de vin
+ro: oțet din vin, otet din vin, oțet de vin
 ru: Винный уксус
 sv: vinsvinäger, vinättika, vinäger av vin, vinvinäger
 carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
@@ -18499,6 +18563,7 @@ hu: alkoholecet
 it: aceto di alcool, aceto d alcol
 nl: alcoholazijn
 pt: vinagre de álcool
+ro: oțet de alcool
 sv: ättiksprit
 
 < en:alcohol vinegar
@@ -18799,13 +18864,14 @@ hr: crni vinski ocat
 hu: vörösborecet
 it: aceto di vino rosso
 nl: rode wijnazijn
-pl: ocet winny czerwony
+pl: ocet winny czerwony, ocet z czerwonego wina, ocet winny z czerwonego wina
 sv: rödvinsvinäger
 usda_ndb_code:en: 2068
 usda_ndb_name:en: Vinegar, red wine
 
 < en:vinegar
 en: spirit vinegar
+bg: спиртен оцет
 cs: Ovocný ocet
 de: Branntweinessig, Weingeistessig
 el: ξύδι από οίνο
@@ -18817,6 +18883,11 @@ it: aceto di acqua-vite
 lv: spirta etiķis
 nl: brandewijnazijn
 pl: Ocet spirytusowy, octu spirytusowego
+
+#<en:compound
+< en:vinegar
+en: spirit-apple vinegar
+pl: ocet spirytusowo-jabłkowy, ocet jabłkowo-spirytusowy
 
 < en:vinegar
 en: tarragon vinegar
@@ -18858,6 +18929,7 @@ ja: アルコール, 酒精
 nl: alcohol
 pl: Alkohol
 pt: Álcool
+ro: alcool
 ru: Алкоголь
 sv: alkohol
 tr: alkol
@@ -18934,7 +19006,7 @@ pl: etanol, alkohol etylowy, alkoholu etylowego
 ps: اتانول
 pt: etanol
 qu: Ethanul
-ro: etanol
+ro: etanol, alcool etilic
 ru: этанол, спирт этиловый ректификованный из пищевого сырья, спирт этиловый
 sh: Alkohol
 si: එතනෝල්
@@ -21079,7 +21151,7 @@ it: Aroma artificiale
 nl: Kunstmatige smaakstoffen
 pl: Sztuczny aromat, sztuczne aromaty
 pt: Aromatizante artificial
-ro: Arome artificiale
+ro: Arome artificiale, aromă artificială
 ru: Искусственный ароматизатор
 
 # <en:compound
@@ -23540,6 +23612,7 @@ hr: žitarice cijelog zrna, proizvodi od cjelovitih žitarica od cijelog zrna
 hu: teljes kiőrlésű gabona
 it: cereali integrali, cereale integrale
 nl: Volkorengraan
+pl: zboża pełnoziarniste
 
 < en:cereal
 en: cereals containing gluten
@@ -24816,7 +24889,7 @@ ms: Kuskus
 nb: couscous
 nl: couscous
 oc: couscous
-pl: Kuskus, kuskus pszenny
+pl: Kuskus, kuskus pszenny, kasza kuskus, kasza kuskus z pszenicy
 pt: cuscuz
 ro: Cuș cuș
 ru: Кускус
@@ -26954,7 +27027,7 @@ pl: płatki żytnie pełnoziarniste
 pt: flocos integrais de centeio
 
 < en:rye
-en: rye grains, rye grain
+en: rye grain, rye grains
 bg: ръжени зърна
 da: rugkorn
 de: Roggenkörner
@@ -27467,6 +27540,8 @@ de: Teff
 es: teff
 pl: teff, miłka abisyńska, tef, trawa abisyńska
 allergens:en: en:gluten
+usda_ndb_proxy_code:en: 20142
+usda_ndb_proxy_name:en: Teff, uncooked
 wikipedia:en: https://en.wikipedia.org/wiki/Teff
 
 < en:teff
@@ -27835,7 +27910,7 @@ nn: hvetemel
 no: hvetemel
 pl: mąka pszenna, mąka z pszenicy zwyczajnej
 pt: farinha de trigo
-ro: făină de grâu, fäină de grâu, faina de grau, făină din grâu, faina din grau
+ro: făină de grâu, fäină de grâu, faina de grau, făină din grâu, faina din grau, făină de grâu albă
 ru: Пшеничная мука, мука пшеничная хлебопекарная высшего сорта, мука пшеничная высшего сорта, мука пшеничная, мука пшеничная хлебопекарная первого сорта, мука пшеничная хлебопекарная высший сорт, мука пшеничная хлебопекарная второго сорта, мука пшеничная 1 сорта, мука пшеничная первого сорта, мука пшеничная хлебопекарная первый сорт, мука пшеничная общего назначения
 sa: गोधूमपिष्टम्
 sk: pšeničná múka, pšeničná mouka
@@ -28021,11 +28096,6 @@ hr: pšenično brašno 1850
 pl: mąka pszenna typ 1850, mąka pszenna 1850, mąka pszenna graham
 
 < en:wheat flour
-en: soft wheat whole-grain wheat flour
-usda_ndb_code:en: 20649
-usda_ndb_name:en: Wheat flour, whole-grain, soft wheat
-
-< en:wheat flour
 es: Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630, Harina de trigo 000 enriquecida Ley 25630
 
 < en:wheat flour
@@ -28042,6 +28112,7 @@ hu: durumbúzaliszt
 it: farina di grano duro
 nl: durum tarwemeel
 pl: mąka z pszenicy durum, mąka z pszenicy twardej, mąka makaronowa pszenna, mąka pszenna makaronowa
+ro: făină din grâu dur
 sv: durumvetemjöl, mjöl av durumvete
 uk: борошно з пшеннци тверднх сортив
 
@@ -28168,11 +28239,14 @@ fr: farine de blé tendre, farine de blés tendres
 hr: meko pšenično brašno
 it: farina di grano tenero
 pl: mąka z pszenicy miękkiej, mąka z miękkiej pszenicy
+ro: făină de grâu moale
 
 < en:soft wheat flour
-< en:wholemeal flour
+< en:whole wheat flour
 en: soft whole wheat flour, wholemeal soft wheat flour
 it: farina integrale di grano tenero, farina di grano tenero integrale
+usda_ndb_code:en: 20649
+usda_ndb_name:en: Wheat flour, whole-grain, soft wheat
 
 < en:wheat flour
 en: Wheat flour type 150
@@ -28649,7 +28723,6 @@ nl: geel maïsmeel
 sv: gult majsmjöl
 # ingredient/fr:farine-de-mais-jaune has 38 products @2019-06-02
 
-
 < en:corn flour
 en: white corn flour
 da: hvidt majsmel
@@ -28663,10 +28736,10 @@ it: farina di mais bianco, farina di mais bianco masa
 nb: hvitt maismel
 nl: wit maïsmeel, witte masa maïsmeel
 sv: vitt majsmjöl
-usda_ndb_code:en: 20316
-usda_ndb_name:en: Corn flour, whole-grain, white
+usda_ndb_proxy_code:en: 20316
+usda_ndb_proxy_name:en: Corn flour, whole-grain, white
 
-< en:corn flour
+< en:whole grain corn flour
 en: whole-grain blue corn flour
 es: harina de maiz morado
 usda_ndb_code:en: 20315
@@ -28687,14 +28760,14 @@ usda_ndb_proxy_code:en: 20016
 usda_ndb_proxy_name:en: Corn flour, whole-grain, yellow
 # ingredient/en:whole-grain-corn-flour has 176 products in 2 languages @2020-06-11
 
-< en: whole grain corn flour
-< en:wholemeal flour
+< en:white corn flour
+< en:whole grain corn flour
 en: white whole grain corn flour, white whole-grain corn flour
 usda_ndb_code:en: 20316
 usda_ndb_name:en: Corn flour, whole-grain, white
 
-< en: yellow corn flour
-< en:wholemeal flour
+< en:whole grain corn flour
+< en:yellow corn flour
 en: yellow whole-grain corn flour
 usda_ndb_code:en: 20016
 usda_ndb_name:en: Corn flour, whole-grain, yellow
@@ -29265,19 +29338,21 @@ ja: コーングリッツ
 nl: Maïsgrits, maisgrut, maïsgrut
 pl: grys kukurydziany, kasza kukurydziana, kaszka kukurydziana
 pt: grãos de milho
-ro: porumb boabe
+ro: porumb boabe, mălai
 ru: крупа кукурузная
 sk: kukuričná krupic
 sl: koruzni zdrob
 sv: majsgryn
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
-# 281 products in 1 language @201809-23
-ciqual_food_code:en: 9615
-ciqual_food_name:en: Polenta or maize semolina, cooked, unsalted
-ciqual_food_name:fr: Polenta ou semoule de maïs, cuite, non salée
+ciqual_food_code:en: 9616
+ciqual_food_name:en: Polenta or maize semolina, dry
+#ciqual_food_code:en: 9615
+#ciqual_food_name:en: Polenta or maize semolina, cooked, unsalted
+#ciqual_food_name:fr: Polenta ou semoule de maïs, cuite, non salée
+wikipedia:en: https://en.wikipedia.org/wiki/Cornmeal
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:semoule-de-mais
 # 597 products in 15 languages @2018-09-23
-wikipedia:en: https://en.wikipedia.org/wiki/Cornmeal
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/cornmeal
+# 281 products in 1 language @201809-23
 
 < en:cornmeal
 fr: semoule de maïs précuite
@@ -29297,12 +29372,14 @@ sv: fullkornsmajsgryn
 usda_ndb_proxy_code:en: 20020
 usda_ndb_proxy_name:en: Cornmeal, whole-grain, yellow
 
-< en: wholegrain maize semolina
+< en:white corn
+< en:wholegrain maize semolina
 en: white whole-meal cornmeal
 usda_ndb_code:en: 20320
 usda_ndb_name:en: Cornmeal, whole-grain, white
 
 < en:wholegrain maize semolina
+< en:yellow corn
 en: yellow whole-grain cornmeal
 usda_ndb_code:en: 20020
 usda_ndb_name:en: Cornmeal, whole-grain, yellow
@@ -29772,6 +29849,8 @@ fr: riz complet
 nl: volkorenrijst
 nn: fullkornris
 sv: fullkornris
+ciqual_food_code:en: 9102
+ciqual_food_name:en: Rice, wholegrain, raw
 
 #category/brown-rices
 < en:whole grain rice
@@ -30763,7 +30842,7 @@ hu: főtt rizs
 it: Riso cotto
 nl: gekookte rijst
 pl: ryż gotowany, gotowany ryż
-ro: orez fiert
+ro: orez fiert, orez gătit
 sv: kokt ris
 # ingredient/fr:riz-cuisiné has 47 products in french @2018-12-19
 
@@ -33780,9 +33859,13 @@ el: Ολιγοσακχαρίτες mannan
 et: Mannano oligosahhariidid
 it: Mannano oligo saccaridi
 
+< en:fruit extract
 < en:sweetener
 en: monk fruit extract
+de: Mönchsfruchtextrakt
 it: estratto di frutto del monaco
+nb: balsampæreekstrakt
+sv: luo han guo-extrakt, munkfruktextrakt
 
 ##################################################################################
 #
@@ -33997,7 +34080,7 @@ fr: protéine d'amande
 it: proteine delle mandorle, proteine dalle mandorle, proteine (mandorle), proteina (mandorle)
 nb: mandelprotein
 nn: mandelprotein
-pl: białko migdałowe
+pl: białko migdałowe, białko z migdałów
 sv: mandelprotein
 allergens:en: en:nuts
 
@@ -34033,6 +34116,7 @@ fr: isolat de protéines de pois
 hr: izolat proteina graška
 hu: borsófehérje izolátum
 it: proteine isolate del pisello
+pl: izolowane białko grochowe
 ro: izolat proteic de mazăre
 
 < en:pea protein
@@ -34786,6 +34870,7 @@ es: mezcla de proteínas
 fr: mélange de protéines
 hr: proteinska mješavina
 it: Mix di proteine
+pl: mieszanka białkowa
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -34896,7 +34981,6 @@ en: highly fat reduced cocoa, highly reduced fat cocoa
 de: Sehr fettarme Kokosnuss
 fr: cacao fortement dégraissé
 hr: kakao sa smanjenim udjelom masti
-
 
 < en:cocoa
 en: cocoa paste, cocoa mass, chocolate liquor
@@ -35497,6 +35581,7 @@ es: crema de chocolate
 fr: Crème de chocolat
 hr: čokoladna krema
 it: crema al cioccolato
+pl: krem czekoladowy
 
 < en:chocolate
 en: dark chocolate, black chocolate, plain chocolate
@@ -37345,7 +37430,7 @@ nn: ølgjær
 pl: drożdże piekarskie
 pt: levedura para panificação
 qu: Aqha qunchu
-ro: Drojdia de bere
+ro: drojdie de panificație
 ru: Хлебопекарные дрожжи, дрожжи хлебопекарные прессованные, дрожжи хлебопекарные
 sk: Pekárske droždie, Kvasinka pivná
 uk: Пивні дріжджі
@@ -38459,7 +38544,7 @@ fr: demi-abricots, demi abricots
 #processing:en: en:purée
 < en:apricot
 en: apricot puree
-bg: пюре от кайсии, пюре от кайсия
+bg: пюре от кайсии, пюре от кайсия, кайсиево пюре
 de: Aprikosenpüree, Aprikosenmark
 es: Puré de albaricoques
 fi: aprikoosipyree
@@ -38558,6 +38643,7 @@ ciqual_food_name:fr: Abricot, dénoyauté, sec
 
 < en:tree nut
 en: apricot kernels
+bg: кайсиеви ядки
 de: Aprikosenkerne
 es: huesos de albaricoque
 fi: aprikoosinsiemen, aprikoosinsiemenet
@@ -40123,7 +40209,7 @@ mt: l-isfarġel
 nl: Kweepeer, kweeperen
 pl: pigwa, pigwy, pigwowy, pigwowca
 pt: marmelos
-ro: gutuilor
+ro: gutuilor, gutuie, gutui
 sc: Mela pirongia
 sk: dule
 sl: kutine
@@ -41299,19 +41385,19 @@ th: คลีเมนไทน์
 uk: Клементин
 vi: Clementine
 zh: 克里曼丁红橘
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
-# 81 products @2018-10-01
-ciqual_food_code:en: 13082
-ciqual_food_name:en: Clementine, pulp, raw
-ciqual_food_name:fr: Clémentine, pulpe, crue
-ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
-wikidata:en: Q460517
 # frr:Clementiin
 # koi:Клементин
 # mrj:Клементин
 # pcd:Clémintine
 # udm:Клементин
+ciqual_food_code:en: 13082
+ciqual_food_name:en: Clementine, pulp, raw
+ciqual_food_name:fr: Clémentine, pulpe, crue
+ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
+wikidata:en: Q460517
 wikipedia:en: https://en.wikipedia.org/wiki/Clementine
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
+# 81 products @2018-10-01
 
 < en:clementine
 < en:fruit juice
@@ -41927,6 +42013,7 @@ nl: citroenschil, schillen citroen
 nn: citronskal
 pl: skórka cytryny, skórka z cytryny, skórka cytrynowa
 pt: casca de limão
+ro: coajă de lămâie
 sv: citronskal
 usda_ndb_proxy_code:en: 9156
 usda_ndb_proxy_name:en: Lemon peel, raw
@@ -42678,7 +42765,7 @@ oc: Irange
 or: କମଳା
 os: Апельсин
 pa: ਸੰਗਤਰਾ
-pl: pomarańcza, pomarańczowy, pomarańczowa, pomarańczowe, pomarańczy
+pl: pomarańcza, pomarańczowy, pomarańczowa, pomarańczowe, pomarańczy, pomarańcze
 ps: مالټه
 pt: laranja
 qu: Chilina
@@ -43057,7 +43144,7 @@ it: cellule arancioni
 
 < en:orange
 en: orange zest, orange peel
-bg: портокалови кори, портокалови корички
+bg: портокалови кори, портокалови корички, портокалова кора
 ca: pell de taronja
 cs: pomerančová kůra, pomerančové kůry
 da: orangeskal
@@ -44350,7 +44437,7 @@ hr: višnja, višnje, od višnje
 it: amarene
 la: prunus cerasus
 nl: morellen, kriek, krieken, zure kers
-pl: wiśnia, wiśnie, wiśniowy, wiśniowe, wiśniowa, wiśniowego, wiśniowych, wiśniowej
+pl: wiśnia, wiśnie, wiśniowy, wiśniowe, wiśniowa, wiśniowego, wiśniowych, wiśniowej, wiśni
 pt: ginjas
 ciqual_food_code:en: 13110
 ciqual_food_name:en: Morello cherry, raw
@@ -44648,7 +44735,7 @@ ml: തേങ്ങ
 nb: kokos, kokosnøtt
 nl: kokosnoot, kokos
 nn: kokosnøtt
-pl: kokos, kokosa, orzecha kokosowego, kokosowy, kokosowa, kokosowe
+pl: kokos, kokosa, orzech kokosowy, orzecha kokosowego, kokosowy, kokosowa, kokosowe
 pt: cocos
 ro: nucă de cocos, nuca de cocos
 ru: кокос
@@ -44659,18 +44746,25 @@ sv: Kokosnöt, Kokos
 tr: hindistan cevizi, hindistancevizi
 za: Makyehswj
 zh: 椰子
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
-# 1209 products in 11 languages @2018-10-03
-ciqual_proxy_food_code:en: 15006
-ciqual_proxy_food_name:fr: Coconut, ripe kernel, fresh
-wikidata:en: Q3342808
 # ast:Cocu
 # jbo:rutrkoko
 # pt-br:coco
+ciqual_proxy_food_code:en: 15006
+ciqual_proxy_food_name:fr: Coconut, ripe kernel, fresh
+usda_ndb_proxy_code:en: 12104
+usda_ndb_proxy_name:en: Nuts, coconut meat, raw
+wikidata:en: Q3342808
 wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
 # The term "coconut" can refer to the whole coconut palm, the seed, or the fruit, which botanically is a drupe, not a nut.
 # NOTE the oil and fat of a coconut can be found under the fats section
 # When coconut is listed as ingredient, probably the white stuff is meant. The watery stuff is probably never used? I.e. coco versus coconut
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
+# 1209 products in 11 languages @2018-10-03
+
+< en:coconut
+en: raw coconut meat
+usda_ndb_code:en: 12104
+usda_ndb_name:en: Nuts, coconut meat, raw
 
 < en:coconut
 #<en:compound
@@ -44692,9 +44786,11 @@ sv: Kokosgrädde
 ciqual_food_code:en: 18041
 ciqual_food_name:en: Coconut milk or coconut cream
 ciqual_food_name:fr: Lait de coco ou Crème de coco
+nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_code:en: 12115
+usda_ndb_name:en: Nuts, coconut cream, raw (liquid expressed from grated meat)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
 # 33 products @2018-10-03
-nutriscore_fruits_vegetables_nuts:en: no
 
 # Is this a compound product? coconut cream + water?
 
@@ -44725,9 +44821,22 @@ zh: 椰子奶
 ciqual_food_code:en: 18041
 ciqual_food_name:en: Coconut milk or coconut cream
 ciqual_food_name:fr: Lait de coco ou Crème de coco
+usda_ndb_proxy_code:en: 12117
+usda_ndb_proxy_name:en: Nuts, coconut milk, raw (liquid expressed from grated meat and water)
 wikidata:en: Q841779
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_milk
 
+< en:coconut milk
+en: raw coconut milk
+usda_ndb_code:en: 12117
+usda_ndb_name:en: Nuts, coconut milk, raw (liquid expressed from grated meat and water)
+
+< en:coconut milk
+en: frozen coconut milk
+usda_ndb_code:en: 12176
+usda_ndb_name:en: Nuts, coconut milk, frozen (liquid expressed from grated meat and water)
+
+# < en:compound ?
 < en:coconut milk
 en: coconut milk drink
 de: Kokosmilchgetränk
@@ -44792,6 +44901,8 @@ ciqual_food_name:en: Coconut water
 ciqual_food_name:fr: Eau de coco
 ifct_food_code:en: K002
 ifct_food_name:en: Coconut water
+usda_ndb_code:en: 12119
+usda_ndb_name:en: Nuts, coconut water (liquid from coconuts)
 wikidata:en: Q633401
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_water
 
@@ -45410,6 +45521,7 @@ ciqual_food_name:fr: Figue, sèche
 
 < en:fig
 en: fig paste
+bg: смокинова паста, паста от смокини
 de: Feigenpaste
 fr: pâte de figue
 hr: pasta od smokava
@@ -49732,9 +49844,6 @@ uk: тамаринд
 vi: me
 yi: טאמארינד
 zh: 酸豆
-ciqual_food_code:en: 13079
-ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
-ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # ace:mè
 # azb:تمرهیندی
 # be-tarask:тамарынд
@@ -49747,6 +49856,9 @@ ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # yue:羅望子
 # zh-hant:羅望子
 # zh-tw:羅望子
+ciqual_food_code:en: 13079
+ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
+ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # tree:wikidata:en:Q80235
 wikidata:en: Q28178875
 wikipedia:en: https://en.wikipedia.org/wiki/Tamarind
@@ -49829,6 +49941,7 @@ fr: légumes en proportions variables, légumes en proportion variable
 hr: povrće u promijenljivom udjelu
 it: verdure in proporzione variabile
 pl: warzywa w zmiennych proporcjach
+ro: legume în proporții variabile
 
 
 < en:vegetable
@@ -53776,6 +53889,7 @@ fr: Oignon blanc
 hr: bijeli luk
 it: cipolla bianca
 pl: cebula biała, biała cebula
+ro: ceapă albă
 wikidata:en: Q7995660
 wikipedia:en: https://en.wikipedia.org/wiki/White_onion
 
@@ -53900,9 +54014,11 @@ sv: lökextrakt
 
 # <en:compound
 en: fried onion
+bg: пържен лук
 cs: smažená cibule
 de: röstzwiebeln
 it: cipolla fritta
+ro: ceapă prajită
 
 # <en:compound
 en: pre fried onions
@@ -54033,7 +54149,7 @@ en: leek
 ar: كراث
 az: kəvər soğanı
 be: цыбуля парэй
-bg: праз
+bg: праз, праз лук
 bn: পলাণ্ডু
 bo: ཀེའུ་ཙོང་།
 br: pour
@@ -55965,14 +56081,6 @@ wa: Crompire
 za: Majlingzsuz
 zh: 馬鈴薯
 zu: Izambane
-carbon_footprint_fr_foodges_ingredient:fr: Pomme de terre
-carbon_footprint_fr_foodges_value:fr: 0.6
-ciqual_food_code:en: 4003
-ciqual_food_name:fr: Pomme de terre, bouillie/cuite à l'eau
-ecobalyse:en: potato-industry-fr
-eurocode_2_group_3:en: 8.34.15
-# en:potato has 2269 products in 23 languages @2018-10-15
-nutriscore_fruits_vegetables_nuts:en: no
 # arz:بطاطس
 # bar:Eadäpfe
 # bho:आलू
@@ -56003,8 +56111,18 @@ nutriscore_fruits_vegetables_nuts:en: no
 # zh-hk:薯仔
 # zh-mo:馬鈴薯
 # zh-tw:馬鈴薯
+carbon_footprint_fr_foodges_ingredient:fr: Pomme de terre
+carbon_footprint_fr_foodges_value:fr: 0.6
+ciqual_proxy_food_code:en: 4003
+ciqual_proxy_food_name:en: Potato, peeled, raw
+#ciqual_food_code:fr: 4003
+#ciqual_food_name:fr: Pomme de terre, bouillie/cuite à l'eau
+ecobalyse:en: potato-industry-fr
+eurocode_2_group_3:en: 8.34.15
+nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q16587531
 wikipedia:en: https://en.wikipedia.org/wiki/Potato
+# en:potato has 2269 products in 23 languages @2018-10-15
 
 < en:potato
 en: new potato, new potatoes
@@ -56063,6 +56181,7 @@ de: vorgegarte Kartoffeln, Kartoffeln (vorgegart), Speisekartoffeln gekocht
 fr: pommes de terre précuites
 hr: prethodno kuhani krumpir
 it: patate precotte
+ro: cartofi preprăjiți
 ciqual_proxy_food_code:en: 4027
 ciqual_proxy_food_name:en: Potato, sautéed/pan-fried, pre-fried, frozen, cooked
 
@@ -56305,50 +56424,66 @@ wikipedia:en: https://en.wikipedia.org/wiki/Crudités
 < en:fruit vegetable
 en: avocado
 an: aguacate
-ar: الأفوكادو
-az: Avokado
+ar: الأفوكادو, افوكادو
+az: avokado
 bg: авокадо
 bn: আভোকাদো
 br: avoukez
 ca: alvocat
 cs: avokádo
+da: avokado, avocado
 de: Avocado
 el: αβοκάντο
 eo: avokado
 es: aguacate
-et: Avokaado
+et: avokaado
 eu: ahuakate
 fi: avokado
 fr: avocat
+ga: abhacád
 gl: aguacate
 he: אבוקדו
 hi: एवोकाडो
 hr: avokado
-ht: Zaboka
+ht: zaboka
 hu: avokádó
 hy: ավոկադո
-ia: Avocato
+ia: avocato
 id: alpukat
+ig: ube oyibo
 it: avocado
 ja: アボカド
 ka: ავოკადო
 ku: avokado
-lt: Avokadas
+kw: avokado
+lb: Avocado
+ln: sabúká
+lt: avokadas
 ma: rahopūru
+mi: rahopūru
 mk: авокадо
+ml: അവോക്കാഡോ
+ms: avokado
 nb: avokado
+ne: घ्यूँफल
 nl: avocado
+nn: avokado
 pl: awokado, smaczliwka, smaczliwki, awokada
 pt: abacate
+qu: palta
+ro: avocado
 ru: авокадо
 sk: avokádo
+sl: avokado
 sq: avokado
-sv: avokado
+sv: avokado, avocado
 te: అవోకాడో
-tr: Avokado
+tr: avokado
 uk: авокадо
 vo: Avokaado
+yi: אַװאָקאַדאָ
 zh: 鳄梨
+#nah: Āhuacatl
 carbon_footprint_fr_foodges_ingredient:fr: Avocat
 carbon_footprint_fr_foodges_value:fr: 2.4
 ciqual_food_code:en: 13004
@@ -56361,11 +56496,10 @@ description:fr: L'avocatier (Persea americana) est une espèce d'arbres fruitier
 description:it: L'avocado (Persea americana) è una specie arborea da frutto che appartiene alla famiglia delle Lauracee.
 description:nl: De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
 ecobalyse:en: avocado-non-eu
-# 858 in 12 @2021-09-21
 eurocode_2_group_3:en: 8.40.60
-# nah:Āhuacatl
 wikidata:en: Q961769
 wikipedia:en: https://en.wikipedia.org/wiki/Avocado
+# 858 in 12 @2021-09-21
 
 en: Guacamole
 it: guacamole
@@ -56374,17 +56508,22 @@ ciqual_food_name:en: Guacamole, prepacked
 
 < en:avocado
 en: hass avocado, hass avocadoes
-de: hass-avocado, hass-avocados
+da: hass-avokado
+de: Hass-Avocado, Hass-Avocados
 es: aguacate Hass, aguacates Hass
+fa: آووکادوی هاس
 fr: avocat Hass, avocats Hass
 hr: hass avokado
 it: avocado hass
 ja: ハスアボカド
 ko: 할아버지 아보카도
+la: persea americana ‘Hass’
 pt: abacate hass, abacates hass
 ru: авокадо Хасс
+sl: avokado Hass
+sv: hass-avokado, avocado (hass)
 uk: авокадо Хасс
-zh: 哈斯牛油果
+zh: 哈斯牛油果, 哈斯酪梨
 wikidata:en: Q5679460
 wikipedia:en: https://en.wikipedia.org/wiki/Hass_avocado
 
@@ -59131,6 +59270,7 @@ nb: tomatpuré
 nl: tomatenpurée, tomatenpuree
 pl: przecier pomidorowy, przecieru pomidorowego
 pt: Puré de tomate
+ro: piure de roșii, piure de tomate
 ru: томатное поре
 sk: paradajkový pretlak
 sr: pire od paradajza
@@ -59189,6 +59329,7 @@ lv: tomātu koncentrāts
 nl: tomatenconcentraat, tomaten concentraat
 pl: koncentrat pomidorowy, pasta pomidorowa
 pt: concentrado de tomate
+ro: pastă de roșii, pastă de tomate
 ru: Томатная паста, томатный концентрат, паста томатная
 sv: tomatkoncentrat
 ciqual_food_code:en: 20068
@@ -59926,7 +60067,7 @@ nv: naayízítsʼósí
 oc: Corgeta
 pl: cukinia, cukinii, kabaczek, kabaczka
 pt: curgete
-ro: Dovlecel
+ro: Dovlecel, dovlecei
 ru: кабачок, кабачки
 rw: Igihaza
 sc: corcoriga
@@ -60205,7 +60346,7 @@ nl: sperzieboon, sperziebonen, groene bonen, prinsessenboon, slaboon, prinsessen
 nn: brekkbønne
 pl: fasolka szparagowa zielona, fasolka szparagowa, fasola szparagowa zielona, fasola szparagowa
 pt: feijão-verde, vagem
-ro: fasole pastai verde
+ro: fasole pastai verde, fasole franțuzească, fasole verde păstăi
 ru: фасоль стручковая, спаржевая фасоль, зелёностручковая фасоль
 sa: निष्पावप्रभेदः
 sq: mashurka
@@ -60309,6 +60450,7 @@ fr: haricot vert plat, haricots verts plats, haricots plats
 hr: pljosnati grah
 nl: snijboon
 nn: snittebønne
+ro: fasole boabe Romano
 sv: romanabönor
 ciqual_food_code:en: 20269
 ciqual_food_name:en: Flat bean, raw
@@ -61551,15 +61693,6 @@ vi: đậu gà
 wa: poes d' souke
 yi: נאהיט
 zh: 鹰嘴豆
-carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
-carbon_footprint_fr_foodges_value:fr: 1.5
-# ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
-ciqual_food_code:en: 20532
-ciqual_food_name:fr: Pois chiche, appertisé, égoutté
-ecobalyse:en: chickpea-fr
-ecobalyse_labels_en_organic:en: chickpea-organic
-eurocode_2_group_3:en: 7.10.15
-rare_crop:en: yes
 # aeb-arab:حمص
 # arc:ܚܪܛܘܡܢܐ
 # azb:نوخود
@@ -61578,9 +61711,18 @@ rare_crop:en: yes
 # sco:chickpea
 #wuu:鹰嘴豆
 # yue:三角豆
+carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
+carbon_footprint_fr_foodges_value:fr: 1.5
+ciqual_food_code:en: 20532
+ciqual_food_name:fr: Pois chiche, appertisé, égoutté
+ecobalyse:en: chickpea-fr
+ecobalyse_labels_en_organic:en: chickpea-organic
+eurocode_2_group_3:en: 7.10.15
+rare_crop:en: yes
 # wikidata:en:Q81375 # this is actually the plant not the legume
 wikidata:en: Q33832605
 wikipedia:en: https://en.wikipedia.org/wiki/Chickpea
+# ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
 
 < en:chickpea
 en: pedrosillano chickpeas
@@ -61869,15 +62011,17 @@ nl: spliterwt, Spliterwten
 pl: groch łuskany, grochu łuskanego, groszek łuskany
 ru: лущеный горох
 te: split peas
-# ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
-ciqual_food_code:en: 20506
-ciqual_food_name:en: Split pea, cooked
-ciqual_food_name:fr: Pois cassé, cuit
-eurocode_2_group_3:en: 7.10.10
 # en-ca:Split pea
 # en-gb:Split pea
+#ciqual_food_code:en: 20506
+#ciqual_food_name:en: Split pea, cooked
+#ciqual_food_name:fr: Pois cassé, cuit
+ciqual_proxy_food_code:en: 20504
+ciqual_proxy_food_name:en: Split pea, raw
+eurocode_2_group_3:en: 7.10.10
 wikidata:en: Q2265406
 wikipedia:en: https://en.wikipedia.org/wiki/Split_pea
+# ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
 
 < en:split pea
 en: Cooked split peas
@@ -62038,7 +62182,6 @@ zh: 小扁豆
 # zh-hk:小扁豆
 # zh-sg:小扁豆
 # zh-tw:小扁豆
-# wikidata:en:Q61505177 # the fruit
 carbon_footprint_fr_foodges_ingredient:fr: Lentilles vertes
 carbon_footprint_fr_foodges_value:fr: 0.3
 #ciqual_proxy_food_code:en: 20505
@@ -62439,13 +62582,59 @@ wikidata:en: Q11009
 # zh-hant:堅果
 wikipedia:en: https://en.wikipedia.org/wiki/Nut_(fruit)
 
+###################################################################################################
+#
+#                                Tree nut
+#
+###################################################################################################
+
+#comment:en:these are nuts that grow in trees, in contrast to peanuts that grow in the earth.
+< en:nut
+en: tree nut, treenuts, tree nuts
+cs: Ořechy
+de: Baumnüsse, Baumnuss
+es: nueces de árboles
+hr: orašasti plodovi
+it: noci da alberi, noci d'albero, noce d'albero
+ja: ナッツ
+lv: koku rieksts
+nb: trenøtt, trenøtter
+nl: boomnoten
+pt: Árvore de frutos secos
+allergens:en: en:nuts
+
+###################################################################################################
+#
+#                                Acorn
+#
+###################################################################################################
+
+< en:nut
+en: acorn
+usda_ndb_proxy_code:en: 12058
+usda_ndb_proxy_name:en: Nuts, acorns, raw
+
+< en:acorn
+en: dried acorn
+usda_ndb_code:en: 12059
+usda_ndb_name:en: Nuts, acorns, dried
+
+< en:acorn
+en: raw acorn
+usda_ndb_code:en: 12058
+usda_ndb_name:en: Nuts, acorns, raw
+
+< en:acorn
+# < en:flour
+en: full fat acorn flour
+usda_ndb_code:en: 12060
+usda_ndb_name:en: Nuts, acorn flour, full fat
 
 ###################################################################################################
 #
 #                                Almond
 #
 ###################################################################################################
-# Almonds
 
 #comment:en:do NOT add the state of the almond, i.e. peeled, crushed, etc. This is detected in the processing taxonomy
 
@@ -62515,6 +62704,8 @@ description:pt: Prunus dulcis, popularmente conhecida como amendoeira é uma esp
 ecobalyse_labels_en_organic:en: almond-inshell-organic
 ifct_food_code:en: H001
 ifct_food_name:en: Almond
+usda_ndb_code:en: 12061
+usda_ndb_name:en: Nuts, almonds
 wikidata:en: Q184357
 # ingredient/almond has 25389 products in 38 languages @2021-08-17
 # TODO Split French and English
@@ -62595,6 +62786,8 @@ fr: amandes blanchies, amandes blanches
 hr: blanšira bademe, blanširani bademi
 it: mandorle sbianchite
 pl: migdały blanszowane
+usda_ndb_code:en: 12062
+usda_ndb_name:en: Nuts, almonds, blanched
 # ingredient/fr:amandes-blanchies has 31 products in 5 languages @2018-10-06
 
 < en:blanches almonds
@@ -62631,16 +62824,6 @@ nl: amandelen in poedervorm
 pt: amêndoa em pó, amêndoas em pó
 sv: mandelpulver
 # ingredient/fr:amande-en-poudre has 233 products in 8 languages @2018-10-06
-
-
-< en:almond paste
-en: prepacked Almond paste
-fr: Pâte d'amande préemballée
-it: pasta di mandorle preconfezionata
-sv: färdigförpackad mandelmassa
-ciqual_food_code:en: 15201
-ciqual_food_name:en: Almond paste or marzipan, prepacked
-ciqual_food_name:fr: Pâte d'amande, préemballée
 
 < en:almond
 en: almond flour
@@ -62771,8 +62954,19 @@ sv: mandelpasta
 ciqual_proxy_food_code:en: 15201
 ciqual_proxy_food_name:en: Almond paste or marzipan, prepacked
 ciqual_proxy_food_name:fr: Pâte d'amande, préemballée
+usda_ndb_code:en: 12071
+usda_ndb_name:en: Nuts, almond paste
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-d'amande
 # 216 products in 5 languages @2018-10-06
+
+< en:almond paste
+en: prepacked Almond paste
+fr: Pâte d'amande préemballée
+it: pasta di mandorle preconfezionata
+sv: färdigförpackad mandelmassa
+ciqual_food_code:en: 15201
+ciqual_food_name:en: Almond paste or marzipan, prepacked
+ciqual_food_name:fr: Pâte d'amande, préemballée
 
 < en:almond
 fr: amandes caramélisées
@@ -62797,6 +62991,23 @@ fr: pâte de praliné
 en: almond pistachio preparation
 hr: pripravak badem pistacija
 it: preparazione di mandorle e pistacchi
+
+###################################################################################################
+#
+#                                Beechnut
+#
+###################################################################################################
+
+< en:nut
+en: beechnut, beeechnuts
+description:en: Beechnuts are the small, triangular nuts produced by beech trees (genus Fagus), particularly the American beech (Fagus grandifolia) and European beech (Fagus sylvatica). They're edible for humans in moderate amounts, but raw beechnuts contain a compound called fagin (sometimes also referenced as related tannins) that can cause mild digestive upset or headaches if eaten in large quantities. Roasting them reduces this and improves flavor.
+usda_ndb_proxy_code:en: 12077
+usda_ndb_proxy_name:en: Nuts, beechnuts, dried
+
+< en:beechnut
+en: dried beechnut
+usda_ndb_code:en: 12077
+usda_ndb_name:en: Nuts, beechnuts, dried
 
 ###################################################################################################
 #
@@ -62841,6 +63052,23 @@ description:nl: De paranoot wordt geleverd door een boom (Bertholletia excelsa) 
 wikidata:en: Q22810770
 # ingredient/brazil-nut has 892 products in 15 languages @2021-08-14
 
+###################################################################################################
+#
+#                               Butternut
+#
+###################################################################################################
+
+< en:nut
+en: white walnut
+comment:en: butternut as a name is removed as it might clash with butternut squash
+description:en: Butternuts (Juglans cinerea), also called white walnuts, are a species of walnut tree native to eastern North America. The nutmeats are eaten and used in baking.
+usda_ndb_proxy_code:en: 12084
+usda_ndb_proxy_name:en: Nuts, butternuts, dried
+
+< en:white walnut
+en: dried white walnut
+usda_ndb_code:en: 12084
+usda_ndb_name:en: Nuts, butternuts, dried
 
 ###################################################################################################
 #
@@ -62884,9 +63112,16 @@ ciqual_proxy_food_code:en: 15055
 ciqual_proxy_food_name:en: Cashew nut, dry-grilled, unsalted
 ifct_food_code:en: H005
 ifct_food_name:en: Cashew nut
+usda_ndb_proxy_code:en: 12087
+usda_ndb_proxy_name:en: Nuts, cashew nuts, raw
 wikidata:en: Q28788216
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
+
+< en:cashew nuts
+en: raw cashew nuts
+usda_ndb_code:en: 12087
+usda_ndb_name:en: Nuts, cashew nuts, raw
 
 < en:cashew nuts
 en: grilled and salted cashew nut
@@ -63096,26 +63331,38 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kola_nut
 
 ###################################################################################################
 #
-#                                Ginko nut
+#                                Ginkgo nut
 #
 ###################################################################################################
+
 < en:tree nut
-en: Ginkgo nuts
+en: ginkgo nuts
 de: Ginkgosamen, Ginkgonüsse
 fr: noix de gingko
 hr: ginko orasi
 it: noci di ginkgo
 zh: 银杏果, 白果
+usda_ndb_proxy_code:en: 12127
+usda_ndb_proxy_name:en: Nuts, ginkgo nuts, raw
+
+< en:ginkgo nuts
+en: raw ginkgo nuts
+usda_ndb_code:en: 12127
+usda_ndb_name:en: Nuts, ginkgo nuts, raw
+
+< en:ginkgo nuts
+en: dried ginkgo nuts
+usda_ndb_code:en: 12128
+usda_ndb_name:en: Nuts, ginkgo nuts, dried
 
 ###################################################################################################
 #
 #                                Hazelnut
 #
 ###################################################################################################
-# description:en: The HAZELNUT is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
 
 < en:tree nut
-en: hazelnut, hazelnuts
+en: hazelnut, hazelnuts, filbert
 af: Haselneut
 an: Avellana
 ar: بندق
@@ -63167,13 +63414,6 @@ uk: ліщинні горіхи
 ur: بندق
 vi: Hạt phỉ
 zh: 榛子, 榛仁
-# 4124 products @2018-10-07
-ciqual_food_code:en: 15004
-ciqual_food_name:en: Hazelnut
-ciqual_food_name:fr: Noisette
-ecobalyse:en: hazelnut-unshelled-non-eu
-ecobalyse_origins_en_european_union:en: hazelnut-unshelled-eu
-openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
 # aeb-arab:بوفريوة
 # ast:Ablana
 # lad:Avyána
@@ -63182,14 +63422,29 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
 # zh-hans:榛子
 # zh-hant:榛子
 # zh-hk:榛子
+ciqual_food_code:en: 15004
+ciqual_food_name:en: Hazelnut
+ciqual_food_name:fr: Noisette
+description:en: The HAZELNUT is the nut of the hazel and therefore includes any of the nuts deriving from species of the genus Corylus, especially the nuts of the species Corylus avellana.
+ecobalyse:en: hazelnut-unshelled-non-eu
+ecobalyse_origins_en_european_union:en: hazelnut-unshelled-eu
+openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
+usda_ndb_code:en: 12120
+usda_ndb_name:en: Nuts, hazelnuts or filberts
 wikidata:en: Q578307
 wikipedia:en: https://en.wikipedia.org/wiki/Hazelnut
+# 4124 products @2018-10-07
 
 < en:hazelnut
 en: Piedmont hazelnut, PGI Piedmont hazelnut
 fr: noisette du Piémont, noisettes du Piémont
 it: nocciola Piemonte
 protected_name_type:en: en:pgi
+
+< en:hazelnut
+en: blanched hazelnut
+usda_ndb_code:en: 12121
+usda_ndb_name:en: Nuts, hazelnuts or filberts, blanched
 
 < en:Piedmont hazelnut
 < en:ground hazelnuts
@@ -63238,10 +63493,11 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-décor
 # 42 products in 4 languages @2018-10-07
 
 < en:hazelnut
-en: hazelnut kernels
+en: hazelnut kernel, hazelnut kernels
 de: ganze Haselnüsse, Haselnüsse ganz
 es: avellanas en grano
 fr: noisettes entières
+hr: lješnjak jezgra
 it: nocciole intere
 pt: avelã inteira, avelãs inteiras
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-entières
@@ -63253,10 +63509,6 @@ nl: hele gegrilde hazelnoten
 pt: avelã inteira torrada, avelâs inteiras torradas, avelã inteira tostada, avelâs inteiras tostadas
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-entières-torréfiées
 # 15 products in 1 language @2018-10-007
-
-< en:hazelnut
-en: hazelnut kernel
-hr: lješnjak jezgra
 
 #processing:en: en:chopped
 < en:hazelnut
@@ -63388,49 +63640,20 @@ ru: ядро ореха фундука дробленое
 
 ###################################################################################################
 #
-#                                Maca
+#                                Hickorynut
 #
 ###################################################################################################
-< en:plant
-en: maca
-xx: maca
-ba: ҡандалагөл
-de: Maca
-el: μάκα
-ja: マカ
-ko: 마카
-qu: maka
-zh: 印加萝卜
-wikidata:en: Q795158
 
-< en:maca
-en: black maca root
-es: raíz de maca negra
-fr: racine de maca noire
-hr: korijena crne mace
-it: radice di maca nera
-nl: zwarte maca wortel
-pt: raiz de maca preta
+< en:nut
+en: hickorynut
+description:en: A hickory nut is the edible nut produced by trees in the genus Carya — the same genus that includes pecans. They're native mostly to North America, with a few species in Asia. Encased in a thick, husk-like outer covering that splits open (fully or partially, depending on species) when ripe, revealing a hard shell. Inside that shell is the actual nutmeat. Flavor varies a lot by species — some, like shagbark hickory, are sweet and rich (similar to a pecan, which makes sense given the family connection), while others, like pignut hickory, can be bitter or astringent.
+usda_ndb_proxy_code:en: 12130
+usda_ndb_proxy_name:en: Nuts, hickorynuts, dried
 
-# A 2015 multi-center study found differences in taxonomy, visual appearance, phytochemical profiles and DNA sequences when comparing L. meyenii and L. peruvianum, suggesting that they are in fact different and that their names should not be considered synonyms
-# source:wikipedia:en:https://en.wikipedia.org/wiki/Lepidium_meyenii
-
-< en:maca
-en: lepidium meyenii
-xx: lepidium meyenii
-fi: andienkrassi
-
-< en:maca
-en: lepidium peruvianum, peruvian ginseng
-cs: Řeřicha peruánská
-fa: جینسنگ پرویی
-hr: lepidium Peruvianum, Lepidium Peruvianum Chacon
-it: lepidium peruvianum
-lt: Peruvinė pipirnė
-ru: Мака перуанская
-sk: Žerucha peruánska
-sr: Peruanska maka
-uk: Мака перуанська
+< en:hickorynut
+en: dried hickorynut
+usda_ndb_code:en: 12130
+usda_ndb_name:en: Nuts, hickorynuts, dried
 
 ###################################################################################################
 #
@@ -63476,8 +63699,15 @@ description:fr: La noix de macadamia, ou noix du Queensland est le fruit du noye
 description:it: La Noce macadamia è il frutto dell'albero tropicale chiamato Macadamia o Noce del Queensland
 description:nl: De macadamianoot is een van oorsprong Australische noot van planten uit het geslacht Macadamia.
 description:pt: Macadâmia, noz-macadâmia ou, ainda, noz-de-Queensland, são designações dada à noz conhecida pelo nome comercial de macadâmia, a semente comestível de duas espécies de árvores do género Macadamia
+usda_ndb_proxy_code:en: 12131
+usda_ndb_proxy_name:en: Nuts, macadamia nuts, raw
 wikidata:en: Q11027461
 #ingredient/macadamia-nut 84 in 12 @2021-08-21
+
+< en:macadamia nut
+en: raw macadamia nuts
+usda_ndb_code:en: 12131
+usda_ndb_name:en: Nuts, macadamia nuts, raw
 
 ###################################################################################################
 #
@@ -63570,6 +63800,7 @@ ja: ローストピーナッツ
 lt: skrudinti žemės riešutai
 nl: geroosterde pinda's, geroosterde pindanoten
 pt: amendoim torrado
+ro: arahide coapte
 ru: арахис обжаренный
 sv: rostad jordnöt, rostade jordnötter
 tr: kavrulmuş yer fıstığı, kavrulmuş yerfıstığı
@@ -63816,6 +64047,23 @@ sv: karamelliserade pekannötter
 
 ###################################################################################################
 #
+#                                Pilinut
+#
+###################################################################################################
+
+< en:nut
+en: pilinut
+description:en: A pili nut (Canarium ovatum) is a tropical tree nut native to the Philippines, particularly grown in the Bicol region. The nut has a rich, buttery flavor and texture, often compared to a cross between an almond and a macadamia nut — but generally considered even richer and more delicate. They're eaten raw, roasted, or candied, and are also used in pastries, pesto-style sauces, and as a snack food. In the Philippines they're a popular treat, especially when sugar-coated.
+usda_ndb_proxy_code:en: 12145
+usda_ndb_proxy_name:en: Nuts, pilinuts, dried
+
+< en:pilinut
+en: dried pilinuts
+usda_ndb_code:en: 12145
+usda_ndb_name:en: Nuts, pilinuts, dried
+
+###################################################################################################
+#
 #                                Pistachio
 #
 ###################################################################################################
@@ -63841,7 +64089,7 @@ lv: pistāciju rieksti, pistācijas rieksti
 mt: pistaċċi
 nb: Pistasjnøtter
 nl: pistachenoten, pistache, pistaches
-pl: orzechy pistacjowe, pistacje
+pl: orzechy pistacjowe, pistacje, pistacja, pistacji
 pt: pistácios, pistácio, pistáchio, pistáchios, pistache, pistaches, pistacho, pistachos, pistacios
 ro: fistic
 ru: фисташки
@@ -63851,12 +64099,21 @@ sv: pistaschmandel, pistaschnöt, pistaschnötter, pistagenöt, pistagenötter
 th: พิสตาชิโอ
 tr: antep fıstığı
 zh: 开心果, 阿月浑子
-ciqual_food_code:en: 15044
-ciqual_food_name:en: Pistachio nut, grilled
+#ciqual_food_code:en: 15044
+#ciqual_food_name:en: Pistachio nut, grilled
+ciqual_proxy_food_code:en: 15043
+ciqual_proxy_food_name:en: Pistachio nut, raw
 ecobalyse:en: pistachio-non-eu
+usda_ndb_proxy_code:en: 12151
+usda_ndb_proxy_name:en: Nuts, pistachio nuts, raw
+wikidata:en: Q14959225
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pistache
 # 613 products in 9 languages @2018-10-05
-wikidata:en: Q14959225
+
+< en:pistachio nuts
+en: raw pistachio nuts
+usda_ndb_code:en: 12151
+usda_ndb_name:en: Nuts, pistachio nuts, raw
 
 < en:pistachio nuts
 en: grilled pistachio nut, Dry roasted pistachios
@@ -63881,6 +64138,7 @@ fr: pistaches en coques, pistache coque, Pistaches coques ouvertes naturellement
 it: Pistacchi in guscio
 nb: Pistasjnøtter med skall
 nl: pistaches met schelp, pistachenoten zonder dop
+pl: pistacje w łupinie
 ru: Орехи фисташковые неочищенные
 
 < en:grilled pistachio nut
@@ -63914,27 +64172,6 @@ it: pasta al gusto di pistacchio
 en: pistachio filling
 hr: punjenje od pistacija
 it: ripieno al pistacchio
-
-###################################################################################################
-#
-#                                Tree nut
-#
-###################################################################################################
-
-#comment:en:these are nuts that grow in trees, in contrast to peanuts that grow in the earth.
-< en:nut
-en: tree nut, treenuts, tree nuts
-cs: Ořechy
-de: Baumnüsse, Baumnuss
-es: nueces de árboles
-hr: orašasti plodovi
-it: noci da alberi, noci d'albero, noce d'albero
-ja: ナッツ
-lv: koku rieksts
-nb: trenøtt, trenøtter
-nl: boomnoten
-pt: Árvore de frutos secos
-allergens:en: en:nuts
 
 ###################################################################################################
 #
@@ -64008,9 +64245,9 @@ zh: 胡桃木, 核桃仁, 核桃
 carbon_footprint_fr_foodges_ingredient:fr: Noix entières
 carbon_footprint_fr_foodges_value:fr: 1.3
 # ingredient/walnut 5074 in 27 @2021-08-22
-ciqual_food_code:en: 15023
-ciqual_food_name:en: Walnut, fresh
-ciqual_food_name:fr: Noix, fraîche
+ciqual_proxy_food_code:en: 15023
+ciqual_proxy_food_name:en: Walnut, fresh
+ciqual_proxy_food_name:fr: Noix, fraîche
 description:en: A walnut is the nut of any tree of the genus Juglans. After full ripening for its edible seed when the shell has been discarded, it is used as a garnish or a snack.
 description:es: Una nuez es el fruto de cualquier árbol del género Juglans. Después de la maduración completa de su semilla comestible cuando se ha desechado la cáscara, se usa como guarnición o snack.
 description:fr: La noix est un fruit comestible à coque. Elle est produite par les noyers, arbres du genre Juglans L.
@@ -64019,12 +64256,19 @@ description:nl: Met walnoot of okkernoot wordt meestal gedoeld op de vrucht van 
 ecobalyse:en: walnut-husked-fr
 ifct_food_code:en: H021
 ifct_food_name:en: Walnut
+usda_ndb_proxy_code:en: 12155
+usda_ndb_proxy_name:en: Nuts, walnuts, english
 wikidata:en: Q208021
 wikipedia:en: https://en.wikipedia.org/wiki/Walnut
 
 < en:walnut
-en: Fresh walnut
-fr: Noix fraîche, noix sèche
+en: english walnuts
+usda_ndb_code:en: 12155
+usda_ndb_name:en: Nuts, walnuts, english
+
+< en:walnut
+en: fresh walnut
+fr: noix fraîche, noix sèche
 it: noce fresca
 ciqual_food_code:en: 15023
 ciqual_food_name:en: Walnut, fresh
@@ -64209,6 +64453,7 @@ wikidata:en: Q40763
 
 < en:seed
 en: oilseed, oilseeds
+bg: маслодайни семена
 de: Ölsamen
 it: semi oleosi
 
@@ -64366,6 +64611,50 @@ wikidata:en: Q27658833
 #nl:biologisch venkelzaad
 # ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
+###################################################################################################
+#
+#                                Breadfruit seeds
+#
+###################################################################################################
+
+< en:seed
+en: breadfruit seeds
+usda_ndb_proxy_code:en: 12001
+usda_ndb_proxy_name:en: Seeds, breadfruit seeds, raw
+
+< en:breadfruit seeds
+en: raw breadfruit seeds
+usda_ndb_code:en: 12001
+usda_ndb_name:en: Seeds, breadfruit seeds, raw
+
+###################################################################################################
+#
+#                                Breadnut tree seeds
+#
+###################################################################################################
+
+< en:seed
+en: breadnut tree seeds
+description:en: Breadnut (also called kamansi in the Philippines, or "chataigne" in the Caribbean) produces large, spiky green fruits similar in appearance to breadfruit, but unlike the common seedless breadfruit variety, breadnut fruits are packed with edible seeds — usually 100+ per fruit. The seeds themselves are roughly the size of chestnuts or large beans. Typically boiled, roasted, or steamed before eating. After cooking, the texture is starchy and nutty, often compared to chestnuts or roasted potatoes.
+usda_ndb_proxy_code:en: 12004
+usda_ndb_proxy_name:en: Seeds, breadnut tree seeds, raw
+
+< en:breadnut tree seeds
+en: dried breadnut tree seeds
+usda_ndb_code:en: 12005
+usda_ndb_name:en: Seeds, breadnut tree seeds, dried
+
+< en:breadnut tree seeds
+en: raw breadnut tree seeds
+usda_ndb_code:en: 12004
+usda_ndb_name:en: Seeds, breadnut tree seeds, raw
+
+###################################################################################################
+#
+#                                Chia seeds
+#
+###################################################################################################
+
 < en:seed
 en: chia
 xx: chia
@@ -64373,7 +64662,7 @@ bg: чиа
 es: chía negra
 hr: biljke chia
 la: Salvia hispanica
-nl: salvia hispanica
+nl: chia
 pl: szałwia hiszpańska, chia, salvia hispanica, szałwii hiszpańskiej
 description:en: SALVIA HISPANICA, commonly known as CHIA, is a species of flowering plant in the mint family, Lamiaceae
 # ingredient/chia has 430 products @2021-08-20
@@ -64417,9 +64706,11 @@ ciqual_proxy_food_name:en: Seeds, chia, dried
 ciqual_proxy_food_name:fr: Chia, graine, séchée
 description:en: Chia is grown commercially for its seed, a food rich in omega-3 fatty acids since the seeds yield 25–30% extractable oil, including α-linolenic acid.
 description:it: I semi di chia, ricchi di omega-3, sono paragonabili dal punto di vista nutrizionale a quelli del lino e del sesamo.
-# ingredient/chia-seed 2376 in 18 @2021-08-20
 nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 12006
+usda_ndb_proxy_name:en: Seeds, chia seeds, dried
 wikidata:en: Q27688832
+# ingredient/chia-seed 2376 in 18 @2021-08-20
 
 < en: chia seed
 en: white chia seed, white chia seeds
@@ -64437,6 +64728,39 @@ it: semi di chia secchi
 ciqual_food_code:en: 15047
 ciqual_food_name:en: Seeds, chia, dried
 ciqual_food_name:fr: Chia, graine, séchée
+usda_ndb_code:en: 12006
+usda_ndb_name:en: Seeds, chia seeds, dried
+
+###################################################################################################
+#
+#                                Cottonseed
+#
+###################################################################################################
+
+< en:seed
+en: cottonseed
+description:en: Cottonseed is the seed of the cotton plant (genus Gossypium), harvested as a byproduct of cotton fiber production. After cotton bolls are picked, the fluffy fiber (lint) is separated from the seeds during a process called ginning. Each cotton boll contains several seeds embedded in the fiber. Raw cottonseed contains a natural compound called gossypol, which is toxic to humans in significant quantities. Some specialty "glandless" cotton varieties have been bred to have naturally low gossypol levels, and these are sometimes explored as a protein source (the seed kernel is fairly protein-rich), but this isn't mainstream or widely available commercially.
+
+< en:cottonseed
+en: low fat cottonseed flour
+usda_ndb_code:en: 12008
+usda_ndb_name:en: Seeds, cottonseed flour, low fat (glandless)
+
+< en:cottonseed
+en: partially defatted cottonseed flour
+usda_ndb_code:en: 12007
+usda_ndb_name:en: Seeds, cottonseed flour, partially defatted (glandless)
+
+< en:cottonseed
+en: partially defatted cottonseed meal
+usda_ndb_code:en: 12011
+usda_ndb_name:en: Seeds, cottonseed meal, partially defatted (glandless)
+
+###################################################################################################
+#
+#                                Cumin seeds
+#
+###################################################################################################
 
 # description:en:Cumin is a flowering plant in the family Apiaceae, native to a territory including Middle East and stretching east to India.[2] Its seeds – each one contained within a fruit, which is dried – are used in the cuisines of many cultures in both whole and ground form.
 # The plant is only used for the seeds, so cumin implies cumin seeds
@@ -64579,16 +64903,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cumin
 #pt:cominho em pó
 
 
-< en:melon
-< en:seed
-en: melon seed
-de: Melonenkerne, Melonensamen
-fi: meloninsiemen
-fr: graines de melon
-hr: sjeme dinje
-it: semi di melone
-sv: melonfrön
-# ingredient/en:melon-seed has 4 products in 1 language @2020-06-13
 
 # description:en:Pine nuts, also called piñón or pinoli, are the edible seeds of pines (family Pinaceae, genus Pinus).
 
@@ -64624,7 +64938,7 @@ nn: russenøtter
 nv: Neeshchʼííʼ
 oc: Pinhon
 pa: چناٹو
-pl: orzeszki piniowe
+pl: orzeszki piniowe, orzeszki pinii, orzechy piniowe, orzechy pinii
 pt: pinhão
 ru: кедровый орех
 sr: пињол, pinjoli
@@ -64633,11 +64947,6 @@ tl: Pinyon
 tr: Çam fıstığı
 uk: кедрові горішки
 zh: 松子
-ciqual_food_code:en: 15025
-ciqual_food_name:en: Pine nuts
-ciqual_food_name:fr: Pignon de pin
-# ingredient/fr:pignons has 98 products in 4 languages @2018-12-05
-nutriscore_fruits_vegetables_nuts:en: no
 # aeb-arab:بندق
 # ast:Piñón
 # ceb:Pinyon
@@ -64654,7 +64963,19 @@ nutriscore_fruits_vegetables_nuts:en: no
 # zh-hk:松子
 # zh-sg:松子
 # zh-tw:松子
+ciqual_food_code:en: 15025
+ciqual_food_name:en: Pine nuts
+ciqual_food_name:fr: Pignon de pin
+nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 12147
+usda_ndb_proxy_name:en: Nuts, pine nuts, dried
 wikipedia:en: https://en.wikipedia.org/wiki/Pine_nut
+# ingredient/fr:pignons has 98 products in 4 languages @2018-12-05
+
+< en:pine nuts
+en: dried pine nuts
+usda_ndb_code:en: 12147
+usda_ndb_name:en: Nuts, pine nuts, dried
 
 < en:pine nuts
 fr: pignons de cedre, Pignons de cèdre décortiqués
@@ -64680,250 +65001,11 @@ en: roasted pin nuts
 it: noci tostate
 nb: Tørristede pinjekjerner
 
-< en:seed
-en: hemp seed
-de: Hanfsamen, hanfsaat
-es: Semilla de cáñamo, semillas de Cáñamo Sativa L
-fi: hampunsiemen, hampunsiemenet
-fr: graines de chanvre
-hr: sjeme konoplje
-it: semi di canapa
-nl: hennepzaad
-# 35@2019-06-07
-
-< en:hemp seed
-en: hemp seed flour
-de: Hanfmehl, Hanfsamenmehl
-es: harina de semillas de Cáñamo Sativa L
-hr: brašno od sjemenki konoplje
-it: farina di semi di canapa
-
-< en:hemp seed
-en: hemp seed oil
-de: Hanföl, Hanfsamenöl
-es: aciete de semillas de Cáñamo Sativa L
-hr: ulje sjemenki konoplje
-it: olio di semi di canapa
-
-< en:hemp seed
-en: hemp seed paste
-de: Hanfsamenmus
-it: pasta di semi di canapa
-
-< en:pumpkin
-< en:seed
-en: pumpkin seed, seeds of squash
-ar: لب
-be: насенне гарбуза
-bg: тиквено семе, тиквени семена
-ca: llavor de carbassa, llavors de carbassa
-da: græskarkerne, græskarkerner
-de: Kürbiskern, Kürbiskerne
-el: πασατέμπος
-es: semillas de calabaza
-eu: kuia-pipita
-fi: kurpitsansiemen, kurpitsansiemenet
-fr: graine de courge, graines de courge, graines de potiron, graines de citrouille
-hr: bučine koštice, bučine sjemenke, sjemenke buče, bučine golice, sjemenke bundeve, Koštice bundeve
-hu: tökmag
-it: semi di zucca
-ja: かぼちゃの種
-jv: wiji waluh
-ko: 호박씨
-la: Cucurbitae semen
-ln: mbíka
-nl: pompoenpitten
-pl: nasiona dyni, ziarna dyni, pestki dyni
-pt: sementes de abóbora
-ro: seminţe de dovleac
-ru: семя тыквы
-sl: bučna semena
-sv: pumpafrö, pumpafrön, pumpakärnor
-ta: பூசணி விதை
-tr: kabak çekirdeği
-tt: кабак төше
-uk: насіння гарбуза
-vi: hạt bí
-zh: 南瓜籽, 南瓜子
-ciqual_proxy_food_code:en: 15064
-ciqual_proxy_food_name:en: Pumpkin and squash, seed, dried
-wikidata:en: Q3056521
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-courge
-# 234 products in 5 languages @2018-10-07
-
-< en:pumpkin seed
-en: pumpkin seed flour
-de: Kürbiskernmehl
-es: harina de semillas de calabaza
-hr: brašno od sjemenki bundeve
-it: farina di semi di zucca
-
-< en:pumpkin seed
-en: organic pumpkin seed
-da: økologisk græskarkerne, økologiske græskarkerner
-fi: luomu kurpitsansiemen
-sv: ekologisk pumpafrö, ekologiska pumpafrön
-
-#<en:pumpkin seed
-#en:chopped pumpkin seed
-#de:geschrotete Kürbiskerne # see ingredients_processing.txt
-#es:semillas de calabaza troceadas
-
-< en:plant
-en: poppy
-de: Mohn
-el: παπαρούνας
-es: amapola
-fr: pavot
-hr: mak
-it: papavero
-la: Papaver somniferum
-lt: aguonos
-pl: mak, makowy, makowa, makowe, maku
-pt: papoila
-sv: vallmo
-ciqual_proxy_food_code:en: 11061
-ciqual_proxy_food_name:en: Poppy, seed
-ciqual_proxy_food_name:fr: Pavot, graine
-
-< en:poppy
-# processing:en: en:seed
-en: poppyseed, poppy seed, poppy seeds
-af: Papawersaad
-ar: بذور خشخاش
-bg: маково семе, макови семена
-ca: rosella, Llavors de rosella
-da: birkes
-de: Mohnsamen, Mohnsaat
-el: σπόροι παπαρούνας
-es: semillas de amapola
-fi: unikonsiemen, unikonsiemenet
-fr: graines de pavot
-hr: makovnjača
-is: Valmúafræ
-it: semi di papavero, grani di papavero
-ja: ケシの実
-jv: Wiji poppy
-ko: 양귀비 씨
-ml: കശകശ
-mr: खस खस
-nb: valmuefrø
-nl: maanzaad
-pa: ਖਸਖਸ
-pl: nasiona maku
-pt: sementes de papoila
-sa: तिलभेदः
-sv: vallmofrö, vallmofrön
-tr: Haşhaş tohumu
-zh: 罌粟籽
-ciqual_food_code:en: 11061
-ciqual_food_name:en: Poppy, seed
-ciqual_food_name:fr: Pavot, graine
-description:en: The seed of the poppy.
-description:nl: De populaire naam van het zaad uit de maanbol van de klaproos.
-ifct_food_code:en: G032
-ifct_food_name:en: Poppy seeds
-nutriscore_fruits_vegetables_nuts:en: no
-wikidata:en: Q2007388
-wikipedia:en: https://en.wikipedia.org/wiki/Poppy_seed
-wiktionary:en: poppyseed
-# 2090 in 17 @2021-09-10
-
-< en:poppyseed
-en: blue poppy seed
-de: Blaumohnsamen
-fr: graine de pavot bleu, graines de pavot bleu
-hr: plavi mak
-it: semi di papavero blu
-#110 in 4 @2021-09-10
-
-< en:seed
-< en:sunflower
-en: sunflower seed, sunflower seeds, sunflower kernels
-af: Sonneblomsaad
-ar: حب الشمس
-be: насенне сланечніка
-bg: слънчогледово семе, Слънчогледови семки, слънчогледови семена
-bn: সূর্যমুখী বীজ
-bs: sjemenke od suncokreta
-ca: llavors de gira-sol, pipes de gira-sol
-cs: slunecnicová seminka, slunečnicová semínka
-cv: Хĕвелчамăш
-da: Solsikkekerner, solsikkefrø
-de: Sonnenblumenkerne
-el: ηλιόσπορος
-eo: sunflora semo
-es: semillas de girasol, pipas de girasol
-et: päevalilleseemned
-fa: تخمه آفتاب‌گردان
-fi: auringonkukansiemen, auringonkukansiemenet, auringonkukansiemeniä
-fr: graines de tournesol
-gl: semente de xirasol
-he: גרעיני חמנייה, גרעין חמנייה, גרעיני חמניה, גרעיני חמניה, גרעיני חמניות
-hi: सूरजमुखी के बीज
-hr: sjemenke od suncokreta, sjemenke suncokret, sjemenke suncokreta
-hu: napraforgómag
-hy: արևածաղկի սերմեր
-id: Biji bunga matahari
-it: semi di girasole
-ja: ひまわりの種, 向日葵の種
-jv: Wiji kembang srengéngé
-ka: Күнбағыс дәні
-ko: 해바라기 씨
-lt: saulėgražų branduoliai
-lv: saulespuķu sēklas
-ml: സൂര്യകാന്തി വിത്ത്
-ms: Biji bunga matahari
-nb: solsikkefrø, solsikkekjerner
-nl: zonnebloempitten, zonnebloempit
-nn: solsikkefrø
-or: ସୁର୍ଯ୍ୟମୂଖୀ ମଞ୍ଜି
-pa: ਸੂਰਜਮੁਖੀ ਦੇ ਬੀਜ
-pl: nasiona słonecznika, ziarna słonecznika, pestki słonecznika, nasion słonecznika, ziaren słonecznika, ziarno słonecznika
-pt: Semente de girassol
-ro: semințe de floarea soarelui
-ru: Семена Подсолнечника
-sk: slnečnicové jadierka
-sl: sončnicina Semena
-sq: farë luledielli
-sr: Jezgro suncokreta
-sv: solrosfrön, solrosfrö, solroskärna, solroskärnor
-ta: சூரியகாந்தி விதை
-th: เมล็ดทานตะวัน
-tr: ayçiçeği çekirdeği, ayçiçek çekirdeği
-tt: көнбагыш орлыгы
-uk: Соняшникове насіння
-ur: ورج مکھی بیج
-vi: Hạt hướng dương
-zh: 葵花籽
-ciqual_food_code:en: 15011
-ciqual_food_name:en: Sunflower seed
-ciqual_food_name:fr: Tournesol, graine
-ecobalyse:en: sunflower-non-eu
-ecobalyse_labels_en_organic:en: sunflower-organic
-ecobalyse_origins_en_european_union:en: sunflower-eu
-ecobalyse_origins_en_france:en: sunflower-fr
-ifct_food_code:en: H020
-ifct_food_name:en: Sunflower seeds
-nutriscore_fruits_vegetables_nuts:en: no
-wikidata:en: Q1076906
-# 7103 in 28 @2021-09-07
-
-# <en:sunflower seed
-# en:shelled sunflower seeds
-# de:Sonnenblumenkerne geschält
-# fi:kuoreton auringonkukansiemen, kuorettomat auringonkukansiemenet
-# fr:graines de tournesol décortiquées
-# it:semi di girasole sbucciati
-# pl:nasiona słonecznika łuskane, łuskane nasiona słonecznika, słonecznik łuskany
-# ingredient/fr:graines-de-tournesol-decortiquees has 25 products @2019-05-31
-
-< en:sunflower seed
-en: sunflower seed paste
-de: Sonnenblumenkernmus
-hr: pasta od suncokretovih sjemenki
-it: pasta di semi di girasole
-
+###################################################################################################
+#
+#                                Flax seeds
+#
+###################################################################################################
 
 # The context should make clear what it is used for (seeds or oil from seeds)
 en: flax
@@ -65024,6 +65106,684 @@ wikidata:en: none
 < en:brown flax seeds
 < en:golden flax seeds
 fr: lin brun et lin jaune
+
+###################################################################################################
+#
+#                                Hemp seeds
+#
+###################################################################################################
+
+< en:seed
+en: hemp seed
+de: Hanfsamen, hanfsaat
+es: Semilla de cáñamo, semillas de Cáñamo Sativa L
+fi: hampunsiemen, hampunsiemenet
+fr: graines de chanvre
+hr: sjeme konoplje
+it: semi di canapa
+nl: hennepzaad
+usda_ndb_proxy_code:en: 12012
+usda_ndb_proxy_name:en: Seeds, hemp seed, hulled
+# 35@2019-06-07
+
+< en:hemp seed
+en: hulled hemp seed
+usda_ndb_code:en: 12012
+usda_ndb_name:en: Seeds, hemp seed, hulled
+
+< en:hemp seed
+en: hemp seed flour
+de: Hanfmehl, Hanfsamenmehl
+es: harina de semillas de Cáñamo Sativa L
+hr: brašno od sjemenki konoplje
+it: farina di semi di canapa
+
+< en:hemp seed
+en: hemp seed oil
+de: Hanföl, Hanfsamenöl
+es: aciete de semillas de Cáñamo Sativa L
+hr: ulje sjemenki konoplje
+it: olio di semi di canapa
+
+< en:hemp seed
+en: hemp seed paste
+de: Hanfsamenmus
+it: pasta di semi di canapa
+
+###################################################################################################
+#
+#                                Lotus seeds
+#
+###################################################################################################
+
+< en:seed
+en: lotus seed
+description:en: Lotus seeds are the edible seeds of the lotus plant (Nelumbo nucifera), an aquatic plant grown widely across Asia, particularly in China, India, and Southeast Asia. Fresh seeds have a mild, slightly sweet, nutty flavor and a crisp texture, often eaten raw or lightly cooked. Dried seeds are used in soups, congee, and herbal tonics
+usda_ndb_proxy_code:en: 12205
+usda_ndb_proxy_name:en: Seeds, lotus seeds, raw
+
+< en:lotus seed
+en: dried lotus seeds
+usda_ndb_code:en: 12013
+usda_ndb_name:en: Seeds, lotus seeds, dried
+
+< en:lotus seed
+en: raw lotus seeds
+usda_ndb_code:en: 12205
+usda_ndb_name:en: Seeds, lotus seeds, raw
+
+###################################################################################################
+#
+#                                Melon seeds
+#
+###################################################################################################
+
+< en:seed
+en: melon seed
+de: Melonenkerne, Melonensamen
+fi: meloninsiemen
+fr: graines de melon
+hr: sjeme dinje
+it: semi di melone
+sv: melonfrön
+# ingredient/en:melon-seed has 4 products in 1 language @2020-06-13
+
+###################################################################################################
+#
+#                                Pumpkin seeds
+#
+###################################################################################################
+
+# < en:pumpkin
+< en:seed
+en: pumpkin seed, seeds of squash
+ar: لب
+be: насенне гарбуза
+bg: тиквено семе, тиквени семена
+ca: llavor de carbassa, llavors de carbassa
+da: græskarkerne, græskarkerner
+de: Kürbiskern, Kürbiskerne
+el: πασατέμπος
+es: semillas de calabaza
+eu: kuia-pipita
+fi: kurpitsansiemen, kurpitsansiemenet
+fr: graine de courge, graines de courge, graines de potiron, graines de citrouille
+hr: bučine koštice, bučine sjemenke, sjemenke buče, bučine golice, sjemenke bundeve, Koštice bundeve
+hu: tökmag
+it: semi di zucca
+ja: かぼちゃの種
+jv: wiji waluh
+ko: 호박씨
+la: Cucurbitae semen
+ln: mbíka
+nl: pompoenpitten
+pl: nasiona dyni, ziarna dyni, pestki dyni
+pt: sementes de abóbora
+ro: seminţe de dovleac
+ru: семя тыквы
+sl: bučna semena
+sv: pumpafrö, pumpafrön, pumpakärnor
+ta: பூசணி விதை
+tr: kabak çekirdeği
+tt: кабак төше
+uk: насіння гарбуза
+vi: hạt bí
+zh: 南瓜籽, 南瓜子
+ciqual_proxy_food_code:en: 15064
+ciqual_proxy_food_name:en: Pumpkin and squash, seed, dried
+usda_ndb_proxy_code:en: 12014
+usda_ndb_proxy_name:en: Seeds, pumpkin and squash seed kernels, dried
+wikidata:en: Q3056521
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graine-de-courge
+# 234 products in 5 languages @2018-10-07
+
+< en:pumpkin seed
+en: dried pumpkin and squash seed kernels
+ciqual_food_code:en: 15064
+ciqual_food_name:en: Pumpkin and squash, seed, dried
+usda_ndb_code:en: 12014
+usda_ndb_name:en: Seeds, pumpkin and squash seed kernels, dried
+
+< en:pumpkin seed
+en: pumpkin seed flour
+de: Kürbiskernmehl
+es: harina de semillas de calabaza
+hr: brašno od sjemenki bundeve
+it: farina di semi di zucca
+
+< en:pumpkin seed
+en: organic pumpkin seed
+da: økologisk græskarkerne, økologiske græskarkerner
+fi: luomu kurpitsansiemen
+sv: ekologisk pumpafrö, ekologiska pumpafrön
+
+#<en:pumpkin seed
+#en:chopped pumpkin seed
+#de:geschrotete Kürbiskerne # see ingredients_processing.txt
+#es:semillas de calabaza troceadas
+
+###################################################################################################
+#
+#                                Poppy seeds
+#
+###################################################################################################
+
+< en:plant
+en: poppy
+de: Mohn
+el: παπαρούνας
+es: amapola
+fr: pavot
+hr: mak
+it: papavero
+la: Papaver somniferum
+lt: aguonos
+pl: mak, makowy, makowa, makowe, maku
+pt: papoila
+sv: vallmo
+ciqual_proxy_food_code:en: 11061
+ciqual_proxy_food_name:en: Poppy, seed
+ciqual_proxy_food_name:fr: Pavot, graine
+
+< en:poppy
+# processing:en: en:seed
+en: poppyseed, poppy seed, poppy seeds
+af: Papawersaad
+ar: بذور خشخاش
+bg: маково семе, макови семена
+ca: rosella, Llavors de rosella
+da: birkes
+de: Mohnsamen, Mohnsaat
+el: σπόροι παπαρούνας
+es: semillas de amapola
+fi: unikonsiemen, unikonsiemenet
+fr: graines de pavot
+hr: makovnjača
+is: Valmúafræ
+it: semi di papavero, grani di papavero
+ja: ケシの実
+jv: Wiji poppy
+ko: 양귀비 씨
+ml: കശകശ
+mr: खस खस
+nb: valmuefrø
+nl: maanzaad
+pa: ਖਸਖਸ
+pl: nasiona maku
+pt: sementes de papoila
+sa: तिलभेदः
+sv: vallmofrö, vallmofrön
+tr: Haşhaş tohumu
+zh: 罌粟籽
+ciqual_food_code:en: 11061
+ciqual_food_name:en: Poppy, seed
+ciqual_food_name:fr: Pavot, graine
+description:en: The seed of the poppy.
+description:nl: De populaire naam van het zaad uit de maanbol van de klaproos.
+ifct_food_code:en: G032
+ifct_food_name:en: Poppy seeds
+nutriscore_fruits_vegetables_nuts:en: no
+wikidata:en: Q2007388
+wikipedia:en: https://en.wikipedia.org/wiki/Poppy_seed
+wiktionary:en: poppyseed
+# 2090 in 17 @2021-09-10
+
+< en:poppyseed
+en: blue poppy seed
+de: Blaumohnsamen
+fr: graine de pavot bleu, graines de pavot bleu
+hr: plavi mak
+it: semi di papavero blu
+#110 in 4 @2021-09-10
+
+###################################################################################################
+#
+#                                Safflower seeds
+#
+###################################################################################################
+
+< en:seed
+en: safflower seed kernels
+description:en: Safflower seed kernels are the inner, edible part of the seeds from the safflower plant (Carthamus tinctorius), an oilseed crop in the daisy/thistle family that's related to sunflowers. Safflower kernels are quite high in fat (mostly unsaturated, especially linoleic acid — an omega-6 fatty acid), along with protein and fiber. They're also a source of vitamin E and various minerals.
+usda_ndb_proxy_code:en: 12021
+usda_ndb_proxy_name:en: Seeds, safflower seed kernels, dried
+
+< en:safflower seed kernels
+en: dried safflower seed kernels
+usda_ndb_code:en: 12021
+usda_ndb_name:en: Seeds, safflower seed kernels, dried
+
+< en:safflower seed kernels
+en: partially defatted safflower seed meal
+usda_ndb_code:en: 12022
+usda_ndb_name:en: Seeds, safflower seed meal, partially defatted
+
+###################################################################################################
+#
+#                                Sesame seeds
+#
+###################################################################################################
+
+# comment:en:The wikidata page is a mix of the plant and the generic name
+
+< en:seed
+en: sesame
+af: Sesam
+am: ሰሊጥ
+ar: سمسم
+as: তিল
+be: Кунжут
+bg: сусам
+bn: তিল
+br: sezam
+bs: Susam
+ca: sèsam
+cs: sezam, sezamová
+cy: Sesame
+da: sesam
+de: Sesam
+dv: ތިލެޔޮކޯޅި
+el: σουσάμι, σησαμο
+es: sésamo, ajonjolí
+eu: Sesamo
+fa: کنجد
+fi: seesami
+fr: sésame
+ga: Seasaman
+gl: Sésamo
+gu: તલ
+ha: Riɗi
+he: שומשום
+hi: तिल
+hr: sezam, sezama, sezamova
+ht: Wowoli
+hu: szezám
+hy: քունջութ
+id: wijen
+io: Sezamo
+is: Sesam
+it: sesamo
+ja: ゴマ, ごま, 胡麻
+jv: Wijèn
+kk: Күнжіт
+kn: ಎಳ್ಳು
+ko: 참깨
+ku: Kuncî
+ky: Кунжут
+ln: Wangila
+lt: sezamo, sezamas
+lv: sezams, sezama
+mk: Сусам
+ml: എള്ള്
+mr: तीळ
+ms: Bijan
+mt: ġulġlien
+my: နှမ်း
+nb: sesam
+nl: sesam
+nn: sesam
+oc: Sesam
+or: ରାଶି
+pa: ਤਿਲ
+pl: Sezam, sezamu, sezamowy, sezamków, sezamowe, sezamowa
+pt: sésam, sésamo
+ro: Susan
+ru: сезам, кунжут
+sa: तिलः
+sd: تر
+sh: Sezam
+si: තල
+sl: sezamovo
+sr: Сусам
+su: Wijén
+sv: sesam
+sw: sesam
+ta: எள்
+te: నువ్వులు
+th: งา
+tl: Linga
+tr: susam
+uk: Кунжут
+ur: سمسم
+uz: Kunjut
+vi: Vừng
+za: Lwgraz
+zh: 芝麻
+# aeb-arab:جلجلان
+# arc:ܫܘܫܡܬܐ
+# bcl:Langa
+# bug:ᨒᨛᨂ
+# cdo:Ciĕ-muài
+# ceb:Sesamum
+# diq:Kuncı
+# mzn:کانجی
+# pam:Langis
+# pnb:سمسم
+# rup:Susami
+# sco:sesame
+# srn:Abonjera
+# vls:Sesam
+# war:Sesamum
+# yue:芝麻
+# zh-cn:芝麻
+# zh-tw:胡麻
+allergens:en: en:sesame-seeds
+ciqual_food_code:en: 15010
+ciqual_food_name:en: Sesame seed
+wikidata:en: Q2763698
+# ingredient/fr:sésame has 1745 products @2018-10-05
+
+< en:sesame
+fr: sésame doré
+# ingredient/fr:sesame-dore has 13 products in french @2019-06-04
+
+< en:sesame
+en: white sesame
+bg: бял сусам
+fr: sésame blanc
+hr: bijeli sezam
+it: sesamo bianco
+ja: 白ごま
+
+< en:sesame
+en: black sesame
+bg: черен сусам
+fr: sésame noir
+it: sesamo nero
+ja: 黒ごま
+
+< en:sesame
+# <en:seed
+en: sesame seeds
+bg: сусамово семе, сусамови семена
+ca: llavors de sèsam, grans de sèsam
+cs: sezamová semena
+da: sesamfrø
+de: Sesamsamen, Sesamkörner, Sesamkorn, Sesamsaat, Sesamsaaten
+el: σπόροι σησαμιού
+es: granos de sésamo, semillas de sésamo, granos de ajonjolí, semillas de ajonjolí
+et: seesamiseemned
+fi: seesaminsiemen, seesaminsiemenet, seesaminsiemeniä
+fr: graine de sésame, graines de sésame
+ga: síolta seasamain
+hr: sjemenke sezama, sjeme sezama
+hu: szezámmag
+it: semi di sesamo, grani di sesamo
+lt: sezamo sėklos
+lv: sezama sēklas
+nb: sesamfrø
+nl: sesamzaad, sesam zaden, sesamzaden, sesamzaadjes
+pl: nasiona sezamu, ziarno sezamu, ziarna sezamu
+pt: sementes de sésamo, sementes de sésam
+ro: semințe de susan, seminte de susan
+sk: sezamové semeno
+sl: sezamovo seme
+sv: sesamfrön, sesamfrö
+ciqual_food_code:en: 15010
+ciqual_food_name:en: Sesame seed
+ciqual_food_name:fr: Sésame, graine
+usda_ndb_proxy_code:en: 12201
+usda_ndb_proxy_name:en: Seeds, sesame seed kernels, dried (decorticated)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-sesame
+# 1632 products in 11 languages @2018-10-05
+
+
+< en:sesame seeds
+< en:white sesame
+en: white sesame seeds
+fr: graine de sésame blanc, graines de sésame blanc
+hr: bijelo sezamovo sjeme
+it: semi di sesamo bianchi
+pl: sezam biały, biały sezam
+
+< en:sesame seeds
+en: husked sesame seed
+fr: graine de sésame décortiquée
+hr: oljušteni sezam
+it: semi di sesamo decorticati
+pl: sezam łuszczony, sezamu łuszczonego
+ciqual_food_code:en: 15035
+ciqual_food_name:en: Sesame seed, husked
+ciqual_food_name:fr: Sésame, graine décortiquée
+usda_ndb_proxy_code:en: 12201
+usda_ndb_proxy_name:en: Seeds, sesame seed kernels, dried (decorticated)
+
+< en:husked sesame seed
+en: decorticated dried sesame seed kernel
+usda_ndb_code:en: 12201
+usda_ndb_name:en: Seeds, sesame seed kernels, dried (decorticated)
+
+< en:Husked sesame seed
+en: Husked and grilled sesame seed
+fr: graine de sésame grilée et décortiquée
+hr: oljušten i pečen sezam
+it: semi di sesamo decorticati e tostati
+pl: prażone ziarno sezamu
+ciqual_food_code:en: 15038
+ciqual_food_name:en: Sesame seed, grilled, husked
+ciqual_food_name:fr: Sésame, grillé, graine décortiquée
+
+< en:sesame seeds
+en: organic sesame seeds
+de: biologische Sesamsamen
+es: granos de sésamo orgánico
+fi: luomu seesaminsiemenet
+fr: graines de sesame bio
+hr: organske sjemenke sezama
+it: semi du sesamo bio
+nl: biologisch sesamzaad
+# ingredient/nl:biologisch-sesamzaad has 5 products @2019-05-24
+
+< en:sesame
+fr: sésame complet
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sésame-complet
+# 35 products in 4 languages @2018-10-05
+
+< en:sesame
+en: high-fat sesame flour
+usda_ndb_code:en: 12170
+usda_ndb_name:en: Seeds, sesame flour, high-fat
+
+< en:sesame
+en: low-fat sesame flour
+usda_ndb_code:en: 12033
+usda_ndb_name:en: Seeds, sesame flour, low-fat
+
+< en:sesame
+en: partially defatted sesame flour
+usda_ndb_code:en: 12032
+usda_ndb_name:en: Seeds, sesame flour, partially defatted
+
+< en:sesame
+en: partially defatted sesame meal
+usda_ndb_code:en: 12034
+usda_ndb_name:en: Seeds, sesame meal, partially defatted
+
+< en:sesame
+en: sesame paste, sesame seed paste
+bg: паста от сусам
+de: Sesampaste, Sesammus
+es: pasta de sésamo
+fi: seesamitahna, sesamtahna
+fr: pâte de sésame, pâte de graines de sésame
+hr: pasta od sezama
+it: pasta di sesamo, crema di sesamo
+ja: 胡麻ペスト
+nl: sesampasta
+pl: pasta sezamowa
+ro: pastă de susan, pastă de seminte de susan
+sv: sesampasta, sesam-kräm, sesam pasta
+usda_ndb_code:en: 12169
+usda_ndb_name:en: Seeds, sesame butter, paste
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
+# 105 products in 4 languages @2018-10-05
+
+#category/tahini
+< en:sesame paste
+en: tahini, tahini paste, sesame tahini
+xx: tahini, tahina
+ar: طحينة
+be: Тахіні
+bg: Тахан, сусамов тахан
+ca: tahina
+cs: tahina
+de: Tahina, Tahin
+el: Ταχίνι
+eo: Sezama pasto
+es: tahini, tahin
+et: tahhiini, tahiini
+fa: ارده
+fr: crème de sésame, tahin, tahiné
+he: טחינה
+hi: ताहिनी
+hy: Թահին
+it: Tahina, pasta di semi di sesamo
+ja: 芝麻醤
+ko: 참깨 소스
+nl: tahin
+pa: ਤਾਹੀਨੀ
+pl: tahini, pasta sezamowa tahina, pasta sezamowa tahini
+pt: tahine
+ro: tahină
+ru: тахини
+th: ทาฮีนี
+tr: Tahin
+uk: Тахіні
+ciqual_food_code:en: 15203
+ciqual_food_name:en: Tahini (sesame paste)
+ciqual_food_name:fr: Tahin ou Purée de sésame
+description:en: Tahini is a condiment made from toasted ground hulled sesame.
+description:de: Tahina, auch Tahini oder Tahin ist eine Paste aus feingemahlenen Sesamkörnern.
+description:es: El tahini o la tahina es una pasta hecha a partir de semillas de sésamo molidas.
+description:fr: Le tahini, tahin, tahina, téhina ou tahiné, est une crème de sésame, faite à partir de graines de sésame broyées, avec un peu d'eau, jusqu'à obtenir une pâte lisse.
+description:it: La tahina è un alimento derivato dai semi di sesamo bianco.
+description:nl: Tahin (ook wel tahini, tachina (uitspraak 'tagina') (Arabisch) of techina (Hebreeuws) genoemd) is een pasta gemaakt van sesamzaad.
+description:pt: Taíne, tahine, tahin ou tahini é um creme ou pasta feito de sementes de gergelim (sésamo).
+wikidata:en: Q383389
+#ingredient/tahini 1380 in 13 @2021-08-20
+
+###################################################################################################
+#
+#                                Sunflower seeds
+#
+###################################################################################################
+
+< en:seed
+# < en:sunflower
+en: sunflower seed, sunflower seeds, sunflower kernels
+af: Sonneblomsaad
+ar: حب الشمس
+be: насенне сланечніка
+bg: слънчогледово семе, Слънчогледови семки, слънчогледови семена
+bn: সূর্যমুখী বীজ
+bs: sjemenke od suncokreta
+ca: llavors de gira-sol, pipes de gira-sol
+cs: slunecnicová seminka, slunečnicová semínka
+cv: Хĕвелчамăш
+da: Solsikkekerner, solsikkefrø
+de: Sonnenblumenkerne
+el: ηλιόσπορος
+eo: sunflora semo
+es: semillas de girasol, pipas de girasol
+et: päevalilleseemned
+fa: تخمه آفتاب‌گردان
+fi: auringonkukansiemen, auringonkukansiemenet, auringonkukansiemeniä
+fr: graines de tournesol
+gl: semente de xirasol
+he: גרעיני חמנייה, גרעין חמנייה, גרעיני חמניה, גרעיני חמניה, גרעיני חמניות
+hi: सूरजमुखी के बीज
+hr: sjemenke od suncokreta, sjemenke suncokret, sjemenke suncokreta
+hu: napraforgómag
+hy: արևածաղկի սերմեր
+id: Biji bunga matahari
+it: semi di girasole
+ja: ひまわりの種, 向日葵の種
+jv: Wiji kembang srengéngé
+ka: Күнбағыс дәні
+ko: 해바라기 씨
+lt: saulėgražų branduoliai
+lv: saulespuķu sēklas
+ml: സൂര്യകാന്തി വിത്ത്
+ms: Biji bunga matahari
+nb: solsikkefrø, solsikkekjerner
+nl: zonnebloempitten, zonnebloempit
+nn: solsikkefrø
+or: ସୁର୍ଯ୍ୟମୂଖୀ ମଞ୍ଜି
+pa: ਸੂਰਜਮੁਖੀ ਦੇ ਬੀਜ
+pl: nasiona słonecznika, ziarna słonecznika, pestki słonecznika, nasion słonecznika, ziaren słonecznika, ziarno słonecznika
+pt: Semente de girassol
+ro: semințe de floarea soarelui
+ru: Семена Подсолнечника
+sk: slnečnicové jadierka
+sl: sončnicina Semena
+sq: farë luledielli
+sr: Jezgro suncokreta
+sv: solrosfrön, solrosfrö, solroskärna, solroskärnor
+ta: சூரியகாந்தி விதை
+th: เมล็ดทานตะวัน
+tr: ayçiçeği çekirdeği, ayçiçek çekirdeği
+tt: көнбагыш орлыгы
+uk: Соняшникове насіння
+ur: ورج مکھی بیج
+vi: Hạt hướng dương
+zh: 葵花籽
+ciqual_food_code:en: 15011
+ciqual_food_name:en: Sunflower seed
+ciqual_food_name:fr: Tournesol, graine
+ecobalyse:en: sunflower-non-eu
+ecobalyse_labels_en_organic:en: sunflower-organic
+ecobalyse_origins_en_european_union:en: sunflower-eu
+ecobalyse_origins_en_france:en: sunflower-fr
+ifct_food_code:en: H020
+ifct_food_name:en: Sunflower seeds
+nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_proxy_code:en: 12036
+usda_ndb_proxy_name:en: Seeds, sunflower seed kernels, dried
+wikidata:en: Q1076906
+# 7103 in 28 @2021-09-07
+
+< en:sunflower seed
+en: dried sunflower seed kernels
+usda_ndb_code:en: 12036
+usda_ndb_name:en: Seeds, sunflower seed kernels, dried
+
+< en:sunflower seed
+en: partially defatted sunflower seed flour
+usda_ndb_code:en: 12041
+usda_ndb_name:en: Seeds, sunflower seed flour, partially defatted
+
+# <en:sunflower seed
+# en:shelled sunflower seeds
+# de:Sonnenblumenkerne geschält
+# fi:kuoreton auringonkukansiemen, kuorettomat auringonkukansiemenet
+# fr:graines de tournesol décortiquées
+# it:semi di girasole sbucciati
+# pl:nasiona słonecznika łuskane, łuskane nasiona słonecznika, słonecznik łuskany
+# ingredient/fr:graines-de-tournesol-decortiquees has 25 products @2019-05-31
+
+< en:sunflower seed
+en: sunflower seed paste
+de: Sonnenblumenkernmus
+hr: pasta od suncokretovih sjemenki
+it: pasta di semi di girasole
+usda_ndb_code:en: 12040
+usda_ndb_name:en: Seeds, sunflower seed butter, without salt
+
+###################################################################################################
+#
+#                                Watermelon seeds
+#
+###################################################################################################
+
+< en:seed
+en: watermelon seed kernels
+usda_ndb_proxy_code:en: 12174
+usda_ndb_proxy_name:en: Seeds, watermelon seed kernels, dried
+
+< en:watermelon seed kernels
+en: dried watermelon seed kernels
+usda_ndb_code:en: 12174
+usda_ndb_name:en: Seeds, watermelon seed kernels, dried
 
 ###################################################################################################
 #
@@ -65298,6 +66058,7 @@ fr: poivre noir concassé
 hr: mljeveni crni papar
 it: Pepe nero macerato
 nl: grove zwarte peper
+ro: piper negru măcinat
 ru: перец черный молотый, перец-чёрный-молотый
 uk: перець чорний мелений
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:poivre-noir-concassé
@@ -65341,278 +66102,6 @@ it: pepe colorato
 pl: pieprz kolorowy
 # šareni papar is a combination of white, black, green peppercorns originating from India and South American red pepper.
 
-###################################################################################################
-#
-#                                Sesame
-#
-###################################################################################################
-
-# comment:en:The wikidata page is a mix of the plant and the generic name
-
-< en:seed
-en: sesame
-af: Sesam
-am: ሰሊጥ
-ar: سمسم
-as: তিল
-be: Кунжут
-bg: сусам
-bn: তিল
-br: sezam
-bs: Susam
-ca: sèsam
-cs: sezam, sezamová
-cy: Sesame
-da: sesam
-de: Sesam
-dv: ތިލެޔޮކޯޅި
-el: σουσάμι, σησαμο
-es: sésamo, ajonjolí
-eu: Sesamo
-fa: کنجد
-fi: seesami
-fr: sésame
-ga: Seasaman
-gl: Sésamo
-gu: તલ
-ha: Riɗi
-he: שומשום
-hi: तिल
-hr: sezam, sezama, sezamova
-ht: Wowoli
-hu: szezám
-hy: քունջութ
-id: wijen
-io: Sezamo
-is: Sesam
-it: sesamo
-ja: ゴマ, ごま, 胡麻
-jv: Wijèn
-kk: Күнжіт
-kn: ಎಳ್ಳು
-ko: 참깨
-ku: Kuncî
-ky: Кунжут
-ln: Wangila
-lt: sezamo, sezamas
-lv: sezams, sezama
-mk: Сусам
-ml: എള്ള്
-mr: तीळ
-ms: Bijan
-mt: ġulġlien
-my: နှမ်း
-nb: sesam
-nl: sesam
-nn: sesam
-oc: Sesam
-or: ରାଶି
-pa: ਤਿਲ
-pl: Sezam, sezamu, sezamowy, sezamków, sezamowe, sezamowa
-pt: sésam, sésamo
-ro: Susan
-ru: сезам, кунжут
-sa: तिलः
-sd: تر
-sh: Sezam
-si: තල
-sl: sezamovo
-sr: Сусам
-su: Wijén
-sv: sesam
-sw: sesam
-ta: எள்
-te: నువ్వులు
-th: งา
-tl: Linga
-tr: susam
-uk: Кунжут
-ur: سمسم
-uz: Kunjut
-vi: Vừng
-za: Lwgraz
-zh: 芝麻
-# aeb-arab:جلجلان
-# arc:ܫܘܫܡܬܐ
-# bcl:Langa
-# bug:ᨒᨛᨂ
-# cdo:Ciĕ-muài
-# ceb:Sesamum
-# diq:Kuncı
-# mzn:کانجی
-# pam:Langis
-# pnb:سمسم
-# rup:Susami
-# sco:sesame
-# srn:Abonjera
-# vls:Sesam
-# war:Sesamum
-# yue:芝麻
-# zh-cn:芝麻
-# zh-tw:胡麻
-allergens:en: en:sesame-seeds
-ciqual_food_code:en: 15010
-ciqual_food_name:en: Sesame seed
-wikidata:en: Q2763698
-# ingredient/fr:sésame has 1745 products @2018-10-05
-
-< en:sesame
-fr: sésame doré
-# ingredient/fr:sesame-dore has 13 products in french @2019-06-04
-
-< en:sesame
-en: white sesame
-bg: бял сусам
-fr: sésame blanc
-hr: bijeli sezam
-it: sesamo bianco
-ja: 白ごま
-
-< en:sesame
-en: black sesame
-bg: черен сусам
-fr: sésame noir
-it: sesamo nero
-ja: 黒ごま
-
-< en:sesame
-# <en:seed
-en: sesame seeds
-bg: сусамово семе, сусамови семена
-ca: llavors de sèsam, grans de sèsam
-cs: sezamová semena
-da: sesamfrø
-de: Sesamsamen, Sesamkörner, Sesamkorn, Sesamsaat, Sesamsaaten
-el: σπόροι σησαμιού
-es: granos de sésamo, semillas de sésamo, granos de ajonjolí, semillas de ajonjolí
-et: seesamiseemned
-fi: seesaminsiemen, seesaminsiemenet, seesaminsiemeniä
-fr: graine de sésame, graines de sésame
-ga: síolta seasamain
-hr: sjemenke sezama, sjeme sezama
-hu: szezámmag
-it: semi di sesamo, grani di sesamo
-lt: sezamo sėklos
-lv: sezama sēklas
-nb: sesamfrø
-nl: sesamzaad, sesam zaden, sesamzaden, sesamzaadjes
-pl: nasiona sezamu, ziarno sezamu, ziarna sezamu
-pt: sementes de sésamo, sementes de sésam
-ro: semințe de susan, seminte de susan
-sk: sezamové semeno
-sl: sezamovo seme
-sv: sesamfrön, sesamfrö
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-sesame
-# 1632 products in 11 languages @2018-10-05
-ciqual_food_code:en: 15010
-ciqual_food_name:en: Sesame seed
-ciqual_food_name:fr: Sésame, graine
-
-< en:sesame seeds
-< en:white sesame
-en: white sesame seeds
-fr: graine de sésame blanc, graines de sésame blanc
-hr: bijelo sezamovo sjeme
-it: semi di sesamo bianchi
-pl: sezam biały, biały sezam
-
-< en:sesame seeds
-en: Husked sesame seed
-fr: graine de sésame décortiquée
-hr: oljušteni sezam
-it: semi di sesamo decorticati
-pl: sezam łuszczony, sezamu łuszczonego
-ciqual_food_code:en: 15035
-ciqual_food_name:en: Sesame seed, husked
-ciqual_food_name:fr: Sésame, graine décortiquée
-
-< en:Husked sesame seed
-en: Husked and grilled sesame seed
-fr: graine de sésame grilée et décortiquée
-hr: oljušten i pečen sezam
-it: semi di sesamo decorticati e tostati
-pl: prażone ziarno sezamu
-ciqual_food_code:en: 15038
-ciqual_food_name:en: Sesame seed, grilled, husked
-ciqual_food_name:fr: Sésame, grillé, graine décortiquée
-
-< en:sesame seeds
-en: organic sesame seeds
-de: biologische Sesamsamen
-es: granos de sésamo orgánico
-fi: luomu seesaminsiemenet
-fr: graines de sesame bio
-hr: organske sjemenke sezama
-it: semi du sesamo bio
-nl: biologisch sesamzaad
-# ingredient/nl:biologisch-sesamzaad has 5 products @2019-05-24
-
-< en:sesame
-fr: sésame complet
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sésame-complet
-# 35 products in 4 languages @2018-10-05
-
-< en:sesame
-en: sesame paste, sesame seed paste
-bg: паста от сусам
-de: Sesampaste, Sesammus
-es: pasta de sésamo
-fi: seesamitahna, sesamtahna
-fr: pâte de sésame, pâte de graines de sésame
-hr: pasta od sezama
-it: pasta di sesamo, crema di sesamo
-ja: 胡麻ペスト
-nl: sesampasta
-pl: pasta sezamowa
-ro: pastă de susan, pastă de seminte de susan
-sv: sesampasta, sesam-kräm, sesam pasta
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-de-sésame
-# 105 products in 4 languages @2018-10-05
-
-#category/tahini
-< en:sesame paste
-en: tahini, tahini paste, sesame tahini
-xx: tahini, tahina
-ar: طحينة
-be: Тахіні
-bg: Тахан, сусамов тахан
-ca: tahina
-cs: tahina
-de: Tahina, Tahin
-el: Ταχίνι
-eo: Sezama pasto
-es: tahini, tahin
-et: tahhiini, tahiini
-fa: ارده
-fr: crème de sésame, tahin, tahiné
-he: טחינה
-hi: ताहिनी
-hy: Թահին
-it: Tahina, pasta di semi di sesamo
-ja: 芝麻醤
-ko: 참깨 소스
-nl: tahin
-pa: ਤਾਹੀਨੀ
-pl: tahini, pasta sezamowa tahina, pasta sezamowa tahini
-pt: tahine
-ro: tahină
-ru: тахини
-th: ทาฮีนี
-tr: Tahin
-uk: Тахіні
-ciqual_food_code:en: 15203
-ciqual_food_name:en: Tahini (sesame paste)
-ciqual_food_name:fr: Tahin ou Purée de sésame
-description:en: Tahini is a condiment made from toasted ground hulled sesame.
-description:de: Tahina, auch Tahini oder Tahin ist eine Paste aus feingemahlenen Sesamkörnern.
-description:es: El tahini o la tahina es una pasta hecha a partir de semillas de sésamo molidas.
-description:fr: Le tahini, tahin, tahina, téhina ou tahiné, est une crème de sésame, faite à partir de graines de sésame broyées, avec un peu d'eau, jusqu'à obtenir une pâte lisse.
-description:it: La tahina è un alimento derivato dai semi di sesamo bianco.
-description:nl: Tahin (ook wel tahini, tachina (uitspraak 'tagina') (Arabisch) of techina (Hebreeuws) genoemd) is een pasta gemaakt van sesamzaad.
-description:pt: Taíne, tahine, tahin ou tahini é um creme ou pasta feito de sementes de gergelim (sésamo).
-wikidata:en: Q383389
-#ingredient/tahini 1380 in 13 @2021-08-20
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
@@ -65655,7 +66144,7 @@ nn: smakstilsetjing
 oc: condiment
 pl: przyprawa, przyprawy, przyprawy aromatyczno-smakowe
 pt: condimento
-ro: Mirodenie, condimente
+ro: Mirodenie, condimente, condiment
 ru: приправы
 sv: smaktillsats, smaksättare, smaksättning
 tr: Çeşni
@@ -65898,7 +66387,7 @@ nb: urt, urte
 nl: Kruiden
 pl: Zioło, zioła, ziół, mieszanka ziół, mieszanka ziołowa
 pt: plantas aromáticas
-ro: Ierburi, plante aromatice
+ro: Ierburi, plante aromatice, ierburi aromatice
 sl: zelišča
 sv: örter, örtkryddor, kryddörter
 eurocode_2_group_2:en: 12.20
@@ -67837,8 +68326,8 @@ hr: engleski senf
 it: senape inglese
 nl: Engelse mosterd
 
-< en:mustard
 # <en:seed
+< en:mustard
 < en:spice
 en: mustard seed
 bg: синапено семе, синапени семена, синапени зърна
@@ -67861,7 +68350,7 @@ nl: mosterdzaad, mosterdzaden
 nn: sennepsfrø
 pl: ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, gorczycę, nasiona gorczycy, gorczycę
 pt: Semente de mostarda
-ro: boabe de muștar, boabe de mustar
+ro: boabe de muștar, boabe de mustar, semințe de muștar
 ru: горчичное зерно
 sl: gorčično seme, gorčična semena
 sr: seme slačice
@@ -68132,6 +68621,7 @@ hr: ljetni ukusan
 it: santoreggia
 nl: bonenkruid
 pl: cząber, cząbru
+ro: cimbru
 sv: kyndel
 wikidata:en: Q19787919
 wikipedia:en: https://en.wikipedia.org/wiki/Summer_savory
@@ -68548,6 +69038,7 @@ or: ଲେମନ ଗ୍ରାସ୍
 pa: ਲੈਮਨ ਗਰਾਸ
 pl: trawa cytrynowa, trawy cytrynowej
 pt: erva-principe
+ro: iarbă de lămâie
 sq: barishte
 sr: Лимун-трава
 sv: citrongräs, citrongras
@@ -69165,6 +69656,7 @@ or: ଦଅଣା
 pa: ਅਜਵਾਇਣ
 pl: tymianek, tymianku, tymiankowe, tymiankowy, tymiankowa
 pt: tomilho
+ro: cimbru de câmp
 ru: тимьян
 sv: timjan
 tr: kekik
@@ -71300,6 +71792,53 @@ nl: Linde, lindebloesem
 wikidata:en: Q127849
 wikipedia:en: https://en.wikipedia.org/wiki/Tilia
 # ingredient/fr:tilleul has 109 products in 4 languages @2019-01-23
+
+
+###################################################################################################
+#
+#                                Maca
+#
+###################################################################################################
+< en:plant
+en: maca
+xx: maca
+ba: ҡандалагөл
+de: Maca
+el: μάκα
+ja: マカ
+ko: 마카
+qu: maka
+zh: 印加萝卜
+wikidata:en: Q795158
+
+< en:maca
+en: black maca root
+es: raíz de maca negra
+fr: racine de maca noire
+hr: korijena crne mace
+it: radice di maca nera
+nl: zwarte maca wortel
+pt: raiz de maca preta
+
+# A 2015 multi-center study found differences in taxonomy, visual appearance, phytochemical profiles and DNA sequences when comparing L. meyenii and L. peruvianum, suggesting that they are in fact different and that their names should not be considered synonyms
+# source:wikipedia:en:https://en.wikipedia.org/wiki/Lepidium_meyenii
+
+< en:maca
+en: lepidium meyenii
+xx: lepidium meyenii
+fi: andienkrassi
+
+< en:maca
+en: lepidium peruvianum, peruvian ginseng
+cs: Řeřicha peruánská
+fa: جینسنگ پرویی
+hr: lepidium Peruvianum, Lepidium Peruvianum Chacon
+it: lepidium peruvianum
+lt: Peruvinė pipirnė
+ru: Мака перуанская
+sk: Žerucha peruánska
+sr: Peruanska maka
+uk: Мака перуанська
 
 ###################################################################################################
 #
@@ -75101,6 +75640,8 @@ zh: 美味牛肝菌
 # zh-hans:美味牛肝菌
 # zh-hant:美味牛肝菌
 # zh-tw:美味牛肝菌
+ciqual_proxy_food_code:en: 20160
+ciqual_proxy_food_name:en: Cep or boletus mushroom, raw
 wikidata:en: Q19740
 wikipedia:en: https://en.wikipedia.org/wiki/Boletus_edulis
 # en:cep has 98 products in 5 languages @2018-11-02
@@ -75112,6 +75653,8 @@ fi: kuivattu herkkutatti
 fr: cèpes déshydratés
 hr: sušeni vrganji
 it: porcini secchi
+ciqual_food_code:en: 20160
+ciqual_food_name:en: Cep or boletus mushroom, raw
 
 < en:cep
 de: Steinpilzpulver
@@ -75205,7 +75748,7 @@ eurocode_2_group_3:en: 8.50.10
 en: champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, cup mushroom
 af: Sampioen
 ar: غاريقون ثنائي البوغ
-bg: култивирана печурка, печурки
+bg: култивирана печурка, печурки, гъби Печурка
 ca: xampinyó, bolet cultivat
 cs: pečárka dvouvýtrusá
 cy: Madarch meithrin
@@ -75241,6 +75784,7 @@ nl: Parijse champignons, champignons, champignon
 pl: pieczarki, Pieczarka dwuzarodnikowa, pieczarka, pieczarek, pieczarkowy, pieczarkowa, pieczarkowe
 pt: cogumelos-de-Paris, Champignon
 qu: Champiñun
+ro: ciuperci champignon
 ru: Шампиньон двуспоровый, шампиньоны сушеные
 sl: Dvotrosni kukmak
 sv: Portabello, champinjon, champinjoner, vit champinjon, vita champinjoner, champinjon agaricus bisporus
@@ -75250,6 +75794,8 @@ zh: 雙孢蘑菇
 # fr:champignons de Paris has 857 products in 9 languages @2018-11-01
 carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
 carbon_footprint_fr_foodges_value:fr: 1.9
+ciqual_food_code:en: 20056
+ciqual_food_name:en: Button mushroom or cultivated mushroom, raw
 description:en: AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
 # cbk:Ligbos
 # lfn:Xampinion
@@ -76931,6 +77477,7 @@ hr: file aljaske polloke
 it: filetti di merluzzo d'alaska
 nl: Alaska koolvisfilet
 pl: filet z mintaja, filety z mintaja
+ro: file de cod Alaska
 sv: alaska pollock-filé, filé av alaska pollock
 # ingredient/alaskan-pollock-fillet has 88 products @2018-12-29
 
@@ -79997,11 +80544,12 @@ nb: Bukstripet bonitt
 nl: gestreepte tonijn
 pl: Bonito
 pt: bonito
+ro: ton dungat
 ru: Полосатый тунец
 si: බලයා
 sl: Črtasti tun
 su: Cakalang
-sv: Skipjack-tonfisk , Bonit
+sv: Skipjack-tonfisk, Bonit
 th: ปลาโอแถบ
 tr: Yazılı orkinos
 uk: Тунець смугастий
@@ -83650,7 +84198,7 @@ nl: garnaal, garnalen
 oc: Cambaròta
 pl: Krewetka, krewetki, krewetek, krewetkowy, krewetkowa, krewetkowe
 pt: camarão
-ro: crevete
+ro: crevete, creveți
 ru: креветки
 sv: räkor
 sw: Uduvi
@@ -83937,6 +84485,7 @@ la: Pandalus borealis
 lt: Paprastoji šiaurinė krevetė, Pandalus borealis
 nb: dypvannsreke, Pandalus borealis
 pl: krewetka północna, Pandalus borealis
+ro: Pandalus borealis
 sv: Nordhavsräka, Pandalus borealis
 vi: Tôm hồng, Pandalus borealis
 zh: 北极虾, Pandalus borealis
@@ -86946,9 +87495,11 @@ nl: kipfilet
 pl: filet z kurczaka, filety z kurczaka, filet z kurcząt, mięso z fileta kurczaka, mięso z fileta z kurczaka
 ru: Куриное филе
 sv: kycklingfilé, kycklinginnerfilé, kycklinglårfilé, filé av kyckling
+#ciqual_food_code:en: 36018
+#ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
+ciqual_food_code:en: 36019
+#ciqual_food_name:en: Chicken, breast, without skin, raw
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
-ciqual_food_code:en: 36018
-ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
 
 < en:chicken fillet
 en: chicken fillet with skin
@@ -87022,8 +87573,10 @@ sv: kycklingbröst
 tr: tavuk göğsü
 carbon_footprint_fr_foodges_ingredient:fr: Blanc de poulet
 carbon_footprint_fr_foodges_value:fr: 4.9
-ciqual_food_code:en: 36018
-ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
+#ciqual_food_code:en: 36018
+#ciqual_food_name:fr: Poulet, filet, sans peau, sauté/poêlé
+ciqual_proxy_food_code:en: 36019
+ciqual_proxy_food_name:en: Chicken, breast, without skin, raw
 ecobalyse:en: chicken-breast-br-max
 ecobalyse_labels_en_organic:en: chicken-breast-fr-organic
 ecobalyse_origins_en_france:en: chicken-breast-fr
@@ -87061,8 +87614,10 @@ pl: udko z kurczaka, udko kurczaka, udka z kurczaka, mięso z uda kurczaka
 sv: kyckling lårkött
 carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr: 4.9
-ciqual_food_code:en: 36004
-ciqual_food_name:fr: Poulet, cuisse, viande et peau, rôtie/cuite au four
+#ciqual_food_code:en: 36004
+#ciqual_food_name:fr: Poulet, cuisse, viande et peau, rôtie/cuite au four
+ciqual_food_code:en: 36006
+ciqual_food_name:en: Chicken, leg, meat only, raw
 
 
 # <en:cutlet
@@ -87224,9 +87779,11 @@ de: Enten-Kaumagen, Enten-Kaumägen
 fr: gésier de canard
 hr: pačji želudac
 it: ventriglio d'anatra
-ciqual_food_code:en: 40700
-ciqual_food_name:en: Gizzard, chicken, raw
-ciqual_food_name:fr: Gésier, poulet, cru
+#ciqual_food_code:en: 40700
+#ciqual_food_name:en: Gizzard, chicken, raw
+#ciqual_food_name:fr: Gésier, poulet, cru
+ciqual_food_code:en: 40702
+ciqual_food_name:en: Gizzard, duck, raw
 #46 in 2 @2021-09-12
 
 # <en:compound
@@ -87348,7 +87905,7 @@ af: Kalkoen
 ar: دجاج رومي
 az: Hinduşka
 ba: Күркә
-bg: пуйки
+bg: пуйка, пуйки
 bn: টার্কি
 bs: Ćurka
 ca: Gall dindi, gall d'indi
@@ -87442,6 +87999,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Turkey_(bird)
 
 < en:turkey
 en: turkey heart
+bg: пуешко сърце
 de: Putenherz
 fr: Coeur de dinde
 hr: pureće srce
@@ -87453,6 +88011,7 @@ ciqual_food_name:fr: Coeur, dinde, cru
 
 < en:turkey
 en: turkey liver
+bg: пуешки черен дроб
 cs: krůtí játra
 de: Putenleber, Truthahnleber
 fr: Foie de dinde
@@ -88779,7 +89338,7 @@ nb: eggeplomme
 nl: eigeel
 nn: eggeplomme
 no: eggeplomme
-pl: żółtko jaja, żółtka jaj, żółtko jaj
+pl: żółtko jaja, żółtka jaj, żółtko jaj, żółtko
 pt: gema de ovo
 ru: желток, яичный желток
 sh: Žumanjak
@@ -88863,6 +89422,7 @@ fr: jaune d'œuf de poules élevées en plein air, jaunes d'œufs de poules éle
 hr: žumanjak kokoši slobodnog uzgoja
 it: tuorlo d'uovo di gallina allevata all'aperto
 nl: Eigeel van vrije uitloop eieren, scharreleigeelpoeder, scharrelkippenei-eigeel, scharrelkippenei-eigeelpoeder
+pl: żółtko jaja kurzego z chowu z wolnego wybiegu, żółtko jaja kurzego z chowu na wolnym wybiegu, żółtko z jaja kurzego z chowu na wolnym wybiegu, żółtko jaja w proszku z chowu na wolnym wybiegu
 pt: gema de ovo de galinhas criadas ao ar livre
 # ingredient/fr:jaune-d’oeuf-de-poules-élevées-en-plein-air has 61 products in 2 languages @2018-12-18
 
@@ -90208,11 +90768,6 @@ wikidata:en: Q178
 wikipedia:en: https://en.wikipedia.org/wiki/Pasta
 
 < en:pasta
-en: dry whole-wheat pasta
-usda_ndb_code:en: 20124
-usda_ndb_name:en: Pasta, whole-wheat, dry (Includes foods for USDA's Food Distribution Program)
-
-< en:pasta
 en: durum wheat semolina pasta
 bg: паста от грис от твърда пшеница
 de: Teigwaren aus Hartweizengrieß
@@ -90248,6 +90803,11 @@ en: whole durum wheat semolina pasta
 fr: pâtes alimentaires de blé dur complet
 lv: rupja maluma cieto kivešu pilnagraudu miltu makaroni
 nl: volkoren deegwaren van harde tarwe
+
+< en:pasta made from wheat flour
+en: dry whole-wheat pasta
+usda_ndb_code:en: 20124
+usda_ndb_name:en: Pasta, whole-wheat, dry (Includes foods for USDA's Food Distribution Program)
 
 < en:pasta
 en: fresh pasta
@@ -90593,7 +91153,7 @@ pa: ਨੂਡਲ
 pl: nudle, kluski, makaron typu noodle
 pt: talharim
 qu: phidiyu
-ro: macaroane
+ro: macaroane, tăiței
 ru: лапша
 sk: rezance
 sr: кнедла
@@ -92088,6 +92648,7 @@ nb: strøkavring, griljermel
 nl: paneermeel, Paneermelen
 pl: bułka tarta, bułki tartej, panier
 pt: pão ralado
+ro: pesmet
 ru: Панировочные сухари
 sk: Strúhanka
 sl: krušne drobtine
@@ -92936,6 +93497,7 @@ nn: Glasering
 or: ଚମକ
 pa: ਚਮਕ
 pl: polewa, polewy, polew
+ro: glazură
 ru: глазурь, кондитерская глазурь, глазурь кондитерская
 sq: lustrimi
 sv: glasering
@@ -95912,14 +96474,16 @@ fi: hedelmäuute
 fr: extrait de fruit
 # hr:ekstrakt voća # see ingredients_processing.txt
 it: Estratto di frutta, estratti di frutta
+nb: fruktekstrakt
 nl: vruchtenextract
+nn: fruktekstrakt
 pl: ekstrakt z owoców
 pt: extrato de fruto, extrato de fruta, extrato de frutos, extrato de frutas, extracto de fruto, extracto de fruta, extracto de frutos, extracto de frutas
 sv: fruktextrakt
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
-# 54 products in 4 languages @2018-10-04
 vegan:en: maybe
 vegetarian:en: yes
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-fruit
+# 54 products in 4 languages @2018-10-04
 
 < en:fruit extract
 en: apple extract, apple essence
