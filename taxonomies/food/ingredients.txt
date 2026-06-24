@@ -60260,7 +60260,7 @@ fr: légumes à gousse et à graines
 it: baccello e seme vegetale
 lv: pākšu un sēklu dārzenis
 nl: peul- en zaadgroente
-# eurocode_2_group_2:en: 8.45 (10 errors with this in)
+eurocode_2_group_2:en: 8.45
 
 ###########################
 #
@@ -60270,7 +60270,7 @@ nl: peul- en zaadgroente
 #########################
 
 
-# comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
+# comment:en: Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
 < en:legume
 < en:pulse
@@ -60713,8 +60713,8 @@ zh: 荚果
 #zh-tw: 莢果
 comment:it: "en:pulse" e "en:legumes" in italiano spesso si confondono perché entrambi i termini vengono generalmente tradotti come "legumi", anche se tecnicamente sarebbe più preciso distinguere tra "legumi secchi" (pulses) e "leguminose" (legume plants).
 description:en: A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
-#eurocode_2_group_2:en: 8.45 fresh ones/7.10 are dry ones
-eurocode_2_group_2:en: 7.10
+#eurocode_2_group_2:en: 7.10 are dry ones
+eurocode_2_group_2:en: 8.45
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q145909
@@ -61957,7 +61957,7 @@ ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
 description:en: The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # eurocode_2_group_3:en: 7.10.15
-eurocode_2_group_2:en: 8.45
+## eurocode_2_group_2:en: 8.45
 rare_crop:en: yes
 # wikidata:en:Q81375 # this is actually the plant not the legume
 wikidata:en: Q33832605
