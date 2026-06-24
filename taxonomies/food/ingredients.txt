@@ -41964,28 +41964,72 @@ it: estratto di chinotto
 
 < en:citrus fruit
 en: lemon
+an: limón
+ar: ليمون
+az: limon
+be: лімон
 bg: лимон
-ca: Llimona
-cs: Citron
-da: Citron, Citroner
+bi: lemon
+br: sitroñs
+ca: llimona
+cs: citron
+da: citron, citroner
 de: Zitrone, Zitronen
+el: λεμόνι
+eo: citrono
 es: limón, limones
+et: sidrun
+eu: limoi
 fi: sitruuna, sitruunaa
 fr: citron, citrons, citron jaune, citrons jaunes
+fy: sitroen
+gl: limón
 he: לימון
 hr: limun, limuna, ploda limuna, citrus limon
+ht: sitron
 hu: citrom
+hy: լիմոն
+id: lemon
 it: limone, limoni
 ja: レモン
+ka: ლიმონი
+kg: dilala ya ngayi
+ko: 레몬
+la: citrus × limon
+mg: voasarimakirana
+mi: rēmana
+mk: лимон
+ml: ചെറുനാരങ്ങ
+mn: нимбэг
+mr: लिंबू
+mt: lumija
+my: သံပယိုသီး
 nb: sitron
+ne: कागती
 nl: citroen
-pl: Cytryna, cytryny, cytryn, cytrynowa, cytrynowy, cytrynowe
-pt: Limão
-ro: Lamaie
-ru: Лимон
-sv: citron, citron frukt
+nn: sitron
+nv: chʼil łitsooí díkʼǫ́zhígíí
+oc: citron
+or: ଲେମ୍ବୂ
+pl: cytryna, cytryny, cytryn, cytrynowa, cytrynowy, cytrynowe
+ps: ليمو
+pt: limão
+ro: lămâie, lamaie
+ru: лимон
+sc: limone
+sk: citrón
+sl: limona
+sq: limon
+sv: citron, citron frukt, citroner
+sw: limau
+tg: лимӯ
 tr: limon
-zh: 柠檬
+tt: лимун
+uk: лимон
+uz: limon
+wa: limon
+za: makningzmungx
+zh: 柠檬, 檸檬
 ciqual_proxy_food_code:en: 13009
 ciqual_proxy_food_name:en: Lemon, pulp, raw
 ciqual_proxy_food_name:fr: Citron, pulpe, cru
@@ -41993,7 +42037,6 @@ ecobalyse:en: 6ece5452-42de-4e0a-8c70-1d305e614cc8
 ecobalyse_labels_en_organic:en: ed5c98fd-6fe5-43ca-b938-1dde919794b7
 wikidata:en: Q1093742
 
-# en:description:The skin or outer layer of a fruit, vegetable, etc.
 < en:lemon
 en: lemon peel, lemon rind
 ca: pell de llimona
@@ -42010,6 +42053,7 @@ pl: skórka cytryny, skórka z cytryny, skórka cytrynowa
 pt: casca de limão
 ro: coajă de lămâie
 sv: citronskal
+description:en: The skin or outer layer of a lemon.
 usda_ndb_proxy_code:en: 9156
 usda_ndb_proxy_name:en: Lemon peel, raw
 wikidata:en: Q104037650
@@ -42030,7 +42074,6 @@ nn: citronskalextract
 ro: extract de coaja de lamaie
 sv: citronskalextract
 
-# en:description:The outer skin of a citrus fruit, removed through a zester.
 < en:lemon
 en: lemon zest
 de: Zitronenzeste, Zitronenabrieb
@@ -42044,6 +42087,7 @@ sv: citronzest
 ciqual_food_code:en: 13125
 ciqual_food_name:en: Lemon zest, raw
 ciqual_food_name:fr: Citron, zeste, cru
+description:en: The outer skin of a citrus fruit, removed through a zester.
 wikidata:en: Q26879249
 # 872 @2021-10-09
 
@@ -42329,6 +42373,19 @@ it: preparazione miele torta al limone
 en: lemon filling
 hr: punjenje s okusom limuna
 it: ripieno al limone
+
+##################### Lemon cultivars/varieties/types
+
+< en: lemon
+en: Eureka lemon
+da: eureka-citron
+sv: eureka-citron, citroner (eureka)
+wikidata:en: Q140329924
+
+< en: lemon
+en: Verna lemon, lemon Verna
+da: verna-citron
+sv: verna-citron, citroner verna
 
 ###################################################################################################
 #
