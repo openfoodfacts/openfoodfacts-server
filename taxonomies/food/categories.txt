@@ -70761,50 +70761,144 @@ protected_name_type:en: pgi
 #wikidata:en:
 
 < en:Fruits
-en: Citrus
+en: Citrus, Citrus fruits
+ar: فاكهة حمضية
+ca: Cítric
+cs: Citrusové ovoce
+da: Citrusfrugter
 de: Zitrusfrüchte
+el: Εσπεριδοειδή
+eo: Citrusfruktoj
 es: Cítricos
-fi: sitrus
+eu: Zitriko
+fi: Sitrushedelmä, Sitrus
 fr: Agrumes
+ga: Toradh citris
+gl: Cítrico
 hr: Agrumi
-it: Agrumi
-ja: 柑橘類
+id: Buah jeruk
+it: Agrumi, Agrume
+ja: 柑橘類, 柑橘類の果実
+jv: Buah jeruk
+ka: Მეციტრუსეობა
+ko: 귤열매
 lt: Citrusiniai vaisiai
+lv: Citrusauglis
+mg: Voasary
+mk: Агруми
+ml: സിട്രസ് പഴം
+nb: Sitrusfrukter
 nl: Citrusvruchten
-pl: Cytrusy, cytrus
-ru: Цитрусовые, Плоды цитрусовых культур
+nn: Sitrusfrukter
+pl: Cytrusy, cytrus, Owoc cytrusowy
+ru: Цитрусовые, Плоды цитрусовых культур, Плод цитруса
+sl: Agrum
+sv: Citrusfruktar
+tt: Цитрус җимеше
+zh: 柑橘
+wikidata:en: Q2574750
 
 < en:Citrus
 en: Grapefruits
+ar: ليمون الجنة
+bg: Грейпфрут
+ca: Aranja
+cs: Grapefruit
+da: Grapefrugter, Grape
 de: Grapefruits
-es: Pomelos
+el: Γκρέιπφρουτ
+eo: Grapfruktoj
+es: Pomelos, Toronja
+et: Greip
+fi: Greippi
 fr: Pomélos, Pomelos
+ga: Seadóg
 hr: Grejpfrutovi
+hu: Grépfrút
+it: Pompelmo
 ja: グレープフルーツ
+ka: Გრეიპფრუტი
 la: Citrus x paradisi
-lt: Greipfrutai
+lt: Greipfrutai, Greipfrutas
+nb: Grapefrukter
 nl: Grapefruit
+nn: Grapefrukter
+pl: Grejpfrut
+pt: Toranja
 ro: Grepfrut, Grepfruturi
+ru: Грейпфрут
+sk: Grapefruit
+sl: Grenivka
+sv: Grapefruktar, Graper
+zh: 葡萄柚
+agribalyse_proxy_food_code:en: 13040
+ciqual_proxy_food_code:en: 13040
+ciqual_proxy_food_name:en: Grapefruit, pulp, raw
+ciqual_proxy_food_name:fr: Pomelo (dit Pamplemousse), pulpe, cru
 sales_format:en: weight, package
+wikidata:en: Q21552830
 
 < en:Grapefruits
 en: Fresh grapefruits
+da: Friske grapefrugter
 de: Frische Grapefruits
 fr: Pomélos frais, pomélo frais
 hr: Svježi grejpfrutovi
 lt: Švieži greipfrutai
+sv: Färska grapefruktar
+
+< en: Grapefruits
+en: Red grapefruits
+da: Røde grapefrugter
+nb: Røde grapefrukter
+nn: Raude grapefrukter
+sv: Röda grapefruktar, Röda graper
+agribalyse_proxy_food_code:en: 13180
+ciqual_proxy_food_code:en: 13180
+ciqual_proxy_food_name:en: Grapefruit, red or pink, pulp, raw
+ciqual_proxy_food_name:fr: Pomelo (dit Pamplemousse) rose, pulpe, cru
+
+< en: Red grapefruits
+en: Star Ruby grapefruits
+da: Star Ruby-grapefrugter
+la: Citrus paradisi ‘Macfadyen’
+nb: Star Ruby-grapefrukter
+nn: Star Ruby-grapefrukter
+sv: Star Ruby-grapefruktar
+comment:en: https://citrusvariety.ucr.edu/crc3770
 
 < en:Citrus
 en: Pomelos
-de: Pampelmusen
+bg: Помело
+ca: Aranja grossa, Pomelo
+da: Pomeloer
+de: Pampelmusen, Pomelo
+el: Πομέλο
+eo: Pumeloj
 es: Pomelos chinos, Pampelmusas
+et: Pomelo
+fi: Pomelo
 fr: Pamplemousses
+ga: Pomaló
 hr: Pomelo
-ja: ブンタン
+hu: Pomelo
+it: Pomelo
+ja: ブンタン, 文旦
 la: Citrus maxima
-lt: Pomelo greipfrutai, Didieji greipfrutai Pomelo
+lb: Pomelo
+lt: Pomelo greipfrutai, Didieji greipfrutai Pomelo, Didysis greipfrutas
+nb: Pomeloer
 nl: Pomelos
+nn: Pomeloar
+pl: Pomelo
+pt: Pomelo
+ru: Помело
+sk: Pumelo
+sl: Pomelo
+sv: Pomelo
+zh: 柚子
 sales_format:en: weight, package
+wikidata:en: Q353817
 
 < en:Fresh pomelos
 en: Pomelos from Corsica, Corsican pomelos
@@ -71112,9 +71206,11 @@ wikidata:en: Q516494
 < en:Citrus
 en: Oranges
 bg: Портокали
+ca: Taronja
+da: Appelsiner
 de: Orangen
 es: Naranjas
-fi: appelsiinit
+fi: Appelsiinit
 fr: Oranges
 hr: Naranče
 hu: Narancsok
@@ -71123,21 +71219,44 @@ ja: オレンジ
 lt: Apelsinai
 nl: Sinaasappels
 pl: Pomarańcza, Pomarańcze
+pt: Laranja
 ru: Апельсины
+sv: Apelsiner
 tr: Portakal
+agribalyse_proxy_food_code:en: 13034
+ciqual_proxy_food_code:en: 13034
+ciqual_proxy_food_name:en: Orange, flesh without skin, without seeds, raw
 intake24_category_code:en: ORNG
 wikidata:en: Q13191
 
 < en:Fresh fruits
 < en:Oranges
 en: Fresh oranges
+da: Friske appelsiner
 de: Frische Orangen
 fr: Oranges fraîches
 hr: Svježe naranče
 lt: Švieži apelsinai
+sv: Färska apelsiner
 tr: Taze portakal
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,12
+
+< en: Oranges
+en: Navel oranges
+ca: Nàvel taronja
+da: Navleappelsiner, Navelappelsiner
+de: Navelorangen
+fr: Navel oranges
+it: Arance navel
+ja: ネーブルオレンジ
+ko: 네이블 오렌지
+pt: Laranja-da-baía
+sv: Navelapelsiner
+zh: 脐橙
+description:en: A variety of orange with a characteristic second fruit at the apex, which protrudes slightly like a human navel. (Wikipedia)
+sales_format:en: weight, package
+wikidata:en: Q3621268
 
 < en:Fresh oranges
 en: Clemenvillas
@@ -71161,7 +71280,7 @@ en: Orange pulp
 fr: Pulpe d'orange
 agribalyse_food_code:en: 13034
 ciqual_food_code:en: 13034
-ciqual_food_name:en: Orange, pulp, raw
+ciqual_food_name:en: Orange, flesh without skin, without seeds, raw
 ciqual_food_name:fr: Orange, pulpe, crue
 
 < en:Fresh fruits
@@ -71178,24 +71297,25 @@ ciqual_food_code:en: 13614
 ciqual_food_name:en: Pummelo, pulp, raw
 ciqual_food_name:fr: Pamplemousse chinois, pulpe, cru
 
-< en:Pomelos
-en: Grapefruit pulp
+< en: Grapefruits
+en: Grapefruit pulps, Grapefruit pulp
 fr: Pulpe de pomelo, Pulpe de pamplemousse
 agribalyse_food_code:en: 13040
 ciqual_food_code:en: 13040
 ciqual_food_name:en: Grapefruit, pulp, raw
 ciqual_food_name:fr: Pomelo (dit Pamplemousse), pulpe, cru
 
-< en:Pomelos
-en: Yellow grapefruit pulp
+< en: Grapefruit pulps
+en: Yellow grapefruit pulps, Yellow grapefruit pulp
 fr: Pulpe de pomelo jaune, Pulpe de pamplemousse jaune
 agribalyse_food_code:en: 13179
 ciqual_food_code:en: 13179
 ciqual_food_name:en: Grapefruit, yellow, pulp, raw
 ciqual_food_name:fr: Pomelo (dit Pamplemousse) jaune, pulpe, cru
 
-< en:Pomelos
-en: Red grapefruit pulp
+< en: Grapefruit pulps
+< en: Red grapefruits
+en: Red grapefruit pulps, Red grapefruit pulp
 fr: Pulpe de pomelo rose, Pulpe de pamplemousse rose
 agribalyse_food_code:en: 13180
 ciqual_food_code:en: 13180
@@ -72131,20 +72251,66 @@ lt: Tropiniai vaisiai, Egzotiniai vaisiai
 nl: Tropisch fruit
 pt: Frutas tropicais
 ru: Тропические фрукты
+sv: Tropiska frukter
 
 < en:Tropical fruits
 en: Avocados
+an: Aguacate
+ar: افوكادو
+az: Avokado
 bg: Авокадо
+bn: আভোকাদো
+br: Avoukez
+ca: Alvocat
+cs: Avokádo
+da: Avokadoer, Avocadoer
 de: Avocados
+el: Αβοκάντο
+eo: Avokadoj
 es: Aguacates
-fi: avokaadot
+et: Avokaado
+eu: Ahuakate
+fi: Avokaadot
 fr: Avocats
+ga: Abhacád
+gl: Aguacate
+hi: एवोकाडो
 hr: Avokado
+ht: Zaboka
+hu: Avokádó
+hy: Ավոկադո
+ia: Avocato
+id: Alpukat
+ig: Ube oyibo
 it: Avocado
 ja: アボカド
-lt: Avokadai
+ka: Ავოკადო
+kw: Avokado
+lb: Avocado
+ln: Sabúká
+lt: Avokadai, Avokadas
+mi: Rahopūru
+mk: Авокадо
+ml: അവോക്കാഡോ
+ms: Avokado
+nb: Avokadoer
+ne: घ्यूँफल
 nl: Avocados
+nn: Avokadoar
 pl: Awokado
+pt: Abacate
+qu: Palta
+ro: Avocado
+ru: Авокадо
+sk: Avokádo
+sl: Avokado
+sq: Avokado
+sv: Avokador, Avokados, Avocador, Avocados
+te: అవోకాడో
+tr: Avokado
+uk: Авокадо
+yi: אַװאָקאַדאָ
+zh: 鳄梨
 agribalyse_proxy_food_code:en: 13004
 agribalyse_proxy_food_name:en: Avocado, pulp, raw
 agribalyse_proxy_food_name:fr: Avocat, pulpe, cru
@@ -72163,10 +72329,38 @@ ciqual_food_name:fr: Avocat, pulpe, cru
 < en:Avocados
 en: Hass avocados
 xx: Hass avocados
+da: Hass-avokadoer
+de: Hass-Avocados
+es: Aguacates Hass
+fa: آووکادوی هاس
+fr: Avocats Hass
+hr: Hass avokado
+it: Avocado hass
+ja: ハスアボカド
+ko: 할아버지 아보카도
+la: Persea americana ‘Hass’
+nl: Hass-avocados
+pt: Abacates hass
+ru: Авокадо Хасс
+sl: Avokado Hass
+sv: Hass-avokador
+uk: Авокадо Хасс
+zh: 哈斯酪梨, 哈斯牛油果
+wikidata:en: Q5679460
+wikipedia:en: https://en.wikipedia.org/wiki/Hass_avocado
 
 < en: Avocados
 en: Ready-to-eat avocados
+da: Spiseklare avokadoer
 nl: Eetrijpe avocados
+sv: Ätmogna avokador
+
+< en:Hass avocados
+< en:Ready-to-eat avocados
+en: Ready-to-eat Hass avocados
+da: Spiseklare hass-avokadoer
+nl: Eetrijpe hass-avocados
+sv: Ätmogna hass-avokador
 
 #### Bananas
 
