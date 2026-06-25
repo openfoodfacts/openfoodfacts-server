@@ -51205,9 +51205,9 @@ sv: grön vindruva, gröna vindruvor
 ciqual_food_code:en: 13044
 ciqual_food_name:en: Grape, white, raw
 ciqual_food_name:fr: Raisin blanc à gros grain (type Italia ou Dattier) cru
-# 356 in 7 @2021-10-15
 eurocode_2_group_3:en: 9.30.10
 wikidata:en: Q128470835
+# 356 in 7 @2021-10-15
 
 < en:white grape
 en: white seedless grape
@@ -51229,7 +51229,6 @@ es: uva tempranillo
 hr: tempranillo grožđe
 it: uva Tempranillo
 
-
 < en:grape
 en: black grape
 bg: черно грозде
@@ -51237,12 +51236,12 @@ de: dunkle Trauben
 fr: raisin noir, raisins noirs
 hr: crno grožđe
 it: uva nera
+ciqual_proxy_food_code:en: 13045
+ciqual_proxy_food_name:en: Grape, red, raw
+ciqual_proxy_food_name:fr: Raisin noir, cru
+eurocode_2_group_3:en: 9.30.12
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-noirs
 # 51 products in 1 language @2018-10-02
-ciqual_food_code:en: 13045
-ciqual_food_name:en: Grape, red, raw
-ciqual_food_name:fr: Raisin noir, cru
-eurocode_2_group_3:en: 9.30.12
 
 < en:black grape
 en: Concord grape, Concord black grape
@@ -51255,7 +51254,9 @@ nl: Concord-druif, Concord zwarte druif
 
 < en:grape
 en: red grape
+ar: عنب أحمر
 bg: червено грозде
+da: rød vindrue
 de: rote Traube, rote Trauben
 es: uva roja, uvas rojas
 fr: raisin rouge, raisins rouges
@@ -51264,14 +51265,40 @@ it: uva rossa, uve rosse
 nl: rode druif, rode druiven
 pl: czerwone winogrona, czerwone winogrono, czerwonych winogron, winogronowy czerwony
 pt: uva vermelha, uvas vermelhas
+sv: röd vindruva
+ciqual_food_code:en: 13045
+ciqual_food_name:en: Grape, red, raw
+ciqual_food_name:fr: Raisin noir, cru
+wikidata:en: Q128470707
 
 < en:red grape
 en: red seedless grape
+da: stenfri rød vindrue
 de: rote kernlose Traube, rote kernlose Trauben
 fr: raisin rouge sans pépin
 hr: crveno grožđe bez sjemenki
 it: uva rossa senza semi
+sv: kärnfri röd vindruva
 
+< en: red seedless grape
+en: Flame grape, Flame Seedless
+da: flame-vindrue
+sv: flame-vindruva
+comment:en: https://goodfruitguide.co.uk/product/flame/
+
+< en: white seedless grape
+en: Prime Seedless grape, Prime Seedless
+da: prime seedless-vindrue
+sv: Prime Seedless-vindruva
+comment:en: https://goodfruitguide.co.uk/product/prime-seedless/
+
+< en: red seedless grape
+en: Starlight grape, red seedless grape (Starlight)
+da: starlight-vindrue
+sv: starlight-vindruva
+comment:en: https://goodfruitguide.co.uk/product/starlight-red-grape/
+
+< en:grape juice
 < en:red grape
 en: red grape fruit juice
 de: Rotweintraubensaft
@@ -51393,10 +51420,7 @@ hr: koncentrat grožđica
 it: concentrato di uva passa
 # 1314 products in 6 languages @2018-10-02
 
-# description:en:SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
-# maybe it is necessary to split between dried and fresh
-
-< en:grape
+< en: white seedless grape
 en: sultana, sultanas, Thompson seedless, sultanina
 af: sultana
 ar: العنب الكشمشي
@@ -51434,6 +51458,8 @@ tr: sultaniye üzümü
 uk: кишмиш
 uz: kishmish
 zh: 蘇丹娜葡萄
+comment:en: maybe it is necessary to split between dried and fresh
+description:en: SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
