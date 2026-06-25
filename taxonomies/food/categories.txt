@@ -70910,24 +70910,79 @@ sales_format:en: weight, package
 
 < en:Citrus
 en: Lemons
+an: Limón
+ar: ليمون
+az: Limon
+be: Лімон
 bg: Лимони
+bi: Lemon
+br: Sitroñs
+ca: Llimona
+cs: Citron
+da: Citroner
 de: Zitronen
-es: Limones
-fi: sitruunat
+el: Λεμόνι
+eo: Citronoj
+es: Limones, Limón
+et: Sidrun
+eu: Limoi
+fi: Sitruunat
 fr: Citrons
+fy: Sitroen
+gl: Limón
 hr: Limunovi
-it: Limoni
+ht: Sitron
+hu: Citrom
+hy: Լիմոն
+id: Lemon
+it: Limoni, Limone
 ja: レモン, 檸檬
-la: Citrus x limon
+ka: Ლიმონი
+kg: Dilala ya ngayi
+ko: 레몬
+la: Citrus × limon, Citrus x limon
 lt: Citrinos
+mg: Voasarimakirana
+mi: Rēmana
+mk: Лимон
+ml: ചെറുനാരങ്ങ
+mn: Нимбэг
+mr: लिंबू
+mt: Lumija
+my: သံပယိုသီး
+nb: Sitron
+ne: कागती
 nl: Citroenen
-ro: Lămâi
-ru: Лимоны
-sv: Citroner, citron
+nn: Sitron
+nv: Chʼil łitsooí díkʼǫ́zhígíí
+oc: Citron
+or: ଲେମ୍ବୂ
+pl: Cytryna
+ps: ليمو
+pt: Limão
+ro: Lămâi, Lămâie
+ru: Лимоны, Лимон
+sc: Limone
+sk: Citrón
+sl: Limona
+sq: Limon
+sv: Citroner, Citron
+sw: Limau
+tg: Лимӯ
 tr: Limon
+tt: Лимун
+uk: Лимон
+uz: Limon
+wa: Limon
+za: Makningzmungx
+zh: 檸檬
 agribalyse_proxy_food_code:en: 13009
 agribalyse_proxy_food_name:en: Lemon, pulp, raw
 agribalyse_proxy_food_name:fr: Citron, pulpe, cru
+ciqual_proxy_food_code:en: 13009
+ciqual_proxy_food_name:en: Lemon, pulp, raw
+ciqual_proxy_food_name:fr: Citron, pulpe, cru
+wikidata:en: Q1093742
 
 < en:Lemons
 en: Lemons Primofiori, Lemons Mesero, Lemons Blanco
@@ -70937,20 +70992,32 @@ origins:en: en:spain
 < en:Fresh fruits
 < en:Lemons
 en: Fresh lemons
+da: Friske citroner
 de: Frische Zitronen
 es: Limones frescos
 fr: Citrons frais
 hr: Svježi limuni
 lt: Šviežios citrinos
 nl: Verse citroen
+sv: Färska citroner
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,11,12
 
-< en: Fresh lemons
+< en: Lemons
 en: Verna lemons, Verna
 xx: Verna
+da: Verna-citroner
 fr: Citrons Verna
 nl: Verna citroenen
+sv: Verna-citroner
+
+< en: Fresh lemons
+< en: Verna lemons
+en: Fresh Verna lemons
+da: Friske verna-citroner
+fr: Citrons Verna frais
+nl: Verse Verna citroenen
+sv: Färska verna-citroner
 
 < en:Lemons
 en: Unwaxed lemons
@@ -70961,7 +71028,7 @@ fr: Citron de Menton
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-1299
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q37970325
 
 < en:Lemons
 en: Lemon pulp
@@ -70972,6 +71039,7 @@ agribalyse_food_code:en: 13009
 ciqual_food_code:en: 13009
 ciqual_food_name:en: Lemon, pulp, raw
 ciqual_food_name:fr: Citron, pulpe, cru
+wikidata:en: Q140290322
 
 < en:Lemons
 en: Lemon zest
@@ -70982,6 +71050,7 @@ agribalyse_food_code:en: 13125
 ciqual_food_code:en: 13125
 ciqual_food_name:en: Lemon zest, raw
 ciqual_food_name:fr: Citron, zeste, cru
+wikidata:en: Q206454
 
 < en:Dried fruits
 < en:Lemons
@@ -70991,57 +71060,68 @@ fr: Citrons séchés
 < en:Lemons
 en: Eureka lemons
 da: Eureka-citroner
+fr: Citrons Eureka
+nl: Eureka citroenen
 sv: Eureka-citron
 description:en: This is the common supermarket lemon, also known as "Four Seasons" (Quatre Saisons) because of its ability to produce fruit and flowers together throughout the year. (Wikipedia)
+wikidata:en: Q140329924
+
+< en: Eureka lemons
+< en: Fresh lemons
+en: Fresh Eureka lemons
+da: Friske eureka-citroner
+fr: Citrons Eureka frais
+nl: Verse Eureka citroenen
+sv: Färska eureka-citron
 
 < en:Lemons
 it: Limone dell'Etna
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-02444
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q124813958
 
 < en:Lemons
 it: Limone di Rocca Imperiale
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0818
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q118819153
 
 < en:Lemons
 it: Limone Costa d'Amalfi
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0116
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q3241198
 
 < en:Lemons
 it: Limone di Sorrento
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0098
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q3241200
 
 < en:Lemons
 it: Limone Femminello del Gargano
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0297
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q3832521
 
 < en:Lemons
 it: Limone Interdonato Messina
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0558
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q64549298
 
 < en:Lemons
 it: Limone di Siracusa
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0502
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q3832520
 
 < en:Citrus
 en: Limes
@@ -71358,22 +71438,118 @@ protected_name_type:en: pdo
 
 < en:Fruits
 en: Grapes
+af: Druiwe
+am: ወይን
+an: Uga
+ar: عنب
+as: আঙুৰ
+az: Üzüm
+ba: Йөҙөм
+be: Вінаградзіна
 bg: Грозде
+bn: আঙ্গুর
+bo: རྒུནའབྲུམ།
+br: Rezin
+bs: Grožđe
+ca: Raïm
+cs: Bobule
+cy: Grawnwin
 da: Vindruer
 de: Weintrauben
+dv: މޭބިސްކަދުރު
+el: Σταφύλι
+eo: Vinberoj
 es: Uvas
-fi: viinirypäleet
+et: Viinamari
+eu: Mahats
+fa: انگور
+fi: Viinirypäleet
+fj: Qerepi
 fr: Raisins, Raisin
+ga: Fíonchaor
+gl: Uva
+gn: Úva
+gu: દ્રાક્ષ
+gv: Smeyr-feeyney
+hi: अंगूर
 hr: Grožđe
+ht: Rezen
+hu: Szőlő
+hy: Խաղող
+ia: Uva
+id: Anggur
+io: Vito
+is: Vínber
 it: Uva
 ja: ブドウ, ぶどう, 葡萄
+jv: Anggur
+ka: Ყურძენი
+kk: Жүзім
+km: ទំពាំងបាយជូរ
+kn: ದ್ರಾಕ್ಷಿ
+ko: 포도
+ks: دَچھ
+ku: Tirî
+kw: Grappa
+ky: Жүзүм
+la: Uva
+lb: Drauf
+ln: Víno
 lt: Vynuogės
-nb: Vindruer
-nl: Druiven
-nn: Vindruer
-pl: Winogrona
+lv: Vīnogas
+mg: Voaloboka
+mk: Грозје
+ml: മുന്തിരിങ്ങ
+mn: Усан үзэм
+mr: द्राक्ष
+ms: Anggur
+my: စပျစ်ပင်
+nb: Vindruer, Druer
+ne: अङ्गूर
+nl: Druiven, Druif
+nn: Vindruer, Druer
+nv: Chʼil naʼatłʼoʼii
+oc: Rasim
+om: Eeynaba
+or: ଅଙ୍ଗୁର
+pa: ਅੰਗੂਰ
+pl: Winogrona, Winogrono
+ps: انګور
+pt: Uva
+qu: Uwas
+ro: Strugure
 ru: Виноград
-sv: Vindruvor
+rw: Akamaro k'imizabibu
+sa: द्राक्षा
+sc: Bide
+sd: انگور
+sh: Grožđe
+sk: Hrozno
+sl: Grozdje
+sm: Grapes
+so: Canab
+sq: Rrushi
+sr: Грожђе
+su: Anggur
+sv: Vindruvor, Druvor
+sw: Zabibu
+ta: திராட்சை
+te: ద్రాక్ష
+tg: Ангур
+th: องุ่น
+tl: Ubas
+tr: Üzüm
+tt: Йөзем
+ug: قۇرۇق ئۈزۈم
+uk: Виноград
+ur: انگور
+uz: Uzum
+vi: Nho
+wa: Roejhén
+yi: וויינטרויבן
+za: Makit
+zh: 葡萄
+zu: UMhleke
 agribalyse_food_code:en: 13112
 ciqual_food_code:en: 13112
 ciqual_food_name:en: Grape, raw
@@ -71388,28 +71564,30 @@ it: Uva di Puglia
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0653
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q55833391
 
 < en:Grapes
 it: Uva da tavola di Mazzarrone
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0170
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q4006813
 
 < en:Grapes
 it: Uva da tavola di Canicattì
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-1537
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q4006811
 
 < en:Grapes
 en: Green grapes, White grapes
+ar: عنب أخضر
 da: Grønne vindruer
 de: Weiße Weintrauben, Grüne Weintrauben, Gelbe Weintrauben
 es: Uvas blancas
 fr: Raisins blancs, Raisins verts
+gl: Uva branca
 hr: Zeleno grožđe
 lt: Žalios vynuogės, Baltos vynuogės
 nb: Grønne vindruer
@@ -71422,6 +71600,7 @@ ciqual_food_code:en: 13044
 ciqual_food_name:en: Grape, white, raw
 ciqual_food_name:fr: Raisin blanc à gros grain (type Italia ou Dattier) cru
 sales_format:en: weight, package
+wikidata:en: Q128470835
 
 # TODO merge above
 #fr:Raisins blancs à gros grain type Italia, Raisins blancs à gros grain type Dattier, Raisin blanc à gros grain type Italia, Raisin blanc à gros grain type Dattier
@@ -71437,17 +71616,28 @@ hr: Svježe grožđe
 lt: Šviežios vynuogės
 sv: Färska vindruvor
 
-< en:Fresh grapes
+< en: Grapes
+en: Grape mixes, Mixed grapes
+sv: Vindruvsmixar, Vindruvsmixer
+description:en: a mix of multiple types of grapes
+
+< en: Fresh grapes
+< en: Grape mixes
+en: Fresh grape mixes, Mixed fresh grapes, Fresh mixed grapes
+sv: Färska vindruvsmixar
+
+< en: Grapes
 fr: Chasselas de Moissac
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-0140
 protected_name_type:en: pdo
-#wikidata:en:
+wikidata:en: Q2570010
 
 < en:Grapes
 en: Black grapes, Red grapes
+ar: عنب أحمر
 da: Røde vindruer
-de: Rote Weintrauben
+de: Rote Weintrauben, Rote Trauben
 es: Uvas negras
 fr: Raisins noirs
 hr: Crno grožđe
@@ -71459,40 +71649,131 @@ ciqual_food_code:en: 13045
 ciqual_food_name:en: Grape, red, raw
 ciqual_food_name:fr: Raisin noir, cru
 sales_format:en: weight, package
+wikidata:en: Q128470707
+
+< en: Fresh grapes
+< en: Green grapes
+en: Fresh green grapes
+da: Friske grønne vindruer
+de: Frische weiße Weintrauben
+es: Uvas blancas frescas
+fr: Raisins blancs frais
+hr: Svježe zeleno grožđe
+lt: Šviežios žalios vynuogės
+sv: Färska gröna vindruvor
+sales_format:en: package, weight
+
+< en: Black grapes
+< en: Fresh grapes
+en: Fresh red grapes, Fresh black grapes
+da: Friske røde vindruer
+de: Frische rote Weintrauben
+es: Uvas negras frescas
+fr: Raisins noirs frais
+hr: Svježe crno grožđe
+lt: Šviežios juodos vynuogės
+sv: Färska röda vindruvor
+sales_format:en: package, weight
 
 < en:Grapes
 en: Seedless grapes
+da: Stenfri vindruer
 de: Kernlose Weintrauben
 es: Uvas sin semillas
+fi: Siemenetön viinirypäle
 fr: Raisins sans pépins
 hr: Grožđe bez sjemenki
 it: Uva senza semi
 lt: Vynuogės be kauliukų
 nl: Pitloze druiven
 ru: Бессемянный виноград
+sv: Kärnfria vindruvor
 tr: Çekirdeksiz üzüm
 sales_format:en: package, weight
 
 < en:Green grapes
 < en:Seedless grapes
 en: Green seedless grapes, White seedless grapes
+da: Stenfri grønne vindruer
 de: Weiße kernlose Weintrauben, Grüne kernlose Weintrauben, Gelbe kernlose Weintrauben
 es: Uvas blancas sin semillas
 fr: Raisins blancs sans pépins, raisins verts sans pépins
 hr: Zeleno grožđe bez sjemenki
 lt: Žalios vynuogės be kauliukų, Baltos vynuogės be kauliukų
 nl: Groene pitloze druiven
+sv: Kärnfria gröna vindruvor
 sales_format:en: package, weight
 
 < en:Black grapes
 < en:Seedless grapes
-en: Black seedless grapes
+en: Black seedless grapes, Seedless red grapes, Red seedless grapes
+da: Stenfri røde vindruer
 de: Rote kernlose Weintrauben
 es: Uvas negras sin semillas
 fr: Raisins noirs épépinés
 hr: Crno grožđe bez sjemenki
 lt: Juodos vynuogės be kauliukų
 nl: Rode pitloze druiven
+sv: Kärnfria röda vindruvor
+sales_format:en: package, weight
+
+< en: Fresh green grapes
+< en: Green seedless grapes
+en: Fresh seedless green grapes
+da: Friske stenfri grønne vindruer
+de: Frische kernlose weiße Weintrauben
+es: Uvas blancas sin semillas frescas
+fr: Raisins blancs sans pépins frais
+hr: Svježe zeleno grožđe bez sjemenki
+lt: Šviežios žalios vynuogės be kauliukų
+sv: Färska kärnfria gröna vindruvor
+sales_format:en: package, weight
+
+< en: Black seedless grapes
+< en: Fresh red grapes
+en: Fresh red seedless grapes, Fresh seedless black grapes
+da: Friske stenfri røde vindruer
+de: Frische kernlose rote Weintrauben
+es: Uvas negras sin semillas frescas
+fr: Raisins noirs sans pépins frais
+hr: Svježe crno grožđe bez sjemenki
+lt: Šviežios juodos vynuogės be kauliukų
+sv: Färska kärnfria röda vindruvor
+sales_format:en: package, weight
+
+< en: Black seedless grapes
+en: Starlight grapes, Red seedless grapes (Starlight)
+da: Starlight-vindruer
+sv: Starlight-vindruvor
+comment:en: https://goodfruitguide.co.uk/product/starlight-red-grape/
+sales_format:en: package, weight
+season_in_country_eg:en: 6
+season_in_country_za:en: 1,2,12
+
+< en: Fresh red seedless grapes
+< en: Starlight grapes
+en: Fresh Starlight grapes
+da: Friske starlight-vindruer
+sv: Färska starlight-vindruvor
+
+< en: Green seedless grapes
+en: Thompson Seedless grapes
+da: Thompson Seedless-vindruer
+sv: Thompson Seedless-vindruvor
+comment:en: https://goodfruitguide.co.uk/product/thompson-seedless/
+sales_format:en: package, weight
+season_in_country_gr:en: 7,8,9
+season_in_country_in:en: 3,4,5
+season_in_country_na:en: 1,2
+season_in_country_pe:en: 12
+season_in_country_za:en: 2,3,4
+wikidata:en: Q1898118
+
+< en: Fresh seedless green grapes
+< en: Thompson Seedless grapes
+en: Fresh Thompson Seedless grapes
+da: Friske Thompson seedless-vindruer
+sv: Färska Thompson seedless-vindruvor
 
 < en:Fruits
 en: Kakis
@@ -125927,3 +126208,4 @@ fr: Spirales de blé dur complet
 
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
+
