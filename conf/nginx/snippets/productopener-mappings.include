@@ -44,13 +44,17 @@ map $nginx_container $apache_port_base {
 
 # Extract main domain from host header for CORS
 map $http_host $http_host_main_domain {
-	~^(?:[a-z0-9-]+\.)?(?<main_domain>[a-z0-9-]+\.[a-z]+)$ $main_domain;
+	# order is important to correctly catch the pro subdomain
+	~^(?:[a-z0-9-]+\.)?(?<main_domain>pro\.open[a-z]+facts\.[a-z]+)$ $main_domain;
+	~^(?:[a-z0-9-]+\.)?(?<main_domain>open[a-z]+facts\.[a-z]+)$ $main_domain;
 	default $host;
 }
 
 # Extract main domain from origin header for CORS
 map $http_origin $http_origin_main_domain {
-	~^(?:https?://)?([a-z0-9-]+\.)?(?<main_domain>[a-z0-9-]+\.[a-z]+)$ $main_domain;
+	# order is important to correctly catch the pro subdomain
+	~^(?:https?://)?(?:[a-z0-9-]+\.)?(?<main_domain>pro\.open[a-z]+facts\.[a-z]+)$ $main_domain;
+	~^(?:https?://)?(?:[a-z0-9-]+\.)?(?<main_domain>open[a-z]+facts\.[a-z]+)$ $main_domain;
 	default $http_origin;
 }
 
