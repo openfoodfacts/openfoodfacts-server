@@ -3,6 +3,12 @@
 
 uninitialized_variable_warn on;
 
+# handling test for cors
+map $request_uri $po_request_uri {
+    default $request_uri;
+    ~^/debug_vars/(.*)$ /$1;
+}
+
 # Flavor handling ----------------------
 
 # $flavor_short - the flavor short name: off / obf / opf / opff / off-pro
@@ -36,16 +42,22 @@ map $nginx_container $apache_port_base {
 
 # CORS handling ----------------------
 
-# Extract main domain from host for CORS
-map $host $main_domain {
-	~^(?:[a-z0-9-]+\.)?(?<domain>[a-z0-9-]+\.[a-z]+)$ $domain;
+# Extract main domain from host header for CORS
+map $http_host $http_host_main_domain {
+	~^(?:[a-z0-9-]+\.)?(?<main_domain>[a-z0-9-]+\.[a-z]+)$ $main_domain;
 	default $host;
 }
 
+# Extract main domain from origin header for CORS
+map $http_origin $http_origin_main_domain {
+	~^(?:https?://)?([a-z0-9-]+\.)?(?<main_domain>[a-z0-9-]+\.[a-z]+)$ $main_domain;
+	default $http_origin;
+}
+
 # Check if Origin matches a subdomain of main_domain
-map $http_origin $valid_cors_origin {
+map $http_origin_main_domain!!$http_host_main_domain $valid_cors_origin {
 	default "";
-	~^https?://([a-z0-9-]+\.)*($main_domain)$ $http_origin;
+	 "~^([^:]+)!!\1$" $http_origin;
 }
 
 # Determine if credentials are allowed based on origin validity
@@ -55,7 +67,7 @@ map $valid_cors_origin $allow_credentials_origin {
 }
 
 # Determine if credentials are allowed based on uri
-map $request_uri $allow_credentials_uri {
+map $po_request_uri $allow_credentials_uri {
     default "";
     /cgi/auth.pl "true";
     /cgi/product_image_move.pl "true";
@@ -69,15 +81,15 @@ map "$allow_credentials_origin:$allow_credentials_uri" $allow_credentials {
 }
 
 # Determine the CORS origin to send
-map $valid_cors_origin $cors_origin {
+map $allow_credentials:$valid_cors_origin $cors_origin {
 	default "*";
-	~.+ $valid_cors_origin;
+	~true:.+ $valid_cors_origin;
 }
 
 # Add Vary header when origin is not *
 map $cors_origin $cors_vary {
 	default "";
-	"*" "";
+	* "";
 	~. "Origin";
 }
 

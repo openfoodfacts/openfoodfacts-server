@@ -133,18 +133,23 @@ location /cgi/ {
 # debug location to get variables
 # only from localhost, to help debug nginx configuration
 # Use host header to see the variables for a specific host, e.g.:
-# curl -H "Host: world.openfoodfacts.org" http://127.0.0.1/debug_vars
-location /debug_vars {
+# curl -H "Host: world.openfoodfacts.org" -H "Origin: https://world.openfoodfacts.org" http://127.0.0.1/debug_vars/uri-to-test
+location ~ ^/debug_vars/ {
     allow 127.0.0.1;
     deny all;
     default_type text/plain;
-    set $var_display " flavor_short: $flavor_short\n";
+    set $var_display " po_request_uri: $po_request_uri\n";
+    set $var_display "$var_display flavor_short: $flavor_short\n";
     set $var_display "$var_display productopener_path: $productopener_path\n";
     set $var_display "$var_display productopener_backend_host: $productopener_backend_host\n";
     set $var_display "$var_display apache_port: $apache_port\n";
     set $var_display "$var_display priority_port: $priority_port\n";
-    set $var_display "$var_display main_domain: $main_domain\n";
+    set $var_display "$var_display http_host_main_domain: $http_host_main_domain\n";
+    set $var_display "$var_display http_origin_main_domain: $http_origin_main_domain\n";
     set $var_display "$var_display valid_cors_origin: $valid_cors_origin\n";
+    set $var_display "$var_display cors_origin: $cors_origin\n";
+    set $var_display "$var_display cors_vary: $cors_vary\n";
     set $var_display "$var_display allow_credentials_origin: $allow_credentials_origin\n";
     set $var_display "$var_display allow_credentials_uri: $allow_credentials_uri\n";
+    set $var_display "$var_display allow_credentials: $allow_credentials\n";
     return 200 "$var_display";}

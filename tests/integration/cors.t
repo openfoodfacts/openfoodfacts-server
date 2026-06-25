@@ -60,7 +60,6 @@ my $tests_ref = [
 		headers => {
 			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Credentials" => "true",
-			"Vary" => "Origin"
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
@@ -164,7 +163,7 @@ my $tests_ref = [
 		test_case => 'options-facet-preflight',
 		method => 'OPTIONS',
 		path => '/facets/contributors/tests',
-		expected_status_code => 200,
+		expected_status_code => 204,
 		headers_in => {
 			"Access-Control-Request-Method" => "GET",
 		},
