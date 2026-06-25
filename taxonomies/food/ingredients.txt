@@ -60864,11 +60864,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lima_bean
 en: fresh lima bean
 eurocode_2_group_3:en: 8.45.25
 
-# < en:lima bean
+< en:lima bean
 < en:pulse
 en: dried lima bean
 fr: haricot de Lima sec, haricots de Lima secs
 it: fagioli di Lima secchi
+eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.34
 
 
@@ -61139,11 +61140,12 @@ en: raw mature mung bean
 usda_ndb_code:en: 16080
 usda_ndb_name:en: Mung beans, mature seeds, raw
 
-# < en:mung bean
+< en:mung bean
 < en:pulse
 en: dried mature mung bean
 ciqual_food_code:en: 20530
 ciqual_food_name:en: Beans, mung, mature, seeds, dried
+eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.38
 
 < en:mung bean
@@ -61595,7 +61597,7 @@ wikidata:en: Q131342
 wikipedia:en: https://en.wikipedia.org/wiki/Vicia_faba
 # ingredient/fr:feve has 54 products in french @2019-02-17
 
-# < en:broad bean
+< en:broad bean
 < en:pulse
 en: dried broad bean
 fr: fève sêche, fèves sèches
@@ -61603,6 +61605,7 @@ it: fava secca
 ciqual_food_code:en: 20518
 ciqual_food_name:en: Broad bean, dried
 ciqual_food_name:fr: Fève, sèche
+eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.20
 
 < en:broad bean
@@ -62071,8 +62074,7 @@ nl: gewelde kikkererwten
 pl: namoczona ciecierzyca
 
 < en:chickpea
-# issue with inheritance of eurocode?
-< en:pulses
+< en:pulse
 en: dried chickpea
 cs: sušená cizrna
 fr: pois chiche secs
@@ -62514,7 +62516,7 @@ hr: pardina leća
 it: lenticchie pardina
 pt: lentilhas pardina
 
-####### < en:lentils
+< en:lentils
 < en:pulse
 en: Dried lentils
 de: Getrocknete Linsen
@@ -62526,6 +62528,7 @@ pt: Lentilhas secas
 ciqual_food_code:en: 20504
 ciqual_food_name:en: Lentil, dried
 ciqual_food_name:fr: Lentille, sèche
+eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.25
 
 < en:lentils
