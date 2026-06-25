@@ -241,7 +241,9 @@ function check_links {
       continue
     fi
     # if target or destination does not exists and if they don't resolve to the same path, we have an error
-    if [[ -z $(readlink -f $destination) ]] || [[ -z $(readlink -f $target) ]] || [[ ! $(readlink -f $destination) = $(readlink -f $target) ]]
+    resolved_destination=$(readlink -f -- "$destination" 2>/dev/null || true)
+    resolved_target=$(readlink -f -- "$target" 2>/dev/null || true)
+    if [[ -z $resolved_destination ]] || [[ -z $resolved_target ]] || [[ $resolved_destination != $resolved_target ]]
     then
       GOT_ERROR=1
       if [[ ! -e $target ]]

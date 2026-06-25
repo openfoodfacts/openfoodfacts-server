@@ -14,10 +14,10 @@ map $request_uri $po_request_uri {
 # $flavor_short - the flavor short name: off / obf / opf / opff / off-pro
 map $host $flavor_short {
     default "off";
-    ~(//|\.)openbeautyfacts\. "obf";
-    ~(//|\.)openproductsfacts\. "opf";
-    ~(//|\.)openpetfoodfacts\. "opff";
-    ~(//|\.)pro\.openfoodfacts\. "off-pro";
+    ~(^|\.)openbeautyfacts\. "obf";
+    ~(^|\.)openproductsfacts\. "opf";
+    ~(^|\.)openpetfoodfacts\. "opff";
+    ~(^|\.)pro\.openfoodfacts\. "off-pro";
 }
 
 # Server settings --------------------------

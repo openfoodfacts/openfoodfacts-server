@@ -38,7 +38,6 @@ use ProductOpener::Images
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::APIProductWrite qw/:all/;
-use ProductOpener::HTTP qw//;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
