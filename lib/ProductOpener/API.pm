@@ -81,6 +81,8 @@ use ProductOpener::ProductSchemaChanges qw/$current_schema_version convert_produ
 use ProductOpener::ProductsFeatures qw(feature_enabled);
 
 use ProductOpener::APIAttributeGroups qw/attribute_groups_api preferences_api/;
+use ProductOpener::APICurrentUser qw/read_current_user_permissions_api/;
+use ProductOpener::APIHealth qw/read_health_api/;
 use ProductOpener::APIProductRead qw/read_product_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
 use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
@@ -89,7 +91,6 @@ use ProductOpener::APIProductServices qw/product_services_api external_sources_a
 use ProductOpener::APITagRead qw/read_tag_api/;
 use ProductOpener::APITaxonomySuggestions qw/taxonomy_suggestions_api/;
 use ProductOpener::APITaxonomy qw/taxonomy_canonicalize_tags_api taxonomy_display_tags_api/;
-use ProductOpener::APICurrentUser qw/read_current_user_permissions_api/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
@@ -397,14 +398,21 @@ Reference to the customized product object.
 
 sub send_api_response ($request_ref) {
 
-	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
+	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || '200';
 	delete $request_ref->{api_response}{status_code};
 
+	my $content_type = $request_ref->{api_response}{content_type} || $request_ref->{content_type} || 'application/json';
+	delete $request_ref->{api_response}{content_type};
+
+	# If the handler pre-built its own response object (e.g. health checks returning
+	# an RFC-compliant body), use that directly and bypass the standard API wrapper.
+	my $body_ref = delete $request_ref->{api_response}{body} // $request_ref->{api_response};
+
 	# Make sure we include convert_blessed to cater for blessed objects, like booleans
-	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
+	my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical->utf8->encode($body_ref);
 
 	# CORS headers are now handled by nginx
-	print header(-status => $status_code, -type => 'application/json', -charset => 'utf-8');
+	print header(-status => $status_code, -type => $content_type, -charset => 'utf-8');
 	# write json response
 	print $json;
 
@@ -505,6 +513,10 @@ my $dispatch_table = {
 	current_user => {
 		GET => \&read_current_user_permissions_api,
 		OPTIONS => sub {return;},
+	},
+	health => {
+		GET => \&read_health_api,
+		OPTIONS => sub {return;},    # Just return CORS headers
 	},
 };
 

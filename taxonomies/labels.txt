@@ -307,6 +307,43 @@ label_categories:en: en:Animal welfare
 wikidata:en: Q130711887
 
 en: Bord Bia Quality Assurance
+country:en: en:Ireland, en:Northern Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Origin Ireland
+country:en: en:Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Origin Northern Ireland
+country:en: en:Northern Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Produced & Processed in Ireland & Northern Ireland
+country:en: en:Ireland, en:Northern Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Reared & Processed in Ireland
+country:en: en:Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Meat Content Only Origin Ireland
+country:en: en:Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Origin Northern Ireland Meat Content Only
+country:en: en:Northern Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Produced & Processed in Ireland & Northern Ireland Meat Content Only
+country:en: en:Ireland, en:Northern Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Reared & Processed in Ireland Meat Content Only
+country:en: en:Ireland
+
+< en: Bord Bia Quality Assurance
+en: Bord Bia Quality Assurance Certified Member
+country:en: en:Ireland, en:Northern Ireland
 
 en: Free range
 bg: Свободно отглеждане
@@ -20375,7 +20412,7 @@ hu: Lakto-vegetáriánus
 it: Latto-vegetariano
 pt: Latto-vegetariano
 sv: Lakto-vegetarisk
-incompatible_with:en: ingredients:en:eggs # labels:en:contains-eggs
+incompatible_with:en: ingredients:en:eggs
 wikidata:en: Q3496076
 
 # non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
@@ -23063,13 +23100,9 @@ pt: Sem antibióticos ou hormonas, sem antibióticos nem hormonas
 
 en: National standard for Bulgarian yoghurt
 bg: БДС 12:2010, Национален стандарт за българско кисело мляко
-image:en: National-standard-for-Bulgarian-yoghurt.97.90.png
 
 en: National standard for Bulgarian kashkaval
 bg: БДС 14:2010, Национален стандарт за български кашкавал
-
-en: National standard for Bulgarian white cheese in brine
-bg: БДС 15:2010, Национален стандарт за българско бяло саламурено сирене
 
 bg: Утвърден стандарт България
 en: Approved standard Bulgaria
@@ -23155,6 +23188,7 @@ label_categories:en: en:Geographic label
 origins:en: en:ireland
 
 en: Contains a source of phenylalanine
+bg: Съдържа източник на фенилаланин
 ca: Conté una font de fenilalanina
 da: Indeholder en phenylalaninkilde
 de: Enthält eine Phenylalaninquelle, Das produkt enthält eine Phenylalaninquelle

@@ -40,6 +40,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --query some_field=-some_value	match products that don't have some_value for some_field
 --query some_field=value1,value2	match products that have value1 and value2 for some_field (must be a _tags field)
 --query some_field=value1\|value2	match products that have value1 or value2 for some_field (must be a _tags field)
+--query-codes-from-file	read product codes from a text file (one per line) and update those products instead of issuing a MongoDB query
 --analyze-and-enrich-product-data	run all the analysis and enrichments
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
@@ -168,10 +169,12 @@ my %fix_to_be_exported_orgs = ()
 	; # Used to record which orgs had products with en:exported status that were updated with the --fix-to-be-exported option.
 
 my $query_params_ref = {};    # filters for mongodb query
+my $query_codes_from_file = '';    # file with product codes to update
 
 GetOptions(
 	"key=s" => \$key,    # string
 	"query=s%" => $query_params_ref,
+	"query-codes-from-file=s" => \$query_codes_from_file,
 	"count" => \$count,
 	"just-print-codes" => \$just_print_codes,
 	"fields=s" => \@fields_to_update,
@@ -338,6 +341,18 @@ load_data();
 my $query_ref = {};
 
 add_params_to_query($query_params_ref, $query_ref);
+
+if ($query_codes_from_file) {
+	my @codes = ();
+	open(my $in, "<", "$query_codes_from_file") or die("Cannot read $query_codes_from_file: $!\n");
+	while (<$in>) {
+		if ($_ =~ /^(\d+)/) {
+			push @codes, $1;
+		}
+	}
+	close($in);
+	$query_ref->{"code"} = {'$in' => \@codes};
+}
 
 # --fix-to-be-exported: filter on states_tags en:exported
 # and last_exported_t between April 1st 2026 and June 2nd 2026
