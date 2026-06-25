@@ -8062,6 +8062,7 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 				or ($nutriscore_fruits_vegetables_legumes eq "yes"))
 		)
 			or ((defined $nutriscore_fruits_vegetables_legumes) and ($nutriscore_fruits_vegetables_legumes eq "yes"))
+			or 0
 	);
 }
 
