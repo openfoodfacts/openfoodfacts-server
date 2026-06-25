@@ -9,7 +9,7 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-          "ciqual_proxy_food_code" : "9410",
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 66.6666666666667,
@@ -134,7 +134,7 @@
    ],
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-       "en:mustard",
+      "en:mustard",
       "en:soya",
       "en:spice",
       "en:wheat"
