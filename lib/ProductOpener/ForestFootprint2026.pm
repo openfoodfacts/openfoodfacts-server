@@ -580,13 +580,22 @@ sub get_origin_footprint_data ($product_ref, $primary_ingredient_id) {
 	};
 }
 
+=head2 get_label_risk_data ($product_ref, $primary_ingredient_id)
+
+Determines if an ingredient has a label that reduces its risk factor, and returns the lowest risk factor among the labels.
+Input risk factors are in % (100% means the label does not reduce the risk, 0% means the label completely eliminates the risk).
+
+Labels can be product wide labels (in labels_tags), or ingredients specific labels (stored in the "labels" field for each ingredient in the ingredients structure)
+
+=cut
+
 sub get_label_risk_data ($product_ref, $primary_ingredient_id) {
 
 	my $risk_factor = 1;
 	my $label_id;
 
 	if (defined $product_ref->{labels_tags}) {
-		# get the lowest risk factor among labels
+		# get the lowest risk factor among labels of the product
 		foreach my $label_tag (@{$product_ref->{labels_tags}}) {
 			next if not defined $label_tag or $label_tag eq "";
 			if (exists $forest_footprint_2026_data{labels_risk}{$label_tag}) {
