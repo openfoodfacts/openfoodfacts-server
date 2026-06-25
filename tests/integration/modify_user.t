@@ -17,7 +17,7 @@ create_user($ua, \%create_user_args);
 
 #editing the user preferences as if via the API
 my %edit_form = (
-	email => 'notbob@example.com',
+	email => 'noreply@openfoodfacts.net',
 	name => 'NotTest',
 	userid => 'tests',
 	pro_checkbox => 1,
@@ -28,13 +28,13 @@ my %edit_form = (
 
 );
 my $url_edit = construct_test_url("/cgi/user.pl", "world");
-my $response_edit = $ua->post($url_edit, \%edit_form);
+my $response_edit = $ua->post($url_edit, Content => \%edit_form);
 
 #checking if the changes were saved
 my $keycloak = ProductOpener::Keycloak->new();
 my $user_ref = $keycloak->find_user_by_username('tests');
 
-is($user_ref->{email}, 'notbob@example.com', "the new email has been well saved");
+is($user_ref->{email}, 'noreply@openfoodfacts.net', "the new email has been well saved");
 is($user_ref->{name}, 'NotTest', "the new name has been well saved");
 is($user_ref->{preferred_language}, 'fr', "new language saved");
 is($user_ref->{country}, 'en:france', "new country saved");
@@ -55,7 +55,7 @@ $user_ref = retrieve_user('tests');
 
 is($user_ref->{pro}, 1, "pro flag changed");
 is($user_ref->{display_barcode}, 1, "display barcode flag changed");
-is($user_ref->{email}, 'notbob@example.com', "the new email has not been changed");
+is($user_ref->{email}, 'noreply@openfoodfacts.net', "the new email has not been changed");
 is($user_ref->{name}, 'NotTest', "the name has not been changed");
 is($user_ref->{preferred_language}, 'fr', "language not changed");
 is($user_ref->{country}, 'en:france', "country not changed");
