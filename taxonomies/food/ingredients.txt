@@ -62013,7 +62013,8 @@ it: ceci ammollati
 nl: gewelde kikkererwten
 pl: namoczona ciecierzyca
 
-< en:chickpea
+# < en:chickpea issue with inheritance of eurocode?
+< en:pulses
 en: dried chickpea
 cs: sušená cizrna
 fr: pois chiche secs
@@ -62023,6 +62024,7 @@ ciqual_food_code:en: 20516
 ciqual_food_name:en: Chick pea, dried
 ciqual_food_name:fr: Pois chiche, sec
 eurocode_2_group_3:en: 7.10.15
+eurocode_2_group_2:en: 7.10
 #204 @2021-10-15
 
 < en:chickpea
