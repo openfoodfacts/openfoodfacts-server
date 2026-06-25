@@ -882,7 +882,7 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 	# Forest footprint 2026 - moderator-only debugging panel
 	if (    $options_ref->{moderator}
 		and defined $product_ref->{forest_footprint_2026}
-		and defined $product_ref->{forest_footprint_2026}{primary_ingredients})
+		and ($product_ref->{forest_footprint_2026}{grade} // "unknown" eq "unknown")
 	{
 		create_panel_from_json_template("forest_footprint_2026",
 			"api/knowledge-panels/environment/forest_footprint_2026.tt.json",

@@ -87,6 +87,7 @@ my @primary_ingredients = qw(
 );
 
 # Thresholds for each primary ingredient (EF values for grades B, C, D)
+# (grade A is only if value is 0)
 my %grade_thresholds = (
 	'en:cocoa' => {
 		b => 0.065,
@@ -361,6 +362,8 @@ sub compute_forest_footprint_2026 ($product_ref) {
 	# Initialize each primary ingredient
 	foreach my $primary_ingredient_id (@primary_ingredients) {
 		$product_ref->{forest_footprint_2026}{primary_ingredients}{$primary_ingredient_id} = {
+			# this will accumulate a small structure for each (sub) ingredient found
+			# linked with this primary_ingredient
 			ingredients => [],
 			footprint_per_kg => 0,
 			grade => 'a',
@@ -425,6 +428,8 @@ sub compute_footprints_of_ingredients_2026 ($product_ref, $ingredients_ref) {
 			$log->debug("compute_footprints_of_ingredients_2026 - ingredient has subingredients",
 				{ingredient_id => $ingredient_ref->{id}})
 				if $log->is_debug();
+			# Note: calling this method will add the sub ingredient footprint information
+			# to product primary_ingredients if it exists
 			my $sub_ingredients_with_footprint
 				= compute_footprints_of_ingredients_2026($product_ref, $ingredient_ref->{ingredients});
 			if ($sub_ingredients_with_footprint > 0) {
@@ -543,6 +548,7 @@ sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_re
 sub get_origin_footprint_data ($product_ref, $primary_ingredient_id) {
 
 	if (defined $product_ref->{origins_tags}) {
+		# search for origins tags if they have an origin_data for this primary_ingredient 
 		foreach my $origin_tag (@{$product_ref->{origins_tags}}) {
 			next if not defined $origin_tag or $origin_tag eq "";
 			if (exists $forest_footprint_2026_data{origins_footprint}{$origin_tag}) {
@@ -580,6 +586,7 @@ sub get_label_risk_data ($product_ref, $primary_ingredient_id) {
 	my $label_id;
 
 	if (defined $product_ref->{labels_tags}) {
+		# get the lowest risk factor among labels
 		foreach my $label_tag (@{$product_ref->{labels_tags}}) {
 			next if not defined $label_tag or $label_tag eq "";
 			if (exists $forest_footprint_2026_data{labels_risk}{$label_tag}) {
