@@ -108,7 +108,6 @@ function compute_services {
 function compute_expected_links {
   # links to check target - dest
   # nginx configuration
-  EXPECTED_LINKS["/etc/nginx/sites-enabled/$SERVICE"]="$REPO_PATH/conf/nginx/sites-available/$SERVICE"
   EXPECTED_LINKS["$REPO_PATH/log.conf"]="$REPO_PATH/conf/$SERVICE-log.conf"
   EXPECTED_LINKS["$REPO_PATH/minion_log.conf"]="$REPO_PATH/conf/$SERVICE-minion_log.conf"
   # config
@@ -189,8 +188,11 @@ function compute_expected_links {
 
   # nginx links
   EXPECTED_LINKS["/etc/nginx/sites-enabled/$SERVICE"]="$REPO_PATH/conf/nginx/sites-available/$SERVICE"
-  EXPECTED_LINKS["/etc/nginx/snippets/expires-no-json-xml.conf"]="$REPO_PATH/conf/nginx/snippets/expires-no-json-xml.conf"
-  EXPECTED_LINKS["/etc/nginx/snippets/off.cors-headers.include"]="$REPO_PATH/conf/nginx/snippets/off.cors-headers.include"
+  EXPECTED_LINKS["/etc/nginx/sites-enabled/default"]="$REPO_PATH/conf/nginx/sites-available/default"
+  EXPECTED_LINKS["/etc/nginx/snippets/cors-headers.include"]="$REPO_PATH/conf/nginx/snippets/cors-headers.include"
+  EXPECTED_LINKS["/etc/nginx/snippets/productopener-mappings.include"]="$REPO_PATH/conf/nginx/snippets/productopener-mappings.include"
+  EXPECTED_LINKS["/etc/nginx/snippets/productopener-server.include"]="$REPO_PATH/conf/nginx/snippets/productopener-server.include"
+  EXPECTED_LINKS["/etc/nginx/conf.d/expires-no-json-xml.conf"]="$REPO_PATH/conf/nginx/conf.d/expires-no-json-xml.conf"
   EXPECTED_LINKS["/etc/nginx/conf.d/log_format_realip.conf"]="$REPO_PATH/conf/nginx/conf.d/log_format_realip.conf"
   EXPECTED_LINKS["/etc/nginx/mime.types"]="$REPO_PATH/conf/nginx/mime.types"
   if [[ $SERVICE = "off" ]]

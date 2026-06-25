@@ -44,8 +44,6 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&get_cors_headers
-		&write_cors_headers
 		&get_http_request_headers
 		&set_http_response_header
 		&write_http_response_headers
@@ -71,30 +69,6 @@ use LWP::UserAgent;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::Version qw/$version/;
-
-=head1 FUNCTIONS
-
-=head2 get_cors_headers($allow_credentials = 0, $sub_domain_only = 0)
-
-CORS headers are handled by the nginx reverse proxy.
-This function is kept for backward compatibility but returns an empty hash.
-
-=cut
-
-sub get_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
-	return {};
-}
-
-=head2 write_cors_headers($allow_credentials = 0, $sub_domain_only = 0)
-
-CORS headers are handled by the nginx reverse proxy.
-This function is kept for backward compatibility but does nothing.
-
-=cut
-
-sub write_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
-	return;
-}
 
 =head2 set_http_response_header($request_ref, $header_name, $header_value)
 

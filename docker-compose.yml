@@ -163,11 +163,17 @@ services:
 
       # Nginx, we use templates dir to be able to use environment vars
       - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
+      # common directives
       # cors headers definition as an include
-      - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
-      - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
+      - ./conf/nginx/snippets/cors-headers.include:/etc/nginx/snippets/cors-headers.include
+      # configurations for product-opener
+      - ./conf/nginx/snippets/productopener-mappings.include:/etc/nginx/snippets/productopener-mappings.include
+      - ./conf/nginx/snippets/productopener-server.include:/etc/nginx/snippets/productopener-server.include
       # some expires rules
-      - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
+      - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
+      - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/conf.d/aa_expires-no-json-xml.conf
+      # log format
+      - ./conf/nginx/conf.d/log_format_realip.conf:/etc/nginx/conf.d/aa_log_format_realip.conf
       # some redirects
       - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
 

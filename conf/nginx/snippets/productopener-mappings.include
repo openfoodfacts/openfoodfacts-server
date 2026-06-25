@@ -1,0 +1,113 @@
+# This file defines different variables mapping
+# so that we can have a generic product opener nginx site definitions
+
+uninitialized_variable_warn on;
+
+# Flavor handling ----------------------
+
+# $flavor_short - the flavor short name: off / obf / opf / opff / off-pro
+map $host $flavor_short {
+    default "off";
+    ~(//|\.)openbeautyfacts\. "obf";
+    ~(//|\.)openproductsfacts\. "opf";
+    ~(//|\.)openpetfoodfacts\. "opff";
+    ~(//|\.)pro\.openfoodfacts\. "off-pro";
+}
+
+# Server settings --------------------------
+
+# some path differ wether we are in docker on in a CT (for historical reasons)
+map $nginx_container $productopener_path {
+    default "/srv/$flavor_short";
+    "docker" "/opt/product-opener";
+}
+
+# backend host
+map $nginx_container $productopener_backend_host {
+    default "127.0.0.1";
+    "docker" "backend";  # name in docker compose dns
+}
+
+# backend port
+map $nginx_container $apache_port_base {
+    default "8001";
+    "docker" "80";  # port in docker compose
+}
+
+# CORS handling ----------------------
+
+# Extract main domain from host for CORS
+map $host $main_domain {
+	~^(?:[a-z0-9-]+\.)?(?<domain>[a-z0-9-]+\.[a-z]+)$ $domain;
+	default $host;
+}
+
+# Check if Origin matches a subdomain of main_domain
+map $http_origin $valid_cors_origin {
+	default "";
+	~^https?://([a-z0-9-]+\.)*($main_domain)$ $http_origin;
+}
+
+# Determine if credentials are allowed based on origin validity
+map $valid_cors_origin $allow_credentials_origin {
+	default "";
+	~. "true";
+}
+
+# Determine if credentials are allowed based on uri
+map $request_uri $allow_credentials_uri {
+    default "";
+    /cgi/auth.pl "true";
+    /cgi/product_image_move.pl "true";
+    ~^/api/.*/current_user "true";
+}
+
+# compile credentials allowed based on origin and uri
+map "$allow_credentials_origin:$allow_credentials_uri" $allow_credentials {
+    default "";
+    true:true "true";
+}
+
+# Determine the CORS origin to send
+map $valid_cors_origin $cors_origin {
+	default "*";
+	~.+ $valid_cors_origin;
+}
+
+# Add Vary header when origin is not *
+map $cors_origin $cors_vary {
+	default "";
+	"*" "";
+	~. "Origin";
+}
+
+# Priority handling ----------------------
+
+# Detect priority clients from X-User-Agent header
+map $http_x_user_agent $priority_user_agent {
+	default 0;
+	"~*intake24" 1;
+}
+
+# Which port should priority requests be sent to ?
+map $host $priority_port {
+    default $apache_port_base;  # no real priority for most domains, same as normal
+    ~.*\.openfoodfacts\.org$ 8002;  # priority for openfoodfacts.org
+}
+
+# map to decide if we go to the priority (8002) or standard service (8001)
+# intake24 search clients are routed to priority to avoid standard search throttling
+map "$uri:$priority_user_agent" $apache_port {
+
+	default $priority_port;
+
+	# Everything is priority but:
+	# facets
+	"~*^/facets/.*:0$" $apache_port_base;
+	# pages > 1 on home page
+	"~*^/[0-9]+.*:0$" $apache_port_base;
+	# search (api or cgi)
+	"~*^/cgi/search\.pl.*:0$" $apache_port_base;
+	"~*^/api/v[^/]*/search.*:0$" $apache_port_base;
+	"~*^/cgi/opensearch\.pl.*:0$" $apache_port_base;
+}
