@@ -96,7 +96,6 @@ my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
 my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
 my $metadata_json_encoder = JSON::MaybeXS->new(canonical => 1, utf8 => 1, pretty => 1);
 
-
 =head2 wait_auth()
 
 Wait for authentication server to be ready.

@@ -44,7 +44,7 @@ my $tests_ref = [
 		test_case => 'options-auth',
 		method => 'OPTIONS',
 		path => '/cgi/auth.pl',
-		expected_status_code => 204,    # we are not authenticated, but we now always return 204 for all OPTIONS requests
+		expected_status_code => 204,   # we are not authenticated, but we now always return 204 for all OPTIONS requests
 		headers => {
 			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Credentials" => "true",
@@ -67,7 +67,7 @@ my $tests_ref = [
 		test_case => 'options-auth-bad-origin',
 		method => 'OPTIONS',
 		path => '/cgi/auth.pl',
-		expected_status_code => 204,    # we are not authenticated, but we now always return 204 for all OPTIONS requests
+		expected_status_code => 204,   # we are not authenticated, but we now always return 204 for all OPTIONS requests
 		headers_in => {"Origin" => "http://other.localhost"},
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
@@ -127,7 +127,8 @@ my $tests_ref = [
 		test_case => 'options-api-v2',
 		method => 'OPTIONS',
 		path => '/api/v2/product/1234567890123',
-		expected_status_code => 204,	# Return 204 for OPTIONS requests, even if the product does not exist, to allow CORS preflight to succeed
+		expected_status_code => 204
+		,    # Return 204 for OPTIONS requests, even if the product does not exist, to allow CORS preflight to succeed
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
@@ -149,7 +150,8 @@ my $tests_ref = [
 		test_case => 'options-api-v2-x-user-agent',
 		method => 'OPTIONS',
 		path => '/api/v2/product/1234567890123',
-		expected_status_code => 204,	# Return 204 for OPTIONS requests, even if the product does not exist, to allow CORS preflight to succeed
+		expected_status_code => 204
+		,    # Return 204 for OPTIONS requests, even if the product does not exist, to allow CORS preflight to succeed
 		headers_in => {"X-User-Agent" => "test"},
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
