@@ -28544,7 +28544,7 @@ wikidata:en: Q3066928
 
 
 
-
+< en:broad bean
 < en:flour
 en: broad bean flour
 bg: бобено брашно
@@ -28619,6 +28619,23 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20900
 ciqual_food_name:en: Soya flour
 ciqual_food_name:fr: Farine de soja
+usda_ndb_proxy_code:en: 16115
+usda_ndb_proxy_name:en: Soy flour, full-fat, raw
+
+< en:soya flour
+en: defatted soy flour
+usda_ndb_code:en: 16117
+usda_ndb_name:en: Soy flour, defatted
+
+< en:soya flour
+en: raw full-fat soy flour
+usda_ndb_code:en: 16115
+usda_ndb_name:en: Soy flour, full-fat, raw
+
+< en:soya flour
+en: raw defatted soy meal
+usda_ndb_code:en: 16119
+usda_ndb_name:en: Soy meal, defatted, raw
 
 < en:soya flour
 en: restructured soya flour
@@ -34257,6 +34274,28 @@ sk: sójová bielkovina
 sl: sojini proteini
 sv: sojaprotein, sojaproteinpeparat
 allergens:en: en:soybeans
+ciqual_proxy_food_code:en: 20591
+ciqual_proxy_food_name:en: Soy protein, textured, rehydrated
+usda_ndb_proxy_code:en: 16422
+usda_ndb_proxy_name:en: Soy protein isolate, potassium type
+
+< en:soy protein
+en: soy protein concentrate (acid wash)
+usda_ndb_code:en: 16420
+usda_ndb_name:en: Soy protein concentrate, produced by acid wash
+
+< en:soy protein
+en: soy protein concentrate (alcohol extraction)
+usda_ndb_code:en: 16121
+usda_ndb_name:en: Soy protein concentrate, produced by alcohol extraction
+
+< en:soy protein
+en: soy protein isolate (soy protein concentrate)
+usda_ndb_code:en: 16422
+usda_ndb_name:en: Soy protein isolate, potassium type
+
+< en:soy protein
+en: rehydrated textured soy protein
 ciqual_food_code:en: 20591
 ciqual_food_name:en: Soy protein, textured, rehydrated
 
@@ -36725,7 +36764,7 @@ it: fiore di soia
 nl: sojabloemen
 comment:en: This is the actual flower, not flour
 
-< en:legume
+# < en:legume
 < en:pulse
 #category/soy-beans
 < en:soya
@@ -36776,9 +36815,9 @@ zh: 大豆
 # sco:Soya bean
 allergens:en: en:soybeans
 # ingredient/soy-beans 22.545 in 34 @2021-08-22
-ciqual_food_code:en: 20901
-ciqual_food_name:en: Soybean, whole grain
-ciqual_food_name:fr: Soja, graine entière
+ciqual_proxy_food_code:en: 20901
+ciqual_proxy_food_name:en: Soybean, whole grain
+ciqual_proxy_food_name:fr: Soja, graine entière
 description:en: SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia.
 description:de: Die Sojabohne (Glycine max), häufig auch einfach als Soja bezeichnet, ist eine Pflanzenart aus der Unterfamilie Schmetterlingsblütler. Als Nahrung ist die Eiweißqualität des Sojaproteins mit der von tierischem Eiweiß vergleichbar, was die Sojabohne von anderen Pflanzen abhebt.
 description:es: Glycine max, llamada popularmente soya o soja, es una especie de la familia Fabaceae. El grano de soya y sus subproductos (aceite y harina de soya) se utilizan en la alimentación humana, del ganado y aves.
@@ -36786,6 +36825,8 @@ description:fr: Le soja, (soya) (Glycine max), est une espèce de plante annuell
 description:nl: De sojaboon is een peulvrucht, afkomstig van de sojaplant (Glycine max), die als grondstof voor veel sojaproducten wordt gebruikt.
 description:pt: A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês, é uma planta pertence à família Fabaceae
 eurocode_2_group_3:en: 7.10.50
+usda_ndb_proxy_code:en: 16108
+usda_ndb_proxy_name:en: Soybeans, mature seeds, raw
 wikidata:en: Q11006
 wikipedia:en: https://en.wikipedia.org/wiki/Soybean
 
@@ -36796,6 +36837,8 @@ it: chicchi di soia integrali
 ciqual_food_code:en: 20901
 ciqual_food_name:en: Soybean, whole grain
 ciqual_food_name:fr: Soja, graine entière
+usda_ndb_code:en: 16108
+usda_ndb_name:en: Soybeans, mature seeds, raw
 
 #<en:soya bean
 #en:organic soya bean
@@ -60268,6 +60311,13 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Navette_(plante)
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+< en:vegetable
+en: pod and seed vegetable
+fr: légumes à gousse et à graines
+it: baccello e seme vegetale
+lv: pākšu un sēklu dārzenis
+nl: peul- en zaadgroente
+eurocode_2_group_2:en: 8.45
 
 ###########################
 #
@@ -60277,10 +60327,9 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Navette_(plante)
 #########################
 
 
-# description:en:A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
-# comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
+# comment:en: Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
-< en:legume
+# < en:legume
 < en:pulse
 en: beans, common bean, bean, Rajma, Rajmah
 am: ኣደንጓሬ
@@ -60356,11 +60405,6 @@ ud: Фасоль
 uk: квасоля звичайна
 vi: Đậu cô ve
 zh: 菜豆
-# ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
-carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
-carbon_footprint_fr_foodges_value:fr: 2
-eurocode_2_group_3:en: 7.10.30
-rare_crop:en: yes
 # azb:عادی لوْبیا
 # bar:Fisoin
 # chr:ᏚᏯ
@@ -60384,7 +60428,13 @@ rare_crop:en: yes
 # zh-hans:菜豆
 # zh-hant:菜豆
 # zh-tw:長豇豆
+carbon_footprint_fr_foodges_ingredient:fr: Haricot blanc en conserve (type cassoulet)
+carbon_footprint_fr_foodges_value:fr: 2
+description:en: A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
+eurocode_2_group_3:en: 7.10.30
+rare_crop:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Phaseolus_vulgaris
+# ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
 
 < en:beans
 en: bean sprouts, beansprouts
@@ -60394,9 +60444,7 @@ hr: klice graha
 lt: šparaginės pupelės
 lv: diedzētas pupinas
 
-
 < en:legume
-< en:pod and seed vegetable
 en: green bean, green beans, French bean
 ar: الفاصوليا الخضراء
 az: göy lobya
@@ -60434,18 +60482,6 @@ ta: பச்சை அவரை
 tl: sitaw
 uk: стручкова квасоля
 zh: 豆角
-carbon_footprint_fr_foodges_ingredient:fr: Haricot vert frais locaux
-carbon_footprint_fr_foodges_value:fr: 0.7
-#carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
-#carbon_footprint_fr_foodges_value:fr:22.8
-ciqual_food_code:en: 20061
-ciqual_food_name:en: French bean, raw
-ciqual_food_name:fr: Haricot vert, cru
-ecobalyse:en: french-bean-non-eu
-ecobalyse_origins_en_european_union:en: french-bean-eu
-ecobalyse_origins_en_france:en: french-bean-fr
-#4192 in 16 @2021-10-01
-eurocode_2_group_3:en: 8.45.30
 #arz:فاصوليا خضرا
 #bcl:balatong
 #chy:tó'êsemónêškeho
@@ -60456,7 +60492,19 @@ eurocode_2_group_3:en: 8.45.30
 #scn:fasulina
 #war:hantak
 #yue:荳角
+carbon_footprint_fr_foodges_ingredient:fr: Haricot vert frais locaux
+carbon_footprint_fr_foodges_value:fr: 0.7
+#carbon_footprint_fr_foodges_ingredient:fr:Haricot vert importé par avion
+#carbon_footprint_fr_foodges_value:fr:22.8
+ciqual_food_code:en: 20061
+ciqual_food_name:en: French bean, raw
+ciqual_food_name:fr: Haricot vert, cru
+ecobalyse:en: french-bean-non-eu
+ecobalyse_origins_en_european_union:en: french-bean-eu
+ecobalyse_origins_en_france:en: french-bean-fr
+eurocode_2_group_3:en: 8.45.30
 wikidata:en: Q2987371
+#4192 in 16 @2021-10-01
 
 #<en:green bean
 #fr:haricots verts tres fins issus de l'agriculture biologique
@@ -60516,10 +60564,7 @@ ciqual_food_name:fr: Haricot beurre, cru
 eurocode_2_group_3:en: 8.45.25
 wikidata:en: Q68189268
 
-# description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
-
 < en:green bean
-< en:pod and seed vegetable
 en: flat bean, romano bean, helda bean, flat green beans, flat beans, runner bean
 de: flache Bohne, Helda Bohne, Romano Bohne, flache grüne Bohnen, flache Bohnen
 es: judia verde plana, ferraúra
@@ -60530,12 +60575,13 @@ nl: snijboon
 nn: snittebønne
 ro: fasole boabe Romano
 sv: romanabönor
+# nds_nl:klemboon, sniejboon
+#pap:sneibonchi
 ciqual_food_code:en: 20269
 ciqual_food_name:en: Flat bean, raw
 ciqual_food_name:fr: Haricot plat, cru
+description:en: FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
 eurocode_2_group_3:en: 8.45.40
-# nds_nl:klemboon, sniejboon
-#pap:sneibonchi
 wikidata:en: Q1828227
 wikipedia:en: https://en.wikipedia.org/wiki/Flat_bean
 
@@ -60592,6 +60638,46 @@ wikidata:en: Q159753
 en: mixed beans, bean mix
 sv: blandade bönor
 
+
+###################################################################################################
+#
+#
+#                        Winged beans
+#
+#
+###################################################################################################
+
+< en:legume
+en: winged beans
+la: Psophocarpus tetragonolobus
+description:en: Winged beans (Psophocarpus tetragonolobus) are a tropical legume known for their distinctive four-sided, ruffled or "winged" pods — the edges look like jagged ribbons running down the length of each pod. Almost the entire plant is edible: pods, seeds, leaves, flowers, and even the tuberous roots can all be eaten. That's unusual among legumes. High in protein: the seeds in particular are very protein- and nutrient-dense, which is part of why they've been studied as a potential "supercrop" for tropical regions. Native to Southeast Asia and New Guinea, and widely grown across South and Southeast Asia, as well as parts of Africa.
+usda_ndb_proxy_code:en: 16135
+usda_ndb_proxy_name:en: Winged beans, mature seeds, raw
+
+< en:winged beans
+en: raw mature winged bean
+usda_ndb_code:en: 16135
+usda_ndb_name:en: Winged beans, mature seeds, raw
+
+###################################################################################################
+#
+#
+#                        Yardlong beans
+#
+#
+###################################################################################################
+
+< en:legume
+en: yardlong beans
+description:en: Yardlong beans (also called Chinese long beans, snake beans, or asparagus beans) are a type of legume known for their dramatically long, slender pods — typically 12 to 30 inches long, though they're usually picked and sold around 18 inches. They have a slightly nuttier, more savory flavor than regular green beans, with a denser, chewier texture that holds up well to high-heat cooking like stir-frying. They're a staple in Chinese, Southeast Asian (especially Thai, Vietnamese, Filipino), and South Asian cooking.
+usda_ndb_proxy_code:en: 16133
+usda_ndb_proxy_name:en: Yardlong beans, mature seeds, raw
+
+< en: yardlong beans
+en: raw mature yardlong bean
+usda_ndb_code:en: 16133
+usda_ndb_name:en: Yardlong beans, mature seeds, raw
+
 ###########################
 #
 #
@@ -60600,8 +60686,7 @@ sv: blandade bönor
 #
 ##########################
 
-
-< en:vegetable
+< en:pod and seed vegetable
 en: legume
 af: Peulgewas
 an: Legumbre
@@ -60632,7 +60717,6 @@ ia: Legumine
 id: Kacang-kacangan
 is: Baun
 it: leguminose
-#comment:it:vedi commento su "en:pulses" per distinzione con "en:legume"
 ja: 豆果
 ko: 협과
 la: Legumen
@@ -60684,7 +60768,10 @@ zh: 荚果
 #zh-hk: 莢果
 #zh-sg: 荚果
 #zh-tw: 莢果
+comment:it: "en:pulse" e "en:legumes" in italiano spesso si confondono perché entrambi i termini vengono generalmente tradotti come "legumi", anche se tecnicamente sarebbe più preciso distinguere tra "legumi secchi" (pulses) e "leguminose" (legume plants).
 description:en: A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
+#eurocode_2_group_2:en: 7.10 are dry ones
+eurocode_2_group_2:en: 8.45
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q145909
@@ -60699,13 +60786,31 @@ nl: gedroogde peulvruchten
 pt: pulso
 sv: baljfrukt
 comment:it: "en:pulse" e "en:legumes" in italiano spesso si confondono perché entrambi i termini vengono generalmente tradotti come "legumi", anche se tecnicamente sarebbe più preciso distinguere tra "legumi secchi" (pulses) e "leguminose" (legume plants).
+description:en: pulse = just the dry, harvested seed of specific legume crops. The UN Food and Agriculture Organization (FAO) recognizes 11 categories of pulses: Dry beans — includes kidney beans, navy beans, pinto beans, black beans, lima beans, mung beans, adzuki beans; Dry broad beans — fava beans, horse beans, broad beans (in dried form); Dry peas — includes split peas, whole dried peas (green or yellow); Chickpeas — also called garbanzo beans; Dry cowpeas — black-eyed peas, blackeye beans; Pigeon peas — also called Congo beans or gandules; Lentils — includes red, green, brown, black (beluga), French (Puy); Bambara beans — also called Bambara groundnuts (earth peas); Vetches — common vetch; Lupins — lupin beans (also called lupini beans); Minor pulses — a catch-all for less common ones, such as lablab, jack beans, winged beans, yam beans
 eurocode_2_group_2:en: 7.10
 wikidata:en: Q2727662
 
-# description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
+###################################################################################################
+#
+#
+#                        Hyacint beans
+#
+#
+###################################################################################################
 
-#category/butter-beans
-< en:pod and seed vegetable
+< en:legume
+en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
+la: Lablab purpureus
+description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
+usda_ndb_proxy_code:en: 16067
+usda_ndb_proxy_name:en: Hyacinth beans, mature seeds, raw
+
+< en:hyacinth bean
+en: raw mature hyacinth bean
+usda_ndb_code:en: 16067
+usda_ndb_name:en: Hyacinth beans, mature seeds, raw
+
+< en:legume
 en: lima bean, lima beans, butter bean
 ca: garrofó, fesol de la peladilla, mongeta de Lima
 da: limabønne, månebønne, sukkerbønne
@@ -60740,26 +60845,33 @@ sw: mfiwi
 tl: patani
 vi: dâu ngu
 zh: 棉豆
+#ban:kara, kekara
+#ilo:patani
 ciqual_food_code:en: 20126
 ciqual_food_name:en: Lima bean, raw
 ciqual_food_name:fr: Haricot de Lima, cru
-#528 @2021-10-27
+description:en: Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 # eurocode 8.45.25 is for fresh Lima beans
+# eurocode 7.10.34 is for dried lima beans
+# eurocode_2_group_3:en: 7.10.34
 eurocode_2_group_3:en: 8.45.25
-#ban:kara, kekara
-#ilo:patani
 #plant: wikidata:en:Q1166136
 wikidata:en: Q104007010
 wikipedia:en: https://en.wikipedia.org/wiki/Lima_bean
-# eurocode 7.10.34 is for dried lima beans
-# eurocode_2_group_3:en: 7.10.34
+#528 @2021-10-27
+
+< en:lima bean
+en: fresh lima bean
+eurocode_2_group_3:en: 8.45.25
 
 < en:lima bean
 < en:pulse
 en: dried lima bean
 fr: haricot de Lima sec, haricots de Lima secs
 it: fagioli di Lima secchi
+eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.34
+
 
 < en:lima bean
 en: large lima beans
@@ -60770,7 +60882,7 @@ it: fagioli di Lima grandi
 en: baby lima beans
 it: fagioli di Lima baby
 
-< en:legume
+# < en:legume
 < en:pulse
 en: pinto beans
 de: Pinto Bohnen, Pintobohnen
@@ -60783,7 +60895,7 @@ sv: pintobönor, pintoböna
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.45
 
-< en:legume
+# < en:legume
 < en:pulse
 en: white beans, navy beans, great northern beans, haricot beans
 bg: бял боб
@@ -60937,9 +61049,15 @@ it: fagioli cannellini, cannellini
 sv: cannellinibönor, cannelliniböna
 wikidata:en: Q74663825
 
-#comment:en:Do not confuse these with mungo beans: Vigna mungo
+###################################################################################################
+#
+#
+#                        Mung bean
+#
+#
+###################################################################################################
+
 < en:legume
-< en:pulse
 en: mung bean, mungbean, Mung dal, Moong dal
 ar: بقلة الماش
 bg: птичи боб, бебриджа
@@ -60999,7 +61117,6 @@ uz: mosh
 vi: đậu xanh
 za: duhheu
 zh: 綠豆
-#579 @2021-10-06
 #aeb: لوبيا
 #arz:بقله الماش
 #cdo:liŏh-dâu
@@ -61010,19 +61127,30 @@ zh: 綠豆
 #pnb:مونگ
 #wuu:绿豆
 #yue:綠豆
-ciqual_food_code:en: 20530
-ciqual_food_name:en: Beans, mung, mature, seeds, dried
-eurocode_2_group_3:en: 7.10.38
+ciqual_proxy_food_code:en: 20530
+ciqual_proxy_food_name:en: Beans, mung, mature, seeds, dried
+usda_ndb_proxy_code:en: 16080
+usda_ndb_proxy_name:en: Mung beans, mature seeds, raw
 wikidata:en: Q484447
 wikipedia:en: https://en.wikipedia.org/wiki/Mung_bean
+#579 @2021-10-06
 
+< en:mung bean
+en: raw mature mung bean
+usda_ndb_code:en: 16080
+usda_ndb_name:en: Mung beans, mature seeds, raw
+
+< en:mung bean
 < en:pulse
-en: black gram, urd bean, urd, Urad bean, Mungo bean, Black matpe bean, Urad Dal
-fr: haricot urd, haricots urd, urd, haricot mungio à grain noir
-hr: crni gram
-it: grammo nero
-la: vigna mungo, Phaseolus mungo
-eurocode_2_group_3:en: 7.10.42
+en: dried mature mung bean
+ciqual_food_code:en: 20530
+ciqual_food_name:en: Beans, mung, mature, seeds, dried
+eurocode_2_group_2:en: 7.10
+eurocode_2_group_3:en: 7.10.38
+
+< en:mung bean
+en: mung bean powder
+zh: 緣豆粉
 
 < en:mung bean
 en: mung bean sprout, mung bean seedlings
@@ -61061,9 +61189,28 @@ ciqual_food_name:fr: Haricot mungo germé ou pousse de ""soja"", cru
 wikidata:en: Q7635866
 #135 in 10 @2021-10-28
 
-#<en:mung bean
-#en:Mungbean powder
-#zh:緣豆粉
+###################################################################################################
+#
+#
+#                        Mungo bean
+#
+#
+###################################################################################################
+
+< en:legume
+en: black gram, urd bean, urd, Urad bean, Mungo bean, Black matpe bean, Urad Dal
+fr: haricot urd, haricots urd, urd, haricot mungio à grain noir
+hr: crni gram
+it: grammo nero
+la: vigna mungo, Phaseolus mungo
+# eurocode_2_group_3:en: 7.10.42
+usda_ndb_proxy_code:en: 16083
+usda_ndb_proxy_name:en: Mungo beans, mature seeds, raw
+
+< en:black gram
+en: raw mature mungo bean
+usda_ndb_code:en: 16083
+usda_ndb_name:en: Mungo beans, mature seeds, raw
 
 < en:pulse
 en: borlotti bean, borlotti, cranberry bean
@@ -61148,9 +61295,13 @@ fr: flageolets verts extra-fins
 nl: extra fijne groene flageolets
 # ingredient/fr:flageolets-verts-extra-fins has 30 products in 2 languages @2019-02-25
 
-
-# description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
-# only "sweet" varieties of lupin are used for human food
+###################################################################################################
+#
+#
+#                        Lupin bean
+#
+#
+###################################################################################################
 
 < en:pulse
 en: lupin bean, lupine bean, lupin, lupines, lupine, sweet lupin, lupini, lupini beans
@@ -61219,15 +61370,26 @@ zh: 羽扇豆, 鲁冰花
 # zh-sg:羽扇豆
 # zh-tw:羽扇豆
 allergens:en: en:lupin
-ciqual_food_code:en: 20534
-ciqual_food_name:en: lupin grain, raw
-ciqual_food_name:fr: Lupin, graine crue
-# 957 in 12 @2021-10-01
+ciqual_proxy_food_code:en: 20534
+ciqual_proxy_food_name:en: lupin grain, raw
+ciqual_proxy_food_name:fr: Lupin, graine crue
+description:en: Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals. Only "sweet" varieties of lupin are used for human food
 eurocode_2_group_3:en: 7.10.xx
 rare_crop:en: yes
 #plant:wikidata:en:Q156811
+usda_ndb_proxy_code:en: 16076
+usda_ndb_proxy_name:en: Lupins, mature seeds, raw
 wikidata:en: Q13582643
 wikipedia:en: https://en.wikipedia.org/wiki/Lupin_bean
+# 957 in 12 @2021-10-01
+
+< en:lupin
+en: raw mature lupin
+ciqual_food_code:en: 20534
+ciqual_food_name:en: lupin grain, raw
+ciqual_food_name:fr: Lupin, graine crue
+usda_ndb_code:en: 16076
+usda_ndb_name:en: Lupins, mature seeds, raw
 
 < en:lupin
 en: white lupin, white lupine
@@ -61275,6 +61437,10 @@ hr: brašno od lupine
 hu: csillagfürtliszt
 it: farina di lupino
 nl: lupinemeel
+ciqual_proxy_food_code:en: 20534
+ciqual_proxy_food_name:en: lupin grain, raw
+ciqual_proxy_food_name:fr: Lupin, graine crue
+eurocode_2_group_3:en: 7.10.xx
 # 330 in 8 @2021-10-01
 
 # <en:compound
@@ -61288,14 +61454,31 @@ fr: vermicelle de pois réhydraté, vermicelles de pois réhydratés
 nl: gerehydrateerde vermicelli van erwten
 # ingredient/fr:vermicelles-de-pois-réhydratés has 43 products @2019-02-18
 
-# description:en:Vicia faba, also known in the culinary sense as the broad bean, fava bean, or faba bean is a species of flowering plant in the pea and bean family Fabaceae.
+###################################################################################################
+#
+#
+#                        Moth bean
+#
+#
+###################################################################################################
 
+< en:legume
+en: moth bean, matki, mothbean
+la: Vigna aconitifolia
+description:en: A drought-tolerant legume native to the Indian subcontinent, grown mainly in arid and semi-arid regions of India and Pakistan. Small, cylindrical, yellowish-brown to olive-colored beans, similar in size to mung beans.
+usda_ndb_proxy_code:en: 16078
+usda_ndb_proxy_name:en: Mothbeans, mature seeds, raw
+
+< en:moth bean
+en: raw mature moth bean
+usda_ndb_code:en: 16078
+usda_ndb_name:en: Mothbeans, mature seeds, raw
 
 < en:legume
 nl: veldbonen
 
-< en:pod and seed vegetable
-en: broad bean, fava bean, faba bean, Vicia faba, horse bean
+< en:legume
+en: broad bean, fava bean, faba bean, Vicia faba, horse bean, broadbean
 am: ባቄላ
 ar: فول
 ay: Jawasa
@@ -61364,16 +61547,6 @@ uz: Boqla
 vi: Đậu răng ngựa
 wa: Grosse feve
 zh: 蚕豆
-# ingredient/fr:feve has 54 products in french @2019-02-17
-ciqual_food_code:en: 20518
-ciqual_food_name:en: Broad bean, dried
-ciqual_food_name:fr: Fève, sèche
-ecobalyse:en: broad-beans-eu
-ecobalyse_origins_en_france:en: broad-beans-fr
-#eurocode 8.45.20 is for fresh broad beans
-#eurocode_2_group_3:en: 7.10.20 is for dried broad beans
-eurocode_2_group_3:en: 8.45.20
-rare_crop:en: yes
 # aeb-arab:فول
 # arz:فول
 # azb:آت پاخلاسی
@@ -61408,15 +61581,37 @@ rare_crop:en: yes
 # zh-hk:蠶豆
 # zh-sg:蚕豆
 # zh-tw:蠶豆
+ciqual_proxy_food_code:en: 20518
+ciqual_proxy_food_name:en: Broad bean, dried
+ciqual_proxy_food_name:fr: Fève, sèche
+description:en: Vicia faba, also known in the culinary sense as the broad bean, fava bean, or faba bean is a species of flowering plant in the pea and bean family Fabaceae.
+ecobalyse:en: broad-beans-eu
+ecobalyse_origins_en_france:en: broad-beans-fr
+#eurocode 8.45.20 is for fresh broad beans
+#eurocode_2_group_3:en: 7.10.20 is for dried broad beans
+eurocode_2_group_3:en: 8.45.20
+rare_crop:en: yes
+usda_ndb_proxy_code:en: 16052
+usda_ndb_proxy_name:en: Broadbeans (fava beans), mature seeds, raw
 wikidata:en: Q131342
 wikipedia:en: https://en.wikipedia.org/wiki/Vicia_faba
+# ingredient/fr:feve has 54 products in french @2019-02-17
 
 < en:broad bean
 < en:pulse
 en: dried broad bean
 fr: fève sêche, fèves sèches
 it: fava secca
+ciqual_food_code:en: 20518
+ciqual_food_name:en: Broad bean, dried
+ciqual_food_name:fr: Fève, sèche
+eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.20
+
+< en:broad bean
+en: raw mature broad beans
+usda_ndb_code:en: 16052
+usda_ndb_name:en: Broadbeans (fava beans), mature seeds, raw
 
 < en:preparation
 en: faba bean preparation
@@ -61670,12 +61865,13 @@ zh: 豌豆
 # yue:青荳
 # zea:Erten
 # zh-tw:豌豆
-# wikidata:en:Q29472543 (seems more the vegetable)
+description:en: Peas are a good example of how the same plant can fall into different categories depending on how it's harvested and used. Fresh peas (green peas, snap peas, snow peas) are harvested young and eaten fresh, in or out of the pod. they are classified as a vegetable, not a pulse. Dried peas are the same plant, but the peas are left to mature and dry on the vine before harvesting. This is what counts as a pulse.
 eurocode_2_group_3:en: 8.45.10
-# ingredient/fr:pois has 259 products in 7 languages @2019-05-10
-# usage:fr:amidon (blé, pomme de terre, pois, maïs)
 rare_crop:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Pea
+# wikidata:en:Q29472543 (seems more the vegetable)
+# ingredient/fr:pois has 259 products in 7 languages @2019-05-10
+# usage:fr:amidon (blé, pomme de terre, pois, maïs)
 
 # <en:pea
 # fr:extrait de pois # see ingredients_processing.txt
@@ -61687,9 +61883,35 @@ de: Palerbse, Palerbsen
 fr: pois jaune, pois jaunes
 it: pisello giallo
 
-# description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
+###################################################################################################
+#
+#
+#                        Pigeon peas
+#
+#
+###################################################################################################
+
+< en:legume
+en: pigeon pea, red gram, pigeon peas
+usda_ndb_proxy_code:en: 16101
+usda_ndb_proxy_name:en: Pigeon peas (red gram), mature seeds, raw
+
+< en:pigeon pea
+en: raw mature pigeon pea
+usda_ndb_code:en: 16101
+usda_ndb_name:en: Pigeon peas (red gram), mature seeds, raw
+
+###################################################################################################
+#
+#
+#                        Chickpeas
+#
+#
+###################################################################################################
+
 # chickpea parent is NOT pea
-< en:pulse
+
+< en:legume
 en: chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas, Split Bengal gram, Chana dal
 af: kekerertjie
 am: ሽምብራ
@@ -61793,9 +62015,9 @@ carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
 carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
-ecobalyse:en: chickpea-fr
-ecobalyse_labels_en_organic:en: chickpea-organic
-eurocode_2_group_3:en: 7.10.15
+description:en: The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
+# eurocode_2_group_3:en: 7.10.15
+## eurocode_2_group_2:en: 8.45
 rare_crop:en: yes
 # wikidata:en:Q81375 # this is actually the plant not the legume
 wikidata:en: Q33832605
@@ -61852,6 +62074,7 @@ nl: gewelde kikkererwten
 pl: namoczona ciecierzyca
 
 < en:chickpea
+< en:pulse
 en: dried chickpea
 cs: sušená cizrna
 fr: pois chiche secs
@@ -61860,6 +62083,8 @@ it: ceci secchi
 ciqual_food_code:en: 20516
 ciqual_food_name:en: Chick pea, dried
 ciqual_food_name:fr: Pois chiche, sec
+eurocode_2_group_2:en: 7.10
+eurocode_2_group_3:en: 7.10.15
 #204 @2021-10-15
 
 < en:chickpea
@@ -61927,14 +62152,6 @@ usda_ndb_name:en: Chickpea flour (besan)
 wikidata:en: Q651829
 wikipedia:en: https://en.wikipedia.org/wiki/Gram_flour
 #1086 in 17 @2021-10-16
-
-< en:vegetable
-en: pod and seed vegetable
-it: baccello e seme vegetale
-lv: pākšu un sēklu dārzenis
-nl: peul- en zaadgroente
-eurocode_2_group_2:en: 8.45
-
 
 < en:pea
 en: green peas
@@ -62070,9 +62287,8 @@ wikidata:en: Q67210631
 wikipedia:en: https://en.wikipedia.org/wiki/Snow_pea
 
 
-# description:en:SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
 
-< en:pea
+# < en:pea
 < en:pulse
 en: split pea, split peas
 de: Schälerbsen, geschälte Trockenerbsen
@@ -62102,8 +62318,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Split_pea
 # ingredient/fr:pois-cassés has 71 products in 3 languages @2019-04-03
 
 < en:split pea
-en: Cooked split peas
-fr: Pois cassés cuits
+en: dried split pea
+eurocode_2_group_3:en: 7.10.10
+
+< en:split pea
+en: cooked split peas
+fr: pois cassés cuits
 it: piselli spezzati cotti
 ciqual_food_code:en: 20506
 ciqual_food_name:en: Split pea, cooked
@@ -62156,11 +62376,15 @@ fr: pois carrés d'Alvaiázere
 it: cicerchia di Alvaiázere
 rare_crop:en: yes
 
-# description:en:The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
-# comment:en:The wikidata entry is more about the plant, so translations can be wrong.
+###################################################################################################
+#
+#
+#                        Lentils
+#
+#
+###################################################################################################
 
 < en:legume
-< en:pulse
 en: lentils, lentil, Masoor dal, Masur dal
 am: ምስ'ር
 ar: عدس
@@ -62267,9 +62491,11 @@ carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_proxy_food_code:en: 20504
 ciqual_proxy_food_name:en: Lentil, dried
 ciqual_proxy_food_name:fr: Lentille, sèche
+comment:en: The wikidata entry is more about the plant, so translations can be wrong.
+description:en: The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
-eurocode_2_group_3:en: 7.10.25
+eurocode_2_group_2:en: 8.45
 rare_crop:en: yes
 usda_ndb_proxy_code:en: 16069
 usda_ndb_proxy_name:en: Lentils, raw
@@ -62291,6 +62517,7 @@ it: lenticchie pardina
 pt: lentilhas pardina
 
 < en:lentils
+< en:pulse
 en: Dried lentils
 de: Getrocknete Linsen
 es: Lentejas secas
@@ -62301,6 +62528,8 @@ pt: Lentilhas secas
 ciqual_food_code:en: 20504
 ciqual_food_name:en: Lentil, dried
 ciqual_food_name:fr: Lentille, sèche
+eurocode_2_group_2:en: 7.10
+eurocode_2_group_3:en: 7.10.25
 
 < en:lentils
 fr: lentilles réhydratées, lentilles sèches trempées
@@ -62398,6 +62627,13 @@ ciqual_food_name:en: Lentil, pink or red, dried
 ciqual_food_name:fr: Lentille corail, sèche
 # ingredient/fr:lentilles-rouges has 40 products in 3 languages @2019-06-02
 # ingredient/fr:lentilles-corail has 131 products in 6 languages @2019-06-02
+usda_ndb_proxy_code:en: 16144
+usda_ndb_proxy_name:en: Lentils, pink or red, raw
+
+< en:red lentils
+en: raw pink or red lentils
+usda_ndb_code:en: 16144
+usda_ndb_name:en: Lentils, pink or red, raw
 
 # <en:aggregate
 < en:green lentils
@@ -63858,11 +64094,34 @@ ciqual_food_code:en: 15001
 ciqual_food_name:en: Peanut
 ecobalyse:en: peanut-non-eu
 ecobalyse_labels_en_organic:en: peanut-organic
+usda_ndb_proxy_code:en: 16087
+usda_ndb_proxy_name:en: Peanuts, all types, raw
 wikidata:en: Q37383
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:arachide
 # 1147 products in 9 languages @2018-10-05
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cacahuète
 # 806 products in 19 languages @2018-10-06
+
+< en:peanut
+en: raw peanut
+usda_ndb_code:en: 16087
+usda_ndb_name:en: Peanuts, all types, raw
+
+< en:raw peanut
+en: raw spanish peanut
+description:en: Spanish peanuts are a specific variety of peanut, distinct from the more common runner or Virginia types you'd find as standard roasted peanuts or in most peanut butter. Grown mainly in Oklahoma and Texas in the US, though the name comes from their origin.
+usda_ndb_code:en: 16091
+usda_ndb_name:en: Peanuts, spanish, raw
+
+< en:raw peanut
+en: raw valencia peanut
+usda_ndb_code:en: 16093
+usda_ndb_name:en: Peanuts, valencia, raw
+
+< en:raw peanut
+en: raw virginia peanut
+usda_ndb_code:en: 16095
+usda_ndb_name:en: Peanuts, virginia, raw
 
 < en:peanut
 en: roasted peanut, roasted peanuts
@@ -63973,6 +64232,11 @@ wikidata:en: Q7157936
 en: low fat peanut flour
 usda_ndb_code:en: 16100
 usda_ndb_name:en: Peanut flour, low fat
+
+< en:peanut flour
+en: defatted peanut flour
+usda_ndb_code:en: 16099
+usda_ndb_name:en: Peanut flour, defatted
 
 #< en:compound
 #< en:roasted peanut
@@ -66280,41 +66544,6 @@ fr: assaisonnement goût salé
 
 < en:condiment
 fr: assaisonnement goût fromage
-
-
-###################################################################################################
-#
-#                                Annatto
-#
-###################################################################################################
-
-# see en:E160b in additives.txt
-#<en:condiment
-# en:Annatto
-# ar:أناتو
-# ca:Arxiota
-# de:Annatto
-# eo:Biksa kolorigilo
-# es:Achiote
-# et:Annaato
-# hu:Annatto
-# is:Annatto
-# it:Annatto
-# ja:アナトー
-# jv:Annatto
-# kn:ಅನಾಟೋ
-# ko:안나토
-# lt:Anatas
-# nl:Anatto
-# pl:Annato
-# pt:Anato
-# sl:Anato
-# sr:Anato
-# sv:Annatto
-# vi:Màu điều nhuộm
-# zh:胭脂樹紅
-# wikidata:en:Q425902
-# description:en:orange-red condiment and food coloring derived from the seeds of the achiote tree (Bixa orellana), native to tropical parts of the Americas.
 
 ###################################################################################################
 #
@@ -92950,7 +93179,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Muesli
 de: Saatenmischung
 # usage:de: Saatenmischung (Sonnenblumenkerne, Buchweizen, Kürbiskerne, Leinsamen, Quinoa, Hirse, Mohn)
 
-# description:en:TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
 
 # <en:compound
 en: tofu, Tofus, bean curds
@@ -93046,14 +93274,25 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20904
 ciqual_food_name:en: Tofu, plain
 ciqual_food_name:fr: Tofu, nature
-usda_ndb_code:en: 16129
-usda_ndb_name:en: Tofu, fried
+description:en: TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
+usda_ndb_proxy_code:en: 16281
+usda_ndb_proxy_name:en: HOUSE FOODS Premium Firm Tofu
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q177378
 wikipedia:en: https://en.wikipedia.org/wiki/Tofu
 # ingredient/fr:tofu has 369 products in 7 languages@2019-05-17
 # usage:fr:Tofu (graines de soja, eau, agents de coagulation :chlorure de magnésium, sulfate de calcium)
+
+< en:tofu
+en: firm tofu
+usda_ndb_code:en: 16281
+usda_ndb_name:en: HOUSE FOODS Premium Firm Tofu
+
+< en:tofu
+en: soft tofu
+usda_ndb_code:en: 16279
+usda_ndb_name:en: HOUSE FOODS Premium Soft Tofu
 
 < en:tofu
 en: fried tofu
