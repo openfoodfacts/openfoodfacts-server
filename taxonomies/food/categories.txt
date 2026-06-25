@@ -70910,24 +70910,79 @@ sales_format:en: weight, package
 
 < en:Citrus
 en: Lemons
+an: Limón
+ar: ليمون
+az: Limon
+be: Лімон
 bg: Лимони
+bi: Lemon
+br: Sitroñs
+ca: Llimona
+cs: Citron
+da: Citroner
 de: Zitronen
-es: Limones
-fi: sitruunat
+el: Λεμόνι
+eo: Citronoj
+es: Limones, Limón
+et: Sidrun
+eu: Limoi
+fi: Sitruunat
 fr: Citrons
+fy: Sitroen
+gl: Limón
 hr: Limunovi
-it: Limoni
+ht: Sitron
+hu: Citrom
+hy: Լիմոն
+id: Lemon
+it: Limoni, Limone
 ja: レモン, 檸檬
-la: Citrus x limon
+ka: Ლიმონი
+kg: Dilala ya ngayi
+ko: 레몬
+la: Citrus × limon, Citrus x limon
 lt: Citrinos
+mg: Voasarimakirana
+mi: Rēmana
+mk: Лимон
+ml: ചെറുനാരങ്ങ
+mn: Нимбэг
+mr: लिंबू
+mt: Lumija
+my: သံပယိုသီး
+nb: Sitron
+ne: कागती
 nl: Citroenen
-ro: Lămâi
-ru: Лимоны
-sv: Citroner, citron
+nn: Sitron
+nv: Chʼil łitsooí díkʼǫ́zhígíí
+oc: Citron
+or: ଲେମ୍ବୂ
+pl: Cytryna
+ps: ليمو
+pt: Limão
+ro: Lămâi, Lămâie
+ru: Лимоны, Лимон
+sc: Limone
+sk: Citrón
+sl: Limona
+sq: Limon
+sv: Citroner, Citron
+sw: Limau
+tg: Лимӯ
 tr: Limon
+tt: Лимун
+uk: Лимон
+uz: Limon
+wa: Limon
+za: Makningzmungx
+zh: 檸檬
 agribalyse_proxy_food_code:en: 13009
 agribalyse_proxy_food_name:en: Lemon, pulp, raw
 agribalyse_proxy_food_name:fr: Citron, pulpe, cru
+ciqual_proxy_food_code:en: 13009
+ciqual_proxy_food_name:en: Lemon, pulp, raw
+ciqual_proxy_food_name:fr: Citron, pulpe, cru
+wikidata:en: Q1093742
 
 < en:Lemons
 en: Lemons Primofiori, Lemons Mesero, Lemons Blanco
@@ -70937,20 +70992,32 @@ origins:en: en:spain
 < en:Fresh fruits
 < en:Lemons
 en: Fresh lemons
+da: Friske citroner
 de: Frische Zitronen
 es: Limones frescos
 fr: Citrons frais
 hr: Svježi limuni
 lt: Šviežios citrinos
 nl: Verse citroen
+sv: Färska citroner
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,11,12
 
-< en: Fresh lemons
+< en: Lemons
 en: Verna lemons, Verna
 xx: Verna
+da: Verna-citroner
 fr: Citrons Verna
 nl: Verna citroenen
+sv: Verna-citroner
+
+< en: Fresh lemons
+< en: Verna lemons
+en: Fresh Verna lemons
+da: Friske verna-citroner
+fr: Citrons Verna frais
+nl: Verse Verna citroenen
+sv: Färska verna-citroner
 
 < en:Lemons
 en: Unwaxed lemons
@@ -70961,7 +71028,7 @@ fr: Citron de Menton
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-1299
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q37970325
 
 < en:Lemons
 en: Lemon pulp
@@ -70972,6 +71039,7 @@ agribalyse_food_code:en: 13009
 ciqual_food_code:en: 13009
 ciqual_food_name:en: Lemon, pulp, raw
 ciqual_food_name:fr: Citron, pulpe, cru
+wikidata:en: Q140290322
 
 < en:Lemons
 en: Lemon zest
@@ -70982,6 +71050,7 @@ agribalyse_food_code:en: 13125
 ciqual_food_code:en: 13125
 ciqual_food_name:en: Lemon zest, raw
 ciqual_food_name:fr: Citron, zeste, cru
+wikidata:en: Q206454
 
 < en:Dried fruits
 < en:Lemons
@@ -70991,57 +71060,68 @@ fr: Citrons séchés
 < en:Lemons
 en: Eureka lemons
 da: Eureka-citroner
+fr: Citrons Eureka
+nl: Eureka citroenen
 sv: Eureka-citron
 description:en: This is the common supermarket lemon, also known as "Four Seasons" (Quatre Saisons) because of its ability to produce fruit and flowers together throughout the year. (Wikipedia)
+wikidata:en: Q140329924
+
+< en: Eureka lemons
+< en: Fresh lemons
+en: Fresh Eureka lemons
+da: Friske eureka-citroner
+fr: Citrons Eureka frais
+nl: Verse Eureka citroenen
+sv: Färska eureka-citron
 
 < en:Lemons
 it: Limone dell'Etna
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-02444
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q124813958
 
 < en:Lemons
 it: Limone di Rocca Imperiale
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0818
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q118819153
 
 < en:Lemons
 it: Limone Costa d'Amalfi
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0116
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q3241198
 
 < en:Lemons
 it: Limone di Sorrento
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0098
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q3241200
 
 < en:Lemons
 it: Limone Femminello del Gargano
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0297
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q3832521
 
 < en:Lemons
 it: Limone Interdonato Messina
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0558
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q64549298
 
 < en:Lemons
 it: Limone di Siracusa
 origins:en: en:italy
 protected_name_file_number:en: PGI-IT-0502
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q3832520
 
 < en:Citrus
 en: Limes
