@@ -50,7 +50,7 @@ my @tests = (
 			{
 				'id' => 'en:garlic-powder',
 				'is_in_taxonomy' => 1,
-				'text' => 'garlic'
+				'text' => 'garlic powder'
 			},
 			{
 				'id' => 'en:aubergine',
@@ -216,9 +216,8 @@ my @tests = (
 		{lc => "en", ingredients_text => "garlic (powdered)",},
 		[
 			{
-				'id' => 'en:garlic',
+				'id' => 'en:garlic-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
 				'text' => 'garlic'
 			}
 		]
