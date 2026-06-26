@@ -596,10 +596,9 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:onion',
+				'id' => 'en:onion-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => 'ui'
+				'text' => 'uipoeder'
 			}
 		]
 	],
