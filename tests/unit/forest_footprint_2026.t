@@ -164,6 +164,72 @@ my @tests = (
 ",
 		}
 	],
+	[
+		'fr-ingredients-cocoa-with-ingredient-specific-label',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:cocoa",
+					percent => 50,
+					text => "cacao",
+					labels => "en:organic",
+				}
+			],
+			origins_tags => ["en:brazil"],
+		}
+	],
+	[
+		'fr-ingredients-cocoa-with-ingredient-specific-utz-label',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:cocoa",
+					percent => 50,
+					text => "cacao",
+					labels => "en:utz-certified",
+				}
+			],
+			origins_tags => ["en:brazil"],
+		}
+	],
+	[
+		'fr-ingredients-cocoa-and-palm-oil-mixed-labels',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:cocoa",
+					percent => 50,
+					text => "cacao",
+					labels => "en:utz-certified",
+				},
+				{
+					id => "en:palm-oil",
+					percent => 50,
+					text => "huile de palme",
+				}
+			],
+			origins_tags => ["en:unknown"],
+			labels_tags => ["en:organic"],
+		}
+	],
+	[
+		'fr-ingredients-coffee-with-fair-trade-and-organic-labels',
+		{
+			lc => "fr",
+			ingredients => [
+				{
+					id => "en:coffee",
+					percent => 100,
+					text => "café",
+					labels => "en:fair-trade, en:organic",
+				}
+			],
+			origins_tags => ["en:unknown"],
+		}
+	],
 
 );
 
