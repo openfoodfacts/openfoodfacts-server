@@ -48,9 +48,8 @@ my @tests = (
 				'text' => 'tomatoes'
 			},
 			{
-				'id' => 'en:garlic',
+				'id' => 'en:garlic-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
 				'text' => 'garlic'
 			},
 			{
