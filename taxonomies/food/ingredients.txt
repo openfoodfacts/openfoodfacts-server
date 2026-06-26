@@ -199,7 +199,7 @@ it: fritto, frittura
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# <en:syrup
+# < en:syrup
 en: caramel syrup
 bg: карамелен сироп
 ca: xarop de carmel, caramel liquid
@@ -9829,6 +9829,7 @@ nova:en: 4
 #comment:en:whole meat product: only meat, salt, water, spices, glucose syrup and permitted additives
 #comment:en:usually around 90% meat
 < en:meat
+#< en:compound
 fi: kokolihavalmiste
 sv: helköttsprodukt
 # ingredient/sv:helköttsprodukt has 1 product in 2 languages @2020-05-21
@@ -33168,8 +33169,8 @@ sv: Isoglukos
 zh: 高果糖浆
 usda_ndb_code:en: 19351
 usda_ndb_name:en: Syrups, corn, high-fructose
-wikipedia:en:https://en.wikipedia.org/wiki/High-fructose_corn_syrup
-wikidata:en:Q11422173
+wikipedia:en: https://en.wikipedia.org/wiki/High-fructose_corn_syrup
+wikidata:en: Q11422173
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-maïs
 # 28 products in 2 languages @2018-09-24
 
@@ -88680,6 +88681,7 @@ ciqual_food_code:en: 36023
 ciqual_food_name:en: Chicken, wing, meat and skin, raw
 ciqual_food_name:fr: Poulet, aile, viande et peau, cru
 
+< en:chicken
 en: Chicken wing meat and skin
 fr: aile de poulet et sa peau
 it: carne e pelle di ala di pollo
