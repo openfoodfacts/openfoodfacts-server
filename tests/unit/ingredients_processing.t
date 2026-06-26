@@ -216,8 +216,9 @@ my @tests = (
 		{lc => "en", ingredients_text => "garlic (powdered)",},
 		[
 			{
-				'id' => 'en:garlic-powder',
+				'id' => 'en:garlic',
 				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder',
 				'text' => 'garlic'
 			}
 		]
