@@ -38137,6 +38137,31 @@ it: frutta candita
 # 75 products in 3 languages @2018-10-02
 
 < en:fruit
+en: mammy apple, mamey
+la: Mammea americana
+usda_ndb_proxy_code:en: 9175
+usda_ndb_proxy_name:en: Mammy-apple, (mamey), raw
+
+< en:mammy apple
+en: raw mammy apple, mamey
+description:en: A mammy apple is a tropical fruit native to the Caribbean and tropical Americas. Despite the name, they are actually classified as a berry, not a true apple. The flesh is intensely aromatic and deep orange, with a flavour similar to an apricot or raspberry.
+usda_ndb_code:en: 9175
+usda_ndb_name:en: Mammy-apple, (mamey), raw
+
+< en:fruit
+en: mamey sapote
+la: Pouteria sapota
+description:en: Mamey Sapote (Pouteria sapota). It has a rough brown skin like a football, and vibrant salmon-pink to reddish flesh with a rich, creamy flavor often compared to a mix of sweet potato, pumpkin, and almond. Widely used in smoothies and ice cream in Latin America and the Caribbean.
+
+usda_ndb_proxy_code:en: 9314
+usda_ndb_proxy_name:en: Sapote, mamey, raw
+
+< en:mamey sapote
+en: raw mamey sapote
+usda_ndb_code:en: 9314
+usda_ndb_name:en: Sapote, mamey, raw
+
+< en:fruit
 en: medlar, loquat
 bg: мушмула
 de: Mispel, Mispeln, Loquat
@@ -38144,8 +38169,15 @@ es: nispero
 fr: Néflier
 hr: mušmula
 it: nespola comune
+usda_ndb_proxy_code:en: 9174
+usda_ndb_proxy_name:en: Loquats, raw
 wikidata:en: Q7071497
 wikipedia:en: https://en.wikipedia.org/wiki/N%C3%ADspero
+
+< en:medlar
+en: raw medlar, raw loquat
+usda_ndb_code:en: 9174
+usda_ndb_name:en: Loquats, raw
 
 < en:fruit
 fr: fruits exotiques
@@ -38892,8 +38924,7 @@ it: banana Cavendish
 < en:cavendish banana
 es: plátano de canarias i.g.p., plátanos de canarias, platano canario
 
-# "plantain" is ambiguous, in ingredients lists it refers to plantain bananas, or the plantain plant used for fibers
-< en:banana
+< en:fruit
 < en:fruit vegetable
 en: plantain banana
 de: Plantainbanane
@@ -38901,11 +38932,29 @@ fr: banane plantain, bananes plantain
 hr: trputac banana
 it: banana platano
 la: musa paradisiaca
+ciqual_proxy_food_code:en: 53100
+ciqual_proxy_food_name:en: Plantain banana, raw
+ciqual_proxy_food_name:fr: Banane plantain, crue
+eurocode_2_group_3:en: 8.40.56
+usda_ndb_proxy_code:en: 9542
+usda_ndb_proxy_name:en: Plantains, green, raw
+#no ingredients @2021-09-10
+
+< en:plantain banana
+en: raw plantain banana
 ciqual_food_code:en: 53100
 ciqual_food_name:en: Plantain banana, raw
 ciqual_food_name:fr: Banane plantain, crue
-#no ingredients @2021-09-10
-eurocode_2_group_3:en: 8.40.56
+
+< en:plantain banana
+en: raw yellow plantains
+usda_ndb_code:en: 9277
+usda_ndb_name:en: Plantains, yellow, raw
+
+< en:plantain banana
+en: raw green plantain
+usda_ndb_code:en: 9542
+usda_ndb_name:en: Plantains, green, raw
 
 # <en:vegetable fibre
 < en:plant
@@ -38917,8 +38966,10 @@ hr: trputac
 it: piantaggine
 nl: weegbree
 pl: plantan, plantany, plantana
+comment:en: "plantain" is ambiguous, in ingredients lists it refers to plantain bananas, or the plantain plant used for fibers
 # ingredient/fr:plantain has 51 products @2019-02-25
 # fibres végétales (chicorée, pomme de terre, pois, riz, plantain, psyllium)
+
 
 < en:banana
 en: green banana flour
@@ -39392,14 +39443,6 @@ uz: अं
 vi: Xoài
 za: Makmanghgoj
 zh: 芒果
-carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
-carbon_footprint_fr_foodges_value:fr: 0.8
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
-# 1597 products in 10 languages @2018-09-27
-ciqual_food_code:en: 13025
-ciqual_food_name:en: Mango, pulp, raw
-ecobalyse:en: db0e5f44-34b4-4160-b003-77c828d75e60
-ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
 # ace:Mamplam
 # atj:Wamincic ka mirokisitc
 # bcl:Mangga
@@ -39423,8 +39466,18 @@ ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
 # udm:Манго
 # war:Mangga
 # yue:芒果
+carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
+carbon_footprint_fr_foodges_value:fr: 0.8
+ciqual_proxy_food_code:en: 13025
+ciqual_proxy_food_name:en: Mango, pulp, raw
+ecobalyse:en: db0e5f44-34b4-4160-b003-77c828d75e60
+ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
+usda_ndb_proxy_code:en: 9176
+usda_ndb_proxy_name:en: Mangos, raw
 wikidata:en: Q3919027
 wikipedia:en: https://en.wikipedia.org/wiki/Mango
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
+# 1597 products in 10 languages @2018-09-27
 
 < en:mango
 fr: Mangue importée en avion
@@ -39447,6 +39500,16 @@ it: Mango importato via nave
 nl: Mango geïmporteerd per boot
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr: 0.8
+
+< en:mango
+en: raw mango
+usda_ndb_code:en: 9176
+usda_ndb_name:en: Mangos, raw
+
+< en:mango
+en: raw mango pulp
+ciqual_food_code:en: 13025
+ciqual_food_name:en: Mango, pulp, raw
 
 < en:mango
 en: mango juice
@@ -39590,7 +39653,10 @@ sk: Broskyňa
 sv: persika, persikor
 tr: şeftali
 zh: 桃子
-# ingredient/peach 6059 products in 7 languages @2021-08-19
+# nah:Durazno
+# scn:pèrsica
+# szl:Fyrzicha
+# zh-min-nan:Thô-á
 carbon_footprint_fr_foodges_ingredient:fr: Pêche "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr: 1
 comment:en: The wikipedia entry mixes the name of the tree and the name of the fruit
@@ -39606,12 +39672,11 @@ ecobalyse:en: fa9e9f34-acc9-4974-89c4-003d2428f502
 ecobalyse_labels_en_organic:en: peach-organic
 ecobalyse_origins_en_france:en: a0012089-de27-45ae-89d1-863f71a06e72
 eurocode_2_group_3:en: 9.20.20
+usda_ndb_proxy_code:en: 9236
+usda_ndb_proxy_name:en: Peaches, yellow, raw
 wikidata:en: Q13411121
-# nah:Durazno
-# scn:pèrsica
-# szl:Fyrzicha
-# zh-min-nan:Thô-á
 wikipedia:en: https://en.wikipedia.org/wiki/Peach
+# ingredient/peach 6059 products in 7 languages @2021-08-19
 
 #process:en:halved
 #<en:peach
@@ -39661,6 +39726,14 @@ fr: pêche blanche
 hr: bijela breskva
 it: pesca bianca
 # ingredient/white-peach 48 products in 6 languages @2021-08-19
+
+< en:peach
+en: yellow peach
+
+< en:yellow peach
+en: raw yellow peach
+usda_ndb_code:en: 9236
+usda_ndb_name:en: Peaches, yellow, raw
 
 #process:en:pureed
 #<en:white peach
@@ -39925,6 +39998,30 @@ usda_ndb_code:en: 9252
 usda_ndb_name:en: Pears, raw
 
 < en:pear
+en: raw asian pears
+usda_ndb_code:en: 9340
+usda_ndb_name:en: Pears, asian, raw
+
+< en:pear
+en: raw bartlett pear
+usda_ndb_code:en: 9412
+usda_ndb_name:en: Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)
+
+< en:pear
+en: raw bosc pear
+usda_ndb_code:en: 9414
+usda_ndb_name:en: Pears, raw, bosc (Includes foods for USDA's Food Distribution Program)
+
+< en:pear
+en: raw green anjou pears
+usda_ndb_code:en: 9415
+usda_ndb_name:en: Pears, raw, green anjou (Includes foods for USDA's Food Distribution Program)
+
+en: pears, raw, red anjou
+usda_ndb_code:en: 9413
+usda_ndb_name:en: Pears, raw, red anjou
+
+< en:pear
 en: conference pear
 de: Conference-Birne
 es: pera conferencia
@@ -40088,20 +40185,31 @@ sv: plommon
 th: พรุน
 uk: слива, сливи
 wa: pronne
-ciqual_food_code:en: 13100
-ciqual_food_name:en: Plum, raw
-ciqual_food_name:fr: Prune, crue
+ciqual_proxy_food_code:en: 13100
+ciqual_proxy_food_name:en: Plum, raw
+ciqual_proxy_food_name:fr: Prune, crue
 ecobalyse:en: b83a6d8e-5afa-447b-be7b-5df9573e7d3b
 ecobalyse_labels_en_organic:en: 10af6fa1-e374-4748-b8a8-f735d2813489
 eurocode_2_group_3:en: 9.20.30
 ifct_food_code:en: E054
 ifct_food_name:en: Plum
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:prune
+usda_ndb_proxy_code:en: 9279
+usda_ndb_proxy_name:en: Plums, raw
 wikidata:en: Q12372598
 wikipedia:en: https://en.wikipedia.org/wiki/Plum
 # 35 products in 1 language @2018-09-30
 
 < en:plum
+en: raw plum
+ciqual_food_code:en: 13100
+ciqual_food_name:en: Plum, raw
+ciqual_food_name:fr: Prune, crue
+usda_ndb_code:en: 9279
+usda_ndb_name:en: Plums, raw
+
+#< en:plum sounds more like sugar
+< en:sugar
 en: plum sugar
 it: zucchero di prugna
 
@@ -40110,17 +40218,14 @@ en: organic plum
 hr: eko šljiva
 it: prugna biologica
 
-# description:en:A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
-# wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
-
-# Some langauges seem to give the specific plum cultivars used for making "dried plums" a name
+# Some languages seem to give the specific plum cultivars used for making "dried plums" a name
 # similar to "prune", and then have the concept of "dried prune".
 # Also some languages call the tree "plum", and the fruit "prune".
 
 # This is the dried fruit, whether it has its own name, or is "dried plum/prune".
 # description:fr:Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
 < en:plum
-en: prune
+en: prune, dried plum
 ar: برقوق مجفف, خوخ مجفف
 bg: сини сливи, синя слива
 da: sveske, svesker
@@ -40147,19 +40252,33 @@ uk: чорнослив
 vi: mận khô
 wa: souwêye pronne
 zh: 梅乾
-ciqual_food_code:en: 13042
-ciqual_food_name:en: Prune
-ciqual_food_name:fr: Pruneau, sec
-openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:pruneau
 # chy:náhkôhematôtse
 # de-ch:Trockenpflaume
 # en-ca:prune
 # en-gb:prune
 # pcd:pronnieu
 # yue:西梅乾
+ciqual_food_code:en: 13042
+ciqual_food_name:en: Prune
+ciqual_food_name:fr: Pruneau, sec
+comment:en: wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
+description:en: A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
+openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:pruneau
+usda_ndb_proxy_code:en: 9291
+usda_ndb_proxy_name:en: Plums, dried (prunes), uncooked
 wikidata:en: Q6766526
 wikipedia:en: https://en.wikipedia.org/wiki/Prune
 # 1092 in 13 @2021-09-15
+
+< en:prune
+en: uncooked prune
+usda_ndb_code:en: 9291
+usda_ndb_name:en: Plums, dried (prunes), uncooked
+
+< en:prune
+en: uncooked dehydrated prune
+usda_ndb_code:en: 9289
+usda_ndb_name:en: Prunes, dehydrated (low-moisture), uncooked
 
 #processing:en: en:juice
 #<en:prune
@@ -40188,8 +40307,11 @@ fr: prunes d'Ente
 it: prugne di Ente
 
 #processing:en: en:puree
-#<en:prune
-#fr:purée de pruneaux
+< en:prune
+en: prune puree
+fr: purée de pruneaux
+usda_ndb_code:en: 9423
+usda_ndb_name:en: Prune puree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
 # 39 products in 1 language @2018-09-30
 
@@ -40639,6 +40761,16 @@ en: cooking apple
 fr: pomme à cuire, pommes à cuire
 it: mela da cucina
 eurocode_2_group_3:en: 9.10.15
+
+< en:apple
+en: crabapples
+usda_ndb_proxy_code:en: 9077
+usda_ndb_proxy_name:en: Crabapples, raw
+
+< en:crabapples
+en: raw crabapples
+usda_ndb_code:en: 9077
+usda_ndb_name:en: Crabapples, raw
 
 # TODO: try to put apple varieties below under en:dessert apple, or en:cooking apple
 # Note from Eurocode definition and policies:
@@ -42078,6 +42210,8 @@ ciqual_proxy_food_name:en: Lemon, pulp, raw
 ciqual_proxy_food_name:fr: Citron, pulpe, cru
 ecobalyse:en: 6ece5452-42de-4e0a-8c70-1d305e614cc8
 ecobalyse_labels_en_organic:en: ed5c98fd-6fe5-43ca-b938-1dde919794b7
+usda_ndb_proxy_code:en: 9150
+usda_ndb_proxy_name:en: Lemons, raw, without peel
 wikidata:en: Q1093742
 
 < en:lemon
@@ -42165,6 +42299,11 @@ ciqual_food_code:en: 13009
 ciqual_food_name:en: Lemon, pulp, raw
 ciqual_food_name:fr: Citron, pulpe, cru
 # 270 in 7 @2021-10-09
+
+< en:lemon
+en: raw peeled lemon
+usda_ndb_code:en: 9150
+usda_ndb_name:en: Lemons, raw, without peel
 
 < en:lemon
 #<en:purée
@@ -42439,7 +42578,7 @@ sv: verna-citron, citroner verna
 # description:en:A lime is a hybrid citrus fruit
 
 < en:citrus fruit
-< en:fruit
+#  < en:fruit what is the reason for this parent?
 en: lime
 af: Lemmetjie
 ar: ليم
@@ -42506,13 +42645,6 @@ uk: Лайм
 ur: گلگل
 vi: Chanh
 zh: 青檸
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
-# 251 products @2018-10-01
-carbon_footprint_fr_foodges_ingredient:fr: Citron
-carbon_footprint_fr_foodges_value:fr: 0.9
-ciqual_food_code:en: 13067
-ciqual_food_name:en: Lime, pulp, raw
-ciqual_food_name:fr: Citron vert ou Lime, pulpe, cru
 # aeb-arab:كعبة ليم
 # aeb-latn:lim
 # chr:ᎳᎢᎻ
@@ -42528,8 +42660,17 @@ ciqual_food_name:fr: Citron vert ou Lime, pulpe, cru
 # yue:青檸
 # zh-hans:青檸
 # zh-hant:萊姆
+carbon_footprint_fr_foodges_ingredient:fr: Citron
+carbon_footprint_fr_foodges_value:fr: 0.9
+ciqual_proxy_food_code:en: 13067
+ciqual_proxy_food_name:en: Lime, pulp, raw
+ciqual_proxy_food_name:fr: Citron vert ou Lime, pulpe, cru
+usda_ndb_proxy_code:en: 9159
+usda_ndb_proxy_name:en: Limes, raw
 wikidata:en: Q13195
 wikipedia:en: https://en.wikipedia.org/wiki/Lime_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-vert
+# 251 products @2018-10-01
 
 < en:lime
 en: lime pulp
@@ -42537,12 +42678,17 @@ fr: Pulpe de citron vert
 it: polpa di lime
 
 < en:lime pulp
-en: Raw lime pulp
-fr: Pulpe de citron vert cru
+en: raw lime pulp
+fr: pulpe de citron vert cru
 it: polpa di lime cruda
 ciqual_food_code:en: 13067
 ciqual_food_name:en: Lime, pulp, raw
 ciqual_food_name:fr: Citron vert ou Lime, pulpe, cru
+
+< en:lime
+en: raw lime
+usda_ndb_code:en: 9159
+usda_ndb_name:en: Limes, raw
 
 < en:fruit juice
 < en:lime
@@ -42676,8 +42822,15 @@ wikidata:en: Q190024
 wikipedia:en: https://en.wikipedia.org/wiki/Mandarin_orange
 
 < en:mandarin
-en: tangerine, tangerines
+en: tangerine, tangerines, mandarin orange
 hr: crvena mandarina
+usda_ndb_proxy_code:en: 9218
+usda_ndb_proxy_name:en: Tangerines, (mandarin oranges), raw
+
+< en:tangerine
+en: raw tangerine
+usda_ndb_code:en: 9218
+usda_ndb_name:en: Tangerines, (mandarin oranges), raw
 
 < en:citrus oil
 < en:tangerine
@@ -42896,17 +43049,6 @@ yi: מאראנץ
 yo: ọsàn
 za: Makdoengj
 zh: 橙
-#carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
-#carbon_footprint_fr_foodges_value:fr:0.8
-carbon_footprint_fr_foodges_ingredient:fr: Orange fraîche
-carbon_footprint_fr_foodges_value:fr: 0.8
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/orange
-# 2121 products in 8 languages @2018-09-28
-ciqual_proxy_food_code:en: 13034
-ciqual_proxy_food_name:en: Orange, pulp, raw
-ecobalyse:en: f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1
-ecobalyse_origins_en_european_union:en: af47d8b1-2c50-4f3f-8d10-1941133bd100
-wikidata:en: Q13191
 # ast:Naranxa
 # bho:संतरा
 # chr:ᎣᏂᏥ
@@ -42946,7 +43088,20 @@ wikidata:en: Q13191
 # zh-my:橙
 # zh-sg:橙
 # zh-tw:橙
+#carbon_footprint_fr_foodges_ingredient:fr:Orange destinée à l'industrie
+#carbon_footprint_fr_foodges_value:fr:0.8
+carbon_footprint_fr_foodges_ingredient:fr: Orange fraîche
+carbon_footprint_fr_foodges_value:fr: 0.8
+ciqual_proxy_food_code:en: 13034
+ciqual_proxy_food_name:en: Orange, pulp, raw
+ecobalyse:en: f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1
+ecobalyse_origins_en_european_union:en: af47d8b1-2c50-4f3f-8d10-1941133bd100
+usda_ndb_proxy_code:en: 9200
+usda_ndb_proxy_name:en: Oranges, raw, all commercial varieties
+wikidata:en: Q13191
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_(fruit)
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/orange
+# 2121 products in 8 languages @2018-09-28
 
 < en:orange
 en: eating orange
@@ -42959,7 +43114,25 @@ nl: eetsinaasappel
 fr: orange à jus
 nl: sapsinaasappel
 
-# description:en:Orange juice is the liquid extract of the orange tree fruit, produced by squeezing oranges.
+< en:orange
+en: raw orange
+usda_ndb_code:en: 9200
+usda_ndb_name:en: Oranges, raw, all commercial varieties
+
+< en:orange
+en: raw florida oranges
+usda_ndb_code:en: 9203
+usda_ndb_name:en: Oranges, raw, Florida
+
+< en:orange
+en: raw navel orange
+usda_ndb_code:en: 9202
+usda_ndb_name:en: Oranges, raw, navels (Includes foods for USDA's Food Distribution Program)
+
+< en:orange
+en: raw orange with peel
+usda_ndb_code:en: 9205
+usda_ndb_name:en: Oranges, raw, with peel
 
 < en:fruit juice
 < en:orange
@@ -43011,14 +43184,22 @@ uk: Апельсиновий сік
 vi: Nước cam
 yi: מאראנצן זאפט
 zh: 橙汁
-# orange-juice 1401 products in 9 languages @2018-09-28
-ciqual_proxy_food_code:en: 2070
-ciqual_proxy_food_name:en: Orange juice, pure juice
-wikidata:en: Q219059
 # ast:Zusmiu de naranxa
 # nds:Sjuderaans
 # sco:Oranger juice
+ciqual_proxy_food_code:en: 2070
+ciqual_proxy_food_name:en: Orange juice, pure juice
+description:en: Orange juice is the liquid extract of the orange tree fruit, produced by squeezing oranges.
+usda_ndb_proxy_code:en: 9209
+usda_ndb_proxy_name:en: Orange juice, chilled, includes from concentrate
+wikidata:en: Q219059
 wikipedia:en: https://en.wikipedia.org/wiki/Orange_juice
+# orange-juice 1401 products in 9 languages @2018-09-28
+
+< en:orange juice
+en: chilled orange juice
+usda_ndb_code:en: 9209
+usda_ndb_name:en: Orange juice, chilled, includes from concentrate
 
 < en:orange juice
 fr: Jus d'orange IGP Valencia
@@ -43333,7 +43514,6 @@ usda_ndb_name:en: Marmalade, orange
 < en:orange marmalade
 en: red orange marmalade
 it: marmellata di arance rosse, marmellata di arancia rossa, marmellata d'arance rosse, marmellata d'arancia rossa
-
 
 < en:preparation
 en: orange filling
@@ -43711,21 +43891,31 @@ zh: 欧洲黑莓
 wikidata:en: Q13541716
 
 < en:berries
-en: Black mulberry
+en: mulberry, mulberries
+usda_ndb_proxy_code:en: 9190
+usda_ndb_proxy_name:en: Mulberries, raw
+
+< en:mulberry
+en: raw mulberry
+usda_ndb_code:en: 9190
+usda_ndb_name:en: Mulberries, raw
+
+< en:mulberry
+en: black mulberry
 bg: черница
-fr: Mûres noires
+fr: mûres noires
 hr: crni dud
 it: gelso nero
-pl: Morwa czarna
+pl: morwa czarna
 ciqual_food_code:en: 13071
 ciqual_food_name:en: Black mulberry, raw
 ciqual_food_name:fr: Mûre noire (du mûrier), crue
 eurocode_2_group_3:en: 9.30.62
 
-< en:berries
-en: White mulberry
+< en:mulberry
+en: white mulberry
 it: gelso bianco
-pl: Morwa biała
+pl: morwa biała
 eurocode_2_group_3:en: 9.30.62
 
 
@@ -43784,10 +43974,17 @@ ciqual_food_name:fr: Cassis, cru
 description:de: Die Schwarze Johannisbeere ist eine Pflanzenart aus der Gattung Johannisbeeren. Manchmal wird die französische Bezeichnung Cassis für ihre Früchte verwendet.
 description:fr: Fruit formé de baies noires formant des grappes, pulpeuses, à la peau lisse, fortement aromatiques, utilisé pour faire des liqueurs, des sirops, des gelées…
 description:nl: de vrucht (bes) van de Ribes nigrum
-# 3581 in 22 @2021-09-12
 eurocode_2_group_3:en: 9.30.32
+usda_ndb_proxy_code:en: 9083
+usda_ndb_proxy_name:en: Currants, european black, raw
 wikidata:en: Q2941309
 wikipedia:en: https://en.wikipedia.org/wiki/Blackcurrant
+# 3581 in 22 @2021-09-12
+
+< en:blackcurrant
+en: raw european black currants
+usda_ndb_code:en: 9083
+usda_ndb_name:en: Currants, european black, raw
 
 < en:blackcurrant
 en: blackcurrant pieces
@@ -43824,7 +44021,7 @@ it: pezzi di ribes nero
 #pt:concentrado de groselha
 # 238 in 1 language @2021-09-12
 
-< en:blackcurrant
+# < en:compound
 en: blackcurrant juice from concentrate
 cs: ovocná šťáva z koncentrátu černého rybízu
 da: solbærsaft fra koncentrat
@@ -44112,6 +44309,10 @@ hr: sok od bobica
 it: succo di boysenberry
 sv: boysenbärsjuice
 
+< en:berries
+en: raw red and whitecurrants
+usda_ndb_code:en: 9084
+usda_ndb_name:en: Currants, red and white, raw
 
 ###################################################################################################
 #
@@ -45243,6 +45444,8 @@ it: datteri deglet nour
 nl: deglet nour dadels
 pt: tâmaras deglet nour
 ru: финики деглет нур
+usda_ndb_code:en: 9087
+usda_ndb_name:en: Dates, deglet noor
 # ingredient/fr:dattes-deglet-nour has 16 products in french @2019-05-23
 
 < en:date
@@ -45519,6 +45722,17 @@ sl: jerebike
 sv: rönnbär
 eurocode_2_group_3:en: 9.30.54
 
+< en:fruit
+en: feijoa
+description:en: Feijoa (Acca sellowiana) is a fruit native to South America — specifically the highlands of southern Brazil, Uruguay, Paraguay, and northern Argentina. The flavour is distinctive and hard to compare — often described as a mix of pineapple, guava, mint, and strawberry, with floral notes. The flesh inside is creamy white and slightly gritty near the center, similar to a ripe pear.
+usda_ndb_proxy_code:en: 9334
+usda_ndb_proxy_name:en: Feijoa, raw
+
+< en:feijoa
+en: raw feijoa
+usda_ndb_code:en: 9334
+usda_ndb_name:en: Feijoa, raw
+
 ###################################################################################################
 #
 #
@@ -45612,7 +45826,14 @@ th: ผลมะเดื่ออบแห้ง
 ciqual_food_code:en: 13013
 ciqual_food_name:en: Fig, dried
 ciqual_food_name:fr: Figue, sèche
+usda_ndb_proxy_code:en: 9094
+usda_ndb_proxy_name:en: Figs, dried, uncooked
 # 325 in 10 @2021-09-14
+
+< en:dried fig
+en: uncooked dried figs
+usda_ndb_code:en: 9094
+usda_ndb_name:en: Figs, dried, uncooked
 
 < en:fig
 en: fig paste
@@ -45853,7 +46074,6 @@ ty: tūava
 ur: امرود
 za: sandauz
 zh: 番石榴果
-wikidata:en: Q3181909
 #arz:جوافه
 # bcl:bayawas
 # bho:अमरुत
@@ -45866,8 +46086,16 @@ wikidata:en: Q3181909
 # nah:xalxocotl
 #sat:ᱥᱟᱹᱯᱟᱹᱨᱤ
 # udm:гуайява
+usda_ndb_proxy_code:en: 9139
+usda_ndb_proxy_name:en: Guavas, common, raw
+wikidata:en: Q3181909
 wikipedia:en: https://en.wikipedia.org/wiki/Guava
 # 1058 in 12 @2021-09-29
+
+< en:guava
+en: raw common guavas
+usda_ndb_code:en: 9139
+usda_ndb_name:en: Guavas, common, raw
 
 < en:guava
 en: guava puree, guavas puree
@@ -45885,6 +46113,33 @@ ciqual_food_name:en: Guava, pulp, raw
 ciqual_food_name:fr: Goyave, pulpe, crue
 # 302 in 7 @2021-09-29
 
+< en:fruit
+en: horned melon, kiwano
+description:en: The horned melon (kiwano) is a tropical fruit native to sub-Saharan Africa, though it's now grown in other warm regions like New Zealand, Australia, and California. The flavor is mild and refreshing — often described as a blend of cucumber, banana, and lime, with a slightly tart note.
+usda_ndb_code:en: 9451
+usda_ndb_name:en: Horned melon (Kiwano)
+
+< en:fruit
+en: java plum, java-plum, jambolan
+description:en: Java plum (Syzygium cumini) is a tropical evergreen tree in the myrtle family (Myrtaceae), making it more closely related to cloves and eucalyptus than to actual plums.
+usda_ndb_proxy_code:en: 9145
+usda_ndb_proxy_name:en: Java-plum, (jambolan), raw
+
+< en:java plum
+en: raw java plum
+usda_ndb_code:en: 9145
+usda_ndb_name:en: Java-plum, (jambolan), raw
+
+< en:fruit
+en: jujube
+description:en: Jujube (also called Chinese date or red date) is a small fruit from the Ziziphus jujuba tree, native to China but now grown throughout Asia, the Middle East, and parts of Europe and America. Fresh jujubes taste crisp and mildly sweet, similar to an apple.
+usda_ndb_proxy_code:en: 9146
+usda_ndb_proxy_name:en: Jujube, raw
+
+< en:jujube
+en: raw jujube
+usda_ndb_code:en: 9146
+usda_ndb_name:en: Jujube, raw
 
 ###################################################################################################
 #
@@ -45969,12 +46224,6 @@ uk: ківі
 ur: کيوی
 vi: quả dương đào
 zh: 奇異果
-ciqual_food_code:en: 13021
-ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
-ciqual_food_name:fr: Kiwi, pulpe et graines, cru
-ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
-ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
-ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
 # ang:cīnisc gōsberige
 # arz:كيوي
 # atj:wamin ka kawisitc
@@ -45996,9 +46245,28 @@ ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
 # zh-cn:奇異果
 # zh-hans:奇異果
 # zh-hant:奇異果
+ciqual_food_code:en: 13021
+ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
+ciqual_food_name:fr: Kiwi, pulpe et graines, cru
+ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
+ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
+ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
+usda_ndb_proxy_code:en: 9148
+usda_ndb_proxy_name:en: Kiwifruit, green, raw
 wikidata:en: Q13194
 wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 #1182 in 24 @2021-10-13
+
+< en:kiwi
+en: raw zespri sungold kiwifruit
+comment:en: note that this also a specific brand, but all from New Zealnd have this brand, but are now grown elsewhere.
+usda_ndb_code:en: 9520
+usda_ndb_name:en: Kiwifruit, ZESPRI SunGold, raw
+
+< en:kiwi
+en: raw green kiwi
+usda_ndb_code:en: 9148
+usda_ndb_name:en: Kiwifruit, green, raw
 
 #<en:kiwi
 #en:organic kiwi
@@ -46053,7 +46321,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 # description:en:Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
 
 < en:berries
-en: lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain cranberry, mountain cranberries, red whortleberry, red whortleberries
+en: lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain xry, mountain cranberries, red whortleberry, red whortleberries
 ca: nabius
 da: tyttebær
 de: Preiselbeere, Preiselbeeren
@@ -46243,17 +46511,21 @@ ciqual_food_name:en: Lychee, pulp, raw
 ciqual_food_name:fr: Litchi, pulpe, cru
 
 < en:lychee
-es: Lichis deshuesados
-fr: Litchis dénoyautés
-it: Litchi senza nocciolo
+es: lichis deshuesados
+fr: litchis dénoyautés
+it: litchi senza nocciolo
+
+< en:lychee
+en: dried lychee, dried litchi
+usda_ndb_code:en: 9165
+usda_ndb_name:en: Litchis, dried
 
 < en:fruit
-en: Rambutan
+en: rambutan
+xx: rambutan
 de: Rambutan
 es: rambután
 fr: Ramboutan, Litchi chevelu
-hr: rambutan
-it: rambutan
 ifct_food_code:en: E059
 ifct_food_name:en: Rambutan
 
@@ -46263,7 +46535,18 @@ de: Longan
 fr: longane, longani, oeil du dragon
 hr: longan
 it: longan
+usda_ndb_proxy_code:en: 9172
+usda_ndb_proxy_name:en: Longans, raw
 
+< en:longan
+en: dried longan
+usda_ndb_code:en: 9173
+usda_ndb_name:en: Longans, dried
+
+< en:longan
+en: raw longan
+usda_ndb_code:en: 9172
+usda_ndb_name:en: Longans, raw
 
 ###################################################################################################
 #
@@ -46385,7 +46668,6 @@ tl: milong kastila
 uk: канталуп
 vi: dưa vàng
 zh: 哈密瓜
-description:en: Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
 # bho:खरबुज्जा
 # chy:mâhöhko
 # ku-arab:شەمامۆک
@@ -46394,8 +46676,16 @@ description:en: Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spa
 # zh-cn:厚皮甜瓜
 # zh-hant:哈密瓜
 # zh-tw:甜瓜
+description:en: Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
+usda_ndb_proxy_code:en: 9181
+usda_ndb_proxy_name:en: Melons, cantaloupe, raw
 wikidata:en: Q477179
 # 125 in 2 @2021-10-10
+
+< en:cantaloupe
+en: raw cantaloupe
+usda_ndb_code:en: 9181
+usda_ndb_name:en: Melons, cantaloupe, raw
 
 < en:cantaloupe
 en: charentais melon
@@ -46595,14 +46885,13 @@ it: melone amaro, momordic
 ja: ゴーヤ, ニガウリ, 苦瓜, にがうり
 nl: Sopropo
 
-
 #category/honeydew-melons
 < en:melon
-en: Honeydew melon
+en: honeydew melon
 ar: شمام كوز العسل
 de: Honigmelone
 el: Χάνεϊντιου
-es: melón verde, melón blanco, casaba, melón rocío de miel, melón honeydew
+es: melón verde, melón blanco, melón rocío de miel, melón honeydew
 fi: hunajameloni
 fr: melon miel
 hr: medljika dinja
@@ -46621,9 +46910,33 @@ ciqual_food_code:en: 13742
 ciqual_food_name:en: Melon, honeydew, pulp, raw
 ciqual_food_name:fr: Melon miel ou melon honeydew, pulpe, cru
 #plant: wikidata:en:Q47801
+usda_ndb_proxy_code:en: 9184
+usda_ndb_proxy_name:en: Melons, honeydew, raw
 wikidata:en: Q104245646
 wikipedia:en: https://en.wikipedia.org/wiki/Honeydew_(melon)
 #27 @2021-10-10
+
+< en:honeydew melon
+en: raw honeydew melon
+usda_ndb_code:en: 9184
+usda_ndb_name:en: Melons, honeydew, raw
+
+< en:honeydew melon
+en: raw honeydew melon pulp
+ciqual_food_code:en: 13742
+ciqual_food_name:en: Melon, honeydew, pulp, raw
+ciqual_food_name:fr: Melon miel ou melon honeydew, pulpe, cru
+
+< en:melon
+en: casaba
+es: casaba
+usda_ndb_proxy_code:en: 9183
+usda_ndb_proxy_name:en: Melons, casaba, raw
+
+< en:casaba
+en: raw casaba
+usda_ndb_code:en: 9183
+usda_ndb_name:en: Melons, casaba, raw
 
 < en:melon
 en: Wax gourd, winter melon
@@ -46677,6 +46990,32 @@ zh: 冬瓜
 wikidata:en: Q652206
 wikipedia:en: https://en.wikipedia.org/wiki/Wax_gourd
 
+< en:fruit
+en: nance, hogberry, golden spoon
+es: nance, nanche, changunga
+la: Byrsonima crassifolia
+pt: murici
+description:en: Nance is a small tropical fruit native to Central America, the Caribbean, and parts of South America. Small, round, yellow to orange berries, about 1–2 cm in diameter, growing in clusters. It has a very distinctive, pungent aroma and a flavor that's a unique mix of sweet, sour, and slightly cheesy or fermented.
+usda_ndb_proxy_code:en: 9449
+usda_ndb_proxy_name:en: Nance, frozen, unsweetened
+
+< en:nance
+en: frozen nance
+usda_ndb_code:en: 9449
+usda_ndb_name:en: Nance, frozen, unsweetened
+
+< en:fruit
+en: naranjilla, lulo
+la: Solanum quitoense
+description:en: Naranjilla is a tropical fruit native to South America, mainly grown in Ecuador, Colombia, and Peru. Small to medium round fruit, about the size of a golf ball with bright orange skin covered in fine, removable fuzz. The flavor is very distinctive — a unique mix of tart, citrusy, and tropical, often described as a cross between pineapple, lime, and rhubarb.
+usda_ndb_proxy_code:en: 9450
+usda_ndb_proxy_name:en: Naranjilla (lulo) pulp, frozen, unsweetened
+
+< en:naranjilla
+en: frozen naranjilla pulp
+usda_ndb_code:en: 9450
+usda_ndb_name:en: Naranjilla (lulo) pulp, frozen, unsweetened
+
 ###################################################################################################
 #
 #                                Nectarine
@@ -46727,12 +47066,6 @@ tr: nektarin
 uk: нектарин
 vi: du đào
 zh: 桃駁李
-#plant:wikidata:en:Q3408651
-ciqual_food_code:en: 13030
-ciqual_food_name:en: Nectarine, pulp and peel, raw
-ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
-#94 in 5 @2021-10-28
-eurocode_2_group_3:en: 9.20.15
 #aeb:خوخ
 #koi:нектарин
 #lbe:нектарин
@@ -46740,10 +47073,41 @@ eurocode_2_group_3:en: 9.20.15
 #scn:pèrsica
 #udm:нектарин
 #yue:桃駁李
+ciqual_proxy_food_code:en: 13030
+ciqual_proxy_food_name:en: Nectarine, pulp and peel, raw
+ciqual_proxy_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
+eurocode_2_group_3:en: 9.20.15
+usda_ndb_proxy_code:en: 9191
+usda_ndb_proxy_name:en: Nectarines, raw
 wikidata:en: Q841156
+#plant:wikidata:en:Q3408651
+#94 in 5 @2021-10-28
+
+< en:nectarine
+en: raw nectarine
+usda_ndb_code:en: 9191
+usda_ndb_name:en: Nectarines, raw
+
+< en:nectarine
+en: raw nectarine pulp and skin
+ciqual_food_code:en: 13030
+ciqual_food_name:en: Nectarine, pulp and peel, raw
+ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
 
 < en:nectarine
 de: Nektarinenmark
+
+< en:fruit
+en: ōhelo berry, ōheloberries, oheloberries
+la: Vaccinium reticulatum
+description:en: ʻŌhelo is a small, native Hawaiian shrub in the cranberry family, commonly found at high elevations on the islands of Maui and Hawaiʻi. Ōhelo is related to the cranberry but much less tart — mildly sweet and mildly tart, with a texture similar to cranberries or blueberries.
+usda_ndb_proxy_code:en: 9192
+usda_ndb_proxy_name:en: Oheloberries, raw
+
+< en:ōhelo berry
+en: raw ōhelo berry
+usda_ndb_code:en: 9192
+usda_ndb_name:en: Oheloberries, raw
 
 ###################################################################################################
 #
@@ -46849,11 +47213,6 @@ vi: đu đủ
 wo: pàppaaya
 za: moeggva
 zh: 番木瓜
-ciqual_food_code:en: 13035
-ciqual_food_name:en: Papaya, pulp, raw
-ciqual_food_name:fr: Papaye, pulpe, crue
-ecobalyse:en: 8eec6aa3-2234-468c-aa5a-cfb364285ac9
-wikidata:en: Q12330939
 #arz:بابايا
 #ast:papaya
 #ban:gedang
@@ -46881,8 +47240,26 @@ wikidata:en: Q12330939
 #wuu:木瓜
 #yua:puut
 #yue:木瓜
+ciqual_proxy_food_code:en: 13035
+ciqual_proxy_food_name:en: Papaya, pulp, raw
+ciqual_proxy_food_name:fr: Papaye, pulpe, crue
+ecobalyse:en: 8eec6aa3-2234-468c-aa5a-cfb364285ac9
+usda_ndb_proxy_code:en: 9226
+usda_ndb_proxy_name:en: Papayas, raw
+wikidata:en: Q12330939
 wikipedia:en: https://en.wikipedia.org/wiki/Papaya
 # 1218 in 13 @2021-10-15
+
+< en:papaya
+en: raw papaya
+usda_ndb_code:en: 9226
+usda_ndb_name:en: Papayas, raw
+
+< en:papaya
+en: raw papaya pulp
+ciqual_food_code:en: 13035
+ciqual_food_name:en: Papaya, pulp, raw
+ciqual_food_name:fr: Papaye, pulpe, crue
 
 #processing:en: en:dried
 #<en:papaya
@@ -46978,36 +47355,45 @@ la: Passiflora edulis, Passiflora edulis sims
 
 < en:fruit juice
 #processing:en: en:juice
-< en:passionfruit
+# < en:passionfruit, there is a better food composition link
 en: passion fruit juice, passionfruit juice
+de: Maracujasaft, Passionsfruchtsaft
+es: zumo de maracuyá, jugo de maracuyá
+fi: passiohedelmämehu
+fr: jus de fruit de la passion, jus de fruits de la passion
+hr: sok od marakuje
 it: succo di frutto della passione
-#de:Maracujasaft, Passionsfruchtsaft
-#es:zumo de maracuyá, jugo de maracuyá
-#fi:passiohedelmämehu
-#fr:jus de fruit de la passion, jus de fruits de la passion
-#hr:sok od marakuje
-#it:succo di frutto della passione
-#nb:pasjonsfruktjuice
-#nl:passievruchtsap
-#pt:Suco de maracujá, sumo de maracujá
-#sv:passionsfruktjuice, passionsfrukts
+nb: pasjonsfruktjuice
+nl: passievruchtsap
+pt: suco de maracujá, sumo de maracujá
+sv: passionsfruktjuice, passionsfrukts
+usda_ndb_proxy_code:en: 9232
+usda_ndb_proxy_name:en: Passion-fruit juice, purple, raw
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion
 # 262 products in 6 languages @2018-09-29
 
-#processing:en: en:from concentrate
-#processing:en: en:juice
 < en:passion fruit juice
-#en:reconstituted passion fruit juice, passion fruit from concentrate
-#cs:koncentrovaná šťáva z maracuji
+en: raw purple passion-fruit juice
+usda_ndb_code:en: 9232
+usda_ndb_name:en: Passion-fruit juice, purple, raw
+
+< en:passion fruit juice
+en: raw yellow passion-fruit juice
+usda_ndb_code:en: 9233
+usda_ndb_name:en: Passion-fruit juice, yellow, raw
+
+< en:passion fruit juice
+en: reconstituted passion fruit juice, passion fruit from concentrate
+cs: koncentrovaná šťáva z maracuji
 # we keep this as unparsable
 de: Maracujasaft aus Maracujasaftkonzentrat, Passionfruchtsaft aus Konzentrat
-#es:zumo de maracuyá a partir de concentrado, jugo de maracuyá a partir de concentrado, zumo de maracuyá procedente de concentrado, jugo de maracuyá procedente de concentrado
-#fi:tiivisteestä valmistettu passionhedelmämehu, tiivisteestä valmistettu passiohedelmätäysmehu
-#fr:jus de fruit de la passion à base de concentré
-#hr:sok od marakuje od koncentriranog soka škrob
-#lt:pasiflorų sultys iš koncentrąto
-#sk:marakujová štava z koncentrátu
-#sv:passionsfruktsjuice från koncentrat
+es: zumo de maracuyá a partir de concentrado, jugo de maracuyá a partir de concentrado, zumo de maracuyá procedente de concentrado, jugo de maracuyá procedente de concentrado
+fi: tiivisteestä valmistettu passionhedelmämehu, tiivisteestä valmistettu passiohedelmätäysmehu
+fr: jus de fruit de la passion à base de concentré
+hr: sok od marakuje od koncentriranog soka škrob
+lt: pasiflorų sultys iš koncentrąto
+sk: marakujová štava z koncentrátu
+sv: passionsfruktsjuice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruit-de-la-passion-à-base-de-concentré
 # 82 products in 4 languages @2018-09-29
 
@@ -47108,14 +47494,40 @@ zh: 鳳梨
 # zh-my:黄梨
 # zh-sg:黄梨
 # zh-tw:鳳梨
+ciqual_proxy_food_code:en: 13002
+ciqual_proxy_food_name:en: Pineapple, pulp, raw
+ciqual_proxy_food_name:fr: Ananas, pulpe, cru
 ecobalyse:en: c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a
 ecobalyse_labels_en_organic:en: 0f52bae1-07d0-446d-ae5b-f246f894ac3b
 ifct_food_code:en: E053
 ifct_food_name:en: Pineapple
+usda_ndb_proxy_code:en: 9266
+usda_ndb_proxy_name:en: Pineapple, raw, all varieties
 wikidata:en: Q10817602
 wikipedia:en: https://en.wikipedia.org/wiki/Pineapple
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pineapple
 # 2512 products in 11 languages @2018-09-30
+
+< en:pineapple
+en: raw pineapple
+usda_ndb_code:en: 9266
+usda_ndb_name:en: Pineapple, raw, all varieties
+
+< en:pineapple
+en: raw pineapple pulp
+ciqual_food_code:en: 13002
+ciqual_food_name:en: Pineapple, pulp, raw
+ciqual_food_name:fr: Ananas, pulpe, cru
+
+< en:pineapple
+en: raw extra sweet pineapple
+usda_ndb_code:en: 9430
+usda_ndb_name:en: Pineapple, raw, extra sweet variety
+
+< en:pineapple
+en: raw traditional pineapple
+usda_ndb_code:en: 9429
+usda_ndb_name:en: Pineapple, raw, traditional varieties
 
 < en:pineapple
 en: pineapple segments, pineapple chunks, pineapple rings
@@ -47150,9 +47562,6 @@ fr: purée d'ananas, pulpe d'ananas victoria
 hr: pire od ananasa
 it: purea di ananas
 nl: ananaspuree
-ciqual_food_code:en: 13002
-ciqual_food_name:en: Pineapple, pulp, raw
-ciqual_food_name:fr: Ananas, pulpe, cru
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-d'ananas
 # 60 in 4 languages @2021-09-26
 
@@ -47249,9 +47658,28 @@ zh: 菠萝糖浆
 
 ###################################################################################################
 #
+#                                Pitanga
+#
+###################################################################################################
+
+< en:fruit
+en: pitanga, Surinam cherry, Brazilian cherry
+la: Eugenia uniflora
+description:en: Pitanga is a tropical fruit native to South America. The fruit is a berry with a persistent calyx up to 4 cm in diameter and eight clearly visible ribs. Its color changes from green to orange and purple as it matures. The flavor is unique — peppery and fruity, and quite complex
+usda_ndb_proxy_code:en: 9276
+usda_ndb_proxy_name:en: Pitanga, (surinam-cherry), raw
+
+< en:pitanga
+en: raw pitanga
+usda_ndb_code:en: 9276
+usda_ndb_name:en: Pitanga, (surinam-cherry), raw
+
+###################################################################################################
+#
 #                                Pomegranate
 #
 ###################################################################################################
+
 < en:fruit
 en: pomegranate
 am: ሩማን
@@ -47307,10 +47735,17 @@ za: Maksigloux
 # mzn:انار
 # pnb:انار
 # vro:Granaatupin
+usda_ndb_proxy_code:en: 9286
+usda_ndb_proxy_name:en: Pomegranates, raw
 wikidata:en: Q13222088
 wikipedia:en: https://fr.wikipedia.org/wiki/Grenade_(fruit)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:grenade
 # 53 products in 3 languages @2018-10-03
+
+< en:pomegranate
+en: raw pomegranate
+usda_ndb_code:en: 9286
+usda_ndb_name:en: Pomegranates, raw
 
 < en:pomegranate
 en: pomegranate Ruby Red
@@ -47319,7 +47754,8 @@ it: melograno Rosso Rubino
 < en:pomegranate
 es: granada variedada Mollar de Elche
 
-< en:pomegranate
+# < en:pomegranate
+< en: seed
 en: pomegranate seeds
 bg: зрънца от нар
 da: granatæblekerner
@@ -47391,7 +47827,7 @@ fr: écorces de grenade
 
 ###################################################################################################
 #
-#
+#                            Custard Apple
 #
 ###################################################################################################
 
@@ -47412,6 +47848,30 @@ en: raw custard apple
 usda_ndb_code:en: 9062
 usda_ndb_name:en: Cherimoya, raw
 
+###################################################################################################
+#
+#                            Bullocks Heart
+#
+###################################################################################################
+
+< en:fruit
+en: bullocks heart
+la: Annona reticulata
+description:en: Native to the Caribbean and Central America, but now grown across tropical regions of South Asia, Southeast Asia, and Africa. The flesh inside is white to pale yellow, soft, and creamy, though generally considered less refined in flavor than its relatives
+usda_ndb_proxy_code:en: 9086
+usda_ndb_proxy_name:en: Custard-apple, (bullock's-heart), raw
+
+< en: bullocks heart
+en: raw bullocks heart
+usda_ndb_code:en: 9086
+usda_ndb_name:en: Custard-apple, (bullock's-heart), raw
+
+###################################################################################################
+#
+#                            Persimmon
+#
+###################################################################################################
+
 < en:fruit
 en: persimmon, sharon fruit, khaki, kaki
 bg: райска ябълка
@@ -47421,12 +47881,29 @@ fr: kaki
 hr: dragun
 it: cachi
 pl: kaki
-ciqual_food_code:en: 13066
-ciqual_food_name:en: Persimmon, pulp, raw
-ciqual_food_name:fr: Kaki, pulpe, cru
+ciqual_proxy_food_code:en: 13066
+ciqual_proxy_food_name:en: Persimmon, pulp, raw
+ciqual_proxy_food_name:fr: Kaki, pulpe, cru
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.44
+usda_ndb_proxy_code:en: 9265
+usda_ndb_proxy_name:en: Persimmons, native, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Diospyros_kaki
+
+< en:persimmon
+en: dried japanese persimmon
+usda_ndb_code:en: 9264
+usda_ndb_name:en: Persimmons, japanese, dried
+
+< en:persimmon
+en: raw japanese persimmon
+usda_ndb_code:en: 9263
+usda_ndb_name:en: Persimmons, japanese, raw
+
+< en:persimmon
+en: raw native persimmon
+usda_ndb_code:en: 9265
+usda_ndb_name:en: Persimmons, native, raw
 
 < en:persimmon
 en: persimmon juice
@@ -47436,13 +47913,28 @@ hr: sok od kakija
 it: succo di cachi
 
 < en:persimmon
-en: Persimmon pulp
-fr: Pulpe de kaki
+en: raw persimmon pulp, persimmon pulp
+fr: pulpe de kaki
 it: polpa di cachi
 ciqual_food_code:en: 13066
 ciqual_food_name:en: Persimmon, pulp, raw
 ciqual_food_name:fr: Kaki, pulpe, cru
 
+###################################################################################################
+#
+#                                Prickly Pear
+#
+###################################################################################################
+
+< en:fruit
+en: prickly pear
+usda_ndb_proxy_code:en: 9287
+usda_ndb_proxy_name:en: Prickly pears, raw
+
+< en:prickly pear
+en: raw prickly pears
+usda_ndb_code:en: 9287
+usda_ndb_name:en: Prickly pears, raw
 
 ###################################################################################################
 #
@@ -47520,8 +48012,6 @@ zh: 樹莓
 # stq:Hiembäie
 # ur:تُوت علیق
 # yue:勒士啤梨
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry
-# 2014 in 12 languages @2018-09-27
 ciqual_proxy_food_code:en: 13015
 ciqual_proxy_food_name:en: Raspberry, raw
 ciqual_proxy_food_name:fr: Framboise, crue
@@ -47530,6 +48020,8 @@ ecobalyse_labels_en_organic:en: 091cda9d-3c9d-444c-ad0e-1d6f34491767
 eurocode_2_group_3:en: 9.30.20
 usda_ndb_proxy_code:en: 9302
 usda_ndb_proxy_name:en: Raspberries, raw
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry
+# 2014 in 12 languages @2018-09-27
 
 < en:raspberry
 en: raw raspberries
@@ -47582,9 +48074,20 @@ it: purea di lamponi
 nl: frambozenpuree
 pl: mus malinowy
 sv: hallonpuré
-# In process de:Himbeermark, Himbeerpüree
+usda_ndb_proxy_code:en: 9553
+usda_ndb_proxy_name:en: Raspberries, puree, with seeds
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:puree-de-framboise
 # 461 products in 6 languages @2018-09-27
+
+< en:raspberry puree
+en: seedless raspberry puree
+usda_ndb_code:en: 9552
+usda_ndb_name:en: Raspberries, puree, seedless
+
+< en:raspberry puree
+en: raspberry puree with seeds
+usda_ndb_code:en: 9553
+usda_ndb_name:en: Raspberries, puree, with seeds
 
 < en:raspberry puree
 fr: purée de framboise concentrée
@@ -47626,7 +48129,7 @@ sv: hallonjuice från koncentrat
 # ingredient/fr:jus-de-framboise-à-base-de-concentré has 73 products in 5 languages @2018-09-27
 
 < en:raspberry juice
-en: concentrated raspberry juice
+en: concentrated raspberry juice, raspberry juice concentrate
 de: Himbeerdicksaft
 es: jarabe de frambuesas, sirope de frambuesas
 fi: vadelmamehutiiviste
@@ -47635,6 +48138,8 @@ hr: koncentrirani sok od maline
 it: Succo di lampone concentrato
 nl: frambozendiksap
 pl: zagęszczony sok malinowy, zagęszczony sok z maliny, skoncentrowany sok malinowy, skoncentrowany sok z owoców malin
+usda_ndb_code:en: 9554
+usda_ndb_name:en: Raspberry juice concentrate
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/concentrated-raspberry-juice
 # 44 products in 3 languages @2018-09-27
 
@@ -47722,6 +48227,23 @@ en: whitecurrant, white currant
 fr: groseille blanche, groseilles blanches
 it: ribes bianco
 eurocode_2_group_3:en: 9.30.36
+
+###################################################################################################
+#
+#                                Rose apple
+#
+###################################################################################################
+
+< en:fruit
+en: rose apple
+description:en: A rose apple (Syzygium jambos or related species) is a tropical fruit native to Southeast Asia and the Indian subcontinent. Despite its name, it's not related to either roses or apples — it belongs to the myrtle family. Pear- or bell-shaped fruit, usually pale yellow, white, pink, or red, with a waxy, smooth skin. Mildly sweet with a subtle floral aroma reminiscent of roses.
+usda_ndb_proxy_code:en: 9312
+usda_ndb_proxy_name:en: Rose-apples, raw
+
+< en:rose apple
+en: raw rose apple
+usda_ndb_code:en: 9312
+usda_ndb_name:en: Rose-apples, raw
 
 ###################################################################################################
 #
@@ -47813,6 +48335,58 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rosa_canina
 en: dog rose fruit
 it: frutto di rosa canina
 pl: owoc dzikiej róży
+
+###################################################################################################
+#
+#                                Rowal
+#
+###################################################################################################
+
+< en:fruit
+en: rowal
+la: Pangium edule
+description:en: Rowal (scientific name Pangium edule) is a tropical fruit native to Southeast Asia and the Pacific Islands. The fruits are generally 15–30 cm long, with a rough brown exterior. The flesh has a strong aroma. The fresh fruit and seeds contain hydrogen cyanide and are DEADLY POISONOUS if consumed without prior preparation.
+usda_ndb_proxy_code:en: 9428
+usda_ndb_proxy_name:en: Rowal, raw
+
+< en: rowal
+en: raw rowal
+usda_ndb_code:en: 9428
+usda_ndb_name:en: Rowal, raw
+
+###################################################################################################
+#
+#                                Sapodilla
+#
+###################################################################################################
+
+< en:fruit
+en: sapodilla
+description:en: Sapodilla (Manilkara zapota) is a tropical fruit native to southern Mexico, Central America, and the Caribbean. It's a small to medium-sized fruit with rough, brown, potato-like skin. The flesh inside is yellowish-brown, soft, and grainy in texture. Often described as one of the sweetest fruits in the world. It has a rich, caramel-like or brown sugar flavor, sometimes with hints of vanilla and pear.
+usda_ndb_proxy_code:en: 9313
+usda_ndb_proxy_name:en: Sapodilla, raw
+
+< en:sapodilla
+en: raw sapodilla
+usda_ndb_code:en: 9313
+usda_ndb_name:en: Sapodilla, raw
+
+###################################################################################################
+#
+#                                Soursop
+#
+###################################################################################################
+
+< en:fruit
+en: soursop, graviola
+description:en: Soursop is a tropical fruit from the Annona muricata tree, native to the Caribbean, Central America, and parts of South America and Africa. Large, green, spiky/prickly on the outside — it can weigh anywhere from 1 to 7 kg. The inside is white, creamy, and fibrous with large black seeds. It's taste is an unique blend of sweet and tangy — often described as a mix of strawberry, pineapple, and citrus, with a creamy texture somewhat like banana or coconut.
+usda_ndb_proxy_code:en: 9315
+usda_ndb_proxy_name:en: Soursop, raw
+
+< en:soursop
+en: raw soursop
+usda_ndb_code:en: 9315
+usda_ndb_name:en: Soursop, raw
 
 ###################################################################################################
 #
@@ -47925,9 +48499,9 @@ carbon_footprint_fr_foodges_ingredient:fr: Fraise hors saison sous serre (France
 carbon_footprint_fr_foodges_value:fr: 3.5
 #carbon_footprint_fr_foodges_ingredient:fr:Fraise "Pays du Sud"
 #carbon_footprint_fr_foodges_value:fr:0.8
-ciqual_food_code:en: 13014
-ciqual_food_name:en: Strawberry, raw
-ciqual_food_name:fr: Fraise, crue
+ciqual_proxy_food_code:en: 13014
+ciqual_proxy_food_name:en: Strawberry, raw
+ciqual_proxy_food_name:fr: Fraise, crue
 ecobalyse:en: e5bf7d33-6afe-46d6-ac06-f69c5769b10e
 ecobalyse_origins_en_european_union:en: ce20da3d-0ce4-49e9-8942-6d99ff0221b1
 ecobalyse_origins_en_france:en: 3c20126c-e2ab-403b-8bbc-0fc0d2fd3a1b
@@ -47948,6 +48522,11 @@ ciqual_food_name:en: Strawberry, raw
 ciqual_food_name:fr: Fraise, crue
 usda_ndb_code:en: 9316
 usda_ndb_name:en: Strawberries, raw
+
+< en:strawberry
+en: unsweetened frozen strawberry
+usda_ndb_code:en: 9318
+usda_ndb_name:en: Strawberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
 
 #should be handles by ingredients processing
 #< en:strawberry
@@ -48084,8 +48663,6 @@ wikidata:en: Q104219130
 wikipedia:en: https://en.wikipedia.org/wiki/Fragaria_vesca
 # ingredient/fr:fraises-des-bois has 23 products in 4 languages @2020-12-23
 
-# description:en:Hippophae rhamnoides, also known as SEA-BUCKTHORN is a species of flowering plant in the family Elaeagnaceae, native to the cold-temperate regions of Europe and Asia.
-
 ###################################################################################################
 #
 #                                Sea-Buckthorn
@@ -48138,6 +48715,7 @@ tg: ангат
 uk: обліпиха звичайна
 zh: 沙棘
 # ingredient/fr:argousier has 7 products in 4 languages @2020-06-13
+description:en: Hippophae rhamnoides, also known as SEA-BUCKTHORN is a species of flowering plant in the family Elaeagnaceae, native to the cold-temperate regions of Europe and Asia.
 eurocode_2_group_3:en: 9.30.70
 wikidata:en: Q165378
 wikipedia:en: https://en.wikipedia.org/wiki/Hippophae_rhamnoides
@@ -48167,14 +48745,33 @@ de: Mehrfruchtsaft aus Mehrfruchtsaftkonzentrat
 
 ###################################################################################################
 #
+#                                Sugar apple
+
+#
+###################################################################################################
+
+< en:fruit
+en: sugar apple, sweetsop
+description:en: A sugar apple (also called sweetsop) is a tropical fruit from the Annona squamosa tree, native to the tropical Americas and West Indies. It has a bumpy, knobby green skin made up of overlapping segments that look almost like scales or a pinecone. When ripe, the segments separate easily. The white, creamy flesh inside is sweet and custard-like — hence "sugar" apple. The taste is often described as a blend of vanilla, pear, and banana, with a grainy, melt-in-your-mouth texture.
+usda_ndb_proxy_code:en: 9321
+usda_ndb_proxy_name:en: Sugar-apples, (sweetsop), raw
+
+< en:sugar apple
+en: raw sugar apple
+usda_ndb_code:en: 9321
+usda_ndb_name:en: Sugar-apples, (sweetsop), raw
+
+###################################################################################################
+#
 #                                GRAPE SECTION
 #
 ###################################################################################################
 
-# description:en:A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis.
+# 
 # Note that in french often 'raisin' is used to indicate the dried one
 
 < en:berries
+# the berries parent provokes the eurocode_2_group_2 inheritance
 < en:fruit
 en: grape, vine fruit, mixed vine fruit
 af: druiwe
@@ -48283,12 +48880,6 @@ wa: roejhén
 yi: וויינטרויבן
 za: makit
 zh: 葡萄
-carbon_footprint_fr_foodges_ingredient:fr: Raisin
-carbon_footprint_fr_foodges_value:fr: 0.8
-ciqual_food_code:en: 13112
-ciqual_food_name:en: Grape, raw
-ciqual_food_name:fr: Raisin, cru
-wikidata:en: Q10978
 # aeb-arab:عنب
 # ang:ƿīnberȝe
 # arc:ܥܢܒܬܐ
@@ -48350,8 +48941,22 @@ wikidata:en: Q10978
 # wuu:葡萄
 # xmf:ჸურზენი
 # yue:提子
+carbon_footprint_fr_foodges_ingredient:fr: Raisin
+carbon_footprint_fr_foodges_value:fr: 0.8
+ciqual_food_code:en: 13112
+ciqual_food_name:en: Grape, raw
+ciqual_food_name:fr: Raisin, cru
+description:en: A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis.
+usda_ndb_proxy_code:en: 9131
+usda_ndb_proxy_name:en: Grapes, american type (slip skin), raw
+wikidata:en: Q10978
 wikipedia:en: https://en.wikipedia.org/wiki/Grape
 # 18963 in 9 languages @221-10-15
+
+< en:grape
+en: raw american type grapes
+usda_ndb_code:en: 9131
+usda_ndb_name:en: Grapes, american type (slip skin), raw
 
 < en:grape
 en: grape seed, grape seeds
@@ -48403,6 +49008,11 @@ de: Tempranillo, Tempranillo-Traube
 es: uva tempranillo
 hr: tempranillo grožđe
 it: uva Tempranillo
+
+< en:grape
+en: raw muscadine grapes
+usda_ndb_code:en: 9129
+usda_ndb_name:en: Grapes, muscadine, raw
 
 < en:grape
 en: black grape
@@ -48482,7 +49092,8 @@ nl: rode druivensap
 
 # description:en:A RAISIN is a dried grape.
 
-< en:grape
+# madefrom:en: grape
+< en:fruit
 en: raisin, raisins
 ar: زبيب
 az: Kişmiş
@@ -48553,12 +49164,6 @@ uk: Родзинки
 vi: Nho khô
 yi: ראזשינקע
 zh: 葡萄乾
-carbon_footprint_fr_foodges_ingredient:fr: Raisin
-carbon_footprint_fr_foodges_value:fr: 0.8
-ciqual_food_code:en: 13046
-ciqual_food_name:en: Raisin
-ciqual_food_name:fr: Raisin, sec
-openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisin-sec
 # arc:ܐܦܫܬܐ
 # atj:Coweminak
 # bar:Weinberl
@@ -48574,8 +49179,21 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisin-sec
 # pt-br:passa
 # sco:raisin
 # yue:提子乾
+carbon_footprint_fr_foodges_ingredient:fr: Raisin
+carbon_footprint_fr_foodges_value:fr: 0.8
+ciqual_food_code:en: 13046
+ciqual_food_name:en: Raisin
+ciqual_food_name:fr: Raisin, sec
+openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisin-sec
+usda_ndb_proxy_code:en: 9298
+usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q13186
 wikipedia:en: https://en.wikipedia.org/wiki/Raisin
+
+< en:raisin
+en: dark seedless raisin
+usda_ndb_code:en: 9298
+usda_ndb_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
 
 < en:raisin
 en: seeded raisin
@@ -48622,36 +49240,51 @@ ko: 설태너
 mk: суво грозје
 ms: sultana
 nl: sultana, sultanas
-pl: rodzynki sułtańskie, rodzynki sułtanki, rodzynki thompson jumbo
+pl: rodzynki sułtańskie, rodzynki sułtanki
 pt: sultanina, sultanas
 ro: sultanină
 ru: белый кишмиш
 si: සුල්තානා
 sl: sultanina
-sv: sultanvindruva, sultandruva, Thompson-druva, Thompson-druvor
+sv: sultanvindruva, sultandruva
 tr: sultaniye üzümü
 uk: кишмиш
 uz: kishmish
 zh: 蘇丹娜葡萄
-comment:en: maybe it is necessary to split between dried and fresh
+comment:en: This ingredient refers to the UNDRIED grape. The name is often used for the dried version, maybe it is necessary to split between dried and fresh
 description:en: SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 # 46 products in 3 languages @2018-10-02
 
-< en:raisin
 < en:sultana
-en: sultana raisin, Raisin Thompson Seedless
+en: Thompson Seedless
+sv: Thompson-druva, Thompson-druvor
+
+# madefrom:en:sultana
+< en:sultana
+en: sultana raisin, golden raisin
 fr: raisins secs sultanines
-sv: sultanrussin, Thompson-russin
+sv: sultanrussin
+comment:en: the parent is kept as that is often used as its name
+usda_ndb_proxy_code:en: 9297
+usda_ndb_proxy_name:en: Raisins, golden, seedless
+
+< en:sultana
+en: seedless golden raisins
+usda_ndb_code:en: 9297
+usda_ndb_name:en: Raisins, golden, seedless
+
+< en:sultana raisin
+en: Raisin Thompson Seedless
+pl: rodzynki thompson jumbo
+sv: Thompson-russin
 
 #<en:compound
 en: oiled sultana
 de: Sultaninen geölt
 it: uva sultanina oleosa
-
-# description:en:Zante currants, Corinth raisins, or Corinthian raisins, also called simply currants, are dried berries of the small, sweet, seedless grape cultivar 'Black Corinth' (Vitis vinifera).
 
 < en:raisin
 en: California seedless raisins
@@ -48667,8 +49300,9 @@ origins:en: en:california
 en: California seedless Thompson raisin, California seedless Thompson raisins
 sv: kaliforniska Thompson-russin utan kärnor
 
-< en:grape
-en: Corinthian raisins
+# < en:grape (made from)
+< en:fruit
+en: Corinthian raisins, zante currants
 da: Korend
 de: korinthische Rosinen, Korinthiaki, Korinthe, Korinthen
 es: Pasa de Corinto
@@ -48687,8 +49321,11 @@ oc: Pansarilha
 ru: Коринка
 sd: ڪاري ڊاک
 sv: Korinter
-wikidata:en: Q1382423
 # ckb:مێوژ
+description:en: Zante currants are small, dried, seedless grapes — despite the name, they're not actually related to fresh currants (which are berries from the Ribes genus). Dried fruits made from the Black Corinth grape.
+usda_ndb_code:en: 9085
+usda_ndb_name:en: Currants, zante, dried
+wikidata:en: Q1382423
 wikipedia:en: https://en.wikipedia.org/wiki/Zante_currant
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-de-corinthe
 # 57 products in 3 languages @2018-10-02
@@ -48696,7 +49333,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Zante_currant
 # description:en:Grape juice is obtained from crushing and blending grapes into a liquid.
 
 < en:fruit juice
-< en:grape
+# < en:grape (made from)
 en: grape juice, raisin juice
 ar: عصير العنب
 az: Üzüm şirəsi
@@ -49887,6 +50524,18 @@ it: Žlahtina
 wikidata:en: Q394231
 wikipedia:hr: https://hr.wikipedia.org/wiki/%C5%BDlahtina
 
+< en:fruit
+en: strawberry guavas
+la: Psidium cattleianum
+description:en: Strawberry guava (Psidium cattleianum) is a tropical fruit tree native to eastern Brazil. The flesh is white to creamy, with a sweet-tart taste reminiscent of a mix between strawberry and guava — hence the name. It contains small, hard seeds.
+usda_ndb_proxy_code:en: 9140
+usda_ndb_proxy_name:en: Guavas, strawberry, raw
+
+< en:strawberry guava
+en: raw strawberry guavas
+usda_ndb_code:en: 9140
+usda_ndb_name:en: Guavas, strawberry, raw
+
 ###################################################################################################
 #
 #                                Tamarind
@@ -49981,9 +50630,25 @@ ciqual_food_code:en: 13079
 ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
 ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 # tree:wikidata:en:Q80235
+ciqual_proxy_food_code:en: 13079
+ciqual_proxy_food_name:en: Tamarind, immature fruit, pulp, raw
+ciqual_proxy_food_name:fr: Tamarin, fruit immature, pulpe, cru
+usda_ndb_proxy_code:en: 9322
+usda_ndb_proxy_name:en: Tamarinds, raw
 wikidata:en: Q28178875
 wikipedia:en: https://en.wikipedia.org/wiki/Tamarind
 # ingredient/fr:tamarin has 107 products in 5 languages @2019-02-07
+
+< en:tamarind
+en: raw tamarind
+usda_ndb_code:en: 9322
+usda_ndb_name:en: Tamarinds, raw
+
+< en:tamarind
+en: raw immature tamarind pulp
+ciqual_food_code:en: 13079
+ciqual_food_name:en: Tamarind, immature fruit, pulp, raw
+ciqual_food_name:fr: Tamarin, fruit immature, pulpe, cru
 
 #processing:en: en:extract
 #<en:tamarind
@@ -53060,6 +53725,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rhubarb
 en: raw rhubarb
 usda_ndb_code:en: 9307
 usda_ndb_name:en: Rhubarb, raw
+
+< en:rhubarb
+en: frozen uncooked rhubarb
+usda_ndb_code:en: 9309
+usda_ndb_name:en: Rhubarb, frozen, uncooked
 
 < en:rhubarb
 en: rhubarb juice
@@ -65330,6 +66000,16 @@ en: hemp seed paste
 de: Hanfsamenmus
 it: pasta di semi di canapa
 
+# < en:melon made from
+< en:seed
+en: melon seed
+de: Melonenkerne, Melonensamen
+fi: meloninsiemen
+fr: graines de melon
+hr: sjeme dinje
+it: semi di melone
+sv: melonfrön
+# ingredient/en:melon-seed has 4 products in 1 language @2020-06-13
 
 # description:en:Pine nuts, also called piñón or pinoli, are the edible seeds of pines (family Pinaceae, genus Pinus).
 
@@ -73356,11 +74036,8 @@ ro: apă de trandafiri
 wikidata:en: Q900450
 wikipedia:en: https://en.wikipedia.org/wiki/Rose_water
 
-
-# description:en:Roselle (Hibiscus sabdariffa) is a species of Hibiscus used for the production of bast fibre and as an inon, in which it may be known as carcade.
-
 < en:plant
-en: roselle flower, hibiscus flower, hibiscus flowers, hibiscus
+en: roselle flower, hibiscus flower, hibiscus flowers, hibiscus, roselle
 ar: كركديه
 as: টেঙামৰা
 az: Məkkə çayı
@@ -73370,7 +74047,7 @@ cs: ibišek súdánský
 da: hibiskusblomst
 de: Karkadeblüten, Roselle, Hibiskus, Hibiskusblüte, Hibiskusblüten
 eo: Sabdarifo
-es: Flor Roselle, hibisco
+es: Flor Roselle, hibisco, flor de jamaica
 fa: روزل
 fi: teehibiskus, hibiskus, hibiskuksen kukka
 fr: fleurs de carcadé, fleurs d'hibiscus, hibiscus
@@ -73382,6 +74059,7 @@ it: flori di carcadè, Ibisco
 ja: ローゼル
 jv: Rosela
 ko: 로젤
+la: Hibiscus sabdariffa
 ln: Ngai ngai
 lt: Jamaikinė kinrožė
 ml: പുളിവെണ്ട
@@ -73402,9 +74080,16 @@ tr: hibiskus, kerkede
 zh: 玫瑰茄
 # arz:كركديه
 # azb:مکَه چایی
+usda_ndb_proxy_code:en: 9311
+usda_ndb_proxy_name:en: Roselle, raw
 wikidata:en: Q319390
 wikipedia:en: https://en.wikipedia.org/wiki/Roselle_(plant)
 # fr:fleurs-de-carcadé has 12 products in 3 languages @2018-10-15
+
+< en:roselle flower
+en: raw roselle
+usda_ndb_code:en: 9311
+usda_ndb_name:en: Roselle, raw
 
 < en:carrot
 < en:roselle flower
@@ -74835,15 +75520,22 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rhodiola_rosea
 # ingredient/en:rhodiola-rosea has 8 products in 1 language @2020-06-13
 
 < en:berries
-en: Cape gooseberry, Cape gooseberries, goldenberry, goldenberries, golden berry, golden berries, Peruvian groundcherry
+en: Cape gooseberry, Cape gooseberries, goldenberry, goldenberries, golden berry, golden berries, Peruvian groundcherry, groundcherries, poha
 es: uchuva, aguaymanto, uvilla
 hr: rt ogrozd
 it: uva spina del Capo
 la: Physalis peruviana, physalis
 pl: Miechunka peruwiańska, rodzynek brazylijski, jagoda inkaska, jagoda inków, miechunka
 eurocode_2_group_3:en: 9.30.58
+usda_ndb_proxy_code:en: 9138
+usda_ndb_proxy_name:en: Groundcherries, (cape-gooseberries or poha), raw
 wikidata:en: Q165227
 wikipedia:en: https://en.wikipedia.org/wiki/Physalis_peruviana
+
+< en: Cape gooseberry
+en: raw Cape gooseberry
+usda_ndb_code:en: 9138
+usda_ndb_name:en: Groundcherries, (cape-gooseberries or poha), raw
 
 < en:berries
 en: Indian Gooseberry, Amla
