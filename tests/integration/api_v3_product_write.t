@@ -678,7 +678,7 @@ my $tests_ref = [
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		},
-		expected_status_code => 204, # specific return code for OPTIONS requests
+		expected_status_code => 204,    # specific return code for OPTIONS requests
 		expected_type => "none",    # no body for OPTIONS requests
 	},
 	{
