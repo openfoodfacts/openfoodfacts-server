@@ -72359,16 +72359,106 @@ fr: Melons surgelés
 
 < en:Fruits
 en: Pears
-bg: Круши
+af: Peer
+ar: إجاص
+az: Armud
+be: Груша
+bg: Круши, Круша
+bn: নাশপাতি
+bo: ལི།
+br: Per
+bs: Kruška
+ca: Pera
+co: Pera
+cs: Hruška
+cy: Gellygen
+da: Pærer
 de: Birnen
+el: Αχλάδι
+eo: Piroj
 es: Peras
-fi: päärynät
+et: Pirn
+eu: Udare
+fa: گلابی
+fi: Päärynät
+fo: Pera
 fr: Poires
-hr: Kruške
+fy: Par
+ga: Piorra
+gd: Peur
+gl: Pera
+gv: Peear
+hi: नाशपाती
+hr: Kruške, Kruška
+ht: Pwar
+hu: Körte
+hy: Տանձ
+id: Buah pir
+ig: Ùbé
+io: Piro
+is: Pera
+it: Pera
+ja: 梨
+ka: Მსხალი
+kk: Алмұрт
+km: ផ្លែភា
+ko: 배
+ku: Hirmê
+kw: Per
+ky: Алмурут
+la: Pirum
+lb: Bier
+li: Paer
+lo: ໝາກຈອງ
 lt: Kriaušės
-nl: Peren
-ru: Груши
+lv: Bumbieris
+mi: Pea
+mk: Кру́ша
+ml: പിയർ
+mt: Lanġasa
+my: သစ်တောသီး
+nb: Pærer
+nl: Peren, Peer
+nn: Pærer
+nv: Bilasáana bitseeʼ nineezígíí
+oc: Pera
+or: ନାସ୍ପାତି
+os: Кӕрдо
+pa: ਨਾਸ਼ਪਾਤੀ
+pl: Gruszka
+pt: Pêra
+rm: Pair
+ro: Pară
+ru: Груши, Груша
+sc: Pira
+se: Beron
+sh: Kruška
+sk: Hruška
+sl: Hruška
+sq: Dardha
+sr: Крушка
+st: Pere
+sv: Päron
+sw: Pea
+ta: பேரிக்காய்
+tg: Мурӯд
+th: ลูกแพร์
+tk: Armyt
+tl: Peras
 tr: Armut
+tt: Армут
+ug: نەشپۈت
+uk: Груша
+ur: ناشپاتی
+uz: Nok
+vi: Lê
+vo: Bün
+wa: Poere
+yi: באר
+zh: 梨
+agribalyse_proxy_food_code:en: 13037
+ciqual_proxy_food_code:en: 13037
+ciqual_proxy_food_name:en: Pear, flesh and skin, raw
 google_product_taxonomy_id:en: 6665
 intake24_category_code:en: PEAR
 wikidata:en: Q13099586
@@ -72376,11 +72466,13 @@ wikidata:en: Q13099586
 < en:Fresh fruits
 < en:Pears
 en: Fresh pears
+da: Friske pærer
 de: Frische Birnen
 es: Peras frescas
 fr: Poires fraîches
 hr: Svježe kruške
 lt: Šviežios kriaušės
+sv: Färska päron
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,8,9,10,11,12
 
@@ -72394,8 +72486,22 @@ fr: Poires Abate, Poires Abbé Fétel, Abbé Fétel, Abate Fétel
 wikidata:en: Q306912
 
 < en:Pears
-en: Asian pears, Apple pears, Sand pears
+en: Asian pears, Nashi pears, Apple pears, Sand pears
+ca: Pera asiàtica
+da: Nashipærer
+de: Nashibirnen
+eo: Azia piroj
+fr: Nashi
+sl: Naši
+sv: Nashipäron, Päron nashi
 comment:en: https://www.webmd.com/diet/health-benefit-asian-pears
+wikidata:en: Q104821115
+
+< en: Asian pears
+< en: Fresh pears
+en: Fresh Asian pears
+da: Friske nashipærer
+sv: Färska nashipäron
 
 < en:Pears
 en: Comice pears, Pears (Comice)
@@ -72404,10 +72510,30 @@ sales_format:en: package, weight
 
 < en:Pears
 en: Conference pears, Pears (Conference)
+xx: Conference
+cs: Konference
+da: Conference-pærer
+eu: Konferentzia madaria
 fr: Poires Conférence, Conférence
 hr: Konferencijske kruške
+ig: Conference pear
+la: Pyrus communis ‘Conference’
 nl: Conference peren
+pl: Konferencja
+sk: Konferencia (hruška)
+sv: Conference-päron
+zh: 展會梨
+agribalyse_proxy_food_code:en: 13188
+ciqual_proxy_food_code:en: 13188
+ciqual_proxy_food_name:en: Pear, var. Conférence, flesh without skin, raw
 sales_format:en: weight, package
+wikidata:en: Q747247
+
+< en: Conference pears
+< en: Fresh pears
+en: Fresh Conference pears
+da: Friske Conference-pærer
+sv: Färska Conference-päron
 
 < en:Pears
 en: Guyot pears, Pears (Guyot)
@@ -72418,33 +72544,65 @@ wikidata:en: Q3033517
 < en:Pears
 en: Harrow Sweet pears
 xx: Harrow Sweet
+da: Harrow Sweet-pærer
 fr: Poires Harrow Sweet
+sv: Harrow Sweet-päron
+wikidata:en: Q109311874
 
 < en:Pears
-en: Packham's pears, Packham's Triumph pears
+en: Packham's Triumph pears, Packham's pears
 fr: Poires Packham's, Poires Packham's Triumph
+la: Pyrus communis 'Packham's Triumph'
+wikidata:en: Q25381272
 
 < en:Pears
 en: Rocha pears, Pears (Rocha)
+xx: Pêra Rocha
 fr: Poires Rocha
+pt: Pêra Rocha do Oeste
+origins:en: en:portugal
+#protected_name_file_number:en: PGI-PT-
+protected_name_type:en: pgi
 sales_format:en: weight, package
+wikidata:en: Q1548510
 
 < en:Pears
-en: Williams pears
-xx: Williams
+en: Williams' bon chrétien pears, Williams pears, Bartlett pears
+xx: Williams, Bartlett
+bg: Вилямова масловка
+cs: Williamsova
 de: Williams Christ, Williams Christbirne, Williamsbirne
-fr: Poires Williams, Williams
+eo: Vilhelmopiroj
+es: Williams' Bon Chretien (pera)
+eu: Williams udarea
+fr: Poires Williams, Bon-Chrétien Williams
+it: Pera Williams
+ja: バートレット
+ka: Ვილიამსი
+la: Pyrus communis ‘Williams Bon Chrétien’
+nl: Williams pear
+pl: Bonkreta Williamsa
+ru: Груша ʽВильямс’
+sl: Viljamovka
+sv: Williamspäron
+tg: Вилямс (навъи нок)
+zh: 威廉斯梨
+#en_ca: Bartlett pears
+#en_us: Bartlett pears
+agribalyse_proxy_food_code:en: 13189
+ciqual_proxy_food_code:en: 13189
+ciqual_proxy_food_name:en: Pear, var. Williams, flesh without skin, raw
 wikidata:en: Q498862
 
 ########### Pear origins
 
 < en:Apples
+< en:French fruits
 fr: Pommes de Savoie
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0196
 protected_name_type:en: pgi
-#wikidata:en:Q21427804 (amalgame)
-
+wikidata:en: Q140361674
 
 < en:Pears
 it: Pera dell'Emilia Romagna
@@ -72453,12 +72611,13 @@ protected_name_file_number:en: PGI-IT-1534
 protected_name_type:en: pgi
 wikidata:en: Q3899627
 
+< en: French fruits
 < en:Pears
 fr: Poires de Savoie
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0196
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q140361697
 
 < en:Pears
 en: Pear pulp and peel
@@ -72476,14 +72635,23 @@ ciqual_food_code:en: 13107
 ciqual_food_name:en: Pear, peeled, raw
 ciqual_food_name:fr: Poire, pulpe, crue
 
-< en:Pears
-en: Prickly pears, Prickly pear pulp and seeds
-fr: Figues de Barbarie, Figue de Barbarie pulpe et graines
+< en: Fruits
+en: Prickly pears
+fr: Figues de Barbarie
+agribalyse_proxy_food_code:en: 13063
+ciqual_proxy_food_code:en: 13063
+ciqual_proxy_food_name:en: Prickly pear, pulp and seeds, raw
+ciqual_proxy_food_name:fr: Figue de Barbarie, pulpe et graines, crue
+comment:en: Prickly pears are wholly unrelated to pears other than vaguely having the same shape.
+#wikidata_plant:en: Q158991
+
+< en: Prickly pears
+en: Prickly pear pulp and seeds
+fr: Figue de Barbarie pulpe et graines
 agribalyse_food_code:en: 13063
 ciqual_food_code:en: 13063
 ciqual_food_name:en: Prickly pear, pulp and seeds, raw
 ciqual_food_name:fr: Figue de Barbarie, pulpe et graines, crue
-wikidata:en: Q144412
 
 < en:Fruits
 en: Plums
