@@ -188,6 +188,7 @@ wikidata:en: Q421576
 wikipedia:en: https://en.wikipedia.org/wiki/Enilconazole
 # ingredient/fr:imazalil has 23 products @2019-05-29
 
+< en:process
 en: frying
 fr: friture
 hr: prženje
@@ -199,7 +200,7 @@ it: fritto, frittura
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# <en:syrup
+< en:sugar
 en: caramel syrup
 bg: карамелен сироп
 ca: xarop de carmel, caramel liquid
@@ -610,6 +611,7 @@ vegetarian:en: yes
 
 # Has NO E-number!!!
 
+< en: synthesized ingredients
 en: Glycerol monostearate
 ar: أحادي ستيرات الغليسرول
 bg: глицеролов моностеарат
@@ -3462,6 +3464,7 @@ usda_ndb_proxy_name:en: Milk, indian buffalo, fluid
 wikidata:en: Q16571278
 # ingredient/buffalo-milk has 8 products @2019-02-16
 
+< en:buffalo milk
 en: fluid indian buffalo milk
 usda_ndb_code:en: 1108
 usda_ndb_name:en: Milk, indian buffalo, fluid
@@ -11266,7 +11269,8 @@ ciqual_food_name:fr: Mouton, gigot, cru
 #                                Game animals
 #
 ###################################################################################################
-# <en:animal
+
+< en:animal
 en: game animal
 de: Wildtier
 fi: riistaeläin, riista
@@ -11719,7 +11723,7 @@ ciqual_food_name:en: Beef, minced steak, 5% fat, cooked
 ciqual_food_name:fr: Bœuf, steak haché 5% MG, cuit
 
 < en:minced beef
-en: Raw minced beef steak with 5% fat
+en: raw minced beef steak with 5% fat
 fr: Steak haché de bœuf cru à 5% de matières grasses
 hr: sirovi mljeveni goveđi odrezak sa 5% masti
 ciqual_food_code:en: 6250
@@ -11734,7 +11738,8 @@ ciqual_food_code:en: 6253
 ciqual_food_name:en: Beef, minced steak, 10% fat, cooked
 ciqual_food_name:fr: Bœuf, steak haché 10% MG, cuit
 
-en: Raw minced beef steak with 10% fat
+< en:minced beef
+en: raw minced beef steak with 10% fat
 fr: Steak haché de bœuf cru à 10% de matières grasses
 hr: sirovi mljeveni goveđi odrezak sa 10% masti
 ciqual_food_code:en: 6252
@@ -11742,15 +11747,16 @@ ciqual_food_name:en: Beef, minced steak, 10% fat, raw
 ciqual_food_name:fr: Bœuf, steak haché 10% MG, cru
 
 < en:minced beef
-en: Cooked minced beef steak with 15% fat
-fr: Steak haché de bœuf cuit à 15% de matières grasses
+en: cooked minced beef steak with 15% fat
+fr: steak haché de bœuf cuit à 15% de matières grasses
 hr: kuhani mljeveni goveđi odrezak sa 15% masti
 ciqual_food_code:en: 6255
 ciqual_food_name:en: Beef, minced steak, 15% fat, cooked
 ciqual_food_name:fr: Bœuf, steak haché 15% MG, cuit
 
-en: Raw minced beef steak with 15% fat
-fr: Steak haché de bœuf cru à 15% de matières grasses
+< en:minced beef
+en: raw minced beef steak with 15% fat
+fr: steak haché de bœuf cru à 15% de matières grasses
 hr: sirovi mljeveni goveđi odrezak sa 15% masti
 ciqual_food_code:en: 6254
 ciqual_food_name:en: Beef, minced steak, 15% fat, raw
@@ -12954,6 +12960,7 @@ ciqual_food_name:en: Pork belly, smoked, raw
 ciqual_food_name:fr: Poitrine de porc, fumée, crue
 #76 @2021-09-23
 
+< en:animal part
 en: breast
 bg: гърди
 da: Bryst
@@ -13254,7 +13261,7 @@ pl: osłonka
 
 # description:en:COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
 
-# <en:animal part
+< en:animal part
 en: collagen
 an: Colachén
 ar: كولاجين
@@ -17859,6 +17866,7 @@ it: deodorato olio di semi di girasole
 nl: ontgeurde zonnebloemolie
 
 #can be from various sources so it gets its own entry
+< en:oil
 en: omega 9
 de: Omega 9, Omega-9-Fettsäuren
 hr: omega 9
@@ -18342,6 +18350,7 @@ usda_ndb_code:en: 4575
 usda_ndb_name:en: Fat, turkey
 wikidata:en: Q102318348
 
+< en:compound
 en: vinegar
 af: asyn
 an: vinagre
@@ -22309,6 +22318,7 @@ it: aroma naturale di vaniglia di Madagascar
 nl: natuurlijk vanillearoma uit Madagaskar
 pt: aroma natural de baunilha de Madagascar
 
+< en:flavouring
 en: vanillin
 ar: فانيلين
 be: Ванілін
@@ -27180,6 +27190,7 @@ sv: rågfiber
 # ingredient/fi:ruiskuitu has 1 product in 1 language @2020-12-20
 
 #processing:en: en:scalding
+< en:process
 en: scalding
 sv: skållning
 vegan:en: maybe
@@ -27973,26 +27984,20 @@ ciqual_food_name:fr: Farine de blé tendre ou froment T55 (pour pains)
 fr: Farine de froment T55, Farine de froment T55 pour pains
 
 < en:wheat flour
-fr: farine de blé type 65, farine de blé t65
-nl: tarwemeel T65
-pl: mąka pszenna typ 650
-
-< en:wheat flour
-en: refined wheat flour, maida
-hr: rafinirano pšenično brašno
-it: farina di grano raffinato
-
-< fr:farine de blé type 65
-en: Wheat flour type 65, Wheat flour T65
-fr: Farine de blé tendre T65
+en: wheat flour type 65, Wheat flour T65
+fr: farine de blé tendre T65, farine de froment T65
 hr: pšenično brašno tip 65
 it: farina di grano tenero tipo 65
+nl: tarwemeel T65
+pl: mąka pszenna typ 650
 ciqual_food_code:en: 9435
 ciqual_food_name:en: Wheat flour, type 65
 ciqual_food_name:fr: Farine de blé tendre ou froment T65
 
 < en:wheat flour
-fr: farine de froment T65
+en: refined wheat flour, maida
+hr: rafinirano pšenično brašno
+it: farina di grano raffinato
 
 < en:wheat flour
 pl: mąka pszenna typ 750, mąka pszenna 750, mąka pszenna chlebowa
@@ -28902,11 +28907,11 @@ ro: făină de mazăre
 
 < en:green split pea
 < en:pea flour
-fr: Farine de pois cassés
-en: Split pea flour
-es: Harina de guisantes partidos
+en: split pea flour
+es: harina de guisantes partidos
+fr: farine de pois cassés
 hr: brašno od graška
-it: Farina di piselli spezzati
+it: farina di piselli spezzati
 nl: Split erwtenmeel
 # 9@2019-06-05
 
@@ -31720,6 +31725,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q402587
 
+< en:plant
 en: sugarcane, sugar cane
 am: ሸንኮራ ኣገዳ
 ar: قصب السكر
@@ -32552,9 +32558,7 @@ en: sugar coating
 hr: šećer za dekoraciju
 it: rivestimento di zucchero
 
-# description:en:SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
-# Warning:the wikipedia translations mixes syrup and glucose syrup
-
+< en:sugar
 en: syrup
 ar: شراب
 be: Сіроп
@@ -32604,14 +32608,15 @@ tr: Şurup
 uk: Сироп
 vi: Xi rô
 zh: 糖漿
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q6584340
 # ast:Almíbar
 # chy:Pano'êhasëö'o
 # mwl:Xarope
 # nah:Neucpahtli
 # yue:糖漿
+description:en: SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q6584340
 wikipedia:en: https://en.wikipedia.org/wiki/Syrup
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/syrup
 # 9746 products in 24 languages @2018-09-24
@@ -34280,6 +34285,7 @@ en: rehydrated textured soy protein
 ciqual_food_code:en: 20591
 ciqual_food_name:en: Soy protein, textured, rehydrated
 
+< en:compound
 en: soy protein product
 de: Sojaeiweißerzeugnis
 fr: produit à base de protéines de soja
@@ -34874,11 +34880,13 @@ da: raps- og majsprotein
 pt: proteína de colza e milho
 sv: raps- och majsprotein
 
+< en:compound
 en: protein crisp
 sv: proteincrisp
 vegan:en: maybe
 vegetarian:en: maybe
 
+< en:compound
 en: proteins mix
 de: Proteinmischung
 es: mezcla de proteínas
@@ -36665,7 +36673,7 @@ wikidata:en: Q23392
 wikipedia:en: https://en.wikipedia.org/wiki/Ice
 # ingredient/fr:glace has 145 products in 6 languages @2019-04-27
 
-
+< en:plant
 en: soya, soy, soja, soia
 an: soya
 az: Soya
@@ -37202,8 +37210,7 @@ zh: 膨松剂
 wikidata:en: Q908833
 wikipedia:en: https://en.wikipedia.org/wiki/Leavening_agent
 
-# description:en:Yeasts are eukaryotic, single-celled microorganisms classified as members of the fungus kingdom.
-
+< en:plant
 en: yeast
 af: Gis
 am: እርሾ
@@ -37278,9 +37285,6 @@ vi: Nấm men
 wa: Yesse
 yi: הייוון
 zh: 酵母
-ciqual_proxy_food_code:en: 11009
-ciqual_proxy_food_name:en: Nutritional yeast
-ciqual_proxy_food_name:fr: Levure alimentaire
 # ast:Lleldu
 # bar:Germ
 # ext:Lua
@@ -37289,12 +37293,16 @@ ciqual_proxy_food_name:fr: Levure alimentaire
 # sco:Baurm
 # yue:依士
 # zh-min-nan:Kàⁿ-bú
+ciqual_proxy_food_code:en: 11009
+ciqual_proxy_food_name:en: Nutritional yeast
+ciqual_proxy_food_name:fr: Levure alimentaire
+description:en: Yeasts are eukaryotic, single-celled microorganisms classified as members of the fungus kingdom.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q45422
 wikipedia:en: https://en.wikipedia.org/wiki/Yeast
 
-< en:Baker's yeast
+< en:baker's yeast
 en: fresh yeast
 bg: прясна мая
 de: Frischhefe
@@ -39456,24 +39464,25 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mango
 # 1597 products in 10 languages @2018-09-27
 
 < en:mango
-fr: Mangue importée en avion
+en: mango imported by plane
+fr: mangue importée en avion
 de: Mango importiert mit dem Flugzeug
-es: Mango importado en avión
-it: Mango importato in aereo
-nl: Mango geïmporteerd per vliegtuig
-pt: Manga importada por avião
-ru: Манго импортировано самолетом
+es: mango importado en avión
+it: mango importato in aereo
+nl: mango geïmporteerd per vliegtuig
+pt: manga importada por avião
+ru: mанго импортировано самолетом
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en avion
 carbon_footprint_fr_foodges_value:fr: 27.4
 
 < en:mango
-fr: Mangue importée en bateau
-en: Mango imported by boat
+en: mango imported by boat
+fr: mangue importée en bateau
 de: Mango importiert per Schiff
-es: Mango importado por barco
+es: mango importado por barco
 hr: mango uvezen brodom
-it: Mango importato via nave
-nl: Mango geïmporteerd per boot
+it: mango importato via nave
+nl: mango geïmporteerd per boot
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr: 0.8
 
@@ -39987,11 +39996,12 @@ usda_ndb_code:en: 9414
 usda_ndb_name:en: Pears, raw, bosc (Includes foods for USDA's Food Distribution Program)
 
 < en:pear
-en: raw green anjou pears
+en: raw green anjou pear
 usda_ndb_code:en: 9415
 usda_ndb_name:en: Pears, raw, green anjou (Includes foods for USDA's Food Distribution Program)
 
-en: pears, raw, red anjou
+< en:pear
+en: raw red anjou pear
 usda_ndb_code:en: 9413
 usda_ndb_name:en: Pears, raw, red anjou
 
@@ -43359,6 +43369,7 @@ nl: bloedsinaasappelsap
 # de:pascalisierter Orangensaft aus Orangensaftkonzentrat
 # treatment:en:en:pascalization
 
+< en:process
 en: pulp
 bg: пулп
 de: Fruchtfleisch
@@ -43458,6 +43469,7 @@ it: estratto naturale d'arancia, estratto naturale di arancia
 # 28 products in 3 languages @2018-09-28
 
 # CANDIED ORANGE PEEL is a compound ingredient
+< en:compound
 en: candied orange peel, candied orange zest
 bg: захаросани портокалови кори
 cs: proslazená pomerančová kůra
@@ -45514,7 +45526,7 @@ it: succo di datteri concentrato
 #
 ###################################################################################################
 
-<en: plant
+< en:plant
 en: elder
 cs: černého bezu
 de: Holunder
@@ -49599,7 +49611,7 @@ fr: moût de raisin concentré et cuit
 
 # Technically this is a grape, but not one you will find in the shop
 
-# <en:grape
+< en:plant
 en: varietal
 ca: varietat vinífera
 cs: odrůdové víno
@@ -50504,14 +50516,14 @@ wikidata:en: Q394231
 wikipedia:hr: https://hr.wikipedia.org/wiki/%C5%BDlahtina
 
 < en:fruit
-en: strawberry guavas
+en: strawberry guava
 la: Psidium cattleianum
 description:en: Strawberry guava (Psidium cattleianum) is a tropical fruit tree native to eastern Brazil. The flesh is white to creamy, with a sweet-tart taste reminiscent of a mix between strawberry and guava — hence the name. It contains small, hard seeds.
 usda_ndb_proxy_code:en: 9140
 usda_ndb_proxy_name:en: Guavas, strawberry, raw
 
 < en:strawberry guava
-en: raw strawberry guavas
+en: raw strawberry guava
 usda_ndb_code:en: 9140
 usda_ndb_name:en: Guavas, strawberry, raw
 
@@ -50912,12 +50924,14 @@ en: raw endive
 usda_ndb_code:en: 11213
 usda_ndb_name:en: Endive, raw
 
-en: Red endive
+< en:endive
+en: red endive
 it: indivia rossa
 ciqual_food_code:en: 20162
 ciqual_food_name:en: Red endive, raw
 
-en: Green endive
+< en:endive
+en: green endive
 it: indivia verde
 ciqual_food_code:en: 20163
 ciqual_food_name:en: Green endive, raw
@@ -56457,11 +56471,13 @@ nutriscore_fruits_vegetables_nuts:en: no
 wikidata:en: Q37937
 wikipedia:en: https://en.wikipedia.org/wiki/Sweet_potato
 
-en: Cooked sweet potato
+< en:sweet potato
+en: cooked sweet potato
 it: patata dolce cotta
 ciqual_food_code:en: 4102
 ciqual_food_name:en: Sweet potato, cooked
 
+< en:compound
 en: Sweet potato puree cooked with cream
 it: purea di patate dolci cotta con panna
 ciqual_food_code:en: 4103
@@ -58147,9 +58163,9 @@ vi: Cúc vu
 wa: Canada ås coines
 zh: 洋姜
 # ingredient/jerusalem-artichoke has 37 products @2019-02-03
-ciqual_food_code:en: 20196
-ciqual_food_name:en: Jerusalem artichoke, raw
-ciqual_food_name:fr: Topinambour, cru
+ciqual_proxy_food_code:en: 20196
+ciqual_proxy_food_name:en: Jerusalem artichoke, raw
+ciqual_proxy_food_name:fr: Topinambour, cru
 eurocode_2_group_3:en: 8.34.20
 # azb:شلقم
 # be-tarask:Тапінамбур
@@ -58171,9 +58187,9 @@ eurocode_2_group_3:en: 8.34.20
 wikidata:en: Q32979618
 wikipedia:en: https://en.wikipedia.org/wiki/Jerusalem_artichoke
 
-
-en: pale-leaf woodland sunflower
-fr: hélianthi, hélianthe scrofuleux, hélianti, héliantis, salsifis d'Amérique, racine d'hélianthi
+< en:Jerusalem artichoke
+en: raw Jerusalem artichoke
+fr: Topinambour cru, hélianthi, hélianthe scrofuleux, hélianti, héliantis, salsifis d'Amérique, racine d'hélianthi
 hr: pale-leaf šumski suncokret
 la: helianthus strumosus
 ciqual_proxy_food_code:en: 20196
@@ -58694,11 +58710,12 @@ sv: salladsmix
 # Mélange de salade  (scarole, frisée, chicorée rouge, roquette)
 
 < fr:mélange de salades
+en: green and red mixed salad
 fr: salade mélangée verte et rouge
 
 < en:compound
-fr: salade composée
 en: mixed salad
+fr: salade composée
 de: gemischter Salat
 es: ensalada mixta
 hr: miješana salata
@@ -59749,6 +59766,7 @@ it: pomodoro grigliato
 nl: gegrilde tomaat
 # ingredient/grilled-tomato has 5 products in french @2018-12-26
 
+< en:compound
 en: Dehydrated and reconstituted tomato soup
 fr: Soupe à la tomate déshydratée reconstituée
 it: zuppa di pomodoro disidratata e ricostituita
@@ -62889,11 +62907,10 @@ fr: garden peas, garden peas petits, garden peas medium, garden peas gros, gros 
 de: Junge Markerbsen
 
 < en:garden peas
-fr: farine de petits pois
 en: garden peas flour
+fr: farine de petits pois
 
-< en:carrot
-< en:garden peas
+< en:compound
 de: Junge Erbsen mit Möhren
 
 # description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
@@ -66005,6 +66022,7 @@ nb: Tørristede pinjekjerner
 ###################################################################################################
 
 # The context should make clear what it is used for (seeds or oil from seeds)
+< en:plant
 en: flax
 ca: lli
 de: Flachs
@@ -74441,6 +74459,7 @@ sv: te-extrakt
 # sr-el:ekstrakt čaja
 # ingredient/fr:extrait-de-thé has 109 products in 7 languages @2019-04-21
 
+< en:compound
 en: Brewed oolong tea without sugar
 fr: Thé oolong infusé non sucré
 it: tè oolong preparato senza zucchero
@@ -75920,39 +75939,36 @@ fi: kombu, kombu-merilevä
 fr: kombu, konbu
 hy: կոմբու
 ja: コンブ, 昆布, こんぶ
+la: Laminariaceae
 ru: комбу
 sk: konbu
 th: คมบุ
-# ingredient/fr:kombu has 20 products in french @2019-02-22
+# azb:اؤزل:پالایهٔ خرابکاری
 ciqual_food_code:en: 20990
 ciqual_food_name:en: Kombu or Japanese kelp (Laminaria japonica), dried or dehydrated
 ciqual_food_name:fr: Kombu ou kombu japonais (Laminaria japonica), séchée ou déshydratée
 description:en: KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
 eurocode_2_group_3:en: 8.55.20
-# azb:اؤزل:پالایهٔ خرابکاری
-# de-ch:Kombu
-# en-ca:Kombu
-# en-gb:Kombu
-# pt-br:Kombu
 wikidata:en: Q11261547
 wikipedia:en: https://en.wikipedia.org/wiki/Kombu
+# ingredient/fr:kombu has 20 products in french @2019-02-22
 
-en: Tangle
-fr: Kombu breton
-it: alga kombu
+< en: kombu
+en: dried tangle
+fr: kombu breton déshydratée
 ciqual_food_code:en: 20991
 ciqual_food_name:en: Tangle (Laminaria digitata), dried or dehydrated
 ciqual_food_name:fr: Kombu breton (Laminaria digitata), séchée ou déshydratée
 
-#(Saccharina latissima) dried or dehydrated
-en: Sea belt
-fr: Kombu royal
+< en: kombu
+en: dried sea belt
+fr: Kombu royal déshydratée
 it: cintura marina
 ciqual_food_code:en: 20986
 ciqual_food_name:en: Sea belt (Saccharina latissima), dried or dehydrated
 ciqual_food_name:fr: Kombu royal (Saccharina latissima), séchée ou déshydratée
 
-# description:en:Saccharina japonica is a marine species of the Phaeophyceae (brown algae) plant , a type of kelp or seaweed, that is extensively cultivated on ropes between the seas of Japan and Korea.[
+# description:en:Saccharina japonica is a marine species of the Phaeophyceae (brown algae) plant , a type of kelp or seaweed, that is extensively cultivated on ropes between the seas of Japan and Korea
 
 < en:kombu
 en: Saccharina japonica
@@ -76190,9 +76206,8 @@ it: muschio irlandese
 la: Chondrus crispus
 eurocode_2_group_3:en: 8.55.10
 
-# en:description:ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
-#< en:mold
+< en:plant
 en: koji, kōji, koji culture, koji spores, koji starter
 xx: A. Oryzae, koji
 ar: رشاشية أوريزه
@@ -76209,6 +76224,7 @@ zh: 米曲菌, 米麴菌
 #zh-hk: 米麴菌
 #zh-sg: 米曲菌
 #zh-tw: 米麴菌
+en:description: ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 wikidata:en: Q865501
 # ingredient/fr:koji has 53 products @2019-02-15
 
@@ -76231,6 +76247,8 @@ ja: 米こうじ
 < en:rice koji
 en: white rice koji
 
+< en: plant
+# < en: plant part
 en: tegument
 de: Integument
 eo: Tegumento
@@ -76241,9 +76259,10 @@ nl: integument
 ru: Тегумент
 sv: integument
 # de-ch:Integument
+description:en: A tegument is an outer covering or protective layer. For instance of mustard seeds.
 wikidata:en: Q26736348
 # ingredient/fr:téguments has 32 products in french @2019-03-01
-
+# ingredients/tegument 30 products @2026-06-27
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -76258,6 +76277,7 @@ wikidata:en: Q26736348
 
 # corresponds to the 8.50 Edible fungi eurocode
 
+< en:plant
 en: mushroom, edible fungi
 an: Potrecón
 ar: عيش الغراب
@@ -76394,7 +76414,7 @@ fr: protéine de champignon
 hr: proteini gljiva
 it: proteine dei funghi
 
-< en:mushroom
+< en:compound
 en: mixed mushrooms
 de: gemischte Pilze, Pilzmischung
 es: mezcla de setas
@@ -77694,7 +77714,7 @@ fr: Chanterelle, chanterelles
 wikipedia:fr: https://fr.wikipedia.org/wiki/Chanterelle
 # ingredient/fr:chanterelles has 51 products @2019-04-06
 
-# <en:fungus
+< en:mushroom
 en: rhizopus
 de: Rhizopus
 es: rhizopus
@@ -80542,6 +80562,7 @@ ciqual_food_name:en: Salmon, raw, wild
 ciqual_food_name:fr: Saumon, cru, sauvage
 
 < en:salmon
+en: cooked salmon
 fr: saumon cuit
 de: Lachs gekocht
 # ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
@@ -80554,8 +80575,8 @@ de: Lachs gekocht
 #ciqual_food_name:fr:Saumon, cuit à la vapeur
 # No products @2021-08-13
 
-< fr:saumon cuit
-en: Microwaved farmed salmon
+< fr:cooked salmon cuit
+en: microwaved farmed salmon
 fr: Saumon d'élevage cuit au micro-ondes
 it: salmone d'allevamento cotto al microonde
 ciqual_food_code:en: 26211
@@ -80604,8 +80625,8 @@ ciqual_food_code:en: 26037
 ciqual_food_name:en: Salmon, smoked
 
 < en:smoked salmon
-fr: chutes de saumon fumé
 en: smoked salmon trimmings
+fr: chutes de saumon fumé
 de: geräucherte Lachsschnitte
 es: recortes de salmón ahumado
 hr: obrezci dimljenog lososa
@@ -83461,7 +83482,7 @@ ciqual_food_name:fr: Poulpe, cuit
 zh: 砂蛸
 # zh-tw:白線章魚
 
-< zh:砂蛸
+< en:octopus
 en: Octopus Aegina
 de: Octopus Aegina
 fr: Amphioctopus Aegina, Pieuvre marbrée, Octopus Aegina
@@ -85537,6 +85558,8 @@ wikidata:en: Q15258700
 wikipedia:en: https://en.wikipedia.org/wiki/Psyllium
 # ingredient/fr:psyllium has 89 products in 4 languages @2018-12-17
 
+< en:psyllium
+< en:seed
 en: psyllium seed
 da: loppefrø
 sv: loppfrö, psylliumfrö, psylliumfrön
@@ -86385,8 +86408,6 @@ vegan:en: no
 vegetarian:en: yes
 wikipedia:es: https://es.wikipedia.org/wiki/Propóleo
 
-# description:en:ROYAL JELLY is a honey bee secretion that is used in the nutrition of larvae, as well as adult queens. Royal jelly is collected and sold as a dietary supplement for humans, but the European Food Safety Authority has concluded that the current evidence does not support the claim that consuming royal jelly will give health benefits in humans.
-
 # <en:category:en:Bee products
 en: royal jelly
 ar: هلام ملكي
@@ -86441,12 +86462,6 @@ uk: Маточне молочко
 uz: Apilak
 vi: Sữa ong chúa
 zh: 蜂王漿
-ciqual_food_code:en: 31108
-ciqual_food_name:en: Royal jelly
-ciqual_food_name:fr: gelée royale
-vegan:en: no
-vegetarian:en: yes
-wikidata:en: Q202501
 # sr-ec:Матични млеч
 # sr-el:Matični mleč
 # zh-cn:蜂王浆
@@ -86455,10 +86470,18 @@ wikidata:en: Q202501
 # zh-hk:蜂王漿
 # zh-sg:蜂王浆
 # zh-tw:蜂王漿
+ciqual_food_code:en: 31108
+ciqual_food_name:en: Royal jelly
+ciqual_food_name:fr: gelée royale
+description:en: ROYAL JELLY is a honey bee secretion that is used in the nutrition of larvae, as well as adult queens. Royal jelly is collected and sold as a dietary supplement for humans, but the European Food Safety Authority has concluded that the current evidence does not support the claim that consuming royal jelly will give health benefits in humans.
+vegan:en: no
+vegetarian:en: yes
+wikidata:en: Q202501
 wikipedia:en: https://en.wikipedia.org/wiki/Royal_jelly
 
 # description:en:POLLEN is a fine to coarse powdery substance comprising pollen grains which are male microgametophytes of seed plants, which produce male gametes. Bee pollen for human consumption is marketed as a food ingredient and as a dietary supplement. The largest constituent is carbohydrates, with protein content ranging from 7 to 35 percent depending on the plant species collected by bees.
 
+< en:plant
 en: pollen
 af: Stuifmeel
 ar: حبوب اللقاح
@@ -86776,10 +86799,7 @@ wikidata:en: Q407418
 wikipedia:en: https://en.wikipedia.org/wiki/Menthol
 # ingredient/menthol has 245 products in 8 languages @2019-05-09
 
-
-
-
-# description:en:Sulfites or sulphites are compounds that contain the sulfite ion SO2−3.
+< en:E220
 en: sulfite, Sulphites, sulphite, sulfites
 af: Sulfiet
 bg: Сулфит, сулфити
@@ -86828,6 +86848,7 @@ zh: 亚硫酸盐
 # zh-hk:亞硫酸鹽
 # zh-sg:亚硫酸盐
 # zh-tw:亞硫酸鹽
+description:en: Sulfites or sulphites are compounds that contain the sulfite ion SO2−3.
 wikidata:en: Q413363
 wikipedia:en: https://en.wikipedia.org/wiki/Sulfite
 # ingredient/fr:sulfite has 3512 products in 10 languages @2018-12-11
@@ -87252,10 +87273,10 @@ fr: café moulu pur arabica, café moulu arabica, café moulu 100 arabica
 fr: cafe moulu pur arabica bio
 
 < en:arabica coffee
-fr: café arabica torréfié
 en: roasted arabica coffee
 de: gerösteter Arabica-Kaffee
 es: café arábica tostado
+fr: café arabica torréfié
 hr: pržena arabica kava
 it: caffè arabica tostato
 # ingredient/fr:cafe-arabica-torréfié has 18 products in french @2019-05-23
@@ -87563,6 +87584,7 @@ pl: monohydrat kreatyny
 wikidata:en: Q27271832
 # ingredient/fr:creatine-monohydrate has 23 products in 3 languages @2020-05-23
 
+< en:plant
 en: plant stanol
 de: Pflanzenstanole
 fi: kasvistanoli, kasvistanolit
@@ -87571,9 +87593,10 @@ hr: biljka stanol
 it: stanolo vegetale
 pl: stanole roślinne
 sv: växtstanol
-# ingredient/fr:stanols-vegetaux has 3 products in 2 languages @2020-06-13
+description:en: Plant stanols are naturally occurring compounds found in small amounts in plant-based foods like grains, vegetables, fruits, and nuts. 
 vegan:en: yes
 vegetarian:en: yes
+# ingredient/fr:stanols-vegetaux has 3 products in 2 languages @2020-06-13
 
 < en:plant stanol
 en: plant stanol ester
@@ -88619,7 +88642,8 @@ ciqual_food_code:en: 36023
 ciqual_food_name:en: Chicken, wing, meat and skin, raw
 ciqual_food_name:fr: Poulet, aile, viande et peau, cru
 
-en: Chicken wing meat and skin
+< en:chicken
+en: chicken wing meat and skin
 fr: aile de poulet et sa peau
 it: carne e pelle di ala di pollo
 ciqual_food_code:en: 36023
@@ -90376,6 +90400,7 @@ it: uova di lompo, uova (lompo), uova lompo
 # comment:en:There might be a better word for this.
 
 # en:part
+< en:process
 en: extract
 be: Экстракт
 bg: екстракт
@@ -90444,22 +90469,23 @@ sv: grönsaksextrakt
 # usage:fr: extraits végétaux (spiruline, chlorelle, brocoli, épinard, pousses d'orge, pousses de blé, persil, gingembre, algues bleu-vert, ail),
 # usage:fr: arômes naturels (extraits végétaux)
 
-# <en:compound
+< en:compound
 < en:vegetable extract
 fr: extraits végétaux à pouvoir colorant
 
-# <en:compound
+< en:compound
 de: färbende Konzentrate
 fr: concentré colorant
 
-# <en:compound
+< en:compound
 de: färbende Frucht- und Pflanzenkonzentrate
 
-# <en:compound
+< en:compound
 de: färbende Gemüsekonzentrate
 
 # TODO: improve parsing so this can live in processing only.
 # See comments on https://github.com/openfoodfacts/openfoodfacts-server/pull/12031
+< en:process
 en: concentrate
 hr: koncentrat
 nb: konsentrat
@@ -90486,6 +90512,7 @@ it: estratto concentrato
 
 # <en:vegetable part
 # These should also be in the processing taxonomy
+< en:process
 en: purée
 be: Пюрэ
 bg: Пюре
@@ -90556,9 +90583,9 @@ nl: geconcentreerde puree
 fr: purée et purée concentrée
 # ingredient/fr:purée-et-purée-concentrée has 138 products in french @2019-05-10
 
-# description:en:FIBER is a natural or synthetic substance that is significantly longer than it is wide.
 
-# <en:vegetable part
+< en:plant
+# < en:plant part
 en: fiber, fibre, dietary fibre
 af: Vesel
 ar: ألياف النسيج
@@ -90635,6 +90662,7 @@ zh: 纤维
 # wuu:纤维
 # zh-cn:纤维
 # zh-hans:纤维# zh-hant:纤维
+description:en: FIBER is a natural or synthetic substance that is significantly longer than it is wide.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q161
@@ -90978,9 +91006,9 @@ vegetarian:en: no
 wikidata:en: Q265868
 wikipedia:en: https://en.wikipedia.org/wiki/Bone
 
-# description:en:NONENZYMATIC BROWNING, is a process that produces the brown pigmentation in foods. The two main forms of non-enzymatic browning are caramelization and the Maillard reaction. Examples of foods that undergo Maillard reaction include breads, steaks, and potatoes.
-# comment:en:The wikidata item does not match the words on packages.
+en: process
 
+< en:process
 en: browning
 de: Bratensoße
 es: browning
@@ -90989,11 +91017,12 @@ hr: posmeđivanje
 it: dorato
 nl: verguldsel
 pt: pigmento
-# wikidata:en:Q2760809
+description:en: NONENZYMATIC BROWNING, is a process that produces the brown pigmentation in foods. The two main forms of non-enzymatic browning are caramelization and the Maillard reaction. Examples of foods that undergo Maillard reaction include breads, steaks, and potatoes.
 wikipedia:en: https://en.wikipedia.org/wiki/Food_browning
 # ingredient/fr:dorure has 269 products in 7 languages @2019-04-22
 # usage:en:browning:skimmed milk
 
+< en:compound
 en: wort
 fi: vierre
 is: virt
@@ -92162,6 +92191,7 @@ sv: Judebröd
 th: โยเดิงกุก
 
 #category:en: en:Pretzel
+< en:compound
 en: bretzel
 fr: bretzel
 hr: bretzel
@@ -92169,7 +92199,7 @@ it: bretzel
 nl: pretzel
 
 #comment:en:not sure about the translations. Some prefer the pepper part, other the ginger-part. Need to split?
-#<en:compound
+< en:compound
 en: gingerbread
 cs: perník
 de: Lebkuchen, Pfefferkuchen
@@ -93692,6 +93722,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Crêpe
 # category/crepes has 582 products @2019-05-18
 
 # mainIngredient:en:wheat
+< en:compound
 en: wheat cakes
 de: Weizenfladen
 fr: galette de blé
@@ -94005,6 +94036,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Fondant_icing
 
 #category/marzipan
 # mainIngredient:en:sugar
+< en:compound
 en: marzipan
 ar: مرصبان
 az: Badam xəmiri
@@ -94088,6 +94120,7 @@ ciqual_food_name:fr: Pâte d'amande, préemballée
 
 # description:en:PERSIPAN is a material used in confectionery. It is similar to marzipan but apricot or peach kernels are used instead of almonds. Persipan consists of 60% sugar and 40% ground kernels.
 
+< en:compound
 en: persipan
 xx: persipan
 de: Persipan
@@ -94099,6 +94132,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Persipan
 
 # <en:Confectioneries
 # mainIngredient:en:sugar
+< en:compound
 en: nougat, nougats
 af: Nougat
 ar: نوغة
@@ -94182,9 +94216,6 @@ hr: nougat punilo, nougat punjenje, nugat pripravak
 it: ripieno di torrone
 pl: nadzienie nugatowe
 
-
-# description:en:BRITTLE is a type of confection consisting of flat broken pieces of hard sugar candy embedded with nuts such as pecans, almonds, or peanuts.
-
 # <en:mainIngredient:en:sugar
 < en:compound
 en: crocant, brittle
@@ -94210,6 +94241,7 @@ zh: 花生糖
 # zh-hans:花生糖
 # zh-hant:花生糖
 # zh-hk:花生糖
+description:en: BRITTLE is a type of confection consisting of flat broken pieces of hard sugar candy embedded with nuts such as pecans, almonds, or peanuts.
 wikidata:en: Q708823
 wikipedia:en: https://en.wikipedia.org/wiki/Brittle_(food)
 # ingredient/fr:nougatine has 60 products in 4 languages @2019-02-09
@@ -95007,7 +95039,7 @@ fr: crème pâtissière
 
 # category:en:chorizo
 < en:compound
-3< en:meat
+#< en:meat
 en: chorizo, chorizos, Spicy pork sausage with red pepper no precision
 xx: chorizo
 be: Чарыза
@@ -95443,6 +95475,7 @@ en: milk spread with hazelnuts
 hr: mliječni krem proizvod s lješnjacima, lino lada, lino lada lješnjak krem proizvod
 it: crema spalmabile al latte con nocciole
 
+< en:compound
 en: nougat spread
 hr: lino lada nougat krem proizvod
 it: crema di torrone
@@ -97280,7 +97313,7 @@ pt: extrato de laranja, extracto de laranja
 # 44 products @2018-09-28
 
 # aromatic caramel is not considered an additive
-< en:caramel
+< en:sugar
 en: aromatic caramel
 de: aromatisches Karamell
 es: caramelo aromático
@@ -97332,12 +97365,13 @@ fr: piment poblano
 hr: poblano čili
 it: pepe Poblano
 
-en: xylose
+< en:sugar
+en: xylose, wood sugar
 xx: xylose
 ja: キシロース
 wikipedia:en: https://en.wikipedia.org/wiki/Xylose
 
-# Tonka beans are prohibited for use in food in the US: https://www.govinfo.gov/content/pkg/CFR-2006-title21-vol3/xml/CFR-2006-title21-vol3-sec189-130.xml
+< en:seed
 en: tonka bean
 de: Tonkabohne, Tonkabohnen
 es: haba tonka
@@ -97346,6 +97380,8 @@ hr: tonka grah
 it: fava de tonka, fave di tonka
 nl: tonkaboon
 pt: fava tonka, fava de cumaru
+comment:en: # Tonka beans are prohibited for use in food in the US: https://www.govinfo.gov/content/pkg/CFR-2006-title21-vol3/xml/CFR-2006-title21-vol3-sec189-130.xml
+description:en: A tonka bean is the seed of the Dipteryx odorata tree, native to South America (particularly Venezuela, Brazil, and Guyana). Chefs grate it like nutmeg over desserts, chocolate, coffee, and cocktails. It's popular in European (especially French) cuisine
 
 # listed as an ingredient in Japanese products
 en: creaming powder, creamer
@@ -97429,8 +97465,8 @@ it: gambero, gamberi
 en: cucumber or gherkin, cumcumber or gherkin
 de: Gurke, Gurken
 
-< en: bell pepper
-< en: paprika
+< en:bell pepper
+< en:paprika
 en: paprika or bell pepper
 bg: червен пипер, паприка
 cs: paprika
@@ -97448,8 +97484,8 @@ sv: paprika
 comment:en: Put here the name if it can have multiple meanings. The context should dtermine whether it is the spice or the vegetable.
 description:en: “Paprika” can be either the dried powder or the fruit of a plant in some languages. Put it only here if that is the case, otherwise put the ingredient under en:bell pepper or en:paprika.
 
-< en:Minerals
-< en:Vitamins
+< en:minerals
+< en:vitamins
 en: vitamin and mineral blend, vitamin and mineral mix
 it: vitamine e minerali misti
 ru: витаминно минеральный премикс, витаминный премикс
