@@ -253,7 +253,7 @@ en: caramel chocolate preparation
 hr: karamelno čokoladni pripravak
 it: preparazione di cioccolato al caramello
 
-# <en:compound
+< en:compound
 en: salted butter caramel
 de: gesalzene Karamellbutter, gesalzenes Butter-Karamell
 es: caramelo a la mantequilla salada
@@ -266,14 +266,14 @@ hu: sós vajkaramella, vajkaramell
 it: caramello di burro salato
 nl: gekarameliseerde gezouten boter, karamel en gezouten boter
 
-# <en:compound
+< en:compound
 fr: éclats de caramel
 de: Caramelstücke, Karamellstücke, Karamellsplitter
 fi: toffeepala
 sv: karamellbitar
 # ingredient/fr:éclats-de-caramel has 120 products in 3 languages @2019-03-09
 
-# <en:compound
+< en:compound
 fr: éclats de caramel au beurre salé
 # ingredient/fr:éclats-de-caramel-au-beurre-salé has 53 products in 2 languages @2019-02-21
 # éclats de caramel au beurre salé (sucre, sirop de glucose, crème fraîche de Normandie, beurre salé , lait écrémé en poudre, fleur de sel de Guérande, caramel (sirop de glucose-fructose, eau))
@@ -2615,7 +2615,6 @@ it: Burro di panna dolce
 wikidata:en: Q26882140
 # ingredient/sweet-cream-butter has 16 products in english @2019-07-10
 
-# <en:compound
 < en:butter
 fr: poudre au beurre, poudre de beurre
 ca: mantega en pols
@@ -3529,7 +3528,7 @@ it: panna da caffè
 nl: koffieroom
 # 14@2019-06-06
 
-< en:milk
+< en:compound
 en: sweetened condensed milk, condensed milk with sugar
 bg: подсладено кондензирано мляко
 ca: llet condensada ensucrada, llet ensucrada condensada
@@ -3604,7 +3603,6 @@ ciqual_food_name:en: Condensed milk, with sugar, whole
 ciqual_food_name:fr: Lait concentré sucré, entier
 # ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
 
-# <en:compound
 # category:en: en:Milk jams
 < en:sweetened condensed milk
 en: dulce de leche, milk jam
@@ -3802,14 +3800,11 @@ ciqual_food_code:en: 19021
 ciqual_food_name:en: Milk, powder, whole
 ciqual_food_name:fr: Lait en poudre, entier
 
-# < en:compound
 < en:coating
-< en:preparation
 en: milk coating
 hr: mliječni preljev
 it: rivestimento al latte
 
-# < en:compound
 < en:preparation
 en: milk preparation
 hr: mliječni pripravak
@@ -4053,7 +4048,7 @@ hr: običan jogurt
 it: yogurt naturale
 pl: jogurt naturalny
 
-< en:yogurt
+< en:compound
 en: sweetened plain yogurt
 ca: iogurt natural ensucrat
 de: Joghurt gesüßt, Naturjoghurt gesüßt
@@ -4276,7 +4271,6 @@ xx: skyr
 # en:Filtrated whey
 # fr:Perméat de lactosérum
 
-# < en:compound
 < en:coating
 en: yogurt coating
 hr: jogurt preljev
@@ -6022,7 +6016,6 @@ es: queso fresco desnatado
 hr: obrani meki bijeli sir
 it: formaggio bianco morbido scremato
 
-# <en:compound
 < en:cheese
 en: melted cheese
 bg: топено сирене
@@ -8864,7 +8857,6 @@ description:nl: De Bleu de Gex AOP is een Franse kaas, geproduceerd in de streek
 wikidata:en: Q1231078
 wikipedia:en: https://en.wikipedia.org/wiki/Bleu_de_Gex
 
-# <en:compound
 < en:cheese
 fr: base aromatisante fromage
 ca: base aromatitzant de formatge
@@ -8872,7 +8864,6 @@ es: base aromatizante de queso
 nl: kaassmaak
 # fr:base-aromatisante-fromage has 28 products @2018-10-27
 
-# <en:compound
 < en:cheese
 fr: préparation fromagère
 ca: preparació de formatges
@@ -9689,7 +9680,6 @@ sv: joderat havssalt, joderad havssalt
 
 # mixes?
 
-# <en:compound
 < en:mixed spices
 en: Garlic salt
 bg: чеснова сол
@@ -9704,7 +9694,6 @@ wikidata:en: Q1935156
 wikipedia:en: https://en.wikipedia.org/wiki/Garlic_salt
 # mainIngredient:en:salt
 
-# <en:compound
 < en:mixed spices
 en: Celery salt
 ca: sal d'api
@@ -10284,7 +10273,7 @@ fr: préparation viande hachée de boeuf
 ca: preparació de carn molta de res
 es: preparación de carne molida de res
 
-# <en:compound
+< en:compound
 fr: préparation de viande de boeuf cuite
 
 < en:beef meat
@@ -13416,9 +13405,8 @@ fr: jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande 
 
 # SAUSAGES
 
-# <en:compound
 # category:en:sausages
-< en:meat
+< en:compound
 en: sausage, sausages
 de: Wurst, Würstchen
 hr: kobasica
@@ -13452,8 +13440,7 @@ ciqual_food_code:en: 30150
 ciqual_food_name:en: Merguez sausage, raw
 ciqual_food_name:fr: Merguez, crue
 
-# <en:compound
-< en:meat
+< en:compound
 en: botifarra
 ca: botifarra
 es: butifarra, butifarras
@@ -15090,8 +15077,7 @@ hr: nehidrogenizirani biljni loj
 < en:vegetable fat
 fr: matières grasses végétales de colza, matières grasses de colza
 
-# <en:compound
-< en:vegetable fat
+< en:compound
 fr: préparation de matières grasses végétales
 fi: kasvirasvavalmiste
 sv: vegetabilisk fettprodukt
@@ -18883,7 +18869,6 @@ lv: spirta etiķis
 nl: brandewijnazijn
 pl: Ocet spirytusowy, octu spirytusowego
 
-#<en:compound
 < en:vinegar
 en: spirit-apple vinegar
 pl: ocet spirytusowo-jabłkowy, ocet jabłkowo-spirytusowy
@@ -19068,7 +19053,6 @@ wikidata:en: Q153
 wikipedia:en: https://en.wikipedia.org/wiki/Ethanol
 # fr:alcool-éthylique has 237 products in 5 languages @2018-10-29
 
-#<en:compound
 < en:alcohol
 en: rectified spirit
 hr: ispravljeni duh
@@ -19081,7 +19065,7 @@ fr: alcool de sucre de canne, alcool de canne, alcool de canne à sucre
 
 # description:en:A liqueur is an alcoholic drink flavored variously by fruits, herbs, spices, flowers, nuts or cream combined with distilled spirits.
 
-#< en:compound
+< en:compound
 en: liqueur
 af: Likeur
 ar: ليكير
@@ -20437,7 +20421,6 @@ nl: rode port
 wikidata:en: Q26879196
 # fr:port-rouge has 72 products in 2 languages @2018-10-29
 
-# <en:compound ingredient
 < en:red port
 en: modified red port
 de: modifizierter roter Portwein
@@ -20940,7 +20923,7 @@ usda_ndb_name:en: Alcoholic beverage, malt beer, hard lemonade
 fr: bière blonde
 
 
-#< en:compound
+< en:compound
 en: absinthe, absinth
 de: Absinth
 es: absenta
@@ -21148,7 +21131,7 @@ pt: Aromatizante artificial
 ro: Arome artificiale, aromă artificială
 ru: Искусственный ароматизатор
 
-# <en:compound
+< en:compound
 < en:flavouring
 en: barbecue flavouring
 de: Grillaroma
@@ -23710,7 +23693,7 @@ it: cereali con cacao
 < en:compound
 fr: céréales biscuitées
 
-<e n:compound
+< en:compound
 en: cereal crispies
 de: Getreide Crispies
 fi: viljamuro
@@ -25052,7 +25035,7 @@ fr: farine de blé amidonnier
 hr: emmer brašno
 it: farina di farro, farina di grano farro
 
-# <en:compound
+< en:compound
 fr: préparation pain d'épices
 likely_allergens:en: en:gluten
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -26630,7 +26613,7 @@ en: raw oat bran
 usda_ndb_code:en: 20033
 usda_ndb_name:en: Oat bran, raw
 
-# <en:compound
+< en:compound
 en: oat milk
 ar: حليب الشوفان
 bg: овесено мляко
@@ -26658,7 +26641,7 @@ zh: 燕麦奶
 wikidata:en: Q20972637
 #28 @2021-09-22
 
-# <en:compound
+< en:compound
 en: oat base
 de: haferbasis
 es: base de avena
@@ -27776,8 +27759,7 @@ vegetarian:en: yes
 wikidata:en: Q36465
 wikipedia:en: https://en.wikipedia.org/wiki/Flour
 
-# <en:compound
-< en:flour
+< en:compound
 en: flour blend, flour mix
 bg: смес от брашна
 de: mehlmischung
@@ -30806,7 +30788,7 @@ ciqual_proxy_food_name:en: Puffed rice, plain, fortified with vitamins and miner
 en: puffed rice and corn, rice and corn crisps
 sv: ris- och majskrisp
 
-< en:rice
+< en:compound
 fr: galette de riz
 de: Reiswaffeln
 it: gallette di riso
@@ -30841,7 +30823,7 @@ fr: riz précuit
 
 # fr:riz cuisiné is a compound product, eg:(eau, riz, sel)
 
-< en:rice
+< en:compound
 en: cooked rice
 da: kogt ris
 de: Kochreis
@@ -30938,7 +30920,7 @@ hr: sushi riža
 it: riso per sushi
 pt: Arroz de sushi
 
-#compound
+< en:compound
 en: rice milk
 hr: rižino mlijeko
 it: latte di riso
@@ -31631,8 +31613,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Powdered_sugar
 
 # description:en:VANILLA SUGAR is made of sugar and vanilla beans or sugar mixed with vanilla extract.
 
-# <en:compound
-< en:sugar
+< en:compound
 en: vanilla sugar
 bg: ванилова захар
 bs: vanilin šećer
@@ -35299,7 +35280,7 @@ zh: 可可纤维
 en: cocoa shell nibs
 sv: kakaoskalsbitar
 
-<e n:compound
+< en:compound
 en: cocoa bar
 hr: kakaova ploča
 it: barretta di cacao
@@ -35821,7 +35802,7 @@ comment:en: Milka marketing
 < en:milk chocolate
 fr: chocolat au lait en poudre
 
-# <en:compound
+< en:compound
 < en:milk chocolate
 fr: barre de chocolat au lait
 
@@ -35936,17 +35917,17 @@ ciqual_food_name:fr: Sauce au chocolat
 
 # chocolate covered ingredients
 
-# <en:compound
+< en:compound
 de: Schokolierte Cornflakes
 fr: cornflakes au chocolat
 nl: cornflakes omhuld met chocolade
 
-# <en: compound
+< en:compound
 de: schokolierter Puffreis
 fr: riz soufflé chocolaté
 nl: met chocolade omhulde gepofte rijst
 
-# <en: compound
+< en:compound
 de: schokoliertes Reisextrudat
 fr: extrudat de riz chocolaté
 nl: chocolade rijstextrudaat
@@ -36954,7 +36935,7 @@ sv: sojabönfiber, sojabönfibrer
 
 # fr:Jus de soja is a compound ingredient:soybean + water
 
-# <en:compound
+< en:compound
 en: soy base, soya base
 da: sojabase
 de: sojabasis
@@ -38073,8 +38054,7 @@ en: forest berries paste
 hr: pasta od šumskog-voća
 it: pasta di frutti di bosco
 
-# <en:compound
-< en:berries
+< en:compound
 en: berry blend, berry mix
 de: Beerenmischung
 fi: marjaseos
@@ -38085,7 +38065,7 @@ sv: bärblandning
 # usage:en:berry blend (strawberries, blueberries, blackberries, black currants, raspberries)
 # ingredient/fr:melange-de-fruits-rouges has 8 products in 2 languages @2020-06-08
 
-# <en:compound
+< en:compound
 en: seed and berry mix
 de: Samen und Beeren Mix
 fi: siemen-marjaseos
@@ -38095,9 +38075,7 @@ it: miscela di semi e bacche
 sv: frö-bärblandning
 # usage:fi:siemen-marjaseos: auringonkukansiemen, kurpitsansiemen, omena, vadelma.
 
-# <en:compound
-< en:fruit
-< en:nut
+< en:compound
 en: Fruits and nuts, nuts and fruits, fruits & nuts, nuts & fruits
 fr: fruits et noix, noix et fruits, fruits & noix, noix et fruits
 it: frutta e noci
@@ -38107,6 +38085,7 @@ vegetarian:en: yes
 
 # fruits and vegetables compound: do not make it a child of en:fruits and en:vegetables
 # needed in particular to recognize things like "fruits and vegetables content: 80%"
+< en:compound
 en: fruits and vegetables, vegetables and fruits
 fr: fruits et légumes, légumes et fruits
 hr: voće i povrće
@@ -38127,7 +38106,7 @@ sv: bärsprodukt
 # usage:fr:préparation de fruits rouges 11 % (sirop de glucose-fructose, fruits 4,4 %* (fraise, mûre, myrtille, framboise)
 # ingredient/fr:preparation-de-fruits-rouges has 5 products in 2 languages @2020-06-08
 
-# <compound:en:This is a compound ingredient
+< en:compound
 fr: fruits confits
 de: Früchte kandiert
 es: frutas confitadas
@@ -38325,9 +38304,7 @@ sv: fruktjuice från koncentrat, juicer framställd av koncentrat, juice från k
 < en:fruit juice from concentrate
 fr: jus de fruits rouges à base de concentrés
 
-# <en:compound
-< en:fruit
-< en:purée
+< en:compound
 fr: purée de fruits, purées de fruits
 de: Fruchtmark
 fi: hedelmäpyree
@@ -38726,7 +38703,6 @@ sv: aprikoskärnor
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apricot-kernels
 # 97 products @2018-09-29
 
-#<en:apricot compound
 < en:jam
 en: apricot jam, apricot marmalade
 es: mermelada de albaricoque
@@ -39815,8 +39791,7 @@ es: jugo de melocotón blanco a base de concentrado
 it: succo di pesca bianca concentrato
 nl: witte perziksap uit concentraat
 
-#compound?
-< en:peach
+< en:compound
 en: peach syrup
 bg: сироп от праскови
 de: Pfirsichsirup
@@ -39854,8 +39829,7 @@ it: pasta di pesca
 sv: persikopasta
 # ingredient/en:peach-paste has 2 product in 2 language @2021-08-19
 
-#compound
-< en:peach
+< en:compound
 fr: pêche au sirop
 de: Pfirsich in Sirup
 es: melocotón en almíbar
@@ -40502,6 +40476,7 @@ eurocode_2_group_2:en: 9.10
 #                                Apple
 #
 ###################################################################################################
+
 # description:en:APPLE is a sweet, edible fruit produced by an apple tree (Malus pumila).
 # This can be a compound product, i.e. appels (gedroogde appels, voedingszuur (citroenzuur), conserveermiddel (_zwaveldioxide_))
 
@@ -41067,7 +41042,7 @@ pl: błonnik jabłkowy
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-fiber
 # 106 products in 7 languages @2018-10-04
 
-# <en:compound
+< en:compound
 fi: omenavalmiste
 fr: préparation à base de pommes
 sv: äpple preparat
@@ -41236,7 +41211,6 @@ fr: jus et purée de pomme
 fr: jus et purée de pomme biologiques
 
 
-#is compound: en:apple
 < en:jam
 en: apple jam
 de: Apfelmarmelade
@@ -46620,7 +46594,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Melon
 
 # description:en:MELONS CONFITS is a compound ingredient
 
-< en:melon
+< en:compound
 fr: melons confits
 de: kandierte Melonen
 fi: kandeerattu meloni
@@ -48543,7 +48517,7 @@ usda_ndb_name:en: Strawberries, frozen, unsweetened (Includes foods for USDA's F
 #it: pezzi di fragole
 #pl: kawałki truskawek
 
-#<en:compound
+< en:compound
 en: strawberry filling
 bg: ягодов пълнеж, пълнеж от ягоди
 de: Erdbeerfüllung
@@ -49286,7 +49260,7 @@ en: Raisin Thompson Seedless
 pl: rodzynki thompson jumbo
 sv: Thompson-russin
 
-#<en:compound
+< en:compound
 en: oiled sultana
 de: Sultaninen geölt
 it: uva sultanina oleosa
@@ -50758,8 +50732,7 @@ sv: grönsaksjuicekoncentrat
 fr: extrait de légumes, extraits de légumes
 fi: vihannesuute
 
-# <en:compound
-< en:vegetable
+< en:compound
 en: vegetable blend, vegetable mix, mixed vegetables
 bg: паприкаш
 de: Gemüsemischung, gemischtes Gemüse
@@ -54808,7 +54781,7 @@ pt: extrato de cebolo, extracto de cebolo
 sv: lökextrakt
 # ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
 
-# <en:compound
+< en:compound
 en: fried onion
 bg: пържен лук
 cs: smažená cibule
@@ -54816,7 +54789,7 @@ de: röstzwiebeln
 it: cipolla fritta
 ro: ceapă prajită
 
-# <en:compound
+< en:compound
 en: pre fried onions
 da: forstegte løg
 de: vorgebratene Zwiebeln
@@ -58723,8 +58696,7 @@ sv: salladsmix
 < fr:mélange de salades
 fr: salade mélangée verte et rouge
 
-# <en:compound
-< en:salad
+< en:compound
 fr: salade composée
 en: mixed salad
 de: gemischter Salat
@@ -64275,7 +64247,7 @@ fr: Marrons UE
 #<fr:Marrons entiers
 #fr:Marrons entiers bio
 
-# <en:compound
+< en:compound
 en: chestnut spread
 fr: crème de marrons
 hr: kesten namaz
@@ -64548,7 +64520,7 @@ it: nocciole a scaglie
 
 # éclats de noisettes caramélisés is a compound producte, i.e. (noisettes, sucre de canne)
 
-#<en:compound
+< en:compound
 fr: éclats de noisettes caramélisés
 fi: karamellisoidut hasselpähkinät
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:éclats-de-noisettes-caramélisés
@@ -64577,7 +64549,7 @@ sv: hasselnötspasta, hasselnötpasta, hasselnötsmassa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
 # 965 products in 14 languages @2018-10-06
 
-#<en:compound
+< en:compound
 en: hazelnut paste with pieces of biscuits
 es: pasta de avellana con trozos de galletas
 fr: pâte à la noisette avec des morceaux de biscuits
@@ -64596,7 +64568,7 @@ pl: nadzienie z orzechów laskowych
 
 # hazelnut praline is a compound product i.e.:(hazelnut, sugar)
 
-#<en:compound
+< en:compound
 en: hazelnut praline
 de: Haselnuss-Praline
 fi: hasselpähkinäpraliini
@@ -64913,8 +64885,7 @@ en: defatted peanut flour
 usda_ndb_code:en: 16099
 usda_ndb_name:en: Peanut flour, defatted
 
-#< en:compound
-#< en:roasted peanut
+< en:compound
 en: honey roasted peanut, honey roasted peanuts
 de: honiggeröstete Erdnüsse
 es: cacahuetes tostados con miel, maní tostado con miel, maníes tostados con miel, cacahuate tostado con miel, cacahuete tostado con miel, cacahuetes tostados con miel
@@ -64930,9 +64901,8 @@ wikidata:en: Q18349953
 # usage:en:honey roasted peanuts (peanuts, honey, sugar, corn starch, cottonseed oil and salt)
 # mainIngredient:en:peanuts
 
-#en:compound
 #en:category:en:Peanut butters
-< en:peanut
+< en:compound
 en: peanut butter
 bg: фъстъчено масло
 cs: arašídové máslo
@@ -67200,8 +67170,7 @@ hr: začin u prahu
 it: condimento in polvere
 # ingredient/fr:condiment-en-poudre has 274 products in 4 languages @2019-03–09
 
-# <en:compound
-< en:condiment
+< en:compound
 en: mixed condiments, seasoning blend, seasoning mix, flavored seasoning
 bg: смес от подправки, подправъчна смес
 de: Würzmischung
@@ -67486,7 +67455,7 @@ sl: začimbe in ekstrati začimb
 sv: kryddor och kryddextrakt
 # ingredient/fr:epices-et-extrait-d'epices has 135 products in 3 languages @2020-05-21
 
-< en:spice
+< en:compound
 en: mixed spices
 # bg:смес от подправки is already in condiments
 da: krydderimix
@@ -67531,7 +67500,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ras_el_hanout
 
 # description:en:LEMON PEPPER (also called lemon pepper seasoning) is a seasoning made from granulated lemon zest and cracked black peppercorns.
 
-# <en:compound
 < en:mixed spices
 en: lemon pepper, lemon pepper seasoning
 af: suurlemoenpeper
@@ -67553,7 +67521,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lemon_pepper
 
 # description:en:HERBAL PEPPER is a seasoning popular in Poland, created as a substitute to peppercorns in times of shortage, still popular to this day.
 
-# <en:compound
 < en:mixed spices
 en: herbal pepper
 it: pepe alle erbe
@@ -67563,7 +67530,7 @@ wikidata:en: Q11816603
 < en:spice
 fr: épices moulues
 
-# <en:compound
+< en:mixed spices
 en: spice paste
 de: Gewürzpaste, Würzpaste
 fi: maustetahna
@@ -69209,7 +69176,7 @@ it: griffonia
 wikidata:en: Q1941426
 
 #category/mustards
-#<en:compound
+< en:compound
 en: mustard
 ar: صلصة الخردل
 be: Гарчыца
@@ -73015,7 +72982,7 @@ it: polvere di liquirizia
 nl: zoethoutpoeder
 sv: lakritspulver
 
-# <en:compound
+< en:compound
 en: liquorice dragées
 de: Lakritzdragees, Lakritzdragées, Süßholzdragees
 fi: lakritsirae
@@ -73473,8 +73440,7 @@ it: olive nere sott'olio
 ciqual_food_code:en: 13131
 ciqual_food_name:en: Olives, black, in oil (Greek olive)
 
-# <en:compound
-< en:olive
+< en:compound
 en: stuffed olives
 de: Gefüllte Oliven
 fr: olives farcies
@@ -75450,8 +75416,8 @@ vi: Dành dành
 zh: 栀子花
 wikidata:en: Q1072101
 
-# description:en:Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
 
+< en:plant
 en: algae
 af: Alg
 an: Algas
@@ -75538,6 +75504,7 @@ zh: 藻類
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 ciqual_proxy_food_code:en: 20984
 ciqual_proxy_food_name:en: Wakame (Undaria pinnatifida), dried or dehydrated
+description:en: Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
 nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
@@ -77830,7 +77797,6 @@ description:en: QUORN is a meat substitute product originating in the UK and sol
 wikipedia:en: https://en.wikipedia.org/wiki/Quorn
 # ingredient/fr:produit-champignon-quorn has 13 products @2019-02-15
 
-#<en:compound
 < en:sauce
 en: mushroom sauce
 it: salsa ai funghi
@@ -81919,7 +81885,7 @@ fr: Filets de chinchards
 pt: filetes de carapau
 
 # compound product eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
-
+< en:compound
 fr: filets de maquereaux cuits au court-bouillon
 # ingredient/fr:filets-de-maquereaux-cuits-au-court-bouillon has 33 products in french @2018-12-30
 # structure:outer:role:compound, eg Filets de maquereaux cuits au court-bouillon (filets de maquereaux 55%, sel, épices et aromates)
@@ -85042,7 +85008,6 @@ de: Hummerfleisch
 fi: hummerin liha
 # ingredient/fr:pulpe-de-homard has 5 products in 3 languages @2019-01-07
 
-< en:American lobster
 < en:broth
 fr: bouillon de homard
 de: Hummerbouillon
@@ -87765,8 +87730,7 @@ ru: cолёные огурцы
 sv: saltgurka, saltgurkor
 wikidata:en: Q1211297
 
-# <en:compound
-< en:cucumber
+< en:compound
 en: vinegar cucumbers
 de: Essiggurken
 fi: etikkakurkut
@@ -88783,8 +88747,7 @@ ciqual_food_code:en: 40702
 ciqual_food_name:en: Gizzard, duck, raw
 #46 in 2 @2021-09-12
 
-# <en:compound
-< en:duck gizzard
+< en:compound
 fr: Gésier de canard maigre traités en salaison
 # usage:fr:Gésiers de canard maigre traités en salaison 85% (gésiers de canard, sel, arômes naturels, conservateur : nitrite de sodium)
 
@@ -90022,9 +89985,8 @@ ja: 卵たん白
 nl: ei-proteine
 # ingredient/egg-protein has 47 products in 5 languages @2018-12-18
 
-# <en:compound
 #category/meringues
-< en:egg white
+< en:compound
 en: meringue
 xx: merengue
 ar: مرينج
@@ -90309,8 +90271,7 @@ nl: gesuikerd eigeel
 # usage:fr:jaunes d'oeufs sucrés (jaunes d'oeufs ; sucre)
 
 # fr:jaunes d'oeufs salés is a compound ingredient
-
-< en:egg yolk
+< en:compound
 fr: jaune d'œuf salé, jaunes d'œufs salés, jaune d'oeuf salé, jaunes d'oeufs salés
 de: Eigelb gesalzen
 nl: gezouten eigeel
@@ -90389,10 +90350,10 @@ ciqual_food_code:en: 22060
 ciqual_food_name:en: Duck egg, raw
 ciqual_food_name:fr: Oeuf de cane, cru
 
-#compound
+< en:compound
 fr: mélange œufs
 
-# compound
+< en:compound
 en: dashimaki tamago
 ja: だし巻き玉子, だし巻き卵
 wikidata:en: Q11271556
@@ -91058,9 +91019,9 @@ sv: vörtextrakt
 # Compound ingredients are ingredients that have sub-ingredients. Usually a compound ingredient is followed by a list of other ingredients.
 # the word preparation - like berry preparation, for example - also correspond to previous definition of compound
 
-#en: compound
+en: compound
 
-#< en:compound
+< en:compound
 en: preparation
 da: præparat
 it: preparazione
@@ -91070,7 +91031,7 @@ sv: beredning
 
 # description:en:Stuffing or filling is an edible substance or mixture, normally consisting primarily of small cut-up pieces of bread or a similar starch and served as a side dish or used to fill a cavity in another food item while cooking. Many foods may be stuffed, including eggs, poultry, seafood, mammals, and vegetables, but chickens and turkey are the most common.
 
-#< en:compound
+< en:compound
 en: filling, stuffing
 be: Фарш
 bg: пълнеж
@@ -91138,7 +91099,6 @@ nl: abrikozenvulling
 pl: nadzienie morelowe, nadzienie o smaku morelowym
 pt: recheio de damasco
 
-# <en:compound
 < en:Filling
 en: milk filling
 bg: млечен пълнеж
@@ -91893,7 +91853,6 @@ carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
 # ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
-# <en:compound
 < en:pasta
 fr: mélange de pâtes alimentaires cuisinées
 # usage:fr:mélange de pâtes alimentaires cuisinées 43% (conchiglie cuites aromatisées au curcuma 22,4% (eau, semoule de blé dur de qualité supérieure, œufs, curcuma) - mini torsades cuites aromatisées à la tomate et à la betterave 18,8% (eau, semoule de blé dur de qualité supérieure, tomate 0,2%, betterave 0,03%), huile d'olive vierge extra, huile de colza, basilic, sel)
@@ -92242,14 +92201,14 @@ wiktionary:en: gingerbread
 # usage:en:Gingerbread: enriched wheat flour (flour, niacin, iron, ascorbic acid, thiamine mononitrate, riboflavin, folic acid), sugar, vegetable oil (palm), molasses, water, cinnamon, leavening (sodium bicarbonate), ginger, salt, caramel color.
 # 109 in 7 @2021-09-10
 
-#<en:compound
+< en:compound
 fr: galette
 de: Fladenbrot
 it: galletta
 # ingredient/fr:galette has 125 products in 4 languages @2019-04-11
 # usage:fr:Galette: Eau, farine de blé noir, sel de Guérande
 
-# <en:compound
+< en:compound
 en: vermicelli, Semiya
 de: Fadennudeln
 fi: vermiselli
@@ -92266,7 +92225,7 @@ fr: vermicelles cuits
 
 # description:en:NACHOS are a Mexican regional dish from northern Mexico that consists of heated tortilla chips or totopos covered with melted cheese (or a cheese-based sauce), often served as a snack or appetizer.
 
-#<en:compound
+< en:compound
 en: nachos
 ar: ناتشوز
 be: начас
@@ -92317,7 +92276,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Nachos
 
 # description:en:BREAD is a staple food prepared from a dough of flour and water, usually by baking.
 
-# <en:compound
+< en:compound
 en: bread
 aa: gaqambo
 ab: мгьал
@@ -92643,7 +92602,7 @@ fr: pain de mie au son de blé
 < en:special bread
 fr: pain spécial viennois, pain special viennois
 
-# <en:compound
+< en:compound
 fr: brisures de crêpe dentelle
 es: trozos de barquillo
 nl: gebroken flinterdunne flensjes
@@ -92660,7 +92619,6 @@ nl: beschuit
 wikidata:en: Q5477096
 wikipedia:en: https://en.wikipedia.org/wiki/Rusk
 
-# <en:compound
 < en:special bread
 en: rye bread
 bg: ръжен хляб
@@ -92837,7 +92795,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Baguette
 
 # description:en:A waffle is a dish made from leavened batter or dough that is cooked between two plates that are patterned to give a characteristic size, shape, and surface impression.
 
-# <en:compound
+< en:compound
 en: waffle
 ar: وافل
 az: Vafli
@@ -93177,7 +93135,6 @@ pt: biscoitos de manteiga
 # speculoos is made with caramel and speculaas with spices
 
 # mainIngredient:en:wheat
-# <en:compound
 < en:biscuit
 en: speculoos
 fr: spéculoos
@@ -93200,7 +93157,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Speculaas
 # comment:en:This is different from speculoos, which is a sugar-based variant (no spices).
 
 # mainIngredient:en:wheat
-# <en:compound
 < en:biscuit
 en: speculaas
 ar: سبيكولوس
@@ -93268,7 +93224,7 @@ en: powdered preparation with palm fat
 hr: praškasti pripravak s palminom masti, praškasti pripravak s palminim uljem
 it: preparato in polvere con grasso di palma
 
-# <en:compound
+< en:compound
 en: coating, seasoning
 bg: Покритие
 bs: smjesa za paniranje
@@ -93347,7 +93303,6 @@ en: white chocolate coating
 hr: bijeli čokoladni preljev, preljev s bijelom čokoladom
 it: rivestimento di cioccolato bianco
 
-# < en:compound
 < en:coating
 en: hazelnut coating
 hr: preljev s lješnjacíma
@@ -93370,7 +93325,6 @@ en: nougat coating
 hr: nougat preljev
 it: rivestimento al torrone
 
-# < en:compound
 < en:coating
 en: berry coating
 hr: preljev od bobičastog voća
@@ -93523,7 +93477,7 @@ en: Tenkasu with shrimp
 it: tenkasu con gamberi
 ja: えび入り天かす
 
-# <en:compound
+< en:compound
 fr: pain de mie au blé malté
 # ingredient/fr:pain-de-mie-au-blé-malté has 22 products in french @2019-02-09
 
@@ -93531,6 +93485,7 @@ fr: pain de mie au blé malté
 
 # <en:Biscuits and cakes
 #category/cakes
+< en:compound
 en: cake, cakes
 ar: كعك
 az: Tort
@@ -93657,7 +93612,6 @@ ciqual_food_name:fr: Gâteau moelleux nature type génoise
 
 # description:en:A CRÊPE is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
 
-# <en:compound
 # <en:Crêpes and galettes
 < en:compound
 en: crêpe, crêpes, crepe, crepes
@@ -93831,6 +93785,7 @@ de: Reisextrudat
 
 # en:müesli is a compound ingredient
 
+< en:compound
 en: müesli, Mueslis, Granola
 af: Muesli
 be: Мюслі
@@ -93888,7 +93843,7 @@ de: Saatenmischung
 # usage:de: Saatenmischung (Sonnenblumenkerne, Buchweizen, Kürbiskerne, Leinsamen, Quinoa, Hirse, Mohn)
 
 
-# <en:compound
+< en:compound
 en: tofu, Tofus, bean curds
 an: Tofu
 ar: توفو
@@ -94007,7 +93962,7 @@ en: fried tofu
 usda_ndb_code:en: 16129
 usda_ndb_name:en: Tofu, fried
 
-# <en:compound
+< en:compound
 en: tempeh
 xx: tempeh
 de: Tempeh
@@ -94025,8 +93980,8 @@ fr: confiserie
 
 # description:en:FONDANT icing, also commonly referred to simply as fondant, is an icing used to decorate or sculpt cakes and pastries.
 
-# <en:compound
 # mainIngredient:en:sugar
+< en:compound
 en: fondant
 xx: fondant
 ar: فندان
@@ -94267,7 +94222,7 @@ fr: Morceaux de nougatine aux amandes
 # description:fr:Le PRALINÉ est une pâte composée de pralin (mélange de sucre, d'amandes et/ou de noisettes), d'un peu de vanille, de cacao ou de beurre de cacao, et enrobée de chocolat au lait.
 # comment:en:Not to be confounded with pralinen (chocolate bonbons). And with nougat.
 
-# <en:compound
+< en:compound
 en: Praliné
 de: Praliné
 es: praliné
@@ -94286,7 +94241,7 @@ fr: bonbon au cacao maigre
 
 # description:en:A GLAZE in cooking is a coating of a glossy, often sweet, sometimes savoury, substance applied to food typically by dipping, dripping, or with a brush. Egg whites and basic icings are both used as glazes.
 
-# <en:compound
+< en:compound
 en: glaze
 bg: глазура
 bn: গ্লেজ
@@ -94343,7 +94298,7 @@ hr: kakao glazura, kakaova glazura
 it: glassa al cacao
 
 # mainIngredient:en:cacao
-# <en:compound
+< en:compound
 fr: décoration au cacao
 pl: polewa kakaowa
 # usage:fr:décoration au cacao (cacao, dextrose de maïs, amidon de maïs, sucre, beurre de cacao)
@@ -94704,8 +94659,8 @@ wikidata:en: Q42366457
 fr: jus de cuisson
 # ingredient/fr:jus-de-cuisson has 43 products in french @2019-03-11
 
-# <en:compound
 # <en:mainIngredient:en:water
+< en:compound
 fr: jus cuisiné
 # ingredient/fr:jus-cuisiné has 56 products in french @2019-03-29
 # usage:fr:jus cuisiné (eau, bouillon de poulet [sel, dextrose, graisse et viande de Poulet, arômes naturels, épices, plante aromatique], carottes, oignons, concentré de tomates)
@@ -94733,8 +94688,8 @@ wikidata:en: Q11579290
 
 # description:en:LEMONADE can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
 
-# <en:compound
 # mainIngredient:en:water
+< en:compound
 en: lemonade, Lemonades
 ar: شراب الليمون
 az: Limonad
@@ -94810,13 +94765,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lemonade
 # ingredient/fr:limonade has 37 products in 5 languages @2019-02-16
 # usage:fr:Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme)
 
-# <en:compound
+< en:compound
 de: kakaohaltiges Getränkepulver
 # de:usage:kakaohaltiges Getränkepulver (Zucker, fettarmes Kakaopulver, Emulgator Lecithine, Speisesalz)
 
 # description:en:A food product based on soy.
 
-# <en:compound
 < en:preparation
 en: soy preparation
 de: Sojabereitung, Soja-Produkt, Sojaprodukt, Sojamittel, Sojaerzeugnis
@@ -94901,7 +94855,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Soy_milk
 # category/soy-milks has 417 products @2019-05-08
 # usage:fr:Tonyu (eau, graines de soja)
 
-# <en:compound
+< en:compound
 en: mirepoix
 xx: mirepoix
 be: Мірпуа
@@ -94922,7 +94876,7 @@ zh: 米尔普瓦
 wikidata:en: Q1509725
 
 
-# <en:compound
+< en:compound
 # mainIngredient:en:emmental
 fr: Gratinage
 # usage:fr:Gratinage 2% : emmental ( lait : France) 1,5%, arôme* (dont gluten ).
@@ -94931,8 +94885,8 @@ de: Markklößchen
 
 # description:en:In cuisine, an OMELETTE is a dish made from beaten eggs fried with butter or oil in a frying pan (without stirring as in scrambled egg). It is quite common for the omelette to be folded around a filling such as cheese, chives, vegetables, mushrooms, meat (often ham or bacon), or some combination of the above. Whole eggs or egg whites are beaten, sometimes with a small amount of milk, cream, or water.
 
-# <en:compound
 # mainIngredient:en:egg (egg dish)
+< en:compound
 en: omelette, omelet
 ar: العجة
 az: Omlet
@@ -95045,15 +94999,15 @@ hr: nejestiva kora
 it: Crosta non commestibile
 nl: korst niet eetbaar
 
-# <en:compound
+< en:compound
 fr: crème pâtissière
 # ingredient/fr:crème-pâtissière has 113 products in french @2019-02-03
 # usage:fr:Crème pâtissière 30% (eau, sucre, transforméamidon, blancs d’œufs frais, poudre de lait entier, lactosérum en poudre, arômes naturels, arôme, maltodextrine, épaississant (gomme de xanthane), colorant (béta carotène))
 
 
-# <en:compound
 # category:en:chorizo
-< en:meat
+< en:compound
+3< en:meat
 en: chorizo, chorizos, Spicy pork sausage with red pepper no precision
 xx: chorizo
 be: Чарыза
@@ -95094,11 +95048,10 @@ description:pt: O chouriço ou chouriça é um enchido preparado com carne, gord
 # zh-hant:口利左香腸
 wikidata:en: Q23374
 wikipedia:en: https://en.wikipedia.org/wiki/Chorizo
-
 # ingredient/fr:chorizo has 820 products in 15 languages @2021-08-17
 # usage:fr:chorizo (maigre et gras de porc, sel, épices et extraits d'épices, dextrose de blé, ferments lactiques, conservateurs :E301, E250)
 
-< en:meat
+< en:compound
 en: black pudding
 ca: baldana
 de: Black Pudding, Blutwurst
@@ -95106,11 +95059,12 @@ es: morcilla
 hr: crni puding
 it: sanguinaccio
 
-# <en:compound
 # mainIngredient:en:beef meat
+< en:compound
 fr: Viande cuisinée
 # usage:fr:Viande cuisinée 33% : viande de bœuf (origine : France) 19%, carottes 5,1%, eau
 
+< en:compound
 en: ice cream, ice creams
 ab: аршәы
 af: Roomys
@@ -95360,7 +95314,6 @@ it: preparato gusto panna cotta
 
 # description:en:LINGONBERRY JAM is a staple food in Northern European cuisine and otherwise highly popular in Central and Eastern Europe.
 
-# <en:compound
 < en:jam
 en: lingonberry jam
 be: бруснічнае варэнне
@@ -95384,7 +95337,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lingonberry_jam
 # mainIngredient:en:lingonberry
 # ingredient/fi:puolukkahillo has 2 products in 2 languages @2020-12-19
 
-# <en:compound
 < en:jam
 en: blackcurrant jam
 de: Marmelade mit schwarzen Johannisbeeren
@@ -95395,7 +95347,7 @@ it: confettura di ribes, confettura di ribes nero, confettura al ribes nero
 # mainIngredient:en:blackcurrant
 # ingredient/en:blackcurrant-jam has 1 product in 1 language @2020-12-21
 
-# <en:compound
+< en:compound
 en: jam, confiture
 de: Konfitüre
 fr: confiture
@@ -95415,7 +95367,6 @@ it: marmellata
 wikidata:en: Q5834964
 wikipedia:en: https://en.wikipedia.org/wiki/Marmalade
 
-# <en:compound
 < en:jam
 en: strawberry jam, strawberry maramalade
 bg: конфитюр от ягоди
@@ -95427,7 +95378,6 @@ hr: pripavak jagoda
 it: confettura di fragole, marmellata di fragole
 pl: dżem truskawkowy
 
-# <en:compound
 < en:jam
 en: raspberry jam
 bg: конфитюр от малини
@@ -95437,7 +95387,6 @@ hr: džem od malina
 it: confettura di lamponi, marmellata di lamponi
 wikidata:en: Q11962286
 
-# <en:compound
 < en:marmalade
 en: lemon marmalade
 ca: melmelada de llimona
@@ -95446,7 +95395,7 @@ es: mermelada de limón
 hr: marmelada od limuna
 it: marmellata di limoni, confettura di limoni
 
-#<en:compound
+< en:compound
 en: cocoa spread, cocoa cream
 de: Kakaocreme, Kakao-Creme
 es: crema de cacao
@@ -95459,7 +95408,7 @@ sv: kakaokräm
 vegan:en: maybe
 vegetarian:en: yes
 
-#<en:compound
+< en:compound
 en: hazelnut and cocoa spread
 es: crema de cacao y avellanas
 fr: Pâte à tartiner aux noisettes et au cacao, crème de cacao et de noisette
@@ -95468,7 +95417,7 @@ it: crema spalmabile di nocciole e cacao
 vegan:en: maybe
 vegetarian:en: yes
 
-#<en:compound
+< en:compound
 en: hazelnut spread
 fr: pâte à tartiner aux noisettes
 hr: lješnjak krem proizvod
@@ -95476,14 +95425,13 @@ it: crema di nocciole
 vegan:en: maybe
 vegetarian:en: yes
 
-#<en:compound
+< en:compound
 en: milk spread
 hr: lino lada mliječni krem proizvod
 it: crema spalmabile al latte
 vegan:en: no
 vegetarian:en: yes
 
-< en:coconut flavouring
 < en:milk spread
 en: milk spread with coconut flavor
 hr: lino lada mliječni krem proizvod s okusom kokosa
@@ -95741,7 +95689,6 @@ ciqual_food_name:en: Bechamel sauce, prepacked
 wikidata:en: Q209974
 wikipedia:en: https://en.wikipedia.org/wiki/Béchamel_sauce
 
-#<en:compound
 < en:sauce
 en: harissa, harissa paste
 xx: harissa
@@ -96699,7 +96646,6 @@ it: vinaigrette al limone
 < en:vinaigrette
 fr: sauce vinaigrette au vinaigre balsamique
 
-#<en:compound
 < en:sauce
 en: burger sauce
 fr: sauce hamburger, sauce burger
@@ -97164,7 +97110,7 @@ it: kombucha crudo
 
 # en:description:NONPAREILS (or hundreds and thousands outside North America) are a decorative confectionery of tiny balls made with sugar and starch, traditionally an opaque white but now available in many colors.
 
-# <en:compound
+< en:compound
 en: nonpareils, nonpareilles
 de: liebesperlen, nonpareille
 fi: nonparelli
