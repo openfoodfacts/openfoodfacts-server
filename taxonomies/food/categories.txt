@@ -513,7 +513,8 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Baby/Infant - Specialised Beverages (Shelf Stable)
 
 < en:Baby drinks
-en: Plant-based beverage for baby
+< en:Plant-based beverages
+en: Plant-based beverages for babies, Plant-based beverage for baby
 fr: Boisson à base de plantes pour bébé
 hr: Biljni napitak za bebe
 hu: Növényi alapú bébiitalok
@@ -523,6 +524,14 @@ pt: Bebida vegetal para bebê
 ciqual_food_code:en: 13160
 ciqual_food_name:en: Plant-based beverage for baby
 ciqual_food_name:fr: Boisson à base de plantes pour bébé
+
+< en: Fruit-based beverages
+< en: Plant-based beverages for babies
+en: Fruit-based beverages for babies
+agribalyse_proxy_food_code:en: 13159
+ciqual_proxy_food_code:en: 13159
+ciqual_proxy_food_name:en: Fruit-based beverage for baby from 4/6 months
+ciqual_proxy_food_name:fr: Boisson aux fruits pour bébé dès 4/6mois
 
 < en:Baby drinks
 en: Milky cereal-based beverages, Milky cereal-based beverage
@@ -573,9 +582,9 @@ ciqual_food_code:en: 13163
 ciqual_food_name:en: Dairy cereal-based beverage for baby's breakfast from 4/6 months
 ciqual_food_name:fr: Boisson infantile céréales lactées pour le petit déjeuner dès 4/6 mois
 
-< en:Baby drinks
-< en:From 6 months
-en: Fruit-based beverages for baby from 4/6 months
+< en: From 4 months
+< en: Fruit-based beverages for babies
+en: Fruit-based beverages for babies from 4 months, Fruit-based beverages for baby from 4/6 months
 fr: Boissons aux fruits pour bébé dès 4/6 mois
 pt: Bebidas à base de fruta para bebé a partir dos 4/6 meses
 agribalyse_food_code:en: 13159
@@ -619,6 +628,7 @@ gpc_category_code:en: 10000610
 gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Baby and Infant Foods or Beverages sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Baby and Infant - Foods and Beverages class. Includes products such as Baby Formula and jars of Baby Food sold together. Items that are received free with purchases should be removed from the classification decision-making process.Definition Excludes: Excludes products such as Baby Formula and Milk variety packs.
 gpc_category_name:en: Baby/Infant - Foods/Beverages Variety Packs
 
+< en: Fruits desserts
 < en:Snacks and desserts for babies
 en: Baby fruit desserts, Fruit desserts for babies
 ca: Postres de fruita per a nadons
@@ -7586,6 +7596,7 @@ lt: Vaisių ir daržovių sultys
 nl: Fruit- en groentesappen
 pl: Soki owocowe i warzywne
 
+< en: Fruit-based foods and beverages
 < en:Plant-based beverages
 en: Fruit-based beverages
 bg: Плодови напитки, Напитки с плодове
@@ -39703,7 +39714,7 @@ hr: Voćne slastice
 lt: Vaisiniai saldumynai, saldumynai su vaisiais
 
 < en:Confectioneries
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Candied fruits
 de: Kandierte Früchte
 es: Frutas confitadas
@@ -42629,7 +42640,7 @@ fr: Touron à la crème de noix
 hr: Krema od oraha turrón
 
 < en:Confectioneries
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Fruit pastes
 de: Fruchtpaste
 es: Dulces de frutas, Pastas de frutas, Cremas de frutas
@@ -56170,7 +56181,7 @@ sv: Mangochutneys
 wikidata:en: Q135215707
 
 < en:Dessert sauces
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Fruits coulis
 de: Frucht Coulis
 fr: Coulis de fruits
@@ -56243,7 +56254,7 @@ nl: Mangocoulis
 #wikidata:en:
 
 < en:Desserts
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Fruits desserts, Fruits dessert
 fr: Desserts de fruits, Dessert de fruits
 hr: Voćni deserti
@@ -56254,7 +56265,7 @@ ciqual_food_name:en: Fruits dessert, all types (fruits dessert's sugar content i
 ciqual_food_name:fr: Dessert de fruits, tout type de fruits (en taux de sucres : compotes allégées en sucres < desserts de fruits < compotes allégée)
 
 < en:Desserts
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Compotes, Stewed fruits
 bg: Компоти
 ca: Compotes
@@ -56289,7 +56300,7 @@ hr: Kompoti od šljiva
 nl: Pruimencompotes
 
 < en:Desserts
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Fruits compote with reduced sugar
 fr: Compote de fruits allégée en sucres
 hr: Voćni kompot sa smanjenim šećerom
@@ -56308,7 +56319,7 @@ ciqual_food_name:en: Fruits compote, miscellaneous, reduced sugar, refrigerated
 ciqual_food_name:fr: Compote, tout type de fruits, allégée en sucres, rayon frais
 
 < en:Desserts
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Fruits puree without sugar added
 fr: Purée de fruits sans sucres ajoutés, Compote de fruits sans sucres ajoutés
 hr: Voćni pire bez dodanog šećera
@@ -56319,7 +56330,7 @@ ciqual_food_name:en: Fruits puree, without sugar added
 ciqual_food_name:fr: Purée de fruits, tout type de fruits, type ""compote sans sucres ajoutés""
 
 < en:Desserts
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Peach melba with vanilla ice cream and raspberry sauce, Peach melba
 fr: Pêche melba
 agribalyse_food_code:en: 39401
@@ -57192,7 +57203,7 @@ xx: Saint-Honoré
 fr: Saint-Honoré
 wikidata:en: Q1033856
 
-< en:Fruits based foods
+< en: Fruit-based foods
 en: Fruit salads
 bg: Плодови салати
 de: Fruchtsalate, Obstsalate
@@ -69346,21 +69357,20 @@ gpc_category_code:en: 10000605
 gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Fruits, Vegetables, Nuts and Seeds sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Fruits, Vegetables, Nuts and Seeds Family. Includes products such as Salad and Nuts variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Strawberries and Cream variety packs.
 gpc_category_name:en: Fruits/Vegetables/Nuts/Seeds Variety Packs
 
+< en: Fruit-based foods and beverages
 < en:Fruits and vegetables based foods
-en: Fruits based foods, fruits and derived products, Fruits and their products
+en: Fruit-based foods, Fruits based foods
 ca: Aliments amb base de fruites
 da: Frugtbaserede fødevarer
 de: Fruchtbasierte Lebensmittel
-es: Frutas y sus productos, Frutas y derivados
+es: Comida a base de frutas
 fi: Hedelmäpohjaiset ruoat
-fr: Fruits et produits dérivés, fruits et dérivés
+fr: Aliments à base de fruits
 he: מזון מבוסס פירות
 hr: Hrana na bazi voća
 hu: Gyümölcs alapú élelmiszerek, Gyümölcs alapú termékek
 it: Cibi a base di frutta
-lt: Vaisiai ir jų produktai, Vaisių maisto produktai
-nl: Fruit en afgeleide producten
-pl: Produkty na bazie owoców, Owoce i produkty owocowe
+lt: Vaisių maisto produktai
 pt: Alimentos à base de frutas
 ru: блюда из фруктов
 sv: Matvaror baserade på frukt, Fruktbaserade matvaror, Fruktbaserat mat
@@ -69368,13 +69378,13 @@ tr: Meyve kaynaklı yiyecekler, Meyve kaynaklı gıdalar, Meyve kaynaklı besinl
 food_groups:en: en:fruits
 pnns_group_2:en: Fruits
 
-< en:Fruits based foods
+< en: Fruit-based foods
 en: Fruit based foods (prepared)
 gpc_category_code:en: 10000206
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of fruit or combination of fruits, which may be whole or stoned, pitted, chopped, cored and/or peeled, and which have gone through further manufacturing processes, such as reformed, cooked or dried, however these products can also be coated, in sauce, stuffed or filled. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes tomatoes. Excludes products such as Unprepared and Unprocessed Fruit and Prepared and Processed Frozen and Perishable Fruit.
 gpc_category_name:en: Fruit - Prepared/Processed (Shelf Stable)
 
-< en:Fruits based foods
+< en: Fruit-based foods
 en: Fruits
 bg: Плодове
 ca: Fruita fresca
@@ -73346,7 +73356,7 @@ la: Annona cherimola
 nl: Cherimoyas
 wikidata:en: Q158986
 
-< en:Fruits based foods
+< en: Fruit-based foods
 en: Coconuts and their products
 da: Kokosnødder og kokosnøddeprodukter
 sv: Kokosnötter och kokosnötsprodukter
@@ -74070,7 +74080,7 @@ lt: Šaldyti įvairūs tropiniai vaisiai
 nl: Bevroren tropische vruchtenmelanges
 
 < en:Dried plant-based foods
-< en:Fruits based foods
+< en:Fruit-based foods
 en: Dried fruits
 bg: Сушени плодове
 ca: Fruita deshidratada
@@ -74098,7 +74108,7 @@ intake24_category_code:en: DRIF
 pnns_group_2:en: Dried fruits
 who_id:en: 16
 
-< en:Fruits based foods
+< en: Fruit-based foods
 en: Dates and their products
 da: Dadler og daddelprodukter
 sv: Dadlar och dadelprodukter
@@ -74615,13 +74625,14 @@ da: Grønne rosiner
 sv: Gröna russin
 
 < en:Canned plant-based foods
+< en:Fruit-based foods
 en: Canned fruits
 bg: Консервирани плодове
 ca: Fruita en conserva
 da: Frugter på dåse, Dåsefrugter, Frugt på dåse, Dåsefrugt
-de: Dosenfrüchte
+de: Dosenfrüchte, Fruchtkonserve, Dosenobst, Obstkonserve
 es: Frutas en conserva, Conservas de frutas
-fi: purkitetut hedelmät
+fi: Purkitetut hedelmät
 fr: Fruits en conserve
 hr: Konzervirano voće
 it: Frutta in scatola
@@ -74629,11 +74640,14 @@ ja: 果物の缶詰
 lt: Konservuoti vaisiai
 nl: Fruit in blik/pot
 pt: Frutos enlatados
-ru: Консервированные фрукты
+ru: Консервированные фрукты, Плодово-ягодные консервы
+sl: Konservirano sadje
 sv: Frukter på burk, Burkfrukter
 tr: Konserve meyve
+zh: 水果类罐头
 intake24_category_code:en: CAND
 who_id:en: 16
+wikidata:en: Q98103940
 
 # dot not rename en:canned-fruits as it is used in Ingredients.pm
 # to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
@@ -119325,7 +119339,7 @@ bg: Растителни храни и напитки
 bn: উদ্ভিদ-ভিত্তিক খাবার ও পানীয়
 ca: Aliments i begudes amb base vegetal
 cs: Rostlinné potraviny a nápoje
-da: Plantebaserede fødevarer og drikkevarer
+da: Plantebaserede føde- og drikkevarer, Plantebaserede fødevarer og drikkevarer
 de: Pflanzliche Lebensmittel und Getränke
 el: Τρόφιμα και ποτά φυτικής προέλευσης
 eo: Plant-bazitaj manĝaĵoj kaj trinkaĵoj
@@ -119414,6 +119428,21 @@ pl: Żywność i napoje na bazie warzyw
 pt: Alimentos e bebidas à base de vegetais
 ro: Alimente și băuturi pe bază de legume
 sv: Grönsaksbaserade livsmedel
+
+< en: Plant-based foods and beverages
+en: Fruit-based foods and beverages, Fruits and derived products, Fruits and their products
+ca: Aliments i begudes amb base de fruites
+da: Frugtbaserede føde- og drikkevarer
+de: Fruchtbasierte Lebensmittel und Fruchtgetränke
+es: Comida y bebida a base de frutas, Frutas y sus productos, Frutas y derivados
+fr: Aliments et boissons à base de fruits, Fruits et produits dérivés, fruits et dérivés
+hr: Hranu i piće na bazi voća
+it: Cibi e bevande a base di fruta
+lt: Vaisiai ir jų produktai
+nl: Fruit en afgeleide producten
+pl: Żywność i napoje na bazie owoców, Produkty na bazie owoców, Owoce i produkty owocowe
+pt: Alimentos e bebidas à base de frutas
+sv: Fruktbaserade livsmedel, Fruktbaserad mat och dryck
 
 < en:Plant-based pickles
 en: Plant-based mixed pickles, Mixed pickles

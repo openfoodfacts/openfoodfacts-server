@@ -61,16 +61,18 @@ is(
 		'lc' => 'fr',
 		'categories_hierarchy' => [
 			'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
-			'en:fruits-and-vegetables-based-foods', 'en:fruits-based-foods',
-			'en:fruits', 'en:tropical-fruits',
-			'en:apples', 'en:bananas'
+			'en:fruit-based-foods-and-beverages', 'en:fruits-and-vegetables-based-foods',
+			'en:fruit-based-foods', 'en:fruits',
+			'en:tropical-fruits', 'en:apples',
+			'en:bananas'
 		],
 		'categories_lc' => 'fr',
 		'categories_tags' => [
 			'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
-			'en:fruits-and-vegetables-based-foods', 'en:fruits-based-foods',
-			'en:fruits', 'en:tropical-fruits',
-			'en:apples', 'en:bananas'
+			'en:fruit-based-foods-and-beverages', 'en:fruits-and-vegetables-based-foods',
+			'en:fruit-based-foods', 'en:fruits',
+			'en:tropical-fruits', 'en:apples',
+			'en:bananas'
 		],
 
 	}
@@ -90,16 +92,18 @@ is(
 		'categories' => 'pommes, bananes',
 		'categories_hierarchy' => [
 			'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
-			'en:fruits-and-vegetables-based-foods', 'en:fruits-based-foods',
-			'en:fruits', 'en:tropical-fruits',
-			'en:apples', 'en:bananas',
+			'en:fruit-based-foods-and-beverages', 'en:fruits-and-vegetables-based-foods',
+			'en:fruit-based-foods', 'en:fruits',
+			'en:tropical-fruits', 'en:apples',
+			'en:bananas',
 		],
 		'categories_lc' => 'fr',
 		'categories_tags' => [
 			'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
-			'en:fruits-and-vegetables-based-foods', 'en:fruits-based-foods',
-			'en:fruits', 'en:tropical-fruits',
-			'en:apples', 'en:bananas',
+			'en:fruit-based-foods-and-beverages', 'en:fruits-and-vegetables-based-foods',
+			'en:fruit-based-foods', 'en:fruits',
+			'en:tropical-fruits', 'en:apples',
+			'en:bananas',
 		],
 		'lc' => 'fr'
 	}
@@ -117,7 +121,7 @@ is($product_ref->{categories}, "pommes, bananes");
 add_tags_to_field($product_ref, "fr", "categories", "fraises");
 
 is($product_ref->{categories},
-	"Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Fruits tropicaux, Pommes, Bananes, fraises"
+	"Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments et boissons à base de fruits, Aliments à base de fruits et de légumes, Aliments à base de fruits, Fruits, Fruits tropicaux, Pommes, Bananes, fraises"
 );
 
 add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
@@ -127,11 +131,13 @@ compute_field_tags($product_ref, "fr", "categories");
 is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:fruits-based-foods', 'en:fruits', 'en:apples',
-			'en:berries', 'en:tropical-fruits', 'en:bananas',
-			'en:plums', 'en:raspberries', 'en:strawberries',
-		)
+		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+			'en:fruits-and-vegetables-based-foods', 'en:fruit-based-foods-and-beverages',
+			'en:fruit-based-foods', 'en:fruits',
+			'en:apples', 'en:berries',
+			'en:tropical-fruits', 'en:bananas',
+			'en:plums', 'en:raspberries',
+			'en:strawberries',)
 	]
 
 ) or diag Dumper $product_ref->{categories_tags};
@@ -142,18 +148,21 @@ compute_field_tags($product_ref, "es", "categories");
 is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:fruits-based-foods', 'en:fruits', 'en:apples',
-			'en:berries', 'en:citrus', 'en:tropical-fruits',
-			'en:bananas', 'en:lemons', 'en:oranges',
-			'en:plums', 'en:raspberries', 'en:strawberries',
+		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+			'en:fruits-and-vegetables-based-foods', 'en:fruit-based-foods-and-beverages',
+			'en:fruit-based-foods', 'en:fruits',
+			'en:apples', 'en:berries',
+			'en:citrus', 'en:tropical-fruits',
+			'en:bananas', 'en:lemons',
+			'en:oranges', 'en:plums',
+			'en:raspberries', 'en:strawberries',
 		)
 	]
 
 ) or diag Dumper $product_ref->{categories_tags};
 
 is($product_ref->{categories},
-	"Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Ciruelas, Frutas tropicales, Manzanas, Plátanos, Frutas del bosque, Frambuesas, Fresas, naranjas, limones"
+	"Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Comida y bebida a base de frutas, Frutas y verduras y sus productos, Comida a base de frutas, Frutas, Ciruelas, Frutas tropicales, Manzanas, Plátanos, Frutas del bosque, Frambuesas, Fresas, naranjas, limones"
 );
 
 add_tags_to_field($product_ref, "it", "categories", "bogus, mele");
@@ -162,11 +171,14 @@ compute_field_tags($product_ref, "it", "categories");
 is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:fruits-based-foods', 'en:fruits', 'en:apples',
-			'en:berries', 'en:citrus', 'en:tropical-fruits',
-			'en:bananas', 'en:lemons', 'en:oranges',
-			'en:plums', 'en:raspberries', 'en:strawberries',
+		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+			'en:fruits-and-vegetables-based-foods', 'en:fruit-based-foods-and-beverages',
+			'en:fruit-based-foods', 'en:fruits',
+			'en:apples', 'en:berries',
+			'en:citrus', 'en:tropical-fruits',
+			'en:bananas', 'en:lemons',
+			'en:oranges', 'en:plums',
+			'en:raspberries', 'en:strawberries',
 			'it:bogus')
 	]
 
@@ -304,9 +316,10 @@ is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
 		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:meals', 'en:fruits-based-foods', 'en:fruits',
-			'en:apples', 'en:peaches', 'en:tropical-fruits',
-			'en:bananas', 'en:pears',)
+			'en:meals', 'en:fruit-based-foods-and-beverages', 'en:fruit-based-foods',
+			'en:fruits', 'en:apples', 'en:peaches',
+			'en:tropical-fruits', 'en:bananas', 'en:pears',
+		)
 	],
 ) or diag Dumper $product_ref;
 
@@ -320,11 +333,13 @@ compute_field_tags($product_ref, "fr", "categories");
 is(
 	[sort @{$product_ref->{categories_tags}}],
 	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:fruits-based-foods', 'en:fruits', 'en:apples',
-			'en:berries', 'en:citrus', 'en:tropical-fruits',
-			'en:bananas', 'en:lemons', 'en:pears',
-			'en:strawberries')
+		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods',
+			'en:fruits-and-vegetables-based-foods', 'en:fruit-based-foods-and-beverages',
+			'en:fruit-based-foods', 'en:fruits',
+			'en:apples', 'en:berries',
+			'en:citrus', 'en:tropical-fruits',
+			'en:bananas', 'en:lemons',
+			'en:pears', 'en:strawberries')
 	]
 ) or diag Dumper $product_ref;
 
