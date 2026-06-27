@@ -33142,11 +33142,8 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/glucose-and-fructos
 openfoodfacts:fr: https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-blé
 # 271 products in 4 languages @2018-09-24
 
-# description:en:High-fructose corn syrup (HFCS) (also called glucose-fructose, isoglucose and glucose-fructose syrup) is a sweetener made from corn starch
-# This is probably the same as glucose-fructose syrup, but as long as it not made explicit, nothing is assumed.
 
 < en:corn syrup
-# nova:en:high-fructose-corn-syrup
 < en:glucose-fructose syrup
 en: high fructose corn syrup, isoglucose, HCFS
 bg: Високо-фруктозен сироп от царевица
@@ -33167,10 +33164,13 @@ pl: Syrop kukurydziany o wysokiej zawartości fruktozy
 sr: Високофруктозни кукурузни сируп
 sv: Isoglukos
 zh: 高果糖浆
+comment:en: This is probably the same as glucose-fructose syrup, but as long as it not made explicit, nothing is assumed.
+description:en: High-fructose corn syrup (HFCS) (also called glucose-fructose, isoglucose and glucose-fructose syrup) is a sweetener made from corn starch
+# nova:en: high-fructose-corn-syrup
 usda_ndb_code:en: 19351
 usda_ndb_name:en: Syrups, corn, high-fructose
-wikipedia:en: https://en.wikipedia.org/wiki/High-fructose_corn_syrup
 wikidata:en: Q11422173
+wikipedia:en: https://en.wikipedia.org/wiki/High-fructose_corn_syrup
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-maïs
 # 28 products in 2 languages @2018-09-24
 
