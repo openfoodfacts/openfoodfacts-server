@@ -303,6 +303,7 @@ de: handgeschnitten, handgeschnittene
 hu: kézzel vágott
 
 de: zerkleinert, zerkleinerte, zerkleinerter, zerkleinertes
+ro: mărunțit, mărunțită, mărunțiți, mărunțite
 
 #<de:zerkleinert
 de: grob zerkleinert, grob zerkleinerte, grob zerkleinerter, grob zerkleinertes
@@ -365,6 +366,7 @@ it: cubi, in cubetti, a cubi
 # nl:blokjes, in blokjes, blokje
 pl: kostka, kostki, w kostkach, w kostce
 pt: cubo, cubos, em cubo, em cubos, aos cubos, em cubinhos
+ro: cuburi
 
 en: segment, segments
 ca: segment, segments
@@ -382,11 +384,13 @@ hu: kockázott, kockázva, kockára vágva, kockára vágott
 it: dadi, dado, a dadi, a dadini, in dadi, in dadini
 nl: blokjes, in blokjes, blokje
 pl: pokrojony w kostkę, pokrojone w kostkę, pokrojona w kostkę, krojony w kostkę, krojone w kostkę, krojona w kostkę
+ro: cuburi, în cuburi
 sv: tärnad
 
 < en:ground
 en: minced
 it: macinato, macinata, macinate, macinati
+ro: tocat, tocate
 uk: фарш, фарш з
 
 # en:description:nuts cut into small pointed pieces
@@ -660,7 +664,7 @@ it: pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl: stukjes
 pl: kawałki, kawałki z, rozdrobniony, rozdrobnione, rozdrobniona
 pt: pedaço, pedaços
-ro: bucățele, bucățele de
+ro: bucățele, bucățele de, bucăți
 sl: kosmiči
 sv: bitar, i bitar
 uk: шматочки, шматки
@@ -991,7 +995,7 @@ nl: schil, schillen
 #nl:false:schildje, met schil
 pl: skórka z
 pt: pele, peles, pele de, peles de, raspas
-ro: piele de
+ro: piele de, coajă
 uk: цедра
 #sv:skal
 #sv:false:skallops, skalade, skalfrugi
@@ -1458,7 +1462,7 @@ nb: dehydrerte, dehydrert
 nl: gedehydrateerde
 pl: odwodniony, odwodnione, odwodniona
 pt: desidratado, desidratada, desidratados, desidratadas
-ro: deshidratată
+ro: deshidratată, deshidratate
 sv: dehydrerat, dehydrerad, dehydrerade
 uk: дегідратований, зневоднений, зневоднена, зневоднене, зневоднені, дегідратована, дегідратоване, дегідратовані, дегідрований, дегідрована, дегідроване, дегідровані
 
@@ -1724,6 +1728,7 @@ hu: első hidegen sajtolt
 it: prima spremitura a freddo, prima pressione a freddo
 pl: pierwsze tłoczenie na zimno, pierwsza tłoczona na zimno, pierwsze tłoczenia na zimno
 pt: primeira prensagem a frio, primeira prensada a frio
+ro: de primă presă
 sv: första kallpressad
 
 # Used for meat
@@ -1735,6 +1740,7 @@ hu: mechanikai úton leválasztott
 it: meccanicamente separato
 pl: oddzielone mechanicznie, oddzielona mechanicznie, oddzielane mechanicznie, oddzielana mechanicznie
 pt: separado mecanicamente, separada mecanicamente, separados mecanicamente, separadas mecanicamente
+ro: separat mecanic, separată mecanic, separați mecanic, separate mecanic
 sv: maskinurbenat
 # currently not well supported, so we also have entries for "mechanically separated meat" in the ingredients taxonomy
 
@@ -1982,7 +1988,7 @@ nb: pasteurisert
 nl: gepasteuriseerd, gepasteuriseerde
 pl: pasteryzowana, pasteryzowane, pasteryzowany, pasteryzowanego, pasteryzowanej
 pt: pasteurizado, pasteurizados, pasteurizada, pasteurizadas
-ro: pasteurizat, pasteurizata
+ro: pasteurizat, pasteurizata, pasteurizate
 ru: пастеризованные, Пастеризованное
 sr: pasterizovana
 sv: pastöriserad
@@ -2079,6 +2085,7 @@ hu: blansírozott
 it: sbollentato, sbollentata, sbollentati, sbollentate
 nl: geblancheerd
 pl: blanszowany, blanszowana, blanszowane, blanszowanych, blanszowanego, blanszowanej
+ro: blanșați, blanșate
 uk: бланшований, бланшована, бланшоване, бланшовані
 
 < en:processed
@@ -2209,6 +2216,7 @@ nb: stekt
 nl: gefrituurd, gefrituurde
 pl: smażony, smażona, smażone
 pt: frito, frita, fritos, fritas
+ro: prăjit, prăjită, prăjiți, prăjite
 sv: friterad, friterade, stekt
 uk: смажений, смажена, смажене, смажені, обсмажений, обсмажена, обсмажене, обсмажені, засмажений, засмажена, засмажене, засмажені
 wikidata:en: Q300472
@@ -2229,6 +2237,7 @@ it: arrostito, arrostita, arrostiti, arrostite
 ja: ロースト
 nl: gebraden
 pt: assado, assada, assados, assadas
+ro: copt, coaptă, copți, coapte
 sk: pražené
 sv: rostad, rostat, rostade, bakad
 uk: печений, печена, печене, печені, запечений, запечена, запечене, запечені
@@ -2952,6 +2961,7 @@ it: sottaceto, sott'aceto
 ja: 塩漬
 pl: konserwowa, konserwowy, konserwowe
 pt: en escabeche, en vinagre, avinagrado, avinagrada
+ro: murat, murată, murați, murate
 sv: picklad, inlagd
 wikidata:en: Q1361741
 
