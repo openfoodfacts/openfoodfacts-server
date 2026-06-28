@@ -72411,44 +72411,116 @@ wikidata:en: Q144412
 
 < en:Fruits
 en: Plums
+af: Pruim
+an: Cerolla
+ar: برقوق
 bg: Сливи
+ca: Pruna
+cs: Švestka
+cy: Eirinen
+da: Blommer
 de: Pflaumen
+el: Δαμάσκηνο
+eo: Prunoj
 es: Ciruelas
+et: Ploom
+eu: Aran
+fa: آلو
 fi: Luumut
 fr: Prunes
-hr: Šljive
+fy: Prom
+ga: Pluma
+gv: Plumbis
+hi: आलू बुख़ारा
+hr: Šljive, Šljiva
+hu: Szilva
+hy: Սալոր (միրգ)
+id: Prem
+io: Pruno
+is: Plóma
+it: Susina
 ja: すもも, プラム, プルーン
-lt: Slyvos
+jv: Plum
+kg: Mbalango
+kn: ಪ್ಲಮ್
+ko: 매실
+ks: ٲر
+ky: Кайналы
+la: Prunus
+lt: Slyvos, Slyva
+lv: Plūme
+mk: Слива
+ml: പ്ലം
+mn: Чавга
+mr: आलुबुखार
+ms: Plum
+my: ဇီးသီး
+nb: Plommer
 nl: Pruimen
-ru: Сливы
+nn: Plommer
+nv: Chʼil naʼatłʼoʼiitsoh
+oc: Pruna
+pa: ਆਲੂ ਬੁਖ਼ਾਰਾ
+pl: Śliwka
+ps: آلوچه
+pt: Ameixa
+ru: Сливы, Слива
+sd: آلو بخارو
+sh: Šljiva
+sk: Slivky
+sq: Kumbulla
+sr: Шљива
+sv: Plommon
+sw: Mplamu
+ta: கொத்துப்பேரி
+te: రేగి పండు
+th: พลัม
+tr: Erik
+tt: Караҗимеш
+uk: Слива
+ur: آلوچہ
+uz: Olxoʻri
+vi: Mận
+za: Makmaenj
+zh: 李子
 agribalyse_food_code:en: 13100
 ciqual_food_code:en: 13100
 ciqual_food_name:en: Plum, raw
 ciqual_food_name:fr: Prune, crue
 intake24_category_code:en: PLUM
+wikidata:en: Q12372598
 
 < en:Bulk
 < en:Fresh fruits
 < en:Plums
 en: Fresh plums
+da: Friske blommer
 de: Frische Pflaumen
 fr: Prunes fraîches
 hr: Svježe šljive
 lt: Šviežios slyvos
+sv: Färska plommon
 sales_format:en: weight, package
 season_in_country_fr:en: 7,8,9
 
 < en:Fresh plums
+< fr: Mirabelles de Lorraine
 fr: Mirabelles fraîches
 season_in_country_fr:en: 8,9
 
-< en:Fresh plums
+< en: Plums
 en: Greengage plums
-fr: Reine-Claudes fraîches, Prunes Reine-Claude
+fr: Prunes Reine-Claude
 agribalyse_food_code:en: 13041
 ciqual_food_code:en: 13041
 ciqual_food_name:en: Greengage plum, raw
 ciqual_food_name:fr: Prune Reine-Claude, crue
+wikidata:en: Q1283218
+
+< en: Fresh plums
+< en: Greengage plums
+en: Fresh Greengage plums
+fr: Reine-Claudes fraîches
 season_in_country_fr:en: 9
 
 < en:Fresh plums
@@ -72458,14 +72530,41 @@ season_in_country_fr:en: 8,9,10
 < en:Frozen fruits
 < en:Plums
 en: Frozen plums
+da: Frosne blommer
 fr: Prunes surgelées
+sv: Frysta plommon
+
+< en: Plums
+en: Red plums
+da: Røde blommer
+sv: Röda plommon
+description:en: Plums with red pulp.
+
+< en: Fresh plums
+< en: Red plums
+en: Fresh red plums
+da: Friske røde blommer
+sv: Färska röda plommon
 
 < en:Plums
 fr: Mirabelles de Lorraine
 origins:en: en:france
 protected_name_file_number:en: PGI-FR-0194
 protected_name_type:en: pgi
-#wikidata:en:
+wikidata:en: Q21427639
+
+< en: Red plums
+en: Black Splendor plums
+da: Black Splendor-blommer
+sv: Black Splendor-plommon
+wikidata:en: Q126645030
+
+< en: Black Splendor plums
+< en: Fresh red plums
+en: Fresh Black Splendor plums
+da: Friske Black Splendor-blommer
+sv: Färska Black Splendor-plommon
+season_in_country_us:en: 6,7
 
 < en:Fruits
 en: Pomegranates, Pomegranate pulp and pips

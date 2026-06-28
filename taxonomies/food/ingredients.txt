@@ -40159,32 +40159,81 @@ pt: Suco e polpa de pera, sumo e polpa de pera
 
 < en:prunus species fruit
 en: plum
+af: pruim
+an: cerolla
+ar: برقوق
 bg: слива, сливи
 ca: pruna
 cs: švestka
+cy: eirinen
 da: blomme, blommer
 de: Pflaume, Pflaumen
-el: Δαμάσκηνο
+el: δαμάσκηνο
+eo: pruno
 es: ciruela
 et: ploom
+eu: aran
+fa: آلو
 fi: luumu
 fr: prune, prunes
+fy: prom
+ga: pluma
+gv: plumbis
+hi: आलू बुख़ारा
 hr: šljiva, šljive
 hu: szilva
+hy: սալոր (միրգ)
+id: prem
+io: pruno
+is: plóma
 it: prugna, prugne
-ms: plum, Prun
+ja: プラム
+jv: plum
+kg: mbalango
+kn: ಪ್ಲಮ್
+ko: 매실
+ks: ٲر
+ky: кайналы
+la: prunus
+lt: slyva
+lv: plūme
+mk: слива
+ml: പ്ലം
+mn: чавга
+mr: आलुबुखार
+ms: plum, prun
+my: ဇီးသီး
+nb: plomme
 nl: pruim, pruimen
+nv: chʼil naʼatłʼoʼiitsoh
+oc: pruna
+pa: ਆਲੂ ਬੁਖ਼ਾਰਾ
 pl: śliwka, śliwki, śliwkowy, śliwkowa, śliwkowe, śliwkowej, śliwkowego, śliwkowych
+ps: آلوچه
 pt: ameixa
 ro: prună
 ru: слива, сливы
-sk: slivka
+sd: آلو بخارو
+sh: šljiva
+sk: slivka, slivky
 sl: sliva
-sr: Шљива, šljiva
+sq: kumbulla
+sr: шљива, šljiva
 sv: plommon
-th: พรุน
+sw: mplamu
+ta: கொத்துப்பேரி
+te: రేగి పండు
+th: พรุน, พลัม
+tr: erik
+tt: караҗимеш
 uk: слива, сливи
+ur: آلوچہ
+uz: olxoʻri
+vi: mận
 wa: pronne
+za: makmaenj
+zh: 李子
+agribalyse_proxy_food_code:en: 13100
 ciqual_proxy_food_code:en: 13100
 ciqual_proxy_food_name:en: Plum, raw
 ciqual_proxy_food_name:fr: Prune, crue
@@ -40218,51 +40267,76 @@ en: organic plum
 hr: eko šljiva
 it: prugna biologica
 
+< en: plum
+en: red plum
+da: rød blomme
+sv: röd plommon
+comment:en: is this the same as en:black plum? the red here refers to the pulp of the plum, but the black seems to refer to the skin.
+description:en: Plums with red pulp.
+
+< en: red plum
+en: Black Splendor plum
+xx: Black Splendor
+da: Black Splendor-blomme
+sv: Black Splendor-plommon
+wikidata:en: Q126645030
+
 # Some languages seem to give the specific plum cultivars used for making "dried plums" a name
 # similar to "prune", and then have the concept of "dried prune".
 # Also some languages call the tree "plum", and the fruit "prune".
 
 # This is the dried fruit, whether it has its own name, or is "dried plum/prune".
-# description:fr:Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
 < en:plum
 en: prune, dried plum
 ar: برقوق مجفف, خوخ مجفف
 bg: сини сливи, синя слива
+ca: pruna seca
+cy: prŵn
 da: sveske, svesker
-de: Trockenpflaumen, Dörrpflaumen
+de: Trockenpflaume, Trockenpflaumen, Dörrpflaumen
+el: αποξηραμένο δαμάσκηνο
+eo: sekpruno
 es: ciruela pasa, ciruelas pasas
+eu: aranpasa
 fa: آلو بخارا
 fi: kuivattu luumu
 fr: pruneau, pruneaux, pruneaux séchés
-# hr:suhe šljive # see ingredients_processing.txt
-it: prugne secche
+#hr: suhe šljive # see ingredients_processing.txt
+hy: սալորաչիր
+id: prune
+is: sveskja
+it: prugne secche, prugna secca
 ja: プルーン
+ka: შავქლიავი
 ko: 프룬
+lv: žāvēta plūme
 ms: prun kering, plum kering
 nb: sviske
-nl: pruimedant
+nl: pruimedant, gedroogde pruim
 nn: sviske
 pl: śliwki suszone
+pt: ameixa seca
 ru: чернослив
 sl: suhe slive
-sr: суве шљиве, suve šljive, suva šljiva
+sr: суве шљиве, suve šljive, suva šljiva, сува шљива
 sv: sviskon
 tl: pruno
 uk: чорнослив
 vi: mận khô
 wa: souwêye pronne
-zh: 梅乾
-# chy:náhkôhematôtse
-# de-ch:Trockenpflaume
-# en-ca:prune
-# en-gb:prune
-# pcd:pronnieu
-# yue:西梅乾
+zh: 梅乾, 李子乾
+#chy: náhkôhematôtse
+#de-ch: Trockenpflaume
+#en-ca: prune
+#en-gb: prune
+#pcd: pronnieu
+#yue: 西梅乾
+agribalyse_food_code:en: 13042
 ciqual_food_code:en: 13042
 ciqual_food_name:en: Prune
 ciqual_food_name:fr: Pruneau, sec
-comment:en: wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
 description:en: A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
+description:fr: Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:pruneau
 usda_ndb_proxy_code:en: 9291
 usda_ndb_proxy_name:en: Plums, dried (prunes), uncooked
@@ -40298,13 +40372,14 @@ usda_ndb_name:en: Prunes, dehydrated (low-moisture), uncooked
 en: prunes from Agen
 fr: pruneaux d'agen
 it: prugne di Agen
-wikidata:en: Q21093818
 # 141 in fr @2021-09-15
 
 < en:prunes from Agen
 en: prunes from Ente
 fr: prunes d'Ente
 it: prugne di Ente
+ka: აჟანის უნგრულა
+wikidata:en: Q3408620
 
 #processing:en: en:puree
 < en:prune
@@ -48767,7 +48842,7 @@ usda_ndb_name:en: Sugar-apples, (sweetsop), raw
 #
 ###################################################################################################
 
-# 
+#
 # Note that in french often 'raisin' is used to indicate the dried one
 
 < en:berries
