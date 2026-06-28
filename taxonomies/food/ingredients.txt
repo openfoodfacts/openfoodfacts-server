@@ -12867,8 +12867,8 @@ ja: ポークブイヨン
 # <en:bone
 fr: os et viande de porc
 
-< en:pork by-product
 < en:bone
+< en:pork by-product
 en: pork bone
 de: Schweineknochen
 es: hueso de cerdo
@@ -23443,8 +23443,6 @@ uk: Дим
 ur: دھواں
 vi: Khói
 zh: 煙
-vegan:en: yes
-vegetarian:en: yes
 # arc:ܬܢܢܐ
 # be-tarask:Дым
 # bho:धुँआ
@@ -23469,6 +23467,8 @@ vegetarian:en: yes
 # zh-hk:煙
 comment:en: It is assumed that the translations of smoke are the same as cooking smoke.
 description:en: Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q130768
 wikipedia:en: https://en.wikipedia.org/wiki/Smoking_(cooking)
 # ingredient/fr:fumée has 437 products in 12 languages @2019-04-14
@@ -37120,12 +37120,12 @@ ro: maltodextrină, maltodextrina
 ru: Мальтодекстрин, патока
 sv: Maltodextriner, Maltodextrin
 zh: 麦芽糊精
-vegan:en: yes
-vegetarian:en: yes
 # zh_CN:麦芽糊精
 # zh_HK:麥芽糊精
 # zh_TW:麥芽糊精
 description:en: Maltodextrin is a polysaccharide (a type of carbohydrate) commonly used as a food additive and ingredient. A mildly sweet, white powder derived from starch — usually corn, wheat, rice, or potato starch. It's produced by partially hydrolyzing (breaking down) starch using enzymes or acids. Has a very high glycemic index (GI ~85–105), meaning it raises blood sugar quickly
+vegan:en: yes
+vegetarian:en: yes
 
 
 < en:maltodextrin
@@ -39476,9 +39476,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mango
 
 < en:mango
 en: mango imported by plane
-fr: mangue importée en avion
 de: Mango importiert mit dem Flugzeug
 es: mango importado en avión
+fr: mangue importée en avion
 it: mango importato in aereo
 nl: mango geïmporteerd per vliegtuig
 pt: manga importada por avião
@@ -39488,9 +39488,9 @@ carbon_footprint_fr_foodges_value:fr: 27.4
 
 < en:mango
 en: mango imported by boat
-fr: mangue importée en bateau
 de: Mango importiert per Schiff
 es: mango importado por barco
+fr: mangue importée en bateau
 hr: mango uvezen brodom
 it: mango importato via nave
 nl: mango geïmporteerd per boot
@@ -41034,18 +41034,18 @@ pl: skoncentrowane puree jabłkowe
 
 < en:apple
 en: applepowder
-fr: pommes en poudre
 de: Apfelpulver
 fi: omenajauhe
+fr: pommes en poudre
 it: mele in polvere
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pommes-en-poudre
 # 6 products in 3 languages @2018-10-04
 
 < en:apple
 en: apple flakes
-fr: flocons de pomme
 de: Apfelflocken
 fi: omenahiutale
+fr: flocons de pomme
 it: fiocchi di mela
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-pomme
 # 46 products in 4 languages @2018-10-04
@@ -43472,9 +43472,9 @@ pl: skoncentrowany ekstrakt z pomarańczy
 
 < en:orange extract
 en: natural orange extract
-fr: extraits naturels d'orange
 es: extracto natural de naranja dulce
 fi: luontainen appelsiiniuute
+fr: extraits naturels d'orange
 it: estratto naturale d'arancia, estratto naturale di arancia
 #openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extraits-naturels-d'orange
 # 28 products in 3 languages @2018-09-28
@@ -58730,9 +58730,9 @@ fr: salade mélangée verte et rouge
 
 < en:compound
 en: mixed salad
-fr: salade composée
 de: gemischter Salat
 es: ensalada mixta
+fr: salade composée
 hr: miješana salata
 it: insalata composta
 # ingredient/fr:salade-composée has 97 products in french @2019-04-16
@@ -69205,7 +69205,7 @@ it: sciroppo di zenzero
 nl: gembersiroop
 
 < en:plant
-en: griffonia, 
+en: griffonia
 hr: griffonia
 it: griffonia
 la: griffonia simplicifolia
@@ -76228,7 +76228,7 @@ la: Chondrus crispus
 eurocode_2_group_3:en: 8.55.10
 
 
-< en:plant
+< en:ferment
 en: koji, kōji, koji culture, koji spores, koji starter
 xx: A. Oryzae, koji
 ar: رشاشية أوريزه
@@ -76237,7 +76237,6 @@ es: koji, fermento koji
 fr: koji, ferment Koji
 ja: ニホンコウジカビ
 ko: 누룩곰팡이
-pl: koji
 zh: 米曲菌, 米麴菌
 #zh-cn: 米曲菌
 #zh-hans: 米曲菌
@@ -76245,7 +76244,7 @@ zh: 米曲菌, 米麴菌
 #zh-hk: 米麴菌
 #zh-sg: 米曲菌
 #zh-tw: 米麴菌
-en:description: ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
+description:en: ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste.
 wikidata:en: Q865501
 # ingredient/fr:koji has 53 products @2019-02-15
 
@@ -80584,8 +80583,8 @@ ciqual_food_name:fr: Saumon, cru, sauvage
 
 < en:salmon
 en: cooked salmon
-fr: saumon cuit
 de: Lachs gekocht
+fr: saumon cuit
 # ingredient/fr:saumon-cuit has 49 products in 2 languages @2018-12-29
 
 #<fr:saumon cuit
@@ -80647,9 +80646,9 @@ ciqual_food_name:en: Salmon, smoked
 
 < en:smoked salmon
 en: smoked salmon trimmings
-fr: chutes de saumon fumé
 de: geräucherte Lachsschnitte
 es: recortes de salmón ahumado
+fr: chutes de saumon fumé
 hr: obrezci dimljenog lososa
 it: scarti di salmone affumicato
 nl: gerookte zalmresten
@@ -87618,7 +87617,7 @@ hr: biljka stanol
 it: stanolo vegetale
 pl: stanole roślinne
 sv: växtstanol
-description:en: Plant stanols are naturally occurring compounds found in small amounts in plant-based foods like grains, vegetables, fruits, and nuts. 
+description:en: Plant stanols are naturally occurring compounds found in small amounts in plant-based foods like grains, vegetables, fruits, and nuts.
 vegan:en: yes
 vegetarian:en: yes
 # ingredient/fr:stanols-vegetaux has 3 products in 2 languages @2020-06-13
