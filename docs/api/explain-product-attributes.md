@@ -39,7 +39,7 @@ Product Attributes are organized in sections:
   - Vegan
   - Vegetarian
   - Palm oil
-  - Unwanted/Banned ingredients (user-specified list of ingredients to avoid; requires API v3.4+)
+  - Unwanted ingredients (user-specified list of ingredients to avoid; requires API v3.4+)
 - Labels
   - Organic
   - Fair trade
