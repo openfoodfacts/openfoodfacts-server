@@ -129,7 +129,7 @@ This parameter can be sent in product read and search requests in 2 ways:
 
 ##### Getting ingredient suggestions
 
-To help users identify ingredients to flag as unwanted/banned, you can use the **Robotoff API** to get ingredient predictions and suggestions:
+To help users identify ingredients to flag as unwanted/banned, you can use the **Taxonomies or Suggestions APIs** to get ingredient suggestions:
 
 1. **Browse ingredients taxonomy**: Use the ingredients taxonomy to help users discover ingredient tags
    - Endpoint: `https://world.openfoodfacts.org/data/taxonomies/ingredients.json`
