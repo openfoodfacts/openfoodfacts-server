@@ -2,7 +2,7 @@
 
 This reference describes how barcodes are normalized in Open Food Facts.
 
-## The problem: barcodes may be prefixed by a varying number of 0s
+## The problem: barcodes may be prefixed by a varying number of 0s
 
 Different types of barcodes can be found on products. The most common are:
 
@@ -21,14 +21,11 @@ As the barcode is used as the key in Open Food Facts, we can end up with duplica
 
 In Open Food Facts, we choose to fix the number of leading 0s in this way:
 
-All barcodes with 7 digits or less (after leading 0s are removed) are padded with leading 0s so that they have 8 digits.
-
-All barcodes with 9 to 12 digits are padded with leading 0s so that they have 13 digits.
-
-The "code" field in the product database, database dumps and exports is normalized in this way.
+* All barcodes with 7 digits or less (after leading 0s are removed) are padded with leading 0s so that they have 8 digits.
+* All barcodes with 9 to 12 digits are padded with leading 0s so that they have 13 digits.
+* The "code" field in the product database, database dumps and exports is normalized in this way.
 
 ### Normalization of barcodes in the API
 
-The Open Food Facts API automatically normalize the barcode passed in the "code" field for both READ and WRITE requests.
-
-So a request for the 12 digit barcode 034000470693 will return the product saved with "code" 0034000470693.
+* The Open Food Facts API automatically normalizes the barcode passed in the "code" field for both READ and WRITE requests.
+* So a request for the 12 digit barcode `034000470693` will return the product saved with "code" `0034000470693`.
