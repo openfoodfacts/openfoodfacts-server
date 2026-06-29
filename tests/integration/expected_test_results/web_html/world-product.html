@@ -264,6 +264,7 @@
   <button
     type="button"
     title="Scan a product"
+    aria-label="Scan a product"
     class="button barcode-scanner-button"
     id="barcode-scanner-button"
   >
@@ -410,7 +411,7 @@
 
 
   <div class="donation-banner__close">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
+    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();" aria-label="Close donation banner" type="button">close</button>
   </div>
 </section>
 
@@ -601,66 +602,66 @@
 
                         <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_generic_name">
-    <span class="field">Common name: </span>
-    <span class="field_value" id="field_generic_name_value"><span itemprop="description">default_name</span></span>
-</p>
+<div id="field_generic_name" class="field-wrapper">
+    <span class="field" id="field_generic_name_label">Common name: </span>
+    <span class="field_value" id="field_generic_name_value" aria-labelledby="field_generic_name_label"><span itemprop="description">default_name</span></span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_quantity">
-    <span class="field">Quantity: </span>
-    <span class="field_value" id="field_quantity_value">100 g</span>
-</p>
+<div id="field_quantity" class="field-wrapper">
+    <span class="field" id="field_quantity_label">Quantity: </span>
+    <span class="field_value" id="field_quantity_value" aria-labelledby="field_quantity_label">100 g</span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_brands">
-    <span class="field">Brands: </span>
-    <span class="field_value" id="field_brands_value"><a itemprop="brand" href="/facets/brands/bob-s-pies" class="tag user_defined">Bob's pies</a></span>
-</p>
+<div id="field_brands" class="field-wrapper">
+    <span class="field" id="field_brands_label">Brands: </span>
+    <span class="field_value" id="field_brands_value" aria-labelledby="field_brands_label"><a itemprop="brand" href="/facets/brands/bob-s-pies" class="tag user_defined">Bob's pies</a></span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_categories">
-    <span class="field">Categories: </span>
-    <span class="field_value" id="field_categories_value"><a href="/facets/categories/desserts" class="tag well_known">Desserts</a>, <a href="/facets/categories/pies" class="tag well_known">Pies</a>, <a href="/facets/categories/sweet-pies" class="tag well_known">Sweet pies</a>, <a href="/facets/categories/apple-pies" class="tag well_known">Apple pies</a></span>
-</p>
+<div id="field_categories" class="field-wrapper">
+    <span class="field" id="field_categories_label">Categories: </span>
+    <span class="field_value" id="field_categories_value" aria-labelledby="field_categories_label"><a href="/facets/categories/desserts" class="tag well_known">Desserts</a>, <a href="/facets/categories/pies" class="tag well_known">Pies</a>, <a href="/facets/categories/sweet-pies" class="tag well_known">Sweet pies</a>, <a href="/facets/categories/apple-pies" class="tag well_known">Apple pies</a></span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_labels">
-    <span class="field">Labels, certifications, awards: </span>
-    <span class="field_value" id="field_labels_value"><a href="/facets/labels/fair-trade" class="tag well_known">Fair trade</a></span>
-</p>
+<div id="field_labels" class="field-wrapper">
+    <span class="field" id="field_labels_label">Labels, certifications, awards: </span>
+    <span class="field_value" id="field_labels_value" aria-labelledby="field_labels_label"><a href="/facets/labels/fair-trade" class="tag well_known">Fair trade</a></span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_origin">
-    <span class="field">Origin of the product and/or its ingredients: </span>
-    <span class="field_value" id="field_origin_value">Germany</span>
-</p>
+<div id="field_origin" class="field-wrapper">
+    <span class="field" id="field_origin_label">Origin of the product and/or its ingredients: </span>
+    <span class="field_value" id="field_origin_value" aria-labelledby="field_origin_label">Germany</span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_link">
-    <span class="field">Link to the product page on the official site of the producer: </span>
-    <span class="field_value" id="field_link_value"><a href="//world.openfoodfacts.org/">//world.openfoodfacts.org/</a></span>
-</p>
+<div id="field_link" class="field-wrapper">
+    <span class="field" id="field_link_label">Link to the product page on the official site of the producer: </span>
+    <span class="field_value" id="field_link_value" aria-labelledby="field_link_label"><a href="//world.openfoodfacts.org/">//world.openfoodfacts.org/</a></span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_countries">
-    <span class="field">Countries where sold: </span>
-    <span class="field_value" id="field_countries_value"><a href="/facets/countries/india" class="tag well_known">India</a>, <a href="/facets/countries/japan" class="tag well_known">Japan</a>, <a href="/facets/countries/united-states" class="tag well_known">United States</a></span>
-</p>
+<div id="field_countries" class="field-wrapper">
+    <span class="field" id="field_countries_label">Countries where sold: </span>
+    <span class="field_value" id="field_countries_value" aria-labelledby="field_countries_label"><a href="/facets/countries/india" class="tag well_known">India</a>, <a href="/facets/countries/japan" class="tag well_known">Japan</a>, <a href="/facets/countries/united-states" class="tag well_known">United States</a></span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 
