@@ -92,7 +92,7 @@ In September 2025, we introduced support for attributes that can be configured w
 
 This feature is available on both:
 - **Open Food Facts** (food products): for filtering out unwanted ingredients based on dietary preferences, allergies, or personal choices
-- **Open Beauty Facts** (cosmetic products): for identifying banned or unwanted ingredients in cosmetics
+- **Open Beauty Facts** (cosmetic products): for identifying unwanted ingredients in cosmetics
 
 In order not to break existing clients, this attribute is listed in the response of the API `/api/v3.4/attribute_groups` only when the version is at least 3.4:
 
