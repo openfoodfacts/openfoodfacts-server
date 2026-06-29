@@ -209,7 +209,6 @@ Example response when no unwanted ingredients are found:
 **For Open Beauty Facts (cosmetic products):**
 - Common use cases include avoiding controversial cosmetic ingredients (e.g., parabens, sulfates, certain preservatives)
 - Ingredients are matched against the cosmetic ingredients taxonomy
-- Some jurisdictions have lists of banned ingredients in cosmetics that can be referenced
 
 **For both platforms:**
 - The feature requires that products have a complete ingredients list
