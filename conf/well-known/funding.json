@@ -1,0 +1,19 @@
+{
+    "$schema": "https://fundingjson.org/schema/v1.1.0.json",
+
+    // Optional. Version of the manifest contents.
+    "version": "v1.1.0",
+
+    // Required. The entity associated with the project, soliciting funds.
+    // This can be an individual, organisation, community etc.
+    "entity": {
+        "type": "organisation",                     // Required. [individual, group, organisation, other]. Use the closest approximation.
+        "role": "steward",                     // Required. [owner, steward, maintainer, contributor, other]. Use the closest approximation.
+        "name": "Open Food Facts",                     // Required. Name of the entity. Max len 250.
+        "email": "fundraising@openfoodfacts.org",                    // Required. Max len 250.
+        "phone": "",                    // Optional. Generally suitable for organisations. Max len 32.
+        "description": "",              // Required. Information about the entity. Max len 2000.
+        "webpageUrl": {
+            "url": "https://world.openfoodfacts.org/partners",                  // Required. Webpage with information about the entity. Starts with https:// or http://. Max len 250.
+            "wellKnown": ""             // Optional. If the above URL's hostname does not match the hostname of the funding.json manifest, this establishes provenance. Starts with https:// or http://. Max len 250.
+        }
