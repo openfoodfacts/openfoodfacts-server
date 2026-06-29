@@ -46376,13 +46376,13 @@ gpc_category_definition:en: Includes any products that can be described/observed
 gpc_category_name:en: Cheese (Perishable)
 
 < en:Cheeses
-en: Cured cheese
+en: Cured cheeses, cured cheese
 ca: Formatge curat
 es: Queso curado
 hr: Sušeni sir
 
 < en:Cheeses
-en: semi-cured cheese
+en: Semi-cured cheeses, semi-cured cheese
 ca: Formatge semicurat
 es: Queso semicurado
 hr: Polusušeni sir
@@ -46400,7 +46400,7 @@ fr: fromages américains
 wikidata:en: Q2671520
 
 < en:American cheeses
-< en:cow cheeses
+< en:Cow cheeses
 en: Colby cheese, Colby
 ca: colby
 hr: Colby sir
@@ -48204,8 +48204,8 @@ protected_name_type:en: pdo
 < en:Cow cheeses
 < en:French cheeses
 < en:Uncooked pressed cheeses
-en: cantal
-xx: cantal
+en: Cantal
+xx: Cantal
 ar: كانتال
 fa: کانتال
 fr: Cantal, fourme de Cantal, cantalet, Cantals
@@ -48227,17 +48227,27 @@ protected_name_type:en: pdo
 wikidata:en: Q681539
 wikipedia:en: https://en.wikipedia.org/wiki/Cantal_cheese
 
-< en:Cow cheeses
-< en:French cheeses
-< en:Uncooked pressed cheeses
-en: Cantal Salers
-fr: Cantal Salers
-agribalyse_food_code:en: 12723
-ciqual_food_code:en: 12723
-ciqual_food_name:en: Cantal, Salers or Laguiole cheese, from cow's milk
-ciqual_food_name:fr: Cantal, Salers ou Laguiole
-origins:en: en:france
-#wikidata:en:
+< en:Cantal
+fr: Cantal jeune
+description:en: Cantal matured for one to two months
+
+< en:Cantal
+fr: Cantal entre-deux
+description:en: Cantal matured for three to seven months
+
+< en:Cantal
+fr: Cantal vieux
+description:en: Cantal matured for more than eight months
+
+< en:Cantal
+< en:Unpasteurised cheeses
+en: Raw milk cantal
+fr: Cantal au lait cru
+
+< en:Cantal
+< en:Pasteurized cheeses
+en: Pasteurized milk cantal
+fr: Cantal au lait pasteurisé
 
 < en:Cow cheeses
 < en:French cheeses
@@ -50842,7 +50852,7 @@ wikidata:en: Q72447
 pl: Ser Edamski
 
 < en:cheeses
-en: fried cheese
+en: Fried cheese
 wikidata:en: Q24568658
 
 < en:fried cheese
