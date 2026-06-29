@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,14 +42,15 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param redirect_to_url/;
-use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::Tags qw/%language_fields %tags_fields/;
+use ProductOpener::ProductsTags qw/add_tags_to_field compute_field_tags/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %lang_lc/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
-use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
+use ProductOpener::Nutrition qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
@@ -59,7 +60,7 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::API qw/get_initialized_response check_user_permission/;
 use ProductOpener::APIProductWrite
-	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field/;
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field update_product_field_api_v2_and_cgi/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -75,7 +76,12 @@ use Log::Any qw($log);
 # Yuka sends a POSTDATA parameter in JSON:
 # "POSTDATA":"{\"code\":\"3270160874071\",\"lc\":\"fr\",\"cc\":\"FR\",\"user_id\":\"kiliweb\" [..]
 # This needs to be done before init_request() as the body contains user_id and password for authentication
-if ((user_agent() =~ /Symfony HttpClient/) and (request_method() eq 'GET') and (not param("code"))) {
+my $user_agent = user_agent();
+if (    (defined $user_agent)
+	and ($user_agent =~ /Symfony HttpClient/)
+	and (request_method() eq 'GET')
+	and (not param("code")))
+{
 
 	my $r = Apache2::RequestUtil->request();
 
@@ -136,7 +142,7 @@ if (0) {
 
 # Allow apps to create products without barcodes
 # Assign a code and return it in the response.
-if ($code eq "new") {
+if ((defined $code) and ($code eq "new")) {
 
 	($code, $product_id) = assign_new_code();
 	$response{code} = $code . "";    # Make sure the code is returned as a string
@@ -158,6 +164,8 @@ elsif (not is_valid_code($code)) {
 	$response{status_verbose} = 'no code or invalid code';
 }
 else {
+
+	my $source = get_source_for_site_and_org($Org_id);
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 	my $product_ref = retrieve_product($product_id);
@@ -372,8 +380,12 @@ else {
 		}
 	}
 
-	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin',
-		'packaging_text', 'lang')
+	foreach my $field (
+		@app_fields, 'nutrition_data_per', 'serving_size', 'traces',
+		'allergens', 'ingredients_text', 'origin', 'packaging_text',
+		'lang'
+		)
+		# Note: allergens need to be after traces, as we detect traces inside allergens and add them to the traces
 	{
 
 		# 11/6/2018 --> force add_brands and add_countries for yuka / kiliweb
@@ -388,66 +400,15 @@ else {
 
 		}
 
-		# add_brands=additional brand : only add if it does not exist yet
+		# add_brands=additional brand : add a tag
+		my $add_tags = 0;
 		if ((defined $tags_fields{$field}) and (defined single_param("add_$field"))) {
 
-			my $additional_fields = remove_tags_and_quote(decode utf8 => single_param("add_$field"));
-
-			add_tags_to_field($product_ref, $lc, $field, $additional_fields);
-
-			$log->debug(
-				"add_field",
-				{
-					field => $field,
-					code => $code,
-					additional_fields => $additional_fields,
-					existing_value => $product_ref->{$field}
-				}
-			) if $log->is_debug();
-			next;
+			param(-name => $field, -value => single_param("add_$field"));
+			$add_tags = 1;
 		}
 
-		if (defined single_param($field)) {
-
-			# Only moderators can update values for fields sent by the producer
-			if (skip_protected_field($product_ref, $field, $User{moderator})) {
-				next;
-			}
-
-			if ($field eq "lang") {
-				my $value = remove_tags_and_quote(decode utf8 => single_param($field));
-
-				# strip variants fr-BE fr_BE
-				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
-				$value = lc($value);
-
-				# skip unrecognized languages (keep the existing lang & lc value)
-				if (defined $lang_lc{$value}) {
-					$product_ref->{lang} = $value;
-					$product_ref->{lc} = $value;
-				}
-
-			}
-			elsif ($field eq "environmental_score_extended_data") {
-				# we expect a JSON value
-				if (defined single_param($field)) {
-					$product_ref->{$field} = decode_json(single_param($field));
-				}
-			}
-			else {
-				$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
-
-				# If we have a language specific field like "ingredients_text" without a language code suffix
-				# we assume it is in the language of the interface
-				if (defined $language_fields{$field}) {
-					my $field_lc = $field . "_" . $lc;
-					$product_ref->{$field_lc} = $product_ref->{$field};
-					delete $product_ref->{$field};
-				}
-
-				compute_field_tags($product_ref, $lc, $field);
-			}
-		}
+		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source, $add_tags);
 
 		if (defined $language_fields{$field}) {
 
@@ -469,7 +430,8 @@ else {
 
 	# Nutrition data
 
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
+	assign_nutrition_values_from_old_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
+	assign_nutrition_values_from_request_parameters($request_ref, $product_ref, $nutrient_table, $source);
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 

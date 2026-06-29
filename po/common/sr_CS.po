@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Састојци, алергени, адитиви, нутритивне чињенице, етикете, порекло, утицај CO2 и информације о производу %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr ""
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "INCI састојци, алергени, адитиви, етикете, порекло састојака и информације о производу %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr ""
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ова страница производа није комплетна. Можете нам помоћи да је употпунимо тако што ћете је изменити и додати више података са фотографија које имамо или тако што ћете направити више фотографија користећи универзалну мобилну апликацију за <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Андроид</a> или <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">иПхоне/иПад</a>. Хвала вам!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr ""
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Колаборативна, бесплатна и отворена база података са информацијама о разним производима из целог света."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Састојци, утицај на CO2, трајност, етикете, порекло састојака и информације о производу %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ова страница производа није комплетна. Можете помоћи да је попуните тако што ћете је изменити и додати више података са фотографија које имамо или тако што ћете направити више фотографија користећи универзалну апликацију Open Food Facts за <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Андроид</a> или <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">иПхоне/иПад</a>. Хвала вам!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ова страница производа није комплетна. Можете помоћи да је попуните тако што ћете је изменити и додати више података са фотографија које имамо или тако што ћете направити више фотографија користећи универзалну апликацију Open Food Facts за <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Андроид</a> или <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">иПхоне/иПад</a>. Хвала вам!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Сува храна за псе, влажна храна за мачке"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "ЕМБ 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "ПИЛЕТИНА, КУКУРУЗНО ГЛУТЕНСКО БРАШНО, КУКУРУЗ ОД ЦЕЛОГ ЗРНА, ЖИВОТИЊСКА МАСТЬ, СОЈИНО БРАШНО"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Влажна храна за одрасле псе"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Пилетина и пиринач за старије псе"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -141,7 +231,7 @@ msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "Добродошли!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -177,6 +267,10 @@ msgstr ""
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr ""
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
 msgstr ""
 
 msgctxt "admin_status_updated"
@@ -623,6 +717,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Uredi stranicu"
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Пријавите се да бисте додали или изменили својства"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr "Izmenite svoj profil"
@@ -681,7 +779,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "Кодови за праћење"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -701,7 +799,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "код за праћење"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -1851,7 +1949,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Додајте хранљиву материју"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2162,6 +2260,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr ""
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr ""
 
@@ -2766,8 +2868,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr ""
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Ова страница производа није комплетна. Можете нам помоћи да је употпунимо тако што ћете је изменити и додати више података са фотографија које имамо или тако што ћете направити још фотографија користећи мобилну апликацију за <a href=\"https://android.openfoodfacts.org\">Андроид</a> или <a href=\"https://ios.openfoodfacts.org\">иПхоне/иПад</a>. Хвала вам!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2849,24 +2951,8 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr ""
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr ""
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr ""
-
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 
 msgctxt "nova_groups_s"
@@ -3445,7 +3531,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Порекло"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -4320,7 +4406,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Готово"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4423,7 +4509,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Неважећи бар код"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4666,7 +4752,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Ниво обраде хране непознат"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4852,8 +4938,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Зелени резултат је еколошка оцена од А+ до Ф која олакшава упоређивање утицаја прехрамбених производа на животну средину."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4865,8 +4951,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Зелени резултат је еколошка оцена од А+ до Ф која олакшава упоређивање утицаја прехрамбених производа на животну средину."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5125,11 +5211,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Разно"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Разно"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5147,7 +5233,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Облик"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5155,7 +5241,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Материјал"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5406,7 +5492,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -5789,8 +5875,8 @@ msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Зелени резултат је првобитно развијен за Француску и проширује се на друге европске земље. Формула Зеленог резултата подложна је променама јер се редовно побољшава како би била прецизнија и боље прилагођена свакој земљи."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5962,6 +6048,22 @@ msgstr ""
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr ""
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Нема процењених ознака"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Неке еколошке користи"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Високе еколошке користи"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Веома високе еколошке користи"
 
 msgctxt "other"
 msgid "Other"
@@ -6341,22 +6443,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Веома добра утакмица"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Добро поклапање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Лоше подударање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Непознато подударање"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6366,7 +6468,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Не подудара се"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6546,7 +6648,7 @@ msgstr "Prijavite se"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "Одјавите се"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6630,6 +6732,10 @@ msgstr ""
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
+msgstr ""
+
+msgctxt "api_result_user_found"
+msgid "User found"
 msgstr ""
 
 msgctxt "api_message_invalid_api_action"
@@ -6739,7 +6845,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Број јединица"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6764,6 +6870,14 @@ msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr ""
 
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
+
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr ""
@@ -6771,19 +6885,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Унесите број јединица паковања истог облика и материјала које се налазе у производу."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Унесите назив облика наведен у упутствима за рециклажу ако су доступна или изаберите облик."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Унесите специфичан материјал ако се може утврдити (шифра материјала унутар троугла се често може наћи на деловима паковања) или генерички материјал (на пример, пластика или метал) ако нисте сигурни."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Упутства за рециклажу унесите само ако су наведена на производу."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6793,7 +6907,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Унесите нето тежину или нето запремину и назначите јединицу (на пример г или мл)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7107,13 +7221,8 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
 msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_title"
@@ -7413,17 +7522,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "Тип производа"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Храна"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Храна за кућне љубимце"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7576,6 +7685,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Претражите производе у истој категорији без додатог шећера:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "po porciji"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Додајте хранљиву материју"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Нежељени састојци"
@@ -7613,7 +7764,7 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Те преференције се заснивају на разумевању листе састојака од стране Open Food Facts и увек постоји могућност да она није тачна или потпуна, увек сами проверите производ."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
@@ -7656,6 +7807,70 @@ msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Пушење изазива велику зависност. Не почињите. Пушење убија – престаните одмах. Пушење зачепљује артерије и изазива срчане и мождане ударе. Пушење узрокује фатални рак плућа. Пушење током трудноће штети вашој беби. Заштитите децу: немојте их терати да удишу ваш дим. Ваш лекар или фармацеут могу вам помоћи да престанете са пушењем. Пушење може смањити проток крви и изазвати импотенцију. Пушење узрокује старење коже. Пушење може оштетити сперму и смањити плодност. Дим садржи бензен, нитрозамине, формалдехид и водоник цијанид."
 
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Doniraj"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Рециклирајте"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
+
 msgctxt "public_price"
 msgid "Public price"
 msgstr "Јавна цена"
@@ -7671,4 +7886,100 @@ msgstr "Препоручена малопродајна цена произво�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Персонализована имовина"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Не садржи палмино уље"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Може да садржи палмино уље"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Еколошке ознаке"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Недостају подаци"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Велики утицај"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Средњи утицај"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Мали утицај"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Утицај није процењен"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
 

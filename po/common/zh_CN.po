@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "成分、过敏原、添加剂、营养成分表、标签、产地、二氧化碳排放量及产品信息 %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "这是一个合作、免费并且公开的食物数据库，也提供来自全世界的化妆产品信息。"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "一个相互协助、开放、免费的全球化妆品数据库。"
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "一个协作的、免费的、开放的数据库，其中包含来自世界各地的各种产品的成分和信息。"
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts 收集了来自世界各地的各种产品的信息和数据。"
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "一个包含来自世界各地的各种产品的协作、免费和开放的数据库。"
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "一个协作的、免费的、开放的数据库，包含来自世界各地的宠物食品产品的成分、营养成分和信息。"
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts 收集了来自世界各地的宠物食品产品的信息和数据。"
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "一个来自世界各地的宠物食品产品的协作、免费和开放的数据库。"
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "成分（INCI）、过敏原、添加剂、标签、成分来源及产品信息 %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,10 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Open Beauty Facts 产品搜索"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "这个产品页还没有更新完成，你可以通过编辑它或者在我们已有的图片加入更多的数据促使更加完整，也可以通过使用app上传更多的照片。\n"
-"<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. \n"
-"谢谢！"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "此商品页面不完整。 您可以通过编辑它和从照片中添加更多数据来帮助完成它。 或者通过使用 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> 或 <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>的通用移动应用程序拍摄更多照片。 谢谢！"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -112,6 +92,114 @@ msgstr "爽身止汗"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "一个协作式、免费且开放的数据库，包含来自世界各地各种产品的信息。"
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts 收集了来自世界各地的各种产品的信息和数据。"
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "一个包含来自世界各地的各种产品的协作、免费和开放的数据库。"
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "成分、二氧化碳排放影响、耐久性、标签、成分来源和产品信息 %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Products Facts 产品搜索"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "此商品页面不完整。 您可以通过编辑它和从照片中添加更多数据来帮助完成它。 或者通过使用 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> 或 <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>的通用打开食品事实应用程序拍摄更多照片。 谢谢！"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "一个协作的、免费的、开放的数据库，包含来自世界各地的宠物食品产品的成分、营养成分和信息。"
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts 收集了来自世界各地的宠物食品产品的信息和数据。"
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "一个来自世界各地的宠物食品产品的协作、免费和开放的数据库。"
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "成分，过敏原，添加剂，营养成分，标签，成分来源和产品信息%s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts产品搜索"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "此商品页面不完整。 您可以通过编辑它和从照片中添加更多数据来帮助完成它。 或者通过使用 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> 或 <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>的通用打开食品事实应用程序拍摄更多照片。 谢谢！"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "普瑞纳，血统"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "干狗粮，湿猫粮"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "鸡肉、玉米蛋白粉、全谷物玉米、动物脂肪、豆粕"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "成犬湿粮"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "老年犬喜爱的鸡肉米饭"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -180,6 +268,10 @@ msgstr "已存在名为 %s 的组织。"
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "您加入的请求正在等待组织管理员批准。"
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -297,7 +389,7 @@ msgstr "产品页面已被修改"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "分析成分"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
@@ -314,7 +406,7 @@ msgstr "Android APK文件"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -626,6 +718,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "编辑页面"
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "登录以添加或编辑房源"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr "编辑个人信息"
@@ -927,7 +1023,7 @@ msgstr "隐私"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1580,7 +1676,7 @@ msgstr "营养成分"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "已知营养成分的%s类%d产品的平均营养成分(%d产品之外)"
+msgstr "已知营养成分的%2$s类%1$d产品的平均营养成分(%3$d产品之外)"
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -2177,6 +2273,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "产品搜索"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "产品搜索"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "不包括"
@@ -2404,7 +2504,7 @@ msgstr "再次编辑产品"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "国家/地区"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2779,8 +2879,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "本产品的一些数据和/或照片来自以下来源:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "此产品页面不完整。 您可以通过编辑它并从我们的照片中添加更多数据，或通过使用应用程序拍摄更多照片来帮助完成<a href=\"https://android.openfoodfacts.org\">安卓</a>或者<a href=\"https://ios.openfoodfacts.org\">iphone手机</a>感谢"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "此商品页面不完整。 您可以通过编辑它和从照片中添加更多数据来帮助完成它。 或者通过使用 <a href=\"https://android.openfoodfacts.org\">Android</a> 或 <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>的移动应用程序拍摄更多照片。 谢谢！"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2862,25 +2962,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "添加的其他营养物质"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "已售出的"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "已准备"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "单位"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "营养事实是针对所售产品所规定的。"
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "营养事实是为准备好的产品规定的。"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -3806,7 +3890,7 @@ msgstr "可能的改进"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4063,7 +4147,7 @@ msgstr "营养评分"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "营养价值评分"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4073,7 +4157,7 @@ msgstr "营养分数"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "营养价值评分"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4607,7 +4691,7 @@ msgstr "营养质量"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "营养价值评分"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4858,28 +4942,28 @@ msgstr "环境影响"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "低环境影响（生态得分）"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score 是从 A 到 E 的环境评分，可以轻松比较食品对环境的影响。"
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "绿色评分是一个从 A+ 到 F 的环境评分，可以方便地比较食品对环境的影响。"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "低环境影响（生态得分）"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score 是从 A 到 E 的环境评分，可以轻松比较食品对环境的影响。"
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "绿色评分是一个从 A+ 到 F 的环境评分，可以方便地比较食品对环境的影响。"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5122,19 +5206,19 @@ msgstr "缺少预制产品的营养成分表"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "绿色评分"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5419,8 +5503,8 @@ msgstr "希望、任务、价值和项目"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5802,8 +5886,8 @@ msgstr "Green-Score 计算公式会定期更新改进，以获得更精确的数
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score 最初适用于法国，随后推广到欧洲其他国家。Green-Score 计算公式会定期更新改进，以提高在各个国家的适应性和精确性。"
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "绿色评分系统最初是为法国开发的，目前正在推广到其他欧洲国家。绿色评分系统的计算公式会定期更新，以使其更加精准，更适合各个国家的实际情况。"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5956,6 +6040,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "我支持"
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "我们还需要 €120,000 才能完成 2026 年目标！"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "成为 Open Food Facts 的赞助者"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "每个月，我们服务 800 万名访客，而通过 API 的访问量更是数倍。您的支持对以下目标至关重要："
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "让 Open Food Facts 保持开放并对所有人可用，"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "以一支小型常设团队支持基础设施、网站、移动应用和 API"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "保持独立于食品行业，"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "支持社区"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "支持科学"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "如果本月每位访客都点击“捐赠”并仅捐出 1 欧元，我们将获得超过年度预算 8 倍的资金！"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "捐赠"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "捐赠"
@@ -5975,6 +6099,22 @@ msgstr "具有高环保效益的标签"
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "具有极高环保效益的标签"
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "未评估标签"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "一些环境效益"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "高环境效益"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "极高的环境效益"
 
 msgctxt "other"
 msgid "Other"
@@ -6645,6 +6785,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "产品已更新"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "无效的 API 操作"
@@ -6776,6 +6920,14 @@ msgstr "产品的所有包装部件都已列出"
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "无效的用户 ID 和密码"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7120,14 +7272,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "公布一项问题"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "公布一项问题"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "报告问题。"
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7179,7 +7326,7 @@ msgstr "您需要启用 cookies 才能登录。"
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "您不能删除主要联系人。请先更改它。"
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
@@ -7271,7 +7418,7 @@ msgstr "拒绝"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "以下用户请求加入该组织："
 
 msgctxt "last_login"
 msgid "Last login date"
@@ -7287,7 +7434,7 @@ msgstr ""
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "选择包含产品数据的文件"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
@@ -7295,7 +7442,7 @@ msgstr "没有 Nutri-Score 的产品数量"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "计算营养价值评分的产品百分比"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
@@ -7589,6 +7736,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "搜索同一类别中不添加糖的产品："
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "每 1 千克"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "每份"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "添加营养"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "不需要的成分"
@@ -7626,36 +7815,36 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "这些偏好基于 Open Food Facts 对成分表的理解，并且始终存在不准确或不完整的可能性，请务必亲自检查产品。"
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "按产品计算动物受苦的指标"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "动物福祉"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "外部知识面板"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "面板不可用"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "此产品暂无面板可用"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "外部来源"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "提供者"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
@@ -7668,6 +7857,70 @@ msgstr "吸烟严重危害健康。不要开始吸烟。现在就戒烟。"
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "吸烟极易上瘾。切勿开始。吸烟有害健康——立即戒烟。吸烟会阻塞动脉，导致心脏病发作和中风。吸烟会导致致命的肺癌。孕妇吸烟会损害胎儿。保护孩子：不要让他们吸入您的烟雾。您的医生或药剂师可以帮助您戒烟。吸烟可能会减少血液流动并导致阳痿。吸烟会导致皮肤老化。吸烟会损害精子并降低生育能力。烟雾中含有苯、亚硝胺、甲醛和氰化氢。"
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "捐赠"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "回收"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7684,4 +7937,100 @@ msgstr "厂商建议零售价（MSRP），不含折扣和促销活动，以产�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "个人财产"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "不含棕榈油"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "可能含有棕榈油"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "环境标签"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "缺失数据"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "高影响力"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "中等影响"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "低影响"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "影响尚未评估"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
 

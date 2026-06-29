@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "2070",
@@ -82,11 +83,8 @@
       "en:no-gluten"
    ],
    "lc" : "fi",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 75,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 75,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

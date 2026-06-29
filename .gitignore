@@ -56,6 +56,9 @@ Thumbs.db
 .vscode/settings.json
 .idea/
 
+# Backup files
+*.bak
+
 # Logs
 logs/
 !scripts/utils/logs
@@ -118,4 +121,9 @@ taxonomies/*.all.txt
 /deps
 /deps/*
 
-__pycache__
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+test_matomo_events.html

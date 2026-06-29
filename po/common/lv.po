@@ -30,24 +30,73 @@ msgstr "Kopīga, bezmaksas un atvērta pārtikas produktu datu bāze no visas pa
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr ""
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Sastāvdaļas, alergēni, piedevas, uzturvērtības fakti, etiķetes, izcelsme, CO2 ietekme un informācija uz produkta %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "Sadarbības, bezmaksas un atvērta sastāvdaļu un informācijas datubāze par kosmētikas līdzekļiem no visas pasaules"
 
 msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "“Open Beauty Facts” apkopo informāciju un datus par kosmētikas līdzekļiem no visas pasaules."
 
 msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "Sadarbības, bezmaksas un atvērta kosmētikas līdzekļu datubāze no visas pasaules."
+
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Sastāvdaļas (INCI), alergēni, piedevas, etiķetes, sastāvdaļu izcelsme un informācija uz produkta %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon
+msgctxt "get_the_app_link_obf"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
+
+msgctxt "footer_and_the_facebook_group_obf"
+msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
+msgstr "un <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook grupa līdzstrādniekiem</a>"
+
+msgctxt "search_description_opensearch_obf"
+msgid "Open Beauty Facts product search"
+msgstr "Atvērt Beauty Facts produktu meklēšanu"
+
+msgctxt "warning_not_complete_obf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Šī produkta lapa nav pilnīga. Jūs varat palīdzēt to pabeigt, rediģējot to un pievienojot vairāk datu no mūsu rīcībā esošajiem fotoattēliem vai uzņemot vairāk fotoattēlu, izmantojot universālo mobilo lietotni <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> vai <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>ierīcēm. Paldies!"
+
+msgctxt "brands_example_beauty"
+msgid "Nivea, Nivea Men"
+msgstr "Nivea, Nivea vīriešiem"
+
+msgctxt "categories_example_beauty"
+msgid "Anti-dandruff shampoo, Whitening toothpaste"
+msgstr "Pretblaugznu šampūns, balinoša zobu pasta"
+
+msgctxt "emb_codes_example_beauty"
+msgid "EMB 53062"
+msgstr "EMB 53062"
+
+msgctxt "generic_name_example_beauty"
+msgid "Anti-dandruff shampoo"
+msgstr "Pretblaugznu šampūns"
+
+msgctxt "product_name_example_beauty"
+msgid "Anti-Perspirant Stress Protect"
+msgstr "Antiperspirants stresa aizsardzībai"
+
+msgctxt "ingredients_text_example_beauty"
+msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+msgstr "ŪDENS/ŪDENS, NĀTRIJA LAURETSULFĀTS, DINĀTRIJA KOKOAMFODIACETĀTS, GLIKOLDISTEARĀTS, KOKAMĪDA MEA"
 
 # OPF
 msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Sadarbības, bezmaksas un atvērta sastāvdaļu datubāze, kā arī informācija par dažādiem produktiem no visas pasaules."
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Sadarbības, bezmaksas un atvērta informācijas datubāze par dažādiem produktiem no visas pasaules."
 
 msgctxt "tagline_opf"
 msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
@@ -56,6 +105,47 @@ msgstr "“Open Products Facts” apkopo informāciju un datus par plašu produk
 msgctxt "footer_tagline_opf"
 msgid "A collaborative, free and open database of various products from around the world."
 msgstr "Sadarbības, bezmaksas un atvērta datubāze ar dažādiem produktiem no visas pasaules."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Sastāvdaļas, CO2 ietekme, izturība, etiķetes, sastāvdaļu izcelsme un informācija par produktu %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facties-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Atvērt produktu faktus produktu meklēšana"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Šī produkta lapa nav pilnīga. Jūs varat palīdzēt to pabeigt, rediģējot to un pievienojot vairāk datu no mūsu pieejamajiem fotoattēliem vai uzņemot vairāk fotoattēlu, izmantojot universālo lietotni Open Food Facts ierīcēm <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> vai <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Paldies!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
 
 # OPFF
 msgctxt "site_description_opff"
@@ -68,48 +158,48 @@ msgstr "“Open Pet Food Facts” apkopo informāciju un datus par mājdzīvniek
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgstr "Sadarbības, bezmaksas un atvērta datubāze ar mājdzīvnieku barības produktiem no visas pasaules."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon
-msgctxt "get_the_app_link_obf"
-msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Sastāvdaļas, alergēni, piedevas, uzturvērtības fakti, etiķetes, sastāvdaļu izcelsme un informācija uz produkta %s"
 
-msgctxt "footer_and_the_facebook_group_obf"
-msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Atvērt mājdzīvnieku barības faktu produktu meklēšanu"
 
-msgctxt "search_description_opensearch_obf"
-msgid "Open Beauty Facts product search"
-msgstr ""
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Šī produkta lapa nav pilnīga. Jūs varat palīdzēt to pabeigt, rediģējot to un pievienojot vairāk datu no mūsu pieejamajiem fotoattēliem vai uzņemot vairāk fotoattēlu, izmantojot universālo lietotni Open Food Facts ierīcēm <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> vai <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Paldies!"
 
-msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
 
-msgctxt "brands_example_beauty"
-msgid "Nivea, Nivea Men"
-msgstr ""
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Sausā suņu barība, Mitrā kaķu barība"
 
-msgctxt "categories_example_beauty"
-msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
 
-msgctxt "emb_codes_example_beauty"
-msgid "EMB 53062"
-msgstr ""
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "VISTA, KUKURŪZAS GLUTĒNA MILTI, PILNGRAUDU KUKURŪZA, DZĪVNIEKU TAUKI, SOJAS PUPIŅU MILTI"
 
-msgctxt "generic_name_example_beauty"
-msgid "Anti-dandruff shampoo"
-msgstr ""
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-batory-facties-mobile-app"
 
-msgctxt "product_name_example_beauty"
-msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Mitrā barība pieaugušiem suņiem"
 
-msgctxt "ingredients_text_example_beauty"
-msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight vistas un rīsu barība"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -178,6 +268,10 @@ msgstr "Jau pastāv organizācija ar nosaukumu %s."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Jūsu pieprasījums pievienoties organizācijai gaida organizācijas administratora apstiprinājumu."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -307,7 +401,7 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
@@ -624,6 +718,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Rediģējiet lapu"
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Pierakstieties, lai pievienotu vai rediģētu rekvizītus"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr "Rediģēt profilu"
@@ -658,7 +756,7 @@ msgstr "Jūsu konta parametri ir mainīti."
 
 msgctxt "edit_user_preferences"
 msgid "Preferences"
-msgstr ""
+msgstr "Preferences"
 
 msgctxt "edit_user_preferences_result"
 msgid "Your preferences have been changed."
@@ -803,7 +901,7 @@ msgstr "Ar šo e-pastu nav neviena konta"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr "Šāds turnīrs neeksistē."
+msgstr "Šāds lietotājvārds nepastāv."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
@@ -2178,6 +2276,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Produktu meklēšana"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Produktu meklēšana"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "nesatur"
@@ -2405,7 +2507,7 @@ msgstr "Rediģēt produktu vēlreiz"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Valsts"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2558,7 +2660,7 @@ msgstr "Meklēt:"
 # This is linked to a unit test
 msgctxt "traces"
 msgid "Traces"
-msgstr ""
+msgstr "Pēdas"
 
 msgctxt "traces_example"
 msgid "Milk, Gluten, Nuts"
@@ -2780,8 +2882,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Daļa šī produkta datu un/vai fotoattēlu ir iegūti no šiem avotiem:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Šī produkta lapa nav pilnīga. Varat palīdzēt to aizpildīt, rediģējot to un pievienojot papildu datus no mūsu esošajiem fotoattēliem, vai arī fotografējot vairāk fotoattēlu, izmantojot programmu <a href=\"https://android.openfoodfacts.org\">Android</a> vai <a href=\"https://ios.openfoodfacts.org\">iPhone / iPad</a>. Paldies!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Šī produkta lapa nav pilnīga. Jūs varat palīdzēt to pabeigt, rediģējot to un pievienojot vairāk datu no mūsu rīcībā esošajiem fotoattēliem vai uzņemot vairāk fotoattēlu, izmantojot mobilo lietotni <a href=\"https://android.openfoodfacts.org\">Android</a> vai <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Paldies!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2863,25 +2965,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "pievienota cita uzturviela"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Kā pārdots"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Sagatavots"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Vienība"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Uzturvērtības fakti ir norādīti produktam tā, kā tas tiek pārdots."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Uzturvērtības fakti ir norādīti pagatavotajam produktam."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -2898,7 +2984,7 @@ msgstr "NOVA grupas pārtikas pārstrādei"
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Partneri"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -3355,15 +3441,15 @@ msgstr "Nē"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Izlaist"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "popularitāte"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "popularitāte"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
@@ -3375,7 +3461,7 @@ msgstr "sastāvdaļu analīze"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr ""
+msgstr "Sastāvdaļu analīze"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
@@ -3570,7 +3656,7 @@ msgstr "Ierakstiet mērķa lauka nosaukumu teksta laukā labajā pusē vai atst�
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Vērtība"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3688,7 +3774,7 @@ msgstr "Aizstāt esošos atlasītos fotoattēlus"
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -4604,7 +4690,7 @@ msgstr "Iegādājoties godīgas tirdzniecības produktus, ražotājiem jaunattī
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "Uzturvērtība"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4646,7 +4732,7 @@ msgstr "Nav piemērojams kategorijai: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Ļoti laba uzturvērtība"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4701,15 +4787,15 @@ msgstr "Neapstrādāta vai minimāli apstrādāta pārtika"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr ""
+msgstr "Pārstrādātas kulinārijas sastāvdaļas"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr ""
+msgstr "Pārstrādāti pārtikas produkti"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr ""
+msgstr "Īpaši pārstrādāti pārtikas produkti"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -4866,8 +4952,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Zema ietekme uz vidi (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Zaļais rādītājs ir vides vērtējums no A līdz E, kas ļauj viegli salīdzināt pārtikas produktu ietekmi uz vidi."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score ir vides vērtējums no A+ līdz F, kas ļauj viegli salīdzināt pārtikas produktu ietekmi uz vidi."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4879,8 +4965,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Zema ietekme uz vidi (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Zaļais rādītājs ir vides vērtējums no A līdz E, kas ļauj viegli salīdzināt pārtikas produktu ietekmi uz vidi."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score ir vides vērtējums no A+ līdz F, kas ļauj viegli salīdzināt pārtikas produktu ietekmi uz vidi."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -4897,7 +4983,7 @@ msgstr "Ļoti zema ietekme uz vidi"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Zema ietekme uz vidi"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
@@ -5221,7 +5307,7 @@ msgstr "Sastāvdaļas, kurām nepieciešama soja"
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "Tips"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5416,12 +5502,12 @@ msgstr "Produkta nosaukums ar saīsinājumiem, kas norādīti čekos"
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr ""
+msgstr "Vīzija, misija, vērtības un programmas"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5730,7 +5816,7 @@ msgstr "Vides politika"
 
 msgctxt "environmental_score_threatened_species"
 msgid "Threatened species"
-msgstr ""
+msgstr "Apdraudētās sugas"
 
 msgctxt "environmental_score_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
@@ -5803,7 +5889,7 @@ msgstr "Zaļā rādītāja formula var tikt mainīta, jo tā tiek regulāri uzla
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Zaļais rādītājs sākotnēji tika izstrādāts Francijai, un tas tiek paplašināts uz citām Eiropas valstīm. Zaļā rādītāja formula var tikt mainīta, jo tā tiek regulāri uzlabota, lai padarītu to precīzāku un labāk piemērotu katrai valstij."
 
 msgctxt "environmental_score_warning_transportation_world"
@@ -5977,6 +6063,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Etiķetes ar ļoti augstu ieguvumu videi"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nav novērtētu etiķešu"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Daži ieguvumi videi"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Augsti ieguvumi videi"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Ļoti augsti ieguvumi videi"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Citi"
@@ -6000,7 +6102,7 @@ msgstr "Produkts dzēsts."
 
 msgctxt "carbon_footprint"
 msgid "Carbon footprint"
-msgstr ""
+msgstr "Oglekļa pēdas nospiedums"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
@@ -6123,7 +6225,7 @@ msgstr "Lai aprēķinātu Nutri-Score, jānorāda produkta kategorija un uzturv�
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Veselība"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
@@ -6342,7 +6444,7 @@ msgstr "Mēs nevarējām atpazīt dažas no sastāvdaļām un noteikt NOVA grupu
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
-msgstr ""
+msgstr "Noņemt attēla atlasi"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
@@ -6360,7 +6462,7 @@ msgstr "Ļoti laba spēle"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr "Laba spēle"
+msgstr "Laba atbilstība"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
@@ -6646,6 +6748,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produkts atjaunināts"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Nederīga API darbība"
@@ -6732,7 +6838,7 @@ msgstr "Attēls nav izdzēsts"
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "Neviens"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6777,6 +6883,14 @@ msgstr "Ir uzskaitītas visas produkta iepakojuma daļas."
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Nederīgs lietotāja ID un parole"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7111,7 +7225,7 @@ msgstr "saldinātāji"
 # sweetener (additive), singular
 msgctxt "sweetener"
 msgid "sweetener"
-msgstr ""
+msgstr "saldinātājs"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
@@ -7121,14 +7235,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Ziņot par problēmu"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Ziņot par problēmu"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Ziņot par problēmu."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7328,7 +7437,7 @@ msgstr "Automātiska ikdienas eksportēšana uz publisko platformu"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
-msgstr ""
+msgstr "Uzlabojumi"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
@@ -7492,7 +7601,7 @@ msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
-msgstr ""
+msgstr "Pieejams F-Droid platformā"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
@@ -7560,7 +7669,7 @@ msgstr "Sastāvdaļu izcelsme"
 
 msgctxt "origin_of_product"
 msgid "Origin of product"
-msgstr ""
+msgstr "Produkta izcelsme"
 
 msgctxt "product_information"
 msgid "Product information"
@@ -7589,6 +7698,48 @@ msgstr "Pievienotā cukura daudzums"
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Meklēt produktus tajā pašā kategorijā bez pievienota cukura:"
+
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "par 1 kg"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "uz porciju"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Pievienojiet uzturvielu"
 
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
@@ -7627,8 +7778,8 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Šīs preferences ir balstītas uz Open Food Facts izpratni par sastāvdaļu sarakstu, un vienmēr pastāv iespēja, ka tas var nebūt precīzs vai pilnīgs, vienmēr pārbaudiet produktu pats."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
-msgstr "Ciešanas pirkstu nospiedums"
+msgid "Suffering Footprint"
+msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7670,6 +7821,70 @@ msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Smēķēšana izraisa spēcīgu atkarību. Nesāciet. Smēķēšana nogalina – atmetiet smēķēšanu tūlīt. Smēķēšana aizsprosto artērijas un izraisa sirdslēkmes un insultus. Smēķēšana izraisa nāvējošu plaušu vēzi. Smēķēšana grūtniecības laikā kaitē jūsu bērnam. Aizsargājiet bērnus: nelieciet viņiem elpot dūmus. Ārsts vai farmaceits var palīdzēt jums atmest smēķēšanu. Smēķēšana var samazināt asinsriti un izraisīt impotenci. Smēķēšana izraisa ādas novecošanos. Smēķēšana var bojāt spermu un samazināt auglību. Dūmi satur benzolu, nitrozamīnus, formaldehīdu un ciānūdeņražu."
 
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Ziedot"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Pārstrādāt"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
+
 msgctxt "public_price"
 msgid "Public price"
 msgstr "Publiskā cena"
@@ -7685,4 +7900,100 @@ msgstr "Ražotāja ieteiktā mazumtirdzniecības cena (MSRP), neieskaitot atlaid
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "Personalizēts īpašums"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Nesatur palmu eļļu"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Var saturēt palmu eļļu"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Vides marķējumi"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Trūkstošie dati"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Augsta ietekme"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Vidēja ietekme"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Zema ietekme"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Ietekme nav novērtēta"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
 
