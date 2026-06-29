@@ -39869,12 +39869,11 @@ pt: pêssegos em calda
 #                                Pear
 #
 ###################################################################################################
-# description:en:The PEAR is any of several tree and shrub species of genus Pyrus, in the family Rosaceae. Note this refers to the tree and not the fruit
 
 < en:fruit
 en: pear, pears
 af: peer
-ar: بواويد
+ar: بواويد, إجاص
 az: armud
 be: груша
 bg: круша, круши
@@ -39892,24 +39891,25 @@ el: αχλάδι
 eo: piro
 es: pera
 et: pirn
-eu: Madari
+eu: madari, udare
 fa: گلابی
 fi: päärynä
 fo: pera
 fr: poire, poires
 fy: par
-ga: péire
+ga: péire, piorra
 gd: peur
-gl: Pera
+gl: pera
 gv: peear
 he: אגס
 hi: नाशपाती
 hr: kruška, kruške
+ht: pwar
 hu: körte
 hy: տանձ
 id: buah pir
-ig: Ube
-io: Piro
+ig: ùbé, ube
+io: piro
 is: pera
 it: pera, pere
 ja: 梨
@@ -39921,20 +39921,21 @@ ku: hirmê
 kw: per
 ky: алмурут
 la: pirum
-lb: Bir
+lb: Bir, Bier
 li: paer
 lo: ໝາກຈອງ
 lt: kriaušė
 lv: bumbieris
 mi: pea
 mk: кру́ша
+ml: പിയർ
 mt: lanġasa
 my: သစ်တောသီး
 nb: pære
 nl: peer, peren
 nn: pære
 nv: bilasáana bitseeʼ nineezígíí
-oc: Pera
+oc: pera
 or: ନାସ୍ପାତି
 os: кӕрдо
 pa: ਨਾਸ਼ਪਾਤੀ
@@ -39945,6 +39946,7 @@ ro: pară
 ru: груша
 sc: pira
 se: beron
+sh: kruška
 sk: hruška
 sl: hruška
 sq: dardha
@@ -39966,22 +39968,27 @@ uz: nok
 vi: lê
 vo: bün
 wa: poere
+yi: באר
 zh: 梨
-# ast:pera
-# dsb:Kšuška
-# fur:piruç
-# hsb:krušwa
-# krc:кертме
-# lah:ناشپاتی
-# mdf:Груша
-# pap:per
-# rup:pearã
-# sco:peer
-# zh-min-nan:梨
+#ast: pera
+#dsb: Kšuška
+#fur: piruç
+#hsb: krušwa
+#krc: кертме
+#lah: ناشپاتی
+#mdf: Груша
+#pap: per
+#rup: pearã
+#sco: peer
+#zh-min-nan: 梨
+agribalyse_proxy_food_code:en: 13037
 #carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
 #carbon_footprint_fr_foodges_value:fr:0.5
 carbon_footprint_fr_foodges_ingredient:fr: Poire (Argentine)
 carbon_footprint_fr_foodges_value:fr: 1
+ciqual_proxy_food_code:en: 13037
+ciqual_proxy_food_name:en: Pear, flesh and skin, raw
+description:en: The PEAR is any of several tree and shrub species of genus Pyrus, in the family Rosaceae. Note this refers to the tree and not the fruit
 ecobalyse:en: bb00f430-ffda-46a3-ba45-267b0064a43e
 ecobalyse_origins_en_france:en: eab762ca-1edc-4fcc-ba6d-c247bbab0ec8
 ifct_food_code:en: E051
@@ -39990,8 +39997,8 @@ usda_ndb_proxy_code:en: 9252
 usda_ndb_proxy_name:en: Pears, raw
 wikidata:en: Q13099586
 wikipedia:en: https://en.wikipedia.org/wiki/Pear
-# 130 products in 5 languages @2018-09-28
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
+# 130 products in 5 languages @2018-09-28
 
 < en:pear
 en: raw pear
@@ -39999,49 +40006,128 @@ usda_ndb_code:en: 9252
 usda_ndb_name:en: Pears, raw
 
 < en:pear
-en: raw asian pears
+en: Asian pear, nashi pear, apple pear
+ca: pera asiàtica
+da: nashipære, nashi-pære, asiatisk pære
+de: Nashibirne
+eo: azia piro
+fr: nashi
+sl: naši
+sv: nashipäron, nashi-päron
+usda_ndb_proxy_code:en: 9340
+usda_ndb_proxy_name:en: Pears, asian, raw
+wikidata:en: Q104821115
+
+< en: Asian pear
+en: raw Asian pear
 usda_ndb_code:en: 9340
 usda_ndb_name:en: Pears, asian, raw
 
-< en:pear
-en: raw bartlett pear
+< en: Williams' bon chrétien pear
+en: raw Bartlett pear
 usda_ndb_code:en: 9412
 usda_ndb_name:en: Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)
 
 < en:pear
+en: Bosc pear, Beurré Bosc pear
+xx: Calebasse Bosc, Beurré Bosc
+cs: Boscova lahvice
+da: Bosc-pære
+de: Boscs Flaschenbirne
+eu: Bosc udarea
+fr: poire Beurré Bosc
+hr: Boskova bočica
+hy: Բերե Բոսկ
+ka: ბერე ბოსკი
+la: Pyrus communis ‘Calebasse Bosc’
+pl: Bera Boska
+sv: Bosc-päron
+tg: Береи Боск
+vi: Lê Bosc
+usda_ndb_proxy_code:en: 9414
+usda_ndb_proxy_name:en: Pears, raw, bosc (Includes foods for USDA's Food Distribution Program)
+wikidata:en: Q894405
+
+< en: Bosc pear
 en: raw bosc pear
 usda_ndb_code:en: 9414
 usda_ndb_name:en: Pears, raw, bosc (Includes foods for USDA's Food Distribution Program)
 
 < en:pear
-en: raw green anjou pears
+en: d'Anjou pear, Anjou pear
+xx: d'Anjou, Anjou, Beurré d'Anjou, Nec Plus Meuris
+da: anjoupære
+es: pera de Anjou
+fr: beurré d'Anjou
+ru: Анжу
+sv: anjoupäron
+usda_ndb_proxy_code:en: 9415
+usda_ndb_proxy_name:en: Pears, raw, green anjou (Includes foods for USDA's Food Distribution Program)
+wikidata:en: Q2745252
+
+< en: d'Anjou pear
+en: raw green Anjou pears
 usda_ndb_code:en: 9415
 usda_ndb_name:en: Pears, raw, green anjou (Includes foods for USDA's Food Distribution Program)
 
-en: pears, raw, red anjou
+< en: d'Anjou pear
+en: raw red Anjou pears
 usda_ndb_code:en: 9413
 usda_ndb_name:en: Pears, raw, red anjou
 
 < en:pear
-en: conference pear
+en: Conference pear
+xx: Conference
+da: conferencepære
 de: Conference-Birne
 es: pera conferencia
+eu: konferentzia madaria
 fr: poire conférence
 hr: konferencijska kruška
+ig: conference pear
 it: pera conferenza
-nl: conference peer, conference
-pl: gruszka konferencyjna
+la: pyrus communis ‘Conference’
+nl: conference peer
+pl: gruszka konferencyjna, konferencja
 pt: pêra conferência
 ru: груша конференция
+sk: konferencia
+sv: conferencepäron
+zh: 展會梨
+agribalyse_proxy_food_code:en: 13188
+ciqual_proxy_food_code:en: 13188
+ciqual_proxy_food_name:en: Pear, var. Conférence, flesh without skin, raw
+wikidata:en: Q747247
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/conference-pear
 # 3 products in 1 language @2018-09-28
 
 < en:pear
+en: Williams' bon chrétien pear, Williams pear, Bartlett pear
+xx: Williams' bon chrétien
+bg: Вилямова масловка
+cs: Williamsova
 de: Williamsbirnen, Walliser Williamsbirnen
+eo: vilhelmopiro
 es: pera Williams, peras Williams de los coteaux du Lyonnais
+eu: Williams udarea
 fr: poire Williams, poires Williams des coteaux du Lyonnais
 it: pera Williams, pere Williams dei coteaux du Lyonnais
+ja: バートレット
+ka: ვილიამსი
+la: Pyrus communis 'Williams Bon Chrétien'
 nl: Williams peren, Walliser Williams peren
+pl: Bonkreta Williamsa
+ru: Груша ʽВильямс’
+sl: viljamovka
+sv: williamspäron
+tg: Вилямс (навъи нок)
+zh: 威廉斯梨
+agribalyse_proxy_food_code:en: 13189
+ciqual_proxy_food_code:en: 13189
+ciqual_proxy_food_name:en: Pear, var. Williams, flesh without skin, raw
+usda_ndb_proxy_code:en: 9412
+usda_ndb_proxy_name:en: Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)
+wikidata:en: Q498862
 
 < en:pear
 en: pears in cubes
@@ -40053,6 +40139,7 @@ fr: poires en cubes
 hr: kruške u kockama
 it: pere a cubetti
 nl: perenblokjes
+#processing:en: en:cubes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pears-in-cubes
 # 38 products in 1 language @2018-09-28
 
@@ -40070,12 +40157,10 @@ nl: perenpuree
 pl: przecier gruszkowy
 pt: Puré de pêra
 ro: piure de pere
-# In process de:Birnenpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-poires
 # 233 products in 5 langauges @2018-09-28
-ciqual_food_code:en: 13037
-ciqual_food_name:en: Pear, pulp and peel, raw
 
+< en: Williams' bon chrétien pear
 < en:pear puree
 en: Williams pear puree
 de: Williams Birnenpüree
@@ -40113,11 +40198,12 @@ pl: Sok gruszkowy
 ru: сок грушевый
 sv: päronjuice
 tr: armut suyu
-# yue:梨汁
+#yue: 梨汁
 wikidata:en: Q2461726
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pear-juice
 # 132 products in 4 languages @2018-09-28
 
+< en: fruit juice concentrate
 < en:pear juice
 en: pear juice concentrate
 cs: hruškový koncentrát
@@ -40130,6 +40216,7 @@ pl: koncentrat soku z gruszki
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-poire-concentré
 # 25 products in 3 languages @2018-09-28
 
+< en: fruit juice from concentrate
 < en:pear juice
 en: pear juice from concentrate
 de: Birnensaft aus Birnensaftkonzentrat
@@ -40150,6 +40237,13 @@ fr: jus et purée de poire
 hr: sok od kruške i pire
 it: succo e purea di pera
 pt: Suco e polpa de pera, sumo e polpa de pera
+
+< en: pear
+en: pear nectar
+agribalyse_food_code:en: 2054
+ciqual_food_code:en: 2054
+ciqual_food_name:en: Pear nectar
+comment:en: is this ciqual entry actually the same as en:pear juice?
 
 ###################################################################################################
 #
@@ -48007,8 +48101,13 @@ ciqual_food_name:fr: Kaki, pulpe, cru
 
 < en:fruit
 en: prickly pear
+agribalyse_proxy_food_code:en: 13063
+ciqual_proxy_food_code:en: 13063
+ciqual_proxy_food_name:en: Prickly pear, flesh and skin, with seeds, raw
+description:en: Fruit from plants in the Opuntia (or prickly pear cactus) genus.
 usda_ndb_proxy_code:en: 9287
 usda_ndb_proxy_name:en: Prickly pears, raw
+#wikidata_plant:en: Q158991
 
 < en:prickly pear
 en: raw prickly pears
