@@ -49,13 +49,15 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Config qw/:all/;
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text detect_rare_crops/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 use ProductOpener::Food
 	qw/assign_categories_properties_to_product compute_nova_group compute_nutriscore compute_nutrient_levels/;
 use ProductOpener::FoodGroups qw/compute_food_groups/;
-use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set compute_estimated_nutrients/;
+use ProductOpener::Nutrition
+	qw/generate_nutrient_aggregated_set compute_estimated_nutrients add_misc_tags_for_input_nutrition_data_pers/;
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
@@ -84,7 +86,9 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Select best language to parse ingredients
 	select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
-	extract_ingredients_from_text($product_ref);
+
+	# Use the external Recipe Estimator service to estimate ingredients percentages
+	extract_ingredients_from_text($product_ref, {estimate_ingredients_percent => $recipe_estimator_service});
 	extract_additives_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 
@@ -120,6 +124,9 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	# Add some labels from nutrition data (e.g. glycemic index, carbon footprint)
 	add_labels_from_nutrition_data($product_ref);
+
+	# Add misc tags for nutrition data per X (done last as compute_nutriscore() removes misc_tags starting with en:nutrition)
+	add_misc_tags_for_input_nutrition_data_pers($product_ref);
 
 	return;
 }

@@ -2,12 +2,6 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "en:soybeans",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [
-      "en:soybeans"
-   ],
    "allergens_tags" : [
       "en:soybeans"
    ],
@@ -55,6 +49,7 @@
       "en:legume-based-drinks",
       "en:soy-based-drinks"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:plant-based-milk-substitutes",
    "food_groups_tags" : [
       "en:beverages",
@@ -74,7 +69,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "20901",
+         "ciqual_proxy_food_code" : "20901",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
          "percent" : 8,
@@ -109,6 +104,7 @@
       "en:water",
       "en:soya-bean",
       "en:vegetable",
+      "en:pod-and-seed-vegetable",
       "en:legume",
       "en:pulse",
       "en:soya"
@@ -129,6 +125,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -136,7 +133,8 @@
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-different-from-2023",
       "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-a-2023-b"
+      "en:nutriscore-2021-a-2023-b",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 1,
    "nova_group_debug" : "",
@@ -1145,10 +1143,22 @@
       "plant-based-milk-substitutes",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:soybeans"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

@@ -61,13 +61,14 @@ BEGIN {
 		$events_password
 
 		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 		$facets_kp_url
 		$redis_url
 		$folksonomy_url
 		$process_global_redis_events
 
 		$recipe_estimator_url
-		$recipe_estimator_scipy_url
+		$recipe_estimator_service
 
 		$mongodb
 		$mongodb_host
@@ -105,6 +106,8 @@ BEGIN {
 
 		$build_cache_repo
 		$serialize_to_json
+
+		$health_check_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -184,9 +187,11 @@ $flavor = "opf";
 %options = (
 	site_name => "Open Products Facts",
 	product_type => "product",
-	og_image_url => "https://static.openproductsfacts.org/images/logos/opf-logo-vertical-white-social-media-preview.png",
+	og_image_url =>
+		"https://static.openproductsfacts.org/images/logos/opf-logo-vertical-white-social-media-preview.png",
 	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=opf&utf_medium=web",
-	android_app_link => "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opf&utf_medium=web",
+	android_app_link =>
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opf&utf_medium=web",
 	ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opf&utf_medium=web",
 	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utf_medium=web",
 	#x_account => "OpenBeautyFacts",
@@ -250,13 +255,17 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
-# recipe-estimator product service
-# To test a locally running recipe-estimator with product opener in a docker dev environment:
-# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
 $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
-$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
@@ -272,6 +281,10 @@ $process_global_redis_events = 0;
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
+# If $rate_limiter_disabled is set to 1, rate limiting is completely disabled
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ProductOpener::Config2::rate_limiter_disabled;
 
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features

@@ -1,8 +1,4 @@
 {
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories" : "potatoes, vegetables",
    "categories_hierarchy" : [
@@ -12,8 +8,8 @@
       "en:vegetable-based-foods-and-beverages",
       "en:cereals-and-potatoes",
       "en:vegetables-based-foods",
-      "en:vegetables",
       "en:potatoes-and-their-products",
+      "en:vegetables",
       "en:potatoes"
    ],
    "categories_lc" : "en",
@@ -37,8 +33,8 @@
       "en:vegetable-based-foods-and-beverages",
       "en:cereals-and-potatoes",
       "en:vegetables-based-foods",
-      "en:vegetables",
       "en:potatoes-and-their-products",
+      "en:vegetables",
       "en:potatoes"
    ],
    "food_groups" : "en:potatoes",
@@ -56,7 +52,8 @@
       "en:nutrition-fruits-vegetables-legumes-from-category",
       "en:nutrition-fruits-vegetables-legumes-from-category-en-potatoes",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-c-2023-c"
+      "en:nutriscore-2021-c-2023-c",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
    "nova_group_error" : "missing_ingredients",
@@ -435,9 +432,19 @@
       "potatoes",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : []
 }
