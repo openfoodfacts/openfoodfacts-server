@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
@@ -188,14 +189,9 @@
    "known_ingredients_n" : 9,
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 26.15625,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 26.15625,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 26.15625,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 26.15625
-   },
    "recipe" : {
       "en:cheese" : 17,
       "en:flour" : 33,

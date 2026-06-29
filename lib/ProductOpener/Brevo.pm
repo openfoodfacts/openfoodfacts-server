@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,7 +46,6 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$country/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::API qw/:all/;
@@ -63,15 +62,15 @@ sub get_brevo_api_key() {
 }
 # Brevo list ID
 sub get_list_id() {
-	return $ProductOpener::Config2::list_id;
+	return $ProductOpener::Config2::list_id + 0;
 }
 
-sub add_contact_to_list ($email, $username, $country, $language) {
+sub add_contact_to_list ($email, $userid, $country, $language, $name) {
 	my $brevo_api_key = get_brevo_api_key();
 	my $list_id = get_list_id();
 	# We need a Brevo key to use this API, otherwise we silently fails
 	if (!$brevo_api_key) {
-		$log->debug("No Brevo key, no list subscription.") if $log->is_debug();
+		$log->info("No Brevo key, no list subscription.") if $log->is_info();
 		return -1;
 	}
 	# Brevo API endpoint for adding a contact to a list
@@ -86,11 +85,13 @@ sub add_contact_to_list ($email, $username, $country, $language) {
 		'api-key' => $brevo_api_key,
 	);
 
+	# Note: attributes must correspond to https://my.brevo.com/lists/add-attributes
 	my $contact_data = {
 
 		email => $email,
 		attributes => {
-			USERNAME => $username,
+			NOM => $name,
+			USERID => $userid,
 			COUNTRY => $country,
 			LANGUAGE => $language,
 		},
@@ -105,7 +106,7 @@ sub add_contact_to_list ($email, $username, $country, $language) {
 	my $response = $ua->request($request);
 
 	if ($response && $response->is_success) {
-		$log->debug("Contact added successfully! Response: " . $response->content) if $log->is_debug();
+		$log->info("Contact added successfully! Response: " . $response->content) if $log->is_info();
 		return 1;    # Contact added successfully
 	}
 	else {

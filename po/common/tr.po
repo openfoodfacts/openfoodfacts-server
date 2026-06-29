@@ -27,10 +27,14 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Dünyanın dört bir yanından katılımcı, özgür ve açık gıda ürünleri veritabanı."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr "open-food-facts-mobil-uygulaması"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Ürün içeriği, alerjenler, katkı maddeleri, besin değerleri, etiketler, menşei, CO2 etkisi ve ürün bilgileri %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -44,33 +48,11 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Dünyanın dört bir yanından kozmetik ürünlerin bulunduğu işbirliğine dayalı, özgür ve açık bir veritabanı."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Dünya çapındaki yiyecek ürünleri hakkında içerikler, besin değerleri ve bilgi içeren işbirlikçi, ücretsiz ve açık bir veritabanı."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Ürün içeriği, alerjenler, katkı maddeleri, etiketler, içeriklerin menşei ve ürün bilgileri %s"
 
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts, dünyanın dört bir yanından çok çeşitli ürünler hakkında bilgi ve veri toplar."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Dünyanın dört bir yanındaki çeşitli ürünlerin bulunduğu işbirlikçi, ücretsiz ve açık veritabanı."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Dünya çapındaki evcil hayvan yiyecek ürünleri hakkında içerikler, besin değerleri ve bilgi içeren işbirlikçi, ücretsiz ve açık bir veritabanı."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts, dünyanın dört bir yanından evcil hayvan maması ürünlerine ilişkin bilgi ve verileri topluyor."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Dünyanın dört bir yanından evcil hayvan besinleriyle bulunduğu katılımcı, özgür ve açık bir veritabanı."
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Open Beauty Facts ürün arama"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Bu ürün sayfası tamamlanmadı. Düzenleyerek ve elimizdeki fotoğraflardan daha fazla veri ekleyerek, ya da <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=tr\">Android</a> veya <a href=\"https://apps.apple.com/tr/app/open-beauty-facts/id1122926380\">iPhone/iPad</a> uygulamalarını kullanarak daha fazla fotoğraf çekerek tamamlanmasına yardım edebilirsiniz. Teşekkürler!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Bu ürün sayfası tamamlanmamıştır. Sayfayı düzenleyerek ve elimizdeki fotoğraflardan daha fazla veri ekleyerek veya <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> veya <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>için evrensel mobil uygulamayı kullanarak daha fazla fotoğraf çekerek tamamlamanıza yardımcı olabilirsiniz. Teşekkürler!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -111,6 +93,114 @@ msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/SU, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, \n"
 "COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Dünyanın dört bir yanından çeşitli ürünler hakkında bilgi içeren, iş birliğine dayalı, ücretsiz ve açık bir veri tabanı."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts, dünyanın dört bir yanından çok çeşitli ürünler hakkında bilgi ve veri toplar."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Dünyanın dört bir yanındaki çeşitli ürünlerin bulunduğu işbirlikçi, ücretsiz ve açık veritabanı."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "İçindekiler, CO2 etkisi, dayanıklılık, etiketler, içeriklerin menşei ve ürün hakkında bilgiler %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Products Facts ürün arama"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Bu ürün sayfası tamamlanmamıştır. Sayfayı düzenleyerek ve elimizdeki fotoğraflardan daha fazla veri ekleyerek veya <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> veya <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>için evrensel Open Food Facts uygulamasını kullanarak daha fazla fotoğraf çekerek tamamlamanıza yardımcı olabilirsiniz. Teşekkürler!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Dünya çapındaki evcil hayvan yiyecek ürünleri hakkında içerikler, besin değerleri ve bilgi içeren işbirlikçi, ücretsiz ve açık bir veritabanı."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts, dünyanın dört bir yanından evcil hayvan maması ürünlerine ilişkin bilgi ve verileri topluyor."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Dünyanın dört bir yanından evcil hayvan besinleriyle bulunduğu katılımcı, özgür ve açık bir veritabanı."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "İçerikler, alerjenler, katkı maddeleri, besin değerleri, etiketler, içeriklerin kökeni ve ürün hakkındaki bilgiler %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts ürün arama"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Bu ürün sayfası tamamlanmamıştır. Sayfayı düzenleyerek ve elimizdeki fotoğraflardan daha fazla veri ekleyerek veya <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> veya <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>için evrensel Open Food Facts uygulamasını kullanarak daha fazla fotoğraf çekerek tamamlamanıza yardımcı olabilirsiniz. Teşekkürler!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Kuru köpek maması, Yaş kedi maması"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "TAVUK, MISIR GLUTEN UNU, TAM TAHILLI MISIR, HAYVANSAL YAĞ, SOYA UNU"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Yetişkin köpekler için yaş mama"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Yaşlı Köpekler İçin Tavuklu ve Pilavlı Lezzet"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -179,6 +269,10 @@ msgstr "Zaten %s adında mevcut bir organizasyon var."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Organizasyona katılma talebiniz, organizasyon yöneticisinin onayını bekliyor."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -360,10 +454,6 @@ msgstr "Ayrıca Open Food Facts projesinin finanse edilmesine yardım edebilirsi
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Üreticiler Yönetici kılavuzu"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Open Food Facts'a Bağış Yapın\" /></a><p><<site_name>>, sektörden bağımsız, kar amacı gütmeyen bir dernek tarafından oluşturulmuştur. Herkes için, herkes tarafından yapılır ve herkes tarafından finanse edilir. <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">Open Food Facts'e bağış yaparak</a çalışmalarımızı destekleyebilirsiniz. > ve ayrıca <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">Lilo arama motorunu kullanabilirsiniz</a>.<br/><b>Teşekkürler!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -628,6 +718,10 @@ msgstr "Ürün düzenle"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Sayfayı düzenle"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Özellik eklemek veya düzenlemek için giriş yapın."
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -929,7 +1023,7 @@ msgstr "Mahremiyet"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr "/mahremiyet"
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1414,7 +1508,7 @@ msgstr "/add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
-msgstr "Destekleyebilirsiniz"
+msgstr "Katkıda bulunun"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
@@ -1423,7 +1517,7 @@ msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "Keşfet"
+msgstr "Keşfedin"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -1545,7 +1639,7 @@ msgstr "100 g için besin seviyesi"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr "/besin-seviyeleri"
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1581,7 +1675,7 @@ msgstr "Beslenme gerçekleri"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Beslenme bilgisinin bulunduğu %s kategorisinin %d ürünleri için ortalama beslenme durumu (%d ürünlerden)."
+msgstr "Beslenme bilgisinin bulunduğu %2$s kategorisinin %1$d ürünleri için ortalama beslenme durumu (%3$d ürünlerden)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -2182,6 +2276,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Ürün Arama"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Ürün Arama"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "içermiyor"
@@ -2741,7 +2839,7 @@ msgstr "Dikkat: meyvelerin, sebzelerin ve fındık miktarları etikette belirlen
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "Uyarı: Meyve, sebze ve fındık miktarı etiket üzerinde belirtilmemiş, (%s) kategorisinden %d% ürününe göre hesaplanmıştır"
+msgstr "Uyarı: Meyve, sebze ve fındık miktarı etiket üzerinde belirtilmemiş, (%s) kategorisinden %d%% ürününe göre hesaplanmıştır"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
@@ -2785,8 +2883,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Bu ürünle ilgili bazı veriler ve / veya fotoğraflar şu kaynaklardan gelmektedir:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Bu ürün sayfası tamamlanmadı. Düzenleyerek ve elimizdeki fotoğraflardan daha fazla veri ekleyerek, ya da <a href=\"https://android.openfoodfacts.org\">Android</a> veya <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a> uygulamalarını kullanarak daha fazla fotoğraf çekerek tamamlanmasına yardım edebilirsiniz. Teşekkürler!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Bu ürün sayfası tamamlanmamıştır. Sayfayı düzenleyerek ve elimizdeki fotoğraflardan daha fazla veri ekleyerek veya <a href=\"https://android.openfoodfacts.org\">Android</a> veya <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>için mobil uygulamayı kullanarak daha fazla fotoğraf çekerek tamamlamamıza yardımcı olabilirsiniz. Teşekkürler!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2868,25 +2966,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "eklenen diğer besin maddesi"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Satıldığı gibi"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Hazırlanmış"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Birim"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Besin değerleri ürünün satıldığı şekil için belirtilmiştir."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Besin değerleri ürünün hazırlanmış şekli için belirtilmiştir."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -3722,6 +3804,10 @@ msgstr "veri kalitesi hatası"
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "veri kalitesi hataları"
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "veri kalitesi bütünlüğü"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4633,17 +4719,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Nutri-Score'u hesaplamak için eksik veriler"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-score geçerli değildir"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score uygulanamaz"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Kategori için geçerli değil"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Kategori için geçerli değil: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Şu kategori için geçerli değil: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4867,8 +4953,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Düşük çevresel etki (Eko-Skor)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkilerini karşılaştırmayı kolaylaştıran A'dan E'ye kadar bir çevre puanıdır."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Yeşil Puan, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4880,8 +4966,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Düşük çevresel etki (Eko-Skor)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score, gıda ürünlerinin çevre üzerindeki etkilerini karşılaştırmayı kolaylaştıran A'dan E'ye kadar bir çevre puanıdır."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Yeşil Puan, gıda ürünlerinin çevre üzerindeki etkisini karşılaştırmayı kolaylaştıran, A+ ile F arasında değişen bir çevre puanı sistemidir."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5117,6 +5203,10 @@ msgstr "Eksik malzemeler listesi"
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Eksik besin değerleri"
+
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Hazırlanmış ürün için eksik besin değerleri"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
@@ -5417,8 +5507,8 @@ msgstr "Vizyon, Misyon, Değerler ve Programlar"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5460,6 +5550,10 @@ msgstr "Green-Score hesaplanmadı"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Bilinmeyen çevre etkisi"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Kesin bir kategori eksik"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5796,8 +5890,8 @@ msgstr "Green-Score formülü, daha kesin hale getirmek için düzenli olarak ge
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score başlangıçta Fransa için geliştirildi ve diğer Avrupa ülkelerine de yayılıyor. Green-Score formülü, her ülke için daha kesin ve daha uygun hale getirmek üzere düzenli olarak geliştirildiğinden değişebilir."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Yeşil Puanlama sistemi ilk olarak Fransa için geliştirilmiş olup diğer Avrupa ülkelerine de yaygınlaştırılmaktadır. Yeşil Puanlama formülü, her ülkeye daha uygun ve daha doğru hale getirilmesi için düzenli olarak geliştirildiğinden değişime tabidir."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5970,6 +6064,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr "Çevresel faydaları çok yüksek olan etiketler"
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Değerlendirilmemiş etiket"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Bazı çevresel faydalar"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Yüksek çevresel faydalar"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Çevreye çok yüksek faydalar"
+
 msgctxt "other"
 msgid "Other"
 msgstr "Diğer"
@@ -6106,6 +6216,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Eksik besin değerleri:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Hazırlanmış ürün için eksik besin değerleri:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Nutri-Score'un hesaplanabilmesi için ürünün kategorisi ve besin değerlerinin belirtilmesi gerekir."
@@ -6121,6 +6235,14 @@ msgstr "Katkı"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Katkı"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Veri Kalitesi Eksiksizliği"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Bu ürünle ilgili veri kalitesi bütünlüğü hakkında bazı bilgiler"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6193,6 +6315,10 @@ msgstr "Eksik kategori"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Eksik besin değerleri"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Hazırlanmış besin değerleri eksik"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6378,6 +6504,10 @@ msgstr "Nutri-Score'u hesaplamak için gereken bilgileri ekleyebilir misiniz?"
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Eko-Skoru hesaplayabilmemiz için kesin bir ürün kategorisi ekleyebilir misiniz?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Bu ürün için belirlediğimiz kategori, Yeşil Puanı hesaplamak için yeterince kesin değil. Daha kesin bir ürün kategorisi ekleyebilir misiniz?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6619,6 +6749,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Ürün güncellendi"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Geçersiz API işlemi"
@@ -6750,6 +6884,14 @@ msgstr "Ürünün tüm ambalaj parçaları listelenmiştir."
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Geçersiz kullanıcı kimliği ve şifre"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7094,14 +7236,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Bir sorun bildir"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Bir sorun bildir"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Bir sorun bildir."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7357,11 +7494,11 @@ msgid "Repairability index unknown"
 msgstr "Onarılabilirlik indeksi bilinmiyor"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "Onarılabilirlik indeksi geçerli değil"
+msgid "Repairability index not applicable"
+msgstr "Onarılabilirlik endeksi uygulanamaz"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Kategori için geçerli değil"
 
 # variable names between { } must not be translated
@@ -7507,9 +7644,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "Bu resmi moderatörlerimize bildirin"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Nutri-Score'u hesaplamak için porsiyon büyüklüğü değerini ve/veya birimini eksik buluyoruz"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> sektörden bağımsız, kâr amacı gütmeyen bir dernek tarafından hazırlanmıştır. Herkes için, herkes tarafından yapılmış ve herkes tarafından finanse edilmiştir. Open Food Facts'e bağış yaparak çalışmalarımızı destekleyebilirsiniz.<br/><b>Teşekkürler!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> sektörden bağımsız, kâr amacı gütmeyen bir dernek tarafından hazırlanmıştır. Herkes için, herkes tarafından hazırlanmış ve herkes tarafından finanse edilmiştir. Open Food Facts'e bağış yaparak ve Lilo arama motorunu kullanarak çalışmalarımızı destekleyebilirsiniz.<br/><b>Teşekkürler!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo arama motoru"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "Robotların yoğun suistimali nedeniyle, bu sayfayı kimliği belirsiz kullanıcılara sunamıyoruz. Open Food Facts'in tamamına erişmek için lütfen ücretsiz bir Open Food Facts hesabı oluşturun."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Malzemelerin kaynağı"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Ürünün menşei"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Ürün bilgisi"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Ham ürün bilgisi"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7523,7 +7692,309 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "İçeriklerdeki ilave şekerlerin tahmini miktarı"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Eklenen şeker miktarı"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Aynı kategorideki ilave şeker içermeyen ürünleri arayın:"
+
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "1 kg için"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "porsiyon başına"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Besin ögesi ekle"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "İstenmeyen içerikler"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Bu tercih, Open Food Facts'in içerik listesine ilişkin anlayışına dayanmaktadır ve doğru olmayabilir, ürünü her zaman kendiniz kontrol edin."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "İstenmeyen bileşenlerin varlığı bilinmiyor"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "İstenmeyen içerik tespit edilmedi"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "İstenmeyen bileşenler içerir"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Bazı içerikler tanınmadı"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Şunu tespit edemedik: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "{unwanted_ingredients}tespit edemedik. Bazı malzemeleri atlamış olabiliriz, lütfen içerik listesini her zaman kontrol edin."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Bu tercihler Open Food Facts'in içerik listesine ilişkin anlayışına dayanmaktadır ve her zaman doğru veya eksiksiz olmama olasılığı vardır, ürünü her zaman kendiniz kontrol edin."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "Ürün bazında hesaplanan hayvan acısının göstergesi"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "Hayvan refahı"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "Dış Bilgi Panelleri"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "Panel kullanılamıyor"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "Bu ürün için panel mevcut değil."
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "Dış kaynaklar"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "Tarafından sağlanmıştır"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Sigara içmek öldürür"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Tütün sağlığa ciddi zararlar veriyor. Başlamayın. Hemen bırakın."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Sigara içmek son derece bağımlılık yapar. Başlamayın. Sigara içmek öldürür, hemen bırakın. Sigara içmek atardamarları tıkar ve kalp krizi ve felçlere neden olur. Sigara içmek ölümcül akciğer kanserine yol açar. Hamilelikte sigara içmek bebeğinize zarar verir. Çocukları koruyun: Sigara dumanınızı solumalarına izin vermeyin. Doktorunuz veya eczacınız sigarayı bırakmanıza yardımcı olabilir. Sigara içmek kan akışını azaltabilir ve iktidarsızlığa neden olabilir. Sigara içmek cildin yaşlanmasına neden olur. Sigara içmek spermlere zarar verebilir ve doğurganlığı azaltabilir. Sigara dumanı benzen, nitrozaminler, formaldehit ve hidrojen siyanür içerir."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Bağış Yapın"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Geri dönüşüm"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Kamu fiyatı"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 Avro, 2,99 ABD Doları, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Üreticinin önerdiği perakende satış fiyatı (MSRP), ürün ambalajında veya üreticinin web sitesinde belirtildiği gibi indirimler ve promosyonlar hariçtir (mevzuata göre vergiler dahil veya hariç). Fiyatlar birden fazla para biriminde listeleniyorsa virgülle ayrılmış bir liste kullanın."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Kişiselleştirilmiş mülk"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Palmiye yağı içermez"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Palmiye yağı içerebilir"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Çevre etiketleri"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Eksik veriler"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Yüksek etki"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Orta düzeyde etki"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Düşük etki"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Etki değerlendirilmedi."
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
 

@@ -23,6 +23,8 @@
     - GOOGLE_CLOUD_VISION_API_URL
     - CROWDIN_PROJECT_IDENTIFIER
     - CROWDIN_PROJECT_KEY
+    - BREVO_API_KEY
+    - BREVO_LIST_ID
     - GEOLITE2_PATH
     - LOG_LEVEL_ROOT
     - LOG_LEVEL_MONGODB
@@ -40,11 +42,13 @@
     - OIDC_CLIENT_ID
     - OIDC_CLIENT_SECRET
     - RECIPE_ESTIMATOR_URL
-    - RECIPE_ESTIMATOR_SCIPY_URL
+    - RECIPE_ESTIMATOR_SERVICE
+    - SLACK_HOOK_URLS
     #11901: Remove once production is migrated
     - SERIALIZE_TO_JSON
   depends_on:
-    - memcached
+    memcached:
+        condition: service_started
   volumes:
     # pointer to openfoodfacts-web/lang
     - ${WEB_RESOURCES_PATH}/lang:/mnt/podata/lang
@@ -94,6 +98,13 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB=minion
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      start_interval: 1s
+      start_period: 60s
+      retries: 2
     volumes:
       - pgdata:/var/lib/postgresql/data
   backend: *backend-conf
@@ -166,3 +177,13 @@ volumes:
   # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
   build_cache:
   other_servers:
+  # volumes redefined in other docker compose
+  html_data:
+  users:
+  products:
+  product_images:
+  orgs:
+  export_files:
+  podata:
+
+

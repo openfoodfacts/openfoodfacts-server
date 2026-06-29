@@ -28,9 +28,9 @@ In this case:
 
 #### API Version
 
-The current version number of the Open Food Facts API is v0.
+The current version number of the Open Food Facts API is v3.6.
 
-[https://us.openfoodfacts.org/api/v0](https://us.openfoodfacts.org/api/v0)
+[https://us.openfoodfacts.org/api/v3](https://us.openfoodfacts.org/api/v3)
 
 ---
 
@@ -38,20 +38,20 @@ The current version number of the Open Food Facts API is v0.
 
 After the version number, the word "product", followed by its barcode must be added:
 
-[https://us.openfoodfacts.org/api/v0/product/](https://us.openfoodfacts.org/api/v0/product/)
+[https://us.openfoodfacts.org/api/v3/product/](https://us.openfoodfacts.org/api/v3/product/)
 
 The app will provide Anna with information about additives, sugars and nutriscore of different types of colas, to help her make her purchase decision.
 
 Anna selects the products she wants to compare in the application (Coca-Cola, Pepsi, Coca-Cola diet, Coca-Cola zero and Pepsi diet). The app retrieves the corresponding barcodes and makes the following calls:
 
 - Pepsico Pepsi Cola Soda:  
-    [https://us.openfoodfacts.org/api/v0/product/01223004](https://us.openfoodfacts.org/api/v0/product/01223004)
+    [https://us.openfoodfacts.org/api/v3/product/01223004](https://us.openfoodfacts.org/api/v3/product/01223004)
 - Coca-Cola Classic Coke Soft Drink  
-    [https://us.openfoodfacts.org/api/v0/product/04963406](https://us.openfoodfacts.org/api/v0/product/04963406)
+    [https://us.openfoodfacts.org/api/v3/product/04963406](https://us.openfoodfacts.org/api/v3/product/04963406)
 - Diet Pepsi  
-    [https://us.openfoodfacts.org/api/v0/product/069000019832](https://us.openfoodfacts.org/api/v0/product/069000019832)
+    [https://us.openfoodfacts.org/api/v3/product/069000019832](https://us.openfoodfacts.org/api/v3/product/069000019832)
 - Coca-Cola Zero  
-    [https://us.openfoodfacts.org/api/v0/product/5000112519945](https://us.openfoodfacts.org/api/v0/product/5000112519945)
+    [https://us.openfoodfacts.org/api/v3/product/5000112519945](https://us.openfoodfacts.org/api/v3/product/5000112519945)
     
 
 ---

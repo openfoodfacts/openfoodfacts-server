@@ -26,7 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers single_param/;
 use ProductOpener::Users qw/$User_id %User/;
@@ -56,6 +56,7 @@ if (defined $User_id) {
 	my $r = shift;
 	my $referer = $r->headers_in->{Referer};
 	my $url;
+	my $subdomain = $request_ref->{subdomain};
 
 	if ((defined $next_action) and ($code =~ /^(\d+)$/)) {
 		if ($next_action eq 'product_add') {
@@ -77,7 +78,9 @@ if (defined $User_id) {
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
 		write_auth_deprecated_headers();
-		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+		if (defined $request_ref->{cookie}) {
+			$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
+		}
 		$r->headers_out->set(Location => "$url");
 		$r->status(302);
 		return 302;

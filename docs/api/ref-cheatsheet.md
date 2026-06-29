@@ -44,15 +44,47 @@ You can send prepared nutritional values
 * nutriment_energy-kj (regular)
 * nutriment_energy-kj_prepared (prepared)
 
+## Read Product Data
+
+### Get product with blame information
+
+To get information about who last modified each field of a product, add the `blame` parameter:
+
+```text
+https://world.openfoodfacts.org/api/v2/product/3017620422003.json?blame=1
+```
+
+This returns additional `blame` information showing:
+- `userid`: Who last modified each field
+- `t`: Timestamp of the modification
+- `rev`: Revision number
+- `value`: Current value of the field
+
+### Limit response fields
+
+Use the `fields` parameter to get only specific product data:
+
+```text
+https://world.openfoodfacts.org/api/v2/product/3017620422003.json?fields=product_name,brands,nutriments
+```
+
 ## Search for Products
 
-**Important:** full text search currently works only for v1 API (or search-a-licious, which is in beta)
+### Structured (filter-based) search — API v2
 
-* [Documentation for v1 Search API](https://wiki.openfoodfacts.org/API/Read/Search)
+Structured search by tags, nutrients, categories, brands, and other fields is available via the `/api/v2/search` endpoint:
 
-* [Reference documentation for v2 search API](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search)
+- [Reference documentation for v2 search API](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search)
 
-* The future of search in Open Food Facts is the [search-a-licious project](https://github.com/openfoodfacts/search-a-licious), deployed, in beta, at [search.openfoodfacts.org](https://search.openfoodfacts.org/). It has an API: [Search-a-licious API](https://search.openfoodfacts.org/docs)
+> **Note:** `/api/v3/search` is not yet implemented.
+
+### Full-text / plain-text search
+
+**Full-text search is not available in the v2 or v3 server-side API.**
+
+For full-text search, we are building [Search-a-licious](https://search.openfoodfacts.org/), which will be deployed at [search.openfoodfacts.org](https://search.openfoodfacts.org/). Search-a-licious will have a dedicated API: [Search-a-licious API documentation](https://search.openfoodfacts.org/docs).
+
+The legacy v1 search endpoint (`/cgi/search.pl`) supports keyword search but is not recommended for new integrations.
 
 ## Get suggestions for fields
 ### New solution: Search-a-licious (has all actually used values)
@@ -106,4 +138,27 @@ https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=categories&s
 Get suggestions based on packaging shape
 ```text
 https://world.openfoodfacts.org/api/v3/taxonomy_suggestions?tagtype=packaging_materials&shape=box
+```
+
+## Get partial taxonomy entries (v2 API)
+
+Use `/api/v2/taxonomy` when you want selected taxonomy entries only (instead of downloading a full taxonomy).
+
+### Common parameters
+- `tagtype`: taxonomy to query (`categories`, `labels`, `ingredients`, etc.)
+- `tags`: comma-separated list of taxonomy tags/ids
+- `fields`: comma-separated list of fields to return (for example: `name,description,children,parents,wikidata`)
+- `include_children=1`: include children entries in the response
+- `include_parents=1`: include parent entries in the response
+- `include_root_entries=1`: include root taxonomy entries in the response
+- `lc`: language(s), comma-separated (for example: `en,fr`)
+- `cc`: optional country context
+
+### Example requests
+```text
+https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=labels&tags=en:organic,en:fair-trade&fields=name,description,children&include_children=1&lc=en,fr
+```
+
+```text
+https://world.openfoodfacts.org/api/v2/taxonomy?tagtype=categories&tags=en:carrot-juices&fields=name,parents,children,wikidata,auth_url&lc=en,fr&cc=fr
 ```

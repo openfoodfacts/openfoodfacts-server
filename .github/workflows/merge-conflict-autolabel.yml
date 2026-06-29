@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+  pull_request_target:
+    types: [synchronize]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -16,9 +18,10 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: mschilde/auto-label-merge-conflicts@5981f8933e92b78098af86b9e33fe0871cc7a3be  # v2.0 (2020-01-27)
+      - uses: eps1lon/actions-label-merge-conflict@0273be72a0bbd58fcd71d0d6c02c209b50d1e5e1  # v3.1.0 (2026-05-27)
+        continue-on-error: true  # Don’t mark PRs as failing because this errs
         with:
-          CONFLICT_LABEL_NAME: "💥 Merge Conflicts"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MAX_RETRIES: 5
-          WAIT_MS: 5000
+          dirtyLabel: "💥 Merge Conflicts"
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          retryMax: 5
+          retryAfter: 5000

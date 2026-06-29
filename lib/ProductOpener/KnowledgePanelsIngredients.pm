@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -55,6 +55,7 @@ use vars @EXPORT_OK;
 use ProductOpener::KnowledgePanels
 	qw(create_panel_from_json_template add_taxonomy_properties_in_target_languages_to_object);
 use ProductOpener::Tags qw(:all);
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Display qw/:all/;
@@ -77,7 +78,7 @@ Creates a panel with a list of ingredients as individual panels.
 
 =cut
 
-sub create_ingredients_list_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ingredients_list_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create ingredients list panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -89,7 +90,7 @@ sub create_ingredients_list_panel ($product_ref, $target_lc, $target_cc, $option
 								 # creates each individual panels for each ingredient
 		my @ingredients_panels_ids
 			= create_ingredients_panels_recursive($product_ref, \$ingredient_i, 0, $product_ref->{ingredients},
-			$target_lc, $target_cc, $options_ref);
+			$target_lc, $target_cc, $options_ref, $request_ref);
 		my $ingredients_list_panel_data_ref = {ingredients_panels_ids => \@ingredients_panels_ids};
 
 		# create the panel that reference ingredients panels
@@ -97,7 +98,7 @@ sub create_ingredients_list_panel ($product_ref, $target_lc, $target_cc, $option
 			"ingredients_list",
 			"api/knowledge-panels/health/ingredients/ingredients_list.tt.json",
 			$ingredients_list_panel_data_ref,
-			$product_ref, $target_lc, $target_cc, $options_ref
+			$product_ref, $target_lc, $target_cc, $options_ref, $request_ref
 		);
 
 	}
@@ -105,7 +106,7 @@ sub create_ingredients_list_panel ($product_ref, $target_lc, $target_cc, $option
 }
 
 sub create_ingredients_panels_recursive ($product_ref, $ingredient_i_ref, $level, $ingredients_ref, $target_lc,
-	$target_cc, $options_ref)
+	$target_cc, $options_ref, $request_ref)
 {
 
 	my @ingredients_panels_ids = ();
@@ -114,12 +115,12 @@ sub create_ingredients_panels_recursive ($product_ref, $ingredient_i_ref, $level
 
 		push @ingredients_panels_ids,
 			create_ingredient_panel($product_ref, $ingredient_i_ref, $level, $ingredient_ref, $target_lc, $target_cc,
-			$options_ref);
+			$options_ref, $request_ref);
 		if (defined $ingredient_ref->{ingredients}) {
 			push @ingredients_panels_ids,
 				create_ingredients_panels_recursive($product_ref, $ingredient_i_ref, $level + 1,
 				$ingredient_ref->{ingredients},
-				$target_lc, $target_cc, $options_ref);
+				$target_lc, $target_cc, $options_ref, $request_ref);
 		}
 
 	}
@@ -128,7 +129,7 @@ sub create_ingredients_panels_recursive ($product_ref, $ingredient_i_ref, $level
 }
 
 sub create_ingredient_panel ($product_ref, $ingredient_i_ref, $level, $ingredient_ref, $target_lc, $target_cc,
-	$options_ref)
+	$options_ref, $request_ref)
 {
 
 	$$ingredient_i_ref++;
@@ -157,12 +158,12 @@ sub create_ingredient_panel ($product_ref, $ingredient_i_ref, $level, $ingredien
 	}
 
 	create_panel_from_json_template($ingredient_panel_id, "api/knowledge-panels/health/ingredients/ingredient.tt.json",
-		$ingredient_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+		$ingredient_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	return $ingredient_panel_id;
 }
 
-sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	# Go through the ingredients structure, and check if they have the rare_crop:en:yes property
 	my @rare_crops_ingredients
@@ -176,15 +177,19 @@ sub create_ingredients_rare_crops_panel ($product_ref, $target_lc, $target_cc, $
 
 		create_panel_from_json_template("ingredients_rare_crops",
 			"api/knowledge-panels/health/ingredients/ingredients_rare_crops.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 	return;
 }
 
-sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	# Go through the ingredients structure, and check if they have the added_sugar:en:yes property
 	my @added_sugars_ingredients = get_ingredients_with_parent($product_ref->{ingredients}, "en:added-sugar");
+
+	#Remove duplicates from list of sugars
+	my %seen;
+	@added_sugars_ingredients = grep {!$seen{$_}++} @added_sugars_ingredients;
 
 	$log->debug("added sugars", {added_sugars_ingredients => \@added_sugars_ingredients})
 		if $log->is_debug();
@@ -195,7 +200,8 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 		my $added_sugars_percent_estimate = estimate_added_sugars_percent_from_ingredients($product_ref);
 
 		# Get the % of added sugars from the nutrition facts if it is available
-		my $added_sugars_percent_nutrition_facts = deep_get($product_ref, qw(nutriments added-sugars_100g));
+		my $added_sugars_percent_nutrition_facts
+			= deep_get($product_ref, qw(nutrition aggregated_set nutrients added-sugars value));
 
 		my $panel_data_ref = {
 			ingredients_added_sugars => \@added_sugars_ingredients,
@@ -205,14 +211,14 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 
 		# Get the most specific category so that we can link to the category without added sugars
 		# Skip products that are in the "en:sweeteners" category
-		if (    (defined $product_ref->{categories_hierarchy})
-			and (scalar @{$product_ref->{categories_hierarchy}} > 0)
+		if (    (defined $product_ref->{categories_tags})
+			and (scalar @{$product_ref->{categories_tags}} > 0)
 			and not(has_tag($product_ref, "categories", "en:sweeteners")))
 		{
 			my $category_id;
 
 			# Find the most specific taxonomy that exists in the categories taxonomy
-			foreach my $category_id2 (reverse @{$product_ref->{categories_hierarchy}}) {
+			foreach my $category_id2 (reverse @{$product_ref->{categories_tags}}) {
 				if (exists_taxonomy_tag("categories", $category_id2)) {
 					$category_id = $category_id2;
 					last;
@@ -229,7 +235,7 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 				$no_added_sugars_link =~ s/\/([^\/]+)$/\/-$1/;
 
 				my $category_without_added_sugars_url
-					= format_subdomain($subdomain)
+					= $request_ref->{formatted_subdomain}
 					. "/facets"
 					. canonicalize_taxonomy_tag_link($target_lc, 'categories', $category_id)
 					. canonicalize_taxonomy_tag_link($target_lc, 'states', "en:ingredients-completed")
@@ -243,7 +249,7 @@ sub create_ingredients_added_sugars_panel ($product_ref, $target_lc, $target_cc,
 
 		create_panel_from_json_template("ingredients_added_sugars",
 			"api/knowledge-panels/health/ingredients/ingredients_added_sugars.tt.json",
-			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 	return;
 }
@@ -267,7 +273,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create ingredients panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -309,7 +315,7 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	}
 
 	create_panel_from_json_template("ingredients", "api/knowledge-panels/health/ingredients/ingredients.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	return;
 }
 
@@ -327,7 +333,7 @@ Creates knowledge panels for additives.
 
 =cut
 
-sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create additives panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -364,11 +370,11 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref) 
 
 			create_panel_from_json_template($additive_panel_id,
 				"api/knowledge-panels/health/ingredients/additive.tt.json",
-				$additive_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+				$additive_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		}
 
 		create_panel_from_json_template("additives", "api/knowledge-panels/health/ingredients/additives.tt.json",
-			$additives_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+			$additives_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 
 	}
 	return;
@@ -393,7 +399,7 @@ This parameter sets the desired language for the user facing strings.
 
 =cut
 
-sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $options_ref, $request_ref) {
 
 	$log->debug("create ingredients analysis panel", {code => $product_ref->{code}}) if $log->is_debug();
 
@@ -408,7 +414,11 @@ sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $op
 			"ingredients_analysis_details",
 			"api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json",
 			$ingredients_analysis_details_data_ref,
-			$product_ref, $target_lc, $target_cc, $options_ref
+			$product_ref,
+			$target_lc,
+			$target_cc,
+			$options_ref,
+			$request_ref
 		);
 
 		# If we have some unrecognized ingredients, create a call for help panel that will be displayed in the ingredients analysis details panel
@@ -416,7 +426,7 @@ sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $op
 		if ($ingredients_analysis_details_data_ref->{unknown_ingredients}) {
 			create_panel_from_json_template("ingredients_analysis_help",
 				"api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json",
-				{}, $product_ref, $target_lc, $target_cc, $options_ref);
+				{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		}
 	}
 
@@ -432,12 +442,12 @@ sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $op
 
 			create_panel_from_json_template($property_panel_id,
 				"api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json",
-				$property_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+				$property_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 		}
 
 		create_panel_from_json_template("ingredients_analysis",
 			"api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json",
-			{}, $product_ref, $target_lc, $target_cc, $options_ref);
+			{}, $product_ref, $target_lc, $target_cc, $options_ref, $request_ref);
 	}
 	return;
 }
