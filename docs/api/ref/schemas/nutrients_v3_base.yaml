@@ -18,13 +18,13 @@ properties:
 
           (per 100g or per serving) in kj
         $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
-      energy_kcal:
+      energy-kcal:
         description: |
           energy in kcal, if it is specified
 
           (per 100g or per serving) in a standard unit (g or ml)
         $ref: "../schemas/nutrient_values_v3_with_value_string.yaml"
-      energy_kj:
+      energy-kj:
         description: |
           energy in kj, if it is specified
 

@@ -2,6 +2,7 @@
 
 use ProductOpener::PerlStandards;
 
+#use Test::MockClass qw{Nutrition};
 use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
@@ -9,11 +10,975 @@ use JSON;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::ProductSchemaChanges qw/convert_product_schema/;
-use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
+use ProductOpener::Tags qw/init_taxonomies/;
+
+# on the pro platform, we need to know the org to set the correct source for schema upgrades
+# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
+# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
+# so for now we will just use the global variable
+use ProductOpener::Users qw/$Org_id/;
+
+my $json = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical->pretty(1);
+
+# We need to load taxonomies (nutrients) for some schema upgrades
+init_taxonomies(1);
+
+#use Test::MockTime qw(set_fixed_time);
+#set_fixed_time(1650000000);  # freeze time to a known epoch
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
+#my $mockNutrition = MockClass->new('Nutrition');
+
 my @tests = (
+
+	# Very old schema, some missing fields like nutrition_data_per
+	[
+		'998-to-1003-new-nutrition-schema-bug',
+		1003,
+		{
+			'nutriments' => {
+				'carbohydrates_unit' => 'g',
+				'proteins' => 0,
+				'saturated-fat_value' => 0,
+				'sugars' => '8.8',
+				'sugars_value' => '8.8',
+				'energy' => 255,
+				'proteins_value' => 0,
+				'fat' => 0,
+				'energy_value' => '60.866796666667',
+				'saturated-fat' => 0,
+				'carbohydrates_100g' => '8.8',
+				'energy-kcal_value_computed' => '35.2',
+				'energy-kcal_unit' => 'kcal',
+				'energy-kcal' => '60.866796666667',
+				'proteins_100g' => 0,
+				'saturated-fat_unit' => 'g',
+				'energy_unit' => 'kcal',
+				'carbohydrates_value' => '8.8',
+				'energy_100g' => 255,
+				'energy-kcal_100g' => '60.866796666667',
+				'saturated-fat_100g' => 0,
+				'sugars_unit' => 'g',
+				'proteins_unit' => 'g',
+				'fat_100g' => 0,
+				'sugars_100g' => '8.8',
+				'fat_unit' => 'g',
+				'fat_value' => 0,
+				'energy-kcal_value' => '60.866796666667',
+				'carbohydrates' => '8.8'
+			},
+			'product_type' => 'food',
+			'product_name' => 'Ice guava',
+			'_id' => '9310495085590',
+			'id' => '9310495085590',
+			'code' => '9310495085590',
+			'lc' => 'en',
+		},
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-with-nutriments-estimated-from-ingredients',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+				"energy-kj_100g" => 1634,
+				"carbohydrates_100g" => 78.9,
+			},
+			"nutriments_estimated" => {
+				"alcohol_100g" => 0,
+				"beta-carotene_100g" => 0.0000048596,
+				"calcium_100g" => 0.12227384,
+				"carbohydrates_100g" => 56.5243,
+				"cholesterol_100g" => 0,
+			}
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-with-nutriments-estimated-from-ingredients',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+				"energy-kj_100g" => 1634,
+				"carbohydrates_100g" => 78.9,
+			},
+			"nutriments_estimated" => {
+				"alcohol_100g" => 0,
+				"beta-carotene_100g" => 0.0000048596,
+				"calcium_100g" => 0.12227384,
+				"carbohydrates_100g" => 56.5243,
+				"cholesterol_100g" => 0,
+			}
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-energy-in-kj-without-energy-kj-or-energy-kcal',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-energy-in-kcal-without-energy-kj-or-energy-kcal',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+
+				"energy" => 340,
+				"energy_100g" => 340,
+				"energy_prepared" => 44,
+				"energy_prepared_100g" => 44,
+				"energy_prepared_unit" => "kcal",
+				"energy_prepared_value" => 44,
+				"energy_unit" => "kcal",
+				"energy_value" => 340,
+			},
+		}
+	],
+
+	# In the old nutrition schema, we allowed unknown nutrients that were not in the taxonomy
+	[
+		'1002-to-1003-new-nutrition-schema-unknown-nutrients',
+		1003,
+		{
+			"lang" => "da",
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"serving_quantity" => 1000,
+			"serving_quantity_unit" => "ml",
+			"nutriments" => {
+
+				# unknown nutrient prefixed with language
+				'fr-nitrate' => 0.38,
+				'fr-nitrate_100g' => 0.38,
+				'fr-nitrate_label' => "Nitrate",
+				'fr-nitrate_serving' => 0.0038,
+				'fr-nitrate_unit' => "g",
+				'fr-nitrate_value' => 0.38,
+
+				# unknown nutrient not prefixed with language (old fields)
+				'sulfat' => 0.0141,
+				'sulfat_100g' => 0.0141,
+				'sulfat_label' => "Sulfat",
+				'sulfat_serving' => 0.141,
+				'sulfat_unit' => "mg",
+				'sulfat_value' => 14.1,
+
+				# unknown nutrient that is not in the taxonomy
+				'en-some-unknown-nutrient' => 1.23,
+				'en-some-unknown-nutrient_100g' => 1.23,
+				'en-some-unknown-nutrient_label' => "Some unknown nutrient",
+				'en-some-unknown-nutrient_unit' => "g",
+				'en-some-unknown-nutrient_value' => 1.23,
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-per-100g',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "100g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"calcium_label" => "Calcium",
+				"calcium_prepared" => 0.118,
+				"calcium_prepared_100g" => 0.118,
+				"calcium_prepared_unit" => "mg",
+				"calcium_prepared_value" => 118,
+
+				"carbohydrates" => 78.9,
+				"carbohydrates_100g" => 78.9,
+				"carbohydrates_prepared" => 9.8,
+				"carbohydrates_prepared_100g" => 9.8,
+				"carbohydrates_prepared_serving" => 9.9,
+				"carbohydrates_prepared_unit" => "g",
+				"carbohydrates_prepared_value" => 9.8,
+				"carbohydrates_unit" => "g",
+				"carbohydrates_value" => 78.9,
+
+				"energy-kcal" => 386,
+				"energy-kcal_100g" => 386,
+				"energy-kcal_prepared" => 72,
+				"energy-kcal_prepared_100g" => 72,
+				"energy-kcal_prepared_unit" => "kcal",
+				"energy-kcal_prepared_value" => 72,
+				"energy-kcal_unit" => "kcal",
+				"energy-kcal_value" => 386,
+				"energy-kcal_value_computed" => 383.8,
+
+				"energy-kj" => 1634,
+				"energy-kj_100g" => 1634,
+				"energy-kj_prepared" => 304,
+				"energy-kj_prepared_100g" => 304,
+				"energy-kj_prepared_unit" => "kJ",
+				"energy-kj_prepared_value" => 304,
+				"energy-kj_unit" => "kJ",
+				"energy-kj_value" => 1634,
+				"energy-kj_value_computed" => 1622.8,
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+
+				"fat" => 3.6,
+				"fat_100g" => 3.6,
+				"fat_prepared" => 1.8,
+				"fat_prepared_100g" => 1.8,
+				"fat_prepared_unit" => "g",
+				"fat_prepared_value" => 1.8,
+				"fat_unit" => "g",
+				"fat_value" => 3.6,
+
+				"fiber" => 7.7,
+				"fiber_100g" => 7.7,
+				"fiber_prepared" => 0.5,
+				"fiber_prepared_100g" => 0.5,
+				"fiber_prepared_modifier" => "\x{003C}",
+				"fiber_prepared_unit" => "g",
+				"fiber_prepared_value" => 0.5,
+				"fiber_unit" => "g",
+				"fiber_value" => 7.7,
+
+				"fruits-vegetables-legumes-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-legumes-estimate-from-ingredients_serving" => 0,
+
+				"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
+
+				"nova-group" => 4,
+				"nova-group_100g" => 4,
+				"nova-group_serving" => 4,
+
+				"nutrition-score-fr" => 9,
+				"nutrition-score-fr_100g" => 9,
+
+				"proteins" => 5.1,
+				"proteins_100g" => 5.1,
+				"proteins_prepared" => 3.6,
+				"proteins_prepared_100g" => 3.6,
+				"proteins_prepared_unit" => "g",
+				"proteins_prepared_value" => 3.6,
+				"proteins_unit" => "g",
+				"proteins_value" => 5.1,
+
+				"salt" => 0.41,
+				"salt_100g" => 0.41,
+				"salt_prepared" => 0.14,
+				"salt_prepared_100g" => 0.14,
+				"salt_prepared_unit" => "g",
+				"salt_prepared_value" => 0.14,
+				"salt_unit" => "g",
+				"salt_value" => 0.41,
+				"salt_modifier" => "\x{007E}",
+
+				"saturated-fat" => 1.6,
+				"saturated-fat_100g" => 1.6,
+				"saturated-fat_prepared" => 1.1,
+				"saturated-fat_prepared_100g" => 1.1,
+				"saturated-fat_prepared_unit" => "g",
+				"saturated-fat_prepared_value" => 1.1,
+				"saturated-fat_unit" => "g",
+				"saturated-fat_value" => 1.6,
+
+				"sodium" => 0.164,
+				"sodium_100g" => 0.164,
+				"sodium_prepared" => 0.056,
+				"sodium_prepared_100g" => 0.056,
+				"sodium_prepared_unit" => "g",
+				"sodium_prepared_value" => 0.056,
+				"sodium_unit" => "g",
+				"sodium_value" => 0.164,
+
+				"sugars" => 75.1,
+				"sugars_100g" => 75.1,
+				"sugars_prepared" => 9.5,
+				"sugars_prepared_100g" => 9.5,
+				"sugars_prepared_unit" => "g",
+				"sugars_prepared_value" => 9.5,
+				"sugars_unit" => "g",
+				"sugars_value" => 75.1,
+
+				"vitamin-c" => 0.15,
+				"vitamin-c_100g" => 0.15,
+				"vitamin-c_label" => "Vitamin C (ascorbic acid)",
+				"vitamin-c_prepared" => 0.011,
+				"vitamin-c_prepared_100g" => 0.011,
+				"vitamin-c_prepared_unit" => "mg",
+				"vitamin-c_prepared_value" => 11,
+				"vitamin-c_unit" => "mg",
+				"vitamin-c_value" => 150,
+
+				"vitamin-d" => 0.000011,
+				"vitamin-d_100g" => 0.000011,
+				"vitamin-d_label" => "Vitamin D",
+				"vitamin-d_prepared" => 7.3e-7,
+				"vitamin-d_prepared_100g" => 7.3e-7,
+				"vitamin-d_prepared_unit" => "µg",
+				"vitamin-d_prepared_value" => 0.73,
+				"vitamin-d_unit" => "µg",
+				"vitamin-d_value" => 11,
+
+				"added-sugars_modifier" => "-",
+				"alcohol_prepared_modifier" => "-",
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-as-sold-100g',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"calcium_label" => "Calcium",
+				"calcium_prepared" => 0.118,
+				"calcium_prepared_100g" => 0.118,
+				"calcium_prepared_unit" => "mg",
+				"calcium_prepared_value" => 118,
+
+				"carbohydrates" => 78.9,
+				"carbohydrates_100g" => 78.9,
+				"carbohydrates_prepared" => 9.8,
+				"carbohydrates_prepared_100g" => 9.8,
+				"carbohydrates_prepared_unit" => "g",
+				"carbohydrates_prepared_value" => 9.8,
+				"carbohydrates_unit" => "g",
+				"carbohydrates_value" => 78.9,
+
+				"energy-kcal" => 386,
+				"energy-kcal_100g" => 386,
+				"energy-kcal_prepared" => 72,
+				"energy-kcal_prepared_100g" => 72,
+				"energy-kcal_prepared_unit" => "kcal",
+				"energy-kcal_prepared_value" => 72,
+				"energy-kcal_unit" => "kcal",
+				"energy-kcal_value" => 386,
+				"energy-kcal_value_computed" => 383.8,
+
+				"energy-kj" => 1634,
+				"energy-kj_100g" => 1634,
+				"energy-kj_prepared" => 304,
+				"energy-kj_prepared_100g" => 304,
+				"energy-kj_prepared_unit" => "kJ",
+				"energy-kj_prepared_value" => 304,
+				"energy-kj_unit" => "kJ",
+				"energy-kj_value" => 1634,
+				"energy-kj_value_computed" => 1622.8,
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+
+				"fat" => 3.6,
+				"fat_100g" => 3.6,
+				"fat_prepared" => 1.8,
+				"fat_prepared_100g" => 1.8,
+				"fat_prepared_unit" => "g",
+				"fat_prepared_value" => 1.8,
+				"fat_unit" => "g",
+				"fat_value" => 3.6,
+
+				"fiber" => 7.7,
+				"fiber_100g" => 7.7,
+				"fiber_prepared" => 0.5,
+				"fiber_prepared_100g" => 0.5,
+				"fiber_prepared_modifier" => "\x{003C}",
+				"fiber_prepared_unit" => "g",
+				"fiber_prepared_value" => 0.5,
+				"fiber_unit" => "g",
+				"fiber_value" => 7.7,
+
+				"fruits-vegetables-legumes-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-legumes-estimate-from-ingredients_serving" => 0,
+
+				"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
+
+				"nova-group" => 4,
+				"nova-group_100g" => 4,
+				"nova-group_serving" => 4,
+
+				"nutrition-score-fr" => 9,
+				"nutrition-score-fr_100g" => 9,
+
+				"proteins" => 5.1,
+				"proteins_100g" => 5.1,
+				"proteins_prepared" => 3.6,
+				"proteins_prepared_100g" => 3.6,
+				"proteins_prepared_unit" => "g",
+				"proteins_prepared_value" => 3.6,
+				"proteins_unit" => "g",
+				"proteins_value" => 5.1,
+
+				"salt" => 0.41,
+				"salt_100g" => 0.41,
+				"salt_prepared" => 0.14,
+				"salt_prepared_100g" => 0.14,
+				"salt_prepared_unit" => "g",
+				"salt_prepared_value" => 0.14,
+				"salt_unit" => "g",
+				"salt_value" => 0.41,
+				"salt_modifier" => "\x{007E}",
+
+				"saturated-fat" => 1.6,
+				"saturated-fat_100g" => 1.6,
+				"saturated-fat_prepared" => 1.1,
+				"saturated-fat_prepared_100g" => 1.1,
+				"saturated-fat_prepared_unit" => "g",
+				"saturated-fat_prepared_value" => 1.1,
+				"saturated-fat_unit" => "g",
+				"saturated-fat_value" => 1.6,
+
+				"sodium" => 0.164,
+				"sodium_100g" => 0.164,
+				"sodium_prepared" => 0.056,
+				"sodium_prepared_100g" => 0.056,
+				"sodium_prepared_unit" => "g",
+				"sodium_prepared_value" => 0.056,
+				"sodium_unit" => "g",
+				"sodium_value" => 0.164,
+
+				"sugars" => 75.1,
+				"sugars_100g" => 75.1,
+				"sugars_prepared" => 9.5,
+				"sugars_prepared_100g" => 9.5,
+				"sugars_prepared_unit" => "g",
+				"sugars_prepared_value" => 9.5,
+				"sugars_unit" => "g",
+				"sugars_value" => 75.1,
+
+				"vitamin-c" => 0.15,
+				"vitamin-c_100g" => 0.15,
+				"vitamin-c_label" => "Vitamin C (ascorbic acid)",
+				"vitamin-c_prepared" => 0.011,
+				"vitamin-c_prepared_100g" => 0.011,
+				"vitamin-c_prepared_unit" => "mg",
+				"vitamin-c_prepared_value" => 11,
+				"vitamin-c_unit" => "mg",
+				"vitamin-c_value" => 150,
+
+				"vitamin-d" => 0.000011,
+				"vitamin-d_100g" => 0.000011,
+				"vitamin-d_label" => "Vitamin D",
+				"vitamin-d_prepared" => 7.3e-7,
+				"vitamin-d_prepared_100g" => 7.3e-7,
+				"vitamin-d_prepared_unit" => "µg",
+				"vitamin-d_prepared_value" => 0.73,
+				"vitamin-d_unit" => "µg",
+				"vitamin-d_value" => 11,
+
+				"added-sugars_modifier" => "-",
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-no-nutrition-data',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"no_nutrition_data" => "on",
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"calcium_label" => "Calcium",
+				"calcium_prepared" => 0.118,
+				"calcium_prepared_100g" => 0.118,
+				"calcium_prepared_unit" => "mg",
+				"calcium_prepared_value" => 118,
+
+				"energy-kcal" => 386,
+				"energy-kcal_100g" => 386,
+				"energy-kcal_prepared" => 72,
+				"energy-kcal_prepared_100g" => 72,
+				"energy-kcal_prepared_unit" => "kcal",
+				"energy-kcal_prepared_value" => 72,
+				"energy-kcal_unit" => "kcal",
+				"energy-kcal_value" => 386,
+				"energy-kcal_value_computed" => 383.8,
+
+				"energy-kj" => 1634,
+				"energy-kj_100g" => 1634,
+				"energy-kj_prepared" => 304,
+				"energy-kj_prepared_100g" => 304,
+				"energy-kj_prepared_unit" => "kJ",
+				"energy-kj_prepared_value" => 304,
+				"energy-kj_unit" => "kJ",
+				"energy-kj_value" => 1634,
+				"energy-kj_value_computed" => 1622.8,
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+
+				"fruits-vegetables-legumes-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-legumes-estimate-from-ingredients_serving" => 0,
+
+				"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
+
+				"added-sugars_modifier" => "-",
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-prepared-serving',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition_data_prepared" => "on",
+			"nutrition_data_prepared_per" => "serving",
+			"nutriments" => {
+				"calcium_label" => "Calcium",
+				"calcium_prepared" => 0.118,
+				"calcium_prepared_100g" => 0.118,
+				"calcium_prepared_serving" => 0.295,
+				"calcium_prepared_unit" => "mg",
+				"calcium_prepared_value" => 118,
+
+				"energy-kcal" => 386,
+				"energy-kcal_100g" => 386,
+				"energy-kcal_prepared" => 72,
+				"energy-kcal_prepared_100g" => 72,
+				"energy-kcal_prepared_serving" => 180,
+				"energy-kcal_prepared_unit" => "kcal",
+				"energy-kcal_prepared_value" => 72,
+				"energy-kcal_unit" => "kcal",
+				"energy-kcal_value" => 386,
+				"energy-kcal_value_computed" => 383.8,
+
+				"energy-kj" => 1634,
+				"energy-kj_100g" => 1634,
+				"energy-kj_prepared" => 304,
+				"energy-kj_prepared_100g" => 304,
+				"energy-kj_prepared_serving" => 760,
+				"energy-kj_prepared_unit" => "kJ",
+				"energy-kj_prepared_value" => 304,
+				"energy-kj_unit" => "kJ",
+				"energy-kj_value" => 1634,
+				"energy-kj_value_computed" => 1622.8,
+
+				"energy" => 1634,
+				"energy_100g" => 1634,
+				"energy_prepared" => 304,
+				"energy_prepared_100g" => 304,
+				"energy_prepared_serving" => 760,
+				"energy_prepared_unit" => "kJ",
+				"energy_prepared_value" => 304,
+				"energy_unit" => "kJ",
+				"energy_value" => 1634,
+
+				"fruits-vegetables-legumes-estimate-from-ingredients_100g" => 0,
+				"fruits-vegetables-legumes-estimate-from-ingredients_serving" => 0,
+
+				"added-sugars_modifier" => "-",
+			},
+		}
+	],
+
+	[
+		'1002-to-1003-new-nutrition-schema-no-serving-quantity',
+		1003,
+		{
+			"schema_version" => 1002,
+			"serving_quantity" => undef,
+			"serving_quantity_unit" => undef,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "serving",
+			"nutrition_data_prepared" => "",
+			"nutriments" => {
+				"alcohol" => 0,
+				"alcohol_serving" => 0,
+				"alcohol_unit" => "% vol",
+				"alcohol_value" => 0,
+
+				"carbohydrates" => 100,
+				"carbohydrates_serving" => 100,
+				"carbohydrates_unit" => "g",
+				"carbohydrates_value" => 100,
+
+				"energy-kcal" => 400,
+				"energy-kcal_serving" => 400,
+				"energy-kcal_unit" => "kcal",
+				"energy-kcal_value" => 400,
+				"energy-kcal_value_computed" => 400,
+
+				"energy-kj" => 1700,
+				"energy-kj_serving" => 1700,
+				"energy-kj_unit" => "kJ",
+				"energy-kj_value" => 1700,
+				"energy-kj_value_computed" => 1700,
+
+				"energy" => 1700,
+				"energy_serving" => 1700,
+				"energy_unit" => "kJ",
+				"energy_value" => 1700,
+
+				"fat" => 0,
+				"fat_serving" => 0,
+				"fat_unit" => "g",
+				"fat_value" => 0,
+
+				"fiber" => 0,
+				"fiber_serving" => 0,
+				"fiber_unit" => "g",
+				"fiber_value" => 0,
+
+				"sugars" => 100,
+				"sugars_serving" => 100,
+				"sugars_unit" => "g",
+				"sugars_value" => 100
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-no_nutrition_data_on_packaging',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"no_nutrition_data" => "on",
+			"nutrition" => {
+				"aggregated_set" => undef,
+				"nutrient_sets" => []
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-no_nutrition',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+		}
+	],
+
+	[
+		'1003-to-1002-no-aggregated-set-input-set-per-serving-without-serving-quantity',
+		1002,
+		{
+			"schema_version" => 1003,
+			"nutrition" => {
+				"nutrient_sets" => [
+					{
+						"nutrients" => {
+							"carbohydrates" => {
+								"source" => "manufacturer",
+								"source_per" => "serving",
+								"unit" => "g",
+								"value" => 100,
+								"value_string" => "100"
+							},
+						},
+						"per" => "serving",
+						"preparation" => "as_sold"
+					}
+				]
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-prepared-serving-nutrients',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition" => {
+				"aggregated_set" => {
+					"nutrients" => {
+						"alcohol" => {
+							"source" => "packaging",
+							"source_per" => "100g",
+							"unit" => "% vol",
+							"value" => 0,
+							"value_string" => "0"
+						},
+						"carbohydrates" => {
+							"source" => "manufacturer",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 100,
+							"value_string" => "100"
+						},
+						"energy" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kJ",
+							"value" => 1700,
+							"value_string" => "1700"
+						},
+						"energy-kcal" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kcal",
+							"value" => 400,
+							"value_string" => "400"
+						},
+						"energy-kj" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kJ",
+							"value" => 1700,
+							"value_string" => "1700"
+						},
+						"fat" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 5,
+							"value_string" => "5"
+						},
+						"fiber" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 0,
+							"value_string" => "0",
+							"modifier" => "\x{007E}"
+						},
+						"sugars" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 100,
+							"value_string" => "100"
+						},
+
+					},
+					"per" => "serving",
+					"per_quantity" => 250,
+					"per_unit" => "g",
+					"preparation" => "prepared"
+				},
+				"nutrient_sets" => []
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-as-sold-100g-nutrients',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition" => {
+				"aggregated_set" => {
+					"nutrients" => {
+						"alcohol" => {
+							"source" => "packaging",
+							"source_per" => "100g",
+							"unit" => "% vol",
+							"value" => 0,
+							"value_string" => "0"
+						},
+						"carbohydrates" => {
+							"source" => "manufacturer",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 40,
+							"value_string" => "40"
+						},
+						"energy" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kJ",
+							"value" => 680,
+							"value_string" => "680"
+						},
+						"energy-kcal" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kcal",
+							"value" => 160,
+							"value_string" => "160"
+						},
+						"energy-kj" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "kJ",
+							"value" => 680,
+							"value_string" => "680"
+						},
+						"fat" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 2,
+							"value_string" => "2",
+							"modifier" => "\x{003C}"
+						},
+						"fiber" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 0,
+							"value_string" => "0"
+						},
+						"sugars" => {
+							"source" => "packaging",
+							"source_per" => "serving",
+							"unit" => "g",
+							"value" => 40,
+							"value_string" => "40"
+						},
+
+					},
+					"per" => "100g",
+					"per_quantity" => 100,
+					"per_unit" => "g",
+					"preparation" => "as_sold"
+				},
+				"nutrient_sets" => []
+			},
+		}
+	],
+
+	[
+		'1003-to-1002-no-aggregated-set',
+		1002,
+		{
+			"schema_version" => 1003,
+			"serving_quantity" => 250,
+			"serving_quantity_unit" => "g",
+			"nutrition" => {
+				"aggregated_set" => {},
+				"nutrient_sets" => [
+					{
+						"nutrients" => {
+							"alcohol" => {
+								"unit" => "% vol",
+								"value" => 0,
+								"value_string" => "0"
+							},
+							"carbohydrates" => {
+								"unit" => "g",
+								"value" => 40,
+								"value_string" => "40"
+							},
+							"energy" => {
+								"unit" => "kJ",
+								"value" => 680,
+								"value_string" => "680"
+							},
+							"energy-kcal" => {
+								"unit" => "kcal",
+								"value" => 160,
+								"value_string" => "160"
+							},
+							"energy-kj" => {
+								"unit" => "kJ",
+								"value" => 680,
+								"value_string" => "680"
+							},
+							"fat" => {
+								"unit" => "g",
+								"value" => 2,
+								"value_string" => "2"
+							},
+							"fiber" => {
+								"unit" => "g",
+								"value" => 0,
+								"value_string" => "0"
+							},
+							"sugars" => {
+								"unit" => "g",
+								"value" => 40,
+								"value_string" => "40"
+							},
+						},
+						"per" => "100g",
+						"per_quantity" => 100,
+						"per_unit" => "g",
+						"preparation" => "as_sold",
+						"source" => "packaging",
+						"unspecified_nutrients" => ["added-sugars"]
+					}
+				]
+			},
+		}
+	],
 
 	[
 		'1002-to-1001-change-images-object',
@@ -498,6 +1463,141 @@ my @tests = (
 			code => "093270067481501",
 		}
 	],
+
+	[
+		'1003-to-1004-new-tags-schema',
+		1004,
+		{
+			schema_version => 1003,
+			lc => "fr",
+			# not a writable field, should be kept
+			added_countries_tags => [],
+			# we will keep the additives_original_tags / ingredients_original_tags for now
+			additives_original_tags => [],
+			additives_tags => [],
+			# allergens are writable fields, they should be converted to the new tags schema
+			# and old fields like "allergens", "allergens_imported", "allergens_lc" etc. should be removed.
+			allergens => "en:peanuts",
+			# allergens_from_ingredients and allergens_from_user should be refactored at some point to be more consistent with the new tags schema,
+			# but for now we will keep them as they are
+			allergens_from_ingredients => "en:peanuts, CACAHUETES , CACAHUETES",
+			allergens_from_user => "(fr) en:peanuts",
+			allergens_hierarchy => ["en:peanuts"],
+			allergens_imported => "Arachides",
+			allergens_lc => "fr",
+			allergens_tags => ["en:peanuts"],
+			# We might want to keep "brands" as it's easy for apps to use and display, and brands are not translated anyway
+			brands => "Jardin Bio étic",
+			brands_hierarchy => ["xx:Jardin Bio étic"],
+			brands_imported => "Jardin bio",
+			brands_lc => "xx",
+			brands_old => "Jardin Bio,Léa Nature",
+			brands_tags => ["xx:jardin-bio-etic"],
+			# Categories will be removed, as it could be in any language, so not useful for apps
+			categories =>
+				"Aliments et boissons à base de végétaux,Aliments d'origine végétale,Légumineuses et dérivés,Petit-déjeuners,Produits à tartiner,Fruits à coques et dérivés,Pâtes à tartiner végétales,Produits à tartiner sucrés,Purées d'oléagineux,Beurres de légumineuses,Pâtes à tartiner,Beurres de fruits à coques,Beurres de cacahuètes,Catégorie inconnue en français",
+			# categories_hierarchy will become categories_tags in the new schema
+			# we include a category with accents that is not in the taxonomy
+			categories_hierarchy => [
+				"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+				"en:legumes-and-their-products", "en:breakfasts",
+				"en:spreads", "en:nuts-and-their-products",
+				"en:plant-based-spreads", "en:sweet-spreads",
+				"en:oilseed-purees", "en:legume-butters",
+				"fr:pates-a-tartiner", "en:nut-butters",
+				"en:peanut-butters", "fr:Catégorie inconnue en français"
+			],
+			# Categories tags are normalized (including unrecognized entries that are lowercased / unaccented)
+			categories_tags => [
+				"en:plant-based-foods-and-beverages", "en:plant-based-foods",
+				"en:legumes-and-their-products", "en:breakfasts",
+				"en:spreads", "en:nuts-and-their-products",
+				"en:plant-based-spreads", "en:sweet-spreads",
+				"en:oilseed-purees", "en:legume-butters",
+				"fr:pates-a-tartiner", "en:nut-butters",
+				"en:peanut-butters", "fr:categorie-inconnue-en-francais"
+			],
+			categories_imported => "Petit-déjeuners, Produits à tartiner, Produits à tartiner sucrés, Pâtes à tartiner",
+			categories_lc => "fr",
+			categories_old =>
+				"Plant-based foods and beverages,Plant-based foods,Legumes and their products,Breakfasts,Spreads,Nuts and their products,Plant-based spreads,Sweet spreads,Oilseed purees,Legume butters,fr:Pâtes à tartiner,Nut butters,Peanut butters",
+			# not directly writable, should be kept as is
+			ingredients_analysis_tags => ["en:palm-oil-free", "en:maybe-vegan", "en:vegetarian"],
+			ingredients_tags => [
+				"en:lactic-ferments", "en:ferment", "en:microbial-culture", "en:rennet",
+				"en:enzyme", "en:coagulating-enzyme", "en:salt"
+			],
+			# stores and purchase places have normalized values (without en: prefix) for stores_tags and purchase_places_tags
+			# and the source value is in "stores" and "purchase_places" fields
+			stores => "Intermarché, Biocoop, Trader Joe's",
+			stores_tags => ["intermarche", "biocoop", "trader-joe-s"],
+			purchase_places => "Saint-Maur des Fossés, Paris, France",
+			purchase_places_tags => ["saint-maur-des-fosses", "paris", "france"]
+		},
+	],
+
+	[
+		'1004-to-1003-new-tags-schema',
+		1003,
+		{
+			schema_version => 1004,
+			categories_tags => ["en:coffees", "de:Toutafé", "de:alonbon"],
+			tags_sources => {
+				categories => {
+					packaging => {
+						last_updated_t => 1775063799,
+						tags => ["de:Toutafé", "de:alonbon"]
+					},
+					manufacturer => {
+						last_updated_t => 1775063800,
+						tags => ["en:coffees"]
+					}
+				},
+			}
+		}
+	],
+
+	[
+		'1004-to-1003-categories',
+		1003,
+		{
+			schema_version => 1004,
+			brands => "Some brand",
+			brands_tags => ["xx:Some brand"],
+			categories_tags => ["en:coffees", "de:Toutafé", "de:alonbon", "en:Something Unrecognized"],
+			labels_tags => [
+				"en:vegetarian", "en:fair-trade",
+				"en:organic", "en:fairtrade-international",
+				"en:vegan", "en:max-havelaar",
+				"en:Something Unrecognized"
+			],
+			tags_sources => {
+				brands => {
+					manufacturer => {
+						last_updated_t => 1775147439,
+						tags => ["xx:Some brand"]
+					}
+				},
+				labels => {
+					manufacturer => {
+						last_updated_t => 1775147440,
+						tags => [
+							"en:vegetarian", "en:fair-trade",
+							"en:organic", "en:fairtrade-international",
+							"en:vegan", "en:max-havelaar",
+							"en:Something Unrecognized"
+						]
+					}
+				},
+				categories => {
+					manufacturer => {
+						last_updated_t => 1775147441,
+						tags => ["en:coffees", "de:Toutafé", "de:alonbon", "en:Something Unrecognized"]
+					}
+				}
+			}
+		}
+	]
 );
 
 foreach my $test_ref (@tests) {
@@ -507,6 +1607,79 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[2];
 
 	convert_product_schema($product_ref, $target_schema_version);
+	normalize_product_for_test_comparison($product_ref);
+
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# Also pretend to be the pro platform to test that we set the correct source
+
+$server_options{producers_platform} = 1;
+
+my @producers_platform_tests = (
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-org-some-producer',
+		'org-some-producer',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-org-database-usda',
+		'org-database-usda',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-org-label-some-label',
+		'org-label-some-label',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+	[
+		'1002-to-1003-new-nutrition-schema-pro-platform-user-some-user',
+		'user-some-user',
+		1003,
+		{
+			"schema_version" => 1002,
+			"nutrition_data" => "on",
+			"nutrition_data_per" => "100g",
+			"nutriments" => {
+				"energy-kcal_100g" => 386,
+			},
+		}
+	],
+);
+
+foreach my $test_ref (@producers_platform_tests) {
+
+	my $testid = $test_ref->[0];
+	$Org_id = $test_ref->[1];
+	my $target_schema_version = $test_ref->[2];
+	my $product_ref = $test_ref->[3];
+
+	convert_product_schema($product_ref, $target_schema_version);
+	normalize_product_for_test_comparison($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

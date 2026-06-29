@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -34,7 +34,8 @@ sub new ($class) {
 		`touch $filename`;
 	}
 	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
-	my $checkpoint;
+	$checkpoint_file->autoflush;
+	my $checkpoint = '';
 	my $is_resume = first_index {$_ eq "resume"} @ARGV;
 	if ($is_resume > -1) {
 		seek($checkpoint_file, 0, 0);
@@ -45,6 +46,7 @@ sub new ($class) {
 	my $log_filename = "$BASE_DIRS{CACHE_TMP}/$script_name.log";
 	my $mode = ($is_resume > -1 ? '>>' : '>');
 	open(my $log_file, $mode, $log_filename);
+	$log_file->autoflush;
 
 	my $self = {
 		checkpoint_file => $checkpoint_file,
@@ -79,6 +81,7 @@ sub log ($self, $message) {
 
 sub DESTROY {
 	my ($self) = @_;
+	$self->log("Finished");
 	close $self->{checkpoint_file};
 	close $self->{log_file};
 	return;

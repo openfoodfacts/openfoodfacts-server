@@ -6,7 +6,7 @@
         {
             "element_type": "panel",
             "panel_element": {
-                "panel_id": "simplified_health_card",
+                "panel_id": "health_card_simplified",
             },
         },
         [% END %]
@@ -14,7 +14,7 @@
         {
             "element_type": "panel",
             "panel_element": {
-                "panel_id": "simplified_environment_card",
+                "panel_id": "environment_card_simplified",
             },
         },
         [% END %]

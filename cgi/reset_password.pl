@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Images qw/:all/;
@@ -53,7 +53,9 @@ if (get_oidc_implementation_level() >= 3) {
 	my $redirect
 		= $oidc_configuration->{issuer}
 		. '/login-actions/reset-credentials?client_id='
-		. uri_escape($oidc_options{client_id});
+		. uri_escape($oidc_options{client_id})
+		. '&kc_locale='
+		. $lc;
 
 	redirect_to_url($request_ref, 302, $redirect);
 }
