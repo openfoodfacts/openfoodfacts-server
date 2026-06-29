@@ -47207,6 +47207,7 @@ de: Nektarine
 el: νεκταρίνι
 eo: nektarino
 es: melocotonero, nectarina, pelón
+et: nektariin
 eu: brinoi
 fa: شلیل
 fi: nektariini
@@ -47214,7 +47215,7 @@ fr: nectarine
 ga: neachtairín
 gv: naghtyreen
 he: נקטרינה
-hr: nektarina
+hr: nektarina, nektarine
 hu: kopaszbarack, nektarin, csupaszbarack
 hy: նեկտարին
 it: nettarina, pesca noce
@@ -47222,6 +47223,7 @@ ja: ネクタリン
 ka: ვაშლატამა
 kv: нектарин
 la: prunus persica var. nucipersica
+lb: Nektarinn
 lt: nektarinas, nektarininis abrikosas
 lv: nektarīns
 mt: nuċipriska
@@ -47231,6 +47233,7 @@ pl: nektarynka
 pt: nectarina
 ro: nectarin
 ru: нектарин
+se: nektariidna
 sk: nektárinka, broskyňa obyčajná, broskyňa obyčajná hladká
 sl: nektarina
 sv: nektarin
@@ -47239,13 +47242,14 @@ tr: nektarin
 uk: нектарин
 vi: du đào
 zh: 桃駁李
-#aeb:خوخ
-#koi:нектарин
-#lbe:нектарин
-#mrj:нектарин
-#scn:pèrsica
-#udm:нектарин
-#yue:桃駁李
+#aeb: خوخ
+#koi: нектарин
+#lbe: нектарин
+#mrj: нектарин
+#scn: pèrsica
+#udm: нектарин
+#yue: 桃駁李
+agribalyse_proxy_food_code:en: 13030
 ciqual_proxy_food_code:en: 13030
 ciqual_proxy_food_name:en: Nectarine, pulp and peel, raw
 ciqual_proxy_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
@@ -47261,14 +47265,31 @@ en: raw nectarine
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
 
-< en:nectarine
+< en: raw nectarine
 en: raw nectarine pulp and skin
 ciqual_food_code:en: 13030
 ciqual_food_name:en: Nectarine, pulp and peel, raw
 ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
 
 < en:nectarine
+en: nectarine pulp
 de: Nektarinenmark
+
+##################### Nectarine cultivars/varieties/types
+
+< en: nectarine
+en: Garofa nectarine, nectarine Garofa
+xx: Garofa
+da: Garofa-nektarin
+sv: Garofa-nektarin, nektariner Garofa
+comment:en: CPVO patent: GAROFA-cov CEE Nº 2003/1892
+description:en: Yellow-fleshed early season nectarine variety.
+
+###################################################################################################
+#
+#                                Ōhelo berry
+#
+###################################################################################################
 
 < en:fruit
 en: ōhelo berry, ōheloberries, oheloberries
