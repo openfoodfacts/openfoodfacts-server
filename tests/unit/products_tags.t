@@ -153,7 +153,7 @@ is(
 ) or diag Dumper $product_ref->{categories_tags};
 
 is($product_ref->{categories},
-	"Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Frutas tropicales, Manzanas, Plátanos, Frutas del bosque, Ciruelas, Frambuesas, Fresas, naranjas, limones"
+	"Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Ciruelas, Frutas tropicales, Manzanas, Plátanos, Frutas del bosque, Frambuesas, Fresas, naranjas, limones"
 );
 
 add_tags_to_field($product_ref, "it", "categories", "bogus, mele");
