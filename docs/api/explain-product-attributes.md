@@ -86,7 +86,7 @@ Attributes keys:
 
 Apps can request Product Attributes through API queries (`/api/v3/product` or `/api/v2/search`) by including `attribute_groups` or `attribute_groups_[language code]` (or `attribute_groups_data` to get only the machine-readable data) in the `fields` parameter.
 
-#### Product Attributes with Parameters (e.g. Unwanted/Banned ingredients)
+#### Product Attributes with Parameters (e.g. Unwanted ingredients)
 
 In September 2025, we introduced support for attributes that can be configured with parameters. The first is the **Unwanted ingredients** attribute (also referred to as "banned ingredients" in cosmetics contexts) that takes a list of canonical ingredients as a parameter.
 
