@@ -88,7 +88,7 @@ Apps can request Product Attributes through API queries (`/api/v3/product` or `/
 
 #### Product Attributes with Parameters (e.g. Unwanted ingredients)
 
-In September 2025, we introduced support for attributes that can be configured with parameters. The first is the **Unwanted ingredients** attribute (also referred to as "banned ingredients" in cosmetics contexts) that takes a list of canonical ingredients as a parameter.
+In September 2025, we introduced support for attributes that can be configured with parameters. The first is the **Unwanted ingredients** attribute that takes a list of canonical ingredients as a parameter.
 
 This feature is available on both:
 - **Open Food Facts** (food products): for filtering out unwanted ingredients based on dietary preferences, allergies, or personal choices
