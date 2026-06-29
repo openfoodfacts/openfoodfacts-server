@@ -110,7 +110,7 @@
       {
          "ciqual_food_code" : "13021",
          "ecobalyse_code" : "5c5663f5-3075-4814-92ff-1f65c99ad518",
-         "id" : "en:kiwi",
+         "id" : "en:kiwifruit",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0922309027777786,
          "percent_max" : 10,
@@ -141,7 +141,7 @@
          "text" : "unknown_fruit"
       },
       {
-         "ciqual_food_code" : "13025",
+         "ciqual_proxy_food_code" : "13025",
          "ecobalyse_code" : "db0e5f44-34b4-4160-b003-77c828d75e60",
          "id" : "en:mango",
          "is_in_taxonomy" : 1,
@@ -162,7 +162,7 @@
          "text" : "unknown_fruit2"
       },
       {
-         "ciqual_food_code" : "13030",
+         "ciqual_proxy_food_code" : "13030",
          "id" : "en:nectarine",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.00288221571180713,
@@ -243,7 +243,7 @@
       "en:grape",
       "en:bilberry",
       "en:jackfruit",
-      "en:kiwi",
+      "en:kiwifruit",
       "en:lemon",
       "en:unknown_fruit",
       "en:mango",
@@ -270,7 +270,7 @@
       "en:bilberry",
       "en:blueberry",
       "en:jackfruit",
-      "en:kiwi",
+      "en:kiwifruit",
       "en:lemon",
       "en:citrus-fruit",
       "en:unknown_fruit",
