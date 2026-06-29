@@ -4,31 +4,23 @@
    "product" : {
       "_id" : "1234567890012",
       "_keywords" : [
+         "and",
+         "beverage",
          "breakfast",
          "cereal",
          "english",
          "fair",
+         "food",
          "name",
+         "plant-based",
+         "potatoe",
          "product",
+         "their",
          "trade",
          "updated"
       ],
       "added_countries_tags" : [],
-      "allergens" : "",
-      "allergens_from_ingredients" : "",
-      "allergens_from_user" : "(en) ",
-      "allergens_hierarchy" : [],
       "allergens_tags" : [],
-      "categories" : "Breakfast cereals",
-      "categories_hierarchy" : [
-         "en:plant-based-foods-and-beverages",
-         "en:plant-based-foods",
-         "en:breakfasts",
-         "en:cereals-and-potatoes",
-         "en:cereals-and-their-products",
-         "en:breakfast-cereals"
-      ],
-      "categories_lc" : "en",
       "categories_properties" : {
          "agribalyse_proxy_food_code:en" : "32135",
          "ciqual_food_code:en" : "32003"
@@ -570,11 +562,6 @@
       ],
       "interface_version_created" : "20190830",
       "interface_version_modified" : "20190830",
-      "labels" : "Fair Trade",
-      "labels_hierarchy" : [
-         "en:fair-trade"
-      ],
-      "labels_lc" : "en",
       "labels_tags" : [
          "en:fair-trade"
       ],
@@ -721,23 +708,8 @@
       "product_type" : "food",
       "removed_countries_tags" : [],
       "rev" : 3,
-      "schema_version" : 1003,
+      "schema_version" : 1004,
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
-      "states_hierarchy" : [
-         "en:to-be-completed",
-         "en:nutrition-facts-to-be-completed",
-         "en:ingredients-to-be-completed",
-         "en:expiration-date-to-be-completed",
-         "en:packaging-code-to-be-completed",
-         "en:characteristics-to-be-completed",
-         "en:origins-to-be-completed",
-         "en:categories-completed",
-         "en:brands-to-be-completed",
-         "en:packaging-to-be-completed",
-         "en:quantity-to-be-completed",
-         "en:product-name-completed",
-         "en:photos-to-be-uploaded"
-      ],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
@@ -753,10 +725,36 @@
          "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
-      "traces" : "",
-      "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
-      "traces_hierarchy" : [],
+      "tags_sources" : {
+         "allergens" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
+         },
+         "categories" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:breakfast-cereals"
+               ]
+            }
+         },
+         "labels" : {
+            "packaging" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : [
+                  "en:fair-trade"
+               ]
+            }
+         },
+         "traces" : {
+            "ingredients" : {
+               "last_updated_t" : "--ignore--",
+               "tags" : []
+            }
+         }
+      },
       "traces_tags" : [],
       "weighers_tags" : []
    },
