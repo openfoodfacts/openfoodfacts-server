@@ -147,7 +147,7 @@ To help users identify ingredients to flag as unwanted/banned, you can use the *
 curl "https://world.openfoodfacts.org/api/v3/product/3017620422003?fields=attribute_groups&attribute_unwanted_ingredients_tags=en:garlic,en:kiwi"
 ```
 
-**Example 2: Checking cosmetic products for banned ingredients**
+**Example 2: Checking cosmetic products for unwanted ingredients**
 
 ```bash
 # Check a cosmetic product on Open Beauty Facts
