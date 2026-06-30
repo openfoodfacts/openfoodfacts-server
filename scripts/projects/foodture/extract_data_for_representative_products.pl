@@ -43,41 +43,44 @@ use Text::CSV;
 # - we then extract / process the needed data to output a new CSV file containing representative products
 
 my @countries = qw/
-Austria
-Belgium
-Bulgaria
-Croatia
-Cyprus
-Czechia
-Denmark
-Estonia
-Finland
-France
-Germany
-Greece
-Hungary
-Ireland
-Italy
-Latvia
-Lithuania
-Luxembourg
-Malta
-Montenegro
-Netherlands
-Norway
-Poland
-Portugal
-Romania
-Serbia
-Slovakia
-Slovenia
-Spain
-Sweden
-Switzerland
-UK
-/;
+	Austria
+	Belgium
+	Bulgaria
+	Croatia
+	Cyprus
+	Czechia
+	Denmark
+	Estonia
+	Finland
+	France
+	Germany
+	Greece
+	Hungary
+	Ireland
+	Italy
+	Latvia
+	Lithuania
+	Luxembourg
+	Malta
+	Montenegro
+	Netherlands
+	Norway
+	Poland
+	Portugal
+	Romania
+	Serbia
+	Slovakia
+	Slovenia
+	Spain
+	Sweden
+	Switzerland
+	UK
+	/;
 
-my %countries_names = map {canonicalize_taxonomy_tag('en', 'countries', $_) => display_taxonomy_tag('en', 'countries', canonicalize_taxonomy_tag('en', 'countries', $_))} @countries;
+my %countries_names = map {
+	canonicalize_taxonomy_tag('en', 'countries', $_) =>
+		display_taxonomy_tag('en', 'countries', canonicalize_taxonomy_tag('en', 'countries', $_))
+} @countries;
 my @countries_tags = sort keys %countries_names;
 
 # Languages to output ingredients in
@@ -96,7 +99,8 @@ my %product_data;
 my %ingredients_in_taxonomy = ();
 
 # Accumulate ingredient percentages across all products
-my %all_ingredients_sum = ();
+my %all_ingredients_quantity_sum = ();
+my %all_ingredients_percent_sum = ();
 my %all_ingredients_count = ();    # number of products each ingredient appears in
 
 # function to decide if we should refresh some products
@@ -128,16 +132,19 @@ sub decide_if_we_should_refetch_product {
 
 # helper to flatten ingredients
 sub collect_ingredients {
-	my ($ingredient_ref, $map) = @_;
+	my ($ingredient_ref, $ingredients_percent_ref, $ingredients_quantity_ref) = @_;
 	return unless ref $ingredient_ref eq 'HASH';
 	if (defined $ingredient_ref->{id}) {
 		my $id = $ingredient_ref->{id};
 		my $pct = $ingredient_ref->{percent} // $ingredient_ref->{percent_estimate} // 0;
+		my $quantity = $ingredient_ref->{quantity_estimate} // 0;
 		$ingredients_in_taxonomy{$id} = $ingredient_ref->{is_in_taxonomy};
-		$map->{$id} += $pct if $pct;
+		$ingredients_percent_ref->{$id} += $pct;
+		$ingredients_quantity_ref->{$id} += $quantity;
 	}
 	if (ref $ingredient_ref->{ingredients} eq 'ARRAY') {
-		collect_ingredients($_, $map) for @{$ingredient_ref->{ingredients}};
+		collect_ingredients($_, $ingredients_percent_ref, $ingredients_quantity_ref)
+			for @{$ingredient_ref->{ingredients}};
 	}
 }
 
@@ -168,10 +175,12 @@ while (<$RANK>) {
 	my $country_tag = canonicalize_taxonomy_tag('en', 'countries', $country);
 	my $category_tag = canonicalize_taxonomy_tag('en', 'categories', $category);
 	$ranked{$country_tag}{$category_tag} = [$code, $recent_scans];
+
 	if (not exists $categories_agb{$category_tag}) {
 		$categories_agb{$category_tag} = get_inherited_property("categories", $category_tag, "agribalyse_food_code:en");
 		if (not defined $categories_agb{$category_tag}) {
-			$categories_agb_proxy{$category_tag} = get_inherited_property("categories", $category_tag, "agribalyse_proxy_food_code:en");
+			$categories_agb_proxy{$category_tag}
+				= get_inherited_property("categories", $category_tag, "agribalyse_proxy_food_code:en");
 		}
 	}
 }
@@ -188,19 +197,20 @@ open my $OUT, '>:encoding(UTF-8)', $out_file or die "Cannot write $out_file: $!\
 my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 	or die "Cannot create CSV writer: " . Text::CSV->error_diag();
 my @hdr = (
-	"L1", "L2", "Food Product L7", "Segmentation OFF", "off_category_id", "Batch 1?",
-	"Country", 
-	"off_country_id", 
-	"category_exists_in_taxonomy",
-	"agribalyse_code", "agribalyse_proxy_code",
-	"recent_scans",
+	"L1", "L2",
+	"Food Product L7", "Segmentation OFF",
+	"off_category_id", "Batch 1?",
+	"Country", "off_country_id",
+	"category_exists_in_taxonomy", "agribalyse_code",
+	"agribalyse_proxy_code", "recent_scans",
 	"url", "api_url",
 	"code", "product_name",
-	"brands", "lang",
-	"ingredients_lc", "ingredients_text",
-	(map {"ingredients_text_$_"} @ingredient_languages), "image_url",
-	"image_ingredients_url", "image_nutrition_url",
-	"image_packaging_url"
+	"brands", "quantity",
+	"product_quantity", "product_quantity_unit",
+	"lang", "ingredients_lc",
+	"ingredients_text", (map {"ingredients_text_$_"} @ingredient_languages),
+	"image_url", "image_ingredients_url",
+	"image_nutrition_url", "image_packaging_url"
 );
 
 # ingredient columns (top 10 ingredients by quantity)
@@ -210,12 +220,15 @@ for my $i (1 .. 10) {
 		push @ingredient_languages_cols, "ingredient_${l}_$i";
 	}
 	push @hdr, "ingredient_id_$i", "ingredient_exists_in_taxonomy_$i", @ingredient_languages_cols,
-		"ingredient_parents_$i", "ingredient_percent_$i";
+		"ingredient_parents_$i", "ingredient_quantity_$i", "ingredient_percent_$i";
 }
+
+push @hdr, "ingredients_top_10_total_quantity",
+	"ingredients_top_10_total_percent";    # sum of top 10 ingredients percentages
 
 # packaging columns (first five components)
 for my $j (1 .. 5) {
-	for my $f (qw(number_of_units shape material quantity_per_unit)) {
+	for my $f (qw(number_of_units shape material quantity_per_unit weight_measured)) {
 		push @hdr, "packaging_${j}_$f";
 	}
 }
@@ -253,7 +266,7 @@ while (<$LIST>) {
 			my $product_ref = {};
 
 			# If we have the --only-output-codes option, don't fetch product data
-			unless ($ARGV[0] eq '--only-output-codes') {
+			unless ((defined $ARGV[0]) and ($ARGV[0] eq '--only-output-codes')) {
 
 				# ensure product data fetched
 				unless (exists $product_data{$code}) {
@@ -265,6 +278,7 @@ while (<$LIST>) {
 						close $cf;
 						$product_data{$code} = decode_json($json);
 						decide_if_we_should_refetch_product($code);
+						print STDERR "Fetched product $code from cache\n";
 					}
 
 					if (not defined $product_data{$code}) {
@@ -272,7 +286,8 @@ while (<$LIST>) {
 						if ($resp->is_success) {
 							my $data = decode_json($resp->decoded_content);
 							$product_data{$code} = $data;
-							open my $cf, '>:encoding(UTF-8)', $cache_file or warn "Cannot write cache $cache_file: $!\n";
+							open my $cf, '>:encoding(UTF-8)', $cache_file
+								or warn "Cannot write cache $cache_file: $!\n";
 							print $cf encode_json($data);
 							close $cf;
 						}
@@ -301,50 +316,74 @@ while (<$LIST>) {
 			my $img_pack = $product_ref->{image_packaging_url} // '';
 
 			my @row = (
-				$l1, $l2, $l7, $segmentation, $category_tag, $batch1, $countries_names{$country_tag} // '', $country_tag,
-				$exists_in_taxonomy || 0, 
-				$categories_agb{$category_tag} || '',
-				$categories_agb_proxy{$category_tag} || '',
-				$recent_scans, $url, $api_url,
-				$code, $name, $brands, $lang,
-				$ingredients_lc, $ingredients_txt, @ingredients_text_lc, $img_url,
-				$img_ing, $img_nut, $img_pack
+				$l1, $l2,
+				$l7, $segmentation,
+				$category_tag, $batch1,
+				$countries_names{$country_tag} // '', $country_tag,
+				$exists_in_taxonomy || 0, $categories_agb{$category_tag} || '',
+				$categories_agb_proxy{$category_tag} || '', $recent_scans,
+				$url, $api_url,
+				$code, $name,
+				$brands, $product_ref->{quantity} // '',
+				$product_ref->{product_quantity} // '', $product_ref->{product_quantity_unit} // '',
+				$lang, $ingredients_lc,
+				$ingredients_txt, @ingredients_text_lc,
+				$img_url, $img_ing,
+				$img_nut, $img_pack
 			);
 
 			# top 10 ingredients by quantity
 
-			my %ingredients;
+			my %ingredients_quantity = ();
+			my %ingredients_percent = ();
 			if (ref $product_ref->{ingredients} eq 'ARRAY') {
-				collect_ingredients($_, \%ingredients) for @{$product_ref->{ingredients}};
+				collect_ingredients($_, \%ingredients_percent, \%ingredients_quantity)
+					for @{$product_ref->{ingredients}};
 			}
-			my @sorted = sort {$ingredients{$b} <=> $ingredients{$a}} keys %ingredients;
+			my @sorted = sort {$ingredients_quantity{$b} <=> $ingredients_quantity{$a}} keys %ingredients_quantity;
 
 			# accumulate into global ingredients sum
-			for my $id (keys %ingredients) {
-				$all_ingredients_sum{$id} += $ingredients{$id};
+			my $quantity_of_all_ingredients = 0;
+			for my $id (keys %ingredients_quantity) {
+				$quantity_of_all_ingredients += $ingredients_quantity{$id};
+				$all_ingredients_quantity_sum{$id} += $ingredients_quantity{$id};
+				$all_ingredients_percent_sum{$id} += $ingredients_percent{$id};
 				$all_ingredients_count{$id}++;
 			}
 			$total_products++;
 
 			for my $i (1 .. 10) {
 				my $idx = $i - 1;
-				my $id = $sorted[$idx] // '';
-				my $pct = defined $id ? $ingredients{$id} : '';
+				my $id = $sorted[$idx];
+				my $pct = defined $id ? $ingredients_percent{$id} : '';
+				my $quantity = defined $id ? $ingredients_quantity{$id} : '';
 				my @translations = ();
-				push @row, $id, $ingredients_in_taxonomy{$id} // '';
+				push @row, $id // '', $ingredients_in_taxonomy{$id} // '';
 				foreach my $target_lc (@ingredient_languages) {
 					push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
 				}
 				my $parents = display_tag_and_parents_taxonomy("ingredients", $id);
 				# Remove HTML tags
 				$parents =~ s/<[^>]*>//g;
-				push @row, $parents, $pct;
+				push @row, $parents, $quantity, $pct;
 			}
+
+			# Calculate total quantity and percent for top 10 ingredients
+			my $total_qty = 0;
+
+			for my $i (1 .. 10) {
+				my $idx = $i - 1;
+				my $id = $sorted[$idx];
+				next if not defined $id;
+				$total_qty += $ingredients_quantity{$id};
+			}
+			my $total_pct = $quantity_of_all_ingredients > 0 ? ($total_qty / $quantity_of_all_ingredients) * 100 : 0;
+			push @row, $total_qty, $total_pct;
 
 			# packaging values (five first elements)
 			for my $j (1 .. 5) {
 				my $idx = $j - 1;
-				for my $f (qw(number_of_units shape material quantity_per_unit)) {
+				for my $f (qw(number_of_units shape material quantity_per_unit weight_measured)) {
 					my $val = '';
 					if (ref $product_ref->{packagings} eq 'ARRAY' && defined $product_ref->{packagings}[$idx]) {
 						$val = $product_ref->{packagings}[$idx]{$f} // '';
@@ -361,10 +400,14 @@ while (<$LIST>) {
 		}
 		else {
 			# no product matched this country/category – output identifiers anyway
-			my @row = ($l1, $l2, $l7, $segmentation, $category_tag, $batch1, $countries_names{$country_tag} // '', $country_tag,
-				$exists_in_taxonomy || 0, 
-				$categories_agb{$category_tag} || '',
-				$categories_agb_proxy{$category_tag} || '');
+			my @row = (
+				$l1, $l2,
+				$l7, $segmentation,
+				$category_tag, $batch1,
+				$countries_names{$country_tag} // '', $country_tag,
+				$exists_in_taxonomy || 0, $categories_agb{$category_tag} || '',
+				$categories_agb_proxy{$category_tag} || ''
+			);
 			push @row, ('') x (scalar(@hdr) - scalar(@row));
 			$csv_out->print($OUT, \@row);
 		}
@@ -386,7 +429,8 @@ my @ingredients_header = (
 );
 $csv_out->print($ING_OUT, \@ingredients_header);
 
-my @sorted_ingredients = sort {$all_ingredients_sum{$b} <=> $all_ingredients_sum{$a}} keys %all_ingredients_sum;
+my @sorted_ingredients
+	= sort {$all_ingredients_percent_sum{$b} <=> $all_ingredients_percent_sum{$a}} keys %all_ingredients_percent_sum;
 for my $id (@sorted_ingredients) {
 	my @ing_row = ($id, $ingredients_in_taxonomy{$id} // '');
 	foreach my $target_lc (@ingredient_languages) {
@@ -395,8 +439,8 @@ for my $id (@sorted_ingredients) {
 	my $parents = display_tag_and_parents_taxonomy("ingredients", $id);
 	$parents =~ s/<[^>]*>//g;
 	my $count = $all_ingredients_count{$id} || 1;
-	my $avg = $total_products > 0 ? $all_ingredients_sum{$id} / $total_products : 0;
-	push @ing_row, $parents, $all_ingredients_sum{$id}, $count, $avg;
+	my $avg = $total_products > 0 ? $all_ingredients_quantity_sum{$id} / $total_products : 0;
+	push @ing_row, $parents, $all_ingredients_quantity_sum{$id}, $count, $avg;
 	$csv_out->print($ING_OUT, \@ing_row);
 }
 close $ING_OUT;
