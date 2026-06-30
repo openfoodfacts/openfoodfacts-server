@@ -585,7 +585,7 @@ sub get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fa
 					$propagate = scalar %unfound_properties;
 				}
 				else {
-					# check if we have at least one unfonud property which not "undef"
+					# check if we have at least one unfound property which not "undef"
 					for my $property (keys %unfound_properties) {
 						if (!defined $unfound_properties{$tagid}{$property}) {
 							$propagate = 1;
@@ -1147,7 +1147,7 @@ sub cleanup_old_cache_files ($tagtype, $cache_root) {
 }
 
 sub put_to_cache ($tagtype, $cache_prefix) {
-	my $tag_data_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result//$tagtype";
+	my $tag_data_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies-result/$tagtype";
 	my $tag_www_root = "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype";
 	my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
 
