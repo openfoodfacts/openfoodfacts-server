@@ -1,6 +1,7 @@
 # openfoodfacts.org configuration
 
 # we must set the nginx container type before productopener-mappings.include
+# abuse map gently because "set" is not allowed outside a server block
 map "" $nginx_container {
 	default "proxmox_ct";
 }

@@ -1,6 +1,7 @@
 # pro.openfoodfacts.org configuration
 
 # we must set the nginx container type before productopener-mappings.include
+# abuse map gently because "set" is not allowed outside a server block
 map "" $nginx_container {
 	default "proxmox_ct";
 }
@@ -21,5 +22,10 @@ server {
 
 	# product opener common directives
 	include snippets/productopener-server.include;
+
+	# enable larger uploads on this platform
+	client_max_body_size 400M;
+	client_body_timeout 1200s;
+	client_header_timeout 1200s;
 
 }

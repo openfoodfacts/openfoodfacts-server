@@ -75,9 +75,9 @@ location ~ ^/(.well-known|files|data|exports|dump)/ {
 location ~ ^/(images|fonts|css|js|donate|resources)/ {
     include snippets/cors-headers.include;
     include snippets/expiry-headers.include;
-    # First attempt to serve request as file, ${flavor_short}_web_html acting as an override,
+    # First attempt to serve request as file, off_web_html acting as an override,
     # then as directory, then fall back to displaying a 404.
-    try_files /${flavor_short}_web_html$uri $uri $uri/ =404;
+    try_files /off_web_html$uri $uri $uri/ =404;
     gzip_static always;
     gunzip on;
 }
@@ -102,13 +102,15 @@ location = /.well-known/assetlinks.json {
 location / {
     include snippets/cors-headers.include;
 
-
-    proxy_set_header Host $host;
     # recursive hosts as we are proxying behind a proxy
     set_real_ip_from 10.0.0.0/8;
     real_ip_recursive on;
     access_log /var/log/nginx/proxy-productopener-access.log proxied_requests buffer=256K flush=1s;
     error_log /var/log/nginx/proxy-productopener-error.log;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
     # Note: as soon as we use a variable in proxy_pass, $uri and the rest must be explicit
     # Note: we cannot use $uri in the proxy_pass, as it is decoded, and we can get spaces
     # leading to a broken query like "GET /cgi/display.pl?/facets/labels/some space"
@@ -121,10 +123,12 @@ location / {
 location /cgi/ {
     include snippets/cors-headers.include;
 
-    proxy_set_header Host $host;
     # recursive hosts as we are proxying behind a proxy
     set_real_ip_from 10.0.0.0/8;
     real_ip_recursive on;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     access_log /var/log/nginx/proxy-productopener-access.log proxied_requests buffer=256K flush=1s;
     error_log /var/log/nginx/proxy-productopener-error.log;
     proxy_pass http://$productopener_backend_host:$apache_port$request_uri;
@@ -152,4 +156,5 @@ location ~ ^/debug_vars/ {
     set $var_display "$var_display allow_credentials_origin: $allow_credentials_origin\n";
     set $var_display "$var_display allow_credentials_uri: $allow_credentials_uri\n";
     set $var_display "$var_display allow_credentials: $allow_credentials\n";
-    return 200 "$var_display";}
+    return 200 "$var_display";
+}

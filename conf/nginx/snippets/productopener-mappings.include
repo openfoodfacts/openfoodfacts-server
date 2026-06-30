@@ -75,7 +75,7 @@ map $po_request_uri $allow_credentials_uri {
     default "";
     /cgi/auth.pl "true";
     /cgi/product_image_move.pl "true";
-    ~^/api/.*/current_user "true";
+    ~^/api/.*/current-user "true";
 }
 
 # compile credentials allowed based on origin and uri
@@ -108,7 +108,9 @@ map $http_x_user_agent $priority_user_agent {
 # Which port should priority requests be sent to ?
 map $host $priority_port {
     default $apache_port_base;  # no real priority for most domains, same as normal
-    ~.*\.openfoodfacts\.org$ 8002;  # priority for openfoodfacts.org
+	# order is important to correctly catch the pro subdomain
+    ~(.*\.)?pro\.openfoodfacts\.org$ $apache_port_base;
+    ~(.*\.)?openfoodfacts\.org$ 8002;  # priority for openfoodfacts.org
 }
 
 # map to decide if we go to the priority (8002) or standard service (8001)
