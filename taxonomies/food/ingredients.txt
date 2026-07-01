@@ -38172,18 +38172,6 @@ xh: Isiqhamo
 yo: èso
 za: mak
 zh: 水果
-carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen importé par bateau et camion
-carbon_footprint_fr_foodges_value:fr: 1.3
-eurocode_2_group_1:en: 9
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
-# 963 products in 9 languages @2018-09-26
-nutriscore_fruits_vegetables_nuts:en: yes
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
-#carbon_footprint_fr_foodges_value:fr:2.3
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
-#carbon_footprint_fr_foodges_value:fr:27.4
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
-#carbon_footprint_fr_foodges_value:fr:0.3
 # aeb-arab:غلة
 # arz:فواكه
 # ast:Fruta
@@ -38229,10 +38217,24 @@ nutriscore_fruits_vegetables_nuts:en: yes
 # zh-my:水果
 # zh-sg:水果
 # zh-tw:水果
+carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_value:fr: 1.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+#carbon_footprint_fr_foodges_value:fr:2.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+#carbon_footprint_fr_foodges_value:fr:27.4
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
+#carbon_footprint_fr_foodges_value:fr:0.3
+eurocode_2_group_1:en: 9
+nutriscore_fruits_vegetables_nuts:en: yes
+# zh-sg:水果
+# zh-tw:水果
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1364
 wikipedia:en: https://en.wikipedia.org/wiki/Fruit
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
+# 963 products in 9 languages @2018-09-26
 
 < en:fruit
 < en:purée
@@ -38689,6 +38691,119 @@ sv: päronberedning
 # ingredient/fr:preparation-de-poires has 2 products in 2 languages @2020-12-21
 # usage:fr:préparation de poires 13% (sucre, poires 41%, amidon de maïs, jus de citron concentré, arôme naturel)
 
+< en:fruit
+en: abiyuch
+description:en: Abiyuch comes from Crateva religiosa, commonly known as the sacred garlic pear or temple plant. It's a species of flowering tree that belongs to the caper family.
+usda_ndb_proxy_code:en: 9427
+usda_ndb_proxy_name:en: Abiyuch, raw
+fi: kasvitiivisteet, kasvitiiviste
+fr: concentré de plante, concentré de plantes, concentrés de plantes
+hr: biljni koncentrat, biljni koncentrati
+it: Concentrati vegetali
+nl: plantconcentraat, plantconcentraten
+pl: koncentraty roślinne
+sv: växtkoncentrat, plantkoncentrat
+
+< en:plant concentrate
+en: colouring plant concentrate
+sv: färgande växtkoncentrat
+
+fr: specialité de fruits pomme poire
+
+< en:preparation
+en: fruits preparation
+de: Fruchtzubereitung
+fr: préparation de fruits
+hr: voćni pripravak, voćno punjenje, voćni nadjev miješano voće
+it: preparazione di frutta
+sv: fruktberedning
+# usage:de:Fruchtzubereitung (Zucker, Pfirsichsaft aus Pfirsichsaftkonzentrat, Wasser, Pfirsichmark, Maracujasaft aus Maracujasaftkonzentrat, modifizierte Stärke, natürliches Aroma, Säurungsmittel: Citronensäure; Säureregulator: Natriumcitrat)
+
+< en:fruits preparation
+en: pear preparation
+da: pære tilberedning
+de: Birnenzubereitung
+es: preparación de peras
+fi: päärynävalmiste
+fr: préparation de poires
+hr: priprema kruške
+it: preparazione di pere
+nl: perenbereiding
+pt: preparação de pera
+sv: päronberedning
+# ingredient/fr:preparation-de-poires has 2 products in 2 languages @2020-12-21
+# usage:fr:préparation de poires 13% (sucre, poires 41%, amidon de maïs, jus de citron concentré, arôme naturel)
+
+< en:abiyuch
+en: raw abiyuch
+usda_ndb_code:en: 9427
+usda_ndb_name:en: Abiyuch, raw
+pl: koncentraty roślinne
+sv: växtkoncentrat, plantkoncentrat
+
+< en:plant concentrate
+en: colouring plant concentrate
+sv: färgande växtkoncentrat
+
+fr: specialité de fruits pomme poire
+
+< en:preparation
+en: fruits preparation
+de: Fruchtzubereitung
+fr: préparation de fruits
+hr: voćni pripravak, voćno punjenje, voćni nadjev miješano voće
+it: preparazione di frutta
+sv: fruktberedning
+# usage:de:Fruchtzubereitung (Zucker, Pfirsichsaft aus Pfirsichsaftkonzentrat, Wasser, Pfirsichmark, Maracujasaft aus Maracujasaftkonzentrat, modifizierte Stärke, natürliches Aroma, Säurungsmittel: Citronensäure; Säureregulator: Natriumcitrat)
+
+< en:fruits preparation
+en: pear preparation
+da: pære tilberedning
+de: Birnenzubereitung
+es: preparación de peras
+fi: päärynävalmiste
+fr: préparation de poires
+hr: priprema kruške
+it: preparazione di pere
+nl: perenbereiding
+pt: preparação de pera
+sv: päronberedning
+# ingredient/fr:preparation-de-poires has 2 products in 2 languages @2020-12-21
+# usage:fr:préparation de poires 13% (sucre, poires 41%, amidon de maïs, jus de citron concentré, arôme naturel)
+
+
+< en:fruit
+en: prunus species fruit
+it: frutto della specie Prunus
+lv: prunus sugu augļi
+nl: prunussoort fruit
+eurocode_2_group_2:en: 9.20
+
+
+< en:preparation
+en: fruits preparation
+de: Fruchtzubereitung
+fr: préparation de fruits
+hr: voćni pripravak, voćno punjenje, voćni nadjev miješano voće
+it: preparazione di frutta
+sv: fruktberedning
+# usage:de:Fruchtzubereitung (Zucker, Pfirsichsaft aus Pfirsichsaftkonzentrat, Wasser, Pfirsichmark, Maracujasaft aus Maracujasaftkonzentrat, modifizierte Stärke, natürliches Aroma, Säurungsmittel: Citronensäure; Säureregulator: Natriumcitrat)
+
+< en:fruits preparation
+en: pear preparation
+da: pære tilberedning
+de: Birnenzubereitung
+es: preparación de peras
+fi: päärynävalmiste
+fr: préparation de poires
+hr: priprema kruške
+it: preparazione di pere
+nl: perenbereiding
+pt: preparação de pera
+sv: päronberedning
+# ingredient/fr:preparation-de-poires has 2 products in 2 languages @2020-12-21
+# usage:fr:préparation de poires 13% (sucre, poires 41%, amidon de maïs, jus de citron concentré, arôme naturel)
+
 
 < en:fruit
 en: prunus species fruit
@@ -38702,7 +38817,6 @@ eurocode_2_group_2:en: 9.20
 #                                Apricot
 #
 ###################################################################################################
-# description:en:APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
 
 < en:prunus species fruit
 en: apricot
@@ -38803,15 +38917,48 @@ vo: brikod
 wa: åbricot
 yi: אַפּריקאָס
 zh: 杏
+# aeb-arab:كعبة مشماش
+# aeb-latn:mech'mèch'
+# arz:مشمشة
+# ast:albaricoque
+# chr:ᏓᎶᏂᎨ ᎠᏓᏛᏍᎩ
+# chy:Ová'kemene
+# crh-latn:qaysı
+# dsb:Aprikoza
+# gag:zerdeli
+# hsb:Aprikoza
+# krc:шаптал
+# nan:Hēng
+# nap:Aprecocca
+# nov:abrikote
+# nso:apolêkôsê
+# pap:aprikòt
+# pdc:Abrigos
+# pnb:خرمانی
+# scn:barcocu
+# sco:apricot
+# sdc:barracoc
+# vec:armełin
+# vro:Aprikuus
+# war:Prunus armeniaca
+# yue:杏桃
+# zh-cn:杏
 #carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
 #carbon_footprint_fr_foodges_value:fr:0.6
 carbon_footprint_fr_foodges_ingredient:fr: Abricot "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr: 1.1
-ciqual_food_code:en: 13000
-ciqual_food_name:en: Apricot, pitted, raw
-ciqual_food_name:fr: Abricot, dénoyauté, cru
+ciqual_proxy_food_code:en: 13000
+ciqual_proxy_food_name:en: Apricot, pitted, raw
+ciqual_proxy_food_name:fr: Abricot, dénoyauté, cru
+description:en: APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
 ecobalyse:en: c455b3b8-406b-407a-a525-b2c832522e49
 ecobalyse_labels_en_organic:en: 36158ea6-066c-4fd6-9e28-6477c7297b37
+ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
+# 5160 in 25 @2021-09-12
+eurocode_2_group_3:en: 9.20.10
+usda_ndb_proxy_code:en: 9021
+usda_ndb_proxy_name:en: Apricots, raw
+wikidata:en: Q3733836
 ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
 # 5160 in 25 @2021-09-12
 eurocode_2_group_3:en: 9.20.10
@@ -38823,6 +38970,36 @@ wikidata:en: Q3733836
 # chr:ᏓᎶᏂᎨ ᎠᏓᏛᏍᎩ
 # chy:Ová'kemene
 # crh-latn:qaysı
+# dsb:Aprikoza
+# gag:zerdeli
+# hsb:Aprikoza
+# krc:шаптал
+# nan:Hēng
+# nap:Aprecocca
+# nov:abrikote
+# nso:apolêkôsê
+# pap:aprikòt
+# pdc:Abrigos
+# pnb:خرمانی
+# scn:barcocu
+# sco:apricot
+# sdc:barracoc
+# vec:armełin
+# vro:Aprikuus
+# war:Prunus armeniaca
+# yue:杏桃
+# zh-cn:杏
+wikipedia:en: https://en.wikipedia.org/wiki/Apricot
+
+< en:apricot
+en: raw apricots
+ciqual_food_code:en: 13000
+ciqual_food_name:en: Apricot, pitted, raw
+ciqual_food_name:fr: Abricot, dénoyauté, cru
+usda_ndb_code:en: 9021
+usda_ndb_name:en: Apricots, raw
+
+< en:apricot
 # dsb:Aprikoza
 # gag:zerdeli
 # hsb:Aprikoza
@@ -38992,7 +39169,6 @@ it: aroma (albicocca), aroma (albicocche), aroma di albicocca, aroma di albicocc
 #                                Banana
 #
 ###################################################################################################
-# description:en:BANANA is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa
 
 < en:fruit
 en: banana
@@ -39107,15 +39283,6 @@ yi: באנאן
 yo: Ọ̀gẹ̀dẹ̀
 za: Gyoijhom
 zh: 香蕉
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
-carbon_footprint_fr_foodges_ingredient:fr: Banane
-carbon_footprint_fr_foodges_value:fr: 1.2
-ciqual_food_code:en: 13005
-ciqual_food_name:en: Banana, pulp, raw
-ciqual_food_name:fr: Banane, pulpe, crue
-ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
-ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
-wikidata:en: Q503
 # als:Banane
 # arz:موز
 # ast:Plátanu
@@ -39146,6 +39313,58 @@ wikidata:en: Q503
 # rue:Банан
 # sat:ᱠᱟᱭᱨᱟ
 # scn:Banana
+# sco:Bananae
+# tpi:Banana
+# tum:Ntochi
+# vls:Bananne
+# war:Saging
+# wuu:香蕉
+# zh-min-nan:Kin-chio
+# yue:香蕉
+carbon_footprint_fr_foodges_ingredient:fr: Banane
+carbon_footprint_fr_foodges_value:fr: 1.2
+ciqual_proxy_food_code:en: 13005
+ciqual_proxy_food_name:en: Banana, pulp, raw
+ciqual_proxy_food_name:fr: Banane, pulpe, crue
+description:en: BANANA is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa
+ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
+ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
+usda_ndb_proxy_code:en: 9040
+usda_ndb_proxy_name:en: Bananas, raw
+wikidata:en: Q503
+# jbo:badna
+# lmo:Musa
+# map-bms:Gedhang
+# min:Pisang
+# new:म्वाय्
+# nso:Panana
+# pam:Sagin
+# pcd:Banade
+# pnb:کیلا
+# rue:Банан
+# sat:ᱠᱟᱭᱨᱟ
+# scn:Banana
+# sco:Bananae
+# tpi:Banana
+# tum:Ntochi
+# vls:Bananne
+# war:Saging
+# wuu:香蕉
+# zh-min-nan:Kin-chio
+# yue:香蕉
+wikipedia:en: https://en.wikipedia.org/wiki/Banana
+# 1538 products in 10 languages @2018-09-26
+
+< en:banana
+en: raw banana, raw bananas
+ciqual_food_code:en: 13005
+ciqual_food_name:en: Banana, pulp, raw
+ciqual_food_name:fr: Banane, pulpe, crue
+usda_ndb_code:en: 9040
+usda_ndb_name:en: Bananas, raw
+
+< en:banana
 # sco:Bananae
 # tpi:Banana
 # tum:Ntochi
@@ -39227,6 +39446,37 @@ ru: Мука зелёных бананов
 #processing:en: en:dried
 < en:banana
 en: dried banana, dried bananas
+de: Bananen getrocknet, getrocknete Banane
+es: plátano seco
+fi: kuivattu banaani, kuivatut banaanit
+fr: bananes séchées
+it: banana essiccata, banane secche
+nl: gedroogde banaan
+ro: banane uscate
+th: กล้วยตาก
+ciqual_food_code:en: 13089
+ciqual_food_name:en: Banana, pulp, dried
+ciqual_food_name:fr: Banane, pulpe, sèche
+usda_ndb_proxy_code:en: 9041
+usda_ndb_proxy_name:en: Bananas, dehydrated, or banana powder
+fr: plantain
+hr: trputac
+it: piantaggine
+nl: weegbree
+pl: plantan, plantany, plantana
+comment:en: "plantain" is ambiguous, in ingredients lists it refers to plantain bananas, or the plantain plant used for fibers
+# ingredient/fr:plantain has 51 products @2019-02-25
+# fibres végétales (chicorée, pomme de terre, pois, riz, plantain, psyllium)
+
+
+< en:banana
+en: green banana flour
+it: farina di banane verdi
+ru: Мука зелёных бананов
+
+#processing:en: en:dried
+< en:banana
+en: dried banana, dried bananas
 it: banana essiccata
 #de:Bananen getrocknet, getrocknete Banane
 #es:plátano seco
@@ -39275,9 +39525,12 @@ ciqual_food_name:fr: Banane, pulpe, sèche
 # 2082 in 15 @2021-09-10
 
 #processing:en: en:powder
-#<en:banana
-#de:Bananenpulver
-#fi:banaanijauhe
+< en:banana
+en: banana powder
+de: Bananenpulver
+fi: banaanijauhe
+usda_ndb_code:en: 9041
+usda_ndb_name:en: Bananas, dehydrated, or banana powder
 
 #processing:en: en:juice
 #<en:banana
@@ -39831,6 +40084,45 @@ fr: purée et puré concentrée de mangue, purée de mangue et purée de mangue 
 < en:concentrated mango juice
 < en:mango puree
 fr: purée et jus de mangue concentrés
+
+##########################################
+#              Flavourings
+##########################################
+
+< en:flavouring
+en: mango flavouring
+de: Mangoaroma
+es: aroma de mango
+fi: mangoaromi
+fr: arôme de mangue
+hr: aroma manga
+it: aroma di mango
+pl: aromat mango
+sv: mangoarom
+# ingredient/fr:arome-de-mangue has 6 products in 4 languages @2020-05-25
+
+< en:natural flavouring
+en: natural mango flavouring
+ca: aroma natural de mango
+de: natürliches Mangoaroma, natürliches Mango-Aroma
+fi: luontainen mangoaromi
+fr: arôme naturel de mangue
+hr: prirodna aroma manga
+hu: természetes mangó aroma
+it: aroma naturale di mango
+
+
+< en:fruit
+en: medlar, loquat
+bg: мушмула
+de: Mispel, Mispeln, Loquat
+es: nispero
+fr: Néflier
+hr: mušmula
+it: nespola comune
+wikidata:en: Q7071497
+wikipedia:en: https://en.wikipedia.org/wiki/N%C3%ADspero
+
 
 ##########################################
 #              Flavourings
@@ -40752,6 +41044,18 @@ it: prugnolo
 la: prunus spinosa
 eurocode_2_group_3:en: 9.20.60
 
+< en:prunus species fruit
+en: carissa, natal plum
+la: Carissa macrocarpa
+description:en: Carissa is a tropical/subtropical fruit-bearing shrub, native to South Africa. Taste: A mix of sweet and tart, often compared to cranberry or strawberry with a slightly milky, latex-like note
+usda_ndb_proxy_code:en: 9061
+usda_ndb_proxy_name:en: Carissa, (natal-plum), raw
+
+< en:carissa
+en: raw carissa
+usda_ndb_code:en: 9061
+usda_ndb_name:en: Carissa, (natal-plum), raw
+
 < en:plum
 en: plum spread
 hr: namaz od šljiva
@@ -40919,7 +41223,7 @@ eurocode_2_group_2:en: 9.10
 #                                Apple
 #
 ###################################################################################################
-# description:en:APPLE is a sweet, edible fruit produced by an apple tree (Malus pumila).
+# 
 # This can be a compound product, i.e. appels (gedroogde appels, voedingszuur (citroenzuur), conserveermiddel (_zwaveldioxide_))
 
 < en:malaceous fruit
@@ -41058,17 +41362,6 @@ yo: èso òro òyìnbó
 za: Makbinzgoj
 zh: 蘋果
 zu: Ihhabhula
-#carbon_footprint_fr_foodges_ingredient:fr:Pomme France
-#carbon_footprint_fr_foodges_value:fr:0.3
-carbon_footprint_fr_foodges_ingredient:fr: Pomme amérique du Sud
-carbon_footprint_fr_foodges_value:fr: 1.3
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/apple
-# 5809 products in 12 languages @2018-10-05
-ciqual_food_code:en: 13050
-ciqual_food_name:en: Apple, pulp, raw
-ciqual_food_name:fr: Pomme, pulpe, crue
-ecobalyse:en: 8c2299d6-49e4-493c-bafe-c0b4b7ef2079
-ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
 # aeb-arab:كعبة تفّاح
 # aeb-latn:toffè7
 # ang:Æppel
@@ -41107,6 +41400,235 @@ ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
 # jam:apl
 # jbo:plise
 # kaa:Alma
+# kbd:мыӏэрысэ
+# krc:Алма
+# ksh:Appel
+# lad:Mansana
+# lbe:гьивч
+# lez:ич
+# lfn:poma
+# lij:Mei
+# ltg:uobeļs
+# map-bms:Apel
+# mdf:мар
+# mhr:Олма
+# mwl:maçana
+# myv:умарь
+# nah:Manzana
+# nan:Phōng-kó
+# nap:Milo
+# nds:Appel
+# nds-nl:Appel
+# new:स्याउ
+# nov:pome
+# nrm:Poume
+# nso:Apole
+# olo:Juablokku
+# pam:Mansanas
+# pap:apel
+# pcd:peimme
+# pnb:سیب
+# pt-br:maçã, maçãs
+# rmy:phabaj
+# roa-tara:mele
+# rue:Ябко
+# rup:Muzâ
+# sah:яблоко
+# scn:pumu
+# sco:aiple
+# sgs:Vuobelės
+# tly:سیف
+# tt-cyrl:алма
+# tt-latn:alma
+# tzm:ⵜⴰⴷⴼⴼⵓⵢⵜ
+# vec:Pomaro
+# vep:Jablok
+# vls:Appel
+# vro:Upin
+# war:Mansanas
+# wuu:苹果
+# xal:Альмн
+# yue:蘋果
+# zh-cn:苹果
+# zh-hans:苹果
+# zh-hant:蘋果
+# zh-hk:蘋果
+# zh-mo:蘋果
+# zh-my:苹果
+# zh-sg:苹果
+# zh-tw:蘋果
+#carbon_footprint_fr_foodges_ingredient:fr:Pomme France
+#carbon_footprint_fr_foodges_value:fr:0.3
+carbon_footprint_fr_foodges_ingredient:fr: Pomme amérique du Sud
+carbon_footprint_fr_foodges_value:fr: 1.3
+ciqual_food_code:en: 13050
+ciqual_food_name:en: Apple, pulp, raw
+ciqual_food_name:fr: Pomme, pulpe, crue
+#description:en: APPLE is a sweet, edible fruit produced by an apple tree (Malus pumila).
+ecobalyse:en: 8c2299d6-49e4-493c-bafe-c0b4b7ef2079
+ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
+usda_ndb_proxy_code:en: 9004
+usda_ndb_proxy_name:en: Apples, raw, without skin
+# en-gb:apple
+# frr:ååpel
+# fur:Miluçâr
+# gag:alma
+# gan:蘋果
+# got:̰̻̀̿̓
+# gsw:Öpfel
+# hak:Phìn-kó
+# haw:ʻāhia
+# hif:Aapul
+# hsb:Jabłuko
+# ilo:mansanas
+# inh:ӏаж
+# jam:apl
+# jbo:plise
+# kaa:Alma
+# kbd:мыӏэрысэ
+# krc:Алма
+# ksh:Appel
+# lad:Mansana
+# lbe:гьивч
+# lez:ич
+# lfn:poma
+# lij:Mei
+# ltg:uobeļs
+# map-bms:Apel
+# mdf:мар
+# mhr:Олма
+# mwl:maçana
+# myv:умарь
+# nah:Manzana
+# nan:Phōng-kó
+# nap:Milo
+# nds:Appel
+# nds-nl:Appel
+# new:स्याउ
+# nov:pome
+# nrm:Poume
+# nso:Apole
+# olo:Juablokku
+# pam:Mansanas
+# pap:apel
+# pcd:peimme
+# pnb:سیب
+# pt-br:maçã, maçãs
+# rmy:phabaj
+# roa-tara:mele
+# rue:Ябко
+# rup:Muzâ
+# sah:яблоко
+# scn:pumu
+# sco:aiple
+# sgs:Vuobelės
+# tly:سیف
+# tt-cyrl:алма
+# tt-latn:alma
+# tzm:ⵜⴰⴷⴼⴼⵓⵢⵜ
+# vec:Pomaro
+# vep:Jablok
+# vls:Appel
+# vro:Upin
+# war:Mansanas
+# wuu:苹果
+# xal:Альмн
+# yue:蘋果
+# zh-cn:苹果
+# zh-hans:苹果
+# zh-hant:蘋果
+# zh-hk:蘋果
+# zh-mo:蘋果
+# zh-my:苹果
+# zh-sg:苹果
+# zh-tw:蘋果
+wikidata:en: Q89
+wikipedia:en: https://en.wikipedia.org/wiki/Apple
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/apple
+# 5809 products in 12 languages @2018-10-05
+# gan:蘋果
+# got:̰̻̀̿̓
+# gsw:Öpfel
+# hak:Phìn-kó
+# haw:ʻāhia
+# hif:Aapul
+# hsb:Jabłuko
+# ilo:mansanas
+# inh:ӏаж
+# jam:apl
+# jbo:plise
+# kaa:Alma
+# kbd:мыӏэрысэ
+# krc:Алма
+# ksh:Appel
+# lad:Mansana
+# lbe:гьивч
+# lez:ич
+# lfn:poma
+# lij:Mei
+# ltg:uobeļs
+# map-bms:Apel
+# mdf:мар
+# mhr:Олма
+# mwl:maçana
+# myv:умарь
+# nah:Manzana
+# nan:Phōng-kó
+# nap:Milo
+# nds:Appel
+# nds-nl:Appel
+# new:स्याउ
+# nov:pome
+# nrm:Poume
+# nso:Apole
+# olo:Juablokku
+# pam:Mansanas
+# pap:apel
+# pcd:peimme
+# pnb:سیب
+# pt-br:maçã, maçãs
+# rmy:phabaj
+# roa-tara:mele
+# rue:Ябко
+# rup:Muzâ
+# sah:яблоко
+# scn:pumu
+# sco:aiple
+# sgs:Vuobelės
+# tly:سیف
+# tt-cyrl:алма
+# tt-latn:alma
+# tzm:ⵜⴰⴷⴼⴼⵓⵢⵜ
+# vec:Pomaro
+# vep:Jablok
+# vls:Appel
+# vro:Upin
+# war:Mansanas
+# wuu:苹果
+# xal:Альмн
+# yue:蘋果
+# zh-cn:苹果
+# zh-hans:苹果
+# zh-hant:蘋果
+# zh-hk:蘋果
+# zh-mo:蘋果
+# zh-my:苹果
+# zh-sg:苹果
+# zh-tw:蘋果
+wikidata:en: Q89
+wikipedia:en: https://en.wikipedia.org/wiki/Apple
+
+< en:apple
+en: raw apples with skin
+usda_ndb_code:en: 9003
+usda_ndb_name:en: Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)
+
+< en:apple
+en: apples, raw, without skin
+usda_ndb_code:en: 9004
+usda_ndb_name:en: Apples, raw, without skin
+
+< en:apple
 # kbd:мыӏэрысэ
 # krc:Алма
 # ksh:Appel
@@ -41692,8 +42214,85 @@ it: ripieno di mele
 ###################################################################################################
 < en:fruit
 en: boabab, boabab fruit
+xx: baobab
+< en:apple juice
+en: cider apple juice
+fr: pur jus de pommes à cidre
+it: succo di mela da sidro
+# ingredient/fr:pur-jus-de-pommes-a-cidre has 10 products @2019-05-28
+
+< en:cider apple juice
+en: organic cider apple juice
+fr: pur jus de pommes à cidre bio
+it: succo di mela da sidro biologico
+
+< en:apple juice
+en: Cripps Pink apple juice
+fr: jus de pomme Cripps Pink
+it: succo di mela rosa Cripps
+
+< en:apple juice
+en: Granny smith apple juice
+it: succo di mela Granny Smith
+
+< en:apple juice
+< en:apple puree
+fr: jus et purée de pomme
+
+< fr:jus et purée de pomme
+fr: jus et purée de pomme biologiques
+
+
+#is compound: en:apple
+< en:jam
+en: apple jam
+de: Apfelmarmelade
+es: mermelada de manzana
+fr: confiture de pommes
+hr: džem od jabuka
+it: confettura di mele, marmellata di mele, confettura alle mele
+nl: appeljam
+pt: geleia de maçã
+ru: повидло яблочное, яблочное повидло
+
+< en:apple
+< en:orange
+< en:preparation
+en: apple with orange juice
+hr: jabuka sa sokom od naranče
+it: succo di arance e mele, succo d'arance e mele, succo di mele e arance, succo con mele e arance, succo con arance e mele
+
+#< en:apple
+< en:wine
+en: apple wine
+hr: vino od jabuke
+it: vino di mele, vino di mela
+
+< en:preparation
+en: apple preparation
+hr: pripravak s jabukama
+it: preparato di mele
+
+< en:filling
+en: apple filling
+hr: punjenje od jabuke
+it: ripieno di mele
+
+###################################################################################################
+#
+#                                Boabab
+#
+###################################################################################################
+< en:fruit
+en: boabab, boabab fruit
 es: boabab fruto
-it: baobab
+usda_ndb_proxy_code:en: 9544
+usda_ndb_proxy_name:en: Baobab powder
+
+< en:boabab
+en: baobab powder
+usda_ndb_code:en: 9544
+usda_ndb_name:en: Baobab powder
 
 ###################################################################################################
 #
@@ -41973,19 +42572,84 @@ th: คลีเมนไทน์
 uk: Клементин
 vi: Clementine
 zh: 克里曼丁红橘
-# frr:Clementiin
-# koi:Клементин
-# mrj:Клементин
-# pcd:Clémintine
-# udm:Клементин
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
+# 81 products @2018-10-01
 ciqual_food_code:en: 13082
 ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
 ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
 wikidata:en: Q460517
+# frr:Clementiin
+# koi:Клементин
+# mrj:Клементин
+# pcd:Clémintine
+# udm:Клементин
 wikipedia:en: https://en.wikipedia.org/wiki/Clementine
+
+< en:clementine
+en: raw clementine
+usda_ndb_code:en: 9433
+usda_ndb_name:en: Clementines, raw
+
+< en:clementine
+en: clementine pulp
+fr: pulpe de clémentine
+it: polpa di clementine
+ciqual_food_code:en: 13082
+ciqual_food_name:en: Clementine, pulp, raw
+ciqual_food_name:fr: Clémentine, pulpe, crue
+
+# < en:clementine
+< en:fruit juice
+fr: jus de clémentine
+de: Clementinensaft
+fi: klementiinimehu
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-clémentine
+# 75 products in 2 languages @2018-10-01
+
+cv: Клементина
+da: Klementin, Klementiner
+de: Clementine, Clementinen
+eo: Klementinujo
+es: clementina
+et: Klementiin
+eu: Klementinondo
+fi: klementiini, klementiinit
+fr: clémentine, clémentines
+gl: clementina
+he: קלמנטינה
+hr: klementina
+it: clementina
+ja: クレメンタイン
+kv: Клементин
+lt: Klementinai
+nb: Klementin
+nl: clementine
+nn: Klementin
+ro: Clemantină
+ru: Клементин
+sl: Klementina
+sv: Clementin
+th: คลีเมนไทน์
+uk: Клементин
+vi: Clementine
+zh: 克里曼丁红橘
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
 # 81 products @2018-10-01
+ciqual_food_code:en: 13082
+ciqual_food_name:en: Clementine, pulp, raw
+ciqual_food_name:fr: Clémentine, pulpe, crue
+ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
+wikidata:en: Q460517
+# frr:Clementiin
+# koi:Клементин
+# mrj:Клементин
+# pcd:Clémintine
+# udm:Клементин
+ciqual_food_name:fr: Clémentine, pulpe, crue
+ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
+wikidata:en: Q460517
+wikipedia:en: https://en.wikipedia.org/wiki/Clementine
 
 < en:clementine
 < en:fruit juice
@@ -43933,6 +44597,110 @@ usda_ndb_name:en: Marmalade, orange
 en: red orange marmalade
 it: marmellata di arance rosse, marmellata di arancia rossa, marmellata d'arance rosse, marmellata d'arancia rossa
 
+< en:orange
+en: orange cells
+de: Orangenzellen
+fr: cellules d'oranges
+hr: narančaste stanice
+it: cellule arancioni
+
+< en:orange
+en: orange zest, orange peel
+bg: портокалови кори, портокалови корички, портокалова кора
+ca: pell de taronja
+cs: pomerančová kůra, pomerančové kůry
+da: orangeskal
+de: Orangenschale, Orangenschalen
+es: cáscara de naranja, corteza de naranja, ralladura de naranja, cáscara de naranja natural
+et: apelsinikoor
+fi: appelsiininkuori, appelsiinikuori
+fr: zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges, écorce naturelle d'orange
+hr: narančina korica, narančina kora, kora od naranča, kora gorke naranče, korica naranče, kore naranče
+hu: narancshéj
+it: scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
+lt: apelsinų žievelė
+lv: apelsīna mizņas
+nl: sinaasappelschil, sinaasappelschillen, schillen sinaasappel, appelsienschil
+pl: skórka pomarańczowa, skórka pomarańczy, skórka z pomarańczy
+pt: casca de laranja, gasca de laranja, raspa de laranja
+sv: apelsinskal
+tr: portakal kabuğu
+usda_ndb_proxy_code:en: 9216
+usda_ndb_proxy_name:en: Orange peel, raw
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:zeste-d'orange
+# 136 products in 4 languages @2018-09-28
+
+< en:orange zest
+en: raw orange peel
+usda_ndb_code:en: 9216
+usda_ndb_name:en: Orange peel, raw
+
+< en:orange zest
+en: organic orange zest, oganic orange zest
+hr: bio korica naranče
+it: scorza d'arancia biologica
+
+< en:orange zest
+de: Orangeschalenextrakt
+fi: appelsiininkuoriuute
+fr: extrait de zeste d'orange
+# hr:ekstrakt kore naranče # see ingredients_processing.txt
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-zeste-d'orange
+# 54 products in 2 languages @2018-09-28
+
+< en:orange extract
+en: concentrated orange extract
+de: konzentrierter Orangenextrakt
+fr: Extraits de concentré d'orange
+hr: koncentrirani ekstrakt naranče
+it: estratto concentrato d'arancia, estratto concentrato di arancia
+pl: skoncentrowany ekstrakt z pomarańczy
+
+< en:orange extract
+fr: extraits naturels d'orange
+en: natural orange extract
+es: extracto natural de naranja dulce
+fi: luontainen appelsiiniuute
+it: estratto naturale d'arancia, estratto naturale di arancia
+#openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extraits-naturels-d'orange
+# 28 products in 3 languages @2018-09-28
+
+# CANDIED ORANGE PEEL is a compound ingredient
+en: candied orange peel, candied orange zest
+bg: захаросани портокалови кори
+cs: proslazená pomerančová kůra
+de: kandierte Orangenschalen, Orangeat, Orangenschalen confiert
+es: corteza de naranja confitada
+fi: kandeerattu appelsiininkuori
+fr: écorces d'orange confites, écorces d'oranges confites, orangeat
+# hr:kandirana narančina korica # see ingredients_processing.txt
+it: scorze d'arancia candite, cubetti di scorza di limone
+nl: gekonfijte sinaasappelschillen
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces-d'orange-confites/
+# 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied-orange-zest
+# 3 products in 1 language @2018-09-28
+
+#<en:compound
+# <en:orange
+< en:marmalade
+en: orange marmalade
+de: Orangenmarmelade, Orangen-Marmelade
+es: mermelada de naranja
+fr: marmelade d'orange
+hr: marmelada od naranče
+it: marmellata d'arance, marmellata d'arancia, marmellata di arance, marmellata di arancia
+nl: sinaasapplemarmelade
+ciqual_food_code:en: 31039
+ciqual_food_name:en: Marmalade, orange
+ciqual_food_name:fr: Marmelade d'orange
+usda_ndb_code:en: 19303
+usda_ndb_name:en: Marmalade, orange
+#22 @2021-09-26
+
+< en:orange marmalade
+en: red orange marmalade
+it: marmellata di arance rosse, marmellata di arancia rossa, marmellata d'arance rosse, marmellata d'arancia rossa
+
 < en:preparation
 en: orange filling
 hr: punjenje od naranče
@@ -44125,6 +44893,215 @@ pl: sok z jagód acai
 #                                Acerola
 #
 ###################################################################################################
+
+en: bitter orange, Seville orange, Seville oranges
+ar: نارنج
+az: narınc
+bo: ཚ་ལུ་མ་སྐྱུར་མོ།
+ca: taronger agre
+ch: kahet
+co: citronu
+cs: pomerančovník hořký
+da: pomerans
+de: bitterorange, Seville Orangen
+el: νεραντζιά
+eo: bigarado
+es: naranja amarga, naranjas amargas de sevilla
+et: pomerants, pomerantsipuu
+eu: laranja mingots
+fa: نارنج
+fi: pomeranssi, pomeranssin
+fr: bigaradier, Oranges de Séville
+gl: laranxeira amarga
+he: חושחש
+hr: gorka naranča, gorka naranča Sevilla
+ht: zoranj konmenn
+hu: keserű narancs
+id: jeruk pahit
+it: citrus × aurantium
+kk: бигарадия
+ko: 쓴귤
+kv: померанец
+la: aurantium
+lt: karčiavaisis citrinmedis
+lv: rūgtais apelsīns
+nb: pomerans
+nl: zure sinaasappel
+nn: pomerans
+oc: bigaradièr
+pl: pomarańcza gorzka
+ps: نارنج
+pt: laranja-azeda
+ru: померанец
+sc: aranzu
+sv: pomerans
+sw: mdanzi
+ta: நரந்தம்
+te: చేదు నారింజ
+th: ส้มซ่า
+to: kola
+tr: turunç
+uk: померанець
+ur: کنو
+vi: cam chua
+zh: 苦橙
+wikidata:en: Q147096
+wikipedia:en: https://en.wikipedia.org/wiki/Bitter_orange
+# ingredient/en:bitter-orange has 16 products in 3 languages @2020-06-13
+
+##########################################
+#              Flavourings
+##########################################
+
+< en:flavouring
+en: bitter orange flavouring
+de: Bitterorangenaroma
+fi: pomeranssiaromi
+fr: arôme d'orange amère
+hr: aroma gorke naranče
+hu: savanyú narancsaroma
+it: aroma di arancia amara
+
+###################################################################################################
+#
+#                                Acai berry
+#
+###################################################################################################
+< en:fruit
+en: acai berry, açaí berries, acai
+bg: асаи бери
+de: Acai-Beeren, Açai-Beeren, Acai, Açai
+es: Baya de acai
+fi: Acai-marja, Acai-marjat, Açai-marja, Açai-marjat, Acai, Açai
+fr: Acai berry, Baie d'açaï
+hr: acai bobica
+it: bacche di acai
+la: Euterpe oleraceae
+nl: Acaibes
+
+< en:acai berry
+< en:fruit juice
+en: acai juice
+de: Acai-Saft
+es: zumo de acai, jugo de acaí, zumo de azai, jugo de azai
+fi: Acai-mehu
+fr: jus d’açaï
+hr: acai sok
+it: succo di acai
+nl: acaisap
+pl: sok z jagód acai
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
+# 9 products in 2 languages @2018-10-04
+
+###################################################################################################
+#
+#                                Acerola
+#
+###################################################################################################
+< en:fruit
+en: acerola, acerola cherry, acerola cherries, west indian cherry, west indian cherries, Barbados cherry, Barbados cherries
+xx: acerola
+bg: ацерола
+ca: acerola, cirera acerola
+de: Acerola, Acerolakirschen, Acerola Kirsch
+es: acerola, cerecita, manzanita, semeruco
+fi: akerola, acerola
+fr: acérola, cerise des Antilles, cerises des Antilles, cerise de la Barbade, cerises de la Barbade
+hr: acerola, acerole
+pl: acerola, aceroli
+ru: Ацерола
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
+# 133 products in 4 languages @2018-10-03
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.48
+usda_ndb_proxy_code:en: 9001
+usda_ndb_proxy_name:en: Acerola, (west indian cherry), raw
+gl: laranxeira amarga
+he: חושחש
+hr: gorka naranča, gorka naranča Sevilla
+ht: zoranj konmenn
+hu: keserű narancs
+id: jeruk pahit
+it: citrus × aurantium
+kk: бигарадия
+ko: 쓴귤
+kv: померанец
+la: aurantium
+lt: karčiavaisis citrinmedis
+lv: rūgtais apelsīns
+nb: pomerans
+nl: zure sinaasappel
+nn: pomerans
+oc: bigaradièr
+pl: pomarańcza gorzka
+ps: نارنج
+pt: laranja-azeda
+ru: померанец
+sc: aranzu
+sv: pomerans
+sw: mdanzi
+ta: நரந்தம்
+te: చేదు నారింజ
+th: ส้มซ่า
+to: kola
+tr: turunç
+uk: померанець
+ur: کنو
+vi: cam chua
+zh: 苦橙
+wikidata:en: Q147096
+wikipedia:en: https://en.wikipedia.org/wiki/Bitter_orange
+# ingredient/en:bitter-orange has 16 products in 3 languages @2020-06-13
+
+##########################################
+#              Flavourings
+##########################################
+
+< en:flavouring
+en: bitter orange flavouring
+de: Bitterorangenaroma
+fi: pomeranssiaromi
+fr: arôme d'orange amère
+hr: aroma gorke naranče
+hu: savanyú narancsaroma
+it: aroma di arancia amara
+
+###################################################################################################
+#
+#                                Acai berry
+#
+###################################################################################################
+< en:fruit
+en: acai berry, açaí berries, acai
+bg: асаи бери
+de: Acai-Beeren, Açai-Beeren, Acai, Açai
+es: Baya de acai
+fi: Acai-marja, Acai-marjat, Açai-marja, Açai-marjat, Acai, Açai
+fr: Acai berry, Baie d'açaï
+hr: acai bobica
+it: bacche di acai
+la: Euterpe oleraceae
+nl: Acaibes
+
+< en:acai berry
+< en:fruit juice
+en: acai juice
+de: Acai-Saft
+es: zumo de acai, jugo de acaí, zumo de azai, jugo de azai
+fi: Acai-mehu
+fr: jus d’açaï
+hr: acai sok
+it: succo di acai
+nl: acaisap
+pl: sok z jagód acai
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acai-juice
+# 9 products in 2 languages @2018-10-04
+
+###################################################################################################
+#
+#                                Acerola
+#
+###################################################################################################
 < en:fruit
 en: acerola, acerola cherry, acerola cherries, west indian cherry, west indian cherries, Barbados cherry, Barbados cherries
 xx: acerola
@@ -44142,7 +45119,12 @@ ru: Ацерола
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.48
 
-#< en:acerola
+< en:acerola
+en: raw acerola
+usda_ndb_code:en: 9001
+usda_ndb_name:en: Acerola, (west indian cherry), raw
+
+# < en:acerola
 < en:fruit juice
 en: acerola juice
 bg: сок от ацерола
@@ -44185,6 +45167,298 @@ fi: akerola-jauhe, acerola-jauhe
 fr: poudre d'acérola
 hr: prah acerole
 it: acerola in polvere
+nl: acerolapoeder
+pl: acerola w proszku, susz z owoców aceroli
+# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
+
+< en:acerola powder
+en: acerola powder on manioc starch
+de: Acerolapulver auf Maniokstärke
+fr: poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
+hr: prah acerole na škrobu manioke
+it: acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
+# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
+
+
+###################################################################################################
+#
+#                                Blackberry
+#
+###################################################################################################
+# description:en:The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
+
+< en:berries
+en: blackberry, blackberries
+ar: توت العليق الأسود
+bg: къпина
+bn: ব্ল্যাকবেরি
+br: mouar
+bs: kupina
+ca: mora
+cy: mwyaren
+da: brombær
+de: brombeeren, brombeere, brombeer
+el: μούρο
+eo: kultivitaj rubusoj
+es: mora, moras, zarzamora
+eu: masusta
+# fa:تمشک is raspberry
+fi: karhunvatukka, karhunvadelma
+fr: mûre, mûres
+ga: sméar dhubh
+gl: amora
+he: פטל שחור
+hr: kupina, kupine
+hy: մոշ
+it: more
+ja: ブラックベリー
+jv: blèkbéri
+kk: қара бүлдірген, Qara büldirgen, قارا بۇلدىرگەن
+ko: 블랙베리
+ku: tûreşk, توورەشک
+lv: kazene
+mk: капина
+ml: ബ്ളാക്ക്ബെറി
+mt: tuta tal-għollieq
+nl: braam, bramen, braambessen, braambes
+oc: amora
+os: дзедыр
+pl: jeżyna, jeżyny, jeżynowy, jeżynowa, jeżynowe, jeżyn
+ps: تورتوت
+pt: amora
+ro: mură
+ru: ежевика
+sd: ڪاريون ٻيريون
+sk: černica
+sr: kupina, купина
+sv: björnbär
+ta: நாகப்பழம்
+th: แบล็กเบอร์รี
+tr: böğürtlen
+# udm:лыз эмезь
+uk: ожина
+ur: سیاہ توت
+vi: mâm xôi
+wa: meumeure
+zh: 黑莓
+# ang:blæcberige
+# bar:mur
+# kab:tizwal
+# roa-rup:amurâ
+# scn:amuredda
+# tuk:böwürslen
+# udm:лыз эмезь
+# yue:黑啤梨
+ciqual_food_code:en: 13029
+ciqual_food_name:en: Blackberry, raw
+ciqual_food_name:fr: Mûre (de ronce), crue
+eurocode_2_group_3:en: 9.30.24
+nl: acerolajuice uit concentraat
+
+#processing:en: en:powdered
+< en:acerola
+en: acerola powder
+bg: ацерола на прах
+de: Acerolapulver, Acerola Kirschpulver
+fi: akerola-jauhe, acerola-jauhe
+fr: poudre d'acérola
+hr: prah acerole
+it: acerola in polvere
+nl: acerolapoeder
+pl: acerola w proszku, susz z owoców aceroli
+# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
+
+< en:acerola powder
+en: acerola powder on manioc starch
+de: Acerolapulver auf Maniokstärke
+fr: poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
+hr: prah acerole na škrobu manioke
+it: acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
+# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
+
+
+###################################################################################################
+#
+#                                Blackberry
+#
+###################################################################################################
+# description:en:The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
+
+< en:berries
+en: blackberry, blackberries
+ar: توت العليق الأسود
+bg: къпина
+bn: ব্ল্যাকবেরি
+br: mouar
+bs: kupina
+ca: mora
+cy: mwyaren
+da: brombær
+de: brombeeren, brombeere, brombeer
+el: μούρο
+eo: kultivitaj rubusoj
+es: mora, moras, zarzamora
+eu: masusta
+# fa:تمشک is raspberry
+fi: karhunvatukka, karhunvadelma
+fr: mûre, mûres
+ga: sméar dhubh
+gl: amora
+he: פטל שחור
+hr: kupina, kupine
+hy: մոշ
+it: more
+ja: ブラックベリー
+jv: blèkbéri
+kk: қара бүлдірген, Qara büldirgen, قارا بۇلدىرگەن
+ko: 블랙베리
+ku: tûreşk, توورەشک
+lv: kazene
+mk: капина
+ml: ബ്ളാക്ക്ബെറി
+mt: tuta tal-għollieq
+nl: braam, bramen, braambessen, braambes
+oc: amora
+os: дзедыр
+pl: jeżyna, jeżyny, jeżynowy, jeżynowa, jeżynowe, jeżyn
+ps: تورتوت
+pt: amora
+ro: mură
+ru: ежевика
+sd: ڪاريون ٻيريون
+sk: černica
+sr: kupina, купина
+sv: björnbär
+ta: நாகப்பழம்
+th: แบล็กเบอร์รี
+tr: böğürtlen
+# udm:лыз эмезь
+uk: ожина
+ur: سیاہ توت
+vi: mâm xôi
+wa: meumeure
+zh: 黑莓
+ciqual_food_code:en: 13029
+ciqual_food_name:en: Blackberry, raw
+ciqual_food_name:fr: Mûre (de ronce), crue
+# 404 products in 7 languages @21018-10-01
+eurocode_2_group_3:en: 9.30.24
+# ang:blæcberige
+# bar:mur
+# kab:tizwal
+# roa-rup:amurâ
+# scn:amuredda
+# tuk:böwürslen
+# udm:лыз эмезь
+# yue:黑啤梨
+usda_ndb_proxy_code:en: 9042
+usda_ndb_proxy_name:en: Blackberries, raw
+wikidata:en: Q19842373
+# 404 products in 7 languages @21018-10-01
+en: acerola powder
+bg: ацерола на прах
+de: Acerolapulver, Acerola Kirschpulver
+fi: akerola-jauhe, acerola-jauhe
+fr: poudre d'acérola
+hr: prah acerole
+it: acerola in polvere
+nl: acerolapoeder
+pl: acerola w proszku, susz z owoców aceroli
+# ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
+
+< en:acerola powder
+en: acerola powder on manioc starch
+de: Acerolapulver auf Maniokstärke
+fr: poudre d'acérola avec fécule de manioc, poudre d'acérola sur fécule de manioc
+hr: prah acerole na škrobu manioke
+it: acerola in polvere con fecola di manioca, acerola in polvere con amido di manioca
+# ingredient/fr:poudre-d'acérola-avec-fécule-de-manioc has 38 products @2018-10-03
+
+
+###################################################################################################
+#
+#                                Blackberry
+#
+###################################################################################################
+# description:en:The blackberry is an edible fruit produced by many species in the genus Rubus in the family Rosaceae
+
+< en:berries
+en: blackberry, blackberries
+ar: توت العليق الأسود
+bg: къпина
+bn: ব্ল্যাকবেরি
+br: mouar
+bs: kupina
+ca: mora
+cy: mwyaren
+da: brombær
+de: brombeeren, brombeere, brombeer
+el: μούρο
+eo: kultivitaj rubusoj
+es: mora, moras, zarzamora
+eu: masusta
+# fa:تمشک is raspberry
+fi: karhunvatukka, karhunvadelma
+fr: mûre, mûres
+ga: sméar dhubh
+gl: amora
+he: פטל שחור
+hr: kupina, kupine
+hy: մոշ
+it: more
+ja: ブラックベリー
+jv: blèkbéri
+kk: қара бүлдірген, Qara büldirgen, قارا بۇلدىرگەن
+ko: 블랙베리
+ku: tûreşk, توورەشک
+lv: kazene
+mk: капина
+ml: ബ്ളാക്ക്ബെറി
+mt: tuta tal-għollieq
+nl: braam, bramen, braambessen, braambes
+oc: amora
+os: дзедыр
+pl: jeżyna, jeżyny, jeżynowy, jeżynowa, jeżynowe, jeżyn
+ps: تورتوت
+pt: amora
+ro: mură
+ru: ежевика
+sd: ڪاريون ٻيريون
+sk: černica
+sr: kupina, купина
+sv: björnbär
+ta: நாகப்பழம்
+th: แบล็กเบอร์รี
+tr: böğürtlen
+# udm:лыз эмезь
+uk: ожина
+ur: سیاہ توت
+vi: mâm xôi
+wa: meumeure
+zh: 黑莓
+ciqual_food_code:en: 13029
+ciqual_food_name:en: Blackberry, raw
+ciqual_food_name:fr: Mûre (de ronce), crue
+# 404 products in 7 languages @21018-10-01
+eurocode_2_group_3:en: 9.30.24
+# ang:blæcberige
+# bar:mur
+# kab:tizwal
+# roa-rup:amurâ
+# scn:amuredda
+# tuk:böwürslen
+# udm:лыз эмезь
+# yue:黑啤梨
+usda_ndb_proxy_code:en: 9042
+usda_ndb_proxy_name:en: Blackberries, raw
+wikidata:en: Q19842373
+
+< en:blackberry
+en: frozen blackberry
+usda_ndb_code:en: 9048
+usda_ndb_name:en: Blackberries, frozen, unsweetened
+
+< en:blackberry
 nl: acerolapoeder
 pl: acerola w proszku, susz z owoców aceroli
 # ingredient/fr:poudre-d'acérola has 37 products @2018-10-03
@@ -44530,6 +45804,421 @@ zh: 山桑子
 # scn:Murtidda
 # yue:祖苺仔
 # zh-hant:祖愉莓
+ciqual_proxy_food_code:en: 13028
+ciqual_proxy_food_name:en: Blueberry, raw
+ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
+ecobalyse_labels_en_organic:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
+eurocode_2_group_3:en: 9.30.46
+usda_ndb_proxy_code:en: 9050
+usda_ndb_proxy_name:en: Blueberries, raw
+wikidata:en: Q5812410
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
+# 943 producten in 13 languages @2018-10-01
+
+< en:blueberry
+en: frozen blueberry
+usda_ndb_code:en: 9054
+usda_ndb_name:en: Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
+#pt:concentrado de groselha
+# 238 in 1 language @2021-09-12
+
+# < en:compound
+en: blackcurrant juice from concentrate
+cs: ovocná šťáva z koncentrátu černého rybízu
+da: solbærsaft fra koncentrat
+de: schwarzer Johannisbeersaft aus Konzentrat, schwarze Johannisbeere-Konzentrat
+es: zumo de cassis a base de concentrado, jugo de cassis a base de concentrado
+fi: mustaherukkamehu tiivisteestä
+fr: jus de cassis à base de concentré
+hr: sok brusnice u granulama
+it: succo di ribes nero da concentrato
+nl: zwarte bessensap op basis van concentraat
+sv: svartvinbärsjuice från koncentrat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cassis-à-base-de-concentré
+# 144 in 8 @2021-09-12
+
+#processing:en: en:pureed
+#<en:blackcurrant
+#en:blackcurrant puree
+#bg:пюре от касис
+#da:solbærpuré
+#de:schwarzes Johannesbeerpüree
+#es:puré de grosella negra
+#fi:mustaherukkapyree
+#fr:purée de cassis
+#nl:Zwarte bessenpuree
+#sv:svartvinbärspuré
+# 248 in 5 languages @2021-09-12
+
+# no products
+# <en:blackcurrant
+# en:cassis liqueur
+# es:licor de casis
+# fr:liqueur de cassis
+# nl:cassis likeur
+# de:Cassis-Likör
+
+< en:blackcurrant
+en: pieces and juice of blackcurrant
+hr: komadi i sok crnog ribiza
+it: pezzi e succo di ribes nero
+
+< en:preparation
+en: black currant cinnamon preparation
+hr: pripravak crni ribiz cimet, emulzija crne ribizle
+it: preparazione di ribes nero e cannella
+
+###################################################################################################
+#
+#                                Blueberry
+#
+###################################################################################################
+
+# description:en: Blueberries are perennial flowering plants with blue– or purple–colored berries.
+# comment:en:usually only the generic name is in use
+
+< en:berries
+en: blueberry, blueberries
+ar: عنب الأحراج
+be: Ягаднік
+bg: боровинка, боровинки
+cs: Borůvka
+da: blåbær, bølle
+de: Heidelbeeren, Blaubeeren, Heidelbeere, Heidelbeer
+eo: mirtelo
+es: arándano, arándanos, mirtilo
+et: mustikas, mustikad
+fa: بیل‌بری
+fi: mustikka
+fr: myrtille
+hr: borovnica, borovnice, od borovnica, od borovnice, borovnica plod
+hu: áfonya
+is: bláber
+it: mirtillo, mirtilli, mirtilli neri
+ja: ビルベリー
+ka: მოცვი
+la: Vaccinium
+lt: Šilauogė
+lv: melleņu
+nb: blåbær
+nl: bosbes, bosbessen
+nn: blåbær
+pl: borówka, borówki, borówkowy
+pt: mirtilo
+ru: черника
+sv: blåbär, blåbärs
+uk: чорниця
+vi: Việt quất đen
+zh: 山桑子
+# scn:Murtidda
+# yue:祖苺仔
+# zh-hant:祖愉莓
+ciqual_food_code:en: 13028
+ciqual_food_name:en: Blueberry, raw
+ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
+ecobalyse_labels_en_organic:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
+eurocode_2_group_3:en: 9.30.46
+usda_ndb_proxy_code:en: 9050
+usda_ndb_proxy_name:en: Blueberries, raw
+wikidata:en: Q5812410
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
+# 943 producten in 13 languages @2018-10-01
+
+< en:blueberry
+en: raw blueberry
+ciqual_food_code:en: 13028
+ciqual_food_name:en: Blueberry, raw
+cs: ovocná šťáva z koncentrátu černého rybízu
+da: solbærsaft fra koncentrat
+de: schwarzer Johannisbeersaft aus Konzentrat, schwarze Johannisbeere-Konzentrat
+es: zumo de cassis a base de concentrado, jugo de cassis a base de concentrado
+fi: mustaherukkamehu tiivisteestä
+fr: jus de cassis à base de concentré
+hr: sok brusnice u granulama
+it: succo di ribes nero da concentrato
+nl: zwarte bessensap op basis van concentraat
+sv: svartvinbärsjuice från koncentrat
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-cassis-à-base-de-concentré
+# 144 in 8 @2021-09-12
+
+#processing:en: en:pureed
+#<en:blackcurrant
+#en:blackcurrant puree
+#bg:пюре от касис
+#da:solbærpuré
+#de:schwarzes Johannesbeerpüree
+#es:puré de grosella negra
+#fi:mustaherukkapyree
+#fr:purée de cassis
+#nl:Zwarte bessenpuree
+#sv:svartvinbärspuré
+# 248 in 5 languages @2021-09-12
+
+# no products
+# <en:blackcurrant
+# en:cassis liqueur
+# es:licor de casis
+# fr:liqueur de cassis
+# nl:cassis likeur
+# de:Cassis-Likör
+
+< en:blackcurrant
+en: pieces and juice of blackcurrant
+hr: komadi i sok crnog ribiza
+it: pezzi e succo di ribes nero
+
+< en:preparation
+en: black currant cinnamon preparation
+hr: pripravak crni ribiz cimet, emulzija crne ribizle
+it: preparazione di ribes nero e cannella
+
+###################################################################################################
+#
+#                                Blueberry
+#
+###################################################################################################
+
+# description:en: Blueberries are perennial flowering plants with blue– or purple–colored berries.
+# comment:en:usually only the generic name is in use
+
+< en:berries
+en: blueberry, blueberries
+ar: عنب الأحراج
+be: Ягаднік
+bg: боровинка, боровинки
+cs: Borůvka
+da: blåbær, bølle
+de: Heidelbeeren, Blaubeeren, Heidelbeere, Heidelbeer
+eo: mirtelo
+es: arándano, arándanos, mirtilo
+et: mustikas, mustikad
+fa: بیل‌بری
+fi: mustikka
+fr: myrtille
+hr: borovnica, borovnice, od borovnica, od borovnice, borovnica plod
+hu: áfonya
+is: bláber
+it: mirtillo, mirtilli, mirtilli neri
+ja: ビルベリー
+ka: მოცვი
+la: Vaccinium
+lt: Šilauogė
+lv: melleņu
+nb: blåbær
+nl: bosbes, bosbessen
+nn: blåbær
+pl: borówka, borówki, borówkowy
+pt: mirtilo
+ru: черника
+sv: blåbär, blåbärs
+uk: чорниця
+vi: Việt quất đen
+zh: 山桑子
+# scn:Murtidda
+# yue:祖苺仔
+# zh-hant:祖愉莓
+ciqual_food_code:en: 13028
+ciqual_food_name:en: Blueberry, raw
+ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
+ecobalyse_labels_en_organic:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
+eurocode_2_group_3:en: 9.30.46
+usda_ndb_proxy_code:en: 9050
+usda_ndb_proxy_name:en: Blueberries, raw
+wikidata:en: Q5812410
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
+# 943 producten in 13 languages @2018-10-01
+
+< en:blueberry
+en: raw blueberry
+usda_ndb_code:en: 9050
+usda_ndb_name:en: Blueberries, raw
+
+#en:the specific names are not seen as ingredient.
+< en:blueberry
+en: northern highbush blueberry
+fi: pensasmustikka
+hr: sjeverna visokožbunasta borovnica
+it: mirtillo rosso settentrionale
+la: Vaccinium corymbosum
+nl: blauwe bes, blauwe bessen
+pl: borówka wysoka, niebieska jagoda
+
+< en:blueberry
+en: bilberry, bilberries, huckleberry, huckleberries, whortleberry, whortleberries
+fi: mustikat
+# hr:borovnica
+it: mirtillo nero
+la: Vaccinium myrtillus
+pl: borówka czarna, jagoda, jagoda czarna, czarna jagoda, czarne jagody, czarnej jagody, czernica, borówka czernica, borówki czernicy, jagoda, jagody, jagodowy, jagodowe, jagodowa
+eurocode_2_group_3:en: 9.30.42
+wikidata:en: Q5413585
+wikipedia:en: https://en.wikipedia.org/wiki/Vaccinium_myrtillus
+
+< en:blueberry
+en: cultivated blueberry
+bg: Сини боровинки
+cs: Borůvky
+da: blåbærsorter
+de: Kulturheidelbeeren
+# hr:borovnica
+pl: borówka amerykańska, borówki amerykańskie
+ro: Afine
+sk: Čučoriedky
+wikidata:en: Q1791749
+
+#comment:en:
+< en:blueberry
+en: wild blueberry, wild blueberries
+bg: дива боровинка, диви боровинки
+da: vildt blåbær, vilde blåbær
+de: Wilde Heidelbeeren
+fi: villimustikka
+fr: myrtille sauvage
+hr: divlja borovnica, šumska borovnica
+it: mirtilli selvatici
+nl: wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
+pl: borówka dzika, borówki dzikie
+usda_ndb_proxy_code:en: 9053
+usda_ndb_proxy_name:en: Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)
+# description:en: Blueberries are perennial flowering plants with blue– or purple–colored berries.
+# comment:en:usually only the generic name is in use
+
+< en:berries
+en: blueberry, blueberries
+ar: عنب الأحراج
+be: Ягаднік
+bg: боровинка, боровинки
+cs: Borůvka
+da: blåbær, bølle
+de: Heidelbeeren, Blaubeeren, Heidelbeere, Heidelbeer
+eo: mirtelo
+es: arándano, arándanos, mirtilo
+et: mustikas, mustikad
+fa: بیل‌بری
+fi: mustikka
+fr: myrtille
+hr: borovnica, borovnice, od borovnica, od borovnice, borovnica plod
+hu: áfonya
+is: bláber
+it: mirtillo, mirtilli, mirtilli neri
+ja: ビルベリー
+ka: მოცვი
+la: Vaccinium
+lt: Šilauogė
+lv: melleņu
+nb: blåbær
+nl: bosbes, bosbessen
+nn: blåbær
+pl: borówka, borówki, borówkowy
+pt: mirtilo
+ru: черника
+sv: blåbär, blåbärs
+uk: чорниця
+vi: Việt quất đen
+zh: 山桑子
+# scn:Murtidda
+# yue:祖苺仔
+# zh-hant:祖愉莓
+ciqual_food_code:en: 13028
+ciqual_food_name:en: Blueberry, raw
+ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
+ecobalyse_labels_en_organic:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
+eurocode_2_group_3:en: 9.30.46
+usda_ndb_proxy_code:en: 9050
+usda_ndb_proxy_name:en: Blueberries, raw
+wikidata:en: Q5812410
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
+# 943 producten in 13 languages @2018-10-01
+
+< en:blueberry
+en: raw blueberry
+usda_ndb_code:en: 9050
+usda_ndb_name:en: Blueberries, raw
+
+#en:the specific names are not seen as ingredient.
+< en:blueberry
+en: northern highbush blueberry
+fi: pensasmustikka
+hr: sjeverna visokožbunasta borovnica
+it: mirtillo rosso settentrionale
+la: Vaccinium corymbosum
+nl: blauwe bes, blauwe bessen
+pl: borówka wysoka, niebieska jagoda
+
+< en:blueberry
+en: bilberry, bilberries, huckleberry, huckleberries, whortleberry, whortleberries
+fi: mustikat
+# hr:borovnica
+it: mirtillo nero
+la: Vaccinium myrtillus
+pl: borówka czarna, jagoda, jagoda czarna, czarna jagoda, czarne jagody, czarnej jagody, czernica, borówka czernica, borówki czernicy, jagoda, jagody, jagodowy, jagodowe, jagodowa
+eurocode_2_group_3:en: 9.30.42
+wikidata:en: Q5413585
+wikipedia:en: https://en.wikipedia.org/wiki/Vaccinium_myrtillus
+
+< en:blueberry
+en: cultivated blueberry
+bg: Сини боровинки
+cs: Borůvky
+da: blåbærsorter
+de: Kulturheidelbeeren
+# hr:borovnica
+pl: borówka amerykańska, borówki amerykańskie
+ro: Afine
+sk: Čučoriedky
+wikidata:en: Q1791749
+
+#comment:en:
+< en:blueberry
+en: wild blueberry, wild blueberries
+bg: дива боровинка, диви боровинки
+da: vildt blåbær, vilde blåbær
+de: Wilde Heidelbeeren
+fi: villimustikka
+fr: myrtille sauvage
+hr: divlja borovnica, šumska borovnica
+it: mirtilli selvatici
+nl: wilde bosbes, wilde blauwe bosbessen, wilde bosbessen
+pl: borówka dzika, borówki dzikie
+# 336 in 6 @2021-09-19
+
+< en:wild blueberry
+en: frozen wild blueberry
+usda_ndb_code:en: 9053
+usda_ndb_name:en: Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)
+
+bg: боровинка, боровинки
+cs: Borůvka
+da: blåbær, bølle
+de: Heidelbeeren, Blaubeeren, Heidelbeere, Heidelbeer
+eo: mirtelo
+es: arándano, arándanos, mirtilo
+et: mustikas, mustikad
+fa: بیل‌بری
+fi: mustikka
+fr: myrtille
+hr: borovnica, borovnice, od borovnica, od borovnice, borovnica plod
+hu: áfonya
+is: bláber
+it: mirtillo, mirtilli, mirtilli neri
+ja: ビルベリー
+ka: მოცვი
+la: Vaccinium
+lt: Šilauogė
+lv: melleņu
+nb: blåbær
+nl: bosbes, bosbessen
+nn: blåbær
+pl: borówka, borówki, borówkowy
+pt: mirtilo
+ru: черника
+sv: blåbär, blåbärs
+uk: чорниця
+vi: Việt quất đen
+zh: 山桑子
+# scn:Murtidda
+# yue:祖苺仔
+# zh-hant:祖愉莓
 ciqual_food_code:en: 13028
 ciqual_food_name:en: Blueberry, raw
 ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
@@ -44714,6 +46403,194 @@ pl: boysenberry
 pt: boysenberry
 ru: бойзенова ягода
 sv: boysenbär
+usda_ndb_proxy_code:en: 9057
+usda_ndb_proxy_name:en: Boysenberries, frozen, unsweetened
+< en:blueberry
+en: blueberry juice
+da: blåbærsaft
+it: succo di mirtillo
+sv: blåbärssaft
+#es:Jugo de zarzamora
+#fi:mustikkamehu
+#fr:jus de myrtille
+#it:succo di mirtillo
+#nl:bosbessensap
+#ru:Черничный сок
+# ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
+
+< en:blueberry juice
+en: concentrated blueberry juice
+de: Heidelbeer-Saftkonzentrat
+es: concentrado de jugo de arándano
+fr: jus de myrtille concentré
+hr: koncentrirani sok od borovnice
+it: succo di mirtillo concentrato
+nl: geconcentreerd bosbessensap
+sv: blåbärssaftkoncentrat
+
+< en:blueberry
+en: blueberry juice from concentrate
+de: Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeersaft aus Heidelbeersaftkonzentrat
+es: Concentrado de jugo de zarzamora
+fi: mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
+fr: jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
+hr: sok od borovnice od koncentriranog soka borovnice
+it: succo di mirtillo da concentrato
+sv: blåbärssaft av koncentrat
+
+#<en:compound
+en: blueberry filling
+bg: пълнеж от боровинки
+ca: farcellet de nabiu
+da: blåbærfyldning
+de: Heidelbeerfüllung
+es: relleno de arándanos
+fi: mustikkatäyte
+fr: garniture aux myrtilles
+hr: punilo od borovnice, punjenje od borovnica
+it: ripieno di mirtilli
+nl: blauwebessen vulling
+sv: blåbärsfyllning
+
+< en:berries
+en: loganberry, loganberries
+fr: mûroise
+hr: loganova bobica
+it: loganberry
+la: Rubus loganobaccus
+eurocode_2_group_3:en: 9.30.22
+usda_ndb_proxy_code:en: 9167
+usda_ndb_proxy_name:en: Loganberries, frozen
+
+< en:loganberry
+en: frozen loganberry
+usda_ndb_code:en: 9167
+usda_ndb_name:en: Loganberries, frozen
+
+< en:berries
+en: dewberry, dewberries, youngberry, youngberries
+it: mora di rovo
+la: Rubus caesius
+eurocode_2_group_3:en: 9.30.26
+
+###################################################################################################
+#
+#                                Boysenberry
+#
+###################################################################################################
+# description:en:The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
+
+< en:berries
+en: boysenberry, boysenberries
+bg: бойсен
+ca: boysenberry
+da: boysenbær
+de: boysenbeere, boysenbeeren
+fi: boysenmarja
+fr: boysenberry
+hr: dječačka bobica
+it: boysenberry
+ja: ボイセンベリー
+ko: 보이즌베리
+nb: boysenbær
+nl: boysenbes
+pl: boysenberry
+pt: boysenberry
+ru: бойзенова ягода
+sv: boysenbär
+wikidata:en: Q896083
+wikipedia:en: https://en.wikipedia.org/wiki/Boysenberry
+# ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
+
+< en:boysenberry
+en: frozen boysenberries
+usda_ndb_code:en: 9057
+usda_ndb_name:en: Boysenberries, frozen, unsweetened
+
+# < en:boysenberry
+#ru:Черничный сок
+# ingredient/fr:jus-de-myrtille has 32 products in 5 languages @2019-06-04
+
+< en:blueberry juice
+en: concentrated blueberry juice
+de: Heidelbeer-Saftkonzentrat
+es: concentrado de jugo de arándano
+fr: jus de myrtille concentré
+hr: koncentrirani sok od borovnice
+it: succo di mirtillo concentrato
+nl: geconcentreerd bosbessensap
+sv: blåbärssaftkoncentrat
+
+< en:blueberry
+en: blueberry juice from concentrate
+de: Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeersaft aus Heidelbeersaftkonzentrat
+es: Concentrado de jugo de zarzamora
+fi: mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
+fr: jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
+hr: sok od borovnice od koncentriranog soka borovnice
+it: succo di mirtillo da concentrato
+sv: blåbärssaft av koncentrat
+
+#<en:compound
+en: blueberry filling
+bg: пълнеж от боровинки
+ca: farcellet de nabiu
+da: blåbærfyldning
+de: Heidelbeerfüllung
+es: relleno de arándanos
+fi: mustikkatäyte
+fr: garniture aux myrtilles
+hr: punilo od borovnice, punjenje od borovnica
+it: ripieno di mirtilli
+nl: blauwebessen vulling
+sv: blåbärsfyllning
+
+< en:berries
+en: loganberry, loganberries
+fr: mûroise
+hr: loganova bobica
+it: loganberry
+la: Rubus loganobaccus
+eurocode_2_group_3:en: 9.30.22
+usda_ndb_proxy_code:en: 9167
+usda_ndb_proxy_name:en: Loganberries, frozen
+
+< en:loganberry
+en: frozen loganberry
+usda_ndb_code:en: 9167
+usda_ndb_name:en: Loganberries, frozen
+
+< en:berries
+en: dewberry, dewberries, youngberry, youngberries
+it: mora di rovo
+la: Rubus caesius
+eurocode_2_group_3:en: 9.30.26
+
+###################################################################################################
+#
+#                                Boysenberry
+#
+###################################################################################################
+# description:en:The BOYSENBERRY is a cross among the European raspberry (Rubus idaeus), European blackberry (Rubus fruticosus), American dewberry (Rubus aboriginum), and loganberry (Rubus × loganobaccus).
+
+< en:berries
+en: boysenberry, boysenberries
+bg: бойсен
+ca: boysenberry
+da: boysenbær
+de: boysenbeere, boysenbeeren
+fi: boysenmarja
+fr: boysenberry
+hr: dječačka bobica
+it: boysenberry
+ja: ボイセンベリー
+ko: 보이즌베리
+nb: boysenbær
+nl: boysenbes
+pl: boysenberry
+pt: boysenberry
+ru: бойзенова ягода
+sv: boysenbär
 wikidata:en: Q896083
 wikipedia:en: https://en.wikipedia.org/wiki/Boysenberry
 # ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
@@ -44743,6 +46620,372 @@ en: carambola, star fruit
 ar: قلنباق
 as: কৰ্দ্দৈ
 bg: карамбол, карамбола
+bn: কামরাঙা
+ca: caramboler
+ch: bilembines
+cs: karambola, čínská hvězdice
+da: karambole, stjernefrugt
+de: Karambole, Baumstachelbeere
+dv: ކާމަރަނގަ
+el: καραμπόλα
+eo: karambolfrukto
+es: carambolo, fruta de estrella
+et: karamboola
+fa: میوه ستاره‌سان
+fi: karambola
+fr: carambole
+ga: toradh réaltúil
+gl: carambola
+he: קרמבולה
+hi: कमरख
+hr: karambola
+ht: karanbòl
+hu: csillaggyümölcs, carambola
+hy: կարամբոլա
+is: stjörnuávöxtur
+it: carambola
+ja: スターフルーツ
+jv: belimbing, carambola, star fruit
+kn: ಕಮರಾಕ್ಷಿ
+ko: 카람볼라
+kv: карамбола
+la: averrhoa carambola
+ln: pakapáka
+lt: karambola
+lv: karambola
+ml: ആരംപുളി
+mr: कमरक
+ms: belimbing besi, ڤوکوق بليمبيڠ بسي‎‎
+my: စောင်းလျားပင်
+nb: stjernefrukt
+ne: कन्तर
+nl: stervrucht, carambola, sterfruit
+or: କରମଙ୍ଗା
+pl: karambola, karamboli
+pt: caramboleiro, carambola
+ro: carambola
+ru: карамбола
+sd: ڪمرنگو
+si: කාමරංගා
+sk: karambola, čínska hviezdica
+sq: starfruit
+sr: карамбола, karambola
+su: balimbing
+sv: carambola
+ta: விளிம்பிப்பழம்
+te: నక్షత్ర ఫలం చెట్టు
+th: มะเฟือง
+tl: balimbing
+to: tapanima
+tr: yıldız meyvesi
+ty: raparapa
+uk: карамбола
+vi: khế
+zh: 楊桃
+#bcl:biriran
+#koi:карамбола
+#lbe:карамбола
+#lzh:陽桃
+#mad:bhlimbhing
+#bms:blimbing
+#mrj:карамбола
+#nan:iûⁿ-tô
+#pam:taranati
+#udm:карамбола
+#vep:karambol
+#wuu:杨桃
+#yue:楊桃
+ciqual_proxy_food_code:en: 13054
+ciqual_proxy_food_name:en: Carambola, pulp, raw
+ciqual_proxy_food_name:fr: Carambole, pulpe, crue
+usda_ndb_code:en: 9084
+usda_ndb_name:en: Currants, red and white, raw
+
+###################################################################################################
+#
+#                                Carambola
+#
+###################################################################################################
+
+< en:fruit
+en: carambola, star fruit
+ar: قلنباق
+as: কৰ্দ্দৈ
+bg: карамбол, карамбола
+bn: কামরাঙা
+ca: caramboler
+ch: bilembines
+cs: karambola, čínská hvězdice
+da: karambole, stjernefrugt
+de: Karambole, Baumstachelbeere
+dv: ކާމަރަނގަ
+el: καραμπόλα
+eo: karambolfrukto
+es: carambolo, fruta de estrella
+et: karamboola
+fa: میوه ستاره‌سان
+fi: karambola
+fr: carambole
+ga: toradh réaltúil
+gl: carambola
+he: קרמבולה
+hi: कमरख
+hr: karambola
+ht: karanbòl
+hu: csillaggyümölcs, carambola
+hy: կարամբոլա
+is: stjörnuávöxtur
+it: carambola
+ja: スターフルーツ
+jv: belimbing, carambola, star fruit
+kn: ಕಮರಾಕ್ಷಿ
+ko: 카람볼라
+kv: карамбола
+la: averrhoa carambola
+ln: pakapáka
+lt: karambola
+lv: karambola
+ml: ആരംപുളി
+mr: कमरक
+ms: belimbing besi, ڤوکوق بليمبيڠ بسي‎‎
+my: စောင်းလျားပင်
+nb: stjernefrukt
+ne: कन्तर
+nl: stervrucht, carambola, sterfruit
+or: କରମଙ୍ଗା
+pl: karambola, karamboli
+pt: caramboleiro, carambola
+ro: carambola
+ru: карамбола
+sd: ڪمرنگو
+si: කාමරංගා
+sk: karambola, čínska hviezdica
+sq: starfruit
+sr: карамбола, karambola
+su: balimbing
+sv: carambola
+ta: விளிம்பிப்பழம்
+te: నక్షత్ర ఫలం చెట్టు
+th: มะเฟือง
+tl: balimbing
+to: tapanima
+tr: yıldız meyvesi
+ty: raparapa
+uk: карамбола
+vi: khế
+zh: 楊桃
+#plant:wikidata:en:Q159447
+ciqual_food_code:en: 13054
+ciqual_food_name:en: Carambola, pulp, raw
+ciqual_food_name:fr: Carambole, pulpe, crue
+#bcl:biriran
+#koi:карамбола
+#lbe:карамбола
+#lzh:陽桃
+#mad:bhlimbhing
+#bms:blimbing
+#mrj:карамбола
+#nan:iûⁿ-tô
+#pam:taranati
+#udm:карамбола
+#vep:karambol
+#wuu:杨桃
+#yue:楊桃
+ifct_food_code:en: E062
+ifct_food_name:en: Star fruit
+usda_ndb_proxy_code:en: 9060
+usda_ndb_proxy_name:en: Carambola, (starfruit), raw
+#
+#                                Carambola
+#
+###################################################################################################
+
+< en:fruit
+en: carambola, star fruit
+ar: قلنباق
+as: কৰ্দ্দৈ
+bg: карамбол, карамбола
+bn: কামরাঙা
+ca: caramboler
+ch: bilembines
+cs: karambola, čínská hvězdice
+da: karambole, stjernefrugt
+de: Karambole, Baumstachelbeere
+dv: ކާމަރަނގަ
+el: καραμπόλα
+eo: karambolfrukto
+es: carambolo, fruta de estrella
+et: karamboola
+fa: میوه ستاره‌سان
+fi: karambola
+fr: carambole
+ga: toradh réaltúil
+gl: carambola
+he: קרמבולה
+hi: कमरख
+hr: karambola
+ht: karanbòl
+hu: csillaggyümölcs, carambola
+hy: կարամբոլա
+is: stjörnuávöxtur
+it: carambola
+ja: スターフルーツ
+jv: belimbing, carambola, star fruit
+kn: ಕಮರಾಕ್ಷಿ
+ko: 카람볼라
+kv: карамбола
+la: averrhoa carambola
+ln: pakapáka
+lt: karambola
+lv: karambola
+ml: ആരംപുളി
+mr: कमरक
+ms: belimbing besi, ڤوکوق بليمبيڠ بسي‎‎
+my: စောင်းလျားပင်
+nb: stjernefrukt
+ne: कन्तर
+nl: stervrucht, carambola, sterfruit
+or: କରମଙ୍ଗା
+pl: karambola, karamboli
+pt: caramboleiro, carambola
+ro: carambola
+ru: карамбола
+sd: ڪمرنگو
+si: කාමරංගා
+sk: karambola, čínska hviezdica
+sq: starfruit
+sr: карамбола, karambola
+su: balimbing
+sv: carambola
+ta: விளிம்பிப்பழம்
+te: నక్షత్ర ఫలం చెట్టు
+th: มะเฟือง
+tl: balimbing
+to: tapanima
+tr: yıldız meyvesi
+ty: raparapa
+uk: карамбола
+vi: khế
+zh: 楊桃
+#plant:wikidata:en:Q159447
+ciqual_food_code:en: 13054
+ciqual_food_name:en: Carambola, pulp, raw
+ciqual_food_name:fr: Carambole, pulpe, crue
+#bcl:biriran
+#koi:карамбола
+#lbe:карамбола
+#lzh:陽桃
+#mad:bhlimbhing
+#bms:blimbing
+#mrj:карамбола
+#nan:iûⁿ-tô
+#pam:taranati
+#udm:карамбола
+#vep:karambol
+#wuu:杨桃
+#yue:楊桃
+ifct_food_code:en: E062
+ifct_food_name:en: Star fruit
+wikidata:en: Q181560
+#plant:wikidata:en:Q159447
+#
+###################################################################################################
+
+< en:fruit
+en: carambola, star fruit
+ar: قلنباق
+as: কৰ্দ্দৈ
+bg: карамбол, карамбола
+bn: কামরাঙা
+ca: caramboler
+ch: bilembines
+cs: karambola, čínská hvězdice
+da: karambole, stjernefrugt
+de: Karambole, Baumstachelbeere
+dv: ކާމަރަނގަ
+el: καραμπόλα
+eo: karambolfrukto
+es: carambolo, fruta de estrella
+et: karamboola
+fa: میوه ستاره‌سان
+fi: karambola
+fr: carambole
+ga: toradh réaltúil
+gl: carambola
+he: קרמבולה
+hi: कमरख
+hr: karambola
+ht: karanbòl
+hu: csillaggyümölcs, carambola
+hy: կարամբոլա
+is: stjörnuávöxtur
+it: carambola
+ja: スターフルーツ
+jv: belimbing, carambola, star fruit
+kn: ಕಮರಾಕ್ಷಿ
+ko: 카람볼라
+kv: карамбола
+la: averrhoa carambola
+ln: pakapáka
+lt: karambola
+lv: karambola
+ml: ആരംപുളി
+mr: कमरक
+ms: belimbing besi, ڤوکوق بليمبيڠ بسي‎‎
+my: စောင်းလျားပင်
+nb: stjernefrukt
+ne: कन्तर
+nl: stervrucht, carambola, sterfruit
+or: କରମଙ୍ଗା
+pl: karambola, karamboli
+pt: caramboleiro, carambola
+ro: carambola
+ru: карамбола
+sd: ڪمرنگو
+si: කාමරංගා
+sk: karambola, čínska hviezdica
+sq: starfruit
+sr: карамбола, karambola
+su: balimbing
+sv: carambola
+ta: விளிம்பிப்பழம்
+te: నక్షత్ర ఫలం చెట్టు
+th: มะเฟือง
+tl: balimbing
+to: tapanima
+tr: yıldız meyvesi
+ty: raparapa
+uk: карамбола
+vi: khế
+zh: 楊桃
+#plant:wikidata:en:Q159447
+ciqual_food_code:en: 13054
+ciqual_food_name:en: Carambola, pulp, raw
+ciqual_food_name:fr: Carambole, pulpe, crue
+#bcl:biriran
+#koi:карамбола
+#lbe:карамбола
+#lzh:陽桃
+#mad:bhlimbhing
+#bms:blimbing
+#mrj:карамбола
+#nan:iûⁿ-tô
+#pam:taranati
+#udm:карамбола
+#vep:karambol
+#wuu:杨桃
+#yue:楊桃
+ifct_food_code:en: E062
+ifct_food_name:en: Star fruit
+wikidata:en: Q181560
+
+< en:carambola
+en: raw carambola
+ciqual_food_code:en: 13054
+ciqual_food_name:en: Carambola, pulp, raw
+ciqual_food_name:fr: Carambole, pulpe, crue
+usda_ndb_code:en: 9060
+usda_ndb_name:en: Carambola, (starfruit), raw
 bn: কামরাঙা
 ca: caramboler
 ch: bilembines
@@ -45193,6 +47436,329 @@ bo: ཁམ་ཤིང་།
 ca: cirerer
 cs: třešeň ptačí
 cy: Coeden geirios du
+da: Fugle-Kirsebær
+de: Vogel-Kirsche, Vogelkirsche
+el: Κερασιά
+eo: Ĉerizarbo
+et: Magus kirsipuu
+eu: Basagereziondo
+fa: گیلاس خودرو
+fi: Imeläkirsikka
+fr: bigarreaux, merisier
+ga: Silín fiáin
+gl: Cerdeira
+gv: Shillish
+hr: slatka trešnja
+hu: Vadcseresznye
+hy: կեռասենի
+is: Fuglakirsuber
+it: ciliegio
+ja: セイヨウミザクラ
+ka: ბალი
+kk: Мойыл
+ko: 양벚나무
+ku: Gelyaz
+la: Prunus avium
+lt: Trešnė
+lv: saldais ķirsis
+nb: Morell
+nl: Zoete kers
+nn: Morell
+oc: Cerièr
+os: Гуырдзиаг бал
+pl: czereśnia, czereśnie, czereśniowy, czereśniowa, czereśniowe, czereśniowego, czereśniowych, czereśniowej
+ro: Cireș
+ru: Черешня
+sc: Cariasa
+sk: čerešňa vtáčia
+sv: Sötkörsbär
+tg: Гелос
+tt: Төче чия
+uk: Черешня
+uz: Gilos
+vi: anh đào dại
+vo: Murõlipuu
+wa: Såvaedje tchersî
+zh: 欧洲甜樱桃
+# atj:Miko Cawemin
+# bar:Keasch
+# be-trask:Чарэшня
+# csb:Krzesznia
+# dsb:Słodka wišnja
+# fur:Cjariesâr
+# glk:وحشی گیلاس
+# hsb:Słódka wišnja
+# kbd:Балий
+# kk-arab:مويىل
+# kk-cn:مويىل
+# kk-cyrl:Мойыл
+# kk-kz:Мойыл
+# kk-latn:Moýıl
+# kk-tr:Moýıl
+# mzn:گیلاس
+# nap:Ceraso
+# pcd:Chrizhié
+# rup:Cireșu
+# sgs:Trešnė
+# szl:Trzyśńa
+# vec:Saresaro
+# xmf:ბული
+# zh-hans:甜樱桃
+# zh-hant:甜櫻桃
+# zh-hk:甜櫻桃
+# zh-sg:甜樱桃
+eurocode_2_group_3:en: 9.20.40
+usda_ndb_proxy_code:en: 9070
+usda_ndb_proxy_name:en: Cherries, sweet, raw
+< en:cherry
+en: sweet cherry
+ar: كرز حلو
+az: Gilas
+bg: дива череша
+bo: ཁམ་ཤིང་།
+ca: cirerer
+cs: třešeň ptačí
+cy: Coeden geirios du
+da: Fugle-Kirsebær
+de: Vogel-Kirsche, Vogelkirsche
+el: Κερασιά
+eo: Ĉerizarbo
+et: Magus kirsipuu
+eu: Basagereziondo
+fa: گیلاس خودرو
+fi: Imeläkirsikka
+fr: bigarreaux, merisier
+ga: Silín fiáin
+gl: Cerdeira
+gv: Shillish
+hr: slatka trešnja
+hu: Vadcseresznye
+hy: կեռասենի
+is: Fuglakirsuber
+it: ciliegio
+ja: セイヨウミザクラ
+ka: ბალი
+kk: Мойыл
+ko: 양벚나무
+ku: Gelyaz
+la: Prunus avium
+lt: Trešnė
+lv: saldais ķirsis
+nb: Morell
+nl: Zoete kers
+nn: Morell
+oc: Cerièr
+os: Гуырдзиаг бал
+pl: czereśnia, czereśnie, czereśniowy, czereśniowa, czereśniowe, czereśniowego, czereśniowych, czereśniowej
+ro: Cireș
+ru: Черешня
+sc: Cariasa
+sk: čerešňa vtáčia
+sv: Sötkörsbär
+tg: Гелос
+tt: Төче чия
+uk: Черешня
+uz: Gilos
+vi: anh đào dại
+vo: Murõlipuu
+wa: Såvaedje tchersî
+zh: 欧洲甜樱桃
+# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
+eurocode_2_group_3:en: 9.20.40
+# atj:Miko Cawemin
+# bar:Keasch
+# be-trask:Чарэшня
+# csb:Krzesznia
+# dsb:Słodka wišnja
+# fur:Cjariesâr
+# glk:وحشی گیلاس
+# hsb:Słódka wišnja
+# kbd:Балий
+# kk-arab:مويىل
+# kk-cn:مويىل
+# kk-cyrl:Мойыл
+# kk-kz:Мойыл
+# kk-latn:Moýıl
+# kk-tr:Moýıl
+# mzn:گیلاس
+# nap:Ceraso
+# pcd:Chrizhié
+# rup:Cireșu
+# sgs:Trešnė
+# szl:Trzyśńa
+# vec:Saresaro
+# xmf:ბული
+# zh-hans:甜樱桃
+# zh-hant:甜櫻桃
+# zh-hk:甜櫻桃
+# zh-sg:甜樱桃
+wikidata:en: Q165137
+# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
+ar: كرز حلو
+az: Gilas
+bg: дива череша
+bo: ཁམ་ཤིང་།
+ca: cirerer
+cs: třešeň ptačí
+cy: Coeden geirios du
+da: Fugle-Kirsebær
+de: Vogel-Kirsche, Vogelkirsche
+el: Κερασιά
+eo: Ĉerizarbo
+et: Magus kirsipuu
+eu: Basagereziondo
+fa: گیلاس خودرو
+fi: Imeläkirsikka
+fr: bigarreaux, merisier
+ga: Silín fiáin
+gl: Cerdeira
+gv: Shillish
+hr: slatka trešnja
+hu: Vadcseresznye
+hy: կեռասենի
+is: Fuglakirsuber
+it: ciliegio
+ja: セイヨウミザクラ
+ka: ბალი
+kk: Мойыл
+ko: 양벚나무
+ku: Gelyaz
+la: Prunus avium
+lt: Trešnė
+lv: saldais ķirsis
+nb: Morell
+nl: Zoete kers
+nn: Morell
+oc: Cerièr
+os: Гуырдзиаг бал
+pl: czereśnia, czereśnie, czereśniowy, czereśniowa, czereśniowe, czereśniowego, czereśniowych, czereśniowej
+ro: Cireș
+ru: Черешня
+sc: Cariasa
+sk: čerešňa vtáčia
+sv: Sötkörsbär
+tg: Гелос
+tt: Төче чия
+uk: Черешня
+uz: Gilos
+vi: anh đào dại
+vo: Murõlipuu
+wa: Såvaedje tchersî
+zh: 欧洲甜樱桃
+# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
+eurocode_2_group_3:en: 9.20.40
+# atj:Miko Cawemin
+# bar:Keasch
+# be-trask:Чарэшня
+# csb:Krzesznia
+# dsb:Słodka wišnja
+# fur:Cjariesâr
+# glk:وحشی گیلاس
+# hsb:Słódka wišnja
+# kbd:Балий
+# kk-arab:مويىل
+# kk-cn:مويىل
+# kk-cyrl:Мойыл
+# kk-kz:Мойыл
+# kk-latn:Moýıl
+# kk-tr:Moýıl
+# mzn:گیلاس
+# nap:Ceraso
+# pcd:Chrizhié
+# rup:Cireșu
+# sgs:Trešnė
+# szl:Trzyśńa
+# vec:Saresaro
+# xmf:ბული
+# zh-hans:甜樱桃
+# zh-hant:甜櫻桃
+# zh-hk:甜櫻桃
+# zh-sg:甜樱桃
+wikidata:en: Q165137
+
+< en:sweet cherry
+en: raw sweet cherry
+usda_ndb_code:en: 9070
+usda_ndb_name:en: Cherries, sweet, raw
+cs: třešeň ptačí
+cy: Coeden geirios du
+da: Fugle-Kirsebær
+de: Vogel-Kirsche, Vogelkirsche
+el: Κερασιά
+eo: Ĉerizarbo
+et: Magus kirsipuu
+eu: Basagereziondo
+fa: گیلاس خودرو
+fi: Imeläkirsikka
+fr: bigarreaux, merisier
+ga: Silín fiáin
+gl: Cerdeira
+gv: Shillish
+hr: slatka trešnja
+hu: Vadcseresznye
+hy: կեռասենի
+is: Fuglakirsuber
+it: ciliegio
+ja: セイヨウミザクラ
+ka: ბალი
+kk: Мойыл
+ko: 양벚나무
+ku: Gelyaz
+la: Prunus avium
+lt: Trešnė
+lv: saldais ķirsis
+nb: Morell
+nl: Zoete kers
+nn: Morell
+oc: Cerièr
+os: Гуырдзиаг бал
+pl: czereśnia, czereśnie, czereśniowy, czereśniowa, czereśniowe, czereśniowego, czereśniowych, czereśniowej
+ro: Cireș
+ru: Черешня
+sc: Cariasa
+sk: čerešňa vtáčia
+sv: Sötkörsbär
+tg: Гелос
+tt: Төче чия
+uk: Черешня
+uz: Gilos
+vi: anh đào dại
+vo: Murõlipuu
+wa: Såvaedje tchersî
+zh: 欧洲甜樱桃
+# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
+eurocode_2_group_3:en: 9.20.40
+# atj:Miko Cawemin
+# bar:Keasch
+# be-trask:Чарэшня
+# csb:Krzesznia
+# dsb:Słodka wišnja
+# fur:Cjariesâr
+# glk:وحشی گیلاس
+# hsb:Słódka wišnja
+# kbd:Балий
+# kk-arab:مويىل
+# kk-cn:مويىل
+# kk-cyrl:Мойыл
+# kk-kz:Мойыл
+# kk-latn:Moýıl
+# kk-tr:Moýıl
+# mzn:گیلاس
+# nap:Ceraso
+# pcd:Chrizhié
+# rup:Cireșu
+# sgs:Trešnė
+# szl:Trzyśńa
+# vec:Saresaro
+# xmf:ბული
+# zh-hans:甜樱桃
+# zh-hant:甜櫻桃
+# zh-hk:甜櫻桃
+# zh-sg:甜樱桃
+wikidata:en: Q165137
+
+
+# <en:compund
 da: Fugle-Kirsebær
 de: Vogel-Kirsche, Vogelkirsche
 el: Κερασιά
@@ -46136,6 +48702,7 @@ sv: fläderblomsextrakt, extrakt av blommor från fläderbusken
 
 < en:berries
 en: rowanberry, rowanberries
+xx: this can be deleted
 bg: калина
 cs: jeřabin
 da: rønnebær
@@ -46161,6 +48728,13 @@ sl: jerebike
 sv: rönnbär
 eurocode_2_group_3:en: 9.30.54
 
+###################################################################################################
+#
+#
+#                           Feijoa
+#
+###################################################################################################
+
 < en:fruit
 en: feijoa
 description:en: Feijoa (Acca sellowiana) is a fruit native to South America — specifically the highlands of southern Brazil, Uruguay, Paraguay, and northern Argentina. The flavour is distinctive and hard to compare — often described as a mix of pineapple, guava, mint, and strawberry, with floral notes. The flesh inside is creamy white and slightly gritty near the center, similar to a ripe pear.
@@ -46175,10 +48749,9 @@ usda_ndb_name:en: Feijoa, raw
 ###################################################################################################
 #
 #
-
+#                           Fig
 #
 ###################################################################################################
-
 
 < en:fruit
 en: fig, figs
@@ -97968,4 +100541,3 @@ description:en: “Paprika” can be either the dried powder or the fruit of a p
 en: vitamin and mineral blend, vitamin and mineral mix
 it: vitamine e minerali misti
 ru: витаминно минеральный премикс, витаминный премикс
-
