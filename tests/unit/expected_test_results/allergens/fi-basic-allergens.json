@@ -86,7 +86,9 @@
          "percent_estimate" : 0.716145833333336,
          "percent_max" : 14.2857142857143,
          "percent_min" : 0,
-         "text" : "sinappi"
+         "text" : "sinappi",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "fi:_äyriäiset_",
@@ -151,14 +153,12 @@
       ],
       "en:vegan-status-unknown" : [
          "fi:_kananmunat_",
-         "en:mustard",
          "fi:_äyriäiset_",
          "fi:pähkinöitä",
          "fi:_nilviäisiä_"
       ],
       "en:vegetarian-status-unknown" : [
          "fi:_kananmunat_",
-         "en:mustard",
          "fi:_äyriäiset_",
          "fi:pähkinöitä",
          "fi:_nilviäisiä_"
@@ -205,6 +205,7 @@
       "en:salt",
       "fi:_kananmunat_",
       "en:mustard",
+      "en:plant",
       "fi:_äyriäiset_",
       "fi:pähkinöitä",
       "en:celery",
