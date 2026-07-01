@@ -9953,6 +9953,49 @@ wikidata:en: Q12958
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. But do not include the word meat in these. Use en:beef meat for that.
 
+
+< en:game animal
+en: antelope
+
+< en:antelope
+< en:meat
+en: antelope meat
+usda_ndb_proxy_code:en: 17144
+usda_ndb_proxy_name:en: Game meat, antelope, raw
+
+< en:antelope meat
+en: raw antelope meat
+usda_ndb_code:en: 17144
+usda_ndb_name:en: Game meat, antelope, raw
+
+< en:game animal
+en: bear
+
+< en:bear
+< en:meat
+en: bear meat
+usda_ndb_proxy_code:en: 17146
+usda_ndb_proxy_name:en: Game meat, bear, raw
+
+< en:bear meat
+en: raw bear meat
+usda_ndb_code:en: 17146
+usda_ndb_name:en: Game meat, bear, raw
+
+< en:game animal
+en: beaver
+
+< en:beaver
+< en:meat
+en: beaver meat
+usda_ndb_code:en: 17150
+usda_ndb_name:en: Game meat, beaver, raw
+
+< en:beaver meat
+en: raw beaver meat
+usda_ndb_code:en: 17150
+usda_ndb_name:en: Game meat, beaver, raw
+
 < en:animal
 en: beef, steers
 bg: говедо, говеждо
@@ -10331,6 +10374,34 @@ ciqual_food_name:fr: Foie, veau, cuit
 ifct_food_code:en: O042
 ifct_food_name:en: Calf, liver
 
+###################################################################################################
+#
+#                                Caribou
+#
+###################################################################################################
+
+< en:animal
+en: caribou
+la: Rangifer tarandus
+description:en: "Caribou" is the term used in North America (Canada, Alaska) for wild populations. "Reindeer" is used in Europe and Asia, and also refers to the domesticated populations found especially in places like Scandinavia and Russia.
+
+< en:caribou
+< en:meat
+en: caribou meat
+usda_ndb_proxy_code:en: 17162
+usda_ndb_proxy_name:en: Game meat, caribou, raw
+
+< en:caribou meat
+en: raw caribou meat
+usda_ndb_code:en: 17162
+usda_ndb_name:en: Game meat, caribou, raw
+
+###################################################################################################
+#
+#                                Cow
+#
+###################################################################################################
+
 < en:animal
 en: cow
 bg: крава
@@ -10411,6 +10482,7 @@ wikidata:en: Q1365996
 wikipedia:en: https://en.wikipedia.org/wiki/Chuck_steak
 # ingredient/sv:högrev-av-nötkött has 1 product in 1 language @2020-06-27
 
+
 # description:en:In general a sheep in its first year is called a LAMB, and its meat is also called lamb.
 
 < en:sheep
@@ -10477,8 +10549,15 @@ ciqual_proxy_food_name:en: Lamb, raw (average)
 #ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
 ecobalyse:en: 45e3cd64-1647-4841-bacb-795e2aae4f02
 ecobalyse_labels_en_organic:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
+usda_ndb_proxy_code:en: 17224
+usda_ndb_proxy_name:en: Lamb, ground, raw
 wikidata:en: Q643419
 # ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
+
+< en:lamb-meat
+en: raw ground lamb
+usda_ndb_code:en: 17224
+usda_ndb_name:en: Lamb, ground, raw
 
 < en:lamb-meat
 en: lamb cutlet
@@ -11275,6 +11354,7 @@ ciqual_food_name:fr: Mouton, gigot, cru
 #                                Game animals
 #
 ###################################################################################################
+
 # <en:animal
 en: game animal
 de: Wildtier
@@ -11290,6 +11370,7 @@ pl: dziczyzna
 #                                Deer
 #
 ###################################################################################################
+
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 < en:game animal
 en: deer
@@ -11337,12 +11418,25 @@ zh: 鹿肉
 # ast:Carne de venáu
 # sco:venison
 # yue:鹿肉
+usda_ndb_proxy_code:en: 17164
+usda_ndb_proxy_name:en: Game meat, deer, raw
 wikidata:en: Q2296872
 wikipedia:en: https://en.wikipedia.org/wiki/Venison
 # ingredient/fr:viande-de-cerf has 26 products in 4 languages @2019-04-16
 
-< en:deer
-en: reindeer, caribou
+< en: venison
+en: raw venison
+usda_ndb_code:en: 17164
+usda_ndb_name:en: Game meat, deer, raw
+
+###################################################################################################
+#
+#                                Reindeer
+#
+###################################################################################################
+
+< en:game animal
+en: reindeer
 da: rensdyr
 de: ren
 es: reno
@@ -11350,17 +11444,19 @@ fi: poro
 fr: renne
 hr: sob
 it: Renna
+la: Rangifer tarandus (Reindeer)
 nb: rein
 pl: ren
 sv: ren
-# ingredient/fr:renne has 1 product in 1 language @2020-06-08
+description:en: "Reindeer" is used in Europe and Asia, and also refers to the domesticated populations found especially in places like Scandinavia and Russia. "Caribou" is the term used in North America (Canada, Alaska) for wild populations.
 nutriscore_red_meat:en: yes
 wikidata:en: Q5410921
 wikipedia:en: https://en.wikipedia.org/wiki/Reindeer
+# ingredient/fr:renne has 1 product in 1 language @2020-06-08
 
 < en:reindeer
 < en:venison
-en: reindeer meat, caribou meat
+en: reindeer meat
 de: Rentierfleisch
 fi: poronliha
 fr: viande de renne
@@ -11411,9 +11507,29 @@ pl: mięso z dzika
 
 ###################################################################################################
 #
+#                                Elk
+#
+###################################################################################################
+
+< en:game animal
+en: elk
+
+< en:elk
+en: elk meat
+usda_ndb_proxy_code:en: 17166
+usda_ndb_proxy_name:en: Game meat, elk, raw
+
+< en:elk meat
+en: raw elk meat
+usda_ndb_code:en: 17166
+usda_ndb_name:en: Game meat, elk, raw
+
+###################################################################################################
+#
 #                                Horse
 #
 ###################################################################################################
+
 < en:animal
 en: horse
 af: perd
@@ -11672,9 +11788,16 @@ uz: qazi
 vi: thịt ngựa
 zh: 马肉
 # diq:goştê estori
+usda_ndb_proxy_code:en: 17170
+usda_ndb_proxy_name:en: Game meat, horse, raw
 wikidata:en: Q1124327
 wikipedia:en: https://en.wikipedia.org/wiki/Horse_meat
 # ingredient/fr:viande-de-cheval has 21 products in 4 languages @2020-05-21
+
+< en:horse meat
+en: raw horse meat
+usda_ndb_code:en: 17170
+usda_ndb_name:en: Game meat, horse, raw
 
 # description:en:serving of chopped ingredients formed into a disc.
 
@@ -11777,6 +11900,7 @@ ciqual_food_name:fr: Bœuf, steak haché 20% MG, cuit
 #                                Goat
 #
 ###################################################################################################
+
 < en:animal
 en: goat
 bg: Коза
@@ -11787,7 +11911,6 @@ hr: jarac
 pt: Cabra
 nutriscore_red_meat:en: yes
 
-# description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
 < en:goat
 < en:meat
@@ -11818,13 +11941,21 @@ sr: јаретина
 ta: ஆட்டிறைச்சி
 vi: Thịt dê
 zh: 山羊肉
-# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
-ciqual_food_code:en: 21800
-ciqual_food_name:en: Young goat, raw
-ciqual_food_name:fr: Chevreau, cru
 # sr-ec:јаретина
+ciqual_proxy_food_code:en: 21800
+ciqual_proxy_food_name:en: Young goat, raw
+ciqual_proxy_food_name:fr: Chevreau, cru
+description:en: GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
+usda_ndb_proxy_code:en: 17168
+usda_ndb_proxy_name:en: Game meat, goat, raw
 wikidata:en: Q449506
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_meat
+# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
+
+< en:goat meat
+en: raw goat meat
+usda_ndb_code:en: 17168
+usda_ndb_name:en: Game meat, goat, raw
 
 < en:goat
 < en:meat
@@ -11845,6 +11976,43 @@ ciqual_food_code:en: 21801
 ciqual_food_name:en: Young goat, cooked
 ciqual_food_name:fr: Chevreau, cuit
 
+###################################################################################################
+#
+#                                Moose
+#
+###################################################################################################
+
+< en:game animal
+en: moose
+
+< en:moose
+en: moose meat
+usda_ndb_proxy_code:en: 17172
+usda_ndb_proxy_name:en: Game meat, moose, raw
+
+< en:moose meat
+en: raw moose meat
+usda_ndb_code:en: 17172
+usda_ndb_name:en: Game meat, moose, raw
+
+###################################################################################################
+#
+#                                Muskrat
+#
+###################################################################################################
+
+< en:game animal
+en: muskrat
+
+< en:muskrat
+en: muskrat meat
+usda_ndb_proxy_code:en: 17174
+usda_ndb_proxy_name:en: Game meat, muskrat, raw
+
+< en:muskrat meat
+en: raw muskrat meat
+usda_ndb_code:en: 17174
+usda_ndb_name:en: Game meat, muskrat, raw
 
 ###################################################################################################
 #
@@ -13181,14 +13349,48 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lard
 
 ###################################################################################################
 #
-#                                Beef
+#                                Squirrel
 #
 ###################################################################################################
 
+< en:game animal
+en: squirrel
+
+< en:squirrel
+en: squirrel meat
+usda_ndb_proxy_code:en: 17183
+usda_ndb_proxy_name:en: Game meat, squirrel, raw
+
+< en:squirrel meat
+en: raw squirrel meat
+usda_ndb_code:en: 17183
+usda_ndb_name:en: Game meat, squirrel, raw
+
+###################################################################################################
+#
+#                                Veal
+#
+###################################################################################################
+
+# < en:animal
+< en:beef
+en: veal
+bg: телешко
+de: Kalb
+es: ternera
+fi: vasikka
+fr: veau
+hr: teletina
+hu: borjú
+it: vitello
+nl: kalf
+nutriscore_red_meat:en: yes
+usda_ndb_proxy_code:en: 17142
+usda_ndb_proxy_name:en: Veal, ground, raw
+vegan:en: no
+vegetarian:en: no
 
 < en:meat
-# viande bovine in ingredients refers to (aged) beef, not veal
-#<fr:viande bovine
 < en:veal
 en: veal meat
 bg: телешко месо
@@ -13206,23 +13408,27 @@ pl: mięso cielęce, cielęcina
 sv: kalvkött
 carbon_footprint_fr_foodges_ingredient:fr: Viande de veau France
 carbon_footprint_fr_foodges_value:fr: 20.5
+comment:en: viande bovine in ingredients refers to (aged) beef, not veal
+usda_ndb_proxy_code:en: 17142
+usda_ndb_proxy_name:en: Veal, ground, raw
 
-< en:beef
-en: veal
-bg: телешко
-de: Kalb
-es: ternera
-fi: vasikka
-fr: veau
-hr: teletina
-hu: borjú
-it: vitello
-nl: kalf
-nutriscore_red_meat:en: yes
-vegan:en: no
-vegetarian:en: no
+< en:veal meat
+en: raw veal (external fat only)
+usda_ndb_code:en: 17431
+usda_ndb_name:en: Veal, external fat only, raw
 
-# <en:bone
+< en:veal meat
+en: raw ground veal
+usda_ndb_code:en: 17142
+usda_ndb_name:en: Veal, ground, raw
+
+< en:veal meat
+en: raw veal (seam fat only)
+usda_ndb_code:en: 17433
+usda_ndb_name:en: Veal, seam fat only, raw
+
+
+# < en:bone
 < en:veal
 en: veal bone
 fr: os de veau
@@ -13249,6 +13455,13 @@ ciqual_food_code:en: 11169
 ciqual_food_name:en: Veal stock for sauce and cooking, dehydrated
 ciqual_food_name:fr: Fond de veau pour sauces et cuisson, déshydraté
 # ingredient/dehydrated-veal-fond has no products @2021-08-17
+
+
+###################################################################################################
+#
+#                                Beef
+#
+###################################################################################################
 
 en: casing
 de: Hülle
@@ -62956,6 +63169,8 @@ carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
 description:en: The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
+ecobalyse:en: chickpea-fr
+ecobalyse_labels_en_organic:en: chickpea-organic
 # eurocode_2_group_3:en: 7.10.15
 ## eurocode_2_group_2:en: 8.45
 rare_crop:en: yes
