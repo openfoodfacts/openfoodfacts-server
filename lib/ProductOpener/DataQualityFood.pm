@@ -51,7 +51,6 @@ BEGIN {
 use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
-use ProductOpener::ProductsTags qw(:all);
 use ProductOpener::Stats qw(%categories_stats_per_country);
 use ProductOpener::Units qw(extract_standard_unit);
 use ProductOpener::Nutrition qw(:all);
@@ -1161,7 +1160,7 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 	# Too small salt value? (e.g. g entered in mg)
 	# warning for salt < 0.1 was removed because it was leading to too much false positives (see #9346)
 	my $per = deep_get($nutrition_set_ref, "per");
-	if ((defined $per) and (($per eq "100g") or ($per eq "100ml"))) {
+	if (($per eq "100g") or ($per eq "100ml")) {
 
 		my $salt = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "salt");
 		if ((defined $salt) and ($salt > 0)) {
@@ -1205,7 +1204,7 @@ sub check_nutrition_data_for_input_set ($product_ref, $nutrition_set_ref, $set_i
 
 		# Convert to 100g
 
-		if ((defined $per) and (($per eq "100g") or ($per eq "100ml"))) {
+		if (($per eq "100g") or ($per eq "100ml")) {
 			if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($value > 105)) {
 				# product opener / ingredients analysis issue (See issue #10064)
 				push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-value-over-105-$nid";
@@ -1244,7 +1243,7 @@ sub check_nutrition_data_for_input_set ($product_ref, $nutrition_set_ref, $set_i
 
 	}
 
-	if ((defined $per) and (($per eq "100g") or ($per eq "100ml"))) {
+	if (($per eq "100g") or ($per eq "100ml")) {
 		if ($total > 105) {
 			push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-value-total-over-105";
 		}

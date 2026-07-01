@@ -1,0 +1,83 @@
+# Note: THIS FILE IS NOT USED, it should not be updated
+# Its content should be gradually moved to the packaging_recycling taxonomy
+# and new tests should be added in t/packaging.t to cover the additions.
+# Once all entries have been moved, this file should be deleted.
+
+en:General waste
+hu:Kommunális hulladék, kommunális szemét, vegyes hulladék, vegyes szemét
+nl:Restafval, bij restafval
+pt:lixo indiferenciado, indiferenciado, indeferenciados, lixo, contentor de lixo, contentor do lixo, caixote de lixo, caixote do lixo, cesto de lixo, cesto do lixo, lixo doméstico, resíduos indiferenciados
+
+#Comment:en:This includes general waste, but also metal (tins)
+nl:Restafval, bij restafval
+country:en:Netherlands
+
+fr:Bac jaune
+country:en:France
+
+
+#Comment:en:This includes plastic bottles, metal tins and drink cartons
+nl:PMD-bak, bak voor plastic flessen en flacons - metalen verpakkingen en drinkpakken, 
+country:en:Belgium
+
+#Comment:en:This includes ONLY plastics
+en:Plastics container
+hu:Műanyag konténer
+nl:plastic afval, bij plastic afval, in de plastic heroes bak of zak, in de plastic heroes bak, in de plastic heroes zak
+country:en:Netherlands
+
+#used in Portugal for packages in general (most of them plastic, metal and Tetra Pak) except glass, paper, cardboard, journals, books... but not mixed paper and other materials like Tetra Pak
+<en:Plastics container
+pt:coponto amarelo, contentor azul, contentor do plástico, contentor dos plásticos, contentor das embalagens, contentor de embalagens, contentor do plástico e metal, contentor dos plásticos e metais
+country:en:Portugal
+
+#A specific container for drink cartons, like Tetrapak
+nl:Drankenkartons, bij drankenkartons
+country:en:Netherlands
+
+#A specific container for drink cartons, like Tetrapak
+nl:Drankenkartons, bij drankenkartons
+
+en:Glass container
+de:Glascontainer, Altglas
+fr:Bac à verre, Cuboverre
+hu:Üveg konténer
+nl:Glasbak, in de glasbak, in glasbak
+pt:Ecoponto verde, contentor verde, contentor do vidro, contentor dos vidros, contentor de garrafas, contentor das garrafas
+geographic_synonyms:fr_FR:paris:Bac blanc
+geographic_synonyms:fr_NL:Bac vert
+
+<en:Glass container
+nl:Wit glas, glasbak voor wit glas
+de:Weißglas
+
+<en:Glass container
+nl:Groen glas, glasbak voor groen glas
+de:Grünglas
+
+<en:Glass container
+nl:Bruin glas, glasbak voor bruin glas
+de:Braunglas
+
+en:Container for paper
+hu:Papír konténer
+de:Altpapier, Papiercontainer
+nl:Papiercontainer
+
+#Comment:en:This includes paper and packaging cartons
+en:Paper and cardboard container
+nl:Oud papier, Papierbak, bij Oud papier
+pt:Ecoponto azul, contentor azul, contentor do papel, contentor dos papéis, contentor do cartão, contentor do cartão de papel, contentor do papel e cartão, contentor dos papéis e cartões
+country:en:Netherlands
+
+nl:GFT-bak, Groente- Fruit- en tuinafval-bak
+country:en:Netherlands, Belgium
+
+en:Cooking oil
+hu:Sütőolaj
+nl:Frituurolie
+pt:Ecoponto laranja, ecoponto de óleo, ecoponto do óleo de fritar, contentor de óleo, contentor do óleo de fritar
+
+fr:Consigné
+nl:Statiegeld
+de:Pfand

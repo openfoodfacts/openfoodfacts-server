@@ -385,7 +385,7 @@
                      "display_in_edit_form" : false,
                      "id" : "galactose",
                      "important" : false,
-                     "name" : "galactose",
+                     "name" : "Galactose",
                      "unit" : "g"
                   },
                   {
@@ -476,7 +476,7 @@
                "display_in_edit_form" : false,
                "id" : "casein",
                "important" : false,
-               "name" : "casein",
+               "name" : "Casein",
                "unit" : "g"
             },
             {
@@ -521,21 +521,7 @@
          "display_in_edit_form" : true,
          "id" : "vitamin-d",
          "important" : false,
-         "name" : "Vitamin D",
-         "unit" : "µg"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "vitamin-d2",
-         "important" : false,
-         "name" : "Ergocalciferol (Vitamin D₂)",
-         "unit" : "µg"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "vitamin-d3",
-         "important" : false,
-         "name" : "Cholecalciferol (Vitamin D₃)",
+         "name" : "Vitamin D (D3)",
          "unit" : "µg"
       },
       {
@@ -759,7 +745,7 @@
          "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
-         "name" : "pH",
+         "name" : "PH",
          "unit" : ""
       },
       {

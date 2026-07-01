@@ -10,10 +10,6 @@ on:
     paths:
       - 'docs/api/ref/**/*.yaml'
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   lint-api:
     name: Lint OpenAPI Spec Files
@@ -21,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
         uses: actions/setup-node@v6

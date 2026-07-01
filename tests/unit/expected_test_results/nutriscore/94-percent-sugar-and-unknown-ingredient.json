@@ -2,6 +2,10 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "sugars",
@@ -27,7 +31,6 @@
       "en:sweeteners",
       "en:sugars"
    ],
-   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweets",
    "food_groups_tags" : [
       "en:sugary-snacks",
@@ -48,7 +51,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:strange ingredient",
+         "id" : "en:strange-ingredient",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 6,
          "percent_max" : 6,
@@ -58,13 +61,13 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:strange ingredient"
+         "en:strange-ingredient"
       ],
       "en:vegan-status-unknown" : [
-         "en:strange ingredient"
+         "en:strange-ingredient"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:strange ingredient"
+         "en:strange-ingredient"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -81,7 +84,7 @@
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:sugar",
-      "en:strange ingredient"
+      "en:strange-ingredient"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
@@ -89,7 +92,7 @@
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide",
-      "en:strange ingredient"
+      "en:strange-ingredient"
    ],
    "ingredients_text" : "sugar 94%, strange ingredient",
    "ingredients_with_specified_percent_n" : 1,
@@ -97,11 +100,11 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 6,
    "ingredients_without_ciqual_codes" : [
-      "en:strange ingredient"
+      "en:strange-ingredient"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:strange ingredient"
+      "en:strange-ingredient"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
@@ -109,7 +112,6 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
@@ -285,20 +287,10 @@
       "sweets",
       "known"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 1,
    "vitamins_tags" : []

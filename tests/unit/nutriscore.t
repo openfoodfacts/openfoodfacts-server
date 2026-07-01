@@ -9,7 +9,7 @@ use Test2::V0;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::ProductsTags qw/compute_field_tags/;
+use ProductOpener::Tags qw/compute_field_tags/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
 use ProductOpener::ProducersFood qw/:all/;
@@ -18,7 +18,7 @@ use ProductOpener::Nutriscore
 	qw/compute_nutriscore_grade get_value_with_one_less_negative_point_2023 get_value_with_one_more_positive_point_2023/;
 use ProductOpener::NutritionCiqual qw/load_ciqual_data/;
 use ProductOpener::NutritionEstimation qw/:all/;
-use ProductOpener::Test qw/compare_to_expected_results init_expected_results normalize_product_for_test_comparison/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
 use Data::DeepAccess qw(deep_exists);
 
@@ -2354,59 +2354,6 @@ my @tests = (
 			ingredients_text => "ground coffee",
 		}
 	],
-
-	# Bug: product in a regular category (not requiring prepared data) but the only input set
-	# has preparation = "prepared". check_availability_of_nutrients_needed_for_nutriscore finds
-	# the nutrients in aggregated_set (which has preparation = "prepared") and returns
-	# nutrients_available=1 with preparation="as_sold". Then compute_nutriscore_data is called
-	# with preparation="as_sold", but the aggregated_set has preparation="prepared", so it hides
-	# the aggregated_set and all nutrients become undef -> nutriscore computation fails.
-	[
-		"cookies-with-only-prepared-nutrition-data",
-		{
-			lc => "en",
-			categories => "cookies",
-			nutrition => {
-				input_sets => [
-					{
-						nutrients => {
-							"energy-kj" => {
-								unit => "kJ",
-								value => 3460
-							},
-							fat => {
-								unit => "g",
-								value => 90
-							},
-							"saturated-fat" => {
-								unit => "g",
-								value => 15
-							},
-							sugars => {
-								unit => "g",
-								value => 0
-							},
-							sodium => {
-								unit => "g",
-								value => 0
-							},
-							fiber => {
-								unit => "g",
-								value => 0
-							},
-							proteins => {
-								unit => "g",
-								value => 0
-							}
-						},
-						source => "packaging",
-						per => "100g",
-						preparation => "prepared",
-					}
-				]
-			}
-		}
-	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
@@ -2423,7 +2370,6 @@ foreach my $test_ref (@tests) {
 	# Detect possible improvements
 	detect_possible_improvements_nutriscore($product_ref, 2023);
 
-	normalize_product_for_test_comparison($product_ref);
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json",
 		$update_expected_results, {id => $testid});
 }

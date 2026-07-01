@@ -5,18 +5,13 @@
       "_id" : "0200000000035",
       "_keywords" : [
          "all",
-         "and",
-         "biscuit",
-         "cake",
-         "cracker",
+         "cookie",
          "data",
          "having",
          "ingredient",
          "nutrition",
          "product",
-         "snack",
          "some",
-         "sweet",
          "tester",
          "with"
       ],
@@ -25,17 +20,18 @@
       "additives_original_tags" : [],
       "additives_tags" : [],
       "allergens" : "",
+      "allergens_from_ingredients" : "en:eggs, en:milk, milk, eggs",
+      "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
          "en:eggs",
          "en:milk"
       ],
-      "allergens_lc" : "en",
       "allergens_tags" : [
          "en:eggs",
          "en:milk"
       ],
       "amino_acids_tags" : [],
-      "categories" : "Biscuits",
+      "categories" : "cookies",
       "categories_hierarchy" : [
          "en:snacks",
          "en:sweet-snacks",
@@ -572,7 +568,6 @@
       "environmental_score_tags" : [
          "c"
       ],
-      "estimate_ingredients_percent_service" : "product_opener",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [
          "en:sugary-snacks",
@@ -729,7 +724,6 @@
          "en:environmental-score-missing-data-origins",
          "en:environmental-score-missing-data-packagings",
          "en:environmental-score-missing-data-warning",
-         "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutrients-estimated-from-ingredients",
@@ -1778,7 +1772,7 @@
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
-      "states" : "To be completed, Nutrition facts completed, Ingredients completed, Expiration date to be completed, Packaging code to be completed, Characteristics to be completed, Origins to be completed, Categories completed, Brands to be completed, Packaging to be completed, Quantity completed, Product name completed, Photos to be uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -1810,8 +1804,9 @@
          "en:photos-to-be-uploaded"
       ],
       "traces" : "",
+      "traces_from_ingredients" : "",
+      "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
-      "traces_lc" : "en",
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "vitamins_tags" : [],

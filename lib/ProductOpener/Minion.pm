@@ -45,8 +45,6 @@ BEGIN {
 		&queue_job
 		&write_minion_log
 
-		&perform_health_check
-
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -55,9 +53,6 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Health qw/:all/;
-
-use Time::HiRes qw/gettimeofday tv_interval/;
 
 use Minion;
 
@@ -110,81 +105,4 @@ sub write_minion_log($message) {
 
 	return;
 }
-
-=head2 perform_health_check()
-
-Execute a component health check and return a health-check result object.
-
-This sub documents the expected interface for health checks used by
-C<ProductOpener::APIHealth>. Implementations should perform one focused check and
-return an array reference of check objects compatible with
-L<https://inadarei.github.io/rfc-healthcheck/>.
-
-Each check object in the returned array reference must include:
-
-=over 4
-
-=item * C<status>
-
-String indicating the check result. Expected values are C<pass>, C<warn> or
-C<fail>.
-
-=item * C<output>
-
-Human-readable message describing the outcome.
-
-=back
-
-Additional RFC fields (for example C<componentType>, C<time>,
-C<observedValue>, C<observedUnit> and C<links>) may be included when relevant.
-If C<componentId> is included, it should be a stable UUID.
-
-The sub should not die. If an internal error occurs, return one check object
-with C<status =E<gt> 'fail'> and a meaningful C<output> message.
-
-=cut
-
-sub perform_health_check() {
-	my $start = [gettimeofday()];
-
-	my $ok = eval {
-		my $db = ProductOpener::Minion::get_minion()->backend->pg->db;
-		$db->query('SELECT 1');
-		1;
-	};
-
-	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
-	my $componentType = 'datastore';
-
-	my $time = current_time_iso8601();
-
-	my $links;
-	if (defined $server_options{minion_backend} and ref($server_options{minion_backend}) eq 'HASH') {
-		my $pg_url = sanitize_url($server_options{minion_backend}{Pg});
-		$links = {self => $pg_url} if defined $pg_url;
-	}
-
-	if ($ok) {
-		my %result = (
-			status => $status_pass,
-			componentType => $componentType,
-			observedValue => $duration_ms,
-			observedUnit => 'ms',
-			time => $time,
-		);
-		$result{links} = $links if defined $links;
-		return [\%result];
-	}
-	else {
-		my %result = (
-			status => $status_fail,
-			componentType => $componentType,
-			output => 'Minion database connection is not working',
-			time => $time,
-		);
-		$result{links} = $links if defined $links;
-		return [\%result];
-	}
-}
-
 1;

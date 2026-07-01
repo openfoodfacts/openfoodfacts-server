@@ -2,6 +2,12 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "en:mustard",
+   "allergens_from_user" : "(pl) ",
+   "allergens_hierarchy" : [
+      "en:mustard"
+   ],
    "allergens_tags" : [
       "en:mustard"
    ],
@@ -10,9 +16,14 @@
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
+      "en:canned-foods",
+      "en:vegetables-based-foods",
+      "en:canned-plant-based-foods",
       "en:pickles",
+      "en:canned-vegetables",
       "en:plant-based-pickles",
-      "en:prepared-vegetables",
       "en:pickled-vegetables"
    ],
    "categories_lc" : "pl",
@@ -28,12 +39,16 @@
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
+      "en:canned-foods",
+      "en:vegetables-based-foods",
+      "en:canned-plant-based-foods",
       "en:pickles",
+      "en:canned-vegetables",
       "en:plant-based-pickles",
-      "en:prepared-vegetables",
       "en:pickled-vegetables"
    ],
-   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:salty-and-fatty-products",
    "food_groups_tags" : [
       "en:salty-snacks",
@@ -41,7 +56,7 @@
    ],
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "20045",
+         "ciqual_food_code" : "20045",
          "ecobalyse_code" : "radish-organic",
          "id" : "en:daikon",
          "is_in_taxonomy" : 1,
@@ -77,7 +92,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "11000",
+         "ciqual_food_code" : "11000",
          "id" : "en:garlic",
          "is_in_taxonomy" : 1,
          "percent" : 0.6,
@@ -167,7 +182,6 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
@@ -216,15 +230,15 @@
             "fiber" : 1.67696666666667,
             "fiber_points" : 1,
             "fiber_value" : 1.68,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 69.7666666666667,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 69.8,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 99.5718363463368,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 99.6,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 10,
-            "positive_points" : 3,
+            "positive_points" : 6,
             "proteins" : 0.7,
             "proteins_points" : 0,
             "proteins_value" : 0.7,
@@ -244,7 +258,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : 7
+         "score" : 4
       },
       "2023" : {
          "category_available" : 1,
@@ -290,10 +304,10 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "points" : 2,
+                     "points" : 5,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 61.9
+                     "value" : 88.4
                   }
                ]
             },
@@ -310,7 +324,7 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 2,
+            "positive_points" : 5,
             "positive_points_max" : 10
          },
          "estimated" : 1,
@@ -319,7 +333,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : 18
+         "score" : 15
       }
    },
    "nutriscore_2021_tags" : [
@@ -370,10 +384,10 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 2,
+               "points" : 5,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 61.9
+               "value" : 88.4
             }
          ]
       },
@@ -391,13 +405,13 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 2,
+      "positive_points" : 5,
       "positive_points_max" : 10,
-      "score" : 18
+      "score" : 15
    },
    "nutriscore_grade" : "d",
-   "nutriscore_score" : 18,
-   "nutriscore_score_opposite" : -18,
+   "nutriscore_score" : 15,
+   "nutriscore_score_opposite" : -15,
    "nutriscore_tags" : [
       "d"
    ],
@@ -513,7 +527,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 61.9333333333333
+               "value" : 88.3920076117983
             },
             "fruits-vegetables-nuts" : {
                "modifier" : "~",
@@ -521,7 +535,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 69.7666666666667
+               "value" : 99.5718363463368
             },
             "galactose" : {
                "modifier" : "~",
@@ -910,14 +924,14 @@
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 61.9333333333333,
-                  "value_string" : "61.9333333333333"
+                  "value" : 88.3920076117983,
+                  "value_string" : "88.3920076117983"
                },
                "fruits-vegetables-nuts" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 69.7666666666667,
-                  "value_string" : "69.7666666666667"
+                  "value" : 99.5718363463368,
+                  "value_string" : "99.5718363463368"
                },
                "galactose" : {
                   "modifier" : "~",
@@ -1137,9 +1151,9 @@
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "as_sold fiber estimated",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 61.9333333333333,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 88.3920076117983,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 69.7666666666667,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 99.5718363463368,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Salty snacks",
    "pnns_groups_1_tags" : [
@@ -1151,22 +1165,10 @@
       "salty-and-fatty-products",
       "known"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "en:mustard"
-            ]
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(pl) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

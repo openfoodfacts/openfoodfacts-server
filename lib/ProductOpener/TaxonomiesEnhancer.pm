@@ -58,8 +58,7 @@ use Log::Log4perl qw(get_logger);
 use Text::Levenshtein qw(distance);
 
 use ProductOpener::Ingredients qw/parse_ingredients_text_service/;
-use ProductOpener::Tags qw/get_taxonomy_tag_synonyms is_a/;
-use ProductOpener::ProductsTags qw/add_tag/;
+use ProductOpener::Tags qw/add_tag get_taxonomy_tag_synonyms is_a/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 
 # Configure Log4perl

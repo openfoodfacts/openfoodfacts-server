@@ -53,9 +53,7 @@ if (get_oidc_implementation_level() >= 3) {
 	my $redirect
 		= $oidc_configuration->{issuer}
 		. '/login-actions/reset-credentials?client_id='
-		. uri_escape($oidc_options{client_id})
-		. '&kc_locale='
-		. $lc;
+		. uri_escape($oidc_options{client_id});
 
 	redirect_to_url($request_ref, 302, $redirect);
 }

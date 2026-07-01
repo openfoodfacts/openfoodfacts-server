@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:filling",
@@ -29,7 +28,7 @@
                "vegetarian" : "maybe"
             },
             {
-               "ciqual_proxy_food_code" : "11033",
+               "ciqual_food_code" : "11033",
                "id" : "en:basil-leaf",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 11.6666666666667,
@@ -170,8 +169,7 @@
    "known_ingredients_n" : 8,
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener"
+      "en:some-ingredients-with-specified-percent"
    ],
    "recipe" : {
       "en:cheese" : 11.6666666666667,

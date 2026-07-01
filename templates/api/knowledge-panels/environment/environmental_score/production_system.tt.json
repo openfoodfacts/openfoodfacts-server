@@ -18,9 +18,9 @@
         "icon_url": "[% static_subdomain %]/images/icons/dist/agriculture.svg",
         "icon_size": "small",
         "subtitle": "[% edq(lang('bonus')) %][% sep %]: +[% product.environmental_score_data.adjustments.production_system.value %]",
-        [% IF product.environmental_score_data.adjustments.production_system.value.defined AND product.environmental_score_data.adjustments.production_system.value >= 20 %]
+        [% IF product.environmental_score_data.adjustments.production_system.value >= 20 %]
             "title": "[% edq(lang('environmental_score_production_system_labels_with_environmental_benefits_very_high')) %]",
-        [% ELSIF product.environmental_score_data.adjustments.production_system.value.defined AND product.environmental_score_data.adjustments.production_system.value >= 15 %]
+        [% ELSIF product.environmental_score_data.adjustments.production_system.value >= 15 %]
             "title": "[% edq(lang('environmental_score_production_system_labels_with_environmental_benefits_high')) %]",
         [% ELSE %]
             "title": "[% edq(lang('environmental_score_production_system_labels_with_environmental_benefits')) %]",

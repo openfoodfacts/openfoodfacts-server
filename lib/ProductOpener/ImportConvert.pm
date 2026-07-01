@@ -895,14 +895,6 @@ sub clean_fields ($product_ref) {
 			next;
 		}
 
-		# If we have a single dash, return it
-		# single dash is used to indicate the value for this field is no value (e.g. for tags)
-		# We used a dash to distinguish between undefined values and empty values in the CSV file
-		if ($product_ref->{$field} =~ /^\s*-\s*/) {
-			$product_ref->{$field} = '-';
-			next;
-		}
-
 		# HTML entities
 		# e.g. P&acirc;tes alimentaires cuites aromatis&eacute;es au curcuma
 		if ($product_ref->{$field} =~ /\&/) {
@@ -934,7 +926,8 @@ sub clean_fields ($product_ref) {
 		$product_ref->{$field} =~ s/^\s*//;
 		$product_ref->{$field} =~ s/(\s|-|_|;|,)*$//;
 
-		if ($product_ref->{$field} =~ /^(\s|-|\.|_)$/) {
+		# Don't remove a single dash -, it is used to indicate an existing value should be deleted
+		if (($product_ref->{$field} =~ /^(\s|-|\.|_)$/) and ($product_ref->{$field} ne '-')) {
 			$product_ref->{$field} = "";
 		}
 

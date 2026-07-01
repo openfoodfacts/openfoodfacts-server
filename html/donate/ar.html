@@ -210,11 +210,24 @@ Anca، Éloïse، Florence، Léonore، Marie، Christian، Ludovic، Sébastien
 
       <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
-          <script type="module" src="https://donorbox.org/widgets.js" async></script>
-          <dbox-widget campaign="help-open-food-facts-stay-afloat" type="donation_form" enable-auto-scroll="true"></dbox-widget>
-          <noscript>
-            <p>يتم تحميل نموذج التبرع.<br>يمكنك أيضا الوصول إليه عن طريق <a href="https://donorbox.org/help-open-food-facts-stay-afloat">النقر هنا</a>.</p>
-          </noscript>
+          <div class="loading">
+            <p>يتم تحميل نموذج التبرع.<br>يمكنك أيضا الوصول إليه عن طريق <a href=" https://donorbox. org/your-donation-to-open-food-facts">النقر هنا</a>.</p>
+          </div>
+
+          <script
+            src="https://donorbox.org/widget.js"
+            paypalExpress="true"
+          ></script>
+          <iframe
+            title="تبرع عبر Donorbox"
+            allowpaymentrequest=""
+            height="900px"
+            name="donorbox"
+            seamless="seamless"
+            src="https://donorbox.org/embed/your-donation-to-open-food-facts"
+            style="max-width: 500px; min-width: 310px; max-height:none!important;border:0;overflow:hidden;"
+            width="100%"
+          ></iframe>
 
           <div class="text-center">
             <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"

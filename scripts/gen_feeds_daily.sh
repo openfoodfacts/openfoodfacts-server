@@ -75,7 +75,7 @@ mc cp \
     fr.$PRODUCT_OPENER_DOMAIN.products.csv \
     fr.$PRODUCT_OPENER_DOMAIN.products.csv.gz \
     fr.$PRODUCT_OPENER_DOMAIN.products.rdf \
-    s3/openfoodfacts-ds \
+    s3/$PRODUCT_OPENER_FLAVOR-ds \
     || report_error $? "mc.cp.csv"
 
 cd $OFF_SCRIPTS_DIR

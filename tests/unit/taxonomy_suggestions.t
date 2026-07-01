@@ -24,7 +24,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "",
-		expected => ['banana yogurts', 'yogurts', 'soup', 'vegetable'],
+		expected => ['Banana yogurts', 'Yogurts', 'Soup', 'Vegetable'],
 	},
 	{
 		desc => 'Match at start',
@@ -32,7 +32,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "ba",
-		expected => ['banana yogurts'],
+		expected => ['Banana yogurts'],
 	},
 	{
 		desc => 'Match at start and inside, return start first',
@@ -40,7 +40,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "yog",
-		expected => ['yogurts', 'banana yogurts'],
+		expected => ['Yogurts', 'Banana yogurts'],
 	},
 	{
 		desc => 'No match',
@@ -56,7 +56,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "something else",
-		expected => ["soup"],
+		expected => ["Soup"],
 	},
 );
 
@@ -76,15 +76,14 @@ my @suggest_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "ba",
-		expected => ['banana yogurts'],
+		expected => ['Banana yogurts'],
 	},
 	{
 		desc => 'Match at start and inside, return start first',
 		tagtype => "test",
 		lc => "en",
 		string => "yog",
-		expected => ['yogurts', 'Passion fruit yogurts', 'banana yogurts', 'lemon yogurts'],
-		# Note: "Passion fruit yogurts" is capitalized in the test.txt taxonomy, while other entries are not
+		expected => ['Yogurts', 'Banana yogurts', 'Lemon yogurts', 'Passion fruit yogurts'],
 	},
 
 );
@@ -108,7 +107,7 @@ foreach my $test_ref (@suggest_tests) {
 		expected => [
 			{
 				'matched_synonym' => 'banana yogurts',
-				'tag' => 'banana yogurts'
+				'tag' => 'Banana yogurts'
 			}
 		],
 	},
@@ -120,20 +119,20 @@ foreach my $test_ref (@suggest_tests) {
 		expected => [
 			{
 				'matched_synonym' => 'yogurts',
-				'tag' => 'yogurts'
+				'tag' => 'Yogurts'
+			},
+			{
+				'matched_synonym' => 'banana yogurts',
+				'tag' => 'Banana yogurts'
+			},
+			{
+				'matched_synonym' => 'lemon yogurts',
+				'tag' => 'Lemon yogurts'
 			},
 			{
 				'matched_synonym' => 'Passion fruit yogurts',
 				'tag' => 'Passion fruit yogurts'
-			},
-			{
-				'matched_synonym' => 'banana yogurts',
-				'tag' => 'banana yogurts'
-			},
-			{
-				'matched_synonym' => 'lemon yogurts',
-				'tag' => 'lemon yogurts'
-			},
+			}
 		],
 	},
 

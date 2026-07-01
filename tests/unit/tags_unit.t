@@ -5,7 +5,7 @@ use utf8;
 
 use Test2::V0;
 
-use ProductOpener::Tags qw/:all/;
+use ProductOpener::Tags qw/get_lc_tagid/;
 
 =head1 Some unit tests for Tags.pm module
 
@@ -67,75 +67,5 @@ use ProductOpener::Tags qw/:all/;
 	is($lc_tagid, "en:salted-snacks");
 
 }
-
-# Minimal subsets of tags
-
-is([get_minimal_tags_subset("categories", [])], []);
-
-is([get_minimal_tags_subset("categories", ["en:vegetables", "en:carrots"])], ["en:carrots"]);
-
-is(
-	[
-		get_minimal_tags_subset(
-			"categories", ["en:vegetables", "en:carrots", "en:soups", "en:frozen-carrots", "en:frozen-soups"]
-		)
-	],
-	["en:frozen-carrots", "en:frozen-soups"]
-);
-
-# list_taxonomy_tags_in_language()
-
-is(list_taxonomy_tags_in_language("fr", "categories", undef), "");
-is(list_taxonomy_tags_in_language("fr", "categories", []), "");
-is(list_taxonomy_tags_in_language("en", "categories", ["en:vegetables", "en:carrots"]), "Vegetables, Carrots");
-is(
-	list_taxonomy_tags_in_language(
-		"en", "categories", ["en:vegetables", "en:carrots", "en:Some unknown carrot species"]
-	),
-	"Vegetables, Carrots, Some unknown carrot species"
-);
-is(list_taxonomy_tags_in_language("fr", "categories", ["en:vegetables", "en:carrots"]), "Légumes, Carottes");
-is(list_taxonomy_tags_in_language("fr", "brands", ["xx:aldi", "xx:marks-spencers", "xx:Marque Inconnue"]),
-	"Aldi, Marks & Spencers, Marque Inconnue");
-
-is(
-	list_taxonomy_tags_in_language(
-		"en", "categories", ["en:vegetables", "de:Toutafé", "fr:Catégorie tout à fait inconnue"]
-	),
-	"Vegetables, de:Toutafé, fr:Catégorie tout à fait inconnue"
-);
-
-# gen_tags_list_with_parents
-
-retrieve_tags_taxonomy("test");
-
-is([gen_tags_list_with_parents("en", "test", [])], []);
-is([gen_tags_list_with_parents("en", "test", ["test"])], ["en:test"]);
-is([gen_tags_list_with_parents("en", "test", ["en:test"])], ["en:test"]);
-is([gen_tags_list_with_parents("en", "test", ["en:test", "en:test"])], ["en:test"]);
-is([gen_tags_list_with_parents("en", "test", ["yaourts à la banane"])], ["en:yaourts à la banane"]);
-is([gen_tags_list_with_parents("fr", "test", ["yaourts à la banane"])], ["en:yogurts", "en:banana-yogurts"]);
-is([gen_tags_list_with_parents("fr", "test", ["yaourts au schtroumpf"])], ["fr:yaourts au schtroumpf"]);
-
-# canonicalize_tag
-is(canonicalize_tag("stores", "abc"), "abc");
-is(canonicalize_tag("stores", "Abc Def"), "Abc Def");
-is(canonicalize_tag("stores", "Café L'Artémis"), "Café L'Artémis");
-
-# display_tag_link
-is(display_tag_link("stores", "abc"), '<a href="/facets/stores/abc">abc</a>');
-is(display_tag_link("stores", "Abc Def"), '<a href="/facets/stores/Abc%20Def">Abc Def</a>');
-is(display_tag_link("stores", "Café L'Artémis"),
-	'<a href="/facets/stores/Caf%C3%A9%20L\'Art%C3%A9mis">Café L\'Artémis</a>');
-
-# Packager codes
-
-is(canonicalize_tag("emb_codes", "fr-85-222-003-ce"), "fr-85-222-003-ec");
-is(canonicalize_tag("emb_codes", "fr-85-222-003-ec"), "fr-85-222-003-ec");
-is(canonicalize_tag("emb_codes", "EMB 62863C"), "emb-62863c");
-
-is(display_tag("emb_codes", "fr-85-222-003-ce"), "FR 85.222.003 CE");
-is(display_tag("emb_codes", "fr-85-222-003-ec"), "FR 85.222.003 CE");
-is(display_tag("emb_codes", "EMB 62863C"), "EMB 62863C");
 
 done_testing();

@@ -1,13 +1,1 @@
 extends: "spectral:oas"
-
-overrides:
-  # Product, Ingredient, Nutrient are intentionally exposed as named components
-  # for documentation display and to help code generators handle recursive $refs.
-  # They are not directly referenced by operations, so Spectral incorrectly flags them.
-  - files:
-      - "docs/api/ref/api.yaml#/components/schemas/Product"
-      - "docs/api/ref/api.yaml#/components/schemas/Product-Nutrition-v3.5"
-      - "docs/api/ref/api.yaml#/components/schemas/Ingredient"
-      - "docs/api/ref/api.yaml#/components/schemas/Nutrient"
-    rules:
-      oas3-unused-component: off

@@ -339,7 +339,7 @@
                      "display_in_edit_form" : false,
                      "id" : "galactose",
                      "important" : false,
-                     "name" : "galactose",
+                     "name" : "Galactose",
                      "unit" : "g"
                   },
                   {
@@ -499,7 +499,7 @@
          "unit" : "g"
       },
       {
-         "display_in_edit_form" : false,
+         "display_in_edit_form" : true,
          "id" : "sodium",
          "important" : false,
          "name" : "Sodium",
@@ -531,20 +531,6 @@
          "id" : "vitamin-d",
          "important" : false,
          "name" : "Vitamine D",
-         "unit" : "µg"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "vitamin-d2",
-         "important" : false,
-         "name" : "Ergocalciférol (vitamine D₂)",
-         "unit" : "µg"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "vitamin-d3",
-         "important" : false,
-         "name" : "Cholécalciférol (Vitamine D₃)",
          "unit" : "µg"
       },
       {
@@ -775,7 +761,7 @@
          "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
-         "name" : "pH",
+         "name" : "PH",
          "unit" : ""
       },
       {
@@ -852,7 +838,7 @@
          "display_in_edit_form" : false,
          "id" : "inositol",
          "important" : false,
-         "name" : "inositol",
+         "name" : "Inositol",
          "unit" : "g"
       },
       {

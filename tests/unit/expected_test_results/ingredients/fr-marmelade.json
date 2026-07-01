@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "31039",
@@ -172,7 +171,6 @@
             },
             {
                "ciqual_food_code" : "16030",
-               "from_palm_oil" : "no",
                "id" : "en:cocoa-butter",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 3.1125,
@@ -599,8 +597,7 @@
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:at-least-5-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener"
+      "en:at-least-5-ingredients-with-specified-percent"
    ],
    "unknown_ingredients_n" : 0
 }

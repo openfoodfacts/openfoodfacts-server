@@ -105,7 +105,7 @@ if (not defined $code) {
 	$code_specified = 0;
 
 	my $file = single_param("files[]");
-	$filename = defined($file) ? ($file . "") : "";
+	$filename = $file . "";
 
 	($code, $imagefield) = get_code_and_imagefield_from_file_name($lc, $filename);
 

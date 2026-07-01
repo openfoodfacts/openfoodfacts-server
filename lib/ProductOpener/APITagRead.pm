@@ -50,7 +50,7 @@ use ProductOpener::Lang qw/$lc lang/;
 use ProductOpener::API qw/add_error/;
 use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsTags qw/create_tag_knowledge_panels/;
-use ProductOpener::Tags qw/%taxonomy_fields canonicalize_tag canonicalize_taxonomy_tag/;
+use ProductOpener::Tags qw/%taxonomy_fields canonicalize_tag2 canonicalize_taxonomy_tag/;
 
 =head2 read_tag_api ( $request_ref )
 
@@ -117,7 +117,8 @@ sub read_tag_api ($request_ref) {
 
 		}
 		else {
-			$canon_tagid = canonicalize_tag($tagtype, $tagid);
+			my $display_tag = canonicalize_tag2($tagtype, $tagid);
+			$canon_tagid = get_string_id_for_lang("no_language", $display_tag);
 		}
 
 		# add canonical values to tag output

@@ -7,7 +7,7 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
-use ProductOpener::ProductsTags qw/has_tag/;
+use ProductOpener::Tags qw/has_tag/;
 
 sub check_quality_and_test_product_has_quality_tag($product_ref, $tag, $reason, $yesno) {
 

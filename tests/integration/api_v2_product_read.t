@@ -72,7 +72,6 @@ my @products = (
 		)
 	},
 	# Product with no nutrition data and no ingredients (so nutrition won't be estimated)
-	# Makes API.pm crash
 	{
 		(
 			lc => "en",

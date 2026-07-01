@@ -59,20 +59,32 @@
       "3003004006005" : 1,
       "3003004006006" : 1
    },
-   "products_info_changed_allergens" : {},
-   "products_info_changed_field_allergens" : {
+   "products_info_changed_en:eggs" : {},
+   "products_info_changed_en:gluten" : {},
+   "products_info_changed_en:lupin" : {},
+   "products_info_changed_en:milk" : {},
+   "products_info_changed_en:mustard" : {},
+   "products_info_changed_en:soybeans" : {},
+   "products_info_changed_field_en:eggs" : {
       "3003004006001" : 1,
-      "3003004006002" : 1,
-      "3003004006004" : 1,
-      "3003004006005" : 1
-   },
-   "products_info_changed_field_traces" : {
-      "3003004006001" : 1,
-      "3003004006002" : 1,
-      "3003004006005" : 1,
       "3003004006006" : 1
    },
-   "products_info_changed_traces" : {},
+   "products_info_changed_field_en:gluten" : {
+      "3003004006005" : 1
+   },
+   "products_info_changed_field_en:lupin" : {
+      "3003004006002" : 1
+   },
+   "products_info_changed_field_en:milk" : {
+      "3003004006001" : 1,
+      "3003004006004" : 1
+   },
+   "products_info_changed_field_en:mustard" : {
+      "3003004006002" : 1
+   },
+   "products_info_changed_field_en:soybeans" : {
+      "3003004006005" : 1
+   },
    "products_info_not_updated" : {
       "3003004006003" : 1,
       "3003004006007" : 1

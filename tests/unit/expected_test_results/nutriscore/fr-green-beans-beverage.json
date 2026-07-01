@@ -2,6 +2,10 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "plat préparé",
@@ -21,7 +25,6 @@
    "categories_tags" : [
       "en:meals"
    ],
-   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:one-dish-meals",
    "food_groups_tags" : [
       "en:composite-foods",
@@ -99,8 +102,8 @@
       "en:disaccharide",
       "en:green-bean",
       "en:vegetable",
-      "en:pod-and-seed-vegetable",
-      "en:legume"
+      "en:legume",
+      "en:pod-and-seed-vegetable"
    ],
    "ingredients_text" : "eau 80%, sucre 10%, haricots verts 10%",
    "ingredients_with_specified_percent_n" : 3,
@@ -117,7 +120,6 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -1137,20 +1139,10 @@
       "one-dish-meals",
       "known"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

@@ -78,14 +78,8 @@ $template_data_ref->{nutrients} = \@nutrients;
 
 my $target_lc = single_param('target_lc') || $lc;
 $template_data_ref->{target_lc} = $target_lc;
-$template_data_ref->{lang_options} = get_languages_options_list($target_lc);
 
 if ($action eq 'process') {
-
-	# If salt is defined, compute sodium value as well, as some recipe estimators need it
-	if (defined $nutrients_values{salt}) {
-		$nutrients_values{sodium} = $nutrients_values{salt} / 2.5;
-	}
 
 	# Create a dummy product
 	my $product_ref = {
@@ -93,11 +87,7 @@ if ($action eq 'process') {
 		lc => $target_lc,
 		"ingredients_text_${target_lc}" => $ingredients_text,
 		"ingredients_text" => $ingredients_text,
-		nutrition => {
-			aggregated_set => {
-				nutrients => {map {$_ => {value => $nutrients_values{$_}}} keys %nutrients_values},
-			},
-		},
+		nutriments => {map {$_ . '_100g' => $nutrients_values{$_}} keys %nutrients_values},
 	};
 
 	clean_ingredients_text($product_ref);
@@ -123,8 +113,9 @@ if ($action eq 'process') {
 	$template_data_ref->{html_details} = $html_details;
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
 	$template_data_ref->{product_ref} = $product_ref;
+	$template_data_ref->{lang_options} = get_languages_options_list($lc);
 
-	my $json = JSON::MaybeXS->new->canonical->pretty->encode($product_ref);
+	my $json = JSON::MaybeXS->new->canonical->pretty->encode($product_ref->{ingredients});
 	$template_data_ref->{json} = $json;
 }
 

@@ -137,12 +137,6 @@ sub convert_string_to_number ($value) {
 
 	return if (not defined $value);
 
-	# Convert Arabic-Indic digits (٠١٢٣٤٥٦٧٨٩) and Extended Arabic-Indic digits (۰۱۲۳۴۵۶۷۸۹)
-	# and other non-ASCII digit forms (e.g. Bengali ০-৯, Devanagari ०-९) to ASCII digits
-	$value =~ tr/\x{0660}-\x{0669}/0-9/;    # Arabic-Indic
-	$value =~ tr/\x{06F0}-\x{06F9}/0-9/;    # Extended Arabic-Indic (Persian/Urdu)
-	$value =~ tr/\x{09E6}-\x{09EF}/0-9/;    # Bengali
-
 	$value =~ s/(\d) (\d)/$1$2/g;
 
 	# In some languages like French, a comma is used instead of a dot to indicate decimals

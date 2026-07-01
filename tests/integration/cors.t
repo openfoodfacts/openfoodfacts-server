@@ -3,9 +3,9 @@
 use ProductOpener::PerlStandards;
 
 use Test2::V0;
-use ProductOpener::APITest qw/create_user edit_product execute_api_tests login new_client wait_application_ready/;
+use ProductOpener::APITest qw/create_user execute_api_tests login new_client wait_application_ready/;
 use ProductOpener::Test qw/remove_all_products remove_all_users/;
-use ProductOpener::TestDefaults qw/%default_user_form %empty_product_form/;
+use ProductOpener::TestDefaults qw/%default_user_form/;
 
 use File::Basename "dirname";
 
@@ -14,29 +14,6 @@ use Storable qw(dclone);
 wait_application_ready(__FILE__);
 remove_all_products();
 remove_all_users();
-
-# First user
-
-my $ua = new_client();
-my %create_user_args = (%default_user_form, (email => 'alice@gmail.com', userid => "alice"));
-create_user($ua, \%create_user_args);
-
-# Create some products so that the v1 API does not return 404 for OPTIONS requests
-
-my @products = (
-	{
-		%{dclone(\%empty_product_form)},
-		(
-			code => '200000000001',
-			product_name => "Carrots",
-			categories => "en:carrots",
-		),
-	},
-);
-
-foreach my $product_ref (@products) {
-	edit_product($ua, $product_ref);
-}
 
 # TODO: add more tests !
 my $tests_ref = [
@@ -160,20 +137,6 @@ my $tests_ref = [
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
-	{
-		test_case => 'options-facet-preflight',
-		method => 'OPTIONS',
-		path => '/facets/contributors/tests',
-		expected_status_code => 200,
-		headers_in => {
-			"Access-Control-Request-Method" => "GET",
-		},
-		headers => {
-			"Access-Control-Allow-Origin" => "*",
-			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
-		},
-		expected_type => "none",
-	},
 ];
 execute_api_tests(__FILE__, $tests_ref);
 
@@ -206,32 +169,6 @@ $tests_ref = [
 		},
 		expected_type => "none",
 	},
-	{
-		test_case => 'get-search-v1',
-		method => 'GET',
-		path => '/cgi/search.pl?search_terms=&action=process&json=1',
-		expected_status_code => 200,
-		headers => {
-			"Access-Control-Allow-Origin" => "*",
-			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
-			"Access-Control-Allow-Headers" =>
-				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
-		},
-		expected_type => "none",    # we only check CORS headers, not the search results body
-	},
-	{
-		test_case => 'options-search-v1',
-		method => 'OPTIONS',
-		path => '/cgi/search.pl?search_terms=&action=process&json=1',
-		expected_status_code => 200,
-		headers => {
-			"Access-Control-Allow-Origin" => "*",
-			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
-			"Access-Control-Allow-Headers" =>
-				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
-		},
-		expected_type => "none",    # no body for OPTIONS requests
-	}
 ];
 execute_api_tests(__FILE__, $tests_ref, $auth_ua);
 

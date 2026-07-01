@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
@@ -119,9 +118,6 @@
    "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 5,
    "lc" : "fr",
-   "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
-   ],
    "specific_ingredients" : [
       {
          "id" : "en:apricot",
@@ -170,7 +166,7 @@
          "text" : "Préparés avec 25.2% de tomates"
       },
       {
-         "id" : "fr:TRUC INCONNU",
+         "id" : "fr:truc-inconnu",
          "ingredient" : "TRUC INCONNU",
          "percent" : 30,
          "text" : "PREPARE AVEC 30% DE TRUC INCONNU"

@@ -23,3 +23,15 @@ If you want to add a translatable string in the code:
     msgstr "Salut le monde!"
     ```
   * don't forget to `make build_lang` to let docker take your modifications into account
+
+### Updating all .po files from .pot files
+
+When you modify a `.pot` file (template file), you can automatically update all corresponding `.po` files using the provided script:
+
+```bash
+./scripts/update_po_files.sh
+```
+
+This script uses `msgmerge` from gettext to update all language `.po` files while preserving existing translations. This is useful for local development and testing.
+
+**Note:** When you create a PR that modifies `.pot` files, the GitHub Action `update-po-files.yml` will automatically run this script and commit the updated `.po` files to your PR.

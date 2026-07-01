@@ -78,7 +78,7 @@
                      "match" : 100,
                      "name" : "Gluten",
                      "status" : "known",
-                     "title" : "Does not contain: gluten"
+                     "title" : "Does not contain: Gluten"
                   },
                   {
                      "debug" : "en:milk in allergens",
@@ -88,7 +88,7 @@
                      "match" : 0,
                      "name" : "Milk",
                      "status" : "known",
-                     "title" : "Contains: milk"
+                     "title" : "Contains: Milk"
                   },
                   {
                      "debug" : "en:eggs in allergens",
@@ -98,7 +98,7 @@
                      "match" : 0,
                      "name" : "Eggs",
                      "status" : "known",
-                     "title" : "Contains: eggs"
+                     "title" : "Contains: Eggs"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -108,7 +108,7 @@
                      "match" : 100,
                      "name" : "Nuts",
                      "status" : "known",
-                     "title" : "Does not contain: nuts"
+                     "title" : "Does not contain: Nuts"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -118,7 +118,7 @@
                      "match" : 100,
                      "name" : "Peanuts",
                      "status" : "known",
-                     "title" : "Does not contain: peanuts"
+                     "title" : "Does not contain: Peanuts"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -128,7 +128,7 @@
                      "match" : 100,
                      "name" : "Sesame seeds",
                      "status" : "known",
-                     "title" : "Does not contain: sesame seeds"
+                     "title" : "Does not contain: Sesame seeds"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -138,7 +138,7 @@
                      "match" : 100,
                      "name" : "Soybeans",
                      "status" : "known",
-                     "title" : "Does not contain: soybeans"
+                     "title" : "Does not contain: Soybeans"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -148,7 +148,7 @@
                      "match" : 100,
                      "name" : "Celery",
                      "status" : "known",
-                     "title" : "Does not contain: celery"
+                     "title" : "Does not contain: Celery"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -158,7 +158,7 @@
                      "match" : 100,
                      "name" : "Mustard",
                      "status" : "known",
-                     "title" : "Does not contain: mustard"
+                     "title" : "Does not contain: Mustard"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -168,7 +168,7 @@
                      "match" : 100,
                      "name" : "Lupin",
                      "status" : "known",
-                     "title" : "Does not contain: lupin"
+                     "title" : "Does not contain: Lupin"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -178,7 +178,7 @@
                      "match" : 100,
                      "name" : "Fish",
                      "status" : "known",
-                     "title" : "Does not contain: fish"
+                     "title" : "Does not contain: Fish"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -188,7 +188,7 @@
                      "match" : 100,
                      "name" : "Crustaceans",
                      "status" : "known",
-                     "title" : "Does not contain: crustaceans"
+                     "title" : "Does not contain: Crustaceans"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -198,7 +198,7 @@
                      "match" : 100,
                      "name" : "Molluscs",
                      "status" : "known",
-                     "title" : "Does not contain: molluscs"
+                     "title" : "Does not contain: Molluscs"
                   },
                   {
                      "debug" : "4 ingredients (0 unknown)",
@@ -208,7 +208,7 @@
                      "match" : 100,
                      "name" : "Sulphur dioxide and sulphites",
                      "status" : "known",
-                     "title" : "Does not contain: sulphur dioxide and sulphites"
+                     "title" : "Does not contain: Sulphur dioxide and sulphites"
                   }
                ],
                "id" : "allergens",
@@ -255,8 +255,8 @@
             {
                "attributes" : [
                   {
-                     "description" : "We did not detect: water. We may have missed some ingredients, please always check the ingredient list.",
-                     "description_short" : "We did not detect: water",
+                     "description" : "We did not detect: Water. We may have missed some ingredients, please always check the ingredient list.",
+                     "description_short" : "We did not detect: Water",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-unwanted-ingredients.svg",
                      "id" : "unwanted_ingredients",
@@ -423,7 +423,7 @@
                      "match" : 100,
                      "name" : "Gluten",
                      "status" : "known",
-                     "title" : "Does not contain: gluten"
+                     "title" : "Does not contain: Gluten"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -433,7 +433,7 @@
                      "match" : 100,
                      "name" : "Milk",
                      "status" : "known",
-                     "title" : "Does not contain: milk"
+                     "title" : "Does not contain: Milk"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -443,7 +443,7 @@
                      "match" : 100,
                      "name" : "Eggs",
                      "status" : "known",
-                     "title" : "Does not contain: eggs"
+                     "title" : "Does not contain: Eggs"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -453,7 +453,7 @@
                      "match" : 100,
                      "name" : "Nuts",
                      "status" : "known",
-                     "title" : "Does not contain: nuts"
+                     "title" : "Does not contain: Nuts"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -463,7 +463,7 @@
                      "match" : 100,
                      "name" : "Peanuts",
                      "status" : "known",
-                     "title" : "Does not contain: peanuts"
+                     "title" : "Does not contain: Peanuts"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -473,7 +473,7 @@
                      "match" : 100,
                      "name" : "Sesame seeds",
                      "status" : "known",
-                     "title" : "Does not contain: sesame seeds"
+                     "title" : "Does not contain: Sesame seeds"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -483,7 +483,7 @@
                      "match" : 100,
                      "name" : "Soybeans",
                      "status" : "known",
-                     "title" : "Does not contain: soybeans"
+                     "title" : "Does not contain: Soybeans"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -493,7 +493,7 @@
                      "match" : 100,
                      "name" : "Celery",
                      "status" : "known",
-                     "title" : "Does not contain: celery"
+                     "title" : "Does not contain: Celery"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -503,7 +503,7 @@
                      "match" : 100,
                      "name" : "Mustard",
                      "status" : "known",
-                     "title" : "Does not contain: mustard"
+                     "title" : "Does not contain: Mustard"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -513,7 +513,7 @@
                      "match" : 100,
                      "name" : "Lupin",
                      "status" : "known",
-                     "title" : "Does not contain: lupin"
+                     "title" : "Does not contain: Lupin"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -523,7 +523,7 @@
                      "match" : 100,
                      "name" : "Fish",
                      "status" : "known",
-                     "title" : "Does not contain: fish"
+                     "title" : "Does not contain: Fish"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -533,7 +533,7 @@
                      "match" : 100,
                      "name" : "Crustaceans",
                      "status" : "known",
-                     "title" : "Does not contain: crustaceans"
+                     "title" : "Does not contain: Crustaceans"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -543,7 +543,7 @@
                      "match" : 100,
                      "name" : "Molluscs",
                      "status" : "known",
-                     "title" : "Does not contain: molluscs"
+                     "title" : "Does not contain: Molluscs"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -553,7 +553,7 @@
                      "match" : 100,
                      "name" : "Sulphur dioxide and sulphites",
                      "status" : "known",
-                     "title" : "Does not contain: sulphur dioxide and sulphites"
+                     "title" : "Does not contain: Sulphur dioxide and sulphites"
                   }
                ],
                "id" : "allergens",
@@ -600,8 +600,8 @@
             {
                "attributes" : [
                   {
-                     "description" : "We did not detect: water. We may have missed some ingredients, please always check the ingredient list.",
-                     "description_short" : "We did not detect: water",
+                     "description" : "We did not detect: Water. We may have missed some ingredients, please always check the ingredient list.",
+                     "description_short" : "We did not detect: Water",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-unwanted-ingredients.svg",
                      "id" : "unwanted_ingredients",
@@ -772,7 +772,7 @@
                      "match" : 100,
                      "name" : "Gluten",
                      "status" : "known",
-                     "title" : "Does not contain: gluten"
+                     "title" : "Does not contain: Gluten"
                   },
                   {
                      "debug" : "en:milk in allergens",
@@ -782,7 +782,7 @@
                      "match" : 0,
                      "name" : "Milk",
                      "status" : "known",
-                     "title" : "Contains: milk"
+                     "title" : "Contains: Milk"
                   },
                   {
                      "debug" : "en:eggs in allergens",
@@ -792,7 +792,7 @@
                      "match" : 0,
                      "name" : "Eggs",
                      "status" : "known",
-                     "title" : "Contains: eggs"
+                     "title" : "Contains: Eggs"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -802,7 +802,7 @@
                      "match" : 100,
                      "name" : "Nuts",
                      "status" : "known",
-                     "title" : "Does not contain: nuts"
+                     "title" : "Does not contain: Nuts"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -812,7 +812,7 @@
                      "match" : 100,
                      "name" : "Peanuts",
                      "status" : "known",
-                     "title" : "Does not contain: peanuts"
+                     "title" : "Does not contain: Peanuts"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -822,7 +822,7 @@
                      "match" : 100,
                      "name" : "Sesame seeds",
                      "status" : "known",
-                     "title" : "Does not contain: sesame seeds"
+                     "title" : "Does not contain: Sesame seeds"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -832,7 +832,7 @@
                      "match" : 100,
                      "name" : "Soybeans",
                      "status" : "known",
-                     "title" : "Does not contain: soybeans"
+                     "title" : "Does not contain: Soybeans"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -842,7 +842,7 @@
                      "match" : 100,
                      "name" : "Celery",
                      "status" : "known",
-                     "title" : "Does not contain: celery"
+                     "title" : "Does not contain: Celery"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -852,7 +852,7 @@
                      "match" : 100,
                      "name" : "Mustard",
                      "status" : "known",
-                     "title" : "Does not contain: mustard"
+                     "title" : "Does not contain: Mustard"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -862,7 +862,7 @@
                      "match" : 100,
                      "name" : "Lupin",
                      "status" : "known",
-                     "title" : "Does not contain: lupin"
+                     "title" : "Does not contain: Lupin"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -872,7 +872,7 @@
                      "match" : 100,
                      "name" : "Fish",
                      "status" : "known",
-                     "title" : "Does not contain: fish"
+                     "title" : "Does not contain: Fish"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -882,7 +882,7 @@
                      "match" : 100,
                      "name" : "Crustaceans",
                      "status" : "known",
-                     "title" : "Does not contain: crustaceans"
+                     "title" : "Does not contain: Crustaceans"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -892,7 +892,7 @@
                      "match" : 100,
                      "name" : "Molluscs",
                      "status" : "known",
-                     "title" : "Does not contain: molluscs"
+                     "title" : "Does not contain: Molluscs"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -902,7 +902,7 @@
                      "match" : 100,
                      "name" : "Sulphur dioxide and sulphites",
                      "status" : "known",
-                     "title" : "Does not contain: sulphur dioxide and sulphites"
+                     "title" : "Does not contain: Sulphur dioxide and sulphites"
                   }
                ],
                "id" : "allergens",
@@ -949,8 +949,8 @@
             {
                "attributes" : [
                   {
-                     "description" : "We did not detect: water. We may have missed some ingredients, please always check the ingredient list.",
-                     "description_short" : "We did not detect: water",
+                     "description" : "We did not detect: Water. We may have missed some ingredients, please always check the ingredient list.",
+                     "description_short" : "We did not detect: Water",
                      "grade" : "a",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-unwanted-ingredients.svg",
                      "id" : "unwanted_ingredients",
@@ -1121,7 +1121,7 @@
                      "match" : 100,
                      "name" : "Gluten",
                      "status" : "known",
-                     "title" : "Does not contain: gluten"
+                     "title" : "Does not contain: Gluten"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1131,7 +1131,7 @@
                      "match" : 100,
                      "name" : "Milk",
                      "status" : "known",
-                     "title" : "Does not contain: milk"
+                     "title" : "Does not contain: Milk"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1141,7 +1141,7 @@
                      "match" : 100,
                      "name" : "Eggs",
                      "status" : "known",
-                     "title" : "Does not contain: eggs"
+                     "title" : "Does not contain: Eggs"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1151,7 +1151,7 @@
                      "match" : 100,
                      "name" : "Nuts",
                      "status" : "known",
-                     "title" : "Does not contain: nuts"
+                     "title" : "Does not contain: Nuts"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1161,7 +1161,7 @@
                      "match" : 100,
                      "name" : "Peanuts",
                      "status" : "known",
-                     "title" : "Does not contain: peanuts"
+                     "title" : "Does not contain: Peanuts"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1171,7 +1171,7 @@
                      "match" : 100,
                      "name" : "Sesame seeds",
                      "status" : "known",
-                     "title" : "Does not contain: sesame seeds"
+                     "title" : "Does not contain: Sesame seeds"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1181,7 +1181,7 @@
                      "match" : 100,
                      "name" : "Soybeans",
                      "status" : "known",
-                     "title" : "Does not contain: soybeans"
+                     "title" : "Does not contain: Soybeans"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1191,7 +1191,7 @@
                      "match" : 100,
                      "name" : "Celery",
                      "status" : "known",
-                     "title" : "Does not contain: celery"
+                     "title" : "Does not contain: Celery"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1201,7 +1201,7 @@
                      "match" : 100,
                      "name" : "Mustard",
                      "status" : "known",
-                     "title" : "Does not contain: mustard"
+                     "title" : "Does not contain: Mustard"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1211,7 +1211,7 @@
                      "match" : 100,
                      "name" : "Lupin",
                      "status" : "known",
-                     "title" : "Does not contain: lupin"
+                     "title" : "Does not contain: Lupin"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1221,7 +1221,7 @@
                      "match" : 100,
                      "name" : "Fish",
                      "status" : "known",
-                     "title" : "Does not contain: fish"
+                     "title" : "Does not contain: Fish"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1231,7 +1231,7 @@
                      "match" : 100,
                      "name" : "Crustaceans",
                      "status" : "known",
-                     "title" : "Does not contain: crustaceans"
+                     "title" : "Does not contain: Crustaceans"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1241,7 +1241,7 @@
                      "match" : 100,
                      "name" : "Molluscs",
                      "status" : "known",
-                     "title" : "Does not contain: molluscs"
+                     "title" : "Does not contain: Molluscs"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1251,7 +1251,7 @@
                      "match" : 100,
                      "name" : "Sulphur dioxide and sulphites",
                      "status" : "known",
-                     "title" : "Does not contain: sulphur dioxide and sulphites"
+                     "title" : "Does not contain: Sulphur dioxide and sulphites"
                   }
                ],
                "id" : "allergens",
@@ -1298,8 +1298,8 @@
             {
                "attributes" : [
                   {
-                     "description" : "Unwanted ingredients: water",
-                     "description_short" : "water",
+                     "description" : "Unwanted ingredients: Water",
+                     "description_short" : "Water",
                      "grade" : "e",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg",
                      "id" : "unwanted_ingredients",
@@ -1470,7 +1470,7 @@
                      "match" : 100,
                      "name" : "Gluten",
                      "status" : "known",
-                     "title" : "Does not contain: gluten"
+                     "title" : "Does not contain: Gluten"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1480,7 +1480,7 @@
                      "match" : 100,
                      "name" : "Milk",
                      "status" : "known",
-                     "title" : "Does not contain: milk"
+                     "title" : "Does not contain: Milk"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1490,7 +1490,7 @@
                      "match" : 100,
                      "name" : "Eggs",
                      "status" : "known",
-                     "title" : "Does not contain: eggs"
+                     "title" : "Does not contain: Eggs"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1500,7 +1500,7 @@
                      "match" : 100,
                      "name" : "Nuts",
                      "status" : "known",
-                     "title" : "Does not contain: nuts"
+                     "title" : "Does not contain: Nuts"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1510,7 +1510,7 @@
                      "match" : 100,
                      "name" : "Peanuts",
                      "status" : "known",
-                     "title" : "Does not contain: peanuts"
+                     "title" : "Does not contain: Peanuts"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1520,7 +1520,7 @@
                      "match" : 100,
                      "name" : "Sesame seeds",
                      "status" : "known",
-                     "title" : "Does not contain: sesame seeds"
+                     "title" : "Does not contain: Sesame seeds"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1530,7 +1530,7 @@
                      "match" : 100,
                      "name" : "Soybeans",
                      "status" : "known",
-                     "title" : "Does not contain: soybeans"
+                     "title" : "Does not contain: Soybeans"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1540,7 +1540,7 @@
                      "match" : 100,
                      "name" : "Celery",
                      "status" : "known",
-                     "title" : "Does not contain: celery"
+                     "title" : "Does not contain: Celery"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1550,7 +1550,7 @@
                      "match" : 100,
                      "name" : "Mustard",
                      "status" : "known",
-                     "title" : "Does not contain: mustard"
+                     "title" : "Does not contain: Mustard"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1560,7 +1560,7 @@
                      "match" : 100,
                      "name" : "Lupin",
                      "status" : "known",
-                     "title" : "Does not contain: lupin"
+                     "title" : "Does not contain: Lupin"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1570,7 +1570,7 @@
                      "match" : 100,
                      "name" : "Fish",
                      "status" : "known",
-                     "title" : "Does not contain: fish"
+                     "title" : "Does not contain: Fish"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1580,7 +1580,7 @@
                      "match" : 100,
                      "name" : "Crustaceans",
                      "status" : "known",
-                     "title" : "Does not contain: crustaceans"
+                     "title" : "Does not contain: Crustaceans"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1590,7 +1590,7 @@
                      "match" : 100,
                      "name" : "Molluscs",
                      "status" : "known",
-                     "title" : "Does not contain: molluscs"
+                     "title" : "Does not contain: Molluscs"
                   },
                   {
                      "debug" : "2 ingredients (0 unknown)",
@@ -1600,7 +1600,7 @@
                      "match" : 100,
                      "name" : "Sulphur dioxide and sulphites",
                      "status" : "known",
-                     "title" : "Does not contain: sulphur dioxide and sulphites"
+                     "title" : "Does not contain: Sulphur dioxide and sulphites"
                   }
                ],
                "id" : "allergens",
@@ -1647,8 +1647,8 @@
             {
                "attributes" : [
                   {
-                     "description" : "Unwanted ingredients: water",
-                     "description_short" : "water",
+                     "description" : "Unwanted ingredients: Water",
+                     "description_short" : "Water",
                      "grade" : "e",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg",
                      "id" : "unwanted_ingredients",
@@ -1820,7 +1820,7 @@
                      "match" : 100,
                      "name" : "Gluten",
                      "status" : "known",
-                     "title" : "Does not contain: gluten"
+                     "title" : "Does not contain: Gluten"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1830,7 +1830,7 @@
                      "match" : 100,
                      "name" : "Milk",
                      "status" : "known",
-                     "title" : "Does not contain: milk"
+                     "title" : "Does not contain: Milk"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1840,7 +1840,7 @@
                      "match" : 100,
                      "name" : "Eggs",
                      "status" : "known",
-                     "title" : "Does not contain: eggs"
+                     "title" : "Does not contain: Eggs"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1850,7 +1850,7 @@
                      "match" : 100,
                      "name" : "Nuts",
                      "status" : "known",
-                     "title" : "Does not contain: nuts"
+                     "title" : "Does not contain: Nuts"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1860,7 +1860,7 @@
                      "match" : 100,
                      "name" : "Peanuts",
                      "status" : "known",
-                     "title" : "Does not contain: peanuts"
+                     "title" : "Does not contain: Peanuts"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1870,7 +1870,7 @@
                      "match" : 100,
                      "name" : "Sesame seeds",
                      "status" : "known",
-                     "title" : "Does not contain: sesame seeds"
+                     "title" : "Does not contain: Sesame seeds"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1880,7 +1880,7 @@
                      "match" : 100,
                      "name" : "Soybeans",
                      "status" : "known",
-                     "title" : "Does not contain: soybeans"
+                     "title" : "Does not contain: Soybeans"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1890,7 +1890,7 @@
                      "match" : 100,
                      "name" : "Celery",
                      "status" : "known",
-                     "title" : "Does not contain: celery"
+                     "title" : "Does not contain: Celery"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1900,7 +1900,7 @@
                      "match" : 100,
                      "name" : "Mustard",
                      "status" : "known",
-                     "title" : "Does not contain: mustard"
+                     "title" : "Does not contain: Mustard"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1910,7 +1910,7 @@
                      "match" : 100,
                      "name" : "Lupin",
                      "status" : "known",
-                     "title" : "Does not contain: lupin"
+                     "title" : "Does not contain: Lupin"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1920,7 +1920,7 @@
                      "match" : 100,
                      "name" : "Fish",
                      "status" : "known",
-                     "title" : "Does not contain: fish"
+                     "title" : "Does not contain: Fish"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1930,7 +1930,7 @@
                      "match" : 100,
                      "name" : "Crustaceans",
                      "status" : "known",
-                     "title" : "Does not contain: crustaceans"
+                     "title" : "Does not contain: Crustaceans"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1940,7 +1940,7 @@
                      "match" : 100,
                      "name" : "Molluscs",
                      "status" : "known",
-                     "title" : "Does not contain: molluscs"
+                     "title" : "Does not contain: Molluscs"
                   },
                   {
                      "debug" : "3 ingredients (0 unknown)",
@@ -1950,7 +1950,7 @@
                      "match" : 100,
                      "name" : "Sulphur dioxide and sulphites",
                      "status" : "known",
-                     "title" : "Does not contain: sulphur dioxide and sulphites"
+                     "title" : "Does not contain: Sulphur dioxide and sulphites"
                   }
                ],
                "id" : "allergens",
@@ -1997,8 +1997,8 @@
             {
                "attributes" : [
                   {
-                     "description" : "Unwanted ingredients: water",
-                     "description_short" : "water",
+                     "description" : "Unwanted ingredients: Water",
+                     "description_short" : "Water",
                      "grade" : "e",
                      "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg",
                      "id" : "unwanted_ingredients",

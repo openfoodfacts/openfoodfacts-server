@@ -60,8 +60,8 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/%level display_taxonomy_tag display_taxonomy_tag_name get_inherited_property_from_tags/;
-use ProductOpener::ProductsTags qw/has_tag/;
+use ProductOpener::Tags
+	qw/%level display_taxonomy_tag display_taxonomy_tag_name has_tag get_inherited_property_from_tags/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/@nutrient_levels/;
 use ProductOpener::Ingredients qw/:all/;
@@ -363,7 +363,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 
 			my $allergen = display_taxonomy_tag($target_lc, "allergens", $allergen_id);
 
-			$attribute_ref->{name} = ucfirst($allergen);
+			$attribute_ref->{name} = $allergen;
 			$attribute_ref->{setting_name} = sprintf(
 				lang_in_other_lc($target_lc, "without_s"),
 				display_taxonomy_tag($target_lc, "allergens", $allergen_id)

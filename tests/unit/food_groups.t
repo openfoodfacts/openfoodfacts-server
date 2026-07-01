@@ -12,7 +12,7 @@ use Log::Any::Adapter 'TAP';
 
 use ProductOpener::FoodGroups qw/compute_food_groups/;
 use ProductOpener::FoodProducts qw/:all/;
-use ProductOpener::ProductsTags qw/compute_field_tags/;
+use ProductOpener::Tags qw/compute_field_tags/;
 
 my @tests = (
 

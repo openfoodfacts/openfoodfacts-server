@@ -15,6 +15,10 @@
       "en:e331iii",
       "en:e960"
    ],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "ice teas",
@@ -46,7 +50,6 @@
       "en:tea-based-beverages",
       "en:iced-teas"
    ],
-   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweetened-beverages",
    "food_groups_tags" : [
       "en:beverages",
@@ -335,7 +338,6 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",
@@ -1366,20 +1368,10 @@
       "artificially-sweetened-beverages",
       "known"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

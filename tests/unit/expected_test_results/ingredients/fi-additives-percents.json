@@ -1,8 +1,7 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "9435",
+         "ciqual_proxy_food_code" : "9410",
          "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
@@ -17,7 +16,6 @@
          "ingredients" : [
             {
                "ciqual_food_code" : "16030",
-               "from_palm_oil" : "no",
                "id" : "en:cocoa-butter",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 22,
@@ -230,10 +228,7 @@
       "en:acid",
       "en:salt",
       "en:cocoa-butter",
-      "en:oil-and-fat",
       "en:plant",
-      "en:vegetable-oil-and-fat",
-      "en:vegetable-fat",
       "en:cocoa",
       "en:sugar",
       "en:added-sugar",
@@ -293,8 +288,7 @@
    "known_ingredients_n" : 19,
    "lc" : "fi",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener"
+      "en:some-ingredients-with-specified-percent"
    ],
    "unknown_ingredients_n" : 0
 }

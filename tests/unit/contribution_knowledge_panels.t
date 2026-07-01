@@ -17,9 +17,8 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 my %default_product = (
 	code => "120989380970",
 	product_name => "dummy",
-	data_quality_errors_tags => [
-		"en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj", "en:nutrition-saturated-fat-greater-than-fat",
-	],
+	data_quality_errors_tags =>
+		["en:energy-value-in-kcal-does-not-match-value-in-kj", "en:nutrition-saturated-fat-greater-than-fat",],
 	knowledge_panels_en => {},
 );
 

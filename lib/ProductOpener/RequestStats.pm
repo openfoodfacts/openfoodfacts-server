@@ -29,7 +29,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use Log::Any qw/$log/;
-use Time::HiRes qw(clock_gettime CLOCK_MONOTONIC);
+use Time::Monotonic qw(monotonic_time);
 
 # Specific logger to log request stats
 our $requeststats_log = Log::Any->get_logger(category => 'requeststats');
@@ -49,12 +49,12 @@ sub set_request_stats_value($stats_ref, $key, $value) {
 }
 
 sub set_request_stats_time_start($stats_ref, $key) {
-	$stats_ref->{$key . "_start"} = clock_gettime(CLOCK_MONOTONIC);
+	$stats_ref->{$key . "_start"} = monotonic_time();
 	return;
 }
 
 sub set_request_stats_time_end($stats_ref, $key) {
-	$stats_ref->{$key . "_end"} = clock_gettime(CLOCK_MONOTONIC);
+	$stats_ref->{$key . "_end"} = monotonic_time();
 	return;
 }
 

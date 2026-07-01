@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
@@ -16,7 +15,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:kefir-lactic-ferment",
+         "id" : "en:kefir-lactic-ferments",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
@@ -44,18 +43,18 @@
    ],
    "ingredients_original_tags" : [
       "en:cow-s-milk",
-      "en:kefir-lactic-ferment"
+      "en:kefir-lactic-ferments"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:cow-s-milk",
       "en:dairy",
       "en:milk",
-      "en:kefir-lactic-ferment",
+      "en:kefir-lactic-ferments",
       "en:ferment",
       "en:microbial-culture",
       "en:lactic-ferments",
-      "en:kefir-ferment"
+      "en:kefir-ferments"
    ],
    "ingredients_text" : "Leche entera pasteurizada de vaca*, fermentos lácticos de gránulos de kéfir. *Procedente e agricultura ecológica.",
    "ingredients_with_specified_percent_n" : 0,
@@ -63,17 +62,14 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:kefir-lactic-ferment"
+      "en:kefir-lactic-ferments"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:kefir-lactic-ferment"
+      "en:kefir-lactic-ferments"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "es",
-   "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
-   ],
    "unknown_ingredients_n" : 0
 }

@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:e428",
@@ -13,7 +12,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:Charcoal",
+         "id" : "en:charcoal",
          "is_in_taxonomy" : 0,
          "labels" : "en:vegan",
          "percent_estimate" : 20,
@@ -59,7 +58,7 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:Charcoal"
+         "en:charcoal"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -75,7 +74,7 @@
    ],
    "ingredients_original_tags" : [
       "en:e428",
-      "en:Charcoal",
+      "en:charcoal",
       "en:ferment",
       "en:rennet",
       "en:flavouring"
@@ -83,7 +82,7 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:e428",
-      "en:Charcoal",
+      "en:charcoal",
       "en:ferment",
       "en:rennet",
       "en:enzyme",
@@ -96,7 +95,7 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:Charcoal",
+      "en:charcoal",
       "en:e428",
       "en:ferment",
       "en:flavouring",
@@ -104,7 +103,7 @@
    ],
    "ingredients_without_ciqual_codes_n" : 5,
    "ingredients_without_ecobalyse_ids" : [
-      "en:Charcoal",
+      "en:charcoal",
       "en:e428",
       "en:ferment",
       "en:flavouring",
@@ -113,8 +112,5 @@
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 4,
    "lc" : "en",
-   "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
-   ],
    "unknown_ingredients_n" : 1
 }

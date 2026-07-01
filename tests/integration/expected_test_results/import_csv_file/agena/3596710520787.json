@@ -1,12 +1,8 @@
 {
    "_id" : "3596710520787",
    "_keywords" : [
-      "and",
       "auchan",
-      "en-egg",
-      "en-farming",
-      "product",
-      "their"
+      "egg"
    ],
    "abbreviated_product_name_fr" : "Auchan oeufs dates du jour de ponte",
    "abbreviated_product_name_fr_imported" : "Auchan oeufs dates du jour de ponte",
@@ -14,18 +10,35 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "en:eggs",
+   "allergens_from_ingredients" : "ŒUFS , ŒUFS",
+   "allergens_from_user" : "(lc) en:eggs",
+   "allergens_hierarchy" : [
+      "en:eggs"
+   ],
    "allergens_imported" : "en:eggs",
+   "allergens_lc" : "lc",
    "allergens_tags" : [
-      "en:eggs",
-      "lc:ŒUFS"
+      "en:eggs"
    ],
    "amino_acids_tags" : [],
    "brands" : "Auchan",
+   "brands_hierarchy" : [
+      "xx:Auchan"
+   ],
    "brands_imported" : "Auchan",
+   "brands_lc" : "xx",
    "brands_tags" : [
       "xx:auchan"
    ],
+   "categories" : "en:eggs",
+   "categories_hierarchy" : [
+      "en:eggs-and-their-products",
+      "en:farming-products",
+      "en:eggs"
+   ],
    "categories_imported" : "en:eggs",
+   "categories_lc" : "lc",
    "categories_properties" : {
       "agribalyse_proxy_food_code:en" : "22000"
    },
@@ -62,7 +75,12 @@
    "complete" : 0,
    "completeness" : 0.5,
    "correctors_tags" : [],
+   "countries" : "en:france",
+   "countries_hierarchy" : [
+      "en:france"
+   ],
    "countries_imported" : "en:france",
+   "countries_lc" : "lc",
    "countries_tags" : [
       "en:france"
    ],
@@ -146,10 +164,11 @@
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
    ],
+   "data_sources" : "Producers, Producer - auchan-apaw",
    "data_sources_imported" : "Producers, Producer - auchan-apaw",
    "data_sources_tags" : [
-      "Producer - auchan-apaw",
-      "Producers"
+      "producers",
+      "producer-auchan-apaw"
    ],
    "ecoscore_tags" : [
       "b"
@@ -553,7 +572,6 @@
    "environmental_score_tags" : [
       "b"
    ],
-   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:eggs",
    "food_groups_tags" : [
       "en:fish-meat-eggs",
@@ -572,10 +590,10 @@
    ],
    "ingredients" : [
       {
-         "id" : "fr:6 ŒUFS de catégorie A de poules élevées au sol",
+         "id" : "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
          "ingredients" : [
             {
-               "id" : "fr:code commençant par 2 sur l'œuf",
+               "id" : "fr:code-commencant-par-2-sur-l-oeuf",
                "is_in_taxonomy" : 0,
                "percent_estimate" : 58.3333333333333,
                "percent_max" : 100.0,
@@ -590,7 +608,7 @@
          "text" : "6 ŒUFS de catégorie A de poules élevées au sol"
       },
       {
-         "id" : "fr:datés du jour de ponte",
+         "id" : "fr:dates-du-jour-de-ponte",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 20.8333333333333,
          "percent_max" : 50.0,
@@ -598,10 +616,10 @@
          "text" : "datés du jour de ponte"
       },
       {
-         "id" : "fr:Calibre Moyen et Gros",
+         "id" : "fr:calibre-moyen-et-gros",
          "ingredients" : [
             {
-               "id" : "fr:mention indiquée sur le couvercle de la boite",
+               "id" : "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
                "is_in_taxonomy" : 0,
                "percent_estimate" : 10.4166666666667,
                "percent_max" : 33.3333333333333,
@@ -616,7 +634,7 @@
          "text" : "Calibre Moyen et Gros"
       },
       {
-         "id" : "fr:Pour accompagner la conversion des élevages",
+         "id" : "fr:pour-accompagner-la-conversion-des-elevages",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 5.20833333333333,
          "percent_max" : 25.0,
@@ -624,10 +642,10 @@
          "text" : "Pour accompagner la conversion des élevages"
       },
       {
-         "id" : "fr:les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air",
+         "id" : "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
          "ingredients" : [
             {
-               "id" : "fr:code producteur commençant par 1",
+               "id" : "fr:code-producteur-commencant-par-1",
                "is_in_taxonomy" : 0,
                "percent_estimate" : 2.60416666666666,
                "percent_max" : 20.0,
@@ -642,10 +660,10 @@
          "text" : "les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air"
       },
       {
-         "id" : "fr:La signification du code du producteur imprimé sur l'oeuf est",
+         "id" : "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
          "ingredients" : [
             {
-               "id" : "fr:1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment",
+               "id" : "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment",
                "is_in_taxonomy" : 0,
                "percent_estimate" : 2.60416666666666,
                "percent_max" : 16.6666666666667,
@@ -662,32 +680,32 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "fr:6 ŒUFS de catégorie A de poules élevées au sol",
-         "fr:code commençant par 2 sur l'œuf",
-         "fr:datés du jour de ponte",
-         "fr:Calibre Moyen et Gros",
-         "fr:mention indiquée sur le couvercle de la boite",
-         "fr:Pour accompagner la conversion des élevages",
-         "fr:les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air",
-         "fr:code producteur commençant par 1",
-         "fr:La signification du code du producteur imprimé sur l'oeuf est",
-         "fr:1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment"
+         "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+         "fr:code-commencant-par-2-sur-l-oeuf",
+         "fr:dates-du-jour-de-ponte",
+         "fr:calibre-moyen-et-gros",
+         "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+         "fr:pour-accompagner-la-conversion-des-elevages",
+         "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+         "fr:code-producteur-commencant-par-1",
+         "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+         "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
       ],
       "en:vegan-status-unknown" : [
-         "fr:code commençant par 2 sur l'œuf",
-         "fr:datés du jour de ponte",
-         "fr:mention indiquée sur le couvercle de la boite",
-         "fr:Pour accompagner la conversion des élevages",
-         "fr:code producteur commençant par 1",
-         "fr:1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment"
+         "fr:code-commencant-par-2-sur-l-oeuf",
+         "fr:dates-du-jour-de-ponte",
+         "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+         "fr:pour-accompagner-la-conversion-des-elevages",
+         "fr:code-producteur-commencant-par-1",
+         "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:code commençant par 2 sur l'œuf",
-         "fr:datés du jour de ponte",
-         "fr:mention indiquée sur le couvercle de la boite",
-         "fr:Pour accompagner la conversion des élevages",
-         "fr:code producteur commençant par 1",
-         "fr:1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment"
+         "fr:code-commencant-par-2-sur-l-oeuf",
+         "fr:dates-du-jour-de-ponte",
+         "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+         "fr:pour-accompagner-la-conversion-des-elevages",
+         "fr:code-producteur-commencant-par-1",
+         "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -703,30 +721,30 @@
    ],
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
-      "fr:6 ŒUFS de catégorie A de poules élevées au sol",
-      "fr:datés du jour de ponte",
-      "fr:Calibre Moyen et Gros",
-      "fr:Pour accompagner la conversion des élevages",
-      "fr:les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air",
-      "fr:La signification du code du producteur imprimé sur l'oeuf est",
-      "fr:code commençant par 2 sur l'œuf",
-      "fr:mention indiquée sur le couvercle de la boite",
-      "fr:code producteur commençant par 1",
-      "fr:1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment"
+      "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+      "fr:dates-du-jour-de-ponte",
+      "fr:calibre-moyen-et-gros",
+      "fr:pour-accompagner-la-conversion-des-elevages",
+      "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+      "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+      "fr:code-commencant-par-2-sur-l-oeuf",
+      "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+      "fr:code-producteur-commencant-par-1",
+      "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
-      "fr:6 ŒUFS de catégorie A de poules élevées au sol",
-      "fr:datés du jour de ponte",
-      "fr:Calibre Moyen et Gros",
-      "fr:Pour accompagner la conversion des élevages",
-      "fr:les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air",
-      "fr:La signification du code du producteur imprimé sur l'oeuf est",
-      "fr:code commençant par 2 sur l'œuf",
-      "fr:mention indiquée sur le couvercle de la boite",
-      "fr:code producteur commençant par 1",
-      "fr:1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment"
+      "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+      "fr:dates-du-jour-de-ponte",
+      "fr:calibre-moyen-et-gros",
+      "fr:pour-accompagner-la-conversion-des-elevages",
+      "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+      "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+      "fr:code-commencant-par-2-sur-l-oeuf",
+      "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+      "fr:code-producteur-commencant-par-1",
+      "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment"
    ],
    "ingredients_text" : "6 ŒUFS de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite). Pour accompagner la conversion des élevages, les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air (code producteur commençant par 1). La signification du code du producteur imprimé sur l'oeuf est : 1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment.",
    "ingredients_text_fr" : "6 ŒUFS de catégorie A de poules élevées au sol (code commençant par 2 sur l'œuf), datés du jour de ponte. Calibre Moyen ou Gros (mention indiquée sur le couvercle de la boite). Pour accompagner la conversion des élevages, les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air (code producteur commençant par 1). La signification du code du producteur imprimé sur l'oeuf est : 1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment.",
@@ -738,29 +756,29 @@
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "fr:1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment",
-      "fr:6 ŒUFS de catégorie A de poules élevées au sol",
-      "fr:Calibre Moyen et Gros",
-      "fr:La signification du code du producteur imprimé sur l'oeuf est",
-      "fr:Pour accompagner la conversion des élevages",
-      "fr:code commençant par 2 sur l'œuf",
-      "fr:code producteur commençant par 1",
-      "fr:datés du jour de ponte",
-      "fr:les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air",
-      "fr:mention indiquée sur le couvercle de la boite"
+      "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment",
+      "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+      "fr:calibre-moyen-et-gros",
+      "fr:code-commencant-par-2-sur-l-oeuf",
+      "fr:code-producteur-commencant-par-1",
+      "fr:dates-du-jour-de-ponte",
+      "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+      "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+      "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+      "fr:pour-accompagner-la-conversion-des-elevages"
    ],
    "ingredients_without_ciqual_codes_n" : 10,
    "ingredients_without_ecobalyse_ids" : [
-      "fr:1 = plein air ou 2 = sol FR = France 3 lettres = identification de l'élevage 2 chiffres = numéro du bâtiment",
-      "fr:6 ŒUFS de catégorie A de poules élevées au sol",
-      "fr:Calibre Moyen et Gros",
-      "fr:La signification du code du producteur imprimé sur l'oeuf est",
-      "fr:Pour accompagner la conversion des élevages",
-      "fr:code commençant par 2 sur l'œuf",
-      "fr:code producteur commençant par 1",
-      "fr:datés du jour de ponte",
-      "fr:les oeufs contenus dans cette boîte peuvent être issus de poules élevées en plein air",
-      "fr:mention indiquée sur le couvercle de la boite"
+      "fr:1-plein-air-ou-2-sol-fr-france-3-lettres-identification-de-l-elevage-2-chiffres-numero-du-batiment",
+      "fr:6-oeufs-de-categorie-a-de-poules-elevees-au-sol",
+      "fr:calibre-moyen-et-gros",
+      "fr:code-commencant-par-2-sur-l-oeuf",
+      "fr:code-producteur-commencant-par-1",
+      "fr:dates-du-jour-de-ponte",
+      "fr:la-signification-du-code-du-producteur-imprime-sur-l-oeuf-est",
+      "fr:les-oeufs-contenus-dans-cette-boite-peuvent-etre-issus-de-poules-elevees-en-plein-air",
+      "fr:mention-indiquee-sur-le-couvercle-de-la-boite",
+      "fr:pour-accompagner-la-conversion-des-elevages"
    ],
    "ingredients_without_ecobalyse_ids_n" : 10,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
@@ -798,7 +816,6 @@
       "en:environmental-score-missing-data-origins",
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
-      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-2021-a-2023-a",
       "en:nutriscore-2021-same-as-2023",
@@ -1294,7 +1311,7 @@
    "quantity_value_imported" : "6",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1004,
+   "schema_version" : 1003,
    "sources" : [
       {
          "fields" : [
@@ -1334,6 +1351,21 @@
       }
    },
    "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+   "states_hierarchy" : [
+      "en:to-be-completed",
+      "en:nutrition-facts-completed",
+      "en:ingredients-completed",
+      "en:expiration-date-to-be-completed",
+      "en:packaging-code-to-be-completed",
+      "en:characteristics-to-be-completed",
+      "en:origins-to-be-completed",
+      "en:categories-completed",
+      "en:brands-completed",
+      "en:packaging-to-be-completed",
+      "en:quantity-completed",
+      "en:product-name-to-be-completed",
+      "en:photos-to-be-uploaded"
+   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-completed",
@@ -1349,61 +1381,10 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "lc:ŒUFS"
-            ]
-         },
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "en:eggs"
-            ]
-         }
-      },
-      "brands" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "xx:auchan"
-            ]
-         }
-      },
-      "categories" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "en:eggs"
-            ]
-         }
-      },
-      "countries" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "en:france"
-            ]
-         }
-      },
-      "data_sources" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "Producers",
-               "Producer - auchan-apaw"
-            ]
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(lc) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 10.0,
    "vitamins_tags" : [],

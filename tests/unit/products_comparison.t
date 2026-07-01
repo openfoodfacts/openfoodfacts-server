@@ -363,36 +363,4 @@ ok(
 	is($product_ref, $stored_product_ref, "no-op saves restore the stored product in the local product ref");
 }
 
-# These fields with ignored keys should not create a difference by themselves.
-my $ignored_field_a2 = {
-	code => "111",
-	product_name => "Example",
-	tags_sources => {
-		categories => {
-			packaging => {
-				tags => ["en:example"],
-				last_updated_t => 1234567890,
-			},
-		},
-	}
-};
-my $ignored_field_b2 = {
-	code => "111",
-	product_name => "Example",
-	tags_sources => {
-		categories => {
-			packaging => {
-				tags => ["en:example"],
-				last_updated_t => 1234567891,
-			},
-		},
-	}
-};
-
-is(
-	ProductOpener::Products::serialize_product_for_comparison($ignored_field_a2),
-	ProductOpener::Products::serialize_product_for_comparison($ignored_field_b2),
-	"non-meaningful fields do not affect the comparison payload"
-);
-
 done_testing();

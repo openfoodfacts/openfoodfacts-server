@@ -69,7 +69,7 @@ BEGIN {
 		$process_global_redis_events
 
 		$recipe_estimator_url
-		$recipe_estimator_service
+		$recipe_estimator_scipy_url
 
 		$mongodb
 		$mongodb_host
@@ -107,8 +107,6 @@ BEGIN {
 
 		$build_cache_repo
 		$serialize_to_json
-
-		$health_check_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -416,6 +414,28 @@ $options{users_who_can_upload_small_images} = {
 			)
 		],
 	},
+	# 2025-08-25 prevent municorn-calorie-counter-app from editing nutrients
+	# see https://github.com/openfoodfacts/contributor-quality-issues/issues/18
+	{
+		name => "municorn-calorie-counter-app nutrients edition",
+		conditions => [["user_id", "municorn-calorie-counter-app"],],
+		actions => [
+			["ignore_nutriment_energy-kj"], ["ignore_nutriment_energy-kcal"],
+			["ignore_nutriment_fat"], ["ignore_nutriment_saturated-fat"],
+			["ignore_nutriment_trans-fat"], ["ignore_nutriment_monounsaturated-fat"],
+			["ignore_nutriment_polyunsaturated-fat"], ["ignore_nutriment_cholesterol"],
+			["ignore_nutriment_carbohydrates"], ["ignore_nutriment_carbohydrates-total"],
+			["ignore_nutriment_sugars"], ["ignore_nutriment_added_sugars"],
+			["ignore_nutriment_fiber"], ["ignore_nutriment_proteins"],
+			["ignore_nutriment_salt"], ["ignore_nutriment_sodium"],
+			["ignore_nutriment_alcohol"], ["ignore_nutriment_vitamin-d"],
+			["ignore_nutriment_calcium"], ["ignore_nutriment_potassium"],
+			["ignore_serving_size"],
+			# block image selection
+			["block_if_regexp_match_id", "^(front|ingredients|nutrition|packaging).*"],
+			["block_if_regexp_match_imagefield", "^(front|ingredients|nutrition|packaging).*"],
+		],
+	},
 );
 
 # server constants
@@ -446,17 +466,13 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
-# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
-# to enable recipe estimation features in Product Opener
-$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
-# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
-# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
+# recipe-estimator product service
+# To test a locally running recipe-estimator with product opener in a docker dev environment:
+# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
 
-# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
-# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
-# or "product_opener" to use the legacy Product Opener algorithm
-$recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
+$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
+$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
 
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;

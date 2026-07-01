@@ -81,7 +81,6 @@ use HTTP::Cookies;
 use HTTP::Request::Common;
 use Encode;
 use JSON::MaybeXS;
-use URI::Escape::XS qw(uri_unescape);
 use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;
@@ -94,7 +93,6 @@ no warnings qw(experimental::signatures);
 # Should be used internally only (see: construct_test_url to build urls in tests)
 my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
 my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
-my $metadata_json_encoder = JSON::MaybeXS->new(canonical => 1, utf8 => 1, pretty => 1);
 
 =head2 wait_auth()
 
@@ -218,7 +216,7 @@ Call API to create a user. This legacy method will be deprecated at some point
 
 =cut
 
-sub create_user_legacy ($ua, $args_ref, $is_edit = 0, $prefix = 'world') {
+sub create_user_legacy ($ua, $args_ref, $is_edit = 0) {
 	my $before_create_ts = get_last_minion_job_created();
 
 	my %fields = %{clone($args_ref)};
@@ -226,7 +224,7 @@ sub create_user_legacy ($ua, $args_ref, $is_edit = 0, $prefix = 'world') {
 		$fields{email} = $fields{userid} . '@example.com';
 	}
 	my $tail = tail_log_start();
-	my $response = $ua->post("http://$prefix.$TEST_MAIN_DOMAIN/cgi/user.pl", Content => \%fields);
+	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
 		diag("Couldn't create user with " . Dumper(\%fields) . "\n");
 		diag Dumper $response;
@@ -537,7 +535,7 @@ Constructs the URL to send the HTTP request to for the API.
 
 =head3 Arguments
 
-Takes in two string arguments, One being the target and other a prefix. 
+Takes in two string arguments, One being the the target and other a prefix. 
 The prefix could be simply the country code (eg: US for America or "World") OR something like ( {country-code}-{language-code} )
 
 An example below
@@ -641,108 +639,6 @@ sub normalize_api_response_for_test_comparison ($response_ref) {
 	my %specification = (fields_ignore_line_numbers_in_content => ["errors.*.field.error"],);
 
 	normalize_object_for_test_comparison($response_ref, \%specification);
-	return;
-}
-
-sub normalize_health_response_for_test_comparison ($response_ref) {
-	my %specification = (fields_ignore_content => ["checks.*.*.time", "checks.*.*.observedValue"],);
-
-	normalize_object_for_test_comparison($response_ref, \%specification);
-	return;
-}
-
-sub parse_query_string_parameters_from_url ($url) {
-
-	my %parameters = ();
-	my $query_string = "";
-	if ((defined $url) and ($url ne "")) {
-		($query_string) = $url =~ /\?(.*)\z/;
-		$query_string //= "";
-	}
-	return \%parameters if ($query_string eq "");
-
-	foreach my $pair (split(/[&;]/, $query_string)) {
-		next if ($pair eq "");
-		my ($key, $value) = split(/=/, $pair, 2);
-		$key //= "";
-		$value //= "";
-		$key = uri_unescape($key);
-		$value = uri_unescape($value);
-
-		if (defined $parameters{$key}) {
-			if (ref($parameters{$key}) eq "ARRAY") {
-				push(@{$parameters{$key}}, $value);
-			}
-			else {
-				$parameters{$key} = [$parameters{$key}, $value];
-			}
-		}
-		else {
-			$parameters{$key} = $value;
-		}
-	}
-
-	return \%parameters;
-}
-
-sub get_api_call_metadata ($test_ref) {
-
-	my $content_type;
-	my $body;
-	my $simplified_url = $test_ref->{url};
-
-	# Special case for /cgi/display.pl? which is in fact invisible from behind the reverse proxy
-	$simplified_url =~ s/\/cgi\/display\.pl\?//;
-
-	# Get path
-	my $path = $simplified_url;
-	if (defined $path) {
-		$path =~ s/^https?:\/\/[^\/]+//;
-		$path =~ s/\?.*$//;
-	}
-	if (defined $test_ref->{body}) {
-		$content_type = "application/json; charset=utf-8";
-		my $decoded_body = eval {decode_json($test_ref->{body})};
-		if (defined $decoded_body) {
-			if (ref($decoded_body) eq "HASH") {
-				$body = $decoded_body;
-			}
-			else {
-				$body = {value => $decoded_body};
-			}
-		}
-		else {
-			$body = {raw_body => $test_ref->{body}};
-		}
-	}
-	elsif (defined $test_ref->{form}) {
-		$body = clone($test_ref->{form});
-		my $is_multipart = (grep {ref($_) eq 'ARRAY'} values %{$test_ref->{form}}) > 0;
-		$content_type = $is_multipart ? "multipart/form-data" : "application/x-www-form-urlencoded";
-	}
-
-	return {
-		api_call => {
-			path => $path,
-			method => $test_ref->{method},
-			# Keep query parameters available as a parsed object for schema checks.
-			parameters => parse_query_string_parameters_from_url($simplified_url),
-			'content-type' => $content_type,
-			body => $body,
-		}
-	};
-}
-
-sub write_expected_result_metadata ($expected_result_file, $test_ref, $update_expected_results) {
-	return if (not $update_expected_results);
-
-	my $metadata_ref = get_api_call_metadata($test_ref);
-	my $metadata_file = $expected_result_file . ".metadata";
-	open(my $metadata_fh, ">:encoding(UTF-8)", $metadata_file)
-		or confess("Could not create " . $metadata_file . ": $!");
-	print $metadata_fh $metadata_json_encoder->encode($metadata_ref);
-	close($metadata_fh);
-
 	return;
 }
 
@@ -914,15 +810,14 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 
 	if ((($expected_type eq 'text') or ($expected_type eq 'html'))) {
 		# Check that the file is the same as expected (useful for HTML content or dynamic robots.txt)
-		my $expected_result_file = "$expected_result_dir/$test_case.$expected_type";
 		is(
 			compare_file_to_expected_results(
-				$response_content, $expected_result_file, $update_expected_results, $test_ref
+				$response_content, "$expected_result_dir/$test_case.$expected_type",
+				$update_expected_results, $test_ref
 			),
 			1,
 			"$test_case - result"
 		);
-		write_expected_result_metadata($expected_result_file, $test_ref, $update_expected_results);
 	}
 	# Otherwise we expect the result is JSON
 	elsif ($expected_type eq 'json') {
@@ -946,17 +841,11 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		# If the request was a setup request, we don't need to save or check the response
 		# otherwise, save or check the response
 		if (not $test_ref->{setup}) {
-			my $expected_result_file = "$expected_result_dir/$test_case.json";
 
 			# normalize for comparison
 			if (ref($decoded_json) eq 'HASH') {
 				# Normalize API error responses to ignore volatile line numbers in stack traces
 				normalize_api_response_for_test_comparison($decoded_json);
-
-				# Normalize health check responses to ignore volatile timestamps
-				if (defined $decoded_json->{'checks'}) {
-					normalize_health_response_for_test_comparison($decoded_json);
-				}
 
 				if (defined $decoded_json->{'products'}) {
 					normalize_products_for_test_comparison($decoded_json->{'products'});
@@ -973,11 +862,13 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			}
 
 			is(
-				compare_to_expected_results($decoded_json, $expected_result_file, $update_expected_results, $test_ref),
+				compare_to_expected_results(
+					$decoded_json, "$expected_result_dir/$test_case.json",
+					$update_expected_results, $test_ref
+				),
 				1,
 				"$test_case - result"
 			);
-			write_expected_result_metadata($expected_result_file, $test_ref, $update_expected_results);
 
 		}
 	}

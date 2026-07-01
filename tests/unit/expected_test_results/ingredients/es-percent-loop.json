@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "20047",
@@ -66,7 +65,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20034",
+         "ciqual_food_code" : "20034",
          "ecobalyse_code" : "onion-non-eu",
          "id" : "en:onion",
          "is_in_taxonomy" : 1,
@@ -216,8 +215,7 @@
    "lc" : "es",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:at-least-5-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener"
+      "en:at-least-5-ingredients-with-specified-percent"
    ],
    "unknown_ingredients_n" : 0
 }

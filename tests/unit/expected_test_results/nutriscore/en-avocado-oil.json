@@ -2,6 +2,10 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "avocado oil",
@@ -39,7 +43,6 @@
       "en:fruit-and-fruit-seed-oils",
       "en:avocado-oils"
    ],
-   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fats",
    "food_groups_tags" : [
       "en:fats-and-sauces",
@@ -95,7 +98,6 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-from-category",
@@ -1086,20 +1088,10 @@
       "fats",
       "known"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

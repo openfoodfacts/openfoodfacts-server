@@ -46,7 +46,7 @@ BEGIN {
 }
 
 use ProductOpener::DataQualityFood qw(is_european_product);
-use ProductOpener::ProductsTags qw/add_tag get_all_tags_having_property/;
+use ProductOpener::Tags qw(add_tag get_all_tags_having_property);
 use ProductOpener::Nutrition qw(has_non_estimated_nutrition_data has_no_nutrition_data_on_packaging);
 
 =head1 FUNCTIONS
@@ -162,7 +162,7 @@ sub compute_completeness_score($product_ref) {
 	}
 	$completeness_nutrition_total++;
 	# 2-2- category
-	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+	if ((defined $product_ref->{categories}) and ($product_ref->{categories} ne '')) {
 		add_tag($product_ref, "data_quality_completeness", "en:categories-completed");
 		$completeness_nutrition_count++;
 	}
@@ -252,7 +252,7 @@ sub compute_completeness_score($product_ref) {
 	}
 	$completeness_general_information_total++;
 	# 4-4- brand
-	if ((defined $product_ref->{brands_tags}) && (scalar @{$product_ref->{brands_tags}} > 0)) {
+	if (defined $product_ref->{brands} && $product_ref->{brands} ne '') {
 		add_tag($product_ref, "data_quality_completeness", "en:brands-completed");
 		$completeness_general_information_count++;
 	}

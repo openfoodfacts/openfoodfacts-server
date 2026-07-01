@@ -1,11 +1,10 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "en:each capsule contains",
+         "id" : "en:each-capsule-contains",
          "ingredients" : [
             {
-               "id" : "en:paracetamol 500 m 5 060198 790",
+               "id" : "en:paracetamol-500-m-5-060198-790",
                "is_in_taxonomy" : 0,
                "percent_estimate" : 100,
                "percent_max" : 100,
@@ -24,14 +23,14 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:each capsule contains",
-         "en:paracetamol 500 m 5 060198 790"
+         "en:each-capsule-contains",
+         "en:paracetamol-500-m-5-060198-790"
       ],
       "en:vegan-status-unknown" : [
-         "en:paracetamol 500 m 5 060198 790"
+         "en:paracetamol-500-m-5-060198-790"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:paracetamol 500 m 5 060198 790"
+         "en:paracetamol-500-m-5-060198-790"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -46,13 +45,13 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:each capsule contains",
-      "en:paracetamol 500 m 5 060198 790"
+      "en:each-capsule-contains",
+      "en:paracetamol-500-m-5-060198-790"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:each capsule contains",
-      "en:paracetamol 500 m 5 060198 790"
+      "en:each-capsule-contains",
+      "en:paracetamol-500-m-5-060198-790"
    ],
    "ingredients_text" : "each capsule contains: paracetamol 500 m 5 060198 790 0 mg.",
    "ingredients_with_specified_percent_n" : 0,
@@ -60,19 +59,16 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:each capsule contains",
-      "en:paracetamol 500 m 5 060198 790"
+      "en:each-capsule-contains",
+      "en:paracetamol-500-m-5-060198-790"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "en:each capsule contains",
-      "en:paracetamol 500 m 5 060198 790"
+      "en:each-capsule-contains",
+      "en:paracetamol-500-m-5-060198-790"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 0,
    "lc" : "en",
-   "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
-   ],
    "unknown_ingredients_n" : 2
 }

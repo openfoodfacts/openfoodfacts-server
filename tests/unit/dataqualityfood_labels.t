@@ -11,7 +11,7 @@ $Data::Dumper::Sortkeys = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::ProductsTags qw/has_tag/;
+use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::FoodProducts qw/:all/;
 

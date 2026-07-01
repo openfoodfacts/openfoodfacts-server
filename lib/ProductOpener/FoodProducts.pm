@@ -49,7 +49,6 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Config qw/:all/;
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text detect_rare_crops/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
@@ -86,9 +85,7 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Select best language to parse ingredients
 	select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
-
-	# Use the external Recipe Estimator service to estimate ingredients percentages
-	extract_ingredients_from_text($product_ref, {estimate_ingredients_percent => $recipe_estimator_service});
+	extract_ingredients_from_text($product_ref);
 	extract_additives_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 

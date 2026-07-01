@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "11058",
@@ -99,7 +98,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20901",
+         "ciqual_food_code" : "20901",
          "id" : "en:edamame",
          "is_in_taxonomy" : 1,
          "origins" : "en:hokkaido",
@@ -192,7 +191,6 @@
       "en:plant",
       "en:edamame",
       "en:vegetable",
-      "en:pod-and-seed-vegetable",
       "en:legume",
       "en:pulse",
       "en:soya",
@@ -227,8 +225,5 @@
    "ingredients_without_ecobalyse_ids_n" : 8,
    "known_ingredients_n" : 11,
    "lc" : "ja",
-   "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
-   ],
    "unknown_ingredients_n" : 0
 }

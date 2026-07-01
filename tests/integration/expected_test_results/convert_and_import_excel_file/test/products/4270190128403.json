@@ -8,14 +8,27 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "brands" : "Test",
-   "brands_imported" : "Test",
-   "brands_tags" : [
+   "brands_hierarchy" : [
       "xx:Test"
    ],
+   "brands_imported" : "Test",
+   "brands_lc" : "xx",
+   "brands_tags" : [
+      "xx:test"
+   ],
+   "categories" : "Test category",
+   "categories_hierarchy" : [
+      "en:Test category"
+   ],
    "categories_imported" : "Test category",
+   "categories_lc" : "en",
    "categories_properties" : {},
    "categories_properties_tags" : [
       "all-products",
@@ -26,7 +39,7 @@
       "agribalyse-unknown"
    ],
    "categories_tags" : [
-      "en:Test category"
+      "en:test-category"
    ],
    "checkers_tags" : [],
    "code" : "4270190128403",
@@ -46,9 +59,14 @@
    "complete" : 0,
    "completeness" : 0.4,
    "correctors_tags" : [],
-   "countries_imported" : "Etats-Unis",
-   "countries_tags" : [
+   "countries" : "Etats-Unis",
+   "countries_hierarchy" : [
       "en:Etats-Unis"
+   ],
+   "countries_imported" : "Etats-Unis",
+   "countries_lc" : "en",
+   "countries_tags" : [
+      "en:etats-unis"
    ],
    "created_t" : "--ignore--",
    "creator" : "test-user",
@@ -126,10 +144,11 @@
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
    ],
+   "data_sources" : "Producers, Producer - test-food-company",
    "data_sources_imported" : "Producers, Producer - test-food-company",
    "data_sources_tags" : [
-      "Producer - test-food-company",
-      "Producers"
+      "producers",
+      "producer-test-food-company"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -381,7 +400,6 @@
    "environmental_score_tags" : [
       "unknown"
    ],
-   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
    "id" : "4270190128403",
    "images" : {
@@ -394,7 +412,7 @@
    ],
    "ingredients" : [
       {
-         "id" : "fr:White peaches",
+         "id" : "fr:white-peaches",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 75.0,
          "percent_max" : 100.0,
@@ -402,7 +420,7 @@
          "text" : "White peaches"
       },
       {
-         "id" : "fr:high fructose corn syrup",
+         "id" : "fr:high-fructose-corn-syrup",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 25.0,
          "percent_max" : 50.0,
@@ -412,16 +430,16 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "fr:White peaches",
-         "fr:high fructose corn syrup"
+         "fr:white-peaches",
+         "fr:high-fructose-corn-syrup"
       ],
       "en:vegan-status-unknown" : [
-         "fr:White peaches",
-         "fr:high fructose corn syrup"
+         "fr:white-peaches",
+         "fr:high-fructose-corn-syrup"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:White peaches",
-         "fr:high fructose corn syrup"
+         "fr:white-peaches",
+         "fr:high-fructose-corn-syrup"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -437,14 +455,14 @@
    ],
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
-      "fr:White peaches",
-      "fr:high fructose corn syrup"
+      "fr:white-peaches",
+      "fr:high-fructose-corn-syrup"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
-      "fr:White peaches",
-      "fr:high fructose corn syrup"
+      "fr:white-peaches",
+      "fr:high-fructose-corn-syrup"
    ],
    "ingredients_text" : "White peaches, high fructose corn syrup",
    "ingredients_text_fr" : "White peaches, high fructose corn syrup",
@@ -456,13 +474,13 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "fr:White peaches",
-      "fr:high fructose corn syrup"
+      "fr:high-fructose-corn-syrup",
+      "fr:white-peaches"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
-      "fr:White peaches",
-      "fr:high fructose corn syrup"
+      "fr:high-fructose-corn-syrup",
+      "fr:white-peaches"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
@@ -493,7 +511,6 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:environmental-score-not-computed",
-      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
@@ -711,7 +728,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1004,
+   "schema_version" : 1003,
    "sources" : [
       {
          "fields" : [
@@ -733,6 +750,21 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+   "states_hierarchy" : [
+      "en:to-be-completed",
+      "en:nutrition-facts-completed",
+      "en:ingredients-completed",
+      "en:expiration-date-to-be-completed",
+      "en:packaging-code-to-be-completed",
+      "en:characteristics-to-be-completed",
+      "en:origins-to-be-completed",
+      "en:categories-completed",
+      "en:brands-completed",
+      "en:packaging-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:product-name-to-be-completed",
+      "en:photos-to-be-uploaded"
+   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-completed",
@@ -748,53 +780,10 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      },
-      "brands" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "xx:Test"
-            ]
-         }
-      },
-      "categories" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "en:Test category"
-            ]
-         }
-      },
-      "countries" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "en:Etats-Unis"
-            ]
-         }
-      },
-      "data_sources" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "Producers",
-               "Producer - test-food-company"
-            ]
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 2.0,
    "vitamins_tags" : [],

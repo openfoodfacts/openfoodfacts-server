@@ -29,7 +29,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/single_param redirect_to_url write_cors_headers/;
+use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id init_user/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body sanitize/;
@@ -96,17 +96,6 @@ if (($env_query_string !~ $api_pattern) or ($request_ref->{method} !~ $method_pa
 		$first_param =~ s/^(.*?)\?//;
 		param($first_param, $first_param_value);
 	}
-}
-
-# Browser preflight requests do not include authentication cookies.
-# Return CORS headers before init_request() tries to authenticate the user.
-if (    ($request_ref->{method} eq 'OPTIONS')
-	and (defined $r->headers_in->{Origin})
-	and (defined $r->headers_in->{'Access-Control-Request-Method'}))
-{
-	write_cors_headers();
-	print header(-status => 200, -type => 'text/plain', -charset => 'utf-8');
-	return Apache2::Const::OK;
 }
 
 # Initialize the request object, and authenticate the user
@@ -182,9 +171,9 @@ if ((defined $request_ref->{api}) and (defined $request_ref->{api_action})) {
 		# /api/v0/search
 		# FIXME: for an unknown reason, using display_search_results() here results in some attributes being randomly not set
 		# because of missing fields like nova_group or nutriscore_data, but not for all products.
-		# this does not seem to happen with display_tag_page()
+		# this does not seem to happen with display_tag()
 		# display_search_results($request_ref);
-		display_tag_page($request_ref);
+		display_tag($request_ref);
 	}
 	elsif ($request_ref->{api_action} =~ /^preferences(_(\w\w))?$/) {
 		# /api/v0/preferences or /api/v0/preferences_[language code]
@@ -242,7 +231,7 @@ elsif (defined $request_ref->{points}) {
 elsif ((defined $request_ref->{groupby_tagtype})
 	or ((defined $request_ref->{tagtype}) and (defined $request_ref->{tagid})))
 {
-	display_tag_page($request_ref);
+	display_tag($request_ref);
 }
 
 exit 0;

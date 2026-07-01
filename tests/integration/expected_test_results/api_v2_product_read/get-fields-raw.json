@@ -3,15 +3,10 @@
    "product" : {
       "_id" : "0200000000034",
       "_keywords" : [
-         "and",
-         "biscuit",
-         "cake",
-         "cracker",
+         "cookie",
          "organic",
          "product",
-         "snack",
          "some",
-         "sweet",
          "tester"
       ],
       "added_countries_tags" : [],
@@ -25,6 +20,15 @@
          "en:e322",
          "en:e322i"
       ],
+      "allergens" : "",
+      "allergens_from_ingredients" : "en:soybeans, en:eggs, en:milk, apple, milk, eggs",
+      "allergens_from_user" : "(en) ",
+      "allergens_hierarchy" : [
+         "en:apple",
+         "en:eggs",
+         "en:milk",
+         "en:soybeans"
+      ],
       "allergens_tags" : [
          "en:apple",
          "en:eggs",
@@ -32,6 +36,15 @@
          "en:soybeans"
       ],
       "amino_acids_tags" : [],
+      "categories" : "cookies",
+      "categories_hierarchy" : [
+         "en:snacks",
+         "en:sweet-snacks",
+         "en:biscuits-and-cakes",
+         "en:biscuits-and-crackers",
+         "en:biscuits"
+      ],
+      "categories_lc" : "en",
       "categories_properties" : {
          "agribalyse_proxy_food_code:en" : "24000"
       },
@@ -593,7 +606,6 @@
       "environmental_score_tags" : [
          "d"
       ],
-      "estimate_ingredients_percent_service" : "product_opener",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [
          "en:sugary-snacks",
@@ -804,6 +816,11 @@
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 8,
+      "labels" : "organic",
+      "labels_hierarchy" : [
+         "en:organic"
+      ],
+      "labels_lc" : "en",
       "labels_tags" : [
          "en:organic"
       ],
@@ -837,7 +854,6 @@
          "en:environmental-score-missing-data-labels",
          "en:environmental-score-missing-data-origins",
          "en:environmental-score-missing-data-warning",
-         "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
@@ -1406,11 +1422,26 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "schema_version" : 1004,
+      "schema_version" : 1003,
       "serving_quantity" : 10,
       "serving_quantity_unit" : "g",
       "serving_size" : "10 g",
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states_hierarchy" : [
+         "en:to-be-completed",
+         "en:nutrition-facts-completed",
+         "en:ingredients-completed",
+         "en:expiration-date-to-be-completed",
+         "en:packaging-code-to-be-completed",
+         "en:characteristics-to-be-completed",
+         "en:origins-to-be-completed",
+         "en:categories-completed",
+         "en:brands-to-be-completed",
+         "en:packaging-to-be-completed",
+         "en:quantity-completed",
+         "en:product-name-completed",
+         "en:photos-to-be-uploaded"
+      ],
       "states_tags" : [
          "en:to-be-completed",
          "en:nutrition-facts-completed",
@@ -1426,41 +1457,10 @@
          "en:product-name-completed",
          "en:photos-to-be-uploaded"
       ],
-      "tags_sources" : {
-         "allergens" : {
-            "ingredients" : {
-               "last_updated_t" : "--ignore--",
-               "tags" : [
-                  "en:soybeans",
-                  "en:eggs",
-                  "en:milk",
-                  "en:apple"
-               ]
-            }
-         },
-         "categories" : {
-            "packaging" : {
-               "last_updated_t" : "--ignore--",
-               "tags" : [
-                  "en:biscuits"
-               ]
-            }
-         },
-         "labels" : {
-            "packaging" : {
-               "last_updated_t" : "--ignore--",
-               "tags" : [
-                  "en:organic"
-               ]
-            }
-         },
-         "traces" : {
-            "ingredients" : {
-               "last_updated_t" : "--ignore--",
-               "tags" : []
-            }
-         }
-      },
+      "traces" : "",
+      "traces_from_ingredients" : "",
+      "traces_from_user" : "(en) ",
+      "traces_hierarchy" : [],
       "traces_tags" : [],
       "unknown_ingredients_n" : 0,
       "vitamins_tags" : [],

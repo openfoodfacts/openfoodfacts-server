@@ -1,6 +1,5 @@
 {
-   "allergens_from_ingredients" : "en:milk, en:fish, en:gluten, ",
-   "estimate_ingredients_percent_service" : "product_opener",
+   "allergens" : "en:milk, en:fish, en:gluten",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "16400",
@@ -41,7 +40,7 @@
          "id" : "en:dough",
          "ingredients" : [
             {
-               "ciqual_proxy_food_code" : "9435",
+               "ciqual_proxy_food_code" : "9410",
                "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
                "id" : "en:flour",
                "is_in_taxonomy" : 1,
@@ -160,8 +159,5 @@
    "ingredients_without_ecobalyse_ids_n" : 4,
    "known_ingredients_n" : 8,
    "lc" : "en",
-   "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener"
-   ],
    "unknown_ingredients_n" : 0
 }

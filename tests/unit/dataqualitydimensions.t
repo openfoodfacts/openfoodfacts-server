@@ -6,7 +6,7 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 
 use ProductOpener::DataQualityDimensions qw/compute_accuracy_score compute_completeness_score/;
-use ProductOpener::ProductsTags qw/has_tag/;
+use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::FoodProducts qw/:all/;
 use boolean qw/:all/;
 
@@ -143,9 +143,7 @@ compute_and_test_completeness(
 compute_and_test_completeness(
 	{
 		brands => 'qux',
-		brands_tags => ['xx:qux'],
 		categories => 'meats',
-		categories_tags => ['en:meats-and-their-products'],
 		countries => ['en:italy'],
 		emb_codes => 'corge',
 		expiration_date => 'grault',
@@ -214,7 +212,6 @@ check_tags(
 # fully complete product
 $product_ref = {
 	brands => 'qux',
-	brands_tags => ['xx:qux'],
 	categories_tags => ['en:meats-and-their-products'],
 	categories => 'Meats and their products',
 	countries_tags => ['en:hungary'],

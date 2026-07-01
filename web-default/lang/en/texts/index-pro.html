@@ -15,7 +15,7 @@
 
 		<div class="hide-when-logged-in">
 			<!-- #11867: This need to change to direct to Keycloak and explain what to do afterwards -->
-			<a href="/cgi/user.pl" class="small button">Create a free producer
+			<a href=[% IF oidc_implementation_level < 3 %]"/cgi/user.pl"[% ELSE %]"/cgi/oidc_signin.pl?return_url=<escaped_subdomain>"[% END %] class="small button">Create a free producer
 				account</a>
 		</div>
 
@@ -34,7 +34,7 @@
 		<ul>
 			<li>Your data is complete, correct and up-to-date.</li>
 			<li>Add extra information like traceability, a link to the product page on your site, and customer service
-				contact info.</li>
+				contact info.</p>
 		</ul>
 
 		<h2>Easily adopt the Nutri-Score</h2>

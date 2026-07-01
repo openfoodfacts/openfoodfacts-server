@@ -10,11 +10,19 @@
       "x10"
    ],
    "added_countries_tags" : [],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(fr) ",
+   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "brands" : "Jean roze",
-   "brands_imported" : "Jean roze",
-   "brands_tags" : [
+   "brands_hierarchy" : [
       "xx:Jean roze"
+   ],
+   "brands_imported" : "Jean roze",
+   "brands_lc" : "xx",
+   "brands_tags" : [
+      "xx:jean-roze"
    ],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -43,7 +51,12 @@
    "complete" : 0,
    "completeness" : 0.2,
    "correctors_tags" : [],
+   "countries" : "fr",
+   "countries_hierarchy" : [
+      "en:france"
+   ],
    "countries_imported" : "fr",
+   "countries_lc" : "fr",
    "countries_tags" : [
       "en:france"
    ],
@@ -113,10 +126,11 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
+   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "Producer - test-org",
-      "Producers"
+      "producers",
+      "producer-test-org"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -583,7 +597,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1004,
+   "schema_version" : 1003,
    "sources" : [
       {
          "fields" : [
@@ -602,6 +616,21 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states_hierarchy" : [
+      "en:to-be-completed",
+      "en:nutrition-facts-to-be-completed",
+      "en:ingredients-to-be-completed",
+      "en:expiration-date-to-be-completed",
+      "en:packaging-code-to-be-completed",
+      "en:characteristics-to-be-completed",
+      "en:origins-to-be-completed",
+      "en:categories-to-be-completed",
+      "en:brands-completed",
+      "en:packaging-to-be-completed",
+      "en:quantity-to-be-completed",
+      "en:product-name-completed",
+      "en:photos-to-be-uploaded"
+   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -617,45 +646,10 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      },
-      "brands" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "xx:Jean roze"
-            ]
-         }
-      },
-      "countries" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "en:france"
-            ]
-         }
-      },
-      "data_sources" : {
-         "packaging" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : [
-               "Producers",
-               "Producer - test-org"
-            ]
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(fr) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "weighers_tags" : []
 }

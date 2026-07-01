@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "2070",
@@ -80,8 +79,7 @@
    "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
-      "en:estimated-ingredients-with-product-opener"
+      "en:some-ingredients-with-specified-percent"
    ],
    "recipe" : {
       "en:fruit" : 50,

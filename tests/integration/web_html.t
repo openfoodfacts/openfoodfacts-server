@@ -437,7 +437,7 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-categories',
-		path => 'facets/categories/Desserts',
+		path => 'facets/categories/desserts',
 		expected_type => 'html',
 	},
 	{
@@ -448,7 +448,7 @@ my $tests_ref = [
 	{
 		test_case => 'fr-categories',
 		subdomain => 'fr',
-		path => 'facets/categories/Desserts',
+		path => 'facets/categories/desserts',
 		expected_type => 'html',
 	},
 	{
@@ -486,7 +486,7 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-label-organic',
-		path => 'facets/labels/Organic',
+		path => 'facets/labels/organic',
 		expected_type => 'html',
 	},
 	{

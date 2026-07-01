@@ -10,7 +10,7 @@ $Data::Dumper::Terse = 1;    # rm variable name
 $Data::Dumper::Indent = 1;
 $Data::Dumper::Sortkeys = 1;
 
-use ProductOpener::ProductsTags qw/has_tag/;
+use ProductOpener::Tags qw/has_tag/;
 use ProductOpener::TaxonomiesEnhancer qw/check_ingredients_between_languages/;
 
 # TESTS

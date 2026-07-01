@@ -43,7 +43,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::MissionsConfig qw/%Missions %Missions_by_lang/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Tags qw/%taxonomy_fields canonicalize_tag_link canonicalize_taxonomy_tag/;
+use ProductOpener::Tags qw/%taxonomy_fields canonicalize_tag_link canonicalize_taxonomy_tag get_taxonomyid/;
 
 use Log::Any qw($log);
 
@@ -158,7 +158,7 @@ sub compute_missions() {
 
 		compute_missions_for_user($user_ref);
 
-		# This assumes email is not affected and will not update Keycloak
+		# This assumes email is not affectd and will not update Keycloak
 		store_user_preferences($user_ref);
 
 		foreach my $missionid (keys %{$user_ref->{missions}}) {
@@ -220,7 +220,7 @@ sub compute_missions_for_user ($user_ref) {
 					if (defined $taxonomy_fields{$tagtype}) {
 						my $tag = $query_ref->{$field};
 						$tag = canonicalize_taxonomy_tag($l, $tagtype, $tag);
-						my $tagid = $tag;
+						my $tagid = get_taxonomyid($l, $tag);
 						print "compute_missions - taxonomy - $field - orig: $query_ref->{$field} - new: $tagid\n";
 						$query_ref->{$field} = $tagid;
 					}

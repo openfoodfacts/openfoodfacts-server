@@ -215,11 +215,24 @@
 
       <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
-          <script type="module" src="https://donorbox.org/widgets.js" async></script>
-          <dbox-widget campaign="help-open-food-facts-stay-afloat" type="donation_form" enable-auto-scroll="true"></dbox-widget>
-          <noscript>
-            <p>טופס התרומה נטען.<br>ניתן גם לגשת אליו ב<a href="https://donorbox.org/help-open-food-facts-stay-afloat">לחיצה כאן</a>.</p>
-          </noscript>
+          <div class="loading">
+            <p>טופס התרומה נטען.<br>ניתן גם לגשת אליו ב<a href="https://donorbox.org/your-donation-to-open-food-facts">לחיצה כאן</a>.</p>
+          </div>
+
+          <script
+            src="https://donorbox.org/widget.js"
+            paypalExpress="true"
+          ></script>
+          <iframe
+            title="תרומה דרך Donorbox"
+            allowpaymentrequest=""
+            height="900px"
+            name="donorbox"
+            seamless="seamless"
+            src="https://donorbox.org/embed/your-donation-to-open-food-facts"
+            style="max-width: 500px; min-width: 310px; max-height:none!important;border:0;overflow:hidden;"
+            width="100%"
+          ></iframe>
 
           <div class="text-center">
             <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"

@@ -16,7 +16,6 @@ site_dir: gh_pages
 # for available extensions
 theme:
   name: material
-  custom_dir: overrides
   features:
     - content.action.edit
   logo: https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg

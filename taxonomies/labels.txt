@@ -82,12 +82,6 @@ synonyms:bg: морска храна
 synonyms:fi: merenantimet, merenelävät
 synonyms:ru: дары моря, морепродукты
 
-# https://www.lexology.com/library/detail.aspx?g=59a9ec86-f345-4c3c-8209-7947c0ed40f1
-synonyms:en: contains, source of
-synonyms:da: indeholder, kilde til
-synonyms:fr: contient, source de
-synonyms:sv: innehåller, källa till
-
 synonyms:en: without, 0%, free, contains no
 synonyms:da: uden, ingen, intet, nul, 0%, fri for
 synonyms:de: ohne, 0%
@@ -307,43 +301,6 @@ label_categories:en: en:Animal welfare
 wikidata:en: Q130711887
 
 en: Bord Bia Quality Assurance
-country:en: en:Ireland, en:Northern Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Origin Ireland
-country:en: en:Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Origin Northern Ireland
-country:en: en:Northern Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Produced & Processed in Ireland & Northern Ireland
-country:en: en:Ireland, en:Northern Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Reared & Processed in Ireland
-country:en: en:Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Meat Content Only Origin Ireland
-country:en: en:Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Origin Northern Ireland Meat Content Only
-country:en: en:Northern Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Produced & Processed in Ireland & Northern Ireland Meat Content Only
-country:en: en:Ireland, en:Northern Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Reared & Processed in Ireland Meat Content Only
-country:en: en:Ireland
-
-< en: Bord Bia Quality Assurance
-en: Bord Bia Quality Assurance Certified Member
-country:en: en:Ireland, en:Northern Ireland
 
 en: Free range
 bg: Свободно отглеждане
@@ -2165,7 +2122,7 @@ da: Kilde til vitamin B12
 de: Vitamin B12-Quelle
 es: Fuente de vitamina B12
 fi: B12-vitamiinin lähde
-fr: Source de vitamine B12, Avec vitamine B12
+fr: Source de vitamine B12
 hr: izvor vitamina B12
 hu: B12-vitaminforrás
 it: Fonte di vitamina B12
@@ -2333,7 +2290,6 @@ sv: Berikad med vitamin D
 
 < en:Enriched with vitamins
 en: Enriched with vitamin B12
-fr: Enrichi en vitamine B12
 sv: Berikad med vitamin B12
 
 en: Enriched with minerals
@@ -5904,14 +5860,14 @@ es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico
 fi: Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti, sertifioitu luomutuote, luomutuote
 fr: Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issus de l'agriculture biologique contrôlée, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee, issu de production biologique
 he: אורגני
-hr: ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja, iz biološkog uzgoja, ekološki, organsko, organska
+hr: ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja, iz biološkog uzgoja, ekološki, organsko
 hu: Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
-it: Biologico, biologici, biologiche, da agricoltura biologica
+it: Biologico, biologici, da agricoltura biologica
 ja: 有機
 ko: 유기농
 lt: Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nb: Økologisk, certificeret økologisk
-nl: Biologisch, biologische, bio, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
+nl: Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
 pl: ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego, certyfikowany składnik ekologiczny, składnik ekologiczny, produkt pochodzący z kontrolowanych certyfikowanych upraw ekologicznych
 pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica, de produção Biológica
 ro: din agricultură ecologică controlată, din cultură organică controlată
@@ -20412,7 +20368,7 @@ hu: Lakto-vegetáriánus
 it: Latto-vegetariano
 pt: Latto-vegetariano
 sv: Lakto-vegetarisk
-incompatible_with:en: ingredients:en:eggs
+incompatible_with:en: ingredients:en:eggs # labels:en:contains-eggs
 wikidata:en: Q3496076
 
 # non English needs the English synonyms too so that "European V-Label Végétarien" can be recognized too
@@ -20862,7 +20818,7 @@ th: ไม่มีส่วนผสมของถั่วลิสงค์
 en: No nuts, nut free
 de: Ohne Nüsse, nussfrei
 es: Sin frutos secos, sin nueces
-fr: Sans fruits à coque, sans fruits secs, Sans noix
+fr: Sans fruits à coque, sans fruits secs
 it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
@@ -23100,9 +23056,13 @@ pt: Sem antibióticos ou hormonas, sem antibióticos nem hormonas
 
 en: National standard for Bulgarian yoghurt
 bg: БДС 12:2010, Национален стандарт за българско кисело мляко
+image:en: National-standard-for-Bulgarian-yoghurt.97.90.png
 
 en: National standard for Bulgarian kashkaval
 bg: БДС 14:2010, Национален стандарт за български кашкавал
+
+en: National standard for Bulgarian white cheese in brine
+bg: БДС 15:2010, Национален стандарт за българско бяло саламурено сирене
 
 bg: Утвърден стандарт България
 en: Approved standard Bulgaria
@@ -23188,7 +23148,6 @@ label_categories:en: en:Geographic label
 origins:en: en:ireland
 
 en: Contains a source of phenylalanine
-bg: Съдържа източник на фенилаланин
 ca: Conté una font de fenilalanina
 da: Indeholder en phenylalaninkilde
 de: Enthält eine Phenylalaninquelle, Das produkt enthält eine Phenylalaninquelle
@@ -23286,10 +23245,6 @@ opposite:en: en:unfiltered
 en: Rinsed and ready to eat
 sv: Sköljd & färdig att äta, Sköljd och färdig att äta
 #processing:en: en:rinsed
-
-xx: UHT
-#processing:en: en:uht
-wikidata:en: Q1562464
 
 fr: Haute Valeur Environnementale, HVE
 xx: Haute Valeur Environnementale, HVE

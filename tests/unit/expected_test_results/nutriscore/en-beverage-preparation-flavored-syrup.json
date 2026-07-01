@@ -6,6 +6,10 @@
    "additives_tags" : [
       "en:e951"
    ],
+   "allergens" : "",
+   "allergens_from_ingredients" : "",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "flavored syrup",
@@ -35,7 +39,6 @@
       "en:syrups",
       "en:flavoured-syrups"
    ],
-   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweetened-beverages",
    "food_groups_tags" : [
       "en:beverages",
@@ -44,6 +47,7 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
+         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 62.5,
@@ -117,6 +121,8 @@
       "en:apple-juice",
       "en:fruit",
       "en:juice",
+      "en:malaceous-fruit",
+      "en:apple",
       "en:fruit-juice",
       "en:water",
       "en:sugar",
@@ -134,15 +140,13 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:apple-juice",
       "en:e951"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutrition-grade-computed-for-prepared-product",
       "en:nutriscore-missing-fiber",
@@ -567,20 +571,10 @@
       "artificially-sweetened-beverages",
       "known"
    ],
-   "tags_sources" : {
-      "allergens" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      },
-      "traces" : {
-         "ingredients" : {
-            "last_updated_t" : "--ignore--",
-            "tags" : []
-         }
-      }
-   },
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

@@ -18,7 +18,7 @@ init_emb_codes();
 
 my @tests = (
 	[{lc => "en", ingredients_text => "sugar and water"}, ["en:sugar", "en:water"],],
-	[{lc => "en", ingredients_text => "something and something else"}, ["en:something and something else",],],
+	[{lc => "en", ingredients_text => "something and something else"}, ["en:something-and-something-else",],],
 	[
 		{lc => "en", ingredients_text => "apple juice, water and sugar. May contain celery, mustard and gluten."},
 		["en:apple-juice", "en:water", "en:sugar"],
@@ -27,7 +27,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "lait demi-écrémé 67%"}, ["en:semi-skimmed-milk"]],
 	[
 		{lc => "fr", ingredients_text => "Saveur vanille : lait demi-écrémé 77%, sucre"},
-		["fr:Saveur vanille", "en:sugar", "en:semi-skimmed-milk"],
+		["fr:saveur-vanille", "en:sugar", "en:semi-skimmed-milk"],
 	],
 	[{lc => "fr", ingredients_text => "lécithine de soja"}, ["en:soya-lecithin",],],
 	[{lc => "fr", ingredients_text => "sel et épices"}, ["en:salt", "en:spice"],],
@@ -159,7 +159,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Artichaut coupe"}, ["en:artichoke"],],
 	[{lc => "fr", ingredients_text => "Banane cuite"}, ["en:banana"],],
 	[{lc => "fr", ingredients_text => "Banane coupée cuite"}, ["en:banana"],],
-	[{lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, ["fr:Fromage étrange à pâte cuite"],],
+	[{lc => "fr", ingredients_text => "Fromage étrange à pâte cuite"}, ["fr:fromage-etrange-a-pate-cuite"],],
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
 	[{lc => "fr", ingredients_text => "Lamelles de bananes déshydratées"}, ["en:banana"],],
 	[
@@ -189,10 +189,10 @@ my @tests = (
 
 	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],
 
-	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait cru de lapin"]],
+	[{lc => "fr", ingredients_text => "lait cru de lapin"}, ["fr:lait-cru-de-lapin"]],
 	[
 		{lc => "fr", ingredients_text => "aubergine crue, dés de jambon cru coupés, jambon de montagne cru"},
-		["en:aubergine", "en:raw-ham", "fr:jambon de montagne cru"]
+		["en:aubergine", "en:raw-ham", "fr:jambon-de-montagne-cru"]
 	],
 	[
 		{lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"},
@@ -230,12 +230,12 @@ my @tests = (
 		{lc => "en", ingredients_text => "Organic 100% juice (organic pear, organic apple), natural flavor."},
 		['en:juice', 'en:natural-flavouring', 'en:pear-juice', 'en:apple-juice']
 	],
-	[{lc => "en", ingredients_text => "au jus (beef stock, water)"}, ['en:au jus', 'en:beef-broth', 'en:water']],
+	[{lc => "en", ingredients_text => "au jus (beef stock, water)"}, ['en:au-jus', 'en:beef-broth', 'en:water']],
 	# pure juice is a label, and currently not an ingredient
 	# it makes the sub ingredients being discarded
 	# recognize unknown ingredients that are labels as labels only if they
 	# don't have sub-ingredients
-	[{lc => "en", ingredients_text => "pure juice (orange juice)"}, ['en:pure juice', 'en:orange-juice']],
+	[{lc => "en", ingredients_text => "pure juice (orange juice)"}, ['en:pure-juice', 'en:orange-juice']],
 	# using vegan in case we add "pure juice" as an ingredient at some point
 	[{lc => "en", ingredients_text => "vegan (orange juice)"}, ['en:orange-juice']],
 
@@ -254,7 +254,7 @@ my @tests = (
 	# caramel: e150, match e150c
 	[{lc => "es", ingredients_text => "caramelo E-150c"}, ["en:e150c"]],
 	# mismatch between name and number
-	[{lc => "fr", ingredients_text => "acide citrique E120"}, ["fr:acide citrique e120"]],
+	[{lc => "fr", ingredients_text => "acide citrique E120"}, ["fr:acide-citrique-e120"]],
 
 	# removal of "allergy advice..." in %ignore_regexps
 	[
@@ -296,7 +296,7 @@ my @tests = (
 		{lc => "fr", ingredients_text => "72% saumon MSC, colin d'Alaska certifié MSC, Cabillaud labellisé MSC"},
 		['en:salmon', 'en:alaska-pollock', 'en:cod']
 	],
-	[{lc => "fr", ingredients_text => "poisson ascorbique"}, ["fr:poisson ascorbique"],],
+	[{lc => "fr", ingredients_text => "poisson ascorbique"}, ["fr:poisson-ascorbique"],],
 	# AOP
 	[{lc => "fr", ingredients_text => "piment d'Espelette AOP"}, ["en:espelette-chili-pepper"],],
 
@@ -324,11 +324,11 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
 	[
 		{lc => "fr", ingredients_text => "Ingrédient inconnu coupée et cuite au naturel"},
-		["fr:Ingrédient inconnu coupée et cuite au naturel"],
+		["fr:ingredient-inconnu-coupee-et-cuite-au-naturel"],
 	],
-	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:Ingrédient inconnu", "en:salt"],],
-	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingrédient inconnu"],],
-	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown fruit"],],
+	[{lc => "fr", ingredients_text => "Ingrédient inconnu et sel"}, ["fr:ingredient-inconnu", "en:salt"],],
+	[{lc => "fr", ingredients_text => "Sel et ingrédient inconnu"}, ["en:salt", "fr:ingredient-inconnu"],],
+	[{lc => "en", ingredients_text => "Toasted mango and unknown fruit"}, ["en:mango", "en:unknown-fruit"],],
 
 );
 

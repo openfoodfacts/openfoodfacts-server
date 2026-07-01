@@ -17,11 +17,11 @@ location = /donate-to-open-food-facts {
 
 #FR
 location = /faire-un-don-a-open-food-facts {
-	try_files /donate/fr.html =404;
+	try_files /donate/fr.helloasso.html =404;
 }
 
 location = /donner-a-open-food-facts {
-	try_files /donate/fr.html =404;
+        try_files /donate/fr.helloasso.html =404;
 }
 
 # AR

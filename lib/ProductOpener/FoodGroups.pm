@@ -54,7 +54,6 @@ use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Food qw/is_beverage_for_nutrition_score_2021/;
 
 use Log::Any qw($log);
@@ -273,7 +272,7 @@ sub compute_food_groups ($product_ref) {
 	compute_pnns_groups($product_ref);
 
 	# Put back the original categories_tags so that they match what is in the taxonomy field
-	# if there is a mismatch it can cause tags to be added multiple times (e.g. with imports)
+	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
 	if (defined $product_ref->{original_categories_tags}) {
 		$product_ref->{categories_tags} = [@{$product_ref->{original_categories_tags}}];
 		delete $product_ref->{original_categories_tags};

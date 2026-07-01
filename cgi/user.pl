@@ -377,7 +377,7 @@ if ($action eq 'display') {
 	{
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
-		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref) // '');
+		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
 		$template_data_ref->{teams_flag}
 			= not((defined $server_options{private_products}) and ($server_options{private_products}));
 	}
@@ -442,13 +442,9 @@ elsif ($action eq 'process') {
 
 		$template_data_ref->{user_requested_org} = $user_ref->{requested_org};
 
-		# At OIDC level 2 and above, requested org processing happens later via Redis/Minion,
-		# so the org may not exist yet when we render the signup result page.
-		if (get_oidc_implementation_level() < 2) {
-			my $requested_org_ref = retrieve_org($user_ref->{requested_org});
-			$template_data_ref->{add_user_existing_org}
-				= sprintf(lang("add_user_existing_org"), org_name($requested_org_ref) // '');
-		}
+		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
+		$template_data_ref->{add_user_existing_org}
+			= sprintf(lang("add_user_existing_org"), org_name($requested_org_ref) // '');
 
 		$template_data_ref->{user_org} = $user_ref->{org};
 

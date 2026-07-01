@@ -1,5 +1,4 @@
 {
-   "estimate_ingredients_percent_service" : "product_opener",
    "forest_footprint_data" : {
       "footprint_per_kg" : 0.281280419318607,
       "grade" : "a",
@@ -29,7 +28,7 @@
    },
    "ingredients" : [
       {
-         "ciqual_food_code" : "36003",
+         "ciqual_proxy_food_code" : "36005",
          "id" : "en:chicken",
          "is_in_taxonomy" : 1,
          "origins" : "en:gers",
@@ -82,7 +81,6 @@
    "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [
-      "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-computed",
       "en:forest-footprint-a"
    ],

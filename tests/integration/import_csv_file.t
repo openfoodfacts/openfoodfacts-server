@@ -63,26 +63,6 @@ my @tests = (
 		test_case => "agena",
 		csv_files => ["agena.csv"],
 	},
-	{
-		test_case => "new_tags",
-		csv_files => ["new_tags_1.csv"]
-	},
-	# Update with empty values in tag fields, should not change the initial values
-	{
-		test_case => "new_tags_empty_values",
-		csv_files => ["new_tags_1.csv", "new_tags_2_empty_values.csv"]
-	},
-	# Update with '-( values in tag fields, should remove the initial values
-	{
-		test_case => "new_tags_dash_values",
-		csv_files => ["new_tags_1.csv", "new_tags_3_dash_values.csv"]
-	},
-	# Updates
-	# Update with empty values in tag fields, should not change the initial values
-	{
-		test_case => "new_tags_updates",
-		csv_files => ["new_tags_1.csv", "new_tags_4_updates.csv"]
-	},
 );
 
 # Testing import of a csv file
@@ -128,7 +108,7 @@ foreach my $test_ref (@tests) {
 		print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
 
 		# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
-		my ($out, $err) = capture_outputs(
+		my ($out, $err) = capture_ouputs(
 			sub {
 				$stats_ref = ProductOpener::Import::import_csv_file($args);
 			}
