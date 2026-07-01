@@ -40,7 +40,7 @@ Multilingual products have several photos based on the languages present on the 
 
 The WRITE operations in the Open Food Facts API require authentication. Therefore you need a valid `user_id`^[user_id_not_email] and `password` to write the photo to 100% Real Orange Juice.
 
-> Sign up on the [Open Food Facts App](https://world.openfoodfacts.org/) to get your `user_id` and `password` if you dont have one.
+> Sign up on the [Open Food Facts App](https://world.openfoodfacts.org/) to get your `user_id` and `password` if you don't have one.
 For more details, visit the : [Authentication paragraph in our introduction](../index.md#authentication).
 
 ^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
