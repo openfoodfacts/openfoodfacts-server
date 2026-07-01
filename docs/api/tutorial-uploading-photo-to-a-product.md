@@ -30,17 +30,17 @@ Uploading quality photos of a product, its ingredients, and the nutrition table 
 
 In case you upload more than one photo of the front, the ingredients, the nutrition facts, or the product packaging components, beware that only the latest "selected" photo of each category will be displayed on the product page on the website and on the mobile application.
 The older ones are saved and can be "selected" by an API call or via the editing interface (website and mobile application).
-You can also upload some photos that are neither of that 4 categories, but they will not be displayed by default. However, all photos will be saved.
+You can also upload some photos that are neither of those 4 categories, but they will not be displayed by default. However, all photos will be saved.
 
 ### Label Languages
 
-Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the [image field](#Imagefield).
+Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the [image field](#imagefield).
 
 ## Authentication
 
 The WRITE operations in the Open Food Facts API require authentication. Therefore you need a valid `user_id`^[user_id_not_email] and `password` to write the photo to 100% Real Orange Juice.
 
-> Sign up on the [Open Food Facts App](https://world.openfoodfacts.org/) to get your `user_id` and `password` if you dont have one.
+> Sign up on the [Open Food Facts App](https://world.openfoodfacts.org/) to get your `user_id` and `password` if you don't have one.
 For more details, visit the : [Authentication paragraph in our introduction](../index.md#authentication).
 
 ^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
