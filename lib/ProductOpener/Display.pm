@@ -193,6 +193,7 @@ use Log::Log4perl;
 use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
+use List::Util qw(any);
 
 use Apache2::Request ();
 use Apache2::RequestUtil ();
@@ -732,7 +733,7 @@ sub init_request ($request_ref = {}) {
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
 	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
-	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
+	if ((!any {$_ eq $lc} @{$country_languages{$cc}}) or $subdomain =~ /^(ssl-)?api/) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 

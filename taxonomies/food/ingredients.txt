@@ -199,7 +199,7 @@ it: fritto, frittura
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# <en:syrup
+# < en:syrup
 en: caramel syrup
 bg: карамелен сироп
 ca: xarop de carmel, caramel liquid
@@ -9829,6 +9829,7 @@ nova:en: 4
 #comment:en:whole meat product: only meat, salt, water, spices, glucose syrup and permitted additives
 #comment:en:usually around 90% meat
 < en:meat
+#< en:compound
 fi: kokolihavalmiste
 sv: helköttsprodukt
 # ingredient/sv:helköttsprodukt has 1 product in 2 languages @2020-05-21
@@ -9951,6 +9952,49 @@ description:pt: A quenelle é um bolinho feito com carne ou peixe muito condimen
 wikidata:en: Q12958
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. But do not include the word meat in these. Use en:beef meat for that.
+
+
+< en:game animal
+en: antelope
+
+< en:antelope
+< en:meat
+en: antelope meat
+usda_ndb_proxy_code:en: 17144
+usda_ndb_proxy_name:en: Game meat, antelope, raw
+
+< en:antelope meat
+en: raw antelope meat
+usda_ndb_code:en: 17144
+usda_ndb_name:en: Game meat, antelope, raw
+
+< en:game animal
+en: bear
+
+< en:bear
+< en:meat
+en: bear meat
+usda_ndb_proxy_code:en: 17146
+usda_ndb_proxy_name:en: Game meat, bear, raw
+
+< en:bear meat
+en: raw bear meat
+usda_ndb_code:en: 17146
+usda_ndb_name:en: Game meat, bear, raw
+
+< en:game animal
+en: beaver
+
+< en:beaver
+< en:meat
+en: beaver meat
+usda_ndb_code:en: 17150
+usda_ndb_name:en: Game meat, beaver, raw
+
+< en:beaver meat
+en: raw beaver meat
+usda_ndb_code:en: 17150
+usda_ndb_name:en: Game meat, beaver, raw
 
 < en:animal
 en: beef, steers
@@ -10330,6 +10374,34 @@ ciqual_food_name:fr: Foie, veau, cuit
 ifct_food_code:en: O042
 ifct_food_name:en: Calf, liver
 
+###################################################################################################
+#
+#                                Caribou
+#
+###################################################################################################
+
+< en:animal
+en: caribou
+la: Rangifer tarandus
+description:en: "Caribou" is the term used in North America (Canada, Alaska) for wild populations. "Reindeer" is used in Europe and Asia, and also refers to the domesticated populations found especially in places like Scandinavia and Russia.
+
+< en:caribou
+< en:meat
+en: caribou meat
+usda_ndb_proxy_code:en: 17162
+usda_ndb_proxy_name:en: Game meat, caribou, raw
+
+< en:caribou meat
+en: raw caribou meat
+usda_ndb_code:en: 17162
+usda_ndb_name:en: Game meat, caribou, raw
+
+###################################################################################################
+#
+#                                Cow
+#
+###################################################################################################
+
 < en:animal
 en: cow
 bg: крава
@@ -10410,6 +10482,7 @@ wikidata:en: Q1365996
 wikipedia:en: https://en.wikipedia.org/wiki/Chuck_steak
 # ingredient/sv:högrev-av-nötkött has 1 product in 1 language @2020-06-27
 
+
 # description:en:In general a sheep in its first year is called a LAMB, and its meat is also called lamb.
 
 < en:sheep
@@ -10476,8 +10549,15 @@ ciqual_proxy_food_name:en: Lamb, raw (average)
 #ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
 ecobalyse:en: 45e3cd64-1647-4841-bacb-795e2aae4f02
 ecobalyse_labels_en_organic:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
+usda_ndb_proxy_code:en: 17224
+usda_ndb_proxy_name:en: Lamb, ground, raw
 wikidata:en: Q643419
 # ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
+
+< en:lamb-meat
+en: raw ground lamb
+usda_ndb_code:en: 17224
+usda_ndb_name:en: Lamb, ground, raw
 
 < en:lamb-meat
 en: lamb cutlet
@@ -11274,6 +11354,7 @@ ciqual_food_name:fr: Mouton, gigot, cru
 #                                Game animals
 #
 ###################################################################################################
+
 # <en:animal
 en: game animal
 de: Wildtier
@@ -11289,6 +11370,7 @@ pl: dziczyzna
 #                                Deer
 #
 ###################################################################################################
+
 # description:en:VENISON is the meat of a game animal and especially a deer. Venison can be used to refer to any part of the animal, so long as it can be consumed, including the flesh and internal organs. Venison, much like beef or pork, is categorized into specific cuts, including roast, sirloin, and ribs.
 < en:game animal
 en: deer
@@ -11336,12 +11418,25 @@ zh: 鹿肉
 # ast:Carne de venáu
 # sco:venison
 # yue:鹿肉
+usda_ndb_proxy_code:en: 17164
+usda_ndb_proxy_name:en: Game meat, deer, raw
 wikidata:en: Q2296872
 wikipedia:en: https://en.wikipedia.org/wiki/Venison
 # ingredient/fr:viande-de-cerf has 26 products in 4 languages @2019-04-16
 
-< en:deer
-en: reindeer, caribou
+< en: venison
+en: raw venison
+usda_ndb_code:en: 17164
+usda_ndb_name:en: Game meat, deer, raw
+
+###################################################################################################
+#
+#                                Reindeer
+#
+###################################################################################################
+
+< en:game animal
+en: reindeer
 da: rensdyr
 de: ren
 es: reno
@@ -11349,17 +11444,19 @@ fi: poro
 fr: renne
 hr: sob
 it: Renna
+la: Rangifer tarandus (Reindeer)
 nb: rein
 pl: ren
 sv: ren
-# ingredient/fr:renne has 1 product in 1 language @2020-06-08
+description:en: "Reindeer" is used in Europe and Asia, and also refers to the domesticated populations found especially in places like Scandinavia and Russia. "Caribou" is the term used in North America (Canada, Alaska) for wild populations.
 nutriscore_red_meat:en: yes
 wikidata:en: Q5410921
 wikipedia:en: https://en.wikipedia.org/wiki/Reindeer
+# ingredient/fr:renne has 1 product in 1 language @2020-06-08
 
 < en:reindeer
 < en:venison
-en: reindeer meat, caribou meat
+en: reindeer meat
 de: Rentierfleisch
 fi: poronliha
 fr: viande de renne
@@ -11410,9 +11507,29 @@ pl: mięso z dzika
 
 ###################################################################################################
 #
+#                                Elk
+#
+###################################################################################################
+
+< en:game animal
+en: elk
+
+< en:elk
+en: elk meat
+usda_ndb_proxy_code:en: 17166
+usda_ndb_proxy_name:en: Game meat, elk, raw
+
+< en:elk meat
+en: raw elk meat
+usda_ndb_code:en: 17166
+usda_ndb_name:en: Game meat, elk, raw
+
+###################################################################################################
+#
 #                                Horse
 #
 ###################################################################################################
+
 < en:animal
 en: horse
 af: perd
@@ -11671,9 +11788,16 @@ uz: qazi
 vi: thịt ngựa
 zh: 马肉
 # diq:goştê estori
+usda_ndb_proxy_code:en: 17170
+usda_ndb_proxy_name:en: Game meat, horse, raw
 wikidata:en: Q1124327
 wikipedia:en: https://en.wikipedia.org/wiki/Horse_meat
 # ingredient/fr:viande-de-cheval has 21 products in 4 languages @2020-05-21
+
+< en:horse meat
+en: raw horse meat
+usda_ndb_code:en: 17170
+usda_ndb_name:en: Game meat, horse, raw
 
 # description:en:serving of chopped ingredients formed into a disc.
 
@@ -11776,6 +11900,7 @@ ciqual_food_name:fr: Bœuf, steak haché 20% MG, cuit
 #                                Goat
 #
 ###################################################################################################
+
 < en:animal
 en: goat
 bg: Коза
@@ -11786,7 +11911,6 @@ hr: jarac
 pt: Cabra
 nutriscore_red_meat:en: yes
 
-# description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
 < en:goat
 < en:meat
@@ -11817,13 +11941,21 @@ sr: јаретина
 ta: ஆட்டிறைச்சி
 vi: Thịt dê
 zh: 山羊肉
-# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
-ciqual_food_code:en: 21800
-ciqual_food_name:en: Young goat, raw
-ciqual_food_name:fr: Chevreau, cru
 # sr-ec:јаретина
+ciqual_proxy_food_code:en: 21800
+ciqual_proxy_food_name:en: Young goat, raw
+ciqual_proxy_food_name:fr: Chevreau, cru
+description:en: GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
+usda_ndb_proxy_code:en: 17168
+usda_ndb_proxy_name:en: Game meat, goat, raw
 wikidata:en: Q449506
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_meat
+# ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
+
+< en:goat meat
+en: raw goat meat
+usda_ndb_code:en: 17168
+usda_ndb_name:en: Game meat, goat, raw
 
 < en:goat
 < en:meat
@@ -11844,6 +11976,43 @@ ciqual_food_code:en: 21801
 ciqual_food_name:en: Young goat, cooked
 ciqual_food_name:fr: Chevreau, cuit
 
+###################################################################################################
+#
+#                                Moose
+#
+###################################################################################################
+
+< en:game animal
+en: moose
+
+< en:moose
+en: moose meat
+usda_ndb_proxy_code:en: 17172
+usda_ndb_proxy_name:en: Game meat, moose, raw
+
+< en:moose meat
+en: raw moose meat
+usda_ndb_code:en: 17172
+usda_ndb_name:en: Game meat, moose, raw
+
+###################################################################################################
+#
+#                                Muskrat
+#
+###################################################################################################
+
+< en:game animal
+en: muskrat
+
+< en:muskrat
+en: muskrat meat
+usda_ndb_proxy_code:en: 17174
+usda_ndb_proxy_name:en: Game meat, muskrat, raw
+
+< en:muskrat meat
+en: raw muskrat meat
+usda_ndb_code:en: 17174
+usda_ndb_name:en: Game meat, muskrat, raw
 
 ###################################################################################################
 #
@@ -13180,14 +13349,48 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lard
 
 ###################################################################################################
 #
-#                                Beef
+#                                Squirrel
 #
 ###################################################################################################
 
+< en:game animal
+en: squirrel
+
+< en:squirrel
+en: squirrel meat
+usda_ndb_proxy_code:en: 17183
+usda_ndb_proxy_name:en: Game meat, squirrel, raw
+
+< en:squirrel meat
+en: raw squirrel meat
+usda_ndb_code:en: 17183
+usda_ndb_name:en: Game meat, squirrel, raw
+
+###################################################################################################
+#
+#                                Veal
+#
+###################################################################################################
+
+# < en:animal
+< en:beef
+en: veal
+bg: телешко
+de: Kalb
+es: ternera
+fi: vasikka
+fr: veau
+hr: teletina
+hu: borjú
+it: vitello
+nl: kalf
+nutriscore_red_meat:en: yes
+usda_ndb_proxy_code:en: 17142
+usda_ndb_proxy_name:en: Veal, ground, raw
+vegan:en: no
+vegetarian:en: no
 
 < en:meat
-# viande bovine in ingredients refers to (aged) beef, not veal
-#<fr:viande bovine
 < en:veal
 en: veal meat
 bg: телешко месо
@@ -13205,23 +13408,27 @@ pl: mięso cielęce, cielęcina
 sv: kalvkött
 carbon_footprint_fr_foodges_ingredient:fr: Viande de veau France
 carbon_footprint_fr_foodges_value:fr: 20.5
+comment:en: viande bovine in ingredients refers to (aged) beef, not veal
+usda_ndb_proxy_code:en: 17142
+usda_ndb_proxy_name:en: Veal, ground, raw
 
-< en:beef
-en: veal
-bg: телешко
-de: Kalb
-es: ternera
-fi: vasikka
-fr: veau
-hr: teletina
-hu: borjú
-it: vitello
-nl: kalf
-nutriscore_red_meat:en: yes
-vegan:en: no
-vegetarian:en: no
+< en:veal meat
+en: raw veal (external fat only)
+usda_ndb_code:en: 17431
+usda_ndb_name:en: Veal, external fat only, raw
 
-# <en:bone
+< en:veal meat
+en: raw ground veal
+usda_ndb_code:en: 17142
+usda_ndb_name:en: Veal, ground, raw
+
+< en:veal meat
+en: raw veal (seam fat only)
+usda_ndb_code:en: 17433
+usda_ndb_name:en: Veal, seam fat only, raw
+
+
+# < en:bone
 < en:veal
 en: veal bone
 fr: os de veau
@@ -13248,6 +13455,13 @@ ciqual_food_code:en: 11169
 ciqual_food_name:en: Veal stock for sauce and cooking, dehydrated
 ciqual_food_name:fr: Fond de veau pour sauces et cuisson, déshydraté
 # ingredient/dehydrated-veal-fond has no products @2021-08-17
+
+
+###################################################################################################
+#
+#                                Beef
+#
+###################################################################################################
 
 en: casing
 de: Hülle
@@ -25625,9 +25839,9 @@ de: getrockneter Gerstenmalzextrakt
 < en:barley malt extract
 fr: extrait de malte d'orge houblonné
 
-< en:barley malt extract
+#< en:barley malt extract
 < en:disaccharide
-< en:syrup
+#< en:syrup
 en: barley malt syrup
 bn: বার্লি মল্ট সিরাপ
 ca: xarop de malt d'ordi, xarop de malta d'ordi
@@ -25643,6 +25857,8 @@ it: Sciroppo di malto d'orzo
 nl: gerstemoutstroop
 pl: syrop jęczmienny, syrop ze słodu jęczmiennego
 # ingredient/en:barley-malt-syrup has 370 products in 1 language @2020-05-21
+usda_ndb_proxy_code:en: 19352
+usda_ndb_proxy_name:en: Syrups, malt
 wikidata:en: Q3485291
 wikipedia:en: https://en.wikipedia.org/wiki/Barley_malt_syrup
 
@@ -25650,7 +25866,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Barley_malt_syrup
 fr: sirop de malt d'orge déshydraté
 
 < en:disaccharide
-< en:syrup
+# < en:syrup
 en: malt syrup
 ca: xarop de malta
 de: Malzsirup
@@ -25659,6 +25875,8 @@ fr: Sirop malté
 hr: sladni sirup
 it: Sciroppo di malto
 pt: xarope de malte
+usda_ndb_code:en: 19352
+usda_ndb_name:en: Syrups, malt
 
 ##################################################################################
 #
@@ -31409,15 +31627,17 @@ te: షాడబ చక్కెర
 th: น้ำตาลแดง
 uk: Коричневий цукор
 zh: 紅糖
-# ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
-ciqual_food_code:en: 31017
-ciqual_food_name:en: Sugar, brown
-ciqual_food_name:fr: Sucre roux
 # en-ca:Brown sugar
 # en-gb:Brown sugar
 # yue:黃糖
+ciqual_food_code:en: 31017
+ciqual_food_name:en: Sugar, brown
+ciqual_food_name:fr: Sucre roux
+usda_ndb_code:en: 19334
+usda_ndb_name:en: Sugars, brown
 wikidata:en: Q11190742
 wikipedia:en: https://en.wikipedia.org/wiki/Brown_sugar
+# ingredient/fr:vergeoise has 61 products in 4 languages @2019-03-22
 
 
 < en:sugar
@@ -31625,6 +31845,8 @@ pl: cukier puder
 pt: Açúcar em pó
 ru: сахарная пудра, пудра сахарная
 sv: florsocker
+usda_ndb_code:en: 19336
+usda_ndb_name:en: Sugars, powdered
 wikidata:en: Q151070
 wikipedia:en: https://en.wikipedia.org/wiki/Powdered_sugar
 
@@ -31693,6 +31915,8 @@ nl: Kristalsuiker
 pt: Açúcar granulado
 comment:en: "granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
 description:en: Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
+usda_ndb_code:en: 19335
+usda_ndb_name:en: Sugars, granulated
 # ingredient/fr:sucre-cristal has 77 products @2019-06-08
 
 # see ingredients_processing.txt
@@ -31735,6 +31959,8 @@ hr: javorov šećer
 it: zucchero d'acero
 ja: メープルシュガー
 sv: lönnsocker
+usda_ndb_code:en: 19340
+usda_ndb_name:en: Sugars, maple
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q402587
@@ -33129,11 +33355,8 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/glucose-and-fructos
 openfoodfacts:fr: https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-blé
 # 271 products in 4 languages @2018-09-24
 
-# description:en:High-fructose corn syrup (HFCS) (also called glucose-fructose, isoglucose and glucose-fructose syrup) is a sweetener made from corn starch
-# This is probably the same as glucose-fructose syrup, but as long as it not made explicit, nothing is assumed.
 
 < en:corn syrup
-# nova:en:high-fructose-corn-syrup
 < en:glucose-fructose syrup
 en: high fructose corn syrup, isoglucose, HCFS
 bg: Високо-фруктозен сироп от царевица
@@ -33154,8 +33377,13 @@ pl: Syrop kukurydziany o wysokiej zawartości fruktozy
 sr: Високофруктозни кукурузни сируп
 sv: Isoglukos
 zh: 高果糖浆
-# wikipedia:en:https://en.wikipedia.org/wiki/High-fructose_corn_syrup
-# wikidata:en:Q11422173
+comment:en: This is probably the same as glucose-fructose syrup, but as long as it not made explicit, nothing is assumed.
+description:en: High-fructose corn syrup (HFCS) (also called glucose-fructose, isoglucose and glucose-fructose syrup) is a sweetener made from corn starch
+# nova:en: high-fructose-corn-syrup
+usda_ndb_code:en: 19351
+usda_ndb_name:en: Syrups, corn, high-fructose
+wikidata:en: Q11422173
+wikipedia:en: https://en.wikipedia.org/wiki/High-fructose_corn_syrup
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-maïs
 # 28 products in 2 languages @2018-09-24
 
@@ -33286,6 +33514,8 @@ zh: 玉米糖漿
 # probably not a very good proxy, but the closest one in Ciqual
 ciqual_proxy_food_code:en: 31089
 ciqual_proxy_food_name:en: Syrup, agave
+usda_ndb_proxy_code:en: 19349
+usda_ndb_proxy_name:en: Syrups, corn, dark
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q618739
@@ -33297,6 +33527,11 @@ es: sólidos de jarabe de maíz, sólidos de sirope de maíz
 fr: solides de sirop de maïs
 hr: krutine kukuruznog sirupa
 it: Sciroppo di mais disidratato
+
+< en:corn syrup
+en: dark corn syrups
+usda_ndb_code:en: 19349
+usda_ndb_name:en: Syrups, corn, dark
 
 < en:corn syrup
 en: malted corn syrup
@@ -33332,6 +33567,11 @@ it: sciroppo di amido ad alto contenuto di fruttosio
 < en:disaccharide
 fr: sirop de candi, sirop de sucre candi
 
+< en:disaccharide
+en: sorghum syrup
+usda_ndb_code:en: 19355
+usda_ndb_name:en: Syrups, sorghum
+
 # nova:en:maple-syrup
 < en:disaccharide
 en: maple syrup
@@ -33351,6 +33591,8 @@ ru: кленовый сироп
 sv: lönnsirap
 ciqual_food_code:en: 31034
 ciqual_food_name:en: maple syrup
+usda_ndb_code:en: 19353
+usda_ndb_name:en: Syrups, maple
 vegan:en: yes
 vegetarian:en: yes
 
@@ -33364,6 +33606,8 @@ hu: kanadai juharszirup
 it: sciroppo d'acero canadese
 ciqual_proxy_food_code:en: 31034
 ciqual_proxy_food_name:en: maple syrup
+usda_ndb_code:en: 19911
+usda_ndb_name:en: Syrup, maple, Canadian
 
 < en:maple syrup
 en: pure maple syrup
@@ -33755,6 +33999,8 @@ sv: agavesirap
 zh: 龍舌蘭糖漿
 ciqual_food_code:en: 31089
 ciqual_food_name:en: Syrup, agave
+usda_ndb_code:en: 19912
+usda_ndb_name:en: Sweetener, syrup, agave
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q392001
@@ -34477,6 +34723,7 @@ pl: hydrolizat białka pszenicy, hydrolizowane białko pszenne
 en: corn protein
 da: majsprotein
 eo: maizproteino
+fr: protéine de maïs
 pt: proteína de milho
 sv: majsprotein
 
@@ -37988,7 +38235,8 @@ wikidata:en: Q1364
 wikipedia:en: https://en.wikipedia.org/wiki/Fruit
 
 < en:fruit
-en: fruit puree
+< en:purée
+en: fruit purée, fruit puree
 de: Fruchtpüree
 es: puré de frutas
 # fr: purée de fruits # see ingredients_processing.txt
@@ -37996,6 +38244,7 @@ hr: voćni pire
 it: frullato di frutta
 nl: fruitpuree
 pl: przetarte owoce, przeciery owocowe
+sv: fruktpuré
 
 < en:fruit
 en: mixed fruit
@@ -38019,7 +38268,7 @@ en: mixed peel
 it: scorza mista
 
 < en:fruit
-en: red fruits
+en: red fruit, red fruits
 bg: червени плодове
 de: rote Früchte
 es: frutos rojos
@@ -38203,7 +38452,7 @@ sv: frukt- och grönsakskoncentrat
 
 
 < en:fruit
-en: dried fruits
+en: dried fruit, dried fruits
 ca: fruita seca
 de: Trockenfrüchte, getrocknete Früchte
 #in Spanish dried fruit is fruta seca, nuts are frutos secos
@@ -39867,12 +40116,11 @@ pt: pêssegos em calda
 #                                Pear
 #
 ###################################################################################################
-# description:en:The PEAR is any of several tree and shrub species of genus Pyrus, in the family Rosaceae. Note this refers to the tree and not the fruit
 
 < en:fruit
 en: pear, pears
 af: peer
-ar: بواويد
+ar: بواويد, إجاص
 az: armud
 be: груша
 bg: круша, круши
@@ -39890,24 +40138,25 @@ el: αχλάδι
 eo: piro
 es: pera
 et: pirn
-eu: Madari
+eu: madari, udare
 fa: گلابی
 fi: päärynä
 fo: pera
 fr: poire, poires
 fy: par
-ga: péire
+ga: péire, piorra
 gd: peur
-gl: Pera
+gl: pera
 gv: peear
 he: אגס
 hi: नाशपाती
 hr: kruška, kruške
+ht: pwar
 hu: körte
 hy: տանձ
 id: buah pir
-ig: Ube
-io: Piro
+ig: ùbé, ube
+io: piro
 is: pera
 it: pera, pere
 ja: 梨
@@ -39919,20 +40168,21 @@ ku: hirmê
 kw: per
 ky: алмурут
 la: pirum
-lb: Bir
+lb: Bir, Bier
 li: paer
 lo: ໝາກຈອງ
 lt: kriaušė
 lv: bumbieris
 mi: pea
 mk: кру́ша
+ml: പിയർ
 mt: lanġasa
 my: သစ်တောသီး
 nb: pære
 nl: peer, peren
 nn: pære
 nv: bilasáana bitseeʼ nineezígíí
-oc: Pera
+oc: pera
 or: ନାସ୍ପାତି
 os: кӕрдо
 pa: ਨਾਸ਼ਪਾਤੀ
@@ -39943,6 +40193,7 @@ ro: pară
 ru: груша
 sc: pira
 se: beron
+sh: kruška
 sk: hruška
 sl: hruška
 sq: dardha
@@ -39964,22 +40215,27 @@ uz: nok
 vi: lê
 vo: bün
 wa: poere
+yi: באר
 zh: 梨
-# ast:pera
-# dsb:Kšuška
-# fur:piruç
-# hsb:krušwa
-# krc:кертме
-# lah:ناشپاتی
-# mdf:Груша
-# pap:per
-# rup:pearã
-# sco:peer
-# zh-min-nan:梨
+#ast: pera
+#dsb: Kšuška
+#fur: piruç
+#hsb: krušwa
+#krc: кертме
+#lah: ناشپاتی
+#mdf: Груша
+#pap: per
+#rup: pearã
+#sco: peer
+#zh-min-nan: 梨
+agribalyse_proxy_food_code:en: 13037
 #carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
 #carbon_footprint_fr_foodges_value:fr:0.5
 carbon_footprint_fr_foodges_ingredient:fr: Poire (Argentine)
 carbon_footprint_fr_foodges_value:fr: 1
+ciqual_proxy_food_code:en: 13037
+ciqual_proxy_food_name:en: Pear, flesh and skin, raw
+description:en: The PEAR is any of several tree and shrub species of genus Pyrus, in the family Rosaceae. Note this refers to the tree and not the fruit
 ecobalyse:en: bb00f430-ffda-46a3-ba45-267b0064a43e
 ecobalyse_origins_en_france:en: eab762ca-1edc-4fcc-ba6d-c247bbab0ec8
 ifct_food_code:en: E051
@@ -39988,8 +40244,8 @@ usda_ndb_proxy_code:en: 9252
 usda_ndb_proxy_name:en: Pears, raw
 wikidata:en: Q13099586
 wikipedia:en: https://en.wikipedia.org/wiki/Pear
-# 130 products in 5 languages @2018-09-28
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pear
+# 130 products in 5 languages @2018-09-28
 
 < en:pear
 en: raw pear
@@ -39997,49 +40253,128 @@ usda_ndb_code:en: 9252
 usda_ndb_name:en: Pears, raw
 
 < en:pear
-en: raw asian pears
+en: Asian pear, nashi pear, apple pear
+ca: pera asiàtica
+da: nashipære, nashi-pære, asiatisk pære
+de: Nashibirne
+eo: azia piro
+fr: nashi
+sl: naši
+sv: nashipäron, nashi-päron
+usda_ndb_proxy_code:en: 9340
+usda_ndb_proxy_name:en: Pears, asian, raw
+wikidata:en: Q104821115
+
+< en: Asian pear
+en: raw Asian pear
 usda_ndb_code:en: 9340
 usda_ndb_name:en: Pears, asian, raw
 
-< en:pear
-en: raw bartlett pear
+< en: Williams' bon chrétien pear
+en: raw Bartlett pear
 usda_ndb_code:en: 9412
 usda_ndb_name:en: Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)
 
 < en:pear
+en: Bosc pear, Beurré Bosc pear
+xx: Calebasse Bosc, Beurré Bosc
+cs: Boscova lahvice
+da: Bosc-pære
+de: Boscs Flaschenbirne
+eu: Bosc udarea
+fr: poire Beurré Bosc
+hr: Boskova bočica
+hy: Բերե Բոսկ
+ka: ბერე ბოსკი
+la: Pyrus communis ‘Calebasse Bosc’
+pl: Bera Boska
+sv: Bosc-päron
+tg: Береи Боск
+vi: Lê Bosc
+usda_ndb_proxy_code:en: 9414
+usda_ndb_proxy_name:en: Pears, raw, bosc (Includes foods for USDA's Food Distribution Program)
+wikidata:en: Q894405
+
+< en: Bosc pear
 en: raw bosc pear
 usda_ndb_code:en: 9414
 usda_ndb_name:en: Pears, raw, bosc (Includes foods for USDA's Food Distribution Program)
 
 < en:pear
-en: raw green anjou pears
+en: d'Anjou pear, Anjou pear
+xx: d'Anjou, Anjou, Beurré d'Anjou, Nec Plus Meuris
+da: anjoupære
+es: pera de Anjou
+fr: beurré d'Anjou
+ru: Анжу
+sv: anjoupäron
+usda_ndb_proxy_code:en: 9415
+usda_ndb_proxy_name:en: Pears, raw, green anjou (Includes foods for USDA's Food Distribution Program)
+wikidata:en: Q2745252
+
+< en: d'Anjou pear
+en: raw green Anjou pears
 usda_ndb_code:en: 9415
 usda_ndb_name:en: Pears, raw, green anjou (Includes foods for USDA's Food Distribution Program)
 
-en: pears, raw, red anjou
+< en: d'Anjou pear
+en: raw red Anjou pears
 usda_ndb_code:en: 9413
 usda_ndb_name:en: Pears, raw, red anjou
 
 < en:pear
-en: conference pear
+en: Conference pear
+xx: Conference
+da: conferencepære
 de: Conference-Birne
 es: pera conferencia
+eu: konferentzia madaria
 fr: poire conférence
 hr: konferencijska kruška
+ig: conference pear
 it: pera conferenza
-nl: conference peer, conference
-pl: gruszka konferencyjna
+la: pyrus communis ‘Conference’
+nl: conference peer
+pl: gruszka konferencyjna, konferencja
 pt: pêra conferência
 ru: груша конференция
+sk: konferencia
+sv: conferencepäron
+zh: 展會梨
+agribalyse_proxy_food_code:en: 13188
+ciqual_proxy_food_code:en: 13188
+ciqual_proxy_food_name:en: Pear, var. Conférence, flesh without skin, raw
+wikidata:en: Q747247
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/conference-pear
 # 3 products in 1 language @2018-09-28
 
 < en:pear
+en: Williams' bon chrétien pear, Williams pear, Bartlett pear
+xx: Williams' bon chrétien
+bg: Вилямова масловка
+cs: Williamsova
 de: Williamsbirnen, Walliser Williamsbirnen
+eo: vilhelmopiro
 es: pera Williams, peras Williams de los coteaux du Lyonnais
+eu: Williams udarea
 fr: poire Williams, poires Williams des coteaux du Lyonnais
 it: pera Williams, pere Williams dei coteaux du Lyonnais
+ja: バートレット
+ka: ვილიამსი
+la: Pyrus communis 'Williams Bon Chrétien'
 nl: Williams peren, Walliser Williams peren
+pl: Bonkreta Williamsa
+ru: Груша ʽВильямс’
+sl: viljamovka
+sv: williamspäron
+tg: Вилямс (навъи нок)
+zh: 威廉斯梨
+agribalyse_proxy_food_code:en: 13189
+ciqual_proxy_food_code:en: 13189
+ciqual_proxy_food_name:en: Pear, var. Williams, flesh without skin, raw
+usda_ndb_proxy_code:en: 9412
+usda_ndb_proxy_name:en: Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)
+wikidata:en: Q498862
 
 < en:pear
 en: pears in cubes
@@ -40051,6 +40386,7 @@ fr: poires en cubes
 hr: kruške u kockama
 it: pere a cubetti
 nl: perenblokjes
+#processing:en: en:cubes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pears-in-cubes
 # 38 products in 1 language @2018-09-28
 
@@ -40068,12 +40404,10 @@ nl: perenpuree
 pl: przecier gruszkowy
 pt: Puré de pêra
 ro: piure de pere
-# In process de:Birnenpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-poires
 # 233 products in 5 langauges @2018-09-28
-ciqual_food_code:en: 13037
-ciqual_food_name:en: Pear, pulp and peel, raw
 
+< en: Williams' bon chrétien pear
 < en:pear puree
 en: Williams pear puree
 de: Williams Birnenpüree
@@ -40111,11 +40445,12 @@ pl: Sok gruszkowy
 ru: сок грушевый
 sv: päronjuice
 tr: armut suyu
-# yue:梨汁
+#yue: 梨汁
 wikidata:en: Q2461726
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/pear-juice
 # 132 products in 4 languages @2018-09-28
 
+< en: fruit juice concentrate
 < en:pear juice
 en: pear juice concentrate
 cs: hruškový koncentrát
@@ -40128,6 +40463,7 @@ pl: koncentrat soku z gruszki
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-poire-concentré
 # 25 products in 3 languages @2018-09-28
 
+< en: fruit juice from concentrate
 < en:pear juice
 en: pear juice from concentrate
 de: Birnensaft aus Birnensaftkonzentrat
@@ -40149,6 +40485,13 @@ hr: sok od kruške i pire
 it: succo e purea di pera
 pt: Suco e polpa de pera, sumo e polpa de pera
 
+< en: pear
+en: pear nectar
+agribalyse_food_code:en: 2054
+ciqual_food_code:en: 2054
+ciqual_food_name:en: Pear nectar
+comment:en: is this ciqual entry actually the same as en:pear juice?
+
 ###################################################################################################
 #
 #                                Plum & Prune
@@ -40158,32 +40501,81 @@ pt: Suco e polpa de pera, sumo e polpa de pera
 
 < en:prunus species fruit
 en: plum
+af: pruim
+an: cerolla
+ar: برقوق
 bg: слива, сливи
 ca: pruna
 cs: švestka
+cy: eirinen
 da: blomme, blommer
 de: Pflaume, Pflaumen
-el: Δαμάσκηνο
+el: δαμάσκηνο
+eo: pruno
 es: ciruela
 et: ploom
+eu: aran
+fa: آلو
 fi: luumu
 fr: prune, prunes
+fy: prom
+ga: pluma
+gv: plumbis
+hi: आलू बुख़ारा
 hr: šljiva, šljive
 hu: szilva
+hy: սալոր (միրգ)
+id: prem
+io: pruno
+is: plóma
 it: prugna, prugne
-ms: plum, Prun
+ja: プラム
+jv: plum
+kg: mbalango
+kn: ಪ್ಲಮ್
+ko: 매실
+ks: ٲر
+ky: кайналы
+la: prunus
+lt: slyva
+lv: plūme
+mk: слива
+ml: പ്ലം
+mn: чавга
+mr: आलुबुखार
+ms: plum, prun
+my: ဇီးသီး
+nb: plomme
 nl: pruim, pruimen
+nv: chʼil naʼatłʼoʼiitsoh
+oc: pruna
+pa: ਆਲੂ ਬੁਖ਼ਾਰਾ
 pl: śliwka, śliwki, śliwkowy, śliwkowa, śliwkowe, śliwkowej, śliwkowego, śliwkowych
+ps: آلوچه
 pt: ameixa
 ro: prună
 ru: слива, сливы
-sk: slivka
+sd: آلو بخارو
+sh: šljiva
+sk: slivka, slivky
 sl: sliva
-sr: Шљива, šljiva
+sq: kumbulla
+sr: шљива, šljiva
 sv: plommon
-th: พรุน
+sw: mplamu
+ta: கொத்துப்பேரி
+te: రేగి పండు
+th: พรุน, พลัม
+tr: erik
+tt: караҗимеш
 uk: слива, сливи
+ur: آلوچہ
+uz: olxoʻri
+vi: mận
 wa: pronne
+za: makmaenj
+zh: 李子
+agribalyse_proxy_food_code:en: 13100
 ciqual_proxy_food_code:en: 13100
 ciqual_proxy_food_name:en: Plum, raw
 ciqual_proxy_food_name:fr: Prune, crue
@@ -40217,51 +40609,76 @@ en: organic plum
 hr: eko šljiva
 it: prugna biologica
 
+< en: plum
+en: red plum
+da: rød blomme
+sv: röd plommon
+comment:en: is this the same as en:black plum? the red here refers to the pulp of the plum, but the black seems to refer to the skin.
+description:en: Plums with red pulp.
+
+< en: red plum
+en: Black Splendor plum
+xx: Black Splendor
+da: Black Splendor-blomme
+sv: Black Splendor-plommon
+wikidata:en: Q126645030
+
 # Some languages seem to give the specific plum cultivars used for making "dried plums" a name
 # similar to "prune", and then have the concept of "dried prune".
 # Also some languages call the tree "plum", and the fruit "prune".
 
 # This is the dried fruit, whether it has its own name, or is "dried plum/prune".
-# description:fr:Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
 < en:plum
 en: prune, dried plum
 ar: برقوق مجفف, خوخ مجفف
 bg: сини сливи, синя слива
+ca: pruna seca
+cy: prŵn
 da: sveske, svesker
-de: Trockenpflaumen, Dörrpflaumen
+de: Trockenpflaume, Trockenpflaumen, Dörrpflaumen
+el: αποξηραμένο δαμάσκηνο
+eo: sekpruno
 es: ciruela pasa, ciruelas pasas
+eu: aranpasa
 fa: آلو بخارا
 fi: kuivattu luumu
 fr: pruneau, pruneaux, pruneaux séchés
-# hr:suhe šljive # see ingredients_processing.txt
-it: prugne secche
+#hr: suhe šljive # see ingredients_processing.txt
+hy: սալորաչիր
+id: prune
+is: sveskja
+it: prugne secche, prugna secca
 ja: プルーン
+ka: შავქლიავი
 ko: 프룬
+lv: žāvēta plūme
 ms: prun kering, plum kering
 nb: sviske
-nl: pruimedant
+nl: pruimedant, gedroogde pruim
 nn: sviske
 pl: śliwki suszone
+pt: ameixa seca
 ru: чернослив
 sl: suhe slive
-sr: суве шљиве, suve šljive, suva šljiva
+sr: суве шљиве, suve šljive, suva šljiva, сува шљива
 sv: sviskon
 tl: pruno
 uk: чорнослив
 vi: mận khô
 wa: souwêye pronne
-zh: 梅乾
-# chy:náhkôhematôtse
-# de-ch:Trockenpflaume
-# en-ca:prune
-# en-gb:prune
-# pcd:pronnieu
-# yue:西梅乾
+zh: 梅乾, 李子乾
+#chy: náhkôhematôtse
+#de-ch: Trockenpflaume
+#en-ca: prune
+#en-gb: prune
+#pcd: pronnieu
+#yue: 西梅乾
+agribalyse_food_code:en: 13042
 ciqual_food_code:en: 13042
 ciqual_food_name:en: Prune
 ciqual_food_name:fr: Pruneau, sec
-comment:en: wikidata has an issue not distinguishing between the fresh fruit and the dried fruit
 description:en: A prune is a dried plum of any cultivar, mostly Prunus domestica or European Plum.
+description:fr: Le pruneau est le fruit séché d'une variété de prunier cultivé, nommé prunier d'Ente.
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:pruneau
 usda_ndb_proxy_code:en: 9291
 usda_ndb_proxy_name:en: Plums, dried (prunes), uncooked
@@ -40297,13 +40714,14 @@ usda_ndb_name:en: Prunes, dehydrated (low-moisture), uncooked
 en: prunes from Agen
 fr: pruneaux d'agen
 it: prugne di Agen
-wikidata:en: Q21093818
 # 141 in fr @2021-09-15
 
 < en:prunes from Agen
 en: prunes from Ente
 fr: prunes d'Ente
 it: prugne di Ente
+ka: აჟანის უნგრულა
+wikidata:en: Q3408620
 
 #processing:en: en:puree
 < en:prune
@@ -40993,7 +41411,7 @@ ciqual_food_name:fr: Pomme, pulpe, crue
 en: apple puree
 bg: пюре от ябълки, ябълково пюре
 cs: jablečné pyré
-da: Æblemos
+da: æblemos
 de: Apfelmus
 es: Puré de manzana
 fi: omenapyree
@@ -41002,8 +41420,9 @@ hr: pire od jabuka
 hu: almapüré
 it: purea di mele
 lv: ābolu pīrāgs
-nb: eplepuŕe
-nl: Appelmoes
+nb: eplepuré
+nl: appelmoes
+nn: eplepuré
 pl: przecier jabłkowy, przecier z jabłek, puree jabłkowe
 pt: puré de maçã, puré de maçãs
 ru: Яблочное пюре, пюре яблочное
@@ -41071,7 +41490,7 @@ sv: äpple preparat
 
 #< en:apple
 < en:fruit juice
-en: apple juice, apple juice made from fresh apples, juice from select organic apples
+en: apple juice, apple juice made from fresh apples
 ar: عصير تفاح
 bg: сок от ябълки, ябълков сок
 ca: suc de poma
@@ -41097,9 +41516,9 @@ ko: 사과 주스
 lt: obuolių sultys
 lv: ābolu sula
 mk: сок од јаболко
-nb: eplemost
+nb: eplemost, eplejus, eplejuice
 nl: appelsap
-nn: eplemost
+nn: eplemost, eplejus, eplejuice
 pl: sok jabłkowy, soku jabłkowego
 pt: suco de maçã, sumo de maçã
 ru: яблочный сок
@@ -41123,7 +41542,7 @@ wikidata:en: Q618355
 # 1508 products in 6 languages @2018-10-04
 
 < en:apple juice
-en: organic apple juice
+en: organic apple juice, juice from select organic apples
 da: økologisk æblejuice
 de: Bio-Apfelsaft
 es: Zumo de manzana orgánico, jugo de manzana orgánico
@@ -44881,8 +45300,10 @@ fi: kirsikkapyree, kirsikkasose
 fr: Purée de cerises
 hr: pulpa višnja
 it: purea di ciliegie
+nb: kirsebærpuré
+nn: kirsebærpuré
 pl: przecier z wiśni
-# IN process de:Kirschpüree
+sv: körsbärspuré
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/en:cherry-purée
 # 35 products @2018-09-29
 
@@ -45461,6 +45882,7 @@ ru: меджул даты
 usda_ndb_code:en: 9421
 usda_ndb_name:en: Dates, medjool
 # 9in3@2019-06-04
+wikidata:en: Q16774413
 
 < en:date
 en: Mazafati dates
@@ -45520,6 +45942,7 @@ sv: dadelpuré
 en: date juice
 it: succo di datteri
 #de:Dattelsaft
+wikidata:en: Q13057671
 
 #process:en: en:concentrated
 < en:date juice
@@ -45536,18 +45959,25 @@ it: succo di datteri concentrato
 ###################################################################################################
 
 #comment:en:This can refer to the flower of the berries
+< en: plant
 en: elder
 cs: černého bezu
+da: hyld
 de: Holunder
-es: Saúco
+es: saúco
 fi: selja
 fr: sureau
 hr: stariji
 it: sambuco
 la: sambuca nigra
+nb: hyll
 nl: vlier
+nn: hyll
 pl: czarny bez, czarnego bzu
 sv: fläder
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q22701
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sureau
 # 332 products @2018-09-29
 
@@ -45592,6 +46022,7 @@ pt: Suco de sabugo, sumo de sabugo
 sv: fläderbärsjuice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-sureau
 # 52 products @2018-09-29
+wikidata:en: Q109977301
 
 < en:concentrate
 < en:elderberry juice
@@ -45670,12 +46101,21 @@ fi: seljanmarjatiiviste
 
 < en:elder
 en: elderflower, elderflowers
-de: Holunderblüten, Holunderblüte
+da: hyldeblomst
+de: Holunderblüte, Holunderblüten
 fi: seljankukka
-fr: fleurs de sureau
+fr: fleur de sureau, fleurs de sureau
+ga: bláth troim
 hr: cvijet bazge, Sambucus nigra L
-it: fiori di sambuco
+it: fiori di sambuco, sambuco fiore
+la: sambuci flos
+nb: hylleblomst, hyllebærblomst
 nl: vlierbloesem
+nn: hylleblomster
+sl: bezgov cvet
+sv: fläderblom, blommor från fläderbusken
+zh: 接骨木花
+wikidata:en: Q67778134
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fleurs-de-sureau
 # 51 products @2018-09-29
 
@@ -45692,7 +46132,7 @@ fr: Extraits de fleurs de sureau
 hr: ekstrakt cvijeta bazge
 it: Estratto di sanbuco
 pl: ekstrakt z kwiatu czarnego bzu, ekstrakt z kwiatu bzu czarnego, ekstrakt kwiatu czarnego bzu, wyciąg z czarnego bzu
-sv: fläderblomsextrakt
+sv: fläderblomsextrakt, extrakt av blommor från fläderbusken
 
 < en:berries
 en: rowanberry, rowanberries
@@ -46142,26 +46582,27 @@ usda_ndb_name:en: Jujube, raw
 
 ###################################################################################################
 #
-#                                Kiwi
+#                                Kiwifruit
 #
 ###################################################################################################
-# description:en:KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is the edible berry of several species of woody vines in the genus Actinidia.
 
 < en:fruit
-en: kiwi, kiwifruit, kiwi fruit
+en: kiwifruit, kiwi, kiwi fruit, Chinese gooseberry
 af: kiwivrug
+an: kiwi
 ar: كيوي
 az: kivi
 be: ківі
 bg: киви
 bi: kiwe
+bn: কিউই ফল
 bo: སྤྲེལ་ཁམ།
 br: kiwi
 bs: kivi
 ca: kiwi
 cs: kiwi
 cy: ffrwyth ciwi
-da: kiwi, kiwifrugt
+da: kiwifrugt, kiwi
 de: Kiwi, Kiwifrucht
 el: ακτινίδιο
 eo: kivifrukto
@@ -46188,9 +46629,10 @@ ka: კივი
 kk: киви жемісі
 kn: ಕೀವಿಹಣ್ಣು
 ko: 참다래
+ky: киви
 la: actinidiae fructus
-lb: kiwi
-lt: kivi
+lb: Kiwi
+lt: kivis, kivi
 lv: kivi
 mi: huakiwi
 mk: киви
@@ -46198,10 +46640,10 @@ ml: കിവി പഴം
 mr: किवी
 ms: buah kiwi
 my: ကီဝီသီး
-nb: kiwi
+nb: kiwi, kiwifrukt
 ne: ठेकीफल
 nl: kiwi
-nn: kiwifrukt
+nn: kiwi, kiwifrukt
 nv: chʼil dishooí
 oc: kiwi
 pa: ਕੀਵੀ
@@ -46210,10 +46652,11 @@ pt: quiuí
 ro: kiwi
 ru: киви
 sh: kivi
+sk: kivi
 sl: kivi
 sr: киви
 su: buah kiwi
-sv: kiwi
+sv: kiwifrukt, kiwi
 ta: பசலிப்பழம்
 th: กีวี
 ti: ኪዊ
@@ -46221,32 +46664,36 @@ tr: kivi
 tt: киви
 uk: ківі
 ur: کيوی
+uz: kivi
 vi: quả dương đào
-zh: 奇異果
-# ang:cīnisc gōsberige
-# arz:كيوي
-# atj:wamin ka kawisitc
-# azb:کیوی
-# be-tarask:ківі
-# ckb:کیوی
-# en-ca:kiwi, kiwifruit
-# en-gb:kiwi, kiwifruit
-# lmo:peròdegh
-#lzh:獼猴桃
-# nan:kiwi
-#pnb:کیوی
-# pt-br:quiuí
-#sah:киви
-#sty:maimēl šaftaslēsē
-#war:kiwi
-#wuu:猕猴桃
-# yue:奇異果
-# zh-cn:奇異果
-# zh-hans:奇異果
-# zh-hant:奇異果
+zh: 猕猴桃, 奇異果
+zu: kiwifruit
+#ang: cīnisc gōsberige
+#arz: كيوي
+#atj: wamin ka kawisitc
+#azb: کیوی
+#be-tarask: ківі
+#ckb: کیوی
+#en-ca: kiwi, kiwifruit
+#en-gb: kiwi, kiwifruit
+#lmo: peròdegh
+#lzh: 獼猴桃
+#nan: kiwi
+#pnb: کیوی
+#pt-br: quiuí
+#sah: киви
+#sty: maimēl šaftaslēsē
+#war: kiwi
+#wuu: 猕猴桃
+#yue: 奇異果
+#zh-cn: 奇異果
+#zh-hans: 奇異果
+#zh-hant: 奇異果
+agribalyse_food_code:en: 13021
 ciqual_food_code:en: 13021
 ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
 ciqual_food_name:fr: Kiwi, pulpe et graines, cru
+description:en: KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is the edible berry of several species of woody vines in the genus Actinidia.
 ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
 ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
 ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
@@ -46256,61 +46703,28 @@ wikidata:en: Q13194
 wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 #1182 in 24 @2021-10-13
 
-< en:kiwi
+< en: kiwifruit
+en: raw green kiwifruit, raw green kiwi
+usda_ndb_code:en: 9148
+usda_ndb_name:en: Kiwifruit, green, raw
+
+##################### Kiwifruit cultivars/varieties/types
+
+< en: kiwifruit
+en: Hayward kiwifruit
+xx: Hayward
+da: Hayward-kiwifrugt
+ja: ヘイワード
+la: actinidia chinensis var. deliciosa ‘Hayward’
+sv: Hayward-kiwifrukt
+zh: 海沃德
+wikidata:en: Q133783394
+
+< en: kiwifruit
 en: raw zespri sungold kiwifruit
 comment:en: note that this also a specific brand, but all from New Zealnd have this brand, but are now grown elsewhere.
 usda_ndb_code:en: 9520
 usda_ndb_name:en: Kiwifruit, ZESPRI SunGold, raw
-
-< en:kiwi
-en: raw green kiwi
-usda_ndb_code:en: 9148
-usda_ndb_name:en: Kiwifruit, green, raw
-
-#<en:kiwi
-#en:organic kiwi
-#fi:luomukiivi, luomu kiivi
-#fr:kiwis biologiques
-
-#processing:en: en:pureed
-#<en:kiwi
-#<en:purée
-#fr:purée de kiwi
-#fi:kiivipyree
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-kiwi
-# 27 products in 2 languages @2018-09-30
-
-#processing:en: en:juice
-#<en:kiwi
-#<en:fruit juice
-#en:kiwi juice
-#de:Kiwisaft
-#es:zumo de kiwi, jugo de kiwi
-#fi:kiivimehu
-#fr:jus de kiwi
-#nl:kiwisap
-#pt:Suco de kiwi, Sumo de kiwi
-#ru:Сок киви
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/en:kiwi-juice
-# 8 products in 3 languages 22018-09-30
-
-#processing:en: en:juice
-#processing:en: en:from concentrate
-#<en:kiwi juice
-#en:kiwi juice from concentrate
-#de:Kiwisaft aus Kiwisaftkonzentrat
-#fr:jus de kiwi à base de concentré
-#pl:sok z koncentratu z kiwi
-
-# No products
-
-# <en:kiwi juice
-# en:pascalised kiwi juice
-# es:zumo de kiwi pascalizado, jugo de kiwi pascalizado
-# fr:jus de kiwi pascalisé
-# nl:gepascaliseerd kiwisap
-# de:pascalisierter Kiwisaft
-# treatment:en:en:pascalization
 
 ###################################################################################################
 #
@@ -47033,6 +47447,7 @@ de: Nektarine
 el: νεκταρίνι
 eo: nektarino
 es: melocotonero, nectarina, pelón
+et: nektariin
 eu: brinoi
 fa: شلیل
 fi: nektariini
@@ -47040,7 +47455,7 @@ fr: nectarine
 ga: neachtairín
 gv: naghtyreen
 he: נקטרינה
-hr: nektarina
+hr: nektarina, nektarine
 hu: kopaszbarack, nektarin, csupaszbarack
 hy: նեկտարին
 it: nettarina, pesca noce
@@ -47048,6 +47463,7 @@ ja: ネクタリン
 ka: ვაშლატამა
 kv: нектарин
 la: prunus persica var. nucipersica
+lb: Nektarinn
 lt: nektarinas, nektarininis abrikosas
 lv: nektarīns
 mt: nuċipriska
@@ -47057,6 +47473,7 @@ pl: nektarynka
 pt: nectarina
 ro: nectarin
 ru: нектарин
+se: nektariidna
 sk: nektárinka, broskyňa obyčajná, broskyňa obyčajná hladká
 sl: nektarina
 sv: nektarin
@@ -47065,13 +47482,14 @@ tr: nektarin
 uk: нектарин
 vi: du đào
 zh: 桃駁李
-#aeb:خوخ
-#koi:нектарин
-#lbe:нектарин
-#mrj:нектарин
-#scn:pèrsica
-#udm:нектарин
-#yue:桃駁李
+#aeb: خوخ
+#koi: нектарин
+#lbe: нектарин
+#mrj: нектарин
+#scn: pèrsica
+#udm: нектарин
+#yue: 桃駁李
+agribalyse_proxy_food_code:en: 13030
 ciqual_proxy_food_code:en: 13030
 ciqual_proxy_food_name:en: Nectarine, pulp and peel, raw
 ciqual_proxy_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
@@ -47087,14 +47505,31 @@ en: raw nectarine
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
 
-< en:nectarine
+< en: raw nectarine
 en: raw nectarine pulp and skin
 ciqual_food_code:en: 13030
 ciqual_food_name:en: Nectarine, pulp and peel, raw
 ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
 
 < en:nectarine
+en: nectarine pulp
 de: Nektarinenmark
+
+##################### Nectarine cultivars/varieties/types
+
+< en: nectarine
+en: Garofa nectarine, nectarine Garofa
+xx: Garofa
+da: Garofa-nektarin
+sv: Garofa-nektarin, nektariner Garofa
+comment:en: CPVO patent: GAROFA-cov CEE Nº 2003/1892
+description:en: Yellow-fleshed early season nectarine variety.
+
+###################################################################################################
+#
+#                                Ōhelo berry
+#
+###################################################################################################
 
 < en:fruit
 en: ōhelo berry, ōheloberries, oheloberries
@@ -47927,8 +48362,13 @@ ciqual_food_name:fr: Kaki, pulpe, cru
 
 < en:fruit
 en: prickly pear
+agribalyse_proxy_food_code:en: 13063
+ciqual_proxy_food_code:en: 13063
+ciqual_proxy_food_name:en: Prickly pear, flesh and skin, with seeds, raw
+description:en: Fruit from plants in the Opuntia (or prickly pear cactus) genus.
 usda_ndb_proxy_code:en: 9287
 usda_ndb_proxy_name:en: Prickly pears, raw
+#wikidata_plant:en: Q158991
 
 < en:prickly pear
 en: raw prickly pears
@@ -47984,7 +48424,7 @@ ms: Raspberi
 mt: Lampuna
 nb: bringebær
 nl: framboos, frambozen
-nn: bringebær
+nn: bringebær, bringbær
 nv: Dzidzé łikaní dinilchííʼígíí
 pl: malina, maliny, malinowy, malinowa, malinowe, malin, owoc maliny
 pt: framboesas
@@ -48060,7 +48500,7 @@ pl: maliny bio, malina bio, malinowy bio
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:luomuvadelma
 # 1 entry @ 2019-10-31
 
-< en:purée
+< en: fruit purée
 < en:raspberry
 en: raspberry puree
 bg: пюре от малини
@@ -48070,11 +48510,14 @@ fi: vadelmasose, vadelmapyree, vadelmapyre
 fr: purée de framboises, purée de framboise
 hr: pire maline
 it: purea di lamponi
+nb: bringebærpuré
 nl: frambozenpuree
+nn: bringebærpuré, bringbærpuré
 pl: mus malinowy
 sv: hallonpuré
 usda_ndb_proxy_code:en: 9553
 usda_ndb_proxy_name:en: Raspberries, puree, with seeds
+wikidata:en: Q57328284
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:puree-de-framboise
 # 461 products in 6 languages @2018-09-27
 
@@ -48605,12 +49048,13 @@ fr: purée de fraise, purée de fraises
 hr: pire od jagoda
 hu: eperpüré
 it: purea di fragola
+nb: jordbærpuré
 nl: aardbeienpuree
+nn: jordbærpuré
 pl: przecier truskawkowy, przecier z truskawek, puree truskawkowe
 pt: Puré de morango
 ru: Клубничное пюре, пюре клубничное
 sv: jordgubbspuré
-# In process de:Erdbeerpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fraise
 # 450 products in 6 languages @2018-10-01
 
@@ -48766,7 +49210,7 @@ usda_ndb_name:en: Sugar-apples, (sweetsop), raw
 #
 ###################################################################################################
 
-# 
+#
 # Note that in french often 'raisin' is used to indicate the dried one
 
 < en:berries
@@ -48952,6 +49396,15 @@ wikidata:en: Q10978
 wikipedia:en: https://en.wikipedia.org/wiki/Grape
 # 18963 in 9 languages @221-10-15
 
+< en: grape
+en: seedless grape
+da: stenfri vindrue
+de: kernlose Traube, kernlose Trauben
+fr: raisin sans pépin
+hr: grožđe bez sjemenki
+it: uva senza semi
+sv: kärnfri vindruva
+
 < en:grape
 en: raw american type grapes
 usda_ndb_code:en: 9131
@@ -48988,6 +49441,7 @@ eurocode_2_group_3:en: 9.30.10
 wikidata:en: Q128470835
 # 356 in 7 @2021-10-15
 
+< en: seedless grape
 < en:white grape
 en: white seedless grape
 de: weiße kernlose Traube, weiße kernlose Trauben
@@ -49020,6 +49474,7 @@ de: dunkle Trauben
 fr: raisin noir, raisins noirs
 hr: crno grožđe
 it: uva nera
+agribalyse_proxy_food_code:en: 13045
 ciqual_proxy_food_code:en: 13045
 ciqual_proxy_food_name:en: Grape, red, raw
 ciqual_proxy_food_name:fr: Raisin noir, cru
@@ -49050,12 +49505,14 @@ nl: rode druif, rode druiven
 pl: czerwone winogrona, czerwone winogrono, czerwonych winogron, winogronowy czerwony
 pt: uva vermelha, uvas vermelhas
 sv: röd vindruva
+agribalyse_food_code:en: 13045
 ciqual_food_code:en: 13045
 ciqual_food_name:en: Grape, red, raw
 ciqual_food_name:fr: Raisin noir, cru
 wikidata:en: Q128470707
 
 < en:red grape
+< en:seedless grape
 en: red seedless grape
 da: stenfri rød vindrue
 de: rote kernlose Traube, rote kernlose Trauben
@@ -49071,28 +49528,21 @@ sv: flame-vindruva
 comment:en: https://goodfruitguide.co.uk/product/flame/
 
 < en: white seedless grape
-en: Prime Seedless grape, Prime Seedless
+en: Prime Seedless grape
+xx: Prime Seedless
 da: prime seedless-vindrue
 sv: Prime Seedless-vindruva
 comment:en: https://goodfruitguide.co.uk/product/prime-seedless/
 
 < en: red seedless grape
-en: Starlight grape, red seedless grape (Starlight)
-da: starlight-vindrue
-sv: starlight-vindruva
+en: Starlight grape, Starlight red seedless grape
+xx: Starlight
+da: Starlight-vindrue
+sv: Starlight-vindruva
 comment:en: https://goodfruitguide.co.uk/product/starlight-red-grape/
 
-< en:grape juice
-< en:red grape
-en: red grape fruit juice
-de: Rotweintraubensaft
-hr: voćni sok crvenog grožđa
-nl: rode druivensap
-
-# description:en:A RAISIN is a dried grape.
-
-# madefrom:en: grape
-< en:fruit
+< en: dried fruit
+< en:grape
 en: raisin, raisins
 ar: زبيب
 az: Kişmiş
@@ -49163,26 +49613,28 @@ uk: Родзинки
 vi: Nho khô
 yi: ראזשינקע
 zh: 葡萄乾
-# arc:ܐܦܫܬܐ
-# atj:Coweminak
-# bar:Weinberl
-# bcl:Pasas
-# be-tarask:Разынкі
-# bho:किसमिस
-# chy:Hohpâhtsenámenôtse
-# en-ca:Raisin
-# en-gb:Raisin
-# frr:Sinken
-# gsw:Rosine
-# mzn:ممیج
-# pt-br:passa
-# sco:raisin
-# yue:提子乾
+#arc: ܐܦܫܬܐ
+#atj: Coweminak
+#bar: Weinberl
+#bcl: Pasas
+#be-tarask: Разынкі
+#bho: किसमिस
+#chy: Hohpâhtsenámenôtse
+#en-ca: Raisin
+#en-gb: Raisin
+#frr: Sinken
+#gsw: Rosine
+#mzn: ممیج
+#pt-br: passa
+#sco: raisin
+#yue: 提子乾
+agribalyse_food_code:en: 13046
 carbon_footprint_fr_foodges_ingredient:fr: Raisin
 carbon_footprint_fr_foodges_value:fr: 0.8
 ciqual_food_code:en: 13046
 ciqual_food_name:en: Raisin
 ciqual_food_name:fr: Raisin, sec
+description:en: A RAISIN is a dried grape.
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisin-sec
 usda_ndb_proxy_code:en: 9298
 usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
@@ -49190,6 +49642,11 @@ wikidata:en: Q13186
 wikipedia:en: https://en.wikipedia.org/wiki/Raisin
 
 < en:raisin
+en: seedless raisin
+usda_ndb_proxy_code:en: 9298
+usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
+
+< en: seedless raisin
 en: dark seedless raisin
 usda_ndb_code:en: 9298
 usda_ndb_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
@@ -49213,7 +49670,7 @@ it: concentrato di uva passa
 # 1314 products in 6 languages @2018-10-02
 
 < en: white seedless grape
-en: sultana, sultanas, Thompson seedless, sultanina
+en: sultana, sultanas, sultanina, Thompson Seedless, Lady de Coverly
 af: sultana
 ar: العنب الكشمشي
 bg: султанина, светли стафиди
@@ -49245,48 +49702,44 @@ ro: sultanină
 ru: белый кишмиш
 si: සුල්තානා
 sl: sultanina
-sv: sultanvindruva, sultandruva
+sv: sultanvindruva, sultandruva, Thompson-druva, Thompson-druvor
 tr: sultaniye üzümü
 uk: кишмиш
 uz: kishmish
 zh: 蘇丹娜葡萄
 comment:en: This ingredient refers to the UNDRIED grape. The name is often used for the dried version, maybe it is necessary to split between dried and fresh
-description:en: SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
+description:en: SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina, Thompson Seedless, Lady de Coverly, and oval-fruited Kishmish.
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 # 46 products in 3 languages @2018-10-02
 
-< en:sultana
-en: Thompson Seedless
-sv: Thompson-druva, Thompson-druvor
-
-# madefrom:en:sultana
-< en:sultana
-en: sultana raisin, golden raisin
-fr: raisins secs sultanines
-sv: sultanrussin
-comment:en: the parent is kept as that is often used as its name
+< en: raisin
+en: golden raisin
 usda_ndb_proxy_code:en: 9297
 usda_ndb_proxy_name:en: Raisins, golden, seedless
 
-< en:sultana
-en: seedless golden raisins
+< en: golden raisin
+< en: seedless raisin
+en: seedless golden raisin, seedless golden raisins
 usda_ndb_code:en: 9297
 usda_ndb_name:en: Raisins, golden, seedless
 
-< en:sultana raisin
-en: Raisin Thompson Seedless
+< en: seedless golden raisin
+< en:sultana
+en: sultana raisin, Raisin Thompson Seedless
+fr: raisins secs sultanines
 pl: rodzynki thompson jumbo
-sv: Thompson-russin
+sv: sultanrussin, Thompson-russin
 
 #<en:compound
+< en: sultana
 en: oiled sultana
 de: Sultaninen geölt
 it: uva sultanina oleosa
 
-< en:raisin
-en: California seedless raisins
+< en: seedless raisin
+en: California seedless raisin, California seedless raisins
 de: Kalifornische kernlose Rosinen
 fr: Raisins secs sans grains californiens
 hr: kalifornijske grožđice bez sjemenki
@@ -49294,13 +49747,13 @@ it: uvetta senza semi della California
 sv: kaliforniska russin utan kärnor
 origins:en: en:california
 
-< en:California seedless raisins
+< en: California seedless raisin
 < en:sultana raisin
 en: California seedless Thompson raisin, California seedless Thompson raisins
 sv: kaliforniska Thompson-russin utan kärnor
 
 # < en:grape (made from)
-< en:fruit
+< en: raisin
 en: Corinthian raisins, zante currants
 da: Korend
 de: korinthische Rosinen, Korinthiaki, Korinthe, Korinthen
@@ -49320,7 +49773,7 @@ oc: Pansarilha
 ru: Коринка
 sd: ڪاري ڊاک
 sv: Korinter
-# ckb:مێوژ
+#ckb: مێوژ
 description:en: Zante currants are small, dried, seedless grapes — despite the name, they're not actually related to fresh currants (which are berries from the Ribes genus). Dried fruits made from the Black Corinth grape.
 usda_ndb_code:en: 9085
 usda_ndb_name:en: Currants, zante, dried
@@ -49329,45 +49782,64 @@ wikipedia:en: https://en.wikipedia.org/wiki/Zante_currant
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-de-corinthe
 # 57 products in 3 languages @2018-10-02
 
-# description:en:Grape juice is obtained from crushing and blending grapes into a liquid.
-
 < en:fruit juice
-# < en:grape (made from)
+< en:grape
 en: grape juice, raisin juice
 ar: عصير العنب
-az: Üzüm şirəsi
+az: üzüm şirəsi
 be: вінаградны сок
 bg: сок от грозде
 ca: suc de raïm
+cs: hroznová šťáva
 de: Traubensaft
 el: χυμός σταφυλιού
 eo: vinbera suko
 es: zumo de uva, jugo de uva, zumo de pasas, jugo de pasas, zumo de pasas de uva, jugo de pasas de uva
-et: Viinamarjamahl
+et: viinamarjamahl
+fa: آب انگور
 fi: rypälemehu, viinirypälemehu
 fr: jus de raisin
+ga: sú fíonchaor
+gl: zume de uva
 he: מיץ ענבים
 hr: groždanog soka
+hy: խաղողի հյութ
+id: jus anggur
 it: succo d'uva
 ja: ぶどうジュース, ぶどう果汁
+jv: jus anggur
 ko: 포도 주스
-la: Mustum conditum
+kw: sugen grappys
+la: mustum conditum
+mk: гроздов сок
+ms: jus anggur
+nb: druesaft, druejus, druejuice
 nl: druivensap, druivesap
-pl: Sok z winogron, sok winogronowy
+nn: druesaft, druejus, druejuice
+pl: sok z winogron, sok winogronowy
 pt: sumo de uva, suco de uva
 pt-br: suco de uva
 pt-pt: sumo de uva
 ru: виноградный сок
 sa: द्राक्षाफलरसः
-sq: Lëngu i rrushit
+sl: grozdni sok
+sq: lëngu i rrushit
+sr: сок од грожђа
 sv: druvsaft, druvjuice
 th: น้ำองุ่น
+tr: üzüm suyu
 tt: виноград суы
+uk: виноградний сік
+yi: טרויבן-זאפט
 zh: 葡萄汁
-# yue:提子汁
-# zh-hans:葡萄汁
-# zh-hant:葡萄汁
-# zh-hk:葡萄汁
+#yue: 提子汁
+#zh-hans: 葡萄汁
+#zh-hant: 葡萄汁
+#zh-hk: 葡萄汁
+agribalyse_food_code:en: 2016
+ciqual_food_code:en: 2016
+ciqual_food_name:en: Grape juice, pure juice
+description:en: Grape juice is obtained from crushing and blending grapes into a liquid.
 wikidata:en: Q1209756
 wikipedia:en: https://en.wikipedia.org/wiki/Grape_juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/grape-juice
@@ -49382,6 +49854,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Grape_juice
 #fi:luomurypälemehu, luomu rypälemehu
 #fr:jus de raisin issu de l'agriculture biologique
 
+< en: concentrated juice
 < en:grape juice
 en: concentrated grape juice, grape juice concentrate
 bg: концентриран гроздов сок
@@ -49399,7 +49872,7 @@ th: จากนำองุ่นเข้มข้น
 # 139 products in 2 languages @2018-10-02
 # ingredient/fr:concentré-de-jus-de-raisin has 26 products in 3 languages @2018-10-02
 
-# This is a compound product made of concentrate grape juice and water
+< en: fruit juice from concentrate
 < en:grape juice
 en: grape juice from concentrate
 bg: гроздов сок от концентрат, концентрат на гроздов сок
@@ -49409,6 +49882,10 @@ fr: jus de raisin à base de concentré, jus de raisins à base de concentré
 hr: sok od grožđa iz koncentrata
 it: succo d'uva da concentrato
 pl: sok winogronowy z koncentratu soku winogronowego
+agribalyse_food_code:en: 2019
+ciqual_food_code:en: 2019
+ciqual_food_name:en: Grape juice, from concentrate
+description:en: This is a compound product made of concentrate grape juice and water.
 
 < en:concentrated grape juice
 fr: jus de raisin concentré rectifié
@@ -49420,6 +49897,7 @@ de: Weißer Traubensaft aus Konzentrat
 it: succo d'uva bianca da concentrato
 
 < en:grape juice
+< en:white grape
 en: white grape juice
 de: Traubensaft weiss
 es: zumo de uva blanca, jugo de uva blanca
@@ -49429,9 +49907,11 @@ hr: sok od bijelog grožđa
 it: succo d'uva bianca
 nl: Witte druivensap
 pl: sok z białych winogron
+wikidata:en: Q128305959
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-raisin-blanc
 # 71 products in 4 languages @2018-10-02
 
+< en: concentrated grape juice
 < en:white grape juice
 en: concentrated white grape juice, white grape juice concentrate
 es: zumo de uva blanca concentrado, jugo de uva blanca concentrado
@@ -49441,6 +49921,7 @@ hr: koncentriranog soka od bijelog grožđa
 it: succo d'uva bianca concentrato
 
 < en:concentrated white grape juice
+#< en: organic grape juice
 en: organic concentrated white grape juice, organic white grape juice concentrate
 fi: luomu vaalea rypälemehutiiviste
 fr: jus concentre de raisin blanc bio
@@ -49465,15 +49946,16 @@ it: succo d'uva moscato
 fr: jus de raisin blanc sauvignon
 
 < en:grape juice
-en: red grape juice
+< en:red grape
+en: red grape juice, red grape fruit juice
 bg: сок от червено грозде
-de: roter Traubensaft
+de: Rotweintraubensaft, roter Traubensaft
 es: zumo de uva roja, jugo de uva roja, zumo de uva tinto, jugo de uva tinto
 fi: punainen rypälemehu
 fr: jus de raisin rouge
-hr: sok od crvenog grožđa
+hr: sok od crvenog grožđa, voćni sok crvenog grožđa
 it: succo d'uva rossa, succo di uva rossa
-nl: blauw druivensap
+nl: rode druivensap, blauw druivensap
 pl: sok z czerwonych winogron
 pt: suco de uva tinta, sumo de uva tinta, suco de uva vermelha, sumo de uva vermelha
 th: น้ำองุ่นแดง
@@ -49578,9 +50060,10 @@ it: mosto d'uva
 nl: druivenmost
 pl: moszcz winogronowy, moszcz z winogron
 ro: must de struguri
-ru: Виноградное сусло
-sq: Mushti i rrushit
+ru: виноградное сусло
+sq: mushti i rrushit
 ta: நொதியேறாப் பழச்சாறு
+wikidata:en: Q140389101
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
 # 273 products in 4 languages @2018-10-02
 
@@ -49824,9 +50307,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chardonnay
 # ingredient/fr:Chardonnay has 19 products @2019-01-19
 # ingredient/fr:Chardonnay-blanc has 1 product @2019-01-19
 
-
-# description:en:Chasselas or Chasselas blanc is a wine grape variety grown in Switzerland, France, Germany, Portugal, Hungary, Romania, New Zealand and Chile.
-
 < en:varietal
 en: chasselas
 xx: chasselas
@@ -49839,6 +50319,10 @@ hr: šasele
 hu: saszla
 ja: シャセラ
 zh: 莎斯拉
+agribalyse_food_code:en: 13101
+ciqual_food_code:en: 13101
+ciqual_food_name:en: Grape, Chasselas, raw
+description:en: Chasselas or Chasselas blanc is a wine grape variety grown in Switzerland, France, Germany, Portugal, Hungary, Romania, New Zealand and Chile.
 wikidata:en: Q939724
 wikipedia:en: https://en.wikipedia.org/wiki/Chasselas
 # ingredient/fr:chasselas has 4 products @2019-01-18
@@ -62699,6 +63183,8 @@ carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
 description:en: The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
+ecobalyse:en: chickpea-fr
+ecobalyse_labels_en_organic:en: chickpea-organic
 # eurocode_2_group_3:en: 7.10.15
 ## eurocode_2_group_2:en: 8.45
 rare_crop:en: yes
@@ -88883,6 +89369,7 @@ ciqual_food_code:en: 36023
 ciqual_food_name:en: Chicken, wing, meat and skin, raw
 ciqual_food_name:fr: Poulet, aile, viande et peau, cru
 
+< en:chicken
 en: Chicken wing meat and skin
 fr: aile de poulet et sa peau
 it: carne e pelle di ala di pollo
