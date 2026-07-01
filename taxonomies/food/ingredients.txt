@@ -16491,9 +16491,9 @@ ml: വെളിച്ചെണ്ണ
 mr: खोबरेल तेल
 ms: Minyak kelapa
 my: အုန်းဆီ
-nb: Kokosolje
+nb: kokosolje
 nl: kokosolie
-nn: Kokosfeitt
+nn: kokosolje
 os: Кокосы зети
 pl: Olej kokosowy, olej roślinny kokosowy, oleje roślinne kokosowy
 pt: óleo de coco
@@ -16599,15 +16599,15 @@ ru: масло кокосовое рафинированное дезодори�
 en: MCT oil, Medium-chain triglycerides oil
 it: olio MCT
 
+< en: coconut
 < en:vegetable fat
-# producedFrom:en:coconut
 en: coconut fat
 bg: кокосова мазнина, кокосова
 ca: greix de coco
 cs: kokosový tuk
 da: kokosfedt
 de: Kokosfett, Kokosnussfett
-es: Grasa de coco, grasa vegetal de coco
+es: grasa de coco, grasa vegetal de coco
 et: kookosrasv
 fi: kookosrasva, kookosrasvaa
 fr: matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
@@ -16616,16 +16616,19 @@ hu: kókuszzsír
 it: grasso di cocco
 lt: kokoso riebalai
 lv: kokosriekstu tauki
+nb: kokosfett
 nl: kokosvet
+nn: kokosfeitt
 pl: tłuszcz kokosowy, tłuszcz roślinny kokosowy, tłuszcze roślinne kokosowy
-pt: Gordura de coco, lípido de coco
+pt: gordura de coco, lípido de coco
 sl: kokosova maščoba
-sv: kokosfett
+sv: kokosfett, kokosnötfett, kokosnöt fett
+agribalyse_food_code:en: 16040
 ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
+from_palm_oil:en: no
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
 # 36 products in 4 languages @2018-10-03
-from_palm_oil:en: no
 
 # creamed coconut differs from coconut cream: https://en.wikipedia.org/wiki/Creamed_coconut
 < en:coconut fat
@@ -38428,28 +38431,30 @@ usda_ndb_code:en: 9174
 usda_ndb_name:en: Loquats, raw
 
 < en:fruit
-fr: fruits exotiques
+en: exotic fruit
+da: eksotisk frugt
 fi: eksoottiset hedelmät
+fr: fruit exotique, fruits exotiques
+wikidata:en: Q3089309
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-exotiques
 # 24 products in 1 language @2018-10-02
 
 # <en:fruit and vegetable
 < en:fruit concentrate
 < en:vegetable concentrate
-en: fruit and vegetable concentrates, vegetable and fruit concentrates
-da: frugt- og grøntsagskoncentrater
-de: obst- und gemüsekonzentrate
+en: fruit and vegetable concentrate, fruit and vegetable concentrates, vegetable and fruit concentrates
+da: frugt- og grøntsagskoncentrat, frugt- og grøntsagskoncentrater
+de: Obst- und Gemüsekonzentrate
 es: concentrados de frutas y vegetales
 fi: hedelmä- ja kasvistiivisteet, kasvis- ja hedelmätiivisteet
 fr: fruits et légumes concentrés, concentrés de fruits et de légumes
-# hr:voćni koncentrati # see ingredients_processing.txt
+#hr: voćni koncentrati # see ingredients_processing.txt
 it: concentrati di frutta e verdura
 nl: groente- en fruitconcentraten
 pt: Concentrado de frutas e vegetais
-sv: frukt- och grönsakskoncentrat
+sv: frukt- och grönsakskoncentrat, frukt och grönsaks koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-et-légumes-concentrés
 # 18 products in 1 language @2018-10-02
-
 
 < en:fruit
 en: dried fruit, dried fruits
@@ -51185,7 +51190,7 @@ pt: vegetal
 ro: Legume
 ru: Овощ
 sr: povrće
-sv: grönsak, grönsaker
+sv: grönsak, grönsaker, grönsaks
 tr: Sebze
 zh: 蔬菜
 #carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
