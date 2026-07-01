@@ -56,13 +56,13 @@
     "select2": "~4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
+    "@babel/core": "^8.0.1",
     "@babel/preset-env": "^7.22.0",
     "@eslint/js": "^10.0.1",
     "dotenv": "^17.4.2",
     "eslint": "^10.6.0",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
+    "gulp-babel": "^8.1.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
     "gulp-gzip": "^1.4.2",
