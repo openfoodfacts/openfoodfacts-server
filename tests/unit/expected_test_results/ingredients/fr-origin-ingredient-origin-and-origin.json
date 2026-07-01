@@ -78,7 +78,9 @@
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
-         "text" : "Moutarde à l'ancienne"
+         "text" : "Moutarde à l'ancienne",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_food_code" : "19402",
@@ -99,7 +101,9 @@
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
-         "text" : "Moutarde de Dijon"
+         "text" : "Moutarde de Dijon",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_food_code" : "31008",
@@ -198,6 +202,7 @@
       "en:water",
       "en:butter",
       "fr:moutarde-a-l-ancienne",
+      "en:plant",
       "en:mustard",
       "en:dijon-mustard",
       "en:flower-honey",
