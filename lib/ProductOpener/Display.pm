@@ -5648,7 +5648,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 					push @{$template_data_ref->{current_drilldown_fields}},
 						{
-						current_link => get_owner_pretty_path($Owner_id) . "/facets",
+						current_link => get_owner_pretty_path($Owner_id) . $request_ref->{current_link},
 						tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
 						nofollow => $nofollow,
 						tagtype => $newtagtype,
