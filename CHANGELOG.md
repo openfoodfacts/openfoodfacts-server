@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.97.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.96.0...v2.97.0) (2026-07-01)
+
+
+### Features
+
+* Add funding.json with entity details ([25e4d4f](https://github.com/openfoodfacts/openfoodfacts-server/commit/25e4d4f667bf0f3fde7bce4730af892b2f0263cf))
+* Add funding.json with entity details ([#13850](https://github.com/openfoodfacts/openfoodfacts-server/issues/13850)) ([25e4d4f](https://github.com/openfoodfacts/openfoodfacts-server/commit/25e4d4f667bf0f3fde7bce4730af892b2f0263cf))
+
+
+### Bug Fixes
+
+* double import of use CGI qw/:cgi :form escapeHTML/; in search.pl ([6d39971](https://github.com/openfoodfacts/openfoodfacts-server/commit/6d39971ba65d52618c20bf3f6b9a15d35ebdfa31))
+* double import of use CGI qw/:cgi :form escapeHTML/; in search.pl ([#13831](https://github.com/openfoodfacts/openfoodfacts-server/issues/13831)) ([6d39971](https://github.com/openfoodfacts/openfoodfacts-server/commit/6d39971ba65d52618c20bf3f6b9a15d35ebdfa31))
+* **taxonomy:** fix orphan `usda` lines ([#13866](https://github.com/openfoodfacts/openfoodfacts-server/issues/13866)) ([ea478c7](https://github.com/openfoodfacts/openfoodfacts-server/commit/ea478c7f9c3816ede807307ec5c92187cf8fb129))
+* Various API links to the new docs and other cleanups ([d987c71](https://github.com/openfoodfacts/openfoodfacts-server/commit/d987c716e50c4eafc141caf75c56de4c0b66ce3b))
+* Various API links to the new docs and other cleanups ([#13847](https://github.com/openfoodfacts/openfoodfacts-server/issues/13847)) ([d987c71](https://github.com/openfoodfacts/openfoodfacts-server/commit/d987c716e50c4eafc141caf75c56de4c0b66ce3b))
+
 ## [2.96.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.95.1...v2.96.0) (2026-06-25)
 
 
