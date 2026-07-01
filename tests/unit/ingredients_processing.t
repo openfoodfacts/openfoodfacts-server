@@ -1330,7 +1330,7 @@ my @tests = (
 				'text' => 'Papaya'
 			},
 			{
-				'id' => 'en:kiwi',
+				'id' => 'en:kiwifruit',
 				'is_in_taxonomy' => 1,
 				'processing' => 'en:freeze-dried',
 				'text' => 'Kiwi'
