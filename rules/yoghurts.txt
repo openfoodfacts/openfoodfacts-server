@@ -1,0 +1,27 @@
+# Product rules to categorize yoghurts more finely based on their ingredients
+
+# General rules syntax:
+
+# name: a name to identify the rule
+
+# description: an explanation of what the rule does
+
+# conditions: 1 or more conditions, in the same format as the search API v2 (makes copy and pasting easy to test rules)
+# e.g. https://world.openfoodfacts.org/search?categories_tags_en=yoghurts,-sweetened%20yoghurts&ingredients_tags_en=sugar
+# - conditions are comma separated, and can also be specified on several conditions: lines
+# - conditions on tags can be specified with English names (e.g. categories_tags_en=cakes) or ids (categories_tags=en:cakes)
+# Using English names is more resilient if the taxonomy changes (e.g. if the main id of the entry changes)
+
+# - actions: 1 or more actions separated by commas
+# +categories_tags_en=yoghurts with fruits : adds a tag
+# -categories_tags_en=yoghurts with fruits : removes a tag
+
+name: Yoghurts with added sugar
+description: Add the "Sweetened yoghurts" category to yoghurts if they contain added sugar
+conditions: categories_tags_en=yoghurts,-sweetened yoghurts&ingredients_tags_en=sugar
+actions: +categories_tags_en=sweetened yoghurts
+
+name: yoghurts with fruits
+description: Add the "Yoghurts with fruits" category to yoghurts that have ingredients that are fruits (and not just fruit flavouring)
+conditions: categories_tags_en=yoghurts,-yoghurts with fruits&ingredients_tags_en=fruit
+actions: +categories_tags_en=yoghurts with fruits
