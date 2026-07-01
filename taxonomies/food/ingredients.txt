@@ -37989,7 +37989,8 @@ wikidata:en: Q1364
 wikipedia:en: https://en.wikipedia.org/wiki/Fruit
 
 < en:fruit
-en: fruit puree
+< en:purée
+en: fruit purée, fruit puree
 de: Fruchtpüree
 es: puré de frutas
 # fr: purée de fruits # see ingredients_processing.txt
@@ -37997,6 +37998,7 @@ hr: voćni pire
 it: frullato di frutta
 nl: fruitpuree
 pl: przetarte owoce, przeciery owocowe
+sv: fruktpuré
 
 < en:fruit
 en: mixed fruit
@@ -38020,7 +38022,7 @@ en: mixed peel
 it: scorza mista
 
 < en:fruit
-en: red fruits
+en: red fruit, red fruits
 bg: червени плодове
 de: rote Früchte
 es: frutos rojos
@@ -38205,7 +38207,7 @@ sv: frukt- och grönsakskoncentrat
 
 
 < en:fruit
-en: dried fruits
+en: dried fruit, dried fruits
 ca: fruita seca
 de: Trockenfrüchte, getrocknete Früchte
 #in Spanish dried fruit is fruta seca, nuts are frutos secos
@@ -41164,7 +41166,7 @@ ciqual_food_name:fr: Pomme, pulpe, crue
 en: apple puree
 bg: пюре от ябълки, ябълково пюре
 cs: jablečné pyré
-da: Æblemos
+da: æblemos
 de: Apfelmus
 es: Puré de manzana
 fi: omenapyree
@@ -41173,8 +41175,9 @@ hr: pire od jabuka
 hu: almapüré
 it: purea di mele
 lv: ābolu pīrāgs
-nb: eplepuŕe
-nl: Appelmoes
+nb: eplepuré
+nl: appelmoes
+nn: eplepuré
 pl: przecier jabłkowy, przecier z jabłek, puree jabłkowe
 pt: puré de maçã, puré de maçãs
 ru: Яблочное пюре, пюре яблочное
@@ -41242,7 +41245,7 @@ sv: äpple preparat
 
 #< en:apple
 < en:fruit juice
-en: apple juice, apple juice made from fresh apples, juice from select organic apples
+en: apple juice, apple juice made from fresh apples
 ar: عصير تفاح
 bg: сок от ябълки, ябълков сок
 ca: suc de poma
@@ -41268,9 +41271,9 @@ ko: 사과 주스
 lt: obuolių sultys
 lv: ābolu sula
 mk: сок од јаболко
-nb: eplemost
+nb: eplemost, eplejus, eplejuice
 nl: appelsap
-nn: eplemost
+nn: eplemost, eplejus, eplejuice
 pl: sok jabłkowy, soku jabłkowego
 pt: suco de maçã, sumo de maçã
 ru: яблочный сок
@@ -41294,7 +41297,7 @@ wikidata:en: Q618355
 # 1508 products in 6 languages @2018-10-04
 
 < en:apple juice
-en: organic apple juice
+en: organic apple juice, juice from select organic apples
 da: økologisk æblejuice
 de: Bio-Apfelsaft
 es: Zumo de manzana orgánico, jugo de manzana orgánico
@@ -45052,8 +45055,10 @@ fi: kirsikkapyree, kirsikkasose
 fr: Purée de cerises
 hr: pulpa višnja
 it: purea di ciliegie
+nb: kirsebærpuré
+nn: kirsebærpuré
 pl: przecier z wiśni
-# IN process de:Kirschpüree
+sv: körsbärspuré
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/en:cherry-purée
 # 35 products @2018-09-29
 
@@ -48158,7 +48163,7 @@ ms: Raspberi
 mt: Lampuna
 nb: bringebær
 nl: framboos, frambozen
-nn: bringebær
+nn: bringebær, bringbær
 nv: Dzidzé łikaní dinilchííʼígíí
 pl: malina, maliny, malinowy, malinowa, malinowe, malin, owoc maliny
 pt: framboesas
@@ -48234,7 +48239,7 @@ pl: maliny bio, malina bio, malinowy bio
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:luomuvadelma
 # 1 entry @ 2019-10-31
 
-< en:purée
+< en: fruit purée
 < en:raspberry
 en: raspberry puree
 bg: пюре от малини
@@ -48244,11 +48249,14 @@ fi: vadelmasose, vadelmapyree, vadelmapyre
 fr: purée de framboises, purée de framboise
 hr: pire maline
 it: purea di lamponi
+nb: bringebærpuré
 nl: frambozenpuree
+nn: bringebærpuré, bringbærpuré
 pl: mus malinowy
 sv: hallonpuré
 usda_ndb_proxy_code:en: 9553
 usda_ndb_proxy_name:en: Raspberries, puree, with seeds
+wikidata:en: Q57328284
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:puree-de-framboise
 # 461 products in 6 languages @2018-09-27
 
@@ -48779,12 +48787,13 @@ fr: purée de fraise, purée de fraises
 hr: pire od jagoda
 hu: eperpüré
 it: purea di fragola
+nb: jordbærpuré
 nl: aardbeienpuree
+nn: jordbærpuré
 pl: przecier truskawkowy, przecier z truskawek, puree truskawkowe
 pt: Puré de morango
 ru: Клубничное пюре, пюре клубничное
 sv: jordgubbspuré
-# In process de:Erdbeerpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-fraise
 # 450 products in 6 languages @2018-10-01
 
@@ -49204,6 +49213,7 @@ de: dunkle Trauben
 fr: raisin noir, raisins noirs
 hr: crno grožđe
 it: uva nera
+agribalyse_proxy_food_code:en: 13045
 ciqual_proxy_food_code:en: 13045
 ciqual_proxy_food_name:en: Grape, red, raw
 ciqual_proxy_food_name:fr: Raisin noir, cru
@@ -49234,6 +49244,7 @@ nl: rode druif, rode druiven
 pl: czerwone winogrona, czerwone winogrono, czerwonych winogron, winogronowy czerwony
 pt: uva vermelha, uvas vermelhas
 sv: röd vindruva
+agribalyse_food_code:en: 13045
 ciqual_food_code:en: 13045
 ciqual_food_name:en: Grape, red, raw
 ciqual_food_name:fr: Raisin noir, cru
@@ -49269,17 +49280,8 @@ da: Starlight-vindrue
 sv: Starlight-vindruva
 comment:en: https://goodfruitguide.co.uk/product/starlight-red-grape/
 
-< en:grape juice
-< en:red grape
-en: red grape fruit juice
-de: Rotweintraubensaft
-hr: voćni sok crvenog grožđa
-nl: rode druivensap
-
-# description:en:A RAISIN is a dried grape.
-
-# madefrom:en: grape
-< en:fruit
+< en: dried fruit
+< en:grape
 en: raisin, raisins
 ar: زبيب
 az: Kişmiş
@@ -49350,26 +49352,28 @@ uk: Родзинки
 vi: Nho khô
 yi: ראזשינקע
 zh: 葡萄乾
-# arc:ܐܦܫܬܐ
-# atj:Coweminak
-# bar:Weinberl
-# bcl:Pasas
-# be-tarask:Разынкі
-# bho:किसमिस
-# chy:Hohpâhtsenámenôtse
-# en-ca:Raisin
-# en-gb:Raisin
-# frr:Sinken
-# gsw:Rosine
-# mzn:ممیج
-# pt-br:passa
-# sco:raisin
-# yue:提子乾
+#arc: ܐܦܫܬܐ
+#atj: Coweminak
+#bar: Weinberl
+#bcl: Pasas
+#be-tarask: Разынкі
+#bho: किसमिस
+#chy: Hohpâhtsenámenôtse
+#en-ca: Raisin
+#en-gb: Raisin
+#frr: Sinken
+#gsw: Rosine
+#mzn: ممیج
+#pt-br: passa
+#sco: raisin
+#yue: 提子乾
+agribalyse_food_code:en: 13046
 carbon_footprint_fr_foodges_ingredient:fr: Raisin
 carbon_footprint_fr_foodges_value:fr: 0.8
 ciqual_food_code:en: 13046
 ciqual_food_name:en: Raisin
 ciqual_food_name:fr: Raisin, sec
+description:en: A RAISIN is a dried grape.
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisin-sec
 usda_ndb_proxy_code:en: 9298
 usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
@@ -49377,6 +49381,11 @@ wikidata:en: Q13186
 wikipedia:en: https://en.wikipedia.org/wiki/Raisin
 
 < en:raisin
+en: seedless raisin
+usda_ndb_proxy_code:en: 9298
+usda_ndb_proxy_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
+
+< en: seedless raisin
 en: dark seedless raisin
 usda_ndb_code:en: 9298
 usda_ndb_name:en: Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)
@@ -49400,7 +49409,7 @@ it: concentrato di uva passa
 # 1314 products in 6 languages @2018-10-02
 
 < en: white seedless grape
-en: sultana, sultanas, Thompson seedless, sultanina
+en: sultana, sultanas, sultanina, Thompson Seedless, Lady de Coverly
 af: sultana
 ar: العنب الكشمشي
 bg: султанина, светли стафиди
@@ -49432,48 +49441,44 @@ ro: sultanină
 ru: белый кишмиш
 si: සුල්තානා
 sl: sultanina
-sv: sultanvindruva, sultandruva
+sv: sultanvindruva, sultandruva, Thompson-druva, Thompson-druvor
 tr: sultaniye üzümü
 uk: кишмиш
 uz: kishmish
 zh: 蘇丹娜葡萄
 comment:en: This ingredient refers to the UNDRIED grape. The name is often used for the dried version, maybe it is necessary to split between dried and fresh
-description:en: SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina
+description:en: SULTANA is a "white" (pale green), oval seedless grape variety also called the sultanina, Thompson Seedless, Lady de Coverly, and oval-fruited Kishmish.
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:raisins-secs-sultanines
 wikidata:en: Q1898118
 wikipedia:en: https://en.wikipedia.org/wiki/Sultana_(grape)
 # 46 products in 3 languages @2018-10-02
 
-< en:sultana
-en: Thompson Seedless
-sv: Thompson-druva, Thompson-druvor
-
-# madefrom:en:sultana
-< en:sultana
-en: sultana raisin, golden raisin
-fr: raisins secs sultanines
-sv: sultanrussin
-comment:en: the parent is kept as that is often used as its name
+< en: raisin
+en: golden raisin
 usda_ndb_proxy_code:en: 9297
 usda_ndb_proxy_name:en: Raisins, golden, seedless
 
-< en:sultana
-en: seedless golden raisins
+< en: golden raisin
+< en: seedless raisin
+en: seedless golden raisin, seedless golden raisins
 usda_ndb_code:en: 9297
 usda_ndb_name:en: Raisins, golden, seedless
 
-< en:sultana raisin
-en: Raisin Thompson Seedless
+< en: seedless golden raisin
+< en:sultana
+en: sultana raisin, Raisin Thompson Seedless
+fr: raisins secs sultanines
 pl: rodzynki thompson jumbo
-sv: Thompson-russin
+sv: sultanrussin, Thompson-russin
 
 #<en:compound
+< en: sultana
 en: oiled sultana
 de: Sultaninen geölt
 it: uva sultanina oleosa
 
-< en:raisin
-en: California seedless raisins
+< en: seedless raisin
+en: California seedless raisin, California seedless raisins
 de: Kalifornische kernlose Rosinen
 fr: Raisins secs sans grains californiens
 hr: kalifornijske grožđice bez sjemenki
@@ -49481,13 +49486,13 @@ it: uvetta senza semi della California
 sv: kaliforniska russin utan kärnor
 origins:en: en:california
 
-< en:California seedless raisins
+< en: California seedless raisin
 < en:sultana raisin
 en: California seedless Thompson raisin, California seedless Thompson raisins
 sv: kaliforniska Thompson-russin utan kärnor
 
 # < en:grape (made from)
-< en:fruit
+< en: raisin
 en: Corinthian raisins, zante currants
 da: Korend
 de: korinthische Rosinen, Korinthiaki, Korinthe, Korinthen
@@ -49507,7 +49512,7 @@ oc: Pansarilha
 ru: Коринка
 sd: ڪاري ڊاک
 sv: Korinter
-# ckb:مێوژ
+#ckb: مێوژ
 description:en: Zante currants are small, dried, seedless grapes — despite the name, they're not actually related to fresh currants (which are berries from the Ribes genus). Dried fruits made from the Black Corinth grape.
 usda_ndb_code:en: 9085
 usda_ndb_name:en: Currants, zante, dried
@@ -49516,45 +49521,64 @@ wikipedia:en: https://en.wikipedia.org/wiki/Zante_currant
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:raisins-de-corinthe
 # 57 products in 3 languages @2018-10-02
 
-# description:en:Grape juice is obtained from crushing and blending grapes into a liquid.
-
 < en:fruit juice
-# < en:grape (made from)
+< en:grape
 en: grape juice, raisin juice
 ar: عصير العنب
-az: Üzüm şirəsi
+az: üzüm şirəsi
 be: вінаградны сок
 bg: сок от грозде
 ca: suc de raïm
+cs: hroznová šťáva
 de: Traubensaft
 el: χυμός σταφυλιού
 eo: vinbera suko
 es: zumo de uva, jugo de uva, zumo de pasas, jugo de pasas, zumo de pasas de uva, jugo de pasas de uva
-et: Viinamarjamahl
+et: viinamarjamahl
+fa: آب انگور
 fi: rypälemehu, viinirypälemehu
 fr: jus de raisin
+ga: sú fíonchaor
+gl: zume de uva
 he: מיץ ענבים
 hr: groždanog soka
+hy: խաղողի հյութ
+id: jus anggur
 it: succo d'uva
 ja: ぶどうジュース, ぶどう果汁
+jv: jus anggur
 ko: 포도 주스
-la: Mustum conditum
+kw: sugen grappys
+la: mustum conditum
+mk: гроздов сок
+ms: jus anggur
+nb: druesaft, druejus, druejuice
 nl: druivensap, druivesap
-pl: Sok z winogron, sok winogronowy
+nn: druesaft, druejus, druejuice
+pl: sok z winogron, sok winogronowy
 pt: sumo de uva, suco de uva
 pt-br: suco de uva
 pt-pt: sumo de uva
 ru: виноградный сок
 sa: द्राक्षाफलरसः
-sq: Lëngu i rrushit
+sl: grozdni sok
+sq: lëngu i rrushit
+sr: сок од грожђа
 sv: druvsaft, druvjuice
 th: น้ำองุ่น
+tr: üzüm suyu
 tt: виноград суы
+uk: виноградний сік
+yi: טרויבן-זאפט
 zh: 葡萄汁
-# yue:提子汁
-# zh-hans:葡萄汁
-# zh-hant:葡萄汁
-# zh-hk:葡萄汁
+#yue: 提子汁
+#zh-hans: 葡萄汁
+#zh-hant: 葡萄汁
+#zh-hk: 葡萄汁
+agribalyse_food_code:en: 2016
+ciqual_food_code:en: 2016
+ciqual_food_name:en: Grape juice, pure juice
+description:en: Grape juice is obtained from crushing and blending grapes into a liquid.
 wikidata:en: Q1209756
 wikipedia:en: https://en.wikipedia.org/wiki/Grape_juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/grape-juice
@@ -49569,6 +49593,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Grape_juice
 #fi:luomurypälemehu, luomu rypälemehu
 #fr:jus de raisin issu de l'agriculture biologique
 
+< en: concentrated juice
 < en:grape juice
 en: concentrated grape juice, grape juice concentrate
 bg: концентриран гроздов сок
@@ -49586,7 +49611,7 @@ th: จากนำองุ่นเข้มข้น
 # 139 products in 2 languages @2018-10-02
 # ingredient/fr:concentré-de-jus-de-raisin has 26 products in 3 languages @2018-10-02
 
-# This is a compound product made of concentrate grape juice and water
+< en: fruit juice from concentrate
 < en:grape juice
 en: grape juice from concentrate
 bg: гроздов сок от концентрат, концентрат на гроздов сок
@@ -49596,6 +49621,10 @@ fr: jus de raisin à base de concentré, jus de raisins à base de concentré
 hr: sok od grožđa iz koncentrata
 it: succo d'uva da concentrato
 pl: sok winogronowy z koncentratu soku winogronowego
+agribalyse_food_code:en: 2019
+ciqual_food_code:en: 2019
+ciqual_food_name:en: Grape juice, from concentrate
+description:en: This is a compound product made of concentrate grape juice and water.
 
 < en:concentrated grape juice
 fr: jus de raisin concentré rectifié
@@ -49607,6 +49636,7 @@ de: Weißer Traubensaft aus Konzentrat
 it: succo d'uva bianca da concentrato
 
 < en:grape juice
+< en:white grape
 en: white grape juice
 de: Traubensaft weiss
 es: zumo de uva blanca, jugo de uva blanca
@@ -49616,9 +49646,11 @@ hr: sok od bijelog grožđa
 it: succo d'uva bianca
 nl: Witte druivensap
 pl: sok z białych winogron
+wikidata:en: Q128305959
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-raisin-blanc
 # 71 products in 4 languages @2018-10-02
 
+< en: concentrated grape juice
 < en:white grape juice
 en: concentrated white grape juice, white grape juice concentrate
 es: zumo de uva blanca concentrado, jugo de uva blanca concentrado
@@ -49628,6 +49660,7 @@ hr: koncentriranog soka od bijelog grožđa
 it: succo d'uva bianca concentrato
 
 < en:concentrated white grape juice
+#< en: organic grape juice
 en: organic concentrated white grape juice, organic white grape juice concentrate
 fi: luomu vaalea rypälemehutiiviste
 fr: jus concentre de raisin blanc bio
@@ -49652,15 +49685,16 @@ it: succo d'uva moscato
 fr: jus de raisin blanc sauvignon
 
 < en:grape juice
-en: red grape juice
+< en:red grape
+en: red grape juice, red grape fruit juice
 bg: сок от червено грозде
-de: roter Traubensaft
+de: Rotweintraubensaft, roter Traubensaft
 es: zumo de uva roja, jugo de uva roja, zumo de uva tinto, jugo de uva tinto
 fi: punainen rypälemehu
 fr: jus de raisin rouge
-hr: sok od crvenog grožđa
+hr: sok od crvenog grožđa, voćni sok crvenog grožđa
 it: succo d'uva rossa, succo di uva rossa
-nl: blauw druivensap
+nl: rode druivensap, blauw druivensap
 pl: sok z czerwonych winogron
 pt: suco de uva tinta, sumo de uva tinta, suco de uva vermelha, sumo de uva vermelha
 th: น้ำองุ่นแดง
@@ -49765,9 +49799,10 @@ it: mosto d'uva
 nl: druivenmost
 pl: moszcz winogronowy, moszcz z winogron
 ro: must de struguri
-ru: Виноградное сусло
-sq: Mushti i rrushit
+ru: виноградное сусло
+sq: mushti i rrushit
 ta: நொதியேறாப் பழச்சாறு
+wikidata:en: Q140389101
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:moût-de-raisin
 # 273 products in 4 languages @2018-10-02
 
@@ -50011,9 +50046,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Chardonnay
 # ingredient/fr:Chardonnay has 19 products @2019-01-19
 # ingredient/fr:Chardonnay-blanc has 1 product @2019-01-19
 
-
-# description:en:Chasselas or Chasselas blanc is a wine grape variety grown in Switzerland, France, Germany, Portugal, Hungary, Romania, New Zealand and Chile.
-
 < en:varietal
 en: chasselas
 xx: chasselas
@@ -50026,6 +50058,10 @@ hr: šasele
 hu: saszla
 ja: シャセラ
 zh: 莎斯拉
+agribalyse_food_code:en: 13101
+ciqual_food_code:en: 13101
+ciqual_food_name:en: Grape, Chasselas, raw
+description:en: Chasselas or Chasselas blanc is a wine grape variety grown in Switzerland, France, Germany, Portugal, Hungary, Romania, New Zealand and Chile.
 wikidata:en: Q939724
 wikipedia:en: https://en.wikipedia.org/wiki/Chasselas
 # ingredient/fr:chasselas has 4 products @2019-01-18
