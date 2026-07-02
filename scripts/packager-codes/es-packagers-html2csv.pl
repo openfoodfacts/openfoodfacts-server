@@ -23,7 +23,6 @@
 use utf8;
 use open qw(:std :utf8);
 use Modern::Perl '2017';
-use experimental 'smartmatch';
 
 use List::Util qw( all any );
 
