@@ -28,6 +28,9 @@ properties:
       `ingredients_it` if `it` is the main language), this image will be
       displayed on Product Opener for all languages (ex: on
       `https://fr.openfoodfacts.org`, unless `ingredients_fr` exists).
+
+      Also note that "other" is not a valid image type,
+      as it makes no sens to crop an image which is not selected.
     pattern: '^(front|ingredients|nutrition|packaging)_[a-z]{2}$'
     example: front_en
   x1:
