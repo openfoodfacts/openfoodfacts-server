@@ -44571,6 +44571,11 @@ en: frozen blueberry
 usda_ndb_code:en: 9054
 usda_ndb_name:en: Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
 
+< en:frozen blueberry
+en: frozen wild blueberry
+usda_ndb_code:en: 9053
+usda_ndb_name:en: Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)
+
 #en:the specific names are not seen as ingredient.
 < en:blueberry
 en: northern highbush blueberry
@@ -44739,9 +44744,16 @@ pl: boysenberry
 pt: boysenberry
 ru: бойзенова ягода
 sv: boysenbär
+usda_ndb_proxy_code:en: 9057
+usda_ndb_proxy_name:en: Boysenberries, frozen, unsweetened
 wikidata:en: Q896083
 wikipedia:en: https://en.wikipedia.org/wiki/Boysenberry
 # ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
+
+< en:boysenberry
+en: frozen boysenberries
+usda_ndb_code:en: 9057
+usda_ndb_name:en: Boysenberries, frozen, unsweetened
 
 < en:boysenberry
 < en:fruit juice
