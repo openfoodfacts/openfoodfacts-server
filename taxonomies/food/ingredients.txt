@@ -39274,6 +39274,8 @@ it: banana essiccata
 ciqual_food_code:en: 13089
 ciqual_food_name:en: Banana, pulp, dried
 ciqual_food_name:fr: Banane, pulpe, sèche
+usda_ndb_code:en: 9041
+usda_ndb_name:en: Bananas, dehydrated, or banana powder
 # 215 in 7 @2021-09-10
 
 #processing:en: en:flakes
@@ -39310,9 +39312,12 @@ ciqual_food_name:fr: Banane, pulpe, sèche
 # 2082 in 15 @2021-09-10
 
 #processing:en: en:powder
-#<en:banana
-#de:Bananenpulver
-#fi:banaanijauhe
+< en:banana
+en: banana powder
+de: Bananenpulver
+fi: banaanijauhe
+usda_ndb_code:en: 9041
+usda_ndb_name:en: Bananas, dehydrated, or banana powder
 
 #processing:en: en:juice
 #<en:banana
