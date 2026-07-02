@@ -41222,8 +41222,20 @@ ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
 # zh-my:苹果
 # zh-sg:苹果
 # zh-tw:蘋果
+usda_ndb_proxy_code:en: 9004
+usda_ndb_proxy_name:en: Apples, raw, without skin
 wikidata:en: Q89
 wikipedia:en: https://en.wikipedia.org/wiki/Apple
+
+< en:apple
+en: raw apples with skin
+usda_ndb_code:en: 9003
+usda_ndb_name:en: Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)
+
+< en:apple
+en: apples, raw, without skinExpand commentComment on line R41627Resolved
+usda_ndb_code:en: 9004
+usda_ndb_name:en: Apples, raw, without skin
 
 < en:apple
 en: dessert apple
