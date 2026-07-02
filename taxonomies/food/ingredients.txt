@@ -41987,10 +41987,17 @@ ciqual_food_code:en: 13082
 ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
 ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
+usda_ndb_proxy_code:en: 9433
+usda_ndb_proxy_name:en: Clementines, raw
 wikidata:en: Q460517
 wikipedia:en: https://en.wikipedia.org/wiki/Clementine
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
 # 81 products @2018-10-01
+
+< en:clementine
+en: raw clementine
+usda_ndb_code:en: 9433
+usda_ndb_name:en: Clementines, raw
 
 < en:clementine
 < en:fruit juice
@@ -44130,6 +44137,7 @@ pl: sok z jagód acai
 #                                Acerola
 #
 ###################################################################################################
+
 < en:fruit
 en: acerola, acerola cherry, acerola cherries, west indian cherry, west indian cherries, Barbados cherry, Barbados cherries
 xx: acerola
@@ -44142,10 +44150,17 @@ fr: acérola, cerise des Antilles, cerises des Antilles, cerise de la Barbade, c
 hr: acerola, acerole
 pl: acerola, aceroli
 ru: Ацерола
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
-# 133 products in 4 languages @2018-10-03
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.48
+usda_ndb_proxy_code:en: 9001
+usda_ndb_proxy_name:en: Acerola, (west indian cherry), raw
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
+# 133 products in 4 languages @2018-10-03
+
+< en:acerola
+en: raw acerola
+usda_ndb_code:en: 9001
+usda_ndb_name:en: Acerola, (west indian cherry), raw
 
 #< en:acerola
 < en:fruit juice
