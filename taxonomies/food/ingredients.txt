@@ -44842,10 +44842,6 @@ ty: raparapa
 uk: карамбола
 vi: khế
 zh: 楊桃
-#plant:wikidata:en:Q159447
-ciqual_food_code:en: 13054
-ciqual_food_name:en: Carambola, pulp, raw
-ciqual_food_name:fr: Carambole, pulpe, crue
 #bcl:biriran
 #koi:карамбола
 #lbe:карамбола
@@ -44859,10 +44855,23 @@ ciqual_food_name:fr: Carambole, pulpe, crue
 #vep:karambol
 #wuu:杨桃
 #yue:楊桃
+#plant:wikidata:en:Q159447
+ciqual_food_code:en: 13054
+ciqual_food_name:en: Carambola, pulp, raw
+ciqual_food_name:fr: Carambole, pulpe, crue
 ifct_food_code:en: E062
 ifct_food_name:en: Star fruit
+usda_ndb_proxy_code:en: 9060
+usda_ndb_proxy_name:en: Carambola, (starfruit), raw
 wikidata:en: Q181560
 
+< en:carambola
+en: raw carambola
+ciqual_food_code:en: 13054
+ciqual_food_name:en: Carambola, pulp, raw
+ciqual_food_name:fr: Carambole, pulpe, crue
+usda_ndb_code:en: 9060
+usda_ndb_name:en: Carambola, (starfruit), raw
 
 ###################################################################################################
 #
@@ -45274,8 +45283,6 @@ vi: anh đào dại
 vo: Murõlipuu
 wa: Såvaedje tchersî
 zh: 欧洲甜樱桃
-# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
-eurocode_2_group_3:en: 9.20.40
 # atj:Miko Cawemin
 # bar:Keasch
 # be-trask:Чарэшня
@@ -45303,8 +45310,16 @@ eurocode_2_group_3:en: 9.20.40
 # zh-hant:甜櫻桃
 # zh-hk:甜櫻桃
 # zh-sg:甜樱桃
+eurocode_2_group_3:en: 9.20.40
+usda_ndb_proxy_code:en: 9070
+usda_ndb_proxy_name:en: Cherries, sweet, raw
 wikidata:en: Q165137
+# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
 
+< en:sweet cherry
+en: raw sweet cherry
+usda_ndb_code:en: 9070
+usda_ndb_name:en: Cherries, sweet, raw
 
 < en:sweet cherry
 fr: bigarreaux confits
