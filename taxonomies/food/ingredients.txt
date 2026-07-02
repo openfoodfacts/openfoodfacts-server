@@ -39135,9 +39135,9 @@ zh: 香蕉
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
 carbon_footprint_fr_foodges_ingredient:fr: Banane
 carbon_footprint_fr_foodges_value:fr: 1.2
-ciqual_food_code:en: 13005
-ciqual_food_name:en: Banana, pulp, raw
-ciqual_food_name:fr: Banane, pulpe, crue
+ciqual_proxy_food_code:en: 13005
+ciqual_proxy_food_name:en: Banana, pulp, raw
+ciqual_proxy_food_name:fr: Banane, pulpe, crue
 ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
 ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
 wikidata:en: Q503
@@ -39179,8 +39179,18 @@ wikidata:en: Q503
 # wuu:香蕉
 # zh-min-nan:Kin-chio
 # yue:香蕉
+usda_ndb_proxy_code:en: 9040
+usda_ndb_proxy_name:en: Bananas, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Banana
 # 1538 products in 10 languages @2018-09-26
+
+< en:banana
+en: raw banana, raw bananas
+ciqual_food_code:en: 13005
+ciqual_food_name:en: Banana, pulp, raw
+ciqual_food_name:fr: Banane, pulpe, crue
+usda_ndb_code:en: 9040
+usda_ndb_name:en: Bananas, raw
 
 < en:banana
 < en:fruit vegetable
