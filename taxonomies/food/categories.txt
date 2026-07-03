@@ -2537,7 +2537,6 @@ fr: Bières blondes pur malt
 < en:Beers
 en: Flavored beers, Flavored beer
 de: Aromatisierte Biere
-en-GB: Flavoured beers, flavoured beer
 es: Cervezas aromatizadas
 fi: Maustetut oluet
 fr: Bières aromatisées
@@ -70410,7 +70409,6 @@ it: Mele fresche
 lt: Švieži obuoliai
 nl: Verse appels
 sv: Färska äpplen
-bulk_proxy:en: en:apples
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 
@@ -73679,7 +73677,6 @@ comment:en: Bananas is restricted to whole fresh ones
 en: Fresh Cavendish Bananas, Bananas (fresh Cavendish)
 fr: Bananes fraîches Cavendish, Bananes Cavendish fraîches
 nl: Verse hele Cavendish bananen, Bananen(verse Cavendish)
-bulk_proxy_category:en: en:bananas
 comment:en: assume that most bananas sold in the shop are fresh Cavendish bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
@@ -73689,7 +73686,6 @@ sales_format:en: package, weight, item
 en: Fresh Frecinette Bananas, Bananas (fresh frecinette)
 fr: Bananes frecinettes fraîches
 nl: Verse hele frecinette bananen
-bulk_proxy_category:en: en:frecinette-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
@@ -73698,7 +73694,6 @@ sales_format:en: package, weight, item
 en: Fresh Red Bananas
 fr: Bananes rouges fraîches, Bananes fraîches rouges
 nl: Bananen(verse hele rode), Verse hele rode bananen
-bulk_proxy_category:en: en:red-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
@@ -73707,7 +73702,6 @@ sales_format:en: package, weight, item
 en: Fresh Bananas from the Canary Islands
 fr: Bananes fraîches des Canaries
 nl: Verse hele bananen van de Canarische eilanden, Bananen(verse rode van de Canrische eilanden)
-bulk_proxy_category:en: en:bananas-from-the-canary-islands
 expected_ingredients:en: en:bananas
 sales_format:en: package, weight, item
 
@@ -113517,7 +113511,6 @@ hr: Svježe mrkve
 it: Carote fresche
 nl: Verse wortel
 sv: Färska morötter
-bulk_proxy:en: en:carrots
 expected_ingredients:en: en:carrots
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,9,10,11,12
@@ -116412,7 +116405,6 @@ hr: Svježe rajčice
 it: Pomodori freschi
 nl: Verse tomaten, Verse tomaat
 pl: Pomidory świeże, Świeże pomidory
-bulk_proxy:en: en:tomatoes
 sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
 
@@ -116615,7 +116607,6 @@ es: Calabacín fresco
 fr: Courgettes fraîches
 hr: Svježe tikvice
 it: Zucchine fresche
-bulk_proxy:en: en:zucchini
 sales_format:en: weight, package
 season_in_country_fr:en: 5,6,7,8,9,10
 
