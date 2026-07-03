@@ -206,11 +206,11 @@ tr: Sigara
 google_product_taxonomy_id:en: 3151
 wikidata:en: Q1578
 
-en: bulk
-fr: vrac
-hr: rasuti
-nl: verpakkingsvrij
-pt: massa
+#en: bulk
+#fr: vrac
+#hr: rasuti
+#nl: verpakkingsvrij
+#pt: massa
 
 en: Artisan products
 ca: Prouctes artesans
@@ -2548,7 +2548,8 @@ es: Cervezas aromatizadas
 fi: Maustetut oluet
 fr: Bières aromatisées
 hr: Aromatizirana piva
-hu: Ízesített sörök
+hu: Ízesített sörökIntegrating with a shop taxonomy allows you to find the bulk products in shops around you.
+But it doesn’t. Whether something is in the Bulk category or not doesn’t have any impact on whether any given store selling that item actually sells it in bulk or not. Plenty of the “Fresh [plant]” categories that were under Bulk have a lot of packaged products in them, and so does the cashew category.
 it: Birre aromatizzate, birre con aroma
 lt: Aromatizuotas alus
 nl: Gearomatiseerde bieren
@@ -70264,7 +70265,6 @@ it: Mele fresche
 lt: Švieži obuoliai
 nl: Verse appels
 sv: Färska äpplen
-bulk_proxy:en: en:apples
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 
@@ -73497,7 +73497,6 @@ comment:en: Bananas is restricted to whole fresh ones
 en: Fresh Cavendish Bananas, Bananas (fresh Cavendish)
 fr: Bananes fraîches Cavendish, Bananes Cavendish fraîches
 nl: Verse hele Cavendish bananen, Bananen(verse Cavendish)
-bulk_proxy_category:en: en:bananas
 comment:en: assume that most bananas sold in the shop are fresh Cavendish bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
@@ -73507,7 +73506,6 @@ sales_format:en: package, weight, item
 en: Fresh Frecinette Bananas, Bananas (fresh frecinette)
 fr: Bananes frecinettes fraîches
 nl: Verse hele frecinette bananen
-bulk_proxy_category:en: en:frecinette-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
@@ -73516,7 +73514,6 @@ sales_format:en: package, weight, item
 en: Fresh Red Bananas
 fr: Bananes rouges fraîches, Bananes fraîches rouges
 nl: Bananen(verse hele rode), Verse hele rode bananen
-bulk_proxy_category:en: en:red-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
@@ -73525,7 +73522,6 @@ sales_format:en: package, weight, item
 en: Fresh Bananas from the Canary Islands
 fr: Bananes fraîches des Canaries
 nl: Verse hele bananen van de Canarische eilanden, Bananen(verse rode van de Canrische eilanden)
-bulk_proxy_category:en: en:bananas-from-the-canary-islands
 expected_ingredients:en: en:bananas
 sales_format:en: package, weight, item
 
@@ -113316,7 +113312,6 @@ hr: Svježe mrkve
 it: Carote fresche
 nl: Verse wortel
 sv: Färska morötter
-bulk_proxy:en: en:carrots
 expected_ingredients:en: en:carrots
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,9,10,11,12
@@ -116211,7 +116206,6 @@ hr: Svježe rajčice
 it: Pomodori freschi
 nl: Verse tomaten, Verse tomaat
 pl: Pomidory świeże, Świeże pomidory
-bulk_proxy:en: en:tomatoes
 sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
 
@@ -116414,7 +116408,6 @@ es: Calabacín fresco
 fr: Courgettes fraîches
 hr: Svježe tikvice
 it: Zucchine fresche
-bulk_proxy:en: en:zucchini
 sales_format:en: weight, package
 season_in_country_fr:en: 5,6,7,8,9,10
 
