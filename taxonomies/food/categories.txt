@@ -206,12 +206,6 @@ tr: Sigara
 google_product_taxonomy_id:en: 3151
 wikidata:en: Q1578
 
-en: Bulk
-fr: Vrac
-hr: Rasuti
-nl: Verpakkingsvrij
-pt: Massa
-
 en: Artisan products
 ca: Prouctes artesans
 de: Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -35288,10 +35282,16 @@ ciqual_food_name:fr: Sablé pâtissier
 wikidata:en: Q2915670
 
 < en:Shortbread cookies
-en: Shortbread cookies from Brittany
+en: Shortbread
+xx: Shortbread
+wikidata:en: Q652695
+
+< en:Shortbread cookies
+en: Brittany-style galette biscuits, Shortbread cookies from Brittany
 fr: Galettes bretonnes au beurre, galettes bretonnes
 
 < en:Shortbread cookies
+en: Brittany-style palet biscuits
 fr: Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
 
 < en:Shortbread cookies
@@ -35370,11 +35370,8 @@ ciqual_food_name:en: Biscuit shortbread, with fruits
 ciqual_food_name:fr: Biscuit sec, sablé, galette ou palet, aux fruits
 
 < en:Shortbread cookies
-fr: Sablés au beurre
-
-< en:Biscuits
-en: Shortbread biscuit with butter
-fr: Biscuit sec au beurre
+en: Plain butter shortbreads, Shortbread biscuit with butter
+fr: Sablés nature au beurre, Sablés au beurre
 agribalyse_food_code:en: 24049
 ciqual_food_code:en: 24049
 ciqual_food_name:en: Biscuit shortbread, with butter
@@ -35495,11 +35492,6 @@ ciqual_food_name:fr: Biscuit de Savoie
 < en:Biscuits and cakes
 en: Brookies
 fr: Brookies
-
-< en:Shortbread cookies
-en: Shortbread
-xx: Shortbread
-wikidata:en: Q652695
 
 < en:Biscuits
 en: Krumiri
@@ -58195,7 +58187,6 @@ fr: Noix de cajou crues
 expected_ingredients:en: en:cashew-nuts
 sales_format:en: weight, package
 
-< en:Bulk
 < en:Cashew nuts
 < en:Roasted nuts
 en: Roasted cashew nuts
@@ -70102,24 +70093,152 @@ ciqual_food_name:fr: Kumquat, sans pépin, cru
 
 < en:Fruits
 en: Apples
+af: Appel
+am: ፖም
+an: Mazana
+ar: تفاح
+as: আপেল
+av: Гӏеч
+az: Alma
+ba: Алма
+be: Яблык
+bg: Ябълка
+bi: Apol
+bn: আপেল
+bo: ཀུ་ཤུ།
+br: Aval
+bs: Jabuka
+ca: Poma
+ce: Ӏаж
+co: Mela
+cs: Jablko
+cu: Аблъко
+cv: Панулми
+cy: Afal
 da: Æbler
 de: Äpfel, Apfel
+dv: އާފަލް
+el: Μήλο
+eo: Pomoj
 es: Manzanas
-fi: omenat
+et: Õun
+eu: Sagar
+fa: سیب
+fi: Omenat
+fj: Yapolo
+fo: Súrepli
 fr: Pommes
-hr: Jabuke
-it: Mele
+fy: Appel
+ga: Úll
+gd: Ubhal
+gl: Mazá
+gn: Guavirana'a
+gu: સફરજન
+gv: Ooyl
+ha: Tuffa
+hi: सेब
+hr: Jabuke, Jabuka
+ht: Pòm
+hu: Alma
+hy: Խնձոր
+ia: Pomo
+id: Apel
+ie: Pom
+ig: Apple
+ik: Aapuq
+io: Pomo
+is: Epli
+it: Mele, Mela
+iu: ᑭᒻᒥᓇᐅᔭᖅ
 ja: リンゴ, りんご, 林檎, アップル
-la: Malus domestica
+jv: Apel
+ka: Ვაშლი
+ki: Mbirikicũ
+kk: Алма
+km: ប៉ុម
+kn: ಸೇಬು
+ko: 사과
+ks: ژوٗنٛٹھ
+ku: Sêv
+kw: Aval
+ky: Алма
+la: Malus domestica, Malum
+lb: Apel
+lg: Zegu
+li: Appel
+lo: ໝາກປົ່ມ
 lt: Obuoliai, Obuolys
+lv: Ābols
+mg: Paoma
+mi: Āporo
+mk: Јаболко
+ml: ആപ്പിൾ
+mn: Алим
+mr: सफरचंद
+ms: Epal
+mt: Tuffieħa
+my: ပန်းသီး
+nb: Epler
+ne: स्याउ
 nl: Appels
+nn: Eple
+nv: Bilasáana
+oc: Poma
+om: Appilii
+or: ସେଓ
+os: Фæткъуы
+pa: ਸੇਬ
+pi: Sītāphala
+pl: Jabłko
+ps: مڼه
 pt: Maçâs
-ro: Mere
-ru: Яблоки
+qu: Mansana
+ro: Măr, Mere
+ru: Яблоки, Яблоко
+rw: Pome
+sa: सेवफलम्
+sc: Mela
+sd: اَنبِڙِي
+sh: Jabuka
+si: ඇපල්
+sk: Jablká
+sl: Jabolko
+sm: Apu
+so: Tufaax
+sq: Mollë
+sr: Јабука
+st: Apole
+su: Apel
 sv: Äpplen
-agribalyse_proxy_food_code:en: 13085
-agribalyse_proxy_food_name:en: Apple, Canada, pulp, raw
-agribalyse_proxy_food_name:fr: Pomme Canada, pulpe, crue
+sw: Tofaa
+ta: ஆப்பிள்
+te: ఆపిల్
+tg: Себ
+th: แอปเปิล
+ti: ቱፋሕ
+tk: Alma
+tl: Mansanas
+tn: Apole
+tr: Elma
+tt: Алма
+ug: ئالما
+uk: Яблуко
+ur: سیب
+uz: Olma
+ve: Apula
+vi: Táo tây
+vo: Pod
+wa: Peme
+wo: Pom
+xh: Iapule
+yi: עפל
+yo: Èso òro òyìnbó
+za: Makbinzgoj
+zh: 苹果
+zu: Ihhabhula
+agribalyse_food_code:en: 13039
+ciqual_food_code:en: 13039
+ciqual_food_name:en: Apple, flesh and skin, raw
 google_product_taxonomy_id:en: 6566
 intake24_category_code:en: APLS
 sales_format:en: weight, package
@@ -70128,6 +70247,7 @@ wikidata:en: Q89
 < en:Apples
 < en:Fresh fruits
 en: Fresh apples
+da: Friske æbler
 de: Frische Äpfel
 es: Manzanas frescas
 fr: Pommes fraîches
@@ -70135,6 +70255,7 @@ hr: Svježe jabuke
 it: Mele fresche
 lt: Švieži obuoliai
 nl: Verse appels
+sv: Färska äpplen
 bulk_proxy:en: en:apples
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
@@ -70153,13 +70274,66 @@ hr: Elstar jabuke
 nl: Elstar
 sales_format:en: weight, package
 
+< en: Apples
+en: Giga apples
+da: Giga-æbler
+sv: Giga-äpplen
+#web:en: https://www.giga-apple.com/
+wikidata:en: Q140393522
+
+< en: Fresh apples
+< en: Giga apples
+en: Fresh Giga apples
+da: Friske Giga-æbler
+sv: Färska Giga-äpplen
+
 < en:Apples
 en: Story apples
 fr: Pommes story
 
+< en: Apples
+en: Jonagold apples
+xx: Jonagold
+da: Jonagold-æbler
+fa: جوناگلد
+ja: ジョナゴールド
+ko: 조너골드
+mk: Јонаголд
+ru: Джонаголд
+sv: Jonagold-äpplen
+uk: Джонаголд
+vi: Táo Jonagold
+zh: 乔纳金苹果
+description:en: A cultivar of apple that is a cross between the crisp Golden Delicious and the blush-crimson Jonathan; the name Jonagold is a portmanteau of these two variety names. (Wikipedia)
+wikidata:en: Q41778389
+
+< en: Fresh apples
+< en: Jonagold apples
+en: Fresh Jonagold apples
+da: Friske Jonagold-æbler
+sv: Färska Jonagold-äpplen
+
 < en:Apples
 en: Juliet apples
 fr: Pommes juliet
+
+< en: Apples
+en: Royal Gala apples
+xx: Royal Gala
+da: Royal Gala-æbler
+la: Malus domestica 'Tenroy'
+sv: Royal Gala-äpplen
+agribalyse_proxy_food_code:en: 13191
+ciqual_proxy_food_code:en: 13191
+ciqual_proxy_food_name:en: Apple, var. Gala, flesh without skin, raw
+comment:en: Royal Gala is mutated from Gala apples, hence using Gala as a proxy food.
+wikidata:en: Q41781176
+
+< en: Fresh apples
+< en: Royal Gala apples
+en: Fresh Royal Gala apples
+da: Friske Royal Gala-æbler
+sv: Färska Royal Gala-äpplen
 
 < en:Apples
 en: Top red apples
@@ -72164,7 +72338,6 @@ protected_name_file_number:en: PGI-IT-02469
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Bulk
 < en:Fresh fruits
 < en:Peaches
 en: Fresh peaches
@@ -72937,7 +73110,6 @@ ciqual_food_name:fr: Prune, crue
 intake24_category_code:en: PLUM
 wikidata:en: Q12372598
 
-< en:Bulk
 < en:Fresh fruits
 < en:Plums
 en: Fresh plums
@@ -73312,7 +73484,6 @@ lt: Bananų miltai
 nl: Bananenmelen
 comment:en: Bananas is restricted to whole fresh ones
 
-< en:Bulk
 < en:Cavendish Bananas
 < en:Fresh Bananas
 en: Fresh Cavendish Bananas, Bananas (fresh Cavendish)
@@ -73323,7 +73494,6 @@ comment:en: assume that most bananas sold in the shop are fresh Cavendish banana
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bulk
 < en:Frecinette Bananas
 < en:Fresh bananas
 en: Fresh Frecinette Bananas, Bananas (fresh frecinette)
@@ -73333,7 +73503,6 @@ bulk_proxy_category:en: en:frecinette-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bulk
 < en:Fresh Bananas
 < en:Red Bananas
 en: Fresh Red Bananas
@@ -73344,7 +73513,6 @@ expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
 < en:Bananas from the Canary Islands
-< en:Bulk
 < en:Fresh bananas
 en: Fresh Bananas from the Canary Islands
 fr: Bananes fraîches des Canaries
@@ -111896,7 +112064,6 @@ ciqual_food_code:en: 20181
 ciqual_food_name:en: Parsnip, raw
 ciqual_food_name:fr: Panais, cru
 
-< en:Bulk
 < en:Fresh vegetables
 < en:Parsnip
 en: Fresh parsnip
@@ -113360,7 +113527,6 @@ google_product_taxonomy_id:en: 6597
 wikidata:en: Q157954
 wikipedia:en: https://en.wikipedia.org/wiki/Chard
 
-< en:Bulk
 < en:Chards
 < en:Fresh vegetables
 en: Fresh chards

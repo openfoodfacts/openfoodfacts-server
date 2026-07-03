@@ -16543,9 +16543,9 @@ ml: വെളിച്ചെണ്ണ
 mr: खोबरेल तेल
 ms: Minyak kelapa
 my: အုန်းဆီ
-nb: Kokosolje
+nb: kokosolje
 nl: kokosolie
-nn: Kokosfeitt
+nn: kokosolje
 os: Кокосы зети
 pl: Olej kokosowy, olej roślinny kokosowy, oleje roślinne kokosowy
 pt: óleo de coco
@@ -16651,15 +16651,15 @@ ru: масло кокосовое рафинированное дезодори�
 en: MCT oil, Medium-chain triglycerides oil
 it: olio MCT
 
+< en: coconut
 < en:vegetable fat
-# producedFrom:en:coconut
 en: coconut fat
 bg: кокосова мазнина, кокосова
 ca: greix de coco
 cs: kokosový tuk
 da: kokosfedt
 de: Kokosfett, Kokosnussfett
-es: Grasa de coco, grasa vegetal de coco
+es: grasa de coco, grasa vegetal de coco
 et: kookosrasv
 fi: kookosrasva, kookosrasvaa
 fr: matière grasse de noix de coco, graisse de noix de coco, graisse de coco, matière grasse végétale de coprah, matière grasse de coprah
@@ -16668,16 +16668,19 @@ hu: kókuszzsír
 it: grasso di cocco
 lt: kokoso riebalai
 lv: kokosriekstu tauki
+nb: kokosfett
 nl: kokosvet
+nn: kokosfeitt
 pl: tłuszcz kokosowy, tłuszcz roślinny kokosowy, tłuszcze roślinne kokosowy
-pt: Gordura de coco, lípido de coco
+pt: gordura de coco, lípido de coco
 sl: kokosova maščoba
-sv: kokosfett
+sv: kokosfett, kokosnötfett, kokosnöt fett
+agribalyse_food_code:en: 16040
 ciqual_food_code:en: 16040
 ciqual_food_name:en: Coconut fat or oil
+from_palm_oil:en: no
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
 # 36 products in 4 languages @2018-10-03
-from_palm_oil:en: no
 
 # creamed coconut differs from coconut cream: https://en.wikipedia.org/wiki/Creamed_coconut
 < en:coconut fat
@@ -38480,28 +38483,30 @@ usda_ndb_code:en: 9174
 usda_ndb_name:en: Loquats, raw
 
 < en:fruit
-fr: fruits exotiques
+en: exotic fruit
+da: eksotisk frugt
 fi: eksoottiset hedelmät
+fr: fruit exotique, fruits exotiques
+wikidata:en: Q3089309
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-exotiques
 # 24 products in 1 language @2018-10-02
 
 # <en:fruit and vegetable
 < en:fruit concentrate
 < en:vegetable concentrate
-en: fruit and vegetable concentrates, vegetable and fruit concentrates
-da: frugt- og grøntsagskoncentrater
-de: obst- und gemüsekonzentrate
+en: fruit and vegetable concentrate, fruit and vegetable concentrates, vegetable and fruit concentrates
+da: frugt- og grøntsagskoncentrat, frugt- og grøntsagskoncentrater
+de: Obst- und Gemüsekonzentrate
 es: concentrados de frutas y vegetales
 fi: hedelmä- ja kasvistiivisteet, kasvis- ja hedelmätiivisteet
 fr: fruits et légumes concentrés, concentrés de fruits et de légumes
-# hr:voćni koncentrati # see ingredients_processing.txt
+#hr: voćni koncentrati # see ingredients_processing.txt
 it: concentrati di frutta e verdura
 nl: groente- en fruitconcentraten
 pt: Concentrado de frutas e vegetais
-sv: frukt- och grönsakskoncentrat
+sv: frukt- och grönsakskoncentrat, frukt och grönsaks koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fruits-et-légumes-concentrés
 # 18 products in 1 language @2018-10-02
-
 
 < en:fruit
 en: dried fruit, dried fruits
@@ -51237,7 +51242,7 @@ pt: vegetal
 ro: Legume
 ru: Овощ
 sr: povrće
-sv: grönsak, grönsaker
+sv: grönsak, grönsaker, grönsaks
 tr: Sebze
 zh: 蔬菜
 #carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen importé par bateau et camion
@@ -52621,7 +52626,6 @@ usda_ndb_name:en: Purslane, raw
 #                                Parsley
 #
 ###################################################################################################
-# description:en:PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
 
 #category/parsley
 < en:herb
@@ -52720,6 +52724,7 @@ zh: 香芹
 ciqual_proxy_food_code:en: 11014
 ciqual_proxy_food_name:en: Parsley, fresh
 ciqual_proxy_food_name:fr: Persil, frais
+description:en: PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
 eurocode_2_group_2:en: 8.10
 eurocode_2_group_3:en: 8.10.60
 ifct_food_code:en: C028
@@ -52748,15 +52753,17 @@ en: flatleaf parsley
 it: prezzemolo a foglia piatta
 
 #processing:en: en:dehydrated
-#<en:parsley
-#en:dehydrated parsley
-#de:Petersilie getrocknet
-#es:perejil deshidratado
-#fi:kuivattu persilja
-#fr:persil déshydraté, persil séché
-#it:prezzemolo essiccato
-#nl:Gedehydrateerde peterselie
-#ru:зелень петрушки сушёная
+< en:parsley
+en: dehydrated parsley
+de: Petersilie getrocknet
+es: perejil deshidratado
+fi: kuivattu persilja
+fr: persil déshydraté, persil séché
+it: prezzemolo essiccato
+nl: gedehydrateerde peterselie
+ru: зелень петрушки сушёная
+usda_ndb_code:en: 2029
+usda_ndb_name:en: Spices, parsley, dried
 # fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
 
 #processing:en: en:leaf
@@ -54033,7 +54040,7 @@ nl: selderextract
 # fr:extrait-de-céleri has 58 products @2018-10-20
 
 < en:celery
-< en:seed
+# < en:seed
 en: celery seed
 de: Selleriesamen, Selleriesaat
 es: Semilla de apio
@@ -54045,6 +54052,8 @@ ja: セロリシード
 nl: selderij zaad, selderijzaad
 pl: nasiona selera
 sv: sellerifrö
+usda_ndb_code:en: 2007
+usda_ndb_name:en: Spices, celery seed
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
 # 66 products in 3 languages @2018-10-07
 
@@ -54065,8 +54074,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Celery_powder
 < en:celery
 fr: jus concentré de céleri et de carotte
 # fr:jus-concentré-de-céleri-et-de-carotte has 31 products in 1 language @2018-10-20
-
-# description:en:FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
 
 # <en:category:en:Plant-based foods
 < en:stalk vegetable
@@ -54155,6 +54162,7 @@ zh: 小茴香
 ciqual_food_code:en: 20028
 ciqual_food_name:en: Fennel, raw
 ciqual_food_name:fr: Fenouil, cru
+description:en: FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
 ecobalyse:en: fennel-eu
 ecobalyse_origins_en_france:en: fennel-fr
 eurocode_2_group_2:en: 12.20
@@ -55258,7 +55266,7 @@ ja: ドライ玉ねぎ
 lv: dehidrēts sīpols
 nl: gedroogde uien, gedroogde ui, oignons séchés, oignon déshydraté
 nn: tørket løk
-pl: suszona cebula, cebula suszona, cebula w proszku, sproszkowana cebula
+pl: suszona cebula, cebula suszona, sproszkowana cebula
 pt: cebola desidratada, cebola seca
 ro: ceapă deshidratată
 ru: лук репчатый сушеный, лук-репчатый сушёный, лук репчатый-сушёный
@@ -55267,42 +55275,46 @@ uk: цибуля ріпчаста сушена
 ciqual_food_code:en: 20180
 ciqual_food_name:en: Onion, dried
 ciqual_food_name:fr: Oignon, séché
+usda_ndb_proxy_code:en: 2026
+usda_ndb_proxy_name:en: Spices, onion powder
 # 12664 in 22 @2021-09-10
 
 #category/onion-powder
 #processing:en: en:powder
-#<en:onion
-#en:onion powder, Granulated onion, Dried minced onion
-#bg:лук на прах
-#ca:ceba en pols
-#cs:Sušená cibule
-#da:løgpulver
-#de:Zwiebelpulver
-#el:κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
-#eo:pulvorigita cepo
-#es:cebolla en polvo, Cebolla seca molida, Cebollas secas en polvo
-#et:sibulapulber
-#fi:sipulijauhe
-#fr:oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
-#he:אבקת בצל, בצל מיובש כתוש, בצל כתוש מיובש
-#hr:luk u prahu
-#hu:vöröshagymapor
-#it:cipolla en polvere
-#ja:玉ねぎパウダー
-#lt:svogūnų milteliai
-#lv:sīpolu pulveris
-#ms:Serbuk bawang
-#nb:løkpulver
-#nl:uienpoeder, uipoeder, Uienpoeders
-#pl:Cebula w proszku
-#pt:cebola em pó
-#ro:ceapă pudră
-#ru:Луковый порошок
-#sk:sušená cibuľa
-#sl:čebula v prahu
-#sv:lökpulver
-#tr:soğan tozu
-#wikidata:en:Q7093931
+< en:onion
+en: onion powder, granulated onion, dried minced onion
+bg: лук на прах
+ca: ceba en pols
+cs: sušená cibule
+da: løgpulver
+de: Zwiebelpulver
+el: κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
+eo: pulvorigita cepo
+es: cebolla en polvo, Cebolla seca molida, Cebollas secas en polvo
+et: sibulapulber
+fi: sipulijauhe
+fr: oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
+he: אבקת בצל, בצל מיובש כתוש, בצל כתוש מיובש
+hr: luk u prahu
+hu: vöröshagymapor
+it: cipolla en polvere
+ja: 玉ねぎパウダー
+lt: svogūnų milteliai
+lv: sīpolu pulveris
+ms: serbuk bawang
+nb: løkpulver
+nl: uienpoeder, uipoeder, Uienpoeders
+pl: cebula w proszku
+pt: cebola em pó
+ro: ceapă pudră
+ru: Луковый порошок
+sk: sušená cibuľa
+sl: čebula v prahu
+sv: lökpulver
+tr: soğan tozu
+usda_ndb_code:en: 2026
+usda_ndb_name:en: Spices, onion powder
+wikidata:en: Q7093931
 # 24139 in 36 @2021-09-10
 
 # description:en:The PEARL ONION (Allium ampeloprasum var. sectivum or A. ampeloprasum 'Pearl-Onion Group'), also known as button or baby onions in the UK, or creamers in the US, is a close relative of the leek
@@ -55819,30 +55831,32 @@ it: Impasto d'aglio
 pl: pasta czosnkowa
 # en:garlic-paste has 35 products in 2 languages @2018-10-23
 
-#<en:garlic
-#en:garlic powder
-#en:processing:en:powder
-#bs:bijeli luk u prahu
-#ca:All en pols
-#da:hvidløgspulver
-#de:Knoblauchpulver
-#el:σκόρδο σκόνη, σκόρδο σε σκόνη
-#es:ajo en polvo
-#et:küüslaugupulber
-#fi:valkosipulijauhe
-#fr:poudre d'ail, ail en poudre
-#hu:fokhagymapor
-#it:aglio in polvere, polvere di aglio
-#lt:česnakų milteliai, česnako milteliai
-#nl:knoflookpoeder
-#nn:hvitløkspulver
-#pl:czosnek sproszkowany
-#pt:alho em pó
-#ro:pudră de usturoi
-#ru:Чесночный порошок
-#sl:česen v prahu
-#sv:vitlökspulver
-#tr:sarimsak tozu
+#en:processing:en:powder removed due to specific nutritional data
+< en:garlic
+en: garlic powder
+bs: bijeli luk u prahu
+ca: all en pols
+da: hvidløgspulver
+de: Knoblauchpulver
+el: σκόρδο σκόνη, σκόρδο σε σκόνη
+es: ajo en polvo
+et: küüslaugupulber
+fi: valkosipulijauhe
+fr: poudre d'ail, ail en poudre
+hu: fokhagymapor
+it: aglio in polvere, polvere di aglio
+lt: česnakų milteliai, česnako milteliai
+nl: knoflookpoeder
+nn: hvitløkspulver
+pl: czosnek sproszkowany
+pt: alho em pó
+ro: pudră de usturoi
+ru: Чесночный порошок
+sl: česen v prahu
+sv: vitlökspulver
+tr: sarimsak tozu
+usda_ndb_code:en: 2020
+usda_ndb_name:en: Spices, garlic powder
 # fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
 
 < en:garlic
@@ -59264,9 +59278,6 @@ it: insalata composta
 # ingredient/fr:salade-composée has 97 products in french @2019-04-16
 # usage:fr: Salade composée 88% : Scarole, carotte râpées, maïs (maïs, sucre, sel), emmental 12%, dés de jambon cuit supérieur 12% (jambon de porc 10,9%, sel, sirop de glucose, dextrose, arômes naturels, antioxydant : ascorbate de sodium, conservateur: nitrite de sodium), frisée, chicorée rouge.
 
-# description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
-# comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word.
-# wikipedia says "In many languages, but not English, the word paprika also refers to the plant and the fruit from which the spice is made, as well as to peppers in the Grossum group (e.g. bell peppers)."
 # do not make pepper a synonym of bell pepper
 
 < en:fruit vegetable
@@ -59334,14 +59345,6 @@ wa: poevron
 yi: פאפריקע
 yo: ata tàtàṣé
 zh: 菜椒
-carbon_footprint_fr_foodges_ingredient:fr: Poivron
-carbon_footprint_fr_foodges_value:fr: 0.9
-ciqual_food_code:en: 20041
-ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
-ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
-ecobalyse:en: bellpepper-unheated-greehouse
-# fr:poivron has 1581 products in 11 languages @2018-10-15
-eurocode_2_group_3:en: 8.40.20
 #arz:فلفل حلو
 # ast:pimientu
 # en-ca:bell pepper
@@ -59359,8 +59362,18 @@ eurocode_2_group_3:en: 8.40.20
 # zh-my:菜椒
 # zh-sg:菜椒
 # zh-tw:菜椒
+carbon_footprint_fr_foodges_ingredient:fr: Poivron
+carbon_footprint_fr_foodges_value:fr: 0.9
+ciqual_food_code:en: 20041
+ciqual_food_name:en: Sweet pepper, green, yellow or red, raw
+ciqual_food_name:fr: Poivron, vert, jaune ou rouge, cru
+comment:en: in some languages en:bell-pepper and en:parika are not distinguished, but the same word. wikipedia says "In many languages, but not English, the word paprika also refers to the plant and the fruit from which the spice is made, as well as to peppers in the Grossum group (e.g. bell peppers)."
+description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
+ecobalyse:en: bellpepper-unheated-greehouse
+eurocode_2_group_3:en: 8.40.20
 wikidata:en: Q1548030
 wikipedia:en: https://en.wikipedia.org/wiki/Bell_pepper
+# fr:poivron has 1581 products in 11 languages @2018-10-15
 
 
 # make "yellow bell pepper" the canonical name
@@ -59903,8 +59916,6 @@ wikidata:en: Q432426
 wikipedia:en: https://en.wikipedia.org/wiki/Bird%27s_eye_chili
 # ingredient/en:thai-chili has 5 products in 1 language @2020-05-25
 
-# description:en:ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
-
 < en:chili pepper
 en: allspice, all spice, jamaica pepper, myrtle pepper
 bg: бахар
@@ -59920,11 +59931,17 @@ nl: Jamaicaanse peper
 pl: ziele angielskie, ziela angielskiego
 ru: перец душистый, перец душистый молотый, душистый перец
 sv: kryddpeppar
+description:en: ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
+usda_ndb_proxy_code:en: 2001
+usda_ndb_proxy_name:en: Spices, allspice, ground
 wikidata:en: Q158468
 wikipedia:en: https://en.wikipedia.org/wiki/Allspice
 # ingredient/fr:piment-de-la-jamaïque has 148 products in 5 languages @2019-04-15
 
-# description:en:The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
+< en:allspice
+en: ground allspice
+usda_ndb_code:en: 2001
+usda_ndb_name:en: Spices, allspice, ground
 
 < en:chili pepper
 fr: piment Oiseau
@@ -60083,9 +60100,6 @@ tg: паприка
 tl: Paprika
 uk: паприка
 zh: 辣椒粉
-ciqual_food_code:en: 11049
-ciqual_food_name:en: Paprika
-ciqual_food_name:fr: Paprika
 # ast:Pimentón
 # ceb:paprika
 # en-ca:paprika
@@ -60098,6 +60112,11 @@ ciqual_food_name:fr: Paprika
 # yue:紅甜椒粉
 # zh-cn:烟熏红椒
 # zh-hant:烟熏红椒
+ciqual_food_code:en: 11049
+ciqual_food_name:en: Paprika
+ciqual_food_name:fr: Paprika
+usda_ndb_code:en: 2028
+usda_ndb_name:en: Spices, paprika
 wikidata:en: Q3127593
 wikipedia:en: https://en.wikipedia.org/wiki/Paprika
 # fr:paprika 2505 in 24 languages products @2018-10-14
@@ -66045,8 +66064,6 @@ ciqual_food_code:en: 15029
 ciqual_food_name:en: Alfalfa seeds, sprouted, raw
 ciqual_food_name:fr: Luzerne, graine germée
 
-# description:en:Anise, also called aniseed, is a flowering plant in the family Apiaceae. It is widely cultivated and used to flavor food and alcoholic drinks, especially around the Mediterranean.
-# comment:en: wikidata page Q28692 refers anise in general terms, not to the seed
 
 < en:seed
 en: aniseed, anise
@@ -66064,9 +66081,18 @@ ru: семена аниса
 sv: anis, anisfrö
 te: సోపు
 tt: әнис орлыгы
+comment:en: wikidata page Q28692 refers anise in general terms, not to the seed
+description:en: Anise, also called aniseed, is a flowering plant in the family Apiaceae. It is widely cultivated and used to flavor food and alcoholic drinks, especially around the Mediterranean.
+usda_ndb_proxy_code:en: 2002
+usda_ndb_proxy_name:en: Spices, anise seed
 wikidata:en: Q33873455
 wikipedia:en: https://en.wikipedia.org/wiki/Anise
 # ingredient/fr:graine-d'anis-vert has 25 products in 1 language @2018-10-07
+
+< en:aniseed
+en: aniseseed
+usda_ndb_code:en: 2002
+usda_ndb_name:en: Spices, anise seed
 
 < en:aniseed
 en: organic aniseed, organic anise
@@ -66106,6 +66132,8 @@ th: ม็ดผักชี
 ciqual_food_code:en: 11026
 ciqual_food_name:en: Coriander, seed
 ciqual_food_name:fr: Coriandre, graine
+usda_ndb_code:en: 2013
+usda_ndb_name:en: Spices, coriander seed
 wikidata:en: Q20856764
 # 1002 in 14 @2019-09-26
 
@@ -66428,6 +66456,8 @@ ciqual_food_name:en: Cumin, seed
 ciqual_food_name:fr: Cumin, graine
 ifct_food_code:en: G025
 ifct_food_name:en: Cumin seeds
+usda_ndb_code:en: 2014
+usda_ndb_name:en: Spices, cumin seed
 wikidata:en: Q57328174
 wikipedia:en: https://en.wikipedia.org/wiki/Cumin
 
@@ -66451,6 +66481,66 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cumin
 #nl:komijnpoeder
 #pt:cominho em pó
 
+#category/fennel-seeds
+< en:seed
+en: fennel seed
+ca: fruit del fonoll
+da: fennikelfrø
+de: Fenchelsamen, Fenchelsaat
+es: Semilla de hinojo, Semillas de hinojo
+fi: fenkolinsiemen, fenkolin siemen
+fr: graine de fenouil, graines de fenouil
+hr: sjeme komorača
+it: seme di finocchio, semi di finocchio
+ja: フェンネルシード
+la: Foeniculi Fructus
+nb: fennikelfrø
+nl: Venkelzaad
+ru: плод фенхеля
+sv: fänkålsfrö, fänkålsfrön
+ciqual_food_code:en: 11066
+ciqual_food_name:en: Fennel, seed
+ciqual_food_name:fr: Fenouil, graine
+usda_ndb_code:en: 2018
+usda_ndb_name:en: Spices, fennel seed
+wikidata:en: Q27658833
+# 742 in 12 @2021-09-27
+
+#<en:fennel seed
+#en:organic fennel seed
+#fi:luomu fenkolinsiemen
+#nl:biologisch venkelzaad
+# ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
+
+< en:seed
+en: hemp seed
+de: Hanfsamen, hanfsaat
+es: Semilla de cáñamo, semillas de Cáñamo Sativa L
+fi: hampunsiemen, hampunsiemenet
+fr: graines de chanvre
+hr: sjeme konoplje
+it: semi di canapa
+nl: hennepzaad
+# 35@2019-06-07
+
+< en:hemp seed
+en: hemp seed flour
+de: Hanfmehl, Hanfsamenmehl
+es: harina de semillas de Cáñamo Sativa L
+hr: brašno od sjemenki konoplje
+it: farina di semi di canapa
+
+< en:hemp seed
+en: hemp seed oil
+de: Hanföl, Hanfsamenöl
+es: aciete de semillas de Cáñamo Sativa L
+hr: ulje sjemenki konoplje
+it: olio di semi di canapa
+
+< en:hemp seed
+en: hemp seed paste
+de: Hanfsamenmus
+it: pasta di semi di canapa
 
 # < en:melon made from
 < en:seed
@@ -67391,14 +67481,16 @@ sv: peppar
 tr: biber
 ur: کالی مرچ
 uz: galampiri
-ciqual_proxy_food_code:en: 11015
-ciqual_proxy_food_name:en: Black pepper, powder
-ciqual_proxy_food_name:fr: Poivre noir, poudre
 # ast:Pimienta
 # atj:Tepwepar
 # nrm:Paîvre
 # pt-br:pimenta
 # sgs:Pėpėrā
+ciqual_proxy_food_code:en: 11015
+ciqual_proxy_food_name:en: Black pepper, powder
+ciqual_proxy_food_name:fr: Poivre noir, poudre
+usda_ndb_proxy_code:en: 2030
+usda_ndb_proxy_name:en: Spices, pepper, black
 wikidata:en: Q3143131
 
 < en:pepper
@@ -67487,6 +67579,8 @@ sv: vitpeppar
 ciqual_food_code:en: 11019
 ciqual_food_name:en: White pepper, powder
 ciqual_food_name:fr: Poivre blanc, poudre
+usda_ndb_code:en: 2032
+usda_ndb_name:en: Spices, pepper, white
 # 5825 in 24 @2021-09-28
 
 #processing:en: en:ground
@@ -67590,10 +67684,12 @@ sv: svartpeppar, svart peppar
 tr: karabiber
 uk: перець чорний
 zh: 黑胡椒
-ciqual_food_code:en: 11015
-ciqual_food_name:en: Black pepper, powder
-ciqual_food_name:fr: Poivre noir, poudre
+ciqual_proxy_food_code:en: 11015
+ciqual_proxy_food_name:en: Black pepper, powder
+ciqual_proxy_food_name:fr: Poivre noir, poudre
 ecobalyse:en: black-pepper
+usda_ndb_code:en: 2030
+usda_ndb_name:en: Spices, pepper, black
 # 17037 in 39 @2021-09-28
 
 
@@ -67624,9 +67720,12 @@ uk: перець чорний мелений
 # 64 products @2018-10-08
 
 #processing:en:powder
-#<en:black pepper
-#en:black pepper powder
-#bg:черен пипер на прах
+< en:black pepper
+en: black pepper powder
+bg: черен пипер на прах
+ciqual_food_code:en: 11015
+ciqual_food_name:en: Black pepper, powder
+ciqual_food_name:fr: Poivre noir, poudre
 
 < en:black pepper
 en: black pepper extract
@@ -68198,9 +68297,7 @@ wikidata:en: Q104414363
 #
 #                                Caraway
 #
-###################################################################################################
-# description:en:CARAWAY (Carum carvi), is a biennial plant in the family Apiaceae. The fruits, usually used whole, have a pungent, anise-like flavor. Caraway is used as a spice in breads, especially rye bread. Caraway is also used in desserts, liquors, casseroles, and other foods.
-# comment:enThe wikidata entry is a mix of plant, seed and latin name.
+#################################################################################################### 
 
 < en:spice
 en: caraway
@@ -68279,9 +68376,16 @@ zh: 葛縷子
 # sgs:kvīns
 # sr-el:kim
 # vec:kumo
+ciqual_proxy_food_code:en: 11064
+ciqual_proxy_food_name:en: Caraway, seed
+ciqual_proxy_food_name:fr: Carvi, graine
+comment:en: The wikidata entry is a mix of plant, seed and latin name.
+description:en: CARAWAY (Carum carvi), is a biennial plant in the family Apiaceae. The fruits, usually used whole, have a pungent, anise-like flavor. Caraway is used as a spice in breads, especially rye bread. Caraway is also used in desserts, liquors, casseroles, and other foods.
+usda_ndb_proxy_code:en: 2005
+usda_ndb_proxy_name:en: Spices, caraway seed
+wikipedia:en: https://en.wikipedia.org/wiki/Caraway
 # wikidata:en:Q26811 for the plant
 # wikidata:en:Q61670763 for the seed
-wikipedia:en: https://en.wikipedia.org/wiki/Caraway
 # ingredient/fr:carvi has 276 products in 7 languages @2019-05-13
 
 < en:caraway
@@ -68301,6 +68405,8 @@ ru: семена тмина
 ciqual_food_code:en: 11064
 ciqual_food_name:en: Caraway, seed
 ciqual_food_name:fr: Carvi, graine
+usda_ndb_code:en: 2005
+usda_ndb_name:en: Spices, caraway seed
 #498 @2021-09-19
 
 ###################################################################################################
@@ -68308,7 +68414,6 @@ ciqual_food_name:fr: Carvi, graine
 #                                Cayenne pepper
 #
 ###################################################################################################
-# description:en:The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
 
 < en:spice
 en: cayenne pepper, cayenne
@@ -68351,12 +68456,15 @@ th: พริกชี้ฟ้า
 tl: siling kayena
 uk: Перець каєнський
 zh: 牛角椒
-ciqual_food_code:en: 11088
-ciqual_food_name:en: Cayenne pepper
-ciqual_food_name:fr: Poivre de Cayenne ou piment de Cayenne
 # en-ca:cayenne pepper
 # en-gb:cayenne pepper
 # yue:牛角椒
+ciqual_food_code:en: 11088
+ciqual_food_name:en: Cayenne pepper
+ciqual_food_name:fr: Poivre de Cayenne ou piment de Cayenne
+description:en: The CAYENNE PEPPER is a type of Capsicum annuum. It is usually a moderately hot chili pepper used to flavor dishes.
+usda_ndb_code:en: 2031
+usda_ndb_name:en: Spices, pepper, red or cayenne
 wikidata:en: Q6598
 wikipedia:en: https://en.wikipedia.org/wiki/Cayenne_pepper
 # scoville:en:30000-50000
@@ -68370,6 +68478,13 @@ fr: piment de Cayenne séché
 hr: sušeni kajenski papar
 it: peperoncino di Cayenna essiccato
 nl: cayennepeper gedroogd
+
+< en: chili pepper
+< en:spice
+en: chili powder
+#comment:en: not clear what this is exactly
+usda_ndb_code:en: 2009
+usda_ndb_name:en: Spices, chili powder
 
 ###################################################################################################
 #
@@ -68415,9 +68530,11 @@ sv: curry
 ta: கறி
 te: కర్రీ
 zh: 咖哩
-ciqual_food_code:en: 11005
-ciqual_food_name:en: Curry, powder
-ciqual_food_name:fr: Curry, poudre
+ciqual_proxy_food_code:en: 11005
+ciqual_proxy_food_name:en: Curry, powder
+ciqual_proxy_food_name:fr: Curry, poudre
+usda_ndb_proxy_code:en: 2015
+usda_ndb_proxy_name:en: Spices, curry powder
 wikidata:en: Q1144935
 # 972 in 10 @2021-09-17
 
@@ -68425,42 +68542,44 @@ wikidata:en: Q1144935
 # With the translations be careful that they refer to the powder and not plain curry
 
 #processing:en: en:powder
-#<en:curry
-#en:curry powder
-#ar:مسحوق الكاري
-#bg:къри на прах
-#ca:Curri en pols
-#cs:Kari koření
-#da:Karry
-#de:Currypulver
-#eo:karea pulvoro
-#es:curry en polvo
-#fa:ادویه کاری
-#fi:curryjauhe
-#fr:curry en poudre, poudre de curry
-#he:תבלין קארי
-#hu:curry por
-#id:Bubuk kari
-#it:curry in polvere
-#ja:カレー粉
-#ko:커리 가루
-#lt:Karis (prieskoniai)
-#ms:Serbuk kari
-#ne:गरम मसला
-#nl:kerriepoeder, currypoeder
-#pt:Caril em pó
-#u:Карри (приправа)
-#sl:Karijev prašek
-#sv:currypulver
-#uk:Карі (приправа)
-#zh:咖喱粉
+< en:curry
+en: curry powder
+ar: مسحوق الكاري
+bg: къри на прах
+ca: Curri en pols
+cs: Kari koření
+de: Currypulver
+eo: karea pulvoro
+es: curry en polvo
+fa: ادویه کاری
+fi: curryjauhe
+fr: curry en poudre, poudre de curry
+he: תבלין קארי
+hu: curry por
+id: Bubuk kari
+it: curry in polvere
+ja: カレー粉
+ko: 커리 가루
+lt: Karis (prieskoniai)
+ms: Serbuk kari
+ne: गरम मसला
+nl: kerriepoeder, currypoeder
+pt: Caril em pó
+sv: currypulver
+uk: Карі (приправа), Карри
+zh: 咖喱粉
 # en-ca:curry powder
 # en-gb:curry powder
 # yue:咖喱粉
-#description:en: CURRY POWDER is a spice mix originating from the Indian subcontinent.
-#wikidata:en: Q1144935
-#wikipedia:en: https://en.wikipedia.org/wiki/Curry_powder
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/curry-powder
+ciqual_food_code:en: 11005
+ciqual_food_name:en: Curry, powder
+ciqual_food_name:fr: Curry, poudre
+description:en: CURRY POWDER is a spice mix originating from the Indian subcontinent.
+openfoodfacts:en: https://world.openfoodfacts.org/ingredient/curry-powder
+usda_ndb_code:en: 2015
+usda_ndb_name:en: Spices, curry powder
+wikidata:en: Q1144935
+wikipedia:en: https://en.wikipedia.org/wiki/Curry_powder
 # 231 products in 8 languages @2018-10-11
 
 < en:spice
@@ -68528,14 +68647,20 @@ sv: muskotblomma
 uk: Мацис
 ifct_food_code:en: G027
 ifct_food_name:en: Mace
+usda_ndb_proxy_code:en: 2022
+usda_ndb_proxy_name:en: Spices, mace, ground
 wikidata:en: Q1882876
+
+< en:mace
+en: ground mace
+usda_ndb_code:en: 2022
+usda_ndb_name:en: Spices, mace, ground
 
 ###################################################################################################
 #
 #                                Turmeric
 #
 ###################################################################################################
-# description:en:TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. Note that turmeric contains some curcumine (E100).
 
 # <en:root vegetable
 < en:spice
@@ -68639,8 +68764,11 @@ zh: 薑黃
 ciqual_proxy_food_code:en: 11089
 ciqual_proxy_food_name:en: Turmeric, powder
 ciqual_proxy_food_name:fr: Curcuma, poudre
-ifct_food_code:en: G033
-ifct_food_name:en: Turmeric powder
+description:en: TURMERIC is a flowering plant of the ginger family, Zingiberaceae, the roots of which are used in cooking. Note that turmeric contains some curcumine (E100).
+ifct_proxy_food_code:en: G033
+ifct_proxy_food_name:en: Turmeric powder
+usda_ndb_proxy_code:en: 2043
+usda_ndb_proxy_name:en: Spices, turmeric, ground
 wikidata:en: Q42562
 wikipedia:en: https://en.wikipedia.org/wiki/Turmeric
 # 19427s in 32 @2021-09-18
@@ -68660,6 +68788,10 @@ pl: kurkuma w proszku, sproszkowana kurkuma, przyprawa kurkuma, kurkuma mielona,
 ciqual_food_code:en: 11089
 ciqual_food_name:en: Turmeric, powder
 ciqual_food_name:fr: Curcuma, poudre
+ifct_food_code:en: G033
+ifct_food_name:en: Turmeric powder
+usda_ndb_code:en: 2043
+usda_ndb_name:en: Spices, turmeric, ground
 #500  @2021-09-18
 
 # moved to E100
@@ -68687,7 +68819,6 @@ ciqual_food_name:fr: Curcuma, poudre
 #                                Nutmeg
 #
 ###################################################################################################
-# description:en:NUTMEG is the seed or ground spice of several species of the genus Myristica.
 
 < en:spice
 en: nutmeg
@@ -68751,8 +68882,11 @@ zh: 肉豆蔻
 ciqual_food_code:en: 11048
 ciqual_food_name:en: Nutmeg
 ciqual_food_name:fr: Noix de muscade
+description:en: NUTMEG is the seed or ground spice of several species of the genus Myristica.
 ifct_food_code:en: G028
 ifct_food_name:en: Nutmeg
+usda_ndb_proxy_code:en: 2025
+usda_ndb_proxy_name:en: Spices, nutmeg, ground
 wikidata:en: Q83165
 wikipedia:en: https://en.wikipedia.org/wiki/Nutmeg
 # 6807 in 22 @202109-23
@@ -68791,12 +68925,14 @@ sv: muskotnöt
 # vls:notevaschoa
 
 #processing:en: en:ground
-#<en:nutmeg
-#en:ground nutmeg
-#de:Muskatnuss gemahlen, gemahlene Muskatnuss
-#fi:jauhettu muskottipähkinä
-#fr:muscade-moulue, noix de muscade en poudre
-#it:Noce moscata macinata
+< en:nutmeg
+en: ground nutmeg
+de: Muskatnuss gemahlen, gemahlene Muskatnuss
+fi: jauhettu muskottipähkinä
+fr: muscade-moulue, noix de muscade en poudre
+it: voce moscata macinata
+usda_ndb_code:en: 2025
+usda_ndb_name:en: Spices, nutmeg, ground
 
 #processing:en: en:extract
 #<en:nutmeg
@@ -68866,9 +69002,6 @@ th: กระวาน
 tr: kakule
 uk: кардамон
 yi: קארדעמאן
-# en:cardamon has 416 products in 12 languages @2018-10-24
-ciqual_proxy_food_code:en: 11075
-ciqual_proxy_food_name:en: Cardamom, powder
 # arc:ܫܘܫܡܢܝܬܐ
 # arz:حبهان
 # ast:cardamomo
@@ -68876,7 +69009,12 @@ ciqual_proxy_food_name:en: Cardamom, powder
 # nds:kardamom
 # new:एला
 # tcy:ಏಲಕ್ಕಿ
+ciqual_proxy_food_code:en: 11075
+ciqual_proxy_food_name:en: Cardamom, powder
+usda_ndb_code:en: 2006
+usda_ndb_name:en: Spices, cardamom
 wikipedia:en: https://en.wikipedia.org/wiki/Cardamom
+# en:cardamon has 416 products in 12 languages @2018-10-24
 
 < en:cardamom
 en: green cardamom, elettaria cardamomum
@@ -68953,6 +69091,7 @@ wikidata:en: Q14625808
 #                                Cinnamon
 #
 ###################################################################################################
+
 < en:spice
 en: cinnamon
 af: kaneel
@@ -69042,8 +69181,6 @@ vi: quế quan
 vo: kirfat
 yi: צימערינג
 zh: 桂皮
-carbon_footprint_fr_foodges_ingredient:fr: Cannelle
-carbon_footprint_fr_foodges_value:fr: 2.2
 # aeb-arab:قرفة
 # ang:ofersǣwisc rind
 # arc:ܩܠܦܬܐ ܕܒܣܡܐ
@@ -69070,9 +69207,13 @@ carbon_footprint_fr_foodges_value:fr: 2.2
 # vls:kanêel
 # yue:肉桂
 # zh-tw:陰香
+carbon_footprint_fr_foodges_ingredient:fr: Cannelle
+carbon_footprint_fr_foodges_value:fr: 2.2
 ciqual_proxy_food_code:en: 11025
 ciqual_proxy_food_name:en: Cinnamon, powder
 ciqual_proxy_food_name:fr: Cannelle, poudre
+usda_ndb_proxy_code:en: 2010
+usda_ndb_proxy_name:en: Spices, cinnamon, ground
 wikidata:en: Q28165
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
@@ -69101,6 +69242,8 @@ ru: корица молотая
 ciqual_food_code:en: 11025
 ciqual_food_name:en: Cinnamon, powder
 ciqual_food_name:fr: Cannelle, poudre
+usda_ndb_code:en: 2010
+usda_ndb_name:en: Spices, cinnamon, ground
 # 448 in 4 languages @2021-09-20
 
 # description:en:Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
@@ -69166,7 +69309,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cinnamomum_verum
 #                                Clove
 #
 ###################################################################################################
-# description:en:CLOVEs are the aromatic flower buds of a tree in the family Myrtaceae, Syzygium aromaticum.
 
 < en:spice
 en: clove
@@ -69271,8 +69413,16 @@ zh: 丁香
 ciqual_food_code:en: 11052
 ciqual_food_name:en: Cloves
 ciqual_food_name:fr: Clou de girofle
+description:en: CLOVEs are the aromatic flower buds of a tree in the family Myrtaceae, Syzygium aromaticum.
+usda_ndb_proxy_code:en: 2011
+usda_ndb_proxy_name:en: Spices, cloves, ground
 wikipedia:en: https://en.wikipedia.org/wiki/Clove
 # 4654 in 26 @2021-09-21
+
+< en:clove
+en: ground clove
+usda_ndb_code:en: 2011
+usda_ndb_name:en: Spices, cloves, ground
 
 ###################################################################################################
 #
@@ -69367,6 +69517,8 @@ eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.36
 ifct_food_code:en: C020
 ifct_food_name:en: Fenugreek leaves
+usda_ndb_code:en: 2019
+usda_ndb_name:en: Spices, fenugreek seed
 wikidata:en: Q133205
 wikipedia:en: https://en.wikipedia.org/wiki/Fenugreek
 # fr:fenugrec has 171 products in 5 languages @2018-10-23
@@ -69676,6 +69828,8 @@ sv: ingefärapulver, malen ingefära
 ciqual_food_code:en: 11006
 ciqual_food_name:en: Ginger, powder
 ciqual_food_name:fr: Gingembre, poudre
+usda_ndb_code:en: 2021
+usda_ndb_name:en: Spices, ginger, ground
 wikidata:en: Q58183281
 # 923 in 12 @2021-09-28
 
@@ -69884,6 +70038,8 @@ description:en: A small, round seed of the mustard plant.
 description:de: Als Senfkorn wird der Samen einiger Vertreter der Pflanzengattung Senf bezeichnet.
 description:es: Los granos de mostaza son pequeñas semillas redondas de diversas plantas de mostaza.
 description:pt: Sementes de mostarda são as pequenas sementes das várias plantas de mostarda.
+usda_ndb_proxy_code:en: 2024
+usda_ndb_proxy_name:en: Spices, mustard seed, ground
 wikidata:en: Q1937700
 # 12112 in 26 @2019-09-09
 
@@ -69946,23 +70102,25 @@ sv: gult och brunt senapsfrö
 # ingredient/fr:graines-de-moutarde-jaune-et-brune has 11 products in 1 language @2020-06-11
 
 #processing:en: en:powder
-#<en:mustard
-#en:mustard powder, mustard flour
-#bg:синапено брашно
-#da:sennepspulver, sennepsmel
-#de:Senfpulver, Senfmehl
-#es:Mostaza en polvo, harina de mostaza
-#et:Sinepijahu
-#fi:sinappijauhe
-#fr:moutarde en poudre, poudre de moutarde, farine de moutarde
-#is:sinnepsduft
-#it:senape in polvere
-#ja:マスタードパウダー
-#lt:garstyčių milteliai
-#nl:mosterdpoeder, mosterdmeel
-#pl:mąka z gorczycy
-#ru:горчичный порошок
-#sv:senapspulver, senapsfröpulver
+< en:mustard
+en: mustard powder, mustard flour
+bg: синапено брашно
+da: sennepspulver, sennepsmel
+de: Senfpulver, Senfmehl
+es: mostaza en polvo, harina de mostaza
+et: sinepijahu
+fi: sinappijauhe
+fr: moutarde en poudre, poudre de moutarde, farine de moutarde
+is: sinnepsduft
+it: senape in polvere
+ja: マスタードパウダー
+lt: garstyčių milteliai
+nl: mosterdpoeder, mosterdmeel
+pl: mąka z gorczycy
+ru: горчичный порошок
+sv: senapspulver, senapsfröpulver
+usda_ndb_code:en: 2024
+usda_ndb_name:en: Spices, mustard seed, ground
 # fr:farine-de-moutarde has 127 products in 5 languages @2018-09-22
 # fr:moutarde-en-poudre has 34 products in 4 languages @2018-10-25
 
@@ -70197,6 +70355,8 @@ wikidata:en: Q65523167
 en: dried coriander leaf
 fr: feuille de coriandre séchée
 hu: száritott korianderlevél
+usda_ndb_code:en: 2012
+usda_ndb_name:en: Spices, coriander leaf, dried
 
 ###################################################################################################
 #
@@ -70300,12 +70460,6 @@ ur: شِبِت
 vi: thì là
 wo: anet
 zh: 蒔蘿
-ciqual_food_code:en: 11093
-ciqual_food_name:en: Dill, fresh
-comment:en: the wikidata page mixes the common name and latin name
-description:en: dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.32
 # aeb-arab:شبت
 # aeb-latn:ch'ebt
 # arz:شبت
@@ -70325,12 +70479,33 @@ eurocode_2_group_3:en: 12.20.32
 # sgs:kraps
 # tyv:койнут
 # yue:莳萝
-#plant: wikidata:en:q26686
+ciqual_proxy_food_code:en: 11093
+ciqual_proxy_food_name:en: Dill, fresh
+comment:en: the wikidata page mixes the common name and latin name
+description:en: dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.32
+usda_ndb_proxy_code:en: 2045
+usda_ndb_proxy_name:en: Dill weed, fresh
 wikidata:en: Q59659860
+#plant: wikidata:en:q26686
 wikipedia:en: https://en.wikipedia.org/wiki/Dill
 # 2303 in 24 @2021-09-16
 
+< en:dill
+en: fresh dill
+ciqual_food_code:en: 11093
+ciqual_food_name:en: Dill, fresh
+usda_ndb_code:en: 2045
+usda_ndb_name:en: Dill weed, fresh
+
+< en:dill
+en: dried dill
+usda_ndb_code:en: 2017
+usda_ndb_name:en: Spices, dill weed, dried
+
 #comment:en:kept separate as it is another ingredient than the leaves
+
 < en:dill
 en: dill seed, dill seeds
 de: Dillsaat
@@ -70339,6 +70514,8 @@ fr: Graines d'aneth
 hr: sjeme kopra
 it: semi di aneto
 nl: dillezaad
+usda_ndb_code:en: 2016
+usda_ndb_name:en: Spices, dill seed
 #184 @2021-09-16
 
 #<en:dill
@@ -70356,7 +70533,7 @@ nl: dillezaad
 #fr:aneth déshydraté
 #pl:suszony koperek
 
-< en:dill
+# < en:compound
 en: dill butter
 de: Dillbutter, Dill-Butter
 fi: tillivoi
@@ -70484,6 +70661,8 @@ it: rosmarino essiccato
 ciqual_food_code:en: 11036
 ciqual_food_name:en: Rosemary, dried
 ciqual_food_name:fr: Romarin, séché
+usda_ndb_code:en: 2036
+usda_ndb_name:en: Spices, rosemary, dried
 
 
 #<en:rosemary
@@ -70800,6 +70979,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Spearmint
 # 289 in 11 @2021-10-11
 
 < en:spearmint
+en: fresh spearmint
+usda_ndb_code:en: 2065
+usda_ndb_name:en: Spearmint, fresh
+
+< en:spearmint
 en: dried spearmint
 usda_ndb_code:en: 2066
 usda_ndb_name:en: Spearmint, dried
@@ -71034,7 +71218,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sumac
 #                                Tarragon
 #
 ###################################################################################################
-# description:en:TARRAGON (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
 
 < en:herb
 en: tarragon
@@ -71098,12 +71281,6 @@ tr: tarhun
 uk: тархун
 uz: sherolgʻin
 zh: 龍蒿
-ciqual_food_code:en: 11092
-ciqual_food_name:en: Tarragon, fresh
-ciqual_food_name:fr: Estragon, frais
-# 779 in 15 @2021-09-16
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.68
 # azb:ترخون
 # hsb:estragon
 # kk-arab:شىرعالجىڭ
@@ -71124,9 +71301,30 @@ eurocode_2_group_3:en: 12.20.68
 # zh-hk:龍蒿
 # zh-sg:龙蒿
 # zh-tw:龍蒿
+ciqual_proxy_food_code:en: 11092
+ciqual_proxy_food_name:en: Tarragon, fresh
+ciqual_proxy_food_name:fr: Estragon, frais
+description:en: TARRAGON (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.68
+usda_ndb_proxy_code:en: 2041
+usda_ndb_proxy_name:en: Spices, tarragon, dried
 #plant: wikidata:en:Q155814
 wikidata:en: Q103554747
 wikipedia:en: https://en.wikipedia.org/wiki/Tarragon
+# 779 in 15 @2021-09-16
+
+< en:tarragon
+en: fresh tarragon
+fr: tarragon frais
+ciqual_food_code:en: 11092
+ciqual_food_name:en: Tarragon, fresh
+ciqual_food_name:fr: Estragon, frais
+
+< en:tarragon
+en: dried tarragon
+usda_ndb_code:en: 2041
+usda_ndb_name:en: Spices, tarragon, dried
 
 #processing:en: eb:leaf
 #<en:tarragon
@@ -71144,7 +71342,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tarragon
 #                                Thyme
 #
 ###################################################################################################
-# description:en:THYME is an aromatic perennial evergreen herb with culinary, medicinal, and ornamental uses. The most common variety is Thymus vulgaris.
 
 < en:herb
 en: thyme
@@ -71192,6 +71389,7 @@ zh: 麝香草
 ciqual_proxy_food_code:en: 11070
 ciqual_proxy_food_name:en: Thyme, fresh
 ciqual_proxy_food_name:fr: Thym, frais
+description:en: THYME is an aromatic perennial evergreen herb with culinary, medicinal, and ornamental uses. The most common variety is Thymus vulgaris.
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.70
 usda_ndb_proxy_code:en: 2049
@@ -71228,6 +71426,8 @@ fr: thym déshydraté, thym deshydrate
 ciqual_food_code:en: 11038
 ciqual_food_name:en: Thyme, dried
 ciqual_food_name:fr: Thym, séché
+usda_ndb_code:en: 2042
+usda_ndb_name:en: Spices, thyme, dried
 
 #processing:en: en:powder
 #<en:thyme
@@ -71598,6 +71798,8 @@ pl: bazylia suszona, suszona bazylia
 ciqual_food_code:en: 11032
 ciqual_food_name:en: Basil, dried
 ciqual_food_name:fr: Basilic, séché
+usda_ndb_code:en: 2003
+usda_ndb_name:en: Spices, basil, dried
 
 < en:basil
 en: basil extract
@@ -71669,19 +71871,30 @@ ro: asmățui
 sk: trebuľka voňavá
 sl: krebuljica
 sv: körvel
-# 392 in 8 @2021-09-15
+ciqual_proxy_food_code:en: 11002
+ciqual_proxy_food_name:en: Chervil, fresh
+ciqual_proxy_food_name:fr: Cerfeuil, frais
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.22
+usda_ndb_proxy_code:en: 2008
+usda_ndb_proxy_name:en: Spices, chervil, dried
 wikidata:en: Q21281535
 wikipedia:en: https://en.wikipedia.org/wiki/Chervil
+# 392 in 8 @2021-09-15
 
 < en:chervil
 en: fresh chervil
 it: cerfoglio fresco
+nl: verse kervel
 ciqual_food_code:en: 11002
 ciqual_food_name:en: Chervil, fresh
 ciqual_food_name:fr: Cerfeuil, frais
 
+< en:chervil
+en: dried chervil
+nl: gedroogde kervel
+usda_ndb_code:en: 2008
+usda_ndb_name:en: Spices, chervil, dried
 
 ###################################################################################################
 #
@@ -71737,16 +71950,6 @@ uk: шавлія
 ur: مریم گلی
 vi: xô thơm
 zh: 鼠尾草
-ciqual_food_code:en: 11069
-ciqual_food_name:en: Sage, fresh
-ciqual_food_name:fr: Sauge, fraîche
-# 1379 in 15 @2021-09-16
-# TODO: split
-#ciqual_food_code:en:11037
-#ciqual_food_name:en:Sage, dried
-#ciqual_food_name:fr:Sauge, séchée
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.62
 # hsb:želbija
 # sah:шалфей
 # sr-ec:жалфија
@@ -71757,9 +71960,35 @@ eurocode_2_group_3:en: 12.20.62
 # zh-hant:鼠尾草
 # zh-hk:鼠尾草
 # zh-tw:鼠尾草
-#plant:
+ciqual_proxy_food_code:en: 11069
+ciqual_proxy_food_name:en: Sage, fresh
+ciqual_proxy_food_name:fr: Sauge, fraîche
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.62
+usda_ndb_proxy_code:en: 2038
+usda_ndb_proxy_name:en: Spices, sage, ground
 wikidata:en: Q1111359
 wikipedia:en: https://en.wikipedia.org/wiki/Salvia_officinalis
+# 1379 in 15 @2021-09-16
+
+< en:sage
+en: fresh sage
+fr: sauge fraîche
+ciqual_food_code:en: 11069
+ciqual_food_name:en: Sage, fresh
+ciqual_food_name:fr: Sauge, fraîche
+
+< en:sage
+en: dried sage
+fr: sauge séchée
+ciqual_food_code:en: 11037
+ciqual_food_name:en: Sage, dried
+ciqual_food_name:fr: Sauge, séchée
+
+< en:sage
+en: ground sage
+usda_ndb_code:en: 2038
+usda_ndb_name:en: Spices, sage, ground
 
 < en:sage
 en: sage oil
@@ -72067,7 +72296,6 @@ eurocode_2_group_3:en: 12.20.72
 #                                Marjoram
 #
 ###################################################################################################
-# description:en:Marjoram (Origanum majorana) is a somewhat cold-sensitive perennial herb or undershrub with sweet pine and citrus flavors.
 
 #category/marjoram
 < en:herb
@@ -72129,9 +72357,6 @@ tr: mercanköşk
 uk: майоран
 wa: mariolinne
 zh: 墨角蘭
-# 1584 in 22 @2021-09-17
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.52
 # aeb-arab:مردقوش
 # azb:مرزه
 # be-tarask:маяран
@@ -72145,9 +72370,18 @@ eurocode_2_group_3:en: 12.20.52
 # sco:marjoram
 # sgs:meiruonā
 # yue:墨角蘭
-# plant: wikidata:en:Q22694
+ciqual_proxy_food_code:en: 11034
+ciqual_proxy_food_name:en: Marjoram, dried
+ciqual_proxy_food_name:fr: Marjolaine, séchée
+description:en: Marjoram (Origanum majorana) is a somewhat cold-sensitive perennial herb or undershrub with sweet pine and citrus flavors.
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.52
+usda_ndb_proxy_code:en: 2023
+usda_ndb_proxy_name:en: Spices, marjoram, dried
 wikidata:en: Q96181239
+# plant: wikidata:en:Q22694
 wikipedia:en: https://en.wikipedia.org/wiki/Marjoram
+# 1584 in 22 @2021-09-17
 
 < en:marjoram
 en: dried marjoram
@@ -72156,6 +72390,8 @@ it: maggiorana essiccata
 ciqual_food_code:en: 11034
 ciqual_food_name:en: Marjoram, dried
 ciqual_food_name:fr: Marjolaine, séchée
+usda_ndb_code:en: 2023
+usda_ndb_name:en: Spices, marjoram, dried
 
 
 ###################################################################################################
@@ -72189,7 +72425,6 @@ wikidata:en: Q913548
 #                                Oregano
 #
 ###################################################################################################
-# description:en:Oregano (Origanum vulgare) is a flowering plant in the mint family (Lamiaceae).
 
 < en:herb
 en: oregano
@@ -72219,12 +72454,13 @@ uk: орегано
 ciqual_proxy_food_code:en: 11035
 ciqual_proxy_food_name:en: Oregano, dried
 ciqual_proxy_food_name:fr: Origan, séché
-#plant: wikipedia:en:Q134283
-# plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
-# 9423 in 29 @2021-09-17
+description:en: Oregano (Origanum vulgare) is a flowering plant in the mint family (Lamiaceae).
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.58
+#plant: wikipedia:en:Q134283
 wikipedia:en: Q92581152
+# plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
+# 9423 in 29 @2021-09-17
 
 #processing:en:dehydrated
 < en:oregano
@@ -72237,6 +72473,8 @@ pl: suszone oregano
 ciqual_food_code:en: 11035
 ciqual_food_name:en: Oregano, dried
 ciqual_food_name:fr: Origan, séché
+usda_ndb_code:en: 2027
+usda_ndb_name:en: Spices, oregano, dried
 # ingredient/fr:origan-déshydraté has 57 products in french @2018-12-29
 
 #processing:en en:powder
@@ -72268,6 +72506,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Artemisia_princeps
 #                                Bay leaf
 #
 ###################################################################################################
+
 < en:herb
 en: bay leaf, bay leaves, bay, laurel
 af: lourierblaar
@@ -72308,19 +72547,21 @@ tr: akdeniz defnesi
 uk: лавровий лист
 uz: dafna yaprogʻi
 zh: 月桂葉
-ciqual_food_code:en: 11053
-ciqual_food_name:en: Bay, leaves
-ciqual_food_name:fr: Laurier, feuille
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:laurier
-# 3758 in 22 @2021-09-19
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.14
-wikidata:en: Q2370943
 # pam:bay leaf
 # zh-hans:月桂叶
 # zh-hant:月桂葉
 # zh-hk:月桂葉
+ciqual_food_code:en: 11053
+ciqual_food_name:en: Bay, leaves
+ciqual_food_name:fr: Laurier, feuille
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.14
+usda_ndb_code:en: 2004
+usda_ndb_name:en: Spices, bay leaf
+wikidata:en: Q2370943
 wikipedia:en: https://en.wikipedia.org/wiki/Bay_leaf
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:laurier
+# 3758 in 22 @2021-09-19
 
 < en:bay leaf
 en: bay leaf extract
