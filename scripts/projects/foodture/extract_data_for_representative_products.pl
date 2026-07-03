@@ -146,6 +146,7 @@ sub collect_ingredients {
 		collect_ingredients($_, $ingredients_percent_ref, $ingredients_quantity_ref)
 			for @{$ingredient_ref->{ingredients}};
 	}
+	return;
 }
 
 # first pass: read ranked products and group by country/category tags
