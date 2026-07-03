@@ -92,6 +92,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Lang qw/$lc %Lang %Langs lang/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Nutriscore qw/compute_nutriscore_score_and_grade/;
 use ProductOpener::Numbers qw/:all/;
@@ -243,9 +244,10 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'!proteins', '-casein-',
 			'-serum-proteins-', '-nucleotides-',
 			'!salt', '-added-salt-',
-			'sodium', 'alcohol',
+			'sodium-', 'alcohol',
 			'#vitamins', 'vitamin-a-',
 			'beta-carotene-', 'vitamin-d-',
+			'vitamin-d2-', 'vitamin-d3-',
 			'vitamin-e-', 'vitamin-k-',
 			'vitamin-c-', 'vitamin-b1-',
 			'vitamin-b2-', 'vitamin-pp-',
@@ -312,6 +314,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'sodium', 'alcohol',
 			'#vitamins', 'vitamin-a',
 			'beta-carotene-', 'vitamin-d-',
+			'vitamin-d2-', 'vitamin-d3-',
 			'vitamin-e-', 'vitamin-k-',
 			'vitamin-c', 'vitamin-b1-',
 			'vitamin-b2-', 'vitamin-pp-',
@@ -376,7 +379,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-added-salt-', 'sodium',
 			'alcohol', '#vitamins',
 			'vitamin-a-', 'beta-carotene-',
-			'vitamin-d-', 'vitamin-e-',
+			'vitamin-d-', 'vitamin-d2-',
+			'vitamin-d3-', 'vitamin-e-',
 			'vitamin-k-', 'vitamin-c-',
 			'vitamin-b1-', 'vitamin-b2-',
 			'vitamin-pp-', 'vitamin-b6-',
@@ -441,7 +445,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-serum-proteins-', '-nucleotides-',
 			'alcohol', '#vitamins',
 			'vitamin-a-', 'beta-carotene-',
-			'vitamin-d', 'vitamin-e-',
+			'vitamin-d', 'vitamin-d2-',
+			'vitamin-d3-', 'vitamin-e-',
 			'vitamin-k-', 'vitamin-c-',
 			'vitamin-b1-', 'vitamin-b2-',
 			'vitamin-pp-', 'vitamin-b6-',
@@ -502,7 +507,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-serum-proteins-', '-nucleotides-',
 			'alcohol', '#vitamins',
 			'vitamin-a', 'beta-carotene-',
-			'vitamin-d-', 'vitamin-e-',
+			'vitamin-d-', 'vitamin-d2-',
+			'vitamin-d3-', 'vitamin-e-',
 			'vitamin-k-', 'vitamin-c',
 			'vitamin-b1-', 'vitamin-b2-',
 			'vitamin-pp-', 'vitamin-b6-',
@@ -570,10 +576,11 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-sugars-', '-fiber-',
 			'-soluble-fiber-', '--polydextrose-',
 			'-insoluble-fiber-', '!salt',
-			'-added-salt-', '#sodium-',
+			'-added-salt-', 'sodium-',
 			'alcohol', '#vitamins',
 			'vitamin-a-', 'beta-carotene-',
-			'vitamin-d-', 'vitamin-e-',
+			'vitamin-d-', 'vitamin-d2-',
+			'vitamin-d3-', 'vitamin-e-',
 			'vitamin-k-', 'vitamin-c-',
 			'vitamin-b1-', 'vitamin-b2-',
 			'vitamin-pp-', 'vitamin-b6-',
@@ -638,7 +645,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'-added-salt-', 'sodium',
 			'alcohol', '#vitamins',
 			'vitamin-a-', 'beta-carotene-',
-			'vitamin-d-', 'vitamin-e-',
+			'vitamin-d-', 'vitamin-d2-',
+			'vitamin-d3-', 'vitamin-e-',
 			'vitamin-k-', 'vitamin-c-',
 			'vitamin-b1-', 'vitamin-b2-',
 			'vitamin-pp-', 'vitamin-b6-',
@@ -1522,7 +1530,7 @@ sub is_nutriscore_applicable_to_the_product_categories ($product_ref) {
 	my $not_applicable_category = undef;
 
 	# do not compute a score when we don't have a category
-	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+	if ((not defined $product_ref->{categories_tags}) or (scalar @{$product_ref->{categories_tags}} == 0)) {
 		$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category" . " - ";
 		add_tag($product_ref, "misc", "en:nutriscore-missing-category");
@@ -1636,15 +1644,16 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	# unless we have nutrition data for the prepared product
 	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
 
-	my $preparation = "as_sold";
+	# by default we use the preparation of the aggregated set
+
+	my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
+	my $preparation = $aggregated_set_preparation // "as_sold";
 
 	my $category_tag = has_category_that_should_have_prepared_nutrition_data($product_ref);
 
 	if (defined $category_tag) {
 
 		$preparation = "prepared";
-
-		my $aggregated_set_preparation = deep_get($product_ref, "nutrition", "aggregated_set", "preparation");
 
 		if ((defined $aggregated_set_preparation) and ($aggregated_set_preparation eq "prepared")) {
 			$product_ref->{nutrition_score_debug} = "using prepared product data for category $category_tag" . " - ";
@@ -1657,6 +1666,11 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 			add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
 			$nutrients_available = 0;
 		}
+	}
+	elsif ((defined $aggregated_set_preparation) and ($aggregated_set_preparation eq "prepared")) {
+		$product_ref->{nutrition_score_debug}
+			= "using prepared product data even if not necessary for category" . " - ";
+		add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
 	}
 
 	# Track the number of key nutrients present and their source
@@ -1988,7 +2002,7 @@ sub compute_nutrient_levels ($product_ref) {
 	}
 
 	# need categories in order to identify drinks
-	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+	if ((not defined $product_ref->{categories_tags}) or (scalar @{$product_ref->{categories_tags}} == 0)) {
 		$log->debug("no categories, cannot compute nutrient levels for product " . $product_ref->{_id})
 			if $log->is_debug();
 		return;
@@ -2499,7 +2513,7 @@ sub compute_nova_group ($product_ref) {
 		}
 
 		# do not compute a score when we don't have a category
-		if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
+		if ((not defined $product_ref->{categories_tags}) or (scalar @{$product_ref->{categories_tags}} == 0)) {
 			delete $product_ref->{nova_group};
 			$product_ref->{nova_groups_tags} = ["unknown"];
 			$product_ref->{nova_group_debug} = "no nova group when the product does not have a category";
@@ -2563,7 +2577,7 @@ sub assign_categories_properties_to_product ($product_ref) {
 
 	push @{$product_ref->{categories_properties_tags}}, "all-products";
 
-	if (defined $product_ref->{categories}) {
+	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 		push @{$product_ref->{categories_properties_tags}}, "categories-known";
 	}
 	else {

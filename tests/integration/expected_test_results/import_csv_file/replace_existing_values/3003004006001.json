@@ -2,33 +2,21 @@
    "_id" : "3003004006001",
    "_keywords" : [
       "au",
+      "biscuit",
       "chocolat",
+      "et",
       "fr",
       "gateaux",
-      "packaging"
+      "packaging",
+      "snack",
+      "sucre"
    ],
    "added_countries_tags" : [],
-   "allergens" : "en:celery",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) Celery",
-   "allergens_hierarchy" : [
-      "en:celery"
-   ],
    "allergens_imported" : "Celery",
-   "allergens_lc" : "fr",
    "allergens_tags" : [
       "en:celery"
    ],
-   "categories" : "Gâteaux au chocolat",
-   "categories_hierarchy" : [
-      "en:snacks",
-      "en:sweet-snacks",
-      "en:biscuits-and-cakes",
-      "en:cakes",
-      "en:chocolate-cakes"
-   ],
    "categories_imported" : "Gâteaux au chocolat",
-   "categories_lc" : "fr",
    "categories_properties" : {
       "agribalyse_food_code:en" : "23585",
       "ciqual_food_code:en" : "23585"
@@ -68,15 +56,8 @@
    ],
    "complete" : 0,
    "completeness" : 0.2,
-   "correctors_tags" : [
-      "test-user"
-   ],
-   "countries" : "fr",
-   "countries_hierarchy" : [
-      "en:france"
-   ],
+   "correctors_tags" : [],
    "countries_imported" : "fr",
-   "countries_lc" : "fr",
    "countries_tags" : [
       "en:france"
    ],
@@ -146,11 +127,10 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-org"
+      "Producer - test-org",
+      "Producers"
    ],
    "ecoscore_tags" : [
       "d"
@@ -761,7 +741,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 2,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -795,21 +775,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-completed",
-      "en:brands-to-be-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -825,14 +790,58 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:sesame-seeds",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) Sesame",
-   "traces_hierarchy" : [
-      "en:sesame-seeds"
-   ],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:celery"
+            ]
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:chocolate-cakes"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:france"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-org"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:sesame-seeds"
+            ]
+         }
+      }
+   },
    "traces_imported" : "Sesame",
-   "traces_lc" : "fr",
    "traces_tags" : [
       "en:sesame-seeds"
    ],

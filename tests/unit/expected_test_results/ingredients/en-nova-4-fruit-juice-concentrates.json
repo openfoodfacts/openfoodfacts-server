@@ -1,8 +1,8 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
-         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
@@ -34,8 +34,6 @@
       "en:apple-juice",
       "en:fruit",
       "en:juice",
-      "en:malaceous-fruit",
-      "en:apple",
       "en:fruit-juice"
    ],
    "ingredients_text" : "apple juice concentrates",
@@ -45,9 +43,14 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:apple-juice"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }
