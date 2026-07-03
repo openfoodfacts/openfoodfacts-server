@@ -38391,11 +38391,6 @@ it: frutta candita
 < en:fruit
 en: mammy apple, mamey
 la: Mammea americana
-usda_ndb_proxy_code:en: 9175
-usda_ndb_proxy_name:en: Mammy-apple, (mamey), raw
-
-< en:mammy apple
-en: raw mammy apple, mamey
 description:en: A mammy apple is a tropical fruit native to the Caribbean and tropical Americas. Despite the name, they are actually classified as a berry, not a true apple. The flesh is intensely aromatic and deep orange, with a flavour similar to an apricot or raspberry.
 usda_ndb_code:en: 9175
 usda_ndb_name:en: Mammy-apple, (mamey), raw
@@ -38404,11 +38399,6 @@ usda_ndb_name:en: Mammy-apple, (mamey), raw
 en: mamey sapote
 la: Pouteria sapota
 description:en: Mamey Sapote (Pouteria sapota). It has a rough brown skin like a football, and vibrant salmon-pink to reddish flesh with a rich, creamy flavor often compared to a mix of sweet potato, pumpkin, and almond. Widely used in smoothies and ice cream in Latin America and the Caribbean.
-usda_ndb_proxy_code:en: 9314
-usda_ndb_proxy_name:en: Sapote, mamey, raw
-
-< en:mamey sapote
-en: raw mamey sapote
 usda_ndb_code:en: 9314
 usda_ndb_name:en: Sapote, mamey, raw
 
@@ -38420,15 +38410,10 @@ es: nispero
 fr: Néflier
 hr: mušmula
 it: nespola comune
-usda_ndb_proxy_code:en: 9174
-usda_ndb_proxy_name:en: Loquats, raw
-wikidata:en: Q7071497
-wikipedia:en: https://en.wikipedia.org/wiki/N%C3%ADspero
-
-< en:medlar
-en: raw medlar, raw loquat
 usda_ndb_code:en: 9174
 usda_ndb_name:en: Loquats, raw
+wikidata:en: Q7071497
+wikipedia:en: https://en.wikipedia.org/wiki/N%C3%ADspero
 
 < en:fruit
 en: exotic fruit
@@ -39354,17 +39339,12 @@ vi: xa kê, sa kê
 #msn:biēg
 #zdj:furiapa, friapa
 eurocode_2_group_3:en: 8.40.52
-usda_ndb_proxy_code:en: 9059
-usda_ndb_proxy_name:en: Breadfruit, raw
+usda_ndb_code:en: 9059
+usda_ndb_name:en: Breadfruit, raw
 #plant:wikidata:en:Q14677
 wikidata:en: Q5869893
 wikipedia:en: https://en.wikipedia.org/wiki/Breadfruit
 # ingredient/breadfruit has 1 product in french @2019-04-29
-
-< en:breadfruit
-en: raw breadfruit
-usda_ndb_code:en: 9059
-usda_ndb_name:en: Breadfruit, raw
 
 < en:fruit
 en: jackfruit
@@ -39373,20 +39353,16 @@ fr: fruit du jacquier, fruit du jaquier, pomme jacque, pomme jaque, jacquier, ja
 hr: jackfruit
 it: giaca
 pl: jackfruit
-usda_ndb_proxy_code:en: 9144
-usda_ndb_proxy_name:en: Jackfruit, raw
-wikipedia:en: https://en.wikipedia.org/wiki/Jackfruit
-
-< en:jackfruit
-en: raw jackfruit
 usda_ndb_code:en: 9144
 usda_ndb_name:en: Jackfruit, raw
+wikipedia:en: https://en.wikipedia.org/wiki/Jackfruit
 
 ###################################################################################################
 #
 #                                Calluna vulgaris
 #
 ###################################################################################################
+
 < en:plant
 en: calluna vulgaris
 hr: calluna vulgaris, zelen vrijeska
@@ -39420,21 +39396,11 @@ uk: Дуріан
 vi: Chi Sầu riêng
 zh: 榴槤屬
 # zh-min-nan:Liû-liân
-usda_ndb_proxy_code:en: 9422
-usda_ndb_proxy_name:en: Durian, raw or frozen
+usda_ndb_code:en: 9422
+usda_ndb_name:en: Durian, raw or frozen
 wikipedia:en: https://en.wikipedia.org/wiki/Durian
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/durian
 # 3 products in 1 language @2018-09-27
-
-< en:durian
-en: raw durian
-usda_ndb_code:en: 9422
-usda_ndb_name:en: Durian, raw or frozen
-
-< en:durian
-en: frozen durian
-usda_ndb_code:en: 9422
-usda_ndb_name:en: Durian, raw or frozen
 
 ###################################################################################################
 #
@@ -39512,23 +39478,15 @@ zh: 小紅莓
 # udm:нюрмульы
 # vep:garbol
 # yue:金啤梨
-ciqual_proxy_food_code:en: 13113
-ciqual_proxy_food_name:en: Cranberry, raw
-ciqual_proxy_food_name:fr: Canneberge ou cranberry, crue
-usda_ndb_proxy_code:en: 9078
-usda_ndb_proxy_name:en: Cranberries, raw
-wikidata:en: Q13181
-wikipedia:en: https://en.wikipedia.org/wiki/Cranberry
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
-# 7222 in 27 @2021-09-29
-
-< en:cranberry
-en: raw cranberry
 ciqual_food_code:en: 13113
 ciqual_food_name:en: Cranberry, raw
 ciqual_food_name:fr: Canneberge ou cranberry, crue
 usda_ndb_code:en: 9078
 usda_ndb_name:en: Cranberries, raw
+wikidata:en: Q13181
+wikipedia:en: https://en.wikipedia.org/wiki/Cranberry
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
+# 7222 in 27 @2021-09-29
 
 #processing:en: en:dried
 #<en:cranberry
