@@ -250,7 +250,7 @@ sub index_route($request_ref) {
 	# Root, ex: https://world.openfoodfacts.org/
 	$request_ref->{text} = 'index';
 	$request_ref->{current_link} = '';
-	
+
 	# Root + page number, ex: https://world.openfoodfacts.org/2
 	if (exists $request_ref->{param}{page}) {
 		$request_ref->{page} = $request_ref->{param}{page};
