@@ -6035,6 +6035,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "I SUPPORT"
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "We still need €120,000 to finish 2026!"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "Become an Open Food Facts patron"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "keep Open Food Facts open & available to all,"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "support infrastructure, the website, mobile app and API with a small permanent team"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "remain independent of the food industry,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "support the community"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "support science"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Donate"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr ""
@@ -7948,3 +7988,67 @@ msgstr "Impact not assessed"
 msgctxt "detailed_data"
 msgid "Detailed data"
 msgstr "Detailed data"
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr "You can use this form to analyze an ingredient list."
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr "Ingredients text language"
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr "Ingredients text"
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr "Select an ingredient percent estimator:"
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr "Nutritional facts"
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr "Ingredients parsing and quantity estimation"
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr "Ingredient percent estimator:"
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr "Ecobalyse request"
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr "Ecobalyse response"

@@ -160,6 +160,20 @@ my $tests_ref = [
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
+	{
+		test_case => 'options-facet-preflight',
+		method => 'OPTIONS',
+		path => '/facets/contributors/tests',
+		expected_status_code => 200,
+		headers_in => {
+			"Access-Control-Request-Method" => "GET",
+		},
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "none",
+	},
 ];
 execute_api_tests(__FILE__, $tests_ref);
 
@@ -203,6 +217,7 @@ $tests_ref = [
 			"Access-Control-Allow-Headers" =>
 				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
 		},
+		expected_type => "none",    # we only check CORS headers, not the search results body
 	},
 	{
 		test_case => 'options-search-v1',

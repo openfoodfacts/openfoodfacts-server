@@ -27,8 +27,11 @@ jobs:
     outputs:
       code_modified: ${{ steps.filter.outputs.code }}
       taxonomy_only: ${{ steps.filter.outputs.any_non_taxonomy == 'false' }}
+      perl_sbom: ${{ steps.filter-some.outputs.perl_sbom }}
+      docker_sbom: ${{ steps.filter-some.outputs.docker_sbom }}
+      frontend_sbom: ${{ steps.filter-some.outputs.frontend_sbom }}
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
         id: filter
         with:
@@ -44,6 +47,20 @@ jobs:
             - '**/*'           # Catch everything
             - '!taxonomies/**' # Except taxonomy files
           predicate-quantifier: 'every'
+      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+        id: filter-some
+        with:
+          # FIXME: since this uses 'some' it isn’t able to exclude files (e.g., docker/*.md)
+          filters: |
+            perl_sbom:
+            - 'cpanfile'
+            docker_sbom:
+            - 'Dockerfile'
+            - 'docker-compose.yml'
+            frontend_sbom:
+            - 'Dockerfile.frontend'
+            - 'docker-compose.yml'
+          predicate-quantifier: 'some'
 
   lint:
     name: 🕵️‍♀️ NPM lint
@@ -51,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
     - uses: actions/setup-node@v6
@@ -84,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           # needs depth to run git log below
           fetch-depth: 50
@@ -95,7 +112,7 @@ jobs:
           use: true
 
       # Restore taxonomies cache
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         id: cache
         with:
           path: ./build-cache
@@ -307,7 +324,7 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
@@ -366,12 +383,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
     - name: Setup Git and Restore Taxonomies
       run: ./.github/scripts/setup_git.sh
-    - uses: actions/cache/restore@v5
+    - uses: actions/cache/restore@v6
       id: cache
       with:
         path: ./build-cache
@@ -403,9 +420,9 @@ jobs:
       contents: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.perl_sbom == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
     - name: Download backend image from artifacts
@@ -448,9 +465,9 @@ jobs:
       security-events: write
     needs: [filter, build_backend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.docker_sbom == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
     - name: Download backend image from artifacts
@@ -499,9 +516,9 @@ jobs:
       security-events: write
     needs: [build_frontend]
     runs-on: ubuntu-latest
-    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.taxonomy_only == 'false'
+    if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.frontend_sbom == 'true'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
     - name: Download frontend image from artifacts
@@ -552,12 +569,12 @@ jobs:
       unit_test_groups: ${{ steps.matrix.outputs.unit_test_groups }}
       integration_test_groups: ${{ steps.matrix.outputs.integration_test_groups }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
 
     # Cache dynamic test groups and timing data
-    - uses: actions/cache@v5
+    - uses: actions/cache@v6
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -600,13 +617,13 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.unit_test_groups) }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
 
     # Restore cached taxonomies built in build_backend job
     # This avoids rebuilding taxonomies for each test group
-    - uses: actions/cache/restore@v5
+    - uses: actions/cache/restore@v6
       id: taxonomies_cache
       with:
         path: ./build-cache
@@ -615,7 +632,7 @@ jobs:
 
     # Cache dynamic test groups and timing data
     # This enables persistent learning and avoids regenerating groups unnecessarily
-    - uses: actions/cache@v5
+    - uses: actions/cache@v6
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -691,7 +708,7 @@ jobs:
         make codecov
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v6
+      uses: codecov/codecov-action@v7
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
@@ -717,11 +734,11 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.integration_test_groups) }}
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
 
-    - uses: actions/cache/restore@v5
+    - uses: actions/cache/restore@v6
       id: taxonomies_cache
       with:
         path: ./build-cache
@@ -730,7 +747,7 @@ jobs:
 
     # Cache dynamic test groups and timing data for integration tests
     # Integration tests typically have more variable execution times
-    - uses: actions/cache@v5
+    - uses: actions/cache@v6
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -801,7 +818,7 @@ jobs:
         make codecov
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v6
+      uses: codecov/codecov-action@v7
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
@@ -842,10 +859,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
-    - uses: actions/cache/restore@v5
+    - uses: actions/cache/restore@v6
       id: cache
       with:
         path: ./build-cache
@@ -877,7 +894,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
     - name: verify apache2 envvars is correct

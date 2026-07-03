@@ -400,6 +400,7 @@
    "environmental_score_tags" : [
       "d"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
@@ -429,6 +430,7 @@
             },
             {
                "ciqual_food_code" : "16030",
+               "from_palm_oil" : "no",
                "id" : "en:cocoa-butter",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 4.16666666666667,
@@ -513,6 +515,9 @@
       "en:cocoa",
       "en:plant",
       "en:cocoa-butter",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:vegetable-fat",
       "en:sweetener",
       "en:e951"
    ],
@@ -539,6 +544,7 @@
    "known_ingredients_n" : 7,
    "lc" : "en",
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
