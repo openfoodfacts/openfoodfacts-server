@@ -73,7 +73,12 @@ Loads data needed to compute the forest footprint.
 
 =cut
 
+my $forest_footprint_data_loaded = 0;
+
 sub load_forest_footprint_data() {
+
+	return if $forest_footprint_data_loaded;
+	$forest_footprint_data_loaded = 1;
 
 	my $errors = 0;
 
