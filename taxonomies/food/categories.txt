@@ -206,12 +206,6 @@ tr: Sigara
 google_product_taxonomy_id:en: 3151
 wikidata:en: Q1578
 
-en: Bulk
-fr: Vrac
-hr: Rasuti
-nl: Verpakkingsvrij
-pt: Massa
-
 en: Artisan products
 ca: Prouctes artesans
 de: Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -35288,10 +35282,16 @@ ciqual_food_name:fr: Sablé pâtissier
 wikidata:en: Q2915670
 
 < en:Shortbread cookies
-en: Shortbread cookies from Brittany
+en: Shortbread
+xx: Shortbread
+wikidata:en: Q652695
+
+< en:Shortbread cookies
+en: Brittany-style galette biscuits, Shortbread cookies from Brittany
 fr: Galettes bretonnes au beurre, galettes bretonnes
 
 < en:Shortbread cookies
+en: Brittany-style palet biscuits
 fr: Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
 
 < en:Shortbread cookies
@@ -35370,11 +35370,8 @@ ciqual_food_name:en: Biscuit shortbread, with fruits
 ciqual_food_name:fr: Biscuit sec, sablé, galette ou palet, aux fruits
 
 < en:Shortbread cookies
-fr: Sablés au beurre
-
-< en:Biscuits
-en: Shortbread biscuit with butter
-fr: Biscuit sec au beurre
+en: Plain butter shortbreads, Shortbread biscuit with butter
+fr: Sablés nature au beurre, Sablés au beurre
 agribalyse_food_code:en: 24049
 ciqual_food_code:en: 24049
 ciqual_food_name:en: Biscuit shortbread, with butter
@@ -35495,11 +35492,6 @@ ciqual_food_name:fr: Biscuit de Savoie
 < en:Biscuits and cakes
 en: Brookies
 fr: Brookies
-
-< en:Shortbread cookies
-en: Shortbread
-xx: Shortbread
-wikidata:en: Q652695
 
 < en:Biscuits
 en: Krumiri
@@ -58195,7 +58187,6 @@ fr: Noix de cajou crues
 expected_ingredients:en: en:cashew-nuts
 sales_format:en: weight, package
 
-< en:Bulk
 < en:Cashew nuts
 < en:Roasted nuts
 en: Roasted cashew nuts
@@ -72347,7 +72338,6 @@ protected_name_file_number:en: PGI-IT-02469
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Bulk
 < en:Fresh fruits
 < en:Peaches
 en: Fresh peaches
@@ -73120,7 +73110,6 @@ ciqual_food_name:fr: Prune, crue
 intake24_category_code:en: PLUM
 wikidata:en: Q12372598
 
-< en:Bulk
 < en:Fresh fruits
 < en:Plums
 en: Fresh plums
@@ -73495,7 +73484,6 @@ lt: Bananų miltai
 nl: Bananenmelen
 comment:en: Bananas is restricted to whole fresh ones
 
-< en:Bulk
 < en:Cavendish Bananas
 < en:Fresh Bananas
 en: Fresh Cavendish Bananas, Bananas (fresh Cavendish)
@@ -73506,7 +73494,6 @@ comment:en: assume that most bananas sold in the shop are fresh Cavendish banana
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bulk
 < en:Frecinette Bananas
 < en:Fresh bananas
 en: Fresh Frecinette Bananas, Bananas (fresh frecinette)
@@ -73516,7 +73503,6 @@ bulk_proxy_category:en: en:frecinette-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bulk
 < en:Fresh Bananas
 < en:Red Bananas
 en: Fresh Red Bananas
@@ -73527,7 +73513,6 @@ expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
 < en:Bananas from the Canary Islands
-< en:Bulk
 < en:Fresh bananas
 en: Fresh Bananas from the Canary Islands
 fr: Bananes fraîches des Canaries
@@ -112079,7 +112064,6 @@ ciqual_food_code:en: 20181
 ciqual_food_name:en: Parsnip, raw
 ciqual_food_name:fr: Panais, cru
 
-< en:Bulk
 < en:Fresh vegetables
 < en:Parsnip
 en: Fresh parsnip
@@ -113543,7 +113527,6 @@ google_product_taxonomy_id:en: 6597
 wikidata:en: Q157954
 wikipedia:en: https://en.wikipedia.org/wiki/Chard
 
-< en:Bulk
 < en:Chards
 < en:Fresh vegetables
 en: Fresh chards
