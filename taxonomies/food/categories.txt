@@ -6656,7 +6656,72 @@ protected_name_file_number:en: PGI-AT-01920
 protected_name_type:en: gi
 #wikidata:en:
 
+< en:Non-alcoholic beverages
+en: Soft drinks
+af: Koeldrank
+an: Refresco
+ar: مشروب غازي
+ba: Йомшаҡ эсемлек
+be: Асвяжальны напой
+bn: কোমল পানীয়
+ca: Refrescs
+cy: Diod feddal
+da: Læskedrikke
+de: Erfrischungsgetränke, Softdrink, Erfrischungsgetränk
+eo: Refreŝigaĵoj
+es: Refrescos
+et: Karastusjook
+fa: نوشابه
+fi: Virvoitusjuomat
+fr: Boissons rafraîchissantes
+ga: Droch bhog
+hi: शीतल पेय
+hu: Üdítőitalok, Üdítőital
+hy: Ոչ ոգելից ըմպելիքներ
+id: Minuman ringan
+ik: Imiġaaq
+is: Gosdrykkur
+it: Bibita
+iu: ᐃᒥᒐᖅ
+ja: ソフトドリンク
+jv: Ombènan alus
+ko: 청량 음료
+ku: Saremenî
+la: Potio refrigeratoria
+lb: Erfrëschungsgedrénks
+lt: Gaivusis gėrimas
+lv: Atspirdzinošs dzēriens
+mn: Зөөлөн ундаа
+ms: Minuman ringan
+my: အချိုရည်
+pt: Bebidas refrescantes, Refrigerante
+ro: Băutură răcoritoare
+ru: Освежающий напиток
+sa: सिद्धपेयम्
+so: Cabitaan fudud
+sq: Pija freskuese
+sv: Läskedrycker, Läsk, Läskedryck
+ta: குளிர்பானம்
+te: కోలా పానీయాలు
+tl: Sopdrink
+tr: Meşrubat
+ur: سوفٹ ڈرنک
+uz: Spirtsiz ichimliklar
+zh: 軟性飲料
+description:en: A class of beverage containing no alcohol, usually (but not necessarily) carbonated, and typically including added sweetener. Flavors can be natural, artificial or a mixture of the two. (Wikipedia)
+intake24_category_code:en: SOFT
+wikidata:en: Q147538
+
 < en:Fruit-based beverages
+< en:Soft drinks
+en: Fruit soft drinks, Soft fruit drinks
+agribalyse_proxy_food_code:en: 18309
+ciqual_proxy_food_code:en: 18309
+ciqual_proxy_food_name:en: Fruit soft drink, still (fruit juice content unspecified), with sugar
+ciqual_proxy_food_name:fr: Boisson plate aux fruits (teneur en jus non spécifiée), sucrée
+
+< en: Fruit soft drinks
+< en: Still soft drinks
 en: Still fruit soft drinks, Still fruit soft drink
 fr: Boissons plates aux fruits, Boisson plate aux fruits, Boisson aux fruits plate
 hu: Szénsavmentes gyümölcsös üdítőitalok
@@ -6705,7 +6770,7 @@ ciqual_food_code:en: 18339
 ciqual_food_name:en: Fruit soft drink, still (10-50% of fruit juice), with sugar
 ciqual_food_name:fr: Boisson plate aux fruits (10 à 50% de jus), sucrée
 
-< en:Beverages
+< en: Soft drinks
 en: Still soft drinks
 de: Stillgetränke
 es: Bebida gaseosa sin gas
@@ -6736,37 +6801,48 @@ sl: gazirane pijače, gazirana pijača
 sv: Kolsyrade Drycker
 tr: Gazlı içecekler
 zh: 碳酸饮料
-#wikidata:en:
+wikidata:en: Q13417200
 
 < en:Carbonated drinks
+< en:Soft drinks
 en: Sodas, carbonated soft drinks
 bg: Сода
-ca: Refrescs, refrescs carbonatats
+bo: རླངས་ཆུ།
+ca: Refrescs carbonatats
 da: Sodavand
-de: Erfrischungsgetränke, Softdrink, Erfrischungsgetränk
+el: Ανθρακούχο ποτό
 es: Sodas, Gaseosas
-fi: virvoitusjuomat
+eu: Gaseosa
 fr: Sodas, soda, boissons sucrées gazeuses, boissons gazeuses sucrées
+gl: Gasosa
 he: משקאות מוגזים, משקאות קלים
 hr: Zaslađena gazirana pića
-hu: Üdítőitalok, Szénsavas üdítőitalok
+hu: Szénsavas üdítőitalok
 it: Bibite gassate, soft drink
 lt: Gazuoti gaivieji gėrimai
+mi: Inu mirumiru
+mk: Газиран пијалак
+nb: Brus
 nl: Frisdranken, Frisdrank
-pt: Sodas, bebidas refrescantes, bebidas refrescantes com gazozo
+nn: Brus
+oc: Gasosa
+pt: Sodas, Bebidas refrescantes com gazozo
 ro: Băuturi carbogazoase, Bauturi carbogazoase, bauturi racoritoare carbogazoase, băuturi răcoritoare carbogazoase
 ru: Газированные безалкагольные напитки
-sv: Läsk, Läskedrycker, läskedryck
+se: Bruvsa
+sh: Gazirano piće
+sr: Газирано пиће
+sv: Sodavatten, Soda
 th: น้ำอัดลม
+uk: Газований напій
+vi: Nước ngọt có ga
 zh: 汽水, 软性饮料, 苏打饮料
 agribalyse_proxy_food_code:en: 18340
 ciqual_proxy_food_code:en: 18340
 ciqual_proxy_food_name:en: Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
 ciqual_proxy_food_name:fr: Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants
 google_product_taxonomy_id:en: 2628
-intake24_category_code:en: SOFT
 nova:en: 3
-wikidata:en: Q147538
 
 < en: Sodas
 en: Club sodas
@@ -6774,6 +6850,7 @@ description:en: Club soda is a form of carbonated water manufactured in North Am
 wikipedia:en: https://en.wikipedia.org/wiki/Club_soda
 
 < en:Carbonated drinks
+< en:Soft drinks
 en: Carbonated soft drinks without fruit juice
 bg: Газирани без плодови сокове
 ca: Begudes carbonatades sense suc de fruita
@@ -6796,6 +6873,10 @@ sl: Gazirane pijače brez sadnega soka
 sv: Kolsyrade drycker utan fruktjuice
 tr: Meyve suyu olmayan gazlı içecekler
 zh: 无果汁的碳酸饮料
+agribalyse_proxy_food_code:en: 18026
+ciqual_proxy_food_code:en: 18026
+ciqual_proxy_food_name:en: Soft drink, carbonated, without fruit juice, with sugar
+ciqual_proxy_food_name:fr: Boisson gazeuse, sans jus de fruit, sucrée
 
 < en:Carbonated soft drinks without fruit juice
 en: Carbonated soft drinks without fruit juice with sugar
@@ -6849,6 +6930,7 @@ ciqual_food_name:en: Soft drink, carbonated, without fruit juice, without sugar 
 ciqual_food_name:fr: Boisson gazeuse, sans jus de fruit, non sucrée, avec édulcorants
 
 < en:Carbonated drinks
+< en:Fruit soft drinks
 en: Carbonated fruit soft drink
 bg: Газирано плодово безалкохолно питие
 ca: Beguda gasosa de fruita
@@ -6872,6 +6954,9 @@ sv: Kolsyrad fruktig läskedryck
 tr: Gazlı meyve gazsız içecek
 zh: 果汁碳酸饮料
 agribalyse_proxy_food_code:en: 18019
+ciqual_proxy_food_code:en: 18019
+ciqual_proxy_food_name:en: Fruit soft drink, carbonated (10-50% of fruit juice), with sugar
+ciqual_proxy_food_name:fr: Boisson gazeuse aux fruits (de 10 à 50% de jus), sucrée
 
 < en:Carbonated fruit soft drink
 en: Carbonated fruit soft drink with sugar
@@ -7195,88 +7280,100 @@ ciqual_food_code:en: 18353
 ciqual_food_name:en: Energy drink, without sugar and with artificial sweetener(s)
 ciqual_food_name:fr: Boisson énergisante, non sucrée, avec édulcorants
 
-
-
-< en:Non-alcoholic beverages
-en: Lemonade, Lemonades
+< en: Fruit soft drinks
+en: Lemonades, Lemonade
 ar: شراب الليمون
 az: Limonad
 ba: Лимонад
-be: ліманад
+be: Ліманад
 bg: Лимонада
+bn: লেবুর শরবত
+br: Limonadez
 bs: Limunada
-ca: llimonada
-cs: limonáda
+ca: Llimonada
+cs: Limonáda
 cv: Лимонад
 cy: Lemonêd
-da: Limonade
-de: Limonaden, limonade
+da: Limonader, Lemonader
+de: Limonaden, Limonade
 el: Λεμονάδα
-eo: Limonado
-es: Limonadas, limonada
+eo: Limonadoj
+es: Limonadas, Limonada
 et: Limonaad
 eu: Limonada
 fa: شربت آبلیمو
 fi: Sitruunasooda
-fr: Limonades, limonade
-ga: Líomanáid Dhearg
+fr: Limonades, Limonade
+ga: Líomanáid dhearg
 gl: Limoada
 he: לימונדה
-hr: limunade, limunada
+hi: नींबू का रस
+hr: Limunade, Limunada
+ht: Limonad
 hu: Limonádék, Limonádé
 hy: Լիմոնադ
 id: Limun
 io: Limonado
-it: limonata, Bibita gassata
+it: Limonata, Bibita gassata
 ja: レモネード
+jv: Lemonade
+ka: Ლიმონათი
 kk: Лимонад
 ko: 레모네이드
 la: Limonata
 lb: Limonad
-lt: Limonadas, Limonadai
+lt: Limonadai, Limonadas
+lv: Limonāde
+mi: Namunēra
 mk: Лимонада
 ml: നാരങ്ങാവെള്ളം
 mr: लिंबू सरबत
-nb: limonade
+ms: Lemonade
+nb: Limonader
 ne: लेमोनेड
 nl: Limonade, Limonades
-oc: limonada
+nn: Limonadar
+oc: Limonada
 pa: ਸ਼ਿਕੰਜਵੀ
 pl: Lemoniada, Lemoniady
-pt: limonada
+pt: Limonada
 ro: Limonadă, Limonada
-ru: лимонад
+ru: Лимонад
 sd: سڪنجبين
 sh: Limunada
-sr: лимунада
+sl: Limonada
+sq: Limonada
+sr: Лимунада
 ta: எலுமிச்சைச்சாறு
 tr: Limonata
-uk: лимонад
+uk: Лимонад
 ur: سکنجبین
 uz: Limonad
+vi: Nước vị chanh
 zh: 檸檬水
+#ast: Llimonada
+#bar: Kracherl
+#be-tarask: ліманад
+#en-ca: Lemonade
+#en-gb: Lemonade
+#lad: Limonata
+#olo: Limonuadu
+#sco: Skoosh
+#wuu: 柠檬水
+#yue: 檸水
+#zh-cn: 檸檬水
+#zh-hans: 檸檬水
+#zh-hant: 檸檬水
 agribalyse_proxy_food_code:en: 18010
-agribalyse_proxy_food_name:en: Lemonade, with sugar
-agribalyse_proxy_food_name:fr: Limonade, sucrée
+ciqual_proxy_food_code:en: 18010
+ciqual_proxy_food_name:en: Lemonade, with sugar
+ciqual_proxy_food_name:fr: Limonade, sucrée
 description:en: Lemonade can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
-# ast:Llimonada
-# bar:Kracherl
-# be-tarask:ліманад
-# en-ca:Lemonade
-# en-gb:Lemonade
-# lad:Limonata
-# olo:Limonuadu
-# sco:Skoosh
-# wuu:柠檬水
-# yue:檸水
-# zh-cn:檸檬水
-# zh-hans:檸檬水
-# zh-hant:檸檬水
 wikidata:en: Q893
 wikipedia:en: https://en.wikipedia.org/wiki/Lemonade
 
 < en:Lemonades
-en: Lemonade with sugar
+en: Lemonades with sugar, Lemonade with sugar
 bg: Лимонада със захар
 fi: Sokerinen limonadi
 fr: Limonade sucrée
@@ -7290,7 +7387,7 @@ ciqual_food_name:en: Lemonade, with sugar
 ciqual_food_name:fr: Limonade, sucrée
 
 < en:Lemonades
-en: Lemonade with sugar and artificial sweeteners
+en: Lemonades with sugar and artificial sweeteners, Lemonade with sugar and artificial sweeteners
 bg: Лимонада със захар и изкуствени подсладители
 fr: Limonade sucrée avec édulcorants
 hr: Limunada sa šećerom i umjetnim sladilima
@@ -12080,6 +12177,56 @@ ciqual_food_name:fr: Eau du robinet
 < en:Waters
 en: Ice Cubes
 fr: Glaçons
+
+#< en: Distilled beverages  # Distilled beverages are alcoholic beverages only
+< en: Waters
+en: Distilled waters
+ar: ماء مقطر
+az: Distillə olunmuş su
+be: Дыстыляваная вада
+bg: Дестилирана вода
+ca: Aigua destil·lada
+cs: Destilovaná voda
+da: Destillerede vand, Destilleret vand
+de: Destilliertes Wasser
+el: Απεσταγμένο νερό
+eo: Distilakvoj
+es: Agua destilada
+et: Destilleeritud vesi
+eu: Ur destilatu
+fa: آب مقطر
+fi: Tislattu vesi
+fr: Eaux distillées, Eau distillée
+gl: Auga destilada
+hi: आसुत जल
+hr: Destilirana voda
+hu: Desztillált víz
+hy: Թորած ջուր
+id: Air Suling
+is: Eimað vatn
+it: Acqua distillata
+ja: 蒸留水
+kk: Бидистиллят
+ko: 증류수
+lv: Destilēts ūdens
+ms: Air suling
+nb: Destillerte vann, Destillerte vatn, Destillert vann, Destillert vatn
+nl: Gedestilleerd water
+nn: Destillerte vatn, Destillert vatn
+pl: Woda destylowana
+pt: Água destilada
+ro: Apă distilată
+ru: Дистиллированная вода
+sk: Destilovana voda
+sl: Destilirana voda
+sr: Дестилована вода
+sv: Destillerade vatten, Destillerat vatten
+ta: வாலைவடி நீர்
+uk: Дистильована вода
+uz: Distillangan suv
+vi: Nước cất
+zh: 蒸馏水
+wikidata:en: Q274959
 
 < en:Waters
 en: Drinking water
@@ -72318,18 +72465,52 @@ protected_name_file_number:en: PGI-FR-02433
 protected_name_type:en: pgi
 
 < en:Fruits
-en: Peaches, peach
+en: Peaches, Peach
+ar: دراق
 bg: Праскови
+br: Pechez
+ca: Préssec
+ce: ГӀаммагӀа
+cs: Broskev
+da: Ferskner, Ferskener, Ferskenfrugter
 de: Pfirsiche
-es: Melocotones
-fi: persikat
+el: Ροδάκινο
+eo: Persikoj
+es: Melocotones, Melocotón
+eu: Mertxika
+fi: Persikat, Persikka
 fr: Pêches
+gl: Pexego
 hr: Breskve
-it: Pesche
+hy: Դեղձ
+ia: Persica
+it: Pesche, Pesca
 ja: モモ, もも, 桃, ピーチ
+kk: Шабдалы
+ko: 복숭아
+lb: Piisch
 lt: Persikai
+mg: Paiso
+my: မက်မွန်
+nb: Ferskener
 nl: Perziken
+nn: Ferskenar
+oc: Persec
+pl: Brzoskwinia
+ru: Персик
+se: Persihkka
+sk: Broskyňa
+sl: Breskev
+sv: Persikor, Persika
+tg: Шафтолу
+tr: Şeftali
+tt: Шәфталу
+zh: 桃
+agribalyse_proxy_food_code:en: 13043
+ciqual_proxy_food_code:en: 13043
+ciqual_proxy_food_name:en: Peach, flesh and skin, pitted, raw
 intake24_category_code:en: PCHS
+wikidata:en: Q13202263
 
 < en:Peaches
 it: Pesca di Delia
@@ -72341,10 +72522,12 @@ protected_name_type:en: pgi
 < en:Fresh fruits
 < en:Peaches
 en: Fresh peaches
+da: Friske ferskner
 es: Melocotones frescos
 fr: Pêches fraîches
 hr: Svježe breskve
 lt: Švieži persikai
+sv: Färska persikor
 sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
 
@@ -75083,6 +75266,21 @@ ciqual_food_code:en: 13719
 ciqual_food_name:en: Pineapple, in light syrup, canned, not drained
 ciqual_food_name:fr: Ananas au sirop léger, appertisé, non égoutté
 
+< en: Canned fruits
+< en: Peaches
+en: Canned peaches
+da: Dåseferskner
+de: Dosenpfirsich
+sv: Burkpersikor
+wikidata:en: Q67891942
+
+< en: Canned fruits in juice
+< en: Canned peaches
+en: Canned peaches in juice
+da: Dåseferskner i juice
+sv: Burkpersikor i juice, Persikor i juice
+
+< en: Canned peaches
 < en:Fruits in syrup
 en: Peaches in syrup
 bg: Праскови в сироп
