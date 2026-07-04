@@ -74155,49 +74155,105 @@ ciqual_food_name:en: Passion fruit, pulp and pips, raw
 ciqual_food_name:fr: Fruit de la passion ou maracudja, pulpe et pépins, cru
 
 < en:Tropical fruits
-en: Pineapple
+en: Pineapples, Pineapple
+ak: Aborɔbɛ
+ar: أناناس
+ay: Achupalla
 bg: Ананас
-da: Ananas, Ananasser
+bo: ཐང་འབྲས།
+ca: Pinya
+cs: Ananas
+cy: Pîn-afal
+da: Ananasser, Ananas
 de: Ananas, Ananasse
+dv: އަލަނާސި
+ee: Abable
+eo: Ananasoj
 es: Piñas, Ananás
-fi: ananas
+eu: Anana
+fi: Ananas
 fr: Ananas
+gd: Anann
+ha: Abarba
 hr: Ananas
+ig: Ọkwụrụ bekee
+io: Ananaso
+is: Ananas
 it: Ananas
 ja: パイナップル, パインアップル
+kg: Nanasi
 la: Ananas comosus, Ananas sativus
+lb: Ananas
+lo: ໝາກນັດ
 lt: Ananasai, Ananasas
+lv: Ananass
+ms: Nenas
+my: နာနတ်
+nb: Ananaser
 nl: Ananassen
 nl_be: Ananassen
+nn: Ananasar
+nv: Bilasáana diwozhí
 pl: Ananas
-sv: Ananas, Ananaser
+pt: Abacaxi
+ro: Ananas
+ru: Ананас
+rw: Inanasi
+sd: انناس
+se: Anánas
+sk: Ananás
+sl: Ananas
+sm: Pineapu
+sq: Ananasi
+sv: Ananaser, Ananas
+te: అనాస పండు
+uk: Ананас
+ur: انناس
+yi: אנאנאס
+za: Bohloz
+zh: 鳳梨
 agribalyse_proxy_food_code:en: 13002
-agribalyse_proxy_food_name:en: Pineapple, pulp, raw
-agribalyse_proxy_food_name:fr: Ananas, pulpe, cru
+ciqual_proxy_food_code:en: 13002
+ciqual_proxy_food_name:en: Pineapple, flesh without skin, raw
+ciqual_proxy_food_name:fr: Ananas, pulpe, cru
 google_product_taxonomy_id:en: 6670
 sales_format:en: weight, package
 wikidata:en: Q10817602
 
 < en:Fresh fruits
-< en:Pineapple
+< en:Pineapples
 en: Fresh pineapple
 da: Frisk ananas
 de: Frische Ananas
 fr: Ananas frais
 hr: Svježi ananas
 lt: Švieži ananasai
-nl: verse ananas
-sv: Färsk ananas
+nl: Verse ananas
+sv: Färska ananaser
 
-< en:Pineapple
-en: Pineapple pulp
+< en: Pineapples
+en: Pineapple pulps, Pineapple pulp
 fr: Pulpe d'ananas
 hr: Pulpa ananasa
-nl: ananaspulp
+nl: Ananaspulp
 agribalyse_food_code:en: 13002
 ciqual_food_code:en: 13002
-ciqual_food_name:en: Pineapple, pulp, raw
+ciqual_food_name:en: Pineapple, flesh without skin, raw
 ciqual_food_name:fr: Ananas, pulpe, cru
+
+< en: Pineapples
+en: Pineapple slices
+ar: شرائح الأناناس
+ca: Tall de pinya
+da: Ananasskiver
+de: Ananasscheibe
+fi: Ananasviipaleet
+fr: Ananas en tranches
+nl: Ananasschijfje
+ru: Ломтики ананаса
+sv: Ananasskivor
+zh: 鳳梨片
+wikidata:en: Q26877342
 
 < en:Tropical fruits
 en: Jujube dates, Jujube
@@ -74393,7 +74449,7 @@ da: Frosne ternede avokadoer
 sv: Frysta tärnade avokador, Frysta avokador i tärningar
 
 < en:Frozen tropical fruits
-< en:Pineapple
+< en:Pineapples
 en: Frozen pineapples
 da: Frosne ananasser
 de: Gefrorene Ananas
@@ -74402,6 +74458,7 @@ fr: Ananas surgelés
 hr: Smrznuti ananas
 lt: Šaldyti ananasai
 nl: Ananas (diepvries), Bevroren ananas, Diepvriesananas
+sv: Frysta ananaser
 
 < en:Frozen tropical fruits
 en: Frozen mangos
@@ -74986,6 +75043,8 @@ en: Green raisins
 da: Grønne rosiner
 sv: Gröna russin
 
+# do not rename en:canned-fruits as it is used in Ingredients.pm
+# to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
 < en:Canned plant-based foods
 < en:Fruit-based foods
 en: Canned fruits
@@ -75011,20 +75070,37 @@ intake24_category_code:en: CAND
 who_id:en: 16
 wikidata:en: Q98103940
 
-# dot not rename en:canned-fruits as it is used in Ingredients.pm
-# to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
-
 < en:Canned fruits
+< en:Pineapples
 en: Canned pineapples
 bg: Консервиран ананас
+da: Dåseananasser, Ananasser på dåse
 de: Dosenananas
 es: Piña enlatada
 fi: Purkkiananakset
-fr: Ananas en conserve
+fr: Ananas en conserve, Ananas en boîte
 hr: Konzervirani ananas
 it: Ananas in scatola
+ja: パイナップル缶
 lt: Konservuoti ananasai
 nl: Ananas in blik/pot
+sl: Ananas v pločevinki
+sv: Burkananaser, Ananaser på burk
+agribalyse_proxy_food_code:en: 13717
+ciqual_proxy_food_code:en: 13717
+ciqual_proxy_food_name:en: Pineapple, in pineapple juice, canned, solids and liquids
+wikidata:en: Q112875918
+
+< en: Canned pineapples
+en: Canned pineapple slices
+da: Ananasskiver på dåse
+de: Dosenananasscheibe
+nl: Ananasschijfje in blik/pot
+sv: Ananasskivor på burk
+
+< en: Canned pineapples
+en: Canned pineapple chunks
+sv: Burkananas i bitar, Ananasbitar på burk, Ananas i bitar på burk
 
 < en:Canned fruits
 en: Canned mixed fruits, Canned fruit cocktails
@@ -75233,9 +75309,10 @@ fr: Ananas au sirop
 hr: Ananas u sirupu
 lt: Ananasai sirupe
 nl: Ananas op siroop
-agribalyse_proxy_food_code:en: 13717
-agribalyse_proxy_food_name:en: Pineapple, in pineapple juice and syrup, canned, not drained
-agribalyse_proxy_food_name:fr: Ananas au sirop et jus d'ananas, appertisé, non égoutté
+agribalyse_proxy_food_code:en: 13719
+ciqual_proxy_food_code:en: 13719
+ciqual_proxy_food_name:en: Pineapple, in light syrup, canned, solids and liquids
+ciqual_proxy_food_name:fr: Ananas au sirop léger, appertisé, non égoutté
 
 < en:Pineapple in syrup
 en: Canned drained pineapple in pineapple juice and syrup
@@ -75257,10 +75334,10 @@ ciqual_food_name:fr: Ananas au sirop léger, appertisé, égoutté
 < en:Pineapple in syrup
 en: Canned pineapple in pineapple juice and syrup not drained
 fr: Ananas au sirop et jus d'ananas appertisé non égoutté
-agribalyse_food_code:en: 13717
-ciqual_food_code:en: 13717
-ciqual_food_name:en: Pineapple, in pineapple juice and syrup, canned, not drained
-ciqual_food_name:fr: Ananas au sirop et jus d'ananas, appertisé, non égoutté
+agribalyse_proxy_food_code:en: 13719
+ciqual_proxy_food_code:en: 13719
+ciqual_proxy_food_name:en: Pineapple, in light syrup, canned, solids and liquids
+ciqual_proxy_food_name:fr: Ananas au sirop léger, appertisé, non égoutté
 
 < en:Canned pineapples
 < en:Pineapple in syrup
@@ -75268,7 +75345,7 @@ en: Canned pineapple in light syrup not drained
 fr: Ananas au sirop léger appertisé non égoutté
 agribalyse_food_code:en: 13719
 ciqual_food_code:en: 13719
-ciqual_food_name:en: Pineapple, in light syrup, canned, not drained
+ciqual_food_name:en: Pineapple, in light syrup, canned, solids and liquids
 ciqual_food_name:fr: Ananas au sirop léger, appertisé, non égoutté
 
 < en: Canned fruits
@@ -75367,13 +75444,32 @@ sv: Frukter i fruktsaft på burk
 < en:Canned fruits in juice
 < en:Canned pineapples
 en: Canned pineapples in juice, Pineapple in juice
-de: Ananas im Saft
+da: Dåseananasser i juice
+de: Dosenananas im Saft, Ananas im Saft
 es: Piña en conserva en zumo, Conservas de piña en zumo, Conservas de piña en su zumo
-fi: ananasta omassa mehussaan
+fi: Ananasta omassa mehussaan
 fr: Ananas au jus
 hr: Ananas u soku
 lt: Ananasai savose sultyse
 nl: Ananas op sap
+sv: Burkananaser i juice
+agribalyse_food_code:en: 13717
+ciqual_food_code:en: 13717
+ciqual_food_name:en: Pineapple, in pineapple juice, canned, solids and liquids
+
+< en: Canned pineapple slices
+< en: Canned pineapples in juice
+en: Canned pineapple slices in juice
+da: Ananasskiver i juice på dåse
+de: Dosenananasscheibe im Saft
+fr: Ananas en tranches au jus
+nl: Ananasschijfje op sap in blik/pot
+sv: Ananasskivor i juice på burk
+
+< en: Canned pineapple chunks
+< en: Canned pineapples in juice
+en: Canned pineapple chunks in juice
+sv: Ananasbitar i juice på burk, Burkananas i bitar i juice, Ananas i bitar i juice på burk
 
 < en:Canned fruits in juice
 < en:Canned mixed fruits
