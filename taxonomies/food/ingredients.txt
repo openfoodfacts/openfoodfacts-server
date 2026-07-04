@@ -42633,8 +42633,8 @@ ciqual_proxy_food_name:en: Lemon, pulp, raw
 ciqual_proxy_food_name:fr: Citron, pulpe, cru
 ecobalyse:en: 6ece5452-42de-4e0a-8c70-1d305e614cc8
 ecobalyse_labels_en_organic:en: ed5c98fd-6fe5-43ca-b938-1dde919794b7
-usda_ndb_proxy_code:en: 9150
-usda_ndb_proxy_name:en: Lemons, raw, without peel
+usda_ndb_code:en: 9150
+usda_ndb_name:en: Lemons, raw, without peel
 wikidata:en: Q1093742
 
 < en:lemon
@@ -42654,15 +42654,10 @@ pt: casca de limão
 ro: coajă de lămâie
 sv: citronskal
 description:en: The skin or outer layer of a lemon.
-usda_ndb_proxy_code:en: 9156
-usda_ndb_proxy_name:en: Lemon peel, raw
-wikidata:en: Q104037650
-# 2217 @2021-10-09
-
-< en:lemon peel
-en: raw lemon peel
 usda_ndb_code:en: 9156
 usda_ndb_name:en: Lemon peel, raw
+wikidata:en: Q104037650
+# 2217 @2021-10-09
 
 < en:lemon peel
 en: lemon peel extract
@@ -42722,11 +42717,6 @@ ciqual_food_code:en: 13009
 ciqual_food_name:en: Lemon, pulp, raw
 ciqual_food_name:fr: Citron, pulpe, cru
 # 270 in 7 @2021-10-09
-
-< en:lemon
-en: raw peeled lemon
-usda_ndb_code:en: 9150
-usda_ndb_name:en: Lemons, raw, without peel
 
 < en:lemon
 #<en:purée
