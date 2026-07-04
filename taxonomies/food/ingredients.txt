@@ -51781,7 +51781,11 @@ eurocode_2_group_3:en: 8.10.16
 wikidata:en: Q158954
 wikipedia:en: https://en.wikipedia.org/wiki/Valerianella_locusta
 
-# description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
+###################################################################################################
+#
+#                                Chard
+#
+###################################################################################################
 
 # <en:Vegetable rods
 < en:leaf vegetable
@@ -51825,14 +51829,6 @@ sv: mangold
 tr: Pazı
 uk: Мангольд
 zh: 莙薘菜
-# ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
-# category/chards has 16 products @2019-05-22
-ciqual_food_code:en: 20004
-ciqual_food_name:en: Swiss chard, raw
-ciqual_food_name:fr: Bette ou blette, crue
-ecobalyse:en: 4974a272-0080-4a52-a46e-ae222dcf8dff
-ecobalyse_origins_en_france:en: 2920acc6-000a-4f43-9525-7d619d19f62e
-eurocode_2_group_3:en: 8.10.20
 # azb:پازی تره‌سی
 # frr:Mangold
 # hsb:Burak
@@ -51853,8 +51849,17 @@ eurocode_2_group_3:en: 8.10.20
 # zh-hk:莙薘菜
 # zh-sg:莙荙菜
 # zh-tw:莙薘菜
+ciqual_food_code:en: 20004
+ciqual_food_name:en: Swiss chard, raw
+ciqual_food_name:fr: Bette ou blette, crue
+description:en: CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
+ecobalyse:en: 4974a272-0080-4a52-a46e-ae222dcf8dff
+ecobalyse_origins_en_france:en: 2920acc6-000a-4f43-9525-7d619d19f62e
+eurocode_2_group_3:en: 8.10.20
 wikidata:en: Q157954
 wikipedia:en: https://en.wikipedia.org/wiki/Chard
+# ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
+# category/chards has 16 products @2019-05-22
 
 < en:chard
 en: chard concentrate
@@ -51866,6 +51871,12 @@ it: concentrato di bietola
 < en:chard
 en: red chard
 sv: röd mangold
+
+###################################################################################################
+#
+#                                Spinach
+#
+###################################################################################################
 
 < en:leaf vegetable
 en: spinach
@@ -52087,7 +52098,26 @@ en: garden orache, orach
 it: arancio da giardino
 eurocode_2_group_3:en: 8.10.28
 
-# comment:en:Cress can mean Garden Cress, Watercress, or the group of all cresses. And seemingly different things in different languages.
+###################################################################################################
+#
+#                                Water spinach
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: water spinach, water convolvulus, morning glory, kangkong
+la: Ipomoea aquatica
+description:en: Water convolvulus (Ipomoea aquatica), also known as water spinach, morning glory, or kangkong, is a semi-aquatic tropical plant widely used as a leafy vegetable across Asia and Africa. It's a staple vegetable in cuisines across Southeast Asia (Vietnam, Thailand, the Philippines, Malaysia, Indonesia). Both the leaves and tender stem tips are eaten, typically stir-fried with garlic, shrimp paste, or chili.
+usda_ndb_code:en: 11503
+usda_ndb_name:en: Water convolvulus,raw
+
+###################################################################################################
+#
+#                                Cress
+#
+###################################################################################################
+
+# comment:en:Cress can mean Garden Cress, Watercress, or the group of all cresses. And seemingly different things in different languages. 
 < en:leaf vegetable
 en: cress
 de: Kresse
@@ -52106,7 +52136,7 @@ eurocode_2_group_3:en: 8.10.34
 # description:en:WATERCRESS or yellowcress is an aquatic plant species with the botanical name Nasturtium officinale. Watercress can be sold in supermarkets in sealed plastic bags, containing a little moisture and lightly pressurised to prevent crushing of contents. Watercress is 95% water and has low contents of carbohydrates, protein, fat, and dietary fiber.
 # comment:en:The wikidata-page refers to plant and not the vegetable. The translations are taken from the wikipedia-pages.
 
-< en:cress
+< en: cress
 en: watercress
 af: bronkors
 an: Berro
