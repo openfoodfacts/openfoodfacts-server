@@ -206,12 +206,6 @@ tr: Sigara
 google_product_taxonomy_id:en: 3151
 wikidata:en: Q1578
 
-en: Bulk
-fr: Vrac
-hr: Rasuti
-nl: Verpakkingsvrij
-pt: Massa
-
 en: Artisan products
 ca: Prouctes artesans
 de: Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -2543,7 +2537,6 @@ fr: Bières blondes pur malt
 < en:Beers
 en: Flavored beers, Flavored beer
 de: Aromatisierte Biere
-en-GB: Flavoured beers, flavoured beer
 es: Cervezas aromatizadas
 fi: Maustetut oluet
 fr: Bières aromatisées
@@ -6662,7 +6655,72 @@ protected_name_file_number:en: PGI-AT-01920
 protected_name_type:en: gi
 #wikidata:en:
 
+< en:Non-alcoholic beverages
+en: Soft drinks
+af: Koeldrank
+an: Refresco
+ar: مشروب غازي
+ba: Йомшаҡ эсемлек
+be: Асвяжальны напой
+bn: কোমল পানীয়
+ca: Refrescs
+cy: Diod feddal
+da: Læskedrikke
+de: Erfrischungsgetränke, Softdrink, Erfrischungsgetränk
+eo: Refreŝigaĵoj
+es: Refrescos
+et: Karastusjook
+fa: نوشابه
+fi: Virvoitusjuomat
+fr: Boissons rafraîchissantes
+ga: Droch bhog
+hi: शीतल पेय
+hu: Üdítőitalok, Üdítőital
+hy: Ոչ ոգելից ըմպելիքներ
+id: Minuman ringan
+ik: Imiġaaq
+is: Gosdrykkur
+it: Bibita
+iu: ᐃᒥᒐᖅ
+ja: ソフトドリンク
+jv: Ombènan alus
+ko: 청량 음료
+ku: Saremenî
+la: Potio refrigeratoria
+lb: Erfrëschungsgedrénks
+lt: Gaivusis gėrimas
+lv: Atspirdzinošs dzēriens
+mn: Зөөлөн ундаа
+ms: Minuman ringan
+my: အချိုရည်
+pt: Bebidas refrescantes, Refrigerante
+ro: Băutură răcoritoare
+ru: Освежающий напиток
+sa: सिद्धपेयम्
+so: Cabitaan fudud
+sq: Pija freskuese
+sv: Läskedrycker, Läsk, Läskedryck
+ta: குளிர்பானம்
+te: కోలా పానీయాలు
+tl: Sopdrink
+tr: Meşrubat
+ur: سوفٹ ڈرنک
+uz: Spirtsiz ichimliklar
+zh: 軟性飲料
+description:en: A class of beverage containing no alcohol, usually (but not necessarily) carbonated, and typically including added sweetener. Flavors can be natural, artificial or a mixture of the two. (Wikipedia)
+intake24_category_code:en: SOFT
+wikidata:en: Q147538
+
 < en:Fruit-based beverages
+< en:Soft drinks
+en: Fruit soft drinks, Soft fruit drinks
+agribalyse_proxy_food_code:en: 18309
+ciqual_proxy_food_code:en: 18309
+ciqual_proxy_food_name:en: Fruit soft drink, still (fruit juice content unspecified), with sugar
+ciqual_proxy_food_name:fr: Boisson plate aux fruits (teneur en jus non spécifiée), sucrée
+
+< en: Fruit soft drinks
+< en: Still soft drinks
 en: Still fruit soft drinks, Still fruit soft drink
 fr: Boissons plates aux fruits, Boisson plate aux fruits, Boisson aux fruits plate
 hu: Szénsavmentes gyümölcsös üdítőitalok
@@ -6711,7 +6769,7 @@ ciqual_food_code:en: 18339
 ciqual_food_name:en: Fruit soft drink, still (10-50% of fruit juice), with sugar
 ciqual_food_name:fr: Boisson plate aux fruits (10 à 50% de jus), sucrée
 
-< en:Beverages
+< en: Soft drinks
 en: Still soft drinks
 de: Stillgetränke
 es: Bebida gaseosa sin gas
@@ -6742,37 +6800,48 @@ sl: gazirane pijače, gazirana pijača
 sv: Kolsyrade Drycker
 tr: Gazlı içecekler
 zh: 碳酸饮料
-#wikidata:en:
+wikidata:en: Q13417200
 
 < en:Carbonated drinks
+< en:Soft drinks
 en: Sodas, carbonated soft drinks
 bg: Сода
-ca: Refrescs, refrescs carbonatats
+bo: རླངས་ཆུ།
+ca: Refrescs carbonatats
 da: Sodavand
-de: Erfrischungsgetränke, Softdrink, Erfrischungsgetränk
+el: Ανθρακούχο ποτό
 es: Sodas, Gaseosas
-fi: virvoitusjuomat
+eu: Gaseosa
 fr: Sodas, soda, boissons sucrées gazeuses, boissons gazeuses sucrées
+gl: Gasosa
 he: משקאות מוגזים, משקאות קלים
 hr: Zaslađena gazirana pića
-hu: Üdítőitalok, Szénsavas üdítőitalok
+hu: Szénsavas üdítőitalok
 it: Bibite gassate, soft drink
 lt: Gazuoti gaivieji gėrimai
+mi: Inu mirumiru
+mk: Газиран пијалак
+nb: Brus
 nl: Frisdranken, Frisdrank
-pt: Sodas, bebidas refrescantes, bebidas refrescantes com gazozo
+nn: Brus
+oc: Gasosa
+pt: Sodas, Bebidas refrescantes com gazozo
 ro: Băuturi carbogazoase, Bauturi carbogazoase, bauturi racoritoare carbogazoase, băuturi răcoritoare carbogazoase
 ru: Газированные безалкагольные напитки
-sv: Läsk, Läskedrycker, läskedryck
+se: Bruvsa
+sh: Gazirano piće
+sr: Газирано пиће
+sv: Sodavatten, Soda
 th: น้ำอัดลม
+uk: Газований напій
+vi: Nước ngọt có ga
 zh: 汽水, 软性饮料, 苏打饮料
 agribalyse_proxy_food_code:en: 18340
 ciqual_proxy_food_code:en: 18340
 ciqual_proxy_food_name:en: Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
 ciqual_proxy_food_name:fr: Boisson gazeuse aux fruits (à moins de 10% de jus), non sucrée, avec édulcorants
 google_product_taxonomy_id:en: 2628
-intake24_category_code:en: SOFT
 nova:en: 3
-wikidata:en: Q147538
 
 < en: Sodas
 en: Club sodas
@@ -6780,6 +6849,7 @@ description:en: Club soda is a form of carbonated water manufactured in North Am
 wikipedia:en: https://en.wikipedia.org/wiki/Club_soda
 
 < en:Carbonated drinks
+< en:Soft drinks
 en: Carbonated soft drinks without fruit juice
 bg: Газирани без плодови сокове
 ca: Begudes carbonatades sense suc de fruita
@@ -6802,6 +6872,10 @@ sl: Gazirane pijače brez sadnega soka
 sv: Kolsyrade drycker utan fruktjuice
 tr: Meyve suyu olmayan gazlı içecekler
 zh: 无果汁的碳酸饮料
+agribalyse_proxy_food_code:en: 18026
+ciqual_proxy_food_code:en: 18026
+ciqual_proxy_food_name:en: Soft drink, carbonated, without fruit juice, with sugar
+ciqual_proxy_food_name:fr: Boisson gazeuse, sans jus de fruit, sucrée
 
 < en:Carbonated soft drinks without fruit juice
 en: Carbonated soft drinks without fruit juice with sugar
@@ -6855,6 +6929,7 @@ ciqual_food_name:en: Soft drink, carbonated, without fruit juice, without sugar 
 ciqual_food_name:fr: Boisson gazeuse, sans jus de fruit, non sucrée, avec édulcorants
 
 < en:Carbonated drinks
+< en:Fruit soft drinks
 en: Carbonated fruit soft drink
 bg: Газирано плодово безалкохолно питие
 ca: Beguda gasosa de fruita
@@ -6878,6 +6953,9 @@ sv: Kolsyrad fruktig läskedryck
 tr: Gazlı meyve gazsız içecek
 zh: 果汁碳酸饮料
 agribalyse_proxy_food_code:en: 18019
+ciqual_proxy_food_code:en: 18019
+ciqual_proxy_food_name:en: Fruit soft drink, carbonated (10-50% of fruit juice), with sugar
+ciqual_proxy_food_name:fr: Boisson gazeuse aux fruits (de 10 à 50% de jus), sucrée
 
 < en:Carbonated fruit soft drink
 en: Carbonated fruit soft drink with sugar
@@ -7201,88 +7279,100 @@ ciqual_food_code:en: 18353
 ciqual_food_name:en: Energy drink, without sugar and with artificial sweetener(s)
 ciqual_food_name:fr: Boisson énergisante, non sucrée, avec édulcorants
 
-
-
-< en:Non-alcoholic beverages
-en: Lemonade, Lemonades
+< en: Fruit soft drinks
+en: Lemonades, Lemonade
 ar: شراب الليمون
 az: Limonad
 ba: Лимонад
-be: ліманад
+be: Ліманад
 bg: Лимонада
+bn: লেবুর শরবত
+br: Limonadez
 bs: Limunada
-ca: llimonada
-cs: limonáda
+ca: Llimonada
+cs: Limonáda
 cv: Лимонад
 cy: Lemonêd
-da: Limonade
-de: Limonaden, limonade
+da: Limonader, Lemonader
+de: Limonaden, Limonade
 el: Λεμονάδα
-eo: Limonado
-es: Limonadas, limonada
+eo: Limonadoj
+es: Limonadas, Limonada
 et: Limonaad
 eu: Limonada
 fa: شربت آبلیمو
 fi: Sitruunasooda
-fr: Limonades, limonade
-ga: Líomanáid Dhearg
+fr: Limonades, Limonade
+ga: Líomanáid dhearg
 gl: Limoada
 he: לימונדה
-hr: limunade, limunada
+hi: नींबू का रस
+hr: Limunade, Limunada
+ht: Limonad
 hu: Limonádék, Limonádé
 hy: Լիմոնադ
 id: Limun
 io: Limonado
-it: limonata, Bibita gassata
+it: Limonata, Bibita gassata
 ja: レモネード
+jv: Lemonade
+ka: Ლიმონათი
 kk: Лимонад
 ko: 레모네이드
 la: Limonata
 lb: Limonad
-lt: Limonadas, Limonadai
+lt: Limonadai, Limonadas
+lv: Limonāde
+mi: Namunēra
 mk: Лимонада
 ml: നാരങ്ങാവെള്ളം
 mr: लिंबू सरबत
-nb: limonade
+ms: Lemonade
+nb: Limonader
 ne: लेमोनेड
 nl: Limonade, Limonades
-oc: limonada
+nn: Limonadar
+oc: Limonada
 pa: ਸ਼ਿਕੰਜਵੀ
 pl: Lemoniada, Lemoniady
-pt: limonada
+pt: Limonada
 ro: Limonadă, Limonada
-ru: лимонад
+ru: Лимонад
 sd: سڪنجبين
 sh: Limunada
-sr: лимунада
+sl: Limonada
+sq: Limonada
+sr: Лимунада
 ta: எலுமிச்சைச்சாறு
 tr: Limonata
-uk: лимонад
+uk: Лимонад
 ur: سکنجبین
 uz: Limonad
+vi: Nước vị chanh
 zh: 檸檬水
+#ast: Llimonada
+#bar: Kracherl
+#be-tarask: ліманад
+#en-ca: Lemonade
+#en-gb: Lemonade
+#lad: Limonata
+#olo: Limonuadu
+#sco: Skoosh
+#wuu: 柠檬水
+#yue: 檸水
+#zh-cn: 檸檬水
+#zh-hans: 檸檬水
+#zh-hant: 檸檬水
 agribalyse_proxy_food_code:en: 18010
-agribalyse_proxy_food_name:en: Lemonade, with sugar
-agribalyse_proxy_food_name:fr: Limonade, sucrée
+ciqual_proxy_food_code:en: 18010
+ciqual_proxy_food_name:en: Lemonade, with sugar
+ciqual_proxy_food_name:fr: Limonade, sucrée
 description:en: Lemonade can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
-# ast:Llimonada
-# bar:Kracherl
-# be-tarask:ліманад
-# en-ca:Lemonade
-# en-gb:Lemonade
-# lad:Limonata
-# olo:Limonuadu
-# sco:Skoosh
-# wuu:柠檬水
-# yue:檸水
-# zh-cn:檸檬水
-# zh-hans:檸檬水
-# zh-hant:檸檬水
 wikidata:en: Q893
 wikipedia:en: https://en.wikipedia.org/wiki/Lemonade
 
 < en:Lemonades
-en: Lemonade with sugar
+en: Lemonades with sugar, Lemonade with sugar
 bg: Лимонада със захар
 fi: Sokerinen limonadi
 fr: Limonade sucrée
@@ -7296,7 +7386,7 @@ ciqual_food_name:en: Lemonade, with sugar
 ciqual_food_name:fr: Limonade, sucrée
 
 < en:Lemonades
-en: Lemonade with sugar and artificial sweeteners
+en: Lemonades with sugar and artificial sweeteners, Lemonade with sugar and artificial sweeteners
 bg: Лимонада със захар и изкуствени подсладители
 fr: Limonade sucrée avec édulcorants
 hr: Limunada sa šećerom i umjetnim sladilima
@@ -12086,6 +12176,56 @@ ciqual_food_name:fr: Eau du robinet
 < en:Waters
 en: Ice Cubes
 fr: Glaçons
+
+#< en: Distilled beverages  # Distilled beverages are alcoholic beverages only
+< en: Waters
+en: Distilled waters
+ar: ماء مقطر
+az: Distillə olunmuş su
+be: Дыстыляваная вада
+bg: Дестилирана вода
+ca: Aigua destil·lada
+cs: Destilovaná voda
+da: Destillerede vand, Destilleret vand
+de: Destilliertes Wasser
+el: Απεσταγμένο νερό
+eo: Distilakvoj
+es: Agua destilada
+et: Destilleeritud vesi
+eu: Ur destilatu
+fa: آب مقطر
+fi: Tislattu vesi
+fr: Eaux distillées, Eau distillée
+gl: Auga destilada
+hi: आसुत जल
+hr: Destilirana voda
+hu: Desztillált víz
+hy: Թորած ջուր
+id: Air Suling
+is: Eimað vatn
+it: Acqua distillata
+ja: 蒸留水
+kk: Бидистиллят
+ko: 증류수
+lv: Destilēts ūdens
+ms: Air suling
+nb: Destillerte vann, Destillerte vatn, Destillert vann, Destillert vatn
+nl: Gedestilleerd water
+nn: Destillerte vatn, Destillert vatn
+pl: Woda destylowana
+pt: Água destilada
+ro: Apă distilată
+ru: Дистиллированная вода
+sk: Destilovana voda
+sl: Destilirana voda
+sr: Дестилована вода
+sv: Destillerade vatten, Destillerat vatten
+ta: வாலைவடி நீர்
+uk: Дистильована вода
+uz: Distillangan suv
+vi: Nước cất
+zh: 蒸馏水
+wikidata:en: Q274959
 
 < en:Waters
 en: Drinking water
@@ -35288,10 +35428,16 @@ ciqual_food_name:fr: Sablé pâtissier
 wikidata:en: Q2915670
 
 < en:Shortbread cookies
-en: Shortbread cookies from Brittany
+en: Shortbread
+xx: Shortbread
+wikidata:en: Q652695
+
+< en:Shortbread cookies
+en: Brittany-style galette biscuits, Shortbread cookies from Brittany
 fr: Galettes bretonnes au beurre, galettes bretonnes
 
 < en:Shortbread cookies
+en: Brittany-style palet biscuits
 fr: Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
 
 < en:Shortbread cookies
@@ -35370,11 +35516,8 @@ ciqual_food_name:en: Biscuit shortbread, with fruits
 ciqual_food_name:fr: Biscuit sec, sablé, galette ou palet, aux fruits
 
 < en:Shortbread cookies
-fr: Sablés au beurre
-
-< en:Biscuits
-en: Shortbread biscuit with butter
-fr: Biscuit sec au beurre
+en: Plain butter shortbreads, Shortbread biscuit with butter
+fr: Sablés nature au beurre, Sablés au beurre
 agribalyse_food_code:en: 24049
 ciqual_food_code:en: 24049
 ciqual_food_name:en: Biscuit shortbread, with butter
@@ -35495,11 +35638,6 @@ ciqual_food_name:fr: Biscuit de Savoie
 < en:Biscuits and cakes
 en: Brookies
 fr: Brookies
-
-< en:Shortbread cookies
-en: Shortbread
-xx: Shortbread
-wikidata:en: Q652695
 
 < en:Biscuits
 en: Krumiri
@@ -41167,6 +41305,11 @@ de: Dominosteine
 xx: Dominosteine
 
 < en:Bonbons
+de: Mozartkugeln
+xx: Mozartkugeln
+wikidata:en: Q263223
+
+< en:Bonbons
 en: Chocolate truffles
 de: Schokoladetrüffel
 es: Trufas de chocolate
@@ -43392,6 +43535,7 @@ agribalyse_food_code:en: 53503
 ciqual_food_code:en: 53503
 ciqual_food_name:en: Yam or Indian potato, peeled, boiled/cooked in water
 ciqual_food_name:fr: Igname, épluchée, bouillie/cuite à l'eau
+
 
 < en:Gnocchi
 < en:Potatoes and their products
@@ -58195,7 +58339,6 @@ fr: Noix de cajou crues
 expected_ingredients:en: en:cashew-nuts
 sales_format:en: weight, package
 
-< en:Bulk
 < en:Cashew nuts
 < en:Roasted nuts
 en: Roasted cashew nuts
@@ -59152,6 +59295,7 @@ en: Chestnut flours T110
 es: Harinas de castañas T110
 fr: Farines de châtaigne T110
 hr: Brašna od kestena t110
+
 
 < en:Nuts and their products
 < en:Oilseed purees
@@ -70265,7 +70409,6 @@ it: Mele fresche
 lt: Švieži obuoliai
 nl: Verse appels
 sv: Färska äpplen
-bulk_proxy:en: en:apples
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,4,8,9,10,11,12
 
@@ -72327,18 +72470,52 @@ protected_name_file_number:en: PGI-FR-02433
 protected_name_type:en: pgi
 
 < en:Fruits
-en: Peaches, peach
+en: Peaches, Peach
+ar: دراق
 bg: Праскови
+br: Pechez
+ca: Préssec
+ce: ГӀаммагӀа
+cs: Broskev
+da: Ferskner, Ferskener, Ferskenfrugter
 de: Pfirsiche
-es: Melocotones
-fi: persikat
+el: Ροδάκινο
+eo: Persikoj
+es: Melocotones, Melocotón
+eu: Mertxika
+fi: Persikat, Persikka
 fr: Pêches
+gl: Pexego
 hr: Breskve
-it: Pesche
+hy: Դեղձ
+ia: Persica
+it: Pesche, Pesca
 ja: モモ, もも, 桃, ピーチ
+kk: Шабдалы
+ko: 복숭아
+lb: Piisch
 lt: Persikai
+mg: Paiso
+my: မက်မွန်
+nb: Ferskener
 nl: Perziken
+nn: Ferskenar
+oc: Persec
+pl: Brzoskwinia
+ru: Персик
+se: Persihkka
+sk: Broskyňa
+sl: Breskev
+sv: Persikor, Persika
+tg: Шафтолу
+tr: Şeftali
+tt: Шәфталу
+zh: 桃
+agribalyse_proxy_food_code:en: 13043
+ciqual_proxy_food_code:en: 13043
+ciqual_proxy_food_name:en: Peach, flesh and skin, pitted, raw
 intake24_category_code:en: PCHS
+wikidata:en: Q13202263
 
 < en:Peaches
 it: Pesca di Delia
@@ -72347,14 +72524,15 @@ protected_name_file_number:en: PGI-IT-02469
 protected_name_type:en: pgi
 #wikidata:en:
 
-< en:Bulk
 < en:Fresh fruits
 < en:Peaches
 en: Fresh peaches
+da: Friske ferskner
 es: Melocotones frescos
 fr: Pêches fraîches
 hr: Svježe breskve
 lt: Švieži persikai
+sv: Färska persikor
 sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
 
@@ -73120,7 +73298,6 @@ ciqual_food_name:fr: Prune, crue
 intake24_category_code:en: PLUM
 wikidata:en: Q12372598
 
-< en:Bulk
 < en:Fresh fruits
 < en:Plums
 en: Fresh plums
@@ -73495,44 +73672,36 @@ lt: Bananų miltai
 nl: Bananenmelen
 comment:en: Bananas is restricted to whole fresh ones
 
-< en:Bulk
 < en:Cavendish Bananas
 < en:Fresh Bananas
 en: Fresh Cavendish Bananas, Bananas (fresh Cavendish)
 fr: Bananes fraîches Cavendish, Bananes Cavendish fraîches
 nl: Verse hele Cavendish bananen, Bananen(verse Cavendish)
-bulk_proxy_category:en: en:bananas
 comment:en: assume that most bananas sold in the shop are fresh Cavendish bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bulk
 < en:Frecinette Bananas
 < en:Fresh bananas
 en: Fresh Frecinette Bananas, Bananas (fresh frecinette)
 fr: Bananes frecinettes fraîches
 nl: Verse hele frecinette bananen
-bulk_proxy_category:en: en:frecinette-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
-< en:Bulk
 < en:Fresh Bananas
 < en:Red Bananas
 en: Fresh Red Bananas
 fr: Bananes rouges fraîches, Bananes fraîches rouges
 nl: Bananen(verse hele rode), Verse hele rode bananen
-bulk_proxy_category:en: en:red-bananas
 expected_ingredients:en: en:banana
 sales_format:en: package, weight, item
 
 < en:Bananas from the Canary Islands
-< en:Bulk
 < en:Fresh bananas
 en: Fresh Bananas from the Canary Islands
 fr: Bananes fraîches des Canaries
 nl: Verse hele bananen van de Canarische eilanden, Bananen(verse rode van de Canrische eilanden)
-bulk_proxy_category:en: en:bananas-from-the-canary-islands
 expected_ingredients:en: en:bananas
 sales_format:en: package, weight, item
 
@@ -73986,49 +74155,105 @@ ciqual_food_name:en: Passion fruit, pulp and pips, raw
 ciqual_food_name:fr: Fruit de la passion ou maracudja, pulpe et pépins, cru
 
 < en:Tropical fruits
-en: Pineapple
+en: Pineapples, Pineapple
+ak: Aborɔbɛ
+ar: أناناس
+ay: Achupalla
 bg: Ананас
-da: Ananas, Ananasser
+bo: ཐང་འབྲས།
+ca: Pinya
+cs: Ananas
+cy: Pîn-afal
+da: Ananasser, Ananas
 de: Ananas, Ananasse
+dv: އަލަނާސި
+ee: Abable
+eo: Ananasoj
 es: Piñas, Ananás
-fi: ananas
+eu: Anana
+fi: Ananas
 fr: Ananas
+gd: Anann
+ha: Abarba
 hr: Ananas
+ig: Ọkwụrụ bekee
+io: Ananaso
+is: Ananas
 it: Ananas
 ja: パイナップル, パインアップル
+kg: Nanasi
 la: Ananas comosus, Ananas sativus
+lb: Ananas
+lo: ໝາກນັດ
 lt: Ananasai, Ananasas
+lv: Ananass
+ms: Nenas
+my: နာနတ်
+nb: Ananaser
 nl: Ananassen
 nl_be: Ananassen
+nn: Ananasar
+nv: Bilasáana diwozhí
 pl: Ananas
-sv: Ananas, Ananaser
+pt: Abacaxi
+ro: Ananas
+ru: Ананас
+rw: Inanasi
+sd: انناس
+se: Anánas
+sk: Ananás
+sl: Ananas
+sm: Pineapu
+sq: Ananasi
+sv: Ananaser, Ananas
+te: అనాస పండు
+uk: Ананас
+ur: انناس
+yi: אנאנאס
+za: Bohloz
+zh: 鳳梨
 agribalyse_proxy_food_code:en: 13002
-agribalyse_proxy_food_name:en: Pineapple, pulp, raw
-agribalyse_proxy_food_name:fr: Ananas, pulpe, cru
+ciqual_proxy_food_code:en: 13002
+ciqual_proxy_food_name:en: Pineapple, flesh without skin, raw
+ciqual_proxy_food_name:fr: Ananas, pulpe, cru
 google_product_taxonomy_id:en: 6670
 sales_format:en: weight, package
 wikidata:en: Q10817602
 
 < en:Fresh fruits
-< en:Pineapple
+< en:Pineapples
 en: Fresh pineapple
 da: Frisk ananas
 de: Frische Ananas
 fr: Ananas frais
 hr: Svježi ananas
 lt: Švieži ananasai
-nl: verse ananas
-sv: Färsk ananas
+nl: Verse ananas
+sv: Färska ananaser
 
-< en:Pineapple
-en: Pineapple pulp
+< en: Pineapples
+en: Pineapple pulps, Pineapple pulp
 fr: Pulpe d'ananas
 hr: Pulpa ananasa
-nl: ananaspulp
+nl: Ananaspulp
 agribalyse_food_code:en: 13002
 ciqual_food_code:en: 13002
-ciqual_food_name:en: Pineapple, pulp, raw
+ciqual_food_name:en: Pineapple, flesh without skin, raw
 ciqual_food_name:fr: Ananas, pulpe, cru
+
+< en: Pineapples
+en: Pineapple slices
+ar: شرائح الأناناس
+ca: Tall de pinya
+da: Ananasskiver
+de: Ananasscheibe
+fi: Ananasviipaleet
+fr: Ananas en tranches
+nl: Ananasschijfje
+ru: Ломтики ананаса
+sv: Ananasskivor
+zh: 鳳梨片
+wikidata:en: Q26877342
 
 < en:Tropical fruits
 en: Jujube dates, Jujube
@@ -74224,7 +74449,7 @@ da: Frosne ternede avokadoer
 sv: Frysta tärnade avokador, Frysta avokador i tärningar
 
 < en:Frozen tropical fruits
-< en:Pineapple
+< en:Pineapples
 en: Frozen pineapples
 da: Frosne ananasser
 de: Gefrorene Ananas
@@ -74233,6 +74458,7 @@ fr: Ananas surgelés
 hr: Smrznuti ananas
 lt: Šaldyti ananasai
 nl: Ananas (diepvries), Bevroren ananas, Diepvriesananas
+sv: Frysta ananaser
 
 < en:Frozen tropical fruits
 en: Frozen mangos
@@ -74541,6 +74767,10 @@ lt: Džiovintos šilauogės
 nl: Gedroogde bosbessen
 
 < en:Dried fruits
+en: Dried cherries
+fr: Cerises séchées
+
+< en:Dried fruits
 en: Dried cranberries
 bg: Сушени червени боровинки
 de: Getrocknete Moosbeere
@@ -74813,6 +75043,8 @@ en: Green raisins
 da: Grønne rosiner
 sv: Gröna russin
 
+# do not rename en:canned-fruits as it is used in Ingredients.pm
+# to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
 < en:Canned plant-based foods
 < en:Fruit-based foods
 en: Canned fruits
@@ -74838,20 +75070,37 @@ intake24_category_code:en: CAND
 who_id:en: 16
 wikidata:en: Q98103940
 
-# dot not rename en:canned-fruits as it is used in Ingredients.pm
-# to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
-
 < en:Canned fruits
+< en:Pineapples
 en: Canned pineapples
 bg: Консервиран ананас
+da: Dåseananasser, Ananasser på dåse
 de: Dosenananas
 es: Piña enlatada
 fi: Purkkiananakset
-fr: Ananas en conserve
+fr: Ananas en conserve, Ananas en boîte
 hr: Konzervirani ananas
 it: Ananas in scatola
+ja: パイナップル缶
 lt: Konservuoti ananasai
 nl: Ananas in blik/pot
+sl: Ananas v pločevinki
+sv: Burkananaser, Ananaser på burk
+agribalyse_proxy_food_code:en: 13717
+ciqual_proxy_food_code:en: 13717
+ciqual_proxy_food_name:en: Pineapple, in pineapple juice, canned, solids and liquids
+wikidata:en: Q112875918
+
+< en: Canned pineapples
+en: Canned pineapple slices
+da: Ananasskiver på dåse
+de: Dosenananasscheibe
+nl: Ananasschijfje in blik/pot
+sv: Ananasskivor på burk
+
+< en: Canned pineapples
+en: Canned pineapple chunks
+sv: Burkananas i bitar, Ananasbitar på burk, Ananas i bitar på burk
 
 < en:Canned fruits
 en: Canned mixed fruits, Canned fruit cocktails
@@ -75060,9 +75309,10 @@ fr: Ananas au sirop
 hr: Ananas u sirupu
 lt: Ananasai sirupe
 nl: Ananas op siroop
-agribalyse_proxy_food_code:en: 13717
-agribalyse_proxy_food_name:en: Pineapple, in pineapple juice and syrup, canned, not drained
-agribalyse_proxy_food_name:fr: Ananas au sirop et jus d'ananas, appertisé, non égoutté
+agribalyse_proxy_food_code:en: 13719
+ciqual_proxy_food_code:en: 13719
+ciqual_proxy_food_name:en: Pineapple, in light syrup, canned, solids and liquids
+ciqual_proxy_food_name:fr: Ananas au sirop léger, appertisé, non égoutté
 
 < en:Pineapple in syrup
 en: Canned drained pineapple in pineapple juice and syrup
@@ -75084,10 +75334,10 @@ ciqual_food_name:fr: Ananas au sirop léger, appertisé, égoutté
 < en:Pineapple in syrup
 en: Canned pineapple in pineapple juice and syrup not drained
 fr: Ananas au sirop et jus d'ananas appertisé non égoutté
-agribalyse_food_code:en: 13717
-ciqual_food_code:en: 13717
-ciqual_food_name:en: Pineapple, in pineapple juice and syrup, canned, not drained
-ciqual_food_name:fr: Ananas au sirop et jus d'ananas, appertisé, non égoutté
+agribalyse_proxy_food_code:en: 13719
+ciqual_proxy_food_code:en: 13719
+ciqual_proxy_food_name:en: Pineapple, in light syrup, canned, solids and liquids
+ciqual_proxy_food_name:fr: Ananas au sirop léger, appertisé, non égoutté
 
 < en:Canned pineapples
 < en:Pineapple in syrup
@@ -75095,9 +75345,24 @@ en: Canned pineapple in light syrup not drained
 fr: Ananas au sirop léger appertisé non égoutté
 agribalyse_food_code:en: 13719
 ciqual_food_code:en: 13719
-ciqual_food_name:en: Pineapple, in light syrup, canned, not drained
+ciqual_food_name:en: Pineapple, in light syrup, canned, solids and liquids
 ciqual_food_name:fr: Ananas au sirop léger, appertisé, non égoutté
 
+< en: Canned fruits
+< en: Peaches
+en: Canned peaches
+da: Dåseferskner
+de: Dosenpfirsich
+sv: Burkpersikor
+wikidata:en: Q67891942
+
+< en: Canned fruits in juice
+< en: Canned peaches
+en: Canned peaches in juice
+da: Dåseferskner i juice
+sv: Burkpersikor i juice, Persikor i juice
+
+< en: Canned peaches
 < en:Fruits in syrup
 en: Peaches in syrup
 bg: Праскови в сироп
@@ -75179,13 +75444,32 @@ sv: Frukter i fruktsaft på burk
 < en:Canned fruits in juice
 < en:Canned pineapples
 en: Canned pineapples in juice, Pineapple in juice
-de: Ananas im Saft
+da: Dåseananasser i juice
+de: Dosenananas im Saft, Ananas im Saft
 es: Piña en conserva en zumo, Conservas de piña en zumo, Conservas de piña en su zumo
-fi: ananasta omassa mehussaan
+fi: Ananasta omassa mehussaan
 fr: Ananas au jus
 hr: Ananas u soku
 lt: Ananasai savose sultyse
 nl: Ananas op sap
+sv: Burkananaser i juice
+agribalyse_food_code:en: 13717
+ciqual_food_code:en: 13717
+ciqual_food_name:en: Pineapple, in pineapple juice, canned, solids and liquids
+
+< en: Canned pineapple slices
+< en: Canned pineapples in juice
+en: Canned pineapple slices in juice
+da: Ananasskiver i juice på dåse
+de: Dosenananasscheibe im Saft
+fr: Ananas en tranches au jus
+nl: Ananasschijfje op sap in blik/pot
+sv: Ananasskivor i juice på burk
+
+< en: Canned pineapple chunks
+< en: Canned pineapples in juice
+en: Canned pineapple chunks in juice
+sv: Ananasbitar i juice på burk, Burkananas i bitar i juice, Ananas i bitar i juice på burk
 
 < en:Canned fruits in juice
 < en:Canned mixed fruits
@@ -112079,7 +112363,6 @@ ciqual_food_code:en: 20181
 ciqual_food_name:en: Parsnip, raw
 ciqual_food_name:fr: Panais, cru
 
-< en:Bulk
 < en:Fresh vegetables
 < en:Parsnip
 en: Fresh parsnip
@@ -113324,7 +113607,6 @@ hr: Svježe mrkve
 it: Carote fresche
 nl: Verse wortel
 sv: Färska morötter
-bulk_proxy:en: en:carrots
 expected_ingredients:en: en:carrots
 sales_format:en: weight, package
 season_in_country_fr:en: 1,2,3,9,10,11,12
@@ -113543,7 +113825,6 @@ google_product_taxonomy_id:en: 6597
 wikidata:en: Q157954
 wikipedia:en: https://en.wikipedia.org/wiki/Chard
 
-< en:Bulk
 < en:Chards
 < en:Fresh vegetables
 en: Fresh chards
@@ -116220,7 +116501,6 @@ hr: Svježe rajčice
 it: Pomodori freschi
 nl: Verse tomaten, Verse tomaat
 pl: Pomidory świeże, Świeże pomidory
-bulk_proxy:en: en:tomatoes
 sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
 
@@ -116423,7 +116703,6 @@ es: Calabacín fresco
 fr: Courgettes fraîches
 hr: Svježe tikvice
 it: Zucchine fresche
-bulk_proxy:en: en:zucchini
 sales_format:en: weight, package
 season_in_country_fr:en: 5,6,7,8,9,10
 
