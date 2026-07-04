@@ -51317,9 +51317,11 @@ uk: Замінник молока
 zh: 代乳品
 wikidata:en: Q1626970
 wikipedia:en: https://en.wikipedia.org/wiki/Milk_substitute
-
-# LEAF VEGETABLES (Eurocode 2 8.10)
-
+#
+#
+#                               LEAF VEGETABLES (Eurocode 2 8.10)
+#
+#
 < en:vegetable
 en: leaf vegetable, leafy vegetable
 ca: verdura de fulla
@@ -52097,6 +52099,19 @@ ms: bayam
 en: garden orache, orach
 it: arancio da giardino
 eurocode_2_group_3:en: 8.10.28
+
+###################################################################################################
+#
+#                                Vine spinach
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: vine spinach, vinespinach, basella, Malabar spinach
+la: Basella alba, Basella rubra
+description:en: Vine spinach (also called Malabar spinach) is a tropical leafy green plant, not a true spinach but used similarly in cooking. It's especially popular in Indian, Filipino, and West African cooking, where it goes by various local names like poi saag (India) or slippery vegetable.
+usda_ndb_code:en: 11587
+usda_ndb_name:en: Vinespinach, (basella), raw
 
 ###################################################################################################
 #
@@ -75967,7 +75982,7 @@ xx: za'atar
 # en:description:WASABI (Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family.
 
 < en:plant
-en: wasabi
+en: wasabi, wasabi root
 xx: wasabi
 ar: وسابي
 bg: уасаби
@@ -75995,6 +76010,8 @@ zh: 山葵
 # zh-tw: 山葵
 # wikidata:en:Q12378304
 # wikidata:en:Q49855
+usda_ndb_code:en: 11990
+usda_ndb_name:en: Wasabi, root, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Wasabi
 # ingredient/wasabi has 132 products in 5 languages @2019-03-13
 
