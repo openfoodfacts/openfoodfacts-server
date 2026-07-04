@@ -53590,9 +53590,10 @@ zh: 西蘭花
 # yue:西蘭花
 carbon_footprint_fr_foodges_ingredient:fr: Brocoli (France)
 carbon_footprint_fr_foodges_value:fr: 0.4
-ciqual_proxy_food_code:en: 20057
-ciqual_proxy_food_name:en: Broccoli, raw
-ciqual_proxy_food_name:fr: Brocoli, cru
+ciqual_food_code:en: 20057
+ciqual_food_name:en: Broccoli, raw
+ciqual_food_name:fr: Brocoli, cru
+comment:en: Broccoli is either the whole (flower+stalks), only the flowers or the leaves.
 description:en: BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable.
 ecobalyse:en: broccoli-eu
 eurocode_2_group_3:en: 8.15.10
@@ -53605,9 +53606,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Broccoli
 
 < en:broccoli
 en: raw broccoli
-ciqual_food_code:en: 20057
-ciqual_food_name:en: Broccoli, raw
-ciqual_food_name:fr: Brocoli, cru
 usda_ndb_code:en: 11090
 usda_ndb_name:en: Broccoli, raw
 
@@ -53629,29 +53627,16 @@ usda_ndb_proxy_name:en: Broccoli, flower clusters, raw
 
 < en:broccoli floret
 en: broccoli flower clusters
-
-< en:broccoli flower clusters
-en: raw broccoli flower clusters
 usda_ndb_code:en: 11740
 usda_ndb_name:en: Broccoli, flower clusters, raw
 
 < en:broccoli
 en: broccoli leaves
-usda_ndb_proxy_code:en: 11739
-usda_ndb_proxy_name:en: Broccoli, leaves, raw
-
-< en:broccoli leaves
-en: raw broccoli leaves
 usda_ndb_code:en: 11739
 usda_ndb_name:en: Broccoli, leaves, raw
 
 < en:broccoli
 en: broccoli stalks
-usda_ndb_proxy_code:en: 11741
-usda_ndb_proxy_name:en: Broccoli, stalks, raw
-
-< en:broccoli stalks
-en: raw broccoli stalks
 usda_ndb_code:en: 11741
 usda_ndb_name:en: Broccoli, stalks, raw
 
