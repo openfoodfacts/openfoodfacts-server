@@ -53904,17 +53904,13 @@ pt: couve-da-china
 sk: kapusta čínska
 sl: kitajski kapus
 sv: kinakål
-ciqual_proxy_food_code:en: 20167
-ciqual_proxy_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_proxy_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
-description:en: CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine: the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
-
-< en:chinese cabbage
-en: raw chinese cabbage
 ciqual_food_code:en: 20167
 ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
 ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
+description:en: CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine: the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
+usda_ndb_proxy_code:en: 11119
+usda_ndb_proxy_name:en: Cabbage, chinese (pe-tsai), raw
 
 < en:chinese cabbage
 en: Napa cabbage, kimchi cabbage, wombok
@@ -53949,16 +53945,11 @@ zh: 大白菜
 ecobalyse:en: chinese-cabbage-fr
 ecobalyse_labels_en_organic:en: chinese-cabbage-organic
 eurocode_2_group_3:en: 8.15.28
-usda_ndb_proxy_code:en: 11119
-usda_ndb_proxy_name:en: Cabbage, chinese (pe-tsai), raw
+usda_ndb_code:en: 11119
+usda_ndb_name:en: Cabbage, chinese (pe-tsai), raw
 wikidata:en: Q13360268
 wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
 # 200 @2021-09-29
-
-< en:napa cabbage
-en: raw Napa cabbage
-usda_ndb_code:en: 11119
-usda_ndb_name:en: Cabbage, chinese (pe-tsai), raw
 
 < en:chinese cabbage
 en: pak choi, bok choy, pok choi
@@ -53998,16 +53989,11 @@ zh: 小白菜
 #yue:白菜
 description:en: Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
 eurocode_2_group_3:en: 8.15.28
-usda_ndb_proxy_code:en: 11116
-usda_ndb_proxy_name:en: Cabbage, chinese (pak-choi), raw
+usda_proxy_code:en: 11116
+usda_ndb_name:en: Cabbage, chinese (pak-choi), raw
 wikidata:en: Q18968514
 wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
 # 128 in 5 @2021-09-29
-
-< en: pak choi
-en: raw pak choi
-usda_ndb_code:en: 11116
-usda_ndb_name:en: Cabbage, chinese (pak-choi), raw
 
 ###################################################################################################
 #
