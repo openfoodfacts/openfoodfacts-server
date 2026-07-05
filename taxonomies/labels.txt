@@ -88,7 +88,7 @@ synonyms:da: indeholder, kilde til
 synonyms:fr: contient, source de
 synonyms:sv: innehåller, källa till
 
-synonyms:en: without, 0%, free, contains no
+synonyms:en: without, 0%, free, contains no, free from
 synonyms:da: uden, ingen, intet, nul, 0%, fri for
 synonyms:de: ohne, 0%
 synonyms:es: sin, 0%, libre de
@@ -2332,7 +2332,7 @@ en: Enriched with vitamin D
 sv: Berikad med vitamin D
 
 < en: Enriched with vitamins
-en: Enriched with vitamin B12
+en: Enriched with vitamin B12, B12 enriched
 fr: Enrichi en vitamine B12
 sv: Berikad med vitamin B12
 
@@ -5456,7 +5456,7 @@ ru: Без соевого лецитина
 label_categories:en: en:Soy
 
 #instruction:en:Do NOT change the english key.
-en: No milk, milk-free, dairy-free, no dairy, without milk
+en: No milk, milk-free, dairy-free, no dairy, without milk, free from dairy
 bg: Без мляко
 ca: Sense llet, Lliure de llet, Lliure de làctics, Sense làctics
 da: Mælkefri, Fri for mælkebestanddele
@@ -5473,7 +5473,7 @@ nl: Melkvrij
 pl: Bez mleka, Bez zawartości mleka
 pt: Sem leite, 0% leite, sem produtos lácteos, sem produtos láteos, sem lacticínios, sem laticínios
 ru: Без молока
-sv: Mjölkfri, Fri från mjölk, Fri från mjölkprodukter
+sv: Mjölkfri, Fri från mjölk, Fri från mjölkprodukter, icke mejeriingrediens
 th: ไม่มีส่วนผสมของนม
 incompatible_with:en: labels:en:contains-milk
 label_categories:en: en:Allergens
@@ -5591,7 +5591,7 @@ th: ไม่เติมสีและวัตถุกันเสีย
 # 57 products in English that are not taxonomized with Without dyes or preservatives
 
 #instruction:en:Do NOT change the english key.
-en: No soy, soy free, without soy
+en: No soy, soy free, without soy, free from soya
 bg: Без соя, не сърържа соя
 ca: Lliure de soja, Sense soja
 da: Uden soja
@@ -19337,6 +19337,7 @@ hu: B12-vitaminban gazdag
 it: Ricco di vitamina B12
 nl: rijk aan vitamine B12
 pt: Rico en vitamina B12
+sv: Rik på vitamin B12
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: Rich in vitamin C
@@ -20196,7 +20197,7 @@ nl: Veganistisch, plantaardig, niet dierlijk
 pl: Wegańskie, przyjazne weganom, wegański, wegańska
 pt: Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos, odpowiedni dla wegan
 sq: vegan
-sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt, vegetabiliskt ursprung
+sv: Vegansk, Passar för veganer, vegetabilisk, vegetabiliskt, vegetabiliskt ursprung, veganska
 th: สูตรเจ
 tr: Vegan
 zh: 纯素
