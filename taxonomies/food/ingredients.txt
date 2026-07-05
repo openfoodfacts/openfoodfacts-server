@@ -17042,7 +17042,8 @@ pl: olej rzepakowy częściowo uwodorniony, tłuszcz roślinny rzepakowy częśc
 
 # Use only the word canola in this ingredient, as it is only for the american variety of rapeseed
 < en:rapeseed oil
-en: canola oil
+en: canola oil, canola
+xx: canola
 bg: олио от канола
 ca: Oli de canola
 # cs: Řepkový olej # duplicate, unclear which is correct
@@ -61461,17 +61462,13 @@ nl: koolzaad
 pl: rzepak, rzepaku, rzepakowy, rzepakowa, rzepakowe
 ro: rapiță
 sv: Raps, rapsfrön
+comment:en: Why is this listed separately. Is only used as oil source. Can this be listed as a synonym of the oil names?
 ecobalyse:en: rapeseed-non-eu
 ecobalyse_labels_en_organic:en: rapeseed-organic
 ecobalyse_origins_en_european_union:en: rapeseed-eu
 ecobalyse_origins_en_france:en: rapeseed-fr
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
-
-#This should denote only the american variety
-< en:Rapeseed
-en: Canola
-xx: Canola
 
 < en:root vegetable
 en: turnip-rape, turnip rape, field mustard
@@ -61480,10 +61477,12 @@ fi: rypsi
 fr: Navette
 hr: repa-silovanje
 la: Brassica rapa subsp. oleifera
+comment:en: Why is this listed as a vegetable?
+description:en: Turnip rape (Brassica rapa subsp. oleifera, also called field mustard or rybs in some regions) is grown for its seeds, which are pressed for oil. It's one of the plants used to produce canola oil (along with rapeseed, Brassica napus). Young leaves of turnip rape can be eaten as leafy greens, similar to mustard greens or other brassica greens, in some regional cuisines.
 wikidata:en: Q3337246
 wikipedia:fr: https://fr.wikipedia.org/wiki/Navette_(plante)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:rypsi
-# 6 entries @ 2019-10-31
+# 379 entries @ 2016-5-07
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
