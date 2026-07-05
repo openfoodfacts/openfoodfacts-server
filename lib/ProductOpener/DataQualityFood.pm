@@ -1160,33 +1160,33 @@ sub check_specific_nutrients_for_input_set ($product_ref, $nutrition_set_ref, $s
 
 	# Too small salt value? (e.g. g entered in mg)
 	# warning for salt < 0.1 was removed because it was leading to too much false positives (see #9346)
-my $per = deep_get($nutrition_set_ref, "per");
-if ((defined $per) and (($per eq "100g") or ($per eq "100ml"))) {
+	my $per = deep_get($nutrition_set_ref, "per");
+	if ((defined $per) and (($per eq "100g") or ($per eq "100ml"))) {
 
-	my $salt = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "salt");
+		my $salt = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "salt");
 
-	if ((defined $salt) and ($salt > 0)) {
+		if ((defined $salt) and ($salt > 0)) {
 
-		if ($salt < 0.001) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:${set_id}-value-under-0-001-g-salt";
+			if ($salt < 0.001) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:${set_id}-value-under-0-001-g-salt";
+			}
+			elsif ($salt < 0.01) {
+				push @{$product_ref->{data_quality_warnings_tags}}, "en:${set_id}-value-under-0-01-g-salt";
+			}
 		}
-		elsif ($salt < 0.01) {
-			push @{$product_ref->{data_quality_warnings_tags}}, "en:${set_id}-value-under-0-01-g-salt";
+
+		my $sodium = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sodium");
+
+		if ((defined $salt) and (defined $sodium)) {
+			# Allow a 0.1 g difference because nutrition values on labels are rounded
+			if (abs(convert_sodium_to_salt($sodium) - $salt) > 0.1) {
+				push @{$product_ref->{$data_quality_tags}}, "en:${set_id}-salt-does-not-match-sodium";
+			}
 		}
 	}
-
-	my $sodium = get_nutrient_from_nutrient_set_in_default_unit($nutrients_ref, "sodium");
-
-	if ((defined $salt) and (defined $sodium)) {
-		# Allow a 0.1 g difference because nutrition values on labels are rounded
-		if (abs(convert_sodium_to_salt($sodium) - $salt) > 0.1) {
-			push @{$product_ref->{$data_quality_tags}},
-				"en:${set_id}-salt-does-not-match-sodium";
-		}
-	}
-}
 	return;
 }
+
 sub check_nutrition_data_for_input_set ($product_ref, $nutrition_set_ref, $set_id, $data_quality_tags) {
 
 	my $nutrients_ref = $nutrition_set_ref->{nutrients};

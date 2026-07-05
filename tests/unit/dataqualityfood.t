@@ -1031,71 +1031,68 @@ check_quality_and_test_product_has_quality_tag(
 );
 # salt and sodium values should be aligned
 $product_ref = {
-    nutrition => {
-        input_sets => [
-            {
-                source => "producer",
-                preparation => "as_sold",
-                per => "100g",
-                nutrients => {
-                    "salt" => { value => 2.5, unit => "g" },
-                    "sodium" => { value => 2, unit => "g" },  
-                }
-            }
-        ]
-    }
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
 };
 
 check_quality_and_test_product_has_quality_tag(
-    $product_ref,
-    'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
-    'salt and sodium values do not match',
-    1
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values do not match', 1
 );
 $product_ref = {
-    nutrition => {
-        input_sets => [
-            {
-                source => "producer",
-                preparation => "as_sold",
-                per => "100g",
-                nutrients => {
-                    "salt" => {value => 2.5, unit => "g"},
-                    "sodium" => {value => 1, unit => "g"},
-                }
-            }
-        ]
-    }
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 1, unit => "g"},
+				}
+			}
+		]
+	}
 };
 
 check_quality_and_test_product_has_quality_tag(
-    $product_ref,
-    'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
-    'salt and sodium values are consistent',
-    0
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values are consistent', 0
 );
 
 $product_ref = {
-    nutrition => {
-        input_sets => [
-            {
-                source => "producer",
-                preparation => "as_sold",
-                per => "100g",
-                nutrients => {
-                    "salt" => {value => 2.5, unit => "g"},
-                    "sodium" => {value => 0.97, unit => "g"},
-                }
-            }
-        ]
-    }
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 0.97, unit => "g"},
+				}
+			}
+		]
+	}
 };
 
 check_quality_and_test_product_has_quality_tag(
-    $product_ref,
-    'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
-    'salt and sodium values within 0.1g tolerance',
-    0
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values within 0.1g tolerance', 0
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
