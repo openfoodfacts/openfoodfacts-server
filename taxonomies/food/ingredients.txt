@@ -60791,9 +60791,6 @@ it: passata di pomodoro verde
 fr: fibres de tomate, fibre de tomate
 nl: tomatenvezel
 
-# description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
-# comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
-
 < en:root vegetable
 < en:taproot vegetable
 en: rutabaga, swede
@@ -60912,6 +60909,8 @@ carbon_footprint_fr_foodges_value:fr: 0.9
 ciqual_food_code:en: 20064
 ciqual_food_name:en: Turnip, peeled, raw
 ciqual_food_name:fr: Navet, pelé, cru
+description:en: The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
+# comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 ecobalyse:en: turnip-non-eu
 ecobalyse_labels_en_organic:en: turnip-organic
 ecobalyse_origins_en_european_union:en: turnip-eu
@@ -60923,7 +60922,11 @@ wikidata:en: Q3916957
 wikipedia:en: https://en.wikipedia.org/wiki/Turnip
 # ingredient/turnip has 592 products in 7 languages @2019-05-18
 
-# description:en:Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
+< en: turnip
+en: unprepared frozen turnip
+usda_ndb_code:en: 11566
+usda_ndb_name:en: Turnips, frozen, unprepared
+
 
 < en:root vegetable
 en: water chestnut, water chestnuts
@@ -60966,6 +60969,7 @@ zh: 荸荠
 # zh-hans:荸荠
 # zh-hant:荸薺
 # zh-hk:荸薺
+description:en: Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 ifct_food_code:en: F016
 ifct_food_name:en: Water Chestnut
 wikidata:en: Q932664
