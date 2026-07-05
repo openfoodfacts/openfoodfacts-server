@@ -60775,7 +60775,7 @@ hr: rajčice-u-soku-rajčice
 < en:tomato purée
 fr: purée et pulpe de tomates
 
-< en:vegetable
+< en:tomato
 en: green tomato
 bg: зелени домати
 de: grüne Tomaten
@@ -60788,7 +60788,19 @@ nl: groene tomaat
 ciqual_food_code:en: 20119
 ciqual_food_name:en: Tomato, green, raw
 ciqual_food_name:fr: Tomate verte, crue
+usda_ndb_code:en: 11527
+usda_ndb_name:en: Tomatoes, green, raw
 # 88 @1-dec-2021
+
+< en:tomato
+en: orange tomato
+usda_ndb_code:en: 11695
+usda_ndb_name:en: Tomatoes, orange, raw
+
+< en:tomato
+en: yellow tomato
+usda_ndb_code:en: 11696
+usda_ndb_name:en: Tomatoes, yellow, raw
 
 < en:green tomato
 en: green tomato puree
@@ -60798,9 +60810,6 @@ hr: pire od zelene rajčice
 it: passata di pomodoro verde
 # In process de:Püree aus grünen Tomaten
 
-< en:vegetable fiber
-fr: fibres de tomate, fibre de tomate
-nl: tomatenvezel
 
 < en:root vegetable
 < en:taproot vegetable
@@ -91562,6 +91571,10 @@ nova:en: 4
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q20026824
+
+< en:vegetable fiber
+fr: fibres de tomate, fibre de tomate
+nl: tomatenvezel
 
 < en:vegetable fiber
 en: pea fiber
