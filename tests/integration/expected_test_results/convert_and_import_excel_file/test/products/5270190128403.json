@@ -11,20 +11,12 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "brands" : "World Test",
-   "brands_hierarchy" : [
-      "xx:World Test"
-   ],
    "brands_imported" : "World Test",
-   "brands_lc" : "xx",
    "brands_tags" : [
-      "xx:world-test"
+      "xx:World Test"
    ],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -53,12 +45,7 @@
    "complete" : 0,
    "completeness" : 0.4,
    "correctors_tags" : [],
-   "countries" : "en",
-   "countries_hierarchy" : [
-      "fr:en"
-   ],
    "countries_imported" : "en",
-   "countries_lc" : "fr",
    "countries_tags" : [
       "fr:en"
    ],
@@ -134,11 +121,10 @@
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label"
    ],
-   "data_sources" : "Producers, Producer - world-test-food",
    "data_sources_imported" : "Producers, Producer - world-test-food",
    "data_sources_tags" : [
-      "producers",
-      "producer-world-test-food"
+      "Producer - world-test-food",
+      "Producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -388,6 +374,7 @@
    "environmental_score_tags" : [
       "unknown"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
    "generic_name" : "Bananes",
    "generic_name_fr" : "Bananes",
@@ -478,6 +465,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:environmental-score-not-computed",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-energy",
       "en:nutriscore-estimated-fat",
@@ -1274,12 +1262,7 @@
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
-   "origins" : "Martinique",
-   "origins_hierarchy" : [
-      "en:martinique"
-   ],
    "origins_imported" : "Martinique",
-   "origins_lc" : "fr",
    "origins_tags" : [
       "en:martinique"
    ],
@@ -1310,7 +1293,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -1332,21 +1315,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-completed",
-      "en:categories-to-be-completed",
-      "en:brands-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -1362,10 +1330,53 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "brands" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "xx:World Test"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "fr:en"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - world-test-food"
+            ]
+         }
+      },
+      "origins" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:martinique"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0.0,
    "vitamins_tags" : [],

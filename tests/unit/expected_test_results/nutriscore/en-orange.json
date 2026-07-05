@@ -2,41 +2,44 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "oranges",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruit-based-foods-and-beverages",
       "en:fruits-and-vegetables-based-foods",
-      "en:fruits-based-foods",
+      "en:fruit-based-foods",
       "en:fruits",
       "en:citrus",
       "en:oranges"
    ],
    "categories_lc" : "en",
-   "categories_properties" : {},
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "13034"
+   },
    "categories_properties_tags" : [
       "all-products",
       "categories-known",
       "agribalyse-food-code-unknown",
-      "agribalyse-proxy-food-code-unknown",
+      "agribalyse-proxy-food-code-13034",
+      "agribalyse-proxy-food-code-known",
       "ciqual-food-code-unknown",
-      "agribalyse-unknown"
+      "agribalyse-known",
+      "agribalyse-13034"
    ],
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruit-based-foods-and-beverages",
       "en:fruits-and-vegetables-based-foods",
-      "en:fruits-based-foods",
+      "en:fruit-based-foods",
       "en:fruits",
       "en:citrus",
       "en:oranges"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fruits",
    "food_groups_tags" : [
       "en:fruits-and-vegetables",
@@ -92,6 +95,7 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-energy",
       "en:nutriscore-estimated-fat",
@@ -1064,10 +1068,20 @@
       "fruits",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
    "vitamins_tags" : []

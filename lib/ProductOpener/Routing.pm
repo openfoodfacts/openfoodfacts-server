@@ -333,7 +333,7 @@ sub org_route($request_ref) {
 sub api_route($request_ref) {
 	my @components = @{$request_ref->{components}};
 	my $api = $components[1];    # v0, v3.1
-	my $api_version = $api =~ /v(\d+(\.\d+)?)/ ? $1 : 0;
+	my $api_version = (defined $api and $api =~ /v(\d+(\.\d+)?)/) ? $1 : 0;
 	my $api_action = $components[2];    # product
 
 	# API action is required
@@ -967,7 +967,9 @@ sub extract_tagtype_and_tag_value_pairs_from_components ($request_ref) {
 		}
 		else {
 			# Use "no_language" normalization
-			$tagid = get_string_id_for_lang("no_language", $tag);
+			# 20260413 new tags refactor: do not normalize tags
+			# $tagid = get_string_id_for_lang("no_language", $tag);
+			$tagid = $tag;
 		}
 
 		$request_ref->{canon_rel_url}
