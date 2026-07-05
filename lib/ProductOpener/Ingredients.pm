@@ -1126,14 +1126,12 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 											   ($ingredients_lc eq 'af')
 											or (($ingredients_lc eq 'de') and ($regexp ne 'h'))
 											or ($ingredients_lc eq 'et')
-											or ($ingredients_lc eq 'fi')
 											or ($ingredients_lc eq 'hu')
 											or ($ingredients_lc eq 'is')
 											or ($ingredients_lc eq 'ja')
 											or ($ingredients_lc eq 'ko')
 											or ($ingredients_lc eq 'lv')
 											or ($ingredients_lc eq 'nl')
-											or ($ingredients_lc eq 'sv')
 											or ($ingredients_lc eq 'th')
 											or ($ingredients_lc eq 'zh')
 										)
@@ -1143,20 +1141,43 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 										and ($regexp eq 'h')
 										and ($new_ingredient =~ /(^($regexp))/i))
 
-									# match after the ingredient, does not require a space
-									# match before the ingredient, require a space
+									#  match before or after the ingredient, does not require a space, can have -s- interfix
 									or (
 										(
-											   ($ingredients_lc eq 'da')
-											or ($ingredients_lc eq 'fi')
-											or ($ingredients_lc eq 'hu')
-											or ($ingredients_lc eq 'nb')
+											   (($ingredients_lc eq 'de') and ($regexp ne 'h'))
+											or ($ingredients_lc eq 'nl')
+										)
+										and ($new_ingredient =~ /(^($regexp)s??|s??($regexp)$)/i)
+									)
+
+									# match after the ingredient, does not require a space
+									# match before the ingredient, require a space
+									or (    (($ingredients_lc eq 'fi'))
+										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i))
+
+									# match after the ingredient, does not require a space, can include interfix and other peculiarities
+									# match before the ingredient, require a space
+									or (
+										(($ingredients_lc eq 'da'))
+										# Danish uses s, e, and n for interfixes
+										and ($new_ingredient =~ /(^($regexp)\b|[ens]??($regexp)$)/i)
+									)
+									or (
+										(($ingredients_lc eq 'sv'))
+										# Swedish uses s for interfixes,
+										# but also sometimes a trailing -a in the first word is replaced by e, u, or o, or -e by a
+										and ($new_ingredient =~ /(^($regexp)\b|[seuoa]??($regexp)$)/i)
+									)
+									or (
+										(
+											   ($ingredients_lc eq 'nb')
 											or ($ingredients_lc eq 'no')
 											or ($ingredients_lc eq 'nn')
-											or ($ingredients_lc eq 'sv')
 										)
-										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i)
+										# Norwegian uses s and e for interfixes
+										and ($new_ingredient =~ /(^($regexp)\b|[se]??($regexp)$)/i)
 									)
+
 								)
 							)
 							# match inside the ingredient
