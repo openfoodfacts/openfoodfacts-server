@@ -146,6 +146,7 @@ sub write_json_file {
 	print $OUT $json->pretty->encode($data);
 
 	close $OUT;
+	return;
 }
 
 # Add in $fields_ref all the fields we need to retrieve from MongoDB
