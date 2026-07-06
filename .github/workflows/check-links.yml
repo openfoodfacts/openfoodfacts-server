@@ -13,9 +13,9 @@ jobs:
       - name: Get files that need to be checked
         id: get_files
         run: |
-          html_files=$(find html/donate -type f -name '*.html' -exec basename {} \;)
+          html_files=$(find html/donate -type f -name '*.html' -print)
           html_files=$(echo "$html_files" | xargs | sed -e 's/ /,/g')
-          file_list="CONTRIBUTING.md,README.md,${html_files[@]}"
+          file_list="CONTRIBUTING.md,README.md,$html_files"
           echo "all_files=$file_list" >> "$GITHUB_OUTPUT"
           echo $file_list
 
