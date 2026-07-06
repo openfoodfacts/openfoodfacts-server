@@ -20,7 +20,7 @@ jobs:
           echo $file_list
 
       - name: Check URLs
-        uses: paramt/url-checker@master
+        uses: paramt/url-checker@v1
         with:
           files: "${{ steps.get_files.outputs.all_files }}"
 
