@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
@@ -10,7 +11,7 @@
          "percent_max" : 100,
          "percent_min" : 25,
          "text" : "Sucre de canne",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -60,10 +61,14 @@
          "text" : "gélifiant"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:cane-sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "fr",
@@ -114,12 +119,9 @@
    "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 5,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 175.7,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 175.7,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 208.2,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 208.2
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "specific_ingredients" : [
       {
          "id" : "en:apricot",
@@ -168,7 +170,7 @@
          "text" : "Préparés avec 25.2% de tomates"
       },
       {
-         "id" : "fr:truc-inconnu",
+         "id" : "fr:TRUC INCONNU",
          "ingredient" : "TRUC INCONNU",
          "percent" : 30,
          "text" : "PREPARE AVEC 30% DE TRUC INCONNU"

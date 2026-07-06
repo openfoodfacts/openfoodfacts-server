@@ -14,11 +14,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 my $ua = new_client();
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
@@ -76,19 +74,20 @@ my $tests_ref = [
 	{
 		test_case => 'crawler-access-nested-facet-page',
 		method => 'GET',
-		path => '/facets/categories/hazelnut-spreads/brands/nutella',
+		path => '/facets/categories/Hazelnut spreads/brands/Nutella',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => '<h1>NOINDEX</h1>'
 	},
 	# Normal user should have access to nested facets
+	# 2025-06-02: unidentified users can no longer access 2 level facets
 	{
 		test_case => 'normal-user-access-nested-facet-page',
 		method => 'GET',
-		path => '/facets/categories/hazelnut-spreads/brands/nutella',
+		path => '/facets/categories/Hazelnut spreads/brands/Nutella',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
-		expected_status_code => 200,
+		expected_status_code => 401,
 		expected_type => 'html',
 		response_content_must_not_match => '<h1>NOINDEX</h1>'
 	},
@@ -96,7 +95,7 @@ my $tests_ref = [
 	{
 		test_case => 'crawler-access-category-facet-page',
 		method => 'GET',
-		path => '/facets/categories/hazelnut-spreads',
+		path => '/facets/categories/Hazelnut spreads',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -106,7 +105,7 @@ my $tests_ref = [
 	{
 		test_case => 'normal-user-access-category-facet-page',
 		method => 'GET',
-		path => '/facets/categories/hazelnut-spreads',
+		path => '/facets/categories/Hazelnut spreads',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -156,7 +155,7 @@ my $tests_ref = [
 	{
 		test_case => 'normal-user-get-facet-knowledge-panels',
 		method => 'GET',
-		path => '/facets/categories/cakes',
+		path => '/facets/categories/Cakes',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -166,7 +165,7 @@ my $tests_ref = [
 	{
 		test_case => 'crawler-does-not-get-facet-knowledge-panels',
 		method => 'GET',
-		path => '/facets/categories/cakes',
+		path => '/facets/categories/Cakes',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',

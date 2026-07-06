@@ -6,22 +6,21 @@
    "additives_tags" : [
       "en:e951"
    ],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "sodas",
    "categories_hierarchy" : [
       "en:beverages-and-beverages-preparations",
       "en:beverages",
+      "en:non-alcoholic-beverages",
       "en:carbonated-drinks",
+      "en:soft-drinks",
       "en:sodas"
    ],
    "categories_lc" : "en",
    "categories_properties" : {
-      "agribalyse_proxy_food_code:en" : "18340"
+      "agribalyse_proxy_food_code:en" : "18340",
+      "ciqual_food_code:en" : "18029"
    },
    "categories_properties_tags" : [
       "all-products",
@@ -29,16 +28,20 @@
       "agribalyse-food-code-unknown",
       "agribalyse-proxy-food-code-18340",
       "agribalyse-proxy-food-code-known",
-      "ciqual-food-code-unknown",
+      "ciqual-food-code-18029",
+      "ciqual-food-code-known",
       "agribalyse-known",
       "agribalyse-18340"
    ],
    "categories_tags" : [
       "en:beverages-and-beverages-preparations",
       "en:beverages",
+      "en:non-alcoholic-beverages",
       "en:carbonated-drinks",
+      "en:soft-drinks",
       "en:sodas"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:artificially-sweetened-beverages",
    "food_groups_tags" : [
       "en:beverages",
@@ -60,7 +63,6 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "2074",
-         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 70.5,
@@ -91,7 +93,7 @@
          "percent_max" : 4.5,
          "percent_min" : 0,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -105,10 +107,14 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
@@ -130,8 +136,6 @@
       "en:apple-juice",
       "en:fruit",
       "en:juice",
-      "en:malaceous-fruit",
-      "en:apple",
       "en:fruit-juice",
       "en:water",
       "en:sugar",
@@ -149,19 +153,23 @@
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
+      "en:apple-juice",
       "en:e951"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-c-2023-c"
+      "en:nutriscore-2021-c-2023-c",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 4,
    "nova_group_debug" : "",
@@ -200,28 +208,6 @@
       "en:sugars-in-moderate-quantity",
       "en:salt-in-low-quantity"
    ],
-   "nutriments" : {
-      "energy_100g" : 82,
-      "fat_100g" : "0",
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 70.5,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 70.5,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70.5,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70.5,
-      "nova-group" : 4,
-      "nova-group_100g" : 4,
-      "nova-group_serving" : 4,
-      "nutrition-score-fr" : 4,
-      "nutrition-score-fr_100g" : 4,
-      "proteins_100g" : 0,
-      "salt" : 0.025,
-      "salt_100g" : 0.025,
-      "salt_unit" : "g",
-      "salt_value" : "0.025",
-      "saturated-fat_100g" : "0",
-      "sodium_100g" : 0.01,
-      "sodium_value" : 0.01,
-      "sugars_100g" : 4.5
-   },
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -254,10 +240,12 @@
             "sugars_points" : 3,
             "sugars_value" : 4.5
          },
+         "estimated" : 0,
          "grade" : "c",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
          "score" : 2
       },
       "2023" : {
@@ -350,10 +338,12 @@
             "positive_points" : 4,
             "positive_points_max" : 18
          },
+         "estimated" : 0,
          "grade" : "c",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
          "score" : 4
       }
    },
@@ -452,8 +442,162 @@
       "c"
    ],
    "nutriscore_version" : "2023",
-   "nutrition_data_per" : "100g",
-   "nutrition_data_prepared_per" : "100g",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.25
+            },
+            "energy" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 82
+            },
+            "energy-kj" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 82
+            },
+            "fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 70.5
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 70.5
+            },
+            "proteins" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "salt" : {
+               "modifier" : "~",
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.025
+            },
+            "saturated-fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.01
+            },
+            "sugars" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 4.5
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "energy-kj" : {
+                  "unit" : "kJ",
+                  "value" : 82
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 0.025
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 0
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.01
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 4.5
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 2.25,
+                  "value_string" : "2.25"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 70.5,
+                  "value_string" : "70.5"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 70.5,
+                  "value_string" : "70.5"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "estimate",
+            "source_description" : "Estimate from ingredients"
+         }
+      ]
+   },
    "nutrition_grade_fr" : "c",
    "nutrition_grades" : "c",
    "nutrition_grades_tags" : [
@@ -476,12 +620,21 @@
       "artificially-sweetened-beverages",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 0,
-   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }

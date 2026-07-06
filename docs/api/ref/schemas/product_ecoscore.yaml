@@ -22,6 +22,7 @@ properties:
             properties:
               aggregated_origins:
                 type: array
+                description: "List of aggregated origins of ingredients and their impact."
                 items:
                   title: adjustments_origin_of_ingredient_aggregated
                   type: object
@@ -30,22 +31,28 @@ properties:
                       type: string #TODO: should be integer
                     origin:
                       type: string
+                      description: "Country or region of origin for the ingredient."
                     percent:
                       type: integer
+                      description: "Percentage of this ingredient from the specified origin."
                     transportation_score:
                       type:
                         - "null"
                         - "integer"
+                      description: "Transportation score associated with this ingredient's origin."
               epi_score:
                 type: integer
+                description: "Environmental Performance Index (EPI) score for the ingredient's origin."
               epi_value:
                 type: integer
               origins_from_categories:
                 type: array
+                description: "List of origins derived from product categories, eg for PDO."
                 items:
                   type: string
               origins_from_origins_field:
                 type: array
+                description: "List of origins explicitly stated in the product's origins field."
                 items:
                   type: string
               transportation_score:
@@ -86,6 +93,7 @@ properties:
                       examples: [1]
                     quantity_per_unit:
                       type: string
+                      description: "The quantity per packaging unit, as a string."
                       examples: ["33 cL"]
                     quantity_per_unit_unit:
                       type: string
@@ -111,9 +119,9 @@ properties:
               labels:
                 type: array
                 examples:
-                  - - vegan
-                    - fat free
-                    - Kosher
+                  - vegan
+                  - fat free
+                  - Kosher
                 items:
                   type: string
               value:

@@ -1,10 +1,19 @@
 type: object
 description: |
   Base product data
+required:
+  - code
+  - schema_version
+allOf:
+  - $ref: ./product_type.yaml
 properties:
+  product_name:
+    type: string
+    description: |
+      The name of the product in the main language of the product (lang field) 
   abbreviated_product_name:
     type: string
-    description: Abbreviated name in requested language
+    description: Abbreviated product name (e.g. abbreviated product name printed on receipts) in the main language of the product (lang field)
   code:
     type: string
     description: |
@@ -20,12 +29,24 @@ properties:
         and
         A series of mask for the barcode
         It helps retrieve barcodes starting by
-      examples: ["code-13","3017620422xxx","301762042xxxx","30176204xxxxx","3017620xxxxxx","301762xxxxxxx","30176xxxxxxxx","3017xxxxxxxxx","301xxxxxxxxxx","30xxxxxxxxxxx","3xxxxxxxxxxxx"]
+      examples:
+        [
+          "code-13",
+          "3017620422xxx",
+          "301762042xxxx",
+          "30176204xxxxx",
+          "3017620xxxxxx",
+          "301762xxxxxxx",
+          "30176xxxxxxxx",
+          "3017xxxxxxxxx",
+          "301xxxxxxxxxx",
+          "30xxxxxxxxxxx",
+          "3xxxxxxxxxxxx",
+        ]
   generic_name:
     type: string
     description: |
-      Legal name of the product as regulated
-      by the European authorities.
+      Generic / legal name of the product in the main language of the product (lang field)
   id:
     description: |
       internal identifier for the product, usually set to the value of `code`,
@@ -57,39 +78,44 @@ properties:
       A date at which the product was declared obsolete.
       This means it's not produced any more.
     type: string
-  product_name:
-    type: string
-    description: |
-      The name of the product
-  product_name_en:
-    type: string
-    description: |
-      The name of the product can also
-      be in many other languages like
-      product_name_fr (for French).
   product_quantity:
     type: string
     description: |
       The size in g or ml for the whole product.
-      It's a normalized version of the quantity field.
+      It is a normalized version of the `quantity` field.
+      A `quantity` of "2 x 60 g" leads to `product_quantity`: "120".
     example: "500"
   product_quantity_unit:
     type: string
     description: |
-      The unit (either g or ml) for the correponding product_quantity.
+      The unit (either g or ml) for the corresponding `product_quantity`.
+      It is computed from the `quantity` field.
+      A `quantity` of "6 x 250 ml" leads to `product_quantity_unit`: "ml".
     example: "g"
   quantity:
     type: string
     description: |
-      Quantity and Unit.
-
+      The quantity of the product, with the corresponding number of portions or unit (g, ml, kg, l, cl, oz, lbs...).
+      It should be the value as displayed on the product. The ℮ sign is allowed.
+      When it refers to the number of portions, it can be filled without any units (e.g. "6 eggs").
+    example: "3 x 150 g"
+  schema_version:
+    type: integer
+    description: |
+      Version of the product object schema used in the response.
+      This indicates the structure of the 'product' field itself.
+      For more details, please read: https://openfoodfacts.github.io/openfoodfacts-server/api/ref-api-and-product-schema-change-log
+    example: 999
 
 patternProperties:
-  abbreviated_product_name_(?<language_code>\w\w):
+  'product_name_(?<language_code>\w\w)':
     type: string
-    description: Abbreviated name in language `language_code`.
+    description: |
+      Product name in language designated by `language_code`, e.g. product_name_fr
+  'abbreviated_product_name_(?<language_code>\w\w)':
+    type: string
+    description: Abbreviated product name in language `language_code`.
   'generic_name_(?<language_code>\w\w)':
     type: string
     description: |
-      This can be returned in many other languages
-      like generic_name_fr (for French).
+      Generic/legal name in language designated by `language_code`, e.g. generic_name_en.

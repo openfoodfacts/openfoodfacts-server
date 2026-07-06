@@ -4,7 +4,9 @@
    "product" : {
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
+         "en:nutriscore-missing-fiber",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
          "en:nutriscore-missing-nutrition-data-fat",
@@ -13,7 +15,6 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-sugars",
          "en:nutriscore-not-computed",
-         "en:nutrition-no-fiber",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
          "en:nutrition-no-fruits-vegetables-nuts",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -49,7 +50,7 @@
             "number_of_units" : 1,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycler"
+               "lc_name" : "recycler"
             },
             "shape" : {
                "id" : "en:box",
@@ -77,7 +78,7 @@
             "number_of_units" : 4,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycler"
+               "lc_name" : "recycler"
             },
             "shape" : {
                "id" : "en:pot",
@@ -85,7 +86,6 @@
             }
          }
       ],
-      "schema_version" : 999,
       "weighers_tags" : []
    },
    "status" : "success_with_warnings",

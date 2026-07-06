@@ -34,14 +34,16 @@ You can also upload some photos that are neither of that 4 categories, but they 
 
 ### Label Languages
 
-Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the [image field]((#imagefield)).
+Multilingual products have several photos based on the languages present on the packaging. You can specify the language by adding a lang code suffix to the [image field](#Imagefield).
 
 ## Authentication
 
-The WRITE operations in the Open Food Facts API require authentication. Therefore you need a valid `user_id` and `password` to write the photo to 100% Real Orange Juice.
+The WRITE operations in the Open Food Facts API require authentication. Therefore you need a valid `user_id`^[user_id_not_email] and `password` to write the photo to 100% Real Orange Juice.
 
 > Sign up on the [Open Food Facts App](https://world.openfoodfacts.org/) to get your `user_id` and `password` if you dont have one.
 For more details, visit the : [Authentication paragraph in our introduction](../index.md#authentication).
+
+^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
 
 ## Parameters
 
@@ -64,7 +66,7 @@ The barcode of the product.
 
 ### Describing the Post Request
 
-To upload photos to a product, make a `POST` request to the [`Add a Photo to an Existing Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_upload.pl) endpoint.
+To upload photos to a product, make a `POST` request to the [`Add a Photo to an Existing Product`](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/images/post-api-v3-product-code-images/) endpoint.
 
 ```text
 https://world.openfoodfacts.net/cgi/product_image_upload.pl

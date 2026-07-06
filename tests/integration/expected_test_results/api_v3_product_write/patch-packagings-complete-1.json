@@ -8,7 +8,7 @@
             "number_of_units" : 1,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycle"
+               "lc_name" : "recycle"
             },
             "shape" : {
                "id" : "en:bottle",
@@ -20,7 +20,7 @@
             "number_of_units" : 1,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycle"
+               "lc_name" : "recycle"
             },
             "shape" : {
                "id" : "en:lid",
@@ -28,8 +28,7 @@
             }
          }
       ],
-      "packagings_complete" : 1,
-      "schema_version" : 999
+      "packagings_complete" : 1
    },
    "status" : "success_with_warnings",
    "warnings" : [

@@ -11,11 +11,9 @@ use File::Basename "dirname";
 
 use Storable qw(dclone);
 
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
-
-wait_application_ready();
+remove_all_users();
 
 # First user
 
@@ -225,42 +223,42 @@ my $tests_ref = [
 	{
 		test_case => 'category_apples',
 		method => 'GET',
-		path => 'facets/categories/apples.json?fields=product_name',
+		path => 'facets/categories/Apples.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples',
 		method => 'GET',
-		path => 'facets/categories/-apples.json?fields=product_name',
+		path => 'facets/categories/-Apples.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_apples_label_organic',
 		method => 'GET',
-		path => 'facets/categories/apples/labels/organic.json?fields=product_name',
+		path => 'facets/categories/Apples/labels/Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples_label_organic',
 		method => 'GET',
-		path => 'facets/categories/-apples/labels/organic.json?fields=product_name',
+		path => 'facets/categories/-Apples/labels/Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_-apples_label_-organic',
 		method => 'GET',
-		path => 'facets/categories/-apples/labels/-organic.json?fields=product_name',
+		path => 'facets/categories/-Apples/labels/-Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'label_fair-trade_label_-organic',
 		method => 'GET',
-		path => 'facets/labels/fair-trade/labels/-organic.json?fields=product_name',
+		path => 'facets/labels/Fair%20trade/labels/-Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -268,14 +266,14 @@ my $tests_ref = [
 	{
 		test_case => 'category_bananas_label_organic_brand_brand1',
 		method => 'GET',
-		path => 'facets/categories/bananas/labels/organic/brands/brand1.json?fields=product_name',
+		path => 'facets/categories/Bananas/labels/Organic/brands/Brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'category_bananas_label_organic_brand_-brand1',
 		method => 'GET',
-		path => 'facets/categories/bananas/labels/organic/brands/-brand1.json?fields=product_name',
+		path => 'facets/categories/Bananas/labels/Organic/brands/-Brand1.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -298,14 +296,14 @@ my $tests_ref = [
 	{
 		test_case => 'packager-code_fr-85-222-003-ce',
 		method => 'GET',
-		path => 'facets/packager-codes/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
+		path => 'facets/packager-codes/fr-85-222-003-ec.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
 	{
 		test_case => 'packager-code_fr-85-222-003-ec',    # not normalized code (ec instead of ce)
 		method => 'GET',
-		path => 'facets/packager-codes/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
+		path => 'facets/packager-codes/fr-85-222-003-ec.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -328,7 +326,7 @@ my $tests_ref = [
 	{
 		test_case => 'contributor-alice-label_organic',
 		method => 'GET',
-		path => 'facets/contributors/alice/labels/organic.json?fields=product_name',
+		path => 'facets/contributors/alice/labels/Organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
@@ -337,18 +335,22 @@ my $tests_ref = [
 		test_case => 'de-accented-cafe-label',
 		method => 'GET',
 		subdomain => 'world-de',
-		path => 'facets/labels/café-label.json?fields=product_name,labels_tags',
+		path => 'facets/labels/Caf%C3%A9%20Label.json?fields=product_name,labels_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
-	# facet name that is the same as a facet type
+	# facet alias that is the same as a facet type
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/9708
 	{
 		test_case => 'category-vitamins',
 		method => 'GET',
-		path => 'facets/categories/vitamins.json?fields=product_name,labels_tags',
-		expected_status_code => 200,
-		sort_products_by => 'product_name',
+		path => 'facets/categories/Vitamins.json?fields=product_name,labels_tags',
+		expected_status_code => 302,
+		headers => {
+			Location =>
+				'http://world.openfoodfacts.localhost/facets/categories/Vitamin supplements.json?fields=product_name,labels_tags',
+		},
+		expected_type => 'html',
 	},
 	# test some redirects
 	{

@@ -1,6 +1,13 @@
 type: object
 description: |
   Metadata of a product (author, editors, creation date, etc.)
+required:
+  - created_t
+  - creator
+  - last_modified_by
+  - last_modified_t
+  - last_updated_t
+  - rev
 
 properties:
   created_t:
@@ -8,8 +15,7 @@ properties:
     description: |
       Date when the product was added (UNIX timestamp format).
       See also `entry_dates_tags`
-    example: |
-      1457680652
+    example: 1457680652
   creator:
     type: string
     description: |

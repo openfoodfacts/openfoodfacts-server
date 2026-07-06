@@ -27,10 +27,14 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
+
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "ઘટકો, એલર્જન, ઉમેરણો, પોષણ તથ્યો, લેબલ્સ, મૂળ, CO2 અસર અને ઉત્પાદન પરની માહિતી %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -44,7 +48,11 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "ઘટકો INCI, એલર્જન, ઉમેરણો, લેબલ્સ, ઘટકોનું મૂળ અને ઉત્પાદન વિશેની માહિતી %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -58,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr ""
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "આ ઉત્પાદન પૃષ્ઠ પૂર્ણ નથી. તમે તેને સંપાદિત કરીને અને અમારી પાસેના ફોટામાંથી વધુ ડેટા ઉમેરીને અથવા <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> અથવા <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>માટે યુનિવર્સલ મોબાઇલ એપ્લિકેશનનો ઉપયોગ કરીને વધુ ફોટા લઈને પૂર્ણ કરવામાં મદદ કરી શકો છો. આભાર!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -84,6 +92,114 @@ msgstr ""
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "વિશ્વભરના વિવિધ ઉત્પાદનો પર માહિતીનો સહયોગી, મફત અને ખુલ્લો ડેટાબેઝ."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "ઘટકો, CO2 અસર, ટકાઉપણું, લેબલ્સ, ઘટકોનું મૂળ અને ઉત્પાદન વિશેની માહિતી %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "આ પ્રોડક્ટ પેજ પૂર્ણ નથી. તમે તેને સંપાદિત કરીને અને અમારી પાસેના ફોટામાંથી વધુ ડેટા ઉમેરીને અથવા <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> અથવા <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>માટે યુનિવર્સલ ઓપન ફૂડ ફેક્ટ્સ એપ્લિકેશનનો ઉપયોગ કરીને વધુ ફોટા લઈને પૂર્ણ કરવામાં મદદ કરી શકો છો. આભાર!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "આ પ્રોડક્ટ પેજ પૂર્ણ નથી. તમે તેને સંપાદિત કરીને અને અમારી પાસેના ફોટામાંથી વધુ ડેટા ઉમેરીને અથવા <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> અથવા <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>માટે યુનિવર્સલ ઓપન ફૂડ ફેક્ટ્સ એપ્લિકેશનનો ઉપયોગ કરીને વધુ ફોટા લઈને પૂર્ણ કરવામાં મદદ કરી શકો છો. આભાર!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "સૂકો કૂતરો ખોરાક, ભીનો બિલાડી ખોરાક"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "ઇએમબી ૧૨૩૪૫"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "ચિકન, મકાઈ ગ્લુટેન ભોજન, આખા અનાજ મકાઈ, પ્રાણી ચરબી, સોયાબીન ભોજન"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "પુખ્ત કૂતરાઓ માટે ભીનું ખોરાક"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "સિનિયર ડોગ ડિલાઇટ ચિકન અને ચોખા"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -115,7 +231,7 @@ msgstr "નોંધણી કરો"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "સ્વાગત છે!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -151,6 +267,10 @@ msgstr ""
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr ""
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
 msgstr ""
 
 msgctxt "admin_status_updated"
@@ -238,9 +358,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "અદ્યતન શોધ અને આલેખ"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "વધારે પીવું આરોગ્ય માટે હાનિકારક છે."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr ""
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -275,16 +396,16 @@ msgid "for 1 kg"
 msgstr ""
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr ""
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
 msgstr ""
 
 msgctxt "android_app_icon_alt_text"
@@ -331,10 +452,6 @@ msgstr "તમે ઓપન ફૂડ ફેક્ટ્સ પ્રોજે�
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -541,16 +658,12 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "ઉત્પાદન કાઢી નાંખો"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "પૃષ્ઠ હટાવો"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "છબીઓ કાઢી નાખો"
 
 msgctxt "delete_user"
-msgid "Delete a user"
+msgid "Delete the user"
 msgstr ""
 
 msgctxt "delete_confirmation"
@@ -605,6 +718,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "પૃષ્ઠ સંપાદિત કરો"
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "ગુણધર્મો ઉમેરવા અથવા સંપાદિત કરવા માટે સાઇન-ઇન કરો"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr "તમારી સાર્વજનિક પ્રોફાઇલને સંપાદિત કરો"
@@ -637,6 +754,14 @@ msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr ""
 
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr ""
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "તમારી પસંદગીઓ બદલાઈ ગઈ છે."
+
 msgctxt "editors_p"
 msgid "editors"
 msgstr "સંપાદકો"
@@ -655,7 +780,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "ટ્રેસેબિલિટી કોડ્સ"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -675,7 +800,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "ટ્રેસેબિલિટી કોડ"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -910,7 +1035,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "ઉપયોગની શરતો"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1440,7 +1565,7 @@ msgstr ""
 
 msgctxt "name"
 msgid "Name"
-msgstr ""
+msgstr "નામ"
 
 msgctxt "names"
 msgid "Names"
@@ -1541,11 +1666,11 @@ msgstr "એવા ઉત્પાદનો કે જેમાં ઘટક %s�
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "પોષણ તથ્યો"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "પોષણ તથ્યો"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1609,7 +1734,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "પ્રતિ સર્વિંગ"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1617,7 +1742,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "પોષણ તથ્યો"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1738,7 +1863,7 @@ msgstr ""
 
 msgctxt "password"
 msgid "Password"
-msgstr ""
+msgstr "પાસવર્ડ"
 
 msgctxt "password_new"
 msgid "New password"
@@ -1826,7 +1951,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "પોષક તત્વો ઉમેરો"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1990,7 +2115,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "ઉત્પાદનો"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2046,7 +2171,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "પાસવર્ડ રીસેટ કરો"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2137,6 +2262,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr ""
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr ""
 
@@ -2387,7 +2516,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "સર્વિંગ સાઈઝ"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2411,7 +2540,7 @@ msgstr "સાઇન ઇન કરો"
 
 msgctxt "share"
 msgid "Share"
-msgstr ""
+msgstr "શેર કરો"
 
 msgctxt "show_category_stats"
 msgid "Show detailed stats"
@@ -2467,7 +2596,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "સ્ટોર્સ"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2483,7 +2612,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "દુકાન"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2544,7 +2673,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "અજ્ઞાત"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2715,6 +2844,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr ""
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr ""
@@ -2731,10 +2861,6 @@ msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr ""
 
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr ""
-
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
 msgstr ""
@@ -2744,12 +2870,12 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr ""
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "આ ઉત્પાદન પૃષ્ઠ પૂર્ણ નથી. તમે તેને સંપાદિત કરીને અને અમારી પાસેના ફોટામાંથી વધુ ડેટા ઉમેરીને અથવા <a href=\"https://android.openfoodfacts.org\">Android</a> અથવા <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>માટે મોબાઇલ એપ્લિકેશનનો ઉપયોગ કરીને વધુ ફોટા લઈને પૂર્ણ કરવામાં મદદ કરી શકો છો. આભાર!"
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2769,7 +2895,7 @@ msgstr ""
 
 msgctxt "translators_column_name"
 msgid "Name"
-msgstr ""
+msgstr "નામ"
 
 msgctxt "translators_column_translated_words"
 msgid "Translated (Words)"
@@ -2827,24 +2953,8 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr ""
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr ""
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr ""
-
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 
 msgctxt "nova_groups_s"
@@ -3423,7 +3533,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "ઉત્પત્તિ"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3431,7 +3541,7 @@ msgstr ""
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "પોષણ તથ્યો"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3681,6 +3791,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ડેટા ગુણવત્તા સંપૂર્ણતા"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4156,10 +4270,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr ""
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr ""
@@ -4298,7 +4408,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "થઈ ગયું"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4401,7 +4511,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "અમાન્ય બારકોડ"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4596,17 +4706,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "ન્યુટ્રી-સ્કોર લાગુ પડતો નથી"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "શ્રેણી માટે લાગુ પડતું નથી: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4644,10 +4754,14 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "ફૂડ પ્રોસેસિંગ લેવલ અજાણ છે"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
+msgstr ""
+
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
 msgstr ""
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
@@ -4826,8 +4940,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "ગ્રીન-સ્કોર એ A+ થી F સુધીનો પર્યાવરણીય સ્કોર છે જે પર્યાવરણ પર ખાદ્ય ઉત્પાદનોની અસરની તુલના કરવાનું સરળ બનાવે છે."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4839,8 +4953,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "ગ્રીન-સ્કોર એ A+ થી F સુધીનો પર્યાવરણીય સ્કોર છે જે પર્યાવરણ પર ખાદ્ય ઉત્પાદનોની અસરની તુલના કરવાનું સરળ બનાવે છે."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -4913,7 +5027,7 @@ msgstr ""
 
 msgctxt "org_name"
 msgid "Name"
-msgstr ""
+msgstr "નામ"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
@@ -4941,7 +5055,7 @@ msgstr ""
 
 msgctxt "contact_name"
 msgid "Name"
-msgstr ""
+msgstr "નામ"
 
 msgctxt "contact_address"
 msgid "Address"
@@ -4998,6 +5112,10 @@ msgstr ""
 msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr ""
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "ના"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5073,6 +5191,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "તૈયાર ઉત્પાદન માટે પોષણ તથ્યો ખૂટે છે"
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5091,11 +5213,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "વિવિધ"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "વિવિધ"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5113,7 +5235,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "આકાર"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5121,7 +5243,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "સામગ્રી"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5372,7 +5494,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -5415,6 +5537,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "ચોક્કસ શ્રેણી ખૂટે છે"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5692,10 +5818,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr ""
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr ""
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr ""
@@ -5716,8 +5838,14 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr ""
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
+msgstr ""
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
 msgstr ""
 
 msgctxt "environmental_score_final_score"
@@ -5749,8 +5877,8 @@ msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "ગ્રીન-સ્કોર શરૂઆતમાં ફ્રાન્સ માટે વિકસાવવામાં આવ્યો હતો અને તેને અન્ય યુરોપિયન દેશોમાં પણ વિસ્તારવામાં આવી રહ્યો છે. ગ્રીન-સ્કોર ફોર્મ્યુલામાં ફેરફાર થઈ શકે છે કારણ કે તેને નિયમિતપણે સુધારવામાં આવે છે જેથી તે દરેક દેશ માટે વધુ ચોક્કસ અને વધુ સારી રીતે અનુકૂળ બને."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5866,6 +5994,11 @@ msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr ""
 
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr ""
+
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
 msgstr ""
@@ -5917,6 +6050,22 @@ msgstr ""
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr ""
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "કોઈ મૂલ્યાંકન કરેલ લેબલ નથી"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "કેટલાક પર્યાવરણીય ફાયદા"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "ઉચ્ચ પર્યાવરણીય લાભો"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "ખૂબ ઊંચા પર્યાવરણીય લાભો"
 
 msgctxt "other"
 msgid "Other"
@@ -6054,6 +6203,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "તૈયાર ઉત્પાદન માટે ખૂટતા પોષણ તથ્યો:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6069,6 +6222,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ડેટા ગુણવત્તા સંપૂર્ણતા"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "આ ઉત્પાદન પર ડેટા ગુણવત્તા સંપૂર્ણતા વિશે કેટલીક માહિતી"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6141,6 +6302,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "તૈયાર પોષણ તથ્યો ખૂટે છે"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6224,6 +6389,10 @@ msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr ""
 
+msgctxt "attribute_without_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr ""
+
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
 msgstr ""
@@ -6276,22 +6445,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "ખૂબ જ સારો મેળ"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "સારો મેળ"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "ખરાબ મેચ"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "અજાણ્યો મેળ"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6301,7 +6470,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "મેળ ખાતું નથી"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6322,6 +6491,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "આ પ્રોડક્ટ માટે અમારી પાસે જે કેટેગરી છે તે ગ્રીન-સ્કોરની ગણતરી કરવા માટે પૂરતી ચોક્કસ નથી. શું તમે વધુ ચોક્કસ પ્રોડક્ટ કેટેગરી ઉમેરી શકો છો?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6473,11 +6646,11 @@ msgstr ""
 
 msgctxt "sign_in"
 msgid "Sign in"
-msgstr ""
+msgstr "સાઇન ઇન કરો"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "સાઇન આઉટ કરો"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6528,7 +6701,7 @@ msgstr ""
 
 msgctxt "nutrition"
 msgid "Nutrition"
-msgstr ""
+msgstr "પોષણ"
 
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
@@ -6561,6 +6734,10 @@ msgstr ""
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
+msgstr ""
+
+msgctxt "api_result_user_found"
+msgid "User found"
 msgstr ""
 
 msgctxt "api_message_invalid_api_action"
@@ -6615,6 +6792,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr ""
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "છબી પહેલેથી જ અપલોડ કરેલી છે."
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "છબી ખૂબ નાની છે"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "છબી અપલોડ કરી"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "છબી અપલોડ થઈ નથી"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "છબી પસંદ કરી"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "છબી પસંદ કરેલી નથી"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "છબી કાઢી નાખી"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "છબી ડિલીટ થઈ નથી"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr ""
@@ -6638,7 +6847,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "એકમોની સંખ્યા"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6663,6 +6872,14 @@ msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr ""
 
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
+
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr ""
@@ -6670,19 +6887,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "ઉત્પાદનમાં સમાવિષ્ટ સમાન આકાર અને સામગ્રીના પેકેજિંગ એકમોની સંખ્યા દાખલ કરો."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "જો રિસાયક્લિંગ સૂચનાઓમાં સૂચિબદ્ધ આકારનું નામ ઉપલબ્ધ હોય તો તે દાખલ કરો, અથવા આકાર પસંદ કરો."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "જો ચોક્કસ સામગ્રી નક્કી કરી શકાય તો તે દાખલ કરો (ત્રિકોણની અંદરનો મટીરીયલ કોડ ઘણીવાર પેકેજિંગ ભાગો પર મળી શકે છે), અથવા જો તમને ખાતરી ન હોય તો સામાન્ય સામગ્રી (દા.ત. પ્લાસ્ટિક અથવા ધાતુ) દાખલ કરો."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "રિસાયક્લિંગ સૂચનાઓ ફક્ત ત્યારે જ દાખલ કરો જો તે ઉત્પાદન પર સૂચિબદ્ધ હોય."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6692,7 +6909,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "ચોખ્ખું વજન અથવા ચોખ્ખું વોલ્યુમ દાખલ કરો અને એકમ (ઉદાહરણ તરીકે g અથવા ml) સૂચવો."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7007,7 +7224,7 @@ msgid "Report a problem"
 msgstr ""
 
 msgctxt "report_problem_navigation"
-msgid "Report a problem."
+msgid "Report a problem"
 msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_title"
@@ -7034,11 +7251,6 @@ msgctxt "description"
 msgid "Description"
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr ""
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr ""
@@ -7058,6 +7270,10 @@ msgstr ""
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr ""
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "સાઇન ઇન કરવા માટે તમારે કૂકીઝ સક્ષમ કરવાની જરૂર છે."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7265,11 +7481,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "સમારકામક્ષમતા સૂચકાંક લાગુ પડતો નથી"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7308,17 +7524,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "ઉત્પાદન પ્રકાર"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "ખોરાક"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "પાલતુ ખોરાક"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7352,5 +7568,420 @@ msgstr ""
 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
+msgstr ""
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr ""
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "કાઢી નાખો"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr ""
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr ""
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr ""
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr ""
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr ""
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr ""
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr ""
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "સ્કેન કરો"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "ઓર્ગેનિક ખેતી અને વાજબી વેપાર"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr ""
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr ""
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "ઓર્ગેનિક ખેતી અને વાજબી વેપાર"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "આ છબીની જાણ અમારા મધ્યસ્થીઓને કરો."
+
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "ન્યુટ્રી-સ્કોરની ગણતરી કરવા માટે અમારી પાસે સર્વિંગ સાઈઝ વેલ્યુ અને/અથવા યુનિટ ખૂટે છે."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> એક બિન-લાભકારી સંગઠન દ્વારા બનાવવામાં આવ્યું છે, જે ઉદ્યોગથી સ્વતંત્ર છે. તે બધા માટે બનાવવામાં આવ્યું છે, બધા દ્વારા, અને તે બધા દ્વારા ભંડોળ પૂરું પાડવામાં આવે છે. તમે ઓપન ફૂડ ફેક્ટ્સને દાન આપીને અમારા કાર્યને સમર્થન આપી શકો છો.<br/><b>આભાર!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> એક બિન-લાભકારી સંગઠન દ્વારા બનાવવામાં આવ્યું છે, જે ઉદ્યોગથી સ્વતંત્ર છે. તે બધા માટે બનાવવામાં આવ્યું છે, બધા દ્વારા, અને તે બધા દ્વારા ભંડોળ પૂરું પાડવામાં આવે છે. તમે ઓપન ફૂડ ફેક્ટ્સને દાન આપીને અને લિલો સર્ચ એન્જિનનો ઉપયોગ કરીને અમારા કાર્યને સમર્થન આપી શકો છો.<br/><b>આભાર!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "લિલો સર્ચ એન્જિન"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "રોબોટ્સ દ્વારા ભારે દુરુપયોગને કારણે, અમે આ પૃષ્ઠ અજાણ્યા વપરાશકર્તાઓને સેવા આપી શકતા નથી. બધા ઓપન ફૂડ ફેક્ટ્સને ઍક્સેસ કરવા માટે કૃપા કરીને એક મફત ઓપન ફૂડ ફેક્ટ્સ એકાઉન્ટ બનાવો."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr ""
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "ઉત્પાદન માહિતી"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "કાચા ઉત્પાદનની માહિતી"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "ઉમેરેલી ખાંડ સમાવે છે"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "ઉમેરેલી ખાંડ:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "ઘટકોમાં ઉમેરવામાં આવેલી ખાંડની અંદાજિત માત્રા"
+
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "ઉમેરેલી ખાંડની માત્રા"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "ખાંડ ઉમેર્યા વિના સમાન શ્રેણીમાં ઉત્પાદનો શોધો:"
+
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "પ્રતિ સર્વિંગ"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "પોષક તત્વો ઉમેરો"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "અનિચ્છનીય ઘટકો"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "આ પસંદગી ઓપન ફૂડ ફેક્ટ્સની ઘટકોની સૂચિની સમજ પર આધારિત છે અને તે સચોટ ન પણ હોઈ શકે, હંમેશા ઉત્પાદન જાતે તપાસો."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "અનિચ્છનીય ઘટકોની હાજરી અજાણ છે"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "કોઈ અનિચ્છનીય ઘટકો મળ્યા નથી"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "અનિચ્છનીય ઘટકો ધરાવે છે"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "કેટલાક ઘટકો ઓળખાયા ન હતા"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "અમને આ મળ્યું નથી: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "અમને આ મળ્યું નથી: {unwanted_ingredients}. અમે કેટલાક ઘટકો ચૂકી ગયા હોઈ શકીએ છીએ, કૃપા કરીને હંમેશા ઘટકોની સૂચિ તપાસો."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "તે પસંદગીઓ ઓપન ફૂડ ફેક્ટ્સની ઘટકોની સૂચિની સમજ પર આધારિત છે અને હંમેશા એવી શક્યતા રહે છે કે તે સચોટ અથવા સંપૂર્ણ ન પણ હોય, હંમેશા ઉત્પાદન જાતે તપાસો."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "ધૂમ્રપાન મૃત્યુ પામે છે"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "તમાકુ સ્વાસ્થ્યને ગંભીર નુકસાન પહોંચાડે છે. શરૂઆત ના કરો. હમણાં જ છોડી દો."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "ધૂમ્રપાન ખૂબ જ વ્યસનકારક છે. શરૂઆત કરશો નહીં. ધૂમ્રપાન મારી નાખે છે - હમણાં જ છોડી દો. ધૂમ્રપાન ધમનીઓને બંધ કરે છે અને હૃદયરોગના હુમલા અને સ્ટ્રોકનું કારણ બને છે. ધૂમ્રપાન ફેફસાના કેન્સરનું કારણ બને છે. ગર્ભાવસ્થા દરમિયાન ધૂમ્રપાન કરવાથી તમારા બાળકને નુકસાન થાય છે. બાળકોનું રક્ષણ કરો: તેમને તમારા ધુમાડામાં શ્વાસ લેવા માટે ન દો. તમારા ડૉક્ટર અથવા તમારા ફાર્માસિસ્ટ તમને ધૂમ્રપાન બંધ કરવામાં મદદ કરી શકે છે. ધૂમ્રપાન રક્ત પ્રવાહ ઘટાડી શકે છે અને નપુંસકતાનું કારણ બની શકે છે. ધૂમ્રપાન ત્વચાને વૃદ્ધત્વ આપે છે. ધૂમ્રપાન શુક્રાણુઓને નુકસાન પહોંચાડી શકે છે અને પ્રજનનક્ષમતા ઘટાડે છે. ધુમાડામાં બેન્ઝીન, નાઇટ્રોસેમાઇન્સ, ફોર્માલ્ડીહાઇડ અને હાઇડ્રોજન સાયનાઇડ હોય છે."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "રિસાયકલ"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "જાહેર કિંમત"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "૩.૫૦ યુરો, ૨.૯૯ યુએસડી, ૪.૦૦ જીબીપી"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ઉત્પાદક દ્વારા સૂચવેલ છૂટક કિંમત (MSRP), ડિસ્કાઉન્ટ અને પ્રમોશન સિવાય, ઉત્પાદન પેકેજિંગ અથવા ઉત્પાદકની સાઇટ પર દર્શાવેલ છે (કાયદાના આધારે કર સહિત અથવા બાકાત). જો કિંમતો બહુવિધ ચલણોમાં સૂચિબદ્ધ હોય તો અલ્પવિરામથી વિભાજિત સૂચિનો ઉપયોગ કરો."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "વ્યક્તિગત મિલકત"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "પામ તેલ શામેલ નથી"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "પામ તેલ શામેલ હોઈ શકે છે"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "પર્યાવરણીય લેબલ્સ"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "ડેટા ખૂટે છે"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "ઉચ્ચ અસર"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "મધ્યમ અસર"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "ઓછી અસર"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "અસરનું મૂલ્યાંકન થયું નથી"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
 msgstr ""
 

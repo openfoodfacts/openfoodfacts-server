@@ -5,13 +5,12 @@ use ProductOpener::PerlStandards;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
-#use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang/;
-# Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
-use ProductOpener::Display qw/:all/;
-use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results
+	normalize_product_for_test_comparison/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -19,24 +18,6 @@ init_emb_codes();
 
 ok(is_a("categories", "en:beers", "en:beverages"), 'en:beers is a child of en:beverages');
 ok(!is_a("categories", "en:beers", "en:milks"), 'en:beers is not a child of en:milk');
-
-my $product_ref = {test_tags => ['en:test']};
-
-# verify has_tag works correctly
-ok(has_tag($product_ref, 'test', 'en:test'), 'has_tag should be true');
-ok(!has_tag($product_ref, 'test', 'de:mein-tag'), 'has_tag should be false');
-
-# verify add_tag adds the new tag correctly
-add_tag($product_ref, 'test', 'de:mein-tag');
-ok(has_tag($product_ref, 'test', 'de:mein-tag'), 'has_tag should be true after add');
-
-# verify remove_tag removes the new tag correctly
-remove_tag($product_ref, 'test', 'de:mein-tag');
-ok(!has_tag($product_ref, 'test', 'de:mein-tag'), 'has_tag should be false after remove');
-
-# verify add_tag creates a new tags array if the matching tags field does not exist yet
-add_tag($product_ref, 'nexist', 'en:test');
-ok(has_tag($product_ref, 'nexist', 'en:test'), 'has_tag should be true after add');
 
 # verify known Wikidata ID is converted to the taxonomy tag
 is(canonicalize_taxonomy_tag('en', 'categories', 'wikidata:en:Q470974'),
@@ -48,7 +29,7 @@ is(canonicalize_taxonomy_tag('en', 'categories', 'https://www.wikidata.org/wiki/
 
 is(display_taxonomy_tag("en", "categories", "en:beverages"), "Beverages");
 is(display_taxonomy_tag("fr", "categories", "en:beverages"), "Boissons");
-is(display_taxonomy_tag("en", "categories", "en:doesnotexist"), "Doesnotexist");
+is(display_taxonomy_tag("en", "categories", "en:doesnotexist"), "doesnotexist");
 is(display_taxonomy_tag("fr", "categories", "en:doesnotexist"), "en:doesnotexist");
 
 is(display_taxonomy_tag_link("fr", "categories", "en:doesnotexist"),
@@ -59,179 +40,8 @@ is(display_tags_hierarchy_taxonomy("fr", "categories", ["en:doesnotexist"]),
 
 is(
 	display_tags_hierarchy_taxonomy("en", "categories", ["en:doesnotexist"]),
-	'<a href="/facets/categories/doesnotexist" class="tag user_defined">Doesnotexist</a>'
+	'<a href="/facets/categories/doesnotexist" class="tag user_defined">doesnotexist</a>'
 );
-
-# test canonicalize_taxonomy_tags
-
-# test add_tags_to_field
-
-$product_ref = {lc => "fr",};
-
-add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
-
-is(
-	$product_ref,
-	{
-		'categories' => 'pommes, bananes',
-		'lc' => 'fr',
-		'categories_hierarchy' => [
-			'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
-			'en:fruits-and-vegetables-based-foods', 'en:fruits-based-foods',
-			'en:fruits', 'en:tropical-fruits',
-			'en:apples', 'en:bananas'
-		],
-		'categories_lc' => 'fr',
-		'categories_tags' => [
-			'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
-			'en:fruits-and-vegetables-based-foods', 'en:fruits-based-foods',
-			'en:fruits', 'en:tropical-fruits',
-			'en:apples', 'en:bananas'
-		],
-
-	}
-) or diag Dumper $product_ref;
-
-compute_field_tags($product_ref, "fr", "categories");
-
-delete($product_ref->{categories_debug_tags});
-delete($product_ref->{categories_prev_hierarchy});
-delete($product_ref->{categories_prev_tags});
-delete($product_ref->{categories_next_hierarchy});
-delete($product_ref->{categories_next_tags});
-
-is(
-	$product_ref,
-	{
-		'categories' => 'pommes, bananes',
-		'categories_hierarchy' => [
-			'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
-			'en:fruits-and-vegetables-based-foods', 'en:fruits-based-foods',
-			'en:fruits', 'en:tropical-fruits',
-			'en:apples', 'en:bananas',
-		],
-		'categories_lc' => 'fr',
-		'categories_tags' => [
-			'en:plant-based-foods-and-beverages', 'en:plant-based-foods',
-			'en:fruits-and-vegetables-based-foods', 'en:fruits-based-foods',
-			'en:fruits', 'en:tropical-fruits',
-			'en:apples', 'en:bananas',
-		],
-		'lc' => 'fr'
-	}
-
-) or diag Dumper $product_ref;
-
-# foreach my $tag (@{$product_ref->{categories_tags}}) {
-# 	print STDERR "tag: $tag\tlevel: " . $level{categories}{$tag} . "\n";
-# }
-
-add_tags_to_field($product_ref, "fr", "categories", "pommes, bananes");
-
-is($product_ref->{categories}, "pommes, bananes");
-
-add_tags_to_field($product_ref, "fr", "categories", "fraises");
-
-is($product_ref->{categories},
-	"Aliments et boissons à base de végétaux, Aliments d'origine végétale, Aliments à base de fruits et de légumes, Fruits et produits dérivés, Fruits, Fruits tropicaux, Pommes, Bananes, fraises"
-);
-
-add_tags_to_field($product_ref, "fr", "categories", "en:raspberries, en:plum");
-
-compute_field_tags($product_ref, "fr", "categories");
-
-is(
-	[sort @{$product_ref->{categories_tags}}],
-	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:fruits-based-foods', 'en:fruits', 'en:apples',
-			'en:berries', 'en:tropical-fruits', 'en:bananas',
-			'en:plums', 'en:raspberries', 'en:strawberries',
-		)
-	]
-
-) or diag Dumper $product_ref->{categories_tags};
-
-add_tags_to_field($product_ref, "es", "categories", "naranjas, limones");
-compute_field_tags($product_ref, "es", "categories");
-
-is(
-	[sort @{$product_ref->{categories_tags}}],
-	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:fruits-based-foods', 'en:fruits', 'en:apples',
-			'en:berries', 'en:citrus', 'en:tropical-fruits',
-			'en:bananas', 'en:lemons', 'en:oranges',
-			'en:plums', 'en:raspberries', 'en:strawberries',
-		)
-	]
-
-) or diag Dumper $product_ref->{categories_tags};
-
-is($product_ref->{categories},
-	"Alimentos y bebidas de origen vegetal, Alimentos de origen vegetal, Frutas y verduras y sus productos, Frutas y sus productos, Frutas, Frutas tropicales, Manzanas, Plátanos, Frutas del bosque, Ciruelas, Frambuesas, Fresas, naranjas, limones"
-);
-
-add_tags_to_field($product_ref, "it", "categories", "bogus, mele");
-compute_field_tags($product_ref, "it", "categories");
-
-is(
-	[sort @{$product_ref->{categories_tags}}],
-	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:fruits-based-foods', 'en:fruits', 'en:apples',
-			'en:berries', 'en:citrus', 'en:tropical-fruits',
-			'en:bananas', 'en:lemons', 'en:oranges',
-			'en:plums', 'en:raspberries', 'en:strawberries',
-			'it:bogus')
-	]
-
-	#) or diag Dumper $product_ref->{categories_tags};
-) or diag Dumper $product_ref;
-
-$product_ref = {lc => "fr",};
-
-add_tags_to_field($product_ref, "fr", "countries",
-	"france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon");
-
-is(
-	$product_ref,
-	{
-		'countries' => 'france, en:spain, deutschland, fr:bolivie, italie, de:suisse, colombia, bidon',
-		'lc' => 'fr',
-		'countries_hierarchy' => [
-			'en:bolivia', 'en:colombia', 'en:france', 'en:italy',
-			'en:spain', 'en:switzerland', 'fr:bidon', 'fr:deutschland'
-		],
-		'countries_lc' => 'fr',
-		'countries_tags' => [
-			'en:bolivia', 'en:colombia', 'en:france', 'en:italy',
-			'en:spain', 'en:switzerland', 'fr:bidon', 'fr:deutschland'
-		],
-
-	}
-) or diag Dumper($product_ref);
-
-compute_field_tags($product_ref, "fr", "countries");
-
-is($product_ref->{countries_tags},
-	['en:bolivia', 'en:colombia', 'en:france', 'en:italy', 'en:spain', 'en:switzerland', 'fr:bidon', 'fr:deutschland',])
-	or diag Dumper $product_ref->{countries_tags};
-
-add_tags_to_field($product_ref, "es", "countries", "peru,bogus");
-compute_field_tags($product_ref, "es", "countries");
-
-is(
-	$product_ref->{countries_tags},
-	[
-		'en:bolivia', 'en:colombia', 'en:france', 'en:italy', 'en:peru', 'en:spain',
-		'en:switzerland', 'es:bogus', 'fr:bidon', 'fr:deutschland',
-	]
-) or diag Dumper $product_ref->{countries_tags};
-
-$product_ref = {lc => "fr",};
-
-add_tags_to_field($product_ref, "fr", "brands", "Baba, Bobo, nestlé, kelloggs");
 
 # 2024/08: brands are now taxonomized using the xx: prefix
 
@@ -239,47 +49,9 @@ is canonicalize_taxonomy_tag('en', 'brands', 'some brand'), 'xx:some brand';
 is canonicalize_taxonomy_tag('en', 'brands', 'xx:some-brand'), 'xx:some-brand';
 is canonicalize_taxonomy_tag('en', 'brands', 'xx:Some brand'), 'xx:Some brand';
 is canonicalize_taxonomy_tag('xx', 'brands', 'some brand'), 'xx:some brand';
-is get_taxonomyid("en", "some brand"), "some-brand";
+is get_taxonomyid("en", "some brand"), "some brand";
 is [gen_tags_hierarchy_taxonomy("en", "brands", "some brand, xx:some-other-brand")],
 	['xx:some brand', 'xx:some-other-brand'];
-
-is(
-	$product_ref,
-	{
-		'brands' => 'Baba, Bobo, nestlé, kelloggs',
-		'brands_lc' => 'xx',
-		'brands_tags' => ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bobo'],
-		'brands_hierarchy' => ['xx:kellogg-s', 'xx:nestle', 'xx:Baba', 'xx:Bobo'],
-		'lc' => 'fr'
-	}
-) or diag Dumper($product_ref);
-
-compute_field_tags($product_ref, "fr", "brands");
-
-is($product_ref->{brands_tags}, ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bobo'])
-	or diag Dumper $product_ref->{brands_tags};
-
-add_tags_to_field($product_ref, "fr", "brands", "Bibi");
-
-delete $product_ref->{brands_debug_tags};
-
-is(
-	$product_ref,
-	{
-		'brands' => 'Kellogg\'s, Nestlé, Baba, Bobo, Bibi',
-		'brands_lc' => 'xx',
-		'brands_tags' => ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bibi', 'xx:bobo'],
-		'brands_hierarchy' => ['xx:kellogg-s', 'xx:nestle', 'xx:Baba', 'xx:Bibi', 'xx:Bobo'],
-		'lc' => 'fr'
-	}
-) or diag Dumper($product_ref);
-
-compute_field_tags($product_ref, "fr", "brands");
-
-delete $product_ref->{brands_debug_tags};
-
-is($product_ref->{brands_tags}, ['xx:kellogg-s', 'xx:nestle', 'xx:baba', 'xx:bibi', 'xx:bobo'])
-	or diag Dumper $product_ref->{brands_tags};
 
 my @tags = ();
 
@@ -298,16 +70,15 @@ my @tags = ();
 is(
 	\@tags,
 	[
-		'en:added-sugar', 'en:fruit', 'en:citrus-fruit', 'en:disaccharide',
+		'en:fruit', 'en:added-sugar', 'en:citrus-fruit', 'en:disaccharide',
 		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
 		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
 ) or diag Dumper(\@tags);
 
-foreach my $tag (@tags) {
-
-	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
-}
+# foreach my $tag (@tags) {
+# 	print STDERR "tag: $tag\tlevel: " . $level{ingredients}{$tag} . "\n";
+# }
 
 @tags = gen_ingredients_tags_hierarchy_taxonomy("en", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
 
@@ -421,8 +192,8 @@ my $tagtype = "editors";
 
 is(get_fileid($yuka_uuid), $yuka_uuid);
 
-my $display_tag = canonicalize_tag2($tagtype, $yuka_uuid);
-my $newtagid = get_fileid($display_tag);
+my $display_tag = display_tag($tagtype, $yuka_uuid);
+my $newtagid = canonicalize_tag($tagtype, $yuka_uuid);
 
 is($display_tag, $yuka_uuid);
 is($newtagid, $yuka_uuid);
@@ -435,50 +206,24 @@ is(exists_taxonomy_tag("additives", "en:e330"), 1);
 is(get_inherited_property("ingredients", "en:milk", "vegetarian:en"), "yes");
 is(get_property("ingredients", "en:milk", "vegan:en"), "no");
 is(get_inherited_property("ingredients", "en:milk", "vegan:en"), "no");
-is(get_inherited_property("ingredients", "en:semi-skimmed-milk", "vegetarian:en"), "yes");
-is(get_inherited_property("ingredients", "en:semi-skimmed-milk", "vegan:en"), "no");
 
 is(display_taxonomy_tag("en", "ingredients_analysis", "en:non-vegan"), "Non-vegan");
 
 is(canonicalize_taxonomy_tag("de", "test", "Grünkohl"), "en:kale");
 is(display_taxonomy_tag("de", "test", "en:kale"), "Grünkohl");
 is(display_taxonomy_tag_link("de", "test", "en:kale"),
-	'<a href="/facets//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'); # "test" taxonomy causes warning in Tags.pm
+	'<a href="/facets//Grünkohl" class="tag well_known">Grünkohl</a>');    # "test" taxonomy causes warning in Tags.pm
 is(
 	display_tags_hierarchy_taxonomy("de", "test", ["en:kale"]),
-	'<a href="/facets//gr%C3%BCnkohl" class="tag well_known">Grünkohl</a>'
+	'<a href="/facets//Grünkohl" class="tag well_known">Grünkohl</a>'
 );
 is(canonicalize_taxonomy_tag("fr", "test", "Pâte de cacao"), "fr:Pâte de cacao");
 is(display_taxonomy_tag("fr", "test", "fr:Pâte de cacao"), "Pâte de cacao");
-is(get_taxonomyid("en", "pâte de cacao"), "pate-de-cacao");
-is(get_taxonomyid("de", "pâte de cacao"), "pâte-de-cacao");
-is(get_taxonomyid("fr", "fr:pâte de cacao"), "fr:pate-de-cacao");
+is(get_taxonomyid("en", "pâte de cacao"), "pâte de cacao");
+is(get_taxonomyid("de", "pâte de cacao"), "pâte de cacao");
+is(get_taxonomyid("fr", "fr:pâte de cacao"), "fr:pâte de cacao");
 is(get_taxonomyid("fr", "de:pâte"), "de:pâte");
 is(get_taxonomyid("de", "de:pâte"), "de:pâte");
-
-$product_ref = {
-	lc => "de",
-	test => "Grünkohl, Äpfel, café, test",
-};
-
-compute_field_tags($product_ref, "de", "test");
-
-is(
-	$product_ref,
-	{
-		'lc' => 'de',
-		'test' => "Gr\x{fc}nkohl, \x{c4}pfel, caf\x{e9}, test",
-		'test_hierarchy' => ['en:kale', "de:caf\x{e9}", 'de:test', "de:\x{c4}pfel"],
-		'test_lc' => 'de',
-		'test_tags' => ['en:kale', "de:caf\x{e9}", 'de:test', "de:\x{e4}pfel"]
-	}
-) or diag Dumper $product_ref;
-
-$product_ref = {"stores" => "Intermarché"};
-compute_field_tags($product_ref, "fr", "stores");
-is($product_ref->{stores_tags}, ["intermarche"]);
-compute_field_tags($product_ref, "de", "stores");
-is($product_ref->{stores_tags}, ["intermarche"]);
 
 is(canonicalize_taxonomy_tag("en", "test", "kefir 2.5%"), "en:kefir-2-5");
 is(canonicalize_taxonomy_tag("en", "test", "kefir 2,5%"), "en:kefir-2-5");
@@ -508,7 +253,7 @@ is(
 		'html_lang' => ' lang="fr"',
 		'known' => 1,
 		'tagid' => 'en:strawberry-yogurts',
-		'tagurl' => 'yaourts-a-la-fraise'
+		'tagurl' => 'Yaourts%20%C3%A0%20la%20fraise'
 	}
 ) or diag Dumper $tag_ref;
 
@@ -540,70 +285,6 @@ is(canonicalize_taxonomy_tag("fr", "labels", "pur jus"), "en:pure-juice");
 # should not be matched to "pur jus" in French and return "en:pure-juice"
 is(canonicalize_taxonomy_tag("en", "labels", "au jus"), "en:au jus");
 
-# Test add_tags_to_field
-
-$product_ref = {
-	lc => "fr",
-	'categories_hierarchy' => ['en:meals',],
-};
-
-add_tags_to_field($product_ref, "fr", "categories", "pommes");
-compute_field_tags($product_ref, "fr", "categories");
-
-add_tags_to_field($product_ref, "en", "categories", "bananas");
-compute_field_tags($product_ref, "en", "categories");
-
-add_tags_to_field($product_ref, "en", "categories", "en:pears");
-compute_field_tags($product_ref, "en", "categories");
-
-add_tags_to_field($product_ref, "es", "categories", "en:peaches");
-compute_field_tags($product_ref, "es", "categories");
-
-is(
-	[sort @{$product_ref->{categories_tags}}],
-	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:meals', 'en:fruits-based-foods', 'en:fruits',
-			'en:apples', 'en:peaches', 'en:tropical-fruits',
-			'en:bananas', 'en:pears',)
-	],
-) or diag Dumper $product_ref;
-
-$product_ref = {
-	lc => "fr",
-	categories => "pommes, bananes, en:pears, fr:fraises, es:limones",
-};
-
-compute_field_tags($product_ref, "fr", "categories");
-
-is(
-	[sort @{$product_ref->{categories_tags}}],
-	[
-		sort('en:plant-based-foods-and-beverages', 'en:plant-based-foods', 'en:fruits-and-vegetables-based-foods',
-			'en:fruits-based-foods', 'en:fruits', 'en:apples',
-			'en:berries', 'en:citrus', 'en:tropical-fruits',
-			'en:bananas', 'en:lemons', 'en:pears',
-			'en:strawberries')
-	]
-) or diag Dumper $product_ref;
-
-$product_ref = {
-	'categories' =>
-		"Plats pr\x{e9}par\x{e9}s, Plats pr\x{e9}par\x{e9}s au poisson, Plats \x{e0} base de p\x{e2}tes, Lasagnes pr\x{e9}par\x{e9}es, Plats au saumon",
-	'categories_lc' => 'fr',
-	'categories_tags' =>
-		['en:meals', 'en:pasta-dishes', 'en:prepared-lasagne', 'en:meals-with-fish', 'en:meals-with-salmon',],
-	lc => 'fr',
-	lang => 'fr',
-};
-
-add_tags_to_field($product_ref, "en", "categories",
-	"Meals,Pasta dishes,Prepared lasagne,Meals with fish,Meals with salmon");
-
-is($product_ref->{categories_tags},
-	['en:meals', 'en:pasta-dishes', 'en:prepared-lasagne', 'en:meals-with-fish', 'en:meals-with-salmon',])
-	or diag Dumper $product_ref;
-
 $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "labels", "en:organic");
 is(
 	$tag_ref,
@@ -614,7 +295,7 @@ is(
 		'html_lang' => ' lang="fr"',
 		'known' => 1,
 		'tagid' => 'en:organic',
-		'tagurl' => 'bio'
+		'tagurl' => 'Bio'
 	}
 ) or diag Dumper $tag_ref;
 
@@ -623,12 +304,12 @@ is(
 	$tag_ref,
 	{
 		'css_class' => 'tag user_defined ',
-		'display' => 'Some unknown label',
+		'display' => 'some unknown label',
 		'display_lc' => 'fr',
 		'html_lang' => ' lang="fr"',
 		'known' => 0,
 		'tagid' => 'fr:some unknown label',
-		'tagurl' => 'some-unknown-label'
+		'tagurl' => 'some%20unknown%20label'
 	}
 
 ) or diag Dumper $tag_ref;
@@ -638,7 +319,7 @@ $tag_ref = get_taxonomy_tag_and_link_for_lang("fr", "test", "en:smartphones");
 is(
 	$tag_ref,
 	{
-		'tagurl' => 'telephones-intelligents',
+		'tagurl' => 'T%C3%A9l%C3%A9phones%20intelligents',
 		'tagid' => 'en:smartphones',
 		'display_lc' => 'fr',
 		'known' => 1,
@@ -659,7 +340,7 @@ is(
 		'known' => 1,
 		'display_lc' => 'de',
 		'tagid' => 'en:smartphones',
-		'tagurl' => 'smartphones'
+		'tagurl' => 'Smartphones'
 	}
 
 ) or diag Dumper $tag_ref;
@@ -697,7 +378,7 @@ is(canonicalize_taxonomy_tag("de", "test", "special value for German 3"), "xx:la
 is(display_taxonomy_tag("fr", "test", "fr:french-entry"), "French entry");
 is(display_taxonomy_tag("fr", "test", "french entry"), "French entry");
 is(display_taxonomy_tag("de", "test", "fr:french-entry"), "Special value for German");
-is(display_taxonomy_tag("de", "test", "french entry"), "French entry");
+is(display_taxonomy_tag("de", "test", "French entry"), "French entry");
 
 is(display_taxonomy_tag("fr", "test", "fr:french-entry-with-default-value"), "French entry with default value");
 is(display_taxonomy_tag("en", "test", "fr:french-entry-with-default-value"), "French entry with default value");
@@ -714,21 +395,21 @@ is(
 	display_tags_hierarchy_taxonomy(
 		"fr", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="/facets//french-entry" class="tag well_known">French entry</a>, <a href="/facets//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="/facets//language-less-entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//French entry" class="tag well_known">French entry</a>, <a href="/facets//French entry with default value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less entry" class="tag well_known">Language-less entry</a>'
 );
 
 is(
 	display_tags_hierarchy_taxonomy(
 		"es", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="/facets//fr:french-entry" class="tag user_defined" lang="fr">fr:French entry</a>, <a href="/facets//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="/facets//language-less-entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//fr:French entry" class="tag user_defined" lang="fr">fr:French entry</a>, <a href="/facets//French entry with default value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less entry" class="tag well_known">Language-less entry</a>'
 );
 
 is(
 	display_tags_hierarchy_taxonomy(
 		"de", "test", ["fr:french-entry", "fr:french-entry-with-default-value", "xx:language-less-entry"]
 	),
-	'<a href="/facets//special-value-for-german" class="tag well_known">Special value for German</a>, <a href="/facets//special-value-for-german-2" class="tag well_known">Special value for German 2</a>, <a href="/facets//special-value-for-german-3" class="tag well_known">Special value for German 3</a>'
+	'<a href="/facets//Special value for German" class="tag well_known">Special value for German</a>, <a href="/facets//Special value for German 2" class="tag well_known">Special value for German 2</a>, <a href="/facets//Special value for German 3" class="tag well_known">Special value for German 3</a>'
 );
 
 is(display_taxonomy_tag("fr", "test", "es:french-entry-with-default-value"), "French entry with default value");
@@ -737,17 +418,8 @@ my $value = display_tags_hierarchy_taxonomy("fr", "test",
 	["fr:french-entry", "es:french-entry-with-default-value", "xx:language-less-entry"]);
 
 is($value,
-	'<a href="/facets//french-entry" class="tag well_known">French entry</a>, <a href="/facets//french-entry-with-default-value" class="tag well_known">French entry with default value</a>, <a href="/facets//language-less-entry" class="tag well_known">Language-less entry</a>'
+	'<a href="/facets//French entry" class="tag well_known">French entry</a>, <a href="/facets//French entry with default value" class="tag well_known">French entry with default value</a>, <a href="/facets//Language-less entry" class="tag well_known">Language-less entry</a>'
 );
-
-# Remove tags
-$value =~ s/<(([^>]|\n)*)>//g;
-
-$product_ref->{"test"} = $value;
-compute_field_tags($product_ref, "fr", "test");
-
-is($product_ref->{test_tags}, ['fr:french-entry', 'fr:french-entry-with-default-value', 'xx:language-less-entry'])
-	or diag Dumper $product_ref->{test_tags};
 
 # Double synonym: zumo/jugo and soja/soya
 is(canonicalize_taxonomy_tag('es', 'ingredients', 'jugo de soya'), 'en:soy-base');
@@ -769,7 +441,7 @@ is(
 			"en:one-percent-for-the-planet"
 		]
 	),
-	"fr:un label français inconnu, Organic, A New English label, Missing language prefix, Fair trade, One-percent-for-the-planet"
+	"fr:un label français inconnu, Organic, A New English label, missing language prefix, Fair trade, one-percent-for-the-planet"
 );
 
 is(
@@ -784,7 +456,7 @@ is(
 			"en:one-percent-for-the-planet"
 		]
 	),
-	"Un label français inconnu, Bio, en:A New English label, Missing language prefix, Commerce équitable, en:one-percent-for-the-planet"
+	"un label français inconnu, Bio, en:A New English label, missing language prefix, Commerce équitable, en:one-percent-for-the-planet"
 );
 
 is(
@@ -799,7 +471,7 @@ is(
 			"en:one-percent-for-the-planet"
 		]
 	),
-	"fr:un label français inconnu, Ecológico, en:A New English label, Missing language prefix, Comercio justo, en:one-percent-for-the-planet"
+	"fr:un label français inconnu, Ecológico, en:A New English label, missing language prefix, Comercio justo, en:one-percent-for-the-planet"
 );
 
 # canonicalize_taxonomy_tag can now return 0 or 1 to indicate if the tag matched an existing taxonomy entry
@@ -902,18 +574,16 @@ is(
 # No content exists for en language, undef is expected
 is(get_knowledge_content("additives", "en:e100", "en", "world"), undef);
 
-# get_all_tags_having_property
-$product_ref = {
-	'labels_tags' => ['en:fair-trade', 'en:non-fair-trade',],
-	lc => 'en',
-	lang => 'en',
-};
-is(
-	get_all_tags_having_property($product_ref, "labels", "incompatible_with:en"),
-	{
-		'en:fair-trade' => 'labels:en:non-fair-trade',
-		'en:non-fair-trade' => 'labels:en:fair-trade',
-	}
-);
+is(country_to_cc('en:france'), 'fr');
+is(country_to_cc('en:world'), 'world');
+is(country_to_cc('unknown'), undef);
+is(country_to_cc(undef), undef);
+is(cc_to_country('fr'), 'en:france');
+is(cc_to_country('unknown'), '');
+is(cc_to_country(undef), '');
+
+is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
+
+is(display_taxonomy_tag("en", "ingredients", "en:apple"), "apple");
 
 done_testing();

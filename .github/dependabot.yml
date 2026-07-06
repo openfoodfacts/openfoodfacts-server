@@ -30,10 +30,6 @@ updates:
           - "@typescript-eslint/*"
           - "eslint*"
           - "stylelint*"
-      test-dependencies:
-        patterns:
-          - "chai*"
-          - "mocha"
       typescript:
         patterns:
           - "ts-node"
@@ -51,13 +47,18 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 300
-  - package-ecosystem: "docker"
-    directory: "/docker/frontend"
-    schedule:
-      interval: "monthly"
-    open-pull-requests-limit: 300
   - package-ecosystem: "pip"
     directory: "/scripts/packager-codes/non-eu/"
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 300
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    allow:
+      - dependency-type: "all"
+    groups:
+      devcontainers:
+        patterns:
+          - "*"

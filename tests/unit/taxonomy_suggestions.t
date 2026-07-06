@@ -24,7 +24,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "",
-		expected => ['Banana yogurts', 'Yogurts', 'Soup', 'Vegetable'],
+		expected => ['banana yogurts', 'yogurts', 'soup', 'vegetable'],
 	},
 	{
 		desc => 'Match at start',
@@ -32,7 +32,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "ba",
-		expected => ['Banana yogurts'],
+		expected => ['banana yogurts'],
 	},
 	{
 		desc => 'Match at start and inside, return start first',
@@ -40,7 +40,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "yog",
-		expected => ['Yogurts', 'Banana yogurts'],
+		expected => ['yogurts', 'banana yogurts'],
 	},
 	{
 		desc => 'No match',
@@ -56,7 +56,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "something else",
-		expected => ["Soup"],
+		expected => ["soup"],
 	},
 );
 
@@ -76,29 +76,30 @@ my @suggest_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "ba",
-		expected => ['Banana yogurts'],
+		expected => ['banana yogurts'],
 	},
 	{
 		desc => 'Match at start and inside, return start first',
 		tagtype => "test",
 		lc => "en",
 		string => "yog",
-		expected => ['Yogurts', 'Banana yogurts', 'Lemon yogurts', 'Passion fruit yogurts'],
+		expected => ['yogurts', 'Passion fruit yogurts', 'banana yogurts', 'lemon yogurts'],
+		# Note: "Passion fruit yogurts" is capitalized in the test.txt taxonomy, while other entries are not
 	},
 
 );
 
 foreach my $test_ref (@suggest_tests) {
-	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions($test_ref->{tagtype}, $test_ref->{lc},
-		$test_ref->{string}, {}, {});
+	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions("en:world", $test_ref->{tagtype},
+		$test_ref->{lc}, $test_ref->{string}, {}, {});
 	if (not is(\@results, $test_ref->{expected})) {
 		diag Dumper($test_ref, \@results);
 	}
 }
 
-# Complete suggestion generation (with synnyms)
+# Complete suggestion generation (with synonyms)
 
-my @suggest_tests = (
+@suggest_tests = (
 	{
 		desc => 'Match at start',
 		tagtype => "test",
@@ -107,7 +108,7 @@ my @suggest_tests = (
 		expected => [
 			{
 				'matched_synonym' => 'banana yogurts',
-				'tag' => 'Banana yogurts'
+				'tag' => 'banana yogurts'
 			}
 		],
 	},
@@ -119,27 +120,28 @@ my @suggest_tests = (
 		expected => [
 			{
 				'matched_synonym' => 'yogurts',
-				'tag' => 'Yogurts'
-			},
-			{
-				'matched_synonym' => 'banana yogurts',
-				'tag' => 'Banana yogurts'
-			},
-			{
-				'matched_synonym' => 'lemon yogurts',
-				'tag' => 'Lemon yogurts'
+				'tag' => 'yogurts'
 			},
 			{
 				'matched_synonym' => 'Passion fruit yogurts',
 				'tag' => 'Passion fruit yogurts'
-			}
+			},
+			{
+				'matched_synonym' => 'banana yogurts',
+				'tag' => 'banana yogurts'
+			},
+			{
+				'matched_synonym' => 'lemon yogurts',
+				'tag' => 'lemon yogurts'
+			},
 		],
 	},
 
 );
 
 foreach my $test_ref (@suggest_tests) {
-	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions_with_synonyms($test_ref->{tagtype},
+	my @results
+		= ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions_with_synonyms("en:world", $test_ref->{tagtype},
 		$test_ref->{lc}, $test_ref->{string}, {}, {});
 	if (not is(\@results, $test_ref->{expected})) {
 		diag Dumper($test_ref, \@results);

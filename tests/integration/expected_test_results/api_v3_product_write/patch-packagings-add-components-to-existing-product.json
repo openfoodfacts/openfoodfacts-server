@@ -12,7 +12,7 @@
             "number_of_units" : 2,
             "recycling" : {
                "id" : "en:strange value",
-               "lc_name" : "Strange value"
+               "lc_name" : "strange value"
             },
             "shape" : {
                "id" : "en:bottle",
@@ -28,34 +28,17 @@
             "number_of_units" : 1,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycle"
+               "lc_name" : "recycle"
             },
             "shape" : {
                "id" : "en:box",
                "lc_name" : "Box"
             }
          }
-      ],
-      "schema_version" : 999
+      ]
    },
    "status" : "success_with_warnings",
    "warnings" : [
-      {
-         "field" : {
-            "default_value" : "en",
-            "id" : "tags_lc"
-         },
-         "impact" : {
-            "id" : "warning",
-            "lc_name" : "Warning",
-            "name" : "Warning"
-         },
-         "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
-         }
-      },
       {
          "field" : {
             "id" : "recycling",

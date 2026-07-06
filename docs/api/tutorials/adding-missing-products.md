@@ -1,4 +1,8 @@
+# Adding missing products
+
 **Dave** regularly adds new products to the database and completes missing information via API calls. He has described the process below to show other developers how easy it is to contribute.
+
+Note: we have SDKs to simplify product addition (Javascript, Dart, Javascript…). Using them ensure you follow best practises.
 
 ---
 
@@ -14,18 +18,18 @@ If you have an app that makes POST calls and you don't want your users to authen
 ---
 
 ## Adding images to support your edit, and get machine learning predictions
-If you ask your users just one thing, it would be to send photos of the packaging (front, ingredients, nutrition, recycling, the more the better)<br>
+If you ask your users just one thing, it would be to send photos of the packaging (front, ingredients, nutrition, recycling, the more the better)
 Please refer to our [comprehensive tutorial on uploading images](../tutorial-uploading-photo-to-a-product.md)
 
 ---
 
 ## Sending the right country and language parameters, based on the country your user is located in, and the language the product is in.
 
-Traditionaly we advised to define the subdomain for the query as `us`. The subdomain automatically defines the country code (`cc`) and language of the interface (`lc`). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.<br>
+Traditionnaly, we advised to define the subdomain for the query as `us`. The subdomain automatically defines the country code (`cc`) and language of the interface (`lc`). The country code determines that only the products sold in the US are displayed. The language of the interface for the country code US is English.
 In this case:
 [https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​](https://us.openfoodfacts.org/cgi/product_jqm2.pl?​​​​​​​)
 
-We now advise to pass the cc and lc parameters within the query, and to limit assumptions as much as you can, especially in bilingual countries (e.g. Belgium, the US…) but also other countries (some products can be imported).
+We now advise to pass the `cc` and `lc` parameters within the query, and to limit assumptions as much as you can, especially in bilingual countries (e.g. Belgium, the United States…) but also other countries (some products can be imported).
 Ideally, your UI or some heuristic (traditional or using ML) on your side should determine which language(s) the data you send is in (e.g. for multilingual products, send the French ingredient list as a French ingredient list).
 We perform OCR on incoming images (even non selected ones), and make the JSON available immediately, so you can either leverage that (you upload the image, and then you select them in a second step, based on the OCR output from the Open Food Facts image server), or use on device ML to determine the proper language to send the call in.
 
@@ -93,7 +97,6 @@ It should be structured as: user-agent + user-id.
 
 `comment=Edit by a Healthy Choices 1.2 iOS user - SxGFRZkFwdytsK2NYaDg4MzRVenNvUEI4LzU2a2JWK05LZkFRSWc9PQ`
 
-
 ---
 ## Leveraging Robotoff ML predictions to simplify life for your users
 
@@ -102,7 +105,6 @@ You can get a category prediction from images (useful for Nutri-Score and Eco-Sc
 To achieve this you need the upload image section above. Adding data like product name, ingredients and nutrition can help, but some predictions can be done with just images.
 
 ## Getting your users to check ingredients OCR in an autonomous fashion
-
 Getting your users to [check ingredients OCR in an autonomous fashion](./get-ingredient-related-analysis.md)
 
 ## Getting your users to input nutrition facts
@@ -114,6 +116,3 @@ Getting your users to [input packaging data](../../dev/explain-packaging-data.md
 ## Showing the result of their work
 - You can then reload the product, potentially using Knowledge Panels, to show the rewarding result of their work.
 - Make sure to congratulate them each time for their contribution to Open Food Facts and the common good.
-
-
- 

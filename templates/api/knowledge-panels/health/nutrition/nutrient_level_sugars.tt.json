@@ -1,0 +1,74 @@
+[% IF cc == "fr" && lc == "fr" %]
+
+{
+    "element_type": "text",
+    "text_element": {
+        "type": "summary",
+            "html":
+`
+<b>[% lang("knowledge_panels_facts") %]</b>
+<ul>
+<li> Consommés en excès, les produits sucrés favorisent la prise de poids et peuvent entraîner la formation de caries dentaires.</li>
+</ul>
+<br>
+<b>[% lang("knowledge_panels_recommendation") %]</b>[% sep %]:
+<b>Limiter les aliments et boissons sucrés</b>
+<ul>
+<li>Il est recommandé d’introduire les produits sucrés dans l’alimentation des enfants à l’âge le plus tardif possible et en quantité limitée.</li>
+<li>Evitez les produits ultra-transformés, qui sont souvent très sucrés et utilisez le Nutri-Score quand vous achetez des produits transformés</li>
+<li>Privilégiez l’eau qui est la seule boisson recommandée.</li>
+<li>Limitez le plus possible les jus de fruits, quels qu’ils soient, les boissons sucrées, les sodas, même light, et les boissons dites « énergisantes » qui sont très sucrés - dans tous les cas, pas plus d’un verre par jour.</li>
+<li>Un jus de fruits ne compte pas comme une portion quotidienne de fruits et légumes.</li>
+</ul>
+`,                  
+    }
+},
+{
+    "element_type": "text",
+    "text_element": {
+        "type": "summary",
+            "html":
+`
+`,                  
+            "source_text": "Santé publique France - Mangerbouger.fr - Réduire les boissons sucrées, aliments gras, sucrés, salés et ultra-transformés",
+            "source_url": "https://www.mangerbouger.fr/l-essentiel/les-recommandations-sur-l-alimentation-l-activite-physique-et-la-sedentarite/reduire/reduire-les-boissons-sucrees-aliments-gras-sucres-sales-et-ultra-transformes",
+            "source_language": "fr",
+    }
+},
+
+[% ELSE %]
+
+{
+    "element_type": "text",
+    "text_element": {
+        "type": "summary",
+            "html":
+`
+<b>[% lang("knowledge_panels_facts") %]</b>
+<ul>
+<li>[% lang('nutrient_info_sugars_risk') %]</li>
+</ul>
+<br>
+<b>[% lang("knowledge_panels_recommendation") %]</b>[% sep %]:
+<b>[% lang('nutrient_recommendation_sugars_title') %]</b>
+<ul>
+<li>[% lang('nutrient_recommendation_sugars_drinks') %]</li>
+<li>[% lang('nutrient_recommendation_sugars_food') %]</li>
+</ul>
+`,                  
+    }
+},
+{
+    "element_type": "text",
+    "text_element": {
+        "type": "summary",
+            "html":
+`
+`,                  
+            "source_text": "National Health Service UK (NHS) - Sugar: the facts",
+            "source_url": "https://www.nhs.uk/live-well/eat-well/food-types/how-does-sugar-in-our-diet-affect-our-health/",
+            "source_language": "en",
+    }
+},
+
+[% END %]

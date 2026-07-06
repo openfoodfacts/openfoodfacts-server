@@ -74,7 +74,7 @@
                   "match" : 100,
                   "name" : "Gluten",
                   "status" : "known",
-                  "title" : "Ne contient pas : Gluten"
+                  "title" : "Ne contient pas : gluten"
                },
                {
                   "debug" : "en:milk in allergens",
@@ -84,7 +84,7 @@
                   "match" : 0,
                   "name" : "Lait",
                   "status" : "known",
-                  "title" : "Contient : Lait"
+                  "title" : "Contient : lait"
                },
                {
                   "debug" : "en:eggs in allergens",
@@ -94,7 +94,7 @@
                   "match" : 0,
                   "name" : "Œufs",
                   "status" : "known",
-                  "title" : "Contient : Œufs"
+                  "title" : "Contient : œufs"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -104,7 +104,7 @@
                   "match" : 100,
                   "name" : "Fruits à coque",
                   "status" : "known",
-                  "title" : "Ne contient pas : Fruits à coque"
+                  "title" : "Ne contient pas : fruits à coque"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -114,7 +114,7 @@
                   "match" : 100,
                   "name" : "Arachides",
                   "status" : "known",
-                  "title" : "Ne contient pas : Arachides"
+                  "title" : "Ne contient pas : arachides"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -124,7 +124,7 @@
                   "match" : 100,
                   "name" : "Graines de sésame",
                   "status" : "known",
-                  "title" : "Ne contient pas : Graines de sésame"
+                  "title" : "Ne contient pas : graines de sésame"
                },
                {
                   "debug" : "en:soybeans in allergens",
@@ -134,7 +134,7 @@
                   "match" : 0,
                   "name" : "Soja",
                   "status" : "known",
-                  "title" : "Contient : Soja"
+                  "title" : "Contient : soja"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -144,7 +144,7 @@
                   "match" : 100,
                   "name" : "Céleri",
                   "status" : "known",
-                  "title" : "Ne contient pas : Céleri"
+                  "title" : "Ne contient pas : céleri"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -154,7 +154,7 @@
                   "match" : 100,
                   "name" : "Moutarde",
                   "status" : "known",
-                  "title" : "Ne contient pas : Moutarde"
+                  "title" : "Ne contient pas : moutarde"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -164,7 +164,7 @@
                   "match" : 100,
                   "name" : "Lupin",
                   "status" : "known",
-                  "title" : "Ne contient pas : Lupin"
+                  "title" : "Ne contient pas : lupin"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -174,7 +174,7 @@
                   "match" : 100,
                   "name" : "Poisson",
                   "status" : "known",
-                  "title" : "Ne contient pas : Poisson"
+                  "title" : "Ne contient pas : poisson"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -184,7 +184,7 @@
                   "match" : 100,
                   "name" : "Crustacés",
                   "status" : "known",
-                  "title" : "Ne contient pas : Crustacés"
+                  "title" : "Ne contient pas : crustacés"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -194,7 +194,7 @@
                   "match" : 100,
                   "name" : "Mollusques",
                   "status" : "known",
-                  "title" : "Ne contient pas : Mollusques"
+                  "title" : "Ne contient pas : mollusques"
                },
                {
                   "debug" : "8 ingredients (0 unknown)",
@@ -204,7 +204,7 @@
                   "match" : 100,
                   "name" : "Anhydride sulfureux et sulfites",
                   "status" : "known",
-                  "title" : "Ne contient pas : Anhydride sulfureux et sulfites"
+                  "title" : "Ne contient pas : anhydride sulfureux et sulfites"
                }
             ],
             "id" : "allergens",
@@ -245,7 +245,8 @@
                }
             ],
             "id" : "ingredients_analysis",
-            "name" : "Ingrédients"
+            "name" : "Ingrédients",
+            "warning" : "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes" : [
@@ -278,15 +279,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Impact modéré sur l'environnement",
+                  "description_short" : "Impact environnemental élevé",
                   "grade" : "c",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-d.svg",
                   "id" : "ecoscore",
-                  "match" : 47,
+                  "match" : 44,
                   "name" : "Green-Score",
                   "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Green-Score C"
+                  "title" : "Green-Score D"
                },
                {
                   "description" : "",
@@ -296,6 +297,7 @@
                   "id" : "forest_footprint",
                   "match" : 99.9351851851852,
                   "name" : "Empreinte forêt",
+                  "panel_id" : "forest_footprint",
                   "status" : "known",
                   "title" : "Très petite empreinte forêt"
                }
@@ -331,8 +333,7 @@
             "id" : "labels",
             "name" : "Labels"
          }
-      ],
-      "schema_version" : 998
+      ]
    },
    "status" : 1,
    "status_verbose" : "product found"

@@ -12,15 +12,14 @@
             "number_of_units" : 2,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycler"
+               "lc_name" : "recycler"
             },
             "shape" : {
                "id" : "es:Something in Spanish",
                "lc_name" : "es:Something in Spanish"
             }
          }
-      ],
-      "schema_version" : 999
+      ]
    },
    "status" : "success_with_warnings",
    "warnings" : [

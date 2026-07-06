@@ -229,6 +229,23 @@ my @tests = (
 		}
 	},
 	{
+		id => 'products-codes-gs1-formats',
+		desc => 'products with multiple various GS1 format barcodes',
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string =>
+				'products/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200+%1D010356470399997210ABC123%1D1524050431030002753922499',
+			no_index => '0',
+			is_crawl_bot => '0',
+			rate_limiter_bucket => undef,
+			rate_limiter_blocking => 0,
+			rate_limiter_limit => undef,
+			rate_limiter_user_requests => undef
+		}
+	},
+	{
 		id => 'product-french',
 		desc => 'product translated in french',
 		lc => "fr",

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,6 +46,7 @@ BEGIN {
 		$admin_email
 		$producers_email
 
+		$tesseract_ocr_available
 		$google_cloud_vision_api_key
 		$google_cloud_vision_api_url
 
@@ -60,9 +61,15 @@ BEGIN {
 		$events_password
 
 		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 
 		$facets_kp_url
 		$redis_url
+		$folksonomy_url
+		$process_global_redis_events
+
+		$recipe_estimator_url
+		$recipe_estimator_service
 
 		$mongodb
 		$mongodb_host
@@ -80,6 +87,8 @@ BEGIN {
 
 		%options
 		%server_options
+		%oidc_options
+		%slack_hook_urls
 
 		@product_fields
 		@product_other_fields
@@ -97,6 +106,9 @@ BEGIN {
 		@edit_rules
 
 		$build_cache_repo
+		$serialize_to_json
+
+		$health_check_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -404,7 +416,6 @@ $options{users_who_can_upload_small_images} = {
 			)
 		],
 	},
-
 );
 
 # server constants
@@ -423,6 +434,7 @@ $sftp_root = $ProductOpener::Config2::sftp_root;    # might be undef
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
+$tesseract_ocr_available = $ProductOpener::Config2::tesseract_ocr_available;
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
 $google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
@@ -433,6 +445,18 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
+
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
+$recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
 
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
@@ -445,19 +469,32 @@ $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server
 $redis_url = $ProductOpener::Config2::redis_url;
+# Only the OFF instance processes the global events
+$process_global_redis_events = 1;
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
 
+# Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
+# enable folksonomy features
+$folksonomy_url = $ProductOpener::Config2::folksonomy_url;
+
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
+# If $rate_limiter_disabled is set to 1, rate limiting is completely disabled
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ProductOpener::Config2::rate_limiter_disabled;
 
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
+
+#11901: Remove once production is migrated
+$serialize_to_json = $ProductOpener::Config2::serialize_to_json;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -470,6 +507,12 @@ $crop_size = 400;
 $small_size = 200;
 $display_size = 400;
 $zoom_size = 800;
+
+my $matomo_site_id = '5';    # Open Food Facts
+
+if ($server_domain eq 'pro.openfoodfacts.org') {
+	$matomo_site_id = '7';    # Pro Platform
+}
 
 $analytics = <<HTML
 <!-- Matomo -->
@@ -486,12 +529,12 @@ $analytics = <<HTML
   (function() {
     var u="//analytics.openfoodfacts.org/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '5']);
+    _paq.push(['setSiteId', '${matomo_site_id}']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=5&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=${matomo_site_id}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Matomo Code -->
 
 HTML
@@ -527,11 +570,6 @@ my @related_applications = (
 		'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner'
 	},
 	{'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948'},
-	{
-		'platform' => 'windows',
-		'id' => '9nblggh0dkqr',
-		'url' => 'https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr'
-	},
 );
 
 my $manifest = {
@@ -964,7 +1002,7 @@ $options{attribute_groups} = [
 			"allergens_no_molluscs", "allergens_no_sulphur_dioxide_and_sulphites",
 		],
 	],
-	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free",]],
+	["ingredients_analysis", ["vegan", "vegetarian", "palm_oil_free", "unwanted_ingredients",]],
 	["labels", ["labels_organic", "labels_fair_trade"]],
 	# Note: before 2025, the Environmental-Score was called the Eco-Score,
 	# as the id of the attribute is stored inside clients, we keep the
@@ -1081,7 +1119,10 @@ $options{import_export_fields_importance} = {
 );
 
 # Name of the Redis stream to which product updates are published
-$options{redis_stream_name} = "product_updates";
+$options{redis_stream_name_product_updates} = "product_updates";
+# Name of the Redis stream where we notify that OCR results
+# are ready
+$options{redis_stream_name_ocr_ready} = "ocr_ready";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {

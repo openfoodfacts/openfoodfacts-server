@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -40,6 +40,8 @@ BEGIN {
 		&process_change_product_code_request_if_we_have_one
 		&process_change_product_type_request_if_we_have_one
 		&skip_protected_field
+		&update_images_selected
+		&update_product_field_api_v2_and_cgi
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -47,18 +49,23 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/$subdomain $country/;
-use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
-use ProductOpener::Lang qw/$lc/;
+use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
+use ProductOpener::Lang qw/$lc %Langs/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::API
 	qw/add_error add_warning check_user_permission customize_response_for_product normalize_requested_code/;
 use ProductOpener::Packaging
 	qw/add_or_combine_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::Tags qw/%language_fields %writable_tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::Tags qw/%language_fields %writable_tags_fields %tags_fields %taxonomy_fields/;
+use ProductOpener::ProductsTags qw/add_tags_to_field compute_field_tags set_field_input_tags_for_source/;
 use ProductOpener::URL qw(format_subdomain);
+use ProductOpener::Auth qw/get_azp/;
 use ProductOpener::HTTP qw/request_param single_param redirect_to_url/;
+use ProductOpener::Images qw/:all/;
+use ProductOpener::Nutrition qw/assign_nutrition_values_from_request_object/;
+use ProductOpener::Ingredients qw/%may_contain_regexps/;
+use ProductOpener::Lang qw/%lang_lc/;
 
 use Encode;
 
@@ -205,6 +212,7 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 
 	my $request_body_ref = $request_ref->{body_json};
 	my $response_ref = $request_ref->{api_response};
+	my $source = get_source_for_site_and_org($request_ref->{org_id});
 
 	if (ref($value) ne 'ARRAY') {
 		add_error(
@@ -217,19 +225,26 @@ sub update_tags_fields ($request_ref, $product_ref, $field, $add_to_existing_tag
 			200
 		);
 	}
+	elsif (not defined $writable_tags_fields{$field}) {
+		add_error(
+			$response_ref,
+			{
+				message => {id => "invalid_field"},
+				field => {id => $field},
+				impact => {id => "field_ignored"},
+			},
+			200
+		);
+	}
 	else {
 		# Generate a comma separated list of tags, so that we can use existing functions to add tags
 		my $tags_list = join(',', @$value);
 
-		if ($add_to_existing_tags) {
-			add_tags_to_field($product_ref, $tags_lc, $field, $tags_list);
-		}
-		else {
-			$product_ref->{$field} = $tags_list;
-		}
+		# Writable tags fields (e.g. categories_tags) are processed in a specific way,
+		# in order to update the tags_sources structure and generate the field_tags structure tags_sources
+		set_field_input_tags_for_source($product_ref, $tags_lc, $field, $source, $tags_list, $add_to_existing_tags);
 
-		compute_field_tags($product_ref, $tags_lc, $field);
-
+		$request_ref->{updated_product_fields}{tags_sources}{$field} = 1;
 		$request_ref->{updated_product_fields}{$field} = 1;    # joined inputs, can be in any language
 		$request_ref->{updated_product_fields}{$field . '_hierarchy'}
 			= 1;  # tags, with entries that are not in the taxonomy in original format (with accents, caps, spaces etc.)
@@ -349,6 +364,14 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 				$request_ref->{updated_product_fields}{$field} = 1;
 			}
 		}
+		# Images selection
+		elsif ($field eq "images") {
+			update_images_selected($request_ref, $product_ref, $response_ref);
+		}
+		# Nutrition data
+		elsif ($field eq "nutrition") {
+			assign_nutrition_values_from_request_object($request_ref, $product_ref);
+		}
 		# Unrecognized field
 		else {
 			add_warning(
@@ -361,6 +384,127 @@ sub update_product_fields ($request_ref, $product_ref, $response_ref) {
 			);
 		}
 	}
+	return;
+}
+
+=head2 update_images_selected($request_ref, $product_ref, $response_ref)
+
+Select and crop images based on images.selected
+
+This function is called by the product WRITE API, but also by the product image upload API
+when the caller uploads and image and wants to select it at the same time.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $product_ref (input)
+
+Reference to the product object.
+
+=head4 $response_ref (input)
+
+Reference to the response object.
+
+=cut
+
+sub update_images_selected ($request_ref, $product_ref, $response_ref) {
+
+	my $request_body_ref = $request_ref->{body_json};
+
+	if (not exists $request_ref->{updated_product_fields}) {
+		$request_ref->{updated_product_fields} = {};
+	}
+
+	my $input_product_ref = $request_body_ref->{product};
+
+	# Go through the input images.selected.[image_type].[image_lc]
+	# to select or unselect images
+	foreach my $image_type (sort keys %{$input_product_ref->{images}{selected}}) {
+
+		# Check if the image type is valid
+		if (not defined $valid_image_types{$image_type}) {
+			add_error(
+				$response_ref,
+				{
+					message => {id => "invalid_image_type"},
+					field => {id => "images.selected.$image_type"},
+					impact => {id => "field_ignored"},
+				},
+				200
+			);
+			next;
+		}
+
+		foreach my $image_lc (sort keys %{$input_product_ref->{images}{selected}{$image_type}}) {
+
+			# Check the image language code is valid
+			if (not defined $Langs{$image_lc}) {
+				add_error(
+					$response_ref,
+					{
+						message => {id => "invalid_language_code"},
+						field => {id => "images.selected.$image_type.$image_lc"},
+						impact => {id => "field_ignored"},
+					},
+					200
+				);
+				next;
+			}
+
+			# Check if the image is protected (sent by a producer)
+			if (is_protected_image($product_ref, $image_type, $image_lc) and not $request_ref->{moderator}) {
+				add_warning(
+					$response_ref,
+					{
+						message => {id => "no_permission"},
+						field => {id => "images.selected.$image_type.$image_lc"},
+						impact => {id => "field_ignored"},
+					}
+				);
+				next;
+			}
+
+			my $image_selected_ref = $input_product_ref->{images}{selected}{$image_type}{$image_lc};
+
+			if (defined $image_selected_ref) {
+				# On success, this will also update product_ref to add selected image information
+				my $return_code = process_image_crop(
+					$request_ref->{user_id},
+					$product_ref, $image_type, $image_lc,
+					$image_selected_ref->{imgid},
+					$image_selected_ref->{generation}
+				);
+				if ($return_code < 0) {
+					# -1: the image imgid does not exist in uploaded images
+					# -2: the image cannot be read
+					add_error(
+						$response_ref,
+						{
+							message => {id => "image_not_found"},
+							field => {id => "images.selected.$image_type.$image_lc.imgid"},
+							impact => {id => "field_ignored"},
+						},
+						200
+					);
+				}
+				else {
+					# The image was selected
+					$request_ref->{updated_product_fields}{"images.selected.$image_type.$image_lc"} = 1;
+					# TODO: find a way to return the image URL (without storing it in the product)
+					# especially if the "fields" value is "updated"
+				}
+			}
+			else {
+				# We were passed a null value, unselect the image
+				my $return_code = process_image_unselect($product_ref, $image_type, $image_lc);
+				$request_ref->{updated_product_fields}{"images.selected.$image_type.$image_lc"} = 1;
+			}
+		}
+	}
+
 	return;
 }
 
@@ -520,7 +664,7 @@ sub write_product_api ($request_ref) {
 			($code, my $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 			# Check if the code is valid
-			if ($code !~ /^\d{4,24}$/) {
+			if (not is_valid_code($code)) {
 
 				$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 				add_error(
@@ -545,7 +689,12 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
+			$product_ref = init_product(
+				$request_ref->{user_id},
+				$Org_id, $code,
+				$request_ref->{country},
+				get_azp($request_ref->{access_token})
+			);
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 		else {
@@ -558,21 +707,15 @@ sub write_product_api ($request_ref) {
 				and ($product_ref->{product_type} ne $options{product_type}))
 			{
 				redirect_to_url($request_ref, 307,
-					format_subdomain($subdomain, $product_ref->{product_type}) . '/api/v3/product/' . $code);
+						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+						. '/api/v3/product/'
+						. $code);
 			}
 		}
 
 		# Use default request language if we did not get tags_lc
 		if (not defined $request_body_ref->{tags_lc}) {
 			$request_body_ref->{tags_lc} = $lc;
-			add_warning(
-				$response_ref,
-				{
-					message => {id => "missing_field"},
-					field => {id => "tags_lc", default_value => $request_body_ref->{tags_lc}},
-					impact => {id => "warning"},
-				}
-			);
 		}
 
 		# Process edit rules
@@ -625,7 +768,8 @@ sub write_product_api ($request_ref) {
 				# Save the product
 				if ($code ne "test") {
 					my $comment = $request_body_ref->{comment} || "API v3";
-					store_product($User_id, $product_ref, $comment);
+					store_product($request_ref->{user_id},
+						$product_ref, $comment, get_azp($request_ref->{access_token}));
 				}
 
 				# Select / compute only the fields requested by the caller, default to updated fields
@@ -636,6 +780,89 @@ sub write_product_api ($request_ref) {
 	}
 
 	$log->debug("write_product_api - stop", {request => $request_ref}) if $log->is_debug();
+
+	return;
+}
+
+=head2 update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source)
+
+This function is used to update a product field based on input from API v2 and CGI requests.
+
+=head3 Parameters
+
+=head4 $product_ref (input)
+
+Reference to the product object.
+
+=head4 $target_lc
+
+=head4 $field (input)
+
+Field name.
+
+=head4 $value (input)
+
+Field value.
+
+=head4 $source (input)
+
+Source of the field value: "packaging" on the public platform, "manufacturer" on the producer platform.
+
+=head4 $add_tags (input)
+
+If set to 1, we will add the tags to existing values
+
+=cut
+
+sub update_product_field_api_v2_and_cgi($product_ref, $target_lc, $field, $value, $source, $add_tags = 0) {
+
+	$log->debug("update_product_field_api_v2_and_cgi", {field => $field, value => $value, source => $source})
+		if $log->is_debug();
+
+	if (not defined $value) {
+		$log->debug("no value for field", {field => $field}) if $log->is_debug();
+		return;
+	}
+
+	$value = preprocess_product_field($field, decode utf8 => $value);
+
+	# If we have a language specific field like "ingredients_text" without a language code suffix
+	# we assume it is in the language of the interface
+	if (defined $language_fields{$field}) {
+		$field .= "_" . $target_lc;
+	}
+
+	# Only moderators can update values for fields sent by the producer
+	if (skip_protected_field($product_ref, $field, $User{moderator})) {
+		return;
+	}
+	# Writable tags fields (e.g. categories_tags) are processed in a specific way, in order to update the tags_sources structure and generate the field_tags structure
+	# tags_sources currently only works for taxonomized fields
+	elsif (defined $writable_tags_fields{$field}) {
+
+		set_field_input_tags_for_source($product_ref, $target_lc, $field, $source, $value, $add_tags);
+	}
+	elsif ($field eq "lang") {
+		# strip variants fr-BE fr_BE
+		$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+		$value = lc($value);
+
+		# skip unrecognized languages (keep the existing lang & lc value)
+		if (defined $lang_lc{$value}) {
+			$product_ref->{lang} = $value;
+			$product_ref->{lc} = $value;
+		}
+	}
+	else {
+		$product_ref->{$field} = $value;
+
+		if ($field =~ /^ingredients_text/) {
+			# the ingredients_text_with_allergens[_$lc] will be recomputed after
+			my $ingredients_text_with_allergens = $field;
+			$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
+			delete $product_ref->{$ingredients_text_with_allergens};
+		}
+	}
 
 	return;
 }

@@ -2,10 +2,6 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(fr) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "meals",
@@ -25,6 +21,7 @@
    "categories_tags" : [
       "en:meals"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:one-dish-meals",
    "food_groups_tags" : [
       "en:composite-foods",
@@ -46,7 +43,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "fr:chapelure-de-mais",
+         "id" : "fr:chapelure de mais",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 31,
          "percent_max" : 31,
@@ -56,13 +53,13 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "fr:chapelure-de-mais"
+         "fr:chapelure de mais"
       ],
       "en:vegan-status-unknown" : [
-         "fr:chapelure-de-mais"
+         "fr:chapelure de mais"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:chapelure-de-mais"
+         "fr:chapelure de mais"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -79,7 +76,7 @@
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:oyster-mushroom",
-      "fr:chapelure-de-mais"
+      "fr:chapelure de mais"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
@@ -87,7 +84,7 @@
       "en:oyster-mushroom",
       "en:mushroom",
       "en:pleurotus",
-      "fr:chapelure-de-mais"
+      "fr:chapelure de mais"
    ],
    "ingredients_text" : "Pleurotes* 69% (Origine UE), chapelure de mais",
    "ingredients_with_specified_percent_n" : 1,
@@ -95,11 +92,11 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 31,
    "ingredients_without_ciqual_codes" : [
-      "fr:chapelure-de-mais"
+      "fr:chapelure de mais"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "fr:chapelure-de-mais"
+      "fr:chapelure de mais"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
@@ -107,12 +104,15 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
+      "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-a-2023-a"
+      "en:nutriscore-2021-a-2023-a",
+      "en:nutrition-data-per-100g"
    ],
    "nova_group" : 3,
    "nova_group_debug" : "",
@@ -141,29 +141,6 @@
       "en:sugars-in-low-quantity",
       "en:salt-in-moderate-quantity"
    ],
-   "nutriments" : {
-      "energy_100g" : 667,
-      "fat_100g" : 8.4,
-      "fiber_100g" : 10.9,
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 69,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 69,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 69,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 69,
-      "nova-group" : 3,
-      "nova-group_100g" : 3,
-      "nova-group_serving" : 3,
-      "nutrition-score-fr" : -1,
-      "nutrition-score-fr_100g" : -1,
-      "proteins_100g" : 2.4,
-      "salt" : 1,
-      "salt_100g" : "1",
-      "salt_unit" : "g",
-      "salt_value" : "1",
-      "saturated-fat_100g" : 1.2,
-      "sodium_100g" : 0.4,
-      "sodium_value" : 0.4,
-      "sugars_100g" : 1.1
-   },
    "nutriscore" : {
       "2021" : {
          "category_available" : 1,
@@ -196,10 +173,12 @@
             "sugars_points" : 0,
             "sugars_value" : 1.1
          },
+         "estimated" : 0,
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
          "score" : -2
       },
       "2023" : {
@@ -292,10 +271,12 @@
             "positive_points" : 7,
             "positive_points_max" : 17
          },
+         "estimated" : 0,
          "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
+         "preparation" : "as_sold",
          "score" : -1
       }
    },
@@ -387,8 +368,173 @@
       "a"
    ],
    "nutriscore_version" : "2023",
-   "nutrition_data_per" : "100g",
-   "nutrition_data_prepared_per" : "100g",
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {
+            "added-sugars" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "energy" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 667
+            },
+            "energy-kj" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "kJ",
+               "value" : 667
+            },
+            "fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 8.4
+            },
+            "fiber" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 10.9
+            },
+            "fruits-vegetables-legumes" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 69
+            },
+            "fruits-vegetables-nuts" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 69
+            },
+            "proteins" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 2.4
+            },
+            "salt" : {
+               "modifier" : "~",
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1
+            },
+            "saturated-fat" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.2
+            },
+            "sodium" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.4
+            },
+            "sugars" : {
+               "source" : "packaging",
+               "source_index" : 0,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 1.1
+            }
+         },
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "energy-kj" : {
+                  "unit" : "kJ",
+                  "value" : 667
+               },
+               "fat" : {
+                  "unit" : "g",
+                  "value" : 8.4
+               },
+               "fiber" : {
+                  "unit" : "g",
+                  "value" : 10.9
+               },
+               "proteins" : {
+                  "unit" : "g",
+                  "value" : 2.4
+               },
+               "salt" : {
+                  "unit" : "g",
+                  "value_computed" : 1
+               },
+               "saturated-fat" : {
+                  "unit" : "g",
+                  "value" : 1.2
+               },
+               "sodium" : {
+                  "unit" : "g",
+                  "value" : 0.4
+               },
+               "sugars" : {
+                  "unit" : "g",
+                  "value" : 1.1
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         },
+         {
+            "nutrients" : {
+               "added-sugars" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "fruits-vegetables-legumes" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 69,
+                  "value_string" : "69"
+               },
+               "fruits-vegetables-nuts" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 69,
+                  "value_string" : "69"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "estimate",
+            "source_description" : "Estimate from ingredients"
+         }
+      ]
+   },
    "nutrition_grade_fr" : "a",
    "nutrition_grades" : "a",
    "nutrition_grades_tags" : [
@@ -411,12 +557,21 @@
       "one-dish-meals",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(fr) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : 1,
-   "unknown_nutrients_tags" : [],
    "vitamins_tags" : []
 }
