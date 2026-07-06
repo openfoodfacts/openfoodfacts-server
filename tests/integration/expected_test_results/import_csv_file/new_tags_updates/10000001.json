@@ -3,9 +3,15 @@
    "_keywords" : [
       "and",
       "beverage",
+      "drink",
+      "food",
+      "fruit",
+      "fruit-based",
       "lemonade",
       "non-alcoholic",
-      "preparation"
+      "plant-based",
+      "preparation",
+      "soft"
    ],
    "added_countries_tags" : [],
    "allergens_imported" : "celery",
@@ -30,9 +36,15 @@
    ],
    "categories_tags" : [
       "en:beverages-and-beverages-preparations",
+      "en:plant-based-foods-and-beverages",
       "en:beverages",
+      "en:fruit-based-foods-and-beverages",
       "en:non-alcoholic-beverages",
-      "en:lemonade"
+      "en:plant-based-beverages",
+      "en:fruit-based-beverages",
+      "en:soft-drinks",
+      "en:fruit-soft-drinks",
+      "en:lemonades"
    ],
    "checkers_tags" : [],
    "code" : "10000001",
@@ -749,7 +761,7 @@
          "packaging" : {
             "last_updated_t" : "--ignore--",
             "tags" : [
-               "en:lemonade"
+               "en:lemonades"
             ]
          }
       },

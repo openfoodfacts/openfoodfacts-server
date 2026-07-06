@@ -66,7 +66,7 @@ The barcode of the product.
 
 ### Describing the Post Request
 
-To upload photos to a product, make a `POST` request to the [`Add a Photo to an Existing Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_upload.pl) endpoint.
+To upload photos to a product, make a `POST` request to the [`Add a Photo to an Existing Product`](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/images/post-api-v3-product-code-images/) endpoint.
 
 ```text
 https://world.openfoodfacts.net/cgi/product_image_upload.pl
