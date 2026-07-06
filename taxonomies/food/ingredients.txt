@@ -60137,6 +60137,28 @@ lv: Augļu dārzeņi
 nl: fruitgroente, groentevrucht
 eurocode_2_group_2:en: 8.40
 
+###################################################################################################
+#
+#
+#                                     Tomatillo
+#
+#
+###################################################################################################
+
+< en:fruit vegetable
+en: tomatillo
+description:en: Tomatillos are small, round fruits (botanically fruits, culinarily treated as vegetables) that look like little green tomatoes wrapped in a papery husk. They're a staple in Mexican cooking, especially for salsa verde. Tart, tangy, and slightly citrusy — quite different from a regular tomato. Raw ones are firm and sour; cooking mellows and sweetens them a bit.
+usda_ndb_code:en: 11954
+usda_ndb_name:en: Tomatillos, raw
+
+###################################################################################################
+#
+#
+#                                              Tomato
+#
+#
+###################################################################################################
+
 < en:fruit vegetable
 en: tomato, tomatoes
 ab: Атомат
@@ -60700,8 +60722,8 @@ de: Tomatenpüree aus Konzentrat, Tomatenmark aus Konzentrat
 < en:tomato purée
 fr: purée de tomates triple concentrée, triple concentré de tomate
 
-#<en:tomato
-#en:tomato powder, powdered tomato
+< en: tomato
+en: tomato powder, powdered tomato
 #en:processing:en:powder
 #bg:доматен прах, домати на прах
 #ca:tomàquet en pols
@@ -60719,7 +60741,10 @@ fr: purée de tomates triple concentrée, triple concentré de tomate
 #nl:tomatenpoeder
 #pl:pomidory w proszku
 #sv:tomatpulver, tomatpurépulver
-# ingredient/powdered-tomato has 546 products in 1o languages @2018-12-26
+processing:en: powder
+usda_ndb_code:en: 11548
+usda_ndb_name:en: Tomato powder
+# ingredient/powdered-tomato has 546 products in 10 languages @2018-12-26
 
 < en:chopped tomatoes
 < en:tomato purée
