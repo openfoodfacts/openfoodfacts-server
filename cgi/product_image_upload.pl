@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS ensure_dir_created/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Lang qw/$lc lang/;
@@ -70,8 +70,8 @@ my $request_ref = ProductOpener::Display::init_request();
 $log->debug(
 	"parsing code",
 	{
-		subdomain => $subdomain,
-		original_subdomain => $original_subdomain,
+		subdomain => $request_ref->{subdomain},
+		original_subdomain => $request_ref->{original_subdomain},
 		user => $User_id,
 		code => $code,
 		previous_code => $previous_code,
@@ -105,7 +105,7 @@ if (not defined $code) {
 	$code_specified = 0;
 
 	my $file = single_param("files[]");
-	$filename = $file . "";
+	$filename = defined($file) ? ($file . "") : "";
 
 	($code, $imagefield) = get_code_and_imagefield_from_file_name($lc, $filename);
 
@@ -114,7 +114,7 @@ if (not defined $code) {
 	}
 	else {
 
-		if ($file =~ /\.(gif|jpeg|jpg|png|heic)$/i) {
+		if ((defined $file) and ($file =~ /\.(gif|jpeg|jpg|png|heic)$/i)) {
 
 			$log->debug("scan barcode in image file", {file => $file}) if $log->is_debug();
 
@@ -155,7 +155,7 @@ if (not defined $code) {
 my $response_ref = {
 	files => [
 		{
-			filename => $filename . "",    # Make filename a scalar
+			filename => ($filename // '') . "",    # Make filename a scalar
 		}
 	],
 };
@@ -206,13 +206,22 @@ if ($imagefield) {
 
 	if (not $product_ref) {
 		$log->info("product code does not exist yet, creating product", {code => $code});
-		$product_ref = init_product($User_id, $Org_id, $code, $country);
+		$product_ref = init_product($User_id, $Org_id, $code, $request_ref->{country});
 		$product_ref->{interface_version_created} = $interface_version;
 		$product_ref->{lc} = $lc;
 		store_product($User_id, $product_ref, "Creating product (image upload)");
 	}
 	else {
 		$log->info("product code already exists", {code => $code});
+	}
+
+	my $proceed_with_edit = process_product_edit_rules($product_ref);
+	$log->debug("edit rules processed", {proceed_with_edit => $proceed_with_edit}) if $log->is_debug();
+	if (not $proceed_with_edit) {
+		my $data = encode_json({status => 'status not ok - edit against edit rules'});
+		$log->debug("JSON data output", {data => $data}) if $log->is_debug();
+		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		exit;
 	}
 
 	my $product_name = remove_tags_and_quote(product_name_brand_quantity($product_ref));
@@ -259,7 +268,7 @@ if ($imagefield) {
 
 	# For backwards compatibility, if we have no imgid (if the image was not uploaded), we return the return code in the imgid field
 	$response_ref->{imgid} = $imgid || $imgid_returncode;
-	if ($imgid > 0) {
+	if ((defined $imgid) and ($imgid > 0)) {
 		$response_ref->{files}[0]{thumbnailUrl} = "/images/products/$path/$imgid.$thumb_size.jpg";
 	}
 
@@ -287,7 +296,7 @@ if ($imagefield) {
 		}
 	}
 	else {
-		# Image uploaded successfully
+		# Image uploaded successfully
 
 		my $image_data_ref = {
 			imgid => $imgid,

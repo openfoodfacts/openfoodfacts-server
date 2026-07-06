@@ -30,13 +30,23 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//fr.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "@openfoodfacts/openfoodfacts-webcomponents": "//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js",
+            "leaflet": "//static.openfoodfacts.localhost/js/dist/leaflet-src.js",
+            "leaflet.markercluster": "//static.openfoodfacts.localhost/js/dist/leaflet.markercluster.js",
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	
     <style media="all">
         .show-when-no-access-to-producers-platform {display:none}
 .show-when-logged-in {display:none}
 
-		
+
 		.badge-container{
 			margin: 0 auto;
 		}
@@ -97,7 +107,7 @@
   openfoodfacts-api-url="//fr.openfoodfacts.localhost"
   assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
   ></off-webcomponents-configuration>
-	
+
 	
 	<div class="skip"><a href="#content" tabindex="0">Aller au contenu</a></div>
 	
@@ -106,7 +116,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scannez un produit<h2></span>
+      <h2><span>Scannez un produit</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -131,9 +141,9 @@
 		
 		<div class="upper-nav contain-to-grid"  id="upNav">
 			<nav class="top-bar " data-topbar role="navigation">
-				
+
 				<section class="top-bar-section">
-					
+
 					<!-- Left Nav Section -->
 					<ul class="left">
 
@@ -143,7 +153,7 @@
 									menu
 								</span>
 							</a>
-							<ul class="dropdown">				
+							<ul class="dropdown">
 								
 									<li><a href="/decouvrir">Découvrir</a></li>
 									<li><a href="/contribuer">Contribuer</a></li>
@@ -166,7 +176,7 @@
 								
 							</ul>
 						</li>
-						
+
 						<li>
 							<ul class="country_language_selection">
 								<li class="has-form has-dropdown" id="select_country_li">
@@ -175,7 +185,7 @@
 									</select>
 								</li>
 								<li class="has-dropdown">
-									<a href="//fr.openfoodfacts.localhost/">Français</a>
+									<a href="//fr.openfoodfacts.localhost/">français</a>
 
 									<ul class="dropdown">
 										<li><a href="//fr-en.openfoodfacts.localhost/">English</a></li>
@@ -187,11 +197,11 @@
 
 
 					<!-- Right Nav Section -->
-					
+
 					<ul class="right">
 						
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Ffr.openfoodfacts.localhost" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									Se connecter
 								</a>
@@ -204,7 +214,7 @@
 		
 
 		<div id="main_container" style="position:relative" class="block_latte">
-		
+
 		
 		<div class="topbarsticky">
 			<div class="contain-to-grid " id="offNav" >
@@ -224,10 +234,10 @@
 					
 					
 					<section class="top-bar-section">
-					
+
 						<ul class="left small-4">
 							<li class="search-li">
-							
+
 								<form action="/cgi/search.pl">
 								<div class="row"><div class="small-12">
 								<div class="row collapse postfix-round">
@@ -300,13 +310,13 @@
 
 		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
 			<div class="inner-wrap">
-			
+
 				<a class="exit-off-canvas"></a>
 
 				
-				
+
 				<!-- full width banner on mobile -->
-				
+
 				
 
 				
@@ -321,28 +331,71 @@
 								<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
+<!-- Donation banner TOP END -->
+<!-- Donation banner @ footer start-->
 
-<!-- Donation banner @ footer -->
-
-
+<!-- Donation banner @ footer end-->
 <!-- end templates/web/common/includes/donate_banner.tt.html -->
 
 								
 
 
-<section id="donation-banner-top" class="row" style="position:relative">
-  
-  <a href="//connect.openfoodfacts.org/fr/event/open-food-facts-days-2025-30/register">
-    <img src="/images/misc/donation-banners/off-days-2025-fr.1280x191.png"
-       alt="Journées Open Food Facts 2025"
-       width="1280"
-       height="191" class="show-for-medium-up"/>
-       <img src="/images/misc/donation-banners/off-days-2025-fr.mobile.png"
-       alt="Journées Open Food Facts 2025"
-       width="1280"
-       height="477" class="show-for-small-only"/>       
-  </a>  
-  
+<!-- Donation banner TOP start -->
+<section id="donation-banner-top" class="donation-banner row">
+
+  <div class="donation-banner__left-aside">
+    <div class="donation-banner__hook-section">
+      <p>Il nous manque encore 120 000 € pour terminer 2026 !</p>
+    </div>
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+  </div>
+  <div>
+    <div class="donation-banner__aside">
+      <div class="donation-banner__main-section">
+        <img
+          width="50"
+          height="50"
+          src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
+          alt="Open Food Facts logo"
+        />
+        <h3 class="donation-banner__main-title">Devenez mécène d'Open Food Facts</h3>
+      </div>
+      <div style="padding:1rem;">
+        <p>Chaque mois, nous accueillons 8 millions de visiteurs, et bien plus via l’API. Votre soutien est essentiel pour :</p>
+        <ul>
+          <li>
+            garder Open Food Facts ouvert et accessible à tous,
+            <ul>
+              <li>soutenir l’infrastructure, le site web, l’application mobile et l’API avec une petite équipe permanente</li>
+            </ul>
+          </li>
+          <li>
+            <p>rester indépendants de l’industrie agroalimentaire,</p>
+          </li>
+          <li>
+            <p>soutenir la communauté</p>
+          </li>
+          <li>
+            <p>soutenir la science</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="donation-banner__actions-section">
+      <div class="donation-banner__actions-section__financial">
+        <p>
+          
+          (déductible à 66 % de vos impôts: ex. un don de 20€ vous reviendra à 6,80€)
+          
+        </p>
+      </div>
+      <div class="donation-banner__actions-section__donate-button">
+        <a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
+          <button>Faire un don</button>
+        </a>
+      </div>
+    </div>
+  </div>
 
 
   <div class="donation-banner__close">
@@ -377,11 +430,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off_days_2025', 1, 180);
+    setBannerCookie('donation_march_2026', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_days_2025') !== '') {
+  if (getBannerCookie('donation_march_2026') !== '') {
     bannerID.style.display = 'none';
   } else {
     bannerID.style.display = 'flex';
@@ -392,11 +445,11 @@
 							
 						
 						
-            			
+
 						
 							
 								<div class="row">
-                  <div class="small-12 column"> 
+                  <div class="small-12 column">
 										<h1 class="if-empty-dnone">Open Food Facts - France</h1>
 									</div>
 								</div>
@@ -590,7 +643,7 @@
             </li>
           
             <li>
-              <a href="/etats">états</a>
+              <a href="/etats">États</a>
             </li>
           
             <li>
@@ -610,7 +663,7 @@
             </li>
           
             <li>
-              <a href="/teams">équipes</a>
+              <a href="/teams">Équipes</a>
             </li>
           
           </ul>
@@ -691,12 +744,12 @@
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - //play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
 								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_fr"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Disponible sur Google Play" loading="lazy" height="40" width="120"></a>
-								
+
 								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Disponible sur F-Droid" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - //world.openfoodfacts.org/images/apps/off.apk -->
 								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_fr"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="APK Android" loading="lazy" height="40" width="120"></a>
-								
+
 								<!-- msgid "//apps.apple.com/app/open-beauty-facts/id1122926380" -->
 								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_fr"><img src="/images/misc/appstore/black/appstore_FR.svg" alt="Disponible sur l'App Store"  loading="lazy" height="40" width="120"></a>
 							</div>
@@ -709,10 +762,10 @@
       			<!-- start templates/web/common/includes/donate_banner.tt.html -->
 
 
+<!-- Donation banner TOP END -->
+<!-- Donation banner @ footer start-->
 
-<!-- Donation banner @ footer -->
-
-
+<!-- Donation banner @ footer end-->
 <!-- end templates/web/common/includes/donate_banner.tt.html -->
 
 				
@@ -720,9 +773,9 @@
 <section class="donation-banner-footer row">
   <div class="donation-banner-footer__left-aside">
     <div class="donation-banner-footer__hook-section">
-      <p>Aidez-nous à informer des millions de consommateurs à travers le monde sur ce qu'ils mangent</p>
+      <p>Il nous manque encore 120 000 € pour terminer 2026 !</p>
     </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="The Open Food Facts community during the Open Food Facts Days" />
   </div>
   <div>
     <div>
@@ -731,38 +784,38 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Merci de contribuer à notre collecte de fonds 2025</h3>
+        <h3 class="donation-banner-footer__main-title">Devenez mécène d'Open Food Facts</h3>
       </div>
-      <p>Vos dons financent le fonctionnement quotidien de notre association à but non lucratif :</p>
+      <p>Chaque mois, nous accueillons 8 millions de visiteurs, et bien plus via l’API. Votre soutien est essentiel pour :</p>
       <ul>
         <li>
-          garder notre base de données ouverte et accessible à tous,
+          garder Open Food Facts ouvert et accessible à tous,
           <ul>
-            <li>infrastructure technique (site web/application mobile) et une petite équipe permanente</li>
+            <li>soutenir l’infrastructure, le site web, l’application mobile et l’API avec une petite équipe permanente</li>
           </ul>
         </li>
         <li>
-          <p>rester indépendant de l'industrie alimentaire,</p>
+          <p>rester indépendants de l’industrie agroalimentaire,</p>
         </li>
         <li>
-          <p>mobiliser une communauté de citoyens engagés,</p>
+          <p>soutenir la communauté</p>
         </li>
         <li>
-          <p>soutenir l’avancement de la recherche en santé publique.</p>
+          <p>soutenir la science</p>
         </li>
       </ul>
     </div>
     <div class="donation-banner-footer__actions-section">
       <div class="donation-banner-footer__actions-section__financial">
         <p>
-          Chaque don compte ! Nous apprécions votre soutien pour une plus grande transparence alimentaire dans le monde.
+          Si chaque visiteur ce mois-ci cliquait sur Faire un don et donnait seulement 1 €, nous aurions plus de 8 fois notre budget annuel !
         </p>
       </div>
       <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="//open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>JE SOUTIENS</button>
+        <a href="//fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
+          <button>Faire un don</button>
         </a>
       </div>
     </div>
@@ -771,7 +824,7 @@
 
 
 			
-      		
+
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
@@ -791,7 +844,7 @@
 						<h3 class="title-5 text-medium">Découvrez le projet</h3>
 						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
 							<li><a class="button small white-button radius" href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
-							<li><a class="button small white-button radius" href="//world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
+							<li><a class="button small white-button radius" href="/open-food-facts-vision-mission-values-and-programs">Vision, mission, valeurs et programmes</a></li>
 							<li><a class="button small white-button radius" href="//support.openfoodfacts.org/help/fr-fr">Questions fréquentes</a></li>
 							<li><a class="button small white-button radius" href="//blog.openfoodfacts.org/fr/">Le blog d'Open Food Facts</a></li>
 							<li><a class="button small white-button radius" href="/presse">Presse</a></li>
@@ -816,7 +869,7 @@
 								<a href="/" style="font-size:1rem;"><img id="logo" src="//static.openfoodfacts.localhost/images/logos/off-logo-horizontal-mono-white.svg" alt="Open Food Facts" style="margin:8px;height:48px;width:auto;"></a>
 
 								<p>Une base de données collaborative, libre et ouverte des produits alimentaires du monde entier.</p>
-								
+
 								<ul class="inline-list text-center text-small">
 									<li><a href="/mentions-legales">Mentions légales</a></li>
 									<li><a href="/privacy">Confidentialité</a></li>
@@ -845,7 +898,7 @@
 <script src="//static.openfoodfacts.localhost/js/dist/display.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/stikelem.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/scrollNav.js"></script>
-  
+
 
 <script>
 $(function() {
@@ -863,6 +916,7 @@ rank_and_display_products("#search_results", products, contributor_prefs);
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/matomo-events.js"></script>
 <script type="text/javascript">
 var page_type = "products";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
@@ -879,51 +933,55 @@ var products = [
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":29.4444444444444,
+                  "match":33.6666666666667,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"1 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":45,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"12 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":48.2352941176471,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short":"25 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":93.3333333333333,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en faible quantité"
                }
             ],
             "id":"nutritional_quality",
@@ -939,7 +997,7 @@ var products = [
                   "match":0,
                   "name":"Gluten",
                   "status":"known",
-                  "title":"Contient : Gluten"
+                  "title":"Contient : gluten"
                },
                {
                   "debug":"en:milk in allergens",
@@ -949,7 +1007,7 @@ var products = [
                   "match":0,
                   "name":"Lait",
                   "status":"known",
-                  "title":"Contient : Lait"
+                  "title":"Contient : lait"
                },
                {
                   "debug":"en:eggs in allergens",
@@ -959,7 +1017,7 @@ var products = [
                   "match":0,
                   "name":"Œufs",
                   "status":"known",
-                  "title":"Contient : Œufs"
+                  "title":"Contient : œufs"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -969,7 +1027,7 @@ var products = [
                   "match":100,
                   "name":"Fruits à coque",
                   "status":"known",
-                  "title":"Ne contient pas : Fruits à coque"
+                  "title":"Ne contient pas : fruits à coque"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -979,7 +1037,7 @@ var products = [
                   "match":100,
                   "name":"Arachides",
                   "status":"known",
-                  "title":"Ne contient pas : Arachides"
+                  "title":"Ne contient pas : arachides"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -989,7 +1047,7 @@ var products = [
                   "match":100,
                   "name":"Graines de sésame",
                   "status":"known",
-                  "title":"Ne contient pas : Graines de sésame"
+                  "title":"Ne contient pas : graines de sésame"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -999,7 +1057,7 @@ var products = [
                   "match":100,
                   "name":"Soja",
                   "status":"known",
-                  "title":"Ne contient pas : Soja"
+                  "title":"Ne contient pas : soja"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -1009,7 +1067,7 @@ var products = [
                   "match":100,
                   "name":"Céleri",
                   "status":"known",
-                  "title":"Ne contient pas : Céleri"
+                  "title":"Ne contient pas : céleri"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -1019,7 +1077,7 @@ var products = [
                   "match":100,
                   "name":"Moutarde",
                   "status":"known",
-                  "title":"Ne contient pas : Moutarde"
+                  "title":"Ne contient pas : moutarde"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -1029,7 +1087,7 @@ var products = [
                   "match":100,
                   "name":"Lupin",
                   "status":"known",
-                  "title":"Ne contient pas : Lupin"
+                  "title":"Ne contient pas : lupin"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -1039,7 +1097,7 @@ var products = [
                   "match":100,
                   "name":"Poisson",
                   "status":"known",
-                  "title":"Ne contient pas : Poisson"
+                  "title":"Ne contient pas : poisson"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -1049,7 +1107,7 @@ var products = [
                   "match":100,
                   "name":"Crustacés",
                   "status":"known",
-                  "title":"Ne contient pas : Crustacés"
+                  "title":"Ne contient pas : crustacés"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -1059,7 +1117,7 @@ var products = [
                   "match":100,
                   "name":"Mollusques",
                   "status":"known",
-                  "title":"Ne contient pas : Mollusques"
+                  "title":"Ne contient pas : mollusques"
                },
                {
                   "debug":"12 ingredients (1 unknown)",
@@ -1069,7 +1127,7 @@ var products = [
                   "match":100,
                   "name":"Anhydride sulfureux et sulfites",
                   "status":"known",
-                  "title":"Ne contient pas : Anhydride sulfureux et sulfites"
+                  "title":"Ne contient pas : anhydride sulfureux et sulfites"
                }
             ],
             "id":"allergens",
@@ -1109,7 +1167,8 @@ var products = [
                }
             ],
             "id":"ingredients_analysis",
-            "name":"Ingrédients"
+            "name":"Ingrédients",
+            "warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes":[
@@ -1145,7 +1204,7 @@ var products = [
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":70,
+                  "match":62,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
@@ -1157,8 +1216,9 @@ var products = [
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id":"forest_footprint",
-                  "match":99.9766666666667,
+                  "match":99.9782222222222,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Très petite empreinte forêt"
                }
@@ -1206,55 +1266,59 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Données manquantes pour calculer le Nutri-Score",
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
+                  "description_short":"Moins bonne qualité nutritionnelle",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-e-new-fr.svg",
                   "id":"nutriscore",
-                  "match":0,
+                  "match":13.9545454545455,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
-                  "status":"unknown",
-                  "title":"Nutri-Score inconnu"
+                  "status":"known",
+                  "title":"Nutri-Score E"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":70,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"25 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-high.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":15,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short":"40 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"10 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en quantité élevée"
                }
             ],
             "id":"nutritional_quality",
@@ -1270,7 +1334,7 @@ var products = [
                   "match":100,
                   "name":"Gluten",
                   "status":"known",
-                  "title":"Ne contient pas : Gluten"
+                  "title":"Ne contient pas : gluten"
                },
                {
                   "debug":"en:milk in allergens",
@@ -1280,7 +1344,7 @@ var products = [
                   "match":0,
                   "name":"Lait",
                   "status":"known",
-                  "title":"Contient : Lait"
+                  "title":"Contient : lait"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1290,7 +1354,7 @@ var products = [
                   "match":100,
                   "name":"Œufs",
                   "status":"known",
-                  "title":"Ne contient pas : Œufs"
+                  "title":"Ne contient pas : œufs"
                },
                {
                   "debug":"en:nuts in allergens",
@@ -1300,7 +1364,7 @@ var products = [
                   "match":0,
                   "name":"Fruits à coque",
                   "status":"known",
-                  "title":"Contient : Fruits à coque"
+                  "title":"Contient : fruits à coque"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1310,7 +1374,7 @@ var products = [
                   "match":100,
                   "name":"Arachides",
                   "status":"known",
-                  "title":"Ne contient pas : Arachides"
+                  "title":"Ne contient pas : arachides"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1320,7 +1384,7 @@ var products = [
                   "match":100,
                   "name":"Graines de sésame",
                   "status":"known",
-                  "title":"Ne contient pas : Graines de sésame"
+                  "title":"Ne contient pas : graines de sésame"
                },
                {
                   "debug":"en:soybeans in allergens",
@@ -1330,7 +1394,7 @@ var products = [
                   "match":0,
                   "name":"Soja",
                   "status":"known",
-                  "title":"Contient : Soja"
+                  "title":"Contient : soja"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1340,7 +1404,7 @@ var products = [
                   "match":100,
                   "name":"Céleri",
                   "status":"known",
-                  "title":"Ne contient pas : Céleri"
+                  "title":"Ne contient pas : céleri"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1350,7 +1414,7 @@ var products = [
                   "match":100,
                   "name":"Moutarde",
                   "status":"known",
-                  "title":"Ne contient pas : Moutarde"
+                  "title":"Ne contient pas : moutarde"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1360,7 +1424,7 @@ var products = [
                   "match":100,
                   "name":"Lupin",
                   "status":"known",
-                  "title":"Ne contient pas : Lupin"
+                  "title":"Ne contient pas : lupin"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1370,7 +1434,7 @@ var products = [
                   "match":100,
                   "name":"Poisson",
                   "status":"known",
-                  "title":"Ne contient pas : Poisson"
+                  "title":"Ne contient pas : poisson"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1380,7 +1444,7 @@ var products = [
                   "match":100,
                   "name":"Crustacés",
                   "status":"known",
-                  "title":"Ne contient pas : Crustacés"
+                  "title":"Ne contient pas : crustacés"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1390,7 +1454,7 @@ var products = [
                   "match":100,
                   "name":"Mollusques",
                   "status":"known",
-                  "title":"Ne contient pas : Mollusques"
+                  "title":"Ne contient pas : mollusques"
                },
                {
                   "debug":"8 ingredients (0 unknown)",
@@ -1400,7 +1464,7 @@ var products = [
                   "match":100,
                   "name":"Anhydride sulfureux et sulfites",
                   "status":"known",
-                  "title":"Ne contient pas : Anhydride sulfureux et sulfites"
+                  "title":"Ne contient pas : anhydride sulfureux et sulfites"
                }
             ],
             "id":"allergens",
@@ -1420,13 +1484,14 @@ var products = [
                   "title":"Non végétalien"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian-status-unknown.svg",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/maybe-vegetarian.svg",
                   "id":"vegetarian",
+                  "match":50,
                   "name":"Végétarien",
-                  "panel_id":"ingredients_analysis_en:vegetarian-status-unknown",
-                  "status":"unknown",
-                  "title":"Caractère végétarien inconnu"
+                  "panel_id":"ingredients_analysis_en:maybe-vegetarian",
+                  "status":"known",
+                  "title":"Peut-être végétarien"
                },
                {
                   "grade":"a",
@@ -1440,7 +1505,8 @@ var products = [
                }
             ],
             "id":"ingredients_analysis",
-            "name":"Ingrédients"
+            "name":"Ingrédients",
+            "warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes":[
@@ -1489,6 +1555,7 @@ var products = [
                   "id":"forest_footprint",
                   "match":0,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Empreinte forêt non calculée"
                }
@@ -1535,55 +1602,59 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Qualité nutritionnelle moyenne",
-                  "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
+                  "description_short":"Moins bonne qualité nutritionnelle",
+                  "grade":"d",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":41,
+                  "match":21,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
-                  "title":"Nutri-Score C"
+                  "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"0 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":100,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en faible quantité"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"0 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-low.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":100,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en faible quantité"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short":"12 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":1.6,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"0 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":100,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en faible quantité"
                }
             ],
             "id":"nutritional_quality",
@@ -1599,7 +1670,7 @@ var products = [
                   "match":100,
                   "name":"Gluten",
                   "status":"known",
-                  "title":"Ne contient pas : Gluten"
+                  "title":"Ne contient pas : gluten"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1609,7 +1680,7 @@ var products = [
                   "match":100,
                   "name":"Lait",
                   "status":"known",
-                  "title":"Ne contient pas : Lait"
+                  "title":"Ne contient pas : lait"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1619,7 +1690,7 @@ var products = [
                   "match":100,
                   "name":"Œufs",
                   "status":"known",
-                  "title":"Ne contient pas : Œufs"
+                  "title":"Ne contient pas : œufs"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1629,7 +1700,7 @@ var products = [
                   "match":100,
                   "name":"Fruits à coque",
                   "status":"known",
-                  "title":"Ne contient pas : Fruits à coque"
+                  "title":"Ne contient pas : fruits à coque"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1639,7 +1710,7 @@ var products = [
                   "match":100,
                   "name":"Arachides",
                   "status":"known",
-                  "title":"Ne contient pas : Arachides"
+                  "title":"Ne contient pas : arachides"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1649,7 +1720,7 @@ var products = [
                   "match":100,
                   "name":"Graines de sésame",
                   "status":"known",
-                  "title":"Ne contient pas : Graines de sésame"
+                  "title":"Ne contient pas : graines de sésame"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1659,7 +1730,7 @@ var products = [
                   "match":100,
                   "name":"Soja",
                   "status":"known",
-                  "title":"Ne contient pas : Soja"
+                  "title":"Ne contient pas : soja"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1669,7 +1740,7 @@ var products = [
                   "match":100,
                   "name":"Céleri",
                   "status":"known",
-                  "title":"Ne contient pas : Céleri"
+                  "title":"Ne contient pas : céleri"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1679,7 +1750,7 @@ var products = [
                   "match":100,
                   "name":"Moutarde",
                   "status":"known",
-                  "title":"Ne contient pas : Moutarde"
+                  "title":"Ne contient pas : moutarde"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1689,7 +1760,7 @@ var products = [
                   "match":100,
                   "name":"Lupin",
                   "status":"known",
-                  "title":"Ne contient pas : Lupin"
+                  "title":"Ne contient pas : lupin"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1699,7 +1770,7 @@ var products = [
                   "match":100,
                   "name":"Poisson",
                   "status":"known",
-                  "title":"Ne contient pas : Poisson"
+                  "title":"Ne contient pas : poisson"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1709,7 +1780,7 @@ var products = [
                   "match":100,
                   "name":"Crustacés",
                   "status":"known",
-                  "title":"Ne contient pas : Crustacés"
+                  "title":"Ne contient pas : crustacés"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1719,7 +1790,7 @@ var products = [
                   "match":100,
                   "name":"Mollusques",
                   "status":"known",
-                  "title":"Ne contient pas : Mollusques"
+                  "title":"Ne contient pas : mollusques"
                },
                {
                   "debug":"2 ingredients (0 unknown)",
@@ -1729,7 +1800,7 @@ var products = [
                   "match":100,
                   "name":"Anhydride sulfureux et sulfites",
                   "status":"known",
-                  "title":"Ne contient pas : Anhydride sulfureux et sulfites"
+                  "title":"Ne contient pas : anhydride sulfureux et sulfites"
                }
             ],
             "id":"allergens",
@@ -1770,7 +1841,8 @@ var products = [
                }
             ],
             "id":"ingredients_analysis",
-            "name":"Ingrédients"
+            "name":"Ingrédients",
+            "warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes":[
@@ -1806,7 +1878,7 @@ var products = [
                   "grade":"c",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
-                  "match":50,
+                  "match":52,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
@@ -1820,6 +1892,7 @@ var products = [
                   "id":"forest_footprint",
                   "match":0,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Empreinte forêt non calculée"
                }
@@ -1867,54 +1940,58 @@ var products = [
                {
                   "description":"",
                   "description_short":"Qualité nutritionnelle moyenne",
-                  "grade":"d",
+                  "grade":"c",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
                   "id":"nutriscore",
-                  "match":35.25,
+                  "match":41,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score C"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"0 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":100,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en faible quantité"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"0 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-low.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":100,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en faible quantité"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short":"10 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":8,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"0 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":100,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en faible quantité"
                }
             ],
             "id":"nutritional_quality",
@@ -1930,7 +2007,7 @@ var products = [
                   "match":100,
                   "name":"Gluten",
                   "status":"known",
-                  "title":"Ne contient pas : Gluten"
+                  "title":"Ne contient pas : gluten"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -1940,7 +2017,7 @@ var products = [
                   "match":100,
                   "name":"Lait",
                   "status":"known",
-                  "title":"Ne contient pas : Lait"
+                  "title":"Ne contient pas : lait"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -1950,7 +2027,7 @@ var products = [
                   "match":100,
                   "name":"Œufs",
                   "status":"known",
-                  "title":"Ne contient pas : Œufs"
+                  "title":"Ne contient pas : œufs"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -1960,7 +2037,7 @@ var products = [
                   "match":100,
                   "name":"Fruits à coque",
                   "status":"known",
-                  "title":"Ne contient pas : Fruits à coque"
+                  "title":"Ne contient pas : fruits à coque"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -1970,7 +2047,7 @@ var products = [
                   "match":100,
                   "name":"Arachides",
                   "status":"known",
-                  "title":"Ne contient pas : Arachides"
+                  "title":"Ne contient pas : arachides"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -1980,7 +2057,7 @@ var products = [
                   "match":100,
                   "name":"Graines de sésame",
                   "status":"known",
-                  "title":"Ne contient pas : Graines de sésame"
+                  "title":"Ne contient pas : graines de sésame"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -1990,7 +2067,7 @@ var products = [
                   "match":100,
                   "name":"Soja",
                   "status":"known",
-                  "title":"Ne contient pas : Soja"
+                  "title":"Ne contient pas : soja"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -2000,7 +2077,7 @@ var products = [
                   "match":100,
                   "name":"Céleri",
                   "status":"known",
-                  "title":"Ne contient pas : Céleri"
+                  "title":"Ne contient pas : céleri"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -2010,7 +2087,7 @@ var products = [
                   "match":100,
                   "name":"Moutarde",
                   "status":"known",
-                  "title":"Ne contient pas : Moutarde"
+                  "title":"Ne contient pas : moutarde"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -2020,7 +2097,7 @@ var products = [
                   "match":100,
                   "name":"Lupin",
                   "status":"known",
-                  "title":"Ne contient pas : Lupin"
+                  "title":"Ne contient pas : lupin"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -2030,7 +2107,7 @@ var products = [
                   "match":100,
                   "name":"Poisson",
                   "status":"known",
-                  "title":"Ne contient pas : Poisson"
+                  "title":"Ne contient pas : poisson"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -2040,7 +2117,7 @@ var products = [
                   "match":100,
                   "name":"Crustacés",
                   "status":"known",
-                  "title":"Ne contient pas : Crustacés"
+                  "title":"Ne contient pas : crustacés"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -2050,7 +2127,7 @@ var products = [
                   "match":100,
                   "name":"Mollusques",
                   "status":"known",
-                  "title":"Ne contient pas : Mollusques"
+                  "title":"Ne contient pas : mollusques"
                },
                {
                   "debug":"1 ingredients (0 unknown)",
@@ -2060,7 +2137,7 @@ var products = [
                   "match":100,
                   "name":"Anhydride sulfureux et sulfites",
                   "status":"known",
-                  "title":"Ne contient pas : Anhydride sulfureux et sulfites"
+                  "title":"Ne contient pas : anhydride sulfureux et sulfites"
                }
             ],
             "id":"allergens",
@@ -2101,7 +2178,8 @@ var products = [
                }
             ],
             "id":"ingredients_analysis",
-            "name":"Ingrédients"
+            "name":"Ingrédients",
+            "warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes":[
@@ -2137,7 +2215,7 @@ var products = [
                   "grade":"c",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
-                  "match":50,
+                  "match":52,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
@@ -2151,6 +2229,7 @@ var products = [
                   "id":"forest_footprint",
                   "match":0,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Empreinte forêt non calculée"
                }
@@ -2197,55 +2276,59 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Données manquantes pour calculer le Nutri-Score",
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
+                  "description_short":"Moins bonne qualité nutritionnelle",
+                  "grade":"d",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":0,
+                  "match":33.6666666666667,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
-                  "status":"unknown",
-                  "title":"Nutri-Score inconnu"
+                  "status":"known",
+                  "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":70,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"10 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":55.2941176470588,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short":"20 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":8,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"5 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-medium.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":20,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en quantité modérée"
                }
             ],
             "id":"nutritional_quality",
@@ -2261,7 +2344,7 @@ var products = [
                   "match":100,
                   "name":"Gluten",
                   "status":"known",
-                  "title":"Ne contient pas : Gluten"
+                  "title":"Ne contient pas : gluten"
                },
                {
                   "debug":"en:milk in allergens",
@@ -2271,7 +2354,7 @@ var products = [
                   "match":0,
                   "name":"Lait",
                   "status":"known",
-                  "title":"Contient : Lait"
+                  "title":"Contient : lait"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2281,7 +2364,7 @@ var products = [
                   "match":100,
                   "name":"Œufs",
                   "status":"known",
-                  "title":"Ne contient pas : Œufs"
+                  "title":"Ne contient pas : œufs"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2291,7 +2374,7 @@ var products = [
                   "match":100,
                   "name":"Fruits à coque",
                   "status":"known",
-                  "title":"Ne contient pas : Fruits à coque"
+                  "title":"Ne contient pas : fruits à coque"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2301,7 +2384,7 @@ var products = [
                   "match":100,
                   "name":"Arachides",
                   "status":"known",
-                  "title":"Ne contient pas : Arachides"
+                  "title":"Ne contient pas : arachides"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2311,7 +2394,7 @@ var products = [
                   "match":100,
                   "name":"Graines de sésame",
                   "status":"known",
-                  "title":"Ne contient pas : Graines de sésame"
+                  "title":"Ne contient pas : graines de sésame"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2321,7 +2404,7 @@ var products = [
                   "match":100,
                   "name":"Soja",
                   "status":"known",
-                  "title":"Ne contient pas : Soja"
+                  "title":"Ne contient pas : soja"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2331,7 +2414,7 @@ var products = [
                   "match":100,
                   "name":"Céleri",
                   "status":"known",
-                  "title":"Ne contient pas : Céleri"
+                  "title":"Ne contient pas : céleri"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2341,7 +2424,7 @@ var products = [
                   "match":100,
                   "name":"Moutarde",
                   "status":"known",
-                  "title":"Ne contient pas : Moutarde"
+                  "title":"Ne contient pas : moutarde"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2351,7 +2434,7 @@ var products = [
                   "match":100,
                   "name":"Lupin",
                   "status":"known",
-                  "title":"Ne contient pas : Lupin"
+                  "title":"Ne contient pas : lupin"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2361,7 +2444,7 @@ var products = [
                   "match":100,
                   "name":"Poisson",
                   "status":"known",
-                  "title":"Ne contient pas : Poisson"
+                  "title":"Ne contient pas : poisson"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2371,7 +2454,7 @@ var products = [
                   "match":100,
                   "name":"Crustacés",
                   "status":"known",
-                  "title":"Ne contient pas : Crustacés"
+                  "title":"Ne contient pas : crustacés"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2381,7 +2464,7 @@ var products = [
                   "match":100,
                   "name":"Mollusques",
                   "status":"known",
-                  "title":"Ne contient pas : Mollusques"
+                  "title":"Ne contient pas : mollusques"
                },
                {
                   "debug":"3 ingredients (0 unknown)",
@@ -2391,7 +2474,7 @@ var products = [
                   "match":100,
                   "name":"Anhydride sulfureux et sulfites",
                   "status":"known",
-                  "title":"Ne contient pas : Anhydride sulfureux et sulfites"
+                  "title":"Ne contient pas : anhydride sulfureux et sulfites"
                }
             ],
             "id":"allergens",
@@ -2432,7 +2515,8 @@ var products = [
                }
             ],
             "id":"ingredients_analysis",
-            "name":"Ingrédients"
+            "name":"Ingrédients",
+            "warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes":[
@@ -2468,7 +2552,7 @@ var products = [
                   "grade":"b",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
                   "id":"ecoscore",
-                  "match":67,
+                  "match":66,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
@@ -2482,6 +2566,7 @@ var products = [
                   "id":"forest_footprint",
                   "match":0,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Empreinte forêt non calculée"
                }
@@ -2528,55 +2613,59 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Données manquantes pour calculer le Nutri-Score",
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown-new-fr.svg",
+                  "description_short":"Bonne qualité nutritionnelle",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-b-new-fr.svg",
                   "id":"nutriscore",
-                  "match":0,
+                  "match":67.3333333333333,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
-                  "status":"unknown",
-                  "title":"Nutri-Score inconnu"
+                  "status":"known",
+                  "title":"Nutri-Score B"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"1 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":45,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"8 g / 100 g",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":62.3529411764706,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short":"5 g / 100 g",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":80,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"2 g / 100 g",
+                  "grade":"b",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-medium.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":71.4285714285714,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en quantité modérée"
                }
             ],
             "id":"nutritional_quality",
@@ -2592,7 +2681,7 @@ var products = [
                   "match":100,
                   "name":"Gluten",
                   "status":"known",
-                  "title":"Ne contient pas : Gluten"
+                  "title":"Ne contient pas : gluten"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2602,7 +2691,7 @@ var products = [
                   "match":100,
                   "name":"Lait",
                   "status":"known",
-                  "title":"Ne contient pas : Lait"
+                  "title":"Ne contient pas : lait"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2612,7 +2701,7 @@ var products = [
                   "match":100,
                   "name":"Œufs",
                   "status":"known",
-                  "title":"Ne contient pas : Œufs"
+                  "title":"Ne contient pas : œufs"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2622,7 +2711,7 @@ var products = [
                   "match":100,
                   "name":"Fruits à coque",
                   "status":"known",
-                  "title":"Ne contient pas : Fruits à coque"
+                  "title":"Ne contient pas : fruits à coque"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2632,7 +2721,7 @@ var products = [
                   "match":100,
                   "name":"Arachides",
                   "status":"known",
-                  "title":"Ne contient pas : Arachides"
+                  "title":"Ne contient pas : arachides"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2642,7 +2731,7 @@ var products = [
                   "match":100,
                   "name":"Graines de sésame",
                   "status":"known",
-                  "title":"Ne contient pas : Graines de sésame"
+                  "title":"Ne contient pas : graines de sésame"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2652,7 +2741,7 @@ var products = [
                   "match":100,
                   "name":"Soja",
                   "status":"known",
-                  "title":"Ne contient pas : Soja"
+                  "title":"Ne contient pas : soja"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2662,7 +2751,7 @@ var products = [
                   "match":100,
                   "name":"Céleri",
                   "status":"known",
-                  "title":"Ne contient pas : Céleri"
+                  "title":"Ne contient pas : céleri"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2672,7 +2761,7 @@ var products = [
                   "match":100,
                   "name":"Moutarde",
                   "status":"known",
-                  "title":"Ne contient pas : Moutarde"
+                  "title":"Ne contient pas : moutarde"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2682,7 +2771,7 @@ var products = [
                   "match":100,
                   "name":"Lupin",
                   "status":"known",
-                  "title":"Ne contient pas : Lupin"
+                  "title":"Ne contient pas : lupin"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2692,7 +2781,7 @@ var products = [
                   "match":100,
                   "name":"Poisson",
                   "status":"known",
-                  "title":"Ne contient pas : Poisson"
+                  "title":"Ne contient pas : poisson"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2702,7 +2791,7 @@ var products = [
                   "match":100,
                   "name":"Crustacés",
                   "status":"known",
-                  "title":"Ne contient pas : Crustacés"
+                  "title":"Ne contient pas : crustacés"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2712,7 +2801,7 @@ var products = [
                   "match":100,
                   "name":"Mollusques",
                   "status":"known",
-                  "title":"Ne contient pas : Mollusques"
+                  "title":"Ne contient pas : mollusques"
                },
                {
                   "debug":"7 ingredients (0 unknown)",
@@ -2722,7 +2811,7 @@ var products = [
                   "match":100,
                   "name":"Anhydride sulfureux et sulfites",
                   "status":"known",
-                  "title":"Ne contient pas : Anhydride sulfureux et sulfites"
+                  "title":"Ne contient pas : anhydride sulfureux et sulfites"
                }
             ],
             "id":"allergens",
@@ -2763,7 +2852,8 @@ var products = [
                }
             ],
             "id":"ingredients_analysis",
-            "name":"Ingrédients"
+            "name":"Ingrédients",
+            "warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes":[
@@ -2812,6 +2902,7 @@ var products = [
                   "id":"forest_footprint",
                   "match":0,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Empreinte forêt non calculée"
                }
@@ -2862,51 +2953,55 @@ var products = [
                   "grade":"d",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg",
                   "id":"nutriscore",
-                  "match":27.3333333333333,
+                  "match":33.6666666666667,
                   "name":"Nutri-Score",
                   "panel_id":"nutriscore_2023",
                   "status":"known",
                   "title":"Nutri-Score D"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-unknown.svg",
+                  "description_short":"1 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg",
                   "id":"low_salt",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":45,
                   "name":"Sel",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sel en quantité inconnue"
+                  "panel_id":"nutrient_level_salt",
+                  "status":"known",
+                  "title":"Sel en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-unknown.svg",
+                  "description_short":"12 g / 100 g",
+                  "grade":"c",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
                   "id":"low_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":48.2352941176471,
                   "name":"Matières grasses",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Matières grasses en quantité inconnue"
+                  "panel_id":"nutrient_level_fat",
+                  "status":"known",
+                  "title":"Matières grasses en quantité modérée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-unknown.svg",
+                  "description_short":"25 g / 100 g",
+                  "grade":"e",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg",
                   "id":"low_sugars",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":0,
                   "name":"Sucres",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Sucres en quantité inconnue"
+                  "panel_id":"nutrient_level_sugars",
+                  "status":"known",
+                  "title":"Sucres en quantité élevée"
                },
                {
-                  "grade":"unknown",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-unknown.svg",
+                  "description_short":"0.5 g / 100 g",
+                  "grade":"a",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-low.svg",
                   "id":"low_saturated_fat",
-                  "missing":"Données nutritionnelles manquantes",
+                  "match":93.3333333333333,
                   "name":"Acides gras saturés",
-                  "panel_id":"nutrition_facts_table",
-                  "status":"unknown",
-                  "title":"Acides gras saturés en quantité inconnue"
+                  "panel_id":"nutrient_level_saturated_fat",
+                  "status":"known",
+                  "title":"Acides gras saturés en faible quantité"
                }
             ],
             "id":"nutritional_quality",
@@ -2922,7 +3017,7 @@ var products = [
                   "match":0,
                   "name":"Gluten",
                   "status":"known",
-                  "title":"Contient : Gluten"
+                  "title":"Contient : gluten"
                },
                {
                   "debug":"en:milk in allergens",
@@ -2932,7 +3027,7 @@ var products = [
                   "match":0,
                   "name":"Lait",
                   "status":"known",
-                  "title":"Contient : Lait"
+                  "title":"Contient : lait"
                },
                {
                   "debug":"en:eggs in allergens",
@@ -2942,7 +3037,7 @@ var products = [
                   "match":0,
                   "name":"Œufs",
                   "status":"known",
-                  "title":"Contient : Œufs"
+                  "title":"Contient : œufs"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -2952,7 +3047,7 @@ var products = [
                   "match":100,
                   "name":"Fruits à coque",
                   "status":"known",
-                  "title":"Ne contient pas : Fruits à coque"
+                  "title":"Ne contient pas : fruits à coque"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -2962,7 +3057,7 @@ var products = [
                   "match":100,
                   "name":"Arachides",
                   "status":"known",
-                  "title":"Ne contient pas : Arachides"
+                  "title":"Ne contient pas : arachides"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -2972,7 +3067,7 @@ var products = [
                   "match":100,
                   "name":"Graines de sésame",
                   "status":"known",
-                  "title":"Ne contient pas : Graines de sésame"
+                  "title":"Ne contient pas : graines de sésame"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -2982,7 +3077,7 @@ var products = [
                   "match":100,
                   "name":"Soja",
                   "status":"known",
-                  "title":"Ne contient pas : Soja"
+                  "title":"Ne contient pas : soja"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -2992,7 +3087,7 @@ var products = [
                   "match":100,
                   "name":"Céleri",
                   "status":"known",
-                  "title":"Ne contient pas : Céleri"
+                  "title":"Ne contient pas : céleri"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -3002,7 +3097,7 @@ var products = [
                   "match":100,
                   "name":"Moutarde",
                   "status":"known",
-                  "title":"Ne contient pas : Moutarde"
+                  "title":"Ne contient pas : moutarde"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -3012,7 +3107,7 @@ var products = [
                   "match":100,
                   "name":"Lupin",
                   "status":"known",
-                  "title":"Ne contient pas : Lupin"
+                  "title":"Ne contient pas : lupin"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -3022,7 +3117,7 @@ var products = [
                   "match":100,
                   "name":"Poisson",
                   "status":"known",
-                  "title":"Ne contient pas : Poisson"
+                  "title":"Ne contient pas : poisson"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -3032,7 +3127,7 @@ var products = [
                   "match":100,
                   "name":"Crustacés",
                   "status":"known",
-                  "title":"Ne contient pas : Crustacés"
+                  "title":"Ne contient pas : crustacés"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -3042,7 +3137,7 @@ var products = [
                   "match":100,
                   "name":"Mollusques",
                   "status":"known",
-                  "title":"Ne contient pas : Mollusques"
+                  "title":"Ne contient pas : mollusques"
                },
                {
                   "debug":"12 ingredients (0 unknown)",
@@ -3052,7 +3147,7 @@ var products = [
                   "match":100,
                   "name":"Anhydride sulfureux et sulfites",
                   "status":"known",
-                  "title":"Ne contient pas : Anhydride sulfureux et sulfites"
+                  "title":"Ne contient pas : anhydride sulfureux et sulfites"
                }
             ],
             "id":"allergens",
@@ -3093,7 +3188,8 @@ var products = [
                }
             ],
             "id":"ingredients_analysis",
-            "name":"Ingrédients"
+            "name":"Ingrédients",
+            "warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
             "attributes":[
@@ -3125,15 +3221,15 @@ var products = [
             "attributes":[
                {
                   "description":"",
-                  "description_short":"Faible impact environnemental",
+                  "description_short":"Impact modéré sur l'environnement",
                   "grade":"c",
-                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-b.svg",
+                  "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg",
                   "id":"ecoscore",
-                  "match":60,
+                  "match":52,
                   "name":"Green-Score",
                   "panel_id":"environmental_score",
                   "status":"known",
-                  "title":"Green-Score B"
+                  "title":"Green-Score C"
                },
                {
                   "description":"",
@@ -3141,8 +3237,9 @@ var products = [
                   "grade":"a",
                   "icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg",
                   "id":"forest_footprint",
-                  "match":99.9766666666667,
+                  "match":99.9782222222222,
                   "name":"Empreinte forêt",
+                  "panel_id":"forest_footprint",
                   "status":"known",
                   "title":"Très petite empreinte forêt"
                }
@@ -3187,8 +3284,8 @@ var products = [
 ;
 var product_type = "food";
 </script>
-<script src="//static.openfoodfacts.localhost/js/product-preferences.js"></script>
-<script src="//static.openfoodfacts.localhost/js/product-search.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/product-preferences.js"></script>
+<script src="//static.openfoodfacts.localhost/js/dist/product-search.js"></script>
 
 <script>
 $(document).foundation({

@@ -15,11 +15,9 @@ use ProductOpener::Cache qw/$memd/;
 # We need to flush memcached so that cached queries from other tests (e.g. web_html.t) don't interfere with this test
 $memd->flush_all;
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 my $ua = new_client();
 
@@ -60,17 +58,17 @@ my $tests_ref = [
 	{
 		test_case => 'country-france-exists',
 		method => 'GET',
-		path => '/facets/countries/france',
+		path => '/facets/countries/France',
 		expected_status_code => 200,
 		expected_type => 'html',
 	},
 	{
 		test_case => 'country-cambodia-exists-but-empty',
 		method => 'GET',
-		path => '/facets/countries/cambodia',
+		path => '/facets/countries/Cambodia',
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => 'cambodia',
+		response_content_must_match => 'Cambodia',
 	},
 	{
 		test_case => 'country-doesnotexist',

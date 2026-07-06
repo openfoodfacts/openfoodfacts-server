@@ -149,7 +149,7 @@ es: Tarro
 fr: Bocal, bocaux
 hu: Befőttes üveg, befőttes üvegek
 it: Vasetto, Barattolo
-nb: Glass
+#nb: Glass  # same word as for material en:glass
 nl: Pot, Potten, Bokaal, Bokaalen
 pl: Słoik
 pt: Jarro, jarros, jarra, jarras
@@ -181,7 +181,7 @@ description:nl: Een veelal kartonnen balkvormige verpakking
 # suggest:category: en:instant pasta
 
 #Boxes for eggs
-< en:Box
+< en: Box
 en: egg carton, egg box, egg tray
 da: æggebakke, ægbakke
 de: Eierkarton
@@ -204,7 +204,7 @@ wikidata:en: Q959287
 # image:xx:boite-boitier-2.svg
 
 # boxes for pizza's
-< en:Box
+< en: Box
 en: Pizza box
 da: pizzabakke
 de: Pizzakarton
@@ -218,7 +218,7 @@ wikidata:en: Q2097650
 # image:xx:boite-boitier-6.svg
 # suggest:category: en:pizzas
 
-< en:box
+< en: box
 en: pill box
 da: pilleæske
 de: Pillendose
@@ -239,7 +239,7 @@ en: Jug or canister, canister or jug
 fr: Bidon ou bonbonne, bonbonne ou bidon
 it: Caraffa o barattolo, lattina o caraffa
 
-< en:Jug or canister
+< en: Jug or canister
 en: Jug, jugs
 de: Kanne
 fr: Bidon, bidons
@@ -258,7 +258,7 @@ it: Bottiglia o flacona, flacone o bottigia
 nl: Fles of flacon, flacon of fles
 pt: Garrafa ou frasco, frasco ou garrafa
 
-< en:Bottle or vial
+< en: Bottle or vial
 en: Bottle, bottles
 bg: Бутилка, бутилки
 da: Flaske, flasker
@@ -272,6 +272,8 @@ it: Bottiglia
 nl: Fles, Flessen
 pl: Butelka
 pt: Garrafa, garrafas
+#ro: Sticlă, sticle # “Sticlă” is also used for material en:glass
+ro: sticle
 sv: Flaska
 # suggest:packaging_materials:nl: en:glass
 # associated_packagings: en:cap
@@ -310,7 +312,7 @@ wikidata:en: Q80228
 # image:xx:bouteille-9.svg
 # suggest:category: en:detergeants
 
-< en:bottle
+< en: bottle
 en: hip flask
 ca: petaca
 cs: placatka
@@ -370,7 +372,8 @@ fr: Boîte de conserve ou canette, boîtes de conserve ou canettes
 hr: limenka
 hu: konzervdoboz, konzerv
 it: Lattina, Latta
-nl: Blik, Bus
+#nl: Blik, Bus # “blik” is also used for material en:tin-plated-steel
+nl: Bus
 pl: Puszka
 pt: Lata, latas
 description:nl: Een cilindervormig afgesloten blikken vaatje
@@ -381,7 +384,7 @@ wikidata:en: Q2846150
 
 
 # (metal) Can for drink, not canned food
-< en:can
+< en: can
 en: Drink can, beverage can, drink cans, beverage cans
 bg: Кен, кенче
 de: Getränkedose
@@ -400,7 +403,7 @@ wikidata:en: Q3261783
 
 # (metal) Can for food, not canned drinks
 # Note: "canned", "conserve" : already used in the preservation taxonomy
-< en:can
+< en: can
 en: Food can, tin, tin can
 bg: консерва за храна
 de: Konservendose
@@ -427,7 +430,7 @@ pt: Pote, potes, boião, boiões, copo
 comment:nl: Klopt deze vertaling wel? Is het niet meer een pot en moet kuip ergens anders onder gebracht worden?
 description:nl: Wijd, houten, metalen of plastic vat
 
-< en:pot
+< en: pot
 en: individual pot, individual cup, individual pots, individual cups
 fr: pot individuel, pots individuels
 hu: külön edény, külön fazék
@@ -458,7 +461,7 @@ hu: Tubus, tubusok, Cső, csövek, cső alakú
 it: Tubo, tubi
 nl: Tube, Tubes
 pt: Bisnaga, bisnagas, tubo de bisnaga, tubos de bisnagas
-describtion:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
+description:nl: Een verpakking in kokervorm gemaakt van metaal of plastic gevuld met een halfvloeibare stof
 
 # <en:Tube
 # fr:Tube avec bouchon dévissable
@@ -481,15 +484,57 @@ description:fr: Ce qui sert à relier deux ou plusieurs pièces d'un ouvrage ou 
 description:nl: Een klein werktuig waarin iets door samendrukken bijeengehouden of vastgezet kan worden
 wikidata:en: Q2002016
 
-< en:fastener
+< en: fastener
 en: bread clip, bag clip, occlupanid
 description:en: Usually a single plastic piece, in a roughly square shape, through which the neck of a plastic bag can be threaded.
 wikidata:en: Q3018341
 
-< en:fastener
+< en: fastener
 en: clipband, clip band
 description:en: A typically short (~5 cm/2″) band of some material (plastic or paper are common), reinforced with metal wires along the edges.
 wikidata:en: Q134396173
+
+< en: fastener
+en: staple, staples
+ar: دبوس مزدوج السن
+ca: grapa
+ce: атлан
+cs: spony do sešívaček
+cv: такар
+cy: stwffwl
+da: hæfteklamme
+de: Heftklammer
+eo: krampo
+es: grapa
+et: aas
+eu: grapa
+fa: سوزن منگنه
+fi: niitti
+fr: agrafe
+gl: grampa
+hu: tűzőkapocs
+id: Kokot
+it: agrafes, graffette
+ja: ホッチキス針, ステープル
+ko: 스테이플
+la: Uncinulus
+ms: dawai kokot
+nb: heftestift
+nl: nietje
+pl: zszywka, zszywki
+pt: agrafos, grampo
+pt_br: grampo
+ro: scoabă
+ru: скобы для степлеров, скоба
+sl: sponka
+su: eusi hékter
+sv: häftklammer, häftklamrar
+tr: zımba telleri, zımba
+uk: скоба
+vi: đinh kẹp
+yi: דרעטל
+zh: 订书钉, 鋦釘, 訂書釘
+wikidata:en: Q377164
 
 # fr:Liens ( collier , ficelle , ruban , ruban adhésif , bolduc , feuillard , bande , cordon , fil , elastique , bracelet…) in data from Les Mousquetaires
 en: Tie, knot
@@ -544,7 +589,7 @@ pt: Alça, alças, pega, pegas, manípulo, manípulos
 # fr:Sachet à frites papier
 # image:xx:sac-sachet-poche-11.svg
 
-< en:Bag
+< en: Bag
 en: Carrying bag, carrying bags
 fr: Sac de transport, sacs de transport
 nl: Draagtas, draagzak, draagzakken, draagtassen
@@ -564,7 +609,7 @@ wikidata:en: Q2933051
 # image:xx:cageot-cagette-autres-2.svg (plastique/generique)
 # image:xx:cageot-cagette-carton.svg (carton)
 
-< en:Bag
+< en: Bag
 en: Individual bag, individual bags
 bg: Индивидуална торбичка, индивидуални торбички
 de: Einzeltüten, einzelne Tüten
@@ -615,66 +660,119 @@ fr: Bouchon solidaire, bouchons solidaires, bouchon attaché, bouchons attachés
 en: Lid or cap, cap or lid
 fr: Bouchon ou couvercle, Couvercle ou bouchon, Bouchon (non solidaire) / Capsule / Couvercle
 it: Coperchio o tappo, tappo o coperchio
+sv: lock\, kapsyl eller kork
 
 # covering on top of wine bottle caps
 en: overcap, over cap, over capsule
 fr: coiffe, coiffes
 
-< en:Lid or cap
+< en: Lid or cap
 en: Lid, cover, lids, covers
 da: Låg
 de: Deckel
 el: Καπάκι
 fr: Couvercle, couvercles
 hu: Fedél, tető, fedő
-# image:xx:couvercle-1.svg (cloche)
-# image:xx:couvercle-2.svg (couvercle)
-# image:xx:couvercle-3.svg (couvercle)
-# suggest:packaging_materials:en: en:metal, en:cardboard, en:glass, en:others
-# associated_packagings: en:jar, en:bottle
 it: coperchio
 nb: Lokk
 nl: Deksel, deksels
 pl: Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt: Tampa, tampas
 sv: lock, locket
+# image:xx:couvercle-1.svg (cloche)
+# image:xx:couvercle-2.svg (couvercle)
+# image:xx:couvercle-3.svg (couvercle)
+# suggest:packaging_materials:en: en:metal, en:cardboard, en:glass, en:others
+# associated_packagings: en:jar, en:bottle
 
-< en:Lid or cap
+< en: Lid or cap
 en: Bottle cap, bottle top, cap, top, bottle caps, bottle tops, caps, tops
+ar: غطاء قارورة
 bg: Капачка, капачка за бутилка, капачки
-da: Kapsel
+da: flaskekapsel, kapsel
+de: Flaschenverschluss
+et: pudelikork
+fa: درب بطری
 fr: Bouchon, bouchons, Bouchon de bouteille, bouchons de bouteilles, bouchons
 hu: Kupak, borosdugó, dugó
-# image:xx:bouchon-1.svg
-# associated_packagings: en:bottle
+hy: Շշի խցան
 it: tappo di bottiglia
+ja: ボトルキャップ
+jv: tutup botol
+ko: 병마개
 nl: Dop, Doppen
+nn: flaskekapsel
 pl: Kapsel
 pt: Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
+ru: бутылочная пробка
+sv: kapsyl, kapsyler
+uk: пляшковий корок
+zh: 瓶蓋
+# associated_packagings: en:bottle
+# image:xx:bouchon-1.svg
 wikidata:en: Q1440281
 
+< en: Bottle cap
+en: crown cork, crown cap
+ca: tap corona
+eo: kronfermilo
+fi: kruunukorkki
+ja: 王冠 (栓)
+ko: 크라운 코르크
+sv: kronkork
+zh: 皇冠式瓶蓋
+# associated_packagings: en:bottle
+# suggest:packaging_materials:en: en:metal
+wikidata:en: Q13845007
+
+< en: Bottle cap
+en: screw cap, screw top
+da: skruelåg
+fi: kierrekorkki
+ja: スクリューキャップ
+nn: skrukork
+zh: 螺旋蓋
+# associated_packagings: en:bottle
+# suggest:packaging_materials:en: en:metal, en:plastic
+wikidata:en: Q607619
+
+< en: Bottle cap
+en: flip-top, swing-top, Quillfeldt stopper
+ca: tap de palanca
+da: patentprop
+de: Bügelverschluss, Patentverschluss, Lochmundverschluss
+eo: krampfermilo
+fi: patenttikorkki
+ja: フリップトップ
+nb: patentkork
+sv: patentkork, bygelkork
+uk: кліп-кришка
+# associated_packagings: en:bottle
+wikidata:en: Q1020525
+
 # for salt and pepper
-< en:Lid or cap
+< en: Lid or cap
 en: Grinder cap
 de: Mühlenverschluss
 es: Tapa molinillo
 fr: Bouchon broyeur, bouchons broyeurs
 it: Tappo macinino
 
-< en:Lid or cap
+< en: Lid or cap
 fr: Capsule à vis, bouchon à vis
 wikidata:en: Q607619
 # https://fr.wikipedia.org/wiki/Capsule_%C3%A0_vis
 
-< en:Lid or cap
+< en: Lid or cap
 fr: bouchon mécanique, bouchon à étrier, bouchon à bascule
 wikidata:en: Q1020525
 # https://fr.wikipedia.org/wiki/Bouchon_m%C3%A9canique
 
 # Note: cork is listed under materials, it cannot be a synonym of wine cork in the shapes taxonomy.
-< en:Bottle cap
+< en: Bottle cap
 en: Wine cork, wine bottle cork, wine corks, wine bottle corks
 bg: Коркова тапа, Корк за вино
+fa: چوب‌پنبه شراب
 fr: bouchon de bouteille de vin, bouchons de bouteilles de vin, bouchon de vin
 hr: pluteni čep
 # image:xx:bouchon-2.svg (wine cork)
@@ -682,20 +780,26 @@ hr: pluteni čep
 it: tappo di sughero, tappo di vino, tappo di bottiglia di vino
 nl: Wijnkurk, wijnkurken, Wijn kurk
 pl: Korek do wina
+sv: vinkork
 wikidata:en: Q86511715
 
-< en:Wine cork
+< en: Wine cork
 en: Champagne cork
 bg: Шампанска корк
+da: champagneprop
 de: Sektverschluss
 el: Πώμα σαμπάνιας
+es: Corcho de champán
 fr: bouchon de Champagne
 hu: Pezsgő dugó
+it: tappo di champagne
+nb: sjampanjekork
 nl: Champagnestop
 pl: Korek do szampana
 pt: Tampa de champanhe
-wikidata:en: Q106910341
+sv: champagnekork
 # image:xx:bouchon-3.svg (champagne cork)
+wikidata:en: Q106910341
 
 fr: Capsule CRD, Capsule Représentative de Droit, Capsule-congé
 wikidata:en: Q2937610
@@ -703,7 +807,7 @@ wikidata:en: Q2937610
 # https://fr.wikipedia.org/wiki/Capsule_CRD
 # https://fr.wikipedia.org/wiki/Capsule-cong%C3%A9
 
-< en:Bottle cap
+< en: Bottle cap
 en: Capsule, capsules
 bg: Капсула, капсули
 de: Kapsel, Kapseln
@@ -716,6 +820,7 @@ nl: Capsule, Kroonkurk, Kroonkurken
 pl: Kapsułka, kapsułki
 pt: Cápsula, cápsulas
 ru: Капсула, капсулы
+sv: kapsel, kapslar
 # image:xx:capsule-metal.svg (looks like a soda capsule)
 # image:xx:capsule-autre.svg (looks like a plastic capsule for wine)
 # suggest:packaging_materials:en: en:plastic, en:metal
@@ -734,7 +839,7 @@ wikidata:en: Q4236462
 # suggest:packaging_materials:en: en:plastic, en:aluminium
 # related_categories:en: en:Nespresso-compatible coffee capsules
 
-< en:Coffee capsule
+< en: Coffee capsule
 en: Nespresso-compatible capsules
 bg: Кафе капсули съвместими с Nespresso
 de: Nespresso-kompatible Kapseln
@@ -747,7 +852,7 @@ lt: Nespresso kapsulės
 nl: Nespresso-compatibele Capsules, Nespresso
 pt: Cápsulas compatíveis com Nespresso
 
-< en:Coffee capsule
+< en: Coffee capsule
 en: Tassimo-compatible capsules, T-Disc capsules
 de: Tassimo-kompatible Kapseln
 es: Cápsulas compatibles con Tassimo, Cápsulas T-Disc
@@ -757,7 +862,7 @@ lt: Tassimo kapsulės, T-Disc kapsulės
 nl: Tassimo-compatibele Capsules, Tassimo
 # related_categories:en: en:Tassimo-compatible coffee capsules
 
-< en:Coffee capsule
+< en: Coffee capsule
 en: Dolce Gusto-compatible capsules, Dolce Gusto capsules
 de: Dolce Gusto-kompatible Kapseln
 es: Cápsulas compatibles con Dolce Gusto
@@ -816,7 +921,7 @@ fr: dosette de café, dosettes de café
 nl: Koffiepad
 
 #As are used in Senseo
-< en:coffee pad
+< en: coffee pad
 en: Senseo-compatible coffee capsules
 bg: Кафе капсули съвместими с Senseo
 de: Senseo-kompatible Kapseln
@@ -834,6 +939,9 @@ pt: Cápsulas de café compatíveis com Senseo
 en: Tea bag
 bg: Чаена торбичка
 da: Tepose, teposer
+de: Teebeutel
+es: Bolsa de té, bolsita de té
+fr: Sachet de thé, sachets de thé, thé en sachet
 # suggest:packaging_materials:en: en:paper
 # related_categories:en: en:Tea bags
 it: bustina di tè, bustina di te, bustina
@@ -851,7 +959,7 @@ nl: Bestek
 pt: Talheres, talher
 # suggest:packaging_materials:en: en:plastic, en:wood
 
-< en:Eating utensils
+< en: Eating utensils
 en: Cutlery
 ar: أدوات المائدة
 az: Süfrə dəsti
@@ -893,7 +1001,7 @@ vi: Dao kéo
 zh: 餐具
 
 # keep the plural
-< en:Eating utensils
+< en: Eating utensils
 en: Chopsticks
 bg: Пръчици за хранене
 da: Spisepinde
@@ -912,7 +1020,7 @@ sv: Ätpinnar
 tr: Yemek çubukları
 wikidata:en: Q81980
 
-< en:Cutlery
+< en: Cutlery
 en: Knife, knives
 bg: Нож, ножове
 da: Kniv, knive
@@ -927,7 +1035,7 @@ pt: Faca, facas
 sv: Kniv
 wikidata:en: Q32489
 
-< en:Cutlery
+< en: Cutlery
 en: Fork, forks
 bg: Вилица, вилици
 da: Gaffel, gafler
@@ -942,7 +1050,7 @@ pt: Garfo, garfos
 sv: Gaffel
 wikidata:en: Q81881
 
-< en:Cutlery
+< en: Cutlery
 en: Spoon, spoons
 bg: Лъжица, лъжици
 da: Ske, skeer
@@ -962,7 +1070,7 @@ sv: Sked, skedar
 tr: Kaşık, kaşıklar
 wikidata:en: Q81895
 
-< en:Spoon
+< en: Spoon
 en: teaspoon
 bg: чаена лъжичка, чаена лъжица
 da: teske, teskeer
@@ -973,7 +1081,7 @@ pl: Łyżeczki, Łyżeczka
 sv: tesked, teskedar
 wikidata:en: Q216425
 
-< en:Spoon
+< en: Spoon
 en: tablespoon
 bg: супена лъжица
 da: spiseske, spiseskeer
@@ -1097,7 +1205,7 @@ pt: Tampo, tampos
 # weight:en:light
 # suggest:packaging_materials:en: en:metal, en:paper, en:cardboard, en:plastic, en:others, en:mix
 
-en: bulk, without packaging
+en: bulk, without packaging, no packaging
 bg: насипно, наливно, без амбалаж
 da: uden emballage
 de: ohne Verpackung
@@ -1111,8 +1219,8 @@ pt: Granel, a granel, sem embalagem, sem embalagens
 ru: весовой, без упаковки
 zh: 散装, 无包装
 
-< en:dish
-en: Bowl, bows
+< en: dish
+en: Bowl, bowls
 bg: Купа, купи
 de: Schüssel
 el: Μπολ
@@ -1245,7 +1353,7 @@ fr: Rouleau, Bobine, Mandrin, Mandrin / Rouleau
 # image:xx:bobine-rouleau-2.svg
 # suggest:packaging_materials:en: en:cardboard, en:paper
 
-< en:Jug or canister
+< en: Jug or canister
 en: Canister
 fr: Bombonne, bombonnes, bonbonne, bonbonnes
 nl: Spuitbus, spuitbussen
@@ -1275,6 +1383,7 @@ en: hanger
 bg: закачалка
 fr: Cintre
 nl: Kleerhanger
+pt: Cabide
 # related_categories:en: en:Clothes
 # image:xx:cintre.svg
 # suggest:packaging_materials:en: en:metal, en:cardboard, en:others
@@ -1287,7 +1396,7 @@ fr: Cale, Coin, Cornière, calage, cales, chips, croisillons, flocons, frites, c
 # image:xx:cale-coin-corniere-2.svg (other)
 
 # close to bottle, but also ampoule is translated to vial by citeo
-< en:Bottle or vial
+< en: Bottle or vial
 en: Vial, flask
 fr: Flacon
 nl: Flacon, Flacons
@@ -1313,8 +1422,6 @@ fr: enveloppage
 pt: invólucro
 # suggest:packaging_materials:en: en:metal, en:paper, en:other
 # image:xx:enveloppage.svg
-
-fr: agrafe
 
 en: Sleeve, sleeves
 fr: Gaine, gaines, manchon, manchons, sleever, sleevers
@@ -1385,13 +1492,16 @@ en: pump bottle, spray, spray bottle, applicator bottle
 de: Sprühflasche
 es: espray
 fr: Flacon à pompe, flacons à pompe, flacon à pistolet, flacons à pistolet, Spray, sprays
+it: flacone con pompa, flaconi con pompa, flacone spray, flaconi spray
+nl: Spuitfles, spuitflessen
+pt: Frasco com bomba, frascos com bomba, frasco spray, frascos spray
 wikidata:en: Q3737688
 # suggest:packaging_materials:en: en:plastic, en:metal, en:glass
 # image:xx:flacon-pompe-pistolet-spray-1.svg
 # image:xx:flacon-pompe-pistolet-spray-2.svg
 # image:xx:flacon-et-son-bouchon-1.svg (pompe pressable)
 
-< en:Bottle or vial
+< en: Bottle or vial
 en: squeeze bottle
 de: Quetschflasche, Drückflasche
 es: botella exprimible, botella de apretar
@@ -1444,6 +1554,7 @@ en: Ball flask, Roll-on bottle
 de: Kugelflasche, Roll-on-Flasche
 es: Frascos de bola, Botella roll-on
 fr: Flacon à bille, Roll
+it: flacone a sfera, flacone roll-on
 nl: Balflacon, Roll-on fles
 wikidata:en: Q115170160
 # image:xx:flacon-bille-roll.svg
@@ -1457,7 +1568,9 @@ nl: Mand, manden
 
 en: Syringe, syringes
 bg: Спринцовка, спринцовки
+es: Jeringa, jeringas
 fr: Seringue, seringues
+it: Siringa, siringhe
 nl: Spuit, spuiten
 wikidata:en: Q273318
 # suggest:packaging_materials:en: en:plastic
@@ -1526,18 +1639,18 @@ description:de: hohes, rundes Gefäß, zumeist in Form eines Zylinders oder Kege
 description:es: Recipiente en forma de cilindro, cono trunco o cubo, casi siempre provisto de un asa y utilizado para transportar líquidos, polvos u objetos pequeños.
 description:fr: Récipient cylindrique, ou plus souvent tronconique, de plastique, de bois ou de métal, en général pourvu d’une anse, servant à transporter un liquide, du sable ou autres.
 description:it: contenitore di forma cilindrica
+description:nl: busvormig taps toelopend vat (met hengsel), waarin men vloeistoffen of vaste stoffen kan verplaatsen
 #suggest:packaging_materials:en: en:plastic, en:metal
 description:no: beholder til å ha sand, vann, jord, etc. i; formet slik at man kan bære den, og med ett håndtak i topp
 description:pt: vasilha de forma quase cilíndrica para o transporte de água e outros usos domésticos feita em madeira, metal ou plástico
 description:ro: vas de lemn, de metal etc. de forma unui trunchi de con cu baza mare în partea superioară, cu toartă, folosit pentru transportul (și păstrarea) unor lichide, unor materiale granulare sau pulverulente etc.
 description:sv: ihålig handtagsförsedd behållare, oftast med cirkulär bottenyta och lätt utåtgående sidor, avsedd att inrymma vatten, jord, grus, sand etc.
-descrition:nl: busvormig taps toelopend vat (met hengsel), waarin men vloeistoffen of vaste stoffen kan verplaatsen
 wikidata:en: Q47107
 # suggest:packaging_materials:en: en:plastic, en:metal
 # image:xx:seau-plastique.svg
 # image:xx:seau-metal.svg
 
-< en:bucket
+< en: bucket
 en: small bucket
 da: lille spand
 nl: emmertje
@@ -1547,7 +1660,7 @@ pl: wiaderko
 en: Dish, dishes
 fr: Plat, plats, Plat, Plat (Bol - Saladier - Terrine - …)
 
-< en:dish
+< en: dish
 en: salad bowl, salad bowls
 de: Salatschüssel, Salatschüsseln
 es: ensaladera, ensaladeras
@@ -1555,7 +1668,7 @@ fr: saladier, saladiers
 it: insalatiera, insalatiere
 
 # CITEO only translates it by pot
-< en:dish
+< en: dish
 en: Terrine pot, terrine pots
 es: Tarrina, tarrinas
 fr: Terrine, terrines
@@ -1564,7 +1677,12 @@ fr: Terrine, terrines
 # suggest:packaging_materials:en: en:plastic, en:sandstone, en:ceramic
 
 en: Barrel, barrels, drum, drums, keg, kegs
+de: Fass, Fässer, Trommel, Trommeln, Keg, Kegs
+es: Barril, barriles, tambor, tambores, barrilito, barrilitos
 fr: Tonneau, tonneaux, tonnelet, tonnelets
+it: Barile, barili, botte, botti, fusto, fusti
+nl: Vat, vaten, drum, drums, keg, kegs
+pt: Barril, barris, tambor, tambores, barrilinho, barrilinhos
 wikidata:en: Q10289
 # suggest:packaging_materials:en: en:cardboard, en:plastic, en:metal, en:other
 # image:xx:tonneau-tonnelet-plastique.svg
@@ -1621,7 +1739,9 @@ nl: cellofaan
 description:nl: Transparant materiaal gemaakt van cellulose, in dunne vellen gewoonlijk in gebruik voor vochtdicht afsluiten van etenswaren
 
 en: Cartridge, cartridges
+es: cartucho, cartuchos
 fr: Cartouche, cartouches
+it: cartuccia, cartucce
 nl: Cartridge, cartridges
 # description:nl:Inktpatroon voor een printer >> actually no, food gas cartdrige
 wikidata:en: Q97584727

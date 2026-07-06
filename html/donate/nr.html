@@ -12,7 +12,7 @@
     <meta property="og:title" content="Help us lead the change in the food sector!" />
     <meta
       property="og:url"
-      content="https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=donate-page-share&utm_campaign=donation-2025&utm_content=donate-page-share-en"
+      content="https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=donate-page-share&utm_campaign=donation-2025&utm_content=donate-page-share-nr"
     />
     <meta
       property="og:image"
@@ -218,24 +218,11 @@
 
       <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
-          <div class="loading">
-            <p>The donation form is being loaded.<br>You can also access it by <a href="https://donorbox.org/your-donation-to-open-food-facts">clicking here</a>.</p>
-          </div>
-
-          <script
-            src="https://donorbox.org/widget.js"
-            paypalExpress="true"
-          ></script>
-          <iframe
-            title="Donate via Donorbox"
-            allowpaymentrequest=""
-            height="900px"
-            name="donorbox"
-            seamless="seamless"
-            src="https://donorbox.org/embed/your-donation-to-open-food-facts"
-            style="max-width: 500px; min-width: 310px; max-height:none!important;border:0;overflow:hidden;"
-            width="100%"
-          ></iframe>
+          <script type="module" src="https://donorbox.org/widgets.js" async></script>
+          <dbox-widget campaign="help-open-food-facts-stay-afloat" type="donation_form" enable-auto-scroll="true"></dbox-widget>
+          <noscript>
+            <p>The donation form is being loaded.<br>You can also access it by <a href="https://donorbox.org/help-open-food-facts-stay-afloat">clicking here</a>.</p>
+          </noscript>
 
           <div class="text-center">
             <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"

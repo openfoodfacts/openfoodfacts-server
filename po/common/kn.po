@@ -27,10 +27,14 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr ""
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr ""
+
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "ಪದಾರ್ಥಗಳು, ಅಲರ್ಜಿನ್‌ಗಳು, ಸೇರ್ಪಡೆಗಳು, ಪೌಷ್ಟಿಕಾಂಶದ ಸಂಗತಿಗಳು, ಲೇಬಲ್‌ಗಳು, ಮೂಲಗಳು, CO2 ಪ್ರಭಾವ ಮತ್ತು ಉತ್ಪನ್ನದ ಮೇಲಿನ ಮಾಹಿತಿ %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -44,33 +48,11 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr ""
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "ಪದಾರ್ಥಗಳು INCI, ಅಲರ್ಜಿನ್‌ಗಳು, ಸೇರ್ಪಡೆಗಳು, ಲೇಬಲ್‌ಗಳು, ಪದಾರ್ಥಗಳ ಮೂಲ ಮತ್ತು ಉತ್ಪನ್ನದ ಕುರಿತು ಮಾಹಿತಿ %s"
 
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr ""
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr ""
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "ಈ ಉತ್ಪನ್ನ ಪುಟ ಪೂರ್ಣಗೊಂಡಿಲ್ಲ. ನೀವು ಅದನ್ನು ಸಂಪಾದಿಸುವ ಮೂಲಕ ಮತ್ತು ನಮ್ಮಲ್ಲಿರುವ ಫೋಟೋಗಳಿಂದ ಹೆಚ್ಚಿನ ಡೇಟಾವನ್ನು ಸೇರಿಸುವ ಮೂಲಕ ಅಥವಾ <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">ಆಂಡ್ರಾಯ್ಡ್</a> ಅಥವಾ <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">ಐಫೋನ್/ಐಪ್ಯಾಡ್</a>ಗಾಗಿ ಸಾರ್ವತ್ರಿಕ ಮೊಬೈಲ್ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಿಕೊಂಡು ಹೆಚ್ಚಿನ ಫೋಟೋಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವ ಮೂಲಕ ಅದನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಸಹಾಯ ಮಾಡಬಹುದು. ಧನ್ಯವಾದಗಳು!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -111,6 +93,114 @@ msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr ""
 
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "ಪ್ರಪಂಚದಾದ್ಯಂತದ ವಿವಿಧ ಉತ್ಪನ್ನಗಳ ಮಾಹಿತಿಯ ಸಹಯೋಗದ, ಉಚಿತ ಮತ್ತು ಮುಕ್ತ ಡೇಟಾಬೇಸ್."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr ""
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "ಪದಾರ್ಥಗಳು, CO2 ಪ್ರಭಾವ, ಬಾಳಿಕೆ, ಲೇಬಲ್‌ಗಳು, ಪದಾರ್ಥಗಳ ಮೂಲ ಮತ್ತು ಉತ್ಪನ್ನದ ಕುರಿತು ಮಾಹಿತಿ %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr ""
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "ಈ ಉತ್ಪನ್ನ ಪುಟ ಪೂರ್ಣಗೊಂಡಿಲ್ಲ. ನೀವು ಅದನ್ನು ಸಂಪಾದಿಸುವ ಮೂಲಕ ಮತ್ತು ನಮ್ಮಲ್ಲಿರುವ ಫೋಟೋಗಳಿಂದ ಹೆಚ್ಚಿನ ಡೇಟಾವನ್ನು ಸೇರಿಸುವ ಮೂಲಕ ಅಥವಾ <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">ಆಂಡ್ರಾಯ್ಡ್</a> ಅಥವಾ <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">ಐಫೋನ್/ಐಪ್ಯಾಡ್</a>ಗಾಗಿ ಸಾರ್ವತ್ರಿಕ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಿ ಹೆಚ್ಚಿನ ಫೋಟೋಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವ ಮೂಲಕ ಅದನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಸಹಾಯ ಮಾಡಬಹುದು. ಧನ್ಯವಾದಗಳು!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr ""
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr ""
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr ""
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr ""
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr ""
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "ಈ ಉತ್ಪನ್ನ ಪುಟ ಪೂರ್ಣಗೊಂಡಿಲ್ಲ. ನೀವು ಅದನ್ನು ಸಂಪಾದಿಸುವ ಮೂಲಕ ಮತ್ತು ನಮ್ಮಲ್ಲಿರುವ ಫೋಟೋಗಳಿಂದ ಹೆಚ್ಚಿನ ಡೇಟಾವನ್ನು ಸೇರಿಸುವ ಮೂಲಕ ಅಥವಾ <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">ಆಂಡ್ರಾಯ್ಡ್</a> ಅಥವಾ <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">ಐಫೋನ್/ಐಪ್ಯಾಡ್</a>ಗಾಗಿ ಸಾರ್ವತ್ರಿಕ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಿ ಹೆಚ್ಚಿನ ಫೋಟೋಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವ ಮೂಲಕ ಅದನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಸಹಾಯ ಮಾಡಬಹುದು. ಧನ್ಯವಾದಗಳು!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr ""
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "ಒಣ ನಾಯಿ ಆಹಾರ, ಒದ್ದೆಯಾದ ಬೆಕ್ಕಿನ ಆಹಾರ"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "ಇಎಂಬಿ 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "ಕೋಳಿ ಮಾಂಸ, ಜೋಳದ ಅಂಟು ಮಾಂಸ, ಧಾನ್ಯದ ಜೋಳ, ಪ್ರಾಣಿಗಳ ಕೊಬ್ಬು, ಸೋಯಾಬೀನ್ ಊಟ"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr ""
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "ವಯಸ್ಕ ನಾಯಿಗಳಿಗೆ ಆರ್ದ್ರ ಆಹಾರ"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "ಸೀನಿಯರ್ ಡಾಗ್ ಡಿಲೈಟ್ ಚಿಕನ್ & ರೈಸ್"
+
 msgctxt "1_product"
 msgid "1 product"
 msgstr ""
@@ -121,7 +211,7 @@ msgstr ""
 
 msgctxt "add"
 msgid "Add"
-msgstr ""
+msgstr "ಸೇರಿಸಿ"
 
 msgctxt "add_language"
 msgid "Add language"
@@ -141,7 +231,7 @@ msgstr ""
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr ""
+msgstr "ಸ್ವಾಗತ!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -177,6 +267,10 @@ msgstr ""
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
+msgstr ""
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
 msgstr ""
 
 msgctxt "admin_status_updated"
@@ -357,10 +451,6 @@ msgstr ""
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
 msgstr ""
 
 msgctxt "bottom_title"
@@ -627,6 +717,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr ""
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "ಗುಣಲಕ್ಷಣಗಳನ್ನು ಸೇರಿಸಲು ಅಥವಾ ಸಂಪಾದಿಸಲು ಸೈನ್-ಇನ್ ಮಾಡಿ"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr ""
@@ -685,7 +779,7 @@ msgstr ""
 
 msgctxt "emb_code_p"
 msgid "Traceability codes"
-msgstr ""
+msgstr "ಪತ್ತೆಹಚ್ಚುವಿಕೆ ಸಂಕೇತಗಳು"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
@@ -705,7 +799,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "ಪತ್ತೆಹಚ್ಚುವಿಕೆ ಕೋಡ್"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -730,7 +824,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "ದೋಷ"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -860,7 +954,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -940,7 +1034,7 @@ msgstr ""
 
 msgctxt "footer_terms"
 msgid "Terms of use"
-msgstr ""
+msgstr "ಬಳಕೆಯ ನಿಯಮಗಳು"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
@@ -1637,7 +1731,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "ಪ್ರತಿ ಸೇವೆಗೆ"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1854,7 +1948,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "ಪೋಷಕಾಂಶವನ್ನು ಸೇರಿಸಿ"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -2018,7 +2112,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "ಉತ್ಪನ್ನಗಳು"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -2074,7 +2168,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸಿ"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2165,6 +2259,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr ""
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr ""
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr ""
 
@@ -2511,7 +2609,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "ಅಂಗಡಿ"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2572,7 +2670,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "ಅಜ್ಞಾತ"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -2769,8 +2867,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr ""
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "ಈ ಉತ್ಪನ್ನ ಪುಟ ಪೂರ್ಣಗೊಂಡಿಲ್ಲ. ನೀವು ಅದನ್ನು ಸಂಪಾದಿಸುವ ಮೂಲಕ ಮತ್ತು ನಮ್ಮಲ್ಲಿರುವ ಫೋಟೋಗಳಿಂದ ಹೆಚ್ಚಿನ ಡೇಟಾವನ್ನು ಸೇರಿಸುವ ಮೂಲಕ ಅಥವಾ <a href=\"https://android.openfoodfacts.org\">Android</a> ಅಥವಾ <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>ಗಾಗಿ ಮೊಬೈಲ್ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸಿಕೊಂಡು ಹೆಚ್ಚಿನ ಫೋಟೋಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವ ಮೂಲಕ ಅದನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಸಹಾಯ ಮಾಡಬಹುದು. ಧನ್ಯವಾದಗಳು!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2852,24 +2950,8 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr ""
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr ""
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr ""
-
 msgctxt "unit"
 msgid "Unit"
-msgstr ""
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr ""
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
 msgstr ""
 
 msgctxt "nova_groups_s"
@@ -3448,7 +3530,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "ಮೂಲಗಳು"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3706,6 +3788,10 @@ msgstr ""
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr ""
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "ಡೇಟಾ ಗುಣಮಟ್ಟದ ಸಂಪೂರ್ಣತೆ"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4319,7 +4405,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "ಮುಗಿದಿದೆ"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -4422,7 +4508,7 @@ msgstr ""
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "ಅಮಾನ್ಯ ಬಾರ್‌ಕೋಡ್"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
@@ -4617,17 +4703,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr ""
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr ""
+msgid "Nutri-Score not applicable"
+msgstr "ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಅನ್ವಯಿಸುವುದಿಲ್ಲ"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgid "Not applicable for the category: {category}"
+msgstr "ವರ್ಗಕ್ಕೆ ಅನ್ವಯಿಸುವುದಿಲ್ಲ: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4665,7 +4751,7 @@ msgstr ""
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "ಆಹಾರ ಸಂಸ್ಕರಣಾ ಮಟ್ಟ ತಿಳಿದಿಲ್ಲ"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4851,8 +4937,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "ಗ್ರೀನ್-ಸ್ಕೋರ್ ಎಂದರೆ A+ ನಿಂದ F ವರೆಗಿನ ಪರಿಸರ ಸ್ಕೋರ್ ಆಗಿದ್ದು, ಆಹಾರ ಉತ್ಪನ್ನಗಳ ಪರಿಸರದ ಮೇಲಿನ ಪರಿಣಾಮವನ್ನು ಹೋಲಿಸುವುದು ಸುಲಭವಾಗುತ್ತದೆ."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4864,8 +4950,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "ಗ್ರೀನ್-ಸ್ಕೋರ್ ಎಂದರೆ A+ ನಿಂದ F ವರೆಗಿನ ಪರಿಸರ ಸ್ಕೋರ್ ಆಗಿದ್ದು, ಆಹಾರ ಉತ್ಪನ್ನಗಳ ಪರಿಸರದ ಮೇಲಿನ ಪರಿಣಾಮವನ್ನು ಹೋಲಿಸುವುದು ಸುಲಭವಾಗುತ್ತದೆ."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5102,6 +5188,10 @@ msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr ""
 
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "ಸಿದ್ಧಪಡಿಸಿದ ಉತ್ಪನ್ನದ ಪೌಷ್ಟಿಕಾಂಶದ ಸಂಗತಿಗಳು ಕಾಣೆಯಾಗಿವೆ."
+
 msgctxt "ecoscore_p"
 msgid "Green-Score"
 msgstr ""
@@ -5120,11 +5210,11 @@ msgstr ""
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "ವಿವಿಧ"
 
 msgctxt "misc_s"
 msgid "Miscellaneous"
-msgstr ""
+msgstr "ವಿವಿಧ"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
@@ -5142,7 +5232,7 @@ msgstr ""
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "ಆಕಾರ"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5150,7 +5240,7 @@ msgstr ""
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "ವಸ್ತು"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5401,7 +5491,7 @@ msgstr ""
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
 msgstr ""
 
 msgctxt "forgotten_password"
@@ -5444,6 +5534,10 @@ msgstr ""
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr ""
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "ನಿಖರವಾದ ವರ್ಗ ಕಾಣೆಯಾಗಿದೆ."
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5780,8 +5874,8 @@ msgstr ""
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "ಗ್ರೀನ್-ಸ್ಕೋರ್ ಅನ್ನು ಆರಂಭದಲ್ಲಿ ಫ್ರಾನ್ಸ್‌ಗಾಗಿ ಅಭಿವೃದ್ಧಿಪಡಿಸಲಾಯಿತು ಮತ್ತು ಅದನ್ನು ಇತರ ಯುರೋಪಿಯನ್ ದೇಶಗಳಿಗೂ ವಿಸ್ತರಿಸಲಾಗುತ್ತಿದೆ. ಗ್ರೀನ್-ಸ್ಕೋರ್ ಸೂತ್ರವನ್ನು ನಿಯಮಿತವಾಗಿ ಸುಧಾರಿಸುವುದರಿಂದ ಅದು ಬದಲಾವಣೆಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ, ಏಕೆಂದರೆ ಇದನ್ನು ಪ್ರತಿ ದೇಶಕ್ಕೂ ಹೆಚ್ಚು ನಿಖರವಾಗಿ ಮತ್ತು ಉತ್ತಮವಾಗಿ ಹೊಂದಿಕೊಳ್ಳುವಂತೆ ಮಾಡಲಾಗುತ್ತದೆ."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5954,6 +6048,22 @@ msgctxt "environmental_score_production_system_labels_with_environmental_benefit
 msgid "Labels with very high environmental benefits"
 msgstr ""
 
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "ಯಾವುದೇ ಮೌಲ್ಯಮಾಪನ ಮಾಡಿದ ಲೇಬಲ್‌ಗಳಿಲ್ಲ."
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "ಕೆಲವು ಪರಿಸರ ಪ್ರಯೋಜನಗಳು"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "ಹೆಚ್ಚಿನ ಪರಿಸರ ಪ್ರಯೋಜನಗಳು"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "ಅತಿ ಹೆಚ್ಚಿನ ಪರಿಸರ ಪ್ರಯೋಜನಗಳು"
+
 msgctxt "other"
 msgid "Other"
 msgstr ""
@@ -6090,6 +6200,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr ""
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "ಸಿದ್ಧಪಡಿಸಿದ ಉತ್ಪನ್ನದ ಪೌಷ್ಟಿಕಾಂಶದ ಸಂಗತಿಗಳು ಕಾಣೆಯಾಗಿವೆ:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr ""
@@ -6105,6 +6219,14 @@ msgstr ""
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr ""
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "ಡೇಟಾ ಗುಣಮಟ್ಟದ ಸಂಪೂರ್ಣತೆ"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "ಈ ಉತ್ಪನ್ನದ ದತ್ತಾಂಶ ಗುಣಮಟ್ಟದ ಸಂಪೂರ್ಣತೆಯ ಕುರಿತು ಕೆಲವು ಮಾಹಿತಿಗಳು"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6177,6 +6299,10 @@ msgstr ""
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr ""
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "ಸಿದ್ಧಪಡಿಸಿದ ಪೌಷ್ಟಿಕಾಂಶದ ಸಂಗತಿಗಳು ಕಾಣೆಯಾಗಿವೆ"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6316,22 +6442,22 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "ತುಂಬಾ ಒಳ್ಳೆಯ ಹೊಂದಾಣಿಕೆ"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "ಉತ್ತಮ ಹೊಂದಾಣಿಕೆ"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "ಕಳಪೆ ಹೊಂದಾಣಿಕೆ"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "ಅಪರಿಚಿತ ಹೊಂದಾಣಿಕೆ"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -6341,7 +6467,7 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
@@ -6362,6 +6488,10 @@ msgstr ""
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr ""
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "ಈ ಉತ್ಪನ್ನಕ್ಕಾಗಿ ನಾವು ಹೊಂದಿರುವ ವರ್ಗವು ಗ್ರೀನ್-ಸ್ಕೋರ್ ಅನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡುವಷ್ಟು ನಿಖರವಾಗಿಲ್ಲ. ನೀವು ಹೆಚ್ಚು ನಿಖರವಾದ ಉತ್ಪನ್ನ ವರ್ಗವನ್ನು ಸೇರಿಸಬಹುದೇ?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6517,7 +6647,7 @@ msgstr "ಸೈನ್ ಇನ್ ಮಾಡಿ"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr ""
+msgstr "ಸೈನ್ ಔಟ್ ಮಾಡಿ"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6601,6 +6731,10 @@ msgstr ""
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
+msgstr ""
+
+msgctxt "api_result_user_found"
+msgid "User found"
 msgstr ""
 
 msgctxt "api_message_invalid_api_action"
@@ -6710,7 +6844,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "ಘಟಕಗಳ ಸಂಖ್ಯೆ"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
@@ -6735,6 +6869,14 @@ msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr ""
 
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
+
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr ""
@@ -6742,19 +6884,19 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "ಉತ್ಪನ್ನದಲ್ಲಿರುವ ಒಂದೇ ಆಕಾರ ಮತ್ತು ವಸ್ತುವಿನ ಪ್ಯಾಕೇಜಿಂಗ್ ಘಟಕಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "ಮರುಬಳಕೆ ಸೂಚನೆಗಳಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡಲಾದ ಆಕಾರದ ಹೆಸರು ಲಭ್ಯವಿದ್ದರೆ ನಮೂದಿಸಿ, ಅಥವಾ ಆಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "ನಿರ್ದಿಷ್ಟ ವಸ್ತುವನ್ನು ನಿರ್ಧರಿಸಲು ಸಾಧ್ಯವಾದರೆ ಅದನ್ನು ನಮೂದಿಸಿ (ತ್ರಿಕೋನದೊಳಗಿನ ವಸ್ತು ಸಂಕೇತವನ್ನು ಹೆಚ್ಚಾಗಿ ಪ್ಯಾಕೇಜಿಂಗ್ ಭಾಗಗಳಲ್ಲಿ ಕಾಣಬಹುದು), ಅಥವಾ ನಿಮಗೆ ಖಚಿತವಿಲ್ಲದಿದ್ದರೆ ಸಾಮಾನ್ಯ ವಸ್ತುವನ್ನು (ಉದಾಹರಣೆಗೆ ಪ್ಲಾಸ್ಟಿಕ್ ಅಥವಾ ಲೋಹ) ನಮೂದಿಸಿ."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "ಉತ್ಪನ್ನದ ಮೇಲೆ ಪಟ್ಟಿ ಮಾಡಿದ್ದರೆ ಮಾತ್ರ ಮರುಬಳಕೆ ಸೂಚನೆಗಳನ್ನು ನಮೂದಿಸಿ."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6764,7 +6906,7 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "ನಿವ್ವಳ ತೂಕ ಅಥವಾ ನಿವ್ವಳ ಪರಿಮಾಣವನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಘಟಕವನ್ನು ಸೂಚಿಸಿ (ಉದಾಹರಣೆಗೆ g ಅಥವಾ ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -7078,13 +7220,8 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr ""
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
 msgstr ""
 
 msgctxt "incomplete_or_incorrect_data_title"
@@ -7341,11 +7478,11 @@ msgid "Repairability index unknown"
 msgstr ""
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr ""
+msgid "Repairability index not applicable"
+msgstr "ದುರಸ್ತಿ ಸೂಚ್ಯಂಕ ಅನ್ವಯಿಸುವುದಿಲ್ಲ"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr ""
 
 # variable names between { } must not be translated
@@ -7384,17 +7521,17 @@ msgstr ""
 
 msgctxt "product_type"
 msgid "Product type"
-msgstr ""
+msgstr "ಉತ್ಪನ್ನದ ಪ್ರಕಾರ"
 
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "ಆಹಾರ"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "ಸಾಕುಪ್ರಾಣಿ ಆಹಾರ"
 
 # Beauty product type
 msgctxt "product_type_beauty"
@@ -7469,7 +7606,7 @@ msgstr ""
 
 msgctxt "scan"
 msgid "Scan"
-msgstr ""
+msgstr "ಸ್ಕ್ಯಾನ್ ಮಾಡಿ"
 
 msgctxt "reset_preferences_details_beauty"
 msgid "Organic farming and fair trade"
@@ -7491,9 +7628,41 @@ msgctxt "action_report_image_to_nutripatrol"
 msgid "Report this image to our moderators"
 msgstr "ಈ ಚಿತ್ರವನ್ನು ನಮ್ಮ ಮಾಡರೇಟರ್‌ಗಳಿಗೆ ವರದಿ ಮಾಡಿ"
 
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಅನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡಲು ನಮಗೆ ಸರ್ವಿಂಗ್ ಗಾತ್ರದ ಮೌಲ್ಯ ಮತ್ತು/ಅಥವಾ ಘಟಕ ಕಾಣೆಯಾಗಿದೆ."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr ""
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr ""
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "ಲಿಲೋ ಸರ್ಚ್ ಎಂಜಿನ್"
+
 msgctxt "robots_not_served_here"
 msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
 msgstr "ರೋಬೋಟ್‌ಗಳ ಭಾರೀ ದುರುಪಯೋಗದಿಂದಾಗಿ, ಗುರುತಿಸಲಾಗದ ಬಳಕೆದಾರರಿಗೆ ಈ ಪುಟವನ್ನು ಒದಗಿಸಲು ನಮಗೆ ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಎಲ್ಲಾ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಲು ದಯವಿಟ್ಟು ಉಚಿತ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್‌ಗಳ ಖಾತೆಯನ್ನು ರಚಿಸಿ."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "ಪದಾರ್ಥಗಳ ಮೂಲ:"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "ಉತ್ಪನ್ನ ಮಾಹಿತಿ"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "ಕಚ್ಚಾ ಉತ್ಪನ್ನ ಮಾಹಿತಿ"
 
 msgctxt "knowledge_panels_ingredients_added_sugars_title"
 msgid "Contains added sugars"
@@ -7507,7 +7676,309 @@ msgctxt "estimated_quantity_of_added_sugars"
 msgid "Estimated quantity of added sugars in ingredients"
 msgstr "ಪದಾರ್ಥಗಳಲ್ಲಿ ಸೇರಿಸಿದ ಸಕ್ಕರೆಗಳ ಅಂದಾಜು ಪ್ರಮಾಣ"
 
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "ಸೇರಿಸಿದ ಸಕ್ಕರೆಗಳ ಪ್ರಮಾಣ"
+
 msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "ಸಕ್ಕರೆ ಸೇರಿಸದೆ ಒಂದೇ ವರ್ಗದಲ್ಲಿ ಉತ್ಪನ್ನಗಳನ್ನು ಹುಡುಕಿ:"
+
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr ""
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "ಪ್ರತಿ ಸೇವೆಗೆ"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "ಪೋಷಕಾಂಶವನ್ನು ಸೇರಿಸಿ"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "ಬೇಡದ ಪದಾರ್ಥಗಳು"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "ಈ ಆದ್ಯತೆಯು ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್‌ನ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯ ತಿಳುವಳಿಕೆಯನ್ನು ಆಧರಿಸಿದೆ ಮತ್ತು ಅದು ನಿಖರವಾಗಿಲ್ಲದಿರಬಹುದು, ಯಾವಾಗಲೂ ಉತ್ಪನ್ನವನ್ನು ನೀವೇ ಪರಿಶೀಲಿಸಿ."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "ಅನಗತ್ಯ ಪದಾರ್ಥಗಳ ಉಪಸ್ಥಿತಿ ತಿಳಿದಿಲ್ಲ."
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "ಯಾವುದೇ ಅನಗತ್ಯ ಅಂಶಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ."
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "ಅನಗತ್ಯ ಪದಾರ್ಥಗಳನ್ನು ಒಳಗೊಂಡಿದೆ"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "ಕೆಲವು ಪದಾರ್ಥಗಳನ್ನು ಗುರುತಿಸಲಾಗಿಲ್ಲ."
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "ನಮಗೆ ಇದು ಪತ್ತೆಯಾಗಲಿಲ್ಲ: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "ನಮಗೆ ಇದು ಪತ್ತೆಯಾಗಲಿಲ್ಲ: {unwanted_ingredients}. ನಮಗೆ ಕೆಲವು ಪದಾರ್ಥಗಳು ತಪ್ಪಿಹೋಗಿರಬಹುದು, ದಯವಿಟ್ಟು ಯಾವಾಗಲೂ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯನ್ನು ಪರಿಶೀಲಿಸಿ."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "ಆ ಆದ್ಯತೆಗಳು ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್‌ನ ಪದಾರ್ಥಗಳ ಪಟ್ಟಿಯ ತಿಳುವಳಿಕೆಯನ್ನು ಆಧರಿಸಿವೆ ಮತ್ತು ಅದು ನಿಖರವಾಗಿ ಅಥವಾ ಪೂರ್ಣವಾಗಿರದಿರುವ ಸಾಧ್ಯತೆ ಯಾವಾಗಲೂ ಇರುತ್ತದೆ, ಯಾವಾಗಲೂ ಉತ್ಪನ್ನವನ್ನು ನೀವೇ ಪರಿಶೀಲಿಸಿ."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr ""
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr ""
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr ""
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr ""
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr ""
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr ""
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr ""
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "ಧೂಮಪಾನ ಕೊಲ್ಲುತ್ತದೆ"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "ತಂಬಾಕು ಆರೋಗ್ಯಕ್ಕೆ ಗಂಭೀರ ಹಾನಿ ಮಾಡುತ್ತದೆ. ಪ್ರಾರಂಭಿಸಬೇಡಿ. ಈಗಲೇ ಬಿಟ್ಟುಬಿಡಿ."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "ಧೂಮಪಾನವು ತುಂಬಾ ವ್ಯಸನಕಾರಿಯಾಗಿದೆ. ಪ್ರಾರಂಭಿಸಬೇಡಿ. ಧೂಮಪಾನ ಕೊಲ್ಲುತ್ತದೆ - ಈಗಲೇ ಬಿಡಿ. ಧೂಮಪಾನವು ಅಪಧಮನಿಗಳನ್ನು ಮುಚ್ಚಿ ಹೃದಯಾಘಾತ ಮತ್ತು ಪಾರ್ಶ್ವವಾಯುಗಳಿಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ಧೂಮಪಾನವು ಮಾರಕ ಶ್ವಾಸಕೋಶದ ಕ್ಯಾನ್ಸರ್‌ಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ಗರ್ಭಾವಸ್ಥೆಯಲ್ಲಿ ಧೂಮಪಾನವು ನಿಮ್ಮ ಮಗುವಿಗೆ ಹಾನಿ ಮಾಡುತ್ತದೆ. ಮಕ್ಕಳನ್ನು ರಕ್ಷಿಸಿ: ನಿಮ್ಮ ಹೊಗೆಯನ್ನು ಅವರು ಉಸಿರಾಡುವಂತೆ ಮಾಡಬೇಡಿ. ನಿಮ್ಮ ವೈದ್ಯರು ಅಥವಾ ನಿಮ್ಮ ಔಷಧಿಕಾರರು ಧೂಮಪಾನವನ್ನು ನಿಲ್ಲಿಸಲು ನಿಮಗೆ ಸಹಾಯ ಮಾಡಬಹುದು. ಧೂಮಪಾನವು ರಕ್ತದ ಹರಿವನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ ಮತ್ತು ದುರ್ಬಲತೆಗೆ ಕಾರಣವಾಗಬಹುದು. ಧೂಮಪಾನವು ಚರ್ಮದ ವಯಸ್ಸಾಗುವಿಕೆಗೆ ಕಾರಣವಾಗುತ್ತದೆ. ಧೂಮಪಾನವು ವೀರ್ಯವನ್ನು ಹಾನಿಗೊಳಿಸುತ್ತದೆ ಮತ್ತು ಫಲವತ್ತತೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ. ಹೊಗೆಯಲ್ಲಿ ಬೆಂಜೀನ್, ನೈಟ್ರೋಸಮೈನ್‌ಗಳು, ಫಾರ್ಮಾಲ್ಡಿಹೈಡ್ ಮತ್ತು ಹೈಡ್ರೋಜನ್ ಸೈನೈಡ್ ಇರುತ್ತದೆ."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "ಕಾಣಿಕೆ"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "ಮರುಬಳಕೆ ಮಾಡಿ"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "ಸಾರ್ವಜನಿಕ ಬೆಲೆ"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3.50 ಯೂರೋ, 2.99 ಯುಎಸ್‌ಡಿ, 4.00 ಜಿಬಿಪಿ"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "ಉತ್ಪನ್ನ ಪ್ಯಾಕೇಜಿಂಗ್ ಅಥವಾ ತಯಾರಕರ ಸೈಟ್‌ನಲ್ಲಿ ಸೂಚಿಸಿದಂತೆ (ಕಾನೂನಿನ ಆಧಾರದ ಮೇಲೆ ತೆರಿಗೆಗಳನ್ನು ಒಳಗೊಂಡಂತೆ ಅಥವಾ ಹೊರತುಪಡಿಸಿ) ರಿಯಾಯಿತಿಗಳು ಮತ್ತು ಪ್ರಚಾರಗಳನ್ನು ಹೊರತುಪಡಿಸಿ, ತಯಾರಕರು ಸೂಚಿಸಿದ ಚಿಲ್ಲರೆ ಬೆಲೆ (MSRP). ಬಹು ಕರೆನ್ಸಿಗಳಲ್ಲಿ ಬೆಲೆಗಳನ್ನು ಪಟ್ಟಿ ಮಾಡಿದ್ದರೆ ಅಲ್ಪವಿರಾಮದಿಂದ ಬೇರ್ಪಟ್ಟ ಪಟ್ಟಿಯನ್ನು ಬಳಸಿ."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "ವೈಯಕ್ತಿಕಗೊಳಿಸಿದ ಆಸ್ತಿ"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "ತಾಳೆ ಎಣ್ಣೆಯನ್ನು ಒಳಗೊಂಡಿಲ್ಲ."
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "ತಾಳೆ ಎಣ್ಣೆಯನ್ನು ಒಳಗೊಂಡಿರಬಹುದು"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "ಪರಿಸರ ಲೇಬಲ್‌ಗಳು"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "ಡೇಟಾ ಕಾಣೆಯಾಗಿದೆ"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "ಹೆಚ್ಚಿನ ಪರಿಣಾಮ"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "ಮಧ್ಯಮ ಪರಿಣಾಮ"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "ಕಡಿಮೆ ಪರಿಣಾಮ"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "ಪರಿಣಾಮವನ್ನು ನಿರ್ಣಯಿಸಲಾಗಿಲ್ಲ"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
 

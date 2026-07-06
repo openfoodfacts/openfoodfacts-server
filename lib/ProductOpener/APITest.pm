@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -36,8 +36,10 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&construct_test_url
 		&create_user
+		&create_user_legacy
 		&edit_user
 		&create_user_in_keycloak
+		&create_test_users
 		&edit_product
 		&get_page
 		&html_displays_error
@@ -53,6 +55,7 @@ BEGIN {
 		&execute_api_tests
 		&fake_http_server
 		&get_minion_jobs
+		&get_last_minion_job_created
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -64,17 +67,21 @@ use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
-use ProductOpener::Producers qw/get_minion/;
+use ProductOpener::Minion qw/get_minion write_minion_log/;
 use ProductOpener::HTTP qw/create_user_agent/;
 use ProductOpener::Config qw/%oidc_options/;
+use ProductOpener::Auth qw/get_oidc_implementation_level get_token_using_password_credentials/;
+use ProductOpener::Tags qw/country_to_cc/;
+use ProductOpener::TestDefaults qw/:all/;
 
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
-use HTTP::CookieJar::LWP;
+use HTTP::Cookies;
 use HTTP::Request::Common;
 use Encode;
 use JSON::MaybeXS;
+use URI::Escape::XS qw(uri_unescape);
 use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;
@@ -87,6 +94,7 @@ no warnings qw(experimental::signatures);
 # Should be used internally only (see: construct_test_url to build urls in tests)
 my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
 my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
+my $metadata_json_encoder = JSON::MaybeXS->new(canonical => 1, utf8 => 1, pretty => 1);
 
 =head2 wait_auth()
 
@@ -108,7 +116,7 @@ sub wait_auth() {
 		sleep 1;
 		$count++;
 		if (($count % 3) == 0) {
-			print("Waiting for auth to be ready since more than $count seconds...\n");
+			print STDERR "Waiting for auth to be ready since more than $count seconds...\n";
 			diag Dumper({url => $target_url, status => $response->code, response => $response});
 		}
 		confess("Waited too much for auth") if $count > 60;
@@ -132,7 +140,7 @@ sub wait_dynamic_front() {
 		sleep 1;
 		$count++;
 		if (($count % 3) == 0) {
-			print("Waiting for dynamicfront to be ready since $count seconds...\n");
+			print STDERR "Waiting for dynamicfront to be ready since $count seconds...\n";
 		}
 		confess("Waited too much for backend") if $count > 100;
 	}
@@ -158,7 +166,7 @@ sub wait_server() {
 		sleep 1;
 		$count++;
 		if (($count % 3) == 0) {
-			print("Waiting for backend to be ready since more than $count seconds...\n");
+			print STDERR "Waiting for backend to be ready since more than $count seconds...\n";
 			diag Dumper({url => $target_url, status => $response->code, response => $response});
 		}
 		confess("Waited too much for backend") if $count > 60;
@@ -166,14 +174,14 @@ sub wait_server() {
 	return;
 }
 
-=head2 wait_application_ready()
+=head2 wait_application_ready(__FILE__)
 
 Wait for server, dynamic front, and authentication server to be ready.
 Run this at the beginning of every integration test
 
 =cut
 
-sub wait_application_ready() {
+sub wait_application_ready($file) {
 	wait_server();
 	wait_dynamic_front();
 	wait_auth();
@@ -191,16 +199,16 @@ Return a user agent
 =cut
 
 sub new_client () {
-	my $jar = HTTP::CookieJar::LWP->new;
+	my $jar = HTTP::Cookies->new;
 	my $ua = create_user_agent(cookie_jar => $jar);
 	# set a neutral user-agent, for it may appear in some results
 	$ua->agent("Product-opener-tests/1.0");
 	return $ua;
 }
 
-=head2 create_user($ua, $args_ref)
+=head2 create_user_legacy($ua, $args_ref)
 
-Call API to create a user
+Call API to create a user. This legacy method will be deprecated at some point
 
 =head3 Arguments
 
@@ -210,15 +218,24 @@ Call API to create a user
 
 =cut
 
-sub create_user ($ua, $args_ref) {
+sub create_user_legacy ($ua, $args_ref, $is_edit = 0, $prefix = 'world') {
+	my $before_create_ts = get_last_minion_job_created();
+
 	my %fields = %{clone($args_ref)};
+	if (not defined $fields{email}) {
+		$fields{email} = $fields{userid} . '@example.com';
+	}
 	my $tail = tail_log_start();
-	my $response = $ua->post("$TEST_WEBSITE_URL/cgi/user.pl", Content => \%fields);
+	my $response = $ua->post("http://$prefix.$TEST_MAIN_DOMAIN/cgi/user.pl", Content => \%fields);
 	if (not $response->is_success) {
 		diag("Couldn't create user with " . Dumper(\%fields) . "\n");
 		diag Dumper $response;
 		diag("\n\nLog4Perl Logs: \n" . tail_log_read($tail) . "\n\n");
 		confess("\nResuming");
+	}
+	elsif (not $is_edit and get_oidc_implementation_level() > 1) {
+		# Wait for the welcome email job before proceeding so the user is fully created
+		get_minion_jobs("welcome_user", $before_create_ts);
 	}
 	return $response;
 }
@@ -231,8 +248,8 @@ Call API to edit a user, see create_user
 
 sub edit_user ($ua, $args_ref) {
 	($args_ref->{type} eq "edit") or confess("Action type must be 'edit' in edit_user");
-	# technically the same as create_user !
-	return create_user($ua, $args_ref);
+	# technically the same as create_user but need to know it is an edit so we don't wait for Keycloak events !
+	return create_user_legacy($ua, $args_ref, 1);
 }
 
 =head2 login($ua, $user_id, $password)
@@ -258,10 +275,7 @@ sub login ($ua, $user_id, $password) {
 
 =head2 create_user_in_keycloak($user_ref)
 
-Call API to create a user in Keycloak
-without creating them in ProductOpener, too.
-As create_user uses the ProductOpener API, this
-is useful for testing the Keycloak API on it's own.
+Call API to create a user in Keycloak which will in turn create the user in ProductOpener via Redis
 
 =head3 Arguments
 
@@ -270,6 +284,7 @@ is useful for testing the Keycloak API on it's own.
 =cut
 
 sub create_user_in_keycloak ($user_ref) {
+	my $before_create_ts = get_last_minion_job_created();
 
 	my $credential = {
 		type => 'password',
@@ -285,10 +300,15 @@ sub create_user_in_keycloak ($user_ref) {
 		credentials => [$credential],
 		attributes => {
 			name => $user_ref->{name},
-			locale => $user_ref->{initial_lc},
-			country => $user_ref->{initial_cc},
+			locale => $user_ref->{preferred_language},
+			requested_org => $user_ref->{requested_org},
+			newsletter => ($user_ref->{newsletter} ? 'subscribe' : undef)
 		}
 	};
+	# Only supply country if it is set
+	if ($user_ref->{country}) {
+		$keycloak_user_ref->{attributes}->{country} = country_to_cc($user_ref->{country});
+	}
 
 	my $json = encode_json($keycloak_user_ref);
 
@@ -302,10 +322,101 @@ sub create_user_in_keycloak ($user_ref) {
 	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
 
 	unless ($new_user_response->is_success) {
-		return 0;
+		die $new_user_response->content;
 	}
 
+	# Wait for the welcome email job before proceeding so the user is fully created
+	get_minion_jobs("welcome_user", $before_create_ts);
+
 	return 1;
+}
+
+=head2 create_user($ua, $user_ref)
+
+Call API to create a user in Keycloak which will in turn create the user in ProductOpener via Redis
+Also logs the user in by setting the Authorization header in the user agent
+
+=head3 Arguments
+
+=head4 $ua - user agent
+
+=head4 $user_ref - fields
+
+=cut
+
+sub create_user ($ua, $user_ref) {
+	create_user_in_keycloak($user_ref);
+
+	# Get an access token for the user and add to a client for authenticated requests
+	my $access_token = get_token_using_password_credentials($user_ref->{userid}, $user_ref->{password})->{access_token};
+	$ua->default_header('Authorization' => 'Bearer ' . $access_token);
+
+	return $access_token;
+}
+
+=head2 create_test_users($admin=undef, $moderator=undef)
+
+Create some tests users.
+
+=head3 Arguments
+
+=head4 $admin
+
+Create an admin user
+
+=head4 $moderator
+
+Create a moderator user, implies creation of an admin
+
+=head3 Returns
+
+A hashmap associating user with their user agent:
+
+=over
+
+=item user: normal user
+
+=item admin: admin user
+
+=item moderator: moderator user
+
+=back
+
+=cut
+
+sub create_test_users($admin = undef, $moderator = undef) {
+
+	my %users = ();
+
+	# Create a normal user
+	my $ua = new_client();
+	my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
+	create_user($ua, \%create_user_args);
+	$users{user} = $ua;
+
+	my $admin_ua;
+	if ($admin or $moderator) {
+		# Create an admin
+		$admin_ua = new_client();
+		create_user($admin_ua, \%admin_user_form);
+		$users{admin} = $admin_ua;
+	}
+
+	if ($moderator) {
+		# Create a moderator
+		my $moderator_ua = new_client();
+		create_user($moderator_ua, \%moderator_user_form);
+		# Admin gives moderator status
+		my %moderator_edit_form = (
+			%moderator_user_form,
+			user_group_moderator => "1",
+			type => "edit",
+		);
+		my $resp = edit_user($admin_ua, \%moderator_edit_form);
+		ok(!html_displays_error($resp));
+		$users{moderator} = $moderator_ua;
+	}
+	return \%users;
 }
 
 =head2 get_page ($ua, $url)
@@ -426,7 +537,7 @@ Constructs the URL to send the HTTP request to for the API.
 
 =head3 Arguments
 
-Takes in two string arguments, One being the the target and other a prefix. 
+Takes in two string arguments, One being the target and other a prefix. 
 The prefix could be simply the country code (eg: US for America or "World") OR something like ( {country-code}-{language-code} )
 
 An example below
@@ -491,6 +602,7 @@ my $tests_ref = (
 			headers_in => {header1 => value1},  # optional, headers to add to request
 			body => '{"some_json_field": "some_value"}',  # optional, will be fetched in file in needed
 			ua => a LWP::UserAgent object, if a specific user is needed (e.g. with moderator status)
+			cookies => [{ name => 'cookie_name', value => 'cookie_value'}, ..] # optional, cookies to add to request
 
 			# expected return
 			expected_status_code => 200,	# optional. Defaults to 200
@@ -512,6 +624,128 @@ Note: this setting can be overriden for each test case by specifying a "ua" fiel
 
 =cut
 
+=head2 normalize_api_response_for_test_comparison($response_ref)
+
+Normalize an API response to be able to compare them across test runs.
+
+We replace volatile parts like line numbers in stack traces with --ignore-- 
+to prevent tests from breaking when code is refactored.
+
+=head3 Arguments
+
+=head4 $response_ref - Hash ref containing API response
+
+=cut
+
+sub normalize_api_response_for_test_comparison ($response_ref) {
+	my %specification = (fields_ignore_line_numbers_in_content => ["errors.*.field.error"],);
+
+	normalize_object_for_test_comparison($response_ref, \%specification);
+	return;
+}
+
+sub normalize_health_response_for_test_comparison ($response_ref) {
+	my %specification = (fields_ignore_content => ["checks.*.*.time", "checks.*.*.observedValue"],);
+
+	normalize_object_for_test_comparison($response_ref, \%specification);
+	return;
+}
+
+sub parse_query_string_parameters_from_url ($url) {
+
+	my %parameters = ();
+	my $query_string = "";
+	if ((defined $url) and ($url ne "")) {
+		($query_string) = $url =~ /\?(.*)\z/;
+		$query_string //= "";
+	}
+	return \%parameters if ($query_string eq "");
+
+	foreach my $pair (split(/[&;]/, $query_string)) {
+		next if ($pair eq "");
+		my ($key, $value) = split(/=/, $pair, 2);
+		$key //= "";
+		$value //= "";
+		$key = uri_unescape($key);
+		$value = uri_unescape($value);
+
+		if (defined $parameters{$key}) {
+			if (ref($parameters{$key}) eq "ARRAY") {
+				push(@{$parameters{$key}}, $value);
+			}
+			else {
+				$parameters{$key} = [$parameters{$key}, $value];
+			}
+		}
+		else {
+			$parameters{$key} = $value;
+		}
+	}
+
+	return \%parameters;
+}
+
+sub get_api_call_metadata ($test_ref) {
+
+	my $content_type;
+	my $body;
+	my $simplified_url = $test_ref->{url};
+
+	# Special case for /cgi/display.pl? which is in fact invisible from behind the reverse proxy
+	$simplified_url =~ s/\/cgi\/display\.pl\?//;
+
+	# Get path
+	my $path = $simplified_url;
+	if (defined $path) {
+		$path =~ s/^https?:\/\/[^\/]+//;
+		$path =~ s/\?.*$//;
+	}
+	if (defined $test_ref->{body}) {
+		$content_type = "application/json; charset=utf-8";
+		my $decoded_body = eval {decode_json($test_ref->{body})};
+		if (defined $decoded_body) {
+			if (ref($decoded_body) eq "HASH") {
+				$body = $decoded_body;
+			}
+			else {
+				$body = {value => $decoded_body};
+			}
+		}
+		else {
+			$body = {raw_body => $test_ref->{body}};
+		}
+	}
+	elsif (defined $test_ref->{form}) {
+		$body = clone($test_ref->{form});
+		my $is_multipart = (grep {ref($_) eq 'ARRAY'} values %{$test_ref->{form}}) > 0;
+		$content_type = $is_multipart ? "multipart/form-data" : "application/x-www-form-urlencoded";
+	}
+
+	return {
+		api_call => {
+			path => $path,
+			method => $test_ref->{method},
+			# Keep query parameters available as a parsed object for schema checks.
+			parameters => parse_query_string_parameters_from_url($simplified_url),
+			'content-type' => $content_type,
+			body => $body,
+		}
+	};
+}
+
+sub write_expected_result_metadata ($expected_result_file, $test_ref, $update_expected_results) {
+	return if (not $update_expected_results);
+
+	my $metadata_ref = get_api_call_metadata($test_ref);
+	my $metadata_file = $expected_result_file . ".metadata";
+	open(my $metadata_fh, ">:encoding(UTF-8)", $metadata_file)
+		or confess("Could not create " . $metadata_file . ": $!");
+	print $metadata_fh $metadata_json_encoder->encode($metadata_ref);
+	close($metadata_fh);
+
+	return;
+}
+
 sub execute_request ($test_ref, $ua) {
 
 	# We may have a test case specific user agent
@@ -529,6 +763,13 @@ sub execute_request ($test_ref, $ua) {
 	if (defined $test_ref->{headers_in}) {
 		# combine with computed headers
 		$headers_in = {%$headers_in, %{$test_ref->{headers_in}}};
+	}
+
+	# Add cookies if needed
+	if (defined $test_ref->{cookies}) {
+		foreach my $cookie_ref (@{$test_ref->{cookies}}) {
+			$test_ua->cookie_jar->set_cookie(0, $cookie_ref->{name}, $cookie_ref->{value}, "/", ".${TEST_MAIN_DOMAIN}");
+		}
 	}
 
 	my $response;
@@ -619,6 +860,13 @@ sub execute_request ($test_ref, $ua) {
 		diag("Warning: redirects are not supported by APITest.pm!!! Got a redirect to " . $final_url);
 	}
 
+	# Remove cookies set in the test request (but not other cookies like session cookies)
+	if (defined $test_ref->{cookies}) {
+		foreach my $cookie_ref (@{$test_ref->{cookies}}) {
+			$test_ua->cookie_jar->set_cookie(0, $cookie_ref->{name}, "", "/", ".${TEST_MAIN_DOMAIN}");
+		}
+	}
+
 	return $response;
 }
 
@@ -666,14 +914,15 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 
 	if ((($expected_type eq 'text') or ($expected_type eq 'html'))) {
 		# Check that the file is the same as expected (useful for HTML content or dynamic robots.txt)
+		my $expected_result_file = "$expected_result_dir/$test_case.$expected_type";
 		is(
 			compare_file_to_expected_results(
-				$response_content, "$expected_result_dir/$test_case.$expected_type",
-				$update_expected_results, $test_ref
+				$response_content, $expected_result_file, $update_expected_results, $test_ref
 			),
 			1,
 			"$test_case - result"
 		);
+		write_expected_result_metadata($expected_result_file, $test_ref, $update_expected_results);
 	}
 	# Otherwise we expect the result is JSON
 	elsif ($expected_type eq 'json') {
@@ -697,9 +946,18 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 		# If the request was a setup request, we don't need to save or check the response
 		# otherwise, save or check the response
 		if (not $test_ref->{setup}) {
+			my $expected_result_file = "$expected_result_dir/$test_case.json";
 
 			# normalize for comparison
 			if (ref($decoded_json) eq 'HASH') {
+				# Normalize API error responses to ignore volatile line numbers in stack traces
+				normalize_api_response_for_test_comparison($decoded_json);
+
+				# Normalize health check responses to ignore volatile timestamps
+				if (defined $decoded_json->{'checks'}) {
+					normalize_health_response_for_test_comparison($decoded_json);
+				}
+
 				if (defined $decoded_json->{'products'}) {
 					normalize_products_for_test_comparison($decoded_json->{'products'});
 					if (defined $test_ref->{sort_products_by}) {
@@ -709,16 +967,17 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 				if (defined $decoded_json->{'product'}) {
 					normalize_product_for_test_comparison($decoded_json->{'product'});
 				}
+				if (defined $decoded_json->{'blame'}) {
+					normalize_blame_for_test_comparison($decoded_json->{'blame'});
+				}
 			}
 
 			is(
-				compare_to_expected_results(
-					$decoded_json, "$expected_result_dir/$test_case.json",
-					$update_expected_results, $test_ref
-				),
+				compare_to_expected_results($decoded_json, $expected_result_file, $update_expected_results, $test_ref),
 				1,
 				"$test_case - result"
 			);
+			write_expected_result_metadata($expected_result_file, $test_ref, $update_expected_results);
 
 		}
 	}
@@ -992,14 +1251,16 @@ not the Minion job object.
 
 =cut
 
-sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
+sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time = 60) {
 	my $waited = 0;    # counting the waiting time
 	my %run_jobs = ();
-	my $jobs_complete = 0;
-	while (($waited < $max_waiting_time) and (not $jobs_complete)) {
+	my $waiting_jobs = 0;
+	my $completed_jobs = 0;
+	my @debug_jobs = ();
+	while ($waited < $max_waiting_time and ($waiting_jobs or not $completed_jobs)) {
 		my $jobs = get_minion()->jobs({tasks => [$task_name]});
+		$waiting_jobs = 0;
 		# iterate on jobs
-		$jobs_complete = 1;
 		while (my $job = $jobs->next) {
 			next if (defined $run_jobs{$job->{id}});
 			# only those who were created after the timestamp
@@ -1010,19 +1271,45 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 				my $job_state = $job->{state};
 				# check if the job is done
 				if (($job_state eq "active") or ($job_state eq "inactive")) {
-					$jobs_complete = 0;
-					sleep(2);
-					$waited += 2;
+					$waiting_jobs = 1;
 				}
 				else {
+					$completed_jobs += 1;
 					$run_jobs{$job_id} = $job;
 				}
 			}
 		}
+		if ($waiting_jobs or not $completed_jobs) {
+			sleep(1);
+			$waited += 1;
+			if (not $waited % 10) {
+				print STDERR "Waiting $waited seconds since "
+					. localtime($created_after_ts)
+					. " for $task_name minion jobs to complete. $completed_jobs completed so far\n";
+			}
+		}
+	}
+	if ($waiting_jobs or not $completed_jobs) {
+		print STDERR "Timed out waiting for $task_name minion jobs to complete after "
+			. localtime($created_after_ts)
+			. ". $completed_jobs completed so far, $waiting_jobs jobs still waiting\n";
 	}
 	# sort by creation date to have jobs in predictable order
-	my @all_jobs = sort {$_->info->{created}} (values %run_jobs);
+	my @all_jobs = sort {$a->{created} <=> $b->{created}} (values %run_jobs);
 	return \@all_jobs;
+}
+
+sub get_last_minion_job_created () {
+	my $jobs = get_minion()->jobs();
+	# Allow a buffer as some differences have been observed even though docker containers should always be in sync
+	my $latest_created = time() - 2;
+	# iterate on jobs
+	while (my $job = $jobs->next) {
+		if ($job->{created} > $latest_created) {
+			$latest_created = $job->{created};
+		}
+	}
+	return $latest_created;
 }
 
 1;

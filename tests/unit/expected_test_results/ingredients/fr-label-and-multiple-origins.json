@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "22000",
@@ -30,7 +31,7 @@
                "vegetarian" : "yes"
             },
             {
-               "id" : "fr:france",
+               "id" : "fr:France",
                "is_in_taxonomy" : 0,
                "percent_estimate" : 16.6666666666667,
                "percent_max" : 33.3333333333333,
@@ -53,18 +54,15 @@
          "en:barn-eggs",
          "en:eggs-from-switzerland"
       ],
-      "en:palm-oil-content-unknown" : [
-         "fr:france"
-      ],
       "en:vegan-status-unknown" : [
-         "fr:france"
+         "fr:France"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:france"
+         "fr:France"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:non-vegan",
       "en:vegetarian-status-unknown"
    ],
@@ -78,14 +76,14 @@
       "en:egg",
       "en:barn-eggs",
       "en:eggs-from-switzerland",
-      "fr:france"
+      "fr:France"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:egg",
       "en:barn-eggs",
       "en:eggs-from-switzerland",
-      "fr:france"
+      "fr:France"
    ],
    "ingredients_text" : "oeufs (d'élevage au sol, Suisse, France)",
    "ingredients_with_specified_percent_n" : 0,
@@ -93,20 +91,17 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "fr:france"
+      "fr:France"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "fr:france"
+      "fr:France"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 1
 }

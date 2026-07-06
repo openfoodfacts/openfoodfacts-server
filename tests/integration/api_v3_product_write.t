@@ -15,19 +15,16 @@ use File::Basename qw/dirname/;
 
 use Storable qw/dclone/;
 
-wait_application_ready();
-
-remove_all_users();
-
+wait_application_ready(__FILE__);
 remove_all_products();
+remove_all_users();
 
 my $ua = new_client();
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my %create_user_args = (%default_user_form, (email => 'bob@example.com'));
 create_user($ua, \%create_user_args);
-
-my $token = get_token_using_password_credentials('tests', 'testtest')->{access_token};
-$log->debug('test token', {token => $token}) if $log->is_debug();
+my $auth_header = $ua->default_headers->header('Authorization');
+$log->debug('test token header', {header => $auth_header}) if $log->is_debug();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
@@ -262,10 +259,12 @@ my $tests_ref = [
 			}
 		}'
 	},
+	# Note: changing the barcode in test below as we were getting a different rev number locally (1)
+	# versus in GitHub action (2). Not sure why, but not important for the test.
 	{
 		test_case => 'patch-request-fields-all',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890009',
+		path => '/api/v3/product/1234567890109',
 		body => '{
 			"fields": "all",
 			"tags_lc": "en",
@@ -496,7 +495,7 @@ my $tests_ref = [
 			}
 		}',
 		headers_in => {
-			'Authorization' => 'Bearer ' . $token,
+			'Authorization' => $auth_header,
 		},
 	},
 	{
@@ -701,6 +700,7 @@ my $tests_ref = [
 		}',
 	},
 	# tags fields
+	# stores_tags is not an array, it will be ignored
 	{
 		test_case => 'patch-tags-fields',
 		method => 'PATCH',
@@ -710,9 +710,30 @@ my $tests_ref = [
 			"product": { 
 				"categories_tags": ["coffee"],
 				"labels_tags": ["en:organic", "fr:max havelaar", "vegan", "Something unrecognized"],
-				"brands_tags": ["Some brand"],
+				"brands_tags": ["Some brand", "Aldi"],
 				"unknown_tags": ["some value"],
-				"stores_tags": "comma,separated,list"
+				"stores_tags": "comma,separated,list",
+				"allergens_tags": ["en:milk", "en:eggs", "en:peanuts", "en:tree-nuts", "en:fish", "en:shellfish", "en:wheat", "en:soy", "en:mango", "kiwi", "Unrecognized Allergen"],
+				"traces_tags": ["en:wheat"]
+			}
+		}',
+	},
+	# tags fields with new tags structure (API v3.6)
+	# stores_tags is not an array, it will be ignored
+	{
+		test_case => 'patch-tags-fields-v3-6',
+		method => 'PATCH',
+		path => '/api/v3.6/product/3234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"categories_tags": ["coffee"],
+				"labels_tags": ["en:organic", "fr:max havelaar", "vegan", "Something unrecognized"],
+				"brands_tags": ["Some brand", "Aldi"],
+				"unknown_tags": ["some value"],
+				"stores_tags": "comma,separated,list",
+				"allergens_tags": ["en:milk", "en:eggs", "en:peanuts", "en:tree-nuts", "en:fish", "en:shellfish", "en:wheat", "en:soy", "en:mango", "kiwi", "Unrecognized Allergen"],
+				"traces_tags": ["en:wheat"]
 			}
 		}',
 	},
@@ -720,14 +741,32 @@ my $tests_ref = [
 	{
 		test_case => 'patch-tags-fields-add',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890100',
+		path => '/api/v3.6/product/1234567890100',
 		body => '{
 			"fields" : "updated",
 			"product": { 
 				"categories_tags_add": ["en:tea"],
 				"stores_tags_add": ["Carrefour", "Mon Ptit magasin"],
 				"countries_tags_fr_add": ["Italie", "en:spain"],
-				"labels_tags_fr": ["végétarien", "Something unrecognized in French"]
+				"labels_tags_fr": ["végétarien", "Something unrecognized in French"],
+				"traces_tags_add": ["en:molluscs", "en:sesame"]
+			}
+		}',
+	},
+	# add to categories (existing) and stores (empty), replace labels - v3.6
+	{
+		test_case => 'patch-tags-fields-add-v3-6',
+		method => 'PATCH',
+		path => '/api/v3.6/product/3234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"brands_tags_add": ["Another brand"],
+				"categories_tags_add": ["en:tea"],
+				"stores_tags_add": ["Carrefour", "Mon Ptit magasin"],
+				"countries_tags_fr_add": ["Italie", "en:spain"],
+				"labels_tags_fr": ["végétarien", "Something unrecognized in French"],
+				"traces_tags_add": ["en:molluscs", "en:sesame"]
 			}
 		}',
 	},
