@@ -21,7 +21,7 @@
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin initializeTagifyInput other_nutrients:writable trackMatomoEvent*/ // we change other_nutrients to remove nutrients when they are added
-/*exported upload_image update_image update_nutrition_image_copy*/
+/* exported upload_image update_image update_nutrition_image_copy */
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -498,7 +498,7 @@ const maximumRecentEntriesPerTag = 10;
             settings = $.extend(settings, options);
             img_path = settings.img_path;
             code = $("#code").val();
-            code = code.replace(/\W/g, '');
+            code = code.replace(/\s/g, '');
 
             return this.each(function () {
 

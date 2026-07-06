@@ -191,7 +191,7 @@ vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q130365
 
-< en:E101
+< en: E101
 en: E101(i), Riboflavin, Vitamin B2
 xx: E101(i)
 bg: E101(i), Рибофлавин
@@ -225,7 +225,7 @@ efsa_evaluation_date:en: 2013-10-22
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2013.3357
 wikidata:en: Q130365
 
-< en:E101
+< en: E101
 en: E101(ii), Riboflavin-5′-phosphate, phosphate lactoflavina
 xx: E101(ii)
 bg: E101(ii), Рибофлавин-5′-фосфат
@@ -770,59 +770,22 @@ vegetarian:en: yes
 wikidata:en: Q384709
 
 en: E125, Scarlet GN, C.I. Food Red 1, Ponceau SX, FD&C Red No. 4, C.I. 14700
-xx: E125
-bg: E125, E125 food additive
-cs: E125, E125 food additive
-da: E125, E125 food additive
-de: E125, E125 food additive
-el: E125, E125 food additive
+xx: E125, Scarlet GN, C.I. Food Red 1, Ponceau SX, FD&C Red No. 4, C.I. 14700
 es: E125, Ponceau SX, E 125
-et: E125, E125 food additive
 fi: E125, Skarletti GN, CI 14700
 fr: E125, Ponceau SX, Écarlate GN, C18H14N2Na2O7S2, Scarlet GN
-hu: E125, Scarlet GN
-it: E125, Scarlet GN
-lt: E125, E125 food additive
-lv: E125, E125 food additive
-mt: E125, E125 food additive
-nl: E125, E125 food additive
-nl_be: E125, E125 food additive
 pl: E125, Szkarłat GN
-pt: E125, E125 food additive
 ro: E125, Ponceau SX
-sk: E125, E125 food additive
-sl: E125, E125 food additive
-sv: E125, E125 food additive
 e_number:en: 125
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q934310
 
+xx: E126, Ponceau 6R
 en: E126, Ponceau 6R
-xx: E126
-bg: E126, E126 food additive
-ca: E126, Ponceau 6R
-cs: E126, E126 food additive
-da: E126, E126 food additive
-de: E126, Ponceau 6R
-el: E126, E126 food additive
-es: E126, Ponceau 6R
-et: E126, E126 food additive
-fi: E126, Ponceau 6R
 fr: E126, Ponceau GR, Ponceau 6R
 hu: E126, Ponszó 6R
-it: E126, Ponceau 6R
-lt: E126, E126 food additive
-lv: E126, E126 food additive
-mt: E126, E126 food additive
-nl: E126, Ponceau 6R
-nl_be: E126, Ponceau 6R
 pl: E126, Pąs 6R
-pt: E126, E126 food additive
-ro: E126, Ponceau 6R
-sk: E126, E126 food additive
-sl: E126, E126 food additive
-sv: E126, E126 food additive
 e_number:en: 126
 vegan:en: yes
 vegetarian:en: yes
@@ -1175,7 +1138,7 @@ vegetarian:en: yes
 wikidata:en: Q26806091
 
 
-< en:E140
+< en: E140
 en: E140(i), Chlorophylls, CI Natural Green 3, Magnesium Chlorophyll, chlorophyll
 xx: E140(i)
 ar: E140(i), يخضور
@@ -1278,7 +1241,7 @@ wikidata:en: Q82182
 # yue:E140(i), 葉綠素
 wikipedia:en: https://en.wikipedia.org/wiki/Chlorophyll
 
-< en:E140
+< en: E140
 en: E140(ii), Chlorophyllins, CI Natural Green 5, Sodium Chlorophyllin
 xx: E140(ii)
 bg: E140(ii), Хлорофилини, CI натурално зелено 5, натриев хлорофилин
@@ -1348,7 +1311,7 @@ vegetarian:en: yes
 wikidata:en: Q18967203
 # ingredient/fr:complexes-cuivre has 86 products in 4 languages @2019-02-25
 
-< en:E141
+< en: E141
 en: E141(i), Copper complexes of chlorophylls, CI Natural Green 3, Copper Chlorophyll
 xx: E141(i)
 bg: E141(i), Медни комплекси на хлорофили, CI натурално зелено 3, меден хлорофил
@@ -1382,7 +1345,7 @@ efsa_evaluation_date:en: 2015-06-30
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4151
 wikidata:en: Q18967203
 
-< en:E141
+< en: E141
 en: E141(ii), Copper complexes of chlorophyllins, Sodium Copper Chlorophyllin, Potassium Copper Chlorophyllin, Copper Chlorophyllin
 xx: E141(ii)
 bg: E141(ii), Медни комплекси на хлорофилини, Натриев меден хлорофилин, калиев меден хлорофилин
@@ -1638,7 +1601,8 @@ description:en: Caramel color or caramel coloring is a water-soluble food colori
 e_number:en: 150a
 efsa:en: http://www.efsa.europa.eu/fr/efsajournal/doc/2004.pdf
 efsa_evaluation:en: Refined exposure assessment for caramel colours (E 150a, c, d)
-efsa_evaluation_adi:en: 300 #not the ADI of E150a alone but an ADI shared by the four E150(a,b,c,d)
+# 300 is not the ADI of E150a alone but an ADI shared by the four E150(a,b,c,d)
+efsa_evaluation_adi:en: 300
 efsa_evaluation_date:en: 2012-12-03
 efsa_evaluation_exposure_95th_greater_than_adi:en: en:no-group
 efsa_evaluation_exposure_mean_greater_than_adi:en: en:no-group
@@ -1786,7 +1750,7 @@ bg: E151, Брилянтно черно bn, черно pn
 ca: E151, Negre brillant BN
 cs: E151, Čerň bn, čerň pn, Brilantní čerň BN
 da: E151, Black pn (brilliant black bn)
-de: E151, Brilliantschwarz bn (schwarz pn), Brillantschwarz BN, E 151, Schwarz PN
+de: E151, Brillantschwarz BN, Brilliantschwarz bn (schwarz pn), E 151, Brillantschwarz PN, Schwarz PN
 el: E151, Λαμπρο μαυρο βν, μαυρο pn
 es: E151, Negro brillante bn, negro pn, E 151
 et: E151, Briljantmust bn, must pn
@@ -2072,7 +2036,7 @@ vegetarian:en: maybe
 wikidata:en: Q190156
 
 
-< en:E160a
+< en: E160a
 en: E160a(i), Beta-carotene
 xx: E160a(i)
 bg: E160a(i), Бета-каротин
@@ -2112,7 +2076,7 @@ wikidata:en: Q306135
 # comment:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
 
-< en:E160a
+< en: E160a
 en: E160a(ii), Plant carotenes
 xx: E160a(ii)
 bg: E160a(ii), Растителни каротини
@@ -2148,7 +2112,7 @@ vegan:en: yes
 vegetarian:en: yes
 # comment:en:E160a can be consumed by all religious groups, vegans and vegetarians.
 
-< en:E160a
+< en: E160a
 en: E160a(iii), Beta-carotene from blakeslea trispora
 xx: E160a(iii)
 bg: E160a(iii), Бета-каротин от blakeslea trispora
@@ -2180,7 +2144,7 @@ efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4434
 vegan:en: yes
 vegetarian:en: yes
 
-< en:E160a
+< en: E160a
 en: E160a(iv), Algal carotenes
 xx: E160a(iv)
 bg: E160a(iv), Каротини от водорасли
@@ -2263,13 +2227,13 @@ vegetarian:en: yes
 wikidata:en: Q425902
 # comment:en:E160b can be consumed by all religious groups, vegans and vegetarians.
 
-< en:E160b
+< en: E160b
 en: E160b(i), Annatto bixin, Bixin
 xx: E160b(i)
 additives_classes:en: en:colour
 e_number:en: 160b
 
-< en:E160b
+< en: E160b
 en: E160b(ii), Annatto norbixin, Norbixin
 xx: E160b(ii)
 fr: E160b(ii), norbixine de rocou
@@ -3416,11 +3380,13 @@ vi: E170, Cacbonat canxi
 zh: E170, 碳酸钙
 anses_additives_of_interest:en: yes
 comment:en: enter the synonyms in plural.
+vegan:en: yes
+vegetarian:en: yes
 
 #comment:en:This entry must be doubled in the minerals and additives taxonomy (for the time being).
 #<en:calcium
 #en:E170(i)
-< en:E170
+< en: E170
 en: E170(i), Calcium carbonate, CI Pigment White 18, Chalk
 xx: E170(i)
 af: E170(i), Kalsiumkarbonaat
@@ -3516,7 +3482,7 @@ vegetarian:en: maybe
 wikidata:en: Q23767
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_carbonate
 
-< en:E170
+< en: E170
 en: E170(ii), Calcium hydrogen carbonate, Calcium bicarbonate, Calcium acid carbonate
 xx: E170(ii)
 ar: E170(ii), بيكربونات الكالسيوم
@@ -3673,7 +3639,7 @@ wikidata:en: Q3045754
 # FIXME removed because of test es: ,oxido de hierro negro,oxido de hierro rojo
 
 
-< en:E172
+< en: E172
 en: E172(i), Black iron oxide
 xx: E172(i)
 bg: E172(i), Черен оксид на желязо
@@ -3706,7 +3672,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q3045754
 
-< en:E172
+< en: E172
 en: E172(ii), Red iron oxide, iron(III) oxide, ferric oxide
 xx: E172(ii)
 ar: E172(ii), أكسيد الحديد الأحمر
@@ -3754,7 +3720,7 @@ efsa_evaluation_date:en: 2015-12-08
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2015.4317
 wikidata:en: Q3045754
 
-< en:E172
+< en: E172
 en: E172(iii), Yellow iron oxide
 xx: E172(iii)
 bg: E172(iii), Жълт оксид на желязо
@@ -6171,7 +6137,7 @@ vegetarian:en: yes
 wikidata:en: Q339940
 
 
-< en:E262
+< en: E262
 en: E262(i), Sodium acetate
 xx: E262(i)
 ar: E262(i), أسيتات الصوديوم
@@ -6231,7 +6197,7 @@ e_number:en: 262
 wikidata:en: Q339940
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_acetate
 
-< en:E262
+< en: E262
 en: E262(ii), Sodium diacetate
 xx: E262(ii)
 bg: E262(ii), Натриев диацетат
@@ -6924,13 +6890,13 @@ vegetarian:en: yes
 wikidata:en: Q1997
 wikipedia:en: https://en.wikipedia.org/wiki/Carbon_dioxide
 
-< en:E290
+< en: E290
 de: Quellkohlensäure
 
-< en:E290
+< en: E290
 de: Gärungskohlensäure
 
-< de:Quellkohlensäure
+< de: Quellkohlensäure
 de: natürliche Quellkohlensäure
 
 
@@ -7262,7 +7228,7 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q43303953
 
-< en:E304
+< en: E304
 en: E304(i), Ascorbyl palmitate, L-Ascorbyl Palmitate
 xx: E304(i)
 ar: E304(i), بالميتات الأسكوربيل
@@ -7310,7 +7276,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ascorbyl_palmitate
 
 #comment:en: E305 is the same as E304(ii)
 
-< en:E304
+< en: E304
 en: E304(ii), Ascorbyl stearate, E305
 xx: E304(ii)
 bg: E304(ii), Аскорбил стеарат
@@ -8029,8 +7995,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q221945
 
-# comment:en:Put the plural form in E322 and the specific singular forms as i and ii. Any origin soy or sunflower can be added to the ingredients.
-
 en: E322, Lecithins, Phosphatides
 xx: E322
 ar: E322, ليسيثين
@@ -8060,17 +8024,17 @@ ru: E322, Лецитины, е322, соевый лецитин-e322
 sk: E322, Lecitíny, Fosfatidy
 sl: E322, Lecitini, fosfatidi
 sv: E322, Lecitiner, Fosfatider
-tr: E322
 additives_classes:en: en:antioxidant, en:emulsifier
+comment:en: Put the plural form in E322 and the specific singular forms as i and ii. Any origin soy or sunflower can be added to the ingredients.
+description:en: is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogeLECITHINnizing liquid mixtures, and repelling sticking materials. The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
 e_number:en: 322
 organic_eu:en: authorized
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q241595
-# description:en: is a generic term to designate any group of yellow-brownish fatty substances occurring in animal and plant tissues, and are used for smoothing food textures, dissolving powders (emulsifying), homogeLECITHINnizing liquid mixtures, and repelling sticking materials. The term lecithin refers to a group of compounds found in every living organism, as they are part of the cell wall of all cells. Lecithin is commercially isolated (mainly) from soybeans or egg yolk.
 
 # comment:en:Put the plural form in E322 and the specific singular forms as i and ii. Any lecitin with origin soy or sunflower can be added to the ingredients taxonomy (for the moment).
-< en:E322
+< en: E322
 en: E322(i), Lecithin
 xx: E322(i)
 bg: E322(i), Лецитин
@@ -8117,10 +8081,12 @@ additives_classes:en: en:antioxidant, en:emulsifier
 # issue with ingredient @2018-10-11 mixed with sunflower
 e_number:en: 322
 organic_eu:en: authorized
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q241595
 wikipedia:en: https://en.wikipedia.org/wiki/Lecithin
 
-< en:E322
+< en: E322
 en: E322(ii), Partially hydrolyzed lecithin
 xx: E322(ii)
 bg: E322(ii), Частично хидролизирана лецитин
@@ -8147,8 +8113,11 @@ sv: E322(ii), Delvis hydrolyserad lecitin
 additives_classes:en: en:antioxidant, en:emulsifier
 e_number:en: 322
 organic_eu:en: authorized
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q241595
 
+< en: E322
 en: E322a, Oat lecithin
 xx: E322a
 ar: E322a, ليسيثين الشوفان
@@ -8187,6 +8156,8 @@ tr: E322a, Yulaf lesitini
 uk: E322a, Вівсяний лецитин
 zh: E322a, 燕麦卵磷脂
 e_number:en: 322a
+vegan:en: yes
+vegetarian:en: yes
 
 en: E323, Anoxomer
 xx: E323
@@ -8607,7 +8578,7 @@ vegetarian:en: yes
 wikidata:en: Q6460572
 
 #comment:en:E332 should be in plural, the specific form can be entered under i or ii. In some languages the singular can refer to any of the two variants. The variants should either have a mono- or tri- prefix.
-< en:E331
+< en: E331
 en: E331(i), Monosodium citrate
 xx: E331(i)
 bg: E331(i), Мононатриев цитрат
@@ -8641,7 +8612,7 @@ wikidata:en: Q4179018
 wikipedia:en: https://en.wikipedia.org/wiki/Monosodium_citrate
 
 
-< en:E331
+< en: E331
 en: E331(ii), Disodium citrate
 xx: E331(ii)
 bg: E331(ii), Динатриев цитрат
@@ -8674,7 +8645,7 @@ organic_eu:en: authorized
 wikidata:en: Q4177124
 wikipedia:en: https://en.wikipedia.org/wiki/Disodium_citrate
 
-< en:E331
+< en: E331
 en: E331(iii), Trisodium citrate
 xx: E331(iii)
 bg: E331(iii), Тринатриев цитрат
@@ -8732,7 +8703,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q419921
 
-< en:E332
+< en: E332
 en: E332(i), Monopotassium citrate
 xx: E332(i)
 bg: E332(i), Монокалиев цитрат
@@ -8763,7 +8734,7 @@ mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
 #comment:en:(TRI-)POTASSIUM CITRATE is entered both under the minerals and the additives for the moment.
 #comment:en:Not sure which word is preferred on packages, either the more chemical tripotassium or just potassium citrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
 
-< en:E332
+< en: E332
 #<en:Potassium
 #<en:E332(ii)
 en: E332(ii), Tripotassium citrate, potassium citrate
@@ -8848,7 +8819,7 @@ vegetarian:en: yes
 wikidata:en: Q420280
 
 #comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
-< en:E333
+< en: E333
 en: E333(i), Monocalcium citrate
 xx: E333(i)
 bg: E333(i), Монокалциев цитрат
@@ -8879,7 +8850,7 @@ organic_eu:en: authorized
 wikidata:en: Q420280
 
 #comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
-< en:E333
+< en: E333
 en: E333(ii), Dicalcium citrate
 xx: E333(ii)
 bg: E333(ii), Дикалциев цитрат
@@ -8908,7 +8879,7 @@ organic_eu:en: authorized
 wikidata:en: Q420280
 
 #comment:en:E333 should be in plural, the specific form can be entered under i, ii or iii. In some languages the singular can refer to any of the three variants. The variants should either have a mono-, di- or tri- prefix.
-< en:E333
+< en: E333
 en: E333(iii), Tricalcium citrate
 xx: E333(iii)
 bg: E333(iii), Трикалциев цитрат
@@ -9046,7 +9017,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q58641683
 
-< en:E335
+< en: E335
 en: E335(i), Monosodium tartrate
 xx: E335(i)
 bg: E335(i), Мононатриев тартарат
@@ -9076,7 +9047,7 @@ e_number:en: 335
 organic_eu:en: authorized
 wikidata:en: Q836451
 
-< en:E335
+< en: E335
 en: E335(ii), Disodium tartrate
 xx: E335(ii)
 bg: E335(ii), Динатриев тартарат
@@ -9133,7 +9104,7 @@ wikidata:en: Q65770886
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_tartrate
 # ingredient/fr:tartrates-de-potassium has 199 products in 6 languages @2019-03-22
 
-< en:E336
+< en: E336
 en: E336(i), Monopotassium tartrate, monopotassic tartrate, Potassium bitartrate, potassium hydrogen tartrate, cream of tartar
 xx: E336(i)
 bg: E336(i), Монокалиев тартарат
@@ -9167,7 +9138,7 @@ organic_eu:en: authorized
 wikidata:en: Q18745
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_bitartrate
 
-< en:E336
+< en: E336
 en: E336(ii), Dipotassium tartrate, dipotassic tartrate, Potassium tartrate
 xx: E336(ii)
 bg: E336(ii), Дикалиев тартарат
@@ -9378,7 +9349,7 @@ wikidata:en: Q3249706
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_phosphates
 
 
-< en:E339
+< en: E339
 en: E339(i), Monosodium phosphate, Monosodium monophosphate, Acid monosodium monophosphate, Monosodium orthophosphate, Monobasic sodium phosphate
 xx: E339(i)
 ar: E339(i), مونوسودیوم فوسفات
@@ -9467,7 +9438,7 @@ e_number:en: 339
 wikidata:en: Q418448
 wikipedia:en: https://en.wikipedia.org/wiki/Disodium_phosphate
 
-< en:E339
+< en: E339
 en: E339(iii), Trisodium phosphate, Tribasic sodium phosphate
 xx: E339(iii)
 bg: E339(iii), Тринатриев фосфат, триосновен натриев фосфат
@@ -9551,7 +9522,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Potassium_phosphate
 
 # description:en:Monopotassium phosphate, MKP, (also potassium dihydrogenphosphate, KDP, or monobasic potassium phosphate), KH2PO4, is a soluble salt of potassium and the dihydrogen phosphate ion
 
-< en:E340
+< en: E340
 en: E340(i), Monopotassium phosphate, Monobasic potassium phosphate, Monopotassium monophosphate, E340i, E 340i, E-340i, E340 i
 xx: E340(i)
 bg: E340(i), Монокалиев фосфат, Едноосновен калиев фосфат, монокалиев монофосфат
@@ -9587,7 +9558,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Monopotassium_phosphate
 
 # description:en:Dipotassium phosphate (K2HPO4) (also dipotassium hydrogen orthophosphate; potassium phosphate dibasic) is a highly water-soluble salt
 
-< en:E340
+< en: E340
 en: E340(ii), Dipotassium phosphate, Dipotassium monophosphate, Secondary potassium phosphate, Dipotassium orthophosphate, E340ii, E 340ii, E-340ii, E340 ii
 xx: E340(ii)
 ar: E340(ii), دیپوتاسیوم فوسفات
@@ -9633,7 +9604,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Dipotassium_phosphate
 
 # Tripotassium phosphate, also called potassium phosphate tribasic,[3] is a water-soluble ionic salt which has the chemical formula K3PO4.
 
-< en:E340
+< en: E340
 en: E340(iii), Tripotassium phosphate, tripotassium phosphate, E340iii, E 340iii, E340 iii, E-340iii, Tribasic potassium phosphate
 xx: E340(iii)
 bg: E340(iii), Трикалиев фосфат, Триосновен калиев фосфат
@@ -9721,7 +9692,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Calcium_phosphate
 
 # description:en:Monocalcium phosphate is an inorganic compound with the chemical formula Ca(H2PO4)2
 
-< en:E341
+< en: E341
 en: E341(i), Monocalcium phosphate, Monobasic calcium phosphate, mono-calcium phosphate, monocalcium phosphate, E341i, E 341i, E-341i, E341 i
 xx: E341(i)
 ar: E341(i), فوسفات أحادي الكالسيوم
@@ -9769,7 +9740,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Monocalcium_phosphate
 
 # description:en:Dicalcium phosphate is the calcium phosphate with the formula CaHPO4 and its dihydrate.
 
-< en:E341
+< en: E341
 en: E341(ii), Dicalcium phosphate, Dibasic calcium phosphate, di-calcium phosphate, dicalcium phosphate, E341ii, E 341ii, E-341ii, E341 ii
 xx: E341(ii)
 ar: E341(ii), فوسفات ثنائي الكالسيوم
@@ -9815,7 +9786,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Dicalcium_phosphate
 
 # description:en:Tricalcium phosphate (sometimes abbreviated TCP) is a calcium salt of phosphoric acid with the chemical formula Ca3(PO4)2.
 
-< en:E341
+< en: E341
 en: E341(iii), Tricalcium phosphate, Tricalciumphosphate, tri-calcium phosphate, tricalcium phosphate, E341iii, E 341iii, E-341iii, E341 iii
 xx: E341(iii)
 ar: E341(iii), فوسفات ثلاثي الكالسيوم
@@ -9927,13 +9898,12 @@ efsa_evaluation_overexposure_risk:en: en:high
 efsa_evaluation_url:en: https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2019.5674
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q2634889 # Q723683
+wikidata:en: Q6731399
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_phosphate
-
 
 # description:en:Monomagnesium phosphate is one of the forms of magnesium phosphate. chemical formula Mg(H2PO4)2.
 
-< en:E343
+< en: E343
 en: E343(i), Monomagnesium phosphate, Magnesiumdihydrogenphosphate, Magnesiumphosphate, monobasic, magnesium phosphate
 xx: E343(i)
 ar: فوسفات المغنسيوم
@@ -9973,7 +9943,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Monomagnesium_phosphate
 
 # description:en:Dimagnesium phosphate is a compound with formula MgHPO4.
 
-< en:E343
+< en: E343
 en: E343(ii), Dimagnesium phosphate, Magnesiumhydrogenphosphate, Magnesiumphosphate - dibasic, Dimagnesium orthophosphate, magnesium hydrogen phosphate, dimagnesium phosphate, E343ii, E 343ii, E-343ii, E343 ii
 xx: E343(ii)
 bg: E343(ii), Димагнезиев фосфат, Магнезиев хидрогенфосфат, магнезиев фосфат двуосновен, димагнезиев ортофосфат
@@ -10149,7 +10119,7 @@ wikidata:en: Q836788
 # description:en:SODIUM MALATE is a compound with formula Na2(C2H4O(COO)2). It is the sodium salt of malic acid.
 
 
-< en:E350
+< en: E350
 en: E350(i), Sodium malate
 xx: E350(i)
 ar: E350(i), مالات صوديوم
@@ -10190,7 +10160,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sodium_malate
 # additive/e350i-sodium-malate has 38 products in 3 languages @2019-02-25
 # usage:fr:correcteur d'acidité:malate de sodium
 
-< en:E350
+< en: E350
 en: E350(ii), Sodium hydrogen malate
 xx: E350(ii)
 bg: E350(ii), Натриев хидроген малат
@@ -10278,7 +10248,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1356722
 
-< en:E352
+< en: E352
 en: E352(i), Calcium malate
 xx: E352(i)
 bg: E352(i), Калциев малат
@@ -10305,7 +10275,7 @@ sv: E352(i), Kalciummalat
 e_number:en: 352
 wikidata:en: Q1356722
 
-< en:E352
+< en: E352
 en: E352(ii), Calcium hydrogen malate
 xx: E352(ii)
 bg: E352(ii), Калциев хидроген малат
@@ -11544,6 +11514,7 @@ vegetarian:en: yes
 wikidata:en: Q4783458
 
 
+#< en:tree gum
 #comment:en:The flour variant is also used as an additive (with an additive class). Beware carob (or variants) is something different.
 en: E410, Locust bean gum, Carob bean gum, Carob gum, garrofin gum, peruvian carob gum
 xx: E410
@@ -11598,6 +11569,7 @@ e_number:en: 411
 vegan:en: yes
 vegetarian:en: yes
 
+#< en:tree gum
 en: E412, Guar gum, Gum cyamopsis, guar flour
 xx: E412
 bg: E412, Гума гуар, Гума циамопсис, Гуарова гума
@@ -11633,6 +11605,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q422071
 
+#< en:tree gum
 en: E413, Tragacanth, Tragacanth gum
 xx: E413
 ar: E413, صمغ الكثيراء
@@ -11679,8 +11652,7 @@ wikidata:en: Q423901
 # ingredient/fr:gomme-adragante has 62 products in 4 languages @2019-03-23
 # additive/e413-tragacanth has 286 products in 6 languages @2019-03-24
 
-#   GUM ARABIC  , also known as acacia gum, arabic gum, gum acacia, acacia, Senegal gum and Indian gum
-
+#< en:tree gum
 en: E414, Acacia gum, gum arabic, gum acacia, arabic gum, Gum arabic, E-414, E 414, INS414, INS 414
 xx: E414
 ar: E414, صمغ عربي
@@ -11723,23 +11695,25 @@ ro: E414, Gumă arabică
 ru: E414, Гуммиарабик
 sk: E414, Arabská guma
 sl: E414, Akacijeva guma
-sv: E414, Gummi arabicum, Akaciagummi
+sv: E414, gummi arabicum, akaciagummi, gummiarabikum
 tr: E414, Arap zamkı
 uk: E414, Гуміарабік
 uz: E414, Aqoqiyo
 zh: E414, 阿拉伯膠
+#azb: آغ ساققیز
+#en-ca: Gum arabic
+#en-gb: Gum arabic
+#pt-br: goma-arábica
 additives_classes:en: en:carrier, en:emulsifier, en:stabiliser, en:thickener
+description:en: GUM ARABIC, also known as acacia gum, arabic gum, gum acacia, acacia, Senegal gum and Indian gum
 e_number:en: 414
 organic_eu:en: authorized
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q535814
 wikipedia:en: https://en.wikipedia.org/wiki/Gum_arabic
-# azb:آغ ساققیز
-# en-ca:Gum arabic
-# en-gb:Gum arabic
-# pt-br:goma-arábica
 
+< en: E414
 en: E414a, E414a food additive
 xx: E414a
 fi: E414a, Oktenyylimeripihkahappo, muunnettu arabikumi, Oktenyylimeripihkahappoa, muunnettua arabikumia
@@ -11748,11 +11722,8 @@ additives_classes:en: en:carrier, en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 414a
 vegan:en: yes
 vegetarian:en: yes
-wikidata:en: Q535814
 
-
-#   XANTHAN GUM   is a polysaccharide with many industrial uses, including as a common food additive.
-
+#< en:tree gum
 en: E415, Xanthan gum, xanthan, E-415, e 415
 xx: E415
 ar: E415, صمغ الكزانتان
@@ -11790,7 +11761,14 @@ sl: E415, Ksantan gumi
 sv: E415, Xantangummi, Xantan, Xanthangummi
 tr: E415, Ksantan zamkı, Ksantan gam, Ksantan gum, Ksantan gamı
 zh: E415, 黄原胶
+#sco: Xanthan gum
+#zh-cn: 黄原胶# zh-hans: 黄原胶
+#zh-hant: 黃原膠
+#zh-hk: 黃原膠
+#zh-sg: 黄原胶
+#zh-tw: 黃原膠
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
+description:en: XANTHAN GUM is a polysaccharide with many industrial uses, including as a common food additive.
 e_number:en: 415
 efsa_evaluation:en: Re‐evaluation of xanthan gum (E 415) as a food additive
 efsa_evaluation_adi_established:en: en:no
@@ -11801,13 +11779,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q410768
 wikipedia:en: https://en.wikipedia.org/wiki/Xanthan_gum
-# sco:Xanthan gum
-# zh-cn:黄原胶# zh-hans:黄原胶
-# zh-hant:黃原膠
-# zh-hk:黃原膠
-# zh-sg:黄原胶
-# zh-tw:黃原膠
 
+#< en:tree gum
 en: E416, Karaya-gum, Katilo, Kadaya, Gum sterculia, Sterculia, Karaya, gum karaya, Kullo
 xx: E416
 bg: E416, Гума карая, Катило, кадая, гума sterculia, Sterculia, карая, гума карая, куло
@@ -11842,6 +11815,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q421167
 
+#< en:tree gum
 en: E417, Tara gum
 xx: E417
 bg: E417, Гума тара
@@ -11880,6 +11854,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tara_spinosa#Uses
 #description:en:TARA GUM is produced by separating and grinding the endosperm of T. spinosa seeds. Tara gum is used as a thickening agent and stabilizer in a number of food applications.
 # ingredient/fr:gomme-tara has 254 products in 6 languages -@2019-05-12
 
+#< en:tree gum
 en: E418, Gellan gum, gellan, E-418, E 418, INS418, INS-418, INS 418
 xx: E418
 ar: E418, صمغ الجيلان
@@ -11908,6 +11883,8 @@ sk: E418, Guma gellan
 sl: E418, Gelanski gumi
 sv: E418, Gellangummi
 zh: E418, 結蘭膠
+#en-ca: Gellan gum
+#en-gb: Gellan gum
 additives_classes:en: en:stabiliser, en:thickener
 description:en: GELLAN GUM is a water-soluble anionic polysaccharide produced by the bacterium Sphingomonas elodea. It is used in plant-based milks to keep plant protein suspended in the milk.
 e_number:en: 418
@@ -11919,9 +11896,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q416694
 wikipedia:en: https://en.wikipedia.org/wiki/Gellan_gum
-# en-ca:Gellan gum
-# en-gb:Gellan gum
 
+#< en:tree gum
 en: E419, Gum ghatti
 xx: E419
 ar: E419, صمغ غاتي
@@ -12006,7 +11982,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q245280
 
-< en:E420
+< en: E420
 en: E420(i), D-sorbitol, D-glucitol
 xx: E420(i)
 bg: E420(i), D-глюцитол
@@ -12034,7 +12010,7 @@ additives_classes:en: en:humectant, en:sequestrant, en:stabiliser, en:sweetener,
 e_number:en: 420
 wikidata:en: Q245280
 
-< en:E420
+< en: E420
 en: E420(ii), Sorbitol syrup
 xx: E420(ii)
 bg: E420(ii), сорбитол сироп
@@ -12271,7 +12247,7 @@ e_number:en: 425
 vegan:en: yes
 vegetarian:en: yes
 
-< en:E425
+< en: E425
 en: E425(i), Konjac gum, Konjak gum
 xx: E425(i)
 bg: E425(i), Коняк гума
@@ -12300,7 +12276,7 @@ sv: E425(i), Konjakgummi
 additives_classes:en: en:carrier, en:emulsifier, en:humectant, en:stabiliser, en:thickener
 e_number:en: 425
 
-< en:E425
+< en: E425
 en: E425(ii), Konjac glucomannan
 xx: E425(ii)
 bg: E425(ii), Коняк глюкоманан
@@ -12772,7 +12748,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q188154
 
-< en:E440a
+< en: E440a
 en: E440a(ii), Sodium pectate
 xx: E440a(ii)
 fi: E440a(ii), Natriumpektaatti, Natriumpektaattia
@@ -12783,7 +12759,7 @@ additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 440a
 wikidata:en: Q188154
 
-< en:E440a
+< en: E440a
 en: E440a(iii), Potassium pectate
 xx: E440a(iii)
 fi: E440a(iii), Kaliumpektaatti, Kaliumpektaattia
@@ -12794,7 +12770,7 @@ additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 440a
 wikidata:en: Q188154
 
-< en:E440a
+< en: E440a
 en: E440a(iv), Ammonium Pectate
 xx: E440a(iv)
 fi: E440a(iv), Ammoniumpektaatti, Ammoniumpektaattia
@@ -12927,7 +12903,7 @@ wikidata:en: Q188154
 wikipedia:en: https://en.wikipedia.org/wiki/Pectin
 # en:pectin has 9364 products in 20 languages @2018-11-03
 
-< en:E440
+< en: E440
 en: E440(i), non-amidated pectines
 xx: E440(i)
 ca: E440(i), Pectina no amidada
@@ -12940,7 +12916,7 @@ organic_eu:en: authorized
 wikidata:en: Q188154
 # fr:e440i has 18 products in 5 languages @2018-11-03
 
-< en:E440
+< en: E440
 en: E440(ii), Amidated pectin
 xx: E440(ii)
 bg: E440(ii), Амидиран пектин
@@ -12983,6 +12959,8 @@ fr: E441, Huile de colza superglycérinée hydrogénée
 it: E441
 nl: E441
 e_number:en: 441
+vegan:en: yes
+vegetarian:en: yes
 
 # description:en:The mix of ammonium salts of phosphorylated glycerides can be either made synthetically or from mixture of glycerol and partially hardened plant (most often used:rapeseed oil) oils
 
@@ -13262,7 +13240,7 @@ vegetarian:en: yes
 wikidata:en: Q1220360
 #description:en:The acid form of E541 is used in baking powder for slow baking processes at low temperature; the alkaline form is used as an emulsifier in processed cheese.
 
-< en:E541
+< en: E541
 en: E541(i), Acid sodium aluminium phosphate
 xx: E541(i)
 bg: E541(i), Натриевоалуминиев фосфат кисел
@@ -13289,7 +13267,7 @@ additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 541
 wikidata:en: Q1220360
 
-< en:E541
+< en: E541
 en: E541(ii), Alkaline sodium aluminium phosphate
 xx: E541(ii)
 ca: E541(ii), Fosfat alcalí de sodi i alumini
@@ -13464,6 +13442,8 @@ tr: E545, Amonyum polifosfat
 uk: E545, Поліфосфат амонію
 zh: E545, 聚磷酸铵
 e_number:en: 545
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q2770473
 
 en: E546, Magnesium pyrophosphate
@@ -13567,7 +13547,7 @@ bg: E450, Дифосфат, дифосфати, стабилизатор E450
 ca: E450, Difosfat
 cs: E450, Difosfát, difosforečnany
 da: E450, diphosphater
-de: E450, Diphosphate, Stabilisator E450
+de: E450, Diphosphate, Diphosphat, Stabilisator E450
 el: E450, Διφωσφορικά άλατα
 eo: E450, Du fosfato
 es: E450, Difosfatos, Difosfato, Pirofosfato, estabilizante e450
@@ -13617,7 +13597,7 @@ vegetarian:en: yes
 wikidata:en: Q55506489
 wikipedia:en: https://en.wikipedia.org/wiki/Pyrophosphate
 
-< en:E450
+< en: E450
 en: E450(i), Disodium diphosphate, Sodium Acid Pyrophosphate, sapp, disodium dihydrogen pyrophosphate, disodium pyrophosphate, sodium acid pyrophosphate, disodium diphosphate, disodium dihydrogen diphosphate
 xx: E450(i)
 ar: E450(i), بيروفوسفات ثنائي الصوديوم
@@ -13659,7 +13639,7 @@ wikidata:en: Q418498
 wikipedia:en: https://en.wikipedia.org/wiki/Disodium_pyrophosphate
 # azb دیسودیوم پیروفوسفات
 
-< en:E450
+< en: E450
 en: E450(ii), Trisodium diphosphate, e450ii
 xx: E450(ii)
 bg: E450(ii), Тринатриев дифосфат
@@ -13689,7 +13669,7 @@ anses_additives_of_interest:en: yes
 e_number:en: 450
 wikidata:en: Q290828
 
-< en:E450
+< en: E450
 en: E450(iii), Tetrasodium diphosphate, Tetrasodium pyrophosphate, Tetrasodium disphosphate, Tetrasodium diphosphate, sodium pyrophosphate, TSPP, e450iii
 xx: E450(iii)
 ar: E450(iii), بيروفوسفات صوديوم
@@ -13730,7 +13710,7 @@ e_number:en: 450
 wikidata:en: Q418504
 wikipedia:en: https://en.wikipedia.org/wiki/Tetrasodium_pyrophosphate
 
-< en:E450
+< en: E450
 en: E450(iv), dipotassium dihydrogenpyrophosphate, E450iv, E-450iv
 xx: E450(iv)
 ar: E450(iv), ثنائي هيدروجين بيروفوسفات ثنائي البوتاسيوم
@@ -13769,7 +13749,7 @@ additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser
 e_number:en: 450
 wikidata:en: Q290828
 
-< en:E450
+< en: E450
 en: E450(v), Tetrapotassium diphosphate, tetrapotassium pyrophosphate, e450v
 xx: E450(v)
 bg: E450(v), Тетракалиев дифосфат
@@ -13799,7 +13779,7 @@ anses_additives_of_interest:en: yes
 e_number:en: 450
 wikidata:en: Q290828
 
-< en:E450
+< en: E450
 en: E450(vi), Dicalcium diphosphate, dicalcium pyrophosphate, e450vi
 xx: E450(vi)
 bg: E450(vi), Дикалциев дифосфат
@@ -13830,7 +13810,7 @@ e_number:en: 450
 wikidata:en: Q4363460
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_pyrophosphate
 
-< en:E450
+< en: E450
 en: E450(vii), Calcium dihydrogen diphosphate, Acid calcium pyrophosphate
 xx: E450(vii), e450vii
 bg: E450(vii), Калциев дихидроген дифосфат, Кисел калциев пирофосфат
@@ -13861,7 +13841,7 @@ e_number:en: 450
 wikidata:en: Q290828
 
 #en:comment:Is this the same as E546? Siphosphate versus polyphosphate
-< en:E450
+< en: E450
 en: E450(viii)
 xx: E450(viii)
 ar: E450(viii), فوسفات ثنائي المغنيسيوم
@@ -13963,7 +13943,7 @@ wikidata:en: Q29145
 #comment:en:The name should containe pentasodium
 # description:en:Sodium triphosphate (STP), also sodium tripolyphosphate (STPP), or tripolyphosphate (TPP),[1]) is an inorganic compound with formula Na5P3O10.
 
-< en:E451
+< en: E451
 en: E451(i), Pentasodium triphosphate, Pentasodium tripolyphosphate, Sodium triphosphate
 xx: E451(i), e451i, e 451i, e-451i
 bg: E451(i), Пентанатриев трифосфат, Пентанатриев триполифосфат
@@ -13996,7 +13976,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Sodium_triphosphate
 # sr-ec:натријум трифосфат
 # sr-el:natrijum trifosfat
 
-< en:E451
+< en: E451
 en: E451(ii), Pentapotassium triphosphate, potassium triphosphate, potassium tripolyphosphate, KTPP
 xx: E451(ii), E451ii, E 451ii, E-451ii
 bg: E451(ii), Пентакалиев трифосфат, Пентакалиев триполифосфат, калиев трифосфат
@@ -14081,7 +14061,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q11867365
 
-< en:E452
+< en: E452
 en: E452(i), Sodium polyphosphate, sodium hexametaphosphate, sodium polymetaphosphate
 xx: E452(i), e452i, e 452i, e-452i
 bg: E452(i), Натриев полифосфат
@@ -14111,7 +14091,7 @@ anses_additives_of_interest:en: yes
 e_number:en: 452
 wikidata:en: Q11867365
 
-< en:E452
+< en: E452
 en: E452(ii), Potassium polyphosphate, Potassium metaphosphate, Potassium polymetaphosphate
 xx: E452(ii), E452ii, E 452ii, E-452ii
 bg: E452(ii), Калиев полифосфат, Калиев метафосфат, калиев полиметафосфат
@@ -14142,7 +14122,7 @@ e_number:en: 452
 wikidata:en: Q42807555
 
 #comment:en:The same as E543.
-< en:E452
+< en: E452
 en: E452(iii), Sodium calcium polyphosphate, Sodium calcium polyphosphate
 xx: E452(iii), E452iii, E 452iii, E-452iii
 bg: E452(iii), Натриево-калциев полифосфат, Натриево-калциев полифосфат
@@ -14171,7 +14151,7 @@ anses_additives_of_interest:en: yes
 e_number:en: 452
 wikidata:en: Q18967198
 
-< en:E452
+< en: E452
 en: E452(iv), Calcium polyphosphate, Calcium metaphosphate
 xx: E452(iv), e452iv, e 452iv, e-452iv
 bg: E452(iv), Калциев полифосфат, Калциев метафосфат
@@ -14201,7 +14181,7 @@ anses_additives_of_interest:en: yes
 e_number:en: 452
 wikidata:en: Q11867365
 
-< en:E452
+< en: E452
 en: E452(v), Ammonium polyphosphate
 xx: E452(v), E452v, e 452v, e-452v
 ar: E452(v), بولي فوسفات الأمونيوم
@@ -14245,7 +14225,7 @@ additives_classes:en: en:emulsifier, en:humectant, en:sequestrant, en:stabiliser
 e_number:en: 452
 wikidata:en: Q11867365
 
-< en:E452
+< en: E452
 en: E452(vi), Sodium tripolyphosphate
 xx: E452(vi), E452vi, E 452vi, E-452vi
 ar: E452(vi), ثلاثي فوسفات الصوديوم
@@ -14502,7 +14482,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cellulose
 
 # description:en:Microcrystalline cellulose (MCC) is a term for refined wood pulp and is used as a texturizer, an anti-caking agent, a fat substitute, an emulsifier, an extender, and a bulking agent in food production.
 
-< en:E460
+< en: E460
 en: E460(i), Microcrystalline cellulose
 xx: E460(i)
 bg: E460(i), Микрокристална целулоза
@@ -14534,7 +14514,7 @@ wikidata:en: Q80294
 wikipedia:en: https://en.wikipedia.org/wiki/Microcrystalline_cellulose
 # ingredient/fr:cellulose-microcristalline has 72 products in 5 languages @2019-03-19# additive/e460i-microcrystalline-cellulose has 342 products in 7 languages @2019-03-19
 
-< en:E460
+< en: E460
 en: E460(ii), Powdered cellulose, Purified cellulose
 xx: E460(ii)
 bg: E460(ii), Целулоза на прах
@@ -14761,7 +14741,7 @@ en: E466, Sodium carboxy methyl cellulose, sodium carboxymethylcellulose, carbox
 xx: E466
 ar: E466, كربوكسي ميثيل السليولوز
 bg: E466, Натриева карбокси метил целулоза, карбокси метил целулоза, целулозна гума, CMC, NaCMC
-ca: E466, Carboximetilcellulosa sòdica
+ca: E466, Carboximetil cel·lulosa sòdica, Carboximetil cel·lulosa, Carboximetilcellulosa sòdica
 cs: E466, Sodná sůl karboxymethylcelulosy, karboxymethylcelulosa, celulosová guma, CMC, NaCMC, Karboxymethylcelulóza, Karboxymetylcelulóza, Karboxymetylcelulosa, E 466
 da: E466, Natriumcarboxymethylcellulose, carboxymethylcellulose, Cellulosegummi
 de: E466, Carboxymethylcellulose, natrium-carboxymethylcellulose, cellulosegummi, CMC, NaCMC, Carboxymethylcellulosen, Carboxymethylzellulose, E 466, Natriumcarboxymethylcellulose
@@ -14976,7 +14956,7 @@ vegan:en: maybe
 vegetarian:en: maybe
 # comment:en:Although mainly vegetable oils are used, the use of animal fat (incl. pork) can not be excluded. Several groups, such as vegans, Muslims and Jews thus avoid these products.
 
-< en:E470a
+< en: E470a
 en: E470a(i), Sodium salts of fatty acids
 xx: E470a(i)
 ar: E470a(i), أملاح الصوديوم للأحماض الدهنية
@@ -15025,7 +15005,7 @@ zh: E470a(i), 脂肪酸的钠盐
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 470a
 
-< en:E470a
+< en: E470a
 en: E470a(ii), Potassium salts of fatty acids
 xx: E470a(ii)
 de: E470a(ii), Kaliumsalze der Speisefettsäuren
@@ -15048,7 +15028,7 @@ zh: E470a(ii), 脂肪酸钾盐
 additives_classes:en: en:emulsifier, en:stabiliser, en:thickener
 e_number:en: 470a
 
-< en:E470a
+< en: E470a
 en: E470a(iii), Calcium salts of fatty acids
 xx: E470a(iii)
 ar: E470a(iii), أملاح الكالسيوم للأحماض الدهنية
@@ -15172,7 +15152,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mono-_and_diglycerides_of_fatty_acid
 # mono—and-diglycerides-of-fatty-acids has 2139 products in 19 languages @2018-11-12
 # fr:diglycérides-d’acide-gras has 2301 products in 11 languages @2018-11-12
 
-< en:E471
+< en: E471
 en: mono- and diglycerides of vegetable fatty acids
 sv: mono- och diglycerider av vegetabiliska fettsyror, E471 av vegetabiliskt fett
 vegan:en: maybe
@@ -16460,7 +16440,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q190227
 
-< en:E500
+< en: E500
 en: E500(i), Sodium carbonate, washing soda
 xx: E500(i)
 ar: E500(i), كربونات الصوديوم
@@ -16544,7 +16524,7 @@ wikidata:en: Q190227
 
 #WARNING:On ingredient lists the name with hydrogen in it, seems to be preferred (otherwise it resembles to much the cleaning salt?)
 
-< en:E500
+< en: E500
 en: E500(ii), Sodium hydrogen carbonate, Sodium bicarbonate, sodium acid carbonate, Bicarbonate of soda, baking soda
 xx: E500(ii)
 af: E500(ii), Natriumbikarbonaat
@@ -16640,7 +16620,7 @@ wikidata:en: Q179731
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_bicarbonate
 
 
-< en:E500
+< en: E500
 en: E500(iii), Sodium sesquicarbonate
 xx: E500(iii)
 bg: E500(iii), Натриев сескикарбонат
@@ -16717,7 +16697,7 @@ vegetarian:en: yes
 wikidata:en: Q379885
 # comment:en:POTASSIUM CARBONATES is the generic name for several molecules involving potassium and carbonates. It is written in plural, in order to distinguish it from E501i.
 
-< en:E501
+< en: E501
 en: E501(i), Potassium carbonate
 xx: E501(i)
 ar: E501(i), كربونات البوتاسيوم
@@ -16798,7 +16778,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Potassium_carbonate
 # ingredient/fr:carbonate-de-potassium has 116 products @2019-04-21
 # additive/e501i-potassium-carbonate has 434 products in 8 languages @2019-04-21
 
-< en:E501
+< en: E501
 en: E501(ii), Potassium hydrogen carbonate, Potassium bicarbonate
 xx: E501(ii)
 bg: E501(ii), Калиев хидроген карбонат, Калиев бикарбонат
@@ -16917,7 +16897,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q204873
 
-< en:E503
+< en: E503
 en: E503(i), Ammonium carbonate
 xx: E503(i)
 af: E503(i), Ammoniumkarbonaat
@@ -16972,7 +16952,7 @@ organic_eu:en: authorized
 wikidata:en: Q204873
 wikipedia:en: https://en.wikipedia.org/wiki/Ammonium_carbonate
 
-< en:E503
+< en: E503
 en: E503(ii), Ammonium hydrogen carbonate, Baker's ammonia, Sal volatile, Salt of hartshorn, Ammonium bicarbonate
 xx: E503(ii)
 ar: E503(ii), بيكربونات الأمونيوم
@@ -17062,7 +17042,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q407931
 
-< en:E504
+< en: E504
 en: E504(i), Magnesium carbonate
 xx: E504(i)
 ar: E504(i), كربونات المغنسيوم
@@ -17124,7 +17104,7 @@ organic_eu:en: authorized
 wikidata:en: Q407931
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_carbonate
 
-< en:E504
+< en: E504
 en: E504(ii), Magnesium hydroxide carbonate
 xx: E504(ii)
 bg: E504(ii), Магнезиев хидрокси карбонат
@@ -17339,7 +17319,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Calcium_chloride
 
 
 
-en: E510, Ammonium chloride, ammonia solution
+en: E510, ammonium chloride, ammonia solution, salmiac
 xx: E510
 af: E510, Ammoniumchloried
 ar: E510, كلوريد الأمونيوم
@@ -17349,14 +17329,14 @@ bs: E510, Amonijum hlorid
 ca: E510, clorur d'amoni, clorur amònic
 cs: E510, Chlorid amonný
 cy: E510, Amoniwm clorid
-da: E510, Ammoniumklorid, Salmiak
+da: E510, ammoniumklorid, salmiak
 de: E510, Ammoniumchlorid
 el: E510, Χλωριούχο αμμώνιο
 eo: E510, Amonia klorido
 es: E510, Cloruro de amonio
 et: E510, Ammooniumkloriid
 fa: E510, آمونیوم کلرید
-fi: E510, Ammoniumkloridi, Salmiakki, Salmiakkia, Ammoniumkloridia
+fi: E510, ammoniumkloridi, salmiakki, salmiakkia, ammoniumkloridia
 fr: E510, Chlorure d'ammonium
 he: E510, אמוניום כלוריד
 hi: E510, नौसादर
@@ -17388,7 +17368,7 @@ sh: E510, Amonijum hlorid
 sk: E510, Chlorid amónny
 sl: E510, Amonijev klorid
 sr: E510, амонијум хлорид
-sv: E510, Salmiak, Ammoniumklorid
+sv: E510, salmiak, ammoniumklorid
 ta: E510, அம்மோனியம் குளோரைடு
 te: E510, అమ్మోనియం క్లోరైడ్
 tg: E510, Навшодир
@@ -17399,30 +17379,30 @@ ur: E510, نشادر
 uz: E510, Ammoniy xlorid
 vi: E510, Amoni clorua
 zh: E510, 氯化铵
+#azb: E510, آمونیوم کولورید
+#csb: E510, Salmiak
+#en-ca: E510, Ammonium chloride
+#en-gb: E510, Ammonium chloride
+#ku-arab: E510, ئامۆنیوومکلۆرید
+#ku-latn: E510, Amonyûmklorîd
+#pt-br: E510, cloreto de amônio
+#sco: E510, ammonium chloride
+#sr-ec: E510, амонијум хлорид
+#sr-el: E510, Amonijum hlorid
+#zh-cn: E510, 氯化铵
+#zh-hans: E510, 氯化铵
+#zh-hant: E510, 氯化銨
+#zh-hk: E510, 氯化銨
+#zh-sg: E510, 氯化铵
+#zh-tw: E510, 氯化銨
 description:en: AMMONIUM CHLORIDE is an inorganic compound with the formula NH4Cl and a white crystalline salt that is highly soluble in water.
-# ingredient/fr:chlorure-d’ammonium has 34 products in 3 languages @2019-02-10
-# additive/e510-ammonium-chloride has 133 products @2019-02-10
 e_number:en: 510
 vegan:en: yes
 vegetarian:en: yes
-# azb:E510, آمونیوم کولورید
-# csb:E510, Salmiak
-# en-ca:E510, Ammonium chloride
-# en-gb:E510, Ammonium chloride
-# ku-arab:E510, ئامۆنیوومکلۆرید
-# ku-latn:E510, Amonyûmklorîd
-# pt-br:E510, cloreto de amônio
-# sco:E510, ammonium chloride
-# sr-ec:E510, амонијум хлорид
-# sr-el:E510, Amonijum hlorid
-# zh-cn:E510, 氯化铵
-# zh-hans:E510, 氯化铵
-# zh-hant:E510, 氯化銨
-# zh-hk:E510, 氯化銨
-# zh-sg:E510, 氯化铵
-# zh-tw:E510, 氯化銨
 wikidata:en: Q188543
 wikipedia:en: https://en.wikipedia.org/wiki/Ammonium_chloride
+# ingredient/fr:chlorure-d’ammonium has 34 products in 3 languages @2019-02-10
+# additive/e510-ammonium-chloride has 133 products @2019-02-10
 
 en: E511, Magnesium chloride
 xx: E511
@@ -17582,7 +17562,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q211737
 
-< en:E514
+< en: E514
 en: E514(i), Sodium sulphate
 xx: E514(i)
 bg: E514(i), Натриев сулфат
@@ -17610,7 +17590,7 @@ sv: E514(i), natriumsulfat, Glaubersalt
 e_number:en: 514
 wikidata:en: Q211737
 
-< en:E514
+< en: E514
 en: E514(ii), Sodium hydrogen sulphate, Acid sodium sulphate, Sodium bisulphate
 xx: E514(ii)
 bg: E514(ii), Натриев хидроген сулфат, Кисел натриев сулфат
@@ -17668,7 +17648,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q193054
 
-< en:E515
+< en: E515
 en: E515(i), Potassium sulphate
 xx: E515(i)
 bg: E515(i), Калиев сулфат
@@ -17696,7 +17676,7 @@ sv: E515(i), Kaliumsulfat
 e_number:en: 515
 wikidata:en: Q193054
 
-< en:E515
+< en: E515
 en: E515(ii), Potassium hydrogen sulphate, Potassium bisulphate
 xx: E515(ii)
 bg: E515(ii), Калиев хидроген сулфат, Калиев бисулфат
@@ -18707,7 +18687,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Talc
 # the E553a family contains E553a(i): Synthetic magnesium silicate and E553a(ii): Magnesium trisilicate
 # put plural for E553a and singular for E553a(i) whenever it is possible
 # otherwise (Japanese, Korean, Thai, Arabic), put "synthetic magnesium silicate group" or "synthetic magnesium silicate family"
-< en:E553
+< en: E553
 en: E553a, synthetic magnesium silicates
 xx: E553a
 ar: E553a, مجموعة سيليكات المغنيسيوم الاصطناعية
@@ -18752,7 +18732,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 #comment:en:E553a(i) is a specific synthetic form of magnesium silicate (singular)
-< en:E553a
+< en: E553a
 en: E553a(i), Synthetic magnesium silicate
 xx: E553a(i)
 ar: E553a(i), سيليكات المغنيسيوم الاصطناعية
@@ -18795,7 +18775,7 @@ e_number:en: 553a
 organic_eu:en: authorized
 
 #comment:en:E553a(i) is the synthetic form of magnesium trisilicate (singular)
-< en:E553a
+< en: E553a
 en: E553a(ii), Magnesium trisilicate
 xx: E553a(ii)
 bg: E553a(ii), Магнезиев трисиликат
@@ -18824,7 +18804,7 @@ e_number:en: 553a
 organic_eu:en: authorized
 
 #comment:en:Talc is a natural form of magnesium silicate
-< en:E553
+< en: E553
 en: E553b, Talc, talcum, hydrated magnesium silicate
 xx: E553b
 af: E553b, Talk
@@ -19678,29 +19658,28 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q181136
 
-en: E621, Monosodium glutamate, monosodium l-glutamate, Sodium glutamate, L-Glutamic acid\, monosodium salt, Glutamate, MSG
-xx: E621
+en: E621, Monosodium glutamate, monosodium l-glutamate, Sodium glutamate, L-Glutamic acid\, monosodium salt, Glutamate, MSG Fine
+xx: E621, E 621, E-621, MSG
 ar: E621, غلوتامات أحادي الصوديوم
 be: E621, Глутамат натрыю
-bg: E621, Мононатриев глутамат, Натриев глутамат, Е621, Мононатриев глутаминат, Натриев глутаминат
+bg: E621, Мононатриев глутамат, Натриев глутамат, Мононатриев глутаминат, Натриев глутаминат
 ca: E621, Glutamat de monosodi
-cs: E621, Glutaman sodný, Glutamát sodný, L-glutamát sodný monohydrát, E 621, Glutasol, L-glutaman sodný, L-Glutaman sodný monohydrát, L-glutamát sodný, Glutaman, Glutamát
-da: E621, Mononatriumglutamat, Tredje krydderi, E-621, Mononatriumglutaminat, 3. krydderi, Det tredje krydderi, Det 3. krydderi
-de: E621, Mononatriumglutamat, Natriumglutamat, E 621
+cs: E621, Glutaman sodný, Glutamát sodný, L-glutamát sodný monohydrát, Glutasol, L-glutaman sodný, L-Glutaman sodný monohydrát, L-glutamát sodný, Glutaman, Glutamát
+da: E621, Mononatriumglutamat, Tredje krydderi, Mononatriumglutaminat, 3. krydderi, Det tredje krydderi, Det 3. krydderi
+de: E621, Mononatriumglutamat, Natriumglutamat
 el: E621, Οξινο γλουταμινικο νατριο, Γλουταμινικό νάτριο
 eo: E621, ununatria L-glutamato
-es: E621, Glutamato monosódico, Glutamato de monosodio, Glutamato de sodio, E 621, Glutamato
+es: E621, Glutamato monosódico, Glutamato de monosodio, Glutamato de sodio, Glutamato
 et: E621, Naatriumvesinikglutamaat
 fa: E621, مونوسدیم گلوتامات
-fi: E621, Mononatriumglutamaatti, Natriumglutamaatti, E 621, Mononatriumglutamaattia, Natriumglutamaattia
-fr: E621, Glutamate monosodique, glutamate de sodium, monoglutamate de sodium, monosodium glutamate, sodium glutamate, GMS, MSG, E 621, C5H8NNaO4, 6106-04-3, 142-47-2, Glutamate
+fi: E621, Mononatriumglutamaatti, Natriumglutamaatti, Mononatriumglutamaattia, Natriumglutamaattia
+fr: E621, Glutamate monosodique, glutamate de sodium, monoglutamate de sodium, monosodium glutamate, sodium glutamate, GMS, C5H8NNaO4, 6106-04-3, 142-47-2, Glutamate
 ga: E621, Glútamáit aonsóidiam
 he: E621, מונוסודיום גלוטמט
 hi: E621, मोनोसोडियम ग्लूटामेट
 hr: E621, mononatrijev glutaminat, mononatrijev glutamin, mononatrij glutaminat, mononatrij glutamat, natrijev glutaminat, pojačivač arome-mononatrij glutaminat, MONONATRIJEV GLUTAMAT
 hu: E621, Mononátrium-glutamát, Nátrium-glutamát
 id: E621, Mononatrium glutamat
-is: E621, MSG
 it: E621, Glutammato di monosodio, Glutammato di sodio, Glutammato monosodico, NaC5NO4H8
 ja: E621, L-グルタミン酸ナトリウム, L-グルタミン酸Na, Ｌーグルタミン酸Ｎａ, グルタミン酸ナトリウム, グルタミン酸Na, グルタミン酸Ｎａ
 ko: E621, 글루탐산 나트륨
@@ -19712,20 +19691,20 @@ ms: E621, Monosodium glutamat
 mt: E621, Glutamat monosodiku, Glutamat tas-sodju
 my: E621, အချိုမှုန့်
 nb: E621, Natriumglutamat
-nl: E621, Mononatriumglutamaat, Natriumglutamaat, MSG, Vetsin, Ve tsin, smaakversterker E621
+nl: E621, Mononatriumglutamaat, Natriumglutamaat, Vetsin, Ve tsin, smaakversterker E621
 nn: E621, natriumglutamat
 pl: E621, Glutaminian monosodowy, Glutaminian sodu
 pt: E621, Glutamato monossódico, Glutamato de sódio, Glutamato
 ro: E621, Glutamat monosodic, Glutamat de sodiu, Glumat de monosodiu
 rs: E621, mononatrijum glutamat, mononatrijum-glutaminat, mononatrijum-glutamat, mononatrijum glutaminat
-ru: E621, Глутамат натрия, Вэйцзин, Фе-цзин, Вейцзин, Глютамат натрия, Адзи-но-мото, Глутаминат натрия, Е621, Е-621, глутамат натрия 1-замещенный, глутамат натрия 1 замещенный, усилитель вкуса и аромата e621, усилитель вкуса и аромата глутамат натрия
+ru: E621, Глутамат натрия, Вэйцзин, Фе-цзин, Вейцзин, Глютамат натрия, Адзи-но-мото, Глутаминат натрия, глутамат натрия 1-замещенный, глутамат натрия 1 замещенный, усилитель вкуса и аромата e621, усилитель вкуса и аромата глутамат натрия
 sh: E621, Mononatrijum glutamat
 si: E621, මොනොසෝඩියම් ග්ලූටමේට්
-sk: E621, Glutaman sodný, Glutaman sodný, E 621
+sk: E621, Glutaman sodný, Glutaman sodný
 sl: E621, Mononatrijev glutamat, natrijev glutamat, mononatrijevgluamat
 sr: E621, Mononatrijum glutamat
 su: E621, Monosodium glutamat
-sv: E621, Mononatriumglutamat, Natriumglutamat, Monosodiumglutamat, E 621, Smaksalt, Weijing
+sv: E621, Mononatriumglutamat, Natriumglutamat, Monosodiumglutamat, Smaksalt, Weijing
 ta: E621, மோனோ சோடியம் குளூட்டாமேட்
 te: E621, మోనో సోడియం గ్లూటామేట్‌
 th: E621, โมโนโซเดียมกลูตาเมต
@@ -19735,23 +19714,24 @@ uk: E621, Глутамат натрію
 ur: E621, چینی نمک
 vi: E621, bột ngọt
 zh: E621, 味精
+#azb: E621, مونوسودیوم قلوتامات
+#be-tarask: E621, Глутамат натрыю
+#cdo: E621, Ê-só
+#de-ch: E621, Mononatriumglutamat
+#rs: E621, mononatrijum glutamat
+#sco: E621, monosodium glutamate
+#war: E621, Betsin
+#wuu: E621, 味之素
+#yue: E621, 味精
+#zh-cn: E621, 味精
+#zh-hans: E621, 味精
+#zh-hant: E621, 味精
+#zh-hk: E621, 味精
+#zh-sg: E621, 味精
+#zh-tw: E621, 味精
 additives_classes:en: en:flavour-enhancer
 anses_additives_of_interest:en: yes
-# azb:E621, مونوسودیوم قلوتامات
-# be-tarask:E621, Глутамат натрыю
-# cdo:E621, Ê-só
-# de-ch:E621, Mononatriumglutamat
-#rs:E621, mononatrijum glutamat
-# sco:E621, monosodium glutamate
-# war:E621, Betsin
-# wuu:E621, 味之素
-# yue:E621, 味精
-# zh-cn:E621, 味精
-# zh-hans:E621, 味精
-# zh-hant:E621, 味精
-# zh-hk:E621, 味精
-# zh-sg:E621, 味精
-# zh-tw:E621, 味精
+description:en: MONOSODIUM GLUTAMATE (MSG, also known as sodium glutamate) is the sodium salt of glutamic acid, one of the most abundant naturally occurring non-essential amino acids.
 e_number:en: 621
 efsa_evaluation:en: Re‐evaluation of glutamic acid (E 620), sodium glutamate (E 621), potassium glutamate (E 622), calcium glutamate (E 623), ammonium glutamate (E 624) and magnesium glutamate (E 625) as food additives
 efsa_evaluation_date:en: 2017/07/12
@@ -19770,7 +19750,6 @@ wikipedia_title:en: Monosodium glutamate
 wikipedia_title:fr: Glutamate monosodique
 wikipedia_url:en: https://en.wikipedia.org/wiki/Monosodium_glutamate
 wikipedia_url:fr: https://fr.wikipedia.org/wiki/Glutamate_monosodique
-# description:en:MONOSODIUM GLUTAMATE (MSG, also known as sodium glutamate) is the sodium salt of glutamic acid, one of the most abundant naturally occurring non-essential amino acids.
 # ingredient/fr:monoglutamate-de-sodium has 78 products in french @2019-01-25
 # additive/e621-monosodium-glutamate has 8428 products in 31 languages @2019-01-25
 # ingredient/fr:monosodium-glutamate has 62 products @2019-01-25
@@ -20442,7 +20421,7 @@ wikidata:en: Q18967228
 # comment:en:GLYCINE is produced mainly from gelatin, which is derived from animal bones. It is therefore not suitable for vegans, vegetarians and, as long as the origin is not known, not for Jews, Muslims and Hindus. Only the producer can provide the origin of the product.
 
 
-< en:E640
+< en: E640
 en: E640(i), Glycine
 xx: E640(i)
 bg: E640(i), Глицин
@@ -20471,7 +20450,7 @@ sv: E640(i), Glycin
 e_number:en: 640
 wikidata:en: Q18967228
 
-< en:E640
+< en: E640
 en: E640(ii), Sodiumglycinate
 xx: E640(ii)
 ar: E640(ii), غليسينات الصوديوم
@@ -20809,7 +20788,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q411955
 
-< en:E900
+< en: E900
 en: E900a, Dimethyl polysiloxane, Polydimethyl siloxane, Silicone fluid, Silicone oil, Polydimethylsiloxane, dimethicone, dimethylpolysiloxane
 xx: E900a
 bg: E900a, Диметилполисилоксан, Полидиметил силоксан, течен силикон, силиконово масло
@@ -20840,7 +20819,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q411955
 
-< en:E900
+< en: E900
 en: E900b, Methylphenylpolysiloxane
 xx: E900b
 ar: E900b, ميثيل فينيل بولي سيلوكسان
@@ -21133,7 +21112,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q579764
 
-< en:E905
+< en: E905
 en: E905a, mineral oil
 xx: E905a
 ar: E905a, زيت معدني
@@ -21177,7 +21156,7 @@ vegetarian:en: yes
 wikidata:en: Q583582
 
 #comment:en:Vaseline is a trademark name of petroleum jelly, so a real translation of petrolem jelly is preferred.
-< en:E905
+< en: E905
 en: E905b, petroleum jelly, petrolatum, white petrolatum, soft paraffin, multi-hydrocarbon
 xx: E905b
 af: E905b, Petroleumjellie
@@ -21255,7 +21234,7 @@ vegetarian:en: yes
 # zh-tw:E905b, 凡士林
 wikidata:en: Q457239
 
-< en:E905
+< en: E905
 en: E905c, Petroleum wax
 xx: E905c
 af: E905c, Petroleumwas
@@ -21315,7 +21294,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q579764
 
-< en:E905c
+< en: E905c
 en: E905c(i), Microcrystalline wax
 xx: E905c(i)
 bg: E905c(i), Микрокристален восък
@@ -21349,7 +21328,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q579764
 
-< en:E905c
+< en: E905c
 en: E905c(ii), Paraffin wax
 xx: E905c(ii)
 ar: E905c(ii), برافين
@@ -21433,7 +21412,7 @@ vegetarian:en: yes
 #zh-tw:E905c(ii), 石蠟
 wikidata:en: Q579764
 
-< en:E905
+< en: E905
 en: E905d, Mineral oil high viscosity
 xx: E905d
 bg: E905d, Високовискозитно минерално масло
@@ -21465,7 +21444,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q579764
 
-< en:E905
+< en: E905
 en: E905e, Mineral oil medium viscosity
 xx: E905e
 bg: E905e, Средновискозитно минерално масло
@@ -21497,7 +21476,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q579764
 
-< en:E905
+< en: E905
 en: E905f, Mineral oil medium and low viscosity class II
 xx: E905f
 bg: E905f, Минерално масло със средна и ниска вискозитетна клас II
@@ -21529,7 +21508,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q579764
 
-< en:E905
+< en: E905
 en: E905g, Mineral oil medium and low viscosity class III
 xx: E905g
 bg: E905g, Минерално масло средна и ниска вискозитетна клас III
@@ -22531,7 +22510,7 @@ e_number:en: 927
 vegan:en: yes
 vegetarian:en: yes
 
-< en:E927
+< en: E927
 en: E927a, Azodicarbonamide
 xx: E927a
 ar: E927a, أزوديكاربوناميد
@@ -22583,7 +22562,7 @@ vegetarian:en: yes
 #zh-cn:E927a, 偶氮甲酰胺
 wikidata:en: Q415646
 
-< en:E927
+< en: E927
 en: E927b, Carbamide, urea
 xx: E927b
 ar: E927b, يوريا
@@ -23463,7 +23442,7 @@ da: E950, Acesulfamkalium, Acesulfamkalium, Acesulfam K
 de: E950, Acesulfam-K
 el: E950, Ακεσουλφαμη κ, Ακεσουλφάμη
 eo: E950, Acesulfamo
-es: E950, Acesulfamo K, Acesulfamo k, Acesulfame K, Acesulfamo potásico, acesulfame potásico, acesulfamo, acelsufamo de potasio
+es: E950, Acesulfamo K, Acesulfame K, Acesulfamo potásico, acesulfame potásico, acesulfamo, acelsufamo de potasio, acesulfamo de potasio, acesulfame de potasio
 et: E950, Kaaliumatsesulfaam, Atsesulfaamkaalium, atsesulfaam-K
 fa: E950, اسسولفام پتاسیم
 fi: E950, Asesulfaami k, Asesulfaamikalium, Asesulfaamikaliumia
@@ -24376,7 +24355,7 @@ vegetarian:en: yes
 wikidata:en: Q423882
 wikipedia:en: https://en.wikipedia.org/wiki/Maltitol
 
-< en:maltitol
+< en: maltitol
 en: E965(i), D-Maltitol
 xx: E965(i)
 bg: E965(i), D-малтитол
@@ -24407,7 +24386,7 @@ efsa_evaluation_date:en: 2006-05-18
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2006.354
 wikidata:en: Q423882
 
-< en:maltitol
+< en: maltitol
 en: E965(ii), Maltitol syrup
 xx: E965(ii)
 ar: E965(ii), شراب مالتيتول
@@ -26506,6 +26485,8 @@ sv: Kaliumjodid
 tr: Potasyum iyodür
 uk: Йодид калію
 zh: 碘化钾
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q121874
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
 
@@ -26514,6 +26495,13 @@ xx: MSM, OptiMSM
 sv: metylsulfonylmetan
 wikidata:en: Q423842
 wikipedia:en: https://en.wikipedia.org/wiki/Methylsulfonylmethane
+
+en: hydroxymethylbutyrate, HMB
+xx: hydroxymethylbutyrate, HMB
+wikidata:en: Q223081
+
+< en: hydroxymethylbutyrate
+en: calcium beta-hydroxy beta-methyl butyrate
 
 # Japanese additives can be listed only with their type (e.g. amino acids), without the specific additive name
 
@@ -26581,47 +26569,95 @@ ja: 無機塩
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-< en:E450
-< en:E500
+< en: E450
+< en: E500
 en: diphosphates and sodium carbonates
+bg: дифосфати и натриеви карбонати
+ca: difosfats i carbonats de sodi
+cs: difosforečnany a uhličitany sodné
+da: diphosphater og natriumkarbonater, diphosphater og natriumcarbonater
 de: Diphosphate und Natriumcarbonate, E 450 und E 500, E450 und E500
+el: διφωσφορικά άλατα και ανθρακικά νάτρια
 es: difosfatos y carbonatos de sodio
+et: difosfaadid ja naatriumkarbonaadid
 fi: difosfaatit ja natriumkarbonaatit
 fr: diphosphate et carbonate de calcium, diphosphates et carbonates de sodium, e450 et e500
 hr: difosfati i natrijevi karbonati
 hu: difoszfátok és nátrium-karbonátok
 it: difosfati e carbonati di sodio, E 450 ed E 500, E450 ed E500
+lt: difosfatai ir natrio karbonatai
+lv: difosfāti un nātrija karbonāti
+mt: difosfati u karbonati tas-sodju
 nl: difosfaten en natriumcarbonaten
+pl: difosforany i węglany sodu
+pt: difosfatos e carbonatos de sódio
+ro: difosfați și carbonați de sodiu
+ru: дифосфаты и карбонаты натрия
+sk: difosforečnany a uhličitany sodné
+sl: difosfati in natrijevi karbonati
+sv: difosfater och natriumkarbonater
 # fr:e450-et-e500 has 64 products in 4 languages @2018-11-04
 # ingredient/fr:diphosphate-et-carbonate-de-calcium has 678 products @2019-05-18
 
-< en:E450(i)
-< en:E500(ii)
+< en: E450(i)
+< en: E500(ii)
 ca: carbonat àcid de sodi i difosfat de disodi
 fr: diphosphate disodique et carbonate acide de sodium
 ru: сода, сода пищевая, гидрокарбонат натрия, разрыхлитель гидрокарбонат натрия
 # fr:diphosphate-disodique-et-carbonate-acide-de-sodium has 72 products in 2 languages @2018-11-04
 
-< en:E450
-< en:E451
+< en: E450
+< en: E451
 en: di- and triphosphates
+bg: ди- и трифосфати
+ca: di- i trifosfats
+cs: di- a trifosforečnany
 da: di- och triphosphater
 de: Di- und Triphosphate, Stabilisator Di- und Triphosphate
+el: δι- και τριφωσφορικά άλατα
+es: di- y trifosfatos
+et: di- ja trifosfaadid
 fi: di- ja trifosfaatit
 fr: diphosphates et triphosphates, triphosphates et diphosphates, di- et triphosphate
 hr: di- i trifosfati
+lt: di- ir trifosfatai
+lv: di- un trifosfāti
+mt: di- u trifosfati
 nl: difosfaten en trifosfaten
+pl: di- i trifosforany
+pt: di- e trifosfatos
+ro: di- și trifosfați
+ru: ди- и трифосфаты
+sk: di- a trifosforečnany
+sl: di- in trifosfati
 sv: di- och trifosfater
 
-< en:E500
-< en:E503
+< en: E500
+< en: E503
 en: ammonium and sodium carbonates
+bg: амониеви и натриеви карбонати
+ca: carbonats d'amoni i de sodi
+cs: uhličitany amonné a sodné
 da: ammonium- og natriumkarbonat, ammonium- og natriumcarbonat
 de: Ammonium und Natriumcarbonat
+el: ανθρακικά άλατα αμμωνίου και νατρίου
+es: carbonatos de amonio y de sodio
+et: ammoonium- ja naatriumkarbonaadid
 fi: ammonium- ja natriumkarbonaatit
 fr: carbonates d'ammonium et de sodium
+hr: amonijevi i natrijevi karbonati
+hu: ammónium- és nátrium-karbonátok
 it: carbonati di ammonio e di sodio
-lt: kildinimo medžiaga amonio karbonatas
+lt: amonio ir natrio karbonatai, kildinimo medžiaga amonio karbonatas
+lv: amonija un nātrija karbonāti
+mt: karbonati tal-ammonju u tas-sodju
 nl: ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
+pl: węglany amonu i sodu
+pt: carbonatos de amônio e de sódio, carbonatos de amónio e de sódio
+ro: carbonați de amoniu și de sodiu
+ru: карбонаты аммония и натрия
+sk: uhličitany amónne a sodné
+sl: amonijevi in natrijevi karbonati
+sv: ammonium- och natriumkarbonater
 # ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
 

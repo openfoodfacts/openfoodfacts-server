@@ -49,6 +49,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Config qw/:all/;
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text detect_rare_crops/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
@@ -60,6 +61,7 @@ use ProductOpener::Nutrition
 use ProductOpener::Nutriscore qw/:all/;
 use ProductOpener::EnvironmentalScore qw/compute_environmental_score/;
 use ProductOpener::ForestFootprint qw/compute_forest_footprint/;
+use ProductOpener::ForestFootprint2026 qw/compute_forest_footprint_2026/;
 use ProductOpener::PackagingFoodContact qw/determine_food_contact_of_packaging_components_service/;
 
 use Log::Any qw($log);
@@ -85,7 +87,9 @@ sub specific_processes_for_food_product ($product_ref) {
 	# Select best language to parse ingredients
 	select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
-	extract_ingredients_from_text($product_ref);
+
+	# Use the external Recipe Estimator service to estimate ingredients percentages
+	extract_ingredients_from_text($product_ref, {estimate_ingredients_percent => $recipe_estimator_service});
 	extract_additives_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
 
@@ -115,6 +119,10 @@ sub specific_processes_for_food_product ($product_ref) {
 
 	compute_environmental_score($product_ref);
 	compute_forest_footprint($product_ref);
+	# We are computing a new Forest Footprint 2026 score which is still being refined.
+	# The corresponding knowledge panel is only visible to moderators for now.
+	# Once finalized, we will remove the old forest_footprint data and panel.
+	compute_forest_footprint_2026($product_ref);
 
 	# Determine packaging components in contact with food
 	determine_food_contact_of_packaging_components_service($product_ref);

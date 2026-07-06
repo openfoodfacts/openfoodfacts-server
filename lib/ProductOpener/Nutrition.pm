@@ -47,7 +47,6 @@ BEGIN {
 		&get_specific_nutrition_input_set
 		&get_nutrition_input_sets_in_a_hash
 		&convert_nutrition_input_sets_hash_to_array
-		&get_source_for_site_and_org
 		&get_preparations_for_product_type
 		&get_pers_for_product_type
 		&get_default_per_for_product
@@ -74,6 +73,7 @@ BEGIN {
 		&get_nutrient_from_nutrient_set_in_default_unit
 		&default_unit_for_nid
 		&add_misc_tags_for_input_nutrition_data_pers
+		&sort_sets_by_priority
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -83,7 +83,8 @@ use vars @EXPORT_OK;
 
 use Clone qw/clone/;
 
-use ProductOpener::Tags qw/:all get_inherited_property_from_categories_tags/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -734,6 +735,11 @@ sub get_nutrition_input_sets_in_a_hash($product_ref) {
 	if ((defined $input_sets_ref) and (ref $input_sets_ref eq 'ARRAY')) {
 		foreach my $set_ref (@{$input_sets_ref}) {
 			if (exists $set_ref->{source} and exists $set_ref->{preparation} and exists $set_ref->{per}) {
+				# Normalize "_prepared" to "prepared" for backwards compatibility
+				# with products stored via old-style API params before the fix
+				if ($set_ref->{preparation} eq "_prepared") {
+					$set_ref->{preparation} = "prepared";
+				}
 				$input_sets_hash_ref->{$set_ref->{source}}{$set_ref->{preparation}}{$set_ref->{per}} = $set_ref;
 			}
 		}
@@ -821,46 +827,6 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 		if $log->is_debug();
 
 	return $input_sets_ref;
-}
-
-=head2 get_source_for_site_and_org ( $org_id = undef )
-
-Returns the default source of nutrition data for the current site and organization.
-
-=head3 Arguments
-
-=head4 $org_id
-
-Organization id
-
-=head3 Return values
-
-- "packaging" for the public platform
-- "manufacturer" for the pro platform
-
-=cut
-
-sub get_source_for_site_and_org ($org_id = undef) {
-
-	my $source = "packaging";
-	if ($server_options{producers_platform}) {
-		$source = "manufacturer";
-		if (defined $org_id) {
-			# e.g. org-database-usda
-			if ($org_id =~ /^org-database-(.+)$/) {
-				$source = "database-" . $1;
-			}
-			# e.g. org-label-gmo-project (in practice labels should not send nutrition data)
-			if ($org_id =~ /^org-label-(.+)$/) {
-				$source = "label-" . $1;
-			}
-			# At some point we used the pro platform to allow users to bulk enter data (e.g. for scan parties)
-			elsif ($org_id =~ /^user-(.+)$/) {
-				$source = "packaging";
-			}
-		}
-	}
-	return $source;
 }
 
 =head2 get_preparations_for_product_type
@@ -1363,7 +1329,7 @@ sub assign_nutrition_values_from_old_request_parameters ($request_ref, $product_
 		# Assign all the nutrient values
 
 		# We can have nutrient values for the product as sold, or prepared
-		foreach my $preparation ("as_sold", "_prepared") {
+		foreach my $preparation ("as_sold", "prepared") {
 
 			my $preparation_suffix = ($preparation eq "as_sold") ? "" : "_prepared";
 
@@ -1808,7 +1774,7 @@ sub assign_nutrition_values_from_imported_csv_product_old_fields (
 					$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
 
 					# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
-					if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
+					if (($nid eq "energy") and (defined $unit) and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
 						$nid = "energy-" . lc($unit);
 					}
 

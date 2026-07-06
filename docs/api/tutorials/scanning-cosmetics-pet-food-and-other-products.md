@@ -32,7 +32,7 @@
 ### Important APIs if you want to scan any kind of product (or help your users avoid adding cosmetics by mistake in Open Food Facts)
 
 - We have a universal barcode scanning API, where you scan a barcode, and you get a result from either Open Food Facts, Open Pet Food Facts, Open Beauty Facts or Open Products Facts with a `product_type` (beauty ┃ food ┃ petfood ┃ product), you can use the `product_type=all` parameter. Asked on any instance, it will redirect you to the right instance if a product exists and is on another instance (eg: asking for a beauty barcode on food instance). See [reference documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-).
-- https://world.openfoodfacts.org/api/v2/product/3760044183738?product_type=all (will redirect you to the proper payload on Open Products Facts)
+- https://world.openfoodfacts.org/api/v3/product/3760044183738?product_type=all (will redirect you to the proper payload on Open Products Facts)
 - If no result is found in any of the 4 databases, you will have to ask the type of product to your users, and use the classic product addition API on the right project.
 - If (it can happen) the product appears on the wrong project, we suggest you use the NutriPatrol API to let your users report it to the moderators, and the proceed to a product addition on the right project. The moderators will then move the existing data to the right project. Eventually, project categorization errors should be infinitesimal.
 
@@ -53,7 +53,7 @@
 
 #### Product in Open Beauty Facts
 
-- https://world.openbeautyfacts.org/api/v2/product/3560070791460.json
+- https://world.openbeautyfacts.org/api/v3/product/3560070791460.json
 
 #### Warning on specific ingredients
 
@@ -63,16 +63,16 @@
 
 ##### List of ingredients on Open Beauty Facts
 
-- https://world.openbeautyfacts.org/ingredients.json
+- https://world.openbeautyfacts.org/facets/ingredients.json
 
 ##### Products where we could not detect aluminium salts
 
-- https://world.openbeautyfacts.org/ingredient/-aluminum-salts.json
+- https://world.openbeautyfacts.org/facets/ingredients/-aluminum-salts.json
 
 ##### Products where we could detect aluminium salts
 
-- https://world.openbeautyfacts.org/ingredient/aluminum-salts.json
+- https://world.openbeautyfacts.org/facets/ingredients/Aluminum%20salts.json
 
 #### Periods after Opening
 
-[https://en.wiki.openbeautyfacts.org/Global_period_after_opening_taxonomy Periods after opening taxonomy]
+[https://wiki.openfoodfacts.org/OBF:Global_periods_after_opening_taxonomy Periods after opening taxonomy]

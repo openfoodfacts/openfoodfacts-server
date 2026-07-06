@@ -29,6 +29,7 @@ use Getopt::Long;
 use JSON;
 
 use File::Basename "dirname";
+use File::Path qw/remove_tree/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
@@ -113,17 +114,30 @@ my $query_ref = {};
 my $separator = "\t";
 
 # Export database script to generate CSV exports of the whole database
-# Note: the test update seems to fail if the expected results files already exist.
-# remove tests/integration/expected_test_results/export_database/ before updating expected results.
+# remove tests/integration/expected_test_results/export_database/ before updating expected results as we get a file for each row.
 if ($update_expected_results) {
-	#remove_tree($expected_result_dir . "/export_database");
+	remove_tree($expected_result_dir . "/export_database");
 }
 
 # unlink CSV export if it exists, and launch script
 my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
-unlink($csv_filename) if -e $csv_filename;
+if (-e $csv_filename) {
+	print STDERR "unlinking $csv_filename\n";
+	unlink($csv_filename) or die("Could not unlink $csv_filename: $!\n");
+}
+$csv_filename = "$BASE_DIRS{PUBLIC_DATA}/fr.$server_domain.products.csv";
+if (-e $csv_filename) {
+	print STDERR "unlinking $csv_filename\n";
+	unlink($csv_filename) or die("Could not unlink $csv_filename: $!\n");
+}
+
+$csv_filename = "$BASE_DIRS{PUBLIC_DATA}/en.$server_domain.products.csv";
 
 my $script_out = `perl scripts/export_database.pl`;
+
+# For debugging, copy the CSV file
+# print STDERR "cp $csv_filename $expected_result_dir/export_database.csv.test \n";
+# system("cp $csv_filename $expected_result_dir/export_database.csv.test");
 
 ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "/export_database",
 	$update_expected_results, "export_database");

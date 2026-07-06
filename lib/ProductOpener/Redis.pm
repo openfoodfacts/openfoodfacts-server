@@ -47,6 +47,8 @@ BEGIN {
 		&push_ocr_ready_to_redis
 
 		&process_xread_stream_reply
+
+		&perform_health_check
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -55,16 +57,19 @@ use vars @EXPORT_OK;
 
 use Log::Any qw/$log/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Minion qw/queue_job/;
 use ProductOpener::Users qw/retrieve_user store_user_preferences retrieve_user_preferences/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
-use ProductOpener::Store qw/get_string_id_for_lang/;
+use ProductOpener::Store qw/get_string_id_for_lang retrieve_object store_object/;
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::Cache qw/$memd/;
 use ProductOpener::Tags qw/cc_to_country/;
+use ProductOpener::Health qw/:all/;
 
 use AnyEvent;
 use AnyEvent::RipeRedis;
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 =head2 $redis_client
 
@@ -123,22 +128,25 @@ sub init_redis() {
 
 =head2 subscribe_to_redis_streams ()
 
-Subscribe to redis stream to be informed about user deletions.
+Connects to Redis and processes any events received. Blocks until there is an error or the application terminates.
+Returns on error or when receiving a terminate signal from the OS
 
 =cut
 
 sub subscribe_to_redis_streams () {
+	if (get_oidc_implementation_level() < 2) {
+		$log->info("OIDC implementation level is less than 2, not listening to Redis stream") if $log->is_info();
+		return;
+	}
+
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
-		if (!$sent_warning_about_missing_redis_url) {
-			$log->warn("Redis URL not provided for streaming") if $log->is_warn();
-			$sent_warning_about_missing_redis_url = 1;
-		}
+		$log->error("Redis URL not provided for streaming") if $log->is_error();
 		return;
 	}
 
 	if (!defined $redis_client) {
-		# we where deconnected, try again
+		# we where disconnected, try again
 		$log->info("Trying to reconnect to Redis") if $log->is_info();
 		init_redis();
 	}
@@ -148,45 +156,97 @@ sub subscribe_to_redis_streams () {
 		return;
 	}
 
-	if (get_oidc_implementation_level() >= 2) {
-		# Read Keycloak events to process actions following user creation / deletion
-		_read_user_streams('$');
-	}
+	# Read Keycloak events to process actions following user creation / deletion
+	# TODO: We should store the last message_id
+	_read_user_streams();
 
 	return;
 }
 
-sub _read_user_streams($search_from) {
-	# Listen for user-deleted events so that we can redact product contributions for this flavor
-	# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
-	my @streams = (
-		'COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted',
-		'user-registered', 'user-updated', $search_from, $search_from, $search_from
-	);
+=head2 _read_user_streams ()
 
-	$log->info("Reading from Redis", {streams => \@streams}) if $log->is_info();
-	$redis_client->xread(
-		@streams,
-		sub {
-			my ($reply_ref, $err) = @_;
-			if ($err) {
-				$log->warn("Error reading from Redis", {error => $err}) if $log->is_warn();
-				return;
-			}
+Keeps reading from Redis until there is an error.
+Returns on a fatal error or if the OS signals to quit
 
-			if ($reply_ref) {
-				# Process any received messages
-				my $last_processed_message_id = process_xread_stream_reply($reply_ref);
-				if ($last_processed_message_id) {
-					$search_from = $last_processed_message_id;
-				}
-			}
+=cut
 
-			# Start listening for the next batch of messages
-			_read_user_streams($search_from);
-			return;
+sub _read_user_streams() {
+	# Get the index that we last read from
+	my $search_from = retrieve_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id");
+	if (defined $search_from) {
+		# Turn the search from back into a scalar
+		$search_from = ${$search_from};
+	}
+	else {
+		$search_from = '$';
+	}
+
+	my $ok = 1;
+	my $retry_count = 0;
+	do {
+		# This is an AnyEvent Condition Variable. The xread method below does not block, so we
+		# call $cv->recv to wait for it to finish.
+		# The response will be 1 if all is OK, 0 on a fatal error or -1 for a potentially retryable error
+
+		my $cv = AE::cv;
+		foreach my $sig (qw/TERM KILL QUIT/) {
+			AE::signal $sig, sub {
+				$log->info("Exiting after receiving", {signal => $sig}) if $log->is_info();
+				$cv->send(0);
+			};
 		}
-	);
+
+		# Listen for user-deleted events so that we can redact product contributions for this flavor
+		# This will block for up to 5 seconds waiting for messages and return a maximum of 1000
+		my @streams = (
+			'COUNT', 1000, 'BLOCK', 5000, 'STREAMS', 'user-deleted',
+			'user-registered', 'user-updated', $search_from, $search_from, $search_from
+		);
+
+		$log->info("[" . localtime() . "] Reading from Redis", {streams => \@streams}) if $log->is_info();
+
+		$redis_client->xread(
+			@streams,
+			sub {
+				my ($reply_ref, $err) = @_;
+
+				if ($err) {
+					$log->info("[" . localtime() . "] Error reading from Redis", {error => $err}) if $log->is_info();
+					$cv->send(-1);
+					return;
+				}
+
+				if ($reply_ref) {
+					$log->info("[" . localtime() . "] Received data from Redis stream", {reply => $reply_ref})
+						if $log->is_info();
+					# Process any received messages
+					my $last_processed_message_id = process_xread_stream_reply($reply_ref);
+					if ($last_processed_message_id) {
+						$search_from = $last_processed_message_id;
+						store_object("$BASE_DIRS{PRIVATE_DATA}/last-processed-id", $search_from);
+					}
+				}
+				else {
+					$log->info("[" . localtime() . "] No new messages in Redis stream") if $log->is_info();
+				}
+				$cv->send(1);
+			}
+		);
+
+		# Block until we receive messages, the block timeout expires or an error occurs
+		$ok = $cv->recv;
+
+		# If it is a non-fatal error then we will retry 10 times
+		if ($ok == -1) {
+			$retry_count += 1;
+			$log->error("[" . localtime() . "] Redis error after $retry_count retries. Retrying in 1 minute")
+				if $log->is_error();
+			sleep(60);
+		}
+		else {
+			$retry_count = 0;
+		}
+	} while ($ok);
 
 	return;
 }
@@ -197,34 +257,43 @@ sub process_xread_stream_reply($reply_ref) {
 	my @streams = @{$reply_ref};
 	foreach my $stream_ref (@streams) {
 		my @stream = @{$stream_ref};
-		if ($stream[0] eq 'user-registered') {
-			$last_processed_message_id = _process_registered_users_stream($stream[1]);
-		}
-		elsif ($stream[0] eq 'user-deleted') {
-			$last_processed_message_id = _process_deleted_users_stream($stream[1]);
-		}
-		elsif ($stream[0] eq 'user-updated') {
-			$last_processed_message_id = _process_updated_users_stream($stream[1]);
-		}
+		my $message_id;
+		my $stream_name = $stream[0];
 
+		foreach my $outer_ref (@{$stream[1]}) {
+			my @outer = @{$outer_ref};
+			$message_id = $outer[0];
+			eval {
+				my %message_hash = @{$outer[1]};
+
+				if ($stream_name eq 'user-registered') {
+					_process_registered_users_stream(%message_hash);
+				}
+				elsif ($stream_name eq 'user-deleted') {
+					_process_deleted_users_stream(%message_hash);
+				}
+				elsif ($stream_name eq 'user-updated') {
+					_process_updated_users_stream(%message_hash);
+				}
+				1;
+			} or do {
+				my $error = $@ || 'unknown error processing Redis stream message';
+				$log->warn("Error processing Redis stream message", {message_id => $message_id, error => $error})
+					if $log->is_warn();
+
+				open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{PRIVATE_DATA}/bad-messages.log");
+				print $OUT "$stream_name - $message_id - $error\n";
+				close($OUT);
+
+				return;
+			};
+			if ($message_id and (not $last_processed_message_id or $message_id gt $last_processed_message_id)) {
+				$last_processed_message_id = $message_id;
+			}
+		}
 	}
 
 	return $last_processed_message_id,;
-}
-
-sub message_to_hash($outer_ref) {
-	my @outer = @{$outer_ref};
-	my $message_id = $outer[0];
-	my @values = @{$outer[1]};
-
-	my %message_hash;
-	for (my $i = 0; $i < scalar(@values); $i += 2) {
-		my $key = $values[$i];
-		my $value = $values[$i + 1];
-		$message_hash{$key} = $value;
-	}
-
-	return ($message_id, %message_hash);
 }
 
 sub cache_user(%message_hash) {
@@ -253,105 +322,79 @@ sub cache_user(%message_hash) {
 	return;
 }
 
-sub _process_registered_users_stream($stream_values_ref) {
-	my $last_processed_message_id;
+sub _process_registered_users_stream(%message_hash) {
+	cache_user(%message_hash);
 
-	foreach my $outer_ref (@{$stream_values_ref}) {
-		my ($message_id, %message_hash) = message_to_hash($outer_ref);
+	if ($process_global_redis_events) {
+		my $user_id = $message_hash{'userName'};
+		my $newsletter = $message_hash{'newsletter'};
+		my $requested_org = $message_hash{'requestedOrg'};
+		my $email = $message_hash{'email'};
+		my $clientId = $message_hash{'clientId'};
 
-		cache_user(%message_hash);
-
-		if ($process_global_redis_events) {
-			my $user_id = $message_hash{'userName'};
-			my $newsletter = $message_hash{'newsletter'};
-			my $requested_org = $message_hash{'requestedOrg'};
-			my $email = $message_hash{'email'};
-			my $clientId = $message_hash{'clientId'};
-
-			$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
-				if $log->is_info();
-
-			# Create the user preferences if they don't exist and set the properties
-			my $user_ref = retrieve_user($user_id);
-			if ($user_ref) {
-				if (defined $requested_org) {
-					$user_ref->{requested_org} = remove_tags_and_quote(decode utf8 => $requested_org);
-
-					my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
-
-					if ($requested_org_id ne "") {
-						$user_ref->{requested_org_id} = $requested_org_id;
-						$user_ref->{pro} = 1;
-					}
-				}
-				store_user_preferences($user_ref);
-
-				my $args_ref = {userid => $user_id};
-
-				# Register interest in joining an organization
-				if (defined $requested_org) {
-					queue_job(
-						process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
-				}
-
-				if (not defined $clientId or $clientId ne 'OFF-PRO') {
-					# Don't send normal welcome email for users that sign-up via the pro platform
-					queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-				}
-
-				# Subscribe to newsletter
-				if (defined $newsletter and $newsletter eq 'subscribe') {
-					queue_job(
-						subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
-				}
-			}
-			else {
-				$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
-			}
-		}
-
-		$last_processed_message_id = $message_id;
-	}
-
-	return $last_processed_message_id;
-}
-
-sub _process_deleted_users_stream($stream_values_ref) {
-	my $last_processed_message_id;
-
-	foreach my $outer_ref (@{$stream_values_ref}) {
-		my ($message_id, %message_hash) = message_to_hash($outer_ref);
-
-		# Remove user from the cache
-		my $userid = $message_hash{'userName'};
-		$memd->delete("user/$userid");
-
-		my $args_ref = {
-			userid => $userid,
-			newuserid => $message_hash{'newUserName'}
-		};
-		my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
-		$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id})
+		$log->info("User registered", {user_id => $user_id, newsletter => $newsletter})
 			if $log->is_info();
 
-		$last_processed_message_id = $message_id;
+		# Create the user preferences if they don't exist and set the properties
+		my $user_ref = retrieve_user($user_id);
+		if ($user_ref) {
+			if (defined $requested_org) {
+				$user_ref->{requested_org} = remove_tags_and_quote($requested_org);
+
+				my $requested_org_id = get_string_id_for_lang("no_language", $user_ref->{requested_org});
+
+				if ($requested_org_id ne "") {
+					$user_ref->{requested_org_id} = $requested_org_id;
+					$user_ref->{pro} = 1;
+				}
+			}
+			store_user_preferences($user_ref);
+
+			my $args_ref = {userid => $user_id};
+
+			# Register interest in joining an organization
+			if (defined $requested_org) {
+				queue_job(process_user_requested_org => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+
+			if (not defined $clientId or $clientId ne 'OFF-PRO') {
+				# Don't send normal welcome email for users that sign-up via the pro platform
+				queue_job(welcome_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+
+			# Subscribe to newsletter
+			if (defined $newsletter and $newsletter eq 'subscribe') {
+				queue_job(subscribe_user_newsletter => [$args_ref] => {queue => $server_options{minion_local_queue}});
+			}
+		}
+		else {
+			$log->warn("User $user_id not found when processing user registered event") if $log->is_warn();
+		}
 	}
 
-	return $last_processed_message_id;
+	return;
 }
 
-sub _process_updated_users_stream($stream_values_ref) {
-	my $last_processed_message_id;
+sub _process_deleted_users_stream(%message_hash) {
+	# Remove user from the cache
+	my $userid = $message_hash{'userName'};
+	$memd->delete("user/$userid");
 
-	foreach my $outer_ref (@{$stream_values_ref}) {
-		my ($message_id, %message_hash) = message_to_hash($outer_ref);
+	my $args_ref = {
+		userid => $userid,
+		newuserid => $message_hash{'newUserName'}
+	};
+	my $job_id = queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+	$log->info("[" . localtime() . "] User deletion queued", {args_ref => $args_ref, job_id => $job_id})
+		if $log->is_info();
 
-		cache_user(%message_hash);
+	return;
+}
 
-		$last_processed_message_id = $message_id;
-	}
+sub _process_updated_users_stream(%message_hash) {
+	cache_user(%message_hash);
 
-	return $last_processed_message_id;
+	return;
 }
 
 =head2 push_product_update_to_redis ($product_ref, $change_ref, $action)
@@ -376,6 +419,11 @@ A product creation is considered as an update.
 =cut
 
 sub push_product_update_to_redis ($product_ref, $change_ref, $action) {
+
+	if (!defined $product_ref->{code} || $product_ref->{code} eq '') {
+		$log->warn("Skipping Redis update for product with empty code") if $log->is_warn();
+		return;
+	}
 
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
@@ -478,6 +526,11 @@ The URL where the OCR result JSON file can be found.
 =cut
 
 sub push_ocr_ready_to_redis ($code, $image_id, $json_url, $timestamp = time()) {
+
+	if (!defined $code || $code eq '') {
+		$log->warn("Skipping Redis OCR event for product with empty code") if $log->is_warn();
+		return;
+	}
 
 	if (!$redis_url) {
 		# No Redis URL provided, we can't push to Redis
@@ -677,6 +730,110 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 
 	return;
 
+}
+
+=head2 perform_health_check()
+
+Execute a component health check and return a health-check result object.
+
+This sub documents the expected interface for health checks used by
+C<ProductOpener::APIHealth>. Implementations should perform one focused check and
+return an array reference of check objects compatible with
+L<https://inadarei.github.io/rfc-healthcheck/>.
+
+Each check object in the returned array reference must include:
+
+=over 4
+
+=item * C<status>
+
+String indicating the check result. Expected values are C<pass>, C<warn> or
+C<fail>.
+
+=item * C<output>
+
+Human-readable message describing the outcome.
+
+=back
+
+Additional RFC fields (for example C<componentType>, C<time>,
+C<observedValue>, C<observedUnit> and C<links>) may be included when relevant.
+If C<componentId> is included, it should be a stable UUID.
+
+The sub should not die. If an internal error occurs, return one check object
+with C<status =E<gt> 'fail'> and a meaningful C<output> message.
+
+=cut
+
+sub perform_health_check() {
+	if (!defined $redis_client) {
+		init_redis();
+	}
+
+	if (!defined $redis_client) {
+		my $sanitized = sanitize_url($redis_url);
+		my $self_url
+			= defined($sanitized)
+			? (($sanitized =~ m{://}) ? $sanitized : 'redis://' . $sanitized)
+			: undef;
+		return [
+			{
+				status => $status_fail,
+				componentType => 'datastore',
+				output => 'Redis client is not connected',
+				time => current_time_iso8601(),
+				(defined($self_url) ? (links => {self => $self_url}) : ()),
+			}
+		];
+	}
+
+	my $start = [gettimeofday()];
+
+	my $ok = eval {
+		my $cv = AE::cv;
+		$redis_client->ping(
+			sub {
+				my ($reply, $err) = @_;
+				$cv->send($err ? 0 : 1);
+			}
+		);
+		$cv->recv;
+	};
+
+	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+
+	my $time = current_time_iso8601();
+
+	my $redis_sanitized = sanitize_url($redis_url);
+	my $redis_self_url
+		= defined($redis_sanitized)
+		? (($redis_sanitized =~ m{://}) ? $redis_sanitized : 'redis://' . $redis_sanitized)
+		: undef;
+	my $links = defined($redis_self_url) ? {self => $redis_self_url} : {};
+
+	if ($ok) {
+		return [
+			{
+				status => $status_pass,
+				componentType => 'datastore',
+				observedValue => $duration_ms,
+				observedUnit => 'ms',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
+	else {
+		return [
+			{
+				status => $status_fail,
+				componentType => 'datastore',
+				output => 'Redis did not respond to PING',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
 }
 
 1;

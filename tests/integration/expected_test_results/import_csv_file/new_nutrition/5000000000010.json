@@ -7,10 +7,6 @@
       "prepared"
    ],
    "added_countries_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "categories_properties" : {},
    "categories_properties_tags" : [
@@ -69,7 +65,9 @@
          "packaging" : "0.50"
       }
    },
-   "data_quality_errors_tags" : [],
+   "data_quality_errors_tags" : [
+      "en:nutrition-manufacturer-prepared-100ml-energy-value-in-kcal-does-not-match-value-in-kj"
+   ],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:nutrition-data-prepared",
@@ -97,23 +95,25 @@
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
       "en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated",
+      "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label",
-      "en:environmental-score-threatened-species-ingredients-missing"
+      "en:environmental-score-threatened-species-ingredients-missing",
+      "en:nutrition-manufacturer-prepared-100ml-energy-value-in-kcal-does-not-match-value-in-kj"
    ],
    "data_quality_warnings_tags" : [
       "en:nutrition-data-prepared-without-category-dried-products-to-be-rehydrated",
+      "en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj",
       "en:environmental-score-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:environmental-score-packaging-packaging-data-missing",
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-org"
+      "Producer - test-org",
+      "Producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -140,69 +140,69 @@
                "en:unknown"
             ],
             "transportation_scores" : {
-               "ad" : 0,
-               "al" : 0,
-               "at" : 0,
-               "ax" : 0,
-               "ba" : 0,
-               "be" : 0,
-               "bg" : 0,
-               "ch" : 0,
-               "cy" : 0,
-               "cz" : 0,
-               "de" : 0,
-               "dk" : 0,
-               "dz" : 0,
-               "ee" : 0,
-               "eg" : 0,
-               "es" : 0,
-               "fi" : 0,
-               "fo" : 0,
-               "fr" : 0,
-               "gg" : 0,
-               "gi" : 0,
-               "gr" : 0,
-               "hr" : 0,
-               "hu" : 0,
-               "ie" : 0,
-               "il" : 0,
-               "im" : 0,
-               "is" : 0,
-               "it" : 0,
-               "je" : 0,
-               "lb" : 0,
-               "li" : 0,
-               "lt" : 0,
-               "lu" : 0,
-               "lv" : 0,
-               "ly" : 0,
-               "ma" : 0,
-               "mc" : 0,
-               "md" : 0,
-               "me" : 0,
-               "mk" : 0,
-               "mt" : 0,
-               "nl" : 0,
-               "no" : 0,
-               "pl" : 0,
-               "ps" : 0,
-               "pt" : 0,
-               "ro" : 0,
-               "rs" : 0,
-               "se" : 0,
-               "si" : 0,
-               "sj" : 0,
-               "sk" : 0,
-               "sm" : 0,
-               "sy" : 0,
-               "tn" : 0,
-               "tr" : 0,
-               "ua" : 0,
-               "uk" : 0,
-               "us" : 0,
-               "va" : 0,
-               "world" : 0,
-               "xk" : 0
+               "ad" : 0.0,
+               "al" : 0.0,
+               "at" : 0.0,
+               "ax" : 0.0,
+               "ba" : 0.0,
+               "be" : 0.0,
+               "bg" : 0.0,
+               "ch" : 0.0,
+               "cy" : 0.0,
+               "cz" : 0.0,
+               "de" : 0.0,
+               "dk" : 0.0,
+               "dz" : 0.0,
+               "ee" : 0.0,
+               "eg" : 0.0,
+               "es" : 0.0,
+               "fi" : 0.0,
+               "fo" : 0.0,
+               "fr" : 0.0,
+               "gg" : 0.0,
+               "gi" : 0.0,
+               "gr" : 0.0,
+               "hr" : 0.0,
+               "hu" : 0.0,
+               "ie" : 0.0,
+               "il" : 0.0,
+               "im" : 0.0,
+               "is" : 0.0,
+               "it" : 0.0,
+               "je" : 0.0,
+               "lb" : 0.0,
+               "li" : 0.0,
+               "lt" : 0.0,
+               "lu" : 0.0,
+               "lv" : 0.0,
+               "ly" : 0.0,
+               "ma" : 0.0,
+               "mc" : 0.0,
+               "md" : 0.0,
+               "me" : 0.0,
+               "mk" : 0.0,
+               "mt" : 0.0,
+               "nl" : 0.0,
+               "no" : 0.0,
+               "pl" : 0.0,
+               "ps" : 0.0,
+               "pt" : 0.0,
+               "ro" : 0.0,
+               "rs" : 0.0,
+               "se" : 0.0,
+               "si" : 0.0,
+               "sj" : 0.0,
+               "sk" : 0.0,
+               "sm" : 0.0,
+               "sy" : 0.0,
+               "tn" : 0.0,
+               "tr" : 0.0,
+               "ua" : 0.0,
+               "uk" : 0.0,
+               "us" : 0.0,
+               "va" : 0.0,
+               "world" : 0.0,
+               "xk" : 0.0
             },
             "transportation_values" : {
                "ad" : 0,
@@ -415,6 +415,7 @@
       "en:nutriscore-not-computed",
       "en:nutrition-data-per-100ml",
       "en:nutrition-data-per-1l",
+      "en:nutrition-grade-computed-for-prepared-product",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -434,7 +435,7 @@
       "2021" : {
          "category_available" : 0,
          "data" : {
-            "energy" : null,
+            "energy" : 400,
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
@@ -443,7 +444,7 @@
             "is_water" : 0,
             "proteins" : null,
             "saturated_fat" : null,
-            "sodium" : null,
+            "sodium" : 200.0,
             "sugars" : null
          },
          "estimated" : 0,
@@ -451,12 +452,12 @@
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
          "nutriscore_computed" : 0,
-         "preparation" : "as_sold"
+         "preparation" : "prepared"
       },
       "2023" : {
          "category_available" : 0,
          "data" : {
-            "energy" : null,
+            "energy" : 400,
             "fiber" : null,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
@@ -465,7 +466,7 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "proteins" : null,
-            "salt" : null,
+            "salt" : 0.5,
             "saturated_fat" : null,
             "sugars" : null
          },
@@ -474,7 +475,7 @@
          "nutrients_available" : 0,
          "nutriscore_applicable" : 0,
          "nutriscore_computed" : 0,
-         "preparation" : "as_sold"
+         "preparation" : "prepared"
       }
    },
    "nutriscore_2021_tags" : [
@@ -498,6 +499,13 @@
                "source_per" : "100ml",
                "unit" : "kJ",
                "value" : 400
+            },
+            "energy-kcal" : {
+               "source" : "manufacturer",
+               "source_index" : 0,
+               "source_per" : "100ml",
+               "unit" : "kcal",
+               "value" : 0.5
             },
             "energy-kj" : {
                "modifier" : "≥",
@@ -529,6 +537,11 @@
       "input_sets" : [
          {
             "nutrients" : {
+               "energy-kcal" : {
+                  "unit" : "kcal",
+                  "value" : 0.5,
+                  "value_string" : "0.5"
+               },
                "energy-kj" : {
                   "modifier" : "≥",
                   "unit" : "kJ",
@@ -568,7 +581,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold proteins",
+   "nutrition_score_debug" : "using prepared product data even if not necessary for category - missing prepared fat - missing prepared saturated-fat - missing prepared sugars - missing prepared proteins",
    "nutrition_score_warning_no_fiber" : 1,
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "owner" : "org-test-org",
@@ -601,7 +614,7 @@
    "quantity_imported" : "100 ml",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -620,21 +633,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-to-be-completed",
-      "en:brands-to-be-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-completed",
-      "en:product-name-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-completed",
@@ -650,10 +648,29 @@
       "en:product-name-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-org"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "weighers_tags" : []
 }

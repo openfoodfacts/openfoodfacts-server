@@ -1,22 +1,13 @@
 {
    "_id" : "2003004006004",
    "_keywords" : [
-      "mustard"
+      "condiment",
+      "mustard",
+      "sauce"
    ],
    "added_countries_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
-   "categories" : "mustards",
-   "categories_hierarchy" : [
-      "en:condiments",
-      "en:sauces",
-      "en:mustards"
-   ],
    "categories_imported" : "mustards",
-   "categories_lc" : "en",
    "categories_properties" : {
       "agribalyse_food_code:en" : "11013",
       "ciqual_food_code:en" : "11013"
@@ -55,12 +46,7 @@
    "complete" : 0,
    "completeness" : 0.1,
    "correctors_tags" : [],
-   "countries" : "en",
-   "countries_hierarchy" : [
-      "en:en"
-   ],
    "countries_imported" : "en",
-   "countries_lc" : "en",
    "countries_tags" : [
       "en:en"
    ],
@@ -130,11 +116,10 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-org"
+      "Producer - test-org",
+      "Producers"
    ],
    "ecoscore_tags" : [
       "a"
@@ -161,69 +146,69 @@
                "en:unknown"
             ],
             "transportation_scores" : {
-               "ad" : 0,
-               "al" : 0,
-               "at" : 0,
-               "ax" : 0,
-               "ba" : 0,
-               "be" : 0,
-               "bg" : 0,
-               "ch" : 0,
-               "cy" : 0,
-               "cz" : 0,
-               "de" : 0,
-               "dk" : 0,
-               "dz" : 0,
-               "ee" : 0,
-               "eg" : 0,
-               "es" : 0,
-               "fi" : 0,
-               "fo" : 0,
-               "fr" : 0,
-               "gg" : 0,
-               "gi" : 0,
-               "gr" : 0,
-               "hr" : 0,
-               "hu" : 0,
-               "ie" : 0,
-               "il" : 0,
-               "im" : 0,
-               "is" : 0,
-               "it" : 0,
-               "je" : 0,
-               "lb" : 0,
-               "li" : 0,
-               "lt" : 0,
-               "lu" : 0,
-               "lv" : 0,
-               "ly" : 0,
-               "ma" : 0,
-               "mc" : 0,
-               "md" : 0,
-               "me" : 0,
-               "mk" : 0,
-               "mt" : 0,
-               "nl" : 0,
-               "no" : 0,
-               "pl" : 0,
-               "ps" : 0,
-               "pt" : 0,
-               "ro" : 0,
-               "rs" : 0,
-               "se" : 0,
-               "si" : 0,
-               "sj" : 0,
-               "sk" : 0,
-               "sm" : 0,
-               "sy" : 0,
-               "tn" : 0,
-               "tr" : 0,
-               "ua" : 0,
-               "uk" : 0,
-               "us" : 0,
-               "va" : 0,
-               "world" : 0,
-               "xk" : 0
+               "ad" : 0.0,
+               "al" : 0.0,
+               "at" : 0.0,
+               "ax" : 0.0,
+               "ba" : 0.0,
+               "be" : 0.0,
+               "bg" : 0.0,
+               "ch" : 0.0,
+               "cy" : 0.0,
+               "cz" : 0.0,
+               "de" : 0.0,
+               "dk" : 0.0,
+               "dz" : 0.0,
+               "ee" : 0.0,
+               "eg" : 0.0,
+               "es" : 0.0,
+               "fi" : 0.0,
+               "fo" : 0.0,
+               "fr" : 0.0,
+               "gg" : 0.0,
+               "gi" : 0.0,
+               "gr" : 0.0,
+               "hr" : 0.0,
+               "hu" : 0.0,
+               "ie" : 0.0,
+               "il" : 0.0,
+               "im" : 0.0,
+               "is" : 0.0,
+               "it" : 0.0,
+               "je" : 0.0,
+               "lb" : 0.0,
+               "li" : 0.0,
+               "lt" : 0.0,
+               "lu" : 0.0,
+               "lv" : 0.0,
+               "ly" : 0.0,
+               "ma" : 0.0,
+               "mc" : 0.0,
+               "md" : 0.0,
+               "me" : 0.0,
+               "mk" : 0.0,
+               "mt" : 0.0,
+               "nl" : 0.0,
+               "no" : 0.0,
+               "pl" : 0.0,
+               "ps" : 0.0,
+               "pt" : 0.0,
+               "ro" : 0.0,
+               "rs" : 0.0,
+               "se" : 0.0,
+               "si" : 0.0,
+               "sj" : 0.0,
+               "sk" : 0.0,
+               "sm" : 0.0,
+               "sy" : 0.0,
+               "tn" : 0.0,
+               "tr" : 0.0,
+               "ua" : 0.0,
+               "uk" : 0.0,
+               "us" : 0.0,
+               "va" : 0.0,
+               "world" : 0.0,
+               "xk" : 0.0
             },
             "transportation_values" : {
                "ad" : 0,
@@ -373,7 +358,7 @@
                   "weight_specified" : 55.2
                }
             ],
-            "score" : 81,
+            "score" : 81.0,
             "value" : -2
          },
          "production_system" : {
@@ -709,7 +694,7 @@
       {
          "food_contact" : 1,
          "material" : "en:glass",
-         "number_of_units" : 1,
+         "number_of_units" : 1.0,
          "quantity_per_unit" : "15ml",
          "quantity_per_unit_unit" : "ml",
          "quantity_per_unit_value" : 15,
@@ -748,7 +733,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 1,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -767,21 +752,6 @@
       }
    ],
    "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-completed",
-      "en:brands-to-be-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-to-be-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
@@ -797,10 +767,45 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "categories" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:mustards"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:en"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-org"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "weighers_tags" : [
       "test-user"
