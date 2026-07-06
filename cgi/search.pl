@@ -40,7 +40,6 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
 use ProductOpener::Routing qw/:all/;
 
-use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -110,13 +109,14 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 	}
 }
 
-my $is_api_search_request
-	= (defined $request_ref->{json})
-	or (defined $request_ref->{jsonp})
-	or (defined $request_ref->{jqm})
-	or (defined $request_ref->{jqm_loadmore})
-	or (defined $request_ref->{xml})
-	or (defined $request_ref->{rss});
+my $is_api_search_request = (
+		   (defined $request_ref->{json})
+		or (defined $request_ref->{jsonp})
+		or (defined $request_ref->{jqm})
+		or (defined $request_ref->{jqm_loadmore})
+		or (defined $request_ref->{xml})
+		or (defined $request_ref->{rss})
+);
 
 # Write CORS headers early for API requests, before any error handling
 # This ensures error responses (like 503 from rate limiting) also have proper CORS headers
@@ -799,10 +799,6 @@ elsif ($action eq 'process') {
 			$query_ref->{$field} = decode utf8 => single_param($field);
 			$current_link .= "\&$field=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param($field));
 		}
-	}
-
-	if (defined $sort_by) {
-		$current_link .= "&sort_by=$sort_by";
 	}
 
 	$current_link .= "\&page_size=$limit";
