@@ -16,7 +16,7 @@ jobs:
           html_files=$(find html/donate -type f -name '*.html' -exec basename {} \;)
           html_files=$(echo "$html_files" | xargs | sed -e 's/ /,/g')
           file_list="CONTRIBUTING.md,README.md,${html_files[@]}"
-          echo "::set-output name=all_files::$file_list"
+          echo "all_files=$file_list" >> "$GITHUB_OUTPUT"
           echo $file_list
 
       - name: Check URLs
