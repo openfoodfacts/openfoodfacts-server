@@ -47098,6 +47098,7 @@ tr: Çedar peyniri
 agribalyse_food_code:en: 12726
 ciqual_food_code:en: 12726
 ciqual_food_name:en: Cheddar cheese, from cow's milk
+plant_alternative:en: en:cheddar-cheese-substitutes
 wikidata:en: Q217525
 
 < en: Cheddar cheese
@@ -47156,6 +47157,7 @@ hr: Kriške cheddara
 hu: Szeletelt cheddar sajt
 it: Fette di cheddar
 nl: Cheddarplakken
+plant_alternative:en: en:sliced-cheddar-cheese-substitutes
 
 < en: Cow cheeses
 < en: French cheeses
@@ -123719,14 +123721,27 @@ sv: Växtbaserade tonfiskar, Veganska tonfiskar
 < en: Plant-based foods
 < en: Vegan products
 en: Cheese substitutes, Non-dairy cheeses, Plant cheeses, Vegan cheeses
-de: Milchfreie Käse, Pflanzliche Käse, Käseersatz, Vegane Käse
-es: Quesos vegetales
-fi: vegaanijuustot
-fr: Substituts du fromage, fromages végétaux
+ar: جبن نباتي
+da: Veganske oste
+de: Milchfreie Käse, Pflanzliche Käse, Käseersatz, Vegane Käse, Vegane Käsealternative
+eo: Veganaj fromaĝoj
+es: Quesos vegetales, Queso vegano
+fa: پنیر گیاهی
+fi: Vegaanijuustot
+fr: Substituts du fromage, Fromages végétaux, Fromage végétal
 hr: Zamjene za sir
-it: Formaggi vegani
-nl: Veganistische kazen, Kaasvervangers, Plantaardige kazen
+id: Keju vegan
+it: Formaggi vegani, Formaggio vegetale
+ja: ビーガン・チーズ
+jv: Kèju vegan
+ko: 식물성 치즈
+nb: Vegansk ost
+nl: Veganistische kazen, Kaasvervangers, Plantaardige kazen, Veganistische kaas
 pl: Zastępniki sera
+pt: Queijo vegano
+ru: Веганский сыр
+sv: Veganska ostar, Veganost
+zh: 純素起司
 agribalyse_proxy_food_code:en: 1029
 ciqual_proxy_food_code:en: 1029
 ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked
@@ -123734,6 +123749,7 @@ ciqual_proxy_food_name:fr: Spécialité végétale type fromage, sans soja, pré
 gpc_category_code:en: 10006996
 gpc_category_description:en: Definition: Includes any products that can be described/observed as food made from non-dairy products, separated from the whey, sometimes fermented, and usually pressed, cooked, smoked, matured, or heated and mixed with artificial ingredients, such as emulsifiers, colourings and flavourings. These products must be refrigerated to extend their consumable life. These products can be with added ingredients, such as herbs and nuts, in blocks, rolls, slices, grated, cubes, spreadable and portions. Definition Excludes: Excludes products such as Frozen, Shelf Stable and Perishable Cheeses, and Shelf Stable and Frozen Cheese Substitutes and Cheese-Based/Flavoured Meals.
 gpc_category_name:en: Cheese Substitutes (Perishable)
+wikidata:en: Q21384881
 
 < en: Cheese substitutes
 en: Cashew-based cheese substitutes, Cashew-based cheeses
@@ -123758,6 +123774,17 @@ agribalyse_proxy_food_code:en: 1029_2
 ciqual_proxy_food_code:en: 1029
 ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, shredded
 ciqual_proxy_food_name:fr: Spécialité végétale type fromage râpé, sans soja, préemballée
+
+< en: Cheese substitutes
+en: Cheddar cheese substitutes, Non-dairy cheddars, Vegan cheddars
+da: Veganske oste med cheddarsmag
+sv: Veganska ostar med smak av cheddar
+
+< en: Cheddar cheese substitutes
+< en: Sliced cheese substitutes
+en: Sliced cheddar cheese substitutes
+da: Veganske skiver med cheddarsmag
+sv: Veganska skivar med smak av cheddar
 
 < en: Legumes and their products
 en: Puffed pulse cakes, pulse cakes, cakes of pulses
