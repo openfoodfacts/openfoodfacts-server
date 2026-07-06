@@ -983,7 +983,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		sv => "(?:ursprung(?:sland)?|odla(?:de|t) i(?:nom)?)",
 		th => "(?:ประเทศที่ผลิต|แหล่งกำเนิด)",
 		tr => "(?:menşei?|üretim yeri|menşe ülkesi)",
-		uk => "(?:kраїна походження)",
+		uk => "(?:країна походження)",
 		vi => "(?:xuất xứ|nguồn gốc)",
 		zh => "(?:原产(?:国|地)|產(?:地|國))",
 	);
