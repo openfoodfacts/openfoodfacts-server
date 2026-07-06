@@ -1,5 +1,45 @@
 # Changelog
 
+## [2.96.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.95.1...v2.96.0) (2026-06-25)
+
+
+### Features
+
+* IFCT (Indian Food composition tables) nutritional data ([#13727](https://github.com/openfoodfacts/openfoodfacts-server/issues/13727)) ([4f08477](https://github.com/openfoodfacts/openfoodfacts-server/commit/4f08477200b50c9b8060c44407a42839f11d6b3f))
+
+
+### Bug Fixes
+
+* add --query-codes-from-file to update_all_products.pl ([#13784](https://github.com/openfoodfacts/openfoodfacts-server/issues/13784)) ([a2bcb31](https://github.com/openfoodfacts/openfoodfacts-server/commit/a2bcb31855090b3c668386d1c5b5d6514ecaac80))
+* bad path for taxonomies ([#13775](https://github.com/openfoodfacts/openfoodfacts-server/issues/13775)) ([1597382](https://github.com/openfoodfacts/openfoodfacts-server/commit/15973827fcbe9d9385dfc44f7dc2fadb86b5328d))
+* Pagination issues ([#13791](https://github.com/openfoodfacts/openfoodfacts-server/issues/13791)) ([397a12e](https://github.com/openfoodfacts/openfoodfacts-server/commit/397a12ebc35f07703a04abb4a455d065fd9a0192))
+* upgrade for undefined untaxonomized tags ([#13785](https://github.com/openfoodfacts/openfoodfacts-server/issues/13785)) ([daf5766](https://github.com/openfoodfacts/openfoodfacts-server/commit/daf5766298c8379bc9fac79c086e9008ca6be75f))
+
+## [2.95.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.95.0...v2.95.1) (2026-06-17)
+
+
+### Bug Fixes
+
+* ingredients taxonomy errors for raw turnip and garlic ([#13770](https://github.com/openfoodfacts/openfoodfacts-server/issues/13770)) ([2884e79](https://github.com/openfoodfacts/openfoodfacts-server/commit/2884e79b5d27e8a43752d4278117102c12213107))
+
+## [2.95.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.94.0...v2.95.0) (2026-06-16)
+
+
+### Features
+
+* Add health check endpoint ([#13405](https://github.com/openfoodfacts/openfoodfacts-server/issues/13405)) ([06ddb56](https://github.com/openfoodfacts/openfoodfacts-server/commit/06ddb566bfdf3619a1a453fd9305d4646fd0bb86))
+* Move to Keycloak Level 5 (full implementation) ([#13559](https://github.com/openfoodfacts/openfoodfacts-server/issues/13559)) ([5faeab0](https://github.com/openfoodfacts/openfoodfacts-server/commit/5faeab0a10c6b647b6d14a8c94ea31c4c872b57a))
+
+
+### Bug Fixes
+
+* Add last_updated_t index as this is needed by off_query ([#13765](https://github.com/openfoodfacts/openfoodfacts-server/issues/13765)) ([b2524f3](https://github.com/openfoodfacts/openfoodfacts-server/commit/b2524f3011dc6e050a3ca5e2a85dc32a2be12f99))
+* handle CORS preflight before authentication ([#13573](https://github.com/openfoodfacts/openfoodfacts-server/issues/13573)) ([70f244c](https://github.com/openfoodfacts/openfoodfacts-server/commit/70f244c42ee3c344edf524ae32144a5180febf93))
+* Index pro HTML tag ([#13760](https://github.com/openfoodfacts/openfoodfacts-server/issues/13760)) ([020c47e](https://github.com/openfoodfacts/openfoodfacts-server/commit/020c47e214c34f80be4aa9aff559ce168e0121da))
+* recipe-estimator config for docker ([#13734](https://github.com/openfoodfacts/openfoodfacts-server/issues/13734)) ([0ff088c](https://github.com/openfoodfacts/openfoodfacts-server/commit/0ff088c7a1b9621fbbcd184de668c2eb7a9fce5e))
+* Updating preferences on staging is wiping the user name in keycloak ([#13747](https://github.com/openfoodfacts/openfoodfacts-server/issues/13747)) ([e26177e](https://github.com/openfoodfacts/openfoodfacts-server/commit/e26177eb26b2dbb799081f54dd59b5f33fee0fa6))
+* use JSON allow_nonref ([#13751](https://github.com/openfoodfacts/openfoodfacts-server/issues/13751)) ([be2aabb](https://github.com/openfoodfacts/openfoodfacts-server/commit/be2aabbeac47759be46930b352cdc67b22b4241a))
+
 ## [2.94.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.93.1...v2.94.0) (2026-06-08)
 
 

@@ -644,6 +644,13 @@ sub normalize_api_response_for_test_comparison ($response_ref) {
 	return;
 }
 
+sub normalize_health_response_for_test_comparison ($response_ref) {
+	my %specification = (fields_ignore_content => ["checks.*.*.time", "checks.*.*.observedValue"],);
+
+	normalize_object_for_test_comparison($response_ref, \%specification);
+	return;
+}
+
 sub parse_query_string_parameters_from_url ($url) {
 
 	my %parameters = ();
@@ -945,6 +952,11 @@ sub check_request_response ($test_ref, $response, $test_id, $test_dir, $expected
 			if (ref($decoded_json) eq 'HASH') {
 				# Normalize API error responses to ignore volatile line numbers in stack traces
 				normalize_api_response_for_test_comparison($decoded_json);
+
+				# Normalize health check responses to ignore volatile timestamps
+				if (defined $decoded_json->{'checks'}) {
+					normalize_health_response_for_test_comparison($decoded_json);
+				}
 
 				if (defined $decoded_json->{'products'}) {
 					normalize_products_for_test_comparison($decoded_json->{'products'});
