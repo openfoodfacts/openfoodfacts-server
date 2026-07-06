@@ -138,14 +138,14 @@ my $json = JSON::MaybeXS->new->allow_nonref->canonical;
 # be served directly by nginx.
 
 sub write_json_file {
-    my ($path, $data) = @_;
+	my ($path, $data) = @_;
 
-    open(my $OUT, ">:encoding(UTF-8)", $path)
-        or die "Cannot write $path: $!";
+	open(my $OUT, ">:encoding(UTF-8)", $path)
+		or die "Cannot write $path: $!";
 
-    print $OUT $json->pretty->encode($data);
+	print $OUT $json->pretty->encode($data);
 
-    close $OUT;
+	close $OUT;
 }
 
 # Add in $fields_ref all the fields we need to retrieve from MongoDB
@@ -935,24 +935,18 @@ open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_countries.js");
 print $OUT $html;
 close $OUT;
 
-write_json_file(
-    "$stats_dir/products_stats_all.json",
-    \%countries_dates
-);
+write_json_file("$stats_dir/products_stats_all.json", \%countries_dates);
 
 foreach my $country (sort keys %countries_dates) {
 
-    my $cc = "world";
+	my $cc = "world";
 
-    if ($country ne "en:world") {
-        next unless defined $properties{countries}{$country}{"country_code_2:en"};
-        $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-    }
+	if ($country ne "en:world") {
+		next unless defined $properties{countries}{$country}{"country_code_2:en"};
+		$cc = lc($properties{countries}{$country}{"country_code_2:en"});
+	}
 
-    write_json_file(
-        "$stats_dir/products_stats_$cc.json",
-        $countries_dates{$country}
-    );
+	write_json_file("$stats_dir/products_stats_$cc.json", $countries_dates{$country});
 }
 my $n_products_nutrition = scalar keys %products_nutrients;
 print "Number of products with nutrition data: $n_products_nutrition\n";
