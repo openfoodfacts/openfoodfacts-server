@@ -12,7 +12,9 @@
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
-         "text" : "sinappijauhe"
+         "text" : "sinappijauhe",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_proxy_food_code" : "9610",
@@ -26,14 +28,7 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:mustard-powder"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:mustard-powder"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:vegan",
@@ -52,8 +47,8 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:mustard-powder",
-      "en:mustard",
       "en:plant",
+      "en:mustard",
       "en:wheat-semolina",
       "en:cereal",
       "en:wheat",
