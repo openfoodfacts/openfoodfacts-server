@@ -210,31 +210,28 @@
 
       </div>
 
-      <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
-        <div style="max-width:425px">
-          <div class="loading">
-            <p>Le formulaire de don est en cours de chargement.<br>Vous pouvez aussi y accéder en <a href="https://donorbox.org/help-open-food-facts-stay-afloat">cliquant ici</a>.</p>
-          </div>
+<div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
+  <div style="max-width:425px">
+    <script type="module" src="https://donorbox.org/widgets.js" async></script>
+    <dbox-widget
+      campaign="votre-don-a-open-food-facts"
+      type="donation_form"
+      enable-auto-scroll="true"
+    ></dbox-widget>
+    <noscript>
+      <p>
+        Le formulaire de don est en cours de chargement.<br>
+        Vous pouvez aussi y accéder en
+        <a href="https://donorbox.org/votre-don-a-open-food-facts">cliquant ici</a>.
+      </p>
+    </noscript>
 
-          <script
-            src="https://donorbox.org/widget.js"
-            paypalExpress="true"
-          ></script>
-          <iframe
-            title="Faire un don via HelloAsso"
-            allowpaymentrequest=""
-            height="900px"
-            name="donorbox"
-            seamless="seamless"
-            src="https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget"
-            style="max-width: 500px; min-width: 310px; max-height:none!important;border:0;overflow:hidden;"
-            width="100%"
-          ></iframe>
-
-          <div class="text-center">
-            <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"
-                 alt="Rejoignez la révolution alimentaire !" style="margin-top: -15%; margin-bottom: -20%; width:80%"
-            >
+    <div class="text-center">
+      <img
+        src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"
+        alt="Rejoignez la révolution alimentaire !"
+        style="margin-top: -15%; margin-bottom: -20%; width:80%"
+      >
             <!-- h3>Where your donation goes</h3>
 
             <p>
