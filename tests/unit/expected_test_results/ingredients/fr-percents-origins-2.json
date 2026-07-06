@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:emulsifier",
@@ -112,8 +113,8 @@
       "en:disaccharide",
       "en:butterfat",
       "en:oil-and-fat",
-      "en:dairy",
       "en:fat",
+      "en:dairy",
       "en:milkfat",
       "en:e322",
       "en:sunflower-lecithin",
@@ -142,7 +143,8 @@
    "known_ingredients_n" : 7,
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 0
 }

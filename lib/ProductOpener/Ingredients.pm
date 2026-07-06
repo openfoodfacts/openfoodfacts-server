@@ -980,7 +980,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ru => "(?:страна происхождени[яи]|происхождение)",
 		sk => "(?:krajina pôvodu|pôvod)",
 		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
-		sv => "(?:ursprung(?:sland)?|odlade inom)",
+		sv => "(?:ursprung(?:sland)?|odla(?:de|t) i(?:nom)?)",
 		th => "(?:ประเทศที่ผลิต|แหล่งกำเนิด)",
 		tr => "(?:menşei?|üretim yeri|menşe ülkesi)",
 		uk => "(?:kраїна походження)",
@@ -3096,6 +3096,12 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 
 	parse_ingredients_text_service($product_ref, {}, []);
 
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-product-opener");
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-recipe-estimator");
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-recipe-estimator-glop");
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-recipe-estimator-scipy");
+	remove_tag($product_ref, "misc", "en:estimated-ingredients-with-recipe-estimator-cvxpy");
+
 	if (defined $product_ref->{ingredients}) {
 
 		# - Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
@@ -3105,26 +3111,34 @@ sub extract_ingredients_from_text ($product_ref, $services_ref = {}) {
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
 
 		# We can be passed an external percent estimate service to call in $services_ref
+		my $ingredients_percent_estimated = 0;
 		if (    (defined $services_ref->{estimate_ingredients_percent})
-			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_glop"))
+			and ($services_ref->{estimate_ingredients_percent} =~ /^recipe_estimator(_.+)?$/))
 		{
 			# Use the recipe estimator service
 			my $services_url = $recipe_estimator_url;
+			# Change the URL for the glop, scipy or cvxpy version of the recipe estimator if specified
+			# /api/v3/estimate_recipe -> /api/v3/estimate_recipe_glop for the glop version, /api/v3/estimate_recipe_scipy for the scipy version, /api/v3/estimate_recipe_cvxpy for the cvxpy version
+			$services_url .= $1 if defined $1;
 			my $services_ref = undef;
 			my $request_ref = {};
-			add_product_data_from_external_service({$request_ref}, $product_ref, $services_url, $services_ref, undef);
+			$ingredients_percent_estimated
+				= add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref,
+				undef);
 		}
-		elsif ( (defined $services_ref->{estimate_ingredients_percent})
-			and ($services_ref->{estimate_ingredients_percent} eq "recipe_estimator_scipy"))
-		{
-			# Use the recipe estimator service
-			my $services_url = $recipe_estimator_scipy_url;
-			my $services_ref = undef;
-			my $request_ref = {};
-			add_product_data_from_external_service($request_ref, $product_ref, $services_url, $services_ref, undef);
+
+		# IF we don't have an estimate_ingredients_percent service or if we had an error when calling it
+		# we compute a simple estimate based on the legacy Product Opener algorithm
+		if (not $ingredients_percent_estimated) {
+			estimate_ingredients_percent_service($product_ref, {}, []);
+			$product_ref->{estimate_ingredients_percent_service} = "product_opener";
+			add_tag($product_ref, "misc", "en:estimated-ingredients-with-product-opener");
 		}
 		else {
-			estimate_ingredients_percent_service($product_ref, {}, []);
+			$product_ref->{estimate_ingredients_percent_service} = $services_ref->{estimate_ingredients_percent};
+			my $service_name = $services_ref->{estimate_ingredients_percent};
+			$service_name =~ s/_/-/g;
+			add_tag($product_ref, "misc", "en:estimated-ingredients-with-" . $service_name);
 		}
 	}
 	else {
@@ -5953,7 +5967,7 @@ my %ingredients_categories_and_types = (
 		{
 			categories => [
 				# allow multiple types of oils in the category (e.g. "huiles et graisses"), with modifiers (e.g. "végétale")
-				'(?:(?: et )?(?:huile|graisse|stéarine|matière\s? grasse)s?)+(?: (?:végétale|(?:partiellement |totalement |non(?:-| |))hydrogénée?)s?)*',
+				'(?:(?: et )?(?:huile|graisse|stéarine|matière\s? grasse)s?)+(?: (?:végétale|bio|biologique|(?:partiellement |totalement |non(?:-| |))hydrogénée?)s?)*',
 			],
 			types => [
 				"arachide", "avocat", "carthame", "chanvre",
@@ -6326,13 +6340,13 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "pl"))
 			{
 				# vegetable oil (palm, sunflower and olive) -> palm vegetable oil, sunflower vegetable oil, olive vegetable oil
-				# nNte: not using the /x modifier to put spaces in the regexp, as it doesn't work if the interpolated variables contain spaces themselves...
+				# Note: not using the /x modifier to put spaces in the regexp, as it doesn't work if the interpolated variables contain spaces themselves...
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*(\s|\/|\s\/\s|\s-\s|,|,\s|$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				# vegetable oil (palm) -> palm vegetable oil
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)($symbols_regexp|\s)*\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 				# vegetable oil: palm
 				$text
 					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
@@ -6368,7 +6382,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 				# huile végétale (colza)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)($symbols_regexp|\s)*\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
 				# huile végétale : colza,
 				$text
 					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;

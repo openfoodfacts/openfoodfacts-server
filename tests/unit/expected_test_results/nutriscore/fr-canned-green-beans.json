@@ -53,6 +53,7 @@
       "en:canned-legumes",
       "en:canned-green-beans"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:vegetables",
    "food_groups_tags" : [
       "en:fruits-and-vegetables",
@@ -130,8 +131,8 @@
       "en:disaccharide",
       "en:green-bean",
       "en:vegetable",
-      "en:legume",
-      "en:pod-and-seed-vegetable"
+      "en:pod-and-seed-vegetable",
+      "en:legume"
    ],
    "ingredients_text" : "eau 80%, sucre 10%, haricots verts 10%",
    "ingredients_with_specified_percent_n" : 3,
@@ -148,6 +149,7 @@
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:all-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",

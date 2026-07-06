@@ -6,6 +6,7 @@
       "en:mustard",
       "en:soybeans"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
@@ -19,7 +20,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "20534",
+         "ciqual_proxy_food_code" : "20534",
          "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:lupin-flour",
          "is_in_taxonomy" : 1,
@@ -53,7 +54,6 @@
                "text" : "sinappi"
             },
             {
-               "ciqual_proxy_food_code" : "20055",
                "ecobalyse_code" : "celery-eu",
                "id" : "en:celery",
                "is_in_taxonomy" : 1,
@@ -107,6 +107,7 @@
       "en:cereal",
       "en:lupin-flour",
       "en:vegetable",
+      "en:pod-and-seed-vegetable",
       "en:flour",
       "en:legume",
       "en:pulse",
@@ -127,10 +128,11 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:celery",
       "en:soya",
       "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
       "en:mustard",
       "en:soya",
@@ -154,6 +156,9 @@
       "en:1"
    ],
    "lc" : "fi",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {

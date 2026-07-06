@@ -42,7 +42,17 @@
       "en:salt"
    ],
    "lc" : "fr",
+   "purchase_places_tags" : [
+      "France",
+      "Paris",
+      "Saint-Maur des Fossés"
+   ],
    "schema_version" : 1004,
+   "stores_tags" : [
+      "Biocoop",
+      "Intermarché",
+      "Trader Joe's"
+   ],
    "tags_sources" : {
       "allergens" : {
          "packaging" : {
@@ -68,6 +78,26 @@
                "en:nut-butters",
                "en:peanut-butters",
                "fr:Catégorie inconnue en français"
+            ]
+         }
+      },
+      "purchase_places" : {
+         "packaging" : {
+            "last_updated_t" : null,
+            "tags" : [
+               "Saint-Maur des Fossés",
+               "Paris",
+               "France"
+            ]
+         }
+      },
+      "stores" : {
+         "packaging" : {
+            "last_updated_t" : null,
+            "tags" : [
+               "Intermarché",
+               "Biocoop",
+               "Trader Joe's"
             ]
          }
       }

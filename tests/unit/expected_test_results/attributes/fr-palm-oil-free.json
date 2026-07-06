@@ -655,6 +655,7 @@
    "environmental_score_tags" : [
       "unknown"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups_tags" : [],
    "images" : {
       "selected" : {}
@@ -673,7 +674,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "9410",
+         "ciqual_proxy_food_code" : "9435",
          "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
@@ -765,6 +766,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:environmental-score-not-computed",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-category",
       "en:nutriscore-missing-fiber",
