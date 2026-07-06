@@ -42,7 +42,6 @@ use ProductOpener::Food
 	qw/%nutrients_tables %other_nutrients_lists get_nutrient_unit has_category_that_should_have_prepared_nutrition_data/;
 use ProductOpener::Units qw/g_to_unit mmoll_to_unit/;
 use ProductOpener::Ingredients qw/:all/;
-use ProductOpener::Images qw/:all/;
 use ProductOpener::KnowledgePanels qw/initialize_knowledge_panels_options/;
 use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 use ProductOpener::URL qw(format_subdomain);
@@ -51,7 +50,6 @@ use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging
 	qw/apply_rules_to_augment_packaging_component_data get_checked_and_taxonomized_packaging_component_data/;
 use ProductOpener::ForestFootprint qw/:all/;
-use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Events qw/send_event/;
 use ProductOpener::API qw/get_initialized_response/;
@@ -59,7 +57,7 @@ use ProductOpener::APIProductWrite qw/skip_protected_field/;
 use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::Orgs qw/update_import_date update_last_import_type/;
 use ProductOpener::APIProductWrite
-	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one/;
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one update_product_field_api_v2_and_cgi/;
 use ProductOpener::Nutrition qw/:all/;
 
 use Apache2::RequestRec ();
@@ -95,7 +93,7 @@ sub display_search_or_add_form($request_ref) {
 		$template_data_ref_content, \$html, $request_ref)
 		|| ($html = "template error: " . $tt->error());
 
-	# Producers platform: display an addition import products block
+	# Producers platform: display an additional import products block
 
 	if ($server_options{producers_platform}) {
 		my $html_producer = '';
@@ -209,7 +207,10 @@ local $log->context->{action} = $action;
 
 my $template_data_ref = {};
 
-# Nutrition source: packaging on public platform, manufacturer on producers platform
+# If we are on the producers platform, we set the data source to "manufacturer" for all organizations with ids that start with org-
+# except organizations with ids that start with org-database- or org-label- (e.g. "org-database-usda")
+# otherwise, we set the source to "packaging" (for organizations that start with user-
+# when the pro platform is used by individual users to load data in bulk, e.g. from scan parties)
 my $source = get_source_for_site_and_org($request_ref->{org_id});
 
 $log->debug("product_multilingual - start", {code => $code, type => $type, action => $action}) if $log->is_debug();
@@ -471,7 +472,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 	$product_ref->{"debug_param_sorted_langs"} = \@param_sorted_langs;
 
 	foreach my $field ('product_name', 'generic_name', @fields, 'nutrition_data_per', 'nutrition_data_prepared_per',
-		'serving_size', 'allergens', 'traces', 'ingredients_text', 'origin', 'packaging_text', 'lang')
+		'serving_size', 'traces', 'allergens', 'ingredients_text', 'origin', 'packaging_text', 'lang')
+		# Note: allergens need to be after traces, as we detect traces inside allergens and add them to the traces
 	{
 
 		if (defined $language_fields{$field}) {
@@ -610,54 +612,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 	foreach my $field (@param_fields) {
 
-		if (defined single_param($field)) {
-
-			# Only moderators can update values for fields sent by the producer
-			if (skip_protected_field($product_ref, $field, $User{moderator})) {
-				next;
-			}
-
-			if ($field eq "lang") {
-				my $value = remove_tags_and_quote(decode utf8 => single_param($field));
-
-				# strip variants fr-BE fr_BE
-				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
-				$value = lc($value);
-
-				# skip unrecognized languages (keep the existing lang & lc value)
-				if (defined $lang_lc{$value}) {
-					$product_ref->{lang} = $value;
-					$product_ref->{lc} = $value;
-				}
-
-			}
-			else {
-				# infocards set by admins can contain HTML
-				if (($request_ref->{admin}) and ($field =~ /infocard/)) {
-					$product_ref->{$field} = decode utf8 => single_param($field);
-				}
-				else {
-					# Preprocesses fields to remove email values as entries
-					$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
-				}
-			}
-
-			$log->debug("before compute field_tags",
-				{code => $code, field_name => $field, field_value => $product_ref->{$field}})
-				if $log->is_debug();
-			if ($field =~ /ingredients_text/) {
-				# the ingredients_text_with_allergens[_$lc] will be recomputed after
-				my $ingredients_text_with_allergens = $field;
-				$ingredients_text_with_allergens =~ s/ingredients_text/ingredients_text_with_allergens/;
-				delete $product_ref->{$ingredients_text_with_allergens};
-			}
-
-			compute_field_tags($product_ref, $lc, $field);
-
-		}
-		else {
-			$log->debug("could not find field in params", {field => $field}) if $log->is_debug();
-		}
+		update_product_field_api_v2_and_cgi($product_ref, $lc, $field, single_param($field), $source);
 	}
 
 	# Obsolete products
@@ -739,19 +694,20 @@ sub display_input_field ($product_ref, $field, $language, $request_ref) {
 		}
 	}
 
-	my $value = $product_ref->{$field};
+	my $value;
 
-	if (
-			(defined $value)
-		and (defined $taxonomy_fields{$field})
-		# if the field was previously not taxonomized, the $field_hierarchy field does not exist
-		and (defined $product_ref->{$field . "_hierarchy"})
-		)
-	{
-		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
-		# Remove tags
-		$value =~ s/<(([^>]|\n)*)>//g;
+	# For fields other than taxonomized tags fields, we use the value of the field directly
+	if (not defined $writable_tags_fields{$field}) {
+		$value = $product_ref->{$field};
 	}
+	else {
+		# For taxonomized tags fields, we display only the input tags for the source
+		my $input_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags");
+		if (defined $input_tags_ref) {
+			$value = list_taxonomy_tags_in_language($lc, $field, $input_tags_ref);
+		}
+	}
+
 	if (not defined $value) {
 		$value = "";
 	}
@@ -834,7 +790,6 @@ HTML
 <script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/tagify.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>

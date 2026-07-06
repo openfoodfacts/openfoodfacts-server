@@ -11,7 +11,7 @@ $Data::Dumper::Sortkeys = 1;
 
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::DataQualityFood qw/:all/;
-use ProductOpener::Tags qw/has_tag/;
+use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
@@ -1028,6 +1028,71 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-producer-as-sold-100g-values-are-all-identical',
 	'all identical values and above 1 in the nutrition table BUT not enough nutrients given', 0
+);
+# salt and sodium values should be aligned
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 2, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values do not match', 1
+);
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 1, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values are consistent', 0
+);
+
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"salt" => {value => 2.5, unit => "g"},
+					"sodium" => {value => 0.97, unit => "g"},
+				}
+			}
+		]
+	}
+};
+
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-salt-does-not-match-sodium',
+	'salt and sodium values within 0.1g tolerance', 0
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
