@@ -14,6 +14,9 @@ https://github.com/openfoodfacts/openfoodfacts-server/actions/workflows/containe
 
 ## Production environment
 
+When you do a Product Opener release, it's also a good time to do content release.
+Go to https://github.com/openfoodfacts/openfoodfacts-web/pulls?q=is%3Apr+is%3Aopen+release and create the release.
+
 Product Opener is deployed on a container in Proxmox.
 The container is a debian server, it must follow the `backend` container version.
 
@@ -23,18 +26,17 @@ corresponding to the service short name (off, off-pro, obf, opf, opff) and the v
 To deploy you need to execute the following steps:
 1. merge the Release Please pull request.
    This will create a new release / version tag on github
+1. define your variables
+   ```bash
+   declare -x VERSION=xxxx SERVICE=$HOSTNAME
+   ```
 1. verify there is no unreleased code on the server:
    ```bash
-   sudo -u off bash
-   cd /srv/$SERVICE
-   git status
+   sudo -u off bash -c "cd /srv/$SERVICE; git status"
    ```
 1. update the code:
    ```bash
-   sudo -u off bash
-   cd /srv/$SERVICE
-   git fetch
-   git checkout $VERSION
+   sudo -u off bash -c "cd /srv/$SERVICE;git fetch && git checkout $VERSION"
    ```
 1. verify every needed symlink is in place
    ```bash
@@ -42,22 +44,25 @@ To deploy you need to execute the following steps:
    ```
 1. rebuild taxonomies and lang
    ```bash
-   sudo -u off bash
-   cd /srv/$SERVICE
-   source env/setenv.sh $SERVICE
-   ./scripts/taxonomies/build_tags_taxonomy.pl
-   ./scripts/build_lang.pl
+   sudo -u off bash -c "cd /srv/$SERVICE; source env/setenv.sh $SERVICE; ./scripts/taxonomies/build_tags_taxonomy.pl;./scripts/build_lang.pl"
    ```
 1. on the PRO platform, also rebuild the fields columns names
    ```bash
-   sudo -u off bash
-   cd /srv/$SERVICE
-   source env/setenv.sh $SERVICE
-   ./scripts/build_pro_platform_fields_columns_names.pl
+   sudo -u off bash -c "cd /srv/$SERVICE;source env/setenv.sh $SERVICE;./scripts/build_pro_platform_fields_columns_names.pl"
    ```
-1. update the frontend assets you just downloaded
+1. update the frontend assets
    ```bash
    sudo -u off /srv/$SERVICE/scripts/deploy/install-dist-files.sh $VERSION $SERVICE
+   ```
+1. updated MongoDB indexes (if necessary)
+   ```bash
+   sudo -u off bash -c "cd /srv/$SERVICE; source env/setenv.sh $SERVICE; perl ./scripts/create_mongodb_indexes.pl"
+   ```
+1. update openfoodfacts-web content (using version you just released):
+   ```bash
+   cd /srv/openfoodfacts-web/
+   git fetch
+   git checkout <content-version>
    ```
 1. restart services
    ```bash

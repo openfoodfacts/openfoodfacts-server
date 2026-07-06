@@ -339,7 +339,7 @@
                      "display_in_edit_form" : false,
                      "id" : "galactose",
                      "important" : false,
-                     "name" : "Galactose",
+                     "name" : "galactose",
                      "unit" : "g"
                   },
                   {
@@ -499,7 +499,7 @@
          "unit" : "g"
       },
       {
-         "display_in_edit_form" : true,
+         "display_in_edit_form" : false,
          "id" : "sodium",
          "important" : false,
          "name" : "Sodium",
@@ -531,6 +531,20 @@
          "id" : "vitamin-d",
          "important" : false,
          "name" : "Vitamine D",
+         "unit" : "µg"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "vitamin-d2",
+         "important" : false,
+         "name" : "Ergocalciférol (vitamine D₂)",
+         "unit" : "µg"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "vitamin-d3",
+         "important" : false,
+         "name" : "Cholécalciférol (Vitamine D₃)",
          "unit" : "µg"
       },
       {
@@ -752,30 +766,23 @@
       },
       {
          "display_in_edit_form" : false,
+         "id" : "hydroxymethylbutyrate",
+         "important" : false,
+         "name" : "HMB",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
          "id" : "ph",
          "important" : false,
-         "name" : "PH",
+         "name" : "pH",
          "unit" : ""
       },
       {
          "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts",
-         "important" : false,
-         "name" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-dried",
-         "important" : false,
-         "name" : "Fruits‚ légumes et noix - séchés",
-         "unit" : "%"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "fruits-vegetables-nuts-estimate",
-         "important" : false,
-         "name" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation manuelle avec la liste des ingrédients)",
+         "id" : "fruits-vegetables-legumes",
+         "important" : true,
+         "name" : "Fruits‚ légumes‚ légumes secs",
          "unit" : "%"
       },
       {
@@ -805,27 +812,6 @@
          "important" : false,
          "name" : "Empreinte carbone",
          "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "carbon-footprint-from-meat-or-fish",
-         "important" : false,
-         "name" : "Empreinte carbone de la viande ou du poisson",
-         "unit" : "g"
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-fr",
-         "important" : false,
-         "name" : "Score nutritionnel - France",
-         "unit" : ""
-      },
-      {
-         "display_in_edit_form" : false,
-         "id" : "nutrition-score-uk",
-         "important" : false,
-         "name" : "Nutrition score - UK",
-         "unit" : ""
       },
       {
          "display_in_edit_form" : false,
@@ -866,7 +852,7 @@
          "display_in_edit_form" : false,
          "id" : "inositol",
          "important" : false,
-         "name" : "Inositol",
+         "name" : "inositol",
          "unit" : "g"
       },
       {
@@ -902,6 +888,13 @@
          "id" : "carbohydrates-total",
          "important" : false,
          "name" : "Glucides totaux (inclut les fibres)",
+         "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "water",
+         "important" : false,
+         "name" : "Eau",
          "unit" : "g"
       }
    ]

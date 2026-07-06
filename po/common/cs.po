@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Složení, alergeny, přísady, nutriční hodnoty, etikety, původ, dopad na CO2 a informace o produktu %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Společná, bezplatná a otevřená databáze přísad a informací o kosmetických produktech z celého světa"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Společná, bezplatná a otevřená databáze kosmetických výrobků z celého světa."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Spolupracující, bezplatná a otevřená databáze ingrediencí a informací o různých produktech z celého světa."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts shromažďuje informace a data o široké škále produktů z celého světa."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Spolupracující, bezplatná a otevřená databáze různých produktů z celého světa."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Spolupracující, bezplatná a otevřená databáze složek, nutričních hodnot a informací o krmivech pro domácí mazlíčky z celého světa."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts shromažďuje informace a data o krmivech pro domácí mazlíčky z celého světa."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Společná, bezplatná a otevřená databáze krmiv pro domácí zvířata z celého světa."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Složení INCI, alergeny, přísady, etikety, původ složek a informace o produktu %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Hledání produktů na Open Products Facts"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Tato stránka produktu není úplná. Můžete pomoci dokončit ji úpravou a přidáním dalších dat z fotografií, které máme, nebo pořízením více fotek pomocí aplikace pro <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> nebo <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Děkujeme!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Tato stránka produktu není kompletní. Můžete ji doplnit úpravou a přidáním dalších dat z fotografií, které máme k dispozici, nebo pořízením dalších fotografií pomocí univerzální mobilní aplikace pro <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> nebo <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Děkujeme!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "Anti-Perspirant Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Spolupracující, bezplatná a otevřená databáze informací o různých produktech z celého světa."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts shromažďuje informace a data o široké škále produktů z celého světa."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Spolupracující, bezplatná a otevřená databáze různých produktů z celého světa."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Složení, dopad na CO2, trvanlivost, etikety, původ složek a informace o produktu %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Hledání produktů na Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Tato stránka produktu není kompletní. Můžete ji doplnit úpravou a přidáním dalších dat z fotografií, které máme k dispozici, nebo pořízením dalších fotografií pomocí univerzální aplikace Open Food Facts pro <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> nebo <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Děkujeme!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Tekutý prací prostředek, Práškový prací prostředek"
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr "Prací prostředek"
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ultra čistá levandulová vůně"
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "VAROVÁNÍ: Nepřidávejte ingredience, pokud to pro danou kategorii není relevantní. Prací prostředky mají seznamy na obalu nebo online, stejně jako některé další kategorie"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Spolupracující, bezplatná a otevřená databáze složek, nutričních hodnot a informací o krmivech pro domácí mazlíčky z celého světa."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts shromažďuje informace a data o krmivech pro domácí mazlíčky z celého světa."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Společná, bezplatná a otevřená databáze krmiv pro domácí zvířata z celého světa."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Přísady, alergeny, aditiva, nutriční údaje, etikety, původ přísad a informace o produktu %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Hledání produktů na Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Tato stránka produktu není kompletní. Můžete ji doplnit úpravou a přidáním dalších dat z fotografií, které máme k dispozici, nebo pořízením dalších fotografií pomocí univerzální aplikace Open Food Facts pro <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> nebo <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Děkujeme!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Suché krmivo pro psy, mokré krmivo pro kočky"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "KUŘECÍ MASO, KUKUŘIČNÁ LEPKOVÁ MOUČKA, CELOZRNNÁ KUKUŘICE, ŽIVOČIŠNÝ TUK, SÓJOVÁ MOUČKA"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Mokré krmivo pro dospělé psy"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight kuře s rýží"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -178,6 +268,10 @@ msgstr "Již existuje organizace s názvem %s."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Vaše žádost o připojení k organizaci čeká na schválení správcem organizace."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr "Požadavek vaší organizace byl přijat a probíhá zpracování."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -623,6 +717,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Upravit stránku"
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Přihlaste se pro přidání nebo úpravu vlastností"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr "Upravit veřejný profil"
@@ -897,7 +995,7 @@ msgstr "Sledujte nás na <a href=\"https://twitter.com/openfoodfacts\">Twitteru<
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr "Nainstalujte aplikaci"
+msgstr "Nainstalujte si aplikaci"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
@@ -2177,6 +2275,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Hledat produkt"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Hledat produkt"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "neobsahuje"
@@ -2780,8 +2882,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Některá data a/nebo fotografie pro tento produkt pocházejí z těchto zdrojů:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Tato stránka produktu není úplná. Můžete pomoci dokončit ji úpravou a přidáním dalších dat z fotografií, které máme, nebo pořízením více fotek pomocí aplikace pro <a href=\"https://android.openfoodfacts.org\">Android</a> nebo <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Děkujeme!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Tato stránka produktu není kompletní. Můžete ji doplnit úpravou a přidáním dalších dat z fotografií, které máme k dispozici, nebo pořízením dalších fotografií pomocí mobilní aplikace pro <a href=\"https://android.openfoodfacts.org\">Android</a> nebo <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Děkujeme!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2863,25 +2965,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "přidaná další výživná látka"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Prodaných"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Připravené"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Jednotka"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Výživové údaje jsou uvedeny u produktu tak, jak je prodáván."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "U připravovaného produktu jsou uvedeny nutriční údaje."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -4866,8 +4952,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Nízký dopad na životní prostředí (Eko-skóre)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score je environmentální skóre od A do E, které usnadňuje srovnání dopadu potravinářských výrobků na životní prostředí."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score je environmentální skóre od A+ do F, které usnadňuje porovnání dopadu potravinářských výrobků na životní prostředí."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4879,8 +4965,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Nízký dopad na životní prostředí (Eko-skóre)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Green-Score je environmentální skóre od A do E, které usnadňuje srovnání dopadu potravinářských výrobků na životní prostředí."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score je environmentální skóre od A+ do F, které usnadňuje porovnání dopadu potravinářských výrobků na životní prostředí."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5420,8 +5506,8 @@ msgstr "Vize, mise, hodnoty a programy"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world-cs.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5803,8 +5889,8 @@ msgstr "Vzorec Green-Score se může změnit, protože je pravidelně vylepšov�
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score bylo původně vyvinuto pro Francii a je rozšiřováno do dalších evropských zemí. Vzorec Green-Score se může změnit, protože je pravidelně vylepšován, aby byl přesnější a lépe vyhovoval každé zemi."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Systém Green-Score byl původně vyvinut pro Francii a rozšiřuje se i do dalších evropských zemí. Vzorec Green-Score se může měnit, protože je pravidelně vylepšován, aby byl přesnější a lépe vyhovoval potřebám jednotlivých zemí."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6617,7 +6703,7 @@ msgstr "Sledujte nás: {links}"
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr "Nainstalujte aplikaci!"
+msgstr "Nainstalujte si aplikaci!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
@@ -6661,6 +6747,10 @@ msgstr "Produkt byl nalezen s jiným typem produktu"
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Produkt aktualizován"
+
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr "Uživatel nalezen"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6793,6 +6883,14 @@ msgstr "Všechny části balení produktu jsou uvedeny."
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Neplatné uživatelské id a heslo"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr "Neplatný access_token"
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr "Je požadováno ověření"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7137,14 +7235,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Nahlásit problém"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Nahlásit problém"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Nahlásit problém."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7606,6 +7699,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Hledat produkty ve stejné kategorii bez přidaného cukru:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "na 100 g"
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "na 100 ml"
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "na 1 l"
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "na 1 kg"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "v jedné porci"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Prodaných"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Připraveno"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Výživové údaje jsou uvedeny u produktu tak, jak je prodáván:"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Výživové údaje jsou uvedeny u produktu tak, jak je připraven:"
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Přidejte živinu"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Nežádoucí přísady"
@@ -7643,8 +7778,8 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Tyto preference jsou založeny na tom, jak Open Food Facts chápe seznam složek, a vždy existuje možnost, že nemusí být přesný nebo úplný, proto si vždy produkt sami zkontrolujte."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
-msgstr "Suffering Fingerprint"
+msgid "Suffering Footprint"
+msgstr "Nedostatečná stopa"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7685,6 +7820,70 @@ msgstr "Tabák vážně poškozuje zdraví. Nezačínejte. Přestaňte hned."
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Kouření je vysoce návykové. Nezačínejte. Kouření zabíjí – přestaňte hned. Kouření ucpává tepny a způsobuje infarkty a mrtvice. Kouření způsobuje smrtelnou rakovinu plic. Kouření v těhotenství škodí vašemu dítěti. Chraňte děti: nenuťte je dýchat váš kouř. Váš lékař nebo lékárník vám může pomoci přestat kouřit. Kouření může snížit průtok krve a způsobit impotenci. Kouření způsobuje stárnutí kůže. Kouření může poškozovat spermie a snižovat plodnost. Kouř obsahuje benzen, nitrosaminy, formaldehyd a kyanovodík."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr "Opětovné použití"
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr "Řešení pro cirkulární ekonomiku v okolí"
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr "Najděte místa pro opravu, darování, prodej nebo recyklaci"
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr "Pokud se nacházíte ve Francii, můžete najít řešení v okolí, která prodlouží životnost tohoto produktu, nebo jej zodpovědně zlikvidovat."
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr "Mezi dostupná řešení patří:"
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr "Oprava"
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr "Najděte si opravny a servisy, které vám opraví výrobek, místo abyste ho vyhodili"
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Podpořit"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr "Dejte svému produktu druhý život darováním asociacím nebo potřebným lidem"
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr "Prodej nebo výměna"
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr "Prodejte nebo vyměňte svůj produkt na platformách s použitým zbožím"
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Recyklace"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr "Najděte sběrná místa pro správné recyklování, když produkt dosáhne konce životnosti"
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr "Použijte Que Faire De Mes Objets (Francie) k nalezení řešení ve vašem okolí:"
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr "Najděte řešení v okolí na QFDMO"
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr "Kategorie produktů"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7733,4 +7932,68 @@ msgstr "Nízký dopad"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Dopad nebyl posouzen"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "Podrobné údaje"
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr "Tento formulář můžete použít pro analýzu seznamu ingrediencí."
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr "Tento formulář je demonstrační a testovací nástroj. Pro produkční použití si prosím nainstalujte software Recipe Estimator, který je k dispozici jako open source na <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr "Ingredience jsou mapovány na taxonomii ingrediencí Open Food Facts a jejich množství je odhadováno pomocí různých algoritmů."
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr "Jazyk textu ingrediencí"
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr "Text ingrediencí"
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr "Vyberte odhad procentuálního zastoupení ingrediencí:"
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr "používá kombinaci pravidel a heuristik a omezený soubor údajů o výživě a omezení složek"
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "1. verze (Glop) - používá nutriční hodnoty k určení množství složek"
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "2. verze (Scipy) - používá nutriční hodnoty k určení množství ingrediencí"
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr "Nutriční hodnoty"
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr "Analýza ingrediencí a odhad množství"
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr "Odhad procentuálního zastoupení ingrediencí:"
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr "Experimentální: k odhadu dopadu ingrediencí na životní prostředí použijte rozhraní Ecobalyse API."
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr "Požadavek na Ecobalyse"
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr "Reakce Ecobalyse"
 

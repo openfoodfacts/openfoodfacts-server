@@ -418,6 +418,7 @@
    "environmental_score_tags" : [
       "b"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "13000",
@@ -444,7 +445,7 @@
          "percent_max" : 30,
          "percent_min" : 30,
          "text" : "cane sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -459,10 +460,14 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:cane-sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "en",
@@ -504,6 +509,7 @@
    "lc" : "en",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
@@ -515,12 +521,6 @@
       "en:environmental-score-changed",
       "en:environmental-score-grade-changed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 70,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 70,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70
-   },
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],
    "packaging_shapes_tags" : [],

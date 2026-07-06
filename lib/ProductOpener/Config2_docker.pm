@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,6 +50,8 @@ BEGIN {
 		$google_cloud_vision_api_url
 		$crowdin_project_identifier
 		$crowdin_project_key
+		$brevo_api_key
+		$list_id
 		$robotoff_url
 		$query_url
 		$events_url
@@ -59,10 +61,11 @@ BEGIN {
 		$redis_url
 		$folksonomy_url
 		$recipe_estimator_url
-		$recipe_estimator_scipy_url
+		$recipe_estimator_service
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 		$crm_url
 		$crm_api_url
 		$crm_username
@@ -74,6 +77,8 @@ BEGIN {
 		$oidc_client_id
 		$oidc_client_secret
 		%slack_hook_urls
+		$health_check_api_key
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -113,6 +118,9 @@ $google_cloud_vision_api_url = $ENV{GOOGLE_CLOUD_VISION_API_URL} || "https://vis
 $crowdin_project_identifier = $ENV{CROWDIN_PROJECT_IDENTIFIER};
 $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 
+$brevo_api_key = $ENV{BREVO_API_KEY};
+$list_id = $ENV{BREVO_LIST_ID};
+
 my $postgres_host = $ENV{POSTGRES_HOST} || "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
 my $postgres_password = $ENV{POSTGRES_PASSWORD};
@@ -146,14 +154,17 @@ $redis_url = $ENV{REDIS_URL};
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
 $folksonomy_url = $ENV{FOLKSONOMY_URL};
-# To test a locally running recipe-estimator with product opener in a docker dev environment:
-# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
-$recipe_estimator_scipy_url = $ENV{RECIPE_ESTIMATOR_SCIPY_URL};
 
-#$recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-#$recipe_estimator_scipy_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
+$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ENV{RECIPE_ESTIMATOR_SERVICE} || "product_opener";
 
 %server_options = (
 	producers_platform => $producers_platform,
@@ -180,6 +191,10 @@ if ($producers_platform) {
 $build_cache_repo = $ENV{BUILD_CACHE_REPO};
 
 $rate_limiter_blocking_enabled = $ENV{RATE_LIMITER_BLOCKING_ENABLED} // "0";
+
+# Rate limiter disabled flag - set to 1 to disable application-level rate limiting
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ENV{RATE_LIMITER_DISABLED} // "0";
 
 # Odoo CRM
 $crm_url = $ENV{ODOO_CRM_URL};
@@ -208,5 +223,8 @@ if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
 		$slack_hook_urls{$+{channel}} = $+{url};
 	}
 }
+
+# Health check API key
+$health_check_api_key = $ENV{HEALTH_CHECK_API_KEY};
 
 1;
