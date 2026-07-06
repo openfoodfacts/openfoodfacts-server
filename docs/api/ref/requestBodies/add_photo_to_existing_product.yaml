@@ -7,7 +7,7 @@ properties:
     example: '3017620422003'
   imagefield:
     type: string
-    pattern: '^(front|ingredients|nutrition|packaging|other)_[a-z]{2}$'
+    pattern: '^((front|ingredients|nutrition|packaging)_[a-z]{2})|other$'
     description: |
       Indicates the type of the image and the corresponding language. It should
       be in the format `{IMAGE_TYPE}_{LANG}` format, where `IMAGE_TYPE` is one
