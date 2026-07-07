@@ -163,6 +163,8 @@ services:
 
       # Nginx, we use templates dir to be able to use environment vars
       - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
+      # needed for monitoring
+      - ./conf/nginx/sites-available/default:/etc/nginx/conf.d/stub_status.conf
       # common directives
       # cors headers definition as an include
       - ./conf/nginx/snippets/cors-headers.include:/etc/nginx/snippets/cors-headers.include
