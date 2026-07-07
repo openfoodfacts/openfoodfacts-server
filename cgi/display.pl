@@ -29,7 +29,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Routing qw/analyze_request/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/single_param redirect_to_url write_cors_headers/;
+use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Users qw/$Owner_id init_user/;
 use ProductOpener::Lang qw/lang/;
 use ProductOpener::API qw/decode_json_request_body init_api_response process_api_request read_request_body sanitize/;
@@ -104,7 +104,6 @@ if (    ($request_ref->{method} eq 'OPTIONS')
 	and (defined $r->headers_in->{Origin})
 	and (defined $r->headers_in->{'Access-Control-Request-Method'}))
 {
-	write_cors_headers();
 	print header(-status => 200, -type => 'text/plain', -charset => 'utf-8');
 	return Apache2::Const::OK;
 }
