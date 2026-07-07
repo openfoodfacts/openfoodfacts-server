@@ -726,7 +726,7 @@ jobs:
 
   integration_tests:
     name: 🐪 Perl Integration Tests
-    needs: [filter, build_backend, calculate_test_matrix]
+    needs: [filter, build_backend, build_frontend, calculate_test_matrix]
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     strategy:
@@ -776,9 +776,20 @@ jobs:
       with:
         image: "openfoodfacts-server/backend:dev"
 
-    - name: Remove downloaded image
+    - name: Remove downloaded backend image
       env:
         FILE: "${{ steps.downloadbackendimage.outputs.download_path }}"
+      run: rm $FILE
+
+    - name: Download frontend image from artifacts
+      id: downloadfrontendimage
+      uses: ishworkh/container-image-artifact-download@v2.1.0
+      with:
+        image: "openfoodfacts-server/frontend:dev"
+
+    - name: Remove downloaded frontend image
+      env:
+        FILE: "${{ steps.downloadfrontendimage.outputs.download_path }}"
       run: rm $FILE
 
     - name: Build taxonomies for tests
