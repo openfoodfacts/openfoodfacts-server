@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Una base de datos colaborativa, gratuita y abierta de Ingredientes, información nutricional e información sobre los productos alimenticios del mundo entero"
+msgstr "Una base de datos colaborativa, gratuita y abierta sobre ingredientes, información nutricional e información sobre los productos alimenticios de todo el mundo"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -271,7 +271,7 @@ msgstr "Tu solicitud para unirte a la organización está pendiente de aprobaci�
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "La solicitud de tu organización"
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -6067,7 +6067,7 @@ msgstr "apoyar la infraestructura, el sitio web, la app móvil y la API con un p
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr "seguir siendo independientes de la industria alimentaria,"
+msgstr "permanecer independiente de la industria alimentaria,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
@@ -8014,6 +8014,10 @@ msgstr "1ª versión (Glop) - utiliza información nutricionales para determinar
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr "2. ª versión (Scipy) - utiliza información nutricional para determinar la cantidad de ingredientes"
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "3ª versión (CVXPY): Utiliza información nutricional para determinar la cantidad de ingredientes."
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"

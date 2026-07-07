@@ -466,6 +466,15 @@ it: estratto di capsaicina, estratto di capsicina, estratto di capseicina
 nl: capsicum-extract
 wikidata:en: Q53792073
 
+< en: paprika extract
+en: capsicum oleoresin, capsicum oleo-resin, oleoresin capsicum
+de: Capsicum-Oleoresin
+es: oleorresina de capsicum
+fr: oléorésine de Capsicum
+nl: Capsicum-Oleoresin
+description:en: Capsicum Oleoresin is a highly concentrated capsicum extract.
+wikipedia:en: https://en.wikipedia.org/wiki/Oleoresin#Oleoresin_capsicum
+
 # comment:en: en:lecithines is part of the additives
 
 # nova:en:lecithin
@@ -9951,6 +9960,59 @@ description:nl: Een quenelle is een langwerpig balletje gemaakt van deeg en gepu
 description:pt: A quenelle é um bolinho feito com carne ou peixe muito condimentados, ligados com clara de ovo e natas, ovos batidos ou manteiga e farinha.
 wikidata:en: Q12958
 
+
+< en: animal
+en: donkey
+fr: âne
+it: asino
+nutriscore_red_meat:en: yes
+vegan:en: no
+vegetarian:en: no
+
+< en: donkey
+en: donkey meat
+fr: viande d'âne
+it: carne d'asino
+
+< en: animal
+en: kangaroo
+fr: kangourou
+it: canguro
+nutriscore_red_meat:en: yes
+vegan:en: no
+vegetarian:en: no
+
+< en: kangaroo
+en: kangaroo meat
+fr: viande de kangourou
+it: carne di canguro
+
+< en: animal
+en: camel
+fr: chameau
+nutriscore_red_meat:en: yes
+vegan:en: no
+vegetarian:en: no
+
+< en: camel
+en: camel meat
+fr: viande de chameau
+it: carne di cammello
+
+
+< en: animal
+en: bull
+fr: taureau
+it: toro
+nutriscore_red_meat:en: yes
+vegan:en: no
+vegetarian:en: no
+
+< en: bull
+en: bull meat
+fr: viande de taureau
+it: carne di toro
+
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. But do not include the word meat in these. Use en:beef meat for that.
 
 
@@ -12391,6 +12453,11 @@ vegetarian:en: no
 wikidata:en: Q11106
 wikipedia:en: https://en.wikipedia.org/wiki/Bacon
 # ingredient/bacon has 807 products in 16 languages @2019-05-10
+
+< en: bacon
+en: unprepared canadian bacon
+usda_ndb_code:en: 10130
+usda_ndb_name:en: Canadian bacon, unprepared
 
 < en: pork
 en: pork heart
@@ -31314,8 +31381,7 @@ it: Gomma xanthan e gomma di guar
 #
 ##################################################################################
 
-#comment:en:Is used as a generic descriptor for (natural) sugar
-en: added sugar
+en: added sugar, various sugars
 af: bygevoegde suiker
 ar: سكر مضاف
 az: əlavə edilmiş şəkər
@@ -31377,6 +31443,7 @@ ur: اضافی چینی
 uz: qo'shilgan shakar
 vi: đường thêm vào
 zh: 添加糖
+description:en: Added sugar is an ingredient that describes anything that counts as sugar.
 
 < en: added sugar
 en: monosaccharide
@@ -31434,7 +31501,7 @@ zh: 单糖
 
 # nova
 < en: disaccharide
-en: sugar, various sugars
+en: sugar
 af: Suikers
 am: ስኳር
 an: Zucre
@@ -32534,6 +32601,7 @@ wikidata:en: Q170002
 # ingredient/fr:maltose has 144 products in 4 languages @2019-04-13
 
 < en: maltose
+< en: syrup
 en: maltose syrup
 de: Maltosesirup
 fi: maltoosisiirappi
@@ -32819,9 +32887,9 @@ en: sugar coating
 hr: šećer za dekoraciju
 it: rivestimento di zucchero
 
-# description:en:SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
 # Warning:the wikipedia translations mixes syrup and glucose syrup
 
+< en: added sugar
 en: syrup
 ar: شراب
 be: Сіроп
@@ -32871,14 +32939,15 @@ tr: Şurup
 uk: Сироп
 vi: Xi rô
 zh: 糖漿
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q6584340
 # ast:Almíbar
 # chy:Pano'êhasëö'o
 # mwl:Xarope
 # nah:Neucpahtli
 # yue:糖漿
+description:en: SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q6584340
 wikipedia:en: https://en.wikipedia.org/wiki/Syrup
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/syrup
 # 9746 products in 24 languages @2018-09-24
@@ -33094,7 +33163,6 @@ wikidata:en: Q3044475
 # in Japanese 水飴 (mizuame) is generic for glucose syrup
 
 < en: corn syrup
-< en: glucose
 en: corn glucose syrup, corn glucose
 es: sirope de glucosa de maíz, jarabe de glucosa de maíz, glucosa de maíz
 fr: sirop de glucose de maïs, glucose de maïs
@@ -33377,8 +33445,7 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/glucose-and-fructos
 openfoodfacts:fr: https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-blé
 # 271 products in 4 languages @2018-09-24
 
-
-< en: corn syrup
+#< en:corn syrup
 < en: glucose-fructose syrup
 en: high fructose corn syrup, isoglucose, HCFS
 bg: Високо-фруктозен сироп от царевица
@@ -33481,7 +33548,7 @@ en: corevaporated cane syrup
 fr: sirop de sucre de canne evaporé, sirop de canne évaporé
 it: sciroppo di canna corevaporato
 
-< en: disaccharide
+< en: glucose
 < en: syrup
 en: corn syrup
 af: mieliestroop
@@ -33580,8 +33647,9 @@ en: corn starch syrup
 fr: sirop d'amidon de maïs
 it: sciroppo di amido di mais
 
+< en: fructose
 < en: starch syrup
-en: high fructose starch sirup
+en: high fructose starch syrup
 fr: sirop d'amidon à haute teneur en fructose
 hr: visoko fruktozni škrobni sirup
 it: sciroppo di amido ad alto contenuto di fruttosio
@@ -45678,6 +45746,8 @@ ciqual_food_name:en: Coconut water
 ciqual_food_name:fr: Eau de coco
 ifct_food_code:en: K002
 ifct_food_name:en: Coconut water
+nutriscore_fruits_vegetables_legumes:en: no
+nutriscore_fruits_vegetables_nuts:en: no
 usda_ndb_code:en: 12119
 usda_ndb_name:en: Nuts, coconut water (liquid from coconuts)
 wikidata:en: Q633401
@@ -49791,7 +49861,8 @@ usda_ndb_name:en: Raisins, golden, seedless
 en: sultana raisin, Raisin Thompson Seedless
 fr: raisins secs sultanines
 pl: rodzynki thompson jumbo
-sv: sultanrussin, Thompson-russin
+sv: sultanrussin, Sultan-russin, Thompson-russin
+wikidata:en: Q19883728
 
 #<en:compound
 < en: sultana
@@ -90018,8 +90089,10 @@ carbon_footprint_fr_foodges_ingredient:fr: Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr: 4.9
 #ciqual_proxy_food_code:en: 36005
 #ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
-ciqual_food_code:en: 36003
-ciqual_food_name:fr: Chicken, meat and skin, raw
+ciqual_proxy_food_code:en: 36003
+ciqual_proxy_food_name:fr: Chicken, meat and skin, raw
+usda_ndb_proxy_code:en: 5332
+usda_ndb_proxy_name:en: Chicken, ground, raw
 wikidata:en: Q780
 wikipedia:en: https://en.wikipedia.org/wiki/Chicken_as_food
 # ingredient/chicken has 872 products @2019-05-18
@@ -90032,6 +90105,11 @@ es: pollo de corral
 fr: poulet élevé en plein air
 hr: piletina slobodnog uzgoja
 it: pollo ruspante
+
+< en: chicken
+en: raw chicken meat and skin
+ciqual_food_code:en: 36003
+ciqual_food_name:fr: Chicken, meat and skin, raw
 
 # en:comment:"poulet fermier" is defined in https://eur-lex.europa.eu/legal-content/FR/TXT/PDF/?uri=CELEX:01991R1538-20071217&from=GA
 # in English, it is "traditional free-range"
@@ -90048,6 +90126,11 @@ fr: poulet entier, poulets entiers
 it: pollo intero
 ciqual_proxy_food_code:en: 36005
 ciqual_proxy_food_name:fr: Poulet, viande et peau, rôti/cuit au four
+
+< en: chicken
+en: raw ground chicken
+usda_ndb_code:en: 5332
+usda_ndb_name:en: Chicken, ground, raw
 
 < en: animal protein
 < en: chicken
@@ -90090,7 +90173,6 @@ zh: 鸡心
 ciqual_food_code:en: 40054
 ciqual_food_name:en: Heart, chicken, raw
 ciqual_food_name:fr: Coeur, poulet, cru
-
 
 # <en:liver
 < en: chicken
@@ -90135,8 +90217,14 @@ nl: kippenvel
 pl: skóra z kurczaka, skóry z kurczaka, skóry z kurcząt, skórki z kurcząt, skórki z kurczaka, skórki drobiowe z kurczaka
 ro: piele de pui
 sv: kycklingskinn
+usda_ndb_proxy_code:en: 5674
+usda_ndb_proxy_name:en: Chicken, skin (drumsticks and thighs), raw
 # ingredient/fr:peau-de-poulet has 215 products in 7 languages @2019-03-29
 
+< en: chicken skin
+en: raw chicken skin
+usda_ndb_code:en: 5674
+usda_ndb_name:en: Chicken, skin (drumsticks and thighs), raw
 
 # description:en:CHICKEN is the most common type of poultry in the world. Owing to the relative ease and low cost of raising them in comparison to animals such as cattle or hogs, chickens have become prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chicken meat contains about two to three times as much polyunsaturated fat as most types of red meat when measured as weight percentage.
 # comment:en:The wikidata translations or unclear whether they refer to the chicken animal or the chicken meat
@@ -90673,12 +90761,60 @@ fr: morceaux de foie gras de canard du sud-ouest
 < en: duck liver
 fr: bloc de foie gras de canard
 
+###################################################################################################
+#
+#                                Emu
+
+#
+###################################################################################################
+
+< en: poultry
+en: emu
+usda_ndb_proxy_code:en: 5621
+usda_ndb_proxy_name:en: Emu, ground, raw
+
+< en: emu
+en: raw emu fan fillet
+usda_ndb_code:en: 5623
+usda_ndb_name:en: Emu, fan fillet, raw
+
+< en: emu
+en: raw emu flat fillet
+usda_ndb_code:en: 5625
+usda_ndb_name:en: Emu, flat fillet, raw
+
+< en: emu
+en: raw emu full rump
+usda_ndb_code:en: 5626
+usda_ndb_name:en: Emu, full rump, raw
+
+< en: emu
+en: raw ground emu
+usda_ndb_code:en: 5621
+usda_ndb_name:en: Emu, ground, raw
+
+< en: emu
+en: raw inside drum emu
+usda_ndb_code:en: 5628
+usda_ndb_name:en: Emu, inside drum, raw
+
+< en: emu
+en: raw outside drum emu
+usda_ndb_code:en: 5630
+usda_ndb_name:en: Emu, outside drum, raw
+
+< en: emu
+en: raw emu oyster
+description:en: The Emu Oyster is an egg-shaped fillet found along the backbone just above the thigh, with a thick sinew layer running through the middle. It's typically sliced thin for stir-fries or cooked low and slow until tender.
+usda_ndb_code:en: 5631
+usda_ndb_name:en: Emu, oyster, raw
 
 ###################################################################################################
 #
 #                                Turkey
 #
 ###################################################################################################
+
 # description:en:The TURKEY is a large bird in the genus Meleagris, which is native to the Americas. The species Meleagris gallopavo is used by humans for their meat. Compared to wild turkeys, domestic turkeys are selectively bred to grow larger in size for their meat. Americans often eat turkey on special occasions such as at Thanksgiving or Christmas.
 # comment:en:Turkey as a species is a separate item in order to designate the origin of turkey parts.
 
@@ -90836,15 +90972,23 @@ tr: hindi eti
 uk: Індичатина
 vi: Thịt gà tây
 zh: 火雞肉
-# ingredient/fr:viande-de-dinde has 1257 products in 7 languages @2019-04-18
+# yue:火雞肉
 carbon_footprint_fr_foodges_ingredient:fr: Cuisse de dinde
 carbon_footprint_fr_foodges_value:fr: 6.6
 ciqual_food_code:en: 36301
 ciqual_food_name:en: Turkey, meat, raw
 ciqual_food_name:fr: Dinde, viande, crue
-# yue:火雞肉
+description:en: TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
+usda_ndb_proxy_code:en: 5305
+usda_ndb_proxy_name:en: Turkey, Ground, raw
 wikidata:en: Q4200953
 wikipedia:en: https://en.wikipedia.org/wiki/Turkey_as_food
+# ingredient/fr:viande-de-dinde has 1257 products in 7 languages @2019-04-18
+
+< en: turkey
+en: raw ground turkey
+usda_ndb_code:en: 5305
+usda_ndb_name:en: Turkey, Ground, raw
 
 < en: turkey meat
 de: Putenfleisch
@@ -90954,6 +91098,11 @@ wikidata:en: Q6072584
 wikipedia:en: https://en.wikipedia.org/wiki/Quail
 # ingredient/fr:cailles has 4 products @2019-05-31
 
+###################################################################################################
+#
+#                                Goose
+#
+###################################################################################################
 
 < en: poultry
 en: goose
@@ -90992,11 +91141,147 @@ sv: gåslever
 ciqual_food_code:en: 40120
 ciqual_food_name:en: Liver, goose, raw
 ciqual_food_name:fr: Foie, oie, cru
+usda_ndb_proxy_code:en: 5150
+usda_ndb_proxy_name:en: Goose, liver, raw
 wikidata:en: Q103819968
 #51 in 5 @2021-09-11
 
 < en: goose liver
+en: raw goose liver
+usda_ndb_code:en: 5150
+usda_ndb_name:en: Goose, liver, raw
+
+< en: goose liver
 fr: foie gras d'oie
+
+###################################################################################################
+#
+#                                Guinea hen
+#
+###################################################################################################
+
+< en: poultry
+en: guinea hen
+usda_ndb_proxy_code:en: 5152
+usda_ndb_proxy_name:en: Guinea hen, meat only, raw
+
+< en: guinea hen
+en: raw guinea hen meat and skin
+usda_ndb_code:en: 5151
+usda_ndb_name:en: Guinea hen, meat and skin, raw
+
+< en: guinea hen
+en: raw guinea hen meat
+usda_ndb_code:en: 5152
+usda_ndb_name:en: Guinea hen, meat only, raw
+
+###################################################################################################
+#
+#                                Ostrich
+#
+###################################################################################################
+
+< en: poultry
+en: ostrich
+usda_ndb_proxy_code:en: 5641
+usda_ndb_proxy_name:en: Ostrich, ground, raw
+
+< en: ostrich
+en: raw ostrich fan
+usda_ndb_code:en: 5643
+usda_ndb_name:en: Ostrich, fan, raw
+
+< en: ostrich
+en: raw ground ostrich
+usda_ndb_code:en: 5641
+usda_ndb_name:en: Ostrich, ground, raw
+
+< en: ostrich
+en: raw ostrich inside leg
+usda_ndb_code:en: 5644
+usda_ndb_name:en: Ostrich, inside leg, raw
+
+< en: ostrich
+en: raw ostrich inside strip
+usda_ndb_code:en: 5646
+usda_ndb_name:en: Ostrich, inside strip, raw
+
+< en: ostrich
+en: raw ostrich outside leg
+usda_ndb_code:en: 5648
+usda_ndb_name:en: Ostrich, outside leg, raw
+
+< en: ostrich
+en: raw ostrich outside strip
+usda_ndb_code:en: 5649
+usda_ndb_name:en: Ostrich, outside strip, raw
+
+< en: ostrich
+en: raw ostrich oyster
+usda_ndb_code:en: 5651
+usda_ndb_name:en: Ostrich, oyster, raw
+
+< en: ostrich
+en: raw ostrich round
+usda_ndb_code:en: 5653
+usda_ndb_name:en: Ostrich, round, raw
+
+< en: ostrich
+en: raw ostrich tenderloin
+usda_ndb_code:en: 5654
+usda_ndb_name:en: Ostrich, tenderloin, raw
+
+< en: ostrich
+en: raw ostrich tip trimmed
+usda_ndb_code:en: 5655
+usda_ndb_name:en: Ostrich, tip trimmed, raw
+
+< en: ostrich
+en: raw ostrich top loin
+usda_ndb_code:en: 5657
+usda_ndb_name:en: Ostrich, top loin, raw
+
+###################################################################################################
+#
+#                                Pheasant
+#
+###################################################################################################
+
+< en: poultry
+en: pheasant
+usda_ndb_proxy_code:en: 5153
+usda_ndb_proxy_name:en: Pheasant, raw, meat and skin
+
+< en: pheasant
+en: raw pheasant meat and skin
+usda_ndb_code:en: 5153
+usda_ndb_name:en: Pheasant, raw, meat and skin
+
+< en: pheasant
+en: raw pheasant meat
+usda_ndb_code:en: 5154
+usda_ndb_name:en: Pheasant, raw, meat only
+
+###################################################################################################
+#
+#                                Quail
+#
+###################################################################################################
+
+< en: poultry
+en: quail
+usda_ndb_proxy_code:en: 5157
+usda_ndb_proxy_name:en: Quail, meat and skin, raw
+
+< en: quail
+en: raw quail meat and skin
+usda_ndb_code:en: 5157
+usda_ndb_name:en: Quail, meat and skin, raw
+
+< en: quail
+en: raw quail meat
+usda_ndb_code:en: 5158
+usda_ndb_name:en: Quail, meat only, raw
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
