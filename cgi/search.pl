@@ -40,7 +40,6 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
 use ProductOpener::Routing qw/:all/;
 
-use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
