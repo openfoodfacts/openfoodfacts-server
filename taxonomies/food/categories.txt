@@ -41364,7 +41364,7 @@ fr: Gingembrettes
 
 < en: Bonbons
 < en: Fruit confectioneries
-en: Chocolate coated fruits, Chocolate covered fruits
+en: Chocolate covered fruits, Chocolate coated fruits
 de: Früchte mit Schokoladenüberzug
 es: Frutas recubiertas de chocolate
 fi: suklaalla päällystetyt hedelmät
@@ -41386,6 +41386,14 @@ da: Dadler med chokoladeovertræk
 fr: Dattes enrobées de chocolat, Dattes chocolat
 nl: Chocodadels, Met chocolade bedekte dadels, Dadels (Chocolade bedekt)
 sv: Dadlar med chokladöverdrag, Chokladdoppade dadlar
+
+< en: Chocolate covered fruits
+en: Chocolate covered pineapple
+fr: Ananas enrobées de chocolat
+
+< en: Chocolate covered fruits
+en: Chocolate covered banana
+fr: Bananes enrobées de chocolat
 
 < en: Chocolate covered fruits
 en: Chocolate-covered figs
@@ -56275,6 +56283,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Chutneys/Relishes (Perishable)
 
 < en: Chutneys
+< en: Fruit-based foods
 en: Fruit chutneys
 da: Frugtchutneyer
 de: Fruchtchutneys
@@ -62517,13 +62526,7 @@ wikidata:en: Q3142825
 
 ############ ITALIAN OLIVE OILS
 
-< en: Fats
-en: Italian oils and fats
-da: Italienske olier og fedtstoffer
-fr: Huiles et graisses italiennes
-sv: Italienska oljor och fetter
 
-< en: Italian oils and fats
 < en: Olive oils
 en: Olive oils from Italy, Italian olive oils, Olive oil from Italy, Italian olive oil
 bg: Италианско дървено масло, италиански зехтин
@@ -73949,10 +73952,6 @@ fr: Mangues fraîches
 hr: Svježi mango
 lt: Švieži mangai
 
-< en: Mangoes
-en: Amchoor, amchur, aamchur, Mango powder, Dried mango powder
-fr: Amchur, amchoor, aamchur, Poudre de mangues, Poudre de mangue
-
 < en: Tropical fruits
 en: Mango pulp
 fr: Pulpe de mangue
@@ -77811,6 +77810,12 @@ agribalyse_proxy_food_code:en: 20028
 agribalyse_proxy_food_name:en: Fennel, raw
 agribalyse_proxy_food_name:fr: Fenouil, cru
 wikidata:en: Q28692
+
+< en: Spices
+en: Amchoor, amchur, aamchur, Mango powder, Dried mango powder
+fr: Amchur, amchoor, aamchur, Poudre de mangues, Poudre de mangue
+description:en: powder of dried unripe mango used to acidify some dishes
+wikidata:en: Q2015681
 
 < en: Spices
 en: asafoetida, hing
@@ -85192,6 +85197,10 @@ ciqual_food_code:en: 25164
 ciqual_food_name:en: Osso buco
 ciqual_food_name:fr: Osso buco
 wikidata:en: Q1057256
+
+< en: Osso buco
+en: Osso buco with turkey, Turkey osso buco
+fr: Osso buco de dinde
 
 < en: Meals with meat
 en: Molokhia, Jute and beef-based meal
@@ -93037,6 +93046,11 @@ agribalyse_food_code:en: 36300
 ciqual_food_code:en: 36300
 ciqual_food_name:en: Turkey, meat and skin, raw
 
+< en: Meat for osso buco
+< en: Turkeys
+en: Turkey meat for osso buco, osso buco turkey Meat
+fr: Viande de dinde pour osso buco
+
 < en: Turkeys
 en: Turkey skewers
 fr: Brochettes de dinde
@@ -97586,9 +97600,14 @@ ciqual_food_code:en: 40305
 ciqual_food_name:en: Sweetbread, calf, sautéed/pan-fried
 ciqual_food_name:fr: Ris, veau, braisé ou sauté/poêlé
 
+< en: Meat
+en: Meat for osso buco, osso buco meat
+fr: Viande pour osso buco
+
+< en: Meat for osso buco
 < en: Veal meat
-en: Veal knuckle, Veal shank
-fr: Jarret de veau
+en: Veal knuckle, Veal shank, veal meat for osso buco, osso buco veal meat
+fr: Jarret de veau, viande de veau pour osso buco
 agribalyse_food_code:en: 6583
 ciqual_food_code:en: 6583
 ciqual_food_name:en: Veal, knuckle or shank, raw
@@ -108671,8 +108690,7 @@ hr: Konzerve od ružinih latica
 hu: Rózsa lekvár
 nl: Rozeblaadjesjams
 
-< en: Plant-based spreads
-< en: Sweet spreads
+< en: Vegetable preserves
 en: Ginger preserves
 fr: Tartinades de gingembre
 
@@ -108683,20 +108701,17 @@ expected_minimal_amount_specific_ingredients:en: en:fruit, 18, en:eu
 
 < en: Plant-based spreads
 < en: Sweet spreads
-en: Fruit and vegetable preserves, fruit preserves
+en: Fruit and vegetable preserves
 bg: Конфитюри и мармалади
-ca: Conserves de fruita
 de: Konfitüren und Marmeladen
 es: Preparaciones a base de frutas y verduras
-fi: hedelmäsäilykkeet
+fi: Hedelmäsäilykkeet
 fr: Confitures et marmelades
 he: שימורי פרות וירקות, שימורי פירות וירקות
 hr: Konzervirano voće i povrće
 hu: Gyümölcskonzervek
-it: Conserve di frutta
 nl: Confituren en marmelades
 pl: Przetwory owocowe
-pt: Conservas de fruta
 th: ผลไม้แปรรูป
 
 < en: Fruit and vegetable preserves
@@ -108706,6 +108721,19 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Jams/Marmalades/Fruit Spreads (Perishable)
 
 < en: Fruit and vegetable preserves
+< en: Vegetables based foods
+en: Vegetable preserves
+es: Preparaciones a base de verduras
+
+< en: Fruit and vegetable preserves
+< en: Fruit-based foods
+en: Fruit preserves
+ca: Conserves de fruita
+es: Preparaciones a base de frutas
+it: Conserve di frutta
+pt: Conservas de fruta
+
+< en: Fruit preserves
 en: Fruit preserves with chocolate
 fr: Confitures au chocolat
 
@@ -108714,6 +108742,7 @@ fr: Confitures au chocolat
 sv: Rårörda, rårörd
 #fr:Crufitures
 
+< en: Fruit preserves
 < sv: Rårörda
 sv: Rårörda lingon
 wikidata:en: Q10658749
@@ -108727,7 +108756,7 @@ wikidata:en: Q10658749
 #   remark: jelly = gelled mixture of sugars and the juice and/or aqueous
 #     extracts of one or more kinds of fruit.
 < en: Fruit and vegetable preserves
-en: Jams, fruit jams
+en: Jams
 bg: Конфитюри, Конфитюр
 ca: Melmelades
 cs: Džemem
@@ -108737,7 +108766,7 @@ el: μαρμελάδα
 es: Confitura
 et: Džemm
 fi: hillot, Hillo
-fr: Confitures, Confitures de fruits, confiture
+fr: Confitures, Confiture
 he: ריבות
 hr: džemovi, džem
 hu: Dzsemek, Lekvárok, dzsem
@@ -108758,6 +108787,8 @@ th: แยม
 tr: Reçel
 zh: 果酱
 #es:Mermeladas, Confituras
+# strawberry jam is the worst case in Agribalyse (it is also used by Agribalyse for the "jam, all fruits, reduced sugar" entry)
+# we use it as the default for jams where we don't have other better matches (e.g. plum jams are matched to apricot jam)
 agribalyse_proxy_food_code:en: 31024
 ciqual_proxy_food_code:en: 31024
 ciqual_proxy_food_name:en: Jam, strawberry
@@ -108765,6 +108796,23 @@ ciqual_proxy_food_name:fr: Confiture de fraise (extra ou classique)
 expected_minimal_amount_specific_ingredients:en: en:fruit, 45, en:eu
 intake24_category_code:en: JAMS
 wikidata:en: Q8752059
+
+< en: Fruit preserves
+< en: Jams
+en: Fruit jams
+da: Frugtsyltetøj
+fr: Confitures de fruits
+sv: Fruktsylter
+
+< en: Jams
+< en: Vegetable preserves
+en: Vegetable jams
+da: Grøntsagssyltetøj
+sv: Grönsakssylter
+
+< en: Jams
+en: Mixed jams
+description:en: Jams of multiple different fruits, vegetables, etc.
 
 # in eu, extra-jams should have specific
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
@@ -108775,7 +108823,7 @@ wikidata:en: Q8752059
 #     the pulp and/or purée of one or more kinds of fruit and water
 #   remark: jelly = gelled mixture of sugars and the juice and/or aqueous
 #     extracts of one or more kinds of fruit.
-< en: Fruit and vegetable preserves
+< en: Jams
 en: Extra jams, extra fruit jams, extra jam, extra fruit jam
 bg: Конфитюр екстра качество
 cs: Džemem výběrovým, Extra Džemem
@@ -108806,8 +108854,6 @@ en: Shelf-stable jams
 gpc_category_code:en: 10000217
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a sweet semi firm liquid, usually used as a spread, made by cooking and preserving crushed fruit in sugar, and allowing the mixture to set, often with the addition of setting agents. Includes jams, jellies, and marmalades.Definition Excludes: Excludes products such as Confectionery Based Spreads and Honey and Jams/Marmalades/Fruit Spreads (Perishable).
 gpc_category_name:en: Jams/Marmalades (Shelf Stable)
-# strawberry jam is the worst case in Agribalyse (it is also used by Agribalyse for the "jam, all fruits, reduced sugar" entry)
-# we use it as the default for jams where we don't have other better matches (e.g. plum jams are matched to apricot jam)
 
 < en: Artisan products
 < en: Jams
@@ -108847,7 +108893,7 @@ ciqual_food_name:fr: Confiture, tout type de fruits, allégée en sucres (extra 
 
 #################### jams and extra jams in alphebetical order for English ####################
 
-< en: Jams
+< en: Fruit jams
 en: Apple jams
 bg: Конфитюр от ябълки
 de: Apfelmarmeladen
@@ -108866,12 +108912,13 @@ ciqual_proxy_food_name:en: Jam, apricot
 ciqual_proxy_food_name:fr: Confiture d'abricot (extra ou classique)
 wikidata:en: Q77469893
 
-< en: Jams
+< en: Fruit jams
 en: Apricot jams, Apricot Marmalades
 bg: Конфитюр от кайсии
+da: Abrikossyltetøj
 de: Aprikosen Konfitüren, Aprikosenkonfitüren, Aprikosenmarmelade
 es: Confituras de albaricoque, Mermeladas de albaricoque
-fi: aprikoosihillot
+fi: Aprikoosihillot
 fr: Confitures d’abricot, confitures aux abricots, confitures à l'abricot, Confiture d'abricot extra, Marmelades d’abricots
 hr: Džemovi od marelica
 hu: Sárgabarack
@@ -108884,22 +108931,20 @@ sk: Marhuľový džem
 sl: Marelični džem
 sv: Aprikossylter, Aprikossylt
 tr: Kayısı reçeli
+#bg:Конфитюр от кайсии
+#cs:Meruňkový džem
+#el:Μαρμελάδα βερίκοκο
+#es:Compota de albaricoque
+#et:Aprikoosikeedis
+#hu:Kajszibarackdzsem, Sárgabarack marmelád
+#lt:Abrikosų džemai
+#lv:Aprikožu ievārījums
+#mt:Ġamm tal-berquq
 agribalyse_food_code:en: 31037
 ciqual_food_code:en: 31037
 ciqual_food_name:en: Jam, apricot
 ciqual_food_name:fr: Confiture d'abricot (extra ou classique)
 wikidata:en: Q20162694
-#bg:Конфитюр от кайсии
-#cs:Meruňkový džem
-#da:Abrikossyltetøj
-#el:Μαρμελάδα βερίκοκο
-#es:Compota de albaricoque
-#et:Aprikoosikeedis
-#fi:Aprikoosihillo
-#hu:Kajszibarackdzsem, Sárgabarack marmelád
-#lt:Abrikosų džemai
-#lv:Aprikožu ievārījums
-#mt:Ġamm tal-berquq
 
 < en: Jams
 en: Assorted jams
@@ -108915,9 +108960,10 @@ fr: confiture de bière
 it: Confetture di birra, Marmellate di birra
 wikidata:en: Q21901286
 
-< en: Jams
+< en: Fruit jams
 en: Berry jams
 ca: Melmelada de baies
+da: Bærsyltetøj
 de: Marmeladen aus roten Früchten
 es: Mermeladas y confituras de frutas del bosque, Mermeladas de frutas del bosque, Confituras de frutas del bosque, Mermeladas y confituras de frutas rojas, Mermeladas de frutas rojas, Confituras de frutas rojas
 fi: marjahillot
@@ -109103,9 +109149,10 @@ ciqual_food_name:en: Jam, strawberry
 ciqual_food_name:fr: Confiture de fraise (extra ou classique)
 wikidata:en: Q1348968
 
-< en: Jams
+< en: Fruit jams
 en: Cherry jams
 bg: Конфитюр от череши
+da: Kirsebærsyltetøj
 de: Kirsche Konfitüren, Kirschmarmeladen
 es: Mermeladas y confituras de cereza, Mermeladas de cereza, Confituras de cereza
 fi: kirsikkahillot
@@ -109122,13 +109169,13 @@ ciqual_food_name:en: Jam, cherry
 ciqual_food_name:fr: Confiture de cerise (extra ou classique)
 wikidata:en: Q47472139
 
-< en: Jams
+< en: Mixed jams
 en: Rhubarb-strawberry jams
 fr: Confitures de fraise et de rhubarbe
 it: Confetture di fragole e rabarbaro, Marmellate di fragole e rabarbaro
 nl: Rabarber-aardbeien jams
 
-< en: Jams
+< en: Fruit jams
 en: Figs jams
 bg: Конфитюр от смокини
 de: Feigenkonfitüren
@@ -109145,7 +109192,7 @@ pt: Doces de figo
 sv: Fikonsylter
 wikidata:en: Q65545224
 
-< en: Jams
+< en: Fruit jams
 en: Grape jams
 bg: Конфитюр от грозде
 es: Mermeladas y confituras de uvas, Mermeladas de uvas, Confituras de uvas
@@ -109159,7 +109206,7 @@ pt: Doces de uva
 sv: Druvasylter
 tr: Üzüm reçeli
 
-< en: Jams
+< en: Fruit jams
 en: Kiwifruit jams, Kiwi jams, kiwi jam
 de: Kiwi Konfitüren
 es: Mermelada de kiwi
@@ -109169,7 +109216,7 @@ it: Confetture di kiwi, Marmellate di kiwi
 ja: キウイジャム
 sv: Kiwisylter
 
-< en: Jams
+< en: Fruit jams
 en: Melon jams
 es: Mermeladas y confituras de melón, Mermeladas de melón, Confituras de melón
 fr: Confitures de melon
@@ -109182,7 +109229,8 @@ sv: Melonsylter
 tr: Kavun reçeli
 wikidata:en: Q89999771
 
-< en: Jams
+< en: Fruit jams
+< en: Mixed jams
 en: Mixed fruit jams
 de: Multifrucht Konfitüren
 es: Mermeladas y confituras multifruta, Mermeladas multifruta, Confituras multifruta
@@ -109195,8 +109243,8 @@ nl: Multifruitjams
 pt: Compotas de mistura de frutos
 wikidata:en: Q89999799
 
-< en: Jams
 < en: Onions and their products
+< en: Vegetable jams
 en: Onion jams
 es: Mermeladas y confituras de cebolla, Mermeladas de cebolla, Confituras de cebolla
 fr: Confitures d'oignon
@@ -109206,7 +109254,12 @@ it: Confetture di cipolle, Marmellate di cipolle
 nl: Uienjams
 wikidata:en: Q43668938
 
-< en: Jams
+< en: Mixed jams
+en: Orange and ginger jams
+da: Appelsin- og ingefærsyltetøj
+sv: Apelsin- och ingefärasylter
+
+< en: Fruit jams
 en: Peach jams
 bg: Конфитюр от праскови
 de: Pfirsichmarmeladen
@@ -109227,7 +109280,7 @@ ciqual_proxy_food_name:en: Jam, apricot
 ciqual_proxy_food_name:fr: Confiture d'abricot (extra ou classique)
 wikidata:en: Q68221865
 
-< en: Jams
+< en: Fruit jams
 en: Pear jams
 bg: Конфитюр от круши
 de: Birnenmarmelade
@@ -109246,7 +109299,7 @@ ciqual_proxy_food_name:en: Jam, apricot
 ciqual_proxy_food_name:fr: Confiture d'abricot (extra ou classique)
 wikidata:en: Q47472068
 
-< en: Jams
+< en: Fruit jams
 en: Plum jams
 de: Pflaumenmarmeladen
 es: Mermeladas y confituras de ciruela, Mermeladas de ciruela, Confituras de ciruela
@@ -109284,8 +109337,8 @@ hu: Damaszkuszi szilvalekvár
 it: Confetture di susine gialle, Marmellate di susine gialle
 nl: Mirabellenjams
 
-< en: Jams
 < en: Pumpkins and their products
+< en: Vegetable jams
 en: Pumpkin jams
 de: Kürbismarmelade
 es: Mermeladas y confituras de calabaza, Mermeladas de calabaza, Confituras de calabaza
@@ -109298,17 +109351,18 @@ nl: Pompoenjams
 pt: Doces de abóbora
 wikidata:en: Q89999884
 
-< en: Jams
 < en: Pumpkins and their products
+< en: Vegetable jams
 en: Cabell d'àngel
 es: cabello de ángel
 fr: Cabell d'àngel
 
 # in eu, quince jams/jellies should have specific
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
-< en: Jams
+< en: Fruit jams
 en: Quince jams
 bg: Конфитюр от дюли
+da: Kvædesyltetøj
 de: Quitte Konfitüren
 fr: Confitures de coings
 hr: Džemovi od dunja
@@ -109330,7 +109384,7 @@ fi: Vadelma-raparperihillo
 it: Confettura lamponi e rabarbaro
 sv: Hallon- och rabarbersylter
 
-< en: Jams
+< en: Vegetable jams
 en: Rhubarb jams
 de: Rhabarber-Konfitüre
 es: Mermeladas y confituras de ruibarbo, Mermeladas de ruibarbo, Confituras de ruibarbo
@@ -109345,7 +109399,7 @@ wikidata:en: Q89999895
 
 # in eu, rosehip jams/jellies should have specific
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
-< en: Jams
+< en: Fruit jams
 en: Rosehip jams, rosehip jam
 bg: Шипков мармалад
 de: Hagebutte Konfitüren
@@ -109359,7 +109413,7 @@ expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 # in eu, Sea-buckthorn jams/jellies should have specific
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
-< en: Jams
+< en: Fruit jams
 en: Sea-buckthorn jams
 de: Sanddorn Konfitüren
 es: Mermeladas y confituras d'espino amarillo
@@ -109369,15 +109423,15 @@ hr: Džemovi od krkavine
 it: Confetture di olivello spinoso, Marmellate di olivello spinoso
 expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
-< en: Jams
+< en: Vegetable jams
 en: Sweet pepper jams
 es: Mermeladas y confituras de pimiento
 fr: Confitures de poivron
 hr: Džemovi od slatke paprike
 it: Confetture di peperoni dolci, Marmellate di peperoni dolci
 
-< en: Jams
 < en: Tomatoes and their products
+< en: Vegetable jams
 en: Tomato jams, tomate jams
 es: Mermeladas y confituras de tomate, Mermeladas de tomate, Confituras de tomate
 fr: Confitures de tomates
@@ -109390,7 +109444,7 @@ tr: Domates reçeli
 ur: ٹماٹر جیم
 wikidata:en: Q25041585
 
-< en: Jams
+< en: Fruit jams
 en: Tropical fruit jams
 de: Exotische Fruchtmarmeladen
 es: Mermeladas y confituras de frutas tropicales, Mermeladas de frutas tropicales, Confituras de frutas tropicales
@@ -109478,7 +109532,7 @@ nl: Mangojams
 pt: Doces de manga
 wikidata:en: Q89999678
 
-< en: Jams
+< en: Melon jams
 en: Watermelon jams
 fr: Confitures de pastèque
 hr: Džemovi od lubenica
@@ -109511,9 +109565,9 @@ fr: Mostarda vénitienne, moutarde vénitienne
 
 #################### marmalades (citrus jams) in alphebetical order for English ####################
 
-< en: Fruit and vegetable preserves
+< en: Fruit jams
 en: Citrus jams
-da: Marmelade af citrusfrugter
+da: Marmelader af citrusfrugter
 de: Zitronenmarmeladen
 el: μαρμελάδα εσπεριδοειδών
 es: Mermeladas y confituras de cítricos

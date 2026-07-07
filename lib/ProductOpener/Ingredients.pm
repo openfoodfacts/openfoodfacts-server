@@ -8040,6 +8040,12 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 
 	my $further_processed = ((defined $processing) and ($processing =~ /\b($further_processing_regexp)\b/));
 
+	# Some ingredients like coconut water are specifically excluded
+	# check the status of the inherited property "nutriscore_fruits_vegetables_legumes:en:" that can be set to "yes" or "no"
+
+	my $nutriscore_fruits_vegetables_legumes
+		= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_legumes:en");
+
 	return (
 		(
 			(
@@ -8052,7 +8058,10 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 			)
 				and (not $is_a_further_processed_ingredient)
 				and (not $further_processed)
+				and ((not defined $nutriscore_fruits_vegetables_legumes)
+				or ($nutriscore_fruits_vegetables_legumes eq "yes"))
 		)
+			or ((defined $nutriscore_fruits_vegetables_legumes) and ($nutriscore_fruits_vegetables_legumes eq "yes"))
 			or 0
 	);
 }
