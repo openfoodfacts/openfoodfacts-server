@@ -13,18 +13,25 @@
       "en:canned-foods",
       "en:fruit-based-foods",
       "en:canned-plant-based-foods",
+      "en:fruits",
+      "en:tropical-fruits",
       "en:canned-fruits",
+      "en:pineapples",
       "en:canned-pineapples"
    ],
    "categories_lc" : "fr",
-   "categories_properties" : {},
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "13717"
+   },
    "categories_properties_tags" : [
       "all-products",
       "categories-known",
       "agribalyse-food-code-unknown",
-      "agribalyse-proxy-food-code-unknown",
+      "agribalyse-proxy-food-code-13717",
+      "agribalyse-proxy-food-code-known",
       "ciqual-food-code-unknown",
-      "agribalyse-unknown"
+      "agribalyse-known",
+      "agribalyse-13717"
    ],
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
@@ -34,7 +41,10 @@
       "en:canned-foods",
       "en:fruit-based-foods",
       "en:canned-plant-based-foods",
+      "en:fruits",
+      "en:tropical-fruits",
       "en:canned-fruits",
+      "en:pineapples",
       "en:canned-pineapples"
    ],
    "estimate_ingredients_percent_service" : "product_opener",

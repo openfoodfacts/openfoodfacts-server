@@ -1,5 +1,30 @@
 # Redirects for Open Food Facts
 
+
+# Add an HTTP 302 redirect to AWS S3 bucket for specific dump files on openfoodfacts
+location = /data/openfoodfacts_recent_changes.jsonl.gz {
+	return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts_recent_changes.jsonl.gz;
+}
+location = /data/openfoodfacts-mongodbdump.gz {
+	return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts-mongodbdump.gz;
+}
+location = /data/openfoodfacts-products.jsonl.gz {
+	return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/openfoodfacts-products.jsonl.gz;
+}
+location = /data/en.openfoodfacts.org.products.csv {
+	return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/en.openfoodfacts.org.products.csv;
+}
+location = /data/en.openfoodfacts.org.products.csv.gz {
+	return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/en.openfoodfacts.org.products.csv.gz;
+}
+location = /data/fr.openfoodfacts.org.products.csv {
+	return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/fr.openfoodfacts.org.products.csv;
+}
+location = /data/fr.openfoodfacts.org.products.csv.gz {
+	return 302 https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/fr.openfoodfacts.org.products.csv.gz;
+}
+
+
 location = /nutriscore-v2 {
 	return 301 https://$host/new-nutriscore;
 }
@@ -8,7 +33,7 @@ location ~ ^/(greenscore|ecoscore|eco-score-l-impact-environnemental-des-produit
 	return 301 https://$host/green-score;
 }
 
-# Donations
+# === donation redirects ===
 # 100 % translated: fr, bg, ca, zh, cs, da, nl, de, he, id, it, lt, pl, pt, ro, ru, es, tr, uk, vi
 # EN
 location = /donate-to-open-food-facts {
@@ -202,15 +227,10 @@ location = /donate-to-open-food-facts-cn {
 	try_files /donate/cn.html =404;
 }
 
+# === end donation redirects ===
+
 location = /hunger-game {
 	return 301 https://hunger.openfoodfacts.org;
-}
-
-location = /ecoscore {
-	if ( $host ~ "^fr\..*" ) {
-	        return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
-	}
-	return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
 }
 
 # old page Redirect
