@@ -125,27 +125,27 @@ msgstr "Esta página do produto não está completa. Você pode ajudar a complet
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
-msgstr ""
+msgstr "Omo, Brilhante"
 
 msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
-msgstr ""
+msgstr "Sabão líquido para roupas, Sabão em pó para roupas"
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
-msgstr ""
+msgstr "EMB 67890"
 
 msgctxt "generic_name_example_product"
 msgid "Laundry detergent"
-msgstr ""
+msgstr "Sabão para roupas"
 
 msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
-msgstr ""
+msgstr "Aroma de Lavanda"
 
 msgctxt "ingredients_text_example_product"
 msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
-msgstr ""
+msgstr "AVISO: Não adicione ingredientes se isso não forem relevante para a categoria. Por favor consulte as categorias  dos produtos nas listas na embalagem ou online."
 
 # OPFF
 msgctxt "site_description_opff"
@@ -271,7 +271,7 @@ msgstr "O seu pedido para se juntar à organização está pendente de aprovaç�
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "A solicitação da sua organização foi recebida e está sendo processada."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -5509,7 +5509,7 @@ msgstr "Visão, missão, valores e programas"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -6044,6 +6044,46 @@ msgstr "Cada doação é importante! Nós agradecemos seu apoio em trazer mais t
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "EU APOIO"
+
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "Ainda precisamos de €120,000 para terminar 2026!"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "Torne-se um patrono do Open Food Facts"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "Todos os meses, atendemos 8 milhões de visitantes, e um número maior ainda através da API. O seu apoio é essencial para:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "manter o Open Food Facts aberto e disponível para todos,"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "suportar a infraestrutura, o site, o aplicativo móvel e API com uma pequena equipe fixa"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "permaneça independente da indústria alimentar,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "apoie a comunidade"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "apoie a ciência"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "Se cada visitante deste mês clicasse em Doar e contribuísse com 1€, arrecadaríamos mais de 8 vezes o nosso orçamento anual!"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Doar"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6752,7 +6792,7 @@ msgstr "Produto atualizado"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr ""
+msgstr "Usuário Encontrado"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6888,11 +6928,11 @@ msgstr "ID de usuário e senha inválidos"
 
 msgctxt "api_message_invalid_token"
 msgid "Invalid access_token"
-msgstr ""
+msgstr "Token de acesso inválido"
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr ""
+msgstr "Autenticação requerida"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7703,15 +7743,15 @@ msgstr "Pesquise produtos da mesma categoria sem adição de açúcares:"
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr ""
+msgstr "para 100 g"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr ""
+msgstr "para 100 g"
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr ""
+msgstr "para 1 L"
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7724,20 +7764,20 @@ msgstr "por porção"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "Conforme vendido"
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr ""
+msgstr "Preparado"
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
-msgstr ""
+msgstr "As informações nutricionais são especificados para o produto conforme é vendido:"
 
 msgctxt "nutrition_data_exists_prepared"
 msgid "Nutrition facts are specified for the prepared product:"
-msgstr ""
+msgstr "As informações nutricionais são especificadas para o produto preparado:"
 
 msgctxt "product_js_add_a_nutrient"
 msgid "Add a nutrient"
@@ -7781,7 +7821,7 @@ msgstr "Essas preferências são baseadas no entendimento da Open Food Facts sob
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"
-msgstr ""
+msgstr "Pegada de sofrimento"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7825,31 +7865,31 @@ msgstr "Fumar é altamente viciante. Não comece. Fumar mata – pare agora. Fum
 
 msgctxt "reuse_card_title"
 msgid "Reuse"
-msgstr ""
+msgstr "Reutilizar"
 
 msgctxt "qfdmo_solutions_title"
 msgid "Circular economy solutions nearby"
-msgstr ""
+msgstr "Soluções de economia circular nas proximidades"
 
 msgctxt "qfdmo_solutions_subtitle"
 msgid "Find places to repair, donate, sell or recycle"
-msgstr ""
+msgstr "Encontre locais para consertar, doar, vender ou reciclar"
 
 msgctxt "qfdmo_solutions_description"
 msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
-msgstr ""
+msgstr "Se você estiver na França, poderá encontrar opções nas proximidades para prolongar a vida útil deste produto ou descartá-lo de forma responsável."
 
 msgctxt "qfdmo_solutions_intro"
 msgid "Available solutions include:"
-msgstr ""
+msgstr "As soluções disponíveis incluem:"
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr ""
+msgstr "Reparar"
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
-msgstr ""
+msgstr "Procure oficinas e serviços de reparo para consertar seu produto em vez de jogá-lo fora"
 
 msgctxt "qfdmo_solution_donate"
 msgid "Donate"
@@ -7857,15 +7897,15 @@ msgstr "Doar"
 
 msgctxt "qfdmo_solution_donate_description"
 msgid "Give your product a second life by donating it to associations or people in need"
-msgstr ""
+msgstr "Dê uma segunda vida ao seu produto fazendo uma doação para instituições ou para pessoas necessitadas"
 
 msgctxt "qfdmo_solution_sell"
 msgid "Sell or exchange"
-msgstr ""
+msgstr "Vender ou trocar"
 
 msgctxt "qfdmo_solution_sell_description"
 msgid "Sell or exchange your product on second-hand platforms"
-msgstr ""
+msgstr "Venda ou troque seu produto em plataformas de produtos usados"
 
 msgctxt "qfdmo_solution_recycle"
 msgid "Recycle"
@@ -7873,7 +7913,7 @@ msgstr "Reciclar"
 
 msgctxt "qfdmo_solution_recycle_description"
 msgid "Find collection points for proper recycling when the product reaches end of life"
-msgstr ""
+msgstr "Encontre pontos de coleta para reciclagem adequada quando o produto chegar ao fim de sua vida útil"
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
@@ -7885,7 +7925,7 @@ msgstr ""
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "Categoria do Produto"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7937,11 +7977,11 @@ msgstr "Impacto não avaliado"
 
 msgctxt "detailed_data"
 msgid "Detailed data"
-msgstr ""
+msgstr "Dados detalhados"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
-msgstr ""
+msgstr "Você pode usar este formulário para analisar uma lista de ingredientes."
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
@@ -7957,7 +7997,7 @@ msgstr ""
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
-msgstr ""
+msgstr "Lista de Ingredientes"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
@@ -7975,21 +8015,25 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "Informações nutricionais"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
-msgstr ""
+msgstr "Análise de ingredientes e estimativa de quantidade"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
-msgstr ""
+msgstr "Estimativa percentual dos ingredientes:"
 
 msgctxt "test_ingredients_ecobalyse_experimental"
 msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
-msgstr ""
+msgstr "Experimental: use a API Ecobalyse para estimar o impacto ambiental dos ingredientes."
 
 msgctxt "test_ingredients_ecobalyse_request"
 msgid "Ecobalyse request"
