@@ -2407,6 +2407,51 @@ my @tests = (
 			}
 		}
 	],
+
+	# Coconut water should not be counted as fruits/vegetables/legumes for Nutri-Score
+	[
+		"en-coconut-water",
+		{
+			lc => "en",
+			categories => "coconut water",
+			ingredients_text => "coconut water",
+			nutrition => {
+				input_sets => [
+					{
+						nutrients => {
+							"energy-kj" => {
+								unit => "kJ",
+								value => 82
+							},
+							fat => {
+								unit => "g",
+								value => 0
+							},
+							"saturated-fat" => {
+								unit => "g",
+								value => 0
+							},
+							sugars => {
+								unit => "g",
+								value => 3.5
+							},
+							sodium => {
+								unit => "g",
+								value => 0.01
+							},
+							proteins => {
+								unit => "g",
+								value => 0
+							}
+						},
+						source => "packaging",
+						per => "100g",
+						preparation => "as_sold"
+					}
+				],
+			},
+		}
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;

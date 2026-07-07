@@ -4780,11 +4780,11 @@ msgstr "小组%s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr "未加工或低度加工的食品"
+msgstr "1.  未加工或低度加工的食品"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr "加工过的烹饪原料"
+msgstr "2. 加工过的烹饪原料"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
@@ -6494,22 +6494,22 @@ msgstr "了解有关生态评分的更多信息"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr "优秀的配对"
+msgstr "匹配度高"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr "不错的配对"
+msgstr "匹配度较高"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr "较差的配对"
+msgstr "匹配度低"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr "未知匹配"
+msgstr "匹配度未知"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -8008,6 +8008,10 @@ msgstr ""
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"

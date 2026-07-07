@@ -7,13 +7,14 @@ properties:
     example: '3017620422003'
   imagefield:
     type: string
+    pattern: '^(((front|ingredients|nutrition|packaging)_[a-z]{2})|other)$'
     description: |
       Indicates the type of the image and the corresponding language. It should
       be in the format `{IMAGE_TYPE}_{LANG}` format, where `IMAGE_TYPE` is one
-      of `front|ingredients|nutrition|packaging|other` and `LANG` is the 2
-      letter language code. Use `other` if you don't want the image to be
-      selected. Note that the first image of a product is always selected as front
-      picture.
+      of `front|ingredients|nutrition|packaging` and `LANG` is the 2
+      letter language code. Use `other` with no language code 
+      if you don't want the image to be selected.
+      Note that the first image of a product is always selected as front picture.
     example: front_en
   imgupload_front_en:
     type: string
