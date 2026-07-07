@@ -44,10 +44,10 @@ if (not $do_update) {
 }
 
 my %server_to_product_type = (
-	off  => 'food',
-	obf  => 'beauty',
+	off => 'food',
+	obf => 'beauty',
 	opff => 'petfood',
-	opf  => 'product',
+	opf => 'product',
 );
 
 sub product_type_for_server($server) {
