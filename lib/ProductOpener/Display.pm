@@ -124,7 +124,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::HTTP
-	qw(write_cors_headers set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
+	qw(set_http_response_header write_http_response_headers get_http_request_header extension_and_query_parameters_to_redirect_url redirect_to_url single_param request_param create_user_agent);
 use ProductOpener::Store qw(get_string_id_for_lang retrieve retrieve_object);
 use ProductOpener::Config qw(:all);
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -193,6 +193,7 @@ use Log::Log4perl;
 use Tie::IxHash;
 
 use Log::Any '$log', default_adapter => 'Stderr';
+use List::Util qw(any);
 
 use Apache2::Request ();
 use Apache2::RequestUtil ();
@@ -732,7 +733,7 @@ sub init_request ($request_ref = {}) {
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
 	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
-	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
+	if ((!any {$_ eq $lc} @{$country_languages{$cc}}) or $subdomain =~ /^(ssl-)?api/) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
@@ -1129,7 +1130,6 @@ that require a lot of resources (especially aggregation queries).
 =cut
 
 sub display_no_index_page_and_exit () {
-	write_cors_headers();
 	my $html
 		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>NOINDEX</h1><p>We detected that your browser is a web crawling bot, and this page should not be indexed by web crawlers. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
 	my $http_headers_ref = {
@@ -1157,7 +1157,6 @@ Return a page with a 429 status code and a message explaining that the user is s
 =cut
 
 sub display_too_many_requests_page_and_exit() {
-	write_cors_headers();
 	my $http_headers_ref = {
 		'-status' => 429,
 		'-charset' => 'UTF-8',
@@ -5084,14 +5083,14 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		{request_ref => sanitize($request_ref), query_ref => $query_ref, sort_by => $sort_by})
 		if $log->is_debug();
 
+	add_params_and_filters_to_query($request_ref, $query_ref);
+
 	# 2026-03-04 - due to heavy load from bots, disabling 2nd level facets unless the user
 	#  is logged in
 	if ((not defined $User_id) and ($request_ref->{page} > 10)) {
 		display_error_and_exit($request_ref, lang("robots_not_served_here"), 401);
 		return;
 	}
-
-	add_params_and_filters_to_query($request_ref, $query_ref);
 
 	if (defined $limit) {
 	}
@@ -5210,6 +5209,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 	$template_data_ref->{sort_options} = [];
 
+	my $current_link = $request_ref->{current_link};
+	if (index($current_link, "?") == -1) {
+		$current_link .= "?";
+	}
+	else {
+		$current_link .= "&";
+	}
 	# Nutri-Score and Environmental-Score are only for food products
 	# and currently scan data is only loaded for Open Food Facts
 	if (feature_enabled("popularity")) {
@@ -5217,7 +5223,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "popularity",
-			link => $request_ref->{current_link} . "?sort_by=popularity",
+			link => $current_link . "sort_by=popularity",
 			name => lang("sort_by_popularity")
 			};
 	}
@@ -5225,7 +5231,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "nutriscore_score",
-			link => $request_ref->{current_link} . "?sort_by=nutriscore_score",
+			link => $current_link . "sort_by=nutriscore_score",
 			name => lang("sort_by_nutriscore_score")
 			};
 	}
@@ -5234,7 +5240,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		push @{$template_data_ref->{sort_options}},
 			{
 			value => "environmental_score_score",
-			link => $request_ref->{current_link} . "?sort_by=environmental_score_score",
+			link => $current_link . "sort_by=environmental_score_score",
 			name => lang("sort_by_environmental_score_score")
 			};
 	}
@@ -5242,13 +5248,13 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "created_t",
-		link => $request_ref->{current_link} . "?sort_by=created_t",
+		link => $current_link . "sort_by=created_t",
 		name => lang("sort_by_created_t")
 		};
 	push @{$template_data_ref->{sort_options}},
 		{
 		value => "last_modified_t",
-		link => $request_ref->{current_link} . "?sort_by=last_modified_t",
+		link => $current_link . "sort_by=last_modified_t",
 		name => lang("sort_by_last_modified_t")
 		};
 
@@ -9959,7 +9965,6 @@ sub display_structured_response ($request_ref) {
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
 		my $status_code = $request_ref->{status_code} // "200";
-		write_cors_headers();
 		print header(
 			-status => $status_code,
 			-type => 'text/xml',
@@ -9987,7 +9992,6 @@ sub display_structured_response ($request_ref) {
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'text/javascript',
@@ -9997,7 +10001,6 @@ sub display_structured_response ($request_ref) {
 				. $data . ");";
 		}
 		else {
-			write_cors_headers();
 			print header(
 				-status => $status_code,
 				-type => 'application/json',
@@ -10083,7 +10086,6 @@ XML
 XML
 		;
 
-	write_cors_headers();
 	print header(-type => 'application/rss+xml', -charset => 'utf-8') . $xml;
 
 	return;
