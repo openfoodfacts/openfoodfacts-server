@@ -108,7 +108,6 @@ function compute_services {
 function compute_expected_links {
   # links to check target - dest
   # nginx configuration
-  EXPECTED_LINKS["/etc/nginx/sites-enabled/$SERVICE"]="$REPO_PATH/conf/nginx/sites-available/$SERVICE"
   EXPECTED_LINKS["$REPO_PATH/log.conf"]="$REPO_PATH/conf/$SERVICE-log.conf"
   EXPECTED_LINKS["$REPO_PATH/minion_log.conf"]="$REPO_PATH/conf/$SERVICE-minion_log.conf"
   # config
@@ -121,8 +120,8 @@ function compute_expected_links {
   EXPECTED_LINKS["$REPO_PATH/orgs"]="$ZFS_PATH/orgs"
   EXPECTED_LINKS["$REPO_PATH/users"]="$ZFS_PATH/users"
   # image and products are now merges on off zfs storage
-  EXPECTED_LINKS["$REPO_PATH/products"]="$OFF_ZFS_PATH/products"
-  EXPECTED_LINKS["$REPO_PATH/html/images/products"]="$OFF_ZFS_PATH/images/products"
+  EXPECTED_LINKS["$REPO_PATH/products"]="$ZFS_PATH/products"
+  EXPECTED_LINKS["$REPO_PATH/html/images/products"]="$ZFS_PATH/images/products"
   # public data
   EXPECTED_LINKS["$REPO_PATH/html/data"]="$ZFS_PATH/html_data"
   EXPECTED_LINKS["$REPO_PATH/html/exports"]="$ZFS_PATH/html_data/exports"
@@ -159,8 +158,8 @@ function compute_expected_links {
   EXPECTED_LINKS["$REPO_PATH/tmp"]="$ZFS_PATH/cache/tmp"
   EXPECTED_LINKS["$REPO_PATH/export_files"]="$ZFS_PATH/cache/export_files"
 
-  # exchange path
-  if [[ -z $IS_PRO ]]
+  # exchange path - only for off, for now
+  if [[ $SERVICE = "off" ]]
   then
     EXPECTED_LINKS["/srv/$PRO_SERVICE/export_files"]="/mnt/$PRO_SERVICE/cache/export_files"
   fi
@@ -174,23 +173,14 @@ function compute_expected_links {
   EXPECTED_LINKS["$REPO_PATH/logs/apache2"]="/var/log/apache2"
   EXPECTED_LINKS["$REPO_PATH/logs/nginx"]="/var/log/nginx"
 
-  if [[ -z $IS_PRO ]]
-  then
-    # links to other projects to handle data migration between projects
-    for OTHER_SERVICE in "${KNOWN_SERVICES[@]}"
-    do
-      if [[ $OTHER_SERVICE != "$SERVICE" ]] && [[ -z $(is_pro "$$OTHER_SERVICE") ]]
-      then
-        EXPECTED_LINKS["/srv/$OTHER_SERVICE/products"]="/mnt/$OTHER_SERVICE/products"
-        EXPECTED_LINKS["/srv/$OTHER_SERVICE/html/images/products"]="/mnt/$OTHER_SERVICE/images/products"
-      fi
-    done
-  fi
-
   # nginx links
   EXPECTED_LINKS["/etc/nginx/sites-enabled/$SERVICE"]="$REPO_PATH/conf/nginx/sites-available/$SERVICE"
-  EXPECTED_LINKS["/etc/nginx/snippets/expires-no-json-xml.conf"]="$REPO_PATH/conf/nginx/snippets/expires-no-json-xml.conf"
-  EXPECTED_LINKS["/etc/nginx/snippets/off.cors-headers.include"]="$REPO_PATH/conf/nginx/snippets/off.cors-headers.include"
+  EXPECTED_LINKS["/etc/nginx/sites-enabled/default"]="$REPO_PATH/conf/nginx/sites-available/default"
+  EXPECTED_LINKS["/etc/nginx/snippets/off.cors-headers.include"]="REMOVED"
+  EXPECTED_LINKS["/etc/nginx/snippets/cors-headers.include"]="$REPO_PATH/conf/nginx/snippets/cors-headers.include"
+  EXPECTED_LINKS["/etc/nginx/snippets/productopener-mappings.include"]="$REPO_PATH/conf/nginx/snippets/productopener-mappings.include"
+  EXPECTED_LINKS["/etc/nginx/snippets/productopener-server.include"]="$REPO_PATH/conf/nginx/snippets/productopener-server.include"
+  EXPECTED_LINKS["/etc/nginx/conf.d/expires-no-json-xml.conf"]="$REPO_PATH/conf/nginx/conf.d/expires-no-json-xml.conf"
   EXPECTED_LINKS["/etc/nginx/conf.d/log_format_realip.conf"]="$REPO_PATH/conf/nginx/conf.d/log_format_realip.conf"
   EXPECTED_LINKS["/etc/nginx/mime.types"]="$REPO_PATH/conf/nginx/mime.types"
   if [[ $SERVICE = "off" ]]
@@ -250,7 +240,10 @@ function check_links {
       fi
       continue
     fi
-    if [[ ! $(readlink -f $destination) = $(readlink -f $target) ]]
+    # if target or destination does not exists and if they don't resolve to the same path, we have an error
+    resolved_destination=$(readlink -f -- "$destination" 2>/dev/null || true)
+    resolved_target=$(readlink -f -- "$target" 2>/dev/null || true)
+    if [[ -z $resolved_destination ]] || [[ -z $resolved_target ]] || [[ $resolved_destination != $resolved_target ]]
     then
       GOT_ERROR=1
       if [[ ! -e $target ]]
