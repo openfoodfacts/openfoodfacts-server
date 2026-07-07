@@ -126,7 +126,7 @@ msgstr "Bu ürün sayfası tamamlanmamıştır. Sayfayı düzenleyerek ve elimiz
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
-msgstr ""
+msgstr "Tide, Persil"
 
 msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
@@ -134,11 +134,11 @@ msgstr ""
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
-msgstr ""
+msgstr "EMB 67890"
 
 msgctxt "generic_name_example_product"
 msgid "Laundry detergent"
-msgstr ""
+msgstr "Çamaşır deterjanı"
 
 msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
@@ -6044,6 +6044,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "DESTEKLİYORUM"
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "gıda endüstrisinden bağımsız kalmak,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Bağış Yapın"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Bağış Yapın"
@@ -6891,7 +6931,7 @@ msgstr ""
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr ""
+msgstr "Kimlik doğrulaması gerekiyor"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7702,15 +7742,15 @@ msgstr "Aynı kategorideki ilave şeker içermeyen ürünleri arayın:"
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr ""
+msgstr "100 gr için"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr ""
+msgstr "100 ml için"
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr ""
+msgstr "1 litre için"
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7723,12 +7763,12 @@ msgstr "porsiyon başına"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "Satıldığı gibi"
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr ""
+msgstr "Hazır"
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
@@ -7824,7 +7864,7 @@ msgstr "Sigara içmek son derece bağımlılık yapar. Başlamayın. Sigara içm
 
 msgctxt "reuse_card_title"
 msgid "Reuse"
-msgstr ""
+msgstr "Yeniden kullanım"
 
 msgctxt "qfdmo_solutions_title"
 msgid "Circular economy solutions nearby"
@@ -7844,7 +7884,7 @@ msgstr ""
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr ""
+msgstr "Onarım"
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
@@ -7884,7 +7924,7 @@ msgstr ""
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "Ürün kategorisi"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7936,7 +7976,7 @@ msgstr "Etki değerlendirilmedi."
 
 msgctxt "detailed_data"
 msgid "Detailed data"
-msgstr ""
+msgstr "Ayrıntılı veri"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
@@ -7972,6 +8012,10 @@ msgstr ""
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"
