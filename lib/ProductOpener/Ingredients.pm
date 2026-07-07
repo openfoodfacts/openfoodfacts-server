@@ -112,7 +112,6 @@ BEGIN {
 }
 
 use vars @EXPORT_OK;
-use experimental 'smartmatch';
 
 use ProductOpener::Store qw/get_string_id_for_lang unac_string_perl/;
 use ProductOpener::Config qw/:all/;
