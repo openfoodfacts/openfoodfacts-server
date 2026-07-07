@@ -44215,15 +44215,10 @@ pl: acerola, aceroli
 ru: Ацерола
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.48
-usda_ndb_proxy_code:en: 9001
-usda_ndb_proxy_name:en: Acerola, (west indian cherry), raw
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
-# 133 products in 4 languages @2018-10-03
-
-< en:acerola
-en: raw acerola
 usda_ndb_code:en: 9001
 usda_ndb_name:en: Acerola, (west indian cherry), raw
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
+# 133 products in 4 languages @2018-10-03
 
 #< en:acerola
 < en: fruit juice
@@ -44629,12 +44624,12 @@ en: raw blueberry
 usda_ndb_code:en: 9050
 usda_ndb_name:en: Blueberries, raw
 
-< en:blueberry
+< en: blueberry
 en: frozen blueberry
 usda_ndb_code:en: 9054
 usda_ndb_name:en: Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
 
-< en:frozen blueberry
+< en: frozen blueberry
 en: frozen wild blueberry
 usda_ndb_code:en: 9053
 usda_ndb_name:en: Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)
@@ -44919,17 +44914,9 @@ ciqual_food_name:en: Carambola, pulp, raw
 ciqual_food_name:fr: Carambole, pulpe, crue
 ifct_food_code:en: E062
 ifct_food_name:en: Star fruit
-usda_ndb_proxy_code:en: 9060
-usda_ndb_proxy_name:en: Carambola, (starfruit), raw
-wikidata:en: Q181560
-
-< en:carambola
-en: raw carambola
-ciqual_food_code:en: 13054
-ciqual_food_name:en: Carambola, pulp, raw
-ciqual_food_name:fr: Carambole, pulpe, crue
 usda_ndb_code:en: 9060
 usda_ndb_name:en: Carambola, (starfruit), raw
+wikidata:en: Q181560
 
 ###################################################################################################
 #
@@ -45369,15 +45356,10 @@ zh: 欧洲甜樱桃
 # zh-hk:甜櫻桃
 # zh-sg:甜樱桃
 eurocode_2_group_3:en: 9.20.40
-usda_ndb_proxy_code:en: 9070
-usda_ndb_proxy_name:en: Cherries, sweet, raw
-wikidata:en: Q165137
-# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
-
-< en:sweet cherry
-en: raw sweet cherry
 usda_ndb_code:en: 9070
 usda_ndb_name:en: Cherries, sweet, raw
+wikidata:en: Q165137
+# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
 
 < en: sweet cherry
 fr: bigarreaux confits
