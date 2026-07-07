@@ -965,7 +965,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		ro => "(?:tara de origine)",
 		rs => "(?:zemlja porekla)",
 		sl => "(?:(?:država|krajina) porekla|gojeno(?: v))",
-		sv => "(?:ursprung(?:sland)?|odlade inom)",
+		sv => "(?:ursprung(?:sland)?|odla(?:de|t) i(?:nom)?)",
 		uk => "(?:kраїна походження)",
 	);
 
@@ -5948,7 +5948,7 @@ my %ingredients_categories_and_types = (
 		{
 			categories => [
 				# allow multiple types of oils in the category (e.g. "huiles et graisses"), with modifiers (e.g. "végétale")
-				'(?:(?: et )?(?:huile|graisse|stéarine|matière\s? grasse)s?)+(?: (?:végétale|(?:partiellement |totalement |non(?:-| |))hydrogénée?)s?)*',
+				'(?:(?: et )?(?:huile|graisse|stéarine|matière\s? grasse)s?)+(?: (?:végétale|bio|biologique|(?:partiellement |totalement |non(?:-| |))hydrogénée?)s?)*',
 			],
 			types => [
 				"arachide", "avocat", "carthame", "chanvre",
@@ -6321,13 +6321,13 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "pl"))
 			{
 				# vegetable oil (palm, sunflower and olive) -> palm vegetable oil, sunflower vegetable oil, olive vegetable oil
-				# nNte: not using the /x modifier to put spaces in the regexp, as it doesn't work if the interpolated variables contain spaces themselves...
+				# Note: not using the /x modifier to put spaces in the regexp, as it doesn't work if the interpolated variables contain spaces themselves...
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*(\s|\/|\s\/\s|\s-\s|,|,\s|$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 
 				# vegetable oil (palm) -> palm vegetable oil
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)($symbols_regexp|\s)*\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
 				# vegetable oil: palm
 				$text
 					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names},$categories_and_types_ref->{do_not_output_parent})/ieg;
@@ -6363,7 +6363,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 				# huile végétale (colza)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)($symbols_regexp|\s)*\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
 				# huile végétale : colza,
 				$text
 					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names}, $categories_and_types_ref->{do_not_output_parent})/ieg;
@@ -8040,6 +8040,12 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 
 	my $further_processed = ((defined $processing) and ($processing =~ /\b($further_processing_regexp)\b/));
 
+	# Some ingredients like coconut water are specifically excluded
+	# check the status of the inherited property "nutriscore_fruits_vegetables_legumes:en:" that can be set to "yes" or "no"
+
+	my $nutriscore_fruits_vegetables_legumes
+		= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_legumes:en");
+
 	return (
 		(
 			(
@@ -8052,7 +8058,10 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 			)
 				and (not $is_a_further_processed_ingredient)
 				and (not $further_processed)
+				and ((not defined $nutriscore_fruits_vegetables_legumes)
+				or ($nutriscore_fruits_vegetables_legumes eq "yes"))
 		)
+			or ((defined $nutriscore_fruits_vegetables_legumes) and ($nutriscore_fruits_vegetables_legumes eq "yes"))
 			or 0
 	);
 }
