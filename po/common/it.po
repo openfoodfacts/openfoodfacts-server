@@ -25,7 +25,7 @@ msgstr "Open Food Facts raccoglie informazioni e dati su prodotti alimentari pro
 
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr "Un database collaborativo, libero e aperto di prodotti alimentari provenienti da tutto il mondo."
+msgstr "Un archivio collaborativo, gratuito e aperto di prodotti alimentari provenienti da tutto il mondo."
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
@@ -440,7 +440,7 @@ msgstr "Asse verticale"
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr "Codice a Barre"
+msgstr "Codice a barre"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -624,7 +624,7 @@ msgstr "Prodotti venduti in %s"
 
 msgctxt "countries_s"
 msgid "country"
-msgstr "paese"
+msgstr "Paese"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -1028,7 +1028,7 @@ msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr "Stampa se"
+msgstr "Stampa"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
@@ -5507,7 +5507,7 @@ msgstr "Nome del prodotto con abbreviazioni mostrate sulle ricevute"
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr "Visione, missione, valori e programmi"
+msgstr "Visione, Missione, Valori e Programmi"
 
 # Do not translate
 msgctxt "footer_vision_link"
@@ -6086,7 +6086,7 @@ msgstr "Se ogni visitatore questo mese cliccasse su Dona e desse solo 1 €, ott
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
-msgstr "Dona"
+msgstr "Effettua una donazione"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -7984,61 +7984,65 @@ msgstr "Dati dettagliati"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
-msgstr ""
+msgstr "Puoi usare questo modulo per analizzare una lista di ingredienti."
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
-msgstr ""
+msgstr "Questo modulo è uno strumento dimostrativo e di test. Per l'uso in produzione, si consiglia di installare il software Recipe Estimator, disponibile come open source su <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
 
 msgctxt "test_ingredients_taxonomy_mapping_description"
 msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
-msgstr ""
+msgstr "Gli ingredienti sono mappati nella tassonomia degli ingredienti di Open Food Facts e la loro quantità è stimata utilizzando diversi algoritmi."
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
-msgstr ""
+msgstr "Lingua del testo degli ingredienti"
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
-msgstr ""
+msgstr "Testo degli ingredienti"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "Seleziona un valutatore della percentuale di un ingrediente:"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
-msgstr ""
+msgstr "utilizza una combinazione di regole ed euristiche e un insieme limitato di valori nutrizionali e vincoli sugli ingredienti"
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "Prima versione (Glop) - utilizza i valori nutrizionali per determinare la quantità degli ingredienti"
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "Seconda versione (Scipy) - utilizza i valori nutrizionali per determinare la quantità degli ingredienti"
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "Terza versione (CVXPY) - utilizza i valori nutrizionali per determinare la quantità degli ingredienti"
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "Valori nutrizionali"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
-msgstr ""
+msgstr "Analisi degli ingredienti e stima delle quantità"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
-msgstr ""
+msgstr "Valutatore della percentuale di un ingrediente:"
 
 msgctxt "test_ingredients_ecobalyse_experimental"
 msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
-msgstr ""
+msgstr "Sperimentale: utilizzare l'API Ecobalyse per stimare l'impatto ambientale degli ingredienti."
 
 msgctxt "test_ingredients_ecobalyse_request"
 msgid "Ecobalyse request"
-msgstr ""
+msgstr "Richiesta ad Ecobalyse"
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
-msgstr ""
+msgstr "Risposta di Ecobalyse"
 
