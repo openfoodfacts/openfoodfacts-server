@@ -30,7 +30,7 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr ""
+msgstr "/open-food-facts-mobile-app"
 
 msgctxt "product_description_off"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
@@ -38,7 +38,7 @@ msgstr "Ingredients, allergèns, additius, faches nutricionals, etiquetas, origi
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "Una basa de donadas collaborativa, liura e dobèrta d'ingredients, e d'informacions sus de produches cosmetics del mond entièr"
 
 msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
@@ -46,7 +46,7 @@ msgstr "Open Beauty Facts repertòria los produits cosmetics del mond entièr."
 
 msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "Una basa de donadas collaborativa, gratuita e dobèrta de produches cosmetics del mond entièr."
 
 msgctxt "product_description_obf"
 msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
@@ -55,15 +55,15 @@ msgstr "Ingredients INCI, allergèns, additius, etiquetas, origina dels ingredie
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "e lo grop <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">pels contributors</a>"
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr ""
+msgstr "Dobrir la recèrca de produchs Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -71,11 +71,11 @@ msgstr "Aquesta pagina de produch es pas completa. Podètz ajudar a lo completar
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
-msgstr ""
+msgstr "Nivea, Nivea Men"
 
 msgctxt "categories_example_beauty"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
+msgstr "Shampoo anticaspa, Pasta de dents blanquejante"
 
 msgctxt "emb_codes_example_beauty"
 msgid "EMB 53062"
@@ -83,11 +83,11 @@ msgstr ""
 
 msgctxt "generic_name_example_beauty"
 msgid "Anti-dandruff shampoo"
-msgstr ""
+msgstr "Shampoing anticaspa"
 
 msgctxt "product_name_example_beauty"
 msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgstr "Protegir contra l'estrès antitranspirant"
 
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
@@ -6028,6 +6028,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr ""
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr ""
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr ""
@@ -7956,6 +7996,10 @@ msgstr ""
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"

@@ -31311,8 +31311,7 @@ it: Gomma xanthan e gomma di guar
 #
 ##################################################################################
 
-#comment:en:Is used as a generic descriptor for (natural) sugar
-en: added sugar
+en: added sugar, various sugars
 af: bygevoegde suiker
 ar: سكر مضاف
 az: əlavə edilmiş şəkər
@@ -31374,6 +31373,7 @@ ur: اضافی چینی
 uz: qo'shilgan shakar
 vi: đường thêm vào
 zh: 添加糖
+description:en: Added sugar is an ingredient that describes anything that counts as sugar.
 
 < en: added sugar
 en: monosaccharide
@@ -31431,7 +31431,7 @@ zh: 单糖
 
 # nova
 < en: disaccharide
-en: sugar, various sugars
+en: sugar
 af: Suikers
 am: ስኳር
 an: Zucre
@@ -32531,6 +32531,7 @@ wikidata:en: Q170002
 # ingredient/fr:maltose has 144 products in 4 languages @2019-04-13
 
 < en: maltose
+< en: syrup
 en: maltose syrup
 de: Maltosesirup
 fi: maltoosisiirappi
@@ -32816,9 +32817,9 @@ en: sugar coating
 hr: šećer za dekoraciju
 it: rivestimento di zucchero
 
-# description:en:SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
 # Warning:the wikipedia translations mixes syrup and glucose syrup
 
+< en: added sugar
 en: syrup
 ar: شراب
 be: Сіроп
@@ -32868,14 +32869,15 @@ tr: Şurup
 uk: Сироп
 vi: Xi rô
 zh: 糖漿
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q6584340
 # ast:Almíbar
 # chy:Pano'êhasëö'o
 # mwl:Xarope
 # nah:Neucpahtli
 # yue:糖漿
+description:en: SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q6584340
 wikipedia:en: https://en.wikipedia.org/wiki/Syrup
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/syrup
 # 9746 products in 24 languages @2018-09-24
@@ -33091,7 +33093,6 @@ wikidata:en: Q3044475
 # in Japanese 水飴 (mizuame) is generic for glucose syrup
 
 < en: corn syrup
-< en: glucose
 en: corn glucose syrup, corn glucose
 es: sirope de glucosa de maíz, jarabe de glucosa de maíz, glucosa de maíz
 fr: sirop de glucose de maïs, glucose de maïs
@@ -33374,8 +33375,7 @@ openfoodfacts:en: https://world.openfoodfacts.org/ingredient/glucose-and-fructos
 openfoodfacts:fr: https://world.openfoodfacts.org/ingredient/fr:sirop-de-glucose-fructose-de-blé
 # 271 products in 4 languages @2018-09-24
 
-
-< en: corn syrup
+#< en:corn syrup
 < en: glucose-fructose syrup
 en: high fructose corn syrup, isoglucose, HCFS
 bg: Високо-фруктозен сироп от царевица
@@ -33478,7 +33478,7 @@ en: corevaporated cane syrup
 fr: sirop de sucre de canne evaporé, sirop de canne évaporé
 it: sciroppo di canna corevaporato
 
-< en: disaccharide
+< en: glucose
 < en: syrup
 en: corn syrup
 af: mieliestroop
@@ -33577,8 +33577,9 @@ en: corn starch syrup
 fr: sirop d'amidon de maïs
 it: sciroppo di amido di mais
 
+< en: fructose
 < en: starch syrup
-en: high fructose starch sirup
+en: high fructose starch syrup
 fr: sirop d'amidon à haute teneur en fructose
 hr: visoko fruktozni škrobni sirup
 it: sciroppo di amido ad alto contenuto di fruttosio
