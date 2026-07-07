@@ -106,6 +106,8 @@ BEGIN {
 
 		$build_cache_repo
 		$serialize_to_json
+
+		$health_check_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -573,8 +575,11 @@ $options{import_export_fields_groups} = [
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups}
-	= [["labels", ["labels_organic", "labels_fair_trade"]], ["environment", ["repairability_index_france",]],];
+$options{attribute_groups} = [
+	["labels", ["labels_organic", "labels_fair_trade"]],
+	["environment", ["repairability_index_france",]],
+	["ingredients_analysis", ["unwanted_ingredients"]]
+];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {

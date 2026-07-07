@@ -30,7 +30,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers request_param single_param get_http_request_header/;
+use ProductOpener::HTTP qw/request_param single_param get_http_request_header/;
 use ProductOpener::Users qw/$Owner_id/;
 use ProductOpener::Products qw/normalize_code normalize_search_terms retrieve_product product_id_for_owner product_url/;
 use ProductOpener::Food qw/%nutrients_lists/;
@@ -40,7 +40,6 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Lang qw/$lc %Lang %tag_type_singular lang/;
 use ProductOpener::Routing qw/:all/;
 
-use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
@@ -110,13 +109,14 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 	}
 }
 
-my $is_api_search_request
-	= (defined $request_ref->{json})
-	or (defined $request_ref->{jsonp})
-	or (defined $request_ref->{jqm})
-	or (defined $request_ref->{jqm_loadmore})
-	or (defined $request_ref->{xml})
-	or (defined $request_ref->{rss});
+my $is_api_search_request = (
+		   (defined $request_ref->{json})
+		or (defined $request_ref->{jsonp})
+		or (defined $request_ref->{jqm})
+		or (defined $request_ref->{jqm_loadmore})
+		or (defined $request_ref->{xml})
+		or (defined $request_ref->{rss})
+);
 
 # Write CORS headers early for API requests, before any error handling
 # This ensures error responses (like 503 from rate limiting) also have proper CORS headers
@@ -125,7 +125,6 @@ if ($is_api_search_request) {
 	$log->debug("API search request",
 		{path => request_uri(), query_string => query_string(), api_version => $request_ref->{api_version}})
 		if $log->is_debug();
-	write_cors_headers();
 
 	# Preflight requests only need the CORS headers.
 	if (request_method() eq 'OPTIONS') {
@@ -801,10 +800,6 @@ elsif ($action eq 'process') {
 		}
 	}
 
-	if (defined $sort_by) {
-		$current_link .= "&sort_by=$sort_by";
-	}
-
 	$current_link .= "\&page_size=$limit";
 
 	# Graphs
@@ -960,7 +955,6 @@ HTML
 
 			my $data = encode_json(\%response);
 
-			write_cors_headers();
 			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
 		}
 	}

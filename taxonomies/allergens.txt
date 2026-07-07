@@ -71,7 +71,7 @@ mt: glutina, qamħ, segala, barli, ħafur, ispelt, kamut
 nb: gluten, hvete, durumhvete, hvetemel, spelt, rugmel, fullkornshvete, fullkornshvetemel, havre, havremel, havregryn, bygg, rug, rugklimel, hvetestivelse, hveteflak, havreflak, havrekli, rugflak, hvetekli, hvetegluten, byggmalt, byggmaltmel, byggmaltekstrakt, hvetemalt, hvetemaltmel kornslag som indeholder gluten, hvetekornet, paneringsmel, speltkli
 nl: gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel, tarwebloem
 nl_be: gluten, tarwe, rogge, gerst, haver, spelt, kamut, tarwemeel, volkorentarwemeel, tarwezetmeel
-pl: gluten, glutenu, gluten pszenny, jęczmień, jęczmienny , kamut, owies, orkisz, owsiane, pszenica, pszenicę, pszenna, pszenne, pszenny, żytnia, żyto, zboża zawierające gluten
+pl: gluten, glutenem, glutenu, gluten pszenny, kamut, zboża zawierające gluten, zboża, jęczmień, jęczmienia, jęczmienna, jęczmiennego, jęczmienny, żyto, żyta, żytni, żytnie, żytnia, owies, owsa, owsiane, owsiana, owsiany, owsiane, pszenica, pszenicą, pszenicy, pszenna, pszenicę, pszenne, pszenny, orkisz, orkiszowe
 pt: glúten, trigo, centeio, cevada, aveia, malte, extrato de malte, espelta, trigo-vermelho, farinha de espelta, farinha de trigo-vermelho, kamut, cereais com glúten, cereais, farinha de trigo, farinha de trigo integral, farinha de centeio, farinha de malte, cereais que contêm glúten, sêmola de trigo
 ro: gluten, grâu, secară, orz, ovăz, grâu spelt, grâu dur, griș de grău
 ru: глютен, пшеница, рожь, ячмень, овёс, полба (камут) (спельта) (двузернянка) (фарро), манная крупа
@@ -139,7 +139,7 @@ mt: bajd
 nb: egg, eggeplomme, eggeplommepulver, eggehviter, eggehvitepulver
 nl: eieren, ei, scharreleigeel, scharrelkipeigeel, scharrelkipeiwit, scharrelkipeiwitpoeder, scharrelkipheelei, scharrelei
 nl_be: eieren, ei
-pl: jaja, jajo, jajka, jajko, jajeczny, jaj, jajeczne, jajeczna
+pl: jaja, jajo, jajka, jajko, jajeczny, jaj, jajeczne, jajeczna, jajowa
 pt: ovos, ovo, clara de ovo, claras de ovo, claras de ovos, gema de ovo, gemas de ovo, gemas de ovos, derivados de ovo, derivado de ovo
 ro: ouă, ou
 ru: яйца, яйцо
@@ -175,7 +175,7 @@ mt: ħut
 nb: fisk, sild, ansjos, brisling, kryddersild, kryddersildefilèt, eddiksild, pollock, hyse, sei, torsk, hvitlaks, kvitlaks, vassild
 nl: vis
 nl_be: vis
-pl: ryba, ryby, rybny, rybna, rybne, ryb, rybi, śledziowe, śledzia, makreli
+pl: ryba, ryby, rybny, rybna, rybne, ryb, rybi, śledź, śledzia, śledziowe, łosoś, łososia, szprot, makrela, makreli
 pt: peixe, peixes, bacalhau, cavalinha, linguado, halibute, pregado, eglefim, hadoque, arinca, salmão, solha, truta, atum, sardinha, sardinhas
 ro: pește
 ru: рыба
@@ -224,7 +224,7 @@ ja: ゼラチン
 en: matsutake
 ja: まつたけ, 松茸, マツタケ
 
-en: peanuts, peanut, arachis hypogaea
+en: peanuts, peanut, arachis hypogaea, groundnut, groundnuts
 ar: فول سوداني
 bg: фъстъци, arachis hypogaea
 ca: cacauets, cacauet
@@ -248,7 +248,7 @@ mt: karawett, arachis hypogaea
 nb: peanøtt, peanøtter
 nl: pinda, aardnoten, pindas, pinda's, arachis hypogaea
 nl_be: aardnoten, pinda, pindas, pinda's, arachis hypogaea
-pl: orzeszki ziemne, arachidowe, arachis hypogaea, orzechy ziemne, orzechy arachidowe, orzeszki arachidowe
+pl: orzeszki ziemne, orzechy ziemne, orzechów ziemnych, orzeszki arachidowe, orzechy arachidowe, orzechów arachidowych, arachidowy, arachidowe, arachis hypogaea
 pt: amendoins, amendoim, arachis hypogaea, manteiga de amendoim, óleo de amendoim
 ro: arahide, arachis hypogaea
 ru: арахис, arachis hypogaea
@@ -285,7 +285,7 @@ mt: soybeans
 nb: soya, soyabønner, soyamel, soyalecitin, soyalecitiner, soyapulver
 nl: soja, sojalecithine, sojaeiwitten, sojabonen
 nl_be: soja, sojalecithine, sojaeiwitten, sojabonen
-pl: soja, soje, lecytyna sojowa, soi, lecytyny z soi, sojowa, sojowe, sojowy, soję
+pl: soja, soję, soje, sojowa, soi, sojowego, sojowe, sojowy, lecytyna sojowa, lecytyny z soi
 pt: soja, sementes de soja, grão de soja, lecitina de soja
 ro: soia, lecitină din soia
 ru: соя, соевые бобы
@@ -321,7 +321,7 @@ mt: ħalib, lattosju
 nb: melk, melkepulver, skummet melk, skummetmelkepulver, helmelk, helmelkpulver, helmelkspulver, kumelk, laktose, fløte, melkefett, melkeprotein, melkeproteiner, tørrmelk, ost, ostepulver, geitost, geitmyse, geitfløte, geitmelk, myse, mysepulver, kjernemelk, ferskost, ferskostepulver, skummetmelkyoghurtpulver
 nl: melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
 nl_be: melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
-pl: mleko, laktozą, mleka, mleczny, laktozę, mleczna, mleczne, serwatka, serwatkowy, serwatkowa, ser, serowy, serowa, serowe, łącznie z laktozą
+pl: mleko, mleka, mleczny, mleczna, serwatka, serwatkowy, serwatkowa, śmietana, śmietanka, ser, serek, serowy, serowa, serowe, masło, mleczne, laktoza, laktozą, laktozę, łącznie z laktozą
 pt: leite, leite em pó, lactose, soro, soro de leite, lactossoro, lactosoro, leitelho, lácteos, lácteas, lácticos, lácticas, fermentos lácteos, fermentos lácticos, manteiga, iogurte, queijo, queijos, proteína de leite, proteínas de leite, proteína do leite, proteínas do leite, proteínas lácteas, leite e seus derivados, derivados de leite, sólidos lácteos, nata, natas
 ro: lapte, lactoză
 ru: молоко, лактоза, сливки, молочная сыворотка, йогурт
@@ -358,7 +358,7 @@ mt: ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan, ġewż tal-Bra
 nb: nøtter, andre nøtter, andre typer nøtter, mandel, mandler, mandelprotein, hasselnøtt, hasselnøtter, hasselnøttpasta, hasselnøttmasse, hasselnøttkjerner, kasjunøtt, kasjunøtter, cashewnøtt, cashewnøtter, pistasjnøtt, valnøtt, valnøtter, paranøtt, paranøtter
 nl: noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten, paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
 nl_be: noten, amandelen, hazelnoten, walnoten, cashewnoten, pecannoten, paranoten, pistachenoten, macadamianoten, amandel, hazelnoot, walnoot, cashewnoot, pecannoot, paranoot, pistache, pistachenoot, macadamia, macadamianoot
-pl: orzechy, migdały, orzechy laskowe, orzechy włoskie, orzechy nerkowca, orzechy pekan, orzeszki pekan, orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland, inne orzechy, podobne typy orzechy, łuskane
+pl: orzechy, migdały, migdał, migdałów, orzechy laskowe, orzecha laskowego, orzech laskowy, orzeszki laskowe, orzechów laskowych, orzech włoski, orzechy włoskie, orzechy nerkowca, orzechy pekan, orzeszki pekan, orzechy brazylijskie, pistacje, orzechy pistacjowe, orzechy makadamia, orzechy Queensland, inne orzechy, podobne typy orzechy, łuskane
 pt: nozes, frutos de casca rija, amêndoas, avelãs, castanhas de caju, nozes pécan, castanhas do Brasil, pistácios, pistáchios, nozes de macadâmia, nozes do Queensland
 ro: fructe cu coajă lemnoasă, migdale, alune de pădure, nuci, nuci Caju, nuci Pecan, nuci de Brazilia, fistic, nuci de macadamia, nuci de Queensland, alte fructe cu coajă lemnoasă
 ru: орехи, миндаль, кешью, пекан, бразильский орех, макадамия, фисташки, орехи Куинсленд
@@ -393,7 +393,7 @@ mt: karfus
 nb: selleri, sellerifrø, sellerisalt
 nl: selderij
 nl_be: selderij
-pl: seler, selera
+pl: seler, selera, selerem
 pt: aipo
 ro: țelină
 ru: сельдерей
@@ -465,7 +465,7 @@ mt: ġulġlien
 nb: sesamfrø, sesam
 nl: sesamzaad, sesam
 nl_be: sesamzaad, sesam
-pl: nasiona sezamu, sezamu, sezamowy, sezamków, sezamowe, sezam, ziarno sezamu
+pl: nasiona sezamu, sezamu, sezamowy, sezamków, sezamowa, sezamowe, sezam, ziarno sezamu
 pt: sementes de sésamo, sésamo
 ro: semințe de susan
 ru: сезам, кунжут
@@ -505,7 +505,7 @@ mt: dijossidu tal-kubrit u sulfiti, dijossidu tal-kubrit, sulfiti
 nb: svovedioxide en sulfieten, zwaveldioxide, sulfit, sulfieten
 nl: zwaveldioxide en sulfieten, zwaveldioxide, sulfieten, sulfiet
 nl_be: zwaveldioxide en sulfieten, zwaveldioxide, sulfieten, sulfiet
-pl: dwutlenek siarki i siarczyny, dwutlenek siarki, siarczyny
+pl: dwutlenek siarki i siarczyny, dwutlenek siarki, siarczyny, pirosiarczyn, SO2
 pt: dióxido de enxofre e sulfitos, dióxido de enxofre, sulfitos
 ro: dioxidul de sulf și sulfiții, dioxidul de sulf, sulfit, sulfiţi, sulfiții
 ru: диоксид и сульфит серы, серный диоксид, сульфиты

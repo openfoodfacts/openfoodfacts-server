@@ -30,7 +30,7 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr ""
+msgstr "/aplikasyon-mobil-open-food-reports"
 
 msgctxt "product_description_off"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
@@ -38,15 +38,15 @@ msgstr "Engredyan, alèrjèn, aditif, enfòmasyon sou nitrisyon, etikèt, orijin
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "Yon baz done kolaboratif, gratis ak ouvè sou engredyan ak enfòmasyon sou pwodui kosmetik atravè lemond."
 
 msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "Open Beauty Facts rasanble enfòmasyon ak done sou pwodui kosmetik atravè lemond."
 
 msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "Yon baz done kolaboratif, gratis e ouvè sou pwodui kosmetik atravè lemond."
 
 msgctxt "product_description_obf"
 msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
@@ -55,15 +55,15 @@ msgstr "Engredyan INCI, alèrjèn, aditif, etikèt, orijin engredyan ak enfòmas
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-feeds-mobile-app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "ak gwoup Facebook <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">la pou kontribitè yo</a>"
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr ""
+msgstr "Louvri rechèch pwodwi Enfòmasyon sou Bote"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -71,11 +71,11 @@ msgstr "Paj pwodui sa a pa konplè. Ou ka ede konplete li lè w modifye li epi a
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
-msgstr ""
+msgstr "Nivea, Nivea pou Gason"
 
 msgctxt "categories_example_beauty"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
+msgstr "Chanpou anti-pelikul, Pat dan blanchiman"
 
 msgctxt "emb_codes_example_beauty"
 msgid "EMB 53062"
@@ -83,11 +83,11 @@ msgstr ""
 
 msgctxt "generic_name_example_beauty"
 msgid "Anti-dandruff shampoo"
-msgstr ""
+msgstr "Chanpou anti-pelikul"
 
 msgctxt "product_name_example_beauty"
 msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgstr "Pwoteksyon kont estrès ak anti-transpiran"
 
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
@@ -1816,7 +1816,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Anbalaj"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -3554,7 +3554,7 @@ msgstr ""
 
 msgctxt "fields_group_packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Anbalaj"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5223,7 +5223,7 @@ msgstr ""
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
 msgid "Packaging"
-msgstr ""
+msgstr "Anbalaj"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5741,7 +5741,7 @@ msgstr ""
 
 msgctxt "environmental_score_packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Anbalaj"
 
 msgctxt "environmental_score_transportation"
 msgid "Transportation"
@@ -6027,6 +6027,46 @@ msgstr ""
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr ""
+
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Fè yon don"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -7956,6 +7996,10 @@ msgstr ""
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"

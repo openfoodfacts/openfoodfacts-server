@@ -74,7 +74,7 @@ DOCKER_COMPOSE_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};${DEPS_DIR}/openfoodfact
 	${DOCKER_COMPOSE_TEST_BASE}
 # Enable Redis only for integration tests.
 # Note the integration-test.yml file contains references to the docker-compose files from shared-services and auth
-DOCKER_COMPOSE_INT_TEST=COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
+DOCKER_COMPOSE_INT_TEST=PRODUCT_OPENER_HOST_PORT= COMPOSE_FILE="${COMPOSE_FILE_BUILD};docker/integration-test.yml" \
 	REDIS_URL="redis:6379" \
 	${DOCKER_COMPOSE_TEST_BASE}
 
@@ -247,7 +247,7 @@ reset_owner:
 
 init_backend: build_taxonomies build_lang build_pro_platform
 
-create_mongodb_indexes: run_deps
+create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/create_mongodb_indexes.pl
 
@@ -314,10 +314,9 @@ integration_test: create_folders
 	mkdir -p tests/integration/outputs/
 # we launch the server and run tests within same container.
 # this is the place where variables are important
-# note that we don't launch the frontend because it causes issues,
-# as we use localhost in tests (which is the backend)
 # Need to start dynamicfront explicitly so it is built on-demand. Just listing it as a depends_on for backend doesn't seem to do this
 # Also need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
+	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d dynamicfront
 	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
@@ -356,6 +355,7 @@ test-int: guard-test create_folders
 # this is the place where variables are important
 # Need to start postgres separately as it is not listed as a dependency as otherwise this causes issues with pro platform dev
 	${DOCKER_COMPOSE_INT_TEST} up --wait postgres
+	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	${DOCKER_COMPOSE_INT_TEST} exec backend ${TEST_CMD} ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
@@ -494,24 +494,32 @@ build_packager_codes: create_folders
 	@echo "🥫 build packager codes"
 	${DOCKER_COMPOSE_BUILD} run --no-deps --rm backend /opt/product-opener/scripts/update_packager_codes.pl
 
+build_taxonomies: name ?= *
+build_taxonomies: jobs ?= $(CPU_COUNT)
 build_taxonomies: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend \
+	  scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
 # a version where we force building without using cache
 # use it when you are developing in Tags.pm and want to iterate
 # at the end, change the $BUILD_TAGS_VERSION in Tags.pm
+rebuild_taxonomies: name ?= *
+rebuild_taxonomies: jobs ?= $(CPU_COUNT)
 rebuild_taxonomies:
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
-	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_BUILD} run --no-deps --rm -e TAXONOMY_NO_GET_FROM_CACHE=1 backend \
+	  scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}" -v
 
+build_taxonomies_test: name ?= *
+build_taxonomies_test: jobs ?= $(CPU_COUNT)
 build_taxonomies_test: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache PROJECT_SUFFIX=_test _bind_local
 	@echo "🥫 build taxonomies"
 # GITHUB_TOKEN might be empty, but if it's a valid token it enables pushing taxonomies to build cache repository
-	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/taxonomies/build_tags_taxonomy.pl "${name}" -j "${jobs}"
 
 build_pro_platform: create_folders
 	$(MAKE) MOUNT_FOLDER=build-cache MOUNT_VOLUME=build_cache _bind_local
@@ -721,6 +729,7 @@ endif
 	@echo "🥫 Running integration test group $(TEST_GROUP) …"
 	@echo "🥫 Tests in group $(TEST_GROUP): $(call get_group_tests,$(TEST_GROUP))"
 	mkdir -p tests/integration/outputs/
+	${DOCKER_COMPOSE_INT_TEST} up -d frontend
 	${DOCKER_COMPOSE_INT_TEST} up -d backend
 	@echo "🥫 Running all tests in group $(TEST_GROUP) with both console output and JUnit XML generation..."
 	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS} -e JUNIT_TEST_FILE="tests/integration/outputs/junit_group_$(TEST_GROUP).xml" -T backend yath test --renderer=Formatter --renderer=JUnit $(addprefix tests/integration/,$(call get_group_tests,$(TEST_GROUP)))
