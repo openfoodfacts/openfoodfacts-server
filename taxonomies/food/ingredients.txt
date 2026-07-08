@@ -48573,19 +48573,6 @@ zh: 樹莓
 # stq:Hiembäie
 # ur:تُوت علیق
 # yue:勒士啤梨
-ciqual_proxy_food_code:en: 13015
-ciqual_proxy_food_name:en: Raspberry, raw
-ciqual_proxy_food_name:fr: Framboise, crue
-ecobalyse:en: 50939126-d4a5-4b94-b110-63e8b9e66173
-ecobalyse_labels_en_organic:en: 091cda9d-3c9d-444c-ad0e-1d6f34491767
-eurocode_2_group_3:en: 9.30.20
-usda_ndb_proxy_code:en: 9302
-usda_ndb_proxy_name:en: Raspberries, raw
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry
-# 2014 in 12 languages @2018-09-27
-
-< en: raspberry
-en: raw raspberries
 ciqual_food_code:en: 13015
 ciqual_food_name:en: Raspberry, raw
 ciqual_food_name:fr: Framboise, crue
@@ -48594,6 +48581,9 @@ ecobalyse_labels_en_organic:en: 091cda9d-3c9d-444c-ad0e-1d6f34491767
 eurocode_2_group_3:en: 9.30.20
 usda_ndb_code:en: 9302
 usda_ndb_name:en: Raspberries, raw
+usda_ndb_code_2:en: 9553
+usda_ndb_name_2:en: Raspberries, puree, with seeds
+usda_ndb_process_2:en: en:pureed
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry
 # 2014 in 12 languages @2018-09-27
 
@@ -48617,39 +48607,38 @@ it: lampone intero
 nl: hele frambozen
 # 10@2019-06-07
 
-< en: raspberry
-en: organic raspberry
-de: Bio-Himbeere
-fi: luomuvadelma, luomu vadelma
-hr: organska malina
-it: lampone biologico
-pl: maliny bio, malina bio, malinowy bio
+#< en: raspberry
+#en: organic raspberry
+#de: Bio-Himbeere
+#fi: luomuvadelma, luomu vadelma
+#hr: organska malina
+#it: lampone biologico
+#pl: maliny bio, malina bio, malinowy bio
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:luomuvadelma
 # 1 entry @ 2019-10-31
 
-< en: fruit purée
-< en: raspberry
+#< en: fruit purée
+#< en: raspberry
 en: raspberry puree
-bg: пюре от малини
-de: Himbeerpüree
-es: puré de frambuesa
-fi: vadelmasose, vadelmapyree, vadelmapyre
-fr: purée de framboises, purée de framboise
-hr: pire maline
-it: purea di lamponi
-nb: bringebærpuré
-nl: frambozenpuree
-nn: bringebærpuré, bringbærpuré
-pl: mus malinowy
-sv: hallonpuré
-usda_ndb_proxy_code:en: 9553
-usda_ndb_proxy_name:en: Raspberries, puree, with seeds
-wikidata:en: Q57328284
+#bg: пюре от малини
+#de: Himbeerpüree
+#es: puré de frambuesa
+#fi: vadelmasose, vadelmapyree, vadelmapyre
+#fr: purée de framboises, purée de framboise
+#hr: pire maline
+#it: purea di lamponi
+#nb: bringebærpuré
+#nl: frambozenpuree
+#nn: bringebærpuré, bringbærpuré
+#pl: mus malinowy
+#sv: hallonpuré
+#wikidata:en: Q57328284
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:puree-de-framboise
 # 461 products in 6 languages @2018-09-27
 
 < en: raspberry puree
 en: seedless raspberry puree
+comment:en: are the seeds filtered out?
 usda_ndb_code:en: 9552
 usda_ndb_name:en: Raspberries, puree, seedless
 
@@ -48806,11 +48795,6 @@ eurocode_2_group_3:en: 9.30.36
 < en: fruit
 en: rose apple
 description:en: A rose apple (Syzygium jambos or related species) is a tropical fruit native to Southeast Asia and the Indian subcontinent. Despite its name, it's not related to either roses or apples — it belongs to the myrtle family. Pear- or bell-shaped fruit, usually pale yellow, white, pink, or red, with a waxy, smooth skin. Mildly sweet with a subtle floral aroma reminiscent of roses.
-usda_ndb_proxy_code:en: 9312
-usda_ndb_proxy_name:en: Rose-apples, raw
-
-< en: rose apple
-en: raw rose apple
 usda_ndb_code:en: 9312
 usda_ndb_name:en: Rose-apples, raw
 
@@ -48927,11 +48911,6 @@ usda_ndb_name:en: Rowal, raw
 < en: fruit
 en: sapodilla
 description:en: Sapodilla (Manilkara zapota) is a tropical fruit native to southern Mexico, Central America, and the Caribbean. It's a small to medium-sized fruit with rough, brown, potato-like skin. The flesh inside is yellowish-brown, soft, and grainy in texture. Often described as one of the sweetest fruits in the world. It has a rich, caramel-like or brown sugar flavor, sometimes with hints of vanilla and pear.
-usda_ndb_proxy_code:en: 9313
-usda_ndb_proxy_name:en: Sapodilla, raw
-
-< en: sapodilla
-en: raw sapodilla
 usda_ndb_code:en: 9313
 usda_ndb_name:en: Sapodilla, raw
 
@@ -48944,11 +48923,6 @@ usda_ndb_name:en: Sapodilla, raw
 < en: fruit
 en: soursop, graviola
 description:en: Soursop is a tropical fruit from the Annona muricata tree, native to the Caribbean, Central America, and parts of South America and Africa. Large, green, spiky/prickly on the outside — it can weigh anywhere from 1 to 7 kg. The inside is white, creamy, and fibrous with large black seeds. It's taste is an unique blend of sweet and tangy — often described as a mix of strawberry, pineapple, and citrus, with a creamy texture somewhat like banana or coconut.
-usda_ndb_proxy_code:en: 9315
-usda_ndb_proxy_name:en: Soursop, raw
-
-< en: soursop
-en: raw soursop
 usda_ndb_code:en: 9315
 usda_ndb_name:en: Soursop, raw
 
@@ -49318,11 +49292,6 @@ de: Mehrfruchtsaft aus Mehrfruchtsaftkonzentrat
 < en: fruit
 en: sugar apple, sweetsop
 description:en: A sugar apple (also called sweetsop) is a tropical fruit from the Annona squamosa tree, native to the tropical Americas and West Indies. It has a bumpy, knobby green skin made up of overlapping segments that look almost like scales or a pinecone. When ripe, the segments separate easily. The white, creamy flesh inside is sweet and custard-like — hence "sugar" apple. The taste is often described as a blend of vanilla, pear, and banana, with a grainy, melt-in-your-mouth texture.
-usda_ndb_proxy_code:en: 9321
-usda_ndb_proxy_name:en: Sugar-apples, (sweetsop), raw
-
-< en: sugar apple
-en: raw sugar apple
 usda_ndb_code:en: 9321
 usda_ndb_name:en: Sugar-apples, (sweetsop), raw
 
@@ -51130,15 +51099,16 @@ it: Žlahtina
 wikidata:en: Q394231
 wikipedia:hr: https://hr.wikipedia.org/wiki/%C5%BDlahtina
 
+###################################################################################################
+#
+#                                Strawberry guava
+#
+###################################################################################################
+
 < en: fruit
 en: strawberry guavas
 la: Psidium cattleianum
 description:en: Strawberry guava (Psidium cattleianum) is a tropical fruit tree native to eastern Brazil. The flesh is white to creamy, with a sweet-tart taste reminiscent of a mix between strawberry and guava — hence the name. It contains small, hard seeds.
-usda_ndb_proxy_code:en: 9140
-usda_ndb_proxy_name:en: Guavas, strawberry, raw
-
-< en: strawberry guava
-en: raw strawberry guavas
 usda_ndb_code:en: 9140
 usda_ndb_name:en: Guavas, strawberry, raw
 
@@ -51584,16 +51554,11 @@ sv: radicchiosallad, rosensallat, rosésallat
 # pt-br:radicchio
 # vec:radicio
 eurocode_2_group_3:en: 8.10.10
-usda_ndb_proxy_code:en: 11952
-usda_ndb_proxy_name:en: Radicchio, raw
+usda_ndb_code:en: 11952
+usda_ndb_name:en: Radicchio, raw
 wikidata:en: Q767765
 wikipedia:en: https://en.wikipedia.org/wiki/Radicchio
 # 703 in 7 @2021-10-03
-
-< en: radicchio
-en: raw radicchio
-usda_ndb_code:en: 11952
-usda_ndb_name:en: Radicchio, raw
 
 < en: endive
 en: curly endive, frisée lettuce
@@ -52323,24 +52288,16 @@ zh: 西洋菜
 # zh-hk:西洋菜
 # zh-sg:西洋菜
 # zh-tw:水芥菜
-ciqual_proxy_food_code:en: 20022
-ciqual_proxy_food_name:en: Watercress, raw
-ciqual_proxy_food_name:fr: Cresson de fontaine, cru
+ciqual_food_code:en: 20022
+ciqual_food_name:en: Watercress, raw
+ciqual_food_name:fr: Cresson de fontaine, cru
 eurocode_2_group_3:en: 8.10.36
-usda_ndb_proxy_code:en: 11591
-usda_ndb_proxy_name:en: Watercress, raw
+usda_ndb_code:en: 11591
+usda_ndb_name:en: Watercress, raw
 wikidata:en: Q150452
 wikipedia:en: https://en.wikipedia.org/wiki/Watercress
 # ingredient/watercress has 107 products in 4 languages @2019-04-13
 # ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
-
-< en: watercress
-en: raw watercress
-ciqual_food_code:en: 20022
-ciqual_food_name:en: Watercress, raw
-ciqual_food_name:fr: Cresson de fontaine, cru
-usda_ndb_code:en: 11591
-usda_ndb_name:en: Watercress, raw
 
 # description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb.
 
@@ -52721,16 +52678,17 @@ eurocode_2_group_3:en: 8.10.50
 wikidata:en: Q26297
 wikipedia:en: https://en.wikipedia.org/wiki/Sorrel
 
+###################################################################################################
+#
+#                                Purslane
+#
+###################################################################################################
+
 < en: leaf vegetable
 en: purslane
 it: portulaca
 la: portulaca oleracea
 eurocode_2_group_3:en: 8.10.55
-usda_ndb_proxy_code:en: 11427
-usda_ndb_proxy_name:en: Purslane, raw
-
-< en: purslane
-en: raw purslane
 usda_ndb_code:en: 11427
 usda_ndb_name:en: Purslane, raw
 
@@ -53162,16 +53120,11 @@ tr: lahana
 # sco:cabbitch
 # szl:kapusta gowjasto
 eurocode_2_group_3:en: 8.15.20
-usda_ndb_proxy_code:en: 11109
-usda_ndb_proxy_name:en: Cabbage, raw
+usda_ndb_code:en: 11109
+usda_ndb_name:en: Cabbage, raw
 wikidata:en: Q14328596
 wikipedia:en: https://en.wikipedia.org/wiki/Cabbage
 # fr:chou has 374 products in 4 languages @2018-10-20
-
-< en: cabbage
-en: raw cabbage
-usda_ndb_code:en: 11109
-usda_ndb_name:en: Cabbage, raw
 
 < en: cabbage
 fr: Chou pommé, Chou cabus
@@ -53571,24 +53524,16 @@ zh: 抱子甘藍
 # zh-hk:抱子甘藍
 # zh-sg:抱子甘蓝
 # zh-tw:抱子甘藍
-ciqual_proxy_food_code:en: 20058
-ciqual_proxy_food_name:en: Brussels sprout, raw
-ciqual_proxy_food_name:fr: Chou de Bruxelles, cru
-ecobalyse:en: brussels-sprout-fr
-ecobalyse_labels_en_organic:en: brussels-sprout-organic
-eurocode_2_group_3:en: 8.15.40
-usda_ndb_proxy_code:en: 11098
-usda_ndb_proxy_name:en: Brussels sprouts, raw
-wikidata:en: Q150463
-# fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
-
-< en: brussels sprouts
-en: raw brussels sprouts
 ciqual_food_code:en: 20058
 ciqual_food_name:en: Brussels sprout, raw
 ciqual_food_name:fr: Chou de Bruxelles, cru
+ecobalyse:en: brussels-sprout-fr
+ecobalyse_labels_en_organic:en: brussels-sprout-organic
+eurocode_2_group_3:en: 8.15.40
 usda_ndb_code:en: 11098
 usda_ndb_name:en: Brussels sprouts, raw
+wikidata:en: Q150463
+# fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
 
 # Brassica oleracea var. sabellica
 # be careful with the translation found on packages.
@@ -53604,23 +53549,14 @@ nl: koolrabi
 pl: kalarepa
 ru: Кольра́би
 ua: Кольрабі
-eurocode_2_group_3:en: 8.15.50
-usda_ndb_proxy_code:en: 11241
-usda_ndb_proxy_name:en: Kohlrabi, raw
-wikidata:en: Q147202
-wikipedia:en: https://en.wikipedia.org/wiki/Kohlrabi
-
-< en: kohlrabi
-en: raw kohlrabi
-usda_ndb_code:en: 11241
-usda_ndb_name:en: Kohlrabi, raw
-
-< en: kohlrabi
-en: cooked kohlrabi, boiled kohlrabi
-it: cavolo rapa cotto
-pl: kalarepa gotowana, gotowana kalarepa, kalarepa ugotowana, ugotowana kalarepa
 ciqual_food_code:en: 20094
 ciqual_food_name:en: Kohlrabi, boiled/cooked in water
+ciqual_food_process:en: en:cooked
+eurocode_2_group_3:en: 8.15.50
+usda_ndb_code:en: 11241
+usda_ndb_name:en: Kohlrabi, raw
+wikidata:en: Q147202
+wikipedia:en: https://en.wikipedia.org/wiki/Kohlrabi
 
 # description:en:RAPINI or BROCCOLI RABE (Brassica rapa subspecies rapa) is a green cruciferous vegetable, with the leaves, buds, and stems all being edible; the buds somewhat resemble broccoli, but do not form a large head.
 
@@ -53703,24 +53639,16 @@ zh: 羽衣甘藍
 # sco:kail
 # vec:càvorlo riso
 # wuu:羽衣甘蓝
-ciqual_proxy_food_code:en: 20218
-ciqual_proxy_food_name:en: Curly kale, raw
-ciqual_proxy_food_name:fr: Chou frisé, cru
-ecobalyse:en: curly-kale-fr
-ecobalyse_labels_en_organic:en: curly-kale-organic
-eurocode_2_group_3:en: 8.15.55
-usda_ndb_proxy_code:en: 11233
-usda_ndb_proxy_name:en: Kale, raw
-wikidata:en: Q45989
-# 2029 in 13 languages @2021-10-19
-
-< en: kale
-en: raw kale
 ciqual_food_code:en: 20218
 ciqual_food_name:en: Curly kale, raw
 ciqual_food_name:fr: Chou frisé, cru
+ecobalyse:en: curly-kale-fr
+ecobalyse_labels_en_organic:en: curly-kale-organic
+eurocode_2_group_3:en: 8.15.55
 usda_ndb_code:en: 11233
 usda_ndb_name:en: Kale, raw
+wikidata:en: Q45989
+# 2029 in 13 languages @2021-10-19
 
 < en: kale
 en: kale sprouts
@@ -71464,8 +71392,9 @@ ciqual_proxy_food_name:fr: Estragon, frais
 description:en: TARRAGON (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.68
-usda_ndb_proxy_code:en: 2041
-usda_ndb_proxy_name:en: Spices, tarragon, dried
+usda_ndb_code:en: 2041
+usda_ndb_name:en: Spices, tarragon, dried
+usda_ndb_processing:en: en:dried
 #plant: wikidata:en:Q155814
 wikidata:en: Q103554747
 wikipedia:en: https://en.wikipedia.org/wiki/Tarragon
@@ -71477,11 +71406,6 @@ fr: tarragon frais
 ciqual_food_code:en: 11092
 ciqual_food_name:en: Tarragon, fresh
 ciqual_food_name:fr: Estragon, frais
-
-< en: tarragon
-en: dried tarragon
-usda_ndb_code:en: 2041
-usda_ndb_name:en: Spices, tarragon, dried
 
 #processing:en: eb:leaf
 #<en:tarragon
