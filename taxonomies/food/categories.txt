@@ -69036,7 +69036,7 @@ it: Sorbetto al cocco
 lt: Kokosiniai šerbetai
 
 < en: Sorbets
-en: Blackcurrent sorbets
+en: Blackcurrant sorbets, Blackcurrent sorbets
 fr: Sorbets au cassis
 hr: Sorbet od crnog ribiza
 lt: Gervuogių šerbetai
@@ -70801,6 +70801,10 @@ ciqual_food_name:en: Red berries (raspberries, strawberries, red currants, black
 ciqual_food_name:fr: Fruits rouges, crus (framboises, fraises, groseilles, cassis)
 intake24_category_code:en: BERR
 
+< en: Berries
+< en: Potted plants
+en: Potted berry bushes
+sv: Bärbuske i kruka
 
 < en: Berries
 < en: blueberries
@@ -71121,32 +71125,67 @@ origins:en: en:france, en:perigord
 protected_name_file_number:en: PGI-FR-0133, PGI-FR-0133-AM01
 protected_name_type:en: pgi
 
-
-# in eu, Blackcurrants jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Berries
 en: Blackcurrants, black currant
+ar: كشمش
 bg: Касис
-fr: Cassis, Cassis
+ca: Riber negre
+da: Solbær
+de: Schwarze Johannisbeere
+es: Grosella negra
+et: Must sõstar
+fi: Mustaherukka
+fr: Cassis
 hr: Crni ribizli
+hu: Fekete ribizli
+it: Ribes nero
+ja: 黒スグリ
+la: Ribes nigrum
 lt: Juodieji serbentai
+nb: Solbær
+nl: Zwarte aalbes
+nn: Solbær
+pl: Czarna porzeczka
+pt: Groselha negra
+ru: Чёрная смородина
+sl: Črni ribez
+sv: Svarta vinbär
+zh: 黑醋栗
 agribalyse_food_code:en: 13007
 ciqual_food_code:en: 13007
 ciqual_food_name:en: Black currant, raw
 ciqual_food_name:fr: Cassis, cru
+wikidata:en: Q2941309
 
 < en: Blackcurrants
 < en: Fresh fruits
 en: Fresh blackcurrants
+da: Friske solbær
 fr: Cassis frais
 hr: Svježi crni ribiz
 lt: Švieži juodieji serbentai
+sv: Färska svarta vinbär
 season_in_country_fr:en: 6,7,8
 
 < en: Blackcurrants
 < en: Dried fruits
 en: Dried blackcurrants
+da: Tørrede solbær
 fr: Cassis séchés
+sv: Torkade svarta vinbär
+
+< en: Blackcurrants
+en: Titania blackcurrants
+xx: Ribes nigrum ‘Titania’
+la: Ribes nigrum ‘Titania’
+
+< en: Blackcurrants
+< en: Potted berry bushes
+en: Potted blackcurrants
+da: Solbær i krukke
+sv: Svarta vinbär i kruka
+# wikidata is for the plant, which is what you get in the pot
+wikidata:en: Q146604
 
 < en: Fruits
 en: Camu-Camu
@@ -109037,6 +109076,8 @@ it: Confetture di camemoro, Marmellate di camemoro
 sv: Hjortronsylter, htronsylt
 wikidata:en: Q65524341
 
+# in eu, Blackcurrants jams/jellies should have specific
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Berry jams
 en: Blackcurrant jams
 bg: Конфитюр от касис
@@ -109769,7 +109810,7 @@ sv: Björnbärsgeléer
 # in eu, Blackcurrants jams/jellies should have specific
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Fruit jellies
-en: Blackcurrants jellies
+en: Blackcurrant jellies, Blackcurrants jellies
 de: Schwarze Johannisbeere Gelees
 fi: Mustaherukkahyytelöt
 fr: Gelées de cassis
