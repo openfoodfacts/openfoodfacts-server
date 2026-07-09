@@ -406,7 +406,7 @@ msgstr ""
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Azerbaijani.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -688,7 +688,7 @@ msgstr "Silindi:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Open Food Facts ianə edin"
+msgstr "Açıq Qida Faktlarına ianə edin"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -955,7 +955,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/davranış qaydaları"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -964,7 +964,7 @@ msgstr "Məlumat, API və SDK-lar"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/məlumatlar"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -994,7 +994,8 @@ msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
 msgstr "Bizi <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> və\n"
-"<a href=\"https://www.instagram.com/open.food.facts/\">İnstagram</a> hesablarında izləyin\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">İnstagram</a>\n"
+" hesablarında izləyin"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
@@ -1024,7 +1025,7 @@ msgstr "Məxfilik"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/məxfilik"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -1033,7 +1034,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/mətbuat"
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -1042,7 +1043,7 @@ msgstr "İstifadə şərtləri"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/istifadə şərtləri"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -1051,7 +1052,7 @@ msgstr ""
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/biz kimik"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -1065,7 +1066,7 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Open Beauty Facts - Kosmetika"
+msgstr "Açıq Gözəllik Faktları - Kosmetika"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -2114,7 +2115,7 @@ msgstr "məhsullar"
 
 msgctxt "products_stats"
 msgid "Evolution of the number of products on <<site_name>>"
-msgstr "<<site_name>> üzərində məhsul sayının təkamülü"
+msgstr "<<site_name> > üzərində məhsul sayının təkamülü"
 
 msgctxt "products_stats_completed_t"
 msgid "Products with complete information"
@@ -2202,7 +2203,7 @@ msgstr "Salam <NAME>,\n\n"
 
 msgctxt "reset_password_email_subject"
 msgid "Reset of your password on <<site_name>>"
-msgstr "Şifrənizi <<site_name>> ünvanında sıfırlayın"
+msgstr "Şifrənizi <<site_name> > ünvanında sıfırlayın"
 
 msgctxt "reset_password_reset"
 msgid "Your password has been changed. You can now log-in with this password."
@@ -4507,7 +4508,7 @@ msgstr "Tərkib hissələrinin, tərkib hissələrinin emal üsullarının və e
 # Do not translate #ingredients
 msgctxt "help_improve_ingredients_analysis_instructions"
 msgid "Join the #ingredients channel on <a href=\"https://slack.openfoodfacts.org\">our Slack discussion space</a> and/or learn about <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">ingredients analysis on our wiki</a>, if you would like to help. Thank you!"
-msgstr "Kömək etmək #ingredients, <a href=\"https://slack.openfoodfacts.org\">Slack müzakirə məkanımızda</a> #inqrediyentlər kanalına qoşulun və/və ya <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">inqrediyentlər təhlili haqqında viki</a>saytında məlumat əldə edin. Təşəkkür edirik!"
+msgstr "Kömək etmək istəyirsinizsə, <a href=\"https://slack.openfoodfacts.org\">Slack müzakirə məkanımızda</a> #inqrediyentlər kanalına qoşulun və/və ya <a href=\"https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis\">inqrediyentlər təhlili haqqında viki</a>saytında məlumat əldə edin. Təşəkkür edirik!"
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
@@ -4533,7 +4534,7 @@ msgstr "Yanlış barkod"
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr "ltr"
+msgstr "alt"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
@@ -8045,4 +8046,36 @@ msgstr "Ekobaliz tələbi"
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr "Ekobalizə cavab"
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Ümumi meşə izi"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr ""
 
