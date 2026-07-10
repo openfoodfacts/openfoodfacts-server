@@ -37177,9 +37177,9 @@ zh: 大豆
 # sco:Soya bean
 allergens:en: en:soybeans
 # ingredient/soy-beans 22.545 in 34 @2021-08-22
-ciqual_proxy_food_code:en: 20901
-ciqual_proxy_food_name:en: Soybean, whole grain
-ciqual_proxy_food_name:fr: Soja, graine entière
+ciqual_food_code:en: 20901
+ciqual_food_name:en: Soybean, whole grain
+ciqual_food_name:fr: Soja, graine entière
 description:en: SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia.
 description:de: Die Sojabohne (Glycine max), häufig auch einfach als Soja bezeichnet, ist eine Pflanzenart aus der Unterfamilie Schmetterlingsblütler. Als Nahrung ist die Eiweißqualität des Sojaproteins mit der von tierischem Eiweiß vergleichbar, was die Sojabohne von anderen Pflanzen abhebt.
 description:es: Glycine max, llamada popularmente soya o soja, es una especie de la familia Fabaceae. El grano de soya y sus subproductos (aceite y harina de soya) se utilizan en la alimentación humana, del ganado y aves.
@@ -37187,20 +37187,10 @@ description:fr: Le soja, (soya) (Glycine max), est une espèce de plante annuell
 description:nl: De sojaboon is een peulvrucht, afkomstig van de sojaplant (Glycine max), die als grondstof voor veel sojaproducten wordt gebruikt.
 description:pt: A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês, é uma planta pertence à família Fabaceae
 eurocode_2_group_3:en: 7.10.50
-usda_ndb_proxy_code:en: 16108
-usda_ndb_proxy_name:en: Soybeans, mature seeds, raw
-wikidata:en: Q11006
-wikipedia:en: https://en.wikipedia.org/wiki/Soybean
-
-< en: soya bean
-en: Whole soybean grain
-fr: Soja graine entière
-it: chicchi di soia integrali
-ciqual_food_code:en: 20901
-ciqual_food_name:en: Soybean, whole grain
-ciqual_food_name:fr: Soja, graine entière
 usda_ndb_code:en: 16108
 usda_ndb_name:en: Soybeans, mature seeds, raw
+wikidata:en: Q11006
+wikipedia:en: https://en.wikipedia.org/wiki/Soybean
 
 #<en:soya bean
 #en:organic soya bean
@@ -37263,6 +37253,8 @@ fi: vihreä soijapapu
 fr: soja vert
 hr: zeleno sojino zrno
 it: fagioli di soia verdi
+usda_ndb_code:en: 11450
+usda_ndb_name:en: Soybeans, green, raw
 
 #process:en: en:paste
 < en: soya bean
