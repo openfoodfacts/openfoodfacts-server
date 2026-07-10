@@ -76863,59 +76863,6 @@ ciqual_food_name:fr: Salicorne (Salicornia sp.), fraîche
 
 
 < en: seaweed
-en: kombu
-xx: kombu
-az: yapon laminariyası
-de: Kombu
-es: kombu, alga kombu
-fa: کونبو
-fi: kombu, kombu-merilevä
-fr: kombu, konbu
-hy: կոմբու
-ja: コンブ, 昆布, こんぶ
-ru: комбу
-sk: konbu
-th: คมบุ
-# ingredient/fr:kombu has 20 products in french @2019-02-22
-ciqual_food_code:en: 20990
-ciqual_food_name:en: Kombu or Japanese kelp (Laminaria japonica), dried or dehydrated
-ciqual_food_name:fr: Kombu ou kombu japonais (Laminaria japonica), séchée ou déshydratée
-description:en: KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
-eurocode_2_group_3:en: 8.55.20
-# azb:اؤزل:پالایهٔ خرابکاری
-# de-ch:Kombu
-# en-ca:Kombu
-# en-gb:Kombu
-# pt-br:Kombu
-wikidata:en: Q11261547
-wikipedia:en: https://en.wikipedia.org/wiki/Kombu
-
-en: Tangle
-fr: Kombu breton
-it: alga kombu
-ciqual_food_code:en: 20991
-ciqual_food_name:en: Tangle (Laminaria digitata), dried or dehydrated
-ciqual_food_name:fr: Kombu breton (Laminaria digitata), séchée ou déshydratée
-
-#(Saccharina latissima) dried or dehydrated
-en: Sea belt
-fr: Kombu royal
-it: cintura marina
-ciqual_food_code:en: 20986
-ciqual_food_name:en: Sea belt (Saccharina latissima), dried or dehydrated
-ciqual_food_name:fr: Kombu royal (Saccharina latissima), séchée ou déshydratée
-
-# description:en:Saccharina japonica is a marine species of the Phaeophyceae (brown algae) plant , a type of kelp or seaweed, that is extensively cultivated on ropes between the seas of Japan and Korea.[
-
-< en: kombu
-en: Saccharina japonica
-de: Japanischer Blatttang (Saccharina japonica)
-hr: saharina japonica
-it: saccarina japonica
-la: Saccharina japonica, Laminaria Japonica
-wikipedia:en: https://en.wikipedia.org/wiki/Saccharina_japonica
-
-< en: seaweed
 en: laver
 de: Laver
 it: porphyra
@@ -77065,38 +77012,6 @@ wikidata:en: Q1636443
 wikipedia:en: https://en.wikipedia.org/wiki/Himanthalia_elongata
 
 
-# en:description:Wakame (ワカメ), UNDARIA PINNATIFIDA, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
-
-< en: seaweed
-en: wakame
-ar: واكامي
-de: wakame
-eo: Vakameo
-es: wakame, alga wakame
-fa: واکامه
-fi: wakame
-fr: wakamé
-he: ואקאמה
-hr: wakame
-it: Wakame
-ja: ワカメ
-ko: 미역
-la: undaria pinnatifida
-nl: wakame
-pl: wakame
-ru: вакамэ
-th: วะกะเมะ
-vi: Tảo bẹ Undaria
-zh: 海帶芽
-# ingredient/fr:wakamé has 152 products in 9 languages @2021-08-14
-ciqual_food_code:en: 20984
-ciqual_food_name:en: Wakame (Undaria pinnatifida), dried or dehydrated
-ciqual_food_name:fr: Wakamé (Undaria pinnatifida), séchée ou déshydratée
-eurocode_2_group_3:en: 8.55.40
-# yue:裙帶菜
-wikidata:en: Q864682
-wikipedia:en: https://en.wikipedia.org/wiki/Wakame
-
 # en:description:ASCOPHYLLUM NODOSUM is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
 
 < en: seaweed
@@ -77109,9 +77024,6 @@ la: Ascophyllum
 wikipedia:en: https://en.wikipedia.org/wiki/Ascophyllum
 # ingredient/fr:Ascophyllum has 9 products in french @2019-02-22
 
-
-# en:description:LAMINARIA is a genus of 31 species of brown algae commonly called "kelp".
-
 < en: seaweed
 en: kelp
 bg: келп
@@ -77119,8 +77031,59 @@ fr: varech
 hr: kelp
 it: kelp
 la: Laminariales
+description:en: Kelp is a type of large brown seaweed that grows in cold, nutrient-rich coastal waters, and it's become a fairly common food ingredient, especially in East Asian cuisines. Kelp is notably rich in iodine, along with other minerals like calcium, magnesium, and iron. It's low in calories and contains some fiber. It has a natural savory, oceanic taste often described as umami
+usda_ndb_code:en: 11445
+usda_ndb_name:en: Seaweed, kelp, raw
 wikidata:en: Q1055316
 wikipedia:en: https://en.wikipedia.org/wiki/Kelp
+
+< en: kelp
+en: kombu
+xx: kombu
+az: yapon laminariyası
+de: Kombu
+es: kombu, alga kombu
+fa: کونبو
+fi: kombu, kombu-merilevä
+fr: kombu, konbu
+hy: կոմբու
+it: alga kombu
+ja: コンブ, 昆布, こんぶ
+ru: комбу
+sk: konbu
+th: คมบุ
+# azb:اؤزل:پالایهٔ خرابکاری
+ciqual_food_code:en: 20990
+ciqual_food_name:en: Kombu or Japanese kelp (Laminaria japonica), dried or dehydrated
+ciqual_food_name:fr: Kombu ou kombu japonais (Laminaria japonica), séchée ou déshydratée
+description:en: KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
+eurocode_2_group_3:en: 8.55.20
+wikidata:en: Q11261547
+wikipedia:en: https://en.wikipedia.org/wiki/Kombu
+# ingredient/fr:kombu has 20 products in french @2019-02-22
+
+< en: kelp
+en: tangle, oarweed
+fr: kombu breton
+ciqual_food_code:en: 20991
+ciqual_food_name:en: Tangle (Laminaria digitata), dried or dehydrated
+ciqual_food_name:fr: Kombu breton (Laminaria digitata), séchée ou déshydratée
+
+#(Saccharina latissima) dried or dehydrated
+en: Sea belt
+fr: Kombu royal
+it: cintura marina
+ciqual_food_code:en: 20986
+ciqual_food_name:en: Sea belt (Saccharina latissima), dried or dehydrated
+ciqual_food_name:fr: Kombu royal (Saccharina latissima), séchée ou déshydratée
+
+< en: kombu
+en: Saccharina japonica
+de: Japanischer Blatttang
+hr: saharina japonica
+la: Saccharina japonica, Laminaria Japonica
+description:en: Saccharina japonica is a marine species of the Phaeophyceae (brown algae) plant , a type of kelp or seaweed, that is extensively cultivated on ropes between the seas of Japan and Korea.[
+wikipedia:en: https://en.wikipedia.org/wiki/Saccharina_japonica
 
 < en: kelp
 en: Laminaria
@@ -77133,6 +77096,32 @@ wikidata:en: Q310748
 wikipedia:en: https://en.wikipedia.org/wiki/Laminaria
 # ingredient/fr:Laminaria has 13 products in french @2019-02-22
 
+< en: kelp
+en: wakame
+xx: wakame
+ar: واكامي
+de: wakame
+eo: Vakameo
+es: wakame, alga wakame
+fa: واکامه
+fr: wakamé
+he: ואקאמה
+ja: ワカメ
+ko: 미역
+la: undaria pinnatifida
+ru: вакамэ
+th: วะกะเมะ
+vi: Tảo bẹ Undaria
+zh: 海帶芽
+# yue:裙帶菜
+ciqual_food_code:en: 20984
+ciqual_food_name:en: Wakame (Undaria pinnatifida), dried or dehydrated
+ciqual_food_name:fr: Wakamé (Undaria pinnatifida), séchée ou déshydratée
+description:en: Wakame (ワカメ), UNDARIA PINNATIFIDA, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
+eurocode_2_group_3:en: 8.55.40
+wikidata:en: Q864682
+wikipedia:en: https://en.wikipedia.org/wiki/Wakame
+# ingredient/fr:wakamé has 152 products in 9 languages @2021-08-14
 
 < en: seaweed
 la: Porphyra yezoensis
