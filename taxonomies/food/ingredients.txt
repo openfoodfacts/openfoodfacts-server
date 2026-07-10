@@ -56864,6 +56864,11 @@ zh: 黑婆罗门参
 ciqual_food_code:en: 20197
 ciqual_food_name:en: Salsify, black, raw
 ciqual_food_name:fr: Salsifis noir, cru
+ciqual_food_code:en: 20046
+ciqual_food_2_name:en: Salsify, cooked
+ciqual_food_2_name:fr: Salsifis, cuit
+ciqual_food_2_name:fr: Salsifis, cuit
+ciqual_food_2_process:en: en:cooked
 # ingredient/fr:salsifis has 58 products in 5 languages @2019-04-05
 eurocode_2_group_3:en: 8.38.20
 # azb:ساققیز اوْتو
@@ -56872,25 +56877,17 @@ wikidata:en: Q385259
 wikipedia:en: https://en.wikipedia.org/wiki/Scorzonera_hispanica
 
 < en: salsify
-en: Raw black salsify
-fr: Salsifis noirs crus
-it: scorzonera cruda
-ciqual_food_code:en: 20197
-ciqual_food_name:en: Salsify, black, raw
-ciqual_food_name:fr: Salsifis noir, cru
-
-< en: salsify
-en: Cooked salsify
-fr: Salsifis cuits
-it: salsefrica cotta
-ciqual_food_code:en: 20046
-ciqual_food_name:en: Salsify, cooked
-ciqual_food_name:fr: Salsifis, cuit
-
-< en: salsify
 en: salsify juice concentrate
 hr: koncentriani sok crnog korijena, ugośćeni sok crnog korijena
 it: concentrato di succo di scorzonera
+
+< en: root vegetable
+en: vegetable oyster
+la: Tragopogon porrifolius
+comment:en: Could there be confusion with the name salsify? 
+description:en: Root has pale tan or beige skin, with white flesh. Native to the Mediterranean; naturalized widely, including in North America, with the classic "oyster-like" flavor that gave it its common name.
+usda_ndb_code:en: 11437
+usda_ndb_name:en: Salsify, (vegetable oyster), raw
 
 < en: root vegetable
 < en: taproot vegetable
@@ -76568,7 +76565,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Spirulina_(dietary_supplement)
 # ingredient/fr:spirulina has 61 products in 4 languages @2019-01-23
 # usage:en:concentrated extracts (Spirulina platensis, safflower flower)
 
-
 < en: spirulina
 en: dehydrated spirulina
 de: Dehydrierter Spirulina
@@ -76861,6 +76857,16 @@ ciqual_food_code:en: 20283
 ciqual_food_name:en: Glasswort (Salicornia sp.), fresh
 ciqual_food_name:fr: Salicorne (Salicornia sp.), fraîche
 
+< en: seaweed
+en: tsunomata
+ja: 角叉, つのまた
+comment:en: the USDA entry is a commercially available/cultivated product.
+description:en: Tsunomata (角叉, or つのまた) is the Japanese name for a type of red algae/seaweed. In Japanese cooking, it's traditionally soaked and used in salads, soups, or as a crunchy/chewy garnish. It has a mild, subtle sea flavor rather than a strong "seaweed" taste.
+usda_ndb_proxy_code:en: 31019
+usda_ndb_proxy_name:en: Seaweed, Canadian Cultivated EMI-TSUNOMATA, dry
+usda_ndb_proxy_2_code:en: 31020
+usda_ndb_proxy_2_name:en: Seaweed, Canadian Cultivated EMI-TSUNOMATA, rehydrated
+usda_ndb_proxy_2_process:en: en:rehydrated
 
 < en: seaweed
 en: laver
@@ -77031,7 +77037,7 @@ fr: varech
 hr: kelp
 it: kelp
 la: Laminariales
-description:en: Kelp is a type of large brown seaweed that grows in cold, nutrient-rich coastal waters, and it's become a fairly common food ingredient, especially in East Asian cuisines. Kelp is notably rich in iodine, along with other minerals like calcium, magnesium, and iron. It's low in calories and contains some fiber. It has a natural savory, oceanic taste often described as umami
+description:en: Kelp is a type of large brown seaweed that grows in cold, nutrient-rich coastal waters, and it's become a fairly common food ingredient, especially in East Asian cuisines. Kelp is notably rich in iodine, along with other minerals like calcium, magnesium, and iron. It's low in calories and contains some fiber. It has a natural savory, oceanic taste often described as umami. Kelp is a common term covering many species across several genera, all in the order Laminariales 
 usda_ndb_code:en: 11445
 usda_ndb_name:en: Seaweed, kelp, raw
 wikidata:en: Q1055316
@@ -77127,10 +77133,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wakame
 la: Porphyra yezoensis
 
 < en: seaweed
-en: Irish moss, Carrageen moss
+en: Irish moss, Carrageen moss, irishmoss, sea moss
 it: muschio irlandese
 la: Chondrus crispus
+description:en: Irish moss (Chondrus crispus), also called sea moss, is a red seaweed that grows along rocky Atlantic coastlines, especially around Ireland and the Caribbean. In food, it's valued mainly for the natural gelling and thickening properties it gets from carrageenan, a compound extracted from its cell walls. It has a mild, slightly salty or neutral taste on its own, so it's usually blended into other foods rather than eaten plain.
 eurocode_2_group_3:en: 8.55.10
+usda_ndb_code:en: 11444
+usda_ndb_name:en: Seaweed, irishmoss, raw
 
 # en:description:ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
