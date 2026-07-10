@@ -170,8 +170,22 @@ my $tests_ref = [
 			"Access-Control-Request-Method" => "GET",
 		},
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
+			"Access-Control-Allow-Credentials" => "true",
+			"Vary" => "Origin",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "none",
+	},
+	{
+		test_case => 'get-facet-editor-credentials',
+		method => 'GET',
+		path => '/facets/editors/alice.json',
+		expected_status_code => 200,
+		headers => {
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
+			"Access-Control-Allow-Credentials" => "true",
+			"Vary" => "Origin",
 		},
 		expected_type => "none",
 	},

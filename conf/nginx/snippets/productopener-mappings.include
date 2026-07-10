@@ -76,7 +76,9 @@ map $po_request_uri $allow_credentials_uri {
     /cgi/auth.pl "true";
     /cgi/product_image_move.pl "true";
     ~^/api/.*/current-user "true";
+    ~^/facets/ "true";    # allow logged-in requests to facet pages (e.g. user contribution stats)
 }
+
 
 # compile credentials allowed based on origin and uri
 map "$allow_credentials_origin:$allow_credentials_uri" $allow_credentials {
