@@ -59058,26 +59058,19 @@ carbon_footprint_fr_foodges_ingredient:fr: Radis de saison
 carbon_footprint_fr_foodges_value:fr: 0.6
 #carbon_footprint_fr_foodges_ingredient:fr:Radis serre chauffée
 #carbon_footprint_fr_foodges_value:fr:8.4
-ciqual_proxy_food_code:en: 20045
-ciqual_proxy_food_name:en: Radish, raw
-ciqual_proxy_food_name:fr: Radis rouge, cru
+ciqual_food_code:en: 20045
+ciqual_food_name:en: Radish, raw
+ciqual_food_name:fr: Radis rouge, cru
 ecobalyse:en: radish-organic
 eurocode_2_group_3:en: 8.38.50
-usda_ndb_proxy_code:en: 11429
-usda_ndb_proxy_name:en: Radishes, raw
+usda_ndb_code:en: 11429
+usda_ndb_name:en: Radishes, raw
 wikidata:en: Q7224565
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
 
-< en: radish
-en: raw radish
-ciqual_food_code:en: 20045
-ciqual_food_name:en: Radish, raw
-ciqual_food_name:fr: Radis rouge, cru
-usda_ndb_code:en: 11429
-usda_ndb_name:en: Radishes, raw
 
 < en: radish
 en: Black radish
@@ -59102,6 +59095,11 @@ pl: rzodkiew czerwona, czerwona rzodkiew, czerwonej rzodkwi
 ciqual_food_code:en: 20045
 ciqual_food_name:en: Radish, raw
 ciqual_food_name:fr: Radis rouge, cru
+
+< en: radish
+en: white icicle radishe
+usda_ndb_code:en: 11637
+usda_ndb_name:en: Radishes, white icicle, raw
 
 # <en:radish
 # fr:Radis de saison
@@ -60967,22 +60965,25 @@ et: kaalikas
 fi: lanttu
 fr: rutabaga
 hr: rutabaga
-it: rutabaga
+radit: rutabaga
 nb: kålrot
 sv: kålrot
 ciqual_food_code:en: 20201
 ciqual_food_name:en: Rutabaga or Swede, raw
 ciqual_food_name:fr: Rutabaga, cru
+ciqual_food_code:en: 20165
+ciqual_food_2_name:en: Rutabaga or Swede, cooked
+ciqual_food_2_name:fr: Rutabaga, cuit
+ciqual_food_2_process:en: en:cooked
 eurocode_2_group_3:en: 8.38.42
+usda_ndb_code:en: 11435
+usda_ndb_name:en: Rutabagas, raw
 wikidata:en: Q104733765
 
 < en: rutabaga
 en: Cooked rutabaga, Cooked swede
 fr: Rutabaga cuit
 it: rapa svedese cotta
-ciqual_food_code:en: 20165
-ciqual_food_name:en: Rutabaga or Swede, cooked
-ciqual_food_name:fr: Rutabaga, cuit
 
 < en: root vegetable
 < en: taproot vegetable
