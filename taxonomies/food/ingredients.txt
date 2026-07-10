@@ -76915,17 +76915,18 @@ it: saccarina japonica
 la: Saccharina japonica, Laminaria Japonica
 wikipedia:en: https://en.wikipedia.org/wiki/Saccharina_japonica
 
-
-# "laver" on its own (vs "green laver") seems to refer to any species in the Porphyra genus.
-
 < en: seaweed
 en: laver
-de: laver
-it: porphyra (alga nori)
+de: Laver
+it: porphyra
+description:en: Laver is a type of edible seaweed — specifically a red algae from the genus Porphyra (and related species like Pyropia). It grows on rocks in intertidal zones along coastlines, particularly in the UK, Ireland, Japan, Korea, and other coastal regions. It has a savory, briny, slightly mineral taste — often described as umami-rich, similar to other seaweeds.
+ciqual_food_code:en: 20987
+ciqual_food_name:en: Laver (Porphyra sp.), dried or dehydrated
+ciqual_food_name:fr: Nori (Porphyra sp.), séchée ou déshydratée
+usda_ndb_code:en: 11446
+usda_ndb_name:en: Seaweed, laver, raw
 
-# en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
-
-< en: seaweed
+< en: laver
 en: nori, nori seaweed
 ar: نوري
 az: Nori
@@ -76973,20 +76974,19 @@ uk: Норі
 ur: نوری
 vi: Nori
 zh: 海苔
-# ingredient/fr:nori has 51 products in 4 languages @2019-02-22
-# ingredient/fr:porphyra-umbilical has 1 product @2019-02-22
-ciqual_food_code:en: 20987
-ciqual_food_name:en: Laver (Porphyra sp.), dried or dehydrated
-ciqual_food_name:fr: Nori (Porphyra sp.), séchée ou déshydratée
-eurocode_2_group_3:en: 8.55.30
 # cdo:Ciē-chái
 # nan:Nó͘-lih
 # pnb:نوری
 # wuu:紫菜
 # yue:紫菜
 # zh-hant:海苔
+comment:en: Laver nd nori are essentially the same organism prepared differently — the distinction is mostly about processing and tradition rather than the plant itself.
+description:en: Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
+eurocode_2_group_3:en: 8.55.30
 wikidata:en: Q201565
 wikipedia:en: https://en.wikipedia.org/wiki/Nori
+# ingredient/fr:nori has 51 products in 4 languages @2019-02-22
+# ingredient/fr:porphyra-umbilical has 1 product @2019-02-22
 
 
 < en: seaweed
