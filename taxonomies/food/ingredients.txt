@@ -61154,7 +61154,6 @@ en: Nelumbo
 xx: Nelumbo, Nelumbo Adans.
 pl: Lotos, lotosu
 
-# description:en:A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 
 < en: fruit vegetable
 en: pumpkin
@@ -61271,6 +61270,7 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 20139
 ciqual_proxy_food_name:en: Squash, all types, raw
 ciqual_proxy_food_name:fr: Courge, crue
+description:en: A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 ecobalyse:en: pumpkin-fr
 eurocode_2_group_3:en: 8.40.45
 usda_ndb_proxy_code:en: 11422
@@ -74017,6 +74017,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Corchorus_olitorius
 #                                Mate
 #
 ###################################################################################################
+
 < en: plant
 en: mate, yerba mate leaves, yerba mate
 af: Mate
@@ -74451,12 +74452,23 @@ hr: ononis spinosa, korijen zečjeg trna
 it: ononis spinosa
 wikidata:en: Q160102
 
+###################################################################################################
+#
+#                                Pumpkin flowers
+#
+###################################################################################################
+
+< en: plant
+en: pumpkin flower
+usda_ndb_code:en: 11416
+usda_ndb_name:en: Pumpkin flowers, raw
 
 ###################################################################################################
 #
 #                                Quinine
 #
 ###################################################################################################
+
 # description:en:Quinine was first isolated in 1820 from the bark of a cinchona tree. Quinine is a flavor component of tonic water and bitter lemon drink mixers.
 
 < en: plant
