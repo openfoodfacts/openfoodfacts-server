@@ -55453,8 +55453,6 @@ nl: voorgebakken ui in zonnebloemolie
 sv: lök brynt i solrosolja
 # ingredient/fr:oignon-préfrit-à-l'huile-de-tournesol has 44 products in 3 languages @2018-12-06
 
-# description:en:The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
-
 < en: onion-family vegetable
 < en: root vegetable
 en: shallot, shallots
@@ -55518,24 +55516,20 @@ zh: 火葱
 # zh-hk:火蔥
 # zh-sg:火葱
 # zh-tw:分蔥
-ciqual_food_proxy_code:en: 20097
-ciqual_food_proxy_name:en: Shallot, raw
-ciqual_food_proxy_name:fr: Échalote, crue
-ecobalyse:en: shallot-fr
-ecobalyse_labels_en_organic:en: shallot-organic
-eurocode_2_group_3:en: 8.30.20
-usda_ndb_proxy_code:en: 11677
-usda_ndb_proxy_name:en: Shallots, raw
-wikidata:en: Q193498
-wikipedia:en: https://en.wikipedia.org/wiki/Shallot
-
-< en: shallot
-en: raw shallot
 ciqual_food_code:en: 20097
 ciqual_food_name:en: Shallot, raw
 ciqual_food_name:fr: Échalote, crue
+description:en: The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
+ecobalyse:en: shallot-fr
+ecobalyse_labels_en_organic:en: shallot-organic
+eurocode_2_group_3:en: 8.30.20
 usda_ndb_code:en: 11677
 usda_ndb_name:en: Shallots, raw
+usda_ndb_2_code:en: 11640
+usda_ndb_2_name:en: Shallots, freeze-dried
+usda_ndb_2_process:en: en:freeze-dried
+wikidata:en: Q193498
+wikipedia:en: https://en.wikipedia.org/wiki/Shallot
 
 < en: shallot
 en: red shallot
