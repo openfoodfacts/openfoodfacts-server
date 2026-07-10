@@ -68112,6 +68112,7 @@ ru: пряности натуральные
 #                                Herbs (general)
 #
 ###################################################################################################
+
 en: herb, mixed herbs, aromatic plants
 bg: билка, билки
 bs: aromatično bilje
@@ -72521,6 +72522,7 @@ usda_ndb_name:en: Spices, marjoram, dried
 #                                Herbs de provence (herb mix)
 #
 ###################################################################################################
+
 < en: herb
 en: herbes de Provence
 ca: herbes de Provença, herbes provençals
@@ -73686,6 +73688,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tilia
 #                                Maca
 #
 ###################################################################################################
+
 < en: plant
 en: maca
 xx: maca
@@ -73732,6 +73735,7 @@ uk: Мака перуанська
 #                                Ginseng
 #
 ###################################################################################################
+
 < en: plant
 en: ginseng
 xx: ginseng
@@ -75024,6 +75028,24 @@ es: concentrado de cártamo con efecto colorante
 #de:steviablätter
 #hr:stevia list
 #comment:en:stevia can be found in the file additives.txt under E960
+
+###################################################################################################
+#
+#                                Sesbania flower
+#
+###################################################################################################
+
+< en: plant
+en: sesbania flower
+description:en: The flowers come from Sesbania grandiflora, a fast-growing tropical tree also called the vegetable hummingbird, hummingbird tree, or agati. It's a popular edible flower across South and Southeast Asian cuisines. Before cooking, the bitter stamens and pistil inside each flower are usually pinched out, leaving the sweeter petals. They taste mildly sweet and slightly bitter, with a delicate, slightly crunchy texture once cooked.
+usda_ndb_code:en: 11447
+usda_ndb_name:en: Sesbania flower, raw
+
+###################################################################################################
+#
+#                                Sunflower
+#
+###################################################################################################
 
 # description:en:Helianthus or SUNFLOWER (/ˌhiːliˈænθəs/)[2] is a genus of plants comprising about 70 species
 # en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
