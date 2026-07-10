@@ -58070,13 +58070,6 @@ ciqual_food_name:fr: Cardon, cru
 usda_ndb_code:en: 11122
 usda_ndb_name:en: Cardoon, raw
 
-# en:Daikon cress
-# de:Daikonkresse
-# es:daikor cress
-# fr:pousse de daikon
-# nl:daikon cress
-# ingredient/daikon-cress has no products @2019-05-15
-
 < en: vegetable
 en: aloe vera
 xx: aloe vera
@@ -59130,6 +59123,17 @@ usda_ndb_2_code:en: 11432
 usda_ndb_2_name:en: Radishes, oriental, dried
 usda_ndb_2_process:en: en: dried
 
+< en: radish
+en: sprouted radish seed
+usda_ndb_code:en: 11676
+usda_ndb_name:en: Radish seeds, sprouted, raw
+
+# en:Daikon cress
+# de:Daikonkresse
+# es:daikor cress
+# fr:pousse de daikon
+# nl:daikon cress
+# ingredient/daikon-cress has no products @2019-05-15
 
 < en: root vegetable
 en: lotus root
