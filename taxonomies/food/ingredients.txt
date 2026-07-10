@@ -59721,19 +59721,6 @@ ur: مرچ
 vi: Ớt
 wo: kaani
 zh: 辣椒
-carbon_footprint_fr_foodges_ingredient:fr: Piment et poivre sec
-carbon_footprint_fr_foodges_value:fr: 3.4
-# ingredient/chili-pepper 29007 in 39 @2021-08-22
-ciqual_food_code:en: 20151
-ciqual_food_name:en: Chili pepper, raw
-ciqual_food_name:fr: Piment, cru
-# description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
-description:es: El chile, ají o guindilla, es una variedad de pimiento picante. Es el fruto (baya) de diversas especies de plantas del género Capsicum.
-description:fr: Le terme piment (vert, jaune, orange, rouge, brun, pêche ou violet) est un nom vernaculaire désignant le fruit de cinq espèces de plantes du genre Capsicum de la famille des Solanacées.
-description:it: Il peperoncino è il nome comune dato alla bacca ottenuta da alcune varietà piccanti del genere di piante Capsicum utilizzata principalmente come condimento.
-description:nl: Chilipeper is de Nederlandse naam die gebruikt wordt om vruchten van het geslacht Capsicum van de nachtschadefamilie aan te duiden.
-description:pt: A "Pimenta Chili" é o nome comum dado à baga obtida a partir de algumas variedades picante do gênero vegetal "Capsicum'" e utilizada como tempero.
-eurocode_2_group_3:en: 8.40.25
 # ace:Campli
 # bcl:sili
 # bjn:Lombok
@@ -59753,15 +59740,24 @@ eurocode_2_group_3:en: 8.40.25
 # war:Harang
 # xmf:ზაფანა
 # yue:辣椒
+carbon_footprint_fr_foodges_ingredient:fr: Piment et poivre sec
+carbon_footprint_fr_foodges_value:fr: 3.4
+ciqual_food_code:en: 20151
+ciqual_food_name:en: Chili pepper, raw
+ciqual_food_name:fr: Piment, cru
+# description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
+description:es: El chile, ají o guindilla, es una variedad de pimiento picante. Es el fruto (baya) de diversas especies de plantas del género Capsicum.
+description:fr: Le terme piment (vert, jaune, orange, rouge, brun, pêche ou violet) est un nom vernaculaire désignant le fruit de cinq espèces de plantes du genre Capsicum de la famille des Solanacées.
+description:it: Il peperoncino è il nome comune dato alla bacca ottenuta da alcune varietà piccanti del genere di piante Capsicum utilizzata principalmente come condimento.
+description:nl: Chilipeper is de Nederlandse naam die gebruikt wordt om vruchten van het geslacht Capsicum van de nachtschadefamilie aan te duiden.
+description:pt: A "Pimenta Chili" é o nome comum dado à baga obtida a partir de algumas variedades picante do gênero vegetal "Capsicum'" e utilizada como tempero.
+eurocode_2_group_3:en: 8.40.25
+usda_ndb_code:en: 11962
+usda_ndb_name:en: Peppers, hot chile, sun-dried
+usda_ndb_process:en: en:sun-dried
 wikidata:en: Q165199
 wikipedia:en: https://en.wikipedia.org/wiki/Chili_pepper
-
-#<en:chili pepper
-#en:raw chili pepper
-#fr:Piment cru
-#ciqual_food_code:en:20151
-#ciqual_food_name:en:Chili pepper, raw
-#ciqual_food_name:fr:Piment, cru
+# ingredient/chili-pepper 29007 in 39 @2021-08-22
 
 < en: chili pepper
 en: tabasco chile
@@ -59808,6 +59804,28 @@ sv: chilipasta
 #de:Chiliflocken, Chili-Flocken
 #fr:Flocons de piment
 #pl:płatki chili, chili grys
+
+< en: chili pepper
+en: hungarian peppers, Hungarian Wax pepper
+description:en: Hungarian peppers usually refers to a family of peppers most associated with Hungarian cuisine and paprika production. Tangy, slightly sweet, with a crisp bite — similar in style to a banana pepper but noticeably spicier.
+scoville:en: 5,000–15,000
+usda_ndb_code:en: 11981
+usda_ndb_name:en: Peppers, hungarian, raw
+
+< en: chili pepper
+en: serrano peppers
+description:en: Serrano peppers are a type of chili pepper originating from the mountainous regions of Puebla and Hidalgo in Mexico. They have a bright, crisp, and grassy with a clean heat — often described as sharper and more straightforward than jalapeño.
+scoville:en: 10,000–25,000
+usda_ndb_code:en: 11977
+usda_ndb_name:en: Peppers, serrano, raw
+
+< en: chili pepper
+en: pasilla peppers
+description:en: A Mexican chili. The fresh version of this pepper is actually called chilaca. Once dried, it becomes "pasilla" — long, slender, and dark brownish-black with a raisin-like, wrinkled texture. Rich, deep, and slightly fruity with notes of raisin, dried cherry, and mild chocolate/tobacco undertones — a favorite for building complex sauces.
+scoville:en: 1,000–2,500
+usda_ndb_code:en: 11982
+usda_ndb_name:en: Peppers, pasilla, dried
+usda_ndb_process:en: en:dried
 
 < en: chili pepper
 en: chili in vinegar
@@ -59951,6 +59969,10 @@ sv: jalapeñopeppar, jalapenopeppar, jalapeño peppar, jalapeno peppar, jalapeñ
 th: ฆาลาเปญโญ
 uk: халапеньйо
 zh: 墨西哥辣椒
+description:en: Jalapeño peppers are probably the most familiar chili in American and Mexican cooking — a good middle-ground pepper for both flavor and heat. The taste is grassy, slightly sweet, and vegetal with a clean, building heat.
+scoville:en: 2,500–8,000
+usda_ndb_code:en: 11979
+usda_ndb_name:en: Peppers, jalapeno, raw
 wikidata:en: Q504133
 wikipedia:en: https://en.wikipedia.org/wiki/Jalape%C3%B1o
 # ingredient/fr:piments-jalapeño has 104 products in 4 languages @2019-04-15
@@ -60042,16 +60064,11 @@ pl: ziele angielskie, ziela angielskiego
 ru: перец душистый, перец душистый молотый, душистый перец
 sv: kryddpeppar
 description:en: ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
-usda_ndb_proxy_code:en: 2001
-usda_ndb_proxy_name:en: Spices, allspice, ground
+usda_ndb_code:en: 2001
+usda_ndb_name:en: Spices, allspice, ground
 wikidata:en: Q158468
 wikipedia:en: https://en.wikipedia.org/wiki/Allspice
 # ingredient/fr:piment-de-la-jamaïque has 148 products in 5 languages @2019-04-15
-
-< en: allspice
-en: ground allspice
-usda_ndb_code:en: 2001
-usda_ndb_name:en: Spices, allspice, ground
 
 < en: chili pepper
 fr: piment Oiseau
@@ -63271,14 +63288,14 @@ it: pisello giallo
 ###################################################################################################
 
 < en: legume
-en: pigeon pea, red gram, pigeon peas
-usda_ndb_proxy_code:en: 16101
-usda_ndb_proxy_name:en: Pigeon peas (red gram), mature seeds, raw
-
-< en: pigeon pea
-en: raw mature pigeon pea
-usda_ndb_code:en: 16101
-usda_ndb_name:en: Pigeon peas (red gram), mature seeds, raw
+en: pigeon pea, red gram, pigeon peas, gandules, toor, arhar, gungo peas
+la: Cajanus cajan
+description:en: Pigeon peas (Cajanus cajan) differ quite a bit depending on whether they're picked green or left to dry on the plant. The green peas have a mild, slightly sweet flavor; the dried peas have Earthier, nuttier flavor — closer to lentils or other dried pulses
+usda_ndb_code:en: 11344
+usda_ndb_name:en: Pigeonpeas, immature seeds, raw
+usda_ndb_2_code:en: 16101
+usda_ndb_2_name:en: Pigeon peas (red gram), mature seeds, raw
+usda_ndb_2_process:en: en:dried
 
 ###################################################################################################
 #
