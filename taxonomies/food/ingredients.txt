@@ -56979,7 +56979,6 @@ en: frozen unprepared turnip green
 usda_ndb_code:en: 11574
 usda_ndb_name:en: Turnip greens, frozen, unprepared
 
-# description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
 
 < en: root vegetable
 < en: tuber
@@ -57080,11 +57079,6 @@ wo: pataas
 yi: זיס־קארטאפל
 za: Maenz
 zh: 番薯
-ciqual_food_code:en: 4101
-ciqual_food_name:en: Sweet potato, raw
-eurocode_2_group_3:en: 8.34.30
-# ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
-nutriscore_fruits_vegetables_nuts:en: no
 # ang:Swētu eorþperu
 # arz:بطاطا
 # azb:قرامافونچیچک باتات
@@ -57110,8 +57104,19 @@ nutriscore_fruits_vegetables_nuts:en: no
 # yue:番薯
 # zh-hant:番薯
 # zh-tw
+ciqual_food_code:en: 4101
+ciqual_food_name:en: Sweet potato, raw
+description:en: A sweet potato is a starchy root vegetable. It grows underground as a swollen root, It's skin can be orange, purple, white, or reddish; flesh is often orange, but also comes in white or purple. It has a naturally sweet flavor, especially when roasted or baked. It is rich in beta-carotene (converts to vitamin A) and a good source of fiber, vitamin C, potassium, and manganese, and has complex carbohydrates, so it digests more slowly than many other starches
+eurocode_2_group_3:en: 8.34.30
+nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_code:en: 11507
+usda_ndb_name:en: Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)
+usda_ndb_2_code:en: 11516
+usda_ndb_2_name:en: Sweet potato, frozen, unprepared (Includes foods for USDA's Food Distribution Program)
+usda_ndb_2_process:en: en:forzen
 wikidata:en: Q37937
 wikipedia:en: https://en.wikipedia.org/wiki/Sweet_potato
+# ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
 
 en: Cooked sweet potato
 it: patata dolce cotta
