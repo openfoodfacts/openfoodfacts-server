@@ -59071,23 +59071,22 @@ wikipedia:en: https://en.wikipedia.org/wiki/Radish
 # category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
 
-
 < en: radish
-en: Black radish
+en: black radish
 bg: черна ряпа
 de: Schwarzer Winter-Rettich
-fr: Radis noir, radis d'Espagne
+fr: radis noir, radis d'Espagne
 hr: crna rotkva
 it: ravanello nero
-nl: Rammenas
+nl: rammenas
 pl: rzodkiew czarna
 ciqual_food_code:en: 20089
 ciqual_food_name:en: Radish, black, raw
 ciqual_food_name:fr: Radis noir, cru
 
 < en: radish
-en: Red radish
-fr: Radis rouge
+en: red radish
+fr: radis rouge
 hr: crvena rotkva, crvena rotkvica
 it: ravanello rosso
 ja: ラディッシュ
@@ -59097,7 +59096,8 @@ ciqual_food_name:en: Radish, raw
 ciqual_food_name:fr: Radis rouge, cru
 
 < en: radish
-en: white icicle radishe
+en: white icicle radish
+description:en: White Icicle radish is a heirloom radish variety, notable for its long, slender white root. Milder and less peppery-hot than round red radishes, with a crisp, juicy bite.
 usda_ndb_code:en: 11637
 usda_ndb_name:en: Radishes, white icicle, raw
 
@@ -59113,7 +59113,7 @@ it: germogli di ravanello
 pl: kiełki rzodkiewki
 
 < en: radish
-en: daikon, white radish, winter radish, Oriental radish, long white radish
+en: daikon, white radish, winter radish, oriental radish, long white radish
 bg: бяла ряпа
 ca: rave blanc
 de: Winterrettich
@@ -59124,6 +59124,11 @@ it: ravanello bianco
 ja: ダイコン, 大根, だいこん
 nl: witte rammenas
 pl: biała rzodkiew, białej rzodkwi, rzodkiew biała
+usda_ndb_code:en: 11430
+usda_ndb_name:en: Radishes, oriental, raw
+usda_ndb_2_code:en: 11432
+usda_ndb_2_name:en: Radishes, oriental, dried
+usda_ndb_2_process:en: en: dried
 
 
 < en: root vegetable
@@ -59156,14 +59161,9 @@ ja: オクラ
 nl: okra
 pt: Quiabo
 eurocode_2_group_3:en: 8.45.60
-usda_ndb_proxy_code:en: 11278
-usda_ndb_proxy_name:en: Okra, raw
-wikidata:en: Q12047207
-
-< en: okra
-en: raw okra
 usda_ndb_code:en: 11278
 usda_ndb_name:en: Okra, raw
+wikidata:en: Q12047207
 
 # description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
 # comment:en:in english salad seems to refer more to the group of dishes than the group of plants.
