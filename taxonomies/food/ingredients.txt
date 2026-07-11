@@ -55128,15 +55128,17 @@ uk: зелена цибуля
 uz: ko'k piyoz
 vi: hành lá
 zh: 青蔥
+# arz:بصل اخضر
+# sco:sybae
 ciqual_food_code:en: 11003
 ciqual_food_name:en: Chive or spring onion, fresh
 ciqual_food_name:fr: Ciboule ou Ciboulette, fraîche
-# 3011 @2021-10-20
 eurocode_2_group_3:en: 8.30.15
-# arz:بصل اخضر
-# sco:sybae
+usda_ndb_code:en: 11291
+usda_ndb_name:en: Onions, spring or scallions (includes tops and bulb), raw
 wikidata:en: Q774278
 wikipedia:en: https://en.wikipedia.org/wiki/Scallion
+# 3011 @2021-10-20
 
 < en: onion
 en: onion sproute
@@ -55321,6 +55323,12 @@ ru: лук свежий
 en: young green onion tops
 usda_ndb_code:en: 11292
 usda_ndb_name:en: Onions, young green, tops only
+
+< en: onion
+en: sweet onion
+comment:en: NDB number 11294 used as a general "sweet onion" category — it's also commonly cited as the stand-in nutrition data for Vidalia onions specifically, since Vidalia is considered a brand/regional name rather than a distinct variety with its own USDA entry 
+usda_ndb_code:en: 11294
+usda_ndb_name:en: Onions, sweet, raw
 
 < en: onion
 fr: jus d'oignon concentré, jus concentré d'oignon, jus concentré d'oignons
