@@ -58860,9 +58860,6 @@ sr: miluk
 wikidata:en: Q162153
 wikipedia:en: https://en.wikipedia.org/wiki/Asclepias
 
-
-# description:en:The PARSNIP (Pastinaca sativa) is a root vegetable closely related to the carrot and parsley.
-
 < en: root vegetable
 < en: taproot vegetable
 en: parsnip
@@ -58924,11 +58921,6 @@ ur: شقاقل
 vi: Củ cải vàng
 wa: Pastinåke
 zh: 欧防风
-ciqual_food_code:en: 20181
-ciqual_food_name:en: Parsnip, raw
-ciqual_food_name:fr: Panais, cru
-# ingredient/fr:panais has 372 products in 5 languages @2018-12-4
-eurocode_2_group_3:en: 8.38.34
 # be-tarask:Пастарнак
 # csb:pasternôk
 # pcd:Pasternache
@@ -58942,8 +58934,16 @@ eurocode_2_group_3:en: 8.38.34
 # zh-hk:歐防風
 # zh-sg:欧防风
 # zh-tw:歐防風
+ciqual_food_code:en: 20181
+ciqual_food_name:en: Parsnip, raw
+ciqual_food_name:fr: Panais, cru
+description:en: The PARSNIP (Pastinaca sativa) is a root vegetable closely related to the carrot and parsley.
+eurocode_2_group_3:en: 8.38.34
+usda_ndb_code:en: 11298
+usda_ndb_name:en: Parsnips, raw
 wikidata:en: Q104413481
 wikipedia:en: https://en.wikipedia.org/wiki/Parsnip
+# ingredient/fr:panais has 372 products in 5 languages @2018-12-4
 
 < en: parsnip
 en: Cooked parsnip
