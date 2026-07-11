@@ -52805,50 +52805,30 @@ zh: 香芹
 # vls:perselle
 # xmf:მაკინდოლი
 # yue:番茜
-ciqual_proxy_food_code:en: 11014
-ciqual_proxy_food_name:en: Parsley, fresh
-ciqual_proxy_food_name:fr: Persil, frais
+ciqual_food_code:en: 11014
+ciqual_food_name:en: Parsley, fresh
+ciqual_food_name:fr: Persil, frais
 description:en: PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
 eurocode_2_group_2:en: 8.10
 eurocode_2_group_3:en: 8.10.60
 ifct_food_code:en: C028
 ifct_food_name:en: Parsley
-usda_ndb_proxy_code:en: 11297
-usda_ndb_proxy_name:en: Parsley, fresh
+usda_ndb_code:en: 11297
+usda_ndb_name:en: Parsley, fresh
+usda_ndb_2_code:en: 11625
+usda_ndb_2_name:en: Parsley, freeze-dried
+usda_ndb_2_process:en: en:freeze-dried
+usda_ndb_3_code:en: 2029
+usda_ndb_3_name:en: Spices, parsley, dried
+usda_ndb_3_name:en: en:dried
 wikidata:en: q65522500
 # plant: wikidata:en:q25284
 wikipedia:en: https://en.wikipedia.org/wiki/parsley
 # en:22363 in 51 @2021-09-16
 
 < en: parsley
-en: fresh parsley
-bg: свеж магданоз
-fr: persil frais
-hr: svježi peršin
-it: prezzemolo fresco
-ciqual_food_code:en: 11014
-ciqual_food_name:en: Parsley, fresh
-ciqual_food_name:fr: Persil, frais
-usda_ndb_code:en: 11297
-usda_ndb_name:en: Parsley, fresh
-
-< en: parsley
 en: flatleaf parsley
 it: prezzemolo a foglia piatta
-
-#processing:en: en:dehydrated
-< en: parsley
-en: dehydrated parsley
-de: Petersilie getrocknet
-es: perejil deshidratado
-fi: kuivattu persilja
-fr: persil déshydraté, persil séché
-it: prezzemolo essiccato
-nl: gedehydrateerde peterselie
-ru: зелень петрушки сушёная
-usda_ndb_code:en: 2029
-usda_ndb_name:en: Spices, parsley, dried
-# fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
 
 #processing:en: en:leaf
 #<en:parsley
