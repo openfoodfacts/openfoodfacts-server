@@ -63664,10 +63664,19 @@ en: garden peas flour
 < en: garden peas
 de: Junge Erbsen mit Möhren
 
-# description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
-
 < en: pea
-en: snow pea, mangetout, snow peas, Snap pea, sugar snap peas
+en: edible-podded pea
+description:en: The edible-podded pea (Pisum sativum var. saccharatum) are a variety of pea eaten whole in its pod while still unripe.
+ciqual_food_code:en: 20173
+ciqual_food_name:en: Snow pea, raw
+ciqual_food_name:fr: Pois mange-tout ou pois gourmand, cru
+usda_ndb_code:en: 11300
+usda_ndb_name:en: Peas, edible-podded, raw
+vegan:en: yes
+vegetarian:en: yes
+
+< en: edible-podded pea
+en: snow pea, mangetout, snow peas
 ca: tirabec
 da: sukkerært
 de: Kefen, Zuckerschoten, Zuckererbse
@@ -63675,32 +63684,41 @@ el: γλυκομπίζελα, ζαχαρομπίζελο
 eo: sukerpizo
 es: guisante mollar, guisante azucarado
 fi: sokeriherne
-fr: pois mange-tout, pois croquants, pois gourmand, Pois sucré
+fr: pois mange-tout 
 gl: tirabeque
 hr: snježni grašak
 id: kapri
 it: taccole
-ja: スナップエンドウ
+ja: 絹さや, kinusaya
 ko: 백설콩
 la: Pisum sativum var. saccharatum
-lt: cukriniai žirniai
-lv: cukurzirņi
 nl: peultje, peultjes
 sk: hrach siaty cukrový
 su: kapri
-sv: sockerärt
 tr: sultani bezelye
 carbon_footprint_fr_foodges_ingredient:fr: Pois d'hiver frais
 carbon_footprint_fr_foodges_value:fr: 1.7
-ciqual_food_code:en: 20173
-ciqual_food_name:en: Snow pea, raw
-ciqual_food_name:fr: Pois mange-tout ou pois gourmand, cru
-# 202 @2021-10-05
-vegan:en: yes
-vegetarian:en: yes
+description:en: Snow peas (mangetout) — flat pods with small, barely-developed seeds inside
 wikidata:en: Q67210631
 wikipedia:en: https://en.wikipedia.org/wiki/Snow_pea
 
+< en: edible-podded pea
+en: sugar snap peas
+de: Knackerbse
+eo: sukerpizo
+es: guisante azucarado
+fi: sokeriherne
+fr: pois gourmand, pois croquant, pois sucré
+ja: スナップエンドウ
+ko: 슈가스냅완두, 스냅완두
+la: Pisum sativum var. saccharatum
+lt: cukriniai žirniai
+lv: cukurzirņi
+sk: hrach siaty cukrový
+sv: sockerärt
+carbon_footprint_fr_foodges_ingredient:fr: Pois d'hiver frais
+carbon_footprint_fr_foodges_value:fr: 1.7
+description:en: Sugar snap peas — plumper, rounder pods (than mangetout) with full-size seeds, but the pod stays tender and edible
 
 
 # < en:pea
