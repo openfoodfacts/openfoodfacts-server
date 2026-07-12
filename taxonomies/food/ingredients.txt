@@ -52000,6 +52000,7 @@ sv: röd mangold
 
 < en: leaf vegetable
 en: mustard greens
+la: Brassica juncea
 description:en: Mustard greens are the leafy tops of the mustard plant (Brassica juncea), and they're a true member of the mustard family — grown specifically for their peppery, pungent leaves rather than for seeds or oil (though the same plant family produces mustard seeds too). Mustard greens have a distinctly sharp, spicy, peppery bite — similar to the kick you get from horseradish, wasabi, or arugula, but more pronounced. Cooking mellows the heat somewhat, but they still have more punch than almost any other leafy green.
 usda_ndb_code:en: 11270
 usda_ndb_name:en: Mustard greens, raw
@@ -77609,13 +77610,15 @@ wikidata:en: Q752497
 
 < en: mushroom
 en: cultivated mushroom
+de: Zuchtchampignons, Zucht-Champignons
 es: seta cultivada, setas cultivadas, setas frescas cultivadas
 fr: champignon cultivé, champignons cultivés
 hr: uzgojena gljiva
+nl: gekweekte paddestoelen
 eurocode_2_group_3:en: 8.50.10
 
 < en: cultivated mushroom
-en: champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, cup mushroom
+en: champignon, cultivated mushrooms, cup mushroom
 af: Sampioen
 ar: غاريقون ثنائي البوغ
 bg: култивирана печурка, печурки, гъби Печурка
@@ -77633,25 +77636,25 @@ fr: champignon de Paris, champignons de Paris, Agaricus bisporus
 gl: Champiñón común
 he: פקועה דו-נבגית
 hi: श्वेत बटन खुम्ब
-hr: agaricus bisporus, gljive, gljive šampinjoni, šampinjoni
+hr: gljive, gljive šampinjoni, šampinjoni, bijela gljiva
 hu: Kétspórás csiperke
 hy: Շամպինյոն
 ia: Champignon commun
 id: Jamur kancing
 io: Champiniono
 is: Matkempingur
-it: champignon, funghi champignon, Agaricus bisporus
+it: champignon, funghi champignon, fungo bianco
 ja: マッシュルーム
 ko: 양송이
-la: Agaricus bisporus
+la: Agaricus bisporus, agaricus brunnescens
 li: Champignon
 lt: Dvisporis pievagrybis
 lv: Dārza atmatene
 mn: Цагаан мөөг
 ms: Cendawan butang
 nb: Sjampinjong
-nl: Parijse champignons, champignons, champignon
-pl: pieczarki, Pieczarka dwuzarodnikowa, pieczarka, pieczarek, pieczarkowy, pieczarkowa, pieczarkowe
+nl: champignons, champignon, Parijse champignons
+pl: pieczarki, Pieczarka dwuzarodnikowa, pieczarka, pieczarek, pieczarkowy, pieczarkowa, pieczarkowe, białe pieczarki, pieczarki białe, pieczarka biała
 pt: cogumelos-de-Paris, Champignon
 qu: Champiñun
 ro: ciuperci champignon
@@ -77661,36 +77664,46 @@ sv: Portabello, champinjon, champinjoner, vit champinjon, vita champinjoner, cha
 ta: அகாரிகஸ் பைஸ்போரஸ்
 uk: Печериця садова
 zh: 雙孢蘑菇
-# fr:champignons de Paris has 857 products in 9 languages @2018-11-01
+# cbk:Ligbos
+# lfn:Xampinion
+# yue:大啡菇
 carbon_footprint_fr_foodges_ingredient:fr: Champignons de Paris
 carbon_footprint_fr_foodges_value:fr: 1.9
 ciqual_food_code:en: 20056
 ciqual_food_name:en: Button mushroom or cultivated mushroom, raw
 description:en: AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
-# cbk:Ligbos
-# lfn:Xampinion
-# yue:大啡菇
+usda_ndb_code:en: 11260
+usda_ndb_name:en: Mushrooms, white, raw
 wikidata:en: Q227690
 wikipedia:en: https://en.wikipedia.org/wiki/Agaricus_bisporus
+# fr:champignons de Paris has 857 products in 9 languages @2018-11-01
+
+#process
+#< en: champignon
+#fr: champignons de Paris émincés
 
 < en: champignon
-fr: champignons de Paris émincés
+en: portobello
+xx: portobello
+de: Portobello-Pilze
+pl: portobello, pieczarki portobello
+description:en: Agaricus bisporus is a single species that's sold under several names depending on maturity and color strain: white button mushrooms (young, white variety), crimini/baby bella (young, brown variety), and portobello (mature, brown variety, large cap). So "white mushrooms" specifically denotes the white cultivar picked at an early stage.
 
 < en: champignon
-en: white mushroom, white mushrooms
+en: button mushroom, white mushroom, white mushrooms
+description:en: Button mushroom and white mushroom both refer to young Agaricus bisporus, harvested early before the cap opens up. "Button" describes the shape/size (small, round, unopened cap), while "white" describes the color strain.
+
+< en: champignon
 fr: champignon blanc de Paris, Champignons blancs de Paris
-hr: bijela gljiva
-it: fungo bianco
-pl: białe pieczarki, pieczarki białe, pieczarka biała
+comment:en: is this a specific variety grown close to Paris?
 
 # the brown mushroom, not to be confused with Pholiota adiposa.
 < en: champignon
-en: chestnut mushroom, chestnut mushrooms
+en: brown mushroom, brown mushrooms
 de: braune Champignons, Champignons braun, braune Egerlinge
 fr: champignon brun, champignons bruns
 hr: kesten gljiva
-it: fungo Castagna
-nl: kastanjechampignon, kastanjechampignons, bruine champignon
+nl: bruine champignon
 pl: brązowe pieczarki, pieczarki brązowe, pieczarka brązowa
 
 < en: mushroom
@@ -77712,7 +77725,7 @@ fr: Craterelle
 pl: Lejkowiec
 wikidata:en: Q2097845
 
-# description:en:HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
+# description:en: HORN OF PLENTY, is an edible mushroom. This fungus is found in woods in North America, Europe, Japan and Korea.
 
 < en: Craterellus
 en: horn of plenty
@@ -78015,11 +78028,8 @@ zh: 美味羊肚菌
 la: Morchella esculenta
 wikipedia:en: https://en.wikipedia.org/wiki/Morchella_esculenta
 
-
-# description:en:PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae.
-
 < en: mushroom
-en: pholiota
+en: chestnut mushroom, pholiota, chestnut mushrooms
 be: Лускаўніца
 cs: šupinovka
 de: Schüpplinge
@@ -78028,8 +78038,9 @@ fi: helokka, helokat
 fr: pholiote, pholiotes
 hr: foliota
 hy: Բոցասնկեր
-it: Pholiota
+it: fungo Castagna, Pholiota
 ja: スギタケ属
+la: Pholiota adiposa
 lt: Skujagalvė
 mk: лушпарка
 pl: Łuskwiak
@@ -78038,18 +78049,10 @@ sv: Tofsskivlingar
 zh: 鱗傘屬
 # zh-cn:鳞伞属
 # zh-hans:鳞伞属
+description:en: The mushroom commonly sold as "chestnut mushroom" is typically Pholiota adiposa (sometimes marketed varieties are hybrids/cultivars developed for the table), native to East Asia and popularized by Japanese cultivators.
 wikipedia:en: https://en.wikipedia.org/wiki/Pholiota
 # ingredient/fr:pholiotes has 69 products in french @2019-01-22
 
-< en: mushroom
-en: portobello
-de: Zuchtchampignons, Zucht-Champignons, Portobello-Pilze
-es: portobello
-fr: Portobello
-hr: portobello
-it: portobello
-la: agaricus brunnescens
-pl: portobello, pieczarki portobello
 
 # description:en:Pholiota microspora, commonly known as Pholiota nameko or shortly nameko (ナメコ), is a small, amber-brown mushroom with a slightly gelatinous coating
 
