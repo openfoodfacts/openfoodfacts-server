@@ -52391,7 +52391,7 @@ usda_ndb_name:en: Sweet potato leaves, raw
 
 < en: leaf vegetable
 en: taro leaves
-description:en: Across the Pacific and Caribbean, taro leaves show up in dishes like callaloo, and in parts of Asia and Africa they're simmered in coconut-based curries or soups. Raw taro leaves are toxic due to calcium oxalate crystals, so they need thorough cooking 
+description:en: Across the Pacific and Caribbean, taro leaves show up in dishes like callaloo, and in parts of Asia and Africa they're simmered in coconut-based curries or soups. Raw taro leaves are toxic due to calcium oxalate crystals, so they need thorough cooking.
 usda_ndb_code:en: 11520
 usda_ndb_name:en: Taro leaves, raw
 
@@ -52813,14 +52813,14 @@ eurocode_2_group_2:en: 8.10
 eurocode_2_group_3:en: 8.10.60
 ifct_food_code:en: C028
 ifct_food_name:en: Parsley
-usda_ndb_code:en: 11297
-usda_ndb_name:en: Parsley, fresh
 usda_ndb_2_code:en: 11625
 usda_ndb_2_name:en: Parsley, freeze-dried
 usda_ndb_2_process:en: en:freeze-dried
 usda_ndb_3_code:en: 2029
 usda_ndb_3_name:en: Spices, parsley, dried
-usda_ndb_3_name:en: en:dried
+usda_ndb_3_process:en: en:dried
+usda_ndb_code:en: 11297
+usda_ndb_name:en: Parsley, fresh
 wikidata:en: q65522500
 # plant: wikidata:en:q25284
 wikipedia:en: https://en.wikipedia.org/wiki/parsley
@@ -55326,7 +55326,7 @@ usda_ndb_name:en: Onions, young green, tops only
 
 < en: onion
 en: sweet onion
-comment:en: NDB number 11294 used as a general "sweet onion" category — it's also commonly cited as the stand-in nutrition data for Vidalia onions specifically, since Vidalia is considered a brand/regional name rather than a distinct variety with its own USDA entry 
+comment:en: NDB number 11294 used as a general "sweet onion" category — it's also commonly cited as the stand-in nutrition data for Vidalia onions specifically, since Vidalia is considered a brand/regional name rather than a distinct variety with its own USDA entry.
 usda_ndb_code:en: 11294
 usda_ndb_name:en: Onions, sweet, raw
 
@@ -55542,11 +55542,11 @@ description:en: The SHALLOT is a type of onion, specifically a botanical variety
 ecobalyse:en: shallot-fr
 ecobalyse_labels_en_organic:en: shallot-organic
 eurocode_2_group_3:en: 8.30.20
-usda_ndb_code:en: 11677
-usda_ndb_name:en: Shallots, raw
 usda_ndb_2_code:en: 11640
 usda_ndb_2_name:en: Shallots, freeze-dried
 usda_ndb_2_process:en: en:freeze-dried
+usda_ndb_code:en: 11677
+usda_ndb_name:en: Shallots, raw
 wikidata:en: Q193498
 wikipedia:en: https://en.wikipedia.org/wiki/Shallot
 
@@ -56886,7 +56886,6 @@ ciqual_food_name:fr: Salsifis noir, cru
 ciqual_food_code:en: 20046
 ciqual_food_2_name:en: Salsify, cooked
 ciqual_food_2_name:fr: Salsifis, cuit
-ciqual_food_2_name:fr: Salsifis, cuit
 ciqual_food_2_process:en: en:cooked
 # ingredient/fr:salsifis has 58 products in 5 languages @2019-04-05
 eurocode_2_group_3:en: 8.38.20
@@ -56903,7 +56902,7 @@ it: concentrato di succo di scorzonera
 < en: root vegetable
 en: vegetable oyster
 la: Tragopogon porrifolius
-comment:en: Could there be confusion with the name salsify? 
+comment:en: Could there be confusion with the name salsify?
 description:en: Root has pale tan or beige skin, with white flesh. Native to the Mediterranean; naturalized widely, including in North America, with the classic "oyster-like" flavor that gave it its common name.
 usda_ndb_code:en: 11437
 usda_ndb_name:en: Salsify, (vegetable oyster), raw
@@ -56966,8 +56965,8 @@ fr: céleri rave râpé
 < en: celeriac
 fr: jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
 
-< en: taro
 < en: root vegetable
+< en: taro
 en: taro tuber
 fr: Tubercule de taro
 it: tubero di taro
@@ -56976,7 +56975,7 @@ ciqual_food_name:en: Taro, tuber, raw
 ciqual_food_name:fr: Taro, tubercule, cru
 wikidata:en: Q1771944
 
-< en:root vegetable
+< en: root vegetable
 en: turnip green
 usda_ndb_proxy_code:en: 11568
 usda_ndb_proxy_name:en: Turnip greens, raw
@@ -57116,11 +57115,11 @@ ciqual_food_name:en: Sweet potato, raw
 description:en: A sweet potato is a starchy root vegetable. It grows underground as a swollen root, It's skin can be orange, purple, white, or reddish; flesh is often orange, but also comes in white or purple. It has a naturally sweet flavor, especially when roasted or baked. It is rich in beta-carotene (converts to vitamin A) and a good source of fiber, vitamin C, potassium, and manganese, and has complex carbohydrates, so it digests more slowly than many other starches
 eurocode_2_group_3:en: 8.34.30
 nutriscore_fruits_vegetables_nuts:en: no
-usda_ndb_code:en: 11507
-usda_ndb_name:en: Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)
 usda_ndb_2_code:en: 11516
 usda_ndb_2_name:en: Sweet potato, frozen, unprepared (Includes foods for USDA's Food Distribution Program)
-usda_ndb_2_process:en: en:forzen
+usda_ndb_2_process:en: en:frozen
+usda_ndb_code:en: 11507
+usda_ndb_name:en: Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q37937
 wikipedia:en: https://en.wikipedia.org/wiki/Sweet_potato
 # ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
@@ -59143,11 +59142,11 @@ it: ravanello bianco
 ja: ダイコン, 大根, だいこん
 nl: witte rammenas
 pl: biała rzodkiew, białej rzodkwi, rzodkiew biała
-usda_ndb_code:en: 11430
-usda_ndb_name:en: Radishes, oriental, raw
 usda_ndb_2_code:en: 11432
 usda_ndb_2_name:en: Radishes, oriental, dried
 usda_ndb_2_process:en: en: dried
+usda_ndb_code:en: 11430
+usda_ndb_name:en: Radishes, oriental, raw
 
 < en: radish
 en: sprouted radish seed
@@ -59191,11 +59190,11 @@ ja: オクラ
 nl: okra
 pt: Quiabo
 eurocode_2_group_3:en: 8.45.60
-usda_ndb_code:en: 11278
-usda_ndb_name:en: Okra, raw
 usda_ndb_2_code:en: 11280
 usda_ndb_2_name:en: Okra, frozen, unprepared
 usda_ndb_2_process:en: en:frozen, en:unprepared
+usda_ndb_code:en: 11278
+usda_ndb_name:en: Okra, raw
 wikidata:en: Q12047207
 
 < en: vegetable
@@ -68870,7 +68869,7 @@ usda_ndb_name:en: Spices, mace, ground
 #
 ###################################################################################################
 
-# <en:root vegetable
+# <en: root vegetable
 < en: spice
 en: turmeric
 af: borrie
@@ -69857,7 +69856,7 @@ nl: gemalen galangawortel, laos
 #
 ###################################################################################################
 
-# <en:root vegetable
+# <en: root vegetable
 < en: spice
 en: ginger, stem ginger, ginger root
 af: Gemmer
