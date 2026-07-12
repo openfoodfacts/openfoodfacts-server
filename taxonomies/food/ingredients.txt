@@ -60332,7 +60332,7 @@ eurocode_2_group_2:en: 8.40
 #
 ###################################################################################################
 
-< en:fruit vegetable
+< en: fruit vegetable
 en: tomatillo
 description:en: Tomatillos are small, round fruits (botanically fruits, culinarily treated as vegetables) that look like little green tomatoes wrapped in a papery husk. They're a staple in Mexican cooking, especially for salsa verde. Tart, tangy, and slightly citrusy — quite different from a regular tomato. Raw ones are firm and sour; cooking mellows and sweetens them a bit.
 usda_ndb_code:en: 11954
@@ -60346,7 +60346,7 @@ usda_ndb_name:en: Tomatillos, raw
 #
 ###################################################################################################
 
-< en:fruit vegetable
+< en: fruit vegetable
 en: tomato, tomatoes
 ab: Атомат
 am: ቲማቲም
@@ -60400,19 +60400,6 @@ ug: پەمىدۇر
 za: makyungz
 zh: 番茄
 zu: Utamatisi
-carbon_footprint_fr_foodges_ingredient:fr: Tomate destinée à l'industrie
-carbon_footprint_fr_foodges_value:fr: 0.5
-# ingredient/tomato has 6812 products in 21 languages @2018-12-26
-ciqual_food_code:en: 20047
-ciqual_food_name:en: Tomato, raw
-ciqual_food_name:fr: Tomate, crue
-# no non-eu tomato in Ecobalyse currently
-ecobalyse:en: tomato-heated-greenhouse-eu
-ecobalyse_labels_en_organic:en: tomato-organic
-ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
-ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
-ecobalyse_origins_en_france:en: tomato-greenhouse-fr
-eurocode_2_group_3:en: 8.40.10
 # aeb-arab:كعبة طماطم
 # ang:Heortæppel
 # ast:Tomate
@@ -60450,7 +60437,20 @@ eurocode_2_group_3:en: 8.40.10
 # zh-my:番茄
 # zh-sg:番茄
 # zh-tw:番茄
+carbon_footprint_fr_foodges_ingredient:fr: Tomate destinée à l'industrie
+carbon_footprint_fr_foodges_value:fr: 0.5
+ciqual_food_code:en: 20047
+ciqual_food_name:en: Tomato, raw
+ciqual_food_name:fr: Tomate, crue
+# no non-eu tomato in Ecobalyse currently
+ecobalyse:en: tomato-heated-greenhouse-eu
+ecobalyse_labels_en_organic:en: tomato-organic
+ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
+ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
+ecobalyse_origins_en_france:en: tomato-greenhouse-fr
+eurocode_2_group_3:en: 8.40.10
 wikidata:en: Q20638126
+# ingredient/tomato has 6812 products in 21 languages @2018-12-26
 
 < en: tomato
 en: organic tomato
@@ -60987,7 +60987,7 @@ hr: rajčice-u-soku-rajčice
 < en: tomato purée
 fr: purée et pulpe de tomates
 
-< en:tomato
+< en: tomato
 en: green tomato
 bg: зелени домати
 de: grüne Tomaten
@@ -61004,22 +61004,22 @@ usda_ndb_code:en: 11527
 usda_ndb_name:en: Tomatoes, green, raw
 # 88 @1-dec-2021
 
-< en:tomato
+< en: tomato
 en: orange tomato
 usda_ndb_code:en: 11695
 usda_ndb_name:en: Tomatoes, orange, raw
 
-< en:tomato
+< en: tomato
 en: yellow tomato
 usda_ndb_code:en: 11696
 usda_ndb_name:en: Tomatoes, yellow, raw
 
-< en:green tomato
-en: green tomato puree
-fi: vihreä tomaattipyree
-fr: Purée de tomates vertes
-hr: pire od zelene rajčice
-it: passata di pomodoro verde
+#< en:green tomato
+#en: green tomato puree
+#fi: vihreä tomaattipyree
+#fr: Purée de tomates vertes
+#hr: pire od zelene rajčice
+#it: passata di pomodoro verde
 # In process de:Püree aus grünen Tomaten
 
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
@@ -61036,16 +61036,16 @@ et: kaalikas
 fi: lanttu
 fr: rutabaga
 hr: rutabaga
-radit: rutabaga
+it: rutabaga
 nb: kålrot
 sv: kålrot
-ciqual_food_code:en: 20201
-ciqual_food_name:en: Rutabaga or Swede, raw
-ciqual_food_name:fr: Rutabaga, cru
-ciqual_food_code:en: 20165
+ciqual_food_2_code:en: 20165
 ciqual_food_2_name:en: Rutabaga or Swede, cooked
 ciqual_food_2_name:fr: Rutabaga, cuit
 ciqual_food_2_process:en: en:cooked
+ciqual_food_code:en: 20201
+ciqual_food_name:en: Rutabaga or Swede, raw
+ciqual_food_name:fr: Rutabaga, cru
 eurocode_2_group_3:en: 8.38.42
 usda_ndb_code:en: 11435
 usda_ndb_name:en: Rutabagas, raw
@@ -61706,7 +61706,7 @@ ecobalyse_origins_en_france:en: rapeseed-fr
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
 
-< en:root vegetable
+< en: root vegetable
 en: turnip-rape, turnip rape, field mustard
 de: Rübsamen
 fi: rypsi
@@ -63310,11 +63310,11 @@ it: pisello giallo
 en: pigeon pea, red gram, pigeon peas, gandules, toor, arhar, gungo peas
 la: Cajanus cajan
 description:en: Pigeon peas (Cajanus cajan) differ quite a bit depending on whether they're picked green or left to dry on the plant. The green peas have a mild, slightly sweet flavor; the dried peas have Earthier, nuttier flavor — closer to lentils or other dried pulses
-usda_ndb_code:en: 11344
-usda_ndb_name:en: Pigeonpeas, immature seeds, raw
 usda_ndb_2_code:en: 16101
 usda_ndb_2_name:en: Pigeon peas (red gram), mature seeds, raw
 usda_ndb_2_process:en: en:dried
+usda_ndb_code:en: 11344
+usda_ndb_name:en: Pigeonpeas, immature seeds, raw
 
 ###################################################################################################
 #
@@ -63592,10 +63592,10 @@ ro: mazăre
 ru: Зеленый горошек
 sv: gröna ärtor
 th: ถั่ว ลันเตา
-vegan:en: yes
-vegetarian:en: yes
 usda_ndb_code:en: 11304
 usda_ndb_name:en: Peas, green, raw
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q3377275
 #3142 in 20 @2021-10-05
 
@@ -63670,10 +63670,10 @@ de: Junge Erbsen mit Möhren
 
 < en: pea
 en: edible-podded pea
-description:en: The edible-podded pea (Pisum sativum var. saccharatum) are a variety of pea eaten whole in its pod while still unripe.
 ciqual_food_code:en: 20173
 ciqual_food_name:en: Snow pea, raw
 ciqual_food_name:fr: Pois mange-tout ou pois gourmand, cru
+description:en: The edible-podded pea (Pisum sativum var. saccharatum) are a variety of pea eaten whole in its pod while still unripe.
 usda_ndb_code:en: 11300
 usda_ndb_name:en: Peas, edible-podded, raw
 vegan:en: yes
@@ -63686,7 +63686,7 @@ da: sukkerært
 de: Kefen, Zuckerschoten, Zuckererbse
 el: γλυκομπίζελα, ζαχαρομπίζελο
 es: guisante mollar
-fr: pois mange-tout 
+fr: pois mange-tout
 gl: tirabeque
 hr: snježni grašak
 id: kapri
@@ -63698,7 +63698,7 @@ su: kapri
 tr: sultani bezelye
 carbon_footprint_fr_foodges_ingredient:fr: Pois d'hiver frais
 carbon_footprint_fr_foodges_value:fr: 1.7
-description:en: Snow peas (mangetout) — flat pods with small, barely-developed seeds inside
+description:en: Snow peas (mangetout) — flat pods with small, barely-developed seeds inside.
 wikidata:en: Q67210631
 wikipedia:en: https://en.wikipedia.org/wiki/Snow_pea
 
@@ -76571,10 +76571,10 @@ zh: 藻類
 ciqual_proxy_food_code:en: 20984
 ciqual_proxy_food_name:en: Wakame (Undaria pinnatifida), dried or dehydrated
 nutriscore_fruits_vegetables_nuts:en: yes
-vegan:en: yes
-vegetarian:en: yes
 usda_ndb_code:en: 11669
 usda_ndb_name:en: Seaweed, wakame, raw
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q37868
 wikipedia:en: https://en.wikipedia.org/wiki/Algae
 # ingredient/algae has 135 products in 4 languages @2019-01-27
@@ -76655,11 +76655,11 @@ ciqual_food_code:en: 11086
 ciqual_food_name:en: Spirulina, (spirulina sp.), dried
 ciqual_food_name:fr: Spiruline (Spirulina sp.), séchée ou déshydratée
 description:en: Spirulina is a blue-green algae (cyanobacterium) that's grown and processed as a food and dietary supplement. Very high in protein (roughly 55–70% by dry weight), including all essential amino acids. Rich in B vitamins (especially B12-like compounds, though its B12 isn't well-absorbed by humans), iron, and antioxidants like phycocyanin (the pigment giving it its blue-green color). It contains omega-6 fatty acids (notably gamma-linolenic acid)
-usda_ndb_code:en: 11666
-usda_ndb_name:en: Seaweed, spirulina, raw
 usda_ndb_2_code:en: 11667
 usda_ndb_2_name:en: Seaweed, spirulina, dried
 usda_ndb_2_process:en: en:dried
+usda_ndb_code:en: 11666
+usda_ndb_name:en: Seaweed, spirulina, raw
 wikidata:en: Q285335
 wikipedia:en: https://en.wikipedia.org/wiki/Spirulina_(dietary_supplement)
 # ingredient/fr:spirulina has 61 products in 4 languages @2019-01-23
@@ -76962,20 +76962,20 @@ en: tsunomata
 ja: 角叉, つのまた
 comment:en: the USDA entry is a commercially available/cultivated product.
 description:en: Tsunomata (角叉, or つのまた) is the Japanese name for a type of red algae/seaweed. In Japanese cooking, it's traditionally soaked and used in salads, soups, or as a crunchy/chewy garnish. It has a mild, subtle sea flavor rather than a strong "seaweed" taste.
-usda_ndb_proxy_code:en: 31019
-usda_ndb_proxy_name:en: Seaweed, Canadian Cultivated EMI-TSUNOMATA, dry
 usda_ndb_proxy_2_code:en: 31020
 usda_ndb_proxy_2_name:en: Seaweed, Canadian Cultivated EMI-TSUNOMATA, rehydrated
 usda_ndb_proxy_2_process:en: en:rehydrated
+usda_ndb_proxy_code:en: 31019
+usda_ndb_proxy_name:en: Seaweed, Canadian Cultivated EMI-TSUNOMATA, dry
 
 < en: seaweed
 en: laver
 de: Laver
-it: porphyra
-description:en: Laver is a type of edible seaweed — specifically a red algae from the genus Porphyra (and related species like Pyropia). It grows on rocks in intertidal zones along coastlines, particularly in the UK, Ireland, Japan, Korea, and other coastal regions. It has a savory, briny, slightly mineral taste — often described as umami-rich, similar to other seaweeds.
+la: Porphyra
 ciqual_food_code:en: 20987
 ciqual_food_name:en: Laver (Porphyra sp.), dried or dehydrated
 ciqual_food_name:fr: Nori (Porphyra sp.), séchée ou déshydratée
+description:en: Laver is a type of edible seaweed — specifically a red algae from the genus Porphyra (and related species like Pyropia). It grows on rocks in intertidal zones along coastlines, particularly in the UK, Ireland, Japan, Korea, and other coastal regions. It has a savory, briny, slightly mineral taste — often described as umami-rich, similar to other seaweeds.
 usda_ndb_code:en: 11446
 usda_ndb_name:en: Seaweed, laver, raw
 
@@ -77137,7 +77137,7 @@ fr: varech
 hr: kelp
 it: kelp
 la: Laminariales
-description:en: Kelp is a type of large brown seaweed that grows in cold, nutrient-rich coastal waters, and it's become a fairly common food ingredient, especially in East Asian cuisines. Kelp is notably rich in iodine, along with other minerals like calcium, magnesium, and iron. It's low in calories and contains some fiber. It has a natural savory, oceanic taste often described as umami. Kelp is a common term covering many species across several genera, all in the order Laminariales 
+description:en: Kelp is a type of large brown seaweed that grows in cold, nutrient-rich coastal waters, and it's become a fairly common food ingredient, especially in East Asian cuisines. Kelp is notably rich in iodine, along with other minerals like calcium, magnesium, and iron. It's low in calories and contains some fiber. It has a natural savory, oceanic taste often described as umami. Kelp is a common term covering many species across several genera, all in the order Laminariales.
 usda_ndb_code:en: 11445
 usda_ndb_name:en: Seaweed, kelp, raw
 wikidata:en: Q1055316
@@ -92064,11 +92064,11 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q20026824
 
-< en:vegetable fiber
+< en: vegetable fiber
 fr: fibres de tomate, fibre de tomate
 nl: tomatenvezel
 
-< en:vegetable fiber
+< en: vegetable fiber
 en: pea fiber
 bg: грахови фибри
 ca: fibra de pèsol, fibra vegetal de pèsol
