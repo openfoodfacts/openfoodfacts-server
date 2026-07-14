@@ -67,8 +67,8 @@
                "percent_max" : 16.6666666666667,
                "percent_min" : 0,
                "text" : "sinapinsiemen",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -80,11 +80,18 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:mustard-seed"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:mustard-seed"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fi",
    "ingredients_n" : 7,

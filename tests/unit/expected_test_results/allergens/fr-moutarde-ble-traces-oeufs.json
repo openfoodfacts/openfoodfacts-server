@@ -12,8 +12,8 @@
          "percent_estimate" : 50,
          "processing" : "en:flour",
          "text" : "graines de moutarde",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "9610",
@@ -27,11 +27,18 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:mustard-seed"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:mustard-seed"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 2,

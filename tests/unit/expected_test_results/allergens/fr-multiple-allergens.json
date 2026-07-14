@@ -51,7 +51,9 @@
                "percent_estimate" : 2.34375,
                "percent_max" : 16.6666666666667,
                "percent_min" : 0,
-               "text" : "moutarde"
+               "text" : "moutarde",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
             },
             {
                "ecobalyse_code" : "celery-eu",
@@ -84,11 +86,9 @@
    ],
    "ingredients_analysis" : {
       "en:vegan-status-unknown" : [
-         "en:mustard",
          "fr:crème de cassis"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:mustard",
          "fr:crème de cassis"
       ]
    },
