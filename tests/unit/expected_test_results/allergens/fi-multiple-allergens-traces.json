@@ -53,7 +53,7 @@
                "percent_min" : 0,
                "text" : "sinappi",
                "vegan" : "maybe",
-               "vegetarian" : "maybe"
+               "vegetarian" : "yes"
             },
             {
                "ecobalyse_code" : "celery-eu",
@@ -79,15 +79,12 @@
    "ingredients_analysis" : {
       "en:maybe-vegan" : [
          "en:mustard"
-      ],
-      "en:maybe-vegetarian" : [
-         "en:mustard"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:maybe-vegan",
-      "en:maybe-vegetarian"
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fi",
    "ingredients_n" : 6,
