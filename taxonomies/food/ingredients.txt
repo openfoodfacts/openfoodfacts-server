@@ -38514,11 +38514,6 @@ it: frutta candita
 < en: fruit
 en: mammy apple, mamey
 la: Mammea americana
-usda_ndb_proxy_code:en: 9175
-usda_ndb_proxy_name:en: Mammy-apple, (mamey), raw
-
-< en: mammy apple
-en: raw mammy apple, mamey
 description:en: A mammy apple is a tropical fruit native to the Caribbean and tropical Americas. Despite the name, they are actually classified as a berry, not a true apple. The flesh is intensely aromatic and deep orange, with a flavour similar to an apricot or raspberry.
 usda_ndb_code:en: 9175
 usda_ndb_name:en: Mammy-apple, (mamey), raw
@@ -38527,11 +38522,6 @@ usda_ndb_name:en: Mammy-apple, (mamey), raw
 en: mamey sapote
 la: Pouteria sapota
 description:en: Mamey Sapote (Pouteria sapota). It has a rough brown skin like a football, and vibrant salmon-pink to reddish flesh with a rich, creamy flavor often compared to a mix of sweet potato, pumpkin, and almond. Widely used in smoothies and ice cream in Latin America and the Caribbean.
-usda_ndb_proxy_code:en: 9314
-usda_ndb_proxy_name:en: Sapote, mamey, raw
-
-< en: mamey sapote
-en: raw mamey sapote
 usda_ndb_code:en: 9314
 usda_ndb_name:en: Sapote, mamey, raw
 
@@ -38543,15 +38533,10 @@ es: nispero
 fr: Néflier
 hr: mušmula
 it: nespola comune
-usda_ndb_proxy_code:en: 9174
-usda_ndb_proxy_name:en: Loquats, raw
-wikidata:en: Q7071497
-wikipedia:en: https://en.wikipedia.org/wiki/N%C3%ADspero
-
-< en: medlar
-en: raw medlar, raw loquat
 usda_ndb_code:en: 9174
 usda_ndb_name:en: Loquats, raw
+wikidata:en: Q7071497
+wikipedia:en: https://en.wikipedia.org/wiki/N%C3%ADspero
 
 < en: fruit
 en: exotic fruit
@@ -39514,17 +39499,12 @@ vi: xa kê, sa kê
 #msn:biēg
 #zdj:furiapa, friapa
 eurocode_2_group_3:en: 8.40.52
-usda_ndb_proxy_code:en: 9059
-usda_ndb_proxy_name:en: Breadfruit, raw
+usda_ndb_code:en: 9059
+usda_ndb_name:en: Breadfruit, raw
 #plant:wikidata:en:Q14677
 wikidata:en: Q5869893
 wikipedia:en: https://en.wikipedia.org/wiki/Breadfruit
 # ingredient/breadfruit has 1 product in french @2019-04-29
-
-< en: breadfruit
-en: raw breadfruit
-usda_ndb_code:en: 9059
-usda_ndb_name:en: Breadfruit, raw
 
 < en: fruit
 en: jackfruit
@@ -39533,14 +39513,9 @@ fr: fruit du jacquier, fruit du jaquier, pomme jacque, pomme jaque, jacquier, ja
 hr: jackfruit
 it: giaca
 pl: jackfruit
-usda_ndb_proxy_code:en: 9144
-usda_ndb_proxy_name:en: Jackfruit, raw
-wikipedia:en: https://en.wikipedia.org/wiki/Jackfruit
-
-< en: jackfruit
-en: raw jackfruit
 usda_ndb_code:en: 9144
 usda_ndb_name:en: Jackfruit, raw
+wikipedia:en: https://en.wikipedia.org/wiki/Jackfruit
 
 ###################################################################################################
 #
@@ -39598,21 +39573,11 @@ uk: Дуріан
 vi: Chi Sầu riêng
 zh: 榴槤屬
 # zh-min-nan:Liû-liân
-usda_ndb_proxy_code:en: 9422
-usda_ndb_proxy_name:en: Durian, raw or frozen
+usda_ndb_code:en: 9422
+usda_ndb_name:en: Durian, raw or frozen
 wikipedia:en: https://en.wikipedia.org/wiki/Durian
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/durian
 # 3 products in 1 language @2018-09-27
-
-< en: durian
-en: raw durian
-usda_ndb_code:en: 9422
-usda_ndb_name:en: Durian, raw or frozen
-
-< en: durian
-en: frozen durian
-usda_ndb_code:en: 9422
-usda_ndb_name:en: Durian, raw or frozen
 
 ###################################################################################################
 #
@@ -39690,23 +39655,15 @@ zh: 小紅莓
 # udm:нюрмульы
 # vep:garbol
 # yue:金啤梨
-ciqual_proxy_food_code:en: 13113
-ciqual_proxy_food_name:en: Cranberry, raw
-ciqual_proxy_food_name:fr: Canneberge ou cranberry, crue
-usda_ndb_proxy_code:en: 9078
-usda_ndb_proxy_name:en: Cranberries, raw
-wikidata:en: Q13181
-wikipedia:en: https://en.wikipedia.org/wiki/Cranberry
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
-# 7222 in 27 @2021-09-29
-
-< en: cranberry
-en: raw cranberry
 ciqual_food_code:en: 13113
 ciqual_food_name:en: Cranberry, raw
 ciqual_food_name:fr: Canneberge ou cranberry, crue
 usda_ndb_code:en: 9078
 usda_ndb_name:en: Cranberries, raw
+wikidata:en: Q13181
+wikipedia:en: https://en.wikipedia.org/wiki/Cranberry
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cranberries
+# 7222 in 27 @2021-09-29
 
 #processing:en: en:dried
 #<en:cranberry
@@ -42186,6 +42143,8 @@ ciqual_food_code:en: 13082
 ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
 ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
+usda_ndb_proxy_code:en: 9433
+usda_ndb_proxy_name:en: Clementines, raw
 wikidata:en: Q460517
 wikipedia:en: https://en.wikipedia.org/wiki/Clementine
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:clémentines
@@ -44341,10 +44300,12 @@ fr: acérola, cerise des Antilles, cerises des Antilles, cerise de la Barbade, c
 hr: acerola, acerole
 pl: acerola, aceroli
 ru: Ацерола
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
-# 133 products in 4 languages @2018-10-03
 eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.48
+usda_ndb_code:en: 9001
+usda_ndb_name:en: Acerola, (west indian cherry), raw
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
+# 133 products in 4 languages @2018-10-03
 
 #< en:acerola
 < en: fruit juice
@@ -44750,6 +44711,16 @@ en: raw blueberry
 usda_ndb_code:en: 9050
 usda_ndb_name:en: Blueberries, raw
 
+< en: blueberry
+en: frozen blueberry
+usda_ndb_code:en: 9054
+usda_ndb_name:en: Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
+
+< en: frozen blueberry
+en: frozen wild blueberry
+usda_ndb_code:en: 9053
+usda_ndb_name:en: Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)
+
 #en:the specific names are not seen as ingredient.
 < en: blueberry
 en: northern highbush blueberry
@@ -44918,6 +44889,8 @@ pl: boysenberry
 pt: boysenberry
 ru: бойзенова ягода
 sv: boysenbär
+usda_ndb_proxy_code:en: 9057
+usda_ndb_proxy_name:en: Boysenberries, frozen, unsweetened
 wikidata:en: Q896083
 wikipedia:en: https://en.wikipedia.org/wiki/Boysenberry
 # ingredient/en:boysenberry has 7 products in 1 language @2020-06-13
@@ -45009,10 +44982,6 @@ ty: raparapa
 uk: карамбола
 vi: khế
 zh: 楊桃
-#plant:wikidata:en:Q159447
-ciqual_food_code:en: 13054
-ciqual_food_name:en: Carambola, pulp, raw
-ciqual_food_name:fr: Carambole, pulpe, crue
 #bcl:biriran
 #koi:карамбола
 #lbe:карамбола
@@ -45026,10 +44995,15 @@ ciqual_food_name:fr: Carambole, pulpe, crue
 #vep:karambol
 #wuu:杨桃
 #yue:楊桃
+#plant:wikidata:en:Q159447
+ciqual_food_code:en: 13054
+ciqual_food_name:en: Carambola, pulp, raw
+ciqual_food_name:fr: Carambole, pulpe, crue
 ifct_food_code:en: E062
 ifct_food_name:en: Star fruit
+usda_ndb_code:en: 9060
+usda_ndb_name:en: Carambola, (starfruit), raw
 wikidata:en: Q181560
-
 
 ###################################################################################################
 #
@@ -45441,8 +45415,6 @@ vi: anh đào dại
 vo: Murõlipuu
 wa: Såvaedje tchersî
 zh: 欧洲甜樱桃
-# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
-eurocode_2_group_3:en: 9.20.40
 # atj:Miko Cawemin
 # bar:Keasch
 # be-trask:Чарэшня
@@ -45470,8 +45442,11 @@ eurocode_2_group_3:en: 9.20.40
 # zh-hant:甜櫻桃
 # zh-hk:甜櫻桃
 # zh-sg:甜樱桃
+eurocode_2_group_3:en: 9.20.40
+usda_ndb_code:en: 9070
+usda_ndb_name:en: Cherries, sweet, raw
 wikidata:en: Q165137
-
+# ingredient/fr:bigarreaux has 105 products in french @2019-02-22
 
 < en: sweet cherry
 fr: bigarreaux confits
