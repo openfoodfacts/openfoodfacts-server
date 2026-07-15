@@ -69969,90 +69969,101 @@ it: griffonia
 wikidata:en: Q1941426
 
 #category/mustards
-#<en:compound
+#< en: compound
 en: mustard
+af: mosterd
+an: senabe
 ar: صلصة الخردل
-be: Гарчыца
-bg: Горчица, синап
+be: гарчыца
+bg: горчица, синап
 bn: সরিষার আচার
 br: sezo
-bs: Senf
+bs: senf
 ca: mostassa
 co: mustarda
 cs: hořčice
 da: sennep
 de: Senf
-el: Μουστάρδα, σινάπι
+el: μουστάρδα, σινάπι
 eo: mustardo
 es: mostaza
 et: sinep
+eu: mostaza
 fa: خردل
 fi: sinappi, sinappia
 fo: sinoppur
 fr: moutarde
 fy: moster
 ga: mustard, mustaird
-gl: Mostaza
+gl: mostaza
 he: חרדל
 hi: सरसों
 hr: gorušica, gorušice, senf, gorušicu
-ht: Moutad
+ht: moutad
 hu: mustár
-hy: Մանանեխ
-id: Moster
-io: Mustardo
-is: Sinnep
-it: Senape
+hy: մանանեխ
+ia: mustarda
+id: moster
+io: mustardo
+is: sinnep
+it: senape
 ja: マスタード, からし
-jv: Mustar
+jv: mustar
 ka: მდოგვი
-ko: 겨자 소스
-ku: Gormiz
+ko: 겨자 소스, 머스터드
+ku: gormiz
+la: sinapi
 lb: Moschter
-li: Sinapi
-lt: Garstyčios, garstyčių
+li: sinapi
+lt: garstyčios, garstyčių
 lv: sinepes
-mk: Сенф
-ms: Mustard
+mg: voantsinapy
+mi: panikakā
+mk: сенф
+ml: കടുക്
+ms: mustard
 mt: mustarda
 nb: sennep
 nl: mosterd
 nn: sennep
 or: ଶୋରିଷ ଆଚାର
 pa: ਸਰੋਂ
-pl: Musztarda
+pl: musztarda
 pt: mostarda
-qu: Mustasa
+qu: mustasa
 ro: muștar, muştar, mustar
 ru: горчица, горчицы
-sh: Senf
-sk: Horčica
-sl: Gorčica
+se: sennet
+sh: senf
+sk: horčica
+sl: gorčica
 sq: mustardë kuzhine
 sr: сенф
 sv: senap, senaps
 ta: கடுகு
 th: มัสตาร์ด
 tr: hardal
+tt: горчица
 uk: гірчиця
-vi: Mù tạc
-zh: 芥末醬
+vi: mù tạc
+wa: moståde
+zh: 芥末醬, 芥菜醬
 zu: umasitadi
-# ast:Mostaza
-# bar:Semf
-# frr:Moster
-# ku-arab:گۆرمز
-# ku-latn:Gormiz
-# sr-ec:сенф
-# sr-el:senf
-# szl:Zymft
-# yue:芥辣
-# zh-cn:芥末酱
-# zh-hans:芥末酱
-# zh-hant:芥末醬
-# zh-hk:芥末醬
-# zh-sg:芥末酱
-# zh-tw:芥末醬
+#ast: Mostaza
+#bar: Semf
+#frr: Moster
+#ku-arab: گۆرمز
+#ku-latn: Gormiz
+#sr-ec: сенф
+#sr-el: senf
+#szl: Zymft
+#yue: 芥辣
+#zh-cn: 芥末酱
+#zh-hans: 芥末酱
+#zh-hant: 芥末醬
+#zh-hk: 芥末醬
+#zh-sg: 芥末酱
+#zh-tw: 芥末醬
 allergens:en: en:mustard
 carbon_footprint_fr_foodges_ingredient:fr: Moutarde
 carbon_footprint_fr_foodges_value:fr: 3.3
@@ -70065,6 +70076,8 @@ description:es: Salsa elaborada con una emulsión de estas semillas en una base 
 description:fr: Condiment préparé à partir de graines de moutarde broyées dans du vinaigre.
 description:it: salsa ottenuta dai semi dell'omonima pianta.
 description:nl: pittige kruiderij bereid uit gemalen mosterdzaad, zout en azijn.
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q131748
 wikipedia:en: https://en.wikipedia.org/wiki/Mustard_(condiment)
 # 20828 in 37 @2021-09-09
@@ -70114,6 +70127,8 @@ description:es: Los granos de mostaza son pequeñas semillas redondas de diversa
 description:pt: Sementes de mostarda são as pequenas sementes das várias plantas de mostarda.
 usda_ndb_proxy_code:en: 2024
 usda_ndb_proxy_name:en: Spices, mustard seed, ground
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q1937700
 # 12112 in 26 @2019-09-09
 
@@ -70176,7 +70191,7 @@ sv: gult och brunt senapsfrö
 # ingredient/fr:graines-de-moutarde-jaune-et-brune has 11 products in 1 language @2020-06-11
 
 #processing:en: en:powder
-< en: mustard
+< en: mustard seed
 en: mustard powder, mustard flour
 bg: синапено брашно
 da: sennepspulver, sennepsmel
@@ -70195,6 +70210,7 @@ ru: горчичный порошок
 sv: senapspulver, senapsfröpulver
 usda_ndb_code:en: 2024
 usda_ndb_name:en: Spices, mustard seed, ground
+wikidata:en: Q57655865
 # fr:farine-de-moutarde has 127 products in 5 languages @2018-09-22
 # fr:moutarde-en-poudre has 34 products in 4 languages @2018-10-25
 
