@@ -675,8 +675,9 @@ my $tests_ref = [
 		path => '/api/v3/product/test',
 		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_status_code => 204,    # specific return code for OPTIONS requests
 		expected_type => "none",    # no body for OPTIONS requests
