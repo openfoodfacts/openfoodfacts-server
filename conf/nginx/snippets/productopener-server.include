@@ -153,8 +153,6 @@ location ~ ^/debug_vars/ {
     set $var_display "$var_display valid_cors_origin: $valid_cors_origin\n";
     set $var_display "$var_display cors_origin: $cors_origin\n";
     set $var_display "$var_display cors_vary: $cors_vary\n";
-    set $var_display "$var_display allow_credentials_origin: $allow_credentials_origin\n";
-    set $var_display "$var_display allow_credentials_uri: $allow_credentials_uri\n";
     set $var_display "$var_display allow_credentials: $allow_credentials\n";
     return 200 "$var_display";
 }

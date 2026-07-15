@@ -141,6 +141,8 @@ services:
         aliases:
           - openfoodfacts.localhost
           - world.openfoodfacts.localhost
+    ports:
+      - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
     volumes:
       - product_images:/opt/product-opener/html/images/products:ro
       - html_data:/opt/product-opener/html/data:ro
@@ -163,6 +165,8 @@ services:
 
       # Nginx, we use templates dir to be able to use environment vars
       - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
+      # needed for monitoring
+      - ./conf/nginx/sites-available/default:/etc/nginx/conf.d/stub_status.conf
       # common directives
       # cors headers definition as an include
       - ./conf/nginx/snippets/cors-headers.include:/etc/nginx/snippets/cors-headers.include
