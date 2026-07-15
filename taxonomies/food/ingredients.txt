@@ -38827,6 +38827,18 @@ eurocode_2_group_2:en: 9.20
 
 ###################################################################################################
 #
+#                                Abiyuch
+#
+###################################################################################################
+
+< en: fruit
+en: abiyuch
+description:en: Abiyuch comes from Crateva religiosa, commonly known as the sacred garlic pear or temple plant. It's a species of flowering tree that belongs to the caper family.
+usda_ndb_proxy_code:en: 9427
+usda_ndb_proxy_name:en: Abiyuch, raw
+
+###################################################################################################
+#
 #                                Apricot
 #
 ###################################################################################################
@@ -38935,13 +38947,12 @@ zh: 杏
 #carbon_footprint_fr_foodges_value:fr:0.6
 carbon_footprint_fr_foodges_ingredient:fr: Abricot "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr: 1.1
-ciqual_food_code:en: 13000
-ciqual_food_name:en: Apricot, pitted, raw
-ciqual_food_name:fr: Abricot, dénoyauté, cru
+ciqual_proxy_food_code:en: 13000
+ciqual_proxy_food_name:en: Apricot, pitted, raw
+ciqual_proxy_food_name:fr: Abricot, dénoyauté, cru
 ecobalyse:en: c455b3b8-406b-407a-a525-b2c832522e49
 ecobalyse_labels_en_organic:en: 36158ea6-066c-4fd6-9e28-6477c7297b37
 ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
-# 5160 in 25 @2021-09-12
 eurocode_2_group_3:en: 9.20.10
 wikidata:en: Q3733836
 # aeb-arab:كعبة مشماش
@@ -38971,6 +38982,16 @@ wikidata:en: Q3733836
 # yue:杏桃
 # zh-cn:杏
 wikipedia:en: https://en.wikipedia.org/wiki/Apricot
+# 5160 in 25 @2021-09-12
+
+< en: apricot
+en: raw pitted apricot
+fr: abricot dénoyauté cru
+ciqual_food_code:en: 13000
+ciqual_food_name:en: Apricot, pitted, raw
+ciqual_food_name:fr: Abricot, dénoyauté, cru
+usda_ndb_code:en: 9021
+usda_ndb_name:en: Apricots, raw
 
 < en: apricot
 en: Bergeron Apricot
@@ -39238,12 +39259,11 @@ zh: 香蕉
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/banana
 carbon_footprint_fr_foodges_ingredient:fr: Banane
 carbon_footprint_fr_foodges_value:fr: 1.2
-ciqual_food_code:en: 13005
-ciqual_food_name:en: Banana, pulp, raw
-ciqual_food_name:fr: Banane, pulpe, crue
+ciqual_proxy_food_code:en: 13005
+ciqual_proxy_food_name:en: Banana, pulp, raw
+ciqual_proxy_food_name:fr: Banane, pulpe, crue
 ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
 ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
-wikidata:en: Q503
 # als:Banane
 # arz:موز
 # ast:Plátanu
@@ -39282,8 +39302,19 @@ wikidata:en: Q503
 # wuu:香蕉
 # zh-min-nan:Kin-chio
 # yue:香蕉
+usda_ndb_proxy_code:en: 9040
+usda_ndb_proxy_name:en: Bananas, raw
+wikidata:en: Q503
 wikipedia:en: https://en.wikipedia.org/wiki/Banana
 # 1538 products in 10 languages @2018-09-26
+
+< en: banana
+en: raw banana, raw bananas
+ciqual_food_code:en: 13005
+ciqual_food_name:en: Banana, pulp, raw
+ciqual_food_name:fr: Banane, pulpe, crue
+usda_ndb_code:en: 9040
+usda_ndb_name:en: Bananas, raw
 
 < en: banana
 < en: fruit vegetable
@@ -39367,6 +39398,8 @@ it: banana essiccata
 ciqual_food_code:en: 13089
 ciqual_food_name:en: Banana, pulp, dried
 ciqual_food_name:fr: Banane, pulpe, sèche
+usda_ndb_code:en: 9041
+usda_ndb_name:en: Bananas, dehydrated, or banana powder
 # 215 in 7 @2021-09-10
 
 #processing:en: en:flakes
@@ -39403,9 +39436,13 @@ ciqual_food_name:fr: Banane, pulpe, sèche
 # 2082 in 15 @2021-09-10
 
 #processing:en: en:powder
-#<en:banana
-#de:Bananenpulver
-#fi:banaanijauhe
+< en: banana
+en: banana powder
+de: Bananenpulver
+fi: banaanijauhe
+fr: poudre de banane, banane en poudre
+usda_ndb_code:en: 9041
+usda_ndb_name:en: Bananas, dehydrated, or banana powder
 
 #processing:en: en:juice
 #<en:banana
@@ -39515,6 +39552,24 @@ en: calluna vulgaris
 hr: calluna vulgaris, zelen vrijeska
 it: calluna vulgaris
 wikidata:en: Q26615
+
+###################################################################################################
+#
+#                                Carissa
+#
+###################################################################################################
+
+< en: prunus species fruit
+en: carissa, natal plum
+la: Carissa macrocarpa
+description:en: Carissa is a tropical/subtropical fruit-bearing shrub, native to South Africa. Taste: A mix of sweet and tart, often compared to cranberry or strawberry with a slightly milky, latex-like note
+usda_ndb_proxy_code:en: 9061
+usda_ndb_proxy_name:en: Carissa, (natal-plum), raw
+
+< en: carissa
+en: raw carissa
+usda_ndb_code:en: 9061
+usda_ndb_name:en: Carissa, (natal-plum), raw
 
 ###################################################################################################
 #
@@ -41292,8 +41347,20 @@ ecobalyse_labels_en_organic:en: 3d3fc6bd-0a43-462b-bc39-fed04cf34498
 # zh-my:苹果
 # zh-sg:苹果
 # zh-tw:蘋果
+usda_ndb_proxy_code:en: 9004
+usda_ndb_proxy_name:en: Apples, raw, without skin
 wikidata:en: Q89
 wikipedia:en: https://en.wikipedia.org/wiki/Apple
+
+< en: apple
+en: raw apples with skin
+usda_ndb_code:en: 9003
+usda_ndb_name:en: Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)
+
+< en: apple
+en: apples, raw, without skin
+usda_ndb_code:en: 9004
+usda_ndb_name:en: Apples, raw, without skin
 
 < en: apple
 en: dessert apple
@@ -41822,6 +41889,15 @@ it: ripieno di mele
 en: boabab, boabab fruit
 es: boabab fruto
 it: baobab
+usda_ndb_proxy_code:en: 9544
+usda_ndb_proxy_name:en: Baobab powder
+
+< en: boabab
+en: baobab powder
+fr: poudre de baobab
+nl: baobabpoeder
+usda_ndb_code:en: 9544
+usda_ndb_name:en: Baobab powder
 
 ###################################################################################################
 #
