@@ -13,7 +13,7 @@
          "percent_max" : 100,
          "percent_min" : 50,
          "text" : "sinappijauhe",
-         "vegan" : "maybe",
+         "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
@@ -28,14 +28,10 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:maybe-vegan" : [
-         "en:mustard-powder"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:maybe-vegan",
+      "en:vegan",
       "en:vegetarian"
    ],
    "ingredients_lc" : "fi",
@@ -51,7 +47,10 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:mustard-powder",
+      "en:condiment",
       "en:mustard",
+      "en:spice",
+      "en:mustard-seed",
       "en:wheat-semolina",
       "en:cereal",
       "en:wheat",
