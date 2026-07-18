@@ -1460,6 +1460,13 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
+                        },
+                        {
+                           "column_group_id" : "product",
+                           "shown_by_default" : false,
+                           "text" : "As sold<br>per serving",
+                           "text_for_small_screens" : "per serving",
+                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -1470,6 +1477,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Energy"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(140 kcal)"
                               },
                               {
                                  "text" : "400 kJ<br>(140 kcal)"
@@ -1485,6 +1495,9 @@
                               },
                               {
                                  "text" : "8.5 g"
+                              },
+                              {
+                                 "text" : "8.5 g"
                               }
                            ]
                         },
@@ -1494,6 +1507,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "5.6 g"
                               },
                               {
                                  "text" : "5.6 g"
@@ -1509,6 +1525,9 @@
                               },
                               {
                                  "text" : "10.5 g"
+                              },
+                              {
+                                 "text" : "10.5 g"
                               }
                            ]
                         },
@@ -1518,6 +1537,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Sugars"
+                              },
+                              {
+                                 "text" : "12.5 g"
                               },
                               {
                                  "text" : "12.5 g"
@@ -1533,6 +1555,9 @@
                               },
                               {
                                  "text" : "2 g"
+                              },
+                              {
+                                 "text" : "2 g"
                               }
                            ]
                         },
@@ -1542,6 +1567,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "4.5 g"
                               },
                               {
                                  "text" : "4.5 g"
@@ -1557,6 +1585,9 @@
                               },
                               {
                                  "text" : "0.0502 g"
+                              },
+                              {
+                                 "text" : "0.0502 g"
                               }
                            ]
                         },
@@ -1569,6 +1600,9 @@
                               },
                               {
                                  "text" : "~ 0.02008 g"
+                              },
+                              {
+                                 "text" : "~ 0.02008 g"
                               }
                            ]
                         },
@@ -1578,6 +1612,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fruits‚ vegetables‚ legumes"
+                              },
+                              {
+                                 "text" : "~ 0 %"
                               },
                               {
                                  "text" : "~ 0 %"
@@ -1625,6 +1662,11 @@
                            "type" : "text"
                         },
                         {
+                           "text" : "As sold<br>per serving",
+                           "text_for_small_screens" : "per serving",
+                           "type" : "text"
+                        },
+                        {
                            "text" : "As sold for 100 g (packaging)",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
@@ -1643,6 +1685,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Energy"
+                              },
+                              {
+                                 "text" : "400 kJ<br>(140 kcal)"
                               },
                               {
                                  "text" : "400 kJ<br>(140 kcal)"
@@ -1669,6 +1714,9 @@
                                  "text" : "8.5 g"
                               },
                               {
+                                 "text" : "8.5 g"
+                              },
+                              {
                                  "text" : "?"
                               }
                            ]
@@ -1679,6 +1727,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "5.6 g"
                               },
                               {
                                  "text" : "5.6 g"
@@ -1705,6 +1756,9 @@
                                  "text" : "10.5 g"
                               },
                               {
+                                 "text" : "10.5 g"
+                              },
+                              {
                                  "text" : "?"
                               }
                            ]
@@ -1715,6 +1769,9 @@
                                  "level" : 1,
                                  "style" : "max-width:15rem",
                                  "text" : "Sugars"
+                              },
+                              {
+                                 "text" : "12.5 g"
                               },
                               {
                                  "text" : "12.5 g"
@@ -1741,6 +1798,9 @@
                                  "text" : "2 g"
                               },
                               {
+                                 "text" : "2 g"
+                              },
+                              {
                                  "text" : "?"
                               }
                            ]
@@ -1751,6 +1811,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "4.5 g"
                               },
                               {
                                  "text" : "4.5 g"
@@ -1774,6 +1837,9 @@
                                  "text" : "0.0502 g"
                               },
                               {
+                                 "text" : "0.0502 g"
+                              },
+                              {
                                  "text" : "50.2 mg"
                               },
                               {
@@ -1792,6 +1858,9 @@
                                  "text" : "~ 0.02008 g"
                               },
                               {
+                                 "text" : "~ 0.02008 g"
+                              },
+                              {
                                  "text" : "?"
                               },
                               {
@@ -1805,6 +1874,9 @@
                                  "level" : 0,
                                  "style" : "max-width:15rem",
                                  "text" : "Fruits‚ vegetables‚ legumes"
+                              },
+                              {
+                                 "text" : "~ 0 %"
                               },
                               {
                                  "text" : "~ 0 %"
