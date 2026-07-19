@@ -667,7 +667,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
 		hr => "ukupni(?: udio)?|udio",
 		sl => "vsebuje",
-		sv => "(?:(?:$minimum_or_total) )?mängd",
+		sv => "(?:(?:$minimum_or_total) )?(?:frukt)?mängd",
 	);
 	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
 
