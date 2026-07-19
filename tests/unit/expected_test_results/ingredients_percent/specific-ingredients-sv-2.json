@@ -1,22 +1,22 @@
 [
    {
-      "id" : "en:lingonberry",
+      "id" : "en:cloudberry",
       "is_in_taxonomy" : 1,
       "labels" : "sv:krav",
-      "percent" : 50,
-      "percent_estimate" : 50,
-      "percent_max" : 50,
-      "percent_min" : 50,
-      "text" : "Lingon"
+      "origins" : "en:sweden",
+      "percent_estimate" : 62.5,
+      "percent_max" : 100,
+      "percent_min" : 25,
+      "text" : "Hjortron"
    },
    {
-      "id" : "en:sugar",
+      "id" : "en:cane-sugar",
       "is_in_taxonomy" : 1,
       "labels" : "sv:krav",
-      "percent_estimate" : 31.25,
+      "percent_estimate" : 18.75,
       "percent_max" : 50,
-      "percent_min" : 12.5,
-      "text" : "socker"
+      "percent_min" : 0,
+      "text" : "rörsocker"
    },
    {
       "id" : "en:water",
@@ -27,39 +27,11 @@
       "text" : "vatten"
    },
    {
-      "id" : "en:thickener",
-      "ingredients" : [
-         {
-            "id" : "en:e440a",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 4.6875,
-            "percent_max" : 18.75,
-            "percent_min" : 0,
-            "text" : "pektin"
-         }
-      ],
+      "id" : "en:e440a",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 4.6875,
-      "percent_max" : 18.75,
+      "percent_estimate" : 9.375,
+      "percent_max" : 25,
       "percent_min" : 0,
-      "text" : "förtjockningsmedel"
-   },
-   {
-      "id" : "en:acidity-regulator",
-      "ingredients" : [
-         {
-            "id" : "en:e330",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 4.6875,
-            "percent_max" : 12.5,
-            "percent_min" : 0,
-            "text" : "citronsyra"
-         }
-      ],
-      "is_in_taxonomy" : 1,
-      "percent_estimate" : 4.6875,
-      "percent_max" : 12.5,
-      "percent_min" : 0,
-      "text" : "surhetsreglerande medel"
+      "text" : "pektin"
    }
 ]
