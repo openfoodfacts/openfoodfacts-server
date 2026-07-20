@@ -79439,7 +79439,6 @@ it: pleurotus
 pl: boczniak, boczniaki
 wikidata:en: Q852065
 
-# description:en:PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom.
 
 < en: Pleurotus
 en: oyster mushroom
@@ -79492,11 +79491,6 @@ tr: Kavak mantarı
 uk: Плеврот черепичастий
 vi: Nấm sò
 zh: 平菇
-# fr:pleurotes has 119 products @2018-11-01
-ciqual_food_code:en: 20114
-ciqual_food_name:en: Oyster mushroom, raw
-ciqual_food_name:fr: Champignon, pleurote, crue
-eurocode_2_group_3:en: 8.50.50
 # de-ch:Austern-Seitling
 # kk-arab:ۋسترىيتسالىق ۆەشەنكا
 # kk-cn:ۋسترىيتسالىق ۆەشەنكا
@@ -79515,8 +79509,16 @@ eurocode_2_group_3:en: 8.50.50
 # zh-hk:平菇
 # zh-sg:平菇
 # zh-tw:糙皮側耳:
+ciqual_food_code:en: 20114
+ciqual_food_name:en: Oyster mushroom, raw
+ciqual_food_name:fr: Champignon, pleurote, crue
+description:en: PLEUROTUS OSTREATUS, the oyster mushroom, is a common edible mushroom.
+eurocode_2_group_3:en: 8.50.50
+usda_ndb_code:en: 11987
+usda_ndb_name:en: Mushrooms, oyster, raw
 wikidata:en: Q186451
 wikipedia:en: https://en.wikipedia.org/wiki/Pleurotus_ostreatus
+# fr:pleurotes has 119 products @2018-11-01
 
 
 # description:en:MARASMIUS OREADES, the Scotch bonnet, is also known as the fairy ring mushroom or fairy ring champignon.
