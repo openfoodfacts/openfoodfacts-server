@@ -196,7 +196,7 @@ my @tests = (
 	],
 	[
 		{lc => "en", ingredients_text => "raw cane sugar, raw bananas, raw sliced tomatoes, cooked raw sugar"},
-		["en:unrefined-cane-sugar", "en:banana", "en:tomato", "en:unrefined-sugar"]
+		["en:unrefined-cane-sugar", "en:raw-banana", "en:tomato", "en:unrefined-sugar"]
 	],
 
 	[

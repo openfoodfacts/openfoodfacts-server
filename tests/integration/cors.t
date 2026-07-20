@@ -96,8 +96,9 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890123',
 		expected_status_code => 204,
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
@@ -107,8 +108,9 @@ my $tests_ref = [
 		path => '/api/v3/product/test',
 		expected_status_code => 204,
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
@@ -118,8 +120,9 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890123',
 		expected_status_code => 404,
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
@@ -130,8 +133,9 @@ my $tests_ref = [
 		expected_status_code => 204
 		,    # Return 204 for OPTIONS requests, even if the product does not exist, to allow CORS preflight to succeed
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
@@ -141,8 +145,9 @@ my $tests_ref = [
 		path => '/api/v2/product/1234567890123',
 		expected_status_code => 404,
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 	},
 	# Test sending X-User-Agent: should be accepted
@@ -154,10 +159,11 @@ my $tests_ref = [
 		,    # Return 204 for OPTIONS requests, even if the product does not exist, to allow CORS preflight to succeed
 		headers_in => {"X-User-Agent" => "test"},
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 			"Access-Control-Allow-Headers" =>
 				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	},
@@ -170,8 +176,9 @@ my $tests_ref = [
 			"Access-Control-Request-Method" => "GET",
 		},
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_type => "none",
 	},
@@ -213,10 +220,11 @@ $tests_ref = [
 		path => '/cgi/search.pl?search_terms=&action=process&json=1',
 		expected_status_code => 200,
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 			"Access-Control-Allow-Headers" =>
 				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_type => "none",    # we only check CORS headers, not the search results body
 	},
@@ -226,10 +234,11 @@ $tests_ref = [
 		path => '/cgi/search.pl?search_terms=&action=process&json=1',
 		expected_status_code => 204,
 		headers => {
-			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Origin" => "http://world.openfoodfacts.localhost",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 			"Access-Control-Allow-Headers" =>
 				"DNT,User-Agent,X-User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
+			"Access-Control-Allow-Credentials" => "true",
 		},
 		expected_type => "none",    # no body for OPTIONS requests
 	}
