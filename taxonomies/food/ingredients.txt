@@ -10611,17 +10611,12 @@ ciqual_proxy_food_name:en: Lamb, raw (average)
 #ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
 ecobalyse:en: 45e3cd64-1647-4841-bacb-795e2aae4f02
 ecobalyse_labels_en_organic:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
-usda_ndb_proxy_code:en: 17224
-usda_ndb_proxy_name:en: Lamb, ground, raw
+usda_ndb_code:en: 17224
+usda_ndb_name:en: Lamb, ground, raw
 wikidata:en: Q643419
 # ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
 
-< en: lamb-meat
-en: raw ground lamb
-usda_ndb_code:en: 17224
-usda_ndb_name:en: Lamb, ground, raw
-
-< en: lamb-meat
+< en: lamb meat
 en: lamb cutlet
 fr: côtelette d'agneau, côtelettes d'agneau, côte d'agneau, côtes d'agneau
 hr: janjeći kotlet
@@ -10633,8 +10628,7 @@ ciqual_food_code:en: 21500
 ciqual_food_name:en: Lamb, raw (average)
 # ingredient/fr:cotelettes-d’agneau has no products @2019-4-16
 
-< en: lamb
-< en: meat
+< en: lamb meat
 en: Lamb on skewer
 fr: Brochette d'agneau
 hr: janjetina na ražnju
@@ -10690,8 +10684,8 @@ hr: janjeća iznutrica
 it: budello di agnello
 
 < en: lamb
-en: Cooked lamb brains
-fr: Cervelles d'agneau cuites
+en: cooked lamb brains
+fr: cervelles d'agneau cuites
 hr: kuhani janjeći mozak
 it: cervella di agnello cotta
 ciqual_food_code:en: 40003
@@ -10709,8 +10703,8 @@ ciqual_food_name:en: Heart, lamb, raw
 ciqual_food_name:fr: Coeur, agneau, cru
 
 < en: lamb hearts
-en: Cooked lamb hearts
-fr: Coeurs d'agneau cuits
+en: cooked lamb hearts
+fr: coeurs d'agneau cuits
 hr: kuhana janjeća srca
 it: cuori di agnello cotti
 ciqual_food_code:en: 40059
@@ -10726,7 +10720,7 @@ ciqual_food_code:en: 40102
 ciqual_food_name:en: Liver, lamb, raw
 
 < en: lamb livers
-en: Cooked lamb livers
+en: cooked lamb livers
 fr: Foies d'agneau cuits
 hr: kuhane janjeće jetrice
 it: fegatini di agnello cotti
@@ -10743,8 +10737,8 @@ hr: janjeći bubrezi
 it: rognoni di agnello
 
 < en: lamb kidneys
-en: Braised lamb kidneys
-fr: Rognons d'agneau braisés
+en: braised lamb kidneys
+fr: rognons d'agneau braisés
 hr: pirjani janjeći bubrezi
 it: rognoni di agnello brasati
 ciqual_food_code:en: 40406
@@ -10761,8 +10755,8 @@ ciqual_food_name:en: Sweetbread, lamb, raw
 ciqual_food_name:fr: Ris, agneau, cru
 
 < en: lamb sweetbread
-en: Cooked lamb sweetbread
-fr: Ris d'agneau cuit
+en: cooked lamb sweetbread
+fr: ris d'agneau cuit
 hr: kuhani janjeći slatki kruh
 it: animelle di agnello cotte
 ciqual_food_code:en: 40303
@@ -52328,6 +52322,19 @@ usda_ndb_name:en: Water convolvulus,raw
 
 ###################################################################################################
 #
+#                                Wild spinach
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: wild spinach, lambsquarters
+fr: chénopode blanc, ansérine blanche, épinard sauvage
+la: Chenopodium album
+usda_ndb_code:en: 11244
+usda_ndb_name:en: Lambsquarters, raw
+
+###################################################################################################
+#
 #                                Cress
 #
 ###################################################################################################
@@ -56736,14 +56743,6 @@ vi: tỏi tây
 wa: porea
 yi: פארע-ציבעלע
 zh: 韭葱
-carbon_footprint_fr_foodges_ingredient:fr: Poireau
-carbon_footprint_fr_foodges_value:fr: 0.3
-ciqual_food_code:en: 20039
-ciqual_food_name:en: Leek, raw
-ciqual_food_name:fr: Poireau, cru
-ecobalyse:en: leek-fr
-ecobalyse_labels_en_organic:en: leek-organic
-eurocode_2_group_3:en: 8.30.30
 # aeb-arab:كرّاث
 #ang:lēac
 #arz:كراث
@@ -56764,6 +56763,19 @@ eurocode_2_group_3:en: 8.30.30
 #xmf:პურასქია
 # yue:京蔥
 #plant: wikidata:en:Q21870138
+carbon_footprint_fr_foodges_ingredient:fr: Poireau
+carbon_footprint_fr_foodges_value:fr: 0.3
+ciqual_food_code:en: 20039
+ciqual_food_name:en: Leek, raw
+ciqual_food_name:fr: Poireau, cru
+ecobalyse:en: leek-fr
+ecobalyse_labels_en_organic:en: leek-organic
+eurocode_2_group_3:en: 8.30.30
+usda_ndb_code:en: 11246
+usda_ndb_name:en: Leeks, (bulb and lower leaf-portion), raw
+usda_ndb_code_2:en: 11624
+usda_ndb_name_2:en: Leeks, (bulb and lower-leaf portion), freeze-dried
+usda_ndb_process_2:en: en:freeze-dried
 wikidata:en: Q1807269
 wikipedia:en: https://en.wikipedia.org/wiki/Leek
 
