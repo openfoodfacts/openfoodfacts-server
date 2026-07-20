@@ -23,11 +23,6 @@ proxy_send_timeout          1200;
 proxy_read_timeout          1200;
 send_timeout                1200;
 
-# enable large uploads
-client_max_body_size 20M;
-client_body_timeout 120s;
-client_header_timeout 120s;
-
 location ~ ^/images/products/ {
     # 2024/10/03 - temporary redirects as we changed the path of images
     # for barcodes that are 8 digits or less
@@ -153,8 +148,6 @@ location ~ ^/debug_vars/ {
     set $var_display "$var_display valid_cors_origin: $valid_cors_origin\n";
     set $var_display "$var_display cors_origin: $cors_origin\n";
     set $var_display "$var_display cors_vary: $cors_vary\n";
-    set $var_display "$var_display allow_credentials_origin: $allow_credentials_origin\n";
-    set $var_display "$var_display allow_credentials_uri: $allow_credentials_uri\n";
     set $var_display "$var_display allow_credentials: $allow_credentials\n";
     return 200 "$var_display";
 }

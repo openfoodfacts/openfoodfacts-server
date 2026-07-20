@@ -39786,6 +39786,12 @@ intake24_category_code:en: CONF
 pnns_group_2:en: Sweets
 
 < en: Confectioneries
+xx: Bánh đậu xanh, Banh dau xanh
+en: Bánh đậu xanh, Banh dau xanh
+description:en: Vietnamese confectionery made of mungo bean flour, sugar and oil.
+wikidata:en: Q48880901
+
+< en: Confectioneries
 xx: Laddu, ladoo
 en: Laddu, ladoo
 wikidata:en: Q1759289
@@ -69030,7 +69036,7 @@ it: Sorbetto al cocco
 lt: Kokosiniai šerbetai
 
 < en: Sorbets
-en: Blackcurrent sorbets
+en: Blackcurrant sorbets, Blackcurrent sorbets
 fr: Sorbets au cassis
 hr: Sorbet od crnog ribiza
 lt: Gervuogių šerbetai
@@ -70795,6 +70801,10 @@ ciqual_food_name:en: Red berries (raspberries, strawberries, red currants, black
 ciqual_food_name:fr: Fruits rouges, crus (framboises, fraises, groseilles, cassis)
 intake24_category_code:en: BERR
 
+< en: Berries
+< en: Potted plants
+en: Potted berry bushes
+sv: Bärbuske i kruka
 
 < en: Berries
 < en: blueberries
@@ -71115,32 +71125,67 @@ origins:en: en:france, en:perigord
 protected_name_file_number:en: PGI-FR-0133, PGI-FR-0133-AM01
 protected_name_type:en: pgi
 
-
-# in eu, Blackcurrants jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Berries
 en: Blackcurrants, black currant
+ar: كشمش
 bg: Касис
-fr: Cassis, Cassis
+ca: Riber negre
+da: Solbær
+de: Schwarze Johannisbeere
+es: Grosella negra
+et: Must sõstar
+fi: Mustaherukka
+fr: Cassis
 hr: Crni ribizli
+hu: Fekete ribizli
+it: Ribes nero
+ja: 黒スグリ
+la: Ribes nigrum
 lt: Juodieji serbentai
+nb: Solbær
+nl: Zwarte aalbes
+nn: Solbær
+pl: Czarna porzeczka
+pt: Groselha negra
+ru: Чёрная смородина
+sl: Črni ribez
+sv: Svarta vinbär
+zh: 黑醋栗
 agribalyse_food_code:en: 13007
 ciqual_food_code:en: 13007
 ciqual_food_name:en: Black currant, raw
 ciqual_food_name:fr: Cassis, cru
+wikidata:en: Q2941309
 
 < en: Blackcurrants
 < en: Fresh fruits
 en: Fresh blackcurrants
+da: Friske solbær
 fr: Cassis frais
 hr: Svježi crni ribiz
 lt: Švieži juodieji serbentai
+sv: Färska svarta vinbär
 season_in_country_fr:en: 6,7,8
 
 < en: Blackcurrants
 < en: Dried fruits
 en: Dried blackcurrants
+da: Tørrede solbær
 fr: Cassis séchés
+sv: Torkade svarta vinbär
+
+< en: Blackcurrants
+en: Titania blackcurrants
+xx: Ribes nigrum ‘Titania’
+la: Ribes nigrum ‘Titania’
+
+< en: Blackcurrants
+< en: Potted berry bushes
+en: Potted blackcurrants
+da: Solbær i krukke
+sv: Svarta vinbär i kruka
+# wikidata is for the plant, which is what you get in the pot
+wikidata:en: Q146604
 
 < en: Fruits
 en: Camu-Camu
@@ -72224,6 +72269,23 @@ en: Fresh Thompson Seedless grapes
 da: Friske Thompson seedless-vindruer
 sv: Färska Thompson seedless-vindruvor
 
+< en: Green seedless grapes
+en: Prime Seedless grapes, Prime grapes
+da: Prime Seedless-vindruer
+sv: Prime Seedless-vindruvor
+
+< en: Fresh seedless green grapes
+< en: Prime Seedless grapes
+en: Fresh Prime Seedless grapes
+da: Friske Prime Seedless-vindruer
+sv: Färska Prime Seedless-vindruvor
+comment:en: https://goodfruitguide.co.uk/product/prime-seedless/
+sales_format:en: package, weight
+season_in_country_eg:en: 6
+season_in_country_es:en: 7
+season_in_country_na:en: 12
+season_in_country_za:en: 1,2,12
+
 < en: Fruits
 en: Kakis
 es: Caquis, Kakis
@@ -72892,16 +72954,111 @@ hr: Tendralne dinje
 
 < en: Melons
 en: Watermelons
+ab: Fкарпыжә
+af: Waatlemoen
+am: ሃብሃብ
+an: Melón d'augua
+ar: بطيخ أحمر
+az: Adi qarpız
+ba: Ҡарбуз
+be: Кавун
+bg: Диня
+bi: Watermelon
+bn: তরমুজ
+bo: ཆུ་ཀུབ།
+bs: Lubenica
+ca: Síndria
+co: Patecca
+cs: Vodní meloun
+cy: Melon dŵr
+da: Vandmeloner
 de: Wassermelonen
+dv: ކަރާ
+el: Καρπούζι
+eo: Akvomelonoj
 es: Sandías
+et: Arbuus
+eu: Angurri
+fa: هندوانه
 fi: Vesimelonit
 fr: Pastèques, Melons d’eau
-hr: Lubenice
+gl: Sandía
+gn: Sandía
+gu: તરબૂચ
+gv: Mellyn ushtey
+ha: Kankana
+hi: तरबूज
+hr: Lubenice, Lubenica
+ht: Melon dlo
+hu: Görögdinnye
+hy: Ձմերուկ
+id: Semangka
 it: Angurie, Anguria, Cocomero, Cocomeri, Meloni d'acqua, Meloni da pane
 ja: スイカ, 西瓜
+jv: Semangka
+ka: Საზამთრო
+kk: Қарбыз
+kn: ಕಲ್ಲಂಗಡಿ
+ko: 수박
+ku: Zebeş
+ky: Дарбыз
 la: Citrullus lanatus
-lt: Arbūzai
+lg: Sekazzi
+lt: Arbūzai, Tikrasis arbūzas
+lv: Arbūzi
+mk: Лубеница
+ml: തണ്ണിമത്തൻ
+mn: Тарвас
+mr: टरबूज
+ms: Tembikai
+my: ဖရဲသီး
+nb: Vannmeloner, Vassmeloner
+ne: खरबुजा
 nl: Watermeloenen
+nn: Vassmelonar
+nv: Chʼééhjiyáán
+or: ତରଭୁଜ
+os: Харбыз
+pa: ਹਦਵਾਣਾ
+pl: Arbuz
+ps: هندواڼه
+pt: Melancia
+ro: Pepene
+ru: Арбуз
+rw: Wota meloni
+sa: कलिङ्गफलम्
+sc: Sìndria
+sd: هنداڻو
+se: Čáhcemelovdna
+sh: Lubenica
+si: කොමඩු
+sl: Lubenica
+sn: Nwiwa
+so: Qare
+sq: Shalqiri
+sr: Лубеница
+su: Samangka
+sv: Vattenmeloner
+sw: Tikitimaji
+ta: தர்ப்பூசணி
+te: పుచ్చ
+tg: Тарбуз
+th: แตงโม
+tl: Pakwan
+to: Meleni
+tr: Karpuz
+tt: Карбыз
+uk: Кавун
+ur: تربوز
+vi: Dưa hấu
+wo: Xaal
+yi: ארבוז
+za: Gvehoengz
+zh: 西瓜
+agribalyse_proxy_food_code:en: 13036
+ciqual_proxy_food_code:en: 13036
+ciqual_proxy_food_name:en: Watermelon, pulp, raw
+ciqual_proxy_food_name:fr: Pastèque, pulpe, crue
 sales_format:en: weight, package
 wikidata:en: Q38645
 
@@ -72913,6 +73070,12 @@ agribalyse_food_code:en: 13036
 ciqual_food_code:en: 13036
 ciqual_food_name:en: Watermelon, pulp, raw
 ciqual_food_name:fr: Pastèque, pulpe, crue
+
+< en: Watermelons
+en: Sugar Baby watermelons
+da: Sugar Baby-vandmeloner
+la: Citrullus lanatus ‘Sugar Baby’
+sv: Sugar Baby-vattenmeloner
 
 < en: Frozen fruits
 < en: Muskmelons
@@ -83864,6 +84027,14 @@ agribalyse_food_code:en: 26266
 ciqual_food_code:en: 26266
 ciqual_food_name:en: Croissant filled with ham and cheese
 ciqual_food_name:fr: Croissant au jambon fromage
+
+< en: Puff pastry meals
+< en: Veal meat dishes
+fr: Bouchées feuilletées au veau
+
+< en: Meals with shellfish
+< en: Puff pastry meals
+fr: Bouchées feuilletées aux Saint-Jacques
 
 < en: Puff pastry meals
 en: Vol-au-vent in puff pastries, Filled vol-au-vent
@@ -109031,6 +109202,8 @@ it: Confetture di camemoro, Marmellate di camemoro
 sv: Hjortronsylter, htronsylt
 wikidata:en: Q65524341
 
+# in eu, Blackcurrants jams/jellies should have specific
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Berry jams
 en: Blackcurrant jams
 bg: Конфитюр от касис
@@ -109763,7 +109936,7 @@ sv: Björnbärsgeléer
 # in eu, Blackcurrants jams/jellies should have specific
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Fruit jellies
-en: Blackcurrants jellies
+en: Blackcurrant jellies, Blackcurrants jellies
 de: Schwarze Johannisbeere Gelees
 fi: Mustaherukkahyytelöt
 fr: Gelées de cassis
