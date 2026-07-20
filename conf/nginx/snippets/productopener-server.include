@@ -23,11 +23,6 @@ proxy_send_timeout          1200;
 proxy_read_timeout          1200;
 send_timeout                1200;
 
-# enable large uploads
-client_max_body_size 20M;
-client_body_timeout 120s;
-client_header_timeout 120s;
-
 location ~ ^/images/products/ {
     # 2024/10/03 - temporary redirects as we changed the path of images
     # for barcodes that are 8 digits or less
