@@ -51702,7 +51702,6 @@ wikidata:en: Q3237463
 ###################################################################################################
 
 # description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
-# comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 
 < en: leaf vegetable
 #category/lettuces
@@ -51810,6 +51809,7 @@ zh: 莴苣属, 萵苣
 ciqual_food_code:en: 20031
 ciqual_food_name:en: Lettuce, raw
 ciqual_food_name:fr: Laitue, crue
+comment:en: There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
 ecobalyse:en: e1495d32-01f6-462c-9157-b8351574d412
 ecobalyse_labels_en_organic:en: 83adcc36-72b1-4bff-b7bb-c6ac6f2a4a0b
 ecobalyse_origins_en_european_union:en: 2b5cc667-b981-4d27-8b1a-c435fab2043e
@@ -51910,6 +51910,8 @@ en: Red leaf lettuce
 it: lattuga rossa
 ja: サニーレタス, アカチリメンチシャ, 赤チリメンチシャ
 sv: rödbladig sallad
+usda_ndb_code:en: 11257
+usda_ndb_name:en: Lettuce, red leaf, raw
 wikidata:en: Q7305343
 wikipedia:en: https://en.wikipedia.org/wiki/Red_leaf_lettuce
 
@@ -78139,7 +78141,6 @@ uk: Морський салат, Ульва
 uz: Ulva
 vi: Ulva
 zh: 石莼, 石莼属
-# ingredient/fr:laitue-de-mer has 73 products in 4 languages @2019-02-22
 # algues:laitue de mer
 ciqual_food_code:en: 20985
 ciqual_food_name:en: Sea lettuce (ulva sp.), dried or dehydrated
@@ -78152,6 +78153,7 @@ eurocode_2_group_3:en: 8.55.30
 # zh-tw:石蓴
 wikidata:en: Q1109330
 wikipedia:en: https://en.wikipedia.org/wiki/Sea_lettuce
+# ingredient/fr:laitue-de-mer has 73 products in 4 languages @2019-02-22
 
 
 
