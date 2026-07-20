@@ -113,19 +113,42 @@ stopwords:de: und, mit, von
 # food_of_animal_origin:en: yes
 
 en: Incorrect product type
-bg: Неправилен product type
+ar: نوع المنتج غير صحيح
+bg: Неправилен тип продукт
 ca: Tipus de producte incorrecte
+cs: Nesprávný typ produktu
 da: Forkert produkttype
-de: Falscher product type
+de: Falscher Produkttyp
+el: Εσφαλμένος τύπος προϊόντος
 es: Tipo de producto incorrecto
-fi: Väärä product type
-fr: Mauvais product type
-hr: Pogrešan product type
+et: Vale tootetüüp
+fi: Väärä tuotetyyppi
+fr: Type de produit incorrect
+he: סอย מוצר שגוי
+hi: अमान्य उत्पाद प्रकार
+hr: Pogrešna vrsta proizvoda
 hu: Hibás terméktípus
+id: Tipe produk salah
 it: Tipo di prodotto errato
-nl: Verkeerd product type
+ja: 不正な製品タイプ
+ko: 잘못된 제품 유형
+lt: Neteisingas produkto tipas
+lv: Nepareizs produkta veids
+ms: Jenis produk salah
+nl: Verkeerd producttype
+no: Feil produkttype
+pl: Nieprawidłowy typ produktu
 pt: Tipo de produto incorreto
-ru: Неправильный product type
+ro: Tip de produs incorect
+ru: Неправильный тип продукта
+sk: Nesprávny typ produktu
+sl: Napačna vrsta izdelka
+sv: Fel produkttyp
+th: ประเภทสินค้าไม่ถูกต้อง
+tr: Yanlış ürün tipi
+uk: Неправильний тип продукту
+vi: Sai loại sản phẩm
+zh: 错误的产品类型
 
 < en: Incorrect product type
 en: Non food products
@@ -7892,7 +7915,7 @@ sv: Ingefärs- och gurkmejashots med apelsin\, äpple och citron
 en: Fruit juices
 bg: Плодови сокове
 ca: Sucs de fruita
-da: Frugtjuice
+da: Frugtjuicer
 de: Fruchsäfte, Fruchtsaft
 es: Zumos de frutas, Zumo de frutas, Jugos de frutas
 fi: Hedelmämehut
@@ -7907,7 +7930,7 @@ nl_be: Vruchtensappen, Fruitsappen
 pl: Soki owocowe
 pt: Sumos de fruta
 ru: Фруктовые соки
-sv: Fruktsafter, fruktsaft
+sv: Fruktjuicer, Fruktsafter, fruktsaft
 th: น้ำผลไม้
 tr: Meyve suyu
 zh: 水果汁, 果汁
@@ -7924,6 +7947,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Fruit Juice - Ready to Drink (Shelf Stable)
 intake24_category_code:en: FJCE
 pnns_group_2:en: Fruit juices
+wikidata:en: Q20932605
 
 < en: Fruit juices
 en: Mixed red fruits juice pure juice
@@ -7938,27 +7962,52 @@ ciqual_food_name:fr: Jus de fruits rouges
 < en: Fruit juices
 < en: Unsweetened beverages
 en: Apple juices
+ar: عصير تفاح
+az: Alma şirəsi
 bg: Ябълков сок, сок от ябълка
-ca: Sucs de poma
-da: Æblejuice
+ca: Sucs de poma, Suc de poma
+cs: Jablečný mošt
+da: Æblejuicer, Æblemoster
 de: Apfelsaft, Apfelsäfte
-es: Zumos de manzana
-fi: omenamehut
+el: Χυμός μήλου
+eo: Pomaj sukoj
+es: Zumos de manzana, Jugo de manzana
+et: Õunamahl
+fa: آب سیب
+fi: Omenamehut
 fr: Jus de pomme, jus de pommes
+ga: Sú úll
 he: מיצי תפוחים
 hr: Sokovi od jabuke
 hu: Almalevek, Almalé
+hy: Խնձորի հյութ
+id: Jus apel
 it: Succo di mela, Spremuta di mela
 ja: リンゴジュース, りんごジュース, アップルジュース, アップル・ジュース
+jv: Jus apel
+ko: 사과 주스
 lt: Obuolių sultys
+lv: Ābolu sula
+mk: Сок од јаболко
+nb: Eplemost
 nl: Appelsappen, Appelsap
 nl_be: Appelsappen, Appelsap
-pl: Soki jabłkowe
-pt: Sumos de macã
+nn: Eplemost
+pl: Soki jabłkowe, Sok jabłkowy
+pt: Sumos de macã, Suco de maçã
 ru: Яблочные соки, Яблочный сок
+sa: सेवफलरसः
+sl: Jabolčni sok
+sq: Lëngu i mollës
+sr: Јабуков сок
+sv: Äppeljuicer, Äppelmust
 th: น้ำเอปเปิ้
+tl: Yago ng mansanas
 tr: Elma suyu
-zh: 苹果汁
+tt: Алма суы
+uk: Яблучний сік
+vi: Nước táo
+zh: 苹果汁, 蘋果汁
 agribalyse_proxy_food_code:en: 2074
 agribalyse_proxy_food_name:en: Apple juice, pure juice
 agribalyse_proxy_food_name:fr: Jus de pomme, pur jus
@@ -8504,31 +8553,69 @@ nl: Gekoelde Verse Multivruchtensappen, Gekoelde Verse Multivruchtensap
 
 < en: Fruit juices
 en: Orange juices
+ar: عصير برتقال
+ba: Әфлисун һуты
+be: Апельсінавы сок
 bg: Сок от портокал, Портокалов сок
-ca: Sucs de taronja
-da: Appelsinjuice
+bo: ཚ་ལུ་མའི་ཁུ་བ།
+br: Chug orañjez
+ca: Sucs de taronja, Suc de taronja
+cs: Pomerančový džus
+cy: Sudd oren
+da: Appelsinjuicer
 de: Orangensäfte, Orangensaft
-es: Zumos de naranja, zumos de naranjas, zumo de naranja
-fi: appelsiinimehut
+el: Πορτοκαλάδα
+eo: Oranĝsukoj
+es: Zumos de naranja, zumos de naranjas, zumo de naranja, Jugo de naranja
+et: Apelsinimahl
+eu: Laranja-zuku
+fa: آب پرتقال
+fi: Appelsiinimehut, Appelsiinimehu
 fr: Jus d'orange, jus d'oranges
+ga: Sú oráistí
+gl: Zume de laranxa
 he: מיצי תפוזים
-hr: Sokovi od naranče
+hr: Sokovi od naranče, Sok od naranče
 hu: Narancslevek, Narancslé, Narancsdzsúsz
+hy: Նարնջի հյութ
+id: Jus jeruk
+is: Appelsínusafi
 it: Succo di arancia, Succo d'arancia
-ja: オレンジジュース
+ja: オレンジジュース, エドウィン・コリンズ
+jv: Jus jeruk
+ka: Ფორთოხლის წვენი
+ko: 오렌지 주스
 lt: Apelsinų sultys, sultys iš apelsinų
+mi: Wai ārani
+mk: Сок од портокал
+my: လိမ္မော်ရည်
+nb: Appelsinjuicer, Appelsinjuser
 nl: Sinaasappelsappen, Jus d'Oranges, Sinaasappelsap, Jus d'Orange, Sinasappelsap
-pl: Soki pomarańczowe
-pt: Sumos de laranja
-ru: Апельсиновые соки
-sv: Apfelsinjuice
+nn: Appelsinjusar, Appelsinjuicar
+oc: Jus d'arange
+pa: ਸੰਤਰੇ ਦਾ ਰਸ
+pl: Soki pomarańczowe, Sok pomarańczowy
+pt: Sumos de laranja, Suco de laranja
+ru: Апельсиновые соки, Апельсиновый сок
+sa: नारङ्गफलरसः
+sk: Pomarančový džús
+sl: Pomarančni sok
+sr: Sok od pomorandže
+sv: Apelsinjuicer
+ta: ஆரஞ்சுச் சாறு
+th: น้ำส้ม
 tr: Portakal suyu
-zh: 橙子汁, 橙汁
+tt: Әфлисун суы
+uk: Апельсиновий сік
+uz: Apelsin sharbati
+vi: Nước cam
+yi: מאראנצן זאפט
+zh: 橙子汁, 橙汁, 柳橙汁
 agribalyse_proxy_food_code:en: 2011
 agribalyse_proxy_food_name:en: Mixed fruits juice, orange based, multivitamin
 #expected_ingredients:en: en:orange
 opposite:en: en:orange-nectars
-wikidata:en: Q1781317
+wikidata:en: Q219059
 # Note: do not put the Agribalyse for home made orange juice, it is not relevant for industrial orange juice.
 
 < en: Orange juices
@@ -8591,19 +8678,28 @@ ciqual_food_name:fr: Jus d'orange, à base de concentré
 
 < en: Orange juices
 en: Orange juices without pulp
+da: Appelsinjuicer uden frugtkød
+es: Zumos de naranja sin pulpa
 fr: Jus d'orange sans pulpe, Jus d'orange filtrés
+nb: Appelsinjuicer uten fruktkjøtt
+nn: Appelsinjusar utan fruktkjøt
+sv: Apelsinjuicer utan fruktkött
 opposite:en: en:orange-juices-with-pulp
 
 < en: Orange juices
 en: Orange juices with pulp
+da: Appelsinjuicer med frugtkød
 de: Orangensaft mit Fruchtfleisch
 es: Zumos de naranja con pulpa
 fr: Jus d'orange avec pulpe
 hr: Sokovi od naranče s pulpom
 it: Succo d'arancia con polpa
 lt: Apelsinų sultys su minkštimu
+nb: Appelsinjuicer med fruktkjøtt
 nl: Sinaasappelsappen met vruchtvlees
+nn: Appelsinjusar med fruktkjøt
 pl: Soki pomarańczowe z miąższem
+sv: Apelsinjuicer med fruktkött
 opposite:en: en:orange-juices-without-pulp
 
 < en: Orange juices
@@ -69036,7 +69132,7 @@ it: Sorbetto al cocco
 lt: Kokosiniai šerbetai
 
 < en: Sorbets
-en: Blackcurrent sorbets
+en: Blackcurrant sorbets, Blackcurrent sorbets
 fr: Sorbets au cassis
 hr: Sorbet od crnog ribiza
 lt: Gervuogių šerbetai
@@ -70801,6 +70897,10 @@ ciqual_food_name:en: Red berries (raspberries, strawberries, red currants, black
 ciqual_food_name:fr: Fruits rouges, crus (framboises, fraises, groseilles, cassis)
 intake24_category_code:en: BERR
 
+< en: Berries
+< en: Potted plants
+en: Potted berry bushes
+sv: Bärbuske i kruka
 
 < en: Berries
 < en: blueberries
@@ -71121,32 +71221,67 @@ origins:en: en:france, en:perigord
 protected_name_file_number:en: PGI-FR-0133, PGI-FR-0133-AM01
 protected_name_type:en: pgi
 
-
-# in eu, Blackcurrants jams/jellies should have specific
-# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Berries
 en: Blackcurrants, black currant
+ar: كشمش
 bg: Касис
-fr: Cassis, Cassis
+ca: Riber negre
+da: Solbær
+de: Schwarze Johannisbeere
+es: Grosella negra
+et: Must sõstar
+fi: Mustaherukka
+fr: Cassis
 hr: Crni ribizli
+hu: Fekete ribizli
+it: Ribes nero
+ja: 黒スグリ
+la: Ribes nigrum
 lt: Juodieji serbentai
+nb: Solbær
+nl: Zwarte aalbes
+nn: Solbær
+pl: Czarna porzeczka
+pt: Groselha negra
+ru: Чёрная смородина
+sl: Črni ribez
+sv: Svarta vinbär
+zh: 黑醋栗
 agribalyse_food_code:en: 13007
 ciqual_food_code:en: 13007
 ciqual_food_name:en: Black currant, raw
 ciqual_food_name:fr: Cassis, cru
+wikidata:en: Q2941309
 
 < en: Blackcurrants
 < en: Fresh fruits
 en: Fresh blackcurrants
+da: Friske solbær
 fr: Cassis frais
 hr: Svježi crni ribiz
 lt: Švieži juodieji serbentai
+sv: Färska svarta vinbär
 season_in_country_fr:en: 6,7,8
 
 < en: Blackcurrants
 < en: Dried fruits
 en: Dried blackcurrants
+da: Tørrede solbær
 fr: Cassis séchés
+sv: Torkade svarta vinbär
+
+< en: Blackcurrants
+en: Titania blackcurrants
+xx: Ribes nigrum ‘Titania’
+la: Ribes nigrum ‘Titania’
+
+< en: Blackcurrants
+< en: Potted berry bushes
+en: Potted blackcurrants
+da: Solbær i krukke
+sv: Svarta vinbär i kruka
+# wikidata is for the plant, which is what you get in the pot
+wikidata:en: Q146604
 
 < en: Fruits
 en: Camu-Camu
@@ -71604,8 +71739,27 @@ ciqual_food_name:en: Lime, pulp, raw
 ciqual_food_name:fr: Citron vert ou Lime, pulpe, cru
 
 < en: Citrus
-en: Yuzu
-fr: Yuzu
+en: Yuzu, Yuzu fruits
+xx: Yuzu
+ar: يوزو
+bg: Юзу
+bn: ইয়ুজু
+el: Γιούζου
+eo: Juzuoj
+et: Juunosidrunipuu
+fa: یوزو
+ja: 柚子, ユズ
+ko: 유자나무
+la: Citrus × junos
+lt: Kvapusis citrinmedis
+ml: സിട്രസ് ജൂനോസ്
+ms: Limau Yuzu
+pa: ਯੂਜ਼ੂ
+pl: Owoc juzu
+th: ยูซุ
+uk: Юдзу
+zh: 香橙
+wikidata:en: Q103772657
 
 < en: Citrus
 en: Mandarins, Mandarines, Mandarin oranges
@@ -72229,6 +72383,23 @@ wikidata:en: Q1898118
 en: Fresh Thompson Seedless grapes
 da: Friske Thompson seedless-vindruer
 sv: Färska Thompson seedless-vindruvor
+
+< en: Green seedless grapes
+en: Prime Seedless grapes, Prime grapes
+da: Prime Seedless-vindruer
+sv: Prime Seedless-vindruvor
+
+< en: Fresh seedless green grapes
+< en: Prime Seedless grapes
+en: Fresh Prime Seedless grapes
+da: Friske Prime Seedless-vindruer
+sv: Färska Prime Seedless-vindruvor
+comment:en: https://goodfruitguide.co.uk/product/prime-seedless/
+sales_format:en: package, weight
+season_in_country_eg:en: 6
+season_in_country_es:en: 7
+season_in_country_na:en: 12
+season_in_country_za:en: 1,2,12
 
 < en: Fruits
 en: Kakis
@@ -72898,16 +73069,111 @@ hr: Tendralne dinje
 
 < en: Melons
 en: Watermelons
+ab: Fкарпыжә
+af: Waatlemoen
+am: ሃብሃብ
+an: Melón d'augua
+ar: بطيخ أحمر
+az: Adi qarpız
+ba: Ҡарбуз
+be: Кавун
+bg: Диня
+bi: Watermelon
+bn: তরমুজ
+bo: ཆུ་ཀུབ།
+bs: Lubenica
+ca: Síndria
+co: Patecca
+cs: Vodní meloun
+cy: Melon dŵr
+da: Vandmeloner
 de: Wassermelonen
+dv: ކަރާ
+el: Καρπούζι
+eo: Akvomelonoj
 es: Sandías
+et: Arbuus
+eu: Angurri
+fa: هندوانه
 fi: Vesimelonit
 fr: Pastèques, Melons d’eau
-hr: Lubenice
+gl: Sandía
+gn: Sandía
+gu: તરબૂચ
+gv: Mellyn ushtey
+ha: Kankana
+hi: तरबूज
+hr: Lubenice, Lubenica
+ht: Melon dlo
+hu: Görögdinnye
+hy: Ձմերուկ
+id: Semangka
 it: Angurie, Anguria, Cocomero, Cocomeri, Meloni d'acqua, Meloni da pane
 ja: スイカ, 西瓜
+jv: Semangka
+ka: Საზამთრო
+kk: Қарбыз
+kn: ಕಲ್ಲಂಗಡಿ
+ko: 수박
+ku: Zebeş
+ky: Дарбыз
 la: Citrullus lanatus
-lt: Arbūzai
+lg: Sekazzi
+lt: Arbūzai, Tikrasis arbūzas
+lv: Arbūzi
+mk: Лубеница
+ml: തണ്ണിമത്തൻ
+mn: Тарвас
+mr: टरबूज
+ms: Tembikai
+my: ဖရဲသီး
+nb: Vannmeloner, Vassmeloner
+ne: खरबुजा
 nl: Watermeloenen
+nn: Vassmelonar
+nv: Chʼééhjiyáán
+or: ତରଭୁଜ
+os: Харбыз
+pa: ਹਦਵਾਣਾ
+pl: Arbuz
+ps: هندواڼه
+pt: Melancia
+ro: Pepene
+ru: Арбуз
+rw: Wota meloni
+sa: कलिङ्गफलम्
+sc: Sìndria
+sd: هنداڻو
+se: Čáhcemelovdna
+sh: Lubenica
+si: කොමඩු
+sl: Lubenica
+sn: Nwiwa
+so: Qare
+sq: Shalqiri
+sr: Лубеница
+su: Samangka
+sv: Vattenmeloner
+sw: Tikitimaji
+ta: தர்ப்பூசணி
+te: పుచ్చ
+tg: Тарбуз
+th: แตงโม
+tl: Pakwan
+to: Meleni
+tr: Karpuz
+tt: Карбыз
+uk: Кавун
+ur: تربوز
+vi: Dưa hấu
+wo: Xaal
+yi: ארבוז
+za: Gvehoengz
+zh: 西瓜
+agribalyse_proxy_food_code:en: 13036
+ciqual_proxy_food_code:en: 13036
+ciqual_proxy_food_name:en: Watermelon, pulp, raw
+ciqual_proxy_food_name:fr: Pastèque, pulpe, crue
 sales_format:en: weight, package
 wikidata:en: Q38645
 
@@ -72919,6 +73185,19 @@ agribalyse_food_code:en: 13036
 ciqual_food_code:en: 13036
 ciqual_food_name:en: Watermelon, pulp, raw
 ciqual_food_name:fr: Pastèque, pulpe, crue
+
+< en: Watermelons
+en: Crimson Sweet watermelons, Crimson watermelons
+da: Crimson Sweet-vandmeloner, Crimson-vandmeloner
+la: Citrullus lanatus ‘Crimson Sweet’
+sv: Crimson Sweet-vattenmeloner, Crimson-vattenmeloner
+sales_format:en: weight
+
+< en: Watermelons
+en: Sugar Baby watermelons
+da: Sugar Baby-vandmeloner
+la: Citrullus lanatus ‘Sugar Baby’
+sv: Sugar Baby-vattenmeloner
 
 < en: Frozen fruits
 < en: Muskmelons
@@ -83870,6 +84149,14 @@ agribalyse_food_code:en: 26266
 ciqual_food_code:en: 26266
 ciqual_food_name:en: Croissant filled with ham and cheese
 ciqual_food_name:fr: Croissant au jambon fromage
+
+< en: Puff pastry meals
+< en: Veal meat dishes
+fr: Bouchées feuilletées au veau
+
+< en: Meals with shellfish
+< en: Puff pastry meals
+fr: Bouchées feuilletées aux Saint-Jacques
 
 < en: Puff pastry meals
 en: Vol-au-vent in puff pastries, Filled vol-au-vent
@@ -109037,6 +109324,8 @@ it: Confetture di camemoro, Marmellate di camemoro
 sv: Hjortronsylter, htronsylt
 wikidata:en: Q65524341
 
+# in eu, Blackcurrants jams/jellies should have specific
+# content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Berry jams
 en: Blackcurrant jams
 bg: Конфитюр от касис
@@ -109678,6 +109967,9 @@ wikidata:en: Q43669016
 en: Tangerine jams
 it: Marmellate di mandarini tangerini, Confetture di mandarini tangerini
 
+< en: Citrus jams
+en: Yuzu jams
+fr: Confitures de Yuzu
 
 #################### jellies and extra jellies in alphebetical order for English ####################
 # in eu, jellies should have specific
@@ -109769,7 +110061,7 @@ sv: Björnbärsgeléer
 # in eu, Blackcurrants jams/jellies should have specific
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L1438
 < en: Fruit jellies
-en: Blackcurrants jellies
+en: Blackcurrant jellies, Blackcurrants jellies
 de: Schwarze Johannisbeere Gelees
 fi: Mustaherukkahyytelöt
 fr: Gelées de cassis
@@ -111571,6 +111863,9 @@ wikidata:en: Q154389
 
 < en: Simple syrups
 en: Treacle
+
+< en: Syrups
+en: Yuzu syrups
 
 < en: Fruits and vegetables based foods
 < en: Vegetable-based foods and beverages
@@ -117248,15 +117543,26 @@ hr: Klice svježeg kupusa
 < en: Vegetables based foods
 en: Dried vegetables
 bg: Сушени зеленчуци
+da: Tørrede grønsager
 de: Getrocknetes Gemüse
+el: Αποξηραμένα λαχανικά
+eo: Sekigitaj legomoj
 es: Verduras y hortalizas deshidratadas, Verduras y hortalizas desecadas, Verduras deshidratadas, Verduras desecadas, Hortalizas deshidratadas, Hortalizas desecadas
-fi: kuivatut vihannekset
+fi: Kuivatut vihannekset
 fr: Légumes séchés
 hr: Sušeno povrće
-it: Ortaggi essiccati
+it: Ortaggi essiccati, Verdura essiccata
+ja: 乾燥野菜
+ko: 건채
+lv: Kaltēti dārzeņi
 nl: Gedroogde groenten
 pl: Warzywa suszone
+ru: Сушёный овощ
+sl: Suha zelenjava
+sv: Torkade grönsaker
+uk: Сушені овочі
 who_id:en: 16
+wikidata:en: Q56395863
 
 < en: Dried vegetables
 < en: Tomatoes and their products
@@ -117305,7 +117611,7 @@ ciqual_food_code:en: 20256
 ciqual_food_name:en: Tomato, dried, in oil
 ciqual_food_name:fr: Tomate, séchée, à l'huile
 
-
+< en: Condiments
 < en: Dried plant-based foods
 < en: Vegetables based foods
 en: Ground dried vegetables
@@ -117316,45 +117622,61 @@ fr: Légumes séchés moulus
 hr: Mljeveno sušeno povrće
 it: Ortaggi essiccati e macinati
 nl: Gemalen gedroogde groenten
+sv: Malna torkade grönsaker
 
-< en: Condiments
 < en: Ground dried vegetables
 < en: Tomatoes and their products
-en: Dried tomato powder, Tomato powder, Ground dried tomato
+en: Tomato powders, Dried tomato powder, Tomato powder, Ground dried tomato
+da: Tomatpulvere
 es: Tomate seco molido, Tomates en polvo
 fr: Poudre de tomate séchée
 hr: Sušene rajčice u prahu
 nl: Tomatenpoeders
 pl: Pomidory suszone w proszku, Proszek z suszonych pomidorów
+sv: Tomatpulver
+agribalyse_proxy_food_code:en: 20189
+ciqual_proxy_food_code:en: 20189
+ciqual_proxy_food_name:en: Tomato, dried
+ciqual_proxy_food_name:fr: Tomate, séchée
+wikidata:en: Q106922495
 
 < en: Garlic and their products
 < en: Ground dried vegetables
-en: Garlic powder, Granulated garlic, Dried garlic powder
+en: Garlic powders, Garlic powder, Granulated garlic, Dried garlic powder
+ar: مسحوق الثوم
 bg: Чесън на прах
-da: Hvidløgspulver
-de: Knoblauch granuliert
-es: Ajo seco molido, Ajos secos en polvo
+cs: Sušený česnek
+da: Hvidløgspulvere
+de: Knoblauchpulver, Knoblauch granuliert
+es: Ajos secos en polvo, Ajo seco molido
+fa: پودر سیر
 fi: Valkosipulijauhe
-fr: Ail sec broyé, Ail séché en poudre
+fr: Ail sec broyé, Ail séché en poudre, Poudre d'ail
+ha: Tafarnuwa foda
 hr: Češnjak u prahu
 hu: Fokhagyma por, Foghagyma granulátum
 it: Polvere di aglio
-ja: ガーリックパウダー
+ja: ガーリックパウダー, ニンニク粉末
+jv: Bawang bubuk
+ko: 마늘가루
 nl: Knoflookpoeders
 pl: Czosnek granulowany, Czosnek w proszku
+ru: Чесночный порошок
+sr: Лук у праху
 sv: Vitlökspulver
 tr: Sarımsak tozu
+zh: 蒜粉
 agribalyse_food_code:en: 11023
 ciqual_food_code:en: 11023
 ciqual_food_name:en: Garlic, powder, dried
 ciqual_food_name:fr: Ail séché, poudre
+wikidata:en: Q10716334
 
 < en: Ground dried vegetables
 < en: Onions and their products
-# <en:onion
-en: onion powder, Granulated onion, Dried minced onion
+en: Onion powders, Onion powder, Granulated onion, Dried minced onion
 bg: Лук на прах
-da: Løgpulver
+da: Løgpulvere
 de: Zwiebelpulver
 el: κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
 eo: pulvorigita cepo
@@ -117372,6 +117694,10 @@ pt: cebola em pó
 sk: sušená cibuľa
 sl: čebula v prahu
 sv: Lökpulver
+agribalyse_proxy_food_code:en: 20180
+ciqual_proxy_food_code:en: 20180
+ciqual_proxy_food_name:en: Onion, dried
+ciqual_proxy_food_name:fr: Oignon, séché
 wikidata:en: Q7093931
 # ingredient/fr:oignon-en-poudre has 1131 products in 15 languages @2018-11-06
 # category/onion-powder has 11 products @2019-05-12

@@ -65,23 +65,11 @@ map $http_origin_main_domain!!$http_host_main_domain $valid_cors_origin {
 }
 
 # Determine if credentials are allowed based on origin validity
-map $valid_cors_origin $allow_credentials_origin {
+# Note: we allow this for any uri,
+# because apps might want to authenticate just to avoid rate limits
+map $valid_cors_origin $allow_credentials {
 	default "";
 	~. "true";
-}
-
-# Determine if credentials are allowed based on uri
-map $po_request_uri $allow_credentials_uri {
-    default "";
-    /cgi/auth.pl "true";
-    /cgi/product_image_move.pl "true";
-    ~^/api/.*/current-user "true";
-}
-
-# compile credentials allowed based on origin and uri
-map "$allow_credentials_origin:$allow_credentials_uri" $allow_credentials {
-    default "";
-    true:true "true";
 }
 
 # Determine the CORS origin to send

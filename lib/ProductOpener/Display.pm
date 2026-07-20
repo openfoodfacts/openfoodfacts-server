@@ -174,7 +174,6 @@ use CGI qw(:cgi :cgi-lib :form escapeHTML charset);
 use HTML::Entities;
 use DateTime;
 use DateTime::Locale;
-use experimental 'smartmatch';
 use MongoDB;
 use Tie::IxHash;
 use JSON::MaybeXS;
