@@ -158,7 +158,7 @@ def create_df_dafm_milk() -> pl.dataframe.frame.DataFrame:
     )
     # combine columns 1 and 2
     # replace "as across" by legal name (there is " as across " one time)
-    # first, relpace null by as across
+    # first, replace null by as across
     df = df.with_columns(pl.col(df.columns[2]).fill_null("as across"))
     df = df.with_columns(
         pl.when(pl.col(df.columns[2]).cast(pl.String) == "as across")
