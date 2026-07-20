@@ -9960,36 +9960,10 @@ description:nl: Een quenelle is een langwerpig balletje gemaakt van deeg en gepu
 description:pt: A quenelle é um bolinho feito com carne ou peixe muito condimentados, ligados com clara de ovo e natas, ovos batidos ou manteiga e farinha.
 wikidata:en: Q12958
 
-
-< en: animal
-en: donkey
-fr: âne
-it: asino
-nutriscore_red_meat:en: yes
-vegan:en: no
-vegetarian:en: no
-
-< en: donkey
-en: donkey meat
-fr: viande d'âne
-it: carne d'asino
-
-< en: animal
-en: kangaroo
-fr: kangourou
-it: canguro
-nutriscore_red_meat:en: yes
-vegan:en: no
-vegetarian:en: no
-
-< en: kangaroo
-en: kangaroo meat
-fr: viande de kangourou
-it: carne di canguro
-
 < en: animal
 en: camel
 fr: chameau
+nl: kameel
 nutriscore_red_meat:en: yes
 vegan:en: no
 vegetarian:en: no
@@ -9998,20 +9972,7 @@ vegetarian:en: no
 en: camel meat
 fr: viande de chameau
 it: carne di cammello
-
-
-< en: animal
-en: bull
-fr: taureau
-it: toro
-nutriscore_red_meat:en: yes
-vegan:en: no
-vegetarian:en: no
-
-< en: bull
-en: bull meat
-fr: viande de taureau
-it: carne di toro
+nl: kameelvlees
 
 # comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. But do not include the word meat in these. Use en:beef meat for that.
 
@@ -14315,14 +14276,11 @@ pl: skrobia ze słodkich ziemniaków, skrobia z batatów, skrobia ze słodkiego 
 
 # en:modified potato starch is listed under en:thickener
 
-
+< en: arrowroot
 < en: starch
-en: arrowroot, arrowroot power, arrowroot starch, arrowroot flour
+en: arrowroot power, arrowroot starch, arrowroot flour
 de: Pfeilwurzelstärke, Pfeilwurzelmehl
-fr: Arrow-root/Marante/Herbe aux flèches
-hr: arrowroot
-it: radice di maranta
-description:en: Arrowroot is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
+description:en: Arrowroot starch is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
 usda_ndb_code:en: 20003
 usda_ndb_name:en: Arrowroot flour
 
@@ -38516,33 +38474,6 @@ it: frutta candita
 # 75 products in 3 languages @2018-10-02
 
 < en: fruit
-en: mammy apple, mamey
-la: Mammea americana
-description:en: A mammy apple is a tropical fruit native to the Caribbean and tropical Americas. Despite the name, they are actually classified as a berry, not a true apple. The flesh is intensely aromatic and deep orange, with a flavour similar to an apricot or raspberry.
-usda_ndb_code:en: 9175
-usda_ndb_name:en: Mammy-apple, (mamey), raw
-
-< en: fruit
-en: mamey sapote
-la: Pouteria sapota
-description:en: Mamey Sapote (Pouteria sapota). It has a rough brown skin like a football, and vibrant salmon-pink to reddish flesh with a rich, creamy flavor often compared to a mix of sweet potato, pumpkin, and almond. Widely used in smoothies and ice cream in Latin America and the Caribbean.
-usda_ndb_code:en: 9314
-usda_ndb_name:en: Sapote, mamey, raw
-
-< en: fruit
-en: medlar, loquat
-bg: мушмула
-de: Mispel, Mispeln, Loquat
-es: nispero
-fr: Néflier
-hr: mušmula
-it: nespola comune
-usda_ndb_code:en: 9174
-usda_ndb_name:en: Loquats, raw
-wikidata:en: Q7071497
-wikipedia:en: https://en.wikipedia.org/wiki/N%C3%ADspero
-
-< en: fruit
 en: exotic fruit
 da: eksotisk frugt
 fi: eksoottiset hedelmät
@@ -48684,11 +48615,6 @@ usda_ndb_process_2:en: en:pureed
 # 2014 in 12 languages @2018-09-27
 
 < en: raspberry
-en: raspberry puree with seeds
-usda_ndb_code_2:en: 9553
-usda_ndb_name_2:en: Raspberries, puree, with seeds
-
-< en: raspberry
 en: red raspberries
 de: Rote Himbeeren
 fr: Framboises rouges
@@ -52099,13 +52025,6 @@ usda_ndb_code:en: 11274
 usda_ndb_name:en: Mustard spinach, (tendergreen), raw
 
 < en: leaf vegetable
-en: mustard spinach, komatsuna
-la: Brassica rapa var. perviridis
-description:en: Mustard spinach, also known as komatsuna, is a leafy green vegetable that's actually part of the mustard/brassica family (Brassica rapa var. perviridis) rather than being related to true spinach. It's an East Asian vegetable, especially popular in Japanese cuisine (where it's called komatsuna), though it's also grown and eaten in China and other parts of Asia. The flavor is mild and slightly peppery.
-usda_ndb_code:en: 11274
-usda_ndb_name:en: Mustard spinach, (tendergreen), raw
-
-< en: leaf vegetable
 en: new zealand spinach
 la: Tetragonia tetragonioides
 description:en: New Zealand spinach (Tetragonia tetragonioides) isn't a true spinach at all. it's eaten much the same way as regular spinach — the young leaves and shoot tips are harvested and used cooked (steamed, sautéed, boiled, or added to soups and stir-fries). It's usually not eaten raw in large quantities because of its oxalate content, and cooking also helps soften its slightly thicker, fuzzier texture.
@@ -52981,15 +52900,6 @@ usda_ndb_name:en: Spices, parsley, dried
 #sr:peršunov list
 #57 in 10 @2021-09-16
 
-# SHOOT VEGETABLES (Eurocode 2 8.25)
-
-< en: vegetable
-en: shoot vegetable
-it: germoglio vegetale
-lv: šauj dārzeņus
-nl: scheutgroente
-eurocode_2_group_2:en: 8.25
-
 # BRASSICAS (Eurocode 2 8.15)
 
 < en: vegetable
@@ -53472,111 +53382,6 @@ eurocode_2_group_3:en: 8.15.24
 # vec:Càvorlo roso
 wikidata:en: q263203
 wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
-
-# en:description:CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
-# en:comment:IN french chou chinois is used for both varieties. And in other languages as well.
-
-< en: cabbage
-en: Chinese cabbage, Napa cabbage
-ar: برند
-bg: китайско зеле
-ca: col xinesa
-cs: pekingské zelí
-da: kinakål
-de: Chinakohl
-el: kινέζικο λάχανο
-eo: pekina brasiko
-es: col china
-et: pekingi lehtnaeris
-fa: کاهوی چینی
-fi: kiinankaali
-fr: chou chinois, pe-tsaï
-ga: cabáiste Síneach
-hr: kineski kupus
-id: sawi putih
-it: cavolo di pechino
-ja: ハクサイ, はくさい
-jv: sawi putih
-ko: 배추
-la: brassica rapa subsp. pekinensis
-lt: pekininis kopūstas
-lv: ķīnas kāposti
-mk: кинеска зелка
-ms: kubis cina
-nb: napakål
-nl: chinese kool
-pl: kapusta pekińska, kapusta właściwa pekińska
-pt: couve-da-china
-sk: kapusta čínska, kapusta pekinská
-sl: kitajski kapus
-sv: kinakål
-th: ผักกาดขาว
-tl: petsay
-tr: çin lahanası
-ug: يېسىۋېلەك
-uk: капуста пекінська
-uz: pekin karami
-vi: cải thảo
-zh: 大白菜
-ciqual_food_code:en: 20167
-ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-ecobalyse:en: chinese-cabbage-fr
-ecobalyse_labels_en_organic:en: chinese-cabbage-organic
-# 200 @2021-09-29
-eurocode_2_group_3:en: 8.15.28
-#arz:ملفوف برند
-#lzh:菘
-#szy:mamumuway
-# yue:紹菜
-wikidata:en: Q13360268
-wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
-
-# description:en:Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
-
-< en: cabbage
-en: pak choi, bok choy, pok choi
-ar: ملفوف صيني
-bo: ཚལ་དཀར་ཆེ་བ།
-ca: pak choi, bleda xinesa
-cs: bok čoj, pak čoj zelí, čínské
-da: bok choi, pak choi, kinesisk kål
-de: Pak Choi, Chinesischer Senfkohl
-el: mποκ τσόι
-es: bok choy, pak choi
-eu: txinatar aza
-fa: کلم چینی
-fi: pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
-fr: bok choy, pak choï
-hr: pak choi
-hu: bordáskel, bok choy, pak choi, bok choi
-id: pakcoy, bok choy
-is: blaðkál, salatkál, kínverskt selleríkál
-it: bok choy, pak-choi
-ja: チンゲンサイ, チンゲン菜, 青梗菜
-kn: ಬಾಯ್ ಚಾಯ್
-ko: 청경채
-la: Brassica rapa subsp. chinensis
-mk: бок чој, пак чој
-ms: bok choy, pak choi, pok choi
-nb: bak choy, pak choy, paksoi, tai tsai
-nl: paksoi, bokchoy, pak-choi
-pl: pak choi, bok choy, pok choi, kapusta bok choy, kapusta pak choy
-pt: pak-choi, bok-choi, tsoi sum
-ru: бок-чой, пак-чо́й, кита́йская черешко́вая капу́ста
-sv: sellerikål, pak choi
-uk: бок-чой
-vi: cải thìa, cải bẹ trắng, cải chíp, bạch giới tử
-zh: 小白菜
-ciqual_food_code:en: 20167
-ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-# 128 in 5 @2021-09-29
-eurocode_2_group_3:en: 8.15.28
-#arz:ملفوف صينى
-#yue:白菜
-wikidata:en: Q18968514
-wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
 
 < en: brassica
 < en: cabbage
@@ -54472,181 +54277,6 @@ lv: šauj dārzeņus
 nl: scheutgroente
 eurocode_2_group_2:en: 8.25
 
-#
-< en: shoot vegetable
-en: asparagus, asparagus spears
-af: Aspersie
-ar: هليون
-az: Qulançar, Dərman qulançarı
-ba: Себен үләне
-be: Спаржа лекавая
-bg: аспержа, аспержи
-bo: འདམ་མྱུག
-bs: Šparoga
-ca: Espàrrec
-cs: Chřest lékařský
-da: Asparges
-de: Spargel, Gemüsespargel, Spargelstangen
-el: Σπαράγγι
-eo: Asparago, asparagi
-es: espárrago, espárragos, tallos de espárragos
-et: spargel, asparaagus
-eu: Себен үләне
-fa: مارچوبه
-fi: Parsa
-fr: asperge, asperges, asperges pic-nic
-gl: Esparragueira
-gv: Asparag
-he: אספרג רפואי
-hi: शतावर
-hr: ljekovita šparoga
-id: Asparagus
-io: Asparago
-is: Spergill
-it: Asparago, aspargi, asparagio
-ja: アスパラガス
-ka: სატაცური
-kk: Кәдімгі қасқыржем
-kn: ಶತಾವರಿ
-ko: 아스파라거스
-ku: Kilig, Közönséges spárga
-li: Asperge
-lt: Vaistinis smidras, šparagas
-lv: Sparģeļi
-mr: अस्पॅरॅगस
-ms: Asparagus
-my: ကညွတ်ပင်
-nb: Asparges
-ne: कुरिलो
-nl: asperge, asperges
-nn: Asparges
-nv: Chʼałdą́ą́ʼ, Jádí nátʼoh
-oc: Espargue
-pa: ਛਤਾਵਰ
-pl: Szparag, szparagi, szparagów
-pt: espargo
-qu: Isparaw
-ro: Sparanghel
-ru: спаржа
-rw: Asiperije
-sd: اسپريگس
-sh: Špargla
-sl: Beluš, špargelj
-sq: Shpargulli mjekësor
-sr: Шпаргла
-sv: Sparris
-ta: சாத்தாவாரியினம்
-te: పిల్లితేగ
-tl: Esparago
-uk: Холодок лікарський
-ur: ہلیون
-vi: Măng tây
-wa: Aspedje
-yi: אספארגוס
-zh: 芦笋
-# als:Schbargl
-# ang:eorþnafela
-# ast:espárragu
-# csb:Lékarskô szparaga
-# frr:Spargel
-# hsb:Prawy hromak
-# lfn:Asparago
-# nap:spalece, sparece
-# pcd:Aspérjhe
-# pt-br:aspargo
-# scn:spàraciu, spàriciu
-# sco:Asparagus
-# sr-ec:Шпаргла
-# sr-el:Špargla
-# vec:Spàraxo
-# yue:露筍
-# zh-cn:芦笋
-# zh-hk:蘆筍
-# zh-mo:蘆筍
-# zh-my:芦笋
-# zh-sg:芦笋
-# zh-tw:蘆筍
-carbon_footprint_fr_foodges_ingredient:fr: Asperges en boite Chine
-carbon_footprint_fr_foodges_value:fr: 2.4
-#carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
-#carbon_footprint_fr_foodges_value:fr:0.9
-description:en: Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
-# en:asparagus has 301 products in 6 languages @2018-11-11
-eurocode_2_group_3:en: 8.25.10
-usda_ndb_proxy_code:en: 11011
-usda_ndb_proxy_name:en: Asparagus, raw
-wikidata:en: Q23041045
-wikipedia:en: https://en.wikipedia.org/wiki/Asparagus
-
-< en: asparagus
-en: raw asparagus
-usda_ndb_code:en: 11011
-usda_ndb_name:en: Asparagus, raw
-
-< en: asparagus
-fr: asperges fraîches
-
-< en: asparagus
-en: green asparagus
-bg: зелена аспержа, зелени аспержи
-de: grüner Spargel, Grüne Spargeln
-es: espárragos verdes
-fi: vihreä parsa
-fr: asperges vertes
-hr: zelene šparoge
-it: asparagi verdi
-nl: groene asperges
-pl: zielone szparagi, zielony szparag, zielonych szparagów
-pt: espargos verdes
-ciqual_food_code:en: 20279
-ciqual_food_name:en: Asparagus, green, raw
-ciqual_food_name:fr: Asperge, verte, crue
-wikidata:en: Q35075688
-# 170 in 7 @2021-09-23
-
-< en: green asparagus
-es: Espárragos verdes sin pelar
-
-< en: asparagus
-en: violet asparagus
-fr: asperge violette
-it: asparagi violetti
-
-< en: asparagus
-en: white asparagus
-bg: бяла аспержа, бели аспержи
-de: weisser Spargel, weißer Spargel, weisse Spargeln
-es: Espárrago blanco
-fi: valkoinen parsa
-fr: asperges blanches, asperge blanche, asperges blanches grosses, asperges blanches des sables des Landes IGP
-hr: bijele šparoge
-it: asparagi bianchi
-nl: witte asperges
-pl: białe szparagi, biały szparag, białych szparagów
-pt: Espargos brancos
-# fr:asperges blanches has 46 products in 4 languages @2018-11-11
-
-#< en:white asparagus
-#fr: asperges blanches coupées
-
-< en: asparagus
-en: asparagus heads
-fr: pointes d'asperges moyennes
-it: teste di asparagi
-
-< en: asparagus heads
-< en: green asparagus
-en: green asparagus heads
-es: espárrago verde, espárrago verde tallos y puntas
-fr: pointes d'asperges vertes
-it: teste di asparagi verdi
-
-< en: asparagus heads
-< en: white asparagus
-en: white asparagus heads
-es: vemas de espárragos blancos
-it: teste di asparagi bianchi
-
 < en: shoot vegetable
 en: chicory
 bg: цикория
@@ -54772,6 +54402,9 @@ usda_ndb_name:en: Arrowhead, raw
 
 < en: vegetable
 en: arrowroot
+xx: arrowroot
+fr: Arrow-root, Marante, Herbe aux flèches
+it: radice di maranta
 la: Maranta arundinacea
 description:en: Arrowroot (Maranta arundinacea) is a tropical plant native to the Caribbean and Central/South America. It's a rhizome — an underground stem, similar in concept to ginger or turmeric. Arrowroot is most famous as a starch/thickener rather than a table vegetable.
 usda_ndb_code:en: 11697
@@ -55002,6 +54635,9 @@ ciqual_proxy_food_name:fr: Asperge, verte, crue
 description:en: Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis is a spring vegetable, a flowering perennial plant species in the genus Asparagus;
 # en:asparagus has 301 products in 6 languages @2018-11-11
 eurocode_2_group_3:en: 8.25.10
+usda_ndb_2_code:en: 11018
+usda_ndb_2_name:en: Asparagus, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, en:unprepared
 usda_ndb_code:en: 11011
 usda_ndb_name:en: Asparagus, raw
 wikidata:en: Q23041045
@@ -55071,10 +54707,6 @@ en: white asparagus heads
 es: vemas de espárragos blancos
 it: teste di asparagi bianchi
 
-< en: asparagus
-en: frozen unprepared asparagus
-usda_ndb_code:en: 11018
-usda_ndb_name:en: Asparagus, frozen, unprepared
 
 ###################################################################################################
 #
@@ -55322,7 +54954,7 @@ usda_ndb_name:en: Beet greens, raw
 # do we need both parents?
 < en: root vegetable
 < en: taproot vegetable
-en: beetroot, beet, beet root
+en: beetrootOLD, beet, beet root
 af: Beet
 bg: цвекло
 ca: remolatxa
@@ -59615,180 +59247,7 @@ fr: Galacto-oligosaccharides - issus du lactose
 hr: galaktooligosaharidi koji sadrže laktozu
 it: Galatto-oligosaccaridi di lattosio
 
-# description:en:BEETROOT is the taproot portion of the beet plant
-
-#comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
-< en: root vegetable
-< en: taproot vegetable
-en: beetroot, beet, beet root
-af: Beet
-bg: цвекло
-ca: remolatxa
-da: rødbede, rødbeder
-de: Rüben, Randen
-es: remolacha, betarraga
-fi: punajuuri
-fr: betterave, betteraves
-he: סלק
-hr: cikla, cikle, cikle u boji
-hu: cékla
-it: barbabietola
-ja: ビーツ
-lt: Burokas, burokėlis, jauni burokėliai
-nl: biet, bieten
-no: rødbete
-pl: burak, buraki, buraka, buraków, burak ćwikłowy, buraki ćwikłowe, buraka ćwikłowego, buraków ćwikłowych
-pt: beterraba
-ru: Свёкла
-sk: cvikly
-sv: rödbeta, rödbetor, rödbets
-carbon_footprint_fr_foodges_ingredient:fr: Betteraves
-carbon_footprint_fr_foodges_value:fr: 0.2
-# en:beetroot has 319 products in 5 languages @2018-10-22
-ciqual_proxy_food_code:en: 20091
-ciqual_proxy_food_name:fr: Betterave rouge, crue
-ecobalyse:en: beetroot-fr
-ecobalyse_labels_en_organic:en: beetroot-organic
-eurocode_2_group_3:en: 8.38.55
-ifct_food_code:en: F001
-ifct_food_name:en: Beet root
-wikidata:en: Q99548274
-wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
-
-< en: red beetroot
-en: cooked red beetroot
-fr: betteraves rouges entieres cuites
-it: barbabietola rossa cotta
-
-# Sometimes it is indicated as a colour.
-
-< en: beetroot
-en: beetroot powder
-#en:processing:en:powder
-#bg:цвекло на прах
-#ca:remolatxa en pols
-#de:Rote-Bete-Pulver, färbendes Lebensmittel Rote-Bete-Pulver, Rote Beete-Pulver, Randenpulver
-de: färbendes Lebensmittel Rote Bete Pulver
-it: polvere di barbabietola
-ro: pudră de sfeclă roșie
-#es:remolacha en polvo
-#fi:punajuurijauhe
-#fr:poudre de betterave
-#it:Polvere di barbabietola
-#pl:burak w proszku, proszek z buraka
-# fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
-
-< en: beetroot
-en: beetroot syrup
-de: Rote-Beete-Sirup
-es: sirope de remolacha, jarabe de remolacha
-hr: sirup od cikle
-it: sciroppo di barbabietola
-# TODO : merge with en:sugar beet syrup ?
-
-< en: beetroot
-en: beetroot juice
-bg: сок от цвекло
-cs: šťáva z červené řepy
-de: Randensaft
-es: jugo de remolacha
-fi: punajuurimehu, punajuuritäysmehu
-fr: jus de betterave
-hr: sok od cikle
-it: succo di barbabietola
-nl: bietensap
-no: rødbetsaft
-pl: sok z buraka, sok buraczany
-sv: rödbetsjuice
-# fr:jus-de-betterave has 46 products in 3 languages @2018-10-22
-
-< en: beetroot juice
-en: beetroot juice concentrate
-da: rødbedejuice fra koncentrat
-de: Randensaft aus Konzentrat
-es: Jugo de remolacha concentrado.
-fi: punajuurimehutiiviste
-fr: jus de betterave concentré, jus concentré de betterave
-hr: koncentrirani sok od cikle, ugośćeni sok cikle, koncentrirani sok od cikle za bojenje
-it: succo concentrato di barbabietola
-nl: bietensapconcentraat, rode bietensapconcentraat
-pl: koncentrat soku z buraka
-sk: koncentrát šťavy z cvikly
-# fr:jus-de-betterave-concentré has 71 products in 4 languages @2018-10-22
-
-< en: beetroot
-fr: concentré de betterave
-bg: концентрат от цвекло
-cs: koncentrát z červené řepy
-de: Rote-Bete-Konzentrat
-es: concentrado de remolacha
-fi: punajuuritiiviste
-it: concentrato di barbabietola
-ja: ビーツ濃縮液
-lt: raudonųjų burokėlių koncentratas
-pl: koncentrat z buraka
-pt: concentrado de beterraba
-ru: концентрат свеклы
-sk: koncentrát z cvikly
-sv: rödbetskoncentrat
-
-< en: beetroot
-# <en:fibre
-fr: fibres de betterave
-fi: juurikaskuitu
-sv: betfiber
-#  fr:fibres-de-betterave has 43 products in 1 language @2018-10-22
-
-# description:en:As beetroots do not have to be red, the red ones are kept separate
-
-< en: beetroot
-en: red beetroot
-bg: червено цвекло
-cs: červená řepa
-de: Rote Bete, Rote Beete
-es: Remolacha roja
-fr: betterave rouge, betteraves rouges
-hr: crvena cikla
-it: barbabietole rosse
-ja: 赤ビーツ
-lt: raudonieji burokėliai
-nl: rode biet
-pl: burak czerwony, buraki czerwone, buraków czerwonych, buraka czerwonego, czerwony burak, czerwone buraki, czerwonych buraków, czerwonego buraka
-pt: beterraba vermelha
-# fr:betterave-rouge has 298 products in 6 languages @2018-10-22
-ciqual_food_code:en: 20091
-ciqual_food_name:fr: Betterave rouge, crue
-
-< en: beetroot juice
-< en: red beetroot
-en: red beetroot juice
-de: Rote Betesaft, Rote Bete Saft
-#es:zumo de remolacha roja, jugo de remolacha roja
-#fr:jus de betterave rouge
-#it:succo di barbabietole rosse
-#nl:rodebietensap
-# fr:jus-de-betterave-rouge has 38 products @2018-10-21
-
-< en: beetroot juice concentrate
-< en: red beetroot juice
-en: red beetroot juice concentrate
-de: Rote Bete-Saftkonzentrat, Rote Betesaft aus Fruchtsaftkonzentrat
-#fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
-#nl:geconcentreerd rodebietensap
-# fr:jus-de-betterave-rouge-concentré has 37 products in 4 languages @2018-10-21
-
-< en: beetroot
-en: beetroot sprouts
-de: Rote-Bete-Sprossen
-es: germen de remolacha
-fi: punajuuren idut
-fr: pousses de betterave
-hr: klice cikle
-it: germogli di barbabietola
-nl: bietenkiemen
-pl: kiełki buraka
-# en:beetroot-sprouts has 1 product in 1 language @2018-10-21
-
+< en: plant
 en: Konjac
 de: Konjak
 fr: Konjac
@@ -67409,43 +66868,6 @@ wikidata:en: Q20856764
 #sv:korianderpulver
 # ingredient/fr:coriandre-en-poudre has 54 products in 4 languages @2018-10-07
 
-< en: seed
-en: cottonseed, cotton seed
-de: Baumwollsaat
-es: semillas de algodón
-fr: Graine de coton
-hr: pamuk
-it: Semi di cotone
-
-#category/fennel-seeds
-< en: seed
-en: fennel seed
-ca: fruit del fonoll
-da: fennikelfrø
-de: Fenchelsamen, Fenchelsaat
-es: Semilla de hinojo, Semillas de hinojo
-fi: fenkolinsiemen, fenkolin siemen
-fr: graine de fenouil, graines de fenouil
-hr: sjeme komorača
-it: seme di finocchio, semi di finocchio
-ja: フェンネルシード
-la: Foeniculi Fructus
-nb: fennikelfrø
-nl: Venkelzaad
-ru: плод фенхеля
-sv: fänkålsfrö, fänkålsfrön
-ciqual_food_code:en: 11066
-ciqual_food_name:en: Fennel, seed
-ciqual_food_name:fr: Fenouil, graine
-wikidata:en: Q27658833
-# 742 in 12 @2021-09-27
-
-#<en:fennel seed
-#en:organic fennel seed
-#fi:luomu fenkolinsiemen
-#nl:biologisch venkelzaad
-# ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
-
 ###################################################################################################
 #
 #                                Breadfruit seeds
@@ -67573,7 +66995,13 @@ usda_ndb_name:en: Seeds, chia seeds, dried
 ###################################################################################################
 
 < en: seed
-en: cottonseed
+en: cottonseed, cotton seed
+de: Baumwollsaat
+es: semillas de algodón
+fr: graine de coton
+hr: pamuk
+it: semi di cotone
+nl: katoenzaad
 description:en: Cottonseed is the seed of the cotton plant (genus Gossypium), harvested as a byproduct of cotton fiber production. After cotton bolls are picked, the fluffy fiber (lint) is separated from the seeds during a process called ginning. Each cotton boll contains several seeds embedded in the fiber. Raw cottonseed contains a natural compound called gossypol, which is toxic to humans in significant quantities. Some specialty "glandless" cotton varieties have been bred to have naturally low gossypol levels, and these are sometimes explored as a protein source (the seed kernel is fairly protein-rich), but this isn't mainstream or widely available commercially.
 
 < en: cottonseed
@@ -67741,7 +67169,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cumin
 
 #category/fennel-seeds
 < en: seed
-en: fennel seed
+en: fennel seedOLD
 ca: fruit del fonoll
 da: fennikelfrø
 de: Fenchelsamen, Fenchelsaat
@@ -67770,46 +67198,6 @@ wikidata:en: Q27658833
 #nl:biologisch venkelzaad
 # ingredient/nl:biologisch-venkelzaad has 1 product @2019-05-24
 
-< en: seed
-en: hemp seed
-de: Hanfsamen, hanfsaat
-es: Semilla de cáñamo, semillas de Cáñamo Sativa L
-fi: hampunsiemen, hampunsiemenet
-fr: graines de chanvre
-hr: sjeme konoplje
-it: semi di canapa
-nl: hennepzaad
-# 35@2019-06-07
-
-< en: hemp seed
-en: hemp seed flour
-de: Hanfmehl, Hanfsamenmehl
-es: harina de semillas de Cáñamo Sativa L
-hr: brašno od sjemenki konoplje
-it: farina di semi di canapa
-
-< en: hemp seed
-en: hemp seed oil
-de: Hanföl, Hanfsamenöl
-es: aciete de semillas de Cáñamo Sativa L
-hr: ulje sjemenki konoplje
-it: olio di semi di canapa
-
-< en: hemp seed
-en: hemp seed paste
-de: Hanfsamenmus
-it: pasta di semi di canapa
-
-# < en:melon made from
-< en: seed
-en: melon seed
-de: Melonenkerne, Melonensamen
-fi: meloninsiemen
-fr: graines de melon
-hr: sjeme dinje
-it: semi di melone
-sv: melonfrön
-# ingredient/en:melon-seed has 4 products in 1 language @2020-06-13
 
 # description:en:Pine nuts, also called piñón or pinoli, are the edible seeds of pines (family Pinaceae, genus Pinus).
 
@@ -68045,7 +67433,8 @@ es: harina de semillas de Cáñamo Sativa L
 hr: brašno od sjemenki konoplje
 it: farina di semi di canapa
 
-< en: hemp seed
+#< en: hemp seed
+< en: vegetable oil
 en: hemp seed oil
 de: Hanföl, Hanfsamenöl
 es: aciete de semillas de Cáñamo Sativa L
@@ -68056,6 +67445,8 @@ it: olio di semi di canapa
 en: hemp seed paste
 de: Hanfsamenmus
 it: pasta di semi di canapa
+
+
 
 ###################################################################################################
 #
@@ -91236,18 +90627,6 @@ en: roasted turkey including natural turkey juices
 de: Gebratener Truthahn mit natürlichen Truthahnsäften
 it: tacchino arrosto con succhi naturali di tacchino
 
-< en: poultry
-en: quail
-bg: пъдпъдък
-de: Wachtel
-fr: caille, cailles
-hr: prepelica
-it: quaglia
-nl: kwartel, kwartels
-pl: przepiórka, przepiórki, przepiórczy, przepiórcze, przepiórcza
-wikidata:en: Q6072584
-wikipedia:en: https://en.wikipedia.org/wiki/Quail
-# ingredient/fr:cailles has 4 products @2019-05-31
 
 ###################################################################################################
 #
@@ -91421,8 +90800,18 @@ usda_ndb_name:en: Pheasant, raw, meat only
 
 < en: poultry
 en: quail
+bg: пъдпъдък
+de: Wachtel
+fr: caille, cailles
+hr: prepelica
+it: quaglia
+nl: kwartel, kwartels
+pl: przepiórka, przepiórki, przepiórczy, przepiórcze, przepiórcza
 usda_ndb_proxy_code:en: 5157
 usda_ndb_proxy_name:en: Quail, meat and skin, raw
+wikidata:en: Q6072584
+wikipedia:en: https://en.wikipedia.org/wiki/Quail
+# ingredient/fr:cailles has 4 products @2019-05-31
 
 < en: quail
 en: raw quail meat and skin
@@ -99664,6 +99053,7 @@ ja: クリーミングパウダー
 en: donkey
 fr: âne
 it: asino
+nl: ezel
 nutriscore_red_meat:en: yes
 vegan:en: no
 vegetarian:en: no
@@ -99672,11 +99062,13 @@ vegetarian:en: no
 en: donkey meat
 fr: viande d'âne
 it: carne d'asino
+nl: ezelvlees
 
 < en: animal
 en: kangaroo
 fr: kangourou
 it: canguro
+nl: kangaroo
 nutriscore_red_meat:en: yes
 vegan:en: no
 vegetarian:en: no
@@ -99685,24 +99077,13 @@ vegetarian:en: no
 en: kangaroo meat
 fr: viande de kangourou
 it: carne di canguro
-
-< en: animal
-en: camel
-fr: chameau
-nutriscore_red_meat:en: yes
-vegan:en: no
-vegetarian:en: no
-
-< en: camel
-en: camel meat
-fr: viande de chameau
-it: carne di cammello
-
+nl: kangaroovlees
 
 < en: animal
 en: bull
 fr: taureau
 it: toro
+nl: stier
 nutriscore_red_meat:en: yes
 vegan:en: no
 vegetarian:en: no
@@ -99711,6 +99092,7 @@ vegetarian:en: no
 en: bull meat
 fr: viande de taureau
 it: carne di toro
+nl: stierenvlees
 
 en: vegetable pigment, vegetable colour
 fr: colorant végétal
