@@ -117415,15 +117415,26 @@ hr: Klice svježeg kupusa
 < en: Vegetables based foods
 en: Dried vegetables
 bg: Сушени зеленчуци
+da: Tørrede grønsager
 de: Getrocknetes Gemüse
+el: Αποξηραμένα λαχανικά
+eo: Sekigitaj legomoj
 es: Verduras y hortalizas deshidratadas, Verduras y hortalizas desecadas, Verduras deshidratadas, Verduras desecadas, Hortalizas deshidratadas, Hortalizas desecadas
-fi: kuivatut vihannekset
+fi: Kuivatut vihannekset
 fr: Légumes séchés
 hr: Sušeno povrće
-it: Ortaggi essiccati
+it: Ortaggi essiccati, Verdura essiccata
+ja: 乾燥野菜
+ko: 건채
+lv: Kaltēti dārzeņi
 nl: Gedroogde groenten
 pl: Warzywa suszone
+ru: Сушёный овощ
+sl: Suha zelenjava
+sv: Torkade grönsaker
+uk: Сушені овочі
 who_id:en: 16
+wikidata:en: Q56395863
 
 < en: Dried vegetables
 < en: Tomatoes and their products
@@ -117472,7 +117483,7 @@ ciqual_food_code:en: 20256
 ciqual_food_name:en: Tomato, dried, in oil
 ciqual_food_name:fr: Tomate, séchée, à l'huile
 
-
+< en: Condiments
 < en: Dried plant-based foods
 < en: Vegetables based foods
 en: Ground dried vegetables
@@ -117483,45 +117494,61 @@ fr: Légumes séchés moulus
 hr: Mljeveno sušeno povrće
 it: Ortaggi essiccati e macinati
 nl: Gemalen gedroogde groenten
+sv: Malna torkade grönsaker
 
-< en: Condiments
 < en: Ground dried vegetables
 < en: Tomatoes and their products
-en: Dried tomato powder, Tomato powder, Ground dried tomato
+en: Tomato powders, Dried tomato powder, Tomato powder, Ground dried tomato
+da: Tomatpulvere
 es: Tomate seco molido, Tomates en polvo
 fr: Poudre de tomate séchée
 hr: Sušene rajčice u prahu
 nl: Tomatenpoeders
 pl: Pomidory suszone w proszku, Proszek z suszonych pomidorów
+sv: Tomatpulver
+agribalyse_proxy_food_code:en: 20189
+ciqual_proxy_food_code:en: 20189
+ciqual_proxy_food_name:en: Tomato, dried
+ciqual_proxy_food_name:fr: Tomate, séchée
+wikidata:en: Q106922495
 
 < en: Garlic and their products
 < en: Ground dried vegetables
-en: Garlic powder, Granulated garlic, Dried garlic powder
+en: Garlic powders, Garlic powder, Granulated garlic, Dried garlic powder
+ar: مسحوق الثوم
 bg: Чесън на прах
-da: Hvidløgspulver
-de: Knoblauch granuliert
-es: Ajo seco molido, Ajos secos en polvo
+cs: Sušený česnek
+da: Hvidløgspulvere
+de: Knoblauchpulver, Knoblauch granuliert
+es: Ajos secos en polvo, Ajo seco molido
+fa: پودر سیر
 fi: Valkosipulijauhe
-fr: Ail sec broyé, Ail séché en poudre
+fr: Ail sec broyé, Ail séché en poudre, Poudre d'ail
+ha: Tafarnuwa foda
 hr: Češnjak u prahu
 hu: Fokhagyma por, Foghagyma granulátum
 it: Polvere di aglio
-ja: ガーリックパウダー
+ja: ガーリックパウダー, ニンニク粉末
+jv: Bawang bubuk
+ko: 마늘가루
 nl: Knoflookpoeders
 pl: Czosnek granulowany, Czosnek w proszku
+ru: Чесночный порошок
+sr: Лук у праху
 sv: Vitlökspulver
 tr: Sarımsak tozu
+zh: 蒜粉
 agribalyse_food_code:en: 11023
 ciqual_food_code:en: 11023
 ciqual_food_name:en: Garlic, powder, dried
 ciqual_food_name:fr: Ail séché, poudre
+wikidata:en: Q10716334
 
 < en: Ground dried vegetables
 < en: Onions and their products
-# <en:onion
-en: onion powder, Granulated onion, Dried minced onion
+en: Onion powders, Onion powder, Granulated onion, Dried minced onion
 bg: Лук на прах
-da: Løgpulver
+da: Løgpulvere
 de: Zwiebelpulver
 el: κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
 eo: pulvorigita cepo
@@ -117539,6 +117566,10 @@ pt: cebola em pó
 sk: sušená cibuľa
 sl: čebula v prahu
 sv: Lökpulver
+agribalyse_proxy_food_code:en: 20180
+ciqual_proxy_food_code:en: 20180
+ciqual_proxy_food_name:en: Onion, dried
+ciqual_proxy_food_name:fr: Oignon, séché
 wikidata:en: Q7093931
 # ingredient/fr:oignon-en-poudre has 1131 products in 15 languages @2018-11-06
 # category/onion-powder has 11 products @2019-05-12
