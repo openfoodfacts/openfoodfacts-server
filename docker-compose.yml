@@ -173,6 +173,8 @@ services:
       # configurations for product-opener
       - ./conf/nginx/snippets/productopener-mappings.include:/etc/nginx/snippets/productopener-mappings.include
       - ./conf/nginx/snippets/productopener-server.include:/etc/nginx/snippets/productopener-server.include
+      - ./conf/nginx/snippets/productopener-uploads-defaults.include:/etc/nginx/snippets/productopener-uploads-defaults.include
+      - ./conf/nginx/snippets/productopener-uploads-large.include:/etc/nginx/snippets/productopener-uploads-large.include
       # some expires rules
       - ./conf/nginx/snippets/expiry-headers.include:/etc/nginx/snippets/expiry-headers.include
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/conf.d/aa_expires-no-json-xml.conf
