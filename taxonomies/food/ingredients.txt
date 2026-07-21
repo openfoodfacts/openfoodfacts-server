@@ -51519,7 +51519,6 @@ eurocode_2_group_2:en: 8.10
 
 #comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
 
-# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 # comment:en: Endive in english is different from endive in french.
 
 < en: leaf vegetable
@@ -51563,6 +51562,7 @@ zh: 苦苣
 # pcd:indife
 # scn:nirvia
 # sr-ec:ендивија
+description:en: Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
 ecobalyse_labels_en_organic:en: 6842d570-6b53-49f3-ba9c-984b55e40171
 ecobalyse_origins_en_france:en: b26efb2f-8811-4fbb-9d01-3d7f0d8135ef
@@ -52052,6 +52052,18 @@ it: concentrato di bietola
 < en: chard
 en: red chard
 sv: röd mangold
+
+###################################################################################################
+#
+#                                Potherb
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: potherb
+description:en: The young, tender leaves of genus Corchorus (mainly Corchorus olitorius and Corchorus capsularis) are cooked and eaten as a green vegetable, similar to spinach or amaranth greens. When cooked, the leaves release a mucilaginous (slightly slimy) texture, somewhat like okra — this is prized in many cuisines for thickening soups and stews.
+usda_ndb_code:en: 11231
+usda_ndb_name:en: Jute, potherb, raw
 
 ###################################################################################################
 #
