@@ -51517,10 +51517,6 @@ ru: листовые овощи
 sv: bladgrönsak
 eurocode_2_group_2:en: 8.10
 
-#comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
-
-# comment:en: Endive in english is different from endive in french.
-
 < en: leaf vegetable
 en: endive, Endives
 ca: endívia
@@ -51562,6 +51558,7 @@ zh: 苦苣
 # pcd:indife
 # scn:nirvia
 # sr-ec:ендивија
+comment:en: Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root. Endive in english is different from endive in french.
 description:en: Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
 ecobalyse_labels_en_organic:en: 6842d570-6b53-49f3-ba9c-984b55e40171
@@ -51595,7 +51592,22 @@ description:en: Grape leaves (also called vine leaves) are the young, tender lea
 usda_ndb_code:en: 11974
 usda_ndb_name:en: Grape leaves, raw
 
-# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
+< en: leaf vegetable
+en: fiddlehead fern
+la: Matteuccia struthiopteris
+description:en: Fiddlehead ferns are the tightly coiled, immature fronds of certain fern species, harvested in early spring before they unfurl. They're named for their resemblance to the curled end (scroll) of a fiddle or violin. Most common edible variety: Ostrich fern (Matteuccia struthiopteris) is the safest and most widely eaten species. Not all fern fiddleheads are edible — some are toxic, so identification matters. Often described as a cross between asparagus, green beans, and a slightly nutty, grassy taste. Fiddleheads must be cooked thoroughly (boiled or steamed for several minutes, then sautéed if desired) before eating. Raw or undercooked fiddleheads have caused foodborne illness outbreaks — they can carry bacteria or contain compounds that cause nausea, cramps, and diarrhea if not properly prepared.
+usda_ndb_2_code:en: 11996
+usda_ndb_2_name:en: Fiddlehead ferns, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, en:unprepared
+usda_ndb_code:en: 11995
+usda_ndb_name:en: Fiddlehead ferns, raw
+
+< en: leaf vegetable
+en: firewood leaf, firewoord leaves
+la: Chamaenerion angustifolium, Epilobium angustifolium
+description:en: Fireweed (Chamaenerion angustifolium, also called Epilobium angustifolium) is a tall wildflower with bright pink-purple flower spikes, common in northern temperate regions. Young leaves, picked before the plant flowers, can be eaten raw in salads or cooked like spinach. As the plant matures, the leaves get tougher and more bitter, so timing matters. Fireweed has a mild laxative effect in some people if eaten in quantity, so it's usually eaten in modest amounts rather than as a main dish.
+usda_ndb_code:en: 11985
+usda_ndb_name:en: Fireweed, leaves, raw
 
 < en: leaf vegetable
 en: radicchio
@@ -51624,6 +51636,7 @@ sv: radicchiosallad, rosensallat, rosésallat
 # en-gb:radicchio
 # pt-br:radicchio
 # vec:radicio
+description:en: RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
 eurocode_2_group_3:en: 8.10.10
 usda_ndb_code:en: 11952
 usda_ndb_name:en: Radicchio, raw
