@@ -116,14 +116,14 @@ es: El valor energético en kcal no coincide con el valor calculado a partir de 
 fr: Valeur énergétique en kcal ne correspondant pas à la valeur calculée à partir des autres nutriments
 hu: Táplálkozás - A kcal-ban megadott energiaérték nem egyezik a többi tápanyagból számított értékkel
 it: Il valore energetico in kcal non corrisponde al valore calcolato dagli altri nutrienti
-nl: Voeding - Energiewaarde in kcal komt niet overeen met de waarde berekend op basis van andere voedingsstoffen
+nl: Voedingswaarden - Energiewaarde in kcal komt niet overeen met de waarde berekend op basis van andere voedingsstoffen
 no: Ernæring - Energiverdien i kcal samsvarer ikke med verdien beregnet fra andre næringsstoffer
 pl: Odżywianie - Wartość energetyczna w kcal nie odpowiada wartości obliczonej na podstawie innych składników odżywczych
 pt: O valor energético em kcal não corresponde ao valor calculado a partir de outros nutrientes
 ro: Nutriție - Valoarea energetică în kcal nu corespunde valorii calculate din alți nutrienți
-ru: Питание - Энергетическая ценность в ккал не соответствует значению, рассчитанному по другим питательным веществам
+ru: Питание - Энергетическая ценность в ккал не соответствует значению рассчитанному по другим питательным веществам
 sv: Näring - Energivärdet i kcal stämmer inte överens med värdet beräknat från andra näringsämnen
-uk: Харчування - Значення енергії в ккал не відповідає значенню, розрахованому за іншими поживними речовинами
+uk: Харчування - Значення енергії в ккал не відповідає значенню розрахованому за іншими поживними речовинами
 description:ar: قيمة الطاقة بالكيلو كالوري لا تتطابق مع القيمة المحسوبة من العناصر الغذائية الأخرى. غالبًا ما يكون ذلك بسبب خطأ في جدول الحقائق الغذائية الذي أدخله المستخدمون. في بعض الأحيان ، يكون خطأ قادمًا من المنتج.
 description:bg: Енергийната стойност в kcal не съвпада със стойността, изчислена от други хранителни вещества. Често това се дължи на грешка в таблицата с хранителни стойности, въведена от потребителите. Понякога това е грешка, идваща от производителя.
 description:ca: El valor energètic en kcal no coincideix amb el valor calculat a partir d'altres nutrients. Sovint es deu a un error a la taula de dades nutricionals introduïda pels usuaris. De vegades, és un error del productor.
@@ -145,7 +145,7 @@ description:no: Energiverdien i kcal samsvarer ikke med verdien beregnet fra and
 description:pl: Wartość energetyczna w kcal nie odpowiada wartości obliczonej na podstawie innych składników odżywczych. Często wynika to z błędu w tabeli wartości odżywczych wprowadzonej przez użytkowników. Czasami jest to błąd pochodzący od producenta.
 description:pt: O valor energético em kcal não corresponde ao valor calculado a partir de outros nutrientes. Muitas vezes, isso ocorre devido a um erro na tabela de informações nutricionais inserida pelos usuários. Às vezes, é um erro do produtor.
 description:ro: Valoarea energetică în kcal nu corespunde valorii calculate din alți nutrienți. Acest lucru se datorează adesea unei erori în tabelul de valori nutriționale introdus de utilizatori. Uneori este o eroare provenită de la producător.
-description:ru: Значение энергии в ккал не соответствует значению, вычисленному на основе других питательных веществ. Часто это связано с ошибкой в таблице пищевой ценности, введенной пользователями. Иногда это ошибка, допущенная производителем.
+description:ru: Значение энергии в ккал не соответствует значению вычисленному на основе других питательных веществ. Часто это связано с ошибкой в таблице пищевой ценности, введенной пользователями. Иногда это ошибка, допущенная производителем.
 description:sv: Energivärdet i kcal stämmer inte överens med värdet beräknat från andra näringsämnen. Det beror ofta på ett fel i näringsvärdestabellen som användarna har angett. Ibland är det ett fel från tillverkaren.
 description:uk: Значення енергії в ккал не відповідає значенню, розрахованому за іншими поживними речовинами. Часто це пов'язано з помилкою в таблиці харчової цінності, введеній користувачами. Іноді це помилка виробника.
 description:zh: 千卡能量值与从其他营养素计算出的值不匹配。 这通常是由于用户输入的营养成分表中的错误造成的。 有时，这是生产商造成的错误。
@@ -161,7 +161,7 @@ es: El valor energético en kcal no coincide con el valor en kJ
 fr: La valeur de l'énergie en kcal ne correspond pas à la valeur en kJ
 hu: Táplálkozás - A kcal-ban megadott energiaérték nem egyezik a kJ-ban megadott értékkel
 it: Nutrizione - Il valore energetico in kcal non corrisponde al valore in kJ
-nl: Voeding - Energiewaarde in kcal komt niet overeen met de waarde in kJ
+nl: Voedingswaarden - Energiewaarde in kcal komt niet overeen met de waarde in kJ
 no: Ernæring - Energiverdien i kcal samsvarer ikke med verdien i kJ
 pl: Odżywianie - Wartość energetyczna w kcal nie odpowiada wartości w kJ
 pt: Nutrição - O valor energético em kcal não corresponde ao valor em kJ
@@ -197,16 +197,16 @@ de: Energiegehalt in kcal ist größer als in kJ
 el: Διατροφή - Η τιμή ενέργειας σε kcal είναι μεγαλύτερη από την τιμή σε kJ
 es: Valor energético en kcal mayor que en kJ
 fr: La valeur de l'énergie en kcal est plus grande qu'en kJ
-hu: Táplálkozás - A kcal-ban megadott energiaérték nagyobb, mint a kJ-ban megadott érték
+hu: Táplálkozás - A kcal-ban megadott energiaérték nagyobb mint a kJ-ban megadott érték
 it: Il valore energetico in kcal è maggiore che in kJ
-nl: De energiewaarde in kcal is groter dan in kJ
+nl: Voedingswaarden - De energiewaarde in kcal is groter dan in kJ
 no: Ernæring - Energiverdien i kcal er større enn i kJ
 pl: Wartość energetyczna w kcal jest większa niż w kJ
 pt: O valor energético em kcal é maior do que em kJ
 ro: Nutriție - Valoarea energetică în kcal este mai mare decât în kJ
-ru: Энергетическая ценность в ккал больше, чем в кДж
+ru: Энергетическая ценность в ккал больше чем в кДж
 sv: Näring - Energivärdet i kcal är större än i kJ
-uk: Харчування - Значення енергії в ккал більше, ніж у кДж
+uk: Харчування - Значення енергії в ккал більше ніж у кДж
 zh: 能量值以千卡为单位大于以千焦为单位
 description:ca: El valor energètic en kJ ha de ser aproximadament 4,2 vegades més gran que el valor en kcal. És possible que els valors estiguin invertits.
 description:cs: Energetická hodnota v kJ musí být přibližně 4,2krát vyšší než hodnota v kcal. Hodnoty mohou být prohozené.
@@ -239,7 +239,7 @@ es: El valor energético en kcal y kj están invertidos
 fr: La valeur énergétique en kcal et kj sont inversées
 hu: Táplálkozás - A kcal és kJ energiaértékek fel vannak cserélve
 it: Il valore energetico in kcal e kJ sono invertiti
-nl: Voeding - Energiewaarden in kcal en kJ zijn omgekeerd
+nl: Voedingswaarden - Energiewaarden in kcal en kJ zijn omgekeerd
 no: Ernæring - Energiverdiene i kcal og kJ er byttet om
 pl: Odżywianie - Wartości energetyczne w kcal i kJ są odwrócone
 pt: Nutrição - Os valores energéticos em kcal e kJ estão invertidos
@@ -293,7 +293,7 @@ es: El valor energético en kJ no coincide con el valor calculado a partir de ot
 fr: Valeur énergétique en kJ ne correspondant pas à la valeur calculée à partir des autres nutriments
 hu: Táplálkozás - A kJ-ban megadott energiaérték nem egyezik a többi tápanyagból számított értékkel
 it: Il valore energetico in kJ non corrisponde al valore calcolato dagli altri nutrienti
-nl: Voeding - Energiewaarde in kJ komt niet overeen met de waarde berekend op basis van andere voedingsstoffen
+nl: Voedingswaarden - Energiewaarde in kJ komt niet overeen met de waarde berekend op basis van andere voedingsstoffen
 no: Ernæring - Energiverdien i kJ samsvarer ikke med verdien beregnet fra andre næringsstoffer
 pl: Odżywianie - Wartość energetyczna w kJ nie odpowiada wartości obliczonej na podstawie innych składników odżywczych
 pt: O valor energético em kJ não corresponde ao valor calculado a partir de outros nutrientes
@@ -336,16 +336,16 @@ de: Ernährung - Zucker plus Stärke größer als Kohlenhydrate
 el: Διατροφή - Σάκχαρα συν άμυλο μεγαλύτερο από τους υδατάνθρακες
 es: Nutrición - azúcares más almidón más que los carbohidratos
 fr: Nutrition - Sucres plus amidon supérieurs aux glucides
-hu: Táplálkozás - Cukrok plusz keményítő nagyobb, mint a szénhidrátok
+hu: Táplálkozás - Cukrok plusz keményítő nagyobb mint a szénhidrátok
 it: Nutrizione - Zuccheri più amido maggiori dei carboidrati
-nl: Voeding - Suikers plus zetmeel groter dan koolhydraten
+nl: Voedingswaarden - Suikers plus zetmeel groter dan koolhydraten
 no: Ernæring - Sukker pluss stivelse større enn karbohydrater
 pl: Żywienie - Cukry plus skrobia większe niż węglowodany
 pt: Nutrição - Açúcares mais amido maior que carboidratos
 ro: Nutriție - Zaharuri plus amidon mai mare decât glucidele
 ru: Питание - Сахара плюс крахмал больше, чем углеводы
 sv: Näring - Socker plus stärkelse större än kolhydrater
-uk: Харчування - Цукри плюс крохмаль більше, ніж вуглеводи
+uk: Харчування - Цукри плюс крохмаль більше ніж вуглеводи
 zh: 营养 - 糖加淀粉大于碳水化合物
 description:ca: La suma de sucres i midó és superior al valor total d'hidrats de carboni, cosa que no és possible, ja que els sucres i el midó són components dels hidrats de carboni.
 description:cs: Součet cukrů a škrobu je vyšší než celková hodnota sacharidů, což není možné, protože cukry i škrob jsou součástí sacharidů.
@@ -377,7 +377,7 @@ es: Nutrición - Fructosa más glucosa más maltosa más lactosa más sacarosa m
 fr: Nutrition - Fructose plus glucose plus maltose plus lactose plus saccharose supérieurs aux sucres
 hu: Táplálkozás - Fruktóz plusz glükóz plusz maltóz plusz laktóz plusz szacharóz nagyobb, mint a cukrok
 it: Nutrizione - Fruttosio più glucosio più maltosio più lattosio più saccarosio maggiore degli zuccheri
-nl: Voeding - Fructose plus glucose plus maltose plus lactose plus sacharose hoger dan suikers
+nl: Voedingswaarden - Fructose plus glucose plus maltose plus lactose plus sacharose hoger dan suikers
 no: Ernæring - Fruktose pluss glukose pluss maltose pluss laktose pluss sukrose større enn sukkerarter
 pl: Odżywianie - Fruktoza plus glukoza plus maltoza plus laktoza plus sacharoza przekracza cukry
 pt: Nutrição - Frutose mais glicose mais maltose mais lactose mais sacarose maior que açúcares
@@ -418,7 +418,7 @@ hu: Táplálkozás - A telített zsír nagyobb, mint a zsír
 it: Nutrizione - Grassi saturi maggiori dei grassi
 ja: 栄養 - 飽和脂肪酸が脂肪より多い
 ko: 영양 - 포화 지방이 지방보다 큼
-nl: Voeding - Verzadigd vet groter dan vet
+nl: Voedingswaarden - Verzadigd vet groter dan vet
 no: Ernæring - Mettet fett større enn fett
 pl: Odżywianie - Tłuszcze nasycone większe niż tłuszcz
 pt: Nutrição - Gordura saturada maior que gordura
@@ -4281,23 +4281,23 @@ description:uk: Фолати: значення перевищує 105 г на 10
 
 < en: Nutrition errors
 en: Nutrition value over 105 - Fruits vegetables nuts and rapeseed walnut and olive oils
-ca: Valor nutricional superior a 105 - Fruites, verdures, fruits secs i olis de colza, nou i oliva
-cs: Nutriční hodnota nad 105 - Ovoce, zelenina, ořechy a řepkový, ořechový a olivový olej
-da: Næringsmængde over 105 - Frugt, grøntsager, nødder samt raps-, valnød- og olivenolie
-de: Nährwert über 105 - Obst, Gemüse, Nüsse sowie Raps-, Walnuss- und Olivenöl
-el: Διατροφική αξία άνω του 105 - Φρούτα, λαχανικά, ξηροί καρποί και έλαια κράμβης, καρυδιού και ελιάς
-es: Valor nutricional superior a 105 - Frutas, verduras, frutos secos y aceites de colza, nuez y oliva
-fr: Valeur nutritionnelle supérieure à 105 - Fruits, légumes, fruits à coque et huiles de colza, noix et olive
-hu: Tápérték 105 felett - Gyümölcs, zöldség, dió, valamint repce-, dió- és olívaolaj
-it: Valore nutrizionale superiore a 105 - Frutta, verdura, frutta a guscio e oli di colza, noce e oliva
-nl: Voedingswaarde boven 105 - Fruit, groenten, noten en koolzaad-, walnoot- en olijfolie
-no: Næringsverdi over 105 - Frukt, grønnsaker, nøtter samt raps-, valnøtt- og olivenolje
-pl: Wartość odżywcza powyżej 105 - Owoce, warzywa, orzechy oraz oleje rzepakowy, orzechowy i oliwa z oliwek
-pt: Valor nutricional acima de 105 - Frutas, vegetais, frutos secos e óleos de colza, noz e oliva
-ro: Valoare nutrițională peste 105 - Fructe, legume, nuci și uleiuri de rapiță, nucă și măsline
-ru: Пищевая ценность выше 105 - Фрукты, овощи, орехи и рапсовое, ореховое и оливковое масла
-sv: Näringsvärde över 105 - Frukt, grönsaker, nötter samt raps-, valnöts- och olivolja
-uk: Харчова цінність вище 105 - Фрукти, овочі, горіхи та ріпакова, горіхова й оливкова олії
+ca: Valor nutricional superior a 105 - Fruites verdures fruits secs i olis de colza nou i oliva
+cs: Nutriční hodnota nad 105 - Ovoce zelenina ořechy a řepkový ořechový a olivový olej
+da: Næringsmængde over 105 - Frugt grøntsager nødder samt raps- valnød- og olivenolie
+de: Nährwert über 105 - Obst Gemüse Nüsse sowie Raps-, Walnuss- und Olivenöl
+el: Διατροφική αξία άνω του 105 - Φρούτα, λαχανικά ξηροί καρποί και έλαια κράμβης καρυδιού και ελιάς
+es: Valor nutricional superior a 105 - Frutas verduras frutos secos y aceites de colza nuez y oliva
+fr: Valeur nutritionnelle supérieure à 105 - Fruits légumes fruits à coque et huiles de colza noix et olive
+hu: Tápérték 105 felett - Gyümölcs, zöldség dió valamint repce- dió- és olívaolaj
+it: Valore nutrizionale superiore a 105 - Frutta, verdura frutta a guscio e oli di colza, noce e oliva
+nl: Voedingswaarde boven 105 - Fruit, groenten noten en koolzaad- walnoot- en olijfolie
+no: Næringsverdi over 105 - Frukt grønnsaker nøtter samt raps- valnøtt- og olivenolje
+pl: Wartość odżywcza powyżej 105 - Owoce warzywa orzechy oraz oleje rzepakowy orzechowy i oliwa z oliwek
+pt: Valor nutricional acima de 105 - Frutas vegetais frutos secos e óleos de colza noz e oliva
+ro: Valoare nutrițională peste 105 - Fructe legume nuci și uleiuri de rapiță nucă și măsline
+ru: Пищевая ценность выше 105 - Фрукты овощи орехи и рапсовое ореховое и оливковое масла
+sv: Näringsvärde över 105 - Frukt grönsaker nötter samt raps- valnöts- och olivolja
+uk: Харчова цінність вище 105 - Фрукти овочі горіхи та ріпакова горіхова й оливкова олії
 description:ca: Fruites, verdures, fruits secs i olis de colza, nou i oliva: valor superior a 105 g per 100 g, cosa que és impossible.
 description:cs: Ovoce, zelenina ořechy a řepkový ořechový a olivový olej: hodnota přesahuje 105 g na 100 g, což je nemožné.
 description:da: Frugt, grøntsager nødder samt raps-,valnød- og olivenolie: værdi over 105 g pr. 100 g, hvilket er umuligt.
@@ -6494,14 +6494,14 @@ cs: Nutriční hodnota nad 105 - Na 100 g hotového výrobku bylo použito x g m
 da: Næringsmængde over 105 - Pr. 100 g færdigt produkt er der brugt x g kød (SE)
 de: Nährwert über 105 - Auf 100 g Fertigprodukt wurden x g Fleisch verwendet (SE)
 el: Διατροφική αξία άνω του 105 - Ανά 100 g έτοιμου προϊόντος χρησιμοποιήθηκαν x g κρέατος (SE)
-es: Valor nutricional superior a 105 - Por 100 g de producto terminado, x g de carne utilizada (SE)
-fr: Valeur nutritionnelle supérieure à 105 - Pour 100 g de produit fini, x g de viande utilisés (SE)
+es: Valor nutricional superior a 105 - Por 100 g de producto terminado x g de carne utilizada (SE)
+fr: Valeur nutritionnelle supérieure à 105 - Pour 100 g de produit fini x g de viande utilisés (SE)
 hu: Tápérték 105 felett - 100 g késztermékhez x g húst használtak fel (SE)
 it: Valore nutrizionale superiore a 105 - Per 100 g di prodotto finito, x g di carne utilizzata (SE)
 nl: Voedingswaarde boven 105 - Per 100 g eindproduct is x g vlees gebruikt (SE)
 no: Næringsverdi over 105 - Per 100 g ferdig produkt er det brukt x g kjøtt (SE)
 pl: Wartość odżywcza powyżej 105 - Na 100 g gotowego produktu użyto x g mięsa (SE)
-pt: Valor nutricional acima de 105 - Por 100 g de produto final, x g de carne utilizada (SE)
+pt: Valor nutricional acima de 105 - Por 100 g de produto final x g de carne utilizada (SE)
 ro: Valoare nutrițională peste 105 - La 100 g produs finit s-au folosit x g de carne (SE)
 ru: Пищевая ценность выше 105 - На 100 г готового продукта использовано x г мяса (SE)
 sv: Näringsvärde över 105 - Per 100 g färdig produkt har x g kött använts
