@@ -43949,7 +43949,9 @@ de: Orangensaft mit Fruchtfleisch
 fr: jus d'orange avec pulpe, jus d'orange dont pulpe
 hr: sok od naranče s voćnom pulpom
 it: succo d'arancia con polpa
-nl: Sinaasappelsap met vruchtvlees
+nb: appelsinjuice med fruktkjøtt
+nl: sinaasappelsap met vruchtvlees
+nn: appelsinjus med fruktkjøt
 pl: sok pomarańczowy z miąższem
 ifct_food_code:en: E047
 ifct_food_name:en: Orange, pulp
@@ -43968,11 +43970,15 @@ nl: geperste sinaasappelsap met vruchtvlees
 < en: orange juice
 en: orange juice without pulp
 bg: сок от портокал без пулп
+da: appelsinjuice uden frugtkød
 es: zumo de naranjas sin pulpa, jugo de naranjas sin pulpa
 fr: Jus d'orange sans pulpe
 hr: sok od naranče bez pulpe
 it: succo d'arancia senza polpa
-nl: Sinaasappelsap zonder vruchtvlees
+nb: appelsinjuice uten fruktkjøtt
+nl: sinaasappelsap zonder vruchtvlees
+nn: appelsinjus utan fruktkjøt
+sv: apelsinjuice utan fruktkött
 # ingredient/fr:jus-d-orange-sans-pulpe products has 12 in french @2019-05-23
 
 < en: orange juice from concentrate
@@ -48527,13 +48533,58 @@ usda_ndb_name:en: Custard-apple, (bullock's-heart), raw
 
 < en: fruit
 en: persimmon, sharon fruit, khaki, kaki
+af: boomtamatie
+ar: كاكي
 bg: райска ябълка
+bn: পার্সিমন
+ca: caqui
+cs: kaki
+da: kakifrugt
 de: Kaki, Sharonfrucht
+el: λωτός
+eo: persimono
 es: caqui
+et: hurmaa
+eu: kaki
+fa: خرمالو
 fr: kaki
-hr: dragun
+ga: dátphluma
+gu: ટીમરુ
+hi: तेंदू
+hr: dragun, kaki jabuka
+hy: խուրմա
+id: persimmon
+is: döðluplóma
 it: cachi
-pl: kaki
+ja: 柿
+ko: 감
+ks: تینٛدٕ
+lt: persimonas
+mk: јапонско јаболко
+ml: പെഴ്സിമെൻ
+ms: pisang kaki
+my: တည်
+nb: kaki
+ne: हलुवावेद
+nl: kaki
+pa: ਤੇਂਦੂ
+pl: kaki, persymona
+ps: املوک
+pt: dióspiro
+ro: hurma
+ru: хурма
+sl: kaki
+so: yanmood
+sq: hurma
+sr: персимон
+sv: persimon, kaki
+ta: சீமைப் பனிச்சை
+th: พลับ
+tt: хөрмә
+uk: хурма
+za: lwgndae
+zh: 柿
+agribalyse_proxy_food_code:en: 13066
 ciqual_proxy_food_code:en: 13066
 ciqual_proxy_food_name:en: Persimmon, pulp, raw
 ciqual_proxy_food_name:fr: Kaki, pulpe, cru
@@ -48541,7 +48592,8 @@ eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.44
 usda_ndb_proxy_code:en: 9265
 usda_ndb_proxy_name:en: Persimmons, native, raw
-wikipedia:en: https://en.wikipedia.org/wiki/Diospyros_kaki
+wikidata:en: Q29526
+wikipedia:en: https://en.wikipedia.org/wiki/Persimmon
 
 < en: persimmon
 en: dried japanese persimmon
@@ -48558,12 +48610,14 @@ en: raw native persimmon
 usda_ndb_code:en: 9265
 usda_ndb_name:en: Persimmons, native, raw
 
+< en: fruit juice
 < en: persimmon
 en: persimmon juice
 de: Kaki Saft
 es: zumo de caqui, jugo de caqui
 hr: sok od kakija
 it: succo di cachi
+sv: kakijuice
 
 < en: persimmon
 en: raw persimmon pulp, persimmon pulp
@@ -52320,7 +52374,7 @@ usda_ndb_name:en: Water convolvulus,raw
 #
 ###################################################################################################
 
-# comment:en:Cress can mean Garden Cress, Watercress, or the group of all cresses. And seemingly different things in different languages. 
+# comment:en:Cress can mean Garden Cress, Watercress, or the group of all cresses. And seemingly different things in different languages.
 < en: leaf vegetable
 en: cress
 de: Kresse
