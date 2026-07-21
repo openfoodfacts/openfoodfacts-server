@@ -62815,13 +62815,8 @@ wikidata:en: Q2727662
 en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
 la: Lablab purpureus
 description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
-usda_ndb_proxy_code:en: 16067
-usda_ndb_proxy_name:en: Hyacinth beans, mature seeds, raw
-
-< en: hyacinth bean
-en: raw mature hyacinth bean
-usda_ndb_code:en: 16067
-usda_ndb_name:en: Hyacinth beans, mature seeds, raw
+usda_ndb_code:en: 11224
+usda_ndb_name:en: Hyacinth-beans, immature seeds, raw
 
 < en: legume
 en: lima bean, lima beans, butter bean
@@ -62909,6 +62904,14 @@ it: fagioli pinto
 sv: pintobönor, pintoböna
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.45
+
+< en: hyacinth bean
+< en: pulse
+en: dried hyacinth bean
+comment:en: kept separate to distinghuish between legume and pulse
+usda_ndb_code:en: 16067
+usda_ndb_name:en: Hyacinth beans, mature seeds, raw
+usda_ndb_process:en: en:dried
 
 # < en:legume
 < en: pulse
