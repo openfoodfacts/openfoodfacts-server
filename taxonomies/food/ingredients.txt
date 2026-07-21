@@ -54232,16 +54232,6 @@ tr: rezene
 uk: фенхель
 ur: سونف
 zh: 小茴香
-ciqual_food_code:en: 20028
-ciqual_food_name:en: Fennel, raw
-ciqual_food_name:fr: Fenouil, cru
-description:en: FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
-ecobalyse:en: fennel-eu
-ecobalyse_origins_en_france:en: fennel-fr
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.34
-# 2221 in20 @2021-10-09
-wikidata:en: Q43511
 # aeb-arab:بسباس
 # ast:fenoyu
 # azb:رازیانه
@@ -54261,7 +54251,19 @@ wikidata:en: Q43511
 #wuu:茴香
 # yue:茴香
 # zh-tw:茴香
+ciqual_food_code:en: 20028
+ciqual_food_name:en: Fennel, raw
+ciqual_food_name:fr: Fenouil, cru
+description:en: FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
+ecobalyse:en: fennel-eu
+ecobalyse_origins_en_france:en: fennel-fr
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.34
+usda_ndb_code:en: 11957
+usda_ndb_name:en: Fennel, bulb, raw
+wikidata:en: Q43511
 wikipedia:en: https://en.wikipedia.org/wiki/Fennel
+# 2221 in20 @2021-10-09
 
 < en: stalk vegetable
 en: sea kale, seakale, crambe
@@ -54272,8 +54274,6 @@ it: cavolo marino
 la: crambe maritima
 nl: zeekool
 eurocode_2_group_3:en: 8.20.30
-
-# description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
 < en: stalk vegetable
 # <en:Vegetable rods
@@ -54325,6 +54325,7 @@ wa: rubåbe
 zh: 大黄
 #als:rabarbr
 #sco:rhubarub
+description:en: RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 eurocode_2_group_3:en: 8.20.50
 usda_ndb_proxy_code:en: 9307
 usda_ndb_proxy_name:en: Rhubarb, raw
