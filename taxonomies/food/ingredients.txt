@@ -59436,7 +59436,6 @@ en: horseradish paste
 de: Meerrettichpaste
 it: pasta di rafano
 
-# description:en:JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
 
 < en: root vegetable
 < en: tuber
@@ -59495,11 +59494,6 @@ uz: Topinambur
 vi: Cúc vu
 wa: Canada ås coines
 zh: 洋姜
-# ingredient/jerusalem-artichoke has 37 products @2019-02-03
-ciqual_food_code:en: 20196
-ciqual_food_name:en: Jerusalem artichoke, raw
-ciqual_food_name:fr: Topinambour, cru
-eurocode_2_group_3:en: 8.34.20
 # azb:شلقم
 # be-tarask:Тапінамбур
 # diq:Saa bınê erdi
@@ -59517,8 +59511,16 @@ eurocode_2_group_3:en: 8.34.20
 # zh-hk:洋薑
 # zh-sg:洋姜
 # zh-tw:洋薑
+ciqual_food_code:en: 20196
+ciqual_food_name:en: Jerusalem artichoke, raw
+ciqual_food_name:fr: Topinambour, cru
+description:en: JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
+eurocode_2_group_3:en: 8.34.20
+usda_ndb_code:en: 11226
+usda_ndb_name:en: Jerusalem-artichokes, raw
 wikidata:en: Q32979618
 wikipedia:en: https://en.wikipedia.org/wiki/Jerusalem_artichoke
+# ingredient/jerusalem-artichoke has 37 products @2019-02-03
 
 
 en: pale-leaf woodland sunflower
