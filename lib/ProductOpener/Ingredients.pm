@@ -2341,7 +2341,7 @@ Text to analyze
 					}
 
 					# California almonds, Swedish strawberries
-					if (($ingredients_lc eq "en") or ($ingredients_lc eq "se")) {
+					if (($ingredients_lc eq "en") or ($ingredients_lc eq "sv")) {
 						if ($ingredient =~ /^(\S+) (.+)$/) {
 							push @maybe_origins_ingredients, [$1, $2];
 						}

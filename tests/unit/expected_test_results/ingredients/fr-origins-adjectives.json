@@ -7,9 +7,9 @@
          "id" : "en:tomato",
          "is_in_taxonomy" : 1,
          "origins" : "en:italy",
-         "percent_estimate" : 60,
+         "percent_estimate" : 58.3333333333333,
          "percent_max" : 100,
-         "percent_min" : 20,
+         "percent_min" : 16.6666666666667,
          "text" : "Tomates",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -19,8 +19,8 @@
          "ecobalyse_code" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
          "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
-         "origins" : "en:britanny",
-         "percent_estimate" : 20,
+         "origins" : "en:brittany",
+         "percent_estimate" : 20.8333333333333,
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "fraises",
@@ -33,7 +33,7 @@
          "id" : "en:apple",
          "is_in_taxonomy" : 1,
          "origins" : "en:normandy",
-         "percent_estimate" : 10,
+         "percent_estimate" : 10.4166666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "pommes",
@@ -47,7 +47,7 @@
          "id" : "en:olive-oil",
          "is_in_taxonomy" : 1,
          "origins" : "en:italy",
-         "percent_estimate" : 5,
+         "percent_estimate" : 5.20833333333333,
          "percent_max" : 25,
          "percent_min" : 0,
          "text" : "huile d'olive",
@@ -57,13 +57,28 @@
       {
          "id" : "fr:huile d'olive grecque",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 5,
+         "percent_estimate" : 2.60416666666666,
          "percent_max" : 20,
          "percent_min" : 0,
          "text" : "huile d'olive grecque"
+      },
+      {
+         "ciqual_proxy_food_code" : "12999",
+         "id" : "en:cheese",
+         "is_in_taxonomy" : 1,
+         "origins" : "en:england",
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "fromage",
+         "vegan" : "no",
+         "vegetarian" : "maybe"
       }
    ],
    "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:cheese"
+      ],
       "en:palm-oil-content-unknown" : [
          "fr:huile d'olive grecque"
       ],
@@ -76,13 +91,13 @@
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
+      "en:non-vegan",
       "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 5,
+   "ingredients_n" : 6,
    "ingredients_n_tags" : [
-      "5",
+      "6",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -90,7 +105,8 @@
       "en:strawberry",
       "en:apple",
       "en:olive-oil",
-      "fr:huile d'olive grecque"
+      "fr:huile d'olive grecque",
+      "en:cheese"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -106,22 +122,25 @@
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
       "en:vegetable-oil",
-      "fr:huile d'olive grecque"
+      "fr:huile d'olive grecque",
+      "en:cheese",
+      "en:dairy"
    ],
-   "ingredients_text" : "Tomates italiennes, fraises bretonnes, pommes normandes, huile d’olive italienne, huile d’olive grecque",
+   "ingredients_text" : "Tomates italiennes, fraises bretonnes, pommes normandes, huile d’olive italienne, huile d’olive grecque, fromage anglais",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "fr:huile d'olive grecque"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
+      "en:cheese",
       "fr:huile d'olive grecque"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
-   "known_ingredients_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 5,
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"

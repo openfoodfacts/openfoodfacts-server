@@ -939,7 +939,7 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => 'fr',
 			ingredients_text =>
-				'Tomates italiennes, fraises bretonnes, pommes normandes, huile d’olive italienne, huile d’olive grecque',
+				'Tomates italiennes, fraises bretonnes, pommes normandes, huile d’olive italienne, huile d’olive grecque, fromage anglais',
 		}
 	],
 	[
@@ -950,6 +950,14 @@ puffed orange and caramelized unknown_fruit4.",
 				'Crème anglaise, sauce anglaise, pain suédois (farine, sel), maquereaux espagnols, maquereau espagnol',
 		}
 	],
+	[
+		'sv-origins-adjectives',
+		{
+			lc => 'sv',
+			ingredients_text => 'svensk jordgubbe, svenska jordgubbar',
+		}
+
+	]
 );
 
 foreach my $test_ref (@tests) {
