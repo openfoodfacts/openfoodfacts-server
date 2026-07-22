@@ -57088,6 +57088,8 @@ eurocode_2_group_2:en: 8.34
 
 < en: tuber
 en: eppaw
+la: Sagittaria latifolia
+comment:en: we also have arrowhead. Do not know why it is separate for the usda
 description:en: Eppaw is the edible tuber of the duck potato plant (Sagittaria latifolia, also called wapato or arrowhead), traditionally eaten by some Native American groups, particularly noted in Seminole/Florida contexts. It's a starchy, potato-like root vegetable that grows in shallow water and marshes, and was historically gathered as a wild food source.
 usda_ndb_code:en: 11618
 usda_ndb_name:en: Eppaw, raw
@@ -68761,6 +68763,7 @@ ru: пряности натуральные
 #                                Herbs (general)
 #
 ###################################################################################################
+
 en: herb, mixed herbs, aromatic plants
 bg: билка, билки
 bs: aromatično bilje
@@ -71150,6 +71153,7 @@ usda_ndb_name:en: Spices, coriander leaf, dried
 #                                Burnet
 #
 ###################################################################################################
+
 < en: herb
 en: burnet
 de: Pimpinelle
@@ -71329,6 +71333,18 @@ it: burro all'aneto
 sv: dillsmör
 #1 @2021-09-16
 # usage:fi:Tillivoi: Voi (Suomi), tilli, suola
+
+###################################################################################################
+#
+#                                Epazote
+#
+###################################################################################################
+
+< en: herb
+en: epazote
+description:en: Epazote (Dysphania ambrosioides, formerly Chenopodium ambrosioides) is a pungent, aromatic herb widely used in Mexican and Central American cooking. The flavor is hard to pin down — people describe it as a mix of citrus, mint, anise, tar, and even petroleum-like notes. It's strong, so it's used in moderation, usually just a sprig or a few leaves per dish, added toward the end of cooking to preserve its aroma. Epazote contains compounds (like ascaridole) that can be toxic in concentrated amounts, such as in essential oil form. Using fresh or dried leaves in normal cooking quantities is considered safe and is how it's traditionally consumed — but it shouldn't be consumed as a concentrated extract or in medicinal "high dose" preparations.
+usda_ndb_code:en: 11984
+usda_ndb_name:en: Epazote, raw
 
 ###################################################################################################
 #
