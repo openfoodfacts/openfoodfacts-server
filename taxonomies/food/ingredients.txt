@@ -51591,6 +51591,12 @@ ciqual_food_code:en: 20163
 ciqual_food_name:en: Green endive, raw
 
 < en: leaf vegetable
+en: drumstick leaves
+description:en: Small, oval-shaped leaflets of the moringa tree (Moringa oleifera), sometimes called the horseradish tree or ben tree. The leaves grow in clusters on the branches, often described as feathery or fern-like in arrangement. They're a popular vegetable in South Asian, Southeast Asian, and African cuisines. Added to salads, or cooked briefly like spinach — sautéed, added to soups, dals, or stir-fries. 
+usda_ndb_code:en: 11222
+usda_ndb_name:en: Drumstick leaves, raw
+
+< en: leaf vegetable
 en: grape leaf, grape leaves
 description:en: Grape leaves (also called vine leaves) are the young, tender leaves of the grape plant (Vitis vinifera), used as a vegetable or wrap in Mediterranean, Middle Eastern, Balkan, and Caucasian cooking rather than eaten as a leafy green on their own. Slightly tart, earthy, a bit lemony — this comes mostly from the way they're brined or cooked (often with lemon juice).
 usda_ndb_code:en: 11974
@@ -58741,6 +58747,14 @@ wikidata:en: Q2142465
 wikipedia:en: https://en.wikipedia.org/wiki/Crudités
 # ingredient/fr:crudités has 74 products in french @2019-03-29
 
+###################################################################################################
+#
+#
+#                        Avocado
+#
+#
+###################################################################################################
+
 #category/avocados
 < en: fruit vegetable
 en: avocado
@@ -59293,6 +59307,20 @@ fi: kuivattu munakoiso
 fr: aubergines séchées
 hr: sušeni patlidžan
 it: melanzane secche
+
+###################################################################################################
+#
+#
+#                        Winged bean
+#
+#
+###################################################################################################
+
+< en: fruit vegetable
+en: drumstick pods
+description:en: "Drumstick" is the common name for the long, slender seed pods of the moringa tree (Moringa oleifera), sometimes called the horseradish tree or ben tree. They're a popular vegetable in South Asian, Southeast Asian, and African cuisines. Long, thin, ridged green pods, often 1–3 feet long. Mild, slightly sweet, a bit like asparagus or green beans.
+usda_ndb_code:en: 11620
+usda_ndb_name:en: Drumstick pods, raw
 
 < en: vegetable fiber
 en: acacia fibre, acacia fibre
@@ -62689,7 +62717,6 @@ wikidata:en: Q159753
 < en: pulse
 en: mixed beans, bean mix
 sv: blandade bönor
-
 
 ###################################################################################################
 #
