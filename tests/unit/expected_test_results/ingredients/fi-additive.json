@@ -2,24 +2,15 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "en:gelling-agent",
-         "ingredients" : [
-            {
-               "id" : "en:e440a",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 100,
-               "percent_max" : 100,
-               "percent_min" : 100,
-               "text" : "pektiinit",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "additive_class" : "en:gelling-agent",
+         "id" : "en:e440a",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "hyytelöimisaine"
+         "text" : "pektiinit",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {},
@@ -29,18 +20,16 @@
       "en:vegetarian"
    ],
    "ingredients_lc" : "fi",
-   "ingredients_n" : 2,
+   "ingredients_n" : 1,
    "ingredients_n_tags" : [
-      "2",
+      "1",
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:gelling-agent",
       "en:e440a"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:gelling-agent",
       "en:e440a"
    ],
    "ingredients_text" : "hyytelöimisaine (pektiinit)",
@@ -49,16 +38,14 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:e440a",
-      "en:gelling-agent"
+      "en:e440a"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:e440a",
-      "en:gelling-agent"
+      "en:e440a"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
    "lc" : "fi",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"

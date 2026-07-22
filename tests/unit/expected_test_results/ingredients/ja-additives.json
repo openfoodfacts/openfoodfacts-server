@@ -2,41 +2,33 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "en:thickener",
-         "ingredients" : [
-            {
-               "ciqual_proxy_food_code" : "9510",
-               "id" : "en:modified-starch",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 31.25,
-               "percent_max" : 100,
-               "percent_min" : 6.25,
-               "text" : "加工デンプン",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            },
-            {
-               "id" : "en:e415",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 25,
-               "percent_max" : 50,
-               "percent_min" : 0,
-               "text" : "キサンタン",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "ciqual_proxy_food_code" : "9510",
+         "id" : "en:modified-starch",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 56.25,
+         "percent_estimate" : 55,
          "percent_max" : 100,
-         "percent_min" : 12.5,
-         "text" : "増粘剤"
+         "percent_min" : 10,
+         "text" : "加工デンプン",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
+         "additive_class" : "en:thickener",
+         "id" : "en:e415",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 22.5,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "キサンタン",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:thickener",
          "id" : "en:e262i",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 21.875,
-         "percent_max" : 50,
+         "percent_estimate" : 11.25,
+         "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "酢酸Na",
          "vegan" : "yes",
@@ -47,8 +39,8 @@
          "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:trehalose",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 10.9375,
-         "percent_max" : 33.3333333333333,
+         "percent_estimate" : 5.625,
+         "percent_max" : 25,
          "percent_min" : 0,
          "text" : "トレハロース",
          "vegan" : "maybe",
@@ -58,8 +50,8 @@
          "ciqual_proxy_food_code" : "9510",
          "id" : "en:modified-starch",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 5.46875,
-         "percent_max" : 25,
+         "percent_estimate" : 2.8125,
+         "percent_max" : 20,
          "percent_min" : 0,
          "text" : "加工デンプン",
          "vegan" : "yes",
@@ -68,8 +60,8 @@
       {
          "id" : "en:e640i",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 2.734375,
-         "percent_max" : 20,
+         "percent_estimate" : 1.40625,
+         "percent_max" : 16.6666666666667,
          "percent_min" : 0,
          "text" : "グリシン",
          "vegan" : "maybe",
@@ -81,67 +73,47 @@
             {
                "id" : "en:amino-acids",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 1.3671875,
-               "percent_max" : 16.6666666666667,
+               "percent_estimate" : 0.703125,
+               "percent_max" : 14.2857142857143,
                "percent_min" : 0,
                "text" : "アミノ酸等"
             }
          ],
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 1.3671875,
-         "percent_max" : 16.6666666666667,
+         "percent_estimate" : 0.703125,
+         "percent_max" : 14.2857142857143,
          "percent_min" : 0,
          "text" : "調味料",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
       },
       {
-         "id" : "en:antioxidant",
-         "ingredients" : [
-            {
-               "id" : "en:vitamin-c",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.341796875,
-               "percent_max" : 14.2857142857143,
-               "percent_min" : 0,
-               "text" : "V.C",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            },
-            {
-               "id" : "en:vitamin-e",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.341796875,
-               "percent_max" : 7.14285714285714,
-               "percent_min" : 0,
-               "text" : "V.E",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "id" : "en:vitamin-c",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.68359375,
-         "percent_max" : 14.2857142857143,
-         "percent_min" : 0,
-         "text" : "酸化防止剤"
-      },
-      {
-         "id" : "en:colour",
-         "ingredients" : [
-            {
-               "id" : "en:vegetable-pigment",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.68359375,
-               "percent_max" : 12.5,
-               "percent_min" : 0,
-               "text" : "野菜色素"
-            }
-         ],
-         "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.68359375,
+         "percent_estimate" : 0.3515625,
          "percent_max" : 12.5,
          "percent_min" : 0,
-         "text" : "着色料"
+         "text" : "V.C",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-e",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.17578125,
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "text" : "V.E",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vegetable-pigment",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.17578125,
+         "percent_max" : 10,
+         "percent_min" : 0,
+         "text" : "野菜色素"
       }
    ],
    "ingredients_analysis" : {
@@ -158,49 +130,43 @@
       "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "ja",
-   "ingredients_n" : 14,
+   "ingredients_n" : 11,
    "ingredients_n_tags" : [
-      "14",
+      "11",
       "11-20"
    ],
    "ingredients_original_tags" : [
-      "en:thickener",
+      "en:modified-starch",
+      "en:e415",
       "en:e262i",
       "en:trehalose",
       "en:modified-starch",
       "en:e640i",
       "en:condiment",
-      "en:antioxidant",
-      "en:colour",
-      "en:modified-starch",
-      "en:e415",
-      "en:amino-acids",
       "en:vitamin-c",
       "en:vitamin-e",
-      "en:vegetable-pigment"
+      "en:vegetable-pigment",
+      "en:amino-acids"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:thickener",
+      "en:modified-starch",
+      "en:starch",
+      "en:e415",
       "en:e262i",
       "en:e262",
       "en:trehalose",
       "en:added-sugar",
       "en:disaccharide",
       "en:sugar",
-      "en:modified-starch",
-      "en:starch",
       "en:e640i",
       "en:e640",
       "en:condiment",
-      "en:antioxidant",
-      "en:colour",
-      "en:e415",
-      "en:amino-acids",
       "en:vitamin-c",
       "en:vitamins",
       "en:vitamin-e",
-      "en:vegetable-pigment"
+      "en:vegetable-pigment",
+      "en:amino-acids"
    ],
    "ingredients_text" : "増粘剤(加工デンプン、キサンタン)、酢酸Na、トレハロース、加工デンプン、グリシン、調味料(アミノ酸等)、酸化防止剤(V.C,V.E)、着色料(野菜色素)",
    "ingredients_with_specified_percent_n" : 0,
@@ -209,34 +175,28 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:amino-acids",
-      "en:antioxidant",
-      "en:colour",
       "en:condiment",
       "en:e262i",
       "en:e415",
       "en:e640i",
-      "en:thickener",
       "en:vegetable-pigment",
       "en:vitamin-c",
       "en:vitamin-e"
    ],
-   "ingredients_without_ciqual_codes_n" : 11,
+   "ingredients_without_ciqual_codes_n" : 8,
    "ingredients_without_ecobalyse_ids" : [
       "en:amino-acids",
-      "en:antioxidant",
-      "en:colour",
       "en:condiment",
       "en:e262i",
       "en:e415",
       "en:e640i",
       "en:modified-starch",
-      "en:thickener",
       "en:vegetable-pigment",
       "en:vitamin-c",
       "en:vitamin-e"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 12,
-   "known_ingredients_n" : 14,
+   "ingredients_without_ecobalyse_ids_n" : 9,
+   "known_ingredients_n" : 11,
    "lc" : "ja",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"

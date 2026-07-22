@@ -2824,31 +2824,28 @@ Text to analyze
 							$current_parser_additive_class = $ingredient{id};
 							if ((scalar @ingredients) == 0) {
 								$analyze_ingredients_self->(
-									$analyze_ingredients_self,
-									$ingredients_ref,
-									$parent_ref,
-									$between_level, $between
+									$analyze_ingredients_self, $ingredients_ref, $parent_ref, $between_level, $between
 								);
 							}
 						}
 						else {
-						push @{$ingredients_ref}, \%ingredient;
+							push @{$ingredients_ref}, \%ingredient;
 
-						if ($between ne '') {
-							# Ingredient has sub-ingredients
+							if ($between ne '') {
+								# Ingredient has sub-ingredients
 
-							# we may have separated 2 ingredients:
-							# e.g. "salt and acid (acid citric)" -> salt + acid
-							# the sub ingredients only apply to the last ingredient
+								# we may have separated 2 ingredients:
+								# e.g. "salt and acid (acid citric)" -> salt + acid
+								# the sub ingredients only apply to the last ingredient
 
-							if ((scalar @ingredients) == 0) {
-								$ingredient{ingredients} = [];
-								$analyze_ingredients_self->(
-									$analyze_ingredients_self,
-									$ingredient{ingredients},
-									$ingredients_ref->[-1],
-									$between_level, $between
-								);
+								if ((scalar @ingredients) == 0) {
+									$ingredient{ingredients} = [];
+									$analyze_ingredients_self->(
+										$analyze_ingredients_self,
+										$ingredient{ingredients},
+										$ingredients_ref->[-1],
+										$between_level, $between
+									);
 								}
 							}
 						}
