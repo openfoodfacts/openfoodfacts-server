@@ -4,7 +4,7 @@
          {
             "element_type" : "text",
             "text_element" : {
-               "html" : "<ul> <li id=\\\"data-error-en:detected-category-from-name-and-ingredients-may-be-missing-baby-milks\\\\\"> Detected category from name and ingredients may be missing baby milks <br><span class=\\\"description\\\\\">The product name and ingredients suggest this may be a baby milk product, but it has not been categorized as such.</span> </li> </ul>"
+               "html" : "<ul> <li id=\"data-error-en:detected-category-from-name-and-ingredients-may-be-missing-baby-milks\"> Detected category from name and ingredients may be missing baby milks <br><span class=\"description\">The product name and ingredients suggest this may be a baby milk product, but it has not been categorized as such.</span> </li> </ul>"
             }
          },
          {
@@ -12,12 +12,7 @@
                "actions" : [
                   "add_categories"
                ],
-               "html" : "\"\n            },\n            \"element_type\" : \"action"
-         },
-         {
-            "element_type" : "text",
-            "text_element" : {
-               "html" : "<ul> <li id=\\\"data-error-en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj\\\\\"> Nutrition - Energy value in kcal does not match value in kJ <br><span class=\\\"description\\\\\">The energy value in kJ must be about 4.2 times greater than the value in kcal</span> </li> <li id=\\\"data-error-en:nutrition-saturated-fat-greater-than-fat\\\\\"> Nutrition - Saturated Fat greater than Fat <br><span class=\\\"description\\\\\">Saturated Fat is a sub-section of Fat on the nutrition labels, as a result, it should always be smaller than fat.</span> </li> <li id=\\\"data-error-en:nutrition-sugars-plus-starch-greater-than-carbohydrates\\\\\"> Nutrition - Sugars plus starch greater than carbohydrates <br><span class=\\\"description\\\\\">The sum of sugars and starch is greater than the total carbohydrates value, which is not possible since sugars and starch are both sub-components of carbohydrates.</span> </li> </ul>"
+               "html" : "\"\n            },\n            \"element_type\" : \"action\"\n         },\n         {\n            \"element_type\" : \"text\",\n            \"text_element\" : {\n               \"html\" : \"<ul> <li id=\"data-error-en:nutrition-energy-value-in-kcal-does-not-match-value-in-kj\"> Nutrition - Energy value in kcal does not match value in kJ <br><span class=\"description\">The energy value in kJ must be about 4.2 times greater than the value in kcal</span> </li> <li id=\"data-error-en:nutrition-saturated-fat-greater-than-fat\"> Nutrition - Saturated Fat greater than Fat <br><span class=\"description\">Saturated Fat is a sub-section of Fat on the nutrition labels, as a result, it should always be smaller than fat.</span> </li> <li id=\"data-error-en:nutrition-sugars-plus-starch-greater-than-carbohydrates\"> Nutrition - Sugars plus starch greater than carbohydrates <br><span class=\"description\">The sum of sugars and starch is greater than the total carbohydrates value, which is not possible since sugars and starch are both sub-components of carbohydrates.</span> </li> </ul>"
             }
          },
          {
@@ -25,12 +20,7 @@
                "actions" : [
                   "add_nutrition_facts"
                ],
-               "html" : "\"\n            },\n            \"element_type\" : \"action"
-         },
-         {
-            "element_type" : "text",
-            "text_element" : {
-               "html" : "<ul> <li id=\\\"data-error-en:nutri-score-grade-from-label-does-not-match-calculated-grade\\\\\"> Nutri-Score grade from label does not match calculated grade <br><span class=\\\"description\\\\\">The Nutri-Score grade printed on the product's label does not match the grade calculated by Open Food Facts.</span> </li> </ul>"
+               "html" : "\"\n            },\n            \"element_type\" : \"action\"\n         },\n         {\n            \"element_type\" : \"text\",\n            \"text_element\" : {\n               \"html\" : \"<ul> <li id=\"data-error-en:nutri-score-grade-from-label-does-not-match-calculated-grade\"> Nutri-Score grade from label does not match calculated grade <br><span class=\"description\">The Nutri-Score grade printed on the product's label does not match the grade calculated by Open Food Facts.</span> </li> </ul>"
             }
          }
       ],

@@ -4,7 +4,7 @@
          {
             "element_type" : "text",
             "text_element" : {
-               "html" : "<ul> <li id=\\\"data-error-en:all-but-one-ingredient-with-specified-percent\\\\\"> All but one ingredient with specified percent <br><span class=\\\"description\\\\\">All ingredients except one have a specified percentage.</span> </li> </ul>"
+               "html" : "<ul> <li id=\"data-error-en:all-but-one-ingredient-with-specified-percent\"> All but one ingredient with specified percent <br><span class=\"description\">All ingredients except one have a specified percentage.</span> </li> </ul>"
             }
          },
          {
@@ -12,7 +12,9 @@
                "actions" : [
                   "add_ingredients_text"
                ],
-               "html" : "\"\n            },\n            \"element_type\" : \"action"
+               "html" : ""
+            },
+            "element_type" : "action"
          }
       ],
       "evaluation" : "average",
