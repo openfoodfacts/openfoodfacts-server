@@ -933,6 +933,23 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => '小麦粉●砂糖●植物油脂●食塩●香料●乳化剤',
 		},
 	],
+	# origins adjectives
+	[
+		'fr-origins-adjectives',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				'Tomates italiennes, fraises bretonnes, pommes normandes, huile d’olive italienne, huile d’olive grecque',
+		}
+	],
+	[
+		'fr-origins-adjectives-false-positives',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				'Crème anglaise, sauce anglaise, pain suédois (farine, sel), maquereaux espagnols, maquereau espagnol',
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

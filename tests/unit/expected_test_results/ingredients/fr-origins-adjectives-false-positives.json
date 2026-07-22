@@ -1,0 +1,157 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "fr:Crème anglaise",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 60,
+         "percent_max" : 100,
+         "percent_min" : 20,
+         "text" : "Crème anglaise"
+      },
+      {
+         "id" : "fr:sauce anglaise",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 20,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "sauce anglaise"
+      },
+      {
+         "id" : "en:bread",
+         "ingredients" : [
+            {
+               "ciqual_proxy_food_code" : "9435",
+               "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+               "id" : "en:flour",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "farine",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11058",
+               "id" : "en:salt",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 5,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "sel",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "origins" : "en:sweden",
+         "percent_estimate" : 10,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "pain",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "26102",
+         "id" : "en:chub-mackerel",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "maquereaux espagnols",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "26102",
+         "id" : "en:chub-mackerel",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "maquereau espagnol",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:chub-mackerel",
+         "en:chub-mackerel"
+      ],
+      "en:non-vegetarian" : [
+         "en:chub-mackerel",
+         "en:chub-mackerel"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "fr:Crème anglaise",
+         "fr:sauce anglaise"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:Crème anglaise",
+         "fr:sauce anglaise"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:Crème anglaise",
+         "fr:sauce anglaise"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 7,
+   "ingredients_n_tags" : [
+      "7",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:Crème anglaise",
+      "fr:sauce anglaise",
+      "en:bread",
+      "en:chub-mackerel",
+      "en:chub-mackerel",
+      "en:flour",
+      "en:salt"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:Crème anglaise",
+      "fr:sauce anglaise",
+      "en:bread",
+      "en:chub-mackerel",
+      "en:fish",
+      "en:mackerel",
+      "en:flour",
+      "en:salt"
+   ],
+   "ingredients_text" : "Crème anglaise, sauce anglaise, pain suédois (farine, sel), maquereaux espagnols, maquereau espagnol",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:bread",
+      "fr:Crème anglaise",
+      "fr:sauce anglaise"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:bread",
+      "en:chub-mackerel",
+      "en:salt",
+      "fr:Crème anglaise",
+      "fr:sauce anglaise"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 5,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}

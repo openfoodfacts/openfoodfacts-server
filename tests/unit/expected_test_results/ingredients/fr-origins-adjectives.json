@@ -1,0 +1,130 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20047",
+         "ecobalyse_code" : "tomato-greehouse-eu",
+         "id" : "en:tomato",
+         "is_in_taxonomy" : 1,
+         "origins" : "en:italy",
+         "percent_estimate" : 60,
+         "percent_max" : 100,
+         "percent_min" : 20,
+         "text" : "Tomates",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "13014",
+         "ecobalyse_code" : "e5bf7d33-6afe-46d6-ac06-f69c5769b10e",
+         "id" : "en:strawberry",
+         "is_in_taxonomy" : 1,
+         "origins" : "en:britanny",
+         "percent_estimate" : 20,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "fraises",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13050",
+         "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+         "id" : "en:apple",
+         "is_in_taxonomy" : 1,
+         "origins" : "en:normandy",
+         "percent_estimate" : 10,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "pommes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "17270",
+         "ecobalyse_code" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
+         "from_palm_oil" : "no",
+         "id" : "en:olive-oil",
+         "is_in_taxonomy" : 1,
+         "origins" : "en:italy",
+         "percent_estimate" : 5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "huile d'olive",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "fr:huile d'olive grecque",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "huile d'olive grecque"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:huile d'olive grecque"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:huile d'olive grecque"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:huile d'olive grecque"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:tomato",
+      "en:strawberry",
+      "en:apple",
+      "en:olive-oil",
+      "fr:huile d'olive grecque"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:apple",
+      "en:malaceous-fruit",
+      "en:olive-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:vegetable-oil",
+      "fr:huile d'olive grecque"
+   ],
+   "ingredients_text" : "Tomates italiennes, fraises bretonnes, pommes normandes, huile d’olive italienne, huile d’olive grecque",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "fr:huile d'olive grecque"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:huile d'olive grecque"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 4,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}
