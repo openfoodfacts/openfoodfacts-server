@@ -541,8 +541,8 @@ ro: Date nutriționale pe porție - Cantitatea porției este 0
 ru: Данные о пищевой ценности на порцию - Количество порции равно 0
 sv: Näringsdata per portion - Portionsmängden är 0
 uk: Дані про харчову цінність на порцію - Кількість порції дорівнює 0
-description:ca: La quantitat de la ració és 0 o no es reconeix, mentre que les dades nutricionals són per ració.
 description:en: Serving quantity is 0 or is not recognized while nutrition data is per portion.
+description:ca: La quantitat de la ració és 0 o no es reconeix, mentre que les dades nutricionals són per ració.
 description:cs: Množství porce je 0 nebo nebylo rozpoznáno, přestože nutriční údaje jsou uvedeny na porci.
 description:da: Portionsmængden er 0 eller genkendes ikke, mens næringsdataene er pr. portion.
 description:de: Die Portionsmenge beträgt 0 oder wird nicht erkannt, obwohl die Nährwertangaben pro Portion erfolgen.
@@ -6506,8 +6506,8 @@ ro: Valoare nutrițională peste 105 - La 100 g produs finit s-au folosit x g de
 ru: Пищевая ценность выше 105 - На 100 г готового продукта использовано x г мяса (SE)
 sv: Näringsvärde över 105 - Per 100 g färdig produkt har x g kött använts
 uk: Харчова цінність вище 105 - На 100 г готового продукту використано x г м'яса (SE)
+description:en: For 100 g final product more than 105 g meat was used (SE), which is impossible.
 description:ca: Per 100 g de producte acabat, x g de carn utilitzada (SE): valor superior a 105 g per 100 g, cosa que és impossible.
-description:en: For 100 g final product more than 105 g meat was used, which is impossible.
 description:cs: Na 100 g hotového výrobku bylo použito x g masa (SE): hodnota přesahuje 105 g na 100 g, což je nemožné.
 description:da: Pr. 100 g færdigt produkt er der brugt x g kød (SE): værdi over 105 g pr. 100 g, hvilket er umuligt.
 description:de: Auf 100 g Fertigprodukt wurden x g Fleisch verwendet (SE): Wert liegt über 105 g pro 100 g, was unmöglich ist.
@@ -7544,9 +7544,9 @@ ro: Toate valorile nutriționale sunt identice
 ru: Все значения пищевой ценности одинаковы
 sv: Näringsvärdena är alla identiska
 uk: Усі значення харчової цінності однакові
+description:en: Nutrition values have to be reviewed because they should not have all the same value.
 description:ar: يجب مراجعة القيم الغذائية لأنه لا ينبغي أن تكون كلها متطابقة
 description:bg: Хранителните стойности трябва да бъдат прегледани, защото не трябва да имат всички еднакви стойности
-description:en: Nutrition values have to be reviewed because it should not have all same values
 description:ca: S'han de revisar els valors nutricionals perquè no haurien de ser tots iguals
 description:cs: Nutriční hodnoty je třeba zkontrolovat, protože by neměly mít všechny stejné hodnoty
 description:da: Næringsværdierne skal gennemgås, fordi de ikke alle bør være ens
@@ -11021,10 +11021,10 @@ description:en: This ingredient list contains 5 consecutive consonants, which is
 
 < en: Ingredients warnings
 en: Ingredients over 30 percent digits
+description:en: The ingredients list contains over 30 percent digits, which is unusual and might indicate a text extraction (OCR) error.
 description:ca: La llista d'ingredients conté més d'un 30% de xifres, la qual cosa és inusual i pot indicar un error d'extracció de text (OCR).
 description:da: Ingredienslisten indeholder over 30 % cifre, hvilket er usædvanligt og kan tyde på en tekstgenkendelsesfejl (OCR).
 description:de: Die Zutatenliste enthält mehr als 30 % Ziffern, was ungewöhnlich ist und auf einen Texterkennungsfehler (OCR) hindeuten könnte.
-description:en: The ingredients list contains over 30 percent digits, which is unusual and might indicate a text extraction (OCR) error.
 description:es: La lista de ingredientes contiene más de un 30 % de dígitos, lo cual es inusual y puede indicar un error de extracción de texto (OCR).
 description:fr: La liste des ingrédients contient plus de 30 % de chiffres, ce qui est inhabituel et peut indiquer une erreur d'extraction de texte (OCR).
 description:it: L'elenco degli ingredienti contiene oltre il 30% di cifre, il che è insolito e potrebbe indicare un errore di estrazione del testo (OCR).
@@ -11092,10 +11092,10 @@ description:en: Having a sum of ingredients percentages greater than 100 is logi
 
 < en: Ingredients warnings
 en: Sum of ingredients with unspecified percent lesser than 10
+description:en: The sum of the percentages of ingredients without a specified percent is lower than 10%, meaning their contribution can be reliably estimated.
 description:ca: La suma dels percentatges dels ingredients sense percentatge especificat és inferior al 10%, cosa que significa que la seva contribució es pot estimar de manera fiable.
 description:da: Summen af procentandelene for ingredienser uden angivet procent er lavere end 10 %, hvilket betyder, at deres bidrag kan estimeres pålideligt.
 description:de: Die Summe der Prozentsätze der Zutaten ohne angegebenen Prozentsatz liegt unter 10 %, sodass ihr Anteil zuverlässig geschätzt werden kann.
-description:en: The sum of the percentages of ingredients without a specified percent is lower than 10%, meaning their contribution can be reliably estimated.
 description:es: La suma de los porcentajes de los ingredientes sin porcentaje especificado es inferior al 10 %, lo que significa que su contribución se puede estimar de forma fiable.
 description:fr: La somme des pourcentages des ingrédients sans pourcentage spécifié est inférieure à 10 %, ce qui signifie que leur contribution peut être estimée de manière fiable.
 description:it: La somma delle percentuali degli ingredienti senza percentuale specificata è inferiore al 10%, il che significa che il loro contributo può essere stimato in modo affidabile.
