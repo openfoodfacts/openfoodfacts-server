@@ -38533,6 +38533,24 @@ de: Donauwelle
 wikidata:en: Q829243
 
 < en: Cakes
+xx: Streuselkuchen
+en: Streuselkuchen
+de: Streuselkuchen
+wikidata:en: Q451645
+
+< en: Streuselkuchen
+en: Apple streuselkuchen
+de: Apfel Streuselkuchen
+
+< en: Streuselkuchen
+en: Cherry streuselkuchen
+de: Kirsch Streuselkuchen
+
+< en: Streuselkuchen
+en: Plum streuselkuchen
+de: Pflaumen Streuselkuchen
+
+< en: Cakes
 xx: Zupfkuchen
 en: Zupfkuchen
 de: Zupfkuchen
@@ -68293,6 +68311,10 @@ ciqual_food_code:en: 39512
 ciqual_food_name:en: Frozen dessert, Sundae ice cream type
 ciqual_food_name:fr: Dessert glacé, type sundae
 
+< en: Ice creams and sorbets
+de: Wassereisbecher
+fr: Glaces à l'eau en pot
+
 < en: Frozen desserts
 en: Ice creams and sorbets, Flavoured ice creams, Flavoured sorbets, Flavoured ice pops
 bg: Сладолед и сорбе
@@ -68531,14 +68553,22 @@ nl: IJsjesassortimenten
 #description:en:A package with icecream bars with bars with different flavours
 
 < en: Ice cream bars
+en: Non-coated ice cream bars
+fr: Bâtonnets à la crème glacée sans enrobage
+
+< en: Ice cream bars
+en: Coated ice cream bars
+fr: Bâtonnets à la crème glacée enrobés
+
+< en: Coated ice cream bars
 en: Ice cream bars coated with fat-reduced cocoa
 fr: Bâtonnets glacés enrobés de cacao maigre
 
-< en: Ice cream bars
+< en: Coated ice cream bars
 en: Ice cream bars coated with fruit sorbet
 fr: Bâtonnets glacés enrobés de sorbet aux fruits
 
-< en: Ice cream bars
+< en: Coated ice cream bars
 en: Ice cream bars coated with chocolate, Chocolate ice cream bars, Chocolate ice creams on a stick, Ice cream on stick with chocolate coating
 de: Eis am Stiel überzogen mit Schokolade, Schokoladeneis am Stiel, Stieleis Schokolade
 es: Helados de palo de chocolate, Polos de chocolate, Paletas de chocolate
@@ -68644,6 +68674,10 @@ en: Chocolate-Mint ice cream cones
 fr: Cônes menthe chocolat, Cônes chocolat menthe
 hr: Korneti sladoleda čokolada-menta
 lt: Šokolado-mėtų ledai vafliniame ragelyje
+
+< en: Ice cream cones
+en: Rum and raisins ice cream cones
+fr: Cônes rhum et raisins
 
 < en: Ice cream cones
 en: Mini ice cream cone
@@ -69351,7 +69385,7 @@ it: Torte e pasticcini congelati
 lt: Šaldyti tortai ir pyragaičiai, šaldyti pyragaičiai
 nl: Diepvriesgebak
 
-< en: Frozen desserts
+< en: Ice creams and sorbets
 en: Mochi ice cream
 es: Helado de mochi
 fr: Mochi glacés
@@ -122734,7 +122768,7 @@ hr: Smrznute šipke
 nl: IJsrepen
 
 < en: Bars
-< en: Ice creams
+< en: Ice creams and sorbets
 en: Ice cream candy chocolate bars, Frozen candy chocolate bars, Chocolate coated ice cream
 fr: Barres chocolatées glacées, Barre glacée chocolatée
 hr: Smrznute bombone čokoladice
