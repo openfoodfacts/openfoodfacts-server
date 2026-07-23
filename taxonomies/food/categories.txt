@@ -71324,18 +71324,118 @@ la: Myrciaria dubia
 wikipedia:en: https://en.wikipedia.org/wiki/Myrciaria_dubia
 
 < en: Fruits
-en: Cherries
+en: Cherries, Cherry
+an: Ziresa
+ar: كرز
+az: Albalı
+ba: Сейә
+be: Чарэшня
+bg: Череша
+bn: চেরি
+bo: སེའུ།
+br: Kerez
+bs: Trešnja
+ca: Cirera
+co: Chjarasgia
+cs: Třešně
+cu: Черешьнѧ
+cv: Чие
+cy: Ceiriosen
+da: Kirsebær
 de: Kirschen
+el: Κεράσι
+eo: Ĉerizoj
 es: Cerezas
-fi: kirsikat
+et: Kirss
+eu: Gerezi
+fa: گیلاس
+fi: Kirsikat, Kirsikka
+fo: Kirsiber
 fr: Cerises
-hr: Trešnje
-it: Ciliegie
+fy: Kers
+ga: Silín
+gd: Siris
+gl: Cereixa
+gu: ચેરી
+gv: Shillish
+ha: Cherry
+hi: आलूबालू
+hr: Trešnje, Trešnja
+ht: Seriz
+hu: Cseresznye
+hy: Բալ
+ia: Ceresia
+id: Ceri
+io: Cerizo
+is: Kirsuber
+it: Ciliegie, Ciliegia
 ja: サクランボ, さくらんぼ
-lt: Vyšnios
+jv: Cèri
+ka: Ალუბალი
+kk: Шие
+kn: ಚೆರಿ
+ko: 버찌
+ks: پرَٛبٕدٔر
+ku: Gêlaz
+kw: Keres
+ky: Арча
+la: Cerasus
+lb: Kiischt
+li: Kiesj
+lo: ໝາກເຊີຣິ
+lt: Vyšnia, Vyšnios
+lv: Ķirši
+mk: Цреша
+ml: ചെറി
+mn: Интоор
+mr: चेरी
+ms: Ceri
+mt: Ċirasa
+my: ချယ်ရီသီး
+nb: Kirsebær
+ne: चेरी
 nl: Kersen
-ro: Cireșe
+nn: Kirsebær
+nv: Didzéchííʼ
+oc: Cerièra
+or: ଚେରୀ
+os: Бал
+pa: ਚੈਰੀ
+pl: Czereśnie
+pt: Cereja
+qu: Rinda
+ro: Cireșe, Cireașă
+ru: Вишня
+sd: آلو بالو
+se: Čirsa
+sh: Trešnja
+sk: Čerešňa
+sl: Češnja
+sq: Qershia
+sr: Трешња
 sv: Körsbär
+sw: Cheri
+ta: செர்ரி
+te: చెర్రీ
+tg: Гелос
+th: เชอร์รี่
+tk: Үлҗе
+tl: Seresa
+tr: Kiraz
+tt: Чия
+ug: گىلاس
+uk: Вишня
+ur: آلو بالو
+uz: Olcha
+vi: Anh đào
+vo: Cel
+wa: Ceréjhe
+wo: Sëriis
+zh: 樱
+agribalyse_proxy_food_code:en: 13008
+ciqual_proxy_food_code:en: 13008
+ciqual_proxy_food_name:en: Cherry, flesh and skin, pitted, raw
+ciqual_proxy_food_name:fr: Cerise, dénoyautée, crue
 google_product_taxonomy_id:en: 6601
 sales_format:en: weight, package
 wikidata:en: Q196
@@ -71343,25 +71443,36 @@ wikidata:en: Q196
 < en: Cherries
 < en: Fresh fruits
 en: Fresh cherries
+da: Friske kirsebær
 de: Frische Kirschen
 fr: Cerises fraîches
 hr: Svježe trešnje
 lt: Šviežios vyšnios
+sv: Färska körsbär
 season_in_country_fr:en: 6,7
 
 < en: Cherries
 en: Pitted cherries
+de: Endsteinte Kirschen
 fr: Cerises dénoyautées
 hr: Trešnje bez koštice
 lt: Vyšnios be kauliukų
 agribalyse_food_code:en: 13008
 ciqual_food_code:en: 13008
-ciqual_food_name:en: Cherry, pitted, raw
+ciqual_food_name:en: Cherry, flesh and skin, pitted, raw
 ciqual_food_name:fr: Cerise, dénoyautée, crue
+wikidata:en: Q88294285
 
+< en: Dried fruits
 < en: cherries
 en: Dried cherries
+da: Tørrede kirsebær
+el: Αποξηραμένο κεράσι
+es: Cereza seca
 fr: Cerises séchées
+ja: ドライチェリー
+sv: Torkade körsbär
+wikidata:en: Q955945
 
 < en: Dried cherries
 < en: pitted-cherries
@@ -71369,12 +71480,26 @@ en: Pitted dried cherries
 fr: Cerises dénoyautées séchées
 
 < en: Cherries
+< en: Frozen fruits
+en: Frozen cherries
+da: Frosne kirsebær
+sv: Frysta körsbär
+
+< en: Cherries
 en: Morello cherries
-fr: Griottes
+cs: Morela pozdní
+de: Schattenmorelle
+fi: Varjomorelli
+fr: Griottes, Chatel Morel
+hr: Tresnja
+it: Visciola
+pl: Łutówka
+sv: Skuggmorell
 agribalyse_food_code:en: 13110
 ciqual_food_code:en: 13110
 ciqual_food_name:en: Morello cherry, raw
 ciqual_food_name:fr: Griotte, crue
+wikidata:en: Q1400499
 
 < en: Cherries
 < en: French fruits
@@ -75078,10 +75203,6 @@ fr: Myrtilles séchées
 hr: Suhe borovnice
 lt: Džiovintos šilauogės
 nl: Gedroogde bosbessen
-
-< en: Dried fruits
-en: Dried cherries
-fr: Cerises séchées
 
 < en: Dried fruits
 en: Dried cranberries
