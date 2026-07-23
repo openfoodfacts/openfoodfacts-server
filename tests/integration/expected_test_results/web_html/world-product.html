@@ -264,6 +264,7 @@
   <button
     type="button"
     title="Scan a product"
+    aria-label="Scan a product"
     class="button barcode-scanner-button"
     id="barcode-scanner-button"
   >
@@ -410,7 +411,7 @@
 
 
   <div class="donation-banner__close">
-    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
+    <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();" aria-label="Close donation banner" type="button">close</button>
   </div>
 </section>
 
@@ -601,18 +602,18 @@
 
                         <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_generic_name">
-    <span class="field">Common name: </span>
-    <span class="field_value" id="field_generic_name_value"><span itemprop="description">default_name</span></span>
-</p>
+<div id="field_generic_name" class="field-wrapper">
+    <span class="field" id="field_generic_name_label">Common name: </span>
+    <span class="field_value" id="field_generic_name_value" aria-labelledby="field_generic_name_label"><span itemprop="description">default_name</span></span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_quantity">
-    <span class="field">Quantity: </span>
-    <span class="field_value" id="field_quantity_value">100 g</span>
-</p>
+<div id="field_quantity" class="field-wrapper">
+    <span class="field" id="field_quantity_label">Quantity: </span>
+    <span class="field_value" id="field_quantity_value" aria-labelledby="field_quantity_label">100 g</span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
@@ -641,18 +642,18 @@
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_origin">
-    <span class="field">Origin of the product and/or its ingredients: </span>
-    <span class="field_value" id="field_origin_value">Germany</span>
-</p>
+<div id="field_origin" class="field-wrapper">
+    <span class="field" id="field_origin_label">Origin of the product and/or its ingredients: </span>
+    <span class="field_value" id="field_origin_value" aria-labelledby="field_origin_label">Germany</span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->
 
-<p id="field_link">
-    <span class="field">Link to the product page on the official site of the producer: </span>
-    <span class="field_value" id="field_link_value"><a href="//world.openfoodfacts.org/">//world.openfoodfacts.org/</a></span>
-</p>
+<div id="field_link" class="field-wrapper">
+    <span class="field" id="field_link_label">Link to the product page on the official site of the producer: </span>
+    <span class="field_value" id="field_link_value" aria-labelledby="field_link_label"><a href="//world.openfoodfacts.org/">//world.openfoodfacts.org/</a></span>
+</div>
 
 <!-- end templates/web/common/includes/display_field.tt.html -->
 <!-- start templates/web/common/includes/display_field.tt.html -->

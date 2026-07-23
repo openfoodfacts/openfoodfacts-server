@@ -6,37 +6,40 @@
 
 [% ELSE %]
 
-    <h3>[% translate_taxonomy %]</h3>
+    <h3 id="translate_heading">[% translate_taxonomy %]</h3>
     <p>[% lang("translate_taxonomy_description") %]</p>
     <p id="counts">[% counts %]</p>
 
     <div style="max-width:600px;">
-        <table id="tagstable"  aria-label="tagstable">
+        <table id="tagstable" role="table" aria-labelledby="translate_heading">
 
             <thead>
-                <tr>
-                    <th id="row1">[% tagtype_s %]</th>
-                    <th id="row2">[% lang("save").ucfirst %]</th>
-                    <th id="row3">[% lang("products").ucfirst %]</th>
+                <tr role="row">
+                    <th id="col_tag" scope="col">[% tagtype_s %]</th>
+                    <th id="col_save" scope="col">[% lang("save").ucfirst %]</th>
+                    <th id="col_products" scope="col">[% lang("products").ucfirst %]</th>
                 </tr>
             </thead>
 
             <tbody>
                 [% FOREACH tag IN tagcounts %]
-                    <tr>
-                        <td>
+                    <tr role="row">
+                        <td headers="col_tag">
                             <a href="[% tag.link %]"[% tag.nofollow %] rel="noopener" target="_blank">[% tag.display %]</a> [% tag.synonyms %]<br/>
                             <input type="hidden" id="from_[% tag.j %]" name="from_[% tag.j %]" value="[% tag.tagid %]" />
                             <div id="to_[% tag.j %]_div">
-                                <input id="to_[% tag.j %]" name="to_[% tag.j %]" value="" />
+                                <label for="to_[% tag.j %]" class="screen-reader-text">Translation for [% tag.display %]</label>
+                                <input id="to_[% tag.j %]" name="to_[% tag.j %]" value="" aria-describedby="to_[% tag.j %]_desc" />
+                                <div id="to_[% tag.j %]_desc" class="screen-reader-text">Enter translation for [% tag.display %]</div>
                             </div>
                             [% tag.new_translation %]
                             <span style="font-size: 80%;">&rarr; <a href="[% tag.google_translate_link %]" rel="noopener" target="_blank">Google Translate</a></span>
                         </td>
-                        <td>
-                            <div id="save_[% tag.j %]_div"><button id="save_[% tag.j %]" class="tiny button save" type="button">[% lang("save") %]</button></div>
+                        <td headers="col_save">
+                            <div id="save_[% tag.j %]_div"><button id="save_[% tag.j %]" class="tiny button save" type="button" aria-describedby="save_[% tag.j %]_desc">[% lang("save") %]</button>
+                            <div id="save_[% tag.j %]_desc" class="screen-reader-text">Save translation for [% tag.display %]</div></div>
                         </td>
-                        <td style="text-align:right">[% tag.products %]</td>
+                        <td headers="col_products" style="text-align:right">[% tag.products %]</td>
                     </tr>
                 [% END %]
             </tbody>
