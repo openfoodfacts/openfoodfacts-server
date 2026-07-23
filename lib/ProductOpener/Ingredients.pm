@@ -1605,6 +1605,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 	my $percent_or_quantity_regexp = $percent_or_quantity_regexps{$ingredients_lc};
 
+	my $current_parser_additive_class = undef;
+
 	# Extract phrases related to specific ingredients at the end of the ingredients list
 	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp);
 
@@ -1654,6 +1656,8 @@ Text to analyze
 		my $vegan = undef;
 		my $vegetarian = undef;
 		my @processings = ();
+		my $previous_parser_additive_class;
+		my $started_additive_class_scope = 0;
 
 		$debug_ingredients and $log->debug("analyze_ingredients_function", {string => $s}) if $log->is_debug();
 		# find the first separator or ( or [ or : etc.
@@ -2744,6 +2748,20 @@ Text to analyze
 					text => $ingredient
 				);
 
+				my $is_additive_class = exists_taxonomy_tag("additives_classes", $ingredient{id});
+				my $is_additive = exists_taxonomy_tag("additives", $ingredient{id});
+
+				if (   defined $current_parser_additive_class
+					&& !$is_additive
+					&& !$is_additive_class)
+				{
+					$current_parser_additive_class = undef;
+				}
+
+				if (defined $current_parser_additive_class && $is_additive) {
+					$ingredient{additive_class} = $current_parser_additive_class;
+				}
+
 				my $is_in_taxonomy = exists_taxonomy_tag("ingredients", $ingredient_id) ? 1 : 0;
 				$ingredient{is_in_taxonomy} = $is_in_taxonomy;
 
@@ -2800,23 +2818,35 @@ Text to analyze
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 
 					if (length($ingredient{id}) < 500) {
-						push @{$ingredients_ref}, \%ingredient;
-
-						if ($between ne '') {
-							# Ingredient has sub-ingredients
-
-							# we may have separated 2 ingredients:
-							# e.g. "salt and acid (acid citric)" -> salt + acid
-							# the sub ingredients only apply to the last ingredient
-
+						if ($is_additive_class && $between ne "") {
+							$previous_parser_additive_class = $current_parser_additive_class;
+							$started_additive_class_scope = 1;
+							$current_parser_additive_class = $ingredient{id};
 							if ((scalar @ingredients) == 0) {
-								$ingredient{ingredients} = [];
 								$analyze_ingredients_self->(
-									$analyze_ingredients_self,
-									$ingredient{ingredients},
-									$ingredients_ref->[-1],
-									$between_level, $between
+									$analyze_ingredients_self, $ingredients_ref, $parent_ref, $between_level, $between
 								);
+							}
+						}
+						else {
+							push @{$ingredients_ref}, \%ingredient;
+
+							if ($between ne '') {
+								# Ingredient has sub-ingredients
+
+								# we may have separated 2 ingredients:
+								# e.g. "salt and acid (acid citric)" -> salt + acid
+								# the sub ingredients only apply to the last ingredient
+
+								if ((scalar @ingredients) == 0) {
+									$ingredient{ingredients} = [];
+									$analyze_ingredients_self->(
+										$analyze_ingredients_self,
+										$ingredient{ingredients},
+										$ingredients_ref->[-1],
+										$between_level, $between
+									);
+								}
 							}
 						}
 					}
@@ -2828,6 +2858,10 @@ Text to analyze
 
 		if ($after ne '') {
 			$analyze_ingredients_self->($analyze_ingredients_self, $ingredients_ref, $parent_ref, $level, $after);
+		}
+
+		if ($started_additive_class_scope) {
+			$current_parser_additive_class = $previous_parser_additive_class;
 		}
 
 	};

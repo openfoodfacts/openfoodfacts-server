@@ -61,84 +61,56 @@
                "vegetarian" : "yes"
             },
             {
-               "id" : "en:gelling-agent",
-               "ingredients" : [
-                  {
-                     "id" : "en:e440a",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 1.875,
-                     "text" : "pectines",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:gelling-agent",
+               "id" : "en:e440a",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 1.875,
-               "text" : "gélifiant"
+               "text" : "pectines",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "en:acid",
-               "ingredients" : [
-                  {
-                     "id" : "en:e330",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0.9375,
-                     "text" : "acide citrique",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:acid",
+               "id" : "en:e330",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0.9375,
-               "text" : "acidifiant"
+               "text" : "acide citrique",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "en:acidity-regulator",
-               "ingredients" : [
-                  {
-                     "id" : "en:e333",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0.234375,
-                     "text" : "citrate de calcium",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  },
-                  {
-                     "id" : "en:sodium-citrate",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0.234375,
-                     "text" : "citrate de sodium",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:acidity-regulator",
+               "id" : "en:e333",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0.46875,
-               "text" : "correcteurs d'acidité"
+               "text" : "citrate de calcium",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:sodium-citrate",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.234375,
+               "text" : "citrate de sodium",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:natural-orange-flavouring",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.234375,
+               "percent_estimate" : 0.1171875,
                "text" : "arôme naturel d'orange",
                "vegan" : "maybe",
                "vegetarian" : "maybe"
             },
             {
-               "id" : "en:thickener",
-               "ingredients" : [
-                  {
-                     "id" : "en:e415",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0.234375,
-                     "text" : "gomme xanthane",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:thickener",
+               "id" : "en:e415",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.234375,
-               "text" : "épaississant"
+               "percent_estimate" : 0.1171875,
+               "text" : "gomme xanthane",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -248,21 +220,13 @@
                "vegetarian" : "maybe"
             },
             {
-               "id" : "en:emulsifier",
-               "ingredients" : [
-                  {
-                     "ciqual_food_code" : "42200",
-                     "id" : "en:soya-lecithin",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0.3890625,
-                     "text" : "lécithine de soja",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "ciqual_food_code" : "42200",
+               "id" : "en:soya-lecithin",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0.3890625,
-               "text" : "émulsifiant"
+               "text" : "lécithine de soja",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:lactose-and-milk-proteins",
@@ -331,62 +295,49 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:raising-agent",
-         "ingredients" : [
-            {
-               "id" : "en:e503ii",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.266406249999999,
-               "text" : "carbonate acide d'ammonium",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            },
-            {
-               "id" : "en:e450i",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.133203125,
-               "text" : "diphosphate disodique",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            },
-            {
-               "id" : "en:e500ii",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.133203125,
-               "text" : "carbonate acide de sodium",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "additive_class" : "en:raising-agent",
+         "id" : "en:e503ii",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.532812499999999,
-         "text" : "poudre à lever"
+         "text" : "carbonate acide d'ammonium",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:raising-agent",
+         "id" : "en:e450i",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.266406250000003,
+         "text" : "diphosphate disodique",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:raising-agent",
+         "id" : "en:e500ii",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.133203125000001,
+         "text" : "carbonate acide de sodium",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.266406250000003,
+         "percent_estimate" : 0.0666015624999972,
          "text" : "sel",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:emulsifier",
-         "ingredients" : [
-            {
-               "ciqual_food_code" : "42200",
-               "id" : "en:soya-lecithin",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.266406250000003,
-               "text" : "lécithine de soja",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "ciqual_food_code" : "42200",
+         "id" : "en:soya-lecithin",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.266406250000003,
-         "text" : "émulsifiant"
+         "percent_estimate" : 0.0666015624999972,
+         "text" : "lécithine de soja",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -408,10 +359,10 @@
       "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 42,
+   "ingredients_n" : 35,
    "ingredients_n_tags" : [
-      "42",
-      "41-50"
+      "35",
+      "31-40"
    ],
    "ingredients_original_tags" : [
       "en:orange-marmalade",
@@ -421,41 +372,34 @@
       "en:egg",
       "en:glucose-fructose-syrup",
       "en:colza-oil",
-      "en:raising-agent",
+      "en:e503ii",
+      "en:e450i",
+      "en:e500ii",
       "en:salt",
-      "en:emulsifier",
+      "en:soya-lecithin",
       "en:glucose-fructose-syrup",
       "en:sugar",
       "en:orange-pulp",
       "en:concentrated-orange-juice",
       "en:orange",
-      "en:gelling-agent",
-      "en:acid",
-      "en:acidity-regulator",
+      "en:e440a",
+      "en:e330",
+      "en:e333",
+      "en:sodium-citrate",
       "en:natural-orange-flavouring",
-      "en:thickener",
+      "en:e415",
       "en:sugar",
       "en:cocoa-paste",
       "en:cocoa-butter",
       "en:vegetable-fat",
       "en:flavouring",
-      "en:emulsifier",
-      "en:lactose-and-milk-proteins",
-      "en:e503ii",
-      "en:e450i",
-      "en:e500ii",
       "en:soya-lecithin",
-      "en:e440a",
-      "en:e330",
-      "en:e333",
-      "en:sodium-citrate",
-      "en:e415",
+      "en:lactose-and-milk-proteins",
       "en:illipe-oil",
       "en:mango-kernel-oil",
       "en:shorea-robusta-seed-oil",
       "en:shea-butter",
-      "en:palm-oil",
-      "en:soya-lecithin"
+      "en:palm-oil"
    ],
    "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
@@ -480,9 +424,16 @@
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
       "en:rapeseed-oil",
-      "en:raising-agent",
+      "en:e503ii",
+      "en:e503",
+      "en:e450i",
+      "en:e450",
+      "en:e500ii",
+      "en:e500",
       "en:salt",
-      "en:emulsifier",
+      "en:soya-lecithin",
+      "en:e322",
+      "en:e322i",
       "en:orange-pulp",
       "en:fruit",
       "en:citrus-fruit",
@@ -492,13 +443,16 @@
       "en:juice",
       "en:fruit-juice",
       "en:orange-juice",
-      "en:gelling-agent",
-      "en:acid",
-      "en:acidity-regulator",
+      "en:e440a",
+      "en:e330",
+      "en:e333",
+      "en:sodium-citrate",
+      "en:minerals",
+      "en:sodium",
       "en:natural-orange-flavouring",
       "en:flavouring",
       "en:natural-flavouring",
-      "en:thickener",
+      "en:e415",
       "en:cocoa-paste",
       "en:plant",
       "en:cocoa",
@@ -509,22 +463,6 @@
       "en:animal-protein",
       "en:milk-proteins",
       "en:lactose",
-      "en:e503ii",
-      "en:e503",
-      "en:e450i",
-      "en:e450",
-      "en:e500ii",
-      "en:e500",
-      "en:soya-lecithin",
-      "en:e322",
-      "en:e322i",
-      "en:e440a",
-      "en:e330",
-      "en:e333",
-      "en:sodium-citrate",
-      "en:minerals",
-      "en:sodium",
-      "en:e415",
       "en:illipe-oil",
       "en:mango-kernel-oil",
       "en:vegetable-oil",
@@ -539,8 +477,6 @@
    "ingredients_with_unspecified_percent_n" : 29,
    "ingredients_with_unspecified_percent_sum" : 93.5,
    "ingredients_without_ciqual_codes" : [
-      "en:acid",
-      "en:acidity-regulator",
       "en:chocolate",
       "en:e330",
       "en:e333",
@@ -549,23 +485,17 @@
       "en:e450i",
       "en:e500ii",
       "en:e503ii",
-      "en:emulsifier",
       "en:flavouring",
-      "en:gelling-agent",
       "en:illipe-oil",
       "en:lactose-and-milk-proteins",
       "en:mango-kernel-oil",
       "en:natural-orange-flavouring",
-      "en:raising-agent",
       "en:shorea-robusta-seed-oil",
       "en:sodium-citrate",
-      "en:thickener",
       "en:vegetable-fat"
    ],
-   "ingredients_without_ciqual_codes_n" : 22,
+   "ingredients_without_ciqual_codes_n" : 16,
    "ingredients_without_ecobalyse_ids" : [
-      "en:acid",
-      "en:acidity-regulator",
       "en:chocolate",
       "en:cocoa-butter",
       "en:cocoa-paste",
@@ -576,26 +506,22 @@
       "en:e450i",
       "en:e500ii",
       "en:e503ii",
-      "en:emulsifier",
       "en:flavouring",
-      "en:gelling-agent",
       "en:glucose-fructose-syrup",
       "en:illipe-oil",
       "en:lactose-and-milk-proteins",
       "en:mango-kernel-oil",
       "en:natural-orange-flavouring",
       "en:orange-marmalade",
-      "en:raising-agent",
       "en:salt",
       "en:shea-butter",
       "en:shorea-robusta-seed-oil",
       "en:sodium-citrate",
       "en:soya-lecithin",
-      "en:thickener",
       "en:vegetable-fat"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 29,
-   "known_ingredients_n" : 42,
+   "ingredients_without_ecobalyse_ids_n" : 23,
+   "known_ingredients_n" : 35,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",

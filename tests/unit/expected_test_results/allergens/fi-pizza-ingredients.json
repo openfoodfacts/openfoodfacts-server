@@ -160,20 +160,13 @@
                "vegetarian" : "maybe"
             },
             {
-               "id" : "en:gelling-agent",
-               "ingredients" : [
-                  {
-                     "id" : "en:e407",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0,
-                     "text" : "e407",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:gelling-agent",
+               "id" : "en:e407",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
-               "text" : "hyytelöimisaine"
+               "text" : "e407",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:lactose",
@@ -190,36 +183,22 @@
                "text" : "sianlihaliemi"
             },
             {
-               "id" : "en:antioxidant",
-               "ingredients" : [
-                  {
-                     "id" : "en:e316",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0,
-                     "text" : "e316",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:antioxidant",
+               "id" : "en:e316",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
-               "text" : "hapettumisenestoaine"
+               "text" : "e316",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "en:preservative",
-               "ingredients" : [
-                  {
-                     "id" : "en:e250",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0,
-                     "text" : "e250",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:preservative",
+               "id" : "en:e250",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
-               "text" : "säilöntäaine"
+               "text" : "e250",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:ferment",
@@ -322,6 +301,15 @@
          "en:ham",
          "en:ham"
       ],
+      "en:palm-oil-content-unknown" : [
+         "fi:stabilisointiaine",
+         "fi:sianlihaliemi",
+         "fi:herkkusienet",
+         "fi:herkkusienet",
+         "fi:luontainen herkkusieniuute",
+         "fi:mustat oliivit",
+         "fi:stabilisointiaine"
+      ],
       "en:vegan-status-unknown" : [
          "fi:sianlihaliemi",
          "fi:herkkusienet",
@@ -339,9 +327,9 @@
       "en:non-vegetarian"
    ],
    "ingredients_lc" : "fi",
-   "ingredients_n" : 35,
+   "ingredients_n" : 32,
    "ingredients_n_tags" : [
-      "35",
+      "32",
       "31-40"
    ],
    "ingredients_original_tags" : [
@@ -366,19 +354,16 @@
       "en:glucose-syrup",
       "fi:stabilisointiaine",
       "en:natural-flavouring",
-      "en:gelling-agent",
+      "en:e407",
       "en:lactose",
       "fi:sianlihaliemi",
-      "en:antioxidant",
-      "en:preservative",
+      "en:e316",
+      "en:e250",
       "en:ferment",
       "fi:herkkusienet",
       "fi:luontainen herkkusieniuute",
       "fi:stabilisointiaine",
       "en:e451",
-      "en:e407",
-      "en:e316",
-      "en:e250",
       "en:e579"
    ],
    "ingredients_percent_analysis" : -1,
@@ -422,17 +407,14 @@
       "fi:stabilisointiaine",
       "en:natural-flavouring",
       "en:flavouring",
-      "en:gelling-agent",
+      "en:e407",
       "en:lactose",
       "fi:sianlihaliemi",
-      "en:antioxidant",
-      "en:preservative",
+      "en:e316",
+      "en:e250",
       "en:ferment",
       "fi:luontainen herkkusieniuute",
       "en:e451",
-      "en:e407",
-      "en:e316",
-      "en:e250",
       "en:e579"
    ],
    "ingredients_text" : "Täyte 61% : tomaattikastike 32% (tomaattipyree, vesi, vehnäjauho, suola, maissitärkkelys), mozzarella 26%, kinkku 21% (siankinkku, vesi, suola, dekstroosi, glukoosisiirappi, stabilisointiaine : E451, luontaiset aromit, hyytelöimisaine : E407, laktoosi, sianlihaliemi, hapettumisenestoaine : E316, säilöntäaine : E250, hapatteet), herkkusienet 15% (herkkusienet, luontainen herkkusieniuute), mustat oliivit (stabilisointiaine : E579), sinappikaali 0,6%, basilika ja oregano.",
@@ -444,7 +426,6 @@
    "ingredients_with_unspecified_percent_n" : 23,
    "ingredients_with_unspecified_percent_sum" : 65.5625,
    "ingredients_without_ciqual_codes" : [
-      "en:antioxidant",
       "en:e250",
       "en:e316",
       "en:e407",
@@ -452,19 +433,16 @@
       "en:e579",
       "en:ferment",
       "en:filling",
-      "en:gelling-agent",
       "en:lactose",
       "en:natural-flavouring",
-      "en:preservative",
       "fi:herkkusienet",
       "fi:luontainen herkkusieniuute",
       "fi:mustat oliivit",
       "fi:sianlihaliemi",
       "fi:stabilisointiaine"
    ],
-   "ingredients_without_ciqual_codes_n" : 17,
+   "ingredients_without_ciqual_codes_n" : 14,
    "ingredients_without_ecobalyse_ids" : [
-      "en:antioxidant",
       "en:basil",
       "en:corn-starch",
       "en:dextrose",
@@ -475,13 +453,11 @@
       "en:e579",
       "en:ferment",
       "en:filling",
-      "en:gelling-agent",
       "en:glucose-syrup",
       "en:ham",
       "en:lactose",
       "en:natural-flavouring",
       "en:oregano",
-      "en:preservative",
       "en:rocket",
       "en:salt",
       "en:tomato-sauce",
@@ -491,8 +467,8 @@
       "fi:sianlihaliemi",
       "fi:stabilisointiaine"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 26,
-   "known_ingredients_n" : 28,
+   "ingredients_without_ecobalyse_ids_n" : 23,
+   "known_ingredients_n" : 25,
    "lang" : "fi",
    "languages" : {
       "en:finnish" : 1
