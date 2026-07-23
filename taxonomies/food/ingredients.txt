@@ -51558,6 +51558,23 @@ usda_ndb_name:en: Cowpeas, leafy tips, raw
 
 #########################################################################################
 #
+#                               Garland chrysanthemum leaf
+#
+##########################################################################################
+
+< en: leaf vegetable
+en: garland chrysanthemum, chrysanthemum leaves
+la: Glebionis coronaria
+comment:en: Chrysanthemum leaves seems to be the same, but an older/alternate label.
+description:en: "Garland chrysanthemum" (also called tong ho in Chinese, shungiku in Japanese, and ssukgat in Korean) is an edible leafy green — not the ornamental flower you'd put in a bouquet, but a related plant (Glebionis coronaria) grown specifically for eating. Slightly bitter, herbal, and a little peppery — some describe it as tasting faintly like chrysanthemum tea smells.
+species:en: Glebionis coronaria
+usda_ndb_2_code:en: 11698
+usda_ndb_2_name:en: Chrysanthemum leaves, raw
+usda_ndb_code:en: 11157
+usda_ndb_name:en: Chrysanthemum, garland, raw
+
+#########################################################################################
+#
 #                               Endive
 #
 ##########################################################################################
@@ -56241,15 +56258,18 @@ uk: зелена цибуля
 uz: ko'k piyoz
 vi: hành lá
 zh: 青蔥
+# arz:بصل اخضر
+# sco:sybae
 ciqual_food_code:en: 11003
 ciqual_food_name:en: Chive or spring onion, fresh
 ciqual_food_name:fr: Ciboule ou Ciboulette, fraîche
-# 3011 @2021-10-20
 eurocode_2_group_3:en: 8.30.15
-# arz:بصل اخضر
-# sco:sybae
+usda_ndb_code:en: 11615
+usda_ndb_name:en: Chives, freeze-dried
+usda_ndb_process:en: en:freeze-dried
 wikidata:en: Q774278
 wikipedia:en: https://en.wikipedia.org/wiki/Scallion
+# 3011 @2021-10-20
 
 < en: onion
 en: onion sproute
