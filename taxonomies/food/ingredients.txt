@@ -14278,7 +14278,7 @@ pl: skrobia ze słodkich ziemniaków, skrobia z batatów, skrobia ze słodkiego 
 
 < en: arrowroot
 < en: starch
-en: arrowroot power, arrowroot starch, arrowroot flour
+en: arrowroot powder, arrowroot starch, arrowroot flour
 de: Pfeilwurzelstärke, Pfeilwurzelmehl
 description:en: Arrowroot starch is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
 usda_ndb_code:en: 20003
@@ -24035,10 +24035,8 @@ usda_ndb_name:en: Sorghum flour, whole-grain
 
 < en: cereal
 en: triticale
+xx: triticale
 de: Triticale
-es: triticale
-hr: tritikale
-it: triticale
 pl: pszenżyto, pszenżyta
 usda_ndb_code:en: 20069
 usda_ndb_name:en: Triticale
@@ -37345,6 +37343,9 @@ hu: edamame szója, hámozott szójabab
 it: edamame
 ja: 枝豆, えだ豆, えだまめ
 nl: edamamebonen, edamame
+usda_ndb_code:en: 11211
+usda_ndb_name:en: Edamame, frozen, unprepared
+usda_ndb_process:en: en:frozen, en:unprepared
 wikidata:en: Q1377879
 wikipedia:en: https://en.wikipedia.org/wiki/Edamame
 
@@ -51519,11 +51520,6 @@ ru: листовые овощи
 sv: bladgrönsak
 eurocode_2_group_2:en: 8.10
 
-#comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
-
-# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
-# comment:en: Endive in english is different from endive in french.
-
 < en: leaf vegetable
 en: endive, Endives
 ca: endívia
@@ -51565,6 +51561,8 @@ zh: 苦苣
 # pcd:indife
 # scn:nirvia
 # sr-ec:ендивија
+comment:en: Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root. Endive in english is different from endive in french.
+description:en: Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
 ecobalyse_labels_en_organic:en: 6842d570-6b53-49f3-ba9c-984b55e40171
 ecobalyse_origins_en_france:en: b26efb2f-8811-4fbb-9d01-3d7f0d8135ef
@@ -51591,7 +51589,65 @@ it: indivia verde
 ciqual_food_code:en: 20163
 ciqual_food_name:en: Green endive, raw
 
-# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
+###################################################################################################
+#
+#                                Dock
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: dock
+la: Rumex
+description:en: Dock (genus Rumex, especially curly dock — Rumex crispus — and broad-leaved dock — Rumex obtusifolius) is a wild edible plant. Young leaves have a tart, lemony, slightly sour flavor thanks to oxalic acid — similar to sorrel but a bit milder. As leaves mature they get tougher and more bitter/astringent. Young leaves: eaten raw in salads, or added to soups, stews, and sautés like spinach.; Older leaves: usually cooked (boiled or braised) to mellow the sourness and soften the texture.
+usda_ndb_code:en: 11616
+usda_ndb_name:en: Dock, raw
+
+###################################################################################################
+#
+#                                Drumstick leaves
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: drumstick leaves
+description:en: Small, oval-shaped leaflets of the moringa tree (Moringa oleifera), sometimes called the horseradish tree or ben tree. The leaves grow in clusters on the branches, often described as feathery or fern-like in arrangement. They're a popular vegetable in South Asian, Southeast Asian, and African cuisines. Added to salads, or cooked briefly like spinach — sautéed, added to soups, dals, or stir-fries.
+usda_ndb_code:en: 11222
+usda_ndb_name:en: Drumstick leaves, raw
+
+###################################################################################################
+#
+#                                Grape leaves
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: grape leaf, grape leaves
+description:en: Grape leaves (also called vine leaves) are the young, tender leaves of the grape plant (Vitis vinifera), used as a vegetable or wrap in Mediterranean, Middle Eastern, Balkan, and Caucasian cooking rather than eaten as a leafy green on their own. Slightly tart, earthy, a bit lemony — this comes mostly from the way they're brined or cooked (often with lemon juice).
+usda_ndb_code:en: 11974
+usda_ndb_name:en: Grape leaves, raw
+
+###################################################################################################
+#
+#                                Fiddlehead fern
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: fiddlehead fern
+la: Matteuccia struthiopteris
+description:en: Fiddlehead ferns are the tightly coiled, immature fronds of certain fern species, harvested in early spring before they unfurl. They're named for their resemblance to the curled end (scroll) of a fiddle or violin. Most common edible variety: Ostrich fern (Matteuccia struthiopteris) is the safest and most widely eaten species. Not all fern fiddleheads are edible — some are toxic, so identification matters. Often described as a cross between asparagus, green beans, and a slightly nutty, grassy taste. Fiddleheads must be cooked thoroughly (boiled or steamed for several minutes, then sautéed if desired) before eating. Raw or undercooked fiddleheads have caused foodborne illness outbreaks — they can carry bacteria or contain compounds that cause nausea, cramps, and diarrhea if not properly prepared.
+usda_ndb_2_code:en: 11996
+usda_ndb_2_name:en: Fiddlehead ferns, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, en:unprepared
+usda_ndb_code:en: 11995
+usda_ndb_name:en: Fiddlehead ferns, raw
+
+< en: leaf vegetable
+en: firewood leaf, firewoord leaves
+la: Chamaenerion angustifolium, Epilobium angustifolium
+description:en: Fireweed (Chamaenerion angustifolium, also called Epilobium angustifolium) is a tall wildflower with bright pink-purple flower spikes, common in northern temperate regions. Young leaves, picked before the plant flowers, can be eaten raw in salads or cooked like spinach. As the plant matures, the leaves get tougher and more bitter, so timing matters. Fireweed has a mild laxative effect in some people if eaten in quantity, so it's usually eaten in modest amounts rather than as a main dish.
+usda_ndb_code:en: 11985
+usda_ndb_name:en: Fireweed, leaves, raw
 
 < en: leaf vegetable
 en: radicchio
@@ -51620,6 +51676,7 @@ sv: radicchiosallad, rosensallat, rosésallat
 # en-gb:radicchio
 # pt-br:radicchio
 # vec:radicio
+description:en: RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
 eurocode_2_group_3:en: 8.10.10
 usda_ndb_code:en: 11952
 usda_ndb_name:en: Radicchio, raw
@@ -51888,6 +51945,15 @@ usda_ndb_name:en: Lettuce, iceberg (includes crisphead types), raw
 wikidata:en: Q1310886
 # 357 in 10 @2021-10-08
 
+< en: iceberg lettuce
+en: frillice iceberg lettuce, frillice lettuce
+sv: krispsallad, kripsallad
+description:en: Frillice iceberg lettuce is a cross of curly endive and iceberg lettuce, with the taste and texture of iceberg and the frilly top of the curly endive.
+
+< en: frillice iceberg lettuce
+en: green frillice iceberg lettuce
+sv: grön krispsallad
+
 < en: lettuce
 fr: jeunes pousses de laitue verte
 #20 in fr @2021-10-05
@@ -52054,6 +52120,18 @@ it: concentrato di bietola
 < en: chard
 en: red chard
 sv: röd mangold
+
+###################################################################################################
+#
+#                                Potherb
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: potherb
+description:en: The young, tender leaves of genus Corchorus (mainly Corchorus olitorius and Corchorus capsularis) are cooked and eaten as a green vegetable, similar to spinach or amaranth greens. When cooked, the leaves release a mucilaginous (slightly slimy) texture, somewhat like okra — this is prized in many cuisines for thickening soups and stews.
+usda_ndb_code:en: 11231
+usda_ndb_name:en: Jute, potherb, raw
 
 ###################################################################################################
 #
@@ -52575,17 +52653,10 @@ zh: 西洋蒲公英
 ciqual_food_code:en: 20038
 ciqual_food_name:en: Dandelion, raw
 ciqual_food_name:fr: Pissenlit, cru
-#100 @2021-10-06
 eurocode_2_group_3:en: 8.10.44
-
-< en: lettuce
-en: frillice iceberg lettuce, frillice lettuce
-sv: krispsallad, kripsallad
-description:en: Frillice iceberg lettuce is a cross of curly endive and iceberg lettuce, with the taste and texture of iceberg and the frilly top of the curly endive.
-
-< en: frillice iceberg lettuce
-en: green frillice iceberg lettuce
-sv: grön krispsallad
+usda_ndb_code:en: 11207
+usda_ndb_name:en: Dandelion greens, raw
+#100 @2021-10-06
 
 ###################################################################################################
 #
@@ -53644,6 +53715,9 @@ ciqual_food_name:fr: Chou frisé, cru
 ecobalyse:en: curly-kale-fr
 ecobalyse_labels_en_organic:en: curly-kale-organic
 eurocode_2_group_3:en: 8.15.55
+usda_ndb_2_code:en: 11235
+usda_ndb_2_name:en: Kale, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, en:unprepared
 usda_ndb_code:en: 11233
 usda_ndb_name:en: Kale, raw
 wikidata:en: Q45989
@@ -54199,16 +54273,6 @@ tr: rezene
 uk: фенхель
 ur: سونف
 zh: 小茴香
-ciqual_food_code:en: 20028
-ciqual_food_name:en: Fennel, raw
-ciqual_food_name:fr: Fenouil, cru
-description:en: FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
-ecobalyse:en: fennel-eu
-ecobalyse_origins_en_france:en: fennel-fr
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.34
-# 2221 in20 @2021-10-09
-wikidata:en: Q43511
 # aeb-arab:بسباس
 # ast:fenoyu
 # azb:رازیانه
@@ -54228,7 +54292,19 @@ wikidata:en: Q43511
 #wuu:茴香
 # yue:茴香
 # zh-tw:茴香
+ciqual_food_code:en: 20028
+ciqual_food_name:en: Fennel, raw
+ciqual_food_name:fr: Fenouil, cru
+description:en: FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
+ecobalyse:en: fennel-eu
+ecobalyse_origins_en_france:en: fennel-fr
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.34
+usda_ndb_code:en: 11957
+usda_ndb_name:en: Fennel, bulb, raw
+wikidata:en: Q43511
 wikipedia:en: https://en.wikipedia.org/wiki/Fennel
+# 2221 in20 @2021-10-09
 
 < en: stalk vegetable
 en: sea kale, seakale, crambe
@@ -54239,8 +54315,6 @@ it: cavolo marino
 la: crambe maritima
 nl: zeekool
 eurocode_2_group_3:en: 8.20.30
-
-# description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
 < en: stalk vegetable
 # <en:Vegetable rods
@@ -54292,6 +54366,7 @@ wa: rubåbe
 zh: 大黄
 #als:rabarbr
 #sco:rhubarub
+description:en: RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 eurocode_2_group_3:en: 8.20.50
 usda_ndb_proxy_code:en: 9307
 usda_ndb_proxy_name:en: Rhubarb, raw
@@ -54762,6 +54837,14 @@ en: white asparagus heads
 es: vemas de espárragos blancos
 it: teste di asparagi bianchi
 
+< en: vegetable
+
+< en: vegetable
+en: kanpyo, dried gourd strips
+comment:en: Is this a compound ingredient?
+description:en: Kanpyo is a Japanese ingredient made from dried strips of gourd — specifically the flesh of the calabash or bottle gourd (a variety called yūgao, related to what's sometimes called "bottle gourd" or "calabash" in English). To make it, the gourd is peeled into long, thin ribbons, then sun-dried until they become firm, chewy strips. Before use, the dried strips are rehydrated and usually simmered in a mixture of soy sauce, sugar, and mirin (or dashi) until they turn a light brown color and take on a sweet-savory flavor.
+usda_ndb_code:en: 11237
+usda_ndb_name:en: Kanpyo, (dried gourd strips)
 
 ###################################################################################################
 #
@@ -57041,8 +57124,16 @@ hr: gomolj
 it: tubero
 lv: bumbuļu dārzenis
 nl: knolgroente
+description:en: A tuber is a swollen underground stem (or in some cases a swollen root), used for storing nutrients — like potatoes. It typically grows at the end of a rhizome or stolon, not as the plant's central root.
 eurocode_2_group_2:en: 8.34
 
+< en: tuber
+en: eppaw
+la: Sagittaria latifolia
+comment:en: we also have arrowhead. Do not know why it is separate for the usda
+description:en: Eppaw is the edible tuber of the duck potato plant (Sagittaria latifolia, also called wapato or arrowhead), traditionally eaten by some Native American groups, particularly noted in Seminole/Florida contexts. It's a starchy, potato-like root vegetable that grows in shallow water and marshes, and was historically gathered as a wild food source.
+usda_ndb_code:en: 11618
+usda_ndb_name:en: Eppaw, raw
 
 # ROOT VEGETABLES (Eurocode 2 8.38)
 # Note: what Eurocode defines as Root vegetables seem to be only "tap root" vegetables
@@ -58687,6 +58778,14 @@ wikidata:en: Q2142465
 wikipedia:en: https://en.wikipedia.org/wiki/Crudités
 # ingredient/fr:crudités has 74 products in french @2019-03-29
 
+###################################################################################################
+#
+#
+#                        Avocado
+#
+#
+###################################################################################################
+
 #category/avocados
 < en: fruit vegetable
 en: avocado
@@ -59240,6 +59339,20 @@ fr: aubergines séchées
 hr: sušeni patlidžan
 it: melanzane secche
 
+###################################################################################################
+#
+#
+#                        Winged bean
+#
+#
+###################################################################################################
+
+< en: fruit vegetable
+en: drumstick pods
+description:en: "Drumstick" is the common name for the long, slender seed pods of the moringa tree (Moringa oleifera), sometimes called the horseradish tree or ben tree. They're a popular vegetable in South Asian, Southeast Asian, and African cuisines. Long, thin, ridged green pods, often 1–3 feet long. Mild, slightly sweet, a bit like asparagus or green beans.
+usda_ndb_code:en: 11620
+usda_ndb_name:en: Drumstick pods, raw
+
 < en: vegetable fiber
 en: acacia fibre, acacia fibre
 de: Akazienfasern
@@ -59416,7 +59529,6 @@ en: horseradish paste
 de: Meerrettichpaste
 it: pasta di rafano
 
-# description:en:JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
 
 < en: root vegetable
 < en: tuber
@@ -59475,11 +59587,6 @@ uz: Topinambur
 vi: Cúc vu
 wa: Canada ås coines
 zh: 洋姜
-# ingredient/jerusalem-artichoke has 37 products @2019-02-03
-ciqual_food_code:en: 20196
-ciqual_food_name:en: Jerusalem artichoke, raw
-ciqual_food_name:fr: Topinambour, cru
-eurocode_2_group_3:en: 8.34.20
 # azb:شلقم
 # be-tarask:Тапінамбур
 # diq:Saa bınê erdi
@@ -59497,8 +59604,16 @@ eurocode_2_group_3:en: 8.34.20
 # zh-hk:洋薑
 # zh-sg:洋姜
 # zh-tw:洋薑
+ciqual_food_code:en: 20196
+ciqual_food_name:en: Jerusalem artichoke, raw
+ciqual_food_name:fr: Topinambour, cru
+description:en: JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
+eurocode_2_group_3:en: 8.34.20
+usda_ndb_code:en: 11226
+usda_ndb_name:en: Jerusalem-artichokes, raw
 wikidata:en: Q32979618
 wikipedia:en: https://en.wikipedia.org/wiki/Jerusalem_artichoke
+# ingredient/jerusalem-artichoke has 37 products @2019-02-03
 
 
 en: pale-leaf woodland sunflower
@@ -62081,6 +62196,20 @@ eurocode_2_group_3:en: 8.40.45
 wikidata:en: Q161180
 
 < en: fruit vegetable
+en: white-flowered gourd, bottle gourd, calabash gourd, opo squash, long melon
+la: Lagenaria siceraria
+description:en: "White-flowered gourd" (calabash) refers to Lagenaria siceraria — also known as bottle gourd, calabash gourd, opo squash, or long melon. It's the same plant whose hard-shelled fruits are dried and used as bottles, bowls, or musical instruments, but when eaten as food it's harvested young and tender, before the shell hardens. Very mild, slightly sweet, with a texture similar to zucchini or chayote — it takes on the flavor of whatever it's cooked with. Common in cuisines: South Asian (India, Pakistan, Bangladesh — called lauki, doodhi, or ghiya), Chinese (hu lu), Vietnamese, Italian (cucuzza), and West African cooking. One caution worth knowing: bottle gourds can occasionally develop high levels of cucurbitacins (the compound that makes some gourds bitter), which can cause food poisoning. The rule of thumb is — if it tastes bitter, don't eat it, even if just one bite.
+usda_ndb_code:en: 11218
+usda_ndb_name:en: Gourd, white-flowered (calabash), raw
+
+< en: fruit vegetable
+en: dishcloth, towelgourd, sponge gourd, luffa
+la: Luffa aegyptiaca
+description:en: "Dishcloth gourd" (also called towel gourd, sponge gourd, or luffa) is the common name for Luffa — usually Luffa aegyptiaca (smooth luffa) or Luffa acutangula (angled/ridged luffa, sometimes called "Chinese okra"). It's a tropical vine in the cucumber/squash family, common in Asian, African, and some Mediterranean cuisines. The flesh is mild, slightly sweet, and a bit like a cross between zucchini and cucumber, with a spongy texture that softens when cooked.
+usda_ndb_code:en: 11220
+usda_ndb_name:en: Gourd, dishcloth (towelgourd), raw
+
+# < en: fruit vegetable
 < en: pumpkin
 en: red kuri squash
 co: zucca castagnina
@@ -62620,7 +62749,6 @@ wikidata:en: Q159753
 en: mixed beans, bean mix
 sv: blandade bönor
 
-
 ###################################################################################################
 #
 #
@@ -62793,13 +62921,8 @@ wikidata:en: Q2727662
 en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
 la: Lablab purpureus
 description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
-usda_ndb_proxy_code:en: 16067
-usda_ndb_proxy_name:en: Hyacinth beans, mature seeds, raw
-
-< en: hyacinth bean
-en: raw mature hyacinth bean
-usda_ndb_code:en: 16067
-usda_ndb_name:en: Hyacinth beans, mature seeds, raw
+usda_ndb_code:en: 11224
+usda_ndb_name:en: Hyacinth-beans, immature seeds, raw
 
 < en: legume
 en: lima bean, lima beans, butter bean
@@ -62887,6 +63010,14 @@ it: fagioli pinto
 sv: pintobönor, pintoböna
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.45
+
+< en: hyacinth bean
+< en: pulse
+en: dried hyacinth bean
+comment:en: kept separate to distinghuish between legume and pulse
+usda_ndb_code:en: 16067
+usda_ndb_name:en: Hyacinth beans, mature seeds, raw
+usda_ndb_process:en: en:dried
 
 # < en:legume
 < en: pulse
@@ -68694,6 +68825,7 @@ ru: пряности натуральные
 #                                Herbs (general)
 #
 ###################################################################################################
+
 en: herb, mixed herbs, aromatic plants
 bg: билка, билки
 bs: aromatično bilje
@@ -71083,6 +71215,7 @@ usda_ndb_name:en: Spices, coriander leaf, dried
 #                                Burnet
 #
 ###################################################################################################
+
 < en: herb
 en: burnet
 de: Pimpinelle
@@ -71262,6 +71395,18 @@ it: burro all'aneto
 sv: dillsmör
 #1 @2021-09-16
 # usage:fi:Tillivoi: Voi (Suomi), tilli, suola
+
+###################################################################################################
+#
+#                                Epazote
+#
+###################################################################################################
+
+< en: herb
+en: epazote
+description:en: Epazote (Dysphania ambrosioides, formerly Chenopodium ambrosioides) is a pungent, aromatic herb widely used in Mexican and Central American cooking. The flavor is hard to pin down — people describe it as a mix of citrus, mint, anise, tar, and even petroleum-like notes. It's strong, so it's used in moderation, usually just a sprig or a few leaves per dish, added toward the end of cooking to preserve its aroma. Epazote contains compounds (like ascaridole) that can be toxic in concentrated amounts, such as in essential oil form. Using fresh or dried leaves in normal cooking quantities is considered safe and is how it's traditionally consumed — but it shouldn't be consumed as a concentrated extract or in medicinal "high dose" preparations.
+usda_ndb_code:en: 11984
+usda_ndb_name:en: Epazote, raw
 
 ###################################################################################################
 #
@@ -79035,8 +79180,6 @@ wikidata:en: Q752492
 wikipedia:en: https://en.wikipedia.org/wiki/Marasmius_oreades
 # ingredient/fr:Marasmius-Oreades has 1 product @2018-01-22
 
-# description:en:AURICULARIA AURICULA-JUDAE, known as the Jew's ear, wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide.
-
 < en: mushroom
 en: wood ear, Jew's ear, black fungus, Auricularia auricula-judea, Auricularia Auricula Judea
 ar: أذن يهوذا
@@ -79092,11 +79235,20 @@ zh: 黑木耳
 # zh-hk:黑木耳
 # zh-sg:黑木耳
 # zh-tw:木耳
+description:en: "Cloud ear" (also called wood ear, black fungus, or mù'ěr 木耳 in Chinese) refers to mushrooms in the genus Auricularia — most commonly Auricularia auricula-judae or Auricularia cornea. They're a type of jelly fungus that grows on decaying or living wood, especially elder, beech, and other broadleaf trees. Cloud ears are prized more for their texture than flavor — they're crunchy, slightly gelatinous, and almost cartilaginous when cooked, but have very little taste of their own. That makes them great at soaking up other flavors in a dish.
+usda_ndb_code:en: 11988
+usda_ndb_name:en: Fungi, Cloud ears, dried
+usda_ndb_process:en: en:dried
 wikidata:en: Q321342
 wikipedia:en: https://en.wikipedia.org/wiki/Auricularia_auricula-judae
 # fr:Oreilles de Judas has 24 products in 5 languages @2018-11-01
 
-# description:en:A TRUFFLE is the fruiting body of a subterranean ascomycete fungus, predominantly one of the many species of the genus Tuber. In addition to Tuber, many other genera of fungi are classified as truffles including Geopora, Peziza, Choiromyces, Leucangium, and over a hundred others.
+< en: mushroom
+en: pepeiao
+la: Auricularia cornea
+description:en: "Pepeao" is a Hawaiian word — it literally means "ear," and it's used in Hawaii to refer to a type of jelly fungus (wood ear mushroom, genus Auricularia) because of its ear-shaped, rubbery cap. It grows on dead or decaying wood and is edible, often used in soups and stir-fries, similar to how "wood ear" or "cloud ear" mushrooms are used in Chinese cuisine.
+usda_ndb_code:en: 11228
+usda_ndb_name:en: Jew's ear, (pepeao), raw
 
 < en: mushroom
 en: truffle
@@ -79133,12 +79285,13 @@ tr: trüf mantarı
 uk: трюфелі
 vi: truffle
 zh: 松露
-# ingredient/en:truffle has 14 products in 2 languages @2020-06-13
-eurocode_2_group_3:en: 8.50.30
 # fiu_vro:trühvli
 # zh_yue:松露
+description:en: A TRUFFLE is the fruiting body of a subterranean ascomycete fungus, predominantly one of the many species of the genus Tuber. In addition to Tuber, many other genera of fungi are classified as truffles including Geopora, Peziza, Choiromyces, Leucangium, and over a hundred others.
+eurocode_2_group_3:en: 8.50.30
 wikidata:en: Q2690965
 wikipedia:en: https://en.wikipedia.org/wiki/Truffle
+# ingredient/en:truffle has 14 products in 2 languages @2020-06-13
 
 
 # description:en:tuber MELANOSPORUM is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
