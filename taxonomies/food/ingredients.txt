@@ -55850,7 +55850,7 @@ usda_ndb_name:en: Burdock root, raw
 #
 ###################################################################################################
 
-< en: vegetable
+< en: stalk vegetable
 en: celtuce, stem lettuce, celery lettuce, Chinese lettuce
 la: Lactuca sativa var. angustana
 description:en: Celtuce (also called stem lettuce, celery lettuce, or Chinese lettuce) is a vegetable that's actually a cultivar of the same species as regular lettuce (Lactuca sativa), but it's grown specifically for its thick, edible stem rather than its leaves. The stem has a mild, slightly sweet, and nutty flavor with a crisp, crunchy texture — often compared to a cross between celery, cucumber, and asparagus.
@@ -57646,17 +57646,6 @@ zh: 胡萝卜
 # war:karot
 # wuu:胡萝卜
 # yue:紅蘿蔔
-carbon_footprint_fr_foodges_ingredient:fr: Carottes fraîches
-carbon_footprint_fr_foodges_value:fr: 0.3
-# en:carot has 8224 products in 15 languages @2018-10-21
-ciqual_food_code:en: 20009
-ciqual_food_name:en: Carrot, raw
-ciqual_food_name:fr: Carotte, crue
-ecobalyse:en: carrot-non-eu
-ecobalyse_labels_en_organic:en: carrot-organic
-ecobalyse_origins_en_european_union:en: carrot-eu
-ecobalyse_origins_en_france:en: carrot-fr
-eurocode_2_group_3:en: 8.38.10
 # zh-cn:胡萝卜
 # zh-hans:胡萝卜
 # zh-hant:胡蘿蔔
@@ -57665,8 +57654,23 @@ eurocode_2_group_3:en: 8.38.10
 # zh-my:胡萝卜
 # zh-sg:胡萝卜
 # zh-tw:胡蘿蔔
+carbon_footprint_fr_foodges_ingredient:fr: Carottes fraîches
+carbon_footprint_fr_foodges_value:fr: 0.3
+ciqual_food_code:en: 20009
+ciqual_food_name:en: Carrot, raw
+ciqual_food_name:fr: Carotte, crue
+ecobalyse:en: carrot-non-eu
+ecobalyse_labels_en_organic:en: carrot-organic
+ecobalyse_origins_en_european_union:en: carrot-eu
+ecobalyse_origins_en_france:en: carrot-fr
+eurocode_2_group_3:en: 8.38.10
+usda_ndb_2_code:en: 11130
+usda_ndb_2_process:en: en:frozen, en:unprepared
+usda_ndb_code:en: 11124
+usda_ndb_name:en: Carrots, raw
 wikidata:en: Q81
 wikipedia:en: https://en.wikipedia.org/wiki/Carrot
+# en:carot has 8224 products in 15 languages @2018-10-21
 
 < en: carrot
 fr: carotte nantaise, carottes nantaises
@@ -57696,17 +57700,17 @@ hr: kuhana mrkva
 it: carota cotta
 pl: marchew gotowana, marchew ugotowana
 
-< en: carrot
+#< en: carrot
 # <en:organic
-en: organic carrots
-bg: био моркови, биологични моркови
-de: Bio Karotten
-fi: luomu porkkanat
-fr: carottes bio, carottes issues de l'agriculture biologique
-hr: organske mrkve
-it: carote biologiche
-nl: biologische wortel
-ru: морковь свежая
+#en: organic carrots
+#bg: био моркови, биологични моркови
+#de: Bio Karotten
+#fi: luomu porkkanat
+#fr: carottes bio, carottes issues de l'agriculture biologique
+#hr: organske mrkve
+#it: carote biologiche
+#nl: biologische wortel
+#ru: морковь свежая
 # en:organic-carrots has 580 products in 3 languages @2018-10-20
 
 < en: carrot
@@ -57716,33 +57720,35 @@ de: Babykarotten, Babymöhren
 fr: jeunes carottes
 hr: mlade mrkve
 it: carote baby
+usda_ndb_code:en: 11960
+usda_ndb_name:en: Carrots, baby, raw
 # fr:jeunes-carottes has 34 products in 1 language @2018-10-20
 
-< en: carrot
-fr: carottes en rondelles
-de: Karotten in Scheiben
-it: Carote e lamelle
+#< en: carrot
+#fr: carottes en rondelles
+#de: Karotten in Scheiben
+#it: Carote e lamelle
 # fr:carottes-en-rondelles has 54 products in 3 languages @2018-10-20
 
-< en: carrot
-fr: carottes en morceaux
+#< en: carrot
+#fr: carottes en morceaux
 # fr:carottes-en-morceaux has 28 products in 1 language @2018-10-20
 
-< en: carrot
-fr: carottes râpées
-nl: geraspte wortelen
+#< en: carrot
+#fr: carottes râpées
+#nl: geraspte wortelen
 # fr:carottes-râpées has 107 products in 3 languages @2018-10-20
 
-< en: carrot
-en: carrot purée
-bg: пюре от моркови
-de: Karottenpüree
-es: Puré de zanahoria
-fi: porkkanapyree, porkkanasose
-fr: purée de carotte
-hr: pire od mrkve
-it: puré di carote
-pl: przecier marchwiowy
+#< en: carrot
+#en: carrot purée
+#bg: пюре от моркови
+#de: Karottenpüree
+#es: Puré de zanahoria
+#fi: porkkanapyree, porkkanasose
+#fr: purée de carotte
+#hr: pire od mrkve
+#it: puré di carote
+#pl: przecier marchwiowy
 # In process de:Karottenpüree
 # fr:purée-de-carotte has 52 products in 2 languages @2018-10-20
 ciqual_food_code:en: 20261
