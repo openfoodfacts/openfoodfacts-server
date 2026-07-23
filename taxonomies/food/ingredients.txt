@@ -89673,9 +89673,9 @@ zh: 黄瓜
 #carbon_footprint_fr_foodges_value:fr:1.7
 carbon_footprint_fr_foodges_ingredient:fr: Concombre serre chauffée
 carbon_footprint_fr_foodges_value:fr: 2.4
-ciqual_proxy_food_code:en: 20019
-ciqual_proxy_food_name:en: Cucumber, pulp and peel, raw
-ciqual_proxy_food_name:fr: Concombre, pulpe et peau, cru
+ciqual_food_code:en: 20019
+ciqual_food_name:en: Cucumber, pulp and peel, raw
+ciqual_food_name:fr: Concombre, pulpe et peau, cru
 description:en: CUCUMBER (Cucumis sativus) is a widely cultivated plant in the gourd family, Cucurbitaceae.
 description:de: Die Gurke (Cucumis sativus), auch als Kukumer und Gartengurke bezeichnet, ist eine Art der Gattung Gurken (Cucumis) aus der Familie der Kürbisgewächse. Die Salatgurken werden vorwiegend frisch als Salat verzehrt.
 description:es: Cucumis sativus, conocido popularmente como pepino, es una planta anual de la familia de las cucurbitáceas. Es un ingrediente típico en las ensaladas mediterráneas y su variante encurtida, el pepinillo, un popular aperitivo.
@@ -89691,6 +89691,11 @@ ecobalyse_origins_en_france:en: cucumber-fr-offseason
 # 6546 products in 22 @2021-09-02
 eurocode_2_group_3:en: 8.40.30
 nutriscore_fruits_vegetables_nuts:en: yes
+usda_ndb_2_code:en: 11206
+usda_ndb_2_name:en: Cucumber, peeled, raw
+usda_ndb_2_process:en: en:peeled, en:raw
+usda_ndb_code:en: 11205
+usda_ndb_name:en: Cucumber, with peel, raw
 wikidata:en: Q2735883
 wikipedia:en: https://en.wikipedia.org/wiki/Cucumber
 
@@ -89698,9 +89703,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cucumber
 en: raw cucumber pulp and peel
 fr: Concombre pulpe et peau cru
 it: polpa e buccia di cetriolo crudo
-ciqual_food_code:en: 20019
-ciqual_food_name:en: Cucumber, pulp and peel, raw
-ciqual_food_name:fr: Concombre, pulpe et peau, cru
 
 < en: cucumber
 en: raw Cucumber pulp
@@ -89715,11 +89717,13 @@ ciqual_food_name:fr: Concombre, pulpe, cru
 en: baby cucumber, baby cucumbers, small cucumber, raw gherkin, unpickled gherkin
 sv: smågurka, smågurkor, smågurk
 
+# <en:compound
 < en: cucumber
 en: pickled cucumber
 da: syltet agurk, syltede agurker
 wikidata:en: Q1365891
 
+# <en:compound
 < en: baby cucumber
 < en: pickled cucumber
 en: pickled gherkin, pickle
@@ -89736,6 +89740,7 @@ pl: korniszon, korniszony, ogórek konserwowy, ogórki konserwowe
 ro: castraveți murați
 
 # this is done in the style of other "X or Y" ingredients
+# <en:compound
 < en: baby cucumber
 < en: pickled gherkin
 en: gherkin, pickled or unpickled gherkin
@@ -89743,6 +89748,7 @@ sv: inläggningsgurka
 description:en: GHERKIN can refer to either a pickled small cucumber (esp. in Ireland and the UK) or an unpickled small cucumber
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
 
+# <en:compound
 < en: pickled gherkin
 en: vinegar gherkin
 de: kleine Essiggurken, Essiggurke, Gewürzgurke
@@ -89757,6 +89763,7 @@ ciqual_food_name:en: Gherkin, pickled in vinegar
 eurocode_2_group_2:en: 8.70
 eurocode_2_group_3:en: 8.70.40
 
+# <en:compound
 < en: pickled gherkin
 cs: kvašáky
 de: Salzgurke
