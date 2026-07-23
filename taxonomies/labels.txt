@@ -90,7 +90,7 @@ synonyms:sv: innehåller, källa till
 
 synonyms:en: without, 0%, free, contains no, free from
 synonyms:da: uden, ingen, intet, nul, 0%, fri for
-synonyms:de: ohne, 0%
+synonyms:de: ohne, 0%, frei von, frei
 synonyms:es: sin, 0%, libre de
 synonyms:fi: ilman, 0%, vapaa
 synonyms:fr: sans, 0%
@@ -1535,7 +1535,7 @@ ca: Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de g
 cs: Bez lepku
 cz: Bez lepku
 da: Glutenfri, glutenfrit, glutenfrie
-de: Glutenfrei
+de: Glutenfrei, Frei von Gluten
 el: Χωρίς γλουτένη
 es: Sin gluten, Libre de gluten
 et: Gluteenivaba
@@ -2015,7 +2015,7 @@ en: Calcium source, Source of calcium, With calcium
 xx: Calcium source
 bg: Източник на калции
 ca: Font de calci
-de: Kalziumquelle
+de: Kalziumquelle, mit Calcium
 es: Fuente de calcio
 fi: Kalsiumin lähde, Sisältää kalsiumia
 fr: Source de calcium
@@ -2209,7 +2209,7 @@ xx: Vitamin B12 source
 bg: Източник на витамин B12
 ca: Font de vitamina B12
 da: Kilde til vitamin B12
-de: Vitamin B12-Quelle
+de: Vitamin B12-Quelle, Mit Vitamin B12
 es: Fuente de vitamina B12
 fi: B12-vitamiinin lähde
 fr: Source de vitamine B12, Avec vitamine B12
@@ -5437,7 +5437,7 @@ ca: Sense lactosa, lliure de lactosa
 cs: Bez laktózy, Přirozeně bez laktózy
 cz: Bez laktozy
 da: Laktosefri
-de: Laktosefrei, Lactosefrei
+de: Laktosefrei, Lactosefrei, frei von Laktose
 el: Χωρίς λακτόζη
 es: Sin lactosa, Sin lácteos
 et: Laktoosivaba
@@ -5521,7 +5521,7 @@ en: No milk, milk-free, dairy-free, no dairy, without milk, free from dairy
 bg: Без мляко
 ca: Sense llet, Lliure de llet, Lliure de làctics, Sense làctics
 da: Mælkefri, Fri for mælkebestanddele
-de: Ohne Milch, Milchfrei
+de: Ohne Milch, Milchfrei, Frei von Milch
 es: Sin leche
 fi: maidoton, maitotuotteeton, ei maitoa, ilman maitoa
 fr: sans lait, sans produits laitiers
@@ -5580,7 +5580,7 @@ bg: Без консерванти
 ca: Sense conservants, sense conservants afegits, lliure de conservants artificials
 cs: Bez konzervantů
 da: Uden konserveringsmiddel
-de: Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen
+de: Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen, Frei von Konservierungsstoffen
 el: Χωρίς συντηρητικά
 es: Sin conservantes, Sin conservantes añadidos, Sin conservadores, Sin conservadores añadidos
 et: Ilma säilitusaineteta
@@ -5656,7 +5656,7 @@ en: No soy, soy free, without soy, free from soya
 bg: Без соя, не сърържа соя
 ca: Lliure de soja, Sense soja
 da: Uden soja
-de: Sojafrei
+de: Sojafrei, frei von Soja
 es: Sin soja, Sin soya, Libre de soja, Libre de soya
 fi: soijaton, ei soijaa, ilman soijaa
 fr: sans soja, sans soya
@@ -20930,13 +20930,15 @@ it: Senza arachidi, Non contiene arachidi
 pt: Sem amendoim, sem amendoins, 0% amendoim, 0% amendoins
 th: ไม่มีส่วนผสมของถั่วลิสงค์
 
-en: No nuts, nut free
-de: Ohne Nüsse, nussfrei
+en: No nuts, nut free, free from nuts
+da: Uden nødder
+de: Ohne Nüsse, nussfrei, frei von Nüssen
 es: Sin frutos secos, sin nueces
 fr: Sans fruits à coque, sans fruits secs, Sans noix
 it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
+sv: Utan nötter
 
 # French label
 fr: Saveurs de l'Année
