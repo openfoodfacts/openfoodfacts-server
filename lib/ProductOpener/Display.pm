@@ -9407,6 +9407,19 @@ CSS
 				$name = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 				$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 			}
+			else {
+				if (defined $product_ref->{nutriments}{$nid . "_label"}) {
+					$name = $product_ref->{nutriments}{$nid . "_label"};
+				}
+				if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
+					$unit = $product_ref->{nutriments}{$nid . "_unit"};
+				}
+			}
+			if (defined $product_ref->{nutriments}{$nid . "_value"} && !$unit) {
+                $unit = 'g';
+            git }
+			my @columns;
+			my @extra_row_columns;
 
 			my @columns;
 
