@@ -264,6 +264,14 @@ $options{users_who_can_upload_small_images} = {
 	},
 
 	{
+		name => "Ignore unknown French product name placeholder",
+		actions => [
+			["ignore_if_regexp_match_product_name", '^\\s*produit inconnu\\s*$'],
+			["ignore_if_regexp_match_product_name_fr", '^\\s*produit inconnu\\s*$'],
+		],
+	},
+
+	{
 		name => "Yuka",
 		conditions => [["user_id", "kiliweb"],],
 		actions => [
