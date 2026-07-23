@@ -1032,6 +1032,13 @@
                         "text" : "As sold<br>for 100 g / 100 ml",
                         "text_for_small_screens" : "100g",
                         "type" : "text"
+                     },
+                     {
+                        "column_group_id" : "product",
+                        "shown_by_default" : false,
+                        "text" : "As sold<br>per serving",
+                        "text_for_small_screens" : "per serving",
+                        "type" : "text"
                      }
                   ],
                   "id" : "nutrition_facts_table",
@@ -1042,6 +1049,9 @@
                               "level" : 0,
                               "style" : "max-width:15rem",
                               "text" : "Energy"
+                           },
+                           {
+                              "text" : "~ 1890 kJ<br>(448 kcal)"
                            },
                            {
                               "text" : "~ 1890 kJ<br>(448 kcal)"
@@ -1057,6 +1067,9 @@
                            },
                            {
                               "text" : "~ 14.0666666666667 g"
+                           },
+                           {
+                              "text" : "~ 14.0666666666667 g"
                            }
                         ]
                      },
@@ -1066,6 +1079,9 @@
                               "level" : 1,
                               "style" : "max-width:15rem",
                               "text" : "Saturated fat"
+                           },
+                           {
+                              "text" : "~ 9.27833333333333 g"
                            },
                            {
                               "text" : "~ 9.27833333333333 g"
@@ -1081,6 +1097,9 @@
                            },
                            {
                               "text" : "~ 78.1166666666667 g"
+                           },
+                           {
+                              "text" : "~ 78.1166666666667 g"
                            }
                         ]
                      },
@@ -1090,6 +1109,9 @@
                               "level" : 1,
                               "style" : "max-width:15rem",
                               "text" : "Sugars"
+                           },
+                           {
+                              "text" : "~ 66.9383333333333 g"
                            },
                            {
                               "text" : "~ 66.9383333333333 g"
@@ -1105,6 +1127,9 @@
                            },
                            {
                               "text" : "20 g"
+                           },
+                           {
+                              "text" : "20 g"
                            }
                         ]
                      },
@@ -1114,6 +1139,9 @@
                               "level" : 0,
                               "style" : "max-width:15rem",
                               "text" : "Fiber"
+                           },
+                           {
+                              "text" : "~ 1.13333333333333 g"
                            },
                            {
                               "text" : "~ 1.13333333333333 g"
@@ -1129,6 +1157,9 @@
                            },
                            {
                               "text" : "~ 1.71833333333333 g"
+                           },
+                           {
+                              "text" : "~ 1.71833333333333 g"
                            }
                         ]
                      },
@@ -1141,6 +1172,9 @@
                            },
                            {
                               "text" : "~ 0.0246 g"
+                           },
+                           {
+                              "text" : "~ 0.0246 g"
                            }
                         ]
                      },
@@ -1150,6 +1184,9 @@
                               "level" : 0,
                               "style" : "max-width:15rem",
                               "text" : "Fruits‚ vegetables‚ legumes"
+                           },
+                           {
+                              "text" : "~ 0 %"
                            },
                            {
                               "text" : "~ 0 %"
@@ -1197,6 +1234,11 @@
                         "type" : "text"
                      },
                      {
+                        "text" : "As sold<br>per serving",
+                        "text_for_small_screens" : "per serving",
+                        "type" : "text"
+                     },
+                     {
                         "text" : "As sold for 100 g (packaging)",
                         "text_for_small_screens" : "100g",
                         "type" : "text"
@@ -1220,6 +1262,9 @@
                               "text" : "~ 1890 kJ<br>(448 kcal)"
                            },
                            {
+                              "text" : "~ 1890 kJ<br>(448 kcal)"
+                           },
+                           {
                               "text" : "?"
                            },
                            {
@@ -1233,6 +1278,9 @@
                               "level" : 0,
                               "style" : "max-width:15rem",
                               "text" : "Fat"
+                           },
+                           {
+                              "text" : "~ 14.0666666666667 g"
                            },
                            {
                               "text" : "~ 14.0666666666667 g"
@@ -1256,6 +1304,9 @@
                               "text" : "~ 9.27833333333333 g"
                            },
                            {
+                              "text" : "~ 9.27833333333333 g"
+                           },
+                           {
                               "text" : "?"
                            },
                            {
@@ -1274,6 +1325,9 @@
                               "text" : "~ 78.1166666666667 g"
                            },
                            {
+                              "text" : "~ 78.1166666666667 g"
+                           },
+                           {
                               "text" : "?"
                            },
                            {
@@ -1287,6 +1341,9 @@
                               "level" : 1,
                               "style" : "max-width:15rem",
                               "text" : "Sugars"
+                           },
+                           {
+                              "text" : "~ 66.9383333333333 g"
                            },
                            {
                               "text" : "~ 66.9383333333333 g"
@@ -1313,6 +1370,9 @@
                               "text" : "20 g"
                            },
                            {
+                              "text" : "20 g"
+                           },
+                           {
                               "text" : "~ 66.6666666666667 g"
                            }
                         ]
@@ -1323,6 +1383,9 @@
                               "level" : 0,
                               "style" : "max-width:15rem",
                               "text" : "Fiber"
+                           },
+                           {
+                              "text" : "~ 1.13333333333333 g"
                            },
                            {
                               "text" : "~ 1.13333333333333 g"
@@ -1346,6 +1409,9 @@
                               "text" : "~ 1.71833333333333 g"
                            },
                            {
+                              "text" : "~ 1.71833333333333 g"
+                           },
+                           {
                               "text" : "?"
                            },
                            {
@@ -1364,6 +1430,9 @@
                               "text" : "~ 0.0246 g"
                            },
                            {
+                              "text" : "~ 0.0246 g"
+                           },
+                           {
                               "text" : "?"
                            },
                            {
@@ -1377,6 +1446,9 @@
                               "level" : 0,
                               "style" : "max-width:15rem",
                               "text" : "Fruits‚ vegetables‚ legumes"
+                           },
+                           {
+                              "text" : "~ 0 %"
                            },
                            {
                               "text" : "~ 0 %"
