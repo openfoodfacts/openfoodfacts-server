@@ -10,6 +10,7 @@ $Data::Dumper::Sortkeys = 1;
 $Data::Dumper::Indent = 1;
 
 use Log::Any::Adapter 'TAP';
+use CGI qw/Delete param/;
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
@@ -280,6 +281,22 @@ is(preprocess_product_field('origin', 'France'), 'France');
 is(preprocess_product_field('packaging', 'Aluminium, Can, abc@gmail.com'), 'Aluminium, Can, ');
 is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green Dot');
 is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
+
+# Test edit rules for product names
+Delete('product_name');
+param('product_name', 'Produit inconnu');
+ok(process_product_edit_rules({code => '1234567890123'}), 'placeholder product name should not block the edit');
+ok(!defined param('product_name'), 'placeholder product name should be ignored');
+
+Delete('product_name_fr');
+param('product_name_fr', '  produit inconnu  ');
+ok(process_product_edit_rules({code => '1234567890123'}), 'localized placeholder product name should not block the edit');
+ok(!defined param('product_name_fr'), 'localized placeholder product name should be ignored');
+
+param('product_name', 'Pate a tartiner noisette');
+ok(process_product_edit_rules({code => '1234567890123'}), 'real product name should not block the edit');
+is(param('product_name'), 'Pate a tartiner noisette', 'real product name should be kept');
+Delete('product_name');
 
 is(split_code("26153689"), "000/002/615/3689");
 
