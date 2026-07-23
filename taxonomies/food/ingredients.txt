@@ -51539,10 +51539,18 @@ ru: листовые овощи
 sv: bladgrönsak
 eurocode_2_group_2:en: 8.10
 
-#comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
+#########################################################################################
+#
+#                               Chicory greens
+#
+##########################################################################################
 
-# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
-# comment:en: Endive in english is different from endive in french.
+< en: leaf vegetable
+en: chicory greens
+description:en: Chicory greens are the leafy tops (and sometimes tender inner leaves) of the chicory plant (Cichorium intybus), a bitter leafy vegetable in the same family as endive and radicchio. They're used in cooking much like other bitter greens — think dandelion greens or escarole. Distinctly bitter, with a slight earthiness. The bitterness mellows a lot when cooked.
+species:en: Cichorium intybus
+usda_ndb_code:en: 11152
+usda_ndb_name:en: Chicory greens, raw
 
 #########################################################################################
 #
@@ -51578,6 +51586,8 @@ usda_ndb_name:en: Chrysanthemum, garland, raw
 #                               Endive
 #
 ##########################################################################################
+
+#comment:en: Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
 
 < en: leaf vegetable
 en: endive, Endives
@@ -51620,6 +51630,8 @@ zh: 苦苣
 # pcd:indife
 # scn:nirvia
 # sr-ec:ендивија
+comment:en: Endive in english is different from endive in french.
+description:en: Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
 ecobalyse_labels_en_organic:en: 6842d570-6b53-49f3-ba9c-984b55e40171
 ecobalyse_origins_en_france:en: b26efb2f-8811-4fbb-9d01-3d7f0d8135ef
@@ -54676,6 +54688,8 @@ it: radice di cicoria
 nl: cichoreiwortel
 pl: korzeń cykorii, korzenia cykorii
 sv: cikoriarot
+usda_ndb_code:en: 11154
+usda_ndb_name:en: Chicory roots, raw
 
 < en: chicory
 < en: vegetable fiber
