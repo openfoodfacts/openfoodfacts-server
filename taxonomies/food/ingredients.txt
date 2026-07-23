@@ -98128,11 +98128,10 @@ zh: 棕醬
 wikidata:en: Q2452555
 wikipedia:en: https://en.wikipedia.org/wiki/Espagnole_sauce
 
-# description:en:KETCHUP is a sauce used as a condiment. Ketchup is a sweet and tangy sauce now typically made from tomatoes, sugar, and vinegar, with assorted seasonings and spices. The specific spices and flavors vary, but commonly include onions, allspice, coriander, cloves, cumin, garlic, and mustard; and sometimes include celery, cinnamon or ginger.
 
 # <en:mainIngredient:en:tomato
 < en: sauce
-en: ketchup
+en: ketchup, catsup
 af: tamatiesous
 ar: كتشب
 be: кетчуп
@@ -98192,11 +98191,6 @@ ur: کیچپ
 vi: nước sốt cà chua
 yi: קעטשאפ
 zh: 番茄醬
-carbon_footprint_fr_foodges_ingredient:fr: Ketchup
-carbon_footprint_fr_foodges_value:fr: 2.4
-ciqual_food_code:en: 11008
-ciqual_food_name:en: Ketchup
-ciqual_food_name:fr: Ketchup
 # ast:kétchup
 # bar:ketchup
 # be-tarask:кетчуп
@@ -98218,10 +98212,22 @@ ciqual_food_name:fr: Ketchup
 # zh-hk:番茄醬
 # zh-sg:番茄酱
 # zh-tw:番茄醬
+carbon_footprint_fr_foodges_ingredient:fr: Ketchup
+carbon_footprint_fr_foodges_value:fr: 2.4
+ciqual_food_code:en: 11008
+ciqual_food_name:en: Ketchup
+ciqual_food_name:fr: Ketchup
+description:en: KETCHUP is a sauce used as a condiment. Ketchup is a sweet and tangy sauce now typically made from tomatoes, sugar, and vinegar, with assorted seasonings and spices. The specific spices and flavors vary, but commonly include onions, allspice, coriander, cloves, cumin, garlic, and mustard; and sometimes include celery, cinnamon or ginger.
+usda_ndb_code:en: 11935
+usda_ndb_name:en: Catsup
 wikidata:en: Q178143
 wikipedia:en: https://en.wikipedia.org/wiki/Ketchup
 # 599 in 10 @2021-10-18
 
+< en: ketchup
+en: low sodium catsup
+usda_ndb_code:en: 11949
+usda_ndb_name:en: Catsup, low sodium
 
 # description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 
