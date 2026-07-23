@@ -1292,6 +1292,7 @@ ro: din concentrat
 sk: z koncentrátu
 sv: från koncentrat, delvis från koncentrat
 uk: з концентрату
+zh: 浓缩还原
 description:en: Water has been added to concentrate
 
 #en:description:Dehydration by artificial or natural processes
@@ -1337,6 +1338,7 @@ nl: halfgedroogd, halfgedroogde
 pl: podsuszany, podsuszana, podsuszane
 pt: semi-seco, semi-seca, semi-secos, semi-secas
 sv: semitorkad, semitorkade
+zh: 半干制
 
 # <en:dried
 en: freeze dried
@@ -1352,6 +1354,7 @@ nl: gevriesdroogde
 pl: liofilizowane, liofilizowana, liofilizowany, liofilizowanej
 pt: liofilizado, liofilizados, liofilizada, liofilizadas
 sv: frystorkad, frystorkat, frystorkade
+zh: 冻干
 
 # <en:dried
 en: sundried, sun dried
@@ -1375,10 +1378,12 @@ en: air dried
 de: luftgetrocknet, luftgetrocknete, luftgetrockneter, luftgetrocknetes, luftgetrockneten, luftgetrocknetem
 hu: levegőn szárított
 pt: seco ao ar, seca ao ar, secos ao ar, secas ao ar
+zh: 风干
 
 #< en:dried
 en: spray dried
 de: sprühgetrocknet, sprühgetrocknete, sprühgetrockneter, sprühgetrocknetes
+zh: 喷雾干燥
 
 #< en:dried
 en: dry baked
@@ -1392,6 +1397,7 @@ nl: droog gebakken
 pl: suchy pieczony
 pt: assado a seco
 sv: torrbakad
+zh: 干烤
 # description:en:dried inside an oven
 
 # en:description:cured means dried, especially in meats
@@ -1402,6 +1408,7 @@ es: curado, curada, curados, curadas
 it: curato, curata, curati, curate
 pl: peklowany, peklowana, peklowane
 pt: curado, curada, curados, curadas
+zh: 腌制
 
 #maybe this must be split in firmed and cuttable
 en: firmed
@@ -1411,6 +1418,7 @@ el: σκληρή
 fr: affinée
 nl: Geharde
 sv: skivbar
+zh: 硬化
 
 #note that this must only contain the ingredient, not any sugary additions
 en: syrup, molasses
@@ -1558,6 +1566,7 @@ pt: reconstituído, reconstituída, reconstituídos, reconstituídas
 ru: восстановленное
 sv: rekonstituerad, rekonstituerade
 uk: відновлений, відновлена, відновлене, відновлені
+zh: 复原
 
 en: partially reconstituted
 bg: частично реконституиран, частично реконституирано, частично реконституирана, частично реконституирани
@@ -1573,6 +1582,7 @@ nl: gedeeltelijk gereconstitueerd
 pl: częściowo odtworzony, częściowo odtworzone, częściowo odtworzona, częściowo odtworzonego, częściowo odtworzonej, częściowo odtworzonych
 pt: parcialmente reconstituído, parcialmente reconstituída, parcialmente reconstituídos, parcialmente reconstituídas
 sv: delvis rekonstituerat, delvis rekonstituerad, delvis rekonstituerade
+zh: 部分复原
 
 #en:description:Removal either by organic solvent of fat or oil from certain materials or by aqueous solvent of sugar or other water-soluble components. In the case of the use of organic solvent, the resulting product must be technically free of such solvent.
 en: extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
@@ -1627,6 +1637,7 @@ nl: geëxtrudeerd
 pl: wytłoczony, wytłoczona, wytłoczone, wytłoczeni
 pt: extrudido, extrudida, extrudidos, extrudidas
 sv: extruderad, extruderade
+zh: 挤压
 
 #fr:obtenu par extraction hydrique
 
@@ -1736,6 +1747,7 @@ it: meccanicamente separato
 pl: oddzielone mechanicznie, oddzielona mechanicznie, oddzielane mechanicznie, oddzielana mechanicznie
 pt: separado mecanicamente, separada mecanicamente, separados mecanicamente, separadas mecanicamente
 sv: maskinurbenat
+zh: 机械分离
 # currently not well supported, so we also have entries for "mechanically separated meat" in the ingredients taxonomy
 
 en: solids
@@ -2054,6 +2066,7 @@ hu: előfőzött
 it: precotto, precotta, precotti, precotte
 nl: voorgekookt, voorgekookte
 pl: wstępnie gotowany, wstępnie gotowana, wstępnie gotowane, wstępnie ugotowany, wstępnie ugotowana, wstępnie ugotowane
+zh: 预煮
 
 # Just seems to be a synonym for pre-cooked / half cooked, although I saw the two combined. Seems to be only for en:rice
 #< en:pre-cooked
@@ -2080,6 +2093,7 @@ it: sbollentato, sbollentata, sbollentati, sbollentate
 nl: geblancheerd
 pl: blanszowany, blanszowana, blanszowane, blanszowanych, blanszowanego, blanszowanej
 uk: бланшований, бланшована, бланшоване, бланшовані
+zh: 焯水
 
 < en: processed
 en: thermally processed
@@ -2109,6 +2123,7 @@ pt: cozido, cozida, cozidos, cozidas
 ro: fiert
 sv: kokt, kokta
 uk: відварений, відварена, відварене, відварені, варений, варена, варене, варені
+zh: 熟制
 
 en: distilled
 bg: дестилация, дестилиран
@@ -2121,6 +2136,7 @@ nl: gedestilleerd, gedestilleerde
 pl: destylowany, destylowana, destylowane, destylowanych, destylowanego, destylowanej
 pt: destilado, destilada, destilados, destiladas
 uk: дистильований, дистильована, дистильоване, дистильовані
+zh: 蒸馏
 wikidata:en: Q101017
 
 #< en:cooked
@@ -2128,6 +2144,7 @@ en: steamed
 it: al vapore
 pl: parowany, parowana, parowane
 sv: ångpreparerat, ångpreparerade
+zh: 蒸制
 
 #< en:cooked
 de: gegart, gegarte, gegarter, gegartes, vorgegarte
@@ -2139,11 +2156,13 @@ de: ungekocht, ungekochte, ungekochter, ungekochtes
 es: sin cocer
 it: non cotto
 nl: ongekookt, ongekookte
+zh: 未煮
 
 #< en:uncooked
 en: unblanched
 es: sin blanquear
 fr: non-blanchie
+zh: 未焯水
 
 # <de:gegart
 de: dampfgegart, dampfgegarte, dampfgegarter
@@ -2162,6 +2181,7 @@ nl: gekarameliseerde, gekaramelliseerde
 pl: karmelizowany, karmelizowana, karmelizowane, karmelizowanego, karmelizowanej, karmelizowanych
 pt: caramelizado, caramelizada, caramelizados, caramelizadas
 uk: карамелізований, карамелізована, карамелізоване, карамелізовані
+zh: 焦糖化
 
 #en:pregelatinisation
 en: puffed, inflated
@@ -2176,6 +2196,7 @@ nl: gepoft, gepofte
 pl: dmuchany, dmuchane, dmuchana, preparowany, preparowana, preparowane, ekspandowany, ekspandowane, ekspandowana
 se: puffat
 sv: puffat, puffad, krisp
+zh: 膨化
 
 en: pre-fried, prefried
 bg: предварително пържени, предварително пържено, предварително пържена, предварително пържени
@@ -2193,6 +2214,7 @@ pl: podsmażone, podsmażane, podsmażona, podsmażana, podsmażony, podsmażany
 pt: pré-frito, pré-frita, pré-fritos, pré-fritas
 ro: pre-prăjit, pre-prăjită, pre-prăjiți, pre-prăjite
 sv: förfriterad, förfriterade
+zh: 预炸
 
 en: fried
 bg: пържено, пържен, пържена, пържени
@@ -2211,6 +2233,7 @@ pl: smażony, smażona, smażone
 pt: frito, frita, fritos, fritas
 sv: friterad, friterade, stekt
 uk: смажений, смажена, смажене, смажені, обсмажений, обсмажена, обсмажене, обсмажені, засмажений, засмажена, засмажене, засмажені
+zh: 油炸
 wikidata:en: Q300472
 # en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
@@ -2232,6 +2255,7 @@ pt: assado, assada, assados, assadas
 sk: pražené
 sv: rostad, rostat, rostade, bakad
 uk: печений, печена, печене, печені, запечений, запечена, запечене, запечені
+zh: 烘烤
 comment:en: In the actual translations on products, there is not always a difference between toasted and roasted
 wikidata:en: Q4865573
 
@@ -2251,6 +2275,7 @@ sv: torrostad, torrostade
 wikidata:en: Q10860338
 
 en: chargrilled, char grilled
+zh: 炭烤
 
 en: toasted
 ca: torrat, torrats, torrada, torrades
@@ -2265,6 +2290,7 @@ nl: geroosterd, geroosterde, getoaste
 pl: prażony, prażone, prażona, prażonego, prażonej, prażonych
 pt: tostado, tostada, tostados, tostadas, torrado, torrada, torrados, torradas
 sl: praženi
+zh: 焙烤
 comment:en: In the actual translations on products, there is not always a difference between toasted and roasted
 description:en: To lightly cook by browning via direct exposure to a fire or other heat source.
 
@@ -2275,9 +2301,11 @@ fr: non grillé, non grillée, non grillés, non grillées
 it: non tostato, non tostata, non tostati, non tostate
 nl: ongeroosterd, ongebrand, ongebrande
 pt: não torrado, não torrada, não torrados, não torradas
+zh: 未焙烤
 
 #< en:toasted
 en: dark toasted
+zh: 深度焙烤
 
 # en:description:To cook food under the element of a stove or only under the top element of an oven.
 #< en:roasted
