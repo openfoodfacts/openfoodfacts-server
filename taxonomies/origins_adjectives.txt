@@ -1,0 +1,43 @@
+# This taxonomy contains adjectives corresponding to origins (such as countries or regions).
+# It is used to identify origins in ingredients. e.g. "Italian tomatoes", "Swedish strawberries", "svensk jordgubbe", "svenska jordgubbar"
+
+# Note that there can be false positives (e.g. "French toast" or "German bread").
+# Before adding new origins or new translations, check them in actual ingredients:
+# e.g. https://fr.openfoodfacts.org/facets/ingredients?filter=italien
+# When adding an origin or translation, also remove entries from the ingredients.txt taxonomy that are now unnecessary.
+
+# At this point, please do not automatically add origins or translations so that we can first evaluate how big the risk of false positives is
+
+# Countries
+
+en: English
+fr: anglais, anglaise, anglais, anglaises
+origins:en: en:england
+
+en: Italian
+fr: italien, italienne, italiens, italiennes
+it: italiano, italiana, italiani, italiane
+nl: Italiaans, Italiaanse, Italianen, Italianen
+origins:en: en:italy
+
+en: Spanish
+es: español, española, españoles, españolas
+fr: espagnol, espagnole, espagnols, espagnoles
+nl: Spaniol, Spanier, Spanjaarden, Spanjaarden
+origins:en: en:spain
+
+en: Swedish
+fr: suédois, suédoise, suédoises, suédoises
+sv: svensk, svenskt, svenska, svenskar
+origins:en: en:sweden
+
+# Regions
+
+# Regions - France
+
+fr: breton, bretonne, bretons, bretonnes
+origins:en: en:brittany
+
+fr: normand, normande, normands, normandes
+origins:en: en:normandy
+

@@ -2328,25 +2328,39 @@ Text to analyze
 
 					my @maybe_origins_ingredients = ();
 
-					# California almonds
-					if (($ingredients_lc eq "en") and ($ingredient =~ /^(\S+) (.+)$/)) {
-						push @maybe_origins_ingredients, [$1, $2];
-					}
-					# South Carolina black olives
-					if (($ingredients_lc eq "en") and ($ingredient =~ /^(\S+ \S+) (.+)$/)) {
-						push @maybe_origins_ingredients, [$1, $2];
-					}
-					if (($ingredients_lc eq "en") and ($ingredient =~ /^(\S+ \S+ \S+) (.+)$/)) {
-						push @maybe_origins_ingredients, [$1, $2];
-					}
-
 					# Currently does not work: pitted California prunes
 
 					# Oranges from Florida
+					# done first as for sentences like "Cacao de Madagascar" we want the "de" (from) not to be included in the ingredient
+					# other matches below this one will try "Cacao de" for the ingredient and "Madagascar" for the origin.
 					if (defined $from{$ingredients_lc}) {
 						my $from = $from{$ingredients_lc};
 						if ($ingredient =~ /^(.+)($from)(.+)$/i) {
 							push @maybe_origins_ingredients, [$3, $1];
+						}
+					}
+
+					# California almonds, Swedish strawberries
+					if (($ingredients_lc eq "en") or ($ingredients_lc eq "sv")) {
+						if ($ingredient =~ /^(\S+) (.+)$/) {
+							push @maybe_origins_ingredients, [$1, $2];
+						}
+						# South Carolina black olives
+						if ($ingredient =~ /^(\S+ \S+) (.+)$/) {
+							push @maybe_origins_ingredients, [$1, $2];
+						}
+						if ($ingredient =~ /^(\S+ \S+ \S+) (.+)$/) {
+							push @maybe_origins_ingredients, [$1, $2];
+						}
+					}
+					elsif (($ingredients_lc eq "es")
+						or ($ingredients_lc eq "fr")
+						or ($ingredients_lc eq "it")
+						or ($ingredients_lc eq "pt"))
+					{
+						# Tomates italiennes
+						if ($ingredient =~ /^(.+) (\S+)$/) {
+							push @maybe_origins_ingredients, [$2, $1];
 						}
 					}
 
@@ -2357,6 +2371,7 @@ Text to analyze
 						# skip origins that are too small (avoid false positives with country initials etc.)
 						next if (length($maybe_origin) < 4);
 
+						# Check if it is an origin
 						my $origin_id = canonicalize_taxonomy_tag($ingredients_lc, "origins", $maybe_origin);
 						if ((exists_taxonomy_tag("origins", $origin_id)) and ($origin_id ne "en:unknown")) {
 
@@ -2373,6 +2388,33 @@ Text to analyze
 							$ingredient = $maybe_ingredient;
 							$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
 							last;
+						}
+
+						# Check if it is an origin adjective (e.g. Swedish strawberries, tomates italiennes)
+						my $origin_adjective_id
+							= canonicalize_taxonomy_tag($ingredients_lc, "origins_adjectives", $maybe_origin);
+						if (exists_taxonomy_tag("origins_adjectives", $origin_adjective_id)) {
+
+							my $origins
+								= get_inherited_property("origins_adjectives", $origin_adjective_id, "origins:en");
+
+							if (defined $origins) {
+
+								$debug_ingredients and $log->debug(
+									"ingredient includes known origin adjective",
+									{
+										ingredient => $ingredient,
+										new_ingredient => $maybe_ingredient,
+										origin_adjective_id => $origin_adjective_id,
+										origins => $origins
+									}
+								) if $log->is_debug();
+
+								$origin = $origins;
+								$ingredient = $maybe_ingredient;
+								$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+								last;
+							}
 						}
 					}
 
