@@ -51975,19 +51975,21 @@ tr: kuzugevreği
 uk: мласкавець салатний
 wa: doûcete
 zh: 萵苣纈草
-ciqual_food_code:en: 20099
-ciqual_food_name:en: Lamb's lettuce, raw
-ciqual_food_name:fr: Mâche, crue
-# 262 in 7 @2021-10-03
-eurocode_2_group_3:en: 8.10.16
 # hsb:rjaponka, prawa rjaponka, solotwička
-#nap:còssa e muónece
+# nap:còssa e muónece
 # sr-ec:матовилац
 # sr-el:matovilac
 # vec:gałinełe
 # vls:kôornsaloa
+ciqual_food_code:en: 20099
+ciqual_food_name:en: Lamb's lettuce, raw
+ciqual_food_name:fr: Mâche, crue
+eurocode_2_group_3:en: 8.10.16
+usda_ndb_code:en: 11190
+usda_ndb_name:en: Cornsalad, raw
 wikidata:en: Q158954
 wikipedia:en: https://en.wikipedia.org/wiki/Valerianella_locusta
+# 262 in 7 @2021-10-03
 
 ###################################################################################################
 #
@@ -63262,22 +63264,10 @@ usda_ndb_name:en: Cowpeas (blackeyes), immature seeds, raw
 ###################################################################################################
 #
 #
-#                        Hyacint beans
+#                        Lima beans
 #
 #
 ###################################################################################################
-
-< en: legume
-en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
-la: Lablab purpureus
-description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
-usda_ndb_proxy_code:en: 16067
-usda_ndb_proxy_name:en: Hyacinth beans, mature seeds, raw
-
-< en: hyacinth bean
-en: raw mature hyacinth bean
-usda_ndb_code:en: 16067
-usda_ndb_name:en: Hyacinth beans, mature seeds, raw
 
 < en: legume
 en: lima bean, lima beans, butter bean
@@ -63763,6 +63753,21 @@ nl: groene flageolets
 fr: flageolets verts extra-fins
 nl: extra fijne groene flageolets
 # ingredient/fr:flageolets-verts-extra-fins has 30 products in 2 languages @2019-02-25
+
+###################################################################################################
+#
+#
+#                        Hyacinth bean
+#
+#
+###################################################################################################
+
+< en: pulse
+en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
+la: Lablab purpureus
+description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
+usda_ndb_code:en: 16067
+usda_ndb_name:en: Hyacinth beans, mature seeds, raw
 
 ###################################################################################################
 #
