@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.99.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.98.0...v2.99.0) (2026-07-23)
+
+
+### Features
+
+* handle sv:"fruktmängd Xg $fruit per 100g" ([#14026](https://github.com/openfoodfacts/openfoodfacts-server/issues/14026)) ([a64beba](https://github.com/openfoodfacts/openfoodfacts-server/commit/a64bebab6b15f4ed7ec210ee436b5cc44c3a9305))
+
+
+### Bug Fixes
+
+* fix german google play badge ([#14039](https://github.com/openfoodfacts/openfoodfacts-server/issues/14039)) ([4098336](https://github.com/openfoodfacts/openfoodfacts-server/commit/40983362dd746035b21a863b29c76baebb76b251))
+* handle max body size the right way ([#14020](https://github.com/openfoodfacts/openfoodfacts-server/issues/14020)) ([46beaaf](https://github.com/openfoodfacts/openfoodfacts-server/commit/46beaafa4ef435126329e10795f67ddd5a3fea83))
+* restore nutrition table in OPF ([#13977](https://github.com/openfoodfacts/openfoodfacts-server/issues/13977)) ([22abd62](https://github.com/openfoodfacts/openfoodfacts-server/commit/22abd62aabe97305486892963cd05a24ca23f038)), closes [#13761](https://github.com/openfoodfacts/openfoodfacts-server/issues/13761)
+* typo relpace -&gt; replace ([#14032](https://github.com/openfoodfacts/openfoodfacts-server/issues/14032)) ([790cc90](https://github.com/openfoodfacts/openfoodfacts-server/commit/790cc908fccab1f30939f24b720a50d625d1fd2c))
+
 ## [2.98.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.97.0...v2.98.0) (2026-07-15)
 
 
