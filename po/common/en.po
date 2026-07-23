@@ -1489,8 +1489,8 @@ msgid "Products not manufactured or processed in %s"
 msgstr "Products not manufactured or processed in %s"
 
 msgctxt "map_count"
-msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr "%d products match the search criteria, of which %i products have a known production place."
+msgid "%d products match the search criteria, of which %i products have a known traceability code."
+msgstr "%d products match the search criteria, of which %i products have a known traceability code."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1763,8 +1763,8 @@ msgid "Nutrition grades"
 msgstr "Nutrition grades"
 
 msgctxt "nutrition_grades_s"
-msgid "Nutrition grade"
-msgstr "Nutrition grade"
+msgid "Nutri-Score"
+msgstr "Nutri-Score"
 
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
@@ -2395,8 +2395,8 @@ msgid "Permanent link to this map, shareable by e-mail and on social networks"
 msgstr "Permanent link to this map, shareable by e-mail and on social networks"
 
 msgctxt "search_map_note"
-msgid "The map will show only products for which the production place is known."
-msgstr "The map will show only products for which the production place is known."
+msgid "The map will show only products for which a traceability code is known."
+msgstr "The map will show only products for which a traceability code is known."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
@@ -8077,4 +8077,3 @@ msgstr "Forest footprint for the origin"
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Label"
-
