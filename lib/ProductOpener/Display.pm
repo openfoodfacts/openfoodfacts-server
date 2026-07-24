@@ -9555,6 +9555,13 @@ CSS
 							if (($formatted_value . ' ') =~ /e/) {
 								# use %f (outputs extras 0 in the general case)
 								$formatted_value = sprintf("%f", $value);
+							} else {
+								# Round numeric values to 1 decimal place to avoid 
+								# ugly calculated values like 16.6666666667 (Issue #14035)
+								if ($formatted_value =~ /^-?\d+\.\d+$/) {
+									require ProductOpener::Numbers;
+									$formatted_value = ProductOpener::Numbers::round_to_max_decimal_places($formatted_value, 1) // $formatted_value;
+								}
 							}
 						}
 
