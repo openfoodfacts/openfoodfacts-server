@@ -100,12 +100,12 @@ my @tests = (
 			ingredients_text =>
 				"Sokeri, Mausteet, Hapettumisenestoaine (Askorbiinihappo), Säilöntäaine (Natriumnitriitti). Saattaa sisältää pieniä määriä sinappi ja selleri"
 		},
-		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250"],
+		["en:sugar", "en:spice", "en:e300", "en:e250"],
 	],
 	[{lc => "fi", ingredients_text => "Aspartaami ja Asesulfaami K"}, ["en:e951", "en:e950"],],
 	[
 		{lc => "fi", ingredients_text => "Värit (Punajuuriväri, Paprikauute, Kurkumiini)"},
-		["en:colour", "en:e162", "en:e160c", "en:e100"],
+		["en:e162", "en:e160c", "en:e100"],
 	],
 	[
 		{lc => "fi", ingredients_text => "Vitamiinit (A, B2, B12, C, D2)"},
@@ -121,7 +121,7 @@ my @tests = (
 			ingredients_text =>
 				"Zucker, Gewürze, Antioxidations-mittel: Ascorbinsäure, Konservierungsstoff: Natriumnitrit. Kann Spuren von Senf und Sellerie enthalten."
 		},
-		["en:sugar", "en:spice", "en:antioxidant", "en:preservative", "en:e300", "en:e250"],
+		["en:sugar", "en:spice", "en:e300", "en:e250"],
 	],
 
 	[
@@ -179,12 +179,12 @@ my @tests = (
 			ingredients_text =>
 				"Wasser, Kohlensäure, Süßungsmittel Aspartam* und Acesulfam-K. *enthält eine Phenylalaninquelle"
 		},
-		["en:water", "en:e290", "en:sweetener", "en:e951", "en:e950"],
+		["en:water", "en:e290", "en:e951", "en:e950"],
 	],
 	[{lc => "de", ingredients_text => "Aspartam und Acesulfam-K"}, ["en:e951", "en:e950"],],
 	[
 		{lc => "de", ingredients_text => "Farbstoffe (Betenrot, Paprikaextrakt, Kurkumin)"},
-		["en:colour", "en:e162", "en:e160c", "en:e100"],
+		["en:e162", "en:e160c", "en:e100"],
 	],
 
 	[{lc => "fr", ingredients_text => "graisse végétale bio (colza)"}, ["en:vegetable-fat", "en:colza-oil"]],

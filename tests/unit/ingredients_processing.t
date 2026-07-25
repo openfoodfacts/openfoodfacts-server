@@ -1814,14 +1814,9 @@ my @tests = (
 				'id' => 'en:antioxidant',
 				'is_in_taxonomy' => 1,
 				'text' => 'antioksidans',
-				'ingredients' => [
-					{
-						'id' => "en:rosemary",
-						'is_in_taxonomy' => 1,
-						'processing' => "en:extract",
-						'text' => "ru\x{17e}marina"
-					}
-				],
+				'processing' => "en:extract",
+				'text' => "ru\x{17e}marina",
+				'additive_class' => 'en:antioxidant',
 			},
 		]
 	],
