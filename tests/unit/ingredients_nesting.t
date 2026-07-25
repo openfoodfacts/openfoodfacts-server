@@ -149,16 +149,10 @@ my @tests = (
 				'text' => 'sal'
 			},
 			{
-				'id' => 'en:acid',
-				'ingredients' => [
-					{
-						'id' => 'en:e330',
-						'is_in_taxonomy' => 1,
-						'text' => "\x{e1}cido c\x{ed}trico"
-					}
-				],
-				'is_in_taxonomy' => 1,
-				'text' => 'acidulante'
+				'id' => 'en:e330',
+    			'additive_class' => 'en:acid',
+    			'is_in_taxonomy' => 1,
+    			'text' => "\x{e1}cido c\x{ed}trico"
 			}
 		]
 	],
