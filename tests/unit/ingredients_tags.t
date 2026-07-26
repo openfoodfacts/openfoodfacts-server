@@ -44,10 +44,7 @@ my @tests = (
 			ingredients_text =>
 				"Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"
 		},
-		[
-			"en:volvic-natural-mineral-water", "en:sugar","en:e330", "en:natural-flavouring",
-			"en:tea-extract"
-		],
+		["en:volvic-natural-mineral-water", "en:sugar", "en:e330", "en:natural-flavouring", "en:tea-extract"],
 	],
 	[
 		{
@@ -78,10 +75,7 @@ my @tests = (
 	[{lc => "fr", ingredients_text => "Traces de moutarde"}, [],],
 
 	[{lc => "es", ingredients_text => "Quinoa"}, ["en:quinoa",],],
-	[
-		{lc => "es", ingredients_text => "aromas y antioxidante: ácido cítrico"},
-		["en:flavouring", "en:e330",],
-	],
+	[{lc => "es", ingredients_text => "aromas y antioxidante: ácido cítrico"}, ["en:flavouring", "en:e330",],],
 	[{lc => "es", ingredients_text => "aromas y antioxidante"}, ["en:flavouring", "en:antioxidant",],],
 	[{lc => "es", ingredients_text => "manzanas 10% y naranjas 5%"}, ["en:apple", "en:orange",],],
 	[

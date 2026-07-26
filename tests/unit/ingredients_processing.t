@@ -1812,9 +1812,9 @@ my @tests = (
 			},
 			{
 				'id' => 'en:rosemary',
-    			'is_in_taxonomy' => 1,
-    			'text' => "ru\x{17e}marina",
-    			'processing' => 'en:extract',
+				'is_in_taxonomy' => 1,
+				'text' => "ru\x{17e}marina",
+				'processing' => 'en:extract',
 			},
 		]
 	],

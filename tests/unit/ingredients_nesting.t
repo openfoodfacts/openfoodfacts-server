@@ -87,7 +87,7 @@ my @tests = (
 						'is_in_taxonomy' => 1,
 						'text' => 'e501',
 						'additive_class' => 'en:raising-agent'
-							
+
 					},
 					{
 						'id' => 'en:salt',
@@ -145,9 +145,9 @@ my @tests = (
 			},
 			{
 				'id' => 'en:e330',
-    			'additive_class' => 'en:acid',
-    			'is_in_taxonomy' => 1,
-    			'text' => "\x{e1}cido c\x{ed}trico"
+				'additive_class' => 'en:acid',
+				'is_in_taxonomy' => 1,
+				'text' => "\x{e1}cido c\x{ed}trico"
 			}
 		]
 	],
