@@ -45,8 +45,8 @@ my @tests = (
 				"Eau minérale naturelle Volvic (96%), sucre (3,7%), acidifiant : acide citrique, arôme naturel​, extraits de thé (0,02%)"
 		},
 		[
-			"en:volvic-natural-mineral-water", "en:sugar", "en:acid", "en:natural-flavouring",
-			"en:tea-extract", "en:e330"
+			"en:volvic-natural-mineral-water", "en:sugar","en:e330", "en:natural-flavouring",
+			"en:tea-extract"
 		],
 	],
 	[
@@ -80,7 +80,7 @@ my @tests = (
 	[{lc => "es", ingredients_text => "Quinoa"}, ["en:quinoa",],],
 	[
 		{lc => "es", ingredients_text => "aromas y antioxidante: ácido cítrico"},
-		["en:flavouring", "en:antioxidant", "en:e330",],
+		["en:flavouring", "en:e330",],
 	],
 	[{lc => "es", ingredients_text => "aromas y antioxidante"}, ["en:flavouring", "en:antioxidant",],],
 	[{lc => "es", ingredients_text => "manzanas 10% y naranjas 5%"}, ["en:apple", "en:orange",],],
@@ -90,7 +90,7 @@ my @tests = (
 			ingredients_text =>
 				"sal y acidulante (ácido cítrico). Puede contener trazas de cacahuete, huevo y frutos de cáscara."
 		},
-		["en:salt", "en:acid", "en:e330"],
+		["en:salt", "en:e330"],
 	],
 
 	[{lc => "fi", ingredients_text => "valkosipuli ja suola"}, ["en:garlic", "en:salt",],],

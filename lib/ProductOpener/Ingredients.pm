@@ -2751,9 +2751,17 @@ Text to analyze
 				my $is_additive_class = exists_taxonomy_tag("additives_classes", $ingredient{id});
 				my $is_additive = exists_taxonomy_tag("additives", $ingredient{id});
 
+				my $is_flattenable_additive_class =
+       			$is_additive_class
+    			&& $ingredient{id} ne "en:vitamins"
+    			&& $ingredient{id} ne "en:minerals"
+    			&& $ingredient{id} ne "en:amino-acids"
+    			&& $ingredient{id} ne "en:nucleotides"
+    			&& $ingredient{id} ne "en:other-nutritional-substances";
+
 				if (   defined $current_parser_additive_class
 					&& !$is_additive
-					&& !$is_additive_class)
+					&& !$is_flattenable_additive_class)
 				{
 					$current_parser_additive_class = undef;
 				}
@@ -2818,7 +2826,7 @@ Text to analyze
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 
 					if (length($ingredient{id}) < 500) {
-						if ($is_additive_class && $between ne "") {
+						if ($is_flattenable_additive_class && $between ne "") {
 							$previous_parser_additive_class = $current_parser_additive_class;
 							$started_additive_class_scope = 1;
 							$current_parser_additive_class = $ingredient{id};

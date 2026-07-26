@@ -1811,12 +1811,10 @@ my @tests = (
 				'text' => 'slanina'
 			},
 			{
-				'id' => 'en:antioxidant',
-				'is_in_taxonomy' => 1,
-				'text' => 'antioksidans',
-				'processing' => "en:extract",
-				'text' => "ru\x{17e}marina",
-				'additive_class' => 'en:antioxidant',
+				'id' => 'en:rosemary',
+    			'is_in_taxonomy' => 1,
+    			'text' => "ru\x{17e}marina",
+    			'processing' => 'en:extract',
 			},
 		]
 	],

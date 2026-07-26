@@ -83,16 +83,11 @@ my @tests = (
 						'text' => 'water'
 					},
 					{
-						'id' => 'en:raising-agent',
-						'ingredients' => [
-							{
-								'id' => 'en:e501',
-								'is_in_taxonomy' => 1,
-								'text' => 'e501'
-							}
-						],
+						'id' => 'en:e501',
 						'is_in_taxonomy' => 1,
-						'text' => 'raising agents'
+						'text' => 'e501',
+						'additive_class' => 'en:raising-agent'
+							
 					},
 					{
 						'id' => 'en:salt',
