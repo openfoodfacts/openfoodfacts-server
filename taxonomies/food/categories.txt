@@ -56240,6 +56240,12 @@ nl: Babycompotes
 en: Meringue roulades
 
 < en: Desserts
+en: Sweet stuffed pastas
+fr: Pâtes farcies sucrées
+description:en: Pastas with a sweet filling such as chocolate, caramel or a fruit preparation.
+incompatible_with:en: categories:en:stuffed-pastas
+
+< en: Desserts
 en: Chocolate desserts
 bg: Шоколадови десерти
 ca: Postres de xocolata
@@ -101474,6 +101480,7 @@ hr: Punjene tjestenine
 hu: Töltött tészták
 it: Pasta farcita, pasta ripiena
 nl: Gevulde pastas
+incompatible_with:en: categories:en:sweet-stuffed-pastas
 
 < en: Stuffed Pastas
 en: Tortellini
