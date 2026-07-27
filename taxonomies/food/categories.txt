@@ -38333,6 +38333,7 @@ nl: Cacaopoeders, Cacaopoeder, Cacao
 pl: Kakao w proszku
 pt: Cacau em pó
 ru: Какао-порошок
+th: ผงโกโก้
 agribalyse_food_code:en: 18100
 ciqual_food_code:en: 18100
 ciqual_food_name:en: Cocoa powder, without sugar, powder, instant
@@ -45513,6 +45514,10 @@ gpc_category_name:en: Chips/Crisps/Snack Mixes - Natural/Extruded (Shelf Stable)
 intake24_category_code:en: CRSP
 nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
 nutriscore_without_unprocessed_fruits_vegetables_legumes:en: yes
+
+< en: Crisps
+en: Extruded protein crisps
+fr: Chips de protéines extrudées
 
 < en: Crisps
 en: Chickpea crisps
@@ -72873,11 +72878,38 @@ season_in_country_fr:en: 6,7,8,9
 < en: Peaches
 en: Platerines
 es: Platerinas
-fr: Pêches plates, Platerines, Pêche plate, Platerine
+fr: Nectarines plates, Platerines, Nectarine plate, Platerine
 hr: Platerine
 la: Prunus persica var. platerina
 nl: Wilde perziken, Platte perziken
 sales_format:en: package, weight
+
+< en: Peaches
+en: Flat peaches, Saturn peaches, Donut peaches, Doughnut peaches, Paraguayo peaches
+ar: دراق مبلط
+ca: Préssec pla
+cs: Plochá broskev
+de: Plattpfirsich
+es: Paraguaya
+et: Lamevirsik
+fa: هلو انجیری
+fi: Lattapersikka
+fr: Pêches plates, Pêche plate
+gl: Pexego chato
+hy: Թզադեղձ
+it: Pesca tabacchiera
+ja: バントウ
+ko: 납작 복숭아
+la: Prunus persica var. platycarpa
+ru: Инжирный персик
+sl: Ploščata breskev
+sr: Пљосната бресква
+sv: Paraguayo
+tg: Анҷиршафтолу
+vi: Bàn đào
+zh: 蟠桃
+sales_format:en: package, weight
+wikidata:en: Q2702783
 
 < en: Peaches
 en: Peach pulp and peel
@@ -85395,6 +85427,10 @@ pl: Dania z kurczakiem
 pt: Refeições com frango
 ru: Блюда из курицы
 intake24_category_code:en: CDSH
+
+< en: Meals with chicken
+en: Chicken blanquettes
+fr: Blanquettes de poulet
 
 < en: Meals with chicken
 en: Sweet and sour chicken
@@ -123164,6 +123200,12 @@ ciqual_food_code:en: 7733
 ciqual_food_name:en: Chocolate croissant, prepacked
 
 < en: Viennoiseries
+en: Franzbrötchen
+xx: Franzbrötchen
+de: Franzbrötchen
+wikidata:en: Q314491
+
+< en: Viennoiseries
 en: Milk bread rolls
 de: Milchbrötchen, Milchbrotrollen
 es: Panes de leche
@@ -124335,8 +124377,10 @@ ciqual_food_name:en: Plant-based cheese, with cashew, prepacked
 
 < en: Cheese substitutes
 en: Sliced cheese substitutes, Sliced plant-based cheeses
-fr: Substituts de fromage en tranche
+de: Vegane Genuss-Scheiben
+fr: Substituts de fromage en tranche, Tranches végétales
 hr: Narezane zamjene za sir
+nl: Plantaardige plakken
 pl: Zastępniki sera w plastrach
 agribalyse_proxy_food_code:en: 1029_1
 ciqual_proxy_food_code:en: 1029
@@ -124344,8 +124388,8 @@ ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, slice
 ciqual_proxy_food_name:fr: Spécialité végétale type fromage en tranche, sans soja, préemballée
 
 < en: Cheese substitutes
-en: Shredded cheese substitutes, Shredded plant-based cheeses
-fr: Susbtituts du fromage râpé
+en: Shredded cheese substitutes, Shredded plant-based cheeses, Grated cheese substitutes
+fr: Substituts du fromage râpé
 agribalyse_proxy_food_code:en: 1029_2
 ciqual_proxy_food_code:en: 1029
 ciqual_proxy_food_name:en: Plant-based cheese, without soybean, prepacked, shredded
@@ -124354,13 +124398,22 @@ ciqual_proxy_food_name:fr: Spécialité végétale type fromage râpé, sans soj
 < en: Cheese substitutes
 en: Cheddar cheese substitutes, Non-dairy cheddars, Vegan cheddars
 da: Veganske oste med cheddarsmag
+fr: Substituts de fromage saveur cheddar
 sv: Veganska ostar med smak av cheddar
 
 < en: Cheddar cheese substitutes
 < en: Sliced cheese substitutes
-en: Sliced cheddar cheese substitutes
+en: Sliced cheddar cheese substitutes, Plant-based slices cheddar flavour
 da: Veganske skiver med cheddarsmag
+de: Vegane Genuss-Scheiben Cheddar Geschmack
+fr: Tranches végétales saveur cheddar
+nl: Plantaardige plakken met cheddar-smaak
 sv: Veganska skivar med smak av cheddar
+
+< en: Cheddar cheese substitutes
+< en: Shredded cheese substitutes
+en: Shredded cheddar cheese substitutes
+fr: Substituts du fromage râpé saveur cheddar
 
 < en: Legumes and their products
 en: Puffed pulse cakes, pulse cakes, cakes of pulses
