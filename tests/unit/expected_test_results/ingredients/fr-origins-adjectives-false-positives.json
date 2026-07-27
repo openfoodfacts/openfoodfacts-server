@@ -2,30 +2,23 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_food_code" : "19402",
-         "id" : "en:cream",
+         "id" : "en:light-custard-cream-with-vanilla",
          "is_in_taxonomy" : 1,
-         "origins" : "en:england",
          "percent_estimate" : 60,
          "percent_max" : 100,
          "percent_min" : 20,
-         "text" : "Crème",
-         "vegan" : "no",
-         "vegetarian" : "yes"
+         "text" : "Crème anglaise"
       },
       {
-         "id" : "en:sauce",
+         "id" : "en:english-sauce",
          "is_in_taxonomy" : 1,
-         "origins" : "en:england",
          "percent_estimate" : 20,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "sauce",
-         "vegan" : "maybe",
-         "vegetarian" : "maybe"
+         "text" : "sauce anglaise"
       },
       {
-         "id" : "en:bread",
+         "id" : "en:swedish-bread",
          "ingredients" : [
             {
                "ciqual_proxy_food_code" : "9435",
@@ -52,11 +45,10 @@
             }
          ],
          "is_in_taxonomy" : 1,
-         "origins" : "en:sweden",
          "percent_estimate" : 10,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "text" : "pain",
+         "text" : "pain suédois",
          "vegan" : "maybe",
          "vegetarian" : "yes"
       },
@@ -85,13 +77,20 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:cream",
          "en:chub-mackerel",
          "en:chub-mackerel"
       ],
       "en:non-vegetarian" : [
          "en:chub-mackerel",
          "en:chub-mackerel"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:light-custard-cream-with-vanilla",
+         "en:english-sauce"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:light-custard-cream-with-vanilla",
+         "en:english-sauce"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -106,9 +105,9 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:cream",
-      "en:sauce",
-      "en:bread",
+      "en:light-custard-cream-with-vanilla",
+      "en:english-sauce",
+      "en:swedish-bread",
       "en:chub-mackerel",
       "en:chub-mackerel",
       "en:flour",
@@ -116,10 +115,11 @@
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:cream",
-      "en:dairy",
-      "en:sauce",
+      "en:light-custard-cream-with-vanilla",
+      "en:english-sauce",
+      "en:swedish-bread",
       "en:bread",
+      "en:special-bread",
       "en:chub-mackerel",
       "en:fish",
       "en:mackerel",
@@ -132,16 +132,17 @@
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:bread",
-      "en:sauce"
+      "en:english-sauce",
+      "en:light-custard-cream-with-vanilla",
+      "en:swedish-bread"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-      "en:bread",
       "en:chub-mackerel",
-      "en:cream",
+      "en:english-sauce",
+      "en:light-custard-cream-with-vanilla",
       "en:salt",
-      "en:sauce"
+      "en:swedish-bread"
    ],
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 7,
