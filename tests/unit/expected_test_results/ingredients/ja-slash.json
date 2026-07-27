@@ -156,7 +156,7 @@
          "id" : "en:flavouring",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.0056966145833286,
-         "percent_max" : "5",
+         "percent_max" : 5,
          "percent_min" : 0,
          "text" : "香料",
          "vegan" : "maybe",
@@ -242,7 +242,7 @@
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 15,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_sum" : 100.0,
    "ingredients_without_ciqual_codes" : [
       "en:emulsifier",
       "en:fat",

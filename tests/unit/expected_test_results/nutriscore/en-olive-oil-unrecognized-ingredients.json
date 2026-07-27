@@ -72,7 +72,7 @@
       "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "en",
-   "ingredients_n" : "1",
+   "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
       "1-10"
@@ -144,7 +144,7 @@
             "fiber" : 0,
             "fiber_points" : 0,
             "fiber_value" : 0,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : "100",
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 100,
             "is_beverage" : 0,
@@ -469,7 +469,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : "100",
+            "per_quantity" : 100,
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"
@@ -496,7 +496,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : "100",
+            "per_quantity" : 100,
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "estimate",
@@ -537,6 +537,6 @@
       }
    },
    "traces_tags" : [],
-   "unknown_ingredients_n" : "1",
+   "unknown_ingredients_n" : 1,
    "vitamins_tags" : []
 }
