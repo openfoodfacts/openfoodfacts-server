@@ -97,7 +97,7 @@
   language-code="en"
   country-code="world"
   robotoff-configuration='{
-    "apiUrl": "//backend:8881//api/v1",
+    "apiUrl": "//robotoff.openfoodfacts.localhost:5500 /api/v1",
     "imgUrl": "//images.openfoodfacts.localhost/images/products"
   }'
   
@@ -472,15 +472,33 @@
 </div>
 
 <!-- end templates/web/pages/tag/tag.tt.html -->
-<p>11 brands:</p><div style="max-width:600px;"><table id="tagstable">
+<p>46 brands:</p><div style="max-width:600px;"><table id="tagstable">
 <thead><tr><th>Brand</th><th>Products</th><th>*</th></tr></thead>
 <tbody>
+<tr><td><a href="/facets/brands/Test%20brand" class="tag user_defined">Test brand</a></td>
+<td style="text-align:right"><a href="/facets/brands/Test%20brand" class="tag user_defined">6</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/brand1" class="tag user_defined">brand1</a></td>
+<td style="text-align:right"><a href="/facets/brands/brand1" class="tag user_defined">5</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/brand2" class="tag user_defined">brand2</a></td>
+<td style="text-align:right"><a href="/facets/brands/brand2" class="tag user_defined">5</a></td><td style="text-align:center">*</td></tr>
 <tr><td><a href="/facets/brands/Bob's%20juices" class="tag user_defined">Bob's juices</a></td>
 <td style="text-align:right"><a href="/facets/brands/Bob's%20juices" class="tag user_defined">2</a></td><td style="text-align:center">*</td></tr>
 <tr><td><a href="/facets/brands/Les%20tartes%20de%20Robert" class="tag user_defined">Les tartes de Robert</a></td>
 <td style="text-align:right"><a href="/facets/brands/Les%20tartes%20de%20Robert" class="tag user_defined">2</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/brand3" class="tag user_defined">brand3</a></td>
+<td style="text-align:right"><a href="/facets/brands/brand3" class="tag user_defined">2</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/bell" class="tag user_defined">bell</a></td>
+<td style="text-align:right"><a href="/facets/brands/bell" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/ruby-tuesday" class="tag user_defined">ruby-tuesday</a></td>
+<td style="text-align:right"><a href="/facets/brands/ruby-tuesday" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/warwick-meats" class="tag user_defined">warwick-meats</a></td>
+<td style="text-align:right"><a href="/facets/brands/warwick-meats" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 <tr><td><a href="/facets/brands/Alice's%20ice%20creams" class="tag user_defined">Alice's ice creams</a></td>
 <td style="text-align:right"><a href="/facets/brands/Alice's%20ice%20creams" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/Another%20brand" class="tag user_defined">Another brand</a></td>
+<td style="text-align:right"><a href="/facets/brands/Another%20brand" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/Blue%20Diamond" class="tag user_defined">Blue Diamond</a></td>
+<td style="text-align:right"><a href="/facets/brands/Blue%20Diamond" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 <tr><td><a href="/facets/brands/Bob's%20creme" class="tag user_defined">Bob's creme</a></td>
 <td style="text-align:right"><a href="/facets/brands/Bob's%20creme" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 <tr><td><a href="/facets/brands/Bob's%20ice%20creams" class="tag user_defined">Bob's ice creams</a></td>
@@ -495,6 +513,58 @@
 <td style="text-align:right"><a href="/facets/brands/Mario's%20olive%20oils" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 <tr><td><a href="/facets/brands/Pablo's%20tartas" class="tag user_defined">Pablo's tartas</a></td>
 <td style="text-align:right"><a href="/facets/brands/Pablo's%20tartas" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/Some%20brand" class="tag user_defined">Some brand</a></td>
+<td style="text-align:right"><a href="/facets/brands/Some%20brand" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/U" class="tag user_defined">U</a></td>
+<td style="text-align:right"><a href="/facets/brands/U" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/alani" class="tag user_defined">alani</a></td>
+<td style="text-align:right"><a href="/facets/brands/alani" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/Aldi" class="tag known">Aldi</a></td>
+<td style="text-align:right"><a href="/facets/brands/Aldi" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/brands/alternativa3" class="tag user_defined">alternativa3</a></td>
+<td style="text-align:right"><a href="/facets/brands/alternativa3" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/au-bec-fin" class="tag user_defined">au-bec-fin</a></td>
+<td style="text-align:right"><a href="/facets/brands/au-bec-fin" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/blue-diamond" class="tag user_defined">blue-diamond</a></td>
+<td style="text-align:right"><a href="/facets/brands/blue-diamond" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/but-rex" class="tag user_defined">but-rex</a></td>
+<td style="text-align:right"><a href="/facets/brands/but-rex" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/button" class="tag user_defined">button</a></td>
+<td style="text-align:right"><a href="/facets/brands/button" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/condi" class="tag user_defined">condi</a></td>
+<td style="text-align:right"><a href="/facets/brands/condi" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/Dunnes%20Stores" class="tag known">Dunnes Stores</a></td>
+<td style="text-align:right"><a href="/facets/brands/Dunnes%20Stores" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/brands/foodcare" class="tag user_defined">foodcare</a></td>
+<td style="text-align:right"><a href="/facets/brands/foodcare" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/frugo" class="tag user_defined">frugo</a></td>
+<td style="text-align:right"><a href="/facets/brands/frugo" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/ICA" class="tag known">ICA</a></td>
+<td style="text-align:right"><a href="/facets/brands/ICA" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/brands/krono" class="tag user_defined">krono</a></td>
+<td style="text-align:right"><a href="/facets/brands/krono" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/le-comptoir-de-mathilde" class="tag user_defined">le-comptoir-de-mathilde</a></td>
+<td style="text-align:right"><a href="/facets/brands/le-comptoir-de-mathilde" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/monoprix" class="tag user_defined">monoprix</a></td>
+<td style="text-align:right"><a href="/facets/brands/monoprix" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/monoprix-gourmet" class="tag user_defined">monoprix-gourmet</a></td>
+<td style="text-align:right"><a href="/facets/brands/monoprix-gourmet" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/nutrifresh" class="tag user_defined">nutrifresh</a></td>
+<td style="text-align:right"><a href="/facets/brands/nutrifresh" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/piero%C5%BCak" class="tag user_defined">pierożak</a></td>
+<td style="text-align:right"><a href="/facets/brands/piero%C5%BCak" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/Pringles" class="tag known">Pringles</a></td>
+<td style="text-align:right"><a href="/facets/brands/Pringles" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/brands/r%C4%ABgas-miesnieks" class="tag user_defined">rīgas-miesnieks</a></td>
+<td style="text-align:right"><a href="/facets/brands/r%C4%ABgas-miesnieks" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/selga" class="tag user_defined">selga</a></td>
+<td style="text-align:right"><a href="/facets/brands/selga" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/the-maca-team" class="tag user_defined">the-maca-team</a></td>
+<td style="text-align:right"><a href="/facets/brands/the-maca-team" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/tiroler-fruchtekuche" class="tag user_defined">tiroler-fruchtekuche</a></td>
+<td style="text-align:right"><a href="/facets/brands/tiroler-fruchtekuche" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
+<tr><td><a href="/facets/brands/village" class="tag user_defined">village</a></td>
+<td style="text-align:right"><a href="/facets/brands/village" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 <tr><td><a href="/facets/brands/%E3%83%A9%E3%83%A0%E3%83%8D" class="tag user_defined">ラムネ</a></td>
 <td style="text-align:right"><a href="/facets/brands/%E3%83%A9%E3%83%A0%E3%83%8D" class="tag user_defined">1</a></td><td style="text-align:center">*</td></tr>
 </tbody></table></div>
