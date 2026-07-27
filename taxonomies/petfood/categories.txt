@@ -1,15 +1,40 @@
 en: Incorrect product type
-bg: Неправилен product type
+ar: نوع المنتج غير صحيح
+bg: Неправилен тип продукт
 ca: Tipus de producte incorrecte
-de: Falscher product type
+cs: Nesprávný typ produktu
+da: Forkert produkttype
+de: Falscher Produkttyp
+el: Εσφαλμένος τύπος προϊόντος
 es: Tipo de producto incorrecto
-fi: Väärä product type
-fr: Mauvais product type
-hr: Pogrešan product type
+et: Vale tootetüüp
+fi: Väärä tuotetyyppi
+fr: Type de produit incorrect
+he: סอย מוצר שגוי
+hi: अमान्य उत्पाद प्रकार
+hr: Pogrešna vrsta proizvoda
+hu: Hibás terméktípus
+id: Tipe produk salah
 it: Tipo di prodotto errato
-nl: Verkeerd product type
+ja: 不正な製品タイプ
+ko: 잘못된 제품 유형
+lt: Neteisingas produkto tipas
+lv: Nepareizs produkta veids
+ms: Jenis produk salah
+nl: Verkeerd producttype
+no: Feil produkttype
+pl: Nieprawidłowy typ produktu
 pt: Tipo de produto incorreto
-ru: Неправильный product type
+ro: Tip de produs incorect
+ru: Неправильный тип продукта
+sk: Nesprávny typ produktu
+sl: Napačna vrsta izdelka
+sv: Fel produkttyp
+th: ประเภทสินค้าไม่ถูกต้อง
+tr: Yanlış ürün tipi
+uk: Неправильний тип продукту
+vi: Sai loại sản phẩm
+zh: 错误的产品类型
 
 < en: Incorrect product type
 en: Non pet food products
@@ -50,6 +75,7 @@ en: Wet pet food, wet food
 de: Nassfutter, nasses Futter
 fr: Nourriture humide pour animaux, Pâtées pour animaux
 hr: Mokra hrana za kućne ljubimce
+it: Cibo umido per animali domestici
 ja: ウェットタイプのペットフード
 nl: Nat voedsel
 nl_be: Nat voedsel
@@ -57,6 +83,7 @@ nl_be: Nat voedsel
 en: Dog and cat food
 de: Hunde- und Katzenfutter
 fr: Nourriture pour chiens et chats
+it: Cibo per cani e gatti
 nl: Honden en kattenvoedsel
 ru: Корм для собак и кошек
 
@@ -257,7 +284,9 @@ ru: Консервированный корм для кошек, Консерв�
 < en: cat food
 en: cat biscuits, cat treats
 de: Katzensnacks, Snacks für Katzen
+es: Galletas para gatos, golosinas para gatos
 fr: biscuits pour chats, friandises pour chats
+it: Biscotti per gatti, Dolcetti per gatti
 hr: Mačji keksi
 
 < en: cat food
@@ -341,6 +370,8 @@ en: castrated cat food
 de: Kastriertes Katzenfutter, Futter für kastrierte und sterilisierte Katzen, Futter für sterilisierte und kastrierte Katzen
 es: Comida para gatos castrados
 fr: Nourriture pour chats castrés, Nourriture pour chat castré
+it: Cibo per gatti castrati
+ja: 去勢・避妊済み猫用フード
 hr: Hrana za kastrirane mačke
 nl: Voer voor gecastreerde katten
 nl_be: Voer voor gecastreerde katten
@@ -352,6 +383,7 @@ de: Hundefutter, Hundenahrung
 fr: nourriture pour chiens, produits pour chiens
 hr: Pseća hrana
 hu: Kutyaeledel
+it: Cibo per cani
 ja: ドッグフード
 nl: Hondenvoedsel, hondenvoer
 nl_be: Hondenvoedsel, hondenvoer
@@ -363,6 +395,7 @@ wikidata:en: Q38420
 < en: dry food
 en: dry dog food
 de: Hundetrockenfutter, Hundetrockennahrung, trockenes Hundefutter, getrocknetes Hundefutter
+es: Comida seca para perros, alimento seco para perros
 fr: croquettes pour chien
 hr: Suha hrana za pse
 hu: Száraz kutyaeledel
@@ -455,6 +488,7 @@ en: wet dog food, canned dog food
 de: feuchtes Hundefutter, Hundenassfutter, Hundenassnahrung, nasses Hundefutter
 fr: Pâtées pour chien, nourriture humide pour chien, boites pour chien
 hr: Mokra hrana za pse
+it: Cibo umido per cani, cibo in scatola per cani
 ja: ウェットタイプのドッグフード
 nl: Nat hondenvoer
 pt: Comida de cão húmida
@@ -619,39 +653,55 @@ vi: Thức ăn cho cá
 zh: 鱼食
 
 en: livestock feed
+es: Alimento para ganado
+fr: aliments pour le bétail
+it: Mangime per il bestiame
 
 en: bird and fowl food
+es: Comida para aves y gallinas
+fr: aliments pour oiseaux et volailles
+it: Mangime per uccelli e pollame
 
 en: Rabbit food
 de: Kaninchenfutter
+es: Comida para conejos
 fr: Nourriture pour lapins
 hr: Hrana za kuniće
+it: Cibo per conigli
 nl: Voer voor konijnen
 
 en: rodent food
 de: Nagetierfutter
+es: Comida para roedores
 fr: nourriture pour rongeurs
 hr: Hrana za glodavce
+it: Cibo per roditori
 nl: rattenvoer
 ru: корм для грызунов
 
 en: Horse food
 de: Pferdefutter
+es: Comida para caballos
 fr: Nourriture pour chevaux
 hr: Hrana za konje
+it: Cibo per cavalli
 nl: Voer voor paarden
 
 en: reptile food
 de: Futter für Reptilien, Terrarientierfutter
+es: Comida para reptiles
 fr: nourriture pour reptiles
 hr: Hrana za gmazove
+it: Cibo per rettili
 nl: reptielenvoer, voer voor reptielen
 ru: корм для пресмыкающихся, корм для рептилий
 
 en: miscellaneous pet food, miscellaneous animal food
 de: sonstiges Tierfutter
+es: comida para animales diversos, comida para animales variados
 fr: nourriture pour animaux divers, nourriture pour animaux variés
 hr: Razna hrana za kućne ljubimce
+it: Cibo per animali domestici vario
 nl: divers diervoer
 ru: прочий корм для животных
 
