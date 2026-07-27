@@ -2,28 +2,28 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "20034",
-         "ecobalyse_code" : "onion-fr",
-         "id" : "en:onion",
+         "ciqual_proxy_food_code" : "13014",
+         "ecobalyse_code" : "ce20da3d-0ce4-49e9-8942-6d99ff0221b1",
+         "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
-         "origins" : "en:france",
+         "origins" : "en:sweden",
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
-         "text" : "Oignon",
+         "text" : "jordgubbe",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "20047",
-         "ecobalyse_code" : "tomato-greenhouse-fr",
-         "id" : "en:tomato",
+         "ciqual_proxy_food_code" : "13014",
+         "ecobalyse_code" : "ce20da3d-0ce4-49e9-8942-6d99ff0221b1",
+         "id" : "en:strawberry",
          "is_in_taxonomy" : 1,
-         "origins" : "en:france",
+         "origins" : "en:sweden",
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "tomate",
+         "text" : "jordgubbar",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -34,26 +34,23 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_lc" : "fr",
+   "ingredients_lc" : "sv",
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
       "2",
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:onion",
-      "en:tomato"
+      "en:strawberry",
+      "en:strawberry"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:onion",
-      "en:vegetable",
-      "en:root-vegetable",
-      "en:onion-family-vegetable",
-      "en:tomato",
-      "en:fruit-vegetable"
+      "en:strawberry",
+      "en:fruit",
+      "en:berries"
    ],
-   "ingredients_text" : "Oignon français, tomate française",
+   "ingredients_text" : "svensk jordgubbe, svenska jordgubbar",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
@@ -63,7 +60,7 @@
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 2,
-   "lc" : "fr",
+   "lc" : "sv",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
