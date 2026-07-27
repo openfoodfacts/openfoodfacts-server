@@ -97,7 +97,7 @@
   language-code="en"
   country-code="world"
   robotoff-configuration='{
-    "apiUrl": "//robotoff.openfoodfacts.localhost:5500 /api/v1",
+    "apiUrl": "//backend:8881//api/v1",
     "imgUrl": "//images.openfoodfacts.localhost/images/products"
   }'
   
@@ -478,59 +478,41 @@
 
 <script type="module">
   import { displayWorldMap } from '//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js';
-  displayWorldMap('#world-map', {"data":{"AR":1,"AT":1,"AU":2,"BE":4,"CA":4,"CH":1,"DE":7,"ES":10,"FI":1,"FR":24,"GB":7,"GR":1,"IE":2,"IN":1,"IT":6,"JP":3,"MX":1,"NP":1,"PA":1,"PL":2,"PT":1,"RO":1,"SE":1,"US":10},"links":{"AR":"/facets/countries/Argentina","AT":"/facets/countries/Austria","AU":"/facets/countries/Australia","BE":"/facets/countries/Belgium","CA":"/facets/countries/Canada","CH":"/facets/countries/Switzerland","DE":"/facets/countries/Germany","ES":"/facets/countries/Spain","FI":"/facets/countries/Finland","FR":"/facets/countries/France","GB":"/facets/countries/United%20Kingdom","GR":"/facets/countries/Greece","IE":"/facets/countries/Ireland","IN":"/facets/countries/India","IT":"/facets/countries/Italy","JP":"/facets/countries/Japan","MX":"/facets/countries/Mexico","NP":"/facets/countries/Nepal","PA":"/facets/countries/Panama","PL":"/facets/countries/Poland","PT":"/facets/countries/Portugal","RO":"/facets/countries/Romania","SE":"/facets/countries/Sweden","US":"/facets/countries/United%20States"},"names":{"AR":"Argentina","AT":"Austria","AU":"Australia","BE":"Belgium","CA":"Canada","CH":"Switzerland","DE":"Germany","ES":"Spain","FI":"Finland","FR":"France","GB":"United Kingdom","GR":"Greece","IE":"Ireland","IN":"India","IT":"Italy","JP":"Japan","MX":"Mexico","NP":"Nepal","PA":"Panama","PL":"Poland","PT":"Portugal","RO":"Romania","SE":"Sweden","US":"United States"}});
+  displayWorldMap('#world-map', {"data":{"AR":1,"BE":1,"CA":1,"CH":1,"DE":5,"ES":4,"FR":7,"GB":5,"GR":1,"IN":1,"IT":4,"JP":2,"MX":1,"PT":1,"US":2},"links":{"AR":"/facets/countries/Argentina","BE":"/facets/countries/Belgium","CA":"/facets/countries/Canada","CH":"/facets/countries/Switzerland","DE":"/facets/countries/Germany","ES":"/facets/countries/Spain","FR":"/facets/countries/France","GB":"/facets/countries/United%20Kingdom","GR":"/facets/countries/Greece","IN":"/facets/countries/India","IT":"/facets/countries/Italy","JP":"/facets/countries/Japan","MX":"/facets/countries/Mexico","PT":"/facets/countries/Portugal","US":"/facets/countries/United%20States"},"names":{"AR":"Argentina","BE":"Belgium","CA":"Canada","CH":"Switzerland","DE":"Germany","ES":"Spain","FR":"France","GB":"United Kingdom","GR":"Greece","IN":"India","IT":"Italy","JP":"Japan","MX":"Mexico","PT":"Portugal","US":"United States"}});
 </script>
 
 <!-- end templates/web/pages/countries_map/map_of_countries.tt.html -->
-<p>24 countries:</p><div style="max-width:600px;"><table id="tagstable">
+<p>15 countries:</p><div style="max-width:600px;"><table id="tagstable">
 <thead><tr><th>Country</th><th>Products</th><th>*</th></tr></thead>
 <tbody>
 <tr><td><a href="/facets/countries/France" class="tag known">France</a></td>
-<td style="text-align:right"><a href="/facets/countries/France" class="tag known">24</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Spain" class="tag known">Spain</a></td>
-<td style="text-align:right"><a href="/facets/countries/Spain" class="tag known">10</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/United%20States" class="tag known">United States</a></td>
-<td style="text-align:right"><a href="/facets/countries/United%20States" class="tag known">10</a></td><td></td></tr>
+<td style="text-align:right"><a href="/facets/countries/France" class="tag known">7</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/Germany" class="tag known">Germany</a></td>
-<td style="text-align:right"><a href="/facets/countries/Germany" class="tag known">7</a></td><td></td></tr>
+<td style="text-align:right"><a href="/facets/countries/Germany" class="tag known">5</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/United%20Kingdom" class="tag known">United Kingdom</a></td>
-<td style="text-align:right"><a href="/facets/countries/United%20Kingdom" class="tag known">7</a></td><td></td></tr>
+<td style="text-align:right"><a href="/facets/countries/United%20Kingdom" class="tag known">5</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/Italy" class="tag known">Italy</a></td>
-<td style="text-align:right"><a href="/facets/countries/Italy" class="tag known">6</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Belgium" class="tag known">Belgium</a></td>
-<td style="text-align:right"><a href="/facets/countries/Belgium" class="tag known">4</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Canada" class="tag known">Canada</a></td>
-<td style="text-align:right"><a href="/facets/countries/Canada" class="tag known">4</a></td><td></td></tr>
+<td style="text-align:right"><a href="/facets/countries/Italy" class="tag known">4</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/Spain" class="tag known">Spain</a></td>
+<td style="text-align:right"><a href="/facets/countries/Spain" class="tag known">4</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/Japan" class="tag known">Japan</a></td>
-<td style="text-align:right"><a href="/facets/countries/Japan" class="tag known">3</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Australia" class="tag known">Australia</a></td>
-<td style="text-align:right"><a href="/facets/countries/Australia" class="tag known">2</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Ireland" class="tag known">Ireland</a></td>
-<td style="text-align:right"><a href="/facets/countries/Ireland" class="tag known">2</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Poland" class="tag known">Poland</a></td>
-<td style="text-align:right"><a href="/facets/countries/Poland" class="tag known">2</a></td><td></td></tr>
+<td style="text-align:right"><a href="/facets/countries/Japan" class="tag known">2</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/United%20States" class="tag known">United States</a></td>
+<td style="text-align:right"><a href="/facets/countries/United%20States" class="tag known">2</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/Argentina" class="tag known">Argentina</a></td>
 <td style="text-align:right"><a href="/facets/countries/Argentina" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Austria" class="tag known">Austria</a></td>
-<td style="text-align:right"><a href="/facets/countries/Austria" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Finland" class="tag known">Finland</a></td>
-<td style="text-align:right"><a href="/facets/countries/Finland" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/Belgium" class="tag known">Belgium</a></td>
+<td style="text-align:right"><a href="/facets/countries/Belgium" class="tag known">1</a></td><td></td></tr>
+<tr><td><a href="/facets/countries/Canada" class="tag known">Canada</a></td>
+<td style="text-align:right"><a href="/facets/countries/Canada" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/Greece" class="tag known">Greece</a></td>
 <td style="text-align:right"><a href="/facets/countries/Greece" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/India" class="tag known">India</a></td>
 <td style="text-align:right"><a href="/facets/countries/India" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/Mexico" class="tag known">Mexico</a></td>
 <td style="text-align:right"><a href="/facets/countries/Mexico" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Nepal" class="tag known">Nepal</a></td>
-<td style="text-align:right"><a href="/facets/countries/Nepal" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Panama" class="tag known">Panama</a></td>
-<td style="text-align:right"><a href="/facets/countries/Panama" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/Portugal" class="tag known">Portugal</a></td>
 <td style="text-align:right"><a href="/facets/countries/Portugal" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Romania" class="tag known">Romania</a></td>
-<td style="text-align:right"><a href="/facets/countries/Romania" class="tag known">1</a></td><td></td></tr>
-<tr><td><a href="/facets/countries/Sweden" class="tag known">Sweden</a></td>
-<td style="text-align:right"><a href="/facets/countries/Sweden" class="tag known">1</a></td><td></td></tr>
 <tr><td><a href="/facets/countries/Switzerland" class="tag known">Switzerland</a></td>
 <td style="text-align:right"><a href="/facets/countries/Switzerland" class="tag known">1</a></td><td></td></tr>
 </tbody></table></div>

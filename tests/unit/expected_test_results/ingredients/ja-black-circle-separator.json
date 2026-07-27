@@ -51,7 +51,7 @@
          "id" : "en:flavouring",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.5,
-         "percent_max" : 5,
+         "percent_max" : "5",
          "percent_min" : 0,
          "text" : "香料",
          "vegan" : "maybe",
@@ -61,7 +61,7 @@
          "id" : "en:emulsifier",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 2.70833333333333,
-         "percent_max" : 5,
+         "percent_max" : "5",
          "percent_min" : 0,
          "text" : "乳化剤"
       }
@@ -117,7 +117,7 @@
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
-   "ingredients_with_unspecified_percent_sum" : 100.0,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:emulsifier",
       "en:flavouring",

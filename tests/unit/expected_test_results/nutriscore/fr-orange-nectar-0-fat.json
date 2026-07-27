@@ -202,7 +202,7 @@
             "is_water" : 0,
             "proteins" : 0.5,
             "saturated_fat" : 0.00285,
-            "sodium" : 200.0,
+            "sodium" : 200,
             "sugars" : 12
          },
          "estimated" : 1,
@@ -666,7 +666,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : 100,
+            "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "packaging"
@@ -967,7 +967,7 @@
                }
             },
             "per" : "100g",
-            "per_quantity" : 100,
+            "per_quantity" : "100",
             "per_unit" : "g",
             "preparation" : "as_sold",
             "source" : "estimate",

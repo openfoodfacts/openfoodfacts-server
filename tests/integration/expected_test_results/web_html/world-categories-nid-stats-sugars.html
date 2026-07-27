@@ -97,7 +97,7 @@
   language-code="en"
   country-code="world"
   robotoff-configuration='{
-    "apiUrl": "//robotoff.openfoodfacts.localhost:5500 /api/v1",
+    "apiUrl": "//backend:8881//api/v1",
     "imgUrl": "//images.openfoodfacts.localhost/images/products"
   }'
   
@@ -472,212 +472,92 @@
 </div>
 
 <!-- end templates/web/pages/tag/tag.tt.html -->
-<p>138 categories:</p><div style="max-width:600px;"><table id="tagstable">
+<p>41 categories:</p><div style="max-width:600px;"><table id="tagstable">
 <thead><tr><th>Category</th><th>Products</th><th>for 100 g / 100 ml</th><th>Standard deviation</th><th>Minimum</th><th>10th centile</th><th>Median</th><th>90th centile</th><th>Maximum</th></tr></thead>
 <tbody>
-<tr><td><a href="/facets/categories/Plant-based%20foods%20and%20beverages" class="tag known">Plant-based foods and beverages</a></td>
-<td style="text-align:right"><a href="/facets/categories/Plant-based%20foods%20and%20beverages" class="tag known">21</a></td><td>12</td><td>7.3</td><td>17.9</td><td>17.9</td><td>12</td><td>53</td><td>53</td></tr>
-<tr><td><a href="/facets/categories/Snacks" class="tag known">Snacks</a></td>
-<td style="text-align:right"><a href="/facets/categories/Snacks" class="tag known">19</a></td><td>10.3</td><td>4.52</td><td>7.26</td><td>17.9</td><td>7.26</td><td>12.5</td><td>5.6</td></tr>
-<tr><td><a href="/facets/categories/Plant-based%20foods" class="tag known">Plant-based foods</a></td>
-<td style="text-align:right"><a href="/facets/categories/Plant-based%20foods" class="tag known">17</a></td><td>12.7</td><td>8.84</td><td>17.9</td><td>17.9</td><td>25</td><td>53</td><td>53</td></tr>
-<tr><td><a href="/facets/categories/Fruit-based%20foods%20and%20beverages" class="tag known">Fruit-based foods and beverages</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fruit-based%20foods%20and%20beverages" class="tag known">10</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>10</td><td>10</td></tr>
-<tr><td><a href="/facets/categories/Fruits%20and%20vegetables%20based%20foods" class="tag known">Fruits and vegetables based foods</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fruits%20and%20vegetables%20based%20foods" class="tag known">9</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Sweet%20snacks" class="tag known">Sweet snacks</a></td>
-<td style="text-align:right"><a href="/facets/categories/Sweet%20snacks" class="tag known">9</a></td><td>11.9</td><td>4.66</td><td>7.26</td><td>7.26</td><td>12.5</td><td>40</td><td>40</td></tr>
 <tr><td><a href="/facets/categories/Desserts" class="tag known">Desserts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Desserts" class="tag known">8</a></td><td>19.1</td><td>6.79</td><td>20</td><td>20</td><td>20</td><td>4.8</td><td>4.8</td></tr>
-<tr><td><a href="/facets/categories/Beverages" class="tag known">Beverages</a></td>
-<td style="text-align:right"><a href="/facets/categories/Beverages" class="tag known">7</a></td><td>7.65</td><td>2.58</td><td>10</td><td>10</td><td>10</td><td>3.79</td><td>3.79</td></tr>
-<tr><td><a href="/facets/categories/Fruit-based%20foods" class="tag known">Fruit-based foods</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fruit-based%20foods" class="tag known">7</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Fruits" class="tag known">Fruits</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fruits" class="tag known">7</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Biscuits%20and%20cakes" class="tag known">Biscuits and cakes</a></td>
-<td style="text-align:right"><a href="/facets/categories/Biscuits%20and%20cakes" class="tag known">6</a></td><td>9.88</td><td>2.62</td><td>7.26</td><td>7.26</td><td>12.5</td><td>7.26</td><td>7.26</td></tr>
-<tr><td><a href="/facets/categories/Meals" class="tag known">Meals</a></td>
-<td style="text-align:right"><a href="/facets/categories/Meals" class="tag known">6</a></td><td>1.18</td><td>0.8</td><td>1.6</td><td>1.6</td><td>0.6</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Biscuits" class="tag known">Biscuits</a></td>
-<td style="text-align:right"><a href="/facets/categories/Biscuits" class="tag known">5</a></td><td>9.88</td><td>2.62</td><td>7.26</td><td>7.26</td><td>12.5</td><td>7.26</td><td>7.26</td></tr>
-<tr><td><a href="/facets/categories/Biscuits%20and%20crackers" class="tag known">Biscuits and crackers</a></td>
-<td style="text-align:right"><a href="/facets/categories/Biscuits%20and%20crackers" class="tag known">5</a></td><td>9.88</td><td>2.62</td><td>7.26</td><td>7.26</td><td>12.5</td><td>7.26</td><td>7.26</td></tr>
-<tr><td><a href="/facets/categories/Plant-based%20beverages" class="tag known">Plant-based beverages</a></td>
-<td style="text-align:right"><a href="/facets/categories/Plant-based%20beverages" class="tag known">5</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>10</td><td>10</td></tr>
-<tr><td><a href="/facets/categories/fr:Changed%20category" class="tag user_defined">fr:Changed category</a></td>
-<td style="text-align:right"><a href="/facets/categories/fr:Changed%20category" class="tag user_defined">5</a></td><td>7.13</td><td>0.131</td><td>7</td><td>7</td><td>7.26</td><td>7.26</td><td>7.26</td></tr>
-<tr><td><a href="/facets/categories/Beverages%20and%20beverages%20preparations" class="tag known">Beverages and beverages preparations</a></td>
-<td style="text-align:right"><a href="/facets/categories/Beverages%20and%20beverages%20preparations" class="tag known">4</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>10</td><td>10</td></tr>
-<tr><td><a href="/facets/categories/Pizzas" class="tag known">Pizzas</a></td>
-<td style="text-align:right"><a href="/facets/categories/Pizzas" class="tag known">4</a></td><td>1.77</td><td>0.369</td><td>1.6</td><td>1.6</td><td>1.43</td><td>25</td><td>25</td></tr>
-<tr><td><a href="/facets/categories/Pizzas%20pies%20and%20quiches" class="tag known">Pizzas pies and quiches</a></td>
-<td style="text-align:right"><a href="/facets/categories/Pizzas%20pies%20and%20quiches" class="tag known">4</a></td><td>1.77</td><td>0.369</td><td>1.6</td><td>1.6</td><td>1.43</td><td>25</td><td>25</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Desserts" class="tag known">6</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Apple%20pies" class="tag known">Apple pies</a></td>
-<td style="text-align:right"><a href="/facets/categories/Apple%20pies" class="tag known">3</a></td><td>22.5</td><td>2.5</td><td>20</td><td>20</td><td>25</td><td>25</td><td>25</td></tr>
-<tr><td><a href="/facets/categories/Apples" class="tag known">Apples</a></td>
-<td style="text-align:right"><a href="/facets/categories/Apples" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Breakfasts" class="tag known">Breakfasts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Breakfasts" class="tag known">3</a></td><td>16.3</td><td>8.72</td><td>7.58</td><td>7.58</td><td>25</td><td>53</td><td>53</td></tr>
-<tr><td><a href="/facets/categories/Cereals%20and%20potatoes" class="tag known">Cereals and potatoes</a></td>
-<td style="text-align:right"><a href="/facets/categories/Cereals%20and%20potatoes" class="tag known">3</a></td><td>6.59</td><td>0.988</td><td>7.58</td><td>7.58</td><td>25</td><td>5.6</td><td>5.6</td></tr>
-<tr><td><a href="/facets/categories/Dairies" class="tag known">Dairies</a></td>
-<td style="text-align:right"><a href="/facets/categories/Dairies" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>4.8</td><td>4.8</td><td>4.8</td></tr>
-<tr><td><a href="/facets/categories/Dietary%20supplements" class="tag known">Dietary supplements</a></td>
-<td style="text-align:right"><a href="/facets/categories/Dietary%20supplements" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Apple%20pies" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Beverages" class="tag known">Beverages</a></td>
+<td style="text-align:right"><a href="/facets/categories/Beverages" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Beverages%20and%20beverages%20preparations" class="tag known">Beverages and beverages preparations</a></td>
+<td style="text-align:right"><a href="/facets/categories/Beverages%20and%20beverages%20preparations" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Fruit-based%20beverages" class="tag known">Fruit-based beverages</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fruit-based%20beverages" class="tag known">3</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>10</td><td>10</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Fruit-based%20beverages" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Fruit-based%20foods%20and%20beverages" class="tag known">Fruit-based foods and beverages</a></td>
+<td style="text-align:right"><a href="/facets/categories/Fruit-based%20foods%20and%20beverages" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Pies" class="tag known">Pies</a></td>
-<td style="text-align:right"><a href="/facets/categories/Pies" class="tag known">3</a></td><td>22.5</td><td>2.5</td><td>20</td><td>20</td><td>25</td><td>25</td><td>25</td></tr>
-<tr><td><a href="/facets/categories/Spreads" class="tag known">Spreads</a></td>
-<td style="text-align:right"><a href="/facets/categories/Spreads" class="tag known">3</a></td><td>0.25</td><td>0.25</td><td>0.5</td><td>0.5</td><td>-</td><td>53</td><td>53</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Pies" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Plant-based%20beverages" class="tag known">Plant-based beverages</a></td>
+<td style="text-align:right"><a href="/facets/categories/Plant-based%20beverages" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Plant-based%20foods%20and%20beverages" class="tag known">Plant-based foods and beverages</a></td>
+<td style="text-align:right"><a href="/facets/categories/Plant-based%20foods%20and%20beverages" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Sweet%20pies" class="tag known">Sweet pies</a></td>
-<td style="text-align:right"><a href="/facets/categories/Sweet%20pies" class="tag known">3</a></td><td>22.5</td><td>2.5</td><td>20</td><td>20</td><td>25</td><td>25</td><td>25</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Sweet%20pies" class="tag known">3</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Juices" class="tag user_defined">Juices</a></td>
-<td style="text-align:right"><a href="/facets/categories/Juices" class="tag user_defined">2</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>12</td><td>12</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Juices" class="tag user_defined">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Vanilla%20ice%20creams" class="tag user_defined">Vanilla ice creams</a></td>
-<td style="text-align:right"><a href="/facets/categories/Vanilla%20ice%20creams" class="tag user_defined">2</a></td><td>20</td><td>-</td><td>30</td><td>30</td><td>20</td><td>20</td><td>20</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Vanilla%20ice%20creams" class="tag user_defined">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Apple%20juices" class="tag known">Apple juices</a></td>
-<td style="text-align:right"><a href="/facets/categories/Apple%20juices" class="tag known">2</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>12</td><td>12</td></tr>
-<tr><td><a href="/facets/categories/Bananas" class="tag known">Bananas</a></td>
-<td style="text-align:right"><a href="/facets/categories/Bananas" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Breakfast%20cereals" class="tag known">Breakfast cereals</a></td>
-<td style="text-align:right"><a href="/facets/categories/Breakfast%20cereals" class="tag known">2</a></td><td>7.58</td><td>-</td><td>7.58</td><td>7.58</td><td>25</td><td>25</td><td>25</td></tr>
-<tr><td><a href="/facets/categories/Cereals%20and%20their%20products" class="tag known">Cereals and their products</a></td>
-<td style="text-align:right"><a href="/facets/categories/Cereals%20and%20their%20products" class="tag known">2</a></td><td>7.58</td><td>-</td><td>7.58</td><td>7.58</td><td>25</td><td>25</td><td>25</td></tr>
-<tr><td><a href="/facets/categories/Chocolates" class="tag known">Chocolates</a></td>
-<td style="text-align:right"><a href="/facets/categories/Chocolates" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Citrus" class="tag known">Citrus</a></td>
-<td style="text-align:right"><a href="/facets/categories/Citrus" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Cocoa%20and%20its%20products" class="tag known">Cocoa and its products</a></td>
-<td style="text-align:right"><a href="/facets/categories/Cocoa%20and%20its%20products" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Coffees" class="tag known">Coffees</a></td>
-<td style="text-align:right"><a href="/facets/categories/Coffees" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Dairy%20desserts" class="tag known">Dairy desserts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Dairy%20desserts" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Drop%20cookies" class="tag known">Drop cookies</a></td>
-<td style="text-align:right"><a href="/facets/categories/Drop%20cookies" class="tag known">2</a></td><td>12.5</td><td>-</td><td>12.5</td><td>12.5</td><td>12.5</td><td>12.5</td><td>12.5</td></tr>
-<tr><td><a href="/facets/categories/Fats" class="tag known">Fats</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fats" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Fermented%20dairy%20desserts" class="tag known">Fermented dairy desserts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fermented%20dairy%20desserts" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Fermented%20foods" class="tag known">Fermented foods</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fermented%20foods" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Fermented%20milk%20products" class="tag known">Fermented milk products</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fermented%20milk%20products" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Flavoured%20almonds" class="tag known">Flavoured almonds</a></td>
-<td style="text-align:right"><a href="/facets/categories/Flavoured%20almonds" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Flavoured%20nuts" class="tag known">Flavoured nuts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Flavoured%20nuts" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Apple%20juices" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Frozen%20desserts" class="tag known">Frozen desserts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Frozen%20desserts" class="tag known">2</a></td><td>20</td><td>-</td><td>30</td><td>30</td><td>20</td><td>20</td><td>20</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Frozen%20desserts" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Frozen%20foods" class="tag known">Frozen foods</a></td>
-<td style="text-align:right"><a href="/facets/categories/Frozen%20foods" class="tag known">2</a></td><td>20</td><td>-</td><td>30</td><td>30</td><td>20</td><td>20</td><td>20</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Frozen%20foods" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Fruit%20juices" class="tag known">Fruit juices</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fruit%20juices" class="tag known">2</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>12</td><td>12</td></tr>
-<tr><td><a href="/facets/categories/Hot%20beverages" class="tag known">Hot beverages</a></td>
-<td style="text-align:right"><a href="/facets/categories/Hot%20beverages" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Fruit%20juices" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Ice%20creams" class="tag known">Ice creams</a></td>
-<td style="text-align:right"><a href="/facets/categories/Ice%20creams" class="tag known">2</a></td><td>20</td><td>-</td><td>30</td><td>30</td><td>20</td><td>20</td><td>20</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Ice%20creams" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Ice%20creams%20and%20sorbets" class="tag known">Ice creams and sorbets</a></td>
-<td style="text-align:right"><a href="/facets/categories/Ice%20creams%20and%20sorbets" class="tag known">2</a></td><td>20</td><td>-</td><td>30</td><td>30</td><td>20</td><td>20</td><td>20</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Ice%20creams%20and%20sorbets" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Juices%20and%20nectars" class="tag known">Juices and nectars</a></td>
-<td style="text-align:right"><a href="/facets/categories/Juices%20and%20nectars" class="tag known">2</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>12</td><td>12</td></tr>
-<tr><td><a href="/facets/categories/Meats%20and%20their%20products" class="tag known">Meats and their products</a></td>
-<td style="text-align:right"><a href="/facets/categories/Meats%20and%20their%20products" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Nut-based%20snacks" class="tag known">Nut-based snacks</a></td>
-<td style="text-align:right"><a href="/facets/categories/Nut-based%20snacks" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Nuts%20and%20their%20products" class="tag known">Nuts and their products</a></td>
-<td style="text-align:right"><a href="/facets/categories/Nuts%20and%20their%20products" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Oranges" class="tag known">Oranges</a></td>
-<td style="text-align:right"><a href="/facets/categories/Oranges" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Tropical%20fruits" class="tag known">Tropical fruits</a></td>
-<td style="text-align:right"><a href="/facets/categories/Tropical%20fruits" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Juices%20and%20nectars" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Unsweetened%20beverages" class="tag known">Unsweetened beverages</a></td>
-<td style="text-align:right"><a href="/facets/categories/Unsweetened%20beverages" class="tag known">2</a></td><td>10</td><td>-</td><td>10</td><td>10</td><td>12</td><td>12</td><td>12</td></tr>
-<tr><td><a href="/facets/categories/Yogurts" class="tag known">Yogurts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Yogurts" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/de:Schwarzw%C3%A4lder%20Schinken" class="tag known">de:Schwarzwälder Schinken</a></td>
-<td style="text-align:right"><a href="/facets/categories/de:Schwarzw%C3%A4lder%20Schinken" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<td style="text-align:right"><a href="/facets/categories/Unsweetened%20beverages" class="tag known">2</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Duck%20salads" class="tag user_defined">Duck salads</a></td>
 <td style="text-align:right"><a href="/facets/categories/Duck%20salads" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Raspberry%20juices" class="tag user_defined">Raspberry juices</a></td>
 <td style="text-align:right"><a href="/facets/categories/Raspberry%20juices" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Salads" class="tag user_defined">Salads</a></td>
 <td style="text-align:right"><a href="/facets/categories/Salads" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Almonds" class="tag known">Almonds</a></td>
-<td style="text-align:right"><a href="/facets/categories/Almonds" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Animal%20fats" class="tag known">Animal fats</a></td>
-<td style="text-align:right"><a href="/facets/categories/Animal%20fats" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Appetizers" class="tag known">Appetizers</a></td>
-<td style="text-align:right"><a href="/facets/categories/Appetizers" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Artificially%20sweetened%20beverages" class="tag known">Artificially sweetened beverages</a></td>
-<td style="text-align:right"><a href="/facets/categories/Artificially%20sweetened%20beverages" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Basil%20seeds%20drinks" class="tag known">Basil seeds drinks</a></td>
-<td style="text-align:right"><a href="/facets/categories/Basil%20seeds%20drinks" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Black%20tapenades" class="tag known">Black tapenades</a></td>
-<td style="text-align:right"><a href="/facets/categories/Black%20tapenades" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Bodybuilding%20supplements" class="tag known">Bodybuilding supplements</a></td>
-<td style="text-align:right"><a href="/facets/categories/Bodybuilding%20supplements" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Butters" class="tag known">Butters</a></td>
-<td style="text-align:right"><a href="/facets/categories/Butters" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Carrots" class="tag known">Carrots</a></td>
-<td style="text-align:right"><a href="/facets/categories/Carrots" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Chips%20and%20fries" class="tag known">Chips and fries</a></td>
-<td style="text-align:right"><a href="/facets/categories/Chips%20and%20fries" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Condiments" class="tag known">Condiments</a></td>
 <td style="text-align:right"><a href="/facets/categories/Condiments" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Confectioneries" class="tag known">Confectioneries</a></td>
 <td style="text-align:right"><a href="/facets/categories/Confectioneries" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Crisps" class="tag known">Crisps</a></td>
-<td style="text-align:right"><a href="/facets/categories/Crisps" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Cured%20hams" class="tag known">Cured hams</a></td>
-<td style="text-align:right"><a href="/facets/categories/Cured%20hams" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Dairy%20spreads" class="tag known">Dairy spreads</a></td>
-<td style="text-align:right"><a href="/facets/categories/Dairy%20spreads" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Duck%20breasts" class="tag known">Duck breasts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Duck%20breasts" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Duck%20dishes" class="tag known">Duck dishes</a></td>
-<td style="text-align:right"><a href="/facets/categories/Duck%20dishes" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Ducks" class="tag known">Ducks</a></td>
-<td style="text-align:right"><a href="/facets/categories/Ducks" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/entrees" class="tag user_defined">entrees</a></td>
-<td style="text-align:right"><a href="/facets/categories/entrees" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Extra-virgin%20olive%20oils" class="tag known">Extra-virgin olive oils</a></td>
-<td style="text-align:right"><a href="/facets/categories/Extra-virgin%20olive%20oils" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Fruit%20and%20vegetable%20preserves" class="tag known">Fruit and vegetable preserves</a></td>
-<td style="text-align:right"><a href="/facets/categories/Fruit%20and%20vegetable%20preserves" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Fruit%20soft%20drinks" class="tag known">Fruit soft drinks</a></td>
 <td style="text-align:right"><a href="/facets/categories/Fruit%20soft%20drinks" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/fruits-based-foods" class="tag user_defined">fruits-based-foods</a></td>
-<td style="text-align:right"><a href="/facets/categories/fruits-based-foods" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Hams" class="tag known">Hams</a></td>
-<td style="text-align:right"><a href="/facets/categories/Hams" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Herbal%20teas" class="tag known">Herbal teas</a></td>
-<td style="text-align:right"><a href="/facets/categories/Herbal%20teas" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/honey-roasted-almonds" class="tag user_defined">honey-roasted-almonds</a></td>
-<td style="text-align:right"><a href="/facets/categories/honey-roasted-almonds" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Jams" class="tag known">Jams</a></td>
-<td style="text-align:right"><a href="/facets/categories/Jams" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Lemonades" class="tag known">Lemonades</a></td>
 <td style="text-align:right"><a href="/facets/categories/Lemonades" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Meals%20with%20meat" class="tag known">Meals with meat</a></td>
-<td style="text-align:right"><a href="/facets/categories/Meals%20with%20meat" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Meats" class="tag known">Meats</a></td>
-<td style="text-align:right"><a href="/facets/categories/Meats" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Milkfat" class="tag known">Milkfat</a></td>
-<td style="text-align:right"><a href="/facets/categories/Milkfat" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Meals" class="tag known">Meals</a></td>
+<td style="text-align:right"><a href="/facets/categories/Meals" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 <tr><td><a href="/facets/categories/Non-alcoholic%20beverages" class="tag known">Non-alcoholic beverages</a></td>
 <td style="text-align:right"><a href="/facets/categories/Non-alcoholic%20beverages" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Nuts" class="tag known">Nuts</a></td>
-<td style="text-align:right"><a href="/facets/categories/Nuts" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Olive%20oils" class="tag known">Olive oils</a></td>
-<td style="text-align:right"><a href="/facets/categories/Olive%20oils" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td><a href="/facets/categories/Olive%20tree%20products" class="tag known">Olive tree products</a></td>
-<td style="text-align:right"><a href="/facets/categories/Olive%20tree%20products" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Pizzas" class="tag known">Pizzas</a></td>
+<td style="text-align:right"><a href="/facets/categories/Pizzas" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Pizzas%20pies%20and%20quiches" class="tag known">Pizzas pies and quiches</a></td>
+<td style="text-align:right"><a href="/facets/categories/Pizzas%20pies%20and%20quiches" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Snacks" class="tag known">Snacks</a></td>
+<td style="text-align:right"><a href="/facets/categories/Snacks" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Soft%20drinks" class="tag known">Soft drinks</a></td>
+<td style="text-align:right"><a href="/facets/categories/Soft%20drinks" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Sweet%20snacks" class="tag known">Sweet snacks</a></td>
+<td style="text-align:right"><a href="/facets/categories/Sweet%20snacks" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Vegan%20pizzas" class="tag known">Vegan pizzas</a></td>
+<td style="text-align:right"><a href="/facets/categories/Vegan%20pizzas" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/Vegetarian%20pizzas" class="tag known">Vegetarian pizzas</a></td>
+<td style="text-align:right"><a href="/facets/categories/Vegetarian%20pizzas" class="tag known">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/it:Creme%20di%20nocciole" class="tag user_defined">it:Creme di nocciole</a></td>
+<td style="text-align:right"><a href="/facets/categories/it:Creme%20di%20nocciole" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/it:Creme%20spalmabili" class="tag user_defined">it:Creme spalmabili</a></td>
+<td style="text-align:right"><a href="/facets/categories/it:Creme%20spalmabili" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/it:Oli" class="tag user_defined">it:Oli</a></td>
+<td style="text-align:right"><a href="/facets/categories/it:Oli" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/it:Oli%20d'oliva" class="tag user_defined">it:Oli d'oliva</a></td>
+<td style="text-align:right"><a href="/facets/categories/it:Oli%20d'oliva" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td><a href="/facets/categories/ja:%E9%A3%B2%E3%81%BF%E7%89%A9" class="tag user_defined">ja:飲み物</a></td>
+<td style="text-align:right"><a href="/facets/categories/ja:%E9%A3%B2%E3%81%BF%E7%89%A9" class="tag user_defined">1</a></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
 </tbody></table></div>
-<hr><ul id="pages" class="pagination"><li class="unavailable">Pages:</li><li class="current"><a href="">1</a></li><li><a href="/facets/categories/2">2</a></li><li><a href="/facets/categories/2" rel="next$nofollow">Next</a></li><li class="unavailable">(100 products per page)</li></ul>
-
 								</div>
 							</div>
 						
@@ -934,14 +814,6 @@ $(document).foundation({
 </html>
 
 <!-- data_debug: data_debug start
-platform: public
-can_use_cache: 1
-cache_miss
-off_query: 1
-platform: public
-query_url: //query:5510
-can_use_off_query: 1
-set_cache_results: updated
 platform: public
 can_use_cache: 1
 cache_miss
