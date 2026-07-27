@@ -392,6 +392,7 @@ HTML
 	improvements
 	inci_functions
 	brands
+	origins_adjectives
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
