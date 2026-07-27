@@ -3,7 +3,7 @@
 
 # Note that there can be false positives (e.g. "French toast" or "German bread").
 # Before adding new origins or new translations, check them in actual ingredients:
-# e.g. https://fr.openfoodfacts.org/facets/ingredients?filter=italien
+# e.g. https://world-fr.openfoodfacts.org/facets/ingredients?filter=italien
 # When adding an origin or translation, also remove entries from the ingredients.txt taxonomy that are now unnecessary.
 
 # At this point, please do not automatically add origins or translations so that we can first evaluate how big the risk of false positives is
