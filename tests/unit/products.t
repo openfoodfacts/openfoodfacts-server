@@ -290,7 +290,10 @@ ok(!defined param('product_name'), 'placeholder product name should be ignored')
 
 Delete('product_name_fr');
 param('product_name_fr', '  produit inconnu  ');
-ok(process_product_edit_rules({code => '1234567890123'}), 'localized placeholder product name should not block the edit');
+ok(
+	process_product_edit_rules({code => '1234567890123'}),
+	'localized placeholder product name should not block the edit'
+);
 ok(!defined param('product_name_fr'), 'localized placeholder product name should be ignored');
 
 param('product_name', 'Pate a tartiner noisette');
