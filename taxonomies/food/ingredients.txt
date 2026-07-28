@@ -93377,8 +93377,11 @@ sv: vörtextrakt
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+en: compound
+
 # Compound ingredients are ingredients that have sub-ingredients. Usually a compound ingredient is followed by a list of other ingredients.
 # the word preparation - like berry preparation, for example - also correspond to previous definition of compound
+< en: compound
 en: preparation
 da: præparat
 it: preparazione
