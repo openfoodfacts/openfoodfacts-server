@@ -70489,32 +70489,33 @@ vi: quế quan
 vo: kirfat
 yi: צימערינג
 zh: 桂皮
-# aeb-arab:قرفة
-# ang:ofersǣwisc rind
-# arc:ܩܠܦܬܐ ܕܒܣܡܐ
-# arz:قرفه
-# bar:zimt
-# be-tarask:карыца
-# ceb:kanela
-# ckb:دارچین
-# csb:cynamón
-# de-ch:zimt
-# dsb:cymt
-# en-ca:cinnamon
-# en-gb:cinnamon
-# frr:kaneel
-# gsw:zimt
-# hsb:skoričnik
-# mai:दालचिनी
-# nan:jio̍k-kùi
-# nds:kaneel
-# nrm:cannelle
-# roa-tara:cannélle
-# scn:cannedda
-# sco:cinnamon
-# vls:kanêel
-# yue:肉桂
-# zh-tw:陰香
+#aeb-arab: قرفة
+#ang: ofersǣwisc rind
+#arc: ܩܠܦܬܐ ܕܒܣܡܐ
+#arz: قرفه
+#bar: zimt
+#be-tarask: карыца
+#ceb: kanela
+#ckb: دارچین
+#csb: cynamón
+#de-ch: zimt
+#dsb: cymt
+#en-ca: cinnamon
+#en-gb: cinnamon
+#frr: kaneel
+#gsw: zimt
+#hsb: skoričnik
+#mai: दालचिनी
+#nan: jio̍k-kùi
+#nds: kaneel
+#nrm: cannelle
+#roa-tara: cannélle
+#scn: cannedda
+#sco: cinnamon
+#vls: kanêel
+#yue: 肉桂
+#zh-tw: 陰香
+agribalyse_proxy_food_code:en: 11025
 carbon_footprint_fr_foodges_ingredient:fr: Cannelle
 carbon_footprint_fr_foodges_value:fr: 2.2
 ciqual_proxy_food_code:en: 11025
@@ -70525,20 +70526,13 @@ usda_ndb_proxy_name:en: Spices, cinnamon, ground
 wikidata:en: Q28165
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
-#<en:Cinnamon
-#en:organic cinnamon
-##da:økologisk kanel
-#de:Bio-Zimt
-#es:Canela orgánica
-#fi:luomukaneli, luomu kaneli
-#fr:cannelle bio
-
 #comment:en:kept for ciqual
-< en: Cinnamon
+< en: cinnamon
 en: cinnamon powder
 bg: канела на прах
+da: kanelpulver
 de: Zimtpulver
-es: Canela en polvo
+es: canela en polvo
 fi: kanelijauhe
 fr: cannelle en poudre, cannelle moulue
 hr: cimet u prahu
@@ -70547,32 +70541,35 @@ ja: シナモン粉末
 nl: kaneelpoeder
 pt: canela em pó
 ru: корица молотая
+agribalyse_food_code:en: 11025
 ciqual_food_code:en: 11025
 ciqual_food_name:en: Cinnamon, powder
 ciqual_food_name:fr: Cannelle, poudre
 usda_ndb_code:en: 2010
 usda_ndb_name:en: Spices, cinnamon, ground
+wikidata:en: Q30038889
 # 448 in 4 languages @2021-09-20
 
-# description:en:Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
-
-< en: Cinnamon
+< en: cinnamon
 en: cassia, chinese cinnamon
+xx: cassia, cinnamomum cassia
 am: ብርጕድ
 ar: سليخة
 az: çin darçın ağacı
 bg: касия
-da: cassia
+cs: skořicovník čínský
 de: Zimtkassie
-el: κιννάμωμον η κασσία
+el: κιννάμωμον η Κασσία
 et: hiina kaneelipuu
+fa: دارچین چینی
 fi: kassiakaneli
-fr: cannelle de chine
-hr: kineskog cimeta, cinnamomum aromaticum
+fr: cannelle de Chine, cannelier de Chine
+gu: દારચીની
+hr: kineskog cimeta
 id: kayu manis cina
-it: cassia
+is: kassía
 ja: シナニッケイ
-la: cinnamomum cassia
+la: cinnamomum cassia, cinnamomum aromaticum
 lt: kininis cinamonas
 ml: ചൈനീസ് പട്ട
 nb: kassiakanel
@@ -70580,20 +70577,21 @@ nl: cassie
 pl: cynamonowiec wonny
 pt: cássia-chinesa
 ru: коричник китайский
+sh: kineski cimet
 sk: kineski cimet
 sl: kitajski cimet
 sv: kassiakanel
 th: อบเชยจีน
 uz: dolchin
+za: naenggveiq
 zh: 肉桂
-# lzh:桂
-# nan:jio̍k-kùi
-# zh-tw:肉桂
+#lzh: 桂
+#nan: jio̍k-kùi
+#zh-tw: 肉桂
+description:en: Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
 wikidata:en: Q204148
 wikipedia:en: https://en.wikipedia.org/wiki/Cinnamomum_cassia
 # 165 @2021-09-20
-
-# description:en:CINNAMOMUM VERUM, called true cinnamon tree or Ceylon cinnamon tree is a small evergreen tree belonging to the family Lauraceae, native to Sri Lanka.
 
 < en: cinnamon
 en: ceylon cinnamon
@@ -70607,6 +70605,7 @@ it: cannella di Ceylon
 ko: 실론계피나무
 la: cinnamomum verum
 nl: Ceylonkaneel
+description:en: CINNAMOMUM VERUM, called true cinnamon tree or Ceylon cinnamon tree is a small evergreen tree belonging to the family Lauraceae, native to Sri Lanka.
 wikidata:en: Q370239
 wikipedia:en: https://en.wikipedia.org/wiki/Cinnamomum_verum
 # 58 in 6 @2021-09-20
@@ -70810,23 +70809,27 @@ ur: میتھی
 vi: cỏ ca ri
 yi: באקסהארן
 zh: 胡芦巴
-#ach:haleuba
-#arz:حلبة
-#azb:چمن اوْتو
-#bho:मेथी
-#hsb:kozyradka
-#kab:tifidas
-#ku-arab:شەمبەلیک
-#lzh:胡盧巴
-#mai:मेथी
-#mad:klabhet
-#wuu:胡芦巴
+#ach: haleuba
+#arz: حلبة
+#azb: چمن اوْتو
+#bho: मेथी
+#hsb: kozyradka
+#kab: tifidas
+#ku-arab: شەمبەلیک
+#lzh: 胡盧巴
+#mai: मेथी
+#mad: klabhet
+#wuu: 胡芦巴
+agribalyse_proxy_food_code:en: 11077
+ciqual_proxy_food_code:en: 11077
+ciqual_proxy_food_name:en: Fenugreek, seed
+ciqual_proxy_food_name:fr: Fenugrec, graine
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.36
-ifct_food_code:en: C020
-ifct_food_name:en: Fenugreek leaves
-usda_ndb_code:en: 2019
-usda_ndb_name:en: Spices, fenugreek seed
+ifct_proxy_food_code:en: C020
+ifct_proxy_food_name:en: Fenugreek leaves
+usda_ndb_proxy_code:en: 2019
+usda_ndb_proxy_name:en: Spices, fenugreek seed
 wikidata:en: Q133205
 wikipedia:en: https://en.wikipedia.org/wiki/Fenugreek
 # fr:fenugrec has 171 products in 5 languages @2018-10-23
@@ -70840,6 +70843,8 @@ fr: feuille de fenugrec
 hr: list piskavice
 it: foglie di trigonella
 nl: fenegriekblad
+ifct_food_code:en: C020
+ifct_food_name:en: Fenugreek leaves
 wikidata:en: Q104054829
 #130 @2021-09-19
 
@@ -70869,11 +70874,15 @@ it: seme di fieno greco, semi di fieno greco
 la: Trigonellae foenugraeci semen
 nl: fenegriekzaad
 pl: nasiona kozieradki, nasiono kozieradki
+sv: bockhornsklöverfrö
+agribalyse_food_code:en: 11077
 ciqual_food_code:en: 11077
 ciqual_food_name:en: Fenugreek, seed
 ciqual_food_name:fr: Fenugrec, graine
 ifct_food_code:en: G026
 ifct_food_name:en: Fenugreek seeds
+usda_ndb_code:en: 2019
+usda_ndb_name:en: Spices, fenugreek seed
 wikidata:en: Q57659978
 #223 @2021-09-19
 
