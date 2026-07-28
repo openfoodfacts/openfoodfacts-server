@@ -659,13 +659,13 @@ it: gelatina
 ja: ゼラチン
 lt: želatina, želatinos
 pl: żelatyna, żelatyna spożywcza
+ciqual_food_code:en: 11007
+ciqual_food_name:fr: Gélatine, sèche
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 description:en: GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts.
 vegan:en: no
 vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Gelatin
-ciqual_food_code:en: 11007
-ciqual_food_name:fr: Gélatine, sèche
 
 < en: beef
 < en: gelatin
@@ -10117,11 +10117,11 @@ pt: carne de vaca alimentada com capim
 
 < en: beef
 en: pure beef
-fr: pur boeuf
 bg: чисто говеждо
 ca: res pura
 de: reines Rindfleisch
 es: res puro
+fr: pur boeuf
 it: manzo puro
 nl: puur rundvlees
 
@@ -10222,15 +10222,15 @@ it: manzo britannico
 
 < en: beef meat
 en: beef meat from france
-fr: viande bovine origine france
 ca: carn de res francès
 es: carne de res francesa
+fr: viande bovine origine france
 
 < en: beef meat
 en: halal beef meat
-fr: viande bovine halal
 ca: carn de res halal
 es: carne de res halal
+fr: viande bovine halal
 
 < en: beef meat
 fr: carpaccio de boeuf
@@ -10513,8 +10513,8 @@ it: polmone di manzo
 
 < en: beef meat
 en: beef udder
-fr: mamelle de boeuf
 de: Rindereuter
+fr: mamelle de boeuf
 it: mammella di manzo
 
 < en: beef
@@ -12637,10 +12637,9 @@ nl: varkensschenkel
 pt: perna de porco
 
 < en: pork meat
-fr: pièces de tête de porc, morceaux de tête de porc
+fr: pièces de tête de porc, morceaux de tête de porc, tête de porc
 ca: cap de porc
 es: cabeza de cerdo
-fr: tête de porc
 it: testa di maiale
 
 < en: pork meat
@@ -15384,15 +15383,15 @@ sv: vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fet
 
 < en: vegetable fat
 en: vegetable suet
-fr: suif végétal
 de: vegetarisches Suet
+fr: suif végétal
 hr: loj od povrća
 
 # see ingredients_processings.txt
 < en: vegetable suet
 en: non hydrogenated vegetable suet
-fr: suif végétal non hydrogéné
 de: ungehärteter vegetarischer Suet
+fr: suif végétal non hydrogéné
 hr: nehidrogenizirani biljni loj
 
 < en: vegetable fat
@@ -21172,8 +21171,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Scotch_whisky
 < en: Scotch whisky
 en: blended scotch whisky
 de: Blended Scotch Whisky
-fr: whisky écossais mélangé
 fi: skotlantilainen blended-viski
+fr: whisky écossais mélangé
 hr: miješani škotski viski
 it: whisky scozzese miscelato
 
@@ -22402,8 +22401,8 @@ sv: naturlig solrosoljearom
 < en: natural flavouring
 < en: natural pepper flavouring
 en: natural pepper flavouring with other natural flavourings
-fr: arôme naturel de poivre avec autres arômes naturels
 fi: luontainen pippuriaromi ja muut luontaiset aromit
+fr: arôme naturel de poivre avec autres arômes naturels
 
 < en: natural flavouring
 en: natural spice flavouring
