@@ -24289,6 +24289,7 @@ en: soft white wheat
 usda_ndb_code:en: 20075
 usda_ndb_name:en: Wheat, soft white
 
+< en: sprouted vegetable
 < en: wheat
 en: sprouted wheat
 de: Weizensprossen, Weizenkeimlinge
@@ -25489,6 +25490,7 @@ nn: økologisk bygg
 pt: cevada orgânica
 
 < en: barley
+< en: sprouted vegetable
 en: sprouted barley
 bg: прораснал ечемик
 da: spiret byg
@@ -26063,6 +26065,7 @@ it: chicchi di grano saraceno, grano saraceno in chicchi
 sr: крупа гречневая ядрица
 
 < en: buckwheat
+< en: sprouted vegetable
 en: sprouted buckwheat, buckwheat sprouts
 hr: proklijala heljda
 it: germogli di grano saraceno
@@ -26316,6 +26319,7 @@ pl: kasza jaglana, kaszy jaglanej
 ru: Пшённая каша
 
 < en: millet
+< en: sprouted vegetable
 en: sprouted millet
 de: gekeimte Hirse, Hirsekeimling
 es: millaje orgánado
@@ -27579,6 +27583,7 @@ it: farro integrale
 nl: volkoren spelt
 
 < en: spelt
+< en: sprouted vegetable
 en: sprouted spelt
 de: Dinkel-Sprossen, Dinkel Sprossen, Dinkelkeimlinge
 hr: proklijala pir
@@ -31167,6 +31172,7 @@ nl: rijst crème
 # ingredient/fr:crème-de-riz has 148 products in 10 languages @2018-12-19
 
 < en: rice
+< en: sprouted vegetable
 en: germinated rice, sprouted rice
 fr: riz germé
 hr: proklijala riža
@@ -37212,6 +37218,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Soybean
 # ingredient/nl:biologische-sojabonen has 1 product @2019-05-24
 
 < en: soya bean
+< en: sprouted vegetable
 en: sprouted soybeans
 de: Sojabohnensprossen
 fr: germes de soja, pousses de soja
@@ -51521,6 +51528,16 @@ wikipedia:en: https://en.wikipedia.org/wiki/Milk_substitute
 
 #########################################################################################
 #
+#                               SPROUTED VEGETABLES
+#
+##########################################################################################
+
+< en: vegetable
+en: sprouted vegetable
+nl: kiemgroente
+
+#########################################################################################
+#
 #                               LEAF VEGETABLES (Eurocode 2 8.10)
 #
 ##########################################################################################
@@ -60168,6 +60185,7 @@ usda_ndb_code:en: 11430
 usda_ndb_name:en: Radishes, oriental, raw
 
 < en: radish
+< en: sprouted vegetable
 en: sprouted radish seed
 usda_ndb_code:en: 11676
 usda_ndb_name:en: Radish seeds, sprouted, raw
@@ -63637,6 +63655,7 @@ en: mung bean powder
 zh: 緣豆粉
 
 < en: mung bean
+< en: sprouted vegetable
 en: mung bean sprout, mung bean seedlings
 ca: brot de soja verda
 cs: mungo klíčky
@@ -65223,6 +65242,7 @@ pl: mąka z czerwonej soczewicy, mąka z soczewicy czerwonej
 fr: lentillons
 
 < en: lentils
+< en: sprouted vegetable
 en: sprouted lentils
 de: gekeimte Linsen, gekeimte Linsensamen, Linsensprossen
 fr: lentilles germées
@@ -67344,16 +67364,13 @@ ciqual_food_name:en: Alphalfa seeds, raw
 ciqual_food_name:fr: Luzerne, graine
 
 < en: alfalfa seeds
+< en: sprouted vegetable
 en: sprouted alfalfa seeds, germinated alfalfa
 fr: Graines de Luzerne germées
 hr: proklijalo sjeme lucerne
 it: semi di erba medica germogliati
 ja: 糸もやし, アルファルファもやし
 pl: kiełki lucerny
-
-< en: sprouted alfalfa seeds
-en: raw sprouted alfalfa seeds
-it: semi di erba medica germogliati crudi
 ciqual_food_code:en: 15029
 ciqual_food_name:en: Alfalfa seeds, sprouted, raw
 ciqual_food_name:fr: Luzerne, graine germée
@@ -76278,6 +76295,7 @@ wikidata:en: Q26949
 wikipedia:en: https://en.wikipedia.org/wiki/Helianthus
 # en:sunflower has 16610 products @2018-10-15
 
+< en: sprouted vegetable
 < en: sunflower
 en: sprouted sunflower seeds
 it: semi di girasole germogliati
