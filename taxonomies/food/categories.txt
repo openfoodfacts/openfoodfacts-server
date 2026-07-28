@@ -37975,6 +37975,11 @@ en: Bruschetta breads
 fr: Pains pour bruschetta
 
 < en: Special breads
+en: Crumpets
+xx: Crumpets
+wikidata:en: Q1142029
+
+< en: Special breads
 en: English muffins
 de: Englische Muffins
 es: Muffins ingleses, Muffin inglés
@@ -45498,7 +45503,7 @@ ca: Patates xips
 de: Chips
 es: Chips fritos, papas fritas
 fi: Lastut, Sipsit
-fr: Chips, Chips de légumes
+fr: Chips
 hr: čips
 hu: Csipszek
 it: Patatine sottili, Patatine imbustate, Patatine croccanti
@@ -45518,6 +45523,10 @@ nutriscore_without_unprocessed_fruits_vegetables_legumes:en: yes
 < en: Crisps
 en: Extruded protein crisps
 fr: Chips de protéines extrudées
+
+< en: Crisps
+en: Vegetable crisps
+fr: Chips de légumes
 
 < en: Crisps
 en: Chickpea crisps
@@ -45680,7 +45689,7 @@ nl: Banana chips
 opposite:en: en:bananas, en: dried-bananas
 
 < en: Crisps
-en: Lentil Crisps
+en: Lentil crisps
 fr: Chips de lentilles
 nl: Linzenchips
 
@@ -56245,6 +56254,12 @@ nl: Babycompotes
 en: Meringue roulades
 
 < en: Desserts
+en: Sweet stuffed pastas
+fr: Pâtes farcies sucrées
+description:en: Pastas with a sweet filling such as chocolate, caramel or a fruit preparation.
+incompatible_with:en: categories:en:stuffed-pastas
+
+< en: Desserts
 en: Chocolate desserts
 bg: Шоколадови десерти
 ca: Postres de xocolata
@@ -62650,7 +62665,6 @@ protected_name_type:en: pdo
 wikidata:en: Q3142825
 
 ############ ITALIAN OLIVE OILS
-
 
 < en: Olive oils
 en: Olive oils from Italy, Italian olive oils, Olive oil from Italy, Italian olive oil
@@ -72878,11 +72892,38 @@ season_in_country_fr:en: 6,7,8,9
 < en: Peaches
 en: Platerines
 es: Platerinas
-fr: Pêches plates, Platerines, Pêche plate, Platerine
+fr: Nectarines plates, Platerines, Nectarine plate, Platerine
 hr: Platerine
 la: Prunus persica var. platerina
 nl: Wilde perziken, Platte perziken
 sales_format:en: package, weight
+
+< en: Peaches
+en: Flat peaches, Saturn peaches, Donut peaches, Doughnut peaches, Paraguayo peaches
+ar: دراق مبلط
+ca: Préssec pla
+cs: Plochá broskev
+de: Plattpfirsich
+es: Paraguaya
+et: Lamevirsik
+fa: هلو انجیری
+fi: Lattapersikka
+fr: Pêches plates, Pêche plate
+gl: Pexego chato
+hy: Թզադեղձ
+it: Pesca tabacchiera
+ja: バントウ
+ko: 납작 복숭아
+la: Prunus persica var. platycarpa
+ru: Инжирный персик
+sl: Ploščata breskev
+sr: Пљосната бресква
+sv: Paraguayo
+tg: Анҷиршафтолу
+vi: Bàn đào
+zh: 蟠桃
+sales_format:en: package, weight
+wikidata:en: Q2702783
 
 < en: Peaches
 en: Peach pulp and peel
@@ -101483,6 +101524,7 @@ hr: Punjene tjestenine
 hu: Töltött tészták
 it: Pasta farcita, pasta ripiena
 nl: Gevulde pastas
+incompatible_with:en: categories:en:sweet-stuffed-pastas
 
 < en: Stuffed Pastas
 en: Tortellini

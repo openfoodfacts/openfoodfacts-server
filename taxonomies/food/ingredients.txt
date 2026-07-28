@@ -253,7 +253,7 @@ en: caramel chocolate preparation
 hr: karamelno čokoladni pripravak
 it: preparazione di cioccolato al caramello
 
-# <en:compound
+#< en: compound
 en: salted butter caramel
 de: gesalzene Karamellbutter, gesalzenes Butter-Karamell
 es: caramelo a la mantequilla salada
@@ -266,14 +266,14 @@ hu: sós vajkaramella, vajkaramell
 it: caramello di burro salato
 nl: gekarameliseerde gezouten boter, karamel en gezouten boter
 
-# <en:compound
+#< en: compound
 fr: éclats de caramel
 de: Caramelstücke, Karamellstücke, Karamellsplitter
 fi: toffeepala
 sv: karamellbitar
 # ingredient/fr:éclats-de-caramel has 120 products in 3 languages @2019-03-09
 
-# <en:compound
+#< en: compound
 fr: éclats de caramel au beurre salé
 # ingredient/fr:éclats-de-caramel-au-beurre-salé has 53 products in 2 languages @2019-02-21
 # éclats de caramel au beurre salé (sucre, sirop de glucose, crème fraîche de Normandie, beurre salé , lait écrémé en poudre, fleur de sel de Guérande, caramel (sirop de glucose-fructose, eau))
@@ -2624,7 +2624,7 @@ it: Burro di panna dolce
 wikidata:en: Q26882140
 # ingredient/sweet-cream-butter has 16 products in english @2019-07-10
 
-# <en:compound
+#< en: compound
 < en: butter
 fr: poudre au beurre, poudre de beurre
 ca: mantega en pols
@@ -3613,7 +3613,7 @@ ciqual_food_name:en: Condensed milk, with sugar, whole
 ciqual_food_name:fr: Lait concentré sucré, entier
 # ingredient/fr:lait-entier-condensé-sucré has 37 products in 4 languages @2019-04-16
 
-# <en:compound
+#< en: compound
 # category:en: en:Milk jams
 < en: sweetened condensed milk
 en: dulce de leche, milk jam
@@ -4638,7 +4638,11 @@ fr: produit de lactosérum, produit de petit-lait, produit à base de lactoséru
 hr: mliječni derivat
 hu: tejsavó alapú termék
 it: derivati del siero di latte, preparazione del siero di latte
+nl: weiproduct, wei-product
 pl: produkt serwatkowy
+pt: produto de soro de leite
+ro: produs din zer
+sk: srvatkový výrobok
 sv: vassleprodukt
 nova:en: 4
 # ingredient/fr:produit-de-lactosérum has 22 products in 4 languages @2019-02-07
@@ -6031,7 +6035,7 @@ es: queso fresco desnatado
 hr: obrani meki bijeli sir
 it: formaggio bianco morbido scremato
 
-# <en:compound
+#< en: compound
 < en: cheese
 en: melted cheese
 bg: топено сирене
@@ -8874,7 +8878,7 @@ description:nl: De Bleu de Gex AOP is een Franse kaas, geproduceerd in de streek
 wikidata:en: Q1231078
 wikipedia:en: https://en.wikipedia.org/wiki/Bleu_de_Gex
 
-# <en:compound
+#< en: compound
 < en: cheese
 fr: base aromatisante fromage
 ca: base aromatitzant de formatge
@@ -8882,7 +8886,7 @@ es: base aromatizante de queso
 nl: kaassmaak
 # fr:base-aromatisante-fromage has 28 products @2018-10-27
 
-# <en:compound
+#< en: compound
 < en: cheese
 fr: préparation fromagère
 ca: preparació de formatges
@@ -9612,7 +9616,7 @@ en: finegrained non-iodized sea salt
 hr: sitna morska sol nejodirana
 
 < en: salt
-# <en:compound
+#< en: compound
 en: iodised salt, iodized salt
 ar: ملح معالج باليود
 bg: йодирана сол, сол йодирана
@@ -9649,7 +9653,7 @@ description:en: IODISED SALT - is salt mixed with a minute amount of various sal
 wikidata:en: Q902318
 wikipedia:en: https://en.wikipedia.org/wiki/Iodised_salt
 
-# <en:compound
+#< en: compound
 en: curing salt, curing salts
 ar: ملح معالج
 de: pökelsalz
@@ -9663,7 +9667,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Curing_salt
 # usage:en:Curing Salt (Salt, Preservative: Sodium Nitrite)
 # ingredient/en:curing-salt has 20 products in 4 languages @2020-06-08
 
-# <en:compound
+#< en: compound
 < en: curing salt
 en: nitrite curing salt, nitrite salt
 bg: нитритна сол
@@ -9703,7 +9707,7 @@ sv: joderat havssalt, joderad havssalt
 
 # mixes?
 
-# <en:compound
+#< en: compound
 < en: mixed spices
 en: Garlic salt
 bg: чеснова сол
@@ -9718,7 +9722,7 @@ wikidata:en: Q1935156
 wikipedia:en: https://en.wikipedia.org/wiki/Garlic_salt
 # mainIngredient:en:salt
 
-# <en:compound
+#< en: compound
 < en: mixed spices
 en: Celery salt
 ca: sal d'api
@@ -9830,9 +9834,26 @@ it: preparazione di carne di manzo essiccata
 # see ingredients_processings.txt
 < en: meat
 en: mechanically separated meat
+cs: strojně oddělené maso
+da: maskinsepareret kød
+de: Separatorenfleisch, mechanisch separiertes Fleisch
+el: μηχανικά διαχωρισμένο κρέας
+es: carne separada mecánicamente
+et: mehaaniliselt eraldatud liha
+fi: mekaanisesti erotettu liha
 fr: viande séparée mécaniquement, viandes séparées mécaniquement
 hr: mehanički otkošeno meso
+hu: gépi úton szétválasztott hús
 it: carne separata meccanicamente
+lt: mechaniškai atskirta mėsa
+lv: mehāniski atdalīta gaļa
+nl: machinaal gescheiden vlees, separatorvlees
+pl: mięso oddzielone mechanicznie, MOM
+pt: carne separada mecanicamente
+ro: carne separată mecanic
+sk: strojovo oddelené mäso
+sl: mehansko ločeno meso
+sv: maskinurbenat kött
 nova:en: 4
 # We also have a "mechanically separated" ingredients_processing, but it currently fails in some languages
 # like French where we can have "viande séparée mécaniquement de poulet" or "viande de poulet séparée mécaniquement"
@@ -10353,7 +10374,7 @@ fr: préparation viande hachée de boeuf
 ca: preparació de carn molta de res
 es: preparación de carne molida de res
 
-# <en:compound
+#< en: compound
 fr: préparation de viande de boeuf cuite
 
 < en: beef meat
@@ -12743,7 +12764,7 @@ fr: Peau de porc
 hr: svinjska koža
 it: pelle di maiale
 
-# <en:compound
+#< en: compound
 < en: pork meat
 en: stewed pork
 bg: задушено свинско месо
@@ -13660,7 +13681,7 @@ fr: jus concentré d'os et de viande de bœuf, jus concentré d'os et de viande 
 
 # SAUSAGES
 
-# <en:compound
+#< en: compound
 # category:en:sausages
 < en: meat
 en: sausage, sausages
@@ -13696,7 +13717,7 @@ ciqual_food_code:en: 30150
 ciqual_food_name:en: Merguez sausage, raw
 ciqual_food_name:fr: Merguez, crue
 
-# <en:compound
+#< en: compound
 < en: meat
 en: botifarra
 ca: botifarra
@@ -14283,7 +14304,7 @@ pl: skrobia ze słodkich ziemniaków, skrobia z batatów, skrobia ze słodkiego 
 
 < en: arrowroot
 < en: starch
-en: arrowroot power, arrowroot starch, arrowroot flour
+en: arrowroot powder, arrowroot starch, arrowroot flour
 de: Pfeilwurzelstärke, Pfeilwurzelmehl
 description:en: Arrowroot starch is a starch obtained from the rhizomes (rootstock) of several tropical plants, traditionally Maranta arundinacea, but also Florida arrowroot from Zamia integrifolia, and tapioca from cassava (Manihot esculenta), which is often labelled as arrowroot.
 usda_ndb_code:en: 20003
@@ -15331,7 +15352,7 @@ hr: nehidrogenizirani biljni loj
 < en: vegetable fat
 fr: matières grasses végétales de colza, matières grasses de colza
 
-# <en:compound
+#< en: compound
 < en: vegetable fat
 fr: préparation de matières grasses végétales
 fi: kasvirasvavalmiste
@@ -20686,7 +20707,7 @@ nl: rode port
 wikidata:en: Q26879196
 # fr:port-rouge has 72 products in 2 languages @2018-10-29
 
-# <en:compound ingredient
+#< en: compound ingredient
 < en: red port
 en: modified red port
 de: modifizierter roter Portwein
@@ -21398,7 +21419,7 @@ ro: Arome artificiale, aromă artificială
 ru: Искусственный ароматизатор
 th: แต่งกลิ่นสังเคราะห์
 
-# <en:compound
+#< en: compound
 < en: flavouring
 en: barbecue flavouring
 de: Grillaroma
@@ -23923,9 +23944,22 @@ it: estruso di cereal
 
 < en: cereal
 en: hydrolysed cereal, hydrolysed cereals
+bg: хидролизирани зърнени храни
+cs: hydrolyzované cereálie
+da: hydrolyseret korn
+de: hydrolysiertes Getreide
+es: cereal hidrolizado, cereales hidrolizados
+fi: hydrolysoitu vilja, hydrolysoidut viljat
 fr: céréales hydrolysées
 hr: hidrolizirane žitarice
-it: idrolizzato
+hu: hidrolizált gabona, hidrolizált gabonafélék
+it: cereali idrolizzati, idrolizzato di cereali
+nl: gehydrolyseerd graan, gehydrolyseerde granen
+pl: zboża hydrolizowane, hydrolizowane zboża
+pt: cereal hidrolisado, cereais hidrolisados
+ro: cereale hidrolizate
+sk: hydrolyzované obilniny
+sv: hydrolyserat spannmål, hydrolyserade spannmål
 nova:en: 4
 
 < en: cereal
@@ -23979,10 +24013,10 @@ en: cereal with cocoa
 hr: žitarica s kakaom
 it: cereali con cacao
 
-# <en:compound
+#< en: compound
 fr: céréales biscuitées
 
-# <en:compound
+#< en: compound
 en: cereal crispies
 de: Getreide Crispies
 fi: viljamuro
@@ -23992,7 +24026,7 @@ hu: gabonapehely, gabonapelyhek
 it: crispies di cereal
 
 #probably more for mixed cereals
-# <en:compound
+#< en: compound
 en: crunchy cereals
 de: knusprige Cerealien
 el: Τραγανοί κόκκοι δημητριακών
@@ -24000,7 +24034,7 @@ es: cereales crujientes
 hr: hrskave žitarice
 it: Cereali croccante
 
-# <en:compound
+#< en: compound
 fr: billes de céréales
 # usage:fr:billes de céréales 2.7% (farine de riz 2.3%, sucre, sel, beurre de cacao)
 
@@ -24057,10 +24091,8 @@ usda_ndb_name:en: Sorghum flour, whole-grain
 
 < en: cereal
 en: triticale
+xx: triticale
 de: Triticale
-es: triticale
-hr: tritikale
-it: triticale
 pl: pszenżyto, pszenżyta
 usda_ndb_code:en: 20069
 usda_ndb_name:en: Triticale
@@ -25316,7 +25348,7 @@ fr: farine de blé amidonnier
 hr: emmer brašno
 it: farina di farro, farina di grano farro
 
-# <en:compound
+#< en: compound
 fr: préparation pain d'épices
 likely_allergens:en: en:gluten
 # usage:fr:préparation pain d'épices 7,8% [farine de seigle, épices (cannelle, coriandre, anis), caramel (sirop de glucose), maltodextrine, gluten de blé]
@@ -26898,7 +26930,7 @@ en: raw oat bran
 usda_ndb_code:en: 20033
 usda_ndb_name:en: Oat bran, raw
 
-# <en:compound
+#< en: compound
 en: oat milk
 ar: حليب الشوفان
 bg: овесено мляко
@@ -26926,7 +26958,7 @@ zh: 燕麦奶
 wikidata:en: Q20972637
 #28 @2021-09-22
 
-# <en:compound
+#< en: compound
 en: oat base
 de: haferbasis
 es: base de avena
@@ -28056,7 +28088,7 @@ vegetarian:en: yes
 wikidata:en: Q36465
 wikipedia:en: https://en.wikipedia.org/wiki/Flour
 
-# <en:compound
+#< en: compound
 < en: flour
 en: flour blend, flour mix
 bg: смес от брашна
@@ -28936,8 +28968,22 @@ usda_ndb_name:en: Soy flour, low-fat
 
 < en: flour
 en: modified flour
+bg: модифицирано брашно
+cs: modifikovaná mouka
+da: modificeret mel
+de: modifiziertes Mehl
+es: harina modificada
+fi: muunnettu jauho
 fr: farine modifiée
+hr: modificirano brašno
+hu: módosított liszt
 it: farina modificata
+nl: gemodificeerd meel
+pl: mąka modyfikowana
+pt: farinha modificada
+ro: făină modificată
+sk: modifikovaná múka
+sv: modifierat mjöl
 nova:en: 4
 
 < en: corn
@@ -30024,7 +30070,7 @@ pl: białko brązowego ryżu
 en: concentrated rice protein, concentrated rice proteins
 it: concentrato di proteine del riso, concentrato di proteine di riso, concentrato di proteina del riso, concentrato di proteina di riso
 
-# <en:compound
+#< en: compound
 en: rice base
 de: Reisbasis
 es: base de arroz
@@ -31927,7 +31973,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Powdered_sugar
 
 # description:en:VANILLA SUGAR is made of sugar and vanilla beans or sugar mixed with vanilla extract.
 
-# <en:compound
+#< en: compound
 < en: sugar
 en: vanilla sugar
 bg: ванилова захар
@@ -35048,6 +35094,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Whey_protein
 < en: whey protein
 en: concentrated whey protein
 bg: протеинов концентрат от млечна суроватка
+ca: concentrat de proteïna de sèrum de llet
+cs: koncentrát syrovátkových bílkovin
 da: koncentreret valleprotein, valleproteinkoncentrat
 de: konzentriertes Molkeprotein, Molkeneiweißkonzentrat, Molkeneiweiß-Konzentrat
 es: concentrado de proteína de suero
@@ -35056,7 +35104,11 @@ fr: concentré de protéines de lactosérum, concentré de protéines de sérum
 hr: koncentrat bjelančevina sirutke
 hu: sűrített savófehérje, sűrített tejsavófehérje
 it: concentrato di proteine del siero di latte, Proteine del siero di latte concentrate
+nl: geconcentreerd wei-eiwit, wei-eiwitconcentraat
 pl: koncentrat białek serwatkowych, koncentrat białka serwatkowego, koncentrat białek serwatki
+pt: concentrado de proteína de soro de leite
+ro: concentrat de proteine din zer
+sk: koncentrát srvátkových bielkovín
 sv: vassleproteinkoncentrat
 nova:en: 4
 
@@ -35630,7 +35682,7 @@ it: barretta di cacao
 
 # description:en:CHOCOLATE is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.
 
-# <en:compound
+#< en: compound
 # <en:category:en:Chocolates
 # <en:contains:en:cocoa butter
 # <en:contains:en:cocoa mass
@@ -36156,7 +36208,7 @@ comment:en: Milka marketing
 < en: milk chocolate
 fr: chocolat au lait en poudre
 
-# <en:compound
+#< en: compound
 < en: milk chocolate
 fr: barre de chocolat au lait
 
@@ -36271,7 +36323,7 @@ ciqual_food_name:fr: Sauce au chocolat
 
 # chocolate covered ingredients
 
-# <en:compound
+#< en: compound
 de: Schokolierte Cornflakes
 fr: cornflakes au chocolat
 nl: cornflakes omhuld met chocolade
@@ -37187,9 +37239,9 @@ zh: 大豆
 # sco:Soya bean
 allergens:en: en:soybeans
 # ingredient/soy-beans 22.545 in 34 @2021-08-22
-ciqual_proxy_food_code:en: 20901
-ciqual_proxy_food_name:en: Soybean, whole grain
-ciqual_proxy_food_name:fr: Soja, graine entière
+ciqual_food_code:en: 20901
+ciqual_food_name:en: Soybean, whole grain
+ciqual_food_name:fr: Soja, graine entière
 description:en: SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia.
 description:de: Die Sojabohne (Glycine max), häufig auch einfach als Soja bezeichnet, ist eine Pflanzenart aus der Unterfamilie Schmetterlingsblütler. Als Nahrung ist die Eiweißqualität des Sojaproteins mit der von tierischem Eiweiß vergleichbar, was die Sojabohne von anderen Pflanzen abhebt.
 description:es: Glycine max, llamada popularmente soya o soja, es una especie de la familia Fabaceae. El grano de soya y sus subproductos (aceite y harina de soya) se utilizan en la alimentación humana, del ganado y aves.
@@ -37197,20 +37249,10 @@ description:fr: Le soja, (soya) (Glycine max), est une espèce de plante annuell
 description:nl: De sojaboon is een peulvrucht, afkomstig van de sojaplant (Glycine max), die als grondstof voor veel sojaproducten wordt gebruikt.
 description:pt: A soja (Glycine max), também conhecida como feijão-soja e feijão-chinês, é uma planta pertence à família Fabaceae
 eurocode_2_group_3:en: 7.10.50
-usda_ndb_proxy_code:en: 16108
-usda_ndb_proxy_name:en: Soybeans, mature seeds, raw
-wikidata:en: Q11006
-wikipedia:en: https://en.wikipedia.org/wiki/Soybean
-
-< en: soya bean
-en: Whole soybean grain
-fr: Soja graine entière
-it: chicchi di soia integrali
-ciqual_food_code:en: 20901
-ciqual_food_name:en: Soybean, whole grain
-ciqual_food_name:fr: Soja, graine entière
 usda_ndb_code:en: 16108
 usda_ndb_name:en: Soybeans, mature seeds, raw
+wikidata:en: Q11006
+wikipedia:en: https://en.wikipedia.org/wiki/Soybean
 
 #<en:soya bean
 #en:organic soya bean
@@ -37273,6 +37315,8 @@ fi: vihreä soijapapu
 fr: soja vert
 hr: zeleno sojino zrno
 it: fagioli di soia verdi
+usda_ndb_code:en: 11450
+usda_ndb_name:en: Soybeans, green, raw
 
 #process:en: en:paste
 < en: soya bean
@@ -37326,7 +37370,7 @@ sv: sojabönfiber, sojabönfibrer
 
 # fr:Jus de soja is a compound ingredient:soybean + water
 
-# <en:compound
+#< en: compound
 en: soy base, soya base
 da: sojabase
 de: sojabasis
@@ -37382,6 +37426,9 @@ hu: edamame szója, hámozott szójabab
 it: edamame
 ja: 枝豆, えだ豆, えだまめ
 nl: edamamebonen, edamame
+usda_ndb_code:en: 11211
+usda_ndb_name:en: Edamame, frozen, unprepared
+usda_ndb_process:en: en:frozen, en:unprepared
 wikidata:en: Q1377879
 wikipedia:en: https://en.wikipedia.org/wiki/Edamame
 
@@ -38447,7 +38494,7 @@ en: forest berries paste
 hr: pasta od šumskog-voća
 it: pasta di frutti di bosco
 
-# <en:compound
+#< en: compound
 < en: berries
 en: berry blend, berry mix
 de: Beerenmischung
@@ -38459,7 +38506,7 @@ sv: bärblandning
 # usage:en:berry blend (strawberries, blueberries, blackberries, black currants, raspberries)
 # ingredient/fr:melange-de-fruits-rouges has 8 products in 2 languages @2020-06-08
 
-# <en:compound
+#< en: compound
 en: seed and berry mix
 de: Samen und Beeren Mix
 fi: siemen-marjaseos
@@ -38469,7 +38516,7 @@ it: miscela di semi e bacche
 sv: frö-bärblandning
 # usage:fi:siemen-marjaseos: auringonkukansiemen, kurpitsansiemen, omena, vadelma.
 
-# <en:compound
+#< en: compound
 < en: fruit
 < en: nut
 en: Fruits and nuts, nuts and fruits, fruits & nuts, nuts & fruits
@@ -38624,6 +38671,9 @@ pl: sok z jagód, soku z jagód, sok jagodowy
 
 # don't put under fruit juice, because concentrate fruit juices that are not reconstituted to 100% of their initial volume don't count for the nutriscore
 en: fruit juice concentrate
+bg: концентрат от плодов сок
+ca: concentrat de suc de fruites
+cs: ovocný koncentrát, koncentrát ovocné šťávy
 da: Frugtjuicekoncentrat
 de: Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat
 es: Jugo de frutas concentrado
@@ -38631,10 +38681,14 @@ fi: hedelmämehutiiviste
 fr: jus concentré de fruits, jus de fruits concentrés
 he: תרכיז מיץ פרות, תרכיז מיץ פירות, תרכיז מיצי פירות
 hr: koncentrirani voćni sok
+hu: gyümölcslé-koncentrátum, sűrített gyümölcslé
 it: Concentrato di succo di frutta
 nl: vruchtensapconcentraat
 pl: Koncentrat soku owocowego, zagęszczone soki owocowe
+pt: concentrado de sumo de fruta, concentrado de suco de fruta
+ro: concentrat de suc de fructe
 ru: Концентрат фруктового сока
+sk: koncentrát ovocnej šťavy
 sv: fruktjuicekoncentrat
 nova:en: 4
 
@@ -38658,7 +38712,7 @@ sv: fruktjuice från koncentrat, juicer framställd av koncentrat, juice från k
 < en: fruit juice from concentrate
 fr: jus de fruits rouges à base de concentrés
 
-# <en:compound
+#< en: compound
 < en: fruit
 < en: purée
 fr: purée de fruits, purées de fruits
@@ -41650,7 +41704,7 @@ pl: błonnik jabłkowy
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/apple-fiber
 # 106 products in 7 languages @2018-10-04
 
-# <en:compound
+#< en: compound
 fi: omenavalmiste
 fr: préparation à base de pommes
 sv: äpple preparat
@@ -51433,7 +51487,7 @@ sv: grönsaksjuicekoncentrat
 fr: extrait de légumes, extraits de légumes
 fi: vihannesuute
 
-# <en:compound
+#< en: compound
 < en: vegetable
 en: vegetable blend, vegetable mix, mixed vegetables
 bg: паприкаш
@@ -51605,7 +51659,6 @@ usda_ndb_name:en: Chrysanthemum, garland, raw
 ##########################################################################################
 
 #comment:en: Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
-
 < en: leaf vegetable
 en: endive, Endives
 ca: endívia
@@ -51647,7 +51700,7 @@ zh: 苦苣
 # pcd:indife
 # scn:nirvia
 # sr-ec:ендивија
-comment:en: Endive in english is different from endive in french.
+comment:en: Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root. Endive in english is different from endive in french.
 description:en: Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
 ecobalyse_labels_en_organic:en: 6842d570-6b53-49f3-ba9c-984b55e40171
@@ -51675,7 +51728,65 @@ it: indivia verde
 ciqual_food_code:en: 20163
 ciqual_food_name:en: Green endive, raw
 
-# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
+###################################################################################################
+#
+#                                Dock
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: dock
+la: Rumex
+description:en: Dock (genus Rumex, especially curly dock — Rumex crispus — and broad-leaved dock — Rumex obtusifolius) is a wild edible plant. Young leaves have a tart, lemony, slightly sour flavor thanks to oxalic acid — similar to sorrel but a bit milder. As leaves mature they get tougher and more bitter/astringent. Young leaves: eaten raw in salads, or added to soups, stews, and sautés like spinach.; Older leaves: usually cooked (boiled or braised) to mellow the sourness and soften the texture.
+usda_ndb_code:en: 11616
+usda_ndb_name:en: Dock, raw
+
+###################################################################################################
+#
+#                                Drumstick leaves
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: drumstick leaves
+description:en: Small, oval-shaped leaflets of the moringa tree (Moringa oleifera), sometimes called the horseradish tree or ben tree. The leaves grow in clusters on the branches, often described as feathery or fern-like in arrangement. They're a popular vegetable in South Asian, Southeast Asian, and African cuisines. Added to salads, or cooked briefly like spinach — sautéed, added to soups, dals, or stir-fries.
+usda_ndb_code:en: 11222
+usda_ndb_name:en: Drumstick leaves, raw
+
+###################################################################################################
+#
+#                                Grape leaves
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: grape leaf, grape leaves
+description:en: Grape leaves (also called vine leaves) are the young, tender leaves of the grape plant (Vitis vinifera), used as a vegetable or wrap in Mediterranean, Middle Eastern, Balkan, and Caucasian cooking rather than eaten as a leafy green on their own. Slightly tart, earthy, a bit lemony — this comes mostly from the way they're brined or cooked (often with lemon juice).
+usda_ndb_code:en: 11974
+usda_ndb_name:en: Grape leaves, raw
+
+###################################################################################################
+#
+#                                Fiddlehead fern
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: fiddlehead fern
+la: Matteuccia struthiopteris
+description:en: Fiddlehead ferns are the tightly coiled, immature fronds of certain fern species, harvested in early spring before they unfurl. They're named for their resemblance to the curled end (scroll) of a fiddle or violin. Most common edible variety: Ostrich fern (Matteuccia struthiopteris) is the safest and most widely eaten species. Not all fern fiddleheads are edible — some are toxic, so identification matters. Often described as a cross between asparagus, green beans, and a slightly nutty, grassy taste. Fiddleheads must be cooked thoroughly (boiled or steamed for several minutes, then sautéed if desired) before eating. Raw or undercooked fiddleheads have caused foodborne illness outbreaks — they can carry bacteria or contain compounds that cause nausea, cramps, and diarrhea if not properly prepared.
+usda_ndb_2_code:en: 11996
+usda_ndb_2_name:en: Fiddlehead ferns, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, en:unprepared
+usda_ndb_code:en: 11995
+usda_ndb_name:en: Fiddlehead ferns, raw
+
+< en: leaf vegetable
+en: firewood leaf, firewoord leaves
+la: Chamaenerion angustifolium, Epilobium angustifolium
+description:en: Fireweed (Chamaenerion angustifolium, also called Epilobium angustifolium) is a tall wildflower with bright pink-purple flower spikes, common in northern temperate regions. Young leaves, picked before the plant flowers, can be eaten raw in salads or cooked like spinach. As the plant matures, the leaves get tougher and more bitter, so timing matters. Fireweed has a mild laxative effect in some people if eaten in quantity, so it's usually eaten in modest amounts rather than as a main dish.
+usda_ndb_code:en: 11985
+usda_ndb_name:en: Fireweed, leaves, raw
 
 < en: leaf vegetable
 en: radicchio
@@ -51704,6 +51815,7 @@ sv: radicchiosallad, rosensallat, rosésallat
 # en-gb:radicchio
 # pt-br:radicchio
 # vec:radicio
+description:en: RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
 eurocode_2_group_3:en: 8.10.10
 usda_ndb_code:en: 11952
 usda_ndb_name:en: Radicchio, raw
@@ -51972,6 +52084,15 @@ usda_ndb_name:en: Lettuce, iceberg (includes crisphead types), raw
 wikidata:en: Q1310886
 # 357 in 10 @2021-10-08
 
+< en: iceberg lettuce
+en: frillice iceberg lettuce, frillice lettuce
+sv: krispsallad, kripsallad
+description:en: Frillice iceberg lettuce is a cross of curly endive and iceberg lettuce, with the taste and texture of iceberg and the frilly top of the curly endive.
+
+< en: frillice iceberg lettuce
+en: green frillice iceberg lettuce
+sv: grön krispsallad
+
 < en: lettuce
 fr: jeunes pousses de laitue verte
 #20 in fr @2021-10-05
@@ -52142,6 +52263,29 @@ it: concentrato di bietola
 < en: chard
 en: red chard
 sv: röd mangold
+
+###################################################################################################
+#
+#                                Potherb
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: potherb
+description:en: The young, tender leaves of genus Corchorus (mainly Corchorus olitorius and Corchorus capsularis) are cooked and eaten as a green vegetable, similar to spinach or amaranth greens. When cooked, the leaves release a mucilaginous (slightly slimy) texture, somewhat like okra — this is prized in many cuisines for thickening soups and stews.
+usda_ndb_code:en: 11231
+usda_ndb_name:en: Jute, potherb, raw
+
+###################################################################################################
+#
+#                                Pumpkin leaves
+#
+###################################################################################################
+
+< en: leaf vegetable
+en: pumpkin leaves, pumpkin leaf
+usda_ndb_code:en: 11418
+usda_ndb_name:en: Pumpkin leaves, raw
 
 ###################################################################################################
 #
@@ -52433,6 +52577,7 @@ de: Kresse
 fr: Cresson
 hr: kres
 it: crescione
+sv: krasse
 eurocode_2_group_3:en: 8.10.30
 wikipedia:en: https://en.wikipedia.org/wiki/Cress
 
@@ -52469,6 +52614,7 @@ nl: waterkers
 pt: agrião
 ru: Брункресс
 sr: Поточарка
+sv: vattenkrasse, källfräne
 tr: Su teresi
 vi: Cải xoong
 zh: 西洋菜
@@ -52577,6 +52723,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/Garden_cress
 # 8 in 4 @2021-10-04
 
 < en: leaf vegetable
+en: sweet potato leaves
+usda_ndb_code:en: 11505
+usda_ndb_name:en: Sweet potato leaves, raw
+
+< en: leaf vegetable
+en: taro leaves
+description:en: Across the Pacific and Caribbean, taro leaves show up in dishes like callaloo, and in parts of Asia and Africa they're simmered in coconut-based curries or soups. Raw taro leaves are toxic due to calcium oxalate crystals, so they need thorough cooking.
+usda_ndb_code:en: 11520
+usda_ndb_name:en: Taro leaves, raw
+
+< en: leaf vegetable
 en: vine leaf, vine leaves
 bg: лозови листа
 de: Weinblätter
@@ -52665,17 +52822,10 @@ zh: 西洋蒲公英
 ciqual_food_code:en: 20038
 ciqual_food_name:en: Dandelion, raw
 ciqual_food_name:fr: Pissenlit, cru
-#100 @2021-10-06
 eurocode_2_group_3:en: 8.10.44
-
-< en: lettuce
-en: frillice iceberg lettuce, frillice lettuce
-sv: krispsallad, kripsallad
-description:en: Frillice iceberg lettuce is a cross of curly endive and iceberg lettuce, with the taste and texture of iceberg and the frilly top of the curly endive.
-
-< en: frillice iceberg lettuce
-en: green frillice iceberg lettuce
-sv: grön krispsallad
+usda_ndb_code:en: 11207
+usda_ndb_name:en: Dandelion greens, raw
+#100 @2021-10-06
 
 ###################################################################################################
 #
@@ -52987,50 +53137,30 @@ zh: 香芹
 # vls:perselle
 # xmf:მაკინდოლი
 # yue:番茜
-ciqual_proxy_food_code:en: 11014
-ciqual_proxy_food_name:en: Parsley, fresh
-ciqual_proxy_food_name:fr: Persil, frais
+ciqual_food_code:en: 11014
+ciqual_food_name:en: Parsley, fresh
+ciqual_food_name:fr: Persil, frais
 description:en: PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
 eurocode_2_group_2:en: 8.10
 eurocode_2_group_3:en: 8.10.60
 ifct_food_code:en: C028
 ifct_food_name:en: Parsley
-usda_ndb_proxy_code:en: 11297
-usda_ndb_proxy_name:en: Parsley, fresh
+usda_ndb_2_code:en: 11625
+usda_ndb_2_name:en: Parsley, freeze-dried
+usda_ndb_2_process:en: en:freeze-dried
+usda_ndb_3_code:en: 2029
+usda_ndb_3_name:en: Spices, parsley, dried
+usda_ndb_3_process:en: en:dried
+usda_ndb_code:en: 11297
+usda_ndb_name:en: Parsley, fresh
 wikidata:en: q65522500
 # plant: wikidata:en:q25284
 wikipedia:en: https://en.wikipedia.org/wiki/parsley
 # en:22363 in 51 @2021-09-16
 
 < en: parsley
-en: fresh parsley
-bg: свеж магданоз
-fr: persil frais
-hr: svježi peršin
-it: prezzemolo fresco
-ciqual_food_code:en: 11014
-ciqual_food_name:en: Parsley, fresh
-ciqual_food_name:fr: Persil, frais
-usda_ndb_code:en: 11297
-usda_ndb_name:en: Parsley, fresh
-
-< en: parsley
 en: flatleaf parsley
 it: prezzemolo a foglia piatta
-
-#processing:en: en:dehydrated
-< en: parsley
-en: dehydrated parsley
-de: Petersilie getrocknet
-es: perejil deshidratado
-fi: kuivattu persilja
-fr: persil déshydraté, persil séché
-it: prezzemolo essiccato
-nl: gedehydrateerde peterselie
-ru: зелень петрушки сушёная
-usda_ndb_code:en: 2029
-usda_ndb_name:en: Spices, parsley, dried
-# fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
 
 #processing:en: en:leaf
 #<en:parsley
@@ -53846,6 +53976,9 @@ ciqual_food_name:fr: Chou frisé, cru
 ecobalyse:en: curly-kale-fr
 ecobalyse_labels_en_organic:en: curly-kale-organic
 eurocode_2_group_3:en: 8.15.55
+usda_ndb_2_code:en: 11235
+usda_ndb_2_name:en: Kale, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, en:unprepared
 usda_ndb_code:en: 11233
 usda_ndb_name:en: Kale, raw
 wikidata:en: Q45989
@@ -54405,16 +54538,6 @@ tr: rezene
 uk: фенхель
 ur: سونف
 zh: 小茴香
-ciqual_food_code:en: 20028
-ciqual_food_name:en: Fennel, raw
-ciqual_food_name:fr: Fenouil, cru
-description:en: FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
-ecobalyse:en: fennel-eu
-ecobalyse_origins_en_france:en: fennel-fr
-eurocode_2_group_2:en: 12.20
-eurocode_2_group_3:en: 12.20.34
-# 2221 in20 @2021-10-09
-wikidata:en: Q43511
 # aeb-arab:بسباس
 # ast:fenoyu
 # azb:رازیانه
@@ -54434,7 +54557,19 @@ wikidata:en: Q43511
 #wuu:茴香
 # yue:茴香
 # zh-tw:茴香
+ciqual_food_code:en: 20028
+ciqual_food_name:en: Fennel, raw
+ciqual_food_name:fr: Fenouil, cru
+description:en: FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
+ecobalyse:en: fennel-eu
+ecobalyse_origins_en_france:en: fennel-fr
+eurocode_2_group_2:en: 12.20
+eurocode_2_group_3:en: 12.20.34
+usda_ndb_code:en: 11957
+usda_ndb_name:en: Fennel, bulb, raw
+wikidata:en: Q43511
 wikipedia:en: https://en.wikipedia.org/wiki/Fennel
+# 2221 in20 @2021-10-09
 
 < en: stalk vegetable
 en: sea kale, seakale, crambe
@@ -54445,8 +54580,6 @@ it: cavolo marino
 la: crambe maritima
 nl: zeekool
 eurocode_2_group_3:en: 8.20.30
-
-# description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 
 < en: stalk vegetable
 # <en:Vegetable rods
@@ -54498,6 +54631,7 @@ wa: rubåbe
 zh: 大黄
 #als:rabarbr
 #sco:rhubarub
+description:en: RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
 eurocode_2_group_3:en: 8.20.50
 usda_ndb_proxy_code:en: 9307
 usda_ndb_proxy_name:en: Rhubarb, raw
@@ -54972,6 +55106,14 @@ en: white asparagus heads
 es: vemas de espárragos blancos
 it: teste di asparagi bianchi
 
+< en: vegetable
+
+< en: vegetable
+en: kanpyo, dried gourd strips
+comment:en: Is this a compound ingredient?
+description:en: Kanpyo is a Japanese ingredient made from dried strips of gourd — specifically the flesh of the calabash or bottle gourd (a variety called yūgao, related to what's sometimes called "bottle gourd" or "calabash" in English). To make it, the gourd is peeled into long, thin ribbons, then sun-dried until they become firm, chewy strips. Before use, the dried strips are rehydrated and usually simmered in a mixture of soy sauce, sugar, and mirin (or dashi) until they turn a light brown color and take on a sweet-savory flavor.
+usda_ndb_code:en: 11237
+usda_ndb_name:en: Kanpyo, (dried gourd strips)
 
 ###################################################################################################
 #
@@ -55202,6 +55344,12 @@ xx: sasa veitchii
 ja: クマザサ
 description:en: large species of bamboo grass
 wikidata:en: Q3015670
+
+< en: shoot vegetable
+en: taro shoots
+description:en: The young sprouts/suckers that grow off the main corm (sometimes called "huli" in Hawaiian), which are more often used for propagating new plants than eating, though tender young shoots can be cooked too.
+usda_ndb_code:en: 11522
+usda_ndb_name:en: Taro shoots, raw
 
 ###################################################################################################
 #
@@ -55982,7 +56130,6 @@ wikidata:en: q263203
 wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
 # 988 in 9 @2021-09-28
 
-
 # <en:category:en:Fresh plant-based foods
 < en: shoot vegetable
 en: heart of palm, Hearts of palm, palm heart
@@ -56014,6 +56161,12 @@ usda_ndb_proxy_name:en: Hearts of palm, raw
 wikidata:en: Q743144
 wikipedia:en: https://en.wikipedia.org/wiki/Heart_of_palm
 # fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
+
+< en: shoot vegetable
+en: pokeberry shoots
+description:en: Pokeberry (pokeweed, Phytolacca americana) shoots are a traditional Southern U.S. food, often called "poke sallet" or "poke salad." The plant is toxic, but very young shoots can be made edible through careful preparation.
+usda_ndb_code:en: 11350
+usda_ndb_name:en: Pokeberry shoots, (poke), raw
 
 < en: heart of palm
 en: raw heart of palm
@@ -56111,7 +56264,7 @@ hr: pasta od luka
 it: condimento alla cipolla
 
 < en: oil
-# <en:compound
+#< en: compound
 < en: onion
 en: onion oil
 de: Zwiebelöl
@@ -56175,9 +56328,8 @@ ciqual_food_code:en: 11003
 ciqual_food_name:en: Chive or spring onion, fresh
 ciqual_food_name:fr: Ciboule ou Ciboulette, fraîche
 eurocode_2_group_3:en: 8.30.15
-usda_ndb_code:en: 11615
-usda_ndb_name:en: Chives, freeze-dried
-usda_ndb_process:en: en:freeze-dried
+usda_ndb_code:en: 11291
+usda_ndb_name:en: Onions, spring or scallions (includes tops and bulb), raw
 wikidata:en: Q774278
 wikipedia:en: https://en.wikipedia.org/wiki/Scallion
 # 3011 @2021-10-20
@@ -56316,6 +56468,8 @@ zh: 葱
 # zh-tw:蔥
 comment:en: On products one often finds wrong translations.
 description:en: Allium fistulosum, the Welsh onion, also commonly called bunching onion, long green onion, Japanese bunching onion, and spring onion, is a species of perennial plant. A. fistulosum is an ingredient in Asian cuisine, especially in East and Southeast Asia. In the West, A. fistulosum is primarily used as a scallion or salad onion.
+usda_ndb_code:en: 11293
+usda_ndb_name:en: Onions, welsh, raw
 wikidata:en: Q27938
 wikipedia:en: https://en.wikipedia.org/wiki/Allium_fistulosum
 # ingredient/fr:ciboule has 127 products in 6 languages @2019-04-16
@@ -56360,6 +56514,17 @@ ru: лук свежий
 # ingredient/fresh-onions has 485 products in 3 languages @2018-12-06
 
 < en: onion
+en: young green onion tops
+usda_ndb_code:en: 11292
+usda_ndb_name:en: Onions, young green, tops only
+
+< en: onion
+en: sweet onion
+comment:en: NDB number 11294 used as a general "sweet onion" category — it's also commonly cited as the stand-in nutrition data for Vidalia onions specifically, since Vidalia is considered a brand/regional name rather than a distinct variety with its own USDA entry.
+usda_ndb_code:en: 11294
+usda_ndb_name:en: Onions, sweet, raw
+
+< en: onion
 fr: jus d'oignon concentré, jus concentré d'oignon, jus concentré d'oignons
 de: Zwiebelsaftkonzentrat
 fi: sipulimehutiiviste
@@ -56395,8 +56560,8 @@ uk: цибуля ріпчаста сушена
 ciqual_food_code:en: 20180
 ciqual_food_name:en: Onion, dried
 ciqual_food_name:fr: Oignon, séché
-usda_ndb_proxy_code:en: 2026
-usda_ndb_proxy_name:en: Spices, onion powder
+usda_ndb_code:en: 11284
+usda_ndb_name:en: Onions, dehydrated flakes
 # 12664 in 22 @2021-09-10
 
 #category/onion-powder
@@ -56470,7 +56635,7 @@ pt: extrato de cebolo, extracto de cebolo
 sv: lökextrakt
 # ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
 
-# <en:compound
+#< en: compound
 en: fried onion
 bg: пържен лук
 cs: smažená cibule
@@ -56478,7 +56643,7 @@ de: röstzwiebeln
 it: cipolla fritta
 ro: ceapă prajită
 
-# <en:compound
+#< en: compound
 en: pre fried onions
 da: forstegte løg
 de: vorgebratene Zwiebeln
@@ -56500,8 +56665,6 @@ it: cipolla prefritta in olio di girasole
 nl: voorgebakken ui in zonnebloemolie
 sv: lök brynt i solrosolja
 # ingredient/fr:oignon-préfrit-à-l'huile-de-tournesol has 44 products in 3 languages @2018-12-06
-
-# description:en:The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
 
 < en: onion-family vegetable
 < en: root vegetable
@@ -56566,24 +56729,20 @@ zh: 火葱
 # zh-hk:火蔥
 # zh-sg:火葱
 # zh-tw:分蔥
-ciqual_food_proxy_code:en: 20097
-ciqual_food_proxy_name:en: Shallot, raw
-ciqual_food_proxy_name:fr: Échalote, crue
-ecobalyse:en: shallot-fr
-ecobalyse_labels_en_organic:en: shallot-organic
-eurocode_2_group_3:en: 8.30.20
-usda_ndb_proxy_code:en: 11677
-usda_ndb_proxy_name:en: Shallots, raw
-wikidata:en: Q193498
-wikipedia:en: https://en.wikipedia.org/wiki/Shallot
-
-< en: shallot
-en: raw shallot
 ciqual_food_code:en: 20097
 ciqual_food_name:en: Shallot, raw
 ciqual_food_name:fr: Échalote, crue
+description:en: The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
+ecobalyse:en: shallot-fr
+ecobalyse_labels_en_organic:en: shallot-organic
+eurocode_2_group_3:en: 8.30.20
+usda_ndb_2_code:en: 11640
+usda_ndb_2_name:en: Shallots, freeze-dried
+usda_ndb_2_process:en: en:freeze-dried
 usda_ndb_code:en: 11677
 usda_ndb_name:en: Shallots, raw
+wikidata:en: Q193498
+wikipedia:en: https://en.wikipedia.org/wiki/Shallot
 
 < en: shallot
 en: red shallot
@@ -57267,8 +57426,16 @@ hr: gomolj
 it: tubero
 lv: bumbuļu dārzenis
 nl: knolgroente
+description:en: A tuber is a swollen underground stem (or in some cases a swollen root), used for storing nutrients — like potatoes. It typically grows at the end of a rhizome or stolon, not as the plant's central root.
 eurocode_2_group_2:en: 8.34
 
+< en: tuber
+en: eppaw
+la: Sagittaria latifolia
+comment:en: we also have arrowhead. Do not know why it is separate for the usda
+description:en: Eppaw is the edible tuber of the duck potato plant (Sagittaria latifolia, also called wapato or arrowhead), traditionally eaten by some Native American groups, particularly noted in Seminole/Florida contexts. It's a starchy, potato-like root vegetable that grows in shallow water and marshes, and was historically gathered as a wild food source.
+usda_ndb_code:en: 11618
+usda_ndb_name:en: Eppaw, raw
 
 # ROOT VEGETABLES (Eurocode 2 8.38)
 # Note: what Eurocode defines as Root vegetables seem to be only "tap root" vegetables
@@ -57921,36 +58088,32 @@ ru: Козелец испанский
 sv: Svartrot
 tr: Sakız otu
 zh: 黑婆罗门参
-ciqual_food_code:en: 20197
-ciqual_food_name:en: Salsify, black, raw
-ciqual_food_name:fr: Salsifis noir, cru
-# ingredient/fr:salsifis has 58 products in 5 languages @2019-04-05
-eurocode_2_group_3:en: 8.38.20
 # azb:ساققیز اوْتو
 # vls:Schosneere
-wikidata:en: Q385259
-wikipedia:en: https://en.wikipedia.org/wiki/Scorzonera_hispanica
-
-< en: salsify
-en: Raw black salsify
-fr: Salsifis noirs crus
-it: scorzonera cruda
+ciqual_food_2_code:en: 20046
+ciqual_food_2_name:en: Salsify, cooked
+ciqual_food_2_name:fr: Salsifis, cuit
+ciqual_food_2_process:en: en:cooked
 ciqual_food_code:en: 20197
 ciqual_food_name:en: Salsify, black, raw
 ciqual_food_name:fr: Salsifis noir, cru
-
-< en: salsify
-en: Cooked salsify
-fr: Salsifis cuits
-it: salsefrica cotta
-ciqual_food_code:en: 20046
-ciqual_food_name:en: Salsify, cooked
-ciqual_food_name:fr: Salsifis, cuit
+eurocode_2_group_3:en: 8.38.20
+wikidata:en: Q385259
+wikipedia:en: https://en.wikipedia.org/wiki/Scorzonera_hispanica
+# ingredient/fr:salsifis has 58 products in 5 languages @2019-04-05
 
 < en: salsify
 en: salsify juice concentrate
 hr: koncentriani sok crnog korijena, ugośćeni sok crnog korijena
 it: concentrato di succo di scorzonera
+
+< en: root vegetable
+en: vegetable oyster
+la: Tragopogon porrifolius
+comment:en: Could there be confusion with the name salsify?
+description:en: Root has pale tan or beige skin, with white flesh. Native to the Mediterranean; naturalized widely, including in North America, with the classic "oyster-like" flavor that gave it its common name.
+usda_ndb_code:en: 11437
+usda_ndb_name:en: Salsify, (vegetable oyster), raw
 
 < en: root vegetable
 < en: taproot vegetable
@@ -58010,8 +58173,8 @@ fr: céleri rave râpé
 < en: celeriac
 fr: jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
 
-< en: Taro
 < en: root vegetable
+< en: taro
 en: taro tuber
 fr: Tubercule de taro
 it: tubero di taro
@@ -58019,6 +58182,17 @@ ciqual_food_code:en: 53200
 ciqual_food_name:en: Taro, tuber, raw
 ciqual_food_name:fr: Taro, tubercule, cru
 wikidata:en: Q1771944
+
+< en: root vegetable
+en: turnip green
+usda_ndb_2_code:en: 11574
+usda_ndb_2_name:en: Turnip greens, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, em:unprepared
+usda_ndb_proxy_code:en: 11568
+usda_ndb_proxy_name:en: Turnip greens, raw
+
+< en: turnip green
+en: frozen unprepared turnip green
 
 ###################################################################################################
 #
@@ -58125,12 +58299,6 @@ wo: pataas
 yi: זיס־קארטאפל
 za: Maenz
 zh: 番薯
-ciqual_food_code:en: 4101
-ciqual_food_name:en: Sweet potato, raw
-description:en: The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
-eurocode_2_group_3:en: 8.34.30
-# ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
-nutriscore_fruits_vegetables_nuts:en: no
 # ang:Swētu eorþperu
 # arz:بطاطا
 # azb:قرامافونچیچک باتات
@@ -58156,8 +58324,19 @@ nutriscore_fruits_vegetables_nuts:en: no
 # yue:番薯
 # zh-hant:番薯
 # zh-tw
+ciqual_food_code:en: 4101
+ciqual_food_name:en: Sweet potato, raw
+description:en: A sweet potato is a starchy root vegetable. It grows underground as a swollen root, It's skin can be orange, purple, white, or reddish; flesh is often orange, but also comes in white or purple. It has a naturally sweet flavor, especially when roasted or baked. It is rich in beta-carotene (converts to vitamin A) and a good source of fiber, vitamin C, potassium, and manganese, and has complex carbohydrates, so it digests more slowly than many other starches
+eurocode_2_group_3:en: 8.34.30
+nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_2_code:en: 11516
+usda_ndb_2_name:en: Sweet potato, frozen, unprepared (Includes foods for USDA's Food Distribution Program)
+usda_ndb_2_process:en: en:frozen
+usda_ndb_code:en: 11507
+usda_ndb_name:en: Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q37937
 wikipedia:en: https://en.wikipedia.org/wiki/Sweet_potato
+# ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
 
 en: Cooked sweet potato
 it: patata dolce cotta
@@ -58589,6 +58768,8 @@ ciqual_proxy_food_name:en: Potato, peeled, raw
 ecobalyse:en: potato-industry-fr
 eurocode_2_group_3:en: 8.34.15
 nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_code:en: 11352
+usda_ndb_name:en: Potatoes, flesh and skin, raw
 wikidata:en: Q16587531
 wikipedia:en: https://en.wikipedia.org/wiki/Potato
 # en:potato has 2269 products in 23 languages @2018-10-15
@@ -58672,7 +58853,12 @@ it: patata cotta
 nl: gegaarde aardappel
 ro: cartofi fierți
 sv: kokt potatis
-# en:cooked-potato has 62 productsin 1 language @2018-10-15
+# en:cooked-potato has 62 products in 1 language @2018-10-15
+
+< en: potato
+en: potato skin
+usda_ndb_code:en: 11362
+usda_ndb_name:en: Potatoes, raw, skin
 
 # description:en:MASHED POTATO (British English) or mashed potatoes (American English and Canadian English), colloquially known as mash (British English), is a dish prepared by mashing boiled potatoes.
 
@@ -58715,13 +58901,13 @@ th: มันฝรั่งบด
 tr: patates püresi
 uk: картопляне пюре
 zh: 馬鈴薯泥
-wikidata:en: Q322787
-wikipedia:en: https://en.wikipedia.org/wiki/Mashed_potato
 # bat_smg:bolbiu potra
 # szl:sztamfkartofle
 # vls:puree
 # wuu:土豆泥
 # zh_yue:薯茸
+wikidata:en: Q322787
+wikipedia:en: https://en.wikipedia.org/wiki/Mashed_potato
 # fr:purée-de-pomme-de-terre has 152 products in 1 language @2018-10-15
 
 < en: mashed potato
@@ -58867,14 +59053,15 @@ za: Biek
 zh: 芋
 zu: Amadumbe
 eurocode_2_group_3:en: 8.34.55
-usda_ndb_proxy_code:en: 11518
-usda_ndb_proxy_name:en: Taro, raw
+usda_ndb_code:en: 11518
+usda_ndb_name:en: Taro, raw
 wikidata:en: Q227997
 
 < en: taro
-en: raw taro
-usda_ndb_code:en: 11518
-usda_ndb_name:en: Taro, raw
+en: tahitian taro
+description:en: In Hawaii specifically, "Tahitian" is also a distinct named cultivar — it was introduced from Tahiti by horticulturist Gerrit Parmile Wilder.
+usda_ndb_code:en: 11525
+usda_ndb_name:en: Taro, tahitian, raw
 
 ###################################################################################################
 #
@@ -58903,8 +59090,6 @@ description:en: Yautia (also called malanga or taro coco) is a starchy root vege
 usda_ndb_code:en: 11991
 usda_ndb_name:en: Yautia (tannier), raw
 
-# description:en:Crudités (plural only) are traditional French appetizers consisting of sliced or whole raw vegetables[1] which are typically dipped in a vinaigrette or other dipping sauce. Examples of crudités include celery sticks, carrot sticks, cucumber sticks, bell pepper strips, broccoli, cauliflower, fennel, and asparagus spears.
-
 < en: vegetable
 en: crudités
 xx: crudités
@@ -58915,9 +59100,18 @@ nl: rauwkost
 zh: 法式生菜沙拉
 # zh-hans: 法式生菜沙拉
 # zh-tw: 法式生菜沙拉
+description:en: Crudités (plural only) are traditional French appetizers consisting of sliced or whole raw vegetables[1] which are typically dipped in a vinaigrette or other dipping sauce. Examples of crudités include celery sticks, carrot sticks, cucumber sticks, bell pepper strips, broccoli, cauliflower, fennel, and asparagus spears.
 wikidata:en: Q2142465
 wikipedia:en: https://en.wikipedia.org/wiki/Crudités
 # ingredient/fr:crudités has 74 products in french @2019-03-29
+
+###################################################################################################
+#
+#
+#                        Avocado
+#
+#
+###################################################################################################
 
 #category/avocados
 < en: fruit vegetable
@@ -59155,13 +59349,6 @@ wikidata:en: Q7223635
 #plant:wikidata:en:Q7186137
 wikipedia:en: https://en.wikipedia.org/wiki/Cardoon
 #30 in 5 @2021-10-21
-
-# en:Daikon cress
-# de:Daikonkresse
-# es:daikor cress
-# fr:pousse de daikon
-# nl:daikon cress
-# ingredient/daikon-cress has no products @2019-05-15
 
 < en: vegetable
 en: aloe vera
@@ -59472,6 +59659,20 @@ fr: aubergines séchées
 hr: sušeni patlidžan
 it: melanzane secche
 
+###################################################################################################
+#
+#
+#                        Winged bean
+#
+#
+###################################################################################################
+
+< en: fruit vegetable
+en: drumstick pods
+description:en: "Drumstick" is the common name for the long, slender seed pods of the moringa tree (Moringa oleifera), sometimes called the horseradish tree or ben tree. They're a popular vegetable in South Asian, Southeast Asian, and African cuisines. Long, thin, ridged green pods, often 1–3 feet long. Mild, slightly sweet, a bit like asparagus or green beans.
+usda_ndb_code:en: 11620
+usda_ndb_name:en: Drumstick pods, raw
+
 < en: vegetable fiber
 en: acacia fibre, acacia fibre
 de: Akazienfasern
@@ -59648,7 +59849,6 @@ en: horseradish paste
 de: Meerrettichpaste
 it: pasta di rafano
 
-# description:en:JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
 
 < en: root vegetable
 < en: tuber
@@ -59707,11 +59907,6 @@ uz: Topinambur
 vi: Cúc vu
 wa: Canada ås coines
 zh: 洋姜
-# ingredient/jerusalem-artichoke has 37 products @2019-02-03
-ciqual_food_code:en: 20196
-ciqual_food_name:en: Jerusalem artichoke, raw
-ciqual_food_name:fr: Topinambour, cru
-eurocode_2_group_3:en: 8.34.20
 # azb:شلقم
 # be-tarask:Тапінамбур
 # diq:Saa bınê erdi
@@ -59729,8 +59924,16 @@ eurocode_2_group_3:en: 8.34.20
 # zh-hk:洋薑
 # zh-sg:洋姜
 # zh-tw:洋薑
+ciqual_food_code:en: 20196
+ciqual_food_name:en: Jerusalem artichoke, raw
+ciqual_food_name:fr: Topinambour, cru
+description:en: JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
+eurocode_2_group_3:en: 8.34.20
+usda_ndb_code:en: 11226
+usda_ndb_name:en: Jerusalem-artichokes, raw
 wikidata:en: Q32979618
 wikipedia:en: https://en.wikipedia.org/wiki/Jerusalem_artichoke
+# ingredient/jerusalem-artichoke has 37 products @2019-02-03
 
 
 en: pale-leaf woodland sunflower
@@ -59748,9 +59951,6 @@ it: asclepias
 sr: miluk
 wikidata:en: Q162153
 wikipedia:en: https://en.wikipedia.org/wiki/Asclepias
-
-
-# description:en:The PARSNIP (Pastinaca sativa) is a root vegetable closely related to the carrot and parsley.
 
 < en: root vegetable
 < en: taproot vegetable
@@ -59813,11 +60013,6 @@ ur: شقاقل
 vi: Củ cải vàng
 wa: Pastinåke
 zh: 欧防风
-ciqual_food_code:en: 20181
-ciqual_food_name:en: Parsnip, raw
-ciqual_food_name:fr: Panais, cru
-# ingredient/fr:panais has 372 products in 5 languages @2018-12-4
-eurocode_2_group_3:en: 8.38.34
 # be-tarask:Пастарнак
 # csb:pasternôk
 # pcd:Pasternache
@@ -59831,8 +60026,16 @@ eurocode_2_group_3:en: 8.38.34
 # zh-hk:歐防風
 # zh-sg:欧防风
 # zh-tw:歐防風
+ciqual_food_code:en: 20181
+ciqual_food_name:en: Parsnip, raw
+ciqual_food_name:fr: Panais, cru
+description:en: The PARSNIP (Pastinaca sativa) is a root vegetable closely related to the carrot and parsley.
+eurocode_2_group_3:en: 8.38.34
+usda_ndb_code:en: 11298
+usda_ndb_name:en: Parsnips, raw
 wikidata:en: Q104413481
 wikipedia:en: https://en.wikipedia.org/wiki/Parsnip
+# ingredient/fr:panais has 372 products in 5 languages @2018-12-4
 
 < en: parsnip
 en: Cooked parsnip
@@ -59971,13 +60174,13 @@ carbon_footprint_fr_foodges_ingredient:fr: Radis de saison
 carbon_footprint_fr_foodges_value:fr: 0.6
 #carbon_footprint_fr_foodges_ingredient:fr:Radis serre chauffée
 #carbon_footprint_fr_foodges_value:fr:8.4
-ciqual_proxy_food_code:en: 20045
-ciqual_proxy_food_name:en: Radish, raw
-ciqual_proxy_food_name:fr: Radis rouge, cru
+ciqual_food_code:en: 20045
+ciqual_food_name:en: Radish, raw
+ciqual_food_name:fr: Radis rouge, cru
 ecobalyse:en: radish-organic
 eurocode_2_group_3:en: 8.38.50
-usda_ndb_proxy_code:en: 11429
-usda_ndb_proxy_name:en: Radishes, raw
+usda_ndb_code:en: 11429
+usda_ndb_name:en: Radishes, raw
 wikidata:en: Q7224565
 wikipedia:en: https://en.wikipedia.org/wiki/Radish
 # ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
@@ -59985,29 +60188,21 @@ wikipedia:en: https://en.wikipedia.org/wiki/Radish
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
 
 < en: radish
-en: raw radish
-ciqual_food_code:en: 20045
-ciqual_food_name:en: Radish, raw
-ciqual_food_name:fr: Radis rouge, cru
-usda_ndb_code:en: 11429
-usda_ndb_name:en: Radishes, raw
-
-< en: radish
-en: Black radish
+en: black radish
 bg: черна ряпа
 de: Schwarzer Winter-Rettich
-fr: Radis noir, radis d'Espagne
+fr: radis noir, radis d'Espagne
 hr: crna rotkva
 it: ravanello nero
-nl: Rammenas
+nl: rammenas
 pl: rzodkiew czarna
 ciqual_food_code:en: 20089
 ciqual_food_name:en: Radish, black, raw
 ciqual_food_name:fr: Radis noir, cru
 
 < en: radish
-en: Red radish
-fr: Radis rouge
+en: red radish
+fr: radis rouge
 hr: crvena rotkva, crvena rotkvica
 it: ravanello rosso
 ja: ラディッシュ
@@ -60015,6 +60210,12 @@ pl: rzodkiew czerwona, czerwona rzodkiew, czerwonej rzodkwi
 ciqual_food_code:en: 20045
 ciqual_food_name:en: Radish, raw
 ciqual_food_name:fr: Radis rouge, cru
+
+< en: radish
+en: white icicle radish
+description:en: White Icicle radish is a heirloom radish variety, notable for its long, slender white root. Milder and less peppery-hot than round red radishes, with a crisp, juicy bite.
+usda_ndb_code:en: 11637
+usda_ndb_name:en: Radishes, white icicle, raw
 
 # <en:radish
 # fr:Radis de saison
@@ -60028,7 +60229,7 @@ it: germogli di ravanello
 pl: kiełki rzodkiewki
 
 < en: radish
-en: daikon, white radish, winter radish, Oriental radish, long white radish
+en: daikon, white radish, winter radish, oriental radish, long white radish
 bg: бяла ряпа
 ca: rave blanc
 de: Winterrettich
@@ -60039,7 +60240,23 @@ it: ravanello bianco
 ja: ダイコン, 大根, だいこん
 nl: witte rammenas
 pl: biała rzodkiew, białej rzodkwi, rzodkiew biała
+usda_ndb_2_code:en: 11432
+usda_ndb_2_name:en: Radishes, oriental, dried
+usda_ndb_2_process:en: en: dried
+usda_ndb_code:en: 11430
+usda_ndb_name:en: Radishes, oriental, raw
 
+< en: radish
+en: sprouted radish seed
+usda_ndb_code:en: 11676
+usda_ndb_name:en: Radish seeds, sprouted, raw
+
+# en:Daikon cress
+# de:Daikonkresse
+# es:daikor cress
+# fr:pousse de daikon
+# nl:daikon cress
+# ingredient/daikon-cress has no products @2019-05-15
 
 < en: root vegetable
 en: lotus root
@@ -60071,14 +60288,18 @@ ja: オクラ
 nl: okra
 pt: Quiabo
 eurocode_2_group_3:en: 8.45.60
-usda_ndb_proxy_code:en: 11278
-usda_ndb_proxy_name:en: Okra, raw
-wikidata:en: Q12047207
-
-< en: okra
-en: raw okra
+usda_ndb_2_code:en: 11280
+usda_ndb_2_name:en: Okra, frozen, unprepared
+usda_ndb_2_process:en: en:frozen, en:unprepared
 usda_ndb_code:en: 11278
 usda_ndb_name:en: Okra, raw
+wikidata:en: Q12047207
+
+< en: vegetable
+en: nopales
+description:en: Nopales are the edible pads (paddles) of the prickly pear cactus (genus Opuntia), widely used in Mexican cuisine. Slightly tart and grassy, a bit like green beans or okra, with a similar mucilaginous (slightly slimy) texture when cooked, especially if simmered.
+usda_ndb_code:en: 11963
+usda_ndb_name:en: Nopales, raw
 
 # description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
 # comment:en:in english salad seems to refer more to the group of dishes than the group of plants.
@@ -60257,7 +60478,7 @@ sv: salladsmix
 < fr: mélange de salades
 fr: salade mélangée verte et rouge
 
-# <en:compound
+#< en: compound
 < en: salad
 fr: salade composée
 en: mixed salad
@@ -60601,19 +60822,6 @@ ur: مرچ
 vi: Ớt
 wo: kaani
 zh: 辣椒
-carbon_footprint_fr_foodges_ingredient:fr: Piment et poivre sec
-carbon_footprint_fr_foodges_value:fr: 3.4
-# ingredient/chili-pepper 29007 in 39 @2021-08-22
-ciqual_food_code:en: 20151
-ciqual_food_name:en: Chili pepper, raw
-ciqual_food_name:fr: Piment, cru
-# description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
-description:es: El chile, ají o guindilla, es una variedad de pimiento picante. Es el fruto (baya) de diversas especies de plantas del género Capsicum.
-description:fr: Le terme piment (vert, jaune, orange, rouge, brun, pêche ou violet) est un nom vernaculaire désignant le fruit de cinq espèces de plantes du genre Capsicum de la famille des Solanacées.
-description:it: Il peperoncino è il nome comune dato alla bacca ottenuta da alcune varietà piccanti del genere di piante Capsicum utilizzata principalmente come condimento.
-description:nl: Chilipeper is de Nederlandse naam die gebruikt wordt om vruchten van het geslacht Capsicum van de nachtschadefamilie aan te duiden.
-description:pt: A "Pimenta Chili" é o nome comum dado à baga obtida a partir de algumas variedades picante do gênero vegetal "Capsicum'" e utilizada como tempero.
-eurocode_2_group_3:en: 8.40.25
 # ace:Campli
 # bcl:sili
 # bjn:Lombok
@@ -60633,15 +60841,24 @@ eurocode_2_group_3:en: 8.40.25
 # war:Harang
 # xmf:ზაფანა
 # yue:辣椒
+carbon_footprint_fr_foodges_ingredient:fr: Piment et poivre sec
+carbon_footprint_fr_foodges_value:fr: 3.4
+ciqual_food_code:en: 20151
+ciqual_food_name:en: Chili pepper, raw
+ciqual_food_name:fr: Piment, cru
+# description:en:The chili pepper (also chile, chile pepper, chilli pepper, or chilli), from Nahuatl chīlli, is the fruit of plants from the genus Capsicum which are members of the nightshade family, Solanaceae. Chili peppers are widely used in many cuisines as a spice to add heat to dishes.
+description:es: El chile, ají o guindilla, es una variedad de pimiento picante. Es el fruto (baya) de diversas especies de plantas del género Capsicum.
+description:fr: Le terme piment (vert, jaune, orange, rouge, brun, pêche ou violet) est un nom vernaculaire désignant le fruit de cinq espèces de plantes du genre Capsicum de la famille des Solanacées.
+description:it: Il peperoncino è il nome comune dato alla bacca ottenuta da alcune varietà piccanti del genere di piante Capsicum utilizzata principalmente come condimento.
+description:nl: Chilipeper is de Nederlandse naam die gebruikt wordt om vruchten van het geslacht Capsicum van de nachtschadefamilie aan te duiden.
+description:pt: A "Pimenta Chili" é o nome comum dado à baga obtida a partir de algumas variedades picante do gênero vegetal "Capsicum'" e utilizada como tempero.
+eurocode_2_group_3:en: 8.40.25
+usda_ndb_code:en: 11962
+usda_ndb_name:en: Peppers, hot chile, sun-dried
+usda_ndb_process:en: en:sun-dried
 wikidata:en: Q165199
 wikipedia:en: https://en.wikipedia.org/wiki/Chili_pepper
-
-#<en:chili pepper
-#en:raw chili pepper
-#fr:Piment cru
-#ciqual_food_code:en:20151
-#ciqual_food_name:en:Chili pepper, raw
-#ciqual_food_name:fr:Piment, cru
+# ingredient/chili-pepper 29007 in 39 @2021-08-22
 
 < en: chili pepper
 en: tabasco chile
@@ -60688,6 +60905,43 @@ sv: chilipasta
 #de:Chiliflocken, Chili-Flocken
 #fr:Flocons de piment
 #pl:płatki chili, chili grys
+
+< en: chili pepper
+en: ancho peppers
+description:en: Ancho peppers are the dried form of the poblano pepper. Sweet and fruity with notes of raisin, dried plum, and a mild smokiness — sometimes with a hint of coffee or tobacco. It's considered one of the more complex, dessert-like tasting dried chiles.
+scoville:en: 1,000–2,000
+usda_ndb_code:en: 11978
+usda_ndb_name:en: Peppers, ancho, dried
+usda_ndb_processe:en: en:dried
+
+< en: chili pepper
+en: banana pepper
+description:en: Banana peppers are a mild, tangy pepper named for their curved, elongated shape and pale yellow color — closely resembling a banana. Tangy and slightly sweet with a mild vinegary bite, especially when pickled — very different from the "grassy" heat of a jalapeño.
+scoville:en: 0–500
+usda_ndb_code:en: 11976
+usda_ndb_name:en: Pepper, banana, raw
+
+< en: chili pepper
+en: hungarian peppers, Hungarian Wax pepper
+description:en: Hungarian peppers usually refers to a family of peppers most associated with Hungarian cuisine and paprika production. Tangy, slightly sweet, with a crisp bite — similar in style to a banana pepper but noticeably spicier.
+scoville:en: 5,000–15,000
+usda_ndb_code:en: 11981
+usda_ndb_name:en: Peppers, hungarian, raw
+
+< en: chili pepper
+en: serrano peppers
+description:en: Serrano peppers are a type of chili pepper originating from the mountainous regions of Puebla and Hidalgo in Mexico. They have a bright, crisp, and grassy with a clean heat — often described as sharper and more straightforward than jalapeño.
+scoville:en: 10,000–25,000
+usda_ndb_code:en: 11977
+usda_ndb_name:en: Peppers, serrano, raw
+
+< en: chili pepper
+en: pasilla peppers
+description:en: A Mexican chili. The fresh version of this pepper is actually called chilaca. Once dried, it becomes "pasilla" — long, slender, and dark brownish-black with a raisin-like, wrinkled texture. Rich, deep, and slightly fruity with notes of raisin, dried cherry, and mild chocolate/tobacco undertones — a favorite for building complex sauces.
+scoville:en: 1,000–2,500
+usda_ndb_code:en: 11982
+usda_ndb_name:en: Peppers, pasilla, dried
+usda_ndb_process:en: en:dried
 
 < en: chili pepper
 en: chili in vinegar
@@ -60831,6 +61085,10 @@ sv: jalapeñopeppar, jalapenopeppar, jalapeño peppar, jalapeno peppar, jalapeñ
 th: ฆาลาเปญโญ
 uk: халапеньйо
 zh: 墨西哥辣椒
+description:en: Jalapeño peppers are probably the most familiar chili in American and Mexican cooking — a good middle-ground pepper for both flavor and heat. The taste is grassy, slightly sweet, and vegetal with a clean, building heat.
+scoville:en: 2,500–8,000
+usda_ndb_code:en: 11979
+usda_ndb_name:en: Peppers, jalapeno, raw
 wikidata:en: Q504133
 wikipedia:en: https://en.wikipedia.org/wiki/Jalape%C3%B1o
 # ingredient/fr:piments-jalapeño has 104 products in 4 languages @2019-04-15
@@ -60922,16 +61180,11 @@ pl: ziele angielskie, ziela angielskiego
 ru: перец душистый, перец душистый молотый, душистый перец
 sv: kryddpeppar
 description:en: ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
-usda_ndb_proxy_code:en: 2001
-usda_ndb_proxy_name:en: Spices, allspice, ground
+usda_ndb_code:en: 2001
+usda_ndb_name:en: Spices, allspice, ground
 wikidata:en: Q158468
 wikipedia:en: https://en.wikipedia.org/wiki/Allspice
 # ingredient/fr:piment-de-la-jamaïque has 148 products in 5 languages @2019-04-15
-
-< en: allspice
-en: ground allspice
-usda_ndb_code:en: 2001
-usda_ndb_name:en: Spices, allspice, ground
 
 < en: chili pepper
 fr: piment Oiseau
@@ -61168,6 +61421,28 @@ lv: Augļu dārzeņi
 nl: fruitgroente, groentevrucht
 eurocode_2_group_2:en: 8.40
 
+###################################################################################################
+#
+#
+#                                     Tomatillo
+#
+#
+###################################################################################################
+
+< en: fruit vegetable
+en: tomatillo
+description:en: Tomatillos are small, round fruits (botanically fruits, culinarily treated as vegetables) that look like little green tomatoes wrapped in a papery husk. They're a staple in Mexican cooking, especially for salsa verde. Tart, tangy, and slightly citrusy — quite different from a regular tomato. Raw ones are firm and sour; cooking mellows and sweetens them a bit.
+usda_ndb_code:en: 11954
+usda_ndb_name:en: Tomatillos, raw
+
+###################################################################################################
+#
+#
+#                                              Tomato
+#
+#
+###################################################################################################
+
 < en: fruit vegetable
 en: tomato, tomatoes
 ab: Атомат
@@ -61222,19 +61497,6 @@ ug: پەمىدۇر
 za: makyungz
 zh: 番茄
 zu: Utamatisi
-carbon_footprint_fr_foodges_ingredient:fr: Tomate destinée à l'industrie
-carbon_footprint_fr_foodges_value:fr: 0.5
-# ingredient/tomato has 6812 products in 21 languages @2018-12-26
-ciqual_food_code:en: 20047
-ciqual_food_name:en: Tomato, raw
-ciqual_food_name:fr: Tomate, crue
-# no non-eu tomato in Ecobalyse currently
-ecobalyse:en: tomato-heated-greenhouse-eu
-ecobalyse_labels_en_organic:en: tomato-organic
-ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
-ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
-ecobalyse_origins_en_france:en: tomato-greenhouse-fr
-eurocode_2_group_3:en: 8.40.10
 # aeb-arab:كعبة طماطم
 # ang:Heortæppel
 # ast:Tomate
@@ -61272,7 +61534,20 @@ eurocode_2_group_3:en: 8.40.10
 # zh-my:番茄
 # zh-sg:番茄
 # zh-tw:番茄
+carbon_footprint_fr_foodges_ingredient:fr: Tomate destinée à l'industrie
+carbon_footprint_fr_foodges_value:fr: 0.5
+ciqual_food_code:en: 20047
+ciqual_food_name:en: Tomato, raw
+ciqual_food_name:fr: Tomate, crue
+# no non-eu tomato in Ecobalyse currently
+ecobalyse:en: tomato-heated-greenhouse-eu
+ecobalyse_labels_en_organic:en: tomato-organic
+ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
+ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
+ecobalyse_origins_en_france:en: tomato-greenhouse-fr
+eurocode_2_group_3:en: 8.40.10
 wikidata:en: Q20638126
+# ingredient/tomato has 6812 products in 21 languages @2018-12-26
 
 < en: tomato
 en: organic tomato
@@ -61731,8 +62006,8 @@ de: Tomatenpüree aus Konzentrat, Tomatenmark aus Konzentrat
 < en: tomato purée
 fr: purée de tomates triple concentrée, triple concentré de tomate
 
-#<en:tomato
-#en:tomato powder, powdered tomato
+< en: tomato
+en: tomato powder, powdered tomato
 #en:processing:en:powder
 #bg:доматен прах, домати на прах
 #ca:tomàquet en pols
@@ -61750,7 +62025,10 @@ fr: purée de tomates triple concentrée, triple concentré de tomate
 #nl:tomatenpoeder
 #pl:pomidory w proszku
 #sv:tomatpulver, tomatpurépulver
-# ingredient/powdered-tomato has 546 products in 1o languages @2018-12-26
+processing:en: powder
+usda_ndb_code:en: 11548
+usda_ndb_name:en: Tomato powder
+# ingredient/powdered-tomato has 546 products in 10 languages @2018-12-26
 
 < en: chopped tomatoes
 < en: tomato purée
@@ -61806,7 +62084,7 @@ hr: rajčice-u-soku-rajčice
 < en: tomato purée
 fr: purée et pulpe de tomates
 
-< en: vegetable
+< en: tomato
 en: green tomato
 bg: зелени домати
 de: grüne Tomaten
@@ -61819,19 +62097,27 @@ nl: groene tomaat
 ciqual_food_code:en: 20119
 ciqual_food_name:en: Tomato, green, raw
 ciqual_food_name:fr: Tomate verte, crue
+usda_ndb_code:en: 11527
+usda_ndb_name:en: Tomatoes, green, raw
 # 88 @1-dec-2021
 
-< en: green tomato
-en: green tomato puree
-fi: vihreä tomaattipyree
-fr: Purée de tomates vertes
-hr: pire od zelene rajčice
-it: passata di pomodoro verde
-# In process de:Püree aus grünen Tomaten
+< en: tomato
+en: orange tomato
+usda_ndb_code:en: 11695
+usda_ndb_name:en: Tomatoes, orange, raw
 
-< en: vegetable fiber
-fr: fibres de tomate, fibre de tomate
-nl: tomatenvezel
+< en: tomato
+en: yellow tomato
+usda_ndb_code:en: 11696
+usda_ndb_name:en: Tomatoes, yellow, raw
+
+#< en:green tomato
+#en: green tomato puree
+#fi: vihreä tomaattipyree
+#fr: Purée de tomates vertes
+#hr: pire od zelene rajčice
+#it: passata di pomodoro verde
+# In process de:Püree aus grünen Tomaten
 
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
@@ -61850,19 +62136,22 @@ hr: rutabaga
 it: rutabaga
 nb: kålrot
 sv: kålrot
+ciqual_food_2_code:en: 20165
+ciqual_food_2_name:en: Rutabaga or Swede, cooked
+ciqual_food_2_name:fr: Rutabaga, cuit
+ciqual_food_2_process:en: en:cooked
 ciqual_food_code:en: 20201
 ciqual_food_name:en: Rutabaga or Swede, raw
 ciqual_food_name:fr: Rutabaga, cru
 eurocode_2_group_3:en: 8.38.42
+usda_ndb_code:en: 11435
+usda_ndb_name:en: Rutabagas, raw
 wikidata:en: Q104733765
 
 < en: rutabaga
 en: Cooked rutabaga, Cooked swede
 fr: Rutabaga cuit
 it: rapa svedese cotta
-ciqual_food_code:en: 20165
-ciqual_food_name:en: Rutabaga or Swede, cooked
-ciqual_food_name:fr: Rutabaga, cuit
 
 < en: root vegetable
 < en: taproot vegetable
@@ -61954,6 +62243,8 @@ carbon_footprint_fr_foodges_value:fr: 0.9
 ciqual_food_code:en: 20064
 ciqual_food_name:en: Turnip, peeled, raw
 ciqual_food_name:fr: Navet, pelé, cru
+description:en: The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
+# comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 ecobalyse:en: turnip-non-eu
 ecobalyse_labels_en_organic:en: turnip-organic
 ecobalyse_origins_en_european_union:en: turnip-eu
@@ -61965,7 +62256,15 @@ wikidata:en: Q3916957
 wikipedia:en: https://en.wikipedia.org/wiki/Turnip
 # ingredient/turnip has 592 products in 7 languages @2019-05-18
 
-# description:en:Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
+< en: turnip
+en: unprepared frozen turnip
+usda_ndb_code:en: 11566
+usda_ndb_name:en: Turnips, frozen, unprepared
+
+< en: turnip
+en: frozen unprepared turnip green and turnip
+usda_ndb_code:en: 11576
+usda_ndb_name:en: Turnip greens and turnips, frozen, unprepared
 
 < en: root vegetable
 en: water chestnut, water chestnuts
@@ -62008,6 +62307,7 @@ zh: 荸荠
 # zh-hans:荸荠
 # zh-hant:荸薺
 # zh-hk:荸薺
+description:en: Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 ifct_food_code:en: F016
 ifct_food_name:en: Water Chestnut
 wikidata:en: Q932664
@@ -62018,7 +62318,6 @@ en: Nelumbo
 xx: Nelumbo, Nelumbo Adans.
 pl: Lotos, lotosu
 
-# description:en:A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 
 < en: fruit vegetable
 en: pumpkin
@@ -62135,6 +62434,7 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 20139
 ciqual_proxy_food_name:en: Squash, all types, raw
 ciqual_proxy_food_name:fr: Courge, crue
+description:en: A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 ecobalyse:en: pumpkin-fr
 eurocode_2_group_3:en: 8.40.45
 usda_ndb_proxy_code:en: 11422
@@ -62315,6 +62615,20 @@ eurocode_2_group_3:en: 8.40.45
 wikidata:en: Q161180
 
 < en: fruit vegetable
+en: white-flowered gourd, bottle gourd, calabash gourd, opo squash, long melon
+la: Lagenaria siceraria
+description:en: "White-flowered gourd" (calabash) refers to Lagenaria siceraria — also known as bottle gourd, calabash gourd, opo squash, or long melon. It's the same plant whose hard-shelled fruits are dried and used as bottles, bowls, or musical instruments, but when eaten as food it's harvested young and tender, before the shell hardens. Very mild, slightly sweet, with a texture similar to zucchini or chayote — it takes on the flavor of whatever it's cooked with. Common in cuisines: South Asian (India, Pakistan, Bangladesh — called lauki, doodhi, or ghiya), Chinese (hu lu), Vietnamese, Italian (cucuzza), and West African cooking. One caution worth knowing: bottle gourds can occasionally develop high levels of cucurbitacins (the compound that makes some gourds bitter), which can cause food poisoning. The rule of thumb is — if it tastes bitter, don't eat it, even if just one bite.
+usda_ndb_code:en: 11218
+usda_ndb_name:en: Gourd, white-flowered (calabash), raw
+
+< en: fruit vegetable
+en: dishcloth, towelgourd, sponge gourd, luffa
+la: Luffa aegyptiaca
+description:en: "Dishcloth gourd" (also called towel gourd, sponge gourd, or luffa) is the common name for Luffa — usually Luffa aegyptiaca (smooth luffa) or Luffa acutangula (angled/ridged luffa, sometimes called "Chinese okra"). It's a tropical vine in the cucumber/squash family, common in Asian, African, and some Mediterranean cuisines. The flesh is mild, slightly sweet, and a bit like a cross between zucchini and cucumber, with a spongy texture that softens when cooked.
+usda_ndb_code:en: 11220
+usda_ndb_name:en: Gourd, dishcloth (towelgourd), raw
+
+# < en: fruit vegetable
 < en: pumpkin
 en: red kuri squash
 co: zucca castagnina
@@ -62497,17 +62811,13 @@ nl: koolzaad
 pl: rzepak, rzepaku, rzepakowy, rzepakowa, rzepakowe
 ro: rapiță
 sv: Raps, rapsfrön
+comment:en: Why is this listed separately. Is only used as oil source. Can this be listed as a synonym of the oil names?
 ecobalyse:en: rapeseed-non-eu
 ecobalyse_labels_en_organic:en: rapeseed-organic
 ecobalyse_origins_en_european_union:en: rapeseed-eu
 ecobalyse_origins_en_france:en: rapeseed-fr
 wikidata:en: Q177932
 wikipedia:en: https://en.wikipedia.org/wiki/Rapeseed
-
-#This should denote only the american variety
-< en: Rapeseed
-en: Canola
-xx: Canola
 
 < en: root vegetable
 en: turnip-rape, turnip rape, field mustard
@@ -62516,10 +62826,12 @@ fi: rypsi
 fr: Navette
 hr: repa-silovanje
 la: Brassica rapa subsp. oleifera
+comment:en: Why is this listed as a vegetable?
+description:en: Turnip rape (Brassica rapa subsp. oleifera, also called field mustard or rybs in some regions) is grown for its seeds, which are pressed for oil. It's one of the plants used to produce canola oil (along with rapeseed, Brassica napus). Young leaves of turnip rape can be eaten as leafy greens, similar to mustard greens or other brassica greens, in some regional cuisines.
 wikidata:en: Q3337246
 wikipedia:fr: https://fr.wikipedia.org/wiki/Navette_(plante)
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:rypsi
-# 6 entries @ 2019-10-31
+# 379 entries @ 2016-5-07
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -62854,7 +63166,6 @@ wikidata:en: Q159753
 en: mixed beans, bean mix
 sv: blandade bönor
 
-
 ###################################################################################################
 #
 #
@@ -63024,6 +63335,21 @@ wikidata:en: Q2727662
 ###################################################################################################
 
 < en: legume
+en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
+la: Lablab purpureus
+description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
+usda_ndb_code:en: 11224
+usda_ndb_name:en: Hyacinth-beans, immature seeds, raw
+
+###################################################################################################
+#
+#
+#                        Immature cowpeas
+#
+#
+###################################################################################################
+
+< en: legume
 en: immature cowpeas, immature blackeyes
 comment:en: these are the fresh cowpeas. The dried ones can be found under the pulses.
 usda_ndb_code:en: 11191
@@ -63123,6 +63449,14 @@ it: fagioli pinto
 sv: pintobönor, pintoböna
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.45
+
+< en: hyacinth bean
+< en: pulse
+en: dried hyacinth bean
+comment:en: kept separate to distinghuish between legume and pulse
+usda_ndb_code:en: 16067
+usda_ndb_name:en: Hyacinth beans, mature seeds, raw
+usda_ndb_process:en: en:dried
 
 # < en:legume
 < en: pulse
@@ -63687,7 +64021,7 @@ ciqual_proxy_food_name:fr: Lupin, graine crue
 eurocode_2_group_3:en: 7.10.xx
 # 330 in 8 @2021-10-01
 
-# <en:compound
+#< en: compound
 fr: vermicelle de pois
 nl: vermicelli van erwten
 # ingredient/fr:vermicelle-de-pois has 28 products @2019-02-15
@@ -64138,14 +64472,14 @@ it: pisello giallo
 ###################################################################################################
 
 < en: legume
-en: pigeon pea, red gram, pigeon peas
-usda_ndb_proxy_code:en: 16101
-usda_ndb_proxy_name:en: Pigeon peas (red gram), mature seeds, raw
-
-< en: pigeon pea
-en: raw mature pigeon pea
-usda_ndb_code:en: 16101
-usda_ndb_name:en: Pigeon peas (red gram), mature seeds, raw
+en: pigeon pea, red gram, pigeon peas, gandules, toor, arhar, gungo peas
+la: Cajanus cajan
+description:en: Pigeon peas (Cajanus cajan) differ quite a bit depending on whether they're picked green or left to dry on the plant. The green peas have a mild, slightly sweet flavor; the dried peas have Earthier, nuttier flavor — closer to lentils or other dried pulses
+usda_ndb_2_code:en: 16101
+usda_ndb_2_name:en: Pigeon peas (red gram), mature seeds, raw
+usda_ndb_2_process:en: en:dried
+usda_ndb_code:en: 11344
+usda_ndb_name:en: Pigeonpeas, immature seeds, raw
 
 ###################################################################################################
 #
@@ -64286,7 +64620,7 @@ nl: pedrosillano kikkererwten
 en: black chickpea, black chickpeas
 da: sort kikært, sorte kikærter
 
-# <en:compound
+#< en: compound
 #processing:en: en:cooked
 < en: chickpea
 en: cooked chickpeas, boiled chickpeas
@@ -64423,6 +64757,8 @@ ro: mazăre
 ru: Зеленый горошек
 sv: gröna ärtor
 th: ถั่ว ลันเตา
+usda_ndb_code:en: 11304
+usda_ndb_name:en: Peas, green, raw
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q3377275
@@ -64497,43 +64833,57 @@ en: garden peas flour
 < en: garden peas
 de: Junge Erbsen mit Möhren
 
-# description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
-
 < en: pea
-en: snow pea, mangetout, snow peas, Snap pea, sugar snap peas
+en: edible-podded pea
+ciqual_food_code:en: 20173
+ciqual_food_name:en: Snow pea, raw
+ciqual_food_name:fr: Pois mange-tout ou pois gourmand, cru
+description:en: The edible-podded pea (Pisum sativum var. saccharatum) are a variety of pea eaten whole in its pod while still unripe.
+usda_ndb_code:en: 11300
+usda_ndb_name:en: Peas, edible-podded, raw
+vegan:en: yes
+vegetarian:en: yes
+
+< en: edible-podded pea
+en: snow pea, mangetout, snow peas
 ca: tirabec
 da: sukkerært
 de: Kefen, Zuckerschoten, Zuckererbse
 el: γλυκομπίζελα, ζαχαρομπίζελο
-eo: sukerpizo
-es: guisante mollar, guisante azucarado
-fi: sokeriherne
-fr: pois mange-tout, pois croquants, pois gourmand, Pois sucré
+es: guisante mollar
+fr: pois mange-tout
 gl: tirabeque
 hr: snježni grašak
 id: kapri
 it: taccole
-ja: スナップエンドウ
+ja: 絹さや, kinusaya
 ko: 백설콩
-la: Pisum sativum var. saccharatum
-lt: cukriniai žirniai
-lv: cukurzirņi
 nl: peultje, peultjes
-sk: hrach siaty cukrový
 su: kapri
-sv: sockerärt
 tr: sultani bezelye
 carbon_footprint_fr_foodges_ingredient:fr: Pois d'hiver frais
 carbon_footprint_fr_foodges_value:fr: 1.7
-ciqual_food_code:en: 20173
-ciqual_food_name:en: Snow pea, raw
-ciqual_food_name:fr: Pois mange-tout ou pois gourmand, cru
-# 202 @2021-10-05
-vegan:en: yes
-vegetarian:en: yes
+description:en: Snow peas (mangetout) — flat pods with small, barely-developed seeds inside.
 wikidata:en: Q67210631
 wikipedia:en: https://en.wikipedia.org/wiki/Snow_pea
 
+< en: edible-podded pea
+en: sugar snap peas
+de: Knackerbse
+eo: sukerpizo
+es: guisante azucarado
+fi: sokeriherne
+fr: pois gourmand, pois croquant, pois sucré
+ja: スナップエンドウ
+ko: 슈가스냅완두, 스냅완두
+la: Pisum sativum var. saccharatum
+lt: cukriniai žirniai
+lv: cukurzirņi
+sk: hrach siaty cukrový
+sv: sockerärt
+carbon_footprint_fr_foodges_ingredient:fr: Pois d'hiver frais
+carbon_footprint_fr_foodges_value:fr: 1.7
+description:en: Sugar snap peas — plumper, rounder pods (than mangetout) with full-size seeds, but the pod stays tender and edible
 
 
 # < en:pea
@@ -65848,7 +66198,7 @@ fr: Marrons UE
 #<fr:Marrons entiers
 #fr:Marrons entiers bio
 
-# <en:compound
+#< en: compound
 en: chestnut spread
 fr: crème de marrons
 hr: kesten namaz
@@ -68788,7 +69138,7 @@ hr: začin u prahu
 it: condimento in polvere
 # ingredient/fr:condiment-en-poudre has 274 products in 4 languages @2019-03–09
 
-# <en:compound
+#< en: compound
 < en: condiment
 en: mixed condiments, seasoning blend, seasoning mix, flavored seasoning
 bg: смес от подправки, подправъчна смес
@@ -68947,6 +69297,7 @@ ru: пряности натуральные
 #                                Herbs (general)
 #
 ###################################################################################################
+
 en: herb, mixed herbs, aromatic plants
 bg: билка, билки
 bs: aromatično bilje
@@ -69119,7 +69470,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ras_el_hanout
 
 # description:en:LEMON PEPPER (also called lemon pepper seasoning) is a seasoning made from granulated lemon zest and cracked black peppercorns.
 
-# <en:compound
+#< en: compound
 < en: mixed spices
 en: lemon pepper, lemon pepper seasoning
 af: suurlemoenpeper
@@ -69141,7 +69492,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lemon_pepper
 
 # description:en:HERBAL PEPPER is a seasoning popular in Poland, created as a substitute to peppercorns in times of shortage, still popular to this day.
 
-# <en:compound
+#< en: compound
 < en: mixed spices
 en: herbal pepper
 it: pepe alle erbe
@@ -69151,7 +69502,7 @@ wikidata:en: Q11816603
 < en: spice
 fr: épices moulues
 
-# <en:compound
+#< en: compound
 en: spice paste
 de: Gewürzpaste, Würzpaste
 fi: maustetahna
@@ -69619,7 +69970,7 @@ usda_ndb_name:en: Spices, mace, ground
 #
 ###################################################################################################
 
-# <en:root vegetable
+# <en: root vegetable
 < en: spice
 en: turmeric
 af: borrie
@@ -70138,32 +70489,33 @@ vi: quế quan
 vo: kirfat
 yi: צימערינג
 zh: 桂皮
-# aeb-arab:قرفة
-# ang:ofersǣwisc rind
-# arc:ܩܠܦܬܐ ܕܒܣܡܐ
-# arz:قرفه
-# bar:zimt
-# be-tarask:карыца
-# ceb:kanela
-# ckb:دارچین
-# csb:cynamón
-# de-ch:zimt
-# dsb:cymt
-# en-ca:cinnamon
-# en-gb:cinnamon
-# frr:kaneel
-# gsw:zimt
-# hsb:skoričnik
-# mai:दालचिनी
-# nan:jio̍k-kùi
-# nds:kaneel
-# nrm:cannelle
-# roa-tara:cannélle
-# scn:cannedda
-# sco:cinnamon
-# vls:kanêel
-# yue:肉桂
-# zh-tw:陰香
+#aeb-arab: قرفة
+#ang: ofersǣwisc rind
+#arc: ܩܠܦܬܐ ܕܒܣܡܐ
+#arz: قرفه
+#bar: zimt
+#be-tarask: карыца
+#ceb: kanela
+#ckb: دارچین
+#csb: cynamón
+#de-ch: zimt
+#dsb: cymt
+#en-ca: cinnamon
+#en-gb: cinnamon
+#frr: kaneel
+#gsw: zimt
+#hsb: skoričnik
+#mai: दालचिनी
+#nan: jio̍k-kùi
+#nds: kaneel
+#nrm: cannelle
+#roa-tara: cannélle
+#scn: cannedda
+#sco: cinnamon
+#vls: kanêel
+#yue: 肉桂
+#zh-tw: 陰香
+agribalyse_proxy_food_code:en: 11025
 carbon_footprint_fr_foodges_ingredient:fr: Cannelle
 carbon_footprint_fr_foodges_value:fr: 2.2
 ciqual_proxy_food_code:en: 11025
@@ -70174,20 +70526,13 @@ usda_ndb_proxy_name:en: Spices, cinnamon, ground
 wikidata:en: Q28165
 # fr:cannelle has 1851 products in 14 languages @2018-10-24
 
-#<en:Cinnamon
-#en:organic cinnamon
-##da:økologisk kanel
-#de:Bio-Zimt
-#es:Canela orgánica
-#fi:luomukaneli, luomu kaneli
-#fr:cannelle bio
-
 #comment:en:kept for ciqual
-< en: Cinnamon
+< en: cinnamon
 en: cinnamon powder
 bg: канела на прах
+da: kanelpulver
 de: Zimtpulver
-es: Canela en polvo
+es: canela en polvo
 fi: kanelijauhe
 fr: cannelle en poudre, cannelle moulue
 hr: cimet u prahu
@@ -70196,32 +70541,35 @@ ja: シナモン粉末
 nl: kaneelpoeder
 pt: canela em pó
 ru: корица молотая
+agribalyse_food_code:en: 11025
 ciqual_food_code:en: 11025
 ciqual_food_name:en: Cinnamon, powder
 ciqual_food_name:fr: Cannelle, poudre
 usda_ndb_code:en: 2010
 usda_ndb_name:en: Spices, cinnamon, ground
+wikidata:en: Q30038889
 # 448 in 4 languages @2021-09-20
 
-# description:en:Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
-
-< en: Cinnamon
+< en: cinnamon
 en: cassia, chinese cinnamon
+xx: cassia, cinnamomum cassia
 am: ብርጕድ
 ar: سليخة
 az: çin darçın ağacı
 bg: касия
-da: cassia
+cs: skořicovník čínský
 de: Zimtkassie
-el: κιννάμωμον η κασσία
+el: κιννάμωμον η Κασσία
 et: hiina kaneelipuu
+fa: دارچین چینی
 fi: kassiakaneli
-fr: cannelle de chine
-hr: kineskog cimeta, cinnamomum aromaticum
+fr: cannelle de Chine, cannelier de Chine
+gu: દારચીની
+hr: kineskog cimeta
 id: kayu manis cina
-it: cassia
+is: kassía
 ja: シナニッケイ
-la: cinnamomum cassia
+la: cinnamomum cassia, cinnamomum aromaticum
 lt: kininis cinamonas
 ml: ചൈനീസ് പട്ട
 nb: kassiakanel
@@ -70229,20 +70577,21 @@ nl: cassie
 pl: cynamonowiec wonny
 pt: cássia-chinesa
 ru: коричник китайский
+sh: kineski cimet
 sk: kineski cimet
 sl: kitajski cimet
 sv: kassiakanel
 th: อบเชยจีน
 uz: dolchin
+za: naenggveiq
 zh: 肉桂
-# lzh:桂
-# nan:jio̍k-kùi
-# zh-tw:肉桂
+#lzh: 桂
+#nan: jio̍k-kùi
+#zh-tw: 肉桂
+description:en: Cinnamomum cassia, called Chinese cassia or Chinese cinnamon, is an evergreen tree originating in southern China
 wikidata:en: Q204148
 wikipedia:en: https://en.wikipedia.org/wiki/Cinnamomum_cassia
 # 165 @2021-09-20
-
-# description:en:CINNAMOMUM VERUM, called true cinnamon tree or Ceylon cinnamon tree is a small evergreen tree belonging to the family Lauraceae, native to Sri Lanka.
 
 < en: cinnamon
 en: ceylon cinnamon
@@ -70256,6 +70605,7 @@ it: cannella di Ceylon
 ko: 실론계피나무
 la: cinnamomum verum
 nl: Ceylonkaneel
+description:en: CINNAMOMUM VERUM, called true cinnamon tree or Ceylon cinnamon tree is a small evergreen tree belonging to the family Lauraceae, native to Sri Lanka.
 wikidata:en: Q370239
 wikipedia:en: https://en.wikipedia.org/wiki/Cinnamomum_verum
 # 58 in 6 @2021-09-20
@@ -70459,23 +70809,27 @@ ur: میتھی
 vi: cỏ ca ri
 yi: באקסהארן
 zh: 胡芦巴
-#ach:haleuba
-#arz:حلبة
-#azb:چمن اوْتو
-#bho:मेथी
-#hsb:kozyradka
-#kab:tifidas
-#ku-arab:شەمبەلیک
-#lzh:胡盧巴
-#mai:मेथी
-#mad:klabhet
-#wuu:胡芦巴
+#ach: haleuba
+#arz: حلبة
+#azb: چمن اوْتو
+#bho: मेथी
+#hsb: kozyradka
+#kab: tifidas
+#ku-arab: شەمبەلیک
+#lzh: 胡盧巴
+#mai: मेथी
+#mad: klabhet
+#wuu: 胡芦巴
+agribalyse_proxy_food_code:en: 11077
+ciqual_proxy_food_code:en: 11077
+ciqual_proxy_food_name:en: Fenugreek, seed
+ciqual_proxy_food_name:fr: Fenugrec, graine
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.36
-ifct_food_code:en: C020
-ifct_food_name:en: Fenugreek leaves
-usda_ndb_code:en: 2019
-usda_ndb_name:en: Spices, fenugreek seed
+ifct_proxy_food_code:en: C020
+ifct_proxy_food_name:en: Fenugreek leaves
+usda_ndb_proxy_code:en: 2019
+usda_ndb_proxy_name:en: Spices, fenugreek seed
 wikidata:en: Q133205
 wikipedia:en: https://en.wikipedia.org/wiki/Fenugreek
 # fr:fenugrec has 171 products in 5 languages @2018-10-23
@@ -70489,6 +70843,8 @@ fr: feuille de fenugrec
 hr: list piskavice
 it: foglie di trigonella
 nl: fenegriekblad
+ifct_food_code:en: C020
+ifct_food_name:en: Fenugreek leaves
 wikidata:en: Q104054829
 #130 @2021-09-19
 
@@ -70518,11 +70874,15 @@ it: seme di fieno greco, semi di fieno greco
 la: Trigonellae foenugraeci semen
 nl: fenegriekzaad
 pl: nasiona kozieradki, nasiono kozieradki
+sv: bockhornsklöverfrö
+agribalyse_food_code:en: 11077
 ciqual_food_code:en: 11077
 ciqual_food_name:en: Fenugreek, seed
 ciqual_food_name:fr: Fenugrec, graine
 ifct_food_code:en: G026
 ifct_food_name:en: Fenugreek seeds
+usda_ndb_code:en: 2019
+usda_ndb_name:en: Spices, fenugreek seed
 wikidata:en: Q57659978
 #223 @2021-09-19
 
@@ -70606,7 +70966,7 @@ nl: gemalen galangawortel, laos
 #
 ###################################################################################################
 
-# <en:root vegetable
+# <en: root vegetable
 < en: spice
 en: ginger, stem ginger, ginger root
 af: Gemmer
@@ -71342,6 +71702,7 @@ usda_ndb_name:en: Spices, coriander leaf, dried
 #                                Burnet
 #
 ###################################################################################################
+
 < en: herb
 en: burnet
 de: Pimpinelle
@@ -71521,6 +71882,18 @@ it: burro all'aneto
 sv: dillsmör
 #1 @2021-09-16
 # usage:fi:Tillivoi: Voi (Suomi), tilli, suola
+
+###################################################################################################
+#
+#                                Epazote
+#
+###################################################################################################
+
+< en: herb
+en: epazote
+description:en: Epazote (Dysphania ambrosioides, formerly Chenopodium ambrosioides) is a pungent, aromatic herb widely used in Mexican and Central American cooking. The flavor is hard to pin down — people describe it as a mix of citrus, mint, anise, tar, and even petroleum-like notes. It's strong, so it's used in moderation, usually just a sprig or a few leaves per dish, added toward the end of cooking to preserve its aroma. Epazote contains compounds (like ascaridole) that can be toxic in concentrated amounts, such as in essential oil form. Using fresh or dried leaves in normal cooking quantities is considered safe and is how it's traditionally consumed — but it shouldn't be consumed as a concentrated extract or in medicinal "high dose" preparations.
+usda_ndb_code:en: 11984
+usda_ndb_name:en: Epazote, raw
 
 ###################################################################################################
 #
@@ -73374,6 +73747,7 @@ usda_ndb_name:en: Spices, marjoram, dried
 #                                Herbs de provence (herb mix)
 #
 ###################################################################################################
+
 < en: herb
 en: herbes de Provence
 ca: herbes de Provença, herbes provençals
@@ -74539,6 +74913,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tilia
 #                                Maca
 #
 ###################################################################################################
+
 < en: plant
 en: maca
 xx: maca
@@ -74585,6 +74960,7 @@ uk: Мака перуанська
 #                                Ginseng
 #
 ###################################################################################################
+
 < en: plant
 en: ginseng
 xx: ginseng
@@ -74763,7 +75139,7 @@ it: polvere di liquirizia
 nl: zoethoutpoeder
 sv: lakritspulver
 
-# <en:compound
+#< en: compound
 en: liquorice dragées
 de: Lakritzdragees, Lakritzdragées, Süßholzdragees
 fi: lakritsirae
@@ -74864,6 +75240,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Corchorus_olitorius
 #                                Mate
 #
 ###################################################################################################
+
 < en: plant
 en: mate, yerba mate leaves, yerba mate
 af: Mate
@@ -75221,7 +75598,7 @@ it: olive nere sott'olio
 ciqual_food_code:en: 13131
 ciqual_food_name:en: Olives, black, in oil (Greek olive)
 
-# <en:compound
+#< en: compound
 < en: olive
 en: stuffed olives
 de: Gefüllte Oliven
@@ -75298,12 +75675,23 @@ hr: ononis spinosa, korijen zečjeg trna
 it: ononis spinosa
 wikidata:en: Q160102
 
+###################################################################################################
+#
+#                                Pumpkin flowers
+#
+###################################################################################################
+
+< en: plant
+en: pumpkin flower
+usda_ndb_code:en: 11416
+usda_ndb_name:en: Pumpkin flowers, raw
 
 ###################################################################################################
 #
 #                                Quinine
 #
 ###################################################################################################
+
 # description:en:Quinine was first isolated in 1820 from the bark of a cinchona tree. Quinine is a flavor component of tonic water and bitter lemon drink mixers.
 
 < en: plant
@@ -75877,6 +76265,24 @@ es: concentrado de cártamo con efecto colorante
 #de:steviablätter
 #hr:stevia list
 #comment:en:stevia can be found in the file additives.txt under E960
+
+###################################################################################################
+#
+#                                Sesbania flower
+#
+###################################################################################################
+
+< en: plant
+en: sesbania flower
+description:en: The flowers come from Sesbania grandiflora, a fast-growing tropical tree also called the vegetable hummingbird, hummingbird tree, or agati. It's a popular edible flower across South and Southeast Asian cuisines. Before cooking, the bitter stamens and pistil inside each flower are usually pinched out, leaving the sweeter petals. They taste mildly sweet and slightly bitter, with a delicate, slightly crunchy texture once cooked.
+usda_ndb_code:en: 11447
+usda_ndb_name:en: Sesbania flower, raw
+
+###################################################################################################
+#
+#                                Sunflower
+#
+###################################################################################################
 
 # description:en:Helianthus or SUNFLOWER (/ˌhiːliˈænθəs/)[2] is a genus of plants comprising about 70 species
 # en:sunflower is only found as a specication, i.e. oil (sunflower, ...)
@@ -77286,12 +77692,6 @@ uz: Suvoʻtlar
 vi: Tảo
 wa: Ale
 zh: 藻類
-# ingredient/algae has 135 products in 4 languages @2019-01-27
-ciqual_proxy_food_code:en: 20984
-ciqual_proxy_food_name:en: Wakame (Undaria pinnatifida), dried or dehydrated
-nutriscore_fruits_vegetables_nuts:en: yes
-vegan:en: yes
-vegetarian:en: yes
 # ast:Alga
 # azb:یوسون
 # be-tarask:водарасьці
@@ -77311,8 +77711,16 @@ vegetarian:en: yes
 # war:Alga
 # wuu:藻
 # yue:藻
+ciqual_proxy_food_code:en: 20984
+ciqual_proxy_food_name:en: Wakame (Undaria pinnatifida), dried or dehydrated
+nutriscore_fruits_vegetables_nuts:en: yes
+usda_ndb_code:en: 11669
+usda_ndb_name:en: Seaweed, wakame, raw
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q37868
 wikipedia:en: https://en.wikipedia.org/wiki/Algae
+# ingredient/algae has 135 products in 4 languages @2019-01-27
 
 < en: algae
 en: chlorella, chlorella algae
@@ -77360,9 +77768,6 @@ wikidata:en: Q133017
 wikipedia:en: https://en.wikipedia.org/wiki/Chlorella
 # fr:chlorella has 42 products in 3 languages @2018-10-28
 
-
-# description:en:SPIRULINA represents a biomass of cyanobacteria (blue-green algae) that can be consumed by humans and other animals.
-
 < en: algae
 en: spirulina
 xx: spirulina
@@ -77372,7 +77777,7 @@ bn: স্পিরুলিনা
 el: Σπιρουλίνα
 eo: Spirulino
 fi: spirulina, spirulinaa, spirulina-levä, spiruliinaa
-fr: spirulina, spiruline
+fr: spirulina, spiruline, spiruline crue
 he: ספירולינה
 ja: スピルリナ
 ko: 스피룰리나
@@ -77389,13 +77794,19 @@ zh: 螺旋藻
 # en-ca:Spirulina
 # en-gb:Spirulina
 # nah:Tecuitlatl
+ciqual_food_code:en: 11086
+ciqual_food_name:en: Spirulina, (spirulina sp.), dried
+ciqual_food_name:fr: Spiruline (Spirulina sp.), séchée ou déshydratée
+description:en: Spirulina is a blue-green algae (cyanobacterium) that's grown and processed as a food and dietary supplement. Very high in protein (roughly 55–70% by dry weight), including all essential amino acids. Rich in B vitamins (especially B12-like compounds, though its B12 isn't well-absorbed by humans), iron, and antioxidants like phycocyanin (the pigment giving it its blue-green color). It contains omega-6 fatty acids (notably gamma-linolenic acid)
+usda_ndb_2_code:en: 11667
+usda_ndb_2_name:en: Seaweed, spirulina, dried
+usda_ndb_2_process:en: en:dried
+usda_ndb_code:en: 11666
+usda_ndb_name:en: Seaweed, spirulina, raw
 wikidata:en: Q285335
 wikipedia:en: https://en.wikipedia.org/wiki/Spirulina_(dietary_supplement)
 # ingredient/fr:spirulina has 61 products in 4 languages @2019-01-23
 # usage:en:concentrated extracts (Spirulina platensis, safflower flower)
-
-< en: spirulina
-fr: spiruline crue
 
 < en: spirulina
 en: dehydrated spirulina
@@ -77406,9 +77817,6 @@ hr: dehidrirana spirulina
 it: spirulina disidratata
 nl: gedehydrateerde spirulina
 # ingredient/fr:spiruline-deshydratee has 10 products in french @2019-05-28
-ciqual_food_code:en: 11086
-ciqual_food_name:en: Spirulina, (spirulina sp.), dried
-ciqual_food_name:fr: Spiruline (Spirulina sp.), séchée ou déshydratée
 
 < en: spirulina
 en: spirulina powder
@@ -77692,71 +78100,29 @@ ciqual_food_code:en: 20283
 ciqual_food_name:en: Glasswort (Salicornia sp.), fresh
 ciqual_food_name:fr: Salicorne (Salicornia sp.), fraîche
 
-
 < en: seaweed
-en: kombu
-xx: kombu
-az: yapon laminariyası
-de: Kombu
-es: kombu, alga kombu
-fa: کونبو
-fi: kombu, kombu-merilevä
-fr: kombu, konbu
-hy: կոմբու
-ja: コンブ, 昆布, こんぶ
-ru: комбу
-sk: konbu
-th: คมบุ
-# ingredient/fr:kombu has 20 products in french @2019-02-22
-ciqual_food_code:en: 20990
-ciqual_food_name:en: Kombu or Japanese kelp (Laminaria japonica), dried or dehydrated
-ciqual_food_name:fr: Kombu ou kombu japonais (Laminaria japonica), séchée ou déshydratée
-description:en: KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
-eurocode_2_group_3:en: 8.55.20
-# azb:اؤزل:پالایهٔ خرابکاری
-# de-ch:Kombu
-# en-ca:Kombu
-# en-gb:Kombu
-# pt-br:Kombu
-wikidata:en: Q11261547
-wikipedia:en: https://en.wikipedia.org/wiki/Kombu
-
-en: Tangle
-fr: Kombu breton
-it: alga kombu
-ciqual_food_code:en: 20991
-ciqual_food_name:en: Tangle (Laminaria digitata), dried or dehydrated
-ciqual_food_name:fr: Kombu breton (Laminaria digitata), séchée ou déshydratée
-
-#(Saccharina latissima) dried or dehydrated
-en: Sea belt
-fr: Kombu royal
-it: cintura marina
-ciqual_food_code:en: 20986
-ciqual_food_name:en: Sea belt (Saccharina latissima), dried or dehydrated
-ciqual_food_name:fr: Kombu royal (Saccharina latissima), séchée ou déshydratée
-
-# description:en:Saccharina japonica is a marine species of the Phaeophyceae (brown algae) plant , a type of kelp or seaweed, that is extensively cultivated on ropes between the seas of Japan and Korea.[
-
-< en: kombu
-en: Saccharina japonica
-de: Japanischer Blatttang (Saccharina japonica)
-hr: saharina japonica
-it: saccarina japonica
-la: Saccharina japonica, Laminaria Japonica
-wikipedia:en: https://en.wikipedia.org/wiki/Saccharina_japonica
-
-
-# "laver" on its own (vs "green laver") seems to refer to any species in the Porphyra genus.
+en: tsunomata
+ja: 角叉, つのまた
+comment:en: the USDA entry is a commercially available/cultivated product.
+description:en: Tsunomata (角叉, or つのまた) is the Japanese name for a type of red algae/seaweed. In Japanese cooking, it's traditionally soaked and used in salads, soups, or as a crunchy/chewy garnish. It has a mild, subtle sea flavor rather than a strong "seaweed" taste.
+usda_ndb_proxy_2_code:en: 31020
+usda_ndb_proxy_2_name:en: Seaweed, Canadian Cultivated EMI-TSUNOMATA, rehydrated
+usda_ndb_proxy_2_process:en: en:rehydrated
+usda_ndb_proxy_code:en: 31019
+usda_ndb_proxy_name:en: Seaweed, Canadian Cultivated EMI-TSUNOMATA, dry
 
 < en: seaweed
 en: laver
-de: laver
-it: porphyra (alga nori)
+de: Laver
+la: Porphyra
+ciqual_food_code:en: 20987
+ciqual_food_name:en: Laver (Porphyra sp.), dried or dehydrated
+ciqual_food_name:fr: Nori (Porphyra sp.), séchée ou déshydratée
+description:en: Laver is a type of edible seaweed — specifically a red algae from the genus Porphyra (and related species like Pyropia). It grows on rocks in intertidal zones along coastlines, particularly in the UK, Ireland, Japan, Korea, and other coastal regions. It has a savory, briny, slightly mineral taste — often described as umami-rich, similar to other seaweeds.
+usda_ndb_code:en: 11446
+usda_ndb_name:en: Seaweed, laver, raw
 
-# en:description:Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
-
-< en: seaweed
+< en: laver
 en: nori, nori seaweed
 ar: نوري
 az: Nori
@@ -77804,20 +78170,19 @@ uk: Норі
 ur: نوری
 vi: Nori
 zh: 海苔
-# ingredient/fr:nori has 51 products in 4 languages @2019-02-22
-# ingredient/fr:porphyra-umbilical has 1 product @2019-02-22
-ciqual_food_code:en: 20987
-ciqual_food_name:en: Laver (Porphyra sp.), dried or dehydrated
-ciqual_food_name:fr: Nori (Porphyra sp.), séchée ou déshydratée
-eurocode_2_group_3:en: 8.55.30
 # cdo:Ciē-chái
 # nan:Nó͘-lih
 # pnb:نوری
 # wuu:紫菜
 # yue:紫菜
 # zh-hant:海苔
+comment:en: Laver nd nori are essentially the same organism prepared differently — the distinction is mostly about processing and tradition rather than the plant itself.
+description:en: Nori (海苔) is the Japanese name for edible seaweed (a "sea vegetable") species of the red algae genus Pyropia, including P. yezoensis and P. tenera.
+eurocode_2_group_3:en: 8.55.30
 wikidata:en: Q201565
 wikipedia:en: https://en.wikipedia.org/wiki/Nori
+# ingredient/fr:nori has 51 products in 4 languages @2019-02-22
+# ingredient/fr:porphyra-umbilical has 1 product @2019-02-22
 
 
 < en: seaweed
@@ -77896,38 +78261,6 @@ wikidata:en: Q1636443
 wikipedia:en: https://en.wikipedia.org/wiki/Himanthalia_elongata
 
 
-# en:description:Wakame (ワカメ), UNDARIA PINNATIFIDA, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
-
-< en: seaweed
-en: wakame
-ar: واكامي
-de: wakame
-eo: Vakameo
-es: wakame, alga wakame
-fa: واکامه
-fi: wakame
-fr: wakamé
-he: ואקאמה
-hr: wakame
-it: Wakame
-ja: ワカメ
-ko: 미역
-la: undaria pinnatifida
-nl: wakame
-pl: wakame
-ru: вакамэ
-th: วะกะเมะ
-vi: Tảo bẹ Undaria
-zh: 海帶芽
-# ingredient/fr:wakamé has 152 products in 9 languages @2021-08-14
-ciqual_food_code:en: 20984
-ciqual_food_name:en: Wakame (Undaria pinnatifida), dried or dehydrated
-ciqual_food_name:fr: Wakamé (Undaria pinnatifida), séchée ou déshydratée
-eurocode_2_group_3:en: 8.55.40
-# yue:裙帶菜
-wikidata:en: Q864682
-wikipedia:en: https://en.wikipedia.org/wiki/Wakame
-
 # en:description:ASCOPHYLLUM NODOSUM is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
 
 < en: seaweed
@@ -77940,9 +78273,6 @@ la: Ascophyllum
 wikipedia:en: https://en.wikipedia.org/wiki/Ascophyllum
 # ingredient/fr:Ascophyllum has 9 products in french @2019-02-22
 
-
-# en:description:LAMINARIA is a genus of 31 species of brown algae commonly called "kelp".
-
 < en: seaweed
 en: kelp
 bg: келп
@@ -77950,8 +78280,60 @@ fr: varech
 hr: kelp
 it: kelp
 la: Laminariales
+sv: kelp
+description:en: Kelp is a type of large brown seaweed that grows in cold, nutrient-rich coastal waters, and it's become a fairly common food ingredient, especially in East Asian cuisines. Kelp is notably rich in iodine, along with other minerals like calcium, magnesium, and iron. It's low in calories and contains some fiber. It has a natural savory, oceanic taste often described as umami. Kelp is a common term covering many species across several genera, all in the order Laminariales.
+usda_ndb_code:en: 11445
+usda_ndb_name:en: Seaweed, kelp, raw
 wikidata:en: Q1055316
 wikipedia:en: https://en.wikipedia.org/wiki/Kelp
+
+< en: kelp
+en: kombu
+xx: kombu
+az: yapon laminariyası
+de: Kombu
+es: kombu, alga kombu
+fa: کونبو
+fi: kombu, kombu-merilevä
+fr: kombu, konbu
+hy: կոմբու
+it: alga kombu
+ja: コンブ, 昆布, こんぶ
+ru: комбу
+sk: konbu
+th: คมบุ
+# azb:اؤزل:پالایهٔ خرابکاری
+ciqual_food_code:en: 20990
+ciqual_food_name:en: Kombu or Japanese kelp (Laminaria japonica), dried or dehydrated
+ciqual_food_name:fr: Kombu ou kombu japonais (Laminaria japonica), séchée ou déshydratée
+description:en: KOMBU (from Japanese: 昆布, translit. konbu) is edible kelp from mostly the family Laminariaceae and is widely eaten in East Asia. There are about eighteen edible species in Laminariaceae and most of them, but not all, are called kombu.
+eurocode_2_group_3:en: 8.55.20
+wikidata:en: Q11261547
+wikipedia:en: https://en.wikipedia.org/wiki/Kombu
+# ingredient/fr:kombu has 20 products in french @2019-02-22
+
+< en: kelp
+en: tangle, oarweed
+fr: kombu breton
+ciqual_food_code:en: 20991
+ciqual_food_name:en: Tangle (Laminaria digitata), dried or dehydrated
+ciqual_food_name:fr: Kombu breton (Laminaria digitata), séchée ou déshydratée
+
+#(Saccharina latissima) dried or dehydrated
+en: Sea belt
+fr: Kombu royal
+it: cintura marina
+ciqual_food_code:en: 20986
+ciqual_food_name:en: Sea belt (Saccharina latissima), dried or dehydrated
+ciqual_food_name:fr: Kombu royal (Saccharina latissima), séchée ou déshydratée
+
+< en: kombu
+en: Saccharina japonica
+de: Japanischer Blatttang
+hr: saharina japonica
+la: Saccharina japonica, Laminaria Japonica
+description:en: Saccharina japonica is a marine species of the Phaeophyceae (brown algae) plant , a type of kelp or seaweed, that is extensively cultivated on ropes between the seas of Japan and Korea.[
+wikipedia:en: https://en.wikipedia.org/wiki/Saccharina_japonica
 
 < en: kelp
 en: Laminaria
@@ -77964,15 +78346,44 @@ wikidata:en: Q310748
 wikipedia:en: https://en.wikipedia.org/wiki/Laminaria
 # ingredient/fr:Laminaria has 13 products in french @2019-02-22
 
+< en: kelp
+en: wakame
+xx: wakame
+ar: واكامي
+de: wakame
+eo: Vakameo
+es: wakame, alga wakame
+fa: واکامه
+fr: wakamé
+he: ואקאמה
+ja: ワカメ
+ko: 미역
+la: undaria pinnatifida
+ru: вакамэ
+th: วะกะเมะ
+vi: Tảo bẹ Undaria
+zh: 海帶芽
+# yue:裙帶菜
+ciqual_food_code:en: 20984
+ciqual_food_name:en: Wakame (Undaria pinnatifida), dried or dehydrated
+ciqual_food_name:fr: Wakamé (Undaria pinnatifida), séchée ou déshydratée
+description:en: Wakame (ワカメ), UNDARIA PINNATIFIDA, is a species of edible seaweed, a type of marine algae, and a sea vegetable.
+eurocode_2_group_3:en: 8.55.40
+wikidata:en: Q864682
+wikipedia:en: https://en.wikipedia.org/wiki/Wakame
+# ingredient/fr:wakamé has 152 products in 9 languages @2021-08-14
 
 < en: seaweed
 la: Porphyra yezoensis
 
 < en: seaweed
-en: Irish moss, Carrageen moss
+en: Irish moss, Carrageen moss, irishmoss, sea moss
 it: muschio irlandese
 la: Chondrus crispus
+description:en: Irish moss (Chondrus crispus), also called sea moss, is a red seaweed that grows along rocky Atlantic coastlines, especially around Ireland and the Caribbean. In food, it's valued mainly for the natural gelling and thickening properties it gets from carrageenan, a compound extracted from its cell walls. It has a mild, slightly salty or neutral taste on its own, so it's usually blended into other foods rather than eaten plain.
 eurocode_2_group_3:en: 8.55.10
+usda_ndb_code:en: 11444
+usda_ndb_name:en: Seaweed, irishmoss, raw
 
 # en:description:ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
@@ -78926,6 +79337,16 @@ usda_ndb_code:en: 11950
 usda_ndb_name:en: Mushrooms, enoki, raw
 
 < en: mushroom
+en: pepeao, pepeiao, wood ear mushroom
+la: Auricularia polytricha
+description:en: Fresh pepeiao has a convex shape with a smooth, sometimes wrinkly surface, and can be a purply gray-brown color. It has a slightly chewy texture that many describe as rubbery-crunchy. It grows wild on logs of koa and kukui trees in Hawaii, typically on fallen or dying tree branches, often appearing after rain. It's known for its ability to absorb flavors when cooked and is commonly added to soups and stir-fries. It's a staple in Hawaii's Asian-influenced cuisine and is essentially the same category of mushroom used as "wood ear" or "cloud ear" in Chinese and Japanese cooking (sometimes called kikurage).
+usda_ndb_code:en: 11230
+usda_ndb_name:en: Pepeao, dried
+usda_ndb_process:en: en:dried
+
+# description:en:PHOLIOTA is a genus of small to medium-sized, fleshy mushrooms in the family Strophariaceae.
+
+< en: mushroom
 en: maitake mushroom
 la: Grifola frondosa
 description:en: Maitake mushrooms (Grifola frondosa) are a type of edible mushroom native to Japan, China, and North America, where they grow wild at the base of oak, maple, and elm trees. Earthy, rich, and savory, often described as woodsy with a slightly peppery note. They have a nice meaty texture when cooked, similar to other polypore mushrooms. Popular in Japanese and other Asian cuisines — sautéed, roasted, added to soups, stir-fries, or used in broths. Their frilly texture crisps up nicely when roasted or pan-fried.
@@ -79294,8 +79715,6 @@ wikidata:en: Q752492
 wikipedia:en: https://en.wikipedia.org/wiki/Marasmius_oreades
 # ingredient/fr:Marasmius-Oreades has 1 product @2018-01-22
 
-# description:en:AURICULARIA AURICULA-JUDAE, known as the Jew's ear, wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide.
-
 < en: mushroom
 en: wood ear, Jew's ear, black fungus, Auricularia auricula-judea, Auricularia Auricula Judea
 ar: أذن يهوذا
@@ -79351,11 +79770,20 @@ zh: 黑木耳
 # zh-hk:黑木耳
 # zh-sg:黑木耳
 # zh-tw:木耳
+description:en: "Cloud ear" (also called wood ear, black fungus, or mù'ěr 木耳 in Chinese) refers to mushrooms in the genus Auricularia — most commonly Auricularia auricula-judae or Auricularia cornea. They're a type of jelly fungus that grows on decaying or living wood, especially elder, beech, and other broadleaf trees. Cloud ears are prized more for their texture than flavor — they're crunchy, slightly gelatinous, and almost cartilaginous when cooked, but have very little taste of their own. That makes them great at soaking up other flavors in a dish.
+usda_ndb_code:en: 11988
+usda_ndb_name:en: Fungi, Cloud ears, dried
+usda_ndb_process:en: en:dried
 wikidata:en: Q321342
 wikipedia:en: https://en.wikipedia.org/wiki/Auricularia_auricula-judae
 # fr:Oreilles de Judas has 24 products in 5 languages @2018-11-01
 
-# description:en:A TRUFFLE is the fruiting body of a subterranean ascomycete fungus, predominantly one of the many species of the genus Tuber. In addition to Tuber, many other genera of fungi are classified as truffles including Geopora, Peziza, Choiromyces, Leucangium, and over a hundred others.
+< en: mushroom
+en: pepeiao
+la: Auricularia cornea
+description:en: "Pepeao" is a Hawaiian word — it literally means "ear," and it's used in Hawaii to refer to a type of jelly fungus (wood ear mushroom, genus Auricularia) because of its ear-shaped, rubbery cap. It grows on dead or decaying wood and is edible, often used in soups and stir-fries, similar to how "wood ear" or "cloud ear" mushrooms are used in Chinese cuisine.
+usda_ndb_code:en: 11228
+usda_ndb_name:en: Jew's ear, (pepeao), raw
 
 < en: mushroom
 en: truffle
@@ -79392,12 +79820,13 @@ tr: trüf mantarı
 uk: трюфелі
 vi: truffle
 zh: 松露
-# ingredient/en:truffle has 14 products in 2 languages @2020-06-13
-eurocode_2_group_3:en: 8.50.30
 # fiu_vro:trühvli
 # zh_yue:松露
+description:en: A TRUFFLE is the fruiting body of a subterranean ascomycete fungus, predominantly one of the many species of the genus Tuber. In addition to Tuber, many other genera of fungi are classified as truffles including Geopora, Peziza, Choiromyces, Leucangium, and over a hundred others.
+eurocode_2_group_3:en: 8.50.30
 wikidata:en: Q2690965
 wikipedia:en: https://en.wikipedia.org/wiki/Truffle
+# ingredient/en:truffle has 14 products in 2 languages @2020-06-13
 
 
 # description:en:tuber MELANOSPORUM is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
@@ -84679,12 +85108,12 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Œufs_de_lump
 
 # comment:en:Is the only difference the colorant added?
 
-# <en:compound
+#< en: compound
 < fr: œufs de lompe
 fr: oeufs de lompe noirs
 # usage:fr:oeufs de lompe noirs: oeufs de lompe  (cyclopterus lumpus); eau; sel; stabilisants : e422, e415; conservateur : e211; colorants : e414, e151, e150d, e163
 
-# <en:compound
+#< en: compound
 < fr: œufs de lompe
 fr: oeufs de lompe rouges
 # usage:fr:oeufs de lompe rouges: oeufs de lompe (cyclopterus lumpus); eau; sel; stabilisants : e422, e415; conservateur : e211; colorants : e160a, e101, e120; sucre
@@ -89477,13 +89906,13 @@ ciqual_food_name:fr: Concombre, pulpe, cru
 en: baby cucumber, baby cucumbers, small cucumber, raw gherkin, unpickled gherkin
 sv: smågurka, smågurkor, smågurk
 
-# <en:compound
+#< en: compound
 < en: cucumber
 en: pickled cucumber
 da: syltet agurk, syltede agurker
 wikidata:en: Q1365891
 
-# <en:compound
+#< en: compound
 < en: baby cucumber
 < en: pickled cucumber
 en: pickled gherkin, pickle
@@ -89500,7 +89929,7 @@ pl: korniszon, korniszony, ogórek konserwowy, ogórki konserwowe
 ro: castraveți murați
 
 # this is done in the style of other "X or Y" ingredients
-# <en:compound
+#< en: compound
 < en: baby cucumber
 < en: pickled gherkin
 en: gherkin, pickled or unpickled gherkin
@@ -89508,7 +89937,7 @@ sv: inläggningsgurka
 description:en: GHERKIN can refer to either a pickled small cucumber (esp. in Ireland and the UK) or an unpickled small cucumber
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
 
-# <en:compound
+#< en: compound
 < en: pickled gherkin
 en: vinegar gherkin
 de: kleine Essiggurken, Essiggurke, Gewürzgurke
@@ -89523,7 +89952,7 @@ ciqual_food_name:en: Gherkin, pickled in vinegar
 eurocode_2_group_2:en: 8.70
 eurocode_2_group_3:en: 8.70.40
 
-# <en:compound
+#< en: compound
 < en: pickled gherkin
 cs: kvašáky
 de: Salzgurke
@@ -89532,7 +89961,7 @@ ru: cолёные огурцы
 sv: saltgurka, saltgurkor
 wikidata:en: Q1211297
 
-# <en:compound
+#< en: compound
 < en: cucumber
 en: vinegar cucumbers
 de: Essiggurken
@@ -90568,7 +90997,7 @@ ciqual_food_code:en: 40702
 ciqual_food_name:en: Gizzard, duck, raw
 #46 in 2 @2021-09-12
 
-# <en:compound
+#< en: compound
 < en: duck gizzard
 fr: Gésier de canard maigre traités en salaison
 # usage:fr:Gésiers de canard maigre traités en salaison 85% (gésiers de canard, sel, arômes naturels, conservateur : nitrite de sodium)
@@ -92002,7 +92431,7 @@ ja: 卵たん白
 nl: ei-proteine
 # ingredient/egg-protein has 47 products in 5 languages @2018-12-18
 
-# <en:compound
+#< en: compound
 #category/meringues
 < en: egg white
 en: meringue
@@ -92463,18 +92892,18 @@ sv: grönsaksextrakt
 # usage:fr: extraits végétaux (spiruline, chlorelle, brocoli, épinard, pousses d'orge, pousses de blé, persil, gingembre, algues bleu-vert, ail),
 # usage:fr: arômes naturels (extraits végétaux)
 
-# <en:compound
+#< en: compound
 < en: vegetable extract
 fr: extraits végétaux à pouvoir colorant
 
-# <en:compound
+#< en: compound
 de: färbende Konzentrate
 fr: concentré colorant
 
-# <en:compound
+#< en: compound
 de: färbende Frucht- und Pflanzenkonzentrate
 
-# <en:compound
+#< en: compound
 de: färbende Gemüsekonzentrate
 
 # TODO: improve parsing so this can live in processing only.
@@ -92807,6 +93236,10 @@ vegetarian:en: yes
 wikidata:en: Q20026824
 
 < en: vegetable fiber
+fr: fibres de tomate, fibre de tomate
+nl: tomatenvezel
+
+< en: vegetable fiber
 en: pea fiber
 bg: грахови фибри
 ca: fibra de pèsol, fibra vegetal de pèsol
@@ -93046,7 +93479,7 @@ sv: beredning
 
 # description:en:Stuffing or filling is an edible substance or mixture, normally consisting primarily of small cut-up pieces of bread or a similar starch and served as a side dish or used to fill a cavity in another food item while cooking. Many foods may be stuffed, including eggs, poultry, seafood, mammals, and vegetables, but chickens and turkey are the most common.
 
-# <en:compound
+#< en: compound
 en: filling, stuffing
 be: Фарш
 bg: пълнеж
@@ -93114,7 +93547,7 @@ nl: abrikozenvulling
 pl: nadzienie morelowe, nadzienie o smaku morelowym
 pt: recheio de damasco
 
-# <en:compound
+#< en: compound
 < en: Filling
 en: milk filling
 bg: млечен пълнеж
@@ -93247,7 +93680,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Brioche
 # description:en:DOUGH is a thick, malleable, sometimes elastic, paste made out of any grains, leguminous or chestnut crops. Dough is typically made by mixing flour with a small amount of water and/or other liquid, and sometimes includes flour yeast or other leavening agents as well as other ingredients such as various fats or flavorings.
 # comment:en:Dough is either the pizza base or italian pasta (think spaghetti)
 
-# <en:compound
+#< en: compound
 en: dough
 ak: mori
 az: xəmir
@@ -93868,7 +94301,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
 carbon_footprint_fr_foodges_value:fr: 0.5
 # ingredient/fr:pâte-crue has 22 products in french @2018-12-10
 
-# <en:compound
+#< en: compound
 < en: pasta
 fr: mélange de pâtes alimentaires cuisinées
 # usage:fr:mélange de pâtes alimentaires cuisinées 43% (conchiglie cuites aromatisées au curcuma 22,4% (eau, semoule de blé dur de qualité supérieure, œufs, curcuma) - mini torsades cuites aromatisées à la tomate et à la betterave 18,8% (eau, semoule de blé dur de qualité supérieure, tomate 0,2%, betterave 0,03%), huile d'olive vierge extra, huile de colza, basilic, sel)
@@ -94224,7 +94657,7 @@ it: galletta
 # ingredient/fr:galette has 125 products in 4 languages @2019-04-11
 # usage:fr:Galette: Eau, farine de blé noir, sel de Guérande
 
-# <en:compound
+#< en: compound
 en: vermicelli, Semiya
 de: Fadennudeln
 fi: vermiselli
@@ -94292,7 +94725,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Nachos
 
 # description:en:BREAD is a staple food prepared from a dough of flour and water, usually by baking.
 
-# <en:compound
+#< en: compound
 en: bread
 aa: gaqambo
 ab: мгьал
@@ -94613,6 +95046,9 @@ hr: pogača
 it: panino
 pl: bułka, bułki
 
+< en: bread roll
+en: French roll
+
 #<en:sesame
 < en: special bread
 en: sesame seed bun
@@ -94630,7 +95066,7 @@ fr: pain de mie au son de blé
 < en: special bread
 fr: pain spécial viennois, pain special viennois
 
-# <en:compound
+#< en: compound
 fr: brisures de crêpe dentelle
 es: trozos de barquillo
 nl: gebroken flinterdunne flensjes
@@ -94647,7 +95083,7 @@ nl: beschuit
 wikidata:en: Q5477096
 wikipedia:en: https://en.wikipedia.org/wiki/Rusk
 
-# <en:compound
+#< en: compound
 < en: special bread
 en: rye bread
 bg: ръжен хляб
@@ -94824,7 +95260,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Baguette
 
 # description:en:A waffle is a dish made from leavened batter or dough that is cooked between two plates that are patterned to give a characteristic size, shape, and surface impression.
 
-# <en:compound
+#< en: compound
 en: waffle
 ar: وافل
 az: Vafli
@@ -94939,7 +95375,7 @@ it: fiocchi di Hüppen
 # ingredient/fr:éclats-de-gaufrettes has 40 products in 4 languages @2019-02-13
 # éclats de gaufrette (sucre, farine de froment, huile végétales [tournesol, colza], beurre fondu, lactose, protéines lactiques, sel de cuisine, poudre à lever [E 500], extrait de malt d’orge, émulsifiant [E 322], antioxydant [E 306])
 
-# <en:compound
+#< en: compound
 en: wafer, wafers
 de: oblaten
 es: oblea, obleas, barquillo, barquillo sin azúcares añadidos
@@ -95008,7 +95444,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pierogi
 
 # description:en:RAVIOLI are a type of dumpling comprising a filling enveloped in thin pasta dough.
 
-# <en:compound
+#< en: compound
 < en: stuffed pasta
 en: ravioli
 xx: ravioli
@@ -95162,7 +95598,7 @@ pt: biscoitos de manteiga
 # speculoos is made with caramel and speculaas with spices
 
 # mainIngredient:en:wheat
-# <en:compound
+#< en: compound
 < en: biscuit
 en: speculoos
 fr: spéculoos
@@ -95185,7 +95621,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Speculaas
 # comment:en:This is different from speculoos, which is a sugar-based variant (no spices).
 
 # mainIngredient:en:wheat
-# <en:compound
+#< en: compound
 < en: biscuit
 en: speculaas
 ar: سبيكولوس
@@ -95253,7 +95689,7 @@ en: powdered preparation with palm fat
 hr: praškasti pripravak s palminom masti, praškasti pripravak s palminim uljem
 it: preparato in polvere con grasso di palma
 
-# <en:compound
+#< en: compound
 en: coating, seasoning
 bg: Покритие
 bs: smjesa za paniranje
@@ -95508,7 +95944,7 @@ en: Tenkasu with shrimp
 it: tenkasu con gamberi
 ja: えび入り天かす
 
-# <en:compound
+#< en: compound
 fr: pain de mie au blé malté
 # ingredient/fr:pain-de-mie-au-blé-malté has 22 products in french @2019-02-09
 
@@ -95642,7 +96078,7 @@ ciqual_food_name:fr: Gâteau moelleux nature type génoise
 
 # description:en:A CRÊPE is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
 
-# <en:compound
+#< en: compound
 # <en:Crêpes and galettes
 en: Crêpe, Crêpes, crepe, crepes
 ar: بان كيك
@@ -95756,7 +96192,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Petit-Beurre
 fr: génoise, genoise
 
 
-# <en:compound
+#< en: compound
 # mainIngredient:en:wheat
 # <en:Breads
 #category/croutons
@@ -95871,7 +96307,7 @@ de: Saatenmischung
 # usage:de: Saatenmischung (Sonnenblumenkerne, Buchweizen, Kürbiskerne, Leinsamen, Quinoa, Hirse, Mohn)
 
 
-# <en:compound
+#< en: compound
 en: tofu, Tofus, bean curds
 an: Tofu
 ar: توفو
@@ -95990,7 +96426,7 @@ en: fried tofu
 usda_ndb_code:en: 16129
 usda_ndb_name:en: Tofu, fried
 
-# <en:compound
+#< en: compound
 en: tempeh
 xx: tempeh
 de: Tempeh
@@ -96008,7 +96444,7 @@ fr: confiserie
 
 # description:en:FONDANT icing, also commonly referred to simply as fondant, is an icing used to decorate or sculpt cakes and pastries.
 
-# <en:compound
+#< en: compound
 # mainIngredient:en:sugar
 en: fondant
 xx: fondant
@@ -96250,7 +96686,7 @@ fr: Morceaux de nougatine aux amandes
 # description:fr:Le PRALINÉ est une pâte composée de pralin (mélange de sucre, d'amandes et/ou de noisettes), d'un peu de vanille, de cacao ou de beurre de cacao, et enrobée de chocolat au lait.
 # comment:en:Not to be confounded with pralinen (chocolate bonbons). And with nougat.
 
-# <en:compound
+#< en: compound
 en: Praliné
 de: Praliné
 es: praliné
@@ -96269,7 +96705,7 @@ fr: bonbon au cacao maigre
 
 # description:en:A GLAZE in cooking is a coating of a glossy, often sweet, sometimes savoury, substance applied to food typically by dipping, dripping, or with a brush. Egg whites and basic icings are both used as glazes.
 
-# <en:compound
+#< en: compound
 en: glaze
 bg: глазура
 bn: গ্লেজ
@@ -96326,7 +96762,7 @@ hr: kakao glazura, kakaova glazura
 it: glassa al cacao
 
 # mainIngredient:en:cacao
-# <en:compound
+#< en: compound
 fr: décoration au cacao
 pl: polewa kakaowa
 # usage:fr:décoration au cacao (cacao, dextrose de maïs, amidon de maïs, sucre, beurre de cacao)
@@ -96379,7 +96815,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Aspic
 
 # description:en:BRINE is a high-concentration solution of salt (usually sodium chloride) in water. Brining is used to preserve or season the food. Brining can be applied to vegetables, cheeses and fruit in a process known as pickling. Meat and fish are typically steeped in brine for shorter periods of time, as a form of marination, enhancing its tenderness and flavor, or to enhance shelf period.
 
-# <en:compound
+#< en: compound
 # <en:mainIngredient:en:water
 en: brine
 af: Pekel
@@ -96443,7 +96879,7 @@ fr: fond, fond de sauce, fonds de sauce
 hr: fond
 wikipedia:en: https://en.wikipedia.org/wiki/Fond
 
-# <en:compound
+#< en: compound
 # <en:mainIngredient:en:water
 en: broth, broths, stock, bouillon, Stocks
 af: bouillon
@@ -96685,7 +97121,7 @@ wikidata:en: Q42366457
 fr: jus de cuisson
 # ingredient/fr:jus-de-cuisson has 43 products in french @2019-03-11
 
-# <en:compound
+#< en: compound
 # <en:mainIngredient:en:water
 fr: jus cuisiné
 # ingredient/fr:jus-cuisiné has 56 products in french @2019-03-29
@@ -96714,7 +97150,7 @@ wikidata:en: Q11579290
 
 # description:en:LEMONADE can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
 
-# <en:compound
+#< en: compound
 # mainIngredient:en:water
 en: lemonade, Lemonades
 ar: شراب الليمون
@@ -96791,23 +97227,31 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lemonade
 # ingredient/fr:limonade has 37 products in 5 languages @2019-02-16
 # usage:fr:Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme)
 
-# <en:compound
+#< en: compound
 de: kakaohaltiges Getränkepulver
 # de:usage:kakaohaltiges Getränkepulver (Zucker, fettarmes Kakaopulver, Emulgator Lecithine, Speisesalz)
 
 # description:en:A food product based on soy.
 
-# <en:compound
+#< en: compound
 < en: preparation
 en: soy preparation
+bg: соев препарат
+ca: preparació de soja
+cs: sójový přípravek
+da: sojapræparat
 de: Sojabereitung, Soja-Produkt, Sojaprodukt, Sojamittel, Sojaerzeugnis
 es: preparación de soja
 fi: Soijavalmiste
 fr: préparation à base de soja
 hr: pripravak od soje
+hu: szójakészítmény
 it: preparazione di soia
 nl: sojabereiding
+pl: preparat sojowy
 pt: preparado à base de soja
+ro: preparat din soia
+sk: sójový prípravok
 sv: sojabönsberedning
 allergens:en: en:soybeans
 nova:en: 4
@@ -96882,7 +97326,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Soy_milk
 # category/soy-milks has 417 products @2019-05-08
 # usage:fr:Tonyu (eau, graines de soja)
 
-# <en:compound
+#< en: compound
 en: mirepoix
 xx: mirepoix
 be: Мірпуа
@@ -96903,7 +97347,7 @@ zh: 米尔普瓦
 wikidata:en: Q1509725
 
 
-# <en:compound
+#< en: compound
 # mainIngredient:en:emmental
 fr: Gratinage
 # usage:fr:Gratinage 2% : emmental ( lait : France) 1,5%, arôme* (dont gluten ).
@@ -96912,7 +97356,7 @@ de: Markklößchen
 
 # description:en:In cuisine, an OMELETTE is a dish made from beaten eggs fried with butter or oil in a frying pan (without stirring as in scrambled egg). It is quite common for the omelette to be folded around a filling such as cheese, chives, vegetables, mushrooms, meat (often ham or bacon), or some combination of the above. Whole eggs or egg whites are beaten, sometimes with a small amount of milk, cream, or water.
 
-# <en:compound
+#< en: compound
 # mainIngredient:en:egg (egg dish)
 en: omelette, omelet
 ar: العجة
@@ -96990,7 +97434,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Omelette
 
 # description:en:The outer layer of a food product.
 
-# <en:compound
+#< en: compound
 en: crust, rind
 de: Rinde, Kruste
 es: corteza
@@ -97026,21 +97470,21 @@ hr: nejestiva kora
 it: Crosta non commestibile
 nl: korst niet eetbaar
 
-# <en:compound
+#< en: compound
 fr: crème pâtissière
 # ingredient/fr:crème-pâtissière has 113 products in french @2019-02-03
 # usage:fr:Crème pâtissière 30% (eau, sucre, transforméamidon, blancs d’œufs frais, poudre de lait entier, lactosérum en poudre, arômes naturels, arôme, maltodextrine, épaississant (gomme de xanthane), colorant (béta carotène))
 
-# <en:compound
+#< en: compound
 en: light custard cream with vanilla, crème anglaise, creme anglaise
 de: Englische Creme
 fr: crème anglaise
 
-# <en:compound
+#< en: compound
 en: English sauce
 fr: sauce anglaise
 
-# <en:compound
+#< en: compound
 # category:en:chorizo
 < en: meat
 en: chorizo, chorizos, Spicy pork sausage with red pepper no precision
@@ -97095,7 +97539,7 @@ es: morcilla
 hr: crni puding
 it: sanguinaccio
 
-# <en:compound
+#< en: compound
 # mainIngredient:en:beef meat
 fr: Viande cuisinée
 # usage:fr:Viande cuisinée 33% : viande de bœuf (origine : France) 19%, carottes 5,1%, eau
@@ -97349,7 +97793,7 @@ it: preparato gusto panna cotta
 
 # description:en:LINGONBERRY JAM is a staple food in Northern European cuisine and otherwise highly popular in Central and Eastern Europe.
 
-# <en:compound
+#< en: compound
 < en: jam
 en: lingonberry jam
 be: бруснічнае варэнне
@@ -97373,7 +97817,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lingonberry_jam
 # mainIngredient:en:lingonberry
 # ingredient/fi:puolukkahillo has 2 products in 2 languages @2020-12-19
 
-# <en:compound
+#< en: compound
 < en: jam
 en: blackcurrant jam
 de: Marmelade mit schwarzen Johannisbeeren
@@ -97384,7 +97828,7 @@ it: confettura di ribes, confettura di ribes nero, confettura al ribes nero
 # mainIngredient:en:blackcurrant
 # ingredient/en:blackcurrant-jam has 1 product in 1 language @2020-12-21
 
-# <en:compound
+#< en: compound
 en: jam, confiture
 de: Konfitüre
 fr: confiture
@@ -97404,7 +97848,7 @@ it: marmellata
 wikidata:en: Q5834964
 wikipedia:en: https://en.wikipedia.org/wiki/Marmalade
 
-# <en:compound
+#< en: compound
 < en: jam
 en: strawberry jam, strawberry maramalade
 bg: конфитюр от ягоди
@@ -97416,7 +97860,7 @@ hr: pripavak jagoda
 it: confettura di fragole, marmellata di fragole
 pl: dżem truskawkowy
 
-# <en:compound
+#< en: compound
 < en: jam
 en: raspberry jam
 bg: конфитюр от малини
@@ -97426,7 +97870,7 @@ hr: džem od malina
 it: confettura di lamponi, marmellata di lamponi
 wikidata:en: Q11962286
 
-# <en:compound
+#< en: compound
 < en: marmalade
 en: lemon marmalade
 ca: melmelada de llimona
@@ -97499,7 +97943,7 @@ vegetarian:en: yes
 ###################################################################################################
 # description:en:In cooking, a SAUCE is a liquid, cream, or semi-solid food, served on or used in preparing other foods. Most sauces are not normally consumed by themselves; they add flavor, moisture, and visual appeal to a dish. Sauces may be used for sweet or savory dishes. They may be prepared and served cold, like mayonnaise, prepared cold but served lukewarm like pesto, cooked and served warm like bechamel or cooked and served cold like apple sauce.
 
-# <en:compound
+#< en: compound
 en: sauce
 af: Sous
 ar: صلصة
@@ -97904,7 +98348,7 @@ usda_ndb_name:en: Catsup, low sodium
 
 # description:en:Marination is the process of soaking foods in a seasoned, often acidic, liquid (MARINADE) before cooking.
 
-# <en:compound
+#< en: compound
 < en: sauce
 en: marinade
 bg: mариноване
@@ -99163,7 +99607,7 @@ it: kombucha crudo
 
 # en:description:NONPAREILS (or hundreds and thousands outside North America) are a decorative confectionery of tiny balls made with sugar and starch, traditionally an opaque white but now available in many colors.
 
-# <en:compound
+#< en: compound
 en: nonpareils, nonpareilles
 de: liebesperlen, nonpareille
 fi: nonparelli
@@ -99492,18 +99936,16 @@ en: vitamin and mineral blend, vitamin and mineral mix
 it: vitamine e minerali misti
 ru: витаминно минеральный премикс, витаминный премикс
 
-# <en:compound
+#< en: compound
 en: French fries, fries, French fried potatoes
 fr: frites, pommes de terres frites
 
-# <en:compound
+#< en: compound
 en: French custard
 
-# <en:compound
+#< en: compound
 en: French custard base
 
-# <en:compound
+#< en: compound
 en: French toast
 
-# <en:compound
-en: French roll
