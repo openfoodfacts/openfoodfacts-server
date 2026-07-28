@@ -55302,11 +55302,8 @@ comment:en: is this a salad? Or more like spinach and to be cooked?
 usda_ndb_code:en: 11086
 usda_ndb_name:en: Beet greens, raw
 
-#comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
-# do we need both parents?
-< en: root vegetable
 < en: taproot vegetable
-en: beetroot, beet, beet root
+en: beetroot, beet, beet root, beets
 af: Beet
 bg: цвекло
 ca: remolatxa
@@ -55330,9 +55327,9 @@ sk: cvikly
 sv: rödbeta, rödbetor, rödbets
 carbon_footprint_fr_foodges_ingredient:fr: Betteraves
 carbon_footprint_fr_foodges_value:fr: 0.2
-# en:beetroot has 319 products in 5 languages @2018-10-22
 ciqual_proxy_food_code:en: 20091
 ciqual_proxy_food_name:fr: Betterave rouge, crue
+comment: this ingredient should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
 description:en: BEETROOT is the taproot portion of the beet plant
 ecobalyse:en: beetroot-fr
 ecobalyse_labels_en_organic:en: beetroot-organic
@@ -55343,6 +55340,7 @@ usda_ndb_code:en: 11080
 usda_ndb_name:en: Beets, raw
 wikidata:en: Q99548274
 wikipedia:en: https://en.wikipedia.org/wiki/Beetroot
+# en:beetroot has 319 products in 5 languages @2018-10-22
 
 < en: beetroot
 en: red beetroot
