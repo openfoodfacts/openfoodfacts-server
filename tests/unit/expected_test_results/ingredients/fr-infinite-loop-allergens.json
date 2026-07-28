@@ -89,20 +89,13 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:emulsifier",
-         "ingredients" : [
-            {
-               "id" : "en:e322",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 0.03125,
-               "text" : "lécithines",
-               "vegan" : "maybe",
-               "vegetarian" : "maybe"
-            }
-         ],
+         "additive_class" : "en:emulsifier",
+         "id" : "en:e322",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.03125,
-         "text" : "émulsifiant"
+         "text" : "lécithines",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "id" : "en:vanilla-flavouring",
@@ -147,9 +140,9 @@
       "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 13,
+   "ingredients_n" : 12,
    "ingredients_n_tags" : [
-      "13",
+      "12",
       "11-20"
    ],
    "ingredients_original_tags" : [
@@ -160,12 +153,11 @@
       "fr:pâte de cacao1",
       "en:skimmed-milk-powder",
       "en:sunflower-oil",
-      "en:emulsifier",
+      "en:e322",
       "en:vanilla-flavouring",
       "en:cocoa",
       "en:palm-oil",
-      "en:palm-kernel-fat",
-      "en:e322"
+      "en:palm-kernel-fat"
    ],
    "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
@@ -183,7 +175,7 @@
       "en:skimmed-milk-powder",
       "en:sunflower-oil",
       "en:vegetable-oil",
-      "en:emulsifier",
+      "en:e322",
       "en:vanilla-flavouring",
       "en:flavouring",
       "en:cocoa",
@@ -191,8 +183,7 @@
       "en:palm-oil",
       "en:palm-oil-and-fat",
       "en:palm-kernel-fat",
-      "en:palm-kernel-oil-and-fat",
-      "en:e322"
+      "en:palm-kernel-oil-and-fat"
    ],
    "ingredients_text" : "Sucre, LAIT* entier en poudre 25%, graisse végétale (palme, palmiste), beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%, huile de tournesol, émulsifiant: lécithines, arômes de vanille. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
    "ingredients_with_specified_percent_n" : 3,
@@ -201,26 +192,24 @@
    "ingredients_with_unspecified_percent_sum" : 71.984375,
    "ingredients_without_ciqual_codes" : [
       "en:e322",
-      "en:emulsifier",
       "en:palm-kernel-fat",
       "en:vanilla-flavouring",
       "en:vegetable-fat",
       "fr:beurre de cacao1",
       "fr:pâte de cacao1"
    ],
-   "ingredients_without_ciqual_codes_n" : 7,
+   "ingredients_without_ciqual_codes_n" : 6,
    "ingredients_without_ecobalyse_ids" : [
       "en:cocoa",
       "en:e322",
-      "en:emulsifier",
       "en:palm-kernel-fat",
       "en:vanilla-flavouring",
       "en:vegetable-fat",
       "fr:beurre de cacao1",
       "fr:pâte de cacao1"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 8,
-   "known_ingredients_n" : 11,
+   "ingredients_without_ecobalyse_ids_n" : 7,
+   "known_ingredients_n" : 10,
    "lc" : "fr",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
