@@ -450,7 +450,7 @@ check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend perlcritic ${TO_CHECK}
 
-TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep -P 'taxonomies/(beauty/|food/|petfood/|product/|)[^/]+\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep -E 'taxonomies/((beauty|food|petfood|product)/)?[^/]+\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
 
 # TODO remove --no-sort as soon as we have sorted taxonomies
 check_taxonomies:
@@ -462,6 +462,11 @@ lint_taxonomies:
 	@echo "🥫 Linting taxonomies"
 	test -z "${TAXONOMIES_TO_CHECK}" || \
 	${DOCKER_COMPOSE_BUILD} run --rm --no-deps backend scripts/taxonomies/lint_taxonomy.pl --verbose ${TAXONOMIES_TO_CHECK}
+
+light_lint_taxonomies:
+	@echo "🥫 Light linting taxonomies"
+	test -z "${TAXONOMIES_TO_CHECK}" || \
+	scripts/taxonomies/light_lint_taxonomy.pl ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:

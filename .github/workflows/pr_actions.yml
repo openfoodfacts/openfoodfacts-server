@@ -102,6 +102,34 @@ jobs:
         create_branch: no
     - *step-reaction-completed
 
+  # Action to quickly lint changed taxonomies without loading the full backend
+  light_lint_taxonomies:
+    name: "On demand light taxonomy linting"
+    if: |
+      github.event.issue.pull_request &&
+      (github.event.comment.body == '/light_lint_taxonomies')
+    runs-on: ubuntu-latest
+    steps:
+    - *step-reaction-seen
+    - *get-repository-owner-branch
+    - *checkout-fork-repo
+    - *fetch-origin-main
+    - name: Run light taxonomy linting
+      run: make light_lint_taxonomies
+    - name: Push changes if needed
+      uses: stefanzweifel/git-auto-commit-action@v7
+      with:
+        commit_message: "chore: Light lint taxonomy changes"
+        branch: "${{ steps.get-branch.outputs.branch }}"
+        commit_user_name: Open Food Facts Bot
+        commit_user_email: contact@openfoodfacts.org
+        commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
+        push_options: ""
+        status_options: '--untracked-files=no'
+        skip_dirty_check: false
+        create_branch: no
+    - *step-reaction-completed
+
   # Action to lint _and_ update test results in one go
   lint_and_update_test_results:
     name: "On demand linting and updating of test results"
