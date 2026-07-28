@@ -144,9 +144,9 @@ my @tests = (
 			},
 			{
 				'id' => 'en:e330',
-    			'additive_class' => 'en:acid',
-    			'is_in_taxonomy' => 1,
-    			'text' => "\x{e1}cido c\x{ed}trico"
+				'additive_class' => 'en:acid',
+				'is_in_taxonomy' => 1,
+				'text' => "\x{e1}cido c\x{ed}trico"
 			}
 		]
 	],

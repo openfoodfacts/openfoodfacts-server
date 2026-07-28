@@ -1810,11 +1810,11 @@ my @tests = (
 				'processing' => 'en:smoked',
 				'text' => 'slanina'
 			},
-			{	
+			{
 				'id' => 'en:rosemary',
-				'processing' => "en:extract",
+				'is_in_taxonomy' => 1,
+				'processing' => 'en:extract',
 				'text' => "ru\x{17e}marina",
-				'additive_class' => 'en:antioxidant',
 			},
 		]
 	],
