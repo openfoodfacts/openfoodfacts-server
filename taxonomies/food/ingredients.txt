@@ -53963,8 +53963,6 @@ hr: pire od kelja
 it: purea di cavolo
 pl: przecier z liści jarmużu
 
-# description:en:Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea.
-# be careful with the translation found on packages.
 
 < en: cabbage
 en: savoy cabbage, green cabbage
@@ -54003,13 +54001,6 @@ tr: milano lahanası
 uk: капуста савойська
 wa: savoye
 zh: 野甘蓝
-ciqual_food_code:en: 20069
-ciqual_food_name:en: Green cabbage, raw
-ciqual_food_name:fr: Chou vert, cru
-ecobalyse:en: green-cabbage-fr
-ecobalyse_labels_en_organic:en: green-cabbage-organic
-# 256 @2021-09-29
-eurocode_2_group_3:en: 8.15.20
 #arz:ملفوف سافوى
 # de-ch:Wirsing
 # en-ca:savoy cabbage
@@ -54018,9 +54009,20 @@ eurocode_2_group_3:en: 8.15.20
 # ksh:Schavur
 # lij:garbuxo
 # pt-br:couve-lombarda
-#vec:verza
+# vec:verza
+ciqual_food_code:en: 20069
+ciqual_food_name:en: Green cabbage, raw
+ciqual_food_name:fr: Chou vert, cru
+comment:en: be careful with the translation found on packages.
+description:en: Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea.
+ecobalyse:en: green-cabbage-fr
+ecobalyse_labels_en_organic:en: green-cabbage-organic
+eurocode_2_group_3:en: 8.15.20
+usda_ndb_code:en: 11114
+usda_ndb_name:en: Cabbage, savoy, raw
 wikidata:en: Q154013
 wikipedia:en: https://en.wikipedia.org/wiki/Savoy_cabbage
+# 256 @2021-09-29
 
 # description:en:GAI LAN (Brassica oleracea var. alboglabra) is a leaf vegetable with thick, flat, glossy blue-green leaves with thick stems, and florets similar to (but much smaller than) broccoli
 
