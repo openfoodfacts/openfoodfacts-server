@@ -147,7 +147,22 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown <br><span class=\"description\">The level 1 food group could not be determined for this product.</span> </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown <br><span class=\"description\">The level 2 food group could not be determined for this product.</span> </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown <br><span class=\"description\">The level 3 food group could not be determined for this product.</span> </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK <br><span class=\"description\">The percentages of the ingredients are consistent and could be successfully estimated.</span> </li> <li id=\"data-error-en:no-packaging-data\"> no-packaging-data </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:no-packaging-data\"> No packaging data <br><span class=\"description\">No packaging data - Packaging is one of the components of the Environmental Score, and thus it's important to have packaging data.</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_components"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:food-groups-1-unknown\"> Food groups 1 unknown <br><span class=\"description\">The level 1 food group could not be determined for this product.</span> </li> <li id=\"data-error-en:food-groups-2-unknown\"> Food groups 2 unknown <br><span class=\"description\">The level 2 food group could not be determined for this product.</span> </li> <li id=\"data-error-en:food-groups-3-unknown\"> Food groups 3 unknown <br><span class=\"description\">The level 3 food group could not be determined for this product.</span> </li> <li id=\"data-error-en:ingredients-percent-analysis-ok\"> Ingredients percent analysis OK <br><span class=\"description\">The percentages of the ingredients are consistent and could be successfully estimated.</span> </li> </ul>"
                   }
                }
             ],
@@ -214,7 +229,22 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<ul> <li id=\"data-error-en:environmental-score-packaging-packaging-data-missing\"> environmental-score-packaging-packaging-data-missing </li> <li id=\"data-error-en:environmental-score-production-system-no-label\"> Environmental Score - production system - no label <br><span class=\"description\">No production system label -such as organic or label rouge- has been specified for this product, which may lower the precision of the Environmental Score.</span> </li> </ul>"
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-packaging-packaging-data-missing\"> Environmental Score - packaging - Packaging data missing <br><span class=\"description\">No packaging data - Packaging is one of the components of the Environmental Score, and thus it's important to have packaging data.</span> </li> </ul>"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_packaging_components"
+                     ],
+                     "html" : ""
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ul> <li id=\"data-error-en:environmental-score-production-system-no-label\"> Environmental Score - production system - no label <br><span class=\"description\">No production system label -such as organic or label rouge- has been specified for this product, which may lower the precision of the Environmental Score.</span> </li> </ul>"
                   }
                }
             ],
