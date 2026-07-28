@@ -21,6 +21,15 @@
                "short_name" : "100g"
             },
             {
+               "class" : "product",
+               "col_id" : "as_sold_per_serving",
+               "name" : "As sold<br>per serving",
+               "per" : "serving",
+               "preparation" : "as_sold",
+               "scope" : "product",
+               "short_name" : "per serving"
+            },
+            {
                "class" : "compare_0",
                "col_id" : "compare_0",
                "name" : "Compared to: Spreads",
@@ -33,6 +42,13 @@
       "rows" : [
          {
             "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:energyPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 kJ<br>(0 kcal)"
+               },
                {
                   "class" : "product",
                   "percent" : null,
@@ -62,6 +78,13 @@
                   "value" : "0 g"
                },
                {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:fatPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 g"
+               },
+               {
                   "class" : "compare_0",
                   "percent" : null,
                   "rdfa" : "",
@@ -75,6 +98,13 @@
          },
          {
             "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
                {
                   "class" : "product",
                   "percent" : null,
@@ -104,6 +134,13 @@
                   "value" : "0 g"
                },
                {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:carbohydratesPer100g\" content=\"0\"",
+                  "type" : "normal",
+                  "value" : "0 g"
+               },
+               {
                   "class" : "compare_0",
                   "percent" : null,
                   "rdfa" : "",
@@ -117,6 +154,13 @@
          },
          {
             "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
                {
                   "class" : "product",
                   "percent" : null,
@@ -146,6 +190,13 @@
                   "value" : "?"
                },
                {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
+               {
                   "class" : "compare_0",
                   "percent" : null,
                   "rdfa" : "",
@@ -159,6 +210,13 @@
          },
          {
             "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
                {
                   "class" : "product",
                   "percent" : null,
@@ -188,6 +246,13 @@
                   "value" : "3.75 g"
                },
                {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : " property=\"food:saltPer100g\" content=\"3.75\"",
+                  "type" : "normal",
+                  "value" : "3.75 g"
+               },
+               {
                   "class" : "compare_0",
                   "percent" : null,
                   "rdfa" : "",
@@ -201,6 +266,13 @@
          },
          {
             "columns" : [
+               {
+                  "class" : "product",
+                  "percent" : null,
+                  "rdfa" : "",
+                  "type" : "normal",
+                  "value" : "?"
+               },
                {
                   "class" : "product",
                   "percent" : null,
