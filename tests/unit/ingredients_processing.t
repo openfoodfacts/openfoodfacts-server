@@ -50,6 +50,7 @@ my @tests = (
 			{
 				'id' => 'en:garlic-powder',
 				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder',
 				'text' => 'garlic powder'
 			},
 			{
@@ -598,6 +599,7 @@ my @tests = (
 			{
 				'id' => 'en:onion-powder',
 				'is_in_taxonomy' => 1,
+				'processing' => 'en:powder',
 				'text' => 'uipoeder'
 			}
 		]
@@ -2661,7 +2663,8 @@ my @tests = (
 			{
 				'id' => 'en:onion-powder',
 				'is_in_taxonomy' => 1,
-				'text' => "κρεμμύδι σε σκόνη"
+				'processing' => 'en:pwder',
+				'text' => "κρεμμύδι"
 			},
 			{
 				'id' =>
