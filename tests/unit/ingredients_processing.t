@@ -597,10 +597,10 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:onion-powder',
+				'id' => 'en:onion',
 				'is_in_taxonomy' => 1,
 				'processing' => 'en:powder',
-				'text' => 'uipoeder'
+				'text' => 'ui'
 			}
 		]
 	],
@@ -2661,7 +2661,7 @@ my @tests = (
 				'text' => "\x{3c0}\x{3b1}\x{3c4}\x{3ac}\x{3c4}\x{3b1}"
 			},
 			{
-				'id' => 'en:onion-powder',
+				'id' => 'en:onion',
 				'is_in_taxonomy' => 1,
 				'processing' => 'en:powder',
 				'text' => "κρεμμύδι"
