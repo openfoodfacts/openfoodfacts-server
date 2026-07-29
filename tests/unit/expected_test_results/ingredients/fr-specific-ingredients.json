@@ -41,24 +41,14 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:gelling-agent",
-         "ingredients" : [
-            {
-               "id" : "en:fruit-pectin",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 9.375,
-               "percent_max" : 25,
-               "percent_min" : 0,
-               "text" : "pectines de fruits",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "id" : "en:fruit-pectin",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.375,
          "percent_max" : 25,
          "percent_min" : 0,
-         "text" : "gélifiant"
+         "text" : "pectines de fruits",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -72,16 +62,15 @@
       "en:vegetarian"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 5,
+   "ingredients_n" : 4,
    "ingredients_n_tags" : [
-      "5",
+      "4",
       "1-10"
    ],
    "ingredients_original_tags" : [
       "en:cane-sugar",
       "en:apricot",
       "en:concentrated-lemon-juice",
-      "en:gelling-agent",
       "en:fruit-pectin"
    ],
    "ingredients_percent_analysis" : 1,
@@ -97,7 +86,6 @@
       "en:juice",
       "en:fruit-juice",
       "en:lemon-juice",
-      "en:gelling-agent",
       "en:fruit-pectin",
       "en:e440a"
    ],
@@ -107,17 +95,15 @@
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:fruit-pectin",
-      "en:gelling-agent"
+      "en:fruit-pectin"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:concentrated-lemon-juice",
-      "en:fruit-pectin",
-      "en:gelling-agent"
+      "en:fruit-pectin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
-   "known_ingredients_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 4,
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
