@@ -626,6 +626,16 @@ it: cucchiaino metrico
 conversion_factor:en: 5
 standard_unit:en: ml
 
+# US legal cup (used in nutrition facts) is 240ml, different from the metric cup 250ml used in Canada, Australia, New-Zealand etc.
+# and from the traditional US cup
+# for "cups", we default to US legal cups.
+en: cup, cups
+es: taza, tazas
+fr: tasse, tasses
+it: tazza, tazze
+conversion_factor:en: 240
+standard_unit:en: ml
+
 # Fluid ounces
 xx: fl oz, floz, fl.oz, fl. oz, fl. oz., fl.oz., OZA
 en: fluid ounce, fluid ounces
