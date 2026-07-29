@@ -7563,7 +7563,7 @@ sub display_facets_index ($request_ref) {
 	$request_ref->{title} = lang('facets') || 'Facets';
 	
 	my $html;
-	process_template('web/facets_index.tt.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	process_template('web/facets_index.tt.html', $template_data_ref, \$html);
 	$request_ref->{html} = $html;
 	display_page($request_ref);
 }
