@@ -48,10 +48,10 @@ my @tests = (
 				'text' => 'tomatoes'
 			},
 			{
-				'id' => 'en:garlic-powder',
+				'id' => 'en:garlic',
 				'is_in_taxonomy' => 1,
 				'processing' => 'en:powder',
-				'text' => 'garlic powder'
+				'text' => 'garlic'
 			},
 			{
 				'id' => 'en:aubergine',
@@ -2663,7 +2663,7 @@ my @tests = (
 			{
 				'id' => 'en:onion-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:pwder',
+				'processing' => 'en:powder',
 				'text' => "κρεμμύδι"
 			},
 			{
