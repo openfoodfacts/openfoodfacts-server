@@ -57033,6 +57033,9 @@ ciqual_proxy_food_code:en: 11000
 ciqual_proxy_food_name:en: Garlic, fresh
 ciqual_proxy_food_name:fr: Ail, cru
 eurocode_2_group_3:en: 8.30.40
+usda_ndb_2_code:en: 2020
+usda_ndb_2_name:en: Spices, garlic powder
+usda_ndb_2_process:en: en:powder
 usda_ndb_proxy_code:en: 11215
 usda_ndb_proxy_name:en: Garlic, raw
 wikidata:en: Q21546392
@@ -57077,34 +57080,6 @@ it: Impasto d'aglio
 # ja:ガーリックペースト # see ingredients_processings.txt
 pl: pasta czosnkowa
 # en:garlic-paste has 35 products in 2 languages @2018-10-23
-
-#en:processing:en:powder removed due to specific nutritional data
-< en: garlic
-en: garlic powder
-bs: bijeli luk u prahu
-ca: all en pols
-da: hvidløgspulver
-de: Knoblauchpulver
-el: σκόρδο σκόνη, σκόρδο σε σκόνη
-es: ajo en polvo
-et: küüslaugupulber
-fi: valkosipulijauhe
-fr: poudre d'ail, ail en poudre
-hu: fokhagymapor
-it: aglio in polvere, polvere di aglio
-lt: česnakų milteliai, česnako milteliai
-nl: knoflookpoeder
-nn: hvitløkspulver
-pl: czosnek sproszkowany
-pt: alho em pó
-ro: pudră de usturoi
-ru: Чесночный порошок
-sl: česen v prahu
-sv: vitlökspulver
-tr: sarimsak tozu
-usda_ndb_code:en: 2020
-usda_ndb_name:en: Spices, garlic powder
-# fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
 
 < en: garlic
 en: black garlic
