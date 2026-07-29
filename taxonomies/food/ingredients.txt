@@ -72802,29 +72802,24 @@ zh: 羅勒
 # sr-el:bosiljak
 # yue:九層塔
 # zh-hk:羅勒
-ciqual_proxy_food_code:en: 11033
-ciqual_proxy_food_name:en: Basil, fresh
-ciqual_proxy_food_name:fr: Basilic, frais
+ciqual_food_2_code:en: 11032
+ciqual_food_2_name:en: Basil, dried
+ciqual_food_2_name:fr: Basilic, séché
+ciqual_food_2_process:en: en:dried
+ciqual_food_code:en: 11033
+ciqual_food_name:en: Basil, fresh
+ciqual_food_name:fr: Basilic, frais
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.12
-usda_ndb_proxy_code:en: 2044
-usda_ndb_proxy_name:en: Basil, fresh
+usda_ndb_2_code:en: 2003
+usda_ndb_2_name:en: Spices, basil, dried
+usda_ndb_2_process:en: en:dried
+usda_ndb_code:en: 2044
+usda_ndb_name:en: Basil, fresh
 wikidata:en: Q38859
 wikipedia:en: https://en.wikipedia.org/wiki/Basil
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:basilic
 # 3605 products in 14 languages @2108-10-10
-
-< en: basil
-en: Fresh basil
-bg: пресен босилек
-fr: Basilic frais
-hr: svježi bosiljak
-it: basilico fresco
-ciqual_food_code:en: 11033
-ciqual_food_name:en: Basil, fresh
-ciqual_food_name:fr: Basilic, frais
-usda_ndb_code:en: 2044
-usda_ndb_name:en: Basil, fresh
 
 < en: basil
 en: basil leaf, basil leaves
@@ -72833,25 +72828,6 @@ fr: Feuilles de basilic
 hr: list bosiljka
 it: foglia di basilico
 pl: liście bazylii
-
-< en: basil
-en: dried basil
-bg: сух босилек
-de: getrocknetes Basilikum
-es: albahaca seca
-fi: kuivattu basilika
-fr: basilic séché, basilic déshydraté
-hr: sušeni bosiljak
-it: basilico essiccato
-nl: gedroogde basilicum
-pl: bazylia suszona, suszona bazylia
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/dried-basil
-# 64 products in 4 languages @2018-10-10
-ciqual_food_code:en: 11032
-ciqual_food_name:en: Basil, dried
-ciqual_food_name:fr: Basilic, séché
-usda_ndb_code:en: 2003
-usda_ndb_name:en: Spices, basil, dried
 
 < en: basil
 en: basil extract
@@ -72867,10 +72843,6 @@ pl: ekstrakt z bazylii, wyciąg z bazylii
 pt: extrato de manjericão, extracto de manjericão
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-basilic
 # 32 products in 4 languages @2108-10-10
-
-< en: basil
-fr: basilic en poudre
-fi: basilikajauhe
 
 < en: basil
 en: genoese basil
