@@ -67111,9 +67111,9 @@ zh: 胡桃木, 核桃仁, 核桃
 carbon_footprint_fr_foodges_ingredient:fr: Noix entières
 carbon_footprint_fr_foodges_value:fr: 1.3
 # ingredient/walnut 5074 in 27 @2021-08-22
-ciqual_proxy_food_code:en: 15023
-ciqual_proxy_food_name:en: Walnut, fresh
-ciqual_proxy_food_name:fr: Noix, fraîche
+ciqual_food_code:en: 15023
+ciqual_food_name:en: Walnut, fresh
+ciqual_food_name:fr: Noix, fraîche
 description:en: A walnut is the nut of any tree of the genus Juglans. After full ripening for its edible seed when the shell has been discarded, it is used as a garnish or a snack.
 description:es: Una nuez es el fruto de cualquier árbol del género Juglans. Después de la maduración completa de su semilla comestible cuando se ha desechado la cáscara, se usa como guarnición o snack.
 description:fr: La noix est un fruit comestible à coque. Elle est produite par les noyers, arbres du genre Juglans L.
@@ -67133,14 +67133,6 @@ usda_ndb_code:en: 12155
 usda_ndb_name:en: Nuts, walnuts, english
 
 < en: walnut
-en: fresh walnut
-fr: noix fraîche, noix sèche
-it: noce fresca
-ciqual_food_code:en: 15023
-ciqual_food_name:en: Walnut, fresh
-ciqual_food_name:fr: Noix, fraîche
-
-< en: walnut
 en: walnut kernel, walnuts shelled, Nntural shelled walnuts
 de: Walnusskerne, Walnusskern
 es: nuez mondada, nueces peladas, nueces sin cáscara
@@ -67156,14 +67148,6 @@ pt: Miolo de noz
 ciqual_food_code:en: 15005
 ciqual_food_name:en: Walnut, dried, husked
 ciqual_food_name:fr: Noix, séchée, cerneaux
-
-< en: walnut
-en: dried walnuts
-de: getrocknete Walnüsse
-es: nueces secas
-fr: noix sèches
-hr: sušeni orasi
-it: noci secche
 
 < en: walnut
 en: walnuts from Grenoble
@@ -67443,11 +67427,6 @@ wikidata:en: Q20856764
 
 < en: seed
 en: breadfruit seeds
-usda_ndb_proxy_code:en: 12001
-usda_ndb_proxy_name:en: Seeds, breadfruit seeds, raw
-
-< en: breadfruit seeds
-en: raw breadfruit seeds
 usda_ndb_code:en: 12001
 usda_ndb_name:en: Seeds, breadfruit seeds, raw
 
@@ -67460,16 +67439,9 @@ usda_ndb_name:en: Seeds, breadfruit seeds, raw
 < en: seed
 en: breadnut tree seeds
 description:en: Breadnut (also called kamansi in the Philippines, or "chataigne" in the Caribbean) produces large, spiky green fruits similar in appearance to breadfruit, but unlike the common seedless breadfruit variety, breadnut fruits are packed with edible seeds — usually 100+ per fruit. The seeds themselves are roughly the size of chestnuts or large beans. Typically boiled, roasted, or steamed before eating. After cooking, the texture is starchy and nutty, often compared to chestnuts or roasted potatoes.
-usda_ndb_proxy_code:en: 12004
-usda_ndb_proxy_name:en: Seeds, breadnut tree seeds, raw
-
-< en: breadnut tree seeds
-en: dried breadnut tree seeds
-usda_ndb_code:en: 12005
-usda_ndb_name:en: Seeds, breadnut tree seeds, dried
-
-< en: breadnut tree seeds
-en: raw breadnut tree seeds
+usda_ndb_2_code:en: 12005
+usda_ndb_2_name:en: Seeds, breadnut tree seeds, dried
+usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 12004
 usda_ndb_name:en: Seeds, breadnut tree seeds, raw
 
