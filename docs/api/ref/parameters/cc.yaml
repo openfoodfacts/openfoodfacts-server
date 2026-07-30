@@ -1,0 +1,10 @@
+components:
+  parameters:
+    Cc:
+      name: cc
+      in: query
+      description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
+      required: false
+      schema:
+        type: string
+        example: "us"

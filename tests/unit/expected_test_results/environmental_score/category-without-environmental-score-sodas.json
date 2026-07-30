@@ -244,6 +244,7 @@
    "environmental_score_tags" : [
       "not-applicable"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "18066",
@@ -266,21 +267,19 @@
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "sugar",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
+      "en:maybe-vegan",
       "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:water",
-      "en:sugar",
-      "en:added-sugar",
-      "en:disaccharide"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 2,
@@ -308,21 +307,16 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
    "ingredients_without_ecobalyse_ids_n" : 0,
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:environmental-score-not-applicable",
       "en:environmental-score-not-computed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],
    "packaging_shapes_tags" : [],

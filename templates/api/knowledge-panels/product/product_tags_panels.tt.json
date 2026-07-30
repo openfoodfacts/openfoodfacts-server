@@ -1,0 +1,8 @@
+[% FOREACH panel IN panel.taxonomy_panels %]
+{
+  "element_type": "panel",
+  "panel_element": {
+    "panel_id": "raw_[% panel.field_name %]"
+  }
+},
+[% END %]

@@ -27,10 +27,14 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Együttműködésen alapuló, ingyenes és nyílt élelmiszeradatbázis a világ minden tájáról."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
-msgstr "/open-products-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
+
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Összetevők, allergének, adalékanyagok, tápértéktáblázat, címkék, eredet, CO2-kibocsátás és információk a termékről %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -44,7 +48,11 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Együttműködő, ingyenes és nyílt adatbázis kozmetikai termékekről."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Összetevők (INCI), allergének, adalékanyagok, címkék, az összetevők eredete és a terméken található információk %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -58,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Open Beauty Facts termékkereső"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Ez a termékoldal nem teljes. Segíthet a kiegészítésében, ha szerkeszti és további adatokat ad hozzá a rendelkezésünkre álló fényképekből, vagy ha további fényképeket készít az r <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> vagy <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a> alkalmazással. Köszönjük!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ez a termékoldal nem teljes. Segíthetsz a teljessé tételében szerkesztéssel és további adatok hozzáadásával a rendelkezésre álló fotók közül, vagy további fotók készítésével az <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> vagy <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>univerzális mobilalkalmazás segítségével. Köszönjük!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -84,6 +92,114 @@ msgstr "Izzadásgátló stressz elleni védelem"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Egy együttműködésen alapuló, ingyenes és nyílt adatbázis, amely a világ minden tájáról származó különféle termékekkel kapcsolatos információkat tartalmaz."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Az Open Products Facts információkat és adatokat gyűjt a világ minden tájáról származó termék széles skálájáról."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Együttműködésen alapuló, ingyenes és nyílt élelmiszer-adatbázis a világ minden tájáról."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Összetevők, CO2-kibocsátás, tartósság, címkék, az összetevők eredete és a terméken található információk %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Open Products Facts termékkereső"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ez a termékoldal nem teljes. Segíthetsz a teljessé tételében szerkesztéssel és további adatok hozzáadásával a rendelkezésre álló fotókból, vagy további fotók készítésével az univerzális Open Food Facts alkalmazással <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Androidra</a> vagy <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPadre</a>. Köszönjük!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "A világ minden tájáról származó állateledelek összetevőinek, tápértékadatainak és információnak együttműködésen alapuló, nyílt és ingyenes adatbázisa."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Az Open Pet Food Facts információkat és adatokat gyűjt a világ minden tájáról származó állateledelekről."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Együttműködésen alapuló, ingyenes és nyílt adatbázis állateledel termékekről a világ minden tájáról."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Összetevők, allergének, adalékanyagok, tápértékadatok, címkék, összetevők eredete és további információk a(z) %s termékről"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Food Facts termékkereső"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ez a termékoldal nem teljes. Segíthetsz a teljessé tételében szerkesztéssel és további adatok hozzáadásával a rendelkezésre álló fotókból, vagy további fotók készítésével az univerzális Open Food Facts alkalmazással <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Androidra</a> vagy <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPadre</a>. Köszönjük!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Száraz kutyatáp, nedves macskatáp"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "CSIRKE, KUKORICAGLUTÉN LISTÁBÓL, TELJES KIŐRLÉSŰ KUKORICA, ÁLLATI ZSÍR, SZÓJALISZT"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Nedves eledel felnőtt kutyáknak"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Senior Dog Delight csirke és rizs"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -115,7 +231,7 @@ msgstr "Regisztráció"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
-msgstr "Üdvözlünk!"
+msgstr "Üdvözöljük!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
@@ -152,6 +268,10 @@ msgstr "Már létezik egy %s nevű szervezet."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "A szervezethez való csatlakozási kérelme a szervezet adminisztrátorának jóváhagyására vár."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -238,9 +358,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Részletes keresés és grafikonok"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "A túlzott ivás káros az egészségre."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "A túlzott alkoholfogyasztás káros az egészségre, mértékkel fogyasztandó."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -268,24 +389,24 @@ msgstr "A termékoldalt szerkesztette még"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "Analitikai összetevők"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
 msgstr "1 kg-ra"
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
-msgstr ""
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Hungarian.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -333,10 +454,6 @@ msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Gyártói Adminisztrátori Kézikönyv"
 
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org Az /images/svg/donate-icon.svg\" alt=\"Adományozás az Open Food Facts-nak\" /></a><p>A(z) <<site_name>> egy, az iparágtól független non-profit egyesület által készített adatbázis. Mindenki számára készült, mindenki által, és mindenki finanszírozza. Munkánkat úgy támogathatja, hogy <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">adományoz az Open Food Facts számára</a >, valamint <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">a Lilo keresőmotor használatával</a> is.<br/ ><b>Köszönjük!</b></p>"
-
 msgctxt "bottom_title"
 msgid "Donate to support our work"
 msgstr "Támogasson munkánkat adománnyal"
@@ -355,7 +472,7 @@ msgstr "márkanevek"
 
 msgctxt "brands_products"
 msgid "Products from the %s brand"
-msgstr "A(z) %s márka termékei"
+msgstr "A %s márka termékei"
 
 msgctxt "brands_s"
 msgid "brand"
@@ -367,7 +484,7 @@ msgstr "márkanév hozzáadása"
 
 msgctxt "brands_without_products"
 msgid "Products not from the %s brand"
-msgstr "Nem a(z) %s márka termékei"
+msgstr "Nem a %s márkájú termékek"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
@@ -541,17 +658,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Termék törlése"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Termékoldal törlése"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Képek törlése"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Felhasználó törlése"
+msgid "Delete the user"
+msgstr "A felhasználó törlése"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -605,6 +718,10 @@ msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Termék szerkesztése"
 
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Jelentkezzen be tulajdonságok hozzáadásához vagy szerkesztéséhez"
+
 msgctxt "edit_profile"
 msgid "Edit your public profile"
 msgstr "Szerkessze nyilvános profilját"
@@ -636,6 +753,14 @@ msgstr "Fiókbeállítások"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "A fiókbeállításai módosultak."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Beállítások"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "A beállításaid megváltoztak."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -1235,7 +1360,7 @@ msgstr "Fő nyelv"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr "A termék csomagolásán leginkább jelenlevő és leginkább kiemelt nyelv"
+msgstr "A termék csomagolásán leginkább jellemző, legjobban kiemelt nyelv"
 
 msgctxt "language"
 msgid "en-US"
@@ -1491,7 +1616,7 @@ msgstr "Nincs %s vonalkódú termék."
 
 msgctxt "no_products"
 msgid "No products."
-msgstr "Nincsenek termékek."
+msgstr "Nincs ilyen termék."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
@@ -1552,7 +1677,7 @@ msgstr "Tápértékadatok"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "%s kategória %d termékének átlagos tápértékadatai, ahol a tápértékadatok ismertek (%d termék közül)."
+msgstr "%2$s kategória %1$d termékének átlagos tápértékadatai, ahol a tápértékadatok ismertek (%3$d termék közül)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -2065,11 +2190,13 @@ msgid "Hello <NAME>,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
 msgstr "Kedves <NAME>!\n\n"
-"A https://openfoodfacts.org weboldalon létrehozott, <USERID> felhasználói névhez tartozó jelszó visszaállítását kérte.\n\n"
-"A jelszó visszaállításának folytatásához kattintson az alábbi linkre. Amennyiben nem kérte a jelszó visszaállítását, hagyja figyelmen kívül ezt az üzenetet.\n\n"
+"A jelszavad visszaállítását kérted az https://openfoodfacts.org oldalon\n\n"
+"a következő felhasználónévhez: <USERID>\n\n"
+"A jelszó visszaállításának folytatásához kattints az alábbi linkre.\n"
+"Ha nem kértél jelszó-visszaállítást, nyugodtan hagyd figyelmen ezt az üzenetet.\n\n"
 "<RESET_URL>\n\n"
-"Viszontlátásra!\n\n"
-"Stéphane\n"
+"Minden jót,\n\n"
+"Stephane\n"
 "https://openfoodfacts.org\n"
 
 msgctxt "reset_password_email_subject"
@@ -2149,6 +2276,10 @@ msgid "Select products with specific brands, categories, labels, origins of ingr
 msgstr "Válassza ki a termékeket bizonyos márkanevek, kategóriák, címkék, összetevők eredete, gyártás helyei stb. alapján."
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "Termékek keresése"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "Termékek keresése"
 
@@ -2327,7 +2458,7 @@ msgstr "Édesítőszerekkel"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr "válasszon egy feltételt..."
+msgstr "válasszon egy feltételt…"
 
 msgctxt "search_tags"
 msgid "Criteria"
@@ -2540,7 +2671,7 @@ msgstr "Tej, glutén, diófélék"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr "Jelölje azokat az összetevőket, amelyek a következőképpen vannak megemlítve: \"Nyomokban tartalmazhat\", \"…-t (is) felhasználó üzemben készült\", stb."
+msgstr "Jelölje azokat az összetevőket, amelyek a következőképpen vannak megemlítve: \"Nyomokban tartalmazhat\" vagy \"…-t (is) felhasználó üzemben készült\", stb."
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2636,11 +2767,11 @@ msgstr "Változat megtekintése"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr "A megfelelő termékek listájának megtekintése a világ minden tájáról"
+msgstr "Az egyező termékek listájának megtekintése a világ minden tájáról"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr "A megfelelő termékek megtekintése a világ minden tájáról"
+msgstr "Az egyező termékek megtekintése a világ minden tájáról"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
@@ -2686,7 +2817,7 @@ msgstr "Alacsonyabb felbontású képek betöltése (lassú kapcsolat esetén)"
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
-msgstr "Képet küldött a gyártó. Ha úgy gondolja, hogy ez hibás vagy nem naprakész, kérjük, lépjen kapcsolatba velünk."
+msgstr "Képet küldött a gyártó. Ha úgy gondolja, hogy az hibás vagy nem naprakész, kérjük, lépjen kapcsolatba velünk."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
@@ -2728,6 +2859,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "NutriScore tápértékosztályzat"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Termékoldal törlése"
@@ -2744,10 +2876,6 @@ msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Biztos benne, hogy törölni szeretné az ehhez a termékhez tartozó oldalt?"
 
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "A felhasználó törlése"
-
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
 msgstr "Ehhez a termékhez tartozó adatok egy részét közvetlenül a gyártó (%s) adta meg."
@@ -2757,8 +2885,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "A termék egyes adatai és/vagy fotói ezekből a forrásokból származnak:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Ez a termékoldal nem teljes. A szerkesztésével, a rendelkezésre álló fényképek alapján további adatok hozzáadásával segíthet befejezni a termékoldalt, vagy további fényképeket készíthet az alkalmazás használatával <a href=\"https://android.openfoodfacts.org\">Android-hoz</a> vagy <a href=\"https://ios.openfoodfacts.org\">iPhone-hoz/iPad-hez</a>. Köszönjük!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Ez a termékoldal nem teljes. Segíthetsz a teljessé tételében szerkesztéssel és további adatok hozzáadásával a rendelkezésre álló fotók közül, vagy további fotók készítésével a <a href=\"https://android.openfoodfacts.org\">Android</a> vagy <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>mobilalkalmazás segítségével. Köszönjük!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2840,25 +2968,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "hozzáadott egyéb tápanyag"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Termék"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Elkészítve"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Mértékegység"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Tápértékadatok az eladott termékre vonatkozóan."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Tápértékadatok az elkészített termékre vonatkozóan."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -3112,7 +3224,7 @@ msgstr "Figyelmeztetés"
 
 msgctxt "preparation"
 msgid "Preparation"
-msgstr "Előkészítés"
+msgstr "Elkészítés"
 
 msgctxt "recipe_idea"
 msgid "Recipe idea"
@@ -3148,7 +3260,7 @@ msgstr "Újrahasznosítási utasítások - kidobni"
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr "A termékeket ellenőrizte: %s"
+msgstr "%s által ellenőrzött termékek"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
@@ -3156,11 +3268,11 @@ msgstr "A termékeket nem ellenőrizte: %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
-msgstr "A termékeket korrigálta: %s"
+msgstr "%s által javított termékek"
 
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
-msgstr "A termékeket nem korrigálta: %s"
+msgstr "%s által nem javított termékek"
 
 msgctxt "contributors_products"
 msgid "Products added by %s"
@@ -3168,19 +3280,19 @@ msgstr "%s által hozzáadott termékek"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
-msgstr "A termékeket szerkesztette: %s"
+msgstr "%s által szerkesztett termékek"
 
 msgctxt "editors_without_products"
 msgid "Products not edited by %s"
-msgstr "A termékeket nem szerkesztette: %s"
+msgstr "%s által nem szerkesztett termékek"
 
 msgctxt "informers_products"
 msgid "Products completed by %s"
-msgstr "A termékadatokat teljessé tette: %s"
+msgstr "%s által teljessé tett termékek"
 
 msgctxt "informers_without_products"
 msgid "Products not completed by %s"
-msgstr "A termékadatokat nem tette készé: %s"
+msgstr "%s által nem teljessé tett termékek"
 
 msgctxt "photographers_products"
 msgid "Products photographed by %s"
@@ -3188,7 +3300,7 @@ msgstr "%s által fényképezett termékek"
 
 msgctxt "photographers_without_products"
 msgid "Products not photographed by %s"
-msgstr "A termékeket nem fotózta: %s"
+msgstr "%s által nem fényképezett termékek"
 
 msgctxt "user_s_page"
 msgid "%s's page"
@@ -3448,7 +3560,7 @@ msgstr "Tápértékadatok"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr "Opcionális tápérték táblázat"
+msgstr "Opcionális tápértékadatok"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3695,6 +3807,10 @@ msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "adatminőség hibák"
 
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "adatminőség teljessége"
+
 msgctxt "data_quality_info_p"
 msgid "data quality info"
 msgstr "adatminőség információ"
@@ -3883,7 +3999,7 @@ msgstr "Ez a táblázat felsorolja a táplálékminőség, a Nutri-Score és az 
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr "A releváns eredmények elérése érdekében kérjük, győződjön meg arról, hogy a termékadatok teljesek (a tápérték táblázat rost értékkel, és gyümölcsök, zöldségek a Nutri-Score számításhoz, valamint pontos kategorizálás a hasonló termékekkel való összehasonlításhoz)."
+msgstr "A releváns eredmények elérése érdekében kérjük, győződjön meg arról, hogy a termékadatok teljesek (tápértékadatok rost értékkel, és gyümölcsök, zöldségek a Nutri-Score számításhoz, valamint pontos kategorizálás a hasonló termékekkel való összehasonlításhoz)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -4169,10 +4285,6 @@ msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Kérjük, adományozzon"
 
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "A túlzott alkoholfogyasztás káros az egészségre, mértékkel fogyasztandó."
-
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "A gyártói platform moderálása"
@@ -4193,7 +4305,7 @@ msgstr "Egy adott felhasználó vagy szervezet termékeinek megtekintéséhez í
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr "Váltson másik szervezetre"
+msgstr "Váltás másik szervezetre"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4609,17 +4721,17 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Hiányoznak a Nutri-Score kiszámításához szükséges adatok"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "A Nutri-Score nem alkalmazható"
+msgid "Nutri-Score not applicable"
+msgstr "Nutri-Score nem alkalmazható"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Nem alkalmazható a kategóriára"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
-msgstr "Nem alkalmazható erre a kategóriára: {category}"
+msgid "Not applicable for the category: {category}"
+msgstr "Nem alkalmazható a következő kategóriára: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
@@ -4663,6 +4775,10 @@ msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Nem, vagy alig feldogozott (NOVA csoport)"
 
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr "A termék feldolgozottsági szintjének megállapításához az összetevőlistára (markerek, feldolgozási módszerek) és a kategóriákra támaszkodunk."
+
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
@@ -4674,7 +4790,7 @@ msgstr "Feldolgozatlan vagy minimálisan feldolgozott élelmiszerek"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr "Feldolgozott összetevők"
+msgstr "Feldolgozott konyhai alapanyagok"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
@@ -4682,16 +4798,16 @@ msgstr "Feldolgozott élelmiszerek"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr "Többszörösen feldolgozott élelmiszer"
+msgstr "Ultrafeldolgozott élelmiszerek"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
-msgstr "1 többszörös feldolgozottsági marker"
+msgstr "1 ultra-feldolgozottsági marker"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nova_4_markers"
 msgid "{number} ultra-processing markers"
-msgstr "{number} többszörös feldolgozottsági marker"
+msgstr "{number} ultra-feldolgozottsági marker"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4839,8 +4955,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Alacsony környezeti hatás (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "A Green-Score egy A-tól E-ig terjedő környezetvédelmi pontszám, amely megkönnyíti az élelmiszerek környezetre gyakorolt hatásának összehasonlítását."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "A Green-Score egy A+-tól F-ig terjedő környezetvédelmi besorolás, amely megkönnyíti az élelmiszerek környezetre gyakorolt hatásának összehasonlítását."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4852,8 +4968,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Alacsony környezeti hatás (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "A Green-Score egy A-tól E-ig terjedő környezetvédelmi pontszám, amely megkönnyíti az élelmiszerek környezetre gyakorolt hatásának összehasonlítását."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "A Green-Score egy A+-tól F-ig terjedő környezetvédelmi besorolás, amely megkönnyíti az élelmiszerek környezetre gyakorolt hatásának összehasonlítását."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5012,6 +5128,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Tagok száma"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "S. szám"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Kapcsolati űrlap"
@@ -5085,6 +5205,10 @@ msgstr "Hiányzó összetevőlista"
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Hiányzó tápértékadatok"
+
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Hiányoznak az elkészített termékre vonatkozó tápértékadatok"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
@@ -5250,7 +5374,7 @@ msgstr "A legutóbbi exportálás óta a piacról kivont termékek száma"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
-msgstr "Csak a változtatásokkal rendelkező termékek exportálása"
+msgstr "Csak a módosított termékek exportálása"
 
 msgctxt "product_edits_by_producers"
 msgid "Is this your product? If it is, please use our free platform for producers to update it."
@@ -5385,8 +5509,8 @@ msgstr "Jövőkép, küldetés, értékek és programok"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world-hu.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5428,6 +5552,10 @@ msgstr "Az Eco-score nincs kiszámítva"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Ismeretlen környezeti hatás"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Hiányzik a pontos kategória"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5502,11 +5630,11 @@ msgstr "Importálás a nyilvános adatbázisba"
 # Update: use a noun and not a verb
 msgctxt "export_job_status_update"
 msgid "Update of the import status on the producers platform"
-msgstr "Az importállapot frissítése a gyártói platformon"
+msgstr "Az importálási állapot frissítése a gyártói platformon"
 
 msgctxt "export_in_progress"
 msgid "The export has been scheduled. This page can be closed."
-msgstr "Az export ütemezése megtörtént. Ez az oldal bezárható."
+msgstr "Az exportálás ütemezése megtörtént. Ez az oldal bezárható."
 
 msgctxt "export_products_to_public_database_request_email"
 msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
@@ -5705,10 +5833,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "A termék összetevőire vonatkozó információk nincsenek megadva."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Az Green-Score pontosabb kiszámításához szerkesztheti a termékoldalt és hozzáadhatja."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "arány"
@@ -5729,9 +5853,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "A termék csomagolásával kapcsolatos információk nem kellően pontosak (a csomagolás minden részének pontos alakja és anyaga)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Az Green-Score pontosabb kiszámításához módosíthatja a termékoldalt és hozzáadhatja."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Az Green-Score pontosabb kiszámításához szerkesztheti a termékoldalt és hozzáadhatja."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5762,8 +5892,8 @@ msgstr "Az Green-Score képlet változhat, mivel rendszeresen javítják, hogy p
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Az Green-Score-t eredetileg Franciaország számára fejlesztették ki, és most más európai országokra is kiterjesztik. Az Green-Score képlet változhat, mivel rendszeresen fejlesztik, hogy pontosabb legyen, és jobban megfeleljen az egyes országoknak."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "A Green-Score rendszert eredetileg Franciaország számára fejlesztették ki, és azóta más európai országokra is kiterjesztik. A Green-Score képlete változhat, mivel rendszeresen fejlesztik, hogy pontosabb és jobban megfeleljen az egyes országok igényeinek."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5783,7 +5913,7 @@ msgstr "Ennél a gyártónál a GS1 terméknevek rövidítve vannak."
 
 msgctxt "org_gs1_nutrients_are_unprepared"
 msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
-msgstr "A gyártó által készített GS1 tápanyagok valójában az értékesített termékhez tartoznak."
+msgstr "GS1 ennél a gyártónál az elkészített tápanyagok valójában az értékesített termékre vonatkoznak."
 
 msgctxt "org_gs1_nutrients_are_unprepared_note"
 msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
@@ -5879,6 +6009,11 @@ msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "Kérjük, támogassa a 2024-es adománygyűjtő akciónkat"
 
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "Kérjük, adományozzon a {year} adománygyűjtésünkre"
+
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
 msgstr "Adományaival nonprofit egyesületünk mindennapi működését finanszírozza:"
@@ -5911,6 +6046,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "TÁMOGATOM"
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "függetlennek maradni az élelmiszeripartól,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Adományozás"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Adományozás"
@@ -5930,6 +6105,22 @@ msgstr "Magas környezeti előnyökkel rendelkező címkék"
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "Nagyon magas környezeti előnyökkel rendelkező címkék"
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Nincsenek értékelt címkék"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Néhány környezeti előny"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Magas környezeti előnyök"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Nagyon magas környezeti előnyök"
 
 msgctxt "other"
 msgid "Other"
@@ -6017,7 +6208,7 @@ msgstr "Levonás"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr "Életciklus elemzés"
+msgstr "Életciklus-elemzés"
 
 msgctxt "environmental_score_bonuses_and_maluses"
 msgid "Bonuses and maluses"
@@ -6067,6 +6258,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Hiányzó tápértékadatok:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Hiányoznak az elkészített termékre vonatkozó tápértékadatok:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "A Nutri-Score kiszámításához meg kell adni a termék tápértékadatait és kategóriáját."
@@ -6082,6 +6277,14 @@ msgstr "Közreműködés"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Közreműködés"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Adatminőség teljessége"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Néhány információ a termék adatminőségének teljességéről"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6125,7 +6328,7 @@ msgstr "Úszás"
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr "Biciklizés"
+msgstr "Kerékpározás"
 
 # name of an activity / a sport
 msgctxt "activity_running"
@@ -6154,6 +6357,10 @@ msgstr "Hiányzó kategória"
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Hiányzó tápértékadatok"
+
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Hiányzó elkészített tápértékadatok"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
@@ -6237,6 +6444,10 @@ msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "Annak megállapításához, hogy egy termék tartalmaz-e pálmaolajat, csak az összetevők listájára hagyatkozunk."
 
+msgctxt "attribute_without_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "Annak megállapításához, hogy egy termék tartalmaz-e pálmaolajat, csak az összetevők listájára hagyatkozunk."
+
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
 msgstr "Felismeretlen összetevők"
@@ -6248,7 +6459,7 @@ msgstr "A termék csak feldolgozatlan vagy minimálisan feldolgozott összetevő
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr "A termék {nova_group} csoportba tartozását jelző elemek"
+msgstr "Az alábbi elemek jelzik, hogy a termék {nova_group} csoportba tartozik:"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
@@ -6335,6 +6546,10 @@ msgstr "Meg tudná adni a Nutri-Score kiszámításához szükséges informáci�
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Meg tudná adni a pontos termékkategóriát, hogy ki tudjuk számítani a Green-Score-t?"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "A termékhez tartozó kategória nem elég pontos a Green-Score kiszámításához. Tudna hozzáadni egy pontosabb termékkategóriát?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6576,6 +6791,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "A termék frissítve"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Érvénytelen API-művelet"
@@ -6628,6 +6847,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr "Felismeretlen érték"
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "A kép már feltöltve"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "A kép túl kicsi"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "Kép feltöltve"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "A kép nincs feltöltve"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "Kép kiválasztva"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "Kép nincs kiválasztva"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "Kép törölve"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "A kép nem törölve"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr ""
@@ -6675,6 +6926,14 @@ msgstr "A termék összes csomagolóeleme fel van sorolva."
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Érvénytelen felhasználói azonosító vagy jelszó"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -6799,7 +7058,7 @@ msgstr "az összes termékhez képest"
 
 msgctxt "preferred_language"
 msgid "Preferred Language"
-msgstr "Előnyben részesített nyelv"
+msgstr "Preferált nyelv"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
@@ -7020,8 +7279,8 @@ msgid "Report a problem"
 msgstr "Probléma bejelentése"
 
 msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Probléma bejelentése."
+msgid "Report a problem"
+msgstr "Probléma bejelentése"
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7047,11 +7306,6 @@ msgctxt "description"
 msgid "Description"
 msgstr "Leírás"
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Probléma bejelentése"
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr "Adja meg a fő kapcsolattartó felhasználónevét:"
@@ -7071,6 +7325,10 @@ msgstr "Ez a felhasználó nem tagja a szervezetnek."
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Ugrás a tartalomhoz"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "A bejelentkezéshez engedélyeznie kell a sütiket."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7278,11 +7536,11 @@ msgid "Repairability index unknown"
 msgstr "A javíthatósági index ismeretlen"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "A javíthatósági index nem alkalmazható"
+msgid "Repairability index not applicable"
+msgstr "Javíthatósági index nem alkalmazható"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Nem alkalmazható a kategóriára"
 
 # variable names between { } must not be translated
@@ -7326,17 +7584,17 @@ msgstr "Terméktípus"
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Élelmiszer"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Állateledel"
 
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "Szépségápolás"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7345,15 +7603,15 @@ msgstr "Termék"
 
 msgctxt "recommendation_limit_ultra_processed_foods_title"
 msgid "Limit ultra-processed foods"
-msgstr "Korlátozza a többszörösen feldolgozott élelmiszerek fogyasztását"
+msgstr "Korlátozza az ultrafeldolgozott élelmiszerek fogyasztását"
 
 msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
 msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
-msgstr "A többszörösen feldolgozott élelmiszerek korlátozása csökkenti a nem fertőző krónikus betegségek kockázatát"
+msgstr "Az ultrafeldolgozott élelmiszerek korlátozása csökkenti a nem fertőző krónikus betegségek kockázatát"
 
 msgctxt "recommendation_limit_ultra_processed_foods_text"
 msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
-msgstr "Számos tanulmány kimutatta, hogy kevesebb többszörösen feldolgozott élelmiszer fogyasztása összefügg a nem fertőző krónikus betegségek, például az elhízás, a magas vérnyomás és a cukorbetegség kockázatának csökkenésével."
+msgstr "Számos tanulmány kimutatta, hogy kevesebb ultrafeldolgozott élelmiszer fogyasztása összefügg a nem fertőző krónikus betegségek, például az elhízás, a magas vérnyomás és a cukorbetegség kockázatának csökkenésével."
 
 msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
 msgid "Discover the evolution of the Nutri-Score grades of your products"
@@ -7366,4 +7624,455 @@ msgstr "Adjon hozzá kategóriákkal, összetevlistával és tápértékadatokka
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Élelmiszerrel érintkezve"
+
+msgctxt "contact_us_producers"
+msgid "Contact Us"
+msgstr "Kapcsolat"
+
+msgctxt "delete"
+msgid "Delete"
+msgstr "Törlés"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr "Van Önnek {barcode} vonalkódú terméke? Ha van, kérjük töltse fel az adatbázisba. Csak pár percet vesz igénybe."
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-hu.svg"
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Elérhető F-Droidon"
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr "Tápanyagadatok frissítése"
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr "Tápértékadatok kiolvasása"
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr "Termék beolvasása"
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr "Vagy a vonalkód megadása kézzel"
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Leolvasás"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "Biogazdálkodás és méltányos kereskedelem"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score és élelmiszer-feldolgozási szint (NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr "Jó javíthatóság"
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "Biogazdálkodás és méltányos kereskedelem"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Jelentse ezt a képet a moderátorainknak"
+
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Hiányzik az adagméret értéke és/vagy a Nutri-Score kiszámításához szükséges mértékegység."
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "Az <<site_name>> készítője egy non-profit szervezet, amely független az iparágtól. Mindenkinek, mindenki által készült, és mindenki finanszírozza. Munkánkat az Open Food Factsnak nyújtott adományozással támogathatja.<br/><b>Köszönjük!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "Az <<site_name>> készítője egy non-profit szervezet, amely független az iparágtól. Mindenkinek, mindenki által készült, és mindenki finanszírozza. Munkánkat támogathatja az Open Food Factsnek nyújtott adományoddal, valamint a Lilo keresőmotor használatával.<br/><b>Köszönjük!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Lilo keresőmotor"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "A robotok általi súlyos visszaélések miatt nem tudjuk ezt az oldalt azonosítatlan felhasználóknak megjeleníteni. Kérjük, hozzon létre egy ingyenes Open Food Facts fiókot az Open Food Facts összes tartalmának eléréséhez."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Összetevők eredete"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr ""
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Termékinformációk"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Nyers termékinformációk"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "Hozzáadott cukrot tartalmaz"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "Hozzáadott cukrok:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "Hozzáadott cukrok becsült mennyisége az összetevőkben"
+
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Hozzáadott cukrok mennyisége"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "Keressen ugyanebben a kategóriában hozzáadott cukor nélküli termékeket:"
+
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr ""
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr ""
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr ""
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "1 kg-ra"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "adagonként"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr ""
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr ""
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Tápanyag hozzáadása"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Nemkívánatos összetevők"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Ez a preferencia az Open Food Facts összetevőlistájának értelmezésén alapul, ami előfordulhat, hogy nem pontos, ezért mindig ellenőrizze a terméket személyesen."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Nemkívánatos összetevők jelenléte ismeretlen"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Nem észleltünk nemkívánatos összetevőket"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Nemkívánatos összetevőket tartalmaz"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Néhány összetevő nem volt felismerhető"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Nem észleltük: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Nem észleltük a következőt: {unwanted_ingredients}. Lehet, hogy kihagytunk néhány összetevőt, kérjük, mindig ellenőrizze az összetevők listáját."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Ezek a preferenciák az Open Food Facts összetevőlistájának értelmezésén alapulnak, és mindig fennáll annak a lehetősége, hogy az nem pontos vagy teljes, ezért mindig ellenőrizze a terméket személyesen."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr ""
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "Termékenként számított állati szenvedési mutató"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "Állatok kímélése"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "Külső tudáspanelek"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "Panel nem elérhető"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "Panel nem érhető el ehhez a termékhez"
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "Külső források"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "Biztosítja:"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "A dohányzás öl"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "A dohányzás súlyosan károsítja az egészséget. Ne kezdje el. Hagyja abba most."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "A dohányzás erős függőséget okoz. Ne kezdje el. A dohányzás öl – hagyja abba most. A dohányzás eltömíti az artériákat, és szívrohamot és szélütést okoz. A dohányzás halálos tüdőrákot okoz. A terhesség alatti dohányzás károsítja a babát. Védje a gyermekeket: ne kényszerítse őket a füst belélegzésére. Orvosa vagy gyógyszerésze segíthet a dohányzásról való leszokásban. A dohányzás csökkentheti a véráramlást és impotenciát okozhat. A dohányzás a bőr öregedését okozza. A dohányzás károsíthatja a spermiumokat és csökkenti a termékenységet. A füst benzolt, nitrozaminokat, formaldehidet és hidrogén-cianidot tartalmaz."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Adományozás"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Újrahasznosítás"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Nyilvános ár"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "A gyártó által javasolt kiskereskedelmi ár (MSRP), a kedvezmények és promóciók nélkül, a termék csomagolásán vagy a gyártó weboldalán feltüntetett módon (a jogszabályok szerinti adókkal együtt vagy anélkül). Használjon vesszővel elválasztott listát, ha az árak több pénznemben vannak megadva."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Személyre szabott tulajdonság"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Nem tartalmaz pálmaolajat"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Pálmaolajat tartalmazhat"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Környezetvédelmi címkék"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Hiányzó adatok"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Nagy hatású"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Közepes hatású"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Alacsony hatású"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "A hatás nem került felmérésre"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Teljes erdőlábnyom"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Címke"
 

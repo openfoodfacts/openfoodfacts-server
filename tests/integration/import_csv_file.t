@@ -2,7 +2,7 @@
 
 # Import a CSV file
 
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
@@ -25,8 +25,7 @@ my $inputs_dir = "$test_dir/inputs/$test_id/";
 my $outputs_dir = "$test_dir/outputs/$test_id/";
 
 # fake image download using input directory instead of distant server
-sub fake_download_image ($) {
-	my $image_url = shift;
+sub fake_download_image ($image_url) {
 
 	my $fname = (split(m|/|, $image_url))[-1];
 	my $image_path = $inputs_dir . $fname;
@@ -51,8 +50,39 @@ my @tests = (
 	{
 		test_case => "replace_existing_values",
 		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_2.csv"],
-
-	}
+	},
+	{
+		test_case => "old_nutrition",
+		csv_files => ["old_nutrition.csv"],
+	},
+	{
+		test_case => "new_nutrition",
+		csv_files => ["new_nutrition.csv"],
+	},
+	{
+		test_case => "agena",
+		csv_files => ["agena.csv"],
+	},
+	{
+		test_case => "new_tags",
+		csv_files => ["new_tags_1.csv"]
+	},
+	# Update with empty values in tag fields, should not change the initial values
+	{
+		test_case => "new_tags_empty_values",
+		csv_files => ["new_tags_1.csv", "new_tags_2_empty_values.csv"]
+	},
+	# Update with '-( values in tag fields, should remove the initial values
+	{
+		test_case => "new_tags_dash_values",
+		csv_files => ["new_tags_1.csv", "new_tags_3_dash_values.csv"]
+	},
+	# Updates
+	# Update with empty values in tag fields, should not change the initial values
+	{
+		test_case => "new_tags_updates",
+		csv_files => ["new_tags_1.csv", "new_tags_4_updates.csv"]
+	},
 );
 
 # Testing import of a csv file
@@ -85,6 +115,7 @@ foreach my $test_ref (@tests) {
 		# import file
 		my $datestring = localtime();
 		my $args = {
+			"lc" => "fr",
 			"user_id" => "test-user",
 			"org_id" => "test-org",
 			"owner_id" => "org-test-org",
@@ -97,7 +128,7 @@ foreach my $test_ref (@tests) {
 		print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
 
 		# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
-		my ($out, $err) = capture_ouputs(
+		my ($out, $err) = capture_outputs(
 			sub {
 				$stats_ref = ProductOpener::Import::import_csv_file($args);
 			}

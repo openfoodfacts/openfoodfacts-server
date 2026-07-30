@@ -10,14 +10,9 @@ Data is synchronized monthly between the Open Food Facts server and the bucket;
 as such some recent images are likely missing. You should not assume all
 images are present in the bucket.
 
-To know the bucket key associated with an image for the product with barcode
-'4012359114303', you should first split the barcode as follows:
-`/401/235/911/4303` (that is, three groups of 3 digits followed by one group of
-4 digits, all four groups being prefixed with a `/`).
+To know the bucket key associated with an image, we use the same directory structure as on Product Opener. See [How to download images](./how-to-download-images.md#computing-single-product-image-folder) for more information.
 
-This splitting is only relevant for EAN13 (13-digit barcodes):
-for barcodes with fewer digits (like EAN8), the directory path is
-not split: `/20065034`.
+For example, for the product with barcode '4012359114303', the directory containing the image is `/401/235/911/4303` (that is, three groups of 3 digits followed by one group of 4 digits, all four groups being prefixed with a `/`).
 
 To get the raw image '1' for barcode '4012359114303', simply add the image ID:
 `/401/235/911/4303/1.jpg`. Here, you will get the "raw" image, as sent by the

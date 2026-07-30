@@ -1,0 +1,10 @@
+components:
+  parameters:
+    Code:
+      name: code
+      in: query
+      description: Barcode of the product
+      required: true
+      schema:
+        type: string
+        example: "4251105501381"

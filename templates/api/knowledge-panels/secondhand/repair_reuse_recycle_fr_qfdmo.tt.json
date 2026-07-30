@@ -1,0 +1,33 @@
+{
+    "level": "info",
+    "topics": [
+        "reuse"
+    ],
+    "expand_for": "large",    
+    "title_element": {
+        "title": "[% edq(lang('qfdmo_solutions_title')) %]",
+        "subtitle": "[% edq(lang('qfdmo_solutions_subtitle')) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/recycle-variant.svg",
+        "icon_color_from_evaluation": false
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": "[% edq(lang('qfdmo_solutions_description')) %]"
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `<p>[% edq(lang('qfdmo_solutions_intro')) %]</p><ul><li><strong>[% edq(lang('qfdmo_solution_repair')) %]</strong> : [% edq(lang('qfdmo_solution_repair_description')) %]</li><li><strong>[% edq(lang('qfdmo_solution_donate')) %]</strong> : [% edq(lang('qfdmo_solution_donate_description')) %]</li><li><strong>[% edq(lang('qfdmo_solution_sell')) %]</strong> : [% edq(lang('qfdmo_solution_sell_description')) %]</li><li><strong>[% edq(lang('qfdmo_solution_recycle')) %]</strong> : [% edq(lang('qfdmo_solution_recycle_description')) %]</li></ul>
+                    <p>[% edq(lang('qfdmo_solutions_action')) %]</p>
+                    <ul>
+                <li><a href="https://quefairedemesdechets.ademe.fr/dechet/[% panel.qfdmo_name_fr  %]">[% edq(lang('qfdmo_solutions_find_nearby')) %] pour [% panel.category_name_fr || panel.qfdmo_name_fr %]</a></li>
+                </ul>
+                `
+            }
+        },
+    ]
+}

@@ -5,8 +5,8 @@
     ],
     "expand_for": "large",
     "title_element": {
-        "title": "[% lang('used_products_title') %]",
-        "subtitle": "[% lang('used_products_subtitle') %]",
+        "title": "[% edq(lang('used_products_title')) %]",
+        "subtitle": "[% edq(lang('used_products_subtitle')) %]",
         //"icon_url": "[% static_subdomain %]/images/panels/report_problem/signalconso.png",
     },
     "elements": [

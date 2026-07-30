@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2024 Association Open Food Facts
+// Copyright (C) 2011-2025 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -18,14 +18,17 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/*exported displayWorldMap*/
-/*global lang jsVectorMap*/
+/*global lang*/
+
+import jsVectorMap from 'jsvectormap';
+// eslint-disable-next-line sort-imports
+import './world-merc.js';
 
 function getServerDomain() {
-  return (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(window.location.href)[1];
+  return (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(globalThis.location.href)[1];
 }
 
-function displayWorldMap(selector, countries) {
+export function displayWorldMap(selector, countries) {
   const countries_map_data = countries.data;
   const countries_map_links = countries.links;
   const countries_map_names = countries.names;
@@ -52,12 +55,12 @@ function displayWorldMap(selector, countries) {
     },
     onRegionClick: (_e, code) => {
       if (countries_map_links[code]) {
-        window.location.href = `//${getServerDomain()}${countries_map_links[code]}`;
+        globalThis.location.href = `//${getServerDomain()}${countries_map_links[code]}`;
       }
     },
   });
 
-  window.addEventListener("resize", () => {
+  globalThis.addEventListener("resize", () => {
     map.updateSize();
   });
 }

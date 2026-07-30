@@ -83,16 +83,10 @@ my @tests = (
 						'text' => 'water'
 					},
 					{
-						'id' => 'en:raising-agent',
-						'ingredients' => [
-							{
-								'id' => 'en:e501',
-								'is_in_taxonomy' => 1,
-								'text' => 'e501'
-							}
-						],
+						'id' => 'en:e501',
+						'additive_class' => 'en:raising-agent',
 						'is_in_taxonomy' => 1,
-						'text' => 'raising agents'
+						'text' => 'e501'
 					},
 					{
 						'id' => 'en:salt',
@@ -149,16 +143,10 @@ my @tests = (
 				'text' => 'sal'
 			},
 			{
-				'id' => 'en:acid',
-				'ingredients' => [
-					{
-						'id' => 'en:e330',
-						'is_in_taxonomy' => 1,
-						'text' => "\x{e1}cido c\x{ed}trico"
-					}
-				],
+				'id' => 'en:e330',
+				'additive_class' => 'en:acid',
 				'is_in_taxonomy' => 1,
-				'text' => 'acidulante'
+				'text' => "\x{e1}cido c\x{ed}trico"
 			}
 		]
 	],
@@ -167,7 +155,7 @@ my @tests = (
 		{lc => "fr", ingredients_text => "Teneur en légumes : 74 % : tomate ( Espagne) eau"},
 		[
 			{
-				'id' => "fr:teneur-en-legumes",
+				'id' => "fr:Teneur en légumes",
 				'is_in_taxonomy' => 0,
 				'percent' => '74',
 				'text' => "Teneur en l\x{e9}gumes"
@@ -193,7 +181,7 @@ my @tests = (
 		},
 		[
 			{
-				'id' => "fr:teneur-en-legumes",
+				'id' => "fr:Teneur en légumes",
 				'is_in_taxonomy' => 0,
 				'percent' => '74',
 				'text' => "Teneur en l\x{e9}gumes"
@@ -438,7 +426,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $expected_ingredients_ref = $test_ref->[1];
 
-	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
+	# print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
 	parse_ingredients_text_service($product_ref, {}, {});
 

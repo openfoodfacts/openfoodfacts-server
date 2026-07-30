@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:meat",
@@ -65,18 +66,6 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:meat",
-      "en:beef-gelatin",
-      "en:animal",
-      "en:beef",
-      "en:e428",
-      "en:collagen",
-      "en:duck-foie-gras",
-      "en:poultry",
-      "en:duck",
-      "en:duck-liver"
-   ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
@@ -120,13 +109,10 @@
       "en:meat"
    ],
    "ingredients_without_ecobalyse_ids_n" : 4,
-   "known_ingredients_n" : 10,
+   "known_ingredients_n" : 4,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

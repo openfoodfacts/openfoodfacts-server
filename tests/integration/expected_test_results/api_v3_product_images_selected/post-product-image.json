@@ -1,0 +1,36 @@
+{
+   "code" : "1234567890012",
+   "errors" : [],
+   "product" : {
+      "images" : {
+         "uploaded" : {
+            "1" : {
+               "imgid" : 1,
+               "sizes" : {
+                  "100" : {
+                     "h" : 92,
+                     "w" : 100
+                  },
+                  "400" : {
+                     "h" : 183,
+                     "w" : 200
+                  },
+                  "full" : {
+                     "h" : 183,
+                     "w" : 200
+                  }
+               },
+               "uploaded_t" : "--ignore--",
+               "uploader" : "openfoodfacts-contributors"
+            }
+         }
+      }
+   },
+   "result" : {
+      "id" : "image_uploaded",
+      "lc_name" : "Image uploaded",
+      "name" : "Image uploaded"
+   },
+   "status" : "success",
+   "warnings" : []
+}

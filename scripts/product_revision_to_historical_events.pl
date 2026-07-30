@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2024 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -24,21 +24,29 @@ use ProductOpener::PerlStandards;
 use utf8;
 
 use ProductOpener::Config qw/%options $query_url/;
-use ProductOpener::Store qw/store retrieve/;
+use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
-use ProductOpener::Products qw/product_id_from_path/;
+use ProductOpener::Products qw/product_id_from_path product_iter/;
+use ProductOpener::Checkpoint;
+use ProductOpener::HTTP qw/create_user_agent/;
+
 use Path::Tiny;
 use JSON::MaybeXS;
+use File::Basename qw/dirname/;
 
-# This script recursively visits all product.sto files from the root of the products directory
+# This script recursively visits all product files from the root of the products directory
 # and process its changes to generate a JSONL file of historical events
+# Add a "resume" argument to resume from the last checkpoint.
+my $checkpoint = ProductOpener::Checkpoint->new;
+my ($last_processed_path, $last_processed_rev);
+if ($checkpoint->{value}) {
+	($last_processed_path, $last_processed_rev) = split(',', $checkpoint->{value});
+}
+my $can_process = $last_processed_path ? 0 : 1;
+
 my $start_from = $ARGV[0] // 0;
 my $end_before = $ARGV[1] // 9999999999;
 #perl scripts/product_revision_to_historical_events.pl 1704067200
-
-my ($checkpoint_file, $last_processed_path, $last_processed_rev) = open_checkpoint('checkpoint.tmp');
-my $can_process = $last_processed_path ? 0 : 1;
 
 # JSONL
 my $filename = 'historical_events.jsonl';
@@ -50,8 +58,9 @@ my $event_count = 0;
 my @events = ();
 
 $query_url =~ s/^\s+|\s+$//g;
+# TODO Note that the productupdates route is not yet implemented in the Python version of off-query
 my $query_post_url = URI->new("$query_url/productupdates");
-my $ua = LWP::UserAgent->new();
+my $ua = create_user_agent();
 # Add a timeout to the HTTP query
 $ua->timeout(15);
 
@@ -62,9 +71,9 @@ sub process_file($path, $code) {
 		print '[' . localtime() . "] $product_count products processed. Sent $event_count events \n";
 	}
 
-	my $changes = retrieve($path . "/changes.sto");
+	my $changes = retrieve_object($path . "/changes");
 	if (!defined $changes) {
-		print '[' . localtime() . "] Unable to open $path/changes.sto\n";
+		print '[' . localtime() . "] Unable to open $path/changes\n";
 		return;
 	}
 
@@ -76,9 +85,9 @@ sub process_file($path, $code) {
 	my $deleted = 0;
 	foreach my $change (@{$changes}) {
 		$rev++;
-		my $product = retrieve($path . "/" . $rev . ".sto");
+		my $product = retrieve_object($path . "/" . $rev);
 		if (!defined $product) {
-			print '[' . localtime() . "] Unable to open $path/$rev.sto\n";
+			print '[' . localtime() . "] Unable to open $path/$rev\n";
 			next;
 		}
 
@@ -110,7 +119,6 @@ sub process_file($path, $code) {
 		# to know where we are
 		if (not $can_process and $rev == $last_processed_rev) {
 			$can_process = 1;
-			print "Resuming from '$last_processed_path' revision $last_processed_rev\n";
 			next;    # we don't want to process the revision again
 		}
 
@@ -137,7 +145,7 @@ sub process_file($path, $code) {
 
 		if ($event_count % 1000 == 0) {
 			send_events();
-			update_checkpoint($checkpoint_file, $path, $rev);
+			$checkpoint->update("$path,$rev");
 		}
 	}
 
@@ -165,7 +173,7 @@ sub send_events() {
 	}
 
 	# Note pushing to redis will cause product to be reloaded
-	# push_to_redis_stream(
+	# push_product_update_to_redis(
 	# 	$change->{userid} // 'initial_import',
 	# 	{code=>$code, rev=>$rev},
 	# 	$action,
@@ -181,56 +189,22 @@ sub send_events() {
 
 # because getting products from mongodb won't give 'deleted' ones
 # found that path->visit was slow with full product volume
-sub find_products($dir, $code) {
-	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
-	my @files = readdir(DH);
-	closedir DH;
-	foreach my $entry (sort @files) {
-		next if $entry =~ /^\.\.?$/;
-		my $file_path = "$dir/$entry";
-
-		if (-d $file_path and ($can_process or ($last_processed_path =~ m/^\Q$file_path/))) {
-			find_products($file_path, "$code$entry");
-			next;
-		}
-
-		if ($entry eq 'product.sto') {
-			if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
-				process_file($dir, $code);
-			}
+sub find_products($dir) {
+	my $next = product_iter($dir);
+	while (my $path = $next->()) {
+		my $dir = dirname($path);
+		if ($can_process or ($last_processed_path and $last_processed_path eq $dir)) {
+			my $code = product_id_from_path($path);
+			process_file($dir, $code);
 		}
 	}
-
 	return;
 }
 
-sub open_checkpoint($filename) {
-	if (!-e $filename) {
-		`touch $filename`;
-	}
-	open(my $checkpoint_file, '+<', $filename) or die "Could not open file '$filename' $!";
-	seek($checkpoint_file, 0, 0);
-	my $checkpoint = <$checkpoint_file>;
-	chomp $checkpoint if $checkpoint;
-	my ($last_processed_path, $rev);
-	if ($checkpoint) {
-		($last_processed_path, $rev) = split(',', $checkpoint);
-	}
-	return ($checkpoint_file, $last_processed_path, $rev);
-}
-
-sub update_checkpoint($checkpoint_file, $dir, $revision) {
-	seek($checkpoint_file, 0, 0);
-	print $checkpoint_file "$dir,$revision";
-	truncate($checkpoint_file, tell($checkpoint_file));
-	return 1;
-}
-
-find_products($BASE_DIRS{PRODUCTS}, '');
+find_products($BASE_DIRS{PRODUCTS});
 
 if (scalar(@events)) {
 	send_events();
 }
 
 close $file;
-close $checkpoint_file;

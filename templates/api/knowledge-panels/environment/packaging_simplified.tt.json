@@ -1,0 +1,83 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "expanded": false,
+    "half_width_on_mobile": true,   
+[% IF NOT (product.packagings.size) %]
+    "evaluation": "unknown",
+    "title_element": {
+        "name": "[% edq(lang('environmental_score_packaging')) %]",
+        "value_string": "[% edq(lang('missing_data')) %]",
+        "type": "string",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
+        "icon_color_from_evaluation": true,
+        "evaluation": "neutral",               
+        "icon_size": "small", 
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `
+                    [% lang('environmental_score_no_packaging_information') %]
+                    `
+            }
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_packaging_image") %]`,
+                "actions": [
+                    "add_packaging_image"
+                ]
+            }
+        },
+    ],
+[% ELSE %]
+    // Environmental-Score currently computed only for food products
+    // no evaluation of packaging for other product types
+    // TODO: add evaluation for non-food products
+    [% IF NOT product.environmental_score_data.adjustments.packaging.value.defined %]
+    "evaluation": "unknown",
+    "title_element": {
+        "value_string": "[% edq(lang('impact_non_assessed')) %]",
+    [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -15 %]
+    "evaluation": "bad",
+    "title_element": {
+        "value_string": "[% edq(lang('high_impact')) %]",
+    [% ELSIF product.environmental_score_data.adjustments.packaging.value <= -5 %]
+    "evaluation": "average",
+    "title_element": {
+        "value_string": "[% edq(lang('medium_impact')) %]",    
+    [% ELSE %]
+    "evaluation": "good",
+    "title_element": {
+        "value_string": "[% edq(lang('low_impact')) %]",
+    [% END %]
+        "name": "[% edq(lang('environmental_score_packaging')) %]",
+        "type": "string",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
+        "icon_color_from_evaluation": true,
+        "icon_size": "small",
+    },        
+    "elements": [
+        {
+            "element_type": "panel",
+            "panel_element": {
+                    "panel_id": "packaging_components",
+            },
+        },
+        [% IF (product.packagings_materials AND product.packagings_materials.size) %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "packaging_materials",
+            },
+        },
+        [% END %]
+    ]
+[% END %]
+}

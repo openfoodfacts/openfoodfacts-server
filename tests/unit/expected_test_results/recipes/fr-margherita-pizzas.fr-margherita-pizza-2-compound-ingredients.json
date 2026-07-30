@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:filling",
@@ -6,7 +7,7 @@
             {
                "ciqual_food_code" : "20047",
                "ecobalyse_code" : "tomato-heated-greenhouse-eu",
-               "id" : "en:chopped-tomatoes",
+               "id" : "en:chopped-tomato",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 46.6666666666667,
                "percent_max" : 70,
@@ -28,7 +29,7 @@
                "vegetarian" : "maybe"
             },
             {
-               "ciqual_food_code" : "11033",
+               "ciqual_proxy_food_code" : "11033",
                "id" : "en:basil-leaf",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 11.6666666666667,
@@ -93,45 +94,23 @@
          "percent_estimate" : 30,
          "percent_max" : 30,
          "percent_min" : 30,
-         "text" : "Pâte à pizza"
+         "text" : "Pâte à pizza",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
-      "en:non-vegan" : [
+      "en:maybe-vegetarian" : [
          "en:cheese"
       ],
-      "en:vegan-status-unknown" : [
-         "en:pizza-dough"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:pizza-dough"
+      "en:non-vegan" : [
+         "en:cheese"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
       "en:non-vegan",
-      "en:vegetarian-status-unknown"
-   ],
-   "ingredients_hierarchy" : [
-      "en:filling",
-      "en:pizza-dough",
-      "en:dough",
-      "en:chopped-tomatoes",
-      "en:vegetable",
-      "en:fruit-vegetable",
-      "en:tomato",
-      "en:cheese",
-      "en:dairy",
-      "en:basil-leaf",
-      "en:herb",
-      "en:basil",
-      "en:wheat-flour",
-      "en:cereal",
-      "en:flour",
-      "en:wheat",
-      "en:cereal-flour",
-      "en:water",
-      "en:salt"
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 8,
@@ -142,7 +121,7 @@
    "ingredients_original_tags" : [
       "en:filling",
       "en:pizza-dough",
-      "en:chopped-tomatoes",
+      "en:chopped-tomato",
       "en:cheese",
       "en:basil-leaf",
       "en:wheat-flour",
@@ -154,7 +133,7 @@
       "en:filling",
       "en:pizza-dough",
       "en:dough",
-      "en:chopped-tomatoes",
+      "en:chopped-tomato",
       "en:vegetable",
       "en:fruit-vegetable",
       "en:tomato",
@@ -188,17 +167,12 @@
       "en:salt"
    ],
    "ingredients_without_ecobalyse_ids_n" : 5,
-   "known_ingredients_n" : 19,
+   "known_ingredients_n" : 8,
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 58.3333333333333,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 58.3333333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 58.3333333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 58.3333333333333
-   },
    "recipe" : {
       "en:cheese" : 11.6666666666667,
       "en:flour" : 20,

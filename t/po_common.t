@@ -6,14 +6,14 @@ use Test::More;
 
 # Function to count the number of strings in a .po or .pot file
 sub count_strings {
-    my ($file) = @_;
-    open my $fh, '<', $file or die "Could not open '$file' $!";
-    my $count = 0;
-    while (my $line = <$fh>) {
-        $count++ if $line =~ /^msgid\s+"/;
-    }
-    close $fh;
-    return $count;
+	my ($file) = @_;
+	open my $fh, '<', $file or die "Could not open '$file' $!";
+	my $count = 0;
+	while (my $line = <$fh>) {
+		$count++ if $line =~ /^msgid\s+"/;
+	}
+	close $fh;
+	return $count;
 }
 
 # File paths

@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "from_palm_oil" : "maybe",
@@ -9,8 +10,8 @@
          "percent_max" : 100,
          "percent_min" : 100,
          "text" : "e471",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -22,9 +23,6 @@
       "en:may-contain-palm-oil",
       "en:vegan",
       "en:vegetarian"
-   ],
-   "ingredients_hierarchy" : [
-      "en:e471"
    ],
    "ingredients_lc" : "nl",
    "ingredients_n" : 1,
@@ -54,11 +52,8 @@
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 1,
    "lc" : "nl",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

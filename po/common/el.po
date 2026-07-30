@@ -27,10 +27,14 @@ msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
 msgstr "Μια συλλογική, ελεύθερη και ανοιχτή βάση δεδομένων των προϊόντων τροφίμων από όλο τον κόσμο."
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
+
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Συστατικά, αλλεργιογόνα, πρόσθετα, διατροφικά στοιχεία, ετικέτες, προέλευση, επιπτώσεις στο CO2 και πληροφορίες για το προϊόν %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -44,33 +48,11 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων καλλυντικών προϊόντων από όλο τον κόσμο."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων συστατικών και πληροφοριών για διάφορα προϊόντα από όλο τον κόσμο."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Συστατικά INCI, αλλεργιογόνα, πρόσθετα, ετικέτες, προέλευση συστατικών και πληροφορίες για το προϊόν %s"
 
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Το Open Products Facts συγκεντρώνει πληροφορίες και δεδομένα για ένα ευρύ φάσμα προϊόντων από όλο τον κόσμο."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων με διάφορα προϊόντα από όλο τον κόσμο."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων συστατικών, διατροφικών στοιχείων και πληροφοριών για προϊόντα τροφών για κατοικίδια από όλο τον κόσμο."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Το Open Pet Food Facts συγκεντρώνει πληροφορίες και δεδομένα για προϊόντα τροφών για κατοικίδια από όλο τον κόσμο."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων προϊόντων τροφών για κατοικίδια από όλο τον κόσμο."
-
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
 msgstr "/open-beauty-facts-mobile-app"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Αναζήτηση προϊόντων Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Αυτή η σελίδα προϊόντος δεν έχει ολοκληρωθεί. Μπορείτε να βοηθήσετε με την επεξεργασία και την προσθήκη περισσότερων δεδομένων από τις φωτογραφίες που έχουμε ή βγάζοντας περισσότερες φωτογραφίες χρησιμοποιώντας την εφαρμογή για <a href=\"https://android.openfoodfacts.org\">Android</a> ή <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Σας ευχαριστούμε!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Αυτή η σελίδα προϊόντος δεν είναι ολοκληρωμένη. Μπορείτε να βοηθήσετε στην ολοκλήρωσή της επεξεργάζοντάς την και προσθέτοντας περισσότερα δεδομένα από τις φωτογραφίες που διαθέτουμε ή τραβώντας περισσότερες φωτογραφίες χρησιμοποιώντας την καθολική εφαρμογή για κινητά για <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ή <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Ευχαριστούμε!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "Αποσμυτικό Stress Protect"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "ΥΔΩΡ/ΝΕΡΟ, ΛΑΟΥΡΕΘΙΚΟ ΝΑΤΡΙΟ, ΚΟΚΟΑΜΦΟΔΙΟΞΙΚΟ ΔΙΝΑΤΡΙΟ, ΔΙΣΤΕΑΤΙΚΗ ΓΛΥΚΟΛΗ, ΚΟΚΑΜΙΔΗ MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων με πληροφορίες για διάφορα προϊόντα από όλο τον κόσμο."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Το Open Products Facts συγκεντρώνει πληροφορίες και δεδομένα για ένα ευρύ φάσμα προϊόντων από όλο τον κόσμο."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων με διάφορα προϊόντα από όλο τον κόσμο."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Συστατικά, επιπτώσεις CO2, ανθεκτικότητα, ετικέτες, προέλευση συστατικών και πληροφορίες για το προϊόν %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Αναζήτηση προϊόντων Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Αυτή η σελίδα προϊόντος δεν είναι ολοκληρωμένη. Μπορείτε να βοηθήσετε στην ολοκλήρωσή της επεξεργάζοντάς την και προσθέτοντας περισσότερα δεδομένα από τις φωτογραφίες που έχουμε ή τραβώντας περισσότερες φωτογραφίες χρησιμοποιώντας την καθολική εφαρμογή Open Food Facts για <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ή <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Ευχαριστούμε!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr "Tide, Persil"
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Υγρό απορρυπαντικό πλυντηρίου, Απορρυπαντικό πλυντηρίου σε σκόνη"
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr "Απορρυπαντικό πλυντηρίου"
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Εξαιρετικά καθαρό άρωμα λεβάντας"
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Μην προσθέτετε συστατικά εάν αυτό δεν είναι σχετικό με την κατηγορία. Τα απορρυπαντικά έχουν λίστες στη συσκευασία ή στο διαδίκτυο, όπως και ορισμένες άλλες κατηγορίες"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων συστατικών, διατροφικών στοιχείων και πληροφοριών για προϊόντα τροφών για κατοικίδια από όλο τον κόσμο."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Το Open Pet Food Facts συγκεντρώνει πληροφορίες και δεδομένα για προϊόντα τροφών για κατοικίδια από όλο τον κόσμο."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Μια συνεργατική, δωρεάν και ανοιχτή βάση δεδομένων προϊόντων τροφών για κατοικίδια από όλο τον κόσμο."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Συστατικά, αλλεργιογόνα, πρόσθετα, διατροφικά στοιχεία, ετικέτες, προέλευση των συστατικών και πληροφορίες για το προϊόν %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Open Pet Food Facts αναζήτηση προϊόντων"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Αυτή η σελίδα προϊόντος δεν είναι ολοκληρωμένη. Μπορείτε να βοηθήσετε στην ολοκλήρωσή της επεξεργάζοντάς την και προσθέτοντας περισσότερα δεδομένα από τις φωτογραφίες που έχουμε ή τραβώντας περισσότερες φωτογραφίες χρησιμοποιώντας την καθολική εφαρμογή Open Food Facts για <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> ή <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Ευχαριστούμε!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Ξηρά τροφή για σκύλους, Υγρή τροφή για γάτες"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "ΕΜΒ 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "ΚΟΤΟΠΟΥΛΟ, ΑΛΕΥΡΙ ΓΛΟΥΤΕΝΗΣ ΑΠΟ ΚΑΛΑΜΠΟΚΙ, ΚΑΛΑΜΠΟΚΙ ΟΛΙΚΗΣ ΑΛΕΣΗΣ, ΖΩΙΚΟ ΛΙΠΟΣ, ΑΛΕΥΡΙ ΣΟΓΙΑΣ"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Υγρή τροφή για ενήλικα σκυλιά"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Απόλαυση για ηλικιωμένους σκύλους με κοτόπουλο και ρύζι"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -169,7 +259,7 @@ msgstr "Τώρα μπορείτε εύκολα να εισαγάγετε τα δ
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr "Τώρα μπορείτε να προσθέσετε και να επεξεργαστείτε τα προϊόντα σας και να εισαγάγετε τα δεδομένα και τις φωτογραφίες τους στην δωρεάν πλατφόρμα <a href=\"%s\">για τους παραγωγούς</a>."
+msgstr "Τώρα μπορείτε να προσθέσετε και να επεξεργαστείτε τα προϊόντα σας και να εισαγάγετε τα δεδομένα και τις φωτογραφίες τους στη δωρεάν πλατφόρμα <a href=\"%s\">για παραγωγούς</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
@@ -179,17 +269,21 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Το αίτημά σας για συμμετοχή στον οργανισμό εκκρεμεί έγκριση από τον διαχειριστή του οργανισμού."
 
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
+
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
 msgstr "Η Κατάσταση Διαχειριστή Ενημερώθηκε"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr "Κατάσταση διαχειριστή"
+msgstr "Κατάσταση Διαχειριστή"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr "Χορήγηση/Αφαίρεση κατάστασης διαχειριστή"
+msgstr "Χορήγηση/Αφαίρεση κατάστασης Διαχειριστή"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -234,7 +328,7 @@ msgstr "Αυτός ο λογαριασμός είναι ένας επαγγελ�
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr "Ευχαριστούμε που επισκεφθήκατε το <<site_name>>"
+msgstr "Ευχαριστούμε που γίνατε μέλος στο <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
@@ -264,9 +358,10 @@ msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
 msgstr "Προηγμένη αναζήτηση και γραφήματα"
 
+# duplicate
 msgctxt "alcohol_warning"
-msgid "Excess drinking is harmful for health."
-msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία."
+msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
+msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία, πρέπει να καταναλώνεται με μέτρο."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
@@ -301,17 +396,17 @@ msgid "for 1 kg"
 msgstr "για 1 kg"
 
 msgctxt "android_apk_app_icon_url"
-msgid "/images/misc/android-apk.svg"
-msgstr "/images/misc/android-apk.svg"
+msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
+msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
 msgstr "Android APK"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
+# Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
-msgid "/images/misc/playstore/img/en_get.svg"
-msgstr ""
+msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Greek.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -358,10 +453,6 @@ msgstr "Μπορείτε επίσης να βοηθήσετε στη χρημα�
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
 msgstr "Εγχειρίδιο Διαχειριστή Παραγωγών"
-
-msgctxt "bottom_content"
-msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "Το <a href=\"https://gr.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> γίνεται από μια μη κερδοσκοπική ένωση, ανεξάρτητη από τον κλάδο. Είναι φτιαγμένο για όλους, από όλους, και χρηματοδοτείται από όλους. Μπορείτε να υποστηρίξετε το έργο μας <a href=\"https://gr.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">κάνοντας δωρεές στο Open Food Facts</a> και επίσης <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">χρησιμοποιώντας τη μηχανή αναζήτησης Lilo</a>.<br/><b>Ευχαριστούμε!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -413,7 +504,7 @@ msgstr "Κατηγορίες"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
-msgstr "Σαρδέλες σε ελαιόλαδο, Χυμός πορτοκάλι από συμπυκνωμένο"
+msgstr "Σαρδέλες σε ελαιόλαδο, χυμός πορτοκαλιού από συμπύκνωμα"
 
 msgctxt "categories_note"
 msgid "Indicate only the most specific category. \"Parents\" categories will be automatically added."
@@ -567,17 +658,13 @@ msgctxt "delete_product"
 msgid "Delete a product"
 msgstr "Διαγράψτε το προϊόν"
 
-msgctxt "delete_product_page"
-msgid "Delete the page"
-msgstr "Διαγραφή της σελίδας"
-
 msgctxt "delete_the_images"
 msgid "Delete the images"
 msgstr "Διαγραφή των εικόνων"
 
 msgctxt "delete_user"
-msgid "Delete a user"
-msgstr "Διαγράψετε ένα χρήστη"
+msgid "Delete the user"
+msgstr "Διαγράψτε τον χρήστη"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -605,7 +692,7 @@ msgstr "Δωρεά στο Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://gr.openfoodfacts.org/donate-to-open-food-facts"
+msgstr "https://world-el.openfoodfacts.org/dorea-se-openfoodfacts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -630,6 +717,10 @@ msgstr "Τροποποιήστε ένα προϊόν"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Επεξεργαστείτε τη σελίδα"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Συνδεθείτε για να προσθέσετε ή να επεξεργαστείτε ιδιότητες"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -662,6 +753,14 @@ msgstr "Παράμετροι λογαριασμού"
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
 msgstr "Οι παράμετροι του λογαριασμού σας έχουν αλλάξει."
+
+msgctxt "edit_user_preferences"
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+msgctxt "edit_user_preferences_result"
+msgid "Your preferences have been changed."
+msgstr "Οι προτιμήσεις σας έχουν αλλάξει."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -730,7 +829,7 @@ msgstr "Σφάλμα"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr "Λάθος όνομα χρήστη ή κωδικός πρόσβασης. <a href=\"/cgi/reset_password.pl\">Ξεχάσατε το κωδικό χρήστη;</a>"
+msgstr "Λάθος όνομα χρήστη ή κωδικός πρόσβασης. <a href=\"/cgi/reset_password.pl\">Ξεχάσατε τον κωδικό;</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
@@ -762,7 +861,7 @@ msgstr "Μη έγκυρος χρήστης."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr "Το όνομα χρήστη πρέπει να περιέχει μόνο μη τονισμένες λέξεις, ψηφία και παύλες"
+msgstr "Το όνομα χρήστη πρέπει να περιέχει μόνο μη τονισμένες λέξεις, ψηφία και παύλες."
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
@@ -794,7 +893,7 @@ msgstr "Έχετε ήδη συνδεθεί."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr "Ο σύνδεσμος ανάκτησης κωδικού χρήστη δεν είναι έγκυρος ή έχει λήξει."
+msgstr "Ο σύνδεσμος ανάκτησης κωδικού πρόσβασης δεν είναι έγκυρος ή έχει λήξει."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
@@ -878,7 +977,7 @@ msgstr "Συχνές ερωτήσεις"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
 msgid "https://support.openfoodfacts.org/help/en-gb"
-msgstr "https://support.openfoodfacts.org/help/el"
+msgstr "https://support.openfoodfacts.org/help/en-gb"
 
 msgctxt "footer_translators"
 msgid "Translators"
@@ -986,7 +1085,7 @@ msgstr "Προϊόν"
 
 msgctxt "generic_name"
 msgid "Common name"
-msgstr "Κοινό/Γενικό όνομα"
+msgstr "Κοινή ονομασία"
 
 msgctxt "generic_name_example"
 msgid "Chocolate bar with milk and hazelnuts"
@@ -1022,7 +1121,7 @@ msgstr "υψηλή ποσότητα"
 
 msgctxt "history"
 msgid "Changes history"
-msgstr "Ιστορικό τροποποιήσεων"
+msgstr "Ιστορικό αλλαγών"
 
 msgctxt "image_front"
 msgid "Front picture"
@@ -1136,19 +1235,19 @@ msgstr "Σημείωση: Τα συστατικά μπορούν να παρατ
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_p"
 msgid "ingredients from or that may be from palm oil"
-msgstr "συστατικά προερχόμενα από/πιθανώς από φοινικέλαιο"
+msgstr "συστατικά από ή που μπορεί να είναι από φοινικέλαιο"
 
 msgctxt "ingredients_from_or_that_may_be_from_palm_oil_s"
 msgid "ingredient from or that may be from palm oil"
-msgstr "συστατικό προερχόμενο από/πιθανώς από φοινικέλαιο"
+msgstr "συστατικό προερχόμενο ή πιθανώς προερχόμενο από φοινικέλαιο"
 
 msgctxt "ingredients_from_palm_oil_p"
 msgid "ingredients from palm oil"
-msgstr "συστατικά προερχόμενα από φοινικέλαιο"
+msgstr "συστατικά από φοινικέλαιο"
 
 msgctxt "ingredients_from_palm_oil_s"
 msgid "ingredient from palm oil"
-msgstr "συστατικό προερχόμενο από φοινικέλαιο"
+msgstr "συστατικό από φοινικέλαιο"
 
 msgctxt "ingredients_n_p"
 msgid "Numbers of ingredients"
@@ -1192,11 +1291,11 @@ msgstr "Δημητριακά 85.5% (_σταρένιο_ αλεύρι, _σταρέ
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Παρακαλούμε τηρήστε τη σωστή σειρά, υποδείξτε το ποσοστό % όταν αναφέρεται, διαχωρίστε με κόμμα ή με χρήση παύλας - , χρησιμοποιείστε ( ) για τα επιμέρους συστατικά ενός κύριου συστατικού, περιβάλλετε τα αλλεργιογόνα με _ π.χ. _γάλα_"
+msgstr "Διατηρήστε τη σειρά, υποδείξτε το % όταν καθορίζεται, διαχωρίστε με κόμμα ή -, χρησιμοποιήστε () για συστατικά ενός συστατικού, περιβάλλετε τα αλλεργιογόνα με _ πχ _γάλα_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
-msgstr "συστατικά πιθανώς προερχόμενα από φοινικέλαιο"
+msgstr "συστατικά πιθανώς από φοινικέλαιο"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_s"
 msgid "ingredient that may be from palm oil"
@@ -1229,7 +1328,7 @@ msgstr "Ετικέτες, πιστοποιητικά, βραβεία"
 
 msgctxt "labels_example"
 msgid "Organic"
-msgstr "Βιολογικό/Οργανικό"
+msgstr "Βιολογικό"
 
 msgctxt "labels_note"
 msgid "Indicate only the most specific labels. \"Parents\" labels will be added automatically."
@@ -1350,7 +1449,7 @@ msgstr "χαμηλός"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr "μικρή ποσότητα"
+msgstr "χαμηλή ποσότητα"
 
 msgctxt "manage_images"
 msgid "Manage images"
@@ -1718,7 +1817,7 @@ msgstr "προέλευση συστατικών"
 
 msgctxt "origins_tagsinput"
 msgid "add an origin"
-msgstr "προσθέστε την καταγωγή"
+msgstr "προσθέστε μια προέλευση"
 
 msgctxt "origins_without_products"
 msgid "Products without ingredients originating from %s"
@@ -1958,7 +2057,7 @@ msgstr "Η εικόνα αποθηκεύεται"
 
 msgctxt "product_js_image_upload_error"
 msgid "Error while uploading image"
-msgstr "Σφάλμα κατά την αποστολή της εικόνας"
+msgstr "Σφάλμα κατά τη μεταφόρτωση εικόνας"
 
 msgctxt "product_js_image_white_magic"
 msgid "Photo on white background: try to remove the background"
@@ -2174,9 +2273,13 @@ msgstr "περιέχει"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr "Επιλέξτε προϊόντα με συγκεκριμένες μάρκες, κατηγορίες, ετικέτες, την προέλευση των συστατικών, χώρους παραγωγής κ.λπ."
+msgstr "Επιλέξτε προϊόντα με συγκεκριμένες μάρκες, κατηγορίες, ετικέτες, προέλευση των συστατικών, χώρους παραγωγής κλπ."
 
 msgctxt "search_description_opensearch"
+msgid "Product search"
+msgstr "Αναζήτηση προϊόντος"
+
+msgctxt "search_description_opensearch_off"
 msgid "Product search"
 msgstr "Αναζήτηση προϊόντος"
 
@@ -2312,7 +2415,7 @@ msgstr "ή"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr "Αριθμός αποτελεσμάτων ανά σελίδα"
+msgstr "Αποτελέσματα ανά σελίδα"
 
 msgctxt "search_products"
 msgid "Products search"
@@ -2344,7 +2447,7 @@ msgstr "Χρήση χρωμάτων διατροφικών βαθμών"
 
 msgctxt "search_series_organic"
 msgid "Organic"
-msgstr "Βιολογικό/Οργανικό"
+msgstr "Βιολογικό"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
@@ -2480,11 +2583,11 @@ msgstr "Πληρότητα"
 
 msgctxt "sort_created_t"
 msgid "Add date"
-msgstr "Ημερομηνία προσθήκης"
+msgstr "Ημ/νία προσθήκης"
 
 msgctxt "sort_modified_t"
 msgid "Edit date"
-msgstr "Ημερομηνία τροποποίησης"
+msgstr "Ημ/νία τροποποίησης"
 
 msgctxt "sort_popularity"
 msgid "Popularity"
@@ -2496,15 +2599,15 @@ msgstr "Όνομα προϊόντος"
 
 msgctxt "state"
 msgid "State"
-msgstr "Κατάσταση"
+msgstr "Πολιτεία"
 
 msgctxt "states_p"
 msgid "states"
-msgstr "καταστασεις"
+msgstr "πολιτείες"
 
 msgctxt "states_s"
 msgid "state"
-msgstr "κατασταση"
+msgstr "πολιτεία"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2512,7 +2615,7 @@ msgstr "Καταστήματα"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
-msgstr "Επωνυμία καταστήματος ή αλυσίδας supermarket"
+msgstr "Όνομα καταστήματος ή αλυσίδας σούπερ μάρκετ"
 
 msgctxt "stores_p"
 msgid "stores"
@@ -2520,7 +2623,7 @@ msgstr "καταστηματα"
 
 msgctxt "stores_products"
 msgid "Products sold at %s"
-msgstr "Προϊόντα πωλούμενα ανά κατάστημα: %s"
+msgstr "Προϊόντα που πωλούνται σε %s"
 
 msgctxt "stores_s"
 msgid "store"
@@ -2757,6 +2860,7 @@ msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
 msgstr "Διατροφικός βαθμός NutriScore"
 
+# duplicate
 msgctxt "delete_product_page"
 msgid "Delete the product page"
 msgstr "Διαγράψτε τη σελίδα του προϊόντος"
@@ -2773,10 +2877,6 @@ msgctxt "delete_product_confirm"
 msgid "Are you sure that you want to delete the page for this product?"
 msgstr "Σίγουρα θέλετε να διαγράψετε τη σελίδα για αυτό το προϊόν;"
 
-msgctxt "delete_user"
-msgid "Delete the user"
-msgstr "Διαγράψτε τον χρήστη"
-
 msgctxt "sources_manufacturer"
 msgid "Some of the data for this product has been provided directly by the manufacturer %s."
 msgstr "Ορισμένα από τα δεδομένα για αυτό το προϊόν παρέχονται απευθείας από τον κατασκευαστή %s."
@@ -2786,8 +2886,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Ορισμένα από τα δεδομένα ή/και φωτογραφίες για αυτό το προϊόν προέρχονται από αυτές τις πηγές:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Αυτή η σελίδα προϊόντος δεν έχει ολοκληρωθεί. Μπορείτε να βοηθήσετε με την επεξεργασία και την προσθήκη περισσότερων δεδομένων από τις φωτογραφίες που έχουμε, ή λαμβάνοντας περισσότερες φωτογραφίες χρησιμοποιώντας την εφαρμογή για <a href=\"https://android.openfoodfacts.org\">Android</a> ή <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Σας ευχαριστούμε!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Αυτή η σελίδα προϊόντος δεν είναι ολοκληρωμένη. Μπορείτε να βοηθήσετε στην ολοκλήρωσή της επεξεργάζοντάς την και προσθέτοντας περισσότερα δεδομένα από τις φωτογραφίες που έχουμε ή τραβώντας περισσότερες φωτογραφίες χρησιμοποιώντας την εφαρμογή για κινητά για <a href=\"https://android.openfoodfacts.org\">Android</a> ή <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Ευχαριστούμε!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2869,25 +2969,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "άλλη θρεπτική ουσία που προστέθηκε"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Όπως πωλείται"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Προετοιμασμένο"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Μονάδα"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Τα διατροφικά στοιχεία καθορίζονται για το προϊόν όπως πωλείται."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Τα διατροφικά στοιχεία καθορίζονται για το προετοιμασμένο προϊόν."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -3385,7 +3469,7 @@ msgstr "Ανάλυση συστατικών"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr "Η ανάλυση βασίζεται αποκλειστικά στα συστατικά που αναφέρονται και δεν λαμβάνει υπόψη τις μεθόδους επεξεργασίας."
+msgstr "Η ανάλυση βασίζεται αποκλειστικά στα συστατικά που αναφέρονται και δε λαμβάνει υπόψη τις μεθόδους επεξεργασίας."
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
@@ -3397,7 +3481,7 @@ msgstr "Αριθμός αναθεώρησης: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr "Επεξεργασία από: "
+msgstr "Επεξεργάστηκε από: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
@@ -3405,7 +3489,7 @@ msgstr "Προηγούμενη έκδοση"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr "Επόμενη Έκδοση"
+msgstr "Επόμενη έκδοση"
 
 msgctxt "rev_latest"
 msgid "Latest version"
@@ -3723,6 +3807,10 @@ msgstr "σφάλμα ποιότητας δεδομένων"
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
 msgstr "σφάλματα ποιότητας δεδομένων"
+
+msgctxt "data_quality_completeness"
+msgid "data quality completeness"
+msgstr "πληρότητα ποιότητας δεδομένων"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
@@ -4094,7 +4182,7 @@ msgstr "Ευχαριστούμε!"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
-msgstr ""
+msgstr "Σας ευχαριστώ πολύ!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4197,10 +4285,6 @@ msgstr "Χρειαζόμαστε την υποστήριξή σας!"
 msgctxt "donation_banner_cta_button"
 msgid "Please Donate"
 msgstr "Παρακαλούμε Δωρίστε"
-
-msgctxt "alcohol_warning"
-msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr "Η υπερβολική κατανάλωση αλκοόλ είναι επιβλαβής για την υγεία, πρέπει να καταναλώνεται με μέτρο."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
@@ -4385,7 +4469,7 @@ msgstr "Αυτές οι ρυθμίσεις σας επιτρέπουν να εξ
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
-msgstr "Εμφάνιση barcode στα αποτελέσματα αναζήτησης"
+msgstr "Εμφάνιση γραμμωτού κώδικα στα αποτελέσματα αναζήτησης"
 
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
@@ -4610,7 +4694,7 @@ msgstr "Όταν αγοράζετε προϊόντα δικαίου εμπορί
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "Διατροφική ποιότητα"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4638,16 +4722,16 @@ msgid "Missing data to compute the Nutri-Score"
 msgstr "Λείπουν δεδομένα για τον υπολογισμό του Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
-msgid "Nutri-Score not-applicable"
-msgstr "Nutri-Score μη εφαρμόσιμο"
+msgid "Nutri-Score not applicable"
+msgstr "Δεν ισχύει το Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Δεν ισχύει για την κατηγορία"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
-msgid "Not-applicable for the category: {category}"
+msgid "Not applicable for the category: {category}"
 msgstr "Δεν ισχύει για την κατηγορία: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
@@ -4691,6 +4775,10 @@ msgstr "Άγνωστο επίπεδο επεξεργασίας τροφίμων"
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
 msgstr "Καθόλου ή μικρή επεξεργασία τροφίμων (ομάδα NOVA)"
+
+msgctxt "attribute_nova_setting_note"
+msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
+msgstr "Για να προσδιορίσουμε το επίπεδο επεξεργασίας ενός προϊόντος, βασιζόμαστε στη λίστα συστατικών (δείκτες, μέθοδοι επεξεργασίας) και κατηγορίες."
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4868,8 +4956,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Χαμηλός περιβαλλοντικός αντίκτυπος (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Το Green-Score είναι μια περιβαλλοντική βαθμολογία από το Α έως το Ε που καθιστά εύκολη τη σύγκριση των επιπτώσεων των προϊόντων διατροφής στο περιβάλλον."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Το Green-Score είναι μια περιβαλλοντική βαθμολογία από A+ έως F, η οποία διευκολύνει τη σύγκριση των επιπτώσεων των τροφίμων στο περιβάλλον."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4881,8 +4969,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Χαμηλός περιβαλλοντικός αντίκτυπος (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Το Green-Score είναι μια περιβαλλοντική βαθμολογία από το Α έως το Ε που καθιστά εύκολη τη σύγκριση των επιπτώσεων των προϊόντων διατροφής στο περιβάλλον."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Το Green-Score είναι μια περιβαλλοντική βαθμολογία από A+ έως F, η οποία διευκολύνει τη σύγκριση των επιπτώσεων των τροφίμων στο περιβάλλον."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5041,6 +5129,10 @@ msgctxt "number_of_members"
 msgid "Number of Members"
 msgstr "Αριθμός Μελών"
 
+msgctxt "serial_no"
+msgid "S.No"
+msgstr "Σ.Α"
+
 msgctxt "contact_form"
 msgid "Contact form"
 msgstr "Φόρμα επικοινωνίας"
@@ -5114,6 +5206,10 @@ msgstr "Λείπει λίστα συστατικών"
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
 msgstr "Λείπουν διατροφικά στοιχεία"
+
+msgctxt "missing_nutrition_facts_prepared"
+msgid "Missing nutrition facts for prepared product"
+msgstr "Λείπουν διατροφικά στοιχεία για το παρασκευασμένο προϊόν"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
@@ -5414,8 +5510,8 @@ msgstr "Όραμα, Αποστολή, Αξίες και Προγράμματα"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://gr.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5457,6 +5553,10 @@ msgstr "Το Green-Score δεν υπολογίστηκε"
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
 msgstr "Χαμηλός περιβαλλοντικός αντίκτυπος"
+
+msgctxt "attribute_environmental_score_unknown_description_short_missing_precise_category"
+msgid "Missing a precise category"
+msgstr "Λείπει μια ακριβής κατηγορία"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
@@ -5734,10 +5834,6 @@ msgctxt "environmental_score_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
 msgstr "Οι πληροφορίες για τα συστατικά αυτού του προϊόντος δεν έχουν δοθεί."
 
-msgctxt "environmental_score_edit_for_more_precise_environmental_score"
-msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Για πιο ακριβή υπολογισμό του Green-Score, μπορείτε να επεξεργαστείτε τη σελίδα του προϊόντος και να τα προσθέσετε."
-
 msgctxt "environmental_score_packaging_ratio"
 msgid "ratio"
 msgstr "αναλογία"
@@ -5758,9 +5854,15 @@ msgctxt "environmental_score_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
 msgstr "Οι πληροφορίες σχετικά με τη συσκευασία αυτού του προϊόντος δεν είναι επαρκώς ακριβείς (ακριβή σχήματα και υλικά όλων των εξαρτημάτων της συσκευασίας)."
 
+# duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
 msgstr "Για έναν πιο ακριβή υπολογισμό του Green-Score, μπορείτε να τροποποιήσετε τη σελίδα του προϊόντος και να τα προσθέσετε."
+
+# duplicate
+msgctxt "environmental_score_edit_for_more_precise_environmental_score"
+msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
+msgstr "Για πιο ακριβή υπολογισμό του Green-Score, μπορείτε να επεξεργαστείτε τη σελίδα του προϊόντος και να τα προσθέσετε."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5791,8 +5893,8 @@ msgstr "Η φόρμουλα του Green-Score υπόκειται σε αλλα�
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Το Green-Score αναπτύχθηκε αρχικά για τη Γαλλία και επεκτείνεται σε άλλες ευρωπαϊκές χώρες. Η φόρμουλα Green-Score υπόκειται σε αλλαγές, καθώς βελτιώνεται τακτικά για να γίνει πιο ακριβής και πιο κατάλληλη για κάθε χώρα."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Το Green-Score αναπτύχθηκε αρχικά για τη Γαλλία και επεκτείνεται σε άλλες ευρωπαϊκές χώρες. Ο τύπος του Green-Score υπόκειται σε αλλαγές, καθώς βελτιώνεται τακτικά, ώστε να είναι πιο ακριβής και να ταιριάζει καλύτερα σε κάθε χώρα."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5908,6 +6010,11 @@ msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
 msgstr "Παρακαλούμε δώστε στον Έρανό μας για το 2024"
 
+# Don't translate {year}, it will be replaced by the 4 digits year
+msgctxt "f_donation_title_year"
+msgid "Please give to our {year} Fundraiser"
+msgstr "Παρακαλούμε δώστε στον Έρανο μας για το {year}"
+
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
 msgstr "Οι δωρεές σας χρηματοδοτούν τις καθημερινές λειτουργίες του μη κερδοσκοπικού σωματείου μας:"
@@ -5940,6 +6047,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "ΣΤΗΡΙΖΩ"
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "για να παραμείνουμε ανεξάρτητοι από τη βιομηχανία τροφίμων,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Κάντε Δωρεά"
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr "Κάντε Δωρεά"
@@ -5959,6 +6106,22 @@ msgstr "Ετικέτες με υψηλά περιβαλλοντικά οφέλη
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "Ετικέτες με πολύ υψηλά περιβαλλοντικά οφέλη"
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "Καμία αξιολογημένη ετικέτα"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "Μερικά περιβαλλοντικά οφέλη"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "Υψηλά περιβαλλοντικά οφέλη"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "Πολύ υψηλά περιβαλλοντικά οφέλη"
 
 msgctxt "other"
 msgid "Other"
@@ -6096,6 +6259,10 @@ msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
 msgstr "Λείπουν διατροφικά στοιχεία:"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_details"
+msgid "Missing nutrition facts for prepared product:"
+msgstr "Λείπουν διατροφικά στοιχεία για το παρασκευασμένο προϊόν:"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
 msgstr "Η κατηγορία και τα διατροφικά στοιχεία του προϊόντος πρέπει να προσδιορίζονται για τον υπολογισμό του Nutri-Score."
@@ -6111,6 +6278,14 @@ msgstr "Συνεισφορά"
 msgctxt "contribution_navigation"
 msgid "Contribution"
 msgstr "Συνεισφορά"
+
+msgctxt "data_quality_completeness_panel_title"
+msgid "Data Quality Completeness"
+msgstr "Πληρότητα Ποιότητας Δεδομένων"
+
+msgctxt "data_quality_completeness_panel_subtitle"
+msgid "Some infos about data quality completeness on this product"
+msgstr "Ορισμένες πληροφορίες σχετικά με την πληρότητα της ποιότητας των δεδομένων σε αυτό το προϊόν"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
@@ -6184,6 +6359,10 @@ msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
 msgstr "Λείπουν διατροφικά στοιχεία"
 
+msgctxt "nutriscore_missing_prepared_nutrition_data_short"
+msgid "Missing prepared nutrition facts"
+msgstr "Λείπουν προετοιμασμένα διατροφικά στοιχεία"
+
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
 msgstr "Λείπουν κατηγορία και διατροφικά στοιχεία"
@@ -6232,7 +6411,7 @@ msgstr "Συστατικά που μπορεί να μην είναι vegan"
 
 msgctxt "attribute_vegan_setting_note"
 msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
-msgstr "Για να προσδιορίσουμε εάν ένα προϊόν είναι κατάλληλο για χορτοφαγία (vegan), βασιζόμαστε μόνο στη λίστα των συστατικών."
+msgstr "Για να προσδιορίσουμε εάν ένα προϊόν είναι κατάλληλο για αυστηρή χορτοφαγία, βασιζόμαστε μόνο στη λίστα των συστατικών."
 
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
@@ -6248,7 +6427,7 @@ msgstr "Συστατικά που μπορεί να μην είναι χορτο
 
 msgctxt "attribute_vegetarian_setting_note"
 msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
-msgstr "Για να προσδιορίσουμε εάν ένα προϊόν είναι κατάλληλο για χορτοφαγία (vegeterian), βασιζόμαστε μόνο στη λίστα των συστατικών."
+msgstr "Για να προσδιορίσουμε εάν ένα προϊόν είναι κατάλληλο για χορτοφαγία, βασιζόμαστε μόνο στη λίστα των συστατικών."
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
@@ -6263,6 +6442,10 @@ msgid "No ingredients containing palm oil detected"
 msgstr "Δεν ανιχνεύθηκαν συστατικά που περιέχουν φοινικέλαιο"
 
 msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr "Για να προσδιορίσουμε εάν ένα προϊόν περιέχει φοινικέλαιο, βασιζόμαστε μόνο στη λίστα των συστατικών."
+
+msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr "Για να προσδιορίσουμε εάν ένα προϊόν περιέχει φοινικέλαιο, βασιζόμαστε μόνο στη λίστα των συστατικών."
 
@@ -6364,6 +6547,10 @@ msgstr "Θα μπορούσατε να προσθέσετε τις πληροφ�
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
 msgstr "Θα μπορούσατε να προσθέσετε μια ακριβή κατηγορία προϊόντων έτσι ώστε να μπορούμε να υπολογίσουμε το Green-Score;"
+
+msgctxt "actions_to_compute_environmental_score_unprecise_category"
+msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
+msgstr "Η κατηγορία που έχουμε για αυτό το προϊόν δεν είναι αρκετά ακριβής για να υπολογίσει το Green-Score. Θα μπορούσατε να προσθέσετε μια πιο ακριβή κατηγορία προϊόντος;"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -6570,7 +6757,7 @@ msgstr "Σαρώστε τα <span id=\"everyday\">καθημερινά</span> <s
 
 msgctxt "nutrition"
 msgid "Nutrition"
-msgstr "Θρεπτική Αξία"
+msgstr "Διατροφική Αξία"
 
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
@@ -6604,6 +6791,10 @@ msgstr "Βρέθηκε προϊόν με διαφορετικό τύπο προ�
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Το προϊόν ενημερώθηκε"
+
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr ""
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6657,6 +6848,38 @@ msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr "Μη αναγνωρισμένη αξία"
 
+msgctxt "api_message_image_already_uploaded"
+msgid "Image already uploaded"
+msgstr "Η εικόνα έχει ήδη μεταφορτωθεί"
+
+msgctxt "api_message_image_too_small"
+msgid "Image too small"
+msgstr "Πολύ μικρή εικόνα"
+
+msgctxt "api_result_image_uploaded"
+msgid "Image uploaded"
+msgstr "Η εικόνα μεταφορτώθηκε"
+
+msgctxt "api_result_image_not_uploaded"
+msgid "Image not uploaded"
+msgstr "Η εικόνα δεν μεταφορτώθηκε"
+
+msgctxt "api_result_image_selected"
+msgid "Image selected"
+msgstr "Επιλέχθηκε εικόνα"
+
+msgctxt "api_result_image_not_selected"
+msgid "Image not selected"
+msgstr "Η εικόνα δεν έχει επιλεγεί"
+
+msgctxt "api_result_image_deleted"
+msgid "Image deleted"
+msgstr "Η εικόνα διαγράφηκε"
+
+msgctxt "api_result_image_not_deleted"
+msgid "Image not deleted"
+msgstr "Η εικόνα δεν διαγράφηκε"
+
 msgctxt "api_impact_none"
 msgid "None"
 msgstr "Κανένα"
@@ -6704,6 +6927,14 @@ msgstr "Αναφέρονται όλα τα μέρη συσκευασίας το�
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Μη έγκυρο αναγνωριστικό χρήστη και κωδικός πρόσβασης"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7049,8 +7280,8 @@ msgid "Report a problem"
 msgstr "Αναφορά πρόβληματος"
 
 msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Αναφέρετε ένα πρόβλημα."
+msgid "Report a problem"
+msgstr "Αναφορά πρόβληματος"
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7076,11 +7307,6 @@ msgctxt "description"
 msgid "Description"
 msgstr "Περιγραφή"
 
-# duplicate with "report_problem_panel_title"
-msgctxt "report_problem_navigation"
-msgid "Report a problem"
-msgstr "Αναφορά πρόβληματος"
-
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
 msgstr "Εισάγετε το όνομα χρήστη της κύριας επαφής :"
@@ -7100,6 +7326,10 @@ msgstr "Αυτός ο χρήστης δεν είναι μέλος του οργ�
 msgctxt "skip_to_content"
 msgid "Skip to Content"
 msgstr "Μετάβαση στο Περιεχόμενο"
+
+msgctxt "oidc_signin_no_cookie"
+msgid "You need to enable cookies to sign in."
+msgstr "Πρέπει να ενεργοποιήσετε τα cookies για να συνδεθείτε."
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
@@ -7251,7 +7481,7 @@ msgstr "Αυτόματη καθημερινή εξαγωγή σε δημόσια
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
-msgstr ""
+msgstr "Βελτιώσεις"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
@@ -7307,11 +7537,11 @@ msgid "Repairability index unknown"
 msgstr "Άγνωστος δείκτης δυνατότητας επισκευής"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
-msgid "Repairability index not-applicable"
-msgstr "Δεν ισχύει ο δείκτης δυνατότητας επισκευής"
+msgid "Repairability index not applicable"
+msgstr "Δείκτης επισκευασιμότητας δεν ισχύει"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
-msgid "Not-applicable for the category"
+msgid "Not applicable for the category"
 msgstr "Δεν ισχύει για την κατηγορία"
 
 # variable names between { } must not be translated
@@ -7355,17 +7585,17 @@ msgstr "Τύπος προϊόντος"
 # Food product type
 msgctxt "product_type_food"
 msgid "Food"
-msgstr ""
+msgstr "Τροφή"
 
 # Pet food product type
 msgctxt "product_type_petfood"
 msgid "Pet food"
-msgstr ""
+msgstr "Τροφή κατοικιδίων"
 
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "Ομορφιά"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7398,9 +7628,452 @@ msgstr "Σε επαφή με τρόφιμα"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr ""
+msgstr "Επικοινωνία"
 
 msgctxt "delete"
 msgid "Delete"
 msgstr "Διαγραφή"
+
+msgctxt "f_add_product_to_our_database"
+msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
+msgstr "Είναι το {barcode} ο γραμμωτός κώδικας ενός προϊόντος που διαθέτετε; Εάν ναι, προσθέστε τον στη βάση δεδομένων. Χρειάζονται μόνο λίγα λεπτά."
+
+# Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
+msgctxt "f_droid_app_icon_url"
+msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-el.svg"
+
+msgctxt "f_droid_app_icon_alt_text"
+msgid "Available on F-Droid"
+msgstr "Διαθέσιμο στο F-Droid"
+
+msgctxt "update_nutrients_data"
+msgid "Update nutrients data"
+msgstr "Ενημέρωση δεδομένων θρεπτικών συστατικών"
+
+msgctxt "update_nutrition_facts"
+msgid "Extract nutrition facts"
+msgstr "Εξαγωγή διατροφικών στοιχείων"
+
+msgctxt "scan_a_product"
+msgid "Scan a product"
+msgstr "Σαρώστε ένα προϊόν"
+
+msgctxt "or_enter_barcode_manually"
+msgid "Or enter barcode manually"
+msgstr "Ή εισάγετε τον γραμμωτό κώδικα χειροκίνητα"
+
+msgctxt "scan"
+msgid "Scan"
+msgstr "Σάρωση"
+
+msgctxt "reset_preferences_details_beauty"
+msgid "Organic farming and fair trade"
+msgstr "Βιολογική γεωργία και δίκαιο εμπόριο"
+
+msgctxt "reset_preferences_details_food"
+msgid "Nutri-Score, Green-Score and food processing level (NOVA)"
+msgstr "Nutri-Score, Green-Score και επίπεδο επεξεργασίας τροφίμων (NOVA)"
+
+msgctxt "reset_preferences_details_product"
+msgid "Good repairability"
+msgstr "Καλή δυνατότητα επισκευής"
+
+msgctxt "reset_preferences_details_pet_food"
+msgid "Organic farming and fair trade"
+msgstr "Βιολογική γεωργία και δίκαιο εμπόριο"
+
+msgctxt "action_report_image_to_nutripatrol"
+msgid "Report this image to our moderators"
+msgstr "Αναφέρετε αυτήν την εικόνα στους συντονιστές μας"
+
+msgctxt "missing_serving_size_value_and_or_unit"
+msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
+msgstr "Μας λείπει η τιμή μεγέθους μερίδας ή/και η μονάδα για τον υπολογισμό του Nutri-Score"
+
+msgctxt "bottom_content_split"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> δημιουργείται από έναν μη κερδοσκοπικό οργανισμό, ανεξάρτητο από τον κλάδο. Δημιουργείται για όλους, από όλους και χρηματοδοτείται από όλους. Μπορείτε να υποστηρίξετε το έργο μας κάνοντας δωρεά στο Open Food Facts.<br/><b>Ευχαριστούμε!</b>"
+
+msgctxt "bottom_content_split_with_lilo"
+msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts and also by using the Lilo search engine.<br/><b>Thank you!</b>"
+msgstr "<<site_name>> δημιουργείται από έναν μη κερδοσκοπικό οργανισμό, ανεξάρτητο από τον κλάδο. Δημιουργείται για όλους, από όλους και χρηματοδοτείται από όλους. Μπορείτε να υποστηρίξετε το έργο μας κάνοντας δωρεά στο Open Food Facts και χρησιμοποιώντας τη μηχανή αναζήτησης Lilo.<br/><b>Ευχαριστούμε!</b>"
+
+msgctxt "lilo_search_engine"
+msgid "Lilo search engine"
+msgstr "Μηχανή αναζήτησης Lilo"
+
+msgctxt "robots_not_served_here"
+msgid "Due to heavy abuse from robots, we are unable to serve this page to unidentified users. Please create a free Open Food Facts account to access all of Open Food Facts."
+msgstr "Λόγω εκτεταμένης κατάχρησης από ρομπότ, δεν μπορούμε να προβάλουμε αυτήν τη σελίδα σε μη αναγνωρισμένους χρήστες. Δημιουργήστε έναν δωρεάν λογαριασμό Open Food Facts για να αποκτήσετε πρόσβαση σε όλα τα Open Food Facts."
+
+msgctxt "origin_of_ingredients"
+msgid "Origin of ingredients"
+msgstr "Προέλευση των συστατικών"
+
+msgctxt "origin_of_product"
+msgid "Origin of product"
+msgstr "Προέλευση του προϊόντος"
+
+msgctxt "product_information"
+msgid "Product information"
+msgstr "Πληροφορίες προϊόντος"
+
+msgctxt "raw_product_information"
+msgid "Raw product information"
+msgstr "Πληροφορίες για το ακατέργαστο προϊόν"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_title"
+msgid "Contains added sugars"
+msgstr "Περιέχει πρόσθετα σάκχαρα"
+
+msgctxt "knowledge_panels_ingredients_added_sugars_subtitle"
+msgid "Added sugars:"
+msgstr "Προσθήκη σακχάρων:"
+
+msgctxt "estimated_quantity_of_added_sugars"
+msgid "Estimated quantity of added sugars in ingredients"
+msgstr "Εκτιμώμενη ποσότητα προστιθέμενων σακχάρων στα συστατικά"
+
+msgctxt "quantity_of_added_sugars"
+msgid "Quantity of added sugars"
+msgstr "Ποσότητα προστιθέμενων σακχάρων"
+
+msgctxt "search_products_in_same_category_without_added_sugars"
+msgid "Search for products in the same category without added sugars:"
+msgstr "Αναζήτηση προϊόντων στην ίδια κατηγορία χωρίς πρόσθετα σάκχαρα:"
+
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "για 100g"
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "για 100 ml"
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "για 1 L"
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "για 1 kg"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "ανά μερίδα"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Όπως πωλείται"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Προετοιμασμένο"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Τα διατροφικά στοιχεία καθορίζονται για το προϊόν όπως πωλείται:"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Τα διατροφικά στοιχεία καθορίζονται για το προετοιμασμένο προϊόν:"
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Προσθέστε ένα θρεπτικό συστατικό"
+
+msgctxt "attribute_unwanted_ingredients_name"
+msgid "Unwanted ingredients"
+msgstr "Ανεπιθύμητα συστατικά"
+
+msgctxt "attribute_unwanted_ingredients_note"
+msgid "This preference is based on Open Food Facts' understanding of the ingredient list and may not be accurate, always check the product yourself."
+msgstr "Αυτή η προτίμηση βασίζεται στην κατανόηση της λίστας συστατικών από το Open Food Facts και ενδέχεται να μην είναι ακριβής, επομένως ελέγχετε πάντα το προϊόν μόνοι σας."
+
+msgctxt "presence_of_unwanted_ingredients_unknown"
+msgid "Presence of unwanted ingredients unknown"
+msgstr "Άγνωστη η παρουσία ανεπιθύμητων συστατικών"
+
+msgctxt "no_unwanted_ingredients"
+msgid "No unwanted ingredients detected"
+msgstr "Δεν εντοπίστηκαν ανεπιθύμητα συστατικά"
+
+msgctxt "contains_unwanted_ingredients"
+msgid "Contains unwanted ingredients"
+msgstr "Περιέχει ανεπιθύμητα συστατικά"
+
+msgctxt "too_many_unknown_ingredients"
+msgid "Some ingredients were not recognized"
+msgstr "Ορισμένα συστατικά δεν αναγνωρίστηκαν"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients"
+msgid "We did not detect: {unwanted_ingredients}"
+msgstr "Δεν εντοπίσαμε: {unwanted_ingredients}"
+
+msgctxt "f_we_did_not_detect_unwanted_ingredients_warning"
+msgid "We did not detect: {unwanted_ingredients}. We may have missed some ingredients, please always check the ingredient list."
+msgstr "Δεν εντοπίσαμε: {unwanted_ingredients}. Μπορεί να μας έχουν ξεφύγει ορισμένα συστατικά, παρακαλούμε να ελέγχετε πάντα τη λίστα συστατικών."
+
+msgctxt "attribute_group_ingredients_analysis_warning"
+msgid "Those preferences are based on Open Food Facts' understanding of the ingredient list and there is always a possibility that it may not be accurate or complete, always check the product yourself."
+msgstr "Αυτές οι προτιμήσεις βασίζονται στην κατανόηση της λίστας συστατικών από το Open Food Facts και υπάρχει πάντα η πιθανότητα να μην είναι ακριβής ή πλήρης, επομένως να ελέγχετε πάντα το προϊόν μόνοι σας."
+
+msgctxt "external_sources_empreinte_souffrance_name"
+msgid "Suffering Footprint"
+msgstr "Αποτύπωμα Οδύνης"
+
+msgctxt "external_sources_empreinte_souffrance_description"
+msgid "Indicator of animal suffering computed by product"
+msgstr "Δείκτης ταλαιπωρίας ζώων που υπολογίζεται ανά προϊόν"
+
+msgctxt "section_animal_welfare_title"
+msgid "Animal welfare"
+msgstr "Ευημερία ζώων"
+
+msgctxt "external_panels"
+msgid "External Knowledge Panels"
+msgstr "Εξωτερικοί Πίνακες Γνώσεων"
+
+msgctxt "external_panel_unavailable"
+msgid "Panel unavailable"
+msgstr "Πίνακας μη διαθέσιμος"
+
+msgctxt "external_panel_unavailable_for_product"
+msgid "Panel unavailable for this product"
+msgstr "Πίνακας μη διαθέσιμος για αυτό το προϊόν"
+
+msgctxt "external_sources"
+msgid "External sources"
+msgstr "Εξωτερικές πηγές"
+
+msgctxt "provided_by"
+msgid "Provided by"
+msgstr "Παρέχεται από"
+
+msgctxt "recommendation_eu_tobacco_health_warning_title"
+msgid "Smoking kills"
+msgstr "Το κάπνισμα σκοτώνει"
+
+msgctxt "recommendation_eu_tobacco_health_warning_subtitle"
+msgid "Tobacco seriously damages health. Don't start. Quit now."
+msgstr "Ο καπνός βλάπτει σοβαρά την υγεία. Μην ξεκινήσετε. Κόψτε το τώρα."
+
+msgctxt "recommendation_eu_tobacco_health_warning_text"
+msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
+msgstr "Το κάπνισμα είναι εξαιρετικά εθιστικό. Μην ξεκινήσετε. Το κάπνισμα σκοτώνει - σταματήστε το τώρα. Το κάπνισμα φράζει τις αρτηρίες και προκαλεί καρδιακές προσβολές και εγκεφαλικά επεισόδια. Το κάπνισμα προκαλεί θανατηφόρο καρκίνο του πνεύμονα. Το κάπνισμα κατά τη διάρκεια της εγκυμοσύνης βλάπτει το μωρό σας. Προστατέψτε τα παιδιά: μην τα κάνετε να αναπνέουν τον καπνό σας. Ο γιατρός ή ο φαρμακοποιός σας μπορεί να σας βοηθήσει να σταματήσετε το κάπνισμα. Το κάπνισμα μπορεί να μειώσει τη ροή του αίματος και να προκαλέσει ανικανότητα. Το κάπνισμα προκαλεί γήρανση του δέρματος. Το κάπνισμα μπορεί να βλάψει το σπέρμα και να μειώσει τη γονιμότητα. Ο καπνός περιέχει βενζόλιο, νιτροζαμίνες, φορμαλδεΰδη και υδροκυάνιο."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Κάντε Δωρεά"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Ανακύκλωση"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr ""
+
+msgctxt "public_price"
+msgid "Public price"
+msgstr "Δημόσια τιμή"
+
+msgctxt "public_price_example"
+msgid "3.50 EUR, 2.99 USD, 4.00 GBP"
+msgstr "3,50 EUR, 2,99 USD, 4,00 GBP"
+
+msgctxt "public_price_note"
+msgid "Manufacturer suggested retail price (MSRP), excluding discounts and promotions, as indicated on the product packaging or the manufacturer's site (including or excluding taxes based on legislation). Use a comma separated list if prices in multiple currencies are listed."
+msgstr "Προτεινόμενη τιμή λιανικής πώλησης (MSRP) του κατασκευαστή, εξαιρουμένων των εκπτώσεων και των προωθητικών ενεργειών, όπως αναγράφεται στη συσκευασία του προϊόντος ή στον ιστότοπο του κατασκευαστή (συμπεριλαμβανομένων ή μη φόρων βάσει νομοθεσίας). Χρησιμοποιήστε μια λίστα διαχωρισμένη με κόμμα εάν αναφέρονται τιμές σε πολλά νομίσματα."
+
+msgctxt "folksonomy_property"
+msgid "Personalized property"
+msgstr "Εξατομικευμένη ιδιοκτησία"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "Δεν περιέχει φοινικέλαιο"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "Μπορεί να περιέχει φοινικέλαιο"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "Περιβαλλοντικές ετικέτες"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "Λείπουν δεδομένα"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "Υψηλός αντίκτυπος"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "Μέτριος αντίκτυπος"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "Χαμηλός αντίκτυπος"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "Δεν αξιολογήθηκε ο αντίκτυπος"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr ""
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Συνολικό δασικό αποτύπωμα"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Ετικέτα"
 

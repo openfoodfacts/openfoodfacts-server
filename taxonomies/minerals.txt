@@ -15,6 +15,8 @@ synonyms:en: sulfide, sulphide
 
 synonyms:en: iron, ferric, ferrous
 
+synonyms:en: sodium, natrium
+
 synonyms:fr: de fer, ferreux, ferrique
 
 synonyms:fr: monosodique, mono-sodique, sodique, disodique, trisodique, de sodium
@@ -22,8 +24,6 @@ synonyms:fr: monosodique, mono-sodique, sodique, disodique, trisodique, de sodiu
 synonyms:fr: monopotassique, mono-potassique, potassique, dipotassique, tripotassique, de potassium
 
 synonyms:fr: monocalcique, mono-calcique, calcique, dicalcique, tricalcique, de calcium
-
-synonyms:fr: orthophosphate, phosphate
 
 en: Mineral, Minerals
 af: Mineraal
@@ -151,7 +151,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Mineral
 
 
 
-< en:mineral
+< en: mineral
 en: Potassium
 af: kalium
 am: ፖታሺየም
@@ -313,10 +313,12 @@ description:en: POTASSIUM is a chemical element with symbol K (from Neo-Latin ka
 # zh-hans:钾
 # zh-hant:鉀
 # zh-hk:鉀
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q703
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium
 
-< en:Potassium
+< en: Potassium
 en: potassium bicarbonate
 bg: Калиев бикарбонат
 cs: hydrogenuhličitan draselný
@@ -339,12 +341,14 @@ ro: bicarbonat de potasiu
 sk: hydrogénuhličitan draselný
 sl: kalijev bikarbonat
 sv: kaliumbikarbonat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Potassium
+< en: Potassium
 en: potassium carbonate
 bg: Калиев карбонат
 cs: uhličitan draselný
-de: Kaliumcarbonat, Kaliumcarbonate
+# de: Kaliumcarbonat, Kaliumcarbonate
 el: ανθρακικό κάλιο
 es: carbonato de potasio
 et: kaaliumkarbonaat
@@ -363,10 +367,12 @@ ro: carbonat de potasiu
 sk: uhličitan draselný
 sl: kalijev karbonat
 sv: kaliumkarbonat
+vegan:en: yes
+vegetarian:en: yes
 
 
 
-< en:potassium
+< en: potassium
 en: potassium chloride
 ar: كلوريد البوتاسيوم
 # azb:پوتاسیوم کولورید
@@ -447,6 +453,8 @@ e_number:en: 508
 # zh-sg:氯化钾
 # zh-tw:氯化鉀
 mandatory_additive_class:en: en:flavour-enhancer, en:stabiliser, en:thickener
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q184630
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_chloride
 
@@ -472,7 +480,7 @@ wikidata:en: Q419921
 #comment:en:(TRI-)POTASSIUM CITRATE is entered both under the minerals and the additives for the moment.
 #comment:en:Not sure which word is preferred on packages, either the more chemical tripotassium or just potassium citrate in singular form. We use the tripotassium version here in order to better distinguish from E332.
 #<en:E332
-< en:Potassium
+< en: Potassium
 #<en:E332(ii)
 en: Tripotassium citrate, potassium citrate
 bg: Трикалиев цитрат, Калиев цитрат
@@ -521,10 +529,12 @@ description:en: POTASSIUM CITRATE (also known as tripotassium citrate) is a pota
 #zh-tw:檸檬酸鉀
 e_number:en: 332
 mandatory_additive_class:en: en:acidity-regulator, en:sequestrant, en:stabiliser
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q419921
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_citrate
 
-< en:Potassium
+< en: Potassium
 en: potassium gluconate
 bg: Калиев глюконат
 cs: glukonan draselný
@@ -547,8 +557,10 @@ ro: gluconat de potasiu
 sk: glukonát draselný
 sl: kalijev glukonat
 sv: kaliumglukonat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Potassium
+< en: Potassium
 en: potassium glycerophosphate
 bg: Калиев глицерофосфат
 cs: glycerofosforečnan draselný
@@ -570,14 +582,18 @@ ro: glicerofosfat de potasiu
 sk: glycerofosfát draselný
 sl: kalijev glicerofosfat
 sv: kaliumglycerolfosfat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Potassium
+< en: Potassium
 en: Potassium phosphate
 de: Kaliumphosphat
-fr: Phosphate de potassium
+fr: Phosphate de potassium, orthophosphate de potassium
 it: Fosfato di potassio
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Potassium
+< en: Potassium
 en: potassium lactate
 bg: Калиев лактат
 cs: mléčnan draselný
@@ -600,8 +616,10 @@ ro: lactat de potasiu
 sk: mliečnan draselný
 sl: kalijev laktat
 sv: kaliumlaktat
+vegan:en: maybe
+vegetarian:en: yes
 
-< en:Potassium
+< en: Potassium
 en: potassium hydroxide
 bg: Калиев хидроксид
 cs: hydroxid draselný
@@ -624,8 +642,10 @@ ro: hidroxid de potasiu
 sk: hydroxid draselný
 sl: kalijev hidroksid
 sv: kaliumhydroxid
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Potassium
+< en: Potassium
 en: potassium salts of orthophosphoric acid
 bg: Калиеви соли на ортофосфорната киселина
 cs: draselné soli kyseliny fosforečné
@@ -647,10 +667,12 @@ ro: săruri de potasiu ale acidului ortofosforic
 sk: draselné soli kyseliny ortofosforečnej
 sl: kalijeve soli ortofosforne kisline
 sv: kaliumsalter av ortofosforsyra
+vegan:en: yes
+vegetarian:en: yes
 
 
 
-< en:mineral
+< en: mineral
 en: calcium
 af: kalsium
 am: ካልሲየም
@@ -805,12 +827,14 @@ zh: 钙
 # xal:Калцион
 # yue:鈣
 # zh-hant:鈣
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q706
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium
 # description:en:CALCIUM is a chemical element with symbol Ca and atomic number 20. Calcium is the most abundant metal and the fifth-most abundant element in the human body. As electrolytes, calcium ions play a vital role in the physiological and biochemical processes of organisms and cells:in signal transduction pathways where they act as a second messenger; in neurotransmitter release from neurons; in contraction of all muscle cell types; as cofactors in many enzymes; and in fertilization. About three-quarters of dietary calcium is from dairy products and grains, the rest being accounted for by vegetables, protein-rich foods, fruits, sugar, fats, and oil.
 
 #comment:en:The same entry must be put in the additives taxonomy
-< en:calcium
+< en: calcium
 #en:E170(i)
 en: Calcium carbonate, CI Pigment White 18, Chalk
 af: Kalsiumkarbonaat
@@ -890,14 +914,16 @@ description:en: CALCIUM CARBONATE is a chemical compound with the formula CaCO3.
 # war:Calcium carbonate
 # wuu:碳酸钙
 # yue:碳酸鈣
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q23767
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_carbonate
 
-< en:calcium carbonate
+< en: calcium carbonate
 fr: agent d'enrobage carbonate de calcium
 # ingredient/fr:agent-d’enrobage-carbonate-de-calcium has 18 products in french @2019-02-03
 
-< en:Calcium
+< en: Calcium
 en: calcium chloride
 bg: Калциев хлорид
 cs: chlorid vápenatý
@@ -920,11 +946,15 @@ ro: clorură de calciu
 sk: chlorid vápenatý
 sl: kalcijev klorid
 sv: kalciumklorid
+vegan:en: yes
+vegetarian:en: yes
 
-< en:calcium
+< en: calcium
 en: calcium salts
 es: sales de calcio
 it: sali di calcio
+vegan:en: yes
+vegetarian:en: yes
 
 # <en:Calcium
 #en:calcium salts of citric acid
@@ -951,7 +981,7 @@ it: sali di calcio
 #sv:kalciumsalter av citronsyra
 # has no products @2019-04-05
 
-< en:calcium
+< en: calcium
 en: calcium salts from orthophosphoric acid, calcium salts of orthophosphoric acid
 bg: Калциеви соли на ортофосфорната киселина
 cs: vápenaté soli kyseliny fosforečné
@@ -973,12 +1003,14 @@ ro: săruri de calciu ale acidului ortofosforic
 sk: vápenaté soli kyseliny ortofosforečnej
 sl: kalcijeve soli ortofosforne kisline
 sv: kalciumsalter av ortofosforsyra
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q57657491
 # ingredient/calcium-salts-from-orthophosphoric-acid has 9 products in french @2019-04-04
 # mineral/calcium-salts-of-orthophosphoric-acid has 28 products in 4 langages @2019-04-04
 
 # comment:en:CALCIUM GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
-< en:Calcium
+< en: Calcium
 #<en:E578
 en: calcium gluconate
 bg: Калциев глюконат
@@ -1011,7 +1043,7 @@ vegetarian:en: yes
 wikidata:en: Q413739
 
 #comment:en:CALCIUM GLYCEROPHOSPHATE is for the moment listed in both the additves and ingredients taxonomy.
-< en:Calcium
+< en: Calcium
 #<en:E383
 en: calcium glycerophosphate
 ar: فوسفات غليسيريل الكالسيوم
@@ -1046,7 +1078,7 @@ vegetarian:en: yes
 wikidata:en: Q4119838
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_glycerylphosphate
 
-< en:Calcium
+< en: Calcium
 en: calcium lactate
 bg: Калциев лактат
 cs: mléčnan vápenatý
@@ -1069,16 +1101,20 @@ ro: lactat de calciu
 sk: mliečnan vápenatý
 sl: kalcijev laktat
 sv: kalciumlaktat
+vegan:en: maybe
+vegetarian:en: yes
 
-< en:Calcium
+< en: Calcium
 en: Calcium phosphate
-fr: Phosphate de calcium
+fr: Phosphate de calcium, orthophosphate de calcium
 it: Fosfato di calcio
+vegan:en: yes
+vegetarian:en: yes
 
 
 
 # <en:stabiliser/Festigungsmittel
-< en:calcium
+< en: calcium
 en: calcium hydroxide, E526, E-526, E 526
 ar: هيدروكسيد الكالسيوم
 az: Kalsium hidroksid
@@ -1158,10 +1194,12 @@ description:en: CALCIUM HYDROXIDE (traditionally called slaked lime) is an inorg
 # zh-hk:氫氧化鈣
 # zh-sg:氢氧化钙
 # zh-tw:氫氧化鈣
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q182849
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_hydroxide
 
-< en:Calcium
+< en: Calcium
 en: calcium oxide
 bg: Калциев оксид
 cs: oxid vápenatý
@@ -1184,8 +1222,10 @@ ro: oxid de calciu
 sk: oxid vápenatý
 sl: kalcijev oksid
 sv: kalciumoxid
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Calcium
+< en: Calcium
 en: calcium sulfate
 bg: Калциев сулфат
 cs: síran vápenatý
@@ -1208,8 +1248,10 @@ ro: sulfat de calciu
 sk: síran vápenatý
 sl: kalcijev sulfat
 sv: kalciumsulfat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Calcium
+< en: Calcium
 en: calcium bisglycinate
 bg: Калциев бисглицинат
 cs: bisglycinát vápenatý
@@ -1231,8 +1273,10 @@ ro: bisglicinat de calciu
 sk: bisglycinát vápenatý
 sl: kalcijev bisglicinat
 sv: kalciumbisglycinat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Calcium
+< en: Calcium
 en: calcium citrate malate
 bg: Калциев цитрат малат
 cs: vápenatá sůl kyseliny citronové a jablečné
@@ -1254,16 +1298,20 @@ ro: malat citrat de calciu
 sk: citran-malát vápenatý
 sl: kalcijev citrat malat
 sv: kalciumcitratmalat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Calcium
+< en: Calcium
 en: calcium citrate
 fr: citrate de calcium
 it: citrato di calcio, citrati di calcio
 ja: クエン酸カルシウム
 nl: calciumcitraat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:Calcium
+< en: Calcium
 en: calcium malate
 bg: Калциев малат
 cs: jablečnan vápenatý
@@ -1285,8 +1333,10 @@ ro: malat de calciu
 sk: jablčnan vápenatý
 sl: kalcijev malat
 sv: kalciummalat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Calcium
+< en: Calcium
 en: calcium L-pidolate
 bg: Калциев L-пидолат
 cs: L-pyroglutaman vápenatý
@@ -1308,9 +1358,11 @@ ro: L-pidolat de calciu
 sk: L-pidolát vápenatý
 sl: kalcijev L-pidolat
 sv: kalcium L-pidolat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:mineral
+< en: mineral
 en: Magnesium
 af: magnesium
 am: ማግኒዥየም
@@ -1350,7 +1402,7 @@ hi: मैग्नेशियम तत्त्व
 hr: magnezij
 ht: Manyezyòm
 hu: Magnézium
-hy:մագնեզիումia:magnesium
+hy: մագնեզիումia:magnesium
 id: magnesium
 io: magnezo
 is: magnesín
@@ -1468,10 +1520,12 @@ description:en: MAGNESIUM is a chemical element with symbol Mg and atomic numbe
 # zh-hans:镁
 # zh-hant:鎂
 # zh-hk:鎂
+vegan:en: yes
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium
 
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium acetate
 bg: Магнезиев ацетат
 cs: octan hořečnatý
@@ -1493,8 +1547,10 @@ ro: acetat de magneziu
 sk: octan horečnatý
 sl: magnezijev acetat
 sv: magnesiumacetat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium carbonate
 bg: Магнезиев карбонат
 cs: uhličitan hořečnatý
@@ -1517,10 +1573,12 @@ ro: carbonat de magneziu
 sk: uhličitan horečnatý
 sl: magnezijev karbonat
 sv: magnesiumkarbonat
+vegan:en: yes
+vegetarian:en: yes
 
 # comment:en:magnesium chloride can be used as an additive and as a mineral. The additive description is therefor kept separate.
 
-< en:magnesium
+< en: magnesium
 en: magnesium chloride
 ar: كلوريد المغنسيوم
 bg: Магнезиев хлорид
@@ -1567,9 +1625,11 @@ description:en: MAGNESIUM CHLORIDE is the name for the chemical compound with th
 # azb:کولورید منیزیوم
 # pt-br:cloreto de magnésio
 # sr-ec:магнезијум хлорид
+vegan:en: yes
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_chloride
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium salts of citric acid
 bg: Магнезиеви соли на лимонената киселина
 cs: hořečnaté soli kyseliny citronové
@@ -1591,8 +1651,10 @@ ro: săruri de magneziu ale acidului citric
 sk: horečnaté soli kyseliny citrónovej
 sl: magnezijeve soli citronske kisline
 sv: magnesiumsalter av citronsyra
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium gluconate
 bg: Магнезиев глюконат
 cs: glukonát hořečnatý
@@ -1614,8 +1676,10 @@ ro: gluconat de magneziu
 sk: glukónan horečnatý
 sl: magnezijev glukonat
 sv: magnesiumglukonat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium glycerophosphate
 bg: Магнезиев глицерофосфат
 cs: glycerofosfát hořečnatý
@@ -1637,14 +1701,18 @@ ro: glicerofosfat de magneziu
 sk: glycerofosforečnan horečnatý
 sl: magnezijev glicerofosfat
 sv: magnesiumglycerolfosfat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:Magnesium
+< en: Magnesium
 en: Magnesium phosphate
-fr: Phosphate de magnesium
+fr: Phosphate de magnesium, orthophosphate de magnesium
 it: magnesio fosfato, fosfato di magnesio
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium salts of orthophosphoric acid
 bg: Магнезиеви соли на ортофосфорната киселина
 cs: hořečnaté soli kyseliny fosforečné
@@ -1666,8 +1734,10 @@ ro: săruri de magneziu ale acidului ortofosforic
 sk: horečnaté soli kyseliny ortofosforečnej
 sl: magnezijeve soli ortofosforne kisline
 sv: magnesiumsalter av ortofosforsyra
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium lactate
 bg: Магнезиев лактат
 cs: mléčnan hořečnatý
@@ -1689,8 +1759,19 @@ ro: lactat de magneziu
 sk: mliečnan horečnatý
 sl: magnezijev laktat
 sv: magnesiumlaktat
+vegan:en: maybe
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
+en: magnesium malate
+de: Magnesiummalat
+sv: magnesiummalat
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q5927277
+wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_malate
+
+< en: Magnesium
 en: magnesium hydroxide
 bg: Магнезиев хидроксид
 cs: hydroxid hořečnatý
@@ -1713,8 +1794,10 @@ ro: hidroxid de magneziu
 sk: hydroxid horečnatý
 sl: magnezijev hidroksid
 sv: magnesiumhydroxid
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium oxide
 bg: Магнезиев оксид
 cs: oxid hořečnatý
@@ -1737,9 +1820,11 @@ ro: oxid de magneziu
 sk: oxid horečnatý
 sl: magnezijev oksid
 sv: magnesiumoxid
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:magnesium
+< en: magnesium
 en: magnesium sulfate
 ar: كبريتات المغنسيوم
 az: Acı duz
@@ -1797,10 +1882,12 @@ description:en: MAGNESIUM SULFATE is an inorganic salt with the formula MgSO4(H2
 # war:Magnesium sulfate
 # wuu:硫酸镁
 # yue:硫酸镁
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q288266
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_sulfate_(medical_use)
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium L-aspartate
 bg: Магнезиев L-аспартат
 cs: L-aspartát hořečnatý
@@ -1822,8 +1909,10 @@ ro: L-aspartat de magneziu
 sk: L-aspartan horečnatý
 sl: magnezijev L-aspartat
 sv: magnesium-L-aspartat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium bisglycinate
 bg: Магнезиев бисглицинат
 cs: bisglycinát hořečnatý
@@ -1845,8 +1934,10 @@ ro: bisglicinat de magneziu
 sk: bisglycinát horečnatý
 sl: magnezijev bisglicinat
 sv: magnesiumbisglycinat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
+< en: Magnesium
 en: magnesium L-pidolate
 bg: Магнезиев L-пидолат
 cs: L-pyroglutaman (pidolát) hořečnatý
@@ -1868,9 +1959,11 @@ ro: L-pidolat de magneziu
 sk: L-pidolát horečnatý
 sl: magnezijev L-pidolat
 sv: magnesium-L-pidolat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Magnesium
-< en:Potassium
+< en: Magnesium
+< en: Potassium
 en: magnesium potassium citrate
 bg: Магнезиево-калиев цитрат
 cs: citronan draselno-hořečnatý
@@ -1892,9 +1985,11 @@ ro: citrat de magneziu și potasiu
 sk: citran horečnato-draselný
 sl: magnezijev kalijev citrat
 sv: magnesiumkaliumcitrat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:magnesium
+< en: magnesium
 en: magnesium citrate
 da: magnesiumcitrat
 de: Magnesiumcitrat, Magnesiumcitrate
@@ -1916,11 +2011,13 @@ tr: Magnezyum sitrat
 # ingredient/fr:citrate-de-magnésium has 151 products in 4 languages @2019-04-26
 description:en: MAGNESIUM CITRATE is a magnesium preparation in salt form with citric acid in a 1:1 ratio (1 magnesium atom per citrate molecule). The name "magnesium citrate" is ambiguous and sometimes may refer to other salts such as trimagnesium citrate which has a magnesium:citrate ratio of 3:2. It is also used in the pill form as a magnesium dietary supplement. It contains 11.23% magnesium by weight.  As a food additive, magnesium citrate is used to regulate acidity and is known as E number E345.
 # azb:منیزیوم سیترات
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q45044
 wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_citrate
 
 
-< en:mineral
+< en: mineral
 en: iron
 af: yster
 am: ብረት
@@ -2122,10 +2219,12 @@ description:en: IRON is a chemical element with symbol Fe (from Latin:ferrum) an
 # xal:Төмр
 # yue:鐵
 # zh-hant:鐵
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q677
 wikipedia:en: https://en.wikipedia.org/wiki/Iron
 
-< en:Iron
+< en: Iron
 en: ferrous carbonate, iron carbonate
 bg: Железен карбонат
 cs: uhličitan železnatý
@@ -2147,8 +2246,10 @@ ro: carbonat feros
 sk: uhličitan železnatý
 sl: železov karbonat
 sv: ferrokarbonat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Iron
+< en: Iron
 en: ferrous citrate, iron citrate
 bg: Железен цитрат
 cs: citrát železnatý
@@ -2171,9 +2272,11 @@ ro: citrat feros
 sk: citran železnatý
 sl: železov citrat
 sv: ferrocitrat
+vegan:en: yes
+vegetarian:en: yes
 
 #comment:en:FERRIC AMMONIUM CITRATE is for the moment listed in both the additves and ingredients taxonomy.
-< en:Iron
+< en: Iron
 #<en:E381
 en: ferric ammonium citrate, ammonium ferric citrate
 bg: Железен амониев цитрат
@@ -2203,7 +2306,7 @@ vegetarian:en: yes
 wikidata:en: Q473522
 
 #comment:en:IRON(II) GLUCONATE is for the moment listed in both the additves and ingredients taxonomy.
-< en:iron
+< en: iron
 #<en:E579
 en: iron gluconate, ferrous gluconate
 ar: غلوكونات الحديد الثنائي
@@ -2243,12 +2346,14 @@ wikidata:en: Q421291
 wikipedia:en: https://en.wikipedia.org/wiki/Iron(II)_gluconate
 # ingredient/fr:gluconate-de-fer has 37 products in 6 languages @2019-02-22
 
-< en:iron gluconate
+< en: iron gluconate
 en: ferrous gluconate to stabilize color
+vegan:en: yes
+vegetarian:en: yes
 
 #description:en:IRON(II) FUMARATE is the iron(II) salt of fumaric acid, occurring as a reddish-orange powder, used to supplement iron intake.
 
-< en:iron
+< en: iron
 en: iron fumarate, iron(II) fumarate, ferrous fumarate
 ar: فومارات الحديد الثنائي
 bg: Железен фумарат
@@ -2285,10 +2390,12 @@ description:en: IRON(II) GLUCONATE, or ferrous gluconate,[1] is a black compound
 # zh-hk:延胡索酸亞鐵
 # zh-sg:延胡索酸亚铁
 # zh-tw:延胡索酸亞鐵
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q416370
 wikipedia:en: https://en.wikipedia.org/wiki/Iron(II)_fumarate
 
-< en:Iron
+< en: Iron
 en: ferric sodium diphosphate
 bg: Натриево-железен дифосфат
 cs: difosforečnan sodno-železitý
@@ -2310,8 +2417,10 @@ ro: difosfat feric de sodiu
 sk: difosforečnan železito-sodný
 sl: železov natrijev difosfat
 sv: natriumferridifosfat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Iron
+< en: Iron
 en: ferrous lactate, iron lactate
 bg: Железен лактат
 cs: mléčnan železnatý
@@ -2334,10 +2443,12 @@ ro: lactat feros
 sk: mliečnan železnatý
 sl: železov laktat
 sv: ferrolaktat
+vegan:en: maybe
+vegetarian:en: yes
 
 # comment:en:The wikidata names do not match the product names. The simple name (without (II)) are preferred.
 
-< en:iron
+< en: iron
 en: ferrous sulfate, iron sulfate
 ar: كبريتات الحديد الثنائي
 bg: Железен сулфат
@@ -2391,10 +2502,12 @@ description:en: IRON(II) SULFATE denotes a range of salts with the formula FeSO4
 # zh-hk:硫酸亞鐵
 # zh-sg:硫酸亚铁
 # zh-tw:硫酸亞鐵
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q214863
 wikipedia:en: https://en.wikipedia.org/wiki/Iron(II)_sulfate
 
-< en:Iron
+< en: Iron
 en: ferrous ammonium phosphate
 bg: Железен амониев фосфат
 cs: fosforečnan železnatoamonný
@@ -2403,7 +2516,7 @@ el: εναμμώνιος φωσφορικός σίδηρος
 es: fosfato de amonio ferroso
 et: raud(II)ammooniumfosfaat
 fi: rauta-II-ammoniumfosfaatti
-fr: phosphate d’ammonium ferreux
+fr: phosphate d’ammonium ferreux, orthophosphate d’ammonium ferreux
 hu: Vas(II)-ammónium-foszfát
 it: fosfato ferroso di ammonio
 lt: geležies (II) amonio fosfatas
@@ -2416,8 +2529,10 @@ ro: fosfat feros de amoniu
 sk: fosforečnan amónno-železnatý
 sl: železov amonijev fosfat
 sv: järnammoniumfosfat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Iron
+< en: Iron
 en: ferric sodium EDTA
 bg: Желязно-натриев етилендиаминтетраацетат (EDTA)
 cs: železito-sodná sůl EDTA
@@ -2439,9 +2554,11 @@ ro: EDTA feric de sodiu
 sk: železito-sodná soľ kyseliny EDTA
 sl: železov natrijev EDTA
 sv: järn(III)natrium-EDTA
+vegan:en: yes
+vegetarian:en: yes
 
 # comment:en:The diphosphate translation is preferred.
-< en:iron
+< en: iron
 en: ferric diphosphate, iron diphosphate, ferrous phosphate
 bg: Железен дифосфат
 cs: difosforečnan železitý
@@ -2471,11 +2588,13 @@ zh: 焦磷酸铁
 # ingredient/fr:diphosphate-ferrique has 116 products in 7 languages @2019-05-07
 # usage:de:Mineralstoff (Eisendiphosphat)
 description:en: IRON(II) PHOSPHATE, Fe3(PO4)2, is an iron salt of phosphoric acid.
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q9207442
 wikipedia:en: https://en.wikipedia.org/wiki/Iron(II)_phosphate
 
 
-< en:iron
+< en: iron
 en: ferric orthophosphate, ferric phosphate, iron orthophosphate, iron phosphate
 es: ortofosfato férrico
 it: fosfato ferrico, ferro ortofosfato, ferro fosfato
@@ -2485,7 +2604,7 @@ vegetarian:en: yes
 wikidata:en: Q1311179
 wikipedia:en: https://en.wikipedia.org/wiki/Iron(III)_phosphate
 
-< en:Iron
+< en: Iron
 en: ferric saccharate
 bg: Железен захарат
 cs: sacharát železitý
@@ -2507,8 +2626,10 @@ ro: zaharat feric
 sk: sacharát železitý
 sl: železov saharat
 sv: ferrisackarat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Iron
+< en: Iron
 en: elemental iron
 bg: Елементарно желязо
 cs: elementární železo
@@ -2531,8 +2652,10 @@ ro: fier elementar
 sk: elementárne železo
 sl: elementarno železo
 sv: elementarjärn
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Iron
+< en: Iron
 en: ferrous bisglycinate
 bg: Железен бисглицинат
 cs: bisglycinát železnatý
@@ -2554,8 +2677,10 @@ ro: bisglicinat feros
 sk: bisglycinát železnatý
 sl: železov bisglicinat
 sv: ferrobisglycinat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Iron
+< en: Iron
 en: ferrous L-pidolate
 bg: Железен L-пидолат
 cs: L-pyroglutaman (pidolát) železnatý
@@ -2577,24 +2702,65 @@ ro: L-pidolat feros
 sk: L-pidolát železnatý
 sl: železov L-pidolat
 sv: ferro-L-pidolat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:iron
+< en: iron
 en: reduced iron
 es: hierro reducido
 fr: fer réduit
+vegan:en: yes
+vegetarian:en: yes
 
-< en:iron
+< en: iron
 en: iron salts
 es: sales de hierro
 it: sali di ferro
+vegan:en: yes
+vegetarian:en: yes
 
+< en: iron
+en: ferric pyrophosphate
+it: pirofosfato ferrico
+pl: dwufosforan żelazowy
+vegan:en: yes
+vegetarian:en: yes
+
+
+
+< en: Mineral
 en: phosphor
 es: fosforo
 it: fosforo
+vegan:en: yes
+vegetarian:en: yes
+
+
+# Unspecified phosphate variety
+
+< en: Mineral
+en: phosphate
+bg: фосфат, фосфати
+de: Phosphat
+es: Fosfato
+fi: fosfaatti, fosfaatit
+fr: phosphate, orthophosphate
+hr: fosfat
+hu: foszfát, foszfátok
+it: fosfato
+nl: fosfaat
+pt: fosfato, fosfatos
+# ingredient/fr:phosphates has 57 products @2019-02-22
+# usage:fr:Séquestrant : phosphate
+# usage:fr:stabilisants : phosphates
+# sodium (mono, hexameta, and/or tripoly) phosphate
+vegan:en: yes
+vegetarian:en: yes
+
 
 # comment:en:Probably plural is preferred on mineral waters.
 
-< en:mineral
+< en: mineral
 en: sulfates, sulfate, sulphate
 af: Sulfaat
 ar: كبريتات
@@ -2665,12 +2831,14 @@ zh: 硫酸鹽
 # zh-hk:硫酸鹽
 # zh-sg:硫酸盐
 # zh-tw:硫酸鹽
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q172290
 wikipedia:en: https://en.wikipedia.org/wiki/Sulfate
 
 
 
-< en:mineral
+< en: mineral
 en: zinc
 af: sink
 am: ዚንክ
@@ -2828,10 +2996,12 @@ description:en: ZINC is a chemical element with symbol Zn and atomic number 30.
 # zh-hant:鋅
 # zh-hk:鋅
 #zh-tw:鋅
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q758
 wikipedia:en: https://en.wikipedia.org/wiki/Zinc
 
-< en:Zinc
+< en: Zinc
 en: zinc acetate
 bg: Цинков ацетат
 cs: octan zinečnatý
@@ -2853,8 +3023,10 @@ ro: acetat de zinc
 sk: octan zinočnatý
 sl: cinkov acetat
 sv: zinkacetat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Zinc
+< en: Zinc
 en: zinc chloride
 bg: Цинков хлорид
 cs: chlorid zinečnatý
@@ -2876,8 +3048,10 @@ ro: clorură de zinc
 sk: chlorid zinočnatý
 sl: cinkov klorid
 sv: zinkklorid
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Zinc
+< en: Zinc
 en: zinc citrate
 bg: Цинков цитрат
 cs: citronan zinečnatý
@@ -2900,9 +3074,11 @@ ro: citrat de zinc
 sk: citran zinočnatý
 sl: cinkov citrat
 sv: zinkcitrat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:zinc
+< en: zinc
 en: zinc gluconate
 ar: غلوكونات الزنك
 bg: Цинков глюконат
@@ -2936,10 +3112,12 @@ sv: zinkglukonat
 # ingredient/fr:gluconate-de-zinc has 113 products in 4 languages @2019-03-29
 description:en: ZINC GLUCONATE  is the zinc salt of gluconic acid. It is an ionic compound consisting of two anions of gluconate for each zinc(II) cation. Zinc gluconate is a popular form for the delivery of zinc as a dietary supplement
 # azb:قلوکونات چینکو
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q3822815
 wikipedia:en: https://en.wikipedia.org/wiki/Zinc_gluconate
 
-< en:Zinc
+< en: Zinc
 en: zinc lactate
 bg: Цинков лактат
 cs: mléčnan zinečnatý
@@ -2962,9 +3140,11 @@ ro: lactat de zinc
 sk: mliečnan zinočnatý
 sl: cinkov laktat
 sv: zinklaktat
+vegan:en: maybe
+vegetarian:en: yes
 
 
-< en:zinc
+< en: zinc
 en: zinc oxide
 ar: أكسيد الزنك
 bg: Цинков оксид
@@ -3029,10 +3209,12 @@ description:en: ZINC OXIDE is an inorganic compound with the formula ZnO. Zinc o
 # zh-hk:氧化鋅
 # zh-sg:氧化锌
 # zh-tw:氧化鋅
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q190077
 wikipedia:en: https://en.wikipedia.org/wiki/Zinc_oxide
 
-< en:Zinc
+< en: Zinc
 en: zinc carbonate
 bg: Цинков карбонат
 cs: uhličitan zinečnatý
@@ -3054,9 +3236,11 @@ ro: carbonat de zinc
 sk: uhličitan zinočnatý
 sl: cinkov karbonat
 sv: zinkkarbonat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:zinc
+< en: zinc
 en: zinc sulfate
 ar: كبريتات الزنك
 # azb:چینکو سولفات
@@ -3108,9 +3292,11 @@ zh: 硫酸锌
 # mineral/zinc-sulphate has 692 products in 9 languages @2019-05-18
 # usage:pt:zinco (sulfato de zinco)
 description:en: ZINC SULFATE has the formula ZnSO4 as well as any of three hydrates. As a supplement it is used to treat zinc deficiency and to prevent the condition in those at high risk.
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:Zinc
+< en: Zinc
 en: zinc bisglycinate
 bg: Цинков бисглицинат
 cs: bisglycinát zinečnatý
@@ -3132,9 +3318,11 @@ ro: bisglicinat de zinc
 sk: bisglycinát zinočnatý
 sl: cinkov bisglicinat
 sv: zinkbisglycinat
+vegan:en: yes
+vegetarian:en: yes
 
 # comment:en:add cupric so that it can be user as a synonym in compounds e.g. copper / cupric carbonate
-< en:mineral
+< en: mineral
 en: copper, cupric
 af: koper
 am: መዳብ
@@ -3329,11 +3517,13 @@ description:en: COPPER is a chemical element with symbol Cu (from Latin:cuprum) 
 # zh-hk:銅
 # zh-sg:铜
 # zh-tw:銅
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q753
 wikipedia:en: https://en.wikipedia.org/wiki/Copper
 
 
-< en:Copper
+< en: Copper
 en: cupric carbonate
 bg: Меден карбонат
 cs: uhličitan měďnatý
@@ -3355,8 +3545,10 @@ ro: carbonat cupric
 sk: uhličitan meďnatý
 sl: bakrov karbonat
 sv: kopparkarbonat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Copper
+< en: Copper
 en: cupric citrate, copper citrate
 bg: Меден цитрат
 cs: citronan měďnatý
@@ -3378,9 +3570,11 @@ ro: citrat cupric
 sk: citran meďnatý
 sl: bakrov citrat
 sv: kopparcitrat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:copper
+< en: copper
 en: copper gluconate, cupric gluconate
 ar: غلوكونات النحاس
 bg: Меден глюконат
@@ -3410,11 +3604,13 @@ sv: kopparglukonat
 zh: 葡萄糖酸铜
 # ingredient/fr:gluconate-de-cuivre has 105 products @2019-03-16
 description:en: COPPER GLUCONATE is the copper salt of D-gluconic acid.
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q3109285
 wikipedia:en: https://en.wikipedia.org/wiki/Copper_gluconate
 
 # comment:en:The (II) has been removed from the translations, as it is not used on packages.
-< en:copper
+< en: copper
 en: copper sulfate, copper sulphate, cupric sulphate, cupric sulfate
 ar: كبريتات النحاس الثنائي
 bg: Меден сулфат
@@ -3467,10 +3663,12 @@ description:en: COPPER(II) SULFATE, also known as copper sulphate, are the inorg
 # nan:Liû-sng tâng
 # nds:Koppersulfat
 # sco:capper sulphate
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q107184
 wikipedia:en: https://en.wikipedia.org/wiki/Copper(II)_sulfate
 
-< en:Copper
+< en: Copper
 en: copper lysine complex
 bg: Мед-лизинов комплекс
 cs: komplex mědi s lysinem
@@ -3492,9 +3690,11 @@ ro: complex cupru-lizină
 sk: komplex medi s lyzínom
 sl: kompleks bakra z lizinom
 sv: kopparlysin-komplex
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:mineral
+< en: mineral
 en: manganese
 af: Mangaan
 am: ማንጋኒዝ
@@ -3642,11 +3842,13 @@ description:en: MANGANESE is a chemical element with symbol Mn and atomic number
 # zh-hk:錳
 # zh-sg:锰
 # zh-tw:錳
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q731
 wikipedia:en: https://en.wikipedia.org/wiki/Manganese
 
 
-< en:Manganese
+< en: Manganese
 en: manganese carbonate
 bg: Манганов карбонат
 cs: uhličitan manganatý
@@ -3668,8 +3870,10 @@ ro: carbonat de mangan
 sk: uhličitan mangánatý
 sl: manganov karbonat
 sv: mangankarbonat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Manganese
+< en: Manganese
 en: manganese chloride
 bg: Манганов хлорид
 cs: chlorid manganatý
@@ -3691,8 +3895,10 @@ ro: clorură de mangan
 sk: chlorid mangánatý
 sl: manganov klorid
 sv: manganklorid
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Manganese
+< en: Manganese
 en: manganese citrate
 bg: Манганов цитрат
 cs: citronan manganatý
@@ -3714,8 +3920,10 @@ ro: citrat de mangan
 sk: citran mangánatý
 sl: manganov citrat
 sv: mangancitrat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:manganese
+< en: manganese
 en: manganese gluconate
 bg: Манганов глюконат
 cs: glukonan manganatý
@@ -3737,11 +3945,13 @@ ro: gluconat de mangan
 sk: glukónan mangánatý
 sl: manganov glukonat
 sv: manganglukonat
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q27268214
 # ingredient/fr:gluconate-de-manganèse has 43 products in 4 languages @2019-05-11
 # mineral/manganese-gluconate has 61 products in 4 languages @2019-05-11
 
-< en:Manganese
+< en: Manganese
 en: manganese glycerophosphate
 bg: Манганов глицерофосфат
 cs: glycerofosforečnan manganatý
@@ -3763,9 +3973,11 @@ ro: glicerofosfat de mangan
 sk: glycerofosforečnan mangánatý
 sl: manganov glicerofosfat
 sv: manganglycerolfosfat
+vegan:en: yes
+vegetarian:en: yes
 
 # comment:en:The simple name without the (II), is used here.
-< en:manganese
+< en: manganese
 en: manganese sulfate, manganese sulphate
 ar: كبريتات المنغنيز الثنائي
 bg: Манганов сулфат
@@ -3805,9 +4017,11 @@ zh: 硫酸锰
 description:en: MANGANESE SULFATE usually refers to the inorganic compound with the formula MnSO4·H2O. Magnesium sulfate is used as a brewing salt in making beer. It may also be used as a coagulant for making tofu.
 # azb:سولفات منقنز
 # wuu:硫酸锰
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q409393
 
-< en:mineral
+< en: mineral
 en: Fluoride
 bg: Флуориди
 cs: Fluor
@@ -3828,8 +4042,10 @@ ro: Fluoruri
 sk: Fluorid
 sl: Fluorid
 sv: Fluor
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Fluoride
+< en: Fluoride
 en: potassium fluoride
 bg: Калиев флуорид
 cs: fluorid draselný
@@ -3851,8 +4067,10 @@ ro: fluorură de potasiu
 sk: fluorid draselný
 sl: kalijev fluorid
 sv: kaliumfluorid
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Fluoride
+< en: Fluoride
 en: sodium fluoride
 bg: Натриев флуорид
 cs: fluorid sodný
@@ -3874,9 +4092,11 @@ ro: fluorură de sodiu
 sk: fluorid sodný
 sl: natrijev fluorid
 sv: natriumfluorid
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:mineral
+< en: mineral
 en: Selenium, Sn
 af: selenium
 am: ሴሊኒየም
@@ -4026,10 +4246,12 @@ description:en: SELENIUM is a chemical element with symbol Se and atomic number�
 # zh-hant:硒
 # zh-hk:硒
 # zh-tw:硒
+vegan:en: yes
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Selenium
 
 
-< en:selenium
+< en: selenium
 en: sodium selenate
 ar: سيلينات الصوديوم
 bg: Натриев селенат
@@ -4064,10 +4286,12 @@ zh: 硒酸鹽
 description:en: SODIUM SELENATE is the inorganic compound with the formula Na2SeO4. Chosen for its selenium content and high solubility, sodium selenate is a common ingredient in over-the-counter vitamin supplements.
 # azb:سلنات سودیوم
 # sr-el:Natrijum selenat
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q419488
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_selenate
 
-< en:Selenium
+< en: Selenium
 en: sodium hydrogen selenite
 bg: Натриев хидроген селенит
 cs: hydrogenseleničitan sodný
@@ -4089,9 +4313,11 @@ ro: selenit hidrogenat de sodiu
 sk: hydroseleničitan sodný
 sl: natrijev hidrogen selenit
 sv: natriumväteselenit
+vegan:en: yes
+vegetarian:en: yes
 
 # comment:en:it seem that translations on packages confound selanate with selenite.
-< en:selenium
+< en: selenium
 en: Sodium selenite
 ar: سيلينيت الصوديوم
 bg: Натриев селенит
@@ -4130,10 +4356,12 @@ description:en: SODIUM SELENITE is the inorganic compound with the formula Na2Se
 # azb:سلنیت سودیوم
 # pt-br:selenito de sódio
 # sr-el:Natrijum selenit
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q414626
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_selenite
 
-< en:Selenium
+< en: Selenium
 en: selenium enriched yeast
 bg: Обогатени със селен дрожди
 cs: kvasnice obohacené selenem
@@ -4155,9 +4383,11 @@ ro: drojdie îmbogățită cu seleniu
 sk: kvasnice obohatené selénom
 sl: s selenom obogatene kvasovke
 sv: selenberikad jäst
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:mineral
+< en: mineral
 en: Chromium
 af: chroom
 am: ክሮሚየም
@@ -4307,10 +4537,12 @@ description:en: CHROMIUM is a chemical element with symbol Cr and atomic number 
 # zh-hant:鉻
 # zh-hk:鉻
 # zh-tw:鉻
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q725
 wikipedia:en: https://en.wikipedia.org/wiki/Chromium
 
-< en:chromium
+< en: chromium
 en: chromium chloride
 de: Chrom-chlorid
 fi: Kromikloridi
@@ -4319,9 +4551,11 @@ it: cloruro di cromo
 pt: cloreto de crômio
 ro: Clorură de crom
 # ingredient/fr:chlorure-de-chrome has 113 products in 4 languages @2019-03-16
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:chromium chloride
+< en: chromium chloride
 en: chromic chloride
 ar: كلوريد الكروم الثلاثي
 cs: Chlorid chromitý
@@ -4340,10 +4574,12 @@ description:en: CHROMIUM(III) chloride (also called chromic chloride) describes 
 # azb:کولورید کوروم
 # en-ca:Chromium(III) chloride
 # en-gb:Chromium(III) chloride
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q411885
 wikipedia:en: https://en.wikipedia.org/wiki/Chromium(III)_chloride
 
-< en:Chromium
+< en: Chromium
 en: chromium (III) sulfate and its hexahydrate
 bg: Хром (III) сулфат и неговите хексахидрати
 cs: síran chromitý a jeho hexahydrát
@@ -4365,8 +4601,10 @@ ro: sulfat de crom (III) și hexahidratul său
 sk: síran chromitý (III) a jeho hexahydrát
 sl: kromov (III) sulfat in njegov heksahidrat
 sv: krom(III)sulfat och dess hexahydrat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Chromium
+< en: Chromium
 en: chromium picolinate
 bg: Хромен пиколинат
 cs: pikolinát chromitý
@@ -4388,15 +4626,19 @@ ro: picolinat de crom
 sk: pikolinát chromitý
 sl: kromov pikolinat
 sv: krompikolinat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Chromium
+< en: Chromium
 en: chromium nicotinate, chromium(III) nicotinate, chromium trinicotinate, chromium polynicotinate
 es: polinicotinato de cromo
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q5113831
 wikipedia:en: https://en.wikipedia.org/wiki/Chromium(III)_nicotinate
 
 
-< en:mineral
+< en: mineral
 en: molybdenum
 af: molibdeen
 am: ሞሊብዴነም
@@ -4532,10 +4774,12 @@ description:en: MOLYBDENUM is a chemical element with symbol Mo and atomic numbe
 # war:Molibdeno
 # xal:Молибдениүм
 # yue:鉬
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q1053
 wikipedia:en: https://en.wikipedia.org/wiki/Molybdenum
 
-< en:Molybdenum
+< en: Molybdenum
 en: ammonium molybdate
 bg: Амониев молибдат
 cs: molybdenan amonný
@@ -4557,9 +4801,11 @@ ro: molibdat de amoniu
 sk: molybdénan amónny
 sl: amonijev molibdat
 sv: ammoniummolybdat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:molybdenum
+< en: molybdenum
 en: sodium molybdate
 ar: موليبدات الصوديوم
 cs: Molybdenan sodný
@@ -4589,11 +4835,13 @@ description:en: SODIUM MOLYBDATE, Na2MoO4, is useful as a source of molybdenum.
 # zh-hant:鉬酸鈉
 # zh-sg:钼酸钠
 # zh-tw:鉬酸鈉
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q414518
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_molybdate
 
 
-< en:mineral
+< en: mineral
 en: iodine
 af: jodium
 am: አዮዲን
@@ -4614,7 +4862,7 @@ cs: Jod
 cv: Иод
 cy: Ïodin
 da: jod
-de: Jod
+de: Jod, Iodid
 dv: އަޔޮޑިން
 el: Ιώδιο
 eo: jodo
@@ -4745,11 +4993,13 @@ description:en: IODINE is a chemical element with symbol I and atomic number 53.
 # yue:碘
 # zh-cn:碘
 # zh-hk:碘
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q1103
 wikipedia:en: https://en.wikipedia.org/wiki/Iodine
 
 
-< en:iodine
+< en: iodine
 en: potassium iodide
 ar: يوديد البوتاسيوم
 bg: Калиев йодид
@@ -4798,11 +5048,13 @@ description:en: POTASSIUM IODIDE is a chemical compound, medication, and dietary
 # pnb:پوٹاشیم آیوڈائیڈ
 # sr-ec:калијум-јодид
 # sr-el:Kalijum jodid
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q121874
 wikipedia:en: https://en.wikipedia.org/wiki/Potassium_iodide
 
 #comment:en:POTASSIUM IODATE is for the moment listed in both the additves and ingredients taxonomy.
-< en:Iodine
+< en: Iodine
 # <en:E917
 en: potassium iodate
 ar: يودات البوتاسيوم
@@ -4854,7 +5106,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q414599
 
-< en:Iodine
+< en: Iodine
 en: sodium iodate
 bg: Натриев йодат
 cs: jodičnan sodný
@@ -4876,9 +5128,11 @@ ro: iodat de sodiu
 sk: jodičnan sodný
 sl: natrijev jodat
 sv: natriumjodat
+vegan:en: yes
+vegetarian:en: yes
 
 
-< en:iodine
+< en: iodine
 en: calcium iodate
 ar: يودات الكالسيوم
 ca: iodat de calci
@@ -4895,7 +5149,7 @@ nl: calciumjodaat
 pl: Jodan wapnia
 pt: iodato de cálcio
 ru: Иодат кальция
-sh:Kalcijum jodatsr:Kalcijum jodat
+sh: Kalcijum jodatsr:Kalcijum jodat
 ta: கால்சியம் அயோடேட்டு
 tr: Kalsiyum iyodat
 vi: Canxi iodat
@@ -4906,11 +5160,13 @@ description:en: CALCIUM IODATES are inorganic compound composed of calcium and i
 # en-ca:Calcium iodate
 # en-gb:Calcium iodate
 # sr-el:Kalcijum jodat
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q2185998
 wikipedia:en: https://en.wikipedia.org/wiki/Calcium_iodate
 
 
-< en:mineral
+< en: mineral
 en: Sodium
 af: natrium
 am: ሶዲየም
@@ -5074,10 +5330,12 @@ description:en: SODIUM is a chemical element with symbol Na (from Latin natrium
 # zh-cn:钠
 # zh-hant:鈉
 # zh-hk:鈉
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q658
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium
 
-< en:Sodium
+< en: Sodium
 en: sodium bicarbonate
 bg: Натриев бикарбонат
 ca: bicarbonat sòdic
@@ -5101,9 +5359,11 @@ pt: bicarbonato de sódio
 ro: bicarbonat de sodiu
 sk: hydrouhličitan sodný
 sl: natrijev bikarbonat
-sv: natriumbikarbonat
+sv: natriumbikarbonat, bikarbonat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Sodium
+< en: Sodium
 en: sodium carbonate
 bg: Натриев карбонат
 cs: uhličitan sodný
@@ -5126,11 +5386,14 @@ ro: carbonat de sodiu
 sk: uhličitan sodný
 sl: natrijev karbonat
 sv: natriumkarbonat
+vegan:en: yes
+vegetarian:en: yes
 
 # comment:en:The chemical name is preferred here, otherwise it will be listed under en:salt.
 
-< en:sodium
+< en: sodium
 en: sodium chloride, sodium chlorure
+xx: NaCl
 ar: كلوريد الصوديوم
 az: Natrium Xlorid
 bg: Натриев хлорид
@@ -5181,7 +5444,7 @@ sh: Natrijum-hlorid
 sk: chlorid sodný
 sl: natrijev klorid
 sq: Klouri i natriumit
-sv: natriumklorid, nacl
+sv: natriumklorid
 ta: சோடியம் குளோரைடு
 th: โซเดียมคลอไรด์
 tl: Sodium chloride
@@ -5202,22 +5465,27 @@ description:en: SODIUM CHLORIDE commonly known as salt (though sea salt also con
 # scn:Cloruru di sodiu
 # sco:sodium chloride
 # war:Sodium chloride
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q2314
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_chloride
 
+# plural here additives.txt
+# singular here after
 #<en:E331
-< en:Sodium
+< en: Sodium
 en: sodium citrate
-bg: Натриев цитрат
-ca: citronan sodný
+bg: натриев цитрат
+ca: citronan sodný, citrat de sodi
 de: Natriumcitrat
 el: κιτρικό νάτριο
 es: citrato de sodio
 et: Naatriumtsitraat
 fr: citrate de sodium
+hr: natrijev citrat
 hu: nátrium-citrát
 it: citrato di sodio
-ja: クエン酸三ナトリウム, クエン酸ナトリウム
+ja: クエン酸ナトリウム, クエン酸Na, クエン酸Ｎａ
 nb: Natriumsitrat
 nl: natriumcitraat
 pl: cytrynian sodu
@@ -5227,8 +5495,10 @@ ru: цитрат натрия, натрия цитрат
 sk: Nátrium citrát
 sl: natrijev citrat
 sv: natriumcitrat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Sodium
+< en: Sodium
 en: sodium gluconate
 bg: Натриев глюконат
 cs: glukonan sodný
@@ -5251,8 +5521,10 @@ ro: gluconat de sodiu
 sk: glukónan sodný
 sl: natrijev glukonat
 sv: natriumglukonat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Sodium
+< en: Sodium
 en: sodium lactate
 bg: Натриев лактат
 cs: mléčnan sodný
@@ -5275,8 +5547,10 @@ ro: lactat de sodiu
 sk: mliečnan sodný
 sl: natrijev laktat
 sv: natriumlaktat
+vegan:en: maybe
+vegetarian:en: yes
 
-< en:Sodium
+< en: Sodium
 en: sodium hydroxide
 bg: Натриев хидроксид
 cs: hydroxid sodný
@@ -5299,14 +5573,18 @@ ro: hidroxid de sodiu
 sk: hydroxid sodný
 sl: natrijev hidroksid
 sv: natriumhydroxid
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Sodium
+< en: Sodium
 en: sodium phosphate
 de: Natriumphosphat, Natriumphosphate
-fr: phosphate de sodium
+fr: phosphate de sodium, orthophosphate de sodium
 it: fosfato di sodio, sodio fosfato
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Sodium
+< en: Sodium
 en: sodium salts of orthophosphoric acid
 bg: Натриеви соли на ортофосфорната киселина
 cs: sodné soli kyseliny fosforečné
@@ -5328,8 +5606,10 @@ ro: săruri de sodiu ale acidului ortofosforic
 sk: sodné soli kyseliny ortofosforečnej
 sl: natrijeve soli ortofosforne kisline
 sv: natriumsalter av ortofosforsyra
+vegan:en: yes
+vegetarian:en: yes
 
-< en:mineral
+< en: mineral
 en: Boron
 bg: Бор
 cs: Bor
@@ -5351,8 +5631,10 @@ ro: Bor
 sk: Bór
 sl: Bor
 sv: Bor
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Boron
+< en: Boron
 en: sodium borate
 bg: Натриев борат
 cs: boritan sodný
@@ -5374,8 +5656,10 @@ ro: borat de sodiu
 sk: tetraboritan sodný
 sl: natrijev borat
 sv: natriumborat
+vegan:en: yes
+vegetarian:en: yes
 
-< en:Boron
+< en: Boron
 en: boric acid
 bg: Борна киселина
 cs: kyselina boritá
@@ -5397,6 +5681,8 @@ ro: acid boric
 sk: kyselina boritá
 sl: borova kislina
 sv: borsyra
+vegan:en: yes
+vegetarian:en: yes
 
 
 

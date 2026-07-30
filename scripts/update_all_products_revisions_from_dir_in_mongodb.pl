@@ -23,7 +23,9 @@
 use Modern::Perl '2017';
 use utf8;
 
-use Storable qw(lock_store lock_nstore lock_retrieve);
+#11872 Use PO Storable
+use ProductOpener::Store qw/retrieve_object/;
+use ProductOpener::Products qw/product_id_from_path product_iter/;
 use Encode;
 use MongoDB;
 
@@ -40,70 +42,25 @@ if (not defined $start_dir) {
 	exit();
 }
 
-sub retrieve {
-	my $file = shift @_;
-	# If the file does not exist, return undef.
-	if (!-e $file) {
-		return;
-	}
-	my $return = undef;
-	eval {$return = lock_retrieve($file);};
-
-	return $return;
-}
-
 my @products = ();
-
-sub get_path_from_code($) {
-
-	my $code = shift;
-	# Require at least 4 digits (some stores use very short internal barcodes, they are likely to be conflicting)
-	if ($code !~ /^\d{4,24}$/) {
-
-		return "invalid";
-	}
-
-	my $path = $code;
-	if ($code =~ /^(...)(...)(...)(.*)$/) {
-		$path = "$1/$2/$3/$4";
-	}
-	return $path;
-}
 
 my $d = 0;
 
-sub find_products($$) {
+sub find_products($) {
 
 	my $dir = shift;
-	my $code = shift;
-
-	my $dh;
-
-	opendir $dh, "$dir" or die "could not open $dir directory: $!\n";
-	foreach my $file (sort readdir($dh)) {
-		chomp($file);
-		#print "file: $file\n";
-		if ($file =~ /^(([0-9]+))\.sto/) {
-			push @products, [$code, $1];
-			$d++;
-			(($d % 1000) == 1) and print "$d products revisions - $code\n";
-			#print "code: $code\n";
-		}
-		else {
-			$file =~ /\./ and next;
-			if (-d "$dir/$file") {
-				find_products("$dir/$file", "$code$file");
-			}
-		}
-		#last if $d > 100;
+	my $next = product_iter($dir, qr/^(([0-9]+))/);
+	while (my $file = $next->()) {
+		push @products, [$file, $1];
+		$d++;
+		(($d % 1000) == 1) and print "$d products revisions - $file\n";
 	}
-	closedir $dh or print "could not close $dir dir: $!\n";
 
 	return;
 }
 
 if (scalar $#products < 0) {
-	find_products($start_dir, '');
+	find_products($start_dir);
 }
 
 my $count = $#products;
@@ -115,11 +72,10 @@ print STDERR "$count products revs to update\n";
 
 foreach my $code_rev_ref (@products) {
 
-	my ($code, $rev) = @$code_rev_ref;
+	my ($path, $rev) = @$code_rev_ref;
+	my $code = product_id_from_path($path);
 
-	my $path = get_path_from_code($code);
-
-	my $product_ref = retrieve("$start_dir/$path/$rev.sto") or print "not defined $start_dir/$path/$rev.sto\n";
+	my $product_ref = retrieve_object("$start_dir/$path/$rev") or print "not defined $start_dir/$path/$rev\n";
 
 	if ((defined $product_ref)) {
 

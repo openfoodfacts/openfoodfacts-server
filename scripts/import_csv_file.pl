@@ -26,7 +26,7 @@ use utf8;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/$test $tt process_template/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -132,6 +132,14 @@ GetOptions(
 	"only_select_not_existing_images" => \$only_select_not_existing_images,
 	"use_brand_owner_as_org_name" => \$use_brand_owner_as_org_name,
 ) or die("Error in command line arguments:\n\n$usage");
+
+# We need to decode UTF-8 arguments
+if (defined $comment) {
+	$comment = decode("utf-8", $comment);
+}
+if (defined $source_name) {
+	$source_name = decode("utf-8", $source_name);
+}
 
 print STDERR "import_csv_file.pl
 - user_id: $user_id
@@ -253,6 +261,6 @@ if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
 }
 
 if ($stats_ref->{error}) {
-	print STDERR "An error occured: " . $stats_ref->{error}{error} . "\n";
+	print STDERR "An error occurred: " . $stats_ref->{error}{error} . "\n";
 	exit(1);
 }

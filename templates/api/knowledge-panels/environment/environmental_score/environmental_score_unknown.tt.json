@@ -6,7 +6,7 @@
     "title_element": {
         "icon_url": "[% static_subdomain %]/images/attributes/dist/green-score-unknown.svg",
         "title": "[% edq(lang('attribute_environmental_score_unknown_title')) %]",
-        "subtitle": "[% edq(lang('attribute_environmental_score_unknown_description_short')) %]",
+        "subtitle": "[% edq(lang('attribute_environmental_score_unknown_description_short_missing_precise_category')) %]",
         "type": "grade",
         "grade": "unknown",
     },
@@ -21,7 +21,11 @@
         {
             "element_type": "action",
             "action_element": {
+                [% IF product.categories_tags && product.categories_tags.size %]
+                "html": `[% lang("actions_to_compute_environmental_score_unprecise_category") %]`,
+                [% ELSE %]  
                 "html": `[% lang("actions_to_compute_environmental_score") %]`,
+                [% END %]
                 "actions": [
                     "add_categories",
                 ]

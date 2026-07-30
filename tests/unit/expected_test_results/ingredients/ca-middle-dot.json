@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "19590",
@@ -8,12 +9,13 @@
             {
                "ciqual_proxy_food_code" : "19051",
                "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
-               "id" : "en:pasteurised-cow-s-milk",
+               "id" : "en:cow-s-milk",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 43.75,
                "percent_max" : 100,
                "percent_min" : 12.5,
-               "text" : "llet de vaca pasteuritzada",
+               "processing" : "en:pasteurised",
+               "text" : "llet de vaca",
                "vegan" : "no",
                "vegetarian" : "yes"
             },
@@ -58,24 +60,15 @@
          "vegetarian" : "maybe"
       },
       {
-         "id" : "en:anti-caking-agent",
-         "ingredients" : [
-            {
-               "id" : "en:e460",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 25,
-               "percent_max" : 50,
-               "percent_min" : 0,
-               "text" : "cel·lulosa",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "additive_class" : "en:anti-caking-agent",
+         "id" : "en:e460",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "antiaglomerant"
+         "text" : "cel·lulosa",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -84,7 +77,7 @@
       ],
       "en:non-vegan" : [
          "en:mozzarella",
-         "en:pasteurised-cow-s-milk"
+         "en:cow-s-milk"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -92,57 +85,35 @@
       "en:non-vegan",
       "en:maybe-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:mozzarella",
-      "en:dairy",
-      "en:cheese",
-      "en:anti-caking-agent",
-      "en:pasteurised-cow-s-milk",
-      "en:milk",
-      "en:pasteurised-milk",
-      "en:cow-s-milk",
-      "en:salt",
-      "en:lactic-ferments",
-      "en:ferment",
-      "en:microbial-culture",
-      "en:rennet",
-      "en:enzyme",
-      "en:coagulating-enzyme",
-      "en:e460"
-   ],
    "ingredients_lc" : "ca",
-   "ingredients_n" : 7,
+   "ingredients_n" : 6,
    "ingredients_n_tags" : [
-      "7",
+      "6",
       "1-10"
    ],
    "ingredients_original_tags" : [
       "en:mozzarella",
-      "en:anti-caking-agent",
-      "en:pasteurised-cow-s-milk",
+      "en:e460",
+      "en:cow-s-milk",
       "en:salt",
       "en:lactic-ferments",
-      "en:rennet",
-      "en:e460"
+      "en:rennet"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:mozzarella",
       "en:dairy",
       "en:cheese",
-      "en:anti-caking-agent",
-      "en:pasteurised-cow-s-milk",
-      "en:milk",
-      "en:pasteurised-milk",
+      "en:e460",
       "en:cow-s-milk",
+      "en:milk",
       "en:salt",
       "en:lactic-ferments",
       "en:ferment",
       "en:microbial-culture",
       "en:rennet",
       "en:enzyme",
-      "en:coagulating-enzyme",
-      "en:e460"
+      "en:coagulating-enzyme"
    ],
    "ingredients_text" : "Formatge mozzarella (llet de vaca pasteuritzada, sal, ferments làctics i quall) i antiaglomerant (cel·lulosa).",
    "ingredients_with_specified_percent_n" : 0,
@@ -150,27 +121,22 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:anti-caking-agent",
       "en:e460",
       "en:lactic-ferments",
       "en:rennet"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-      "en:anti-caking-agent",
       "en:e460",
       "en:lactic-ferments",
       "en:rennet",
       "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
-   "known_ingredients_n" : 16,
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 6,
    "lc" : "ca",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

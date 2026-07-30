@@ -44,8 +44,8 @@ TXT
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
-use ProductOpener::Store qw/retrieve store/;
-use ProductOpener::Index qw/:all/;
+use ProductOpener::Store qw/object_exists/;
+use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/process_image_crop/;
@@ -54,7 +54,6 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::LoadData qw/load_data/;
-use ProductOpener::Redis qw/push_to_redis_stream/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -169,10 +168,10 @@ while (my $product_ref = $cursor->next) {
 		$to_be_fixed = 1;
 		print STDERR "Not normalized code. code: $code - normalized: $normalized_code\n";
 	}
-	elsif (!-e "$data_root/products/$path/product.sto") {
+	elsif (!object_exists("$data_root/products/$path/product")) {
 		$to_be_fixed = 1;
 		$exists_only_in_db++;
-		print STDERR "Product $productid - data_root/products/$path/product.sto does not exist in the filesystem\n";
+		print STDERR "Product $productid - data_root/products/$path/product does not exist in the filesystem\n";
 	}
 
 	if ($fix and $to_be_fixed) {

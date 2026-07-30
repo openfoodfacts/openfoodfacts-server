@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -44,7 +44,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Display qw/request_param/;
+use ProductOpener::HTTP qw/request_param/;
 use ProductOpener::Tags qw/%taxonomy_fields/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions_with_synonyms/;
@@ -126,8 +126,8 @@ sub taxonomy_suggestions_api ($request_ref) {
 	}
 	# Generate suggestions
 	else {
-		my @suggestions
-			= get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
+		my @suggestions = get_taxonomy_suggestions_with_synonyms($request_ref->{country},
+			$tagtype, $search_lc, $string, $context_ref, $options_ref);
 		$log->debug("taxonomy_suggestions_api", @suggestions) if $log->is_debug();
 		$response_ref->{suggestions} = [map {$_->{tag}} @suggestions];
 		if ($options_ref->{get_synonyms}) {

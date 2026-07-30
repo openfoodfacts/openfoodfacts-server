@@ -22,6 +22,7 @@ use ProductOpener::ForestFootprint qw/load_forest_footprint_data/;
 use ProductOpener::Test qw/compare_csv_file_to_expected_results init_expected_results remove_all_products/;
 use ProductOpener::ImportConvertCarrefourFrance qw/convert_carrefour_france_files/;
 use ProductOpener::LoadData qw/load_data/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 
 use JSON;
 
@@ -41,11 +42,12 @@ if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 	load_forest_footprint_data();
 }
 
-my $input_csv_file = "tests/integration/inputs/import_systemeu/SUYQD_AKENEO_PU_02.csv";
+my $input_csv_file = "$test_dir/inputs/import_systemeu/SUYQD_AKENEO_PU_02.csv";
 my $converted_csv_file = "/tmp/import_systemeu_converted.csv";
 my $exported_csv_file = "/tmp/import_systemeu_export.csv";
 
-my $script_out = `perl scripts/imports/systemeu/convert_systemeu_csv_to_off_csv.pl $input_csv_file $converted_csv_file`;
+my $script_out
+	= `perl $BASE_DIRS{SCRIPTS}/imports/systemeu/convert_systemeu_csv_to_off_csv.pl $input_csv_file $converted_csv_file`;
 
 print STDERR $script_out;
 
