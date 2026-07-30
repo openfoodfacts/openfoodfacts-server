@@ -957,13 +957,20 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => 'svensk jordgubbe, svenska jordgubbar',
 		}
 
-	]
-		# Recipes with ingredients by weight and volume
+	],
+	# Recipes with ingredients by weight and volume
+	[
+		'en-ingredients-with-a-specific-density',
+		{
+			lc => 'en',
+			ingredients_text => 'cooking oil 25 fl oz, milk 1dl, 5cl granulated sugar, water 1l, apple juice 20ml',
+		}
+	],
 	[
 		'fr-recipes-with-ingredients-by-weight-and-volume',
 		{
 			lc => 'fr',
-			ingredients_text => '50 g de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, une pincée de sel',
+			ingredients_text => '5 tasses de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel',
 		}
 	]
 );
