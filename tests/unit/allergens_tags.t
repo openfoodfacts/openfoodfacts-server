@@ -11,6 +11,7 @@ use Log::Any::Adapter 'TAP';
 #use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Ingredients qw/detect_allergens_from_text extract_ingredients_from_text/;
 use ProductOpener::Products qw/compute_languages/;
 
@@ -229,8 +230,8 @@ my @tests = (
 			allergens => "gluten, monkfish",
 			traces => "white lupin, strange ingredient, grey shrimp",
 		},
-		['en:eggs', 'en:gluten', 'en:milk', 'en:fish'],
-		['en:crustaceans', 'en:strange-ingredient', "en:lupin"],
+		['en:eggs', 'en:fish', 'en:gluten', 'en:milk'],
+		['en:crustaceans', "en:lupin", 'en:strange ingredient',],
 	],
 
 );
@@ -242,6 +243,15 @@ foreach my $test_ref (@tests) {
 	my $expected_traces_tags = $test_ref->[2];
 
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
+
+	# If we have "allergens" or "traces" values, write them to the corresponding tags
+	# traces need to be first, as allergens might add traces
+	foreach my $field ("traces", "allergens") {
+		my $value = $product_ref->{$field};
+		if (defined $value) {
+			set_field_input_tags_for_source($product_ref, $product_ref->{lc}, $field, "packaging", $value);
+		}
+	}
 
 	compute_languages($product_ref);
 	extract_ingredients_from_text($product_ref);

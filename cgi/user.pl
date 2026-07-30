@@ -377,7 +377,7 @@ if ($action eq 'display') {
 	{
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
-		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
+		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref) // '');
 		$template_data_ref->{teams_flag}
 			= not((defined $server_options{private_products}) and ($server_options{private_products}));
 	}

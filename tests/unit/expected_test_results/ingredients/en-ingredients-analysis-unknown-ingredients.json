@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "19051",
@@ -13,7 +14,7 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:some-unknown-ingredient",
+         "id" : "en:some unknown ingredient",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 21.875,
          "percent_max" : 50,
@@ -21,7 +22,7 @@
          "text" : "some unknown ingredient"
       },
       {
-         "id" : "en:another-unknown-ingredient",
+         "id" : "en:another unknown ingredient",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 10.9375,
          "percent_max" : 33.3333333333333,
@@ -90,16 +91,16 @@
          "en:milk"
       ],
       "en:palm-oil-content-unknown" : [
-         "en:some-unknown-ingredient",
-         "en:another-unknown-ingredient"
+         "en:some unknown ingredient",
+         "en:another unknown ingredient"
       ],
       "en:vegan-status-unknown" : [
-         "en:some-unknown-ingredient",
-         "en:another-unknown-ingredient"
+         "en:some unknown ingredient",
+         "en:another unknown ingredient"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:some-unknown-ingredient",
-         "en:another-unknown-ingredient"
+         "en:some unknown ingredient",
+         "en:another unknown ingredient"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -115,8 +116,8 @@
    ],
    "ingredients_original_tags" : [
       "en:milk",
-      "en:some-unknown-ingredient",
-      "en:another-unknown-ingredient",
+      "en:some unknown ingredient",
+      "en:another unknown ingredient",
       "en:salt",
       "en:sugar",
       "en:pepper",
@@ -127,8 +128,8 @@
    "ingredients_tags" : [
       "en:milk",
       "en:dairy",
-      "en:some-unknown-ingredient",
-      "en:another-unknown-ingredient",
+      "en:some unknown ingredient",
+      "en:another unknown ingredient",
       "en:salt",
       "en:sugar",
       "en:added-sugar",
@@ -145,20 +146,23 @@
    "ingredients_with_unspecified_percent_n" : 8,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:another-unknown-ingredient",
-      "en:some-unknown-ingredient",
+      "en:another unknown ingredient",
+      "en:some unknown ingredient",
       "en:spice"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-      "en:another-unknown-ingredient",
+      "en:another unknown ingredient",
       "en:pepper",
       "en:salt",
-      "en:some-unknown-ingredient",
+      "en:some unknown ingredient",
       "en:spice"
    ],
    "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 6,
    "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 2
 }

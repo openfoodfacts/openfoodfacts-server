@@ -9,7 +9,7 @@ use Log::Any::Adapter 'TAP';
 use JSON;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::ProductsTags qw/compute_field_tags/;
 use ProductOpener::Ingredients qw/extract_ingredients_from_text/;
 use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
 
@@ -924,6 +924,40 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "haricots blancs demi-secs, garden peas medium, carottes parisiennes",
 		}
 	],
+	# JA check usage of “●” as separator
+	# https://github.com/openfoodfacts/openfoodfacts-server/pull/13691
+	[
+		'ja-black-circle-separator',
+		{
+			lc => 'ja',
+			ingredients_text => '小麦粉●砂糖●植物油脂●食塩●香料●乳化剤',
+		},
+	],
+	# origins adjectives
+	[
+		'fr-origins-adjectives',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				'Tomates italiennes, fraises bretonnes, pommes normandes, huile d’olive italienne, huile d’olive grecque, fromage anglais',
+		}
+	],
+	[
+		'fr-origins-adjectives-false-positives',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				'Crème anglaise, sauce anglaise, pain suédois (farine, sel), maquereaux espagnols, maquereau espagnol',
+		}
+	],
+	[
+		'sv-origins-adjectives',
+		{
+			lc => 'sv',
+			ingredients_text => 'svensk jordgubbe, svenska jordgubbar',
+		}
+
+	]
 );
 
 foreach my $test_ref (@tests) {
@@ -939,6 +973,9 @@ foreach my $test_ref (@tests) {
 	}
 
 	extract_ingredients_from_text($product_ref);
+
+	# Note: extract_ingredients_from_text will create fields allergens/traces_from_ingredients
+	# Those are kept in the unit tests, but in real processing, they are then removed by detect_allergens_from_text
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

@@ -2,12 +2,12 @@
    "api_call" : {
       "body" : null,
       "content-type" : null,
+      "method" : "GET",
       "parameters" : {
          "cc" : "fr",
          "string" : "bac-tri",
          "tagtype" : "packaging_recycling"
       },
-      "method" : "GET",
       "path" : "/api/v3/taxonomy_suggestions"
    }
 }

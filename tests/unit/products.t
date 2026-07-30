@@ -7,10 +7,15 @@ use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 $Data::Dumper::Sortkeys = 1;
+$Data::Dumper::Indent = 1;
+
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # code normalization
 is(normalize_code('036000291452'), '0036000291452', 'should add leading 0 to valid UPC12');
@@ -338,5 +343,29 @@ is(is_valid_code('123'), '', '3 digit code');
 is(is_valid_code('00000123'), '', '3 digit code with leading 0s');
 is(is_valid_code('1234567890123456789012345678901234567890123456789012345678901234567890'), '', 'too long code');
 is(is_valid_code(undef), '', 'undefined code');
+
+my @tests = (
+	[
+		'compute_completeness_and_missing_tags',
+		{
+			brands => 'Carrefour',
+			brands_tags => ['xx:carrefour'],
+			product_name => 'Test Product',
+			categories_tags => ['en:beverages', 'en:carbonated-drinks'],
+		},
+	],
+);
+
+foreach my $test_ref (@tests) {
+
+	my $testid = $test_ref->[0];
+	my $product_ref = $test_ref->[1];
+
+	# Run the test
+
+	compute_completeness_and_missing_tags($product_ref, {}, {});
+
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
 
 done_testing();

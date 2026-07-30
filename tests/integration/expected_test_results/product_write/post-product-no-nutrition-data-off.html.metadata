@@ -1,20 +1,20 @@
 {
    "api_call" : {
-      "method" : "POST",
-      "parameters" : {},
-      "path" : "/cgi/product_multilingual.pl",
-      "content-type" : "application/x-www-form-urlencoded",
       "body" : {
-         "user_id" : "tests",
+         "action" : "process",
+         "code" : "1234567890012",
+         "labels" : "Fair Trade",
+         "lang" : "en",
          "no_nutrition_data_displayed" : 1,
+         "password" : "testtest",
+         "product_name_en" : "English product name updated",
          "product_name_fr" : "Nom du produit en franÃ§ais mis Ã  jour",
          "type" : "edit",
-         "password" : "testtest",
-         "labels" : "Fair Trade",
-         "code" : "1234567890012",
-         "lang" : "en",
-         "action" : "process",
-         "product_name_en" : "English product name updated"
-      }
+         "user_id" : "tests"
+      },
+      "content-type" : "application/x-www-form-urlencoded",
+      "method" : "POST",
+      "parameters" : {},
+      "path" : "/cgi/product_multilingual.pl"
    }
 }

@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:white-beans",
@@ -57,10 +58,10 @@
    "ingredients_tags" : [
       "en:white-beans",
       "en:vegetable",
+      "en:pod-and-seed-vegetable",
       "en:legume",
       "en:pulse",
       "en:large-garden-peas",
-      "en:pod-and-seed-vegetable",
       "en:pea",
       "en:green-peas",
       "en:garden-peas",
@@ -84,5 +85,8 @@
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

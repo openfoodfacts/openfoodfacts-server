@@ -1,14 +1,24 @@
 {
    "api_call" : {
-      "method" : "PATCH",
       "body" : {
          "fields" : "updated",
          "product" : {
-            "brands_tags" : [
-               "Some brand"
+            "allergens_tags" : [
+               "en:milk",
+               "en:eggs",
+               "en:peanuts",
+               "en:tree-nuts",
+               "en:fish",
+               "en:shellfish",
+               "en:wheat",
+               "en:soy",
+               "en:mango",
+               "kiwi",
+               "Unrecognized Allergen"
             ],
-            "unknown_tags" : [
-               "some value"
+            "brands_tags" : [
+               "Some brand",
+               "Aldi"
             ],
             "categories_tags" : [
                "coffee"
@@ -19,11 +29,18 @@
                "vegan",
                "Something unrecognized"
             ],
-            "stores_tags" : "comma,separated,list"
+            "stores_tags" : "comma,separated,list",
+            "traces_tags" : [
+               "en:wheat"
+            ],
+            "unknown_tags" : [
+               "some value"
+            ]
          }
       },
       "content-type" : "application/json; charset=utf-8",
-      "path" : "/api/v3/product/1234567890100",
-      "parameters" : {}
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/1234567890100"
    }
 }

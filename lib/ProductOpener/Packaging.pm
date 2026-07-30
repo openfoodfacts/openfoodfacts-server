@@ -65,6 +65,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Store qw/get_fileid get_string_id_for_lang retrieve_config/;
 use ProductOpener::API qw/add_warning/;
 use ProductOpener::Numbers qw/convert_string_to_number/;

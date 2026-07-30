@@ -328,6 +328,7 @@
       border-color: #1e7e34 !important;
   }
 </style>
+<!-- Open Food Facts Days start -->
 [% ELSIF "off_days_2025" == "off_days_2025_deactivated" %]
 <section id="donation-banner-top" class="row" style="position:relative">
   [% IF lc == "fr" %]
@@ -353,13 +354,14 @@
        height="477" class="show-for-small-only"/>
   </a>
   [% END %]
+<!-- Open Food Facts Days end -->
 [% ELSE %]
-
+<!-- Donation banner TOP start -->
 <section id="donation-banner-top" class="donation-banner row">
 
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
-      <p>[% lang("donation_hook_2024") %]</p>
+      <p>[% lang("donation_hook_2026") %]</p>
     </div>
     <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
   </div>
@@ -372,25 +374,25 @@
           src="https://world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">[% f_lang("f_donation_title_year", { year => "2026" } ) %]</h3>
+        <h3 class="donation-banner__main-title">[% lang("donation_title_2026") %]</h3>
       </div>
       <div style="padding:1rem;">
-        <p>[% lang("donation_list_2024_main") %]</p>
+        <p>[% lang("donation_list_2026_main") %]</p>
         <ul>
           <li>
-            [% lang("donation_list_2024_first") %]
+            [% lang("donation_list_2026_first") %]
             <ul>
-              <li>[% lang("donation_list_2024_first_sub") %]</li>
+              <li>[% lang("donation_list_2026_first_sub") %]</li>
             </ul>
           </li>
           <li>
-            <p>[% lang("donation_list_2024_second") %]</p>
+            <p>[% lang("donation_list_2026_second") %]</p>
           </li>
           <li>
-            <p>[% lang("donation_list_2024_third") %]</p>
+            <p>[% lang("donation_list_2026_third") %]</p>
           </li>
           <li>
-            <p>[% lang("donation_list_2024_fourth") %]</p>
+            <p>[% lang("donation_list_2026_fourth") %]</p>
           </li>
         </ul>
       </div>
@@ -401,13 +403,13 @@
           [% IF cc == "fr" %]
           (déductible à 66 % de vos impôts: ex. un don de 20€ vous reviendra à 6,80€)
           [% ELSE %]
-          [% lang("donation_financial_2024_text") %]
+          [% lang("donation_financial_2026_text") %]
           [% END %]
         </p>
       </div>
       <div class="donation-banner__actions-section__donate-button">
-        <a href="[% IF lc == "fr" %]https://open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts[% ELSE %][% link %][% END %]?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>[% lang("donation_button_2024_text") %]</button>
+        <a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
+          <button>[% lang("donation_button_2026_text") %]</button>
         </a>
       </div>
     </div>
@@ -458,16 +460,16 @@
 </script>
 
 [% END %]
-
-<!-- Donation banner @ footer -->
+<!-- Donation banner TOP END -->
+<!-- Donation banner @ footer start-->
 [% banner_footer = BLOCK %]
 
 <section class="donation-banner-footer row">
   <div class="donation-banner-footer__left-aside">
     <div class="donation-banner-footer__hook-section">
-      <p>[% lang("donation_hook_2024") %]</p>
+      <p>[% lang("donation_hook_2026") %]</p>
     </div>
-    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="group photo donation 2024" />
+    <img src="/images/misc/donation-banners/donation-banner-group-photo.png" alt="The Open Food Facts community during the Open Food Facts Days" />
   </div>
   <div>
     <div>
@@ -478,36 +480,36 @@
           src="https://world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
           alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">[% f_lang("f_donation_title_year", { year => "2026" } ) %]</h3>
+        <h3 class="donation-banner-footer__main-title">[% lang("donation_title_2026") %]</h3>
       </div>
-      <p>[% lang("donation_list_2024_main") %]</p>
+      <p>[% lang("donation_list_2026_main") %]</p>
       <ul>
         <li>
-          [% lang("donation_list_2024_first") %]
+          [% lang("donation_list_2026_first") %]
           <ul>
-            <li>[% lang("donation_list_2024_first_sub") %]</li>
+            <li>[% lang("donation_list_2026_first_sub") %]</li>
           </ul>
         </li>
         <li>
-          <p>[% lang("donation_list_2024_second") %]</p>
+          <p>[% lang("donation_list_2026_second") %]</p>
         </li>
         <li>
-          <p>[% lang("donation_list_2024_third") %]</p>
+          <p>[% lang("donation_list_2026_third") %]</p>
         </li>
         <li>
-          <p>[% lang("donation_list_2024_fourth") %]</p>
+          <p>[% lang("donation_list_2026_fourth") %]</p>
         </li>
       </ul>
     </div>
     <div class="donation-banner-footer__actions-section">
       <div class="donation-banner-footer__actions-section__financial">
         <p>
-          [% lang("donation_financial_2024_text") %]
+          [% lang("donation_financial_2026_text") %]
         </p>
       </div>
       <div class="donation-banner-footer__actions-section__donate-button">
-        <a href="[% IF lc == "fr" %]https://open-food-facts.assoconnect.com/collect/description/476750-c-faire-un-don-a-open-food-facts[% ELSE %][% link %][% END %]?utm_source=off&utf_medium=web&utm_campaign=donate-2024-a&utm_term=en-text-button">
-          <button>[% lang("donation_button_2024_text") %]</button>
+        <a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2026-a&utm_term=en-text-button">
+          <button>[% lang("donation_button_2026_text") %]</button>
         </a>
       </div>
     </div>
@@ -515,5 +517,5 @@
 </section>
 
 [% END %]
-
+<!-- Donation banner @ footer end-->
 <!-- end templates/[% component.name %] -->
