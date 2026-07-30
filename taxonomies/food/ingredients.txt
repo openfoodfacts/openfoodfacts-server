@@ -65888,13 +65888,9 @@ wikidata:en: Q22810770
 en: white walnut
 comment:en: butternut as a name is removed as it might clash with butternut squash
 description:en: Butternuts (Juglans cinerea), also called white walnuts, are a species of walnut tree native to eastern North America. The nutmeats are eaten and used in baking.
-usda_ndb_proxy_code:en: 12084
-usda_ndb_proxy_name:en: Nuts, butternuts, dried
-
-< en: white walnut
-en: dried white walnut
 usda_ndb_code:en: 12084
 usda_ndb_name:en: Nuts, butternuts, dried
+usda_ndb_process:en: en:dried
 
 ###################################################################################################
 #
@@ -65934,45 +65930,21 @@ sl: indijski oreščki
 sv: cashewnötter, cashewnöt
 tr: kaju
 zh: 腰果
-ciqual_proxy_food_code:en: 15055
-ciqual_proxy_food_name:en: Cashew nut, dry-grilled, unsalted
+ciqual_food_3_code:en: 15055
+ciqual_food_3_name:en: Cashew nut, dry-grilled, unsalted
+ciqual_food_3_process:en: en:dry-grilled, en:unsalted
+ciqual_food_2_code:en: 15019
+ciqual_food_2_name:en: Cashew nut, grilled, salted
+ciqual_food_2_process:en: en:grilled, en:salted
+ciqual_food_code:en: 15054
+ciqual_food_name:en: Cashew nut, grilled, unsalted
 ifct_food_code:en: H005
 ifct_food_name:en: Cashew nut
-usda_ndb_proxy_code:en: 12087
-usda_ndb_proxy_name:en: Nuts, cashew nuts, raw
+usda_ndb_code:en: 12087
+usda_ndb_name:en: Nuts, cashew nuts, raw
 wikidata:en: Q28788216
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
-
-< en: cashew nuts
-en: raw cashew nuts
-usda_ndb_code:en: 12087
-usda_ndb_name:en: Nuts, cashew nuts, raw
-
-< en: cashew nuts
-en: grilled and salted cashew nut
-it: anacardi grigliati e salati
-ciqual_food_code:en: 15019
-ciqual_food_name:en: Cashew nut, grilled, salted
-
-< en: cashew nuts
-en: grilled and unsalted cashew nut
-it: anacardi grigliati e non salati
-ciqual_food_code:en: 15054
-ciqual_food_name:en: Cashew nut, grilled, unsalted
-
-< en: cashew nuts
-en: dry-grilled and unsalted cashew nut
-ciqual_food_code:en: 15055
-ciqual_food_name:en: Cashew nut, dry-grilled, unsalted
-
-< en: cashew nuts
-en: raw cashews
-de: Rohe Cashewkerne
-es: cayú entero​, nuez de la India entera, anacardo entero, anacardos enteros, merey entero, cajú entero, castaña de cajú entera, castañas de cajú enteras, marañón entero, cajuil entero, caguil entero
-fr: Noix de cajou crues
-hr: indijski oraščić sirovi
-it: anacardi crudi
 
 < en: cashew nuts
 en: cashew nut paste
