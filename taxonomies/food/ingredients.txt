@@ -68377,6 +68377,7 @@ ciqual_food_name:en: Sesame seed
 ciqual_food_name:fr: Sésame, graine
 usda_ndb_proxy_code:en: 12201
 usda_ndb_proxy_name:en: Seeds, sesame seed kernels, dried (decorticated)
+usda_ndb_proxy_process:en: en:dried, en:decorticated
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-sesame
 # 1632 products in 11 languages @2018-10-05
 
@@ -68398,13 +68399,9 @@ pl: sezam łuszczony, sezamu łuszczonego
 ciqual_food_code:en: 15035
 ciqual_food_name:en: Sesame seed, husked
 ciqual_food_name:fr: Sésame, graine décortiquée
-usda_ndb_proxy_code:en: 12201
-usda_ndb_proxy_name:en: Seeds, sesame seed kernels, dried (decorticated)
-
-< en: husked sesame seed
-en: decorticated dried sesame seed kernel
 usda_ndb_code:en: 12201
 usda_ndb_name:en: Seeds, sesame seed kernels, dried (decorticated)
+usda_ndb_process:en: en:dried, en:decorticated
 
 < en: Husked sesame seed
 en: Husked and grilled sesame seed
@@ -68415,38 +68412,32 @@ pl: prażone ziarno sezamu
 ciqual_food_code:en: 15038
 ciqual_food_name:en: Sesame seed, grilled, husked
 ciqual_food_name:fr: Sésame, grillé, graine décortiquée
-
-< en: sesame seeds
-en: organic sesame seeds
-de: biologische Sesamsamen
-es: granos de sésamo orgánico
-fi: luomu seesaminsiemenet
-fr: graines de sesame bio
-hr: organske sjemenke sezama
-it: semi du sesamo bio
-nl: biologisch sesamzaad
-# ingredient/nl:biologisch-sesamzaad has 5 products @2019-05-24
+ciqual_food_process:en: en:grilled, en:husked
 
 < en: sesame
 fr: sésame complet
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sésame-complet
 # 35 products in 4 languages @2018-10-05
 
+< en: flour
 < en: sesame
 en: high-fat sesame flour
 usda_ndb_code:en: 12170
 usda_ndb_name:en: Seeds, sesame flour, high-fat
 
+< en: flour
 < en: sesame
 en: low-fat sesame flour
 usda_ndb_code:en: 12033
 usda_ndb_name:en: Seeds, sesame flour, low-fat
 
+< en: flour
 < en: sesame
 en: partially defatted sesame flour
 usda_ndb_code:en: 12032
 usda_ndb_name:en: Seeds, sesame flour, partially defatted
 
+< en: flour
 < en: sesame
 en: partially defatted sesame meal
 usda_ndb_code:en: 12034
