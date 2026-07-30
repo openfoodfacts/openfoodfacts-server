@@ -65437,21 +65437,14 @@ allergens:en: en:nuts
 
 < en: nut
 en: acorn
-usda_ndb_proxy_code:en: 12058
-usda_ndb_proxy_name:en: Nuts, acorns, raw
-
-< en: acorn
-en: dried acorn
-usda_ndb_code:en: 12059
-usda_ndb_name:en: Nuts, acorns, dried
-
-< en: acorn
-en: raw acorn
+usda_ndb_2_code:en: 12059
+usda_ndb_2_name:en: Nuts, acorns, dried
+usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 12058
 usda_ndb_name:en: Nuts, acorns, raw
 
 < en: acorn
-# < en:flour
+< en:flour
 en: full fat acorn flour
 usda_ndb_code:en: 12060
 usda_ndb_name:en: Nuts, acorn flour, full fat
@@ -65795,6 +65788,7 @@ ciqual_food_name:en: Almond paste or marzipan, prepacked
 ciqual_food_name:fr: Pâte d'amande, préemballée
 
 < en: almond
+< en: compound
 fr: amandes caramélisées
 de: karamellisierte Mandeln
 es: almendras caramelizadas
@@ -65827,11 +65821,6 @@ it: preparazione di mandorle e pistacchi
 < en: nut
 en: beechnut, beeechnuts
 description:en: Beechnuts are the small, triangular nuts produced by beech trees (genus Fagus), particularly the American beech (Fagus grandifolia) and European beech (Fagus sylvatica). They're edible for humans in moderate amounts, but raw beechnuts contain a compound called fagin (sometimes also referenced as related tannins) that can cause mild digestive upset or headaches if eaten in large quantities. Roasting them reduces this and improves flavor.
-usda_ndb_proxy_code:en: 12077
-usda_ndb_proxy_name:en: Nuts, beechnuts, dried
-
-< en: beechnut
-en: dried beechnut
 usda_ndb_code:en: 12077
 usda_ndb_name:en: Nuts, beechnuts, dried
 
