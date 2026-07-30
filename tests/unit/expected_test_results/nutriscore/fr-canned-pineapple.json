@@ -8,31 +8,51 @@
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruit-based-foods-and-beverages",
+      "en:fruits-and-vegetables-based-foods",
       "en:canned-foods",
+      "en:fruit-based-foods",
       "en:canned-plant-based-foods",
+      "en:fruits",
+      "en:tropical-fruits",
       "en:canned-fruits",
+      "en:pineapples",
       "en:canned-pineapples"
    ],
    "categories_lc" : "fr",
-   "categories_properties" : {},
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "13717"
+   },
    "categories_properties_tags" : [
       "all-products",
       "categories-known",
       "agribalyse-food-code-unknown",
-      "agribalyse-proxy-food-code-unknown",
+      "agribalyse-proxy-food-code-13717",
+      "agribalyse-proxy-food-code-known",
       "ciqual-food-code-unknown",
-      "agribalyse-unknown"
+      "agribalyse-known",
+      "agribalyse-13717"
    ],
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruit-based-foods-and-beverages",
+      "en:fruits-and-vegetables-based-foods",
       "en:canned-foods",
+      "en:fruit-based-foods",
       "en:canned-plant-based-foods",
+      "en:fruits",
+      "en:tropical-fruits",
       "en:canned-fruits",
+      "en:pineapples",
       "en:canned-pineapples"
    ],
    "estimate_ingredients_percent_service" : "product_opener",
-   "food_groups_tags" : [],
+   "food_groups" : "en:fruits",
+   "food_groups_tags" : [
+      "en:fruits-and-vegetables",
+      "en:fruits"
+   ],
    "improvements_data" : {
       "en:better-nutri-score-with-less-sugars" : {
          "current_nutriscore_grade" : "b",
@@ -1160,15 +1180,15 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 10,
    "other_nutritional_substances_tags" : [],
-   "pnns_groups_1" : "unknown",
+   "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [
-      "unknown",
-      "missing-association"
+      "fruits-and-vegetables",
+      "known"
    ],
-   "pnns_groups_2" : "unknown",
+   "pnns_groups_2" : "Fruits",
    "pnns_groups_2_tags" : [
-      "unknown",
-      "missing-association"
+      "fruits",
+      "known"
    ],
    "tags_sources" : {
       "allergens" : {

@@ -25,39 +25,21 @@
       "text" : "vand"
    },
    {
-      "id" : "en:gelling-agent",
-      "ingredients" : [
-         {
-            "id" : "en:e440a",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 6.45833333333334,
-            "percent_max" : 22.5,
-            "percent_min" : 0,
-            "text" : "e440"
-         }
-      ],
+      "additive_class" : "en:gelling-agent",
+      "id" : "en:e440a",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 6.45833333333334,
       "percent_max" : 22.5,
       "percent_min" : 0,
-      "text" : "geleringsmiddel"
+      "text" : "e440"
    },
    {
-      "id" : "en:preservative",
-      "ingredients" : [
-         {
-            "id" : "en:e202",
-            "is_in_taxonomy" : 1,
-            "percent_estimate" : 6.45833333333334,
-            "percent_max" : 15,
-            "percent_min" : 0,
-            "text" : "e202"
-         }
-      ],
+      "additive_class" : "en:preservative",
+      "id" : "en:e202",
       "is_in_taxonomy" : 1,
       "percent_estimate" : 6.45833333333334,
       "percent_max" : 15.0,
       "percent_min" : 0,
-      "text" : "konserveringsmiddel"
+      "text" : "e202"
    }
 ]
