@@ -19,7 +19,6 @@
 # vegetarian:en     can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
 # from_palm_oil:en  can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
 
-
 # density_g_per_ml:en:  Used to compute weight for ingredients indicated by volume (e.g. 5cl sunflower oil, 1L milk)
 # unless otherwise noted, densities listed come from https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
 # only densities significantly different from 1 are included, as there is often a lot of variation in densities in different sources
@@ -15294,7 +15293,6 @@ tr: Bitkisel yağ
 uk: Рослинні жири й олії
 vi: Dầu thực vật
 zh: 植物油
-# ingredient/vegetable oil has 103341 products @2019-07-10
 density_g_per_ml:en: 0.92
 # roa-rup:Untulemnu
 # sco:Vegetable ile
@@ -38672,8 +38670,6 @@ ro: Suc de fructe
 ru: Фруктовый сок
 sv: Fruktjuice
 uk: Фруктовий сік
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits
-# 1687 products in 6 languages @2018-10-04
 density_g_per_ml:en: 1.06
 vegan:en: yes
 vegetarian:en: yes
