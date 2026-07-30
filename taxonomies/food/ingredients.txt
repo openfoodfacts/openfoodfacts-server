@@ -66260,6 +66260,10 @@ zh: 榛子, 榛仁
 # zh-hans:榛子
 # zh-hant:榛子
 # zh-hk:榛子
+ciqual_food_2_code:en: 15033
+ciqual_food_2_name:en: Hazelnut, grilled
+ciqual_food_3_name:fr: Noisette grillée
+ciqual_food_3_process:en: en:grilled
 ciqual_food_code:en: 15004
 ciqual_food_name:en: Hazelnut
 ciqual_food_name:fr: Noisette
@@ -66267,6 +66271,9 @@ description:en: The HAZELNUT is the nut of the hazel and therefore includes any 
 ecobalyse:en: hazelnut-unshelled-non-eu
 ecobalyse_origins_en_european_union:en: hazelnut-unshelled-eu
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/hazelnuts
+usda_ndb_2_code:en: 12121
+usda_ndb_2_name:en: Nuts, hazelnuts or filberts, blanched
+usda_ndb_2_process:en: en:blanched
 usda_ndb_code:en: 12120
 usda_ndb_name:en: Nuts, hazelnuts or filberts
 wikidata:en: Q578307
@@ -66278,11 +66285,6 @@ en: Piedmont hazelnut, PGI Piedmont hazelnut
 fr: noisette du Piémont, noisettes du Piémont
 it: nocciola Piemonte
 protected_name_type:en: en:pgi
-
-< en: hazelnut
-en: blanched hazelnut
-usda_ndb_code:en: 12121
-usda_ndb_name:en: Nuts, hazelnuts or filberts, blanched
 
 < en: Piedmont hazelnut
 < en: ground hazelnuts
@@ -66301,24 +66303,6 @@ fr: noisettes avec peau
 
 < fr: noisettes avec peau
 fr: noisettes en poudre avec peau
-
-#processing:en: en:toasted
-< en: hazelnut
-en: toasted hazelnuts
-it: nocciole tostate
-#ca:avellanes torrades
-#de:geröstete Haselnüsse, Haselnüsse geröstet
-#es:avellanas tostadas
-#fi:paahdettu hasselpähkinä
-#fr:noisettes grillées, noisettes torréfiées
-#it:nocciole tostate
-#pt:avelã torrada, avelâs torradas, avelã tostada, avelâs tostadas
-#nl:gebrande hazelnoot
-#sv:rostade hasselnötter
-ciqual_food_code:en: 15033
-ciqual_food_name:en: Hazelnut, grilled
-ciqual_food_name:fr: Noisette grillée
-# 495 in 10 @2021-09-01
 
 < en: hazelnut
 fr: noisettes décortiquées
@@ -66348,22 +66332,6 @@ pt: avelã inteira torrada, avelâs inteiras torradas, avelã inteira tostada, a
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-entières-torréfiées
 # 15 products in 1 language @2018-10-007
 
-#processing:en: en:chopped
-< en: hazelnut
-en: chopped hazelnuts
-it: nocciole tritate
-#de:Gehackte Haselnüsse
-#es:avellanas troceados
-#fi:pilkottu hasselpähkinä, pilkotut hasselpähkinät
-#fr:noisettes hachées
-#it:nocciole tritate
-#nl:gehakte hazelnoot, gehakte hazelnoten
-# 221 products in 7 @2021-09-01
-
-#<en:chopped hazelnuts
-#en:chopped toasted hazelnuts
-#es:avellana picada y tostadas
-
 < en: chopped hazelnuts
 en: roasted nibbed hazelnuts
 de: geröstete und gehackte Haselnüsse, Haselnüsse geröstet und gehackt
@@ -66374,18 +66342,6 @@ nl: geroosterde gehakte hazelnoten
 pl: siekane i prażone orzeszki laskowe
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fr:noisettes-hachées-grillées
 # 55 products in 3 languages @2018-10-07
-
-#processing:en: en:ground
-< en: hazelnut
-en: ground hazelnuts
-it: nocciole macinate
-#de:gemahlene Haselnüsse, Haselnüsse gemahlen
-#es:avellanas molidas
-#fi:hasselpähkinäjauhe, jauhetut hasselpähkinät
-#fr:noisettes moulues, noisettes broyées
-#it:nocciole macinate
-#nl:gemalen hazelnoten
-# 275 in 17 @2021-09-01
 
 < en: hazelnut
 fr: éclats de noisettes
@@ -66485,11 +66441,6 @@ ru: ядро ореха фундука дробленое
 < en: nut
 en: hickorynut
 description:en: A hickory nut is the edible nut produced by trees in the genus Carya — the same genus that includes pecans. They're native mostly to North America, with a few species in Asia. Encased in a thick, husk-like outer covering that splits open (fully or partially, depending on species) when ripe, revealing a hard shell. Inside that shell is the actual nutmeat. Flavor varies a lot by species — some, like shagbark hickory, are sweet and rich (similar to a pecan, which makes sense given the family connection), while others, like pignut hickory, can be bitter or astringent.
-usda_ndb_proxy_code:en: 12130
-usda_ndb_proxy_name:en: Nuts, hickorynuts, dried
-
-< en: hickorynut
-en: dried hickorynut
 usda_ndb_code:en: 12130
 usda_ndb_name:en: Nuts, hickorynuts, dried
 
