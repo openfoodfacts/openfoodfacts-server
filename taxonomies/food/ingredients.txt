@@ -66537,15 +66537,10 @@ description:fr: La noix de macadamia, ou noix du Queensland est le fruit du noye
 description:it: La Noce macadamia è il frutto dell'albero tropicale chiamato Macadamia o Noce del Queensland
 description:nl: De macadamianoot is een van oorsprong Australische noot van planten uit het geslacht Macadamia.
 description:pt: Macadâmia, noz-macadâmia ou, ainda, noz-de-Queensland, são designações dada à noz conhecida pelo nome comercial de macadâmia, a semente comestível de duas espécies de árvores do género Macadamia
-usda_ndb_proxy_code:en: 12131
-usda_ndb_proxy_name:en: Nuts, macadamia nuts, raw
-wikidata:en: Q11027461
-#ingredient/macadamia-nut 84 in 12 @2021-08-21
-
-< en: macadamia nut
-en: raw macadamia nuts
 usda_ndb_code:en: 12131
 usda_ndb_name:en: Nuts, macadamia nuts, raw
+wikidata:en: Q11027461
+#ingredient/macadamia-nut 84 in 12 @2021-08-21
 
 ###################################################################################################
 #
@@ -66920,13 +66915,9 @@ sv: karamelliserade pekannötter
 < en: nut
 en: pilinut
 description:en: A pili nut (Canarium ovatum) is a tropical tree nut native to the Philippines, particularly grown in the Bicol region. The nut has a rich, buttery flavor and texture, often compared to a cross between an almond and a macadamia nut — but generally considered even richer and more delicate. They're eaten raw, roasted, or candied, and are also used in pastries, pesto-style sauces, and as a snack food. In the Philippines they're a popular treat, especially when sugar-coated.
-usda_ndb_proxy_code:en: 12145
-usda_ndb_proxy_name:en: Nuts, pilinuts, dried
-
-< en: pilinut
-en: dried pilinuts
 usda_ndb_code:en: 12145
 usda_ndb_name:en: Nuts, pilinuts, dried
+usda_ndb_process:en: en:dried
 
 ###################################################################################################
 #
@@ -66970,16 +66961,11 @@ zh: 开心果, 阿月浑子
 ciqual_proxy_food_code:en: 15043
 ciqual_proxy_food_name:en: Pistachio nut, raw
 ecobalyse:en: pistachio-non-eu
-usda_ndb_proxy_code:en: 12151
-usda_ndb_proxy_name:en: Nuts, pistachio nuts, raw
+usda_ndb_code:en: 12151
+usda_ndb_name:en: Nuts, pistachio nuts, raw
 wikidata:en: Q14959225
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pistache
 # 613 products in 9 languages @2018-10-05
-
-< en: pistachio nuts
-en: raw pistachio nuts
-usda_ndb_code:en: 12151
-usda_ndb_name:en: Nuts, pistachio nuts, raw
 
 < en: pistachio nuts
 en: grilled pistachio nut, Dry roasted pistachios
@@ -66990,6 +66976,7 @@ it: pistacchio tostato
 pt: pistacios torrados, pistácios torrados, pistácio torrados, pistáchio torrados, pistáchios torrados, pistache torrados, pistaches torrados, pistacho torrados, pistachos torrados, pistacios torrados
 ciqual_food_code:en: 15044
 ciqual_food_name:en: Pistachio nut, grilled
+ciqual_food_process:en: en:grilled
 
 < en: pistachio nuts
 en: Shelled pistachios
