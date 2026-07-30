@@ -970,7 +970,8 @@ puffed orange and caramelized unknown_fruit4.",
 		'fr-recipes-with-ingredients-by-weight-and-volume',
 		{
 			lc => 'fr',
-			ingredients_text => '5 tasses de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel',
+			ingredients_text =>
+				'5 tasses de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel',
 		}
 	]
 );
