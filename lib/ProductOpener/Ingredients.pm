@@ -343,6 +343,8 @@ my %origins_regexps = ();
 
 sub init_origins_regexps() {
 
+	next if scalar keys %origins_regexps > 0;
+
 	# Create a list of regexps with each synonyms of all ingredients processes
 	%origins_regexps = %{
 		generate_regexps_matching_taxonomy_entries(

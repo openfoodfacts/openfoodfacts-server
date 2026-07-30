@@ -4,18 +4,10 @@
       {
          "additive_class" : "en:emulsifier",
          "id" : "en:e322",
-         "ingredients" : [
-            {
-               "id" : "en:sunflower-lecithin",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 50,
-               "text" : "lécithines de tournesol",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 50,
+         "percent_estimate" : 90,
+         "percent_max" : 100,
+         "percent_min" : 80,
          "text" : "lécithines",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -24,7 +16,9 @@
          "id" : "en:flavouring",
          "is_in_taxonomy" : 1,
          "origins" : "en:european-union",
-         "percent_estimate" : 25,
+         "percent_estimate" : 2.5,
+         "percent_max" : "5",
+         "percent_min" : 0,
          "text" : "arôme",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -35,8 +29,9 @@
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
-         "percent" : 33,
-         "percent_estimate" : 25,
+         "percent_estimate" : 2.5,
+         "percent_max" : "5",
+         "percent_min" : 0,
          "text" : "farine de blé",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -46,7 +41,9 @@
          "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0,
+         "percent_estimate" : 2.5,
+         "percent_max" : "5",
+         "percent_min" : 0,
          "text" : "sucre",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -57,15 +54,17 @@
          "id" : "en:butterfat",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
-         "percent" : 6.5,
-         "percent_estimate" : 0,
-         "text" : "beurre concentré",
+         "percent_estimate" : 2.5,
+         "percent_max" : "5",
+         "percent_min" : 0,
+         "text" : "beurre concentré*",
          "vegan" : "no",
          "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
       "en:maybe-vegetarian" : [
+         "en:e322",
          "en:flavouring"
       ],
       "en:non-vegan" : [
@@ -78,9 +77,9 @@
       "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 6,
+   "ingredients_n" : 5,
    "ingredients_n_tags" : [
-      "6",
+      "5",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -88,10 +87,9 @@
       "en:flavouring",
       "en:wheat-flour",
       "en:sugar",
-      "en:butterfat",
-      "en:sunflower-lecithin"
+      "en:butterfat"
    ],
-   "ingredients_percent_analysis" : -1,
+   "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:e322",
       "en:flavouring",
@@ -107,32 +105,27 @@
       "en:oil-and-fat",
       "en:fat",
       "en:dairy",
-      "en:milkfat",
-      "en:sunflower-lecithin",
-      "en:e322i"
+      "en:milkfat"
    ],
    "ingredients_text" : "émulsifiant : lécithines (tournesol), arôme)(UE), farine de blé 33% (France), sucre, beurre concentré* 6,5% (France)",
-   "ingredients_with_specified_percent_n" : 2,
-   "ingredients_with_specified_percent_sum" : 39.5,
-   "ingredients_with_unspecified_percent_n" : 3,
-   "ingredients_with_unspecified_percent_sum" : 75,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:e322",
-      "en:flavouring",
-      "en:sunflower-lecithin"
+      "en:flavouring"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:butterfat",
       "en:e322",
-      "en:flavouring",
-      "en:sunflower-lecithin"
+      "en:flavouring"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
-   "known_ingredients_n" : 6,
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 5,
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 0

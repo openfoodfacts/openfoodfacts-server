@@ -4,9 +4,9 @@
       {
          "id" : "en:sunflower-lecithin",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 33.5,
-         "percent_max" : 34,
-         "percent_min" : 33,
+         "percent_estimate" : 92.5,
+         "percent_max" : 100,
+         "percent_min" : 85,
          "text" : "auringonkukkalesitiini",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -15,9 +15,9 @@
          "id" : "en:flavouring",
          "is_in_taxonomy" : 1,
          "origins" : "en:european-union",
-         "percent_estimate" : 33.25,
-         "percent_max" : 33.5,
-         "percent_min" : 33,
+         "percent_estimate" : 2.5,
+         "percent_max" : "5",
+         "percent_min" : 0,
          "text" : "aromi",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
@@ -28,10 +28,9 @@
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
-         "percent" : 33,
-         "percent_estimate" : 33,
-         "percent_max" : 33,
-         "percent_min" : 33,
+         "percent_estimate" : 2.5,
+         "percent_max" : "5",
+         "percent_min" : 0,
          "text" : "vehnäjauho",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -41,8 +40,8 @@
          "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.25,
-         "percent_max" : 1,
+         "percent_estimate" : 2.5,
+         "percent_max" : "5",
          "percent_min" : 0,
          "text" : "sokeri",
          "vegan" : "maybe",
@@ -91,10 +90,10 @@
       "en:disaccharide"
    ],
    "ingredients_text" : "emulgointiaine : auringonkukkalesitiini, aromi)(EU), vehnäjauho 33% (Ranska), sokeri",
-   "ingredients_with_specified_percent_n" : 1,
-   "ingredients_with_specified_percent_sum" : 33,
-   "ingredients_with_unspecified_percent_n" : 3,
-   "ingredients_with_unspecified_percent_sum" : 67,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:flavouring",
       "en:sunflower-lecithin"
@@ -108,7 +107,6 @@
    "known_ingredients_n" : 4,
    "lc" : "fi",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 0

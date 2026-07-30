@@ -2,12 +2,19 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "fr:5 tasses de farine",
-         "is_in_taxonomy" : 0,
+         "ciqual_proxy_food_code" : "9435",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:flour",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 58.3333333333333,
          "percent_max" : 100,
          "percent_min" : 16.6666666666667,
-         "text" : "5 tasses de farine"
+         "quantity" : "5 tasses",
+         "quantity_g" : 720,
+         "quantity_ml" : 1200,
+         "text" : "farine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_proxy_food_code" : "31016",
@@ -53,12 +60,16 @@
          "vegetarian" : "maybe"
       },
       {
-         "id" : "fr:2 pincées de poivre",
-         "is_in_taxonomy" : 0,
+         "ciqual_proxy_food_code" : "11015",
+         "id" : "en:pepper",
+         "is_in_taxonomy" : 1,
          "percent_estimate" : 2.60416666666666,
          "percent_max" : 20,
          "percent_min" : 0,
-         "text" : "2 pincées de poivre"
+         "quantity" : "2 pincées",
+         "text" : "poivre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "fr:une pincée de sel",
@@ -77,13 +88,9 @@
          "en:milk"
       ],
       "en:vegan-status-unknown" : [
-         "fr:5 tasses de farine",
-         "fr:2 pincées de poivre",
          "fr:une pincée de sel"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:5 tasses de farine",
-         "fr:2 pincées de poivre",
          "fr:une pincée de sel"
       ]
    },
@@ -99,16 +106,16 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "fr:5 tasses de farine",
+      "en:flour",
       "en:sugar",
       "en:milk",
       "en:oil",
-      "fr:2 pincées de poivre",
+      "en:pepper",
       "fr:une pincée de sel"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "fr:5 tasses de farine",
+      "en:flour",
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide",
@@ -116,7 +123,8 @@
       "en:dairy",
       "en:oil",
       "en:oil-and-fat",
-      "fr:2 pincées de poivre",
+      "en:pepper",
+      "en:seed",
       "fr:une pincée de sel"
    ],
    "ingredients_text" : "5 tasses de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
@@ -126,22 +134,19 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:oil",
-      "fr:2 pincées de poivre",
-      "fr:5 tasses de farine",
       "fr:une pincée de sel"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:oil",
-      "fr:2 pincées de poivre",
-      "fr:5 tasses de farine",
+      "en:pepper",
       "fr:une pincée de sel"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
-   "known_ingredients_n" : 3,
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 5,
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 3
+   "unknown_ingredients_n" : 1
 }

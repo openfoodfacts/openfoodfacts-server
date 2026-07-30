@@ -38,6 +38,7 @@ package ProductOpener::IngredientsStrings;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
+use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries/;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -81,6 +82,8 @@ BEGIN {
 }
 
 use vars @EXPORT_OK;
+
+use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries/;
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 # U+00B7 "·" (Middle Dot). Is a common character in Catalan. To avoid to break ingredients,
@@ -478,27 +481,48 @@ including localized strings like "minimum"
 	sv => "fetthalt",
 );
 
+my %units_regexps = ();
+
+sub init_units_regexps() {
+
+	# Create a list of regexps with each synonyms of all units
+	%units_regexps = %{
+		generate_regexps_matching_taxonomy_entries(
+			"units",
+			"unique_regexp",
+			{
+				match_space_with_dash => 1,
+				include_xx => 1,
+			}
+		)
+	};
+
+	return;
+}
+
+init_units_regexps();
+
 %percent_or_quantity_regexps = ();
 
 sub init_percent_or_quantity_regexps($ingredients_lc) {
 
 	if (not exists $percent_or_quantity_regexps{$ingredients_lc}) {
 
-		my $prepared_with = $prepared_with{$ingredients_lc} || '',
-
-			my $min_regexp = $min_regexp{$ingredients_lc} || '';
-
+		my $prepared_with = $prepared_with{$ingredients_lc} || '';
+		my $min_regexp = $min_regexp{$ingredients_lc} || '';
 		my $max_regexp = $max_regexp{$ingredients_lc} || '';
 
 		my $ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc} || '';
 
 		# Regular expression to find percent or quantities
 		# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
+		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} || '';
+		print STDERR "init_percent_or_quantity_regexps: units_regexp_in_lc for $ingredients_lc = $units_regexp_in_lc\n";
 		$percent_or_quantity_regexps{$ingredients_lc} = '(?:' . "(?:$prepared_with )" . ' )?'   # optional produced with
 			. '(?:>|' . $max_regexp . '|<|' . $min_regexp . '|\s|\.|:)*'    # optional maximum, minimum, and separators
 			. '(?:\d+(?:[,.]\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
 			. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
-			. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
+			. '(' . $units_regexp_in_lc . ')\s*'    # % or unit
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
 			. $ignore_strings_after_percent
 			. '|\s|\)|\]|\}|(?:'

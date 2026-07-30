@@ -4,18 +4,6 @@
       {
          "additive_class" : "en:emulsifier",
          "id" : "en:e322",
-         "ingredients" : [
-            {
-               "id" : "en:sunflower-lecithin",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 100,
-               "percent_max" : 100,
-               "percent_min" : 100,
-               "text" : "lécithines de tournesol",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
          "is_in_taxonomy" : 1,
          "percent_estimate" : 100,
          "percent_max" : 100,
@@ -25,27 +13,31 @@
          "vegetarian" : "maybe"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:e322"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:e322"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 2,
+   "ingredients_n" : 1,
    "ingredients_n_tags" : [
-      "2",
+      "1",
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:e322",
-      "en:sunflower-lecithin"
+      "en:e322"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:e322",
-      "en:sunflower-lecithin",
-      "en:e322i"
+      "en:e322"
    ],
    "ingredients_text" : "émulsifiant : lécithines (tournesol)",
    "ingredients_with_specified_percent_n" : 0,
@@ -53,16 +45,14 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:e322",
-      "en:sunflower-lecithin"
+      "en:e322"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:e322",
-      "en:sunflower-lecithin"
+      "en:e322"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 2,
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
