@@ -2632,9 +2632,9 @@ ok(
 	),
 	'en:fruit content too small citrus jams'
 ) or diag Dumper $product_ref;
-## blackcurrants jellies
+## blackcurrant jellies
 $product_ref = {
-	categories_tags => ["en:blackcurrants-jellies"],
+	categories_tags => ["en:blackcurrant-jellies"],
 	countries_tags => ["en:slovenia",],
 	specific_ingredients => [
 		{
@@ -2650,9 +2650,9 @@ ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	has_tag(
 		$product_ref, 'data_quality',
-		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrants-jellies'
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-blackcurrant-jellies'
 	),
-	'en:fruit content too small blackcurrants jellies'
+	'en:fruit content too small blackcurrant jellies'
 ) or diag Dumper $product_ref;
 ## passion fruit jellies
 $product_ref = {

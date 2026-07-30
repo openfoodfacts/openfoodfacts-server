@@ -29,7 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/init_request/;
 use ProductOpener::TaxonomySuggestions qw/get_taxonomy_suggestions/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::HTTP qw/write_cors_headers request_param/;
+use ProductOpener::HTTP qw/request_param/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -61,7 +61,6 @@ my @suggestions
 my $data = encode_json(\@suggestions);
 
 # send response
-write_cors_headers();
 
 print header(
 	-type => 'application/json',

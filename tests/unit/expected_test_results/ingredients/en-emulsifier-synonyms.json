@@ -2,65 +2,49 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "en:emulsifier",
-         "ingredients" : [
-            {
-               "from_palm_oil" : "maybe",
-               "id" : "en:e471",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 50,
-               "percent_max" : 100,
-               "percent_min" : 25,
-               "text" : "e471",
-               "vegan" : "maybe",
-               "vegetarian" : "maybe"
-            },
-            {
-               "id" : "en:e477",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 25,
-               "percent_max" : 50,
-               "percent_min" : 0,
-               "text" : "e477",
-               "vegan" : "maybe",
-               "vegetarian" : "maybe"
-            }
-         ],
+         "additive_class" : "en:emulsifier",
+         "from_palm_oil" : "maybe",
+         "id" : "en:e471",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 75,
+         "percent_estimate" : 62.5,
          "percent_max" : 100,
-         "percent_min" : 50,
-         "text" : "Emulsifying"
+         "percent_min" : 25,
+         "text" : "e471",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
-         "id" : "en:stabiliser",
-         "ingredients" : [
-            {
-               "id" : "en:e412",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 12.5,
-               "percent_max" : 50,
-               "percent_min" : 0,
-               "text" : "e412",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            },
-            {
-               "id" : "en:e410",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 12.5,
-               "percent_max" : 25,
-               "percent_min" : 0,
-               "text" : "e410",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "additive_class" : "en:emulsifier",
+         "id" : "en:e477",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 25,
+         "percent_estimate" : 18.75,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "Stabilizing Agents"
+         "text" : "e477",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "additive_class" : "en:stabiliser",
+         "id" : "en:e412",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "e412",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:stabiliser",
+         "id" : "en:e410",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "e410",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -82,14 +66,12 @@
       "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "en",
-   "ingredients_n" : 6,
+   "ingredients_n" : 4,
    "ingredients_n_tags" : [
-      "6",
+      "4",
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:emulsifier",
-      "en:stabiliser",
       "en:e471",
       "en:e477",
       "en:e412",
@@ -97,8 +79,6 @@
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:emulsifier",
-      "en:stabiliser",
       "en:e471",
       "en:e477",
       "en:e412",
@@ -113,21 +93,17 @@
       "en:e410",
       "en:e412",
       "en:e471",
-      "en:e477",
-      "en:emulsifier",
-      "en:stabiliser"
+      "en:e477"
    ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes_n" : 4,
    "ingredients_without_ecobalyse_ids" : [
       "en:e410",
       "en:e412",
       "en:e471",
-      "en:e477",
-      "en:emulsifier",
-      "en:stabiliser"
+      "en:e477"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 6,
-   "known_ingredients_n" : 6,
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 4,
    "lc" : "en",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"

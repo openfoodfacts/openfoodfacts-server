@@ -1,5 +1,47 @@
 # Changelog
 
+## [2.98.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.97.0...v2.98.0) (2026-07-15)
+
+
+### Features
+
+* enable unwanted ingredients attribute for OPF and OPFF ([#13933](https://github.com/openfoodfacts/openfoodfacts-server/issues/13933)) ([9a8f55b](https://github.com/openfoodfacts/openfoodfacts-server/commit/9a8f55b9d8dfae549b68e9e19e1d8cb165236cce)), closes [#13830](https://github.com/openfoodfacts/openfoodfacts-server/issues/13830)
+* generate JSON files for product statistics ([#13929](https://github.com/openfoodfacts/openfoodfacts-server/issues/13929)) ([ceb3a8e](https://github.com/openfoodfacts/openfoodfacts-server/commit/ceb3a8e71cc069a143fa8d1676d5ab0c629dea1d))
+
+
+### Bug Fixes
+
+* "Explore by" button to point directly to /facets URLs ([#13860](https://github.com/openfoodfacts/openfoodfacts-server/issues/13860)) ([2203e1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/2203e1e08dbec8cc0bdc92d27a2f1b527aa3d4af))
+* coconut water does not count as fruit for Nutri-Score ([#13717](https://github.com/openfoodfacts/openfoodfacts-server/issues/13717)) ([53ed11a](https://github.com/openfoodfacts/openfoodfacts-server/commit/53ed11affad2ac887dce7d425aa6e0c41de84c3a))
+* CORS, allow credentials on any uri ([#14001](https://github.com/openfoodfacts/openfoodfacts-server/issues/14001)) ([dc02a93](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc02a933c09cdbc85f83885613c2b763833cd802)), closes [#13943](https://github.com/openfoodfacts/openfoodfacts-server/issues/13943)
+* restore nginx expose ([#13942](https://github.com/openfoodfacts/openfoodfacts-server/issues/13942)) ([a079cc1](https://github.com/openfoodfacts/openfoodfacts-server/commit/a079cc1607d564789cf6c33219cef761432539b7))
+* show Wikidata weblinks on facet pages ([#13944](https://github.com/openfoodfacts/openfoodfacts-server/issues/13944)) ([8ca9ed7](https://github.com/openfoodfacts/openfoodfacts-server/commit/8ca9ed7a60b63571aaf80b75ca5cb1460dee5ff9)), closes [#13810](https://github.com/openfoodfacts/openfoodfacts-server/issues/13810)
+* staging exporter access to nginx status ([#13934](https://github.com/openfoodfacts/openfoodfacts-server/issues/13934)) ([637d630](https://github.com/openfoodfacts/openfoodfacts-server/commit/637d6302d1ce5cbae6334cc4d7b18898a2e2b958))
+
+## [2.97.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.96.0...v2.97.0) (2026-07-06)
+
+
+### Features
+
+* Add funding.json with entity details ([25e4d4f](https://github.com/openfoodfacts/openfoodfacts-server/commit/25e4d4f667bf0f3fde7bce4730af892b2f0263cf))
+* Add funding.json with entity details ([#13850](https://github.com/openfoodfacts/openfoodfacts-server/issues/13850)) ([25e4d4f](https://github.com/openfoodfacts/openfoodfacts-server/commit/25e4d4f667bf0f3fde7bce4730af892b2f0263cf))
+* add salt/sodium consistency data quality facet ([#13916](https://github.com/openfoodfacts/openfoodfacts-server/issues/13916)) ([4a792c0](https://github.com/openfoodfacts/openfoodfacts-server/commit/4a792c00d9eac748153c7a96ee00e04e20bc5c3f)), closes [#13531](https://github.com/openfoodfacts/openfoodfacts-server/issues/13531)
+* **lint_taxonomy:** update linting of parents ([#13841](https://github.com/openfoodfacts/openfoodfacts-server/issues/13841)) ([e773ebe](https://github.com/openfoodfacts/openfoodfacts-server/commit/e773ebeef3cc31751ea7fbb6fc227ddd196cc981))
+* new Forest Footprint 2026 + knowledge panels in ingredients test tool ([#13771](https://github.com/openfoodfacts/openfoodfacts-server/issues/13771)) ([4b0b2ec](https://github.com/openfoodfacts/openfoodfacts-server/commit/4b0b2ecb6bac55b6ff784a4282a0a90b45dc4ca8))
+
+
+### Bug Fixes
+
+* double import of use CGI qw/:cgi :form escapeHTML/; in search.pl ([6d39971](https://github.com/openfoodfacts/openfoodfacts-server/commit/6d39971ba65d52618c20bf3f6b9a15d35ebdfa31))
+* double import of use CGI qw/:cgi :form escapeHTML/; in search.pl ([#13831](https://github.com/openfoodfacts/openfoodfacts-server/issues/13831)) ([6d39971](https://github.com/openfoodfacts/openfoodfacts-server/commit/6d39971ba65d52618c20bf3f6b9a15d35ebdfa31))
+* script to extract representative products data for Foodture ([#13451](https://github.com/openfoodfacts/openfoodfacts-server/issues/13451)) ([671f112](https://github.com/openfoodfacts/openfoodfacts-server/commit/671f1128431041279d7a3ddbf72085e01a78447c))
+* **taxonomy:** fix orphan `usda` lines ([#13866](https://github.com/openfoodfacts/openfoodfacts-server/issues/13866)) ([ea478c7](https://github.com/openfoodfacts/openfoodfacts-server/commit/ea478c7f9c3816ede807307ec5c92187cf8fb129))
+* **taxonomy:** fix unclosed parenthesis ([#13907](https://github.com/openfoodfacts/openfoodfacts-server/issues/13907)) ([09555f6](https://github.com/openfoodfacts/openfoodfacts-server/commit/09555f6c13216464b73a0911047daca29faac121))
+* **taxonomy:** remove duplicate packaging synonyms ([#13898](https://github.com/openfoodfacts/openfoodfacts-server/issues/13898)) ([31f8237](https://github.com/openfoodfacts/openfoodfacts-server/commit/31f82373f667d270344e5d6b438faa52371e53c0))
+* update French donation page to Donorbox ([#13827](https://github.com/openfoodfacts/openfoodfacts-server/issues/13827)) ([98d8e07](https://github.com/openfoodfacts/openfoodfacts-server/commit/98d8e0720f27ddcf166e777c3c1bff12b520b559)), closes [#13465](https://github.com/openfoodfacts/openfoodfacts-server/issues/13465)
+* Various API links to the new docs and other cleanups ([d987c71](https://github.com/openfoodfacts/openfoodfacts-server/commit/d987c716e50c4eafc141caf75c56de4c0b66ce3b))
+* Various API links to the new docs and other cleanups ([#13847](https://github.com/openfoodfacts/openfoodfacts-server/issues/13847)) ([d987c71](https://github.com/openfoodfacts/openfoodfacts-server/commit/d987c716e50c4eafc141caf75c56de4c0b66ce3b))
+
 ## [2.96.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.95.1...v2.96.0) (2026-06-25)
 
 

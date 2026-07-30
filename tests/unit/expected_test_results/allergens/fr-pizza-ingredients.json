@@ -135,20 +135,13 @@
                "vegetarian" : "yes"
             },
             {
-               "id" : "en:stabiliser",
-               "ingredients" : [
-                  {
-                     "id" : "en:e451",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0,
-                     "text" : "e451",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:stabiliser",
+               "id" : "en:e451",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
-               "text" : "stabilisant"
+               "text" : "e451",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:natural-flavouring",
@@ -159,20 +152,13 @@
                "vegetarian" : "maybe"
             },
             {
-               "id" : "en:gelling-agent",
-               "ingredients" : [
-                  {
-                     "id" : "en:e407",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0,
-                     "text" : "e407",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:gelling-agent",
+               "id" : "en:e407",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
-               "text" : "gélifiant"
+               "text" : "e407",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:lactose",
@@ -191,36 +177,22 @@
                "vegetarian" : "no"
             },
             {
-               "id" : "en:antioxidant",
-               "ingredients" : [
-                  {
-                     "id" : "en:e316",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0,
-                     "text" : "e316",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:antioxidant",
+               "id" : "en:e316",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
-               "text" : "antioxydant"
+               "text" : "e316",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "en:preservative",
-               "ingredients" : [
-                  {
-                     "id" : "en:e250",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0,
-                     "text" : "e250",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:preservative",
+               "id" : "en:e250",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
-               "text" : "conservateur"
+               "text" : "e250",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:ferment",
@@ -276,20 +248,13 @@
          "id" : "fr:olives-noires-avec-noyau",
          "ingredients" : [
             {
-               "id" : "en:stabiliser",
-               "ingredients" : [
-                  {
-                     "id" : "en:e579",
-                     "is_in_taxonomy" : 1,
-                     "percent_estimate" : 0,
-                     "text" : "e579",
-                     "vegan" : "yes",
-                     "vegetarian" : "yes"
-                  }
-               ],
+               "additive_class" : "en:stabiliser",
+               "id" : "en:e579",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 0,
-               "text" : "stabilisant"
+               "text" : "e579",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -404,10 +369,10 @@
       "en:non-vegetarian"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 41,
+   "ingredients_n" : 36,
    "ingredients_n_tags" : [
-      "41",
-      "41-50"
+      "36",
+      "31-40"
    ],
    "ingredients_original_tags" : [
       "en:filling",
@@ -434,23 +399,18 @@
       "en:salt",
       "en:dextrose",
       "en:glucose-syrup",
-      "en:stabiliser",
+      "en:e451",
       "en:natural-flavouring",
-      "en:gelling-agent",
+      "en:e407",
       "en:lactose",
       "en:pork-stock",
-      "en:antioxidant",
-      "en:preservative",
+      "en:e316",
+      "en:e250",
       "en:ferment",
       "en:mushroom",
       "en:mushroom",
-      "en:stabiliser",
-      "en:wheat-flour",
-      "en:e451",
-      "en:e407",
-      "en:e316",
-      "en:e250",
-      "en:e579"
+      "en:e579",
+      "en:wheat-flour"
    ],
    "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
@@ -498,19 +458,15 @@
       "en:monosaccharide",
       "en:glucose",
       "en:glucose-syrup",
-      "en:stabiliser",
+      "en:e451",
       "en:natural-flavouring",
       "en:flavouring",
-      "en:gelling-agent",
+      "en:e407",
       "en:lactose",
       "en:pork-stock",
-      "en:antioxidant",
-      "en:preservative",
-      "en:ferment",
-      "en:e451",
-      "en:e407",
       "en:e316",
       "en:e250",
+      "en:ferment",
       "en:e579"
    ],
    "ingredients_text" : "Garniture 61% : sauce tomate 32% (purée de tomate, eau, farine de blé, sel, amidon de maïs), mozzarella 26%, chiffonnade de jambon cuit standard 21% (jambon de porc, eau, sel, dextrose, sirop de glucose, stabilisant : E451, arômes naturels, gélifiant : E407, lactose, bouillon de porc, antioxydant : E316, conservateur : E250, ferments), champignons de Paris 15% (champignons, extrait naturel de champignon concentré), olives noires avec noyau (stabilisant : E579), roquette 0,6%, basilic et origan. Pourcentages exprimés sur la garniture. Pâte 39% : farine de blé, eau, levure boulangère, sel, farine de blé malté.",
@@ -522,7 +478,6 @@
    "ingredients_with_unspecified_percent_n" : 28,
    "ingredients_with_unspecified_percent_sum" : 65.5625,
    "ingredients_without_ciqual_codes" : [
-      "en:antioxidant",
       "en:dough",
       "en:e250",
       "en:e316",
@@ -531,17 +486,13 @@
       "en:e579",
       "en:ferment",
       "en:filling",
-      "en:gelling-agent",
       "en:lactose",
       "en:natural-flavouring",
       "en:pork-stock",
-      "en:preservative",
-      "en:stabiliser",
       "fr:chiffonnade de jambon cuit standard"
    ],
-   "ingredients_without_ciqual_codes_n" : 16,
+   "ingredients_without_ciqual_codes_n" : 12,
    "ingredients_without_ecobalyse_ids" : [
-      "en:antioxidant",
       "en:baker-s-yeast",
       "en:basil",
       "en:corn-starch",
@@ -554,22 +505,19 @@
       "en:e579",
       "en:ferment",
       "en:filling",
-      "en:gelling-agent",
       "en:glucose-syrup",
       "en:ham",
       "en:lactose",
       "en:natural-flavouring",
       "en:oregano",
       "en:pork-stock",
-      "en:preservative",
       "en:rocket",
       "en:salt",
-      "en:stabiliser",
       "en:tomato-sauce",
       "fr:chiffonnade de jambon cuit standard"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 26,
-   "known_ingredients_n" : 40,
+   "ingredients_without_ecobalyse_ids_n" : 22,
+   "known_ingredients_n" : 35,
    "lang" : "fr",
    "languages" : {
       "en:french" : 1
