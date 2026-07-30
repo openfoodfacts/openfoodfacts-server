@@ -47,7 +47,6 @@ package ProductOpener::CRM;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
-use experimental 'smartmatch';
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);

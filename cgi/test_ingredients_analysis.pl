@@ -37,6 +37,9 @@ use ProductOpener::Ingredients
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::EnvironmentalImpact qw/estimate_environmental_impact_service/;
 use ProductOpener::Web qw/get_languages_options_list/;
+use ProductOpener::KnowledgePanels qw/create_knowledge_panels initialize_knowledge_panels_options/;
+use ProductOpener::Web qw/display_knowledge_panel/;
+use ProductOpener::ForestFootprint2026 qw/compute_forest_footprint_2026/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -106,6 +109,8 @@ if ($action eq 'process') {
 	$log->debug("extract_additives_from_text") if $log->is_debug();
 	extract_additives_from_text($product_ref);
 
+	compute_forest_footprint_2026($product_ref);
+
 	# Environmental impact
 	my $errors_ref = [];
 	estimate_environmental_impact_service($product_ref, {}, $errors_ref);
@@ -126,6 +131,22 @@ if ($action eq 'process') {
 
 	my $json = JSON::MaybeXS->new->canonical->pretty->encode($product_ref);
 	$template_data_ref->{json} = $json;
+
+	# Create knowledge panels for ingredients
+	initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+	create_knowledge_panels($product_ref, $lc, $request_ref->{cc}, $knowledge_panels_options_ref, $request_ref);
+
+	$template_data_ref->{health_card_panel}
+		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "health_card");
+
+	# Remove nutrition panel
+	$template_data_ref->{health_card_panel}
+		=~ s/.*<h3 id="panel_group_ingredients"/<div class="panel_group"><h3 id="panel_group_ingredients"/s;
+
+	# Display the forest footprint 2026 panel
+	$template_data_ref->{forest_footprint_2026_panel}
+		= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "forest_footprint_2026");
+
 }
 
 process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)
