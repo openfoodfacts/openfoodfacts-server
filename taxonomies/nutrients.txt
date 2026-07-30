@@ -1097,6 +1097,8 @@ zh: 不饱和脂肪酸
 zh_CN: 不饱和脂肪酸
 zh_HK: 不飽和脂肪酸
 zh_TW: 不飽和脂肪酸
+zh: 不饱和脂肪
+unit:en: g
 
 zz: monounsaturated-fat
 xx: Monounsaturated fat
@@ -1989,6 +1991,7 @@ zz: gamma-oryzanol
 xx: γ-oryzanol, oryzanol, gamma-oryzanol
 en: oryzanol, gamma-orizanol
 de: γ-Oryzanol, Oryzanol, Gamma-Oryzanol
+zh: 谷维素, γ-谷维素
 unit:en: mg
 wikidata:en: Q423972
 wikipedia:en: https://en.wikipedia.org/wiki/%CE%93-Oryzanol
@@ -2538,6 +2541,7 @@ zh: 寡糖, 寡糖类
 zh_CN: 寡糖, 寡糖类
 zh_HK: 寡糖, 寡糖類
 zh_TW: 寡糖, 寡糖類
+zh: 低聚糖, 寡糖
 description:en: a saccharide polymer containing a small number (typically two to ten) of simple sugars (monosaccharides)
 unit:en: g
 wikidata:en: Q320607
@@ -2623,6 +2627,7 @@ es: galactosa
 fr: galactose
 it: galattosio
 nl: galactose
+zh: 半乳糖
 unit:en: g
 
 zz: maltose
@@ -2816,7 +2821,8 @@ ja: ポリデキストロース
 nl: Polydextrose
 pt: Polidextrose
 ru: Полидекстроза
-description:en: Polydextrose is a synthetic polymer of glucose.[1] It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
+zh: 聚葡萄糖, 多聚葡萄糖
+description:en: Polydextrose is a synthetic polymer of glucose. It is a food ingredient classified as soluble fiber by the US FDA as well as Health Canada, as of April 2013. It is frequently used to increase the dietary fiber content of food, to replace sugar
 unit:en: g
 wikidata:en: Q424616
 
@@ -2866,7 +2872,7 @@ it: Eritritolo
 nl: Erythritol
 pt: Eritritol
 ru: Эритритол
-zh: 赤藻糖醇
+zh: 赤藓糖醇
 zh_CN: 赤藻糖醇
 zh_HK: 赤藻糖醇
 zh_TW: 赤藻糖醇
@@ -4371,6 +4377,7 @@ en: Folates (total folates), Folates, Total folates
 fi: Folaatit
 fr: Folates (folates totaux)
 it: folati, folati (totali)
+zh: 叶酸（总叶酸）
 dv_2016_value:en: 400
 dv_value:en: 400
 unit:en: µg
@@ -4632,6 +4639,7 @@ ro: Bicarbonat
 sk: bikarbonát
 sl: bikarbonat
 sv: bikarbonat
+zh: 碳酸氢盐
 unit:en: mg
 wikidata:en: Q56810858
 wikipedia:en: https://en.wikipedia.org/wiki/Bicarbonate
@@ -6651,6 +6659,20 @@ xx: Whole grain
 en: Whole grain
 da: Fuldkorn
 sv: Fullkorn
+unit:en: %
+
+zz: collagen-meat-protein-ratio
+xx: Collagen/Meat protein ratio (maximum)
+en: Collagen/Meat protein ratio (maximum)
+de: Verhältnis Kollagen/Eiweiß
+el: Αναλογία κολλαγόνου/πρωτεΐνης κρέατος (μέγιστο)
+es: Relación tejido conjuntivo/proteínas de carne (máximo)
+fi: Kollageeni/liha-proteiinisuhde (maksimi)
+fr: Rapport collagène sur protéines de viande (maximum)
+nl: Verhouding collageen/eiwitten uit vlees (maximum)
+nl_be: Verhouding collageen/eiwitten uit vlees (maximum)
+pt: Colágeno/rácio da proteína de carne (máximo), Colagénio/rácio da proteína de carne (máximo)
+zh: 胶原蛋白/肉蛋白比（最高）
 unit:en: %
 
 zz: cocoa

@@ -48,10 +48,9 @@ my @tests = (
 				'text' => 'tomatoes'
 			},
 			{
-				'id' => 'en:garlic',
+				'id' => 'en:garlic-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => 'garlic'
+				'text' => 'garlic powder'
 			},
 			{
 				'id' => 'en:aubergine',
@@ -597,10 +596,9 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:onion',
+				'id' => 'en:onion-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => 'ui'
+				'text' => 'uipoeder'
 			}
 		]
 	],
@@ -1813,17 +1811,10 @@ my @tests = (
 				'text' => 'slanina'
 			},
 			{
-				'id' => 'en:antioxidant',
+				'id' => 'en:rosemary',
 				'is_in_taxonomy' => 1,
-				'text' => 'antioksidans',
-				'ingredients' => [
-					{
-						'id' => "en:rosemary",
-						'is_in_taxonomy' => 1,
-						'processing' => "en:extract",
-						'text' => "ru\x{17e}marina"
-					}
-				],
+				'processing' => 'en:extract',
+				'text' => "ru\x{17e}marina",
 			},
 		]
 	],
@@ -2668,10 +2659,9 @@ my @tests = (
 				'text' => "\x{3c0}\x{3b1}\x{3c4}\x{3ac}\x{3c4}\x{3b1}"
 			},
 			{
-				'id' => 'en:onion',
+				'id' => 'en:onion-powder',
 				'is_in_taxonomy' => 1,
-				'processing' => 'en:powder',
-				'text' => "\x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3cd}\x{3b4}\x{3b9}"
+				'text' => "κρεμμύδι σε σκόνη"
 			},
 			{
 				'id' =>

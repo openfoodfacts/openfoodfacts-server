@@ -37769,11 +37769,14 @@ inci_restriction:en: II/306 - Narcotics, natural and synthetic: All substances l
 inci_update_date:en: 20/04/2018
 
 en: CANOLA OIL
+sv: rapsolja
 cas:en: 120962-03-0
 cosing:en: 74796
 inci_description:en: Canola Oil is an oil derived from Brassica napus L., Brassicaceae, low in erucic acid
 inci_functions:en: en:skin-conditioning-emollient, en:skin-conditioning
 unii:en: 331KBJ17RK
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q98841400
 
 en: CANOLA OIL GLYCERIDE
@@ -37782,12 +37785,16 @@ cosing:en: 74797
 inci_description:en: Glycerides, Canola oil mono-
 inci_functions:en: en:emollient, en:emulsifying, en:skin-conditioning, en:surfactant
 inci_update_date:en: 15/10/2010
+vegan:en: yes
+vegetarian:en: yes
 
 en: CANOLA OIL UNSAPONIFIABLES
 cosing:en: 55067
 inci_description:en: Canola Oill Unsaponifiables is the fraction of canola oil which is not saponified in the refining recovery of canola (oil derived from Brassica napus L., Cruciferae, low in erucic acid) oil fatty acids
 inci_functions:en: en:hair-conditioning, en:skin-conditioning
 inci_update_date:en: 15/10/2010
+vegan:en: yes
+vegetarian:en: yes
 
 en: CANOLAMIDOPROPYL BETAINE
 cas:en: 223704-88-9
@@ -51044,6 +51051,8 @@ inci_functions:en: en:perfuming
 inci_update_date:en: 02/03/2011
 
 en: CITRIC ACID
+de: Zitronensäure
+fr: Acide citrique
 it: Coprente
 cas:en: 77-92-9 / 5949-29-1
 cosing:en: 32858
@@ -51071,6 +51080,8 @@ inci_functions:en: en:buffering, en:chelating, en:masking
 inci_update_date:en: 15/10/2010
 inn-name:en: citric acid
 ph-eur-name:en: acidum citricum
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q159683
 
 en: CITRIC ACID/PROPYLENE GLYCOL/SUCCINIC ACID COPOLYMER LAURATE
@@ -157377,6 +157388,7 @@ inci_update_date:en: 15/10/2010
 
 en: PETROLATUM
 fi: Ihoa hoitava aine
+sv: petrolatum, vaselin
 cas:en: 8009-03-8
 cosing:en: 79504
 einecs:en: 232-373-2
@@ -157385,6 +157397,9 @@ inci_functions:en: en:antistatic, en:emollient
 inci_restriction:en: II/904 (except if the full refining history is known and it can be shown that the substance from which it is produced is not a carcinogen)
 inci_update_date:en: 15/10/2010
 inn-name:en: petrolatum
+# vegan status is debated, as suppliers of petrolatum may test it on non-human animals
+vegan:en: maybe
+vegetarian:en: yes
 wikidata:en: Q457239
 
 en: PETROSELINUM CRISPUM LEAF OIL
@@ -215438,13 +215453,15 @@ inci_description:en: 3,4-Dihydro-2,5,7,8-tetramethyl-2-(4,8,12-trimethyltridecyl
 inci_functions:en: en:antioxidant, en:skin-conditioning, en:surfactant
 inci_update_date:en: 15/10/2010
 
-en: TOCOPHEROL
+en: TOCOPHEROL, vitamin E
 cas:en: 54-28-4 (gamma)/ 16698-35-4(beta) / 10191-41-0(DL) / 119-13-1 / 1406-18-4 / 1406-66-2 / 2074-53-5 (DL) / 59-02-9 (D)/7616-22-0
 cosing:en: 80273
 einecs:en: 200-201-5 / 240-747-1 / 233-466-0 / 204-299-0 /215-798-8 / - / 218-197-9 / 200-412-2 / -
 inci_description:en: 3,4-Dihydro-2,5,7,8-tetramethyl-2-(4,8,12-trimethyltridecyl)-2H-benzopyran-6-ol; .alpha.-tocopherol; Vitamin E
 inci_functions:en: en:antioxidant, en:masking, en:skin-conditioning
 inci_update_date:en: 26/09/2017
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q141180
 
 en: TOCOPHEROL/WHEAT POLYPEPTIDES
@@ -227071,6 +227088,8 @@ inci_restriction:en: IV/144- Not to be used in applications that may lead to exp
 inci_update_date:en: 14/09/2017
 inn-name:en: zinc oxide
 ph-eur-name:en: zinci oxidum
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q190077
 
 en: ZINC PALMITATE
@@ -228571,10 +228590,6 @@ en: Propylene glycol
 fr: Propylène glycol, propylene glycol
 
 en: Caprylyl glycol
-
-en: Citric acid
-de: Zitronensäure, Citric acid
-fr: Acide citrique, Citric acid
 
 en: Sodium chloride, salt
 fr: Chlorure de sodium, eau salée, sel, Sodium chloride
