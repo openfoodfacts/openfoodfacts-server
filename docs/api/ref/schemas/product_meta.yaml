@@ -41,7 +41,18 @@ properties:
       'en:(?<language_name>\w\w)':
         type: integer
         description: |
-          **TODO** explain !
+          for each language present in the product,
+          the number of fields that are filled in this language.
+
+          For example, if the product has a name in English and French,
+          and ingredients in English only,
+          the `languages` object will be:
+          ```json
+          {
+            "en:english": 2,
+            "fr:french": 1
+          }
+          ```
   languages_codes:
     type: object
     patternProperties:
