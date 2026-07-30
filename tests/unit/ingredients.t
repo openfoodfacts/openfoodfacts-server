@@ -958,6 +958,14 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 
 	]
+		# Recipes with ingredients by weight and volume
+	[
+		'fr-recipes-with-ingredients-by-weight-and-volume',
+		{
+			lc => 'fr',
+			ingredients_text => '50 g de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, une pincée de sel',
+		}
+	]
 );
 
 foreach my $test_ref (@tests) {
