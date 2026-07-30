@@ -415,9 +415,9 @@ sub normalized_line($entry) {
 			|| ($entry->{type} eq "entry_id")
 			|| ($entry->{type} eq "synonyms")
 			|| ($entry->{type} eq "stopwords"));
-	# insure exactly one space after line prefix
+	# ensure exactly one space after line prefix and one space after language
 	if ($entry->{type} eq "parent") {
-		$line =~ s/^< */< /;
+		$line =~ s/^< *([^:]+): *(.+)/< $1: $2/;
 	}
 	elsif (($entry->{type} eq "property") || ($entry->{type} eq "stopwords") || ($entry->{type} eq "synonyms")) {
 		# property_name:lang: or line_type:lang:

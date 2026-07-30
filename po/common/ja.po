@@ -406,7 +406,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Japanese.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -6068,7 +6068,7 @@ msgstr "小規模な常設チームでインフラ、ウェブサイト、モバ
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
-msgstr "食品業界から独立し続けること、"
+msgstr "食品業界から独立し、"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
@@ -6084,7 +6084,7 @@ msgstr "今月、すべての訪問者が「寄付する」をクリックして
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
-msgstr "寄付する"
+msgstr "寄付"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -7640,7 +7640,7 @@ msgstr "{barcode} はお持ちの商品のバーコードですか？もしそ�
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-ja.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -8016,6 +8016,10 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
 msgstr ""
@@ -8039,4 +8043,36 @@ msgstr ""
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "総森林フットプリント"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "ラベル"
 

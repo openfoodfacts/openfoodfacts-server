@@ -1,0 +1,68 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "13014",
+         "ecobalyse_code" : "ce20da3d-0ce4-49e9-8942-6d99ff0221b1",
+         "id" : "en:strawberry",
+         "is_in_taxonomy" : 1,
+         "origins" : "en:sweden",
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "jordgubbe",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "13014",
+         "ecobalyse_code" : "ce20da3d-0ce4-49e9-8942-6d99ff0221b1",
+         "id" : "en:strawberry",
+         "is_in_taxonomy" : 1,
+         "origins" : "en:sweden",
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "jordgubbar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "sv",
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:strawberry",
+      "en:strawberry"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries"
+   ],
+   "ingredients_text" : "svensk jordgubbe, svenska jordgubbar",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 2,
+   "lc" : "sv",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
