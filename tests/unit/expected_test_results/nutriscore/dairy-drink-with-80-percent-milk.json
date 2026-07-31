@@ -419,7 +419,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.099138
+               "value" : 0.099
             },
             "carbohydrates" : {
                "modifier" : "~",
@@ -552,7 +552,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00961
+               "value" : 0.0096
             },
             "maltose" : {
                "modifier" : "~",
@@ -576,7 +576,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.000288
+               "value" : 0.00029
             },
             "phosphorus" : {
                "modifier" : "~",
@@ -700,7 +700,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0001478
+               "value" : 0.00015
             },
             "vitamin-b6" : {
                "modifier" : "~",
@@ -724,7 +724,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00104
+               "value" : 0.001
             },
             "vitamin-d" : {
                "modifier" : "~",
@@ -835,8 +835,8 @@
                "calcium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.099138,
-                  "value_string" : "0.099138"
+                  "value" : 0.099,
+                  "value_string" : "0.099"
                },
                "carbohydrates" : {
                   "modifier" : "~",
@@ -939,8 +939,8 @@
                "magnesium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00961,
-                  "value_string" : "0.00961"
+                  "value" : 0.0096,
+                  "value_string" : "0.0096"
                },
                "maltose" : {
                   "modifier" : "~",
@@ -957,8 +957,8 @@
                "pantothenic-acid" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.000288,
-                  "value_string" : "0.000288"
+                  "value" : 0.00029,
+                  "value_string" : "0.00029"
                },
                "phosphorus" : {
                   "modifier" : "~",
@@ -993,9 +993,9 @@
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.08908,
-                  "value_computed" : 0.087485,
-                  "value_string" : "0.08908"
+                  "value" : 0.089,
+                  "value_computed" : 0.087,
+                  "value_string" : "0.089"
                },
                "saturated-fat" : {
                   "modifier" : "~",
@@ -1012,9 +1012,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.034994,
-                  "value_computed" : 0.035632,
-                  "value_string" : "0.034994"
+                  "value" : 0.035,
+                  "value_computed" : 0.036,
+                  "value_string" : "0.035"
                },
                "starch" : {
                   "modifier" : "~",
@@ -1055,8 +1055,8 @@
                "vitamin-b2" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0001478,
-                  "value_string" : "0.0001478"
+                  "value" : 0.00015,
+                  "value_string" : "0.00015"
                },
                "vitamin-b6" : {
                   "modifier" : "~",
@@ -1073,8 +1073,8 @@
                "vitamin-c" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00104,
-                  "value_string" : "0.00104"
+                  "value" : 0.001,
+                  "value_string" : "0.001"
                },
                "vitamin-d" : {
                   "modifier" : "~",

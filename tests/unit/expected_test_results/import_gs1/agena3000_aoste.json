@@ -17,7 +17,7 @@
          "documentCommand" : {
             "catalogue_item_notification:catalogueItemNotification" : {
                "creationDateTime" : {
-                  "$t" : "2022-03-24T14:16:11.00904+01:00"
+                  "$t" : "2022-03-24T14:16:11+01:00"
                },
                "catalogueItemNotificationIdentification" : {
                   "entityIdentification" : {
@@ -69,13 +69,13 @@
                            },
                            "tradeItemSynchronisationDates" : {
                               "publicationDateTime" : {
-                                 "$t" : "2021-08-26T09:41:16.00419+02:00"
+                                 "$t" : "2021-08-26T09:41:16+02:00"
                               },
                               "effectiveDateTime" : {
                                  "$t" : "2022-03-03T00:00:00+01:00"
                               },
                               "lastChangeDateTime" : {
-                                 "$t" : "2022-03-24T14:16:11.00904+01:00"
+                                 "$t" : "2022-03-24T14:16:11+01:00"
                               }
                            },
                            "isTradeItemAnOrderableUnit" : {
@@ -1184,13 +1184,13 @@
                                  },
                                  "tradeItemSynchronisationDates" : {
                                     "publicationDateTime" : {
-                                       "$t" : "2021-08-26T09:41:16.00419+02:00"
+                                       "$t" : "2021-08-26T09:41:16+02:00"
                                     },
                                     "effectiveDateTime" : {
                                        "$t" : "2022-03-03T00:00:00+01:00"
                                     },
                                     "lastChangeDateTime" : {
-                                       "$t" : "2022-03-24T14:16:11.00904+01:00"
+                                       "$t" : "2022-03-24T14:16:11+01:00"
                                     }
                                  },
                                  "brandOwner" : {
@@ -1248,10 +1248,10 @@
                      },
                      "tradeItemSynchronisationDates" : {
                         "publicationDateTime" : {
-                           "$t" : "2021-08-26T09:41:16.00419+02:00"
+                           "$t" : "2021-08-26T09:41:16+02:00"
                         },
                         "lastChangeDateTime" : {
-                           "$t" : "2022-03-24T14:16:11.00904+01:00"
+                           "$t" : "2022-03-24T14:16:11+01:00"
                         },
                         "effectiveDateTime" : {
                            "$t" : "2022-03-03T00:00:00+01:00"
@@ -1518,7 +1518,7 @@
       "sh:StandardBusinessDocumentHeader" : {
          "sh:DocumentIdentification" : {
             "sh:CreationDateAndTime" : {
-               "$t" : "2022-03-24T14:16:11.00904+01:00"
+               "$t" : "2022-03-24T14:16:11+01:00"
             },
             "sh:Standard" : {
                "$t" : "GS1"

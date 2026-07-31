@@ -28,9 +28,9 @@
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 1.05555555555556,
+         "percent_estimate" : 1.1,
          "percent_max" : 2,
-         "percent_min" : 0.111111111111111,
+         "percent_min" : 0.11,
          "text" : "sel",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -38,16 +38,16 @@
       {
          "id" : "fr:extrait-de-malt-do-rge",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 0.472222222222221,
-         "percent_max" : 0.999999999999998,
+         "percent_estimate" : 0.47,
+         "percent_max" : 1,
          "percent_min" : 0,
          "text" : "extrait de malt do'_rge_"
       },
       {
          "id" : "en:vitamins",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.236111111111114,
-         "percent_max" : 0.666666666666666,
+         "percent_estimate" : 0.24,
+         "percent_max" : 0.67,
          "percent_min" : 0,
          "text" : "vitamines",
          "vegan" : "yes",
@@ -56,8 +56,8 @@
       {
          "id" : "en:e375",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.118055555555557,
-         "percent_max" : 0.499999999999999,
+         "percent_estimate" : 0.12,
+         "percent_max" : 0.5,
          "percent_min" : 0,
          "text" : "niacine",
          "vegan" : "maybe",
@@ -66,8 +66,8 @@
       {
          "id" : "en:pantothenic-acid",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.0590277777777786,
-         "percent_max" : 0.499999999999999,
+         "percent_estimate" : 0.059,
+         "percent_max" : 0.5,
          "percent_min" : 0,
          "text" : "acide pantothénique",
          "vegan" : "yes",
@@ -76,8 +76,8 @@
       {
          "id" : "en:pantothenic-acid",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.0295138888888857,
-         "percent_max" : 0.333333333333333,
+         "percent_estimate" : 0.03,
+         "percent_max" : 0.33,
          "percent_min" : 0,
          "text" : "vitamine B5",
          "vegan" : "yes",
@@ -86,8 +86,8 @@
       {
          "id" : "en:e101",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.0147569444444429,
-         "percent_max" : 0.333333333333333,
+         "percent_estimate" : 0.015,
+         "percent_max" : 0.33,
          "percent_min" : 0,
          "text" : "riboflavine",
          "vegan" : "maybe",
@@ -96,8 +96,8 @@
       {
          "id" : "en:e101",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.00737847222222143,
-         "percent_max" : 0.333333333333333,
+         "percent_estimate" : 0.0074,
+         "percent_max" : 0.33,
          "percent_min" : 0,
          "text" : "vitamine B2",
          "vegan" : "maybe",
@@ -106,8 +106,8 @@
       {
          "id" : "en:vitamin-b6",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.00368923611111427,
-         "percent_max" : 0.222222222222222,
+         "percent_estimate" : 0.0037,
+         "percent_max" : 0.22,
          "percent_min" : 0,
          "text" : "vitamine B6",
          "vegan" : "yes",
@@ -116,24 +116,24 @@
       {
          "id" : "en:thiamin",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.00184461805555713,
-         "percent_max" : 0.222222222222222,
+         "percent_estimate" : 0.0018,
+         "percent_max" : 0.22,
          "percent_min" : 0,
          "text" : "thiamine"
       },
       {
          "id" : "en:thiamin",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.000922309027778567,
-         "percent_max" : 0.222222222222222,
+         "percent_estimate" : 0.00092,
+         "percent_max" : 0.22,
          "percent_min" : 0,
          "text" : "vitamine B1"
       },
       {
          "id" : "en:folic-acid",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.000461154513885731,
-         "percent_max" : 0.222222222222222,
+         "percent_estimate" : 0.00046,
+         "percent_max" : 0.22,
          "percent_min" : 0,
          "text" : "acide folique",
          "vegan" : "yes",
@@ -142,8 +142,8 @@
       {
          "id" : "en:folic-acid",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.000230577256942865,
-         "percent_max" : 0.222222222222222,
+         "percent_estimate" : 0.00023,
+         "percent_max" : 0.22,
          "percent_min" : 0,
          "text" : "vitamine B9",
          "vegan" : "yes",
@@ -152,32 +152,32 @@
       {
          "id" : "en:vitamin-d",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.000115288628471433,
-         "percent_max" : 0.222222222222222,
+         "percent_estimate" : 0.00012,
+         "percent_max" : 0.22,
          "percent_min" : 0,
          "text" : "vitamine D"
       },
       {
          "id" : "en:vitamin-b12",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 5.76443142392691e-05,
-         "percent_max" : 0.222222222222222,
+         "percent_estimate" : 5.8e-05,
+         "percent_max" : 0.22,
          "percent_min" : 0,
          "text" : "vitamine B12"
       },
       {
          "id" : "en:ferric-diphosphate",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 2.88221571196345e-05,
-         "percent_max" : 0.222222222222222,
+         "percent_estimate" : 2.9e-05,
+         "percent_max" : 0.22,
          "percent_min" : 0,
          "text" : "diphosphate ferrique"
       },
       {
          "id" : "en:dairy",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 1.44110785598173e-05,
-         "percent_max" : 0.117647058823529,
+         "percent_estimate" : 1.4e-05,
+         "percent_max" : 0.12,
          "percent_min" : 0,
          "text" : "de produit laitiers",
          "vegan" : "no",
@@ -186,8 +186,8 @@
       {
          "id" : "fr:de-produits-a-base-de-soja-et-de-graines-de-sesame",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 1.44110785527118e-05,
-         "percent_max" : 0.117647058823529,
+         "percent_estimate" : 1.4e-05,
+         "percent_max" : 0.12,
          "percent_min" : 0,
          "text" : "de produits à base de soja et de graines de sésame"
       }

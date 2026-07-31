@@ -57,7 +57,7 @@
       "en:better-nutri-score-with-less-sugars" : {
          "current_nutriscore_grade" : "b",
          "current_value" : 3.6,
-         "difference_percent" : 5.55555555555556,
+         "difference_percent" : 5.6,
          "new_nutriscore_grade" : "a",
          "new_value" : 3.4,
          "nutrient" : "sugars"
@@ -65,7 +65,7 @@
       "en:better-nutri-score-with-much-less-salt" : {
          "current_nutriscore_grade" : "b",
          "current_value" : 1.2,
-         "difference_percent" : 16.6666666666667,
+         "difference_percent" : 16.7,
          "new_nutriscore_grade" : "a",
          "new_value" : 1,
          "nutrient" : "salt"
@@ -471,7 +471,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.006873
+               "value" : 0.0069
             },
             "carbohydrates" : {
                "modifier" : "~",
@@ -604,7 +604,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.002457
+               "value" : 0.0025
             },
             "maltose" : {
                "modifier" : "~",
@@ -660,7 +660,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.015934
+               "value" : 0.016
             },
             "proteins" : {
                "source" : "packaging",
@@ -776,7 +776,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00461
+               "value" : 0.0046
             },
             "vitamin-d" : {
                "modifier" : "~",
@@ -887,8 +887,8 @@
                "calcium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.006873,
-                  "value_string" : "0.006873"
+                  "value" : 0.0069,
+                  "value_string" : "0.0069"
                },
                "carbohydrates" : {
                   "modifier" : "~",
@@ -991,8 +991,8 @@
                "magnesium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.002457,
-                  "value_string" : "0.002457"
+                  "value" : 0.0025,
+                  "value_string" : "0.0025"
                },
                "maltose" : {
                   "modifier" : "~",
@@ -1033,8 +1033,8 @@
                "potassium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.015934,
-                  "value_string" : "0.015934"
+                  "value" : 0.016,
+                  "value_string" : "0.016"
                },
                "proteins" : {
                   "modifier" : "~",
@@ -1045,9 +1045,9 @@
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00725,
-                  "value_computed" : 0.0059675,
-                  "value_string" : "0.00725"
+                  "value" : 0.0073,
+                  "value_computed" : 0.006,
+                  "value_string" : "0.0073"
                },
                "saturated-fat" : {
                   "modifier" : "~",
@@ -1064,9 +1064,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.002387,
+                  "value" : 0.0024,
                   "value_computed" : 0.0029,
-                  "value_string" : "0.002387"
+                  "value_string" : "0.0024"
                },
                "starch" : {
                   "modifier" : "~",
@@ -1125,8 +1125,8 @@
                "vitamin-c" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00461,
-                  "value_string" : "0.00461"
+                  "value" : 0.0046,
+                  "value_string" : "0.0046"
                },
                "vitamin-d" : {
                   "modifier" : "~",

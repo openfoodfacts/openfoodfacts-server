@@ -4,13 +4,13 @@
       "primary_ingredients" : {
          "en:cocoa" : {},
          "en:coffee" : {
-            "footprint_per_kg" : 0.082125,
+            "footprint_per_kg" : 0.082,
             "grade" : "d",
             "ingredients" : [
                {
                   "equivalence_ingredient" : 1.25,
                   "equivalence_ingredient_category" : 1,
-                  "footprint_per_kg" : 0.082125,
+                  "footprint_per_kg" : 0.082,
                   "ingredient_category_id" : "en:coffee",
                   "ingredient_id" : "en:coffee",
                   "label_id" : "en:organic",
@@ -24,7 +24,7 @@
             ]
          }
       },
-      "total_footprint_per_kg" : 0.082125
+      "total_footprint_per_kg" : 0.082
    },
    "ingredients" : [
       {
