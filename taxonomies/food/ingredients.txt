@@ -10009,11 +10009,6 @@ en: antelope
 < en: antelope
 < en: meat
 en: antelope meat
-usda_ndb_proxy_code:en: 17144
-usda_ndb_proxy_name:en: Game meat, antelope, raw
-
-< en: antelope meat
-en: raw antelope meat
 usda_ndb_code:en: 17144
 usda_ndb_name:en: Game meat, antelope, raw
 
@@ -10023,11 +10018,6 @@ en: bear
 < en: bear
 < en: meat
 en: bear meat
-usda_ndb_proxy_code:en: 17146
-usda_ndb_proxy_name:en: Game meat, bear, raw
-
-< en: bear meat
-en: raw bear meat
 usda_ndb_code:en: 17146
 usda_ndb_name:en: Game meat, bear, raw
 
@@ -10037,11 +10027,6 @@ en: beaver
 < en: beaver
 < en: meat
 en: beaver meat
-usda_ndb_code:en: 17150
-usda_ndb_name:en: Game meat, beaver, raw
-
-< en: beaver meat
-en: raw beaver meat
 usda_ndb_code:en: 17150
 usda_ndb_name:en: Game meat, beaver, raw
 
@@ -10437,11 +10422,6 @@ description:en: "Caribou" is the term used in North America (Canada, Alaska) for
 < en: caribou
 < en: meat
 en: caribou meat
-usda_ndb_proxy_code:en: 17162
-usda_ndb_proxy_name:en: Game meat, caribou, raw
-
-< en: caribou meat
-en: raw caribou meat
 usda_ndb_code:en: 17162
 usda_ndb_name:en: Game meat, caribou, raw
 
@@ -10598,15 +10578,10 @@ ciqual_proxy_food_name:en: Lamb, raw (average)
 #ciqual_food_name:fr: Agneau, viande, cuite (aliment moyen)
 ecobalyse:en: 45e3cd64-1647-4841-bacb-795e2aae4f02
 ecobalyse_labels_en_organic:en: e07f7703-c4f7-479e-a8ac-bb73d3f08c78
-usda_ndb_proxy_code:en: 17224
-usda_ndb_proxy_name:en: Lamb, ground, raw
-wikidata:en: Q643419
-# ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
-
-< en: lamb-meat
-en: raw ground lamb
 usda_ndb_code:en: 17224
 usda_ndb_name:en: Lamb, ground, raw
+wikidata:en: Q643419
+# ingredient/fr:viande-d’agneau has 71 products in 5 languages @2019-04-16
 
 < en: lamb-meat
 en: lamb cutlet
@@ -11467,16 +11442,11 @@ zh: 鹿肉
 # ast:Carne de venáu
 # sco:venison
 # yue:鹿肉
-usda_ndb_proxy_code:en: 17164
-usda_ndb_proxy_name:en: Game meat, deer, raw
+usda_ndb_code:en: 17164
+usda_ndb_name:en: Game meat, deer, raw
 wikidata:en: Q2296872
 wikipedia:en: https://en.wikipedia.org/wiki/Venison
 # ingredient/fr:viande-de-cerf has 26 products in 4 languages @2019-04-16
-
-< en: venison
-en: raw venison
-usda_ndb_code:en: 17164
-usda_ndb_name:en: Game meat, deer, raw
 
 ###################################################################################################
 #
@@ -11565,11 +11535,6 @@ en: elk
 
 < en: elk
 en: elk meat
-usda_ndb_proxy_code:en: 17166
-usda_ndb_proxy_name:en: Game meat, elk, raw
-
-< en: elk meat
-en: raw elk meat
 usda_ndb_code:en: 17166
 usda_ndb_name:en: Game meat, elk, raw
 
@@ -11837,16 +11802,11 @@ uz: qazi
 vi: thịt ngựa
 zh: 马肉
 # diq:goştê estori
-usda_ndb_proxy_code:en: 17170
-usda_ndb_proxy_name:en: Game meat, horse, raw
+usda_ndb_code:en: 17170
+usda_ndb_name:en: Game meat, horse, raw
 wikidata:en: Q1124327
 wikipedia:en: https://en.wikipedia.org/wiki/Horse_meat
 # ingredient/fr:viande-de-cheval has 21 products in 4 languages @2020-05-21
-
-< en: horse meat
-en: raw horse meat
-usda_ndb_code:en: 17170
-usda_ndb_name:en: Game meat, horse, raw
 
 # description:en:serving of chopped ingredients formed into a disc.
 
@@ -11995,16 +11955,11 @@ ciqual_proxy_food_code:en: 21800
 ciqual_proxy_food_name:en: Young goat, raw
 ciqual_proxy_food_name:fr: Chevreau, cru
 description:en: GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
-usda_ndb_proxy_code:en: 17168
-usda_ndb_proxy_name:en: Game meat, goat, raw
+usda_ndb_code:en: 17168
+usda_ndb_name:en: Game meat, goat, raw
 wikidata:en: Q449506
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_meat
 # ingredient/fr:viande-de-chèvre has 1 product @2019-04-02
-
-< en: goat meat
-en: raw goat meat
-usda_ndb_code:en: 17168
-usda_ndb_name:en: Game meat, goat, raw
 
 < en: goat
 < en: meat
@@ -12036,11 +11991,6 @@ en: moose
 
 < en: moose
 en: moose meat
-usda_ndb_proxy_code:en: 17172
-usda_ndb_proxy_name:en: Game meat, moose, raw
-
-< en: moose meat
-en: raw moose meat
 usda_ndb_code:en: 17172
 usda_ndb_name:en: Game meat, moose, raw
 
@@ -12055,11 +12005,6 @@ en: muskrat
 
 < en: muskrat
 en: muskrat meat
-usda_ndb_proxy_code:en: 17174
-usda_ndb_proxy_name:en: Game meat, muskrat, raw
-
-< en: muskrat meat
-en: raw muskrat meat
 usda_ndb_code:en: 17174
 usda_ndb_name:en: Game meat, muskrat, raw
 
@@ -13413,11 +13358,6 @@ en: squirrel
 
 < en: squirrel
 en: squirrel meat
-usda_ndb_proxy_code:en: 17183
-usda_ndb_proxy_name:en: Game meat, squirrel, raw
-
-< en: squirrel meat
-en: raw squirrel meat
 usda_ndb_code:en: 17183
 usda_ndb_name:en: Game meat, squirrel, raw
 
