@@ -659,6 +659,8 @@ it: gelatina
 ja: ゼラチン
 lt: želatina, želatinos
 pl: żelatyna, żelatyna spożywcza
+ciqual_food_code:en: 11007
+ciqual_food_name:fr: Gélatine, sèche
 # ingredient/fr:gélatine has 1575 products in 12 languages @2019-02-10
 description:en: GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts.
 vegan:en: no
@@ -4276,6 +4278,11 @@ ciqual_food_name:fr: Yaourt à la grecque, nature
 #ciqual_food_name:en:Yogurt, Greek-style, ewe's milk
 #ciqual_food_name:fr:Yaourt à la grecque, au lait de brebis
 
+
+fr: yaourt à la grecque sur lit de fruits
+ciqual_proxy_food_code:en: 19552
+ciqual_proxy_food_name:fr: Yaourt à la grecque, sur lit de fruits
+
 < en: dairy
 en: skyr
 xx: skyr
@@ -5090,6 +5097,10 @@ hu: tejszínhab
 it: Panna montata
 nl: slagroom
 pl: bita śmietana, bitej śmietany
+
+fr: crème chantilly
+ciqual_proxy_food_code:en: 19420
+ciqual_proxy_food_name:fr: Crème chantilly, sous pression, UHT
 
 < en: cream
 < en: skimmed milk
@@ -6230,6 +6241,8 @@ hr: umak od sira
 it: salsa al formaggio
 nl: kaassaus
 sv: ostsås
+ciqual_proxy_food_code:en: 11189
+ciqual_proxy_food_name:fr: Sauce au fromage pour risotto ou pâtes, préemballée
 usda_ndb_code:en: 1164
 usda_ndb_name:en: Cheese sauce, prepared from recipe
 wikidata:en: Q27972032
@@ -6478,6 +6491,11 @@ fr: camembert au lait pasteurisé
 hr: camembert od pasteriziranog mlijeka
 it: camembert da latte pastorizzato
 # ingredient/fr:camembert-au-lait-pasteurisé has 15 products in 4 languages @2019-02-17
+
+< en: camembert
+fr: camembert au lait cru
+ciqual_food_code:en: 12006
+ciqual_food_name:fr: Camembert au lait cru
 
 #category:en: en:cantal
 < en: cow cheese
@@ -7214,6 +7232,8 @@ ko: 폰티나
 ru: Фонтина
 uk: Фонтіна
 zh: 芳提娜芝士
+ciqual_proxy_food_code:en: 12121
+ciqual_proxy_food_name:fr: Fontina
 description:en: Fontina is a cow's milk cheese, produced worldwide.
 usda_ndb_code:en: 1020
 usda_ndb_name:en: Cheese, fontina
@@ -8749,6 +8769,9 @@ tt: зәңгәр сыр
 uk: Блакитні сири
 vi: Pho mát xanh
 zh: 藍乾酪
+ciqual_proxy_food_code:en: 12520
+ciqual_proxy_food_name:en: Blue cheese, from cow's milk
+ciqual_proxy_food_name:fr: Fromage bleu au lait de vache
 description:en: Blue cheese or bleu cheese is cheese made with cultures of the mold Penicillium, giving it spots or veins of the mold throughout the cheese, which can vary in color through various shades of blue and green.
 description:de: Blauschimmelkäse ist Schimmelkäse, bei dessen Herstellung blau bis grünlich erscheinende Edelschimmelpilze wie Penicillium roqueforti und Penicillium glaucum eingesetzt werden.
 description:es: El queso azul es una clasificación general de los quesos de leche de vaca, de oveja y de cabra que tienen en su pasta cultivos de Penicillium añadidos al producto final y que proporcionan un color entre el azul y el gris-verdoso característico debido a los mohos.
@@ -10005,15 +10028,18 @@ nl: kameelvlees
 
 < en: game animal
 en: antelope
+fr: antilope
 
 < en: antelope
 < en: meat
 en: antelope meat
+fr: viande d'antilope
 usda_ndb_proxy_code:en: 17144
 usda_ndb_proxy_name:en: Game meat, antelope, raw
 
 < en: antelope meat
 en: raw antelope meat
+fr: viande d'antilope crue
 usda_ndb_code:en: 17144
 usda_ndb_name:en: Game meat, antelope, raw
 
@@ -10023,25 +10049,30 @@ en: bear
 < en: bear
 < en: meat
 en: bear meat
+fr: viande d'ours
 usda_ndb_proxy_code:en: 17146
 usda_ndb_proxy_name:en: Game meat, bear, raw
 
 < en: bear meat
 en: raw bear meat
+fr: viande d'ours crue
 usda_ndb_code:en: 17146
 usda_ndb_name:en: Game meat, bear, raw
 
 < en: game animal
 en: beaver
+fr: castor
 
 < en: beaver
 < en: meat
 en: beaver meat
+fr: viande de castor
 usda_ndb_code:en: 17150
 usda_ndb_name:en: Game meat, beaver, raw
 
 < en: beaver meat
 en: raw beaver meat
+fr: viande de castor crue
 usda_ndb_code:en: 17150
 usda_ndb_name:en: Game meat, beaver, raw
 
@@ -10111,11 +10142,12 @@ nl: grasgevoerd rundvlees
 pt: carne de vaca alimentada com capim
 
 < en: beef
-fr: pur boeuf
+en: pure beef
 bg: чисто говеждо
 ca: res pura
 de: reines Rindfleisch
 es: res puro
+fr: pur boeuf
 it: manzo puro
 nl: puur rundvlees
 
@@ -10215,14 +10247,16 @@ hr: britanska govedina
 it: manzo britannico
 
 < en: beef meat
-fr: viande bovine origine france
+en: beef meat from france
 ca: carn de res francès
 es: carne de res francesa
+fr: viande bovine origine france
 
 < en: beef meat
-fr: viande bovine halal
+en: halal beef meat
 ca: carn de res halal
 es: carne de res halal
+fr: viande bovine halal
 
 < en: beef meat
 fr: carpaccio de boeuf
@@ -10281,6 +10315,7 @@ ciqual_food_name:fr: Langue, veau, cuite
 
 < en: beef meat
 en: beef knuckle
+fr: jarret de boeuf
 hr: juneći but
 it: stinco di manzo
 
@@ -10431,17 +10466,20 @@ ifct_food_name:en: Calf, liver
 
 < en: animal
 en: caribou
+fr: caribou
 la: Rangifer tarandus
 description:en: "Caribou" is the term used in North America (Canada, Alaska) for wild populations. "Reindeer" is used in Europe and Asia, and also refers to the domesticated populations found especially in places like Scandinavia and Russia.
 
 < en: caribou
 < en: meat
 en: caribou meat
+fr: viande de caribou
 usda_ndb_proxy_code:en: 17162
 usda_ndb_proxy_name:en: Game meat, caribou, raw
 
 < en: caribou meat
 en: raw caribou meat
+fr: viande de caribou crue
 usda_ndb_code:en: 17162
 usda_ndb_name:en: Game meat, caribou, raw
 
@@ -10479,6 +10517,7 @@ sv: ben av nöt, köttiga ben av nöt
 en: oxtail
 de: Ochsenschwanz
 es: rabo vacuno
+fr: queue de boeuf
 hr: goveđi rep
 it: coda di bue
 
@@ -10495,11 +10534,13 @@ ifct_food_name:en: Beef, tripe
 < en: beef meat
 en: beef lung
 de: Rinderlunge
+fr: poumon de boeuf
 it: polmone di manzo
 
 < en: beef meat
 en: beef udder
 de: Rindereuter
+fr: mamelle de boeuf
 it: mammella di manzo
 
 < en: beef
@@ -10667,12 +10708,14 @@ ciqual_food_name:fr: Agneau, épaule, maigre, rôtie/cuite au four
 < en: lamb meat
 en: british lamb
 de: britisches Lamm
+fr: agneau britannique
 hr: britanska janjetina
 it: agnello britannico
 
 < en: lamb
 en: lamb gut
 es: tripa nayural de cordero
+fr: boyaux d'agneau
 hr: janjeća iznutrica
 it: budello di agnello
 
@@ -11475,6 +11518,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Venison
 
 < en: venison
 en: raw venison
+fr: viande de cerf crue
 usda_ndb_code:en: 17164
 usda_ndb_name:en: Game meat, deer, raw
 
@@ -11565,11 +11609,13 @@ en: elk
 
 < en: elk
 en: elk meat
+fr: viande d'élan
 usda_ndb_proxy_code:en: 17166
 usda_ndb_proxy_name:en: Game meat, elk, raw
 
 < en: elk meat
 en: raw elk meat
+fr: viande d'élan crue
 usda_ndb_code:en: 17166
 usda_ndb_name:en: Game meat, elk, raw
 
@@ -12003,6 +12049,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Goat_meat
 
 < en: goat meat
 en: raw goat meat
+fr: viande de chèvre crue
 usda_ndb_code:en: 17168
 usda_ndb_name:en: Game meat, goat, raw
 
@@ -12036,11 +12083,13 @@ en: moose
 
 < en: moose
 en: moose meat
+fr: viande d'orignal
 usda_ndb_proxy_code:en: 17172
 usda_ndb_proxy_name:en: Game meat, moose, raw
 
 < en: moose meat
 en: raw moose meat
+fr: viande d'orignal crue
 usda_ndb_code:en: 17172
 usda_ndb_name:en: Game meat, moose, raw
 
@@ -12052,14 +12101,17 @@ usda_ndb_name:en: Game meat, moose, raw
 
 < en: game animal
 en: muskrat
+fr: rat musqué
 
 < en: muskrat
 en: muskrat meat
+fr: viande de rat musqué
 usda_ndb_proxy_code:en: 17174
 usda_ndb_proxy_name:en: Game meat, muskrat, raw
 
 < en: muskrat meat
 en: raw muskrat meat
+fr: viande de rat musqué crue
 usda_ndb_code:en: 17174
 usda_ndb_name:en: Game meat, muskrat, raw
 
@@ -12233,18 +12285,21 @@ it: carne di maiale magra
 < en: pork meat
 en: pig snout
 es: morro de cerdo, morro
+fr: groin de porc
 hr: svinjska njuška
 it: muso di maiale
 
 < en: pork meat
 en: british pork
 de: britisches Schweinefleisch
+fr: porc britannique
 hr: britanska svinjetina
 it: maiale britannico
 
 < en: pork
 en: acorn fed iberian pig
 es: cerdo de bellota ibéric
+fr: porc ibérique nourri aux glands
 hr: iberijska svinja hranjena žirom
 it: maiale iberico allevato a ghiande
 
@@ -12253,8 +12308,20 @@ it: maiale iberico allevato a ghiande
 en: pigs blood
 de: Schweineblut
 es: sangre de cerdo
+fi: sian veri
+fr: sang de porc
 hr: svinjska krv
 it: sangue di maiale
+sv: svin blod, blod av svin
+
+< en: pork by-product
+fr: sang frais de porc
+
+< en: pork by-product
+fr: protéines de sang de porc
+
+< en: pork by-product
+fr: plasma de porc
 
 # description:en:Pork rind is the culinary term for the skin of a pig.
 # comment:en:Product translations can be wrong. The wikidata page translations often refers to disambiguations. Are these translations any good?
@@ -12443,6 +12510,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Bacon
 
 < en: bacon
 en: unprepared canadian bacon
+fr: bacon canadien non préparé
 usda_ndb_code:en: 10130
 usda_ndb_name:en: Canadian bacon, unprepared
 
@@ -12481,6 +12549,7 @@ wikidata:en: Q104223737
 
 < en: pork
 en: pork tripe
+fr: tripes de porc
 it: trippa di maiale
 pl: żołądki wieprzowe
 
@@ -12488,6 +12557,7 @@ pl: żołądki wieprzowe
 en: pigs trotters
 de: Schweinepfoten
 es: patas de cerdo
+fr: pieds de porc
 hr: svinje kasači
 it: zampe di maiale
 
@@ -12604,9 +12674,10 @@ nl: varkensschenkel
 pt: perna de porco
 
 < en: pork meat
-fr: pièces de tête de porc, morceaux de tête de porc
+fr: pièces de tête de porc, morceaux de tête de porc, tête de porc
 ca: cap de porc
 es: cabeza de cerdo
+it: testa di maiale
 
 < en: pork meat
 en: pork tongue
@@ -12981,20 +13052,6 @@ fr: graisse de porc
 hr: svinjsko masno
 pt: gordura de suíno, gorduras de suíno, lípido de suíno, lípidos de suíno
 ro: grăsime de porc, grasime de porc
-
-< en: pork by-product
-fr: sang frais de porc
-
-< en: pork by-product
-fr: protéines de sang de porc
-
-< en: pork by-product
-fr: sang de porc
-fi: sian veri
-sv: svin blod, blod av svin
-
-< en: pork by-product
-fr: plasma de porc
 
 < en: pork meat
 en: pork loin
@@ -13410,14 +13467,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lard
 
 < en: game animal
 en: squirrel
+fr: écureuil
 
 < en: squirrel
 en: squirrel meat
+fr: viande d'écureuil
 usda_ndb_proxy_code:en: 17183
 usda_ndb_proxy_name:en: Game meat, squirrel, raw
 
 < en: squirrel meat
 en: raw squirrel meat
+fr: viande d'écureuil crue
 usda_ndb_code:en: 17183
 usda_ndb_name:en: Game meat, squirrel, raw
 
@@ -13731,6 +13791,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Botifarra
 en: black botifarra
 ca: botifarra negra
 de: schwarze Botifarra
+fr: botifarra noire
 hr: crna botifara
 it: botifarra nera
 
@@ -13921,6 +13982,7 @@ ciqual_food_name:en: Montbeliard sausage
 ciqual_food_name:fr: Saucisse de Montbéliard
 
 < fr: saucisses de Toulouse
+en: Grilled Toulouse sausages
 fr: saucisses de toulouse grillées
 # treatment:en:gril
 
@@ -13931,6 +13993,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Saucisson de porc
 carbon_footprint_fr_foodges_value:fr: 5.1
 
 < en: meat
+en: Strasbourg sausage
 fr: saucisse de strasbourg
 
 fr: plasma déshydraté
@@ -14244,10 +14307,12 @@ nl: gemodificeerd waxy maïszetmeel
 
 < en: modified corn starch
 < en: non-gmo corn starch
+en: non-gmo modified corn starch
 fr: amidon transformé de mais sans OGM
 
 < en: starch
 en: mung bean starch
+fr: amidon de haricot mungo
 hr: škrob mungo graha
 it: amido di fagioli mungo
 pl: skrobia z fasoli mung
@@ -14431,10 +14496,12 @@ sv: modifierad risstärkelse, modifierad stärkelse av ris
 < en: corn starch
 < en: modified starch
 < en: potato starch
+en: modified maize and potato starch, modified corn and potato starch, modified corn starch and potato starch
 fr: amidons modifiés de maïs et de pomme de terre
 
 < en: potato starch
 < en: starch
+en: wheat and potato starch
 fr: amidons de blé et de pomme de terre
 
 < en: modified corn starch
@@ -14610,6 +14677,7 @@ en: refined vegetable oil
 bg: рафинирано растително масло, рафинирана растителна мазнина
 de: Raffinierte pflanzliche Öle, raffinierte Pflanzenöle
 es: grasas vegetales refinadas, aceite vegetal refinado
+fr: huile végétale raffinée, huiles végétales raffinées
 hr: rafinirano biljno ulje
 it: olio vegetale raffinato
 pl: rafinowany olej roślinny, olej roślinny rafinowany, oleje roślinne rafinowane
@@ -15069,6 +15137,7 @@ vegetarian:en: yes
 
 < en: milkfat
 en: milk fat without lactose
+fr: matière grasse laitière sans lactose
 hr: mliječne masti bez laktoze
 it: grasso del latte senza lattosio
 mk: млечна маст без лактоза
@@ -15294,9 +15363,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vegetable_oil
 # ingredient/vegetable oil has 103341 products @2019-07-10
 
 < en: vegetable oil
-fr: huile végétale raffinée
-
-< en: vegetable oil
 en: vegetable oil blend
 fr: mélanges des huiles végétales
 hr: mješavina biljnog ulja
@@ -15341,15 +15407,18 @@ sv: vegetabiliska fetter, vegetabiliskt fett, vegetabilsk fett, vegetabilisk fet
 < en: vegetable fat
 en: vegetable suet
 de: vegetarisches Suet
+fr: suif végétal
 hr: loj od povrća
 
 # see ingredients_processings.txt
 < en: vegetable suet
 en: non hydrogenated vegetable suet
 de: ungehärteter vegetarischer Suet
+fr: suif végétal non hydrogéné
 hr: nehidrogenizirani biljni loj
 
 < en: vegetable fat
+en: rapeseed vegetable fat, rapeseed vegetable fats
 fr: matières grasses végétales de colza, matières grasses de colza
 
 #< en: compound
@@ -15875,11 +15944,13 @@ wikidata:en: Q818405
 
 < en: linseed oil
 en: cold pressed flaxseed oil
+fr: huile de lin pressée à froid
 usda_ndb_code:en: 42231
 usda_ndb_name:en: Oil, flaxseed, cold pressed
 
 < en: linseed oil
 en: flaxseed oil with added sliced flaxseed
+fr: huile de lin avec graines de lin tranchées ajoutées
 usda_ndb_code:en: 4707
 usda_ndb_name:en: Oil, flaxseed, contains added sliced flaxseed
 
@@ -15908,6 +15979,7 @@ from_palm_oil:en: no
 
 < en: vegetable oil
 en: nutmeg butter oil
+fr: beurre de muscade, beurre de noix de muscade, huile de muscade, huile de noix de muscade
 usda_ndb_code:en: 4572
 usda_ndb_name:en: Oil, nutmeg butter
 
@@ -15971,6 +16043,7 @@ from_palm_oil:en: yes
 en: milk fat substitute
 da: mælkefedtserstatning
 de: Milchfett-Ersatz
+fr: substitut de matière grasse laitière
 hr: zamjena za punomasno mlijeko
 it: sostituto dei grassi del latte
 ru: заменитель молочного жира
@@ -15979,6 +16052,7 @@ ru: заменитель молочного жира
 < en: vegetable oil and fat
 en: cocoa butter substitute
 de: Kakaobutter-Ersatz
+fr: substitut de beurre de cacao
 hr: zamjena za kakao maslac
 it: sostituto del burro di cacao
 ru: заменитель масла какао, заменитель какао масла, эквивалент масла какао, заменитель какао масла лауринового типа
@@ -16079,6 +16153,7 @@ nl: Gemodificeerde palmolie
 
 < en: palm oil
 en: red palm fruit oil
+fr: huile de palme rouge
 hr: ulje ploda crvene palme
 it: olio di palma rossa
 description:en: Red palm oil is less refined than bleached palm oil
@@ -16162,6 +16237,7 @@ usda_ndb_name:en: Shortening, confectionery, fractionated palm
 < en: hydrogenated vegetable shortening
 < en: palm shortening
 en: hydrogenated palm shortening
+fr: shortening de palme hydrogénée
 usda_ndb_code:en: 4556
 usda_ndb_name:en: Shortening frying (heavy duty), palm (hydrogenated)
 
@@ -16184,12 +16260,14 @@ wikidata:en: Q57312740
 
 < en: palm olein
 en: refined palmolein oil
+fr: huile de palme oléine raffinée
 hr: rafinirano palmoleinsko ulje
 it: olio di palmoleina raffinato
 
 < en: palm oil
 < en: palm olein
 en: mixture of palm oil and palm superolein
+fr: mélange d'huile de palme et de superoléine de palme
 hr: mješavina palminog ulja i palminog superoleina
 it: miscela di olio di palma e superoleina di palma
 
@@ -16458,6 +16536,7 @@ nl: palmolie of palmkernolie
 
 < en: vegetable oil
 en: poppyseed oil
+fr: huile de graines de pavot, huile de pavot
 usda_ndb_code:en: 4514
 usda_ndb_name:en: Oil, poppyseed
 
@@ -16624,6 +16703,7 @@ pl: utwardzony olej kokosowy
 sv: fullhärdad kokosolja
 
 < en: coconut oil
+en: unhydrogenated and hydrogenated coconut oil
 fr: huile de noix de coco totalement hydrogénée et non-hydrogénée
 
 < en: coconut oil
@@ -16649,6 +16729,7 @@ ru: масло кокосовое рафинированное дезодори�
 
 < en: coconut oil
 en: MCT oil, Medium-chain triglycerides oil
+fr: huile de triglycérides à chaîne moyenne, huile de triglycérides à chaîne moyenne MCT
 it: olio MCT
 
 < en: coconut
@@ -16688,6 +16769,7 @@ en: coconut butter, creamed coconut
 bg: кокосово масло
 de: Kokosbutter
 es: manteca de coco
+fr: beurre de coco
 hr: kokosov maslac
 it: Burro cocco
 pl: masło kokosowe
@@ -16908,6 +16990,7 @@ origin:en: en:spain
 es: aceite de oliva virgen extra de Lubrín
 
 < en: extra virgin olive oil
+en: chemlali extra virgin olive oil
 fr: huile d'olive chemlali extra vierge
 
 < en: olive oil
@@ -17209,10 +17292,12 @@ es: aceite hidrogenado de colza
 #fr:huile de colza non hydrogénée
 
 < en: colza oil
+en: refined colza oil
 bg: рафинирано рапично олио
 fr: huile de colza raffinée
 
 < en: colza oil
+en: virgin colza oil
 fr: huile de colza vierge
 
 # <en:emulsifier
@@ -17894,6 +17979,7 @@ from_palm_oil:en: no
 < en: hemp
 < en: vegetable oil
 en: cold pressed hemp oil
+fr: huile de chanvre pressée à froid
 hr: hladno prešano konopljino ulje
 it: olio di canapa spremuto a freddo
 
@@ -17915,6 +18001,7 @@ fr: huiles d'amande et de noisette
 < en: hazelnut oil
 < en: peanut oil
 en: peanut oil or hazelnut oil
+fr: huile d'arachide ou huile de noisette
 hr: ulje kikirikija ili ulje lješnjaka
 hu: mogyoró olaj, Mogyoróolaj
 it: olio di arachidi o olio di nocciole
@@ -18150,16 +18237,19 @@ usda_ndb_name:en: Oil, teaseed
 
 < en: vegetable oil
 en: tomatoseed oil
+fr: huile de graines de tomate
 usda_ndb_code:en: 4515
 usda_ndb_name:en: Oil, tomatoseed
 
 < en: vegetable oil
 en: ucuhuba butter oil
+fr: beurre d'ucuhuba, huile de beurre d'ucuhuba
 usda_ndb_code:en: 4573
 usda_ndb_name:en: Oil, ucuhuba butter
 
 < en: vegetable oil
 en: wheat germ oil
+fr: huile de germe de blé
 usda_ndb_code:en: 4038
 usda_ndb_name:en: Oil, wheat germ
 
@@ -18479,6 +18569,7 @@ wikidata:en: Q1786125
 
 < en: fish oil
 en: salmon fish oil, salmon oil
+fr: huile de saumon
 usda_ndb_code:en: 4593
 usda_ndb_name:en: Fish oil, salmon
 
@@ -18492,26 +18583,31 @@ vegetarian:en: no
 
 < en: fish oil
 en: cod liver fish oil
+fr: huile de foie de morue
 usda_ndb_code:en: 4589
 usda_ndb_name:en: Fish oil, cod liver
 
 < en: fish oil
 en: herring fish oil
+fr: huile de hareng
 usda_ndb_code:en: 4590
 usda_ndb_name:en: Fish oil, herring
 
 < en: fish oil
 en: menhaden fish oil
+fr: huile de menhaden
 usda_ndb_code:en: 4591
 usda_ndb_name:en: Fish oil, menhaden
 
 < en: menhaden fish oil
 en: fully hydrogenated menhaden fish oil
+fr: huile de menhaden entièrement hydrogénée
 usda_ndb_code:en: 4592
 usda_ndb_name:en: Fish oil, menhaden, fully hydrogenated
 
 < en: fish oil
 en: sardine fish oil
+fr: huile de sardine
 usda_ndb_code:en: 4594
 usda_ndb_name:en: Fish oil, sardine
 
@@ -18840,10 +18936,12 @@ ro: oţet praf din alcool, otet praf din alcool
 
 < en: alcohol vinegar
 es: vinagre de alcohol de caña
+fr: vinaigre d'alcool de canne
 
 < en: vinegar
 en: fruit vinegar
 de: Obstessig
+fr: vinaigre de fruit
 hr: voćni ocat
 it: aceto di frutta
 ru: уксус из пищевого сырья
@@ -19503,8 +19601,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Limoncello
 
 < en: liqueur
 en: Pelinkovac
-hr: pelinkovac
-it: Pelinkovac
+xx: Pelinkovac
 ja: ペリンコバクlt
 lt: Pelinkovacas
 mk: Пелинковец
@@ -19515,6 +19612,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pelinkovac
 
 < en: liqueur
 en: Maraschino
+xx: Maraschino
 ba: Мараскин
 be: Мараскіна
 ca: Marrasquino
@@ -19750,22 +19848,18 @@ wikipedia:en: https://en.wikipedia.org/wiki/Pomace_brandy
 
 < en: pomace brandy
 en: Marc de Bourgogne
-de: Marc de Bourgogne
+xx: Marc de Bourgogne
 fr: marc de bourgogne
-hr: marc de bourgogne
-it: Marc de Bourgogne
 # ingredient/fr:marc-de-bourgogne has 43 products in 4 languages @2019-03-29
 
 
 < en: brandy
 < en: pomace brandy
 en: Marc de Champagne
+xx: Marc de Champagne
 de: Marc de Champagne, Marc de Champagner
 fi: marc de champagne, marc de champagne -brandy, marc de champagne -brandya
 fr: marc de champagne
-hr: marc de champagne
-it: Marc de Champagne
-sv: marc de champagne
 wikidata:en: Q1892862
 # ingredient/fr:marc-de-champagne has 30 products in 4 languages @2018-12-14
 
@@ -20056,9 +20150,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wine
 
 < en: wine
 en: pedro ximenez wine
+xx: vino Pedro Ximenez
 es: vino Pedro Ximenez
-hr: vino pedro ximenez
-it: vino Pedro Ximenez
 # en:pedro ximenez wine has 3 products in spanish @2021-08-14
 
 < en: wine
@@ -20253,6 +20346,7 @@ hr: bijelo vino iz cave
 it: vino bianco di cava
 
 < en: white wine extract
+en: distilled white wine extract
 fr: extrait de vin blanc distillé
 
 # description:en:MUSCADET is a French white wine.
@@ -20385,20 +20479,13 @@ it: estratto di vino rosso
 
 < en: wine
 en: sauternes
+xx: sauternes
 ca: Vi de Sauternes
 cv: Сотерн
-de: Sauternes
-es: Sauternes
 fi: sauternes, sauternes-viini
 fr: sauternes
 he: יין סוטרן
-hr: sauternes
-it: sauternes
 ja: ソーテルヌ
-nb: Sauternes
-nl: Sauternes
-pt: Sauternes
-ro: Sauternes
 ru: Сотерн
 sv: Sauternesviner
 zh: 索泰爾納
@@ -20461,6 +20548,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Rosé
 # fr:vin-rosé has 33 products @2018-10-29
 
 < en: wine
+en: aromatised wine
 fr: vin aromatisé
 # fr:vin-aromatisé has 67 products in 2 languages @2018-10-29
 
@@ -20468,6 +20556,7 @@ fr: vin aromatisé
 en: stale wine
 ca: vi ranci
 es: vino rancio
+fr: vin ranci
 hr: ustajalo vino
 it: vino stantio
 
@@ -20866,6 +20955,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Brandy
 # ingredient/fr:brandy has 152 products in 4 languages @2020-06-08
 
 < en: brandy
+en: modified brandy
 fr: brandy modifié
 
 < en: alcohol
@@ -20881,6 +20971,7 @@ ciqual_food_name:en: Clear fruit brandy or eau-de-vie
 ciqual_food_name:fr: Eau de vie
 
 < en: eau de vie
+en: wine eau de vie
 fr: eau de vie de vin
 
 #category/vermouth
@@ -21104,6 +21195,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Scotch_whisky
 en: blended scotch whisky
 de: Blended Scotch Whisky
 fi: skotlantilainen blended-viski
+fr: whisky écossais mélangé
 hr: miješani škotski viski
 it: whisky scozzese miscelato
 
@@ -22141,6 +22233,7 @@ pl: naturalny aromat gruszkowy
 
 < en: flavouring
 < en: natural pear flavouring
+en: natural pear flavouring with other natural flavourings
 fr: arôme naturel de poire avec d'autres arômes naturels
 
 < en: flavouring
@@ -22319,14 +22412,21 @@ pl: naturalny aromat papryki
 
 < en: natural flavouring
 en: natural sunflower oil flavouring
+de: natürliches Sonnenblumenölaroma
+es: aroma natural de aceite de girasol
+fi: luontainen auringonkukkaöljyaromi
+fr: arôme naturel d'huile de tournesol
+hu: természetes napraforgóolaj aroma
+it: aroma naturale di olio di girasole
 sv: naturlig solrosoljearom
 
 # Two parents due to and/or ingredient
 
 < en: natural flavouring
 < en: natural pepper flavouring
-fr: arôme naturel de poivre avec autres arômes naturels
+en: natural pepper flavouring with other natural flavourings
 fi: luontainen pippuriaromi ja muut luontaiset aromit
+fr: arôme naturel de poivre avec autres arômes naturels
 
 < en: natural flavouring
 en: natural spice flavouring
@@ -45735,6 +45835,7 @@ wikipedia:fr: https://fr.wikipedia.org/wiki/Noix_de_coco
 
 < en: coconut
 en: raw coconut meat
+fr: chair de noix de coco crue
 usda_ndb_code:en: 12104
 usda_ndb_name:en: Nuts, coconut meat, raw
 
@@ -45800,11 +45901,13 @@ wikipedia:en: https://en.wikipedia.org/wiki/Coconut_milk
 
 < en: coconut milk
 en: raw coconut milk
+fr: lait de noix de coco cru
 usda_ndb_code:en: 12117
 usda_ndb_name:en: Nuts, coconut milk, raw (liquid expressed from grated meat and water)
 
 < en: coconut milk
 en: frozen coconut milk
+fr: lait de noix de coco congelé
 usda_ndb_code:en: 12176
 usda_ndb_name:en: Nuts, coconut milk, frozen (liquid expressed from grated meat and water)
 
