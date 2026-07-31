@@ -1094,7 +1094,7 @@ msgstr "Uvidíme se brzy!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
-msgstr "%d úroduktů odpovídá kritériím vyhledávání, z nichž %i produkty mají definované hodnoty pro osy grafu."
+msgstr "%d produktů odpovídá kritériím vyhledávání, z nichž %i produkty mají definované hodnoty pro osy grafu."
 
 msgctxt "graph_title"
 msgid "Graph title"
@@ -1485,7 +1485,7 @@ msgstr "Výrobky, které nebyly vyrobené nebo zpracované v %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr "%d úroduktů odpovídá kritériím vyhledávání, z nichž %i produktů má známé místo výroby."
+msgstr "%d produktů odpovídá kritériím vyhledávání, z nichž %i produktů má známé místo výroby."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -5507,7 +5507,7 @@ msgstr "Vize, mise, hodnoty a programy"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr "/open-food-facts-vision-mission-values-and-programs"
+msgstr "/open-food-facts-vision-mission-values and programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -7622,6 +7622,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Při kontaktu s potravinami"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Kontaktujte nás"
@@ -8043,15 +8047,15 @@ msgstr "Reakce Ecobalyse"
 
 msgctxt "forest_footprint_2026"
 msgid "Forest Footprint 2026"
-msgstr ""
+msgstr "Lesní stopa 2026"
 
 msgctxt "forest_footprint_2026_under_development"
 msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
-msgstr ""
+msgstr "Lesní stopa z roku 2026 je v současné době ve vývoji a moderátorům je zobrazena pouze pro účely ladění."
 
 msgctxt "forest_footprint_2026_overall_grade"
 msgid "Forest footprint grade"
-msgstr ""
+msgstr "Stupeň lesní stopy"
 
 msgctxt "forest_footprint_2026_total"
 msgid "Total forest footprint"
@@ -8063,11 +8067,11 @@ msgstr ""
 
 msgctxt "forest_footprint_2026_primary_ingredient"
 msgid "Primary ingredient"
-msgstr ""
+msgstr "Hlavní složka"
 
 msgctxt "forest_footprint_2026_origin_footprint"
 msgid "Forest footprint for the origin"
-msgstr ""
+msgstr "Lesní stopa původu"
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
