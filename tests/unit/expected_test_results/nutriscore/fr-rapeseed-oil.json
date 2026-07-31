@@ -157,7 +157,7 @@
             "proteins_points" : 0,
             "proteins_value" : 0,
             "saturated_fat" : 7.3,
-            "saturated_fat_ratio" : 7.9,
+            "saturated_fat_ratio" : 7.93478260869565,
             "saturated_fat_ratio_points" : 0,
             "saturated_fat_ratio_value" : 7.9,
             "sodium" : 0,
@@ -383,7 +383,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0013
+               "value" : 0.00129
             },
             "carbohydrates" : {
                "modifier" : "~",
@@ -799,8 +799,8 @@
                "calcium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0013,
-                  "value_string" : "0.0013"
+                  "value" : 0.00129,
+                  "value_string" : "0.00129"
                },
                "carbohydrates" : {
                   "modifier" : "~",

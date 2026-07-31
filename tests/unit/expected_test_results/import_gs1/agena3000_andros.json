@@ -28,7 +28,7 @@
                "$t" : "GS1"
             },
             "sh:CreationDateAndTime" : {
-               "$t" : "2022-03-24T16:52:33+01:00"
+               "$t" : "2022-03-24T16:52:33.00816+01:00"
             },
             "sh:Type" : {
                "$t" : "catalogueItemNotification"
@@ -103,10 +103,10 @@
                      },
                      "tradeItemSynchronisationDates" : {
                         "publicationDateTime" : {
-                           "$t" : "2022-03-23T12:09:19+01:00"
+                           "$t" : "2022-03-23T12:09:19.00710+01:00"
                         },
                         "lastChangeDateTime" : {
-                           "$t" : "2022-03-24T16:52:33+01:00"
+                           "$t" : "2022-03-24T16:52:33.00816+01:00"
                         },
                         "effectiveDateTime" : {
                            "$t" : "2022-03-16T00:00:00+01:00"
@@ -617,10 +617,10 @@
                                  "$t" : "2022-03-16T00:00:00+01:00"
                               },
                               "lastChangeDateTime" : {
-                                 "$t" : "2022-03-24T16:52:33+01:00"
+                                 "$t" : "2022-03-24T16:52:33.00816+01:00"
                               },
                               "publicationDateTime" : {
-                                 "$t" : "2022-03-23T12:09:19+01:00"
+                                 "$t" : "2022-03-23T12:09:19.00710+01:00"
                               }
                            },
                            "brandOwner" : {
@@ -1855,13 +1855,13 @@
                                  ],
                                  "tradeItemSynchronisationDates" : {
                                     "publicationDateTime" : {
-                                       "$t" : "2022-03-23T12:09:19+01:00"
+                                       "$t" : "2022-03-23T12:09:19.00710+01:00"
                                     },
                                     "effectiveDateTime" : {
                                        "$t" : "2021-09-13T00:00:00+02:00"
                                     },
                                     "lastChangeDateTime" : {
-                                       "$t" : "2022-03-24T16:52:33+01:00"
+                                       "$t" : "2022-03-24T16:52:33.00816+01:00"
                                     }
                                  },
                                  "brandOwner" : {
@@ -1893,7 +1893,7 @@
                   "$t" : "ORIGINAL"
                },
                "creationDateTime" : {
-                  "$t" : "2022-03-24T16:52:33+01:00"
+                  "$t" : "2022-03-24T16:52:33.00816+01:00"
                },
                "catalogueItemNotificationIdentification" : {
                   "contentOwner" : {

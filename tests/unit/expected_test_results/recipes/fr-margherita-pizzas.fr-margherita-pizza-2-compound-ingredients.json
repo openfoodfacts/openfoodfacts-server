@@ -9,9 +9,9 @@
                "ecobalyse_code" : "tomato-heated-greenhouse-eu",
                "id" : "en:chopped-tomato",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 46.7,
+               "percent_estimate" : 46.6666666666667,
                "percent_max" : 70,
-               "percent_min" : 23.3,
+               "percent_min" : 23.3333333333333,
                "text" : "tomates concassées",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -20,7 +20,7 @@
                "ciqual_proxy_food_code" : "12999",
                "id" : "en:cheese",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 11.7,
+               "percent_estimate" : 11.6666666666667,
                "percent_max" : 35,
                "percent_min" : 0,
                "processing" : "en:grated",
@@ -32,8 +32,8 @@
                "ciqual_proxy_food_code" : "11033",
                "id" : "en:basil-leaf",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 11.7,
-               "percent_max" : 23.3,
+               "percent_estimate" : 11.6666666666667,
+               "percent_max" : 23.3333333333333,
                "percent_min" : 0,
                "text" : "feuilles de basilic",
                "vegan" : "yes",
@@ -174,11 +174,11 @@
       "en:estimated-ingredients-with-product-opener"
    ],
    "recipe" : {
-      "en:cheese" : 11.7,
+      "en:cheese" : 11.6666666666667,
       "en:flour" : 20,
-      "en:tomato" : 46.7,
+      "en:tomato" : 46.6666666666667,
       "en:water" : 5,
-      "other" : 16.7,
+      "other" : 16.6666666666667,
       "unknown" : 0
    },
    "unknown_ingredients_n" : 0

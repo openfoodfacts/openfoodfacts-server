@@ -42,7 +42,7 @@
       "en:better-nutri-score-with-slightly-less-energy-from-saturated-fat" : {
          "current_nutriscore_grade" : "c",
          "current_value" : 362.6,
-         "difference_percent" : 0.72,
+         "difference_percent" : 0.717043574186438,
          "new_nutriscore_grade" : "b",
          "new_value" : 360,
          "nutrient" : "energy_from_saturated_fat"
@@ -462,7 +462,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00068
+               "value" : 0.0006805
             },
             "carbohydrates" : {
                "modifier" : "~",
@@ -595,7 +595,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00014
+               "value" : 0.000143
             },
             "maltose" : {
                "modifier" : "~",
@@ -627,7 +627,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00013
+               "value" : 0.000125
             },
             "phylloquinone" : {
                "modifier" : "~",
@@ -651,7 +651,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00026
+               "value" : 0.0002595
             },
             "proteins" : {
                "source" : "packaging",
@@ -783,7 +783,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.035
+               "value" : 0.0345645
             },
             "vitamin-pp" : {
                "modifier" : "~",
@@ -878,8 +878,8 @@
                "calcium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00068,
-                  "value_string" : "0.00068"
+                  "value" : 0.0006805,
+                  "value_string" : "0.0006805"
                },
                "carbohydrates" : {
                   "modifier" : "~",
@@ -982,8 +982,8 @@
                "magnesium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00014,
-                  "value_string" : "0.00014"
+                  "value" : 0.000143,
+                  "value_string" : "0.000143"
                },
                "maltose" : {
                   "modifier" : "~",
@@ -1006,8 +1006,8 @@
                "phosphorus" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00013,
-                  "value_string" : "0.00013"
+                  "value" : 0.000125,
+                  "value_string" : "0.000125"
                },
                "phylloquinone" : {
                   "modifier" : "~",
@@ -1024,8 +1024,8 @@
                "potassium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00026,
-                  "value_string" : "0.00026"
+                  "value" : 0.0002595,
+                  "value_string" : "0.0002595"
                },
                "proteins" : {
                   "modifier" : "~",
@@ -1036,9 +1036,9 @@
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0088,
-                  "value_computed" : 0.0094,
-                  "value_string" : "0.0088"
+                  "value" : 0.00876,
+                  "value_computed" : 0.00938,
+                  "value_string" : "0.00876"
                },
                "saturated-fat" : {
                   "modifier" : "~",
@@ -1055,9 +1055,9 @@
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0038,
-                  "value_computed" : 0.0035,
-                  "value_string" : "0.0038"
+                  "value" : 0.003752,
+                  "value_computed" : 0.003504,
+                  "value_string" : "0.003752"
                },
                "starch" : {
                   "modifier" : "~",
@@ -1128,8 +1128,8 @@
                "vitamin-e" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.035,
-                  "value_string" : "0.035"
+                  "value" : 0.0345645,
+                  "value_string" : "0.0345645"
                },
                "vitamin-pp" : {
                   "modifier" : "~",
