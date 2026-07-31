@@ -64019,7 +64019,7 @@ usda_ndb_name:en: Mothbeans, mature seeds, raw
 < en: legume
 nl: veldbonen
 
-< en: legume
+< en: vegetable
 en: broad bean, fava bean, faba bean, Vicia faba, horse bean, broadbean
 am: ባቄላ
 ar: فول
@@ -64149,9 +64149,6 @@ ciqual_food_name:en: Broad bean, dried
 ciqual_food_name:fr: Fève, sèche
 eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.20
-
-< en: broad bean
-en: raw mature broad beans
 usda_ndb_code:en: 16052
 usda_ndb_name:en: Broadbeans (fava beans), mature seeds, raw
 
@@ -64161,6 +64158,7 @@ it: preparato con fave
 nl: bereiding van tuinbonen
 
 < en: broad bean
+< en: legume
 en: Fresh broad bean to shell
 fr: Fèves fraîches à écosser
 it: fave fresche da sgusciare
@@ -65189,11 +65187,6 @@ ciqual_food_name:en: Lentil, pink or red, dried
 ciqual_food_name:fr: Lentille corail, sèche
 # ingredient/fr:lentilles-rouges has 40 products in 3 languages @2019-06-02
 # ingredient/fr:lentilles-corail has 131 products in 6 languages @2019-06-02
-usda_ndb_proxy_code:en: 16144
-usda_ndb_proxy_name:en: Lentils, pink or red, raw
-
-< en: red lentils
-en: raw pink or red lentils
 usda_ndb_code:en: 16144
 usda_ndb_name:en: Lentils, pink or red, raw
 
