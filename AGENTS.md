@@ -2,7 +2,7 @@
 
 OpenFoodFacts server (Product Opener) is a Perl web application with Docker containerization, serving the world's largest open food products database. The system uses Make + Docker Compose for builds, containerized frontend tooling, and comprehensive test suites.
 
-Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
+Always reference these instructions first and fall back to search or bash commands only when you encounter unexpected information that does not match the info here.
 
 ## Working Effectively
 
@@ -27,7 +27,7 @@ Always reference these instructions first and fallback to search or bash command
 **⚠️ IMPORTANT BUILD NOTES:**
 - First-time builds take 15-20 minutes due to extensive Perl CPAN modules installation
 - Subsequent builds are much faster due to Docker layer caching
-- Unit tests may show some failures in development environment - this is expected
+- Unit tests should pass; if failures occur locally, re-run once containers are fully started and investigate (CI expects tests to pass).
 
 ### Expected Timing
 Based on comprehensive testing:
@@ -122,7 +122,7 @@ Always test these scenarios:
 - Edit Perl modules in `lib/ProductOpener/` directory
 - Key modules: `API.pm`, `Products.pm`, `Store.pm`, `Tags.pm`, `Config2.pm`  
 - Test specific unit test files: `make test-unit test=filename.t` (for example: `make test-unit test=additives.t`)
-- Test API endpoints: `make test-int test=api-test.t` - validates specific API functionality
+- Test API endpoints: `make test-int test=api_v3_product_read.t` - validates specific API functionality
 - For backend-focused changes, run `make check_perltidy`, `make check_perl_fast`, `make check_critic`, and relevant tests
 - Run `make checks` when full frontend+backend validation is needed
 - Development server: `make dev` runs the local environment at http://world.openfoodfacts.localhost/
@@ -149,7 +149,7 @@ Complete testing workflow for all components:
 5. Test in browser: Visit http://world.openfoodfacts.localhost/ for manual validation
 
 **Test Results Interpretation**:
-- Some unit test failures are expected in development environment 
+- Unit tests are expected to pass; if you see failures locally, re-run after containers are fully started and investigate (compare with CI).
 - Focus on tests related to your changes
 - Integration tests validate full system behavior
 - Use `make import_prod_data` for testing with production-scale data
@@ -157,7 +157,7 @@ Complete testing workflow for all components:
 ## Known Limitations
 
 1. **First-time Build Duration**: Initial container builds take 15-20 minutes due to extensive Perl CPAN module compilation
-2. **Test Environment Variance**: Some unit tests may fail in development environment vs. production - focus on tests related to your changes
+2. **Test Environment Variance**: If unit tests fail locally, re-run after containers are fully started and investigate differences vs. CI rather than assuming failures are expected.
 3. **Resource Requirements**: Full development environment requires significant disk space and memory for containers
 4. **Build Performance**: Always use the Makefile for optimal build speed and reliability
 5. **Network Dependencies**: Requires reliable internet connection for initial dependency downloads
