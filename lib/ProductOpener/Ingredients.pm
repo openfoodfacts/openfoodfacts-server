@@ -743,8 +743,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$percent_or_quantity_value = $3;
 			$percent_or_quantity_unit = $4;
 			$matched_text = $&;
+
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
+
+			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -798,6 +801,8 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$matched_text = $&;
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
+
+			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -1751,6 +1756,8 @@ Text to analyze
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 						$percent_or_quantity_value = $1;
 						$percent_or_quantity_unit = $2;
+						$percent_or_quantity_value
+							= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients
@@ -1908,6 +1915,8 @@ Text to analyze
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
+							$percent_or_quantity_value
+								= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 							$log->debug(
 								"parse_ingredients_text - sub-ingredients: between is a percent",
 								{
@@ -2096,6 +2105,7 @@ Text to analyze
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
 				$after = $';
+				$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				$debug_ingredients
 					and $log->debug(
 					"after started with a percent",
@@ -2228,6 +2238,8 @@ Text to analyze
 				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 					$debug_ingredients and $log->debug(
 						"percent found after",
 						{
@@ -2246,6 +2258,8 @@ Text to analyze
 				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 					$debug_ingredients and $log->debug(
 						"percent found before",
 						{

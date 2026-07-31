@@ -4836,15 +4836,18 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 			# Add xx entries
 			if (($options_ref->{include_xx}) and ($language ne 'xx') and (defined $synonyms_regexps{"xx"})) {
-				print STDERR
-					"generate_regexps_matching_taxonomy_entries - $taxonomy - adding xx entries to $language\n";
 				push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
 			}
 		}
 	}
 
-	# We want to match the longest strings first
+	# Unique the synonyms
+	foreach my $language (keys %synonyms_regexps) {
+		my %seen = ();
+		$synonyms_regexps{$language} = [grep {!$seen{$_->[1]}++} @{$synonyms_regexps{$language}}];
+	}
 
+	# We want to match the longest strings first
 	if ($return_type eq 'unique_regexp') {
 		foreach my $language (keys %synonyms_regexps) {
 			$result_ref->{$language} = join('|',

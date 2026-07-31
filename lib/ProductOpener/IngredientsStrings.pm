@@ -74,6 +74,10 @@ BEGIN {
 		%min_regexp
 		%max_regexp
 		%ignore_strings_after_percent
+		%one_regexp
+
+		&convert_text_value_to_number
+
 		%percent_or_quantity_regexps
 
 		&init_percent_or_quantity_regexps
@@ -481,6 +485,25 @@ including localized strings like "minimum"
 	sv => "fetthalt",
 );
 
+# Used to parse "a pinch of salt", "une pincée de sel" etc.
+%one_regexp = (
+	en => "a|an|one",
+	es => "un|una",
+	fr => "un|une",
+	it => "un|una",
+	nl => "een",
+);
+
+sub convert_text_value_to_number($target_lc, $value) {
+	my $one_regexp_in_lc = $one_regexp{$target_lc};
+	if (defined $one_regexp_in_lc) {
+		if ($value =~ /^\s*$one_regexp_in_lc\s*$/i) {
+			return 1;
+		}
+	}
+	return $value;
+}
+
 my %units_regexps = ();
 
 sub init_units_regexps() {
@@ -500,11 +523,11 @@ sub init_units_regexps() {
 	return;
 }
 
-init_units_regexps();
-
 %percent_or_quantity_regexps = ();
 
 sub init_percent_or_quantity_regexps($ingredients_lc) {
+
+	(scalar keys %units_regexps) or init_units_regexps();
 
 	if (not exists $percent_or_quantity_regexps{$ingredients_lc}) {
 
@@ -517,12 +540,15 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		# Regular expression to find percent or quantities
 		# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
 		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} || '';
-		print STDERR "init_percent_or_quantity_regexps: units_regexp_in_lc for $ingredients_lc = $units_regexp_in_lc\n";
+		my $one_regexp_in_lc = $one_regexp{$ingredients_lc} || 'do not match';
 		$percent_or_quantity_regexps{$ingredients_lc} = '(?:' . "(?:$prepared_with )" . ' )?'   # optional produced with
 			. '(?:>|' . $max_regexp . '|<|' . $min_regexp . '|\s|\.|:)*'    # optional maximum, minimum, and separators
 			. '(?:\d+(?:[,.]\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
-			. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
-			. '(' . $units_regexp_in_lc . ')\s*'    # % or unit
+			. '(' . '(?:\d+(?:(?:\,|\.)\d+)?)'    # number, possibly with a dot or comma
+			. '|(?:'
+			. $one_regexp_in_lc
+			. ')\b'    # 'une' (as in "une pincée"), needs a word boundary after it to avoid matching "une" to "un e"
+			. ')\s*' . '(' . $units_regexp_in_lc . ')\s*'    # % or unit
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
 			. $ignore_strings_after_percent
 			. '|\s|\)|\]|\}|(?:'
