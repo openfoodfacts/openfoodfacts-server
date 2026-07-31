@@ -64,8 +64,6 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
-use experimental 'smartmatch';
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Cursor;
 use ProductOpener::Health qw/:all/;

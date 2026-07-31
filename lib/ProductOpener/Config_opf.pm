@@ -384,11 +384,13 @@ HTML
 	origins
 	packaging_shapes packaging_materials packaging_recycling packaging
 	labels categories
+	nutrients
 	misc
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 	brands
+	origins_adjectives
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable

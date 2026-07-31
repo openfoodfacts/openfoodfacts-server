@@ -27,6 +27,7 @@ server {
 
 	# product opener common directives
 	include snippets/productopener-server.include;
+	include snippets/productopener-uploads-defaults.include;
 
 }
 
