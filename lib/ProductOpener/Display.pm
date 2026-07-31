@@ -9570,7 +9570,11 @@ CSS
 										}
 									}
 									require ProductOpener::Numbers;
-									$formatted_value = ProductOpener::Numbers::round_to_max_decimal_places($formatted_value, $decimals) // $formatted_value;
+									my $rounded =
+										ProductOpener::Numbers::round_to_max_decimal_places(
+											$formatted_value, $decimals
+										);
+									$formatted_value = $rounded // $formatted_value;
 								}
 							}
 						}
