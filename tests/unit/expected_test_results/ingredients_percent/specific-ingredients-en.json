@@ -2,9 +2,17 @@
    {
       "id" : "en:water",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 100,
+      "percent_estimate" : 75,
       "percent_max" : 100,
-      "percent_min" : 100,
+      "percent_min" : 50,
       "text" : "water"
+   },
+   {
+      "id" : "en:Total Milk Content",
+      "is_in_taxonomy" : 0,
+      "percent_estimate" : 25,
+      "percent_max" : 50,
+      "percent_min" : 0,
+      "text" : "Total Milk Content"
    }
 ]

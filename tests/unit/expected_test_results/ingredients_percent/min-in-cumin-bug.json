@@ -1,47 +1,74 @@
 [
    {
       "id" : "en:salt",
+      "ingredients" : [
+         {
+            "id" : "fr:min",
+            "is_in_taxonomy" : 0,
+            "percent_estimate" : 75,
+            "percent_max" : 100,
+            "percent_min" : 50,
+            "text" : "min"
+         }
+      ],
       "is_in_taxonomy" : 1,
-      "percent" : 56.3380281690141,
-      "percent_estimate" : 56.3380281690141,
-      "percent_max" : 56.3380281690141,
-      "percent_min" : 56.3380281690141,
+      "percent_estimate" : 75,
+      "percent_max" : 100,
+      "percent_min" : 50,
       "text" : "sel"
    },
    {
       "id" : "en:pepper",
+      "ingredients" : [
+         {
+            "id" : "fr:min",
+            "is_in_taxonomy" : 0,
+            "percent_estimate" : 12.5,
+            "percent_max" : 50,
+            "percent_min" : 0,
+            "text" : "min"
+         }
+      ],
       "is_in_taxonomy" : 1,
-      "percent" : 28.169014084507,
-      "percent_estimate" : 28.169014084507,
-      "percent_max" : 28.169014084507,
-      "percent_min" : 28.169014084507,
+      "percent_estimate" : 12.5,
+      "percent_max" : 50,
+      "percent_min" : 0,
       "text" : "poivre"
    },
    {
       "id" : "en:chili-pepper",
+      "ingredients" : [
+         {
+            "id" : "fr:min",
+            "ingredients" : [],
+            "is_in_taxonomy" : 0,
+            "percent_estimate" : 0,
+            "percent_max" : 0,
+            "percent_min" : 0,
+            "text" : "min"
+         }
+      ],
       "is_in_taxonomy" : 1,
-      "percent" : 14.0845070422535,
-      "percent_estimate" : 14.0845070422535,
-      "percent_max" : 14.0845070422535,
-      "percent_min" : 14.0845070422535,
+      "percent_estimate" : 0.0,
+      "percent_max" : 0,
+      "percent_min" : 0,
       "text" : "piment"
    },
    {
       "id" : "en:cumin",
       "is_in_taxonomy" : 1,
-      "percent" : 1.12676056338028,
-      "percent_estimate" : 1.12676056338028,
-      "percent_max" : 1.12676056338027,
-      "percent_min" : 1.12676056338028,
+      "percent_estimate" : 0.0,
+      "percent_max" : 0,
+      "percent_min" : 0,
       "text" : "cumin"
    },
    {
       "id" : "en:garlic",
+      "ingredients" : [],
       "is_in_taxonomy" : 1,
-      "percent" : 0.28169014084507,
-      "percent_estimate" : 0.281690140845058,
-      "percent_max" : 0.281690140845058,
-      "percent_min" : 0.28169014084507,
+      "percent_estimate" : 12.5,
+      "percent_max" : 0,
+      "percent_min" : 0,
       "text" : "ail"
    }
 ]

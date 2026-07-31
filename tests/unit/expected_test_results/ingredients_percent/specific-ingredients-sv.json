@@ -3,25 +3,24 @@
       "id" : "en:lingonberry",
       "is_in_taxonomy" : 1,
       "labels" : "sv:krav",
-      "percent" : 50,
-      "percent_estimate" : 50,
-      "percent_max" : 50,
-      "percent_min" : 50,
+      "percent_estimate" : 60,
+      "percent_max" : 100,
+      "percent_min" : 20,
       "text" : "Lingon"
    },
    {
       "id" : "en:sugar",
       "is_in_taxonomy" : 1,
       "labels" : "sv:krav",
-      "percent_estimate" : 31.25,
+      "percent_estimate" : 20,
       "percent_max" : 50,
-      "percent_min" : 12.5,
+      "percent_min" : 0,
       "text" : "socker"
    },
    {
       "id" : "en:water",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 9.375,
+      "percent_estimate" : 10,
       "percent_max" : 33.3333333333333,
       "percent_min" : 0,
       "text" : "vatten"
@@ -30,8 +29,8 @@
       "additive_class" : "en:thickener",
       "id" : "en:e440a",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 4.6875,
-      "percent_max" : 18.75,
+      "percent_estimate" : 5,
+      "percent_max" : 25,
       "percent_min" : 0,
       "text" : "pektin"
    },
@@ -39,8 +38,8 @@
       "additive_class" : "en:acidity-regulator",
       "id" : "en:e330",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 4.6875,
-      "percent_max" : 12.5,
+      "percent_estimate" : 5,
+      "percent_max" : 20,
       "percent_min" : 0,
       "text" : "citronsyra"
    }

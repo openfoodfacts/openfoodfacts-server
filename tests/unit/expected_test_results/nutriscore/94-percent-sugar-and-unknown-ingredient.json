@@ -39,10 +39,9 @@
          "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent" : 94,
-         "percent_estimate" : 94,
-         "percent_max" : 94,
-         "percent_min" : 94,
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
          "text" : "sugar",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -50,9 +49,9 @@
       {
          "id" : "en:strange ingredient",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 6,
-         "percent_max" : 6,
-         "percent_min" : 6,
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
          "text" : "strange ingredient"
       }
    ],
@@ -92,10 +91,10 @@
       "en:strange ingredient"
    ],
    "ingredients_text" : "sugar 94%, strange ingredient",
-   "ingredients_with_specified_percent_n" : 1,
-   "ingredients_with_specified_percent_sum" : 94,
-   "ingredients_with_unspecified_percent_n" : 1,
-   "ingredients_with_unspecified_percent_sum" : 6,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:strange ingredient"
    ],
@@ -108,7 +107,6 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -209,7 +207,7 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 94
+               "value" : 75
             },
             "fruits-vegetables-legumes" : {
                "modifier" : "~",
@@ -237,8 +235,8 @@
                "added-sugars" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 94,
-                  "value_string" : "94"
+                  "value" : 75,
+                  "value_string" : "75"
                },
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",

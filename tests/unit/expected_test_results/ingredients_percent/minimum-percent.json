@@ -2,18 +2,27 @@
    {
       "id" : "en:milk",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 73,
-      "percent_max" : 73,
-      "percent_min" : 73,
+      "percent_estimate" : 75,
+      "percent_max" : 100,
+      "percent_min" : 50,
       "text" : "Leche"
    },
    {
       "id" : "en:cocoa",
+      "ingredients" : [
+         {
+            "id" : "es:27 % mínimo",
+            "is_in_taxonomy" : 0,
+            "percent_estimate" : 25,
+            "percent_max" : 50,
+            "percent_min" : 0,
+            "text" : "27% mínimo"
+         }
+      ],
       "is_in_taxonomy" : 1,
-      "percent" : 27,
-      "percent_estimate" : 27,
-      "percent_max" : 27,
-      "percent_min" : 27,
+      "percent_estimate" : 25,
+      "percent_max" : 50,
+      "percent_min" : 0,
       "text" : "Cacao"
    }
 ]

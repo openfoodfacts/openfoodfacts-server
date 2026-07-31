@@ -8,31 +8,39 @@
                {
                   "id" : "en:onion",
                   "is_in_taxonomy" : 1,
-                  "percent_estimate" : 25,
+                  "percent_estimate" : 50,
+                  "percent_max" : 100,
+                  "percent_min" : 25,
                   "text" : "contient oignon"
                },
                {
                   "id" : "en:e164",
                   "is_in_taxonomy" : 1,
-                  "percent" : 0.1,
                   "percent_estimate" : 25,
-                  "text" : "safran"
+                  "percent_max" : 50,
+                  "percent_min" : 0,
+                  "text" : "safran <"
                }
             ],
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 50,
+            "percent_estimate" : 75,
+            "percent_max" : 100,
+            "percent_min" : 50,
             "text" : "épices et aromates"
          },
          {
             "id" : "en:salt",
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 50,
+            "percent_estimate" : 25,
+            "percent_max" : 50,
+            "percent_min" : 0,
             "text" : "sel"
          }
       ],
       "is_in_taxonomy" : 1,
-      "percent" : 0,
       "percent_estimate" : 100,
+      "percent_max" : 100,
+      "percent_min" : 100,
       "text" : "légumes"
    }
 ]

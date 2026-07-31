@@ -6,8 +6,9 @@
          "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
          "id" : "en:orange-juice",
          "is_in_taxonomy" : 1,
-         "percent" : 50,
-         "percent_estimate" : 50,
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
          "text" : "Orange juice",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -17,7 +18,9 @@
          "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 25,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
          "text" : "water",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -27,8 +30,9 @@
          "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent" : 30,
-         "percent_estimate" : 25,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
          "text" : "sugar",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -55,7 +59,7 @@
       "en:water",
       "en:sugar"
    ],
-   "ingredients_percent_analysis" : -1,
+   "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:orange-juice",
       "en:fruit",
@@ -69,10 +73,10 @@
       "en:disaccharide"
    ],
    "ingredients_text" : "Orange juice 50%, water, sugar 30%",
-   "ingredients_with_specified_percent_n" : 2,
-   "ingredients_with_specified_percent_sum" : 80,
-   "ingredients_with_unspecified_percent_n" : 1,
-   "ingredients_with_unspecified_percent_sum" : 25,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
@@ -80,16 +84,14 @@
    "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "recipe" : {
-      "en:fruit" : 50,
-      "en:sugar" : 30,
-      "en:water" : 25,
+      "en:fruit" : 66.6666666666667,
+      "en:sugar" : 16.6666666666667,
+      "en:water" : 16.6666666666667,
       "other" : 0,
-      "unknown" : 0,
-      "warning" : "ingredients_percent_analysis_failed"
+      "unknown" : 0
    },
    "unknown_ingredients_n" : 0
 }

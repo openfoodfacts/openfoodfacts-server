@@ -6,14 +6,18 @@
          "id" : "fr:Filet de saumon sauvage",
          "is_in_taxonomy" : 0,
          "labels" : "en:sustainable-seafood-msc",
-         "percent_estimate" : 50,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
          "text" : "Filet de saumon sauvage"
       },
       {
          "id" : "fr:pêché en Pacifique Nord-est",
+         "ingredients" : [],
          "is_in_taxonomy" : 0,
-         "percent" : 100,
-         "percent_estimate" : 50,
+         "percent_estimate" : 0,
+         "percent_max" : 0,
+         "percent_min" : 0,
          "text" : "pêché en Pacifique Nord-est"
       }
    ],
@@ -23,12 +27,10 @@
          "fr:pêché en Pacifique Nord-est"
       ],
       "en:vegan-status-unknown" : [
-         "fr:Filet de saumon sauvage",
-         "fr:pêché en Pacifique Nord-est"
+         "fr:Filet de saumon sauvage"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:Filet de saumon sauvage",
-         "fr:pêché en Pacifique Nord-est"
+         "fr:Filet de saumon sauvage"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -46,7 +48,7 @@
       "fr:Filet de saumon sauvage",
       "fr:pêché en Pacifique Nord-est"
    ],
-   "ingredients_percent_analysis" : -1,
+   "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "fr:Filet de saumon sauvage",
       "fr:pêché en Pacifique Nord-est"
@@ -55,10 +57,10 @@
    "ingredients_text_fr" : "Filet de saumon sauvage certifié MSC, pêché en Pacifique Nord-est (100%)",
    "ingredients_text_with_allergens" : "Filet de saumon sauvage certifié MSC, pêché en Pacifique Nord-est (100%)",
    "ingredients_text_with_allergens_fr" : "Filet de saumon sauvage certifié MSC, pêché en Pacifique Nord-est (100%)",
-   "ingredients_with_specified_percent_n" : 1,
-   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
-   "ingredients_with_unspecified_percent_sum" : 50,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "fr:Filet de saumon sauvage",
       "fr:pêché en Pacifique Nord-est"
@@ -85,7 +87,6 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "tags_sources" : {

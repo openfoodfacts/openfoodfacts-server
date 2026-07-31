@@ -1,35 +1,34 @@
 [
    {
-      "id" : "en:blackcurrant",
-      "is_in_taxonomy" : 1,
-      "percent" : 40,
-      "percent_estimate" : 40,
-      "percent_max" : 40,
-      "percent_min" : 40,
-      "text" : "solbær"
+      "id" : "da:40 % solbær",
+      "is_in_taxonomy" : 0,
+      "percent_estimate" : 60,
+      "percent_max" : 100,
+      "percent_min" : 20,
+      "text" : "40% solbær"
    },
    {
       "id" : "en:sugar",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 27.5,
-      "percent_max" : 40,
-      "percent_min" : 15,
+      "percent_estimate" : 20,
+      "percent_max" : 50,
+      "percent_min" : 0,
       "text" : "sukker"
    },
    {
       "id" : "en:water",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 19.5833333333333,
+      "percent_estimate" : 10,
       "percent_max" : 33.3333333333333,
-      "percent_min" : 6.66666666666667,
+      "percent_min" : 0,
       "text" : "vand"
    },
    {
       "additive_class" : "en:gelling-agent",
       "id" : "en:e440a",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 6.45833333333334,
-      "percent_max" : 22.5,
+      "percent_estimate" : 5,
+      "percent_max" : 25,
       "percent_min" : 0,
       "text" : "e440"
    },
@@ -37,8 +36,8 @@
       "additive_class" : "en:preservative",
       "id" : "en:e202",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 6.45833333333334,
-      "percent_max" : 15.0,
+      "percent_estimate" : 5,
+      "percent_max" : 20,
       "percent_min" : 0,
       "text" : "e202"
    }
