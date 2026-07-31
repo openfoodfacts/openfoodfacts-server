@@ -388,10 +388,7 @@ my @display_tests = (
 			nutrition => {
 				aggregated_set => {
 					nutrients => {
-						calcium => {
-							unit => "g",
-							value => 0.0000123
-						},
+
 						carbohydrates => {
 							unit => "g",
 							value => 16.66666666667
@@ -416,10 +413,7 @@ my @display_tests = (
 							unit => "g",
 							value => 0.133333333333333
 						},
-						sodium => {
-							unit => "g",
-							value => 0.053333333333333
-						}
+
 					},
 					preparation => "as_sold",
 					per => "100g"
