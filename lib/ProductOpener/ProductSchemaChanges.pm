@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -62,16 +62,31 @@ use vars @EXPORT_OK;
 
 use Log::Any qw($log);
 
-use ProductOpener::Tags qw/compute_field_tags/;
+use ProductOpener::Tags
+	qw/get_minimal_tags_subset get_property %taxonomy_fields @writable_tags_fields_list list_taxonomy_tags_in_language display_taxonomy_tag/;
+use ProductOpener::ProductsTags qw/generate_field_tags_from_all_sources compute_field_tags/;
 use ProductOpener::Products qw/normalize_code/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Booleans qw/normalize_boolean/;
 use ProductOpener::Images qw/normalize_generation_ref/;
+use ProductOpener::Nutrition
+	qw/default_unit_for_nid generate_nutrient_aggregated_set_from_sets filter_out_nutrients_not_in_taxonomy remove_empty_nutrition_data/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
+use ProductOpener::Products qw/get_source_for_site_and_org/;
+
+# on the pro platform, we need to know the org to set the correct source for schema upgrades
+# (e.g. manufacturer or a label organization or database)
+# ideally we would not use the global $Org_id variable in the ProductSchemaChanges module,
+# but we would need to change many functions like retrieve_product() to pass the org_id as a parameter,
+# so for now we will just set the global variable
+use ProductOpener::Users qw/$Org_id/;
 
 use Data::DeepAccess qw(deep_get deep_set);
 use boolean ':all';
+use List::Util qw/any/;
+use Storable qw/dclone/;
 
-$current_schema_version = 1002;
+$current_schema_version = 1004;
 
 my (%upgrade_functions, %downgrade_functions);
 
@@ -124,12 +139,16 @@ sub convert_product_schema ($product_ref, $to_version) {
 	999 => \&convert_schema_999_to_1000_rename_ecoscore_fields_to_environmental_score,
 	1000 => \&convert_schema_1000_to_1001_remove_ingredients_hierarchy_taxonomize_brands,
 	1001 => \&convert_schema_1001_to_1002_refactor_images_object,
+	1002 => \&convert_schema_1002_to_1003_refactor_product_nutrition_schema,
+	1003 => \&convert_schema_1003_to_1004_refactor_tags,
 );
 
 %downgrade_functions = (
 	1000 => \&convert_schema_1000_to_999_rename_ecoscore_fields_to_environmental_score,
 	1001 => \&convert_schema_1001_to_1000_remove_ingredients_hierarchy_taxonomize_brands,
 	1002 => \&convert_schema_1002_to_1001_refactor_images_object,
+	1003 => \&convert_schema_1003_to_1002_refactor_product_nutrition_schema,
+	1004 => \&convert_schema_1004_to_1003_refactor_tags,
 );
 
 =head2 998 to 999 - Change in barcode normalization
@@ -318,6 +337,703 @@ sub convert_schema_1002_to_1001_refactor_images_object ($product_ref) {
 		# Replace the images object with the new one
 		$product_ref->{images} = $new_images_ref;
 	}
+
+	return;
+}
+
+=head2 1002 to 1003 - Refactor the product nutrition schema - API v3.5
+
+The nutrition schema is updated to allow storing several nutrition sets
+
+=cut
+
+sub convert_schema_1002_to_1003_refactor_product_nutrition_schema ($product_ref) {
+
+	# Convert only on OFF and OPFF
+	if (not(($options{product_type} eq 'food') or ($options{product_type} eq 'petfood'))) {
+		return;
+	}
+
+	# generate the same update time for the nutrition sets that are going to be created
+	my $update_time = time() + 0;
+
+	$product_ref->{nutrition} = {};
+
+	# For simplicity, we completely remove estimated nutrition data
+	# It will be recomputed from ingredients the next time the product is saved.
+	delete $product_ref->{nutriments_estimated};
+
+	# only create sets for which the nutrient values are given and not computed
+	my $new_nutrition_sets_ref = {};
+	my $no_nutrition_data = defined $product_ref->{no_nutrition_data} && $product_ref->{no_nutrition_data} eq "on";
+
+	if ($no_nutrition_data) {
+		$product_ref->{nutrition}{no_nutrition_data_on_packaging} = true;
+	}
+	else {
+		my $nutrition_given_as_prepared
+			= (defined $product_ref->{nutrition_data_prepared} && $product_ref->{nutrition_data_prepared} eq "on")
+			|| _has_nutrition_data_for_product_type($product_ref, "_prepared");
+		my $nutrition_given_as_sold = (defined $product_ref->{nutrition_data} && $product_ref->{nutrition_data} eq "on")
+			|| _has_nutrition_data_for_product_type($product_ref, "");
+
+		if ($nutrition_given_as_sold) {
+			my $nutrition_given_for_serving
+				= defined $product_ref->{nutrition_data_per} && $product_ref->{nutrition_data_per} eq "serving";
+
+			if ($nutrition_given_for_serving) {
+				$new_nutrition_sets_ref->{serving} = {};
+			}
+			else {
+				# If we don't have nutrition_data_per, we assume it is per 100g
+				$new_nutrition_sets_ref->{"100g"} = {};
+			}
+		}
+		if ($nutrition_given_as_prepared) {
+			my $nutrition_given_for_serving = defined $product_ref->{nutrition_data_prepared_per}
+				&& $product_ref->{nutrition_data_prepared_per} eq "serving";
+
+			if ($nutrition_given_for_serving) {
+				$new_nutrition_sets_ref->{prepared_serving} = {};
+			}
+			else {
+				# If we don't have nutrition_data_prepared_per, we assume it is per 100g
+				$new_nutrition_sets_ref->{"prepared_100g"} = {};
+			}
+		}
+	}
+
+	# hash used to easily access nutrient fields of old set and set preparation values of new sets
+	my $nutrition_preparations_ref = {
+		"prepared_100g" => {state => "prepared", modifier_state => "_prepared"},
+		"prepared_serving" => {state => "prepared", modifier_state => "_prepared"},
+		"100g" => {state => "as_sold", modifier_state => ""},
+		"serving" => {state => "as_sold", modifier_state => ""},
+	};
+
+	if (defined $product_ref->{nutriments} && !$no_nutrition_data) {
+
+		filter_out_nutrients_not_in_taxonomy($product_ref);
+
+		# If we have a value for energy-kj or energy-kcal, we remove the energy field,
+		# otherwise (for old revisions of products) we copy the energy field to energy-kj or energy-kcal based on its unit,
+		# and remove it.
+		foreach my $set_type (keys %$new_nutrition_sets_ref) {
+			my $modifier_state = $nutrition_preparations_ref->{$set_type}{modifier_state};
+			if (
+				not(   (defined $product_ref->{nutriments}{"energy-kj_$set_type"})
+					or (defined $product_ref->{nutriments}{"energy-kcal_$set_type"}))
+				)
+			{
+				if (defined $product_ref->{nutriments}{"energy_$set_type"}) {
+					my $energy_value = $product_ref->{nutriments}{"energy_$set_type"};
+					my $energy_unit = $product_ref->{nutriments}{"energy" . $modifier_state . "_unit"} // "kJ";
+					if ($energy_unit eq "kJ") {
+						$product_ref->{nutriments}{"energy-kj_$set_type"} = $energy_value;
+						$product_ref->{nutriments}{"energy-kj" . $modifier_state . "_unit"} = "kJ";
+						$product_ref->{nutriments}{"energy-kj" . $modifier_state . "_modifier"}
+							= $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"}
+							if defined $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+					}
+					else {
+						$product_ref->{nutriments}{"energy-kcal_$set_type"} = $energy_value;
+						$product_ref->{nutriments}{"energy-kcal" . $modifier_state . "_unit"} = "kcal";
+						$product_ref->{nutriments}{"energy-kcal" . $modifier_state . "_modifier"}
+							= $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"}
+							if defined $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+					}
+				}
+			}
+			# remove the old energy field
+			delete $product_ref->{nutriments}{"energy_$set_type"};
+			delete $product_ref->{nutriments}{"energy" . $modifier_state . "_unit"};
+			delete $product_ref->{nutriments}{"energy" . $modifier_state . "_modifier"};
+		}
+
+		my %hash_nutrients = map {/^([a-z][a-z\-]*[a-z]?)(?:_\w+)?$/ ? ($1 => 1) : ()}
+			keys %{$product_ref->{nutriments}};
+
+		my @nutrients = keys %hash_nutrients;
+
+		# Generates the nutrition sets
+		# Nutrition data did not have a source before, we use the default source corresponding to the site (off or off-pro) and organization
+		my $source = get_source_for_site_and_org();
+		foreach my $set_type (keys %$new_nutrition_sets_ref) {
+			$new_nutrition_sets_ref->{$set_type}{preparation} = $nutrition_preparations_ref->{$set_type}{state};
+			$new_nutrition_sets_ref->{$set_type}{source} = $source;
+			$new_nutrition_sets_ref->{$set_type}{last_updated_t} = $update_time;
+
+			$new_nutrition_sets_ref->{$set_type}{per_unit}
+				= set_per_unit($product_ref->{product_quantity_unit}, $product_ref->{serving_quantity_unit}, $set_type);
+
+			# set per_quantity as the serving quantity if the set is generated with nutrient quantities per serving,
+			# or as 100 if it is generated with quantities per 100g/ml
+			$new_nutrition_sets_ref->{$set_type}{per_quantity}
+				= ($set_type eq "serving" or $set_type eq "prepared_serving")
+				? $product_ref->{serving_quantity}
+				: 100;
+
+			# set per as serving if the set is generated with nutrient quantities per serving,
+			# or as 100g or 100ml if it is generated with quantities per 100g/ml
+			$new_nutrition_sets_ref->{$set_type}{per}
+				= ($set_type eq "serving" or $set_type eq "prepared_serving")
+				? "serving"
+				: "100" . $new_nutrition_sets_ref->{$set_type}{per_unit};
+
+			$new_nutrition_sets_ref->{$set_type}{nutrients} = {};
+
+			foreach my $nutrient (@nutrients) {
+				# only add the nutrient value if it is provided for the set type
+				# or if we have a - modifier for this nutrient
+
+				my $nutrient_value = $product_ref->{nutriments}{$nutrient . '_' . $set_type};
+				my $nutrient_modifier
+					= deep_get($product_ref, "nutriments",
+					$nutrient . $nutrition_preparations_ref->{$set_type}{modifier_state} . "_modifier");
+
+				if ((defined $nutrient_value) or (defined $nutrient_modifier)) {
+					my $nutrient_set_ref = {};
+
+					# First check if there is a modifier for this nutrient, so that we can skip unspecified nutrients
+
+					if (defined $nutrient_modifier) {
+
+						if ($nutrient_modifier eq "-") {
+							# this nutrient is unspecified, we do not add it to the nutrient set
+							defined $new_nutrition_sets_ref->{$set_type}{unspecified_nutrients}
+								or $new_nutrition_sets_ref->{$set_type}{unspecified_nutrients} = [];
+							push @{$new_nutrition_sets_ref->{$set_type}{unspecified_nutrients}}, $nutrient;
+							next;
+						}
+
+						$nutrient_set_ref->{modifier} = $nutrient_modifier;
+					}
+
+					$nutrient_set_ref->{value} = $nutrient_value;
+					$nutrient_set_ref->{unit} = default_unit_for_nid($nutrient);
+					# the 1002 version products do not have a value string so the float value is converted to string
+					$nutrient_set_ref->{value_string} = sprintf("%s", $nutrient_value);
+
+					$new_nutrition_sets_ref->{$set_type}{nutrients}{$nutrient} = $nutrient_set_ref;
+				}
+			}
+		}
+	}
+
+	# add the created sets to the new nutrition field
+	$product_ref->{nutrition}{input_sets} = [
+		grep {defined $_ && %{$_->{nutrients}}} (
+			$new_nutrition_sets_ref->{"prepared_100g"}, $new_nutrition_sets_ref->{prepared_serving},
+			$new_nutrition_sets_ref->{"100g"}, $new_nutrition_sets_ref->{serving}
+		)
+	];
+	# generate the aggregated set with the created sets
+	$product_ref->{nutrition}{aggregated_set}
+		= generate_nutrient_aggregated_set_from_sets($product_ref->{nutrition}{input_sets});
+
+	remove_empty_nutrition_data($product_ref);
+
+	# delete the old nutrition schema from the product and other now useless fields
+	delete $product_ref->{nutriments};
+	delete $product_ref->{no_nutrition_data};
+	delete $product_ref->{nutrition_data};
+	delete $product_ref->{nutrition_data_per};
+	delete $product_ref->{nutrition_data_prepared};
+	delete $product_ref->{nutrition_data_prepared_per};
+
+	return;
+}
+
+=head2 set_per_unit
+
+Set the per unit depending on the given product quantity unit, the serving quantity unit
+and on the fact that the created set is per 100g or per serving
+
+=cut
+
+sub set_per_unit ($product_quantity_unit, $serving_quantity_unit, $set_type) {
+	my $per_unit = undef;
+	if (defined $product_quantity_unit) {
+		$per_unit = $product_quantity_unit;
+	}
+	elsif (defined $serving_quantity_unit) {
+		$per_unit = $serving_quantity_unit;
+	}
+	# unit is either g or ml for set types of 100g or prepared_100g because, the default being g
+	elsif ($set_type eq "100g" || $set_type eq "prepared_100g") {
+		$per_unit = "g";
+	}
+	return $per_unit;
+}
+
+=head2 1003 to 1002 - Refactor the product nutrition schema - API v3.5
+
+The nutrition schema is updated to allow storing several nutrition input sets.
+To downgrade, we use only the aggregated set to generate the nutriments field.
+
+This means that for some products, we will return less information in the downgraded version,
+as we will return only as sold data or prepared data, but not both as was possible in the 1002 version.
+
+=cut
+
+sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref, $delete_nutrition_data = true) {
+	# Convert only on OFF and OPFF
+	if (not(($options{product_type} eq 'food') or ($options{product_type} eq 'petfood'))) {
+		return;
+	}
+
+	# No nutrition data
+	my $no_nutrition_data_on_packaging = deep_get($product_ref, "nutrition", "no_nutrition_data_on_packaging") // false;
+	if ($no_nutrition_data_on_packaging) {
+		$product_ref->{no_nutrition_data} = "on";
+	}
+	else {
+		# should not happen but just in case
+		delete $product_ref->{no_nutrition_data};
+	}
+
+	# if no aggregated set then we do not return nutrition information
+	# Note: We might have some nutrition data that cannot be incorporated in the aggregated set
+	# e.g. an input set per serving, but without a serving quantity: in that case we do not have an aggregated set
+
+	my $aggregated_set_ref = deep_get($product_ref, "nutrition", "aggregated_set");
+
+	if (!defined $aggregated_set_ref || !%{$aggregated_set_ref}) {
+		delete $product_ref->{nutrition};
+	}
+
+	else {
+		my $nutrient_set_ref = $product_ref->{nutrition}{aggregated_set};
+		my $preparation_state = (
+				   $nutrient_set_ref->{preparation} eq "prepared"
+				or $nutrient_set_ref->{preparation} eq "_prepared"
+		) ? "_prepared" : "";
+		# if per is 100ml then 1002 product version nutrient per field is 100g
+		my $per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
+
+		# first create the nutriments and nutriments_estimated fields
+		my $nutriments_ref = {};
+		my $nutriments_estimated_ref = {};
+
+		foreach my $nutrient (keys %{$nutrient_set_ref->{nutrients}}) {
+			# Get the source of the nutrient value
+			my $source = deep_get($nutrient_set_ref, "nutrients", $nutrient, "source") // "unknown";
+			# If the source is not estimated, or if it is added-sugar or fruits-vegetables-nuts or fruits-vegetables-legumes
+			# we set the nutrient in the nutriments field
+			if (   ($source ne "estimate")
+				or ($nutrient eq "added-sugars"))
+			{
+
+				# for backward compatibility, we add those fields for each nutrient:
+
+				# _value: What was entered  --> we set it to the value in the normalized unit from the aggregated set
+				# _unit: Unit of what was entered --> we set it to the normalized unit in the aggregated set
+				# _100g: Amount per 100g in original unit --> we set it to the value in the normalized unit from the aggregated set
+				# _serving: Amount per serving normalised unit --> we compute it if we have serving quantity
+				# no suffix: What was entered in normalised unit --> we set it to the value in the normalized unit from the aggregated set
+				# _modifier: modifier for what was entered
+				$nutriments_ref->{$nutrient . $preparation_state . $per}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
+				$nutriments_ref->{$nutrient . $preparation_state . "_value"}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
+				$nutriments_ref->{$nutrient . $preparation_state} = $nutrient_set_ref->{nutrients}{$nutrient}{value};
+				$nutriments_ref->{$nutrient . "_unit"} = $nutrient_set_ref->{nutrients}{$nutrient}{unit};
+				if (defined $nutrient_set_ref->{nutrients}{$nutrient}{modifier}) {
+					$nutriments_ref->{$nutrient . $preparation_state . "_modifier"}
+						= $nutrient_set_ref->{nutrients}{$nutrient}{modifier};
+				}
+			}
+			elsif (($nutrient eq "fruits-vegetables-nuts")
+				or ($nutrient eq "fruits-vegetables-legumes"))
+			{
+				# we add -from-ingredients to the nutrient name
+				$nutriments_ref->{$nutrient . "-estimate-from-ingredients" . $preparation_state . $per}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
+			}
+			else {
+				# nutrient is estimated
+				$nutriments_estimated_ref->{$nutrient . $per}
+					= $nutrient_set_ref->{nutrients}{$nutrient}{value};
+			}
+		}
+
+		if (scalar keys %$nutriments_estimated_ref) {
+			$product_ref->{nutriments_estimated} = $nutriments_estimated_ref;
+		}
+		if (scalar keys %$nutriments_ref) {
+			$product_ref->{nutriments} = $nutriments_ref;
+		}
+
+		# then add other useful data on the nutrients to the product
+		if ($preparation_state eq "") {
+			$product_ref->{nutrition_data} = "on";
+			$product_ref->{nutrition_data_per} = $product_ref->{nutrition}{aggregated_set}{per};
+		}
+		else {
+			$product_ref->{nutrition_data_prepared} = "on";
+			$product_ref->{nutrition_data_prepared_per} = $product_ref->{nutrition}{aggregated_set}{per};
+		}
+
+		# finally remove the nutrition field of the 1003 product version if deletion on
+		if ($delete_nutrition_data) {
+			delete $product_ref->{nutrition};
+		}
+
+		# Compute per serving values if we have a serving size
+		# Note: this works only if the serving_size field is included in the product data to downgrade
+		# for API requests that may restrict fields returned, we have temporarily added serving_size
+		# and it is then removed after the schema conversion
+		_compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema($product_ref);
+	}
+
+	return;
+}
+
+=head2 _has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type)
+
+
+NOTE: this function used to be in Food.pm and it was used for the old nutrition data schema in the "nutriments" field.
+
+It has been moved to this module as it is now needed only for schema upggrades.
+
+--
+
+Check if the product has nutrition data for the given type ("" or "_prepared").
+
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
+=head4 $nutrition_product_type - string, either "" or "_prepared"
+
+=head3 Return values
+
+=head4 0 or 1
+
+=head4 0 if the product does not have nutrition data for the given type
+
+=head4 1 if the product has nutrition data for the given type
+
+=cut
+
+sub _has_nutrition_data_for_product_type ($product_ref, $nutrition_product_type) {
+
+	if (not defined $product_ref->{nutriments}) {
+		return 0;
+	}
+
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		if (
+			(
+				   (($nutrition_product_type eq "") and ($nid !~ /_prepared/))
+				or (($nutrition_product_type eq "_prepared") and ($nid =~ /_prepared/))
+			)
+			and ($nid =~ /_(serving|100g)$/)
+			)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
+=head2 _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($product_ref)
+
+NOTE: this function used to be in Food.pm and it was used for the old nutrition data schema in the "nutriments" field.
+
+It has been moved to this module as it is now needed only for schema downgrades.
+
+--
+
+Input nutrition data is indicated per 100g or per serving.
+This function computes the nutrition data for the other quantity (per serving or per 100g) if we know the serving quantity.
+
+=cut
+
+sub _compute_nutrition_data_per_100g_and_per_serving_for_old_nutrition_schema ($product_ref) {
+
+	# Make sure we have normalized the product quantity and the serving size
+	# in a normal setting, this function has already been called by analyze_and_enrich_product_data()
+	# but some test functions (e.g. in food.t) may call this function directly
+	normalize_product_quantity_and_serving_size($product_ref);
+
+	# Record if we have nutrient values for as sold or prepared types,
+	# so that we can check the nutrition_data and nutrition_data_prepared boxes if we have data
+	my %nutrition_data = ();
+	my $serving_quantity = $product_ref->{serving_quantity};
+
+	foreach my $product_type ("", "_prepared") {
+
+		# FIXME: commenting this code out, as it may not be needed and relied on assign_nid_modifier_value_and_unit which has been removed
+		if (0) {
+			# Energy
+			# Before November 2019, we only had one energy field with an input value in kJ or in kcal, and internally it was converted to kJ
+			# In Europe, the energy is indicated in both kJ and kcal, but there isn't a straightforward conversion between the 2: the energy is computed
+			# by summing some nutrients multiplied by an energy factor. That means we need to store both the kJ and kcal values.
+			# see bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2396
+
+			# If we have a value for energy-kj, use it for energy
+			if (defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_value"}) {
+				if (not defined $product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}) {
+					$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"} = "kJ";
+				}
+				assign_nid_modifier_value_and_unit(
+					$product_ref,
+					"energy" . $product_type,
+					$product_ref->{nutriments}{"energy-kj" . $product_type . "_modifier"},
+					$product_ref->{nutriments}{"energy-kj" . $product_type . "_value"},
+					$product_ref->{nutriments}{"energy-kj" . $product_type . "_unit"}
+				);
+			}
+			# Otherwise use the energy-kcal value for energy
+			elsif (defined $product_ref->{nutriments}{"energy-kcal" . $product_type}) {
+				if (not defined $product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}) {
+					$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"} = "kcal";
+				}
+				assign_nid_modifier_value_and_unit(
+					$product_ref,
+					"energy" . $product_type,
+					$product_ref->{nutriments}{"energy-kcal" . $product_type . "_modifier"},
+					$product_ref->{nutriments}{"energy-kcal" . $product_type . "_value"},
+					$product_ref->{nutriments}{"energy-kcal" . $product_type . "_unit"}
+				);
+			}
+			# Otherwise, if we have a value and a unit for the energy field, copy it to either energy-kj or energy-kcal
+			elsif ( (defined $product_ref->{nutriments}{"energy" . $product_type . "_value"})
+				and (defined $product_ref->{nutriments}{"energy" . $product_type . "_unit"}))
+			{
+
+				my $unit = lc($product_ref->{nutriments}{"energy" . $product_type . "_unit"});
+
+				assign_nid_modifier_value_and_unit(
+					$product_ref,
+					"energy-$unit" . $product_type,
+					$product_ref->{nutriments}{"energy" . $product_type . "_modifier"},
+					$product_ref->{nutriments}{"energy" . $product_type . "_value"},
+					$product_ref->{nutriments}{"energy" . $product_type . "_unit"}
+				);
+			}
+		}
+
+		if (not defined $product_ref->{"nutrition_data" . $product_type . "_per"}) {
+			$product_ref->{"nutrition_data" . $product_type . "_per"} = '100g';
+		}
+
+		if ($product_ref->{"nutrition_data" . $product_type . "_per"} eq 'serving') {
+
+			foreach my $nid (keys %{$product_ref->{nutriments}}) {
+				if (   ($product_type eq "") and ($nid =~ /_/)
+					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
+				{
+
+					next;
+				}
+				$nid =~ s/_prepared$//;
+
+				my $value = $product_ref->{nutriments}{$nid . $product_type};
+				$product_ref->{nutriments}{$nid . $product_type . "_serving"} = $value;
+				$product_ref->{nutriments}{$nid . $product_type . "_serving"}
+					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+				$product_ref->{nutriments}{$nid . $product_type . "_serving"} += 0.0;
+				delete $product_ref->{nutriments}{$nid . $product_type . "_100g"};
+
+				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
+					;    # $unit will be undef if the nutrient is not in the taxonomy
+
+				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
+				# otherwise we adjust the value for 100g
+				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"} = $value + 0.0;
+				}
+				# Don't adjust the value for 100g if the serving quantity is 5 or less
+				elsif ((defined $serving_quantity) and ($serving_quantity > 5)) {
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+						= sprintf("%.2e", $value * 100.0 / $product_ref->{serving_quantity}) + 0.0;
+				}
+				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+				$nutrition_data{$product_type} = 1;
+			}
+		}
+		# nutrition_data_<_/prepared>_per eq '100g' or '1kg'
+		else {
+			foreach my $nid (keys %{$product_ref->{nutriments}}) {
+				if (   ($product_type eq "") and ($nid =~ /_/)
+					or (($product_type eq "_prepared") and ($nid !~ /_prepared$/)))
+				{
+
+					next;
+				}
+				$nid =~ s/_prepared$//;
+
+				# Value for 100g is the same as value shown in the nutrition table
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+					= $product_ref->{nutriments}{$nid . $product_type};
+				# get rid of non-digit prefixes if any
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"}
+					=~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+				# set value as numeric
+				$product_ref->{nutriments}{$nid . $product_type . "_100g"} += 0.0;
+				delete $product_ref->{nutriments}{$nid . $product_type . "_serving"};
+
+				my $unit = get_property("nutrients", "zz:$nid", "unit:en");
+				# $unit will be undef if the nutrient is not in the taxonomy
+
+				# petfood, Value for 100g is 10x smaller than in the nutrition table (kg)
+				if (    (defined $product_ref->{product_type})
+					and ($product_ref->{product_type} eq "petfood")
+					and (defined $unit)
+					and ($unit ne "%"))
+				{
+					$product_ref->{nutriments}{$nid . $product_type . "_100g"} /= 10;
+				}
+
+				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
+				# otherwise we adjust the value for the serving quantity
+				if ((defined $unit) and (($unit eq '') or ($unit =~ /^\%/))) {
+					$product_ref->{nutriments}{$nid . $product_type . "_serving"}
+						= $product_ref->{nutriments}{$nid . $product_type} + 0.0;
+				}
+				elsif ((defined $product_ref->{serving_quantity}) and ($product_ref->{serving_quantity} > 0)) {
+
+					$product_ref->{nutriments}{$nid . $product_type . "_serving"} = sprintf("%.2e",
+						($product_ref->{nutriments}{$nid . $product_type} // 0)
+							/ 100.0 * $product_ref->{serving_quantity}) + 0.0;
+				}
+				# Record that we have a nutrient value for this product type (with a unit, not NOVA, alcohol % etc.)
+				$nutrition_data{$product_type} = 1;
+			}
+		}
+	}
+
+	# If we have nutrient data for as sold or prepared, make sure the checkbox are ticked
+	foreach my $product_type (sort keys %nutrition_data) {
+		$product_ref->{"nutrition_data" . $product_type} = 'on';
+	}
+
+	return;
+}
+
+=head2 1003 to 1004 - Refactor the tags schema
+
+=cut
+
+sub convert_schema_1003_to_1004_refactor_tags ($product_ref) {
+
+	$product_ref->{tags_sources} = {};
+
+	# Tags did not have a source before, we use the default source corresponding to the site (off or off-pro) and organization
+	my $source = get_source_for_site_and_org();
+
+	# We go through the input tags fields (e.g. categories, labels) that can be written directly
+	# and that are not derived from other fields (e.g. states_tags, ingredients_tags)
+
+	foreach my $tagtype (@writable_tags_fields_list) {
+
+		# Reconstruct the input tags list for this tagtype
+		my $input_tags_ref;
+
+		# If the tagtype has no taxonomy (e.g. stores, purchase_places), then the input tags are in the "stores" and "purchase_places"
+		# and they don't have a language
+		if ((defined $product_ref->{$tagtype}) and (not exists $taxonomy_fields{$tagtype})) {
+			$input_tags_ref = [split(/,\s*/, $product_ref->{$tagtype})];
+		}
+		else {
+
+			# For taxonomy fields like categories, the input tags were in the [tagtype]_hierarchy field
+
+			# we put the content of fields like categories_hierarchy inside categories_tags
+			# for some very old revisions we may not have the _hierarchy field, but only the _tags field, so we use it as a fallback
+			$input_tags_ref = $product_ref->{$tagtype . "_hierarchy"} // $product_ref->{$tagtype . "_tags"};
+		}
+
+		if (defined $input_tags_ref) {
+
+			if (scalar @{$input_tags_ref} > 0) {
+
+				$product_ref->{$tagtype . "_tags"} = $input_tags_ref;
+
+				# we create a tags_source.categories with the minimal tags subset to generate categories_tags
+
+				my $source_ref = {
+					last_updated_t => $product_ref->{last_updated_t} // $product_ref->{last_modified_t},
+					tags => [get_minimal_tags_subset($tagtype, $input_tags_ref)],
+				};
+
+				$product_ref->{tags_sources}->{$tagtype} = {$source => $source_ref};
+
+				# Regenerate the [tagtype]_tags field
+				generate_field_tags_from_all_sources($product_ref, $tagtype);
+			}
+
+			# Delete old fields
+			my @fields_to_delete
+				= ($tagtype . "_hierarchy", $tagtype, $tagtype . "_old", $tagtype . "_debug", $tagtype . "_imported");
+
+			if ($tagtype ne "ingredients") {
+				# We want to keep ingredients_lc to know which ingredients_text_[lc] field has been used to compute ingredients_tags
+				push @fields_to_delete, $tagtype . "_lc";
+			}
+
+			foreach my $field (@fields_to_delete) {
+				if (exists $product_ref->{$field}) {
+					$log->debug("Deleting field $field (value: "
+							. $product_ref->{$field}
+							. ") from product "
+							. $product_ref->{code}
+							. " for schema upgrade 1003 to 1004")
+						if $log->is_debug;
+					delete $product_ref->{$field};
+				}
+			}
+
+			# Generate brands field
+			if ($tagtype eq "brands") {
+				$product_ref->{$tagtype}
+					= join(", ", map {display_taxonomy_tag("en", $tagtype, $_)} @{$product_ref->{$tagtype . "_tags"}});
+			}
+		}
+	}
+
+	return;
+}
+
+sub convert_schema_1004_to_1003_refactor_tags ($product_ref) {
+
+	$log->debug("convert_product_schema_1004_to_1003", {product_ref => $product_ref}) if $log->is_debug();
+
+	my $target_lc = $product_ref->{lang} // "en";
+
+	foreach my $tagtype (@writable_tags_fields_list) {
+		if (defined $product_ref->{$tagtype . "_tags"}) {
+			# In the new tags schema, the *_tags fields contain what used to be in the *_hierarchy fields
+			# So we just deep copy it
+			$product_ref->{$tagtype . "_hierarchy"} = dclone($product_ref->{$tagtype . "_tags"});
+
+			# We also set the [tagtype]_lc to the value of the lang field (main language of product)
+			# and generate the [tagtype] field with comma separated values, but only for the minimal tags subset that is used to generate the [tagtype]_tags field, to avoid generating tags
+			$product_ref->{$tagtype . "_lc"} = $target_lc;
+			my $tags_ref = $product_ref->{$tagtype . "_hierarchy"};
+			if (($tagtype eq "traces") or ($tagtype eq "allergens")) {
+				# For allergens and traces, we generate a field that corresponds the packaging source only, not the allergens from ingredients
+				# so that apps do not write back allergens from ingredients as allergens from packaging.
+				$tags_ref = deep_get($product_ref, "tags_sources", $tagtype, "packaging", "tags");
+			}
+
+			# We generate fields like "labels" and "categories" with the _hierarchy tags that contain unnormalized entries for unrecognized tags
+			# (e.g. with accents and case)
+			$product_ref->{$tagtype}
+				= list_taxonomy_tags_in_language($target_lc, $tagtype, [get_minimal_tags_subset($tagtype, $tags_ref)]);
+		}
+	}
+
+	# Also generate states and states_hierarchy
+	if (defined $product_ref->{states_tags}) {
+		$product_ref->{states_hierarchy} = $product_ref->{states_tags};
+		$product_ref->{states}
+			= list_taxonomy_tags_in_language($target_lc, "states", $product_ref->{states_tags});
+	}
+
+	delete $product_ref->{tags_sources};
 
 	return;
 }

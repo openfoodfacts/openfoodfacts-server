@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -62,6 +62,7 @@ use Log::Any qw($log);
 use Storable qw(dclone);
 use Text::Fuzzy;
 use Data::DeepAccess qw(deep_get deep_exists);
+use Encode qw(encode_utf8);
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -86,6 +87,7 @@ use ProductOpener::Store qw/get_string_id_for_lang retrieve retrieve_object stor
 use ProductOpener::Texts qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Images qw/get_imagefield_from_string process_image_crop process_image_upload/;
 use ProductOpener::Lang qw/$lc  lang/;
 use ProductOpener::Mail qw/:all/;
@@ -107,6 +109,9 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/normalize_packager_codes/;
 use ProductOpener::API qw/get_initialized_response/;
 use ProductOpener::HTTP qw/create_user_agent/;
+use ProductOpener::Nutrition
+	qw/assign_nutrition_values_from_imported_csv_product_old_fields assign_nutrition_values_from_imported_csv_product/;
+use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -694,10 +699,12 @@ sub set_field_value (
 	$modified_fields_ref, $differing_ref, $differing_fields_ref, $time
 	)
 {
+	my $source = get_source_for_site_and_org($Org_id);
 
 	my $code = $imported_product_ref->{code};
 
-	$log->debug("defined and non empty value for field", {field => $field, value => $imported_product_ref->{$field}})
+	$log->debug("set_field_value - defined value for field",
+		{field => $field, value => $imported_product_ref->{$field}})
 		if $log->is_debug();
 
 	if (($field =~ /product_name/) or ($field eq "brands")) {
@@ -781,107 +788,35 @@ sub set_field_value (
 		}
 	}
 
-	# for tag fields, only add entries to it, do not remove other entries
-
 	if (defined $tags_fields{$field}) {
 
-		my $current_field = $product_ref->{$field};
+		# for tag fields, if we have an empty value, we skip it as it's a sign the value was not defined in the provided data
+		next if ($imported_product_ref->{$field} eq "");
 
-		# we may want to replace brands completely at some point
-		# disabling for now
-
-		#if ($field eq 'brands') {
-		#	$product_ref->{$field} = "";
-		#	delete $product_ref->{$field . "_tags"};
-		#}
-
-		# If we are on the producers platform, remove existing values for brands
-		if (($server_options{producers_platform}) and ($field eq "brands")) {
-			$product_ref->{$field} = "";
-			delete $product_ref->{$field . "_tags"};
+		# if we have a '-' value, we will remove existing values
+		if ($imported_product_ref->{$field} eq '-') {
+			$imported_product_ref->{$field} = '';
+			$log->debug("field has value '-', will remove existing values for field", {field => $field, code => $code})
+				if $log->is_debug();
 		}
 
-		# If we are on the producers platform, replace existing values by producer supplied values for allergens and traces
-		if (deep_exists(\%options, "replace_existing_values_when_importing_those_tags_fields", $field)) {
-			if ($imported_product_ref->{$field} ne "") {
-				$product_ref->{$field} = "";
-				delete $product_ref->{$field . "_tags"};
-			}
-		}
-
-		# existing is the list of already existing tags
-		# that will be completed with more values
-		my %existing = ();
-		if (defined $product_ref->{$field . "_tags"}) {
-			foreach my $tagid (@{$product_ref->{$field . "_tags"}}) {
-				$existing{$tagid} = 1;
-			}
-		}
-		# process each provided value
-		foreach my $tag (split(/,/, $imported_product_ref->{$field})) {
-
-			my $tagid;
-
-			next
-				if $tag =~ /^\s*($empty_regexp|$unknown_regexp|$not_applicable_regexp)\s*$/i;
-
-			$tag =~ s/^\s+//;
-			$tag =~ s/\s+$//;
-			# normalize field in different ways depending on its type
-			if ($field eq 'emb_codes') {
-				$tag = normalize_packager_codes($tag);
-			}
-
-			if (defined $taxonomy_fields{$field}) {
-				$tagid = get_taxonomyid($imported_product_ref->{lc},
-					canonicalize_taxonomy_tag($imported_product_ref->{lc}, $field, $tag));
-			}
-			else {
-				$tagid = get_string_id_for_lang("no_language", $tag);
-			}
-			# if the tag was not already in the existing tags, add it
-			if (not exists $existing{$tagid}) {
-				$log->debug("adding tagid to field", {field => $field, tagid => $tagid})
-					if $log->is_debug();
-				$product_ref->{$field} .= ", $tag";
-				$existing{$tagid} = 1;
-			}
-			else {
-				#print "- $tagid already in $field\n";
-				# replace eventual tagid by it's plain value
-				# update the case (e.g. for brands)
-				if ($field eq "brands") {
-					my $regexp = $tag;
-					$regexp =~ s/( |-)/\( \|-\)/g;
-					$product_ref->{$field} =~ s/\b$tagid\b/$tag/i;
-					$product_ref->{$field} =~ s/\b$regexp\b/$tag/i;
-				}
-			}
-		}
-		# remove leading comma
-		if ((defined $product_ref->{$field}) and ($product_ref->{$field} =~ /^, /)) {
-			$product_ref->{$field} = $';
-		}
-
-		my $tag_lc = $product_ref->{lc};
+		# Keep track of the current tags (if any) so that we know if they changed
+		my $current_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags") || [];
+		my $current_tags = join(",", @$current_tags_ref);
 
 		# If an import_lc was passed as a parameter, assume the imported values are in the import_lc language
-		if (defined $args_ref->{import_lc}) {
-			$tag_lc = $args_ref->{import_lc};
-		}
-		# emb_codes noramlization
-		if ($field eq 'emb_codes') {
-			# French emb codes
-			$product_ref->{emb_codes_orig} = $product_ref->{emb_codes};
-			$product_ref->{emb_codes} = normalize_packager_codes($product_ref->{emb_codes});
-		}
+		my $tag_lc = $imported_product_ref->{lc} // $args_ref->{import_lc} // "en";
+
+		set_field_input_tags_for_source($product_ref, $tag_lc, $field, $source, $imported_product_ref->{$field});
+
+		my $new_tags_ref = deep_get($product_ref, "tags_sources", $field, $source, "tags") || [];
+		my $new_tags = join(",", @$new_tags_ref);
+
 		# post processing according to the type of action
 		# $current_field is the value before update
-		if (not defined $current_field) {
-			$log->debug("added value to field", {field => $field, value => $product_ref->{$field}})
+		if (($current_tags eq "") and ($new_tags ne "")) {
+			$log->debug("added value to field", {field => $field, new_value => $new_tags})
 				if $log->is_debug();
-			# recompute tags
-			compute_field_tags($product_ref, $tag_lc, $field);
 			# rembember it was added
 			push @$modified_fields_ref, $field;
 			# upddate stats
@@ -890,23 +825,18 @@ sub set_field_value (
 			defined $stats_ref->{"products_info_added_" . $field} or $stats_ref->{"products_info_added_" . $field} = {};
 			$stats_ref->{"products_info_added_field_" . $field}{$code} = 1;
 		}
-		elsif ($current_field ne $product_ref->{$field}) {
-			$log->debug("changed value for field",
-				{field => $field, value => $product_ref->{$field}, old_value => $current_field})
+		elsif ($current_tags ne $new_tags) {
+			$log->debug("changed value for tags field",
+				{field => $field, old_value => $current_tags, new_value => $new_tags})
 				if $log->is_debug();
-			# recompute tags
-			compute_field_tags($product_ref, $tag_lc, $field);
 			# rembember it was added
 			push @$modified_fields_ref, $field;
 			# upddate stats
 			$$modified_ref++;
 			$stats_ref->{products_info_changed}{$code} = 1;
-			defined $stats_ref->{"products_info_changed_" . $current_field}
-				or $stats_ref->{"products_info_changed_" . $current_field} = {};
-			$stats_ref->{"products_info_changed_field_" . $current_field}{$code} = 1;
-		}
-		elsif ($field eq "brands") {    # we removed it earlier
-			compute_field_tags($product_ref, $tag_lc, $field);
+			defined $stats_ref->{"products_info_changed_" . $field}
+				or $stats_ref->{"products_info_changed_" . $field} = {};
+			$stats_ref->{"products_info_changed_field_" . $field}{$code} = 1;
 		}
 	}
 	# Processing non tag field
@@ -1061,244 +991,211 @@ sub set_field_value (
 	return;
 }
 
-sub import_nutrients (
+=head2 compare_old_and_new_objects ($old_object_ref, $new_object_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref)
+
+We previously tried to keep track of all the fields and sub fields that were added, modified and deleted (e.g. specific nutrients),
+but as the data structure becomes more complex, this information becomes more difficult to maintain,
+while the benefit is limited: we get aggregated stats on fields updates for an import of products, but in practice it is not very useful.
+
+So we now just test if the information has changed or not, in order to know if we need to re-store the product or not.
+
+=cut
+
+sub compare_old_and_new_objects (
+	$code, $field, $old_object_ref, $new_object_ref, $stats_ref,
+	$modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref
+	)
+{
+
+	# See if the objects have changed by comparing their JSON representation (with sorted keys)
+	# We need convert_blessed here, otherwise we get this error:
+	# encountered object '1', but neither allow_blessed, convert_blessed nor allow_tags settings are enabled (or TO_JSON/FREEZE method missing) at /srv/off/lib/ProductOpener/Import.pm line 1086.
+	# https://github.com/openfoodfacts/openfoodfacts-server/issues/13221
+	my $json = JSON->new->allow_nonref->convert_blessed->canonical;
+
+	if ($json->encode($old_object_ref) ne $json->encode($new_object_ref)) {
+		$$differing_ref++;
+		$differing_fields_ref->{$field}++;
+
+		push @$modified_fields_ref, $field;
+		$$modified_ref++;
+		$stats_ref->{products_info_updated}{$code} = 1;
+		$stats_ref->{"products_${field}_updated"}{$code} = 1;
+	}
+	return;
+}
+
+=head2 import_tags_sources_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $time)
+
+Import input tags values in tags_sources, from new fields like tags_sources.[tags field].[source].tags/last_update_t
+
+=cut
+
+sub import_tags_sources_fields (
+	$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
+	$modified_fields_ref, $differing_ref, $differing_fields_ref, $time,
+	)
+{
+	$log->debug("importing tags_sources fields") if $log->is_debug();
+
+	# Make a deep copy
+	my $old_tags_sources = dclone($product_ref->{tags_sources} || {});
+
+	# If an import_lc was passed as a parameter, assume the imported values are in the import_lc language
+	my $tag_lc = $imported_product_ref->{lc} // $args_ref->{import_lc} // "en";
+
+	# Go through each field to find fields of the form tags_sources.[tag field].[source].tags|last_updated_t
+	foreach my $field (sort keys %$imported_product_ref) {
+		if ($field =~ /^tags_sources\.([^\.]+)\.([^\.]+).tags$/) {
+			my ($tags_field, $source) = ($1, $2);
+
+			# Check it's a writable tags field
+			if (not defined $writable_tags_fields{$tags_field}) {
+				$log->error(
+					"skipping non writable tags field",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_error();
+				next;
+			}
+
+			# Check the source is "packaging", "manufacturer" or starts with "label" or "database"
+			if ($source !~ /^packaging|manufacturer|label.*|database.*$/) {
+				$log->error(
+					"skipping unknown source",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_error();
+				next;
+			}
+
+			# If the value is an empty string, we skip it, as it means does not exist in the product
+			# (in the CSV undefined values are not distinguishable from empty strings)
+			# Real empty tags values (existing tags_sources but with empty tags array) are indicated with the value '-'
+			if ($imported_product_ref->{$field} eq '') {
+				$log->debug(
+					"skipping empty value",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_debug();
+				next;
+			}
+			elsif ($imported_product_ref->{$field} eq '-') {
+				# Empty tags list
+				$log->debug(
+					"dash value",
+					{
+						field => $field,
+						source => $source,
+						tags_field => $tags_field,
+						value => $imported_product_ref->{$field}
+					}
+				) if $log->is_debug();
+				$imported_product_ref->{$field} = '';
+			}
+
+			# We should also have a last_updated_t field
+			my $last_updated_t = $imported_product_ref->{"tags_sources.${tags_field}.${source}.last_updated_t"};
+			# Convert it to a number
+			if (defined $last_updated_t) {
+				$last_updated_t += 0;
+			}
+
+			$log->debug(
+				"importing tags_sources field",
+				{
+					field => $field,
+					tags_field => $tags_field,
+					source => $source,
+					last_updated_t => $last_updated_t,
+					value => $imported_product_ref->{$field}
+				}
+			) if $log->is_debug();
+
+			set_field_input_tags_for_source($product_ref, $tag_lc, $tags_field, $source,
+				$imported_product_ref->{$field},
+				0, $last_updated_t);
+		}
+	}
+
+	compare_old_and_new_objects(
+		$imported_product_ref->{code}, "tags_sources", $old_tags_sources,
+		$product_ref->{tags_sources}, $stats_ref, $modified_ref,
+		$modified_fields_ref, $differing_ref, $differing_fields_ref
+	);
+
+	return;
+}
+
+=head2 import_nutrients_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
+
+Import nutrient values from new fields like nutrition.input_sets.packaging.prepared.100ml.nutrients.saturated-fat.value_string
+
+The sources are specified in the field names, they are imported as is..
+
+=cut
+
+sub import_nutrients_fields (
 	$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
 	$modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time
 	)
 {
+	# Make a deep copy of $product_ref->{nutrition} before modifying it so that we can see if it changed
+	# and update $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref accordingly
+	my $old_nutrition_ref = dclone($product_ref->{nutrition} || {});
 
-	my $code = $imported_product_ref->{code};
+	assign_nutrition_values_from_imported_csv_product($imported_product_ref, $product_ref);
 
-	my $seen_salt = 0;
+	compare_old_and_new_objects(
+		$imported_product_ref->{code}, "nutrition", $old_nutrition_ref,
+		$product_ref->{nutrition}, $stats_ref, $modified_ref,
+		$modified_fields_ref, $differing_ref, $differing_fields_ref
+	);
 
-	foreach my $nutrient_tagid (sort(get_all_taxonomy_entries("nutrients"))) {
+	return;
+}
 
-		my $nid = $nutrient_tagid;
-		$nid =~ s/^zz://g;
+=head2 import_nutrients_old_fields ($args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time)
 
-		# don't set sodium if we have salt
-		next if (($nid eq 'sodium') and ($seen_salt));
+Import nutrient values from old style fields like fat_100g_value, fat_100g_unit, fat_prepared_100g_value, etc.
 
-		# next if $nid =~ /^nutrition-score/;   #TODO
+We consider the source to be "packaging" on the public platform, and "manufacturer" on the producers platform
 
-		# for prepared product
-		my $nidp = $nid . "_prepared";
+=cut
 
-		# Save current values so that we can see if they have changed
-		my %original_values = (
-			$nid . "_modifier" => $product_ref->{nutriments}{$nid . "_modifier"},
-			$nidp . "_modifier" => $product_ref->{nutriments}{$nidp . "_modifier"},
-			$nid . "_value" => $product_ref->{nutriments}{$nid . "_value"},
-			$nidp . "_value" => $product_ref->{nutriments}{$nidp . "_value"},
-			$nid . "_unit" => $product_ref->{nutriments}{$nid . "_unit"},
-			$nidp . "_unit" => $product_ref->{nutriments}{$nidp . "_unit"},
-		);
+sub import_nutrients_old_fields (
+	$args_ref, $imported_product_ref, $product_ref, $stats_ref, $modified_ref,
+	$modified_fields_ref, $differing_ref, $differing_fields_ref, $nutrients_edited_ref, $time
+	)
+{
+	# Make a deep copy of $product_ref->{nutrition} before modifying it so that we can see if it changed
+	my $old_nutrition_ref = dclone($product_ref->{nutrition} || {});
 
-		# We may have nid_value, nid_100g_value or nid_serving_value. In the last 2 cases,
-		# we need to set $nutrition_data_per to 100g or serving
-		my %values = ();
+	my $source = get_source_for_site_and_org($Org_id);
 
-		my $unit;
+	assign_nutrition_values_from_imported_csv_product_old_fields(
+		$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+		$modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref,
+		$nutrients_edited_ref, $time, $source
+	);
 
-		foreach my $type ("", "_prepared") {
-
-			foreach my $per ("", "_100g", "_serving") {
-
-				next if (defined $values{$type});
-
-				# Skip serving values if we have 100g values
-				if (    (defined $imported_product_ref->{"nutrition_data" . $type . "_per"})
-					and ($imported_product_ref->{"nutrition_data" . $type . "_per"} eq "100g")
-					and ($per eq "_serving"))
-				{
-					next;
-				}
-
-				if (    (defined $imported_product_ref->{$nid . $type . $per . "_value"})
-					and ($imported_product_ref->{$nid . $type . $per . "_value"} ne ""))
-				{
-					$values{$type} = $imported_product_ref->{$nid . $type . $per . "_value"};
-				}
-
-				if (    (defined $imported_product_ref->{$nid . $type . $per . "_unit"})
-					and ($imported_product_ref->{$nid . $type . $per . "_unit"} ne ""))
-				{
-					$unit = $imported_product_ref->{$nid . $type . $per . "_unit"};
-				}
-
-				# Energy can be: 852KJ/ 203Kcal
-				# calcium_100g_value_unit = 50 mg
-				# 10g
-				if (not defined $values{$type}) {
-					if (defined $imported_product_ref->{$nid . $type . $per . "_value_unit"}) {
-
-						# Assign energy-kj and energy-kcal values from energy field
-
-						if (    ($nid eq "energy")
-							and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kJ/i))
-						{
-							if (not defined $imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"}) {
-								$imported_product_ref->{$nid . "-kj" . $type . $per . "_value_unit"} = $1 . " kJ";
-							}
-						}
-						if (
-								($nid eq "energy")
-							and ($imported_product_ref->{$nid . $type . $per . "_value_unit"} =~ /\b([0-9]+)(\s*)kcal/i)
-							)
-						{
-							if (not defined $imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"}) {
-								$imported_product_ref->{$nid . "-kcal" . $type . $per . "_value_unit"} = $1 . " kcal";
-							}
-						}
-
-						if ($imported_product_ref->{$nid . $type . $per . "_value_unit"}
-							=~ /^(~?<?>?=?\s?([0-9]*(\.|,))?[0-9]+)(\s*)([a-zµ%]+)$/i)
-						{
-							$values{$type} = $1;
-							$unit = $5;
-						}
-						# We might have only a number even if the field is set to value_unit
-						# in that case, use the default unit
-						elsif ($imported_product_ref->{$nid . $type . $per . "_value_unit"}
-							=~ /^(([0-9]*(\.|,))?[0-9]+)(\s*)$/i)
-						{
-							$values{$type} = $1;
-						}
-					}
-				}
-
-				# calcium_100g_value_in_mcg
-
-				if (not defined $values{$type}) {
-					foreach my $u ('kj', 'kcal', 'kg', 'g', 'mg', 'mcg', 'l', 'dl', 'cl', 'ml', 'iu', 'percent') {
-						my $value_in_u = $imported_product_ref->{$nid . $type . $per . "_value" . "_in_" . $u};
-						if ((defined $value_in_u) and ($value_in_u ne "")) {
-							$values{$type} = $value_in_u;
-							$unit = $u;
-						}
-					}
-				}
-
-				if ((defined $values{$type}) and ($per ne "")) {
-					$imported_product_ref->{"nutrition_data" . $type . "_per"} = $per;
-					$imported_product_ref->{"nutrition_data" . $type . "_per"} =~ s/^_//;
-				}
-			}
-
-			if ($nid eq 'alcohol') {
-				$unit = '% vol';
-			}
-
-			# Standardize units
-			if (defined $unit) {
-				if ($unit eq "kj") {
-					$unit = "kJ";
-				}
-				elsif ($unit eq "mcg") {
-					$unit = "µg";
-				}
-				elsif ($unit eq "iu") {
-					$unit = "IU";
-				}
-				elsif ($unit eq "percent") {
-					$unit = '%';
-				}
-			}
-
-			my $modifier = undef;
-
-			# Remove bogus values (e.g. nutrition facts for multiple nutrients): 1 digit followed by letters followed by more digits
-			if ((defined $values{$type}) and ($values{$type} =~ /\d.*[a-z].*\d/)) {
-				$log->debug("nutrient with strange value, skipping",
-					{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
-					if $log->is_debug();
-				delete $values{$type};
-			}
-
-			(defined $values{$type}) and normalize_nutriment_value_and_modifier(\$values{$type}, \$modifier);
-
-			if ((defined $values{$type}) and ($values{$type} ne '')) {
-
-				if ($nid eq 'salt') {
-					$seen_salt = 1;
-				}
-
-				$log->debug("nutrient with defined and non empty value",
-					{nid => $nid, type => $type, value => $values{$type}, unit => $unit})
-					if $log->is_debug();
-				$stats_ref->{"products_with_nutrition" . $type}{$code} = 1;
-
-				# if the nid is "energy" and we have a unit, set "energy-kj" or "energy-kcal"
-				if (($nid eq "energy") and ((lc($unit) eq "kj") or (lc($unit) eq "kcal"))) {
-					$nid = "energy-" . lc($unit);
-				}
-
-				assign_nid_modifier_value_and_unit($product_ref, $nid . $type, $modifier, $values{$type}, $unit);
-
-				if (    (defined $Owner_id)
-					and ($Owner_id =~ /^org-/)
-					and ($Owner_id !~ /^org-app-/)
-					and ($Owner_id !~ /^org-database-/)
-					and ($Owner_id !~ /^org-label-/))
-				{
-					$product_ref->{owner_fields}{$nid . $type} = $time;
-					# salt and sodium are linked
-					if ($nid eq "salt") {
-						$product_ref->{owner_fields}{"sodium" . $type} = $time;
-					}
-					elsif ($nid eq "sodium") {
-						$product_ref->{owner_fields}{"salt" . $type} = $time;
-					}
-				}
-			}
-		}
-
-		# See which fields have changed
-
-		foreach my $field (sort keys %original_values) {
-			if (    (defined $product_ref->{nutriments}{$field})
-				and ($product_ref->{nutriments}{$field} ne "")
-				and (defined $original_values{$field})
-				and ($original_values{$field} ne "")
-				and ($product_ref->{nutriments}{$field} ne $original_values{$field}))
-			{
-				$log->debug("differing nutrient value",
-					{field => $field, old => $original_values{$field}, new => $product_ref->{nutriments}{$field}})
-					if $log->is_debug();
-				$stats_ref->{products_nutrition_updated}{$code} = 1;
-				$stats_ref->{products_nutrition_changed}{$code} = 1;
-				$$modified_ref++;
-				$nutrients_edited_ref->{$code}++;
-				push @$modified_fields_ref, "nutrients.$field";
-			}
-			elsif (
-					(defined $product_ref->{nutriments}{$field})
-				and ($product_ref->{nutriments}{$field} ne "")
-				and (  (not defined $original_values{$field})
-					or ($original_values{$field} eq ''))
-				)
-			{
-				$log->debug("new nutrient value", {field => $field, new => $product_ref->{nutriments}{$field}})
-					if $log->is_debug();
-				$stats_ref->{products_nutrition_updated}{$code} = 1;
-				$stats_ref->{products_nutrition_added}{$code} = 1;
-				$$modified_ref++;
-				$nutrients_edited_ref->{$code}++;
-				push @$modified_fields_ref, "nutrients.$field";
-			}
-			elsif ( (not defined $product_ref->{nutriments}{$field})
-				and (defined $original_values{$field})
-				and ($original_values{$field} ne ''))
-			{
-				$log->debug("deleted nutrient value", {field => $field, old => $original_values{$field}})
-					if $log->is_debug();
-				$stats_ref->{products_nutrition_updated}{$code} = 1;
-				$$modified_ref++;
-				$nutrients_edited_ref->{$code}++;
-				push @$modified_fields_ref, "nutrients.$field";
-			}
-		}
-	}
+	compare_old_and_new_objects(
+		$imported_product_ref->{code}, "nutrition", $old_nutrition_ref,
+		$product_ref->{nutrition}, $stats_ref, $modified_ref,
+		$modified_fields_ref, $differing_ref, $differing_fields_ref
+	);
 
 	return;
 }
@@ -1337,7 +1234,7 @@ sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_re
 					{
 						code => $code,
 						nutrition_data_per_field => $nutrition_data_per_field,
-						$imported_nutrition_data_per_value => $imported_nutrition_data_per_value
+						imported_nutrition_data_per_value => $imported_nutrition_data_per_value
 					}
 				) if $log->is_debug();
 				$imported_nutrition_data_per_value = "100g";
@@ -2029,8 +1926,8 @@ sub import_csv_file ($args_ref) {
 			next;
 		}
 
-		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
-			$log->error("Error - code not a number with 8 or more digits",
+		if (not is_valid_code($code)) {
+			$log->error("Error - code is not valid",
 				{i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref})
 				if $log->is_error();
 			next;
@@ -2382,9 +2279,25 @@ sub import_csv_file ($args_ref) {
 			}
 		}
 
+		# Tags sources input fields of the form tags_sources.[tags field].[source].tags/last_update_t
+		import_tags_sources_fields(
+			$args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,
+			\@modified_fields, \$differing, \%differing_fields, $time,
+		);
+
 		# Nutrients
 
-		import_nutrients(
+		# Normalize quantity and serving size before importing nutrients
+		# as we need serving_quantity and serving_size to assign it to nutrition input sets per serving
+		normalize_product_quantity_and_serving_size($product_ref);
+
+		import_nutrients_old_fields(
+			$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+			\$modified, \@modified_fields, \$differing, \%differing_fields,
+			\%nutrients_edited, $time,
+		);
+
+		import_nutrients_fields(
 			$args_ref, $imported_product_ref, $product_ref, $stats_ref,
 			\$modified, \@modified_fields, \$differing, \%differing_fields,
 			\%nutrients_edited, $time,
@@ -2415,7 +2328,7 @@ sub import_csv_file ($args_ref) {
 		{
 			$stats_ref->{products_nutrition_updated}{$code} = 1;
 		}
-		else {
+		elsif (not $stats_ref->{products_nutrition_updated}{$code}) {
 			$stats_ref->{products_nutrition_not_updated}{$code} = 1;
 		}
 
@@ -2626,7 +2539,8 @@ sub import_csv_file ($args_ref) {
 					}
 
 					# Add a hash of the URL
-					my $md5 = md5_hex($image_url);
+					# Note md5_hex croaks if supplied with unicode characters above 255
+					my $md5 = md5_hex(encode_utf8($image_url));
 					$filename = $md5 . "_" . $filename;
 
 					my $images_download_dir = $args_ref->{images_download_dir};
@@ -2954,8 +2868,8 @@ sub update_export_status_for_csv_file ($args_ref) {
 			next;
 		}
 
-		if ($code !~ /^\d\d\d\d\d\d\d\d(\d*)$/) {
-			$log->error("Error - code not a number with 8 or more digits",
+		if (not is_valid_code($code)) {
+			$log->error("Error - code is not valid",
 				{i => $i, code => $code, product_id => $product_id, imported_product_ref => $imported_product_ref})
 				if $log->is_error();
 			next;

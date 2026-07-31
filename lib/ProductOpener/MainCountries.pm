@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -141,7 +141,7 @@ sub compute_main_countries ($product_ref) {
 					# with the average ratio across all products
 
 					my $average_cc_to_world_scans_ratio
-						= $all_products_scans_ref->{$year}{unique_scans_n_by_country}{$cc}
+						= ($all_products_scans_ref->{$year}{unique_scans_n_by_country}{$cc} || 0)
 						/ ($all_products_scans_ref->{$year}{unique_scans_n_by_country}{"world"} || 1);
 					my $cc_to_world_scans_ratio = ($scans_ref->{$year}{unique_scans_n_by_country}{$cc} || 0)
 						/ ($scans_ref->{$year}{unique_scans_n_by_country}{"world"} || 1);

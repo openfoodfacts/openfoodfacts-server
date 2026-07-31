@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -52,8 +52,8 @@ use vars @EXPORT_OK;
 use ProductOpener::Ingredients
 	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
-use ProductOpener::Food
-	qw/compute_nutrition_data_per_100g_and_per_serving assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group/;
+use ProductOpener::Food qw/assign_categories_properties_to_product compute_nova_group/;
+use ProductOpener::Nutrition qw/generate_nutrient_aggregated_set compute_estimated_nutrients/;
 
 use Hash::Util;
 use Encode;
@@ -90,11 +90,10 @@ sub specific_processes_for_pet_food_product ($product_ref) {
 
 	# Category analysis
 
-	# Nutrition data
-	compute_nutrition_data_per_100g_and_per_serving($product_ref);
+	# Nutrition
 
-	# Nutrients
-	compute_unknown_nutrients($product_ref);
+	compute_estimated_nutrients($product_ref);
+	generate_nutrient_aggregated_set($product_ref);
 
 	# Scores
 

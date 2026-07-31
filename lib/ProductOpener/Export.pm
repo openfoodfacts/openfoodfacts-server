@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -59,7 +59,7 @@ It is also used in the C<scripts/export_csv_file.pl> script.
 =head1 DESCRIPTION
 
 Use the list of fields from C<Product::Opener::Config::options{import_export_fields_groups}>
-and the list of nutrients from C<Product::Opener::Food::nutriments_tables> to list fields
+and the list of nutrients from C<Product::Opener::Food::nutrients_tables> to list fields
 that need to be exported.
 
 The results of the query are scanned a first time to compute the list of non-empty columns.
@@ -97,17 +97,63 @@ use ProductOpener::Store qw/retrieve_object/;
 use ProductOpener::Lang qw/$lc/;
 use ProductOpener::Tags qw/%language_fields %tags_fields %taxonomy_fields list_taxonomy_tags_in_language/;
 use ProductOpener::Display qw/search_and_export_products/;
-use ProductOpener::Food qw/%nutriments_tables/;
+use ProductOpener::Food qw/%nutrients_tables/;
 use ProductOpener::Data qw/get_products_collection/;
 use ProductOpener::Products qw/product_path/;
 use ProductOpener::Images qw/add_images_urls_to_product $valid_image_types_regexp/;
 use ProductOpener::EnvironmentalScore qw/localize_environmental_score/;
 use ProductOpener::ProductsFeatures qw(feature_enabled);
+use ProductOpener::Nutrition
+	qw/add_nutrition_fields_from_product_to_populated_fields get_nutrition_input_sets_in_a_hash/;
 
 use Text::CSV;
 use Excel::Writer::XLSX;
 use Data::DeepAccess qw(deep_get deep_exists);
 use Apache2::RequestRec;
+
+# Known array fields in the product structure
+# Trying to access these with non-numeric indices will cause warnings
+my %array_fields = (
+	ingredients => 1,
+	packagings => 1,
+);
+
+=head1 FUNCTIONS
+
+=head2 is_valid_field_path($field_path)
+
+Validates a field path before it's used with deep_get or deep_exists.
+Returns true if the path is valid, false otherwise.
+
+A path is invalid if it tries to access a known array field with a non-numeric index.
+For example, "ingredients.id" is invalid (should be "ingredients.0.id"),
+but "environmental_score_data.adjustments.packaging.value" is valid.
+
+=cut
+
+sub is_valid_field_path ($field_path) {
+	# Split by dots and filter out empty strings
+	my @path_parts = grep {defined && length} split(/\./, $field_path);
+
+	# Empty path is invalid
+	return 0 if scalar @path_parts == 0;
+
+	# Check if any part tries to access an array field with a non-numeric key
+	for (my $i = 0; $i < scalar @path_parts - 1; $i++) {
+		my $current_part = $path_parts[$i];
+		my $next_part = $path_parts[$i + 1];
+
+		# If current part is a known array field, next part must be numeric
+		if (exists $array_fields{$current_part} && $next_part !~ /^\d+$/) {
+			$log->debug(
+				"Invalid field path: $field_path - trying to access array field '$current_part' with non-numeric index '$next_part'"
+			) if $log->is_debug();
+			return 0;
+		}
+	}
+
+	return 1;
+}
 
 =head1 FUNCTIONS
 
@@ -191,6 +237,7 @@ sub export_csv ($args_ref) {
 	my $query_ref = $args_ref->{query};
 	my $fields_ref = $args_ref->{fields};
 	my $extra_fields_ref = $args_ref->{extra_fields};
+	my $export_nutrition_aggregated_set = $args_ref->{export_nutrition_aggregated_set};
 	my $export_computed_fields
 		= $args_ref->{export_computed_fields};    # Fields like the Nutri-Score score computed by OFF
 	my $export_canonicalized_tags_fields
@@ -271,62 +318,21 @@ sub export_csv ($args_ref) {
 
 					my $group_id = $group_ref->[0];
 
-					if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
+					# Special handling for some groups like nutrition and packaging that have a very specific nested structure
 
-						if ($group_id eq "nutrition") {
-							foreach my $field ("no_nutrition_data", "nutrition_data_per", "nutrition_data_prepared_per")
-							{
-								$item_number++;
-								if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-									$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
-								}
-							}
-						}
+					if ($group_id eq "nutrition") {
 
-						next if not defined $product_ref->{nutriments};
-
-						# Go through the nutriment table
-						foreach my $nutriment (@{$nutriments_tables{off_europe}}) {
-
-							next if $nutriment =~ /^\#/;
-							my $nid = $nutriment;
-
-							# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
-
-							if ($group_id eq "nutrition") {
-								if ($nid =~ /-$/) {
-									next;
-								}
-							}
-							else {
-								if ($nid !~ /-$/) {
-									next;
-								}
-							}
-
-							$item_number++;
-							my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
-
-							$nid =~ s/^(-|!)+//g;
-							$nid =~ s/-$//g;
-
-							# Order of the fields: sugars_value, sugars_unit, sugars_prepared_value, sugars_prepared_unit
-
-							if (    (defined $product_ref->{nutriments}{$nid . "_value"})
-								and ($product_ref->{nutriments}{$nid . "_value"} ne ""))
-							{
-								$populated_fields{$nid . "_value"} = $field_sort_key . "_1";
-								$populated_fields{$nid . "_unit"} = $field_sort_key . "_2";
-							}
-							if (    (defined $product_ref->{nutriments}{$nid . "_prepared_value"})
-								and ($product_ref->{nutriments}{$nid . "_prepared_value"} ne ""))
-							{
-								$populated_fields{$nid . "_prepared_value"} = $field_sort_key . "_3";
-								$populated_fields{$nid . "_prepared_unit"} = $field_sort_key . "_4";
-							}
-						}
+						add_nutrition_fields_from_product_to_populated_fields(
+							$product_ref, \%populated_fields,
+							sprintf("%08d", $group_number * 1000),
+							$export_computed_fields
+							,    # Skip estimated nutrients unless export_computed_fields is set to true
+							$export_nutrition_aggregated_set
+						);
+						next;
 					}
-					elsif ($group_id eq "packaging") {
+
+					if ($group_id eq "packaging") {
 						# packaging data will be exported in the CSV file in columns named like packaging_1_number_of_units
 						if (defined $product_ref->{packagings}) {
 							my $i = 0;    # number of the packaging component
@@ -348,69 +354,100 @@ sub export_csv ($args_ref) {
 								}
 							}
 						}
+						next;
 					}
-					elsif ($group_id eq "images") {
+
+					if ($group_id eq "images") {
 						if ($args_ref->{include_images_paths}) {
 							if (defined $product_ref->{images}) {
 								include_image_paths($product_ref, \%populated_fields, \%other_images);
 							}
 						}
+						next;
 					}
-					else {
 
-						foreach my $field (@{$group_ref->[1]}) {
+					# All other groups:
 
-							# Prefix fields that are not primary data, but that are computed by OFF, with the "off:" prefix
-							my $group_prefix = "";
-							if ($group_id eq "off") {
-								$group_prefix = "off:";
-							}
+					foreach my $field (@{$group_ref->[1]}) {
 
-							$item_number++;
-							my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
+						# Prefix fields that are not primary data, but that are computed by OFF, with the "off:" prefix
+						my $group_prefix = "";
+						if ($group_id eq "off") {
+							$group_prefix = "off:";
+						}
 
-							if ($field =~ /_value_unit$/) {
-								# Column can contain value + unit, value, or unit for a specific field
-								$field = $`;
-							}
+						$item_number++;
+						my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
 
-							if (defined $tags_fields{$field}) {
-								if (    (defined $product_ref->{$field . "_tags"})
-									and (scalar @{$product_ref->{$field . "_tags"}} > 0))
-								{
-									# Export the tags field in the main language of the product
-									$populated_fields{$group_prefix . $field} = $field_sort_key;
-									# Also possibly export the canonicalized tags
-									if ($export_canonicalized_tags_fields) {
-										$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
-									}
-								}
-							}
-							elsif (defined $language_fields{$field}) {
-								if (defined $product_ref->{languages_codes}) {
-									foreach my $l (keys %{$product_ref->{languages_codes}}) {
-										if (    (defined $product_ref->{$field . "_$l"})
-											and ($product_ref->{$field . "_$l"} ne ""))
+						if ($field =~ /_value_unit$/) {
+							# Column can contain value + unit, value, or unit for a specific field
+							$field = $`;
+						}
+
+						if (defined $tags_fields{$field}) {
+							if (    (defined $product_ref->{$field . "_tags"})
+								and (scalar @{$product_ref->{$field . "_tags"}} > 0))
+							{
+								# If we have tags_sources data for the tags, we export the input tags for each source in a separate column
+								# and we do not export the main tags field which is a computed field from all sources,
+								# to avoid confusion between the input tags and the computed tags
+								# If the tags are defined but are empty, we still import the field (it will have a special value '-' so that when imported, existing tags are removed)
+								if (defined $product_ref->{tags_sources}{$field}) {
+									foreach my $source (sort keys %{$product_ref->{tags_sources}{$field}}) {
+										if (defined $product_ref->{tags_sources}{$field}{$source}{tags})
+
 										{
-											# Add language code to sort key
-											$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
+											# For the allergens and traces fields, skip the ingredients source unless the "export_canonicalized_tags_fields" option is set to true, to avoid confusion between the input tags and the computed tags
+											if (    (($field eq "allergens") or ($field eq "traces"))
+												and ($source eq "ingredients")
+												and (not $export_canonicalized_tags_fields))
+											{
+												next;
+											}
+											$populated_fields{"tags_sources.${field}.${source}.tags"}
+												= $field_sort_key . "_tags:${source}";
+											$populated_fields{"tags_sources.${field}.${source}.last_updated_t"}
+												= $field_sort_key . "_last_updated_t:${source}";
 										}
 									}
 								}
-							}
-							else {
-								my $key = $field;
-								# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
-								# which is only present if the Environmental-Score fields have been localized (done only once after)
-								# we check for .values (with an s) instead
-								if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
-									$key = $key . "s";
-								}
-								# Allow returning fields that are not at the root of the product structure
-								# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
-								if (deep_exists($product_ref, split(/\./, $key))) {
+								else {
+									# Export the tags field in the main language of the product
 									$populated_fields{$group_prefix . $field} = $field_sort_key;
 								}
+								# Also possibly export the canonicalized tags
+								if ($export_canonicalized_tags_fields) {
+									$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
+								}
+							}
+						}
+						elsif (defined $language_fields{$field}) {
+							if (defined $product_ref->{languages_codes}) {
+								foreach my $l (keys %{$product_ref->{languages_codes}}) {
+									if (    (defined $product_ref->{$field . "_$l"})
+										and ($product_ref->{$field . "_$l"} ne ""))
+									{
+										# Add language code to sort key
+										$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
+									}
+								}
+							}
+						}
+						else {
+							my $key = $field;
+							# Special case for environmental_score_data.adjustments.origins_of_ingredients.value
+							# which is only present if the Environmental-Score fields have been localized (done only once after)
+							# we check for .values (with an s) instead
+							if ($field eq "environmental_score_data.adjustments.origins_of_ingredients.value") {
+								$key = $key . "s";
+							}
+							# Allow returning fields that are not at the root of the product structure
+							# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
+							# Validate the field path before calling deep_exists to avoid warnings
+							if (   is_valid_field_path($key)
+								&& deep_exists($product_ref, grep {defined && length} split(/\./, $key)))
+							{
+								$populated_fields{$group_prefix . $field} = $field_sort_key;
 							}
 						}
 					}
@@ -528,9 +565,9 @@ sub export_csv ($args_ref) {
 			# If an environmental_score_* field is requested, we will localize all the Environmental-Score fields once
 			my $environmental_score_localized = 0;
 
-			foreach my $field (@sorted_populated_fields) {
+			my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
 
-				my $nutriment_field = 0;
+			foreach my $field (@sorted_populated_fields) {
 
 				my $value;
 
@@ -568,6 +605,39 @@ sub export_csv ($args_ref) {
 						$value = "";
 					}
 				}
+				# Nutrition fields: input sets
+				elsif ($field =~ /^nutrition\.input_sets\.(.*)$/) {
+					# the field key is of the form nutrition.input_sets.<input_set_id>.<property> that exactly matches the input set keys
+					my @path_parts = grep {defined && length} split(/\./, $1);
+					$value = deep_get($input_sets_hash_ref, @path_parts) if scalar @path_parts > 0;
+				}
+				# Nutrition: other fields
+				elsif ($field =~ /^nutrition\./) {
+					my @path_parts = grep {defined && length} split(/\./, $field);
+					$value = deep_get($product_ref, @path_parts)
+						if is_valid_field_path($field) && scalar @path_parts > 0;
+				}
+				# Tags sources fields
+				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.last_updated_t$/) {
+					my ($tags_field, $source) = ($1, $2);
+					my $last_updated_t
+						= deep_get($product_ref, ("tags_sources", $tags_field, $source, "last_updated_t"));
+					if (defined $last_updated_t) {
+						$value = int($last_updated_t);
+					}
+				}
+				elsif ($field =~ /^tags_sources\.(.*)\.(.*)\.tags$/) {
+					my ($tags_field, $source) = ($1, $2);
+					my $tags_ref = deep_get($product_ref, ("tags_sources", $tags_field, $source, "tags"));
+					if (defined $tags_ref) {
+						$value = join(',', @$tags_ref);
+						# Special value - if there are no tags, so that we can differentiate tags fields that are not set
+						# versus empty tags fields
+						if ($value eq '') {
+							$value = '-';
+						}
+					}
+				}
 				# Source specific fields
 				elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
 					my $source_id = $1;
@@ -581,112 +651,110 @@ sub export_csv ($args_ref) {
 				}
 				else {
 
-					foreach my $suffix ("_value", "_unit", "_prepared_value", "_prepared_unit") {
-						if ($field =~ /$suffix$/) {
-							my $nid = $`;
-							if (defined $product_ref->{nutriments}) {
-								$value = $product_ref->{nutriments}{$nid . $suffix};
-							}
-							$nutriment_field = 1;
-							last;
+					# If we export image fields, we first need to generate the paths to images
+
+					if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
+						add_images_urls_to_product($product_ref, $lc);
+						$added_images_urls = 1;
+					}
+
+					# Other images
+					if ($field =~ /^image_other_(\d+)_file$/) {
+						# File path for the image on the server, used for exporting from producers platform to public database
+						my $other = $1;
+
+						if (defined $other_images{$product_ref->{code} . "." . $other}) {
+							$value
+								= "$BASE_DIRS{PRODUCTS_IMAGES}/"
+								. $product_path . "/"
+								. $other_images{$product_ref->{code} . "." . $other}{imgid} . ".jpg";
 						}
 					}
 
-					if (not $nutriment_field) {
+					# Selected images
+					elsif ($field =~ /^image_(.+)_(.+)_file/) {
+						# File path for the image on the server, used for exporting from producers platform to public database
 
-						# If we export image fields, we first need to generate the paths to images
+						my $image_type = $1;
+						my $image_lc = $2;
 
-						if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
-							add_images_urls_to_product($product_ref, $lc);
-							$added_images_urls = 1;
-						}
+						my $imgid = deep_get($product_ref, ("images", "selected", $image_type, $image_lc, "imgid"));
 
-						# Other images
-						if ($field =~ /^image_other_(\d+)_file$/) {
-							# File path for the image on the server, used for exporting from producers platform to public database
-							my $other = $1;
+						if (defined $imgid) {
+							$value = "$BASE_DIRS{PRODUCTS_IMAGES}/" . $product_path . "/" . $imgid . ".jpg";
+						}
+					}
 
-							if (defined $other_images{$product_ref->{code} . "." . $other}) {
-								$value
-									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
-									. $product_path . "/"
-									. $other_images{$product_ref->{code} . "." . $other}{imgid} . ".jpg";
-							}
-						}
+					elsif ($field
+						=~ /^image_($valid_image_types_regexp)_(\w\w)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/
+						)
+					{
+						# Coordinates for image cropping
+						my $image_type = $1;
+						my $image_lc = $2;
+						my $coord = $3;
 
-						# Selected images
-						elsif ($field =~ /^image_(.+)_(.+)_file/) {
-							# File path for the image on the server, used for exporting from producers platform to public database
-
-							my $image_type = $1;
-							my $image_lc = $2;
-
-							my $imgid = deep_get($product_ref, ("images", "selected", $image_type, $image_lc, "imgid"));
-
-							if (defined $imgid) {
-								$value = "$BASE_DIRS{PRODUCTS_IMAGES}/" . $product_path . "/" . $imgid . ".jpg";
-							}
+						$value = deep_get($product_ref,
+							("images", "selected", $image_type, $image_lc, "generation", $coord));
+					}
+					elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
+						if (defined $product_ref->{"image_$1_url"}) {
+							$value = $product_ref->{"image_$1_url"};
+							$value =~ s/\.(\d+)\.jpg/.json/;
 						}
-
-						elsif ($field
-							=~ /^image_($valid_image_types_regexp)_(\w\w)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/
-							)
-						{
-							# Coordinates for image cropping
-							my $image_type = $1;
-							my $image_lc = $2;
-							my $coord = $3;
-
-							$value = deep_get($product_ref,
-								("images", "selected", $image_type, $image_lc, "generation", $coord));
+					}
+					elsif ($field =~ /^image_(.*)_full_url$/) {
+						if (defined $product_ref->{"image_$1_url"}) {
+							$value = $product_ref->{"image_$1_url"};
+							$value =~ s/\.(\d+)\.jpg/.full.jpg/;
 						}
-						elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
-							if (defined $product_ref->{"image_$1_url"}) {
-								$value = $product_ref->{"image_$1_url"};
-								$value =~ s/\.(\d+)\.jpg/.json/;
-							}
+					}
+					elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
+						$value = join(",", @{$product_ref->{$field}});
+					}
+					# For tags field, we export [field]_tags in the main language of the product if we do not have tags_sources data for this field,
+					# to avoid confusion between the input tags and the computed tags
+					elsif ( (defined $taxonomy_fields{$field})
+						and (defined $product_ref->{$field . "_tags"})
+						and (not deep_exists($product_ref, ("tags_sources", $field))))
+					{
+						# we do not know the language of the current value of $product_ref->{$field}
+						# so regenerate it in the main language of the product
+						# Note: for taxonomy fields, this field is the computed tags field from all input tags_sources
+						$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field,
+							$product_ref->{$field . "_tags"});
+						# Special value - if there are no tags, so that we can differentiate tags fields that are not set
+						# versus empty tags fields
+						if ($value eq '') {
+							$value = '-';
 						}
-						elsif ($field =~ /^image_(.*)_full_url$/) {
-							if (defined $product_ref->{"image_$1_url"}) {
-								$value = $product_ref->{"image_$1_url"};
-								$value =~ s/\.(\d+)\.jpg/.full.jpg/;
-							}
-						}
-						elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
-							$value = join(",", @{$product_ref->{$field}});
-						}
-						elsif ((defined $taxonomy_fields{$field}) and (defined $product_ref->{$field . "_hierarchy"})) {
-							# we do not know the language of the current value of $product_ref->{$field}
-							# so regenerate it in the main language of the product
-							# Note: some fields like nova_groups and food_groups do not have a _hierarchy subfield,
-							# but they are not entered directly, but computed from other fields, so we can take their values as is.
-							$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field,
-								$product_ref->{$field . "_hierarchy"});
-						}
-						# packagings field of the form packaging_2_number_of_units
-						elsif ($field =~ /^packaging_(\d+)_(.*)$/) {
-							my $index = $1 - 1;
-							my $property = $2;
-							$value = deep_get($product_ref, ("packagings", $index, $property));
-						}
-						# Allow returning fields that are not at the root of the product structure
-						# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
-						elsif ($field =~ /\./) {
-							$value = deep_get($product_ref, split(/\./, $field));
-						}
-						# Fields like "obsolete" : output 1 for true values or 0
-						elsif ($field eq "obsolete") {
-							if ((defined $product_ref->{$field}) and ($product_ref->{$field})) {
-								$value = 1;
-							}
-							else {
-								$value = 0;
-							}
+					}
+					# packagings field of the form packaging_2_number_of_units
+					elsif ($field =~ /^packaging_(\d+)_(.*)$/) {
+						my $index = $1 - 1;
+						my $property = $2;
+						$value = deep_get($product_ref, ("packagings", $index, $property));
+					}
+					# Allow returning fields that are not at the root of the product structure
+					# e.g. environmental_score_data.agribalyse.score  -> $product_ref->{environmental_score_data}{agribalyse}{score}
+					elsif ($field =~ /\./) {
+						my @path_parts = grep {defined && length} split(/\./, $field);
+						$value = deep_get($product_ref, @path_parts)
+							if is_valid_field_path($field) && scalar @path_parts > 0;
+					}
+					# Fields like "obsolete" : output 1 for true values or 0
+					elsif ($field eq "obsolete") {
+						if ((defined $product_ref->{$field}) and ($product_ref->{$field})) {
+							$value = 1;
 						}
 						else {
-							$value = $product_ref->{$field};
+							$value = 0;
 						}
 					}
+					else {
+						$value = $product_ref->{$field};
+					}
+
 				}
 
 				push @values, $value;

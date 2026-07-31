@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -81,7 +81,8 @@ BEGIN {
 }
 
 use ProductOpener::Config qw(:all);
-use ProductOpener::Tags qw(%level exists_taxonomy_tag get_inherited_property has_tag);
+use ProductOpener::Tags qw(%level exists_taxonomy_tag get_inherited_property);
+use ProductOpener::ProductsTags qw/has_tag/;
 
 use ProductOpener::DataQualityCommon qw(check_quality_common);
 use ProductOpener::DataQualityFood qw(check_quality_food);

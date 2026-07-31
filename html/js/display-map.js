@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2023 Association Open Food Facts
+// Copyright (C) 2011-2025 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -18,23 +18,23 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/*global L */
-/*exported displayMap*/
+import { Map as LeafletMap, Marker, TileLayer } from 'leaflet';
+import { MarkerClusterGroup } from 'leaflet.markercluster';
 
-function displayMap(containerId, pointers) {
-  const map = L.map(containerId, { maxZoom: 12 });
+export function displayMap(containerId, pointers) {
+  const map = new LeafletMap(containerId, { maxZoom: 12 });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  const tileLayer = new TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
+  });
+  tileLayer.addTo(map);
 
-
-  const markers = new L.MarkerClusterGroup({ singleMarkerMode: true });
+  const markers = new MarkerClusterGroup({ singleMarkerMode: true });
   const layers = [];
 
   for (const pointer of pointers) {
-    const marker = new L.marker(pointer.geo);
+    const marker = new Marker(pointer.geo);
     marker.bindPopup('<a href="' + pointer.url + '">' + pointer.product_name + '</a><br>' + pointer.brands + "<br>" + '<a href="' + pointer.url + '">' + pointer.img + '</a><br>' + pointer.origins);
     layers.push(marker);
   }

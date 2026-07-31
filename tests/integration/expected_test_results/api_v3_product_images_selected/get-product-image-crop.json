@@ -6,9 +6,8 @@
       "_keywords" : [],
       "added_countries_tags" : [],
       "allergens" : "",
-      "allergens_from_ingredients" : "",
-      "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [],
+      "allergens_lc" : "en",
       "allergens_tags" : [],
       "categories_properties" : {},
       "categories_properties_tags" : [
@@ -50,7 +49,7 @@
          "en:ingredients-fr-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-to-be-completed",
+         "en:nutrition-to-be-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -74,6 +73,7 @@
       "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
+         "en:no-nutrition-data",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown"
@@ -88,7 +88,7 @@
          "en:ingredients-fr-to-be-completed",
          "en:nutrition-photo-to-be-selected",
          "en:categories-to-be-completed",
-         "en:nutriments-to-be-completed",
+         "en:nutrition-to-be-completed",
          "en:packaging-photo-to-be-selected",
          "en:packagings-completed",
          "en:front-photo-to-be-selected",
@@ -97,6 +97,7 @@
          "en:brands-to-be-completed",
          "en:expiration-date-to-be-completed",
          "en:no-packaging-data",
+         "en:no-nutrition-data",
          "en:food-groups-1-unknown",
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
@@ -524,7 +525,9 @@
       "max_imgid" : 1,
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
+         "en:nutriscore-missing-fiber",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
          "en:nutriscore-missing-nutrition-data-fat",
@@ -533,7 +536,6 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-sugars",
          "en:nutriscore-not-computed",
-         "en:nutrition-no-fiber",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
          "en:nutrition-no-fruits-vegetables-nuts",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -549,7 +551,6 @@
       ],
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
-      "nutriments" : {},
       "nutriscore" : {
          "2021" : {
             "category_available" : 0,
@@ -566,10 +567,12 @@
                "sodium" : null,
                "sugars" : null
             },
+            "estimated" : 0,
             "grade" : "unknown",
             "nutrients_available" : 0,
             "nutriscore_applicable" : 0,
-            "nutriscore_computed" : 0
+            "nutriscore_computed" : 0,
+            "preparation" : "as_sold"
          },
          "2023" : {
             "category_available" : 0,
@@ -587,10 +590,12 @@
                "saturated_fat" : null,
                "sugars" : null
             },
+            "estimated" : 0,
             "grade" : "unknown",
             "nutrients_available" : 0,
             "nutriscore_applicable" : 0,
-            "nutriscore_computed" : 0
+            "nutriscore_computed" : 0,
+            "preparation" : "as_sold"
          }
       },
       "nutriscore_2021_tags" : [
@@ -604,15 +609,13 @@
          "unknown"
       ],
       "nutriscore_version" : "2023",
-      "nutrition_data_per" : "100g",
-      "nutrition_data_prepared_per" : "100g",
       "nutrition_grade_fr" : "unknown",
       "nutrition_grades" : "unknown",
       "nutrition_grades_tags" : [
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "no score when the product does not have a category - missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+      "nutrition_score_debug" : "no score when the product does not have a category - missing as_sold energy - missing as_sold fat - missing as_sold saturated-fat - missing as_sold sugars - missing as_sold sodium - missing as_sold proteins",
       "nutrition_score_warning_no_fiber" : 1,
       "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
       "packaging_materials_tags" : [],
@@ -637,7 +640,7 @@
       "product" : {},
       "product_type" : "food",
       "removed_countries_tags" : [],
-      "rev" : 10,
+      "rev" : 7,
       "schema_version" : 1002,
       "selected_images" : {
          "ingredients" : {
@@ -658,7 +661,7 @@
             }
          }
       },
-      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-selected, en:front-photo-to-be-selected, en:photos-uploaded",
+      "states" : "To be completed, Nutrition facts to be completed, Ingredients to be completed, Expiration date to be completed, Packaging code to be completed, Characteristics to be completed, Origins to be completed, Categories to be completed, Brands to be completed, Packaging to be completed, Quantity to be completed, Product name to be completed, Photos to be validated, Packaging photo to be selected, Nutrition photo to be selected, Ingredients photo selected, Front photo to be selected, Photos uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
          "en:nutrition-facts-to-be-completed",
@@ -700,11 +703,9 @@
          "en:photos-uploaded"
       ],
       "traces" : "",
-      "traces_from_ingredients" : "",
-      "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
+      "traces_lc" : "en",
       "traces_tags" : [],
-      "unknown_nutrients_tags" : [],
       "weighers_tags" : []
    },
    "result" : {

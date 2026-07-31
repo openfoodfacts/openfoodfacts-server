@@ -19,7 +19,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 /* eslint-disable no-undefined */
-/*exported lang countries*/
+/* exported lang countries */
+/* global _paq */
 
 
 function doWebShare(e) {
@@ -27,13 +28,23 @@ function doWebShare(e) {
 
     if (!window.isSecureContext || navigator.share === undefined) {
         console.error('Error: Unsupported feature: navigator.share');
-
+        
         return;
     }
 
     const title = this.title;
     const url = this.href;
-    navigator.share({ title: title, url: url }).then(() => console.info('Successfully sent share'), (error) => console.error('Error sharing: ' + error));
+
+    navigator.share({ title: title, url: url }).then(
+        () => {
+            console.info('Successfully sent share');
+
+            if (typeof _paq !== 'undefined') {
+                _paq.push(['trackEvent', 'Product', 'Share', 'Product Page']);
+            }
+        },
+        (error) => console.error('Error sharing: ' + error)
+    );
 }
 
 function onLoad() {

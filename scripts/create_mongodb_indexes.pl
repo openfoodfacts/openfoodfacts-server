@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2025 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -70,6 +70,7 @@ add_index('labels_tags', 1, 'last_modified_t', -1);
 add_index('languages_tags', 1, 'last_modified_t', -1);
 add_index('last_edit_dates_tags', 1, 'last_modified_t', -1);
 add_index('last_modified_t', -1);
+add_index('last_updated_t', -1);
 add_index('lc', 1);
 add_index('manufacturing_places_tags', 1, 'last_modified_t', -1);
 add_index('minerals_tags', 1, 'last_modified_t', -1);
@@ -88,7 +89,6 @@ add_index('popularity_tags', 1, 'last_modified_t', -1);
 add_index('purchase_places_tags', 1, 'last_modified_t', -1);
 add_index('states_tags', 1, 'last_modified_t', -1);
 add_index('stores_tags', 1, 'last_modified_t', -1);
-add_index('teams_tags', 1, 'last_modified_t', -1);
 add_index('traces_tags', 1, 'last_modified_t', -1);
 add_index('unique_scans_n', -1);
 add_index('users_tags', 1, 'last_modified_t', -1);
@@ -106,6 +106,7 @@ add_index('vitamins_tags', 1, 'last_modified_t', -1);
 #add_index('pnns_groups_2_tags', 1, 'last_modified_t', -1);
 #add_index('unknown_nutrients_tags', 1, 'last_modified_t', -1);
 #add_index('owner', 1, 'countries_tags', 1, 'last_modified_t', -1);
+#add_index('teams_tags', 1, 'last_modified_t', -1);
 
 die "Cannot have more than 63 indexes" if (@index_list > 63);
 

@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr ""
+msgstr "世界中の食品の原材料、栄養成分、情報を集めた、共同で利用できる無料のオープンデータベースです。"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "原材料、アレルゲン、添加物、栄養成分表示、ラベル、原産地、CO2排出量、製品情報 %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "協同の、無料でオープンな、世界中の化粧品の成分と情報に関するデータベース"
@@ -44,48 +48,26 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "協同の、フリーでオープンな、世界中の化粧品に関するデータベース。"
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr ""
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr ""
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr ""
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr ""
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "原材料INCI、アレルゲン、添加物、ラベル、原材料の原産地、製品情報 %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "そして <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">貢献者のためのFacebookグループ</a>"
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
 msgstr "Open Beauty Facts 製品検索"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "この製品ページは未完成です。製品ページを編集や、既存の写真からのデータの追加、<a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=ja\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a> 用のアプリから画像を撮影することで完成に貢献できます。ありがとうございます！"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "この商品ページはまだ完成していません。編集して、お持ちの写真からデータを追加するか、 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>のユニバーサルモバイルアプリを使って写真を撮影していただくことで、完成にご協力いただけます。ありがとうございます！"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "制汗剤ストレスプロテクト"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "水、ラウレス硫酸Ｎａ、ココアンホジ酢酸２Ｎａ、ジステアリン酸グリコール、コカミドＭＥＡ"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "世界中のさまざまな製品に関する情報を共同で無料で公開するデータベースです。"
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts は、世界中の幅広い製品に関する情報とデータを収集します。"
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "世界中のさまざまな製品の共同利用型、無料、オープン データベースです。"
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "原材料、CO2排出量、耐久性、ラベル、原材料の原産地、製品情報 %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-モバイルアプリ"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "製品情報を開く 製品検索"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "この商品ページはまだ完成していません。編集して写真からデータを追加するか、 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>向けのユニバーサルOpen Food Factsアプリを使って写真を撮影することで、完成にご協力いただけます。ありがとうございます！"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr ""
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr ""
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr ""
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr ""
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr ""
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr ""
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "世界中のペットフード製品の原材料、栄養成分、情報を共同で収集した無料のオープン データベースです。"
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts は、世界中のペットフード製品に関する情報とデータを収集しています。"
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "世界中のペットフード製品の共同利用型、無料、オープン データベース。"
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "原材料、アレルゲン、添加物、栄養成分表、ラベル、原材料の原産地、製品 %s の情報"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "ペットフードファクト製品検索を開く"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "この商品ページはまだ完成していません。編集して写真からデータを追加するか、 <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> または <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>向けのユニバーサルOpen Food Factsアプリを使って写真を撮影することで、完成にご協力いただけます。ありがとうございます！"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "プリナ, ペディグリー"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "ドライドッグフード、ウェットキャットフード"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "鶏肉、コーングルテンミール、全粒トウモロコシ、動物性脂肪、大豆ミール"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "成犬用ウェットフード"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "シニア犬用デライトチキン＆ライス"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -179,17 +269,21 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "組織への参加リクエストは、組織管理者の承認待ちです。"
 
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr ""
+
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "管理者ステータスが更新されました"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "管理者ステータス"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "管理者ステータスの付与/削除"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -225,7 +319,7 @@ msgstr "組織名（会社名またはブランド）を入力してください
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "招待するユーザーのメールアドレスを入力してください（カンマ区切り）:"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
@@ -271,7 +365,7 @@ msgstr "アルコールの過剰摂取は健康に有害であり、適度に摂
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "プロアカウントは、ビジネス用のメールアドレスをご利用の場合のみ有効となりますのでご注意ください。弊社のモデレーションチームが、ドメイン名が参加希望の組織と一致しているかどうかを確認します。"
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -295,11 +389,11 @@ msgstr "製品ページの共同編集者"
 
 msgctxt "analytical_constituents"
 msgid "Analytical constituents"
-msgstr ""
+msgstr "分析成分"
 
 msgctxt "analytical_constituents_per_1kg"
 msgid "for 1 kg"
-msgstr ""
+msgstr "1kgあたり"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/app-landing-page/download-apk/download-apk_en.svg"
@@ -307,12 +401,12 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "Android APK"
 
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Japanese.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -574,11 +668,11 @@ msgstr "ユーザーを削除"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "これにより、ユーザー情報が削除され、すべての投稿が匿名化されます。確認のため、ユーザー名をもう一度入力してください。"
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "危険地帯"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -623,6 +717,10 @@ msgstr "製品を編集"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "ページを編集"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "プロパティを追加または編集するにはサインインしてください"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -926,7 +1024,7 @@ msgstr "プライバシー"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_privacy_link"
 msgid "/privacy"
-msgstr ""
+msgstr "/privacy"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -975,7 +1073,7 @@ msgstr "https://world-ja.openbeautyfacts.org/"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "生産者向けのオープンフードファクト"
 
 msgctxt "for"
 msgid "for"
@@ -1097,7 +1195,7 @@ msgstr "写真の詳細と帰属情報"
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "ユーザーを招待する"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -1490,7 +1588,7 @@ msgstr "ニュースレターを購読します (月あたり最大 2 メール)
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "ニュースレターを購読する"
 
 msgctxt "next"
 msgid "Next"
@@ -1579,7 +1677,7 @@ msgstr "栄養成分表"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "既知の栄養成分表の %s カテゴリーの %d 製品の平均栄養成分表 (%d 製品外)。"
+msgstr "既知の栄養成分表の %2$s カテゴリーの %1$d 製品の平均栄養成分表 (%3$d 製品外)。"
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1875,7 +1973,7 @@ msgstr "あなたは、世界最大のオープン データ データベース�
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "データの透明性に向けた私たちの取り組みにご参加いただき、誠にありがとうございます。"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2179,7 +2277,11 @@ msgstr "特定のブランド、カテゴリ、ラベル、成分の起源、製
 
 msgctxt "search_description_opensearch"
 msgid "Product search"
-msgstr ""
+msgstr "製品検索"
+
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "製品検索"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
@@ -2404,11 +2506,11 @@ msgstr "製品ページを参照してください。"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "商品を再度編集する"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "国"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2444,7 +2546,7 @@ msgstr "栄養成分表に調理済み製品の値が含まれている場合は
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr "1回分の量が小さすぎる（5 g / 5 ml以下）ため、100 g / 100 mlの値を計算してさらに栄養分析を行うことができません。"
+msgstr "1食分の量が小さすぎる（5 g / 5 ml以下）ため、100 g / 100 mlの値を計算してさらに栄養分析を行うことができません。"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2661,7 +2763,7 @@ msgstr "表示"
 
 msgctxt "view_this_revision"
 msgid "View this revision"
-msgstr ""
+msgstr "このリビジョンを表示"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2783,8 +2885,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "この商品のいくつかのデータおよび/または写真は、それらのソースから取得されます:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "この商品ページは完成していません。既存の写真からデータを編集または追加したり、 <a href=\"https://android.openfoodfacts.org\">Android</a> または <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a> のアプリを使用して写真を撮影して、手伝ってください。ありがとうございます!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "この商品ページはまだ完成していません。お手持ちの写真からデータを追加して編集するか、 <a href=\"https://android.openfoodfacts.org\">Android</a> または <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>のモバイルアプリを使って写真を撮影していただくことで、完成にご協力いただけます。ありがとうございます！"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2866,25 +2968,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "その他栄養物質を追加"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "販売"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "調整済"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "単位"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "販売された製品について栄養成分が指定されています。"
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "調整された製品について栄養成分が指定されています。"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -4091,11 +4177,11 @@ msgstr "プロジェクトを継続し成長させるためには、<a href=\"\"
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "ありがとう！"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
-msgstr ""
+msgstr "どうもありがとうございます！"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -4206,7 +4292,7 @@ msgstr "生産者プラットフォームのモデレーション"
 # variable names between { } must not be translated
 msgctxt "f_pro_moderator_owner_set"
 msgid "You are currently viewing products from {organization}."
-msgstr ""
+msgstr "現在、 {organization}の製品を表示しています。"
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4219,7 +4305,7 @@ msgstr "特定のユーザーまたは組織の製品を表示するには、ID�
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr ""
+msgstr "別の組織に切り替える"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4288,7 +4374,7 @@ msgstr "すべての製品を削除"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "ユーザーを削除"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4607,7 +4693,7 @@ msgstr "フェアトレード製品を購入すると、発展途上国の生産
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "栄養価"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4640,7 +4726,7 @@ msgstr "栄養スコアは適用されません"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "このカテゴリーには該当しません"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
@@ -4662,12 +4748,12 @@ msgstr "平均栄養価"
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "栄養価が低い"
 
 # lower: translate to "less good" in some languages (e.g. French: "Moins bonne qualité nutritionnelle")
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Lower nutritional quality"
-msgstr ""
+msgstr "栄養価が低い"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
@@ -4691,7 +4777,7 @@ msgstr "加工なしもしくは最低限の加工をした食品（NOVA分類�
 
 msgctxt "attribute_nova_setting_note"
 msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
-msgstr ""
+msgstr "製品の加工レベルを判断するために、成分（マーカー、加工方法）とカテゴリのリストを参考にします。"
 
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
@@ -4712,16 +4798,16 @@ msgstr "加工食品"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr ""
+msgstr "超加工食品"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
-msgstr ""
+msgstr "超処理マーカー1個"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nova_4_markers"
 msgid "{number} ultra-processing markers"
-msgstr ""
+msgstr "{number} 超処理マーカー"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
@@ -4862,33 +4948,33 @@ msgstr "環境"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "グリーンスコア"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "低環境負荷（Green-Score）"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "グリーンスコアは、A+からFまでの環境スコアであり、食品が環境に与える影響を簡単に比較できます。"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr ""
+msgstr "グリーンスコア"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
 msgstr "低環境負荷（Green-Score）"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "グリーンスコアは、A+からFまでの環境スコアであり、食品が環境に与える影響を簡単に比較できます。"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr ""
+msgstr "グリーンスコア %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5074,22 +5160,22 @@ msgstr "環境への影響"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr ""
+msgstr "グリーンスコアスコア"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr ""
+msgstr "グリーンスコアグレード"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr ""
+msgstr "グリーンスコアの計算の詳細"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr ""
+msgstr "グリーンスコアに関する情報"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5097,15 +5183,15 @@ msgstr "現在選択されている好み"
 
 msgctxt "preferences_locally_saved"
 msgid "Your preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "あなたの設定はブラウザに保存され、Open Food Facts や他の誰にも送信されることはありません。"
 
 msgctxt "preferences_edit_your_preferences"
 msgid "Edit your preferences"
-msgstr ""
+msgstr "設定を編集する"
 
 msgctxt "preferences_your_preferences"
 msgid "Your preferences"
-msgstr ""
+msgstr "あなたの好み"
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
@@ -5126,19 +5212,19 @@ msgstr "調理済み製品の栄養成分表示が不足している"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "グリーンスコア"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "グリーンスコア"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr ""
+msgstr "グリーンスコア"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr ""
+msgstr "グリーンスコア"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5309,7 +5395,7 @@ msgstr "プラットフォームでは、製品の詳細な分析も提供しま
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "Nutri-Score、NOVA、Green-Score などの指標を計算し、それらを改善するための提案を自動的に識別します (たとえば、わずかな構成の変更でより良い Nutri-Score グレードが得られるすべての製品)。"
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5423,8 +5509,8 @@ msgstr "ビジョン、ミッション、バリュー、プログラム"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://world-ja.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr ""
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5444,11 +5530,11 @@ msgstr "ユーザーが削除されています。これには数分かかる場
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr ""
+msgstr "グリーンスコアは適用されません"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "このカテゴリーには該当しません"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_environmental_score_not_applicable_description"
@@ -5806,8 +5892,8 @@ msgstr "Green-Scoreの計算式は、より正確なものにするために定�
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Scoreは当初フランス向けに開発され、ほかのヨーロッパ諸国にも対象が拡大されています。Green-Scoreの計算式は、より正確で、より各国に適したものになるよう定期的に改善されているため、変更される可能性があります。"
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "グリーンスコアは当初フランス向けに開発され、現在他のヨーロッパ諸国にも拡大されています。グリーンスコアの算出式は、各国の状況により適した、より正確なものとなるよう定期的に改良されているため、変更される可能性があります。"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5917,48 +6003,88 @@ msgstr "食の革命はあなたから始まります!"
 
 msgctxt "donation_hook_2024"
 msgid "Help us inform millions of consumers around the world about what they eat"
-msgstr ""
+msgstr "世界中の何百万人もの消費者に、彼らが何を食べているかを伝えるお手伝いをしてください"
 
 msgctxt "donation_title_2024"
 msgid "Please give to our 2024 Fundraiser"
-msgstr ""
+msgstr "2024年の募金活動にご寄付ください"
 
 # Don't translate {year}, it will be replaced by the 4 digits year
 msgctxt "f_donation_title_year"
 msgid "Please give to our {year} Fundraiser"
-msgstr ""
+msgstr "{year} 募金活動にご協力ください"
 
 msgctxt "donation_list_2024_main"
 msgid "Your donations fund the day-to-day operations of our non-profit association:"
-msgstr ""
+msgstr "皆様のご寄付は、当非営利団体の日常的な運営資金となります。"
 
 msgctxt "donation_list_2024_first"
 msgid "keeping our database open & available to all,"
-msgstr ""
+msgstr "データベースをオープンにして誰でも利用できるようにすることで、"
 
 msgctxt "donation_list_2024_first_sub"
 msgid "technical infrastructure (website/mobile app) & a small permanent team"
-msgstr ""
+msgstr "技術インフラ（ウェブサイト/モバイルアプリ）と小規模な常勤チーム"
 
 msgctxt "donation_list_2024_second"
 msgid "remain independent of the food industry,"
-msgstr ""
+msgstr "食品業界から独立し、"
 
 msgctxt "donation_list_2024_third"
 msgid "engage a community of committed citizens,"
-msgstr ""
+msgstr "熱心な市民のコミュニティを巻き込み、"
 
 msgctxt "donation_list_2024_fourth"
 msgid "support the advancement of public health research."
-msgstr ""
+msgstr "公衆衛生研究の進歩を支援する。"
 
 msgctxt "donation_financial_2024_text"
 msgid "Each donation counts! We appreciate your support in bringing further food transparency in the world."
-msgstr ""
+msgstr "一つ一つの寄付が大切です！世界の食品の透明性向上に貢献できるよう、皆様のご支援をお願いいたします。"
 
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
-msgstr ""
+msgstr "私は支持する"
+
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "2026年を終えるには、まだ120,000ユーロ必要です！"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "Open Food Facts の支援者になってください"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "毎月、私たちは800万人の訪問者にサービスを提供し、API経由ではその何倍もの利用があります。あなたの支援は次のために不可欠です:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "Open Food Facts を誰にでも開かれた状態で維持すること、"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "小規模な常設チームでインフラ、ウェブサイト、モバイルアプリ、APIを支えること"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "食品業界から独立し、"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "コミュニティを支えること"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "科学を支えること"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "今月、すべての訪問者が「寄付する」をクリックして1ユーロずつ寄付してくれたら、年間予算の8倍以上になります！"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "寄付"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5979,6 +6105,22 @@ msgstr "環境上の大きな利点を示すラベルあり"
 msgctxt "environmental_score_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
 msgstr "環境上の非常に大きな利点を示すラベルあり"
+
+msgctxt "no_assessed_labels"
+msgid "No assessed labels"
+msgstr "評価ラベルなし"
+
+msgctxt "some_environmental_benefits"
+msgid "Some environmental benefits"
+msgstr "環境面での利点"
+
+msgctxt "high_environmental_benefits"
+msgid "High environmental benefits"
+msgstr "高い環境メリット"
+
+msgctxt "very_high_environmental_benefits"
+msgid "Very high environmental benefits"
+msgstr "非常に高い環境メリット"
 
 msgctxt "other"
 msgid "Other"
@@ -6008,20 +6150,20 @@ msgstr "カーボンフットプリント"
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO₂e per 100g of product"
-msgstr ""
+msgstr "製品100gあたり{grams} g CO₂e"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_unit"
 msgid "{kilograms} kg CO₂e per unit"
-msgstr ""
+msgstr "{kilograms} kg CO₂e/単位"
 
 msgctxt "average_for_the_category"
 msgid "average for the category"
-msgstr ""
+msgstr "カテゴリーの平均"
 
 msgctxt "data_source_and_detailed_carbon_impact"
 msgid "Data source and detailed carbon impact"
-msgstr ""
+msgstr "データソースと詳細な炭素影響"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
@@ -6114,7 +6256,7 @@ msgstr "Nutri-Scoreを計算するには、この製品の栄養成分表が記�
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
-msgstr ""
+msgstr "栄養成分表示が不足しています:"
 
 msgctxt "nutriscore_missing_prepared_nutrition_data_details"
 msgid "Missing nutrition facts for prepared product:"
@@ -6130,11 +6272,11 @@ msgstr "健康"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
-msgstr ""
+msgstr "貢献"
 
 msgctxt "contribution_navigation"
 msgid "Contribution"
-msgstr ""
+msgstr "貢献"
 
 msgctxt "data_quality_completeness_panel_title"
 msgid "Data Quality Completeness"
@@ -6146,15 +6288,15 @@ msgstr "この製品のデータ品質の完全性に関する情報"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
-msgstr ""
+msgstr "検出されたエラー"
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
-msgstr ""
+msgstr "修正にご協力いただき、データの品質向上にご協力ください"
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "潜在的な問題"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
@@ -6162,11 +6304,11 @@ msgstr "潜在的な問題や改善点がいくつか検出されました。該
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "データ品質情報"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "この製品のデータ品質に関する情報"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
@@ -6300,11 +6442,11 @@ msgstr "パーム油を含む原材料は検出されませんでした"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "製品にパーム油が含まれているかどうかを判断するには、成分リストのみを参照します。"
 
 msgctxt "attribute_without_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "製品にパーム油が含まれているかどうかを判断するには、成分リストのみを参照します。"
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
@@ -6431,7 +6573,7 @@ msgstr "リサイクル情報の写真を撮る"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr ""
+msgstr "パッケージコンポーネントを追加する"
 
 msgctxt "action_add_quantity"
 msgid "Add quantity of the product"
@@ -6494,7 +6636,7 @@ msgstr "トレーサビリティ コードの写真を撮る"
 
 msgctxt "action_report_product_to_nutripatrol"
 msgid "Report this product to our moderators"
-msgstr ""
+msgstr "この商品をモデレーターに報告する"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6639,15 +6781,19 @@ msgstr "製品が見つかりました"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
-msgstr ""
+msgstr "商品が見つかりません"
 
 msgctxt "api_result_product_found_with_a_different_product_type"
 msgid "Product found with a different product type"
-msgstr ""
+msgstr "異なる製品タイプの製品が見つかりました"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "製品が更新されました！"
+
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr "ユーザーが見つかりました"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6671,7 +6817,7 @@ msgstr "無効なコードです"
 
 msgctxt "api_message_invalid_product_type"
 msgid "Invalid product type"
-msgstr ""
+msgstr "無効な商品タイプ"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6735,7 +6881,7 @@ msgstr "画像は削除されませんでした"
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6771,7 +6917,7 @@ msgstr "ユニット単位に含まれる製品数"
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "ハンガー・ゲームに関する {title} の分類にご協力ください"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
@@ -6780,6 +6926,14 @@ msgstr "製品のすべてのパッケージ部品がリストされています
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "ユーザー名・パスワードが間違っています"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr ""
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -6814,45 +6968,45 @@ msgstr "正味重量または正味体積を入力し、単位を明記します
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "製品の輸出入"
 
 msgctxt "add_products"
 msgid "Add products"
-msgstr ""
+msgstr "商品を追加する"
 
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "アプリをインストールして商品を追加してください"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "製品の検索と分析"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "リソース"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "プロプラットフォームユーザーガイド"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "プロデューサー向けFAQ"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
-msgstr ""
+msgstr "0 から {max}までの値を入力してください。"
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "まず、次のユーザーに Open Food Facts アカウントを作成するよう依頼してください。"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "ユーザーが組織に正常に追加されました:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
@@ -6888,7 +7042,7 @@ msgstr "この物質を含む製品の割合"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "主にその材料を含む製品の割合"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6896,7 +7050,7 @@ msgstr "この物質を含む製品の割合"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "主に材料を含む製品の場合"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
@@ -6908,27 +7062,27 @@ msgstr "使用言語"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "包装部品の数"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "包装部品の数"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "すべての材料"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "重さ"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "製品100gあたりの重量"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "重量パーセント"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
@@ -6936,7 +7090,7 @@ msgstr "エネルギー"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr ""
+msgstr "飽和脂肪からのエネルギー"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -6948,7 +7102,7 @@ msgstr "飽和脂肪酸"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr ""
+msgstr "飽和脂肪/脂肪"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -6956,11 +7110,11 @@ msgstr "食塩"
 
 msgctxt "nutriscore_component_non_nutritive_sweeteners"
 msgid "Non-nutritive sweeteners"
-msgstr ""
+msgstr "非栄養甘味料"
 
 msgctxt "nutriscore_component_fruits_vegetables_legumes"
 msgid "Fruits, vegetables and legumes"
-msgstr ""
+msgstr "果物、野菜、豆類"
 
 msgctxt "nutriscore_component_fiber"
 msgid "Fiber"
@@ -6972,87 +7126,87 @@ msgstr "タンパク質"
 
 msgctxt "presence"
 msgid "Presence"
-msgstr ""
+msgstr "面前"
 
 msgctxt "absence"
 msgid "Absence"
-msgstr ""
+msgstr "不在"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "この製品は、Nutri-Score の計算では水とみなされます。"
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "この製品は、栄養スコアの計算では脂肪、油、ナッツ、種子とみなされます。"
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "この製品は、Nutri-Score の計算ではチーズとみなされます。"
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "この製品は、Nutri-Score の計算では赤身肉製品とみなされます。"
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "製品は飲料とみなされるため、タンパク質のポイントがカウントされます。"
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "製品はチーズとみなされるため、タンパク質のポイントがカウントされます。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "マイナスポイントが7未満なので、タンパク質のポイントがカウントされます。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "マイナスポイントが 11 未満なので、タンパク質のポイントがカウントされます。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "マイナスポイントが7以上のため、タンパク質のポイントはカウントされません。"
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "マイナスポイントが11以上のため、タンパク質のポイントはカウントされません。"
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
-msgstr ""
+msgstr "新しい Nutri-Score をお試しください!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr ""
+msgstr "<p>Nutri-Score の計算は、最新の科学的証拠に基づいて、より良い推奨事項を提供するために進化しています。</p><p>主な改善点:</p><ul><li>良質な脂肪が豊富な一部の脂肪分の多い魚や油のスコアが向上しました</li><li>繊維が豊富な全製品のスコアが向上しました</li><li>塩分や砂糖を多く含む製品のスコアが悪化しました</li><li>赤身の肉のスコアが悪化しました (鶏肉と比較して)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
-msgstr ""
+msgstr "新しいNutri-Scoreのすべての改善点をご覧ください"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "ニュートリスコアは、製品の総合的な栄養品質を示すロゴです。"
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "A から E までのスコアは、摂取すべき栄養素と食品（タンパク質、繊維、果物、野菜、豆類など）と制限すべき栄養素（カロリー、飽和脂肪、糖分、塩分）に基づいて計算されます。"
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "スコアは栄養成分表のデータと成分データ（果物、野菜、豆類）から計算されます。"
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "このロゴの表示は、企業に義務を課すことなく、公衆衛生当局によって推奨されています。"
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr ""
+msgstr "Nutri-Scoreとは何ですか?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "エネルギー必要量を超えるエネルギー摂取は、体重増加、太りすぎ、肥満のリスクの増加、ひいては食生活に関連する慢性疾患のリスクの増加と関連しています。"
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -7068,31 +7222,31 @@ msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロー
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "非栄養性甘味料は、成人および小児において、体脂肪減少に長期的な効果をもたらさない可能性があります。非栄養性甘味料の長期使用は、成人における2型糖尿病や心血管疾患のリスク増加など、望ましくない影響を及ぼす可能性があります。"
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "食物繊維が豊富な食品（特に全粒穀物食品）を摂取すると、気道消化器がん、心血管疾患、肥満、糖尿病のリスクが軽減されます。"
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "果物、野菜、豆類を多く含む食品を摂取すると、気道消化器がん、心血管疾患、肥満、糖尿病のリスクが軽減されます。"
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
-msgstr ""
+msgstr "タンパク質が豊富な食品には通常、さまざまな健康効果をもたらす必須ミネラルであるカルシウムや鉄分も豊富に含まれています。"
 
 msgctxt "revert"
 msgid "Revert to this revision"
-msgstr ""
+msgstr "このリビジョンに戻す"
 
 msgctxt "product_js_product_revert_confirm"
 msgid "Revert to this product revision?"
-msgstr ""
+msgstr "この製品リビジョンに戻しますか?"
 
 msgctxt "api_status_success"
 msgid "Success"
-msgstr ""
+msgstr "成功"
 
 msgctxt "api_status_failure"
 msgid "Failure"
@@ -7100,11 +7254,11 @@ msgstr "失敗"
 
 msgctxt "api_result_product_reverted"
 msgid "Product reverted to the specified revision"
-msgstr ""
+msgstr "製品は指定されたリビジョンに戻されました"
 
 msgctxt "api_result_product_not_reverted"
 msgid "Product not reverted to the specified revision"
-msgstr ""
+msgstr "製品は指定されたリビジョンに戻されませんでした"
 
 # sweeteners (additives), plural
 msgctxt "sweeteners"
@@ -7114,44 +7268,39 @@ msgstr "甘味料"
 # sweetener (additive), singular
 msgctxt "sweetener"
 msgid "sweetener"
-msgstr ""
+msgstr "甘味料"
 
 msgctxt "action_edit_product"
 msgid "Complete or correct product information"
-msgstr ""
+msgstr "完全または正しい製品情報"
 
 msgctxt "report_problem_panel_title"
 msgid "Report a problem"
-msgstr ""
+msgstr "問題を報告する"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
-msgstr ""
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr ""
+msgstr "問題を報告する"
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
-msgstr ""
+msgstr "情報が不完全または不正確ですか?"
 
 msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
-msgstr ""
+msgstr "カテゴリー、ラベル、原材料、アレルゲン、栄養情報、写真など。"
 
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
-msgstr ""
+msgstr "情報がパッケージの情報と一致しない場合は、ご記入または修正いただけます。ありがとうございます！"
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr ""
+msgstr "Open Food Facts は共同データベースであり、すべての貢献はすべての人に役立ちます。"
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
-msgstr ""
+msgstr "破壊行為、不適切なコンテンツ、または自分で修正できない誤ったデータを報告する場合は、モデレーター チームに報告してください。"
 
 msgctxt "description"
 msgid "Description"
@@ -7159,19 +7308,19 @@ msgstr "説明"
 
 msgctxt "enter_main_contact_username"
 msgid "Enter main contact's username :"
-msgstr ""
+msgstr "主な連絡先のユーザー名を入力してください:"
 
 msgctxt "change_main_contact"
 msgid "Change main contact"
-msgstr ""
+msgstr "主な連絡先を変更する"
 
 msgctxt "main_contact_updated"
 msgid "Main contact updated"
-msgstr ""
+msgstr "主な連絡先を更新しました"
 
 msgctxt "error_unknown_member"
 msgid "This user is not a member of the organization."
-msgstr ""
+msgstr "このユーザーは組織のメンバーではありません。"
 
 msgctxt "skip_to_content"
 msgid "Skip to Content"
@@ -7183,151 +7332,151 @@ msgstr "サインインするにはCookieを有効にする必要があります
 
 msgctxt "cant_delete_main_contact"
 msgid "You cannot remove the main contact. Change it first."
-msgstr ""
+msgstr "メインの連絡先は取り外すことができません。まずは交換してください。"
 
 msgctxt "open_in_crm"
 msgid "Open in CRM"
-msgstr ""
+msgstr "CRMで開く"
 
 msgctxt "information_provided_by_the_manufacturer"
 msgid "Information provided by the manufacturer"
-msgstr ""
+msgstr "メーカー提供の情報"
 
 msgctxt "information_provided_by_the_manufacturer_edit_form"
 msgid "Information identified by a factory icon has been provided by the manufacturer. It can be changed only by the manufacturer and moderators. If it is out of date or incorrect, please let us know."
-msgstr ""
+msgstr "工場アイコンで示されている情報は、メーカーから提供されたものです。この情報はメーカーとモデレーターのみが変更できます。情報が古くなっている場合や間違っている場合は、お知らせください。"
 
 msgctxt "knowledge_panels_did_you_know"
 msgid "Did you know?"
-msgstr ""
+msgstr "知っていましたか？"
 
 msgctxt "knowledge_panels_why_it_matters"
 msgid "Why it matters"
-msgstr ""
+msgstr "なぜそれが重要なのか"
 
 msgctxt "knowledge_panels_what_you_can_do"
 msgid "What you can do"
-msgstr ""
+msgstr "あなたにできること"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_title"
 msgid "Good for agricultural biodiversity"
-msgstr ""
+msgstr "農業生物多様性に良い"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_subtitle"
 msgid "Contains neglected or underutilized crops:"
-msgstr ""
+msgstr "放置されたり十分に活用されていない作物が含まれています:"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_did_you_know"
 msgid "Since 1900, 75% of plant diversity has been lost as farmers around the world have abandoned local varieties for high-yielding varieties adapted to mass industrial processing. As a result, 60 % of human energy intake in the world comes from only 3 species: wheat, rice and corn."
-msgstr ""
+msgstr "1900年以降、世界中の農家が在来種を放棄し、大量生産に適した高収量品種に移行したため、植物多様性の75%が失われました。その結果、世界の人間のエネルギー摂取量の60%は、小麦、米、トウモロコシのわずか3種から得られています。"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_why_it_matters"
 msgid "The lack of variety of crops makes our food supply more vulnerable to pests, diseases and climate change."
-msgstr ""
+msgstr "作物の多様性の欠如により、私たちの食糧供給は害虫、病気、気候変動に対してより脆弱になります。"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do"
 msgid "Consuming diverse cereals, legumes, vegetables and fruits contributes to:"
-msgstr ""
+msgstr "多様な穀物、豆類、野菜、果物を摂取すると、次のような効果が得られます。"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_1"
 msgid "preserving neglected and underutilized species"
-msgstr ""
+msgstr "無視され、十分に活用されていない種の保護"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_2"
 msgid "rural development and support of local farmers and companies"
-msgstr ""
+msgstr "農村開発と地元農家や企業の支援"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_3"
 msgid "preserving of diversified landscapes"
-msgstr ""
+msgstr "多様な景観の保全"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_4"
 msgid "food security"
-msgstr ""
+msgstr "食料安全保障"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_what_you_can_do_list_5"
 msgid "and your health!"
-msgstr ""
+msgstr "そしてあなたの健康！"
 
 msgctxt "created_by"
 msgid "Created by"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "org_id"
 msgid "Org id"
-msgstr ""
+msgstr "組織ID"
 
 msgctxt "verified_status"
 msgid "Verified status"
-msgstr ""
+msgstr "確認済みステータス"
 
 msgctxt "creation_date"
 msgid "Creation date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "knowledge_panels_ingredients_rare_crops_divinfood"
 msgid "Open Food Facts participates in the European project <a href=\"https://divinfood.eu/\">DIVINFOOD</a> (funded from European Union’s Horizon 2020 research and innovation programme). DIVINFOOD aims to develop food chains that value under-utilised agrobiodiversity in order to act against the decline of biodiversity and to meet the growing expectations of consumers for healthy, local products that contribute to sustainable food systems."
-msgstr ""
+msgstr "Open Food Factsは、欧州プロジェクト <a href=\"https://divinfood.eu/\">DIVINFOOD</a> （欧州連合のHorizon 2020研究イノベーションプログラムから資金提供を受けています）に参加しています。DIVINFOODは、生物多様性の減少に対処し、持続可能な食料システムに貢献する健康的で地元産の製品に対する消費者の高まる期待に応えるために、十分に活用されていない農業生物多様性を重視するフードチェーンの開発を目指しています。"
 
 msgctxt "deny"
 msgid "Deny"
-msgstr ""
+msgstr "拒否"
 
 msgctxt "users_requested_to_join_org"
 msgid "These users have requested to join the organization:"
-msgstr ""
+msgstr "次のユーザーが組織への参加をリクエストしました:"
 
 msgctxt "last_login"
 msgid "Last login date"
-msgstr ""
+msgstr "最終ログイン日"
 
 msgctxt "last_import"
 msgid "Last import date"
-msgstr ""
+msgstr "最終インポート日"
 
 msgctxt "drop_a_file"
 msgid "Drop"
-msgstr ""
+msgstr "落とす"
 
 msgctxt "select_product_data_file"
 msgid "Select a file with product data"
-msgstr ""
+msgstr "製品データを含むファイルを選択"
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr ""
+msgstr "Nutri-Scoreのない製品の数"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr ""
+msgstr "Nutri-Scoreが計算される製品の割合"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
-msgstr ""
+msgstr "輸出予定製品"
 
 msgctxt "products_exported"
 msgid "Products exported"
-msgstr ""
+msgstr "輸出製品"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr ""
+msgstr "Nutri-Score改善の機会"
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
-msgstr ""
+msgstr "最終更新日"
 
 msgctxt "number_of_products_on_public_platform"
 msgid "Number of products on public platform"
-msgstr ""
+msgstr "公開プラットフォーム上の製品数"
 
 msgctxt "number_of_products_on_producer_platform"
 msgid "Number of products on producer platform"
-msgstr ""
+msgstr "プロデューサープラットフォーム上の製品数"
 
 msgctxt "automated_daily_export_to_public_platform"
 msgid "Automatic daily export to public platform"
-msgstr ""
+msgstr "パブリックプラットフォームへの毎日の自動エクスポート"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
@@ -7335,56 +7484,56 @@ msgstr "改善点"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
-msgstr ""
+msgstr "前回のエクスポート以降に変更があった製品"
 
 msgctxt "organization_list"
 msgid "Organization list"
-msgstr ""
+msgstr "組織リスト"
 
 msgctxt "open_org"
 msgid "Open org"
-msgstr ""
+msgstr "オープン組織"
 
 msgctxt "secondhand"
 msgid "Secondhand"
-msgstr ""
+msgstr "中古"
 
 msgctxt "donated_products_title"
 msgid "Donations"
-msgstr ""
+msgstr "寄付"
 
 msgctxt "donated_products_subtitle"
 msgid "Give this product, or search for a similar donated product"
-msgstr ""
+msgstr "この製品を寄付するか、同様の寄付製品を検索してください"
 
 msgctxt "used_products_title"
 msgid "Used products"
-msgstr ""
+msgstr "中古品"
 
 msgctxt "used_products_subtitle"
 msgid "Buy this product used, or search for a similar used product"
-msgstr ""
+msgstr "この製品を中古で購入するか、類似の中古製品を検索する"
 
 msgctxt "attribute_repairability_index_france_name"
 msgid "Repairability index"
-msgstr ""
+msgstr "修復可能性指数"
 
 msgctxt "attribute_repairability_index_france_setting_name"
 msgid "Good repairability"
-msgstr ""
+msgstr "修理性が良い"
 
 msgctxt "attribute_repairability_index_france_setting_note"
 msgid "Mandatory rating in France for certain products since 2021"
-msgstr ""
+msgstr "フランスでは2021年から特定製品に対する評価が義務化される"
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_repairability_index_france_grade_title"
 msgid "Repairability index %s"
-msgstr ""
+msgstr "修復可能性指数 %s"
 
 msgctxt "attribute_repairability_index_france_unknown_title"
 msgid "Repairability index unknown"
-msgstr ""
+msgstr "修復可能性指数は不明"
 
 msgctxt "attribute_repairability_index_france_not_applicable_title"
 msgid "Repairability index not applicable"
@@ -7392,41 +7541,41 @@ msgstr "修復可能性指数は適用されません"
 
 msgctxt "attribute_repairability_index_france_not_applicable_description_short"
 msgid "Not applicable for the category"
-msgstr ""
+msgstr "このカテゴリーには該当しません"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_repairability_index_france_not_applicable_description"
 msgid "Applicable only for categories: {categories}"
-msgstr ""
+msgstr "カテゴリにのみ適用されます: {categories}"
 
 msgctxt "attribute_repairability_index_france_very_good_description_short"
 msgid "Very good repairability"
-msgstr ""
+msgstr "非常に良好な修理性"
 
 msgctxt "attribute_repairability_index_france_good_description_short"
 msgid "Good repairability"
-msgstr ""
+msgstr "修理性が良い"
 
 msgctxt "attribute_repairability_index_france_average_description_short"
 msgid "Average repairability"
-msgstr ""
+msgstr "平均的な修理性"
 
 msgctxt "attribute_repairability_index_france_poor_description_short"
 msgid "Poor repairability"
-msgstr ""
+msgstr "修理性が低い"
 
 msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
-msgstr ""
+msgstr "修理性が悪い"
 
 msgctxt "estimate"
 msgid "estimate"
-msgstr ""
+msgstr "見積もり"
 
 # information on several ingredients, in plural in languages like French
 msgctxt "ingredient_information"
 msgid "Ingredient information"
-msgstr ""
+msgstr "原材料情報"
 
 msgctxt "product_type"
 msgid "Product type"
@@ -7445,7 +7594,7 @@ msgstr "ペットフード"
 # Beauty product type
 msgctxt "product_type_beauty"
 msgid "Beauty"
-msgstr ""
+msgstr "美しさ"
 
 # General product product type
 msgctxt "product_type_product"
@@ -7454,31 +7603,31 @@ msgstr "製品"
 
 msgctxt "recommendation_limit_ultra_processed_foods_title"
 msgid "Limit ultra-processed foods"
-msgstr ""
+msgstr "超加工食品を制限する"
 
 msgctxt "recommendation_limit_ultra_processed_foods_subtitle"
 msgid "Limiting ultra-processed foods reduces the risk of noncommunicable chronic diseases"
-msgstr ""
+msgstr "超加工食品を制限すると非感染性慢性疾患のリスクが減少する"
 
 msgctxt "recommendation_limit_ultra_processed_foods_text"
 msgid "Several studies have found that a lower consumption of ultra-processed foods is associated with a reduced risk of noncommunicable chronic diseases, such as obesity, hypertension and diabetes."
-msgstr ""
+msgstr "いくつかの研究により、超加工食品の摂取量が少ないと、肥満、高血圧、糖尿病などの非感染性慢性疾患のリスクが減少することが分かっています。"
 
 msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
 msgid "Discover the evolution of the Nutri-Score grades of your products"
-msgstr ""
+msgstr "製品のNutri-Scoreグレードの進化をご覧ください"
 
 msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
 msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
-msgstr ""
+msgstr "カテゴリ、原材料リスト、栄養成分表示を含む製品を追加して、Nutri-Score グレードの進化を確認します。"
 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
-msgstr ""
+msgstr "食品との接触"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
-msgstr ""
+msgstr "お問い合わせ"
 
 msgctxt "delete"
 msgid "Delete"
@@ -7486,32 +7635,32 @@ msgstr "削除"
 
 msgctxt "f_add_product_to_our_database"
 msgid "Is {barcode} the barcode of a product you have? If so, please add it to the database. It only takes a few minutes."
-msgstr ""
+msgstr "{barcode} はお持ちの商品のバーコードですか？もしそうなら、データベースに追加してください。数分で完了します。"
 
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-ja.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
-msgstr ""
+msgstr "F-Droidで利用可能"
 
 msgctxt "update_nutrients_data"
 msgid "Update nutrients data"
-msgstr ""
+msgstr "栄養素データの更新"
 
 msgctxt "update_nutrition_facts"
 msgid "Extract nutrition facts"
-msgstr ""
+msgstr "栄養成分表示の抽出"
 
 msgctxt "scan_a_product"
 msgid "Scan a product"
-msgstr ""
+msgstr "製品をスキャンする"
 
 msgctxt "or_enter_barcode_manually"
 msgid "Or enter barcode manually"
-msgstr ""
+msgstr "またはバーコードを手動で入力してください"
 
 msgctxt "scan"
 msgid "Scan"
@@ -7527,7 +7676,7 @@ msgstr "Nutri-Score、Green-Score、食品加工レベル（NOVA）"
 
 msgctxt "reset_preferences_details_product"
 msgid "Good repairability"
-msgstr ""
+msgstr "修理性が良い"
 
 msgctxt "reset_preferences_details_pet_food"
 msgid "Organic farming and fair trade"
@@ -7593,6 +7742,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "同じカテゴリー内で砂糖無添加の商品を検索:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "100gあたり"
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "100mlあたり"
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "1Lあたり"
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "1kgあたり"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "一食当たり"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "販売時の状態"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "調製時の状態"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr ""
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr ""
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "栄養成分を追加"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "不要な成分"
@@ -7630,36 +7821,36 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "これらの好みは、Open Food Facts の成分リストの理解に基づいており、正確または完全ではない可能性が常にありますので、必ず自分で製品を確認してください。"
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
+msgid "Suffering Footprint"
 msgstr ""
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
-msgstr ""
+msgstr "製品ごとに計算された動物の苦しみの指標"
 
 msgctxt "section_animal_welfare_title"
 msgid "Animal welfare"
-msgstr ""
+msgstr "動物福祉"
 
 msgctxt "external_panels"
 msgid "External Knowledge Panels"
-msgstr ""
+msgstr "外部ナレッジパネル"
 
 msgctxt "external_panel_unavailable"
 msgid "Panel unavailable"
-msgstr ""
+msgstr "パネルは利用できません"
 
 msgctxt "external_panel_unavailable_for_product"
 msgid "Panel unavailable for this product"
-msgstr ""
+msgstr "この製品ではパネルは利用できません"
 
 msgctxt "external_sources"
 msgid "External sources"
-msgstr ""
+msgstr "外部ソース"
 
 msgctxt "provided_by"
 msgid "Provided by"
-msgstr ""
+msgstr "提供元"
 
 msgctxt "recommendation_eu_tobacco_health_warning_title"
 msgid "Smoking kills"
@@ -7672,6 +7863,70 @@ msgstr "タバコは健康に深刻な害を及ぼします。始めないでく
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "喫煙は非常に中毒性があります。始めないでください。喫煙は死をもたらします。今すぐやめましょう。喫煙は動脈を詰まらせ、心臓発作や脳卒中を引き起こします。喫煙は致命的な肺がんを引き起こします。妊娠中の喫煙は胎児に悪影響を及ぼします。子供たちを守りましょう。子供たちにあなたの煙を吸わせないでください。医師または薬剤師が禁煙のお手伝いをいたします。喫煙は血流を低下させ、インポテンツを引き起こす可能性があります。喫煙は皮膚の老化を引き起こします。喫煙は精子にダメージを与え、生殖能力を低下させる可能性があります。煙にはベンゼン、ニトロソアミン、ホルムアルデヒド、シアン化水素が含まれています。"
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr ""
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr ""
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr ""
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr ""
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr ""
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr ""
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "寄付"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr "必要としている団体や人々に寄付することで、あなたの製品に新たな命を吹き込みましょう。"
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr ""
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr ""
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "リサイクル"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr ""
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr ""
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr ""
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr "製品カテゴリ"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7688,4 +7943,136 @@ msgstr "メーカー希望小売価格（MSRP）で、割引やプロモーシ�
 msgctxt "folksonomy_property"
 msgid "Personalized property"
 msgstr "パーソナライズされた財産"
+
+msgctxt "does_not_contain_palm_oil"
+msgid "Does not contain palm oil"
+msgstr "パーム油は含まれていません"
+
+msgctxt "may_contain_palm_oil"
+msgid "May contain palm oil"
+msgstr "パーム油を含む場合があります"
+
+msgctxt "environmental_labels"
+msgid "Environmental labels"
+msgstr "環境ラベル"
+
+msgctxt "missing_data"
+msgid "Missing data"
+msgstr "欠損データ"
+
+msgctxt "high_impact"
+msgid "High impact"
+msgstr "大きな影響"
+
+msgctxt "medium_impact"
+msgid "Medium impact"
+msgstr "中程度の影響"
+
+msgctxt "low_impact"
+msgid "Low impact"
+msgstr "低影響"
+
+msgctxt "impact_non_assessed"
+msgid "Impact not assessed"
+msgstr "影響は評価されていない"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "詳細情報"
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr ""
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr ""
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr ""
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr ""
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr ""
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr ""
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr ""
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "総森林フットプリント"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "ラベル"
 

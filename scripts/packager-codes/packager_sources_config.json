@@ -1,0 +1,151 @@
+{
+  "dk": {
+    "country_name": "Denmark",
+    "geocoding_strategies": [
+      "strategy_split_street_comma",
+      "strategy_remove_street",
+      "strategy_split_city_hyphen",
+      "strategy_remove_city",
+      "strategy_reset_without_country",
+      "strategy_split_street_comma",
+      "strategy_remove_street"
+    ],
+    "sources": [
+      {
+        "url": "https://foedevarestyrelsen.dk/kost-og-foedevarer/start-og-drift-af-foedevarevirksomhed/autorisation-og-registrering/registrerede-og-autorisede-foedevarevirksomheder",
+        "files": [
+          {
+            "type": "excel",
+            "last_filename": "Autoriserede_Foedevarevirksomheder_Excel.xlsx",
+            "sheets": {"start": 2, "end": 20},
+            "header_keywords": ["Name", "Town", "Category"],
+            "columns": {"code": 0, "name": 1, "street_postalcode_city": 2},
+            "code_format": {"strip_prefix": "DK", "suffix": "EF"},
+            "address_extractor": "street_postalcode_city",
+            "normalize_fields": ["city"]
+          }
+        ]
+      }
+    ]
+  },
+  "fi": {
+    "country_name": "Finland",
+    "geocoding_strategies": [
+      "strategy_split_street_last_space",
+      "strategy_remove_street",
+      "strategy_reset_without_city"
+    ],
+    "sources": [
+      {
+        "url": "https://www.ruokavirasto.fi/en/foodstuffs/food-sector/setting-up-a-food-business/make-an-announcement-of-a-food-business-or-apply-for-an-approval/approved-establishments/",
+        "files": [
+          {
+            "type": "excel",
+            "last_filename": "liha-alan_laitokset.xls",
+            "sheets": {"start": 1, "end": 1},
+            "header_keywords": ["municipality", "address", "postal"],
+            "columns": {"code": 0, "name": 1, "street": 24, "city": 2, "postalcode": 26},
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "street", "city", "postalcode"],
+            "postalcode_format": {"zfill": 5}
+          },
+          {
+            "type": "excel",
+            "last_filename": "kala-alan_laitokset.xls",
+            "sheets": {"start": 1, "end": 1},
+            "header_keywords": ["municipality", "address", "postal"],
+            "columns": {"code": 0, "name": 1, "street": 16, "city": 19, "postalcode": 18},
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "street", "city", "postalcode"],
+            "postalcode_format": {"zfill": 5}
+          },
+          {
+            "type": "excel",
+            "last_filename": "maitoalanlaitokset.xls",
+            "sheets": {"start": 1, "end": 1},
+            "header_keywords": ["name", "address", "postal"],
+            "columns": {"code": 0, "name": 1, "street": 7, "city": 10, "postalcode": 9},
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "street", "city", "postalcode"],
+            "postalcode_format": {"zfill": 5}
+          },
+          {
+            "type": "excel",
+            "last_filename": "muna-alanlaitokset.xls",
+            "sheets": {"start": 1, "end": 1},
+            "header_keywords": ["name", "address", "postal"],
+            "columns": {"code": 0, "name": 1, "street": 6, "city": 9, "postalcode": 8},
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "street", "city", "postalcode"],
+            "postalcode_format": {"zfill": 5}
+          },
+          {
+            "type": "excel",
+            "last_filename": "muna-alanlaitokset.xls",
+            "sheets": {"start": 1, "end": 1},
+            "header_keywords": ["municipality", "address", "postal"],
+            "columns": {"code": 0, "name": 1, "street": 9, "city": 2, "postalcode": 11},
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "street", "city", "postalcode"],
+            "postalcode_format": {"zfill": 5}
+          },
+          {
+            "type": "excel",
+            "last_filename": "varastolaitokset.xls",
+            "sheets": {"start": 1, "end": 1},
+            "header_keywords": ["municipality", "address", "postal"],
+            "columns": {"code": 0, "name": 1, "street": 13, "city": 16, "postalcode": 15},
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "street", "city", "postalcode"],
+            "postalcode_format": {"zfill": 5}
+          },
+          {
+            "type": "excel",
+            "last_filename": "hyvaksytyt-idattamot.xls",
+            "sheets": {"start": 1, "end": 1},
+            "header_keywords": ["name", "address", "postal"],
+            "columns": {"code": 0, "name": 1, "street": 6, "city": 9, "postalcode": 8},
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "street", "city", "postalcode"],
+            "postalcode_format": {"zfill": 5}
+          },
+          {
+            "type": "excel",
+            "last_filename": "highly-refined-products.xls",
+            "sheets": {"start": 1, "end": 1},
+            "header_keywords": ["name", "address", "postal"],
+            "columns": {"code": 0, "name": 1, "street": 14, "city": 17, "postalcode": 16},
+            "code_format": {"suffix": "EC"},
+            "normalize_fields": ["code", "street", "city", "postalcode"],
+            "postalcode_format": {"zfill": 5}
+          }
+        ]
+      }
+    ]
+  },
+  "hr": {
+    "country_name": "Croatia",
+    "geocoding_strategies": [
+      "strategy_remove_street",
+      "strategy_remove_postalcode",
+      "strategy_split_city_hyphen"
+    ],
+    "sources": [
+      {
+        "url": "http://veterinarstvo.hr/default.aspx?id=2423",
+        "files": [
+          {
+            "type": "excel",
+            "keyword": "svi odobreni objekti",
+            "last_filename": "03-11-2025. svi odobreni objekti.xls",
+            "header_keywords": ["odobreni", "subjekt", "adresa"],
+            "columns": {"code": 1, "name": 2, "street": 3, "city_and_postalcode": 4},
+            "code_format": {"suffix": "EU"},
+            "address_extractor": "city_and_postalcode",
+            "normalize_fields": ["street", "city"]
+          }
+        ]
+      }
+    ]
+  }
+}
