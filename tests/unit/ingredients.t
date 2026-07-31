@@ -971,7 +971,7 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => 'fr',
 			ingredients_text =>
-				'5 tasses de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel',
+				'3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel',
 		}
 	]
 );
