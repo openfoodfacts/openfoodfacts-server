@@ -26,14 +26,14 @@ convert_product_schema_dump - convert product records in a JSONL dump between sc
 
 =head1 SYNOPSIS
 
-  convert_product_schema_dump.pl [--to-version N] [--verbose] [input.jsonl]
+  convert_product_schema_dump.pl [--to-version N] [--output FILE] [--verbose] <input.jsonl | ->
 
 Reads a MongoDB product dump in JSONL format (one product per line),
 converts each product record to the target schema version using
 ProductOpener::ProductSchemaChanges::convert_product_schema, and writes
-the converted record as one JSON line to STDOUT.
+the converted record as one JSON line to STDOUT (or to --output FILE).
 
-Input may come from a file argument or from STDIN (when no file is given).
+The input file path is mandatory. Pass "-" to read from STDIN.
 
 Errors are reported to STDERR and do not abort the run; offending records
 are skipped. At the end, a summary and the list of skipped product codes
@@ -73,16 +73,21 @@ sub validate_target_version ($target_version) {
 	return;
 }
 
-# Open the input source: a file given as a positional argument, or STDIN.
+# Open the input source: a file given as a positional argument ("-" means STDIN).
+# Dies if no argument is provided (avoids silently blocking on STDIN).
 # Returns the filehandle (with :raw binmode applied).
 sub open_input () {
 	my $input_path = shift @ARGV;
+	if (not defined $input_path) {
+		die "Usage: $0 [--to-version N] [--output FILE] [--verbose] <input.jsonl | ->\n"
+			. "Pass '-' as the input filename to read from STDIN.\n";
+	}
 	my $in;
-	if (defined $input_path) {
-		open($in, '<', $input_path) or die "Cannot open input file '$input_path': $!\n";
+	if ($input_path eq '-') {
+		$in = \*STDIN;
 	}
 	else {
-		$in = \*STDIN;
+		open($in, '<', $input_path) or die "Cannot open input file '$input_path': $!\n";
 	}
 	binmode($in, ':raw');
 	return $in;
@@ -218,20 +223,21 @@ GetOptions(
 	'output|o=s' => \$output_path,
 	'verbose|v' => \$verbose,
 	'help|h' => \$help,
-) or die "Usage: $0 [--to-version N] [--output FILE] [--verbose] [input.jsonl]\n";
+) or die "Usage: $0 [--to-version N] [--output FILE] [--verbose] <input.jsonl | ->\n";
 
 if ($help) {
-	print STDERR "Usage: $0 [--to-version N] [--output FILE] [--verbose] [input.jsonl]\n";
+	print STDERR "Usage: $0 [--to-version N] [--output FILE] [--verbose] <input.jsonl | ->\n";
 	print STDERR "  --to-version N   Target schema version (default: $current_schema_version)\n";
 	print STDERR "  --output FILE     Write converted records to FILE (default: STDOUT)\n";
 	print STDERR "  --verbose        Print each error live as it occurs (with message)\n";
+	print STDERR "  input.jsonl       Input JSONL dump; pass '-' to read from STDIN\n";
 	exit 0;
 }
 
 $target_version //= $current_schema_version;
 validate_target_version($target_version);
 
-my $opened_input = defined $ARGV[0];
+my $is_stdin = (defined $ARGV[0] && $ARGV[0] eq '-');
 my $in = open_input();
 $out = open_output($output_path);
 
@@ -239,7 +245,7 @@ while (my $line = <$in>) {
 	process_line($line, $target_version);
 }
 
-close($in) if $opened_input;    # close only if we opened a file (STDIN is left alone)
+close($in) unless $is_stdin;    # close only if we opened a file (STDIN is left alone)
 close($out) if defined $output_path;    # close only if we opened a file (STDOUT is left alone)
 
 print_report();
