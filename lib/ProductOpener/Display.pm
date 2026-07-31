@@ -9564,7 +9564,8 @@ CSS
 									if (abs($formatted_value) < 1 && abs($formatted_value) > 0) {
 										if ($formatted_value =~ /\.(0+)/) {
 											$decimals = length($1) + 2;
-										} else {
+										}
+										else {
 											$decimals = 2;
 										}
 									}
