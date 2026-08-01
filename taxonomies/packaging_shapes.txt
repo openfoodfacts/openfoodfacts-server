@@ -548,19 +548,86 @@ weight:en: light
 
 # fr:Poche / Pochette / Pochon in data from Les Mousquetaires
 # fr:Sac / Sachet / Flowpack in data from Les Mousquetaires
-en: Bag, bags
-bg: Торбичка, торбички
-da: Taske, tasker
-de: Tüte, Sack, beutel
-el: Σακούλα
+en: bag, bags
+ar: حقيبة
+az: kisə
+bg: торбичка, торбички, чанта
+bn: থলে
+br: sac'h
+ca: bossa
+cs: pytel
+cv: михĕ
+cy: bag
+da: pose, poser, taske, tasker
+de: Tüte, Sack, Beutel
+el: σακούλα, τσάντα
+eo: sako, sakoj
 es: bolsa, bolsas
-fr: Sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches, pochon, pochons, flowpack, Poche / Pochette / Pochon, Sac / Sachet / Flowpack
-hu: Zacskó, zacskók, tasak, tasakos
-it: Sacco, sacchetto, sacchettino
-nl: Zak, Sachet, Tas, verzendzak, Zakken, Zakje, Zakjes
-pt: Saco, sacos, saquinho, saquinhos, saqueta, saquetas
-sv: Väska, väskor
+et: kott
+eu: zaku
+fa: کیسه
+fi: laukku
+fr: sachet, sac, sachets, sacs, berlingots, berlingot, poche, poches, pochon, pochons, flowpack, Poche / Pochette / Pochon, Sac / Sachet / Flowpack
+ga: mála
+gl: bolsa
+gn: vosa
+ha: jaka
+hi: थैला
+ht: sak
+hu: zacskó, zacskók, tasak, tasakos, szatyor
+hy: պայուսակ
+id: tas
+ig: àkpà
+ik: miitchuk
+is: poki
+it: sacco, sacchetto, sacchettino
+ja: 袋
+jv: tas
+kk: дорба
+kn: ಚೀಲ
+ko: 가방
+la: saccus
+ln: libenga
+lt: rankinė
+lv: soma
+mk: торба
+ml: സഞ്ചി
+ms: beg
+nb: pose
+ne: झोला
+nl: zak, sachet, tas, verzendzak, zakken, zakje, zakjes
+nn: veske
+or: ବ୍ୟାଗ
+pl: torba
+pt: saco, sacos, saquinho, saquinhos, saqueta, saquetas, sacola
+qu: wayaqa
+ro: sac
+ru: сумка
+sd: ٿيلھو
+se: lávka
+sk: taška
+sl: vreča
+sn: bhegi
+so: bac
+sq: çantë
+sr: кеса
+ss: sikhwama
+su: kantong
+sv: påse, påsar, väska, väskor
+sw: begi
+te: సంచి
+th: ถุง
+tr: çanta
+ts: nkwama
+tt: букча
+uk: мішок
+uz: sumka
+vi: túi
+yi: זעקל
+za: daeh
+zh: 袋
 description:nl: Slappe, vormeloze verpakking
+wikidata:en: Q1323314
 
 # image:xx:sac-sachet-poche-1.svg (sachet avec poignée)
 # image:xx:sac-sachet-poche-2.svg (sachet)
@@ -589,7 +656,7 @@ pt: Alça, alças, pega, pegas, manípulo, manípulos
 # fr:Sachet à frites papier
 # image:xx:sac-sachet-poche-11.svg
 
-< en: Bag
+< en: bag
 en: Carrying bag, carrying bags
 fr: Sac de transport, sacs de transport
 nl: Draagtas, draagzak, draagzakken, draagtassen
@@ -609,7 +676,7 @@ wikidata:en: Q2933051
 # image:xx:cageot-cagette-autres-2.svg (plastique/generique)
 # image:xx:cageot-cagette-carton.svg (carton)
 
-< en: Bag
+< en: bag
 en: Individual bag, individual bags
 bg: Индивидуална торбичка, индивидуални торбички
 de: Einzeltüten, einzelne Tüten
