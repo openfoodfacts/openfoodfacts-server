@@ -493,12 +493,60 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		my $ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc} || '';
 
 		# Regular expression to find percent or quantities
-		# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
+		# $percent_or_quantity_regexp has 2 capturing groups: one for the number, and one for the % sign or the unit
+		#
+		# Units include:
+		# - percent and simple mass/volume: %, g, mg, kg, ml, ...
+		# - compound concentration units: mg/kg, g/kg, µg/kg, mg/100g, ...
+		#   (solidus may be / or U+2044 after protect_compound_unit_slashes)
+		# - activity / count units: IU, UI, U.I, UFC, CFU (and /kg or /g forms)
+		# Longer / compound units are listed first so they win over simple units (mg before g, etc.).
+		#
+		# IMPORTANT: the unit capturing group MUST start with (\% so that
+		# develop_ingredients_categories_and_types can turn both capturing groups into
+		# non-capturing ones via s/\(\\/\(?:\\/g (it looks for groups that start with '\('
+		# followed by a backslash-escaped character: (\d and (\%).
+		my $unit_solidus = '(?:\/|\N{U+2044}|\N{U+FF0F})';
+		my $units_except_percent
+			= 'mg\s*'
+			. $unit_solidus
+			. '\s*kg|g\s*'
+			. $unit_solidus
+			. '\s*kg|µg\s*'
+			. $unit_solidus
+			. '\s*kg|ug\s*'
+			. $unit_solidus
+			. '\s*kg|mcg\s*'
+			. $unit_solidus
+			. '\s*kg|mg\s*'
+			. $unit_solidus
+			. '\s*100\s*g|g\s*'
+			. $unit_solidus
+			. '\s*100\s*g|iu\s*'
+			. $unit_solidus
+			. '\s*kg|ui\s*'
+			. $unit_solidus
+			. '\s*kg|u\.i\.?\s*'
+			. $unit_solidus
+			. '\s*kg|ufc\s*'
+			. $unit_solidus
+			. '\s*kg|cfu\s*'
+			. $unit_solidus
+			. '\s*kg|ufc\s*'
+			. $unit_solidus
+			. '\s*g|cfu\s*'
+			. $unit_solidus
+			. '\s*g|mg|mcg|µg|ug|gr|g|kg|ml|cl|dl|l|iu|ui|u\.i\.?|ufc|cfu';
+
+		# Number separators: plain comma, dot, and U+201A lower comma (used by the parser to
+		# protect decimal commas so they are not treated as ingredient list separators).
+		my $decimal_sep = '(?:\,|\.|\N{U+201A})';
+
 		$percent_or_quantity_regexps{$ingredients_lc} = '(?:' . "(?:$prepared_with )" . ' )?'   # optional produced with
 			. '(?:>|' . $max_regexp . '|<|' . $min_regexp . '|\s|\.|:)*'    # optional maximum, minimum, and separators
-			. '(?:\d+(?:[,.]\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
-			. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
-			. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
+			. '(?:\d+(?:' . $decimal_sep . '\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
+			. '(\d+(?:' . $decimal_sep . '\d+)?)\s*'    # number, possibly with a decimal separator
+			. '(\%|' . $units_except_percent . ')\s*'    # % or unit (group must start with \% — see comment above)
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
 			. $ignore_strings_after_percent
 			. '|\s|\)|\]|\}|(?:'
