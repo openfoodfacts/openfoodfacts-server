@@ -258,8 +258,25 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 		# ie sets with unknow per quantity
 		@input_sets = grep {defined $_->{set}{per_quantity} && $_->{set}{per_quantity} ne ""} @input_sets;
 
-		# Remove sets that have a per quantity that is less than 5g or 5ml, so that we don't extrapolate very small quantities to 100g
-		@input_sets = grep {unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) >= 5} @input_sets;
+		# Do not extrapolate very small servings to 100g, but keep them available as serving-scoped data.
+		my @input_sets_with_safe_100g_conversion
+			= grep {unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) >= 5} @input_sets;
+		if (@input_sets_with_safe_100g_conversion) {
+			@input_sets = @input_sets_with_safe_100g_conversion;
+		}
+		else {
+			my @small_serving_sets = grep {
+				$_->{set}{per} eq "serving"
+					&& unit_to_g($_->{set}{per_quantity}, $_->{set}{per_unit}) < 5
+			} @input_sets;
+			if (@small_serving_sets) {
+				@input_sets = @small_serving_sets;
+				$aggregated_nutrient_set_ref->{per} = "serving";
+			}
+			else {
+				@input_sets = ();
+			}
+		}
 
 		if (defined $input_sets[0] and %{$input_sets[0]} and %{$input_sets[0]{set}}) {
 			# set preparation and per of aggregated set as values of the nutrient_set with the highest priority
@@ -270,7 +287,7 @@ sub generate_nutrient_aggregated_set_from_sets ($input_sets_ref) {
 			if ($options{product_type} eq "petfood") {
 				$aggregated_nutrient_set_ref->{per} = "1kg";
 			}
-			else {
+			elsif (not defined $aggregated_nutrient_set_ref->{per}) {
 				my $standard_unit = get_standard_unit($input_sets[0]{set}{per_unit});
 				if ((not defined $standard_unit) or ($standard_unit eq "g")) {
 					$aggregated_nutrient_set_ref->{per} = "100g";
@@ -2911,4 +2928,3 @@ sub add_misc_tags_for_input_nutrition_data_pers($product_ref) {
 }
 
 1;
-
