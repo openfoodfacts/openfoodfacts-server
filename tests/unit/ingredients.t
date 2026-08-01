@@ -978,12 +978,13 @@ puffed orange and caramelized unknown_fruit4.",
 				"extrait de yucca 180 mg/kg, fructooligosaccharides 480 mg/kg, glucosamine 180 mg/kg, méthylsulfométhane 180 mg/kg, sulfate de chondroïtine 125 mg/kg, mannanoligosaccharides 120 mg/kg",
 		}
 	],
-	# Activity / count units (vitamins IU, probiotics UFC) — no quantity_g
+	# Activity / count units (vitamins IU/UI/I.E, probiotics UFC) — no quantity_g
 	[
 		"fr-vitamin-ui-and-ufc",
 		{
 			lc => "fr",
-			ingredients_text => "Vitamine A 14000 U.I, Enterococcus faecium 1000000000 UFC",
+			ingredients_text =>
+				"Vitamine A 14000 U.I, Vitamine D 500 I.E, Vitamine E 10 IU, Enterococcus faecium 1000000000 UFC",
 		}
 	],
 	# Slash between additives must still separate / stay as additive enumeration

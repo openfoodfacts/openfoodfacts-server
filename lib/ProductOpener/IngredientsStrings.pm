@@ -489,7 +489,12 @@ my $UNIT_SOLIDUS_REGEXP = '(?:\/|\N{U+2044}|\N{U+FF0F})';
 
 # Numerators for concentrations / activity per mass (order: longer tokens first where needed)
 my @UNIT_MASS_NUMERATORS = ('mg', 'mcg', 'µg', 'ug', 'g');
-my @UNIT_ACTIVITY_NUMERATORS = ('iu', 'ui', 'u\.i\.?', 'ufc', 'cfu');
+# International units (matched case-insensitively at use sites):
+#   i.?u.?  → IU, I.U, I.U. (English)
+#   u.?i.?  → UI, U.I, U.I. (French / Spanish unités internationales)
+#   i.?e.?  → IE, I.E, I.E. (e.g. German Internationale Einheiten)
+# Colony-forming units: UFC / CFU
+my @UNIT_ACTIVITY_NUMERATORS = ('i\.?u\.?', 'u\.?i\.?', 'i\.?e\.?', 'ufc', 'cfu');
 # Denominators after solidus (100 g before bare g)
 my @UNIT_DENOMINATORS = ('100\s*g', 'kg', 'g');
 
@@ -498,7 +503,7 @@ my @UNIT_DENOMINATORS = ('100\s*g', 'kg', 'g');
 my @UNIT_SIMPLE = (
 	'mg', 'mcg', 'µg', 'ug', 'gr', 'g', 'kg',
 	'ml', 'cl', 'dl', 'l',
-	'iu', 'ui', 'u\.i\.?', 'ufc', 'cfu',
+	'i\.?u\.?', 'u\.?i\.?', 'i\.?e\.?', 'ufc', 'cfu',
 );
 
 =head2 _compound_unit_regexp_alternatives ()

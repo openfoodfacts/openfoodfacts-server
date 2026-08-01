@@ -4,19 +4,41 @@
       {
          "id" : "en:vitamin-a",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 75,
+         "percent_estimate" : 62.5,
          "percent_max" : 100,
-         "percent_min" : 50,
+         "percent_min" : 25,
          "quantity" : "14000 U.I",
          "text" : "Vitamine A",
          "vegan" : "maybe",
          "vegetarian" : "maybe"
       },
       {
+         "id" : "en:vitamin-d",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "500 I.E",
+         "text" : "Vitamine D",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vitamin-e",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "10 IU",
+         "text" : "Vitamine E",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
          "id" : "fr:Enterococcus faecium",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 25,
-         "percent_max" : 50,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
          "percent_min" : 0,
          "quantity" : "1000000000 UFC",
          "text" : "Enterococcus faecium"
@@ -34,42 +56,50 @@
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 2,
+   "ingredients_n" : 4,
    "ingredients_n_tags" : [
-      "2",
+      "4",
       "1-10"
    ],
    "ingredients_original_tags" : [
       "en:vitamin-a",
+      "en:vitamin-d",
+      "en:vitamin-e",
       "fr:Enterococcus faecium"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:vitamin-a",
       "en:vitamins",
+      "en:vitamin-d",
+      "en:vitamin-e",
       "fr:Enterococcus faecium"
    ],
-   "ingredients_text" : "Vitamine A 14000 U.I, Enterococcus faecium 1000000000 UFC",
+   "ingredients_text" : "Vitamine A 14000 U.I, Vitamine D 500 I.E, Vitamine E 10 IU, Enterococcus faecium 1000000000 UFC",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:vitamin-a",
+      "en:vitamin-d",
+      "en:vitamin-e",
       "fr:Enterococcus faecium"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 4,
    "ingredients_without_ecobalyse_ids" : [
       "en:vitamin-a",
+      "en:vitamin-d",
+      "en:vitamin-e",
       "fr:Enterococcus faecium"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 3,
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
