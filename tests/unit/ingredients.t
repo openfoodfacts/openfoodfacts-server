@@ -984,7 +984,7 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => "fr",
 			ingredients_text =>
-				"Vitamine A 14000 U.I, Vitamine D 500 I.E, Vitamine E 10 IU, Enterococcus faecium 1000000000 UFC",
+				"Vitamine A 14000 U.I., Vitamine D 500 I.E, Vitamine E 10 IU, Enterococcus faecium 1000000000 UFC",
 		}
 	],
 	# Slash between additives must still separate / stay as additive enumeration
