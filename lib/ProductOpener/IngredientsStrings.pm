@@ -76,6 +76,7 @@ BEGIN {
 		%percent_or_quantity_regexps
 
 		&init_percent_or_quantity_regexps
+		&protect_compound_unit_slashes
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -480,13 +481,101 @@ including localized strings like "minimum"
 
 %percent_or_quantity_regexps = ();
 
+# Shared vocabulary for quantity units (simple and compound like mg/kg).
+# Used by init_percent_or_quantity_regexps and protect_compound_unit_slashes.
+#
+# Solidus forms: plain /, U+2044 after protect_compound_unit_slashes, fullwidth ／
+my $UNIT_SOLIDUS_REGEXP = '(?:\/|\N{U+2044}|\N{U+FF0F})';
+
+# Numerators for concentrations / activity per mass (order: longer tokens first where needed)
+my @UNIT_MASS_NUMERATORS = ('mg', 'mcg', 'µg', 'ug', 'g');
+my @UNIT_ACTIVITY_NUMERATORS = ('iu', 'ui', 'u\.i\.?', 'ufc', 'cfu');
+# Denominators after solidus (100 g before bare g)
+my @UNIT_DENOMINATORS = ('100\s*g', 'kg', 'g');
+
+# Simple units without a solidus. Longer names first (mcg before mg is not needed
+# for alternation left-to-right if both are full tokens; gr before g is required).
+my @UNIT_SIMPLE = (
+	'mg', 'mcg', 'µg', 'ug', 'gr', 'g', 'kg',
+	'ml', 'cl', 'dl', 'l',
+	'iu', 'ui', 'u\.i\.?', 'ufc', 'cfu',
+);
+
+=head2 _compound_unit_regexp_alternatives ()
+
+Build regex alternatives for compound units: C<numerator + solidus + denominator>
+(e.g. C<mg/kg>, C<IU/kg>, C<UFC/g>).
+
+=cut
+
+sub _compound_unit_regexp_alternatives() {
+
+	my @numerators = (@UNIT_MASS_NUMERATORS, @UNIT_ACTIVITY_NUMERATORS);
+	my @alternatives;
+	foreach my $numerator (@numerators) {
+		foreach my $denominator (@UNIT_DENOMINATORS) {
+			push @alternatives, $numerator . '\s*' . $UNIT_SOLIDUS_REGEXP . '\s*' . $denominator;
+		}
+	}
+	return @alternatives;
+}
+
+=head2 _units_except_percent_regexp ()
+
+Alternation of all units except C<%> (compound units first, then simple units).
+
+=cut
+
+sub _units_except_percent_regexp() {
+
+	return join('|', _compound_unit_regexp_alternatives(), @UNIT_SIMPLE);
+}
+
+=head2 protect_compound_unit_slashes ($text)
+
+Replace the solidus inside known compound units (e.g. C<mg/kg>, C<IU/kg>, C<UFC/g>)
+with Unicode fraction slash U+2044 so that ingredient separator matching does not
+split on it.
+
+Additive enumerations such as C<E322/E333> are left unchanged because the pattern
+only matches known unit names from the shared unit vocabulary.
+
+=cut
+
+sub protect_compound_unit_slashes ($text) {
+
+	return $text if not defined $text;
+
+	my $numerators = join('|', @UNIT_MASS_NUMERATORS, @UNIT_ACTIVITY_NUMERATORS);
+	my $denominators = join('|', @UNIT_DENOMINATORS);
+
+	# Only real solidus characters here (not U+2044): we replace them with U+2044.
+	$text =~ s{
+		(
+			(?:$numerators)
+			\s*
+			(?:/|\N{U+FF0F})
+			\s*
+			(?:$denominators)
+		)
+		\b
+	}{
+		my $unit = $1;
+		$unit =~ s{(?:/|\N{U+FF0F})}{\N{U+2044}}g;
+		$unit =~ s{\s+}{}g;
+		$unit;
+	}giex;
+
+	return $text;
+}
+
 sub init_percent_or_quantity_regexps($ingredients_lc) {
 
 	if (not exists $percent_or_quantity_regexps{$ingredients_lc}) {
 
-		my $prepared_with = $prepared_with{$ingredients_lc} || '',
+		my $prepared_with = $prepared_with{$ingredients_lc} || '';
 
-			my $min_regexp = $min_regexp{$ingredients_lc} || '';
+		my $min_regexp = $min_regexp{$ingredients_lc} || '';
 
 		my $max_regexp = $max_regexp{$ingredients_lc} || '';
 
@@ -495,48 +584,11 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		# Regular expression to find percent or quantities
 		# $percent_or_quantity_regexp has 2 capturing groups: one for the number, and one for the % sign or the unit
 		#
-		# Units include:
-		# - percent and simple mass/volume: %, g, mg, kg, ml, ...
-		# - compound concentration units: mg/kg, g/kg, µg/kg, mg/100g, ...
-		#   (solidus may be / or U+2044 after protect_compound_unit_slashes)
-		# - activity / count units: IU, UI, U.I, UFC, CFU (and /kg or /g forms)
-		# Longer / compound units are listed first so they win over simple units (mg before g, etc.).
-		#
 		# IMPORTANT: the unit capturing group MUST start with (\% so that
 		# develop_ingredients_categories_and_types can turn both capturing groups into
 		# non-capturing ones via s/\(\\/\(?:\\/g (it looks for groups that start with '\('
 		# followed by a backslash-escaped character: (\d and (\%).
-		my $unit_solidus = '(?:\/|\N{U+2044}|\N{U+FF0F})';
-		my $units_except_percent
-			= 'mg\s*'
-			. $unit_solidus
-			. '\s*kg|g\s*'
-			. $unit_solidus
-			. '\s*kg|µg\s*'
-			. $unit_solidus
-			. '\s*kg|ug\s*'
-			. $unit_solidus
-			. '\s*kg|mcg\s*'
-			. $unit_solidus
-			. '\s*kg|mg\s*'
-			. $unit_solidus
-			. '\s*100\s*g|g\s*'
-			. $unit_solidus
-			. '\s*100\s*g|iu\s*'
-			. $unit_solidus
-			. '\s*kg|ui\s*'
-			. $unit_solidus
-			. '\s*kg|u\.i\.?\s*'
-			. $unit_solidus
-			. '\s*kg|ufc\s*'
-			. $unit_solidus
-			. '\s*kg|cfu\s*'
-			. $unit_solidus
-			. '\s*kg|ufc\s*'
-			. $unit_solidus
-			. '\s*g|cfu\s*'
-			. $unit_solidus
-			. '\s*g|mg|mcg|µg|ug|gr|g|kg|ml|cl|dl|l|iu|ui|u\.i\.?|ufc|cfu';
+		my $units_except_percent = _units_except_percent_regexp();
 
 		# Number separators: plain comma, dot, and U+201A lower comma (used by the parser to
 		# protect decimal commas so they are not treated as ingredient list separators).

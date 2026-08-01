@@ -1509,42 +1509,6 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 	return ($percent, $quantity, $quantity_g);
 }
 
-=head2 protect_compound_unit_slashes ($text)
-
-Replace the solidus inside known compound units (e.g. C<mg/kg>, C<IU/kg>, C<UFC/g>)
-with Unicode fraction slash U+2044 so that ingredient separator matching does not
-split on it.
-
-Additive enumerations such as C<E322/E333> are left unchanged because the pattern
-only matches known unit names.
-
-=cut
-
-sub protect_compound_unit_slashes ($text) {
-
-	return $text if not defined $text;
-
-	# Compound units: mass/activity unit + solidus + kg|g|100g
-	# Longer unit names first (mg before g, mcg before mg is handled by alternation order).
-	$text =~ s{
-		(
-			(?:mg|mcg|µg|ug|g|iu|ui|u\.i\.?|ufc|cfu)
-			\s*
-			(?:/|\N{U+FF0F})
-			\s*
-			(?:100\s*g|kg|g)
-		)
-		\b
-	}{
-		my $unit = $1;
-		$unit =~ s{(?:/|\N{U+FF0F})}{\N{U+2044}}g;
-		$unit =~ s{\s+}{}g;
-		$unit;
-	}giex;
-
-	return $text;
-}
-
 =head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
