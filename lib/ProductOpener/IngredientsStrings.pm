@@ -501,9 +501,7 @@ my @UNIT_DENOMINATORS = ('100\s*g', 'kg', 'g');
 # Simple units without a solidus. Longer names first (mcg before mg is not needed
 # for alternation left-to-right if both are full tokens; gr before g is required).
 my @UNIT_SIMPLE = (
-	'mg', 'mcg', 'µg', 'ug', 'gr', 'g', 'kg',
-	'ml', 'cl', 'dl', 'l',
-	'i\.?u\.?', 'u\.?i\.?', 'i\.?e\.?', 'ufc', 'cfu',
+	'mg', 'mcg', 'µg', 'ug', 'gr', 'g', 'kg', 'ml', 'cl', 'dl', 'l', 'i\.?u\.?', 'u\.?i\.?', 'i\.?e\.?', 'ufc', 'cfu',
 );
 
 =head2 _compound_unit_regexp_alternatives ()
