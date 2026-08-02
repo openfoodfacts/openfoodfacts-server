@@ -110,7 +110,7 @@ msgctxt "product_description_opf"
 msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
 msgstr "原材料、CO2排出量、耐久性、ラベル、原材料の原産地、製品情報 %s"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_opf"
 msgid "/open-products-facts-mobile-app"
 msgstr "/open-products-facts-モバイルアプリ"
@@ -188,7 +188,7 @@ msgctxt "ingredients_text_example_petfood"
 msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
 msgstr "鶏肉、コーングルテンミール、全粒トウモロコシ、動物性脂肪、大豆ミール"
 
-#. make sure the text file exists for your language, otherwise ask @teolemon 
+#. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_opff"
 msgid "/open-pet-food-facts-mobile-app"
 msgstr "/open-pet-food-facts-mobile-app"
@@ -4104,7 +4104,7 @@ msgstr "タンパク質のポイントは、製品がチーズのカテゴリー
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr "製品は脂肪カテゴリにあり、飽和脂肪分のポイントは飽和脂肪/脂肪比のポイントに置き換えられます。"
+msgstr "製品は脂肪カテゴリにあり、飽和脂肪酸分のポイントは飽和脂肪酸/脂肪比のポイントに置き換えられます。"
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -4120,7 +4120,7 @@ msgstr "飽和脂肪酸"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr "飽和脂肪/脂肪比"
+msgstr "飽和脂肪酸/脂肪比"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -4847,7 +4847,7 @@ msgstr "脂質レベルはNutri-Scoreで考慮されています。この設定�
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "飽和脂肪レベルはNutri-Scoreで考慮されています。この設定は、低飽和脂肪ダイエットをしている場合にのみ使用してください。"
+msgstr "飽和脂肪酸レベルはNutri-Scoreで考慮されています。この設定は、低飽和脂肪酸ダイエットをしている場合にのみ使用してください。"
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -6689,15 +6689,15 @@ msgstr "糖度の低い製品を選び、糖分を加えた製品の消費を減
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+msgstr "脂肪、特に飽和脂肪酸を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr "脂肪と飽和脂肪の消費を減らしましょう"
+msgstr "脂肪と飽和脂肪酸の消費を減らしましょう"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr "低脂肪および飽和脂肪含有量の製品を選択してください。"
+msgstr "低脂肪および飽和脂肪酸含有量の製品を選択してください。"
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -7014,7 +7014,7 @@ msgstr "糖質は炭水化物より高くてはなりません。"
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr "飽和脂肪は脂肪よりも高くてはいけません。"
+msgstr "飽和脂肪酸は脂肪よりも高くてはいけません。"
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -7090,7 +7090,7 @@ msgstr "エネルギー"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr "飽和脂肪からのエネルギー"
+msgstr "飽和脂肪酸からのエネルギー"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -7102,7 +7102,7 @@ msgstr "飽和脂肪酸"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr "飽和脂肪/脂肪"
+msgstr "飽和脂肪酸/脂肪"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -7190,7 +7190,7 @@ msgstr "ニュートリスコアは、製品の総合的な栄養品質を示す
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr "A から E までのスコアは、摂取すべき栄養素と食品（タンパク質、繊維、果物、野菜、豆類など）と制限すべき栄養素（カロリー、飽和脂肪、糖分、塩分）に基づいて計算されます。"
+msgstr "A から E までのスコアは、摂取すべき栄養素と食品（タンパク質、繊維、果物、野菜、豆類など）と制限すべき栄養素（カロリー、飽和脂肪酸、糖分、塩分）に基づいて計算されます。"
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
@@ -7210,15 +7210,15 @@ msgstr "エネルギー必要量を超えるエネルギー摂取は、体重増
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+msgstr "脂肪、特に飽和脂肪酸を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+msgstr "脂肪、特に飽和脂肪酸を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+msgstr "脂肪、特に飽和脂肪酸を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
