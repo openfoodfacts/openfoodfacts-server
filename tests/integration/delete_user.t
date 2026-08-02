@@ -12,6 +12,10 @@ use ProductOpener::Auth qw/get_oidc_implementation_level/;
 
 use Clone qw/clone/;
 use Minion::Job;
+use Data::Dumper;
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
 
 wait_application_ready(__FILE__);
 remove_all_users();
@@ -70,24 +74,22 @@ if (get_oidc_implementation_level() < 5) {
 	#waiting the deletion task to be done (weirdly enough it is not useful anymore..)
 	my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
 
-	is(scalar @{$jobs_ref}, 1, "One delete_user was triggered");
+	diag Dumper $jobs_ref;
+
+	is(scalar @{$jobs_ref}, 1, "One delete_user was triggered") or diag Dumper $jobs_ref;
 	my $delete_job_state = $jobs_ref->[0]{state};
 	is($delete_job_state, "finished", "delete_user finished without errors");
 }
 else {
-	#deleting the account
-	# TODO: This should us the Keycloak API
-	my $job_result;
-	my $mocked_job = mock 'Minion::Job' => (
-		override => [
-			'finish' => sub {
-				my ($self, $result) = @_;
-				$job_result = $result;
-			}
-		],
-	);
-	delete_user_task(Minion::Job->new(), {userid => 'tests', newuserid => 'anonymous-123'});
-	is($job_result, 'done', 'delete_user finished without errors');
+	# deleting the account
+	my $before_delete_ts = get_last_minion_job_created();
+	my $keycloak = ProductOpener::Keycloak->new();
+	$keycloak->delete_user('tests');
+	#waiting the deletion task to be done
+	my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts);
+	is(scalar @{$jobs_ref}, 1, "One delete_user was triggered") or diag Dumper $jobs_ref;
+	my $delete_job_state = $jobs_ref->[0]{state};
+	is($delete_job_state, "finished", "delete_user finished without errors");
 }
 
 #user can't access their preference page anymore

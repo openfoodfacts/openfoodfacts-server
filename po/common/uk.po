@@ -32,6 +32,10 @@ msgctxt "get_the_app_link_off"
 msgid "/open-food-facts-mobile-app"
 msgstr "/open-food-facts-mobile-app"
 
+msgctxt "product_description_off"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
+msgstr "Інгредієнти, алергени, добавки, харчова цінність, етикетки, походження, вплив CO2 та інформація про продукт %s"
+
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
 msgstr "Кооперативна, безкоштовна і відкрита база даних інгредієнтів, та інформація про косметичні продукти з усього світу"
@@ -44,31 +48,9 @@ msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Кооперативна, безкоштовна та відкрита база даних косметичних продуктів з усього світу."
 
-# OPF
-msgctxt "site_description_opf"
-msgid "A collaborative, free and open database of ingredients, and information on various products from around the world."
-msgstr "Колективна, безкоштовна та відкрита база даних інгредієнтів, фактів про харчування та інформації про продукти харчування з усього світу."
-
-msgctxt "tagline_opf"
-msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
-msgstr "Open Products Facts збирає інформацію та дані про широкий спектр продуктів з усього світу."
-
-msgctxt "footer_tagline_opf"
-msgid "A collaborative, free and open database of various products from around the world."
-msgstr "Спільна база даних про продукти з усього світу з відкритим доступом."
-
-# OPFF
-msgctxt "site_description_opff"
-msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
-msgstr "Колективна, безплатна та відкрита база даних інгредієнтів, фактів про харчування та інформації про харчові продукти з усього світу."
-
-msgctxt "tagline_opff"
-msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Pet Food Facts збирає інформацію та дані про корми для домашніх тварин з усього світу."
-
-msgctxt "footer_tagline_opff"
-msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr "Спільна, безкоштовна та відкрита база даних продуктів харчування для домашніх тварин з усього світу."
+msgctxt "product_description_obf"
+msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
+msgstr "Інгредієнти INCI, алергени, добавки, етикетки, походження інгредієнтів та інформація про продукт %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -84,8 +66,8 @@ msgid "Open Beauty Facts product search"
 msgstr "Пошук продуктів Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Ця сторінка продукту не є повною. Ви можете допомогти її заповнити, редагуючи її та додаючи більше даних з наших фотографій або роблячи більше фотографій, використовуючи додаток для <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">Iphone/Ipad</a>. Дякуємо вам!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ця сторінка товару не завершена. Ви можете допомогти її завершити, відредагувавши та додавши більше даних з наявних у нас фотографій, або зробивши більше фотографій за допомогою універсального мобільного застосунку для <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Дякуємо!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -110,6 +92,114 @@ msgstr "Дезодорант захист від стресу"
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 msgstr "АКВА/ВОДА, ЛАУРЕТСУЛЬФАТ НАТРІЮ, ДИНАТРІЄВИЙ КОКОАМФОДІАЦЕТАТ, ГЛІКОЛЕВИЙ ДИСТЕАРАТ, КОКАМІД MEA"
+
+# OPF
+msgctxt "site_description_opf"
+msgid "A collaborative, free and open database of information on various products from around the world."
+msgstr "Спільна, безкоштовна та відкрита база даних інформації про різні продукти з усього світу."
+
+msgctxt "tagline_opf"
+msgid "Open Products Facts gathers information and data on a wide range of products from around the world."
+msgstr "Open Products Facts збирає інформацію та дані про широкий спектр продуктів з усього світу."
+
+msgctxt "footer_tagline_opf"
+msgid "A collaborative, free and open database of various products from around the world."
+msgstr "Спільна база даних про продукти з усього світу з відкритим доступом."
+
+msgctxt "product_description_opf"
+msgid "Ingredients, CO2 impact, Durability, labels, origin of ingredients and information on product %s"
+msgstr "Інгредієнти, вплив CO2, довговічність, етикетки, походження інгредієнтів та інформація про продукт %s"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opf"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
+
+msgctxt "search_description_opensearch_opf"
+msgid "Open Products Facts product search"
+msgstr "Пошук продукту в Open Products Facts"
+
+msgctxt "warning_not_complete_opf"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ця сторінка товару не завершена. Ви можете допомогти її завершити, відредагувавши та додавши більше даних з наявних у нас фотографій, або зробивши більше фотографій за допомогою універсального додатка Open Food Facts для <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Дякуємо!"
+
+msgctxt "brands_example_product"
+msgid "Tide, Persil"
+msgstr "Tide, Persi"
+
+msgctxt "categories_example_product"
+msgid "Liquid laundry detergent, Powder laundry detergent"
+msgstr "Рідкий пральний порошок, порошок для прання"
+
+msgctxt "emb_codes_example_product"
+msgid "EMB 67890"
+msgstr "EMB 67890"
+
+msgctxt "generic_name_example_product"
+msgid "Laundry detergent"
+msgstr "Пральний порошок"
+
+msgctxt "product_name_example_product"
+msgid "Ultra Clean Lavender Scent"
+msgstr "Ультрачистий аромат лаванди"
+
+msgctxt "ingredients_text_example_product"
+msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
+msgstr "ПОПЕРЕДЖЕННЯ: не додавайте інгредієнти, якщо це не стосується категорії. Миючі засоби мають списки на упаковці або в Інтернеті, а також деякі інші категорії"
+
+# OPFF
+msgctxt "site_description_opff"
+msgid "A collaborative, free and open database of ingredients, nutrition facts, and information on pet food products from around the world."
+msgstr "Колективна, безплатна та відкрита база даних інгредієнтів, фактів про харчування та інформації про харчові продукти з усього світу."
+
+msgctxt "tagline_opff"
+msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
+msgstr "Open Pet Food Facts збирає інформацію та дані про корми для домашніх тварин з усього світу."
+
+msgctxt "footer_tagline_opff"
+msgid "A collaborative, free and open database of pet food products from around the world."
+msgstr "Спільна, безкоштовна та відкрита база даних продуктів харчування для домашніх тварин з усього світу."
+
+msgctxt "product_description_opff"
+msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
+msgstr "Складники, речовини що викликають алергічну реакцію, добавки, харчова цінність, походження складників та дані продукту %s"
+
+msgctxt "search_description_opensearch_opff"
+msgid "Open Pet Food Facts product search"
+msgstr "Пошук продуктів Open Pet Food Facts"
+
+msgctxt "warning_not_complete_opff"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
+msgstr "Ця сторінка товару не завершена. Ви можете допомогти її завершити, відредагувавши та додавши більше даних з наявних у нас фотографій, або зробивши більше фотографій за допомогою універсального додатка Open Food Facts для <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> або <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Дякуємо!"
+
+msgctxt "brands_example_petfood"
+msgid "Purina, Pedigree"
+msgstr "Purina, Pedigree"
+
+msgctxt "categories_example_petfood"
+msgid "Dry dog food, Wet cat food"
+msgstr "Сухий корм для собак, вологий корм для котів"
+
+msgctxt "emb_codes_example_petfood"
+msgid "EMB 12345"
+msgstr "EMB 12345"
+
+msgctxt "ingredients_text_example_petfood"
+msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
+msgstr "КУРКА, КУКУРУДЗЯНЕ ГЛЮТЕНОВЕ БОРОШНО, ЦІЛЬНОЗЕРНОВА КУКУРУДЗА, ТВАРИННИЙ ЖИР, СОЄВЕ БОРОШНО"
+
+#. make sure the text file exists for your language, otherwise ask @teolemon 
+msgctxt "get_the_app_link_opff"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
+
+msgctxt "generic_name_example_petfood"
+msgid "Wet food for adult dogs"
+msgstr "Вологий корм для дорослих собак"
+
+msgctxt "product_name_example_petfood"
+msgid "Senior Dog Delight Chicken & Rice"
+msgstr "Корм для собак старшого віку з куркою та рисом"
 
 msgctxt "1_product"
 msgid "1 product"
@@ -178,6 +268,10 @@ msgstr "Організація з назвою %s вже існує."
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Ваш запит на приєднання до організації очікує на схвалення адміністратором організації."
+
+msgctxt "add_user_requested_org_processing"
+msgid "Your organization request has been received and is being processed."
+msgstr "Ваш запит прийнято та опрацьовується."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -312,7 +406,7 @@ msgstr "АРК для Android"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Ukranian.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -623,6 +717,10 @@ msgstr "Редагувати продукт"
 msgctxt "edit_product_page"
 msgid "Edit the page"
 msgstr "Перевірити сторінку"
+
+msgctxt "signin_to_edit_fe_properties"
+msgid "Sign-in to add or edit properties"
+msgstr "Увійдіть, щоб додати або редагувати властивості"
 
 msgctxt "edit_profile"
 msgid "Edit your public profile"
@@ -2179,6 +2277,10 @@ msgctxt "search_description_opensearch"
 msgid "Product search"
 msgstr "Пошук товару"
 
+msgctxt "search_description_opensearch_off"
+msgid "Product search"
+msgstr "Пошук товару"
+
 msgctxt "search_does_not_contain"
 msgid "does not contain"
 msgstr "не містить в собі"
@@ -2734,7 +2836,7 @@ msgstr "Увага: певна кількість фруктів, овочів �
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr "Увага: кількість фруктів, овочів та горіхів не зазначено на етикетці, їх було розраховано вручну згідно зі списком інгредієнтів: %d%"
+msgstr "Увага: кількість фруктів, овочів та горіхів не зазначено на етикетці, їх було розраховано вручну згідно зі списком інгредієнтів: %d%%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
@@ -2782,8 +2884,8 @@ msgid "Some of the data and/or photos for this product come from those sources:"
 msgstr "Деякі дані та/або фотографії цього продукту отримані з таких джерел:"
 
 msgctxt "warning_not_complete"
-msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
-msgstr "Сторінка цієї продукції є незавершеною. Ви можете допомогти її завершити відредагувавши її та додавши більше інформації з поточних зображень або ж використати більше зображень за допомогою програми <a href=\"https://android.openfoodfacts.org\">Android</a> або <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Дякуємо!"
+msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the mobile app for <a href=\"https://android.openfoodfacts.org\">Android</a> or <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Thank you!"
+msgstr "Ця сторінка товару не завершена. Ви можете допомогти її завершити, відредагувавши та додавши більше даних з наявних у нас фотографій, або зробивши більше фотографій за допомогою мобільного застосунку для <a href=\"https://android.openfoodfacts.org\">Android</a> або <a href=\"https://ios.openfoodfacts.org\">iPhone/iPad</a>. Дякуємо!"
 
 msgctxt "title_separator"
 msgid " - "
@@ -2866,25 +2968,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "додану іншу поживну речовину"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Продано"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Підготовлено"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Одиниця вимірювання"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "На товарі, що продається зазначено харчову цінність."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Зазначено харчову цінність для підготовленої продукції."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -4872,8 +4958,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Низький вплив на навколишнє середовище (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Зелена оцінка – це екологічна оцінка від A до E, яка дає змогу легко порівнювати вплив харчових продуктів на довкілля."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score – це екологічний бал від A+ до F, який дозволяє легко порівнювати вплив харчових продуктів на навколишнє середовище."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4885,8 +4971,8 @@ msgid "Low environmental impact (Green-Score)"
 msgstr "Низький вплив на навколишнє середовище (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
-msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr "Зелена оцінка – це екологічна оцінка від A до E, яка дає змогу легко порівнювати вплив харчових продуктів на довкілля."
+msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
+msgstr "Green-Score – це екологічний бал від A+ до F, який дозволяє легко порівнювати вплив харчових продуктів на навколишнє середовище."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5426,8 +5512,8 @@ msgstr "Бачення, Місія, Цінності та Програми"
 
 # Do not translate
 msgctxt "footer_vision_link"
-msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr "https://ua.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
+msgid "/open-food-facts-vision-mission-values-and-programs"
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5809,8 +5895,8 @@ msgstr "Формула Green-Score підлягає змінам, оскільк
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
-msgid "The Green-Score was initially developped for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Green-Score спочатку був розроблений для Франції, і його поширюють в інших європейських країнах. Формула Green-Score може змінюватися, оскільки її регулярно вдосконалюють, щоб зробити її більш точною та підходящою для кожної країни."
+msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
+msgstr "Green-Score спочатку було розроблено для Франції, і його застосування поширюється на інші європейські країни. Формула Green-Score може змінюватися, оскільки вона регулярно вдосконалюється, щоб зробити її точнішою та краще відповідати потребам кожної країни."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5962,6 +6048,46 @@ msgstr "Кожна пожертва має значення! Ми цінуємо
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "Я ПІДТРИМУЮ"
+
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "Нам все ще потрібно 120 000 євро, щоб закінчити 2026 рік"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "Станьте патроном Open Food Facts"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "Щомісяця ми обслуговуємо 8 мільйонів відвідувачів, та в багато разів більше через API. Ваша підтримка важлива для:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "підтримки Open Food Facts відкритими та доступними для всіх,"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "підтримки інфраструктури, веб-сайту, мобільного додатку та API з невеликою постійною командою"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "залишаємося незалежними від харчової промисловості,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "підтримки спільноти"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "підтримки науки"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "Якби кожен відвідувач цього місяця натиснув «Пожертвувати» та віддав лише 1 євро, ми отримали б у 8 разів більше нашого річного бюджету!"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Підтримати проект"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6668,6 +6794,10 @@ msgctxt "api_result_product_updated"
 msgid "Product updated"
 msgstr "Продукт оновлено"
 
+msgctxt "api_result_user_found"
+msgid "User found"
+msgstr "Користувача знайдено"
+
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
 msgstr "Неправильна дія API"
@@ -6799,6 +6929,14 @@ msgstr "Перераховані всі пакувальні частини пр
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
 msgstr "Неправильний логін і пароль"
+
+msgctxt "api_message_invalid_token"
+msgid "Invalid access_token"
+msgstr "Недійсний access_token"
+
+msgctxt "api_message_authentication_required"
+msgid "Authentication required"
+msgstr "Потрібна автентифікація"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7154,14 +7292,9 @@ msgctxt "report_problem_panel_title"
 msgid "Report a problem"
 msgstr "Повідомити про проблему"
 
-# duplicate with "report_problem_panel_title"
 msgctxt "report_problem_navigation"
 msgid "Report a problem"
 msgstr "Повідомити про проблему"
-
-msgctxt "report_problem_navigation"
-msgid "Report a problem."
-msgstr "Повідомити про проблему."
 
 msgctxt "incomplete_or_incorrect_data_title"
 msgid "Incomplete or incorrect information?"
@@ -7521,7 +7654,7 @@ msgstr "Чи є {barcode} штрих-кодом товару? Якщо так, �
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-ua.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7623,6 +7756,48 @@ msgctxt "search_products_in_same_category_without_added_sugars"
 msgid "Search for products in the same category without added sugars:"
 msgstr "Пошук продуктів у тій самій категорії без доданого цукру:"
 
+msgctxt "per_100g"
+msgid "for 100 g"
+msgstr "на 100 г"
+
+msgctxt "per_100ml"
+msgid "for 100 ml"
+msgstr "на 100 мл"
+
+msgctxt "per_1l"
+msgid "for 1 L"
+msgstr "на 1 л"
+
+msgctxt "per_1kg"
+msgid "for 1 kg"
+msgstr "для 1 кг"
+
+msgctxt "per_serving"
+msgid "per serving"
+msgstr "в одній порції"
+
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Як продали"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Підготовлено"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Харчова цінність зазначено для продукту, який продається:"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Харчова цінність готового продукту вказана:"
+
+msgctxt "product_js_add_a_nutrient"
+msgid "Add a nutrient"
+msgstr "Додати поживну речовину"
+
 msgctxt "attribute_unwanted_ingredients_name"
 msgid "Unwanted ingredients"
 msgstr "Небажані інгредієнти"
@@ -7660,8 +7835,8 @@ msgid "Those preferences are based on Open Food Facts' understanding of the ingr
 msgstr "Ці уподобання ґрунтуються на розумінні Open Food Facts списку інгредієнтів, і завжди існує ймовірність того, що він може бути неточним або неповним, завжди перевіряйте продукт самостійно."
 
 msgctxt "external_sources_empreinte_souffrance_name"
-msgid "Suffering Fingerprint"
-msgstr "Відбиток страждань"
+msgid "Suffering Footprint"
+msgstr "Вплив на добробут тварин"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7702,6 +7877,70 @@ msgstr "Тютюн серйозно шкодить здоров'ю. Не поч�
 msgctxt "recommendation_eu_tobacco_health_warning_text"
 msgid "Smoking is highly addictive. Don't start. Smoking kills – quit now. Smoking clogs the arteries and causes heart attacks and strokes. Smoking causes fatal lung cancer. Smoking when pregnant harms your baby. Protect children: don't make them breathe your smoke. Your doctor or your pharmacist can help you stop smoking. Smoking may reduce the blood flow and causes impotence. Smoking causes ageing of the skin. Smoking can damage the sperm and decreases fertility. Smoke contains benzene, nitrosamines, formaldehyde and hydrogen cyanide."
 msgstr "Куріння викликає сильну залежність. Не починайте. Куріння вбиває – киньте зараз. Куріння закупорює артерії та спричиняє серцеві напади та інсульти. Куріння спричиняє смертельний рак легенів. Куріння під час вагітності шкодить вашій дитині. Захистіть дітей: не змушуйте їх вдихати ваш дим. Ваш лікар або фармацевт може допомогти вам кинути палити. Куріння може зменшити кровотік і спричинити імпотенцію. Куріння спричиняє старіння шкіри. Куріння може пошкодити сперму та знизити фертильність. Дим містить бензол, нітрозаміни, формальдегід та ціаністий водень."
+
+msgctxt "reuse_card_title"
+msgid "Reuse"
+msgstr "Повторне використання"
+
+msgctxt "qfdmo_solutions_title"
+msgid "Circular economy solutions nearby"
+msgstr "Рішення циркулярної економіки поруч"
+
+msgctxt "qfdmo_solutions_subtitle"
+msgid "Find places to repair, donate, sell or recycle"
+msgstr "Знайдіть місця, щоб відремонтувати, подарувати, продати чи переробити"
+
+msgctxt "qfdmo_solutions_description"
+msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
+msgstr "Якщо ви перебуваєте у Франції, ви можете знайти неподалік рішення для цього продукту, щоб подовжити термін його служби або утилізувати його відповідально."
+
+msgctxt "qfdmo_solutions_intro"
+msgid "Available solutions include:"
+msgstr "Доступні рішення включають:"
+
+msgctxt "qfdmo_solution_repair"
+msgid "Repair"
+msgstr "Ремонт"
+
+msgctxt "qfdmo_solution_repair_description"
+msgid "Find repair shops and services to fix your product instead of throwing it away"
+msgstr "Знайдіть ремонтні майстерні та служби, щоб відремонтувати ваш продукт, а не викидати його"
+
+msgctxt "qfdmo_solution_donate"
+msgid "Donate"
+msgstr "Підтримати проект"
+
+msgctxt "qfdmo_solution_donate_description"
+msgid "Give your product a second life by donating it to associations or people in need"
+msgstr "Дайте речам друге життя: пожертвуйте їх тим, хто цього потребує"
+
+msgctxt "qfdmo_solution_sell"
+msgid "Sell or exchange"
+msgstr "Продати або обміняти"
+
+msgctxt "qfdmo_solution_sell_description"
+msgid "Sell or exchange your product on second-hand platforms"
+msgstr "Продайте або обміняйте продукт на платформах вживаних речей"
+
+msgctxt "qfdmo_solution_recycle"
+msgid "Recycle"
+msgstr "Переробка"
+
+msgctxt "qfdmo_solution_recycle_description"
+msgid "Find collection points for proper recycling when the product reaches end of life"
+msgstr "Знайдіть пункти збору для правильної переробки після використання виробу."
+
+msgctxt "qfdmo_solutions_action"
+msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
+msgstr "Скористайтеся сервісом Que Faire De Mes Objets (Франція), щоб знайти рішення поруч із вами:"
+
+msgctxt "qfdmo_solutions_find_nearby"
+msgid "Find solutions nearby on QFDMO"
+msgstr "Знайдіть рішення поблизу на QFDMO"
+
+msgctxt "qfdmo_category"
+msgid "Product category"
+msgstr "Категорія товару"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7750,4 +7989,104 @@ msgstr "Низький вплив"
 msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Вплив не оцінено"
+
+msgctxt "detailed_data"
+msgid "Detailed data"
+msgstr "Детальні дані"
+
+msgctxt "test_ingredients_analyze_form_description"
+msgid "You can use this form to analyze an ingredient list."
+msgstr "Ви можете використовувати цю форму для аналізу списку інгредієнтів."
+
+msgctxt "test_ingredients_recipe_estimator_note"
+msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+msgstr "Ця форма є демонстраційним та тестовим інструментом. Для промислового використання, будь ласка, встановіть програмне забезпечення Recipe Estimator, доступне з відкритим кодом на  <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
+
+msgctxt "test_ingredients_taxonomy_mapping_description"
+msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
+msgstr "Інгредієнти зіставляються з таксономією інгредієнтів Open Food Facts, а їхня кількість оцінюється за допомогою різних алгоритмів."
+
+msgctxt "test_ingredients_text_language"
+msgid "Ingredients text language"
+msgstr "Мова тексту інгредієнтів"
+
+msgctxt "test_ingredients_text"
+msgid "Ingredients text"
+msgstr "Текст інгредієнтів"
+
+msgctxt "test_ingredients_select_estimator"
+msgid "Select an ingredient percent estimator:"
+msgstr "Виберіть інструмент оцінки відсотків інгредієнтів:"
+
+msgctxt "test_ingredients_product_opener_description"
+msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
+msgstr "Використовує поєднання правил та евристик, а також обмежений набір даних про поживну цінність та інгредієнти."
+
+msgctxt "test_ingredients_recipe_estimator_glop_description"
+msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "Перша версія (Glop) — використовує дані про поживну цінність для визначення кількості інгредієнтів."
+
+msgctxt "test_ingredients_recipe_estimator_scipy_description"
+msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "Друга версія (Scipy) — використовує дані про поживну цінність для визначення кількості інгредієнтів."
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "Третя версія (CVXPY) — використовує дані про поживну цінність для визначення кількості інгредієнтів."
+
+msgctxt "test_ingredients_key_nutrition_facts"
+msgid "Nutritional facts"
+msgstr "Харчова цінність"
+
+msgctxt "test_ingredients_parsing_estimates_and_analysis"
+msgid "Ingredients parsing and quantity estimation"
+msgstr "Парсинг інгредієнтів та оцінка їхньої кількості"
+
+msgctxt "test_ingredients_percent_estimator"
+msgid "Ingredient percent estimator:"
+msgstr "Оцінювач відсоткового вмісту інгредієнтів:"
+
+msgctxt "test_ingredients_ecobalyse_experimental"
+msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
+msgstr "Експериментально: використання API Ecobalyse для оцінки впливу інгредієнтів на навколишнє середовище."
+
+msgctxt "test_ingredients_ecobalyse_request"
+msgid "Ecobalyse request"
+msgstr "Запит Ecobalyse"
+
+msgctxt "test_ingredients_ecobalyse_response"
+msgid "Ecobalyse response"
+msgstr "Відповідь Ecobalyse"
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Загальна площа лісу"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Мітка"
 

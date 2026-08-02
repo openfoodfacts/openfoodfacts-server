@@ -34,7 +34,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&capture_ouputs
+		&capture_outputs
 		&ensure_expected_results_dir
 		&compare_file_to_expected_results
 		&compare_to_expected_results
@@ -67,6 +67,7 @@ use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Cache qw/$memd/;
 use ProductOpener::Data qw/execute_query get_orgs_collection get_products_collection get_recent_changes_collection/;
 use ProductOpener::Store "store";
 use ProductOpener::Auth qw/get_token_using_client_credentials get_oidc_implementation_level/;
@@ -91,6 +92,13 @@ use MIME::Base64 qw(encode_base64);
 use Log::Any qw($log);
 
 no warnings qw(experimental::signatures);
+
+$Data::Dumper::Terse = 1;
+$Data::Dumper::Indent = 1;
+$Data::Dumper::Sortkeys = 1;
+
+# Make sure we include convert_blessed to cater for blessed objects, like booleans
+my $json = JSON::MaybeXS->new->convert_blessed->allow_nonref->canonical;
 
 =head2 read_gzip_file($filepath)
 
@@ -251,6 +259,13 @@ sub remove_all_products () {
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
+	# flush Memcached to avoid stale cache entries (search results) from previous test files
+	$memd->flush_all();
+	# Note: we do not remove categories stats from PRIVATE_DATA and TEST_PRIVATE_DATA
+	# In integration tests, PRIVATE_DATA/categories_stats should not exist,
+	# and categories stats should be loaded from TEST_PRIVATE_DATA/categories_stats
+
+	return;
 }
 
 =head2 remove_all_users ()
@@ -316,7 +331,7 @@ sub remove_all_orgs () {
 	}
 }
 
-=head2 capture_ouputs ($meth)
+=head2 capture_outputs ($meth)
 
 Capturing out / err with Stdout/Stderr::Extended
 while following Capture::Tiny style
@@ -326,7 +341,7 @@ or verify something is present in its input / output
 
 =head3 Example usage
 
-    my ($out, $err, $csv_result) = capture_ouputs (sub {
+    my ($out, $err, $csv_result) = capture_outputs (sub {
         return scalar load_csv_or_excel_file($my_excel);
     });
 
@@ -342,7 +357,7 @@ Returns an array with std output, std error, result of the method as array.
 
 =cut
 
-sub capture_ouputs ($meth) {
+sub capture_outputs ($meth) {
 
 	my $out = IO::Capture::Stdout::Extended->new();
 	my $err = IO::Capture::Stderr::Extended->new();
@@ -401,8 +416,6 @@ If the test fail, the test reference will be output in the C<diag>
 
 sub compare_to_expected_results ($object_ref, $expected_results_file, $update_expected_results, $test_ref = undef) {
 
-	my $json = JSON->new->allow_nonref->canonical;
-
 	my $desc = undef;
 	if (defined $test_ref) {
 		$desc = $test_ref->{desc} // $test_ref->{id};
@@ -428,7 +441,12 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
 				$title = undef unless $title;
 			}
-			is($object_ref, $expected_object_ref, $title) or diag(Dumper($test_ref), Dumper($object_ref));
+			# Normalize both objects through JSON round-trip for consistent boolean types
+			# (JSON::PP::Boolean vs Cpanel::JSON::XS::Boolean mismatch)
+			my $normalized_object_ref = $json->decode($json->encode($object_ref));
+			my $normalized_expected_object_ref = $json->decode($json->encode($expected_object_ref));
+			is($normalized_object_ref, $normalized_expected_object_ref, $title)
+				or diag(Dumper($test_ref), Dumper($object_ref));
 		}
 		else {
 			fail("could not load $expected_results_file");
@@ -536,7 +554,9 @@ Tests will pass when this flag is passed, and the new expected results can be di
 
 =cut
 
-sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name = "") {
+sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name,
+	$save_csv = 0)
+{
 
 	# Read the CSV file
 
@@ -559,7 +579,8 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 			$test_name);
 
 		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
-		if ($update_expected_results) {
+		# This is not done by default though because many CSV exports contain things that vary, like modified dates
+		if ($update_expected_results and $save_csv) {
 			my $csv_filename = $csv_file;
 			$csv_filename =~ s/.*\///;
 			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
@@ -605,7 +626,6 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 	ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
-	my $json = JSON->new->allow_nonref->canonical;
 	my %codes = ();
 
 	foreach my $product_ref (@$array_ref) {
@@ -619,7 +639,7 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 		if ($update_expected_results) {
 			open(my $result, ">:encoding(UTF-8)", "$expected_results_dir/$code.json")
-				or confess("Could not create $expected_results_dir/$code.json: $!\n");
+				or confess("Could not create $expected_results_dir/$code.json for code $code: $!\n");
 			print $result $json->pretty->encode($product_ref);
 			close($result);
 		}
@@ -630,7 +650,11 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_product_ref = $json->decode(<$expected_result>);
-			is($product_ref, $expected_product_ref, "$test_name - $code") or diag Dumper($product_ref);
+			# Normalize both objects through JSON round-trip for consistent boolean types
+			my $normalized_product_ref = $json->decode($json->encode($product_ref));
+			my $normalized_expected_product_ref = $json->decode($json->encode($expected_product_ref));
+			is($normalized_product_ref, $normalized_expected_product_ref, "$test_name - $code")
+				or diag Dumper($product_ref);
 		}
 		else {
 			diag Dumper($product_ref);
@@ -753,12 +777,7 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 			my @keys = split(/\./, $field);
 			my $final_key = pop(@keys);
 			for my $item_ref (_get_sub_fields($object_ref, @keys)) {
-				if ($final_key ne "*") {
-					if ((ref($item_ref) eq 'HASH') and (defined $item_ref->{$final_key})) {
-						$item_ref->{$final_key} = $transformation->($item_ref->{$final_key});
-					}
-				}
-				else {
+				if ($final_key eq '*') {
 					if (ref($item_ref) eq 'ARRAY') {
 						for my $index (0 .. (scalar @$item_ref) - 1) {
 							$item_ref->[$index] = $transformation->($item_ref->[$index]);
@@ -770,6 +789,24 @@ sub normalize_object_for_test_comparison ($object_ref, $specification_ref) {
 						}
 					}
 					# Note: * on a scalar means nothing
+				}
+				# If the final key contains a * (with something else), treat the * as a wildcard for any character
+				# and apply the transformation to all fields that match the pattern
+				elsif ($final_key =~ /\*/) {
+					if (ref($item_ref) eq 'HASH') {
+						my $regex = $final_key;
+						$regex =~ s/\*/.*/g;
+						foreach my $key (keys %$item_ref) {
+							if ($key =~ /^$regex$/) {
+								$item_ref->{$key} = $transformation->($item_ref->{$key});
+							}
+						}
+					}
+				}
+				else {
+					if ((ref($item_ref) eq 'HASH') and (defined $item_ref->{$final_key})) {
+						$item_ref->{$final_key} = $transformation->($item_ref->{$final_key});
+					}
 				}
 			}
 		}
@@ -856,11 +893,13 @@ sub normalize_product_for_test_comparison ($product_ref) {
 	my %specification = (
 		fields_ignore_content => [
 			qw(
-				last_modified_t last_updated_t created_t owner_fields
+				last_modified_t last_updated_t nutrition.input_sets.*.last_updated_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
 				last_image_t last_image_datetime last_image_dates_tags images.*.uploaded_t images.uploaded.*.uploaded_t sources.*.import_t
 				created_datetime last_modified_datetime last_updated_datetime
-				blame.*.*.previous_t blame.*.*.t
+				blame.*.*.previous_t blame.*.*.t nutrition.input_sets.*.last_updated_t
+				tags_sources.*.*.last_updated_t
+				*last_updated_t
 			)
 		],
 		fields_sort => ["_keywords"],

@@ -44,8 +44,6 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-		&get_cors_headers
-		&write_cors_headers
 		&get_http_request_headers
 		&set_http_response_header
 		&write_http_response_headers
@@ -64,110 +62,13 @@ use vars @EXPORT_OK;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use Encode;
-use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie);
+use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie url_param);
 use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::RequestStats qw(:all);
 use ProductOpener::Version qw/$version/;
-
-=head1 FUNCTIONS
-
-=head2 get_cors_headers($allow_credentials = 0, $sub_domain_only = 0)
-
-We handle CORS headers from Perl code, NGINX should not interfere.
-So this is the central place for it.
-
-Some parts needs to be more strict than others (eg. auth).
-
-=head3 Parameters
-
-=head4 $allow_credentials - boolean
-
-Whether we should add the Access-Control-Allow-Credential header, should be used with caution.
-We will effectively put the headers only if subdomains matches.
-
-We need to send the header Access-Control-Allow-Credentials=true so that websites
-such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
-can read the resulting response.
-
-=head4 $sub_domain_only - boolean
-
-If true tells to restrict Access to main domain, that is domain.tld (eg. openfoodfacts.org)
-It defaults to False,
-but as a precaution, setting $allow_credentials to True turns it to True, if allow-credentials is given.
-
-
-=head3 returns
-
-Reference to a Hashmap with headers.
-
-=cut
-
-sub get_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
-	my $headers_ref = {};
-	my $allow_origins = "*";
-	$log->debug("get_cors_headers", {"allow_credentials" => $allow_credentials, "sub_domain_only" => $sub_domain_only})
-		if $log->is_debug();
-	if ($sub_domain_only || $allow_credentials) {
-		# The Access-Control-Allow-Origin header must be set to the main domain of the Origin header
-		my $input_request = Apache2::RequestUtil->request();
-		my $origin = $input_request->headers_in->{Origin} || '';
-		$log->debug("get_cors_headers sub domain test", {origin => $origin, "server_domain" => $server_domain})
-			if $log->is_debug();
-		# Only allow requests from one of our subdomains
-		if ($origin =~ /^https?:\/\/([a-z0-9-.]+\.)*${server_domain}(:\d+)?$/) {
-			$allow_origins = $origin;
-		}
-		else {
-			# subdomains does not apply, we must not allow credentials
-			$allow_credentials = 0;
-			if ($sub_domain_only) {
-				# we want to be sure it is not accessed
-				# instead of putting the "null" value which is not well supported according to
-				# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
-				# and to counter-act the potential addition of the header by an external source
-				# we will put our server_domain
-				$allow_origins = "https://$server_domain";
-			}
-		}
-	}
-	$headers_ref->{"Access-Control-Allow-Origin"} = $allow_origins;
-	if ($allow_origins ne "*") {
-		# see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin#cors_and_caching
-		$headers_ref->{"Vary"} = "Origin";
-	}
-	if ($allow_credentials) {
-		$headers_ref->{"Access-Control-Allow-Credentials"} = "true";
-	}
-	# be generous on methods and headers, it does not hurt
-	$headers_ref->{"Access-Control-Allow-Methods"} = "HEAD, GET, PATCH, POST, PUT, OPTIONS";
-	$headers_ref->{"Access-Control-Allow-Headers"}
-		= "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization";
-	$headers_ref->{"Access-Control-Expose-Headers"} = "Content-Length,Content-Range";
-
-	return $headers_ref;
-}
-
-=head2 write_cors_headers($allow_credentials = 0, $sub_domain_only = 0)
-
-This function write cors_headers in response.
-
-see get_cors_headers to see how they are computed and parameters
-
-=cut
-
-sub write_cors_headers ($allow_credentials = 0, $sub_domain_only = 0) {
-	my $headers_ref = get_cors_headers($allow_credentials, $sub_domain_only);
-	my $r = Apache2::RequestUtil->request();
-	# write them
-	foreach my $header_name (sort keys %$headers_ref) {
-		my $header_value = $headers_ref->{$header_name};
-		$r->err_headers_out->set($header_name, $header_value);
-	}
-	return;
-}
 
 =head2 set_http_response_header($request_ref, $header_name, $header_value)
 
@@ -276,10 +177,6 @@ sub redirect_to_url ($request_ref, $status_code, $redirect_url) {
 
 	my $r = Apache2::RequestUtil->request();
 
-	# we need CORS headers even on redirect
-	# Or some browser will prevent the redirect to happen
-	write_cors_headers();
-
 	$r->headers_out->set(Location => $redirect_url);
 
 	if (defined $request_ref->{cookie}) {
@@ -355,16 +252,25 @@ sub request_param ($request_ref, $param_name) {
 		return decode utf8 => $cgi_param;
 	}
 	else {
-		my $body_json_param = deep_get($request_ref, "body_json", $param_name);
-		if (defined $body_json_param) {
-			return $body_json_param;
+		# For OPTIONS requests, CGI.pm param() does not parse the query string, so we need to get the parameter from the query string directly
+		# e.g. for OPTIONS request for /cgi/search.pl?search_terms=carrots&action=process&json=1
+		# we want to be able to get the json parameter to determine that it is an API request
+		my $query_param = scalar url_param($param_name);
+		if (defined $query_param) {
+			return decode utf8 => $query_param;
 		}
 		else {
-			# For product attributes parameters, we allow cookies so that we do not have parameters
-			# included in the URL and in logs
-			# e.g. cookie("attribute_unwanted_ingredients_tags")
-			my $cookie_param = cookie($param_name);
-			return $cookie_param;    # returns undef if there's no cookie
+			my $body_json_param = deep_get($request_ref, "body_json", $param_name);
+			if (defined $body_json_param) {
+				return $body_json_param;
+			}
+			else {
+				# For product attributes parameters, we allow cookies so that we do not have parameters
+				# included in the URL and in logs
+				# e.g. cookie("attribute_unwanted_ingredients_tags")
+				my $cookie_param = cookie($param_name);
+				return $cookie_param;    # returns undef if there's no cookie
+			}
 		}
 	}
 	# We should have returned before reaching this line

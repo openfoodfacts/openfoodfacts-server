@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "9410",
@@ -26,7 +27,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "9410",
+         "ciqual_proxy_food_code" : "9435",
          "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:flour",
          "is_in_taxonomy" : 1,
@@ -93,11 +94,8 @@
    "ingredients_without_ecobalyse_ids_n" : 2,
    "known_ingredients_n" : 4,
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

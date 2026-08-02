@@ -192,7 +192,7 @@ HTML
 		
 # $value = sprintf("%.2e", g_to_unit($comparison_ref->{nutriments}{$nid . "_100g"}, $unit)) + 0.0;		
 
-		my @nids = @{$nutriments_tables{europe}};
+		my @nids = @{$nutrients_tables{europe}};
 		
 		foreach my $nid (@nids) {
 		

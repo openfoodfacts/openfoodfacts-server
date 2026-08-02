@@ -1,0 +1,25 @@
+{
+   "api_call" : {
+      "body" : {
+         "fields" : "creator,editors_tags,packagings,created_by_client,last_modified_by_client",
+         "product" : {
+            "packagings" : [
+               {
+                  "number_of_units" : 1,
+                  "recycling" : {
+                     "lc_name" : "recycle"
+                  },
+                  "shape" : {
+                     "lc_name" : "can"
+                  }
+               }
+            ]
+         },
+         "tags_lc" : "en"
+      },
+      "content-type" : "application/json; charset=utf-8",
+      "method" : "PATCH",
+      "parameters" : {},
+      "path" : "/api/v3/product/2234567890001"
+   }
+}

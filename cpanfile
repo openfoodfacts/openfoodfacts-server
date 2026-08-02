@@ -87,8 +87,6 @@ requires 'Log::Log4perl', '>= 1.54, < 2.0'; # liblog-log4perl-perl
 requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl-perl
 
 # Retry
-requires 'Action::CircuitBreaker';
-requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 requires 'LWP::UserAgent::Plugin';
 requires 'LWP::UserAgent::Plugin::Retry';
 
@@ -102,8 +100,8 @@ requires 'Apache2::Connection::XForwardedFor';
 
 # GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
-requires 'Imager', '>= 1.025, < 1.026';
-requires 'Imager::zxing', '>= 1.001, < 1.002';
+requires 'Imager';
+requires 'Imager::zxing';
 requires 'Imager::File::AVIF';
 requires 'Imager::File::HEIF';
 requires 'Imager::File::JPEG';
@@ -122,7 +120,7 @@ requires 'Crypt::JWT';
 requires 'Module::Load';
 
 # To measure the time taken by requests
-requires 'Time::Monotonic';
+requires 'Time::HiRes';
 
 # To measure similarity between words and find possible typo
 requires 'Text::Levenshtein';
@@ -155,14 +153,16 @@ on 'test' => sub {
 on 'develop' => sub {
   requires 'Test::Perl::Critic', '>=1.04', '<2.0'; # perl-critic refuse to install without this explicit deps
   requires 'Perl::Critic', '>= 1.140, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
-  requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
+  requires 'Devel::DebugHooks'; # provides Apache::DB compat layer for remote debugging via mod_perl
+
   requires 'Perl::Tidy';
   requires 'Perl::Critic';
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
   requires 'Test2::Harness', '<2'; # Seems to be a problem with newer versions in Docker. See #11858
-  requires 'Test2::Harness::Renderer::JUnit', '<2'; # As above
+  # Keep the JUnit renderer out of cpanfile: it is still installed in the build image
+  # for test runs, but leaving it here breaks SBOM dependency resolution in CI.
   requires 'App::CPAN::SBOM', '1.03'; # For generating SBOMs
 };
 

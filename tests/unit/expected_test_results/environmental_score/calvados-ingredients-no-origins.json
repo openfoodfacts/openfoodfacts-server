@@ -246,6 +246,7 @@
    "environmental_score_tags" : [
       "unknown"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "1014",
@@ -297,17 +298,12 @@
    "known_ingredients_n" : 1,
    "lc" : "en",
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:environmental-score-not-computed"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],
    "packaging_shapes_tags" : [],

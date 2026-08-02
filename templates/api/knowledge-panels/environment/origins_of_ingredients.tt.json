@@ -36,11 +36,12 @@
         },
     ],
 [% ELSE %]
-    [% IF product.environmental_score_data.adjustments.origins_of_ingredients.value <= 0 %]
+    [% SET origins_value = product.environmental_score_data.adjustments.origins_of_ingredients.value %]
+    [% IF origins_value.defined && origins_value <= 0 %]
     "evaluation": "bad",
     "title_element": {
         "subtitle": "[% edq(lang('environmental_score_origins_of_ingredients_impact_high')) %]",
-    [% ELSIF product.environmental_score_data.adjustments.origins_of_ingredients.value <= 15 %]
+    [% ELSIF origins_value.defined && origins_value <= 15 %]
     "evaluation": "average",
     "title_element": {
         "subtitle": "[% edq(lang('environmental_score_origins_of_ingredients_impact_medium')) %]",    

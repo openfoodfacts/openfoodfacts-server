@@ -1,0 +1,36 @@
+{
+   "forest_footprint_2026" : {
+      "grade" : "c",
+      "primary_ingredients" : {
+         "en:cocoa" : {
+            "footprint_per_kg" : 0.148,
+            "grade" : "c",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.148,
+                  "ingredient_category_id" : "en:cocoa",
+                  "ingredient_id" : "en:cocoa",
+                  "label_id" : null,
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 50,
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "total_footprint_per_kg" : 0.148
+   },
+   "ingredients" : [
+      {
+         "id" : "en:cocoa",
+         "percent" : 50,
+         "text" : "cacao"
+      }
+   ],
+   "lc" : "fr"
+}
