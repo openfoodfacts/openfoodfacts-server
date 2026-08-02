@@ -14,11 +14,18 @@ my $payload = {
 	},
 };
 
-my $json = Cpanel::JSON::XS->new->encode(ProductOpener::APIProductServices::_plain_data_for_json($payload));
+my $json = Cpanel::JSON::XS->new->decode(
+	Cpanel::JSON::XS->new->encode(ProductOpener::APIProductServices::_plain_data_for_json($payload))
+);
 
 is(
 	$json,
-	'{"product":{"ingredients":[{"is_in_taxonomy":"1"}],"packaging_recycling":"1"}}',
+	{
+		product => {
+			packaging_recycling => "1",
+			ingredients => [{is_in_taxonomy => "1"}],
+		}
+	},
 	"blessed scalar values are normalized before JSON encoding",
 );
 
