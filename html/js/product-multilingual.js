@@ -1267,16 +1267,20 @@ $(function () {
     });
 
     $('.nutrient_unit').on('change', function () {
-    // Only re-check the nutrient row(s) whose unit actually changed,
-    // plus the related nutrients used in cross-checks (fat/carbs/sugars/saturated-fat)
+        // Only re-check the nutrient row(s) whose unit actually changed,
+        // plus the related nutrients used in cross-checks (fat/carbs/sugars/saturated-fat)
         const $tr = $(this).closest('tr');
         const trId = $tr.attr('id'); // e.g. "nutrient_sugars_tr"
         const nutrient_id = trId ? trId.replace(/^nutrient_/, '').replace(/_tr$/, '') : null;
 
         const related = ['fat', 'carbohydrates', 'sugars', 'saturated-fat'];
-        const idsToRecheck = nutrient_id && related.includes(nutrient_id)
-            ? related
-            : (nutrient_id ? [nutrient_id] : []);
+        let idsToRecheck = [];
+        if (nutrient_id && related.includes(nutrient_id)) {
+            idsToRecheck = related;
+        }
+        else if (nutrient_id) {
+            idsToRecheck = [nutrient_id];
+        }
 
         idsToRecheck.forEach(function (id) {
             $(`.nutrient_value[id*="_nutrients_${id}_value_string"]`).trigger('input');
