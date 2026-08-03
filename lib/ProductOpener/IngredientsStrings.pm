@@ -492,7 +492,10 @@ including localized strings like "minimum"
 	es => "un|una",
 	fr => "un|une",
 	it => "un|una",
+	nb => "[eé]n|[eé]i|ett?",
 	nl => "een",
+	nn => "[eé]in|[eé]i|eitt?",
+	sv => "en|ett",
 );
 
 sub convert_text_value_to_number($target_lc, $value) {
