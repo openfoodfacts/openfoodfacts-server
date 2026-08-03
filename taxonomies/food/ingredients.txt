@@ -67200,14 +67200,10 @@ ecobalyse_origins_en_france:en: sunflower-fr
 ifct_food_code:en: H020
 ifct_food_name:en: Sunflower seeds
 nutriscore_fruits_vegetables_nuts:en: no
-usda_ndb_proxy_code:en: 12036
-usda_ndb_proxy_name:en: Seeds, sunflower seed kernels, dried
-wikidata:en: Q1076906
-
-< en: sunflower seed
-en: dried sunflower seed kernels
 usda_ndb_code:en: 12036
 usda_ndb_name:en: Seeds, sunflower seed kernels, dried
+usda_ndb_process:en: en:dried
+wikidata:en: Q1076906
 
 < en: sunflower seed
 en: partially defatted sunflower seed flour
@@ -67238,13 +67234,9 @@ usda_ndb_name:en: Seeds, sunflower seed butter, without salt
 
 < en: seed
 en: watermelon seed kernels
-usda_ndb_proxy_code:en: 12174
-usda_ndb_proxy_name:en: Seeds, watermelon seed kernels, dried
-
-< en: watermelon seed kernels
-en: dried watermelon seed kernels
 usda_ndb_code:en: 12174
 usda_ndb_name:en: Seeds, watermelon seed kernels, dried
+usda_ndb_process:en: en:dried
 
 ###################################################################################################
 #
@@ -67298,9 +67290,10 @@ uz: galampiri
 # nrm:Paîvre
 # pt-br:pimenta
 # sgs:Pėpėrā
-ciqual_proxy_food_code:en: 11015
-ciqual_proxy_food_name:en: Black pepper, powder
-ciqual_proxy_food_name:fr: Poivre noir, poudre
+ciqual_code:en: 11015
+ciqual_name:en: Black pepper, powder
+ciqual_name:fr: Poivre noir, poudre
+ciqual_process:en: en:powder
 usda_ndb_proxy_code:en: 2030
 usda_ndb_proxy_name:en: Spices, pepper, black
 wikidata:en: Q3143131
@@ -68272,7 +68265,7 @@ nl: cayennepeper gedroogd
 < en: chili pepper
 < en: spice
 en: chili powder
-#comment:en: not clear what this is exactly
+description:en: In the USDA FoodData Central database, chili powder is a seasoning blend, not a single-ingredient spice. It's typically listed as a blend of ground dried chili peppers combined with other spices — commonly cumin, oregano, garlic powder, onion powder, and salt, though blends vary by brand and recipe.
 usda_ndb_code:en: 2009
 usda_ndb_name:en: Spices, chili powder
 
@@ -68433,14 +68426,10 @@ sv: muskotblomma
 uk: Мацис
 ifct_food_code:en: G027
 ifct_food_name:en: Mace
-usda_ndb_proxy_code:en: 2022
-usda_ndb_proxy_name:en: Spices, mace, ground
-wikidata:en: Q1882876
-
-< en: mace
-en: ground mace
 usda_ndb_code:en: 2022
 usda_ndb_name:en: Spices, mace, ground
+usda_ndb_process:en: en:ground
+wikidata:en: Q1882876
 
 ###################################################################################################
 #
