@@ -66825,13 +66825,9 @@ it: semi di papavero blu
 < en: seed
 en: safflower seed kernels
 description:en: Safflower seed kernels are the inner, edible part of the seeds from the safflower plant (Carthamus tinctorius), an oilseed crop in the daisy/thistle family that's related to sunflowers. Safflower kernels are quite high in fat (mostly unsaturated, especially linoleic acid — an omega-6 fatty acid), along with protein and fiber. They're also a source of vitamin E and various minerals.
-usda_ndb_proxy_code:en: 12021
-usda_ndb_proxy_name:en: Seeds, safflower seed kernels, dried
-
-< en: safflower seed kernels
-en: dried safflower seed kernels
 usda_ndb_code:en: 12021
 usda_ndb_name:en: Seeds, safflower seed kernels, dried
+usda_ndb_process:en: en: dried
 
 < en: safflower seed kernels
 en: partially defatted safflower seed meal
@@ -67002,7 +66998,7 @@ ciqual_food_name:en: Sesame seed
 ciqual_food_name:fr: Sésame, graine
 usda_ndb_proxy_code:en: 12201
 usda_ndb_proxy_name:en: Seeds, sesame seed kernels, dried (decorticated)
-
+usda_ndb_proxy_process:en: en:dried, en:decorticated
 
 < en: sesame seeds
 < en: white sesame
@@ -67021,13 +67017,9 @@ pl: sezam łuszczony, sezamu łuszczonego
 ciqual_food_code:en: 15035
 ciqual_food_name:en: Sesame seed, husked
 ciqual_food_name:fr: Sésame, graine décortiquée
-usda_ndb_proxy_code:en: 12201
-usda_ndb_proxy_name:en: Seeds, sesame seed kernels, dried (decorticated)
-
-< en: husked sesame seed
-en: decorticated dried sesame seed kernel
 usda_ndb_code:en: 12201
 usda_ndb_name:en: Seeds, sesame seed kernels, dried (decorticated)
+usda_ndb_process:en: en:dried, en:decorticated
 
 < en: Husked sesame seed
 en: Husked and grilled sesame seed
