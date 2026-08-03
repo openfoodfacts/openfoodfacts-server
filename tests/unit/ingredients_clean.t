@@ -219,6 +219,12 @@ Edit ingredients (en)",
 		"Wheat flour, palm oil, sesame seeds 4.9 %, glucose-fructose syrup, sugar, poppy seeds 2.3 %, raising agents (ammonium carbonates, calcium phosphates, sodium carbonates), salt, malted barley flour, dried yeast, wheat gluten, flavouring (contains celery). May contain egg, milk, nuts."
 	],
 
+	[
+		"en",
+		"PINK SALMON (Oncorhynchus gorbuscha) (99%) (Fish), Salt ALLERGY ADVICE: For allergens, see ingredients in bold. WARNING: This product will contain soft edible bones. NUTRITION: Typical values per 100 Energy h 578kJ/",
+		"PINK SALMON (Oncorhynchus gorbuscha) (99%) (Fish), Salt"
+	],
+
 	# Polish
 	[
 		"pl",

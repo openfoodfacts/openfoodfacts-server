@@ -3231,7 +3231,7 @@ ciqual_food_name:fr: Lait de chèvre, demi-écrémé, UHT
 ################################# SHEEP MILKS ##################################
 
 < en: milk
-en: sheeps milk, sheep milk, ewe's milk, sheep's milk
+en: sheeps milk, sheep milk, ewes milk, ewe's milk, sheep's milk
 ar: حليب الغنم
 bg: овче мляко
 ca: llet d'ovella
@@ -59778,6 +59778,11 @@ nl: rode peper, rode chilipeper, rode chili, rode chili peper, spaanse peper
 pl: czerwona papryka chili, czerwona papryczka chili, czerwone papryczki chili, papryczka czerwona chilli
 sv: röd chili, röd chilipeppar
 
+#process:en: en:paste
+< en: red chili
+en: red chili paste
+sv: röd chilipasta
+
 < en: red chili pepper
 en: red chili purée, red chilli purée
 de: rotes Chili-Püree, rotes Chilipüree
@@ -59812,6 +59817,11 @@ it: peperoncino verde
 nl: Groene chilipepers
 pl: zielona papryka chili, zielona papryczka chili
 sv: grön chili
+
+#process:en: en:paste
+< en: green chili
+en: green chili paste
+sv: grön chilipasta
 
 < en: chili pepper
 en: hot chili peppers, hot pepper
@@ -61753,7 +61763,7 @@ ru: фасоль стручковая, спаржевая фасоль, зелё
 sa: निष्पावप्रभेदः
 sq: mashurka
 sr: боранија
-sv: brytböna, brytbönor, gröna bönor
+sv: brytböna, brytbönor, gröna bönor, haricot vert, haricots verts
 ta: பச்சை அவரை
 tl: sitaw
 uk: стручкова квасоля
@@ -72384,7 +72394,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Artemisia_princeps
 ###################################################################################################
 
 < en: herb
-en: bay leaf, bay leaves, bay, laurel
+en: bay leaf, bay leaves, bay, laurel, bayleaf
 af: lourierblaar
 be: лаўровы ліст
 bg: дафинов лист
@@ -96081,7 +96091,7 @@ pl: ajwar
 # description:en:BÉCHAMEL SAUCE, also known as white sauce, is made from a white roux (butter and flour) and milk.
 
 < en: sauce
-en: bechamel sauce, Béchamel sauce
+en: bechamel sauce, Béchamel sauce, béchamel, bechamel
 af: Witsous
 ar: صلصة البشاميل
 be: Бешамель
