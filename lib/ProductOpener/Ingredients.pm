@@ -5165,7 +5165,7 @@ my %phrases_after_ingredients_list = (
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
 		'cooking time',
-		'for allergens', # usually preceded by "allergy advice" in UK
+		'for allergens',    # usually preceded by "allergy advice" in UK
 		'instruction',
 		'nutrition(al)?[:]? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
