@@ -488,6 +488,7 @@ including localized strings like "minimum"
 # Used to parse "a pinch of salt", "une pincée de sel" etc.
 %one_regexp = (
 	en => "a|an|one",
+	da => "en|et",
 	es => "un|una",
 	fr => "un|une",
 	it => "un|una",
