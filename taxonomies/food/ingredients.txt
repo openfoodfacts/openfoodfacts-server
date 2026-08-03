@@ -68989,6 +68989,7 @@ ciqual_proxy_food_name:en: Cinnamon, powder
 ciqual_proxy_food_name:fr: Cannelle, poudre
 usda_ndb_proxy_code:en: 2010
 usda_ndb_proxy_name:en: Spices, cinnamon, ground
+usda_ndb_proxy_process:en: en:ground
 wikidata:en: Q28165
 
 #comment:en:kept for ciqual
@@ -69606,6 +69607,7 @@ ciqual_food_name:en: Ginger, powder
 ciqual_food_name:fr: Gingembre, poudre
 usda_ndb_code:en: 2021
 usda_ndb_name:en: Spices, ginger, ground
+usda_ndb_process:en: en: ground
 wikidata:en: Q58183281
 
 #processing:en: en:puree
@@ -69828,6 +69830,7 @@ description:es: Los granos de mostaza son pequeñas semillas redondas de diversa
 description:pt: Sementes de mostarda são as pequenas sementes das várias plantas de mostarda.
 usda_ndb_proxy_code:en: 2024
 usda_ndb_proxy_name:en: Spices, mustard seed, ground
+usda_ndb_proxy_process:en: en: ground
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1937700
@@ -70986,6 +70989,33 @@ uk: Сумах
 wikidata:en: Q16131953
 wikipedia:en: https://en.wikipedia.org/wiki/Sumac
 # comment:en:Be careful with the translation, it should refer to the spice, not the plant species.
+
+###################################################################################################
+#
+#                                Savory
+#
+###################################################################################################
+
+< en: herb
+en: summer savory, savory
+bg: ронена чубрица
+da: sar
+de: Bohnenkraut
+es: ajedrea
+fr: sariette, sarriette
+hr: ljetni ukusan
+it: santoreggia
+nl: bonenkruid
+pl: cząber, cząbru
+ro: cimbru
+sv: kyndel
+usda_ndb_code:en: 2039
+usda_ndb_name:en: Spices, savory, ground
+usda_ndb_process:en: en:ground
+wikidata:en: Q19787919
+wikipedia:en: https://en.wikipedia.org/wiki/Summer_savory
+# 739 in 7 @2021-09-17
+
 
 ###################################################################################################
 #
