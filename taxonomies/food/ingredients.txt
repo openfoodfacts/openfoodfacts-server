@@ -56545,6 +56545,7 @@ ciqual_food_2_code:en: 20261
 ciqual_food_2_name:en: Carrots, puree
 ciqual_food_2_name:fr: Carotte, purée
 ciqual_food_2_process:en: en:pureeciqual_food_code:en: 20009
+ciqual_food_name:code: 20009
 ciqual_food_name:en: Carrot, raw
 ciqual_food_name:fr: Carotte, crue
 ecobalyse:en: carrot-non-eu
@@ -65593,7 +65594,6 @@ sv: karamelliserade pekannötter
 < en: nut
 en: pilinut
 description:en: A pili nut (Canarium ovatum) is a tropical tree nut native to the Philippines, particularly grown in the Bicol region. The nut has a rich, buttery flavor and texture, often compared to a cross between an almond and a macadamia nut — but generally considered even richer and more delicate. They're eaten raw, roasted, or candied, and are also used in pastries, pesto-style sauces, and as a snack food. In the Philippines they're a popular treat, especially when sugar-coated.
-usda_ndb_proxy_code:en: 12145
 usda_ndb_code:en: 12145
 usda_ndb_name:en: Nuts, pilinuts, dried
 usda_ndb_process:en: en:dried
@@ -67290,10 +67290,10 @@ uz: galampiri
 # nrm:Paîvre
 # pt-br:pimenta
 # sgs:Pėpėrā
-ciqual_code:en: 11015
-ciqual_name:en: Black pepper, powder
-ciqual_name:fr: Poivre noir, poudre
-ciqual_process:en: en:powder
+ciqual_proxy_code:en: 11015
+ciqual_proxy_name:en: Black pepper, powder
+ciqual_proxy_name:fr: Poivre noir, poudre
+ciqual_proxy_process:en: en:powder
 usda_ndb_proxy_code:en: 2030
 usda_ndb_proxy_name:en: Spices, pepper, black
 wikidata:en: Q3143131
