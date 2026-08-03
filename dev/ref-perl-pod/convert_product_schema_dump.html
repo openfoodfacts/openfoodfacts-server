@@ -1,4 +1,4 @@
-<html><head><title>fix_non_normalized_codes</title>
+<html><head><title>convert_product_schema_dump</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
 <link rel="stylesheet" title="simple.min" type="text/css" href="simple.min.css" media="all" >
 
@@ -24,7 +24,7 @@
 <div class='indexgroup'>
 <ul   class='indexList indexList1'>
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
-  <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
+  <li class='indexItem indexItem1'><a href='#SYNOPSIS'>SYNOPSIS</a>
 </ul>
 </div>
 
@@ -32,17 +32,19 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>fix_non_normalized_codes - A script to fix non normalized codes</p>
+<p>convert_product_schema_dump - convert product records in a JSONL dump between schema versions</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
-name="DESCRIPTION"
->DESCRIPTION</a></h1>
+name="SYNOPSIS"
+>SYNOPSIS</a></h1>
 
-<p>Products code needs to be normalized to avoid confusions in products (false distinct).
-But there may be leaks in the code,
-or some other tools (eg import scripts) that creates non normalized entries in the MongoDB or on the file system.</p>
+<pre>  convert_product_schema_dump.pl [--to-version N] [--output FILE] [--verbose] &#60;input.jsonl | -&#62;</pre>
 
-<p>This scripts tries to check and fix this.</p>
+<p>Reads a MongoDB product dump in JSONL format (one product per line), converts each product record to the target schema version using ProductOpener::ProductSchemaChanges::convert_product_schema, and writes the converted record as one JSON line to STDOUT (or to --output FILE).</p>
+
+<p>The input file path is mandatory. Pass &#34;-&#34; to read from STDIN.</p>
+
+<p>Errors are reported to STDERR and do not abort the run; offending records are skipped. At the end, a summary and the list of skipped product codes are printed to STDERR.</p>
 <p class="backlinkbottom"><b><a name="___bottom" href="index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
