@@ -29058,7 +29058,6 @@ pt: milgo doce
 ecobalyse:en: 6467c956-277d-4e09-80c2-b0b062f84086
 ecobalyse_labels_en_organic:en: 741c0970-2823-430a-b4e4-e61ce08ea95a
 ecobalyse_origins_en_france:en: 40fa68b6-381e-4dd6-ba70-8b43cfdee64e
-eurocode_2_group_2:en: 8.45
 eurocode_2_group_3:en: 8.45.50
 
 < en: sweet corn
@@ -59049,7 +59048,6 @@ it: gombo, ocra, okra
 ja: オクラ
 nl: okra
 pt: Quiabo
-eurocode_2_group_2:en: 8.45
 eurocode_2_group_3:en: 8.45.60
 usda_ndb_2_code:en: 11280
 usda_ndb_2_name:en: Okra, frozen, unprepared
@@ -61724,7 +61722,6 @@ ciqual_food_name:fr: Haricot vert, cru
 ecobalyse:en: french-bean-non-eu
 ecobalyse_origins_en_european_union:en: french-bean-eu
 ecobalyse_origins_en_france:en: french-bean-fr
-eurocode_2_group_2:en: 8.45
 eurocode_2_group_3:en: 8.45.30
 wikidata:en: Q2987371
 #4192 in 16 @2021-10-01
@@ -61784,7 +61781,6 @@ pl: fasolka szparagowa żółta, fasola szparagowa żółta
 ciqual_food_code:en: 20195
 ciqual_food_name:en: Butter bean or yellow bean, raw
 ciqual_food_name:fr: Haricot beurre, cru
-eurocode_2_group_2:en: 8.45
 eurocode_2_group_3:en: 8.45.25
 wikidata:en: Q68189268
 
@@ -61805,7 +61801,6 @@ ciqual_food_code:en: 20269
 ciqual_food_name:en: Flat bean, raw
 ciqual_food_name:fr: Haricot plat, cru
 description:en: FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
-eurocode_2_group_2:en: 8.45
 eurocode_2_group_3:en: 8.45.40
 wikidata:en: Q1828227
 wikipedia:en: https://en.wikipedia.org/wiki/Flat_bean
@@ -62015,7 +62010,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q145909
 
-< en: vegetable
+< en: legume
 en: pulse, pulses
 fr: légumineuse sèche, légumineuses sèches, légumes secs, légume sec
 hr: puls
@@ -62110,7 +62105,6 @@ description:en: Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean,
 # eurocode 8.45.25 is for fresh Lima beans
 # eurocode 7.10.34 is for dried lima beans
 # eurocode_2_group_3:en: 7.10.34
-eurocode_2_group_2:en: 8.45
 eurocode_2_group_3:en: 8.45.25
 #plant: wikidata:en:Q1166136
 wikidata:en: Q104007010
@@ -62119,12 +62113,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Lima_bean
 
 < en: lima bean
 en: fresh lima bean
-eurocode_2_group_2:en: 8.45
 eurocode_2_group_3:en: 8.45.25
 usda_ndb_code:en: 11031
 usda_ndb_name:en: Lima beans, immature seeds, raw
 
-#< en: lima bean
+< en: lima bean
 < en: pulse
 en: dried lima bean
 fr: haricot de Lima sec, haricots de Lima secs
@@ -62741,7 +62734,7 @@ usda_ndb_process:en: en:dried
 < en: legume
 nl: veldbonen
 
-#< en: vegetable
+< en: vegetable
 en: broad bean, fava bean, faba bean, Vicia faba, horse bean, broadbean
 am: ባቄላ
 ar: فول
@@ -62845,18 +62838,18 @@ zh: 蚕豆
 # zh-hk:蠶豆
 # zh-sg:蚕豆
 # zh-tw:蠶豆
-ciqual_food_proxy_code:en: 20517
-ciqual_food_proxy_name:en: Broad bean, to shell, fresh
-ciqual_food_proxy_name:fr: Fève à écosser, fraîche
-comment:en: broad beans can be fresh (legume) or dried (pulse); broad beans can be either, but is proxied as fresh
+ciqual_proxy_food_code:en: 20518
+ciqual_proxy_food_name:en: Broad bean, dried
+ciqual_proxy_food_name:fr: Fève, sèche
+comment:en: broad beans can be fresh (legume) or dried (pulse); broad beans can be either, but is proxied as dried
 description:en: Vicia faba, also known in the culinary sense as the broad bean, fava bean, or faba bean is a species of flowering plant in the pea and bean family Fabaceae.
 ecobalyse:en: broad-beans-eu
 ecobalyse_origins_en_france:en: broad-beans-fr
 #eurocode 8.45.20 is for fresh broad beans
-eurocode_2_group_2:en: 8.45
-eurocode_2_group_3:en: 8.45.20
-#eurocode_2_group_2:en: 7.10
-#eurocode_2_group_3:en: 7.10.20 is for dried broad beans
+#eurocode_2_group_3:en: 8.45.20
+#eurocode_2_group_2:en: 8.45
+eurocode_2_group_2:en: 7.10
+eurocode_2_group_3:en: 7.10.20 is for dried broad beans
 rare_crop:en: yes
 usda_ndb_proxy_code:en: 16052
 usda_ndb_proxy_name:en: Broadbeans (fava beans), mature seeds, raw
@@ -62865,7 +62858,7 @@ wikidata:en: Q131342
 wikipedia:en: https://en.wikipedia.org/wiki/Vicia_faba
 
 #< en: broad bean
-#< en: pulse
+< en: pulse
 en: dried broad bean
 fr: fève sêche, fèves sèches
 it: fava secca
@@ -62884,7 +62877,7 @@ it: preparato con fave
 nl: bereiding van tuinbonen
 
 #< en: broad bean
-#< en: legume
+< en: legume
 en: Fresh broad bean to shell
 fr: Fèves fraîches à écosser
 it: fave fresche da sgusciare
@@ -63135,7 +63128,6 @@ zh: 豌豆
 # zea:Erten
 # zh-tw:豌豆
 description:en: Peas are a good example of how the same plant can fall into different categories depending on how it's harvested and used. Fresh peas (green peas, snap peas, snow peas) are harvested young and eaten fresh, in or out of the pod. they are classified as a vegetable, not a pulse. Dried peas are the same plant, but the peas are left to mature and dry on the vine before harvesting. This is what counts as a pulse.
-eurocode_2_group_2:en: 8.45
 eurocode_2_group_3:en: 8.45.10
 rare_crop:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Pea
