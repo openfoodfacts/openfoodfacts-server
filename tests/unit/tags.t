@@ -93,6 +93,19 @@ is(
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
 
+cmp_ok(
+	$level{test}{"en:lemon-yogurts"},
+	'>',
+	$level{test}{"fr:yaourts-au-citron-alleges"},
+	"direct parent level should be greater than child level"
+);
+cmp_ok(
+	$level{test}{"fr:yaourts-alleges"},
+	'>',
+	$level{test}{"fr:yaourts-au-citron-alleges"},
+	"second direct parent level should be greater than child level"
+);
+
 is(get_property("test", "en:meat", "vegan:en"), "no");
 is($properties{test}{"en:meat"}{"vegan:en"}, "no");
 is(get_inherited_property("test", "en:meat", "vegan:en"), "no");
@@ -585,5 +598,8 @@ is(cc_to_country(undef), '');
 is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
 
 is(display_taxonomy_tag("en", "ingredients", "en:apple"), "apple");
+
+is([get_tag_with_parents("test", "fr:yaourts-au-citron-alleges")],
+	["fr:yaourts-au-citron-alleges", "en:lemon-yogurts", "fr:yaourts-alleges", "en:yogurts"]);
 
 done_testing();

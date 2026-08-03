@@ -164,6 +164,7 @@ BEGIN {
 		&create_property_to_tag_mapping_table
 
 		&get_taxonomy_tag_path
+		&get_tag_with_parents
 
 		&get_minimal_tags_subset
 		&gen_tags_list_with_parents
@@ -993,7 +994,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20260413 - do not capitalize the first letter of all entries names and synonyms";
+my $BUILD_TAGS_VERSION = "20260803 - fix computation of levels for parents";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -2018,7 +2019,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			my @queue = ();
 
 			if (defined $direct_parents{$tagtype}{$tagid}) {
-				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
+				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
+					push @queue, [$parentid, 2, {$tagid => 1, $parentid => 1}];
+				}
 			}
 			elsif (not defined $just_synonyms{$tagtype}{$tagid}) {
 				# Keep track of entries that are at the root level
@@ -2033,32 +2036,51 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 
 			my %seen = ();
+			my %seen_with_level = ();
+			my %seen_cycle = ();
 
 			while ($#queue > -1) {
-				my $parentid = shift @queue;
+				my ($parentid, $parent_level, $path_ref) = @{shift @queue};
 				#print "- $parentid\n";
 
 				if ($parentid eq $tagid) {
 					my $msg = "$tagid is a parent of itself\n";
 					push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg));
 				}
-				elsif (not defined $seen{$parentid}) {
+				elsif (not defined $seen_with_level{"$parentid\t$parent_level"}) {
 					defined $all_parents{$tagtype}{$tagid} or $all_parents{$tagtype}{$tagid} = [];
-					push @{$all_parents{$tagtype}{$tagid}}, $parentid;
-					$seen{$parentid} = 1;
+					if (not defined $seen{$parentid}) {
+						push @{$all_parents{$tagtype}{$tagid}}, $parentid;
+						$seen{$parentid} = 1;
+					}
+					$seen_with_level{"$parentid\t$parent_level"} = 1;
 
-					if (not defined $level{$tagtype}{$parentid}) {
-						$level{$tagtype}{$parentid} = 2;
+					if ((not defined $level{$tagtype}{$parentid}) or ($level{$tagtype}{$parentid} < $parent_level)) {
+						$level{$tagtype}{$parentid} = $parent_level;
 						$longest_parent{$tagid} = $parentid;
 					}
 
 					if (defined $direct_parents{$tagtype}{$parentid}) {
 						foreach my $grandparentid (sort keys %{$direct_parents{$tagtype}{$parentid}}) {
-							push @queue, $grandparentid;
+							if (defined $path_ref->{$grandparentid}) {
+								my $cycle_key = "$parentid\t$grandparentid";
+								if (not defined $seen_cycle{$cycle_key}) {
+									my $msg
+										= "$tagid has an indirect circular parent relation through $parentid -> $grandparentid\n";
+									push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg));
+									$seen_cycle{$cycle_key} = 1;
+								}
+								next;
+							}
+
+							my $grandparent_level = $parent_level + 1;
+							my %next_path = %{$path_ref};
+							$next_path{$grandparentid} = 1;
+							push @queue, [$grandparentid, $grandparent_level, \%next_path];
 							if (   (not defined $level{$tagtype}{$grandparentid})
-								or ($level{$tagtype}{$grandparentid} <= $level{$tagtype}{$parentid}))
+								or ($level{$tagtype}{$grandparentid} < $grandparent_level))
 							{
-								$level{$tagtype}{$grandparentid} = $level{$tagtype}{$parentid} + 1;
+								$level{$tagtype}{$grandparentid} = $grandparent_level;
 								$longest_parent{$parentid} = $grandparentid;
 							}
 						}
@@ -2899,6 +2921,32 @@ sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
 	my @sorted_list = sort {
 		(((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0)
 			<=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0))
+			|| ($a cmp $b)
+	} keys %tags;
+
+	return @sorted_list;
+}
+
+=head2 get_tag_with_parents ($tagtype, $tagid)
+
+Given a canonical tagid, return a list of the tag and all its parents,
+sorted by level (most specific tag first)
+
+=cut
+
+sub get_tag_with_parents ($tagtype, $tagid) {
+
+	my %tags = ($tagid => 1);
+
+	if (defined $all_parents{$tagtype}{$tagid}) {
+		foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
+			$tags{$parentid} = 1;
+		}
+	}
+
+	my @sorted_list = sort {
+		(((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)
+			<=> ((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0))
 			|| ($a cmp $b)
 	} keys %tags;
 
@@ -4882,7 +4930,7 @@ The type of the tag (e.g. categories, labels, allergens)
 sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
 
 	return ($translations_to{$tagtype}{$a}{$target_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
-		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
+		cmp ($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
 }
 
 # To avoid doing file operations for each call to get_knowledge_content (e.g. for each ingredient of a product),
@@ -5031,6 +5079,8 @@ Returns the path of the tag in the taxonomy (from the root to the tag, included)
 
 If there are multiple parents for the tag (or one of its parents), we take the first parent.
 
+See also:get_tags_parents() if you need a list with all parents.
+
 =head3 Arguments
 
 =head4 $tagtype
@@ -5039,7 +5089,7 @@ If there are multiple parents for the tag (or one of its parents), we take the f
 
 =head3 Return value
 
-The path of the tag in the taxonomy (from the root to the tag, included), as an array of tagids.
+The path of the tag in the taxonomy (from the root to the tag, included), as a reference to an array of tagids.
 
 =cut
 
