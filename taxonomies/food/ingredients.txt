@@ -68544,6 +68544,7 @@ ifct_proxy_food_code:en: G033
 ifct_proxy_food_name:en: Turmeric powder
 usda_ndb_proxy_code:en: 2043
 usda_ndb_proxy_name:en: Spices, turmeric, ground
+usda_ndb_proxy_process:en: en:ground
 wikidata:en: Q42562
 wikipedia:en: https://en.wikipedia.org/wiki/Turmeric
 # 19427s in 32 @2021-09-18
@@ -68659,8 +68660,9 @@ ciqual_food_name:fr: Noix de muscade
 description:en: NUTMEG is the seed or ground spice of several species of the genus Myristica.
 ifct_food_code:en: G028
 ifct_food_name:en: Nutmeg
-usda_ndb_proxy_code:en: 2025
-usda_ndb_proxy_name:en: Spices, nutmeg, ground
+usda_ndb_code:en: 2025
+usda_ndb_name:en: Spices, nutmeg, ground
+usda_ndb_process:en: en:ground
 wikidata:en: Q83165
 wikipedia:en: https://en.wikipedia.org/wiki/Nutmeg
 
