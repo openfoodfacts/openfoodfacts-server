@@ -832,6 +832,34 @@
          "en:sugary-snacks",
          "en:biscuits-and-cakes"
       ],
+      "forest_footprint_2026" : {
+         "grade" : "b",
+         "primary_ingredients" : {
+            "en:cocoa" : {},
+            "en:coffee" : {},
+            "en:palm-oil" : {
+               "footprint_per_kg" : 0.002578125,
+               "grade" : "b",
+               "ingredients" : [
+                  {
+                     "equivalence_ingredient" : 1,
+                     "equivalence_ingredient_category" : 1,
+                     "footprint_per_kg" : 0.002578125,
+                     "ingredient_category_id" : "en:palm-oil",
+                     "ingredient_id" : "en:palm-oil-and-fat",
+                     "label_id" : "en:organic",
+                     "origin_footprint" : 0.055,
+                     "origin_id" : "en:unknown",
+                     "percent" : 5.20833333333333,
+                     "primary_ingredient_id" : "en:palm-oil",
+                     "risk_factor" : 0.9,
+                     "transformation_factor" : 1
+                  }
+               ]
+            }
+         },
+         "total_footprint_per_kg" : 0.002578125
+      },
       "forest_footprint_data" : {
          "footprint_per_kg" : 0.00162037037037037,
          "grade" : "a",
