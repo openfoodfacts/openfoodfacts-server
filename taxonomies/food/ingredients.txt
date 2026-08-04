@@ -31137,7 +31137,8 @@ ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
 comment:en: Generic sugar is vegan:maybe because some cane sugar is refined using bone char (charred cattle bones) as a decolorizing filter. This is primarily a North American practice. Beet sugar, organic sugar, and unrefined sugars never use bone char. Vegetarian status remains yes as bone char is a processing aid and the final product contains no animal-derived material.
-ecobalyse:en: 8f075c25-9ebf-430c-b41d-51d165c6e0d8
+ecobalyse_proxy:en: 5fc8032f-ca1c-4497-844b-f9213075eab3
+ecobalyse_proxy_name:fr: Sucre de betterave par défaut (2025)
 vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q11002
@@ -31915,6 +31916,8 @@ pt: açúcar de beterraba
 sv: betsocker
 carbon_footprint_fr_foodges_ingredient:fr: Sucre de betterave
 carbon_footprint_fr_foodges_value:fr: 0.7
+ecobalyse:en: 5fc8032f-ca1c-4497-844b-f9213075eab3
+ecobalyse_name:fr: Sucre de betterave par défaut (2025)
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q9197055
@@ -55944,6 +55947,8 @@ zh: 蒜
 ciqual_proxy_food_code:en: 11000
 ciqual_proxy_food_name:en: Garlic, fresh
 ciqual_proxy_food_name:fr: Ail, cru
+ecobalyse:en: d8c8a918-a11a-502f-a5cf-90052d96c133
+ecobalyse_name:fr: Ail Origine Inconnue
 eurocode_2_group_3:en: 8.30.40
 usda_ndb_proxy_code:en: 11215
 usda_ndb_proxy_name:en: Garlic, raw
