@@ -76126,9 +76126,25 @@ en: Nasi goreng seasoning mixes
 en: Bami goreng seasoning mixes
 
 < en: Condiments
+en: Condiment pastes
+da: Krydderipastaer
+de: Gewürzmittelpasten
+es: Pastas de condimentos
+fi: Mausteettahnat
+fr: Pâtes de condiments
+hr: Začini paste, Začin paste
+it: Pasta di condimenti
+lt: Pagardai pasta
+nl: Smaakmakerpastas
+pl: Pasty przyprawa
+sv: Smaktillsatspastor
+description:en: Pastes primarily used as a condiment.
+incompatible_with:en: en:Spice blends
+
+< en: Condiment pastes
 en: Nasi goreng pastes
 
-< en: Condiments
+< en: Condiment pastes
 < en: Fish preparations
 en: Anchovy paste
 de: Sardellenpaste
@@ -76141,7 +76157,7 @@ ja: アンチョビペースト
 nl: Ansjovispasta
 wikidata:en: Q3897482
 
-< en: Condiments
+< en: Condiment pastes
 en: Wasabi pastes
 de: Wasabi Pasten
 es: Pastas de wasabi
@@ -76152,12 +76168,12 @@ nl: Wasabipastas
 pl: Pasty wasabi
 wikidata:en: Q68437707
 
-< en: Condiments
+< en: Condiment pastes
 en: Curry pastes, Curry paste
 da: Karrypastaer
 de: Currypasten, Currypaste
 es: Pasta de curry
-fi: currytahnat
+fi: Currytahnat
 fr: Pâtes de curry, Curry paste
 hr: Curry paste
 it: Pasta di curry
@@ -76228,6 +76244,48 @@ wikidata:en: Q67201117
 
 < en: Curry pastes
 en: Vindaloo curry pastes
+
+< en: Condiment pastes
+en: Masala pastes
+da: Masalapastaer
+de: Masalapasten, Masalapaste
+es: Pastas de masala, Pasta de masala
+fi: Masalatahnat
+fr: Pâtes de masala, Masala paste
+hr: Masala paste
+it: Pasta di masala
+lt: Masala pasta
+nb: Masalapastaer
+nl: Masala pastas, Masalapastas
+nn: Masalapastaer, Masalapastaar
+pl: Pasty masala
+sv: Masalapastor
+description:en: Pastes based on masala spice blends.
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q654253
+
+< en: Masala pastes
+en: Chaat masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q1068141
+
+< en: Masala pastes
+en: Garam masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q14624
+
+< en: Masala pastes
+en: Kashmiri masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q5958447
+
+< en: Masala pastes
+en: Tandoori masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q1517449
+
+< en: Masala pastes
+en: Tikka masala pastes
 
 # don't put this category in vinegars, those products CONTAIN vinegar, they ARE NOT vinegars
 < en: Condiments
@@ -78651,11 +78709,6 @@ ciqual_food_name:en: Curry, powder
 ciqual_food_name:fr: Curry, poudre
 wikidata:en: Q1144935
 
-< en: Spices
-en: Garam masala
-xx: Garam masala
-ja: ガラムマサラ
-
 < en: Flavour enhancers
 en: Monosodium glutamate, Glutamate
 xx: MSG, E621
@@ -79926,6 +79979,7 @@ ciqual_proxy_food_code:en: 11056
 ciqual_proxy_food_name:en: Mix of 4 spices
 ciqual_proxy_food_name:fr: Quatre épices
 description:en: Blends of 2 or more spices.
+incompatible_with:en: en:Condiment pastes
 wikidata:en: Q1521067
 
 < en: Spice blends
@@ -79942,8 +79996,83 @@ ml: മസാല
 ru: Масала
 uk: Масала
 zh: 瑪撒拉
-description:en: Indian spice blends.
+description:en: Spice blends in the style(s) of the Indian subcontinent.
 wikidata:en: Q654253
+
+< en: Masalas
+en: Chaat masalas
+xx: Chaat masala
+ar: جات مصالحة
+as: চাট মছলা
+bn: চাট মসলা
+cs: Čát masála
+de: Chat Masala
+el: Τσάατ μασάλα
+fr: Chāt masālā
+gu: ચાટ મસાલો
+hi: चाट मसाला
+ja: チャットマサラ
+kn: ಚಾಟ್ ಮಸಾಲಾ
+ru: Чаат масала
+ta: சாட் மசாலா
+th: ชาตมาซาลา
+uk: Чаат масала
+ur: چاٹ مصالہ
+wikidata:en: Q1068141
+
+< en: Masalas
+en: Garam masalas
+xx: Garam masala
+ar: كرم مصالحة
+as: গৰম মছলা
+bn: গরম মসলা
+cs: Garam masála
+el: Γκαράμ μασάλα
+fa: گرم مصالح
+gu: ગરમ મસાલો
+hi: गरम मसाला
+hy: Գարամ մասալա
+ja: ガラムマサラ
+kk: Гарам масала
+kn: ಗರಂ ಮಸಾಲಾ
+ko: 가람 마살라
+lt: Garam masala
+mk: Гарам масала
+ml: ഗരം മസാല
+mr: गरम मसाला
+my: မဆလာ
+ne: गरम मसला
+or: ଗରମ ମସଲା
+pa: ਗਰਮ ਮਸਾਲਾ
+ps: گرمه مساله
+ru: Гарам масала
+ta: கரம் மசாலா
+te: గరం మసాలా
+uk: Гарам масала
+ur: گرم مصالحہ
+zh: 葛拉姆馬薩拉
+wikidata:en: Q14624
+
+< en: Masalas
+en: Kashmiri masalas
+xx: Kashmiri masala
+eo: Kaŝmira spicomiksaĵoj
+wikidata:en: Q5958447
+
+< en: Masalas
+en: Tandoori masalas
+xx: Tandoori masala
+ar: تندوري ماسالا
+de: Tanduri Masala
+el: Ταντούρι μασάλα
+ja: タンドーリマサラ
+ml: തന്തൂരി മസാല
+ru: Тандури масала
+wikidata:en: Q1517449
+
+< en: Masalas
+en: Tikka masalas
+xx: Tikka masala
 
 < en: Spice blends
 en: Guacamole spice mix
@@ -80576,6 +80705,7 @@ fr: Sauces nantua
 wikidata:en: Q3474118
 
 < en: Sauces
+en: Piccalillis, Piccalilli
 fr: Piccalillis, Sauces piccalilli, piccalilli
 nl: Piccalilli
 wikidata:en: Q1363716
@@ -100127,6 +100257,12 @@ it: Gemelli
 xx: Gemelli
 
 < en: Pastas
+en: Schupfnudeln
+xx: Schupfnudeln
+de: Schupfnudeln
+wikidata:en: Q533210
+
+< en: Pastas
 en: Gnocchi
 xx: Gnocchi
 bg: Ньоки
@@ -100148,9 +100284,9 @@ ciqual_food_name:en: Gnocchi, cooked (average)
 ciqual_food_name:fr: Gnocchi, cuit (aliment moyen)
 
 < en: Gnocchi
-en: filled gnocchi
+en: Filled gnocchi
 de: Gefüllte Gnocchi
-fr: gnocchis fourrés
+fr: Gnocchis fourrés
 hr: Punjene njoke
 
 < en: Cereal pastas
@@ -115124,6 +115260,7 @@ hr: Zeleni češnjak
 hu: Zöld foghagyma
 nl: Groene knoflook
 
+< en: Condiment pastes
 < en: Garlic
 en: Garlic paste
 fr: Pâtes d'ail, purées d'ail, pâte d'ail, purée d'ail
