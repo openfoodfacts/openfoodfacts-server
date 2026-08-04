@@ -5079,7 +5079,7 @@ Returns the path of the tag in the taxonomy (from the root to the tag, included)
 
 If there are multiple parents for the tag (or one of its parents), we take the first parent.
 
-See also:get_tags_parents() if you need a list with all parents.
+See also: get_tags_parents() if you need a list with all parents.
 
 =head3 Arguments
 
