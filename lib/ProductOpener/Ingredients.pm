@@ -3313,7 +3313,7 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 
 =head2 get_missing_ecobalyse_ids ($ingredients_ref)
 
-Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients. (NOTE : this is a first version that'll soon be improved)
+Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients.
 
 =head3 Arguments
 
@@ -3341,9 +3341,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		delete $ingredient_ref->{ecobalyse_proxy_code};
 
 		# We are now looking for the appropriate ecobalyse id :
-		# ecobalyse_origins_france_label_organic (if the product comes from france, and is organic)
-		# ecobalyse_origins_european-union_label_organic (if the product comes from europe, and is organic)
-		# ecobalyse_label_organic (if the product is organic)
+		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
+		# ecobalyse_origins_european-union_labels_organic (if the product comes from europe, and is organic)
+		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
 		# ecobalyse_origins_european-union (if the product comes from the Europe region)
 		# ecobalyse (else)
@@ -3407,11 +3407,6 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 
-		#ecobalyse:en
-		#ecobalyse_labels_en_organic:en
-		#ecobalyse_origins_en_france:en
-		#ecobalyse_origins_en_european_union:en
-		#ecobalyse_labels_en_organic_origins_en_france:en
 	}
 	return @ingredients_without_ecobalyse_ids;
 }
