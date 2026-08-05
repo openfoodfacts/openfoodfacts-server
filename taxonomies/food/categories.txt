@@ -1560,7 +1560,6 @@ uk: Ферментовані продукти
 vi: Thực phẩm lên men
 zh: 发酵食品
 
-
 < en: Fermented vegetables
 en: Kimchi
 xx: Kimchi
@@ -1994,16 +1993,53 @@ protected_name_type:en: gi
 #wikidata:en:
 
 < en: Alcoholic beverages
+en: Rice wines
+ca: Vi d'arròs
+cs: Rýžové víno
+cy: Gwin reis
+da: Risvine
+de: Reiswein
+eo: Rizalkoholaĵoj
+es: Vinos de arroz, Vino de arroz
+eu: Arroz ardo
+fa: شراب برنج
+fi: Riisiviini
+fr: Alcools de riz, Alcool de riz
+gl: Viño de arroz
+hu: Rizsbor
+hy: Բրնձի գինի
+id: Arak beras
+it: Vino di riso
+ja: ライスワイン
+ko: 미주
+la: Vinum ex oryza
+ms: Arak beras
+nb: Risviner
+nl: Rijstwijn
+nn: Risvinar
+pl: Wino ryżowe, Wina ryżowe
+pt: Vinhos de arroz, Vinho de arroz
+ru: Рисовое вино
+sl: Riževo vino
+sv: Risviner
+tr: Pirinç şarabı
+uk: Рисове вино
+zh: 米酒
+agribalyse_proxy_food_code:en: 1026
+ciqual_proxy_food_code:en: 1026
+ciqual_proxy_food_name:en: Sake or rice wine
+wikidata:en: Q1142986
+
+< en: Rice wines
 xx: Sake
-en: Sake, Rice wines
+en: Sake
 bg: Саке
-fr: Saké, Alcools de riz
+fr: Saké
 hu: Szaké
 it: Sake, Sakè
 ja: 日本酒, にほんしゅ
 nl: Saké
-pl: Sake, Wina ryżowe
-pt: Saquê, vinhos de arroz
+pt: Saquê
 agribalyse_food_code:en: 1026
 ciqual_food_code:en: 1026
 ciqual_food_name:en: Sake or rice wine
@@ -2018,21 +2054,24 @@ pt: Shochu
 en: Awamori
 xx: Awamori
 agribalyse_proxy_food_code:en: 1026
-cagribalyse_proxy_food_name:en: Sake or rice wine
+ciqual_proxy_food_code:en: 1026
+ciqual_proxy_food_name:en: Sake or rice wine
 wikidata:en: Q1069948
 
 < en: Shoshu
 en: Kome-shochu
 xx: Kome-shochu
 agribalyse_proxy_food_code:en: 1026
-cagribalyse_proxy_food_name:en: Sake or rice wine
+ciqual_proxy_food_code:en: 1026
+ciqual_proxy_food_name:en: Sake or rice wine
 
 < en: Shoshu
 en: Kasutori-shochu, sake kasu
 xx: Kasutori-shochu, sake kasu
 pt: Kasutori-shochu, saquê kasu
 agribalyse_proxy_food_code:en: 1026
-cagribalyse_proxy_food_name:en: Sake or rice wine
+ciqual_proxy_food_code:en: 1026
+ciqual_proxy_food_name:en: Sake or rice wine
 
 < en: Shoshu
 en: Imo-Shoshu
@@ -2054,25 +2093,48 @@ xx: Kokuto-Shoshu, Kokutojochu
 en: Kuri-Shoshu
 xx: Kuri-Shoshu
 
-< en: Alcoholic beverages
+< en: Condiments
 en: Mirin
 xx: Mirin
 ar: ميرين
-de: Mirin, Reiswein
+bn: মিরিন
+cv: Мирин
 el: Μιρίν
-eo: Mirino
+eo: Mirinoj
 fa: میرین, چاشنی
 he: מירין
-hu: Mirin
+hi: मीरीन
 hy: Միրին
 ja: みりん
 ko: 미림
-no: Mirin, Risvin
+ml: മിറിൻ
+pa: ਮੀਰੀਨ
 ru: Мирин
 th: มิริง
 uk: Мірін
+ur: میرین
 zh: 味醂
 wikidata:en: Q1045910
+
+< en: Mirin
+< en: Rice wines
+en: Hon mirin, True mirin, Authentic mirin
+xx: Hon mirin
+ja: 本みりん
+description:en: “True mirin.” Contains ~14% alcohol and is produced by a 40–60 day mashing process.
+
+< en: Mirin
+< en: Rice wines
+en: Shio mirin, Salt mirin
+xx: Shio mirin
+ja: 塩みりん
+description:en: “Salt mirin.” Contains a minimum of 1.5% salt to prevent consumption (and be exempt from alcohol tax).
+
+< en: Mirin
+en: Shin mirin, Mirin-fu chomiryo, New mirin, Mirin-like seasoning
+xx: Shin mirin, Mirin-fu chomiryo
+ja: 新みりん, みりん風調味料, みりん風味調味料, 新味料
+description:en: “New mirin” or “mirin‐like seasoning”. Contains less than 1% alcohol and is technically a mirin substitute, but is still sold as “mirin”.
 
 < en: Alcoholic beverages
 en: Beers, Beer
@@ -34855,7 +34917,6 @@ ur: بسکٹ
 vi: Bích quy
 wa: Biscûte
 zh: 面饼
-# ingredient/fr:biscuit has 391 products in 8 languages @2019-02-23
 # Biscuit (egg, wheat flour, sugar, emulsifier:mono - and diglycerides of fatty acids, leavening agents:diphosphates and sodium carbonate)
 agribalyse_proxy_food_code:en: 24000
 carbon_footprint_fr_foodges_ingredient:fr: Biscuit au beurre
@@ -35636,8 +35697,6 @@ nl: Petit Beurre
 sr: Пти-бер
 tr: Petibör
 zh: 不的波
-# ingredient/fr:petit-beurre has 20 products in french @2018-02-08
-# category/petit-beurre has 263 products @2018-05-19
 agribalyse_food_code:en: 24015
 ciqual_food_code:en: 24015
 ciqual_food_name:en: Butter biscuit (cookie)
@@ -37784,8 +37843,6 @@ sv: krutong
 tr: kruton
 uk: грінки
 zh: 麵包丁
-# ingredient/fr:croûtons has 107 products in 5 languages @2019-04-21
-# category/croutons has 166 products @2019-05-19
 # usage:en:croutons (wheat flour, vegetable fat, edible salt, maltodextrin, grape sugar, onions, herbs, yeast extract, dehydrated garlic, flavoring, yeast, spice extract)
 agribalyse_food_code:en: 7430
 ciqual_food_code:en: 7430
@@ -38484,8 +38541,6 @@ zh: 蛋糕
 ciqual_food_code:en: 23000
 ciqual_food_name:en: Cake (average)
 ciqual_food_name:fr: Gâteau (aliment moyen)
-# category/cakes has 6408 products @2019-05-20
-# ingredient/fr:gâteau has 59 products in french @2019-02-06
 description:en: Cake is a form of sweet food that is usually baked. The most commonly used cake ingredients include flour, sugar, eggs, butter or oil or margarine, a liquid, and leavening agents, such as baking soda or baking powder. Common additional ingredients and flavourings include dried, candied, or fresh fruit, nuts, cocoa, and extracts such as vanilla, with numerous substitutions for the primary ingredients. Cakes can also be filled with fruit preserves, nuts or dessert sauces (like pastry cream), iced with buttercream or other icings, and decorated with marzipan, piped borders, or candied fruit.
 gpc_category_code:en: 10000172
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a sweet prepared food, usually made from flour, sugar, shortening/fat and eggs mixed with other ingredients and baked or fried. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Perishable and Frozen Cakes, Cake Mixes, all Bread Products.
@@ -42144,8 +42199,6 @@ tr: Nuga
 uk: Нуга
 vi: Kẹo Hạnh Phúc
 zh: 牛轧糖
-# category/nougats has 421 products @2019-05-18
-# ingredient/nougat has 52 products in 5 languages @2019-02-08
 # nougat (cane sugar , hazelnuts 33%, cocoa mass, cocoa butter)
 agribalyse_food_code:en: 31033
 ciqual_food_code:en: 31033
@@ -42676,7 +42729,6 @@ sv: Marsipan
 tr: Badem ezmesi
 uk: Марципан
 zh: 杏仁膏
-# ingredient/fr:massepain has 27 products in 4 languages @2019-02-12
 description:en: Marzipan is a confection consisting primarily of sugar or honey and almond meal (ground almonds), sometimes augmented with almond oil or extract.
 # ast:Mazapán
 # lfn:Masapan
@@ -45527,6 +45579,10 @@ fr: Chips de protéines extrudées
 < en: Crisps
 en: Vegetable crisps
 fr: Chips de légumes
+
+< en: Crisps
+en: Buckwheat crisps
+fr: Chips de sarrasin
 
 < en: Crisps
 en: Chickpea crisps
@@ -49696,8 +49752,6 @@ ru: сыр из овечьего молока
 sr: овчији сир
 sv: Fårost
 zh: 羊奶酪
-# ingredient/fr:fromage-de-brebis has 42 products @2018-10-27
-# category/Sheep-Cheeses has 868 products @2019-05-24
 agribalyse_food_code:en: 12824
 ciqual_food_code:en: 12824
 ciqual_food_name:en: Soft ripened cheese with bloomy rind, from ewe's milk, Camembert-type cheese
@@ -52959,8 +53013,6 @@ zh: 奶渣
 ciqual_food_code:en: 19501
 ciqual_food_name:en: Quark, plain or fruit (average)
 ciqual_food_name:fr: Fromage blanc nature ou aux fruits (aliment moyen)
-# ingredient/nl:kwark has 2 products @2019-05-24
-# category/quark has 221 products @2019-05-24
 description:en: Quark is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 google_product_taxonomy_id:en: 1855
 # bar:Tschottn
@@ -60871,7 +60923,6 @@ zh: 鹌鹑蛋
 ciqual_food_code:en: 22050
 ciqual_food_name:en: Quail egg, raw
 ciqual_food_name:fr: Oeuf de caille, cru
-# ingredient/fr:oeufs-de-cailles has 25 products @2019-05-23
 description:en: Quail eggs are the eggs layed by a quail. They can be prepared the same as chicken eggs.
 # tg-latn:Tuxmi bedona
 wikidata:en: Q1572135
@@ -65416,7 +65467,6 @@ agribalyse_proxy_food_name:fr: Muesli floconneux ou de type traditionnel
 ciqual_food_code:en: 32004
 ciqual_food_name:en: Muesli (average)
 ciqual_food_name:fr: Muesli (aliment moyen)
-# ingredient/fr:muesli has 46 products in 4 languages @2019-02-07
 description:en: Muesli is a breakfast dish based on raw rolled oats and other ingredients like grains, fresh or dried fruits, seeds and nuts, that may be mixed with milk, soy milk, almond milk, other plant milks, yogurt, or fruit juice.
 # be-tarask:Мюсьлі
 # ceb:Müesli
@@ -68540,7 +68590,6 @@ description:en: Ice cream is a sweetened frozen food typically eaten as a snack 
 # zh-my:冰淇淋
 # zh-sg:冰淇淋
 # zh-tw:冰淇淋
-# ingredient/ice-cream has 264 products in english @2019-04-29
 # usage:en:Ice cream:organic cream, organic milk, organic cane sugar, organic egg yolks, organic vanilla extract, organic locust bean gum, organic guar gum
 # usage:fr:glace (sucre, kirsch de Bâle-Campagne)
 nova:en: 3
@@ -75065,8 +75114,6 @@ google_product_taxonomy_id:en: 6812
 sales_format:en: weight, package
 wikidata:en: Q1652093
 wikipedia:en: https://en.wikipedia.org/wiki/Date_palm#Fruits
-# ingredient/dates has 827 products in 11 languages @2018-09-29
-# category/dates has 311 products @2019-05-24
 
 < en: Dates
 < en: Fruit pastes
@@ -76071,6 +76118,174 @@ nl: Gomasio
 pt: Gomasio
 sv: Gomasio
 wikidata:en: Q685077
+
+< en: Condiments
+en: Nasi goreng seasoning mixes
+
+< en: Condiments
+en: Bami goreng seasoning mixes
+
+< en: Condiments
+en: Condiment pastes
+da: Krydderipastaer
+de: Gewürzmittelpasten
+es: Pastas de condimentos
+fi: Mausteettahnat
+fr: Pâtes de condiments
+hr: Začini paste, Začin paste
+it: Pasta di condimenti
+lt: Pagardai pasta
+nl: Smaakmakerpastas
+pl: Pasty przyprawa
+sv: Smaktillsatspastor
+description:en: Pastes primarily used as a condiment.
+incompatible_with:en: en:Spice blends
+
+< en: Condiment pastes
+en: Nasi goreng pastes
+
+< en: Condiment pastes
+< en: Fish preparations
+en: Anchovy paste
+de: Sardellenpaste
+es: Pasta de anchoas
+fi: anjovistahna
+fr: Pâte d'anchois
+hr: Pasta od inćuna
+it: Pasta di acciughe, pasta d'acciughe
+ja: アンチョビペースト
+nl: Ansjovispasta
+wikidata:en: Q3897482
+
+< en: Condiment pastes
+en: Wasabi pastes
+de: Wasabi Pasten
+es: Pastas de wasabi
+fr: Pâtes au wasabi, pâtes de wasabi
+hr: Wasabi paste
+lt: Vasabi pasta
+nl: Wasabipastas
+pl: Pasty wasabi
+wikidata:en: Q68437707
+
+< en: Condiment pastes
+en: Curry pastes, Curry paste
+da: Karrypastaer
+de: Currypasten, Currypaste
+es: Pasta de curry
+fi: Currytahnat
+fr: Pâtes de curry, Curry paste
+hr: Curry paste
+it: Pasta di curry
+lt: Kario pasta
+nb: Karripastaer
+nl: Curry pastas
+nn: Karripastaer, Karripastaar
+pl: Pasty curry
+sv: Currypastor
+wikidata:en: Q5195232
+
+< en: Curry pastes
+en: Red curry pastes, Red curry paste
+da: Røde karrypastaer
+de: Rote Currypasten, Rote Currypaste
+fr: Pâtes de curry rouges
+hr: Crvene curry paste
+lt: Raudonojo kario pasta
+nb: Røde karripastaer
+nl: Rode currypastas
+nn: Raude karripastaer
+pl: Czerwone pasty curry
+sv: Röda currypastor
+wikidata:en: Q67201118
+
+< en: Curry pastes
+en: Green curry pastes, Green curry paste
+da: Grønne karrypastaer
+de: Grüne Currypasten, Grüne Currypaste
+fr: Pâtes de curry verte, Pâtes de curry vert
+hr: Zelene curry paste
+lt: Žaliojo kario pasta
+nb: Grønne karripastaer
+nl: Groene Currypastas
+nn: Grøne karripastaer
+pl: Zielone pasty curry
+sv: Gröna currypastor
+wikidata:en: Q67201120
+
+< en: Curry pastes
+en: Phanaeng curry pastes, Phanaeng curry paste, Panang curry pastes, Panang curry paste, Penang curry pastes, Penang curry paste
+de: Panaeng Currypasten, Panaeng Currypaste, Panang Currypasten, Panang Currypaste
+hr: Phanaeng curry paste
+pl: Pasty curry panang
+wikidata:en: Q67206285
+
+< en: Curry pastes
+en: Massaman curry pastes, Massaman curry paste
+de: Massaman Currypasten, Massaman Currypaste
+fr: Pâtes de curry Massaman
+hr: Masaman curry paste
+pl: Pasty curry Massaman
+wikidata:en: Q67206116
+
+< en: Curry pastes
+en: Yellow curry pastes, Yellow curry paste
+da: Gule karrypastaer
+de: Gelbe Currypasten, Gelbe Currypaste
+fr: Pâtes de curry jaunes
+hr: Žute curry paste
+lt: Geltonojo kario pasta
+nb: Gule karripastaer
+nl: Gele Currypastas
+nn: Gule karripastaer
+pl: Żółte pasty curry
+sv: Gulor currypastor
+wikidata:en: Q67201117
+
+< en: Curry pastes
+en: Vindaloo curry pastes
+
+< en: Condiment pastes
+en: Masala pastes
+da: Masalapastaer
+de: Masalapasten, Masalapaste
+es: Pastas de masala, Pasta de masala
+fi: Masalatahnat
+fr: Pâtes de masala, Masala paste
+hr: Masala paste
+it: Pasta di masala
+lt: Masala pasta
+nb: Masalapastaer
+nl: Masala pastas, Masalapastas
+nn: Masalapastaer, Masalapastaar
+pl: Pasty masala
+sv: Masalapastor
+description:en: Pastes based on masala spice blends.
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q654253
+
+< en: Masala pastes
+en: Chaat masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q1068141
+
+< en: Masala pastes
+en: Garam masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q14624
+
+< en: Masala pastes
+en: Kashmiri masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q5958447
+
+< en: Masala pastes
+en: Tandoori masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q1517449
+
+< en: Masala pastes
+en: Tikka masala pastes
 
 # don't put this category in vinegars, those products CONTAIN vinegar, they ARE NOT vinegars
 < en: Condiments
@@ -78494,11 +78709,6 @@ ciqual_food_name:en: Curry, powder
 ciqual_food_name:fr: Curry, poudre
 wikidata:en: Q1144935
 
-< en: Spices
-en: Garam masala
-xx: Garam masala
-ja: ガラムマサラ
-
 < en: Flavour enhancers
 en: Monosodium glutamate, Glutamate
 xx: MSG, E621
@@ -79728,28 +79938,147 @@ description:en: Sichuan pepper is a spice made from the dried pericarp (outer sh
 wikidata:en: Q756800
 
 < en: Spices
-en: Spice Mix
+en: Spice blends, Spice mixes, Spice Mix
+ar: خلطات توبل
+bg: Смеси от подправки
+ca: Mescla d'espècies
+cs: Směs koření
+da: Krydderiblandinger, Krydderblandinger
 de: Gewürzmischung
-es: Mezcla de especias
-fi: maustesekoitus
+el: Μείγμα μπαχαρικών
+eo: Spicomiksaĵoj
+es: Mezclas de especias, Mezcla de especias
+fi: Maustesekoitus
 fr: Mélanges d'épices, Mélange d'épices, Mélange d'épice, Mélanges d'épice
 hr: Mješavina začina
-it: Mix di spezie, Spezie miste
-ja: ミックススパイス
+hu: Fűszerkeverék
+hy: Համեմունքների խառնուրդ
+id: Campuran rempah-rempah
+it: Mix di spezie, Spezie miste, Miscela di spezie
+ja: ミックススパイス, 混合スパイス
+jv: Bumbu campur
+kn: ಮಸಾಲೆ
+ko: 배합 향신료
+la: Tritura
 lt: Prieskonių mišinys
-nl: Specerijenmengelingen
+lv: Garšvielu maisījums
+mk: Зачинска смеса
+ms: Campuran rempah
+nb: Krydderiblandinger, Krydderblandinger
+nl: Specerijenmengelingen, Kruidenmix
+nn: Krydderiblandingar, Krydderblandingar
 pl: Mieszanki przypraw, Mieszanka przypraw
-ru: Смесь специй
+ro: Amestec de condimente
+ru: Смесь специй, Смесь приправ
+sl: Začimbna mešanica
+sv: Kryddblandningar, Kryddmixar
+th: มาซาลา
+uk: Суміш приправ
 agribalyse_proxy_food_code:en: 11056
-agribalyse_proxy_food_name:en: Mix of 4 spices
-agribalyse_proxy_food_name:fr: Quatre épices
+ciqual_proxy_food_code:en: 11056
+ciqual_proxy_food_name:en: Mix of 4 spices
+ciqual_proxy_food_name:fr: Quatre épices
+description:en: Blends of 2 or more spices.
+incompatible_with:en: en:Condiment pastes
 wikidata:en: Q1521067
 
-< en: Spice Mix
+< en: Spice blends
+en: Masalas, Indian spice blends
+xx: Masala
+ar: مصالحة
+cs: Masála
+eo: Hinda spica miksaĵoj
+fa: مصالح
+hu: Maszala
+ja: マサラ
+ko: 마살라
+ml: മസാല
+ru: Масала
+uk: Масала
+zh: 瑪撒拉
+description:en: Spice blends in the style(s) of the Indian subcontinent.
+wikidata:en: Q654253
+
+< en: Masalas
+en: Chaat masalas
+xx: Chaat masala
+ar: جات مصالحة
+as: চাট মছলা
+bn: চাট মসলা
+cs: Čát masála
+de: Chat Masala
+el: Τσάατ μασάλα
+fr: Chāt masālā
+gu: ચાટ મસાલો
+hi: चाट मसाला
+ja: チャットマサラ
+kn: ಚಾಟ್ ಮಸಾಲಾ
+ru: Чаат масала
+ta: சாட் மசாலா
+th: ชาตมาซาลา
+uk: Чаат масала
+ur: چاٹ مصالہ
+wikidata:en: Q1068141
+
+< en: Masalas
+en: Garam masalas
+xx: Garam masala
+ar: كرم مصالحة
+as: গৰম মছলা
+bn: গরম মসলা
+cs: Garam masála
+el: Γκαράμ μασάλα
+fa: گرم مصالح
+gu: ગરમ મસાલો
+hi: गरम मसाला
+hy: Գարամ մասալա
+ja: ガラムマサラ
+kk: Гарам масала
+kn: ಗರಂ ಮಸಾಲಾ
+ko: 가람 마살라
+lt: Garam masala
+mk: Гарам масала
+ml: ഗരം മസാല
+mr: गरम मसाला
+my: မဆလာ
+ne: गरम मसला
+or: ଗରମ ମସଲା
+pa: ਗਰਮ ਮਸਾਲਾ
+ps: گرمه مساله
+ru: Гарам масала
+ta: கரம் மசாலா
+te: గరం మసాలా
+uk: Гарам масала
+ur: گرم مصالحہ
+zh: 葛拉姆馬薩拉
+wikidata:en: Q14624
+
+< en: Masalas
+en: Kashmiri masalas
+xx: Kashmiri masala
+eo: Kaŝmira spicomiksaĵoj
+wikidata:en: Q5958447
+
+< en: Masalas
+en: Tandoori masalas
+xx: Tandoori masala
+ar: تندوري ماسالا
+de: Tanduri Masala
+el: Ταντούρι μασάλα
+ja: タンドーリマサラ
+ml: തന്തൂരി മസാല
+ru: Тандури масала
+wikidata:en: Q1517449
+
+< en: Masalas
+en: Tikka masalas
+xx: Tikka masala
+
+< en: Spice blends
 en: Guacamole spice mix
 fr: Mélange d'épices pour guacamole
 
-< en: Spice Mix
+< en: Spice blends
 en: Mix of 4 spices, Mix of four spices
 fr: Quatre épices
 hr: Mješavina 4 začina
@@ -80376,26 +80705,50 @@ fr: Sauces nantua
 wikidata:en: Q3474118
 
 < en: Sauces
+en: Piccalillis, Piccalilli
 fr: Piccalillis, Sauces piccalilli, piccalilli
 nl: Piccalilli
 wikidata:en: Q1363716
 
-
 < en: Sauces
-en: Salad dressings, dressings, Salad sauce
-bg: Салатен сос
+en: Salad dressings, Dressings, Salad sauce
+an: Apanyo
+ar: صلصة سلطة
+bg: Салатен сос, Дресинг
+bn: সালাদ ড্রেসিং
 ca: Amaniments, Salses per amanides
+cs: Dresink
+cy: Dresin salad
+da: Salatdressinger, Dressinger
 de: Salatsoßen, Salatsoße, Salatsaucen, Salatsauce
-es: Aderezos para ensaladas
-fi: Salaattikastikkeet
+eo: Salatosaŭcoj
+es: Aderezos para ensaladas, Aliño
+et: Salatikaste
+fa: سس سالاد
+fi: Salaattikastikkeet, Salaattikastike
 fr: Sauces salades, sauce salade, sauce pour salade
 he: תיבול לסלט
 hr: Preljevi za salatu
+hy: Աղցանային ամոքունք
+is: Dressing
 it: Condimenti per insalate
 ja: サラダドレッシング
+ko: 샐러드 드레싱
+ku: Sosa seletê
 lt: Salotų padažai
-nl: Slasauzen, sladressings
-ru: Заправки для салатов
+mk: Салатен прелив
+ml: സാലഡ് ഡ്രസ്സിംഗ്
+nb: Salatdressinger, Dressinger
+nl: Slasauzen, Sladressings, Saladedressing
+nn: Salatdressingar, Dressingar
+pa: ਸਲਾਦ ਸੌਸ
+ru: Заправки для салатов, Салатная заправка
+sl: Solatni preliv
+sq: Salcë sallate
+sv: Salladsdressingar, Dressingar, Salladssåser
+uk: Салатна заправка
+uz: Salat ziravorlari
+zh: 沙拉醬
 agribalyse_food_code:en: 11187
 ciqual_food_code:en: 11187
 ciqual_food_name:en: Salad dressing, prepacked
@@ -80420,9 +80773,40 @@ ciqual_food_name:en: Salad dressing, reduced fat, prepacked
 ciqual_food_name:fr: Sauce crudités ou Sauce salade, allégée en matière grasse, préemballée
 
 < en: Salad dressings
-en: Thousand island dressing
+en: Thousand Island dressings, Thousand Island dressing
+xx: Thousand Island
+ar: صلصة ثاوزند أيلاند
+cs: Omáčka Tisíc ostrovů
+da: Thousand Island-dressinger
+de: Thousand-Island-Dressing
+eo: Mil-Insula salatosaŭcoj
+es: Salsa mil islas
+fa: سس هزار جزیره
+fr: Mille-îles
+hu: Ezersziget öntet
+hy: Հազար կղզիներ
+it: Salsa Thousand Island
 ja: サウザンドアイランドドレッシング
+jv: Saos sewu pulo
+ko: 사우전드 아일랜드 드레싱
+nb: Thousand Island-dressinger
+nl: Thousand-Island-dressing
+nn: Thousand Island-dressingar
+pl: Sos tysiąca wysp
+ru: Тысяча островов
+sk: Omáčka Tisíc ostrovov
+sv: Thousand Island-dressingar
+th: น้ำสลัดเทาซันด์ไอแลนด์
+uk: Тисяча островів
+zh: 千島醬
 wikidata:en: Q1199019
+
+< en: Salad dressings
+en: Sesame dressings
+da: Sesamdressinger
+nb: Sesamdressinger
+nn: Sesamdressingar
+sv: Sesamdressingar
 
 < en: Salad dressings
 en: Vinaigrettes
@@ -80649,7 +81033,7 @@ lt: Indiški padažai
 nl: Indiaase sauzen
 #wikidata:en:
 
-< en: Indian sauces
+< en: Indian-style sauces
 en: Tikka masala sauce, garam masala sauce
 de: Tikka Masala Saucen
 fr: Sauces tikka masala, Sauce indienne tikka masala
@@ -80663,7 +81047,7 @@ ciqual_food_name:en: Indian-style sauce, tandoori or garam masala type, prepacke
 ciqual_food_name:fr: Sauce indienne type tandoori ou tikka masala, préemballée
 #wikidata:en:
 
-< en: Indian sauces
+< en: Indian-style sauces
 en: Tandoori sauces, Indian-style tandoori sauce
 fr: Sauces tandoori, Sauce indienne tandoori
 hr: Tandoori umaci
@@ -80675,9 +81059,15 @@ ciqual_food_name:en: Indian-style sauce, tandoori or garam masala type, prepacke
 ciqual_food_name:fr: Sauce indienne type tandoori ou tikka masala, préemballée
 #wikidata:en:
 
-< en: Indian sauces
+< en: Indian-style sauces
 en: Korma sauces
 fr: Sauces korma
+
+< en: Indian-style sauces
+en: Butter chicken sauces
+
+< en: Indian-style sauces
+en: Vindaloo sauces
 
 < en: Sauces
 en: Worcestershire sauces
@@ -83810,91 +84200,6 @@ lt: Alyvuogių padažai
 nl: Sauzen met olijven
 #wikidata:en:
 
-< en: Sauces
-en: Wasabi pastes
-de: Wasabi Pasten
-es: Pastas de wasabi
-fr: Pâtes au wasabi, pâtes de wasabi
-hr: Wasabi paste
-lt: Vasabi pasta
-nl: Wasabipastas
-pl: Pasty wasabi
-wikidata:en: Q68437707
-
-< en: Meal sauces
-en: Curry pastes, Curry paste
-da: Karrypastaer
-de: Currypasten, Currypaste
-es: Pasta de curry
-fi: currytahnat
-fr: Pâtes de curry, Curry paste
-hr: Curry paste
-it: Pasta di curry
-lt: Kario pasta
-nb: Karripastaer
-nl: Curry pastas
-nn: Karripastaer, Karripastaar
-pl: Pasty curry
-sv: Currypastor
-wikidata:en: Q5195232
-
-< en: Curry pastes
-en: Red curry pastes, Red curry paste
-da: Røde karrypastaer
-de: Rote Currypasten, Rote Currypaste
-fr: Pâtes de curry rouges
-hr: Crvene curry paste
-lt: Raudonojo kario pasta
-nb: Røde karripastaer
-nl: Rode currypastas
-nn: Raude karripastaer
-pl: Czerwone pasty curry
-sv: Röda currypastor
-wikidata:en: Q67201118
-
-< en: Curry pastes
-en: Green curry pastes, Green curry paste
-da: Grønne karrypastaer
-de: Grüne Currypasten, Grüne Currypaste
-fr: Pâtes de curry verte, Pâtes de curry vert
-hr: Zelene curry paste
-lt: Žaliojo kario pasta
-nb: Grønne karripastaer
-nl: Groene Currypastas
-nn: Grøne karripastaer
-pl: Zielone pasty curry
-sv: Gröna currypastor
-wikidata:en: Q67201120
-
-< en: Curry pastes
-en: Phanaeng curry pastes, Phanaeng curry paste, Panang curry pastes, Panang curry paste, Penang curry pastes, Penang curry paste
-de: Panaeng Currypasten, Panaeng Currypaste, Panang Currypasten, Panang Currypaste
-hr: Phanaeng curry paste
-pl: Pasty curry panang
-wikidata:en: Q67206285
-
-< en: Curry pastes
-en: Massaman curry pastes, Massaman curry paste
-de: Massaman Currypasten, Massaman Currypaste
-fr: Pâtes de curry Massaman
-hr: Masaman curry paste
-pl: Pasty curry Massaman
-wikidata:en: Q67206116
-
-< en: Curry pastes
-en: Yellow curry pastes, Yellow curry paste
-da: Gule karrypastaer
-de: Gelbe Currypasten, Gelbe Currypaste
-fr: Pâtes de curry jaunes
-hr: Žute curry paste
-lt: Geltonojo kario pasta
-nb: Gule karripastaer
-nl: Gele Currypastas
-nn: Gule karripastaer
-pl: Żółte pasty curry
-sv: Gulor currypastor
-wikidata:en: Q67201117
-
 en: Meals, Prepared meals, Prepared dishes
 bg: Готови ястия
 ca: Menjar preparat
@@ -83994,6 +84299,16 @@ en: Pad thai
 xx: Pad Thaï, Pad Thai
 ja: パッタイ
 wikidata:en: Q730298
+
+< en: Meals
+en: Bami goreng
+xx: Bami goreng
+wikidata:en: Q1188729
+
+< en: Rice dishes
+en: Nasi goreng
+xx: Nasi goreng
+wikidata:en: Q510666
 
 < en: Meals
 en: Meal replacements, meal substitutes
@@ -85609,6 +85924,15 @@ en: Butter chicken without side dishes
 < en: Butter chicken
 en: Butter chicken with side dishes
 
+< en: Meals with chicken
+en: Vindaloo chicken
+
+< en: Vindaloo chicken
+en: Vindaloo chicken without side dishes
+
+< en: Vindaloo chicken
+en: Vindaloo chicken with side dishes
+
 < en: Meals with meat
 en: Goat dishes, Goat meals
 fr: Plats à la viande caprine, plats à base de viande caprine
@@ -87014,7 +87338,6 @@ uz: sho'rva
 vi: canh
 yi: יויך
 zh: 清汤
-# category/broths has 527 products @2019-05-19
 description:en: Broth is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered.
 gpc_category_code:en: 10000578
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an extract resulting from boiling meat or fish and/or vegetables.  The extract is added to season or give a defined flavour to a particular food or recipe. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Perishable and Frozen Stock/Bones; Shelf Stable Extracts; Perishable or Shelf Stable Herbs and Spices; Gravy Browning; Soup Mixes.
@@ -90081,6 +90404,21 @@ hr: Mesne štruce
 ja: ミートローフ
 nl: Vleesbrood
 wikidata:en: Q3807565
+
+# Frikandel and frikadelle are two different meat preparations
+< en: Meat preparations
+en: Frikadelle
+de: Frikadellen
+fr: Frikadelles
+wikidata:en: Q251265
+
+< en: Frikadelle
+< en: Pork preparations
+en: Pork frikadelle
+
+< en: Frikadelle
+#< en: Poultry preparations
+en: Poultry frikadelle
 
 < en: Meat preparations
 en: Frikandel
@@ -93999,8 +94337,6 @@ xh: Inkuku
 yi: האן
 za: Gaeq
 zh: 鸡, 鸡肉
-# ingredient/chicken has 872 products @2019-05-18
-# category/chickens has 3369 products in 18 languages @2019-05-18
 agribalyse_food_code:en: 36016
 ciqual_food_code:en: 36016
 ciqual_food_name:en: Chicken, meat and skin, raw
@@ -96870,8 +97206,6 @@ tl: Longganisa
 uk: Чорісос
 vi: Chorizo
 zh: 乔利佐
-# ingredient/fr:chorizo has 210 products in 6 languages @2019-04-24
-# category/fr:chorizos has 267 products @2019-05-19
 # usage:fr:chorizo (maigre et gras de porc, sel, épices et extraits d'épices, dextrose de blé, ferments lactiques, conservateurs :E301, E250)
 agribalyse_food_code:en: 30315
 ciqual_food_code:en: 30315
@@ -99680,7 +100014,6 @@ wa: påsses itålyinnes
 wo: makaróni
 zh: 意式面食
 carbon_footprint_fr_foodges_ingredient:fr: Pâtes sèches
-# ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 description:en: Pasta is type of noodle typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste and texture, or as a gluten-free alternative. Pasta is a staple food of Italian cuisine.
 # ast:pastia
 # be-tarask:паста
@@ -99924,6 +100257,12 @@ it: Gemelli
 xx: Gemelli
 
 < en: Pastas
+en: Schupfnudeln
+xx: Schupfnudeln
+de: Schupfnudeln
+wikidata:en: Q533210
+
+< en: Pastas
 en: Gnocchi
 xx: Gnocchi
 bg: Ньоки
@@ -99945,9 +100284,9 @@ ciqual_food_name:en: Gnocchi, cooked (average)
 ciqual_food_name:fr: Gnocchi, cuit (aliment moyen)
 
 < en: Gnocchi
-en: filled gnocchi
+en: Filled gnocchi
 de: Gefüllte Gnocchi
-fr: gnocchis fourrés
+fr: Gnocchis fourrés
 hr: Punjene njoke
 
 < en: Cereal pastas
@@ -100896,7 +101235,6 @@ zh: 意大利餃
 ciqual_food_code:en: 25216
 ciqual_food_name:en: Pasta (e.g. ravioli), filled, cooked
 ciqual_food_name:fr: Pâtes fraîches farcies (ex : raviolis), cuites (aliment moyen)
-# ingredient/ravioli has 92 products in 6 languages @2019-02-17
 # ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 description:en: Ravioli are a type of dumpling comprising a filling enveloped in thin pasta dough.
 # en-ca:Ravioli
@@ -105750,20 +106088,12 @@ gpc_category_code:en: 10000018
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of fish or a combination of fish, that has gone through further manufacturing processes, such as reformed, cooked, dried and salted, however these products can also be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. However products may contain a small quantity of vegetables such as those in a sauce or stuffing/filling. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Fish with additional vegetables, dough or grains, Frozen and Perishable Prepared and Processed Fish, all Unprepared and Unprocessed Fish.
 gpc_category_name:en: Fish - Prepared/Processed (Shelf Stable)
 
-
-< en: Fish preparations
+< en: Fish spreads
 < en: Salted spreads
-en: Anchovy paste
-de: Sardellenpaste
-es: Pasta de anchoas
-fi: anjovistahna
-fr: Pâte d'anchois, Anchoïade
-hr: Pasta od inćuna
-it: Pasta di acciughe, pasta d'acciughe
-ja: アンチョビペースト
-nl: Ansjovispasta
-wikidata:en: Q3897482
-
+en: Anchoïades, Anchoiades
+xx: Anchoïades, Anchoiades
+fr: Anchoïades, Anchoiades
+wikidata:en: Anchoïade
 
 < en: Fish preparations
 en: Surimi, crab stick, crab sticks, mock crab, seafood sticks, seafood stick, fish stick, fish sticks, imitation crab, seafood extender, seafood extenders
@@ -113838,8 +114168,6 @@ ur: شاخ گوبھی
 vi: Bông cải xanh
 zh: 西蘭花
 # carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
-# ingredient/broccoli has 1167 products in 10 languages @2018-10-16
-# category/broccoli has 150 products @2019-05-24
 agribalyse_food_code:en: 20057
 ciqual_food_code:en: 20057
 ciqual_food_name:en: Broccoli, raw
@@ -114446,8 +114774,6 @@ sv: Mangold
 tr: Pazı
 uk: Мангольд
 zh: 莙薘菜
-# ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
-# category/chards has 16 products @2019-05-22
 agribalyse_proxy_food_code:en: 20004
 agribalyse_proxy_food_name:en: Swiss chard, raw
 agribalyse_proxy_food_name:fr: Bette ou blette, crue
@@ -114574,8 +114900,6 @@ uk: цикорій салатний
 vi: Rau cúc đắng
 zh: 苦苣
 # wikidata:en:Q28604477 what is this?
-# category/endives has 8 products @2019-05-22
-# ingredient/endive has 125 products @2019-05-22
 agribalyse_food_code:en: 20090
 ciqual_food_code:en: 20090
 ciqual_food_name:en: Escaroles
@@ -114728,7 +115052,6 @@ tr: Rezene
 uk: фенхель
 ur: سونف
 zh: 茴香
-# fr:fenouil has 634 products in 6 languages @2018-10-21
 agribalyse_food_code:en: 20028
 ciqual_food_code:en: 20028
 ciqual_food_name:en: Fennel, raw
@@ -114937,6 +115260,7 @@ hr: Zeleni češnjak
 hu: Zöld foghagyma
 nl: Groene knoflook
 
+< en: Condiment pastes
 < en: Garlic
 en: Garlic paste
 fr: Pâtes d'ail, purées d'ail, pâte d'ail, purée d'ail
@@ -115013,8 +115337,6 @@ vi: Tỏi tây
 wa: Porea
 yi: פארע-ציבעלע
 zh: 韭葱
-# ingredient/leek has 3620 products in 19 languages @2019-05-22
-# category/leeks has 34 products @2019-05-22
 agribalyse_food_code:en: 20039
 carbon_footprint_fr_foodges_ingredient:fr: Poireau
 ciqual_food_code:en: 20039
@@ -115161,8 +115483,6 @@ vi: Chi Rau diếp, Xà lách
 wa: Salåde
 za: byaekaengjgwx
 zh: 莴苣属, 萵苣
-# ingredient/fr:laitue has 157 products in 5 languages @2019-04-04
-# category/lettuces has 84 products @2019-5-22
 agribalyse_food_code:en: 20031
 ciqual_food_code:en: 20031
 ciqual_food_name:en: Lettuce, raw
@@ -115297,8 +115617,6 @@ tr: soğan
 vi: hành tây
 zh: 洋葱
 agribalyse_food_code:en: 20034
-# ingredient/onion has 12754 products in 18 languages @2018-12-06
-# category/onions has 233 products @2019-05-22
 carbon_footprint_fr_foodges_ingredient:fr: Oignons
 ciqual_food_code:en: 20034
 ciqual_food_name:en: Onion, raw
@@ -116434,8 +116752,6 @@ wa: Rådisse
 yi: רעטעך
 za: lauxbaeg
 zh: 萝卜
-# ingredient/fr:Radis has 393 products in 4 languages @2019-05-16
-# category/radish has 2 products @2019-05-22
 # usage:en:fruit and vegetable concentrates (safflower, radish, black carrot, lemon, hibiscus)
 # aeb-arab:فجل
 # azb:قیرمیزی تورپ
@@ -116609,8 +116925,6 @@ agribalyse_proxy_food_code:en: 13047
 agribalyse_proxy_food_name:en: Rhubarb, stalk, raw
 agribalyse_proxy_food_name:fr: Rhubarbe, tige, crue
 description:en: Rhubarb is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
-# ingredient/fr:rhubarbe has 191 products in 4 languages @2019-05-08
-# category/rhubarbs has 4 products 22019-05-22
 expected_ingredients:en: en:rhubarb
 sales_format:en: package, weight
 season_in_country_fr:en: 4,5,6
@@ -116716,9 +117030,6 @@ tr: Yeşil soğan
 vi: Hành lá
 zh: 青蔥
 comment:en: do not mix green onion with welsh onion
-# ingredient/fr:oignon-vert has 45 products in 6 languages @2018-12-06
-# ingredient/fr:oignons-de-printemps has 47 products @2018-12-06
-# category/scallions has 7 products @2019-05-22
 description:en: Scallions (green onions) are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
 # sco:Sybae
 sales_format:en: weight, package
@@ -117525,8 +117836,6 @@ sr: Матовилац
 sv: Vårklynne
 wa: Doûcete
 zh: 萵苣纈草
-# ingredient/fr:mâche has 133 products in french @2019-05-08
-# category/corn-salad has 73 products @2019-05-22
 agribalyse_food_code:en: 20099
 ciqual_food_code:en: 20099
 ciqual_food_name:en: Lamb's lettuce, raw
@@ -117929,8 +118238,6 @@ ciqual_proxy_food_code:en: 20180
 ciqual_proxy_food_name:en: Onion, dried
 ciqual_proxy_food_name:fr: Oignon, séché
 wikidata:en: Q7093931
-# ingredient/fr:oignon-en-poudre has 1131 products in 15 languages @2018-11-06
-# category/onion-powder has 11 products @2019-05-12
 
 < en: Freeze-dried plant-based foods
 < en: Vegetables based foods
@@ -122593,7 +122900,6 @@ tl: Ubod
 agribalyse_proxy_food_code:en: 20018
 agribalyse_proxy_food_name:en: Palm heart, canned, drained
 agribalyse_proxy_food_name:fr: Coeur de palmier, appertisé, égoutté
-# fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
 description:en: Heath of palm is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
 wikidata:en: Q743144
 wikipedia:en: https://en.wikipedia.org/wiki/Heart_of_palm
@@ -122674,6 +122980,22 @@ ciqual_food_code:en: 23805
 ciqual_food_name:en: Blinis
 ciqual_food_name:fr: Blini
 wikidata:en: Q815898
+
+< en: Appetizers
+en: Mini appetizer sandwiches
+fr: Mini sandwichs apéritifs
+
+< en: Mini appetizer sandwiches
+en: Mini appetizer croque-monsieur
+fr: Mini croque-monsieur apéritifs
+
+< en: Mini appetizer sandwiches
+en: Mini appetizer hamburgers
+fr: Mini hamburgers apéritifs
+
+< en: Appetizers
+en: Mini appetizer quiches
+fr: Mini quiches apéritives
 
 < en: Appetizers
 fr: Préfous
@@ -123314,8 +123636,6 @@ carbon_footprint_fr_foodges_ingredient:fr: Viennoiseries Brioche industrielle pr
 ciqual_food_code:en: 7741
 ciqual_food_name:en: Brioche
 ciqual_food_name:fr: Brioche, sans précision
-# ingredient/fr:brioche has 35 products @2019-01-28
-# category/brioches has 1483 products @2019-05-20
 description:en: Brioche is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
 # be-tarask:Брыёш
 # sr-ec:Бриош
@@ -123555,8 +123875,6 @@ agribalyse_proxy_food_code:en: 23799
 agribalyse_proxy_food_name:en: Crepe, plain, prepacked, refrigerated
 agribalyse_proxy_food_name:fr: Crêpe, nature, préemballée, rayon frais
 comment:en: A separate category for the dutch category pannenkoek, might be needed. A french crêpe is seen as a special pannenkoek, een flensje
-# ingredient/fr:crepe has 142 products in 4 languages @2019-02-05
-# category/crepes has 582 products @2019-05-18
 description:en: A crêpe is a type of very thin pancake. Crêpes are usually of two types: sweet crêpes (crêpes sucrées) and savoury galettes (crêpes salées). Crêpes are served with a variety of fillings, from the simplest with only sugar to flambéed crêpes Suzette or elaborate savoury galettes.
 # atj:tekirep
 # bar:Palatschinken

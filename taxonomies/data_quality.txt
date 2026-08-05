@@ -11105,6 +11105,1281 @@ description:pl: Suma procentów składników bez określonego procentu jest niż
 description:pt: A soma das percentagens dos ingredientes sem percentagem especificada é inferior a 10%, o que significa que a sua contribuição pode ser estimada de forma fiável.
 description:ru: Сумма процентов ингредиентов без указанного процента составляет менее 10%, что означает, что их вклад можно надёжно оценить.
 
+< en: Ingredients warnings
+en: Ingredients language mismatch en contains fr
+description:en: The ingredients language is set to English, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fr contains en
+description:en: The ingredients language is set to French, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch en contains de
+description:en: The ingredients language is set to English, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sv contains en
+description:en: The ingredients language is set to Swedish, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fr contains de
+description:en: The ingredients language is set to French, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch da contains en
+description:en: The ingredients language is set to Danish, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch en contains es
+description:en: The ingredients language is set to English, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nb contains en
+description:en: The ingredients language is set to Norwegian Bokmål, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fr contains nl
+description:en: The ingredients language is set to French, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch en contains it
+description:en: The ingredients language is set to English, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fr contains it
+description:en: The ingredients language is set to French, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch en contains nl
+description:en: The ingredients language is set to English, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch de contains fr
+description:en: The ingredients language is set to German, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nl contains fr
+description:en: The ingredients language is set to Dutch, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ar contains en
+description:en: The ingredients language is set to Arabic, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ar contains de
+description:en: The ingredients language is set to Arabic, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch de contains en
+description:en: The ingredients language is set to German, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fr contains es
+description:en: The ingredients language is set to French, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch es contains en
+description:en: The ingredients language is set to Spanish, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nl contains de
+description:en: The ingredients language is set to Dutch, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch en contains pt
+description:en: The ingredients language is set to English, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch es contains pt
+description:en: The ingredients language is set to Spanish, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch it contains fr
+description:en: The ingredients language is set to Italian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ar contains fr
+description:en: The ingredients language is set to Arabic, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch it contains en
+description:en: The ingredients language is set to Italian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch de contains it
+description:en: The ingredients language is set to German, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch th contains en
+description:en: The ingredients language is set to Thai, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch es contains fr
+description:en: The ingredients language is set to Spanish, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nl contains en
+description:en: The ingredients language is set to Dutch, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch it contains de
+description:en: The ingredients language is set to Italian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch de contains nl
+description:en: The ingredients language is set to German, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pt contains es
+description:en: The ingredients language is set to Portuguese, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fr contains pt
+description:en: The ingredients language is set to French, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ca contains fr
+description:en: The ingredients language is set to Catalan, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ar contains nl
+description:en: The ingredients language is set to Arabic, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ar contains es
+description:en: The ingredients language is set to Arabic, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch es contains it
+description:en: The ingredients language is set to Spanish, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch es contains de
+description:en: The ingredients language is set to Spanish, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ar contains pt
+description:en: The ingredients language is set to Arabic, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ar contains it
+description:en: The ingredients language is set to Arabic, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ca contains it
+description:en: The ingredients language is set to Catalan, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch no contains en
+description:en: The ingredients language is set to Norwegian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pt contains en
+description:en: The ingredients language is set to Portuguese, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nl contains it
+description:en: The ingredients language is set to Dutch, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch el contains en
+description:en: The ingredients language is set to Greek, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ro contains en
+description:en: The ingredients language is set to Romanian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch de contains es
+description:en: The ingredients language is set to German, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch it contains es
+description:en: The ingredients language is set to Italian, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pt contains fr
+description:en: The ingredients language is set to Portuguese, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch tr contains en
+description:en: The ingredients language is set to Turkish, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nl contains es
+description:en: The ingredients language is set to Dutch, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ru contains en
+description:en: The ingredients language is set to Russian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch it contains nl
+description:en: The ingredients language is set to Italian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch es contains nl
+description:en: The ingredients language is set to Spanish, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch bg contains en
+description:en: The ingredients language is set to Bulgarian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fi contains en
+description:en: The ingredients language is set to Finnish, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch de contains pt
+description:en: The ingredients language is set to German, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ca contains es
+description:en: The ingredients language is set to Catalan, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pl contains en
+description:en: The ingredients language is set to Polish, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch da contains de
+description:en: The ingredients language is set to Danish, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ro contains de
+description:en: The ingredients language is set to Romanian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cs contains en
+description:en: The ingredients language is set to Czech, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch it contains pt
+description:en: The ingredients language is set to Italian, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch is contains en
+description:en: The ingredients language is set to Icelandic, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nl contains pt
+description:en: The ingredients language is set to Dutch, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch lt contains en
+description:en: The ingredients language is set to Lithuanian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch la contains en
+description:en: The ingredients language is set to Latin, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hu contains en
+description:en: The ingredients language is set to Hungarian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch zh contains en
+description:en: The ingredients language is set to Chinese, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ro contains fr
+description:en: The ingredients language is set to Romanian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch tr contains de
+description:en: The ingredients language is set to Turkish, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sl contains it
+description:en: The ingredients language is set to Slovenian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pt contains de
+description:en: The ingredients language is set to Portuguese, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch xx contains en
+description:en: The ingredients language is set to Unknown, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch tr contains fr
+description:en: The ingredients language is set to Turkish, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ro contains it
+description:en: The ingredients language is set to Romanian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch id contains en
+description:en: The ingredients language is set to Indonesian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hu contains de
+description:en: The ingredients language is set to Hungarian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch xx contains fr
+description:en: The ingredients language is set to Unknown, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cs contains de
+description:en: The ingredients language is set to Czech, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sv contains de
+description:en: The ingredients language is set to Swedish, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ru contains de
+description:en: The ingredients language is set to Russian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pl contains de
+description:en: The ingredients language is set to Polish, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sv contains fr
+description:en: The ingredients language is set to Swedish, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch gl contains es
+description:en: The ingredients language is set to Galician, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch bg contains de
+description:en: The ingredients language is set to Bulgarian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch zh contains fr
+description:en: The ingredients language is set to Chinese, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pl contains fr
+description:en: The ingredients language is set to Polish, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch lv contains en
+description:en: The ingredients language is set to Latvian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch et contains en
+description:en: The ingredients language is set to Estonian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch xx contains de
+description:en: The ingredients language is set to Unknown, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch da contains nl
+description:en: The ingredients language is set to Danish, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch xx contains es
+description:en: The ingredients language is set to Unknown, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch uk contains de
+description:en: The ingredients language is set to Ukrainian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sk contains en
+description:en: The ingredients language is set to Slovak, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ru contains fr
+description:en: The ingredients language is set to Russian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ro contains es
+description:en: The ingredients language is set to Romanian, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ja contains en
+description:en: The ingredients language is set to Japanese, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ca contains en
+description:en: The ingredients language is set to Catalan, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch uk contains en
+description:en: The ingredients language is set to Ukrainian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch el contains de
+description:en: The ingredients language is set to Greek, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cs contains fr
+description:en: The ingredients language is set to Czech, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ro contains nl
+description:en: The ingredients language is set to Romanian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pt contains it
+description:en: The ingredients language is set to Portuguese, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hr contains en
+description:en: The ingredients language is set to Croatian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch el contains fr
+description:en: The ingredients language is set to Greek, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch da contains fr
+description:en: The ingredients language is set to Danish, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch bg contains fr
+description:en: The ingredients language is set to Bulgarian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ja contains fr
+description:en: The ingredients language is set to Japanese, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch bg contains it
+description:en: The ingredients language is set to Bulgarian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sr contains en
+description:en: The ingredients language is set to Serbian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sq contains en
+description:en: The ingredients language is set to Albanian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sl contains en
+description:en: The ingredients language is set to Slovenian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pt contains nl
+description:en: The ingredients language is set to Portuguese, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hu contains fr
+description:en: The ingredients language is set to Hungarian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cs contains it
+description:en: The ingredients language is set to Czech, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ca contains pt
+description:en: The ingredients language is set to Catalan, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch xx contains it
+description:en: The ingredients language is set to Unknown, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch tr contains nl
+description:en: The ingredients language is set to Turkish, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sl contains de
+description:en: The ingredients language is set to Slovenian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch lt contains de
+description:en: The ingredients language is set to Lithuanian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hu contains it
+description:en: The ingredients language is set to Hungarian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hr contains de
+description:en: The ingredients language is set to Croatian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fi contains de
+description:en: The ingredients language is set to Finnish, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fa contains en
+description:en: The ingredients language is set to Persian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch vi contains en
+description:en: The ingredients language is set to Vietnamese, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sv contains nl
+description:en: The ingredients language is set to Swedish, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ru contains it
+description:en: The ingredients language is set to Russian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pl contains nl
+description:en: The ingredients language is set to Polish, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch lt contains fr
+description:en: The ingredients language is set to Lithuanian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ko contains en
+description:en: The ingredients language is set to Korean, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hr contains fr
+description:en: The ingredients language is set to Croatian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch gl contains it
+description:en: The ingredients language is set to Galician, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch gl contains en
+description:en: The ingredients language is set to Galician, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch el contains nl
+description:en: The ingredients language is set to Greek, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch el contains es
+description:en: The ingredients language is set to Greek, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ca contains de
+description:en: The ingredients language is set to Catalan, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sq contains de
+description:en: The ingredients language is set to Albanian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sk contains fr
+description:en: The ingredients language is set to Slovak, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sk contains de
+description:en: The ingredients language is set to Slovak, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ru contains es
+description:en: The ingredients language is set to Russian, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pl contains es
+description:en: The ingredients language is set to Polish, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch mk contains en
+description:en: The ingredients language is set to Macedonian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch gl contains pt
+description:en: The ingredients language is set to Galician, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch gl contains de
+description:en: The ingredients language is set to Galician, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch el contains it
+description:en: The ingredients language is set to Greek, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch zh contains nl
+description:en: The ingredients language is set to Chinese, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch zh contains de
+description:en: The ingredients language is set to Chinese, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch uk contains nl
+description:en: The ingredients language is set to Ukrainian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch uk contains fr
+description:en: The ingredients language is set to Ukrainian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch tr contains es
+description:en: The ingredients language is set to Turkish, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sq contains it
+description:en: The ingredients language is set to Albanian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sk contains nl
+description:en: The ingredients language is set to Slovak, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sk contains it
+description:en: The ingredients language is set to Slovak, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ru contains pt
+description:en: The ingredients language is set to Russian, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ru contains nl
+description:en: The ingredients language is set to Russian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ms contains en
+description:en: The ingredients language is set to Malay, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch lt contains it
+description:en: The ingredients language is set to Lithuanian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch in contains en
+description:en: The ingredients language is set to in, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fy contains nl
+description:en: The ingredients language is set to Frisian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fa contains de
+description:en: The ingredients language is set to Persian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch eu contains fr
+description:en: The ingredients language is set to Basque, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch eu contains de
+description:en: The ingredients language is set to Basque, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch da contains es
+description:en: The ingredients language is set to Danish, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cs contains nl
+description:en: The ingredients language is set to Czech, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch bs contains en
+description:en: The ingredients language is set to Bosnian, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch bg contains nl
+description:en: The ingredients language is set to Bulgarian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch tt contains en
+description:en: The ingredients language is set to Tatar, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch tr contains pt
+description:en: The ingredients language is set to Turkish, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch th contains fr
+description:en: The ingredients language is set to Thai, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sr contains de
+description:en: The ingredients language is set to Serbian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sq contains pt
+description:en: The ingredients language is set to Albanian, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sl contains nl
+description:en: The ingredients language is set to Slovenian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sl contains fr
+description:en: The ingredients language is set to Slovenian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sl contains es
+description:en: The ingredients language is set to Slovenian, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nb contains nl
+description:en: The ingredients language is set to Norwegian Bokmål, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nb contains fr
+description:en: The ingredients language is set to Norwegian Bokmål, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch nb contains de
+description:en: The ingredients language is set to Norwegian Bokmål, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch lb contains fr
+description:en: The ingredients language is set to Luxembourgish, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch lb contains de
+description:en: The ingredients language is set to Luxembourgish, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch km contains en
+description:en: The ingredients language is set to Khmer, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ka contains de
+description:en: The ingredients language is set to Georgian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch id contains fr
+description:en: The ingredients language is set to Indonesian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hu contains pt
+description:en: The ingredients language is set to Hungarian, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hr contains it
+description:en: The ingredients language is set to Croatian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hr contains es
+description:en: The ingredients language is set to Croatian, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch he contains en
+description:en: The ingredients language is set to Hebrew, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch gl contains fr
+description:en: The ingredients language is set to Galician, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fi contains it
+description:en: The ingredients language is set to Finnish, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fi contains fr
+description:en: The ingredients language is set to Finnish, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fa contains fr
+description:en: The ingredients language is set to Persian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch eu contains nl
+description:en: The ingredients language is set to Basque, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch eu contains it
+description:en: The ingredients language is set to Basque, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch eu contains es
+description:en: The ingredients language is set to Basque, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch et contains pt
+description:en: The ingredients language is set to Estonian, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch da contains it
+description:en: The ingredients language is set to Danish, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ca contains nl
+description:en: The ingredients language is set to Catalan, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch bn contains en
+description:en: The ingredients language is set to Bengali, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch zh contains pt
+description:en: The ingredients language is set to Chinese, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch zh contains it
+description:en: The ingredients language is set to Chinese, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch zh contains es
+description:en: The ingredients language is set to Chinese, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch vi contains fr
+description:en: The ingredients language is set to Vietnamese, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch uk contains es
+description:en: The ingredients language is set to Ukrainian, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch tl contains en
+description:en: The ingredients language is set to Tagalog, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sv contains it
+description:en: The ingredients language is set to Swedish, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sv contains es
+description:en: The ingredients language is set to Swedish, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sr contains it
+description:en: The ingredients language is set to Serbian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sr contains fr
+description:en: The ingredients language is set to Serbian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sq contains fr
+description:en: The ingredients language is set to Albanian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sq contains es
+description:en: The ingredients language is set to Albanian, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sn contains en
+description:en: The ingredients language is set to Shona, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch sk contains es
+description:en: The ingredients language is set to Slovak, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch se contains en
+description:en: The ingredients language is set to Northern Sami, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch se contains de
+description:en: The ingredients language is set to Northern Sami, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ro contains pt
+description:en: The ingredients language is set to Romanian, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch rn contains nl
+description:en: The ingredients language is set to Kirundi, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch pl contains pt
+description:en: The ingredients language is set to Polish, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ny contains en
+description:en: The ingredients language is set to Chichewa, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch no contains nl
+description:en: The ingredients language is set to Norwegian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch no contains de
+description:en: The ingredients language is set to Norwegian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch mt contains pt
+description:en: The ingredients language is set to Maltese, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch mt contains es
+description:en: The ingredients language is set to Maltese, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch mk contains it
+description:en: The ingredients language is set to Macedonian, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch mk contains de
+description:en: The ingredients language is set to Macedonian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch mg contains es
+description:en: The ingredients language is set to Malagasy, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch lb contains nl
+description:en: The ingredients language is set to Luxembourgish, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch la contains de
+description:en: The ingredients language is set to Latin, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ko contains fr
+description:en: The ingredients language is set to Korean, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ja contains it
+description:en: The ingredients language is set to Japanese, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch ja contains de
+description:en: The ingredients language is set to Japanese, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch iw contains en
+description:en: The ingredients language is set to Hebrew, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch id contains nl
+description:en: The ingredients language is set to Indonesian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch id contains de
+description:en: The ingredients language is set to Indonesian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hu contains es
+description:en: The ingredients language is set to Hungarian, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch hi contains fr
+description:en: The ingredients language is set to Hindi, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch he contains it
+description:en: The ingredients language is set to Hebrew, but the ingredients text appears to contain Italian.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch he contains de
+description:en: The ingredients language is set to Hebrew, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch fa contains nl
+description:en: The ingredients language is set to Persian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch eu contains en
+description:en: The ingredients language is set to Basque, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch et contains fr
+description:en: The ingredients language is set to Estonian, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch et contains de
+description:en: The ingredients language is set to Estonian, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch eo contains de
+description:en: The ingredients language is set to Esperanto, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cy contains fr
+description:en: The ingredients language is set to Welsh, but the ingredients text appears to contain French.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cy contains en
+description:en: The ingredients language is set to Welsh, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cs contains pt
+description:en: The ingredients language is set to Czech, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch cs contains es
+description:en: The ingredients language is set to Czech, but the ingredients text appears to contain Spanish.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch co contains en
+description:en: The ingredients language is set to Corsican, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch be contains nl
+description:en: The ingredients language is set to Belarusian, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch az contains en
+description:en: The ingredients language is set to Azerbaijani, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch as contains en
+description:en: The ingredients language is set to Assamese, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch am contains en
+description:en: The ingredients language is set to Amharic, but the ingredients text appears to contain English.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch af contains nl
+description:en: The ingredients language is set to Afrikaans, but the ingredients text appears to contain Dutch.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch af contains de
+description:en: The ingredients language is set to Afrikaans, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch aa contains de
+description:en: The ingredients language is set to Afar, but the ingredients text appears to contain German.
+fix_action:en: add_ingredients_text
+
+< en: Ingredients warnings
+en: Ingredients language mismatch es contains pt
+description:en: The ingredients language is set to Spanish, but the ingredients text appears to contain Portuguese.
+fix_action:en: add_ingredients_text
+
 
 
 
@@ -12281,7 +13556,7 @@ description:fr: Par rapport à la moyenne de la catégorie, la valeur en graisse
 description:hr: U usporedbi s prosjekom kategorije, vrijednost zasićenih masti je abnormalno visoka.
 description:hu: A kategória átlagához képest a telített zsír érték rendellenesen magas.
 description:it: Rispetto alla media della categoria, il valore dei grassi saturi è anormalmente alto.
-description:ja: カテゴリーの平均と比較して、飽和脂肪の値が異常に高いです。
+description:ja: カテゴリーの平均と比較して、飽和脂肪酸の値が異常に高いです。
 description:ko: 카테고리 평균과 비교할 때 포화 지방 수치가 비정상적으로 높습니다.
 description:lt: Palyginti su kategorijos vidurkiu, sočiųjų riebalų vertė yra neįprastai didelė.
 description:lv: Salīdzinot ar kategorijas vidējo rādītāju, piesātināto tauku vērtība ir neparasti augsta.
@@ -12582,7 +13857,7 @@ description:fr: Par rapport à la moyenne de la catégorie, la valeur en graisse
 description:hr: U usporedbi s prosjekom kategorije, vrijednost zasićenih masti je abnormalno niska.
 description:hu: A kategória átlagához képest a telített zsír érték rendellenesen alacsony.
 description:it: Rispetto alla media della categoria, il valore dei grassi saturi è anormalmente basso.
-description:ja: カテゴリーの平均と比較して、飽和脂肪の値が異常に低いです。
+description:ja: カテゴリーの平均と比較して、飽和脂肪酸の値が異常に低いです。
 description:ko: 카테고리 평균과 비교할 때 포화 지방 수치가 비정상적으로 낮습니다.
 description:nl: In vergelijking met het gemiddelde van de categorie is de waarde van verzadigd vet abnormaal laag.
 description:no: Sammenlignet med kategorigjennomsnittet er verdien for mettet fett unormalt lav.

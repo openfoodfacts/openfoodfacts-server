@@ -631,7 +631,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--mead-acid-', '--erucic-acid-',
 			'--nervonic-acid-', '-trans-fat-',
 			'-cholesterol-', '-gamma-oryzanol-',
-			'!carbohydrates', '-sugars',
+			'!carbohydrates', '!-sugars',
 			'--added-sugars-', '--sucrose-',
 			'--glucose-', '--fructose-',
 			'--galactose-', '--lactose-',
