@@ -2238,8 +2238,6 @@ Text to analyze
 				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
-					$percent_or_quantity_value
-						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 					$debug_ingredients and $log->debug(
 						"percent found after",
 						{
@@ -2250,6 +2248,8 @@ Text to analyze
 						}
 					) if $log->is_debug();
 					$ingredient = $`;
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				}
 
 				# 50% beef, 20g of oranges
@@ -2258,8 +2258,6 @@ Text to analyze
 				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
-					$percent_or_quantity_value
-						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 					$debug_ingredients and $log->debug(
 						"percent found before",
 						{
@@ -2270,6 +2268,8 @@ Text to analyze
 						}
 					) if $log->is_debug();
 					$ingredient = $';
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				}
 
 				# remove * and other chars before and after the name of ingredients
@@ -6358,8 +6358,8 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
 		my $percent_or_quantity_regexp = $percent_or_quantity_regexps{$ingredients_lc};
-		# Make the 2 capture groups (for number and for % or unit, starting with (\d and (\% non capturing
-		$percent_or_quantity_regexp =~ s/\(\\/\(?:\\/g;
+		# Make capturing groups non-capturing, while keeping escaped and special (?...) groups unchanged
+		$percent_or_quantity_regexp =~ s/\((?!\?)/(?:/g;
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
 			my $category_regexp = "";
