@@ -1483,12 +1483,27 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 
 	my ($percent, $quantity, $quantity_g);
 
+	# Normalize protected solidus (U+2044) and fullwidth solidus back to '/'
+	# and drop internal whitespace in units (e.g. "mg / kg" -> "mg/kg").
+	$percent_or_quantity_unit =~ s/[\N{U+2044}\N{U+FF0F}]/\//g;
+	$percent_or_quantity_unit =~ s/\s+//g;
+
+	# Normalize decimal separators in the numeric value (plain comma and U+201A lower comma
+	# used to protect decimals from list splitting) to a dot for storage / math.
+	$percent_or_quantity_value =~ s/[\N{U+201A},]/./g;
+
 	if ($percent_or_quantity_unit =~ /\%/) {
 		$percent = $percent_or_quantity_value;
 	}
 	else {
 		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
-		$quantity_g = normalize_quantity($quantity);
+		# Only convert simple mass/volume units to grams.
+		# Concentrations (mg/kg, UI/kg, …) and activity units (IU, UFC, …) must not
+		# get a quantity_g: normalize_quantity would treat "180 mg" as absolute mass
+		# and lose the denominator, or return undef/wrong values for IU/UFC.
+		if ($percent_or_quantity_unit =~ /^(?:g|gr|mg|kg|ml|cl|dl|l|mcg|µg|ug)$/i) {
+			$quantity_g = normalize_quantity($quantity);
+		}
 	}
 
 	return ($percent, $quantity, $quantity_g);
@@ -1596,6 +1611,10 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# replace by a lower comma ‚
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
+
+	# Protect mg/kg, IU/kg, UFC/g, … so '/' is not treated as an ingredient separator
+	# (issue #6132). Additive lists like E322/E333 are left untouched.
+	$text = protect_compound_unit_slashes($text);
 
 	my $and = $and{$ingredients_lc} || " and ";
 

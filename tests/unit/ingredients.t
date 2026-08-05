@@ -957,7 +957,44 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => 'svensk jordgubbe, svenska jordgubbar',
 		}
 
-	]
+	],
+
+	# Concentrations as mg/kg must not split on '/' (issue #6132)
+	# Simplified Spanish reproducer (avoids "Ac." abbreviation which hits period+space separators)
+	[
+		"es-mg-per-kg",
+		{
+			lc => "es",
+			ingredients_text =>
+				"Hierro 30 mg/kg, ácido fólico 2,2 mg/kg, tiamina 6,3 mg/kg, riboflavina 1,3 mg/kg, niacina 13 mg/kg",
+		}
+	],
+	# French petfood dosages (Open Pet Food Facts / related to #6132)
+	[
+		"fr-petfood-mg-per-kg",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"extrait de yucca 180 mg/kg, fructooligosaccharides 480 mg/kg, glucosamine 180 mg/kg, méthylsulfométhane 180 mg/kg, sulfate de chondroïtine 125 mg/kg, mannanoligosaccharides 120 mg/kg",
+		}
+	],
+	# Activity / count units (vitamins IU/UI/I.E, probiotics UFC) — no quantity_g
+	[
+		"fr-vitamin-ui-and-ufc",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Vitamine A 14000 U.I., Vitamine D 500 I.E, Vitamine E 10 IU, Enterococcus faecium 1000000000 UFC",
+		}
+	],
+	# Slash between additives must still separate / stay as additive enumeration
+	[
+		"fr-additive-slash-still-works",
+		{
+			lc => "fr",
+			ingredients_text => "correcteurs d'acidité : E322/E333, sel",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
