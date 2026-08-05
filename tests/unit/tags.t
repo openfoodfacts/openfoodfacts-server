@@ -600,6 +600,8 @@ is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-y
 is(display_taxonomy_tag("en", "ingredients", "en:apple"), "apple");
 
 is([get_tag_with_parents("test", "fr:yaourts-au-citron-alleges")],
-	["fr:yaourts-au-citron-alleges", "en:lemon-yogurts", "fr:yaourts-alleges", "en:yogurts"]);
+	["fr:yaourts-au-citron-alleges", "en:lemon-yogurts", "en:yogurts", "fr:yaourts-alleges"]);
+
+is([get_tag_with_parents("test", "en:z-yogurts")], ["en:z-yogurts", "en:yogurts", "en:z"]);
 
 done_testing();

@@ -129,3 +129,9 @@ fr: Téléphones intelligents
 
 en: Entry with (parentheses) and some *!#{}@$ characters, synonym with *%@$(]% chars
 
+# Used to test ordering of parents in get_tags_parents()
+en: Z
+
+< en: yogurts
+< en: z
+en: Z Yogurts

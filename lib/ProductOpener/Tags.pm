@@ -2930,27 +2930,20 @@ sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
 =head2 get_tag_with_parents ($tagtype, $tagid)
 
 Given a canonical tagid, return a list of the tag and all its parents,
-sorted by level (most specific tag first)
+sorted by closeness to the tag (the tag itself first, then its parents, then the parents of the parents, etc.)
+and alphabetical order for parents with the same closeness.
 
 =cut
 
 sub get_tag_with_parents ($tagtype, $tagid) {
 
-	my %tags = ($tagid => 1);
+	my @tag_with_parents = ($tagid);
 
 	if (defined $all_parents{$tagtype}{$tagid}) {
-		foreach my $parentid (@{$all_parents{$tagtype}{$tagid}}) {
-			$tags{$parentid} = 1;
-		}
+		push @tag_with_parents, @{$all_parents{$tagtype}{$tagid}};
 	}
 
-	my @sorted_list = sort {
-		(((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0)
-			<=> ((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0))
-			|| ($a cmp $b)
-	} keys %tags;
-
-	return @sorted_list;
+	return @tag_with_parents;
 }
 
 sub gen_ingredients_tags_hierarchy_taxonomy ($tag_lc, $tags_list) {
