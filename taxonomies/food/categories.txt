@@ -76126,9 +76126,25 @@ en: Nasi goreng seasoning mixes
 en: Bami goreng seasoning mixes
 
 < en: Condiments
+en: Condiment pastes
+da: Krydderipastaer
+de: Gewürzmittelpasten
+es: Pastas de condimentos
+fi: Mausteettahnat
+fr: Pâtes de condiments
+hr: Začini paste, Začin paste
+it: Pasta di condimenti
+lt: Pagardai pasta
+nl: Smaakmakerpastas
+pl: Pasty przyprawa
+sv: Smaktillsatspastor
+description:en: Pastes primarily used as a condiment.
+incompatible_with:en: en:Spice blends
+
+< en: Condiment pastes
 en: Nasi goreng pastes
 
-< en: Condiments
+< en: Condiment pastes
 < en: Fish preparations
 en: Anchovy paste
 de: Sardellenpaste
@@ -76141,7 +76157,7 @@ ja: アンチョビペースト
 nl: Ansjovispasta
 wikidata:en: Q3897482
 
-< en: Condiments
+< en: Condiment pastes
 en: Wasabi pastes
 de: Wasabi Pasten
 es: Pastas de wasabi
@@ -76152,12 +76168,12 @@ nl: Wasabipastas
 pl: Pasty wasabi
 wikidata:en: Q68437707
 
-< en: Condiments
+< en: Condiment pastes
 en: Curry pastes, Curry paste
 da: Karrypastaer
 de: Currypasten, Currypaste
 es: Pasta de curry
-fi: currytahnat
+fi: Currytahnat
 fr: Pâtes de curry, Curry paste
 hr: Curry paste
 it: Pasta di curry
@@ -76228,6 +76244,48 @@ wikidata:en: Q67201117
 
 < en: Curry pastes
 en: Vindaloo curry pastes
+
+< en: Condiment pastes
+en: Masala pastes
+da: Masalapastaer
+de: Masalapasten, Masalapaste
+es: Pastas de masala, Pasta de masala
+fi: Masalatahnat
+fr: Pâtes de masala, Masala paste
+hr: Masala paste
+it: Pasta di masala
+lt: Masala pasta
+nb: Masalapastaer
+nl: Masala pastas, Masalapastas
+nn: Masalapastaer, Masalapastaar
+pl: Pasty masala
+sv: Masalapastor
+description:en: Pastes based on masala spice blends.
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q654253
+
+< en: Masala pastes
+en: Chaat masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q1068141
+
+< en: Masala pastes
+en: Garam masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q14624
+
+< en: Masala pastes
+en: Kashmiri masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q5958447
+
+< en: Masala pastes
+en: Tandoori masala pastes
+# wikidata item doesn’t distinguish between pastes and (dry) spice blends
+wikidata:en: Q1517449
+
+< en: Masala pastes
+en: Tikka masala pastes
 
 # don't put this category in vinegars, those products CONTAIN vinegar, they ARE NOT vinegars
 < en: Condiments
@@ -79921,6 +79979,7 @@ ciqual_proxy_food_code:en: 11056
 ciqual_proxy_food_name:en: Mix of 4 spices
 ciqual_proxy_food_name:fr: Quatre épices
 description:en: Blends of 2 or more spices.
+incompatible_with:en: en:Condiment pastes
 wikidata:en: Q1521067
 
 < en: Spice blends
@@ -115201,6 +115260,7 @@ hr: Zeleni češnjak
 hu: Zöld foghagyma
 nl: Groene knoflook
 
+< en: Condiment pastes
 < en: Garlic
 en: Garlic paste
 fr: Pâtes d'ail, purées d'ail, pâte d'ail, purée d'ail
