@@ -4,6 +4,18 @@
       {
          "additive_class" : "en:emulsifier",
          "id" : "en:e322",
+         "ingredients" : [
+            {
+               "id" : "en:sunflower-lecithin",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 90,
+               "percent_max" : 100,
+               "percent_min" : 80,
+               "text" : "lécithines de tournesol",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
          "is_in_taxonomy" : 1,
          "percent_estimate" : 90,
          "percent_max" : 100,
@@ -64,7 +76,6 @@
    ],
    "ingredients_analysis" : {
       "en:maybe-vegetarian" : [
-         "en:e322",
          "en:flavouring"
       ],
       "en:non-vegan" : [
@@ -77,9 +88,9 @@
       "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 5,
+   "ingredients_n" : 6,
    "ingredients_n_tags" : [
-      "5",
+      "6",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -87,7 +98,8 @@
       "en:flavouring",
       "en:wheat-flour",
       "en:sugar",
-      "en:butterfat"
+      "en:butterfat",
+      "en:sunflower-lecithin"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -105,7 +117,9 @@
       "en:oil-and-fat",
       "en:fat",
       "en:dairy",
-      "en:milkfat"
+      "en:milkfat",
+      "en:sunflower-lecithin",
+      "en:e322i"
    ],
    "ingredients_text" : "émulsifiant : lécithines (tournesol), arôme)(UE), farine de blé 33% (France), sucre, beurre concentré* 6,5% (France)",
    "ingredients_with_specified_percent_n" : 0,
@@ -114,16 +128,18 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:e322",
-      "en:flavouring"
+      "en:flavouring",
+      "en:sunflower-lecithin"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
       "en:butterfat",
       "en:e322",
-      "en:flavouring"
+      "en:flavouring",
+      "en:sunflower-lecithin"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 3,
-   "known_ingredients_n" : 5,
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 6,
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
