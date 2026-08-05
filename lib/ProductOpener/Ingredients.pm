@@ -5193,14 +5193,15 @@ my %phrases_after_ingredients_list = (
 	en => [
 		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
+		'allergy advice',
 		'analytical constituents',    # pet food
 		'best before',    #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
 		'cooking time',
-		'for allergens',
+		'for allergens',    # usually preceded by "allergy advice" in UK
 		'instruction',
-		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
+		'nutrition(al)?[:]? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
 		# "nutritional" on its own would match the ingredient "nutritional yeast" etc.
 		'of whlch saturates',
