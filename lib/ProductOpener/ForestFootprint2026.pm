@@ -491,7 +491,7 @@ sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_re
 			$ingredient_id = $tag;
 			last;
 		}
-	}		
+	}
 
 	if (not exists $forest_footprint_2026_data{ingredients}{$ingredient_id}) {
 		$log->debug("ingredient not in forest footprint 2026 data", {ingredient_id => $ingredient_id})
