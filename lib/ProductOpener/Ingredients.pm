@@ -122,7 +122,7 @@ use ProductOpener::Products qw/remove_fields/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Units qw/normalize_quantity/;
+use ProductOpener::Units qw/normalize_quantity get_standard_unit/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
@@ -847,14 +847,14 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			# Add percent and quantity fields
 
 			if (defined $percent_or_quantity_value) {
-				my ($percent, $quantity, $quantity_g)
-					= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
-					$percent_or_quantity_unit);
+				my ($percent, $quantity, $quantity_g, $quantity_ml)
+					= get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id,
+					$percent_or_quantity_value, $percent_or_quantity_unit);
 
 				defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
 				defined $quantity and $specific_ingredients_ref->{quantity} = $quantity;
 				defined $quantity_g and $specific_ingredients_ref->{quantity_g} = $quantity_g + 0;
-
+				defined $quantity_ml and $specific_ingredients_ref->{quantity_ml} = $quantity_ml + 0;
 			}
 
 			# Add origin field
@@ -1442,11 +1442,13 @@ sub get_or_select_ingredients_lc ($product_ref) {
 	return $product_ref->{ingredients_lc} || select_ingredients_lc($product_ref);
 }
 
-=head2 get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit)
+=head2 get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id, $percent_or_quantity_value, $percent_or_quantity_unit)
 
 Used to assign percent or quantity for strings parsed with $percent_or_quantity_regexp.
 
 =head3 Arguments
+
+=head3 ingredient_id Canonical id of the ingredient in the ingredients taxonomy. Needed to get density for liquids.
 
 =head4 percent_or_quantity_value
 
@@ -1464,7 +1466,12 @@ If the unit is not %, quantity is a concatenation of the quantity value and unit
 
 =head4 quantity_g
 
-Normalized quantity in grams.
+Normalized quantity in grams. For liquids, this is derived from quantity_ml.
+We default to a density of 1g per ml unless the ingredient has the density_g_per_ml:en: property defined.
+
+=head4 quantity_ml
+
+Normalized quantity in ml.
 
 =head3 Example
 
@@ -1475,23 +1482,38 @@ if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 	$percent_or_quantity_unit = $2;
 
 	my ($percent, $quantity, $quantity_g)
-		= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
+		= get_ingredient_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
 
 =cut
 
-sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value, $percent_or_quantity_unit) {
+sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, $percent_or_quantity_value,
+	$percent_or_quantity_unit)
+{
 
-	my ($percent, $quantity, $quantity_g);
+	my ($percent, $quantity, $quantity_g, $quantity_ml);
 
 	if ($percent_or_quantity_unit =~ /\%/) {
 		$percent = $percent_or_quantity_value;
 	}
 	else {
 		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
-		$quantity_g = normalize_quantity($quantity);
+		my $standard_unit = get_standard_unit($percent_or_quantity_unit);
+		if (defined $standard_unit) {
+			my $normalized_quantity = normalize_quantity($quantity);
+			if ($standard_unit eq 'g') {
+				$quantity_g = $normalized_quantity;
+			}
+			elsif ($standard_unit eq 'ml') {
+				$quantity_ml = $normalized_quantity;
+				# Check if the ingredient or its parent have the density_g_per_ml:en property
+				my $ingredient_density
+					= get_inherited_property("ingredients", $ingredient_id, "density_g_per_ml:en") || 1;
+				$quantity_g = $quantity_ml * $ingredient_density;
+			}
+		}
 	}
 
-	return ($percent, $quantity, $quantity_g);
+	return ($percent, $quantity, $quantity_g, $quantity_ml);
 }
 
 =head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
@@ -2809,18 +2831,14 @@ Text to analyze
 				$ingredient{is_in_taxonomy} = $is_in_taxonomy;
 
 				if (defined $percent_or_quantity_value) {
-					my ($percent, $quantity, $quantity_g)
-						= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
-						$percent_or_quantity_unit);
-					if (defined $percent) {
-						$ingredient{percent} = $percent + 0;
-					}
-					if (defined $quantity) {
-						$ingredient{quantity} = $quantity;
-					}
-					if (defined $quantity_g) {
-						$ingredient{quantity_g} = $quantity_g;
-					}
+					my ($percent, $quantity, $quantity_g, $quantity_ml)
+						= get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id,
+						$percent_or_quantity_value, $percent_or_quantity_unit);
+
+					defined $percent and $ingredient{percent} = $percent + 0;
+					defined $quantity and $ingredient{quantity} = $quantity;
+					defined $quantity_g and $ingredient{quantity_g} = $quantity_g + 0;
+					defined $quantity_ml and $ingredient{quantity_ml} = $quantity_ml + 0;
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;

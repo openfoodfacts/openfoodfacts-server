@@ -19,6 +19,10 @@
 # vegetarian:en     can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
 # from_palm_oil:en  can have values yes, no, maybe - in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
 
+# density_g_per_ml:en:  Used to compute weight for ingredients indicated by volume (e.g. 5cl sunflower oil, 1L milk)
+# unless otherwise noted, densities listed come from https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
+# only densities significantly different from 1 are included, as there is often a lot of variation in densities in different sources
+
 ## Eurocode properties
 
 # e.g. for palm heart
@@ -2760,6 +2764,7 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 19051
 ciqual_proxy_food_name:en: Milk, skimmed, pasteurised
 ciqual_proxy_food_name:fr: Lait écrémé, pasteurisé
+density_g_per_ml:en: 1.03
 ecobalyse:en: 8f3863e7-f981-4367-90a2-e1aaa096a6e0
 ecobalyse_labels_en_organic:en: 2bf307e8-8cb0-400b-a4f1-cf615d9e96f4
 vegan:en: no
@@ -14413,11 +14418,9 @@ zh: 油
 # yue:油
 # zh-hans:油
 # zh-hant:油
+density_g_per_ml:en: 0.92
 wikidata:en: Q42962
 wikipedia:en: https://en.wikipedia.org/wiki/Cooking_oil
-
-# description:en:Hydrogenation converts liquid vegetable oils into solid or semi-solid fats, such as those present in margarine. Changing the degree of saturation of the fat changes some important physical properties, such as the melting range, which is why liquid oils become semi-solid.
-
 
 # nova:en:hydrogenated-oil
 # processing:en: en:hydrogenated
@@ -14433,6 +14436,7 @@ hu: hidrogénezett olaj
 it: olio idrogenato
 nb: hydrogenert olje
 nl: Gehydrogeneerde olie
+description:en: Hydrogenation converts liquid vegetable oils into solid or semi-solid fats, such as those present in margarine. Changing the degree of saturation of the fat changes some important physical properties, such as the melting range, which is why liquid oils become semi-solid.
 wikidata:en: Q57656844
 wikipedia:en: https://en.wikipedia.org/wiki/Hydrogenation#Food_industry
 
@@ -14962,6 +14966,7 @@ tr: Bitkisel yağ
 uk: Рослинні жири й олії
 vi: Dầu thực vật
 zh: 植物油
+density_g_per_ml:en: 0.92
 # roa-rup:Untulemnu
 # sco:Vegetable ile
 wikipedia:en: https://en.wikipedia.org/wiki/Vegetable_oil
@@ -15599,6 +15604,7 @@ tr: palmiye yağı ve yağ
 uk: Пальмова олія і жири
 ciqual_proxy_food_code:en: 16129
 ciqual_proxy_food_name:en: Palm oil
+density_g_per_ml:en: 0.89
 ecobalyse:en: 45658c32-66d9-4305-a34b-21d6a4cef89c
 from_palm_oil:en: yes
 
@@ -17605,6 +17611,7 @@ vi: Dầu hướng dương
 zh: 葵花籽植物油
 ciqual_food_code:en: 17440
 ciqual_food_name:en: Sunflower oil
+density_g_per_ml:en: 0.96
 description:en: SUNFLOWER OIL is the non-volatile oil pressed from the seeds of sunflower (Helianthus annuus).
 ecobalyse:en: 3cfab110-363e-442a-9170-1af337fe9ea3
 ecobalyse_labels_en_organic:en: 64fb23f2-0cac-403c-bbfa-1973c9a0ea40
@@ -27557,6 +27564,8 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 # this better reflects what is used in practice
 ciqual_proxy_food_code:en: 9435
 ciqual_proxy_food_name:fr: Farine de blé
+# density of flour varies a lot depending on sources, even for a specific type of flour like wheat flour. 0.6 is a rough average from https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
+density_g_per_ml:en: 0.6
 #ciqual_proxy_food_code:en: 9410
 #ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
 # Ecobalyse flour is Wheat flour at industrial mill
@@ -31075,6 +31084,8 @@ ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
 comment:en: Generic sugar is vegan:maybe because some cane sugar is refined using bone char (charred cattle bones) as a decolorizing filter. This is primarily a North American practice. Beet sugar, organic sugar, and unrefined sugars never use bone char. Vegetarian status remains yes as bone char is a processing aid and the final product contains no animal-derived material.
+# density of sugar varies a lot depending on sources. 0.9 is one of the values from https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
+density_g_per_ml:en: 0.9
 ecobalyse_proxy:en: 5fc8032f-ca1c-4497-844b-f9213075eab3
 ecobalyse_proxy_name:fr: Sucre de betterave par défaut (2025)
 vegan:en: maybe
@@ -31854,11 +31865,11 @@ pt: açúcar de beterraba
 sv: betsocker
 carbon_footprint_fr_foodges_ingredient:fr: Sucre de betterave
 carbon_footprint_fr_foodges_value:fr: 0.7
+ecobalyse:en: 5fc8032f-ca1c-4497-844b-f9213075eab3
+ecobalyse_name:fr: Sucre de betterave par défaut (2025)
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q9197055
-ecobalyse:en: 5fc8032f-ca1c-4497-844b-f9213075eab3
-ecobalyse_name:fr: Sucre de betterave par défaut (2025)
 
 < en: sugar
 en: palm sugar
@@ -37945,6 +37956,7 @@ ro: Suc de fructe
 ru: Фруктовый сок
 sv: Fruktjuice
 uk: Фруктовий сік
+density_g_per_ml:en: 1.06
 vegan:en: yes
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Juice
@@ -55892,19 +55904,19 @@ zh: 蒜
 ciqual_proxy_food_code:en: 11000
 ciqual_proxy_food_name:en: Garlic, fresh
 ciqual_proxy_food_name:fr: Ail, cru
+ecobalyse:en: d8c8a918-a11a-502f-a5cf-90052d96c133
+ecobalyse_labels_en_organic:en: 12f8ffd4-cbc0-5d7b-ba0e-9a0acb3e6918
+ecobalyse_labels_en_organic_name:fr: Ail UE
+ecobalyse_name:fr: Ail Origine Inconnue
+ecobalyse_origins_en_european-union:en: 00d5fa04-b2fd-5a3c-a5fa-c87598ce8a53
+ecobalyse_origins_en_european-union_name:fr: Ail UE
+ecobalyse_origins_en_france:en: 06f219a1-ffb3-44ae-ba23-6f9ad7baff39
+ecobalyse_origins_en_france_name:fr: Ail FR
 eurocode_2_group_3:en: 8.30.40
 usda_ndb_proxy_code:en: 11215
 usda_ndb_proxy_name:en: Garlic, raw
 wikidata:en: Q21546392
 wikipedia:en: https://en.wikipedia.org/wiki/Garlic
-ecobalyse:en: d8c8a918-a11a-502f-a5cf-90052d96c133
-ecobalyse_name:fr: Ail Origine Inconnue
-ecobalyse_origins_en_france:en: 06f219a1-ffb3-44ae-ba23-6f9ad7baff39
-ecobalyse_origins_en_france_name:fr: Ail FR
-ecobalyse_origins_en_european-union:en: 00d5fa04-b2fd-5a3c-a5fa-c87598ce8a53
-ecobalyse_origins_en_european-union_name:fr: Ail UE
-ecobalyse_labels_en_organic: 12f8ffd4-cbc0-5d7b-ba0e-9a0acb3e6918
-ecobalyse_labels_en_organic_name:fr: Ail UE
 
 < en: garlic
 en: tender garlic
