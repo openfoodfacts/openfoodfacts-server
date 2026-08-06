@@ -6,10 +6,9 @@
          "ecobalyse_code" : "endive-eu",
          "id" : "en:belgian-endive",
          "is_in_taxonomy" : 1,
-         "percent" : 40,
-         "percent_estimate" : 40,
-         "percent_max" : 40,
-         "percent_min" : 40,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
          "text" : "endives",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -20,9 +19,9 @@
          "id" : "en:cooked-ham",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
-         "percent_estimate" : 30,
-         "percent_max" : 40,
-         "percent_min" : 20,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
          "text" : "jambon cuit",
          "vegan" : "no",
          "vegetarian" : "no"
@@ -33,9 +32,9 @@
          "id" : "en:egg-yolk",
          "is_in_taxonomy" : 1,
          "origins" : "en:france",
-         "percent_estimate" : 20,
+         "percent_estimate" : 9.375,
          "percent_max" : 33.3333333333333,
-         "percent_min" : 10,
+         "percent_min" : 0,
          "text" : "jaunes d'oeufs",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -44,8 +43,8 @@
          "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 10,
-         "percent_max" : 20,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
          "percent_min" : 0,
          "text" : "sel",
          "vegan" : "yes",
@@ -94,10 +93,10 @@
       "en:salt"
    ],
    "ingredients_text" : "endives 40%, jambon cuit, jaunes d'oeufs, sel",
-   "ingredients_with_specified_percent_n" : 1,
-   "ingredients_with_specified_percent_sum" : 40,
-   "ingredients_with_unspecified_percent_n" : 3,
-   "ingredients_with_unspecified_percent_sum" : 60,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
@@ -119,7 +118,6 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "specific_ingredients" : [

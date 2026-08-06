@@ -1,36 +1,63 @@
 {
    "estimate_ingredients_percent_service" : "product_opener",
-   "ingredients" : [],
+   "ingredients" : [
+      {
+         "id" : "en:total content of milk",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "total content of milk"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:total content of milk"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:total content of milk"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:total content of milk"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
    "ingredients_lc" : "en",
-   "ingredients_n" : 0,
+   "ingredients_n" : 1,
    "ingredients_n_tags" : [
-      "0",
+      "1",
       "1-10"
    ],
-   "ingredients_original_tags" : [],
+   "ingredients_original_tags" : [
+      "en:total content of milk"
+   ],
    "ingredients_percent_analysis" : 1,
-   "ingredients_tags" : [],
+   "ingredients_tags" : [
+      "en:total content of milk"
+   ],
    "ingredients_text" : "total content of milk 80%, content of fruits 120g per 100g",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 0,
-   "ingredients_with_unspecified_percent_sum" : 0,
-   "ingredients_without_ciqual_codes" : [],
-   "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:total content of milk"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:total content of milk"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 0,
    "lc" : "en",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
    "specific_ingredients" : [
-      {
-         "id" : "en:milk",
-         "ingredient" : "milk",
-         "percent" : 80,
-         "text" : "total content of milk 80%"
-      },
       {
          "id" : "en:fruit",
          "ingredient" : "fruits",
@@ -39,5 +66,5 @@
          "text" : "content of fruits 120g per 100g"
       }
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 1
 }

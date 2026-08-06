@@ -1,48 +1,84 @@
 {
    "estimate_ingredients_percent_service" : "product_opener",
-   "ingredients" : [],
+   "ingredients" : [
+      {
+         "id" : "fr:Taux minimum de légumes",
+         "ingredients" : [],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 50,
+         "text" : "Taux minimum de légumes"
+      },
+      {
+         "id" : "fr:teneur minimale en lait de",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 25,
+         "text" : "teneur minimale en lait de"
+      },
+      {
+         "id" : "fr:teneur totale de fruits",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 25,
+         "text" : "teneur totale de fruits"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:Taux minimum de légumes",
+         "fr:teneur minimale en lait de",
+         "fr:teneur totale de fruits"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:teneur minimale en lait de",
+         "fr:teneur totale de fruits"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:teneur minimale en lait de",
+         "fr:teneur totale de fruits"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 0,
+   "ingredients_n" : 3,
    "ingredients_n_tags" : [
-      "0",
+      "3",
       "1-10"
    ],
-   "ingredients_original_tags" : [],
-   "ingredients_percent_analysis" : 1,
-   "ingredients_tags" : [],
+   "ingredients_original_tags" : [
+      "fr:Taux minimum de légumes",
+      "fr:teneur minimale en lait de",
+      "fr:teneur totale de fruits"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "fr:Taux minimum de légumes",
+      "fr:teneur minimale en lait de",
+      "fr:teneur totale de fruits"
+   ],
    "ingredients_text" : "Taux minimum de légumes : 30%, teneur minimale en lait de 14% - teneur totale de fruits 15%",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 0,
-   "ingredients_with_unspecified_percent_sum" : 0,
-   "ingredients_without_ciqual_codes" : [],
-   "ingredients_without_ciqual_codes_n" : 0,
-   "ingredients_without_ecobalyse_ids" : [],
-   "ingredients_without_ecobalyse_ids_n" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 50,
+   "ingredients_without_ciqual_codes" : [
+      "fr:Taux minimum de légumes",
+      "fr:teneur minimale en lait de",
+      "fr:teneur totale de fruits"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "fr:Taux minimum de légumes",
+      "fr:teneur minimale en lait de",
+      "fr:teneur totale de fruits"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 0,
    "lc" : "fr",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
-   "specific_ingredients" : [
-      {
-         "id" : "en:vegetable",
-         "ingredient" : "légumes",
-         "percent" : 30,
-         "text" : "Taux minimum de légumes : 30%"
-      },
-      {
-         "id" : "en:milk",
-         "ingredient" : "lait",
-         "percent" : 14,
-         "text" : "teneur minimale en lait de 14%"
-      },
-      {
-         "id" : "en:fruit",
-         "ingredient" : "fruits",
-         "percent" : 15,
-         "text" : "teneur totale de fruits 15%"
-      }
-   ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 3
 }

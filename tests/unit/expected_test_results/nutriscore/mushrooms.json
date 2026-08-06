@@ -34,20 +34,19 @@
          "id" : "en:oyster-mushroom",
          "is_in_taxonomy" : 1,
          "origins" : "en:european-union",
-         "percent" : 69,
-         "percent_estimate" : 69,
-         "percent_max" : 69,
-         "percent_min" : 69,
-         "text" : "Pleurotes",
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "Pleurotes*",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
       {
          "id" : "fr:chapelure de mais",
          "is_in_taxonomy" : 0,
-         "percent_estimate" : 31,
-         "percent_max" : 31,
-         "percent_min" : 31,
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
          "text" : "chapelure de mais"
       }
    ],
@@ -87,10 +86,10 @@
       "fr:chapelure de mais"
    ],
    "ingredients_text" : "Pleurotes* 69% (Origine UE), chapelure de mais",
-   "ingredients_with_specified_percent_n" : 1,
-   "ingredients_with_specified_percent_sum" : 69,
-   "ingredients_with_unspecified_percent_n" : 1,
-   "ingredients_with_unspecified_percent_sum" : 31,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "fr:chapelure de mais"
    ],
@@ -103,7 +102,6 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-computed",
@@ -151,9 +149,9 @@
             "fiber" : 10.9,
             "fiber_points" : 5,
             "fiber_value" : 10.9,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 69,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 75,
             "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 69,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 75,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -250,7 +248,7 @@
                      "points" : 2,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 69
+                     "value" : 75
                   }
                ]
             },
@@ -338,7 +336,7 @@
                "points" : 2,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 69
+               "value" : 75
             }
          ]
       },
@@ -413,7 +411,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 69
+               "value" : 75
             },
             "fruits-vegetables-nuts" : {
                "modifier" : "~",
@@ -421,7 +419,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 69
+               "value" : 75
             },
             "proteins" : {
                "source" : "packaging",
@@ -516,14 +514,14 @@
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 69,
-                  "value_string" : "69"
+                  "value" : 75,
+                  "value_string" : "75"
                },
                "fruits-vegetables-nuts" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 69,
-                  "value_string" : "69"
+                  "value" : 75,
+                  "value_string" : "75"
                }
             },
             "per" : "100g",
@@ -543,9 +541,9 @@
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 69,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 75,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 69,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 75,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Composite foods",
    "pnns_groups_1_tags" : [

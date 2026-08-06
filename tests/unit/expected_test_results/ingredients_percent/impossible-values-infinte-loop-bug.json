@@ -1,29 +1,28 @@
 [
    {
       "id" : "en:cocoa-butter",
+      "ingredients" : [],
       "is_in_taxonomy" : 1,
-      "percent" : 15,
-      "percent_estimate" : 15,
+      "percent_estimate" : 50,
       "text" : "beurre de cacao"
    },
    {
       "id" : "en:sugar",
+      "ingredients" : [],
       "is_in_taxonomy" : 1,
-      "percent" : 10,
-      "percent_estimate" : 10,
+      "percent_estimate" : 25,
       "text" : "sucre"
    },
    {
       "id" : "en:milk-proteins",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 37.5,
+      "percent_estimate" : 12.5,
       "text" : "protéines de lait"
    },
    {
       "id" : "en:egg",
       "is_in_taxonomy" : 1,
-      "percent" : 1,
-      "percent_estimate" : 37.5,
+      "percent_estimate" : 12.5,
       "text" : "oeuf"
    }
 ]

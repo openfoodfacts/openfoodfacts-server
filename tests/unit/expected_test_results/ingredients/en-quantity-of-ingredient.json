@@ -6,9 +6,9 @@
          "ecobalyse_code" : "tomato-heated-greenhouse-eu",
          "id" : "en:tomato",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 50,
-         "percent_max" : 65,
-         "percent_min" : 35,
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
          "quantity" : "50 g",
          "quantity_g" : 50,
          "text" : "tomatoes",
@@ -16,24 +16,20 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "11000",
-         "id" : "en:garlic",
-         "is_in_taxonomy" : 1,
-         "percent" : 35,
-         "percent_estimate" : 35,
-         "percent_max" : 35,
-         "percent_min" : 35,
-         "text" : "garlic",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "id" : "en:35% garlic",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "35% garlic"
       },
       {
          "ciqual_food_code" : "18066",
          "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 7.5,
-         "percent_max" : 30,
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "quantity" : "20 cl",
          "quantity_g" : 200,
@@ -48,8 +44,8 @@
          "from_palm_oil" : "no",
          "id" : "en:rapeseed-oil",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 7.5,
-         "percent_max" : 15,
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
          "percent_min" : 0,
          "quantity" : "10 ml",
          "quantity_g" : 10,
@@ -59,11 +55,21 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:35% garlic"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:35% garlic"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:35% garlic"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 4,
@@ -73,7 +79,7 @@
    ],
    "ingredients_original_tags" : [
       "en:tomato",
-      "en:garlic",
+      "en:35% garlic",
       "en:water",
       "en:rapeseed-oil"
    ],
@@ -82,30 +88,29 @@
       "en:tomato",
       "en:vegetable",
       "en:fruit-vegetable",
-      "en:garlic",
-      "en:root-vegetable",
-      "en:onion-family-vegetable",
+      "en:35% garlic",
       "en:water",
       "en:rapeseed-oil",
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat"
    ],
    "ingredients_text" : "50g of tomatoes, 35% garlic, 20cl of water, 10ml of rapeseed oil",
-   "ingredients_with_specified_percent_n" : 1,
-   "ingredients_with_specified_percent_sum" : 35,
-   "ingredients_with_unspecified_percent_n" : 3,
-   "ingredients_with_unspecified_percent_sum" : 65,
-   "ingredients_without_ciqual_codes" : [],
-   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:35% garlic"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:garlic"
+      "en:35% garlic"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 1
 }

@@ -2,18 +2,17 @@
    {
       "id" : "en:milk",
       "is_in_taxonomy" : 1,
-      "percent" : 80,
-      "percent_estimate" : 80,
-      "percent_max" : 80,
-      "percent_min" : 80,
+      "percent_estimate" : 97.5,
+      "percent_max" : 100,
+      "percent_min" : 95,
       "text" : "milk"
    },
    {
       "id" : "en:flavouring",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 20,
-      "percent_max" : 20,
-      "percent_min" : 20,
+      "percent_estimate" : 2.5,
+      "percent_max" : 5,
+      "percent_min" : 0,
       "text" : "flavouring"
    }
 ]

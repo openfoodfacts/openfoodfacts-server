@@ -2,21 +2,68 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
+<<<<<<< HEAD
+         "ciqual_food_code" : "16129",
+         "ecobalyse_code" : "45658c32-66d9-4305-a34b-21d6a4cef89c",
+         "from_palm_oil" : "yes",
+         "id" : "en:palm-oil",
+         "is_in_taxonomy" : 1,
+         "percent" : 59.8874116660678,
+         "percent_estimate" : 59.8874116660678,
+         "quantity" : "3 kilos",
+         "quantity_g" : 3000,
+         "text" : "huile de palme",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9435",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:flour",
+         "is_in_taxonomy" : 1,
+         "percent" : 19.9624705553559,
+         "percent_estimate" : 19.9624705553559,
+         "quantity" : "1 kilo",
+         "quantity_g" : 1000,
+         "text" : "farine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9435",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:flour",
+         "is_in_taxonomy" : 1,
+         "percent" : 14.3729787998563,
+         "percent_estimate" : 14.3729787998563,
+         "quantity" : "5 tasses",
+         "quantity_g" : 720,
+         "quantity_ml" : 1200,
+         "text" : "farine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+=======
          "id" : "fr:5 tasses de farine",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 58.3333333333333,
          "percent_max" : 100,
          "percent_min" : 16.6666666666667,
          "text" : "5 tasses de farine"
+>>>>>>> main
       },
       {
          "ciqual_proxy_food_code" : "31016",
          "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
+<<<<<<< HEAD
+         "percent" : 0.598874116660678,
+         "percent_estimate" : 0.598874116660678,
+=======
          "percent_estimate" : 20.8333333333333,
          "percent_max" : 50,
          "percent_min" : 0,
+>>>>>>> main
          "quantity" : "30 g",
          "quantity_g" : 30,
          "text" : "sucre",
@@ -28,12 +75,20 @@
          "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
+<<<<<<< HEAD
+         "percent" : 4.93472272128399,
+         "percent_estimate" : 4.93472272128399,
+         "quantity" : "1 tasse",
+         "quantity_g" : 247.2,
+         "quantity_ml" : 240,
+=======
          "percent_estimate" : 10.4166666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "quantity" : "20 cl",
          "quantity_g" : 206,
          "quantity_ml" : 200,
+>>>>>>> main
          "text" : "lait",
          "vegan" : "no",
          "vegetarian" : "yes"
@@ -42,9 +97,14 @@
          "from_palm_oil" : "maybe",
          "id" : "en:oil",
          "is_in_taxonomy" : 1,
+<<<<<<< HEAD
+         "percent" : 0.183654729109275,
+         "percent_estimate" : 0.183654729109275,
+=======
          "percent_estimate" : 5.20833333333333,
          "percent_max" : 25,
          "percent_min" : 0,
+>>>>>>> main
          "quantity" : "10 ml",
          "quantity_g" : 9.2,
          "quantity_ml" : 10,
@@ -53,6 +113,36 @@
          "vegetarian" : "maybe"
       },
       {
+<<<<<<< HEAD
+         "ciqual_proxy_food_code" : "11015",
+         "id" : "en:pepper",
+         "is_in_taxonomy" : 1,
+         "percent" : 0.0399249411107119,
+         "percent_estimate" : 0.0399249411107119,
+         "quantity" : "2 pincées",
+         "quantity_g" : 2,
+         "quantity_ml" : 2,
+         "text" : "poivre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent" : 0.0199624705553559,
+         "percent_estimate" : 0.0199624705553418,
+         "quantity" : "1 pincée",
+         "quantity_g" : 1,
+         "quantity_ml" : 1,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+=======
          "id" : "fr:2 pincées de poivre",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 2.60416666666666,
@@ -71,11 +161,46 @@
    ],
    "ingredients_analysis" : {
       "en:may-contain-palm-oil" : [
+>>>>>>> main
          "en:oil"
       ],
       "en:non-vegan" : [
          "en:milk"
       ],
+<<<<<<< HEAD
+      "en:palm-oil" : [
+         "en:palm-oil"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 8,
+   "ingredients_n_tags" : [
+      "8",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:palm-oil",
+      "en:flour",
+      "en:flour",
+      "en:sugar",
+      "en:milk",
+      "en:oil",
+      "en:pepper",
+      "en:salt"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:palm-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:palm-oil-and-fat",
+      "en:flour",
+=======
       "en:vegan-status-unknown" : [
          "fr:5 tasses de farine",
          "fr:2 pincées de poivre",
@@ -109,12 +234,43 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "fr:5 tasses de farine",
+>>>>>>> main
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide",
       "en:milk",
       "en:dairy",
       "en:oil",
+<<<<<<< HEAD
+      "en:pepper",
+      "en:seed",
+      "en:salt"
+   ],
+   "ingredients_text" : "3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
+   "ingredients_with_specified_percent_n" : 8,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [
+      "en:oil"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:oil",
+      "en:pepper",
+      "en:salt"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 3,
+   "known_ingredients_n" : 8,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+=======
       "en:oil-and-fat",
       "fr:2 pincées de poivre",
       "fr:une pincée de sel"
@@ -144,4 +300,5 @@
       "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 3
+>>>>>>> main
 }

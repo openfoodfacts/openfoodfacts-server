@@ -9,10 +9,9 @@
                "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
                "id" : "en:apple",
                "is_in_taxonomy" : 1,
-               "percent" : 20,
-               "percent_estimate" : 20,
-               "percent_max" : 20,
-               "percent_min" : 20,
+               "percent_estimate" : 43.75,
+               "percent_max" : 100,
+               "percent_min" : 12.5,
                "text" : "apple",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -22,10 +21,9 @@
                "ecobalyse_code" : "bb00f430-ffda-46a3-ba45-267b0064a43e",
                "id" : "en:pear",
                "is_in_taxonomy" : 1,
-               "percent" : 15,
-               "percent_estimate" : 15,
-               "percent_max" : 15,
-               "percent_min" : 15,
+               "percent_estimate" : 15.625,
+               "percent_max" : 50,
+               "percent_min" : 0,
                "text" : "pear",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -34,9 +32,9 @@
                "ciqual_food_code" : "13113",
                "id" : "en:cranberry",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 11.25,
-               "percent_max" : 15,
-               "percent_min" : 7.5,
+               "percent_estimate" : 7.8125,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
                "text" : "cranberry",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -46,8 +44,8 @@
                "ecobalyse_code" : "6ece5452-42de-4e0a-8c70-1d305e614cc8",
                "id" : "en:lemon",
                "is_in_taxonomy" : 1,
-               "percent_estimate" : 3.75,
-               "percent_max" : 7.5,
+               "percent_estimate" : 7.8125,
+               "percent_max" : 25,
                "percent_min" : 0,
                "text" : "lemon",
                "vegan" : "yes",
@@ -55,9 +53,8 @@
             }
          ],
          "is_in_taxonomy" : 1,
-         "percent" : 50,
-         "percent_estimate" : 50,
-         "percent_max" : 50,
+         "percent_estimate" : 75,
+         "percent_max" : 100,
          "percent_min" : 50,
          "text" : "fruits",
          "vegan" : "yes",
@@ -68,9 +65,9 @@
          "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 50,
+         "percent_estimate" : 25,
          "percent_max" : 50,
-         "percent_min" : 50,
+         "percent_min" : 0,
          "text" : "sugar",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -114,10 +111,10 @@
       "en:citrus-fruit"
    ],
    "ingredients_text" : "fruits 50% (apple 40%, pear 30%, cranberry, lemon), sugar",
-   "ingredients_with_specified_percent_n" : 2,
-   "ingredients_with_specified_percent_sum" : 35,
-   "ingredients_with_unspecified_percent_n" : 3,
-   "ingredients_with_unspecified_percent_sum" : 65,
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:fruit"
    ],
@@ -130,7 +127,6 @@
    "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 0
