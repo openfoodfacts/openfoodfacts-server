@@ -230,7 +230,20 @@ my @tests = (
 			origins_tags => ["en:unknown"],
 		}
 	],
-
+	[
+		'fr-ingredients-palm-oil',
+		{
+			lc => "fr",
+			ingredients_text => "huile de palme",
+		}
+	],
+	[
+		'fr-ingredients-palm-oil-child',
+		{
+			lc => "fr",
+			ingredients_text => "huiles végétales (palme, colza), eau, sel",
+		}
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
