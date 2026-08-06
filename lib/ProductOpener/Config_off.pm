@@ -570,6 +570,11 @@ my @related_applications = (
 		'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner'
 	},
 	{'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948'},
+	{
+		'platform' => 'f-droid',
+		'id' => 'openfoodfacts.github.scrachx.openfood',
+		'url' => 'https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood'
+	},
 );
 
 my $manifest = {
