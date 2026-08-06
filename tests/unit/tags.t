@@ -71,7 +71,7 @@ is(
 	\@tags,
 	[
 		'en:fruit', 'en:added-sugar', 'en:citrus-fruit', 'en:disaccharide',
-		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
+		'en:juice', 'en:fruit-juice', 'en:sugar', 'en:orange',
 		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
 ) or diag Dumper(\@tags);
@@ -605,5 +605,8 @@ is([get_tag_with_parents("test", "fr:yaourts-au-citron-alleges")],
 	["fr:yaourts-au-citron-alleges", "en:lemon-yogurts", "fr:yaourts-alleges", "en:yogurts"]);
 
 is([get_tag_with_parents("test", "en:z-yogurts")], ["en:z-yogurts", "en:yogurts", "en:z"]);
+
+@tags = gen_tags_hierarchy_taxonomy("en", "ingredients", "en:concentrated-orange-juice, en:sugar, en:salt, en:orange");
+
 
 done_testing();
