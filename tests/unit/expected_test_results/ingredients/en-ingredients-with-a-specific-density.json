@@ -1,0 +1,139 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:cooking oil 25 fl oz",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 60,
+         "percent_max" : 100,
+         "percent_min" : 20,
+         "text" : "cooking oil 25 fl oz"
+      },
+      {
+         "ciqual_proxy_food_code" : "19051",
+         "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+         "id" : "en:milk",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 20,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "1 dl",
+         "quantity_g" : 103,
+         "quantity_ml" : 100,
+         "text" : "milk",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "id" : "en:granulated-sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "5 cl",
+         "quantity_g" : 45,
+         "quantity_ml" : 50,
+         "text" : "granulated sugar",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "quantity" : "1 l",
+         "quantity_g" : 1000,
+         "quantity_ml" : 1000,
+         "text" : "water",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "2074",
+         "id" : "en:apple-juice",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "quantity" : "20 ml",
+         "quantity_g" : 21.2,
+         "quantity_ml" : 20,
+         "text" : "apple juice",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "en:cooking oil 25 fl oz"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:cooking oil 25 fl oz"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:cooking oil 25 fl oz"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:cooking oil 25 fl oz",
+      "en:milk",
+      "en:granulated-sugar",
+      "en:water",
+      "en:apple-juice"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:cooking oil 25 fl oz",
+      "en:milk",
+      "en:dairy",
+      "en:granulated-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:sugar",
+      "en:water",
+      "en:apple-juice",
+      "en:fruit",
+      "en:juice",
+      "en:fruit-juice"
+   ],
+   "ingredients_text" : "cooking oil 25 fl oz, milk 1dl, 5cl granulated sugar, water 1l, apple juice 20ml",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:cooking oil 25 fl oz"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:apple-juice",
+      "en:cooking oil 25 fl oz"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 4,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 1
+}
