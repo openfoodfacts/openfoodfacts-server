@@ -9,6 +9,10 @@ properties:
     type: string
     description: The barcode of the product to be added or edited
     example: "0074570036004"
+  new_code:
+    type: string
+    description: The new barcode to replace the current one (moderator-only action)
+    example: "0074570036005"
   user_id:
     type: string
     description: |
