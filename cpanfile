@@ -124,6 +124,8 @@ requires 'Time::HiRes';
 
 # To measure similarity between words and find possible typo
 requires 'Text::Levenshtein';
+# To handle Unicode string graphics and width rendering
+requires 'Unicode::GCString';
 
 # To handle IP and IP blocks white lists
 requires 'Net::CIDR'; # libnet-cidr-perl
