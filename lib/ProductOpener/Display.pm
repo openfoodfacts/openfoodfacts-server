@@ -9556,6 +9556,25 @@ CSS
 								# use %f (outputs extras 0 in the general case)
 								$formatted_value = sprintf("%f", $value);
 							}
+							else {
+								# Round numeric values to 1 decimal place to avoid
+								# ugly calculated values like 16.6666666667 (Issue #14035)
+								if ($formatted_value =~ /^-?\d+\.\d{3,}$/) {
+									my $decimals = 1;
+									if (abs($formatted_value) < 1 && abs($formatted_value) > 0) {
+										if ($formatted_value =~ /\.(0+)/) {
+											$decimals = length($1) + 2;
+										}
+										else {
+											$decimals = 2;
+										}
+									}
+									require ProductOpener::Numbers;
+									my $rounded = ProductOpener::Numbers::round_to_max_decimal_places($formatted_value,
+										$decimals);
+									$formatted_value = $rounded // $formatted_value;
+								}
+							}
 						}
 
 						if (defined $nutrient_set_unit) {
