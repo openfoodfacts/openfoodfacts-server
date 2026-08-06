@@ -93,9 +93,11 @@ jobs:
       with:
         commit_message: "test: Update tests results"
         branch: "${{ steps.get-branch.outputs.branch }}"
+        file_pattern: 'tests/**/expected_test_results/**'
         commit_user_name: Open Food Facts Bot
         commit_user_email: contact@openfoodfacts.org
         commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
+        add_options: '--all'
         push_options: ""
         status_options: '--untracked-files=no'
         skip_dirty_check: false
