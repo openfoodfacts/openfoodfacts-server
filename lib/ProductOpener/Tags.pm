@@ -994,7 +994,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20260806 - fix computation of levels for parents";
+my $BUILD_TAGS_VERSION = "20260806 - fix the computation of levels for parents";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -2007,14 +2007,10 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		# Compute all parents, breadth first
 
-		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";
-
 		my %longest_parent = ();
 
 		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {
 		foreach my $tagid (sort keys %{$translations_to{$tagtype}}) {
-
-			# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first - tagid: $tagid\n";
 
 			my @queue = ();
 
@@ -2098,12 +2094,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				$key = '! synonyms ';    # synonyms first
 			}
 			if (defined $all_parents{$tagtype}{$tagid}) {
-				# sort parents according to level
-				@{$all_parents{$tagtype}{$tagid}} = sort {
-					(((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0)
-						<=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0))
-						|| ($a cmp $b)
-				} @{$all_parents{$tagtype}{$tagid}};
 				$key .= '> ' . join((' > ', reverse @{$all_parents{$tagtype}{$tagid}})) . ' ';
 			}
 			$key .= '> ' . $tagid;
@@ -2940,6 +2930,7 @@ sub get_tag_with_parents ($tagtype, $tagid) {
 	my @tag_with_parents = ($tagid);
 
 	if (defined $all_parents{$tagtype}{$tagid}) {
+		print STDERR "get_tag_with_parents - tagtype: $tagtype - tagid: $tagid - parents: @{$all_parents{$tagtype}{$tagid}} \n";
 		push @tag_with_parents, @{$all_parents{$tagtype}{$tagid}};
 	}
 

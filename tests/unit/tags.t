@@ -71,7 +71,7 @@ is(
 	\@tags,
 	[
 		'en:fruit', 'en:added-sugar', 'en:citrus-fruit', 'en:disaccharide',
-		'en:juice', 'en:fruit-juice', 'en:sugar', 'en:orange',
+		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
 		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
 ) or diag Dumper(\@tags);
