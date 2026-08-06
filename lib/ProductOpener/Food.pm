@@ -2651,8 +2651,9 @@ sub get_nutrient_unit ($nid, $cc = undef) {
 		$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en");
 		return $unit if $unit;
 	}
-	$unit = get_property("nutrients", "zz:$nid", "unit:en") // 'g';
-	return $unit;
+	$unit = get_property("nutrients", "zz:$nid", "unit:en");
+return undef if $nid eq 'ph';
+return $unit // 'g';
 }
 
 1;
