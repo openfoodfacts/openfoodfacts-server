@@ -254,10 +254,19 @@ sub display_data_quality_description ($product_ref, $tagid) {
 	my $template_data_ref_quality = {};
 
 	$template_data_ref_quality->{tagid} = $tagid;
-	$template_data_ref_quality->{product_ref_nutriscore_score} = $product_ref->{nutriscore_score};
-	$template_data_ref_quality->{product_ref_nutriscore_score_producer} = $product_ref->{nutriscore_score_producer};
-	$template_data_ref_quality->{product_ref_nutriscore_grade_producer} = uc($product_ref->{nutriscore_grade_producer});
-	$template_data_ref_quality->{product_ref_nutriscore_grade} = uc($product_ref->{nutriscore_grade});
+    # Ensure safe display when NutriScore data is missing
+
+    $template_data_ref_quality->{product_ref_nutriscore_score} =
+    defined $product_ref->{nutriscore_score} ? $product_ref->{nutriscore_score} : 'N/A';
+
+    $template_data_ref_quality->{product_ref_nutriscore_score_producer} =
+    defined $product_ref->{nutriscore_score_producer} ? $product_ref->{nutriscore_score_producer} : 'N/A';
+
+    $template_data_ref_quality->{product_ref_nutriscore_grade_producer} =
+    defined $product_ref->{nutriscore_grade_producer} ? uc($product_ref->{nutriscore_grade_producer}) : 'N/A';
+
+    $template_data_ref_quality->{product_ref_nutriscore_grade} =
+    defined $product_ref->{nutriscore_grade} ? uc($product_ref->{nutriscore_grade}) : 'N/A';
 
 	process_template('web/common/includes/display_data_quality_description.tt.html', $template_data_ref_quality, \$html)
 		|| return "template error: " . $tt->error();
