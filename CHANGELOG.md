@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.101.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.100.0...v2.101.0) (2026-08-06)
+
+
+### Features
+
+* **webmanifest:** add F-Droid related application ([#14206](https://github.com/openfoodfacts/openfoodfacts-server/issues/14206)) ([bb1bdaa](https://github.com/openfoodfacts/openfoodfacts-server/commit/bb1bdaa42abc3d86801735da71cb37aa282bd320))
+
 ## [2.100.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.99.0...v2.100.0) (2026-08-06)
 
 
