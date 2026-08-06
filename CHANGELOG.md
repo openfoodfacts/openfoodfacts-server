@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.100.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.99.0...v2.100.0) (2026-08-06)
+
+
+### Features
+
+* add density to ingredients for volume quantity conversions to g - WIP ([#14119](https://github.com/openfoodfacts/openfoodfacts-server/issues/14119)) ([b5ac5de](https://github.com/openfoodfacts/openfoodfacts-server/commit/b5ac5de8cd9939574e0b0ed2fa45738d2e7de5e3))
+
+
+### Bug Fixes
+
+* also match parent ingredients for Forest Footprint 2026 ([#14210](https://github.com/openfoodfacts/openfoodfacts-server/issues/14210)) ([7859316](https://github.com/openfoodfacts/openfoodfacts-server/commit/7859316e01f60bf5001f3fe481297fbdad50fcb6))
+
 ## [2.99.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.98.0...v2.99.0) (2026-08-05)
 
 
