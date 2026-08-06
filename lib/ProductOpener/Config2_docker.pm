@@ -52,6 +52,7 @@ BEGIN {
 		$crowdin_project_key
 		$brevo_api_key
 		$list_id
+		$ecobalyse_api_token
 		$robotoff_url
 		$query_url
 		$events_url
@@ -120,6 +121,8 @@ $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 
 $brevo_api_key = $ENV{BREVO_API_KEY};
 $list_id = $ENV{BREVO_LIST_ID};
+
+$ecobalyse_api_token = $ENV{ECOBALYSE_API_TOKEN};
 
 my $postgres_host = $ENV{POSTGRES_HOST} || "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
