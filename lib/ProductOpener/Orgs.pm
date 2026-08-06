@@ -164,7 +164,8 @@ sub store_org ($org_ref) {
 
 	$log->debug("store_org", {org_ref => $org_ref}) if $log->is_debug();
 
-	defined $org_ref->{org_id} or die("Missing org_id");
+	defined $org_ref->{org_id}
+    or die("Missing org_id in store_org(): organization reference is missing org_id");
 
 	# retrieve eventual previous values
 	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/$org_ref->{org_id}.sto");
