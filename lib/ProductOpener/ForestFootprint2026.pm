@@ -481,6 +481,18 @@ sub get_forest_footprint_2026_ingredient_footprint ($product_ref, $ingredient_re
 		{ingredient_id => $ingredient_id})
 		if $log->is_debug();
 
+	# We check if we have a mapping for this ingredient in the forest footprint 2026 data,
+	# or for one of its parents
+
+	my @tags_to_check = get_tag_with_parents("ingredients", $ingredient_id);
+
+	foreach my $tag (@tags_to_check) {
+		if (exists $forest_footprint_2026_data{ingredients}{$tag}) {
+			$ingredient_id = $tag;
+			last;
+		}
+	}		
+
 	if (not exists $forest_footprint_2026_data{ingredients}{$ingredient_id}) {
 		$log->debug("ingredient not in forest footprint 2026 data", {ingredient_id => $ingredient_id})
 			if $log->is_debug();
