@@ -2908,11 +2908,6 @@ sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
 		}
 	}
 
-	# print the level of each tag
-	foreach my $tag (sort keys %tags) {
-		print STDERR "tag: $tag - level: " . $level{tagtype}{$tag} . "\n";
-	}
-
 	my @sorted_list = sort {
 		(((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0)
 			<=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0))
@@ -2935,7 +2930,6 @@ sub get_tag_with_parents ($tagtype, $tagid) {
 	my @tag_with_parents = ($tagid);
 
 	if (defined $all_parents{$tagtype}{$tagid}) {
-		print STDERR "get_tag_with_parents - tagtype: $tagtype - tagid: $tagid - parents: @{$all_parents{$tagtype}{$tagid}} \n";
 		push @tag_with_parents, @{$all_parents{$tagtype}{$tagid}};
 	}
 
