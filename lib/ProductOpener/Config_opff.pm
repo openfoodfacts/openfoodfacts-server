@@ -190,7 +190,7 @@ $flavor = "opff";
 	product_type => "petfood",
 	og_image_url =>
 		"https://static.openpetfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=opff&utm_medium=web",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
 	android_app_link =>
 		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utm_medium=web",
 	ios_app_link =>
