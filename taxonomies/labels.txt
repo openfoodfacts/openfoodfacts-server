@@ -1665,6 +1665,7 @@ wikidata:en: Q30271057
 
 en: Grain Free
 fr: Sans grains, sans graines
+zh: 无谷物
 
 # Is this synonymous with en:Grain Free?
 en: Seedless
@@ -1672,6 +1673,7 @@ de: kernlose
 hr: bez sjemenki
 it: senza semi
 sv: utan kärnor, kärnfri, kärnfria
+zh: 无籽
 
 nl: Korst is niet eetbaar
 
@@ -1688,6 +1690,7 @@ nl: Verdikkingsmiddelvrij, Zonder verdikkingsmiddel
 pl: Bez substancji zagęszczających, Bez zagęstników
 pt: Sem espessante, sem espessantes, sem agente espessante, sem agente de espessamento, sem agentes espessantes, sem agentes de espessamentos
 ru: Без загустителя
+zh: 无增稠剂
 
 #instruction:en:Do NOT change the english key.
 en: No added thickener
@@ -1699,6 +1702,7 @@ hu: hozzáadott sűrítőanyag nélkül, hozzáadott sűrítőanyagot nem tartal
 it: Senza addensanti aggiunti
 pt: Sem adição de espessantes, sem adição de espessante
 ru: Без добавления загустителя
+zh: 无添加增稠剂
 
 #instruction:en:Do NOT change the english key.
 de: Ohne Polyphosphate
@@ -1717,6 +1721,7 @@ ru: Без добавления полифосфатов
 
 en: Not from concentrate
 sv: Inte från koncentrat
+zh: 非浓缩还原
 
 en: Halal
 xx: Halal
@@ -1727,6 +1732,7 @@ hr: halal
 ru: Халяль
 th: ฮาลาล
 tr: Helal
+zh: 清真
 label_categories:en: en:Religious diets, en:Specific diets
 wikidata:en: Q177823
 
@@ -1835,6 +1841,7 @@ nl: isomaltulose is een bron van glucose en fructose
 pl: izomaltuloza jest źródłem glukozy i fruktozy
 se: isomaltulos är en källa till glukos och fruktos
 sv: isomaltulos är en källa till glukos och fruktos
+zh: 异麦芽酮糖是葡萄糖和果糖的来源
 
 en: source of fibre
 xx: source of fibre
@@ -1895,6 +1902,7 @@ ro: Високо съдържание на хранителни влакнини
 ru: Обогащено клетчаткой
 sv: Fiberrik, Rik på fiber, Fiberrikt
 th: ใยอาหารสูง
+zh: 高膳食纤维
 description:en: In EU, a claim that a food is high in fibre may only be made where the product contains at least 6 g of fibre per 100 g or at least 3 g of fibre per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en: Omega-3
@@ -1906,6 +1914,7 @@ nl: Omega 3
 pt: Ómega-3, ómega 3
 ru: омега-3 жиры, омега-3
 th: โอเมกา 3
+zh: Omega-3
 wikidata:en: Q191756
 
 < en: Omega-3
@@ -1913,6 +1922,7 @@ en: source of omega-3, source of omega-3 fatty acids
 xx: source of omega-3
 bg: Натурален източник на омега-3 мастни киселини
 it: sorgente di omega 3, sorgente di omega-3, sorgente di omega3
+zh: Omega-3来源
 description:en: In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: Omega-3
@@ -1932,10 +1942,12 @@ nl: Rijk aan Omega 3
 pt: Rico em Ómega 3, Rico em Ómega-3
 ru: Обогащено омега-3 жирами
 sr: Bogata Omega-3 masnim kiselinama
+zh: 高Omega-3
 description:en: In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en: high monounsaturated fat
 xx: high monounsaturated fat
+zh: 高单不饱和脂肪
 description:en: In EU, a claim that a food is high in monounsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from monounsaturated fat under the condition that monounsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en: Rich in unsaturated fatty acids, high unsaturated fat
@@ -1947,6 +1959,7 @@ hr: bogat nezasićenim masnim kiselinama
 it: ricco di acidi grassi insaturi
 nl: rijk aan onverzadigde vetzuren
 pt: rico em ácidos graxos insaturados
+zh: 富含不饱和脂肪酸
 description:en: In EU, a claim that a food is high in polyunsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from polyunsaturated fat under the condition that polyunsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 
@@ -1960,6 +1973,7 @@ hu: Többszörösen telítetlen zsírsavakban gazdag
 it: Ricca di acidi grassi polinsaturi
 nl: Rijk aan poly-onverzadigde vetzuren
 pt: Rico em gordura poli-insaturada
+zh: 富含多不饱和脂肪酸
 description:en: In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en: Source of proteins, source of protein, good source of protein
@@ -1974,6 +1988,7 @@ hr: izvor proteina, izvor bjelančevina
 it: fonte di proteine
 pt: fonte de proteínas
 sv: källa till protein
+zh: 蛋白质来源
 description:en: In EU, a claim that a food is a source of protein may only be made where at least 12 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: Source of proteins
@@ -1996,6 +2011,7 @@ pt: Proteínas altas
 ru: Обогащено протеинами
 sv: Proteinrik, Högt proteininnehåll
 th: โปรตีนสูง
+zh: 高蛋白质
 description:en: In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: High proteins
@@ -2028,6 +2044,7 @@ pt: Fonte de cálcio
 ru: источник кальция
 sv: Källa till kalcium
 th: แหล่งของแคลเซียม
+zh: 钙来源
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: magnesium source, source of magnesium
@@ -2046,6 +2063,7 @@ pl: Źródło magnezu
 pt: Fonte de magnésio
 ru: источник магния
 th: แหล่งแมกนีเซียม
+zh: 镁来源
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en: zinc source, source of zinc
