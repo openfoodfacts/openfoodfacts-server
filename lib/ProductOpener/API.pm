@@ -84,6 +84,7 @@ use ProductOpener::APIAttributeGroups qw/attribute_groups_api preferences_api/;
 use ProductOpener::APICurrentUser qw/read_current_user_permissions_api/;
 use ProductOpener::APIHealth qw/read_health_api/;
 use ProductOpener::APIProductRead qw/read_product_api/;
+use ProductOpener::APIProductHistory qw/read_product_history_api/;
 use ProductOpener::APIProductWrite qw/write_product_api/;
 use ProductOpener::APIProductImagesUpload qw/upload_product_image_api delete_product_image_api/;
 use ProductOpener::APIProductRevert qw/revert_product_api/;
@@ -447,6 +448,12 @@ my $dispatch_table = {
 		HEAD => \&read_product_api,
 		OPTIONS => sub {return;},
 		PATCH => \&write_product_api,
+	},
+	# Authenticated product history metadata
+	product_history => {
+		GET => \&read_product_history_api,
+		HEAD => \&read_product_history_api,
+		OPTIONS => sub {return;},
 	},
 	# Product image upload
 	product_images => {
