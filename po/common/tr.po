@@ -130,7 +130,7 @@ msgstr "Tide, Persil"
 
 msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
-msgstr ""
+msgstr "Sıvı çamaşır deterjanı, Toz çamaşır deterjanı"
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
@@ -142,11 +142,11 @@ msgstr "Çamaşır deterjanı"
 
 msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
-msgstr ""
+msgstr "Ultra Temiz Lavanta Kokusu"
 
 msgctxt "ingredients_text_example_product"
 msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
-msgstr ""
+msgstr "UYARI: Eğer bu kategoriye girmiyorsa herhangi bir içerik eklemeyin. Listeler, diğer kategorilerdeki gibi deterjanların ambalajlarında veya çevrimiçi olarak bulunabilir."
 
 # OPFF
 msgctxt "site_description_opff"
@@ -272,7 +272,7 @@ msgstr "Organizasyona katılma talebiniz, organizasyon yöneticisinin onayını 
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "Organizasyonunuzun talebi alınmıştır ve işleme tabiidir."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -5508,7 +5508,7 @@ msgstr "Vizyon, Misyon, Değerler ve Programlar"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -6046,23 +6046,23 @@ msgstr "DESTEKLİYORUM"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "2026 yılını tamamlamamız için €120.000 daha ihtiyacımız var!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr ""
+msgstr "Open Food Facts destekçisi olun"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr ""
+msgstr "Her ay 8 milyon ziyaretçiye hizmet veriyoruz ve API aracılığıyla bu sayının çok daha fazlasına ulaşıyoruz. Desteğiniz şu açılardan hayati önem taşımaktadır:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr ""
+msgstr "Open Food Facts'i herkese açık ve erişilebilir tutmak,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr ""
+msgstr "küçük bir daimi ekiple beraber altyapıyı, websiteye, mobil uygulamaya ve API destek olmak"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6070,7 +6070,7 @@ msgstr "gıda endüstrisinden bağımsız kalmak,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "topluluğa destek olmak"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
@@ -6078,7 +6078,7 @@ msgstr ""
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr ""
+msgstr "Eğer bu ay sitemizi ziyaret eden her bir ziyaretçi 1€ destek olursa yıllık bütçemizin 8 katından fazlasını toplamış oluruz!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6791,7 +6791,7 @@ msgstr "Ürün güncellendi"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr ""
+msgstr "Kullanıcı bulundu"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6927,7 +6927,7 @@ msgstr "Geçersiz kullanıcı kimliği ve şifre"
 
 msgctxt "api_message_invalid_token"
 msgid "Invalid access_token"
-msgstr ""
+msgstr "Geçersiz access_token"
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
@@ -7622,6 +7622,10 @@ msgstr "Nutri-Score notlarının gelişimini keşfetmek için ürünleri kategor
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Gıda ile temas halinde"
+
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
