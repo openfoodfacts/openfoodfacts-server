@@ -320,6 +320,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openbeautyfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
