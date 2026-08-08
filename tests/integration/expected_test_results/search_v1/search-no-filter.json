@@ -416,6 +416,34 @@
          "entry_dates_tags" : "--ignore--",
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
+         "forest_footprint_2026" : {
+            "grade" : "c",
+            "primary_ingredients" : {
+               "en:cocoa" : {},
+               "en:coffee" : {},
+               "en:palm-oil" : {
+                  "footprint_per_kg" : 0.00515625,
+                  "grade" : "c",
+                  "ingredients" : [
+                     {
+                        "equivalence_ingredient" : 1,
+                        "equivalence_ingredient_category" : 1,
+                        "footprint_per_kg" : 0.00515625,
+                        "ingredient_category_id" : "en:palm-oil",
+                        "ingredient_id" : "en:palm-oil-and-fat",
+                        "label_id" : null,
+                        "origin_footprint" : 0.055,
+                        "origin_id" : "en:unknown",
+                        "percent" : 9.375,
+                        "primary_ingredient_id" : "en:palm-oil",
+                        "risk_factor" : 1,
+                        "transformation_factor" : 1
+                     }
+                  ]
+               }
+            },
+            "total_footprint_per_kg" : 0.00515625
+         },
          "forest_footprint_data" : {
             "footprint_per_kg" : 0.0074375,
             "grade" : "a",
@@ -3025,6 +3053,34 @@
          "entry_dates_tags" : "--ignore--",
          "estimate_ingredients_percent_service" : "product_opener",
          "food_groups_tags" : [],
+         "forest_footprint_2026" : {
+            "grade" : "c",
+            "primary_ingredients" : {
+               "en:cocoa" : {},
+               "en:coffee" : {},
+               "en:palm-oil" : {
+                  "footprint_per_kg" : 0.00916666666666666,
+                  "grade" : "c",
+                  "ingredients" : [
+                     {
+                        "equivalence_ingredient" : 1,
+                        "equivalence_ingredient_category" : 1,
+                        "footprint_per_kg" : 0.00916666666666666,
+                        "ingredient_category_id" : "en:palm-oil",
+                        "ingredient_id" : "en:palm-oil-and-fat",
+                        "label_id" : null,
+                        "origin_footprint" : 0.055,
+                        "origin_id" : "en:unknown",
+                        "percent" : 16.6666666666667,
+                        "primary_ingredient_id" : "en:palm-oil",
+                        "risk_factor" : 1,
+                        "transformation_factor" : 1
+                     }
+                  ]
+               }
+            },
+            "total_footprint_per_kg" : 0.00916666666666666
+         },
          "generic_name_en" : "Tester",
          "id" : "2000000000398",
          "images" : {},
