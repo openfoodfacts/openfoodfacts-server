@@ -273,8 +273,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
 			'acidity-', 'carbohydrates-total-',
-			'dry-residue-',
-			'water-',
+			'dry-residue-', 'water-',
 		)
 	],
 	off_ca => [
