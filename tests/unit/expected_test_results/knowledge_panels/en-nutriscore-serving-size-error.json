@@ -21,6 +21,7 @@
    "categories_tags" : [
       "en:biscuits"
    ],
+   "compared_to_category" : "en:biscuits",
    "data_quality_bugs_tags" : [
       "en:main-language-missing",
       "en:code-missing",
@@ -1074,8 +1075,8 @@
                "element_type" : "panel_group",
                "panel_group_element" : {
                   "panel_ids" : [
-                     "nutrition_facts_table",
-                     "serving_size"
+                     "serving_size",
+                     "nutrition_facts_table"
                   ],
                   "title" : ""
                }

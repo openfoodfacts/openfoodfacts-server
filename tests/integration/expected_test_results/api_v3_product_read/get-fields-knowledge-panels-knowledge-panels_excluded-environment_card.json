@@ -21,8 +21,8 @@
                   "element_type" : "panel_group",
                   "panel_group_element" : {
                      "panel_ids" : [
-                        "nutrition_facts_table",
-                        "serving_size"
+                        "serving_size",
+                        "nutrition_facts_table"
                      ],
                      "title" : ""
                   }
@@ -883,6 +883,12 @@
                            "text" : "As sold<br>for 100 g / 100 ml",
                            "text_for_small_screens" : "100g",
                            "type" : "text"
+                        },
+                        {
+                           "column_group_id" : "comparisons",
+                           "shown_by_default" : true,
+                           "text" : "Compared to: Snacks",
+                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -896,6 +902,9 @@
                               },
                               {
                                  "text" : "400 kJ<br>(140 kcal)"
+                              },
+                              {
+                                 "text" : "880.133 kj (228 kcal) (-55%)"
                               }
                            ]
                         },
@@ -908,6 +917,9 @@
                               },
                               {
                                  "text" : "8.5 g"
+                              },
+                              {
+                                 "text" : "11.691 g (-27%)"
                               }
                            ]
                         },
@@ -920,6 +932,9 @@
                               },
                               {
                                  "text" : "5.6 g"
+                              },
+                              {
+                                 "text" : "3.821 g (+47%)"
                               }
                            ]
                         },
@@ -932,6 +947,9 @@
                               },
                               {
                                  "text" : "10.5 g"
+                              },
+                              {
+                                 "text" : "18.287 g (-43%)"
                               }
                            ]
                         },
@@ -944,6 +962,9 @@
                               },
                               {
                                  "text" : "12.5 g"
+                              },
+                              {
+                                 "text" : "12.114 g (+3%)"
                               }
                            ]
                         },
@@ -956,6 +977,9 @@
                               },
                               {
                                  "text" : "2 g"
+                              },
+                              {
+                                 "text" : "1.9 g (+5%)"
                               }
                            ]
                         },
@@ -968,6 +992,9 @@
                               },
                               {
                                  "text" : "4.5 g"
+                              },
+                              {
+                                 "text" : "4.626 g (-3%)"
                               }
                            ]
                         },
@@ -980,6 +1007,9 @@
                               },
                               {
                                  "text" : "0.0502 g"
+                              },
+                              {
+                                 "text" : "0.191 g (-74%)"
                               }
                            ]
                         },
@@ -992,6 +1022,9 @@
                               },
                               {
                                  "text" : "~ 0.02008 g"
+                              },
+                              {
+                                 "text" : "0.076 g (-74%)"
                               }
                            ]
                         },
@@ -1004,6 +1037,9 @@
                               },
                               {
                                  "text" : "~ 0 %"
+                              },
+                              {
+                                 "text" : "0 %"
                               }
                            ]
                         }
