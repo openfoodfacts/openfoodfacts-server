@@ -115,6 +115,8 @@ jobs:
     - *get-repository-owner-branch
     - *checkout-fork-repo
     - *fetch-origin-main
+    - name: Create folders
+      run: make create_folders
     - *run-linting
     - *run-update-tests-results
     - name: Push changes if needed
