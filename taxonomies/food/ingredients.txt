@@ -9084,7 +9084,8 @@ pl: Sól morska himalajska
 en: refined salt
 bg: рафинирана сол
 ca: sal refinada
-de: Raffiniertes Salz
+da: raffineret salt
+de: raffiniertes Salz
 es: sal refinada
 fr: sel raffiné
 hr: rafinirana sol
@@ -9092,17 +9093,21 @@ it: sale raffinato
 nl: geraffineerd zout
 pl: sól rafinowana
 pt: sal refinado
+sv: raffinerat salt
+wikidata:en: Q109044154
 
 < en: salt
 en: unrefined salt
 bg: нерафинирана сол
 ca: sal no refinada
-de: Unraffiniertes Salz
+da: uraffineret salt
+de: unraffiniertes Salz
 es: sal no refinada
-fi: Karkea suola
+fi: karkea suola
 fr: sel non raffiné
 hr: nerafinirana sol
-it: Sale non raffinato
+it: sale non raffinato
+sv: oraffinerat salt
 
 < en: coarse salt
 en: Kosher salt
@@ -9130,45 +9135,45 @@ af: seesout
 ar: ملح البحر
 az: dəniz duzu
 bg: морска сол
-ca: Sal marina, sal maria de taula
-cs: Mořská sůl
-da: Havsalt
+ca: sal marina, sal maria de taula
+cs: mořská sůl
+da: havsalt
 de: Meersalz
 el: θαλασσινό αλάτι
 eo: maro salo
-es: Sal marina, sal marina de mesa, sal del mar
+es: sal marina, sal marina de mesa, sal del mar
 eu: itsas gatza
 fa: نمک دریایی
-fi: Merisuola
+fi: merisuola
 fr: sel marin, sel de mer, sels minéraux de mer, sel marin de table
-gl: Sal mariño
+gl: sal mariño
 he: מלח ים
 hr: morska sol
 hu: tengeri só
-id: Garam laut
-is: Sjávarsalt
+id: garam laut
+is: sjávarsalt
 it: sale marino
 ja: 海塩
 ko: 천일염
 lv: jūras sāls
-ms: Garam laut
+ms: garam laut
 nb: havsalt
 nl: zeezout
-pl: Sól morska, soli morskiej
-pt: Sal marinho
-ro: Sare de mare
-ru: Морская соль, Соль морская
+pl: sól morska, soli morskiej
+pt: sal marinho
+ro: sare de mare
+ru: морская соль, соль морская
 sd: سامونڊي لوڻ
 sk: morská soľ
 sl: morska sol
-sv: Havssalt
+sv: havssalt
 th: เกลือสมุทร
 tr: deniz tuzu
-uk: Морська сіль
+uk: морська сіль
 ur: سمندری نمک
 zh: 海盐
-# yue:海鹽
-# zh-min-nan:Hái-iâm
+#yue: 海鹽
+#zh-min-nan: Hái-iâm
 ciqual_food_code:en: 11082
 ciqual_food_name:en: Pure sea salt, no enrichment
 ciqual_food_name:fr: Fleur de sel, non iodée, non fluorée
@@ -9186,7 +9191,7 @@ bg: Келтска морска сол
 ca: sal marina celta
 de: Keltisches Meersalz
 es: sal marina celta
-fr: Sel de la Mer Celtique
+fr: sel de la Mer Celtique
 hr: keltska morska sol
 it: sale marino celtico
 comment:en: Celtic Sea Salt is a brand (https://www.celticseasalt.com/) but it is also commonly used on ingredient lists.
@@ -9201,17 +9206,26 @@ fr: sel gros de mer
 en: unrefined sea salt
 bg: нерафинирана морска сол
 ca: sal de mar no refinada, sal de mar sense refinar, sal marina sense refinar, sal de taula sense refinar
-de: Unraffiniertes Meersalz
-es: sal de mar no refinada, Sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
+da: uraffineret havsalt
+de: unraffiniertes Meersalz
+es: sal de mar no refinada, sal de mar sin refinar, sal marina sin refinar, sal de mesa sin refinar
 fi: raffinoimaton merisuola, puhdistamaton merisuola
 fr: sel marin non raffiné, sel marin non traité, sel marin gris de cuisine, sel de mer non raffiné
 hr: nerafinirana morska sol
 hu: finomítatlan tengeri só
 it: sale marino integrale
 nl: ongeraffineerd zeezout
+sl: nerafinirana morska sol
+sv: oraffinerat havssalt
+wikidata:en: Q57656235
 
 < en: unrefined sea salt
-en: Unrefined sea salt from the Atlantic
+en: low sodium unrefined sea salt
+da: uraffineret havsalt med lavt natriumindhold
+sv: oraffinerat havssalt med låg natriumhalt
+
+< en: unrefined sea salt
+en: unrefined sea salt from the Atlantic
 ca: sal marina sense refinar de l'Atlàntic, sal de mar sense refinar de l'Atlàntic, sa de taula sense refinar de l'Atlàntic
 de: unraffiniertes Atlantiksalz
 es: sal marina sin refinar del Atlántico, sal de mar sin refinar del Atlántico, sal de mesa sin refinar del Atlántico
