@@ -1,0 +1,44 @@
+# The frontend Dockerfile only needs the files used by the Node build.
+# Keep this list narrow so backend code and runtime data are not sent to
+# BuildKit when building the frontend image.
+**
+
+!package.json
+!package-lock.json
+!.npmrc
+!.snyk
+!gulpfile.mjs
+
+!html
+!html/**
+!icons
+!icons/**
+!scss
+!scss/**
+
+# Preserve the existing exclusions from .dockerignore for frontend assets.
+html/data
+html/dump
+html/exports
+html/files
+html/images/products
+html/css/dist
+html/js/dist
+html/images/icons/dist
+html/images/attributes/dist
+html/images/misc/openfoodfacts-visual-decision-05-03-13.pdf
+html/images/misc/20130416_QUOz.pdf
+html/images/misc/assemblee-constitutive-off-v1.pdf
+html/images/misc/notetondistrib.png
+html/images/misc/assemblee-constitutive-off-v1.odp
+html/images/misc/missions-svg.zip
+html/images/misc/cdp_bourgogne_openfoodfacts_v2.odp
+html/images/misc/cdp_bourgogne_openfoodfacts_v2.pdf
+html/images/misc/open-food-facts-carrefour-des-possibles-bourgogne-mars-2013.pdf
+html/images/misc/openfoodfacts_mines-telecom_20130620.pdf
+html/images/misc/openfoodfacts_mines-telecom_20130620.odb
+html/images/misc/openfoodfacts-openworldforum-20131005.pdf
+html/images/misc/openfoodfacts-dataconnexions4-20131204.pdf
+html/images/misc/openfoodfacts-openworldforum-20131005.odp
+html/images/misc/openfoodfacts_ess_ong_20130611.pdf
+html/images/svg/affiche*.svg
