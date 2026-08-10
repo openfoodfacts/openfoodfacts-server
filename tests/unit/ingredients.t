@@ -973,6 +973,14 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text =>
 				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
 		}
+	],
+	# percent_or_quantity_regexp
+	[
+		'en-percent-or-quantity-regexp',
+		{
+			lc => 'en',
+			ingredients_text => "cod 40g, salmon 30%, 20% tuna, mackerel (7%), 3g sardine",
+		}
 	]
 );
 

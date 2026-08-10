@@ -7,9 +7,10 @@
          "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade, en:organic",
          "origins" : "en:madagascar",
-         "percent_estimate" : 66.6666666666667,
-         "percent_max" : 100,
-         "percent_min" : 33.3333333333333,
+         "percent" : 75,
+         "percent_estimate" : 75,
+         "percent_max" : 75,
+         "percent_min" : 75,
          "text" : "pâte de cacao",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -20,9 +21,9 @@
          "id" : "en:cane-sugar",
          "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade, en:organic",
-         "percent_estimate" : 16.6666666666667,
-         "percent_max" : 50,
-         "percent_min" : 0,
+         "percent_estimate" : 18.75,
+         "percent_max" : 25,
+         "percent_min" : 12.5,
          "text" : "sucre de canne",
          "vegan" : "maybe",
          "vegetarian" : "yes"
@@ -33,8 +34,8 @@
          "id" : "en:cocoa-butter",
          "is_in_taxonomy" : 1,
          "labels" : "en:fair-trade, en:organic",
-         "percent_estimate" : 16.6666666666667,
-         "percent_max" : 33.3333333333333,
+         "percent_estimate" : 6.25,
+         "percent_max" : 12.5,
          "percent_min" : 0,
          "text" : "beurre de cacao",
          "vegan" : "yes",
@@ -77,10 +78,10 @@
       "en:vegetable-fat"
    ],
    "ingredients_text" : "pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total).",
-   "ingredients_with_specified_percent_n" : 0,
-   "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 3,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 75,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 25,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
@@ -91,6 +92,7 @@
    "known_ingredients_n" : 3,
    "lc" : "fr",
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "unknown_ingredients_n" : 0

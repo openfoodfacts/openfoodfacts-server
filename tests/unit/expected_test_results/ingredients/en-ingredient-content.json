@@ -1,97 +1,54 @@
 {
    "estimate_ingredients_percent_service" : "product_opener",
-   "ingredients" : [
-      {
-         "id" : "en:strawberry content",
-         "ingredients" : [],
-         "is_in_taxonomy" : 0,
-         "percent_estimate" : 50,
-         "text" : "strawberry content"
-      },
-      {
-         "id" : "en:min cocoa content",
-         "ingredients" : [],
-         "is_in_taxonomy" : 0,
-         "percent_estimate" : 25,
-         "text" : "min cocoa content"
-      },
-      {
-         "id" : "en:total milk content minimum",
-         "is_in_taxonomy" : 0,
-         "percent_estimate" : 12.5,
-         "text" : "total milk content minimum"
-      },
-      {
-         "id" : "en:fruit content",
-         "ingredients" : [],
-         "is_in_taxonomy" : 0,
-         "percent_estimate" : 12.5,
-         "text" : "fruit content"
-      }
-   ],
-   "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "en:strawberry content",
-         "en:min cocoa content",
-         "en:total milk content minimum",
-         "en:fruit content"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:total milk content minimum"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:total milk content minimum"
-      ]
-   },
-   "ingredients_analysis_tags" : [
-      "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
-   ],
+   "ingredients" : [],
    "ingredients_lc" : "en",
-   "ingredients_n" : 4,
+   "ingredients_n" : 0,
    "ingredients_n_tags" : [
-      "4",
+      "0",
       "1-10"
    ],
-   "ingredients_original_tags" : [
-      "en:strawberry content",
-      "en:min cocoa content",
-      "en:total milk content minimum",
-      "en:fruit content"
-   ],
-   "ingredients_percent_analysis" : -1,
-   "ingredients_tags" : [
-      "en:strawberry content",
-      "en:min cocoa content",
-      "en:total milk content minimum",
-      "en:fruit content"
-   ],
+   "ingredients_original_tags" : [],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [],
    "ingredients_text" : "strawberry content: 5%, min cocoa content: 40,3g, total milk content minimum 30%, fruit content: 10%; apples content 50.20g per 100g of product",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 1,
-   "ingredients_with_unspecified_percent_sum" : 12.5,
-   "ingredients_without_ciqual_codes" : [
-      "en:fruit content",
-      "en:min cocoa content",
-      "en:strawberry content",
-      "en:total milk content minimum"
-   ],
-   "ingredients_without_ciqual_codes_n" : 4,
-   "ingredients_without_ecobalyse_ids" : [
-      "en:fruit content",
-      "en:min cocoa content",
-      "en:strawberry content",
-      "en:total milk content minimum"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 0,
    "lc" : "en",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
    "specific_ingredients" : [
+      {
+         "id" : "en:strawberry",
+         "ingredient" : "strawberry",
+         "percent" : 5,
+         "text" : "strawberry content: 5%"
+      },
+      {
+         "id" : "en:cocoa",
+         "ingredient" : "cocoa",
+         "percent" : 40.3,
+         "text" : "min cocoa content: 40.3%"
+      },
+      {
+         "id" : "en:milk",
+         "ingredient" : "milk",
+         "percent" : 30,
+         "text" : "total milk content minimum 30%"
+      },
+      {
+         "id" : "en:fruit",
+         "ingredient" : "fruit",
+         "percent" : 10,
+         "text" : "fruit content: 10%"
+      },
       {
          "id" : "en:apple",
          "ingredient" : "apples",
@@ -100,5 +57,5 @@
          "text" : "apples content 50.20g per 100g of product"
       }
    ],
-   "unknown_ingredients_n" : 4
+   "unknown_ingredients_n" : 0
 }

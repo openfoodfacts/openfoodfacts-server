@@ -1488,7 +1488,7 @@ if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 	$percent_or_quantity_value = $1;
 	$percent_or_quantity_unit = $2;
 
-	my ($percent, $quantity, $quantity_g)
+	my ($percent, $quantity, $quantity_g, $quantity_ml)
 		= get_ingredient_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
 
 =cut

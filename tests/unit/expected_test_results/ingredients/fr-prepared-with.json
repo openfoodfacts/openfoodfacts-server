@@ -1,57 +1,24 @@
 {
    "estimate_ingredients_percent_service" : "product_opener",
-   "ingredients" : [
-      {
-         "id" : "fr:produit avec 30 % d'asperges",
-         "is_in_taxonomy" : 0,
-         "percent_estimate" : 100,
-         "percent_max" : 100,
-         "percent_min" : 100,
-         "text" : "produit avec 30% d'asperges"
-      }
-   ],
-   "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "fr:produit avec 30 % d'asperges"
-      ],
-      "en:vegan-status-unknown" : [
-         "fr:produit avec 30 % d'asperges"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "fr:produit avec 30 % d'asperges"
-      ]
-   },
-   "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
-   ],
+   "ingredients" : [],
    "ingredients_lc" : "fr",
-   "ingredients_n" : 1,
+   "ingredients_n" : 0,
    "ingredients_n_tags" : [
-      "1",
+      "0",
       "1-10"
    ],
-   "ingredients_original_tags" : [
-      "fr:produit avec 30 % d'asperges"
-   ],
+   "ingredients_original_tags" : [],
    "ingredients_percent_analysis" : 1,
-   "ingredients_tags" : [
-      "fr:produit avec 30 % d'asperges"
-   ],
+   "ingredients_tags" : [],
    "ingredients_text" : "Elaboré avec 50g d'abricots, produit avec 30% d'asperges, fabriquée avec 500g de viande pour 100g, préparé à partir de 140 g de tomates pour 100g de produit",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 1,
-   "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "fr:produit avec 30 % d'asperges"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
-   "ingredients_without_ecobalyse_ids" : [
-      "fr:produit avec 30 % d'asperges"
-   ],
-   "ingredients_without_ecobalyse_ids_n" : 1,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 0,
    "lc" : "fr",
    "misc_tags" : [
@@ -64,6 +31,12 @@
          "quantity" : "50 g",
          "quantity_g" : 50,
          "text" : "Elaboré avec 50g d'abricots"
+      },
+      {
+         "id" : "en:asparagus",
+         "ingredient" : "asperges",
+         "percent" : 30,
+         "text" : "produit avec 30% d'asperges"
       },
       {
          "id" : "en:meat",
@@ -80,5 +53,5 @@
          "text" : "préparé à partir de 140 g de tomates pour 100g de produit"
       }
    ],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
