@@ -39183,12 +39183,13 @@ zh: 芒果
 # yue:芒果
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr: 0.8
-ciqual_proxy_food_code:en: 13025
-ciqual_proxy_food_name:en: Mango, pulp, raw
+ciqual_food_code:en: 13025
+ciqual_food_name:en: Mango, pulp, raw
+ciqual_food_process:en: en:pulp, en:raw
 ecobalyse:en: db0e5f44-34b4-4160-b003-77c828d75e60
 ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
-usda_ndb_proxy_code:en: 9176
-usda_ndb_proxy_name:en: Mangos, raw
+usda_ndb_code:en: 9176
+usda_ndb_name:en: Mangos, raw
 wikidata:en: Q3919027
 wikipedia:en: https://en.wikipedia.org/wiki/Mango
 
@@ -39213,16 +39214,6 @@ it: Mango importato via nave
 nl: Mango geïmporteerd per boot
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr: 0.8
-
-< en: mango
-en: raw mango
-usda_ndb_code:en: 9176
-usda_ndb_name:en: Mangos, raw
-
-< en: mango
-en: raw mango pulp
-ciqual_food_code:en: 13025
-ciqual_food_name:en: Mango, pulp, raw
 
 < en: mango
 en: mango juice
@@ -46254,6 +46245,7 @@ ecobalyse_labels_en_organic:en: 359ec82d-4f28-43bd-b5be-84256a45c03e
 ecobalyse_origins_en_france:en: dc5c2f84-937c-4059-b7f9-352658cd4c57
 usda_ndb_code:en: 9185
 usda_ndb_name:en: Melon balls, frozen
+usda_ndb_process:en: en:frozen
 wikidata:en: Q5881191
 wikipedia:en: https://en.wikipedia.org/wiki/Melon
 
