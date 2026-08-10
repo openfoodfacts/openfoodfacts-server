@@ -654,7 +654,7 @@ const maximumRecentEntriesPerTag = 10;
 
                                     $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
                                     change_image(imagefield, data.result.image.imgid);
-                                    trackMatomoEvent('Product', 'Image Upload', imagefield);
+                                    trackMatomoEvent('product', 'image upload', imagefield);
                                 }
 
                                 if (data.result.error) {
