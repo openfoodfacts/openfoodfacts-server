@@ -40582,11 +40582,6 @@ eurocode_2_group_3:en: 9.10.15
 
 < en: apple
 en: crabapples
-usda_ndb_proxy_code:en: 9077
-usda_ndb_proxy_name:en: Crabapples, raw
-
-< en: crabapples
-en: raw crabapples
 usda_ndb_code:en: 9077
 usda_ndb_name:en: Crabapples, raw
 
@@ -41357,9 +41352,10 @@ zh: 克里曼丁红橘
 ciqual_food_code:en: 13082
 ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
+ciqual_food_process:en: en:pulp, en:raw
 ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
-usda_ndb_proxy_code:en: 9433
-usda_ndb_proxy_name:en: Clementines, raw
+usda_ndb_code:en: 9433
+usda_ndb_name:en: Clementines, raw
 wikidata:en: Q460517
 wikipedia:en: https://en.wikipedia.org/wiki/Clementine
 
@@ -41369,13 +41365,6 @@ fr: jus de clémentine
 de: Clementinensaft
 fi: klementiinimehu
 
-< en: clementine
-en: clementine pulp
-fr: pulpe de clémentine
-it: polpa di clementine
-ciqual_food_code:en: 13082
-ciqual_food_name:en: Clementine, pulp, raw
-ciqual_food_name:fr: Clémentine, pulpe, crue
 
 ###################################################################################################
 #
