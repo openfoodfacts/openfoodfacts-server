@@ -6966,7 +6966,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		foreach my $symbol (@symbols) {
 			# Find the last occurence of the symbol or symbol in parenthesis:  * (*)
 			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
-			if ($text =~ /^(.*)(\($symbol\)|$symbol)(?!\))\s*(:|=)?\s*/i) {
+			if ($text =~ /^(.*)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*/i) {
 				my $after = $';
 				#print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
