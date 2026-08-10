@@ -46164,24 +46164,25 @@ fr: Ramboutan, Litchi chevelu
 ifct_food_code:en: E059
 ifct_food_name:en: Rambutan
 
+
+###################################################################################################
+#
+#                                Longan
+#
+###################################################################################################
+
 < en: fruit
 en: longan
 de: Longan
 fr: longane, longani, oeil du dragon
 hr: longan
 it: longan
-usda_ndb_proxy_code:en: 9172
-usda_ndb_proxy_name:en: Longans, raw
-
-< en: longan
-en: dried longan
-usda_ndb_code:en: 9173
-usda_ndb_name:en: Longans, dried
-
-< en: longan
-en: raw longan
+usda_ndb_2_code:en: 9173
+usda_ndb_2_name:en: Longans, dried
+usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 9172
 usda_ndb_name:en: Longans, raw
+
 
 ###################################################################################################
 #
