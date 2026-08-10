@@ -1,73 +1,37 @@
 [
    {
       "id" : "en:pasteurised-whole-milk",
-      "ingredients" : [
-         {
-            "id" : "fr:73.4",
-            "is_in_taxonomy" : 0,
-            "percent_estimate" : 60,
-            "percent_max" : 100,
-            "percent_min" : 20,
-            "text" : "73.4"
-         }
-      ],
       "is_in_taxonomy" : 1,
       "labels" : "en:fair-trade",
-      "percent_estimate" : 60,
-      "percent_max" : 100,
-      "percent_min" : 20,
+      "percent" : 74.3,
+      "percent_estimate" : 74.3,
       "text" : "Lait entier pasteurisé"
    },
    {
       "id" : "en:cane-sugar",
-      "ingredients" : [
-         {
-            "id" : "fr:9",
-            "is_in_taxonomy" : 0,
-            "percent_estimate" : 20,
-            "percent_max" : 50,
-            "percent_min" : 0,
-            "text" : "9"
-         }
-      ],
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 20,
-      "percent_max" : 50,
-      "percent_min" : 0,
+      "percent" : 10,
+      "percent_estimate" : 10,
       "text" : "sucre de canne"
    },
    {
       "id" : "en:cream",
-      "ingredients" : [
-         {
-            "id" : "fr:5.1",
-            "is_in_taxonomy" : 0,
-            "percent_estimate" : 10,
-            "percent_max" : 33.3333333333333,
-            "percent_min" : 0,
-            "text" : "5.1"
-         }
-      ],
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 10,
-      "percent_max" : 33.3333333333333,
-      "percent_min" : 0,
+      "percent" : 5.5,
+      "percent_estimate" : 5.5,
       "text" : "crème"
    },
    {
-      "id" : "fr:amidon de mais 4",
-      "is_in_taxonomy" : 0,
+      "id" : "en:corn-starch",
+      "is_in_taxonomy" : 1,
+      "percent" : 5,
       "percent_estimate" : 5,
-      "percent_max" : 25,
-      "percent_min" : 0,
-      "text" : "amidon de mais 4"
+      "text" : "amidon de mais"
    },
    {
       "id" : "en:coffee",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 5,
-      "percent_max" : 20,
-      "percent_min" : 0,
+      "percent_estimate" : 5.2,
       "processing" : "en:freeze-dried",
       "text" : "café"
    }

@@ -10,6 +10,7 @@
          "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:wheat-flour",
          "is_in_taxonomy" : 1,
+         "percent" : 100,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
@@ -45,10 +46,10 @@
    "ingredients_text_fr" : "Farine de blé 97%",
    "ingredients_text_with_allergens" : "Farine de <span class=\"allergen\">blé</span> 97%",
    "ingredients_text_with_allergens_fr" : "Farine de <span class=\"allergen\">blé</span> 97%",
-   "ingredients_with_specified_percent_n" : 0,
-   "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 1,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [],
@@ -70,6 +71,8 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
    "tags_sources" : {

@@ -1,42 +1,46 @@
 [
    {
-      "id" : "pl:84% jabłka",
-      "is_in_taxonomy" : 0,
-      "percent_estimate" : 60,
-      "percent_max" : 100,
-      "percent_min" : 20,
-      "text" : "84% jabłka"
+      "id" : "en:apple",
+      "is_in_taxonomy" : 1,
+      "percent" : 84,
+      "percent_estimate" : 84,
+      "percent_max" : 84,
+      "percent_min" : 84,
+      "text" : "jabłka"
    },
    {
-      "id" : "pl:10% przecier z mango",
-      "is_in_taxonomy" : 0,
-      "percent_estimate" : 20,
-      "percent_max" : 50,
-      "percent_min" : 0,
-      "text" : "10% przecier z mango"
-   },
-   {
-      "id" : "pl:3% zagęszczony sok jabłkowy",
-      "is_in_taxonomy" : 0,
+      "id" : "en:mango-puree",
+      "is_in_taxonomy" : 1,
+      "percent" : 10,
       "percent_estimate" : 10,
-      "percent_max" : 33.3333333333333,
-      "percent_min" : 0,
-      "text" : "3% zagęszczony sok jabłkowy"
+      "percent_max" : 10,
+      "percent_min" : 10,
+      "text" : "przecier z mango"
    },
    {
-      "id" : "pl:1,5% zagęszczony sok z marakuji",
+      "id" : "en:concentrated-apple-juice",
+      "is_in_taxonomy" : 1,
+      "percent" : 3,
+      "percent_estimate" : 3,
+      "percent_max" : 3,
+      "percent_min" : 3,
+      "text" : "zagęszczony sok jabłkowy"
+   },
+   {
+      "id" : "pl:zagęszczony sok z marakuji",
       "is_in_taxonomy" : 0,
-      "percent_estimate" : 5,
-      "percent_max" : 25,
-      "percent_min" : 0,
-      "text" : "1.5% zagęszczony sok z marakuji"
+      "percent" : 1.5,
+      "percent_estimate" : 1.5,
+      "percent_max" : 1.5,
+      "percent_min" : 1.5,
+      "text" : "zagęszczony sok z marakuji"
    },
    {
       "id" : "en:acerola-juice",
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 5,
-      "percent_max" : 20,
-      "percent_min" : 0,
+      "percent_estimate" : 1.5,
+      "percent_max" : 1.5,
+      "percent_min" : 1.5,
       "processing" : "en:concentrated",
       "text" : "sok z aceroli"
    }

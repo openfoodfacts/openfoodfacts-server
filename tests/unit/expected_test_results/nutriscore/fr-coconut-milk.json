@@ -66,9 +66,10 @@
          "ciqual_proxy_food_code" : "15006",
          "id" : "en:coconut",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 75,
-         "percent_max" : 100,
-         "percent_min" : 50,
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
          "text" : "Noix de coco",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -78,9 +79,9 @@
          "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 25,
-         "percent_max" : 50,
-         "percent_min" : 0,
+         "percent_estimate" : 40,
+         "percent_max" : 40,
+         "percent_min" : 40,
          "text" : "eau",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -111,10 +112,10 @@
       "en:water"
    ],
    "ingredients_text" : "Noix de coco 60%, eau",
-   "ingredients_with_specified_percent_n" : 0,
-   "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 2,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 60,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 40,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
@@ -125,6 +126,7 @@
    "lc" : "fr",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
@@ -166,15 +168,15 @@
             "fiber" : 0.5,
             "fiber_points" : 0,
             "fiber_value" : 0.5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 75,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 75,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 60,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 60,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 0,
-            "positive_points" : 4,
+            "positive_points" : 3,
             "proteins" : 3.9,
             "proteins_points" : 2,
             "proteins_value" : 3.9,
@@ -194,7 +196,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : -4
+         "score" : -3
       },
       "2023" : {
          "category_available" : 1,
@@ -241,7 +243,7 @@
                   {
                      "id" : "proteins",
                      "new_grade" : "b",
-                     "new_score" : -8,
+                     "new_score" : -6,
                      "new_value" : 4.9,
                      "points" : 7,
                      "points_max" : 7,
@@ -251,7 +253,7 @@
                   {
                      "id" : "fiber",
                      "new_grade" : "b",
-                     "new_score" : -9,
+                     "new_score" : -7,
                      "new_value" : 3.1,
                      "points" : 0,
                      "points_max" : 5,
@@ -263,10 +265,10 @@
                      "new_grade" : "b",
                      "new_score" : -10,
                      "new_value" : 81,
-                     "points" : 4,
+                     "points" : 2,
                      "points_max" : 6,
                      "unit" : "%",
-                     "value" : 75
+                     "value" : 60
                   }
                ]
             },
@@ -284,7 +286,7 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 11,
+            "positive_points" : 9,
             "positive_points_max" : 18
          },
          "estimated" : 0,
@@ -293,7 +295,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : -8
+         "score" : -6
       }
    },
    "nutriscore_2021_tags" : [
@@ -358,10 +360,10 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 4,
+               "points" : 2,
                "points_max" : 6,
                "unit" : "%",
-               "value" : 75
+               "value" : 60
             }
          ]
       },
@@ -380,13 +382,13 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 11,
+      "positive_points" : 9,
       "positive_points_max" : 18,
-      "score" : -8
+      "score" : -6
    },
    "nutriscore_grade" : "b",
-   "nutriscore_score" : -8,
-   "nutriscore_score_opposite" : 8,
+   "nutriscore_score" : -6,
+   "nutriscore_score_opposite" : 6,
    "nutriscore_tags" : [
       "b"
    ],
@@ -424,7 +426,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0122825
+               "value" : 0.011252
             },
             "carbohydrates" : {
                "modifier" : "~",
@@ -432,7 +434,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 4.665
+               "value" : 3.732
             },
             "cholesterol" : {
                "modifier" : "~",
@@ -448,7 +450,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00033425
+               "value" : 0.0002708
             },
             "energy" : {
                "source" : "packaging",
@@ -463,8 +465,8 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "kcal",
-               "value" : 268.5,
-               "value_computed" : 268.275
+               "value" : 214.8,
+               "value_computed" : 214.62
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -493,7 +495,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0525
+               "value" : 0.042
             },
             "fruits-vegetables-legumes" : {
                "modifier" : "~",
@@ -501,7 +503,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 75
+               "value" : 60
             },
             "fruits-vegetables-nuts" : {
                "modifier" : "~",
@@ -509,7 +511,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 75
+               "value" : 60
             },
             "galactose" : {
                "modifier" : "~",
@@ -525,7 +527,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.075
+               "value" : 0.06
             },
             "iodine" : {
                "modifier" : "~",
@@ -533,7 +535,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 9e-07
+               "value" : 7.2e-07
             },
             "iron" : {
                "modifier" : "~",
@@ -541,7 +543,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00183
+               "value" : 0.00147
             },
             "lactose" : {
                "modifier" : "~",
@@ -557,7 +559,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0242475
+               "value" : 0.019596
             },
             "maltose" : {
                "modifier" : "~",
@@ -565,7 +567,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.0525
+               "value" : 0.042
             },
             "manganese" : {
                "modifier" : "~",
@@ -573,7 +575,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.001125205
+               "value" : 0.000900328
             },
             "pantothenic-acid" : {
                "modifier" : "~",
@@ -581,7 +583,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.000225
+               "value" : 0.00018
             },
             "phosphorus" : {
                "modifier" : "~",
@@ -589,7 +591,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.08475
+               "value" : 0.0678
             },
             "phylloquinone" : {
                "modifier" : "~",
@@ -597,7 +599,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 1.5e-07
+               "value" : 1.2e-07
             },
             "polyols" : {
                "modifier" : "~",
@@ -613,7 +615,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.2671825
+               "value" : 0.213892
             },
             "proteins" : {
                "source" : "packaging",
@@ -642,7 +644,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 7.625e-06
+               "value" : 6.2e-06
             },
             "sodium" : {
                "modifier" : "~",
@@ -666,7 +668,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 3.03
+               "value" : 2.424
             },
             "sugars" : {
                "source" : "packaging",
@@ -689,7 +691,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 4.95e-05
+               "value" : 3.96e-05
             },
             "vitamin-b12" : {
                "modifier" : "~",
@@ -705,7 +707,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 1.5e-05
+               "value" : 1.2e-05
             },
             "vitamin-b6" : {
                "modifier" : "~",
@@ -713,7 +715,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 4.05e-05
+               "value" : 3.24e-05
             },
             "vitamin-b9" : {
                "modifier" : "~",
@@ -721,7 +723,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 1.95e-05
+               "value" : 1.56e-05
             },
             "vitamin-c" : {
                "modifier" : "~",
@@ -729,7 +731,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.002475
+               "value" : 0.00198
             },
             "vitamin-d" : {
                "modifier" : "~",
@@ -745,7 +747,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00018
+               "value" : 0.000144
             },
             "vitamin-pp" : {
                "modifier" : "~",
@@ -753,7 +755,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.000405
+               "value" : 0.000324
             },
             "water" : {
                "modifier" : "~",
@@ -761,7 +763,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 60.25
+               "value" : 68.2
             },
             "zinc" : {
                "modifier" : "~",
@@ -769,7 +771,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.00082775
+               "value" : 0.0006644
             }
          },
          "per" : "100g",
@@ -840,14 +842,14 @@
                "calcium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0122825,
-                  "value_string" : "0.0122825"
+                  "value" : 0.011252,
+                  "value_string" : "0.011252"
                },
                "carbohydrates" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 4.665,
-                  "value_string" : "4.665"
+                  "value" : 3.732,
+                  "value_string" : "3.732"
                },
                "cholesterol" : {
                   "modifier" : "~",
@@ -858,58 +860,58 @@
                "copper" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00033425,
-                  "value_string" : "0.00033425"
+                  "value" : 0.0002708,
+                  "value_string" : "0.0002708"
                },
                "energy" : {
                   "modifier" : "~",
                   "unit" : "kJ",
-                  "value" : 1102.5,
-                  "value_string" : "1102.5"
+                  "value" : 882,
+                  "value_string" : "882"
                },
                "energy-kcal" : {
                   "modifier" : "~",
                   "unit" : "kcal",
-                  "value" : 268.5,
-                  "value_computed" : 268.275,
-                  "value_string" : "268.5"
+                  "value" : 214.8,
+                  "value_computed" : 214.62,
+                  "value_string" : "214.8"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
-                  "value" : 1102.5,
-                  "value_computed" : 1105.3875,
-                  "value_string" : "1102.5"
+                  "value" : 882,
+                  "value_computed" : 884.31,
+                  "value_string" : "882"
                },
                "fat" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 25.125,
-                  "value_string" : "25.125"
+                  "value" : 20.1,
+                  "value_string" : "20.1"
                },
                "fiber" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 6.75,
-                  "value_string" : "6.75"
+                  "value" : 5.4,
+                  "value_string" : "5.4"
                },
                "fructose" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0525,
-                  "value_string" : "0.0525"
+                  "value" : 0.042,
+                  "value_string" : "0.042"
                },
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 75,
-                  "value_string" : "75"
+                  "value" : 60,
+                  "value_string" : "60"
                },
                "fruits-vegetables-nuts" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 75,
-                  "value_string" : "75"
+                  "value" : 60,
+                  "value_string" : "60"
                },
                "galactose" : {
                   "modifier" : "~",
@@ -920,20 +922,20 @@
                "glucose" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.075,
-                  "value_string" : "0.075"
+                  "value" : 0.06,
+                  "value_string" : "0.06"
                },
                "iodine" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 9e-07,
-                  "value_string" : "9e-07"
+                  "value" : 7.2e-07,
+                  "value_string" : "7.2e-07"
                },
                "iron" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00183,
-                  "value_string" : "0.00183"
+                  "value" : 0.00147,
+                  "value_string" : "0.00147"
                },
                "lactose" : {
                   "modifier" : "~",
@@ -944,38 +946,38 @@
                "magnesium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0242475,
-                  "value_string" : "0.0242475"
+                  "value" : 0.019596,
+                  "value_string" : "0.019596"
                },
                "maltose" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0525,
-                  "value_string" : "0.0525"
+                  "value" : 0.042,
+                  "value_string" : "0.042"
                },
                "manganese" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.001125205,
-                  "value_string" : "0.001125205"
+                  "value" : 0.000900328,
+                  "value_string" : "0.000900328"
                },
                "pantothenic-acid" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.000225,
-                  "value_string" : "0.000225"
+                  "value" : 0.00018,
+                  "value_string" : "0.00018"
                },
                "phosphorus" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.08475,
-                  "value_string" : "0.08475"
+                  "value" : 0.0678,
+                  "value_string" : "0.0678"
                },
                "phylloquinone" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 1.5e-07,
-                  "value_string" : "1.5e-07"
+                  "value" : 1.2e-07,
+                  "value_string" : "1.2e-07"
                },
                "polyols" : {
                   "modifier" : "~",
@@ -986,40 +988,40 @@
                "potassium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.2671825,
-                  "value_string" : "0.2671825"
+                  "value" : 0.213892,
+                  "value_string" : "0.213892"
                },
                "proteins" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 2.4975,
-                  "value_string" : "2.4975"
+                  "value" : 1.998,
+                  "value_string" : "1.998"
                },
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0394,
-                  "value_computed" : 0.039,
-                  "value_string" : "0.0394"
+                  "value" : 0.03304,
+                  "value_computed" : 0.0324,
+                  "value_string" : "0.03304"
                },
                "saturated-fat" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 22.275,
-                  "value_string" : "22.275"
+                  "value" : 17.82,
+                  "value_string" : "17.82"
                },
                "selenium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 7.625e-06,
-                  "value_string" : "7.625e-06"
+                  "value" : 6.2e-06,
+                  "value_string" : "6.2e-06"
                },
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0156,
-                  "value_computed" : 0.01576,
-                  "value_string" : "0.0156"
+                  "value" : 0.01296,
+                  "value_computed" : 0.013216,
+                  "value_string" : "0.01296"
                },
                "starch" : {
                   "modifier" : "~",
@@ -1030,14 +1032,14 @@
                "sucrose" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 3.03,
-                  "value_string" : "3.03"
+                  "value" : 2.424,
+                  "value_string" : "2.424"
                },
                "sugars" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 4.665,
-                  "value_string" : "4.665"
+                  "value" : 3.732,
+                  "value_string" : "3.732"
                },
                "vitamin-a" : {
                   "modifier" : "~",
@@ -1048,8 +1050,8 @@
                "vitamin-b1" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 4.95e-05,
-                  "value_string" : "4.95e-05"
+                  "value" : 3.96e-05,
+                  "value_string" : "3.96e-05"
                },
                "vitamin-b12" : {
                   "modifier" : "~",
@@ -1060,26 +1062,26 @@
                "vitamin-b2" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 1.5e-05,
-                  "value_string" : "1.5e-05"
+                  "value" : 1.2e-05,
+                  "value_string" : "1.2e-05"
                },
                "vitamin-b6" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 4.05e-05,
-                  "value_string" : "4.05e-05"
+                  "value" : 3.24e-05,
+                  "value_string" : "3.24e-05"
                },
                "vitamin-b9" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 1.95e-05,
-                  "value_string" : "1.95e-05"
+                  "value" : 1.56e-05,
+                  "value_string" : "1.56e-05"
                },
                "vitamin-c" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.002475,
-                  "value_string" : "0.002475"
+                  "value" : 0.00198,
+                  "value_string" : "0.00198"
                },
                "vitamin-d" : {
                   "modifier" : "~",
@@ -1090,26 +1092,26 @@
                "vitamin-e" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00018,
-                  "value_string" : "0.00018"
+                  "value" : 0.000144,
+                  "value_string" : "0.000144"
                },
                "vitamin-pp" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.000405,
-                  "value_string" : "0.000405"
+                  "value" : 0.000324,
+                  "value_string" : "0.000324"
                },
                "water" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 60.25,
-                  "value_string" : "60.25"
+                  "value" : 68.2,
+                  "value_string" : "68.2"
                },
                "zinc" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.00082775,
-                  "value_string" : "0.00082775"
+                  "value" : 0.0006644,
+                  "value_string" : "0.0006644"
                }
             },
             "per" : "100g",
@@ -1129,9 +1131,9 @@
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 75,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 60,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 75,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 60,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [

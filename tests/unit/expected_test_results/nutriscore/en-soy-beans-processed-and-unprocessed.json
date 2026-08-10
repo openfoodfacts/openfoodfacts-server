@@ -39,9 +39,10 @@
          "ciqual_food_code" : "20901",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 60,
-         "percent_max" : 100,
-         "percent_min" : 20,
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
          "text" : "soy beans",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -50,9 +51,10 @@
          "ciqual_food_code" : "20901",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 20,
-         "percent_max" : 50,
-         "percent_min" : 0,
+         "percent" : 25,
+         "percent_estimate" : 25,
+         "percent_max" : 25,
+         "percent_min" : 25,
          "processing" : "en:cooked",
          "text" : "soy beans",
          "vegan" : "yes",
@@ -62,9 +64,10 @@
          "ciqual_food_code" : "20901",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 10,
-         "percent_max" : 33.3333333333333,
-         "percent_min" : 0,
+         "percent" : 20,
+         "percent_estimate" : 20,
+         "percent_max" : 20,
+         "percent_min" : 20,
          "processing" : "en:powder",
          "text" : "soy beans",
          "vegan" : "yes",
@@ -74,9 +77,10 @@
          "ciqual_food_code" : "20901",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 5,
-         "percent_max" : 25,
-         "percent_min" : 0,
+         "percent" : 15,
+         "percent_estimate" : 15,
+         "percent_max" : 15,
+         "percent_min" : 15,
          "processing" : "en:cut,en:freeze-dried",
          "text" : "soy beans",
          "vegan" : "yes",
@@ -86,9 +90,10 @@
          "ciqual_food_code" : "20901",
          "id" : "en:soya-bean",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 5,
-         "percent_max" : 20,
-         "percent_min" : 0,
+         "percent" : 10,
+         "percent_estimate" : 10,
+         "percent_max" : 10,
+         "percent_min" : 10,
          "processing" : "en:flour",
          "text" : "soy beans",
          "vegan" : "yes",
@@ -126,10 +131,10 @@
       "en:soya"
    ],
    "ingredients_text" : "soy beans 30%, cooked soy beans 25%, soy beans powder 20%, cut freeze dried soy beans 15%, soy beans flour 10%",
-   "ingredients_with_specified_percent_n" : 0,
-   "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 5,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_specified_percent_n" : 5,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
@@ -140,6 +145,9 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
@@ -188,15 +196,15 @@
             "fiber" : 13,
             "fiber_points" : 5,
             "fiber_value" : 13,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 80,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 80,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 55,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 55,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 0,
-            "positive_points" : 12,
+            "positive_points" : 11,
             "proteins" : 20,
             "proteins_points" : 5,
             "proteins_value" : 20,
@@ -216,7 +224,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : -12
+         "score" : -11
       },
       "2023" : {
          "category_available" : 1,
@@ -269,10 +277,10 @@
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
-                     "points" : 2,
+                     "points" : 1,
                      "points_max" : 5,
                      "unit" : "%",
-                     "value" : 80
+                     "value" : 55
                   }
                ]
             },
@@ -290,7 +298,7 @@
                "fiber",
                "fruits_vegetables_legumes"
             ],
-            "positive_points" : 14,
+            "positive_points" : 13,
             "positive_points_max" : 17
          },
          "estimated" : 1,
@@ -299,7 +307,7 @@
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
          "preparation" : "as_sold",
-         "score" : -14
+         "score" : -13
       }
    },
    "nutriscore_2021_tags" : [
@@ -357,10 +365,10 @@
             },
             {
                "id" : "fruits_vegetables_legumes",
-               "points" : 2,
+               "points" : 1,
                "points_max" : 5,
                "unit" : "%",
-               "value" : 80
+               "value" : 55
             }
          ]
       },
@@ -379,13 +387,13 @@
          "fiber",
          "fruits_vegetables_legumes"
       ],
-      "positive_points" : 14,
+      "positive_points" : 13,
       "positive_points_max" : 17,
-      "score" : -14
+      "score" : -13
    },
    "nutriscore_grade" : "a",
-   "nutriscore_score" : -14,
-   "nutriscore_score_opposite" : 14,
+   "nutriscore_score" : -13,
+   "nutriscore_score_opposite" : 13,
    "nutriscore_tags" : [
       "a"
    ],
@@ -484,7 +492,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 80
+               "value" : 55
             },
             "fruits-vegetables-nuts" : {
                "modifier" : "~",
@@ -492,7 +500,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 80
+               "value" : 55
             },
             "iron" : {
                "modifier" : "~",
@@ -743,14 +751,14 @@
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 80,
-                  "value_string" : "80"
+                  "value" : 55,
+                  "value_string" : "55"
                },
                "fruits-vegetables-nuts" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 80,
-                  "value_string" : "80"
+                  "value" : 55,
+                  "value_string" : "55"
                },
                "iron" : {
                   "modifier" : "~",
@@ -874,9 +882,9 @@
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "as_sold fiber estimated",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 80,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 55,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 80,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 55,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Composite foods",
    "pnns_groups_1_tags" : [

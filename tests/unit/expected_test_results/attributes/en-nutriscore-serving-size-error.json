@@ -70,158 +70,144 @@
       {
          "attributes" : [
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/gluten-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-gluten.svg",
                "id" : "allergens_no_gluten",
+               "match" : 100,
                "name" : "Gluten",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: gluten"
+               "status" : "known",
+               "title" : "Does not contain: gluten"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/milk-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-milk.svg",
                "id" : "allergens_no_milk",
+               "match" : 100,
                "name" : "Milk",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: milk"
+               "status" : "known",
+               "title" : "Does not contain: milk"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/eggs-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-eggs.svg",
                "id" : "allergens_no_eggs",
+               "match" : 100,
                "name" : "Eggs",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: eggs"
+               "status" : "known",
+               "title" : "Does not contain: eggs"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nuts-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg",
                "id" : "allergens_no_nuts",
+               "match" : 100,
                "name" : "Nuts",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: nuts"
+               "status" : "known",
+               "title" : "Does not contain: nuts"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/peanuts-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg",
                "id" : "allergens_no_peanuts",
+               "match" : 100,
                "name" : "Peanuts",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: peanuts"
+               "status" : "known",
+               "title" : "Does not contain: peanuts"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/sesame-seeds-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg",
                "id" : "allergens_no_sesame_seeds",
+               "match" : 100,
                "name" : "Sesame seeds",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: sesame seeds"
+               "status" : "known",
+               "title" : "Does not contain: sesame seeds"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/soybeans-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg",
                "id" : "allergens_no_soybeans",
+               "match" : 100,
                "name" : "Soybeans",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: soybeans"
+               "status" : "known",
+               "title" : "Does not contain: soybeans"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/celery-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg",
                "id" : "allergens_no_celery",
+               "match" : 100,
                "name" : "Celery",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: celery"
+               "status" : "known",
+               "title" : "Does not contain: celery"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/mustard-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg",
                "id" : "allergens_no_mustard",
+               "match" : 100,
                "name" : "Mustard",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: mustard"
+               "status" : "known",
+               "title" : "Does not contain: mustard"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/lupin-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg",
                "id" : "allergens_no_lupin",
+               "match" : 100,
                "name" : "Lupin",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: lupin"
+               "status" : "known",
+               "title" : "Does not contain: lupin"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/fish-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg",
                "id" : "allergens_no_fish",
+               "match" : 100,
                "name" : "Fish",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: fish"
+               "status" : "known",
+               "title" : "Does not contain: fish"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/crustaceans-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg",
                "id" : "allergens_no_crustaceans",
+               "match" : 100,
                "name" : "Crustaceans",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: crustaceans"
+               "status" : "known",
+               "title" : "Does not contain: crustaceans"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/molluscs-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg",
                "id" : "allergens_no_molluscs",
+               "match" : 100,
                "name" : "Molluscs",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: molluscs"
+               "status" : "known",
+               "title" : "Does not contain: molluscs"
             },
             {
-               "debug" : "too many unknown ingredients: 1 ingredients (1 unknown)",
-               "description_short" : "Some ingredients were not recognized",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/sulphur-dioxide-and-sulphites-content-unknown.svg",
+               "debug" : "1 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
                "id" : "allergens_no_sulphur_dioxide_and_sulphites",
+               "match" : 100,
                "name" : "Sulphur dioxide and sulphites",
-               "panel_id" : "ingredients_analysis_details",
-               "status" : "unknown",
-               "title" : "Presence unknown: sulphur dioxide and sulphites"
+               "status" : "known",
+               "title" : "Does not contain: sulphur dioxide and sulphites"
             }
          ],
          "id" : "allergens",
@@ -231,31 +217,34 @@
       {
          "attributes" : [
             {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/vegan-status-unknown.svg",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/vegan.svg",
                "id" : "vegan",
+               "match" : 100,
                "name" : "Vegan",
-               "panel_id" : "ingredients_analysis_en:vegan-status-unknown",
-               "status" : "unknown",
-               "title" : "Vegan status unknown"
+               "panel_id" : "ingredients_analysis_en:vegan",
+               "status" : "known",
+               "title" : "Vegan"
             },
             {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/vegetarian-status-unknown.svg",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg",
                "id" : "vegetarian",
+               "match" : 100,
                "name" : "Vegetarian",
-               "panel_id" : "ingredients_analysis_en:vegetarian-status-unknown",
-               "status" : "unknown",
-               "title" : "Vegetarian status unknown"
+               "panel_id" : "ingredients_analysis_en:vegetarian",
+               "status" : "known",
+               "title" : "Vegetarian"
             },
             {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/palm-oil-content-unknown.svg",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/palm-oil-free.svg",
                "id" : "palm_oil_free",
+               "match" : 100,
                "name" : "Palm oil free",
-               "panel_id" : "ingredients_analysis_en:palm-oil-content-unknown",
-               "status" : "unknown",
-               "title" : "Palm oil content unknown"
+               "panel_id" : "ingredients_analysis_en:palm-oil-free",
+               "status" : "known",
+               "title" : "Palm oil free"
             }
          ],
          "id" : "ingredients_analysis",
@@ -265,16 +254,14 @@
       {
          "attributes" : [
             {
-               "description" : "",
-               "description_short" : "Food processing level unknown",
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-unknown.svg",
+               "grade" : "a",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
                "id" : "nova",
-               "match" : 0,
+               "match" : 100,
                "name" : "NOVA group",
                "panel_id" : "nova",
-               "status" : "unknown",
-               "title" : "NOVA not computed"
+               "status" : "known",
+               "title" : "Unprocessed or minimally processed foods"
             },
             {
                "grade" : "a",
@@ -398,7 +385,8 @@
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:all-but-one-ingredient-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:sum-of-ingredients-with-unspecified-percent-lesser-than-10",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown"
@@ -420,12 +408,11 @@
       "en:expiration-date-to-be-completed",
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
-      "en:all-but-one-ingredient-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:sum-of-ingredients-with-unspecified-percent-lesser-than-10",
       "en:food-groups-1-unknown",
       "en:food-groups-2-unknown",
       "en:food-groups-3-unknown",
-      "en:ingredients-unknown-score-above-0",
-      "en:ingredients-100-percent-unknown",
       "en:nutrition-value-over-105-fat",
       "en:nutrition-value-over-105-proteins",
       "en:nutrition-value-total-over-105",
@@ -435,8 +422,6 @@
       "en:environmental-score-production-system-no-label"
    ],
    "data_quality_warnings_tags" : [
-      "en:ingredients-unknown-score-above-0",
-      "en:ingredients-100-percent-unknown",
       "en:nutrition-value-over-105-fat",
       "en:nutrition-value-over-105-proteins",
       "en:nutrition-value-total-over-105",
@@ -850,29 +835,22 @@
    },
    "ingredients" : [
       {
-         "id" : "en:100% fruits",
-         "is_in_taxonomy" : 0,
+         "id" : "en:fruit",
+         "is_in_taxonomy" : 1,
+         "percent" : 100,
          "percent_estimate" : 100,
          "percent_max" : 100,
          "percent_min" : 100,
-         "text" : "100% fruits"
+         "text" : "fruits",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "en:100% fruits"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:100% fruits"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:100% fruits"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 1,
@@ -882,27 +860,27 @@
    ],
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
-      "en:100% fruits"
+      "en:fruit"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
-      "en:100% fruits"
+      "en:fruit"
    ],
    "ingredients_text" : "100% fruits",
-   "ingredients_with_specified_percent_n" : 0,
-   "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 1,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [
-      "en:100% fruits"
+      "en:fruit"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:100% fruits"
+      "en:fruit"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
-   "known_ingredients_n" : 0,
+   "known_ingredients_n" : 1,
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
@@ -912,6 +890,7 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:all-ingredients-with-specified-percent",
       "en:environmental-score-changed",
       "en:environmental-score-computed",
       "en:environmental-score-grade-changed",
@@ -932,12 +911,15 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
       "en:packagings-not-complete",
-      "en:packagings-number-of-components-0"
+      "en:packagings-number-of-components-0",
+      "en:some-ingredients-with-specified-percent"
    ],
-   "nova_group_debug" : "no nova group if too many ingredients are unknown: 1 out of 1",
-   "nova_group_error" : "too_many_unknown_ingredients",
+   "nova_group" : 1,
+   "nova_group_debug" : "",
+   "nova_groups" : "1",
+   "nova_groups_markers" : {},
    "nova_groups_tags" : [
-      "unknown"
+      "en:1-unprocessed-or-minimally-processed-foods"
    ],
    "nucleotides_tags" : [],
    "nutrient_levels" : {
@@ -958,7 +940,7 @@
          "data" : {
             "energy" : null,
             "fiber" : 27.5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -980,7 +962,7 @@
          "data" : {
             "energy" : null,
             "fiber" : 27.5,
-            "fruits_vegetables_legumes" : 0,
+            "fruits_vegetables_legumes" : 100,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
@@ -1041,7 +1023,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 0
+               "value" : 100
             },
             "fruits-vegetables-nuts" : {
                "modifier" : "~",
@@ -1049,7 +1031,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "%",
-               "value" : 0
+               "value" : 100
             },
             "proteins" : {
                "source" : "packaging",
@@ -1155,14 +1137,14 @@
                "fruits-vegetables-legumes" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 100,
+                  "value_string" : "100"
                },
                "fruits-vegetables-nuts" : {
                   "modifier" : "~",
                   "unit" : "%",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 100,
+                  "value_string" : "100"
                }
             },
             "per" : "100g",
@@ -1182,9 +1164,9 @@
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "missing as_sold energy",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
    "other_nutritional_substances_tags" : [],
    "packaging_materials_tags" : [],
    "packaging_recycling_tags" : [],
@@ -1218,6 +1200,6 @@
       }
    },
    "traces_tags" : [],
-   "unknown_ingredients_n" : 1,
+   "unknown_ingredients_n" : 0,
    "vitamins_tags" : []
 }

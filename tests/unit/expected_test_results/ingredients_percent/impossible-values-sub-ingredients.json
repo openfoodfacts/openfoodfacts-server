@@ -1,9 +1,9 @@
 [
    {
       "id" : "en:flour",
-      "ingredients" : [],
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 50,
+      "percent" : 12,
+      "percent_estimate" : 12,
       "text" : "farine"
    },
    {
@@ -11,33 +11,34 @@
       "ingredients" : [
          {
             "id" : "en:cocoa-butter",
-            "ingredients" : [],
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 25,
+            "percent" : 15,
+            "percent_estimate" : 15,
             "text" : "beurre de cacao"
          },
          {
             "id" : "en:sugar",
-            "ingredients" : [],
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 12.5,
+            "percent" : 10,
+            "percent_estimate" : 10,
             "text" : "sucre"
          },
          {
             "id" : "en:milk-proteins",
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 6.25,
+            "percent_estimate" : 31.5,
             "text" : "protéines de lait"
          },
          {
             "id" : "en:egg",
             "is_in_taxonomy" : 1,
-            "percent_estimate" : 6.25,
+            "percent" : 1,
+            "percent_estimate" : 31.5,
             "text" : "oeuf"
          }
       ],
       "is_in_taxonomy" : 1,
-      "percent_estimate" : 50,
+      "percent_estimate" : 88,
       "text" : "chocolat"
    }
 ]
