@@ -298,7 +298,8 @@ de: feingeschnitten, fein geschnittenen, feingeschnittener, feingeschnittenes
 # <en:cut
 nl: zeer fijn gesneden
 
-# <en:cut
+# <en: cut
+en: hand-cut
 de: handgeschnitten, handgeschnittene
 hu: kézzel vágott
 
@@ -333,7 +334,6 @@ nl: schijfjes
 pt: laminado, laminada, laminados, laminadas, em lâminas, em lâmina, em rodela, em rodelas, rodela de, rodelas de
 sv: skivad, skivade, skivat
 
-# en:description:Cut or diced into small pieces
 < en: cut
 en: chopped
 ca: picat, picada, picats, picades, trossejat, trossejada, trossejades
@@ -354,7 +354,16 @@ pt: picado, picada, picados, picadas
 sv: hackad, hackat, hackade
 uk: рублений, рублена, рублене, рублені
 # nl:parse:gehakte_$
+description:en: Cut or diced into small pieces
+wikidata:en: Q104439353
 # en:wiktionary:chopped
+
+< en: chopped
+en: finely chopped
+da: finhakket, finhakkede
+fr: finement hachées, finement hachée, finement hachés
+sv: finhackad, finhackat, finhackade
+wikidata:en: Q26883106
 
 en: cubes, cubed
 ca: cub, cubs
@@ -591,6 +600,9 @@ uk: концентроване пюре, пюре концентроване
 hu: lapított
 
 hu: morzsolt
+
+en: kibbled
+description:en: dried and coarsely ground or finely chopped - grains, soy, onion, etc
 
 ##################### THE RESULT OF THE PROCESS ##############
 
@@ -2814,15 +2826,19 @@ pt: não irradiado, não tratado com irradiação, sem irradiação
 ro: neiradiat, netratat prin iradiere, fără iradiere
 sv: icke bestrålad, icke bestrålat, inte bestrålade, inte behandlad med bestrålning, utan bestrålning
 
-
-#en:description:complete or partial removal of impurities in sugars, oils, fats and other natural materials by chemical/physical treatment
 < en: purified
 en: refined, partially refined
 bg: рафинирано, рафинирана, рафиниран
+da: raffineret, raffinerede
 fr: raffiné, partiellement raffiné, raffinée, partiellement raffinée, raffinés, partiellement raffinés, raffinées, partiellement raffinées
 hr: rafinirano, djelomično rafinirano
+nb: raffinert, raffinerte
 nl: geraffineerd, geraffineerde
+nn: raffinert, raffinerte
+sv: raffinerad, raffinerat, raffinerade
 uk: рафінований, рафінована, рафіноване, рафіновані
+description:en: complete or partial removal of impurities in sugars, oils, fats and other natural materials by chemical/physical treatment
+wikidata:en: Q682483
 
 < en: refined
 en: physically refined
@@ -3354,7 +3370,7 @@ en: fully hydrogenated
 bg: напълно хидрогениран, напълно хидрогенирано
 ca: totalment hidrogenat, totalment hidrogenada
 da: helt hærdet, helt haerdet
-de: ganz gehärtetes, vollständig hydriertes
+de: ganz gehärtetes, vollständig hydriertes, ganz gehärtet
 es: totalmente hidrogenado, totalmente hidrogenada
 fi: kokonaan kovetettu
 fr: totalement hydrogénée
@@ -3395,6 +3411,7 @@ pl: teksturowany, teksturowana, teksturowane
 pt: texturizado, texturizada
 ro: texturat, texturată, texturate, texturați
 sv: texturerad, texturerat, texturerade
+uk: текстуроване
 nova:en: 4
 
 < en: processed
