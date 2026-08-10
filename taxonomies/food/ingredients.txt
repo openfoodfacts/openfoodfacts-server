@@ -38829,11 +38829,6 @@ wikidata:en: Q26615
 en: carissa, natal plum
 la: Carissa macrocarpa
 description:en: Carissa is a tropical/subtropical fruit-bearing shrub, native to South Africa. Taste: A mix of sweet and tart, often compared to cranberry or strawberry with a slightly milky, latex-like note
-usda_ndb_proxy_code:en: 9061
-usda_ndb_proxy_name:en: Carissa, (natal-plum), raw
-
-< en: carissa
-en: raw carissa
 usda_ndb_code:en: 9061
 usda_ndb_name:en: Carissa, (natal-plum), raw
 
@@ -43756,25 +43751,16 @@ ciqual_food_name:en: Blueberry, raw
 ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
 ecobalyse_labels_en_organic:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
 eurocode_2_group_3:en: 9.30.46
-usda_ndb_proxy_code:en: 9050
-usda_ndb_proxy_name:en: Blueberries, raw
+usda_ndb_code:en: 9050
+usda_ndb_name:en: Blueberries, raw
 wikidata:en: Q5812410
 # 943 producten in 13 languages @2018-10-01
 
 < en: blueberry
-en: raw blueberry
-usda_ndb_code:en: 9050
-usda_ndb_name:en: Blueberries, raw
-
-< en: blueberry
-en: frozen blueberry
-usda_ndb_code:en: 9054
-usda_ndb_name:en: Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
-
-< en: frozen blueberry
-en: frozen wild blueberry
+en: wild blueberry
 usda_ndb_code:en: 9053
 usda_ndb_name:en: Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)
+usda_ndb_process:en: en:frozen
 
 #en:the specific names are not seen as ingredient.
 < en: blueberry
@@ -43944,6 +43930,7 @@ ru: бойзенова ягода
 sv: boysenbär
 usda_ndb_proxy_code:en: 9057
 usda_ndb_proxy_name:en: Boysenberries, frozen, unsweetened
+usda_ndb_proxy_process:en: en:frozen, en:unsweetened
 wikidata:en: Q896083
 wikipedia:en: https://en.wikipedia.org/wiki/Boysenberry
 
@@ -44046,6 +44033,7 @@ zh: 楊桃
 ciqual_food_code:en: 13054
 ciqual_food_name:en: Carambola, pulp, raw
 ciqual_food_name:fr: Carambole, pulpe, crue
+ciqual_food_process:en: en:pulp, en:raw
 ifct_food_code:en: E062
 ifct_food_name:en: Star fruit
 usda_ndb_code:en: 9060
