@@ -78146,6 +78146,7 @@ ciqual_food_name:fr: Herbes de Provence, séchées
 en: Salts, Salt
 bg: Сол
 ca: Sal, sals
+da: Salte
 de: Salze, Salz
 es: Sales, Sal
 fi: suoloja
@@ -78156,7 +78157,9 @@ hu: Só, Sók
 it: Sale
 ja: 塩
 lt: Druskos, Druska
+nb: Salter
 nl: Zouten
+nn: Salt
 pl: Sól
 pt: Sais
 ru: Соль
@@ -78235,6 +78238,7 @@ it: sale rosa dell himalaya
 < en: Salts
 en: Sea salts, Bay salts, Solar salt
 bg: Морска сол
+da: Havsalte
 de: Meersalze, Meersalz
 es: Sales marinas
 fi: merisuolat
@@ -78292,6 +78296,7 @@ ciqual_food_name:fr: Sel blanc alimentaire, iodé, fluoré à 25 mg /100g (marin
 < en: Salts
 en: Unrefined salts
 bg: Нерафинирана сол
+da: Uraffinerede salte
 de: Unraffinierte Salze, Naturbelassene Salze, Unraffiniertes Salz, Naturbelassenes Salz
 es: Sales sin refinar
 fi: Puhdistamattomat suolat
@@ -78301,6 +78306,7 @@ hu: Tengeri sók
 it: Sale non raffinato, sale naturale
 lt: Nerafinuotos druskos
 nl: Ongeraffineerde zouten
+sv: Oraffinerade salter
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
@@ -78545,12 +78551,16 @@ wikidata:en: Q11254
 
 < en: Salts
 en: Low-sodium salts, reduced sodium salts
+da: Salte med lavt natriumindhold
 fr: Sels réduits en sodium, sels à teneur réduite en sodium
+sv: Salter med låg natriumhalt
 
 < en: Salts
-en: Flavoured salts
+en: Flavoured salts, Flavored salts
+da: Salte med smag
 fr: Sels aromatisés
 nl: Gearomatiseerde zouten
+sv: Salter med smak
 
 < en: Flavoured salts
 en: Celery salt
@@ -78563,6 +78573,18 @@ ciqual_food_code:en: 11044
 ciqual_food_name:en: Celery salt
 ciqual_food_name:fr: Sel au céleri
 wikidata:en: Q5057832
+
+< en: Flavoured salts
+en: Herbal salts
+da: Urtesalte
+de: Kräutersalz
+fi: Yrttisuola
+sv: Örtsalter
+agribalyse_proxy_food_code:en: 11044
+ciqual_proxy_food_code:en: 11044
+ciqual_proxy_food_name:en: Celery salt
+ciqual_proxy_food_name:fr: Sel au céleri
+wikidata:en: Q67992639
 
 < en: Condiments
 en: Herbs and spices
