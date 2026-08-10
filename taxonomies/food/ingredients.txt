@@ -43689,52 +43689,12 @@ description:de: Die Schwarze Johannisbeere ist eine Pflanzenart aus der Gattung 
 description:fr: Fruit formé de baies noires formant des grappes, pulpeuses, à la peau lisse, fortement aromatiques, utilisé pour faire des liqueurs, des sirops, des gelées…
 description:nl: de vrucht (bes) van de Ribes nigrum
 eurocode_2_group_3:en: 9.30.32
-usda_ndb_proxy_code:en: 9083
-usda_ndb_proxy_name:en: Currants, european black, raw
+usda_ndb_code:en: 9083
+usda_ndb_name:en: Currants, european black, raw
 wikidata:en: Q2941309
 wikipedia:en: https://en.wikipedia.org/wiki/Blackcurrant
 
-< en: blackcurrant
-en: raw european black currants
-usda_ndb_code:en: 9083
-usda_ndb_name:en: Currants, european black, raw
-
-< en: blackcurrant
-en: blackcurrant pieces
-de: Schwarze Johannisbeerstücke
-it: pezzi di ribes nero
-
-#processing:en: en:juice
-#<en:blackcurrant
-#<en:fruit juice
-#en:blackcurrant juice
-#bg:сок от касис
-#da:solbærjuice
-#de:Cassissaft, Johannisbeerensaft, schwarzer Johannisbeersaft, Johannisbeersaft
-#es:zumo de grosella negra, jugo de grosella negra
-#fi:mustaherukkamehu
-#fr:jus de cassis
-#hu:feketeribizlilé
-#it:succo di ribes neri
-#nl:zwarte bessensap
-#sv:svartvinbärsjuice, svartvinbärssaft
-# 709 in 5 languages @2021-09-12
-
-#processing:en: en:concentrated
-#<en:blackcurrant juice
-#en:blackcurrant concentrate
-#bg:концентриран сок от касис
-#de:schwarzes Johannisbeerkonzentrat
-#es:concentrado de grosella negra
-#fi:mustaherukkamehutiiviste, mustaherukkatiiviste
-#fr:jus concentré de cassis, jus de cassis concentré, concentré de cassis
-#hu:feketeribizli sűrítměny
-#nl:zwarte bessensapconcentraat
-#no:solbærkonsentrat
-#pt:concentrado de groselha
-# 238 in 1 language @2021-09-12
-
-# < en:compound
+< en:compound
 en: blackcurrant juice from concentrate
 cs: ovocná šťáva z koncentrátu černého rybízu
 da: solbærsaft fra koncentrat
@@ -43746,27 +43706,6 @@ hr: sok brusnice u granulama
 it: succo di ribes nero da concentrato
 nl: zwarte bessensap op basis van concentraat
 sv: svartvinbärsjuice från koncentrat
-
-#processing:en: en:pureed
-#<en:blackcurrant
-#en:blackcurrant puree
-#bg:пюре от касис
-#da:solbærpuré
-#de:schwarzes Johannesbeerpüree
-#es:puré de grosella negra
-#fi:mustaherukkapyree
-#fr:purée de cassis
-#nl:Zwarte bessenpuree
-#sv:svartvinbärspuré
-# 248 in 5 languages @2021-09-12
-
-# no products
-# <en:blackcurrant
-# en:cassis liqueur
-# es:licor de casis
-# fr:liqueur de cassis
-# nl:cassis likeur
-# de:Cassis-Likör
 
 < en: blackcurrant
 en: pieces and juice of blackcurrant
@@ -44027,11 +43966,6 @@ fi: boysenmarjamehu, boysenmarjatäysmehu
 hr: sok od bobica
 it: succo di boysenberry
 sv: boysenbärsjuice
-
-< en: berries
-en: raw red and whitecurrants
-usda_ndb_code:en: 9084
-usda_ndb_name:en: Currants, red and white, raw
 
 ###################################################################################################
 #
@@ -48780,8 +48714,14 @@ sv: Korinter
 description:en: Zante currants are small, dried, seedless grapes — despite the name, they're not actually related to fresh currants (which are berries from the Ribes genus). Dried fruits made from the Black Corinth grape.
 usda_ndb_code:en: 9085
 usda_ndb_name:en: Currants, zante, dried
+usda_ndb_process:en: en:dried
 wikidata:en: Q1382423
 wikipedia:en: https://en.wikipedia.org/wiki/Zante_currant
+
+< en: raisin
+en: raw red and whitecurrants
+usda_ndb_code:en: 9084
+usda_ndb_name:en: Currants, red and white, raw
 
 < en: fruit juice
 < en: grape
