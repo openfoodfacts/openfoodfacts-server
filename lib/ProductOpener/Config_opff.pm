@@ -190,12 +190,12 @@ $flavor = "opff";
 	product_type => "petfood",
 	og_image_url =>
 		"https://static.openpetfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=opff&utf_medium=web",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utm_medium=web",
 	ios_app_link =>
-		"https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utf_medium=web",
-	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
+		"https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utm_medium=web",
+	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utm_medium=web",
 	#x_account => "OpenBeautyFacts",
 	default_preferences =>
 		'{ "nova" : "important", "labels_organic" : "important", "labels_fair_trade" : "important" }',
@@ -325,6 +325,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openpetfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {

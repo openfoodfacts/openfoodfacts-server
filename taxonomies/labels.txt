@@ -3867,6 +3867,14 @@ description:fr: consignée en Suède.
 #image:sv: pant-2kr.61x90.png
 label_categories:en: en:Environment, en:Packaging
 
+sv: pant 3kr
+xx: pant 3kr
+country:en: en:Sweden
+description:en: deposit in Sweden.
+description:fr: consignée en Suède.
+#image:sv: pant-3kr.61x90.png
+label_categories:en: en:Environment, en:Packaging
+
 en: metal recycles forever
 xx: metal recycles forever
 image:en: metal-recycles-forever.89x90.png
@@ -5266,8 +5274,8 @@ zh: 低饱和脂肪含量
 description:en: In EU, a claim that a food is low in saturated fat may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: Low or no saturated fat
-en: saturated fat-free
-xx: saturated fat-free
+en: No saturated fat, saturated fat-free
+xx: No saturated fat, saturated fat-free
 bg: без наситени мазнини
 ca: sense greixos saturats
 de: ohne gesättigte Fettsäuren
@@ -5424,6 +5432,7 @@ nl: GMO-vrij, Geen GMO, GGO-vrij
 pl: bez GMO
 pt: Sem OGM, Sem Organismos Geneticamente Modificados
 ru: Без ГМО, Без использования ГМО, Не содержит ГМО
+sv: Innehåller inga genetiskt modifierade organismer
 th: ไม่มีจีเอ็มโอ
 incompatible_with:en: labels:en:contains-gmos
 label_categories:en: en:Health, en:Environment
@@ -23737,7 +23746,7 @@ bg: Без остатъци от пестициди
 fr: Sans résidus de pesticides, sans résidu de pesticide, zéro résidus de pesticides, zéro résidu de pesticide
 
 # obligation of means: cultivated without pesticides (but can be a specific year, or after flowers bloom)
-en: Pesticide-free, without pesticide, no pesticide
+en: no pesticides, pesticide-free, without pesticide, no pesticide
 bg: Без пестициди
 fr: Sans pesticides, cultivé sans pesticides
 
