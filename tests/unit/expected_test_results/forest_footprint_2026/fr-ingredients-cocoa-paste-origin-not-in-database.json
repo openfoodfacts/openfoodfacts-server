@@ -1,21 +1,20 @@
 {
    "estimate_ingredients_percent_service" : "product_opener",
    "forest_footprint_2026" : {
-      "grade" : "a",
+      "grade" : "d",
       "primary_ingredients" : {
          "en:cocoa" : {
-            "footprint_per_kg" : 0,
-            "grade" : "a",
+            "footprint_per_kg" : 0.296,
+            "grade" : "d",
             "ingredients" : [
                {
                   "equivalence_ingredient" : 1,
                   "equivalence_ingredient_category" : 1,
-                  "footprint_per_kg" : 0,
+                  "footprint_per_kg" : 0.296,
                   "ingredient_category_id" : "en:cocoa-paste",
                   "ingredient_id" : "en:cocoa-paste",
-                  "label_id" : null,
-                  "origin_footprint" : null,
-                  "origin_id" : null,
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:africa",
                   "percent" : 100,
                   "primary_ingredient_id" : "en:cocoa",
                   "risk_factor" : 1,
@@ -24,7 +23,7 @@
             ]
          }
       },
-      "total_footprint_per_kg" : 0
+      "total_footprint_per_kg" : 0.296
    },
    "ingredients" : [
       {
