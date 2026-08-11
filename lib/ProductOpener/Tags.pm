@@ -237,6 +237,7 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	codes => 1,
 	debug => 1,
 	environment_impact_level => 1,
+	storage_conditions_tags => 1,
 	data_sources => 1,
 	teams => 1,
 	categories_properties => 1,

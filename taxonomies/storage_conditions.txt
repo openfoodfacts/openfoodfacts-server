@@ -1,0 +1,15 @@
+# This taxonomy is used for the values of the field storage_condition
+# It should only contain values "frozen", "refrigerated" and "ambient"
+# Do not add other values, parents or children.
+
+en: frozen
+fr: surgelé
+wikidata:en: Q11838314
+
+en: refrigerated
+fr: réfrigéré
+wikidata:en: Q3454809
+
+en: ambient, ambient temperature
+fr: température ambiante
+wikidata:en: Q111092

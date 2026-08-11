@@ -39684,8 +39684,8 @@ ciqual_food_code:en: 23536
 ciqual_food_name:en: Rice pudding w caramel sauce, refrigerated
 ciqual_food_name:fr: Gâteau de riz au caramel, rayon frais
 
-< en: Rice puddings
 < en: Canned foods
+< en: Rice puddings
 en: Canned rice puddings
 fr: Gâteaux de riz en conserve, Gâteaux de riz appertisés
 agribalyse_food_code:en: 39232
@@ -43073,8 +43073,8 @@ ru: Консервы
 th: อาหารกระป๋อง
 tr: Konserve gıda, Konserve besin, Konserve yiyecek, Konserve ürünler, Konserve mamüller, Kavanozlu gıda, Kavanozlu besin, Kavanozlu yiyecek
 zh: 罐头食品, 罐装食品, 罐頭食品, 醃製品
-wikidata:en: Q18396746
 storage_conditions:en: en:ambient
+wikidata:en: Q18396746
 
 < en: Canned foods
 < en: Fresh foods
@@ -69814,7 +69814,6 @@ tr: Dondurulmuş et
 zh: 冷冻肉类
 
 < en: Frozen Meats
-< en: Frozen beef
 en: Frozen beef, Frozen beef meat
 fr: Bœuf surgelé, Viande de bœuf surgelée
 
@@ -69988,9 +69987,9 @@ nl: Vers fruit
 pt: Frutas frescas
 ru: Свежие фрукты
 sv: Färska frukter
-who_id:en: 15
 # Storage conditions for fresh fruit may vary (in stores, at home, depending on country, season, varieties etc.). By default we consider they are stored at ambient temperature.
 storage_conditions:en: en:ambient
+who_id:en: 15
 
 < en: Fresh fruits
 en: Prepared fresh fruits
@@ -99045,8 +99044,8 @@ hr: Igra
 intake24_category_code:en: GAME
 wikidata:en: Q19862498
 
-< en: Game
 < en: Frozen meats
+< en: Game
 en: Frozen game meat
 fr: Viande de gibier surgelée
 
@@ -99116,8 +99115,8 @@ wikidata:en: Q11571934
 en: Wild boar shoulder
 fr: Epaule de sanglier
 
+< en: Frozen meats
 < en: Wild boar shoulder
-< en: Frozen meat
 en: Frozen wild boar shoulder
 fr: Epaule de sanglier surgelée
 
@@ -99125,8 +99124,8 @@ fr: Epaule de sanglier surgelée
 en: Wild boar leg
 fr: Cuissot de sanglier
 
+< en: Frozen meats
 < en: Wild boar leg
-< en: Frozen Mansikkanektarit
 en: Frozen wild boar leg
 fr: Cuissot de sanglier surgelé
 
@@ -99134,8 +99133,8 @@ fr: Cuissot de sanglier surgelé
 en: Wild boar loin
 fr: Longe de sanglier
 
+< en: Frozen meats
 < en: Wild boar loin
-< en: Frozen meat
 en: Frozen wild boar loin
 fr: Longe de sanglier surgelée
 
@@ -113534,9 +113533,9 @@ comment:en: Fresh vegetable are products that are only plant-based. These produc
 gpc_category_code:en: 10000006
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, but has not gone through any further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Fresh Unprepared and Unprocessed Vegetables, all Prepared and Processed Vegetables.
 gpc_category_name:en: Vegetables - Unprepared/Unprocessed (Shelf Stable)
-who_id:en: 15
 # Storage conditions for fresh vegetables may vary (in stores, at home, depending on country, season, varieties etc.). By default we consider they are refrigerated, and it can be overriden for specific vegetables like potatoes or tomatoes
 storage_conditions:en: en:refrigerated
+who_id:en: 15
 
 < en: Vegetables
 en: Sorrel
@@ -115903,9 +115902,9 @@ intake24_category_code:en: ONIO
 # aeb-arab:راس بصل
 # ckb:پیاز
 sales_format:en: weight, package
+storage_conditions:en: en:ambient
 wikidata:en: Q3406628
 wikipedia:en: https://en.wikipedia.org/wiki/Onion
-storage_conditions:en: en:ambient
 
 < en: onions
 it: Cipolla bianca di Margherita
