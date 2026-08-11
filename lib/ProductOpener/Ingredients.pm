@@ -6982,9 +6982,16 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 							$text
 								=~ s/^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
 							my $ingredients_lc_label = display_taxonomy_tag($ingredients_lc, "labels", $labelid);
-							# Use (\b|\s|[^*°¹²]) before and after the label so that we don't replace ** by two times the value of *
-							# We try to match ** first, but if the corresponding label is not found, the ** line will remain in the ingredients
-							$text =~ s/(\b|\s|[^*°¹²])$symbol(\b|\s|[^*°¹²])/$1 $ingredients_lc_label $2/g;
+							# We don't want to match * in ** or ° in °° but we want to match them in *°
+							my $not_char_from_matched_symbol = '.';
+							if ($symbol =~ /\*/) {
+								$not_char_from_matched_symbol = '[^*]';
+							}
+							elsif ($symbol =~ /°/) {
+								$not_char_from_matched_symbol = '[^°]';
+							}
+							$text
+								=~ s/(\b|\s|$not_char_from_matched_symbol)$symbol(\b|\s|$not_char_from_matched_symbol)/$1 $ingredients_lc_label $2/g;
 							#print STDERR "found label for symbol $symbol: $labelid - new text: $text\n";
 							last;
 						}
