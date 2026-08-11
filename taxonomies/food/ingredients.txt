@@ -81358,7 +81358,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Nemipterus
 #
 ###################################################################################################
 
-< en: fish
+< en: freshwater fish
 en: tilapia
 xx: tilapia
 de: Tilapia
@@ -82418,9 +82418,14 @@ ciqual_food_code:en: 26206
 ciqual_food_name:en: Mediterranean bass, raw, farmed
 ciqual_food_name:fr: Bar commun ou loup (Méditerranée), cru, élevage
 
+###################################################################################################
+#
+#                                Swordfish
+#
+###################################################################################################
 
-< en: fish
 < en: oily fish
+< en: saltwater fish
 en: swordfish
 af: Swaardvis
 ar: سمكة السيف
@@ -82480,16 +82485,6 @@ uk: Риба-меч
 vi: Cá kiếm
 wa: Espadon
 zh: 劍旗魚科
-ciqual_food_code:en: 26082
-ciqual_food_name:en: Swordfish, raw
-ciqual_food_name:fr: Espadon, cru
-description:en: Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill.
-description:de: Der Schwertfisch (Xiphias gladius) ist ein großer, räuberisch lebender Knochenfisch, der weltweit in gemäßigt warmen bis tropischen Meeren anzutreffen ist.
-description:es: El pez espada o aguja palá (Xiphias gladius) es una especie de pez perciforme de la familia Xiphiidae.
-description:fr: L'espadon (Xiphias gladius) est une espèce de poissons pélagiques des mers tropicales et tempérées.
-description:it: Il pesce spada (Xiphias gladius) è un pesce osseo marino.
-description:nl: De zwaardvis (Xiphias gladius) is een straalvinnige vis uit de familie van zwaardvissen (Xiphiidae)
-description:pt: O espadarte (Xiphias gladius), meca, e por vezes incorretamente associado ao peixe-espada.
 # ace:Thôk kojèk
 # axb:قیلینج بالیغی
 # ceb:Malasugi
@@ -82510,6 +82505,12 @@ description:pt: O espadarte (Xiphias gladius), meca, e por vezes incorretamente 
 # zh-hk:劍旗魚科
 # zh-sg:剑旗鱼科
 # zh-tw:劍旗魚
+ciqual_food_code:en: 26082
+ciqual_food_name:en: Swordfish, raw
+ciqual_food_name:fr: Espadon, cru
+description:en: Swordfish is a large, fast-swimming ocean fish (Xiphias gladius) known for the long, flat, sword-like bill it uses to slash at prey. As food, it's prized for a few distinct qualities: Texture and flavor: The flesh is firm, meaty, and dense — often compared to a good steak more than to flakier white fish. The flavor is mild but slightly rich, with a subtle sweetness; Cut and cooking: It's usually sold as thick steaks rather than fillets, since the loin is large. It grills, broils, or pan-sears very well, and holds up on skewers (it's a common choice for kebabs); Fat content: It's a moderately fatty fish, which helps keep it moist during high-heat cooking like grilling — unlike very lean white fish that dry out easily.
+usda_ndb_code:en: 15110
+usda_ndb_name:en: Fish, swordfish, raw
 wikidata:en: Q164327
 wikipedia:en: https://en.wikipedia.org/wiki/Swordfish
 
