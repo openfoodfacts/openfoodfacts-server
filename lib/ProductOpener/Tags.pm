@@ -164,6 +164,7 @@ BEGIN {
 		&create_property_to_tag_mapping_table
 
 		&get_taxonomy_tag_path
+		&get_tag_with_parents
 
 		&get_minimal_tags_subset
 		&gen_tags_list_with_parents
@@ -2905,6 +2906,27 @@ sub gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref) {
 	return @sorted_list;
 }
 
+=head2 get_tag_with_parents ($tagtype, $tagid)
+
+Given a canonical tagid, return a list of the tag and all its parents,
+sorted by closeness to the tag (the tag itself first, then its parents, then the parents of the parents, etc.)
+and alphabetical order for parents with the same closeness.
+
+=cut
+
+sub get_tag_with_parents ($tagtype, $tagid) {
+
+	my @tag_with_parents = ($tagid);
+
+	if (defined $all_parents{$tagtype}{$tagid}) {
+		print STDERR
+			"get_tag_with_parents - tagtype: $tagtype - tagid: $tagid - parents: @{$all_parents{$tagtype}{$tagid}} \n";
+		push @tag_with_parents, @{$all_parents{$tagtype}{$tagid}};
+	}
+
+	return @tag_with_parents;
+}
+
 sub gen_ingredients_tags_hierarchy_taxonomy ($tag_lc, $tags_list) {
 	# $tags_list  ->  comma-separated list of tags, not in a specific order
 
@@ -4882,7 +4904,7 @@ The type of the tag (e.g. categories, labels, allergens)
 sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
 
 	return ($translations_to{$tagtype}{$a}{$target_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
-		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
+		cmp ($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
 }
 
 # To avoid doing file operations for each call to get_knowledge_content (e.g. for each ingredient of a product),
