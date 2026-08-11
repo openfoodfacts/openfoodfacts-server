@@ -10384,13 +10384,13 @@ pl: Jagnię
 pt: cordeiro
 qu: Achkash
 ru: ягнёнок
-nutriscore_red_meat:en: yes
 # arc:ܐܡܪܐ
 # nds-nl:Laom
 # scn:Agneddu
 # sco:lamm
 comment:en: The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
 description:en: LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
+nutriscore_red_meat:en: yes
 wikidata:en: Q4575936
 
 < en: lamb
@@ -78897,9 +78897,9 @@ ciqual_food_code:en: 26018
 ciqual_food_name:en: Anglerfish, raw
 ciqual_food_name:fr: Lotte ou baudroie, crue
 description:en: "Anglerfish" is a broad term for an order of fish (Lophiiformes) known for using a fleshy growth on their head like a fishing lure to attract prey. The fish sold as "monkfish" in seafood markets typically refers to species in the genus Lophius — like the American anglerfish (Lophius americanus) or European anglerfish (Lophius piscatorius) — which live on the seafloor in relatively shallow coastal waters. Monkfish is prized in cooking mostly for its tail meat, which is the part typically sold and eaten. Texture and flavor: It has a firm, dense, meaty texture — often compared to lobster — with a mild, slightly sweet flavor. This has earned it the nickname "poor man's lobster."
-wikipedia:en: https://en.wikipedia.org/wiki/Anglerfish
 usda_ndb_code:en: 15054
 usda_ndb_name:en: Fish, monkfish, raw
+wikipedia:en: https://en.wikipedia.org/wiki/Anglerfish
 
 < en: anglerfish
 en: American anglerfish
@@ -78908,7 +78908,6 @@ la: Lophius piscatorius
 < en: anglerfish
 en: European anglerfish monkfish
 la: Lophius americanus
-description:en: Monkfish is a saltwater fish prized in cooking mostly for its tail meat, which is the part typically sold and eaten. Texture and flavor: It has a firm, dense, meaty texture — often compared to lobster — with a mild, slightly sweet flavor. This has earned it the nickname "poor man's lobster."
 
 < en: fish
 fr: loup
