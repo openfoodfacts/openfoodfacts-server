@@ -9,7 +9,7 @@
          "percent_estimate" : 93,
          "percent_max" : 93,
          "percent_min" : 93,
-         "text" : "Havssalt",
+         "text" : "Sea salt",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -18,10 +18,10 @@
          "id" : "en:basil",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
-         "percent_estimate" : 3.9375,
+         "percent_estimate" : 4,
          "percent_max" : 7,
-         "percent_min" : 0.875,
-         "text" : "basilika",
+         "percent_min" : 1,
+         "text" : "basil",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -30,10 +30,10 @@
          "id" : "en:thyme",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
-         "percent_estimate" : 1.53125,
-         "percent_max" : 6.125,
+         "percent_estimate" : 1.5,
+         "percent_max" : 6,
          "percent_min" : 0,
-         "text" : "timjan",
+         "text" : "thyme",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -42,10 +42,10 @@
          "id" : "en:rosemary",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
-         "percent_estimate" : 0.765625,
-         "percent_max" : 3.0625,
+         "percent_estimate" : 0.75,
+         "percent_max" : 3,
          "percent_min" : 0,
-         "text" : "rosmarin",
+         "text" : "rosemary",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -55,10 +55,10 @@
          "id" : "en:onion",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
-         "percent_estimate" : 0.3828125,
-         "percent_max" : 2.04166666666667,
+         "percent_estimate" : 0.375,
+         "percent_max" : 2,
          "percent_min" : 0,
-         "text" : "lök",
+         "text" : "onion",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -66,10 +66,10 @@
          "ciqual_proxy_food_code" : "11069",
          "id" : "en:sage",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.19140625,
-         "percent_max" : 1.53125,
+         "percent_estimate" : 0.1875,
+         "percent_max" : 1.5,
          "percent_min" : 0,
-         "text" : "salvia",
+         "text" : "sage",
          "vegan" : "yes",
          "vegetarian" : "yes"
       },
@@ -78,8 +78,8 @@
          "id" : "en:oregano",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
-         "percent_estimate" : 0.095703125,
-         "percent_max" : 1.225,
+         "percent_estimate" : 0.09375,
+         "percent_max" : 1.2,
          "percent_min" : 0,
          "text" : "oregano",
          "vegan" : "yes",
@@ -87,25 +87,13 @@
       },
       {
          "ciqual_proxy_food_code" : "11000",
-         "ecobalyse_code" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
          "id" : "en:garlic",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic, en:organic",
-         "percent_estimate" : 0.0478515625,
-         "percent_max" : 1.02083333333333,
+         "percent_estimate" : 0.09375,
+         "percent_max" : 1,
          "percent_min" : 0,
-         "text" : "vitlök",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
-      },
-      {
-         "ciqual_food_code" : "11082",
-         "id" : "en:low-sodium-unrefined-sea-salt",
-         "is_in_taxonomy" : 1,
-         "percent_estimate" : 0.0478515625,
-         "percent_max" : 0.875,
-         "percent_min" : 0,
-         "text" : "oraffinerat havssalt med låg natriumhalt",
+         "text" : "garlic",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
@@ -116,10 +104,10 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_lc" : "sv",
-   "ingredients_n" : 9,
+   "ingredients_lc" : "en",
+   "ingredients_n" : 8,
    "ingredients_n_tags" : [
-      "9",
+      "8",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -130,8 +118,7 @@
       "en:onion",
       "en:sage",
       "en:oregano",
-      "en:garlic",
-      "en:low-sodium-unrefined-sea-salt"
+      "en:garlic"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -147,21 +134,18 @@
       "en:onion-family-vegetable",
       "en:sage",
       "en:oregano",
-      "en:garlic",
-      "en:low-sodium-unrefined-sea-salt",
-      "en:unrefined-salt",
-      "en:unrefined-sea-salt"
+      "en:garlic"
    ],
-   "ingredients_text" : "Havssalt (93%)**, basilika*, timjan*, rosmarin*, lök*, salvia, oregano* och vitlök* */ ekologiskt odlat **/oraffinerat havssalt med låg natriumhalt",
+   "ingredients_text" : "Sea salt (93%)**, basil*, thyme*, rosemary*, onion*, sage, oregano* and garlic* */ organically grown **/fair trade",
    "ingredients_with_specified_percent_n" : 1,
    "ingredients_with_specified_percent_sum" : 93,
-   "ingredients_with_unspecified_percent_n" : 8,
+   "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 7,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
       "en:basil",
-      "en:low-sodium-unrefined-sea-salt",
+      "en:garlic",
       "en:oregano",
       "en:rosemary",
       "en:sage",
@@ -169,8 +153,16 @@
       "en:thyme"
    ],
    "ingredients_without_ecobalyse_ids_n" : 7,
-   "known_ingredients_n" : 9,
-   "lc" : "sv",
+   "known_ingredients_n" : 8,
+   "labels" : "en:fair-trade",
+   "labels_hierarchy" : [
+      "en:fair-trade"
+   ],
+   "labels_lc" : "en",
+   "labels_tags" : [
+      "en:fair-trade"
+   ],
+   "lc" : "en",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
