@@ -10339,7 +10339,22 @@ wikidata:en: Q1365996
 wikipedia:en: https://en.wikipedia.org/wiki/Chuck_steak
 
 
-# description:en:In general a sheep in its first year is called a LAMB, and its meat is also called lamb.
+###################################################################################################
+#
+#                                Green turtle
+#
+###################################################################################################
+
+< en: animal
+en: green turtle
+usda_ndb_code:en: 93600
+usda_ndb_name:en: Turtle, green, raw
+
+###################################################################################################
+#
+#                                Lamb
+#
+###################################################################################################
 
 < en: sheep
 en: lamb
@@ -10374,10 +10389,9 @@ nutriscore_red_meat:en: yes
 # nds-nl:Laom
 # scn:Agneddu
 # sco:lamm
+comment:en: The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
+description:en: LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
 wikidata:en: Q4575936
-
-# description:en:LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
-# comment:en:The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
 
 < en: lamb
 < en: meat
@@ -13700,10 +13714,6 @@ usda_ndb_name:en: Frog legs, raw
 wikidata:en: Q1258910
 wikipedia:en: https://en.wikipedia.org/wiki/Frog_legs
 
-< en: animal
-en: green turtle
-usda_ndb_code:en: 93600
-usda_ndb_name:en: Turtle, green, raw
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
