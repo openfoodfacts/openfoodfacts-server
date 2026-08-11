@@ -1553,6 +1553,13 @@ wikidata:en: Q1799829
 wikipedia:en: https://en.wikipedia.org/wiki/Lacticaseibacillus_paracasei
 
 
+< en: lactic ferments
+en: Lactococcus lactis
+xx: Lactococcus lactis
+wikidata:en: Q133598
+wikipedia:en: https://en.wikipedia.org/wiki/Lactococcus_lactis
+
+
 # description:en:STREPTOCOCCUS THERMOPHILUS also known as Streptococcus salivarius subsp. thermophilus is a gram-positive bacterium, and a fermentative facultative anaerobe, of the viridans group. It is also classified as a lactic acid bacterium.
 
 < en: lactic ferments
@@ -5005,6 +5012,11 @@ sv: Färsk grädde
 ciqual_food_code:en: 19402
 ciqual_food_name:fr: Crème de lait ou spécialité à base de crème légère, teneur en matière grasse inconnue (aliment moyen)
 
+< en: cream
+en: clotted cream
+wikidata:en: Q1373885
+wikipedia:en: https://en.wikipedia.org/wiki/Clotted_cream
+
 ###################################################################################################
 #
 #                                Sour cream
@@ -5226,7 +5238,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Filmj%C3%B6lk
 # description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
 < en: dairy
-en: buttermilk, sweet cream buttermilk
+en: buttermilk, butter milk, sweet cream buttermilk
 af: karringmelk
 am: አሬራ
 ar: حليب رائب, حليبب
@@ -8209,6 +8221,18 @@ wikidata:en: Q1892828
 wikipedia:en: https://en.wikipedia.org/wiki/Red_Leicester
 
 
+< en: cow cheese
+en: regato, regato cheese, regato medium fat hard cheese
+fr: regato, fromage regato
+nl: regato kaas
+sv: regato-ost
+wikidata:en: Q6005710
+wikipedia:en: https://en.wikipedia.org/wiki/Imokilly_Regato
+
+< en: regato
+fr: fromage regato végétarien
+
+
 # description:en:RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
 
 < en: cheese
@@ -8879,7 +8903,7 @@ th: เกลือ, เกลือแกง
 tl: Asin
 tr: tuz, Yemek tuzu
 ug: تۇز
-uk: Кухонна сіль
+uk: Кухонна сіль, сіль кухонна
 ur: نمک
 vi: Muối ăn
 wa: Sé d' coujhene
@@ -9130,7 +9154,7 @@ wikidata:en: Q4116639
 wikipedia:en: https://en.wikipedia.org/wiki/Kosher_salt
 
 < en: salt
-en: sea salt, bay salt, solar salt, natural sea salt, pure sea salt, mineral sea salt
+en: sea salt, seasalt, bay salt, solar salt, natural sea salt, pure sea salt, mineral sea salt
 af: seesout
 ar: ملح البحر
 az: dəniz duzu
@@ -9457,7 +9481,7 @@ pt: Sal iodado
 ro: sare iodată, sare iodata
 ru: Йодированная поваренная соль, соль йодированная
 sl: jodirana sol
-sv: joderat salt, joderad salt, jodsalt, salt med jod
+sv: joderat salt, joderad salt, jodsalt, salt med jod, jodiserat salt
 th: เกลือเสริมไอโอดีน, เกลือบริโภคเสริมไอโอดีน
 uk: Йодована сіль
 vi: Muối iốt
@@ -9975,6 +9999,9 @@ es: carne de vacuno angus
 fr: Viande de boeuf Angus
 hr: angus govedina
 it: manzo Angus
+
+< en: beef meat
+en: beef steak
 
 < en: beef meat
 en: cooked beef meat, cooked beef
@@ -13071,7 +13098,7 @@ pt: gordura de porco, gorduras de porco, lípido de porco, lípidos de porco
 sh: svinjska mast
 sl: svinjska mast
 sr: svinjska mast
-sv: grisfett, fett från gris
+sv: grisfett, fett från gris, fläskfett
 tr: domuz yağı
 # sr-el:svinjska mast
 ciqual_food_code:en: 16530
@@ -18467,7 +18494,7 @@ hu: alkoholecet
 it: aceto di alcool, aceto d alcol
 nl: alcoholazijn
 pt: vinagre de álcool
-ro: oțet de alcool
+ro: oțet de alcool, oțet din alcool
 sv: ättiksprit
 
 < en: alcohol vinegar
@@ -31179,6 +31206,11 @@ usda_ndb_name:en: Sugars, brown
 wikidata:en: Q11190742
 wikipedia:en: https://en.wikipedia.org/wiki/Brown_sugar
 
+< en: brown sugar
+en: light brown sugar
+
+< en: brown sugar
+en: dark brown sugar
 
 < en: sugar
 en: candy sugar, rock candy, crystal candy
@@ -60187,7 +60219,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Sauce tomate
 carbon_footprint_fr_foodges_value:fr: 2.9
 
 < en: tomato
-en: tomato purée
+en: tomato purée, passata, tomato passata
 bg: доматено пюре
 ca: puré de tomàquet
 cs: rajčatové pyré, rajčatový protlak
@@ -65947,7 +65979,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Cumin
 
 #category/fennel-seeds
 < en: seed
-en: fennel seedOLD
+en: fennel seed
 ca: fruit del fonoll
 da: fennikelfrø
 de: Fenchelsamen, Fenchelsaat
@@ -67628,7 +67660,7 @@ ifct_food_name:en: Asafoetida
 
 < en: seed
 < en: spice
-en: black cumin, black caraway, nigella, kalonji seeds
+en: black cumin, black caraway, nigella, kalonji seeds, black onion seed, black onion seeds
 bg: черен кимион
 ca: pebreta, pebretera
 de: Schwarzkümmel
@@ -67645,6 +67677,7 @@ sh: Crni kumin
 sv: Svartkummin
 #vls:Nigelle, zwarte komyn
 wikidata:en: Q104414363
+wikipedia:en: https://en.wikipedia.org/wiki/Nigella_sativa
 
 ###################################################################################################
 #
@@ -68762,6 +68795,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Clove
 en: ground clove
 usda_ndb_code:en: 2011
 usda_ndb_name:en: Spices, cloves, ground
+
+< en: clove
+< en: vegetable oil
+en: clove oil
+wikidata:en: Q2195458
+wikipedia:en: https://en.wikipedia.org/wiki/Oil_of_clove
 
 ###################################################################################################
 #
@@ -70502,7 +70541,7 @@ wikidata:en: Q7168518
 wikipedia:en: https://en.wikipedia.org/wiki/Perilla
 
 < en: Perilla
-en: Shiso
+en: Shiso, beefsteak plant
 it: shiso
 ja: シソ, 紫蘇, しそ
 wikidata:en: Q15750255
@@ -70517,6 +70556,15 @@ ja: アカジソ, 赤紫蘇, 赤じそ, 赤ジソ
 en: Green shiso
 it: shiso verde
 ja: アオジソ, 青紫蘇, 青じそ, 青ジソ, 大葉
+
+< en: Perilla
+< en: vegetable oil
+en: perilla oil, perilla seed oil
+de: Perillaöl
+es: aceite de perilla
+wikidata:en: Q921630
+wikipedia:en: https://en.wikipedia.org/wiki/Perilla_oil
+
 
 < en: herb
 en: sumac
@@ -77502,8 +77550,8 @@ wikidata:en: Q1142857
 < en: mushroom
 en: shiitake, lentinula edodes, lentinus edodes, shiitake mushrooms
 bg: шийтаке
-de: shiitake, schwarzer Pilz, shittakepilze
-es: shiitake, hongo de shiitake
+de: shiitake, schwarzer Pilz, shiitakepilze
+es: shiitake, hongo de shiitake, seta shiitake, setas shiitake, seta shiitake cultivada
 fi: siitake, lentinula edodes
 fr: shiitake, champignon noir, champignons noirs, shiitakes, Lentin du chêne, Lentin comestible, Champignon parfumé, Champignon shiitaké
 hr: shiitake
@@ -77513,7 +77561,7 @@ la: Lentinula edodes, lentinus edodes
 nl: shiitake, zwarte paddestoel, Chinese champignons, chinese paddenstoel
 pl: shiitake, grzyby shiitake, grzybów shiitake
 pt: Shiitake
-sv: svart champinjon
+sv: shiitakesvamp, shiitake-svampe, svart champinjon
 ciqual_proxy_food_code:en: 20211
 ciqual_proxy_food_name:en: Shiitake mushroom, dried
 ciqual_proxy_food_process:en: en:dried
