@@ -2819,7 +2819,7 @@ description:en: Doppelbock is a Bock-style beer that is stronger and maltier com
 < en: Bock beers
 en: Eisbock beers, Eisbock
 xx: Eisbock beers, Eisbock
-description:en: Eisbock is a much stronger Bock-style beer that is made by a freezing process. Water has lower freezing point compared to alcohol, therefore this type of beer is partially frozen to sepparate water from beer. This process is done to enhance alcohol content and flavour.
+description:en: Eisbock is a much stronger Bock-style beer that is made by a freezing process. Water has lower freezing point compared to alcohol, therefore this type of beer is partially frozen to separate water from beer. This process is done to enhance alcohol content and flavour.
 
 < en: Bock beers
 en: Maibock beers, Maibock, Helles Bock, Heller Bock
@@ -39685,6 +39685,7 @@ ciqual_food_name:en: Rice pudding w caramel sauce, refrigerated
 ciqual_food_name:fr: Gâteau de riz au caramel, rayon frais
 
 < en: Rice puddings
+< en: Canned foods
 en: Canned rice puddings
 fr: Gâteaux de riz en conserve, Gâteaux de riz appertisés
 agribalyse_food_code:en: 39232
@@ -43073,6 +43074,7 @@ th: อาหารกระป๋อง
 tr: Konserve gıda, Konserve besin, Konserve yiyecek, Konserve ürünler, Konserve mamüller, Kavanozlu gıda, Kavanozlu besin, Kavanozlu yiyecek
 zh: 罐头食品, 罐装食品, 罐頭食品, 醃製品
 wikidata:en: Q18396746
+storage_conditions:en: en:ambient
 
 < en: Canned foods
 < en: Fresh foods
@@ -68225,6 +68227,7 @@ sv: Frysta matvaror
 th: อาหารแช่แข็ง
 tr: Dondurulmuş yiyecek, Dondurulmuş yemek, Dondurulmuş gıda
 zh: 冷冻食物
+storage_conditions:en: en:frozen
 
 en: Refrigerated foods, Refrigerated
 ca: Aliments refrigerats
@@ -68241,6 +68244,7 @@ nl: Gekoelde producten
 pt: Alimentos refrigerados, refrigerados
 ru: охлажденные продукты
 th: อาหารแช่เย็น
+storage_conditions:en: en:refrigerated
 
 < en: Plant-based foods
 < en: Refrigerated foods
@@ -69809,6 +69813,11 @@ sv: Fryst kött
 tr: Dondurulmuş et
 zh: 冷冻肉类
 
+< en: Frozen Meats
+< en: Frozen beef
+en: Frozen beef, Frozen beef meat
+fr: Bœuf surgelé, Viande de bœuf surgelée
+
 < en: Plant-based foods
 en: Fruits and vegetables based foods
 ca: Aliments amb base de fruites i verdures
@@ -69980,6 +69989,8 @@ pt: Frutas frescas
 ru: Свежие фрукты
 sv: Färska frukter
 who_id:en: 15
+# Storage conditions for fresh fruit may vary (in stores, at home, depending on country, season, varieties etc.). By default we consider they are stored at ambient temperature.
+storage_conditions:en: en:ambient
 
 < en: Fresh fruits
 en: Prepared fresh fruits
@@ -85774,7 +85785,7 @@ ciqual_food_name:en: Beef carpaccio, w marinade
 ciqual_food_name:fr: Carpaccio de bœuf, avec marinade
 
 < en: Beef carpaccio
-< en: Frozen foods
+< en: Frozen beef
 en: Frozen beef carpaccio
 fr: Carpaccio de boeuf surgelé, Carpaccio de bœuf surgelé
 
@@ -91025,7 +91036,7 @@ ciqual_food_name:en: Beef, knuckle, boiled/cooked in water
 ciqual_food_name:fr: Boeuf, jarret, bouilli/cuit à l'eau
 
 < en: Beef knuckle
-< en: Frozen meats
+< en: Frozen beef
 en: Frozen beef knuckle
 fr: Jarret de boeuf surgelé
 
@@ -91034,7 +91045,7 @@ en: Beef marrowbone, beef marrow bone
 fr: Os à moelle
 
 < en: Beef marrowbone
-< en: Frozen meats
+< en: Frozen beef
 en: Frozen beef marrowbone, Frozen beef marrow bone
 fr: Os à moelle surgelé
 
@@ -91067,7 +91078,7 @@ ciqual_food_name:en: Beef, rib steak, raw
 ciqual_food_name:fr: Boeuf, entrecôte, crue
 
 < en: Beef rib steak
-< en: Frozen meats
+< en: Frozen beef
 en: Frozen beef rib steak
 fr: Entrecôte de boeuf surgelée
 
@@ -91091,6 +91102,7 @@ ciqual_food_name:en: Beef, rib, raw
 ciqual_food_name:fr: Boeuf, côte, crue
 
 < en: Beef ribs
+< en: Frozen beef
 en: Frozen beef ribs
 fr: Côtes de boeuf surgelées
 
@@ -91177,6 +91189,7 @@ en: Beef front quarter
 fr: Quartier avant de boeuf
 
 < en: Beef front quarter
+< en: Frozen beef
 en: Frozen beef front quarter
 fr: Quartier avant de boeuf surgelé
 
@@ -91254,6 +91267,7 @@ ciqual_food_name:en: Beef, cheek, braised or boiled
 ciqual_food_name:fr: Boeuf, joue, braisée ou bouillie
 
 < en: Beef cheek
+< en: Frozen beef
 en: Frozen beef cheek
 fr: Joue de boeuf surgelée
 
@@ -91302,6 +91316,7 @@ ciqual_food_name:en: Beef, flank steak, grilled/pan-fried
 ciqual_food_name:fr: Boeuf, bavette d'aloyau, grillée/poêlée
 
 < en: Beef flank steak
+< en: Frozen beef
 en: Frozen beef flank steak
 fr: Bavette d'aloyau de boeuf surgelée, Bavette d'aloyau surgelée
 
@@ -91335,6 +91350,7 @@ ciqual_food_name:en: Beef, round, cooked
 ciqual_food_name:fr: Boeuf, gîte à la noix, cuit
 
 < en: Beef round
+< en: Frozen beef
 en: Frozen beef round
 fr: Gîte à la noix de boeuf surgelé
 
@@ -91375,6 +91391,7 @@ ciqual_food_name:en: Beef, sirloin steak, roasted/baked
 ciqual_food_name:fr: Boeuf, faux-filet, rôti/cuit au four
 
 < en: Beef sirloin steak
+< en: Frozen beef
 en: Frozen beef sirloin steak
 fr: Faux-filet de boeuf surgelé
 
@@ -91443,6 +91460,7 @@ ciqual_food_name:en: Beef, rump steak, grilled
 ciqual_food_name:fr: Boeuf, rumsteck, grillé
 
 < en: Beef rump steak
+< en: Frozen beef
 en: Frozen beef rump steak
 fr: Rumsteck de boeuf surgelé, Rumsteak de boeuf surgelé
 
@@ -91469,6 +91487,7 @@ ciqual_food_name:en: Beef, shoulder, raw
 ciqual_food_name:fr: Boeuf, épaule, crue
 
 < en: Beef shoulder
+< en: Frozen beef
 en: Frozen beef shoulder
 fr: Epaule de boeuf surgelée
 
@@ -91881,6 +91900,7 @@ ciqual_food_name:en: Beef on skewer
 ciqual_food_name:fr: Brochette de boeuf
 
 < en: Beef skewers
+< en: Frozen beef
 en: Frozen beef skewers
 fr: Brochettes de bœuf surgelées, brochette de bœuf surgelée
 
@@ -91992,6 +92012,7 @@ en: Beef offals
 fr: Abats de bœuf
 
 < en: Beef offals
+< en: Frozen beef
 en: Frozen Beef offals
 fr: Abats de bœuf surgelés
 
@@ -92368,6 +92389,7 @@ ru: Свежее мясо
 tr: Taze et
 zh: 鲜肉
 intake24_category_code:en: RWMT
+storage_conditions:en: en:refrigerated
 
 < en: Fresh meats
 < en: Steaks
@@ -93907,6 +93929,7 @@ gpc_category_description:en: Definition: Includes products from animals of the g
 gpc_category_name:en: Duck - Prepared/Processed
 
 < en: Ducks
+< en: Frozen Meat
 en: Frozen ducks
 fr: Canards surgelés
 
@@ -93985,6 +94008,7 @@ ciqual_food_name:en: Duck, magret, cooked in pan
 ciqual_food_name:fr: Canard, magret, grillé/poêlé
 
 < en: Duck breasts
+< en: Frozen Meat
 en: Frozen duck breasts, Frozen duck magret
 fr: Magrets de canard surgelés
 
@@ -94029,6 +94053,7 @@ en: Duck neck
 fr: Cou de canard
 
 < en: Duck neck
+< en: Frozen Meat
 en: Frozen duck neck
 fr: Cou de canard surgelé
 
@@ -94037,6 +94062,7 @@ en: Duck wings
 fr: Ailes de canard
 
 < en: Duck wings
+< en: Frozen Meat
 en: Frozen duck wings
 fr: Ailes de canard surgelées
 
@@ -94045,6 +94071,7 @@ en: Duck feet
 fr: Pattes de canards
 
 < en: Duck feet
+< en: Frozen Meat
 en: Frozen duck feet
 fr: Pattes de canards surgelées
 
@@ -94874,6 +94901,7 @@ ciqual_food_name:fr: Canard, cuisse avec peau, sans os, crue
 fr: Cuisses de canard confites
 
 < en: Duck legs
+< en: Frozen Meat
 en: Frozen duck legs
 fr: Cuisses de canard surgelées
 
@@ -99018,6 +99046,7 @@ intake24_category_code:en: GAME
 wikidata:en: Q19862498
 
 < en: Game
+< en: Frozen meats
 en: Frozen game meat
 fr: Viande de gibier surgelée
 
@@ -99088,6 +99117,7 @@ en: Wild boar shoulder
 fr: Epaule de sanglier
 
 < en: Wild boar shoulder
+< en: Frozen meat
 en: Frozen wild boar shoulder
 fr: Epaule de sanglier surgelée
 
@@ -99096,6 +99126,7 @@ en: Wild boar leg
 fr: Cuissot de sanglier
 
 < en: Wild boar leg
+< en: Frozen Mansikkanektarit
 en: Frozen wild boar leg
 fr: Cuissot de sanglier surgelé
 
@@ -99104,6 +99135,7 @@ en: Wild boar loin
 fr: Longe de sanglier
 
 < en: Wild boar loin
+< en: Frozen meat
 en: Frozen wild boar loin
 fr: Longe de sanglier surgelée
 
@@ -106099,6 +106131,7 @@ ciqual_food_name:en: Scampi, breaded, fried
 ciqual_food_name:fr: Langoustine, panée, frite
 
 < en: Crustaceans
+< en: Frozen seafood
 en: Frozen crustaceans
 fr: Crustacés surgelés
 
@@ -106201,6 +106234,7 @@ en: Farmed fishes
 fr: Poissons d'élevage
 
 < en: Farmed fishes
+< en: Frozen fishes
 en: Frozen farmed fishes
 fr: Poissons d'élevage surgelés
 
@@ -113501,6 +113535,8 @@ gpc_category_code:en: 10000006
 gpc_category_description:en: Definition: Includes any products that can be described/observed as any variety of vegetables, combination of vegetables or fruit vegetables, which may be whole, chopped, cleaned and trimmed, but has not gone through any further manufacturing processes, such as reformed, cooked, dried, salted or smoked, however these products can be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. These products have been treated or packaged in such a way as to extend their consumable life. Excludes products such as Vegetables with additional dough or grains, Frozen and Fresh Unprepared and Unprocessed Vegetables, all Prepared and Processed Vegetables.
 gpc_category_name:en: Vegetables - Unprepared/Unprocessed (Shelf Stable)
 who_id:en: 15
+# Storage conditions for fresh vegetables may vary (in stores, at home, depending on country, season, varieties etc.). By default we consider they are refrigerated, and it can be overriden for specific vegetables like potatoes or tomatoes
+storage_conditions:en: en:refrigerated
 
 < en: Vegetables
 en: Sorrel
@@ -115869,6 +115905,7 @@ intake24_category_code:en: ONIO
 sales_format:en: weight, package
 wikidata:en: Q3406628
 wikipedia:en: https://en.wikipedia.org/wiki/Onion
+storage_conditions:en: en:ambient
 
 < en: onions
 it: Cipolla bianca di Margherita
@@ -116290,6 +116327,9 @@ food_groups:en: en:potatoes
 intake24_category_code:en: POTS
 pnns_group_2:en: Potatoes
 sales_format:en: weight, package
+# Storage condition for fresh potatoes is ambient, needs to be overridden for frozen potatoes
+storage_conditions:en: en:ambient
+
 
 #################### Potato consistency/starchiness ####################
 
@@ -117704,6 +117744,7 @@ nl: Verse tomaten, Verse tomaat
 pl: Pomidory świeże, Świeże pomidory
 sales_format:en: weight, package
 season_in_country_fr:en: 6,7,8,9
+storage_conditions:en: en:ambient
 
 < en: Tomatoes
 fr: Tomate olivette, Tomates olivettes
@@ -122668,6 +122709,7 @@ agribalyse_food_code:en: 20235
 ciqual_food_code:en: 20235
 ciqual_food_name:en: Onion, frozen, raw
 ciqual_food_name:fr: Oignon, surgelé, cru
+storage_conditions:en: en:frozen
 
 < en: Frozen onions
 en: Frozen chopped onions
@@ -122888,6 +122930,8 @@ fr: Pommes de terre surgelées, Pommes de terre surgelés
 hr: Smrznuti krumpir
 it: Patate surgelate
 nl: Diepvriesaardappelen
+storage_conditions:en: en:frozen
+
 
 < en: Frozen potatoes
 < en: Potato wedges
@@ -124345,6 +124389,7 @@ en: Duck offals
 fr: Abats de canard
 
 < en: Duck offals
+< en: Frozen Meat
 en: Frozen duck offals
 fr: Abats de canard surgelés
 
@@ -128196,6 +128241,7 @@ ciqual_food_name:fr: Jus multifruit - base pomme, standard
 #< en:Frozen foods
 < en: Fruit and vegetable juices
 en: Frozen fruit and vegetable juices, Frozen juices
+storage_conditions:en: en:frozen
 
 < en: Frozen fruit and vegetable juices
 < en: Fruit juices
