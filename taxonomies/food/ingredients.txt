@@ -78300,7 +78300,7 @@ vegetarian:en: no
 wikidata:en: Q600396
 wikipedia:en: https://en.wikipedia.org/wiki/Fish
 
-# Fish are classified as while or oily
+# Fish are classified as whte or oily
 < en: fish
 en: oily fish
 es: pescado azul
@@ -81352,15 +81352,17 @@ it: nemipterus spp
 wikidata:en: Q1842575
 wikipedia:en: https://en.wikipedia.org/wiki/Nemipterus
 
-
-# description:en:Tilapia is the common name for nearly a hundred species of cichlid fish from the  coelotilapine, coptodonine, heterotilapine, oreochromine, pelmatolapiine and tilapiine tribes (formerly all were in Tilapiini).
+###################################################################################################
+#
+#                                Tilapia
+#
+###################################################################################################
 
 < en: fish
 en: tilapia
+xx: tilapia
 de: Tilapia
-fr: tilapia
 hr: tilapija
-it: tilapia
 ifct_food_code:en: P083
 ifct_food_name:en: Tilapia
 wikidata:en: Q47793
@@ -81390,9 +81392,38 @@ en: nile tilapia
 it: tilapia del Nilo
 la: Oreochromis niloticus
 
+###################################################################################################
+#
+#                                Tilefish
+#
+###################################################################################################
 
-# <en:saltwater fish
-< en: fish
+< en: saltwater fish
+en: tilefish
+description:en: Tilefish is a type of saltwater fish found mainly in the western Atlantic Ocean, from the northeastern U.S. down through the Gulf of Mexico. There are a few species, but the most commonly eaten ones are golden tilefish (also called "white tilefish" in markets) and blueline tilefish. Flavor and texture: Mild, sweet flavor with firm, moist flesh — often compared to a cross between lobster and crab in taste, which is why it's sometimes nicknamed "poor man's lobster." The texture holds up well to various cooking methods. Cooking methods: It works well baked, roasted, pan-seared, grilled, or poached. The skin can be crisped up nicely in a pan. It's popular in Japanese cuisine too, where it's called amadai and often prepared with the scales left on and fried until crispy.
+usda_ndb_code:en: 15112
+usda_ndb_name:en: Fish, tilefish, raw
+
+< en: tilefish
+en: blackline tilefish
+la: Caulolatilus cyanops
+
+< en: tilefish
+en: blueline tilefish
+la: Caulolatilus microps
+
+< en: tilefish
+en: golden tilefish
+la: Lopholatilus chamaeleonticeps
+
+###################################################################################################
+#
+#                                Tuna
+#
+###################################################################################################
+
+< en: saltwater fish
+#< en: fish
 en: tuna
 af: Tuna
 ar: تن
