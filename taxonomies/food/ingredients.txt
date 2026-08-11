@@ -79921,10 +79921,13 @@ ciqual_food_name:fr: Grondin, cru
 wikidata:en: Q250699
 wikipedia:en: https://en.wikipedia.org/wiki/Triglidae
 
+###################################################################################################
+#
+#                                Haddock
+#
+###################################################################################################
 
-# en:description:The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
-
-< en: fish
+< en: saltwater fish
 < en: white fish
 en: haddock
 af: Skelvis
@@ -79968,9 +79971,6 @@ sv: Kolja
 tr: Mezgit
 uk: Пікша
 zh: 黑線鱈
-ciqual_food_code:en: 26122
-ciqual_food_name:en: Haddock, raw
-ciqual_food_name:fr: Églefin, cru
 # en-gb:haddock
 # pcd:Éqhélfin
 # sco:haddock
@@ -79980,9 +79980,20 @@ ciqual_food_name:fr: Églefin, cru
 # zh-hk:黑線鱈
 # zh-sg:黑线鳕
 # zh-tw:黑線鱈
+ciqual_food_code:en: 26122
+ciqual_food_name:en: Haddock, raw
+ciqual_food_name:fr: Églefin, cru
+description:en: Haddock is a saltwater fish, closely related to cod and are found mainly in the North Atlantic. Flavor and texture: Mild, slightly sweet flavor with white, flaky flesh. It's often described as a bit more delicate than cod. It's the classic fish used in British fish and chips
+usda_ndb_code:en: 15033
+usda_ndb_name:en: Fish, haddock, raw
 wikidata:en: Q202406
 wikipedia:en: https://en.wikipedia.org/wiki/Haddock
 
+###################################################################################################
+#
+#                                Hake
+#
+###################################################################################################
 
 # en:description:The term hake /heɪk/ refers to fish in either of:Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
 
@@ -81956,6 +81967,39 @@ ciqual_food_code:en: 26128
 ciqual_food_name:en: Roundnose grenadier, raw
 ciqual_food_name:fr: Grenadier (de roche), cru
 
+
+###################################################################################################
+#
+#                                Ling (blue and common)
+#
+###################################################################################################
+
+< en: saltwater fish
+en: ling
+fr: lingue, julienne
+hr: vrijesak
+la: Molva
+
+< en: ling
+en: common ling
+la: Molva molva
+ciqual_food_code:en: 26130
+ciqual_food_name:en: Ling, raw
+ciqual_food_name:fr: Julienne ou Lingue, crue
+description:en: This is a long, eel-like fish in the cod family (Gadidae), found in the North Atlantic, particularly around European and North American coasts. It has: A firm, white, flaky flesh similar to cod or haddock; A mild, slightly sweet flavor;A long, slender body (can grow quite large, sometimes over a meter)
+usda_ndb_code:en: 15044
+usda_ndb_name:en: Fish, ling, raw
+
+< en: ling
+en: blue ling
+fr: lingue bleue
+it: molva blu
+la: Molva dypterygia
+ciqual_food_code:en: 26194
+ciqual_food_name:en: Blue ling, raw
+ciqual_food_name:fr: Lingue bleue ou Lingue, crue
+description:en: Blue ling lives in much deeper water than common ling. The flesh is white, firm, and mild — used in much the same way as common ling or cod, though it's less commonly sold fresh to consumers and more often ends up in processed or filleted products.
+
 ###################################################################################################
 #
 #                                Lingcod
@@ -82263,26 +82307,6 @@ tr: Nemipteridae
 uk: Ниткопері
 vi: Họ Cá lượng
 zh: 金線魚科
-
-
-
-< en: fish
-en: ling
-fr: lingue, julienne
-hr: vrijesak
-la: Molva
-ciqual_food_code:en: 26130
-ciqual_food_name:en: Ling, raw
-ciqual_food_name:fr: Julienne ou Lingue, crue
-description:en: Molva est un genre de poissons appelés lingues, élingues ou juliennes.
-
-< en: ling
-en: blue ling
-fr: Lingue bleue
-it: molva blu
-ciqual_food_code:en: 26194
-ciqual_food_name:en: Blue ling, raw
-ciqual_food_name:fr: Lingue bleue ou Lingue, crue
 
 
 < en: fish
