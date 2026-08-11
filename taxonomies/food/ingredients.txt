@@ -83366,7 +83366,23 @@ zh: 虎斑乌贼, Sépia Pharaonis
 wikidata:en: Q2701934
 wikipedia:en: https://en.wikipedia.org/wiki/Pharaoh_cuttlefish
 
-# en:description:Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
+###################################################################################################
+#
+#                                Jellyfish
+#
+###################################################################################################
+
+< en: animal
+en: jellyfish
+usda_ndb_code:en: 43497
+usda_ndb_name:en: Jellyfish, dried, salted
+usda_ndb_process:en: en:dried, en:salted
+
+###################################################################################################
+#
+#                                Mussel
+#
+###################################################################################################
 
 < en: mollusc
 en: mussel, mussels
@@ -83393,14 +83409,15 @@ sq: Midhje
 tr: Midye
 vi: Trai
 zh: 淡菜類
-ciqual_food_code:en: 10014
-ciqual_food_name:en: Mussel, common, raw
-ciqual_food_name:fr: Moule commune, crue
 # ffr:Hees
 # gom:Xinnani, Xinnaneo
 # lij:Musculu
 # pt-br:Mexilhão
 # vls:Mussel
+ciqual_food_code:en: 10014
+ciqual_food_name:en: Mussel, common, raw
+ciqual_food_name:fr: Moule commune, crue
+description:en: Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
 wikidata:en: Q15735642
 wikipedia:en: https://en.wikipedia.org/wiki/Mussel
 
