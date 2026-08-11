@@ -362,11 +362,11 @@ else {
 				and ($product_ref->{product_type} ne $options{product_type}))
 			{
 				redirect_to_url($request_ref, 302,
-          		          format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
-        				. '/cgi/product.pl?type='
-      					. $type
-        				. '&code='
-        				. $code);
+						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
+						. '/cgi/product.pl?type='
+						. $type
+						. '&code='
+						. $code);
 			}
 		}
 	}
