@@ -242,7 +242,7 @@ sub call_ecobalyse($url_recipe, $payload) {
 
 	# Send the ECOBALYSE API_TOKEN token in the Authorization header if it's defined
 	if (defined $ecobalyse_api_token) {
-		$request->header('Authorization' => "Bearer $ecobalyse_api_token");
+		$request->header('token' => $ecobalyse_api_token);
 	}
 	$request->content(decode_utf8(encode_json($payload)));
 
