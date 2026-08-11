@@ -58468,7 +58468,7 @@ fr: concentré de carotte et de citrouille
 de: Färbende Konzentrate Karotte und Kürbis
 
 < en: root vegetable
-en: horseradish
+en: horseradish, horseradish root
 af: peperwortel
 ar: فجل الخيل الريفي
 az: adi qıtıqotu
@@ -58479,10 +58479,10 @@ bn: সজিনা
 br: riforz
 bs: hren
 ca: rave rusticà
-cs: křen selský
+cs: křen selský, kořen křenu
 cy: rhuddygl poeth
 da: peberrod
-de: meerrettich
+de: Meerrettich
 el: χραίνα
 eo: kreno
 es: rábano picante
@@ -58490,7 +58490,7 @@ et: mädarõigas
 eu: errefau min
 fa: ترب کوهی
 fi: piparjuuri
-fr: raifort
+fr: raifort, chrain
 he: חזרת הגינה
 hi: हॉर्सरैडिश
 hr: hren, hrena
@@ -58499,17 +58499,17 @@ hy: կծվիչ սովորական
 io: armoracio
 is: piparrót
 it: rafano, barbaforte
-ja: ホースラディッシュ
+ja: ホースラディッシュ, 西洋山葵
 ka: პირშუშხა
 kk: ақжелкек
 ko: 겨자무
 la: armoracia rusticana
 li: mieraedig
 lt: valgomasis krienas
-lv: mārrutks
+lv: mārrutks, mārrutka sakne
 mk: рен
 nb: pepperrot
-nl: mierikswortel
+nl: mierikswortel, chrain
 nn: peparrot
 or: ହର୍ସରାଡିଶ
 os: туттургъан
@@ -58517,14 +58517,15 @@ pa: ਹੋਰਸੇਰਾਡਿਸ਼
 pl: chrzan pospolity, chrzan, korzeń chrzanu
 pt: raiz-forte
 ro: hrean
-ru: хрен обыкновенный
+ru: хрен обыкновенный, хрен
 sh: hren
 sk: chren dedinský
-sl: navadni hren
+sl: navadni hren, hrenova korenina
 sr: рен
-sv: pepparrot
+sv: pepparrot, pepparrots
 tr: bayır turpu
-uk: хрін звичайний
+tt: керән
+uk: хрін звичайний, хрін
 yi: כריין
 zh: 辣根
 #azb: عادی قیتیق اوْتو
@@ -58554,8 +58555,17 @@ wikipedia:en: https://en.wikipedia.org/wiki/Horseradish
 < en: horseradish
 en: horseradish paste
 de: Meerrettichpaste
+fi: piparjuutitahna
 it: pasta di rafano
+sv: pepparrotskräm
+wikidata:en: Q68435417
 
+< en: horseradish
+< en: vegetable oil
+en: horseradish oil
+da: peberrodsolie
+fi: piparjuutiöljy
+sv: pepparrotsolja
 
 < en: root vegetable
 < en: tuber
@@ -75700,8 +75710,6 @@ it: preparato alla vaniglia
 en: za'atar
 xx: za'atar
 
-# en:description:WASABI (Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family.
-
 < en: plant
 en: wasabi, wasabi root
 xx: wasabi
@@ -75728,12 +75736,14 @@ tr: vasabi
 uk: васабі
 yi: וואסאבי
 zh: 山葵
-# yue: 山葵
-# zh-tw: 山葵
-# wikidata:en:Q12378304
-# wikidata:en:Q49855
+#yue: 山葵
+#zh-tw: 山葵
+description:en: WASABI (Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family.
 usda_ndb_code:en: 11990
 usda_ndb_name:en: Wasabi, root, raw
+# Q49855 is about the plant, Q12378304 is wasabi as a culinary ingredient
+wikidata:en: Q49855
+#wikidata:en: Q12378304
 wikipedia:en: https://en.wikipedia.org/wiki/Wasabi
 
 # description:en:RHODIOLA ROSEA (commonly golden root, rose root, roseroot, Aaron's rod, Arctic root, king's crown, lignum rhodium, orpin rose) is a perennial flowering plant in the family Crassulaceae.
