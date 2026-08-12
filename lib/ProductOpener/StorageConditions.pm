@@ -45,7 +45,7 @@ BEGIN {
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use ProductOpener::ProductsTags qw/get_inherited_property_from_categories_tags/;
+use ProductOpener::ProductsTags qw/add_tag remove_tag get_inherited_property_from_categories_tags/;
 
 =head2 set_storage_conditions($product_ref)
 
@@ -99,14 +99,14 @@ sub set_storage_conditions ($product_ref) {
 
 	# Add a misc tag to indicate that storage_conditions were set or not
 	if (defined $product_ref->{misc_tags}) {
-		remove_tag($product_ref, "misc", "en:storage-conditions_set");
-		remove_tag($product_ref, "misc", "en:storage-conditions_not_set");
+		remove_tag($product_ref, "misc", "en:storage-conditions-set");
+		remove_tag($product_ref, "misc", "en:storage-conditions-not-set");
 	}
 	if (defined $product_ref->{storage_conditions}) {
-		add_tag($product_ref, "misc", "en:storage-conditions_set");
+		add_tag($product_ref, "misc", "en:storage-conditions-set");
 	}
 	else {
-		add_tag($product_ref, "misc", "en:storage-conditions_not_set");
+		add_tag($product_ref, "misc", "en:storage-conditions-not-set");
 	}
 
 	return;
