@@ -3394,25 +3394,22 @@ ru: буйволиное молоко
 si: මීකිරි
 sr: бивоље млеко
 uk: буйволине молоко
-usda_ndb_proxy_code:en: 1108
-usda_ndb_proxy_name:en: Milk, indian buffalo, fluid
-wikidata:en: Q16571278
-
-en: fluid indian buffalo milk
 usda_ndb_code:en: 1108
 usda_ndb_name:en: Milk, indian buffalo, fluid
+usda_ndb_process:en: en:fluid
+wikidata:en: Q16571278
 
-< en: buffalo milk
-en: pasteurised buffalo milk
-bg: пастьоризирано биволско мляко
-ca: llet de búfala pasteuritzada, llet pasteuritzada de búfala
-de: pasteurisierte Büffelmilch
-es: leche de búfala pasteurizada, leche pasteurizada de búfala
-fi: pastöroitu puhvelinmaito
-fr: lait de bufflonne pasteurisé, lait pasteurisé de bufflonne
-hr: pasterizirano bivolje mlijeko
-hu: pasztőrözött bivalytej
-it: latte di bufala pastorizzato
+#< en: buffalo milk
+#en: pasteurised buffalo milk
+#bg: пастьоризирано биволско мляко
+#ca: llet de búfala pasteuritzada, llet pasteuritzada de búfala
+#de: pasteurisierte Büffelmilch
+#es: leche de búfala pasteurizada, leche pasteurizada de búfala
+#fi: pastöroitu puhvelinmaito
+#fr: lait de bufflonne pasteurisé, lait pasteurisé de bufflonne
+#hr: pasterizirano bivolje mlijeko
+#hu: pasztőrözött bivalytej
+#it: latte di bufala pastorizzato
 
 
 ################################# CONCENTRATED MILKS ###########################
@@ -5229,7 +5226,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Filmj%C3%B6lk
 #                                Buttermilk
 #
 ###################################################################################################
-# description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
 < en: dairy
 en: buttermilk, butter milk, sweet cream buttermilk
@@ -5289,10 +5285,6 @@ ta: மோர்
 te: మజ్జిగ
 uk: сколотини
 zh: 酪漿
-ciqual_food_code:en: 19801
-ciqual_food_name:en: Fermented milk drink, plain, skimmed milk
-ciqual_food_name:fr: Lait fermenté à boire, nature, maigre
-vegan:en: no
 vegetarian:en: yes
 # bar:buddä milsch
 # be-tarask:масьлянка
@@ -5311,6 +5303,14 @@ vegetarian:en: yes
 # zh-hk:酪漿
 # zh-sg:酪浆
 # zh-tw:酪漿
+ciqual_food_code:en: 19801
+ciqual_food_name:en: Fermented milk drink, plain, skimmed milk
+ciqual_food_name:fr: Lait fermenté à boire, nature, maigre
+description:en: BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
+vegan:en: no
+usda_ndb_code:en: 1094
+usda_ndb_name:en: Milk, buttermilk, dried
+usda_ndb_process:en:en:dried
 wikidata:en: Q106612
 wikipedia:en: https://en.wikipedia.org/wiki/Buttermilk
 # 9560 in 4 languages @2021-09-21
@@ -5320,22 +5320,20 @@ wikipedia:en: https://en.wikipedia.org/wiki/Buttermilk
 #fr:babeurre pasteurisé
 
 #processing:en: en:powder not relevant due to nutrition
-< en: buttermilk
-en: buttermilk powder
-ca: sèrum de mantega en pols, sèrum de mantega deshidratada
-da: kærnemælkspulver, kærnemælkpulver
-de: Buttermilchpulver
-es: suero de mantequilla en polvo
-fi: kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
-fr: babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
-hu: írópor
-it: latticello in polvere
-nl: karnemelkpoeder
-nn: kjernemelkpulver, pulverisert kjernemelk
-pt: leitelho em pó
-sv: kärnmjölkspulver
-usda_ndb_code:en: 1094
-usda_ndb_name:en: Milk, buttermilk, dried
+#< en: buttermilk
+#en: buttermilk powder
+#ca: sèrum de mantega en pols, sèrum de mantega deshidratada
+#da: kærnemælkspulver, kærnemælkpulver
+#de: Buttermilchpulver
+#es: suero de mantequilla en polvo
+#fi: kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
+#fr: babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
+#hu: írópor
+#it: latticello in polvere
+#nl: karnemelkpoeder
+#nn: kjernemelkpulver, pulverisert kjernemelk
+#pt: leitelho em pó
+#sv: kärnmjölkspulver
 
 #processing:en: en:solids
 < en: buttermilk
