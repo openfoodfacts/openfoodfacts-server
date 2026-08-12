@@ -4460,31 +4460,31 @@ it: Siero di latte dolce
 lv: saldas sūkalas
 nl: zoete wei
 pl: słodka serwatka
-usda_ndb_proxy_code:en: 1114
-usda_ndb_proxy_name:en: Whey, sweet, fluid
-
-#en:process:en:powder
-< en: sweet whey
-en: sweet whey powder
-bg: сладка суроватка на прах
-de: Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver, Süßmolken pulver
-es: suero de leche azucarado en polvo, lactosuero azucarado en polvo
-et: magus vadakupulber
-fi: makea herajauhe, makeutettu herajauhe
-fr: lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
-hr: slatka sirutka u prahu
-it: siero di latte dolce in polvere
-lv: salds sūkalu pulveris
-nl: zoete weipoeder
-pl: słodka serwatka w proszku
-ro: zer pudră îndulcit
-usda_ndb_code:en: 1115
-usda_ndb_name:en: Whey, sweet, dried
-
-< en: sweet whey
-en: fluid sweet whey
+usda_ndb_2_code:en: 1115
+usda_ndb_2_name:en: Whey, sweet, dried
+usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 1114
 usda_ndb_name:en: Whey, sweet, fluid
+usda_ndb_process:en: en:fluid
+
+#en:process:en:powder
+#< en: sweet whey
+#en: sweet whey powder
+#bg: сладка суроватка на прах
+#de: Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver, #Süßmolken pulver
+#es: suero de leche azucarado en polvo, lactosuero azucarado en polvo
+#et: magus vadakupulber
+#fi: makea herajauhe, makeutettu herajauhe
+#fr: lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
+#hr: slatka sirutka u prahu
+#it: siero di latte dolce in polvere
+#lv: salds sūkalu pulveris
+#nl: zoete weipoeder
+#pl: słodka serwatka w proszku
+#ro: zer pudră îndulcit
+#usda_ndb_code:en: 1115
+#usda_ndb_name:en: Whey, sweet, dried
+
 
 < en: sweet whey
 en: skimmed sweet whey
