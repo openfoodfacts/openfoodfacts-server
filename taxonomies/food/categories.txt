@@ -122835,6 +122835,7 @@ agribalyse_food_code:en: 20235
 ciqual_food_code:en: 20235
 ciqual_food_name:en: Onion, frozen, raw
 ciqual_food_name:fr: Oignon, surgelé, cru
+# Storage condition could be inherited from en:Onions, so overriding
 storage_conditions:en: en:frozen
 
 < en: Frozen onions
@@ -123056,6 +123057,7 @@ fr: Pommes de terre surgelées, Pommes de terre surgelés
 hr: Smrznuti krumpir
 it: Patate surgelate
 nl: Diepvriesaardappelen
+# Storage condition could be inherited from en:Potatoes, so overriding
 storage_conditions:en: en:frozen
 
 
