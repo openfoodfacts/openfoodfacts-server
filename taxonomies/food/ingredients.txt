@@ -90013,17 +90013,15 @@ ja: 全卵
 nl: hele eieren, geheel eieren
 pl: Całe jajo
 pt: Ovo inteiro
+usda_ndb_code:en: 1133
+usda_ndb_name:en: Egg, whole, dried
+usda_ndb_process:en: en:dried
 
 < en: whole egg
 bg: пастьоризирани цели яйца
 de: Vollei pasteurisiert, pasteurisiertes Vollei
 fr: œuf entier pasteurisé, œufs entiers pasteurisés, oeuf entier pasteurisé, oeufs entiers pasteurisés
 it: uovo intero pastorizzato
-
-< en: whole egg
-en: dried whole egg
-usda_ndb_code:en: 1133
-usda_ndb_name:en: Egg, whole, dried
 
 < en: whole egg
 en: whole powdered egg
@@ -90207,26 +90205,29 @@ th: ไข่ขาว
 tr: Yumurta beyazı, Yumurta akı
 uk: Яєчний білок
 zh: 蛋白
-ciqual_food_code:en: 22001
-ciqual_food_name:en: Egg white, raw
-ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), cru
-description:en: EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
 # bar:Oagloa
 # eml:biuda
 # yue:蛋白
 # zh-hans:蛋白
 # zh-hant:蛋白
 # zh-hk:蛋白
+ciqual_food_2_code:en: 22008
+ciqual_food_2_name:en: Egg white, cooked
+ciqual_food_2_name:fr: Oeuf, blanc (blanc d'oeuf), cuit
+ciqual_food_2_process:en: en:cooked
+ciqual_food_3_code:en: 22004
+ciqual_food_3_name:en: Egg white, powder
+ciqual_food_3_name:fr: Oeuf, blanc (blanc d'oeuf), en poudre
+ciqual_food_3_process:en: en:powder
+ciqual_food_code:en: 22001
+ciqual_food_name:en: Egg white, raw
+ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), cru
+description:en: EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
+usda_ndb_code:en: 1173
+usda_ndb_name:en: Egg, white, dried
+usda_ndb_process:en: en:dried
 wikidata:en: Q796758
 wikipedia:en: https://en.wikipedia.org/wiki/Egg_white
-
-< en: egg white
-en: cooked egg white
-fr: blanc d'oeuf cuit
-it: albume d'uovo cotto
-ciqual_food_code:en: 22008
-ciqual_food_name:en: Egg white, cooked
-ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), cuit
 
 < en: egg white
 en: chicken egg white
@@ -90238,29 +90239,24 @@ it: Albume d'uovo di gallina
 nl: kippeneiwit, kippenei-eiwit
 pl: albumina jaja kurzego
 
-< en: egg white
-en: powdered egg white, dehydrated egg white, egg white powder
-bg: яйчен белтък на прах, яйчни белтъци на прах, прахов протеин
-ca: clara d'ou en pols, clara d'ou deshidratada, pols de clara d'ou
-da: æggehvidepulver
-de: Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
-el: ασπράδι αυγού σε σκόν
-es: clara de huevo en polvo, clara de huevos en polvo
-fi: munanvalkuaisjauhe, kuivattu munanvalkuainen
-fr: blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre, poudre d'albumen
-hr: bjelanjak u prahu, bjelanjak jaja u prahu, bjelanjak jajate u prahu
-hu: porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
-it: albume d'uovo in polvere, albume in polvere
-lt: kiaušinių baltymų milteliai, kiaušinio baltymo milteliai
-nl: eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
-pl: sproszkowane białka jajek, białko jaja w proszku, białka jaj w proszku
-pt: clara de ovo em pó
-sv: äggvitepulver, äggvita i pulver
-ciqual_food_code:en: 22004
-ciqual_food_name:en: Egg white, powder
-ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), en poudre
-usda_ndb_code:en: 1173
-usda_ndb_name:en: Egg, white, dried
+#< en: egg white
+#en: powdered egg white, dehydrated egg white, egg white powder
+#bg: яйчен белтък на прах, яйчни белтъци на прах, прахов протеин
+#ca: clara d'ou en pols, clara d'ou deshidratada, pols de clara d'ou
+#da: æggehvidepulver
+#de: Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
+#el: ασπράδι αυγού σε σκόν
+#es: clara de huevo en polvo, clara de huevos en polvo
+#fi: munanvalkuaisjauhe, kuivattu munanvalkuainen
+##fr: blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc #d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf #déshydraté, blanc d'oeufs en poudre, poudre d'albumen
+#hr: bjelanjak u prahu, bjelanjak jaja u prahu, bjelanjak jajate u prahu
+#hu: porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
+#it: albume d'uovo in polvere, albume in polvere
+#lt: kiaušinių baltymų milteliai, kiaušinio baltymo milteliai
+#nl: eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
+#pl: sproszkowane białka jajek, białko jaja w proszku, białka jaj w proszku
+#pt: clara de ovo em pó
+#sv: äggvitepulver, äggvita i pulver
 
 < en: egg white
 en: free range egg white
@@ -90269,14 +90265,14 @@ hr: bjelanjak slobodnog uzgoja
 it: albume d'uovo allevato all'aperto
 nl: scharrelei-eiwit, vrije uitloopei-eiwit, vrije-uitloopei-eiwit, scharreleiwit
 
-< en: egg white
-en: dehydrated egg white
-de: Trockeneiweiß, Eiklar getrocknet
-fi: kuivattu munanvalkuainen
-fr: blanc d'œuf déshydraté, blanc d'oeuf déshydraté
-hr: suhi bjeljanjak
-hu: szárított tojásfehérje
-nl: gedroogd ei-eiwit
+#< en: egg white
+#en: dehydrated egg white
+#de: Trockeneiweiß, Eiklar getrocknet
+#fi: kuivattu munanvalkuainen
+#fr: blanc d'œuf déshydraté, blanc d'oeuf déshydraté
+#hr: suhi bjeljanjak
+#hu: szárított tojásfehérje
+#nl: gedroogd ei-eiwit
 
 < en: chicken egg white
 nl: scharrelkipeiwit, vrije uitloop kippenei-eiwit, kippenei-eiwit van scharreleieren
