@@ -169,8 +169,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	# API URL
-	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
-	$url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
+my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
 
 	# Debug information for the request
 	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
