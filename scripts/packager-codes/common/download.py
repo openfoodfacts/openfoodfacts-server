@@ -23,9 +23,72 @@ from bs4 import BeautifulSoup
 import json
 import requests
 from time import sleep
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 
 HEADERS = {'User-Agent': 'packager-openfoodfacts'}
+REQUEST_TIMEOUT = 30
+
+
+def _download_file_from_page(country_name: str, url: str, output_file: str, allowed_extensions: tuple[str, ...],
+                             keyword: str = None, expected_file_name: str = None, label: str = 'file'):
+    """Download a linked file from a page or a direct file URL."""
+    url_path = urlsplit(url).path.lower()
+    if not keyword and not expected_file_name and url_path.endswith(allowed_extensions):
+        response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        response.raise_for_status()
+
+        with open(output_file, 'wb') as f:
+            f.write(response.content)
+
+        print(f"{country_name} - Info - {label.capitalize()} downloaded successfully: {output_file}, file size: {len(response.content)} bytes")
+        return None
+
+    response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    linked_files = []
+    for link in soup.find_all('a', href=True):
+        href = link['href']
+        if urlsplit(href).path.lower().endswith(allowed_extensions):
+            linked_files.append(href)
+
+    if not linked_files:
+        raise FileNotFoundError(f"Could not find any {label} file links in {url}.")
+
+    matched_link = None
+    for file_url in linked_files:
+        if keyword and keyword in file_url:
+            matched_link = file_url
+            break
+        if expected_file_name and expected_file_name in file_url:
+            matched_link = file_url
+            break
+
+    if not matched_link:
+        if keyword:
+            raise FileNotFoundError(f"Could not find {label} file matching keyword '{keyword}' in {url}.")
+        raise FileNotFoundError(f"Could not find {label} file matching '{expected_file_name}' in {url}.")
+
+    current_filename = urlsplit(matched_link).path.split('/')[-1]
+
+    if expected_file_name and current_filename == expected_file_name:
+        print(f"{country_name} - Info - File '{current_filename}' already processed. No update needed.")
+        return None
+    if expected_file_name:
+        print(f"{country_name} - Info - New version detected: '{current_filename}' (expected: '{expected_file_name}')")
+
+    absolute_url = urljoin(url, matched_link)
+    file_response = requests.get(absolute_url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+    file_response.raise_for_status()
+
+    with open(output_file, 'wb') as f:
+        f.write(file_response.content)
+
+    print(f"{country_name} - Info - {label.capitalize()} downloaded successfully: {output_file}, file size: {len(file_response.content)} bytes")
+
+    return current_filename
 
 
 def download_excel_file(country_name: str, url: str, output_file: str, keyword: str = None, expected_file_name: str = None):
@@ -64,88 +127,17 @@ def download_excel_file(country_name: str, url: str, output_file: str, keyword: 
     print(f"\n{country_name} - Step - Downloading Excel file from {url}")
     
     try:
-        if keyword:
-            response = requests.get(url, headers=HEADERS)
-            response.raise_for_status()
-            
-            soup = BeautifulSoup(response.content, 'html.parser')
-            
-            excel_files = []
-            for link in soup.find_all('a', href=True):
-                href = link['href']
-                if href.endswith('.xls') or href.endswith('.xlsx'):
-                    excel_files.append(href)
-            
-            if not excel_files:
-                raise FileNotFoundError(f"Could not find any Excel file links in {url}.")
+        return _download_file_from_page(country_name, url, output_file, ('.xls', '.xlsx'), keyword, expected_file_name, 'excel file')
+    except requests.exceptions.RequestException as e:
+        raise RuntimeError(f"Failed to download file: {e}") from e
 
-            excel_link = None
-            for file_url in excel_files:
-                if keyword in file_url:
-                    excel_link = file_url
-                    break
-            
-            if not excel_link:
-                raise FileNotFoundError(f"Could not find Excel file matching keyword '{keyword}' in {url}.")
 
-            current_filename = excel_link.split('/')[-1]
-            
-            if expected_file_name:
-                if current_filename == expected_file_name:
-                    print(f"{country_name} - Info - File '{current_filename}' already processed. No update needed.")
-                    return None
-                else:
-                    print(f"{country_name} - Info - New version detected: '{current_filename}' (expected: '{expected_file_name}')")
-            
-            # Construct absolute URL (handles both relative and absolute links)
-            absolute_url = urljoin(url, excel_link)
-            
-            excel_response = requests.get(absolute_url, headers=HEADERS)
-            excel_response.raise_for_status()
-            
-            with open(output_file, 'wb') as f:
-                f.write(excel_response.content)
+def download_csv_file(country_name: str, url: str, output_file: str, keyword: str = None, expected_file_name: str = None):
+    """Download a CSV file from a web page or direct URL."""
+    print(f"\n{country_name} - Step - Downloading CSV file from {url}")
 
-            print(f"{country_name} - Info - Excel file downloaded successfully: {output_file}, file size: {len(excel_response.content)} bytes")
-            
-            return current_filename
-            
-        elif expected_file_name:
-            # Filename search mode: scrape page for specific filename
-            print(f"{country_name} - Info - Filename search mode: looking for '{expected_file_name}'")
-            
-            response = requests.get(url, headers=HEADERS)
-            response.raise_for_status()
-            
-            soup = BeautifulSoup(response.content, 'html.parser')
-            
-            excel_link = None
-            for link in soup.find_all('a', href=True):
-                href = link['href']
-                if (href.endswith('.xls') or href.endswith('.xlsx')) and expected_file_name in href:
-                    excel_link = href
-                    break
-            
-            if not excel_link:
-                raise FileNotFoundError(f"Could not find Excel file matching '{expected_file_name}' in {url}.")
-            
-            # Construct absolute URL (handles both relative and absolute links)
-            absolute_url = urljoin(url, excel_link)
-            print(f"{country_name} - Info - Found file at: {absolute_url}")
-            
-            excel_response = requests.get(absolute_url, headers=HEADERS)
-            excel_response.raise_for_status()
-            
-            with open(output_file, 'wb') as f:
-                f.write(excel_response.content)
-
-            print(f"{country_name} - Info - Excel file downloaded successfully: {output_file}, file size: {len(excel_response.content)} bytes")
-            
-            return None
-            
-        else:
-            raise ValueError("Either keyword or expected_file_name must be provided")
-        
+    try:
+        return _download_file_from_page(country_name, url, output_file, ('.csv',), keyword, expected_file_name, 'csv file')
     except requests.exceptions.RequestException as e:
         raise RuntimeError(f"Failed to download file: {e}") from e
 
@@ -180,7 +172,7 @@ def cached_get(debug: bool, country_name: str, url: str, cache, sleep_duration: 
         print(f"{country_name} - Debug - Fetching from API: {url}")
     while restart:
         try:
-            response = requests.get(url, headers=HEADERS)
+            response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
             # 1 request per second (Nominatim usage policy) - configurable via sleep_duration
             sleep(sleep_duration)
         except (requests.exceptions.RequestException, KeyError, IndexError) as e:
