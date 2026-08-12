@@ -89,9 +89,25 @@ sub set_storage_conditions ($product_ref) {
 		delete $product_ref->{storage_conditions_tags};
 	}
 
-	$log->debug("set_storage_conditions - done",
-		{storage_conditions => $product_ref->{storage_conditions}, storage_conditions_tags => $product_ref->{storage_conditions_tags}})
-		if $log->is_debug();
+	$log->debug(
+		"set_storage_conditions - done",
+		{
+			storage_conditions => $product_ref->{storage_conditions},
+			storage_conditions_tags => $product_ref->{storage_conditions_tags}
+		}
+	) if $log->is_debug();
+
+	# Add a misc tag to indicate that storage_conditions were set or not
+	if (defined $product_ref->{misc_tags}) {
+		remove_tag($product_ref, "misc", "en:storage-conditions_set");
+		remove_tag($product_ref, "misc", "en:storage-conditions_not_set");
+	}
+	if (defined $product_ref->{storage_conditions}) {
+		add_tag($product_ref, "misc", "en:storage-conditions_set");
+	}
+	else {
+		add_tag($product_ref, "misc", "en:storage-conditions_not_set");
+	}
 
 	return;
 }
