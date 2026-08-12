@@ -90427,7 +90427,6 @@ description:pt: Suspiro ou merengue é um doce feito de claras de ovos e açúca
 wikidata:en: Q276276
 # usage:fr:meringue (blanc d'OEUF, sucre)
 
-# description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
 
 < en: egg
 en: egg yolk, eggs yolk
@@ -90488,9 +90487,6 @@ tl: apyak
 tr: Yumurta sarısı
 uk: Жовток
 zh: 蛋黃
-ciqual_food_code:en: 22002
-ciqual_food_name:en: Egg yolk, raw
-ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
 # ang:ǽgergeolu
 # ast:yema
 # bar:Dodda
@@ -90505,18 +90501,25 @@ ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
 # zh-hk:蛋黃
 # zh-sg:蛋黃
 # zh-tw:蛋黃
+ciqual_food_3_code:en: 22003
+ciqual_food_3_name:en: Egg yolk, powder
+ciqual_food_3_name:fr: Oeuf, jaune (jaune d'oeuf), en poudre
+ciqual_food_3_process:en: en:powder
+ciqual_food_2_code:en: 22009
+ciqual_food_2_name:en: Egg yolk, cooked
+ciqual_food_2_name:fr: Oeuf, jaune (jaune d'oeuf), cuit
+ciqual_food_2_process:en: en:cooked
+ciqual_food_code:en: 22002
+ciqual_food_name:en: Egg yolk, raw
+ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
+# description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
+usda_ndb_code:en: 1137
+usda_ndb_name:en: Egg, yolk, dried
+usda_ndb_process:en: en:dried
 wikidata:en: Q1302994
 
 < en: egg yolk
 fr: jaune d'oeuf de poules élevées au sol
-
-< en: egg yolk
-en: Cooked egg yolk
-fr: jaune d'oeuf cuit
-it: tuorlo d'uovo cotto
-ciqual_food_code:en: 22009
-ciqual_food_name:en: Egg yolk, cooked
-ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cuit
 
 < en: egg yolk
 en: free range egg yolk
@@ -90567,11 +90570,6 @@ fr: jaune d'œufs de poules élevées en plein air pasteurisés, jaune d'oeufs d
 hr: pasterizirani žumanjak jaja slobodnog uzgoja
 it: tuorlo d'uovo pastorizzato allevato all'aperto
 nl: gepasteuriseerd eigeel van eieren van hennen met vrije uitloop
-
-< en: egg yolk
-en: dried yolk egg
-usda_ndb_code:en: 1137
-usda_ndb_name:en: Egg, yolk, dried
 
 < en: egg yolk
 en: egg yolk powder, eggs yolk powder, powdered egg yolk
@@ -95178,7 +95176,6 @@ fr: Gratinage
 
 de: Markklößchen
 
-# description:en:In cuisine, an OMELETTE is a dish made from beaten eggs fried with butter or oil in a frying pan (without stirring as in scrambled egg). It is quite common for the omelette to be folded around a filling such as cheese, chives, vegetables, mushrooms, meat (often ham or bacon), or some combination of the above. Whole eggs or egg whites are beaten, sometimes with a small amount of milk, cream, or water.
 
 #< en: compound
 # mainIngredient:en:egg (egg dish)
@@ -95251,6 +95248,7 @@ allergens:en: en:eggs
 # zh-cn:西式蛋餅
 # zh-hans:西式蛋餅
 # zh-hant:歐姆蛋
+description:en: In cuisine, an OMELETTE is a dish made from beaten eggs fried with butter or oil in a frying pan (without stirring as in scrambled egg). It is quite common for the omelette to be folded around a filling such as cheese, chives, vegetables, mushrooms, meat (often ham or bacon), or some combination of the above. Whole eggs or egg whites are beaten, sometimes with a small amount of milk, cream, or water.
 wikidata:en: Q20129
 wikipedia:en: https://en.wikipedia.org/wiki/Omelette
 # omelette (oeufs, lait écrémé, emmental 1.6%, amidon de riz, sel ; acidifiant :acide citrique)
