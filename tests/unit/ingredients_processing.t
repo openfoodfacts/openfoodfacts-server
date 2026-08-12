@@ -409,7 +409,7 @@ my @tests = (
 			{
 				'id' => 'en:pasteurized-creme-fraiche',
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me fra\x{ee}che"
+				'text' => "cr\x{e8}me fra\x{ee}che",
 				'processing' => 'en:pasteurised',
 			},
 			{
