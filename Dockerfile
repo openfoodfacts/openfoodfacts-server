@@ -79,7 +79,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         liblog-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
-        libemail-valid-perl 
+        libemail-valid-perl
         
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
