@@ -7549,7 +7549,7 @@ sub search_permalink ($request_ref) {
 }
 
 sub display_facets_index ($request_ref) {
-	my $template_data_ref = { facets => [] };
+	my $template_data_ref = {facets => []};
 	foreach my $tagtype (@drilldown_fields) {
 		my $plural_key = $ProductOpener::Lang::tag_type_plural{$tagtype}{$request_ref->{lc}} || $tagtype;
 		push @{$template_data_ref->{facets}}, {
