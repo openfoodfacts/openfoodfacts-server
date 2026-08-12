@@ -31141,7 +31141,8 @@ ciqual_proxy_food_name:fr: Sucre blanc
 comment:en: Generic sugar is vegan:maybe because some cane sugar is refined using bone char (charred cattle bones) as a decolorizing filter. This is primarily a North American practice. Beet sugar, organic sugar, and unrefined sugars never use bone char. Vegetarian status remains yes as bone char is a processing aid and the final product contains no animal-derived material.
 # density of sugar varies a lot depending on sources. 0.9 is one of the values from https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
 density_g_per_ml:en: 0.9
-ecobalyse:en: 8f075c25-9ebf-430c-b41d-51d165c6e0d8
+ecobalyse_proxy:en: 5fc8032f-ca1c-4497-844b-f9213075eab3
+ecobalyse_proxy_name:fr: Sucre de betterave par défaut (2025)
 vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q11002
@@ -31924,6 +31925,8 @@ pt: açúcar de beterraba
 sv: betsocker
 carbon_footprint_fr_foodges_ingredient:fr: Sucre de betterave
 carbon_footprint_fr_foodges_value:fr: 0.7
+ecobalyse:en: 5fc8032f-ca1c-4497-844b-f9213075eab3
+ecobalyse_name:fr: Sucre de betterave par défaut (2025)
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q9197055
@@ -55538,6 +55541,14 @@ zh: 蒜
 ciqual_proxy_food_code:en: 11000
 ciqual_proxy_food_name:en: Garlic, fresh
 ciqual_proxy_food_name:fr: Ail, cru
+ecobalyse:en: d8c8a918-a11a-502f-a5cf-90052d96c133
+ecobalyse_labels_en_organic:en: 12f8ffd4-cbc0-5d7b-ba0e-9a0acb3e6918
+ecobalyse_labels_en_organic_name:fr: Ail UE
+ecobalyse_name:fr: Ail Origine Inconnue
+ecobalyse_origins_en_european-union:en: 00d5fa04-b2fd-5a3c-a5fa-c87598ce8a53
+ecobalyse_origins_en_european-union_name:fr: Ail UE
+ecobalyse_origins_en_france:en: 06f219a1-ffb3-44ae-ba23-6f9ad7baff39
+ecobalyse_origins_en_france_name:fr: Ail FR
 eurocode_2_group_3:en: 8.30.40
 usda_ndb_proxy_code:en: 11215
 usda_ndb_proxy_name:en: Garlic, raw
