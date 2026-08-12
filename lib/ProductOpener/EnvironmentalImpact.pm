@@ -169,7 +169,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	}
 
 	# API URL
-my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
+	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
 
 	# Debug information for the request
 	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
@@ -239,7 +239,8 @@ sub call_ecobalyse($url_recipe, $payload) {
 	my $request = POST $url_recipe, $payload;
 	$request->header('content-type' => 'application/json');
 
-	# Send the ECOBALYSE API_TOKEN token in the Authorization header if it's defined
+	# Send the ECOBALYSE API_TOKEN token in the token header if it's defined
+	# the token is now required, the API request will fail without a token
 	if (defined $ecobalyse_api_token) {
 		$request->header('token' => $ecobalyse_api_token);
 	}
