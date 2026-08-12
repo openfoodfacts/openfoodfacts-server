@@ -134,6 +134,43 @@ def test_download_csv_file_keyword_mode(tmp_path, mock_requests_get):
     assert output_file.read_bytes() == b"code;name\n1;Example"
 
 
+def test_download_excel_file_filename_search_mode_always_downloads(tmp_path, mock_requests_get):
+    """Filename-search mode (no keyword) should always download, never skip."""
+    page_url = "https://example.com/page"
+    output_file = tmp_path / "output.xlsx"
+    expected_file_name = "Autoriserede_Foedevarevirksomheder_Excel.xlsx"
+
+    mock_html = f"""
+    <html>
+        <body>
+            <a href="https://example.com/files/{expected_file_name}">{expected_file_name}</a>
+        </body>
+    </html>
+    """
+    page_response = MagicMock()
+    page_response.status_code = 200
+    page_response.content = mock_html.encode("utf-8")
+
+    excel_response = MagicMock()
+    excel_response.status_code = 200
+    excel_response.content = b"excel-content"
+
+    mock_requests_get.side_effect = [page_response, excel_response]
+
+    result = download_excel_file(
+        country_name="Denmark",
+        url=page_url,
+        output_file=str(output_file),
+        keyword=None,
+        expected_file_name=expected_file_name,
+    )
+
+    # Filename-search mode always downloads and returns None
+    assert result is None
+    assert output_file.exists()
+    assert output_file.read_bytes() == b"excel-content"
+
+
 # Tests for cached_get function
 
 def test_cached_get_returns_from_cache(fake_cache):
