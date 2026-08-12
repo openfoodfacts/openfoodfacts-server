@@ -73,10 +73,10 @@ def _download_file_from_page(country_name: str, url: str, output_file: str, allo
 
     current_filename = urlsplit(matched_link).path.split('/')[-1]
 
-    if expected_file_name and current_filename == expected_file_name:
+    if keyword and expected_file_name and current_filename == expected_file_name:
         print(f"{country_name} - Info - File '{current_filename}' already processed. No update needed.")
         return None
-    if expected_file_name:
+    if keyword and expected_file_name:
         print(f"{country_name} - Info - New version detected: '{current_filename}' (expected: '{expected_file_name}')")
 
     absolute_url = urljoin(url, matched_link)
@@ -88,7 +88,7 @@ def _download_file_from_page(country_name: str, url: str, output_file: str, allo
 
     print(f"{country_name} - Info - {label.capitalize()} downloaded successfully: {output_file}, file size: {len(file_response.content)} bytes")
 
-    return current_filename
+    return current_filename if keyword else None
 
 
 def download_excel_file(country_name: str, url: str, output_file: str, keyword: str = None, expected_file_name: str = None):
