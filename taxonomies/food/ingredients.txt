@@ -10339,7 +10339,22 @@ wikidata:en: Q1365996
 wikipedia:en: https://en.wikipedia.org/wiki/Chuck_steak
 
 
-# description:en:In general a sheep in its first year is called a LAMB, and its meat is also called lamb.
+###################################################################################################
+#
+#                                Green turtle
+#
+###################################################################################################
+
+< en: animal
+en: green turtle
+usda_ndb_code:en: 93600
+usda_ndb_name:en: Turtle, green, raw
+
+###################################################################################################
+#
+#                                Lamb
+#
+###################################################################################################
 
 < en: sheep
 en: lamb
@@ -10369,15 +10384,14 @@ pl: Jagnię
 pt: cordeiro
 qu: Achkash
 ru: ягнёнок
-nutriscore_red_meat:en: yes
 # arc:ܐܡܪܐ
 # nds-nl:Laom
 # scn:Agneddu
 # sco:lamm
+comment:en: The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
+description:en: LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
+nutriscore_red_meat:en: yes
 wikidata:en: Q4575936
-
-# description:en:LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
-# comment:en:The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
 
 < en: lamb
 < en: meat
@@ -13695,10 +13709,11 @@ de: Froschschenkel
 fr: Cuisses de grenouilles
 hr: žablji kraci
 it: cosce di rana
-usda_ndb_proxy_code:en: 80200
-usda_ndb_proxy_name:en: Frog legs, raw
+usda_ndb_code:en: 80200
+usda_ndb_name:en: Frog legs, raw
 wikidata:en: Q1258910
 wikipedia:en: https://en.wikipedia.org/wiki/Frog_legs
+
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -38280,18 +38295,6 @@ vo: brikod
 wa: åbricot
 yi: אַפּריקאָס
 zh: 杏
-#carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
-#carbon_footprint_fr_foodges_value:fr:0.6
-carbon_footprint_fr_foodges_ingredient:fr: Abricot "Pays du Sud"
-carbon_footprint_fr_foodges_value:fr: 1.1
-ciqual_proxy_food_code:en: 13000
-ciqual_proxy_food_name:en: Apricot, pitted, raw
-ciqual_proxy_food_name:fr: Abricot, dénoyauté, cru
-ecobalyse:en: c455b3b8-406b-407a-a525-b2c832522e49
-ecobalyse_labels_en_organic:en: 36158ea6-066c-4fd6-9e28-6477c7297b37
-ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
-eurocode_2_group_3:en: 9.20.10
-wikidata:en: Q3733836
 # aeb-arab:كعبة مشماش
 # aeb-latn:mech'mèch'
 # arz:مشمشة
@@ -38318,31 +38321,26 @@ wikidata:en: Q3733836
 # war:Prunus armeniaca
 # yue:杏桃
 # zh-cn:杏
-wikipedia:en: https://en.wikipedia.org/wiki/Apricot
-
-< en: apricot
-en: raw pitted apricot
-fr: abricot dénoyauté cru
+#carbon_footprint_fr_foodges_ingredient:fr:Abricot saison (France)
+#carbon_footprint_fr_foodges_value:fr:0.6
+carbon_footprint_fr_foodges_ingredient:fr: Abricot "Pays du Sud"
+carbon_footprint_fr_foodges_value:fr: 1.1
 ciqual_food_code:en: 13000
 ciqual_food_name:en: Apricot, pitted, raw
 ciqual_food_name:fr: Abricot, dénoyauté, cru
+ecobalyse:en: c455b3b8-406b-407a-a525-b2c832522e49
+ecobalyse_labels_en_organic:en: 36158ea6-066c-4fd6-9e28-6477c7297b37
+ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
+eurocode_2_group_3:en: 9.20.10
 usda_ndb_code:en: 9021
 usda_ndb_name:en: Apricots, raw
+wikidata:en: Q3733836
+wikipedia:en: https://en.wikipedia.org/wiki/Apricot
 
 < en: apricot
 en: Bergeron Apricot
 fr: Bergeron, abricots Bergeron de Haute Ardèche, abricot Bergeron
 it: albicocca Bergeron
-
-#<en:apricot
-#en:organic apricot
-#fi:luomu aprikoosi
-#fr:abricots bio
-
-#processing:en: en:halved
-< en: apricot
-fr: demi-abricots, demi abricots
-#7 in fr @2021-09-12
 
 #processing:en: en:purée
 < en: apricot
@@ -38361,17 +38359,10 @@ ro: piure de caise
 ru: абрикосовое пюре
 uk: абрикосове пюре
 # in process de:Aprikosenpüree
-# 873 @2021-09-12
-ciqual_proxy_food_code:en: 31037
-ciqual_proxy_food_name:en: Jam, apricot
 
 < en: Bergeron apricot
 < en: apricot puree
 fr: purée d'abricots Bergeron, purée d'abricot bergeron, pulpe d'abricot Bergeron
-
-< en: apricot
-en: apricot pulp
-cs: meruňková dřeň
 
 < en: apricot
 en: apricot juice
@@ -38588,13 +38579,6 @@ yi: באנאן
 yo: Ọ̀gẹ̀dẹ̀
 za: Gyoijhom
 zh: 香蕉
-carbon_footprint_fr_foodges_ingredient:fr: Banane
-carbon_footprint_fr_foodges_value:fr: 1.2
-ciqual_proxy_food_code:en: 13005
-ciqual_proxy_food_name:en: Banana, pulp, raw
-ciqual_proxy_food_name:fr: Banane, pulpe, crue
-ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
-ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
 # als:Banane
 # arz:موز
 # ast:Plátanu
@@ -38633,18 +38617,25 @@ ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
 # wuu:香蕉
 # zh-min-nan:Kin-chio
 # yue:香蕉
-usda_ndb_proxy_code:en: 9040
-usda_ndb_proxy_name:en: Bananas, raw
-wikidata:en: Q503
-wikipedia:en: https://en.wikipedia.org/wiki/Banana
-
-< en: banana
-en: raw banana, raw bananas
+carbon_footprint_fr_foodges_ingredient:fr: Banane
+carbon_footprint_fr_foodges_value:fr: 1.2
+ciqual_food_2_code:en: 13089
+ciqual_food_2_name:en: Banana, pulp, dried
+ciqual_food_2_name:fr: Banane, pulpe, sèche
+ciqual_food_2_process:en: en:pulp, en:dried
 ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
+ciqual_food_process:en: en:pulp, en:raw
+ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
+ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
+usda_ndb_2_code:en: 9041
+usda_ndb_2_name:en: Bananas, dehydrated, or banana powder
+usda_ndb_2_process:en: en:dehydrated, en:powder
 usda_ndb_code:en: 9040
 usda_ndb_name:en: Bananas, raw
+wikidata:en: Q503
+wikipedia:en: https://en.wikipedia.org/wiki/Banana
 
 < en: banana
 < en: fruit vegetable
@@ -38673,16 +38664,6 @@ ciqual_food_code:en: 53100
 ciqual_food_name:en: Plantain banana, raw
 ciqual_food_name:fr: Banane plantain, crue
 eurocode_2_group_3:en: 8.40.56
-usda_ndb_proxy_code:en: 9542
-usda_ndb_proxy_name:en: Plantains, green, raw
-
-< en: plantain banana
-en: raw yellow plantains
-usda_ndb_code:en: 9277
-usda_ndb_name:en: Plantains, yellow, raw
-
-< en: plantain banana
-en: raw green plantain
 usda_ndb_code:en: 9542
 usda_ndb_name:en: Plantains, green, raw
 
@@ -38703,64 +38684,6 @@ comment:en: "plantain" is ambiguous, in ingredients lists it refers to plantain 
 en: green banana flour
 it: farina di banane verdi
 ru: Мука зелёных бананов
-
-#processing:en: en:dried
-< en: banana
-en: dried banana, dried bananas
-it: banana essiccata
-#de:Bananen getrocknet, getrocknete Banane
-#es:plátano seco
-#fi:kuivattu banaani, kuivatut banaanit
-#fr:bananes séchées
-#it:banane secche
-#nl:gedroogde banaan
-#ro:banane uscate
-#th:กล้วยตาก
-ciqual_food_code:en: 13089
-ciqual_food_name:en: Banana, pulp, dried
-ciqual_food_name:fr: Banane, pulpe, sèche
-usda_ndb_code:en: 9041
-usda_ndb_name:en: Bananas, dehydrated, or banana powder
-
-#processing:en: en:flakes
-#<en:banana
-#en:banana flakes
-#de:Bananenflocken, Bananenchipsstücke
-#es:copos de plátano, copos de banana
-#fi:banaanihiutale, banaanilastu
-#fr:flocons de banane
-#it:fiocchi di banane
-#ja:バナナチップス
-#pt:flocos de banana, flocos de bananas
-
-#processing:en: en:chips
-#<en:banana
-#en:banana chips
-#es:chips de platano
-#fr:Chips de bananes
-
-#processing:en: en:pureed
-##<en:banana
-#en:banana puree
-#bg:пюре от банани, бананово пюре, пюре от банан
-#cs:banánové pyré
-#de:Bananenpüree, Bananenmark
-#es:Puré de plátano
-#fi:banaanipyree
-#fr:purée de banane, purée de bananes
-#hu:banánpüré
-#it:purea di banana
-#nl:Bananenpuree
-#pt:Puré de banana
-
-#processing:en: en:powder
-< en: banana
-en: banana powder
-de: Bananenpulver
-fi: banaanijauhe
-fr: poudre de banane, banane en poudre
-usda_ndb_code:en: 9041
-usda_ndb_name:en: Bananas, dehydrated, or banana powder
 
 #processing:en: en:juice
 #<en:banana
@@ -38869,11 +38792,6 @@ wikidata:en: Q26615
 en: carissa, natal plum
 la: Carissa macrocarpa
 description:en: Carissa is a tropical/subtropical fruit-bearing shrub, native to South Africa. Taste: A mix of sweet and tart, often compared to cranberry or strawberry with a slightly milky, latex-like note
-usda_ndb_proxy_code:en: 9061
-usda_ndb_proxy_name:en: Carissa, (natal-plum), raw
-
-< en: carissa
-en: raw carissa
 usda_ndb_code:en: 9061
 usda_ndb_name:en: Carissa, (natal-plum), raw
 
@@ -39223,12 +39141,13 @@ zh: 芒果
 # yue:芒果
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr: 0.8
-ciqual_proxy_food_code:en: 13025
-ciqual_proxy_food_name:en: Mango, pulp, raw
+ciqual_food_code:en: 13025
+ciqual_food_name:en: Mango, pulp, raw
+ciqual_food_process:en: en:pulp, en:raw
 ecobalyse:en: db0e5f44-34b4-4160-b003-77c828d75e60
 ecobalyse_labels_en_organic:en: ef57c898-8780-48cb-b00f-7d8a310f46aa
-usda_ndb_proxy_code:en: 9176
-usda_ndb_proxy_name:en: Mangos, raw
+usda_ndb_code:en: 9176
+usda_ndb_name:en: Mangos, raw
 wikidata:en: Q3919027
 wikipedia:en: https://en.wikipedia.org/wiki/Mango
 
@@ -39253,16 +39172,6 @@ it: Mango importato via nave
 nl: Mango geïmporteerd per boot
 carbon_footprint_fr_foodges_ingredient:fr: Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr: 0.8
-
-< en: mango
-en: raw mango
-usda_ndb_code:en: 9176
-usda_ndb_name:en: Mangos, raw
-
-< en: mango
-en: raw mango pulp
-ciqual_food_code:en: 13025
-ciqual_food_name:en: Mango, pulp, raw
 
 < en: mango
 en: mango juice
@@ -40631,11 +40540,6 @@ eurocode_2_group_3:en: 9.10.15
 
 < en: apple
 en: crabapples
-usda_ndb_proxy_code:en: 9077
-usda_ndb_proxy_name:en: Crabapples, raw
-
-< en: crabapples
-en: raw crabapples
 usda_ndb_code:en: 9077
 usda_ndb_name:en: Crabapples, raw
 
@@ -41106,19 +41010,15 @@ it: ripieno di mele
 #                                Boabab
 #
 ###################################################################################################
+
 < en: fruit
 en: boabab, boabab fruit
 es: boabab fruto
 it: baobab
-usda_ndb_proxy_code:en: 9544
-usda_ndb_proxy_name:en: Baobab powder
-
-< en: boabab
-en: baobab powder
-fr: poudre de baobab
-nl: baobabpoeder
 usda_ndb_code:en: 9544
 usda_ndb_name:en: Baobab powder
+usda_ndb_process:en: en:powder
+
 
 ###################################################################################################
 #
@@ -41406,9 +41306,10 @@ zh: 克里曼丁红橘
 ciqual_food_code:en: 13082
 ciqual_food_name:en: Clementine, pulp, raw
 ciqual_food_name:fr: Clémentine, pulpe, crue
+ciqual_food_process:en: en:pulp, en:raw
 ecobalyse:en: 299941e9-577c-4618-968c-6901ffa99a8d
-usda_ndb_proxy_code:en: 9433
-usda_ndb_proxy_name:en: Clementines, raw
+usda_ndb_code:en: 9433
+usda_ndb_name:en: Clementines, raw
 wikidata:en: Q460517
 wikipedia:en: https://en.wikipedia.org/wiki/Clementine
 
@@ -41418,13 +41319,6 @@ fr: jus de clémentine
 de: Clementinensaft
 fi: klementiinimehu
 
-< en: clementine
-en: clementine pulp
-fr: pulpe de clémentine
-it: polpa di clementine
-ciqual_food_code:en: 13082
-ciqual_food_name:en: Clementine, pulp, raw
-ciqual_food_name:fr: Clémentine, pulpe, crue
 
 ###################################################################################################
 #
@@ -43622,14 +43516,12 @@ eurocode_2_group_3:en: 9.30.24
 # tuk:böwürslen
 # udm:лыз эмезь
 # yue:黑啤梨
-usda_ndb_proxy_code:en: 9042
-usda_ndb_proxy_name:en: Blackberries, raw
-wikidata:en: Q19842373
-
-< en: blackberry
-en: raw blackberry
+usda_ndb_2_code:en: 9048
+usda_ndb_2_name:en: Blackberries, frozen, unsweetened
+usda_ndb_2_process:en: en:frozen, en;unsweetened
 usda_ndb_code:en: 9042
 usda_ndb_name:en: Blackberries, raw
+wikidata:en: Q19842373
 
 < en: blackberry
 en: Rubus fruticosus
@@ -43660,11 +43552,6 @@ wikidata:en: Q13541716
 
 < en: berries
 en: mulberry, mulberries
-usda_ndb_proxy_code:en: 9190
-usda_ndb_proxy_name:en: Mulberries, raw
-
-< en: mulberry
-en: raw mulberry
 usda_ndb_code:en: 9190
 usda_ndb_name:en: Mulberries, raw
 
@@ -43743,52 +43630,12 @@ description:de: Die Schwarze Johannisbeere ist eine Pflanzenart aus der Gattung 
 description:fr: Fruit formé de baies noires formant des grappes, pulpeuses, à la peau lisse, fortement aromatiques, utilisé pour faire des liqueurs, des sirops, des gelées…
 description:nl: de vrucht (bes) van de Ribes nigrum
 eurocode_2_group_3:en: 9.30.32
-usda_ndb_proxy_code:en: 9083
-usda_ndb_proxy_name:en: Currants, european black, raw
+usda_ndb_code:en: 9083
+usda_ndb_name:en: Currants, european black, raw
 wikidata:en: Q2941309
 wikipedia:en: https://en.wikipedia.org/wiki/Blackcurrant
 
-< en: blackcurrant
-en: raw european black currants
-usda_ndb_code:en: 9083
-usda_ndb_name:en: Currants, european black, raw
-
-< en: blackcurrant
-en: blackcurrant pieces
-de: Schwarze Johannisbeerstücke
-it: pezzi di ribes nero
-
-#processing:en: en:juice
-#<en:blackcurrant
-#<en:fruit juice
-#en:blackcurrant juice
-#bg:сок от касис
-#da:solbærjuice
-#de:Cassissaft, Johannisbeerensaft, schwarzer Johannisbeersaft, Johannisbeersaft
-#es:zumo de grosella negra, jugo de grosella negra
-#fi:mustaherukkamehu
-#fr:jus de cassis
-#hu:feketeribizlilé
-#it:succo di ribes neri
-#nl:zwarte bessensap
-#sv:svartvinbärsjuice, svartvinbärssaft
-# 709 in 5 languages @2021-09-12
-
-#processing:en: en:concentrated
-#<en:blackcurrant juice
-#en:blackcurrant concentrate
-#bg:концентриран сок от касис
-#de:schwarzes Johannisbeerkonzentrat
-#es:concentrado de grosella negra
-#fi:mustaherukkamehutiiviste, mustaherukkatiiviste
-#fr:jus concentré de cassis, jus de cassis concentré, concentré de cassis
-#hu:feketeribizli sűrítměny
-#nl:zwarte bessensapconcentraat
-#no:solbærkonsentrat
-#pt:concentrado de groselha
-# 238 in 1 language @2021-09-12
-
-# < en:compound
+# < en: compound
 en: blackcurrant juice from concentrate
 cs: ovocná šťáva z koncentrátu černého rybízu
 da: solbærsaft fra koncentrat
@@ -43800,27 +43647,6 @@ hr: sok brusnice u granulama
 it: succo di ribes nero da concentrato
 nl: zwarte bessensap op basis van concentraat
 sv: svartvinbärsjuice från koncentrat
-
-#processing:en: en:pureed
-#<en:blackcurrant
-#en:blackcurrant puree
-#bg:пюре от касис
-#da:solbærpuré
-#de:schwarzes Johannesbeerpüree
-#es:puré de grosella negra
-#fi:mustaherukkapyree
-#fr:purée de cassis
-#nl:Zwarte bessenpuree
-#sv:svartvinbärspuré
-# 248 in 5 languages @2021-09-12
-
-# no products
-# <en:blackcurrant
-# en:cassis liqueur
-# es:licor de casis
-# fr:liqueur de cassis
-# nl:cassis likeur
-# de:Cassis-Likör
 
 < en: blackcurrant
 en: pieces and juice of blackcurrant
@@ -43882,25 +43708,19 @@ ciqual_food_name:en: Blueberry, raw
 ecobalyse:en: b193fd9e-99ab-4d1b-8e81-3b38bab2eacf
 ecobalyse_labels_en_organic:en: df1fe70a-08c0-4b8a-9f88-0caeb002d26a
 eurocode_2_group_3:en: 9.30.46
-usda_ndb_proxy_code:en: 9050
-usda_ndb_proxy_name:en: Blueberries, raw
+usda_ndb_2_code:en: 9054
+usda_ndb_2_name:en: Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
+usda_ndb_2_process:en: en:frozen, en:unsweetened
+usda_ndb_code:en: 9050
+usda_ndb_name:en: Blueberries, raw
 wikidata:en: Q5812410
 # 943 producten in 13 languages @2018-10-01
 
 < en: blueberry
-en: raw blueberry
-usda_ndb_code:en: 9050
-usda_ndb_name:en: Blueberries, raw
-
-< en: blueberry
-en: frozen blueberry
-usda_ndb_code:en: 9054
-usda_ndb_name:en: Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
-
-< en: frozen blueberry
-en: frozen wild blueberry
+en: wild blueberry
 usda_ndb_code:en: 9053
 usda_ndb_name:en: Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)
+usda_ndb_process:en: en:frozen
 
 #en:the specific names are not seen as ingredient.
 < en: blueberry
@@ -44070,6 +43890,7 @@ ru: бойзенова ягода
 sv: boysenbär
 usda_ndb_proxy_code:en: 9057
 usda_ndb_proxy_name:en: Boysenberries, frozen, unsweetened
+usda_ndb_proxy_process:en: en:frozen, en:unsweetened
 wikidata:en: Q896083
 wikipedia:en: https://en.wikipedia.org/wiki/Boysenberry
 
@@ -44081,11 +43902,6 @@ fi: boysenmarjamehu, boysenmarjatäysmehu
 hr: sok od bobica
 it: succo di boysenberry
 sv: boysenbärsjuice
-
-< en: berries
-en: raw red and whitecurrants
-usda_ndb_code:en: 9084
-usda_ndb_name:en: Currants, red and white, raw
 
 ###################################################################################################
 #
@@ -44177,6 +43993,7 @@ zh: 楊桃
 ciqual_food_code:en: 13054
 ciqual_food_name:en: Carambola, pulp, raw
 ciqual_food_name:fr: Carambole, pulpe, crue
+ciqual_food_process:en: en:pulp, en:raw
 ifct_food_code:en: E062
 ifct_food_name:en: Star fruit
 usda_ndb_code:en: 9060
@@ -45497,75 +45314,25 @@ tr: incir
 # kab:Tabexsist
 # nah:Hicox
 # scn:Ficu
+ciqual_food_2_code:en: 13013
+ciqual_food_2_name:en: Fig, dried
+ciqual_food_2_name:fr: Figue, sèche
+ciqual_food_2_process:en: en:dried
 ciqual_food_code:en: 13012
 ciqual_food_name:en: Fig, raw
 ciqual_food_name:fr: Figue, crue
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fig
-usda_ndb_proxy_code:en: 9089
-usda_ndb_proxy_name:en: Figs, raw
-wikidata:en: Q2746643
-
-< en: fig
-en: raw fig
+usda_ndb_2_code:en: 9094
+usda_ndb_2_name:en: Figs, dried, uncooked
+usda_ndb_2_process:en: en:dried, en:uncooked
 usda_ndb_code:en: 9089
 usda_ndb_name:en: Figs, raw
-
-< en: fig
-en: organic fig
-de: Bio-Feige
-es: higo orgánico
-fr: figue biologique
-hr: eko smokva
-it: fico biologico
-
-< en: organic fig
-en: dried organic fig
-de: Bio-Trockenfeige
-es: higo orgánico seco
-fr: figue biologique séchée
-hr: eko suha smokva
-it: fichi biologici secchi
+wikidata:en: Q2746643
 
 < en: fig
 en: Pajarero Figs
 es: higos pajarero
 it: fichi Pajarero
-
-#comment:en:Is kept for ciqual
-#processing:en: en:dried
-< en: fig
-en: dried fig, dried figs
-ar: تين مجف ف
-bg: сушени смокини, смокини сушени
-co: fichi secchi
-cs: sušené fiky
-de: Feigen getrocknet
-es: higo seco, higos secos
-fr: figues séchées, figues sèches
-hr: suhe smokve
-it: fichi essiccati
-nl: gedroogde vijgen
-pl: suszone figi, suszona figa
-th: ผลมะเดื่ออบแห้ง
-ciqual_food_code:en: 13013
-ciqual_food_name:en: Fig, dried
-ciqual_food_name:fr: Figue, sèche
-usda_ndb_proxy_code:en: 9094
-usda_ndb_proxy_name:en: Figs, dried, uncooked
-
-< en: dried fig
-en: uncooked dried figs
-usda_ndb_code:en: 9094
-usda_ndb_name:en: Figs, dried, uncooked
-
-< en: fig
-en: fig paste
-bg: смокинова паста, паста от смокини
-de: Feigenpaste
-fr: pâte de figue
-hr: pasta od smokava
-it: pasta di fichi
-#255 in 3 @2021-09-14
 
 < en: fruit
 en: cactus fig
@@ -45806,30 +45573,20 @@ zh: 番石榴果
 # nah:xalxocotl
 #sat:ᱥᱟᱹᱯᱟᱹᱨᱤ
 # udm:гуайява
-usda_ndb_proxy_code:en: 9139
-usda_ndb_proxy_name:en: Guavas, common, raw
-wikidata:en: Q3181909
-wikipedia:en: https://en.wikipedia.org/wiki/Guava
-
-< en: guava
-en: raw common guavas
-usda_ndb_code:en: 9139
-usda_ndb_name:en: Guavas, common, raw
-
-< en: guava
-en: guava puree, guavas puree
-bg: пюре от гуава
-de: Guavenmus, Guavenmark
-es: Puré de guayaba
-fi: guavapyree, guavasose
-fr: purée de goyave
-hr: pire od guave
-it: purea di guaiave
-nl: guavapuree
-pl: przecier z gujawy, przecier z guawy
 ciqual_food_code:en: 13083
 ciqual_food_name:en: Guava, pulp, raw
 ciqual_food_name:fr: Goyave, pulpe, crue
+ciqual_food_process:en: en: pulp, en:raw
+usda_ndb_code:en: 9139
+usda_ndb_name:en: Guavas, common, raw
+wikidata:en: Q3181909
+wikipedia:en: https://en.wikipedia.org/wiki/Guava
+
+###################################################################################################
+#
+#                                Horned melon
+#
+###################################################################################################
 
 < en: fruit
 en: horned melon, kiwano
@@ -45837,25 +45594,27 @@ description:en: The horned melon (kiwano) is a tropical fruit native to sub-Saha
 usda_ndb_code:en: 9451
 usda_ndb_name:en: Horned melon (Kiwano)
 
+###################################################################################################
+#
+#                                Java plum / Jambolan
+#
+###################################################################################################
+
 < en: fruit
 en: java plum, java-plum, jambolan
 description:en: Java plum (Syzygium cumini) is a tropical evergreen tree in the myrtle family (Myrtaceae), making it more closely related to cloves and eucalyptus than to actual plums.
-usda_ndb_proxy_code:en: 9145
-usda_ndb_proxy_name:en: Java-plum, (jambolan), raw
-
-< en: java plum
-en: raw java plum
 usda_ndb_code:en: 9145
 usda_ndb_name:en: Java-plum, (jambolan), raw
+
+###################################################################################################
+#
+#                                Jujube
+#
+###################################################################################################
 
 < en: fruit
 en: jujube
 description:en: Jujube (also called Chinese date or red date) is a small fruit from the Ziziphus jujuba tree, native to China but now grown throughout Asia, the Middle East, and parts of Europe and America. Fresh jujubes taste crisp and mildly sweet, similar to an apple.
-usda_ndb_proxy_code:en: 9146
-usda_ndb_proxy_name:en: Jujube, raw
-
-< en: jujube
-en: raw jujube
 usda_ndb_code:en: 9146
 usda_ndb_name:en: Jujube, raw
 
@@ -45976,16 +45735,11 @@ description:en: KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is 
 ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
 ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
 ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
-usda_ndb_proxy_code:en: 9148
-usda_ndb_proxy_name:en: Kiwifruit, green, raw
+usda_ndb_code:en: 9148
+usda_ndb_name:en: Kiwifruit, green, raw
 wikidata:en: Q13194
 wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
 #1182 in 24 @2021-10-13
-
-< en: kiwifruit
-en: raw green kiwifruit, raw green kiwi
-usda_ndb_code:en: 9148
-usda_ndb_name:en: Kiwifruit, green, raw
 
 ##################### Kiwifruit cultivars/varieties/types
 
@@ -46171,6 +45925,7 @@ zh: 荔枝
 ciqual_food_code:en: 13023
 ciqual_food_name:en: Lychee, pulp, raw
 ciqual_food_name:fr: Litchi, pulpe, cru
+ciqual_food_processe:en: en:pulp, en:raw
 description:en: LYCHEE is the sole member of the genus Litchi in the soapberry family, Sapindaceae.
 ecobalyse:en: e9764c3c-554f-4f1e-9ba1-8debc869e6ba
 ecobalyse_labels_en_organic:en: 03ecc69a-01a4-4ca2-83ba-77e8310d034a
@@ -46178,36 +45933,13 @@ eurocode_2_group_2:en: 9.25
 eurocode_2_group_3:en: 9.25.40
 ifct_food_code:en: E035
 ifct_food_name:en: Litchi
+usda_ndb_2_code:en: 9165
+usda_ndb_2_name:en: Litchis, dried
+usda_ndb_2_process:en: en: dried
 usda_ndb_code:en: 9164
 usda_ndb_name:en: Litchis, raw
 # wikidata:en:Q13182 refers to the plant
 wikipedia:en: https://en.wikipedia.org/wiki/Lychee
-
-< en: lychee
-en: raw lychee
-usda_ndb_code:en: 9164
-usda_ndb_name:en: Litchis, raw
-
-< en: lychee
-en: lychee pulp
-de: Litschipulpe
-es: Pulpa de lichi
-fr: Pulpe de litchi
-hr: pulpa ličija
-it: Polpa di litchi
-ciqual_food_code:en: 13023
-ciqual_food_name:en: Lychee, pulp, raw
-ciqual_food_name:fr: Litchi, pulpe, cru
-
-< en: lychee
-es: lichis deshuesados
-fr: litchis dénoyautés
-it: litchi senza nocciolo
-
-< en: lychee
-en: dried lychee, dried litchi
-usda_ndb_code:en: 9165
-usda_ndb_name:en: Litchis, dried
 
 < en: fruit
 en: rambutan
@@ -46218,24 +45950,25 @@ fr: Ramboutan, Litchi chevelu
 ifct_food_code:en: E059
 ifct_food_name:en: Rambutan
 
+
+###################################################################################################
+#
+#                                Longan
+#
+###################################################################################################
+
 < en: fruit
 en: longan
 de: Longan
 fr: longane, longani, oeil du dragon
 hr: longan
 it: longan
-usda_ndb_proxy_code:en: 9172
-usda_ndb_proxy_name:en: Longans, raw
-
-< en: longan
-en: dried longan
-usda_ndb_code:en: 9173
-usda_ndb_name:en: Longans, dried
-
-< en: longan
-en: raw longan
+usda_ndb_2_code:en: 9173
+usda_ndb_2_name:en: Longans, dried
+usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 9172
 usda_ndb_name:en: Longans, raw
+
 
 ###################################################################################################
 #
@@ -46283,12 +46016,6 @@ tl: Milon
 tr: kavun
 uk: баштанні культури
 zh: 瓜
-carbon_footprint_fr_foodges_ingredient:fr: Melon
-carbon_footprint_fr_foodges_value:fr: 0.5
-ecobalyse:en: 7b30c4ad-e851-4274-8062-4e14850108a9
-ecobalyse_labels_en_organic:en: 359ec82d-4f28-43bd-b5be-84256a45c03e
-ecobalyse_origins_en_france:en: dc5c2f84-937c-4059-b7f9-352658cd4c57
-wikidata:en: Q5881191
 # gsw:Melone
 # pnb:خربوزہ
 # scn:Muluni
@@ -46298,11 +46025,20 @@ wikidata:en: Q5881191
 # zh-hans:瓜
 # zh-hant:瓜
 # zh-hk:瓜
+carbon_footprint_fr_foodges_ingredient:fr: Melon
+carbon_footprint_fr_foodges_value:fr: 0.5
+ecobalyse:en: 7b30c4ad-e851-4274-8062-4e14850108a9
+ecobalyse_labels_en_organic:en: 359ec82d-4f28-43bd-b5be-84256a45c03e
+ecobalyse_origins_en_france:en: dc5c2f84-937c-4059-b7f9-352658cd4c57
+usda_ndb_code:en: 9185
+usda_ndb_name:en: Melon balls, frozen
+usda_ndb_process:en: en:frozen
+wikidata:en: Q5881191
 wikipedia:en: https://en.wikipedia.org/wiki/Melon
 
 # description:en:MELONS CONFITS is a compound ingredient
 
-< en: melon
+# < en: compound
 fr: melons confits
 de: kandierte Melonen
 fi: kandeerattu meloni
@@ -46363,14 +46099,9 @@ zh: 哈密瓜
 # zh-hant:哈密瓜
 # zh-tw:甜瓜
 description:en: Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
-usda_ndb_proxy_code:en: 9181
-usda_ndb_proxy_name:en: Melons, cantaloupe, raw
-wikidata:en: Q477179
-
-< en: cantaloupe
-en: raw cantaloupe
 usda_ndb_code:en: 9181
 usda_ndb_name:en: Melons, cantaloupe, raw
+wikidata:en: Q477179
 
 < en: cantaloupe
 en: charentais melon
@@ -46582,32 +46313,18 @@ vi: Dưa lê
 ciqual_food_code:en: 13742
 ciqual_food_name:en: Melon, honeydew, pulp, raw
 ciqual_food_name:fr: Melon miel ou melon honeydew, pulpe, cru
+ciqual_food_process:en: en:pulpe
 #plant: wikidata:en:Q47801
-usda_ndb_proxy_code:en: 9184
-usda_ndb_proxy_name:en: Melons, honeydew, raw
+usda_ndb_code:en: 9184
+usda_ndb_name:en: Melons, honeydew, raw
 wikidata:en: Q104245646
 wikipedia:en: https://en.wikipedia.org/wiki/Honeydew_(melon)
 #27 @2021-10-10
 
-< en: honeydew melon
-en: raw honeydew melon
-usda_ndb_code:en: 9184
-usda_ndb_name:en: Melons, honeydew, raw
-
-< en: honeydew melon
-en: raw honeydew melon pulp
-ciqual_food_code:en: 13742
-ciqual_food_name:en: Melon, honeydew, pulp, raw
-ciqual_food_name:fr: Melon miel ou melon honeydew, pulpe, cru
 
 < en: melon
 en: casaba
 es: casaba
-usda_ndb_proxy_code:en: 9183
-usda_ndb_proxy_name:en: Melons, casaba, raw
-
-< en: casaba
-en: raw casaba
 usda_ndb_code:en: 9183
 usda_ndb_name:en: Melons, casaba, raw
 
@@ -46677,13 +46394,9 @@ es: nance, nanche, changunga
 la: Byrsonima crassifolia
 pt: murici
 description:en: Nance is a small tropical fruit native to Central America, the Caribbean, and parts of South America. Small, round, yellow to orange berries, about 1–2 cm in diameter, growing in clusters. It has a very distinctive, pungent aroma and a flavor that's a unique mix of sweet, sour, and slightly cheesy or fermented.
-usda_ndb_proxy_code:en: 9449
-usda_ndb_proxy_name:en: Nance, frozen, unsweetened
-
-< en: nance
-en: frozen nance
 usda_ndb_code:en: 9449
 usda_ndb_name:en: Nance, frozen, unsweetened
+usda_ndb_process:en: en:frozen, en:unsweetened
 
 < en: fruit
 en: naranjilla, lulo
@@ -46691,6 +46404,7 @@ la: Solanum quitoense
 description:en: Naranjilla is a tropical fruit native to South America, mainly grown in Ecuador, Colombia, and Peru. Small to medium round fruit, about the size of a golf ball with bright orange skin covered in fine, removable fuzz. The flavor is very distinctive — a unique mix of tart, citrusy, and tropical, often described as a cross between pineapple, lime, and rhubarb.
 usda_ndb_code:en: 9450
 usda_ndb_name:en: Naranjilla (lulo) pulp, frozen, unsweetened
+usda_ndb_process:en: en:frozen, en:unsweetened
 
 ###################################################################################################
 #
@@ -48937,8 +48651,14 @@ sv: Korinter
 description:en: Zante currants are small, dried, seedless grapes — despite the name, they're not actually related to fresh currants (which are berries from the Ribes genus). Dried fruits made from the Black Corinth grape.
 usda_ndb_code:en: 9085
 usda_ndb_name:en: Currants, zante, dried
+usda_ndb_process:en: en:dried
 wikidata:en: Q1382423
 wikipedia:en: https://en.wikipedia.org/wiki/Zante_currant
+
+< en: raisin
+en: raw red and whitecurrants
+usda_ndb_code:en: 9084
+usda_ndb_name:en: Currants, red and white, raw
 
 < en: fruit juice
 < en: grape
@@ -56514,33 +56234,6 @@ it: carote baby
 usda_ndb_code:en: 11960
 usda_ndb_name:en: Carrots, baby, raw
 
-#< en: carrot
-#fr: carottes en rondelles
-#de: Karotten in Scheiben
-#it: Carote e lamelle
-
-#< en: carrot
-#fr: carottes en morceaux
-
-#< en: carrot
-#fr: carottes râpées
-#nl: geraspte wortelen
-
-#< en: carrot
-#en: carrot purée
-#bg: пюре от моркови
-#de: Karottenpüree
-#es: Puré de zanahoria
-#fi: porkkanapyree, porkkanasose
-#fr: purée de carotte
-#hr: pire od mrkve
-#it: puré di carote
-#pl: przecier marchwiowy
-# In process de:Karottenpüree
-ciqual_food_code:en: 20261
-ciqual_food_name:en: Carrots, puree
-ciqual_food_name:fr: Carotte, purée
-
 # fr:concentré de carotte usage as a colour is not always mentioned
 
 < en: carrot
@@ -57910,8 +57603,20 @@ description:it: L'avocado (Persea americana) è una specie arborea da frutto che
 description:nl: De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
 ecobalyse:en: avocado-non-eu
 eurocode_2_group_3:en: 8.40.60
+usda_ndb_code:en: 9037
+usda_ndb_name:en: Avocados, raw, all commercial varieties
 wikidata:en: Q961769
 wikipedia:en: https://en.wikipedia.org/wiki/Avocado
+
+< en: avocado
+en: california avocado
+usda_ndb_code:en: 9038
+usda_ndb_name:en: Avocados, raw, California
+
+< en: avocado
+en: florida avocado
+usda_ndb_code:en: 9039
+usda_ndb_name:en: Avocados, raw, Florida
 
 en: Guacamole
 it: guacamole
@@ -57997,16 +57702,10 @@ description:nl: De bernagie (Borago officinalis), ook vaak komkommerkruid genoem
 description:pt: Borragem (Borago officinalis L.), é uma planta herbácea anual mediterrânea. Folhas e flores são utilizadas.
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.20
-usda_ndb_proxy-name:en: Borage, raw
-usda_ndb_proxy_code:en: 11613
-wikidata:en: Q147075
-wikipedia:en: https://en.wikipedia.org/wiki/Borage
-
-< en: borage
-en: raw borage
 usda_ndb_code:en: 11613
 usda_ndb_name:en: Borage, raw
-
+wikidata:en: Q147075
+wikipedia:en: https://en.wikipedia.org/wiki/Borage
 
 < en: vegetable
 en: cardoon, artichoke thistle, cardoons
@@ -75793,15 +75492,10 @@ it: uva spina del Capo
 la: Physalis peruviana, physalis
 pl: Miechunka peruwiańska, rodzynek brazylijski, jagoda inkaska, jagoda inków, miechunka
 eurocode_2_group_3:en: 9.30.58
-usda_ndb_proxy_code:en: 9138
-usda_ndb_proxy_name:en: Groundcherries, (cape-gooseberries or poha), raw
-wikidata:en: Q165227
-wikipedia:en: https://en.wikipedia.org/wiki/Physalis_peruviana
-
-< en: Cape gooseberry
-en: raw Cape gooseberry
 usda_ndb_code:en: 9138
 usda_ndb_name:en: Groundcherries, (cape-gooseberries or poha), raw
+wikidata:en: Q165227
+wikipedia:en: https://en.wikipedia.org/wiki/Physalis_peruviana
 
 < en: berries
 en: Indian Gooseberry, Amla
@@ -78616,7 +78310,13 @@ vegetarian:en: no
 wikidata:en: Q600396
 wikipedia:en: https://en.wikipedia.org/wiki/Fish
 
-# Fish are classified as while or oily
+< en: fish
+en: flat fish
+description:en: Flat fish are a group of fish that live and swim mostly on the ocean floor, and their most striking feature is that their bodies are flattened sideways (laterally compressed) so they end up lying and swimming on one side rather than upright.
+usda_ndb_code:en: 15028
+usda_ndb_name:en: Fish, flatfish (flounder and sole species), raw
+
+# Fish are classified as whte or oily
 < en: fish
 en: oily fish
 es: pescado azul
@@ -78880,17 +78580,6 @@ carbon_footprint_fr_foodges_value:fr: 10.7
 fr: poissons entiers pêchés en Méditerranée
 
 < en: fish
-en: bluefish
-la: Pomatomus saltatrix
-usda_ndb_proxy_code:en: 15005
-usda_ndb_proxy_name:en: Fish, bluefish, raw
-
-< en: bluefish
-en: raw bluefish
-usda_ndb_code:en: 15005
-usda_ndb_name:en: Fish, bluefish, raw
-
-< en: fish
 < en: white fish
 en: alaska pollock, Alaskan pollock, Theragra chalcogramma
 xx: Gadus chalcogrammus
@@ -79110,9 +78799,40 @@ wikidata:en: 188387
 # translations can not be trusted
 wikipedia:en: https://en.wikipedia.org/wiki/European_anchovy
 
-< en: fish
+###################################################################################################
+#
+#                                Mahi-mahi
+#
+###################################################################################################
+
+< en: saltwater fish
+en: mahi-mahi, mahimahi
+description:en: Mahi-mahi is a species of fish, it's sometimes called "dolphinfish," but it's unrelated to dolphins. It's a large, colorful saltwater fish found in warm and temperate waters around the world, known for its firm, lean, mildly sweet white-to-pinkish flesh. Flavor and texture: Mild, slightly sweet flavor with a firm, meaty texture — often compared to swordfish or tuna, but lighter and less oily.
+usda_ndb_code:en: 15023
+usda_ndb_name:en: Fish, mahimahi, raw
+
+###################################################################################################
+#
+#                                Milkfish
+#
+###################################################################################################
+
+< en: saltwater fish
+en: milkfish
+la: Chanos chanos
+description:en: Milkfish (Chanos chanos) is a mild-flavored, silvery fish that's a staple food in parts of Southeast Asia, especially the Philippines, Indonesia, and Taiwan. Texture and flavor: The flesh is soft, slightly fatty, and has a mild taste that takes on marinades and seasonings well. It's notoriously bony, with many small, fine bones running through the flesh. This has led to specialty products like "boneless milkfish," where the bones are removed before selling.
+usda_ndb_code:en: 15053
+usda_ndb_name:en: Fish, milkfish, raw
+
+###################################################################################################
+#
+#                                Monkfish
+#
+###################################################################################################
+
+< en: saltwater fish
 < en: white fish
-en: Anglerfish, angler fish, monkfish
+en: monkfish, anglerfish, angler fish
 ar: عفريت البحر
 az: Dəniz şeytanı
 bg: морски дявол
@@ -79140,7 +78860,6 @@ is: Skötuselur
 it: Rana Pescatrice
 ja: ニシアンコウ
 ka: ზღვის ეშმაკი
-la: Lophius piscatorius
 # ast:Pixín
 lij: Budego
 nb: breiflabb
@@ -79156,9 +78875,6 @@ sv: Marulk
 tr: Fener balığı
 uk: Морський чорт
 zh: 釣鮟鱇
-ciqual_food_code:en: 26018
-ciqual_food_name:en: Anglerfish, raw
-ciqual_food_name:fr: Lotte ou baudroie, crue
 # pcd:Crapoe
 # zh-cn:钓鮟鱇
 # zh-hans:钓齾龌
@@ -79166,15 +78882,21 @@ ciqual_food_name:fr: Lotte ou baudroie, crue
 # zh-hk:釣鮟鱇
 # zh-sg:钓鮟鱇
 # zh-tw:釣鮟鱇
-wikipedia:en: https://en.wikipedia.org/wiki/Anglerfish
-
-< en: Anglerfish
-en: Raw anglerfish
-fr: Lotte crue, Baudroie crue
-it: rana pescatrice cruda
 ciqual_food_code:en: 26018
 ciqual_food_name:en: Anglerfish, raw
 ciqual_food_name:fr: Lotte ou baudroie, crue
+description:en: "Anglerfish" is a broad term for an order of fish (Lophiiformes) known for using a fleshy growth on their head like a fishing lure to attract prey. The fish sold as "monkfish" in seafood markets typically refers to species in the genus Lophius — like the American anglerfish (Lophius americanus) or European anglerfish (Lophius piscatorius) — which live on the seafloor in relatively shallow coastal waters. Monkfish is prized in cooking mostly for its tail meat, which is the part typically sold and eaten. Texture and flavor: It has a firm, dense, meaty texture — often compared to lobster — with a mild, slightly sweet flavor. This has earned it the nickname "poor man's lobster."
+usda_ndb_code:en: 15054
+usda_ndb_name:en: Fish, monkfish, raw
+wikipedia:en: https://en.wikipedia.org/wiki/Anglerfish
+
+< en: anglerfish
+en: American anglerfish
+la: Lophius piscatorius
+
+< en: anglerfish
+en: European anglerfish monkfish
+la: Lophius americanus
 
 < en: fish
 fr: loup
@@ -79268,8 +78990,66 @@ description:en: The blue whiting, Micromesistius poutassou, one of the two speci
 wikidata:en: Q743248
 wikipedia:en: https://en.wikipedia.org/wiki/Blue_whiting
 
+###################################################################################################
+#
+#                                Bluefish
+#
+###################################################################################################
 
 < en: fish
+en: bluefish
+la: Pomatomus saltatrix
+description:en: Bluefish (Pomatomus saltatrix) is a species of saltwater fish commonly eaten as food, especially along the Atlantic coasts of the US, and also found in various other parts of the world. Flavor and texture: It has a stronger, more "fishy" flavor than mild white fish like cod or tilapia. The flesh is oily/fatty (similar in that regard to mackerel or salmon), which gives it a rich taste but also means it spoils faster and is best cooked fresh.
+usda_ndb_code:en: 15005
+usda_ndb_name:en: Fish, bluefish, raw
+
+###################################################################################################
+#
+#                                Bogue
+#
+###################################################################################################
+
+< en: fish
+en: bogue
+ar: سمكة موزة
+#ary:أشمشاو
+bg: гопа
+ca: boga, bogarró
+cy: pysgodyn llygad-llo
+de: Gelbstriemenbrasse
+el: γόπα
+es: boga
+eu: boga
+fi: boga
+fr: bogue
+gl: boga
+he: גובוס גלילי
+hr: bukva
+it: boga
+la: Boops boops
+nb: okseøyefisk
+nl: bokvis
+pl: bops, złotokres
+pt: boga, boga-do-mar
+ru: бопс, полосатик, большеглазый боопс
+sh: bukva
+sl: bukva
+sv: oxögonfisk
+tr: kupes
+uk: бопс великоокий, бопс смугастий
+zh: 牛眼鯛
+ciqual_food_code:en: 26100
+ciqual_food_name:en: Bogue, raw
+ciqual_food_name:fr: Bogue, crue
+wikidata:en: Q950498
+
+###################################################################################################
+#
+#                                Burbot
+#
+###################################################################################################
+
+< en: freshwater fish
 < en: white fish
 en: burbot
 ar: بربوط
@@ -79340,49 +79120,37 @@ zh: 江鱈
 # zh-hk:江鱈
 # zh-sg:江鳕
 # zh-tw:江鱈
-description:en: The burbot (Lota lota) is the only gadiform (cod-like) freshwater fish.
-usda_ndb_proxy_code:en: 15006
-usda_ndb_proxy_name:en: Fish, burbot, raw
-wikipedia:en: https://en.wikipedia.org/wiki/Burbot
-
-< en: burbot
-en: raw burbot
+description:en: Burbot (Lota lota) is a freshwater fish — and actually the only member of the cod family (Gadidae) that lives entirely in fresh water rather than the ocean. It's edible and considered quite good eating — sometimes nicknamed "poor man's lobster" because its liver and flesh are prized by some anglers, especially for winter ice-fishing.
 usda_ndb_code:en: 15006
 usda_ndb_name:en: Fish, burbot, raw
+wikipedia:en: https://en.wikipedia.org/wiki/Burbot
+
+###################################################################################################
+#
+#                                Butterfish
+#
+###################################################################################################
 
 < en: fish
-en: bogue
-ar: سمكة موزة
-#ary:أشمشاو
-bg: гопа
-ca: boga, bogarró
-cy: pysgodyn llygad-llo
-de: Gelbstriemenbrasse
-el: γόπα
-es: boga
-eu: boga
-fi: boga
-fr: bogue
-gl: boga
-he: גובוס גלילי
-hr: bukva
-it: boga
-la: Boops boops
-nb: okseøyefisk
-nl: bokvis
-pl: bops, złotokres
-pt: boga, boga-do-mar
-ru: бопс, полосатик, большеглазый боопс
-sh: bukva
-sl: bukva
-sv: oxögonfisk
-tr: kupes
-uk: бопс великоокий, бопс смугастий
-zh: 牛眼鯛
-ciqual_food_code:en: 26100
-ciqual_food_name:en: Bogue, raw
-ciqual_food_name:fr: Bogue, crue
-wikidata:en: Q950498
+en: butterfish
+description:en: Butterfish is the common name for a couple of different fish species, most notably: Escolar (Lepidocybium flavobrunneum) — sometimes marketed as "butterfish," this deep-sea fish has an extremely high oil content that gives it a rich, buttery texture and mouthfeel, hence the name. It's popular in sushi restaurants (sometimes mislabeled as "white tuna"); American butterfish (Peprilus triacanthus) — a smaller, silvery fish found along the U.S. Atlantic coast.
+
+< en: butterfish
+en: escolar
+la: Lepidocybium flavobrunneum
+
+< en: butterfish
+en: American butterfish
+la: Peprilus triacanthus
+description:en: American butterfish (Peprilus triacanthus) is a small, deep-bodied fish from the northwest Atlantic, ranging from Labrador down to Florida's Gulf coast. Flavor and texture: It has soft, delicate, oily flesh with a mild, sweet flavor — the "butter" in the name comes from that rich, tender texture rather than any actual buttery taste. The flesh is white and flakes easily when cooked.
+usda_ndb_code:en: 15007
+usda_ndb_name:en: Fish, butterfish, raw
+
+###################################################################################################
+#
+#                                Capelin
+#
+###################################################################################################
 
 < en: fish
 en: capelin, caplin
@@ -79452,17 +79220,26 @@ ciqual_food_code:en: 26108
 ciqual_food_name:en: Capelin, raw
 ciqual_food_name:fr: Capelan, cru
 
-< en: fish
+###################################################################################################
+#
+#                                Carp
+#
+###################################################################################################
+
+< en: freshwater fish
 en: carp
 de: Karpfen
 fr: carpe
 hr: šaran
 it: carpa
+la: Cyprinus carpio
 nl: karper
-ciqual_food_code:en: 27003
-ciqual_food_name:en: Carp, raw, farmed
-ciqual_food_name:fr: Carpe, crue, élevage
-# TODO check if alternative
+ciqual_proxy_food_code:en: 27003
+ciqual_proxy_food_name:en: Carp, raw, farmed
+ciqual_proxy_food_name:fr: Carpe, crue, élevage
+description:en: Carp is a freshwater fish that's been eaten by humans for thousands of years — it's actually one of the oldest farmed food fish in the world, with cultivation going back to ancient China. Taste and texture: Mild, slightly sweet, and somewhat earthy or "muddy" tasting, especially if it comes from murky water. Farm-raised carp raised in cleaner water tends to taste better. The flesh is firm but has a lot of small bones, similar to other freshwater fish like pike.
+usda_ndb_code:en: 15008
+usda_ndb_name:en: Fish, carp, raw
 
 < en: carp
 en: farmed raw Carp
@@ -79474,6 +79251,36 @@ ciqual_food_name:fr: Carpe, crue, élevage
 
 < en: carp
 fr: carpe de Dombes
+
+< en: carp
+en: grass carp
+la: Ctenopharyngodon idella
+
+< en: carp
+en: silver carp
+la: Hypophthalmichthys molitrix
+
+< en: carp
+en: bighead carp
+la: Hypophthalmichthys nobilis
+
+< en: carp
+en: Crucian carp
+la: Carassius carassius
+
+###################################################################################################
+#
+#                                Cisco
+#
+###################################################################################################
+
+< en: freshwater fish
+< en: white fish
+en: cisco, lake herring
+la: Coregonus artedi
+description:en: Cisco is a freshwater whitefish in the genus Coregonus, found mainly in the Great Lakes and other cold lakes across North America (and some in Europe/Asia too). It's related to salmon and trout. Cisco  has a mild, delicate flavor — similar to other whitefish, slightly sweet. The texture is tender, flaky, fine-textured flesh — fairly delicate, can fall apart easily if overcooked.
+usda_ndb_code:en: 15013
+usda_ndb_name:en: Fish, cisco, raw
 
 ###################################################################################################
 #
@@ -79766,6 +79573,19 @@ ciqual_food_name:fr: Congre, cru
 # sr-el:Ugor
 wikidata:en: Q212552
 wikipedia:en: https://en.wikipedia.org/wiki/European_conger
+
+###################################################################################################
+#
+#                                Cusk
+#
+###################################################################################################
+
+< en: saltwater fish
+en: cusk
+la: Brosme brosme
+description:en: Cusk (Brosme brosme) is a bottom-dwelling fish in the cod family (Gadidae), found in the cold waters of the North Atlantic — off the coasts of New England, Atlantic Canada, and northern Europe. Cusk has firm, white flesh similar to cod or haddock, and is prized by some for its mild flavor. It's often sold fresh or used in chowders.
+usda_ndb_code:en: 15022
+usda_ndb_name:en: Fish, cusk, raw
 
 ###################################################################################################
 #
@@ -80139,7 +79959,7 @@ ciqual_food_name:fr: Carrelet ou plie, cru
 
 # description:en:The name "FLOUNDER" is used for several only distantly related species, though all are in the suborder Pleuronectoidei
 
-< en: fish
+< en: flat fish
 < en: white fish
 en: flounder
 ar: مفلطح
@@ -80203,10 +80023,13 @@ ciqual_food_name:fr: Grondin, cru
 wikidata:en: Q250699
 wikipedia:en: https://en.wikipedia.org/wiki/Triglidae
 
+###################################################################################################
+#
+#                                Haddock
+#
+###################################################################################################
 
-# en:description:The haddock (Melanogrammus aeglefinus) is a saltwater fish from the family Gadidae, the true cods
-
-< en: fish
+< en: saltwater fish
 < en: white fish
 en: haddock
 af: Skelvis
@@ -80250,9 +80073,6 @@ sv: Kolja
 tr: Mezgit
 uk: Пікша
 zh: 黑線鱈
-ciqual_food_code:en: 26122
-ciqual_food_name:en: Haddock, raw
-ciqual_food_name:fr: Églefin, cru
 # en-gb:haddock
 # pcd:Éqhélfin
 # sco:haddock
@@ -80262,9 +80082,20 @@ ciqual_food_name:fr: Églefin, cru
 # zh-hk:黑線鱈
 # zh-sg:黑线鳕
 # zh-tw:黑線鱈
+ciqual_food_code:en: 26122
+ciqual_food_name:en: Haddock, raw
+ciqual_food_name:fr: Églefin, cru
+description:en: Haddock is a saltwater fish, closely related to cod and are found mainly in the North Atlantic. Flavor and texture: Mild, slightly sweet flavor with white, flaky flesh. It's often described as a bit more delicate than cod. It's the classic fish used in British fish and chips
+usda_ndb_code:en: 15033
+usda_ndb_name:en: Fish, haddock, raw
 wikidata:en: Q202406
 wikipedia:en: https://en.wikipedia.org/wiki/Haddock
 
+###################################################################################################
+#
+#                                Hake
+#
+###################################################################################################
 
 # en:description:The term hake /heɪk/ refers to fish in either of:Family Merlucciidae of northern and southern oceans or the Family Phycidae (sometimes subfamily Phycinae in family Gadidae) of the northern oceans.
 
@@ -81495,9 +81326,15 @@ ciqual_food_code:en: 26084
 ciqual_food_name:en: Megrim, raw
 ciqual_food_name:fr: Cardine franche, crue
 
+###################################################################################################
+#
+#                                Sole
+#
+###################################################################################################
+
 # description:en:SOLE is a fish belonging to several families. Generally speaking, they are members of the family Soleidae, but, outside Europe, the name sole is also applied to various other similar flatfish, especially other members of the sole suborder Soleoidei as well as members of the flounder family.
 
-< en: fish
+< en: flat fish
 < en: white fish
 en: sole
 ar: سمك موسى
@@ -81668,15 +81505,70 @@ it: nemipterus spp
 wikidata:en: Q1842575
 wikipedia:en: https://en.wikipedia.org/wiki/Nemipterus
 
+###################################################################################################
+#
+#                                Sablefish
+#
+###################################################################################################
 
-# description:en:Tilapia is the common name for nearly a hundred species of cichlid fish from the  coelotilapine, coptodonine, heterotilapine, oreochromine, pelmatolapiine and tilapiine tribes (formerly all were in Tilapiini).
+< en: saltwater fish
+en: sablefish, black cod
+la: Anoplopoma fimbria
+description:en: Sablefish is a deep-water fish found in the North Pacific, from the Bering Sea down to Baja California. Flavor and texture: Rich, buttery, almost melt-in-your-mouth texture, thanks to a very high fat content; Mild, slightly sweet flavor — less "fishy" than many other fish; Large, silky white flakes. Very high in omega-3 fatty acids, even more than salmon per serving
+usda_ndb_code:en: 15074
+usda_ndb_name:en: Fish, sablefish, raw
 
-< en: fish
+###################################################################################################
+#
+#                                Scup
+#
+###################################################################################################
+
+< en: saltwater fish
+en: scup, porgy, scuppaug
+la: Stenotomus chrysops
+description:en: Scup is a small saltwater fish found along the Atlantic coast of North America, from Nova Scotia down to Florida, though it's most abundant from Cape Cod to Cape Hatteras. Flavor and texture: Mild, slightly sweet white flesh, similar in character to other porgies or small snappers. It's a lean fish.
+usda_ndb_code:en: 15090
+usda_ndb_name:en: Fish, scup, raw
+
+###################################################################################################
+#
+#                                Sheepshead
+#
+###################################################################################################
+
+< en: saltwater fish
+en: sheepshead
+la: Archosargus probatocephalus
+description:en: Sheepshead is the common name for a few different fish species, most notably: (Archosargus probatocephalus), found along the Atlantic and Gulf coasts of North America. Taste and texture: Mild, sweet, and slightly nutty flavor; Firm, white, flaky flesh; Often compared to red snapper, black drum, or grouper; Because it eats mostly shellfish, crabs, and barnacles, some people say the diet gives it a faintly sweet, "crab-like" undertone
+usda_ndb_code:en: 15097
+usda_ndb_name:en: Fish, sheepshead, raw
+
+###################################################################################################
+#
+#                                Spot
+#
+###################################################################################################
+
+< en: saltwater fish
+en: spot, spot croaker
+la: Leiostomus xanthurus
+description:en: A small saltwater fish common along the U.S. Atlantic and Gulf coasts. Spot has mild, sweet, flaky white flesh. It's popular in Southern U.S. cooking — often pan-fried or deep-fried whole (scaled and gutted), since the bones are easy to work around once cooked. It's a favorite at fish fries in the Carolinas, Georgia, and along the Gulf Coast.
+usda_ndb_code:en: 15103
+usda_ndb_name:en: Fish, spot, raw
+
+###################################################################################################
+#
+#                                Tilapia
+#
+###################################################################################################
+
+< en: freshwater fish
 en: tilapia
+xx: tilapia
 de: Tilapia
-fr: tilapia
 hr: tilapija
-it: tilapia
+description:en: Tilapia is one of the most widely farmed and eaten fish in the world — a mild, freshwater (or brackish-water) fish that's become a staple in supermarkets and restaurants globally. Flavor and texture: Mild, slightly sweet taste with no strong "fishy" flavor; Firm, flaky white flesh; Because it's so neutral-tasting, it takes on seasonings, marinades, and sauces well — which is a big part of its popularity
 ifct_food_code:en: P083
 ifct_food_name:en: Tilapia
 wikidata:en: Q47793
@@ -81695,20 +81587,53 @@ hr: file tilapije
 it: filetto di tilapia
 
 < en: tilapia
-en: mozambique tilapia
+en: blue tilapia
+la: Oreochromis aureus
+
+< en: tilapia
+en: Mozambique tilapia
 de: Buntbarsch aus Mosambik
 hr: mozambička tilapija
 it: tilapia del Mozambico
 la: Oreochromis mossambicus
 
 < en: tilapia
-en: nile tilapia
+en: Nile tilapia
 it: tilapia del Nilo
 la: Oreochromis niloticus
 
+###################################################################################################
+#
+#                                Tilefish
+#
+###################################################################################################
 
-# <en:saltwater fish
-< en: fish
+< en: saltwater fish
+en: tilefish
+description:en: Tilefish is a type of saltwater fish found mainly in the western Atlantic Ocean, from the northeastern U.S. down through the Gulf of Mexico. There are a few species, but the most commonly eaten ones are golden tilefish (also called "white tilefish" in markets) and blueline tilefish. Flavor and texture: Mild, sweet flavor with firm, moist flesh — often compared to a cross between lobster and crab in taste, which is why it's sometimes nicknamed "poor man's lobster." The texture holds up well to various cooking methods. Cooking methods: It works well baked, roasted, pan-seared, grilled, or poached. The skin can be crisped up nicely in a pan. It's popular in Japanese cuisine too, where it's called amadai and often prepared with the scales left on and fried until crispy.
+usda_ndb_code:en: 15112
+usda_ndb_name:en: Fish, tilefish, raw
+
+< en: tilefish
+en: blackline tilefish
+la: Caulolatilus cyanops
+
+< en: tilefish
+en: blueline tilefish
+la: Caulolatilus microps
+
+< en: tilefish
+en: golden tilefish
+la: Lopholatilus chamaeleonticeps
+
+###################################################################################################
+#
+#                                Tuna
+#
+###################################################################################################
+
+< en: saltwater fish
+#< en: fish
 en: tuna
 af: Tuna
 ar: تن
@@ -82145,7 +82070,59 @@ ciqual_food_name:en: Roundnose grenadier, raw
 ciqual_food_name:fr: Grenadier (de roche), cru
 
 
-< en: fish
+###################################################################################################
+#
+#                                Ling (blue and common)
+#
+###################################################################################################
+
+< en: saltwater fish
+en: ling
+fr: lingue, julienne
+hr: vrijesak
+la: Molva
+
+< en: ling
+en: common ling
+la: Molva molva
+ciqual_food_code:en: 26130
+ciqual_food_name:en: Ling, raw
+ciqual_food_name:fr: Julienne ou Lingue, crue
+description:en: This is a long, eel-like fish in the cod family (Gadidae), found in the North Atlantic, particularly around European and North American coasts. It has: A firm, white, flaky flesh similar to cod or haddock; A mild, slightly sweet flavor;A long, slender body (can grow quite large, sometimes over a meter)
+usda_ndb_code:en: 15044
+usda_ndb_name:en: Fish, ling, raw
+
+< en: ling
+en: blue ling
+fr: lingue bleue
+it: molva blu
+la: Molva dypterygia
+ciqual_food_code:en: 26194
+ciqual_food_name:en: Blue ling, raw
+ciqual_food_name:fr: Lingue bleue ou Lingue, crue
+description:en: Blue ling lives in much deeper water than common ling. The flesh is white, firm, and mild — used in much the same way as common ling or cod, though it's less commonly sold fresh to consumers and more often ends up in processed or filleted products.
+
+###################################################################################################
+#
+#                                Lingcod
+#
+###################################################################################################
+
+< en: saltwater fish
+en: lingcod
+la: Ophiodon elongatus
+description:en: Lingcod is a type of fish popular on the West Coast of the US, it's not actually a cod. It's related to greenlings. Flavor and texture: Mild, slightly sweet white fish with a firm, flaky texture. Often compared to halibut or cod but a bit more delicate.
+usda_ndb_code:en: 15045
+usda_ndb_name:en: Fish, lingcod, raw
+
+###################################################################################################
+#
+#                                Mackarel
+#
+###################################################################################################
+
+< en: oily fish
+< en: saltwater fish
 en: mackerel
 ar: الإسقمري
 bg: скумрия, риба скумрия
@@ -82191,20 +82168,20 @@ sr: Скуша
 sv: Makrill
 tr: Uskumru
 zh: 鯖魚
-ciqual_food_code:en: 26051
-ciqual_food_name:en: Mackerel, raw
-ciqual_food_name:fr: Maquereau, cru
-description:en: Mackerel is a common name applied to a number of different species of pelagic fish, mostly from the family Scombridae.
-description:nl: een vis, familie van de makreelachtigen zoals tonijn.
 # frr:Makreel
 # olo:Makrelli
 # sr-ec:Скуша
 # sr-el:Skuša
 # yue:青花魚
+ciqual_food_code:en: 26051
+ciqual_food_name:en: Mackerel, raw
+ciqual_food_name:fr: Maquereau, cru
+description:en: Mackerel is an oily fish, popular in cuisines around the world for its rich flavor and nutritional value. It is a general name for several related species of fast-swimming, saltwater fish (like Atlantic mackerel, king mackerel, and Spanish mackerel). It has a distinctive striped or mottled pattern on its back and a firm, dark flesh. Taste and texture: Strong, savory, somewhat "fishy" flavor compared to milder white fish. The flesh is soft and flaky when cooked, with a high fat content that keeps it moist.
 #wikidata:en:Q6724433
+usda_ndb_code:en: 83110
+usda_ndb_name:en: Fish, mackerel, salted
 wikidata:en: Q8064278
 wikipedia:en: https://en.wikipedia.org/wiki/Mackerel
-#775 @2021-09-10
 
 < en: mackerel
 en: mackerel fillet
@@ -82229,7 +82206,7 @@ hr: prethodno kuhani file skuše
 it: filetto di sgombro precotto
 
 < en: mackerel
-en: atlantic mackerel
+en: Atlantic mackerel
 ar: اسقمري معروف
 cs: makrela obecná
 da: atlantisk makrel
@@ -82432,26 +82409,6 @@ tr: Nemipteridae
 uk: Ниткопері
 vi: Họ Cá lượng
 zh: 金線魚科
-
-
-
-< en: fish
-en: ling
-fr: lingue, julienne
-hr: vrijesak
-la: Molva
-ciqual_food_code:en: 26130
-ciqual_food_name:en: Ling, raw
-ciqual_food_name:fr: Julienne ou Lingue, crue
-description:en: Molva est un genre de poissons appelés lingues, élingues ou juliennes.
-
-< en: ling
-en: blue ling
-fr: Lingue bleue
-it: molva blu
-ciqual_food_code:en: 26194
-ciqual_food_name:en: Blue ling, raw
-ciqual_food_name:fr: Lingue bleue ou Lingue, crue
 
 
 < en: fish
@@ -82698,9 +82655,14 @@ ciqual_food_code:en: 26206
 ciqual_food_name:en: Mediterranean bass, raw, farmed
 ciqual_food_name:fr: Bar commun ou loup (Méditerranée), cru, élevage
 
+###################################################################################################
+#
+#                                Swordfish
+#
+###################################################################################################
 
-< en: fish
 < en: oily fish
+< en: saltwater fish
 en: swordfish
 af: Swaardvis
 ar: سمكة السيف
@@ -82760,16 +82722,6 @@ uk: Риба-меч
 vi: Cá kiếm
 wa: Espadon
 zh: 劍旗魚科
-ciqual_food_code:en: 26082
-ciqual_food_name:en: Swordfish, raw
-ciqual_food_name:fr: Espadon, cru
-description:en: Swordfish (Xiphias gladius), also known as broadbills in some countries, are large, highly migratory, predatory fish characterized by a long, flat bill.
-description:de: Der Schwertfisch (Xiphias gladius) ist ein großer, räuberisch lebender Knochenfisch, der weltweit in gemäßigt warmen bis tropischen Meeren anzutreffen ist.
-description:es: El pez espada o aguja palá (Xiphias gladius) es una especie de pez perciforme de la familia Xiphiidae.
-description:fr: L'espadon (Xiphias gladius) est une espèce de poissons pélagiques des mers tropicales et tempérées.
-description:it: Il pesce spada (Xiphias gladius) è un pesce osseo marino.
-description:nl: De zwaardvis (Xiphias gladius) is een straalvinnige vis uit de familie van zwaardvissen (Xiphiidae)
-description:pt: O espadarte (Xiphias gladius), meca, e por vezes incorretamente associado ao peixe-espada.
 # ace:Thôk kojèk
 # axb:قیلینج بالیغی
 # ceb:Malasugi
@@ -82790,6 +82742,12 @@ description:pt: O espadarte (Xiphias gladius), meca, e por vezes incorretamente 
 # zh-hk:劍旗魚科
 # zh-sg:剑旗鱼科
 # zh-tw:劍旗魚
+ciqual_food_code:en: 26082
+ciqual_food_name:en: Swordfish, raw
+ciqual_food_name:fr: Espadon, cru
+description:en: Swordfish is a large, fast-swimming ocean fish (Xiphias gladius) known for the long, flat, sword-like bill it uses to slash at prey. As food, it's prized for a few distinct qualities: Texture and flavor: The flesh is firm, meaty, and dense — often compared to a good steak more than to flakier white fish. The flavor is mild but slightly rich, with a subtle sweetness; Cut and cooking: It's usually sold as thick steaks rather than fillets, since the loin is large. It grills, broils, or pan-sears very well, and holds up on skewers (it's a common choice for kebabs); Fat content: It's a moderately fatty fish, which helps keep it moist during high-heat cooking like grilling — unlike very lean white fish that dry out easily.
+usda_ndb_code:en: 15110
+usda_ndb_name:en: Fish, swordfish, raw
 wikidata:en: Q164327
 wikipedia:en: https://en.wikipedia.org/wiki/Swordfish
 
@@ -83682,7 +83640,23 @@ zh: 虎斑乌贼, Sépia Pharaonis
 wikidata:en: Q2701934
 wikipedia:en: https://en.wikipedia.org/wiki/Pharaoh_cuttlefish
 
-# en:description:Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
+###################################################################################################
+#
+#                                Jellyfish
+#
+###################################################################################################
+
+< en: animal
+en: jellyfish
+usda_ndb_code:en: 43497
+usda_ndb_name:en: Jellyfish, dried, salted
+usda_ndb_process:en: en:dried, en:salted
+
+###################################################################################################
+#
+#                                Mussel
+#
+###################################################################################################
 
 < en: mollusc
 en: mussel, mussels
@@ -83709,14 +83683,15 @@ sq: Midhje
 tr: Midye
 vi: Trai
 zh: 淡菜類
-ciqual_food_code:en: 10014
-ciqual_food_name:en: Mussel, common, raw
-ciqual_food_name:fr: Moule commune, crue
 # ffr:Hees
 # gom:Xinnani, Xinnaneo
 # lij:Musculu
 # pt-br:Mexilhão
 # vls:Mussel
+ciqual_food_code:en: 10014
+ciqual_food_name:en: Mussel, common, raw
+ciqual_food_name:fr: Moule commune, crue
+description:en: Mussel is the common name used for members of several families of bivalve molluscs, from saltwater and freshwater habitats.
 wikidata:en: Q15735642
 wikipedia:en: https://en.wikipedia.org/wiki/Mussel
 
@@ -84409,7 +84384,6 @@ wikidata:en: Q190090
 #                                Snail
 #
 ###################################################################################################
-# description:en:A snail is, in loose terms, a shelled gastropod. The name is most often applied to land snails, terrestrial pulmonate gastropod molluscs.
 
 < en: mollusc
 en: snail
@@ -84504,6 +84478,9 @@ zh: 蜗牛
 # zh-hk:蝸牛
 # zh-sg:蜗牛
 # zh-tw:蝸牛
+description:en: A snail is, in loose terms, a shelled gastropod. The name is most often applied to land snails, terrestrial pulmonate gastropod molluscs.
+usda_ndb_code:en: 90560
+usda_ndb_name:en: Mollusks, snail, raw
 wikidata:en: Q308841
 wikipedia:en: https://en.wikipedia.org/wiki/Snail
 
@@ -85548,35 +85525,19 @@ zh: 虾
 # pt-br:Camarão
 # scn:Gàmmaru
 # yue:蝦
+ciqual_food_2_code:en: 10007
+ciqual_food_2_name:en: Shrimp or prawn, cooked
+ciqual_food_2_name:fr: Crevette, cuite
+ciqual_food_2_process:en: en:cooked
 ciqual_food_code:en: 10021
 ciqual_food_name:en: Shrimp or prawn, raw
 ciqual_food_name:fr: Crevette, crue
 comment:en: The term shrimp is used to refer to some decapod crustaceans, although the exact animals covered can vary.
 ecobalyse:en: fresh-shrimps
-usda_ndb_proxy_code:en: 15270
-usda_ndb_proxy_name:en: Crustaceans, shrimp, raw
-wikidata:en: Q1517781
-wikipedia:en: https://en.wikipedia.org/wiki/Shrimp
-
-< en: shrimp
-en: cooked shrimp, cooked prawn
-fr: Crevette cuite
-it: gamberetti cotti
-ciqual_food_code:en: 10007
-ciqual_food_name:en: Shrimp or prawn, cooked
-ciqual_food_name:fr: Crevette, cuite
-
-< en: shrimp
-en: raw shrimp
 usda_ndb_code:en: 15270
 usda_ndb_name:en: Crustaceans, shrimp, raw
-
-< en: raw shrimp
-en: raw peeled shrimp
-ca: gamba pelada crua
-es: gamba pelada cruda
-hr: sirovi oguljeni škampi
-it: gamberetti crudi sgusciati
+wikidata:en: Q1517781
+wikipedia:en: https://en.wikipedia.org/wiki/Shrimp
 
 < en: shrimp
 en: red prawn
