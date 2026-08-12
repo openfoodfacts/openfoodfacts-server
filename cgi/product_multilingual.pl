@@ -363,7 +363,9 @@ else {
 			{
 				redirect_to_url($request_ref, 302,
 						  format_subdomain($request_ref->{subdomain}, $product_ref->{product_type})
-						. '/cgi/product.pl?code='
+						. '/cgi/product.pl?type='
+						. $type
+						. '&code='
 						. $code);
 			}
 		}
