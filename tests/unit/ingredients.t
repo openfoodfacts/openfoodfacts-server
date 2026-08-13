@@ -958,6 +958,16 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 
 	],
+	# handling of */ and **/ in the tail of the ingredients list
+	[
+		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
+		'sv-asterisk-slash',
+		{
+			lc => 'sv',
+			ingredients_text =>
+				'Havssalt (93%)**, basilika*, timjan*, rosmarin*, lök*, salvia, oregano* och vitlök* */ ekologiskt odlat **/oraffinerat havssalt med låg natriumhalt',
+		},
+	],
 	# Recipes with ingredients by weight and volume
 	[
 		'en-ingredients-with-a-specific-density',
