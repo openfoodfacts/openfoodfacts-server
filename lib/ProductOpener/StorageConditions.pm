@@ -70,6 +70,9 @@ sub set_storage_conditions ($product_ref) {
 
 	$log->debug("set_storage_conditions - start") if $log->is_debug();
 
+	delete $product_ref->{storage_conditions};
+	delete $product_ref->{storage_conditions_tags};
+
 	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
 
 		my ($storage_condition_tag, $matching_category)
@@ -79,14 +82,6 @@ sub set_storage_conditions ($product_ref) {
 			$product_ref->{storage_conditions} = $storage_condition_tag;
 			$product_ref->{storage_conditions_tags} = [$storage_condition_tag];
 		}
-		else {
-			delete $product_ref->{storage_conditions};
-			delete $product_ref->{storage_conditions_tags};
-		}
-	}
-	else {
-		delete $product_ref->{storage_conditions};
-		delete $product_ref->{storage_conditions_tags};
 	}
 
 	$log->debug(
