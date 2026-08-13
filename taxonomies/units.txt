@@ -71,8 +71,9 @@ zh: 克, 克, 公克
 conversion_factor:en: 1
 standard_unit:en: g
 
-xx: kg, kgs, kgr
-en: kilogram, kilograms
+# kilo / kilos are common abbrevations in recipes ("un kilo de farine")
+xx: kg, kgs, kgr, kilo, kilos
+en: kilogram, kilograms, kilo, kilos
 ar: كيلوغرام, كيلوغرامات
 bg: кг, килограм, килограма
 bn: কেজি, কেজি
@@ -625,6 +626,28 @@ en: metric teaspoon
 it: cucchiaino metrico
 conversion_factor:en: 5
 standard_unit:en: ml
+
+# for "cups", we default to US legal cups.
+en: cup, cups
+da: kop, kopper
+es: taza, tazas
+fr: tasse, tasses
+it: tazza, tazze
+nb: kopp, kopper
+nn: kopp, koppar
+sv: kopp, koppar
+conversion_factor:en: 240
+description:en: US legal cup (used in nutrition facts) is 240ml, different from the US customary cup (8 fluid ounces, about 237ml) and the metric cup (250ml) used in Canada, Australia, South-Africa etc.
+standard_unit:en: ml
+
+en: pinch, pinches
+da: drys
+fr: pincée, pincées
+sv: kryddmått, krm
+conversion_factor:en: 1
+description:en: There is no universal definition of the weight or volume of a pinch, but for salt and spices, 1ml is a common conversion factor.
+standard_unit:en: ml
+wikidata:en: Q1635189
 
 # Fluid ounces
 xx: fl oz, floz, fl.oz, fl. oz, fl. oz., fl.oz., OZA
@@ -1252,17 +1275,17 @@ xx: °rH
 conversion_factor:en: 0.025
 standard_unit:en: mmol/l
 
-xx: percent vol
+xx: percent vol, % vol, %vol
 conversion_factor:en: 1
 standard_unit:en: % vol
 symbol:en: % vol
 
-xx: percent vol (alcohol)
+xx: percent vol (alcohol), % vol (alcohol)
 conversion_factor:en: 1
 standard_unit:en: % vol (alcohol)
 symbol:en: % vol (alcohol)
 
-xx: percent
+xx: percent, %
 conversion_factor:en: 1
 standard_unit:en: %
 symbol:en: %
@@ -1272,14 +1295,37 @@ conversion_factor:en: 1
 standard_unit:en: pH
 
 # % DV - % Daily Value
-xx: percent dv
+xx: percent dv, % dv, %dv
 conversion_factor:en: 1
 standard_unit:en: % dv
 symbol:en: % dv
 
 
+# Milligrams per kilogram (pet food / feed labels). Concentration, not absolute mass:
+# standard_unit is mg so ingredient parsing does not invent quantity_g.
+xx: mg/kg, mg / kg, mg per kg
+en: milligrams per kilogram, milligram per kilogram
+fr: mg/kg, milligrammes par kilogramme, milligramme par kilogramme
+es: mg/kg, miligramos por kilogramo
+de: mg/kg, Milligramm pro Kilogramm
+standard_unit:en: mg
+
+# Micrograms per kilogram
+xx: mcg/kg, µg/kg, ug/kg, mcg / kg, µg / kg, ug / kg
+en: micrograms per kilogram, microgram per kilogram
+fr: µg/kg, microgrammes par kilogramme
+standard_unit:en: mcg
+
+# International units per kilogram
+xx: iu/kg, ui/kg, i.u/kg, u.i/kg, iu / kg, ui / kg
+en: international units per kilogram
+fr: UI/kg, unités internationales par kilogramme
+standard_unit:en: iu
+
 # International unit
-xx: iu
+# Label spellings: IU / I.U (en), UI / U.I (fr/es), IE / I.E (de, …)
+# The trailing period after I.U. / U.I. / I.E. is sentence punctuation, not part of the unit.
+xx: iu, i.u, ui, u.i, ie, i.e
 en: international unit
 ar: وحدة دولية
 bg: международна единица
@@ -1338,4 +1384,11 @@ vi: đơn vị quốc tế
 zh: 国际单位
 conversion_factor:en: 1
 standard_unit:en: iu
+
+# Colony-forming units (probiotics on pet food / dairy labels)
+xx: ufc, cfu
+en: colony forming unit, colony forming units, colony-forming unit, colony-forming units
+fr: unité formant colonie, unités formant colonie
+es: unidad formadora de colonias, unidades formadoras de colonias
+standard_unit:en: ufc
 

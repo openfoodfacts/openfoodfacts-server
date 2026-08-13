@@ -122,7 +122,7 @@ use ProductOpener::Products qw/remove_fields/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/extract_text_from_image/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
-use ProductOpener::Units qw/normalize_quantity/;
+use ProductOpener::Units qw/normalize_quantity get_standard_unit/;
 use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 use ProductOpener::APIProductServices qw/add_product_data_from_external_service/;
 use ProductOpener::Nutrition qw/get_non_estimated_nutrient_per_100g_or_100ml_for_preparation/;
@@ -342,6 +342,8 @@ sub init_ingredients_processing_regexps() {
 my %origins_regexps = ();
 
 sub init_origins_regexps() {
+
+	next if scalar keys %origins_regexps > 0;
 
 	# Create a list of regexps with each synonyms of all ingredients processes
 	%origins_regexps = %{
@@ -741,8 +743,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$percent_or_quantity_value = $3;
 			$percent_or_quantity_unit = $4;
 			$matched_text = $&;
+
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
+
+			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -797,6 +802,8 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
 
+			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
 				if $log->is_debug();
@@ -847,14 +854,14 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			# Add percent and quantity fields
 
 			if (defined $percent_or_quantity_value) {
-				my ($percent, $quantity, $quantity_g)
-					= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
-					$percent_or_quantity_unit);
+				my ($percent, $quantity, $quantity_g, $quantity_ml)
+					= get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id,
+					$percent_or_quantity_value, $percent_or_quantity_unit);
 
 				defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
 				defined $quantity and $specific_ingredients_ref->{quantity} = $quantity;
 				defined $quantity_g and $specific_ingredients_ref->{quantity_g} = $quantity_g + 0;
-
+				defined $quantity_ml and $specific_ingredients_ref->{quantity_ml} = $quantity_ml + 0;
 			}
 
 			# Add origin field
@@ -1442,11 +1449,13 @@ sub get_or_select_ingredients_lc ($product_ref) {
 	return $product_ref->{ingredients_lc} || select_ingredients_lc($product_ref);
 }
 
-=head2 get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit)
+=head2 get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id, $percent_or_quantity_value, $percent_or_quantity_unit)
 
 Used to assign percent or quantity for strings parsed with $percent_or_quantity_regexp.
 
 =head3 Arguments
+
+=head3 ingredient_id Canonical id of the ingredient in the ingredients taxonomy. Needed to get density for liquids.
 
 =head4 percent_or_quantity_value
 
@@ -1464,7 +1473,12 @@ If the unit is not %, quantity is a concatenation of the quantity value and unit
 
 =head4 quantity_g
 
-Normalized quantity in grams.
+Normalized quantity in grams. For liquids, this is derived from quantity_ml.
+We default to a density of 1g per ml unless the ingredient has the density_g_per_ml:en: property defined.
+
+=head4 quantity_ml
+
+Normalized quantity in ml.
 
 =head3 Example
 
@@ -1474,14 +1488,16 @@ if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 	$percent_or_quantity_value = $1;
 	$percent_or_quantity_unit = $2;
 
-	my ($percent, $quantity, $quantity_g)
-		= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
+	my ($percent, $quantity, $quantity_g, $quantity_ml)
+		= get_ingredient_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
 
 =cut
 
-sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value, $percent_or_quantity_unit) {
+sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, $percent_or_quantity_value,
+	$percent_or_quantity_unit)
+{
 
-	my ($percent, $quantity, $quantity_g);
+	my ($percent, $quantity, $quantity_g, $quantity_ml);
 
 	# Normalize protected solidus (U+2044) and fullwidth solidus back to '/'
 	# and drop internal whitespace in units (e.g. "mg / kg" -> "mg/kg").
@@ -1497,16 +1513,25 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 	}
 	else {
 		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
-		# Only convert simple mass/volume units to grams.
-		# Concentrations (mg/kg, UI/kg, …) and activity units (IU, UFC, …) must not
-		# get a quantity_g: normalize_quantity would treat "180 mg" as absolute mass
-		# and lose the denominator, or return undef/wrong values for IU/UFC.
-		if ($percent_or_quantity_unit =~ /^(?:g|gr|mg|kg|ml|cl|dl|l|mcg|µg|ug)$/i) {
-			$quantity_g = normalize_quantity($quantity);
+		# Concentrations (mg/kg) and activity units (IU, UFC) have a standard_unit
+		# that is neither g nor ml, so they keep quantity and do not get quantity_g.
+		my $standard_unit = get_standard_unit($percent_or_quantity_unit);
+		if (defined $standard_unit) {
+			my $normalized_quantity = normalize_quantity($quantity);
+			if ($standard_unit eq 'g') {
+				$quantity_g = $normalized_quantity;
+			}
+			elsif ($standard_unit eq 'ml') {
+				$quantity_ml = $normalized_quantity;
+				# Check if the ingredient or its parent have the density_g_per_ml:en property
+				my $ingredient_density
+					= get_inherited_property("ingredients", $ingredient_id, "density_g_per_ml:en") || 1;
+				$quantity_g = $quantity_ml * $ingredient_density;
+			}
 		}
 	}
 
-	return ($percent, $quantity, $quantity_g);
+	return ($percent, $quantity, $quantity_g, $quantity_ml);
 }
 
 =head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref, $errors_ref )
@@ -1746,6 +1771,8 @@ Text to analyze
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 						$percent_or_quantity_value = $1;
 						$percent_or_quantity_unit = $2;
+						$percent_or_quantity_value
+							= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients
@@ -1903,6 +1930,8 @@ Text to analyze
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
+							$percent_or_quantity_value
+								= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 							$log->debug(
 								"parse_ingredients_text - sub-ingredients: between is a percent",
 								{
@@ -2091,6 +2120,7 @@ Text to analyze
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
 				$after = $';
+				$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				$debug_ingredients
 					and $log->debug(
 					"after started with a percent",
@@ -2233,6 +2263,8 @@ Text to analyze
 						}
 					) if $log->is_debug();
 					$ingredient = $`;
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				}
 
 				# 50% beef, 20g of oranges
@@ -2251,6 +2283,8 @@ Text to analyze
 						}
 					) if $log->is_debug();
 					$ingredient = $';
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				}
 
 				# remove * and other chars before and after the name of ingredients
@@ -2828,18 +2862,14 @@ Text to analyze
 				$ingredient{is_in_taxonomy} = $is_in_taxonomy;
 
 				if (defined $percent_or_quantity_value) {
-					my ($percent, $quantity, $quantity_g)
-						= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
-						$percent_or_quantity_unit);
-					if (defined $percent) {
-						$ingredient{percent} = $percent + 0;
-					}
-					if (defined $quantity) {
-						$ingredient{quantity} = $quantity;
-					}
-					if (defined $quantity_g) {
-						$ingredient{quantity_g} = $quantity_g;
-					}
+					my ($percent, $quantity, $quantity_g, $quantity_ml)
+						= get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id,
+						$percent_or_quantity_value, $percent_or_quantity_unit);
+
+					defined $percent and $ingredient{percent} = $percent + 0;
+					defined $quantity and $ingredient{quantity} = $quantity;
+					defined $quantity_g and $ingredient{quantity_g} = $quantity_g + 0;
+					defined $quantity_ml and $ingredient{quantity_ml} = $quantity_ml + 0;
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
@@ -3332,7 +3362,7 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 
 =head2 get_missing_ecobalyse_ids ($ingredients_ref)
 
-Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients. (NOTE : this is a first version that'll soon be improved)
+Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients.
 
 =head3 Arguments
 
@@ -3360,9 +3390,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		delete $ingredient_ref->{ecobalyse_proxy_code};
 
 		# We are now looking for the appropriate ecobalyse id :
-		# ecobalyse_origins_france_label_organic (if the product comes from france, and is organic)
-		# ecobalyse_origins_european-union_label_organic (if the product comes from europe, and is organic)
-		# ecobalyse_label_organic (if the product is organic)
+		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
+		# ecobalyse_origins_european-union_labels_organic (if the product comes from europe, and is organic)
+		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
 		# ecobalyse_origins_european-union (if the product comes from the Europe region)
 		# ecobalyse (else)
@@ -3426,11 +3456,6 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 
-		#ecobalyse:en
-		#ecobalyse_labels_en_organic:en
-		#ecobalyse_origins_en_france:en
-		#ecobalyse_origins_en_european_union:en
-		#ecobalyse_labels_en_organic_origins_en_france:en
 	}
 	return @ingredients_without_ecobalyse_ids;
 }
@@ -5178,14 +5203,15 @@ my %phrases_after_ingredients_list = (
 	en => [
 		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
+		'allergy advice',
 		'analytical constituents',    # pet food
 		'best before',    #'Best before',
 		'keep cool and dry',
 		'Can be stored unopened at room temperature',
 		'cooking time',
-		'for allergens',
+		'for allergens',    # usually preceded by "allergy advice" in UK
 		'instruction',
-		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
+		'nutrition(al)?[:]? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
 		# "nutritional" on its own would match the ingredient "nutritional yeast" etc.
 		'of whlch saturates',
@@ -6342,8 +6368,8 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
 		my $percent_or_quantity_regexp = $percent_or_quantity_regexps{$ingredients_lc};
-		# Make the 2 capture groups (for number and for % or unit, starting with (\d and (\% non capturing
-		$percent_or_quantity_regexp =~ s/\(\\/\(?:\\/g;
+		# Make capturing groups non-capturing, while keeping escaped and special (?...) groups unchanged
+		$percent_or_quantity_regexp =~ s/\((?!\?)/(?:/g;
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
 			my $category_regexp = "";

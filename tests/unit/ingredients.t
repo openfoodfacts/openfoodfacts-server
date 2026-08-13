@@ -958,6 +958,30 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 
 	],
+	# Recipes with ingredients by weight and volume
+	[
+		'en-ingredients-with-a-specific-density',
+		{
+			lc => 'en',
+			ingredients_text => 'cooking oil 25 fl oz, milk 1dl, 5cl granulated sugar, water 1l, apple juice 20ml',
+		}
+	],
+	[
+		'fr-recipes-with-ingredients-by-weight-and-volume',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
+		}
+	],
+	# percent_or_quantity_regexp
+	[
+		'en-percent-or-quantity-regexp',
+		{
+			lc => 'en',
+			ingredients_text => "cod 40g, salmon 30%, 20% tuna, mackerel (7%), 3g sardine",
+		}
+	],
 
 	# Concentrations as mg/kg must not split on '/' (issue #6132)
 	# Simplified Spanish reproducer (avoids "Ac." abbreviation which hits period+space separators)
