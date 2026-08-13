@@ -1,0 +1,99 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:natural-antioxidant",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "Avec antioxydant naturel"
+      },
+      {
+         "id" : "fr:mg⁄kg 1b306",
+         "ingredients" : [
+            {
+               "id" : "fr:i",
+               "is_in_taxonomy" : 0,
+               "percent_estimate" : 16.6666666666667,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "i"
+            }
+         ],
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "mg⁄kg 1b306"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:vegan-status-unknown" : [
+         "fr:i"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:i"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:natural-antioxidant",
+      "fr:mg⁄kg 1b306",
+      "en:salt",
+      "fr:i"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:natural-antioxidant",
+      "en:antioxidant",
+      "fr:mg⁄kg 1b306",
+      "en:salt",
+      "fr:i"
+   ],
+   "ingredients_text" : "Antioxygènes : Avec antioxydant naturel : mg/kg 1b306(i), sel",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:natural-antioxidant",
+      "fr:i",
+      "fr:mg⁄kg 1b306"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:natural-antioxidant",
+      "en:salt",
+      "fr:i",
+      "fr:mg⁄kg 1b306"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 2,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}

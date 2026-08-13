@@ -82,6 +82,7 @@ BEGIN {
 
 		&init_percent_or_quantity_regexps
 		&protect_compound_unit_slashes
+		&isolate_compound_unit_quantities
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -604,6 +605,39 @@ sub protect_compound_unit_slashes ($text) {
 		$unit =~ s{\s+}{}g;
 		$unit;
 	}giex;
+
+	return $text;
+}
+
+=head2 isolate_compound_unit_quantities ($text)
+
+Wrap compound-unit quantities (C<450 mg/kg>, C<500 IU/kg>, ...) in list
+separators when they are glued between two words, so that the parser's
+existing quantity extraction can pick them up: quantities are only consumed
+at segment boundaries (after a separator, or at the start/end of an
+ingredient). Protecting the solidus in C<protect_compound_unit_slashes>
+removed the accidental C</> splits that used to create those boundaries, so
+"L-carnitine 450 mg/kg sulfate de glucosamine" otherwise stays one segment
+whose middle quantity glues into the ingredient name and breaks taxonomy
+matching (#6132 follow-up).
+
+Only compound units are isolated: simple units and percents have established
+boundary behaviors (e.g. "12% de matière grasse") that must not change.
+
+=cut
+
+sub isolate_compound_unit_quantities ($text) {
+
+	return $text if not defined $text;
+
+	my $compound_units = join('|', _compound_unit_regexp_alternatives());
+
+	# Isolate a compound quantity glued between two words:
+	# "L-carnitine 450 mg/kg sulfate" -> "L-carnitine, 450 mg/kg, sulfate".
+	# Left context: letter, digit or closing bracket (additive codes like
+	# "3b103 110 mg/kg"); right context: a letter. Trailing quantities and
+	# quantities already at a separator are consumed by existing rules.
+	$text =~ s/(?<=[\p{L}\p{N}\)\]])\s+(\d+(?:[\.\,\N{U+201A}]\d+)?\s*(?:$compound_units))\s+(?=\p{L})/, $1, /g;
 
 	return $text;
 }

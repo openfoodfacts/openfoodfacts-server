@@ -1019,6 +1019,34 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "correcteurs d'acidité : E322/E333, sel",
 		}
 	],
+	# Compound-unit quantity glued between two ingredients (no comma): it must
+	# be isolated so both ingredients are still extracted (#6132 follow-up)
+	[
+		"fr-petfood-mid-segment-mg-per-kg",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"L-carnitine 450 mg/kg sulfate de glucosamine 450 mg/kg, chondroïtine 450 mg/kg",
+		}
+	],
+	# An additive class followed only by unit junk / unknown codes keeps its
+	# node instead of being flattened into unknown children
+	[
+		"fr-additive-class-kept-over-unit-junk",
+		{
+			lc => "fr",
+			ingredients_text => "Antioxygènes : Avec antioxydant naturel : mg/kg 1b306(i), sel",
+		}
+	],
+	# Same, with the class itself ("antioxydant naturel") directly followed by
+	# the unit junk (regression: read-only split chunk crash)
+	[
+		"fr-additive-class-natural-antioxidant-unit-junk",
+		{
+			lc => "fr",
+			ingredients_text => "Avec antioxydant naturel : mg/kg 1b306(i)",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
