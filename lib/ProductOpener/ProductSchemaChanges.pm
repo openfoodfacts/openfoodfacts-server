@@ -610,9 +610,10 @@ sub convert_schema_1003_to_1002_refactor_product_nutrition_schema ($product_ref,
 		) ? "_prepared" : "";
 		# if per is 100ml then 1002 product version nutrient per field is 100g
 		my $per;
-		if ( not defined $nutrient_set_ref->{per} ) {
+		if (not defined $nutrient_set_ref->{per}) {
 			$per = "_100g";
-		} else {
+		}
+		else {
 			$per = $nutrient_set_ref->{per} eq "100ml" ? "_100g" : "_" . $nutrient_set_ref->{per};
 		}
 
