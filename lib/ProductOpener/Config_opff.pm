@@ -403,6 +403,7 @@ XML
 	improvements
 	brands
 	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
@@ -560,6 +561,8 @@ XML
 	environmental_score_score
 	environmental_score_grade
 	nutrient_levels_tags
+	storage_conditions
+	storage_conditions_tags
 	product_quantity
 	owner
 	data_quality_errors_tags
