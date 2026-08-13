@@ -343,6 +343,8 @@ my %origins_regexps = ();
 
 sub init_origins_regexps() {
 
+	next if scalar keys %origins_regexps > 0;
+
 	# Create a list of regexps with each synonyms of all ingredients processes
 	%origins_regexps = %{
 		generate_regexps_matching_taxonomy_entries(
@@ -741,8 +743,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$percent_or_quantity_value = $3;
 			$percent_or_quantity_unit = $4;
 			$matched_text = $&;
+
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
+
+			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -796,6 +801,8 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$matched_text = $&;
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
+
+			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -1481,7 +1488,7 @@ if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 	$percent_or_quantity_value = $1;
 	$percent_or_quantity_unit = $2;
 
-	my ($percent, $quantity, $quantity_g)
+	my ($percent, $quantity, $quantity_g, $quantity_ml)
 		= get_ingredient_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
 
 =cut
@@ -1749,6 +1756,8 @@ Text to analyze
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 						$percent_or_quantity_value = $1;
 						$percent_or_quantity_unit = $2;
+						$percent_or_quantity_value
+							= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients
@@ -1906,6 +1915,8 @@ Text to analyze
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
+							$percent_or_quantity_value
+								= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 							$log->debug(
 								"parse_ingredients_text - sub-ingredients: between is a percent",
 								{
@@ -2094,6 +2105,7 @@ Text to analyze
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
 				$after = $';
+				$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				$debug_ingredients
 					and $log->debug(
 					"after started with a percent",
@@ -2236,6 +2248,8 @@ Text to analyze
 						}
 					) if $log->is_debug();
 					$ingredient = $`;
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				}
 
 				# 50% beef, 20g of oranges
@@ -2254,6 +2268,8 @@ Text to analyze
 						}
 					) if $log->is_debug();
 					$ingredient = $';
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				}
 
 				# remove * and other chars before and after the name of ingredients
@@ -6337,8 +6353,8 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
 		my $percent_or_quantity_regexp = $percent_or_quantity_regexps{$ingredients_lc};
-		# Make the 2 capture groups (for number and for % or unit, starting with (\d and (\% non capturing
-		$percent_or_quantity_regexp =~ s/\(\\/\(?:\\/g;
+		# Make capturing groups non-capturing, while keeping escaped and special (?...) groups unchanged
+		$percent_or_quantity_regexp =~ s/\((?!\?)/(?:/g;
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
 			my $category_regexp = "";

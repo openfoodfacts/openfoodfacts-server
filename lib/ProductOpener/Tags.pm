@@ -184,7 +184,6 @@ use ProductOpener::Text qw/normalize_percentages regexp_escape/;
 use ProductOpener::PackagerCodes qw/localize_packager_code normalize_packager_codes/;
 use ProductOpener::Texts qw/$lang_dir/;
 use ProductOpener::HTTP qw/create_user_agent/;
-use ProductOpener::IngredientsStrings qw/%may_contain_regexps/;
 use ProductOpener::PackagerCodes qw/$ec_code_regexp/;
 
 use Clone qw(clone);
@@ -4812,7 +4811,15 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 
 	foreach my $tagid (get_all_taxonomy_entries($taxonomy)) {
 
-		foreach my $language (sort keys %{$translations_to{$taxonomy}{$tagid}}) {
+		# Create the regexp entries for xx language first, so that we can add it to all other languages
+		my $xx_generated = 0;
+		foreach my $language ("xx", sort keys %{$translations_to{$taxonomy}{$tagid}}) {
+
+			# Generate xx only once
+			if ($language eq 'xx') {
+				next if $xx_generated;
+				$xx_generated = 1;
+			}
 
 			defined $synonyms_regexps{$language} or $synonyms_regexps{$language} = [];
 
@@ -4848,11 +4855,21 @@ sub generate_regexps_matching_taxonomy_entries ($taxonomy, $return_type, $option
 					push @{$synonyms_regexps{$language}}, [$tagid, $unaccented_synonym];
 				}
 			}
+
+			# Add xx entries
+			if (($options_ref->{include_xx}) and ($language ne 'xx') and (defined $synonyms_regexps{"xx"})) {
+				push @{$synonyms_regexps{$language}}, @{$synonyms_regexps{"xx"}};
+			}
 		}
 	}
 
-	# We want to match the longest strings first
+	# Unique the synonyms
+	foreach my $language (keys %synonyms_regexps) {
+		my %seen = ();
+		$synonyms_regexps{$language} = [grep {!$seen{$_->[1]}++} @{$synonyms_regexps{$language}}];
+	}
 
+	# We want to match the longest strings first
 	if ($return_type eq 'unique_regexp') {
 		foreach my $language (keys %synonyms_regexps) {
 			$result_ref->{$language} = join('|',
