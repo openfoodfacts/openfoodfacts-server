@@ -7559,7 +7559,7 @@ sub display_facets_index ($request_ref) {
 			};
 	}
 	# Sort alphabetically by translated name
-	@{$template_data_ref->{facets}} = sort { $a->{name} cmp $b->{name} } @{$template_data_ref->{facets}};
+	@{$template_data_ref->{facets}} = sort {$a->{name} cmp $b->{name}} @{$template_data_ref->{facets}};
 
 	$request_ref->{title} = lang('facets') || 'Facets';
 	
