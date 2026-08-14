@@ -2,21 +2,25 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "id" : "en:cooking oil 25 fl oz",
-         "is_in_taxonomy" : 0,
-         "percent_estimate" : 60,
-         "percent_max" : 100,
-         "percent_min" : 20,
-         "text" : "cooking oil 25 fl oz"
+         "from_palm_oil" : "maybe",
+         "id" : "en:oil",
+         "is_in_taxonomy" : 1,
+         "percent" : 36.7791712999499,
+         "percent_estimate" : 36.7791712999499,
+         "quantity" : "25 fl oz",
+         "quantity_g" : 680.1905,
+         "quantity_ml" : 739.3375,
+         "text" : "cooking oil",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_proxy_food_code" : "19051",
          "ecobalyse_code" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
          "id" : "en:milk",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 20,
-         "percent_max" : 50,
-         "percent_min" : 0,
+         "percent" : 5.56940245989152,
+         "percent_estimate" : 5.56940245989152,
          "quantity" : "1 dl",
          "quantity_g" : 103,
          "quantity_ml" : 100,
@@ -29,9 +33,8 @@
          "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:granulated-sugar",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 10,
-         "percent_max" : 33.3333333333333,
-         "percent_min" : 0,
+         "percent" : 2.43323408441862,
+         "percent_estimate" : 2.43323408441862,
          "quantity" : "5 cl",
          "quantity_g" : 45,
          "quantity_ml" : 50,
@@ -44,9 +47,8 @@
          "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
          "id" : "en:water",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 5,
-         "percent_max" : 25,
-         "percent_min" : 0,
+         "percent" : 54.0718685426361,
+         "percent_estimate" : 54.0718685426361,
          "quantity" : "1 l",
          "quantity_g" : 1000,
          "quantity_ml" : 1000,
@@ -58,9 +60,8 @@
          "ciqual_food_code" : "2074",
          "id" : "en:apple-juice",
          "is_in_taxonomy" : 1,
-         "percent_estimate" : 5,
-         "percent_max" : 20,
-         "percent_min" : 0,
+         "percent" : 1.14632361310388,
+         "percent_estimate" : 1.1463236131039,
          "quantity" : "20 ml",
          "quantity_g" : 21.2,
          "quantity_ml" : 20,
@@ -70,23 +71,20 @@
       }
    ],
    "ingredients_analysis" : {
+      "en:may-contain-palm-oil" : [
+         "en:oil"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:oil"
+      ],
       "en:non-vegan" : [
          "en:milk"
-      ],
-      "en:palm-oil-content-unknown" : [
-         "en:cooking oil 25 fl oz"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:cooking oil 25 fl oz"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:cooking oil 25 fl oz"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-free",
+      "en:may-contain-palm-oil",
       "en:non-vegan",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 5,
@@ -95,15 +93,16 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:cooking oil 25 fl oz",
+      "en:oil",
       "en:milk",
       "en:granulated-sugar",
       "en:water",
       "en:apple-juice"
    ],
-   "ingredients_percent_analysis" : 1,
+   "ingredients_percent_analysis" : -1,
    "ingredients_tags" : [
-      "en:cooking oil 25 fl oz",
+      "en:oil",
+      "en:oil-and-fat",
       "en:milk",
       "en:dairy",
       "en:granulated-sugar",
@@ -117,23 +116,26 @@
       "en:juice"
    ],
    "ingredients_text" : "cooking oil 25 fl oz, milk 1dl, 5cl granulated sugar, water 1l, apple juice 20ml",
-   "ingredients_with_specified_percent_n" : 0,
-   "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 5,
-   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_with_specified_percent_n" : 5,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [
-      "en:cooking oil 25 fl oz"
+      "en:oil"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:apple-juice",
-      "en:cooking oil 25 fl oz"
+      "en:oil"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 5,
    "lc" : "en",
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent",
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
