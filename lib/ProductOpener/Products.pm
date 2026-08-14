@@ -150,6 +150,7 @@ use ProductOpener::Nutrition
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
 use ProductOpener::Packaging qw/analyze_and_combine_packaging_data/;
+use ProductOpener::StorageConditions qw/set_storage_conditions/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::TaxonomiesEnhancer qw/check_ingredients_between_languages/;
 
@@ -3745,6 +3746,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	# We need packaging analysis before calling the Environmental-Score for food products
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
+
+	set_storage_conditions($product_ref);
 
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
