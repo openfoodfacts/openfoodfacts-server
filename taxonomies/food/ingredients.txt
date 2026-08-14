@@ -4704,7 +4704,14 @@ description:en: Fat-free half and half is a bit of a paradox from a US regulator
 usda_ndb_code:en: 1199
 usda_ndb_name:en: Cream, half and half, fat free
 
-< en: Cream
+< en: cream
+en: lowfat free half and half cream
+description:en: Fat-free half and half is a bit of a paradox from a US regulatory standpoint. Real "half and half" has a legal minimum milkfat content — the standards of identity for half-and-half fall under 21 CFR Part 131, and specifically §131.180 sets the minimum at 10.5% milkfat. So it's technically an imitation or substitute product.
+en: cream, half and half, lowfat
+usda_ndb_code:en: 1303
+usda_ndb_name:en: Cream, half and half, lowfat
+
+< en: cream
 fr: Crème fleurette, Crèmes fleurettes
 description:en: "Crème fleurette" isn't a legally protected or defined term in French regulation and is used by dairy and food service professionals to designate a liquid fresh cream that has only undergone pasteurization.
 
@@ -4981,7 +4988,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Clotted_cream
 #
 ###################################################################################################
 
-< en: Cream
+< en: cream
 en: sour cream, soured cream, grade a cultured cream, cultured cream
 ar: كريمة حامضة
 bg: заквасена сметана
@@ -5030,11 +5037,16 @@ usda_ndb_code:en: 1178
 usda_ndb_name:en: Sour cream, reduced fat
 
 < en: sour cream
-de: Schmand, Schmant
-
+en: cream, sour, cultured
+description:en: Cultured sour cream is the standard, "real" sour cream — cream that's been fermented with bacterial cultures to develop its characteristic tang and thickness, as opposed to "acidified sour cream," which is soured artificially with food-grade acids instead of live cultures.
+usda_ndb_code:en: 1056
+usda_ndb_name:en: Cream, sour, cultured
 
 < en: sour cream
-en: Smetana
+de: Schmand, Schmant
+
+< en: sour cream
+en: smetana
 az: Xama
 be: Смятана
 bs: Pavlaka
@@ -5079,54 +5091,25 @@ description:en: Smetana is a type of sour cream from Central and Eastern Europe.
 wikidata:en: Q326061
 wikipedia:en: https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 
-#<en:Sour cream
-#en:sour cream powder
-#en:process:en:powder
-
 < en: sour cream
-en: Crème fraîche
-af: Crème fraîche
-cs: Crème fraîche
-da: Cremefraiche, creme fraiche
+en: crème fraîche
+xx: crème fraîche, cremefraiche
 de: Crème fraîche, creme fraiche
-eu: Esne-gain gordina, esne-gain freskoa
+eu: esne-gain gordina, esne-gain freskoa
 fi: ranskankerma, crème fraîche
 fr: crème fraîche épaisse, crème fraîche fermentée
 he: קרם פרש
-hr: crème fraîche
-hu: creme fraiche, crème fraîche
 hy: Կրեմ-ֆրեշ
-is: Crème fraîche
-it: Crème fraîche
 ja: クレームフレーシュ
 ko: 크렘 프레슈
-ms: Crème fraîche
-nb: Crème fraîche
-nl: Crème fraîche
-pl: Crème fraîche
-pt: Crème fraîche
 ru: Крем-фреш
-sv: Crème fraîche, crème fraiche, creme fraiche
 uk: Крем-фреш
 vi: Kem fraîche
 zh: 法式酸奶油
 comment:en: Creme fraiche is often translated into creme. Even the wikidata page does this. The save approach seems to be to not translate it. Note that in french it means just fresh cream.
-comment:fr: Creme fraiche is often translated into creme.
 description:en: Crème fraîche is a dairy product, a soured cream, with a pH of approximately 4.5. It is soured with a bacterial culture. European labeling regulations disallow any ingredients other than cream and bacterial culture. Fat percentage is more than 30%
 wikidata:en: Q1142459
 wikipedia:en: https://en.wikipedia.org/wiki/Crème_fraîche
-
-# comment:en:Is creme fraiche really different from creme. Not according to the translations.
-
-#< en: cream
-#en: pasteurized crème fraîche
-#ca: crema de llet fresca pasteuritzada, nata fresca pasteuritzada
-#de: pasteurisierte Crème fraîche, Crème fraîche pasteurisiert
-#es: crema de leche fresca pasteurizada, nata fresca pasteurizada
-#fi: pastöroitu crème fraîche
-#fr: creme fraiche pasteurisée
-#hr: pasterizirana crème fraîche
-#it: panna fresca pastorizzata
 
 ###################################################################################################
 #
