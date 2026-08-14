@@ -25098,11 +25098,6 @@ pt: cevada integral
 ciqual_food_code:en: 9320
 ciqual_food_name:en: Barley, whole, raw
 ciqual_food_name:fr: Orge entière, crue
-#252 in 12 @2021-10-20
-
-#<en:barley
-#en:chopped barley
-#es:cebada trocead
 
 < en: barley
 en: barley flakes
@@ -25200,22 +25195,13 @@ th: ลูกเดือย
 uk: перлова крупа
 zh: 大麥米
 #nds:parelgorte
-ciqual_proxy_food_code:en: 9321
-ciqual_proxy_food_name:en: Pearled barley, raw
-ciqual_proxy_food_name:fr: Orge perlée, crue
-description:en: Pearl barley is barley that has been processed to remove its fibrous outer hull and polished to remove some or all of the bran layer.
-usda_ndb_proxy_code:en: 20005
-usda_ndb_proxy_name:en: Barley, pearled, raw
-wikidata:en: Q2743860
-# 94 @2021-10-22
-
-< en: barley
-en: raw pearled barley
 ciqual_food_code:en: 9321
 ciqual_food_name:en: Pearled barley, raw
 ciqual_food_name:fr: Orge perlée, crue
+description:en: Pearled barley is barley that has had its outer hull and bran layer removed through a polishing (pearling) process. This distinguishes it from "hulled barley," which only has the inedible outer hull removed and keeps the bran intact. Lower in fiber than hulled barley (since the bran is polished away). Good source of manganese, selenium, and B vitamins like niacin. Mild, nutty flavor with a pleasantly chewy, slightly sticky texture when cooked — it releases starch similarly to arborio rice, which is why it works well in risotto-style preparations.
 usda_ndb_code:en: 20005
 usda_ndb_name:en: Barley, pearled, raw
+wikidata:en: Q2743860
 
 < en: barley
 < en: wort
@@ -25944,7 +25930,6 @@ en: barnyard millet
 hr: barnyard proso
 it: miglio di cortile
 
-#comment:en:be careful with the species Amaranthus, contains often the wrong translation.
 < en: cereal
 en: amaranth
 ar: الامارانت
@@ -25994,16 +25979,13 @@ zh: 苋属
 ciqual_food_code:en: 9345
 ciqual_food_name:en: Amaranth, raw
 ciqual_food_name:fr: Amarante, crue
-description:en: Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
-usda_ndb_proxy_code:en: 20001
-usda_ndb_proxy_name:en: Amaranth grain, uncooked
-wikidata:en: Q10407363
-wikipedia:en: https://en.wikipedia.org/wiki/Amaranth_grain
-
-< en: amaranth
-en: uncooked amaranth grain
+comment:en: be careful with the species Amaranthus, contains often the wrong translation.
+description:en: Amaranth is a gluten-free grain-like seed that's been cultivated for thousands of years, originally in Central and South America by civilizations like the Aztecs. It's not a true cereal grain (like wheat or rice) — it's actually a "pseudocereal," meaning it comes from a broadleaf plant rather than a grass. Quinoa and buckwheat fall into this same category. 
 usda_ndb_code:en: 20001
 usda_ndb_name:en: Amaranth grain, uncooked
+usda_ndb_process:en: en:uncooked
+wikidata:en: Q10407363
+wikipedia:en: https://en.wikipedia.org/wiki/Amaranth_grain
 
 < en: amaranth
 < en: cereal flour
@@ -28121,10 +28103,9 @@ tr: arpa unu
 ciqual_food_code:en: 9550
 ciqual_food_name:en: Barley flour
 ciqual_food_name:fr: Farine d'orge
+description:en: Barley flour or meal is made by grinding whole or pearled barley grains into a fine (flour) or coarse (meal) powder. Good source of dietary fiber, especially beta-glucan (a soluble fiber linked to cholesterol and blood sugar benefits), provides B vitamins, selenium, and manganese.
 usda_ndb_code:en: 20130
 usda_ndb_name:en: Barley flour or meal
-
-# Question
 
 < en: barley flour
 < en: wholemeal flour
@@ -28541,6 +28522,7 @@ it: Farina di mais modificata
 nl: gemodificeerd maïsmeel
 
 < en: corn flour
+< en: yellow corn
 en: yellow corn flour
 da: gult majsmel
 de: gelbes Maismehl
@@ -28555,6 +28537,7 @@ nl: geel maïsmeel
 sv: gult majsmjöl
 
 < en: corn flour
+< en: white corn
 en: white corn flour
 da: hvidt majsmel
 de: weisses Maismehl, weißes Maismehl
@@ -28570,9 +28553,11 @@ sv: vitt majsmjöl
 usda_ndb_proxy_code:en: 20316
 usda_ndb_proxy_name:en: Corn flour, whole-grain, white
 
+< en: blue corn
 < en: whole grain corn flour
 en: whole-grain blue corn flour
 es: harina de maiz morado
+description:en: Blue corn flour is a stone-ground flour made from whole kernels of blue (or purple) corn — a corn variety, distinct from standard yellow or white corn, that owes its color to natural anthocyanin pigments (the same class of antioxidant compounds found in blueberries and purple cabbage). it's generally comparable to other whole-grain corn flours in calories and carbohydrates, but the anthocyanin content gives it additional antioxidant properties and a naturally sweeter, nuttier flavor than yellow corn flour.
 usda_ndb_code:en: 20315
 usda_ndb_name:en: Corn flour, whole-grain, blue (harina de maiz morado)
 
@@ -28593,12 +28578,14 @@ usda_ndb_proxy_name:en: Corn flour, whole-grain, yellow
 < en: white corn flour
 < en: whole grain corn flour
 en: white whole grain corn flour, white whole-grain corn flour
+description:en: White corn flour is a flour ground from the whole kernel of white corn — a corn variety that lacks the yellow/orange carotenoid pigments found in standard yellow corn. it's very similar to whole-grain yellow corn flour in calories, protein, and fiber — the main practical difference is the near-absence of vitamin A precursors.
 usda_ndb_code:en: 20316
 usda_ndb_name:en: Corn flour, whole-grain, white
 
 < en: whole grain corn flour
 < en: yellow corn flour
 en: yellow whole-grain corn flour
+description:en: Yellow corn flour is flour ground from the whole kernel of yellow corn, the most common corn type used in the US. Yellow corn gets its color from carotenoids, including beta-carotene, which the body can convert to vitamin A — so unlike white corn flour, yellow corn flour has some vitamin A activity. 
 usda_ndb_code:en: 20016
 usda_ndb_name:en: Corn flour, whole-grain, yellow
 
@@ -28995,11 +28982,7 @@ no: hvit mais
 pt: milho branco
 sv: gul majs
 tr: beyaz misir
-usda_ndb_proxy_code:en: 20314
-usda_ndb_proxy_name:en: Corn grain, white
-
-< en: white corn
-en: white corn grain
+description:en: White corn is from the whole kernel of white corn — a corn variety that lacks the yellow/orange carotenoid pigments found in standard yellow corn. it's very similar to whole-grain yellow corn flour in calories, protein, and fiber — the main practical difference is the near-absence of vitamin A precursors.
 usda_ndb_code:en: 20314
 usda_ndb_name:en: Corn grain, white
 
@@ -29025,11 +29008,7 @@ pl: żółta kukurydza
 pt: milho amarelo
 sv: vit majs
 tr: sari misir
-usda_ndb_proxy_code:en: 20014
-usda_ndb_proxy_name:en: Corn grain, yellow
-
-< en: yellow corn
-en: yellow corn grain
+description:en: Yellow corn is from the whole kernel of yellow corn, the most common corn type used in the US. Yellow corn gets its color from carotenoids, including beta-carotene, which the body can convert to vitamin A — so unlike white corn flour, yellow corn flour has some vitamin A activity. 
 usda_ndb_code:en: 20014
 usda_ndb_name:en: Corn grain, yellow
 
