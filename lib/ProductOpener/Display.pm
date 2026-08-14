@@ -7562,7 +7562,7 @@ sub display_facets_index ($request_ref) {
 	@{$template_data_ref->{facets}} = sort {$a->{name} cmp $b->{name}} @{$template_data_ref->{facets}};
 
 	$request_ref->{title} = lang('facets') || 'Facets';
-	
+
 	my $html;
 	process_template('web/facets_index.tt.html', $template_data_ref, \$html);
 	$request_ref->{html} = $html;
