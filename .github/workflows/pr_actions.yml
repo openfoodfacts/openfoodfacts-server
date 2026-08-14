@@ -54,11 +54,9 @@ jobs:
     - &run-linting
       name: Run linting
       run: make lint front_lint
-    - &git-commit
-      name: Push changes if needed
+    - name: Push changes if needed
       uses: stefanzweifel/git-auto-commit-action@v7
       with:
-        &git-commit-options
         commit_message: "chore: Linting changes"
         branch: "${{ steps.get-branch.outputs.branch }}"
         commit_user_name: Open Food Facts Bot
@@ -90,12 +88,20 @@ jobs:
     - &run-update-tests-results
       name: Run update tests results
       run: make update_tests_results
-    - <<: *git-commit
+    - name: Push changes if needed
+      uses: stefanzweifel/git-auto-commit-action@v7
       with:
-        <<: *git-commit-options
         commit_message: "test: Update tests results"
+        branch: "${{ steps.get-branch.outputs.branch }}"
         file_pattern: 'tests/**/expected_test_results/**'
+        commit_user_name: Open Food Facts Bot
+        commit_user_email: contact@openfoodfacts.org
+        commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
         add_options: '--all'
+        push_options: ""
+        status_options: '--untracked-files=no'
+        skip_dirty_check: false
+        create_branch: no
     - *step-reaction-completed
 
   # Action to lint _and_ update test results in one go
@@ -115,8 +121,16 @@ jobs:
       run: make create_folders
     - *run-linting
     - *run-update-tests-results
-    - <<: *git-commit
+    - name: Push changes if needed
+      uses: stefanzweifel/git-auto-commit-action@v7
       with:
-        <<: *git-commit-options
         commit_message: "chore: Linting and test results changes"
+        branch: "${{ steps.get-branch.outputs.branch }}"
+        commit_user_name: Open Food Facts Bot
+        commit_user_email: contact@openfoodfacts.org
+        commit_author: Open Food Facts Bot <contact@openfoodfacts.org>
+        push_options: ""
+        status_options: '--untracked-files=no'
+        skip_dirty_check: false
+        create_branch: no
     - *step-reaction-completed
