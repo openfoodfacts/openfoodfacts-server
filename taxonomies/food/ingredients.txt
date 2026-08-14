@@ -23863,31 +23863,6 @@ wikidata:en: Q15645384
 wikipedia:en: https://en.wikipedia.org/wiki/Wheat
 
 < en: wheat
-en: hard red spring wheat
-usda_ndb_code:en: 20071
-usda_ndb_name:en: Wheat, hard red spring
-
-< en: wheat
-en: hard red winter wheat
-usda_ndb_code:en: 20072
-usda_ndb_name:en: Wheat, hard red winter
-
-< en: wheat
-en: hard white wheat
-usda_ndb_code:en: 20074
-usda_ndb_name:en: Wheat, hard white
-
-< en: wheat
-en: soft red winter wheat
-usda_ndb_code:en: 20073
-usda_ndb_name:en: Wheat, soft red winter
-
-< en: wheat
-en: soft white wheat
-usda_ndb_code:en: 20075
-usda_ndb_name:en: Wheat, soft white
-
-< en: wheat
 en: sprouted wheat
 de: Weizensprossen, Weizenkeimlinge
 fr: Blé germé
@@ -24180,7 +24155,11 @@ en: whole wheat kernels
 da: fuldkornshvedekerner
 sv: fullkornskärnor av vete
 
-# Soft wheat
+##################################################################################
+#
+#                        Soft wheat
+#
+##################################################################################
 
 < en: wheat
 en: soft wheat, tender wheat
@@ -24191,6 +24170,18 @@ it: grano tenero
 ecobalyse:en: 48c1fc68-01bb-4541-a274-ce1de33db1f9
 ecobalyse_labels_en_organic:en: a98b8776-a96d-48e9-b218-976f5452907a
 ecobalyse_origins_en_france:en: 38788025-a65e-4edf-a92f-aab0b89b0d61
+
+< en: soft wheat
+en: soft white wheat
+description:en: Soft white wheat is a low-protein variety grown mainly in the Pacific Northwest, California, and parts of the Midwest, prized for its adaptability to temperate climates. It has a mild, delicate, slightly sweet flavor with a pale color. Its low gluten content makes it ideal for tender baked goods like cakes, pastries, crackers, and flatbreads rather than yeasted bread. Nutritionally, it's primarily a source of carbohydrates, with modest protein and fiber content, especially when refined.
+usda_ndb_code:en: 20075
+usda_ndb_name:en: Wheat, soft white
+
+< en: soft wheat
+en: soft red winter wheat
+description:en: Soft red winter wheat is grown primarily in the eastern and central United States, planted in fall and harvested in early summer to take advantage of its cold-hardiness. It has a mild, slightly sweet flavor with a subtle reddish-brown hue in the whole grain. Its low protein and gluten content make it well-suited for cakes, pastries, crackers, and flatbreads rather than yeasted bread. Nutritionally, it's mainly a carbohydrate source, with modest protein and fiber, especially in its refined form.
+usda_ndb_code:en: 20073
+usda_ndb_name:en: Wheat, soft red winter
 
 ##################################################################################
 #
@@ -24257,12 +24248,23 @@ usda_ndb_name:en: Wheat, durum
 wikidata:en: Q618324
 wikipedia:en: https://en.wikipedia.org/wiki/Durum
 
-#<en:durum wheat
-#en:organic durum wheat
-#fi:luomu durumvehnä
-#fr:Blé dur biologique
-#hu:bio durumbúza
-#sv:ekologiskt durumvete
+< en: durum wheat
+en: hard red spring wheat
+description:en: Hard red spring wheat is grown mainly in the northern U.S. Great Plains and Canada, planted in spring and harvested in fall due to the region's harsh winters. It has a robust, nutty, earthy flavor, generally considered slightly more pronounced than winter wheat varieties. Its very high protein and gluten content make it prized for artisan breads, bagels, and pizza dough that require strong structure and chew. Nutritionally, it's rich in protein, fiber, and B vitamins, especially when milled as whole grain.
+usda_ndb_code:en: 20071
+usda_ndb_name:en: Wheat, hard red spring
+
+< en: durum wheat
+en: hard red winter wheat
+description:en: Hard red winter wheat is grown extensively across the U.S. Great Plains, planted in fall and harvested in early summer, making it one of the most widely cultivated wheat classes in the world. It has a robust, slightly nutty, earthy flavor with more depth than white wheat varieties. Its high protein and gluten content make it a top choice for yeasted breads, as well as all-purpose and bread flours. Nutritionally, it's rich in protein, fiber, and B vitamins, especially when milled as whole grain.
+usda_ndb_code:en: 20072
+usda_ndb_name:en: Wheat, hard red winter
+
+< en: durum wheat
+en: hard white wheat
+description:en: Hard white wheat is a relatively modern variety, developed and popularized in the U.S. during the 20th century as a milder alternative to traditional red wheat. It has a mild, slightly sweet flavor without the bitterness often found in red wheat varieties. Its high protein and gluten content make it well-suited for yeasted breads, while also working for pastries and tortillas. Nutritionally, it's a good source of protein, fiber, and B vitamins, particularly when milled as whole grain.
+usda_ndb_code:en: 20074
+usda_ndb_name:en: Wheat, hard white
 
 < en: durum wheat
 fr: blé dur concassé
@@ -27285,15 +27287,12 @@ ru: камут
 sl: kamut
 sv: kamut
 allergens:en: en:gluten
-usda_ndb_proxy_code:en: 20138
-usda_ndb_proxy_name:en: Wheat, KAMUT khorasan, uncooked
-wikidata:en: Q11163068
-wikipedia:en: https://en.wikipedia.org/wiki/Khorasan_wheat
-
-< en: khorasan wheat
-en: uncooked kamut khorasan wheat
+description:en: Kamut (khorasan wheat) is an ancient grain variety originating in the Fertile Crescent region, now trademarked and grown mainly in Montana and Canada under strict organic standards. It has a rich, buttery, slightly sweet and nutty flavor, with larger kernels than modern wheat. It's used whole in salads and pilafs, rolled into flakes for cereal, or milled into flour for bread and pasta. Nutritionally, it's higher in protein, selenium, and antioxidants than common wheat, though it still contains gluten.
 usda_ndb_code:en: 20138
 usda_ndb_name:en: Wheat, KAMUT khorasan, uncooked
+usda_ndb_process:en: en:uncooked
+wikidata:en: Q11163068
+wikipedia:en: https://en.wikipedia.org/wiki/Khorasan_wheat
 
 < en: cereal flour
 < en: khorasan wheat
