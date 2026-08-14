@@ -23606,8 +23606,7 @@ fr: billes de céréales
 #                        Sorghum
 #
 ##################################################################################
-# no gluten
-# do not mix with en:millet
+
 < en: cereal
 en: sorghum
 de: Sorghumhirsen
@@ -23622,6 +23621,7 @@ sk: cirok
 ciqual_food_code:en: 9360
 ciqual_food_name:en: Sorghum, whole, raw
 ciqual_food_name:fr: Sorgho entier, cru
+description:en: Sorghum originated in Africa thousands of years ago and remains a staple across Africa, Asia, and increasingly the Americas, prized for its drought tolerance. It has a mild, slightly sweet, nutty flavor with a chewy texture similar to farro. It's ground into flour for gluten-free baking, popped like popcorn, brewed into beer, or cooked whole as a side grain or porridge. Nutritionally, it's rich in fiber, protein, and antioxidants, and being naturally gluten-free, it's a popular wheat alternative.
 usda_ndb_code:en: 20067
 usda_ndb_name:en: Sorghum grain
 wikipedia:en: https://en.wikipedia.org/wiki/Sorghum
@@ -23657,6 +23657,7 @@ en: triticale
 xx: triticale
 de: Triticale
 pl: pszenżyto, pszenżyta
+description:en: Triticale is a hybrid grain bred by crossing wheat and rye, first developed in the late 19th century and refined for commercial use in Europe through the 20th century. Its flour has an earthy, nutty flavor that combines wheat's mildness with rye's slight tanginess. It's used to make breads, pastas, and crackers, often blended with other flours for improved texture and rise. Nutritionally, whole-grain triticale flour is high in fiber, protein, and minerals like magnesium and iron, though it still contains gluten.
 usda_ndb_code:en: 20069
 usda_ndb_name:en: Triticale
 wikipedia:en: https://en.wikipedia.org/wiki/Triticale
@@ -26121,11 +26122,6 @@ vi: yến mạch
 wa: avoenne
 yi: האבער
 zh: 燕麦
-ciqual_food_code:en: 9310
-ciqual_food_name:en: Oat, raw
-ciqual_food_name:fr: Avoine, crue
-comment:en: oat does not contain gluten, but is often contaminated by gluten containing cereals.
-description:en: the oat (avena sativa) is a species of cereal grain grown for its seed.
 # als:haaber
 # arz:شوفان
 # azb:اکین یولافی
@@ -26153,17 +26149,14 @@ description:en: the oat (avena sativa) is a species of cereal grain grown for it
 # wuu:燕麦
 # nan:iàn-be̍h
 # yue:燕麥
+ciqual_food_code:en: 9310
+ciqual_food_name:en: Oat, raw
+ciqual_food_name:fr: Avoine, crue
+comment:en: Native to Western Asia and widely cultivated in Europe's cooler climates, especially Scotland and Scandinavia. They have a mild, nutty, subtly sweet flavor with a creamy or chewy texture depending on preparation. Oats are used in porridge, baking, granola, smoothies, and even savory dishes as a versatile whole grain. Rich in soluble fiber (beta-glucan), plant protein, and key micronutrients, they support heart health and are naturally gluten-free.
+usda_ndb_code:en: 20038
+usda_ndb_name:en: Oats (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q24265484
 wikipedia:en: https://en.wikipedia.org/wiki/Oat
-
-#<en:oat
-#en:organic oat
-#de:Bio-Hafer
-#es:Avena orgánica
-#fi:luomukaura, luomu kaura
-#fr:avoine biologique
-#hu:bio zab
-#ru:Органический овес
 
 < en: oat
 en: oat grain
@@ -26521,9 +26514,6 @@ usda_ndb_name:en: Amaranth leaves, raw
 #
 ##################################################################################
 
-
-# QUINOA (Chenopodium quinoa) is a flowering plant in the amaranth family.
-
 < en: plant
 en: quinoa
 xx: quinoa
@@ -26582,6 +26572,7 @@ vi: diêm mạch
 ciqual_food_code:en: 9340
 ciqual_food_name:en: Quinoa, raw
 ciqual_food_name:fr: Quinoa, cru
+description:en: Native to the Andean regions of South America, particularly Peru, Bolivia, and Ecuador, where it was cultivated by ancient civilizations including the Incas for over 5,000 years. It has a mild, slightly nutty and earthy flavor with a light, fluffy texture and a subtle crunch from its outer germ ring when cooked. Quinoa is used as a rice or grain substitute in salads, bowls, side dishes, and even ground into flour for baking or gluten-free products. It's a complete protein containing all nine essential amino acids, and is rich in fiber, iron, magnesium, and antioxidants, making it a popular choice among whole grains.
 ifct_food_code:en: A009
 ifct_food_name:en: Quinoa
 nutriscore_fruits_vegetables_nuts:en: no
@@ -26842,6 +26833,7 @@ hr: zrna raži
 it: chicchi di segale
 nl: roggegraan, roggegranen
 sv: rågkorn
+description:en: Rye grain hails from Central and Eastern Europe and Western Asia, favored for its hardiness in cold, poor soils. It has an earthy, slightly sour, tangy flavor with subtle spice notes. It's most often milled into flour for dense breads like pumpernickel, used for crispbreads, or malted for whiskey and beer. Nutritionally, it's high in fiber and B vitamins, with a lower glycemic impact than wheat.
 usda_ndb_code:en: 20062
 usda_ndb_name:en: Rye grain
 # in 4 @2021-10-28
@@ -26908,6 +26900,7 @@ sv: fullkornsråg, fullkorn av råg
 
 < en: rye flour
 en: medium rye flour
+description:en: Medium rye flour is milled from whole rye with some bran sifted out, a grain long grown across Northern and Eastern Europe for its hardiness in cool climates. It has an earthy, slightly tangy flavor and a denser character than wheat flour. It's prized for European-style breads, sourdoughs, and crackers, though its lower gluten content means it's often blended with wheat flour or given longer fermentation for a good rise. Nutritionally, it offers more fiber, B vitamins, and minerals than refined wheat flour, with a gentler effect on blood sugar.
 usda_ndb_code:en: 20064
 usda_ndb_name:en: Rye flour, medium
 
@@ -27086,16 +27079,12 @@ allergens:en: en:gluten
 ciqual_food_proxy_code:en: 9001
 ciqual_food_proxy_name:en: Spelt, raw
 ciqual_food_proxy_name:fr: Épeautre, cru
-description:en: SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
-usda_ndb_proxy_code:en: 20140
-usda_ndb_proxy_name:en: Spelt, uncooked
-wikidata:en: Q158767
-wikipedia:en: https://en.wikipedia.org/wiki/Spelt
-
-< en: spelt
-en: raw spelt, uncooked spelt
+description:en: Spelt is an ancient wheat variety that originated in the Near East and was widely cultivated across Europe, particularly Germany, before being overshadowed by modern wheat. It has a warm, nutty, slightly sweet flavor with an earthier depth than common wheat. It's typically milled into flour for bread and pasta, cooked as a whole berry in salads and soups, or rolled into flakes for cereal. Nutritionally, it's higher in protein and fiber than wheat, though it still contains gluten and isn't suitable for those with sensitivities.
 usda_ndb_code:en: 20140
 usda_ndb_name:en: Spelt, uncooked
+usda_ndb_process:en: en:uncooked
+wikidata:en: Q158767
+wikipedia:en: https://en.wikipedia.org/wiki/Spelt
 
 < en: spelt
 en: whole spelt
@@ -27331,17 +27320,13 @@ it: farina integrale di kamut, farina integrale di grano kamut, farina integrale
 en: teff
 xx: teff
 de: Teff
-es: teff
 pl: teff, miłka abisyńska, tef, trawa abisyńska
 allergens:en: en:gluten
-usda_ndb_proxy_code:en: 20142
-usda_ndb_proxy_name:en: Teff, uncooked
-wikipedia:en: https://en.wikipedia.org/wiki/Teff
-
-< en: teff
-en: uncooked teff
+description:en: Teff is a tiny ancient grain native to Ethiopia and Eritrea, where it has been cultivated for thousands of years and remains a dietary staple, most famously as the base for injera flatbread. Despite its small size, it has a rich, slightly sweet, nutty, almost molasses-like flavor. It's typically ground into flour for fermented flatbreads and porridges, or cooked whole as a side grain similar to quinoa. Nutritionally, it's naturally gluten-free and notably high in iron, calcium, and fiber compared to most other grains.
 usda_ndb_code:en: 20142
 usda_ndb_name:en: Teff, uncooked
+usda_ndb_process:en: en:uncooked
+wikipedia:en: https://en.wikipedia.org/wiki/Teff
 
 < en: teff
 en: teff seed
@@ -28032,6 +28017,7 @@ hr: meko pšenično brašno
 it: farina di grano tenero
 pl: mąka z pszenicy miękkiej, mąka z miękkiej pszenicy
 ro: făină de grâu moale
+description:en: Soft wheat has been cultivated for millennia, with whole-grain flour production expanding globally as milling techniques evolved to preserve the bran and germ. It has a mild, slightly sweet, nutty flavor that's less robust than hard wheat varieties. Its lower protein and gluten content make it ideal for tender baked goods like cakes, pastries, cookies, and flatbreads rather than yeasted bread. Nutritionally, it retains more fiber, B vitamins, and minerals than refined flour, thanks to the whole grain remaining intact.
 
 < en: soft wheat flour
 < en: whole wheat flour
@@ -28040,7 +28026,7 @@ it: farina integrale di grano tenero, farina di grano tenero integrale
 usda_ndb_code:en: 20649
 usda_ndb_name:en: Wheat flour, whole-grain, soft wheat
 
-< en: wheat flour
+< en: soft wheat flour
 en: Wheat flour type 150
 fr: Farine de blé tendre T150, farine de blé T150, farine de froment T150
 hr: pšenično brašno tip 150
@@ -28049,7 +28035,7 @@ ciqual_food_code:en: 9415
 ciqual_food_name:en: Wheat flour, type 150
 ciqual_food_name:fr: Farine de blé tendre ou froment T150
 
-< en: wheat flour
+< en: soft wheat flour
 en: Wheat flour type 110
 fr: Farine de blé tendre T110, farine de blé t110, farine de froment T110
 hr: pšenično brašno tip 110
@@ -36796,12 +36782,13 @@ ro: gluten de grâu, gluten din grâu
 sk: pšeničny gluten
 sl: pšenični gluten
 sv: vetegluten
-ciqual_proxy_food_code:en: 25598
-ciqual_proxy_food_name:en: Seitan, prepacked
+ciqual_proxy_food_code:en: 48052
+ciqual_proxy_food_name:en: Vital wheat gluten
 
 < en: wheat gluten
 en: vital wheat gluten
 fr: gluten vital de blé
+description:en: Vital wheat gluten is a concentrated protein extracted from wheat flour by washing away the starch, a process refined industrially in the 20th century to create a versatile baking additive. On its own it's bland and neutral in flavor, though it develops a chewy, meaty texture when hydrated and cooked. It's used to boost elasticity and rise in bread dough, and is a key ingredient in seitan and other plant-based meat substitutes. Nutritionally, it's exceptionally high in protein (over 75%) with very little fat or carbohydrate, though as pure gluten it's unsuitable for those with gluten intolerance or celiac disease.
 usda_ndb_code:en: 48052
 usda_ndb_name:en: Vital wheat gluten
 
@@ -56898,7 +56885,8 @@ wikidata:en: Q873761
 wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
 
 < en: tapioca
-en: dry pearl tapioca
+en: dry tapioca pearls
+description:en: Tapioca pearls are made from cassava root starch, a plant native to South America but now cultivated widely across Brazil, Southeast Asia, and Africa. On their own, dry pearls are essentially flavorless and starchy, taking on a mild sweetness and chewy, translucent texture once cooked. They're most commonly used in bubble tea, puddings, and Southeast Asian desserts, or as a thickener in soups and pie fillings. Nutritionally, tapioca is mostly pure carbohydrate with very little protein, fiber, or micronutrients, making it a gluten-free energy source but not a significant source of other nutrients.
 usda_ndb_code:en: 20068
 usda_ndb_name:en: Tapioca, pearl, dry
 
