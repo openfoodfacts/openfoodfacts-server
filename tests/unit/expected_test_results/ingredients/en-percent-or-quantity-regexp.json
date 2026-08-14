@@ -1,0 +1,135 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "26043",
+         "id" : "en:cod",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 39.5,
+         "percent_max" : 43,
+         "percent_min" : 36,
+         "quantity" : "40 g",
+         "quantity_g" : 40,
+         "text" : "cod",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "26036",
+         "id" : "en:salmon",
+         "is_in_taxonomy" : 1,
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
+         "text" : "salmon",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_proxy_food_code" : "26053",
+         "id" : "en:tuna",
+         "is_in_taxonomy" : 1,
+         "percent" : 20,
+         "percent_estimate" : 20,
+         "percent_max" : 20,
+         "percent_min" : 20,
+         "text" : "tuna",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "26051",
+         "id" : "en:mackerel",
+         "is_in_taxonomy" : 1,
+         "percent" : 7,
+         "percent_estimate" : 7,
+         "percent_max" : 7,
+         "percent_min" : 7,
+         "text" : "mackerel",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "26065",
+         "id" : "en:sardine",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 3.5,
+         "percent_max" : 7,
+         "percent_min" : 0,
+         "quantity" : "3 g",
+         "quantity_g" : 3,
+         "text" : "sardine",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:cod",
+         "en:salmon",
+         "en:tuna",
+         "en:mackerel",
+         "en:sardine"
+      ],
+      "en:non-vegetarian" : [
+         "en:cod",
+         "en:salmon",
+         "en:tuna",
+         "en:mackerel",
+         "en:sardine"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:cod",
+      "en:salmon",
+      "en:tuna",
+      "en:mackerel",
+      "en:sardine"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:cod",
+      "en:fish",
+      "en:white-fish",
+      "en:salmon",
+      "en:oily-fish",
+      "en:tuna",
+      "en:saltwater-fish",
+      "en:mackerel",
+      "en:sardine"
+   ],
+   "ingredients_text" : "cod 40g, salmon 30%, 20% tuna, mackerel (7%), 3g sardine",
+   "ingredients_with_specified_percent_n" : 3,
+   "ingredients_with_specified_percent_sum" : 57,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 43,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:cod",
+      "en:mackerel",
+      "en:salmon",
+      "en:sardine",
+      "en:tuna"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 5,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
