@@ -343,6 +343,8 @@ my %origins_regexps = ();
 
 sub init_origins_regexps() {
 
+	next if scalar keys %origins_regexps > 0;
+
 	# Create a list of regexps with each synonyms of all ingredients processes
 	%origins_regexps = %{
 		generate_regexps_matching_taxonomy_entries(
@@ -741,8 +743,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$percent_or_quantity_value = $3;
 			$percent_or_quantity_unit = $4;
 			$matched_text = $&;
+
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
+
+			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -796,6 +801,8 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$matched_text = $&;
 			# Remove the matched text
 			$text = $` . $1 . ' ' . $';
+
+			$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -1481,7 +1488,7 @@ if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 	$percent_or_quantity_value = $1;
 	$percent_or_quantity_unit = $2;
 
-	my ($percent, $quantity, $quantity_g)
+	my ($percent, $quantity, $quantity_g, $quantity_ml)
 		= get_ingredient_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
 
 =cut
@@ -1749,6 +1756,8 @@ Text to analyze
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 						$percent_or_quantity_value = $1;
 						$percent_or_quantity_unit = $2;
+						$percent_or_quantity_value
+							= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients
@@ -1906,6 +1915,8 @@ Text to analyze
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
+							$percent_or_quantity_value
+								= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 							$log->debug(
 								"parse_ingredients_text - sub-ingredients: between is a percent",
 								{
@@ -2094,6 +2105,7 @@ Text to analyze
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
 				$after = $';
+				$percent_or_quantity_value = convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				$debug_ingredients
 					and $log->debug(
 					"after started with a percent",
@@ -2236,6 +2248,8 @@ Text to analyze
 						}
 					) if $log->is_debug();
 					$ingredient = $`;
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				}
 
 				# 50% beef, 20g of oranges
@@ -2254,6 +2268,8 @@ Text to analyze
 						}
 					) if $log->is_debug();
 					$ingredient = $';
+					$percent_or_quantity_value
+						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
 				}
 
 				# remove * and other chars before and after the name of ingredients
@@ -3331,7 +3347,7 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 
 =head2 get_missing_ecobalyse_ids ($ingredients_ref)
 
-Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients. (NOTE : this is a first version that'll soon be improved)
+Assign a ecobalyse_code or a ecobalyse_proxy_code to ingredients and sub ingredients.
 
 =head3 Arguments
 
@@ -3359,9 +3375,9 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 		delete $ingredient_ref->{ecobalyse_proxy_code};
 
 		# We are now looking for the appropriate ecobalyse id :
-		# ecobalyse_origins_france_label_organic (if the product comes from france, and is organic)
-		# ecobalyse_origins_european-union_label_organic (if the product comes from europe, and is organic)
-		# ecobalyse_label_organic (if the product is organic)
+		# ecobalyse_origins_france_labels_organic (if the product comes from france, and is organic)
+		# ecobalyse_origins_european-union_labels_organic (if the product comes from europe, and is organic)
+		# ecobalyse_labels_organic (if the product is organic)
 		# ecobalyse_origins_france (if the product comes from france)
 		# ecobalyse_origins_european-union (if the product comes from the Europe region)
 		# ecobalyse (else)
@@ -3425,11 +3441,6 @@ sub get_missing_ecobalyse_ids ($ingredients_ref) {
 			push(@ingredients_without_ecobalyse_ids, $ingredient_ref->{id});
 		}
 
-		#ecobalyse:en
-		#ecobalyse_labels_en_organic:en
-		#ecobalyse_origins_en_france:en
-		#ecobalyse_origins_en_european_union:en
-		#ecobalyse_labels_en_organic_origins_en_france:en
 	}
 	return @ingredients_without_ecobalyse_ids;
 }
@@ -6342,8 +6353,8 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
 		my $percent_or_quantity_regexp = $percent_or_quantity_regexps{$ingredients_lc};
-		# Make the 2 capture groups (for number and for % or unit, starting with (\d and (\% non capturing
-		$percent_or_quantity_regexp =~ s/\(\\/\(?:\\/g;
+		# Make capturing groups non-capturing, while keeping escaped and special (?...) groups unchanged
+		$percent_or_quantity_regexp =~ s/\((?!\?)/(?:/g;
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
 			my $category_regexp = "";
@@ -6955,7 +6966,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 		foreach my $symbol (@symbols) {
 			# Find the last occurence of the symbol or symbol in parenthesis:  * (*)
 			# we need a negative look ahead (?!\)) to make sure we match (*) completely (otherwise we would match *)
-			if ($text =~ /^(.*)(\($symbol\)|$symbol)(?!\))\s*(:|=)?\s*/i) {
+			# we use (\b|\s) before and after the symbol, to make sure we don't match a symbol that is part of another symbol
+			# e.g. * in **
+			if ($text =~ /^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)/i) {
 				my $after = $';
 				#print STDERR "symbol: $symbol - after: $after\n";
 				foreach my $labelid (@labels) {
@@ -6967,9 +6980,19 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 						if ($after =~ /^($regexp)\b\s*(\([^\)]+\))?\s*\.?\s*/i) {
 							my $label = $1;
 							$text
-								=~ s/^(.*)(\($symbol\)|$symbol)(?!\))\s?(:|=)?\s?$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
+								=~ s/^(.*)(\b|\s)(\($symbol\)|$symbol)(?!\))\s*(:|=|\/)?\s*(\b|\s)$label\s*(\([^\)]+\))?\s*\.?\s*/$1 /i;
 							my $ingredients_lc_label = display_taxonomy_tag($ingredients_lc, "labels", $labelid);
-							$text =~ s/$symbol/ $ingredients_lc_label /g;
+							# We don't want to match * in ** or ° in °° but we want to match them in *°
+							my $not_char_from_matched_symbol = '.';
+							if ($symbol =~ /\*/) {
+								$not_char_from_matched_symbol = '[^*]';
+							}
+							elsif ($symbol =~ /°/) {
+								$not_char_from_matched_symbol = '[^°]';
+							}
+							$text
+								=~ s/(\b|\s|$not_char_from_matched_symbol)$symbol(\b|\s|$not_char_from_matched_symbol)/$1 $ingredients_lc_label $2/g;
+							#print STDERR "found label for symbol $symbol: $labelid - new text: $text\n";
 							last;
 						}
 					}

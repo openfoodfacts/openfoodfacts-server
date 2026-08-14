@@ -392,6 +392,7 @@ HTML
 	improvements
 	brands
 	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
