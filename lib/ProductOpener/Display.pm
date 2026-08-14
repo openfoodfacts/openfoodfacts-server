@@ -7567,6 +7567,7 @@ sub display_facets_index ($request_ref) {
 	process_template('web/facets_index.tt.html', $template_data_ref, \$html);
 	$request_ref->{html} = $html;
 	display_page($request_ref);
+	return;
 }
 
 sub display_page ($request_ref) {
