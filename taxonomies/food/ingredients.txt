@@ -186,8 +186,8 @@ de: Imazalil
 fa: انیل‌کونازول
 fi: imatsaliili
 ja: イマザリル
-description:en: Imazalil is a fungicide widely used in agriculture, particularly in the growing of citrus fruits.
 # azb:انیل‌کونازول
+description:en: Imazalil is a fungicide widely used in agriculture, particularly in the growing of citrus fruits.
 wikidata:en: Q421576
 wikipedia:en: https://en.wikipedia.org/wiki/Enilconazole
 
@@ -469,8 +469,6 @@ nl: Capsicum-Oleoresin
 description:en: Capsicum Oleoresin is a highly concentrated capsicum extract.
 wikipedia:en: https://en.wikipedia.org/wiki/Oleoresin#Oleoresin_capsicum
 
-# comment:en: en:lecithines is part of the additives
-
 # nova:en:lecithin
 # < en:vegetable oil
 < en: E322i
@@ -515,6 +513,7 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 42200
 ciqual_food_name:en: Soy lecithin
 ciqual_food_name:fr: Lécithine de soja
+comment:en: en:lecithines is part of the additives
 usda_ndb_code:en: 4531
 usda_ndb_name:en: Oil, soybean lecithin
 vegan:en: yes
@@ -605,9 +604,6 @@ sv: rapslecitin, rapslecithin
 vegan:en: yes
 vegetarian:en: yes
 
-
-# Has NO E-number!!!
-
 en: Glycerol monostearate
 ar: أحادي ستيرات الغليسرول
 bg: глицеролов моностеарат
@@ -632,12 +628,10 @@ zh: 单硬脂酸甘油酯
 # azb:قیسرول مونوستارات
 # en-ca:Glycerol monostearate
 # en-gb:Glycerol monostearate
+comment:en: Has NO E-number!!!
 description:en: GLYCEROL MONOSTEARATE, commonly known as GMS, is a monoglyceride commonly used as an emulsifier in foods. GMS is a food additive used as a thickening, emulsifying, anticaking, and preservative agent; an emulsifying agent for oils, waxes, and solvents; a protective coating for hygroscopic powders; a solidifier and control release agent in pharmaceuticals; and a resin lubricant.
 from_palm_oil:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Glycerol_monostearate
-
-
-# The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
 
 # en:additive:en:gelatin, gelatine, E428, E-428, E 428
 en: gelatin
@@ -647,6 +641,7 @@ it: gelatina
 ja: ゼラチン
 lt: želatina, želatinos
 pl: żelatyna, żelatyna spożywcza
+comment:en: The E-numbers for gelatin are removed by the EU. It should now be noted as an ingredient.
 description:en: GELATIN or GELATINE is a translucent, colorless, brittle (when dry), flavorless food ingredient that is derived from collagen obtained from various animal body parts.
 vegan:en: no
 vegetarian:en: no
@@ -773,7 +768,6 @@ it: pectina di mela
 lt: obuolių pektinas
 nl: appelpectine
 
-# description:en:Modified citrus pectin (also known as CITRUS PECTIN, Pecta-Sol and MCP) is a modified, more digestible form of pectin. It is obtained from the peels, seeds and pulp of citrus fruits using a chemical extraction process.
 
 < en: fruit pectin
 en: citrus pectin, modified citrus pectin, citric pectin
@@ -787,6 +781,7 @@ it: pectina di agrumi
 lt: citrusinių vaisių pektinas
 nl: citruspectine
 sv: citruspektin
+description:en: Modified citrus pectin (also known as CITRUS PECTIN, Pecta-Sol and MCP) is a modified, more digestible form of pectin. It is obtained from the peels, seeds and pulp of citrus fruits using a chemical extraction process.
 wikidata:en: Q6889398
 wikipedia:en: https://en.wikipedia.org/wiki/Modified_citrus_pectin
 
@@ -828,12 +823,6 @@ it: mono- e digliceridi degli acidi grassi di colza
 < en: sodium stearoyl-2-lactylate
 fr: mono- et diglycérides d'acides gras et stéaroyl-2-lactylate de sodium
 
-
-
-
-# description:en:Bittern is a bitter-tasting solution that remains after precipitation of halite (common salt) from brines and/or seawater. It is rich in magnesium chlorides, sulfates, bromides, iodides, and other chemicals present in the original waters.
-# comment:en:Nigari is NOT the same as magnesium chloride, as it also contains other salts. It has been kept as a separate ingredient.
-
 < en: E511
 en: nigari, bittern
 bg: Нигари
@@ -852,12 +841,14 @@ pt: Nigari
 zh: 卤水
 # zh-hans:卤水
 # zh-hant:鹵水
+comment:en: Nigari is NOT the same as magnesium chloride, as it also contains other salts. It has been kept as a separate ingredient.
+description:en: Bittern is a bitter-tasting solution that remains after precipitation of halite (common salt) from brines and/or seawater. It is rich in magnesium chlorides, sulfates, bromides, iodides, and other chemicals present in the original waters.
 wikipedia:en: https://en.wikipedia.org/wiki/Bittern_(salt)
 # usafe:en:nigari (magnesium chloride)
 # usage:nl:stremmiddelen:nigari
 
-#what happens with this? Needs a test.
 nl: kaliumjodide en -hydroxide
+comment:en: what happens with this? Needs a test.
 
 < en: E901
 en: white and yellow beeswax
@@ -892,8 +883,6 @@ nl: E942 en E941
 en: cyclamate, cyclamates
 wikidata:en: Q76824182
 
-# description:en:Sodium cyclamate (sweetener code 952) is an artificial sweetener.
-
 < en: cyclamate
 en: Sodium cyclamate, E952iv, E-952iv, E952(iv)
 bg: Натриев цикламат
@@ -921,6 +910,7 @@ sr: Natrijum ciklamat
 sv: Natriumcyklamat
 th: โซเดียมไซคลาเมต
 vi: Natri cyclamat
+description:en: Sodium cyclamate (sweetener code 952) is an artificial sweetener.
 wikidata:en: Q407786
 wikipedia:en: https://en.wikipedia.org/wiki/Sodium_cyclamate
 
@@ -945,7 +935,6 @@ sv: lysozym från ägg, lysozym av ägg
 allergens:en: en:eggs
 vegan:en: no
 vegetarian:en: yes
-
 
 < en: E1400
 en: tapioca dextrin
@@ -1099,7 +1088,6 @@ ru: ферментный препарат микробного происхож�
 vegan:en: yes
 vegetarian:en: yes
 
-# description:en:A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. All cultures in food are microbial cultures
 # comment:en:Should this be kept separate from lactic ferments?
 
 < en: ferment
@@ -1122,15 +1110,11 @@ pl: Kultury bakterii, żywe kultury bakterii, kultury starterowe, kultury starto
 pt: Cultura microbial
 ro: Culturi microbiene
 sv: mikrobiell kultur, kultur, aktiva kulturer, levande kulturer, bakteriekultur
-# note: microbial culture is not a NOVA 3 marker, it is contained in plain yoghurts that are NOVA 1
+description:en: A microbiological culture, or microbial culture, is a method of multiplying microbial organisms by letting them reproduce in predetermined culture medium under controlled laboratory conditions. All cultures in food are microbial cultures
+comment:en: microbial culture is not a NOVA 3 marker, it is contained in plain yoghurts that are NOVA 1
 vegan:en: maybe
 vegetarian:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Microbiological_culture
-
-
-# description:en:Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics.
-# comment:en:All vegan sites state that industrial produced lactic ferments is vegan. But sometimes the ferments are made by small organizations and farmers, such ferments sometimes are not vegan. All of that also varies from country to country.
-# comment:en:A wide variety of synonyms are used, but they all seem to point to the same bacteria.
 
 < en: microbial culture
 en: lactic ferments, lactic starters, lactic cultures, live yoghurt bacteria cultures, live yoghurt cultures, culture of acid-lactic bacteria, lactic acid bacteria, lactic acid culture, yogurt lactic ferment, cheese culture, cheese cultures, yogurt ferments
@@ -1156,6 +1140,8 @@ pt: fermentos lácteos, culturas lácteas, leveduras lacteas, fermentos láticos
 ro: culturi lactice, culturi lactice selecționate, culturi lactice selectionate, fermenți de iaurt, fermenti de iaurt, fermenți lactici, fermenti lactici
 ru: Молочные ферменты, пробиотические микроорганизм
 sv: syrningskultur, syrakultur, syrakulturer, mjölksyrakultur, yoghurtkultur, startkultur, filkultur, filmjölkskultur, starterkultur, levande mjölksyrakultur, mjölksyrakulturer
+comment:en: All vegan sites state that industrial produced lactic ferments is vegan. But sometimes the ferments are made by small organizations and farmers, such ferments sometimes are not vegan. All of that also varies from country to country. A wide variety of synonyms are used, but they all seem to point to the same bacteria.
+description:en: Lactic acid bacteria (LAB) are an order of gram-positive, low-GC, acid-tolerant, generally nonsporulating, nonrespiring, either rod-shaped (bacilli) or spherical (cocci) bacteria that share common metabolic and physiological characteristics.
 vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q43017
@@ -1250,8 +1236,6 @@ hr: odabrani mliječni fermenti
 it: fermenti lattici selezionati
 nl: geselecteerde melkzuurfermenten
 
-# description:en:BIFIDOBACTERIUM is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. They are ubiquitous inhabitants of the gastrointestinal tract, vagina and mouth of mammals humans.
-# description:fr:Les bifidobactéries appartiennent à la famille des bactéries lactiques.
 
 < en: lactic ferments
 en: bifidus, bifidus culture
@@ -1287,10 +1271,10 @@ zh: 雙歧桿菌屬
 # kk-latn:Bïfïdobakterïyalar
 # kk-tr:Bïfïdobakterïyalar
 # zh-cn:双歧杆菌
+description:en: BIFIDOBACTERIUM is a genus of gram-positive, nonmotile, often branched anaerobic bacteria. They are ubiquitous inhabitants of the gastrointestinal tract, vagina and mouth of mammals humans.
+description:fr: Les bifidobactéries appartiennent à la famille des bactéries lactiques.
 wikidata:en: Q132656
 wikipedia:en: https://en.wikipedia.org/wiki/Bifidobacterium
-
-# description:en:BIFIDOBACTERIUM BIFIDUM is a bacterial species of the genus Bifidobacterium. B. bifidum is one of the most common probiotic bacteria that can be found in the body of mammals, including humans.
 
 < en: bifidus
 en: Bifidobacterium bifidum
@@ -1299,10 +1283,9 @@ fi: bifidobacterium bifidum, bifidobacterium sp
 hr: bifidobacterium bifidum BB-12
 zh: 比菲德氏菌
 # zh-tw:比菲德氏菌
+description:en: BIFIDOBACTERIUM BIFIDUM is a bacterial species of the genus Bifidobacterium. B. bifidum is one of the most common probiotic bacteria that can be found in the body of mammals, including humans.
 wikidata:en: Q2902072
 wikipedia:en: https://en.wikipedia.org/wiki/Bifidobacterium_bifidum
-
-# description:en:BIFIDOBACTERIUM ANIMALIS is a gram-positive, anaerobic, rod-shaped bacterium of the Bifidobacterium genus which can be found in the large intestines of humans. Both old names B. animalis and B. lactis are still used on product labels, as this species is frequently used as a probiotic. In most cases, which subspecies is used in the product is not clear. Several companies have attempted to trademark particular strains, and as a marketing technique, have invented scientific-sounding names for the strains.
 
 < en: bifidus
 en: Bifidobacterium lactis, Bifidobacterium animalis, B. lactis, B. animalis
@@ -1310,10 +1293,9 @@ xx: Bifidobacterium lactis, B. lactis
 es: Bifidobacterium lactis, Bifidobacterium animalis sp lactis
 hr: bifidobacterium animalis BB-12
 sv: Bifidobacterium lactis
+description:en: BIFIDOBACTERIUM ANIMALIS is a gram-positive, anaerobic, rod-shaped bacterium of the Bifidobacterium genus which can be found in the large intestines of humans. Both old names B. animalis and B. lactis are still used on product labels, as this species is frequently used as a probiotic. In most cases, which subspecies is used in the product is not clear. Several companies have attempted to trademark particular strains, and as a marketing technique, have invented scientific-sounding names for the strains.
 wikidata:en: Q62854400
 wikipedia:en: https://en.wikipedia.org/wiki/Bifidobacterium_animalis
-
-# description:en:BIFIDOBACTERIUM LONGUM is a Gram-positive, catalase-negative, rod-shaped bacterium present in the human gastrointestinal tract. B. longum is non-pathogenic and is often added to food products.
 
 < en: bifidus
 en: Bifidobacterium longum
@@ -1325,10 +1307,9 @@ zh: 龍根菌
 # zh-cn:长双歧杆菌
 # zh-hans:长双歧杆菌
 # zh-hant:長雙歧桿菌
+description:en: BIFIDOBACTERIUM LONGUM is a Gram-positive, catalase-negative, rod-shaped bacterium present in the human gastrointestinal tract. B. longum is non-pathogenic and is often added to food products.
 wikidata:en: Q4904768
 wikipedia:en: https://en.wikipedia.org/wiki/Bifidobacterium_longum
-
-# description:en:Danone decided to add a probiotic strain: BIFIDUS ACTIREGULARIS. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
 
 < en: bifidus
 en: bifidus actiregularis, b. actiregularis
@@ -1337,6 +1318,7 @@ de: Bifidus ActiRegularis, Bifidus Kultur ActiRegularis
 fr: active probiotic culture, bifidobacterium lactis cncm I-2494
 hr: bifidus Actiregularis® kultura, Bifidus Actiregularis® kultura, CNCM I-2494 min 4x109/125g
 ru: бифидобактерии-actiregularis, бифидобактерии actiregularis
+description:en: Danone decided to add a probiotic strain: BIFIDUS ACTIREGULARIS. Activia products thus contain Bifidobacterium animalis DN 173,010, a proprietary strain of Bifidobacterium, a probiotic which is marketed by Dannon under the trade names Bifidus Regularis, Bifidus Actiregularis, Bifidus Digestivum and Bifidobacterium Lactis.
 
 < en: bifidus
 < en: lactic acid bacteria
@@ -1360,8 +1342,6 @@ es: fermentos lácticos de kéfir, fermentos lácticos de gránulos de kéfir
 fr: ferments lactiques du kéfir
 hr: kefir mliječni fermenti
 it: fermenti lattici di kefir
-
-# description:en:LACTOBACILLUS is a genus of Gram-positive, facultative anaerobic or microaerophilic, rod-shaped, non-spore-forming bacteria. Lactobacillus is the most common probiotic found in food such as yogurt, and it is diverse in its application to maintain human well-being. Some Lactobacillus species are used as starter cultures in industry for controlled fermentation in the production of wine, yogurt, cheese, sauerkraut, pickles, beer, cider, kimchi, cocoa, kefir, and other fermented foods.
 
 < en: lactic ferments
 en: Lactobacillus
@@ -1392,11 +1372,9 @@ zh: 乳桿菌屬
 # zh-hans:乳杆菌属
 # zh-hant:乳桿菌屬
 # zh-hk:乳桿菌屬
+description:en: LACTOBACILLUS is a genus of Gram-positive, facultative anaerobic or microaerophilic, rod-shaped, non-spore-forming bacteria. Lactobacillus is the most common probiotic found in food such as yogurt, and it is diverse in its application to maintain human well-being. Some Lactobacillus species are used as starter cultures in industry for controlled fermentation in the production of wine, yogurt, cheese, sauerkraut, pickles, beer, cider, kimchi, cocoa, kefir, and other fermented foods.
 wikidata:en: Q1061596
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus
-
-
-# description:en:LACTOBACILLUS ACIDOPHILUS is a species of gram positive bacteria in the genus Lactobacillus. L. acidophilus is a homofermentative, microaerophilic species, fermenting sugars into lactic acid. These strains are commercially used in many dairy products in the production of acidophilus-type yogurt.
 
 < en: Lactobacillus
 en: Lactobacillus acidophilus, L. acidophilus
@@ -1425,6 +1403,7 @@ zh: 嗜酸乳桿菌
 # zh-hk:嗜酸乳酸桿菌
 # zh-sg:嗜酸乳酸杆菌
 # zh-tw:嗜酸乳酸菌
+description:en: LACTOBACILLUS ACIDOPHILUS is a species of gram positive bacteria in the genus Lactobacillus. L. acidophilus is a homofermentative, microaerophilic species, fermenting sugars into lactic acid. These strains are commercially used in many dairy products in the production of acidophilus-type yogurt.
 wikidata:en: Q132644
 wikipedia:en: https://en.wikipedia.org/wiki/Lactobacillus_acidophilus
 
