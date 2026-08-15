@@ -1979,8 +1979,8 @@ sh: Transglutaminaza
 sr: трансглутаминаза
 # sr-ec:трансглутаминаза
 # sr-el:transglutaminaza
-vegan:en: maybe
 description:en: In commercial food processing, TRANSGLUTAMINASE is used to bond proteins together. It is produced by Streptoverticillium mobaraense fermentation in commercial quantities or extracted from animal blood.
+vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q423646
 wikipedia:en: https://en.wikipedia.org/wiki/Transglutaminase
@@ -3301,8 +3301,6 @@ it: latte di bufala pastorizzato
 
 ################################# CONCENTRATED MILKS ###########################
 
-# description:en:EVAPORATED MILK, known in some countries as "unsweetened condensed milk", is a shelf-stable canned milk product with about 60% of the water removed from fresh milk. It differs from sweetened condensed milk, which contains added sugar. Sweetened condensed milk requires less processing since the added sugar inhibits bacterial growth.
-
 < en: milk
 en: evaporated milk
 bg: неподсладено полукондензирано мляко
@@ -3990,7 +3988,6 @@ it: yogurt intero
 nl: roomyoghurt
 
 
-# mild yogurt is a fermented milk product using other species of lactobacillus than Lactobacillus bulgaricus. See https://de.wikipedia.org/wiki/Sauermilchprodukte#G%C3%A4rung_mit_speziellen_Kulturen (German)
 < en: yogurt
 en: mild yogurt
 ca: iogurt ensucrat
@@ -3999,6 +3996,7 @@ fr: yaourt doux
 hr: blagi jogurt
 it: yogurt delicato
 nl: milde yogurt
+comment:en: mild yogurt is a fermented milk product using other species of lactobacillus than Lactobacillus bulgaricus. See https://de.wikipedia.org/wiki/Sauermilchprodukte#G%C3%A4rung_mit_speziellen_Kulturen (German)
 
 < en: mild yogurt
 en: skimmed mild yogurt
@@ -4038,7 +4036,6 @@ it: yogurt britannico
 < en: low fat yogurt
 fr: yaourt britannique à faible teneur en matières grasses
 
-#comment:en:There is a lot of discussion on this subject https://en.wikipedia.org/wiki/Talk:Strained_yogurt. Many marketing issues, so lets just follow what is found as ingredients and not merge them.
 < en: yogurt
 en: greek yogurt
 bg: цедено мляко
@@ -4050,6 +4047,7 @@ it: yogurt greco
 nl: Griekse yoghurt
 pl: jogurt grecki, jogurt typu greckiego
 sk: Grécky jogurt
+comment:en: There is a lot of discussion on this subject https://en.wikipedia.org/wiki/Talk:Strained_yogurt. Many marketing issues, so lets just follow what is found as ingredients and not merge them.
 
 < en: greek yogurt
 en: Plain Greek-style Yogurt
@@ -4090,8 +4088,6 @@ it: rivestimento allo yogurt
 #                                Kefir
 #
 ###################################################################################################
-
-# description:en:Kefir or kephir is a fermented milk drink similar to a thin yogurt that is made from kefir grains, a specific type of mesophilic symbiotic culture. The drink originated in the Caucasus, Eastern Europe and Russia, where it is prepared by inoculating cow, goat, or sheep milk with kefir grains. Wikipedia contributors. (2019, September 6). Kefir. In Wikipedia, The Free Encyclopedia.
 
 < en: dairy
 en: kefir, kephir
@@ -4142,6 +4138,7 @@ uk: Кефір
 wa: Kefir
 zh: 克非尔
 zh_yue: 克菲爾乳酪
+description:en: Kefir or kephir is a fermented milk drink similar to a thin yogurt that is made from kefir grains, a specific type of mesophilic symbiotic culture. The drink originated in the Caucasus, Eastern Europe and Russia, where it is prepared by inoculating cow, goat, or sheep milk with kefir grains.
 vegan:en: no
 vegetarian:en: maybe
 wikidata:en: Q185749
@@ -16681,7 +16678,6 @@ hr: djelomično hidrogenirano ulje repice
 it: olio di colza parzialmente idrogenato
 pl: olej rzepakowy częściowo uwodorniony, tłuszcz roślinny rzepakowy częściowo uwodorniony
 
-# Use only the word canola in this ingredient, as it is only for the american variety of rapeseed
 < en: rapeseed oil
 en: canola oil
 bg: олио от канола
@@ -16699,6 +16695,7 @@ ja: キャノーラ油, なたね油
 nl: canola olie, canolaolie
 # sv: rybsolja, rypsolja # duplicate, unclear which is correct
 tr: kanola yağı
+comment: Use only the word canola in this ingredient, as it is only for the american variety of rapeseed
 description:en: Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 description:es: El aceite de colza (aceite de nabina o de canola) es el extracto de la semilla de la colza, usado sobre todo en el norte de Europa como condimento y para el alumbrado.
 description:pt: Canola é um cultivo criado para ter baixo teor de ácido erúcico. O termo canola (Brassica napus L., Brassica rapa L., e Brassica juncea) se refere a variedades de plantas de três espécies da família das crucíferas, pertencentes ao gênero Brassica, que produzem um óleo comestível.
@@ -16924,15 +16921,10 @@ ciqual_food_name:fr: Huile d'arachide
 description:en: PEANUT OIL, also known as groundnut oil or arachis oil, is a mild-tasting vegetable oil derived from peanuts.
 ecobalyse:en: c704400c-9108-49a8-a79a-b830eccb6b5e
 from_palm_oil:en: no
-usda_ndb_proxy_code:en: 4042
-usda_ndb_proxy_name:en: Oil, peanut, salad or cooking
-wikidata:en: Q265878
-wikipedia:en: https://en.wikipedia.org/wiki/Peanut_oil
-
-< en: peanut oil
-en: salad or cooking peanut oil
 usda_ndb_code:en: 4042
 usda_ndb_name:en: Oil, peanut, salad or cooking
+wikidata:en: Q265878
+wikipedia:en: https://en.wikipedia.org/wiki/Peanut_oil
 
 < en: vegetable oil
 en: sesame oil, sesame seed oil
@@ -16990,15 +16982,10 @@ ciqual_food_name:en: Sesame oil
 ciqual_food_name:fr: Huile de sésame
 description:en: SESAME OIL is an edible vegetable oil derived from sesame seeds.
 from_palm_oil:en: no
-usda_ndb_proxy_code:en: 4058
-usda_ndb_proxy_name:en: Oil, sesame, salad or cooking
-wikidata:en: Q212317
-wikipedia:en: https://en.wikipedia.org/wiki/Sesame_oil
-
-< en: sesame oil
-en: salad or cooking sesame oil
 usda_ndb_code:en: 4058
 usda_ndb_name:en: Oil, sesame, salad or cooking
+wikidata:en: Q212317
+wikipedia:en: https://en.wikipedia.org/wiki/Sesame_oil
 
 < en: sesame oil
 en: toasted sesame oil, roasted sesame oil
@@ -17128,15 +17115,10 @@ description:nl: Sojaolie is uit sojazaad gewonnen spijsolie. Sojaolie is de mees
 description:pt: O óleo de soja é extraído da semente de soja e é utilizado como fonte de alimento.
 description:sv: Sojaolja är en fet olja, som kan utvinnas genom pressning eller extraktion av sojabönor.
 from_palm_oil:en: no
-usda_ndb_proxy_code:en: 4044
-usda_ndb_proxy_name:en: Oil, soybean, salad or cooking
-wikidata:en: Q926892
-wikipedia:en: https://en.wikipedia.org/wiki/Soybean_oil
-
-< en: soya oil
-en: salad or cooking soybean oil
 usda_ndb_code:en: 4044
 usda_ndb_name:en: Oil, soybean, salad or cooking
+wikidata:en: Q926892
+wikipedia:en: https://en.wikipedia.org/wiki/Soybean_oil
 
 < en: soya oil
 en: non-gmo soybean oil
@@ -17323,8 +17305,6 @@ nl: zonnebloemvet geheel gehard, geheel geharde zonnebloem
 #nl:zonnebloemvet ongehard
 # ingredient/non-hydrogenated-sunflower-fat has no products @2019-04-16
 
-# description:en:SAFFLOWER (Carthamus tinctorius) is a highly branched, herbaceous, thistle-like annual plant. It is commercially cultivated for vegetable oil extracted from the seeds.
-
 < en: vegetable oil
 # <en:en:safflower
 en: safflower oil
@@ -17493,8 +17473,6 @@ hr: ulje kikirikija ili ulje lješnjaka
 hu: mogyoró olaj, Mogyoróolaj
 it: olio di arachidi o olio di nocciole
 
-# description:en:LINSEED OIL, also known as flaxseed oil or flax oil, is a colourless to yellowish oil obtained from the dried, ripened seeds of the flax plant (Linum usitatissimum).
-
 < en: vegetable oil
 en: sunflower oil, sunflower seed oil, sunflower vegetable oil
 ar: زيت زهرة الشمس
@@ -17569,8 +17547,6 @@ hr: organsko suncokretovo ulje
 hu: bio napraforgóolaj
 it: olio di girasole biologico
 nl: olie van biologische zonnebloempitten, olie van biologisch zonnebloempitten, biozonnebloemolie, bio zonnebloemolie
-
-# description:en:Hydrogenation is a chemical process by adding hydrogen to liquid vegetable oils, so it would remain solid at room temperature
 
 < en: sunflower oil
 en: partially hydrogenated sunflower oil
@@ -17696,8 +17672,6 @@ fr: huile de tournesol oléique désodorisée
 < en: sunflower oil
 fr: oléisol®
 
-# In current edible oil refining, deodorization is also the process in which free (nonesterifed) fatty acids (in the case of physical refining) and volatile contaminants are stripped and unwanted color pigments are degraded (heat bleaching).
-
 < en: sunflower oil
 en: deodorized sunflower oil
 de: desodoriertes Sonnenblumenöl
@@ -17709,11 +17683,11 @@ hu: szagtalanított napraforgóolaj
 it: deodorato olio di semi di girasole
 nl: ontgeurde zonnebloemolie
 
-#can be from various sources so it gets its own entry
 en: omega 9
 de: Omega 9, Omega-9-Fettsäuren
 hr: omega 9
 it: omega 9
+comment:en: omega 9 can be from various sources so it gets its own entry
 
 < en: vegetable oil
 en: teaseed oil
@@ -17823,9 +17797,7 @@ en: lard and vegetable oil household shortening
 usda_ndb_code:en: 4544
 usda_ndb_name:en: Shortening, household, lard and vegetable oil
 
-# description:en:ESSENTIAL OIL is a concentrated hydrophobic liquid containing volatile aroma compounds from plants.
 
-# removing essential oils from vegetable oils (stephane 20190617)
 #<en:vegetable oil
 en: essential oil
 af: Eteriese olie
@@ -17882,12 +17854,14 @@ uk: Ефірні олії
 uz: Efir moylari
 vi: Tinh dầu
 zh: 精油
-from_palm_oil:en: no
-wikidata:en: Q170885
 # ast:Aceite esencial
 # lmo:Òi esensiài
 # sco:essential ile
 # tyv:Эфирлиг үстер
+comment:en: removing essential oils from vegetable oils (stephane 20190617)
+description:en: ESSENTIAL OIL is a concentrated hydrophobic liquid containing volatile aroma compounds from plants.
+from_palm_oil:en: no
+wikidata:en: Q170885
 wikipedia:en: https://en.wikipedia.org/wiki/Essential_oil
 
 < en: essential oil
