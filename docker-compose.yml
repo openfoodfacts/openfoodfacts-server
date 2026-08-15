@@ -1,4 +1,4 @@
-﻿x-backend-conf: &backend-conf
+x-backend-conf: &backend-conf
   image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
   environment:
     - PRODUCERS_PLATFORM
@@ -204,6 +204,6 @@ volumes:
 
 networks:
   default:
-    name: product-opener
+    name: ${PRODUCT_OPENER_NETWORK:-product-opener}
 
 

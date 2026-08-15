@@ -107,7 +107,8 @@ $sftp_root = "/mnt/podata/sftp";
 $geolite2_path = $ENV{GEOLITE2_PATH};
 
 $mongodb_host = $ENV{MONGODB_HOST} || "mongodb";
-$mongodb = $producers_platform ? "off-pro" : "off";
+my $flavor_short = $ENV{PRODUCT_OPENER_FLAVOR_SHORT} || "off";
+$mongodb = $ENV{MONGODB_DATABASE} || ($producers_platform ? "${flavor_short}-pro" : $flavor_short);
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
 $memd_servers = ["memcached:11211"];
