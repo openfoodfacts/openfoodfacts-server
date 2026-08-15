@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [],
    "ingredients_lc" : "en",
    "ingredients_n" : 0,
@@ -20,6 +21,9 @@
    "ingredients_without_ecobalyse_ids_n" : 0,
    "known_ingredients_n" : 0,
    "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "specific_ingredients" : [
       {
          "id" : "en:strawberry",

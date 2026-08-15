@@ -139,9 +139,8 @@ my $script_out = `perl scripts/export_database.pl`;
 # print STDERR "cp $csv_filename $expected_result_dir/export_database.csv.test \n";
 # system("cp $csv_filename $expected_result_dir/export_database.csv.test");
 
-# Note we don't save the CSV file for this test as it contains modified dates
 ProductOpener::Test::compare_csv_file_to_expected_results($csv_filename, $expected_result_dir . "/export_database",
-	$update_expected_results, "export_database", 0);
+	$update_expected_results, "export_database");
 
 # CSV export
 

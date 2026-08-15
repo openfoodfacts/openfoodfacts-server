@@ -158,7 +158,7 @@ sub compute_missions() {
 
 		compute_missions_for_user($user_ref);
 
-		# This assumes email is not affectd and will not update Keycloak
+		# This assumes email is not affected and will not update Keycloak
 		store_user_preferences($user_ref);
 
 		foreach my $missionid (keys %{$user_ref->{missions}}) {

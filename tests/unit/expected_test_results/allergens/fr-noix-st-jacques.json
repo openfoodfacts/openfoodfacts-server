@@ -2,6 +2,7 @@
    "allergens_tags" : [
       "en:molluscs"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:scallop",
@@ -74,6 +75,9 @@
       "en:1"
    ],
    "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {

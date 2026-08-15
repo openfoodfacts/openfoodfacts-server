@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/init_request/;
-use ProductOpener::HTTP qw/write_cors_headers single_param/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$User_id %User is_admin_user/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/country_to_cc/;
@@ -86,14 +86,9 @@ else {
 
 my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($response_ref);
 
-# We need to send the header Access-Control-Allow-Credentials=true so that websites
-# such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
-# can read the resulting response.
-
 # The Access-Control-Allow-Origin header must be set to the value of the Origin header
 my $r = Apache2::RequestUtil->request();
-my $allow_credentials = 1;
-write_cors_headers($allow_credentials);
+
 # Write a session cookie if we were passed a user id and password
 if ($request_ref->{cookie}) {
 	$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});

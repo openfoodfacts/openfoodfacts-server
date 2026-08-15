@@ -33,6 +33,7 @@
       "en:prepared-vegetables",
       "en:pickled-vegetables"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:salty-and-fatty-products",
    "food_groups_tags" : [
       "en:salty-snacks",
@@ -65,7 +66,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "11093",
+         "ciqual_proxy_food_code" : "11093",
          "id" : "en:dill",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 9.33333333333333,
@@ -76,7 +77,8 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "11000",
+         "ciqual_proxy_food_code" : "11000",
+         "ecobalyse_code" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
          "id" : "en:garlic",
          "is_in_taxonomy" : 1,
          "percent" : 0.6,
@@ -156,16 +158,16 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
       "en:dill",
-      "en:garlic",
       "en:horseradish",
       "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 4,
+   "ingredients_without_ecobalyse_ids_n" : 3,
    "known_ingredients_n" : 6,
    "lc" : "pl",
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-computed",

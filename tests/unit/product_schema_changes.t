@@ -1527,6 +1527,12 @@ my @tests = (
 				"en:lactic-ferments", "en:ferment", "en:microbial-culture", "en:rennet",
 				"en:enzyme", "en:coagulating-enzyme", "en:salt"
 			],
+			# stores and purchase places have normalized values (without en: prefix) for stores_tags and purchase_places_tags
+			# and the source value is in "stores" and "purchase_places" fields
+			stores => "Intermarché, Biocoop, Trader Joe's",
+			stores_tags => ["intermarche", "biocoop", "trader-joe-s"],
+			purchase_places => "Saint-Maur des Fossés, Paris, France",
+			purchase_places_tags => ["saint-maur-des-fosses", "paris", "france"]
 		},
 	],
 

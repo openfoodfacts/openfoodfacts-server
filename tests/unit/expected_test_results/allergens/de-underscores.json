@@ -3,9 +3,10 @@
       "en:gluten",
       "en:soybeans"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "9410",
+         "ciqual_food_code" : "25598",
          "id" : "en:seitan",
          "ingredients" : [
             {
@@ -245,6 +246,7 @@
       "en:vegetable-oil-and-fat",
       "en:red-bean",
       "en:vegetable",
+      "en:pod-and-seed-vegetable",
       "en:legume",
       "en:pulse",
       "en:wholemeal-spelt-flour",
@@ -315,7 +317,8 @@
    ],
    "lc" : "de",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "tags_sources" : {
       "allergens" : {

@@ -849,6 +849,7 @@
    "environmental_score_tags" : [
       "d"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:cheese",
    "food_groups_tags" : [
       "en:milk-and-dairy-products",
@@ -944,6 +945,7 @@
       "en:environmental-score-missing-data-origins",
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
@@ -960,7 +962,8 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
       "en:packagings-not-complete",
-      "en:packagings-number-of-components-0"
+      "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set"
    ],
    "nova_group_debug" : "no nova group if too many ingredients are unknown: 2 out of 2",
    "nova_group_error" : "too_many_unknown_ingredients",
@@ -978,7 +981,7 @@
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
-            "is_cheese" : 1,
+            "is_cheese" : true,
             "is_fat" : 0,
             "is_water" : 0,
             "proteins" : null,
@@ -1000,7 +1003,7 @@
             "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
-            "is_cheese" : 1,
+            "is_cheese" : true,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,

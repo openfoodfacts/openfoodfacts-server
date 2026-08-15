@@ -1,5 +1,6 @@
 {
    "allergens_tags" : [],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "fi:Saattaa sisältää muita gluteenia sisältäviä viljoja",
@@ -116,6 +117,9 @@
       "en:1"
    ],
    "lc" : "fi",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {

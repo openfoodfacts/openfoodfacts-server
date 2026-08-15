@@ -98,6 +98,16 @@ if (($env_query_string !~ $api_pattern) or ($request_ref->{method} !~ $method_pa
 	}
 }
 
+# Browser preflight requests do not include authentication cookies.
+# Return CORS headers before init_request() tries to authenticate the user.
+if (    ($request_ref->{method} eq 'OPTIONS')
+	and (defined $r->headers_in->{Origin})
+	and (defined $r->headers_in->{'Access-Control-Request-Method'}))
+{
+	print header(-status => 200, -type => 'text/plain', -charset => 'utf-8');
+	return Apache2::Const::OK;
+}
+
 # Initialize the request object, and authenticate the user
 init_request($request_ref);
 

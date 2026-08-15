@@ -569,6 +569,7 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "estimate_ingredients_percent_service" : "product_opener",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [
          "en:sugary-snacks",
@@ -630,7 +631,7 @@
          },
          {
             "ciqual_proxy_food_code" : "31016",
-            "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+            "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
             "id" : "en:sugar",
             "is_in_taxonomy" : 1,
             "percent_estimate" : 15.625,
@@ -729,6 +730,7 @@
          "en:environmental-score-missing-data-origins",
          "en:environmental-score-missing-data-packagings",
          "en:environmental-score-missing-data-warning",
+         "en:estimated-ingredients-with-product-opener",
          "en:forest-footprint-a",
          "en:forest-footprint-computed",
          "en:nutrients-estimated-from-ingredients",
@@ -742,6 +744,7 @@
          "en:packagings-empty",
          "en:packagings-not-complete",
          "en:packagings-number-of-components-0",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group" : 3,

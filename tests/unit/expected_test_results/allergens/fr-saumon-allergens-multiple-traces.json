@@ -2,6 +2,7 @@
    "allergens_tags" : [
       "en:fish"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "26036",
@@ -126,7 +127,8 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
-      "en:some-ingredients-with-specified-percent"
+      "en:some-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
    "tags_sources" : {
       "allergens" : {

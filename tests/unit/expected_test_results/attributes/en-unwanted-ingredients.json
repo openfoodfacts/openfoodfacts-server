@@ -847,11 +847,39 @@
    "environmental_score_tags" : [
       "e"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:cheese",
    "food_groups_tags" : [
       "en:milk-and-dairy-products",
       "en:cheese"
    ],
+   "forest_footprint_2026" : {
+      "grade" : "d",
+      "primary_ingredients" : {
+         "en:cocoa" : {},
+         "en:coffee" : {},
+         "en:palm-oil" : {
+            "footprint_per_kg" : 0.034375,
+            "grade" : "d",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.034375,
+                  "ingredient_category_id" : "en:palm-oil",
+                  "ingredient_id" : "en:palm-oil-and-fat",
+                  "origin_footprint" : 0.055,
+                  "origin_id" : "en:unknown",
+                  "percent" : 62.5,
+                  "primary_ingredient_id" : "en:palm-oil",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
+         }
+      },
+      "total_footprint_per_kg" : 0.034375
+   },
    "images" : {
       "selected" : {}
    },
@@ -972,6 +1000,7 @@
       "en:environmental-score-missing-data-origins",
       "en:environmental-score-missing-data-packagings",
       "en:environmental-score-missing-data-warning",
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-missing-fiber",
       "en:nutriscore-missing-nutrition-data",
@@ -988,7 +1017,8 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
       "en:packagings-not-complete",
-      "en:packagings-number-of-components-0"
+      "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set"
    ],
    "nova_group" : 4,
    "nova_group_debug" : "",
@@ -1029,7 +1059,7 @@
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
-            "is_cheese" : 1,
+            "is_cheese" : true,
             "is_fat" : 0,
             "is_water" : 0,
             "proteins" : null,
@@ -1051,7 +1081,7 @@
             "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
-            "is_cheese" : 1,
+            "is_cheese" : true,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,

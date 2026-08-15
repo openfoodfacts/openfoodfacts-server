@@ -69,7 +69,7 @@ BEGIN {
 		$process_global_redis_events
 
 		$recipe_estimator_url
-		$recipe_estimator_scipy_url
+		$recipe_estimator_service
 
 		$mongodb
 		$mongodb_host
@@ -107,6 +107,10 @@ BEGIN {
 
 		$build_cache_repo
 		$serialize_to_json
+
+		$health_check_api_key
+
+		$ecobalyse_api_token
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -194,18 +198,18 @@ $flavor = 'off';
 	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases/latest",
 	f_droid_app_link => "https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web",
-	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utm_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utm_medium=web",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web",
 	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
 	x_account => "OpenFoodFacts",
 	x_account_fr => "OpenFoodFactsfr",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
+<link rel="manifest" href="/cgi/manifest.pl">
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
-<link rel="manifest" href="/images/favicon/off/site.webmanifest">
 <link rel="mask-icon" href="/images/favicon/off/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/off/favicon.ico">
 <meta name="msapplication-TileColor" content="#00aba9">
@@ -414,28 +418,6 @@ $options{users_who_can_upload_small_images} = {
 			)
 		],
 	},
-	# 2025-08-25 prevent municorn-calorie-counter-app from editing nutrients
-	# see https://github.com/openfoodfacts/contributor-quality-issues/issues/18
-	{
-		name => "municorn-calorie-counter-app nutrients edition",
-		conditions => [["user_id", "municorn-calorie-counter-app"],],
-		actions => [
-			["ignore_nutriment_energy-kj"], ["ignore_nutriment_energy-kcal"],
-			["ignore_nutriment_fat"], ["ignore_nutriment_saturated-fat"],
-			["ignore_nutriment_trans-fat"], ["ignore_nutriment_monounsaturated-fat"],
-			["ignore_nutriment_polyunsaturated-fat"], ["ignore_nutriment_cholesterol"],
-			["ignore_nutriment_carbohydrates"], ["ignore_nutriment_carbohydrates-total"],
-			["ignore_nutriment_sugars"], ["ignore_nutriment_added_sugars"],
-			["ignore_nutriment_fiber"], ["ignore_nutriment_proteins"],
-			["ignore_nutriment_salt"], ["ignore_nutriment_sodium"],
-			["ignore_nutriment_alcohol"], ["ignore_nutriment_vitamin-d"],
-			["ignore_nutriment_calcium"], ["ignore_nutriment_potassium"],
-			["ignore_serving_size"],
-			# block image selection
-			["block_if_regexp_match_id", "^(front|ingredients|nutrition|packaging).*"],
-			["block_if_regexp_match_imagefield", "^(front|ingredients|nutrition|packaging).*"],
-		],
-	},
 );
 
 # server constants
@@ -466,13 +448,20 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
-# recipe-estimator product service
-# To test a locally running recipe-estimator with product opener in a docker dev environment:
-# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
 $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
-$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
+
+# Ecobalyse API token, needs to be generated on https://ecobalyse.beta.gouv.fr/
+$ecobalyse_api_token = $ProductOpener::Config2::ecobalyse_api_token;
 
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
@@ -540,6 +529,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -586,6 +576,11 @@ my @related_applications = (
 		'url' => 'https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner'
 	},
 	{'platform' => 'ios', 'id' => 'id588797948', 'url' => 'https://apps.apple.com/app/id588797948'},
+	{
+		'platform' => 'f-droid',
+		'id' => 'openfoodfacts.github.scrachx.openfood',
+		'url' => 'https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood'
+	},
 );
 
 my $manifest = {
@@ -764,6 +759,8 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 	brands
+	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable

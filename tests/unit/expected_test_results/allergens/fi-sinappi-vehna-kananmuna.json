@@ -3,16 +3,18 @@
       "en:gluten",
       "en:mustard"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "11013",
-         "id" : "en:mustard",
+         "id" : "en:mustard-powder",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
-         "processing" : "en:powder",
-         "text" : "sinappi"
+         "text" : "sinappijauhe",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "ciqual_proxy_food_code" : "9610",
@@ -26,18 +28,11 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:mustard"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:mustard"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fi",
    "ingredients_n" : 2,
@@ -46,12 +41,16 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:mustard",
+      "en:mustard-powder",
       "en:wheat-semolina"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
+      "en:mustard-powder",
+      "en:condiment",
       "en:mustard",
+      "en:spice",
+      "en:mustard-seed",
       "en:wheat-semolina",
       "en:cereal",
       "en:wheat",
@@ -68,7 +67,7 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:mustard",
+      "en:mustard-powder",
       "en:wheat-semolina"
    ],
    "ingredients_without_ecobalyse_ids_n" : 2,
@@ -88,6 +87,9 @@
       "en:1"
    ],
    "lc" : "fi",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "tags_sources" : {
       "allergens" : {
          "ingredients" : {

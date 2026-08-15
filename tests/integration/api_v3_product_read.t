@@ -64,6 +64,23 @@ my @products = (
 			nutriment_fat => 8.5,
 		)
 	},
+	# product with tags fields, to test new tags schema in v3.6
+	{
+		%{dclone(\%default_product_form)},
+		(
+			lc => "en",
+			lang => "en",
+			code => '200000000036',
+			product_name => "Some product 3 with tags fields",
+			generic_name => "Tester 3",
+			ingredients_text => "milk, eggs, sugar",
+			origin => "france",
+			categories => "cookies, coffee",
+			labels => "EU organic, fair trade",
+			stores => "Carrefour, Méga-Marché",
+			emb_codes => "FR 56081 CE, FR 56082 CE",
+		)
+	},
 );
 
 foreach my $product_form_override (@products) {
@@ -342,7 +359,32 @@ my $tests_ref = [
 	{
 		test_case => 'get-existing-product-new-tags-schema-api-v3-6',
 		method => 'GET',
-		path => '/api/v3.6/product/4260392550101',
+		path => '/api/v3.6/product/200000000036',
+		expected_status_code => 200,
+	},
+	# Those fields don't exist in v3.6
+	{
+		test_case => 'get-existing-product-new-tags-schema-api-v3-6-fields',
+		method => 'GET',
+		path => '/api/v3.6/product/200000000036',
+		query_string => '?fields=stores,emb_codes,categories,origins,labels',
+		expected_status_code => 200,
+	},
+	# _tags fields exist in v3.6
+	{
+		test_case => 'get-existing-product-new-tags-schema-api-v3-6-tags-fields',
+		method => 'GET',
+		path => '/api/v3.6/product/200000000036',
+		query_string => '?fields=labels_tags,stores_tags,emb_codes_tags,categories_tags,origins_tags',
+		expected_status_code => 200,
+	},
+	# in v3.5, asking for ?fields=stores,emb_codes,origin should still work and return the correct fields
+	# even if we don't ask for stores_tags
+	{
+		test_case => 'get-existing-product-new-tags-schema-api-v3-5-fields',
+		method => 'GET',
+		path => '/api/v3.5/product/200000000036',
+		query_string => '?fields=stores,emb_codes,origins,categories,labels',
 		expected_status_code => 200,
 	},
 ];

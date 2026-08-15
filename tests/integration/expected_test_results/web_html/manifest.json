@@ -1,0 +1,51 @@
+{
+   "background_color" : "#ffffff",
+   "description" : "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world",
+   "display" : "standalone",
+   "icons" : [
+      {
+         "sizes" : "512x512",
+         "src" : "https://static.openfoodfacts.localhost/images/favicon/android-chrome-512x512.png",
+         "type" : "image/png"
+      },
+      {
+         "sizes" : "192x192",
+         "src" : "https://static.openfoodfacts.localhost/images/favicon/android-chrome-192x192.png",
+         "type" : "image/png"
+      },
+      {
+         "sizes" : "32x32",
+         "src" : "https://static.openfoodfacts.localhost/images/favicon/favicon-32x32.png",
+         "type" : "image/png"
+      },
+      {
+         "sizes" : "16x16",
+         "src" : "https://static.openfoodfacts.localhost/images/favicon/favicon-16x16.png",
+         "type" : "image/png"
+      }
+   ],
+   "lang" : "en",
+   "name" : "Open Food Facts EN",
+   "prefer_related_applications" : true,
+   "related_applications" : [
+      {
+         "id" : "org.openfoodfacts.scanner",
+         "platform" : "play",
+         "url" : "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"
+      },
+      {
+         "id" : "id588797948",
+         "platform" : "ios",
+         "url" : "https://apps.apple.com/app/id588797948"
+      },
+      {
+         "id" : "openfoodfacts.github.scrachx.openfood",
+         "platform" : "f-droid",
+         "url" : "https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood"
+      }
+   ],
+   "scope" : "/",
+   "short_name" : "OFF EN",
+   "start_url" : "http://world.openfoodfacts.localhost",
+   "theme_color" : "#ffffff"
+}

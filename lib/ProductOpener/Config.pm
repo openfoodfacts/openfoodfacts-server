@@ -237,4 +237,7 @@ $ProductOpener::Config::options{rate_limit_allow_list_blocks} = [
 # Slack options
 %ProductOpener::Config::slack_hook_urls = %ProductOpener::Config2::slack_hook_urls || ();
 
+# Health check API key
+$ProductOpener::Config::health_check_api_key = $ProductOpener::Config2::health_check_api_key || undef;
+
 1;

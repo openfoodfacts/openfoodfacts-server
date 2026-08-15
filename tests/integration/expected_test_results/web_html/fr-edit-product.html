@@ -14,10 +14,10 @@
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="Une base de données collaborative, gratuite, libre et ouverte d'ingrédients, de valeurs nutritionnelles et d'informations sur les produits alimentaires du monde entier">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
+    <link rel="manifest" href="/cgi/manifest.pl">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
-<link rel="manifest" href="/images/favicon/off/site.webmanifest">
 <link rel="mask-icon" href="/images/favicon/off/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/off/favicon.ico">
 <meta name="msapplication-TileColor" content="#00aba9">
@@ -95,6 +95,7 @@
   _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -178,7 +179,7 @@
 									<li class="divider"></li>
 									<li><label>Ajouter des produits</label></li>
                 <!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
-									<li><a href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
+									<li><a href="/application-mobile-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Ajouter un produit</a></li>
 								
 
@@ -226,7 +227,8 @@
 									Test
 								</a>
 								<ul class="dropdown">
-									<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Paramètres du compte</a></li>
+									<li><a href="//keycloak:8080/realms/openfoodfacts/account?referrer=OFF&referrer_uri=http%3A%2F%2Ffr.openfoodfacts.localhost" target="_blank" rel="noopener"><span class="material-icons">account_box</span> Paramètres du compte</a></li>
+										<li><a href="/cgi/user.pl?type=edit&userid=tests"><span class="material-icons">settings</span> Préférences</a></li>
 
 									
 
@@ -312,7 +314,7 @@
 						<li><a href="/decouvrir" class="top-bar-links">Découvrir</a></li>
 						<li><a href="/contribuer" class="top-bar-links">Contribuer</a></li>
 						<li class="show-for-xlarge-up"><a href="//fr.pro.openfoodfacts.org/" class="top-bar-links">Producteurs</a></li>
-						<li class="flex-grid getapp"><a href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=search_and_links_promo_fr" class="buttonbar button" style="top:0;"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="bt-text">Installer l'app</span></a></li>
+						<li class="flex-grid getapp"><a href="/application-mobile-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=search_and_links_promo_fr" class="buttonbar button" style="top:0;"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="bt-text">Installer l'app</span></a></li>
 				<!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
           </ul>
 					</section>
@@ -6815,7 +6817,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                     <tr id="nutrient_unsaturated-fat_tr" class="nutrient_main" style="display:none">
                                         <td>
                                             <label class="nutrient_label" for="nutrient_unsaturated-fat">
-                                                Unsaturated fat
+                                                Acides gras insaturés
                                                 
                                             </label>
                                         </td>
@@ -20177,6 +20179,546 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 
                                 
 
+                                    <tr id="nutrient_vitamin-d2_tr" class="nutrient_main" style="display:none">
+                                        <td>
+                                            <label class="nutrient_label" for="nutrient_vitamin-d2">
+                                                Ergocalciférol (vitamine D₂)
+                                                
+                                            </label>
+                                        </td>
+
+                                        <!-- loop on preparation and per to get the input sets for the selected source -->
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100g" >
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100g_nutrients_vitamin-d2_value_string" name="nutrition_input_sets_as_sold_100g_nutrients_vitamin-d2_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d2_as_sold_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d2_as_sold_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d2_unit" id="nutrition_input_sets_as_sold_100g_nutrients_vitamin-d2_unit" name="nutrition_input_sets_as_sold_100g_nutrients_vitamin-d2_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100ml_nutrients_vitamin-d2_value_string" name="nutrition_input_sets_as_sold_100ml_nutrients_vitamin-d2_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d2_as_sold_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d2_as_sold_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d2_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_vitamin-d2_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_vitamin-d2_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_1l_nutrients_vitamin-d2_value_string" name="nutrition_input_sets_as_sold_1l_nutrients_vitamin-d2_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d2_as_sold_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d2_as_sold_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d2_unit" id="nutrition_input_sets_as_sold_1l_nutrients_vitamin-d2_unit" name="nutrition_input_sets_as_sold_1l_nutrients_vitamin-d2_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_serving_nutrients_vitamin-d2_value_string" name="nutrition_input_sets_as_sold_serving_nutrients_vitamin-d2_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d2_as_sold_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d2_as_sold_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d2_unit" id="nutrition_input_sets_as_sold_serving_nutrients_vitamin-d2_unit" name="nutrition_input_sets_as_sold_serving_nutrients_vitamin-d2_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100g" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100g_nutrients_vitamin-d2_value_string" name="nutrition_input_sets_prepared_100g_nutrients_vitamin-d2_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d2_prepared_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d2_prepared_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d2_unit" id="nutrition_input_sets_prepared_100g_nutrients_vitamin-d2_unit" name="nutrition_input_sets_prepared_100g_nutrients_vitamin-d2_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100ml_nutrients_vitamin-d2_value_string" name="nutrition_input_sets_prepared_100ml_nutrients_vitamin-d2_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d2_prepared_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d2_prepared_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d2_unit" id="nutrition_input_sets_prepared_100ml_nutrients_vitamin-d2_unit" name="nutrition_input_sets_prepared_100ml_nutrients_vitamin-d2_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_1l_nutrients_vitamin-d2_value_string" name="nutrition_input_sets_prepared_1l_nutrients_vitamin-d2_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d2_prepared_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d2_prepared_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d2_unit" id="nutrition_input_sets_prepared_1l_nutrients_vitamin-d2_unit" name="nutrition_input_sets_prepared_1l_nutrients_vitamin-d2_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_serving_nutrients_vitamin-d2_value_string" name="nutrition_input_sets_prepared_serving_nutrients_vitamin-d2_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d2_prepared_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d2_prepared_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d2_unit" id="nutrition_input_sets_prepared_serving_nutrients_vitamin-d2_unit" name="nutrition_input_sets_prepared_serving_nutrients_vitamin-d2_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+
+                                        <!-- Global nutrient unit column-->
+                                        <td class="nutrient_unit_col">
+                                            
+                                                
+                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_vitamin-d2_unit" name="nutrition_input_sets_prepared_serving_nutrients_vitamin-d2_unit">
+                                                        
+                                                            <option value="g"  >g</option>
+                                                        
+                                                            <option value="mg"  >mg</option>
+                                                        
+                                                            <option value="µg" selected="selected" >mcg/µg</option>
+                                                        
+                                                    </select>
+                                                
+                                            
+                                        </td>
+
+                                    </tr>
+
+                                
+
+                                    <tr id="nutrient_vitamin-d3_tr" class="nutrient_main" style="display:none">
+                                        <td>
+                                            <label class="nutrient_label" for="nutrient_vitamin-d3">
+                                                Cholécalciférol (Vitamine D₃)
+                                                
+                                            </label>
+                                        </td>
+
+                                        <!-- loop on preparation and per to get the input sets for the selected source -->
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100g" >
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100g_nutrients_vitamin-d3_value_string" name="nutrition_input_sets_as_sold_100g_nutrients_vitamin-d3_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d3_as_sold_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d3_as_sold_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d3_unit" id="nutrition_input_sets_as_sold_100g_nutrients_vitamin-d3_unit" name="nutrition_input_sets_as_sold_100g_nutrients_vitamin-d3_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                                <option value="% DV"  >% DV</option>
+                                                            
+                                                                <option value="IU"  >IU</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100ml_nutrients_vitamin-d3_value_string" name="nutrition_input_sets_as_sold_100ml_nutrients_vitamin-d3_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d3_as_sold_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d3_as_sold_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d3_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_vitamin-d3_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_vitamin-d3_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                                <option value="% DV"  >% DV</option>
+                                                            
+                                                                <option value="IU"  >IU</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_1l_nutrients_vitamin-d3_value_string" name="nutrition_input_sets_as_sold_1l_nutrients_vitamin-d3_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d3_as_sold_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d3_as_sold_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d3_unit" id="nutrition_input_sets_as_sold_1l_nutrients_vitamin-d3_unit" name="nutrition_input_sets_as_sold_1l_nutrients_vitamin-d3_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                                <option value="% DV"  >% DV</option>
+                                                            
+                                                                <option value="IU"  >IU</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_serving_nutrients_vitamin-d3_value_string" name="nutrition_input_sets_as_sold_serving_nutrients_vitamin-d3_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d3_as_sold_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d3_as_sold_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d3_unit" id="nutrition_input_sets_as_sold_serving_nutrients_vitamin-d3_unit" name="nutrition_input_sets_as_sold_serving_nutrients_vitamin-d3_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                                <option value="% DV"  >% DV</option>
+                                                            
+                                                                <option value="IU"  >IU</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100g" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100g_nutrients_vitamin-d3_value_string" name="nutrition_input_sets_prepared_100g_nutrients_vitamin-d3_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d3_prepared_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d3_prepared_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d3_unit" id="nutrition_input_sets_prepared_100g_nutrients_vitamin-d3_unit" name="nutrition_input_sets_prepared_100g_nutrients_vitamin-d3_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                                <option value="% DV"  >% DV</option>
+                                                            
+                                                                <option value="IU"  >IU</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100ml_nutrients_vitamin-d3_value_string" name="nutrition_input_sets_prepared_100ml_nutrients_vitamin-d3_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d3_prepared_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d3_prepared_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d3_unit" id="nutrition_input_sets_prepared_100ml_nutrients_vitamin-d3_unit" name="nutrition_input_sets_prepared_100ml_nutrients_vitamin-d3_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                                <option value="% DV"  >% DV</option>
+                                                            
+                                                                <option value="IU"  >IU</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_1l_nutrients_vitamin-d3_value_string" name="nutrition_input_sets_prepared_1l_nutrients_vitamin-d3_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d3_prepared_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d3_prepared_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d3_unit" id="nutrition_input_sets_prepared_1l_nutrients_vitamin-d3_unit" name="nutrition_input_sets_prepared_1l_nutrients_vitamin-d3_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                                <option value="% DV"  >% DV</option>
+                                                            
+                                                                <option value="IU"  >IU</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_serving_nutrients_vitamin-d3_value_string" name="nutrition_input_sets_prepared_serving_nutrients_vitamin-d3_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_vitamin-d3_prepared_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_vitamin-d3_prepared_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_vitamin-d3_unit" id="nutrition_input_sets_prepared_serving_nutrients_vitamin-d3_unit" name="nutrition_input_sets_prepared_serving_nutrients_vitamin-d3_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg"  >mg</option>
+                                                            
+                                                                <option value="µg" selected="selected" >mcg/µg</option>
+                                                            
+                                                                <option value="% DV"  >% DV</option>
+                                                            
+                                                                <option value="IU"  >IU</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+
+                                        <!-- Global nutrient unit column-->
+                                        <td class="nutrient_unit_col">
+                                            
+                                                
+                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_vitamin-d3_unit" name="nutrition_input_sets_prepared_serving_nutrients_vitamin-d3_unit">
+                                                        
+                                                            <option value="g"  >g</option>
+                                                        
+                                                            <option value="mg"  >mg</option>
+                                                        
+                                                            <option value="µg" selected="selected" >mcg/µg</option>
+                                                        
+                                                            <option value="% DV"  >% DV</option>
+                                                        
+                                                            <option value="IU"  >IU</option>
+                                                        
+                                                    </select>
+                                                
+                                            
+                                        </td>
+
+                                    </tr>
+
+                                
+
                                     <tr id="nutrient_vitamin-e_tr" class="nutrient_main" style="display:none">
                                         <td>
                                             <label class="nutrient_label" for="nutrient_vitamin-e">
@@ -29596,7 +30138,7 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
                                     <tr id="nutrient_chlorophyl_tr" class="nutrient_main" style="display:none">
                                         <td>
                                             <label class="nutrient_label" for="nutrient_chlorophyl">
-                                                Chlorophyl
+                                                Chlorophylle
                                                 
                                             </label>
                                         </td>
@@ -32977,6 +33519,258 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 
                                 
 
+                                    <tr id="nutrient_dry-residue_tr" class="nutrient_main" style="display:none">
+                                        <td>
+                                            <label class="nutrient_label" for="nutrient_dry-residue">
+                                                Résidu sec
+                                                
+                                            </label>
+                                        </td>
+
+                                        <!-- loop on preparation and per to get the input sets for the selected source -->
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100g" >
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100g_nutrients_dry-residue_value_string" name="nutrition_input_sets_as_sold_100g_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_as_sold_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_as_sold_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_as_sold_100g_nutrients_dry-residue_unit" name="nutrition_input_sets_as_sold_100g_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_100ml_nutrients_dry-residue_value_string" name="nutrition_input_sets_as_sold_100ml_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_as_sold_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_as_sold_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_as_sold_100ml_nutrients_dry-residue_unit" name="nutrition_input_sets_as_sold_100ml_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_1l_nutrients_dry-residue_value_string" name="nutrition_input_sets_as_sold_1l_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_as_sold_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_as_sold_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_as_sold_1l_nutrients_dry-residue_unit" name="nutrition_input_sets_as_sold_1l_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_as_sold_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_as_sold_serving_nutrients_dry-residue_value_string" name="nutrition_input_sets_as_sold_serving_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_as_sold_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_as_sold_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_as_sold_serving_nutrients_dry-residue_unit" name="nutrition_input_sets_as_sold_serving_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100g" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100g_nutrients_dry-residue_value_string" name="nutrition_input_sets_prepared_100g_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_prepared_100g" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_prepared_100g" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_prepared_100g_nutrients_dry-residue_unit" name="nutrition_input_sets_prepared_100g_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_100ml" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_100ml_nutrients_dry-residue_value_string" name="nutrition_input_sets_prepared_100ml_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_prepared_100ml" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_prepared_100ml" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_prepared_100ml_nutrients_dry-residue_unit" name="nutrition_input_sets_prepared_100ml_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_1l" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_1l_nutrients_dry-residue_value_string" name="nutrition_input_sets_prepared_1l_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_prepared_1l" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_prepared_1l" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_prepared_1l_nutrients_dry-residue_unit" name="nutrition_input_sets_prepared_1l_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                                <td class="nutrient_col nutrition_input_sets_prepared_serving" style="display:none">
+                                                    
+
+                                                    <input class="nutrient_value soft-background" id="nutrition_input_sets_prepared_serving_nutrients_dry-residue_value_string" name="nutrition_input_sets_prepared_serving_nutrients_dry-residue_value_string" value="" autocomplete="off"/>
+
+                                                    <span id="nutrient_question_mark_dry-residue_prepared_serving" class="question_mark">?</span>
+                                                    <span id="nutrient_sugars_warning_dry-residue_prepared_serving" class="sugars_warning">Please enter a valid value.</span>
+
+                                                    <!-- we have hidden cells for the unit of each nutrient in each input set as the API expect a unit for each value -->
+                                                    <!-- in practice, we display another column with a unit value that is copied to all input sets displayed -->
+                                                    <!-- if we alredy have different units for existing values, we show the units for each input set instead -->
+                                                    <span style="display:none">
+
+                                                    
+                                                        <select class="nutrient_unit nutrient_dry-residue_unit" id="nutrition_input_sets_prepared_serving_nutrients_dry-residue_unit" name="nutrition_input_sets_prepared_serving_nutrients_dry-residue_unit">
+                                                            
+                                                                <option value="g"  >g</option>
+                                                            
+                                                                <option value="mg" selected="selected" >mg</option>
+                                                            
+                                                                <option value="µg"  >mcg/µg</option>
+                                                            
+                                                        </select>
+                                                    
+                                                    </span>
+                                                </td>
+                                            
+                                        
+
+                                        <!-- Global nutrient unit column-->
+                                        <td class="nutrient_unit_col">
+                                            
+                                                
+                                                    <select class="nutrient_unit global_nutrient_unit" id="global_nutrient_dry-residue_unit" name="nutrition_input_sets_prepared_serving_nutrients_dry-residue_unit">
+                                                        
+                                                            <option value="g"  >g</option>
+                                                        
+                                                            <option value="mg" selected="selected" >mg</option>
+                                                        
+                                                            <option value="µg"  >mcg/µg</option>
+                                                        
+                                                    </select>
+                                                
+                                            
+                                        </td>
+
+                                    </tr>
+
+                                
+
                                     <tr id="nutrient_water_tr" class="nutrient_main" style="display:none">
                                         <td>
                                             <label class="nutrient_label" for="nutrient_water">
@@ -33846,15 +34640,15 @@ Vous acceptez d'être crédité par les ré-utilisateurs par un lien vers le pro
 						<div class="row">
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - //play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
-								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_fr"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Disponible sur Google Play" loading="lazy" height="40" width="120"></a>
+								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utm_medium=web&utm_campaign=install_the_app_android_footer_fr"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_French.svg" alt="Disponible sur Google Play" loading="lazy" height="40" width="120"></a>
 
-								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Disponible sur F-Droid" loading="lazy" height="40" width="120"></a>
+								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-fr.svg" alt="Disponible sur F-Droid" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - //world.openfoodfacts.org/images/apps/off.apk -->
-								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_fr"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="APK Android" loading="lazy" height="40" width="120"></a>
+								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utm_medium=web&utm_campaign=install_the_app_apk_footer_fr"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="APK Android" loading="lazy" height="40" width="120"></a>
 
 								<!-- msgid "//apps.apple.com/app/open-beauty-facts/id1122926380" -->
-								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_fr"><img src="/images/misc/appstore/black/appstore_FR.svg" alt="Disponible sur l'App Store"  loading="lazy" height="40" width="120"></a>
+								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utm_medium=web&utm_campaign=install_the_app_ios_footer_fr"><img src="/images/misc/appstore/black/appstore_FR.svg" alt="Disponible sur l'App Store"  loading="lazy" height="40" width="120"></a>
 							</div>
 						</div>
 					</div>
@@ -34208,7 +35002,7 @@ var other_nutrients = [
 { "id" : "cerotic-acid", "text" : "Acide cérotique"},
 { "id" : "montanic-acid", "text" : "Acide montanique"},
 { "id" : "melissic-acid", "text" : "Acide mélissique"},
-{ "id" : "unsaturated-fat", "text" : "Unsaturated fat"},
+{ "id" : "unsaturated-fat", "text" : "Acides gras insaturés"},
 { "id" : "monounsaturated-fat", "text" : "Acides gras monoinsaturés"},
 { "id" : "omega-9-fat", "text" : "Acides gras Oméga 9"},
 { "id" : "polyunsaturated-fat", "text" : "Acides gras polyinsaturés"},
@@ -34255,6 +35049,8 @@ var other_nutrients = [
 { "id" : "vitamin-a", "text" : "Vitamine A (rétinol)"},
 { "id" : "beta-carotene", "text" : "Bêta carotène"},
 { "id" : "vitamin-d", "text" : "Vitamine D"},
+{ "id" : "vitamin-d2", "text" : "Ergocalciférol (vitamine D₂)"},
+{ "id" : "vitamin-d3", "text" : "Cholécalciférol (Vitamine D₃)"},
 { "id" : "vitamin-e", "text" : "Vitamine E (tocophérol)"},
 { "id" : "vitamin-k", "text" : "Vitamine K"},
 { "id" : "vitamin-c", "text" : "Vitamine C (acide ascorbique)"},
@@ -34291,7 +35087,7 @@ var other_nutrients = [
 { "id" : "fruits-vegetables-legumes", "text" : "Fruits‚ légumes‚ légumes secs"},
 { "id" : "collagen-meat-protein-ratio", "text" : "Rapport collagène sur protéines de viande (maximum)"},
 { "id" : "cocoa", "text" : "Cacao (minimum)"},
-{ "id" : "chlorophyl", "text" : "Chlorophyl"},
+{ "id" : "chlorophyl", "text" : "Chlorophylle"},
 { "id" : "carbon-footprint", "text" : "Empreinte carbone"},
 { "id" : "glycemic-index", "text" : "Indice glycémique"},
 { "id" : "water-hardness", "text" : "Dureté de l'eau"},
@@ -34304,6 +35100,7 @@ var other_nutrients = [
 { "id" : "nitrate", "text" : "Nitrate"},
 { "id" : "acidity", "text" : "Acidité"},
 { "id" : "carbohydrates-total", "text" : "Glucides totaux (inclut les fibres)"},
+{ "id" : "dry-residue", "text" : "Résidu sec"},
 { "id" : "water", "text" : "Eau"}
 ];
 </script>

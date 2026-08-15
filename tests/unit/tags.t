@@ -70,7 +70,7 @@ my @tags = ();
 is(
 	\@tags,
 	[
-		'en:added-sugar', 'en:fruit', 'en:citrus-fruit', 'en:disaccharide',
+		'en:fruit', 'en:added-sugar', 'en:citrus-fruit', 'en:disaccharide',
 		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
 		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
