@@ -1658,8 +1658,6 @@ yi: ענזים
 zh: 酶
 # enzymes should not be a NOVA 3 marker, commenting line below
 # nova:en: 3
-vegan:en: maybe
-vegetarian:en: maybe
 # als:Enzym
 # ast:enzima
 # azb:آنزیم
@@ -1685,6 +1683,8 @@ vegetarian:en: maybe
 # yue:酵素
 comment:en: Although enzyme and ferment are the same from a biological point of view, it is unclear how it is used in the food context.
 description:en: ENZYME - is a macromolecular biological catalysts. Enzymes accelerate chemical reactions.
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q8047
 wikipedia:en: https://en.wikipedia.org/wiki/Enzyme
 
@@ -1732,8 +1732,6 @@ sr: сириште
 sv: löpe, ostlöpe, ostenzym
 tr: lab
 zh: 凝乳酶
-vegan:en: maybe
-vegetarian:en: maybe
 # gsw:Lab
 # scn:Quagghiu
 # vec:Conajo
@@ -1743,7 +1741,9 @@ vegetarian:en: maybe
 # zh-hk:凝乳酶
 # zh-sg:凝乳酶
 # zh-tw:凝乳酶
-description:en: RENNET is a complex set of enzymes produced in the stomachs of ruminant mammals. Chymosin, its key component, is a protease enzyme that curdles the casein in milk
+description:en: RENNET is a complex set of enzymes produced in the stomachs of ruminant mammals. Chymosin, its key component, is a protease enzyme that curdles the casein in milk.
+vegan:en: maybe
+vegetarian:en: maybe
 wikidata:en: Q326900
 wikipedia:en: https://en.wikipedia.org/wiki/Rennet
 
@@ -2130,9 +2130,6 @@ ciqual_food_name:fr: Lait 2e âge, poudre soluble (préparation de suite)
 
 ################################ BUTTER related stuff ##########################
 
-# description:en:BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying.
-# comment:en:Butter is not added to the fat section (to much water?)
-
 < en: dairy
 en: butter
 am: ቅቤ
@@ -2231,13 +2228,6 @@ vo: bör
 wa: boure
 yi: פוטער
 zh: 黄油, 黃油
-ciqual_proxy_food_code:en: 16400
-ciqual_proxy_food_name:en: Butter, 82% fat, unsalted
-ciqual_proxy_food_name:fr: Beurre à 82% MG, doux
-ecobalyse:en: bbda834e-1548-4682-a461-c367dc1ce517
-ecobalyse_labels_en_organic:en: aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
-vegan:en: no
-vegetarian:en: yes
 # als:Anke, Butter
 # arc:ܚܐܘܬܐ
 # ast:mantega
@@ -2271,11 +2261,17 @@ vegetarian:en: yes
 # wuu:白脱
 # zh-min-nan:bá-tah
 # yue:牛油
+ciqual_proxy_food_code:en: 16400
+ciqual_proxy_food_name:en: Butter, 82% fat, unsalted
+ciqual_proxy_food_name:fr: Beurre à 82% MG, doux
+comment:en: Butter is not added to the fat section (to much water?)
+description:en: BUTTER is a dairy product with high butterfat content which is solid when chilled and at room temperature in some regions, and liquid when warmed. It is made by churning fresh or fermented cream or milk to separate the butterfat from the buttermilk. It is generally used as a spread on plain or toasted bread products and a condiment on cooked vegetables, as well as in cooking, such as baking, sauce making, and pan frying.
+ecobalyse:en: bbda834e-1548-4682-a461-c367dc1ce517
+ecobalyse_labels_en_organic:en: aeedb0fa-81a7-4f21-9bf1-7ec9c4c69ed9
+vegan:en: no
+vegetarian:en: yes
 wikidata:en: Q34172
 wikipedia:en: https://en.wikipedia.org/wiki/Butter
-
-# description:en:All categories of butter are sold in both salted and unsalted forms. Either granular salt or a strong brine are added to salted butter during processing. In addition to enhanced flavor, the addition of salt acts as a preservative.
-# description:fr:Beurre avec une salinité moins de 0,5 %
 
 < en: butter
 en: unsalted butter
@@ -2294,6 +2290,8 @@ carbon_footprint_fr_foodges_value:fr: 9.5
 ciqual_food_code:en: 16400
 ciqual_food_name:en: Butter, 82% fat, unsalted
 ciqual_food_name:fr: Beurre à 82% MG, doux
+description:enAll categories of butter are sold in both salted and unsalted forms. Either granular salt or a strong brine are added to salted butter during processing. In addition to enhanced flavor, the addition of salt acts as a preservative.
+description:fr: Beurre avec une salinité moins de 0,5 %.
 usda_ndb_code:en: 1145
 usda_ndb_name:en: Butter, without salt
 wikidata:en: Q57312618
@@ -2339,9 +2337,6 @@ ciqual_food_code:en: 16402
 ciqual_food_name:en: Butter, 80% fat, lightly salted
 ciqual_food_name:fr: Beurre à 80% MG, demi-sel
 
-
-# description:fr:BEURRE SALÉ a un taux de sel supérieur à 3%
-
 < en: butter
 en: salted butter
 ca: mantega salada, mantega amb sal
@@ -2359,6 +2354,7 @@ pt: manteiga com sal
 ciqual_food_code:en: 16403
 ciqual_food_name:en: Butter, 80% fat, salted
 ciqual_food_name:fr: Beurre à 80% MG, salé
+description:fr: BEURRE SALÉ a un taux de sel supérieur à 3%
 usda_ndb_code:en: 1001
 usda_ndb_name:en: Butter, salted
 wikipedia:fr: https://fr.wikipedia.org/wiki/Beurre_salé
@@ -2407,8 +2403,6 @@ en: unsalted churned butter
 fr: beurre doux de baratte, beurre de baratte doux
 it: burro sbattuto dolce, burro dolce sbattuto
 
-# description:en:PASTEURIZED BUTTER is butter created from pasteurized milk
-
 < en: butter
 en: pasteurized butter, pasteurised butter
 ca: mantega pasteuritzada
@@ -2420,6 +2414,7 @@ hr: pasterizirani maslac
 hu: pasztőrözött vaj, pasztörizált vaj, hőkezelt vaj
 it: burro pastorizzato
 nl: gepasteuriseerde boter
+description:en: PASTEURIZED BUTTER is butter created from pasteurized milk
 
 < en: pasteurized butter
 en: organic pasteurized butter
@@ -2441,13 +2436,9 @@ de: Deutsche Markenbutter
 < de: Deutsche Markenbutter
 de: Deutsche Markenbutter mildgesäuert
 
-# description:en:BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
-
 < en: butter
-fr: beurre d'isigny AOP
-
-< en: butter
-fr: beurre d'isigny
+fr: beurre d'isigny AOP, beurre d'isigny
+description:en: BEURRE D'ISIGNY - butter produced in Europe with protected geographical indications
 
 < en: salted butter
 < fr: beurre d'isigny AOP
@@ -2463,13 +2454,10 @@ it: burro di Charentes DOP
 < en: butter
 fr: Beurre Charentes-Poitou
 
-# description:fr:BEURRE DE CUISINE - beurre pasteurisé déshydraté, contenant environ 95% de matières grasses laitières
 
 < en: butter
 fr: beurre de cuisine, beurre cuisinier
-
-# description:en:FRESH BUTTER
-# comment:en:Not sure what the definition is. It is normally homemade butter. Maybe products use it to indicated not reconstituted butter.
+description:fr: BEURRE DE CUISINE - beurre pasteurisé déshydraté, contenant environ 95% de matières grasses laitières
 
 < en: butter
 en: fresh butter
@@ -2483,14 +2471,13 @@ hu: friss vaj
 it: burro fresco
 nl: verse boter
 pt: manteiga fresca
+comment:en: Not sure what the definition is. It is normally homemade butter. Maybe products use it to indicated not reconstituted butter.
 
-# description:en:BEURRE LAITIER - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
 
 < en: butter
 fr: beurre laitier
 nl: melkerijboter
-
-# description:en:RECONSTITUTED BUTTER - When combined with the correct ratio of water to restore a normal water / butterfat balance for butter, Concentrated Butter is called “reconstituted butter.”
+description:en: BEURRE LAITIER - is a French term used to describe butter made in a creamery or small dairy, as opposed to on a farm or in a factory
 
 < en: butter
 en: reconstituted butter
@@ -2504,8 +2491,7 @@ hr: rekonstituirani maslac
 it: burro ricostituito
 lt: sviesto milteliai
 nl: gereconstitueerde boter
-
-# description:en:SWEET CREAM BUTTER is Butter made from pasteurized fresh cream is called sweet cream butter.
+description:en: RECONSTITUTED BUTTER - When combined with the correct ratio of water to restore a normal water / butterfat balance for butter, Concentrated Butter is called “reconstituted butter.”
 
 < en: butter
 en: sweet cream butter
@@ -2514,6 +2500,7 @@ fi: imelä voi
 fr: Beurre de crème pasteurisée
 hr: maslac od slatkog vrhnja
 it: Burro di panna dolce
+description:en: SWEET CREAM BUTTER is Butter made from pasteurized fresh cream is called sweet cream butter.
 wikidata:en: Q26882140
 
 #< en: compound
@@ -2537,8 +2524,6 @@ hr: kozji maslac
 it: burro di capra
 
 ################################## MILK related stuff ##########################
-
-# description:en:MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 
 < en: dairy
 en: milk, milk ingredients
@@ -2728,6 +2713,7 @@ ciqual_proxy_food_code:en: 19051
 ciqual_proxy_food_name:en: Milk, skimmed, pasteurised
 ciqual_proxy_food_name:fr: Lait écrémé, pasteurisé
 density_g_per_ml:en: 1.03
+description:en: MILK - a white liquid nutrient-rich food produced by the mammary glands of mammals.
 ecobalyse:en: 8f3863e7-f981-4367-90a2-e1aaa096a6e0
 ecobalyse_labels_en_organic:en: 2bf307e8-8cb0-400b-a4f1-cf615d9e96f4
 vegan:en: no
@@ -2780,17 +2766,6 @@ wikidata:en: Q1616491
 
 ########################## LOW FAT and SKIMMED MILK ############################
 
-# description:en:LOW-FAT MILK is a 1% fat milk, sold in the United States
-
-# description:en:Skimmed milk (British English) is made when all the cream is removed from whole milk. It tends to contain around 0.1% fat. Láit écrémé has a maximum of 0.5% fat.
-
-# description:en:Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
-
-# Nonfat, skim milk and skimmed milk are often used as synonyms and the
-# regulatory differences are small, with the average being between 0.0% and
-# 0.2% fat. We are thus using only one taxonomy entry for all milks with
-# a maximum of 0.5% fat
-
 # TODO, processing problem in some language "skimmed milk" is a single word (without milk)
 < en: milk
 en: skimmed milk, skim milk, non-fat milk, nonfat milk, fat-free milk, low-fat milk, 1% fat milk, lowfat milk
@@ -2827,10 +2802,12 @@ sv: Skummjölk, lättmjölk
 uk: Знежирене молоко
 vi: Sữa gầy
 zh: 脱脂牛奶
+# yue:脫脂奶
 ciqual_proxy_food_code:en: 19051
 ciqual_proxy_food_name:en: Milk, skimmed, pasteurised
 ciqual_proxy_food_name:fr: Lait écrémé, pasteurisé
-# yue:脫脂奶
+comment:en: Nonfat, skim milk and skimmed milk are often used as synonyms and the regulatory differences are small, with the average being between 0.0% and 0.2% fat. We are thus using only one taxonomy entry for all milks with a maximum of 0.5% fat
+description:en: LOW-FAT MILK is a 1% fat milk, sold in the United States. Skim milk (American English), is made when all the cream is removed from whole milk. It tends to contain around 0% fat.
 wikidata:en: Q2352187
 wikipedia:en: https://en.wikipedia.org/wiki/Skimmed_milk
 
@@ -2855,8 +2832,8 @@ sv: pastöriserad skummjölk
 ciqual_food_code:en: 19051
 ciqual_food_name:en: Milk, skimmed, pasteurised
 ciqual_food_name:fr: Lait écrémé, pasteurisé
+description:en: Skimmed milk (British English) is made when all the cream is removed from whole milk. It tends to contain around 0.1% fat. Láit écrémé has a maximum of 0.5% fat.
 
-#kept due to ciqual
 < en: skimmed milk
 en: UHT sterilised skimmed milk, UHT skimmed milk, ultra heat treated skimmed milk
 ca: llet descremada esterilitzada UHT, llet desnatada esterilitzada UHT
@@ -2870,10 +2847,9 @@ nl: UHT-gesteriliseerde magere melk
 ciqual_food_code:en: 19050
 ciqual_food_name:en: Milk, skimmed, UHT
 ciqual_food_name:fr: Lait écrémé, UHT
+comment:en: kept due to ciqual
 
 ################################# SEMI-SKIMMED MILK ############################
-
-# description:en:LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 
 < en: milk
 en: semi-skimmed milk, reduced-fat milk, partly skimmed milk, partially skimmed milk, part skim milk
@@ -2896,6 +2872,7 @@ sv: mellanmjölk
 ciqual_proxy_food_code:en: 19041
 ciqual_proxy_food_name:en: Milk, semi-skimmed, UHT
 ciqual_proxy_food_name:fr: Lait demi-écrémé, UHT
+description:en: LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
 wikidata:en: Q10572454
 wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_demi-écrémé
 
@@ -2910,7 +2887,6 @@ pt: leite UHT meio gordo, leite meio gordo UHT
 ciqual_food_code:en: 19041
 ciqual_food_name:en: Milk, semi-skimmed, UHT
 ciqual_food_name:fr: Lait demi-écrémé, UHT
-#274 @2021-09-23
 
 < en: semi-skimmed milk
 en: pasteurized semi-skimmed milk
@@ -2930,11 +2906,8 @@ carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_food_code:en: 19042
 ciqual_food_name:en: Milk, semi-skimmed, pasteurised
 ciqual_food_name:fr: Lait demi-écrémé, pasteurisé
-#4146 @2021-09-23
 
 ################################## FULL FAT MILKS ##############################
-
-# description:fr:WHOLE MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
 < en: milk
 en: whole milk, full cream milk
@@ -2964,6 +2937,7 @@ zh: 全脂牛奶
 ciqual_food_code:en: 19023
 ciqual_food_name:en: Milk, whole, UHT
 ciqual_food_name:fr: Lait entier, UHT
+description:fr: WHOLE MILK (around 3.5–4% fat), dans l'Union européenne, le lait entier doit contenir au minimum 3,50 % en masse de matière grasse.
 
 < en: whole milk
 en: UHT pasteurised whole milk
@@ -2981,7 +2955,6 @@ pl: mleko pełne UHT
 ciqual_food_code:en: 19023
 ciqual_food_name:en: Milk, whole, UHT
 ciqual_food_name:fr: Lait entier, UHT
-# 105 in 2 languages @2021-09-22
 
 < en: whole milk
 en: pasteurised whole milk, pasteurized whole milk
@@ -3002,11 +2975,8 @@ ro: lapte integral pasteurizat
 ciqual_food_code:en: 19024
 ciqual_food_name:en: Milk, whole, pasteurised
 ciqual_food_name:fr: Lait entier, pasteurisé
-#1241 @2011-09-23
 
 ################################## COW MILKS ###################################
-
-# description:en:COW MILK - raw cow milk that probably has been treated (pasteurisation)
 
 < en: milk
 en: cow's milk, cows' milk, cow milk
@@ -3032,6 +3002,7 @@ th: น้ำนมโค
 tr: inek sütü
 uk: Коров'яче молоко
 zh: 牛奶
+description:en: COW MILK - raw cow milk that probably has been treated (pasteurisation)
 wikipedia:fr: https://fr.wikipedia.org/wiki/Lait_de_vache
 
 ################################# GOAT MILKS ###################################
@@ -3081,7 +3052,6 @@ description:it: Il latte caprino è il tipo di latte generato dalle capre.
 description:nb: Geitemelk er melk fra geit (Capra aegagrus hircus).
 description:pl: Geitenmelk is de melk die gevormd wordt in de uier van een geit.
 wikidata:en: Q1418287
-# 1.797 in 16 @2021-08-25
 
 < en: goat milk
 en: whole goat milk, whole goat milk, raw goat milk
@@ -3139,8 +3109,6 @@ hr: obrano kozje mlijeko
 hu: sovány kecsketej
 it: latte di capra scremato
 
-# description:en:GOATS MILK - raw goat milk that has been treated (pasteurisation)
-
 < en: goat milk
 en: pasteurised goat milk, pasteurized goat milk, pasteurised goatmilk
 bg: пастьоризирано козе мляко
@@ -3186,16 +3154,6 @@ ciqual_food_code:en: 19201
 ciqual_food_name:en: Goat milk, half skimmed, UHT pasteurized
 ciqual_food_name:fr: Lait de chèvre, demi-écrémé, UHT
 
-
-#<en:pasteurised goat milk
-#en:organic pasteurised goat milk
-#bg:биологично пастьоризирано козе мляко
-#ca:llet de cabra pasteuritzada ecològica, llet pasteuritzada ecològica de cabra, llet ecològica #pasteuritzada de vaca
-#es:leche de cabra pasteurizada ecoloógica, leche pasteurizada ecológica de cabra, leche ecològica pasteuridaza de cabra
-#fi:luomu pastöroitu vuohenmaito
-#fr:lait de chevre pasteurisé issu de l'agriculture biologique
-#hu:pasztőrözött bio kecsketej
-
 ################################# SHEEP MILKS ##################################
 
 < en: milk
@@ -3237,16 +3195,12 @@ tr: koyun sütü
 tt: сарык сөте
 description:en: Sheep's milk (or ewes' milk) is the milk of domestic sheep.
 description:de: Schafmilch oder Schafsmilch ist die Milch von Schafen.
-usda_ndb_proxy_code:en: 1109
-usda_ndb_proxy_name:en: Milk, sheep, fluid
+usda_ndb_code:en: 1109
+usda_ndb_name:en: Milk, sheep, fluid
+usda_ndb_process:en: en:fluid
 wikidata:en: Q2736146
 wikipedia:en: https://en.wikipedia.org/wiki/Sheep_milk
 wiktionary:en: sheep_milk
-
-< en: sheeps milk
-en: fluid sheep milk
-usda_ndb_code:en: 1109
-usda_ndb_name:en: Milk, sheep, fluid
 
 < en: goat milk
 < en: sheeps milk
@@ -3288,42 +3242,12 @@ hu: zsírszegény juhtej
 it: latte di pecora scremato
 nl: mager schapenmelk
 
-#processing:en: en:raw
-#<en:sheeps milk
-#en:raw sheeps milk
-#bg:сурово овче мляко
-#ca:llet crua d'ovella, llet d'ovella crua
-#de:roher Schafmilch
-#el:ακατέργαστο πρόβειο γάλα
-#es:leche cruda de oveja, leche de oveja cruda
-#fi:lampaan raakamaito, raaka lampaanmaito, pastöroimaton lampaanmaito
-#fr:lait cru de brebis, lait de brebis non pasteurisé
-#hu:nyers juhtej
-#nl:rauwe schapenmelk
-
-#processing:en: en:pasteurised
-#<en:sheeps milk
-#en:pasteurized sheeps milk, pasteurised sheep's milk
-#bg:пастьоризирано овче мляко
-#ca:llet d'ovella pasteuritzada, llet pasteuritada d'ovella
-#de:pasteurisierte Schafsmilch, pasteurisierter Schafsmilch
-#es:Leche de oveja pasteurizada, leche pasteurizada de oveja
-#fi:pastöroitu lampaanmaito
-#fr:lait de brebis pasteurisé, lait pasteurisé de brebis
-#hr:pasterizirano ovčje mlijeko
-#hu:pasztőrözött juhtej
-#it:Latte di pecora pastorizzato
-#nl:gepasteuriseerde schapenmelk
-#ro:lapte de oaie pasteurizat
-#sv:pastöriserad fårmjölk
-
 < en: sheeps milk
 fr: lait de brebis thermisé
 ca: llet d'ovella termitzada, llet termitzada d'ovella
 es: leche de oveja termizada, leche termizada de oveja
 it: latte di pecora termizzato
 nl: thermische schapenmelk
-
 
 # <en:aggregate
 < en: goat's milk
@@ -3406,6 +3330,7 @@ zh: 淡奶
 # en-gb:evaporated milk
 # pt-br:leite evaporado
 # yue:淡奶
+description:en: EVAPORATED MILK, known in some countries as "unsweetened condensed milk", is a shelf-stable canned milk product with about 60% of the water removed from fresh milk. It differs from sweetened condensed milk, which contains added sugar. Sweetened condensed milk requires less processing since the added sugar inhibits bacterial growth.
 wikidata:en: Q13417087
 wikipedia:en: https://en.wikipedia.org/wiki/Evaporated_milk
 
