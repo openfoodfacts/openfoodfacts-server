@@ -409,7 +409,7 @@ my $tests_ref = [
 		subdomain => 'uk',
 		path => '/facets/ingredients?filter=bon&status=unknown',
 		expected_status_code => 200,
-		expected_type => 'html',
+		expected_type => 'none',
 		response_content_must_match =>
 			'http:\/\/world\.openfoodfacts\.localhost\/facets\/ingredients\?filter=bon&amp;status=unknown',
 	},
