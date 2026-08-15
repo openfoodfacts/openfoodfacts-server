@@ -4177,8 +4177,6 @@ it: kefir delicato
 #
 ###################################################################################################
 
-# description:en:WHEY is the liquid remaining after milk has been curdled and strained.
-
 # nova:en:whey
 < en: dairy
 en: whey, milk whey
@@ -4239,11 +4237,12 @@ zh: 乳清
 # ckb:پاڵاوتەی شیر
 # nds-nl:Wui
 # sco:Whey, milk serum
+comment:en: whey can be made from animal rennet
+description:en: WHEY is the liquid remaining after milk has been curdled and strained.
 nova:en: 4
 vegan:en: no
 vegetarian:en: maybe
 wikipedia:en: https://en.wikipedia.org/wiki/Whey
-# whey can be made from animal rennet
 
 < en: whey
 en: acid whey
@@ -5095,7 +5094,6 @@ vegetarian:en: yes
 wikidata:en: Q253333
 wikipedia:en: https://en.wikipedia.org/wiki/Soured_milk
 
-# description:en:FILMJÖLK (Swedish: [ˈfîːlmjœlk]), also known as fil, is a traditional fermented milk product from Sweden, and a common dairy product within the Nordic countries. It is made by fermenting cow's milk with a variety of bacteria from the species Lactococcus lactis and Leuconostoc mesenteroides.
 
 < en: dairy
 en: filmjölk
@@ -5105,6 +5103,7 @@ ja: フィールミョルク
 ko: 필미엘크
 nn: filmjølk
 sv: filmjölk, fil
+description:en: FILMJÖLK (Swedish: [ˈfîːlmjœlk]), also known as fil, is a traditional fermented milk product from Sweden, and a common dairy product within the Nordic countries. It is made by fermenting cow's milk with a variety of bacteria from the species Lactococcus lactis and Leuconostoc mesenteroides.
 wikidata:en: Q14732227
 wikipedia:en: https://en.wikipedia.org/wiki/Filmj%C3%B6lk
 
@@ -5113,7 +5112,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Filmj%C3%B6lk
 #                                Buttermilk
 #
 ###################################################################################################
-# description:en:BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
 
 < en: dairy
 en: buttermilk, butter milk, sweet cream buttermilk
@@ -5173,11 +5171,6 @@ ta: மோர்
 te: మజ్జిగ
 uk: сколотини
 zh: 酪漿
-ciqual_food_code:en: 19801
-ciqual_food_name:en: Fermented milk drink, plain, skimmed milk
-ciqual_food_name:fr: Lait fermenté à boire, nature, maigre
-vegan:en: no
-vegetarian:en: yes
 # bar:buddä milsch
 # be-tarask:масьлянка
 # ckb:دۆ
@@ -5195,13 +5188,14 @@ vegetarian:en: yes
 # zh-hk:酪漿
 # zh-sg:酪浆
 # zh-tw:酪漿
+ciqual_food_code:en: 19801
+ciqual_food_name:en: Fermented milk drink, plain, skimmed milk
+ciqual_food_name:fr: Lait fermenté à boire, nature, maigre
+description:en: BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
+vegan:en: no
+vegetarian:en: yes
 wikidata:en: Q106612
 wikipedia:en: https://en.wikipedia.org/wiki/Buttermilk
-# 9560 in 4 languages @2021-09-21
-
-#processing:en: en:pasteurised
-#<en:buttermilk
-#fr:babeurre pasteurisé
 
 #processing:en: en:powder not relevant due to nutrition
 < en: buttermilk
@@ -5239,9 +5233,7 @@ es: suero de mantequilla rehidratada
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
-# description:en:CHEESE is a dairy product derived from milk that is produced in a wide range of flavors, textures, and forms by coagulation of the milk protein casein.
-
+# < en: compound
 < en: dairy
 en: cheese
 af: Kaas
@@ -5376,11 +5368,6 @@ yi: קעז
 yo: wàràkàsì
 zh: 乾酪
 zu: Ushizi
-ciqual_proxy_food_code:en: 12999
-ciqual_proxy_food_name:en: Cheese (average)
-nova:en: 3
-vegan:en: no
-vegetarian:en: maybe
 # ang:Cīese
 # arc:ܓܒܬܐ
 # ary:فروماج
@@ -5465,6 +5452,12 @@ vegetarian:en: maybe
 # zh-my:起士
 # zh-sg:起士
 # zh-tw:起司
+ciqual_proxy_food_code:en: 12999
+ciqual_proxy_food_name:en: Cheese (average)
+description:en: CHEESE is a dairy product derived from milk that is produced in a wide range of flavors, textures, and forms by coagulation of the milk protein casein.
+nova:en: 3
+vegan:en: no
+vegetarian:en: maybe
 wikidata:en: Q10943
 wikipedia:en: https://en.wikipedia.org/wiki/Cheese
 
@@ -5557,8 +5550,6 @@ es: queso de leche de vaca cruda
 en: cow's cheese with chives
 hr: kravlji sir s vlascom
 
-# description:en:GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
-
 < en: cheese
 en: goat cheese, chèvre cheese
 ar: جبن الماعز
@@ -5601,14 +5592,15 @@ sw: getost
 ta: ஆட்டு பாலாடைகட்டி
 tr: keçi peyniri
 zh: 契福瑞芝士
-carbon_footprint_fr_foodges_ingredient:fr: Fromage frais de chèvre
-carbon_footprint_fr_foodges_value:fr: 3.6
 # ang:gāte cȳse
 # be-tarask:Казіны сыр
 # frr:geitetsiis
 # gsw:Ziegenkäse
 # sr-ec:козји сир
 # sr-el:kozji sir
+carbon_footprint_fr_foodges_ingredient:fr: Fromage frais de chèvre
+carbon_footprint_fr_foodges_value:fr: 3.6
+description:en: GOAT CHEESE, goats' cheese, or chèvre, is cheese made from goat's milk.
 wikidata:en: Q198815
 wikipedia:en: https://en.wikipedia.org/wiki/Goat_cheese
 
@@ -5713,8 +5705,6 @@ ciqual_food_name:en: Rocamadour cheese, from goat's milk
 ciqual_food_name:fr: Rocamadour (fromage de chèvre)
 wikidata:en: Q768189
 
-# description:en:SHEEP MILK CHEESE is a cheese prepared from sheep milk.
-
 < en: cheese
 # <en:category:en:Cheeses
 en: sheep's-milk cheese, Sheep Cheeses, Cheeses from sheep milk
@@ -5742,6 +5732,7 @@ sr: овчији сир
 sv: Fårost
 zh: 羊奶酪
 # de-ch:Schafskäse
+description:en: SHEEP MILK CHEESE is a cheese prepared from sheep milk.
 wikidata:en: Q1411808
 wikipedia:en: https://en.wikipedia.org/wiki/Sheep_milk_cheese
 
@@ -5796,7 +5787,6 @@ es: queso fresco desnatado
 hr: obrani meki bijeli sir
 it: formaggio bianco morbido scremato
 
-#< en: compound
 < en: cheese
 en: melted cheese
 bg: топено сирене
@@ -5851,12 +5841,12 @@ fr: fromage au lait cru
 ca: formatge de llet crua
 es: queso de leche cruda
 
-# comment:en:sometimes this is the description of the products
 
 < en: cheese
 fr: fromage au lait pasteurisé
 ca: formatge de llet pasteuritzada
 es: queso de leche pasteurizada
+comment:en: sometimes this is the description of the product
 
 < en: cheese
 en: cheese powder
@@ -6687,8 +6677,6 @@ ca: emmental francès ratllat, formatge emmental ratllat
 es: queso emmental francés rallado, queso emmenthal francés rallado
 
 
-#description:en: FROMAGE BLANC is a fresh cheese originating from the north of France and the south of Belgium.
-#comment:en: This cheese has translation issues as it is very similar to other fresh cheeses
 
 < en: cheese
 en: fromage blanc
@@ -6709,8 +6697,8 @@ sl: sveži sir
 sr: sveži sir
 ciqual_food_code:en: 19501
 ciqual_food_name:en: Quark, plain or fruit (average)
-# en-ca:Fromage blanc
-# en-gb:Fromage blanc
+comment:en: This cheese has translation issues as it is very similar to other fresh cheeses
+description:en: FROMAGE BLANC is a fresh cheese originating from the north of France and the south of Belgium.
 wikidata:en: Q3323634
 wikipedia:en: https://en.wikipedia.org/wiki/Fromage_blanc
 
@@ -6719,7 +6707,6 @@ fr: fromage blanc frais
 ca: formatge blanc fresc
 es: queso blanco fresco
 
-# description:en:QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 
 < en: Cheese
 en: cream cheese
@@ -6804,6 +6791,7 @@ zh: 奶渣
 # en-gb:Quark
 # olo:Ruahto
 # pt-br:Quark
+description:en: QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 wikidata:en: Q259642
 wikipedia:en: https://en.wikipedia.org/wiki/Quark_(dairy_product)
 
@@ -7240,9 +7228,6 @@ it: jarlsberg
 wikidata:en: Q1329765
 wikipedia:en: https://en.wikipedia.org/wiki/Jarlsberg_cheese
 
-
-# description:en:Lancashire is an English cow's-milk cheese from the county of Lancashire.
-
 < en: cheese
 en: Lancashire cheese
 bg: Ланкашър
@@ -7250,6 +7235,7 @@ de: Lancashire, Lancashire-Käse
 fr: fromage lancashire, fromage lancashire au lait pasteurisé
 hr: lancashire sir
 it: formaggio Lancashire
+description:en: Lancashire is an English cow's-milk cheese from the county of Lancashire.
 wikidata:en: Q1244290
 wikipedia:en: https://en.wikipedia.org/wiki/Lancashire_cheese
 
@@ -7388,9 +7374,6 @@ ciqual_food_code:en: 12030
 ciqual_food_name:en: Maroilles ""fermier"" cheese
 ciqual_food_name:fr: Maroilles fermier
 
-
-# description:en:MASCARPONE is an Italian cream cheese coagulated by the addition of certain acidic substances such as lemon juice, vinegar, citric acid or acetic acid.
-
 < en: cheese
 en: mascarpone, Mascarpone Cheese
 af: Mascarpone
@@ -7439,9 +7422,6 @@ tr: mascarpone
 uk: Маскарпоне
 vi: Mascarpone
 zh: 马斯卡邦尼奶酪
-ciqual_food_code:en: 19584
-ciqual_food_name:en: Mascarpone cheese, from cow's milk
-ciqual_food_name:fr: Mascarpone
 # lmo:Mascarpon
 # sco:Mascarpone
 # sr-ec:Маскарпоне
@@ -7453,6 +7433,10 @@ ciqual_food_name:fr: Mascarpone
 # zh-hk:馬斯卡彭芝士
 # zh-sg:马斯卡邦尼奶酪
 # zh-tw:馬斯卡彭起司
+ciqual_food_code:en: 19584
+ciqual_food_name:en: Mascarpone cheese, from cow's milk
+ciqual_food_name:fr: Mascarpone
+description:en: MASCARPONE is an Italian cream cheese coagulated by the addition of certain acidic substances such as lemon juice, vinegar, citric acid or acetic acid.
 wikidata:en: Q209889
 wikipedia:en: https://en.wikipedia.org/wiki/Mascarpone
 
@@ -7517,7 +7501,6 @@ it: mimolette extra vecchia
 ciqual_food_code:en: 12742
 ciqual_food_name:en: Mimolette cheese, extra old, from cow's milk
 ciqual_food_name:fr: Mimolette extra-vieille
-
 
 < en: cheese
 en: Monterey Jack, Monterey Jack Cheese
@@ -7976,9 +7959,6 @@ it: formaggio tipo Pecorino Romano
 wikidata:en: Q7362740
 wikipedia:en: https://en.wikipedia.org/wiki/Romano_cheese
 
-
-# description:en:PROVOLONE is an Italian cheese. It is an aged pasta filata (stretched-curd) cheese originating in Casilli near Vesuvius.
-
 < en: cheese
 en: provolone, provolone cheese
 af: Provolone
@@ -8006,6 +7986,7 @@ zh: 波羅伏洛芝士
 ciqual_food_code:en: 12716
 ciqual_food_name:en: Provolone cheese, from cow's milk
 ciqual_food_name:fr: Provolone
+description:en: PROVOLONE is an Italian cheese. It is an aged pasta filata (stretched-curd) cheese originating in Casilli near Vesuvius.
 usda_ndb_code:en: 1035
 usda_ndb_name:en: Cheese, provolone
 wikidata:en: Q1900114
@@ -8076,8 +8057,6 @@ fr: Reblochon AOP, Reblochon de Savoie AOP
 origins:en: en:france, en:savoy
 protected_name_type:en: en:pdo
 
-# description:en:Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
-
 < en: cheese
 en: red leicester, red leicester cheese
 af: red leicester
@@ -8095,6 +8074,7 @@ no: Red Leicester
 pl: Red Leicester
 th: เรดเลสเตอร์
 zh: 萊斯特芝士
+description:en: Red Leicester (also known simply as Leicester or Leicestershire cheese) is an English cheese, made in a similar manner to Cheddar cheese.
 wikidata:en: Q1892828
 wikipedia:en: https://en.wikipedia.org/wiki/Red_Leicester
 
@@ -8109,9 +8089,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Imokilly_Regato
 
 < en: regato
 fr: fromage regato végétarien
-
-
-# description:en:RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
 
 < en: cheese
 en: ricotta, ricotta cheese
@@ -8171,13 +8148,12 @@ ciqual_food_name:fr: Ricotta
 # zh-hk:里考塔
 # zh-sg:里考塔
 # zh-tw:里考塔
+description:en: RICOTTA is an Italian whey cheese made from sheep, cow, goat, or Italian water buffalo milk whey left over from the production of other cheeses.
 wikidata:en: Q216781
 wikipedia:en: https://en.wikipedia.org/wiki/Ricotta
 
 < en: ricotta
 fr: ricotta de brebis
-
-# description:en:ROQUEFORT is a sheep milk cheese from the south of France. The cheese is white, tangy, crumbly and slightly moist, with distinctive veins of blue mold. EU law dictates that only those cheeses aged in the natural Combalou caves of Roquefort-sur-Soulzon may bear the name Roquefort, as it is a recognised geographical indication, or has a protected designation of origin.
 
 < en: cheese
 en: roquefort, roquefort cheese, Roquefort cheese from ewe's milk
@@ -8219,6 +8195,7 @@ zh: 罗克福干酪
 ciqual_food_code:en: 12500
 ciqual_food_name:en: Roquefort cheese, from ewe's milk
 ciqual_food_name:fr: Roquefort
+description:en: ROQUEFORT is a sheep milk cheese from the south of France. The cheese is white, tangy, crumbly and slightly moist, with distinctive veins of blue mold. EU law dictates that only those cheeses aged in the natural Combalou caves of Roquefort-sur-Soulzon may bear the name Roquefort, as it is a recognised geographical indication, or has a protected designation of origin.
 usda_ndb_code:en: 1039
 usda_ndb_name:en: Cheese, roquefort
 wikidata:en: Q189221
@@ -8301,14 +8278,13 @@ origins:en: en:france
 protected_name_type:en: en:pgi
 wikidata:en: Q510126
 
-# description:en:Stilton is an English cheese, produced in two varieties: Blue, which has had Penicillium roqueforti added to generate a characteristic smell and taste, and White, which has not.
-
 < en: cheese
 en: Stilton, Stilton cheese
 de: Stilton
 fr: stilton
 hr: stilton
 it: stilton
+description:en: Stilton is an English cheese, produced in two varieties: Blue, which has had Penicillium roqueforti added to generate a characteristic smell and taste, and White, which has not.
 wikidata:en: Q466749
 wikipedia:en: https://en.wikipedia.org/wiki/Stilton_cheese
 
@@ -8325,9 +8301,6 @@ de: White Stilton, White-Stilton-Käse
 hr: bijeli stilton
 it: stilton bianco
 
-
-# description:en:TALEGGIO is a semisoft, washed-rind, smear-ripened Italian cheese that is named after Val Taleggio.
-
 < en: cheese
 en: taleggio
 xx: taleggio
@@ -8340,11 +8313,9 @@ ja: タレッジョ
 ko: 탈레조
 ru: таледжо
 uk: таледжіо
+description:en: TALEGGIO is a semisoft, washed-rind, smear-ripened Italian cheese that is named after Val Taleggio.
 wikidata:en: Q775835
 wikipedia:en: https://en.wikipedia.org/wiki/Taleggio_cheese
-
-
-# description:en:TILSIT cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley.
 
 < en: cheese
 en: tilsit
@@ -8371,6 +8342,7 @@ sr: Tilsiter
 sw: Tilsiter
 uk: Тільзитер
 # gsw:Tilsiter
+description:en :TILSIT cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley.
 wikidata:en: Q2433798
 wikipedia:en: https://en.wikipedia.org/wiki/Tilsit_cheese
 
@@ -8407,7 +8379,6 @@ description:nl: Tomme de Savoie is een halfharde kaas gemaakt in Savoie door ges
 wikidata:en: Q1247472
 wikipedia:en: https://en.wikipedia.org/wiki/Tomme_de_Savoie
 
-# description:en:Le VACHERIN FRIBOURGEOIS est un fromage suisse du canton de Fribourg.
 
 < en: cheese
 fr: Vacherin fribourgeois AOP
@@ -8415,6 +8386,7 @@ xx: Vacherin fribourgeois AOP
 de: Vacherin fribourgeois AOP
 ja: ヴァシュラン・フリブール
 ko: 바슈랭 프리부르주아
+description:en: Le VACHERIN FRIBOURGEOIS est un fromage suisse du canton de Fribourg.
 wikidata:en: Q677647
 wikipedia:fr: https://fr.wikipedia.org/wiki/Vacherin_fribourgeois
 
@@ -8605,7 +8577,6 @@ ca: preparació de formatges
 de: käsezubereitung
 es: preparación de quesos
 
-# description:en:HALLOUMI or haloumi is a semi-hard, unripened, brined cheese made from a mixture of goat's and sheep's milk, and sometimes also cow's milk.
 
 < en: cheese
 en: halloumi, halloumi cheese
@@ -8640,6 +8611,7 @@ tr: hellim
 uk: халлумі
 ur: حلومی
 zh: 哈羅米芝士
+description:en: HALLOUMI or haloumi is a semi-hard, unripened, brined cheese made from a mixture of goat's and sheep's milk, and sometimes also cow's milk.
 wikidata:en: Q549793
 wikipedia:en: https://en.wikipedia.org/wiki/Halloumi
 
@@ -8663,14 +8635,12 @@ sv: västerbottensost
 wikidata:en: Q2096655
 wikipedia:en: https://en.wikipedia.org/wiki/V%C3%A4sterbotten_cheese
 
-
-# description:en:Wensleydale is a style of cheese originally produced in Wensleydale, North Yorkshire, England
-
 < en: cheese
 en: Wensleydale, Wensleydale cheese
 de: Wensleydale, Wensleydale-Käse
 hr: wensleydale
 it: wensleydale
+description:en: Wensleydale is a style of cheese originally produced in Wensleydale, North Yorkshire, England
 wikidata:en: Q1972540
 wikipedia:en: https://en.wikipedia.org/wiki/Wensleydale_cheese
 
@@ -8890,8 +8860,6 @@ ciqual_food_code:en: 11017
 ciqual_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 ciqual_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
-# description:en:SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
-
 < en: rock salt
 en: salt from Salies de Béarn
 fr: sel de Salies de Béarn
@@ -8912,6 +8880,7 @@ hr: dimljena sol
 hu: Füst ízű só
 it: sale affumicato
 nl: Gerookt zout
+description:en: SMOKED SALT is an aromatic salt smoked with any number of select bark free woods for up to 14 days.
 wikipedia:en: https://en.wikipedia.org/wiki/Smoked_salt
 
 < en: salt
