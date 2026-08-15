@@ -404,6 +404,16 @@ my $tests_ref = [
 		expected_type => 'html',    # the redirect itself is html
 	},
 	{
+		test_case => 'filtered-facets-world-link-keeps-filter',
+		method => 'GET',
+		subdomain => 'uk',
+		path => '/facets/ingredients?filter=bon&status=unknown',
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_match =>
+			'http:\/\/world\.openfoodfacts\.localhost\/facets\/ingredients\?filter=bon&amp;status=unknown',
+	},
+	{
 		test_case => 'redirect-facets-agg-with-json',
 		method => 'GET',
 		path => '/categories.json',
