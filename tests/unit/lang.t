@@ -87,7 +87,8 @@ like($Lang{months}{fr}, qr/février/,
 
 # Russian weekdays are Cyrillic; any match on a Cyrillic letter confirms the value
 # is a character string and not raw UTF-8 bytes.
-like($Lang{weekdays}{ru}, qr/\x{43f}\x{43e}\x{43d}/,
+like($Lang{weekdays}{ru},
+	qr/\x{43f}\x{43e}\x{43d}/,
 	'Russian weekdays contain Cyrillic as Unicode code points (not double-encoded bytes)');
 
 # https://github.com/openfoodfacts/openfoodfacts-server/issues/1116
