@@ -9544,23 +9544,21 @@ nova:en: 4
 
 #comment:en:Finnish regulatory labeling for meat products
 
-#comment:en:whole meat product: only meat, salt, water, spices, glucose syrup and permitted additives
-#comment:en:usually around 90% meat
 < en: meat
 #< en:compound
 fi: kokolihavalmiste
 sv: helköttsprodukt
+comment:en: whole meat product: only meat, salt, water, spices, glucose syrup and permitted additives. usually around 90% meat
 
 < en: chicken meat
 < fi: kokolihavalmiste
 fi: kanakokolihatuote
 sv: kycklinghelköttsprodukt
 
-#comment:en:'ham preparation' or 'ham cut' is used for a meat preparation containing ham and in addition meat protein or other protein preparations or other binders (fiber preparations and modified starches), and which differs from sliced sausage in terms of degree of mincing and  the method of preparation.
-#comment:en:usually 65 - 80 % meat
 < en: meat preparation
 fi: kinkkuvalmiste, kinkkuleike
 sv: skinkprodukt
+comment:en: 'ham preparation' or 'ham cut' is used for a meat preparation containing ham and in addition meat protein or other protein preparations or other binders (fiber preparations and modified starches), and which differs from sliced sausage in terms of degree of mincing and  the method of preparation. usually 65 - 80 % meat
 
 < en: meat
 fi: ruokamakkara
@@ -9571,8 +9569,7 @@ de: Hackfleisch
 es: carne picada
 it: carne macinata
 
-# description:en:A MEATBALL is ground meat rolled into a small ball, sometimes along with other ingredients, such as bread crumbs, minced onion, eggs, butter, and seasoning.
-
+# < en: compound
 < en: meat
 en: meatball, meatballs
 ar: كرات اللحم
@@ -9609,6 +9606,7 @@ zh: 肉丸
 # ceb:bolabola
 # hak:ngiuk-yèn
 # zh_yue:肉丸
+description:en: A MEATBALL is ground meat rolled into a small ball, sometimes along with other ingredients, such as bread crumbs, minced onion, eggs, butter, and seasoning.
 wikidata:en: Q4831844
 wikipedia:en: https://en.wikipedia.org/wiki/Meatball
 
@@ -9678,9 +9676,6 @@ en: camel meat
 fr: viande de chameau
 it: carne di cammello
 nl: kameelvlees
-
-# comment:en:The popular name of the meat is used, when a part of the animal has been used. So it has been kept separate. But do not include the word meat in these. Use en:beef meat for that.
-
 
 < en: game animal
 en: antelope
@@ -10169,7 +10164,6 @@ ciqual_food_name:fr: Bresaola
 wikidata:en: Q910095
 wikipedia:en: https://en.wikipedia.org/wiki/Bresaola
 
-# description:en:CHUCK STEAK is a cut of beef and is part of the sub-prime cut known as the chuck.
 
 < en: beef meat
 en: chuck steak
@@ -10182,6 +10176,7 @@ id: leher sapi
 it: bistecca di Chuck
 sv: högrev, högrev av nötkött
 # zh_yue:牛肩扒
+description:en: CHUCK STEAK is a cut of beef and is part of the sub-prime cut known as the chuck.
 wikidata:en: Q1365996
 wikipedia:en: https://en.wikipedia.org/wiki/Chuck_steak
 
@@ -10581,7 +10576,11 @@ ciqual_food_code:en: 21513
 ciqual_food_name:en: Lamb, saddle, lean, roasted/baked
 ciqual_food_name:fr: Agneau, selle, partie maigre, rôtie/cuite au four
 
-# description:en:RABBITS are small mammals in the family Leporidae of the order Lagomorpha. In some areas, wild rabbits and hares are hunted for their meat, a lean source of high quality protein. Domesticated descendants of the European rabbit (Oryctolagus cuniculus) that are bred and kept as livestock account for the estimated 200 million tons of rabbit meat produced annually.
+###################################################################################################
+#
+#                                Rabbit
+#
+###################################################################################################
 
 < en: animal
 en: rabbit
@@ -10717,6 +10716,7 @@ zh: 兔
 # vls:Keun
 # yue:兔
 # zh-tw:兔
+description:en: RABBITS are small mammals in the family Leporidae of the order Lagomorpha. In some areas, wild rabbits and hares are hunted for their meat, a lean source of high quality protein. Domesticated descendants of the European rabbit (Oryctolagus cuniculus) that are bred and kept as livestock account for the estimated 200 million tons of rabbit meat produced annually.
 wikidata:en: Q9394
 wikipedia:en: https://en.wikipedia.org/wiki/Rabbit
 
@@ -10804,8 +10804,6 @@ ciqual_food_name:fr: Foie, lapin, cru
 #                                Sheep
 #
 ###################################################################################################
-# description:en:Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk.
-# comment:en:Not convinced of the wikidata translations. The seem to be more “domesticated sheep” than “sheep”. Or the latin name is used.
 
 < en: animal
 en: sheep
@@ -10988,11 +10986,10 @@ nutriscore_red_meat:en: yes
 # yue:羊
 # zh-cn:羊
 # zh-hk:羊
+comment:en: Not convinced of the wikidata translations. The seem to be more “domesticated sheep” than “sheep”. Or the latin name is used.
+description:en: Domestic sheep (Ovis aries) are quadrupedal, ruminant mammals typically kept as livestock.  Sheep are raised for fleeces, meat (lamb, hogget or mutton) , fat and milk.
 wikidata:en: Q7368
 wikipedia:en: https://en.wikipedia.org/wiki/Sheep
-
-# description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
-# comment:en:Some wikidata translation seems to refer to lamb and not mutton.
 
 < en: sheeps fat
 < en: sheeps meat
@@ -11022,6 +11019,8 @@ ru: баранятина
 sv: fårkött
 tr: Koyun eti
 uk: баранина
+comment:en: Some wikidata translation seems to refer to lamb and not mutton.
+description:en: mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
 wikidata:en: Q14566073
 wikipedia:en: https://en.wikipedia.org/wiki/Lamb_and_mutton
 
@@ -11689,6 +11688,7 @@ usda_ndb_name:en: Game meat, muskrat, raw
 #                                Pork
 #
 ###################################################################################################
+
 < en: animal
 en: pork, swine
 bg: свинско
@@ -11877,9 +11877,6 @@ es: sangre de cerdo
 hr: svinjska krv
 it: sangue di maiale
 
-# description:en:Pork rind is the culinary term for the skin of a pig.
-# comment:en:Product translations can be wrong. The wikidata page translations often refers to disambiguations. Are these translations any good?
-
 # <en:skin
 < en: pork
 en: pork rind
@@ -11978,10 +11975,9 @@ zu: Couenne
 # vec:Couenne
 # vls:Couenne
 # yue:豬皮
+comment:en: Product translations can be wrong. The wikidata page translations often refers to disambiguations. Are these translations any good?
+description:en: Pork rind is the culinary term for the skin of a pig.
 wikidata:en: Q3695900
-
-
-# description:en: Bacon is a type of salt-cured pork. Bacon is prepared from several different cuts of meat, typically from the pork belly or from back cuts, which have less fat than the belly. It is eaten on its own, as a side dish (particularly in breakfasts), or used as a minor ingredient to flavour dishes
 
 < en: pork meat
 en: bacon
@@ -12053,6 +12049,7 @@ zh: 煙肉
 ciqual_food_code:en: 28858
 ciqual_food_name:en: Pancetta, dried
 ciqual_food_name:fr: Pancetta ou Poitrine roulée sèche
+description:en: Bacon is a type of salt-cured pork. Bacon is prepared from several different cuts of meat, typically from the pork belly or from back cuts, which have less fat than the belly. It is eaten on its own, as a side dish (particularly in breakfasts), or used as a minor ingredient to flavour dishes
 usda_ndb_code:en: 4002
 usda_ndb_name:en: Lard
 vegan:en: no
@@ -12132,13 +12129,12 @@ it: pancetta affumicata
 nl: gerookte spek, gerookt spek
 sv: rökt bacon
 
-# description:fr:La BARDE est une fine tranche de lard gras frais, de lard salé ou de lard fumé avec laquelle on enveloppe divers morceaux de viandes, fruits ou légumes pour garder leur texture moelleuse et éviter le dessèchement.
 
 < en: bacon
 fr: barde
+description:fr: La BARDE est une fine tranche de lard gras frais, de lard salé ou de lard fumé avec laquelle on enveloppe divers morceaux de viandes, fruits ou légumes pour garder leur texture moelleuse et éviter le dessèchement.
 wikipedia:fr: https://fr.wikipedia.org/wiki/Barde_(cuisine)
 
-# description:en:A LARDON, also called lardoon or larding, is a small strip or cube of fatty bacon, or pork fat (usually subcutaneous fat) used in a wide variety of cuisines to flavor savory foods and salads.
 
 < en: bacon
 en: lardon, lardoon
@@ -12157,6 +12153,7 @@ carbon_footprint_fr_foodges_value:fr: 5.6
 ciqual_food_code:en: 28501
 ciqual_food_name:en: Lardoons, raw
 ciqual_food_name:fr: Lardon nature, cru
+description:en: A LARDON, also called lardoon or larding, is a small strip or cube of fatty bacon, or pork fat (usually subcutaneous fat) used in a wide variety of cuisines to flavor savory foods and salads.
 wikidata:en: Q3217888
 wikipedia:en: https://en.wikipedia.org/wiki/Lardon
 #855 @2021-09-20
@@ -12242,7 +12239,6 @@ ciqual_food_code:en: 40205
 ciqual_food_name:en: Tongue, pork, raw
 ciqual_food_name:fr: Langue, porc, crue
 wikidata:en: Q13164545
-#69 @2021-09-20
 
 < en: pork meat
 fr: noix de jambon de porc
@@ -12285,7 +12281,6 @@ ciqual_food_code:en: 28400
 ciqual_food_name:en: Pork, spare-ribs, raw
 ciqual_food_name:fr: Porc, travers, cru
 
-# description:en:BOSTON BUTT, or pork butt, is the American name for a cut of pork that comes from the upper part of the shoulder from the front leg and may contain the blade bone.  Boston butt is the most common cut used for pulled pork, a staple of barbecue in the southern United States.
 
 < en: pork meat
 en: boston butt, pork rack
@@ -12300,10 +12295,11 @@ ru: шея
 sk: krkovička
 sv: karré, fläskkarré
 zh: 上肩肉
+# zh_yue:脢頭
 ciqual_food_code:en: 28104
 ciqual_food_name:en: Pork, rack, raw
 ciqual_food_name:fr: Porc, carré, cru
-# zh_yue:脢頭
+description:en: BOSTON BUTT, or pork butt, is the American name for a cut of pork that comes from the upper part of the shoulder from the front leg and may contain the blade bone.  Boston butt is the most common cut used for pulled pork, a staple of barbecue in the southern United States.
 wikidata:en: Q1420447
 wikipedia:en: https://en.wikipedia.org/wiki/Boston_butt
 
@@ -12931,8 +12927,6 @@ fr: tissu conjonctif de porc
 hr: vezivno tkivo
 nl: varkensbindweefsel
 
-# description:en:LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
-
 # from:en:pork
 < en: animal fat
 en: pork fat
@@ -12965,8 +12959,8 @@ tr: domuz yağı
 ciqual_food_code:en: 16530
 ciqual_food_name:en: Pork fat, raw
 ciqual_food_name:fr: Lard gras, cru
+comment:en: Be careful between lard and pork fat. Not all languages differentiate
 
-#comment:en:Be careful between lard and pork fat. Not all languages differentiate
 < en: pork fat
 en: lard, pork lard
 an: redetiu
@@ -13000,9 +12994,6 @@ th: มันหมู
 uk: смалець
 wa: saeyén
 zh: 豬油
-ciqual_food_code:en: 16520
-ciqual_food_name:en: Lard or pork fat
-ciqual_food_name:fr: Saindoux
 # ast:mantega de gochu
 # bar:schmoiz
 # lzh:豬油
@@ -13011,6 +13002,10 @@ ciqual_food_name:fr: Saindoux
 # sgs:taukā
 # szl:tuste
 # yue:豬油
+ciqual_food_code:en: 16520
+ciqual_food_name:en: Lard or pork fat
+ciqual_food_name:fr: Saindoux
+description:en: LARD is fat from a pig, in both its rendered and unrendered forms. Lard is one of the few edible oils with a relatively high smoke point, attributable to its high saturated fatty acids content. Pure lard is especially useful for cooking since it produces little smoke when heated and has a distinct flavor when combined with other foods.
 wikidata:en: Q72827
 wikipedia:en: https://en.wikipedia.org/wiki/Lard
 
@@ -13135,7 +13130,6 @@ it: involucro
 nl: vel
 pl: osłonka
 
-# description:en:COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
 
 # <en:animal part
 en: collagen
@@ -13190,12 +13184,13 @@ tr: Kollajen
 uk: Колаген
 vi: Collagen
 zh: 膠原蛋白
-vegan:en: no
-vegetarian:en: no
 # sco:collagen
 # sr-ec:колаген
 # sr-el:kolagen
 # yue:膠原蛋白
+description:en: COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
+vegan:en: no
+vegetarian:en: no
 wikipedia:en: https://en.wikipedia.org/wiki/Collagen
 
 < en: collagen
@@ -13291,7 +13286,6 @@ it: salsiccia
 pl: kiełbasa, kiełbasy
 
 
-# description:en:Merguez is a red, spicy mutton- or beef-based fresh sausage from Maghrebi cuisine.
 
 < en: sausage
 en: merguez, Merguez sausage
@@ -13305,6 +13299,7 @@ uk: Мергези
 ciqual_food_code:en: 30150
 ciqual_food_name:en: Merguez sausage, raw
 ciqual_food_name:fr: Merguez, crue
+description:en: Merguez is a red, spicy mutton- or beef-based fresh sausage from Maghrebi cuisine.
 wikipedia:en: https://en.wikipedia.org/wiki/Merguez
 
 < en: merguez
@@ -13400,8 +13395,6 @@ description:pt: O salame é um enchido de origem italiana.
 wikidata:en: Q188655
 wikipedia:en: https://en.wikipedia.org/wiki/Salami
 
-# description:en:PEPPERONI is an American variety of salami, made from a cured mixture of pork and beef seasoned with paprika or other chili pepper.
-
 < en: salami
 en: pepperoni
 xx: pepperoni
@@ -13422,6 +13415,7 @@ ne: पेपरोनी
 ru: пеперони
 uk: пепероні
 zh: 意大利红肠
+description:en: PEPPERONI is an American variety of salami, made from a cured mixture of pork and beef seasoned with paprika or other chili pepper.
 wikidata:en: Q855131
 wikipedia:en: https://en.wikipedia.org/wiki/Pepperoni
 
@@ -13568,9 +13562,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Frog_legs
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
-# description:en:STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds.
-
 # nova:en:starch
 en: starch, food starch, starches
 an: Amelón
@@ -13644,9 +13635,6 @@ uz: Kraxmal
 vi: Tinh bột
 yi: קראכמל
 zh: 淀粉
-ciqual_proxy_food_code:en: 9510
-ciqual_proxy_food_name:en: Maize/corn starch
-ciqual_proxy_food_name:fr: Amidon de maïs ou fécule de maïs
 vegan:en: yes
 vegetarian:en: yes
 # als:Stärchi
@@ -13655,10 +13643,12 @@ vegetarian:en: yes
 # nap:Posema
 # sco:Stairch
 # yue:澱粉
+ciqual_proxy_food_code:en: 9510
+ciqual_proxy_food_name:en: Maize/corn starch
+ciqual_proxy_food_name:fr: Amidon de maïs ou fécule de maïs
+description:en: STARCH is a polymeric carbohydrate consisting of a large number of glucose units joined by glycosidic bonds.
 wikidata:en: Q41534
 wikipedia:en: https://en.wikipedia.org/wiki/Starch
-
-# usage:fr:fécules (dont blé)
 
 < en: starch
 en: modified starch, modified starches, modified food starch, modified food starches, food starch modified, processed starch
@@ -13698,8 +13688,6 @@ zh: 化製澱粉
 nova:en: 4
 wikidata:en: Q415766
 wikipedia:en: https://en.wikipedia.org/wiki/Modified_starch
-
-# description:en:Corn starch or maize starch is the starch derived from the corn (maize) grain.
 
 #category/corn starch
 < en: starch
@@ -13751,6 +13739,7 @@ zh: 玉米澱粉
 ciqual_food_code:en: 9510
 ciqual_food_name:en: Maize/corn starch
 ciqual_food_name:fr: Amidon de maïs ou fécule de maïs
+description:en: Corn starch or maize starch is the starch derived from the corn (maize) grain.
 usda_ndb_code:en: 20027
 usda_ndb_name:en: Cornstarch
 wikipedia:en: https://en.wikipedia.org/wiki/Corn_starch
@@ -13849,8 +13838,6 @@ hr: škrob mungo graha
 it: amido di fagioli mungo
 pl: skrobia z fasoli mung
 
-# description:en:Potato starch is starch extracted from potatoes.
-
 < en: starch
 en: potato starch
 ar: نشا البطاطا
@@ -13883,6 +13870,7 @@ ru: Картофельный крахмал, крахмал картофельн
 sv: potatisstärkelse
 uk: Картопляний крохмаль
 zh: 太白粉
+description:en: Potato starch is starch extracted from potatoes.
 ecobalyse:en: f87309f5-bfbf-49a5-ae57-1a0319a7b7d3
 wikidata:en: Q715160
 wikipedia:en: https://en.wikipedia.org/wiki/Potato_starch
@@ -14127,9 +14115,6 @@ wikidata:en: Q218778
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# description:en:Several edible vegetable and animal oils, and also fats, are used for various purposes in cooking and food preparation. In particular, many foods are fried in oil much hotter than boiling water. Oils are also used for flavoring and for modifying the texture of foods (e.g. Stir Fry). Cooking oils are derived either from animal fat, as butter, lard and other types, or plant oils from the olive, maize, sunflower and many other species.
-
-# comment:en:This is a convenience ingredient, so that there is only ONE parent for all oils and fats
 
 en: oil and fat, oils and fats
 bg: масла и мазнини
@@ -14161,11 +14146,10 @@ sl: olja in maščobe
 sv: oljor och fetter, oljor och fett, olja och fett
 uk: Олія і жир
 from_palm_oil:en: maybe
+comment:en: This is a convenience ingredient, so that there is only ONE parent for all oils and fats
+description:en: Several edible vegetable and animal oils, and also fats, are used for various purposes in cooking and food preparation. In particular, many foods are fried in oil much hotter than boiling water. Oils are also used for flavoring and for modifying the texture of foods (e.g. Stir Fry). Cooking oils are derived either from animal fat, as butter, lard and other types, or plant oils from the olive, maize, sunflower and many other species.
 vegan:en: maybe
 vegetarian:en: maybe
-
-# description:en:VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
-# comment:en:In some languages one distinghuishes between edible and non-edible oils
 
 < en: oil and fat
 en: vegetable oil and fat, vegetable fat and oil
@@ -14194,6 +14178,8 @@ ru: Растительные масла и жиры
 sv: Vegetabilisk olja och fett, vegetabiliskt fett och olja, vegetabiliskt fett och oljor
 carbon_footprint_fr_foodges_ingredient:fr: Huile d'olive
 carbon_footprint_fr_foodges_value:fr: 2.6
+comment:en: In some languages one distinghuishes between edible and non-edible oils
+description:en: VEGETABLE OILS, or vegetable fats, are fats extracted from seeds, or less often, from other parts of fruits.
 from_palm_oil:en: maybe
 vegan:en: yes
 vegetarian:en: yes
@@ -14207,8 +14193,6 @@ hr: rafinirano biljno ulje
 it: olio vegetale raffinato
 pl: rafinowany olej roślinny, olej roślinny rafinowany, oleje roślinne rafinowane
 pt: óleo vegetal refinado
-
-# description:en:Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
 
 < en: oil and fat
 en: oil, cooking oil
@@ -14323,6 +14307,8 @@ zh: 油
 # zh-hans:油
 # zh-hant:油
 density_g_per_ml:en: 0.92
+comment:en: should cooking oil be split out?
+description:en: Cooking OIL is plant, animal, or synthetic fat used in frying, baking, and other types of cooking. It is also used in food preparation and flavouring not involving heat, such as salad dressings and bread dips, and in this sense might be more accurately termed edible oil.
 wikidata:en: Q42962
 wikipedia:en: https://en.wikipedia.org/wiki/Cooking_oil
 
