@@ -8342,7 +8342,7 @@ sr: Tilsiter
 sw: Tilsiter
 uk: Тільзитер
 # gsw:Tilsiter
-description:en :TILSIT cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley.
+description:en: TILSIT cheese or Tilsiter cheese is a light yellow semihard smear-ripened cheese, created in the mid-19th century by Prussian-Swiss settlers, the Westphal family, from the Emmental valley.
 wikidata:en: Q2433798
 wikipedia:en: https://en.wikipedia.org/wiki/Tilsit_cheese
 
@@ -17580,8 +17580,6 @@ en: high oleic sunflower oil (70% and over)
 usda_ndb_code:en: 4584
 usda_ndb_name:en: Oil, sunflower, high oleic (70% and over)
 
-# cold pressed in contrast to chemically treated
-
 < en: sunflower oil
 en: cold pressed sunflower oil
 bg: студено пресовано слънчогледово масло, нерафинирано студено пресовано слънчогледово масло, нерафинирано слънчогледово масло
@@ -17598,6 +17596,7 @@ pt: óleo de girassol prensado a frio
 ru: масло подсолнечное рафинированное дезодорированное вымороженное
 carbon_footprint_fr_foodges_ingredient:fr: Huile Tournesol
 carbon_footprint_fr_foodges_value:fr: 1.6
+comment:en: cold pressed in contrast to chemically treated
 
 < en: sunflower oil
 fr: huile de tournesol vierge, huile de tournesol vierge première pression à froid
@@ -17846,8 +17845,6 @@ fi: pippuriöljy
 hu: paprika illóolaj
 nl: peperolie
 
-# description:en:ANISEED OIL is an essential oil, which is obtained by steam distillation from the crushed fruits of the anise (Pimpinella anisum) and the real star anise (Illicium verum)
-
 < en: essential oil
 en: aniseed oil, anise oil
 de: anisöl
@@ -17860,6 +17857,7 @@ nl: anijsolie
 pl: olejek anyżowy
 sv: anisolja
 wikidata:en: Q549313
+description:en: ANISEED OIL is an essential oil, which is obtained by steam distillation from the crushed fruits of the anise (Pimpinella anisum) and the real star anise (Illicium verum)
 # derivedFrom:en:aniseed
 
 < en: essential oil
@@ -17872,8 +17870,6 @@ hr: ulje limete
 it: olio di lime
 nl: Limoen olie
 sv: limeolja
-
-# description:en:EUCALYPTUS OIL is the generic name for distilled oil from the leaf of Eucalyptus, a genus of the plant family Myrtaceae native to Australia and cultivated worldwide. Eucalyptus oil has a history of wide application, as a pharmaceutical, antiseptic, repellent, flavouring, fragrance and industrial uses.
 
 < en: essential oil
 en: eucalyptus oil
@@ -17898,6 +17894,7 @@ te: నీలగిరి తైలం
 uk: евкаліптова олія
 uz: efir moyli ekinlar
 vi: dầu khuynh diệp
+description:en: EUCALYPTUS OIL is the generic name for distilled oil from the leaf of Eucalyptus, a genus of the plant family Myrtaceae native to Australia and cultivated worldwide. Eucalyptus oil has a history of wide application, as a pharmaceutical, antiseptic, repellent, flavouring, fragrance and industrial uses.
 wikidata:en: Q511687
 wikipedia:en: https://en.wikipedia.org/wiki/Eucalyptus_oil
 # derivedFrom:en:eucalyptus
@@ -18173,14 +18170,6 @@ uz: sirka
 vi: giấm
 yi: עסיג
 zh: 醋
-carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
-carbon_footprint_fr_foodges_value:fr: 4.2
-ciqual_food_code:en: 11018
-ciqual_food_name:en: Vinegar
-ciqual_food_name:fr: Vinaigre
-description:en: VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH), water (H2O), and trace chemicals that may include flavorings.
-vegan:en: yes
-vegetarian:en: yes
 # arc:ܚܠܐ
 # ast:vinagre
 # cdo:chó
@@ -18198,9 +18187,16 @@ vegetarian:en: yes
 # vec:axedo
 # vls:azyn
 # war:suoy
+carbon_footprint_fr_foodges_ingredient:fr: Vinaigre de vin
+carbon_footprint_fr_foodges_value:fr: 4.2
+ciqual_food_code:en: 11018
+ciqual_food_name:en: Vinegar
+ciqual_food_name:fr: Vinaigre
+description:en: VINAIGRE is a liquid consisting of about 5–20% acetic acid (CH3COOH), water (H2O), and trace chemicals that may include flavorings.
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q41354
 wikipedia:en: https://en.wikipedia.org/wiki/Vinegar
-#65744 @2021-09-25
 
 < en: vinegar
 en: white vinegar
@@ -18338,8 +18334,6 @@ ja: リンゴ酢
 nl: appelazijn
 pl: ocet jabłkowy
 
-# description:en:CIDER VINEGAR, a vinegar made from apples, sugar and yeast
-
 < en: vinegar
 en: cider vinegar
 ar: خل التفاح
@@ -18381,34 +18375,9 @@ sv: äppelcidervinäger
 uk: яблучний оцет
 vi: Giấm táo
 zh: 苹果醋片
+description:en: CIDER VINEGAR, a vinegar made from apples, sugar and yeast
 wikidata:en: Q618322
 wikipedia:en: https://en.wikipedia.org/wiki/Apple_cider_vinegar
-#5185 @2021-09-26
-
-#processing:en: en:powder
-#<en:cider vinegar
-#en:cider vinegar powder
-#de:Apfelessigpulver
-#es:vinagre de sidra en polvo
-#fi:siiderietikkajauhe
-#fr:poudre de vinaigre de cidre
-#hu:almaecet por
-#it:aceto sidro en polvo
-#nl:appelazijnpoeder
-
-#processing:en: en:dried
-#<en:cider vinegar
-#en:dried cider vinegar
-#da:tørret æblecidereddike
-#de:getrockneter Zideressig, Apfelessigpulver
-#es:vinagre de sidra deshidratado
-#it:aceto di mele disidratato, aceto sidro en polvo
-#nl:gedroogde appelazijn
-#nn:tørket eplecidereddik
-#pt:vinagre de sidra em pó
-#sv:torkad cidervinäger
-
-# description:en:Balsamic vinegar is a very dark, concentrated, and intensely flavoured vinegar originating in Italy, made wholly or partially from grape must, grape juice with all the skins, seeds and stems.
 
 < en: vinegar
 en: balsamic vinegar
@@ -18444,11 +18413,11 @@ zh: 意大利香醋
 ciqual_food_code:en: 11091
 ciqual_food_name:en: Vinegar, balsamic
 ciqual_food_name:fr: Vinaigre balsamique
+description:en: Balsamic vinegar is a very dark, concentrated, and intensely flavoured vinegar originating in Italy, made wholly or partially from grape must, grape juice with all the skins, seeds and stems.
 usda_ndb_code:en: 2069
 usda_ndb_name:en: Vinegar, balsamic
 wikidata:en: Q170037
 wikipedia:en: https://en.wikipedia.org/wiki/Balsamic_vinegar
-#2233 @2021-09-26
 
 < en: balsamic vinegar
 en: balsamic vinegar of modena, modena balsamic vinegar
@@ -18542,8 +18511,6 @@ hu: alkohol- és fehérborecet
 it: aceti d'alcool e di vino bianco
 nl: alcohol- en witte wijnazijn
 
-# description:en:RICE VINEGAR is a vinegar made from fermented rice
-
 < en: vinegar
 # derivedFrom:en:rice
 en: rice vinegar, rice wine vinegar
@@ -18569,6 +18536,7 @@ ru: Рисовый уксус
 sv: risvinäger, risvinvinäger
 uk: Рисовий оцет
 zh: 米醋
+description:en: RICE VINEGAR is a vinegar made from fermented rice
 wikidata:en: Q1849012
 wikipedia:en: https://en.wikipedia.org/wiki/Rice_vinegar
 
@@ -18679,9 +18647,6 @@ ciqual_food_name:en: Pure alcohol
 ciqual_food_name:fr: Alcool pur
 vegan:en: maybe
 vegetarian:en: yes
-
-
-# description:en:ETHANOL, also called alcohol, ethyl alcohol, grain alcohol, and drinking alcohol, is a chemical compound, a simple alcohol with the chemical formula C2H5OH.
 
 < en: alcohol
 en: ethanol
@@ -18808,10 +18773,11 @@ zh: 乙醇
 # zh-tw:乙醇
 ciqual_food_code:en: 1014
 ciqual_food_name:en: Pure alcohol
+description:en: ETHANOL, also called alcohol, ethyl alcohol, grain alcohol, and drinking alcohol, is a chemical compound, a simple alcohol with the chemical formula C2H5OH.
 wikidata:en: Q153
 wikipedia:en: https://en.wikipedia.org/wiki/Ethanol
 
-#<en:compound
+#< en: compound
 < en: alcohol
 en: rectified spirit
 hr: ispravljeni duh
@@ -18822,10 +18788,7 @@ wikidata:en: Q266143
 < en: alcohol
 fr: alcool de sucre de canne, alcool de canne, alcool de canne à sucre
 
-
-# description:en:A liqueur is an alcoholic drink flavored variously by fruits, herbs, spices, flowers, nuts or cream combined with distilled spirits.
-
-#<en:compound
+#< en: compound
 < en: alcohol
 en: liqueur
 af: Likeur
@@ -18888,10 +18851,6 @@ uz: Likyor
 vi: rượu mùi
 yi: ליקער
 zh: 力娇酒
-# Likör (Glucosesirup, Wasser, Alkohol, Zucker, Aromen)
-ciqual_food_code:en: 1003
-ciqual_food_name:en: Liqueur
-ciqual_food_name:fr: Liqueur
 # ast:Llicor
 # bar:Likea
 # be-tarask:лікёр
@@ -18914,8 +18873,13 @@ ciqual_food_name:fr: Liqueur
 # zh-hk:力嬌酒
 # zh-sg:力娇酒
 # zh-tw:力嬌酒
+ciqual_food_code:en: 1003
+ciqual_food_name:en: Liqueur
+ciqual_food_name:fr: Liqueur
+description:en: A liqueur is an alcoholic drink flavored variously by fruits, herbs, spices, flowers, nuts or cream combined with distilled spirits.
 wikidata:en: Q178780
 wikipedia:en: https://en.wikipedia.org/wiki/Liqueur
+# Likör (Glucosesirup, Wasser, Alkohol, Zucker, Aromen)
 
 < en: liqueur
 en: chocolate liqueur
@@ -18935,8 +18899,6 @@ en: advocaat
 xx: Advocaat
 de: Eierlikör
 
-# description:en:Amaretto (Italian for "a little bitter") is a sweet Italian liqueur that originated in Saronno, Italy.
-
 < en: liqueur
 en: amaretto
 xx: amaretto
@@ -18953,10 +18915,9 @@ nl: amaretto, amaretto likeur
 ru: амаретто
 uk: амарето
 zh: 意大利苦杏酒
+description:en: Amaretto (Italian for "a little bitter") is a sweet Italian liqueur that originated in Saronno, Italy.
 wikidata:en: Q455045
 wikipedia:en: https://en.wikipedia.org/wiki/Amaretto
-#ingredient/amaretto has 15 products in 4 languages @2018-12-21
-
 
 < en: liqueur
 en: limoncello
@@ -19023,7 +18984,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Maraschino
 #nl:angostura
 # no products @2019-02-15
 
-# description:en:GIN is a distilled alcoholic drink that derives its predominant flavour from juniper berries.
 
 < en: alcohol
 en: gin
@@ -19084,9 +19044,6 @@ uk: Джин
 vi: Gin
 yi: דזשין
 zh: 琴酒
-ciqual_food_code:en: 1002
-ciqual_food_name:en: Gin
-ciqual_food_name:fr: Gin
 # arz:جن
 # ast:Xinebra
 # de-ch:Gin
@@ -19098,10 +19055,12 @@ ciqual_food_name:fr: Gin
 # wuu:金酒
 # xmf:ჯინი
 # yue:氈酒
+ciqual_food_code:en: 1002
+ciqual_food_name:en: Gin
+ciqual_food_name:fr: Gin
+description:en: GIN is a distilled alcoholic drink that derives its predominant flavour from juniper berries.
 wikidata:en: Q959362
 wikipedia:en: https://en.wikipedia.org/wiki/Gin
-
-# description:en:Champagne is sparkling wine or, in the EU countries, legally only that sparkling wine which comes from the Champagne region of France.
 
 < en: alcohol
 en: champagne
@@ -19164,9 +19123,6 @@ tt: Шампан
 uk: Шампанське
 vi: Sâm panh
 zh: 香槟酒
-ciqual_food_code:en: 5207
-ciqual_food_name:en: Champagne
-ciqual_food_name:fr: Champagne
 # arz:شامبانيا
 # ast:Xampán
 # de-ch:Champagner
@@ -19186,6 +19142,10 @@ ciqual_food_name:fr: Champagne
 # zh-hk:香檳酒
 # zh-sg:香槟酒
 # zh-tw:香檳酒
+ciqual_food_code:en: 5207
+ciqual_food_name:en: Champagne
+ciqual_food_name:fr: Champagne
+description:en: Champagne is sparkling wine or, in the EU countries, legally only that sparkling wine which comes from the Champagne region of France.
 wikidata:en: Q134862
 wikipedia:en: https://en.wikipedia.org/wiki/Champagne
 
@@ -19196,8 +19156,6 @@ fr: champagne brut
 en: cava
 xx: cava
 de: Cava
-
-# description:en:Pomace brandy is a liquor distilled from pomace that is left over from winemaking, after the grapes are pressed.
 
 < en: alcohol
 en: pomace brandy
@@ -19216,6 +19174,7 @@ nl: Marc
 pl: Marc
 pt: Bagaceira
 sv: Marc
+description:en: Pomace brandy is a liquor distilled from pomace that is left over from winemaking, after the grapes are pressed.
 wikidata:en: Q525397
 wikipedia:en: https://en.wikipedia.org/wiki/Pomace_brandy
 
@@ -19225,7 +19184,6 @@ de: Marc de Bourgogne
 fr: marc de bourgogne
 hr: marc de bourgogne
 it: Marc de Bourgogne
-
 
 < en: brandy
 < en: pomace brandy
@@ -19237,8 +19195,6 @@ hr: marc de champagne
 it: Marc de Champagne
 sv: marc de champagne
 wikidata:en: Q1892862
-
-
 
 < en: alcohol
 en: kirsch
@@ -19351,7 +19307,6 @@ description:en: TEQUILA is a regional distilled beverage and type of alcoholic d
 # zh-tw:龍舌蘭酒
 wikidata:en: Q122195
 wikipedia:en: https://en.wikipedia.org/wiki/Tequila
-# ingredient/tequila in 7 languages @2019-02-14
 
 < en: alcohol
 en: wine, fruit wine
@@ -19452,9 +19407,6 @@ wa: Vén
 xh: Iveyn
 yi: וויין
 zh: 葡萄酒
-carbon_footprint_fr_foodges_ingredient:fr: Vin France
-carbon_footprint_fr_foodges_value:fr: 1.4
-description:en: WINE is an alcoholic beverage made from fermented grapes.
 # ang:Ƿīn
 # arc:ܚܡܪܐ
 # arz:نبيت
@@ -19518,6 +19470,9 @@ description:en: WINE is an alcoholic beverage made from fermented grapes.
 # yue:葡萄酒
 # zh-hans:葡萄酒
 # zh-hant:葡萄酒
+carbon_footprint_fr_foodges_ingredient:fr: Vin France
+carbon_footprint_fr_foodges_value:fr: 1.4
+description:en: WINE is an alcoholic beverage made from fermented grapes.
 wikidata:en: Q282
 wikipedia:en: https://en.wikipedia.org/wiki/Wine
 
@@ -19548,7 +19503,6 @@ hu: francia bor, francia borok
 carbon_footprint_fr_foodges_ingredient:fr: Vin France
 carbon_footprint_fr_foodges_value:fr: 1.4
 
-# description:en:SPARKLING WINE is a wine with significant levels of carbon dioxide in it, making it fizzy. Sparkling wine is usually either white or rosé, but there are examples of red sparkling wines.
 
 # <en:category:en:Sparkling wines
 < en: wine
@@ -19603,6 +19557,7 @@ zh: 气泡酒
 # zh-hk:氣泡酒
 # zh-sg:气泡酒
 # zh-tw:氣泡酒
+description:en: SPARKLING WINE is a wine with significant levels of carbon dioxide in it, making it fizzy. Sparkling wine is usually either white or rosé, but there are examples of red sparkling wines.
 wikidata:en: Q321263
 wikipedia:en: https://en.wikipedia.org/wiki/Sparkling_wine
 
@@ -19716,8 +19671,6 @@ it: vino bianco di cava
 < en: white wine extract
 fr: extrait de vin blanc distillé
 
-# description:en:MUSCADET is a French white wine.
-
 < en: white wine
 en: muscadet
 xx: muscadet
@@ -19728,6 +19681,7 @@ fr: muscadet, vin blanc muscadet
 hr: muskadet
 ja: ミュスカデ
 ru: мюскаде
+description:en: MUSCADET is a French white wine.
 wikipedia:en: https://en.wikipedia.org/wiki/Muscadet
 
 # <category:en:Red wines
@@ -19824,9 +19778,6 @@ hr: crno vino sa zaštićenom oznakom zemljopisnog podrijetla iz Francuske
 hu: francia vörösbor
 it: vino rosso dalla Francia
 
-
-# 2019-05-29
-
 < en: red wine
 en: red wine extract
 bg: екстракт от червено вино
@@ -19836,9 +19787,6 @@ fr: extrait de vin rouge
 hr: ekstrakt crnog vina
 hu: vörösbor kivonat
 it: estratto di vino rosso
-
-
-# description:en:Sauternes is a French sweet wine from the Sauternais region of the Graves section in Bordeaux.
 
 < en: wine
 en: sauternes
@@ -19862,6 +19810,7 @@ zh: 索泰爾納
 # zh-cn:索泰尔纳白葡萄酒
 # zh-hans:索泰尔纳白葡萄酒
 # zh-hant:索泰爾納白葡萄酒
+description:en: Sauternes is a French sweet wine from the Sauternais region of the Graves section in Bordeaux.
 wikidata:en: Q771636
 wikipedia:en: https://en.wikipedia.org/wiki/Sauternes_(wine)
 
@@ -19925,9 +19874,6 @@ es: vino rancio
 hr: ustajalo vino
 it: vino stantio
 
-
-# description:en:Fortified wine is a wine to which a distilled spirit, usually brandy, is added. Many different styles of fortified wine have been developed, including Port, Sherry, Madeira, Marsala, Commandaria wine, and the aromatised wine Vermouth.
-
 < en: wine
 en: liqueur wine, fortified wine
 be: Мацаванае віно
@@ -19972,6 +19918,7 @@ zh: 加强葡萄酒
 # zh-hans:加强葡萄酒
 # zh-hant:加強葡萄酒
 # zh-hk:加強葡萄酒
+description:en: Fortified wine is a wine to which a distilled spirit, usually brandy, is added. Many different styles of fortified wine have been developed, including Port, Sherry, Madeira, Marsala, Commandaria wine, and the aromatised wine Vermouth.
 wikidata:en: Q722338
 wikipedia:en: https://en.wikipedia.org/wiki/Fortified_wine
 
