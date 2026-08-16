@@ -173,9 +173,9 @@
             </div>
         </section>
 
-        [%# The nutrition section is displayed when the nutrition feature is enabled for the product,
-            or when the product already has nutrition data (e.g. beauty products with nutrition facts
-            added before the feature was disabled), so that contributors can delete it %]
+[%# The nutrition section is displayed when the nutrition feature is enabled for the product,
+    or when the product already has nutrition data (e.g. beauty products with nutrition facts
+    added before the feature was disabled), so that contributors can delete it -%]
         [% IF nutrition_feature_enabled || product_has_nutrition_data %]<!--nutrient fieldset-->
         <section class="card fieldset" id="nutrition">
             <div class="card-section">
