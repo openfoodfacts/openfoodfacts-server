@@ -24,21 +24,22 @@ use ProductOpener::PerlStandards;
 
 use Test2::V0;
 
-use ProductOpener::Config qw/%options/;
 use ProductOpener::Display qw/process_template/;
 
-# The nutrition section of the product edit form is displayed only for product types
-# for which the nutrition feature is enabled (e.g. food products), or for products that
-# already have nutrition data, so that contributors can delete it.
+# The nutrition section of the product edit form is displayed only for products for which
+# the nutrition feature is enabled (e.g. food products), or for products that already have
+# nutrition data, so that contributors can delete it.
+# Both flags are computed for the product (and not for the site) in cgi/product_multilingual.pl,
+# as the producers platform can host products of different types.
 
-sub render_product_edit_form ($product_type, $product_has_nutrition_data = 0) {
-	local $options{product_type} = $product_type;
+sub render_product_edit_form ($nutrition_feature_enabled, $product_has_nutrition_data = 0) {
 
 	my $html = '';
 	my $template_data_ref = {
 		errors_index => -1,
 		input_sets => {},
 		pers => [],
+		nutrition_feature_enabled => $nutrition_feature_enabled,
 		product_has_nutrition_data => $product_has_nutrition_data,
 	};
 	my $request_ref = {lc => 'en'};
@@ -48,21 +49,24 @@ sub render_product_edit_form ($product_type, $product_has_nutrition_data = 0) {
 			'web/pages/product_edit/product_edit_form_display.tt.html',
 			$template_data_ref, \$html, $request_ref
 		),
-		"render the product edit form for $product_type products"
+		"render the product edit form (nutrition feature: $nutrition_feature_enabled, "
+			. "product has nutrition data: $product_has_nutrition_data)"
 	);
 
 	return $html;
 }
 
-my $food_form = render_product_edit_form('food');
+# Products with the nutrition feature (e.g. food products)
+my $food_form = render_product_edit_form(1);
 like($food_form, qr{href="#nutrition"}, 'food edit form includes the nutrition navigation link');
 like($food_form, qr{<section class="card fieldset" id="nutrition">}, 'food edit form includes the nutrition section');
 
-my $beauty_form = render_product_edit_form('beauty');
+# Products without the nutrition feature (e.g. beauty products)
+my $beauty_form = render_product_edit_form(0);
 unlike($beauty_form, qr{href="#nutrition"}, 'beauty edit form excludes the nutrition navigation link');
 unlike($beauty_form, qr{id="nutrition"}, 'beauty edit form excludes the nutrition section');
 
-my $beauty_form_with_nutrition_data = render_product_edit_form('beauty', 1);
+my $beauty_form_with_nutrition_data = render_product_edit_form(0, 1);
 like($beauty_form_with_nutrition_data,
 	qr{href="#nutrition"},
 	'beauty edit form includes the nutrition navigation link when the product has nutrition data');

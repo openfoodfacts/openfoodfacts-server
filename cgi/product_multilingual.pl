@@ -1035,6 +1035,10 @@ CSS
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
 
+	# The nutrition feature is computed for the product and not for the site, as the producers
+	# platform can host products of different types
+	$template_data_ref_display->{nutrition_feature_enabled} = feature_enabled("nutrition", $product_ref) ? 1 : 0;
+
 	# For product types for which the nutrition feature is disabled (e.g. beauty products),
 	# the nutrition section is normally hidden in the edit form.
 	# We still display it if the product already has nutrition facts (or the "no nutrition data
