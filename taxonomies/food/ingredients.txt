@@ -26357,7 +26357,6 @@ nutriscore_fruits_vegetables_nuts:en: no
 usda_ndb_2_code:en: 20137
 usda_ndb_2_name:en: Quinoa, cooked
 usda_ndb_2_process:en: en:cooked
-usda_ndb_name:en: Quinoa, cooked
 usda_ndb_code:en: 20035
 usda_ndb_name:en: Quinoa, uncooked
 usda_ndb_process:en: en:uncooked
@@ -32198,12 +32197,11 @@ sq: shurup glukoze
 sr: glukozni sirup
 sv: glukossirap, stärkelsesirap, glukos-sirap
 tr: glikoz şurubu, glukoz şurubu, glükoz şurubu
-# probably not a very good CIQUAL proxy
+# ast:Almíbar
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
-# ast:Almíbar
-# not always a UPF marker (Nova 4)
+comment:en: probably not a very good CIQUAL proxy; not always a UPF marker (Nova 4)
 wikidata:en: Q14770547
 wikipedia:en: https://en.wikipedia.org/wiki/Glucose_syrup
 
@@ -32249,9 +32247,9 @@ fa: میزوآمه
 ja: 麦水飴
 pa: ਮਿਜ਼ੂਆਮੇ
 zh: 水飴
+comment:en: in Japanese 水飴 (mizuame) is generic for glucose syrup
 description:en: A clear, thick, sticky liquid, it is made by converting starch to sugars.
 wikidata:en: Q3044475
-# in Japanese 水飴 (mizuame) is generic for glucose syrup
 
 < en: corn syrup
 en: corn glucose syrup, corn glucose
