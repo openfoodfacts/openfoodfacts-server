@@ -354,18 +354,50 @@ my @tests = (
 			categories_tags => ['en:beverages', 'en:carbonated-drinks'],
 		},
 	],
+	[
+		# Product types for which the nutrition feature is disabled (e.g. beauty products) must not
+		# have the en:nutrition-photo-to-be-selected and en:nutrition-facts-to-be-completed states,
+		# otherwise they could never be complete.
+		'compute_completeness_and_missing_tags_beauty',
+		{
+			product_type => 'beauty',
+			brands => 'Test brand',
+			brands_tags => ['xx:test-brand'],
+			product_name => 'Test shampoo',
+			quantity => '250 ml',
+			packaging => 'Bottle',
+			packaging_tags => ['en:bottle'],
+			categories_tags => ['en:shampoos'],
+			origins => 'France',
+			origins_tags => ['en:france'],
+			emb_codes => 'EMB 12345',
+			expiration_date => '01/2030',
+			ingredients_text => 'Aqua, Sodium Laureth Sulfate',
+		},
+		# The product has all the photos it needs: front, ingredients and packaging, but no nutrition photo
+		{
+			uploaded_images => {1 => 1},
+			selected_images => {front_en => 1, ingredients_en => 1, packaging_en => 1},
+		},
+	],
 );
 
 foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
+	my $current_ref = $test_ref->[2] // {};
 
 	# Run the test
 
-	compute_completeness_and_missing_tags($product_ref, {}, {});
+	compute_completeness_and_missing_tags($product_ref, $current_ref, {});
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
+
+# Check explicitly the states of the beauty product, as they are the point of the test above
+my $beauty_product_ref = $tests[1][1];
+is([grep {/^en:nutrition/} @{$beauty_product_ref->{states_tags}}], [], 'beauty products do not have nutrition states');
+is($beauty_product_ref->{complete}, 1, 'beauty products can be complete without nutrition facts and photo');
 
 done_testing();
