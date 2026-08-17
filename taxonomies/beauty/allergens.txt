@@ -1,512 +1,768 @@
-# Sourced from the EU official lists: https://ec.europa.eu/health/scientific_committees/opinions_layman/perfume-allergies/en/#4
+# Fragrance allergens, for Open Beauty Facts.
+#
+# This file holds two different kinds of information.
+#
+# 1. Scientific evidence, from the opinion of the Scientific Committee on Consumer
+#    Safety on fragrance allergens in cosmetic products (SCCS/1459/11, 26-27 June 2012):
+#    https://health.ec.europa.eu/publications/opinion-fragrance-allergens-cosmetic-products_en
+#    The eu_lists property gives the SCCS category. The four categories are levels of
+#    evidence, not regulatory classes: 82 substances established as contact allergens in
+#    humans, 19 established in animals, 26 likely and 48 possible. The 48 possible ones
+#    were not recommended for labelling.
+#
+# 2. EU labelling rules, from Annex III to Regulation (EC) No 1223/2009, as amended by
+#    Commission Regulation (EU) 2023/1545 (OJ L 188, 27.7.2023) and its corrigendum
+#    (OJ L, 2025/90876, 11.11.2025):
+#      - eu_annex_iii_entry is the Annex III reference number,
+#      - eu_labelling_name is the name that has to appear in the list of ingredients, when
+#        that name is not one of the names of the entry. It holds the names shared by a
+#        group of substances (Rose Ketones, Pinene, Terpineol) and the short forms the
+#        regulation uses for a pair (Cedrus Atlantica Oil/Extract). When the label simply
+#        spells the ingredient another way, that spelling is a synonym on the en: line
+#        instead, so that a list of ingredients matches it.
+#    A substance that has eu_annex_iii_entry must be named in the list of ingredients
+#    when its concentration is above 0,001 % in leave-on products or 0,01 % in rinse-off
+#    products. Products that do not comply could be placed on the EU market until
+#    31 July 2026 and may still be sold until 31 July 2028, so labels made under the old
+#    rules are still on the shelves.
+#    Some Annex III entries cover several isomers, or several plant species. They share
+#    one reference number and one labelling name, for example Rose Ketones or Pinene.
+#
+# Substances that are banned in the EU are kept here, because they are still found on old
+# labels and in old data. They carry eu_prohibited: yes and eu_prohibited_by.
+#
+# CAS numbers are written as a comma separated list.
+#
+# wikidata holds the Wikidata item of the substance or of the essential oil. Every one was
+# found through the CAS number, which is property P231 on Wikidata, so the join is exact and
+# can be checked. An entry has no item when its CAS number is not on Wikidata, or when the
+# only item found is too general and would fit two entries at once.
 
-en: ACETYLCEDRENE
+
+
+en: ACETYLCEDRENE, Acetyl Cedrene
 cas_number:en: 32388-55-9
+eu_annex_iii_entry:en: 327
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q27293605
 
 
 en: AMYL CINNAMAL
 cas_number:en: 122-40-7
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q48248351
 
 
 en: AMYL CINNAMYL ALCOHOL
 cas_number:en: 101-85-9
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q72443139
 
 
 en: AMYL SALICYLATE
 cas_number:en: 2050-08-0
+eu_annex_iii_entry:en: 328
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q27160231
 
 
-en: trans-ANETHOLE
-cas_number:en: 4180-23-8
+en: trans-ANETHOLE, Anethole
+cas_number:en: 4180-23-8, 104-46-1
+eu_annex_iii_entry:en: 329
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (r.t.)
+wikidata:en: Q255564
 
 
 en: ANISE ALCOHOL
 cas_number:en: 105-13-5
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q548873
 
 
-en: BENZALDEHYDE 
+en: BENZALDEHYDE
 cas_number:en: 100-52-7
+eu_annex_iii_entry:en: 330
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q372524
 
 
 en: BENZYL ALCOHOL
 cas_number:en: 100-51-6
+eu_annex_iii_entry:en: 45
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q52353
 
 
 en: BENZYL BENZOATE
 cas_number:en: 120-51-4
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q413755
 
 
 en: BENZYL CINNAMATE
 cas_number:en: 103-41-3
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q104376075
 
 
 en: BENZYL SALICYLATE
 cas_number:en: 118-58-1
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q416929
 
 
+# Banned in the EU since 1 March 2022, as a CMR substance.
 en: BUTYLPHENYL METHYLPROPIONAL
 cas_number:en: 80-54-6
 eu_lists:en: en:Established contact allergens in humans
+eu_prohibited:en: yes
+eu_prohibited_by:en: Regulation (EU) 2021/1902, Annex II entry 1666
 human_evidence:en: ++
+wikidata:en: Q209290
 
 
 en: CAMPHOR
-cas_number:en: 76-22-2 / 464-49-3
+cas_number:en: 76-22-2, 464-49-3, 21368-68-3, 464-48-2
+eu_annex_iii_entry:en: 331
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (r.t.)
+wikidata:en: Q181559
 
 
 en: beta-CARYOPHYLLENE
 cas_number:en: 87-44-5
+eu_annex_iii_entry:en: 332
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: Non-ox.: +, ox.: +
+wikidata:en: Q421614
 
 
 en: CARVONE
-cas_number:en: 99-49-0 / 6485-40-1 / 2244-16-8
+cas_number:en: 99-49-0, 6485-40-1, 2244-16-8
+eu_annex_iii_entry:en: 333
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (r.t.)
+wikidata:en: Q416800
 
 
-en:  CINNAMAL
+en: CINNAMAL
 cas_number:en: 104-55-2
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q60041699
 
 
 en: CINNAMYL ALCOHOL
 cas_number:en: 104-54-1
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q27102249
 
 
 en: CITRAL
-cas_number:en: 5392-40-5
+cas_number:en: 5392-40-5, 141-27-5, 106-26-3
+eu_annex_iii_entry:en: 70
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q60176530
 
 
 en: CITRONELLOL
-cas_number:en: 106-22-9 / 1117-61-9 / 7540-51-4
+cas_number:en: 106-22-9, 1117-61-9, 7540-51-4, 26489-01-0
+eu_annex_iii_entry:en: 86
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q27122080
 
+
+# Not from SCCS/1459/11 and not a fragrance: a surfactant, kept here because it is a
+# well documented contact allergen in cosmetics.
 en: COCAMIDOPROPYL BETAINE
 cas_number:en: 61789-40-0
+wikidata:en: Q58010668
+
 
 en: COUMARIN
-cas_number:en:  91-64-5
+cas_number:en: 91-64-5
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q111812
 
 
 en: DAMASCENONE, ROSE KETONE-4
 cas_number:en: 23696-85-7
+eu_annex_iii_entry:en: 157
+eu_labelling_name:en: Rose Ketones
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (r.t.)
+wikidata:en: Q72461358
 
 
 en: alpha-DAMASCONE, TMCHB
-cas_number:en: 43052-87-5 / 23726-94-5
+cas_number:en: 43052-87-5, 23726-94-5
+eu_annex_iii_entry:en: 157
+eu_labelling_name:en: Rose Ketones
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q72514004
 
 
 en: cis-beta-DAMASCONE
 cas_number:en: 23726-92-3
+eu_annex_iii_entry:en: 157
+eu_labelling_name:en: Rose Ketones
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q27236260
 
 
 en: delta-DAMASCONE
 cas_number:en: 57378-68-4
+eu_annex_iii_entry:en: 157
+eu_labelling_name:en: Rose Ketones
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q27268183
 
 
-en: DIMETHYLBENZYL CARBINYL ACETATE, DMBCA
+en: DIMETHYLBENZYL CARBINYL ACETATE, DMBCA, Dimethyl Phenethyl Acetate
 cas_number:en: 151-05-3
+eu_annex_iii_entry:en: 334
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q27265714
 
 
 en: EUGENOL
 cas_number:en: 97-53-0
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q423357
 
 
 en: FARNESOL
 cas_number:en: 4602-84-0
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++ - +++
+wikidata:en: Q60194891
 
 
 en: GERANIOL
 cas_number:en: 106-24-1
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q410836
 
 
 en: HEXADECANOLACTONE
 cas_number:en: 109-29-5
+eu_annex_iii_entry:en: 335
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (r.t.)
+wikidata:en: Q21099108
 
 
 en: HEXAMETHYLINDANOPYRAN
 cas_number:en: 1222-05-5
+eu_annex_iii_entry:en: 336
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q2268349
 
 
 en: HEXYL CINNAMAL
 cas_number:en: 101-86-0
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q60178917
 
 
+# Banned in the EU: not placed on the market since 23 August 2019, not sold since
+# 23 August 2021. It was Annex III entry 79 before that.
 en: HYDROXYISOHEXYL 3-CYCLOHEXENE CARBOXALDEHYDE, HICC
-cas_number:en: 31906-04-4 / 51414-25-6
+cas_number:en: 31906-04-4, 51414-25-6
 eu_lists:en: en:Established contact allergens in humans
+eu_prohibited:en: yes
+eu_prohibited_by:en: Regulation (EU) 2017/1410, Annex II entry 1380
 human_evidence:en: ++++
+wikidata:en: Q5955634
 
 
 en: HYDROXYCITRONELLAL
 cas_number:en: 107-75-5
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q25100775
 
 
 en: ISOEUGENOL
-cas_number:en: 97-54-1
+cas_number:en: 97-54-1, 5932-68-3, 5912-86-7
+eu_annex_iii_entry:en: 73
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q420043
 
 
 en: alpha-ISOMETHYL IONONE
 cas_number:en: 127-51-5
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q2204200
 
 
 #en:(DL)-LIMONENE
 en: LIMONENE
-cas_number:en: 138-86-3
+cas_number:en: 138-86-3, 7705-14-8, 5989-27-5, 5989-54-8
+eu_annex_iii_entry:en: 88
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++ (non-ox.); +++ (ox.)
+wikidata:en: Q278809
 
 
 en: LINALOOL
 cas_number:en: 78-70-6
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++ (non-ox.) +++ (ox.)
+wikidata:en: Q410932
 
 
 en: LINALYL ACETATE
 cas_number:en: 115-95-7
+eu_annex_iii_entry:en: 337
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (non-ox.) ++ (ox.)
+wikidata:en: Q188314
 
 
 en: MENTHOL
-cas_number:en: 1490-04-6 / 89-78-1 / 2216-51-5
+cas_number:en: 1490-04-6, 89-78-1, 2216-51-5, 15356-60-2
+eu_annex_iii_entry:en: 338
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q27109870
 
 
 en: 6-METHYL COUMARIN
 cas_number:en: 92-48-8
+eu_annex_iii_entry:en: 46
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q245490
 
 
 en: METHYL 2-OCTYNOATE
 cas_number:en: 111-12-6
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q27237243
 
 
 en: METHYL SALICYLATE
 cas_number:en: 119-36-8
+eu_annex_iii_entry:en: 324
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q407669
 
 
-en: 3-METHYL-5-(2,2, 3-TRIMETHYL-3-CYCLOPENTENYL)PENT-4-EN-2-OL
+en: 3-METHYL-5-(2\,2\,3-TRIMETHYL-3-CYCLOPENTENYL)PENT-4-EN-2-OL, Trimethylcyclopentenyl Methylisopentenol
 cas_number:en: 67801-20-1
+eu_annex_iii_entry:en: 339
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++ (r.t.)
+wikidata:en: Q72470584
 
-en: alpha-PINENE and beta-PINENE
-cas_number:en: 80-56-8 and 127-91-3, resp.
+
+en: alpha-PINENE
+cas_number:en: 80-56-8, 7785-70-8
+eu_annex_iii_entry:en: 371
+eu_labelling_name:en: Pinene
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q27104380
 
 
-en: PROPYLIDENE PHTHALIDE
+en: beta-PINENE
+cas_number:en: 127-91-3, 18172-67-3
+eu_annex_iii_entry:en: 371
+eu_labelling_name:en: Pinene
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: ++
+wikidata:en: Q300928
+
+
+en: PROPYLIDENE PHTHALIDE, 3-Propylidenephthalide
 cas_number:en: 17369-59-4
+eu_annex_iii_entry:en: 175
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (r.t.)
+wikidata:en: Q106653652
 
 
 en: SALICYLALDEHYDE
 cas_number:en: 90-02-8
+eu_annex_iii_entry:en: 340
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q414492
 
 
-en: alpha-SANTALOL and beta-SANTALOL
-cas_number:en: 115-71-9 and 77-42-9, resp.
+en: alpha-SANTALOL
+cas_number:en: 115-71-9
+eu_annex_iii_entry:en: 341
+eu_labelling_name:en: Santalol
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q10859742
+
+
+en: beta-SANTALOL
+cas_number:en: 77-42-9
+eu_annex_iii_entry:en: 341
+eu_labelling_name:en: Santalol
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: ++
+wikidata:en: Q2055416
 
 
 en: SCLAREOL
 cas_number:en: 515-03-7
+eu_annex_iii_entry:en: 342
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q796619
 
 
 en: TERPINEOL
-cas_number:en: 8000-41-7
+cas_number:en: 8000-41-7, 98-55-5, 138-87-4, 586-81-2
+eu_annex_iii_entry:en: 343
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q72509604
 
 
 en: alpha-TERPINEOL
-cas_number:en:  10482-56-1 / 98-55-5
+cas_number:en: 10482-56-1, 98-55-5
+eu_annex_iii_entry:en: 343
+eu_labelling_name:en: Terpineol
 eu_lists:en: en:Established contact allergens in humans
-human_evidence:en:
+wikidata:en: Q27105253
 
 
 en: Terpinolene
 cas_number:en: 586-62-9
+eu_annex_iii_entry:en: 133
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q2405051
 
 
 en: TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES
-cas_number:en: 54464-57-2 / 54464-59-4 / 68155-66-8 / 68155-67-9
+cas_number:en: 54464-57-2, 54464-59-4, 68155-66-8, 68155-67-9
+eu_annex_iii_entry:en: 344
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +
+wikidata:en: Q15720552
 
 
-en: TRIMETHYL-BENZENEPROPANOL, Majantol
+en: TRIMETHYL-BENZENEPROPANOL, Majantol, Trimethylbenzenepropanol
 cas_number:en: 103694-68-4
+eu_annex_iii_entry:en: 345
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q27268778
 
 
 en: VANILLIN
 cas_number:en: 121-33-5
+eu_annex_iii_entry:en: 346
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q33495
 
 
-en:  Natural extracts
-cas_number:en:
-eu_lists:en: en:Established contact allergens in humans
-human_evidence:en:
-
-
-en: CANANGA ODORATA and Ylang-ylang oil 
-cas_number:en:   83863-30-3; 8006-81-3
+en: CANANGA ODORATA, Ylang-ylang oil
+cas_number:en: 83863-30-3, 8006-81-3
+eu_annex_iii_entry:en: 347
+eu_labelling_name:en: Cananga Odorata Oil/Extract
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q251104
 
 
-en: CEDRUS ATLANTICA BARK OIL 
-cas_number:en: 92201-55-3; 8000-27-9
+en: CEDRUS ATLANTICA BARK OIL
+cas_number:en: 92201-55-3, 8000-27-9, 8023-85-6
+eu_annex_iii_entry:en: 122
+eu_labelling_name:en: Cedrus Atlantica Oil/Extract
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
 
 
-en: CINNAMOMUM CASSIA LEAF OIL CINNAMOMUM ZEYLANICUM BARK OIL
-cas_number:en: 8007-80-5 84649-98-9
+en: CINNAMOMUM CASSIA LEAF OIL
+cas_number:en: 8007-80-5, 84961-46-6
+eu_annex_iii_entry:en: 348
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++ (r.t.)
+wikidata:en: Q1124672
 
 
-en: CITRUS AURANTIUM AMARA FLOWER / PEEL OIL
-cas_number:en: 8016-38-4; 72968-50-4
+en: CINNAMOMUM ZEYLANICUM BARK OIL
+cas_number:en: 8015-91-6, 84649-98-9
+eu_annex_iii_entry:en: 349
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: ++ (r.t.)
+wikidata:en: Q204193
+
+
+en: CITRUS AURANTIUM AMARA FLOWER OIL
+cas_number:en: 8016-38-4, 72968-50-4
+eu_annex_iii_entry:en: 350
+eu_labelling_name:en: Citrus Aurantium Flower Oil
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q900616
 
 
-en: CITRUS BERGAMIA PEEL OIL EXPRESSED
+en: CITRUS AURANTIUM AMARA PEEL OIL
+cas_number:en: 68916-04-1, 72968-50-4
+eu_annex_iii_entry:en: 351
+eu_labelling_name:en: Citrus Aurantium Peel Oil
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: ++
+wikidata:en: Q12214841
+
+
+en: CITRUS BERGAMIA PEEL OIL EXPRESSED, Citrus Aurantium Bergamia Peel Oil
 cas_number:en: 89957-91-5
+eu_annex_iii_entry:en: 352
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (r.t.)
 
 
-en: CITRUS LIMONUM PEEL OIL EXPRESSED
+en: CITRUS LIMONUM PEEL OIL EXPRESSED, Citrus Limon Peel Oil
 cas_number:en: 84929-31-7
+eu_annex_iii_entry:en: 353
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q72487301
 
 
 #en:CITRUS SINENSIS (syn.: AURANTIUM DULCIS) PEEL OIL EXPRESSED
-en: CITRUS SINENSIS / AURANTIUM DULCIS PEEL OIL EXPRESSED
-cas_number:en: 97766-30-8; 8028-48-6
+en: CITRUS SINENSIS PEEL OIL EXPRESSED, CITRUS AURANTIUM DULCIS PEEL OIL EXPRESSED
+cas_number:en: 97766-30-8, 8028-48-6, 8008-57-9
+eu_annex_iii_entry:en: 351
+eu_labelling_name:en: Citrus Aurantium Peel Oil
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q72497928
 
 
-en: CYMBOPOGON CITRATUS / SCHOENANTHUS OILS
-cas_number:en: 89998-14-1; 8007-02-1; 89998-16-3
+en: CYMBOPOGON CITRATUS OIL
+cas_number:en: 89998-14-1, 8007-02-1
+eu_annex_iii_entry:en: 354
+eu_labelling_name:en: Lemongrass Oil
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: ++
+wikidata:en: Q72487304
+
+
+en: CYMBOPOGON SCHOENANTHUS OIL
+cas_number:en: 89998-16-3
+eu_annex_iii_entry:en: 354
+eu_labelling_name:en: Lemongrass Oil
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
 
 
 en: EUCALYPTUS SPP. LEAF OIL
-cas_number:en: 92502-70-0; 8000-48-4
+cas_number:en: 92502-70-0, 8000-48-4
+eu_annex_iii_entry:en: 355
+eu_labelling_name:en: Eucalyptus Globulus Oil
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q511687
 
 
-en: EUGENIA CARYOPHYLLUS LEAF / FLOWER OIL
-cas_number:en: 8000-34-8
+en: EUGENIA CARYOPHYLLUS LEAF OIL
+cas_number:en: 8000-34-8, 8015-97-2
+eu_annex_iii_entry:en: 356
+eu_labelling_name:en: Eugenia Caryophyllus Oil
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: +++
+wikidata:en: Q2195458
+
+
+en: EUGENIA CARYOPHYLLUS FLOWER OIL
+cas_number:en: 84961-50-2
+eu_annex_iii_entry:en: 356
+eu_labelling_name:en: Eugenia Caryophyllus Oil
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
 
 
 en: EVERNIA FURFURACEA EXTRACT
-cas_number:en: 90028-67-4 
+cas_number:en: 90028-67-4
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
 
 
 en: EVERNIA PRUNASTRI EXTRACT
-cas_number:en: 90028-68-5 
+cas_number:en: 90028-68-5
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
 
 
-en: JASMINUM GRANDIFLORUM / OFFICINALE
-cas_number:en: 84776-64-7; 90045-94-6; 8022-96-6
+en: JASMINUM GRANDIFLORUM
+cas_number:en: 84776-64-7
+eu_annex_iii_entry:en: 357
+eu_labelling_name:en: Jasmine Oil/Extract
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
 
 
-en: JUNIPERUS VIRGINIANA
-cas_number:en: 8000-27-9;
+en: JASMINUM OFFICINALE
+cas_number:en: 90045-94-6, 8024-43-9
+eu_annex_iii_entry:en: 357
+eu_labelling_name:en: Jasmine Oil/Extract
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: +++
+
+
+en: JUNIPERUS VIRGINIANA, Juniperus Virginiana Oil
+cas_number:en: 8000-27-9, 85085-41-2
+eu_annex_iii_entry:en: 358
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: ++
+wikidata:en: Q184321
+
+
+en: LAURUS NOBILIS, Laurus Nobilis Leaf Oil
+cas_number:en: 8002-41-3, 8007-48-5, 84603-73-6
+eu_annex_iii_entry:en: 359
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
 
 
-#en:
-#cas_number:en:85085-41-2
-#human_evidence:en:
-#eu_lists:en: en:Established contact allergens in humans
-
-
-en: LAURUS NOBILIS
-cas_number:en: 8002-41-3; 8007-48-5; 84603-73-6
-eu_lists:en: en:Established contact allergens in humans
-human_evidence:en: ++
-
-
-en: LAVANDULA HYBRIDA
+en: LAVANDULA HYBRIDA, Lavandula Hybrida Oil
 cas_number:en: 91722-69-9
+eu_annex_iii_entry:en: 360
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: + (r.t.)
 
 
-en: LAVANDULA OFFICINALIS
+en: LAVANDULA OFFICINALIS, Lavandula Angustifolia Oil
 cas_number:en: 84776-65-8
+eu_annex_iii_entry:en: 360
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
 
 
-en: MENTHA PIPERITA
-cas_number:en: 8006-90-4; 84082-70-2
+en: MENTHA PIPERITA, Mentha Piperita Oil
+cas_number:en: 8006-90-4, 84082-70-2
+eu_annex_iii_entry:en: 361
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q353391
 
 
-en: MENTHA SPICATA
+en: MENTHA SPICATA, Mentha Viridis Leaf Oil
 cas_number:en: 84696-51-5
+eu_annex_iii_entry:en: 362
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
 
 
 en: MYROXYLON PEREIRAE
-cas_number:en: 8007-00-9;
+cas_number:en: 8007-00-9
+eu_annex_iii_entry:en: 154
+eu_labelling_name:en: Myroxylon Pereirae Oil/Extract
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++++
+wikidata:en: Q120424
 
 
 en: NARCISSUS SPP.
-cas_number:en: diverse
+cas_number:en: 90064-26-9, 68917-12-4, 90064-27-0, 90064-25-8
+eu_annex_iii_entry:en: 363
+eu_labelling_name:en: Narcissus Extract
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
 
 
-en: PELARGONIUM GRAVEOLENS
-cas_number:en: 90082-51-2; 8000-46-2
+en: PELARGONIUM GRAVEOLENS, Pelargonium Graveolens Oil, Pelargonium Graveolens Flower Oil, Pelargonium Graveolens Leaf Oil
+cas_number:en: 90082-51-2, 8000-46-2
+eu_annex_iii_entry:en: 364
+eu_lists:en: en:Established contact allergens in humans
+human_evidence:en: ++
+wikidata:en: Q72480169
+
+
+en: PINUS MUGO
+cas_number:en: 90082-72-7
+eu_annex_iii_entry:en: 109
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
 
 
-en: PINUS MUGO/PUMILA
-cas_number:en: 90082-72-7 / 97676-05-6
+en: PINUS PUMILA
+cas_number:en: 97676-05-6
+eu_annex_iii_entry:en: 114
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
 
 
-en: POGOSTEMON CABLIN
-cas_number:en: 8014-09-3; 84238-39-1
+en: POGOSTEMON CABLIN, Pogostemon Cablin Oil, Pogostemon Cablin Leaf Oil
+cas_number:en: 8014-09-3, 84238-39-1
+eu_annex_iii_entry:en: 365
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q72499575
 
 
 #en:ROSE FLOWER OIL (ROSA SPP.)
-en: ROSE FLOWER OIL / ROSA SPP.
-cas_number:en: Diverse
+en: ROSE FLOWER OIL, ROSA SPP.
+cas_number:en: 8007-01-0, 90106-38-0, 93334-48-6, 84696-47-9, 84604-12-6, 84604-13-7, 92347-25-6
+eu_annex_iii_entry:en: 366
+eu_labelling_name:en: Rose Flower Oil/Extract
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q83054
 
 
-en: SANTALUM ALBUM
-cas_number:en: 84787-70-2; 8006-87-9
+en: SANTALUM ALBUM, Santalum Album Oil
+cas_number:en: 84787-70-2, 8006-87-9
+eu_annex_iii_entry:en: 367
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: +++
+wikidata:en: Q675299
 
 
 #en:TURPENTINE (oil)
-en: TURPENTINE oil
-cas_number:en: 8006-64-2; 9005-90-7; 8052-14-0
+en: TURPENTINE oil, Turpentine
+cas_number:en: 8006-64-2, 9005-90-7, 8052-14-0
+eu_annex_iii_entry:en: 124
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++++
+wikidata:en: Q201382
 
 
-en: VERBENA ABSOLUTE
-cas_number:en: 2237083
+en: VERBENA ABSOLUTE, Lippia Citriodora Absolute
+cas_number:en: 8024-12-2, 85116-63-8
+eu_annex_iii_entry:en: 196
 eu_lists:en: en:Established contact allergens in humans
 human_evidence:en: ++
+wikidata:en: Q19711081
 
 
 en: Allyl phenoxyacetate
@@ -514,6 +770,7 @@ cas_number:en: 7493-74-5
 ec_3_value:en: 3.1
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q27286963
 
 
 en: p-tert. -Butyldihydrocinnamaldehyde
@@ -521,6 +778,7 @@ cas_number:en: 18127-01-0
 ec_3_value:en: 4.3
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q895217
 
 
 en: CYCLAMEN ALDEHYDE
@@ -528,6 +786,7 @@ cas_number:en: 103-95-7
 ec_3_value:en: 22
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q19903910
 
 
 en: Dibenzyl ether
@@ -535,20 +794,23 @@ cas_number:en: 103-50-4
 ec_3_value:en: 6.3
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q11309584
 
 
-en: 2,3-DIHYDRO-2,2, 6-TRIMETHYLBENZALDEHYDE
+en: 2\,3-DIHYDRO-2\,2\,6-TRIMETHYLBENZALDEHYDE
 cas_number:en: 116-26-7
 ec_3_value:en: 7.5
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: limited
+wikidata:en: Q424919
 
 
-en: trans-2-Hexenal 
+en: trans-2-Hexenal
 cas_number:en: 6728-26-3
 ec_3_value:en: 2.6
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q209405
 
 
 en: 2-Hexylidene cyclopentanone
@@ -556,6 +818,7 @@ cas_number:en: 17373-89-6
 ec_3_value:en: 2.4
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q82854561
 
 
 en: HEXYL SALICYLATE
@@ -563,13 +826,15 @@ cas_number:en: 6259-76-3
 ec_3_value:en: 0.18
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: negative
+wikidata:en: Q27160824
 
 
-en: p-Isobutyl-α-methyl hydrocinnamaldehdye
+en: p-Isobutyl-alpha-methyl hydrocinnamaldehyde
 cas_number:en: 6658-48-6
 ec_3_value:en: 9.5
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q81985011
 
 
 en: Isocyclocitral
@@ -577,13 +842,15 @@ cas_number:en: 1335-66-6
 ec_3_value:en: 7.3
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q72485287
 
 
-en: α-Methyl cinnamic aldehyde
+en: alpha-Methyl cinnamic aldehyde
 cas_number:en: 101-39-3
 ec_3_value:en: 4.5
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q72489524
 
 
 en: METHYLENEDIOXYPHENYL METHYLPROPANAL
@@ -591,6 +858,7 @@ cas_number:en: 1205-17-0
 ec_3_value:en: 16.4
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q16511833
 
 
 en: METHYLUNDECANAL
@@ -598,20 +866,23 @@ cas_number:en: 110-41-8
 ec_3_value:en: 10
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q209447
 
 
-en: 2-Methoxy-4-methylphenol 
+en: 2-Methoxy-4-methylphenol
 cas_number:en: 93-51-6
 ec_3_value:en: 5.8
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q403037
 
 
-en: 4-Methoxy-α-methyl benzenpropanal
-cas_number:en: 1301152
+en: 4-Methoxy-alpha-methyl benzenepropanal
+cas_number:en: 5462-06-6
 ec_3_value:en: 23.6
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q27282816
 
 
 en: METHYL OCTINE CARBONATE
@@ -619,242 +890,274 @@ cas_number:en: 111-80-8
 ec_3_value:en: 2.5
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: limited
+wikidata:en: Q27122729
 
 
-en: Perillaldehyde p-Mentha-1,8-dien-7-al
+en: Perillaldehyde, p-Mentha-1,8-dien-7-al
 cas_number:en: 2111-75-3
 ec_3_value:en: 8.1
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
+wikidata:en: Q3117895
 
 
-en: PHENYLACETALDEHYDE 
+en: PHENYLACETALDEHYDE
 cas_number:en: 122-78-1
 ec_3_value:en: 3
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: limited
+wikidata:en: Q424998
 
 
-en:  Natural extracts
-cas_number:en:
-ec_3_value:en:
-eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
-human_evidence:en:
-
-
-en: Jasminum Sambac Flower CERA / Extract / Water
+en: JASMINUM SAMBAC FLOWER EXTRACT
 cas_number:en: 91770-14-8
 ec_3_value:en: 35.4
 eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
 human_evidence:en: none
 
 
-en:  AMBRETTOLIDE 
-cas_number:en:   7779-50-2  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
+en: JASMINUM SAMBAC FLOWER CERA
+eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
+human_evidence:en: none
 
 
-en:  CARVACROL  
-cas_number:en:  499-75-2  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
+en: JASMINUM SAMBAC FLOWER WATER
+eu_lists:en: en:Fragrance substances categorised as established contact allergens in animals
+human_evidence:en: none
 
 
-en:  Citrus paradisi §  
-cas_number:en:  8016-20-4  
-ec_3_value:en:  R43  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  none  
-sar:en:  n.a.  
-
-
-en:  CUMINALDEHYDE  
-cas_number:en:  122-03-2  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en:  CYCLOPENTADECANONE  
-cas_number:en:  502-72-7  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en:  trans-trans-delta-DAMASCONE  
-cas_number:en:  71048-82-3  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en:  2,4-dimethyl-3-cyclohexen-1-carboxaldehyde §  
-cas_number:en:  68039-49-6  
-ec_3_value:en:  R43  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  none  
-sar:en:  +  
-
-
-en:  DIMETHYLTETRAHYDRO BENZALDEHYDE  
-cas_number:en:  68737-61-1  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en:  ETHYL VANILLIN  
-cas_number:en:  121-32-4  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en:  HELIOTROPINE  
-cas_number:en:  120-57-0  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en:  ISOAMYL SALICYLATE  
-cas_number:en:  87-20-7  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  ++  
-
-
-en:  ISOLONGIFOLENEKETONE 
-cas_number:en:   33407-62-4  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en:  Longifolene §  
-cas_number:en:  475-20-7  
-ec_3_value:en:  R43  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  none  
-sar:en:  +  
-
-
-en:  Mentha arvensis §  
-cas_number:en:  68917-18-0  
-ec_3_value:en:  R43  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  none  
-sar:en:  n.a.  
-
-
-en:  METHOXYCITRONELLAL  
-cas_number:en:  3613-30-7  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en:  METHYL CINNAMATE  
-cas_number:en:  103-26-4  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  ++  
-
-
-en:  METHYLIONANTHEME  
-cas_number:en:  55599-63-8  
-ec_3_value:en:  none  
-eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en:  limited  
-sar:en:  +  
-
-
-en: 5-METHYL-alpha-IONONE 
-cas_number:en: 79-69-6  
+en: AMBRETTOLIDE
+cas_number:en: 7779-50-2
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  
-sar:en: +  
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q21099111
 
 
-en: MYRCENE  
-cas_number:en: 123-35-3  
+en: CARVACROL
+cas_number:en: 499-75-2
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  
-sar:en: ++  
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q225543
 
 
-en: MYRTENOL  
-cas_number:en: 515-00-4  
+en: Citrus paradisi §
+cas_number:en: 8016-20-4
+ec_3_value:en: R43
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: none
+sar:en: n.a.
+wikidata:en: Q72480837
+
+
+en: CUMINALDEHYDE
+cas_number:en: 122-03-2
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  
-sar:en: +  
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q419952
 
 
-en: NEROL  
-cas_number:en: 106-25-2  
+en: CYCLOPENTADECANONE
+cas_number:en: 502-72-7
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  
-sar:en: ++  
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q24732766
+
+
+en: trans-trans-delta-DAMASCONE
+cas_number:en: 71048-82-3
+ec_3_value:en: none
+eu_annex_iii_entry:en: 157
+eu_labelling_name:en: Rose Ketones
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q81985100
+
+
+en: 2,4-dimethyl-3-cyclohexen-1-carboxaldehyde §
+cas_number:en: 68039-49-6
+ec_3_value:en: R43
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: none
+sar:en: +
+wikidata:en: Q27258798
+
+
+en: DIMETHYLTETRAHYDRO BENZALDEHYDE
+cas_number:en: 68737-61-1
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+
+
+en: ETHYL VANILLIN
+cas_number:en: 121-32-4
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q416958
+
+
+en: HELIOTROPINE
+cas_number:en: 120-57-0
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q418985
+
+
+en: ISOAMYL SALICYLATE
+cas_number:en: 87-20-7
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: ++
+wikidata:en: Q2214309
+
+
+en: ISOLONGIFOLENEKETONE
+cas_number:en: 33407-62-4
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+
+
+en: Longifolene §
+cas_number:en: 475-20-7
+ec_3_value:en: R43
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: none
+sar:en: +
+wikidata:en: Q6673936
+
+
+en: Mentha arvensis §
+cas_number:en: 68917-18-0
+ec_3_value:en: R43
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: none
+sar:en: n.a.
+wikidata:en: Q353087
+
+
+en: METHOXYCITRONELLAL
+cas_number:en: 3613-30-7
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q27254032
+
+
+en: METHYL CINNAMATE
+cas_number:en: 103-26-4
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: ++
+wikidata:en: Q204178
+
+
+en: METHYLIONANTHEME
+cas_number:en: 55599-63-8
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+
+
+en: 5-METHYL-alpha-IONONE
+cas_number:en: 79-69-6
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q27108610
+
+
+en: MYRCENE
+cas_number:en: 123-35-3
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: ++
+wikidata:en: Q424577
+
+
+en: MYRTENOL
+cas_number:en: 515-00-4
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q15425810
+
+
+en: NEROL
+cas_number:en: 106-25-2
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
+human_evidence:en: limited
+sar:en: ++
+wikidata:en: Q415359
 
 
 en: Nerolidol
-cas_number:en: 7212-44-4  
+cas_number:en: 7212-44-4
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  
-sar:en: ++  
+human_evidence:en: limited
+sar:en: ++
+wikidata:en: Q72494054
 
 
-en: NOPYL ACETATE  
-cas_number:en: 128-51-8  
+en: NOPYL ACETATE
+cas_number:en: 128-51-8
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  
-sar:en: +  
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q81984779
 
 
-en: PHYTOL  
-cas_number:en: 150-86-7  
+en: PHYTOL
+cas_number:en: 150-86-7
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  
-sar:en: +  
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q415945
 
 
-en: RHODINOL  
-cas_number:en: 6812-78-8  
+en: RHODINOL
+cas_number:en: 6812-78-8
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  
-sar:en: +  
+human_evidence:en: limited
+sar:en: +
+wikidata:en: Q387993
 
 
-en: trans-ROSE KETONE-5  
-cas_number:en: 39872-57-6  
+en: trans-ROSE KETONE-5
+cas_number:en: 39872-57-6
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as likely contact allergens by combination of evidence
-human_evidence:en: limited  !  
-sar:en: ++  
+human_evidence:en: limited  !
+sar:en: ++
+wikidata:en: Q81984919
+
 
 en: CYCLOHEXYL ACETATE
 cas_number:en: 622-45-7
@@ -862,6 +1165,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: limited
 sar:en: 0
+wikidata:en: Q2706345
 
 
 en: ETHYLENE DODECANEDIOATE
@@ -870,6 +1174,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: limited
 sar:en: 0
+wikidata:en: Q27284781
 
 
 en: HYDROXYCITRONELLOL
@@ -878,14 +1183,16 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: limited
 sar:en: 0
+wikidata:en: Q27287607
 
 
-en: METHOXYTRIMETHYLHEPTANO L
+en: METHOXYTRIMETHYLHEPTANOL
 cas_number:en: 41890-92-0
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: limited
 sar:en: 0
+wikidata:en: Q27274403
 
 
 en: METHYL p-ANISATE
@@ -894,6 +1201,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: limited
 sar:en: 0
+wikidata:en: Q6823933
 
 
 en: METHYL DIHYDROJASMONATE
@@ -902,6 +1210,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: limited
 sar:en: 0
+wikidata:en: Q3144605
 
 
 en: PHENETHYL ALCOHOL
@@ -910,6 +1219,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: limited
 sar:en: 0
+wikidata:en: Q209463
 
 
 en: PHENYLPROPANOL
@@ -918,6 +1228,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: limited
 sar:en: 0
+wikidata:en: Q27160792
 
 
 en: AMYLCYCLOPENTANONE
@@ -926,6 +1237,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: negative
 sar:en: +
+wikidata:en: Q27254276
 
 
 en: BENZYL ACETATE
@@ -934,6 +1246,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: negative
 sar:en: +
+wikidata:en: Q424223
 
 
 en: 6-ETHYLIDENEOCTAHYDRO-5,8-METHANO-2H-BENZO-1-PYRAN
@@ -942,9 +1255,10 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: negative
 sar:en: +
+wikidata:en: Q81985153
 
 
-en: 3α, 4,5, 6,7, 7α-HEXAHYDRO-4,7-METHANO-1H-INDEN-5(OR 6)-YL ACETATE
+en: 3alpha\,4\,5\,6\,7\,7alpha-HEXAHYDRO-4\,7-METHANO-1H-INDEN-5(OR 6)-YL ACETATE
 cas_number:en: 54830-99-8
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
@@ -958,14 +1272,16 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: negative
 sar:en: +
+wikidata:en: Q27114869
 
 
-en: beta-IONONE 
+en: beta-IONONE
 cas_number:en: 79-77-6
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: negative
 sar:en: +
+wikidata:en: Q27114873
 
 
 en: METHYL IONONE
@@ -982,6 +1298,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: negative
 sar:en: +
+wikidata:en: Q106640323
 
 
 en: alpha-TERPINYL ACETATE
@@ -990,6 +1307,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: negative
 sar:en: +
+wikidata:en: Q4456134
 
 
 en: CITRONELLYL NITRILE
@@ -998,6 +1316,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: ++
+wikidata:en: Q29032734
 
 
 en: alpha-CYCLOHEXYLIDENE BENZENEACETONITRILE
@@ -1006,6 +1325,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q81976683
 
 
 en: DECANAL
@@ -1014,6 +1334,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: ++
+wikidata:en: Q903525
 
 
 en: DIHYDROMYRCENOL
@@ -1022,6 +1343,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q4465009
 
 
 en: 3,7-DIMETHYL-1,6-NONADIEN-3-OL
@@ -1030,21 +1352,26 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: ++
+wikidata:en: Q72471051
 
-en: 2-ETHYL-4-(2,2, 3-TRIMETHYL-3-CYCLOPENTEN-1-YL)-2-BUTEN-1-OL
+
+en: 2-ETHYL-4-(2\,2\,3-TRIMETHYL-3-CYCLOPENTEN-1-YL)-2-BUTEN-1-OL
 cas_number:en: 28219-61-6
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q72477604
 
 
 en: GERANYL ACETATE
 cas_number:en: 105-87-3
 ec_3_value:en: none
+eu_annex_iii_entry:en: 369
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: ++
+wikidata:en: Q426437
 
 
 en: HEXAHYDRO-METHANOINDENYL PROPIONATE
@@ -1061,6 +1388,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q72484804
 
 
 en: ISOBERGAMATE
@@ -1069,6 +1397,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q81999466
 
 
 en: METHYL DECENOL
@@ -1077,6 +1406,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q72489831
 
 
 en: TRICYCLODECENYL PROPIONATE
@@ -1085,6 +1415,7 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q10869279
 
 
 en: OXACYCLOHEXADECENONE
@@ -1093,22 +1424,27 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: ++
+wikidata:en: Q111508369
 
 
 en: VERDYL ACETATE
-cas_number:en: 2500-83-6/ 5413-60-5
+cas_number:en: 2500-83-6, 5413-60-5
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q81984867
 
 
 en: trans-beta-Damascone
 cas_number:en: 23726-91-2
 ec_3_value:en: none
+eu_annex_iii_entry:en: 157
+eu_labelling_name:en: Rose Ketones
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q1051071
 
 
 en: gamma-Damascone
@@ -1117,14 +1453,16 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: +
+wikidata:en: Q81976670
 
 
-en: Citronellal 
+en: Citronellal
 cas_number:en: 106-23-0
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: ++
+wikidata:en: Q61651085
 
 
 en: Phenethyl salicylate
@@ -1133,108 +1471,151 @@ ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: none
 sar:en: ++
+wikidata:en: Q27265102
 
 
+#sar:en:
 en: ACORUS CALAMUS ROOT OIL
 cas_number:en: 84775-39-3
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
+
+
 #sar:en:
-
-
 en: CEDRUS DEODARA WOOD OIL
 cas_number:en: 91771-47-0
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
+wikidata:en: Q106760676
+
+
+# Petitgrain. It shares CAS 72968-50-4 with Annex III entries 350 and 351, because
+# that number covers the bitter orange extract in general, but the leaf oil itself is
+# not in Annex III: entry 350 is the flower oil and entry 351 the peel oil.
 #sar:en:
-
-
 en: CITRUS AURANTIUM AMARA LEAF OIL
 cas_number:en: 72968-50-4
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
+wikidata:en: Q72497930
+
+
 #sar:en:
-
-
 en: CITRUS TANGERINA
 cas_number:en: 223748-44-5
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
+
+
 #sar:en:
-
-
-en: CYMBOPOGON NARDUS / WINTERIANUS HERB OIL
-cas_number:en: 89998-15-2; 91771-61-8
+en: CYMBOPOGON NARDUS HERB OIL
+cas_number:en: 89998-15-2
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
+
+
 #sar:en:
+en: CYMBOPOGON WINTERIANUS HERB OIL
+cas_number:en: 91771-61-8
+ec_3_value:en: none
+eu_lists:en: en:Fragrance substances categorised as possible contact allergens
+human_evidence:en: Limited
 
 
+#sar:en:
 en: ILLICIUM VERUM FRUIT OIL
 cas_number:en: 84650-59-9
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
+wikidata:en: Q72508852
+
+
 #sar:en:
-
-
 en: LAVANDULA SPICA
 cas_number:en: 97722-12-8
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
+
+
 #sar:en:
-
-
 en: LITSEA CUBEBA
 cas_number:en: 90063-59-5
-ec_3_value:en: none 
+ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
+
+
 #sar:en:
-
-
 en: PELARGONIUM ROSEUM
 cas_number:en: 90082-55-6
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
-#sar:en:  
 
 
+#sar:en:
 en: SALVIA spp.
-cas_number:en: Diverse
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
-#sar:en:  
 
 
+#sar:en:
 en: TAGETES PATULA
 cas_number:en: 91722-29-1
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
-#sar:en:  
 
 
+#sar:en:
 en: THYMUS spp.
 cas_number:en: 84929-51-1
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
-#sar:en:  
 
 
+#sar:en:
 en: VETIVERIA ZIZANOIDES
-cas_number:en: 8016-96-4; 84238-29-9
+cas_number:en: 8016-96-4, 84238-29-9
 ec_3_value:en: none
 eu_lists:en: en:Fragrance substances categorised as possible contact allergens
 human_evidence:en: Limited
-#sar:en:  
+wikidata:en: Q72516279
 
+
+# Not in SCCS/1459/11: added to Annex III by Regulation (EU) 2023/1545.
+en: ALPHA-TERPINENE
+cas_number:en: 99-86-5
+eu_annex_iii_entry:en: 131
+wikidata:en: Q423851
+
+
+# Not in SCCS/1459/11: added to Annex III by Regulation (EU) 2023/1545.
+en: EUGENYL ACETATE
+cas_number:en: 93-28-7
+eu_annex_iii_entry:en: 368
+wikidata:en: Q27116129
+
+
+# Not in SCCS/1459/11: added to Annex III by Regulation (EU) 2023/1545.
+en: ISOEUGENYL ACETATE
+cas_number:en: 93-29-8
+eu_annex_iii_entry:en: 370
+wikidata:en: Q72485314
+
+
+# Not in SCCS/1459/11: part of the Rose Ketones group of Annex III entry 157.
+en: trans-ROSE KETONE-1
+cas_number:en: 24720-09-0
+eu_annex_iii_entry:en: 157
+eu_labelling_name:en: Rose Ketones
+wikidata:en: Q27124033
