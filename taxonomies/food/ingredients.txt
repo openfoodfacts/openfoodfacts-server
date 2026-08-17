@@ -14642,7 +14642,6 @@ mk: млечна маст без лактоза
 < en: milkfat
 nl: gefractioneerd melkvet
 
-
 < en: milkfat
 en: butterfat, butter fat, pastry butter, anhydrous milk fat, concentrated butter, concentrated dairy butter, butter oil, anhydrous butter
 bg: безводно масло
@@ -19922,9 +19921,6 @@ description:en: Fortified wine is a wine to which a distilled spirit, usually br
 wikidata:en: Q722338
 wikipedia:en: https://en.wikipedia.org/wiki/Fortified_wine
 
-
-# description:en:MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
-
 < en: liqueur wine
 en: Madeira, Madeira wine
 an: Vin de Madeira
@@ -19970,12 +19966,10 @@ zh: 马德拉酒
 # frr:Madeira
 # pt-br:Vinho da Madeira
 # yue:孖爹剌
+description:en: MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
 wikidata:en: Q27697
 wikipedia:en: https://en.wikipedia.org/wiki/Madeira_wine
 # usage:en:liqueur wine (Madeira)
-
-
-# description:en:MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily.
 
 < en: liqueur wine
 en: Marsala wine
@@ -19984,10 +19978,7 @@ ar: نبيذ مارسالا
 be: Марсала
 bg: Марсала
 cs: víno Marsala
-da: Marsala
-de: Marsala
 el: κρασί Μαρσάλα
-eo: Marsala
 es: Marsala, vino de Marsala
 fa: شراب مارسالا
 fi: Marsala, marsala-viini
@@ -19995,38 +19986,29 @@ fo: Marsalavín
 fr: vin marsala, vin Marsala AOC, marsala
 he: מרסלה
 hr: marsala
-hu: Marsala
 id: Anggur Marsala
 it: vino marsala, vino di Marsala
 ja: 強化ワイン
-lt: Marsala
-nb: Marsala
-nl: Marsala
-pl: Marsala
 pt: Vinho Marsala, vinho de Marsala
 ro: Vin de Marsala
 ru: Марсала
-sh: Marsala
 sk: Marsala, víno Marsala
 sv: Marsalavin
 uk: Марсала
-# da,de,es,fifr,hr,hu,lt,nb,nl,pl,sh
 zh: 玛萨拉酒
-ciqual_food_code:en: 1015
-ciqual_food_name:en: Marsala wine
-ciqual_food_name:fr: Marsala
-origins:en: en:france
-protected_name_type:en: en:aoc
 # be-tarask:Марсала
-# scn:Marsala
 # zh-hans:玛萨拉酒
 # zh-hant:瑪薩拉酒
 # zh-hk:瑪薩拉酒
+ciqual_food_code:en: 1015
+ciqual_food_name:en: Marsala wine
+ciqual_food_name:fr: Marsala
+description:en: MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily.
+origins:en: en:france
+protected_name_type:en: en:aoc
 wikidata:en: Q842052
 wikipedia:en: https://en.wikipedia.org/wiki/Marsala_wine
 #227 @2021-09-25
-
-# description:en:PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
 
 < en: liqueur wine
 en: port, port wine
@@ -20090,6 +20072,7 @@ zh: 波特酒
 # zh-hk:波特酒
 # zh-sg:波特酒
 # zh-tw:波特酒
+description:en: PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
 wikidata:en: Q191034
 wikipedia:en: https://en.wikipedia.org/wiki/Port_wine
 
@@ -20117,8 +20100,6 @@ it: porto rosso modificato
 en: ruby port
 hr: rubin luka
 it: porto Ruby
-
-# description:en:SHERRY is a fortified wine made from white grapes that are grown near the city of Jerez de la Frontera in Andalusia, Spain. Sherry is produced in a variety of styles made primarily from the Palomino grape, ranging from light versions similar to white table wines, such as Manzanilla and fino, to darker and heavier versions that have been allowed to oxidise as they age in barrel, such as Amontillado and oloroso.
 
 < en: liqueur wine
 en: sherry, sherry wine
@@ -20167,6 +20148,7 @@ zh: 雪利酒
 # frr:sherry
 # simple:sherry
 # zh_yue:些厘酒
+description:en: SHERRY is a fortified wine made from white grapes that are grown near the city of Jerez de la Frontera in Andalusia, Spain. Sherry is produced in a variety of styles made primarily from the Palomino grape, ranging from light versions similar to white table wines, such as Manzanilla and fino, to darker and heavier versions that have been allowed to oxidise as they age in barrel, such as Amontillado and oloroso.
 wikidata:en: Q16398
 wikipedia:en: https://en.wikipedia.org/wiki/Sherry
 
@@ -20181,8 +20163,6 @@ it: sherry Amontillado
 en: blackberry wine
 hr: kupinovo vino
 it: vino di more
-
-# description:en:BRANDY is a spirit produced by distilling wine. Brandy generally contains 35–60% alcohol by volume (70–120 US proof) and is typically consumed as an after-dinner digestif.
 
 < en: alcohol
 en: brandy
