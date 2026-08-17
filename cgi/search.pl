@@ -5,7 +5,7 @@
 # Product Opener
 # Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des Foss茅s, France
 #
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -247,7 +247,7 @@ if (    (not defined single_param('json'))
 	and (not defined single_param('jqm_loadmore'))
 	and (not defined single_param('xml'))
 	and (not defined single_param('rss'))
-	and ($search_terms =~ /^(\d{4,24}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
+	and ($search_terms =~ /^(\d{4,40}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
 {
 
 	my $code = normalize_code($search_terms);
@@ -657,7 +657,7 @@ elsif ($action eq 'process') {
 
 			my %terms = ();
 
-			foreach my $term (split(/,|'|’|\s/, $search_terms)) {
+			foreach my $term (split(/,|'|鈥檤\s/, $search_terms)) {
 				if (length(get_string_id_for_lang($lc, $term)) >= 2) {
 					$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 				}
@@ -959,3 +959,4 @@ HTML
 		}
 	}
 }
+
