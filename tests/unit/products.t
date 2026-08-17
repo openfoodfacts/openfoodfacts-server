@@ -319,7 +319,7 @@ is(
 			product_name => 'Test Product',
 		}
 	),
-	'Test Product 鈥?Carrefour',
+	'Test Product – Carrefour',
 	'add brand to product name'
 );
 
@@ -404,4 +404,3 @@ is([grep {/^en:nutrition/} @{$beauty_product_ref->{states_tags}}], [], 'beauty p
 is($beauty_product_ref->{complete}, 1, 'beauty products can be complete without nutrition facts and photo');
 
 done_testing();
-
