@@ -2569,11 +2569,11 @@
 <p>The API returns a standard product JSON object, but it will only contain the <code>images_to_update_[lang]</code> field you requested.</p>
 <p><strong>Sample Response:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;images_to_update_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;packaging_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;front_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">83734290</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ingredients_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">83734290</span>
+<span class="w">  </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"images_to_update_fr"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"packaging_fr"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"front_fr"</span><span class="p">:</span><span class="w"> </span><span class="mi">83734290</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ingredients_fr"</span><span class="p">:</span><span class="w"> </span><span class="mi">83734290</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -2597,20 +2597,20 @@
 <p>Your application should parse this response to dynamically generate calls to action (like buttons).</p>
 <h4 id="generating-button-text">Generating Button Text<a class="headerlink" href="#generating-button-text" title="Permanent link">#</a></h4>
 <p>Here is a pseudo-code example demonstrating how to create button text based on the API response.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Assume &#39;images_to_update&#39; is the object from the API response</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Assume 'images_to_update' is the object from the API response</span>
 <span class="c1">// e.g., { packaging_fr: 0, front_fr: 83734290 }</span>
 
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">images_to_update</span><span class="o">:</span>
 <span class="w">    </span><span class="c1">// 1. Determine the action (verb)</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">verb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">verb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="o">:</span>
-<span class="w">        </span><span class="nx">verb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Take&quot;</span><span class="w">  </span><span class="c1">// Image is missing</span>
+<span class="w">        </span><span class="nx">verb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Take"</span><span class="w">  </span><span class="c1">// Image is missing</span>
 <span class="w">    </span><span class="k">else</span><span class="o">:</span>
-<span class="w">        </span><span class="nx">verb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Refresh&quot;</span><span class="w"> </span><span class="c1">// Image is old</span>
+<span class="w">        </span><span class="nx">verb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Refresh"</span><span class="w"> </span><span class="c1">// Image is old</span>
 
 <span class="w">    </span><span class="c1">// 2. Get the field name and language</span>
-<span class="w">    </span><span class="c1">// e.g., &quot;front_fr&quot; -&gt; [&quot;front&quot;, &quot;fr&quot;]</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">key</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// e.g., "front_fr" -&gt; ["front", "fr"]</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">key</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">field_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parts</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">field_language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">parts</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="c1">// Useful for localization</span>
 
@@ -2619,14 +2619,14 @@
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">button_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">verb</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">field_name</span><span class="si">}</span><span class="sb"> picture`</span>
 
 <span class="w">    </span><span class="c1">// Now, create a button with this text.</span>
-<span class="w">    </span><span class="c1">// e.g., &quot;Refresh front picture&quot;, &quot;Take packaging picture&quot;</span>
+<span class="w">    </span><span class="c1">// e.g., "Refresh front picture", "Take packaging picture"</span>
 </code></pre></div>
 <h4 id="optional-displaying-the-image-age">Optional: Displaying the Image Age<a class="headerlink" href="#optional-displaying-the-image-age" title="Permanent link">#</a></h4>
 <p>For images that need refreshing (where the value is <code>&gt; 0</code>), you can provide more context to the user by converting the age in seconds to a human-readable format.</p>
 <p><strong>Example Conversion Logic:</strong></p>
 <p>You can use a library or a simple function to convert seconds into years, months, days, etc.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">formatTime</span><span class="p">(</span><span class="nx">seconds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">seconds</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;just now&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">seconds</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">"just now"</span><span class="p">;</span>
 
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">31536000</span><span class="p">,</span>
@@ -2641,14 +2641,14 @@
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">units</span><span class="p">[</span><span class="nx">unit</span><span class="p">];</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">seconds</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">seconds</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">value</span><span class="p">);</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">unit</span><span class="si">}${</span><span class="nx">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;s&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="sb"> ago`</span><span class="p">;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">count</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">unit</span><span class="si">}${</span><span class="nx">count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">'s'</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">''</span><span class="si">}</span><span class="sb"> ago`</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Using the value from the sample response</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">age_in_seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">83734290</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">formatTime</span><span class="p">(</span><span class="nx">age_in_seconds</span><span class="p">));</span><span class="w"> </span><span class="c1">// Output: &quot;2 years ago&quot;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">formatTime</span><span class="p">(</span><span class="nx">age_in_seconds</span><span class="p">));</span><span class="w"> </span><span class="c1">// Output: "2 years ago"</span>
 </code></pre></div>
 <p>You can then display this next to your button: "Refresh front picture (photo from 2 years ago)".</p>
 

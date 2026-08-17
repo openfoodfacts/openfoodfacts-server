@@ -2424,21 +2424,21 @@
 <p>If you want to add a translatable string in the code:</p>
 <ul>
 <li>modify the file with the <code>.pot</code> extension related to your context. Eg.
-  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">&quot;name_of_your_string&quot;</span>
-<span class="nv">msgid</span> <span class="s">&quot;Hello world!&quot;</span>
-<span class="nv">msgstr</span> <span class="s">&quot;&quot;</span>
+  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">"name_of_your_string"</span>
+<span class="nv">msgid</span> <span class="s">"Hello world!"</span>
+<span class="nv">msgstr</span> <span class="s">""</span>
 </code></pre></div></li>
 <li>modify the file <code>en.po</code> related to your context, to be sure at least an english string will be displayed before Crowdin send back all <code>.po</code> files (which can take several days). It should be the same code as the one from <code>.pot</code> + the english transaltion (see <code>msgstr</code> field). Eg.
-  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">&quot;name_of_your_string&quot;</span>
-<span class="nv">msgid</span> <span class="s">&quot;Hello world!&quot;</span>
-<span class="nv">msgstr</span> <span class="s">&quot;Hello world!&quot;</span>
+  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">"name_of_your_string"</span>
+<span class="nv">msgid</span> <span class="s">"Hello world!"</span>
+<span class="nv">msgstr</span> <span class="s">"Hello world!"</span>
 </code></pre></div></li>
 <li>use your new string with the <code>lang()</code> function. Eg. in a template file: <code>[% lang('name_of_your_string') %]</code></li>
 <li>if you want to test your modifications in your dev environnement:<ul>
 <li>modify the <code>fr.po</code> files if you want to test in French; be aware it's just for test: these files will be overwritten by Crowdin. Eg. in French:
-  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">&quot;name_of_your_string&quot;</span>
-<span class="nv">msgid</span> <span class="s">&quot;Hello world!&quot;</span>
-<span class="nv">msgstr</span> <span class="s">&quot;Salut le monde!&quot;</span>
+  <div class="highlight"><pre><span></span><code><span class="nv">msgctxt</span> <span class="s">"name_of_your_string"</span>
+<span class="nv">msgid</span> <span class="s">"Hello world!"</span>
+<span class="nv">msgstr</span> <span class="s">"Salut le monde!"</span>
 </code></pre></div></li>
 <li>don't forget to <code>make build_lang</code> to let docker take your modifications into account</li>
 </ul>

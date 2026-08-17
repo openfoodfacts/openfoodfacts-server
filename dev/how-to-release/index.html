@@ -2470,25 +2470,25 @@ corresponding to the service short name (off, off-pro, obf, opf, opff) and the v
 <span class="nb">declare</span><span class="w"> </span>-x<span class="w"> </span><span class="nv">WEB_VERSION</span><span class="o">=</span>&lt;openfoodfacts-web<span class="w"> </span>version&gt;
 </code></pre></div></li>
 <li>verify there is no unreleased code on the server:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; git status&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; git status"</span>
 </code></pre></div></li>
 <li>update the code:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">;git fetch &amp;&amp; git checkout </span><span class="nv">$VERSION</span><span class="s2">&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">;git fetch &amp;&amp; git checkout </span><span class="nv">$VERSION</span><span class="s2">"</span>
 </code></pre></div></li>
 <li>verify every needed symlink is in place
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>/srv/<span class="nv">$SERVICE</span>/scripts/deploy/verify-deployment.sh<span class="w"> </span><span class="nv">$SERVICE</span>
 </code></pre></div></li>
 <li>rebuild taxonomies and lang
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">; ./scripts/taxonomies/build_tags_taxonomy.pl --jobs=4;./scripts/build_lang.pl&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">; ./scripts/taxonomies/build_tags_taxonomy.pl --jobs=4;./scripts/build_lang.pl"</span>
 </code></pre></div></li>
 <li>on the PRO platform, also rebuild the fields columns names
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">;source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">;./scripts/build_pro_platform_fields_columns_names.pl&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">;source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">;./scripts/build_pro_platform_fields_columns_names.pl"</span>
 </code></pre></div></li>
 <li>update openfoodfacts-web content (using version you just released):
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/openfoodfacts-web/; git fetch; git checkout </span><span class="nv">$WEB_VERSION</span><span class="s2">&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/openfoodfacts-web/; git fetch; git checkout </span><span class="nv">$WEB_VERSION</span><span class="s2">"</span>
 </code></pre></div></li>
 <li>updated MongoDB indexes (if necessary)
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">; perl ./scripts/create_mongodb_indexes.pl&quot;</span>
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"cd /srv/</span><span class="nv">$SERVICE</span><span class="s2">; source env/setenv.sh </span><span class="nv">$SERVICE</span><span class="s2">; perl ./scripts/create_mongodb_indexes.pl"</span>
 </code></pre></div></li>
 <li>update the frontend assets
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-u<span class="w"> </span>off<span class="w"> </span>/srv/<span class="nv">$SERVICE</span>/scripts/deploy/install-dist-files.sh<span class="w"> </span><span class="nv">$VERSION</span><span class="w"> </span><span class="nv">$SERVICE</span>
@@ -2498,7 +2498,7 @@ corresponding to the service short name (off, off-pro, obf, opf, opff) and the v
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nginx
 <span class="c1"># we need start / stop for apache2 because restart does not reload perl modules</span>
 sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2
-<span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SERVICE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>off<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2@priority<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2@priority
+<span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$SERVICE</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>off<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>apache2@priority<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2@priority
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>cloud_vision_ocr@<span class="nv">$SERVICE</span>.service<span class="w"> </span>minion@<span class="nv">$SERVICE</span>.service<span class="w"> </span>redis_listener@<span class="nv">$SERVICE</span>.service
 </code></pre></div></li>
 </ol>

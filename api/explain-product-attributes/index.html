@@ -2925,23 +2925,23 @@ or at the <code>/api/v2/attribute_groups</code> or <code>/api/v2/attribute_group
 <p>In September 2025, we introduced support for attributes that can be configured with parameters. The first is the <strong>Unwanted ingredients</strong> attribute that takes a list of canonical ingredients as a parameter.</p>
 <p>In order not to break existing clients, this attribute is listed in the response of the API <code>/api/v3.4/attribute_groups</code> only when the version is at least 3.4:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;icon_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unwanted_ingredients&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unwanted ingredients&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://static.openfoodfacts.localhost/images/attributes/dist/contains-unwanted-ingredients.svg"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unwanted_ingredients"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unwanted ingredients"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attribute_unwanted_ingredients_tags&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unwanted ingredients&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;tagtype&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ingredients&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tags&quot;</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_unwanted_ingredients_tags"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unwanted ingredients"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"tagtype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ingredients"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tags"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;setting_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Unwanted ingredients&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;not_important&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;important&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;very_important&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;mandatory&quot;</span>
+<span class="w">  </span><span class="nt">"setting_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unwanted ingredients"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"not_important"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"important"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"very_important"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"mandatory"</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2983,64 +2983,64 @@ or at the <code>/api/v2/attribute_groups</code> or <code>/api/v2/attribute_group
 <li>Response (excerpt with only a few product attributes):</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3700214614266&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chocolat noir Pérou 90% fruité et boisé&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3700214614266&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;attribute_groups_en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3700214614266"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"status_verbose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product found"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chocolat noir Pérou 90% fruité et boisé"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3700214614266"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"attribute_groups_en"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;known&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutri-Score&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nutriscore&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutri-Score D&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;description_short&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Poor nutritional quality&quot;</span>
+<span class="w">                        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"known"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nutri-Score"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"match"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nutriscore"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nutri-Score D"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"description_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poor nutritional quality"</span>
 <span class="w">                    </span><span class="p">}</span>
 <span class="w">                </span><span class="p">],</span>
-<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutritional quality&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nutritional_quality&quot;</span>
+<span class="w">                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nutritional quality"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nutritional_quality"</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;processing&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Food processing&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Food processing"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nova&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NOVA group&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;known&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;description_short&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Processed foods&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NOVA 3&quot;</span>
+<span class="w">                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nova"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"match"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOVA group"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"known"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"description_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed foods"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOVA 3"</span>
 <span class="w">                    </span><span class="p">}</span>
 <span class="w">                </span><span class="p">]</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Labels&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"labels"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Labels"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organic product&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;description_short&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Promotes ecological sustainability and biodiversity.&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organic farming&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;known&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels_organic&quot;</span>
+<span class="w">                        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic product"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"description_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Promotes ecological sustainability and biodiversity."</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic farming"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"match"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"known"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"labels_organic"</span>
 <span class="w">                    </span><span class="p">},</span>
 <span class="w">                    </span><span class="p">{</span>
-<span class="w">                        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels_fair_trade&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fair trade&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;known&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;description_short&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fair trade products help producers in developing countries.&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;When you buy fair trade products, producers in developing countries are paid a higher and fairer price, which helps them improve and sustain higher social and often environmental standards.&quot;</span><span class="p">,</span>
-<span class="w">                        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fair trade product&quot;</span>
+<span class="w">                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"labels_fair_trade"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"match"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fair trade"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"known"</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"description_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fair trade products help producers in developing countries."</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When you buy fair trade products, producers in developing countries are paid a higher and fairer price, which helps them improve and sustain higher social and often environmental standards."</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fair trade product"</span>
 <span class="w">                    </span><span class="p">}</span>
 <span class="w">                </span><span class="p">]</span>
 <span class="w">            </span><span class="p">}</span>

@@ -2728,10 +2728,10 @@ See below on how you can use this mechanism and how to regenerate those files in
 <p>To run a single test you can use:</p>
 <ul>
 <li>for a unit test:
-   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
+   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">"filename.t"</span>
 </code></pre></div></li>
 <li>for an integration test:
-   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
+   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">"filename.t"</span>
 </code></pre></div></li>
 </ul>
 <h2 id="regenerating-tests-results">Regenerating tests results<a class="headerlink" href="#regenerating-tests-results" title="Permanent link">#</a></h2>
@@ -2742,7 +2742,7 @@ See below on how you can use this mechanism and how to regenerate those files in
 </code></pre></div></li>
 <li>or to generate expected results for a single test
   (here for an integration test, <code>test-unit</code> otherwise)
-  <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t :: --update-expected-results&quot;</span>
+  <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">"filename.t :: --update-expected-results"</span>
 </code></pre></div>
   (the <code>::</code> tell the yath test runner that following arguments are for the test, not for yath)</li>
 </ul>
@@ -2755,7 +2755,7 @@ See <a href="../how-to-use-automated-pr-actions/#updating-tests-results">How to 
 <p>Starting a test is a very effective way to understand what's going on in the code using the debugger.</p>
 <p>This is done by running the test with <code>perl -d</code>.
 You can also use a "TEST_CMD" argument with the make target:</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;my-test.t&quot;</span><span class="w"> </span><span class="nv">TEST_CMD</span><span class="o">=</span><span class="s2">&quot;perl -d&quot;</span>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">"my-test.t"</span><span class="w"> </span><span class="nv">TEST_CMD</span><span class="o">=</span><span class="s2">"perl -d"</span>
 </code></pre></div>
 <p>Most often, you will have to use the next command "n" four times before landing in your test, where you can easily set a breakpoint with <code>b &lt;line-number&gt;</code>.</p>
 <p>Read <a href="https://perldoc.perl.org/perldebug">perldoc about debugger</a> to learn more.</p>

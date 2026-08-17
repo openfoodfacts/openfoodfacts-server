@@ -2490,7 +2490,7 @@ then just make build and retry, you will then be able to run re.pl</p>
 <p>It can be a handy way to get your hand into perl by testing some code patterns,
 or seeing how they react.</p>
 <p>For example one can test a regular expression:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$</span><span class="w"> </span><span class="nv">my</span><span class="w"> </span><span class="nv">$text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$</span><span class="w"> </span><span class="nv">my</span><span class="w"> </span><span class="nv">$text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello World"</span><span class="p">;</span>
 <span class="n">Hello</span><span class="w"> </span><span class="n">World</span>
 <span class="nv">$</span><span class="w"> </span><span class="err">$</span><span class="nv">text</span><span class="w"> </span><span class="o">=~</span><span class="sr"> /Hello (\w+)/i</span>
 <span class="n">World</span>
@@ -2499,7 +2499,7 @@ or seeing how they react.</p>
 <p>Another use case is reading a <code>.sto</code> file to see what it contains.</p>
 <p>Eg. for a user:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$</span><span class="w"> </span><span class="nv">use</span><span class="w"> </span><span class="nn">ProductOpener::</span><span class="n">Store</span><span class="w"> </span><span class="sx">qw/:all/</span><span class="p">;</span>
-<span class="nv">$</span><span class="w"> </span><span class="nv">my</span><span class="w"> </span><span class="nv">$product_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">retrieve_object</span><span class="p">(</span><span class="s">&quot;/mnt/podata/products/007/107/917/0260/product&quot;</span><span class="p">);</span>
+<span class="nv">$</span><span class="w"> </span><span class="nv">my</span><span class="w"> </span><span class="nv">$product_ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">retrieve_object</span><span class="p">(</span><span class="s">"/mnt/podata/products/007/107/917/0260/product"</span><span class="p">);</span>
 </code></pre></div>
 
 

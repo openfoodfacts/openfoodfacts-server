@@ -2931,9 +2931,9 @@ Most are useful!</p>
 <h3 id="live-reload">Live reload<a class="headerlink" href="#live-reload" title="Permanent link">#</a></h3>
 <p>To automate the live reload on code changes, you can install the Python package <code>when-changed</code>:
 <div class="highlight"><pre><span></span><code>pip3 install when-changed
-when-changed -r docker/ docker-compose.yml .env -c &quot;make restart&quot;                                         # restart backend container on compose changes
-when-changed -r lib/ -r docker/ docker-compose.yml -c &quot;docker compose backend restart&quot; # restart Apache on code changes
-when-changed -r html/ Dockerfile Dockerfile.frontend package.json -c &quot;make up&quot; # rebuild containers on asset or Dockerfile changes
+when-changed -r docker/ docker-compose.yml .env -c "make restart"                                         # restart backend container on compose changes
+when-changed -r lib/ -r docker/ docker-compose.yml -c "docker compose backend restart" # restart Apache on code changes
+when-changed -r html/ Dockerfile Dockerfile.frontend package.json -c "make up" # rebuild containers on asset or Dockerfile changes
 </code></pre></div></p>
 <p>An alternative to <code>when-changed</code> is <code>inotifywait</code>.</p>
 <h2 id="run-queries-on-mongodb-database">Run queries on MongoDB database<a class="headerlink" href="#run-queries-on-mongodb-database" title="Permanent link">#</a></h2>
@@ -2944,8 +2944,8 @@ commands to interact with the database:</p>
 <div class="highlight"><pre><span></span><code>show<span class="w"> </span>dbs
 use<span class="w"> </span>off
 db.products.count<span class="o">()</span>
-db.products.find<span class="o">({</span>_id:<span class="w"> </span><span class="s2">&quot;5053990155354&quot;</span><span class="o">})</span>
-db.products.deleteOne<span class="o">({</span>_id:<span class="w"> </span><span class="s2">&quot;5053990155354&quot;</span><span class="o">})</span>
+db.products.find<span class="o">({</span>_id:<span class="w"> </span><span class="s2">"5053990155354"</span><span class="o">})</span>
+db.products.deleteOne<span class="o">({</span>_id:<span class="w"> </span><span class="s2">"5053990155354"</span><span class="o">})</span>
 </code></pre></div>
 <p>See the <a href="https://www.mongodb.com/products/shell"><code>mongo</code> shell docs</a> for more commands.</p>
 <h2 id="adding-environment-variables">Adding environment variables<a class="headerlink" href="#adding-environment-variables" title="Permanent link">#</a></h2>
@@ -3014,7 +3014,7 @@ script.</p>
 </ul>
 <p>To switch between configurations, set <code>ENV_FILE</code> before running <code>make</code> commands,
 (or <code>docker compose</code> command):</p>
-<div class="highlight"><pre><span></span><code><span class="nv">ENV_FILE</span><span class="o">=</span>.env.off-pro<span class="w"> </span>make<span class="w"> </span>up<span class="w"> </span><span class="c1"># starts the OFF Producer&#39;s Platform containers.</span>
+<div class="highlight"><pre><span></span><code><span class="nv">ENV_FILE</span><span class="o">=</span>.env.off-pro<span class="w"> </span>make<span class="w"> </span>up<span class="w"> </span><span class="c1"># starts the OFF Producer's Platform containers.</span>
 <span class="nv">ENV_FILE</span><span class="o">=</span>.env.obf<span class="w">     </span>make<span class="w"> </span>up<span class="w"> </span><span class="c1"># starts the OBF containers.</span>
 <span class="nv">ENV_FILE</span><span class="o">=</span>.env.opff<span class="w">    </span>make<span class="w"> </span>up<span class="w"> </span><span class="c1"># starts the OPFF containers.</span>
 </code></pre></div>

@@ -2921,16 +2921,16 @@ Leverage the Open Food Facts API to dynamically personalize product recommendati
 </code></pre></div>
 <h4 id="response-sample">Response Sample:<a class="headerlink" href="#response-sample" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;attribute_groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"attribute_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nutriscore&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutri-Score&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nutriscore"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nutri-Score"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nutriscore-a&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nutri-Score A&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;icon_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://.../nutriscore-a.svg&quot;</span>
+<span class="w">          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nutriscore-a"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nutri-Score A"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"match"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"icon_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://.../nutriscore-a.svg"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="err">...</span>
 <span class="w">      </span><span class="p">]</span>
@@ -2944,8 +2944,8 @@ Leverage the Open Food Facts API to dynamically personalize product recommendati
 <h3 id="step-2-define-user-preferences">✅ STEP 2 — Define user preferences<a class="headerlink" href="#step-2-define-user-preferences" title="Permanent link">#</a></h3>
 <p>Example user preferences (in your code):</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;preferred_attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;nutriscore-a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;labels-organic&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ingredients-analysis-palm-oil-free&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;avoided_attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;labels-gluten-free&quot;</span><span class="p">]</span><span class="w">  </span><span class="c1">// optional if user has no dietary constraint</span>
+<span class="w">  </span><span class="nt">"preferred_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"nutriscore-a"</span><span class="p">,</span><span class="w"> </span><span class="s2">"labels-organic"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ingredients-analysis-palm-oil-free"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"avoided_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"labels-gluten-free"</span><span class="p">]</span><span class="w">  </span><span class="c1">// optional if user has no dietary constraint</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />
@@ -2955,32 +2955,32 @@ Leverage the Open Food Facts API to dynamically personalize product recommendati
 </code></pre></div>
 <h4 id="response-sample_1">Response Sample:<a class="headerlink" href="#response-sample_1" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;product_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organic Apple Juice&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3700214614266&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;attribute_groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organic Apple Juice"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3700214614266"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"attribute_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"labels"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels-organic&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;present&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"labels-organic"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"present"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"match"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">          </span><span class="p">},</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;labels-gluten-free&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not_present&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"labels-gluten-free"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_present"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"match"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nutriscore&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nutriscore"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nutriscore-a&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;present&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nutriscore-a"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"present"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"match"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>

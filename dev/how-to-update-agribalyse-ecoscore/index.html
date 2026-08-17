@@ -2501,7 +2501,7 @@
 <p>Once the Categories have been updated you will need to build the taxonomies. You can then update unit test results with the update_tests_results.sh script to see if any have been affected.</p>
 <p>It is also worth checking the impact the update has had on the main product database. This can be downloaded locally and the differences determined by running the update_all_products script.</p>
 <p>The previous values of the Ecoscore are stored in the previous_data section under ecoscore_data. Before applying an update you will need to delete this section with the following MongoDB script:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">update</span><span class="p">({},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$unset</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;ecoscore_data.previous_data&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">update</span><span class="p">({},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$unset</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"ecoscore_data.previous_data"</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <p>You can then use the following script from a backend bash shell to update products:</p>
 <div class="highlight"><pre><span></span><code>./update_all_products.pl<span class="w"> </span>--fields<span class="w"> </span>categories<span class="w"> </span>--compute-ecoscore
@@ -2511,42 +2511,42 @@
 <span class="w">  </span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">$match</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">misc_tags</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;en:ecoscore-grade-changed&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">misc_tags</span><span class="o">:</span><span class="w"> </span><span class="s2">"en:ecoscore-grade-changed"</span><span class="p">,</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">$group</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$ecoscore_data.agribalyse.name_en&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">fr</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$ecoscore_data.agribalyse.name_fr&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">code_before</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$ecoscore_data.previous_data.agribalyse.code&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">code_after</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$ecoscore_data.agribalyse.code&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">before</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$ecoscore_data.previous_data.grade&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">after</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$ecoscore_data.grade&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="s2">"$ecoscore_data.agribalyse.name_en"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">fr</span><span class="o">:</span><span class="w"> </span><span class="s2">"$ecoscore_data.agribalyse.name_fr"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">code_before</span><span class="o">:</span><span class="w"> </span><span class="s2">"$ecoscore_data.previous_data.agribalyse.code"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">code_after</span><span class="o">:</span><span class="w"> </span><span class="s2">"$ecoscore_data.agribalyse.code"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">before</span><span class="o">:</span><span class="w"> </span><span class="s2">"$ecoscore_data.previous_data.grade"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">after</span><span class="o">:</span><span class="w"> </span><span class="s2">"$ecoscore_data.grade"</span><span class="p">,</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$sum</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">  </span><span class="p">])</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">toArray</span><span class="p">();</span>
-<span class="nx">print</span><span class="p">(</span><span class="s2">&quot;en.Name,fr.Name,Code Before,Code After,Grade Before,Grade After,Count&quot;</span><span class="p">);</span>
+<span class="nx">print</span><span class="p">(</span><span class="s2">"en.Name,fr.Name,Code Before,Code After,Grade Before,Grade After,Count"</span><span class="p">);</span>
 <span class="nx">results</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// eslint-disable-next-line no-underscore-dangle</span>
 <span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">_id</span><span class="p">;</span>
 <span class="w">  </span><span class="nx">print</span><span class="p">(</span>
-<span class="w">    </span><span class="s1">&#39;&quot;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">en</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&quot;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s1">&#39;&quot;,&quot;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">fr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&quot;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s1">&#39;&quot;,&#39;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s1">'"'</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">en</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">""</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/"/g</span><span class="p">,</span><span class="w"> </span><span class="s1">'""'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s1">'","'</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">fr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">""</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/"/g</span><span class="p">,</span><span class="w"> </span><span class="s1">'""'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s1">'",'</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">id</span><span class="p">.</span><span class="nx">code_before</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">id</span><span class="p">.</span><span class="nx">code_after</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">id</span><span class="p">.</span><span class="nx">before</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">id</span><span class="p">.</span><span class="nx">after</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">count</span>
 <span class="w">  </span><span class="p">);</span>
 <span class="p">});</span>
@@ -2555,31 +2555,31 @@
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">products</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">products</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">misc_tags</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;en:ecoscore-grade-changed&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">misc_tags</span><span class="o">:</span><span class="w"> </span><span class="s2">"en:ecoscore-grade-changed"</span><span class="p">,</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.agribalyse.name_en&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.agribalyse.name_fr&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data_main.agribalyse.code&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.previous_data.agribalyse.code&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.agribalyse.code&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data_main.grade&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.previous_data.grade&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.grade&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data_main.score&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.previous_data.score&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.score&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data_main.agribalyse.ef_total&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.previous_data.agribalyse.ef_total&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;ecoscore_data.agribalyse.ef_total&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.agribalyse.name_en"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.agribalyse.name_fr"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data_main.agribalyse.code"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.previous_data.agribalyse.code"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.agribalyse.code"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data_main.grade"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.previous_data.grade"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.grade"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data_main.score"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.previous_data.score"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.score"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data_main.agribalyse.ef_total"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.previous_data.agribalyse.ef_total"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"ecoscore_data.agribalyse.ef_total"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
 <span class="w">      </span><span class="nx">categories_tags</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">toArray</span><span class="p">();</span>
 
 <span class="nx">print</span><span class="p">(</span>
-<span class="w">  </span><span class="s2">&quot;_id,en.Name,fr.Name,Code Before Main,Code Before Change,Code After,Grade Before Main,Grade Before Change,Grade After,Score Before Main,Score Before Change,Score After,ef_total Before Main,ef_total Before Change,ef_total After,Categories Tags&quot;</span>
+<span class="w">  </span><span class="s2">"_id,en.Name,fr.Name,Code Before Main,Code Before Change,Code After,Grade Before Main,Grade Before Change,Grade After,Score Before Main,Score Before Change,Score After,ef_total Before Main,ef_total Before Change,ef_total After,Categories Tags"</span>
 <span class="p">);</span>
 <span class="nx">products</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">ecoscore_data_main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data_main</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{};</span>
@@ -2587,37 +2587,37 @@
 <span class="w">  </span><span class="c1">// eslint-disable-next-line no-underscore-dangle</span>
 <span class="w">  </span><span class="nx">print</span><span class="p">(</span>
 <span class="w">    </span><span class="nx">result</span><span class="p">.</span><span class="nx">_id</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s1">&#39;,&quot;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">agribalyse</span><span class="p">.</span><span class="nx">name_en</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&quot;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s1">&#39;&quot;,&quot;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">agribalyse</span><span class="p">.</span><span class="nx">name_fr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&quot;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s1">&#39;&quot;,&#39;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s1">',"'</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">agribalyse</span><span class="p">.</span><span class="nx">name_en</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">""</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/"/g</span><span class="p">,</span><span class="w"> </span><span class="s1">'""'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s1">'","'</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">agribalyse</span><span class="p">.</span><span class="nx">name_fr</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">""</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/"/g</span><span class="p">,</span><span class="w"> </span><span class="s1">'""'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s1">'",'</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">ecoscore_data_main_agribalyse</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">previous_data</span><span class="p">.</span><span class="nx">agribalyse</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">agribalyse</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">ecoscore_data_main</span><span class="p">.</span><span class="nx">grade</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">previous_data</span><span class="p">.</span><span class="nx">grade</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">grade</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">ecoscore_data_main</span><span class="p">.</span><span class="nx">score</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">previous_data</span><span class="p">.</span><span class="nx">score</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">score</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">ecoscore_data_main_agribalyse</span><span class="p">.</span><span class="nx">ef_total</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">previous_data</span><span class="p">.</span><span class="nx">agribalyse</span><span class="p">.</span><span class="nx">ef_total</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">","</span><span class="w"> </span><span class="o">+</span>
 <span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">ecoscore_data</span><span class="p">.</span><span class="nx">agribalyse</span><span class="p">.</span><span class="nx">ef_total</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s1">&#39;,&quot;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">categories_tags</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
-<span class="w">      </span><span class="s1">&#39;&quot;&#39;</span>
+<span class="w">      </span><span class="s1">',"'</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="nx">result</span><span class="p">.</span><span class="nx">categories_tags</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s1">'"'</span>
 <span class="w">  </span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
@@ -2632,22 +2632,22 @@
 <span class="w">  </span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">$match</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;ecoscore_data.grade&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"ecoscore_data.grade"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">$group</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$categories_tags&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="s2">"$categories_tags"</span><span class="p">,</span>
 <span class="w">        </span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$sum</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">  </span><span class="p">])</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">toArray</span><span class="p">();</span>
-<span class="nx">print</span><span class="p">(</span><span class="s2">&quot;Category,Count&quot;</span><span class="p">);</span>
+<span class="nx">print</span><span class="p">(</span><span class="s2">"Category,Count"</span><span class="p">);</span>
 <span class="nx">missing</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// eslint-disable-next-line no-underscore-dangle</span>
 <span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">_id</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&quot;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;&quot;,&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">print</span><span class="p">(</span><span class="s1">'"'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">""</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/"/g</span><span class="p">,</span><span class="w"> </span><span class="s1">'""'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'",'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 
