@@ -5,7 +5,7 @@
 # Product Opener
 # Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
-# Address: 21 rue des Iles, 94100 Saint-Maur des Foss茅s, France
+# Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -657,7 +657,7 @@ elsif ($action eq 'process') {
 
 			my %terms = ();
 
-			foreach my $term (split(/,|'|鈥檤\s/, $search_terms)) {
+			foreach my $term (split(/,|'|’|\s/, $search_terms)) {
 				if (length(get_string_id_for_lang($lc, $term)) >= 2) {
 					$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 				}
@@ -959,4 +959,3 @@ HTML
 		}
 	}
 }
-
