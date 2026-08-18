@@ -1462,7 +1462,7 @@ tr: Yeşil Nokta
 auth_url:en: https://www.pro-e.org/
 label_categories:en: en:Packaging
 wikidata:en: Q975485
-# en:comment:On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
+#comment:en: On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
 
 fr: Imprim'Vert
 label_categories:en: en:Packaging
@@ -3867,6 +3867,14 @@ description:fr: consignée en Suède.
 #image:sv: pant-2kr.61x90.png
 label_categories:en: en:Environment, en:Packaging
 
+sv: pant 3kr
+xx: pant 3kr
+country:en: en:Sweden
+description:en: deposit in Sweden.
+description:fr: consignée en Suède.
+#image:sv: pant-3kr.61x90.png
+label_categories:en: en:Environment, en:Packaging
+
 en: metal recycles forever
 xx: metal recycles forever
 image:en: metal-recycles-forever.89x90.png
@@ -5096,6 +5104,7 @@ hu: BPA-mentes
 it: Senza BPA
 nl: Zonder bisfenol A
 pt: Sem Bisfenol A, sem Bisfenol-A, sem BPA
+sv: fri från bisfenol A
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
@@ -5266,8 +5275,8 @@ zh: 低饱和脂肪含量
 description:en: In EU, a claim that a food is low in saturated fat may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 < en: Low or no saturated fat
-en: saturated fat-free
-xx: saturated fat-free
+en: No saturated fat, saturated fat-free
+xx: No saturated fat, saturated fat-free
 bg: без наситени мазнини
 ca: sense greixos saturats
 de: ohne gesättigte Fettsäuren
@@ -5424,6 +5433,7 @@ nl: GMO-vrij, Geen GMO, GGO-vrij
 pl: bez GMO
 pt: Sem OGM, Sem Organismos Geneticamente Modificados
 ru: Без ГМО, Без использования ГМО, Не содержит ГМО
+sv: Innehåller inga genetiskt modifierade organismer
 th: ไม่มีจีเอ็มโอ
 incompatible_with:en: labels:en:contains-gmos
 label_categories:en: en:Health, en:Environment
@@ -6012,7 +6022,7 @@ label_categories:en: en:Specific diets
 #                   O R G A N I C   S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#en:description:Labels used for identifying products (and ingredients) that have been grown organically.
+#description:en: Labels used for identifying products (and ingredients) that have been grown organically.
 
 en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture, from organic controlled cultivation
 bg: Био, биологично земеделие, биологично
@@ -6021,7 +6031,7 @@ cs: Bio, z kontrolovane ekologicke produkce, z ekologickeho, z kontrolovaného e
 cz: z ekologického zemědělství, z kontrolované ekologické produkce
 da: Økologisk, Økologiske, certificeret økologisk
 de: Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, aus biologischer Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau, biologisch zertifiziert
-es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico, orgánica
+es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, orgánica, orgánicas, orgánico, orgánicos, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico
 fi: Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti, sertifioitu luomutuote, luomutuote
 fr: Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issus de l'agriculture biologique contrôlée, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee, issu de production biologique
 he: אורגני
@@ -6038,7 +6048,7 @@ pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta o
 ro: din agricultură ecologică controlată, din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk
+sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk, ekologisk råvara, ekologiskt odlat
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -18968,7 +18978,7 @@ it: Classe &quot;Extra&quot;
 
 # Should not be associate with "extra class", "superior quality" etc.
 < en: Organic
-sv: KRAV, KRAV-certifierad ekologisk ingrediens
+sv: KRAV, KRAV-certifierad ekologisk ingrediens, KRAV-godkänd ekologisk råvara, KRAV-ekologisk råvara
 xx: KRAV
 country:en: en:Sweden
 image:en: krav.136x90.svg
@@ -20346,6 +20356,7 @@ fr: Non-végétalien, non-végan, non-végétal, ne convient pas aux végétalie
 hr: nije vegansko
 pl: Niewegańskie, niewegański
 pt: Não-vegan, não vegan, não adequado a vegans, não adequado a uma dieta vegan
+sv: icke-vegansk, icke-veganskt, icke-veganska, animalisk, animaliskt, animaliska
 incompatible_with:en: labels:en:vegan
 opposite:en: en:vegan
 
@@ -23736,7 +23747,7 @@ bg: Без остатъци от пестициди
 fr: Sans résidus de pesticides, sans résidu de pesticide, zéro résidus de pesticides, zéro résidu de pesticide
 
 # obligation of means: cultivated without pesticides (but can be a specific year, or after flowers bloom)
-en: Pesticide-free, without pesticide, no pesticide
+en: no pesticides, pesticide-free, without pesticide, no pesticide
 bg: Без пестициди
 fr: Sans pesticides, cultivé sans pesticides
 
