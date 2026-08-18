@@ -63,10 +63,8 @@ foreach my $flavor (qw(off obf opf opff)) {
 		lang_flavor => sub {return shift . "_" . $flavor;},
 	};
 
-	ok(
-		$tt->process($report_problem_template, $template_data_ref, \$rendered_template),
-		"report problem template renders for the $flavor flavor"
-	);
+	ok($tt->process($report_problem_template, $template_data_ref, \$rendered_template),
+		"report problem template renders for the $flavor flavor");
 	like(
 		$rendered_template,
 		qr{"subtitle": "incomplete_or_incorrect_data_subtitle_$flavor"},
@@ -82,7 +80,7 @@ foreach my $flavor (qw(off obf opf opff)) {
 		qr{incomplete_or_incorrect_data_content_correct_$flavor},
 		"report problem content uses the $flavor translation"
 	);
-	ok(-e "$data_root/html/images/logos/$flavor-logo-icon-light.svg", "$flavor logo asset exists");
+	ok(-e "$www_root/images/logos/$flavor-logo-icon-light.svg", "$flavor logo asset exists");
 }
 
 done_testing();
