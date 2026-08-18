@@ -4011,16 +4011,19 @@ da: udenfor Japan
 fr: hors Japon
 ja: 外国, 輸入
 sv: utanför Japan
+zh: 日本境外
 
 en: Outside France
 da: udenfor Frankrig
 fr: Hors France
 sv: utanför Frankrike
+zh: 法国境外
 
 en: outside Germany
 da: udenfor Tyskland
 fr: hors Allemagne
 sv: utanför Tyskland, icke-Tyskland, inte Tyskland, inte från Tyskland
+zh: 德国境外
 
 en: Europe
 xx: Europa
@@ -4194,6 +4197,7 @@ zh: 欧盟和非欧盟国家，欧盟和非欧盟
 < en: Europe
 en: The Alps, Alps
 de: Die Alpen, Alpen
+zh: 阿尔卑斯山
 wikidata:en: Q1286
 
 # ************************************************************
@@ -5549,26 +5553,31 @@ fr: Pays-Basque
 
 # Disabling France as parent because it can skew the Eco-Score
 en: France overseas
+zh: 法国海外领地
 
 < en: Central America
 < en: France overseas
 en: Guadeloupe
 xx: Guadeloupe
+zh: 瓜德罗普
 
 < en: Africa
 < en: France overseas
 en: Réunion Island
 xx: Réunion Island
 fr: Île de la Réunion
+zh: 留尼汪岛
 
 < en: Central America
 < en: France overseas
 en: French Antilles
 xx: French Antilles
 fr: Antilles françaises
+zh: 法属安的列斯群岛
 
 < en: France overseas
 en: French Guyana
+zh: 法属圭亚那
 
 # Canada provinces/territories
 
@@ -6763,6 +6772,7 @@ sk: FAO Hlavných Oblastí Rybolovu
 sl: Glavnih Ribolovnih Območij FAO
 description:en: European Union, FAO major fishing areas
 sv:FAO: s Fiskeregioner
+zh: FAO 渔区
 website:en: https://fish-commercial-names.ec.europa.eu/fish-names/fishing-areas_en#marine-areas
 wikidata:en: Q2783377
 wikipedia:en: https://en.wikipedia.org/wiki/FAO_Major_Fishing_Areas
@@ -6770,31 +6780,38 @@ wikipedia:en: https://en.wikipedia.org/wiki/FAO_Major_Fishing_Areas
 < en: FAO fishing areas
 en: FAO 1, FAO 01, FAO inland waters 1
 xx: FAO 1, FAO 01
+zh: FAO 1 区（非洲内陆水域）
 
 < en: FAO fishing areas
 en: FAO 2, FAO 02, FAO inland waters 2
 xx: FAO 2, FAO 02
+zh: FAO 2 区（北美内陆水域）
 
 < en: FAO fishing areas
 en: FAO 3, FAO 03, FAO inland waters 3
 xx: FAO 3, FAO 03
+zh: FAO 3 区（南美内陆水域）
 
 < en: FAO fishing areas
 en: FAO 4, FAO 04, FAO inland waters 4
 xx: FAO 4, FAO 04
 fr: FAO 4, FAO 04, FAO n°04
+zh: FAO 4 区（亚洲内陆水域）
 
 < en: FAO fishing areas
 en: FAO 5, FAO 05, FAO inland waters 5
 xx: FAO 5, FAO 05
+zh: FAO 5 区（欧洲内陆水域）
 
 < en: FAO fishing areas
 en: FAO 6, FAO 06, FAO inland waters 6
 xx: FAO 6, FAO 06
+zh: FAO 6 区（大洋洲内陆水域）
 
 < en: FAO fishing areas
 en: FAO 8, FAO 08, FAO inland waters 8
 xx: FAO 8, FAO 08
+zh: FAO 8 区（南极内陆水域）
 
 en: Arctic sea
 xx: FAO 18
@@ -6955,6 +6972,7 @@ ro: Oceanul Atlantic de Sud
 sk: Južný Atlantický oceán
 sl: Južni Atlantski ocean
 sv: Södra Atlanten
+zh: 南大西洋
 wikidata:en: Q1482804
 
 < en: Atlantic Ocean
@@ -7017,6 +7035,7 @@ ro: Atlanticul De Nord-est
 sk: Severovýchodný Atlantik
 sl: Severovzhodni Atlantik
 sv: Nordostatlanten
+zh: 东北大西洋
 
 < xx: FAO 27
 en: Barents sea
@@ -7330,10 +7349,12 @@ xx: FAO 34
 fr: Océan Atlantique Centre-Est, FAO 34, FAO N°34
 hr: ribolovno područje FAO 34
 sl: FAO ribolovno območje 34
+zh: 中东大西洋
 wikidata:en: Q43181427
 
 en: Mediterranean and Black Sea
 xx: FAO 37
+zh: 地中海及黑海
 wikidata:en: Q18783362
 
 < en: Mediterranean and Black Sea
@@ -7438,6 +7459,7 @@ wikidata:en: Q35367
 < en: Atlantic Ocean
 en: Southwest Atlantic Ocean
 xx: FAO 41
+zh: 西南大西洋
 
 < xx: FAO 41
 xx: FAO 41.1
@@ -7485,10 +7507,12 @@ xx: FAO 41.3.3
 en: Southeast Atlantic Ocean
 xx: FAO 47
 fr: Océan Atlantique Sud-Est, FAO 47, FAO N°47
+zh: 东南大西洋
 
 < en: Atlantic Ocean
 en: Antartic Atlantic Ocean
 xx: FAO 48
+zh: 南极大西洋
 
 en: Indian Ocean
 af: Indiese Oseaan
@@ -7542,6 +7566,7 @@ wikidata:en: Q1239
 en: Western Indian Ocean
 xx: FAO 51
 fr: Océan Indien Ouest, zone de pêche FAO N051, Zone FAO N051, Océan Indien Occidental
+zh: 西印度洋
 
 < en: Western Indian Ocean
 xx: FAO 51.1
@@ -7574,6 +7599,7 @@ en: Eastern Indian Ocean
 xx: FAO 57
 es: Océano Índico Oriental, Este del Océano Índico
 fr: Océan Indien Est
+zh: 东印度洋
 
 en: Antartic and Southern Indian Ocean
 xx: FAO 58
@@ -7591,6 +7617,7 @@ ro: Antarctica și Oceanul Indian de Sud
 ru: Антарктика и Южный Индийский океан
 tr: Antarktika ve Güney Hint Okyanusu
 uk: Антарктика і Південний Індійський океан
+zh: 南极及南印度洋
 
 en: Pacific Ocean
 af: Stille Oseaan
@@ -7674,6 +7701,7 @@ tr: Kuzey Pasifik Okyanusu
 uk: Північний Тихий океан
 ur: شمالی بحرالکاہل
 vi: Bắc Thái Bình Dương
+zh: 北太平洋
 wikidata:en: Q12353254
 
 < en: Pacific Ocean
@@ -7682,6 +7710,7 @@ xx: FAO 61
 fr: Océan Pacifique Nord-Ouest, FAO 61, FAO N°61
 hu: Északnyugat-Csendes-óceán
 pl: Północno-zachodni Ocean Spokojny, Północno-zachodni Pacyfik
+zh: 西北太平洋
 wikidata:en: Q34765253
 
 < en: Pacific Ocean
@@ -7691,6 +7720,7 @@ de: Nordostpazifik
 fr: Océan Pacifique Nord-Est, FAO 67, FAO N°67
 hu: Északkelet-Csendes-óceán
 pl: Północno-wschodni Ocean Spokojny, Północno-wschodni Pacyfik
+zh: 东北太平洋
 wikidata:en: Q63860551
 
 < en: Northeast Pacific Ocean
@@ -7704,14 +7734,17 @@ en: West Central Pacific Ocean, fao area 71
 xx: FAO 71
 ca: Oceà Pacífic central-oest
 fr: Océan Pacifique Centre-Ouest, FAO 71, FAO N°71
+zh: 中西太平洋
 
 < en: Pacific Ocean
 en: Eastern Central Pacific Ocean
 xx: FAO 77
+zh: 中东太平洋
 
 < en: Pacific Ocean
 en: Southern Pacific Ocean
 fr: Océan Pacifique Sud, Sud de l'Océan Pacifique
+zh: 南太平洋
 wikidata:en: Q12355425
 
 < en: Southern Pacific Ocean
