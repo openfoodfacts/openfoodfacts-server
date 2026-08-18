@@ -37237,9 +37237,6 @@ hr: inaktivni suhi kvasac
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
-# description:en:FRUIT is the seed-bearing structure in flowering plants (also known as angiosperms) formed from the ovary after flowering.
-
 en: fruit
 ak: Aduaba
 an: Fruita
@@ -37304,16 +37301,6 @@ xh: Isiqhamo
 yo: èso
 za: mak
 zh: 水果
-carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen importé par bateau et camion
-carbon_footprint_fr_foodges_value:fr: 1.3
-eurocode_2_group_1:en: 9
-nutriscore_fruits_vegetables_nuts:en: yes
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
-#carbon_footprint_fr_foodges_value:fr:2.3
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
-#carbon_footprint_fr_foodges_value:fr:27.4
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
-#carbon_footprint_fr_foodges_value:fr:0.3
 # aeb-arab:غلة
 # arz:فواكه
 # ast:Fruta
@@ -37359,6 +37346,17 @@ nutriscore_fruits_vegetables_nuts:en: yes
 # zh-my:水果
 # zh-sg:水果
 # zh-tw:水果
+carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_value:fr: 1.3
+description:en: Fruit is the mature, seed-bearing structure of flowering plants, cultivated and foraged by humans since prehistoric times across virtually every inhabited region, with different varieties native to tropical, temperate, and Mediterranean climates worldwide. It has an enormously varied flavor and texture profile—from the crisp sweetness of apples to the juicy tang of citrus and the soft, custardy richness of tropical fruits like mango—generally balancing natural sugars with acidity. Eaten fresh, dried, juiced, or cooked into jams, desserts, and savory dishes, fruit is prized nutritionally for its fiber, vitamins (especially vitamin C), antioxidants, and natural sugars, making it a nutrient-dense counterpart to refined sweeteners.
+eurocode_2_group_1:en: 9
+nutriscore_fruits_vegetables_nuts:en: yes
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+#carbon_footprint_fr_foodges_value:fr:2.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+#carbon_footprint_fr_foodges_value:fr:27.4
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
+#carbon_footprint_fr_foodges_value:fr:0.3
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1364
@@ -37410,9 +37408,6 @@ pt: frutas vermelhas
 ciqual_food_code:en: 13997
 ciqual_food_name:en: Red berries (raspberries, strawberries, red currants, black currants) , raw
 ciqual_food_name:fr: Fruits rouges, crus (framboises, fraises, groseilles, cassis)
-#461 in 8 @2021-10-15
-
-# description:en:A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
 
 < en: fruit
 en: berries, berry
@@ -37433,7 +37428,7 @@ pl: Owoce jagodowe
 pt: Bagas
 ru: Ягоды
 sv: Bär
-# ingredient/fr:fruits-rouges 205 products @2018-10-01
+description:en: Berries are small, fleshy, typically sweet-tart fruits produced by a wide range of flowering plants, growing wild across temperate and cold regions worldwide long before cultivation, with varieties like strawberries, blueberries, raspberries, and blackberries becoming widely farmed staples in Europe and North America. They have a flavor ranging from intensely sweet to sharply tart, often balanced with floral or earthy notes, and a soft, juicy texture that varies from the delicate burst of raspberries to the firmer bite of blueberries. Eaten fresh, dried, or used in jams, baking, and beverages, berries are notably rich in antioxidants (especially anthocyanins), fiber, and vitamin C, making them among the most nutrient-dense fruits.
 eurocode_2_group_2:en: 9.30
 wikipedia:en: https://en.wikipedia.org/wiki/Berry
 
@@ -37483,13 +37478,12 @@ nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
 
-# fruits and vegetables compound: do not make it a child of en:fruits and en:vegetables
-# needed in particular to recognize things like "fruits and vegetables content: 80%"
 en: fruits and vegetables, vegetables and fruits
 fr: fruits et légumes, légumes et fruits
 hr: voće i povrće
 it: frutta e verdura
 pl: owoce i warzywa, warzywa i owoce
+comment:en: fruits and vegetables compound: do not make it a child of en:fruits and en:vegetables. Needed in particular to recognize things like "fruits and vegetables content: 80%"
 nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
@@ -37547,8 +37541,6 @@ ja: ドライフルーツ
 nl: gedroogd fruit
 pl: owoce suszone, suszone owoce, owoców suszonych
 
-# description:en:Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables.
-
 en: juice
 bg: сок
 de: Saft
@@ -37562,6 +37554,7 @@ nl: sap
 pl: sok, soki, soku, soków
 pt: suco, sumo
 ru: Сок
+description:en: Juice is the liquid extracted from fruits or vegetables, produced by pressing, squeezing, or blending, with a history stretching back to ancient civilizations that fermented or drank fruit juices, though modern commercial juicing scaled up dramatically in the 20th century with pasteurization and packaging advances. It has a flavor that mirrors its source—sweet, tart, or a mix—with a smooth, liquid texture, sometimes with pulp retained for added body. Consumed as a beverage or used in cooking, baking, and cocktails, juice retains vitamins (especially vitamin C) and antioxidants from its source, though it typically lacks the fiber of whole fruit and can be concentrated in natural sugars, giving it a higher glycemic impact than eating the fruit whole.
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -37683,9 +37676,6 @@ fr: pulpe de fruits, pulpes de fruits
 fi: hedelmäliha
 hr: kaša voća, pulpa voća
 pt: polpa de fruta, polpa de frutas, polpa de fruto, polpa de frutos
-# 41 in 1 language products @2018-10-04
-
-# Is an AGGREGATE ingredient, i.e.:fruit and plant concentrates:safflower, apple, spirulina, radish, lemon, sweet potato, carrot, blackcurrant, hibiscus;
 
 < en: fruit concentrate
 < en: plant concentrate
@@ -37699,8 +37689,7 @@ it: concentrati di frutta e plante
 nl: vruchten- en plantenconcentraten
 pl: koncentraty owocowe i roślinne, koncentraty roślinne i owocowe, owocowo-roślinne koncentraty
 sv: frukt- och plantkoncentrat
-
-# Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
+commnet:en: Is an AGGREGATE ingredient, i.e.:fruit and plant concentrates:safflower, apple, spirulina, radish, lemon, sweet potato, carrot, blackcurrant, hibiscus;
 
 #<en:compound
 < en: concentrate
@@ -37716,6 +37705,7 @@ hr: koncentrirani sokovi
 it: concentrati di frutta
 nl: fruitconcentraat, vruchtconcentraten
 pt: concentrados de fruta, concentrados de fruto, concentrados de frutas, concentrados de frutos
+comment:en: Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
 
 < en: concentrate
 < en: plant
@@ -37785,7 +37775,6 @@ usda_ndb_proxy_name:en: Abiyuch, raw
 #                                Apricot
 #
 ###################################################################################################
-# description:en:APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
 
 < en: prunus species fruit
 en: apricot
@@ -37919,6 +37908,7 @@ carbon_footprint_fr_foodges_value:fr: 1.1
 ciqual_food_code:en: 13000
 ciqual_food_name:en: Apricot, pitted, raw
 ciqual_food_name:fr: Abricot, dénoyauté, cru
+description:en: Apricots are stone fruits believed to have originated in China or Central Asia thousands of years ago, later spreading along the Silk Road through Persia and into the Mediterranean, where regions like Turkey and California became major modern producers. They have a delicate, sweet-tart flavor with subtle floral and honeyed notes, and a soft, velvety-skinned flesh that's juicy when ripe and firms into a chewy, concentrated sweetness when dried. Eaten fresh, dried, or used in jams, baking, and savory glazes, apricots are a good source of vitamin A (from beta-carotene), vitamin C, and fiber, with dried apricots also offering a notable concentration of iron and potassium.
 ecobalyse:en: c455b3b8-406b-407a-a525-b2c832522e49
 ecobalyse_labels_en_organic:en: 36158ea6-066c-4fd6-9e28-6477c7297b37
 ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
@@ -38055,7 +38045,6 @@ it: aroma (albicocca), aroma (albicocche), aroma di albicocca, aroma di albicocc
 #                                Banana
 #
 ###################################################################################################
-# description:en:BANANA is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa
 
 < en: fruit
 en: banana
@@ -38218,6 +38207,7 @@ ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
 ciqual_food_process:en: en:pulp, en:raw
+description:en: Bananas are tropical fruits believed to have originated in Southeast Asia and Papua New Guinea thousands of years ago, later spreading through Africa and eventually the Americas, where they became one of the world's most widely consumed and traded fruits. They have a sweet, mild, slightly tangy flavor with a soft, creamy texture that ripens from starchy and firm to soft and sugary as the fruit matures. Eaten fresh, cooked, or dried, and used in baking, smoothies, and desserts, bananas are notably rich in potassium, vitamin B6, and fiber, along with natural sugars that make them a popular quick energy source.
 ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
 ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
 usda_ndb_2_code:en: 9041
@@ -38298,6 +38288,7 @@ wikidata:en: Q208032
 #                                Betula
 #
 ###################################################################################################
+
 < en: plant
 en: betula
 hr: betula, betula spp, breze
@@ -38309,7 +38300,6 @@ wikidata:en: Q25243
 #                                Breadfruit
 #
 ###################################################################################################
-# description:en:BREADFRUIT (Artocarpus altilis) is a species of flowering tree in the mulberry and jackfruit family (Moraceae). Breadfruit is a staple food in many tropical regions. Before being eaten, the fruits are roasted, baked, fried or boiled. When cooked, the taste of moderately ripe breadfruit is described as potato-like, or similar to freshly baked bread.
 
 < en: fruit
 < en: fruit vegetable
@@ -38344,6 +38334,7 @@ vi: xa kê, sa kê
 # bcl:Rimas
 #msn:biēg
 #zdj:furiapa, friapa
+description:en: Breadfruit is a starchy tropical fruit native to the South Pacific and Southeast Asia, long cultivated across Polynesian islands as a dietary staple, and historically significant for its role in the 18th-century Bounty voyage, which aimed to transplant it to the Caribbean as cheap food for enslaved laborers. It has a mild, slightly sweet flavor reminiscent of fresh bread or potato when cooked, with a starchy, dense texture similar to a potato when roasted, boiled, or fried. Typically eaten cooked rather than raw, breadfruit is a good source of complex carbohydrates, fiber, potassium, and vitamin C, making it a nutrient-dense staple food in many tropical regions.
 eurocode_2_group_3:en: 8.40.52
 usda_ndb_code:en: 9059
 usda_ndb_name:en: Breadfruit, raw
@@ -38367,10 +38358,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Jackfruit
 #                                Calluna vulgaris
 #
 ###################################################################################################
+
 < en: plant
 en: calluna vulgaris
-hr: calluna vulgaris, zelen vrijeska
-it: calluna vulgaris
+hr: zelen vrijeska
+la: calluna vulgaris
 wikidata:en: Q26615
 
 ###################################################################################################
@@ -38382,7 +38374,7 @@ wikidata:en: Q26615
 < en: prunus species fruit
 en: carissa, natal plum
 la: Carissa macrocarpa
-description:en: Carissa is a tropical/subtropical fruit-bearing shrub, native to South Africa. Taste: A mix of sweet and tart, often compared to cranberry or strawberry with a slightly milky, latex-like note
+description:en: Carissa (commonly known as natal plum) is a small, glossy red fruit native to southern Africa, particularly South Africa, growing on a spiny shrub traditionally used both as a food source and an ornamental hedge in its native range. It has a tart, slightly sweet flavor often compared to a mix of cranberry and strawberry, with a soft, juicy flesh surrounding small seeds, though the unripe fruit and other plant parts contain a milky sap that's toxic if consumed. Eaten fresh, or used in jams, jellies, and sauces once ripe, carissa is a good source of vitamin C and antioxidants, though it remains a minor, largely regional fruit outside southern Africa.
 usda_ndb_code:en: 9061
 usda_ndb_name:en: Carissa, (natal-plum), raw
 
@@ -38391,8 +38383,6 @@ usda_ndb_name:en: Carissa, (natal-plum), raw
 #                                Durian
 #
 ###################################################################################################
-# description:en:The DURIAN is the fruit of several tree species belonging to the genus Durio.
-# wikipedia and wikidata mix species, tree and fruit.
 
 < en: fruit
 en: durian
@@ -38413,6 +38403,8 @@ uk: Дуріан
 vi: Chi Sầu riêng
 zh: 榴槤屬
 # zh-min-nan:Liû-liân
+comment;en: wikipedia and wikidata mix species, tree and fruit.
+description:en: Durian is a large, spiky tropical fruit native to Southeast Asia, particularly Malaysia, Indonesia, and Thailand, where it's been cultivated for centuries and earned the nickname "king of fruits" despite—or because of—its notoriously divisive smell. It has a custardy, rich, creamy texture with a complex flavor often described as a blend of sweet caramel, almond, and savory onion notes, paired with a famously pungent, sulfurous odor strong enough to be banned on public transport in parts of Southeast Asia. Eaten fresh or used in desserts, candies, and ice cream, durian is notably rich in healthy fats, fiber, vitamin C, and potassium, making it more calorie-dense and nutritious than most other fruits.
 usda_ndb_code:en: 9422
 usda_ndb_name:en: Durian, raw or frozen
 wikipedia:en: https://en.wikipedia.org/wiki/Durian
@@ -38422,9 +38414,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Durian
 #                                Cranberry
 #
 ###################################################################################################
-# description:en:CRANBERRIES are a group of evergreen dwarf shrubs or trailing vines in the subgenus Oxycoccus of the genus Vaccinium.
-# It is possible that a subgroup needs to be created for the different species. The european and american varieties are mixed here.
-# In Britain, cranberry may refer to the native species Vaccinium oxycoccos, while in North America, cranberry may refer to Vaccinium macrocarpon.
 
 < en: fruit
 en: cranberry, cranberries
@@ -38496,6 +38485,8 @@ zh: 小紅莓
 ciqual_food_code:en: 13113
 ciqual_food_name:en: Cranberry, raw
 ciqual_food_name:fr: Canneberge ou cranberry, crue
+comment:en: It is possible that a subgroup needs to be created for the different species. The european and american varieties are mixed here. In Britain, cranberry may refer to the native species Vaccinium oxycoccos, while in North America, cranberry may refer to Vaccinium macrocarpon.
+description:en: Cranberries come in two main varieties: the American cranberry (Vaccinium macrocarpon), native to North America and long used by Indigenous peoples before becoming a major commercial crop in states like Massachusetts and Wisconsin, and the smaller European cranberry (Vaccinium oxycoccos), native to boggy regions across Northern Europe and Asia and traditionally foraged rather than farmed. Both have a sharply tart, astringent flavor with a firm, crisp bite when fresh, though the European variety tends to be smaller and even more tart than its larger American cousin. Eaten fresh, dried, juiced, or made into sauces, cranberries are notably rich in antioxidants, vitamin C, and compounds linked to urinary tract health, making them valued more for their functional benefits than their raw palatability.
 usda_ndb_code:en: 9078
 usda_ndb_name:en: Cranberries, raw
 wikidata:en: Q13181
@@ -38536,7 +38527,6 @@ hr: ušećerene brusnice
 it: mirtilli rossi zuccherati
 wikidata:en: Q26897677
 
-# description:en:Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium.
 < en: cranberry
 en: american cranberry
 cs: klikva velkoplodá, klikvy velkoplodé
@@ -38559,6 +38549,7 @@ sv: amerikanskt tranbär
 zh: 大果蔓越梅
 #dsb:Wjelikopłodowa žorawina
 #hsb:Wulkopłodowa tymjenka
+description:en: Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium.
 wikidata:en: Q149397
 wikipedia:en: https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
 
@@ -38591,7 +38582,7 @@ it: aroma di mirtillo rosso
 < en: fruit
 en: mammy apple, mamey
 la: Mammea americana
-description:en: A mammy apple is a tropical fruit native to the Caribbean and tropical Americas. Despite the name, they are actually classified as a berry, not a true apple. The flesh is intensely aromatic and deep orange, with a flavour similar to an apricot or raspberry.
+description:en: Mammee apple (Mammea americana) is a large tropical fruit native to the Caribbean and northern South America, historically cultivated by Indigenous peoples across the region long before European colonization and still popular in Caribbean and Central American cuisines today. It has a sweet, aromatic flavor often compared to a blend of apricot, mango, and raspberry, with a firm, slightly fibrous orange flesh beneath a thick, rough brown-yellow rind that must be discarded along with the bitter seeds. Eaten fresh, or used in jams, juices, and desserts, mammee apple is a good source of vitamin C, fiber, and carotenoids, though it remains a relatively niche fruit outside its native tropical regions.
 usda_ndb_code:en: 9175
 usda_ndb_name:en: Mammy-apple, (mamey), raw
 
