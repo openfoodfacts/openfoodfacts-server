@@ -117760,7 +117760,7 @@ pt: Manteigas de soja
 < en: Legumes and their products
 < en: Meat alternatives
 xx: Tofu
-en: tofu, Tofus, bean curds
+en: Tofu, Tofus, bean curds
 ar: توفو
 ba: Тофу
 be: Тофу
@@ -117821,10 +117821,10 @@ zh: 豆腐
 #zh-my: 豆腐
 #zh-sg: 豆腐
 #zh-tw: 豆腐
-agribalyse_food_code:en: 20904
-ciqual_food_code:en: 20904
-ciqual_food_name:en: Tofu, plain
-ciqual_food_name:fr: Tofu, nature
+agribalyse_proxy_food_code:en: 20904
+ciqual_proxy_food_code:en: 20904
+ciqual_proxy_food_name:en: Tofu, plain
+ciqual_proxy_food_name:fr: Tofu, nature
 description:en: Tofu is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
 google_product_taxonomy_id:en: 5809
 nova:en: 3
@@ -117835,7 +117835,10 @@ wikipedia:en: https://en.wikipedia.org/wiki/Tofu
 < en: Tofu
 en: Silken tofu
 fr: Tofu soyeux
-Description:en: Very soft tofu, with a high water content, often used for pastries
+ciqual_food_code:en: 20906
+ciqual_food_name:en: Tofu, silky, prepacked
+ciqual_food_name:fr: Tofu soyeux, préemballé
+description:en: Very soft tofu, with a high water content, often used for pastries
 
 < en: Tofu
 en: Plain tofu
@@ -117859,6 +117862,9 @@ nl: Gerookte tofu
 pl: Tofu wędzone
 sv: Rökt tofu, tofu rökt
 agribalyse_food_code:en: 20912
+ciqual_food_code:en: 20912
+ciqual_food_name:en: Tofu, smoked, prepacked
+ciqual_food_name:fr: Tofu fumé, préemballé
 
 < en: Smoked tofu
 en: Beech wood smoked tofu
