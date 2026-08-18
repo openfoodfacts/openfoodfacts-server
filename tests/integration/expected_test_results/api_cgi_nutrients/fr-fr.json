@@ -892,6 +892,13 @@
       },
       {
          "display_in_edit_form" : false,
+         "id" : "dry-residue",
+         "important" : false,
+         "name" : "Résidu sec",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
          "id" : "water",
          "important" : false,
          "name" : "Eau",

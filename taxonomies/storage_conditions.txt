@@ -1,0 +1,28 @@
+# This taxonomy is used for the values of the field storage_condition
+# It should only contain values "frozen", "refrigerated" and "ambient"
+# Do not add other values, parents or children.
+
+en: frozen
+da: frossen
+fr: surgelé
+nb: frossen
+nn: frosen
+sv: fryst
+wikidata:en: Q11838314
+
+en: refrigerated
+da: kølet
+fr: réfrigéré
+nb: kjølt
+nn: kjølt
+sv: köld
+wikidata:en: Q3454809
+
+en: ambient, ambient temperature
+da: rum­temperatur
+fr: température ambiante
+nb: rom­temperatur
+nn: rom­temperatur
+sv: rumstemperatur
+wikidata:en: Q111092
+
