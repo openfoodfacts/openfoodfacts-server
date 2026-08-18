@@ -56326,6 +56326,7 @@ nl: Babycompotes
 en: Meringue roulades
 
 < en: Desserts
+< en: Pastas and dumplings
 en: Sweet stuffed pastas
 fr: Pâtes farcies sucrées
 description:en: Pastas with a sweet filling such as chocolate, caramel or a fruit preparation.
@@ -100532,6 +100533,7 @@ de: Gefüllte Gnocchi
 fr: Gnocchis fourrés
 hr: Punjene njoke
 
+< en: Cereals and their products
 < en: Gnocchi
 en: Gnocchi of durum wheat semolina, gnocchis from semolina, gnocchi from semolina
 de: Grießgnocchi, Gnocchi aus Hartweizengrieß
@@ -101453,7 +101455,7 @@ intake24_category_code:en: UPSTA
 
 # <en:compound
 < en: Stuffed pastas
-en: Ravioli, Cooked filled pasta
+en: Raviolis, Ravioli
 xx: Ravioli
 ar: رافيولي
 bg: Равиоли
@@ -101462,7 +101464,7 @@ el: ραβιόλια
 eo: Ravioloj
 fa: راویولی
 fi: Ravioli, Raviolit
-fr: ravioli, Pâtes fraîches farcies cuites
+fr: Raviolis, Ravioli
 he: רביולי
 hy: Ռավիոլի
 ja: ラビオリ
@@ -101474,9 +101476,6 @@ sk: Raviola
 th: ราวีโอลี
 uk: Равіолі
 zh: 意大利餃
-ciqual_food_code:en: 25216
-ciqual_food_name:en: Pasta (e.g. ravioli), filled, cooked
-ciqual_food_name:fr: Pâtes fraîches farcies (ex : raviolis), cuites (aliment moyen)
 # ravioli (water, durum wheat, 24% cream cheese, egg [open-air] 7%, mascarpone cheese, bread crumbs, coconut cream, 1% lemon juice, broth of vegetables, sugar, whey powder, juice of limes 0.3%, iodized cooking salt, lemon zest 0.2%, lemon extract 0.1%, syrup of limes, spices)
 description:en: Ravioli are a type of dumpling comprising a filling enveloped in thin pasta dough.
 # en-ca:Ravioli
@@ -102077,19 +102076,23 @@ nl: Gevulde pastas in saus
 
 < en: Pasta dishes
 < en: Pastas and dumplings
-en: Stuffed pastas
+en: Stuffed pastas, Cooked filled pasta
 bg: Пълнена паста
 ca: Pastes farcides
 de: Gefüllte Nudeln
 es: Pastas rellenas
 fi: täytetyt pastat
-fr: Pâtes farcies
+fr: Pâtes farcies, Pâtes fraîches farcies cuites
 he: פסטה ממולאת
 hr: Punjene tjestenine
 hu: Töltött tészták
 it: Pasta farcita, pasta ripiena
 nl: Gevulde pastas
+ciqual_food_code:en: 25216
+ciqual_food_name:en: Pasta (e.g. ravioli), filled, cooked
+ciqual_food_name:fr: Pâtes fraîches farcies (ex : raviolis), cuites (aliment moyen)
 incompatible_with:en: categories:en:sweet-stuffed-pastas
+wikidata:en: Q3897491
 
 < en: Stuffed pastas
 en: Tortellini
@@ -127543,7 +127546,7 @@ es: Empanadas, Empanadillas
 wikidata:en: Q747457
 
 < en: Dumplings
-en: Chinese dumplings, Chinese dumpling, Dim Sum
+en: Chinese dumplings, Chinese dumpling, Dim Sum, Chinese raviolis
 fi: Kiinalaiset mykyt, Kiinalainen myky
 fr: Bouchées à la vapeur chinoises, Bouchées à la vapeur chinoises cuites, Bouchées vapeur chinoises cuites, Bouchées à la vapeur
 hr: Kineske knedle
@@ -127571,8 +127574,8 @@ en: Frozen Chinese dumplings, frozen Dim Sum
 fr: Bouchées à la vapeur chinoises cuites surgelées, Bouchées à la vapeur surgelées, Dim Sum surgelés
 
 < en: Chinese dumplings
-en: Chinese shrimp dumplings
-fr: Raviolis chinois à la crevette
+en: Chinese shrimp dumplings, Cooked steamed shrimp dumplings, Cooked steamed shrimp dumpling
+fr: Raviolis chinois à la crevette, Ravioli à la crevette
 agribalyse_food_code:en: 25110
 ciqual_food_code:en: 25110
 ciqual_food_name:en: Dumplings, steamed, with shrimps, cooked
