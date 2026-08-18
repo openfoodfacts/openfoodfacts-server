@@ -108,6 +108,7 @@ $geolite2_path = $ENV{GEOLITE2_PATH};
 
 $mongodb_host = $ENV{MONGODB_HOST} || "mongodb";
 my $flavor_short = $ENV{PRODUCT_OPENER_FLAVOR_SHORT} || "off";
+# Note: In production we currently only have one producer platform, for off-pro.
 $mongodb = $ENV{MONGODB_DATABASE} || ($producers_platform ? "${flavor_short}-pro" : $flavor_short);
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
