@@ -8,6 +8,7 @@ x-backend-conf: &backend-conf
     - PRODUCT_OPENER_FLAVOR_SHORT
     - OFF_LOG_EMAILS
     - MONGODB_HOST
+    - MONGODB_DATABASE
     - POSTGRES_HOST
     - POSTGRES_USER
     - POSTGRES_PASSWORD
