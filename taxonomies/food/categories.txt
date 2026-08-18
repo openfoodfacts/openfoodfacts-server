@@ -75666,7 +75666,7 @@ ciqual_food_name:fr: Herbes de Provence, séchées
 < en: Condiments
 en: Salts, Salt
 bg: Сол
-ca: Sal, sals
+ca: Sals, Sal
 da: Salte
 de: Salze, Salz
 es: Sales, Sal
@@ -75684,7 +75684,7 @@ nn: Salt
 pl: Sól
 pt: Sais
 ru: Соль
-sv: Salter, salt
+sv: Salter, Salt
 th: เกลือบริโภค
 tr: Tuz
 zh: 盐类
@@ -75696,22 +75696,37 @@ nova:en: 2
 wikidata:en: Q11254
 
 < en: Salts
-fr: Gros sels, gros sel
+en: Coarse-grained salts, Coarse salts
 de: Grobe Salze, Grobes Salz
+fr: Gros sels, gros sel
 it: Sale grosso
 nl: Grove zouten
+sv: Grovkorniga salter, Grova salter
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 < en: Salts
-fr: Sels fins, sel fin
+en: Fine-grained salts, Fine salts
 de: Feine Salze, Feines Salz
+fr: Sels fins, sel fin
 it: Sale fino
 nl: Fijne zouten
+sv: Finkorniga salter, Fina salter
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
+
+< en: Salts
+en: Flake salts, Salt flakes
+de: Salzflocken, Salz-Flocken
+eo: Lamensaloj
+fr: Flocons de sel
+hr: Pahuljice soli
+it: Fiocchi di sale
+ko: 플레이크 소금
+sv: Flingsalter, Saltflingor
+wikidata:en: Q5457081
 
 < en: Salts
 en: Grinding salts, Salt grinder salts, Salt grinder refill salts
@@ -75724,7 +75739,7 @@ description:en: Salts for use in a salt grinder.
 < en: Salts
 en: Liquid salts
 de: Flüssigsalze, Flüssigsalz
-es: Sales liquidas, sal liquida
+es: Sales liquidas, Sal liquida
 fr: Sels liquides
 hr: Tekuće soli
 nl: Vloeibare zouten
@@ -75733,16 +75748,39 @@ agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous 
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 
 < en: Salts
-fr: Sels des mines de sel
+en: Rock salts
+ar: ملح صخري
+da: Stensalte
 de: Steinsalze, Steinsalz
-it: Salgemma, sale dalle miniere
+eo: Roksaloj
+es: Sales de roca
+eu: Gatzarri
+fr: Sels des mines de sel, Sels gemme
+gl: Sal de rocha
+hr: Kamena sol
+hu: Kősó
+it: Salgemma, Sale dalle miniere
+lt: Akmens druskos, Akmens druska
+mk: Камена сол
+ml: റോക്ക് സാൾട്ട്
+nb: Steinsalter
 nl: Steenzouten
+nn: Steinsalt
+pl: Sól kamienna
+pt: Sal-gema
+ru: Каменная соль
+sl: Kamena sol
+sr: Камена со
+sv: Bergsalter, Stensalter
+uk: Кам'яна сіль
+uz: Toshtuz
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
+wikidata:en: Q2341557
 
 < en: Salts
-en: Himalaya salts, himalayan salts
+en: Himalaya salts, Himalayan salts
 bg: Хималайска сол
 de: Himalaya-Salze
 es: Sal del himalaya
@@ -75760,9 +75798,19 @@ wikidata:en: Q1790817
 # TODO - disable Agribalyse on it
 
 < en: Himalaya salts
+en: Himalayan pink salts
 fr: Sels roses de l'Himalaya
-hr: ružičasta himalajska sol, himalajske ružičaste soli
-it: sale rosa dell himalaya
+hr: Ružičasta himalajska sol, himalajske ružičaste soli
+it: Sale rosa dell himalaya
+
+< en: Flake salts
+< en: Himalaya salts
+en: Himalayan flake salts
+de: Himalaya-Salzflocken
+fr: Flocons de sel de l'Himalaya
+hr: Himalajske pahuljice soli
+it: Fiocchi di sale dell'Himalaya
+sv: Himalayaflingsalter
 
 < en: Salts
 en: Sea salts, Bay salts, Solar salt
@@ -75771,12 +75819,14 @@ da: Havsalte
 de: Meersalze, Meersalz
 es: Sales marinas
 fi: merisuolat
-fr: Sels marins, sels de mer, sel de mer
+fr: Sels marins, Sels de mer, Sel de mer
 hr: Morske soli
 it: Sale marino
 ja: 海塩
 lt: Jūros druskos
+nb: Havsalter, Sjösalter
 nl: Zeezouten
+nn: Havsalt, Sjösalt
 pl: Sól morska
 ru: Морская соль
 sv: Havssalter
@@ -75784,6 +75834,33 @@ agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 wikidata:en: Q282694
+
+< en: Coarse-grained salts
+< en: Sea salts
+en: Coarse-grained sea salts, Coarse sea salts
+de: Grobe Meersalze, Grobes Meersalz
+fr: Gros sels marin, Gros sels de mer
+it: Sale marino grosso
+nl: Grove zeezouten
+sv: Grovkorniga havssalter, Grova havssalter
+
+< en: Fine-grained salts
+< en: Sea salts
+en: Fine-grained sea salts, Fine sea salts
+de: Feine Meersalze, Feines Meersalz
+fr: Sels fins marin, Sels fins de mer
+it: Sale marino fino
+nl: Fijne zeezouten
+sv: Finkorniga havssalter, Fina havssalter
+
+< en: Flake salts
+< en: Sea salts
+en: Flake sea salts, Sea salt flakes
+de: Meersalzflocken, Meersalz-Flocken
+fr: Flocons de sel marin
+hr: Pahuljice morske soli
+it: Fiocchi di sale marino
+sv: Flinghavssalter, Havssaltflingor, Flingsalt från havet
 
 < en: Salts
 en: Iodised salts, iodised salt
@@ -75793,11 +75870,21 @@ it: Sale iodato
 ja: ヨウ素添加塩
 lt: Joduota druska
 pl: Sól jodowana
-sv: Salter med jod
+sv: Jodberikade salter, Salter med jod
 th: เกลือบริโภค เสริมไอโอดีน
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
+
+< en: Flake salts
+< en: Iodised salts
+en: Iodised flake salts
+sv: Jodberikade flingsalter, Flingsalter med jod
+
+< en: Flake sea salts
+< en: Iodised flake salts
+en: Iodised flake sea salts
+sv: Jodberikade flinghavssalter, Flinghavssalter med jod
 
 < en: Salts
 en: Sea igneous white salt for human consumption without enrichment, Rock white salt for human consumption without enrichment
@@ -75834,7 +75921,9 @@ hr: Nerafinirane soli
 hu: Tengeri sók
 it: Sale non raffinato, sale naturale
 lt: Nerafinuotos druskos
+nb: Uraffinerte salter
 nl: Ongeraffineerde zouten
+nn: Uraffinerte salt
 sv: Oraffinerade salter
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
@@ -75871,13 +75960,18 @@ ciqual_food_code:en: 11083
 ciqual_food_name:en: Sea salt, grey, no enrichment
 ciqual_food_name:fr: Sel marin gris, non iodé, non fluoré
 
+< en: Rock salts
 < en: Unrefined salts
-en: Unrefined rock salt
-fr: Sel gemme non raffiné
+en: Unrefined rock salts, Unrefined rock salt
+da: Uraffinerede stensalte
+fr: Sels gemme non raffiné
 hr: Nerafinirana kamena sol
 hu: Finomítatlan kősó
 lt: Nerafinuotos akmens druskos
+nb: Uraffinerte steinsalter
 nl: Ongeraffineerde steenzouten
+nn: Uraffinerte steinsalt
+sv: Oraffinerade bergsalter
 
 < en: Sea salts
 < en: Unrefined salts
@@ -75899,9 +75993,13 @@ protected_name_type:en: pdo
 
 < en: Salts
 en: British salts
+da: Britiske salte
 fr: Sels britanniques
 hr: Britanske soli
 lt: Britiškos druskos
+nb: Britiske salter
+nn: Britiske salt
+sv: Brittiska salter
 
 < en: British salts
 en: Anglesey Sea Salt, Halen Môn
@@ -75912,7 +76010,11 @@ wikidata:en: Q16526855
 
 < en: Salts
 en: Italian salts
+da: Italienske salte
 lt: Itališkos druskos
+nb: Italienske salter
+nn: Italienske salt
+sv: Italienska salter
 origins:en: en:italy
 
 < en: Italian salts
@@ -75924,12 +76026,16 @@ wikidata:en: Q1476040
 
 < en: Salts
 en: French salts
+da: Franske salte
 de: Französische Salze
 es: Sales francesas
 fr: Sels français
 hr: Francuske soli
 lt: Prancūziškos druskos
+nb: Franske salter
 nl: Zouten uit Frankrijk, Franse zouten
+nn: Franske salt
+sv: Franska salter
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr: Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
@@ -75955,8 +76061,8 @@ origins:en: en:france
 protected_name_file_number:en: PGI-FR-0861
 protected_name_type:en: pgi
 
+< en: Coarse-grained salts
 < en: Guerande salts
-< fr: Gros sels
 fr: Gros sel de Guérande
 
 < en: French salts
@@ -75968,6 +76074,7 @@ protected_name_type:en: pgi
 #wikidata:en:Q73875543
 wikidata:en: Q3469812
 
+< en: Fleurs de sel
 < fr: Sel de Camargue
 fr: Fleur de sel de Camargue
 origins:en: en:france
@@ -75983,12 +76090,17 @@ wikidata:en: Q37970833
 
 < en: Salts
 en: Irish salts
+da: Irske salte
 fr: Sels irlandais
 hr: Irske soli
 lt: Iriškos druskos
+nb: Irske salter
+nn: Irske salt
+sv: Iriska salter
 origins:en: en:ireland
 
 < en: Irish salts
+< en: Sea salts
 en: Oriel Sea Salt
 origins:en: en:ireland
 protected_name_file_number:en: PDO-IE-01318
@@ -76004,7 +76116,11 @@ wikidata:en: Q54870034
 
 < en: Salts
 en: Polish salts
+da: Polske salte
+nb: Polske salter
+nn: Polske salt
 pl: Sól polska
+sv: Polska salter
 origins:en: en:poland
 
 < en: Polish salts
@@ -76013,9 +76129,13 @@ pl: Sól kłodawska, Sól z Kłodawy
 
 < en: Salts
 en: Portuguese salts
+da: Portugisiske salte
 fr: Sels portugais
 hr: Portugalske soli
 lt: Portogališkos druskos
+nb: Portugisiske salter
+nn: Portugisiske salt
+sv: Portugisiska salter
 origins:en: en:portugal
 
 < en: Portuguese salts
@@ -76033,9 +76153,13 @@ wikidata:en: Q18483589
 
 < en: Salts
 en: Slovenian salts
+da: Slovenske salte
 fr: Sels slovènes
 hr: Slovenske soli
 lt: Slovėniškos druskos
+nb: Slovenske salter
+nn: Slovenske salt
+sv: Slovenska salter
 origins:en: en:slovenia
 
 < en: Slovenian salts
@@ -76046,22 +76170,30 @@ protected_name_type:en: pdo
 
 < en: Salts
 en: Salts from Québec
+da: Salte fra Québec
 fr: Sels du Québéc
 hr: Soli iz Québeca
 lt: Druskos iš Kvebeko
+nb: Salter fra Québec
 nl: Zout uit Québec
+nn: Salt frå Québec
+sv: Salter från Québec
 origins:en: en:canada, en:quebec
 
 < en: Salts
 en: Table salts
+da: Bordsalte
 de: Speisesalze, Tafelsalze
 es: Sales de mesa
-fi: pöytäsuolat
+fi: Pöytäsuolat
 fr: Sels de table
 hr: Kuhinjske soli
 it: Sale da tavola
 ja: 食卓塩
+nb: Bordsalter
 nl: Keukenzouten
+nn: Bordsalt
+sv: Bordssalter
 tr: Sofra tuzu, Yemek tuzu
 agribalyse_proxy_food_code:en: 11017
 agribalyse_proxy_food_name:en: Salt, white, for human consumption (sea, igneous or rock), no enrichment
@@ -76083,7 +76215,7 @@ nl: Gearomatiseerde zouten
 sv: Salter med smak
 
 < en: Flavoured salts
-en: Celery salt
+en: Celery salts, Celery salt
 fr: Sels au céleri, Sel au céleri
 hr: Sol celera
 lt: Salierų druskos
@@ -76099,6 +76231,8 @@ en: Herbal salts
 da: Urtesalte
 de: Kräutersalz
 fi: Yrttisuola
+nb: Urtesalter
+nn: Urtesalt
 sv: Örtsalter
 agribalyse_proxy_food_code:en: 11044
 ciqual_proxy_food_code:en: 11044
