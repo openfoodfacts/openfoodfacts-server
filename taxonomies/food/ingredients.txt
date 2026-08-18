@@ -35841,6 +35841,7 @@ zh: 碳酸水
 # hi:वातिल जल this needs to be checked
 # wuu:汽水
 # yue:荷蘭水
+description:en: Carbonated water is water infused with dissolved carbon dioxide gas under pressure, either occurring naturally in mineral springs—historically prized in spa towns like Perrier in France—or produced artificially through mechanical carbonation, a process commercialized in the late 18th century. It has a neutral base flavor with a distinctive sharp, slightly acidic bite and effervescent tingle from the carbonic acid formed as CO2 dissolves, and a lively, fizzy texture that fades once opened. Used as a refreshing standalone drink, a mixer in cocktails, and a base for flavored sodas, carbonated water contains no calories, protein, fat, or carbohydrates, and offers the same trace minerals as its source water, with no meaningful nutritional difference from still water beyond the carbonation itself.
 wikidata:en: Q264554
 wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
 
@@ -35914,10 +35915,6 @@ fr: eau de cuisson
 hr: voda za kuhanje
 it: acqua di cottura
 nl: kookwater
-
-
-# description:en:Ice is water frozen into a solid state.
-# comment:en:We differentiate between ice and icecream. This is not posisible in every language. In french the accent is not respected and it should sometimes be glacé.
 
 < en: water
 en: ice
@@ -36059,6 +36056,8 @@ zu: Iqhwa
 # zh-cn:冰
 # zh-hk:冰
 # zh-tw:冰
+comment:en: We differentiate between ice and icecream. This is not posisible in every language. In french the accent is not respected and it should sometimes be glacé.
+description:en: Ice is water in its solid state, forming when temperatures drop to or below 0°C (32°F), found naturally in glaciers, polar regions, and frost, and produced commercially or at home through refrigeration for use in food and beverages. It has no flavor or aroma of its own, taking on a hard, crystalline texture that can range from clear and dense to cloudy and brittle depending on freezing speed and mineral content. Used primarily for chilling drinks and food, preserving perishables, and in ice sculptures or winter sports, ice contains no calories, protein, fat, or carbohydrates, offering the same trace minerals as its source water but purely a physical, non-nutritive ingredient.
 wikidata:en: Q23392
 wikipedia:en: https://en.wikipedia.org/wiki/Ice
 
@@ -36122,14 +36121,14 @@ tt: соя
 uk: соя
 uz: soya
 zh: 黄豆, 大豆类制品
-comment:en: Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max, note that soya is english and soy is american
-description:en: SOYA is used as a generic word to indicate it is made from soybeans
 #ast: soya
 #hsb: Soja
 #ilo: Soya
 #kbp: Soojaa
 #lfn: Soia
 #war: Soya
+comment:en: Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max, note that soya is english and soy is american
+description:en: Soy comes from the soybean, a legume domesticated in China around 3,000-5,000 years ago and long a dietary staple across East Asia, later spreading globally as both a food crop and major agricultural commodity. It has a mild, earthy, slightly nutty flavor with a texture that varies enormously by form—from the firm bite of tofu and edamame to the smooth creaminess of soy milk and the meaty chew of tempeh. Extremely versatile, soy is used in countless forms including tofu, milk, sauce, and protein isolates, and stands out nutritionally as a complete plant protein containing all nine essential amino acids, along with fiber, iron, and isoflavones linked to potential health benefits.
 vegan:en: yes
 vegetarian:en: yes
 
@@ -36228,7 +36227,6 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20901
 ciqual_food_name:en: Soybean, whole grain
 ciqual_food_name:fr: Soja, graine entière
-description:en: SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia.
 description:de: Die Sojabohne (Glycine max), häufig auch einfach als Soja bezeichnet, ist eine Pflanzenart aus der Unterfamilie Schmetterlingsblütler. Als Nahrung ist die Eiweißqualität des Sojaproteins mit der von tierischem Eiweiß vergleichbar, was die Sojabohne von anderen Pflanzen abhebt.
 description:es: Glycine max, llamada popularmente soya o soja, es una especie de la familia Fabaceae. El grano de soya y sus subproductos (aceite y harina de soya) se utilizan en la alimentación humana, del ganado y aves.
 description:fr: Le soja, (soya) (Glycine max), est une espèce de plante annuelle de la famille des légumineuses.
@@ -36378,7 +36376,7 @@ tr: Soya küspesi
 uk: Соєва пульпа
 vi: Bã đậu
 zh: 豆渣
-description:en: pulp consisting of insoluble parts of the soybean that remain after pureed soybeans are filtered in the production of soy milk and tofu.
+description:en: Okara is the fibrous pulp byproduct left over from pressing soybeans to make soy milk or tofu, a traditional ingredient in Japanese, Chinese, and Korean cooking where it's long been used to avoid food waste, particularly in dishes like Japanese unohana. It has a mild, slightly nutty, bean-like flavor with a dry, crumbly, fibrous texture similar to coarse meal. Used in stir-fries, veggie burgers, baked goods, and as a flour substitute, okara is notably rich in dietary fiber and retains a good amount of plant protein and calcium, though it's lower in protein than the soy milk or tofu it's derived from.
 usda_ndb_code:en: 16130
 usda_ndb_name:en: Okara
 wikidata:en: Q917043
@@ -36561,9 +36559,6 @@ es: maltodextrina de trigo
 fr: maltodextrine de blé
 it: maltodestrina di frumento
 
-# a raising agent is any one of a number of substances used in doughs and batters that cause a foaming action (gas bubbles) that lightens and softens the mixture.
-# This contains chemical and biological raising agents. Often a raising agent is synonymous to chemical.
-
 en: raising agent, leavening agent, leavening, dough raising agent
 ar: عامل نفاشية
 ca: gasificants
@@ -36604,10 +36599,9 @@ tr: Kabartma ajanı
 uk: Розпушувач харчовий
 zh: 膨松剂
 # zh-min-nan:Hoat-hún
+description:en: Raising agents are substances added to baked goods to produce carbon dioxide gas and create rise and lightness, with early forms like yeast used since ancient Egyptian times, while chemical versions such as baking soda and baking powder were developed in the 19th century as faster, more reliable alternatives. They are essentially flavorless or very mildly bitter/metallic on their own, though excess use can leave a soapy or tinny aftertaste, and they work by releasing gas bubbles that get trapped in dough or batter, creating a light, airy texture. Used across breads, cakes, and pastries—commonly as baking soda, baking powder, yeast, or ammonium bicarbonate—raising agents are used in such small quantities that they contribute negligible calories or nutrients, functioning purely as a leavening tool rather than a nutritional ingredient.
 wikidata:en: Q908833
 wikipedia:en: https://en.wikipedia.org/wiki/Leavening_agent
-
-# description:en:Yeasts are eukaryotic, single-celled microorganisms classified as members of the fungus kingdom.
 
 en: yeast
 af: Gis
@@ -36683,9 +36677,6 @@ vi: Nấm men
 wa: Yesse
 yi: הייוון
 zh: 酵母
-ciqual_proxy_food_code:en: 11009
-ciqual_proxy_food_name:en: Nutritional yeast
-ciqual_proxy_food_name:fr: Levure alimentaire
 # ast:Lleldu
 # bar:Germ
 # ext:Lua
@@ -36694,6 +36685,10 @@ ciqual_proxy_food_name:fr: Levure alimentaire
 # sco:Baurm
 # yue:依士
 # zh-min-nan:Kàⁿ-bú
+ciqual_proxy_food_code:en: 11009
+ciqual_proxy_food_name:en: Nutritional yeast
+ciqual_proxy_food_name:fr: Levure alimentaire
+description:en: Yeast is a single-celled fungus, most commonly Saccharomyces cerevisiae, used for thousands of years since ancient Egyptian and Mesopotamian times to leaven bread and ferment beverages like beer and wine, long before its microbial nature was understood. It has a mild, slightly savory, umami flavor with a subtly yeasty, bread-like aroma, and comes in fresh, active dry, or instant forms that vary in texture from soft and crumbly to fine granules. Used in baking, brewing, and winemaking, yeast works by converting sugars into carbon dioxide and alcohol through fermentation, and nutritional yeast (a deactivated form) is notably rich in B vitamins, protein, and often fortified with B12, making it a popular supplement for plant-based diets.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q45422
@@ -36732,8 +36727,6 @@ hr: kvasac s vitaminom d
 it: lievito di vitamina D
 nl: vitamine D-gist
 
-# description:en:NUTRITIONAL YEAST is a deactivated yeast, often a strain of Saccharomyces cerevisiae, which is sold commercially as a food product.
-
 < en: yeast
 en: nutritional yeast
 ar: رقائق الخميرة المغذية
@@ -36754,6 +36747,7 @@ uk: харчові дріжджі
 ciqual_food_code:en: 11009
 ciqual_food_name:en: Nutritional yeast
 ciqual_food_name:fr: Levure alimentaire
+description:en: Nutritional yeast is a deactivated form of Saccharomyces cerevisiae yeast, typically grown on molasses and then heat-killed before being dried into flakes or powder, popularized in the mid-20th century as a health food, particularly within vegan and vegetarian communities. It has a distinctly savory, cheesy, nutty flavor with umami depth, making it a popular seasoning sprinkled over popcorn, pasta, and salads or blended into vegan cheese sauces. Unlike active baking yeast, it has no leavening power since it's deactivated, but it stands out nutritionally as a complete protein source rich in B vitamins—often fortified with B12—making it especially valued in plant-based diets for filling that typical nutritional gap.
 wikidata:en: Q1786540
 wikipedia:en: https://en.wikipedia.org/wiki/Nutritional_yeast
 
@@ -36770,7 +36764,6 @@ pl: płatki drożdżowe
 sv: näringsjästflinga, näringsjästflingor
 
 # see ingredients_processing.txt
-#comment:en: fr:poudre-a-lever is an additive class.
 < en: yeast
 en: yeast powder, raising powder
 bg: мая на прах
@@ -36790,7 +36783,6 @@ ru: Дрожжевой порошок
 sv: torrjäst, jästpulver
 
 #en:processing:en:powder
-#comment:en: misses a parent, so entries can not be removed
 #<en:raising agent???
 en: baking powder
 bg: бакпулвер
@@ -36815,6 +36807,7 @@ sv: bakpulver
 ciqual_food_code:en: 11046
 ciqual_food_name:en: Baking powder or raising agent
 ciqual_food_name:fr: Levure chimique ou Poudre à lever
+comment:en: misses a parent, so entries can not be removed
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q29476
@@ -36872,7 +36865,7 @@ zh: 釀酒酵母
 ciqual_food_code:en: 11045
 ciqual_food_name:en: Baker's yeast, dehydrated
 ciqual_food_name:fr: Levure de boulanger, déshydratée
-description:en: Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products
+description:en: Baker's yeast is the common name for active Saccharomyces cerevisiae used specifically for baking, cultivated commercially since the late 19th century when compressed yeast production made it widely accessible, replacing older methods like sourdough starters and brewer's yeast. It has a mild, slightly savory flavor with little aroma on its own, though it develops the characteristic yeasty, bready aroma during fermentation, and is sold as fresh (compressed), active dry, or instant granules. Used to leaven bread, rolls, and pastries, baker's yeast works by converting sugars into carbon dioxide and alcohol, and while used in small quantities, it contributes trace amounts of B vitamins and protein alongside its primary leavening function.
 wikidata:en: Q911712
 wikipedia:en: https://en.wikipedia.org/wiki/Baker%27s_yeast
 
@@ -36926,8 +36919,6 @@ en: hops yeast
 hr: hmelj kvasac
 it: lievito di luppolo
 
-# description:en:YEAST EXTRACT is the common name for yeast products made by extracting the cell contents
-
 < en: yeast
 en: yeast extract
 bg: екстракт от мая, екстракти от мая
@@ -36961,6 +36952,7 @@ sv: jästextrakt
 tr: maya özütü
 uk: Екстракт дріжджів
 zh: 酵母抽提物
+description:en: Yeast extract is a savory paste or powder made by breaking down yeast cells—typically through autolysis (self-digestion using the yeast's own enzymes) or hydrolysis—a byproduct process refined in the late 19th century that led to iconic products like Marmite in the UK and Vegemite in Australia. It has an intensely savory, salty, umami-rich flavor with deep, almost meaty notes, and comes as a thick, sticky spread or dried into a fine powder used as a seasoning. Used as a flavor enhancer in soups, sauces, stocks, and spreads, yeast extract is naturally rich in glutamic acid (contributing its umami punch), B vitamins, and protein, making it both a flavor booster and a modest nutritional contributor.
 wikipedia:en: https://en.wikipedia.org/wiki/Yeast_extract
 
 < en: yeast extract
@@ -37022,7 +37014,7 @@ sr: Кисело тесто
 sv: surdeg
 zh: 老麵
 #nap: Criscito
-description:en: Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
+description:en: Sourdough is a naturally leavened bread made using a fermented starter of wild yeast and lactic acid bacteria rather than commercial yeast, a method dating back thousands of years to ancient Egypt and still central to regional baking traditions like San Francisco's tangy loaves. It has a distinctive tangy, slightly sour flavor with a chewy, dense crumb and crisp, often blistered crust, shaped by the specific microbial culture of its starter, which can vary by region and even household. Made simply from flour, water, salt, and the starter culture, sourdough's slow fermentation is thought to improve digestibility and lower the glycemic impact compared to conventionally leavened bread, while offering fiber, B vitamins, and modest protein from the flour base.
 likely_allergens:en: en:gluten
 wikidata:en: Q904889
 wikipedia:en: https://en.wikipedia.org/wiki/Sourdough
