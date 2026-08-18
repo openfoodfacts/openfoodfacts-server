@@ -1462,7 +1462,7 @@ tr: Yeşil Nokta
 auth_url:en: https://www.pro-e.org/
 label_categories:en: en:Packaging
 wikidata:en: Q975485
-# en:comment:On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
+#comment:en: On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
 
 fr: Imprim'Vert
 label_categories:en: en:Packaging
@@ -1580,7 +1580,6 @@ wikidata:en: Q101542317
 
 < en: No gluten
 en: GFCO Gluten Free
-# 71 products
 
 < en: No gluten
 en: Crossed Grain Trademark, CGT, Crossed Grain Symbol, Crossed Grain
@@ -2711,7 +2710,6 @@ en: energy free
 xx: energy free
 description:en: In EU, a claim that a food is energy free may only be made where the product does not contain more than 4 kcal (17 kJ)/100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-
 en: Low or no fat
 ca: Baix o sense greix
 de: Niedrig oder kein Fett
@@ -2960,6 +2958,11 @@ ru: Обезжиренный, 0% жира
 th: ไม่มีไขมัน
 description:en: In EU, a claim that a food is fat free may only be made where the product contains no more than 0,5 g of fat per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
+en: High in sodium
+es: Alto en sodio
+label_categories:en: en:Health
+opposite:en: en:Low or no Sodium
+
 en: Low or no Sodium
 xx: Low or no Sodium
 ca: Baix o sense sodi
@@ -2975,6 +2978,7 @@ pt: Baixo ou sem sódio
 ru: Низкое или отсутствие натрия
 th: โซเดียมต่ำหรือไม่มีโซเดียม
 label_categories:en: en:Health
+opposite:en: en:High in sodium
 
 < en: Low or no Sodium
 en: Low Sodium
@@ -3008,7 +3012,6 @@ description:en: In EU, a claim that a food is sodium-free/salt-free may only be 
 en: No added sodium
 xx: No added sodium
 description:en: In EU, a claim that sodium/salt has not been added to a food may only be made where the product does not contain any added sodium/salt or any other ingredient containing added sodium/salt and the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
-
 
 en: Low or no salt
 ca: Baix o sense sal
@@ -3250,6 +3253,11 @@ ru: Без соли, 0% соли
 th: ไม่มีเกลือ
 description:en: In EU, a claim that a food is sodium-free/salt-free may only be made where the product contains no more than 0,005 g of sodium, or the equivalent value for salt, per 100 g. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
+en: High in sugars
+es: Alto en azúcares
+label_categories:en: en:Health
+opposite:en: en:Low or no sugar
+
 en: Low or no sugar
 ca: Sense o baix en sucre
 cs: Nízký nebo žádný obsah cukru
@@ -3269,6 +3277,7 @@ sv: Lågt eller inget socker
 th: น้ำตาลต่ำ
 zh: 低糖或无糖
 label_categories:en: en:Health
+opposite:en: en:High in sugars
 
 < en: Low or no sugar
 en: Low sugar, Low in sugars
@@ -3858,6 +3867,14 @@ description:fr: consignée en Suède.
 #image:sv: pant-2kr.61x90.png
 label_categories:en: en:Environment, en:Packaging
 
+sv: pant 3kr
+xx: pant 3kr
+country:en: en:Sweden
+description:en: deposit in Sweden.
+description:fr: consignée en Suède.
+#image:sv: pant-3kr.61x90.png
+label_categories:en: en:Environment, en:Packaging
+
 en: metal recycles forever
 xx: metal recycles forever
 image:en: metal-recycles-forever.89x90.png
@@ -3963,6 +3980,43 @@ description:en: At least 98% of the product's content originates in Canada
 description:fr: Le contenu du produit est originaire du Canada à au moins 98%
 label_categories:en: en:Geographic label
 # https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
+
+# [CL] Chile
+
+en: Chilean front-of-package nutrition warnings
+es: Etiquetados de alimentos de Ley de Alimentos (Ministerio de Salud)
+country:en: en:Chile
+description:en: In Chile, a front-of-package nutrition symbol is required on foods that are high in one or more of these nutrients: sodium, sugars, saturated fats, or calories.
+label_categories:en: nutritional-values
+web:es: https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-introduccion/
+wikidata:en: Q31212677
+wikipedia:en: https://en.wikipedia.org/wiki/Food_labelling_and_advertising_law_(Chile)
+
+< en: Chilean front-of-package nutrition warnings
+< en: High in sugars
+en: High in sugars (Chile Ministry of Health)
+es: Alto en azúcares (Ministerio de Salud)
+image:es: alto-en-azucares-ministerio-de-salud.90x90.svg
+
+< en: Chilean front-of-package nutrition warnings
+< en: High in saturated fats
+en: High in saturated fats (Chile Ministry of Health)
+es: Alto en grasas saturadas (Ministerio de Salud)
+image:es: alto-en-grasas-saturadas-ministerio-de-salud.90x90.svg
+
+< en: Chilean front-of-package nutrition warnings
+< en: High in sodium
+en: High in sodium (Chile Ministry of Health)
+es: Alto en sodio (Ministerio de Salud)
+image:es: alto-en-sodio-ministerio-de-salud.90x90.svg
+
+< en: Chilean front-of-package nutrition warnings
+< en: High in calories
+en: High in calories (Chile Ministry of Health)
+es: Alto en calorías (Ministerio de Salud)
+image:es: alto-en-calorias-ministerio-de-salud.90x90.svg
+
+# [FR] France
 
 en: Made in France
 bg: Произведено във Франция
@@ -4764,6 +4818,11 @@ de: Ohne Trennmittel
 
 en: No added additives
 
+en: High in calories
+es: Alto en calorías
+label_categories:en: en:Health
+#opposite:en: en:Low or no calories
+
 en: No added calories
 
 sv: Ä-märket
@@ -5045,6 +5104,7 @@ hu: BPA-mentes
 it: Senza BPA
 nl: Zonder bisfenol A
 pt: Sem Bisfenol A, sem Bisfenol-A, sem BPA
+sv: fri från bisfenol A
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
@@ -5185,6 +5245,15 @@ pl: Bez wzmacniaczy smaku
 pt: Sem intensificador de sabor, sem intensificador de sabores, sem intesificadores de sabores
 label_categories:en: en:Health, en:Additives
 
+en: High in saturated fats
+es: Alto en grasas saturadas
+label_categories:en: en:Health
+opposite:en: en:Low or no saturated fat
+
+en: Low or no saturated fat
+opposite:en: en:High in saturated fats
+
+< en: Low or no saturated fat
 en: low saturated fat, low content of saturated fat
 xx: low saturated fat
 bg: Ниско съдържание на наситени мазнини
@@ -5205,8 +5274,9 @@ tr: düşük doymuş yağ içeriği
 zh: 低饱和脂肪含量
 description:en: In EU, a claim that a food is low in saturated fat may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-en: saturated fat-free
-xx: saturated fat-free
+< en: Low or no saturated fat
+en: No saturated fat, saturated fat-free
+xx: No saturated fat, saturated fat-free
 bg: без наситени мазнини
 ca: sense greixos saturats
 de: ohne gesättigte Fettsäuren
@@ -5363,6 +5433,7 @@ nl: GMO-vrij, Geen GMO, GGO-vrij
 pl: bez GMO
 pt: Sem OGM, Sem Organismos Geneticamente Modificados
 ru: Без ГМО, Без использования ГМО, Не содержит ГМО
+sv: Innehåller inga genetiskt modifierade organismer
 th: ไม่มีจีเอ็มโอ
 incompatible_with:en: labels:en:contains-gmos
 label_categories:en: en:Health, en:Environment
@@ -5649,7 +5720,6 @@ nl: Zonder kleurstoffen of bewaarmiddelen
 pt: Sem corantes ou conservantes, sem corante ou conservante, sem corantes nem conservantes, sem corante nem conservante
 ru: Без красителей и консервантов
 th: ไม่เติมสีและวัตถุกันเสีย
-# 57 products in English that are not taxonomized with Without dyes or preservatives
 
 #instruction:en:Do NOT change the english key.
 en: No soy, soy free, without soy, free from soya
@@ -5952,7 +6022,7 @@ label_categories:en: en:Specific diets
 #                   O R G A N I C   S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#en:description:Labels used for identifying products (and ingredients) that have been grown organically.
+#description:en: Labels used for identifying products (and ingredients) that have been grown organically.
 
 en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture, from organic controlled cultivation
 bg: Био, биологично земеделие, биологично
@@ -5961,7 +6031,7 @@ cs: Bio, z kontrolovane ekologicke produkce, z ekologickeho, z kontrolovaného e
 cz: z ekologického zemědělství, z kontrolované ekologické produkce
 da: Økologisk, Økologiske, certificeret økologisk
 de: Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, aus biologischer Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau, biologisch zertifiziert
-es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico, orgánica
+es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, orgánica, orgánicas, orgánico, orgánicos, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico
 fi: Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti, sertifioitu luomutuote, luomutuote
 fr: Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issus de l'agriculture biologique contrôlée, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee, issu de production biologique
 he: אורגני
@@ -5978,7 +6048,7 @@ pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta o
 ro: din agricultură ecologică controlată, din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk
+sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk, ekologisk råvara, ekologiskt odlat
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -18908,7 +18978,7 @@ it: Classe &quot;Extra&quot;
 
 # Should not be associate with "extra class", "superior quality" etc.
 < en: Organic
-sv: KRAV, KRAV-certifierad ekologisk ingrediens
+sv: KRAV, KRAV-certifierad ekologisk ingrediens, KRAV-godkänd ekologisk råvara, KRAV-ekologisk råvara
 xx: KRAV
 country:en: en:Sweden
 image:en: krav.136x90.svg
@@ -20286,6 +20356,7 @@ fr: Non-végétalien, non-végan, non-végétal, ne convient pas aux végétalie
 hr: nije vegansko
 pl: Niewegańskie, niewegański
 pt: Não-vegan, não vegan, não adequado a vegans, não adequado a uma dieta vegan
+sv: icke-vegansk, icke-veganskt, icke-veganska, animalisk, animaliskt, animaliska
 incompatible_with:en: labels:en:vegan
 opposite:en: en:vegan
 
@@ -23676,7 +23747,7 @@ bg: Без остатъци от пестициди
 fr: Sans résidus de pesticides, sans résidu de pesticide, zéro résidus de pesticides, zéro résidu de pesticide
 
 # obligation of means: cultivated without pesticides (but can be a specific year, or after flowers bloom)
-en: Pesticide-free, without pesticide, no pesticide
+en: no pesticides, pesticide-free, without pesticide, no pesticide
 bg: Без пестициди
 fr: Sans pesticides, cultivé sans pesticides
 

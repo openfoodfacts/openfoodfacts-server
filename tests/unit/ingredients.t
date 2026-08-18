@@ -957,7 +957,49 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => 'svensk jordgubbe, svenska jordgubbar',
 		}
 
-	]
+	],
+	# Recipes with ingredients by weight and volume
+	[
+		'en-ingredients-with-a-specific-density',
+		{
+			lc => 'en',
+			ingredients_text => 'cooking oil 25 fl oz, milk 1dl, 5cl granulated sugar, water 1l, apple juice 20ml',
+		}
+	],
+	[
+		'fr-recipes-with-ingredients-by-weight-and-volume',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
+		}
+	],
+	# percent_or_quantity_regexp
+	[
+		'en-percent-or-quantity-regexp',
+		{
+			lc => 'en',
+			ingredients_text => "cod 40g, salmon 30%, 20% tuna, mackerel (7%), 3g sardine",
+		}
+	],
+	# handling of */ and **/ in the tail of the ingredients list
+	[
+		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
+		'sv-asterisk-slash',
+		{
+			lc => 'sv',
+			ingredients_text =>
+				'Havssalt (93%)**, basilika*, timjan*, rosmarin*, lök*, salvia, oregano* och vitlök* */ ekologiskt odlat **/oraffinerat havssalt med låg natriumhalt',
+		},
+	],
+	[
+		'en-asterisk-slash',
+		{
+			lc => 'en',
+			ingredients_text =>
+				'Sea salt (93%)**, basil*, thyme*, rosemary*, onion*, sage, oregano* and garlic* */ organically grown **/fair trade',
+		},
+	],
 );
 
 foreach my $test_ref (@tests) {

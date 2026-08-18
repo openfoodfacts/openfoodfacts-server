@@ -146,10 +146,12 @@ use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Slack qw/send_slack_message/;
 use ProductOpener::Nutrition
 	qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
 use ProductOpener::Packaging qw/analyze_and_combine_packaging_data/;
+use ProductOpener::StorageConditions qw/set_storage_conditions/;
 use ProductOpener::DataQuality qw/check_quality/;
 use ProductOpener::TaxonomiesEnhancer qw/check_ingredients_between_languages/;
 
@@ -1849,11 +1851,18 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		my $half_step = $step * 0.5;
 		$completeness += $half_step;
 
-		my $image_step = $half_step * (1.0 / 4.0);
+		# Product types for which the nutrition feature is disabled (e.g. beauty products)
+		# do not need a nutrition photo
+		my @image_types = qw(front ingredients nutrition packaging);
+		if (not feature_enabled("nutrition", $product_ref)) {
+			@image_types = grep {$_ ne "nutrition"} @image_types;
+		}
+
+		my $image_step = $half_step * (1.0 / scalar @image_types);
 
 		my $images_completeness = 0;
 
-		foreach my $imagetype (qw(front ingredients nutrition packaging)) {
+		foreach my $imagetype (@image_types) {
 
 			if (defined $current_ref->{selected_images}{$imagetype . "_" . $lc}) {
 				$images_completeness += $image_step;
@@ -1948,14 +1957,18 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
-		push @states_tags, "en:nutrition-facts-completed";
-		$notempty++;
-		$completeness += $step;
-	}
-	else {
-		push @states_tags, "en:nutrition-facts-to-be-completed";
-		$complete = 0;
+	# Product types for which the nutrition feature is disabled (e.g. beauty products)
+	# do not need nutrition facts
+	if (feature_enabled("nutrition", $product_ref)) {
+		if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
+			push @states_tags, "en:nutrition-facts-completed";
+			$notempty++;
+			$completeness += $step;
+		}
+		else {
+			push @states_tags, "en:nutrition-facts-to-be-completed";
+			$complete = 0;
+		}
 	}
 
 	if ($complete) {
@@ -3745,6 +3758,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	# We need packaging analysis before calling the Environmental-Score for food products
 	analyze_and_combine_packaging_data($product_ref, $response_ref);
+
+	set_storage_conditions($product_ref);
 
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
