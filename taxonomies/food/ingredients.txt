@@ -53464,8 +53464,6 @@ usda_ndb_code:en: 11086
 usda_ndb_name:en: Beet greens, raw
 
 #comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
-# do we need both parents?
-< en: root vegetable
 < en: taproot vegetable
 en: beetroot, beet, beet root
 af: Beet
@@ -55474,19 +55472,81 @@ hr: začin vlasac
 it: condimento all'erba cipollina
 #11 @2021-10-19
 
-# TUBERS (Eurocode 2 8.10)
+# TUBERS (Eurocode 2 8.34)
 
-< en: vegetable
+< en: root vegetable
 en: tuber, tubers, tuber vegetable
-de: Knollengemüse
+an: tuberclo
+ar: درنة نبات
+be: клубень
+bg: грудка
+bs: gomolj
+ca: tubercle
+cs: hlíza
+cv: паранкă
+cy: cloronen
+da: knold, stængelknold, rodknold
+de: Knollengemüse, Pflanzenknolle
+el: κόνδυλος
+eo: tubero
 es: tubérculo, tubérculos
+et: mugul
+eu: tuberkulu
+fa: تجه
+fi: mukula
 fr: tubercule
+ga: tiúbar
+gd: bolgan
+gl: tubérculo
 hr: gomolj
+hu: gumó
+hy: պալար
+id: umbi
+io: tuberkulo
+is: hnýði
 it: tubero
-lv: bumbuļu dārzenis
-nl: knolgroente
+ja: 球根
+ka: გორგლი
+kg: mbala
+kk: түйнек
+kn: ಗೆಡ್ಡೆ
+ko: 알뿌리
+lt: šakniagumbis
+lv: bumbuļu dārzenis, gums
+mg: vodin-javamaniry
+mk: кртола
+ms: umbi
+nb: knoll, stengelknoll, rotknoll
+nl: knolgroente, knol
+nn: knoll, stengelknoll, rotknoll
+oc: tubercul
+pl: bulwa
+pt: tubérculo
+qu: allpapi puquq
+ro: tubercul
+ru: клубень
+sh: krtola
+si: අල
+sl: gomolj
+sr: кртола
+su: beuti
+sv: knöl, stamknöl, rotknöl
+sw: kiazi
+ta: கிழங்கு
+te: దుంప
+th: หัว
+tl: bukol
+tr: yumru
+tt: бүлбе
+uk: бульба
+uz: tuganak
+vi: củ
+zh: 塊莖與塊根
 description:en: A tuber is a swollen underground stem (or in some cases a swollen root), used for storing nutrients — like potatoes. It typically grows at the end of a rhizome or stolon, not as the plant's central root.
 eurocode_2_group_2:en: 8.34
+# “Tubers, […] are excluded from the calculations.” —Nutriscore FAQ
+nutriscore_fruits_vegetables_nuts:en: no
+wikidata:en: Q183319
 
 < en: tuber
 en: eppaw
@@ -55504,6 +55564,88 @@ usda_ndb_name:en: Eppaw, raw
 # as vegetables for the Nutri-Score 2023 formula, while tubers aren't.
 
 < en: vegetable
+en: root vegetable
+af: wortelgroente
+ar: قائمة الخضراوات الجذرية
+be: карняплод
+bg: кореноплод
+bn: শিকড় সবজি
+ca: arrel comestible, arrel vegetal
+cs: kořenová zelenina
+cv: тымар-çимĕç
+cy: gwreiddlysieuyn
+da: rodfrugt
+de: Wurzelgemüse
+el: ριζώδες λαχανικό
+eo: radiklegomo
+es: raíz alimenticia
+et: juurvili
+eu: sustrai jangarri
+fa: لیست سبزیجات ریشه‌ای
+fi: juures
+fr: légume-racine
+ga: glasra fréimhe
+gl: raíz comestible
+he: ירק שורש
+hi: रूट सब्जि
+hr: ulje korijenastog povrća, korjenasto povrće
+hu: gyökérzöldség
+hy: արմատապտուղներ
+ia: legumine a radice
+id: sayuran akar
+ig: mgbọrọgwụ
+is: rótargrænmeti
+it: radice, ortaggi da radice
+ja: 根菜
+ka: ძირხვენა
+kk: тамыр жемістер
+ko: 뿌리채소
+la: vegetable radix
+lo: ມັນ
+lt: šakniavaisis
+lv: sakņaugs
+mg: legioma faka
+mk: коренест зеленчук
+ml: കിഴങ്ങുകൾ
+ms: ubi
+nb: rotfrukt
+nl: wortelgewas
+nn: rotfrukt
+or: ମୂଳ ପରିବା
+os: уидагбын
+pa: ਜੜ੍ਹ ਵਾਲੀ ਸਬਜ਼ੀ
+pl: warzywo korzeniowe
+pt: tubérculos
+ru: корнеплод
+sa: कन्दमूलानि
+se: ruohtasšaddu
+sk: koreňová zelenina
+sl: gomoljnica
+sq: rrënjë perimesh
+sr: коренско поврће
+sv: rotfrukt, rotfrukter
+tg: бехмева
+tl: lamang-kati, halamang-ugat
+tr: kök sebze
+ud: выжы емышъёс
+uk: коренеплоди
+uz: ildizmevalilar
+vi: rau ăn rễ
+zh: 根菜
+#ang: Moru
+#en-ca: root vegetable
+#en-gb: root vegetable
+#pnb: جڑ والیاں سبزیاں
+#roa-tara: pastunache
+#zh-hans: 根菜
+#h-hant: 根菜
+description:en: ROOT VEGETABLES are underground plant parts eaten by humans as food.
+# What Eurocode defines as Root vegetables seem to be only "tap root" vegetables, so not setting that code here.
+#eurocode_2_group_2:en: 8.38
+wikidata:en: Q20136
+wikipedia:en: https://en.wikipedia.org/wiki/List_of_root_vegetables
+
+< en: root vegetable
 en: taproot vegetable, tap-root vegetable
 ar: خضروات الجذر الرئيسية
 bg: Коренесто зеленчуково растение
@@ -55528,75 +55670,18 @@ lv: nakņu dārzenis
 nl: penwortelgroente
 eurocode_2_group_2:en: 8.38
 
-# description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food.
-
-< en: vegetable
-en: root vegetable
-ar: قائمة الخضراوات الجذرية
-bg: Кореноплод
-bn: শিকড় সবজি
-ca: Arrel comestible, arrel vegetal
-cs: kořenová zelenina
-cy: gwreiddlysieuyn
-da: rodfrugt
-de: Wurzelgemüse
-el: Wurzelgemüse
-eo: Radiklegomo
-es: raíz alimenticia
-et: juurvili
-fa: لیست سبزیجات ریشه‌ای
-fi: juures
-fr: légume-racine
-he: ירק שורש
-hi: रूट सब्जि
-hr: ulje korijenastog povrća
-hu: Gyökérzöldség
-hy: արմատապտուղներ
-ia: legumine a radice
-is: Rótargrænmeti
-it: radice
-ja: 根菜
-ka: ძირხვენა
-kk: Тамыр жемістер
-ko: 뿌리채소
-la: vegetable radix
-lo: ມັນ
-lt: Šakniavaisis
-lv: sakņaugs
-mk: коренест зеленчук
-ml: കിഴങ്ങുകൾ
-ms: ubi
-nb: rotfrukt
-nl: wortelgewas
-nn: rotfrukt
-or: ମୂଳ ପରିବା
-pa: ਜੜ੍ਹ ਵਾਲੀ ਸਬਜ਼ੀ
-pl: Warzywo korzeniowe
-pt: Tubérculos
-ru: корнеплод
-sa: कन्दमूलानि
-sk: Koreňová zelenina
-sq: rrënjë perimesh
-sv: rotfrukter
-tg: Бехмева
-tl: Lamang-kati
-ud: Выжы емышъёс
-uk: Коренеплоди
-uz: Ildizmevalilar
-zh: 根菜
-# ang:Moru
-# en-ca:root vegetable
-# en-gb:root vegetable
-# pnb:جڑ والیاں سبزیاں
-# roa-tara:pastunache
-# zh-hans:根菜
-# h-hant:根菜
-wikidata:en: Q20136
-wikipedia:en: https://en.wikipedia.org/wiki/List_of_root_vegetables
-
-# description:en:The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
-
 < en: root vegetable
+en: starchy root vegetable
+da: stivelsesholdig rodfrugt
+nb: stivelserik rotfrukt
+nn: stiverik rotfrukt
+sv: stärkelserik rotfrukt
+comment:en: Uncertain to what degree this intersects or is synonymous with tubers.
+description:en: Root vegetable with a significant amount of starch.
+# “Tubers, particularly potatoes and other starchy vegetables are excluded from the calculations.” —Nutriscore FAQ
+nutriscore_fruits_vegetables_nuts:en: no
+wikidata:en: Q141065871
+
 < en: taproot vegetable
 en: carrot
 af: Wortel
@@ -55606,16 +55691,16 @@ az: yerkökü
 ba: кишер
 be: морква
 bg: морков, моркови
-bi: Karot
+bi: karot
 bn: গাজর
 bo: ལབ་སེར།
-br: Karotez
+br: karotez
 bs: mrkva
 ca: pastanaga
 co: rundonu
 cs: mrkev, karotka
 cy: moronen
-da: gulerødder, Have-Gulerod
+da: gulerod, gulerødder, have-gulerod
 de: Karotten, Karotte, Möhre, Möhren, Möhrchen, Pariser Karotten, Möhrensticks
 dv: ކެރެޓް
 el: καρότο
@@ -55705,54 +55790,54 @@ wa: raecene
 xh: umnqathe
 za: lauxbaeghoengz
 zh: 胡萝卜
-# aeb-arab:جدر سنّارية
-# aeb-latn:jder sennèrya
-# ang:moru
-# arz:جزر
-# atj:Rikarot
-# bar:Gelbe Ruam
-# be-tarask:морква
-# bho:गाजर
-# cdo:È̤ng-chái-tàu
-# chy:anonévee'tose
-# ckb:گێزەر
-# de-ch:Karotte
-# en-ca:carrot
-# en-gb:carrot
-# frr:Wochel
-# gsw:sanaória
-# hak:Fùng-chhoi-thèu
-# jbo:najgenja
-# kaa:geshir
-# kbp:Kaarɔɔtɩ
-# koi:гӧрдкушман
-# lad:safanórya
-# lbe:къур
-# mdf:пурьхкя
-# nah:Caxtillān camohtli
-# nan:Âng-chhài-thâu
-# nap:Pastenaca
-# pcd:Càrote
-# pfl:Gellerieb
-# pnb:گاجر
-# pt-br:cenoura
-# rup:morcuvu
-# sco:carrot
-# sgs:Muorks
-# sr-ec:шаргарепа
-# vls:karote
-# vro:põrgnas
-# war:karot
-# wuu:胡萝卜
-# yue:紅蘿蔔
-# zh-cn:胡萝卜
-# zh-hans:胡萝卜
-# zh-hant:胡蘿蔔
-# zh-hk:胡蘿蔔
-# zh-mo:胡蘿蔔
-# zh-my:胡萝卜
-# zh-sg:胡萝卜
-# zh-tw:胡蘿蔔
+#aeb-arab: جدر سنّارية
+#aeb-latn: jder sennèrya
+#ang: moru
+#arz: جزر
+#atj: Rikarot
+#bar: Gelbe Ruam
+#be-tarask: морква
+#bho: गाजर
+#cdo: È̤ng-chái-tàu
+#chy: anonévee'tose
+#ckb: گێزەر
+#de-ch: Karotte
+#en-ca: carrot
+#en-gb: carrot
+#frr: Wochel
+#gsw: sanaória
+#hak: Fùng-chhoi-thèu
+#jbo: najgenja
+#kaa: geshir
+#kbp: Kaarɔɔtɩ
+#koi: гӧрдкушман
+#lad: safanórya
+#lbe: къур
+#mdf: пурьхкя
+#nah: Caxtillān camohtli
+#nan: Âng-chhài-thâu
+#nap: Pastenaca
+#pcd: Càrote
+#pfl: Gellerieb
+#pnb: گاجر
+#pt-br: cenoura
+#rup: morcuvu
+#sco: carrot
+#sgs: Muorks
+#sr-ec: шаргарепа
+#vls: karote
+#vro: põrgnas
+#war: karot
+#wuu: 胡萝卜
+#yue: 紅蘿蔔
+#zh-cn: 胡萝卜
+#zh-hans: 胡萝卜
+#zh-hant: 胡蘿蔔
+#zh-hk: 胡蘿蔔
+#zh-mo: 胡蘿蔔
+#zh-my: 胡萝卜
+#zh-sg: 胡萝卜
+#zh-tw: 胡蘿蔔
 carbon_footprint_fr_foodges_ingredient:fr: Carottes fraîches
 carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_food_2_code:en: 20261
@@ -55762,6 +55847,7 @@ ciqual_food_2_process:en: en:puree
 ciqual_food_code:en: 20009
 ciqual_food_name:en: Carrot, raw
 ciqual_food_name:fr: Carotte, crue
+description:en: The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
 ecobalyse:en: carrot-non-eu
 ecobalyse_labels_en_organic:en: carrot-organic
 ecobalyse_origins_en_european_union:en: carrot-eu
@@ -56075,7 +56161,6 @@ pl: sok z marchwi w proszku
 
 # description:en:Scorzonera hispanica, black SALSIFY or Spanish salsify, also known as black oyster plant, serpent root, viper's herb, viper's grass or simply scorzonera, is a perennial member of the genus Scorzonera in the sunflower family (Asteraceae), cultivated as a root vegetable.
 
-< en: root vegetable
 < en: taproot vegetable
 en: salsify, black salsify
 ar: سلسفي هسباني
@@ -56132,7 +56217,6 @@ description:en: Root has pale tan or beige skin, with white flesh. Native to the
 usda_ndb_code:en: 11437
 usda_ndb_name:en: Salsify, (vegetable oyster), raw
 
-< en: root vegetable
 < en: taproot vegetable
 en: celeriac
 ar: الكرفس اللفتي
@@ -56188,8 +56272,8 @@ fr: céleri rave râpé
 < en: celeriac
 fr: jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
 
-< en: root vegetable
 < en: taro
+< en: tuber
 en: taro tuber
 fr: Tubercule de taro
 it: tubero di taro
@@ -56215,7 +56299,7 @@ en: frozen unprepared turnip green
 #
 ###################################################################################################
 
-< en: root vegetable
+< en: starchy root vegetable
 < en: tuber
 en: sweet potato
 af: Patats
@@ -56373,7 +56457,7 @@ it: patata dolce viola
 ja: ムラサキイモ, 紫芋, 紫いも, むらさきいも, 有色甘藷
 
 #comment:en: put tapioka-related translations under en:tapioc starch
-< en: root vegetable
+< en: starchy root vegetable
 < en: tuber
 en: cassava, cassava root, manioc, manioc root, yuca, yuca root
 af: broodwortel
@@ -56624,7 +56708,7 @@ hr: tigrovo mlijeko
 it: latte di chufa
 
 
-< en: root vegetable
+< en: starchy root vegetable
 < en: tuber
 en: yam
 de: Yam, Yamswurzel, Yamswurzeln
@@ -56666,10 +56750,7 @@ usda_ndb_code:en: 11258
 usda_ndb_name:en: Mountain yam, hawaii, raw
 wikidata:en: Q5279593
 
-
-# description:en:The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
-
-< en: root vegetable
+< en: starchy root vegetable
 < en: tuber
 en: potato, potatoes
 ab: Акартош
@@ -56743,42 +56824,43 @@ wa: Crompire
 za: Majlingzsuz
 zh: 馬鈴薯
 zu: Izambane
-# arz:بطاطس
-# bar:Eadäpfe
-# bho:आलू
-# ceb:Patatas
-# chr:ᏄᎾ
-# chy:Aéstomemésêhestôtse
-# csb:Bùlwa
-# diq:Kartole
-# gan:土豆
-# kaa:Kartoshka
-# koi:Картов
-# krc:Гардош
-# ksh:Ääpel
-# lad:Patata
-# lbe:Нущи
-# mai:आलु
-# mdf:Модамарь
-# mrj:Тури
-# nds:Kantüffel
-# nds-nl:Eerpel
-# rup:Cartofi
-# sco:Tattie
-# stq:Tuffelke
-# tyv:Картофель
-# zh-cn:马铃薯
-# zh-hans:马铃薯
-# zh-hant:馬鈴薯
-# zh-hk:薯仔
-# zh-mo:馬鈴薯
-# zh-tw:馬鈴薯
+#arz: بطاطس
+#bar: Eadäpfe
+#bho: आलू
+#ceb: Patatas
+#chr: ᏄᎾ
+#chy: Aéstomemésêhestôtse
+#csb: Bùlwa
+#diq: Kartole
+#gan: 土豆
+#kaa: Kartoshka
+#koi: Картов
+#krc: Гардош
+#ksh: Ääpel
+#lad: Patata
+#lbe: Нущи
+#mai: आलु
+#mdf: Модамарь
+#mrj: Тури
+#nds: Kantüffel
+#nds-nl: Eerpel
+#rup: Cartofi
+#sco: Tattie
+#stq: Tuffelke
+#tyv: Картофель
+#zh-cn: 马铃薯
+#zh-hans: 马铃薯
+#zh-hant: 馬鈴薯
+#zh-hk: 薯仔
+#zh-mo: 馬鈴薯
+#zh-tw: 馬鈴薯
 carbon_footprint_fr_foodges_ingredient:fr: Pomme de terre
 carbon_footprint_fr_foodges_value:fr: 0.6
 ciqual_proxy_food_code:en: 4003
 ciqual_proxy_food_name:en: Potato, peeled, raw
 #ciqual_food_code:fr: 4003
 #ciqual_food_name:fr: Pomme de terre, bouillie/cuite à l'eau
+description:en: The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
 ecobalyse:en: potato-industry-fr
 eurocode_2_group_3:en: 8.34.15
 nutriscore_fruits_vegetables_nuts:en: no
@@ -57075,7 +57157,7 @@ usda_ndb_name:en: Taro, tahitian, raw
 #
 ###################################################################################################
 
-< en: root vegetable
+< en: starchy root vegetable
 en: yambean, jícama, Mexican turnip, Mexican yam bean
 description:en: Yambean is a tropical legume (in the bean family, Fabaceae) grown primarily for its large, starchy, edible tuber/root. Native to Mexico and Central America, widely cultivated across Latin America and Southeast Asia. Mildly sweet, very crunchy, similar to a cross between an apple and a water chestnut — it stays crisp even when cooked.
 usda_ndb_code:en: 11603
@@ -57088,7 +57170,7 @@ usda_ndb_name:en: Yambean (jicama), raw
 #
 ###################################################################################################
 
-< en: root vegetable
+< en: starchy root vegetable
 en: yautia, malanga, taro coco, tannier
 description:en: Yautia (also called malanga or taro coco) is a starchy root vegetable widely used in Latin American and Caribbean cuisine. Earthy, slightly nutty flavor, denser and less slimy than taro. When cooked, it becomes soft and starchy — similar to a potato but with more depth of flavor.
 usda_ndb_code:en: 11991
@@ -57756,7 +57838,7 @@ fr: concentré de carotte et de citrouille
 < fr: concentré de carotte et de citrouille
 de: Färbende Konzentrate Karotte und Kürbis
 
-< en: root vegetable
+< en: taproot vegetable
 en: horseradish, horseradish root
 af: peperwortel
 ar: فجل الخيل الريفي
@@ -57857,7 +57939,6 @@ fi: piparjuutiöljy
 sv: pepparrotsolja
 from_palm_oil:en: no
 
-< en: root vegetable
 < en: tuber
 en: Jerusalem artichoke, root artichoke
 ar: دوار الشمس الدرني
@@ -57958,7 +58039,6 @@ sr: miluk
 wikidata:en: Q162153
 wikipedia:en: https://en.wikipedia.org/wiki/Asclepias
 
-< en: root vegetable
 < en: taproot vegetable
 en: parsnip
 ar: جزر أبيض
@@ -58055,7 +58135,6 @@ de: Pastinakenpulver
 
 # description:en:The RADISH (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
 
-< en: root vegetable
 < en: taproot vegetable
 en: radish, Radishes
 am: ፍጁል
@@ -60074,7 +60153,6 @@ usda_ndb_name:en: Tomatoes, yellow, raw
 # description:en:The TURNIP (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
-< en: root vegetable
 < en: taproot vegetable
 en: rutabaga, swede
 bg: кръмно цвекло
@@ -60105,7 +60183,6 @@ en: Cooked rutabaga, Cooked swede
 fr: Rutabaga cuit
 it: rapa svedese cotta
 
-< en: root vegetable
 < en: taproot vegetable
 en: turnip, turnips
 af: Raap
@@ -70561,7 +70638,6 @@ hr: list kupine
 it: foglia di mora
 nl: braamblad, braambladeren
 
-< en: root vegetable
 < en: taproot vegetable
 en: parsley root
 de: Petersilienwurzel
