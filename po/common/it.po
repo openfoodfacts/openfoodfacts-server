@@ -7292,6 +7292,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Categoria, etichette, ingredienti, allergeni, informazioni nutrizionali, foto ecc."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Categoria, etichette, ingredienti, allergeni, informazioni nutrizionali, foto ecc."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Se le informazioni non corrispondono a quelle riportate sulla confezione, puoi completarle o correggerle. Grazie!"
@@ -7299,6 +7311,18 @@ msgstr "Se le informazioni non corrispondono a quelle riportate sulla confezione
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts è un database collaborativo e ogni contributo è utile a tutti."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7626,6 +7650,10 @@ msgstr "Aggiungi prodotti con una categoria, un elenco di ingredienti e valori n
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "A contatto con gli alimenti"
+
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
@@ -8048,15 +8076,15 @@ msgstr "Risposta di Ecobalyse"
 
 msgctxt "forest_footprint_2026"
 msgid "Forest Footprint 2026"
-msgstr ""
+msgstr "Forest Footprint 2026"
 
 msgctxt "forest_footprint_2026_under_development"
 msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
-msgstr ""
+msgstr "Forest Footprint 2026 è attualmente in fase di sviluppo e mostrata ai moderatori solo per la gestione degli errori."
 
 msgctxt "forest_footprint_2026_overall_grade"
 msgid "Forest footprint grade"
-msgstr ""
+msgstr "Grado di impronta forestale"
 
 msgctxt "forest_footprint_2026_total"
 msgid "Total forest footprint"
@@ -8064,11 +8092,11 @@ msgstr "Impronta forestale totale"
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
-msgstr ""
+msgstr "Grado dell'ingrediente primario"
 
 msgctxt "forest_footprint_2026_primary_ingredient"
 msgid "Primary ingredient"
-msgstr ""
+msgstr "Ingrediente primario"
 
 msgctxt "forest_footprint_2026_origin_footprint"
 msgid "Forest footprint for the origin"

@@ -3446,7 +3446,7 @@ msgstr "Nej"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr "Hoppa over"
+msgstr "Hoppa över"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -7292,6 +7292,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Kategori, etiketter, ingredienser, allergener, näringsinformation, foton etc."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategori, etiketter, ingredienser, allergener, näringsinformation, foton etc."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Om informationen inte stämmer överens med informationen på förpackningen kan du komplettera eller korrigera den. Tack!"
@@ -7299,6 +7311,18 @@ msgstr "Om informationen inte stämmer överens med informationen på förpackni
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts är en samarbetsdatabas, och varje bidrag är användbart för alla."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7626,6 +7650,10 @@ msgstr "Lägg till produkter med en kategori, ingredienslista och näringsfakta 
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "I kontakt med livsmedel"
+
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "I kontakt med produkten"
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"

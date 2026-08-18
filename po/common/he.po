@@ -7290,6 +7290,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "קטגוריה, תוויות, מרכיבים, אלרגנים, מידע תזונתי, תמונות וכו׳."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "קטגוריה, תוויות, מרכיבים, אלרגנים, מידע תזונתי, תמונות וכו׳."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "אם המידע אינו תואם למידע על האריזה, ניתן להשלים או לתקן אותו. תודה!"
@@ -7297,6 +7309,18 @@ msgstr "אם המידע אינו תואם למידע על האריזה, ניתן
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts הוא מסד נתונים שיתופי, וכל תרומה מועילה לכלל."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7625,6 +7649,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "במגע עם מזון"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "יצירת קשר"
@@ -7744,15 +7772,15 @@ msgstr "חיפוש מוצרים באותה קטגוריה ללא תוספת סו
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr ""
+msgstr "ל־100 גרם"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr ""
+msgstr "ל־100 מ״ל"
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr ""
+msgstr "לליטר"
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7765,12 +7793,12 @@ msgstr "לכל הגשה"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "כפי שנמכר"
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr ""
+msgstr "מוכן"
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
@@ -7886,7 +7914,7 @@ msgstr ""
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr ""
+msgstr "תיקון"
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
@@ -7926,7 +7954,7 @@ msgstr ""
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "קטגוריית מוצר"
 
 msgctxt "public_price"
 msgid "Public price"

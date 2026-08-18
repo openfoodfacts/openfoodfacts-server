@@ -7290,6 +7290,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Kategorie, Etiketten, Zutaten, Allergene, Nährwertangaben, Fotos usw."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategorie, Etiketten, Zutaten, Allergene, Nährwertangaben, Fotos usw."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Wenn die Angaben nicht mit den Informationen auf der Verpackung übereinstimmen, können Sie sie ergänzen oder korrigieren. Vielen Dank dafür!"
@@ -7297,6 +7309,18 @@ msgstr "Wenn die Angaben nicht mit den Informationen auf der Verpackung überein
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts ist eine gemeinschaftliche Datenbank, und jeder Beitrag ist für alle nützlich."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7624,6 +7648,10 @@ msgstr "Fügen Sie Produkte mit einer Kategorie, Zutatenliste und Nährwertangab
 msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Bei Kontakt mit Lebensmitteln"
+
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
 
 msgctxt "contact_us_producers"
 msgid "Contact Us"
@@ -7986,11 +8014,11 @@ msgstr "Sie können dieses Formular zur Analyse einer Zutatenliste nutzen."
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
-msgstr ""
+msgstr "Dieses Formular ist ein Demonstrations- und Testtool. Für Produktiveinsatz bitte die Software Recipe Estimator (Open Source bei <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>) installieren"
 
 msgctxt "test_ingredients_taxonomy_mapping_description"
 msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
-msgstr ""
+msgstr "Die Zutaten werden der Zutatenklassifizierung von Open Food Facts zugeordnet und ihre Menge mithilfe verschiedener Algorithmen geschätzt."
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
@@ -8002,7 +8030,7 @@ msgstr "Liste der Zutaten"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "Wählen Sie einen Schätzwert für den Zutatenanteil:"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
@@ -8018,7 +8046,7 @@ msgstr "2. Version (Scipy) - verwendet Nährwertangaben, um die Anzahl der Zutat
 
 msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
 msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "3. Version (CVXPY) - verwendet Nährwertangaben, um die Anzahl der Zutaten zu bestimmen"
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
@@ -8030,7 +8058,7 @@ msgstr "Zutatenanalyse und Mengenschätzung"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
-msgstr ""
+msgstr "Schätzwert für Zutatenanteil:"
 
 msgctxt "test_ingredients_ecobalyse_experimental"
 msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."

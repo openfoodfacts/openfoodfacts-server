@@ -55,7 +55,7 @@ msgstr "Συστατικά INCI, αλλεργιογόνα, πρόσθετα, ε�
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
 msgid "/open-beauty-facts-mobile-app"
-msgstr "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile app"
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
@@ -71,7 +71,7 @@ msgstr "Αυτή η σελίδα προϊόντος δεν είναι ολοκλ
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
-msgstr "Nivea, Nivea Men"
+msgstr "Nivea, Nivea Ανδρικά"
 
 msgctxt "categories_example_beauty"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
@@ -271,7 +271,7 @@ msgstr "Το αίτημά σας για συμμετοχή στον οργανι
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "Το αίτημα του οργανισμού σας έχει ληφθεί και βρίσκεται υπό επεξεργασία."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -5511,7 +5511,7 @@ msgstr "Όραμα, Αποστολή, Αξίες και Προγράμματα"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "/open-food-facts-order-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -6049,23 +6049,23 @@ msgstr "ΣΤΗΡΙΖΩ"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "Χρειαζόμαστε ακόμα 120.000 ευρώ για να ολοκληρώσουμε το 2026!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr ""
+msgstr "Γίνετε προστάτης των Open Food Facts"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr ""
+msgstr "Κάθε μήνα, εξυπηρετούμε 8 εκατομμύρια επισκέπτες, και πολλές φορές μέσω του API. Η υποστήριξή σας είναι απαραίτητη για:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr ""
+msgstr "Κρατήστε το Open Food Facts ανοικτό & διαθέσιμο σε όλους,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr ""
+msgstr "Στηρίξτε την υποδομή, τον ιστότοπο, την εφαρμογή για κινητά και το API με μια μικρή μόνιμη ομάδα"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6073,15 +6073,15 @@ msgstr "για να παραμείνουμε ανεξάρτητοι από τη 
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "Στηρίξτε την κοινότητα"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr ""
+msgstr "Στηρίξτε την επιστήμη"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr ""
+msgstr "Αν κάθε επισκέπτης αυτόν τον μήνα έκανε κλικ στην επιλογή Δωρεά και έδινε μόνο 1€, θα παίρναμε πάνω από 8 φορές τον ετήσιο προϋπολογισμό μας!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6794,7 +6794,7 @@ msgstr "Το προϊόν ενημερώθηκε"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr ""
+msgstr "Χρήστης βρέθηκε"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6930,11 +6930,11 @@ msgstr "Μη έγκυρο αναγνωριστικό χρήστη και κωδ�
 
 msgctxt "api_message_invalid_token"
 msgid "Invalid access_token"
-msgstr ""
+msgstr "Invalid access_token"
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr ""
+msgstr "Απαιτείται Ταυτοποίηση "
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7291,6 +7291,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Κατηγορία, ετικέτες, συστατικά, αλλεργιογόνα, διατροφικές πληροφορίες, φωτογραφίες κλπ."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Κατηγορία, ετικέτες, συστατικά, αλλεργιογόνα, διατροφικές πληροφορίες, φωτογραφίες κλπ."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Εάν οι πληροφορίες δεν ταιριάζουν με τις πληροφορίες στη συσκευασία, μπορείτε να τις συμπληρώσετε ή να τις διορθώσετε. Σας ευχαριστώ!"
@@ -7298,6 +7310,18 @@ msgstr "Εάν οι πληροφορίες δεν ταιριάζουν με τι
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Το Open Food Facts είναι μια συνεργατική βάση δεδομένων και κάθε συνεισφορά είναι χρήσιμη για όλους."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7626,6 +7650,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Σε επαφή με τρόφιμα"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "Σε επαφή με το προϊόν"
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Επικοινωνία"
@@ -7867,31 +7895,31 @@ msgstr "Το κάπνισμα είναι εξαιρετικά εθιστικό. 
 
 msgctxt "reuse_card_title"
 msgid "Reuse"
-msgstr ""
+msgstr "Επαναχρησιμοποίηση"
 
 msgctxt "qfdmo_solutions_title"
 msgid "Circular economy solutions nearby"
-msgstr ""
+msgstr "Κυκλικές οικονομικές λύσεις σε κοντινή απόσταση"
 
 msgctxt "qfdmo_solutions_subtitle"
 msgid "Find places to repair, donate, sell or recycle"
-msgstr ""
+msgstr "Βρείτε μέρη για επισκευή, δωρεά, πώληση ή ανακύκλωση"
 
 msgctxt "qfdmo_solutions_description"
 msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
-msgstr ""
+msgstr "Αν βρίσκεστε στη Γαλλία, μπορείτε να βρείτε λύσεις για αυτό το προϊόν σε κοντινή απόσταση, ώστε να παρατείνετε τη διάρκεια ζωής του ή να το απορρίψετε υπεύθυνα."
 
 msgctxt "qfdmo_solutions_intro"
 msgid "Available solutions include:"
-msgstr ""
+msgstr "Οι διαθέσιμες λύσεις περιλαμβάνουν:"
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr ""
+msgstr "Επισκευή"
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
-msgstr ""
+msgstr "Βρείτε καταστήματα επισκευής και υπηρεσίες για να διορθώσετε το προϊόν σας αντί να το πετάξετε μακριά"
 
 msgctxt "qfdmo_solution_donate"
 msgid "Donate"
@@ -7899,15 +7927,15 @@ msgstr "Κάντε Δωρεά"
 
 msgctxt "qfdmo_solution_donate_description"
 msgid "Give your product a second life by donating it to associations or people in need"
-msgstr ""
+msgstr "Δώστε στο προϊόν σας μια δεύτερη ζωή με τη δωρεά του σε ενώσεις ή άτομα που έχουν ανάγκη"
 
 msgctxt "qfdmo_solution_sell"
 msgid "Sell or exchange"
-msgstr ""
+msgstr "Πώληση ή ανταλλαγή"
 
 msgctxt "qfdmo_solution_sell_description"
 msgid "Sell or exchange your product on second-hand platforms"
-msgstr ""
+msgstr "Πουλήστε ή ανταλλάξτε το προϊόν σας σε πλατφόρμες μεταχειρισμένων"
 
 msgctxt "qfdmo_solution_recycle"
 msgid "Recycle"
@@ -7915,19 +7943,19 @@ msgstr "Ανακύκλωση"
 
 msgctxt "qfdmo_solution_recycle_description"
 msgid "Find collection points for proper recycling when the product reaches end of life"
-msgstr ""
+msgstr "Βρείτε σημεία συλλογής για σωστή ανακύκλωση όταν το προϊόν φτάσει στο τέλος της ζωής του"
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το Que Faire De Mes Objets (Γαλλία) για να βρείτε λύσεις κοντά σας:"
 
 msgctxt "qfdmo_solutions_find_nearby"
 msgid "Find solutions nearby on QFDMO"
-msgstr ""
+msgstr "Βρείτε λύσεις κοντά σας στο QFDMO"
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "Κατηγορία προϊόντος"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7979,83 +8007,84 @@ msgstr "Δεν αξιολογήθηκε ο αντίκτυπος"
 
 msgctxt "detailed_data"
 msgid "Detailed data"
-msgstr ""
+msgstr "Αναλυτικά δεδομένα"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
-msgstr ""
+msgstr "Μπορείτε να χρησιμοποιήσετε αυτή τη φόρμα για να αναλύσετε τη λίστα συστατικών."
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
-msgstr ""
+msgstr "Αυτή η φόρμα είναι ένα εργαλείο επίδειξης και δοκιμής. Για χρήση παραγωγής, παρακαλώ εγκαταστήστε το λογισμικό Εκτιμητής συνταγών διαθέσιμο ως ανοικτού κώδικα στο <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
 
 msgctxt "test_ingredients_taxonomy_mapping_description"
 msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
-msgstr ""
+msgstr "Τα συστατικά αντιστοιχίζονται στην ταξινόμηση των συστατικών του Open Food Facts και η ποσότητα τους υπολογίζεται με διαφορετικούς αλγόριθμους."
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
-msgstr ""
+msgstr "Γλώσσα κειμένου συστατικών"
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
-msgstr ""
+msgstr "Κείμενο συστατικών"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "Επιλέξτε έναν εκτιμητή ποσοστού συστατικών:"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
-msgstr ""
+msgstr "Χρησιμοποιεί έναν συνδυασμό κανόνων και ευρετικών\n"
+"μεθόδων, καθώς και ένα περιορισμένο σύνολο διατροφικών στοιχείων και περιορισμών συστατικών"
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "1η έκδοση (Glop) - χρησιμοποιεί τα διατροφικά στοιχεία για να καθορίσει την ποσότητα των συστατικών"
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "2η έκδοση (Scipy) - χρησιμοποιεί τα διατροφικά στοιχεία για να προσδιορίσει την ποσότητα των συστατικών"
 
 msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
 msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "3η έκδοση (CVXPY) - χρησιμοποιεί τα διατροφικά στοιχεία για να καθορίσει την ποσότητα των συστατικών"
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "Διατροφικά στοιχεία"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
-msgstr ""
+msgstr "Συστατικά ανάλυσης και ποσοτική εκτίμηση"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
-msgstr ""
+msgstr "Εκτιμητής ποσοστού συστατικών:"
 
 msgctxt "test_ingredients_ecobalyse_experimental"
 msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
-msgstr ""
+msgstr "Πειραματικό: χρησιμοποιήστε το Ecobalyse API για την εκτίμηση των περιβαλλοντικών επιπτώσεων των συστατικών."
 
 msgctxt "test_ingredients_ecobalyse_request"
 msgid "Ecobalyse request"
-msgstr ""
+msgstr "Αίτημα Ecobalyse"
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
-msgstr ""
+msgstr "Απάντηση του Ecobalyse"
 
 msgctxt "forest_footprint_2026"
 msgid "Forest Footprint 2026"
-msgstr ""
+msgstr "Δασικό Αποτύπωμα 2026"
 
 msgctxt "forest_footprint_2026_under_development"
 msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
-msgstr ""
+msgstr "Το Δασικό Αποτύπωμα του 2026 βρίσκεται υπό ανάπτυξη και εμφανίζεται στους συντονιστές μόνο για σκοπούς εντοπισμού σφαλμάτων."
 
 msgctxt "forest_footprint_2026_overall_grade"
 msgid "Forest footprint grade"
-msgstr ""
+msgstr "Βαθμός δασικού αποτυπώματος"
 
 msgctxt "forest_footprint_2026_total"
 msgid "Total forest footprint"
@@ -8063,15 +8092,15 @@ msgstr "Συνολικό δασικό αποτύπωμα"
 
 msgctxt "forest_footprint_2026_primary_ingredient_grade"
 msgid "Primary ingredient grade"
-msgstr ""
+msgstr "Βαθμός πρωτογενούς συστατικού"
 
 msgctxt "forest_footprint_2026_primary_ingredient"
 msgid "Primary ingredient"
-msgstr ""
+msgstr "Κύριο συστατικό"
 
 msgctxt "forest_footprint_2026_origin_footprint"
 msgid "Forest footprint for the origin"
-msgstr ""
+msgstr "Δασικό αποτύπωμα για την προέλευση"
 
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
