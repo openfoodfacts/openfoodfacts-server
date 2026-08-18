@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.102.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.101.0...v2.102.0) (2026-08-13)
+
+
+### Features
+
+* handle “*/” in ingredient lists ([#14244](https://github.com/openfoodfacts/openfoodfacts-server/issues/14244)) ([444291d](https://github.com/openfoodfacts/openfoodfacts-server/commit/444291d1a573827624a414b243e5bce7b193be5c))
+* Improve producer column mapping build output ([#14224](https://github.com/openfoodfacts/openfoodfacts-server/issues/14224)) ([71fbf16](https://github.com/openfoodfacts/openfoodfacts-server/commit/71fbf166cc414ffe89a450faf559d84865af6e0f))
+* improve units support for ingredients parsing of recipes "one pinch of salt" ([#14141](https://github.com/openfoodfacts/openfoodfacts-server/issues/14141)) ([77dba5d](https://github.com/openfoodfacts/openfoodfacts-server/commit/77dba5df5722cc1f2b8ce4adac233317a4f3f7fa))
+* new storage_conditions tags field based on categories, needed for Ecobalyse ([#14251](https://github.com/openfoodfacts/openfoodfacts-server/issues/14251)) ([fe5d2c3](https://github.com/openfoodfacts/openfoodfacts-server/commit/fe5d2c3b2d4d786dc900933af5f039287527713e))
+
+
+### Bug Fixes
+
+* added fixes to handle */ in ingredients list ([#14259](https://github.com/openfoodfacts/openfoodfacts-server/issues/14259)) ([4706805](https://github.com/openfoodfacts/openfoodfacts-server/commit/470680511e7db95ab6c044e0b5b719547214282d))
+* avoid a warning in 1003 to 1002 downgrade ([#14179](https://github.com/openfoodfacts/openfoodfacts-server/issues/14179)) ([0263dee](https://github.com/openfoodfacts/openfoodfacts-server/commit/0263dee812654424daf9ca123dd027c0310adb4f))
+* ecobalyse integration, update a few ids, add token header ([#14201](https://github.com/openfoodfacts/openfoodfacts-server/issues/14201)) ([2f3ed17](https://github.com/openfoodfacts/openfoodfacts-server/commit/2f3ed174f3265ddd653a67ceead88e1936ce2a07))
+* enable the Matomo heartbeat timer on the donation page ([#14220](https://github.com/openfoodfacts/openfoodfacts-server/issues/14220)) ([2e85905](https://github.com/openfoodfacts/openfoodfacts-server/commit/2e859059a188a00873872868d2e6e07ed6df72ee))
+* Forest Footprint 2026, origins with no data should get the en:unknown origin footprint value ([#14239](https://github.com/openfoodfacts/openfoodfacts-server/issues/14239)) ([bd332fd](https://github.com/openfoodfacts/openfoodfacts-server/commit/bd332fd617189c506bba86b3a2a4f64d7c467621))
+* manifest value for prefer_related_applications: true ([#14216](https://github.com/openfoodfacts/openfoodfacts-server/issues/14216)) ([28081a4](https://github.com/openfoodfacts/openfoodfacts-server/commit/28081a4827e1825ca5f22ae69084454db2d67440))
+* preserve edit type when redirecting products ([#14242](https://github.com/openfoodfacts/openfoodfacts-server/issues/14242)) ([6074715](https://github.com/openfoodfacts/openfoodfacts-server/commit/6074715fd211117d43c76c80fa817e8edaddcb52))
+* utm_medium typo, missing heartbeat, event category casing, and a duplicated query string ([#14221](https://github.com/openfoodfacts/openfoodfacts-server/issues/14221)) ([959a367](https://github.com/openfoodfacts/openfoodfacts-server/commit/959a36705393ff0dbb9b1ecbad99a335eff8b1e6))
+
 ## [2.101.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.100.0...v2.101.0) (2026-08-06)
 
 

@@ -889,20 +889,20 @@
          "important" : false,
          "name" : "Total carbohydrates (includes fiber)",
          "unit" : "g"
-     },
-     {
-        "display_in_edit_form" : false,
-        "id" : "dry-residue",
-        "important" : false,
-        "name" : "Dry residue",
-        "unit" : "mg"
-    },
-    {
-       "display_in_edit_form" : false,
-       "id" : "water",
-       "important" : false,
-       "name" : "Water",
-       "unit" : "g"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "dry-residue",
+         "important" : false,
+         "name" : "Dry residue",
+         "unit" : "mg"
+      },
+      {
+         "display_in_edit_form" : false,
+         "id" : "water",
+         "important" : false,
+         "name" : "Water",
+         "unit" : "g"
       }
    ]
 }
