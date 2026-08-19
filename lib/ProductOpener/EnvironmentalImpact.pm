@@ -272,44 +272,9 @@ The selected entry (or undef when no candidate matched) is returned as a hashref
 
 =cut
 
-# Mapping from Ecobalyse material strings (as found in processes_packaging_matched.json)
-# to OFF packaging_materials taxonomy tagids
-my %ecobalyse_material_to_off_tag = (
-	'glass' => 'en:glass',
-	'aluminium' => 'en:aluminium',
-	'steel' => 'en:steel',
-	'PP' => 'en:pp-5-polypropylene',
-	'PET' => 'en:pet-1-polyethylene-terephthalate',
-	'APET' => 'en:pet-1-polyethylene-terephthalate',
-	'HDPE' => 'en:hdpe-2-high-density-polyethylene',
-	'LDPE' => 'en:ldpe-4-low-density-polyethylene',
-	'PS' => 'en:ps-6-polystyrene',
-	'OPP' => 'en:opp-oriented-polypropylen',
-	'PE' => 'en:pe-7-polyethylene',
-	'plastic' => 'en:plastic',
-	'cardboard' => 'en:cardboard',
-	'paper' => 'en:paper',
-	'kraft paper' => 'en:kraft-paper',
-	'wood' => 'en:wood',
-	'multi-material' => 'en:composite-material',
-	'foil' => 'en:aluminium-foil',
-);
-
-# Mapping from Ecobalyse shape strings to OFF packaging_shapes taxonomy tagids
-my %ecobalyse_shape_to_off_tag = (
-	'bag' => 'en:bag',
-	'bottle' => 'en:bottle',
-	'jar' => 'en:jar',
-	'box' => 'en:box',
-	'case' => 'en:case',
-	'tray' => 'en:tray',
-	'sheet' => 'en:sheet',
-	'pack' => 'en:packet',
-	'flask' => 'en:vial',
-	'other' => '',
-);
-
 # Load and index the Ecobalyse packaging data. Cached on first call in a state variable.
+# The packaging material/shape fields in the data have already been canonicalized to
+# OFF taxonomy tagids by scripts/match_ecobalyse_packaging_categories.pl.
 sub _load_ecobalyse_packaging_data () {
 
 	state $cache;
@@ -412,9 +377,9 @@ sub _load_manual_proxies ($entries) {
 }
 
 # Score the material match between an OFF packaging_materials tag and an Ecobalyse
-# material string. Returns 100 (exact), 80 (is_a parent/child either direction) or 0.
-sub _material_match_score ($off_tag, $ecobalyse_material) {
-	my $ecobalyse_tag = $ecobalyse_material_to_off_tag{$ecobalyse_material} // '';
+# packaging_material tagid (already canonicalized by match_ecobalyse_packaging_categories.pl).
+# Returns 100 (exact), 80 (is_a parent/child either direction) or 0.
+sub _material_match_score ($off_tag, $ecobalyse_tag) {
 	return 0 if $ecobalyse_tag eq '';
 	return 100 if $off_tag eq $ecobalyse_tag;
 	return 80 if is_a('packaging_materials', $off_tag, $ecobalyse_tag);
@@ -422,16 +387,22 @@ sub _material_match_score ($off_tag, $ecobalyse_material) {
 	return 0;
 }
 
-# Score the shape match between an OFF packaging_shapes tag and an Ecobalyse shape
-# string. Returns 70 (exact), 56 (is_a parent/child either direction) or 0.
-sub _shape_match_score ($off_tag, $ecobalyse_shape) {
-	my $ecobalyse_tag = $ecobalyse_shape_to_off_tag{$ecobalyse_shape} // '';
+# Score the shape match between an OFF packaging_shapes tag and an Ecobalyse
+# packaging_shape tagid (already canonicalized by match_ecobalyse_packaging_categories.pl).
+# Returns 70 (exact), 56 (is_a parent/child either direction) or 0.
+sub _shape_match_score ($off_tag, $ecobalyse_tag) {
 	return 0 if $ecobalyse_tag eq '';
 	return 70 if $off_tag eq $ecobalyse_tag;
 	return 56 if is_a('packaging_shapes', $off_tag, $ecobalyse_tag);
 	return 56 if is_a('packaging_shapes', $ecobalyse_tag, $off_tag);
 	return 0;
 }
+
+=head2 get_ecobalyse_packaging_entry ($product_ref)
+
+Returns the best matching Ecobalyse packaging entry for a product, or undef if no match is found.
+
+=cut
 
 sub get_ecobalyse_packaging_entry ($product_ref) {
 
@@ -441,7 +412,7 @@ sub get_ecobalyse_packaging_entry ($product_ref) {
 	my %proxies_manual = %{$cache->{proxies_manual}};
 
 	my @packagings = @{$product_ref->{packagings} // []};
-	return undef if scalar @packagings == 0;
+	return if scalar @packagings == 0;
 
 	my @categories_tags = @{$product_ref->{categories_tags} // []};
 	my $product_quantity = $product_ref->{product_quantity} // 0;

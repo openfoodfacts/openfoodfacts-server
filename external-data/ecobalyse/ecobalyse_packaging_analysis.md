@@ -80,11 +80,32 @@ with unit tests passing inside `po_off-backend-1`.
   `$data_root . "/external-data/ecobalyse/processes_packaging_matched.json"`
   (in the container `$data_root` resolves to `/mnt/podata`). The same file is also
   present at `/opt/product-opener/external-data/ecobalyse/` (bind-mounted).
-- **Canonical tagids required**: `is_a()` only matches canonical taxonomy tags. The
-  material/shape mapping tables therefore map Ecobalyse strings to the *canonical*
-  OFF tagids (e.g. `'PP' => 'en:pp-5-polypropylene'`, `'flask' => 'en:vial'`,
-  `'multi-material' => 'en:composite-material'`, `'foil' => 'en:aluminium-foil'`).
-  `canonicalize_taxonomy_tag()` was used to determine them.
+- **Canonical tagids required** (and how they are produced): `is_a()` only matches
+  canonical taxonomy tags. Ecobalyse material/shape strings are now canonicalized to
+  the *canonical* OFF tagids by the **match script** itself, via
+  `canonicalize_taxonomy_tag("en", "packaging_materials", $str, \$exists)` or
+  `canonicalize_taxonomy_tag("en", "packaging_shapes", $str, \$exists)`, and the resulting tagid
+  (or `''` when unmatched, e.g. `other` shape) is stored in the `packaging_material` /
+  `packaging_shape` fields of `processes_packaging_matched.json`. The match script therefore
+  contains **no** hardcoded material/shape→tagid table.
+  Examples (single materials map to their own entry): `'PP' -> en:pp-5-polypropylene`,
+  `'APET' -> en:apet-amorphous-polyethylene-terephthalate`, `'PE' -> en:pe-7-polyethylene`,
+  `'multi-material' -> en:composite-material`, `'kraft paper' -> en:kraft-paper`. Shapes all resolve from the base taxonomy:
+  `'pack' -> en:packet`, `'flask' -> en:vial`.
+  The library (`get_ecobalyse_packaging_entry`) consumes these precomputed tagids directly
+  and contains no mapping table of its own.
+  Note A — multi-plastic combos: Ecobalyse sometimes combines two plastics, e.g. `APET/PE` or
+  `PA/PE` (and `PE/EVOH/PE`). `extract_packaging_material()` already folds these into the
+  `multi-layer plastic` label, and the match script then maps `multi-layer plastic` to the
+  generic plastics tag (`canonicalize_taxonomy_tag("en","packaging_materials","plastics")` →
+  `en:plastic`), because there is no single taxonomy tag for an arbitrary resin blend. APET/PE/PA
+  are **not** registered as taxonomy synonyms (per project decision).
+  Note B — aliases & `foil`: three Ecobalyse-specific aliases (`APET`, `multi-material`,
+  `foil`) were not part of the base `packaging_materials.txt` spelling. `APET` was added as its
+  own taxonomy entry (a child of the PET 1 entry); `multi-material` was added as an `xx:` synonym
+  of `composite-material` — both so `canonicalize_taxonomy_tag` resolves them. `foil` was
+  intentionally **not** mapped (it can be plastic or aluminium), so it canonicalizes to `''`
+  (no material match), matching the deliberate removal of the `foil` synonym from `aluminium foil`.
 - **Category-less proxies must zero their `categories_tagid`**: without this they keep
   their original category and incorrectly get a category-specificity level. They are
   now stored as shallow copies with `categories_tagid = ''` so they score category

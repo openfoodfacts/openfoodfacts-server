@@ -197,13 +197,13 @@ sub extract_packaging_shape {
 			}
 		}
 	}
-	return undef;
+	return;
 }
 
 # Extract packaging material from the pack description in activityName.
 sub extract_packaging_material {
 	my ($pack_description) = @_;
-	return undef unless defined $pack_description;
+	return unless defined $pack_description;
 
 	my $desc = lc($pack_description);
 
@@ -244,7 +244,7 @@ sub extract_packaging_material {
 			return $pat->[1];
 		}
 	}
-	return undef;
+	return;
 }
 
 # Extract packaging material from the displayName's parenthetical code or
@@ -252,7 +252,7 @@ sub extract_packaging_material {
 #                  "Lot de briques (multimatériaux) pour ..." -> "multi-material"
 sub extract_material_from_display_name {
 	my ($display_name) = @_;
-	return undef unless defined $display_name;
+	return unless defined $display_name;
 
 	# Try parenthetical material codes like (APET), (PP), (OPP), (multimatériaux)
 	if ($display_name =~ /\(([^)]+)\)/) {
@@ -338,6 +338,44 @@ sub match_food_category {
 	return ("", 0);
 }
 
+# Canonicalize an Ecobalyse packaging-material string (e.g. "PP", "APET",
+# "multi-material", "kraft paper") to an OFF packaging_materials tagid, or an
+# empty string when the string cannot be matched to the taxonomy.
+# This replaces the old hardcoded %ecobalyse_material_to_off_tag mapping and
+# relies entirely on the packaging_materials taxonomy (incl. its xx synonyms).
+sub canonicalize_material {
+	my ($material) = @_;
+	return '' unless defined $material && $material ne '';
+
+	# Ecobalyse describes some packaging as the combination of two (or more)
+	# plastic materials, e.g. "APET/PE", "PA/PE", "PE/EVOH/PE". extract_packaging_material()
+	# already turns these into the "multi-layer plastic" label. We do NOT add
+	# APET/PE/PA to the taxonomy as synonyms; instead we map any multi-layer
+	# plastic combo to the generic plastics tag. canonicalize_taxonomy_tag
+	# resolves "plastics" to the canonical "en:plastic" tagid.
+	if ($material eq 'multi-layer plastic') {
+		my $exists;
+		my $tagid = canonicalize_taxonomy_tag("en", "packaging_materials", 'plastics', \$exists);
+		return $tagid;    # en:plastic
+	}
+
+	# Single materials (APET, PE, PP, PET, ...) map to their own taxonomy entry.
+	my $exists;
+	my $tagid = canonicalize_taxonomy_tag("en", "packaging_materials", $material, \$exists);
+	return $exists ? $tagid : '';
+}
+
+# Canonicalize an Ecobalyse packaging-shape string (e.g. "pack", "flask",
+# "other") to an OFF packaging_shapes tagid, or an empty string when the string
+# cannot be matched (e.g. "other" has no taxonomy entry).
+sub canonicalize_shape {
+	my ($shape) = @_;
+	return '' unless defined $shape && $shape ne '';
+	my $exists;
+	my $tagid = canonicalize_taxonomy_tag("en", "packaging_shapes", $shape, \$exists);
+	return $exists ? $tagid : '';
+}
+
 # ---------------------------------------------------------------------------
 # Main processing loop
 # ---------------------------------------------------------------------------
@@ -382,8 +420,8 @@ for my $item (@$items) {
 		ecs => $item->{ecs},
 		scopes => $item->{scopes},
 		massPerUnit => $item->{massPerUnit},
-		packaging_shape => $shape,
-		packaging_material => $material,
+		packaging_shape => canonicalize_shape($shape),
+		packaging_material => canonicalize_material($material),
 		food_category_en => $an->{food_category_en} // '',
 		food_category_fr => $dn->{food_category_fr} // '',
 		quantity => $quantity,
