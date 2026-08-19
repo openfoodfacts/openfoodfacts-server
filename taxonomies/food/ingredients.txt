@@ -25802,15 +25802,24 @@ ciqual_food_code:en: 9345
 ciqual_food_name:en: Amaranth, raw
 ciqual_food_name:fr: Amarante, crue
 description:en: Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
-usda_ndb_proxy_code:en: 20001
-usda_ndb_proxy_name:en: Amaranth grain, uncooked
+usda_ndb_code:en: 20001
+usda_ndb_name:en: Amaranth grain, uncooked
+usda_ndb_process:en: uncooked
 wikidata:en: Q10407363
 wikipedia:en: https://en.wikipedia.org/wiki/Amaranth_grain
 
 < en: amaranth
-en: uncooked amaranth grain
-usda_ndb_code:en: 20001
-usda_ndb_name:en: Amaranth grain, uncooked
+en: black amaranth seed
+ifct_food_code:en: A001
+ifct_food_name:en: Amaranth seed, black
+comment:en: USDA NDB 20001 is a generic entry covering amaranth grain broadly (species like Amaranthus cruentus, hypochondriacus, or caudatus), not specifically black-seeded varieties. "Black amaranth" usually refers to darker-seeded cultivars (sometimes ornamental/wild types like Amaranthus hybridus), which can differ slightly in flavor (often described as more bitter/earthy than the common cream-colored grain amaranth) and are less commonly the ones used in commercial food products.
+description:en: Native to Central and South America, amaranth was a staple grain of the Aztec and Inca civilizations, prized for its resilience and nutritional density. Black amaranth seeds have a mild, earthy, slightly peppery flavor with a subtle nuttiness that intensifies when toasted or popped. Versatile in the kitchen, they can be cooked like porridge, popped for snacking or garnishing, ground into flour for gluten-free baking, or sprouted for salads and bowls. Nutritionally, amaranth is a complete protein containing all nine essential amino acids, including lysine—rare among grains. It's also rich in fiber, iron, magnesium, and manganese, and naturally gluten-free, making it a nutrient-dense choice for ancient-grain and health-focused products.
+
+< en: amaranth
+en: pale brown amaranth seed
+ifct_food_code:en: A002
+ifct_food_name:en: Amaranth seed, pale brown
+description:en: Amaranth seed, pale brown (Amaranthus cruentus), known regionally as Rajagaro (Gujarati), Ramdana (Hindi), and Cavali biya (Marathi), among other local names. Unlike the deep black-seeded variety, this pale brown form has a milder, subtly sweet, nutty flavor. In Indian cuisine, it's commonly popped and used in fasting foods (vrat ka khana), ground into flour for flatbreads, or mixed with jaggery to make chikki-style sweets. Nutritionally, it's a good source of plant protein, dietary fiber, iron, and calcium, and is naturally gluten-free—making it a popular grain substitute during religious fasting periods across India.
 
 < en: amaranth
 < en: cereal flour
