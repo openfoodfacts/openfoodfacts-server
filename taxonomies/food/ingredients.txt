@@ -23416,19 +23416,22 @@ fr: billes de céréales
 # no gluten
 # do not mix with en:millet
 < en: cereal
-en: sorghum
+en: sorghum, jowar
 de: Sorghumhirsen
 es: sorgo
 fr: sorgho
 hr: sirak
 hu: cirok
 it: sorgo
+la: Sorghum bicolor, Sorghum vulgare
 nl: kafferkoren, sorghum, sorgum
 pl: sorgo
 sk: cirok
 ciqual_food_code:en: 9360
 ciqual_food_name:en: Sorghum, whole, raw
 ciqual_food_name:fr: Sorgho entier, cru
+ifct_food_code:en: A005
+ifct_food_name:en: Jowar
 usda_ndb_code:en: 20067
 usda_ndb_name:en: Sorghum grain
 wikipedia:en: https://en.wikipedia.org/wiki/Sorghum
@@ -28717,12 +28720,6 @@ wa: dinrêye d'awousse
 yi: קוקורוזע
 za: haeuxyangz
 zh: 玉米
-carbon_footprint_fr_foodges_ingredient:fr: Maïs
-carbon_footprint_fr_foodges_value:fr: 0.7
-ciqual_food_code:en: 9200
-ciqual_food_name:en: Corn or maize grain, raw
-ciqual_food_name:fr: Maïs entier, cru
-wikidata:en: Q11575
 # als:mais
 # arz:دره
 # ast:maíz
@@ -28781,6 +28778,15 @@ wikidata:en: Q11575
 # xmf:ლაიტი
 # zh-min-nan:hoan-be̍h
 # yue:粟米
+carbon_footprint_fr_foodges_ingredient:fr: Maïs
+carbon_footprint_fr_foodges_value:fr: 0.7
+ciqual_food_code:en: 9200
+ciqual_food_name:en: Corn or maize grain, raw
+ciqual_food_name:fr: Maïs entier, cru
+ifct_food_code:en: A006
+ifct_food_name:en: Maize, dry
+ifct_food_process:en: en:dry
+wikidata:en: Q11575
 wikipedia:en: https://en.wikipedia.org/wiki/Maize
 
 < en: corn
