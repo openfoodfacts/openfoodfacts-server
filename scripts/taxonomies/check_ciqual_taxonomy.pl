@@ -150,7 +150,7 @@ print "Commented-out lines: " . (scalar keys %proxy_commented) . "\n";
 if ($duplicate_count > 0) {
 	print "\n--- Duplicate codes ---\n";
 	foreach my $entry (@duplicates) {
-		printf "  %s\t%s\t%d occurrences\n", $entry->[0], $entry->[1], $entry->[2];
+		printf "%s\t%s\t%d occurrences\n", $entry->[0], $entry->[1], $entry->[2];
 	}
 }
 
@@ -158,7 +158,7 @@ if ($missing_count > 0) {
 	print "\n--- Missing entries ---\n";
 	foreach my $entry (sort {$a->[0] <=> $b->[0]} @missing) {
 		my ($code, $en, $fr) = @$entry;
-		printf "  %s\t%s\t%s\n", $code, $en, $fr;
+		printf "%s\t%s\t%s\n", $code, $en, $fr;
 	}
 	print "\n$missing_count ciqual codes are missing from the $taxonomy.txt taxonomy.\n";
 }
