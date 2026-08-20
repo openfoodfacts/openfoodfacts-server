@@ -34,7 +34,6 @@ use LWP::UserAgent;
 use JSON::MaybeXS;
 use Text::CSV;
 
-
 # This script:
 # - reads a list of categories (and other columns) from projects/foodture/foodture_foodex2_categories_mapping_to_off.csv
 # - reads a list of most scanned products by country and category from projects/foodture/ranked_products_202602231414.csv
