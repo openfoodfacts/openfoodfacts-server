@@ -360,7 +360,7 @@ while (<$LIST>) {
 					push @row, $parents, $quantity, $pct;
 				}
 				else {
-					push @row, ('') x 6;
+					push @row, ('') x (5 + scalar(@ingredient_languages));
 				}
 			}
 
