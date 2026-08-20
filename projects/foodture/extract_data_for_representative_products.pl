@@ -87,7 +87,7 @@ my @countries_tags = sort keys %countries_names;
 my @ingredient_languages = qw/en fr/;
 
 # caching directory for API responses
-my $cache_dir = "projects/foodture/data/representative_products/tmp/api_cache";
+my $cache_dir = "projects/foodture/tmp/api_cache";
 mkdir $cache_dir unless -d $cache_dir;
 
 # variables for API fetching
@@ -150,7 +150,7 @@ sub collect_ingredients {
 }
 
 # first pass: read ranked products and group by country/category tags
-my $ranked_file = "projects/foodture/data/representative_products/ranked_products_202602231414.csv";
+my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
 open my $RANK, '<:encoding(UTF-8)', $ranked_file or die "Cannot open $ranked_file: $!\n";
 <$RANK>;    # skip header
 my $parser = Text::CSV->new(
@@ -188,12 +188,12 @@ while (<$RANK>) {
 close $RANK;
 
 # read target country/category pairs and output rows as we go
-my $list_file = "projects/foodture/data/representative_products/foodture_foodex2_categories_mapping_to_off.csv";
+my $list_file = "projects/foodture/foodture_foodex2_categories_mapping_to_off.csv";
 open my $LIST, '<:encoding(UTF-8)', $list_file or die "Cannot open $list_file: $!\n";
 <$LIST>;    # skip header
 
 # prepare output file
-my $out_file = "projects/foodture/data/representative_products/representative_products.csv";
+my $out_file = "projects/foodture/representative_products.csv";
 open my $OUT, '>:encoding(UTF-8)', $out_file or die "Cannot write $out_file: $!\n";
 my $csv_out = Text::CSV->new({binary => 1, eol => "\n"})
 	or die "Cannot create CSV writer: " . Text::CSV->error_diag();
@@ -420,7 +420,7 @@ close $LIST;
 close $OUT;
 
 # Create a second CSV table that lists all ingredients with the sum of their percentages across all products
-my $ingredients_file = "projects/foodture/data/representative_products/ingredients_sum.csv";
+my $ingredients_file = "projects/foodture/ingredients_sum.csv";
 open my $ING_OUT, '>:encoding(UTF-8)', $ingredients_file or die "Cannot write $ingredients_file: $!\n";
 my @ingredients_header = (
 	"ingredient_id",
