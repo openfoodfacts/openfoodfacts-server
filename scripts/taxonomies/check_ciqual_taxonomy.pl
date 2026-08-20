@@ -28,6 +28,7 @@ binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
 use Getopt::Long qw/GetOptions/;
+use Text::CSV;
 
 my $taxonomy = 'ingredients';
 
@@ -49,35 +50,38 @@ my %food_commented;
 my %proxy_commented;
 my %taxonomy_codes;
 
-open my $fh, '<:encoding(utf8)', $ciqual_csv or die "Cannot open $ciqual_csv: $!";
-my $header = <$fh>;
-while (my $line = <$fh>) {
-	chomp $line;
-	my @fields = split /\t/, $line, -1;
-	my $code = $fields[6];
-	my $name = $fields[7];
-	next unless defined $code && $code =~ /^\d+$/;
-	$ciqual{$code} = [$name, undef];
+sub read_ciqual_csv {
+	my ($file) = @_;
+	my %data;
+	my $csv = Text::CSV->new({ sep_char => "\t", binary => 1, auto_diag => 1 });
+	open my $fh, '<:encoding(utf8)', $file or die "Cannot open $file: $!";
+	my $header = $csv->getline($fh);
+	while (my $row = $csv->getline($fh)) {
+		my $code = $row->[6];
+		my $name = $row->[7];
+		next unless defined $code && $code =~ /^\d+$/;
+		$data{$code} = [$name, undef];
+	}
+	close $fh;
+	return \%data;
 }
-close $fh;
 
-open $fh, '<:encoding(utf8)', $ciqual_fr_csv or die "Cannot open $ciqual_fr_csv: $!";
-$header = <$fh>;
-while (my $line = <$fh>) {
-	chomp $line;
-	my @fields = split /\t/, $line, -1;
-	my $code = $fields[6];
-	my $name = $fields[7];
-	next unless defined $code && $code =~ /^\d+$/;
+my $data_en = read_ciqual_csv($ciqual_csv);
+my $data_fr = read_ciqual_csv($ciqual_fr_csv);
+
+foreach my $code (keys %$data_en) {
+	$ciqual{$code} = $data_en->{$code};
+}
+foreach my $code (keys %$data_fr) {
 	if (exists $ciqual{$code}) {
-		$ciqual{$code}[1] = $name;
+		$ciqual{$code}[1] = $data_fr->{$code}[0];
 	}
 	else {
-		$ciqual{$code} = [undef, $name];
+		$ciqual{$code} = [undef, $data_fr->{$code}[0]];
 	}
 }
-close $fh;
 
+my $fh;
 open $fh, '<:encoding(utf8)', $taxonomy_file or die "Cannot open $taxonomy_file: $!";
 while (my $line = <$fh>) {
 	chomp $line;
