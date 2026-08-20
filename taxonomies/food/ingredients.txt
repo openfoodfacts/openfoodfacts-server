@@ -23416,19 +23416,22 @@ fr: billes de céréales
 # no gluten
 # do not mix with en:millet
 < en: cereal
-en: sorghum
+en: sorghum, jowar
 de: Sorghumhirsen
 es: sorgo
 fr: sorgho
 hr: sirak
 hu: cirok
 it: sorgo
+la: Sorghum bicolor, Sorghum vulgare
 nl: kafferkoren, sorghum, sorgum
 pl: sorgo
 sk: cirok
 ciqual_food_code:en: 9360
 ciqual_food_name:en: Sorghum, whole, raw
 ciqual_food_name:fr: Sorgho entier, cru
+ifct_food_code:en: A005
+ifct_food_name:en: Jowar
 usda_ndb_code:en: 20067
 usda_ndb_name:en: Sorghum grain
 wikipedia:en: https://en.wikipedia.org/wiki/Sorghum
@@ -25682,6 +25685,25 @@ usda_ndb_proxy_name:en: Millet, raw
 wikidata:en: Q259438
 
 < en: millet
+en: pearl millet, bajra
+la: Pennisetum glaucum, Cenchrus americanus, Pennisetum typhoideum
+description:en: Bajra is one of India's oldest cultivated cereal grains, especially prominent in the arid and semi-arid regions of Rajasthan, Gujarat, Haryana, and Maharashtra, where it thrives in low-rainfall, sandy soil conditions. The small, round grains range from pale yellow to grey, with an earthy, slightly nutty flavor. Bajra is traditionally ground into flour for rotis (bajra ki roti) and khichdi, or used whole in porridges, especially during winter months for its warming properties. Nutritionally, it's rich in fiber, iron, magnesium, and phosphorus, offers a good plant-protein source, and is naturally gluten-free—making it a staple in both everyday rural diets and gluten-free food formulations.
+ifct_food_code:en: A003
+ifct_food_name:en: Bajra
+
+< en: millet
+en: little millet, samai
+la: Panicum sumatrense, Panicum miliare
+description:en: Samai, or little millet (Panicum sumatrense, syn. Panicum miliare), is one of India's oldest cultivated minor millets, traditionally grown in the rain-fed hills and plateaus of Tamil Nadu, Karnataka, Andhra Pradesh, and Odisha for over 5,000 years. Its small, round grains carry a mild, subtly nutty flavor and light, fluffy texture when cooked. Valued for its resilience in poor soil and low rainfall, it's traditionally used as a rice substitute—steamed, boiled into porridge (kanji), or ground into idli and dosa batters—and is popular during religious fasting periods. Nutritionally, samai is rich in dietary fiber, iron, and B vitamins, has a low glycemic index, and is naturally gluten-free, making it valued in diabetic-friendly and gluten-free diets.
+ifct_food_code:en: A016
+ifct_food_name:en: Samai
+
+< en: millet
+en: Kodo millet, varagu
+la: Paspalum scrobiculatum
+description:en: Varagu, known in English as kodo millet, is another of India's ancient minor millets, cultivated for over 3,000 years primarily in the drier, hilly regions of Tamil Nadu, Karnataka, Madhya Pradesh, and Chhattisgarh. It's one of the hardiest millets, thriving in poor soils with minimal water, and is often grown as a famine-reserve or marginal-land crop. The small, round, reddish-brown grains have an earthy, mildly nutty flavor similar to other millets. Traditionally cooked like rice, ground into flour for flatbreads, or used in porridges and idli/dosa batters, it's also popular in fasting foods and diabetic-friendly diets. Nutritionally, kodo millet is notably high in dietary fiber and polyphenol antioxidants, a good source of iron and B vitamins, naturally gluten-free, and has one of the lowest glycemic indices among cereals.
+
+< en: millet
 en: millet groats
 hr: proso krupica
 it: chicchi di miglio
@@ -25802,15 +25824,24 @@ ciqual_food_code:en: 9345
 ciqual_food_name:en: Amaranth, raw
 ciqual_food_name:fr: Amarante, crue
 description:en: Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
-usda_ndb_proxy_code:en: 20001
-usda_ndb_proxy_name:en: Amaranth grain, uncooked
+usda_ndb_code:en: 20001
+usda_ndb_name:en: Amaranth grain, uncooked
+usda_ndb_process:en: uncooked
 wikidata:en: Q10407363
 wikipedia:en: https://en.wikipedia.org/wiki/Amaranth_grain
 
 < en: amaranth
-en: uncooked amaranth grain
-usda_ndb_code:en: 20001
-usda_ndb_name:en: Amaranth grain, uncooked
+en: black amaranth seed
+comment:en: USDA NDB 20001 is a generic entry covering amaranth grain broadly (species like Amaranthus cruentus, hypochondriacus, or caudatus), not specifically black-seeded varieties. "Black amaranth" usually refers to darker-seeded cultivars (sometimes ornamental/wild types like Amaranthus hybridus), which can differ slightly in flavor (often described as more bitter/earthy than the common cream-colored grain amaranth) and are less commonly the ones used in commercial food products.
+description:en: Native to Central and South America, amaranth was a staple grain of the Aztec and Inca civilizations, prized for its resilience and nutritional density. Black amaranth seeds have a mild, earthy, slightly peppery flavor with a subtle nuttiness that intensifies when toasted or popped. Versatile in the kitchen, they can be cooked like porridge, popped for snacking or garnishing, ground into flour for gluten-free baking, or sprouted for salads and bowls. Nutritionally, amaranth is a complete protein containing all nine essential amino acids, including lysine—rare among grains. It's also rich in fiber, iron, magnesium, and manganese, and naturally gluten-free, making it a nutrient-dense choice for ancient-grain and health-focused products.
+ifct_food_code:en: A001
+ifct_food_name:en: Amaranth seed, black
+
+< en: amaranth
+en: pale brown amaranth seed
+description:en: Amaranth seed, pale brown (Amaranthus cruentus), known regionally as Rajagaro (Gujarati), Ramdana (Hindi), and Cavali biya (Marathi), among other local names. Unlike the deep black-seeded variety, this pale brown form has a milder, subtly sweet, nutty flavor. In Indian cuisine, it's commonly popped and used in fasting foods (vrat ka khana), ground into flour for flatbreads, or mixed with jaggery to make chikki-style sweets. Nutritionally, it's a good source of plant protein, dietary fiber, iron, and calcium, and is naturally gluten-free—making it a popular grain substitute during religious fasting periods across India.
+ifct_food_code:en: A002
+ifct_food_name:en: Amaranth seed, pale brown
 
 < en: amaranth
 < en: cereal flour
@@ -28701,12 +28732,6 @@ wa: dinrêye d'awousse
 yi: קוקורוזע
 za: haeuxyangz
 zh: 玉米
-carbon_footprint_fr_foodges_ingredient:fr: Maïs
-carbon_footprint_fr_foodges_value:fr: 0.7
-ciqual_food_code:en: 9200
-ciqual_food_name:en: Corn or maize grain, raw
-ciqual_food_name:fr: Maïs entier, cru
-wikidata:en: Q11575
 # als:mais
 # arz:دره
 # ast:maíz
@@ -28765,7 +28790,22 @@ wikidata:en: Q11575
 # xmf:ლაიტი
 # zh-min-nan:hoan-be̍h
 # yue:粟米
+carbon_footprint_fr_foodges_ingredient:fr: Maïs
+carbon_footprint_fr_foodges_value:fr: 0.7
+ciqual_food_code:en: 9200
+ciqual_food_name:en: Corn or maize grain, raw
+ciqual_food_name:fr: Maïs entier, cru
+ifct_food_code:en: A006
+ifct_food_name:en: Maize, dry
+ifct_food_process:en: en:dry
+wikidata:en: Q11575
 wikipedia:en: https://en.wikipedia.org/wiki/Maize
+
+< en: corn
+en: local tender maize
+description:en: Native to Mesoamerica and introduced to India centuries ago, tender local maize (Zea mays) refers to indigenous Indian corn varieties harvested young, while the kernels are still soft and milky rather than fully mature and dried. It has a starchy, mildly sweet, earthy flavor—less sugary than sweet corn but with a satisfying bite. Widely enjoyed as street food, it's traditionally roasted over open coals and rubbed with lime, chili, and salt (bhutta), boiled as a snack, or grated into curries, soups, and flatbreads. Nutritionally, tender maize provides dietary fiber, complex carbohydrates, and moderate protein, along with B vitamins, magnesium, and antioxidants like lutein and zeaxanthin, making it a wholesome seasonal staple across India.
+ifct_food_code:en: A007
+ifct_food_name:en: Maize, tender, local
 
 < en: corn
 en: canned corn
@@ -28842,7 +28882,7 @@ usda_ndb_name:en: Corn grain, yellow
 
 < en: corn
 < en: pod and seed vegetable
-en: sweetcorn, sweet corn, sweet corn in kernels
+en: sweetcorn, sweet corn, sweet corn in kernels, tender sweet maize
 bg: сладка царевица
 de: Süßmais, Süssmais, Zuckermais
 es: maíz dulce, maiz dulce
@@ -28856,11 +28896,13 @@ lv: saldā kukurūza
 nl: suikermaïs, zoete maïs
 pl: kukurydza słodka, słodka kukurydza
 pt: milgo doce
-# ingredient/fr:maïs-doux 103 products in 5 languages @2018-09-24
+description:en: Sweet corn is a cultivar of maize (Zea mays var. saccharata) bred to accumulate higher natural sugar content, harvested young and tender before the kernels mature and starch fully develops. Compared to local field maize, it has a distinctly sweeter, juicier taste with a crisp, tender bite. Popular worldwide, sweet corn is boiled or steamed on the cob, grilled, or used kernel-off-cob in salads, soups, stir-fries, and Indian street snacks like corn chaat. Nutritionally, it offers dietary fiber, carbohydrates, and moderate protein, along with vitamin C, B vitamins (especially folate), magnesium, and antioxidants such as lutein and zeaxanthin, which support eye health. Its natural sweetness also makes it a favorite in both savory and lightly sweetened preparations.
 ecobalyse:en: 6467c956-277d-4e09-80c2-b0b062f84086
 ecobalyse_labels_en_organic:en: 741c0970-2823-430a-b4e4-e61ce08ea95a
 ecobalyse_origins_en_france:en: 40fa68b6-381e-4dd6-ba70-8b43cfdee64e
 eurocode_2_group_3:en: 8.45.50
+ifct_food_code:en: A008
+ifct_food_name:en: Maize, tender, sweet
 
 < en: sweet corn
 en: baby corn
@@ -29314,6 +29356,9 @@ carbon_footprint_fr_foodges_value:fr: 1.4
 ciqual_proxy_food_code:en: 9100
 ciqual_proxy_food_name:fr: Riz blanc, cru
 description:en: Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice).
+ifct_food_code:en: A015
+ifct_food_name:en: Rice, raw, milled
+ifct_food_process:en: en:milled
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q5090
@@ -29410,6 +29455,9 @@ pt: arroz parboilizado. arroz estufado
 ciqual_food_code:en: 9101
 ciqual_food_name:en: Rice, parboiled, raw
 ciqual_food_name:fr: Riz blanc étuvé, cru
+ifct_food_code:en: A014
+ifct_food_name:en: Rice, parboiled, milled
+ifct_food_process:en: en:milled
 
 < en: rice
 en: glutinous rice
@@ -29499,6 +29547,8 @@ th: ข้าวกล้อง
 ciqual_food_code:en: 9102
 ciqual_food_name:en: Rice, brown, raw
 ciqual_food_name:fr: Riz complet, cru
+ifct_food_code:en: A013
+ifct_food_name:en: Rice, raw, brown
 wikidata:en: Q1066624
 
 < en: brown rice
@@ -30354,7 +30404,8 @@ pt: arroz tufado
 sv: riskrisp, puffat ris
 ciqual_proxy_food_code:en: 32006
 ciqual_proxy_food_name:en: Puffed rice, plain, fortified with vitamins and minerals
-# usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
+ifct_food_code:en: A012
+ifct_food_name:en: Rice, puffed
 # usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
 
 < en: corn
