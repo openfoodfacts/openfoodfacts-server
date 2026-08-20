@@ -339,6 +339,9 @@ is(product_id_from_path("$BASE_DIRS{PRODUCTS}/123/456/789/product"), "123456789"
 # Test is_valid_code()
 
 is(is_valid_code('1234567890123'), 1, 'valid EAN13 code');
+is(is_valid_code('1234567890123456789012345'), 1, 'valid 25 digit product code');
+is(is_valid_code('1' x 40), 1, 'valid 40 digit product code');
+is(is_valid_code('1' x 41), '', '41 digit code is too long');
 is(is_valid_code('123'), '', '3 digit code');
 is(is_valid_code('00000123'), '', '3 digit code with leading 0s');
 is(is_valid_code('1234567890123456789012345678901234567890123456789012345678901234567890'), '', 'too long code');
