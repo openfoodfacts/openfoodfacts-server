@@ -7812,11 +7812,10 @@ sub detect_allergens_from_text ($product_ref) {
 
 			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b__([^,;_\(\)\[\]]+?)__\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			# _Weizen_eiweiß is not caught in last regex because of \b (word boundary).
-			if ($language eq 'de') {
-				$text =~ s/\b_([^,;_\(\)\[\]]+?)_/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			}
+			# Do not require a word boundary after the closing underscore: in some
+			# languages, the marked allergen can be the beginning of a compound word
+			# (e.g. Dutch _soja_lecithine or Swedish _vete_mjöl).
+			$text =~ s/\b_([^,;_\(\)\[\]]+?)_/replace_allergen($language,$product_ref,$1,$`)/iesg;
 
 			# allergens in all caps, with other ingredients not in all caps
 
