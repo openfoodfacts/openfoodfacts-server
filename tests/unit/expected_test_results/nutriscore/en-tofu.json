@@ -426,6 +426,14 @@
                "unit" : "g",
                "value" : 18.72
             },
+            "chloride" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.608
+            },
             "cholesterol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -456,7 +464,7 @@
                "source_per" : "100g",
                "unit" : "kcal",
                "value" : 0,
-               "value_computed" : 377.28
+               "value_computed" : 253.8
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -598,7 +606,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.45
+               "value" : 0
             },
             "potassium" : {
                "modifier" : "~",
@@ -838,6 +846,12 @@
                   "value" : 18.72,
                   "value_string" : "18.72"
                },
+               "chloride" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.608,
+                  "value_string" : "0.608"
+               },
                "cholesterol" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -860,14 +874,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 0,
-                  "value_computed" : 377.28,
+                  "value_computed" : 253.8,
                   "value_string" : "0"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
                   "value" : 0,
-                  "value_computed" : 1575.9,
+                  "value_computed" : 1051.2,
                   "value_string" : "0"
                },
                "fat" : {
@@ -969,8 +983,8 @@
                "polyols" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.45,
-                  "value_string" : "0.45"
+                  "value" : 0,
+                  "value_string" : "0"
                },
                "potassium" : {
                   "modifier" : "~",
@@ -981,15 +995,15 @@
                "proteins" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 31.05,
-                  "value_string" : "31.05"
+                  "value" : 0,
+                  "value_string" : "0"
                },
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.985434,
+                  "value" : 0.978684,
                   "value_computed" : 0.98479,
-                  "value_string" : "0.985434"
+                  "value_string" : "0.978684"
                },
                "saturated-fat" : {
                   "modifier" : "~",
@@ -1007,7 +1021,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.393916,
-                  "value_computed" : 0.3941736,
+                  "value_computed" : 0.3914736,
                   "value_string" : "0.393916"
                },
                "starch" : {
