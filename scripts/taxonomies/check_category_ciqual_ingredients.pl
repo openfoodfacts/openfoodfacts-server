@@ -20,6 +20,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# This script checks that ingredients matching categories with Ciqual properties also have the same properties.
+# It writes missing properties to a CSV file that can be used to add them to the ingredients taxonomy
+# with the add_properties_to_taxonomy.pl script.
+
 use Modern::Perl '2017';
 use utf8;
 
@@ -38,7 +42,6 @@ GetOptions("output_properties_file=s" => \$output_properties_file,)
 
 my @ciqual_props = qw(ciqual_food_code:en ciqual_proxy_food_code:en ciqual_food_name:en ciqual_proxy_food_name:en);
 
-my %category_ciqual;
 my @properties_to_write;
 
 my $categories = 0;
