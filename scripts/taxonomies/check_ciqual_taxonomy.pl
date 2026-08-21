@@ -53,7 +53,7 @@ my %taxonomy_codes;
 sub read_ciqual_csv {
 	my ($file) = @_;
 	my %data;
-	my $csv = Text::CSV->new({ sep_char => "\t", binary => 1, auto_diag => 1 });
+	my $csv = Text::CSV->new({sep_char => "\t", binary => 1, auto_diag => 1});
 	open my $fh, '<:encoding(utf8)', $file or die "Cannot open $file: $!";
 	my $header = $csv->getline($fh);
 	while (my $row = $csv->getline($fh)) {
