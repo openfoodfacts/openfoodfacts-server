@@ -445,6 +445,14 @@
                "unit" : "g",
                "value" : 2.31286666666667
             },
+            "chloride" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.1993258
+            },
             "cholesterol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -856,6 +864,12 @@
                   "unit" : "g",
                   "value" : 2.31286666666667,
                   "value_string" : "2.31286666666667"
+               },
+               "chloride" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.1993258,
+                  "value_string" : "0.1993258"
                },
                "cholesterol" : {
                   "modifier" : "~",
