@@ -174,7 +174,6 @@ $recipe_estimator_service = $ENV{RECIPE_ESTIMATOR_SERVICE} || "product_opener";
 	minion_backend => {Pg => $postgres_url},
 	minion_local_queue => $server_domain,
 	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},
-	ip_whitelist_session_cookie => ["", ""],
 );
 
 if ($producers_platform) {
