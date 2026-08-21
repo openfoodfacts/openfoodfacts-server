@@ -34,7 +34,6 @@ novagroup compliant:en:level:en:1
 novagroup compliant:en:default:en:yes
 novagroup compliant:en:label:en:unprocessed ingredients
 
-
 novagroup compliant:en:level:en:2
 category:en:fats
 category:en:salts
@@ -384,7 +383,6 @@ additive:en:e14xx
 # carbonating agents
 additive:en:e290 # carbon dioxyde
 
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                        G L U T E N   A L L E R G E N    S E C T I O N
@@ -592,7 +590,6 @@ milk-free compliant:en:level:en:3
 milk-free compliant:en:label:en:The manufacturer uses milk in its production facility
 trace:en:milk
 
-
 milk-free compliant:en:level:en:4
 milk-free compliant:en:label:en:The product is labeled as milk free by the manufacturer
 label:en:No milk
@@ -624,7 +621,6 @@ nuts-free:en:default:en:yes
 nuts-free compliant:en:level:en:3
 nuts-free compliant:en:label:en:The manufacturer uses nuts in its production facility
 trace:en:nuts
-
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -901,7 +897,6 @@ ingredient:en:caffeine
 ingredient:en:coffee
 ingredient:en:tea
 
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                    K O S H E R     S E C T I O N
@@ -950,8 +945,6 @@ label:en:COR Kosher
 label:en:Kosher under supervision of Rabbi Weitman Tnuva
 label:en:Sephardi Kashrut Autority
 label:en:Union of Orthodox Synagogues of South Africa
-
-
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1043,7 +1036,6 @@ label:en:Muslim Consumer Group
 label:en:Muslim Council International
 label:fr:Société Française de Contrôle de Viande Halal
 label:en:The Central Islamic Committee of Thailand
-
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1222,7 +1214,6 @@ ingredient:en:milk proteins # child of en:protein
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
 Pescetarianism compliant:en:level:en:1
 Pescetarianism compliant:en:label:en:non-Pescetarianism ingredients have been detected
 Pescetarianism:en:no
@@ -1400,7 +1391,6 @@ Ovo-lacto vegetarianism compliant:en:level:en:5
 Ovo-lacto vegetarianism compliant:en:label:en:The product has Ovo-lacto vegetarianism compliant certification
 label:en:European Vegetarian Union
 
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                           O V O - V E G E T A R I A N I S M     S E C T I O N
@@ -1515,8 +1505,6 @@ Ovo vegetarianism compliant:en:level:en:5
 Ovo vegetarianism compliant:en:label:en:The product has Ovo vegetarianism compliant certification
 label:en:European Vegetarian Union Ovo-vegetarian
 
-
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                           O R T H O D O X   F A S T I N G     S E C T I O N
@@ -1613,13 +1601,11 @@ ingredient:en:microbial coagulating enzyme # child of en:enzyme
 ingredient:en:microbial rennet # child of en:rennet
 ingredient:en:vegetable protein # child of en:protein
 
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                           L A C T O - V E G E T A R I A N I S M     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
 
 Lacto vegetarianism compliant:en:level:en:1
 Lacto vegetarianism compliant:en:label:en:non-Lacto-vegetarianism compliant ingredients have been detected
@@ -1723,7 +1709,6 @@ label:en:European Vegetarian Union Lacto-vegetarian
 #                                   V E G A N I S M     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
 
 Veganism compliant:en:level:en:1
 Veganism compliant:en:label:en:non-Veganism compliant ingredients have been detected
@@ -1850,8 +1835,6 @@ label:en:Vegetarian Society
 label:en:The Vegan Society
 label:en:European Vegetarian Union Vegan
 
-
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
 #                                   J A I N   V E G E T A R I A N I S M     S E C T I O N
@@ -1961,7 +1944,6 @@ ingredient:en:milk proteins # child of en:protein
 #                                   F R U I T A R I A N I S M     S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
 
 Fruitarianism compliant:en:level:en:1
 Fruitarianism compliant:en:label:en:non-Fruitarianism compliant ingredients have been detected
