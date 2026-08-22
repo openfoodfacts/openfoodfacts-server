@@ -259,8 +259,8 @@ data["items"].forEach(function (record) {
   var countryCodes = record.locationSet["include"];
   var countryNames = [];
 
-  const langaugeMatcher = /^(?<language>[a-z]{2})$/i;
-  const countryMatcher = /^(?<country>[a-z]{2})(?:-.+)$/i;
+  const languageMatcher = /^(?<language>[a-z]{2})$/i;
+  const countryMatcher = /^(?<country>[a-z]{2})(?:-.+)?$/i;
   countryCodes.forEach(function (code) {
     if (code == "001" || typeof code !== 'string') {
       console.debug("Incompatible code type", code, typeof code);
@@ -269,7 +269,7 @@ data["items"].forEach(function (record) {
 
     const isoMatch = code.match(countryMatcher);
     if (!iso3601[isoMatch?.groups?.country]) {
-      // console.debug("Unmapped ISO3601 code: " + code);
+      console.debug("Unmapped ISO3601 code", code, isoMatch);
       return;
     } else {
       countryNames.push("en:" + iso3601[isoMatch.groups.country]);
@@ -282,7 +282,7 @@ data["items"].forEach(function (record) {
     primaryLanguageCode = iso3601_to_language_mappings[primaryCountryCode]
   }
 
-  if (!langaugeMatcher.test(primaryLanguageCode)) {
+  if (!languageMatcher.test(primaryLanguageCode)) {
     console.debug("Unmapped language code", primaryLanguageCode);
     primaryLanguageCode = "xx";
   }

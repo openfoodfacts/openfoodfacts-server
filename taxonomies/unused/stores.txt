@@ -794,7 +794,7 @@ en: Sam’s Club
 country:en: en:United States of America
 wikidata:en:Q1972120
 
-# Stores via name-suggestion-index (Source: https://raw.githubusercontent.com/osmlab/name-suggestion-index/main/data/brands/shop/supermarket.json, https://github.com/osmlab/name-suggestion-index/blob/main/LICENSE.md) 
+# Stores via name-suggestion-index (Source: https://raw.githubusercontent.com/osmlab/name-suggestion-index/a86dd15d303126f8cfc7831aa395ba3d3546fb10/data/brands/shop/supermarket.json, https://github.com/osmlab/name-suggestion-index/blob/main/LICENSE.md)
 dk:365discount
 wikidata:en:Q104671354
 country:en: en:Denmark
@@ -871,21 +871,20 @@ es:Alcampo
 wikidata:en:Q2832081
 country:en: en:Spain
 
-be:ALDI (ALDI Nord group)
+be:Aldi (Aldi Nord group)
 wikidata:en:Q41171373
-country:en: en:Belgium,en:Spain,en:France,en:Luxembourg,en:Netherlands,en:Poland,en:Portugal
+country:en: en:Belgium,en:Denmark,en:Spain,en:France (Metropolitan),en:Luxembourg,en:Netherlands,en:Poland,en:Portugal
 
-en:ALDI (ALDI Süd group)
+en:Aldi (Aldi Süd group)
 wikidata:en:Q41171672
 country:en: en:Australia,en:Switzerland,en:China,en:United Kingdom,en:Hungary,en:Ireland,en:Italy,en:United States of America
 
-de:ALDI Nord
+de:Aldi Nord (Deutschland)
 wikidata:en:Q41171373
 country:en: en:Germany
 
-de:ALDI Süd
+xx:Aldi Süd (Deutschland)
 wikidata:en:Q41171672
-country:en: en:Germany
 
 es:Alimerka
 wikidata:en:Q16482738
@@ -907,8 +906,12 @@ il:AM:PM
 wikidata:en:Q6891113
 country:en: en:Israel
 
-001:Amazon Fresh
+xx:Amazon Fresh
 wikidata:en:Q4740834
+
+ad:Ametller Origen
+wikidata:en:Q20106290
+country:en: en:Andorra,en:Spain
 
 en:Amigo
 wikidata:en:Q4746234
@@ -922,9 +925,25 @@ en:Angelo Caputo's Fresh Markets
 wikidata:en:Q118594294
 country:en: en:United States of America
 
+ro:Annabella
+wikidata:en:Q127785313
+country:en: en:Romania
+
 co:Ara
 wikidata:en:Q63148677
 country:en: en:Colombia
+
+az:Araz
+wikidata:en:Q97224746
+country:en: en:Azerbaijan
+
+it:Ard Discount
+wikidata:en:Q105102666
+country:en: en:Italy
+
+pl:Arhelan
+wikidata:en:Q121945016
+country:en: en:Poland
 
 en:Asda
 wikidata:en:Q297410
@@ -934,7 +953,7 @@ br:Assaí Atacadista
 wikidata:en:Q28679415
 country:en: en:Brazil
 
-ma:Aswak Assalam
+ma:Aswak Assalam أسواق السلام
 wikidata:en:Q2868678
 country:en: en:Morocco
 
@@ -950,17 +969,21 @@ fr:Auchan Drive
 wikidata:en:Q2870659
 country:en: en:France,en:Luxembourg
 
-fx:Auchan Supermarché
+fr:Auchan Supermarché
 wikidata:en:Q105857776
-country:en: en:France (Metropolitan)
+country:en: en:France
+
+pt:Auchan Supermercado
+wikidata:en:Q105857776
+country:en: en:Portugal
 
 en:Bashas'
 wikidata:en:Q4866786
 country:en: en:United States of America
 
-de:basic
-wikidata:en:Q809994
-country:en: en:Germany
+it:Basko
+wikidata:en:Q136464609
+country:en: en:Italy
 
 gr:Bazaar
 wikidata:en:Q4875086
@@ -974,6 +997,9 @@ en:Berkot's Super Foods
 wikidata:en:Q118594324
 country:en: en:United States of America,en:United States of America
 
+lv:Beta
+country:en: en:Latvia
+
 np:Bhat-Bhateni Super Market
 wikidata:en:Q104847792
 country:en: en:Nepal
@@ -982,13 +1008,13 @@ en:BI-LO
 wikidata:en:Q4835620
 country:en: en:United States of America
 
-fr:bi1
+fx:bi1
 wikidata:en:Q56325139
-country:en: en:France,en:Poland
+country:en: en:France (Metropolitan),en:Poland
 
 pl:Biedronka
 wikidata:en:Q857182
-country:en: en:Poland
+country:en: en:Poland,en:Slovak Republic
 
 in:Big Bazaar
 wikidata:en:Q3631008
@@ -1030,6 +1056,10 @@ at:Billa Plus
 wikidata:en:Q115431077
 country:en: en:Austria
 
+bg:Billa Днес
+wikidata:en:Q124377887
+country:en: en:Bulgaria
+
 ma:BİM
 wikidata:en:Q1022075
 country:en: en:Morocco,en:Turkey
@@ -1042,12 +1072,24 @@ ba:Bingo
 wikidata:en:Q16842066
 country:en: en:Bosnia & Herzegovina
 
+es:Bio C' Bon
+wikidata:en:Q54312551
+country:en: en:Spain,en:France,en:Japan
+
 de:Bio Company
 wikidata:en:Q864179
 country:en: en:Germany
 
+be:Bio-Planet
+wikidata:en:Q122415968
+country:en: en:Belgium,en:Luxembourg
+
 fr:Biocoop
 wikidata:en:Q2904039
+country:en: en:France
+
+fr:Biomonde
+wikidata:en:Q120801927
 country:en: en:France
 
 es:BM
@@ -1098,6 +1140,10 @@ en:Brookshire's
 wikidata:en:Q4975085
 country:en: en:United States of America
 
+dk:Brugsen
+wikidata:en:Q4978690
+country:en: en:Denmark
+
 en:Budgens
 wikidata:en:Q4985016
 country:en: en:United Kingdom
@@ -1142,18 +1188,10 @@ lk:Cargills Food City (Sri Lanka)
 wikidata:en:Q58353955
 country:en: en:Sri Lanka
 
-001:Carrefour
+xx:Carrefour
 wikidata:en:Q217599
 
-be:Carrefour City
-wikidata:en:Q2940187
-country:en: en:Belgium,en:France
-
-fr:Carrefour Contact
-wikidata:en:Q2940188
-country:en: en:France
-
-001:Carrefour Market
+xx:Carrefour Market
 wikidata:en:Q2689639
 
 tr:CarrefourSA
@@ -1164,16 +1202,26 @@ co:Carulla
 wikidata:en:Q5047480
 country:en: en:Colombia
 
-fr:Casino
-wikidata:en:Q89029184
-country:en: en:France
+xx:Casino
 
-hu:CBA
+cz:CBA
 wikidata:en:Q779845
-country:en: en:Hungary,en:Romania,en:Slovak Republic
+country:en: en:Czech Republic,en:Hungary,en:Romania,en:Slovak Republic
 
 bg:CBA (България)
 wikidata:en:Q779845
+country:en: en:Bulgaria
+
+bg:CBA Bolero
+wikidata:en:Q124736758
+country:en: en:Bulgaria
+
+bg:CBA Klasiko
+wikidata:en:Q124736768
+country:en: en:Bulgaria
+
+bg:CBA Kome
+wikidata:en:Q124736748
 country:en: en:Bulgaria
 
 pt:Celeiro
@@ -1183,6 +1231,10 @@ country:en: en:Portugal
 en:Centra
 wikidata:en:Q747678
 country:en: en:United Kingdom,en:Ireland
+
+en:Central England Co-operative
+wikidata:en:Q107617274
+country:en: en:United Kingdom
 
 fr:Centre Commercial E.Leclerc
 wikidata:en:Q1273376
@@ -1202,7 +1254,7 @@ country:en: en:Poland
 
 bw:Checkers
 wikidata:en:Q5089126
-country:en: en:Botswana,en:Namibia,en:South Africa
+country:en: en:Botswana,en:Lesotho,en:Namibia,en:South Africa
 
 za:Checkers Hyper
 wikidata:en:Q116518886
@@ -1216,8 +1268,25 @@ bw:Choppies
 wikidata:en:Q5104860
 country:en: en:Botswana,en:Zambia,en:Zimbabwe
 
-001:City Market
+se:City Gross
+wikidata:en:Q10453555
+country:en: en:Sweden
+
+mx:City Market (México)
+wikidata:en:Q65090778
+country:en: en:Mexico
+
+en:City Market (USA)
 wikidata:en:Q5123299
+country:en: en:United States of America
+
+th:CJ Supermarket
+wikidata:en:Q125874457
+country:en: en:Thailand
+
+es:Claudio
+wikidata:en:Q123369953
+country:en: en:Spain
 
 en:Co-op (Canada)
 wikidata:en:Q5440676
@@ -1231,19 +1300,20 @@ gg:Co-operative Grand Marché
 wikidata:en:Q107594917
 
 es:Coaliment
+wikidata:en:Q127503706
 country:en: en:Spain
 
-fr:Coccinelle Express
+fx:Coccinelle Express
 wikidata:en:Q90020479
-country:en: en:France
+country:en: en:France (Metropolitan)
 
-fr:Coccinelle Supermarché
+fx:Coccinelle Supermarché
 wikidata:en:Q90020459
-country:en: en:France
+country:en: en:France (Metropolitan)
 
 en:Coles
 wikidata:en:Q1108172
-country:en: en:Australia,en:United Kingdom
+country:en: en:Australia
 
 en:Coles Central
 wikidata:en:Q5144653
@@ -1252,6 +1322,10 @@ country:en: en:Australia
 en:Coles Local
 wikidata:en:Q104850818
 country:en: en:Australia
+
+be:Colruyt
+wikidata:en:Q2363991
+country:en: en:Belgium,en:France,en:Luxembourg
 
 de:Combi
 wikidata:en:Q1113618
@@ -1285,9 +1359,17 @@ pt:Continente
 wikidata:en:Q2995683
 country:en: en:Portugal
 
+pt:Continente Bom Dia
+wikidata:en:Q123570507
+country:en: en:Portugal
+
 pt:Continente Modelo
 wikidata:en:Q1892188
 country:en: en:Portugal
+
+cz:Coop (Česko)
+wikidata:en:Q52851660
+country:en: en:Czech Republic
 
 it:Coop (Italia)
 wikidata:en:Q1129774
@@ -1302,16 +1384,16 @@ wikidata:en:Q432564
 country:en: en:Switzerland
 
 se:Coop (Sverige)
-wikidata:en:Q15229319
+wikidata:en:Q106684510
 country:en: en:Sweden
 
 ee:Coop Eesti
 wikidata:en:Q12361460
 country:en: en:Estonia
 
-cz:COOP Jednota
+sk:COOP Jednota
 wikidata:en:Q41629254
-country:en: en:Czech Republic,en:Slovak Republic
+country:en: en:Slovak Republic
 
 no:Coop Marked
 wikidata:en:Q5167703
@@ -1328,6 +1410,18 @@ country:en: en:Norway
 hu:Coop Szuper
 wikidata:en:Q868980
 country:en: en:Hungary
+
+cz:Coop Terno
+wikidata:en:Q52851660
+country:en: en:Czech Republic
+
+cz:Coop Tip
+wikidata:en:Q52851660
+country:en: en:Czech Republic
+
+cz:Coop Tuty
+wikidata:en:Q52851660
+country:en: en:Czech Republic
 
 nl:Coop Vandaag
 wikidata:en:Q98455765
@@ -1349,12 +1443,13 @@ be:Cora
 wikidata:en:Q686643
 country:en: en:Belgium,en:France,en:Luxembourg,en:Romania
 
-001:Costcutter
+en:Costcutter
 wikidata:en:Q5175072
+country:en: en:United Kingdom,en:Ireland
 
-fr:Côté Nature
+fx:Côté Nature
 wikidata:en:Q90016283
-country:en: en:France
+country:en: en:France (Metropolitan)
 
 ar:Coto
 wikidata:en:Q5175411
@@ -1400,13 +1495,13 @@ it:Decò
 wikidata:en:Q65127915
 country:en: en:Italy
 
-nl:Deen
-wikidata:en:Q13571727
-country:en: en:Netherlands
-
 nl:DekaMarkt
 wikidata:en:Q2489350
 country:en: en:Netherlands
+
+be:Delhaize
+wikidata:en:Q1184173
+country:en: en:Belgium,en:Luxembourg
 
 pl:Delikatesy Centrum
 wikidata:en:Q11693824
@@ -1421,7 +1516,7 @@ wikidata:en:Q48883773
 country:en: en:Austria,en:Germany
 
 it:Despar
-wikidata:en:Q610492
+wikidata:en:Q131344742
 country:en: en:Italy
 
 gt:Despensa Familiar
@@ -1432,10 +1527,12 @@ ar:Dia
 wikidata:en:Q925132
 country:en: en:Argentina,en:Brazil,en:Spain
 
-001:Dia Market
+xx:Dia Market
 wikidata:en:Q925132
 
-001:Dialprix
+es:Dialprix
+wikidata:en:Q129985291
+country:en: en:Spain
 
 en:Dierbergs
 wikidata:en:Q5274978
@@ -1477,6 +1574,10 @@ de:Dornseifers Frischemarkt
 wikidata:en:Q112254717
 country:en: en:Germany
 
+it:Doro Supermercati
+wikidata:en:Q136464598
+country:en: en:Italy
+
 it:Dpiù
 wikidata:en:Q3709955
 country:en: en:Italy
@@ -1501,10 +1602,6 @@ es:E.Leclerc
 wikidata:en:Q1273376
 country:en: en:Spain,en:France,en:Poland,en:Portugal
 
-fr:E.Leclerc Drive
-wikidata:en:Q1273376
-country:en: en:France
-
 fr:E.Leclerc Express
 wikidata:en:Q1273376
 country:en: en:France
@@ -1513,12 +1610,16 @@ en:East of England CO-OP
 wikidata:en:Q5329759
 country:en: en:United Kingdom
 
-001:Eataly
+xx:Eataly
 wikidata:en:Q3046645
 
 ch:ebl-Naturkost
 wikidata:en:Q22691722
 country:en: en:Switzerland,en:Germany
+
+za:Econo Foods
+wikidata:en:Q130406968
+country:en: en:South Africa
 
 es:Economy Cash
 wikidata:en:Q114915795
@@ -1528,29 +1629,21 @@ my:Econsave
 wikidata:en:Q61776608
 country:en: en:Malaysia
 
-de:EDEKA
+de:Edeka
 wikidata:en:Q701755
 country:en: en:Germany
 
-de:EDEKA aktiv markt
+de:Edeka aktiv markt
 wikidata:en:Q701755
 country:en: en:Germany
 
-de:EDEKA xpress
+de:Edeka xpress
 wikidata:en:Q701755
 country:en: en:Germany
-
-pl:Eko
-wikidata:en:Q9251859
-country:en: en:Poland
 
 it:Ekom
 wikidata:en:Q62073442
 country:en: en:Italy
-
-cl:Ekono
-wikidata:en:Q2842729
-country:en: en:Chile
 
 be:Ekoplaza
 wikidata:en:Q47017915
@@ -1560,13 +1653,21 @@ es:El Jamón
 wikidata:en:Q6135982
 country:en: en:Spain
 
+en:El Super
+wikidata:en:Q124810916
+country:en: en:United States of America,en:United States of America,en:United States of America,en:United States of America,en:United States of America
+
 de:Elli
 wikidata:en:Q701755
 country:en: en:Germany
 
-nl:EMTÉ
-wikidata:en:Q3119122
-country:en: en:Netherlands
+lv:Elvi
+wikidata:en:Q20560513
+country:en: en:Latvia
+
+it:Emisfero
+wikidata:en:Q136461236
+country:en: en:Italy
 
 en:Erewhon
 wikidata:en:Q105628552
@@ -1588,12 +1689,16 @@ at:ETSAN
 wikidata:en:Q25916921
 country:en: en:Austria
 
-150:Eurospar
+pl:Euro Sklep
+wikidata:en:Q11702591
+country:en: en:Poland
+
+xx:Eurospar
 wikidata:en:Q12309283
 
-it:EuroSpin
+hr:EuroSpin
 wikidata:en:Q1374674
-country:en: en:Italy,en:Slovenia
+country:en: en:Croatia (Hrvatska),en:Italy,en:Malta,en:Slovenia,en:Suriname
 
 ph:Ever
 wikidata:en:Q120684300
@@ -1603,15 +1708,39 @@ no:Extra
 wikidata:en:Q11964085
 country:en: en:Norway
 
-001:fakta
+sg:FairPrice
+wikidata:en:Q6955519
+country:en: en:Singapore
+
+sg:FairPrice Finest
+wikidata:en:Q6955519
+country:en: en:Singapore
+
+sg:FairPrice Xtra
+wikidata:en:Q6955519
+country:en: en:Singapore
+
+de:fakta
+wikidata:en:Q123942180
+country:en: en:Germany
 
 de:famila
 wikidata:en:Q1395108
 country:en: en:Germany,en:Italy
 
+es:Familia
+country:en: en:Spain
+
+ad:Family Cash
+wikidata:en:Q118557754
+country:en: en:Andorra,en:Spain
+
 en:Family Fare
 wikidata:en:Q19868045
 country:en: en:United States of America
+
+md:Family Market
+country:en: en:Moldova
 
 en:Fareway
 wikidata:en:Q5434998
@@ -1629,18 +1758,24 @@ en:Fiesta Mart
 wikidata:en:Q5447326
 country:en: en:United States of America
 
-001:Fix Price
+tr:File Market
+wikidata:en:Q112228237
+country:en: en:Turkey
 
 en:Food 4 Less
 wikidata:en:Q5465282
 country:en: en:United States of America,en:United States of America,en:United States of America
 
-001:Food Basics
+xx:Food Basics
 wikidata:en:Q5465300
 
-en:Food City (USA)
-wikidata:en:Q16981107
+en:Food City (Arizona)
+wikidata:en:Q130253202
 country:en: en:United States of America
+
+en:Food City (Southeast USA)
+wikidata:en:Q16981107
+country:en: en:United States of America,en:United States of America,en:United States of America,en:United States of America,en:United States of America
 
 es:Food Lion
 wikidata:en:Q1435950
@@ -1658,12 +1793,13 @@ en:Foodland (Canada)
 wikidata:en:Q5465554
 country:en: en:Canada
 
+en:FoodLand (Eastern USA)
+wikidata:en:Q5465271
+country:en: en:United States of America
+
 en:Foodland (Hawaii)
 wikidata:en:Q5465560
 country:en: en:United States of America
-
-foodland_eastern_us.geojson:FoodLand (USA)
-wikidata:en:Q5465271
 
 en:FoodMaxx
 wikidata:en:Q61894844
@@ -1701,6 +1837,10 @@ en:Fred Meyer
 wikidata:en:Q5495932
 country:en: en:United States of America
 
+fx:Fresh
+wikidata:en:Q130214654
+country:en: en:France (Metropolitan)
+
 sk:Fresh Plus
 wikidata:en:Q50737403
 country:en: en:Slovak Republic
@@ -1717,6 +1857,10 @@ en:FreshCo
 wikidata:en:Q5502915
 country:en: en:Canada
 
+mx:Fresko
+wikidata:en:Q123943865
+country:en: en:Mexico
+
 es:Froiz
 wikidata:en:Q17070775
 country:en: en:Spain,en:Portugal
@@ -1732,25 +1876,27 @@ country:en: en:United States of America
 hk:fusion
 country:en: en:Hong Kong
 
-fr:G20
+fx:G20
 wikidata:en:Q3504731
-country:en: en:France
+country:en: en:France (Metropolitan)
 
 es:Gadis
 wikidata:en:Q114398305
 country:en: en:Spain
 
-001:Gama
+es:Gama
+country:en: en:Spain,en:Poland
 
-202:Game
+xx:Game
+wikidata:en:Q126811048
 
 br:GBarbosa
 wikidata:en:Q10287817
 country:en: en:Brazil
 
-cg:Géant Casino
+ae:Géant
 wikidata:en:Q1380537
-country:en: en:Congo,en:France
+country:en: en:United Arab Emirates,en:Djibouti,en:Egypt,en:Libya,en:Tunisia,en:Uruguay,en:Yemen
 
 en:Gelson's
 wikidata:en:Q16993993
@@ -1780,13 +1926,21 @@ de:Go Asia
 wikidata:en:Q102381911
 country:en: en:Germany
 
-en:Gordon Food Service
-wikidata:en:Q1538006
-country:en: en:Canada,en:United States of America
+en:Gordon Food Service Store
+wikidata:en:Q134734340
+country:en: en:United States of America
 
-fr:Grand Frais
+fx:Grand Frais
 wikidata:en:Q3114675
-country:en: en:France
+country:en: en:France (Metropolitan)
+
+by:Green
+wikidata:en:Q136678235
+country:en: en:Belarus
+
+id:Griya
+wikidata:en:Q124353081
+country:en: en:Indonesia
 
 en:Grocery Outlet
 wikidata:en:Q5609934
@@ -1812,6 +1966,10 @@ mx:H-E-B plus!
 wikidata:en:Q830621
 country:en: en:Mexico,en:United States of America
 
+en:Haggen
+wikidata:en:Q5638683
+country:en: en:United States of America
+
 tr:Hakmar
 wikidata:en:Q110454434
 country:en: en:Turkey
@@ -1822,7 +1980,11 @@ country:en: en:Turkey
 
 ee:HalpaHalli
 wikidata:en:Q11861256
-country:en: en:Estonia,en:Finland,en:Russian Federation
+country:en: en:Estonia,en:Finland
+
+se:Handlar'n
+wikidata:en:Q10517161
+country:en: en:Sweden
 
 en:Hannaford
 wikidata:en:Q5648760
@@ -1856,8 +2018,8 @@ en:Heron Foods
 wikidata:en:Q5743472
 country:en: en:United Kingdom
 
-es:Hiper Simply
-wikidata:en:Q5643014
+es:Hiperber
+wikidata:en:Q5898257
 country:en: en:Spain
 
 es:Hipercor
@@ -1900,6 +2062,14 @@ en:Hy-Vee
 wikidata:en:Q1639719
 country:en: en:United States of America
 
+fr:Hyper U
+wikidata:en:Q2529029
+country:en: en:France
+
+fx:Hypercacher
+wikidata:en:Q18746214
+country:en: en:France (Metropolitan)
+
 bo:IC Norte
 wikidata:en:Q81967653
 country:en: en:Bolivia
@@ -1912,11 +2082,12 @@ se:ICA Nära
 wikidata:en:Q1663776
 country:en: en:Sweden
 
-no:ICA Supermarket
+se:ICA Supermarket
 wikidata:en:Q1663776
-country:en: en:Norway,en:Sweden
+country:en: en:Sweden
 
-001:IDEA
+me:IDEA
+wikidata:en:Q23461622
 
 me:IDEA Super
 wikidata:en:Q114669350
@@ -1937,39 +2108,44 @@ lt:IKI
 wikidata:en:Q1653981
 country:en: en:Lithuania
 
+it:Il Gigante
+wikidata:en:Q3792743
+country:en: en:Italy
+
 it:In's Mercato
 wikidata:en:Q105615834
 country:en: en:Italy
 
-it:Incoop
-country:en: en:Italy
+id:Indomaret Fresh
+wikidata:en:Q138347581
+country:en: en:Indonesia
 
 en:Ingles
 wikidata:en:Q6032595
 country:en: en:United States of America
 
-001:Intermarché
+xx:Intermarché
 wikidata:en:Q3153200
 
-fr:Intermarché Drive
+fx:Intermarché Drive
 wikidata:en:Q3153200
-country:en: en:France
+country:en: en:France (Metropolitan)
 
-fr:Intermarché Express
-wikidata:en:Q98278043
-country:en: en:France,en:Portugal
-
-fr:Intermarché Hyper
+fx:Intermarché Hyper
 wikidata:en:Q98278022
-country:en: en:France
+country:en: en:France (Metropolitan)
 
 be:Intermarché Super
 wikidata:en:Q98278038
-country:en: en:Belgium,en:France,en:Poland,en:Portugal
+country:en: en:Belgium,en:France (Metropolitan),en:Poland,en:Portugal
 
 at:Interspar
 wikidata:en:Q15820339
-country:en: en:Austria,en:Croatia (Hrvatska)
+country:en: en:Austria,en:Croatia (Hrvatska),en:Hungary,en:Slovenia
+
+it:Iper
+wikidata:en:Q3801479
+country:en: en:Italy
 
 it:Iperal
 wikidata:en:Q3801481
@@ -1979,13 +2155,21 @@ it:Ipercoop
 wikidata:en:Q6064990
 country:en: en:Italy
 
-dk:Irma
-wikidata:en:Q797150
-country:en: en:Denmark
+it:Iperfresco Basko
+wikidata:en:Q136464623
+country:en: en:Italy
+
+it:Italmark
+wikidata:en:Q126392586
+country:en: en:Italy
 
 nl:Jan Linders
 wikidata:en:Q2200982
 country:en: en:Netherlands
+
+my:Jaya Grocer
+wikidata:en:Q116275052
+country:en: en:Malaysia
 
 en:Jewel-Osco
 wikidata:en:Q3178470
@@ -1995,13 +2179,13 @@ no:Joker
 wikidata:en:Q716328
 country:en: en:Norway
 
-be:Jumbo
-wikidata:en:Q2262314
-country:en: en:Belgium,en:Netherlands
-
 ar:Jumbo (Cencosud)
 wikidata:en:Q6310864
 country:en: en:Argentina,en:Chile,en:Colombia
+
+be:Jumbo (Europe)
+wikidata:en:Q2262314
+country:en: en:Belgium,en:Netherlands
 
 fi:K-Citymarket
 wikidata:en:Q11868561
@@ -2015,6 +2199,10 @@ de:K+K
 wikidata:en:Q1718009
 country:en: en:Germany
 
+mk:Kam Market (Macedonia)
+wikidata:en:Q65296228
+country:en: en:Macedonia
+
 cz:Kaufland
 wikidata:en:Q685967
 country:en: en:Czech Republic,en:Germany,en:Croatia (Hrvatska),en:Moldova,en:Poland,en:Romania,en:Slovak Republic
@@ -2022,6 +2210,10 @@ country:en: en:Czech Republic,en:Germany,en:Croatia (Hrvatska),en:Moldova,en:Pol
 bg:Kaufland (България)
 wikidata:en:Q685967
 country:en: en:Bulgaria
+
+ma:Kazyon Market كازيون ماركت‏
+wikidata:en:Q139891834
+country:en: en:Morocco
 
 bo:Ketal
 wikidata:en:Q81967299
@@ -2034,6 +2226,10 @@ country:en: en:United States of America
 en:KFL Supermarkets
 wikidata:en:Q113462406
 country:en: en:Australia
+
+en:King Kullen
+wikidata:en:Q6411832
+country:en: en:United States of America
 
 en:King Soopers
 wikidata:en:Q6412065
@@ -2059,10 +2255,10 @@ sk:Klas
 wikidata:en:Q116718756
 country:en: en:Slovak Republic
 
-konsum:Konsum (Dresden)
+xx:Konsum (Dresden)
 wikidata:en:Q1618877
 
-konsum:Konsum Leipzig
+xx:Konsum Leipzig
 wikidata:en:Q1468147
 
 ba:Konzum (Balkans)
@@ -2092,10 +2288,6 @@ en:KTA Super Stores
 wikidata:en:Q44361030
 country:en: en:United States of America
 
-de:Kupsch
-wikidata:en:Q1750581
-country:en: en:Germany
-
 dk:Kvickly
 wikidata:en:Q7061148
 country:en: en:Denmark
@@ -2112,7 +2304,8 @@ mx:La Comer
 wikidata:en:Q26765126
 country:en: en:Mexico
 
-001:La Despensa
+es:La Despensa
+country:en: en:Spain
 
 en:La Michoacana Meat Market
 wikidata:en:Q6463872
@@ -2126,12 +2319,9 @@ fr:La Vie Claire
 wikidata:en:Q3213589
 country:en: en:France
 
-ch:Landi
-wikidata:en:Q1803010
-country:en: en:Switzerland
-
-001:Leader Price
+fr:Leader Price
 wikidata:en:Q2181426
+country:en: en:France,en:Madagascar
 
 fr:Les Comptoirs De La Bio
 wikidata:en:Q120801428
@@ -2149,7 +2339,7 @@ cl:Lider Express
 wikidata:en:Q6711261
 country:en: en:Chile
 
-001:Lidl
+xx:Lidl
 wikidata:en:Q151954
 
 en:Lincolnshire Co-op
@@ -2182,10 +2372,14 @@ country:en: en:Canada
 
 id:Lotte Mart
 wikidata:en:Q326715
-country:en: en:Indonesia,en:Korea (South)
+country:en: en:Indonesia
 
 my:Lotus's
 wikidata:en:Q2378901
+country:en: en:Malaysia,en:Thailand
+
+my:Lotus's go fresh
+wikidata:en:Q125937967
 country:en: en:Malaysia,en:Thailand
 
 dk:Løvbjerg
@@ -2212,25 +2406,39 @@ ae:Lulu Hypermarket
 wikidata:en:Q6702930
 country:en: en:United Arab Emirates,en:Bahrain,en:Egypt,en:Indonesia,en:India,en:Kuwait,en:Malaysia,en:Oman,en:Qatar
 
+ar:Luna
+country:en: en:Argentina
+
 es:Lupa
 wikidata:en:Q58044048
 country:en: en:Spain
 
-001:M&S Foodhall
+en:M&S Food
 wikidata:en:Q714491
+country:en: en:United Kingdom
 
-001:M&S Simply Food
+en:M&S Foodhall
 wikidata:en:Q714491
+country:en: en:United Kingdom,en:Ireland
+
+en:M&S Simply Food
+wikidata:en:Q714491
+country:en: en:United Kingdom
 
 tr:Macrocenter
 wikidata:en:Q123194881
 country:en: en:Turkey
 
-001:Magnum
+kz:Magnum
+country:en: en:Kazakhstan
 
 en:Marc's
 wikidata:en:Q17080259
 country:en: en:United States of America
+
+fr:Marcel & fils
+wikidata:en:Q125022585
+country:en: en:France
 
 en:Marché Adonis
 wikidata:en:Q20707426
@@ -2244,15 +2452,23 @@ en:Mariano's Fresh Market
 wikidata:en:Q55622168
 country:en: en:United States of America
 
-ma:Marjane
-wikidata:en:Q2055692
+ma:Marjane City مرجان سيتي
+wikidata:en:Q136333353
+country:en: en:Morocco
+
+ma:Marjane Market مرجان ماركت
+wikidata:en:Q2823349
+country:en: en:Morocco
+
+ma:Marjane مرجان
+wikidata:en:Q136333342
 country:en: en:Morocco
 
 de:Markant
 wikidata:en:Q57523365
 country:en: en:Germany
 
-001:Market Basket
+xx:Market Basket
 wikidata:en:Q2079198
 
 gr:Market In
@@ -2266,49 +2482,57 @@ hk:Market Place
 wikidata:en:Q10851178
 country:en: en:Hong Kong
 
-hk:Market Place by Jasons
-wikidata:en:Q6770713
-country:en: en:Hong Kong
-
 en:Market Street
 wikidata:en:Q119405196
 country:en: en:United States of America,en:United States of America
+
+pl:MarketVita
+wikidata:en:Q118958720
+country:en: en:Poland
 
 de:MARKTKAUF
 wikidata:en:Q1533254
 country:en: en:Germany
 
-nl:Marqt
-wikidata:en:Q55361811
-country:en: en:Netherlands
-
 en:Martin's Super Markets
 wikidata:en:Q6774803
 country:en: en:United States of America,en:United States of America
 
-:masymas (Hijos de Luis Rodríguez)
+cy:Mas
+wikidata:en:Q122957534
+country:en: en:Cyprus
+
+xx:masymas (Hijos de Luis Rodríguez)
 wikidata:en:Q6135987
 
-:masymas (Juan Fornés Fornés)
+xx:masymas (Juan Fornés Fornés)
 wikidata:en:Q6135987
 
-:masymas (Luis Piña)
+xx:masymas (Luis Piña)
 wikidata:en:Q6135987
 
 be:Match
 wikidata:en:Q513977
 country:en: en:Belgium,en:France,en:Hungary,en:Luxembourg
 
+br:Mateus Supermercados
+wikidata:en:Q134776648
+country:en: en:Brazil
+
 no:Matkroken
 wikidata:en:Q11988679
 country:en: en:Norway
 
-rs:Maxi
-wikidata:en:Q6795490
+se:Matöppet
+wikidata:en:Q10578618
+country:en: en:Sweden
 
 en:Maxi (Canada)
 wikidata:en:Q3302441
 country:en: en:Canada
+
+rs:Maxi (Србија)
+wikidata:en:Q6795490
 
 es:Maxi Dia
 wikidata:en:Q925132
@@ -2346,17 +2570,29 @@ it:MD
 wikidata:en:Q3841263
 country:en: en:Italy
 
-001:Mega
+it:Mega
+country:en: en:Italy
 
 ro:Mega Image
 wikidata:en:Q6808085
 country:en: en:Romania
+
+rs:Mega Maxi
+wikidata:en:Q7698875
+
+mx:MEGA Soriana
+wikidata:en:Q735562
+country:en: en:Mexico
 
 na:Megasave
 wikidata:en:Q116520541
 country:en: en:Namibia,en:Swaziland,en:South Africa
 
 jp:MEGAドン・キホーテ
+wikidata:en:Q1185381
+country:en: en:Japan
+
+jp:MEGAドン・キホーテUNY
 wikidata:en:Q1185381
 country:en: en:Japan
 
@@ -2368,9 +2604,9 @@ en:Meijer
 wikidata:en:Q1917753
 country:en: en:United States of America
 
-de:mein real
-wikidata:en:Q698473
-country:en: en:Germany
+gh:Melcom
+wikidata:en:Q6812065
+country:en: en:Ghana
 
 dk:Meny
 wikidata:en:Q10581720
@@ -2384,6 +2620,22 @@ es:Mercadona
 wikidata:en:Q377705
 country:en: en:Spain,en:Portugal
 
+it:Mercatò
+wikidata:en:Q127389715
+country:en: en:Italy
+
+it:Mercatò Big
+wikidata:en:Q127389715
+country:en: en:Italy
+
+it:Mercatò Extra
+wikidata:en:Q127389715
+country:en: en:Italy
+
+it:Mercatò Local
+wikidata:en:Q127389715
+country:en: en:Italy
+
 ba:Mercator
 wikidata:en:Q738412
 country:en: en:Bosnia & Herzegovina,en:Croatia (Hrvatska),en:Slovenia
@@ -2392,7 +2644,7 @@ cy:Metro (Cyprus)
 wikidata:en:Q6715491
 country:en: en:Cyprus
 
-en:Metro (Ontario & Quebec)
+en:Metro (Ontario/Quebec)
 wikidata:en:Q1145669
 country:en: en:Canada,en:Canada
 
@@ -2412,16 +2664,17 @@ mx:Mi Bodega Aurrera
 wikidata:en:Q3365858
 country:en: en:Mexico
 
-001:Migros
+ch:Migros (Europe)
 wikidata:en:Q680727
+country:en: en:Switzerland,en:France (Metropolitan),en:Italy
 
-tr:Migros Jet
+tr:Migros (Türkiye)
 wikidata:en:Q1754510
 country:en: en:Turkey
 
-pl:Mila
-wikidata:en:Q48844636
-country:en: en:Poland
+it:Migross
+wikidata:en:Q137711332
+country:en: en:Italy
 
 sk:Milk-Agro
 wikidata:en:Q64173785
@@ -2441,11 +2694,14 @@ country:en: en:United States of America
 
 at:Mix Markt
 wikidata:en:Q327854
-country:en: en:Austria,en:Belgium,en:Cyprus,en:Czech Republic,en:Germany,en:Spain,en:France,en:United Kingdom,en:Greece,en:Italy,en:Netherlands,en:Portugal
+country:en: en:Austria,en:Belgium,en:Cyprus,en:Czech Republic,en:Germany,en:Spain,en:France,en:United Kingdom,en:Greece,en:Italy,en:Malta,en:Netherlands,en:Poland,en:Portugal,en:Slovenia,en:Slovak Republic
 
 bg:Mix Markt (България)
 wikidata:en:Q327854
 country:en: en:Bulgaria
+
+ch:MM Migros
+country:en: en:Switzerland
 
 pl:Mokpol
 wikidata:en:Q113227698
@@ -2466,6 +2722,10 @@ country:en: en:India
 en:Morrisons
 wikidata:en:Q922344
 country:en: en:United Kingdom
+
+en:Morton Williams
+wikidata:en:Q28227933
+country:en: en:United States of America,en:United States of America
 
 at:MPREIS
 wikidata:en:Q873491
@@ -2514,6 +2774,10 @@ in:Nature's Basket
 wikidata:en:Q28174237
 country:en: en:India
 
+fr:naturéO
+wikidata:en:Q6981018
+country:en: en:France
+
 is:Nettó (Ísland)
 wikidata:en:Q67205962
 country:en: en:Iceland
@@ -2546,6 +2810,10 @@ nz:New World
 wikidata:en:Q7012488
 country:en: en:New Zealand
 
+in:Nilgiri's
+wikidata:en:Q17079567
+country:en: en:India
+
 en:Nisa Extra
 wikidata:en:Q16999069
 country:en: en:United Kingdom
@@ -2562,13 +2830,17 @@ lt:Norfa XL
 wikidata:en:Q1998983
 country:en: en:Lithuania
 
-at:NORMA
+at:Norma
 wikidata:en:Q450180
 country:en: en:Austria,en:Czech Republic,en:Germany,en:France
 
 en:Northern Store
 wikidata:en:Q7754361
 country:en: en:Canada
+
+en:Northgate Market
+wikidata:en:Q124810943
+country:en: en:United States of America
 
 ua:Novus
 wikidata:en:Q116748340
@@ -2582,12 +2854,16 @@ my:NSK Trade City
 wikidata:en:Q106978506
 country:en: en:Malaysia
 
-sg:NTUC Fairprice
-wikidata:en:Q6955519
-country:en: en:Singapore
+hr:NTL
+wikidata:en:Q6966095
+country:en: en:Croatia (Hrvatska)
+
+no:Obs
+wikidata:en:Q5167707
+country:en: en:Norway
 
 nl:Odin
-wikidata:en:Q122904022
+wikidata:en:Q114839627
 country:en: en:Netherlands
 
 na:OK Foods
@@ -2606,9 +2882,17 @@ co:Olímpica
 wikidata:en:Q24749847
 country:en: en:Colombia
 
+tr:Onur Market
+wikidata:en:Q127273067
+country:en: en:Turkey
+
 nz:PAK'nSAVE
 wikidata:en:Q7125339
 country:en: en:New Zealand
+
+gh:Palace (Ghana)
+wikidata:en:Q130376211
+country:en: en:Ghana
 
 cr:Palí
 wikidata:en:Q1064887
@@ -2618,9 +2902,12 @@ ch:Pam
 wikidata:en:Q105615038
 country:en: en:Switzerland,en:Italy
 
+cu:Panamericana
+country:en: en:Cuba
+
 br:Pão de Açúcar
 wikidata:en:Q3411543
-country:en: en:Brazil,en:Portugal
+country:en: en:Brazil
 
 en:Patel Brothers
 wikidata:en:Q55641396
@@ -2630,7 +2917,11 @@ en:Pavilions
 wikidata:en:Q7155886
 country:en: en:United States of America
 
-at:PENNY
+en:PCC Community Markets
+wikidata:en:Q7118517
+country:en: en:United States of America
+
+at:Penny
 wikidata:en:Q284688
 country:en: en:Austria,en:Czech Republic,en:Germany,en:Hungary,en:Italy,en:Romania
 
@@ -2642,17 +2933,13 @@ en:Pick 'n Save
 wikidata:en:Q7371288
 country:en: en:United States of America
 
-na:Pick n Pay
+bw:Pick n Pay
 wikidata:en:Q7190735
-country:en: en:Namibia,en:South Africa
+country:en: en:Botswana,en:Lesotho,en:Namibia,en:Nigeria,en:Swaziland,en:South Africa,en:Zambia
 
-na:Pick n Pay Hyper
-wikidata:en:Q7190735
-country:en: en:Namibia,en:South Africa
-
-na:Pick n Pay Super
-wikidata:en:Q7190735
-country:en: en:Namibia,en:South Africa
+za:Pick n Pay Hypermarket
+wikidata:en:Q128791977
+country:en: en:South Africa
 
 en:Piggly Wiggly
 wikidata:en:Q3388303
@@ -2661,10 +2948,6 @@ country:en: en:United Kingdom,en:United States of America
 pt:Pingo Doce
 wikidata:en:Q1575057
 country:en: en:Portugal
-
-pl:Piotr i Paweł
-wikidata:en:Q2096356
-country:en: en:Poland
 
 en:Planet Organic
 wikidata:en:Q24298870
@@ -2708,11 +2991,11 @@ country:en: en:United States of America
 
 es:Primaprix
 wikidata:en:Q112691161
-country:en: en:Spain
+country:en: en:Spain,en:France,en:Portugal
 
 ee:Prisma
 wikidata:en:Q12047031
-country:en: en:Estonia,en:Finland,en:Russian Federation
+country:en: en:Estonia,en:Finland
 
 hu:Privát Max
 wikidata:en:Q115606854
@@ -2727,13 +3010,20 @@ wikidata:en:Q956664
 country:en: en:Belgium,en:Hungary,en:Romania
 
 ro:Profi City
+wikidata:en:Q956664
 country:en: en:Romania
 
 ro:Profi Loco
+wikidata:en:Q956664
 country:en: en:Romania
 
 ro:Profi Super
+wikidata:en:Q956664
 country:en: en:Romania
+
+by:ProStore
+wikidata:en:Q136696149
+country:en: en:Belarus
 
 en:Provigo
 wikidata:en:Q3408306
@@ -2744,7 +3034,7 @@ wikidata:en:Q3408522
 country:en: en:Switzerland,en:France
 
 be:Proxy Delhaize
-wikidata:en:Q14903417
+wikidata:en:Q1184173
 country:en: en:Belgium,en:Luxembourg
 
 en:Publix
@@ -2754,10 +3044,6 @@ country:en: en:United States of America
 en:Pueblo
 wikidata:en:Q7258464
 country:en: en:United States of America
-
-it:Punto Simply
-wikidata:en:Q3484790
-country:en: en:Italy
 
 ph:Puregold
 wikidata:en:Q7261170
@@ -2807,15 +3093,27 @@ dk:Rema 1000
 wikidata:en:Q28459
 country:en: en:Denmark,en:Norway
 
-de:REWE
+de:Rewe
 wikidata:en:Q16968817
 country:en: en:Germany
 
-de:REWE City
+de:Rewe City
 wikidata:en:Q16968817
 country:en: en:Germany
 
-ee:Rimi
+hr:Ribola
+wikidata:en:Q65124070
+country:en: en:Croatia (Hrvatska)
+
+ee:Rimi Hyper
+wikidata:en:Q3741108
+country:en: en:Estonia,en:Lithuania,en:Latvia
+
+ee:Rimi Mini
+wikidata:en:Q3741108
+country:en: en:Estonia,en:Latvia
+
+ee:Rimi Super
 wikidata:en:Q3741108
 country:en: en:Estonia,en:Lithuania,en:Latvia
 
@@ -2870,6 +3168,14 @@ am:SAS
 wikidata:en:Q118347380
 country:en: en:Armenia
 
+lk:Sathosa
+wikidata:en:Q96386898
+country:en: en:Sri Lanka
+
+fx:Satoriz
+wikidata:en:Q130144737
+country:en: en:France (Metropolitan)
+
 en:Save Mart
 wikidata:en:Q7428009
 country:en: en:United States of America
@@ -2882,11 +3188,18 @@ en:Save-On-Foods
 wikidata:en:Q7427974
 country:en: en:Canada
 
+br:Savegnago Supermercados
+wikidata:en:Q121097894
+country:en: en:Brazil
+
 za:SaveMor
 wikidata:en:Q610492
 country:en: en:South Africa
 
 ph:Savemore
+country:en: en:Philippines
+
+ph:Savemore Market
 country:en: en:Philippines
 
 de:Scheck-In Center
@@ -2904,6 +3217,10 @@ country:en: en:United Kingdom
 en:Seafood City
 wikidata:en:Q7440359
 country:en: en:United States of America
+
+pl:Sedal
+wikidata:en:Q133282955
+country:en: en:Poland
 
 mx:Selecto Chedraui
 wikidata:en:Q2961952
@@ -2925,15 +3242,24 @@ sg:Sheng Siong
 wikidata:en:Q3481878
 country:en: en:Singapore
 
-baltimore_and_dc.geojson:Shoppers Food & Pharmacy
+en:Shop 'n Save
+wikidata:en:Q7501110
+country:en: en:United States of America,en:United States of America,en:United States of America,en:United States of America,en:United States of America
+
+en:Shoppers Food & Pharmacy
 wikidata:en:Q7501183
+country:en: en:United States of America
 
 ao:Shoprite (Africa)
 wikidata:en:Q1857639
-country:en: en:Angola,en:Botswana,en:Zaire,en:Ghana,en:Lesotho,en:Madagascar,en:Mauritius,en:Malawi,en:Mozambique,en:Namibia,en:Nigeria,en:Swaziland,en:Uganda,en:South Africa,en:Zambia
+country:en: en:Angola,en:Botswana,en:Zaire,en:Ghana,en:Lesotho,en:Madagascar,en:Mauritius,en:Malawi,en:Mozambique,en:Namibia,en:Swaziland,en:Uganda,en:South Africa,en:Zambia
 
 im:Shoprite (Isle of Man)
 wikidata:en:Q7501242
+
+ng:Shoprite (Nigeria)
+wikidata:en:Q130474676
+country:en: en:Nigeria
 
 en:ShopRite (USA)
 wikidata:en:Q7501097
@@ -2958,9 +3284,6 @@ country:en: en:Italy
 it:Sigma
 wikidata:en:Q3977979
 country:en: en:Italy
-
-001:Simply Market
-wikidata:en:Q3484790
 
 it:Sisa
 wikidata:en:Q3943661
@@ -3001,28 +3324,40 @@ tr:Şok
 wikidata:en:Q19613992
 country:en: en:Turkey
 
-mx:Soriana
+mx:Soriana Híper
+wikidata:en:Q735562
+country:en: en:Mexico
+
+mx:Soriana Mercado
+wikidata:en:Q735562
+country:en: en:Mexico
+
+mx:Soriana Súper
 wikidata:en:Q735562
 country:en: en:Mexico
 
 es:Sorli Discau
-wikidata:en:Q21034458
+wikidata:en:Q20103935
 country:en: en:Spain
 
-001:Spar
+xx:Spar
 wikidata:en:Q610492
 
 no:Spar (Norge)
 wikidata:en:Q610492
 country:en: en:Norway
 
-at:SPAR Gourmet
-wikidata:en:Q610492
-country:en: en:Austria
+at:Spar Gourmet
+wikidata:en:Q137258997
+country:en: en:Austria,en:South Africa
 
 it:Spazio Conad
 wikidata:en:Q118130063
 country:en: en:Italy
+
+ae:Spinneys
+wikidata:en:Q2890701
+country:en: en:United Arab Emirates,en:Egypt,en:Lebanon,en:Oman
 
 pl:Społem
 wikidata:en:Q11826043
@@ -3031,6 +3366,10 @@ country:en: en:Poland
 en:Sprouts Farmers Market
 wikidata:en:Q7581369
 country:en: en:United States of America
+
+in:Star Bazaar
+wikidata:en:Q124175958
+country:en: en:India
 
 en:Stater Bros.
 wikidata:en:Q7604016
@@ -3060,26 +3399,25 @@ es:Suma
 wikidata:en:Q58012362
 country:en: en:Spain
 
+mx:Sumesa
+wikidata:en:Q123741153
+country:en: en:Mexico
+
 en:Supabarn
 wikidata:en:Q7641883
 country:en: en:Australia
 
-es:Supeco (España)
-wikidata:en:Q110067041
-country:en: en:Spain
-
-fx:Supeco (France)
+es:Supeco
 wikidata:en:Q110067293
-country:en: en:France (Metropolitan)
+country:en: en:Spain,en:France (Metropolitan),en:Morocco,en:Romania
 
-ro:Supeco (România)
-wikidata:en:Q110066889
-country:en: en:Romania
+en:Super 1 Foods (Northwestern USA)
+country:en: en:United States of America,en:United States of America,en:United States of America
 
-en:Super 1 Foods
-country:en: en:United States of America
+en:Super 1 Foods (Southern USA)
+country:en: en:United States of America,en:United States of America,en:United States of America
 
-001:Super C
+xx:Super C
 wikidata:en:Q3504127
 
 mx:Super Che
@@ -3098,13 +3436,17 @@ en:Super H Mart
 wikidata:en:Q5636306
 country:en: en:United States of America
 
+id:Super Indo
+wikidata:en:Q12518060
+country:en: en:Indonesia
+
 ph:Super Metro
 wikidata:en:Q23808789
 country:en: en:Philippines
 
 en:Super One Foods
 wikidata:en:Q17108733
-country:en: en:United States of America
+country:en: en:United States of America,en:United States of America,en:United States of America,en:United States of America
 
 mx:Super Selecto Chedraui
 wikidata:en:Q2961952
@@ -3113,6 +3455,9 @@ country:en: en:Mexico
 fr:Super U
 wikidata:en:Q2529029
 country:en: en:France
+
+rs:Super Vero
+wikidata:en:Q130307764
 
 mx:Superama
 wikidata:en:Q6135762
@@ -3134,17 +3479,25 @@ it:Superconti
 wikidata:en:Q69381940
 country:en: en:Italy
 
-es:Supercor
-wikidata:en:Q6135841
-country:en: en:Spain,en:Portugal
-
 es:SuperDino
 wikidata:en:Q105955304
 country:en: en:Spain
 
+en:Superior Grocers
+wikidata:en:Q124810975
+country:en: en:United States of America
+
 mx:SuperISSSTE
 wikidata:en:Q113205941
 country:en: en:Mexico
+
+br:Supermarket (Brasil)
+wikidata:en:Q127375573
+country:en: en:Brazil
+
+br:Supermercado Covabra
+wikidata:en:Q131063998
+country:en: en:Brazil
 
 br:Supermercados BH
 wikidata:en:Q115209705
@@ -3163,10 +3516,10 @@ wikidata:en:Q62073427
 country:en: en:Argentina,en:Spain,en:Morocco,en:Uruguay
 
 es:Superspar
-wikidata:en:Q610492
+wikidata:en:Q137259027
 country:en: en:Spain,en:South Africa
 
-en:SuperValu
+en:SuperValu (Ireland/UK)
 wikidata:en:Q7642081
 country:en: en:United Kingdom,en:Ireland
 
@@ -3182,6 +3535,10 @@ at:Sutterlüty
 wikidata:en:Q1421502
 country:en: en:Austria
 
+de:Tante Enso
+wikidata:en:Q139741142
+country:en: en:Germany
+
 en:Target (USA)
 wikidata:en:Q1046951
 country:en: en:United States of America
@@ -3194,16 +3551,24 @@ de:tegut
 wikidata:en:Q1547993
 country:en: en:Germany
 
-rs:Tempo
-wikidata:en:Q7698875
+sk:Tempo (Slovensko)
+wikidata:en:Q41629254
+country:en: en:Slovak Republic
 
-001:Terno
+se:Tempo (Sverige)
+wikidata:en:Q10692628
+country:en: en:Sweden
 
-001:Tesco
+sk:Terno
+wikidata:en:Q131153895
+country:en: en:Slovak Republic
+
+xx:Tesco
 wikidata:en:Q487494
 
-001:Tesco Extra
+cz:Tesco Extra
 wikidata:en:Q25172225
+country:en: en:Czech Republic,en:United Kingdom,en:Hungary,en:Ireland,en:Slovak Republic
 
 ie:Tesco Metro
 wikidata:en:Q57551648
@@ -3237,7 +3602,12 @@ ua:Thrash! Траш!
 wikidata:en:Q56364758
 country:en: en:Ukraine
 
+ec:Tía
+wikidata:en:Q3546997
+country:en: en:Ecuador
+
 co:Tiendas D1
+wikidata:en:Q43403418
 country:en: en:Colombia
 
 it:Tigre
@@ -3288,6 +3658,10 @@ en:Tops (USA)
 wikidata:en:Q7825137
 country:en: en:United States of America
 
+ua:Torba
+wikidata:en:Q140402744
+country:en: en:Ukraine
+
 cl:Tottus
 wikidata:en:Q7828510
 country:en: en:Chile,en:Peru
@@ -3308,17 +3682,25 @@ it:Tuodì
 wikidata:en:Q3706995
 country:en: en:Italy
 
-fr:U Express
-wikidata:en:Q2529029
-country:en: en:France
+tr:Türkiye Tarım Kredi Kooperatif Market
+wikidata:en:Q127328776
+country:en: en:Turkey
 
-it:U!
-wikidata:en:Q105542347
+ec:TuTi
+wikidata:en:Q138861435
+country:en: en:Ecuador
+
+pl:Twój Market
+wikidata:en:Q97556535
+country:en: en:Poland
+
+it:Unes
+wikidata:en:Q131740233
 country:en: en:Italy
 
-it:U2
-wikidata:en:Q105542216
-country:en: en:Italy
+es:Unide
+wikidata:en:Q126737030
+country:en: en:Spain
 
 cl:Unimarc
 wikidata:en:Q6156244
@@ -3375,6 +3757,10 @@ es:Vidal Supermercados
 wikidata:en:Q114915046
 country:en: en:Spain
 
+in:Vishal Mega Mart
+wikidata:en:Q126895037
+country:en: en:India
+
 ch:VOI
 wikidata:en:Q110277616
 country:en: en:Switzerland
@@ -3391,6 +3777,10 @@ en:Vons
 wikidata:en:Q7941609
 country:en: en:United States of America
 
+pl:Wafelek
+wikidata:en:Q133278921
+country:en: en:Poland
+
 en:Waitrose
 wikidata:en:Q771734
 country:en: en:United Kingdom
@@ -3400,11 +3790,12 @@ wikidata:en:Q483551
 country:en: en:Mexico
 
 en:Walmart Neighborhood Market
-wikidata:en:Q483551
-country:en: en:Canada,en:United States of America
+wikidata:en:Q7963529
+country:en: en:United States of America
 
-001:Walmart Supercenter
+in:Walmart Supercenter
 wikidata:en:Q483551
+country:en: en:India,en:Mexico,en:United States of America
 
 en:Walmart Supercentre
 wikidata:en:Q483551
@@ -3425,6 +3816,10 @@ country:en: en:United States of America
 en:Whole Foods Market
 wikidata:en:Q1809448
 country:en: en:Canada,en:United Kingdom,en:United States of America
+
+en:Wholesale Club
+wikidata:en:Q7997568
+country:en: en:Canada
 
 se:Willys
 wikidata:en:Q10720214
@@ -3462,6 +3857,9 @@ nz:Woolworths Metro (New Zealand)
 wikidata:en:Q123699264
 country:en: en:New Zealand
 
+pa:Xtra
+country:en: en:Panama
+
 sk:Yeme
 wikidata:en:Q108757006
 country:en: en:Slovak Republic
@@ -3469,6 +3867,10 @@ country:en: en:Slovak Republic
 am:Yerevan City
 wikidata:en:Q55663505
 country:en: en:Armenia
+
+id:Yogya
+wikidata:en:Q124353073
+country:en: en:Indonesia
 
 en:Your Independent Grocer
 wikidata:en:Q8058833
@@ -3491,6 +3893,7 @@ wikidata:en:Q5518063
 country:en: en:Greece
 
 gr:Κρητικός
+wikidata:en:Q129911567
 country:en: en:Greece
 
 gr:Μασούτης
@@ -3516,7 +3919,12 @@ ru:Азбука Вкуса
 wikidata:en:Q4058209
 country:en: en:Russian Federation
 
-001:Азия
+kg:Азия
+country:en: en:Kyrgyzstan,en:Kazakhstan,en:Uzbekistan
+
+by:Алми
+wikidata:en:Q136695896
+country:en: en:Belarus
 
 ru:Аникс
 country:en: en:Russian Federation
@@ -3533,14 +3941,19 @@ ru:Ашан
 wikidata:en:Q110053013
 country:en: en:Russian Federation
 
-ua:Ашан Україна
+ua:Ашан (Україна)
 wikidata:en:Q4073419
 country:en: en:Ukraine
 
 ru:Байрам
 country:en: en:Russian Federation
 
+ru:Батон
+wikidata:en:Q131625080
+country:en: en:Russian Federation
+
 by:Белмаркет
+wikidata:en:Q4082116
 country:en: en:Belarus
 
 ua:Близенько
@@ -3549,6 +3962,10 @@ country:en: en:Ukraine
 
 bg:Булмаг
 wikidata:en:Q66133376
+country:en: en:Bulgaria
+
+bg:Бурлекс
+wikidata:en:Q124736705
 country:en: en:Bulgaria
 
 ua:Велмарт
@@ -3571,10 +3988,18 @@ ua:Вопак
 wikidata:en:Q30966107
 country:en: en:Ukraine
 
-001:Глобус
+xx:Гипер Лента
 
-001:Гроздь
+by:Гиппо
+wikidata:en:Q136677843
+country:en: en:Belarus
+
+kg:Глобус
+country:en: en:Kyrgyzstan,en:Russian Federation
+
+am:Гроздь
 wikidata:en:Q21638412
+country:en: en:Armenia,en:Belarus,en:Kazakhstan,en:Russian Federation
 
 ru:Гросеров
 wikidata:en:Q112764775
@@ -3584,12 +4009,17 @@ ru:Гулливер
 wikidata:en:Q58003470
 country:en: en:Russian Federation
 
-ru:Да!
+ru:ДА!
+wikidata:en:Q127829045
 country:en: en:Russian Federation
 
 bg:Дар
 wikidata:en:Q114053570
 country:en: en:Bulgaria
+
+by:Два гуся
+wikidata:en:Q136697163
+country:en: en:Belarus
 
 ru:Десяточка
 wikidata:en:Q61876182
@@ -3599,17 +4029,27 @@ ru:Дикси
 wikidata:en:Q4161561
 country:en: en:Russian Federation
 
+by:Дионис
+wikidata:en:Q136697028
+country:en: en:Belarus
+
 rs:ДИС
 wikidata:en:Q115091348
 
-001:Доброцен
-
-by:Евроопт
-wikidata:en:Q108489016
+by:Доброном
+wikidata:en:Q97312362
 country:en: en:Belarus
+
+am:Доброцен
+wikidata:en:Q136697017
+country:en: en:Armenia,en:Belarus,en:Kazakhstan,en:Russian Federation
 
 by:Евроопт Hyper
 wikidata:en:Q65455975
+country:en: en:Belarus
+
+by:Евроопт Prime
+wikidata:en:Q136750549
 country:en: en:Belarus
 
 by:Евроопт Super
@@ -3620,13 +4060,9 @@ ua:ЕКО маркет
 wikidata:en:Q12103350
 country:en: en:Ukraine
 
-ru:Карусель
-wikidata:en:Q4216307
-country:en: en:Russian Federation
-
-ua:Квартал
-wikidata:en:Q25446563
-country:en: en:Ukraine
+bg:Кам Маркет (България)
+wikidata:en:Q65296228
+country:en: en:Bulgaria
 
 ru:Кировский
 wikidata:en:Q63301903
@@ -3640,24 +4076,31 @@ ua:Копійка
 wikidata:en:Q116871080
 country:en: en:Ukraine
 
+by:Корона
+wikidata:en:Q136695892
+country:en: en:Belarus
+
 ru:Красный Яр
+wikidata:en:Q125516493
 country:en: en:Russian Federation
 
 ru:Лента
 wikidata:en:Q4258608
 country:en: en:Russian Federation
 
+bg:Лидл (България)
+wikidata:en:Q108169047
+country:en: en:Bulgaria
+
 rs:Лидл (Србија)
 wikidata:en:Q114509929
 
-ua:ЛотОК
-wikidata:en:Q117670659
-country:en: en:Ukraine
-
-001:Магнит
+bg:Магнит
 wikidata:en:Q940518
+country:en: en:Bulgaria,en:Belarus,en:Kyrgyzstan,en:Kazakhstan,en:Russian Federation,en:Uzbekistan
 
-001:Магнит Семейный
+ru:Магнит Семейный
+country:en: en:Russian Federation
 
 ru:Магнит у дома
 country:en: en:Russian Federation
@@ -3669,7 +4112,20 @@ ru:Мария-Ра
 wikidata:en:Q4281631
 country:en: en:Russian Federation
 
-001:Маяк
+ua:Маркетопт
+wikidata:en:Q108472154
+country:en: en:Ukraine
+
+by:Марцін
+wikidata:en:Q19278011
+country:en: en:Belarus
+
+ru:Маяк
+country:en: en:Russian Federation
+
+by:Микс
+wikidata:en:Q136718782
+country:en: en:Belarus
 
 ru:Мираторг
 country:en: en:Russian Federation
@@ -3677,6 +4133,10 @@ country:en: en:Russian Federation
 ru:Монетка
 wikidata:en:Q4301704
 country:en: en:Russian Federation
+
+by:Нарасхват
+wikidata:en:Q136718620
+country:en: en:Belarus
 
 ua:Наш Край
 wikidata:en:Q12132995
@@ -3690,6 +4150,10 @@ ru:Перекрёсток
 wikidata:en:Q1684639
 country:en: en:Russian Federation
 
+by:ПерекрёстОК
+wikidata:en:Q136697102
+country:en: en:Belarus
+
 ru:Покупочка
 wikidata:en:Q58003270
 country:en: en:Russian Federation
@@ -3698,7 +4162,11 @@ ru:Полушка
 wikidata:en:Q4371080
 country:en: en:Russian Federation
 
-001:ПУД
+ua:Посад
+wikidata:en:Q130382015
+country:en: en:Ukraine
+
+xx:ПУД
 
 ru:Пятёрочка
 wikidata:en:Q1768969
@@ -3722,31 +4190,44 @@ ua:Рукавичка
 wikidata:en:Q20092568
 country:en: en:Ukraine
 
-by:Санта
+by:Санта Супер
+wikidata:en:Q136697457
 country:en: en:Belarus
 
-ru:Светофор
+by:Светофор
 wikidata:en:Q61875920
-country:en: en:Russian Federation
+country:en: en:Belarus,en:Russian Federation
 
 ru:Семишагофф
 wikidata:en:Q58003374
 country:en: en:Russian Federation
 
-001:Семья
+by:Семь пятниц XXL
+wikidata:en:Q136750906
+country:en: en:Belarus
+
+ru:Семья
+country:en: en:Russian Federation
 
 ua:Сільпо
 wikidata:en:Q4419434
 country:en: en:Ukraine
 
-001:Соседи
+xx:Соседи
+
+by:Спутник
+wikidata:en:Q136696285
+country:en: en:Belarus
+
+ru:Супер Лента
+country:en: en:Russian Federation
 
 bg:Т-Маркет
 wikidata:en:Q64033983
 country:en: en:Bulgaria
 
 ua:Таврія В
-wikidata:en:Q16038771
+wikidata:en:Q7689159
 country:en: en:Ukraine
 
 bg:Фантастико
@@ -3754,19 +4235,18 @@ wikidata:en:Q61140834
 country:en: en:Bulgaria
 
 ua:Фора
-wikidata:en:Q12165977
+wikidata:en:Q4491805
 country:en: en:Ukraine
 
 bg:Фреш Маркет
 wikidata:en:Q115452307
 country:en: en:Bulgaria
 
-001:Фрунзе
-
-by:Хит! Экспресс
-country:en: en:Belarus
+kg:Фрунзе
+country:en: en:Kyrgyzstan
 
 ru:Чижик
+wikidata:en:Q124171414
 country:en: en:Russian Federation
 
 ru:Эдельвейс
@@ -3776,6 +4256,22 @@ country:en: en:Russian Federation
 ru:Ярче!
 wikidata:en:Q102254456
 country:en: en:Russian Federation
+
+ge:აგროჰაბი
+wikidata:en:Q131469971
+country:en: en:Georgia
+
+ge:გუდვილი
+wikidata:en:Q118799213
+country:en: en:Georgia
+
+ge:ვილმარტი
+wikidata:en:Q118793042
+country:en: en:Georgia
+
+ge:კარფური მარკეტი
+wikidata:en:Q2689639
+country:en: en:Georgia
 
 ge:მაგნიტი
 wikidata:en:Q118792780
@@ -3793,12 +4289,27 @@ ge:სპარი
 wikidata:en:Q610492
 country:en: en:Georgia
 
+ge:ფრესკო
+wikidata:en:Q131469974
+country:en: en:Georgia
+
+ge:ჯიბე
+country:en: en:Georgia
+
 il:אושר עד
 wikidata:en:Q31198118
 country:en: en:Israel
 
 il:טיב טעם
 wikidata:en:Q2903718
+country:en: en:Israel
+
+il:טיב טעם בעיר
+wikidata:en:Q2903718
+country:en: en:Israel
+
+il:יוחננוף
+wikidata:en:Q25492676
 country:en: en:Israel
 
 il:יינות ביתן
@@ -3855,6 +4366,9 @@ ae:بنده
 wikidata:en:Q4832749
 country:en: en:United Arab Emirates,en:Bahrain,en:Saudi Arabia
 
+iq:تيم مارت
+country:en: en:Iraq
+
 ir:جانبو
 wikidata:en:Q119145401
 country:en: en:Iran
@@ -3867,11 +4381,17 @@ ir:رفاه
 wikidata:en:Q7307085
 country:en: en:Iran
 
-001:سوپر
+ir:سوپر
+country:en: en:Iran
 
-001:فروشگاه افق کوروش
+ir:فروشگاه افق کوروش
+country:en: en:Iran
 
-001:فروشگاه رفاه
+ir:فروشگاه رفاه
+country:en: en:Iran
+
+ae:كارفور
+country:en: en:United Arab Emirates,en:Egypt,en:Tunisia
 
 dz:مونوبري
 country:en: en:Algeria,en:Qatar,en:Tunisia
@@ -3901,7 +4421,7 @@ country:en: en:Japan
 
 jp:アピタ
 wikidata:en:Q55384637
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:イオン
 wikidata:en:Q11285951
@@ -3929,15 +4449,15 @@ country:en: en:Japan
 
 jp:エコス
 wikidata:en:Q11289886
-country:en: en:Japan
+country:en: en:Japan,en:Japan
 
 jp:オークワ
 wikidata:en:Q11293166
-country:en: en:Japan
+country:en: en:Japan,en:Japan
 
 jp:オーケーストア
 wikidata:en:Q11293184
-country:en: en:Japan
+country:en: en:Japan,en:Japan
 
 jp:オリンピック
 wikidata:en:Q11292764
@@ -3949,19 +4469,19 @@ country:en: en:Japan
 
 jp:キョーエイ
 wikidata:en:Q11297581
-country:en: en:Japan
+country:en: en:Japan,en:Japan
 
 jp:グルメシティ
 wikidata:en:Q11300647
-country:en: en:Japan
+country:en: en:Japan,en:Japan
 
 jp:コープ
 wikidata:en:Q11508615
 country:en: en:Japan
 
-jp:コープこう
+jp:コープこうべ
 wikidata:en:Q5137453
-country:en: en:Japan
+country:en: en:Japan,en:Japan
 
 jp:コープさっぽろ
 wikidata:en:Q11574624
@@ -3969,7 +4489,7 @@ country:en: en:Japan
 
 jp:コモディイイダ
 wikidata:en:Q11302699
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:ザ・ビッグ
 wikidata:en:Q11306676
@@ -3985,7 +4505,7 @@ country:en: en:Japan
 
 jp:サンディ
 wikidata:en:Q11305717
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:シティ
 wikidata:en:Q115865410
@@ -4001,11 +4521,11 @@ country:en: en:Japan
 
 jp:スーパーアルプス
 wikidata:en:Q11313666
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:スーパーバリュー
 wikidata:en:Q11313802
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:ダイエー
 wikidata:en:Q11316644
@@ -4019,6 +4539,22 @@ jp:タイヨー（南関東）
 wikidata:en:Q11315814
 country:en: en:Japan,en:Japan
 
+jp:ツルヤ
+wikidata:en:Q11318832
+country:en: en:Japan,en:Japan
+
+jp:デイリーカナート
+wikidata:en:Q11286632
+country:en: en:Japan
+
+jp:デイリーカナートイズミヤ
+wikidata:en:Q11286632
+country:en: en:Japan
+
+jp:デリシア
+wikidata:en:Q11283878
+country:en: en:Japan
+
 jp:トウズ
 wikidata:en:Q53308796
 country:en: en:Japan
@@ -4031,33 +4567,41 @@ jp:とりせん
 wikidata:en:Q11273505
 country:en: en:Japan
 
+jp:ドン・キホーテUNY
+wikidata:en:Q1185381
+country:en: en:Japan
+
 jp:バロー
 wikidata:en:Q11328346
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:ピーコックストア
 wikidata:en:Q11331715
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:ピアゴ
 wikidata:en:Q91014434
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:フジ
 wikidata:en:Q8963035
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:フジグラン
 wikidata:en:Q8963035
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:フレスタ
 wikidata:en:Q11333988
 country:en: en:Japan
 
+jp:フレンドマート
+wikidata:en:Q11060757
+country:en: en:Japan,en:Japan
+
 jp:ベイシア
 wikidata:en:Q11336776
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan,en:Japan
 
 jp:ベルク
 wikidata:en:Q11337090
@@ -4065,7 +4609,7 @@ country:en: en:Japan
 
 jp:ベルクス
 wikidata:en:Q11305967
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:まいばすけっと
 wikidata:en:Q11278154
@@ -4075,8 +4619,12 @@ jp:マックスバリュ
 wikidata:en:Q11340427
 country:en: en:Japan
 
+jp:マツモト
+wikidata:en:Q11340603
+country:en: en:Japan,en:Japan
+
 jp:マミーマート
-wikidata:en:Q11340902
+wikidata:en:Q126935642
 country:en: en:Japan
 
 jp:マルエツ
@@ -4089,7 +4637,7 @@ country:en: en:Japan
 
 jp:マルナカ
 wikidata:en:Q11341399
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan,en:Japan
 
 jp:ヤオコー
 wikidata:en:Q11344967
@@ -4099,13 +4647,17 @@ jp:ヤマナカ
 wikidata:en:Q11345199
 country:en: en:Japan
 
+jp:ユーパレット
+wikidata:en:Q105687460
+country:en: en:Japan
+
 jp:ゆめタウン
 wikidata:en:Q11280900
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan,en:Japan
 
 jp:ヨークベニマル
 wikidata:en:Q11346199
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:ヨークマート
 wikidata:en:Q11346201
@@ -4113,7 +4665,7 @@ country:en: en:Japan
 
 jp:ライフ
 wikidata:en:Q11346476
-country:en: en:Japan
+country:en: en:Japan,en:Japan
 
 jp:ラッキー
 wikidata:en:Q115865306
@@ -4129,20 +4681,24 @@ country:en: en:Japan
 
 jp:ロピア
 wikidata:en:Q11350624
-country:en: en:Japan
+country:en: en:Japan,en:Thailand,en:Taiwan
 
 jp:ワイズマート
 wikidata:en:Q11351175
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 jp:万代
 wikidata:en:Q11353756
 country:en: en:Japan
 
-117.1140042,36.6507007,50:东方冷库
+xx:东方冷库
 wikidata:en:Q123025086
 
 cn:中百佳乐家
+country:en: en:China
+
+cn:丹尼斯超市
+wikidata:en:Q137216000
 country:en: en:China
 
 cn:京客隆
@@ -4169,6 +4725,10 @@ cn:华润万家
 wikidata:en:Q5099892
 country:en: en:China
 
+tw:大全聯
+wikidata:en:Q135550746
+country:en: en:Taiwan
+
 cn:大张超市
 wikidata:en:Q111270003
 country:en: en:China
@@ -4177,33 +4737,27 @@ cn:大润发
 wikidata:en:Q7277802
 country:en: en:China
 
-tw:大潤發
-wikidata:en:Q7277802
-country:en: en:Taiwan
-
 en:大統華 T&T Supermarket
 wikidata:en:Q837893
 country:en: en:Canada
 
-cn:家乐福
-wikidata:en:Q3117359
-country:en: en:China
+xx:家乐福
 
 cn:家家悦
 wikidata:en:Q123025078
 country:en: en:China
 
-tw:家樂福
-wikidata:en:Q3117359
-country:en: en:Taiwan
-
-tw:家樂福超市
-wikidata:en:Q2689639
-country:en: en:Taiwan
+jp:平和堂
+wikidata:en:Q11060757
+country:en: en:Japan,en:Japan
 
 hk:惠康 Wellcome
 wikidata:en:Q706247
 country:en: en:Hong Kong
+
+tw:愛買
+wikidata:en:Q4648764
+country:en: en:Taiwan
 
 jp:成城石井
 wikidata:en:Q11495410
@@ -4215,19 +4769,23 @@ country:en: en:Japan
 
 jp:東急ストア
 wikidata:en:Q11526963
-country:en: en:Japan
+country:en: en:Japan,en:Japan
 
 jp:東武ストア
 wikidata:en:Q11527478
-country:en: en:Japan
+country:en: en:Japan,en:Japan,en:Japan
 
 tw:楓康超市
 wikidata:en:Q10915548
 country:en: en:Taiwan
 
 jp:業務スーパー
-wikidata:en:Q11590183
+wikidata:en:Q105687460
 country:en: en:Japan
+
+tw:樂家康
+wikidata:en:Q140398878
+country:en: en:Taiwan
 
 cn:永旺
 wikidata:en:Q271413
@@ -4245,7 +4803,7 @@ cn:沃尔玛
 wikidata:en:Q483551
 country:en: en:China
 
-117.1140042,36.6507007,50:济南华联超市
+xx:济南华联超市
 wikidata:en:Q123025079
 
 cn:物美
@@ -4266,11 +4824,27 @@ country:en: en:China
 
 jp:相鉄ローゼン
 wikidata:en:Q11582450
-country:en: en:Japan
+country:en: en:Japan,en:Japan
+
+tw:萬家福
+wikidata:en:Q136774386
+country:en: en:Taiwan
+
+jp:綿半スーパーセンター
+wikidata:en:Q126189811
+country:en: en:Japan,en:Japan
 
 tw:美廉社
 wikidata:en:Q15914017
 country:en: en:Taiwan
+
+tw:聖德科斯
+wikidata:en:Q126368246
+country:en: en:Taiwan
+
+jp:肉のハナマサ
+wikidata:en:Q11326564
+country:en: en:Japan,en:Japan
 
 hk:華潤萬家 Vanguard
 wikidata:en:Q5099892
@@ -4279,6 +4853,14 @@ country:en: en:Hong Kong
 jp:西友
 wikidata:en:Q3108542
 country:en: en:Japan
+
+cn:超市发
+wikidata:en:Q106844410
+country:en: en:China
+
+tw:里仁
+wikidata:en:Q126368246
+country:en: en:Taiwan
 
 cn:银座超市
 wikidata:en:Q123025090
@@ -4290,5 +4872,9 @@ country:en: en:China
 
 jp:関西スーパー
 wikidata:en:Q11656215
+country:en: en:Japan
+
+jp:阪急オアシス
+wikidata:en:Q11656737
 country:en: en:Japan
 
