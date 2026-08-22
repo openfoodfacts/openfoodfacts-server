@@ -1,0 +1,57 @@
+{
+   "allergens_tags" : [
+      "en:gluten"
+   ],
+   "languages" : {},
+   "languages_codes" : {},
+   "languages_hierarchy" : [],
+   "languages_tags" : [
+      "en:0"
+   ],
+   "lc" : "fr",
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:gluten"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:crustaceans",
+               "en:eggs",
+               "en:fish",
+               "en:soybeans",
+               "en:milk",
+               "en:nuts",
+               "en:celery",
+               "en:mustard",
+               "en:sulphur-dioxide-and-sulphites"
+            ]
+         }
+      }
+   },
+   "traces_tags" : [
+      "en:celery",
+      "en:crustaceans",
+      "en:eggs",
+      "en:fish",
+      "en:milk",
+      "en:mustard",
+      "en:nuts",
+      "en:soybeans",
+      "en:sulphur-dioxide-and-sulphites"
+   ]
+}

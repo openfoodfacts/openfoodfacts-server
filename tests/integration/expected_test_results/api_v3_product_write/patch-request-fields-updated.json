@@ -4,6 +4,7 @@
    "product" : {
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:plastic",
                "lc_name" : "Plastic"
@@ -11,7 +12,7 @@
             "number_of_units" : 1,
             "shape" : {
                "id" : "en:bag",
-               "lc_name" : "Bag"
+               "lc_name" : "bag"
             }
          }
       ]

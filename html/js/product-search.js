@@ -17,12 +17,14 @@
 // 		- very_good_match	score >= 75
 //		- good_match		score >= 50
 //		- poor_match		score < 50
-//		- unknown_match		at least one mandatory attribute is unknown, or unknown attributes weight more than 50% of the score
+//		- unknown_match		at least one mandatory attribute is unknown, or sum of unknown attributes weights represent more than 50% of the total weights
 //		- may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
 //		- does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
 //
 // - match_attributes: array of arrays of attributes corresponding to the product and
 // each set of preferences: mandatory, very_important, important
+//
+// IMPORTANT: update explain-personal-search.md if you change this algorithm / file
 
 function match_product_to_preferences(product, product_preferences) {
 
@@ -183,6 +185,7 @@ function rank_products(products, product_preferences, use_user_product_preferenc
 	if (use_user_product_preferences_for_ranking) {
 
 		// Rank all products
+		// IMPORTANT: if you change that, modify explain-personal-search.md
 
 		products.sort(function (a, b) {
 			return (b.match_score - a.match_score)  // Highest score first
@@ -247,10 +250,10 @@ function display_products(target, product_groups, user_prefs) {
 			product_html += '<div class="list_product_img_div">';
 
 			if (product.image_front_small_url) {
-				product_html += `<img src="${product.image_front_small_url}" class="list_product_img">`;
+				product_html += `<img src="${product.image_front_small_url}" class="list_product_img" alt="${product.product_display_name}" loading="lazy">`;
 			}
 			else {
-				product_html += `<img src="/images/icons/dist/packaging.svg" style="filter:invert(.9)" class="list_product_img">`;
+				product_html += `<img src="/images/icons/dist/packaging.svg" style="filter:invert(.9)" class="list_product_img" alt="${product.product_display_name}" loading="lazy">`;
 			}
 
 			product_html += "</div>";
@@ -275,7 +278,7 @@ function display_products(target, product_groups, user_prefs) {
 						title += " - " + attribute.missing;
 					}
 
-					product_html += '<img class="list_product_icons" src="' + attribute.icon_url + '" title="' + title + '">';
+					product_html += '<img class="list_product_icons" src="' + attribute.icon_url + '" title="' + title + '" alt="' + attribute.title + '" loading="lazy">';
 				}
 			});
 			product_html += '</div>';
@@ -336,7 +339,7 @@ function display_products(target, product_groups, user_prefs) {
 
 		$("#products_tabs_content").append(
 			'<div class="tabs content' + active + '" id="products_' + product_group_id + '">'
-			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-6 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + '" style="list-style:none">'
+			+ '<ul class="search_results small-block-grid-1 medium-block-grid-4 large-block-grid-5 xlarge-block-grid-8 xxlarge-block-grid-10" id="products_match_' + product_group_id + '" style="list-style:none">'
 			+ products_html.join("")
 			+ '</ul>'
 		);
@@ -401,7 +404,7 @@ function display_product_summary(target, product) {
 		// card_html will be either a <div> or a <a> element, depending on whether it is linked to a knowledge panel
 		let card_html = 'class="attribute_card grade_' + grade + '">' +
 			'<div><div class="attr_card_header">' +
-			'<div class="img_attr"><img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;"></div>' +
+			'<div class="img_attr"><img src="' + attribute.icon_url + '" style="height:72px;float:right;margin-left:0.5rem;" alt="'+ attribute.name +' icon"></div>' +
 			'<div class="attr_text"><h4 class="grade_' + grade + '_title attr_title">' + attribute.title + '</h4>';
 
 		if (attribute.description_short) {
@@ -464,7 +467,8 @@ function rank_and_display_products(target, products, contributor_prefs) {
 
 /* exported search_products */
 
-function search_products(target, products, search_api_url) {
+/* eslint-disable max-params */
+function search_products(target, products, search_api_url, contributor_prefs) {
 
 	// Retrieve generic search results from the search API
 
@@ -473,7 +477,7 @@ function search_products(target, products, search_api_url) {
 		if (data.products) {
 
 			Array.prototype.push.apply(products, data.products);
-			rank_and_display_products(target, products);
+			rank_and_display_products(target, products, contributor_prefs);
 		}
 	});
 }

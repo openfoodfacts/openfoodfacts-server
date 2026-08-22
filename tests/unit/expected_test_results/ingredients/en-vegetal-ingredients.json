@@ -1,59 +1,65 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "id" : "en:e428",
+         "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 60,
          "percent_max" : 100,
          "percent_min" : 20,
          "text" : "Gelatin",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
-         "id" : "en:charcoal",
+         "id" : "en:Charcoal",
+         "is_in_taxonomy" : 0,
          "labels" : "en:vegan",
          "percent_estimate" : 20,
          "percent_max" : 50,
          "percent_min" : 0,
          "text" : "Charcoal",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:ferment",
+         "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 10,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "ferments",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:rennet",
+         "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 5,
          "percent_max" : 25,
          "percent_min" : 0,
          "text" : "rennet",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:flavouring",
+         "is_in_taxonomy" : 1,
          "labels" : "en:vegan",
          "percent_estimate" : 5,
          "percent_max" : "5",
          "percent_min" : 0,
          "text" : "flavours",
-         "vegan" : "en:yes",
-         "vegetarian" : "en:yes"
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:charcoal"
+         "en:Charcoal"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -61,15 +67,7 @@
       "en:vegan",
       "en:vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:e428",
-      "en:charcoal",
-      "en:ferment",
-      "en:rennet",
-      "en:enzyme",
-      "en:coagulating-enzyme",
-      "en:flavouring"
-   ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 5,
    "ingredients_n_tags" : [
       "5",
@@ -77,7 +75,7 @@
    ],
    "ingredients_original_tags" : [
       "en:e428",
-      "en:charcoal",
+      "en:Charcoal",
       "en:ferment",
       "en:rennet",
       "en:flavouring"
@@ -85,7 +83,7 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:e428",
-      "en:charcoal",
+      "en:Charcoal",
       "en:ferment",
       "en:rennet",
       "en:enzyme",
@@ -98,20 +96,25 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:charcoal",
+      "en:Charcoal",
       "en:e428",
       "en:ferment",
       "en:flavouring",
       "en:rennet"
    ],
    "ingredients_without_ciqual_codes_n" : 5,
-   "known_ingredients_n" : 6,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:Charcoal",
+      "en:e428",
+      "en:ferment",
+      "en:flavouring",
+      "en:rennet"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 5,
+   "known_ingredients_n" : 4,
    "lc" : "en",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 1
 }

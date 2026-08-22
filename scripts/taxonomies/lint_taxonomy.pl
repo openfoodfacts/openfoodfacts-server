@@ -31,6 +31,16 @@ use List::Util qw/first/;
 
 use ProductOpener::Tags qw/%taxonomy_fields %translations_from canonicalize_taxonomy_tag sanitize_taxonomy_line/;
 
+# return true if $errors_ref list contains at least one error (as opposed to only warnings)
+sub has_errors($errors_ref) {
+	return !!(first {lc($_->{severity}) eq "error"} @$errors_ref);
+}
+
+# explicit regexp of the different language variant we got
+# We ask for language code to be ASCII only, it helps differentiate from eventual entries
+# TODO: replace by a list of all possible language codes… (would avoid false positive)
+my $language_prefix_re = qr/([a-zA-Z]{2,3}(?:[-_][a-zA-Z]{2,4})?)/;
+
 # compare synonyms entries on language prefix with "xx" > "en" then alpha order
 # also work for property name + language prefix
 sub cmp_on_language : prototype($$) ($a, $b) {
@@ -42,11 +52,11 @@ sub cmp_on_language : prototype($$) ($a, $b) {
 	my $a_prefix = undef;
 	my $b_prefix = undef;
 	# case of property name: <name>:<lang>
-	if ($a =~ /^(\w+):(\w+)$/) {
+	if ($a =~ /^([\w-]+):${language_prefix_re}$/) {
 		$a_prefix = $1;
 		$a = $2;
 	}
-	if ($b =~ /^(\w+):(\w+)$/) {
+	if ($b =~ /^([\w-]+):${language_prefix_re}$/) {
 		$b_prefix = $1;
 		$b = $2;
 	}
@@ -104,13 +114,52 @@ sub iter_taxonomy_entries ($lines_iter) {
 
 			# blank line means we are changing entry, so let's return collected data
 			if ($line =~ /^\s*$/) {
+				push(@previous_lines, "\n");
 				my $entry = {
+					type => "entry",
 					parents => \@parents,
 					entry_id_line => $entry_id_line,
 					entries => \%entries,
 					props => \%props,
 					original_lines => \@original_lines,
 					tail_lines => \@previous_lines,
+					start_line => $entry_start_line,
+					end_line => $line_num,
+					errors => \@errors,
+				};
+				add_entry_id($entry, \@errors);
+				# return $entry
+				return $entry;
+			}
+			# stopwords and synonyms
+			elsif ($line =~ /^(?<prefix>synonyms|stopwords):/i) {
+				# synonyms and stopwords are special, return entry immediatly,
+				# but verify values are as expected.
+				my $entry_type = $+{prefix};
+				my @checks = ();
+				push(@checks, "Parents before a $entry_type line\n") if @parents;
+				push(@checks, "$entry_type in the midst of a entry $entry_id_line->{line}\n") if $entry_id_line;
+				push(@checks, "$entry_type surrounded by other lines") if (%entries || %props);
+				for my $err (@checks) {
+					push(
+						@errors,
+						{
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => ($err),
+						}
+					);
+				}
+				my $entry = {
+					type => $entry_type,
+					parents => [],
+					entry_id_line =>
+						{line => $line, previous => [@previous_lines], line_num => $line_num, type => $entry_type},
+					entries => {},
+					props => {},
+					original_lines => \@original_lines,
+					tail_lines => [],
 					start_line => $entry_start_line,
 					end_line => $line_num,
 					errors => \@errors,
@@ -137,13 +186,45 @@ sub iter_taxonomy_entries ($lines_iter) {
 						}
 					);
 				}
-				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num};
+				push @parents, {line => $line, previous => [@previous_lines], line_num => $line_num, type => "parent"};
+				@previous_lines = ();
+			}
+			# property
+			# detect it before sysnonyms because otherwise it's tricky to recognize
+			# since, contrary to Tags.pm, we are allowing three letters language codes
+			elsif ($line =~ /^([\w-]+):\s*${language_prefix_re}:(.*)$/) {
+				my $prop = $1;
+				my $lc = $2;
+				if (defined $props{"$prop:$lc"}) {
+					push(
+						@errors,
+						{
+							severity => "Error",
+							type => "Correctness",
+							line => $line_num,
+							message => (
+									  "duplicate property language line for $prop:$lc:\n" . "- "
+									. $props{"$prop:$lc"}->{line}
+									. "\n- $line"
+							)
+						}
+					);
+				}
+				# override to continue
+				$props{"$prop:$lc"}
+					= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
 				@previous_lines = ();
 			}
 			# synonym
-			elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
+			elsif ($line =~ /^${language_prefix_re}:.+(,.*)*$/) {
 				if (!defined $entry_id_line) {
-					$entry_id_line = {line => $line, previous => [@previous_lines], lc => $1,, line_num => $line_num};
+					$entry_id_line = {
+						line => $line,
+						previous => [@previous_lines],
+						lc => $1,
+						line_num => $line_num,
+						type => "entry_id"
+					};
 				}
 				else {
 					my $lc = $1;
@@ -161,7 +242,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 							severity => "Error",
 							type => "Correctness",
 							line => $line_num,
-							message => ("duplicate language line for $lc:\n" . "- $previous_lc_line" . "- $line")
+							message => ("duplicate language line for $lc:\n" . "- $previous_lc_line" . "\n- $line")
 							};
 					}
 					# but try to do our best and continue
@@ -170,36 +251,27 @@ sub iter_taxonomy_entries ($lines_iter) {
 						push @{$entries{$lc}{previous}}, @previous_lines;
 					}
 					else {
-						$entries{$lc} = {line => $line, previous => [@previous_lines],, line_num => $line_num};
+						$entries{$lc}
+							= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "entry_lc"};
 					}
 				}
 				@previous_lines = ();
 			}
-			# property
-			elsif ($line =~ /^(\w+):(\w+):(.*)$/) {
-				my $prop = $1;
-				my $lc = $2;
-				if (defined $props{"$prop:$lc"}) {
-					push(
-						@errors,
-						{
-							severity => "Error",
-							type => "Correctness",
-							line => $line_num,
-							message => (
-									  "duplicate property language line for $prop:$lc:\n" . "- "
-									. $props{"$prop:$lc"}->{line}
-									. "- $line"
-							)
-						}
-					);
-				}
-				# override to continue
-				$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines], line_num => $line_num};
-				@previous_lines = ();
+			# comments
+			elsif ($line =~ /^#/) {
+				push @previous_lines, $line;
 			}
-			# comments or undefined
+			# undefined ! this should be rejected
 			else {
+				push(
+					@errors,
+					{
+						severity => "Error",
+						type => "Correctness",
+						line => $line_num,
+						message => "Unknown line type!\n- $line",
+					}
+				);
 				push @previous_lines, $line;
 			}
 		}
@@ -245,9 +317,9 @@ sub canonicalize_entry_properties($entry_ref, $is_check) {
 						severity => "Warning",
 						type => "Consistency",
 						entry_start_line => $entry_ref->{start_line},
-						entry_id_line => $entry_ref->{entry_id_line},
+						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
-								  "Values $not_found do not exists in taxonomy, at $props{$prop_name}{line_num}\n"
+							"Values $not_found do not exists in taxonomy $prop_tagtype, at $props{$prop_name}{line_num}\n"
 								. "- $props{$prop_name}{line}"
 						),
 					}
@@ -311,30 +383,69 @@ sub lint_entry($entry_ref, $do_sort) {
 	}
 	else {
 		# simply sort by line number, no need to sort parents
-		@sorted_entries = sort {$entries{$a}{line_num} cmp $entries{$b}{line_num}} (keys %entries);
-		@sorted_props = sort {$props{$a}{line_num} cmp $props{$b}{line_num}} (keys %props);
+		@sorted_entries = sort {$entries{$a}{line_num} <=> $entries{$b}{line_num}} (keys %entries);
+		@sorted_props = sort {$props{$a}{line_num} <=> $props{$b}{line_num}} (keys %props);
 	}
 	# print parents, line id, synonyms, sorted props
 	for my $parent (@parents) {
 		push @output_lines, @{$parent->{previous}};
-		push @output_lines, $parent->{line};
+		push @output_lines, normalized_line($parent);
 	}
 	if (defined $entry_id_line) {
 		push @output_lines, @{$entry_id_line->{previous}};
-		push @output_lines, $entry_id_line->{line};
+		push @output_lines, normalized_line($entry_id_line);
 	}
 	for my $key (@sorted_entries) {
 		push @output_lines, @{$entries{$key}->{previous}};
-		push @output_lines, $entries{$key}->{line};
+		push @output_lines, normalized_line($entries{$key});
 	}
 	for my $key (@sorted_props) {
 		push @output_lines, @{$props{$key}->{previous}};
-		push @output_lines, $props{$key}->{line};
+		push @output_lines, normalized_line($props{$key});
 	}
 	push @output_lines, @tail_lines;
-	# print a blank line
-	push @output_lines, "\n";
 	return join("", @output_lines);
+}
+
+# normalize spaces on a line
+sub normalized_line($entry) {
+	my $line = $entry->{line};
+	my $normalize_commas
+		= (    ($entry->{type} eq "entry_lc")
+			|| ($entry->{type} eq "entry_id")
+			|| ($entry->{type} eq "synonyms")
+			|| ($entry->{type} eq "stopwords"));
+	# ensure exactly one space after line prefix and one space after language
+	if ($entry->{type} eq "parent") {
+		$line =~ s/^< *([^:]+): *(.+)/< $1: $2/;
+	}
+	elsif (($entry->{type} eq "property") || ($entry->{type} eq "stopwords") || ($entry->{type} eq "synonyms")) {
+		# property_name:lang: or line_type:lang:
+		$line =~ s/^([^:]+): *([^:]+): */$1:$2: /;
+	}
+	else {
+		# entry_id or entry_lc just have language
+		$line =~ s/^([^:]+): */$1: /;
+	}
+	# remove trailing space at end of line
+	$line =~ s/ +$//g;
+	if ($normalize_commas) {
+		# remove multiple commas
+		$line =~ s/,+/,/g;
+		# remove trailing space and comma at end of line
+		$line =~ s/[ ,]+$//g;
+		# first replace special cases by a lower comma
+		# but if is escape or within a number
+		# in numbers
+		$line =~ s/(\d),(\d)/$1‚$2/g;
+		# escaped comma \,
+		$line =~ s/\\,/\\‚/g;
+		# ensure exactly one space after commas
+		$line =~ s/,( )*/, /g;
+		# put back lower comma
+		$line =~ s/‚/,/g;
+	}
+	return $line;
 }
 
 # check that an entry is already sorted, compared to $sorted_output
@@ -375,7 +486,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 		push(@entry_errors, @canon_errors) if @canon_errors;
 		# we will try to lint only if we don't have errors so far
 		my $linted_output;
-		if (!@entry_errors) {
+		if (!has_errors(\@entry_errors)) {
 			$linted_output = lint_entry($entry_ref, $do_sort);
 		}
 		else {
@@ -383,7 +494,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 			$linted_output = join("", @{$entry_ref->{original_lines}});
 		}
 		if ($is_check) {
-			# search for linting error only if there is no othe errors
+			# search for linting error only if there is no other errors
 			if (!@entry_errors) {
 				my $lint_error = check_linted($entry_ref, $linted_output);
 				push(@entry_errors, $lint_error) if $lint_error;
@@ -392,7 +503,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 		else {
 			# immediate output
 			print $out $linted_output;
-			if (@entry_errors) {
+			if (has_errors(\@entry_errors)) {
 				# signal it was not linted
 				push(
 					@entry_errors,
@@ -402,7 +513,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 						entry_start_line => $entry_ref->{start_line},
 						entry_id_line => $entry_ref->{entry_id_line}{line},
 						message => (
-								  "Entry won't be linted because it as errors, "
+								  "Entry won't be linted because it has errors, "
 								. "line $entry_ref->{start_line}..$entry_ref->{end_line}\n"
 						),
 					}
@@ -499,7 +610,7 @@ TXT
 			move($out_path, $file) or die("unable to move $out_path to $file: $!");
 		}
 		# do we have errors (and not only warnings)
-		if ((first {lc($_->{severity}) eq "error"} @$errors_ref)) {
+		if (has_errors($errors_ref)) {
 			$error_code = 1;
 		}
 	}

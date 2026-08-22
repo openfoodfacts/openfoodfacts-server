@@ -1,0 +1,28 @@
+{
+    "level" :"recommendation",
+    "topics": [
+        "health"
+    ],
+    "evaluation": "bad",
+    "title_element": {
+        "title": "[% edq(lang('recommendation_limit_ultra_processed_foods_title')) %]",
+        "subtitle": "[% edq(lang('recommendation_limit_ultra_processed_foods_subtitle')) %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/arrow-bottom-right-thick.svg",
+        "icon_color_from_evaluation": true,
+        "evaluation": "bad",                
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "quote",
+                "html": `
+                    [% lang('recommendation_limit_ultra_processed_foods_text') %]
+                    `,
+                "source_text": "Ultra-processed foods increase noncommunicable chronic disease risk",
+                "source_url": "https://pubmed.ncbi.nlm.nih.gov/34798466/",
+                "source_language": "en",
+            }
+        },
+    ],
+}

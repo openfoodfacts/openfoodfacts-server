@@ -326,6 +326,14 @@ msgctxt "stores:singular"
 msgid "store"
 msgstr "store"
 
+msgctxt "taxonomies_enhancer:singular"
+msgid   "taxonomies-enhancer"
+msgstr  "taxonomies-enhancer"
+
+msgctxt "taxonomies_enhancer:plural"
+msgid   "taxonomies-enhancer"
+msgstr  "taxonomies-enhancer"
+
 msgctxt "traces:plural"
 msgid "traces"
 msgstr "traces"
@@ -413,6 +421,16 @@ msgstr "nova-group"
 msgctxt "nova_groups:plural"
 msgid "nova-groups"
 msgstr "nova-groups"
+
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+msgctxt "storage_conditions:singular"
+msgid "storage-condition"
+msgstr "storage-condition"
+
+#. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
+msgctxt "storage_conditions:plural"
+msgid "storage-conditions"
+msgstr "storage-conditions"
 
 msgctxt "last_check_dates:plural"
 msgid   "last-check-dates"
@@ -543,12 +561,12 @@ msgid "owner"
 msgstr "owner"
 
 msgctxt "ecoscore:plural"
-msgid "eco-score"
-msgstr "eco-score"
+msgid "environmental-score"
+msgstr "environmental-score"
 
 msgctxt "ecoscore:singular"
-msgid "eco-score"
-msgstr "eco-score"
+msgid "environmental-score"
+msgstr "environmental-score"
 
 msgctxt "food_groups:plural"
 msgid "food-groups"

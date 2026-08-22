@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -29,19 +29,33 @@ BEGIN {
 		$memd
 		$max_memcached_object_size
 		&generate_cache_key
+		&safe_cache_get
+		&safe_cache_set
+		&get_cache_results
+		&set_cache_results
+
+		&perform_health_check
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Health qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Data qw/can_use_cache_results/;
 
 use Cache::Memcached::Fast;
-use JSON;
+use JSON::MaybeXS;
 use Digest::MD5 qw(md5_hex);
 use Log::Any qw($log);
+use Devel::Size qw(total_size);
+use Time::HiRes qw/gettimeofday tv_interval/;
+
+# special logger to make it easy to measure memcached hit and miss rates
+our $mongodb_log = Log::Any->get_logger(category => 'mongodb');
+$mongodb_log->info("start") if $mongodb_log->is_info();
 
 # Initialize exported variables
 
@@ -56,7 +70,7 @@ $memd = Cache::Memcached::Fast->new(
 # Maximum object size that we can store in memcached
 $max_memcached_object_size = 1048576;
 
-my $json = JSON->new->utf8->allow_nonref->canonical;
+my $json = JSON::MaybeXS->new->convert_blessed->utf8(1)->allow_nonref->canonical;
 
 =head1 FUNCTIONS
 
@@ -87,6 +101,207 @@ sub generate_cache_key ($name, $context_ref) {
 	$log->debug("generate_cache_key", {context_ref => $context_ref, context_json => $context_json, key => $key})
 		if $log->is_debug();
 	return $key;
+}
+
+=head2 safe_cache_get ($key)
+
+Safely gets a value from memcached. Returns undef on cache errors.
+
+=cut
+
+sub safe_cache_get ($key) {
+	my $value;
+	eval {
+		$value = $memd->get($key);
+		1;
+	} or do {
+		my $error = $@ || 'unknown cache get error';
+		$log->warn('Memcached get failed', {key => $key, error => $error}) if $log->is_warn();
+		return;
+	};
+
+	return $value;
+}
+
+=head2 safe_cache_set ($key, $value, $ttl)
+
+Safely sets a value in memcached. Never throws on cache errors.
+
+=cut
+
+sub safe_cache_set ($key, $value, $ttl) {
+	eval {
+		$memd->set($key, $value, $ttl);
+		1;
+	} or do {
+		my $error = $@ || 'unknown cache set error';
+		$log->warn('Memcached set failed', {key => $key, error => $error}) if $log->is_warn();
+	};
+
+	return;
+}
+
+=head2 get_cache_results ($key, $data_debug_ref)
+
+Get the results of a query from the cache.
+
+=head3 Arguments
+
+=head4 $key
+
+=head4 $data_debug_ref Reference to a string that will be appended with debug information
+
+=head3 Return values
+
+The results of the query, or undef if the query was not found in the cache.
+
+=cut
+
+sub get_cache_results ($key, $data_debug_ref) {
+
+	my $results;
+
+	$log->debug("hashed query cache key", {key => $key}) if $log->is_debug();
+
+	if (can_use_cache_results($data_debug_ref)) {
+		$log->debug("Retrieving value for cache query key", {key => $key}) if $log->is_debug();
+		$results = $memd->get($key);
+		if (not defined $results) {
+			$log->debug("Did not find a value for cache query key", {key => $key}) if $log->is_debug();
+			$mongodb_log->info("get_cache_results - miss - key: $key") if $mongodb_log->is_info();
+			$$data_debug_ref .= "cache_miss\n";
+		}
+		else {
+			$log->debug("Found a value for cache query key", {key => $key}) if $log->is_debug();
+			$mongodb_log->info("get_cache_results - hit - key: $key") if $mongodb_log->is_info();
+			$$data_debug_ref .= "cache_hit\n";
+		}
+	}
+	return $results;
+}
+
+=head2 set_cache_results ($key, $results, $data_debug_ref)
+
+Set the results of a query in the cache.
+
+=head3 Arguments
+
+=head4 $key
+
+=head4 $results
+
+=head4 $data_debug_ref Reference to a string that will be appended with debug information
+
+=head3 Return values
+
+=cut
+
+sub set_cache_results ($key, $results, $data_debug_ref) {
+
+	$log->debug("Setting value for cache query key", {key => $key}) if $log->is_debug();
+	my $result_size = total_size($results);
+
+	# $max_memcached_object_size is defined is Cache.pm
+	# we assume that compression will reduce the size by at least 50%
+	my $factor = 2;
+	if ($result_size >= $max_memcached_object_size * $factor) {
+		$mongodb_log->info(
+			"set_cache_results - skipping - setting value - key: $key (uncompressed total_size: $result_size > max size * $factor ($max_memcached_object_size * $factor))"
+		);
+		$$data_debug_ref
+			.= "set_cache_results: skipping, value to large - (uncompressed total_size: $result_size > max size * $factor ($max_memcached_object_size * $factor))\n";
+		return;
+	}
+
+	if ($mongodb_log->is_info()) {
+		$mongodb_log->info("set_cache_results - setting value - key: $key - uncompressed total_size: $result_size");
+	}
+
+	if ($memd->set($key, $results, 3600)) {
+		$mongodb_log->info("set_cache_results - updated - key: $key - uncompressed total_size: $result_size")
+			if $mongodb_log->is_info();
+		$$data_debug_ref .= "set_cache_results: updated\n";
+	}
+	else {
+		$log->debug("Could not set value for MongoDB query key", {key => $key});
+		$mongodb_log->info("set_cache_results - error - key: $key - uncompressed total_size: $result_size")
+			if $mongodb_log->is_info();
+		$$data_debug_ref .= "set_cache_results: error\n";
+	}
+
+	return;
+}
+
+=head2 perform_health_check()
+
+Execute a component health check and return a health-check result object.
+
+This sub documents the expected interface for health checks used by
+C<ProductOpener::APIHealth>. Implementations should perform one focused check and
+return an array reference of check objects compatible with
+L<https://inadarei.github.io/rfc-healthcheck/>.
+
+Each check object in the returned array reference must include:
+
+=over 4
+
+=item * C<status>
+
+String indicating the check result. Expected values are C<pass>, C<warn> or
+C<fail>.
+
+=item * C<output>
+
+Human-readable message describing the outcome.
+
+=back
+
+Additional RFC fields (for example C<componentType>, C<time>,
+C<observedValue>, C<observedUnit> and C<links>) may be included when relevant.
+If C<componentId> is included, it should be a stable UUID.
+
+The sub should not die. If an internal error occurs, return one check object
+with C<status =E<gt> 'fail'> and a meaningful C<output> message.
+
+=cut
+
+sub perform_health_check() {
+	my $key = 'health_check';
+	my $start = [gettimeofday()];
+
+	my $ok = eval {$memd->set($key, $start, 1);};
+
+	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+
+	my $time = current_time_iso8601();
+
+	my $memd_servers_str = defined($memd_servers) ? join(',', @$memd_servers) : undef;
+	my $memd_self_url = defined($memd_servers_str) ? 'memcached://' . $memd_servers_str : undef;
+	my $links = defined($memd_self_url) ? {self => $memd_self_url} : {};
+
+	if ($ok) {
+		return [
+			{
+				status => $status_pass,
+				componentType => 'datastore',
+				observedValue => $duration_ms,
+				observedUnit => 'ms',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
+	else {
+		return [
+			{
+				status => $status_fail,
+				componentType => 'datastore',
+				output => 'Memcached did not respond to set',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
 }
 
 1;

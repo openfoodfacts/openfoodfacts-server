@@ -30,6 +30,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/lang/;
@@ -63,7 +64,7 @@ if (not defined $Owner_id) {
 
 if ($action eq "display") {
 	process_template('web/pages/import_product_categories/import_product_categories_from_public_database.tt.html',
-		$template_data_ref, \$html)
+		$template_data_ref, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 }
 
@@ -89,12 +90,12 @@ elsif ($action eq "process") {
 
 	process_template(
 		'web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.html',
-		$template_data_ref, \$html)
+		$template_data_ref, \$html, $request_ref)
 		or $html = "<p>" . $tt->error() . "</p>";
 	process_template(
 		'web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.js',
-		$template_data_ref, \$js);
-	$initjs .= $js;
+		$template_data_ref, \$js, $request_ref);
+	$request_ref->{initjs} .= $js;
 
 }
 

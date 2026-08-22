@@ -28,10 +28,16 @@ MINION_QUEUE=
 # Load environment variables from env file
 source env/env.$1
 
-# Set a variable that we use in Makefile to add an extra env file 
+# Set a variable that we use in Makefile to add an extra env file
 # in addition to .env when we run docker compose
 EXTRA_ENV_FILE=env/env.$1
 LOAD_EXTRA_ENV_FILE=--env-file=env/env.$1
+
+# eventually add lib for prod environment
+if [[ -d /srv/$1/lib ]]
+then
+    PERL5LIB=/srv/$1/lib
+fi
 
 set +o allexport
 

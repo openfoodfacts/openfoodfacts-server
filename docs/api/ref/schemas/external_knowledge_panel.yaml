@@ -1,0 +1,115 @@
+# External sources of knowledge panel
+type: object
+required:
+  - id
+  - name
+  - knowledge_panel_url
+  - section
+properties:
+  id:
+    type: string
+    description: Unique identifier of the external panel within the file.
+    example: "empreinte_souffrance"
+  name:
+    type: string
+    description: End-user display name of the panel or provider.
+    example: "Empreinte Souffrance"
+  description:
+    type: string
+    description: Short description shown in preferences and provider header.
+    example: "Indicator of the amount of animal suffering calculated per product."
+  icon_url:
+    type: string
+    format: uri
+    description: URL to a square logo (PNG/SVG).
+    example: "https://example.org/logo.png"
+  knowledge_panel_url:
+    type: string
+    format: uri
+    description: |
+      Base URL to fetch knowledge panels **from the external provider**.
+
+      The URL can contain the following **template variables**, replaced by the frontend:
+      - `$code` → product barcode
+      - `$lc`   → UI language (2 letters)
+      - `$cc`   → user/device country (2 letters)
+
+      Example:
+      `https://provider.example.com/off/v1/knowledge-panel/$code?lang=$lc&country=$cc`
+
+      Notes:
+      - The frontend substitutes variables with percent-encoded values.
+      - The web component does not auto-append language anymore: include `?lang=$lc` yourself if needed.
+  provider_name:
+    type: string
+    description: Provider organization display name.
+    example: "Empreinte Souffrance"
+  provider_website:
+    type: string
+    format: uri
+    description: Public website of the provider (linked in UI).
+    example: "https://empreinte-souffrance.org/"
+  privacy_policy_url:
+    type: string
+    format: uri
+    description: Link to privacy notice for the external service (optional).
+    example: "https://provider.example.com/privacy"
+  section:
+    type: string
+    description: Machine id of the section this panel belongs to (e.g. `animal_welfare`).
+    example: "animal_welfare"
+  scope:
+    type: string
+    description: Visibility scope of the panel.
+    enum: [ public, users, moderators ]
+    default: public
+  user_in_scope:
+    type: boolean
+    description: |
+      True if current user is in the panel scope.
+      You must make an authenticated request to have this set to the right values
+      (otherwise it will be the value corresponding to public scope)
+  filters:
+    type: object
+    description: Display filters applied on the current product context.
+    properties:
+      categories:
+        type: array
+        items:
+          type: string
+        description: List of category tags; panel is shown if any matches the product categories.
+        example: [ "en:chicken-eggs" ]
+      countries:
+        type: array
+        items:
+          type: string
+        description: Two-letter country codes (or "world"); strict equality with current user/device country.
+        example: [ "fr", "world" ]
+      languages:
+        type: array
+        items:
+          type: string
+        description: Two-letter language codes; strict equality with current UI language.
+        example: [ "fr", "en" ]
+      product_types:
+        type: array
+        items:
+          type: string
+        description: Product types (e.g. "food"); strict equality with current product type.
+        example: [ "food" ]
+examples:
+    - id: "empreinte_souffrance"
+      name: "Empreinte Souffrance"
+      description: "Indicator of the amount of animal suffering calculated per product."
+      icon_url: "https://example.org/logo.png"
+      knowledge_panel_url: "https://provider.example.com/off/v1/knowledge-panel/$code?lang=$lc&country=$cc"
+      provider_name: "Empreinte Souffrance"
+      provider_website: "https://empreinte-souffrance.org/"
+      section: "animal_welfare"
+      filters:
+        categories: ["en:chicken-eggs"]
+        countries: ["fr", "world"]
+        languages: ["fr", "en"]
+        product_types: ["food"]
+      privacy_policy_url: "https://provider.example.com/privacy"
+      scope: "moderators"

@@ -1,0 +1,25 @@
+{
+   "nutrition" : {
+      "aggregated_set" : {
+         "nutrients" : {},
+         "per" : "100g",
+         "preparation" : "as_sold"
+      },
+      "input_sets" : [
+         {
+            "nutrients" : {
+               "energy" : {
+                  "unit" : "kcal",
+                  "value" : 30,
+                  "value_string" : "30"
+               }
+            },
+            "per" : "100g",
+            "per_quantity" : "100",
+            "per_unit" : "g",
+            "preparation" : "as_sold",
+            "source" : "packaging"
+         }
+      ]
+   }
+}

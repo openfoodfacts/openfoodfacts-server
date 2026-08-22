@@ -1,0 +1,438 @@
+{
+  "news": {
+    "app_update": {
+      "start_date": "2025-01-01 00:00:00",
+      "end_date": "2099-12-25 23:59:59",
+      "url": "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner",
+      "translations": {
+        "default": {
+          "title": "New update available!",
+          "message": "A new version of the application is available on the App Store.",
+          "button_label": "Update",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Update the Open Food Facts app"
+          }
+        },
+        "fr": {
+          "title": "Nouvelle mise à jour!",
+          "message": "Une nouvelle version de l'application est disponible sur l'App Store.",
+          "button_label": "Mettre à jour",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Mettre à jour l'application Open Food Facts"
+          }
+        },
+        "ar": {
+          "title": "تحديث جديد متاح!",
+          "message": "يتوفر إصدار جديد من التطبيق على App Store.",
+          "button_label": "تحديث",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "تحديث تطبيق Open Food Facts"
+          }
+        },
+        "bg": {
+          "title": "Налична е нова актуализация!",
+          "message": "Нова версия на приложението е налична в App Store.",
+          "button_label": "Актуализиране",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Актуализирайте приложението Open Food Facts"
+          }
+        },
+        "bn": {
+          "title": "একটি নতুন আপডেট উপলব্ধ!",
+          "message": "অ্যাপ্লিকেশনের একটি নতুন সংস্করণ App Store-এ উপলব্ধ।",
+          "button_label": "আপডেট",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts অ্যাপ আপডেট করুন"
+          }
+        },
+        "ca": {
+          "title": "Hi ha una nova actualització disponible!",
+          "message": "Hi ha una nova versió de l'aplicació disponible a l'App Store.",
+          "button_label": "Actualitzar",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Actualitza l'aplicació Open Food Facts"
+          }
+        },
+        "cs": {
+          "title": "Je k dispozici nová aktualizace!",
+          "message": "Nová verze aplikace je k dispozici na App Store.",
+          "button_label": "Aktualizovat",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Aktualizujte aplikaci Open Food Facts"
+          }
+        },
+        "da": {
+          "title": "En ny opdatering er tilgængelig!",
+          "message": "En ny version af applikationen er tilgængelig på App Store.",
+          "button_label": "Opdater",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Opdater Open Food Facts-appen"
+          }
+        },
+        "de": {
+          "title": "Ein neues Update ist verfügbar!",
+          "message": "Eine neue Version der Anwendung ist im App Store verfügbar.",
+          "button_label": "Aktualisieren",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Aktualisieren Sie die Open Food Facts App"
+          }
+        },
+        "ee": {
+          "title": "Uus värskendus on saadaval!",
+          "message": "Rakenduse uus versioon on saadaval App Store'is.",
+          "button_label": "Värskenda",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Värskendage Open Food Facts rakendust"
+          }
+        },
+        "el": {
+          "title": "Μια νέα ενημέρωση είναι διαθέσιμη!",
+          "message": "Μια νέα έκδοση της εφαρμογής είναι διαθέσιμη στο App Store.",
+          "button_label": "Ενημέρωση",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Ενημερώστε την εφαρμογή Open Food Facts"
+          }
+        },
+        "es": {
+          "title": "¡Una nueva actualización está disponible!",
+          "message": "Una nueva versión de la aplicación está disponible en el App Store.",
+          "button_label": "Actualizar",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Actualizar la aplicación Open Food Facts"
+          }
+        },
+        "fa": {
+          "title": "به‌روزرسانی جدیدی در دسترس است!",
+          "message": "نسخه جدیدی از برنامه در App Store موجود است.",
+          "button_label": "به‌روزرسانی",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "برنامه Open Food Facts را به‌روزرسانی کنید"
+          }
+        },
+        "fi": {
+          "title": "Uusi päivitys on saatavilla!",
+          "message": "Sovelluksen uusi versio on saatavilla App Storessa.",
+          "button_label": "Päivitä",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Päivitä Open Food Facts -sovellus"
+          }
+        },
+        "he": {
+          "title": "עדכון חדש זמין!",
+          "message": "גרסה חדשה של האפליקציה זמינה ב-App Store.",
+          "button_label": "עדכון",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "עדכן את אפליקציית Open Food Facts"
+          }
+        },
+        "hi": {
+          "title": "एक नया अपडेट उपलब्ध है!",
+          "message": "एप्लिकेशन का एक नया संस्करण App Store पर उपलब्ध है।",
+          "button_label": "अपडेट करें",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts ऐप को अपडेट करें"
+          }
+        },
+        "ht": {
+          "title": "Yon nouvo mizajou disponib!",
+          "message": "Yon nouvo vèsyon aplikasyon an disponib sou App Store.",
+          "button_label": "Mizajou",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Mizajou aplikasyon Open Food Facts la"
+          }
+        },
+        "hu": {
+          "title": "Új frissítés érhető el!",
+          "message": "Az alkalmazás új verziója elérhető az App Store-ban.",
+          "button_label": "Frissítés",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Frissítse az Open Food Facts alkalmazást"
+          }
+        },
+        "id": {
+          "title": "Pembaruan baru tersedia!",
+          "message": "Versi baru aplikasi tersedia di App Store.",
+          "button_label": "Perbarui",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Perbarui aplikasi Open Food Facts"
+          }
+        },
+        "it": {
+          "title": "È disponibile un nuovo aggiornamento!",
+          "message": "È disponibile una nuova versione dell'applicazione su App Store.",
+          "button_label": "Aggiorna",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Aggiorna l'app Open Food Facts"
+          }
+        },
+        "ja": {
+          "title": "新しいアップデートが利用可能です！",
+          "message": "アプリケーションの新しいバージョンがApp Storeで利用可能です。",
+          "button_label": "更新",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Open Food Factsアプリを更新する"
+          }
+        },
+        "ko": {
+          "title": "새로운 업데이트가 있습니다!",
+          "message": "애플리케이션의 새로운 버전이 App Store에서 사용할 수 있습니다.",
+          "button_label": "업데이트",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts 앱을 업데이트하세요"
+          }
+        },
+        "lu": {
+          "title": "Een nieuwe update is beschikbaar!",
+          "message": "Een nieuwe versie van de applicatie is beschikbaar op de App Store.",
+          "button_label": "Bijwerken",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Update de Open Food Facts app"
+          }
+        },
+        "lt": {
+          "title": "Yra naujas atnaujinimas!",
+          "message": "Nauja programos versija pasiekiama „App Store“.",
+          "button_label": "Atnaujinti",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Atnaujinkite „Open Food Facts“ programą"
+          }
+        },
+        "ms": {
+          "title": "Kemas kini baharu tersedia!",
+          "message": "Versi baharu aplikasi tersedia di App Store.",
+          "button_label": "Kemas kini",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Kemas kini aplikasi Open Food Facts"
+          }
+        },
+        "nb": {
+          "title": "En ny oppdatering er tilgjengelig!",
+          "message": "En ny versjon av applikasjonen er tilgjengelig på App Store.",
+          "button_label": "Oppdater",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Oppdater Open Food Facts-appen"
+          }
+        },
+        "nl": {
+          "title": "Nieuwe update beschikbaar!",
+          "message": "Een nieuwe versie van de applicatie is beschikbaar in de App Store.",
+          "button_label": "Bijwerken",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Update de Open Food Facts app"
+          }
+        },
+        "pt": {
+          "title": "Nova atualização disponível!",
+          "message": "Uma nova versão do aplicativo está disponível na App Store.",
+          "button_label": "Atualizar",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Atualize o aplicativo Open Food Facts"
+          }
+        },
+        "pl": {
+          "title": "Dostępna jest nowa aktualizacja!",
+          "message": "Nowa wersja aplikacji jest dostępna w App Store.",
+          "button_label": "Aktualizuj",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Zaktualizuj aplikację Open Food Facts"
+          }
+        },
+        "ro": {
+          "title": "O nouă actualizare este disponibilă!",
+          "message": "O nouă versiune a aplicației este disponibilă în App Store.",
+          "button_label": "Actualizați",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Actualizați aplicația Open Food Facts"
+          }
+        },
+        "ru": {
+          "title": "Доступно новое обновление!",
+          "message": "Новая версия приложения доступна в App Store.",
+          "button_label": "Обновить",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Обновите приложение Open Food Facts"
+          }
+        },
+        "sk": {
+          "title": "K dispozícii je nová aktualizácia!",
+          "message": "Nová verzia aplikácie je k dispozícii v App Store.",
+          "button_label": "Aktualizovať",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Aktualizujte aplikáciu Open Food Facts"
+          }
+        },
+        "sl": {
+          "title": "Na voljo je nova posodobitev!",
+          "message": "Nova različica aplikacije je na voljo v App Store.",
+          "button_label": "Posodobi",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Posodobite aplikacijo Open Food Facts"
+          }
+        },
+        "sv": {
+          "title": "En ny uppdatering är tillgänglig!",
+          "message": "En ny version av applikationen är tillgänglig i App Store.",
+          "button_label": "Uppdatera",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Uppdatera Open Food Facts-appen"
+          }
+        },
+        "th": {
+          "title": "มีการอัปเดตใหม่!",
+          "message": "มีเวอร์ชันใหม่ของแอปพลิเคชันใน App Store",
+          "button_label": "อัปเดต",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "อัปเดตแอป Open Food Facts"
+          }
+        },
+        "tr": {
+          "title": "Yeni bir güncelleme mevcut!",
+          "message": "Uygulamanın yeni bir sürümü App Store'da mevcut.",
+          "button_label": "Güncelle",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Open Food Facts uygulamasını güncelle"
+          }
+        },
+        "vi": {
+          "title": "Có bản cập nhật mới!",
+          "message": "Một phiên bản mới của ứng dụng có sẵn trên App Store.",
+          "button_label": "Cập nhật",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "Cập nhật ứng dụng Open Food Facts"
+          }
+        },
+        "zh": {
+          "title": "有新更新可用！",
+          "message": "App Store 上有新版本的应用程序。",
+          "button_label": "更新",
+          "url": "https://apps.apple.com/app/open-food-facts/id588797948",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "width": 0.2,
+            "alt": "更新 Open Food Facts 应用程序"
+          }
+        }
+      }
+    }
+  },
+  "tagline_feed": {
+    "default": {
+      "news": [
+        {
+          "id": "app_update"
+        }
+      ]
+    }
+  }
+}

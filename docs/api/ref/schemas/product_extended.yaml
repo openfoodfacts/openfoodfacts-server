@@ -1,3 +1,4 @@
+title: product_extended
 type: object
 properties:
   additives_original_tags:
@@ -43,8 +44,8 @@ properties:
   category_properties:
     type: object
     additionalProperties:
-        description: those are properties taken from the category taxonomy
-        type: string
+      description: those are properties taken from the category taxonomy
+      type: string
   ciqual_food_name_tags:
     type: array
     items:
@@ -88,7 +89,7 @@ properties:
       Those are fields provided by the producer (through producers platform),
       and the value he provided.
     properties:
-      additionalProperties:
+      additionalProperties: # !!! here "additionalProperties" is the name of the property
         description: |
           you can retrieve all kind of properties, the same as on the parent object (the product).
           It's not processed entries (like tags for example) but raw ones.
@@ -100,25 +101,19 @@ properties:
     type: object
     description: |
       Detail of ingredients or processing that makes the products having Nova 3 or 4
-    properties:
-      "3":
-        description: |
-          Markers of level 3
+    propertyNames:
+      description: Markers of level 3, 4, ...
+      type: integer
+      enum: [3, 4]
+    additionalProperties:
+      type: array
+      items:
         type: array
+        # minItems: 2
+        # maxItems: 2
         items:
-          type: array
-          description: |
-            This array has two element for each marker.
-            One
-          items:
-            type: string
-      "4":
-        description: |
-          Markers of level 4
-        type: array
-        items:
-          # same as above
-          $ref: "#/properties/nova_groups_markers/properties/3/items"
+          description: This array has two elements for each marker. The first element is the tag type of the marker (e.g. "ingredients", "additives", "categories"), and the second is the tag id in the taxonomy (e.g. "en:e471")
+          type: string
 
   nucleotides_tags:
     type: array
@@ -148,7 +143,6 @@ properties:
     type: string
   traces_from_user:
     type: string
-
 
 patternProperties:
   'conservation_conditions_(?<language_code>\w\w)':

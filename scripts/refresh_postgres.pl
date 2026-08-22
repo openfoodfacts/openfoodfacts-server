@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -23,15 +23,14 @@
 use Modern::Perl '2017';
 
 use ProductOpener::Config qw/:all/;
-
-use LWP::UserAgent;
+use ProductOpener::HTTP qw/create_user_agent/;
 
 if (defined $query_url) {
 	$query_url =~ s/^\s+|\s+$//g;
 	my $from = $ARGV[0] || '';
 	my $path = "$query_url/importfrommongo?from=$from";
 	print STDERR "Importing to $path\n";
-	my $ua = LWP::UserAgent->new();
+	my $ua = create_user_agent();
 	$ua->get($path);
 	print STDERR "Finished\n";
 }

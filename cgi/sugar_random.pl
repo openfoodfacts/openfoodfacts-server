@@ -25,7 +25,8 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
-use JSON::PP;
+use JSON::MaybeXS;
+#11872 Need to use PO Storable
 use Storable qw(lock_store lock_nstore lock_retrieve);
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -37,7 +38,7 @@ use ProductOpener::Paths qw/%BASE_DIRS/;
 
 # this script is used by howmuchsugar to redirect to a new product randomly
 
-my $r = shift;
+my $r = Apache2::RequestUtil->request();
 
 # read site name in apache provided header
 my $lang = $r->headers_in->{"X-Site-Lang"} // 'en';

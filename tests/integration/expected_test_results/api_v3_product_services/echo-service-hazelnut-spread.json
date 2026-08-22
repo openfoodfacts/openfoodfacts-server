@@ -29,8 +29,11 @@
             "vegetarian" : "yes"
          }
       ],
+      "lang" : "en",
+      "lc" : "en",
       "product_name_en" : "My hazelnut spread",
-      "product_name_fr" : "Ma pâte aux noisettes"
+      "product_name_fr" : "Ma pâte aux noisettes",
+      "schema_version" : 999
    },
    "services" : [
       "echo"

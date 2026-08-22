@@ -4,6 +4,7 @@
    "product" : {
       "packagings" : [
          {
+            "food_contact" : 1,
             "material" : {
                "id" : "en:paper",
                "lc_name" : "Papier"
@@ -11,7 +12,7 @@
             "number_of_units" : 2,
             "recycling" : {
                "id" : "en:recycle",
-               "lc_name" : "Recycler"
+               "lc_name" : "recycler"
             },
             "shape" : {
                "id" : "es:Something in Spanish",

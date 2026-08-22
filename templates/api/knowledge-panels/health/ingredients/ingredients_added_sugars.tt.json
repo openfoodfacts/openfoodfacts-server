@@ -1,0 +1,53 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "expanded": false,
+    "evaluation": "bad",
+    "title_element": {
+        "title":``[% edq(lang("knowledge_panels_ingredients_added_sugars_title")) %]
+            [% IF panel.added_sugars_percent_nutrition_facts %]
+                ([% sprintf("%d", panel.added_sugars_percent_nutrition_facts) %]%)
+            [% ELSIF panel.added_sugars_percent_estimate %]
+                (~ [% sprintf("%d", panel.added_sugars_percent_estimate) %]%)
+            [% END %]
+            ``,
+        "subtitle": "[% edq(lang("knowledge_panels_ingredients_added_sugars_subtitle")) %] [% display_taxonomy_tags_list("ingredients", panel.ingredients_added_sugars) %]",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/nutrient-level-sugars-high.svg",
+    },
+    "elements": [
+        [% IF panel.ingredients_added_sugars %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html":
+                `
+[% IF panel.added_sugars_percent_nutrition_facts %]
+<b>[% lang("quantity_of_added_sugars") %][% sep %]:</b> [% sprintf("%d", panel.added_sugars_percent_nutrition_facts) %]%               
+[% ELSE %]
+<b>[% lang("estimated_quantity_of_added_sugars") %][% sep %]:</b> [% sprintf("%d", panel.added_sugars_percent_estimate) %]%
+[% END %]
+                `,    
+            },
+        },
+        [% END %]
+    
+        [% IF panel.category_id %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html":
+                `
+<b>[% lang("search_products_in_same_category_without_added_sugars") %]</b>
+<a href="[% panel.category_without_added_sugars_url %]">
+[% display_taxonomy_tag("categories", panel.category_id) %]
+</a>
+                `,
+            },
+        },
+        [% END %]
+
+        [% INCLUDE "api/knowledge-panels/health/nutrition/nutrient_level_sugars.tt.json" %]        
+    ]
+}

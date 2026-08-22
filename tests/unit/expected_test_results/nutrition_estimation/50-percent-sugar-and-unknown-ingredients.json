@@ -47,16 +47,17 @@
          "water" : 0.085,
          "zinc" : 1e-05
       },
-      "total" : 100,
+      "total" : 100.0,
       "total_with_nutrients" : 50,
       "unknown_ingredients" : {
-         "en:strange-ingredient" : 0.375,
-         "en:stranger-ingredient" : 0.125
+         "en:strange ingredient" : 0.375,
+         "en:stranger ingredient" : 0.125
       }
    },
    "ingredients" : [
       {
          "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
          "percent" : 50,
          "percent_estimate" : 50,
          "percent_max" : 50,
@@ -64,14 +65,16 @@
          "text" : "sugar"
       },
       {
-         "id" : "en:strange-ingredient",
+         "id" : "en:strange ingredient",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 37.5,
          "percent_max" : 50,
          "percent_min" : 25,
          "text" : "strange ingredient"
       },
       {
-         "id" : "en:stranger-ingredient",
+         "id" : "en:stranger ingredient",
+         "is_in_taxonomy" : 0,
          "percent_estimate" : 12.5,
          "percent_max" : 25,
          "percent_min" : 0,

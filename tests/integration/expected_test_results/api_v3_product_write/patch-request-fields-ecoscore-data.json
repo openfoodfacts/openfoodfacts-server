@@ -10,7 +10,7 @@
                      "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
-                     "transportation_score" : null
+                     "transportation_score" : 0
                   }
                ],
                "epi_score" : 0,
@@ -225,8 +225,8 @@
                "non_recyclable_and_non_biodegradable_materials" : 1,
                "packagings" : [
                   {
-                     "ecoscore_material_score" : 0,
-                     "ecoscore_shape_ratio" : 1,
+                     "environmental_score_material_score" : 0,
+                     "environmental_score_shape_ratio" : 1,
                      "material" : "en:plastic",
                      "non_recyclable_and_non_biodegradable" : "maybe",
                      "number_of_units" : 1,
@@ -248,6 +248,7 @@
          "agribalyse" : {
             "warning" : "missing_agribalyse_match"
          },
+         "grade" : "unknown",
          "missing" : {
             "categories" : 1,
             "ingredients" : 1,

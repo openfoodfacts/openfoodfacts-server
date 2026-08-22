@@ -1,0 +1,22 @@
+{
+  "name": "folksonomy-engine-scripts",
+  "version": "0.2.0",
+  "description": "CLI tools for Folksonomy Engine API - upload tags and mass rename",
+  "main": "csv2folksonomyEngineTags.js",
+  "author": "Charles Nepote<charles@nepote.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "@linus/testy": "^1.2.3",
+    "mocha": "^10.8.2"
+  },
+  "scripts": {
+    "test-rename": "mocha test.js",
+    "test-upload": "mocha test2.js",
+    "upload": "node csv2folksonomyEngineTags.js",
+    "rename": "node mass_rename_properties_admin_cli.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "testy": "^0.0.8"
+  }
+}

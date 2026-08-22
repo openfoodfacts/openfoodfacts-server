@@ -1,50 +1,59 @@
 [
    {
       "id" : "en:lemon",
-      "percent" : 45.3514636391239,
-      "percent_estimate" : 45.3514636391239,
+      "is_in_taxonomy" : 1,
+      "percent" : 44.0334557390014,
+      "percent_estimate" : 44.0334557390014,
       "quantity" : "1 KG",
       "quantity_g" : 1000,
       "text" : "lemon"
    },
    {
       "id" : "en:orange-juice",
-      "percent" : 4.53514636391239,
-      "percent_estimate" : 4.53514636391239,
+      "is_in_taxonomy" : 1,
+      "percent" : 4.66754630833415,
+      "percent_estimate" : 4.66754630833415,
       "quantity" : "10 cl",
-      "quantity_g" : 100,
+      "quantity_g" : 106,
+      "quantity_ml" : 100,
       "text" : "orange juice"
    },
    {
       "id" : "en:sugar",
-      "percent" : 0.226757318195619,
-      "percent_estimate" : 0.226757318195619,
+      "is_in_taxonomy" : 1,
+      "percent" : 0.220167278695007,
+      "percent_estimate" : 0.220167278695007,
       "quantity" : "5 g",
       "quantity_g" : 5,
       "text" : "sugar"
    },
    {
       "id" : "en:salt",
-      "percent" : 2.26757318195619e-05,
-      "percent_estimate" : 2.26757318195619e-05,
+      "is_in_taxonomy" : 1,
+      "percent" : 2.20167278695007e-05,
+      "percent_estimate" : 2.20167278695007e-05,
       "quantity" : "0.5 mg",
       "quantity_g" : 0.0005,
       "text" : "salt"
    },
    {
       "id" : "en:apple-juice",
-      "percent" : 45.3514636391239,
-      "percent_estimate" : 45.3514636391239,
+      "is_in_taxonomy" : 1,
+      "percent" : 46.6754630833415,
+      "percent_estimate" : 46.6754630833415,
       "quantity" : "1 L",
-      "quantity_g" : 1000,
+      "quantity_g" : 1060,
+      "quantity_ml" : 1000,
       "text" : "apple juice"
    },
    {
       "id" : "en:ice-cream",
-      "percent" : 4.53514636391239,
-      "percent_estimate" : 4.53514636391239,
+      "is_in_taxonomy" : 1,
+      "percent" : 4.40334557390014,
+      "percent_estimate" : 4.40334557390014,
       "quantity" : "100 ml",
       "quantity_g" : 100,
+      "quantity_ml" : 100,
       "text" : "ice cream"
    }
 ]

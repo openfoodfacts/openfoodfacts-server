@@ -71,7 +71,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->{product};
 	my $text = $product_ref->{"origin_" . $product_ref->{lc}};
 
-	parse_origins_from_text($product_ref, $text);
+	parse_origins_from_text($product_ref, $text, $product_ref->{lc});
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results, $test_ref);
 

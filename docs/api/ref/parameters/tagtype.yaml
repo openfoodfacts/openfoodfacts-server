@@ -1,0 +1,10 @@
+components:
+  parameters:
+    Tagtype:
+      name: tagtype
+      in: query
+      description: Type of a tag / id of a tags taxonomy (e.g. categories, labels, ingredients, etc.)
+      required: true
+      schema:
+        type: string
+        example: additives

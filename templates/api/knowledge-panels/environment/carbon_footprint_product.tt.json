@@ -1,0 +1,35 @@
+[% SET driving_per_unit = panel.co2_kg_per_unit  * 100 / 19.3 %]
+[% SET driving_per_unit_rounded = sprintf('%.1f', driving_per_unit) %]
+[% SET co2_kg_per_unit_rounded = sprintf('%.1f', panel.co2_kg_per_unit) %]
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "expanded": false,
+    "title_element": {
+        "title": "1 [% panel.unit_name %] = [% co2_kg_per_unit_rounded %] kg CO₂e",
+        "subtitle": "[% edq(lang("average_for_the_category").ucfirst) %][% sep %]: [% panel.category_name %]",
+        "icon_url": "[% static_subdomain %]/images/panels/fr-impact-co2/impact-co2.svg",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                    <p>[% edq(f_lang('f_equal_to_driving_km_in_a_petrol_car',  { 'kilometers' => driving_per_unit_rounded } )) %]</p>
+                    <p>[% lang("data_source_and_detailed_carbon_impact") %][% sep %]: <a href="[% panel.link %]">Impact CO2 - Catégorie: [% panel.category_name %]</a></p>
+                    `
+            }
+        },
+        {
+            "element_type": "image",
+            "image_element": {
+                "url": "[% static_subdomain %]/images/panels/fr-impact-co2/republique-francaise-ademe-impact-co2.svg",
+                "alt": "Impact CO2",
+                "link_url": "[% panel.link %]"
+            }
+        },        
+    ]
+}

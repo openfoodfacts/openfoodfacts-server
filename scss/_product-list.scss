@@ -3,7 +3,8 @@ $productsGutter:12;
 .search_results {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: #{productsGutter}px;
     margin: 0;
     li {
         position: relative;
@@ -19,7 +20,7 @@ $productsGutter:12;
             margin-bottom: #{$productsGutter}px;
         }
         @media #{$xlarge-up} {
-            width: calc((100% - ($productsGutter * 5px)) / 6);
+            width: calc((100% - ($productsGutter * 5px)) / 5);
             margin-bottom: #{$productsGutter}px;
         }
     }
@@ -44,7 +45,7 @@ $productsGutter:12;
       margin-bottom: #{$productsGutter}px;
   }
   @media #{$xlarge-up} {
-      width: calc((100% - ($productsGutter * 5px)) / 6);
+      width: calc((100% - ($productsGutter * 5px)) / 5);
       margin-bottom: #{$productsGutter}px;
   }
 }
@@ -110,7 +111,6 @@ $productsGutter:12;
 .list_product_img_div {
     height: 144px;
     margin: 12px;
-    // margin-top: 6px;
 }
 
 .list_product_img {
@@ -131,6 +131,7 @@ $productsGutter:12;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
+    line-clamp: 4;
     height: 82px;
     overflow: hidden;
 }
@@ -184,9 +185,6 @@ $productsGutter:12;
 
 #preferences_selected {
     display: flex;
-//    flex-direction: column;
-//    align-items: center;
-//    justify-content: center;
 }
 #show_selection_form {
     height: auto;
@@ -202,6 +200,7 @@ $productsGutter:12;
     display: flex;
     align-items: center;
     padding-top: 1rem;
+    gap: 0.75rem;
     li:last-child {
         margin-left: auto;
     }
@@ -216,6 +215,7 @@ $productsGutter:12;
             text-align: center;
             padding: 0;
             display: flex;
+            min-width: 3rem;
             justify-content: center;
             align-items: center;
             font-size: 0.9em;
@@ -248,6 +248,12 @@ $productsGutter:12;
     #main_column {
         height: auto !important;
     }
+    #pages.pagination {
+      margin: 0.1rem;
+      flex-basis: fit-content;
+      flex-wrap: wrap;
+      flex-direction: row;
+  }
 }
 
 // Greeter CSS

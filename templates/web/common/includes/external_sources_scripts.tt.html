@@ -1,0 +1,16 @@
+<!-- external sources scripts -->
+<script>
+    // this is used to filter external knowledge panels
+    window.productData = {
+      code: "[% code | html %]",
+      categories: [% encode_json(categories) %],
+      country: "[% cc | html %]",
+      language: "[% lc | html %]",
+      product_type: "[% product_type_tag | html %]"
+    };
+    window.isModerator = [% is_moderator %];
+    window.isUser = [% is_user %];
+  </script>
+  
+  <script src="[% static_subdomain %]/js/dist/external-knowledge-panels.js"></script>
+<!-- end of external sources scripts -->

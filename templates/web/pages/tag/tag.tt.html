@@ -28,7 +28,7 @@
                 </div>
                 [% END %]
 
-                [% IF weblinks and not facets_kp_url.defined %]
+                [% IF weblinks %]
                 <div class="weblinks">
                     [% weblinks %]
                 </div>
@@ -56,7 +56,7 @@
 
             [% IF country != 'en:world' %]
             <p>[% lang('countries_s').ucfirst %][% sep %]: [% display_taxonomy_tag("countries", country) %]
-                - <a href="[% world_link_url %]">[% world_link %]</a>
+                - <a href="[% world_link_url | html %]">[% world_link %]</a>
             </p>
             [% END %]
 
@@ -83,7 +83,7 @@
                     }
 
                     // Adding language code to get translated data
-                    params += "&lang_code=[% lc %]&country=[% cc %]";
+                    params += "&lang_code=[% lc %]&country=[% country_code %]";
 
                     fetch(facet_kp + params)
                         .then((response) => {

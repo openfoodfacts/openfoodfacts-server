@@ -6,11 +6,11 @@ use utf8;
 use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
+$Data::Dumper::Sortkeys = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients
-	qw/clean_ingredients_text extract_ingredients_classes_from_text extract_ingredients_from_text/;
+use ProductOpener::Ingredients qw/clean_ingredients_text extract_additives_from_text extract_ingredients_from_text/;
 use ProductOpener::Food qw/compute_nova_group/;
 
 # dummy product for testing
@@ -53,6 +53,12 @@ my @tests = (
 	# allergens in parenthesis should not change the nova score but should appear in allergens
 	[{lc => "hr", ingredients_text_hr => "Krupica od durum pšenice (gluten), voda."}, 1],
 
+	# added nova:en: 4 property to some processings
+	[{lc => "fr", ingredients_text_fr => "Farine de blé modifiée"}, 4],
+	[{lc => "en", ingredients_text_en => "Modified cornflour"}, 4],
+	[{lc => "en", ingredients_text_en => "Modified whey"}, 4],
+	[{lc => "en", ingredients_text_en => "Modified strawberry"}, 4],
+
 );
 
 foreach my $test_ref (@tests) {
@@ -60,13 +66,13 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[0];
 	my $nova = $test_ref->[1];
 
-	if (not defined $product_ref->{categories}) {
-		$product_ref->{categories} = "some category";
+	if (not defined $product_ref->{categories_tags}) {
+		$product_ref->{categories_tags} = ["en:some-category"];
 	}
 	$product_ref->{ingredients_text} = $product_ref->{"ingredients_text_" . $product_ref->{lc}};
 	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 	compute_nova_group($product_ref);
 
 	is($product_ref->{nova_group}, $nova)

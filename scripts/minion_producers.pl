@@ -28,7 +28,7 @@ use ProductOpener::Producers qw/import_products_categories_from_public_database_
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
@@ -73,6 +73,9 @@ app->minion->add_task(
 app->minion->add_task(
 	import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
 
+app->minion->add_task(welcome_user => \&ProductOpener::Users::welcome_user_task);
+app->minion->add_task(subscribe_user_newsletter => \&ProductOpener::Users::subscribe_user_newsletter_task);
+app->minion->add_task(process_user_requested_org => \&ProductOpener::Users::process_user_requested_org_task);
 app->minion->add_task(delete_user => \&ProductOpener::Users::delete_user_task);
 
 app->config(

@@ -1,5 +1,4 @@
-﻿version: "3.7"
-services:
+﻿services:
   backend:
     volumes:
       - geolite2:/usr/local/share/GeoLite2-Country

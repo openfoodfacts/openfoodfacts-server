@@ -9,7 +9,7 @@ $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
-use ProductOpener::Ingredients qw/extract_ingredients_classes_from_text/;
+use ProductOpener::Ingredients qw/extract_additives_from_text/;
 use ProductOpener::Products qw/:all/;
 
 # dummy product for testing
@@ -137,7 +137,7 @@ my @tests = (
 			ingredients_text =>
 				"Mleczna baza [syrop glukozowy, oleje roślinne (kokosowy, z ziaren palmowych w zmiennych proporcjach), mleko w proszku odtłuszczone (5%), serwatka (z mleka) w proszku, regulatory kwasowości: fosforan dipotasowy, cytrynian trisodowy, białka mleka, substancja przeciwzbrylajaca: dwutlenek krzemu], cukier, kawa rozpuszczalna (8,7%), kawa zbożowa rozpuszczalna (ekstrakt prażonego jęczmienia i żyta) (6%), węglan magnezu, mleko w proszku pełne (1%), aromat. Produkt może zawierać soję."
 		},
-		["en:e340ii", "en:e331iii", "en:e551"]
+		["en:e340ii", "en:e331iii", "en:e551", "en:e504i"]
 	],
 	[
 		{lc => "pl", ingredients_text => "regulatory kwasowości: kwas cytrynowy i cytryniany sodu."},
@@ -211,6 +211,62 @@ my @tests = (
 		},
 		[]
 	],
+	# Paprika for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "paprika for color"
+		},
+		['en:e160c']
+	],
+	# Colored with paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "colored with paprika"
+		},
+		['en:e160c']
+	],
+	# oleoresin paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "oleoresin paprika"
+		},
+		['en:e160c']
+	],
+	# oleoresin of paprika
+	[
+		{
+			lc => 'en',
+			ingredients_text => "oleoresin of paprika"
+		},
+		['en:e160c']
+	],
+	# paprika added for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "paprika added for color"
+		},
+		['en:e160c']
+	],
+	# turmeric color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "turmeric color"
+		},
+		['en:e100']
+	],
+	# turmeric for color
+	[
+		{
+			lc => 'en',
+			ingredients_text => "turmeric for color"
+		},
+		['en:e100']
+	],
 
 );
 
@@ -222,7 +278,7 @@ foreach my $test_ref (@tests) {
 	$product_ref->{categories_tags} = ["en:debug"];
 	$product_ref->{"ingredients_text_" . $product_ref->{lc}} = $product_ref->{ingredients_text};
 
-	extract_ingredients_classes_from_text($product_ref);
+	extract_additives_from_text($product_ref);
 
 	is($product_ref->{additives_original_tags}, $expected_tags) or diag Dumper $product_ref;
 }

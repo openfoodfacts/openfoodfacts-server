@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -48,7 +48,7 @@ of a food product.
 		is_cheese => 0,
 		is_fat => 1, # for 2021 version
 		is_fat_oil_nuts_seed => 1, # for 2023 version
-	}
+	};
 
 	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
 		$nutriscore_data_ref
@@ -83,8 +83,8 @@ BEGIN {
 		&compute_nutriscore_score_and_grade
 		&compute_nutriscore_grade
 
-		&get_value_with_one_less_negative_point
-		&get_value_with_one_more_positive_point
+		&get_value_with_one_less_negative_point_2023
+		&get_value_with_one_more_positive_point_2023
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -99,8 +99,8 @@ use ProductOpener::Numbers qw/round_to_max_decimal_places/;
 Note: a significantly different Nutri-Score algorithm has been published in 2022 and 2023
 (respectively for foods and beverages).
 
-The functions related to the previous algorithm will be suffixed with _2021,
-and functions for the new algorithm will be suffixed with _2023.
+The functions related to the previous algorithm are suffixed with _2021,
+and functions for the new algorithm are suffixed with _2023.
 
 We will keep both algorithms for a transition period, and we will be able to remove the
 2021 algorithm and related functions after.
@@ -115,16 +115,19 @@ sub compute_nutriscore_score_and_grade ($nutriscore_data_ref, $version = "2021")
 	return compute_nutriscore_score_and_grade_2021($nutriscore_data_ref);
 }
 
-# methods returning the 2021 version for now, to ease switch, later on.
+# methods for an easy switch from version 2021 to version 2023.
 sub get_value_with_one_less_negative_point ($nutriscore_data_ref, $nutrient) {
-	return get_value_with_one_less_negative_point_2021($nutriscore_data_ref, $nutrient);
+	return get_value_with_one_less_negative_point_2023($nutriscore_data_ref, $nutrient);
 }
 
 sub get_value_with_one_more_positive_point ($nutriscore_data_ref, $nutrient) {
-	return get_value_with_one_more_positive_point_2021($nutriscore_data_ref, $nutrient);
+	return get_value_with_one_more_positive_point_2023($nutriscore_data_ref, $nutrient);
 }
 
-sub compute_nutriscore_grade ($nutrition_score, $is_beverage, $is_water) {
+sub compute_nutriscore_grade ($nutrition_score, $is_beverage, $is_water, $version = "2021") {
+	if ($version eq "2023") {
+		return compute_nutriscore_grade_2023($nutrition_score, $is_beverage, $is_water);
+	}
 	return compute_nutriscore_grade_2021($nutrition_score, $is_beverage, $is_water);
 }
 
@@ -147,7 +150,7 @@ The hash must contain values for the following keys:
 - sugars -> sugars in g / 100g or 100ml
 - saturated_fat -> saturated fats in g / 100g or 100ml
 - saturated_fat_ratio -> saturated fat divided by fat * 100 (in %)
-- sodium -> sodium in mg / 100g or 100ml (if sodium is computed from salt, it needs to use a sodium = salt / 2.5 conversion factor
+- sodium -> sodium in mg / 100g or 100ml (if sodium is computed from salt, it needs to use a sodium = salt / 2.5 conversion factor)
 - fruits_vegetables_nuts_colza_walnut_olive_oils -> % of fruits, vegetables, nuts, and colza / walnut / olive oils
 - fiber -> fiber in g / 100g or 100ml
 - proteins -> proteins in g / 100g or 100ml
@@ -260,7 +263,7 @@ sub get_value_with_one_less_negative_point_2021 ($nutriscore_data_ref, $nutrient
 For a given Nutri-Score nutrient value, return the smallest higher value that would result in more positive points.
 e.g. for a proteins value of 2.0 (which gives 1 point), return 3.3 (which gives 2 points)
 
-The value correspond to the smallest higher threshold + 1 increment so that it strictly greater than the threshold.
+The value corresponds to the smallest higher threshold + 1 increment so that it strictly greater than the threshold.
 
 Return undef is the input nutrient value already gives the maximum amount of points.
 
@@ -329,7 +332,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	foreach my $nutrient ("energy", $saturated_fat, "sodium", "fruits_vegetables_nuts_colza_walnut_olive_oils") {
 		if (defined $nutriscore_data_ref->{$nutrient}) {
-			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 10 + 0.5) / 10;
+			$nutriscore_data_ref->{$nutrient . "_value"} = 0 + int($nutriscore_data_ref->{$nutrient} * 10 + 0.5) / 10;
 		}
 		else {
 			$nutriscore_data_ref->{$nutrient . "_value"} = 0;
@@ -340,7 +343,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	foreach my $nutrient ("sugars", "fiber", "proteins") {
 		if (defined $nutriscore_data_ref->{$nutrient}) {
-			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 100 + 0.5) / 100;
+			$nutriscore_data_ref->{$nutrient . "_value"} = 0 + int($nutriscore_data_ref->{$nutrient} * 100 + 0.5) / 100;
 		}
 		else {
 			$nutriscore_data_ref->{$nutrient . "_value"} = 0;
@@ -352,7 +355,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 	if (   (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) > 0.9)
 		or (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) < 0.1))
 	{
-		$nutriscore_data_ref->{"sugars_value"} = int(($nutriscore_data_ref->{"sugars"} // 0) * 10 + 0.5) / 10;
+		$nutriscore_data_ref->{"sugars_value"} = 0 + int(($nutriscore_data_ref->{"sugars"} // 0) * 10 + 0.5) / 10;
 	}
 
 	# Compute the negative and positive points
@@ -375,10 +378,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 		foreach my $threshold (@{$points_thresholds_2021{$nutrient_threshold_id}}) {
 			# The saturated fat ratio table uses the greater or equal sign instead of greater
 			if (
-				(
-						($nutrient eq "saturated_fat_ratio")
-					and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold)
-				)
+				(($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold))
 				or (    ($nutrient ne "saturated_fat_ratio")
 					and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
 				)
@@ -492,8 +492,9 @@ The hash must contain values for the following keys:
 - sugars -> sugars in g / 100g or 100ml
 - saturated_fat -> saturated fats in g / 100g or 100ml
 - saturated_fat_ratio -> saturated fat divided by fat * 100 (in %)
+- salt -> ???
 - sodium -> sodium in mg / 100g or 100ml (if sodium is computed from salt, it needs to use a sodium = salt / 2.5 conversion factor
-- fruits_vegetables_nuts_colza_walnut_olive_oils -> % of fruits, vegetables, nuts, and colza / walnut / olive oils
+- fruits_vegetables_legumes -> % of fruits, vegetables, nuts, and colza / walnut / olive oils
 - fiber -> fiber in g / 100g or 100ml
 - proteins -> proteins in g / 100g or 100ml
 
@@ -504,6 +505,7 @@ If the product is a beverage, water, cheese, or fat, it must contain a positive 
 - is_water
 - is_cheese
 - is_fat_oil_nuts_seeds
+- is_red_meat_product
 
 =head4 Output keys: details of the Nutri-Score computation
 
@@ -511,6 +513,7 @@ Returned values:
 
 - [nutrient]_value -> rounded values for each nutrient according to the Nutri-Score rules
 - [nutrient]_points -> points for each nutrient
+- [nutrient]_points_max -> maximum number of points that can be allocated for each specific nutrient
 - negative_nutrients -> list of nutrients that are counted in negative points
 - negative_points -> sum of negative nutrients points
 - positive_nutrients -> list of nutrients that are counted in positive points
@@ -573,7 +576,7 @@ my %points_thresholds_2023 = (
 	proteins_beverages => [1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0],    # g / 100g
 );
 
-=head2 get_value_with_one_less_negative_point_2023( $nutriscore_data_ref, $nutrient )
+=head2 get_value_with_one_less_negative_point_2023 ($is_beverage, $nutrient, $current_value)
 
 For a given Nutri-Score nutrient value, return the highest smaller value that would result in less negative points.
 e.g. for a sugars value of 15 (which gives 3 points), return 13.5 (which gives 2 points).
@@ -584,11 +587,10 @@ Return undef if the input nutrient value already gives the minimum amount of poi
 
 =cut
 
-sub get_value_with_one_less_negative_point_2023 ($nutriscore_data_ref, $nutrient) {
+sub get_value_with_one_less_negative_point_2023 ($is_beverage, $nutrient, $current_value) {
 
 	my $nutrient_threshold_id = $nutrient;
-	if (    (defined $nutriscore_data_ref->{is_beverage})
-		and ($nutriscore_data_ref->{is_beverage})
+	if ($is_beverage
 		and (defined $points_thresholds_2023{$nutrient_threshold_id . "_beverages"}))
 	{
 		$nutrient_threshold_id .= "_beverages";
@@ -597,10 +599,7 @@ sub get_value_with_one_less_negative_point_2023 ($nutriscore_data_ref, $nutrient
 	my $lower_threshold;
 
 	foreach my $threshold (@{$points_thresholds_2023{$nutrient_threshold_id}}) {
-		# The saturated fat ratio table uses the greater or equal sign instead of greater
-		if (   (($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold))
-			or (($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold)))
-		{
+		if ($current_value > $threshold) {
 			$lower_threshold = $threshold;
 		}
 	}
@@ -608,7 +607,7 @@ sub get_value_with_one_less_negative_point_2023 ($nutriscore_data_ref, $nutrient
 	return $lower_threshold;
 }
 
-=head2 get_value_with_one_more_positive_point_2023( $nutriscore_data_ref, $nutrient )
+=head2 get_value_with_one_more_positive_point_2023 ($is_beverage, $nutrient, $current_value)
 
 For a given Nutri-Score nutrient value, return the smallest higher value that would result in more positive points.
 e.g. for a proteins value of 2.0 (which gives 1 point), return 3.3 (which gives 2 points)
@@ -619,11 +618,10 @@ Return undef if the input nutrient value already gives the maximum amount of poi
 
 =cut
 
-sub get_value_with_one_more_positive_point_2023 ($nutriscore_data_ref, $nutrient) {
+sub get_value_with_one_more_positive_point_2023 ($is_beverage, $nutrient, $current_value) {
 
 	my $nutrient_threshold_id = $nutrient;
-	if (    (defined $nutriscore_data_ref->{is_beverage})
-		and ($nutriscore_data_ref->{is_beverage})
+	if ($is_beverage
 		and (defined $points_thresholds_2023{$nutrient_threshold_id . "_beverages"}))
 	{
 		$nutrient_threshold_id .= "_beverages";
@@ -632,7 +630,7 @@ sub get_value_with_one_more_positive_point_2023 ($nutriscore_data_ref, $nutrient
 	my $higher_threshold;
 
 	foreach my $threshold (@{$points_thresholds_2023{$nutrient_threshold_id}}) {
-		if ($nutriscore_data_ref->{$nutrient . "_value"} < $threshold) {
+		if ($current_value < $threshold) {
 			$higher_threshold = $threshold;
 			last;
 		}
@@ -643,7 +641,7 @@ sub get_value_with_one_more_positive_point_2023 ($nutriscore_data_ref, $nutrient
 	my $return_value = $higher_threshold;
 
 	if ($return_value) {
-		if ($nutrient eq "fruits_vegetables_nuts_colza_walnut_olive_oils") {
+		if ($nutrient eq "fruits_vegetables_legumes") {
 			$return_value += 1;
 		}
 		else {

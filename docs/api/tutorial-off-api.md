@@ -12,7 +12,7 @@ To get a product nutriscore, send a request to the [Get A Product By Barcode](ht
 
 ### Authentication
 
-Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment(which is used throughout this tutorial). For more details, visit the [Open Food Facts API Environment](index.md#api-deployments).
+Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment (which is used throughout this tutorial). For more details, visit the [Open Food Facts API Environment](index.md#api-deployments).
 
 ### Describing the Get Request
 
@@ -29,7 +29,7 @@ https://world.openfoodfacts.net/api/v2/product/3017624010701
 ```
 
 The response returns every data about Nutella Ferrero on the database. To get the nutriscore, we need to limit the response by specifying the nutriscore field, which is the `nutrition_grades` and `product_name`.
-<!--Is it only nutriscore_data -->
+{/* <!--Is it only nutriscore_data --> */}
 
 ### Query Parameters
 
@@ -61,7 +61,7 @@ The response returned contains an object of the `code`, `product`, `status_verbo
 
 If you would like to be able to show how the score is computed, add some extra fields like `nutriscore_data` and `nutriments`.
 
-The request path to get the Nutri-Score computation for Nutella-Ferroro will be :
+The request path to get the Nutri-Score computation for Nutella-Ferrero will be :
 
 ```text
 https://world.openfoodfacts.net/api/v2/product/3017624010701?fields=product_name,nutriscore_data,nutriments,nutrition_grades
@@ -108,7 +108,7 @@ The `product` object in the response now contains the extra fields to show how t
 
 For more details, see the reference documentation for [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-).
 
-<!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
+{/* <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc--> */}
 
 ## Completing products to get the Nutri-Score
 
@@ -117,7 +117,7 @@ For more details, see the reference documentation for [Get A Product By Barcode]
 When these fields are missing in a nutriscore computation response, it signifies that the product does not have a Nutri-Score computation due to some missing nutrition data.
 Let's look at the [100% Real Orange Juice](https://world.openfoodfacts.net/api/v2/product/0180411000803/100-real-orange-juice?product_name,nutriscore_data,nutriments,nutrition_grades). If the product nutrition data is missing some fields, you can volunteer and contribute to it by getting the missing tags and writing to the OFF API to add them.
 
-<!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? -->
+{/* <!-- I dont know if using 100% Real Orange Juice is a good approach for now , should we state that it was not computed at the time of writing this article just incase it gets computed in future or there is a product we can use to test this that wont change in future ? --> */}
 
 To know the missing tags, check the `misc-tags` field from the product response.
 
@@ -145,11 +145,11 @@ The response shows the missing fields and category needed to compute the Nutri-S
 }
 ```
 
-The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category (`en:nutriscore-missing-category`) and sodium(salt) (`en:nutriscore-missing-nutrition-data-sodium`). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.
+The sample response above for 100% Real Orange Juice `misc_tags` shows that the Nutri-Score is missing category (`en:nutriscore-missing-category`) and sodium (salt) (`en:nutriscore-missing-nutrition-data-sodium`). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.
 
 ### Write data to make Nutri-Score computation possible
 
-The WRITE operations in the OFF API require  authentication. Therefore you need a valid `user_id` and `password` to write the missing nutriment data to 100% Real Orange Juice.
+The WRITE operations in the OFF API require authentication. Therefore you need a valid `user_id`^[user_id_not_email] and `password` to write the missing nutriment data to 100% Real Orange Juice.
 
 > Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your`user_id` and `password` if you don't have one.
 
@@ -161,17 +161,16 @@ https://world.openfoodfacts.net/cgi/product_jqm2.pl
 
 Add your valid `user_id` and `password` as body parameters to your request for authentication. The `code` (barcode of the product to be added/edited), `user_id`, and `password` are required when adding or editing a product. Then, include other product data to be added in the request body.
 
-To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields :
+To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Score can be computed, the request body should contain these fields:
 
-| Key        | Value           | Description  |
-| ------------- |:-------------:| -----:|
-| user_id     | *** | A valid user_id |
-| password      | ***     |   A valid password |
-| code | 0180411000803      |    The barcode of the product to be added/edited |
-| nutriment_sodium | 0.015      |    Amount of sodium |
-| nutriment_sodium_unit | g      |   Unit of sodium relative to the amount |
-| categories | Orange Juice     |   Category of the Product |
-
+| Key                   |     Value     |                                   Description |
+| --------------------- | :-----------: | --------------------------------------------: |
+| user_id               |    \*\*\*     |                               A valid user_id |
+| password              |    \*\*\*     |                              A valid password |
+| code                  | 0180411000803 | The barcode of the product to be added/edited |
+| nutriment_sodium      |     0.015     |                              Amount of sodium |
+| nutriment_sodium_unit |       g       |         Unit of sodium relative to the amount |
+| categories            | Orange Juice  |                       Category of the Product |
 Using curl:
 
 ```bash
@@ -188,6 +187,8 @@ If the request is successful, it returns a response that indicates that the fiel
     "status": 1
 }
 ```
+
+^[user_id_not_email]: user_id is the username of your account. You must not use your email address.
 
 ### Read newly computed Nutri-Score
 
@@ -226,11 +227,11 @@ For more details, see the reference documentation for [Add or Edit A Product](ht
 
 You can also check the reference cheatsheet to know how to add/edit other types of product data.
 
-<!-- Include the link of the cheatsheet once it is published. -->
+{/* <!-- Include the link of the cheatsheet once it is published. --> */}
 
 ## Search for a Product by Nutri-score
 
-Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search).
+Using the Open Food Facts API, you can filter products based on different criteria. To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search).
 
 **Note:** we describe here the v2 search API, but beware that only [v1 search API](https://wiki.openfoodfacts.org/API/Read/Search) supports full text search.
 

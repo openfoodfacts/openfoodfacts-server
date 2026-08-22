@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "forest_footprint_data" : {
       "footprint_per_kg" : 0.281280419318607,
       "grade" : "a",
@@ -28,8 +29,9 @@
    },
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "36005",
+         "ciqual_proxy_food_code" : "36003",
          "id" : "en:chicken",
+         "is_in_taxonomy" : 1,
          "origins" : "en:gers",
          "percent_estimate" : 100,
          "percent_max" : 100,
@@ -52,10 +54,7 @@
       "en:non-vegan",
       "en:non-vegetarian"
    ],
-   "ingredients_hierarchy" : [
-      "en:chicken",
-      "en:poultry"
-   ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -76,17 +75,16 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:chicken"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 1,
+   "known_ingredients_n" : 1,
    "lc" : "fr",
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:forest-footprint-computed",
       "en:forest-footprint-a"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
-   },
    "unknown_ingredients_n" : 0
 }

@@ -7,6 +7,7 @@
    "orgs_existing" : {
       "world-test-food" : 1
    },
+   "orgs_glns" : {},
    "orgs_in_file" : {
       "carrefour" : 1,
       "test-food-company" : 1,
@@ -209,22 +210,18 @@
       "5270190128403" : 1,
       "7270190128403" : 1
    },
-   "products_nutrition_added" : {
-      "3270190128403" : 1,
-      "4270190128403" : 1
-   },
+   "products_nutrition_added" : {},
    "products_nutrition_changed" : {},
    "products_nutrition_data_per_updated" : {
       "3270190128403" : 1,
       "4270190128403" : 1
    },
-   "products_nutrition_not_updated" : {
-      "5270190128403" : 1,
-      "7270190128403" : 1
-   },
+   "products_nutrition_not_updated" : {},
    "products_nutrition_updated" : {
       "3270190128403" : 1,
-      "4270190128403" : 1
+      "4270190128403" : 1,
+      "5270190128403" : 1,
+      "7270190128403" : 1
    },
    "products_packagings_created" : {
       "3270190128403" : 1,

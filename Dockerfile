@@ -3,17 +3,18 @@
 ARG USER_UID=1000
 ARG USER_GID=1000
 # options for cpan installs
-ARG CPANMOPTS=
+ARG CPANMOPTS=""
 
 ######################
 # Base modperl image stage
 ######################
-FROM debian:bullseye AS modperl
+FROM debian:trixie-slim AS modperl
 
 # Install cpm to install cpanfile dependencies
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
-    apt update && \
-    apt install -y \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
         apache2 \
         apt-utils \
         cpanminus \
@@ -44,18 +45,18 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # Packages from ./cpanfile:
         # If cpanfile specifies a newer version than apt has, cpanm will install the newer version.
         #
+        libfile-slurp-perl \
         libtie-ixhash-perl \
         libwww-perl \
         libimage-magick-perl \
         libxml-encoding-perl  \
-        libtext-unaccent-perl \
         libmime-lite-perl \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
         libclone-perl \
+        #11866: Delete following after Keycloak Migration:
         libcrypt-passwdmd5-perl \
         libencode-detect-perl \
-        libgraphics-color-perl \
         libbarcode-zbar-perl \
         libxml-feedpp-perl \
         liburi-find-perl \
@@ -65,28 +66,31 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libdigest-md5-perl \
         libtime-local-perl \
         libdbd-pg-perl \
-        libtemplate-perl \
         liburi-escape-xs-perl \
+        libxml-libxslt-perl \
+        libdata-table-perl \
+        libanyevent-redis-perl \
         # NB: not available in ubuntu 1804 LTS:
         libmath-random-secure-perl \
         libfile-copy-recursive-perl \
         libemail-stuffer-perl \
         liblist-moreutils-perl \
-        libexcel-writer-xlsx-perl \
         libpod-simple-perl \
-        liblog-any-perl \
         liblog-log4perl-perl \
-        liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
         libemail-valid-perl
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
-    apt install -y \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
+    # rerun apt update, because last RUN might be in cache
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt-get update || true \
+    ) && \
+    apt-get install -y --no-install-recommends \
+        curl \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
-        # Action::Retry
-        libmath-fibonacci-perl \
         # EV - event loop
         libev-perl \
         # Algorithm::CheckDigits
@@ -127,15 +131,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         liblinux-usermod-perl \
         # Locale::Maketext::Lexicon::Getcontext
         liblocale-maketext-lexicon-perl \
-        # Log::Any::Adapter::TAP
-        liblog-any-adapter-tap-perl \
         # Math::Random::Secure
         libcrypt-random-source-perl \
         libmath-random-isaac-perl \
         libtest-sharedfork-perl \
         libtest-warn-perl \
-        # Mojo::Pg
-        libsql-abstract-perl \
         # MongoDB
         libauthen-sasl-saslprep-perl \
         libauthen-scram-perl \
@@ -143,13 +143,14 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libclass-xsaccessor-perl \
         libconfig-autoconf-perl \
         libdigest-hmac-perl \
-        libpath-tiny-perl \
         libsafe-isa-perl \
         # Spreadsheet::CSV
         libspreadsheet-parseexcel-perl \
         # Test::Number::Delta
         libtest-number-delta-perl \
         libdevel-size-perl \
+        # Net-IDN-Encode (needs Debian patch for Perl 5.40+ compat)
+        libnet-idn-encode-perl \
         gnumeric \
         # for dev
         # gnu readline
@@ -158,31 +159,27 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
         libapache2-mod-perl2-dev \
+        # OpenSSL dev needed by OIDC::Lite
+        libssl-dev \
+        # libheif 1.19+ in trixie uses plugins for codec support
+        # needed by Imager::File::HEIF configure test
+        libheif-plugin-x265 \
+        libheif-plugin-libde265 \
         # Imager::zxing - build deps
-        cmake \
         pkg-config \
-        # Imager::zxing - decoders
+        libzxing-dev \
+        # Imager and Imager::File::* build dependencies
         libavif-dev \
         libde265-dev \
         libheif-dev \
         libjpeg-dev \
         libpng-dev \
-        libwebp-dev \
-        libx265-dev
+        libwebp-dev
 
-# Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
-RUN set -x && \
-    cd /tmp && \
-    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v2.1.0.tar.gz && \
-    tar xfz v2.1.0.tar.gz && \
-    cmake -S zxing-cpp-2.1.0 -B zxing-cpp.release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
-    cmake --build zxing-cpp.release -j8 && \
-    cmake --install zxing-cpp.release && \
-    cd / && \
-    rm -rf /tmp/v2.1.0.tar.gz /tmp/zxing-cpp*
+RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm -o /tmp/cpm && \
+    mv /tmp/cpm /usr/bin/cpm && \
+    chmod +x /usr/bin/cpm && \
+    /usr/bin/cpm --version
 
 # Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
@@ -196,17 +193,43 @@ RUN usermod --uid $USER_UID www-data && \
 ######################
 FROM modperl AS builder
 ARG CPANMOPTS
+
+ARG PO_LIB_DIR=/tmp/local
+
 WORKDIR /tmp
 
-# Install Product Opener from the workdir.
-COPY ./cpanfile* /tmp/
-# Add ProductOpener runtime dependencies from cpan
-RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+# run apt update if needed because some package might need to apt install
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
+    set -x && \
+    ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
+      apt-get update || true \
+    ) && \
+    # Install package dependencies in $PO_LIB_DIR
+    export PERL_MM_OPT="INSTALL_BASE=$PO_LIB_DIR" && \
+    export PERL_MB_OPT="--install_base $PO_LIB_DIR" && \
+    export PERL5LIB="$PO_LIB_DIR/lib/perl5/:$PERL5LIB" && \
+    export PATH="$PO_LIB_DIR/bin:$PATH" && \
     # first install some dependencies that are not well handled
-    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
-    # in case of errors show build.log, but still, fail
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+    cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
+    # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
+    # without adding an unresolved dependency back into cpanfile.
+    cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
+
+# Add ProductOpener runtime dependencies from cpan
+COPY ./cpanfile* /tmp/
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
+    set -x && \
+    # Install package dependencies in $PO_LIB_DIR
+    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \ 
+    export PERL_MB_OPT="--install_base /tmp/local/" && \
+    export PERL5LIB="/tmp/local/lib/perl5/" && \
+    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 
 ######################
 # backend production image stage
@@ -235,7 +258,7 @@ RUN \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
     # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
-    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
+    for path in external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
     # Create some necessary files to ensure permissions in volumes

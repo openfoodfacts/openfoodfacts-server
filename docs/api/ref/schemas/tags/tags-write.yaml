@@ -1,0 +1,27 @@
+type: object
+title: Tags (WRITE)
+description: |
+  Products have list of tags of different types (e.g. categories, labels) that can be replaced or added to with the following properties in API v3.
+properties:
+  categories_tags:
+    type: array
+    description: An array of categories tag entries that will replace existing categories
+    items:
+      $ref: ./input_taxonomy_tag_entry.yaml
+  categories_tags_add:
+    type: array
+    description: An array of categories tag entries that will be added to existing categories
+    items:
+      $ref: ./input_taxonomy_tag_entry.yaml
+
+patternProperties:
+  categories_tags_(?<language_code>\w\w):
+    type: array
+    description: An array of categories tag entries that will replace existing categories, with a default language code
+    items:
+      $ref: ./input_taxonomy_tag_entry.yaml
+  categories_tags_(?<language_code>\w\w)_add:
+    type: array
+    description: An array of categories tag entries that will be added to existing categories, with a default language code
+    items:
+      $ref: ./input_taxonomy_tag_entry.yaml

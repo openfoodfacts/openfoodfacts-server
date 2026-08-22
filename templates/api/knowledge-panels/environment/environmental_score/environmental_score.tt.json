@@ -1,0 +1,81 @@
+{
+    "level": "info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "name": "[% panel.name %]",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/green-score-[% panel.grade %].svg",
+        "title": "[% panel.title %]",
+        "subtitle": "[% panel.subtitle %]",
+        "type": "grade",
+        "grade": "[% panel.grade_underscore %]"
+    },
+    "elements": [
+        [% IF panel.transportation_warning.defined %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `[% panel.transportation_warning %]`,
+            }
+        },
+        [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% lang("environmental_score_description") %]`,
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "note",
+                "html": `
+                    [% IF cc == "fr" %]
+                        [% lang("environmental_score_warning_fr") %]
+                    [% ELSE %]
+                        [% lang("environmental_score_warning_international") %]
+                    [% END %]                
+                `,
+            }
+        },    
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% edq(lang('life_cycle_analysis')) %]",
+                "panel_ids": [
+                    "environmental_score_agribalyse",
+                ],
+            },
+        },               
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% edq(lang('environmental_score_bonuses_and_maluses')) %]",
+                "panel_ids": [
+                    [% FOREACH adjustment IN ["production_system", "origins_of_ingredients", "threatened_species", "packaging"] %]
+                        [% IF (adjustment == "origins_of_ingredients") or (adjustment == "packaging") or (product.environmental_score_data.adjustments.$adjustment.value != 0) %]
+                            "environmental_score_[% adjustment %]",
+                        [% END %]
+                    [% END %]
+                ],
+            },
+        },
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% edq(lang('environmental_score_for_this_product')) %]",
+                "panel_ids": [ "environmental_score_total"],
+            },
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+<p>&rarr; <a href="/green-score">[% lang('environmental_score_learn_more') %]</a></p>
+`
+            },
+        },
+    ]
+}

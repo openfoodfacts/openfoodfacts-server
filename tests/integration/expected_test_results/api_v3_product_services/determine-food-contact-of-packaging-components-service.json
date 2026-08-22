@@ -1,0 +1,42 @@
+{
+   "errors" : [],
+   "fields" : [
+      "updated"
+   ],
+   "product" : {
+      "packagings" : [
+         {
+            "food_contact" : 1,
+            "material" : {
+               "id" : "en:plastic"
+            },
+            "shape" : {
+               "id" : "en:tray"
+            }
+         },
+         {
+            "food_contact" : 1,
+            "material" : {
+               "id" : "en:plastic"
+            },
+            "shape" : {
+               "id" : "en:film"
+            }
+         },
+         {
+            "food_contact" : 0,
+            "material" : {
+               "id" : "en:paper"
+            },
+            "shape" : {
+               "id" : "en:label"
+            }
+         }
+      ]
+   },
+   "services" : [
+      "determine_food_contact_of_packaging_components"
+   ],
+   "status" : "success",
+   "warnings" : []
+}
