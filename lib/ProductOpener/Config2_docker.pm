@@ -79,7 +79,7 @@ BEGIN {
 		$oidc_client_secret
 		%slack_hook_urls
 		$health_check_api_key
-
+		%admins
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -228,5 +228,10 @@ if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
 
 # Health check API key
 $health_check_api_key = $ENV{HEALTH_CHECK_API_KEY};
+
+# Administrators
+
+%admins = map {$_ => 1} qw(
+);
 
 1;
