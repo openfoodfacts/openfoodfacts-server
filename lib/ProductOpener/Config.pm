@@ -111,7 +111,7 @@ autoload("ProductOpener::Config_$flavor");
 );
 
 # Administrators need to be defined in Config2.pm
-%ProductOpener::Config::admins = ProductOpener::Config2::admins || ();
+%ProductOpener::Config::admins = %ProductOpener::Config2::admins || ();
 
 =head2 Available product types and flavors
 
