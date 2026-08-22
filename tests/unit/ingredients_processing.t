@@ -1658,7 +1658,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:handgeschnitten',
+				'processing' => 'en:hand-cut',
 				'text' => "haselnüsse"
 			}
 		]
@@ -1811,17 +1811,10 @@ my @tests = (
 				'text' => 'slanina'
 			},
 			{
-				'id' => 'en:antioxidant',
+				'id' => 'en:rosemary',
 				'is_in_taxonomy' => 1,
-				'text' => 'antioksidans',
-				'ingredients' => [
-					{
-						'id' => "en:rosemary",
-						'is_in_taxonomy' => 1,
-						'processing' => "en:extract",
-						'text' => "ru\x{17e}marina"
-					}
-				],
+				'processing' => 'en:extract',
+				'text' => "ru\x{17e}marina",
 			},
 		]
 	],

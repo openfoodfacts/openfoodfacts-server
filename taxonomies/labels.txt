@@ -90,7 +90,7 @@ synonyms:sv: innehåller, källa till
 
 synonyms:en: without, 0%, free, contains no, free from
 synonyms:da: uden, ingen, intet, nul, 0%, fri for
-synonyms:de: ohne, 0%
+synonyms:de: ohne, 0%, frei von, frei
 synonyms:es: sin, 0%, libre de
 synonyms:fi: ilman, 0%, vapaa
 synonyms:fr: sans, 0%
@@ -486,7 +486,6 @@ de: Haltungsform 5 Bio, Haltungsform Bio, Haltungsform 5
 xx: Haltungsform 5
 image:de: haltungsform-5.79x90.svg
 
-
 de: Neuland
 xx: Neuland
 
@@ -579,7 +578,6 @@ en: Climate Neutral product, Climate Partner
 de: Klimaneutral Produkt, Climate Partner
 label_categories:en: en:environment
 web:en: https://www.climatepartner.com/en
-
 
 en: Carbon Trust
 xx: Carbon Trust
@@ -860,7 +858,6 @@ xx: International Ice Cream Consortium award best commercial solution 2019
 en: International Ice Cream Consortium award ice cream maker of the year 2019
 xx: International Ice Cream Consortium award ice cream maker of the year 2019
 
-
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2018
 xx: International Ice Cream Consortium award best ice cream 2018
@@ -880,7 +877,6 @@ xx: International Ice Cream Consortium award best commercial solution 2018
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award ice cream maker of the year 2018
 xx: International Ice Cream Consortium award ice cream maker of the year 2018
-
 
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2017
@@ -902,7 +898,6 @@ xx: International Ice Cream Consortium award best commercial solution 2017
 en: International Ice Cream Consortium award ice cream maker of the year 2017
 xx: International Ice Cream Consortium award ice cream maker of the year 2017
 
-
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2016
 xx: International Ice Cream Consortium award best ice cream 2016
@@ -923,7 +918,6 @@ xx: International Ice Cream Consortium award best commercial solution 2016
 en: International Ice Cream Consortium award ice cream maker of the year 2016
 xx: International Ice Cream Consortium award ice cream maker of the year 2016
 
-
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2015
 xx: International Ice Cream Consortium award best ice cream 2015
@@ -939,7 +933,6 @@ xx: International Ice Cream Consortium award best technical solution 2015
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best commercial solution 2015
 xx: International Ice Cream Consortium award best commercial solution 2015
-
 
 < en: International Ice Cream Consortium award
 en: International Ice Cream Consortium award best ice cream 2014
@@ -1174,22 +1167,64 @@ fr: PME Plus, PME+, pmeplus
 label_categories:en: en:Social responsibility
 # https://www.label-pmeplus.fr/
 
-
 ########################## FAIR TRADE ##########################
 
 en: Fair trade
 xx: Fair trade
+af: regverdige handel
+ar: تجارة عادلة
 bg: Справедлива търговия
+bn: ন্যায্য বাণিজ্য
 ca: Comerç Just
+cy: masnach deg
+da: Bæredygtig handel
 de: Fairer Handel
+el: Δίκαιο εμπόριο
+eo: justa komerco
 es: Comercio justo, Fairtrade-Comercio Justo
+et: õiglane kaubandus
+eu: Bidezko merkataritza
+fa: تجارت منصفانه
 fi: Reilu kauppa
 fr: Commerce équitable, équitable, issu du commerce équitable, issus du commerce équitable, issue du commerce équitable, issues du commerce équitable, ingrédients issus du commerce équitable, produits issus du commerce équitable, ingrédient issu du commerce équitable, Ingrédients conformes aux standards du commerce équitable Fairtrade/Max Havelaar, ingrédients conformes aux standards du commerce équitable, 100% du total des ingrédients d'origine agricole sont conformes aux standards du commerce équitable
+ga: trádáil chóir
+gl: Comercio xusto
 he: סחר הוגן
-hu: Méltányos kereskedelem, Fair trade, becsületes kereskedelem
-it: Commercio equo
-nl: Fairtrade, Rechtvaardige handel, fair trade
-pt: Comércio justo, fair trade
+hr: Pravedna trgovina
+hu: Méltányos kereskedelem, becsületes kereskedelem
+hy: Արդար արևտուր
+id: Perdagangan adil
+ig: ahia ziri ezi
+io: Equitatoza komerco
+is: Sanngjörn viðskipti
+it: Commercio equo, commercio equo e solidale
+ja: 公正取引
+kk: Әділ сауда
+ko: 공정 무역
+lt: Sąžininga prekyba
+mk: праведна трговија
+ml: ന്യായവ്യാപാരം
+ms: Perdagangan adil
+nb: rettferdig handel
+nl: Eerlijke handel, Fairtrade, Rechtvaardige handel
+nn: rettferdig handel
+pl: sprawiedliwy handel
+pt: Comércio justo
+ro: comerț echitabil
+ru: Справедливая торговля
+sh: Pravedna trgovina
+sk: Fair Trade
+sl: pravična trgovina
+sr: праведна трговина
+sv: rättvis handel, Fairtradecertifierad
+ta: நியாய வணிகம்
+th: การค้าโดยชอบธรรม
+tl: Patas na kalakalan
+tr: Adil ticaret
+uk: справедлива торгівля
+vi: Thương mại công bằng
+wa: Comiece å droet pris
+zh: 公平貿易
 description:en: Fair trade is an arrangement designed to help producers in developing countries achieve sustainable and equitable trade relationships. Members of the fair trade movement add the payment of higher prices to exporters, as well as improved social and environmental standards.
 description:de: Als Fairer Handel (englisch fair trade) wird ein kontrollierter Handel bezeichnet, bei dem die Erzeuger für ihre Produkte einen Mindestpreis erhalten, der von einer Fair-Trade-Organisation bestimmt wird. Damit soll den Produzenten auch bei niedrigeren Marktpreisen ein höheres und verlässlicheres Einkommen als im herkömmlichen Handel ermöglicht werden.
 description:es: El comercio justo es una forma alternativa de comercio promovida por varias ONG (organizaciones no gubernamentales), por la Organización de las Naciones Unidas y por los movimientos sociales y políticos (como el pacifismo y el ecologismo) que promueven una relación comercial voluntaria y justa entre productores y consumidores.
@@ -1215,11 +1250,8 @@ en: Fairtrade International, Fairtrade, FLO international, FLO
 xx: Fairtrade International, Fairtrade, FLO international, FLO
 bg: Fairtrade International, Fairtrade
 ca: Fairtrade Internacional, FLO International
-fi: Fairtrade International, FLO
 it: Commercio Equo Internazionale
-nl: Fairtrade International, Eerlijke handel
-pt: Fairtrade International
-ru: Честная торговля, FLO
+ru: Честная торговля
 wikipedia:en: https://en.wikipedia.org/wiki/Fairtrade_certification
 
 < en: Fair trade
@@ -1422,7 +1454,7 @@ tr: Yeşil Nokta
 auth_url:en: https://www.pro-e.org/
 label_categories:en: en:Packaging
 wikidata:en: Q975485
-# en:comment:On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
+#comment:en: On packaging, the Green Dot means that for such packaging a financial contribution has been paid to a qualified national packaging recovery organization set up in accordance with the principles defined in European Packaging and Packaging Waste Directive 94/62 and the respective national law.
 
 fr: Imprim'Vert
 label_categories:en: en:Packaging
@@ -1495,7 +1527,7 @@ ca: Lliure de gluten, Sense gluten, No gluten, Aliment sense gluten, Lliure de g
 cs: Bez lepku
 cz: Bez lepku
 da: Glutenfri, glutenfrit, glutenfrie
-de: Glutenfrei
+de: Glutenfrei, Frei von Gluten
 el: Χωρίς γλουτένη
 es: Sin gluten, Libre de gluten
 et: Gluteenivaba
@@ -1540,7 +1572,6 @@ wikidata:en: Q101542317
 
 < en: No gluten
 en: GFCO Gluten Free
-# 71 products
 
 < en: No gluten
 en: Crossed Grain Trademark, CGT, Crossed Grain Symbol, Crossed Grain
@@ -1763,7 +1794,6 @@ auth_url:fr: https://www.labelrouge.fr/
 label_categories:en: en:Quality, en:Environment
 wikidata:en: Q3214309
 
-
 pl: Gwarancja jakości
 # 36 polish products as of 2020-06-15; https://pl.openfoodfacts.org/label/gwarancja-jako%C5%9Bci
 
@@ -1910,7 +1940,6 @@ nl: rijk aan onverzadigde vetzuren
 pt: rico em ácidos graxos insaturados
 description:en: In EU, a claim that a food is high in polyunsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from polyunsaturated fat under the condition that polyunsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-
 en: Rich in polyunsaturated fatty acids, high polyunsaturated fat
 xx: Rich in polyunsaturated fatty acids
 de: Reich an mehrfach ungesättigten Fettsäuren
@@ -1975,7 +2004,7 @@ en: Calcium source, Source of calcium, With calcium
 xx: Calcium source
 bg: Източник на калции
 ca: Font de calci
-de: Kalziumquelle
+de: Kalziumquelle, mit Calcium
 es: Fuente de calcio
 fi: Kalsiumin lähde, Sisältää kalsiumia
 fr: Source de calcium
@@ -2169,7 +2198,7 @@ xx: Vitamin B12 source
 bg: Източник на витамин B12
 ca: Font de vitamina B12
 da: Kilde til vitamin B12
-de: Vitamin B12-Quelle
+de: Vitamin B12-Quelle, Mit Vitamin B12
 es: Fuente de vitamina B12
 fi: B12-vitamiinin lähde
 fr: Source de vitamine B12, Avec vitamine B12
@@ -2671,7 +2700,6 @@ en: energy free
 xx: energy free
 description:en: In EU, a claim that a food is energy free may only be made where the product does not contain more than 4 kcal (17 kJ)/100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-
 en: Low or no fat
 ca: Baix o sense greix
 de: Niedrig oder kein Fett
@@ -2920,6 +2948,11 @@ ru: Обезжиренный, 0% жира
 th: ไม่มีไขมัน
 description:en: In EU, a claim that a food is fat free may only be made where the product contains no more than 0,5 g of fat per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
+en: High in sodium
+es: Alto en sodio
+label_categories:en: en:Health
+opposite:en: en:Low or no Sodium
+
 en: Low or no Sodium
 xx: Low or no Sodium
 ca: Baix o sense sodi
@@ -2935,6 +2968,7 @@ pt: Baixo ou sem sódio
 ru: Низкое или отсутствие натрия
 th: โซเดียมต่ำหรือไม่มีโซเดียม
 label_categories:en: en:Health
+opposite:en: en:High in sodium
 
 < en: Low or no Sodium
 en: Low Sodium
@@ -2968,7 +3002,6 @@ description:en: In EU, a claim that a food is sodium-free/salt-free may only be 
 en: No added sodium
 xx: No added sodium
 description:en: In EU, a claim that sodium/salt has not been added to a food may only be made where the product does not contain any added sodium/salt or any other ingredient containing added sodium/salt and the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
-
 
 en: Low or no salt
 ca: Baix o sense sal
@@ -3210,6 +3243,11 @@ ru: Без соли, 0% соли
 th: ไม่มีเกลือ
 description:en: In EU, a claim that a food is sodium-free/salt-free may only be made where the product contains no more than 0,005 g of sodium, or the equivalent value for salt, per 100 g. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
+en: High in sugars
+es: Alto en azúcares
+label_categories:en: en:Health
+opposite:en: en:Low or no sugar
+
 en: Low or no sugar
 ca: Sense o baix en sucre
 cs: Nízký nebo žádný obsah cukru
@@ -3229,6 +3267,7 @@ sv: Lågt eller inget socker
 th: น้ำตาลต่ำ
 zh: 低糖或无糖
 label_categories:en: en:Health
+opposite:en: en:High in sugars
 
 < en: Low or no sugar
 en: Low sugar, Low in sugars
@@ -3818,6 +3857,14 @@ description:fr: consignée en Suède.
 #image:sv: pant-2kr.61x90.png
 label_categories:en: en:Environment, en:Packaging
 
+sv: pant 3kr
+xx: pant 3kr
+country:en: en:Sweden
+description:en: deposit in Sweden.
+description:fr: consignée en Suède.
+#image:sv: pant-3kr.61x90.png
+label_categories:en: en:Environment, en:Packaging
+
 en: metal recycles forever
 xx: metal recycles forever
 image:en: metal-recycles-forever.89x90.png
@@ -3923,6 +3970,43 @@ description:en: At least 98% of the product's content originates in Canada
 description:fr: Le contenu du produit est originaire du Canada à au moins 98%
 label_categories:en: en:Geographic label
 # https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
+
+# [CL] Chile
+
+en: Chilean front-of-package nutrition warnings
+es: Etiquetados de alimentos de Ley de Alimentos (Ministerio de Salud)
+country:en: en:Chile
+description:en: In Chile, a front-of-package nutrition symbol is required on foods that are high in one or more of these nutrients: sodium, sugars, saturated fats, or calories.
+label_categories:en: nutritional-values
+web:es: https://www.minsal.cl/reglamento-de-la-ley-de-etiquetado-de-alimentos-introduccion/
+wikidata:en: Q31212677
+wikipedia:en: https://en.wikipedia.org/wiki/Food_labelling_and_advertising_law_(Chile)
+
+< en: Chilean front-of-package nutrition warnings
+< en: High in sugars
+en: High in sugars (Chile Ministry of Health)
+es: Alto en azúcares (Ministerio de Salud)
+image:es: alto-en-azucares-ministerio-de-salud.90x90.svg
+
+< en: Chilean front-of-package nutrition warnings
+< en: High in saturated fats
+en: High in saturated fats (Chile Ministry of Health)
+es: Alto en grasas saturadas (Ministerio de Salud)
+image:es: alto-en-grasas-saturadas-ministerio-de-salud.90x90.svg
+
+< en: Chilean front-of-package nutrition warnings
+< en: High in sodium
+en: High in sodium (Chile Ministry of Health)
+es: Alto en sodio (Ministerio de Salud)
+image:es: alto-en-sodio-ministerio-de-salud.90x90.svg
+
+< en: Chilean front-of-package nutrition warnings
+< en: High in calories
+en: High in calories (Chile Ministry of Health)
+es: Alto en calorías (Ministerio de Salud)
+image:es: alto-en-calorias-ministerio-de-salud.90x90.svg
+
+# [FR] France
 
 en: Made in France
 bg: Произведено във Франция
@@ -4332,7 +4416,6 @@ country:en: en:Mexico
 description:en: Products with a primary display area of ≤ 5 cm² must include one sign with a number that indicates how many nutrients exceed the recommended threshold.
 label_categories:en: en:Nutrition Grades, en:Health
 
-
 en: Made in the EU, Made in the European Union
 bg: Произведено в ЕС, Произведено в Европейския съюз
 ca: Fet a la UE, Fet a la Unió Europea
@@ -4350,9 +4433,6 @@ pl: Wyprodukowano w UE, Wyprodukowano w Unii Europejskiej
 pt: Feito na UE, fabricado na UE, Feito na UE, Feito na União Europeia, produzido na UE, feito na União Europeia, fabricado na União Europeia, produzido na União Europeia, feito na Europa, fabricado na Europa, produzido na Europa
 #origins:en: en:European Union
 label_categories:en: en:Geographic label
-
-
-
 
 en: Limited edition
 ca: Edició limitada
@@ -4724,6 +4804,11 @@ de: Ohne Trennmittel
 
 en: No added additives
 
+en: High in calories
+es: Alto en calorías
+label_categories:en: en:Health
+#opposite:en: en:Low or no calories
+
 en: No added calories
 
 sv: Ä-märket
@@ -5005,6 +5090,7 @@ hu: BPA-mentes
 it: Senza BPA
 nl: Zonder bisfenol A
 pt: Sem Bisfenol A, sem Bisfenol-A, sem BPA
+sv: fri från bisfenol A
 label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
@@ -5145,6 +5231,15 @@ pl: Bez wzmacniaczy smaku
 pt: Sem intensificador de sabor, sem intensificador de sabores, sem intesificadores de sabores
 label_categories:en: en:Health, en:Additives
 
+en: High in saturated fats
+es: Alto en grasas saturadas
+label_categories:en: en:Health
+opposite:en: en:Low or no saturated fat
+
+en: Low or no saturated fat
+opposite:en: en:High in saturated fats
+
+< en: Low or no saturated fat
 en: low saturated fat, low content of saturated fat
 xx: low saturated fat
 bg: Ниско съдържание на наситени мазнини
@@ -5165,8 +5260,9 @@ tr: düşük doymuş yağ içeriği
 zh: 低饱和脂肪含量
 description:en: In EU, a claim that a food is low in saturated fat may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-en: saturated fat-free
-xx: saturated fat-free
+< en: Low or no saturated fat
+en: No saturated fat, saturated fat-free
+xx: No saturated fat, saturated fat-free
 bg: без наситени мазнини
 ca: sense greixos saturats
 de: ohne gesättigte Fettsäuren
@@ -5323,6 +5419,7 @@ nl: GMO-vrij, Geen GMO, GGO-vrij
 pl: bez GMO
 pt: Sem OGM, Sem Organismos Geneticamente Modificados
 ru: Без ГМО, Без использования ГМО, Не содержит ГМО
+sv: Innehåller inga genetiskt modifierade organismer
 th: ไม่มีจีเอ็มโอ
 incompatible_with:en: labels:en:contains-gmos
 label_categories:en: en:Health, en:Environment
@@ -5397,7 +5494,7 @@ ca: Sense lactosa, lliure de lactosa
 cs: Bez laktózy, Přirozeně bez laktózy
 cz: Bez laktozy
 da: Laktosefri
-de: Laktosefrei, Lactosefrei
+de: Laktosefrei, Lactosefrei, frei von Laktose
 el: Χωρίς λακτόζη
 es: Sin lactosa, Sin lácteos
 et: Laktoosivaba
@@ -5481,7 +5578,7 @@ en: No milk, milk-free, dairy-free, no dairy, without milk, free from dairy
 bg: Без мляко
 ca: Sense llet, Lliure de llet, Lliure de làctics, Sense làctics
 da: Mælkefri, Fri for mælkebestanddele
-de: Ohne Milch, Milchfrei
+de: Ohne Milch, Milchfrei, Frei von Milch
 es: Sin leche
 fi: maidoton, maitotuotteeton, ei maitoa, ilman maitoa
 fr: sans lait, sans produits laitiers
@@ -5540,7 +5637,7 @@ bg: Без консерванти
 ca: Sense conservants, sense conservants afegits, lliure de conservants artificials
 cs: Bez konzervantů
 da: Uden konserveringsmiddel
-de: Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen
+de: Ohne Konservierungsstoffe, Ohne Zusatz von Konservierungsstoffen, Frei von Konservierungsstoffen
 el: Χωρίς συντηρητικά
 es: Sin conservantes, Sin conservantes añadidos, Sin conservadores, Sin conservadores añadidos
 et: Ilma säilitusaineteta
@@ -5609,14 +5706,13 @@ nl: Zonder kleurstoffen of bewaarmiddelen
 pt: Sem corantes ou conservantes, sem corante ou conservante, sem corantes nem conservantes, sem corante nem conservante
 ru: Без красителей и консервантов
 th: ไม่เติมสีและวัตถุกันเสีย
-# 57 products in English that are not taxonomized with Without dyes or preservatives
 
 #instruction:en:Do NOT change the english key.
 en: No soy, soy free, without soy, free from soya
 bg: Без соя, не сърържа соя
 ca: Lliure de soja, Sense soja
 da: Uden soja
-de: Sojafrei
+de: Sojafrei, frei von Soja
 es: Sin soja, Sin soya, Libre de soja, Libre de soya
 fi: soijaton, ei soijaa, ilman soijaa
 fr: sans soja, sans soya
@@ -5912,7 +6008,7 @@ label_categories:en: en:Specific diets
 #                   O R G A N I C   S E C T I O N
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#en:description:Labels used for identifying products (and ingredients) that have been grown organically.
+#description:en: Labels used for identifying products (and ingredients) that have been grown organically.
 
 en: Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients, from controlled organic agriculture, from organic controlled cultivation
 bg: Био, биологично земеделие, биологично
@@ -5921,7 +6017,7 @@ cs: Bio, z kontrolovane ekologicke produkce, z ekologickeho, z kontrolovaného e
 cz: z ekologického zemědělství, z kontrolované ekologické produkce
 da: Økologisk, Økologiske, certificeret økologisk
 de: Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, aus biologischer Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau, biologisch zertifiziert
-es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico, orgánica
+es: Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, orgánica, orgánicas, orgánico, orgánicos, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica, de agricultura ecológica, de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico
 fi: Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti, sertifioitu luomutuote, luomutuote
 fr: Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issus de l'agriculture biologique contrôlée, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee, issu de production biologique
 he: אורגני
@@ -5938,7 +6034,7 @@ pt: Orgânico, produção orgânica, produzido de forma orgânica, numa quinta o
 ro: din agricultură ecologică controlată, din cultură organică controlată
 sk: z kontrolovaného ekologického poľnohospodárstva, produkt ekologického poľnohospodárstva
 sl: iz kontrolirane ekološke pridelave
-sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk
+sv: Ekologisk, Ekologiskt, Ekologiska, ekologisk ingrediens, certifierad ekologisk, kontrollerat ekologiskt jordbruk, ekologisk råvara, ekologiskt odlat
 th: ออร์แกนิค
 tr: Organik
 zh: 有机
@@ -7320,7 +7416,6 @@ en: HR-EKO-10
 xx: HR-EKO-10
 country:en: en:Croatia
 
-
 < en: EU Organic
 en: HR-EKO-11
 xx: HR-EKO-11
@@ -8544,7 +8639,6 @@ auth_url:en: http://certification.controlunion.com
 country:en: Sri Lanka
 eu_groups:en: en:EU Group A: unprocessed plant products,en:EU Group B: live animals or unprocessed animal products,en:EU Group C: unprocessed aquaculture products and algae,en:EU Group D: processed agricultural products for use as food (*),en:EU Group E: processed agricultural products for use as feed (*),en:EU Group F: vegetative propagating material and seeds for cultivation
 exceptions:en: en:in-conversion products,en:except products covered by Annex III
-
 
 < en: EU organic
 en: LK-BIO-151
@@ -18868,7 +18962,7 @@ it: Classe &quot;Extra&quot;
 
 # Should not be associate with "extra class", "superior quality" etc.
 < en: Organic
-sv: KRAV, KRAV-certifierad ekologisk ingrediens
+sv: KRAV, KRAV-certifierad ekologisk ingrediens, KRAV-godkänd ekologisk råvara, KRAV-ekologisk råvara
 xx: KRAV
 country:en: en:Sweden
 image:en: krav.136x90.svg
@@ -18880,7 +18974,6 @@ auth_url:en: https://organicoargentina.magyp.gob.ar
 country:en: en:Argentina
 image:es: organico-argentina.67x90.png
 wikidata:en: Q101928227
-
 
 < en: Organic
 pt: Produto Orgânico Brasil, Orgânico Brasil, Produto Orgânico do Brasil, Orgânico do Brasil
@@ -19374,6 +19467,7 @@ it: Ricco di vitamina C
 nl: Rijk aan vitamine C
 pt: Rico em vitamina C
 ro: Bogat in vitamina C
+sv: rik på vitamin C
 th: แหล่งของวิตามินซี
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 xx:en: Rich in vitamin C
@@ -19404,6 +19498,14 @@ it: Ricco di vitamina E
 nl: rijk aan vitamine E
 pt: Rico em vitamina E
 description:en: In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+< en: Rich in vitamin C
+en: naturally rich in vitamin C, naturally rich in vit C
+es: ricamente natural en vitamina C
+fr: naturellement riche en vitamine C
+hr: prirodno bogato vitaminom C
+it: naturalmente ricco di vitamina C
+pt: rico naturalmente em vitamina C
 
 < en: Rich in vitamin E
 en: naturally rich in vitamin E
@@ -19851,7 +19953,6 @@ en: Sustainable fishing method, sustainable fishing technique
 fr: Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
 nl: Duurzame vismethoden
 
-
 < en: fishing method
 en: Trawl fishing
 ca: Pesca d'arrossegament
@@ -20194,8 +20295,6 @@ wikipedia:en: Vegetarianism
 en: Green Dot India, India Green Dot, Indian Green Dot, vegetarian mark India
 wikidata:en: Q7918353
 
-
-
 < en: Vegetarian
 en: Vegan, Suitable for vegans, Suitable for vegetarians and vegans, vegetal, from plants, derived from plants, vegetal origin, not from animals, not derived from animals, non-animal, from vegetal source, free from animal products, vegetable source
 an: vegano
@@ -20237,6 +20336,7 @@ fr: Non-végétalien, non-végan, non-végétal, ne convient pas aux végétalie
 hr: nije vegansko
 pl: Niewegańskie, niewegański
 pt: Não-vegan, não vegan, não adequado a vegans, não adequado a uma dieta vegan
+sv: icke-vegansk, icke-veganskt, icke-veganska, animalisk, animaliskt, animaliska
 incompatible_with:en: labels:en:vegan
 opposite:en: en:vegan
 
@@ -20457,7 +20557,6 @@ pl: V-Label
 pt: União Vegetariana Europeia, European Vegetarian Union
 sv: Europeiska Vegetariska Unionen
 wikidata:en: Q443112
-
 
 #https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
 < en: European Vegetarian Union
@@ -20732,7 +20831,6 @@ pt: Farinha de trigo francesa, farinha de trigo de França, farinha de trigo da 
 ingredients:en: en:wheat-flour
 origins:en: en:france
 
-
 fr: Soja Français, Soja de France, Filière Soja Français, Soja origine France
 pt: Soja francêsa, soja de França, soja da França
 ingredients:en: en:soya
@@ -20881,13 +20979,15 @@ it: Senza arachidi, Non contiene arachidi
 pt: Sem amendoim, sem amendoins, 0% amendoim, 0% amendoins
 th: ไม่มีส่วนผสมของถั่วลิสงค์
 
-en: No nuts, nut free
-de: Ohne Nüsse, nussfrei
+en: No nuts, nut free, free from nuts
+da: Uden nødder
+de: Ohne Nüsse, nussfrei, frei von Nüssen
 es: Sin frutos secos, sin nueces
 fr: Sans fruits à coque, sans fruits secs, Sans noix
 it: Senza noci, senza frutta secca, senza frutta a guscio
 nl: Zonder noten
 pt: Sem nozes, livre de nozes
+sv: Utan nötter
 
 # French label
 fr: Saveurs de l'Année
@@ -21142,7 +21242,6 @@ pt: Medalha de prata no Concurso Mundial de Bruxelas 2012
 fr: Médaille d'Argent du Concours Mondial de Bruxelles 2011, Médaille argent concours mondial Bruxelles 2011, Médaille argent Bruxelles 2011
 pt: Medalha de prata no Concurso Mundial de Bruxelas 2011
 
-
 fr: Concours général agricole
 label_categories:en: en:Quality
 wikidata:en: Q2992165
@@ -21394,7 +21493,6 @@ fr: Médaille de bronze du Concours de Bordeaux 2012, Concours de Bordeaux méda
 
 < fr: médaille de bronze du Concours de Bordeaux
 fr: Médaille de bronze du Concours de Bordeaux 2011, Concours de Bordeaux médaille de bronze 2011, Médaille de Bronze Bordeaux 2011 Concours de Bordeaux, Médaille de Bronze Bordeaux 2011
-
 
 #Wine Related labels
 
@@ -23110,7 +23208,6 @@ fr: Sans hormone, élevé sans hormone
 it: Senza ormoni, allevato senza ormoni
 pt: Sem hormonas, criado sem hormonas, criados sem hormonas, criada sem hormonas, criadas sem hormonas
 
-
 < en: No antibiotics
 < en: Without hormones
 en: Without antibiotics or hormones, Without hormones or antibiotics
@@ -23625,7 +23722,7 @@ bg: Без остатъци от пестициди
 fr: Sans résidus de pesticides, sans résidu de pesticide, zéro résidus de pesticides, zéro résidu de pesticide
 
 # obligation of means: cultivated without pesticides (but can be a specific year, or after flowers bloom)
-en: Pesticide-free, without pesticide, no pesticide
+en: no pesticides, pesticide-free, without pesticide, no pesticide
 bg: Без пестициди
 fr: Sans pesticides, cultivé sans pesticides
 
@@ -23673,7 +23770,6 @@ fr: Élevé en Gras sat. et Sucres (Santé Canada), Élevé en Gras saturés et 
 image:xx: high-in-sat-fat-sugars-health-canada-eleve-en-gras-sat-sucres-sante-canada.171x90.svg
 image:en: high-in-sat-fat-sugars-health-canada.120x90.svg
 image:fr: eleve-en-gras-sat-sucres-sante-canada.120x90.svg
-
 
 < en: Canadian front-of-package nutrition symbol
 en: High in Sugars and Sodium (Health Canada)
@@ -23728,7 +23824,6 @@ fr: Pêche d'une espèce bien gérée
 
 de: Herkunftskennzeichen Deutschland, Gutes aus Deutscher Landwirtschaft, herkunft-deutschland.de, www.herkunft-deutschland.de
 origins:en: en:germany
-
 
 en: Planet-Score
 

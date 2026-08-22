@@ -244,6 +244,14 @@ my @tests = (
 		},
 	],
 	[
+		'specific-ingredients-sv-2',
+		{
+			lc => "sv",
+			ingredients_text =>
+				"Hjortron* (Sverige), rörsocker*, vatten och pektin. Fruktmängd 55g hjortron per 100g. *= KRAV-Ekologisk."
+		},
+	],
+	[
 		'percentage-range',
 		{
 			lc => "fr",

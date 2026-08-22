@@ -4,7 +4,7 @@
       "grade" : "b",
       "primary_ingredients" : {
          "en:cocoa" : {
-            "footprint_per_kg" : 0.02428125,
+            "footprint_per_kg" : 0.028328125,
             "grade" : "b",
             "ingredients" : [
                {
@@ -13,7 +13,6 @@
                   "footprint_per_kg" : 0.0161875,
                   "ingredient_category_id" : "en:cocoa-paste",
                   "ingredient_id" : "en:cocoa-butter",
-                  "label_id" : null,
                   "origin_footprint" : 0.296,
                   "origin_id" : "en:unknown",
                   "percent" : 5.46875,
@@ -27,10 +26,22 @@
                   "footprint_per_kg" : 0.00809375,
                   "ingredient_category_id" : "en:cocoa-paste",
                   "ingredient_id" : "en:cocoa-paste",
-                  "label_id" : null,
                   "origin_footprint" : 0.296,
                   "origin_id" : "en:unknown",
                   "percent" : 2.734375,
+                  "primary_ingredient_id" : "en:cocoa",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               },
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.004046875,
+                  "ingredient_category_id" : "en:cocoa",
+                  "ingredient_id" : "en:cocoa",
+                  "origin_footprint" : 0.296,
+                  "origin_id" : "en:unknown",
+                  "percent" : 1.3671875,
                   "primary_ingredient_id" : "en:cocoa",
                   "risk_factor" : 1,
                   "transformation_factor" : 1
@@ -47,7 +58,6 @@
                   "footprint_per_kg" : 0.00124755859375,
                   "ingredient_category_id" : "en:coffee",
                   "ingredient_id" : "en:coffee",
-                  "label_id" : null,
                   "origin_footprint" : 0.073,
                   "origin_id" : "en:unknown",
                   "percent" : 1.3671875,
@@ -56,9 +66,28 @@
                   "transformation_factor" : 1.25
                }
             ]
+         },
+         "en:palm-oil" : {
+            "footprint_per_kg" : 0.00150390625,
+            "grade" : "b",
+            "ingredients" : [
+               {
+                  "equivalence_ingredient" : 1,
+                  "equivalence_ingredient_category" : 1,
+                  "footprint_per_kg" : 0.00150390625,
+                  "ingredient_category_id" : "en:palm-oil",
+                  "ingredient_id" : "en:palm-oil-and-fat",
+                  "origin_footprint" : 0.055,
+                  "origin_id" : "en:unknown",
+                  "percent" : 2.734375,
+                  "primary_ingredient_id" : "en:palm-oil",
+                  "risk_factor" : 1,
+                  "transformation_factor" : 1
+               }
+            ]
          }
       },
-      "total_footprint_per_kg" : 0.02552880859375
+      "total_footprint_per_kg" : 0.03107958984375
    },
    "ingredients" : [
       {
@@ -182,7 +211,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 0.68359375,
