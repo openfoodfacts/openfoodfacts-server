@@ -180,7 +180,7 @@
                                 <!-- Display with SVG if not mobile -->
                                 <div id="barcode_div_svg">
                                     <svg id="barcode_svg"
-                                        jsbarcode-format="auto"
+                                        jsbarcode-format="[% IF code.length == 13 %]EAN13[% ELSIF code.length == 8 %]EAN8[% ELSE %]CODE128[% END %]"
                                         jsbarcode-value="[% code %]"
                                         jsbarcode-displayValue="false"
                                         jsbarcode-height="40">
