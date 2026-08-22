@@ -1059,6 +1059,18 @@ sub compute_attribute_additives ($product_ref, $target_lc) {
 
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$n-additives.svg";
 
+		if ($additives > 0) {
+			$attribute_ref->{panel_id} = "additives";
+		}
+		elsif (not($product_ref->{ingredients_n})) {
+			# If we don't have ingredients, link to the ingredients panel (with add action)
+			$attribute_ref->{panel_id} = "ingredients";
+		}
+		else {
+			# If we have ingredients, link to the ingredients analysis panel
+			$attribute_ref->{panel_id} = "ingredients_analysis";
+		}
+
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
@@ -1071,10 +1083,20 @@ sub compute_attribute_additives ($product_ref, $target_lc) {
 				= lang_in_other_lc($target_lc, "attribute_additives_unknown_description_short");
 			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_ingredients_list");
 		}
+
+		if (not($product_ref->{ingredients_n})) {
+			# If we don't have ingredients, link to the ingredients panel (with add action)
+			$attribute_ref->{panel_id} = "ingredients";
+		}
+		else {
+			# If we have ingredients, link to the ingredients analysis panel
+			$attribute_ref->{panel_id} = "ingredients_analysis";
+		}
 	}
 
 	return $attribute_ref;
 }
+
 
 =head2 compute_attribute_has_tag ( $product_ref, $target_lc, $tagtype, $tagid )
 
@@ -1228,6 +1250,8 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 	if ((not defined $product_ref->{nutrient_levels}) or (not defined $product_ref->{nutrient_levels}{$nid})) {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-unknown.svg";
+		$attribute_ref->{panel_id} = "nutrition_facts_table";
+
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = sprintf(
 				lang_in_other_lc($target_lc, "nutrient_in_quantity"),
@@ -1240,7 +1264,6 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 			else {
 				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
 			}
-			$attribute_ref->{panel_id} = "nutrition_facts_table";
 		}
 	}
 	else {
@@ -1294,6 +1317,9 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 
 			$attribute_ref->{match} = $match;
 
+			$attribute_ref->{panel_id} = "nutrient_level_" . $nid;
+			$attribute_ref->{panel_id} =~ s/-/_/g;
+
 			if ($target_lc ne "data") {
 				$attribute_ref->{title} = sprintf(
 					lang_in_other_lc($target_lc, "nutrient_in_quantity"),
@@ -1304,9 +1330,6 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 					$attribute_ref->{description_short}
 						= sprintf(lang_in_other_lc($target_lc, 'g_per_100g'), (sprintf('%.2e', $value) + 0.0));
 				}
-
-				$attribute_ref->{panel_id} = "nutrient_level_" . $nid;
-				$attribute_ref->{panel_id} =~ s/-/_/g;
 			}
 		}
 	}
