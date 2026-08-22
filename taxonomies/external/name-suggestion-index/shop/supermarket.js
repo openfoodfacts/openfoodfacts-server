@@ -1,4 +1,4 @@
-// A nodejs script to parse NameSuggestionIndex formatted JSON data and attempt to output valid taxinomy data.
+// A nodejs script to parse NameSuggestionIndex formatted JSON data and attempt to output valid taxonomy data.
 // Do not use results without careful review
 const data = require('./supermarket.json');
 
