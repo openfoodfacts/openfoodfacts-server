@@ -1,6 +1,9 @@
 name: Link rot
 on:
   - push
+permissions:
+  checks: write
+  contents: read
 
 jobs:
   check:
