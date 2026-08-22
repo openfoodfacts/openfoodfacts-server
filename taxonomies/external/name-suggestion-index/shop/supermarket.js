@@ -258,21 +258,33 @@ var iso3601_to_language_mappings = {
 data["items"].forEach(function (record) {
   var countryCodes = record.locationSet["include"];
   var countryNames = [];
-  countryCodes.forEach(function (code) {
-	if (code == "001") { return; }
 
-	if (!iso3601[code.toString().split("-")[0]]) {
-		// console.debug("Unmapped ISO3601 code: " + code);
-		return;
-	} else {
-		countryNames.push("en:" + iso3601[code.toString().split("-")[0]]);
-	}
+  const langaugeMatcher = /^(?<language>[a-z]{2})$/i;
+  const countryMatcher = /^(?<country>[a-z]{2})(?:-.+)$/i;
+  countryCodes.forEach(function (code) {
+    if (code == "001" || typeof code !== 'string') {
+      console.debug("Incompatible code type", code, typeof code);
+      return;
+    }
+
+    const isoMatch = code.match(countryMatcher);
+    if (!iso3601[isoMatch?.groups?.country]) {
+      // console.debug("Unmapped ISO3601 code: " + code);
+      return;
+    } else {
+      countryNames.push("en:" + iso3601[isoMatch.groups.country]);
+    }
   });
 
   var primaryCountryCode = countryCodes[0].toString().split("-")[0];
   var primaryLanguageCode = primaryCountryCode;
   if (iso3601_to_language_mappings[primaryCountryCode]) {
     primaryLanguageCode = iso3601_to_language_mappings[primaryCountryCode]
+  }
+
+  if (!langaugeMatcher.test(primaryLanguageCode)) {
+    console.debug("Unmapped language code", primaryLanguageCode);
+    primaryLanguageCode = "xx";
   }
 
   process.stdout.write([primaryLanguageCode, record.displayName].join(":") + "\n");
