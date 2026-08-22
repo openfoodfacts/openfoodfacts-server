@@ -2613,9 +2613,9 @@ sub compute_energy_from_nutrients_for_nutrients_set ($nutrients_ref, $unit) {
 	my $proteins_value = deep_get($nutrients_ref, "proteins", "value");
 	# We need at a minimum carbohydrates, fat and proteins to be defined to compute
 	# energy.
-	if (    (defined $carbohydrates_value)
-		and (defined $fat_value)
-		and (defined $proteins_value))
+	if (    (defined $carbohydrates_value) and ($carbohydrates_value ne "")
+		and (defined $fat_value) and ($fat_value ne "")
+		and (defined $proteins_value) and ($proteins_value ne ""))
 	{
 
 		foreach my $nid (keys %{$energy_from_nutrients{europe}}) {
