@@ -83,7 +83,7 @@ my @suggest_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "yog",
-		expected => ['yogurts', 'Passion fruit yogurts', 'banana yogurts', 'lemon yogurts'],
+		expected => ['yogurts', 'Passion fruit yogurts', 'Z Yogurts', 'banana yogurts', 'lemon yogurts'],
 		# Note: "Passion fruit yogurts" is capitalized in the test.txt taxonomy, while other entries are not
 	},
 
@@ -125,6 +125,10 @@ foreach my $test_ref (@suggest_tests) {
 			{
 				'matched_synonym' => 'Passion fruit yogurts',
 				'tag' => 'Passion fruit yogurts'
+			},
+			{
+				'matched_synonym' => 'Z Yogurts',
+				'tag' => 'Z Yogurts'
 			},
 			{
 				'matched_synonym' => 'banana yogurts',
