@@ -596,7 +596,24 @@
                                     </svg>
                                 </div>
                             </div>
-                            <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
+                            <script>
+                            if (screen && screen.width >= 600) {
+                                var barcodeSvg = document.getElementById("barcode_svg");
+                                try {
+                                    JsBarcode(barcodeSvg).init();
+                                }
+                                catch (e) {
+                                    // JsBarcode refuses to render EAN13/EAN8 values with an invalid
+                                    // check digit (internal codes assigned by assign_new_code(), typos...),
+                                    // fall back to CODE128 so that the barcode is still displayed.
+                                    JsBarcode(barcodeSvg, barcodeSvg.getAttribute("jsbarcode-value"), {
+                                        format: "CODE128",
+                                        displayValue: false,
+                                        height: 40
+                                    });
+                                }
+                            }
+                            </script>
                             <div property="gr:hasEAN_UCC-13" content="3300000000002" datatype="xsd:string"></div>
                         
 
