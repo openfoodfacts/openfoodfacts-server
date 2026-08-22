@@ -240,11 +240,13 @@ The `.env` file also contains some useful Docker Compose variables:
 * `COMPOSE_FILE` is the `;`-separated list of Docker compose files that are included in the deployment:
   * For a **development**-like environment, set it to `docker-compose.yml;docker/dev.yml` (default)
   * For a **production**-like environment, set it to `docker-compose.yml;docker/prod.yml;docker/mongodb.yml`
-  * For more features, you can add:
-    * `docker/admin-uis.yml`: add the Admin UIS container
-    * `docker/geolite2.yml`: add the Geolite2 container
-    * `docker/perldb.yml`: add the Perl debugger container
-* `COMPOSE_SEPARATOR` is the separator used for `COMPOSE_FILE`.
+  *For more features, you can add containers from `shared-services`:
+
+ * **Admin UIs**: now available in `shared-services/admin-uis.yml` (the old `docker/admin-uis.yml` is no longer supported)
+  * **Geolite2**: continue using `docker/geolite2.yml`
+  * **Perl debugger**: this feature is currently not available (`docker/perldb.yml` is outdated)
+
+`COMPOSE_SEPARATOR` defines the separator used for the `COMPOSE_FILE`.
 
 **Note:**
 Instead of modifying `.env` (and risk committing it inadvertently),
