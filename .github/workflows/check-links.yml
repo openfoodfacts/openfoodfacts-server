@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Get files that need to be checked
         id: get_files
@@ -20,11 +20,12 @@ jobs:
           echo $file_list
 
       - name: Check URLs
-        uses: paramt/url-checker@v1
+        uses: paramt/url-checker@7925d0eb953d828a840eeefab0a64cc70d9bdaac # v0.3.1
+        id: url-checker
         with:
           files: "${{ steps.get_files.outputs.all_files }}"
 
-      - uses: LouisBrunner/checks-action@v0.1.0
+      - uses: LouisBrunner/checks-action@937cbbcde3259005b50746dc91cde29098aac2ff # v3.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: Check
