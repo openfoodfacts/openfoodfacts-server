@@ -8,8 +8,21 @@ wikidata:en: Q467405
 
 # Textile labels
 
-en: OEKO Tex Standard 100
-xx: OEKO Tex Standard 100
+en: OEKO-TEX
+xx: OEKO-TEX
+web:en: https://www.oeko-tex.com/
+
+< en: OEKO-TEX
+en: OEKO-TEX Made In Green
+xx: OEKO-TEX Made In Green
+image:en: oeko-tex-made-in-green.60x90.svg
+web:en: https://www.oeko-tex.com/en/our-standards/oeko-tex-made-in-green/
+
+< en: OEKO-TEX
+en: OEKO-TEX Standard 100, OEKO Tex Standard 100
+xx: OEKO-TEX Standard 100, OEKO Tex Standard 100
+image:en: oeko-tex-standard-100.64x90.svg
+web:en: https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100/
 wikidata:en: Q591258
 
 en: Fair Wear Foundation
@@ -68,7 +81,6 @@ xx: UKNI, UK(NI)
 en: UKNI, UKNI marking
 image:en: ukni.90x90.png
 web:en: https://www.gov.uk/guidance/using-the-ukni-marking
-# wikidata:en:
 
 xx: ICASA Approved
 en: ICASA Approved
@@ -114,6 +126,29 @@ nl: Zonder parfum
 pl: Bez perfum
 pt: Sem perfume
 sv: Utan parfym
+
+xx: Asthma Allergy Nordic
+en: Asthma Allergy Nordic
+image:en: asthma-allergy-nordic.90x90.png
+web:en: https://www.asthmaallergynordic.com/
+
+xx: Nordic Swan Ecolabel, Nordic Ecolabel
+en: Nordic Swan Ecolabel, Nordic Ecolabel
+da: Svanemærket, Nordisk miljømærkning
+fi: Joutsenmerkki, pohjoismainen ympäristömerkki, ympäristömerkki, ympäristömerkki miljömärkt
+is: Svansmerkið, Svanurinn, Umhverfismerkið Svanurinn
+nb: Svanemerket, miljømerket
+sv: Svanenmärkt, Svanen, Svanenmärkt miljömärkt
+image:en: nordic-swan-ecolabel.90x90.svg
+image:da: svanemaerket.90x90.svg
+image:sv: svanenmarkt.90x90.svg
+web:en: https://www.nordic-swan-ecolabel.org/
+web:da: https://www.svanemaerket.dk/
+web:fi: https://joutsenmerkki.fi/
+web:is: https://svanurinn.is/
+web:nb: https://svanemerket.no/
+web:sv: https://www.svanen.se/
+wikidata:en: Q3054668
 
 xx: IP 2X
 description:fr: protégé contre les corps solides supérieurs à 12,5 mm. Aucune protection contre les intrusions d'eau.
@@ -322,7 +357,6 @@ zh: 专为iPhone设计
 # Labels specific for Open Product Facts (generic products: not food, pet food or beauty)
 
 # French reparability index
-
 
 en: Repairability index 0 - France
 ar: مؤشر قابلية الإصلاح 0 - فرنسا

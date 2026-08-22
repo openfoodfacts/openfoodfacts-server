@@ -7,10 +7,15 @@ use Test2::V0;
 use Data::Dumper;
 $Data::Dumper::Terse = 1;
 $Data::Dumper::Sortkeys = 1;
+$Data::Dumper::Indent = 1;
+
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
+use ProductOpener::Test qw/compare_to_expected_results init_expected_results/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # code normalization
 is(normalize_code('036000291452'), '0036000291452', 'should add leading 0 to valid UPC12');
@@ -334,9 +339,68 @@ is(product_id_from_path("$BASE_DIRS{PRODUCTS}/123/456/789/product"), "123456789"
 # Test is_valid_code()
 
 is(is_valid_code('1234567890123'), 1, 'valid EAN13 code');
+is(is_valid_code('1234567890123456789012345'), 1, 'valid 25 digit product code');
+is(is_valid_code('1' x 40), 1, 'valid 40 digit product code');
+is(is_valid_code('1' x 41), '', '41 digit code is too long');
 is(is_valid_code('123'), '', '3 digit code');
 is(is_valid_code('00000123'), '', '3 digit code with leading 0s');
 is(is_valid_code('1234567890123456789012345678901234567890123456789012345678901234567890'), '', 'too long code');
 is(is_valid_code(undef), '', 'undefined code');
+
+my @tests = (
+	[
+		'compute_completeness_and_missing_tags',
+		{
+			brands => 'Carrefour',
+			brands_tags => ['xx:carrefour'],
+			product_name => 'Test Product',
+			categories_tags => ['en:beverages', 'en:carbonated-drinks'],
+		},
+	],
+	[
+		# Product types for which the nutrition feature is disabled (e.g. beauty products) must not
+		# have the en:nutrition-photo-to-be-selected and en:nutrition-facts-to-be-completed states,
+		# otherwise they could never be complete.
+		'compute_completeness_and_missing_tags_beauty',
+		{
+			product_type => 'beauty',
+			brands => 'Test brand',
+			brands_tags => ['xx:test-brand'],
+			product_name => 'Test shampoo',
+			quantity => '250 ml',
+			packaging => 'Bottle',
+			packaging_tags => ['en:bottle'],
+			categories_tags => ['en:shampoos'],
+			origins => 'France',
+			origins_tags => ['en:france'],
+			emb_codes => 'EMB 12345',
+			expiration_date => '01/2030',
+			ingredients_text => 'Aqua, Sodium Laureth Sulfate',
+		},
+		# The product has all the photos it needs: front, ingredients and packaging, but no nutrition photo
+		{
+			uploaded_images => {1 => 1},
+			selected_images => {front_en => 1, ingredients_en => 1, packaging_en => 1},
+		},
+	],
+);
+
+foreach my $test_ref (@tests) {
+
+	my $testid = $test_ref->[0];
+	my $product_ref = $test_ref->[1];
+	my $current_ref = $test_ref->[2] // {};
+
+	# Run the test
+
+	compute_completeness_and_missing_tags($product_ref, $current_ref, {});
+
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
+}
+
+# Check explicitly the states of the beauty product, as they are the point of the test above
+my $beauty_product_ref = $tests[1][1];
+is([grep {/^en:nutrition/} @{$beauty_product_ref->{states_tags}}], [], 'beauty products do not have nutrition states');
+is($beauty_product_ref->{complete}, 1, 'beauty products can be complete without nutrition facts and photo');
 
 done_testing();

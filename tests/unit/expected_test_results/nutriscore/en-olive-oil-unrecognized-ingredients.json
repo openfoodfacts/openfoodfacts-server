@@ -2,10 +2,6 @@
    "additives_n" : 0,
    "additives_original_tags" : [],
    "additives_tags" : [],
-   "allergens" : "",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) ",
-   "allergens_hierarchy" : [],
    "allergens_tags" : [],
    "amino_acids_tags" : [],
    "categories" : "olive oil",
@@ -43,6 +39,7 @@
       "en:vegetable-oils",
       "en:olive-oils"
    ],
+   "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fats",
    "food_groups_tags" : [
       "en:fats-and-sauces",
@@ -50,7 +47,7 @@
    ],
    "ingredients" : [
       {
-         "id" : "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil",
+         "id" : "en:some very fancy but unrecognized way of writing olive oil",
          "is_in_taxonomy" : 0,
          "percent_estimate" : 100,
          "percent_max" : 100,
@@ -60,13 +57,13 @@
    ],
    "ingredients_analysis" : {
       "en:palm-oil-content-unknown" : [
-         "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+         "en:some very fancy but unrecognized way of writing olive oil"
       ],
       "en:vegan-status-unknown" : [
-         "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+         "en:some very fancy but unrecognized way of writing olive oil"
       ],
       "en:vegetarian-status-unknown" : [
-         "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+         "en:some very fancy but unrecognized way of writing olive oil"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -82,12 +79,12 @@
    ],
    "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
-      "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+      "en:some very fancy but unrecognized way of writing olive oil"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
-      "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+      "en:some very fancy but unrecognized way of writing olive oil"
    ],
    "ingredients_text" : "some very fancy but unrecognized way of writing olive oil",
    "ingredients_with_specified_percent_n" : 0,
@@ -95,17 +92,18 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+      "en:some very fancy but unrecognized way of writing olive oil"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
-      "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+      "en:some very fancy but unrecognized way of writing olive oil"
    ],
    "ingredients_without_ecobalyse_ids_n" : 1,
    "known_ingredients_n" : 0,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener",
       "en:nutrients-not-estimated-from-ingredients-too-few-ingredients-with-nutrition-data",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-from-category",
@@ -524,10 +522,20 @@
       "fats",
       "known"
    ],
-   "traces" : "",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) ",
-   "traces_hierarchy" : [],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         }
+      }
+   },
    "traces_tags" : [],
    "unknown_ingredients_n" : "1",
    "vitamins_tags" : []

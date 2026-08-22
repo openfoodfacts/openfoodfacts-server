@@ -1,15 +1,40 @@
 en: Incorrect product type
-bg: Неправилен product type
+ar: نوع المنتج غير صحيح
+bg: Неправилен тип продукт
 ca: Tipus de producte incorrecte
-de: Falscher product type
+cs: Nesprávný typ produktu
+da: Forkert produkttype
+de: Falscher Produkttyp
+el: Εσφαλμένος τύπος προϊόντος
 es: Tipo de producto incorrecto
-fi: Väärä product type
-fr: Mauvais product type
-hr: Pogrešan product type
+et: Vale tootetüüp
+fi: Väärä tuotetyyppi
+fr: Type de produit incorrect
+he: סอย מוצר שגוי
+hi: अमान्य उत्पाद प्रकार
+hr: Pogrešna vrsta proizvoda
+hu: Hibás terméktípus
+id: Tipe produk salah
 it: Tipo di prodotto errato
-nl: Verkeerd product type
+ja: 不正な製品タイプ
+ko: 잘못된 제품 유형
+lt: Neteisingas produkto tipas
+lv: Nepareizs produkta veids
+ms: Jenis produk salah
+nl: Verkeerd producttype
+no: Feil produkttype
+pl: Nieprawidłowy typ produktu
 pt: Tipo de produto incorreto
-ru: Неправильный product type
+ro: Tip de produs incorect
+ru: Неправильный тип продукта
+sk: Nesprávny typ produktu
+sl: Napačna vrsta izdelka
+sv: Fel produkttyp
+th: ประเภทสินค้าไม่ถูกต้อง
+tr: Yanlış ürün tipi
+uk: Неправильний тип продукту
+vi: Sai loại sản phẩm
+zh: 错误的产品类型
 
 < en: Incorrect product type
 en: Non pet food products
@@ -25,15 +50,15 @@ nl: Non-pet-food
 pt: Produtos não alimentares para animais de estimação
 ru: Непродукты для кормления домашних животных, Не еда для животных
 
-< en:Non pet food products
+< en: Non pet food products
 en: Open Beauty Facts, OBF, Cosmetics, Hygiene
 xx: Open Beauty Facts, OBF
 
-< en:Non pet food products
+< en: Non pet food products
 en: Open Food Facts, OFF
 xx: Open Food Facts, OFF
 
-< en:Non pet food products
+< en: Non pet food products
 en: Open Products Facts, OPF
 xx: Open Products Facts, OPF
 
@@ -50,6 +75,7 @@ en: Wet pet food, wet food
 de: Nassfutter, nasses Futter
 fr: Nourriture humide pour animaux, Pâtées pour animaux
 hr: Mokra hrana za kućne ljubimce
+it: Cibo umido per animali domestici
 ja: ウェットタイプのペットフード
 nl: Nat voedsel
 nl_be: Nat voedsel
@@ -57,10 +83,11 @@ nl_be: Nat voedsel
 en: Dog and cat food
 de: Hunde- und Katzenfutter
 fr: Nourriture pour chiens et chats
+it: Cibo per cani e gatti
 nl: Honden en kattenvoedsel
 ru: Корм для собак и кошек
 
-< en:Dog and cat food
+< en: Dog and cat food
 en: Cat food, cat products
 ar: طعام قطط
 as: মেকুৰীৰ খাদ্য
@@ -141,8 +168,8 @@ zh: 猫粮
 google_product_taxonomy_id:en: 3367
 wikidata:en: Q1736906
 
-< en:Cat food
-< en:Dry food
+< en: Cat food
+< en: Dry food
 en: dry cat food
 de: Katzentrockenfutter, Katzentrockennahrung, trockenes Katzenfutter, Trockenfutter für Katzen, getrocknetes Katzenfutter
 fr: croquettes pour chat
@@ -153,7 +180,7 @@ nl: Kattebrokken, Kattenbrokken
 nl_be: Kattebrokken, Kattenbrokken
 ru: Сухой корм для кошек, Сухие корма для кошек
 
-< en:Cat food
+< en: Cat food
 en: Adult cat food
 ar: طعام القطط البالغة
 as: পূৰ্ণবয়স্ক মেকুৰীৰ খাদ্য
@@ -231,20 +258,20 @@ uz: Katta mushuk ovqati
 vi: Thức ăn cho mèo trưởng thành
 zh: 成年猫粮
 
-< en:Adult cat food
-< en:Dry cat food
+< en: Adult cat food
+< en: Dry cat food
 ru: Корм сухой полнорационный для взрослых кошек
 en: Dry complete food for adult cats
 fr: Nourriture sèche complète pour chats adultes
 nl: Droog kattenvoer
 
-< en:Adult cat food
-< en:Wet cat food
+< en: Adult cat food
+< en: Wet cat food
 ru: Корм консервированный полнорационный для взрослых кошек
 nl: Natvoer voor volwassen katten
 
-< en:Cat food
-< en:Wet food
+< en: Cat food
+< en: Wet food
 en: Wet cat food, canned cat food
 de: Katzennassfutter, Katzennassnahrung, nasses Katzenfutter, feuchtes Katzenfutter
 fr: pâtées pour chat, nourriture humide pour chat, boites pour chat, sachet fraicheur pour chat
@@ -254,13 +281,15 @@ ja: ウェットタイプのキャットフード
 nl: Nat kattenvoer, Ingeblikt kattenvoer
 ru: Консервированный корм для кошек, Консервированный кошачий корм, Консервы для кошек, Консервированные корма для кошек, Консервированные кошачьи корма, Кошачьи консервы
 
-< en:cat food
+< en: cat food
 en: cat biscuits, cat treats
 de: Katzensnacks, Snacks für Katzen
+es: Galletas para gatos, golosinas para gatos
 fr: biscuits pour chats, friandises pour chats
 hr: Mačji keksi
+it: Biscotti per gatti, Dolcetti per gatti
 
-< en:cat food
+< en: cat food
 en: senior cat food
 ar: طعام القطط الكبيرة في السن
 as: বয়সস্থ মেকুৰীৰ খাদ্য
@@ -336,22 +365,25 @@ vi: Thức ăn cho mèo già
 zh: 老年猫粮
 wikidata:en: Q28455745
 
-< en:cat food
+< en: cat food
 en: castrated cat food
 de: Kastriertes Katzenfutter, Futter für kastrierte und sterilisierte Katzen, Futter für sterilisierte und kastrierte Katzen
 es: Comida para gatos castrados
 fr: Nourriture pour chats castrés, Nourriture pour chat castré
 hr: Hrana za kastrirane mačke
+it: Cibo per gatti castrati
+ja: 去勢・避妊済み猫用フード
 nl: Voer voor gecastreerde katten
 nl_be: Voer voor gecastreerde katten
 ru: корм для кастрированных кошек
 
-< en:dog and cat food
+< en: dog and cat food
 en: dog food
 de: Hundefutter, Hundenahrung
 fr: nourriture pour chiens, produits pour chiens
 hr: Pseća hrana
 hu: Kutyaeledel
+it: Cibo per cani
 ja: ドッグフード
 nl: Hondenvoedsel, hondenvoer
 nl_be: Hondenvoedsel, hondenvoer
@@ -359,10 +391,11 @@ ru: собачий корм, корм для собак, собачьи корм
 google_product_taxonomy_id:en: 3530
 wikidata:en: Q38420
 
-< en:dog food
-< en:dry food
+< en: dog food
+< en: dry food
 en: dry dog food
 de: Hundetrockenfutter, Hundetrockennahrung, trockenes Hundefutter, getrocknetes Hundefutter
+es: Comida seca para perros, alimento seco para perros
 fr: croquettes pour chien
 hr: Suha hrana za pse
 hu: Száraz kutyaeledel
@@ -371,7 +404,7 @@ nl: Hondenbrokken
 nl_be: Hondenbrokken
 ru: сухой корм для собак, сухие корма для собак
 
-< en:dry dog food
+< en: dry dog food
 en: dog biscuit
 ar: بسكويت للكلاب
 az: İt peçenyası
@@ -449,12 +482,13 @@ vi: Bánh quy cho chó
 zh: 狗饼干
 wikidata:en: Q1637445
 
-< en:dog food
-< en:wet food
+< en: dog food
+< en: wet food
 en: wet dog food, canned dog food
 de: feuchtes Hundefutter, Hundenassfutter, Hundenassnahrung, nasses Hundefutter
 fr: Pâtées pour chien, nourriture humide pour chien, boites pour chien
 hr: Mokra hrana za pse
+it: Cibo umido per cani, cibo in scatola per cani
 ja: ウェットタイプのドッグフード
 nl: Nat hondenvoer
 pt: Comida de cão húmida
@@ -619,39 +653,55 @@ vi: Thức ăn cho cá
 zh: 鱼食
 
 en: livestock feed
+es: Alimento para ganado
+fr: aliments pour le bétail
+it: Mangime per il bestiame
 
 en: bird and fowl food
+es: Comida para aves y gallinas
+fr: aliments pour oiseaux et volailles
+it: Mangime per uccelli e pollame
 
 en: Rabbit food
 de: Kaninchenfutter
+es: Comida para conejos
 fr: Nourriture pour lapins
 hr: Hrana za kuniće
+it: Cibo per conigli
 nl: Voer voor konijnen
 
 en: rodent food
 de: Nagetierfutter
+es: Comida para roedores
 fr: nourriture pour rongeurs
 hr: Hrana za glodavce
+it: Cibo per roditori
 nl: rattenvoer
 ru: корм для грызунов
 
 en: Horse food
 de: Pferdefutter
+es: Comida para caballos
 fr: Nourriture pour chevaux
 hr: Hrana za konje
+it: Cibo per cavalli
 nl: Voer voor paarden
 
 en: reptile food
 de: Futter für Reptilien, Terrarientierfutter
+es: Comida para reptiles
 fr: nourriture pour reptiles
 hr: Hrana za gmazove
+it: Cibo per rettili
 nl: reptielenvoer, voer voor reptielen
 ru: корм для пресмыкающихся, корм для рептилий
 
 en: miscellaneous pet food, miscellaneous animal food
 de: sonstiges Tierfutter
+es: comida para animales diversos, comida para animales variados
 fr: nourriture pour animaux divers, nourriture pour animaux variés
 hr: Razna hrana za kućne ljubimce
+it: Cibo per animali domestici vario
 nl: divers diervoer
 ru: прочий корм для животных
 

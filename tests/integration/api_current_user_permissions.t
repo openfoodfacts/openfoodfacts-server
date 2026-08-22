@@ -69,7 +69,7 @@ my $tests_ref = [
 		method => 'OPTIONS',
 		path => '/api/v3/current-user/permissions',
 		expected_type => 'none',
-		expected_status_code => 200,
+		expected_status_code => 204,
 	},
 ];
 

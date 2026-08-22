@@ -27,7 +27,7 @@ jobs:
           "backend"
         ]
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
 
@@ -91,7 +91,7 @@ jobs:
         skip-dirs: opt/product-opener/build-cache/,opt/product-opener/taxonomies
         trivy-config: trivy.yaml
     - name: Upload Trivy results to GitHub Security
-      uses: github/codeql-action/upload-sarif@v4
+      uses: github/codeql-action/upload-sarif@v4.37.3
       if: always()
       with:
         sarif_file: ${{ matrix.image_name }}-trivy.sarif

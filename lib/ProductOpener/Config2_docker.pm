@@ -52,6 +52,7 @@ BEGIN {
 		$crowdin_project_key
 		$brevo_api_key
 		$list_id
+		$ecobalyse_api_token
 		$robotoff_url
 		$query_url
 		$events_url
@@ -61,7 +62,7 @@ BEGIN {
 		$redis_url
 		$folksonomy_url
 		$recipe_estimator_url
-		$recipe_estimator_scipy_url
+		$recipe_estimator_service
 		%server_options
 		$build_cache_repo
 		$rate_limiter_blocking_enabled
@@ -77,6 +78,8 @@ BEGIN {
 		$oidc_client_id
 		$oidc_client_secret
 		%slack_hook_urls
+		$health_check_api_key
+
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -119,6 +122,8 @@ $crowdin_project_key = $ENV{CROWDIN_PROJECT_KEY};
 $brevo_api_key = $ENV{BREVO_API_KEY};
 $list_id = $ENV{BREVO_LIST_ID};
 
+$ecobalyse_api_token = $ENV{ECOBALYSE_API_TOKEN};
+
 my $postgres_host = $ENV{POSTGRES_HOST} || "postgres";
 my $postgres_user = $ENV{POSTGRES_USER};
 my $postgres_password = $ENV{POSTGRES_PASSWORD};
@@ -152,21 +157,23 @@ $redis_url = $ENV{REDIS_URL};
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
 $folksonomy_url = $ENV{FOLKSONOMY_URL};
-# To test a locally running recipe-estimator with product opener in a docker dev environment:
-# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
-$recipe_estimator_scipy_url = $ENV{RECIPE_ESTIMATOR_SCIPY_URL};
 
-#$recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-#$recipe_estimator_scipy_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
+$recipe_estimator_url = $ENV{RECIPE_ESTIMATOR_URL};
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ENV{RECIPE_ESTIMATOR_SERVICE} || "product_opener";
 
 %server_options = (
 	producers_platform => $producers_platform,
 	minion_backend => {Pg => $postgres_url},
 	minion_local_queue => $server_domain,
 	cookie_domain => $ENV{PRODUCT_OPENER_DOMAIN},
-	ip_whitelist_session_cookie => ["", ""],
 );
 
 if ($producers_platform) {
@@ -218,5 +225,8 @@ if ((defined $ENV{SLACK_HOOK_URLS}) and ($ENV{SLACK_HOOK_URLS} ne '')) {
 		$slack_hook_urls{$+{channel}} = $+{url};
 	}
 }
+
+# Health check API key
+$health_check_api_key = $ENV{HEALTH_CHECK_API_KEY};
 
 1;

@@ -23,9 +23,8 @@
 use utf8;
 use open qw(:std :utf8);
 use Modern::Perl '2017';
-use experimental 'smartmatch';
 
-use List::Util qw( all );
+use List::Util qw( all any );
 
 use CHI ();
 use Data::Table ();
@@ -104,7 +103,10 @@ sub fill_cache {
 			quote_char => q{"}
 		);
 
-		return if not all {$_ ~~ @headers} @address_columns;
+		return if not all {
+			my $column = $_;
+			any {$_ eq $column} @headers;
+		} @address_columns;
 
 		foreach my $row_ref (@{$row_refs}) {
 			if ($row_ref->{'lat'} && $row_ref->{'lng'}) {

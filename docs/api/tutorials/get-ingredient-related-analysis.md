@@ -14,7 +14,7 @@ You can get information about absence or unawareness of the presence of:
 - allergens
 - additives
 
-**Important!** Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, read: [https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt](https://github.com/openfoodfacts/openfoodfacts-server/blob/master/taxonomies/ingredients.txt)
+**Important!** Parsing might not be perfect and the ingredient detection might have issues in some languages. For more information on how you can help improve it, read: [https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/food/ingredients.txt](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/taxonomies/food/ingredients.txt)
 
 
 ## Introduction 
@@ -70,18 +70,18 @@ then "Add ingredients to see the level of food processing and potential additive
 
 #### Rotating a photo
 
-* [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/cgi/product_image_crop.pl)
+* [Please look at the reference](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/images/post-cgi-product_image_crop.pl/)
 
 #### Cropping Photos
 
 **Note**: Cropping is only relevant for editing already selected images. You need to upload it first to the system, select it, retrieve its id, and then crop it.
 This is a non destructive crop. If there's an issue with the image, you should report it using the dedicated NutriPatrol API. 
 Moderators will either perform a destructive crop, or more likely delete the image.
-* [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_crop.pl)
+* [Please look at the reference](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/images/post-cgi-product_image_crop.pl/)
 
 #### Unselecting photos
 
-* [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_unselect.pl)
+* [Please look at the reference](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/images/post-cgi-product_image_unselect.pl/)
 
 ### Get the Optical Character Recognition (OCR) output of the ingredients photo
 
@@ -93,13 +93,11 @@ Open Food Facts uses optical character recognition (OCR) to retrieve ingredient 
 
 #### API solution
 
-* [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/cgi/ingredients.pl)
+* [Please look at the reference](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v2/ocr/get-cgi-ingredients.pl/)
 
 #### Dart SDK solution
 
-* [https://openfoodfacts.github.io/openfoodfacts-dart/model_OcrIngredientsResult/OcrIngredientsResult-class.html](https://openfoodfacts.github.io/openfoodfacts-dart/model_OcrIngredientsResult/OcrIngredientsResult-class.html) 
-* [https://openfoodfacts.github.io/openfoodfacts-dart/utils_OcrField/OcrField-class.html](https://openfoodfacts.github.io/openfoodfacts-dart/utils_OcrField/OcrField-class.html)
-* [https://openfoodfacts.github.io/openfoodfacts-dart/utils_OcrField/OcrFieldExtension.html](https://openfoodfacts.github.io/openfoodfacts-dart/utils_OcrField/OcrFieldExtension.html)
+* https://openfoodfacts.github.io/openfoodfacts-dart/file-___home_runner_work_openfoodfacts-dart_openfoodfacts-dart_lib_src_model_ocr_ingredients_result/
 
 
 ### Present the result of the Optical Character Recognition (OCR) output to your user for human review
@@ -110,8 +108,8 @@ Open Food Facts uses optical character recognition (OCR) to retrieve ingredient 
 
 ### Send the ingredients
 
-* [Please look at the reference located](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl)
+* [Please look at the reference V3](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/products/patch-api-v3-product-code/)
 
 ### Refresh product to display the result to your user
 
-* [Please look at the reference](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#get-/api/v3/product/-barcode-)
+* [Please look at the reference](https://openfoodfacts.github.io/documentation/docs/Product-Opener/v3/products/get-api-v3-product-code/)

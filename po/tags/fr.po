@@ -502,8 +502,16 @@ msgstr "groupe-nova"
 msgctxt "nova_groups:plural"
 msgid "nova-groups"
 msgstr "groupes-nova"
+#. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
+msgctxt "storage_conditions:singular"
+msgid "storage-condition"
+msgstr "condition-de-stockage"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
+msgctxt "storage_conditions:plural"
+msgid "storage-conditions"
+msgstr "conditions-de-stockage"
+
 msgctxt "last_check_dates:plural"
 msgid "last-check-dates"
 msgstr "dates-de-derniere-verification"

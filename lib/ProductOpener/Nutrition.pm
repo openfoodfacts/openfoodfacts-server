@@ -47,7 +47,6 @@ BEGIN {
 		&get_specific_nutrition_input_set
 		&get_nutrition_input_sets_in_a_hash
 		&convert_nutrition_input_sets_hash_to_array
-		&get_source_for_site_and_org
 		&get_preparations_for_product_type
 		&get_pers_for_product_type
 		&get_default_per_for_product
@@ -84,11 +83,13 @@ use vars @EXPORT_OK;
 
 use Clone qw/clone/;
 
-use ProductOpener::Tags qw/:all get_inherited_property_from_categories_tags/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Units qw/unit_to_kcal unit_to_kj unit_to_g g_to_unit get_standard_unit/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::API qw/add_error add_warning/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 
 # FIXME: remove single_param and use request_param
@@ -829,46 +830,6 @@ sub convert_nutrition_input_sets_hash_to_array($input_sets_hash_ref, $product_re
 	return $input_sets_ref;
 }
 
-=head2 get_source_for_site_and_org ( $org_id = undef )
-
-Returns the default source of nutrition data for the current site and organization.
-
-=head3 Arguments
-
-=head4 $org_id
-
-Organization id
-
-=head3 Return values
-
-- "packaging" for the public platform
-- "manufacturer" for the pro platform
-
-=cut
-
-sub get_source_for_site_and_org ($org_id = undef) {
-
-	my $source = "packaging";
-	if ($server_options{producers_platform}) {
-		$source = "manufacturer";
-		if (defined $org_id) {
-			# e.g. org-database-usda
-			if ($org_id =~ /^org-database-(.+)$/) {
-				$source = "database-" . $1;
-			}
-			# e.g. org-label-gmo-project (in practice labels should not send nutrition data)
-			if ($org_id =~ /^org-label-(.+)$/) {
-				$source = "label-" . $1;
-			}
-			# At some point we used the pro platform to allow users to bulk enter data (e.g. for scan parties)
-			elsif ($org_id =~ /^user-(.+)$/) {
-				$source = "packaging";
-			}
-		}
-	}
-	return $source;
-}
-
 =head2 get_preparations_for_product_type
 
 Returns the list of valid preparation states for a given product type.
@@ -1511,6 +1472,16 @@ sub assign_nutrition_values_from_request_parameters ($request_ref, $product_ref,
 
 	# We use a temporary input sets hash to ease setting values
 	my $input_sets_hash_ref = get_nutrition_input_sets_in_a_hash($product_ref);
+
+	# Product types for which the nutrition feature is disabled (e.g. beauty products) have no valid
+	# input set (no preparation and no per), so their nutrition facts cannot be edited nutrient by nutrient.
+	# Some of those products still have nutrition data (added before the feature was disabled, or imported):
+	# checking the "no nutrition data" checkbox deletes it, as the product edit API v2 already does.
+	if ((not feature_enabled("nutrition", $product_ref)) and (has_no_nutrition_data_on_packaging($product_ref))) {
+		delete $input_sets_hash_ref->{$source};
+		# The flag itself is not relevant for those products, we only use it as a way to delete the data
+		delete $product_ref->{nutrition}{no_nutrition_data_on_packaging};
+	}
 
 	# Assign all the nutrient values
 
