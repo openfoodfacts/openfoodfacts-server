@@ -371,7 +371,55 @@ my @display_tests = (
 				show => 1,
 				link => "/facets/categories/en:spreads"
 			}
-		]
+		],
+	],
+	[
+		"nutrition-facts-table-many-decimals",
+		{
+			nutrition_data => "on",
+			serving_size => "100g",
+			serving_quantity => 100,
+			nutrition_data_per => "100g",
+			product_type => "food",
+			code => "0000109165809",
+			id => "0000109165809",
+			categories => "",
+			categories_tags => [],
+			nutrition => {
+				aggregated_set => {
+					nutrients => {
+
+						carbohydrates => {
+							unit => "g",
+							value => 16.66666666667
+						},
+						energy => {
+							unit => "kJ",
+							value => 102.3456
+						},
+						"energy-kcal" => {
+							unit => "kcal",
+							value => 24.46309751434
+						},
+						fat => {
+							unit => "g",
+							value => 0.04333333333
+						},
+						proteins => {
+							unit => "g",
+							value => 1.333333
+						},
+						salt => {
+							unit => "g",
+							value => 0.133333333333333
+						},
+
+					},
+					preparation => "as_sold",
+					per => "100g"
+				}
+			}
+		}
 	]
 );
 
