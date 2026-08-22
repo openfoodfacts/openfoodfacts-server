@@ -1658,7 +1658,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:handgeschnitten',
+				'processing' => 'en:hand-cut',
 				'text' => "haselnüsse"
 			}
 		]

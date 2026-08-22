@@ -109,6 +109,8 @@ BEGIN {
 		$serialize_to_json
 
 		$health_check_api_key
+
+		$ecobalyse_api_token
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -458,6 +460,9 @@ $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
 # or "product_opener" to use the legacy Product Opener algorithm
 $recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
 
+# Ecobalyse API token, needs to be generated on https://ecobalyse.beta.gouv.fr/
+$ecobalyse_api_token = $ProductOpener::Config2::ecobalyse_api_token;
+
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
 
@@ -755,6 +760,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	improvements
 	brands
 	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
