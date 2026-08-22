@@ -141,7 +141,6 @@ vegetarian:en: yes
 wikidata:en: Q34956
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin
 
-
 # All parent vitamin entries must be under en: vitamins
 
 # description:en:Vitamin A is a group of unsaturated nutritional organic compounds that includes retinol, retinal, retinoic acid
@@ -227,9 +226,8 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q18225
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_A
-# vitamin/vitamin-a has 1768 products in 17 languages @2018-11-20
 
-< en:vitamin A
+< en: vitamin A
 en: retinol
 xx: retinol, vitamin A (retinol)
 bg: Ретинол
@@ -249,7 +247,7 @@ wikidata:en: Q424976
 
 # description:en:Retinyl acetate (retinol acetate, vitamin A acetate) is a natural form of vitamin A which is the acetate ester of retinol.
 
-< en:vitamin A
+< en: vitamin A
 en: retinyl acetate, retinol acetate, vitamin A acetate
 bg: ретинил ацетат
 ca: acetat de retinol
@@ -280,11 +278,10 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q7316808
 wikipedia:en: https://en.wikipedia.org/wiki/Retinyl_acetate
-# vitamin/retinyl-acetate has 42 products @2018-11-20
 
 # description:en:Retinyl palmitate, or vitamin A palmitate, is the ester of retinol (vitamin A) and palmitic acid, with formula C36H60O2.
 
-< en:vitamin A
+< en: vitamin A
 en: retinyl palmitate, Vitamin A palmitate, palmitate
 bg: Ретинил палмитат
 cs: retinyl-palmitát
@@ -315,11 +312,10 @@ vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q7316807
 wikipedia:en: https://en.wikipedia.org/wiki/Retinyl_palmitate
-# vitamin/retinyl-palmitate has 14 products in 5 languages @2018-11-20
 
 # description:en:β-Carotene is an organic, strongly colored red-orange pigment abundant in plants and fruits. Plant carotenoids are the primary dietary source of provitamin A worldwide, with β-carotene as the best-known provitamin A carotenoid.
 
-< en:vitamin A
+< en: vitamin A
 #<en:carotene
 en: beta-carotene
 bg: Бета каротин
@@ -363,6 +359,7 @@ sr: бета-каротен
 sv: Betakaroten
 ta: பீட்டா கரோட்டீன்
 th: บีตา-แคโรทีน
+uk: бета-каротин
 vi: Beta-Carotene
 zh: Β-胡萝卜素
 # azb:بتاکاروتن
@@ -378,11 +375,10 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q306135
 wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
-# ingredient/fr:bêtacarotène has 116 products in 4 languages @2019-04-25
 
 # description:en: A provitamin is a substance that may be converted within the body to a vitamin. For example, "provitamin A" is a name for β-carotene, Whether beta-carotene is used as colour or vitamin depends on additional information on the ingredient list. It can be preceded by the wording colorant or provitamin A. Or it occurs in a (non-obvious) listing of other vitamins.
 
-< en:beta-carotene
+< en: beta-carotene
 en: provitamin A
 ca: provitamina A
 de: Provitamin A
@@ -397,16 +393,14 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q306135
 wikipedia:en: https://en.wikipedia.org/wiki/Beta-Carotene
-# vitamin/beta-carotene has 865 products in 8 languages @2018-11-20
 
-< en:beta-carotene
+< en: beta-carotene
 en: beta-carotene dye
 ca: colorant de beta-carotè
 de: Farbstoff Beta-Carotin
 es: colorante de beta-caroteno
 fr: colorant bêta-carotène
 hu: béta-karotin színezék
-# fr:colorant-bêta-carotène has 71 products in 4 languages @2019-03-27
 it: colorante betacaroteno, colorante beta-carotene
 nl: bètacaroteenkleurstof
 vegan:en: yes
@@ -506,12 +500,11 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q175621
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_D
-# vitamin/vitamin-d has 2516 products in 13 languages @2018-11-21
 
 # description:en:Ergocalciferol, also known as vitamin D2 and calciferol, is a type of vitamin D found in food and used as a dietary supplement.
 
+< en: vitamin D
 < en: vitamins
-< en:vitamin D
 en: Ergocalciferol, Vitamin D2, D2
 ar: إرغوكالسيفيرول
 bg: Ергокалциферол
@@ -551,7 +544,6 @@ uk: Ергокальциферол
 zh: 麦角钙化醇, 维生素D2
 vegan:en: yes
 vegetarian:en: yes
-# vitamin/ergocalciferol has 690 products @2018-11-21
 wikidata:en: Q139200
 # sr-ec:ергокалциферол
 # sr-el:Ergokalciferol
@@ -565,8 +557,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Ergocalciferol
 
 # description:en:Cholecalciferol, also known as vitamin D3 and colecalciferol, is a type of vitamin D which is made by the skin, found in some foods, and taken as a dietary supplement.
 
+< en: vitamin D
 < en: vitamins
-< en:vitamin D
 en: Cholecalciferol, vitamin D3, D3
 af: Vitamien D3
 ar: كوليكالسيفيرول
@@ -641,7 +633,6 @@ vegetarian:en: maybe
 # zh-tw:膽鈣化醇, 维生素D3
 wikidata:en: Q139347
 wikipedia:en: https://en.wikipedia.org/wiki/Cholecalciferol
-# vitamin/cholecalciferol has 2996 products in 8 languages @2018-11-21
 
 # description:en:VITAMIN E is a group of eight fat soluble compounds that include four tocopherols and four tocotrienols. In order to distinguish between the vitamin and antioxidant role, vitamin E is call tocoferol. The oxidant is called Tocopherol-rich extract or E306.
 
@@ -723,10 +714,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q141180
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_E
-# ingredient/vitamin-e has 1830 products in 13 languages @2018-11-25
 
-
-< en:Vitamin E
+< en: Vitamin E
 en: D-alpha tocopherol
 bg: D-алфа токоферол
 cs: D-α-tokoferol
@@ -752,7 +741,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q158348
 
-< en:Vitamin E
+< en: Vitamin E
 en: D-alpha tocopheryl acetate, alpha tocopheryl acetate, alpha tocopherol acetate
 bg: D-алфатокоферил ацетат
 cs: D- α-tokoferyl-acetát
@@ -778,7 +767,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q364160
 
-< en:Vitamin E
+< en: Vitamin E
 en: DL-alpha tocopheryl acetate, dl-alpha tocopherol acetate
 bg: DL-алфатокоферил ацетат
 cs: DL-α-tokoferyl-acetát
@@ -807,7 +796,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q27292783
 
-< en:Vitamin E
+< en: Vitamin E
 en: D-alpha-tocopheryl acid succinate
 bg: D-алфа-токоферил кисел сукцинат
 cs: D-α-tokoferyl-sukcinát
@@ -832,7 +821,7 @@ sv: D-alfa-tokoferylvätesuccinat
 vegan:en: yes
 vegetarian:en: yes
 
-< en:Vitamin E
+< en: Vitamin E
 en: D-alpha-tocopheryl polyethylene glycol-1000 succinate, TPGS
 bg: D-алфа-токоферил полиетилен гликол-1000 сукцинат, TPGS
 cs: polyethylenglykol 1000, ether s -α-tokoferolem, sukcinát, TPGS
@@ -925,9 +914,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q182338
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_K
-# ingredient/vitamin-k has 85 products in 4 languages @2018-11-25
 
-< en:vitamin K
+< en: vitamin K
 en: phylloquinone, phytomenadione, Vitamin K1
 xx: K1
 ar: فايتوميناديون
@@ -969,10 +957,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q186093
 wikipedia:en: https://en.wikipedia.org/wiki/Phytomenadione
-# ingredient/fr:k1 has 79 products@2019-04-16
-# vitamin/phylloquinone has 180 products in 8 languages @2019-4-16
 
-< en:vitamin K
+< en: vitamin K
 en: menaquinone, vitamin K2
 bg: менахинон
 cs: menachinon
@@ -998,7 +984,7 @@ sv: Menakinon
 vegan:en: maybe
 vegetarian:en: maybe
 
-< en:Vitamin K
+< en: Vitamin K
 en: Vitamin K3
 bg: Витамин K3
 de: Vitamin K3
@@ -1024,7 +1010,6 @@ sk: Vitamín K3
 zh: 维生素K3
 vegan:en: yes
 vegetarian:en: yes
-
 
 # this is the same molecule as E300, put vitamin c in here and ascorbic acid in additives.txt
 
@@ -1121,9 +1106,8 @@ vegetarian:en: yes
 wikidata:en: Q199678
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_C
 # description:en:Vitamin C, also known as ascorbic acid and L-ascorbic acid, is a vitamin found in food and used as a dietary supplement.
-# en:ascorbic-acid has 17518 products in 17 languages @2018-11-17
 
-< en:Vitamin C
+< en: Vitamin C
 en: L-ascorbic acid, ascorbic acid
 bg: L-аскорбинова киселина, аскорбинова киселина
 bs: Askorbinska kiselina
@@ -1157,7 +1141,7 @@ zh: 抗坏血酸
 vegan:en: yes
 vegetarian:en: yes
 
-< en:Vitamin C
+< en: Vitamin C
 en: sodium-L-ascorbate, fscorbate
 bg: Натриев-L-аскорбат
 cs: L-askorbát sodný
@@ -1182,7 +1166,7 @@ sv: natrium-L-askorbat
 vegan:en: yes
 vegetarian:en: yes
 
-< en:Vitamin C
+< en: Vitamin C
 en: calcium-L-ascorbate, calcium ascorbate
 bg: Калциев-L-аскорбат
 cs: L-askorbát vápenatý
@@ -1207,7 +1191,7 @@ sv: kalcium-L-askorbat
 vegan:en: yes
 vegetarian:en: yes
 
-< en:Vitamin C
+< en: Vitamin C
 en: potassium-L-ascorbate, potassium ascorbate
 bg: Калиев-L-аскорбат
 cs: L-askorbát draselný
@@ -1232,7 +1216,7 @@ sv: kalium-L-askorbat
 vegan:en: yes
 vegetarian:en: yes
 
-< en:Vitamin C
+< en: Vitamin C
 en: L-ascorbyl 6-palmitate
 bg: L-аскорбил 6-палмитат
 cs: L-askorbyl-6-palmitát
@@ -1256,8 +1240,6 @@ sl: L-askorbil 6-palmitat
 sv: L-askorbyl-6-palmitat
 vegan:en: yes
 vegetarian:en: yes
-
-# description:en:Thiamine, also known as thiamin or vitamin B1, is a vitamin found in food, and manufactured as a dietary supplement and medication.
 
 < en: vitamins
 en: Thiamin, thiamine, vitamin b1, B1
@@ -1320,6 +1302,7 @@ sl: Tiamin, vitamin B1
 sq: Tiamina, Vitamina B1
 sr: vitamin B1
 su: Tiamin
+sv: tiamin, vitamin B1
 sw: Tiamin, B1-vitamin
 ta: தயமின்
 tg: Тиамин
@@ -1329,22 +1312,22 @@ uk: Тіамін, Вітамін B1
 vi: Thiamin
 wa: Tiyamene
 zh: 硫胺, 維他命B1
-# ast:Vitamina B1
-# de-ch:Thiamin
-# en-ca:Thiamine
-# en-gb:Thiamine
-# pt-br:Tiamina
-# sco:Thiamine
-# sr-ec:Тиамин, витамин Б1
-# tyv:Витамин B1
-# yue:維他命B1
+#ast: Vitamina B1
+#de-ch: Thiamin
+#en-ca: Thiamine
+#en-gb: Thiamine
+#pt-br: Tiamina
+#sco: Thiamine
+#sr-ec: Тиамин, витамин Б1
+#tyv: Витамин B1
+#yue: 維他命B1
+description:en: Thiamine, also known as thiamin or vitamin B1, is a vitamin found in food, and manufactured as a dietary supplement and medication.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q83187
 wikipedia:en: https://en.wikipedia.org/wiki/Thiamine
-# ingredient/vitamin-b1 has 4607 products in 11 languages @2018-11-23
 
-< en:Thiamin
+< en: Thiamin
 en: thiamin hydrochloride
 bg: Тиамин хидрохлорид
 cs: thiamin-hydrochlorid
@@ -1371,7 +1354,7 @@ sv: tiaminhydroklorid
 vegan:en: yes
 vegetarian:en: yes
 
-< en:Thiamin
+< en: Thiamin
 en: thiamin mononitrate, thiamine mononitrate
 bg: Тиамин мононитрат
 ca: mononitrat de tiamina
@@ -1398,7 +1381,6 @@ sl: tiamin mononitrat
 sv: tiaminmononitrat
 vegan:en: maybe
 vegetarian:en: maybe
-# ingredient/fr:mononitrate-de-thiamine has 83 products in 4 languages @2019-03-11
 
 # description:en:Riboflavin, also known as vitamin B2, is a vitamin found in food and used as a dietary supplement.
 
@@ -1458,7 +1440,6 @@ uk: Рибофлавін, Вітамін B2
 wa: riboflavene, vitamene B2
 zh: 核黄素
 vegan:en: maybe
-# ingredient/vitamin-b2 has 4263 products in 10 languages @2018-11-23
 vegetarian:en: yes
 # ast:Vitamina B2
 # be-tarask:Рыбафлявін
@@ -1526,9 +1507,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q134658
 wikipedia:en: https://en.wikipedia.org/wiki/Niacin
-# ingredient/vitamin-b3 has 744 products in 8 languages @2018-11-23
 
-< en:niacin
+< en: niacin
 en: nicotinic acid
 bg: никотинова киселина
 cs: kyselina nikotinová
@@ -1557,7 +1537,7 @@ wikidata:en: Q134658
 
 # description:en:Nicotinamide (NAM), also known as niacinamide, is a form of vitamin B3 found in food and used as a dietary supplement and medication.
 
-< en:niacin
+< en: niacin
 en: nicotinamide, niacinamide
 ar: ﻦﻴﻛﻮﺘﻴﻧﺎﻤﻳﺩ
 bg: никотинамид
@@ -1609,7 +1589,6 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q192423
 wikipedia:en: https://en.wikipedia.org/wiki/Nicotinamide
-# ingredient/fr:nicotinamide has 172 products in 2 languages @2019-01-16
 
 # description:en:Vitamin B6 refers to a group of chemically similar compounds which can be interconverted in biological systems.
 
@@ -1676,9 +1655,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q205130
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B6
-# ingredient/vitamin-b6 has 2556 products in 12 languages  @2018-11-24
 
-< en:vitamin B6
+< en: vitamin B6
 en: pyridoxine
 xx: pyridoxin
 ar: بيريدوكسين
@@ -1697,7 +1675,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q423746
 
-< en:vitamin B6
+< en: vitamin B6
 en: pyridoxamine
 xx: pyridoxamin
 de: Pyridoxamin
@@ -1707,7 +1685,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q2541149
 
-< en:vitamin B6
+< en: vitamin B6
 en: pyridoxine hydrochloride
 bg: пиридоксин хидрохлорид
 cs: pyridoxin-hydrochlorid
@@ -1736,16 +1714,15 @@ sv: pyridoxinhydroklorid
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q26841284
-# ingredient/pyridoxine-hydrochloride has 1751 products in 5 languages @2018-11-24
 
-< en:vitamin B6
+< en: vitamin B6
 en: pyridoxamine hydrochloride
 hu: piridoxamin-hidroklorid
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q27225158
 
-< en:vitamin B6
+< en: vitamin B6
 en: pyridoxine 5'-phosphate
 hu: pirodoxál-5-foszfát
 it: piridossalfosfato, piridossal fosfato, piridossal-5'-fosfato
@@ -1753,7 +1730,7 @@ nl: pyridoxine-5'-fosfaat
 vegan:en: yes
 vegetarian:en: yes
 
-< en:vitamin B6
+< en: vitamin B6
 en: pyridoxine dipalmitate
 bg: пиридоксин дипалмитат
 cs: pyridoxin-dipalmitát
@@ -1803,7 +1780,7 @@ vegetarian:en: yes
 
 # description:en:Folate, distinct forms of which are known as folic acid, folacin, and vitamin B9, is one of the B vitamins.
 
-< en:Folate
+< en: Folate
 en: folic acid, pteroylmonoglutamic acid, Vitamin B9, B9, vitamin M
 ar: حمض الفوليك
 be: Фоліевая кіслата
@@ -1883,11 +1860,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q127060
 wikipedia:en: https://en.wikipedia.org/wiki/Folate
-# en:vitamin/folic-acid has 23535 products in 17 languages @2018-11-19
-# ingredient/fr:acide-folique has 22121 products in 13 languages @2018-11-19
-# ingredient/fr:folacine has 48 products in 2 languages @2019-04-16
 
-< en:Folate
+< en: Folate
 en: calcium-L-methylfolate
 bg: Калциев L-метилфолат
 cs: L-metylfolát vápenatý
@@ -1912,7 +1886,7 @@ sv: kalcium-L-metylfolat
 vegan:en: yes
 vegetarian:en: yes
 
-< en:folic acid
+< en: folic acid
 en: folacin
 es: folacina
 fr: Folacine
@@ -2002,9 +1976,8 @@ zh: 维生素B12
 vegan:en: yes
 vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Vitamin_B12
-# ingredient/vitamin-b12 has 2117 products in 10 languages @2018-11-25
 
-< en:Vitamin B12
+< en: Vitamin B12
 en: cyanocobalamin, cyanocobalamine
 bg: Цианокобаламин
 cs: kyanokobalamin
@@ -2035,7 +2008,7 @@ tr: Siyanokobalamin
 vegan:en: yes
 vegetarian:en: yes
 
-< en:Vitamin B12
+< en: Vitamin B12
 en: hydroxocobalamin
 bg: Хидроксокобаламин
 cs: hydroxokobalamin
@@ -2125,9 +2098,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q181354
 wikipedia:en: https://en.wikipedia.org/wiki/Biotin
-# ingredient/biotin has 145 products in 3 languages @2018-11-24
 
-< en:biotin
+< en: biotin
 en: D-biotin
 xx: D-biotin
 de: D-Biotin
@@ -2142,7 +2114,7 @@ vegetarian:en: yes
 
 # description:en:Vitamin B8 is a former designation given to several distinct chemical compounds, which is not considered a true vitamin
 
-< en:biotin
+< en: biotin
 en: vitamin B8
 xx: vitamin B8, B8 vitamin, B8
 bg: витамин b8, витамин Б8, инозитол
@@ -2160,7 +2132,6 @@ pt: vitamina B8
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q25113695
-# ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
 
 # description:en:Pantothenic acid, also called vitamin B5 (a B vitamin), is a water-soluble vitamin.
 
@@ -2236,12 +2207,10 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q179894
 wikipedia:en: https://en.wikipedia.org/wiki/Pantothenic_acid
-# vitamin/pantothenic-acid has 1373 products in 12 languages @2018-11-19
-# fr:acide-pantothénique has 900 products in 9 languages @2018-11-19
 
 # description:en:Another common supplemental form of the vitamin is CALCIUM PANTOTHENATE. Calcium pantothenate is often used in dietary supplements because, as a salt, it is more stable than pantothenic acid.
 
-< en:pantothenic acid
+< en: pantothenic acid
 en: calcium pantothenate
 de: Calcium-Pantothenat
 es: pantotenato de calcio
@@ -2256,9 +2225,8 @@ nn: kalsiumpantotenat
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q27261387
-# ingredient/fr:pantothénate-de-calcium has 109 products in 4 languages @2019-04-21
 
-< en:pantothenic acid
+< en: pantothenic acid
 en: calcium D-pantothenate, D-pantothenate calcium
 bg: D-пантотенат калций
 cs: D-pantothenát vápenatý
@@ -2286,7 +2254,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q68577368
 
-< en:Pantothenic Acid
+< en: Pantothenic Acid
 en: D-pantothenate sodium
 bg: D-пантотенат натрий
 cs: D-pantothenát sodný
@@ -2311,7 +2279,7 @@ sv: natrium-D-pantotenat
 vegan:en: yes
 vegetarian:en: yes
 
-< en:pantothenic acid
+< en: pantothenic acid
 en: dexpanthenol, D-panthenol
 bg: декспантенол
 de: D-Panthenol, Dexpanthenol
@@ -2336,13 +2304,12 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q47495755
 
-
-< en:vitamin A
-< en:vitamin D2
+< en: vitamin A
+< en: vitamin D2
 fi: Vitamiini A- ja D2
 
-< en:vitamin A
-< en:vitamin D
+< en: vitamin A
+< en: vitamin D
 da: vitamin A og D
 ca: vitamines A i D, A i D
 de: Vitamin A und D

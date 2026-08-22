@@ -40,6 +40,7 @@
             },
             {
                "ciqual_proxy_food_code" : "11000",
+               "ecobalyse_code" : "d8c8a918-a11a-502f-a5cf-90052d96c133",
                "id" : "en:garlic",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 5.20833333333333,
@@ -133,13 +134,12 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:coriander",
-      "en:garlic",
       "en:ginger",
       "en:mustard-seed",
       "en:spice",
       "en:turmeric"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 6,
+   "ingredients_without_ecobalyse_ids_n" : 5,
    "known_ingredients_n" : 7,
    "lc" : "fi",
    "misc_tags" : [
