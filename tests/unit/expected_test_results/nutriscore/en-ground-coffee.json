@@ -95,14 +95,14 @@
       "en:estimated-ingredients-with-product-opener",
       "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-missing-prepared-nutrition-data",
-      "en:nutriscore-estimated-energy",
-      "en:nutriscore-estimated-fat",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
+      "en:nutriscore-missing-nutrition-data-energy",
+      "en:nutriscore-estimated-fat",
       "en:nutriscore-missing-nutrition-data-saturated-fat",
       "en:nutriscore-missing-nutrition-data-sugars",
       "en:nutriscore-estimated-sodium",
-      "en:nutriscore-estimated-proteins",
+      "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutriscore-estimated-fiber",
       "en:nutriscore-not-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
@@ -228,30 +228,6 @@
                "unit" : "g",
                "value" : 0.00155
             },
-            "energy" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "kJ",
-               "value" : 1656.4
-            },
-            "energy-kcal" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "kcal",
-               "value" : 396.6
-            },
-            "energy-kj" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "kJ",
-               "value" : 1656.4
-            },
             "fat" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -316,14 +292,6 @@
                "unit" : "g",
                "value" : 0.16
             },
-            "polyols" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 0
-            },
             "potassium" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -332,22 +300,13 @@
                "unit" : "g",
                "value" : 2.02
             },
-            "proteins" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 0,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 14.4
-            },
             "salt" : {
                "modifier" : "~",
                "source" : "estimate",
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.19,
-               "value_computed" : 0.185
+               "value" : 0.185
             },
             "sodium" : {
                "modifier" : "~",
@@ -355,8 +314,7 @@
                "source_index" : 0,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0.074,
-               "value_computed" : 0.076
+               "value" : 0.074
             },
             "vitamin-b6" : {
                "modifier" : "~",
@@ -447,14 +405,6 @@
                   "value" : 397,
                   "value_string" : "397"
                },
-               "energy-kcal" : {
-                  "unit" : "kcal",
-                  "value_computed" : 396.6
-               },
-               "energy-kj" : {
-                  "unit" : "kJ",
-                  "value_computed" : 1656.4
-               },
                "fat" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -503,36 +453,21 @@
                   "value" : 0.16,
                   "value_string" : "0.16"
                },
-               "polyols" : {
-                  "modifier" : "~",
-                  "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
-               },
                "potassium" : {
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 2.02,
                   "value_string" : "2.02"
                },
-               "proteins" : {
-                  "modifier" : "~",
-                  "unit" : "g",
-                  "value" : 14.4,
-                  "value_string" : "14.4"
-               },
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.19,
-                  "value_computed" : 0.185,
-                  "value_string" : "0.19"
+                  "value_computed" : 0.185
                },
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.074,
-                  "value_computed" : 0.076,
                   "value_string" : "0.074"
                },
                "vitamin-b6" : {
@@ -581,7 +516,7 @@
       "unknown"
    ],
    "nutrition_score_beverage" : 1,
-   "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - prepared energy estimated - prepared fat estimated - missing prepared saturated-fat - missing prepared sugars - prepared sodium estimated - prepared proteins estimated - prepared fiber estimated",
+   "nutrition_score_debug" : "no score for category en:beverage-preparations without data for prepared product - missing prepared energy - prepared fat estimated - missing prepared saturated-fat - missing prepared sugars - prepared sodium estimated - missing prepared proteins - prepared fiber estimated",
    "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",

@@ -456,14 +456,6 @@
                "unit" : "kJ",
                "value" : 82
             },
-            "energy-kcal" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 1,
-               "source_per" : "100g",
-               "unit" : "kcal",
-               "value" : 419.2
-            },
             "energy-kj" : {
                "source" : "packaging",
                "source_index" : 0,
@@ -533,14 +525,6 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.586
-            },
-            "polyols" : {
-               "modifier" : "~",
-               "source" : "estimate",
-               "source_index" : 1,
-               "source_per" : "100g",
-               "unit" : "g",
-               "value" : 0.5
             },
             "potassium" : {
                "modifier" : "~",
@@ -728,14 +712,6 @@
                   "value" : 419,
                   "value_string" : "419"
                },
-               "energy-kcal" : {
-                  "unit" : "kcal",
-                  "value_computed" : 419.2
-               },
-               "energy-kj" : {
-                  "unit" : "kJ",
-                  "value_computed" : 1751
-               },
                "fat" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -784,36 +760,21 @@
                   "value" : 0.586,
                   "value_string" : "0.586"
                },
-               "polyols" : {
-                  "modifier" : "~",
-                  "unit" : "g",
-                  "value" : 0.5,
-                  "value_string" : "0.5"
-               },
                "potassium" : {
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 1.74,
                   "value_string" : "1.74"
                },
-               "proteins" : {
-                  "modifier" : "~",
-                  "unit" : "g",
-                  "value" : 34.5,
-                  "value_string" : "34.5"
-               },
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.0075,
-                  "value_computed" : 0.0075,
-                  "value_string" : "0.0075"
+                  "value_computed" : 0.0075
                },
                "sodium" : {
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.003,
-                  "value_computed" : 0.003,
                   "value_string" : "0.003"
                },
                "starch" : {

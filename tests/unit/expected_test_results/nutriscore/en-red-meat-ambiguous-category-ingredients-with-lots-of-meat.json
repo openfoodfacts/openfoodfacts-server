@@ -448,6 +448,14 @@
                "unit" : "g",
                "value" : 0.3564
             },
+            "chloride" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 5.4963
+            },
             "cholesterol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -478,7 +486,7 @@
                "source_per" : "100g",
                "unit" : "kcal",
                "value" : 146.35,
-               "value_computed" : 220.1938
+               "value_computed" : 208.6738
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -860,6 +868,12 @@
                   "value" : 0.3564,
                   "value_string" : "0.3564"
                },
+               "chloride" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 5.4963,
+                  "value_string" : "5.4963"
+               },
                "cholesterol" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -882,14 +896,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 146.35,
-                  "value_computed" : 220.1938,
+                  "value_computed" : 208.6738,
                   "value_string" : "146.35"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
                   "value" : 613.8,
-                  "value_computed" : 918.5064,
+                  "value_computed" : 869.5464,
                   "value_string" : "613.8"
                },
                "fat" : {
@@ -1003,15 +1017,15 @@
                "proteins" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 23.521,
-                  "value_string" : "23.521"
+                  "value" : 20.641,
+                  "value_string" : "20.641"
                },
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 8.9492,
+                  "value" : 8.9152,
                   "value_computed" : 8.9423275,
-                  "value_string" : "8.9492"
+                  "value_string" : "8.9152"
                },
                "saturated-fat" : {
                   "modifier" : "~",
@@ -1029,7 +1043,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 3.576931,
-                  "value_computed" : 3.57968,
+                  "value_computed" : 3.56608,
                   "value_string" : "3.576931"
                },
                "starch" : {

@@ -87,7 +87,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20034",
+         "ciqual_food_code" : "20034",
          "ecobalyse_code" : "onion-non-eu",
          "id" : "en:onion",
          "is_in_taxonomy" : 1,
@@ -573,6 +573,14 @@
                "unit" : "g",
                "value" : 2.88134014204545
             },
+            "chloride" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.106942444460225
+            },
             "cholesterol" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -987,6 +995,12 @@
                   "unit" : "g",
                   "value" : 2.88134014204545,
                   "value_string" : "2.88134014204545"
+               },
+               "chloride" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.106942444460225,
+                  "value_string" : "0.106942444460225"
                },
                "cholesterol" : {
                   "modifier" : "~",
