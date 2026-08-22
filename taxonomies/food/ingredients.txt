@@ -26967,7 +26967,7 @@ usda_ndb_code:en: 20141
 usda_ndb_name:en: Spelt, cooked
 
 < en: cereal
-en: khorasan wheat, kamut
+en: khorasan wheat
 xx: kamut
 bg: камут
 de: Kamut
@@ -30223,6 +30223,7 @@ ru: рис ферментированный
 < en: rice
 fr: riz précuit
 
+# < en: compound
 < en: rice
 en: cooked rice
 da: kogt ris
@@ -30237,6 +30238,7 @@ nl: gekookte rijst
 pl: ryż gotowany, gotowany ryż
 ro: orez fiert, orez gătit
 sv: kokt ris
+comment:en: fr:riz cuisiné is a compound product, eg:(eau, riz, sel)
 
 < en: cooked rice
 en: cooked white rice
@@ -32100,7 +32102,7 @@ zh: 葡萄糖
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
-commemt:en: probably not a very good CIQUAL proxy
+comment:en: probably not a very good CIQUAL proxy
 description:en: Glucose is a simple sugar (monosaccharide) that occurs naturally in fruits, honey, and plants, and is produced commercially by breaking down starch—typically from corn in the U.S. or wheat and potatoes in Europe—through enzymatic or acid hydrolysis. It has a moderately sweet flavor, less sweet than sucrose or fructose, with no notable aroma, and is available as a syrup or dried/powdered form used widely in candy-making, baking, and brewing for its resistance to crystallization and browning properties. As the primary fuel source for the human body, glucose provides purely caloric energy with no fiber, vitamins, or minerals, and it's the sugar that directly raises blood glucose levels, giving it the highest glycemic index among common sugars.
 vegan:en: yes
 vegetarian:en: yes
@@ -34285,7 +34287,7 @@ zh: 可可粉
 ciqual_proxy_food_code:en: 18100
 ciqual_proxy_food_name:en: Cocoa powder, without sugar, powder, instant
 ciqual_proxy_food_name:fr: Cacao, non sucré, poudre soluble
-ciqual_proxy_food_process:en: en:powder, en:instant
+ciqual_proxy_food_process:en: en:powder
 description:en: Cocoa comes from the seeds (beans) of the cacao tree, native to Central and South America and used by the Aztecs and Maya for thousands of years in ceremonial and medicinal drinks long before it spread to Europe in the 16th century and became the basis for modern chocolate. It has a rich, bitter, complex flavor with earthy, fruity, and slightly astringent notes that vary by origin and processing, and comes in forms ranging from raw beans and nibs to fine cocoa powder, defined by its fat content (cocoa butter) after pressing. Used in chocolate-making, baking, and beverages, cocoa is notably rich in flavanol antioxidants, along with magnesium, iron, and fiber, though its bitter compounds are often offset with added sugar in most commercial products.
 vegan:en: yes
 vegetarian:en: yes
