@@ -216,7 +216,7 @@ for my $i (1 .. 10) {
 		push @ingredient_languages_cols, "ingredient_${l}_$i";
 	}
 	push @hdr, "ingredient_id_$i", "ingredient_exists_in_taxonomy_$i", @ingredient_languages_cols,
-		"ingredient_parents_$i", "ingredient_quantity_$i", "ingredient_percent_$i";
+		"ingredient_quantity_$i", "ingredient_percent_$i";
 }
 
 push @hdr, "ingredients_top_10_total_quantity",
@@ -364,13 +364,10 @@ while (<$LIST>) {
 					foreach my $target_lc (@ingredient_languages) {
 						push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
 					}
-					my $parents = display_tag_and_parents_taxonomy("ingredients", $id);
-					# Remove HTML tags
-					$parents =~ s/<[^>]*>//g;
-					push @row, $parents, $quantity, $pct;
+					push @row, $quantity, $pct;
 				}
 				else {
-					push @row, ('') x (5 + scalar(@ingredient_languages));
+					push @row, ('') x (4 + scalar(@ingredient_languages));
 				}
 			}
 
@@ -394,7 +391,7 @@ while (<$LIST>) {
 					my $id = $ingredient_ref->{id};
 					my $pct = $ingredient_ref->{percent} // $ingredient_ref->{percent_estimate} // 0;
 					my $quantity = $ingredient_ref->{quantity_estimate} // 0;
-					my $ingredient_in_taxonomy = $ingredient_ref->{is_in_taxonomy} // 0;
+					my $ingredient_in_taxonomy = $ingredient_ref->{is_in_taxonomy} // '';
 					push @row, $id, $ingredient_in_taxonomy;
 					foreach my $target_lc (@ingredient_languages) {
 						push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
