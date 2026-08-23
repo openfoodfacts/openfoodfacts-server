@@ -130,17 +130,17 @@ sub decide_if_we_should_refetch_product {
 sub collect_ingredients {
 	my ($ingredient_ref, $ingredients_percent_ref, $ingredients_quantity_ref) = @_;
 	return unless ref $ingredient_ref eq 'HASH';
-	if (defined $ingredient_ref->{id}) {
+	if (ref $ingredient_ref->{ingredients} eq 'ARRAY') {
+		collect_ingredients($_, $ingredients_percent_ref, $ingredients_quantity_ref)
+			for @{$ingredient_ref->{ingredients}};
+	} # Don't include parents in total quantities
+	elsif (defined $ingredient_ref->{id}) {
 		my $id = $ingredient_ref->{id};
 		my $pct = $ingredient_ref->{percent} // $ingredient_ref->{percent_estimate} // 0;
 		my $quantity = $ingredient_ref->{quantity_estimate} // 0;
 		$ingredients_in_taxonomy{$id} = $ingredient_ref->{is_in_taxonomy};
 		$ingredients_percent_ref->{$id} += $pct;
 		$ingredients_quantity_ref->{$id} += $quantity;
-	}
-	if (ref $ingredient_ref->{ingredients} eq 'ARRAY') {
-		collect_ingredients($_, $ingredients_percent_ref, $ingredients_quantity_ref)
-			for @{$ingredient_ref->{ingredients}};
 	}
 	return;
 }
