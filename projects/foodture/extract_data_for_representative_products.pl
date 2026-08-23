@@ -244,6 +244,9 @@ for my $y (2021 .. 2025) {
 	push @hdr, "country_scans_${y}", "global_scans_${y}";
 }
 
+push @hdr, "ingredients_json",
+	"packaging_json";    # sum of top 10 ingredients percentages
+
 $csv_out->print($OUT, \@hdr);
 
 # iterate through each country/category in list
@@ -424,6 +427,8 @@ while (<$LIST>) {
 				my $year_scans = $scans_ref->{$y}{unique_scans_n_by_country};
 				push @row, $year_scans->{$cc} // 0, $year_scans->{world} // 0;
 			}
+
+			push @row, encode_json($ingredients_ref // []), encode_json($product_ref->{packagings} // []);
 
 			$csv_out->print($OUT, \@row);
 
