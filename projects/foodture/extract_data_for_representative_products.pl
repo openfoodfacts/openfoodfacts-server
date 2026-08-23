@@ -401,16 +401,17 @@ while (<$LIST>) {
 		}
 		else {
 			# no product matched this country/category – output identifiers anyway
-			# my @row = (
-			# 	$l1, $l2,
-			# 	$l7, $segmentation,
-			# 	$category_tag, $batch1,
-			# 	$countries_names{$country_tag} // '', $country_tag,
-			# 	$exists_in_taxonomy || 0, $categories_agb{$category_tag} || '',
-			# 	$categories_agb_proxy{$category_tag} || ''
-			# );
-			# push @row, ('') x (scalar(@hdr) - scalar(@row));
-			# $csv_out->print($OUT, \@row);
+			next;    # for testing, don't output blank rows
+			my @row = (
+				$l1, $l2,
+				$l7, $segmentation,
+				$category_tag, $batch1,
+				$countries_names{$country_tag} // '', $country_tag,
+				$exists_in_taxonomy || 0, $categories_agb{$category_tag} || '',
+				$categories_agb_proxy{$category_tag} || ''
+			);
+			push @row, ('') x (scalar(@hdr) - scalar(@row));
+			$csv_out->print($OUT, \@row);
 		}
 		$n++;
 		#$n > 600 and last;    # for testing, limit to 100 lines
@@ -423,10 +424,12 @@ close $OUT;
 my $ingredients_file = "projects/foodture/ingredients_sum.csv";
 open my $ING_OUT, '>:encoding(UTF-8)', $ingredients_file or die "Cannot write $ingredients_file: $!\n";
 my @ingredients_header = (
-	"ingredient_id",
-	"ingredient_exists_in_taxonomy",
-	(map {"ingredient_$_"} @ingredient_languages),
-	"ingredient_parents", "sum_percent", "product_count", "avg_percent"
+	"ingredient_id", "ingredient_exists_in_taxonomy",
+	(map {"ingredient_$_"} @ingredient_languages), "ingredient_parents",
+	"ciqual_food_code", "ciqual_food_name_en",
+	"ciqual_food_name_fr", "ciqual_is_proxy",
+	"sum_percent", "product_count",
+	"avg_percent"
 );
 $csv_out->print($ING_OUT, \@ingredients_header);
 
@@ -439,9 +442,20 @@ for my $id (@sorted_ingredients) {
 	}
 	my $parents = display_tag_and_parents_taxonomy("ingredients", $id);
 	$parents =~ s/<[^>]*>//g;
+	my $ciqual_food_code = get_inherited_property("ingredients", $id, "ciqual_food_code:en") // '';
+	my $ciqual_food_name_en = get_inherited_property("ingredients", $id, "ciqual_food_name:en") // '';
+	my $ciqual_food_name_fr = get_inherited_property("ingredients", $id, "ciqual_food_name:fr") // '';
+	my $is_proxy = 0;
+	if (not $ciqual_food_code) {
+		$ciqual_food_code = get_inherited_property("ingredients", $id, "ciqual_proxy_food_code:en") // '';
+		$ciqual_food_name_en = get_inherited_property("ingredients", $id, "ciqual_proxy_food_name:en") // '';
+		$ciqual_food_name_fr = get_inherited_property("ingredients", $id, "ciqual_proxy	_food_name:fr") // '';
+		$is_proxy = ($ciqual_food_code) ? 1 : 0;
+	}
 	my $count = $all_ingredients_count{$id} || 1;
 	my $avg = $total_products > 0 ? $all_ingredients_quantity_sum{$id} / $total_products : 0;
-	push @ing_row, $parents, $all_ingredients_quantity_sum{$id}, $count, $avg;
+	push @ing_row, $parents, $ciqual_food_code, $ciqual_food_name_en, $ciqual_food_name_fr, $is_proxy,
+		$all_ingredients_quantity_sum{$id}, $count, $avg;
 	$csv_out->print($ING_OUT, \@ing_row);
 }
 close $ING_OUT;
