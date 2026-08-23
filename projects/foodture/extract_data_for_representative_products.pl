@@ -134,7 +134,7 @@ sub collect_ingredients {
 	if (ref $ingredient_ref->{ingredients} eq 'ARRAY') {
 		collect_ingredients($_, $ingredients_percent_ref, $ingredients_quantity_ref)
 			for @{$ingredient_ref->{ingredients}};
-	} # Don't include parents in total quantities
+	}    # Don't include parents in total quantities
 	elsif (defined $ingredient_ref->{id}) {
 		my $id = $ingredient_ref->{id};
 		my $pct = $ingredient_ref->{percent} // $ingredient_ref->{percent_estimate} // 0;
@@ -162,9 +162,9 @@ my %ranked;    # $ranked{ctag}{cat_tag}{$code}=1
 # Get Agribalyse code and proxies from categories properties
 my %categories_agb = ();
 my %categories_agb_proxy = ();
-$parser->getline ($RANK); # skip header
-while (my $row = $parser->getline ($RANK)) {
-    my @cols = @$row;
+$parser->getline($RANK);    # skip header
+while (my $row = $parser->getline($RANK)) {
+	my @cols = @$row;
 	my ($code, $name, $country, $category, $recent_scans) = @cols[0 .. 4];
 	next unless defined $code && $code ne '';
 	my $country_tag = canonicalize_taxonomy_tag('en', 'countries', $country);
@@ -244,8 +244,7 @@ for my $y (2021 .. 2025) {
 	push @hdr, "country_scans_${y}", "global_scans_${y}";
 }
 
-push @hdr, "ingredients_json",
-	"packaging_json";    # sum of top 10 ingredients percentages
+push @hdr, "ingredients_json", "packaging_json";    # sum of top 10 ingredients percentages
 
 $csv_out->print($OUT, \@hdr);
 
@@ -294,7 +293,7 @@ while (<$LIST>) {
 						$product_data{$code} = {product => $product, scans => $scans};
 					}
 					else {
-						next; # for testing, skip products that don't exist in the local store
+						next;    # for testing, skip products that don't exist in the local store
 						warn "failed to fetch product $code\n";
 						next;
 					}
@@ -341,8 +340,7 @@ while (<$LIST>) {
 			my %ingredients_percent = ();
 			my $ingredients_ref = $product_ref->{ingredients};
 			if (ref $ingredients_ref eq 'ARRAY') {
-				collect_ingredients($_, \%ingredients_percent, \%ingredients_quantity)
-					for @{$ingredients_ref};
+				collect_ingredients($_, \%ingredients_percent, \%ingredients_quantity) for @{$ingredients_ref};
 			}
 			my @sorted = sort {$ingredients_quantity{$b} <=> $ingredients_quantity{$a}} keys %ingredients_quantity;
 
@@ -405,7 +403,6 @@ while (<$LIST>) {
 					push @row, ('') x (4 + scalar(@ingredient_languages));
 				}
 			}
-
 
 			# packaging values (five first elements)
 			for my $j (1 .. 5) {
