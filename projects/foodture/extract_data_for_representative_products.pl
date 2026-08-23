@@ -293,7 +293,7 @@ while (<$LIST>) {
 						$product_data{$code} = {product => $product, scans => $scans};
 					}
 					else {
-						next;    # for testing, skip products that don't exist in the local store
+						# next;    # for testing, don't warn about products that don't exist locally
 						warn "failed to fetch product $code\n";
 						next;
 					}
@@ -432,7 +432,7 @@ while (<$LIST>) {
 		}
 		else {
 			# no product matched this country/category – output identifiers anyway
-			next;    # for testing, don't output blank rows
+			# next;    # for testing, don't output blank rows
 			my @row = (
 				$l1, $l2,
 				$l7, $segmentation,
