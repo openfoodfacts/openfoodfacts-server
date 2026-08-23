@@ -33,6 +33,7 @@ use ProductOpener::Ingredients qw/:all/;
 use LWP::UserAgent;
 use JSON::MaybeXS;
 use Text::CSV;
+use Text::CSV_XS;
 
 # This script:
 # - reads a list of categories (and other columns) from projects/foodture/foodture_foodex2_categories_mapping_to_off.csv
@@ -146,10 +147,10 @@ sub collect_ingredients {
 }
 
 # first pass: read ranked products and group by country/category tags
+print STDERR "Reading ranked products...\n";
 my $ranked_file = "projects/foodture/ranked_products_202602231414.csv";
 open my $RANK, '<:encoding(UTF-8)', $ranked_file or die "Cannot open $ranked_file: $!\n";
-<$RANK>;    # skip header
-my $parser = Text::CSV->new(
+my $parser = Text::CSV_XS->new(
 	{
 		binary => 1,
 		auto_diag => 1,
@@ -161,12 +162,9 @@ my %ranked;    # $ranked{ctag}{cat_tag}{$code}=1
 # Get Agribalyse code and proxies from categories properties
 my %categories_agb = ();
 my %categories_agb_proxy = ();
-while (<$RANK>) {
-	chomp;
-	s/\r//g;    # drop stray CRs that confuse Text::CSV
-	next if /^\s*$/;
-	$parser->parse($_);
-	my @cols = $parser->fields();
+$parser->getline ($RANK); # skip header
+while (my $row = $parser->getline ($RANK)) {
+    my @cols = @$row;
 	my ($code, $name, $country, $category, $recent_scans) = @cols[0 .. 4];
 	next unless defined $code && $code ne '';
 	my $country_tag = canonicalize_taxonomy_tag('en', 'countries', $country);
@@ -184,6 +182,7 @@ while (<$RANK>) {
 close $RANK;
 
 # read target country/category pairs and output rows as we go
+print STDERR "Reading target country/category pairs...\n";
 my $list_file = "projects/foodture/foodture_foodex2_categories_mapping_to_off.csv";
 open my $LIST, '<:encoding(UTF-8)', $list_file or die "Cannot open $list_file: $!\n";
 <$LIST>;    # skip header
@@ -222,6 +221,16 @@ for my $i (1 .. 10) {
 
 push @hdr, "ingredients_top_10_total_quantity",
 	"ingredients_top_10_total_percent";    # sum of top 10 ingredients percentages
+
+# root ingredient columns (top 10)
+for my $i (1 .. 10) {
+	my @ingredient_languages_cols = ();
+	foreach my $l (@ingredient_languages) {
+		push @ingredient_languages_cols, "root_ingredient_${l}_$i";
+	}
+	push @hdr, "root_ingredient_id_$i", "root_ingredient_exists_in_taxonomy_$i", @ingredient_languages_cols,
+		"root_ingredient_quantity_$i", "root_ingredient_percent_$i";
+}
 
 # packaging columns (first five components)
 for my $j (1 .. 5) {
@@ -282,6 +291,7 @@ while (<$LIST>) {
 						$product_data{$code} = {product => $product, scans => $scans};
 					}
 					else {
+						next; # for testing, skip products that don't exist in the local store
 						warn "failed to fetch product $code\n";
 						next;
 					}
@@ -326,9 +336,10 @@ while (<$LIST>) {
 
 			my %ingredients_quantity = ();
 			my %ingredients_percent = ();
-			if (ref $product_ref->{ingredients} eq 'ARRAY') {
+			my $ingredients_ref = $product_ref->{ingredients};
+			if (ref $ingredients_ref eq 'ARRAY') {
 				collect_ingredients($_, \%ingredients_percent, \%ingredients_quantity)
-					for @{$product_ref->{ingredients}};
+					for @{$ingredients_ref};
 			}
 			my @sorted = sort {$ingredients_quantity{$b} <=> $ingredients_quantity{$a}} keys %ingredients_quantity;
 
@@ -374,6 +385,27 @@ while (<$LIST>) {
 			}
 			my $total_pct = $quantity_of_all_ingredients > 0 ? ($total_qty / $quantity_of_all_ingredients) * 100 : 0;
 			push @row, $total_qty, $total_pct;
+
+			# Root ingredients (top 10)
+			for my $i (1 .. 10) {
+				my $idx = $i - 1;
+				my $ingredient_ref = @{$ingredients_ref}[$idx];
+				if (defined $ingredient_ref) {
+					my $id = $ingredient_ref->{id};
+					my $pct = $ingredient_ref->{percent} // $ingredient_ref->{percent_estimate} // 0;
+					my $quantity = $ingredient_ref->{quantity_estimate} // 0;
+					my $ingredient_in_taxonomy = $ingredient_ref->{is_in_taxonomy} // 0;
+					push @row, $id, $ingredient_in_taxonomy;
+					foreach my $target_lc (@ingredient_languages) {
+						push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
+					}
+					push @row, $quantity, $pct;
+				}
+				else {
+					push @row, ('') x (4 + scalar(@ingredient_languages));
+				}
+			}
+
 
 			# packaging values (five first elements)
 			for my $j (1 .. 5) {
