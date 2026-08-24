@@ -18099,10 +18099,16 @@ inci_functions:en: en:antistatic, en:hair-conditioning, en:skin-conditioning
 inci_update_date:en: 15/10/2010
 
 en: AQUA
-el: acqua
+en: water, aqua / water, water / aqua, H2O, dihydrogen monoxide, Dihydrogen oxide
+de: wasser
+es: agua
+fr: eau, aqua / eau, aqua / water / eau
+la: aqua
+xx: aqua
 cas:en: 7732-18-5
 cosing:en: 31959
 einecs:en: 231-791-2
+inci:en: AQUA
 inci_description:en: Water
 inci_description:da: vand
 inci_description:de: Wasser, destilliert
@@ -86709,7 +86715,6 @@ el: Γλουταμινικό Οξύ
 fr: Acide glutamique
 it: Glutamic Acid (acido glutammico)
 lt: Glutamo rūgšties
-lv: Fenilalanīns
 nl: Glutaminezuur
 pl: kwas glutaminowy
 sk: kyselina glutámová
@@ -151054,7 +151059,6 @@ inci_functions:en: en:emulsifying, en:surfactant
 inci_update_date:en: 24/01/2011
 
 en: PEG-40 SORBITAN LAURATE
-nl: sorbitan, geëthoxyleerd, esters met lanolinevetzuren (40 mol EO gemiddelde molaire verhouding) Emulgator
 cas:en: 9005-64-5
 cosing:en: 76899
 inci_description:en: Sorbitan, monododecanoate, poly(oxy-1,2-ethanediyl) derivs. (40 mol EO average molar ratio)
@@ -151069,7 +151073,6 @@ inci_functions:en: en:cleansing, en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-40 SORBITAN PERISOSTEARATE
-nl: sorbitan, monododecanoaat, poly(oxy-1,2-ethaandiyl)derivaten
 cosing:en: 76900
 inci_description:en: 1,4-Anhydro-D-glucitol, ethoxylated, isooctadecanoates (1:4) (40 mol EO average molar ratio)
 inci_functions:en: en:emulsifying, en:surfactant
@@ -151091,7 +151094,6 @@ inci_functions:en: en:emulsifying, en:surfactant
 inci_update_date:en: 24/01/2011
 
 en: PEG-40 SORBITAN TETRAOLEATE
-nl: sorbitan, monooctadecanoaat, poly(oxy-1,2-ethaandiyl)derivaten
 cosing:en: 76903
 inci_description:en: 1,4-Anhydro-D-glucitol, poly(oxy-1,2-ethanediyl) derivatives, tetraesters with 9-(Z)-octadecenoic acid (40 mol EO average molar ratio)
 inci_functions:en: en:emulsifying
@@ -152638,7 +152640,6 @@ inci_functions:en: en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 BEHENATE
-pl: PEG-8 C12-18 ESTER
 cosing:en: 77305
 inci_description:en: Docosanoic acid, ethoxylated (8 mol EO average molar ratio)
 inci_functions:en: en:emulsifying
@@ -152651,28 +152652,24 @@ inci_functions:en: en:emulsifying, en:surfactant
 inci_update_date:en: 06/12/2011
 
 en: PEG-8 CAPRATE
-pl: PEG-8 CAPRYLATE
 cosing:en: 77307
 inci_description:en: Decanoic acid, ethoxylated (8 mol EO average molar ratio)
 inci_functions:en: en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 CAPRYLATE
-pl: PEG-8 CAPRYLATE/CAPRATE
 cosing:en: 77575
 inci_description:en: Octanoic acid, ethoxylated (8 mol EO average molar ratio)
 inci_functions:en: en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 CAPRYLATE/CAPRATE
-pl: PEG-8 CAPRYLIC/CAPRIC GLYCERIDES
 cosing:en: 77370
 inci_description:en: Poly(oxy-1,2-ethanediyl), .alpha.-(1-oxo-C8-10-alkyl)-.omega.-hydroxy- (8 mol EO average molar ratio)
 inci_functions:en: en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 CASTOR OIL
-pl: 61791-12-6 Olej rycynowy, etoksylowany Emulgująca/środek powierzchniowo czynny
 cas:en: 61791-12-6
 cosing:en: 77372
 inci_description:en: Castor oil, ethoxylated (8 mol EO average molar ratio)
@@ -152756,7 +152753,6 @@ inci_functions:en: en:hair-conditioning
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 DITALLATE
-pl: 61791-01-3 Kwasy tłuszczowe, olej talowy, diester glikolu polietylenowego Emulgująca
 cas:en: 61791-01-3
 cosing:en: 77380
 inci_description:en: Fatty acids, tall-oil, diester with polyethylene glycol (8 mol EO average molar ratio)
@@ -152807,7 +152803,6 @@ inci_functions:en: en:emollient, en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 HYDROGENATED TALLOW AMINE
-pl: 61791-26-2 Aminy, alkil łojowy, etoksylowane Emulgująca
 cas:en: 61791-26-2
 cosing:en: 36385
 einecs:en: 500-153-8
@@ -152924,21 +152919,18 @@ inci_functions:en: en:surfactant
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 SESQUILAURATE
-pl: PEG-8 SESQUIOLEATE
 cosing:en: 77395
 inci_description:en: Poly(oxy-1,2-ethanediyl), .alpha.-hydro-.omega.-hydroxy-, esters with dodecanoic acid (2 :3) (8 mol EO average molar ratio)
 inci_functions:en: en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 SESQUIOLEATE
-pl: PEG-8 SORBITAN BEESWAX
 cosing:en: 77396
 inci_description:en: Poly(oxy-1,2-ethanediyl), .alpha.-hydro-.omega.-hydroxy-, esters with 9-(Z)-octadecenoic acid (2:3) (8 mol EO average molar ratio)
 inci_functions:en: en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 SOYAMINE
-pl: 61791-24-0 Aminy, alkil sojowy, etoksylowane Emulgująca/środek powierzchniowo czynny
 cas:en: 61791-24-0
 cosing:en: 77397
 inci_description:en: Amines, soya alkyl, ethoxylated (8 mol EO average molar ratio)
@@ -152946,7 +152938,6 @@ inci_functions:en: en:emulsifying, en:surfactant
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 TALLATE
-pl: 61791-00-2 Kwasy tłuszczowe, olej talowy, etoksylowane Emulgująca
 cas:en: 61791-00-2
 cosing:en: 77399
 inci_description:en: Fatty acids, tall-oil, ethoxylated (8 mol EO average molar ratio)
@@ -152954,7 +152945,6 @@ inci_functions:en: en:emulsifying
 inci_update_date:en: 15/10/2010
 
 en: PEG-8 TALLOW AMIDE
-pl: 68155-24-8 Amidy, łój, uwodornione, etoksylowane Emulgująca
 cosing:en: 77400
 inci_description:en: Amides, tallow, N-hydropoly(2-oxyethyl)- (8 mol EO average molar ratio)
 inci_functions:en: en:emulsifying
@@ -157373,8 +157363,6 @@ inci_functions:en: en:astringent, en:skin-conditioning
 inci_update_date:en: 15/10/2010
 
 en: PETROLATUM
-fi: Ihoa hoitava aine
-sv: petrolatum, vaselin
 cas:en: 8009-03-8
 cosing:en: 79504
 einecs:en: 232-373-2
@@ -161998,7 +161986,6 @@ inci_update_date:en: 15/10/2010
 
 en: POLOXAMER 188
 el: πολυοξαμερές 188
-es: Fantome
 et: poloksameer 188
 fr: poloxamère 188
 lv: poloksamērs 188
@@ -162103,7 +162090,6 @@ inci_update_date:en: 15/10/2010
 
 en: POLOXAMER 338
 el: πολυοξαμερές 338
-es: Fantome
 et: poloksameer 338
 fr: poloxamère 338
 lv: poloksamērs 338
@@ -162138,7 +162124,6 @@ inci_update_date:en: 15/10/2010
 
 en: POLOXAMER 407
 el: πολυοξαμερές 407
-es: Fantome
 et: poloksameer 407
 fr: poloxamère 407
 lv: poloksamērs 407
@@ -166971,7 +166956,6 @@ inci_functions:en: en:skin-conditioning
 inci_update_date:en: 15/10/2010
 
 en: POLYSORBATE 20
-fi: Kalvonmuodostaja
 cas:en: 9005-64-5
 cosing:en: 79318
 inci_description:en: Sorbitan, monododecanoate, poly(oxy-1,2-ethanediyl) derivs.
@@ -166986,7 +166970,6 @@ inci_functions:en: en:emulsion-stabilising, en:surfactant
 inci_update_date:en: 20/06/2016
 
 en: POLYSORBATE 40
-fi: Emulgaattori
 cas:en: 9005-66-7
 cosing:en: 79320
 inci_description:en: Sorbitan, monohexadecanoate, poly(oxy-1,2-ethanediyl) derivs.
@@ -166995,7 +166978,6 @@ inci_update_date:en: 15/10/2010
 wikidata:en: Q1413823
 
 en: POLYSORBATE 60
-sv: Emulgerande/ytaktivt
 cas:en: 9005-67-8
 cosing:en: 79321
 inci_description:en: Sorbitan, monooctadecanoate, poly(oxy-1,2-ethanediyl) derivs.
@@ -167012,7 +166994,6 @@ inci_functions:en: en:emulsifying, en:surfactant
 inci_update_date:en: 15/10/2010
 
 en: POLYSORBATE 65
-fi: Emulgaattori
 cas:en: 9005-71-4
 cosing:en: 79323
 inci_description:en: Sorbitan, trioctadecanoate, poly(oxy-1,2-ethanediyl) derivs.
@@ -167100,7 +167081,6 @@ inci_functions:en: en:emulsifying, en:surfactant
 inci_update_date:en: 15/10/2010
 
 en: POLYSORBATE 85
-fi: Emulgaattori
 cas:en: 9005-70-3
 cosing:en: 79327
 inci_description:en: Sorbitan, tri-9-octadecenoate, poly(oxy-1,2-ethanediyl) derivs., (Z,Z,Z)-
@@ -182499,12 +182479,10 @@ inci_functions:en: en:emollient
 inci_update_date:en: 15/10/2010
 
 en: RIBOFLAVIN
-es: Tónico
 cas:en: 83-88-5
 cosing:en: 37498
 einecs:en: 201-507-1
 inci_description:en: Riboflavin
-inci_description:es: Tónico
 inci_functions:en: en:cosmetic-colorant, en:skin-conditioning
 inci_restriction:en: IV/145
 inci_update_date:en: 21/11/2016
@@ -192491,7 +192469,6 @@ inci_functions:en: en:cleansing, en:emulsifying, en:surfactant
 inci_update_date:en: 15/10/2010
 
 en: SODIUM C12-15 PARETH-6 CARBOXYLATE
-es: 70632-06-3 Tensoactivo/limpiador/emulsificante
 cas:en: 70632-06-3
 cosing:en: 79160
 inci_description:en: Poly(oxy-1,2-ethanediyl), .alpha.-(C12-15-alkyl)-.omega.-carboxymethoxy-, sodium salt (5 mol EO average molar ratio)
@@ -192499,7 +192476,6 @@ inci_functions:en: en:cleansing, en:emulsifying, en:surfactant
 inci_update_date:en: 15/10/2010
 
 en: SODIUM C12-15 PARETH-7 CARBOXYLATE
-es: 70632-06-3 Tensoactivo/limpiador/emulsificante
 cas:en: 70632-06-3
 cosing:en: 79161
 inci_description:en: Poly(oxy-1,2-ethanediyl), .alpha.-(C12-15-alkyl)-.omega.-carboxymethoxy-, sodium salt (6 mol EO average molar ratio)
@@ -192507,7 +192483,6 @@ inci_functions:en: en:cleansing, en:emulsifying, en:surfactant
 inci_update_date:en: 15/10/2010
 
 en: SODIUM C12-15 PARETH-7 SULFONATE
-es: SODIUM C12-15 PARETH-8 CARBOXYLATE
 cosing:en: 79162
 inci_description:en: Poly(oxy-1,2-ethanediyl), .alpha.-C12-15-alkyl-.omega.-sulfo-, sodium salt (7 mol EO average molar ratio)
 inci_functions:en: en:cleansing, en:emulsifying, en:surfactant
@@ -192535,7 +192510,6 @@ inci_functions:en: en:cleansing, en:surfactant
 inci_update_date:en: 15/10/2010
 
 en: SODIUM C13-15 PARETH-8 BUTYL PHOSPHATE
-es: SODIUM C13-15 PARETH-8 PHOSPHATE
 cosing:en: 79165
 inci_description:en: Poly(oxy-1,2-ethanediyl), .alpha.-C13-15-alkyl-.omega.-hydroxy-, butyl hydrogen phosphates, sodium salts (8 mol EO average molar ratio)
 inci_functions:en: en:cleansing, en:emulsifying, en:foaming, en:surfactant
@@ -192994,7 +192968,6 @@ inci_functions:en: en:antimicrobial, en:oxidising
 inci_update_date:en: 15/10/2010
 
 en: SODIUM CAPRYLATE
-es: Emulsificante
 cas:en: 1984-06-1
 cosing:en: 37786
 einecs:en: 217-850-5
@@ -194960,7 +194933,6 @@ inci_update_date:en: 15/10/2010
 wikidata:en: Q139857
 
 en: SODIUM GLUCEPTATE
-es: Tamponante
 cas:en: 13007-85-7 / 31138-65-5
 cosing:en: 79484
 einecs:en: 235-849-8 / 250-480-2
@@ -196750,8 +196722,6 @@ inci_update_date:en: 15/10/2010
 wikidata:en: Q27291863
 
 en: SODIUM LIGNOSULFONATE
-el: Περιποίηση δέρματος
-es: Acondicionador de la piel
 cas:en: 8061-51-6
 cosing:en: 37949
 inci_description:en: Lignosulfonic acid, sodium salt
@@ -208127,7 +208097,7 @@ en: SULFUR
 da: svovl
 de: Schwefel
 el: θείο
-es: azufre, precipitado, sublimado o coloidal
+es: azufre
 et: väävel
 fi: rikki
 fr: soufre
@@ -222507,7 +222477,6 @@ el: ενδεκυλενικό οξύ
 es: ácido undec-10-enoico
 et: undetsüleenhape
 fi: undekyleenihappo
-fr: acide undécanoïque
 hu: Undecilén-sav
 it: Acido undecilenico
 lv: undecilēnskābe
@@ -225715,7 +225684,7 @@ cs: xylen
 da: xylen
 de: Xylol
 el: ξυλόλιο
-es: xileno(??)
+es: xileno
 et: ksüleen
 fi: ksyleeni
 fr: Xylène
@@ -228071,21 +228040,6 @@ fr: ingrédients issus de l'huile de palme
 
 en: ingredients that may be from palm oil
 fr: ingrédients qui peuvent être issus de l'huile de palme
-
-en: water, aqua / water, water / aqua, H2O, dihydrogen monoxide, Dihydrogen oxide
-de: wasser
-es: agua
-fr: eau, aqua / eau, aqua / water / eau
-la: aqua
-cas:en: 7732-18-5
-einecs:en: 231-791-2
-function:en: Solvent
-inci:en: AQUA
-inn:en: water
-iupac:en: Water
-pheur:la: aqua
-unii:en: 059QF0KO0R
-wikidata:en: Q283
 
 en: fragrance
 de: parfum
