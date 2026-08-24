@@ -1097,7 +1097,6 @@ sub compute_attribute_additives ($product_ref, $target_lc) {
 	return $attribute_ref;
 }
 
-
 =head2 compute_attribute_has_tag ( $product_ref, $target_lc, $tagtype, $tagid )
 
 Checks if the product has a specific tag (e.g. a label)
