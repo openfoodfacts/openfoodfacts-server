@@ -210,6 +210,22 @@ sub iter_taxonomy_entries ($lines_iter) {
 						}
 					);
 				}
+				# detect “comment” typos
+				if ($prop =~ /^[coment]{6,8}$/ && $prop ne "comment") {
+					push(
+						@errors,
+						{
+							severity => "Warning",
+							type => "Correctness",
+							line => $line_num,
+							message => (
+									  "\"$prop\" might be a typo of \"comment\":\n" . "- "
+									. $props{"$prop:$lc"}->{line}
+									. "\n- $line"
+							)
+						}
+					);
+				}
 				# override to continue
 				$props{"$prop:$lc"}
 					= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
