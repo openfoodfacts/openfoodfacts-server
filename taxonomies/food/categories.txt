@@ -149,6 +149,7 @@ tr: Yanlış ürün tipi
 uk: Неправильний тип продукту
 vi: Sai loại sản phẩm
 zh: 错误的产品类型
+zh: 错误产品类型
 
 < en: Incorrect product type
 en: Non food products
@@ -243,6 +244,7 @@ nl: Ambachtelijke producten, Ambachtelijk product, Ambachtelijk produkt
 nl_be: Ambachtelijke producten
 pt: Produtos caseiras
 ro: Produse artizanale
+zh: 手工制品
 
 < en: Artisan products
 < en: Breadsticks
@@ -272,6 +274,7 @@ pl: Produkty pasteryzowane
 pt: Produtos pasteurizados
 sv: Pastöriserade produkter
 incompatible_with:en: categories:en:unpasteurised-products
+zh: 低温杀菌产品
 
 en: Unpasteurised products
 bg: Непатьоризирани продукти
@@ -286,6 +289,7 @@ pl: Produkty niepasteryzowane
 pt: Produtos não pasteurizados
 sv: Opastöriserade produkter
 incompatible_with:en: categories:en:pasteurised-products
+zh: 未低温杀菌产品
 
 en: Baby foods
 bg: Бебешки храни
@@ -904,6 +908,7 @@ hr: Mlijeko protiv refluksa
 it: Latte antirigurgito, Latte antireflusso
 pt: Leite anti-refluxo
 wikidata:en: Q16034323
+zh: 防反流奶粉
 
 < en: Baby milks
 en: Hypoallergenic milks
@@ -1447,6 +1452,7 @@ nl: Drankbereidingen
 pt: Preparações de bebidas
 default_nutrition_prepared_per:en: 100ml
 description:en: Any product which purpose it is to create a beverage which uses water (hor or cold) in some way (diluting, infusing, dissolving, etc).
+zh: 饮料调制品
 
 < en: Beverages and beverages preparations
 en: Beverages, Drinks
@@ -1765,6 +1771,7 @@ pt: Kits para fazer álcool
 gpc_category_code:en: 10000142
 gpc_category_description:en: Definition: Includes any products that can be described/observed as an alcoholic drink making kit. These products are total units that include most of the necessary ingredients and equipment required to produce various flavours of beer, wine or spirits. Definition Excludes: Excludes products such as Alcohol Making Accessories sold separately, Non-Alcoholic Drink Making Kits, Alcohol Flavouring Kits and Pre-Made Alcohol.
 gpc_category_name:en: Alcohol Making Kits
+zh: 酿酒套件
 
 < en: Alcoholic beverages
 < en: Variety packs
@@ -1981,6 +1988,7 @@ pl: Absynt
 pt: Absinto
 google_product_taxonomy_id:en: 505761
 wikidata:en: Q170210
+zh: 苦艾酒
 
 < en: Absinthe
 fr: Absinthe de Pontarlier
@@ -2253,6 +2261,7 @@ wikidata:en: Q1543214
 en: Amber IPA
 xx: Amber IPA
 pt: Âmbar IPA
+zh: 琥珀色印度淡色艾尔啤酒
 
 < en: India Pale Ale (IPA)
 en: American-style IPA, American IPA
@@ -7575,6 +7584,7 @@ it: Bevande all'Aloe Vera
 lt: Aloe Vera gėrimai
 nl: Aloe Vera sappen
 pl: Napoje z aloesem, Napoje aloesowe
+zh: 芦荟饮料
 
 < en: Fruit and vegetable juices
 en: Ginger juices
@@ -9628,6 +9638,7 @@ la: Senna alexandrina, Cassia angustifolia, Senna angustifolia
 nl: Sennapeul
 pl: Senes ostrolistny, Kasja ostrolistna
 wikidata:en: Q132675
+zh: 番泻叶
 
 < en: Herbal teas
 en: Maca, Maca powder, Peruvian ginseng
@@ -10186,6 +10197,7 @@ pl: Produkty drzewa oliwnego
 pt: Produtos de oliveira
 ru: Продукты из оливок
 wikidata:en: Q37083
+zh: 橄榄类制品
 
 < en: Herbal teas
 < en: Olive tree products
@@ -25011,16 +25023,19 @@ origins:en: en:greece
 en: Amynteo
 el: Amynteo, Αμύνταιο
 origins:en: en:greece
+zh: 阿明泰奥葡萄酒
 
 < en: Wines from Greece
 en: Anavyssos
 el: Anavyssos, Ανάβυσσος
 origins:en: en:greece
+zh: 阿纳维索斯葡萄酒
 
 < en: Wines from Greece
 en: Anchialos
 el: Anchialos, Αγχίαλος
 origins:en: en:greece
+zh: 安基亚洛斯葡萄酒
 
 < en: Wines from Greece
 en: Archanes
@@ -32374,6 +32389,7 @@ fr: Vin blanc à 11°, Vin blanc à 11% d'alcool
 ciqual_food_code:en: 5200
 ciqual_food_name:en: Wine, white, 11°
 ciqual_food_name:fr: Vin blanc 11°
+zh: 11% 白葡萄酒
 
 < en: White wines
 en: Dry white wines
@@ -32392,6 +32408,7 @@ fr: Vin blanc sec à 11°, Vin blanc sec à 11% d'alcool
 ciqual_food_code:en: 5211
 ciqual_food_name:en: Wine, white, dry, 11°
 ciqual_food_name:fr: Vin blanc sec 11°
+zh: 11% 干白葡萄酒
 
 < en: Sparkling wines
 < en: White wines
@@ -32559,6 +32576,7 @@ fr: Vin rosé 11°, Vin rosé 11 degrés
 ciqual_food_code:en: 5206
 ciqual_food_name:en: Wine, rose, 11°
 ciqual_food_name:fr: Vin rosé 11°
+zh: 11% 桃红葡萄酒
 
 en: Dried products, dehydrated products, Dried foods, Dehydrated foods
 bg: Сушени продукти
@@ -32596,6 +32614,7 @@ it: Prodotti disidratati da reidratare
 lt: Džiovinti produktai kuriuos reikia rehidratuoti
 nl: Gedroogde producten om te hydrateren
 pt: Produtos secos a serem rehidratados
+zh: 复水干燥食品
 
 en: Meal kits, Kits for meals
 fi: ateriakitit
@@ -32756,6 +32775,7 @@ en: Biscuits and crackers
 fr: Biscuits sucrés & biscuits apéritifs
 nl: Biscuits en crackers
 intake24_category_code:en: BSCT
+zh: 饼干和薄脆饼干
 
 < en: Biscuits and cakes
 < en: Biscuits and crackers
@@ -33753,6 +33773,7 @@ hr: Amaretti
 it: Amaretti, amaretto
 nl: Bitterkoekjes
 wikidata:en: Q3748739
+zh: 意大利杏仁小饼
 
 < en: Biscuits
 en: Ricciarelli
@@ -33838,6 +33859,7 @@ lt: Duonos gaminiai
 nl: Gepaneerde producten
 ru: Хлебные продукты
 sv: Panerade produkter
+zh: 裹面包糠产品
 
 < en: Breaded products
 < en: Cheese preparations
@@ -36192,6 +36214,7 @@ nl: Cacao en afgeleide producten
 pl: Kakao i produkty na bazie kakao
 pt: Cacau e derivados
 tr: Kakao ve kakao ürünleri
+zh: 可可及其制品
 
 < en: Cocoa and its products
 en: Cocoa beans
@@ -36506,6 +36529,7 @@ hr: Kolačići od badema
 nl: Amandelcake
 ciqual_food_code:en: 24665
 ciqual_food_name:en: Almond cake
+zh: 杏仁蛋糕
 
 < en: Almond cakes
 it: tortionata
@@ -36580,6 +36604,7 @@ gpc_category_name:en: Baking/Cooking Mixes (Frozen)
 < en: Baking mixes
 en: Apple Pie Mixes
 nl: Appeltaartmixes
+zh: 苹果派预拌粉
 
 < en: Baking Mixes
 < en: Dessert mixes
@@ -37668,6 +37693,7 @@ wikidata:en: Q29443
 < en: Cakes
 en: Apple Cakes
 fr: Gâteaux aux pommes, Quatre-quarts aux pommes
+zh: 苹果蛋糕
 
 < en: Apple Cakes
 < en: Frozen desserts
@@ -39252,6 +39278,7 @@ wikidata:en: Q7157931
 
 < en: Nut butter cups
 en: Almond butter cups
+zh: 杏仁酱巧克力杯
 
 < en: Chocolate candies
 en: Bonbons
@@ -39268,6 +39295,7 @@ nl: Pralines, chocolades snoepjes
 pt: Bombons
 ru: Конфеты
 wikidata:en: Q3272827
+zh: 糖果
 
 < en: Bonbons
 en: Liqueur bonbons
@@ -39759,6 +39787,7 @@ fr: Bonbons acidulés gélifiés
 hr: Kiseli gumeni bomboni
 lt: Rūgštūs guminukai
 nl: Zure gummi snoep
+zh: 酸沙软糖
 
 < en: Gummi candies
 en: Acid gummy lassos
@@ -39770,6 +39799,7 @@ it: Lacci gommosi acidi
 ja: 酸味のあるグミのラッソ
 lt: Rūgščios guminės lassos
 nl: Zure gummi lassos
+zh: 长条酸沙软糖
 
 < en: Gummi candies
 en: Jelly beans
@@ -40279,6 +40309,7 @@ hr: Svečana jela
 lt: Šventiniai maisto produktai
 nl: Feestdagenproducten
 ru: Праздничные продукты
+zh: 节庆食品
 
 < en: Festive foods
 en: Easter foods and drinks, Easter food
@@ -40384,6 +40415,7 @@ nl: Adventskalender
 pl: Kalendarz adwentowy
 pt: Calendário do Advento
 ru: Рождественский календарь
+zh: 圣诞倒数日历
 
 < en: Advent calendars
 < en: Christmas chocolates
@@ -40448,6 +40480,7 @@ fr: Gaufrettes fourrées à la crème d'amande
 hr: Napolitanke punjene kremom od badema
 hu: Mandula krémmel töltött ostyák
 lt: Vafliai su migdolų įdaru
+zh: 杏仁奶油夹心威化饼
 
 < en: Christmas sweets
 < en: Coconuts and their products
@@ -40592,6 +40625,7 @@ agribalyse_food_code:en: 15201
 ciqual_food_code:en: 15201
 ciqual_food_name:en: Almond paste or marzipan, prepacked
 wikidata:en: Q2631692
+zh: 杏仁膏
 
 < en: Marzipan
 en: Marzipan figures, Marzipan shapes
@@ -40698,6 +40732,7 @@ hr: Badem turrón
 it: Torrone alle mandorle
 lt: Migdolų turrón
 nl: Amandelturrón
+zh: 杏仁糖杜隆
 
 < en: Almond turrón
 en: Creamy almond turrón, Soft almond turrón, Jijona turrón
@@ -41666,6 +41701,7 @@ pl: Ziarna zbóż
 pt: Grãos de cereais
 ru: Злаковое зерно
 intake24_category_code:en: CARB
+zh: 谷物
 
 < en: Cereal grains
 en: Canary grass
@@ -41702,6 +41738,7 @@ ciqual_food_name:en: Amaranth, raw
 ciqual_food_name:fr: Amarante, crue
 google_product_taxonomy_id:en: 4683
 wikidata:en: Q156344
+zh: 苋菜籽
 
 < en: Cereal grains
 en: Oat
@@ -44567,11 +44604,13 @@ fr: Fromages d’abbaye
 hr: Opatijski sirevi
 nl: Abdijkazen, Abdijkaas
 wikidata:en: Q2069008
+zh: 修道院奶酪
 
 < en: Cheeses
 en: American cheeses
 fr: fromages américains
 wikidata:en: Q2671520
+zh: 美国奶酪
 
 < en: American cheeses
 < en: Cow cheeses
@@ -46302,6 +46341,7 @@ ciqual_food_name:en: Abondance cheese, from cow's milk
 origins:en: en:france
 protected_name_file_number:en: PDO-FR-0105
 protected_name_type:en: pdo
+zh: 阿邦当斯奶酪
 
 < en: French cheeses
 < en: Goat cheeses
@@ -47252,6 +47292,7 @@ lt: Rauginti pieno desertai
 nl: Gefermenteerde melkdesserts
 pl: Fermentowane desery mleczne
 intake24_category_code:en: FFRS
+zh: 发酵乳制甜点
 
 < en: Fermented dairy desserts
 en: Plain fermented dairy desserts
@@ -47266,6 +47307,7 @@ fr: Desserts lactés fermentés aux fruits
 hr: Fermentirani mliječni deserti s voćem
 lt: Rauginti pieno desertai su vaisiais
 nl: gefermenteerde melkdesserts met vruchten
+zh: 发酵乳制甜点附上水果
 
 # contains products with flavours (natural, artificial or fruit or flower extract) but no fruit preparations (jam, fruit chunks)
 < en: Fermented dairy desserts
@@ -49757,6 +49799,7 @@ en: Kashkaval, Cașcaval
 en: Fromages blancs - petit suisses and skyr
 fr: Fromages blancs - petit suisses et skyr
 intake24_category_code:en: FFRS
+zh: 白乳酪 - 小瑞士奶酪和冰岛酸奶
 
 < en: Fermented dairy desserts
 < en: Fromages blancs - petit suisses and skyr
@@ -50280,6 +50323,7 @@ nl: Amandelcreme voor koken
 pl: Śmietanki migdałowe do gotowania, Śmietany migdałowe do gotowania, Śmietanki na bazie migdałów do gotowania
 pt: Natas à base de amêndoas para cozinhar
 sv: Mandelbaserade grädden för matlagning
+zh: 杏仁基烹饪奶油
 
 < en: Coconut milks and creams
 < en: Plant-based creams for cooking
@@ -54204,6 +54248,7 @@ nb: Eplechutneyer
 nl: Appelchutney
 nn: Eplechutneyar
 sv: Äppelchutneys
+zh: 苹果酸辣酱
 
 < en: Fruit chutneys
 en: Fig chutneys
@@ -55555,6 +55600,7 @@ it: Yogurt al latte di mandorla
 lt: Migdolų pieno jogurtai
 pt: Iogurtes de leite de amêndoa
 ciqual_food_code:en: 18107
+zh: 杏仁奶酸奶
 
 < en: Non-dairy yogurts
 en: Soy milk yogurts, soy yogurts, soya yogurts, soygurts, yofu
@@ -55785,6 +55831,7 @@ pt: Nozes e seus produtos
 ru: Орехи и продукты из орехов
 th: ผลิตภัณฑ์จากถั่วเปลือกแข็ง
 tr: Çerez ve çerez ürünleri
+zh: 坚果及其制品
 
 < en: Nuts and their products
 < en: Snacks
@@ -55963,6 +56010,7 @@ opposite:en: en:chocolate-covered-almonds, en:almond-butters, en:caramelized-alm
 wco_hs_code:en: 0802.11
 wco_hs_heading:en: 08.02
 wikidata:en: Q39918
+zh: 杏仁
 
 < en: Almonds
 en: Marcona almonds
@@ -56052,6 +56100,7 @@ hr: Listići badema
 lt: Migdolų drožlės, pjaustyti migdolai, migdolų riekelės
 nl: Amandelschaafsel, Amandelvlokken
 opposite:en: en:whole-almonds
+zh: 杏仁片
 
 < en: Blanched almonds
 fr: Amandes hachées
@@ -56089,6 +56138,7 @@ fr: Amande mondée émondée blanchie
 agribalyse_food_code:en: 15041
 ciqual_food_code:en: 15041
 ciqual_food_name:en: Almond, peeled, unpeeled or blanched
+zh: 去皮、未去皮或去皮杏仁
 
 < en: Shelled almonds
 en: Roasted almonds, Grilled almonds, Toasted almonds, Almonds (roasted)
@@ -57215,6 +57265,7 @@ nl: Amandelpasta's
 pl: Masło migdałowe, Pasta z migdałów, Masło z migdałów
 pt: Manteigas de amêndoa
 wikidata:en: Q4733896
+zh: 杏仁酱
 
 < en: Almond butters
 en: White almond butters, White almond purees
@@ -57984,6 +58035,7 @@ it: Miele di acacia
 nl: Acaciahoningen
 sv: Akacia honung
 wikidata:en: Q67435158
+zh: 洋槐蜜
 
 < en: Honeys
 en: Cherry blossom honeys
@@ -58167,6 +58219,7 @@ nl: Lavendelhoningen
 < en: Honeys
 en: Alfalfa honeys
 fr: Miels de luzerne
+zh: 苜蓿蜂蜜
 
 < en: Honeys
 en: Coriander honeys
@@ -58315,6 +58368,7 @@ nl: Jujubehoningen uit Yemen
 en: Eggs and their products
 fr: Œufs et dérivés
 nl: Eieren en afgeleide producten
+zh: 鸡蛋及其制品
 
 < en: Eggs and their products
 en: Scrambled egg, Egg scrambled with added fat, Scrambled eggs with added fat
@@ -60211,6 +60265,7 @@ nl: Virgin olijfoliën
 pl: Oliwa z oliwek virgin
 sv: Jungfruolivoljor, Virgin olivoljor, Jungfruoljor
 wikidata:en: Q57656262
+zh: 初榨橄榄油
 
 < en: Virgin olive oils
 en: Extra-virgin olive oils, Extra virgin olive oil
@@ -62501,6 +62556,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Cereals Products - Ready to Eat (Shelf Stable)
 pnns_group_2:en: Breakfast cereals
 who_id:en: 6
+zh: 早餐谷物
 
 < en: Breakfast cereals
 en: Extruded cereals
@@ -72626,6 +72682,7 @@ food_groups:en: en:dried-fruits
 intake24_category_code:en: DRIF
 pnns_group_2:en: Dried fruits
 who_id:en: 16
+zh: 干燥水果
 
 < en: Fruit-based foods
 en: Dates and their products
@@ -76306,6 +76363,7 @@ ciqual_food_name:en: Spice (average)
 ciqual_food_name:fr: Epice (aliment moyen)
 intake24_category_code:en: SPCE
 wikidata:en: Q42527
+zh: 香辛料
 
 < en: Herbal teas
 < en: Spices
@@ -78125,6 +78183,7 @@ nl: Satésauzen
 < en: Sauces
 en: Alfredo sauces
 wikidata:en: Q23930012
+zh: 意式奶油白酱
 
 < en: Sauces
 en: Fajitas sauces
@@ -78423,6 +78482,7 @@ agribalyse_food_code:en: 11167
 ciqual_food_code:en: 11167
 ciqual_food_name:en: American-style sauce, prepacked
 ciqual_food_name:fr: Sauce américaine, préemballée
+zh: 美式酱料
 
 < en: Sauces for fishes
 en: White butter sauces
@@ -79361,6 +79421,7 @@ agribalyse_food_code:en: 11054
 ciqual_food_code:en: 11054
 ciqual_food_name:en: Mayonnaise (70% fat and more)
 ciqual_food_name:fr: Mayonnaise (70% MG min.)
+zh: 70%脂肪蛋黄酱
 
 < en: Sauces
 en: Mojo sauces, Mojos
@@ -79772,6 +79833,7 @@ fr: Viandes marinées
 < en: Meats and their products
 en: Andorran meat products
 fr: Produits carnés andorrins
+zh: 安道尔肉制品
 
 < en: Andorran meat products
 ca: Carn d'Andorra
@@ -83885,6 +83947,7 @@ fr: Flamiches au brie
 en: Al d'jote Pies
 fr: Tartes al d'jote
 wikidata:en: Q2550270
+zh: 尼韦尔咸派
 
 < en: Salted pies
 en: Scallops tart
@@ -89392,6 +89455,7 @@ hr: Mesnih pripravaka
 it: Preparazioni a base di carne
 lt: Mėsos ruošiniai
 nl: Vleesbereidingen
+zh: 肉类调制品
 
 en: Skewers, Kebabs, kebab, kabobs, kabob, kababs, kabab
 de: Spieße
@@ -90005,6 +90069,7 @@ lt: Kiauliena ir jos produktai
 nl: Varken en afgeleide producten
 pl: Wieprzowina i jej produkty
 incompatible_with:en: labels:en:kosher
+zh: 猪肉及其制品
 
 < en: Marinated meats
 < en: Pork and its products
@@ -91930,6 +91995,7 @@ es: Pollo y sus productos
 fr: Poulet et dérivés
 hr: Piletine i njenih proizvoda
 nl: Kip en afgeleide producten
+zh: 鸡肉及其制品
 
 < en: Chicken and its products
 < en: Marinated meats
@@ -94846,6 +94912,7 @@ hr: Trajne kobasice
 it: salami e salsicce stagionate
 nl: Worstjes
 pt: Charcutarias curadas
+zh: 腌制香肠
 
 < en: Cured sausages
 en: Pepperoni
@@ -96780,6 +96847,7 @@ it: Prodotti di montagna
 nl: Bergproducten
 wikidata:en: Q3406714
 #wikidata:en:Q2831936 (italy)
+zh: 高山产品
 
 < en: Cured meat and sausages
 xx: El Gueddid, Guedid, Gueddid
@@ -96859,6 +96927,7 @@ pl: Radamer
 < en: Cow cheeses
 en: Alderman
 fi: Oltermanni
+zh: 奥尔特曼尼‌奶酪
 
 < en: Cow cheeses
 pl: podlaski
@@ -97843,6 +97912,7 @@ en: Alphabet pasta
 fr: Pâtes alphabet
 hr: Abecedna tjestenina
 ja: アルファベットパスタ
+zh: 字母意大利面
 
 < en: Pastas
 it: Anelli
@@ -98112,6 +98182,7 @@ it: Trofie
 #en:Pastas
 en: Wheat vermicelli
 it: Vermicelli
+zh: 小麦细面条
 
 < en: Pastas
 it: Vincisgrassi
@@ -98616,6 +98687,7 @@ en: Agnolotti
 xx: Agnolotti
 it: Agnolotti piemontesi
 wikidata:en: Q20051
+zh: 意大利月牙饺
 
 < en: Stuffed Pastas
 it: Agnolotti pavesi, agnuloti
@@ -100651,6 +100723,7 @@ tr: Turşu
 food_groups:en: en:salty-and-fatty-products
 intake24_category_code:en: SWTP
 pnns_group_2:en: Salty and fatty products
+zh: 腌渍食品
 
 < en: Pickles
 < en: Variety packs
@@ -103562,6 +103635,7 @@ en: Fishes and their products
 fr: Poissons et dérivés
 hr: Ribama i njihovim proizvodima
 nl: Vis- en afgeleide producten
+zh: 鱼类及其制品
 
 < en: Fishes and their products
 en: Fishes, fish
@@ -104184,6 +104258,7 @@ agribalyse_food_code:en: 26006
 ciqual_food_code:en: 26006
 ciqual_food_name:en: Alaska pollock, raw
 ciqual_food_name:fr: Lieu ou colin d'Alaska, cru
+zh: 黄线狭鳕
 
 < en: Alaska pollock
 en: Frozen Alaska pollock
@@ -104306,6 +104381,7 @@ en: Anchovy fillets in oil
 fr: Filets d'anchois à l'huile
 hr: Filete inćuna u ulju
 it: Filetti di acciughe sott'olio
+zh: 油浸鳀鱼片
 
 < en: Anchovy fillets in oil
 < en: Semi-preserved foods
@@ -104329,6 +104405,7 @@ agribalyse_proxy_food_name:fr: Anchois commun, mariné
 < en: Marinated anchovy fillets
 en: Anchovy fillets marinated in garlic and parsley
 fr: Filets d'anchois marinés à l'ail et au persil
+zh: 蒜香欧芹腌鳀鱼片
 
 < en: Marinated anchovy fillets
 en: Marinated anchovy fillets with vegetable oil
@@ -105573,6 +105650,7 @@ agribalyse_food_code:en: 26076
 ciqual_food_code:en: 26076
 ciqual_food_name:en: Albacore, raw
 wikidata:en: Q239977
+zh: 长鳍金枪鱼
 
 < en: Albacore
 < en: Tuna in brine
@@ -105598,6 +105676,7 @@ agribalyse_food_code:en: 26077
 ciqual_food_code:en: 26077
 ciqual_food_name:en: Albacore, steamed under pressure
 ciqual_food_name:fr: Thon germon ou thon blanc, cuit à la vapeur sous pression
+zh: 高压蒸制长鳍金枪鱼
 
 #fr:thons pales, thon pale
 
@@ -105703,6 +105782,7 @@ agribalyse_food_code:en: 26001
 ciqual_food_code:en: 26001
 ciqual_food_name:en: American bass, raw
 ciqual_food_name:fr: Bar rayé ou bar d'Amérique cru
+zh: 美洲鲈鱼
 
 < en: Bass
 en: Atlantic bass
@@ -105930,6 +106010,7 @@ fr: Lottes
 hr: Ribiči
 nl: Kwabaal
 tr: Fener balığı
+zh: 安康鱼类
 
 < en: Anglers
 en: Grilled anglerfish
@@ -105948,6 +106029,7 @@ agribalyse_food_code:en: 26018
 ciqual_food_code:en: 26018
 ciqual_food_name:en: Anglerfish, raw
 ciqual_food_name:fr: Lotte ou baudroie, crue
+zh: 安康鱼
 
 < en: Anglerfish
 en: Frozen anglerfish
@@ -107005,6 +107087,7 @@ it: Grassi spalmabili
 nl: Smeerbare vetten
 pl: Tłuszcze do smarowania
 pt: Gorduras para barrar
+zh: 可涂抹脂肪
 
 < en: Dairies
 < en: Spreadable fats
@@ -107082,6 +107165,7 @@ fr: Substituts de salades d'œufs, Substituts de tartinades d'œufs, Substituts 
 en: Vegan products
 fr: Produits veganes
 nl: Veganistische producten
+zh: 纯素产品
 
 < en: Plant-based spreads
 < en: Salted spreads
@@ -107252,6 +107336,7 @@ hu: Gyümölcskonzervek
 nl: Confituren en marmelades
 pl: Przetwory owocowe
 th: ผลไม้แปรรูป
+zh: 水果及蔬菜加工品
 
 < en: Fruit and vegetable preserves
 en: Refrigerated fruit and vegetable preserves
@@ -108693,6 +108778,7 @@ pt: Purés de óleo de sementes
 #agribalyse_proxy_food_code:en:15202
 #agribalyse_proxy_food_name:en:Peanut butter or peanut paste
 #agribalyse_proxy_food_name:fr:Beurre de cacahuète ou Pâte d'arachide
+zh: 油籽泥
 
 < en: Oilseed purees
 < en: Pumpkin seeds and their products
@@ -110139,6 +110225,7 @@ food_groups:en: en:vegetables
 google_product_taxonomy_id:en: 5793
 pnns_group_2:en: Vegetables
 wikidata:en: Q11004
+zh: 蔬菜类食品
 
 < en: Vegetables based foods
 en: Leeks fondue, Slow-simmered leeks
@@ -110163,6 +110250,7 @@ ru: Овощи
 sv: Grönsaker
 incompatible_with:en: categories:en:fruits
 intake24_category_code:en: VTGB
+zh: 蔬菜
 
 < en: Vegetables
 en: Thinly-shredded vegetables
@@ -110592,6 +110680,7 @@ ro: Legume murate
 ru: Маринованные растительные продукты
 sv: Inlagda växter
 intake24_category_code:en: PION
+zh: 植物腌渍物
 
 < en: Plant-based pickles
 < en: Prepared vegetables
@@ -110630,6 +110719,7 @@ hr: Automobil
 ja: アチャール
 nl: Atjars
 wikidata:en: Q2141042
+zh: 亚渣
 
 < en: Acar
 en: Atjar Tjampoer
@@ -113894,11 +113984,13 @@ hr: Agata krumpir
 nl: Agata aardappelen
 sales_format:en: weight, package
 wikidata:en: Q373973
+zh: 阿加塔土豆
 
 < en: Potatoes
 en: Allians potatoes
 da: Allians-kartofler
 fr: Pommes de terre Allians
+zh: 阿利安斯土豆
 
 < en: Potatoes
 en: Almond potatoes, Mandel potatoes
@@ -116048,6 +116140,7 @@ th: ผลิตภัณฑ์จากถั่วเมล็ดแห้ง
 tr: Bakliyat ve bakliyat ürünleri, Baklagiller ve baklagiller ürünleri
 food_groups:en: en:legumes
 pnns_group_2:en: Legumes
+zh: 豆类及其制品
 
 < en: Legumes and their products
 en: Legumes
@@ -116075,6 +116168,7 @@ th: ถั่วเมล็ดแห้ง
 tr: Bakliyat, Baklagiller
 intake24_category_code:en: BBNS
 wikidata:en: Q145909
+zh: 豆类
 
 < en: Fresh plant-based foods
 < en: Legumes
@@ -116237,6 +116331,7 @@ lt: Ankštinių augalų sėklos
 nl: Bonenzaden
 pt: Sementes de legumes
 ru: Плоды бобовых
+zh: 豆类种子
 
 < en: Legume seeds
 en: Alfalfa seeds, alfalfa seeds
@@ -116273,6 +116368,7 @@ pt: Pulsos
 ru: Зернобобовые
 intake24_category_code:en: PEAS
 wikidata:en: Q2727662
+zh: 干燥豆类
 
 < en: Pulses
 en: Cooked pulses
@@ -117880,6 +117976,7 @@ sv: Bokspånsrökt tofu, Tofu bokspånsrökt
 < en: Smoked tofu
 en: Alder wood smoked tofu
 sv: Alspånsrökt tofu
+zh: 桤木烟熏豆腐
 
 < en: Tofu
 en: Fried tofu
@@ -118647,6 +118744,7 @@ pl: Żywność i napoje na bazie warzyw
 pt: Alimentos e bebidas à base de vegetais
 ro: Alimente și băuturi pe bază de legume
 sv: Grönsaksbaserade livsmedel
+zh: 蔬菜类食品及饮料
 
 < en: Plant-based foods and beverages
 en: Fruit-based foods and beverages, Fruits and derived products, Fruits and their products
@@ -119623,9 +119721,11 @@ wikidata:en: Q177998
 < en: Agar-agar
 en: Agar-agar powder
 fr: Agar agar en poudre
+zh: 琼脂粉
 
 en: Caviar substitutes
 fr: Substituts du caviar
+zh: 仿鱼子酱
 
 < en: Caviar substitutes
 < en: Seaweed products
@@ -119652,6 +119752,7 @@ nl: Plantaardige diepvriesproducten
 pl: Mrożona żywność pochodzenia roślinnego
 pt: Alimentos à base de plantas congeladas
 ru: Замороженные блюда из растений
+zh: 冷冻蔬菜食品
 
 < en: Frozen plant-based foods
 en: Frozen plant-based foods mixes
@@ -120594,6 +120695,7 @@ pl: Suszone produkty pochodzenia roślinnego
 pt: Alimentos à base de plantas secos
 ru: Сушеные блюда из растений
 sv: Torkad växtbaserad mat
+zh: 干燥植物性食品
 
 < en: Canned foods
 # dot not rename en:canned-plant-based-foods as it is used in Ingredients.pm
@@ -120614,6 +120716,7 @@ pl: Konserwy roślinne w puszkach i słoikach
 pt: Alimentos à base de plantas enlatados
 ru: Консервы из растительных продуктов
 tr: Konserve bitkisel gıdalar, Konserve bitkisel yiyecekler, Konserve bitki kaynaklı gıdalar, Konserve bitki kaynaklı yiyecekler, Bitkisel konserve gıdalar, Bitkisel konserve yiyecekler, Bitki kaynaklı konserve gıdalar, Bitki kaynaklı konserve yiyecekler
+zh: 罐装植物性食品
 
 < en: Fresh foods
 < en: Plant-based foods
@@ -120817,6 +120920,7 @@ ja: ヴェリーヌ
 ru: Веррины
 sv: Verriner
 wikidata:en: Q7848863
+zh: 法式杯装甜点
 
 < en: Appetizers
 < en: Verrines
@@ -120942,6 +121046,7 @@ hr: Jabučne žitne pločice
 it: Barrette di cereali con mela
 nl: Graanrepen met appel
 ro: Batoane de cereale cu mere
+zh: 苹果谷物棒
 
 < en: Cereal bars
 en: Chocolate cereal bars
@@ -121069,6 +121174,7 @@ nl: Vruchtenrepen
 < en: Sweet snacks
 en: Sweet pastries and pies
 nl: Zoet gebak en taarten
+zh: 甜糕点及派
 
 < en: Sweet pastries and pies
 en: Fresh sweet pastries and pies
@@ -121567,6 +121673,7 @@ hr: Crêpes i galettes
 it: Crêpe e galette
 nl: Pannenkoeken en galettes
 ru: Блины
+zh: 可丽饼和法式咸薄饼
 
 < en: Crêpes and galettes
 en: Pancakes
@@ -122070,6 +122177,7 @@ fr: Alternatives à la viande
 hr: Mesne alternative
 nl: Vleesvervangers
 pl: Alternatywy mięsa
+zh: 肉类替代品
 
 # Meat alternatives that are created to look replace meat and often look like it. E.g. vegetarian sausages, nuggets...
 < en: Meat alternatives
@@ -123262,6 +123370,7 @@ fr: Pousses d'alfalfa
 hr: Klice lucerne
 ja: 糸もやし, アルファルファもやし
 pl: Kiełki lucerny
+zh: 苜蓿芽
 
 < en: Fresh plant-based foods
 < en: Sprouts
@@ -123892,6 +124001,7 @@ nl_be: Vleespottten, Vleespot, Terrines, Terrine
 pt: Terrinas
 nova:en: 3
 wikidata:en: Q11175039
+zh: 法式冻派
 
 < en: Terrines
 en: Vegetables terrines, Vegetable mousses
@@ -124311,6 +124421,7 @@ en: Appetite control
 gpc_category_code:en: 10000465
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a preparation containing specific ingredients designed to stimulate or suppress the appetite. These products are not designed to be a replacement for meals. Products also include Fat Burners and Fat Blockers designed to decrease the fat content of the body. Definition Excludes: Specifically excludes all meal replacement products. Excludes products such as Dietary Aids - Appetite and Fat Control products obtained only by prescription or from a healthcare professional and Dietary Aids - Meal Replacements.
 gpc_category_name:en: Dietary Aid - Appetite/Fat Control
+zh: 食欲控制产品
 
 < en: Dietary supplements
 en: Salivary stimulants, Saliva stimulants
@@ -124337,6 +124448,7 @@ gpc_category_code:en: 10000917
 gpc_category_description:en: Definition: Includes any products that can be described/observed as a substance intended to stimulate the body and/or mind. Includes products such as caffeine. Includes products such as tablet stimulants, powder stimulants and liquid stimulants delivered in a specific quantities intended to be consumed in measured doses. Definition Excludes: Specifically excludes all Ready to Drink and Not Ready to Drink Stimulant/Energy beverages. Excludes products such as Energy/Stimulant products obtained only by prescription or by a healthcare professional, all Vitamins that provide the body with natural substances and all Confectionery and non-alcoholic Beverages that claim to provide a specific health benefit.
 gpc_category_name:en: Energy/Stimulant Products
 wikidata:en: Q908809
+zh: 健身增肌补充品
 
 < en: Bodybuilding supplements
 en: Protein powders
@@ -124514,6 +124626,7 @@ he: מסייעי אפייה, תומכי אפייה, עוזרי אפייה, עז�
 hr: Pomoćnici u kuhanju
 nl: Kookhulpmiddelen, Voedselhulpmiddelen
 ru: Кулинарные добавки
+zh: 厨房神器
 
 < en: Cooking helpers
 en: Shelf-stable cooking helpers
@@ -124585,6 +124698,7 @@ nl: Xanthaangom
 #Things you put on slices of bread during meals that consist mainly of bread
 en: Bread coverings
 nl: Broodbeleggen, Broodbeleg
+zh: 面包罩
 
 < nl: Broodbeleggen
 nl: Kokosbrood
@@ -125202,6 +125316,7 @@ nl: Forelterinnes, Forelterrine
 en: Specific products
 fr: Produits spécifiques
 nl: Specifieke producten
+zh: 特定产品
 
 < en: Specific products
 en: Edible tableware
@@ -125650,6 +125765,7 @@ de: Füllung
 fr: farces
 hr: Punjenje
 it: Stuffing
+zh: 馅料
 
 < en: Frozen foods
 < en: stuffing
@@ -126001,6 +126117,7 @@ tr: Gıda paket çeşitliliği
 gpc_category_code:en: 10000590
 gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Food, Beverages and/or Tobacco Products sold together which exist within the schema but belong to different Families, that is two or more products contained within the same pack which cross Families within the Food Beverage and Tobacco Segment. Includes products such as Wine and Chocolate variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Still and Sparkling Wine variety packs and Gin with Tonic Water variety packs.
 gpc_category_name:en: Food/Beverage/Tobacco Variety Packs
+zh: 多样化组合包
 
 < en: Variety packs
 en: Prepared foods variety packs
@@ -126018,7 +126135,8 @@ gpc_category_name:en: Prepared/Preserved Foods Variety Packs
 
 en: Whole durum wheat spirals
 fr: Spirales de blé dur complet
+zh: 全杜兰小麦螺旋意面
 
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
-
+zh: 半杜兰小麦螺旋意面
