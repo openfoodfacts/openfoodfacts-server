@@ -77002,11 +77002,16 @@ it: Pepe
 ja: 胡椒, コショウ, こしょう
 la: Piper nigrum
 lt: Pipirai
+nb: Peppere, Peprer
 nl: Pepers
+nn: Peparar
 pl: Pieprz
 pt: Pimentas
 ru: Перцы
 sv: Peppar
+agribalyse_proxy_food_code:en: 11015
+ciqual_proxy_food_code:en: 11015
+ciqual_proxy_food_name:en: Black pepper, powder
 intake24_category_code:en: PEPR
 sales_format:en: package, weight
 wikidata:en: Q43084
@@ -77026,7 +77031,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Pepper Variety Packs
 
 < en: Peppers
-en: Ground peppers
+en: Ground peppers, Ground peppercorns
 bg: Млян пипер
 de: Gemahlene Paprikaschoten
 es: Pimienta molida
@@ -77040,17 +77045,44 @@ pl: Pieprz mielony
 incompatible_with:en: categories:en:peppercorns
 
 < en: Peppers
-en: Peppercorns
+en: Peppercorns, Whole peppercorns
+da: Peberkorn, Hele peberkorn
 de: Pfefferkörner
 es: Pimienta en grano
-fi: pippurit
+fi: Pippurit
 fr: Graines de poivre
 hr: Papar u zrnu
 it: Grani di pepe
 lt: Pipirų žirneliai
+nb: Pepperkorn
 nl: Peperkorrels
+nn: Peparkorn
 pl: Ziarna pieprzu
+sv: Pepparkorn, Hela pepparkorn
 incompatible_with:en: categories:en:ground-peppers
+wikidata:en: Q3143131
+
+< en: Peppercorns
+en: Dried peppercorns
+da: Tørrede peberkorn
+es: Pimienta en grano seco
+fr: Graines de poivre déshydraté
+hr: Sušeni papar u zrnu
+lt: Džiovinti pipirų žirneliai
+nl: Gedroogde peperkorrels
+sv: Torkade pepparkorn
+incompatible_with:en: categories:en:fresh-peppercorns
+
+< en: Peppercorns
+en: Fresh peppercorns
+da: Friske peberkorn
+es: Pimienta en grano fresca
+fr: Poivre fraîche en grains
+hr: Zrna svježeg papra
+lt: Švieži pipirų žirneliai
+nl: Verse peperkorrels
+sv: Färska pepparkorn
+incompatible_with:en: categories:en:dried-peppercorns
 
 < en: Peppers
 en: Black peppers
@@ -77152,6 +77184,7 @@ hr: Zeleni papar u zrnu
 lt: Žalieji pipirų žirneliai
 nl: Groene peperkorrels
 
+< en: Dried peppercorns
 < en: Green peppercorns
 en: Dried green peppercorns
 es: Pimienta verde en grano seca
@@ -77160,6 +77193,7 @@ hr: Sušeni zeleni papar u zrnu
 lt: Džiovinti žalieji pipirų žirneliai
 nl: Gedroogde groene peperkorrels
 
+< en: Fresh peppercorns
 < en: Green peppercorns
 en: Fresh green peppercorns
 es: Pimienta verde en grano fresca
@@ -77195,14 +77229,59 @@ nl: Gevriesdroogde gemalen groene peper
 
 < en: Peppers
 en: Pink peppers
+ar: حب فلفل زهري
+az: Çəhrayı istiot
 bg: Розов пипер
+ca: Pebre fals
+cs: Pepř růžový
+da: Rosépeber
+de: Rosa Pfeffer
 es: Pimienta rosa
-fr: Poivres roses
+fa: فلفل صورتی
+fi: Perunroseepippuri
+fr: Poivres roses, Poivre rose
 hr: Ružičaste paprike
+ht: Bè woz
+it: Pepe rosa
 ja: 赤胡椒, 赤コショウ, 赤こしょう, ピンクペッパー
+ko: 핑크페퍼
+la: Granum piperis roseum
 lt: Rausvieji pipirai
+ml: പിങ്ക് പെപ്പർകോൺ
 nl: Roze pepers
+ru: Розовый перец
+sl: Rožnati poper
+sv: Rosépeppar
+uk: Рожевий перець
 wikidata:en: Q2497744
+
+< en: Pink peppers
+< en: Peppercorns
+en: Pink peppercorns
+da: Rosépeberkorn
+de: Rosa Pfefferkörner
+es: Pimienta rosa en grano
+fr: Poivres roses en grains
+nl: Roze peperkorrels
+sv: Rosépepparkorn
+
+< en: Dried peppercorns
+< en: Pink peppercorns
+en: Dried pink peppercorns
+da: Tørrede rosépeberkorn
+es: Pimienta rosa en grano seca
+fr: Poivre vert déshydraté en grains
+nl: Gedroogde roze peperkorrels
+sv: Torkade rosépepparkorn
+
+< en: Fresh peppercorns
+< en: Pink peppercorns
+en: Fresh pink peppercorns
+da: Friske rosépeberkorn
+es: Pimienta rosa en grano fresca
+fr: Poivres roses fraîche en grains
+nl: Verse roze peperkorrels
+sv: Färska rosépepparkorn
 
 < en: Peppers
 en: White peppers

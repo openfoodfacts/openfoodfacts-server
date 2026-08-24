@@ -66378,8 +66378,6 @@ usda_ndb_process:en: en:dried
 #
 ###################################################################################################
 
-# description:en:Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
-
 < en: seed
 en: pepper
 ak: moko
@@ -66428,6 +66426,8 @@ ciqual_proxy_food_code:en: 11015
 ciqual_proxy_name:en: Black pepper, powder
 ciqual_proxy_name:fr: Poivre noir, poudre
 ciqual_proxy_process:en: en:powder
+comment:en: Non-black/white/green peppers are also children of this.
+description:en: Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 usda_ndb_proxy_code:en: 2030
 usda_ndb_proxy_name:en: Spices, pepper, black
 wikidata:en: Q3143131
@@ -66446,6 +66446,7 @@ fr: grains de poivre
 hr: papar u zrnu
 it: grani di pepe
 sv: pepparkorn
+wikidata:en: Q3143131
 
 < en: pepper
 en: pepper extract
@@ -69145,26 +69146,32 @@ it: aroma di senape
 
 < en: pepper
 en: pink peppercorn, pink berries, pink pepper, rose pepper
+ar: حب فلفل زهري
+az: çəhrayı istiot
+ca: pebre fals
+cs: pepř růžový
 da: rosépeber
 de: Rosa Pfeffer, Rosa Beeren, rosa Pfefferbeeren
 es: pimienta rosa
 fa: فلفل صورتی
 fi: roseepippuri, rosépippuri, perunroseepippuri, ruusupippuri
-fr: baies roses, poivre rose
+fr: poivre rose, baies roses
 hr: ružčasti papar, Schinus jagoda
+ht: bè woz
 it: pepe rosa
 ja: ピンクペッパー
+ko: 핑크페퍼
 la: Granum piperis roseum
 ml: പിങ്ക് പെപ്പർകോൺ
 nl: roze bessen
 pt: pimenta rosa
-ru: Розовый перец
-sv: Rosépeppar
-uk: Рожевий перець
+ru: розовый перец
+sl: rožnati poper
+sv: rosépeppar
+uk: рожевий перець
 description:en: A PINK PEPPERCORN is a dried berry of the shrub Schinus molle, commonly known as the Peruvian peppertree. Although a peppercorn is the dried fruit of a plant from the genus Piper, pink peppercorns came to be called such because they resemble peppercorns, and because they, too, have a peppery flavour. As they are members of the cashew family, they may cause allergic reactions including anaphylaxis for persons with a tree nut allergy.
 wikidata:en: Q2497744
 wikipedia:en: https://en.wikipedia.org/wiki/Pink_peppercorn
-# usage:fr:épice (baies roses)
 
 # description:en:A spice commonly called star anise, staranise, star anise seed, Chinese star anise, or badian that closely resembles anise in flavor is obtained from the star-shaped pericarps of the fruit of I. verum which are harvested just before ripening. Star anise contains anethole, the same compound that gives the unrelated anise its flavor. Star anise is an ingredient of the traditional five-spice powder of Chinese cooking.
 
