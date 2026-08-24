@@ -6686,7 +6686,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv";
+	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv";
 	my $additivesregexp;
 	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
 	# in these cases, we fetch variant only if there is no space before
