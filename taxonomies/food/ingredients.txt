@@ -4547,7 +4547,6 @@ carbon_footprint_fr_foodges_ingredient:fr: Crème, 40% MG, pasteurisée
 carbon_footprint_fr_foodges_value:fr: 4.2
 ciqual_food_code:en: 19402
 ciqual_food_name:fr: Crème de lait ou spécialité à base de crème légère, teneur en matière grasse inconnue (aliment moyen)
-ciqual_proxy_food_code:en: 19430
 ciqual_proxy_food_name:en: Liquid cream, light, 15-20% fat, UHT
 description:en: CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 description:de: Als Rahm (Sahne, Obers, Nidel) wird die fetthaltige Phase der Milch bezeichnet, die beim Stehenlassen ungesäuerter Rohmilch natürlich an der Oberfläche aufschwimmt oder aus Rohmilch abzentrifugiert werden kann.
@@ -14263,8 +14262,6 @@ wa: ôle
 yi: בוימל
 yo: Epo
 zh: 油
-ciqual_proxy_food_code:en: 17001
-ciqual_proxy_food_name:en: Vegetable oil -average-
 # ast:Aceite
 # azb:یاغ
 # be-tarask:алей
@@ -17564,7 +17561,7 @@ fr: huile de tournesol à haute teneur en acide oléique, huile de tournesol à 
 hr: suncokretovo ulje s visokim udjelom oleinske kiseline, visokooleinsko suncokretovo ulje, suncokretovo ulje s visokim sadržajem oleinske kiseline
 it: olio di girasole alto oleico
 nl: high oleic zonnebloemolie
-pt: óleo refinado de girassol alto oleíco
+pt: óleo de girassol com alto teor em ácido oleico, óleo refinado de girassol alto oleíco
 ru: масло подсолнечное высокоолеиновое рафинированное дезодорированное
 usda_ndb_proxy_code:en: 4584
 usda_ndb_proxy_name:en: Oil, sunflower, high oleic (70% and over)
@@ -20659,8 +20656,6 @@ ru: рисовое вино
 ciqual_food_code:en: 1026
 ciqual_food_name:en: Sake or rice wine
 ciqual_food_name:fr: Saké ou Alcool de riz
-ciqual_proxy_food_code:en: 1026
-ciqual_proxy_food_name:en: Sake or rice wine
 
 < en: alcohol
 en: vodka
@@ -25237,11 +25232,6 @@ pt: extrato de malte de cevada, extracto de malte de cevada
 ro: extract din malț de orz, extract din malt de orz, extract de malț de orz, extract de malt de orz
 sv: kornmaltextrakt, maltextrakt från korn, kornmaltsextrakt
 zh: 大麥芽精
-ciqual_proxy_food_code:en: 31034
-ciqual_proxy_food_name:en: maple syrup
-usda_ndb_proxy_code:en: 19352
-usda_ndb_proxy_name:en: Syrups, malt
-# barley malt extract in liquid form is the same thing as barley malt syrup 
 
 < en: barley malt extract
 de: getrockneter Gerstenmalzextrakt
@@ -25266,8 +25256,6 @@ hr: sirup od ječmenog slada
 it: Sciroppo di malto d'orzo
 nl: gerstemoutstroop
 pl: syrop jęczmienny, syrop ze słodu jęczmiennego
-ciqual_proxy_food_code:en: 31034
-ciqual_proxy_food_name:en: maple syrup
 usda_ndb_proxy_code:en: 19352
 usda_ndb_proxy_name:en: Syrups, malt
 wikidata:en: Q3485291
@@ -25371,6 +25359,7 @@ uz: marjumak
 vi: kiều mạch
 wa: boûkete
 zh: 蕎麥, 荞麦
+#1604 @2021-10-07
 ciqual_food_code:en: 9380
 ciqual_food_name:en: Buckwheat, whole, raw
 #azb:اکین قاراباشاغی
@@ -25804,10 +25793,10 @@ tr: amaranthus
 uk: Щириця
 vi: chi dền
 zh: 苋属
-# hsb:Šćěrjenc
-# nah:huauhtli
 ciqual_food_code:en: 9345
 ciqual_food_name:en: Amaranth, raw
+# hsb:Šćěrjenc
+# nah:huauhtli
 ciqual_food_name:fr: Amarante, crue
 description:en: Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
 usda_ndb_code:en: 20001
@@ -26047,7 +26036,7 @@ sv: glutenfri havre
 # description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
 < en: oat
-en: oat flakes, oatflakes, rolled oats, oatmeal flakes, oatmeal
+en: oat flakes, oatflakes, rolled oats, oatmeal flakes
 af: hawermout
 ar: رقانق الشوفان
 bg: овесени ядки, овесен флейкс, овесени люспи
@@ -27564,10 +27553,8 @@ vi: Bột mì
 zh: 小麥麵粉
 carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 carbon_footprint_fr_foodges_value:fr: 1.2
-# T55 is white all purpose flour
-ciqual_food_code:en: 9436
-ciqual_food_name:en: Wheat flour, type 55 (for bread)
-ciqual_food_name:fr: Farine de blé tendre ou froment T55 (pour pains)
+ciqual_proxy_food_code:en: 9410
+ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
 ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
 ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
 wikidata:en: Q2249305
@@ -27817,10 +27804,6 @@ pt: farinha de trigo integral, farinha integral de trigo
 ro: făină integrală de grâu
 sk: celozrnna pšenična muka
 sv: fullkornsvetemjöl, fullkornsmjöl av vete
-# T150 is whole meal flour in France
-ciqual_food_code:en: 9415
-ciqual_food_name:en: Wheat flour, type 150
-ciqual_food_name:fr: Farine de blé tendre ou froment T150
 
 < en: semi-wholemeal flour
 < en: wheat flour
@@ -27828,10 +27811,6 @@ en: semi-wholemeal wheat flour
 fr: farine de blé semi-complète, farine de blé semi-complète, farine de blé semi-complet, farine semi-complète de blé, farine semi-complète de froment, farine de froment semi-complet
 hr: pšenično poluintegralno brašno
 it: farina di frumento semi-integrale, farina semi-integrale di frumento
-# T110 is semi whole meal flour in France
-ciqual_food_code:en: 9410
-ciqual_food_name:en: Wheat flour, type 110
-ciqual_food_name:fr: Farine de blé tendre ou froment T110
 
 < en: wheat flour
 en: dextrinated wheat flour
@@ -30324,6 +30303,7 @@ nl: rijstzemelen
 pt: farelo de arroz
 sv: riskli
 zh: 米糠
+#772 in 9 @2021-10-03
 ciqual_food_code:en: 9643
 ciqual_food_name:en: Rice bran
 usda_ndb_proxy_code:en: 20060
@@ -30399,7 +30379,6 @@ ciqual_proxy_food_code:en: 32006
 ciqual_proxy_food_name:en: Puffed rice, plain, fortified with vitamins and minerals
 ifct_food_code:en: A012
 ifct_food_name:en: Rice, puffed
-# usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
 # usage:en:crisped rice (Rice, Sugar, Salt, Barley Malt Extract)
 
 < en: corn
@@ -35644,7 +35623,6 @@ zu: Amanzi
 carbon_footprint_fr_foodges_ingredient:fr: Eau en bouteille PET, plate, 0.5 L
 carbon_footprint_fr_foodges_value:fr: 0.4
 ciqual_food_code:en: 18066
-ciqual_food_name:en: Water, bottled -average-
 ciqual_food_name:fr: Eau du robinet
 ecobalyse:en: 36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 # als:Wasser
@@ -35733,6 +35711,8 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q283
 wikipedia:en: https://en.wikipedia.org/wiki/Water
+ciqual_food_name:en: Water, bottled
+ciqual_food_name:en: Water, bottled -average-
 
 < en: water
 en: distilled water
@@ -39110,6 +39090,7 @@ zh: 桃子
 # zh-min-nan:Thô-á
 carbon_footprint_fr_foodges_ingredient:fr: Pêche "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr: 1
+# ingredient/peach 6059 products in 7 languages @2021-08-19
 ciqual_proxy_food_code:en: 13043
 ciqual_proxy_food_name:en: Peach, flesh and skin, pitted, raw
 comment:en: The wikipedia entry mixes the name of the tree and the name of the fruit
@@ -40396,8 +40377,6 @@ fr: pomme Royal Gala, pommes Royal Gala
 hr: kraljevska gala jabuka
 it: mela Royal Gala
 nl: Royal Gala appel, Tenroy, Tenroy appel
-ciqual_proxy_food_code:en: 13191
-ciqual_proxy_food_name:en: Apple, var. Gala, flesh without skin, raw
 
 < en: apple
 en: Idared apple
@@ -43983,8 +43962,6 @@ carbon_footprint_fr_foodges_value:fr: 1.3
 ciqual_food_code:en: 13008
 ciqual_food_name:en: Cherry, pitted, raw
 ciqual_food_name:fr: Cerise, dénoyautée, crue
-ciqual_proxy_food_code:en: 13008
-ciqual_proxy_food_name:en: Cherry, flesh and skin, pitted, raw
 ecobalyse:en: 4e13ea5f-4ad1-4009-ae91-842cb18bd4dd
 ecobalyse_labels_en_organic:en: b4e8febc-6588-4599-8c58-c019144597c6
 ecobalyse_origins_en_france:en: 8ea6e0d1-a163-4059-8a6b-bd443f0168db
@@ -44480,7 +44457,6 @@ zh: 椰子奶
 ciqual_food_code:en: 18041
 ciqual_food_name:en: Coconut milk or coconut cream
 ciqual_food_name:fr: Lait de coco ou Crème de coco
-ciqual_proxy_food_name:en: Coconut milk or coconut cream
 usda_ndb_2_code:en: 12176
 usda_ndb_2_name:en: Nuts, coconut milk, frozen (liquid expressed from grated meat and water)
 usda_ndb_2_process:en: en:frozen
@@ -44843,8 +44819,6 @@ it: pasta di datteri
 nl: dadelpuree
 pl: pasta daktylowa
 sv: dadelpuré
-ciqual_proxy_food_code:en: 13011
-ciqual_proxy_food_name:en: Date, pulp and peel, dried
 
 #process:en:en:syrup
 #<en:date
@@ -45525,8 +45499,6 @@ agribalyse_food_code:en: 13021
 ciqual_food_code:en: 13021
 ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
 ciqual_food_name:fr: Kiwi, pulpe et graines, cru
-ciqual_proxy_food_code:en: 13021
-ciqual_proxy_food_name:en: Kiwi fruit, pulp and seeds, raw
 description:en: KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is the edible berry of several species of woody vines in the genus Actinidia.
 ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
 ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
@@ -45535,6 +45507,7 @@ usda_ndb_code:en: 9148
 usda_ndb_name:en: Kiwifruit, green, raw
 wikidata:en: Q13194
 wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
+#1182 in 24 @2021-10-13
 
 ##################### Kiwifruit cultivars/varieties/types
 
@@ -46066,8 +46039,6 @@ zh: 西瓜
 ciqual_food_code:en: 13036
 ciqual_food_name:en: Watermelon, pulp, raw
 ciqual_food_name:fr: Pastèque, pulpe, crue
-ciqual_proxy_food_code:en: 13036
-ciqual_proxy_food_name:en: Watermelon, pulp, raw
 ecobalyse:en: d5aff6c8-470b-457b-bc67-294d8987ee5e
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/watermelon
 usda_ndb_proxy_code:en: 9326
@@ -46267,13 +46238,12 @@ agribalyse_proxy_food_code:en: 13030
 ciqual_food_code:en: 13030
 ciqual_food_name:en: Nectarine, pulp and peel, raw
 ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
-#plant:wikidata:en:Q3408651
-ciqual_proxy_food_code:en: 13030
-ciqual_proxy_food_name:en: Nectarine, pulp and peel, raw
 eurocode_2_group_3:en: 9.20.15
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
 wikidata:en: Q841156
+#plant:wikidata:en:Q3408651
+#94 in 5 @2021-10-28
 
 ##################### Nectarine cultivars/varieties/types
 
@@ -46668,8 +46638,6 @@ zh: 鳳梨
 ciqual_food_code:en: 13002
 ciqual_food_name:en: Pineapple, pulp, raw
 ciqual_food_name:fr: Ananas, pulpe, cru
-ciqual_proxy_food_code:en: 13002
-ciqual_proxy_food_name:en: Pineapple, flesh without skin, raw
 ecobalyse:en: c1ca415f-85bb-43f6-bf8f-8bedd6f95e9a
 ecobalyse_labels_en_organic:en: 0f52bae1-07d0-446d-ae5b-f246f894ac3b
 ifct_food_code:en: E053
@@ -50025,6 +49993,7 @@ tr: hindiba
 uk: цикорій салатний
 vi: rau cúc đắng
 zh: 苦苣
+# wikidata:en:Q28604477 what is this?
 ciqual_food_code:en: 20090
 ciqual_food_name:en: Escaroles
 # nds-nl:andievie
@@ -55368,6 +55337,7 @@ ru: Чесночный порошок
 sl: česen v prahu
 sv: vitlökspulver
 tr: sarimsak tozu
+# fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
 ciqual_food_code:en: 11023
 ciqual_food_name:en: Garlic, powder, dried
 usda_ndb_code:en: 2020
@@ -56425,7 +56395,9 @@ sv: Rotselleri
 allergens:en: en:celery
 ciqual_food_code:en: 20055
 ciqual_food_name:en: Celeriac, raw
-ciqual_food_name:fr: Céleri-rave, cru
+ciqual_proxy_food_code:en: 20055
+ciqual_proxy_food_name:en: Celeriac, raw
+ciqual_proxy_food_name:fr: Céleri-rave, cru
 ecobalyse:en: celeriac-non-eu
 ecobalyse_labels_en_organic:en: celeriac-organic
 ecobalyse_origins_en_european_union:en: celeriac-eu
@@ -56718,6 +56690,7 @@ yi: מאניאק
 yo: ẹ̀gẹ́
 za: moegsawz
 zh: 木薯
+#650 in 10 @2021-10-18
 ciqual_food_code:en: 54031
 ciqual_food_name:en: Cassava or manioc, roots, raw
 #ban:kaséla
@@ -56985,7 +56958,7 @@ or: ଆଳୁ
 os: Картоф
 pa: ਆਲੂ
 pl: ziemniak, ziemniaki, ziemniaczana, ziemniaczane, ziemniaczany, ziemniaków, ziemniaka, ziemniaczanego, ziemniaczanych
-pt: batata
+pt: batata, batatas
 rn: Ikiraya
 ro: cartof, cartofi
 ru: картофель, картошка
@@ -57597,6 +57570,7 @@ th: อาร์ทิโชก
 tr: devedikeni
 yi: ארטישאק
 zh: 刺苞菜蓟
+#30 in 5 @2021-10-21
 ciqual_food_code:en: 20054
 ciqual_food_name:en: Cardoon, raw
 #arz:خرشف
@@ -57624,6 +57598,7 @@ usda_ndb_name:en: Cardoon, raw
 wikidata:en: Q7223635
 #plant:wikidata:en:Q7186137
 wikipedia:en: https://en.wikipedia.org/wiki/Cardoon
+#30 in 5 @2021-10-21
 
 < en: vegetable
 en: aloe vera
@@ -60227,8 +60202,6 @@ fr: purée de tomates triple concentrée, triple concentré de tomate
 
 < en: tomato
 en: tomato powder, powdered tomato
-ciqual_proxy_food_code:en: 20189
-ciqual_proxy_food_name:en: Tomato, dried
 #en:processing:en:powder
 #bg:доматен прах, домати на прах
 #ca:tomàquet en pols
@@ -78272,6 +78245,7 @@ it: pesce di scoglio, scorfano
 ja: 根魚
 wikidata:en: Q26261896
 wikipedia:en: https://en.wikipedia.org/wiki/Rockfish
+# structure:inner:role:synonym:optional, eg poissons de roche (congre, rascasse, grondin)
 
 < en: fish
 en: freshwater fish
@@ -82038,6 +82012,7 @@ ciqual_food_name:en: Atlantic chub mackerel, raw
 ciqual_food_name:fr: Maquereau espagnol ou maquereau blanc ou billard cru
 wikidata:en: Q815837
 wikipedia:en: https://en.wikipedia.org/wiki/Chub_mackerel
+#30 in 7 @2021-09-10
 
 < en: chub mackerel
 fr: Filets de maquereaux espagnols
@@ -88922,6 +88897,7 @@ uk: Індичка
 vi: Họ Gà tây
 yi: אינדיק
 zh: 火雞
+# usage:en:meat extracts [turkey, chicken]
 ciqual_food_code:en: 36300
 ciqual_food_name:en: Turkey, meat and skin, raw
 # azb:هیندوشکا
@@ -92723,6 +92699,7 @@ fr: Pain de seigle
 hr: raženi kruh
 it: pane di segale
 pl: chleb żytni
+# category:en:Rye breads
 ciqual_food_code:en: 7125
 ciqual_food_name:en: Rye bread, and wheat
 wikidata:en: Q3893120
@@ -93166,8 +93143,6 @@ carbon_footprint_fr_foodges_value:fr: 4.5
 ciqual_food_code:en: 24000
 ciqual_food_name:en: Biscuit (cookie)
 ciqual_food_name:fr: Biscuit sec, sans précision
-ciqual_proxy_food_code:en: 24000
-ciqual_proxy_food_name:en: Biscuit -cookie-
 description:en: A BISCUIT is a flour-based baked food product, which is typically hard, flat and unleavened.
 description:de: Ein Keks gehört zu den Dauerbackwaren, die meist aus fetthaltigem Teig mit mehr oder minder süßem Geschmack bestehen.
 description:es: La galleta es una preparación culinaria de pequeño tamaño, dulce o salada, horneada y hecha normalmente a base de harina de trigo, huevos, azúcar, mantequilla o aceites vegetales o grasas animales.
@@ -94010,8 +93985,6 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20904
 ciqual_food_name:en: Tofu, plain
 ciqual_food_name:fr: Tofu, nature
-ciqual_proxy_food_code:en: 20904
-ciqual_proxy_food_name:en: Tofu, plain
 description:en: TOFU is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
 usda_ndb_proxy_code:en: 16281
 usda_ndb_proxy_name:en: HOUSE FOODS Premium Firm Tofu
@@ -94019,6 +93992,7 @@ vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q177378
 wikipedia:en: https://en.wikipedia.org/wiki/Tofu
+# usage:fr:Tofu (graines de soja, eau, agents de coagulation :chlorure de magnésium, sulfate de calcium)
 
 < en: tofu
 en: firm tofu
@@ -94404,6 +94378,7 @@ tt: Койка
 uk: Холодець
 yi: גאלער
 zh: 肉凍
+# usage:en:jelly [water, pork gelatin, cooking salt, sugar, maltodextrin, condiment, coloring:ordinary caramel, preservative:E 202, acidifier:citric acid]
 ciqual_proxy_food_code:en: 11176
 ciqual_proxy_food_name:en: Madeira wine aspic
 # bar:Sulz
@@ -94794,6 +94769,7 @@ uk: лимонад
 ur: سکنجبین
 uz: Limonad
 zh: 檸檬水
+# usage:fr:Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme)
 ciqual_proxy_food_code:en: 18010
 ciqual_proxy_food_name:en: Lemonade, with sugar
 # ast:Llimonada
@@ -97013,6 +96989,8 @@ vi: Bơ thực vật
 zh: 植物牛油
 carbon_footprint_fr_foodges_ingredient:fr: Margarine
 carbon_footprint_fr_foodges_value:fr: 2.7
+# ingredient/margarine 5892 in 34 @2021-08-21
+# TODO we should really have a proxy
 ciqual_proxy_food_code:en: 16737
 ciqual_proxy_food_name:en: Vegetable fat -margarine type-, spreadable, 50-63% fat, light, unsalted, rich in omega 3
 description:en: MARGARINE is a spread used for flavoring, baking, and cooking. Margarine is made mainly of refined vegetable oil and water.
