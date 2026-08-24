@@ -6686,7 +6686,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv";
+	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv";
 	my $additivesregexp;
 	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
 	# in these cases, we fetch variant only if there is no space before
@@ -7812,11 +7812,10 @@ sub detect_allergens_from_text ($product_ref) {
 
 			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b__([^,;_\(\)\[\]]+?)__\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			# _Weizen_eiweiß is not caught in last regex because of \b (word boundary).
-			if ($language eq 'de') {
-				$text =~ s/\b_([^,;_\(\)\[\]]+?)_/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			}
+			# Do not require a word boundary after the closing underscore: in some
+			# languages, the marked allergen can be the beginning of a compound word
+			# (e.g. Dutch _soja_lecithine or Swedish _vete_mjöl).
+			$text =~ s/\b_([^,;_\(\)\[\]]+?)_/replace_allergen($language,$product_ref,$1,$`)/iesg;
 
 			# allergens in all caps, with other ingredients not in all caps
 

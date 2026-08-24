@@ -403,4 +403,42 @@ my $beauty_product_ref = $tests[1][1];
 is([grep {/^en:nutrition/} @{$beauty_product_ref->{states_tags}}], [], 'beauty products do not have nutrition states');
 is($beauty_product_ref->{complete}, 1, 'beauty products can be complete without nutrition facts and photo');
 
+my @uploaded_images_misc_tags_tests = (
+	[0, []],
+	[1, ['en:number-of-uploaded-images-1-to-3']],
+	[3, ['en:number-of-uploaded-images-1-to-3']],
+	[4, ['en:number-of-uploaded-images-4-to-6']],
+	[6, ['en:number-of-uploaded-images-4-to-6']],
+	[7, ['en:number-of-uploaded-images-7-to-10']],
+	[10, ['en:number-of-uploaded-images-7-to-10']],
+	[11, ['en:number-of-uploaded-images-11-to-50']],
+	[50, ['en:number-of-uploaded-images-11-to-50']],
+	[51, ['en:number-of-uploaded-images-51-to-100']],
+	[100, ['en:number-of-uploaded-images-51-to-100']],
+	[101, ['en:number-of-uploaded-images-more-than-100']],
+);
+
+foreach my $test_ref (@uploaded_images_misc_tags_tests) {
+	my ($uploaded_images_n, $expected_tags_ref) = @$test_ref;
+	my %uploaded_images = ();
+	foreach my $imgid (1 .. $uploaded_images_n) {
+		$uploaded_images{$imgid} = 1;
+	}
+	my $product_ref = {misc_tags => ['en:unrelated-tag', 'en:number-of-uploaded-images-4-to-6'],};
+	my $current_ref = {
+		uploaded_images => \%uploaded_images,
+		selected_images => {},
+	};
+
+	compute_completeness_and_missing_tags($product_ref, $current_ref, {});
+
+	is(
+		$product_ref->{misc_tags},
+		['en:unrelated-tag', @$expected_tags_ref],
+		"misc tags for $uploaded_images_n uploaded images preserve unrelated tag order"
+	);
+	is([grep {/^en:number-of-uploaded-images-/} @{$product_ref->{states_tags}}],
+		[], 'uploaded image count tags are not exposed as product states');
+}
+
 done_testing();

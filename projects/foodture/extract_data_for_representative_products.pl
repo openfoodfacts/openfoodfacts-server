@@ -28,18 +28,18 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all add_images_urls_to_product/;
 use ProductOpener::Lang qw/$lc  %lang_lc/;
-use ProductOpener::Products qw/product_url/;
+use ProductOpener::Products qw/product_url retrieve_product product_path_from_id/;
 use ProductOpener::Ingredients qw/:all/;
 use LWP::UserAgent;
 use JSON::MaybeXS;
 use Text::CSV;
 
 # This script:
-# - reads a list of categories (and other columns) from foodture/16.06.2026_Correspondance_FT_OFF_pour_extract.csv
-# - reads a list of most scanned products by country and category from foodture/ranked_products_202602231414.csv
+# - reads a list of categories (and other columns) from projects/foodture/foodture_foodex2_categories_mapping_to_off.csv
+# - reads a list of most scanned products by country and category from projects/foodture/ranked_products_202602231414.csv
 # - for each product matching a category from the first list and 1 country from the EU27
 # + Norway, Switzerland, UK, Serbia and Montenegro),
-# we fetch its data from the OFF API (using LWP::UserAgent and caching in foodture/api_cache)
+# we fetch its data directly from the products folder
 # - we then extract / process the needed data to output a new CSV file containing representative products
 
 my @countries = qw/
@@ -85,10 +85,6 @@ my @countries_tags = sort keys %countries_names;
 
 # Languages to output ingredients in
 my @ingredient_languages = qw/en fr/;
-
-# caching directory for API responses
-my $cache_dir = "projects/foodture/tmp/api_cache";
-mkdir $cache_dir unless -d $cache_dir;
 
 # variables for API fetching
 my $ua = LWP::UserAgent->new(timeout => 20);
@@ -234,6 +230,11 @@ for my $j (1 .. 5) {
 	}
 }
 
+# scans for last 5 years
+for my $y (2021 .. 2025) {
+	push @hdr, "country_scans_${y}", "global_scans_${y}";
+}
+
 $csv_out->print($OUT, \@hdr);
 
 # iterate through each country/category in list
@@ -243,7 +244,7 @@ while (<$LIST>) {
 	chomp;
 
 	my ($l1, $l2, $l7, $segmentation, $batch1) = split /\t/, $_, 5;
-	print STDERR "Processing category: $l1 / $l2 / $l7 / $segmentation ($batch1)...\n";
+	# print STDERR "Processing category: $l1 / $l2 / $l7 / $segmentation ($batch1)...\n";
 
 	# Skip hidden lines without segmentation
 	# next if (not defined $segmentation) or ($segmentation eq '') or ($segmentation =~ /N\/D/i);
@@ -256,8 +257,10 @@ while (<$LIST>) {
 	# Loop on countries
 	foreach my $country_tag (@countries_tags) {
 
-		print STDERR
-			"Processing country: $country_tag / $last_category ($category_tag (known: $exists_in_taxonomy))...\n";
+		# print STDERR
+		#	"Processing country: $country_tag / $last_category ($category_tag (known: $exists_in_taxonomy))...\n";
+
+		my $cc = country_to_cc($country_tag);
 
 		# find the matching product
 		if (defined $ranked{$country_tag}{$category_tag}) {
@@ -265,41 +268,27 @@ while (<$LIST>) {
 			my ($code, $recent_scans) = @{$ranked{$country_tag}{$category_tag}};
 
 			my $product_ref = {};
+			my $scans_ref = {};
 
 			# If we have the --only-output-codes option, don't fetch product data
 			unless ((defined $ARGV[0]) and ($ARGV[0] eq '--only-output-codes')) {
 
 				# ensure product data fetched
 				unless (exists $product_data{$code}) {
-					my $cache_file = "$cache_dir/$code.json";
-					if (-e $cache_file) {
-						open my $cf, '<:encoding(UTF-8)', $cache_file;
-						local $/;
-						my $json = <$cf>;
-						close $cf;
-						$product_data{$code} = decode_json($json);
-						decide_if_we_should_refetch_product($code);
-						print STDERR "Fetched product $code from cache\n";
+					my $product = retrieve_product($code);
+					if (defined $product) {
+						my $path = product_path_from_id($code);
+						my $scans = retrieve_object("$BASE_DIRS{PRODUCTS}/$path/scans");
+						$product_data{$code} = {product => $product, scans => $scans};
 					}
-
-					if (not defined $product_data{$code}) {
-						my $resp = $ua->get($baseurl . $code);
-						if ($resp->is_success) {
-							my $data = decode_json($resp->decoded_content);
-							$product_data{$code} = $data;
-							open my $cf, '>:encoding(UTF-8)', $cache_file
-								or warn "Cannot write cache $cache_file: $!\n";
-							print $cf encode_json($data);
-							close $cf;
-						}
-						else {
-							warn "failed to fetch product $code: " . $resp->status_line . "\n";
-							next;
-						}
+					else {
+						warn "failed to fetch product $code\n";
+						next;
 					}
 				}
 
 				$product_ref = $product_data{$code}{product} // next;
+				$scans_ref = $product_data{$code}{scans};
 			}
 
 			my $url = "https://world.openfoodfacts.org" . product_url($code);
@@ -356,17 +345,22 @@ while (<$LIST>) {
 			for my $i (1 .. 10) {
 				my $idx = $i - 1;
 				my $id = $sorted[$idx];
-				my $pct = defined $id ? $ingredients_percent{$id} : '';
-				my $quantity = defined $id ? $ingredients_quantity{$id} : '';
-				my @translations = ();
-				push @row, $id // '', $ingredients_in_taxonomy{$id} // '';
-				foreach my $target_lc (@ingredient_languages) {
-					push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
+				if (defined $id) {
+					my $pct = $ingredients_percent{$id};
+					my $quantity = $ingredients_quantity{$id};
+					my @translations = ();
+					push @row, $id, $ingredients_in_taxonomy{$id} // '';
+					foreach my $target_lc (@ingredient_languages) {
+						push @row, display_taxonomy_tag($target_lc, "ingredients", $id);
+					}
+					my $parents = display_tag_and_parents_taxonomy("ingredients", $id);
+					# Remove HTML tags
+					$parents =~ s/<[^>]*>//g;
+					push @row, $parents, $quantity, $pct;
 				}
-				my $parents = display_tag_and_parents_taxonomy("ingredients", $id);
-				# Remove HTML tags
-				$parents =~ s/<[^>]*>//g;
-				push @row, $parents, $quantity, $pct;
+				else {
+					push @row, ('') x (5 + scalar(@ingredient_languages));
+				}
 			}
 
 			# Calculate total quantity and percent for top 10 ingredients
@@ -396,21 +390,27 @@ while (<$LIST>) {
 				}
 			}
 
+			# Scan numbers for last 5 years
+			for my $y (2021 .. 2025) {
+				my $year_scans = $scans_ref->{$y}{unique_scans_n_by_country};
+				push @row, $year_scans->{$cc} // 0, $year_scans->{world} // 0;
+			}
+
 			$csv_out->print($OUT, \@row);
 
 		}
 		else {
 			# no product matched this country/category – output identifiers anyway
-			my @row = (
-				$l1, $l2,
-				$l7, $segmentation,
-				$category_tag, $batch1,
-				$countries_names{$country_tag} // '', $country_tag,
-				$exists_in_taxonomy || 0, $categories_agb{$category_tag} || '',
-				$categories_agb_proxy{$category_tag} || ''
-			);
-			push @row, ('') x (scalar(@hdr) - scalar(@row));
-			$csv_out->print($OUT, \@row);
+			# my @row = (
+			# 	$l1, $l2,
+			# 	$l7, $segmentation,
+			# 	$category_tag, $batch1,
+			# 	$countries_names{$country_tag} // '', $country_tag,
+			# 	$exists_in_taxonomy || 0, $categories_agb{$category_tag} || '',
+			# 	$categories_agb_proxy{$category_tag} || ''
+			# );
+			# push @row, ('') x (scalar(@hdr) - scalar(@row));
+			# $csv_out->print($OUT, \@row);
 		}
 		$n++;
 		#$n > 600 and last;    # for testing, limit to 100 lines
