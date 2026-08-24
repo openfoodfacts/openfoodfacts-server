@@ -819,7 +819,7 @@ fr: mono- et diglycérides d'acides gras et stéaroyl-2-lactylate de sodium
 en: nigari, bittern
 bg: Нигари
 ca: Nigari
-cs: nigari
+cs: nigari, mořská jedlá sůl nigari, mořská sůl nigari
 de: Nigari
 es: Nigari
 fi: nigari
@@ -13902,7 +13902,7 @@ vegetarian:en: yes
 # <en:rice
 en: rice starch
 bg: оризово нишесте
-cs: Rýžová škrob
+cs: rýžový škrob
 da: risstivelse
 de: Reisstärke
 es: almidon de arroz, amido de arroz
@@ -17111,6 +17111,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Shea_butter
 # < en:shea why is this here?
 < en: vegetable oil
 en: shea oil, sheanut oil
+cs: bambucký olej
 da: sheaolie
 de: Sheaöl
 hr: shea ulje
@@ -18158,7 +18159,7 @@ it: aceto bianco distillato
 en: wine vinegar
 bg: винен оцет
 ca: Vinagre de vi
-cs: vinný ocet
+cs: vinný ocet, ocet kvasný vinný
 da: Vineddike
 de: Weinessig
 es: vinagre de vino
@@ -20688,6 +20689,7 @@ fr: arôme artificiel, arômes artificiels
 hr: umjetna aroma
 hu: mesterséges aroma, mesterséges aromák
 it: Aroma artificiale
+ko: 합성향료
 nl: Kunstmatige smaakstoffen
 pl: Sztuczny aromat, sztuczne aromaty
 pt: Aromatizante artificial
@@ -23651,7 +23653,7 @@ hr: proizvodi od žitarica od cjelovitog zrna, cjelovite žitarice
 it: prodotti a base di cereali integrali
 
 < en: wheat
-en: wheat flakes
+en: wheat flakes, wheatflakes
 bg: пшеница люспи
 ca: flocs de blat
 cs: pšeničné vločky
@@ -26062,6 +26064,7 @@ sv: fullkornshavremjöl
 < en: gluten free oats
 < en: oat flour
 en: gluten free oat flour
+cs: bezlepková ovesná mouka
 de: glutenfreies Hafermehl
 es: harina de avena libre de gluten, harina de avena sin gluten
 fr: farine d'avoine sans gluten
@@ -31333,6 +31336,7 @@ sv: ekologisk rörsocker
 < en: cane sugar
 en: brown cane sugar
 bg: кафява тръстикова захар
+cs: hnědý třtinový cukr
 da: brunt rørsukker
 de: Brauner Rohrzucker
 es: Azúcar moreno de caña
@@ -33369,6 +33373,7 @@ sv: proteinhydrolysat
 
 < en: protein
 en: yeast protein
+cs: kvasnicová bílkovina
 fi: hiivaproteiini
 fr: protéine de levure
 hr: bjelančevine kvasca
@@ -33432,7 +33437,7 @@ en: mung bean protein isolate
 en: pea protein
 bg: грахов протеин
 ca: Proteïna de pèsol
-cs: hrachový protein
+cs: hrachový protein, hrachová bílkovina
 da: Ærteprotein
 de: Erbsenprotein, erbseneiweiß, Erbseneiweiss
 es: Proteína de guisante
@@ -35848,6 +35853,7 @@ fr: eau filtrée, eau purifiée
 hr: filtrirana voda
 hu: szűrt víz, tisztított víz
 it: Acqua filtrata
+ko: 정제수
 nl: gezuiverd water
 pl: Woda filtrowana
 pt: Água filtrada
@@ -41715,7 +41721,7 @@ it: estratto naturale di limone, estratto naturale di limoni
 en: concentrated lemon juice, Lemon juice concentrate
 bg: концентрат от лимонов сок, концентриран сок от лимони, концентриран лимонов сок
 ca: Suc de llimona concentrat, Concentrat de suc de llimona
-cs: koncentrovaná citrónová šťáva, citronová šťáva z koncentrátu
+cs: koncentrovaná citrónová šťáva, koncentrovaná citronová šťáva, koncentrát citronové šťávy, koncentrát citrónové šťávy
 da: citronsaftkonsentrat, citronjuicekoncentrat
 de: Zitronensaftkonzentrat, Zitronenkonzentrat
 es: zumo concentrado de limón, jugo concentrado de limón, zumo de limón concentrado, jugo de limón concentrado, concentrado de zumo de limón, concentrado de jugo de limón
@@ -56010,6 +56016,7 @@ sv: morotjuicekoncentrat
 #This is not the same as concentrate carrot juice, this one has been reconstructed with water
 < en: carrot juice
 en: carrot juice from concentrate
+cs: mrkvová šťáva z koncentrátu
 da: gulerodsjuice fra koncentrat, gulerodssaft fra koncentrat
 de: Karottensaft aus Karottensaftkonzentrat
 es: zumo de zanahoria a partir de concentrado, jugo de zanahoria a partir de concentrado
@@ -60741,7 +60748,7 @@ ba: Фасоль
 be: фасоля звычайная
 bg: фасул
 ca: fesol
-cs: fazol zahradní
+cs: fazol zahradní, fazole
 cy: Ffeuen Ffrengig
 da: Bønne, bønner
 de: Bohnen, Bohne, Gartenbohne
@@ -61701,7 +61708,7 @@ eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.35
 
 < en: pulse
-en: flageolets
+en: flageolets, flageolet beans
 de: Flageolette
 es: habichuelas
 fi: leikkopapu, leikkopavut
@@ -61714,6 +61721,8 @@ ecobalyse:en: flageolet-bean-eu
 ecobalyse_origins_en_france:en: flageolet-bean-fr
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.30
+wikidata:en: Q581040
+wikipedia:en: https://en.wikipedia.org/wiki/Flageolet_bean
 
 < en: flageolets
 en: green flageolets
@@ -62550,6 +62559,7 @@ ar: طحين حمص
 bg: брашно от нахут
 bn: বেসন
 ca: farina de cigro, farina de cigrons
+cs: cizrnová mouka
 da: kikærtemel
 de: Kichererbsenmehl
 el: ρεβυθάλευρο
@@ -63157,6 +63167,7 @@ ciqual_food_name:fr: Lentille, germée
 en: lentil flour
 bg: брашно от леща
 ca: farina de llentia
+cs: čočková mouka
 de: Linsenmehl
 es: harina de lenteja
 fi: linssijauho
@@ -63185,6 +63196,7 @@ sv: linsprotein
 < en: lentil protein
 < en: preparation
 en: lentil protein preparation
+cs: přípravek z čočkové bílkoviny
 da: linseproteinpræparat
 fi: linssiproteiinivalmiste
 sv: beredning av linsprotein
@@ -67208,11 +67220,14 @@ en: caraway
 af: karwy
 ar: كروياء
 az: adi zirə
+be: кмен звычайны
 bg: ким
+bn: কারোয়া
 bo: གོ་སྙོད།
 bs: kim
 ca: alcaravia
-cs: kmín
+cs: kmín, kmín kořenný
+cv: ахаль çерçи кĕпçи
 cy: carwy
 da: kommen
 de: Kümmel
@@ -67231,19 +67246,23 @@ he: כרוויה תרבותית
 hi: शाहजीरा
 hr: kim
 hu: fűszerkömény
-hy: քիմիոն
+hy: քիմիոն, քիմոն սովորական
 id: jintan
+ig: cara way
 is: kúmen
 it: carvi
 ja: キャラウェイ
+jv: caraway
 ka: ძირა
 ko: 캐러웨이
 ku: jaj
-la: careum
-lt: kmynas
-lv: ķimenes
+la: Carum carvi, Careum
+lb: Kimmel
+lt: kmynas, paprastasis kmynas
+lv: ķimenes, pļavas ķimene
 mk: ким
 ml: കരിഞ്ചീരകം
+mn: гоньд
 mr: शहाजिरे
 ms: jintan
 mt: karwija
@@ -67251,21 +67270,26 @@ my: ကရဝေး
 nb: karve
 nl: karwij
 nn: karve
+os: хуымæтæджы фыдхос
 pa: زيره
-pl: kminek
+pl: kminek, kminek zwyczajny
+ps: زيره
 pt: alcaravia
 ro: chimen
+ru: тмин обыкновенный
 sh: kim
-sk: kmín
-sl: kumina
+sk: kmín, rasca lúčna
+sl: kumina, navadna kumina
 sq: qimnoni
 sr: ким, kim
 sv: kummin
 te: కరం కరవే
 tg: карвиё
 th: เทียนตากบ
-uk: кмин
-zh: 葛縷子
+tt: ак әнис
+uk: кмин, кмин звичайний
+uz: zira urug'lari
+zh: 葛缕子, 葛縷子
 # azb:عادی زیره
 # bar:kimme
 # dsb:garba
@@ -67287,30 +67311,40 @@ comment:en: The wikidata entry is a mix of plant, seed and latin name.
 description:en: CARAWAY (Carum carvi), is a biennial plant in the family Apiaceae. The fruits, usually used whole, have a pungent, anise-like flavor. Caraway is used as a spice in breads, especially rye bread. Caraway is also used in desserts, liquors, casseroles, and other foods.
 usda_ndb_proxy_code:en: 2005
 usda_ndb_proxy_name:en: Spices, caraway seed
+wikidata:en: Q26811
 wikipedia:en: https://en.wikipedia.org/wiki/Caraway
-# wikidata:en:Q26811 for the plant
-# wikidata:en:Q61670763 for the seed
 
 < en: caraway
 en: caraway seed
+ca: llavors d'alcaravia
+da: kommenfrø
 de: Kümmelsamen
 el: σπόρος κύμινου
-es: semilla de alcaravea
-fr: graine de carvi
-hr: sjeme kima
-it: seme di cumino, seme di carvi
+es: semilla de alcaravea, semillas de alcaravea
+et: köömned
+fr: graine de carvi, graines de carvi
+hr: sjeme kima, sjemenke kima
+it: seme di cumino, seme di carvi, seme di cumino dei prati
+ja: キャラウェイシード
+la: Carvi fructus
+lt: kmynų sėklos
+lv: ķimeņu sēklas
 nl: karwijzaad
 pl: nasiona kminku
 pt: semente de cominho, semente de alcaravia
 ro: semințe de chimen, seminte de chimen
 ru: семена тмина
+sl: seme navadne kumine
+sv: kumminfrön
+yi: קימל זוימען
+zh: 葛缕子籽, 葛縷子籽
 #ltg:čymynu sāklys
 ciqual_food_code:en: 11064
 ciqual_food_name:en: Caraway, seed
 ciqual_food_name:fr: Carvi, graine
 usda_ndb_code:en: 2005
 usda_ndb_name:en: Spices, caraway seed
-#498 @2021-09-19
+wikidata:en: Q61670763
 
 ###################################################################################################
 #
@@ -69410,20 +69444,22 @@ usda_ndb_name:en: Spices, dill weed, dried
 
 < en: dill
 en: dill seed, dill seeds
+da: dildfrø
 de: Dillsaat
 es: semillas de eneldo
-fr: Graines d'aneth
+fi: tillinsiemen
+fr: graines d'aneth
 hr: sjeme kopra
 it: semi di aneto
+nb: dillfrø
 nl: dillezaad
+nn: dillfrø
+sv: dillfrö, dillfrön
+ciqual_proxy_food_code:en: 11064
+ciqual_proxy_food_name:en: Caraway, seed
 usda_ndb_code:en: 2016
 usda_ndb_name:en: Spices, dill seed
-#184 @2021-09-16
-
-#<en:dill
-#en:organic dill seed
-#fi:luomu tillinsiemen
-#nl:biologisch dillezaad
+wikidata:en: Q139678670
 
 #processing:en: en:dried
 #<en:dill
@@ -72092,107 +72128,134 @@ en: jasmine petals
 fr: pétales de jasmin
 it: petali di gelsomino
 
-# description:en:JUNIPERS are coniferous plants in the genus Juniperus of the cypress family Cupressaceae. Juniper berries are a spice used in a wide variety of culinary dishes and best known for the primary flavoring in gin. Juniper berry sauce is often a popular flavoring choice for quail, pheasant, veal, rabbit, venison and other game dishes.
-# comment:en:Juniper as an ingredient most certainly implies a juniper berry.
-
 < en: plant
 en: juniper
 ar: عرعر شائع
-az: Adi ardıc
-ba: Артыш
-be: Ядловец звычайны
+az: adi ardıc
+ba: артыш
+be: ядловец звычайны
 bg: обикновена хвойна
-br: Jenevreg-boutin
-bs: Smreka
+br: jenevreg-boutin
+bs: smreka
 ca: ginebre comú
+co: ghjinepara
 cs: jalovec obecný
-cy: Merywen
-da: almindelig ene
-de: Wacholder, Wachholder
+cv: уртăш йывăççи
+cy: merywen
+da: enebærbusk, almindelig ene
+de: Wacholder, Wachholder, Gemeiner Wacholder
 el: άρκευθος
-eo: Ordinara junipero
-es: enebro
+eo: ordinara junipero
+es: enebro, enebro común
 et: kadakas, harilik kadakas
-eu: Ipar-ipuru
+eu: ipar-ipuru
 fa: پیرو
 fi: kataja
-fo: Baraldur
-fr: genièvre
+fo: baraldur
+fr: genièvre, genévrier commun
 ga: aiteal
-gl: Xenebreiro
+gl: xenebreiro
 he: ערער מצוי
 hr: obična borovica, borovica
 hu: közönséges boróka
 hy: գիհի ցածրաաճ
-is: Einir
+is: einir
 it: ginepro
 ja: セイヨウネズ
-kl: Kakillarnaq
+ka: ჩვეულებრივი ღვია
+kl: kakillarnaq
+ko: 두송
 la: Juniperus communis
-lt: Paprastasis kadagys
-lv: Parastais kadiķis
+lb: Wakelter
+lt: paprastasis kadagys
+lv: parastais kadiķis
 mk: обична смрека
-nb: einer
-nl: Jeneverbes
-nn: eine
-pl: jałowiec, jałowca, jałowcowy, jałowcowa, jałowcowe
-pt: zimbro
+nb: einerbusk, einebusk, einer
+nl: jeneverbes
+nn: einebusk, einerbusk, eine
+os: хуымæтæджы æхсæлы
+pl: jałowiec, jałowca, jałowcowy, jałowcowa, jałowcowe, jałowiec pospolity
+pt: zimbro, zimbro-rasteiro
+rm: ginaiver cumin
 ro: ienupăr
-ru: Можжевельник обыкновенный
-se: Reatká
-sh: Kleka
-sk: Borievka obyčajná
-sl: Navadni brin
-sq: Dëllinja
-sr: Клека
-sv: En
-tr: Adi ardıç
-tt: Артыш
-uk: Ялівець звичайний
+ru: можжевельник обыкновенный
+se: reatká
+sh: kleka
+sk: borievka obyčajná
+sl: navadni brin
+sq: dëllinja
+sr: клека
+su: juniper beri
+sv: enbuske
+tr: adi ardıç
+tt: артыш
+uk: ялівець звичайний
+wa: franc pectî
 zh: 刺柏
-# azb:عادی آردیج
-# bar:Kranawitt
-# be-tarask:Ядловец звычайны
-# csb:Zwëczajny jałówc
-# frr:Algemian wacholder
-# hsb:Holanski jałorc
-# koi:Верӧс
-# nap:Inipr
-# nds-nl:Jeneverbees
-# pnb:عام صنوبر
-# sgs:Ieglis
-# stq:Wacholder
-# vro:Katai
-# war:Franc pectî
+#azb: عادی آردیج
+#bar: Kranawitt
+#be-tarask: Ядловец звычайны
+#csb: Zwëczajny jałówc
+#frr: Algemian wacholder
+#hsb: Holanski jałorc
+#koi: Верӧс
+#nap: Inipr
+#nds-nl: Jeneverbees
+#pnb: عام صنوبر
+#sgs: Ieglis
+#stq: Wacholder
+#vro: Katai
+#war: Franc pectî
+comment:en: Juniper as an ingredient most certainly implies a juniper berry.
+description:en: JUNIPERS are coniferous plants in the genus Juniperus of the cypress family Cupressaceae. Juniper berries are a spice used in a wide variety of culinary dishes and best known for the primary flavoring in gin. Juniper berry sauce is often a popular flavoring choice for quail, pheasant, veal, rabbit, venison and other game dishes.
 wikidata:en: Q26325
 wikipedia:en: https://en.wikipedia.org/wiki/Juniper
 
-# description:en:A JUNIPER BERRY is the female seed cone produced by the various species of junipers. Juniper berries are used in northern European and particularly Scandinavian cuisine to "impart a sharp, clear flavor" to meat dishes. Besides Norwegian and Swedish dishes, juniper berries are also sometimes used in German, Austrian, Czech, Polish and Hungarian cuisine, often with roasts (such as German sauerbraten). Northern Italian cuisine, especially that of the South Tyrol, also incorporates juniper berries.
-
 < en: juniper
 en: juniper berry, juniper berries
-af: Jenewerbessie
-be: Ядловец
+af: jenewerbessie
+ar: توت العرعر
+be: ядловец
+br: jenevra
+bs: juniper
+ca: ginebró
+cs: jalovčinka
 da: enebær
 de: Wacholderbeere, Wacholderbeeren
-es: baya de enebro
+es: baya de enebro, bayas de enebro
+et: marikäbi
 fa: جونیپر بری
 fi: katajanmarja, katajanmarjat
-fr: baies de genièvre
-hr: bobica kleke
+fr: baies de genièvre, baies de genévrier
+hr: bobica kleke, bobice kleke
+hu: borókabogyó
+hy: գիհու հատապտուղ
+id: juniper beri
 it: coccola di ginepro
+ja: 杜松果
+jv: bèri juniper
 ko: 두송자
-lv: Čiekuroga
+la: Juniperi pseudo-fructus
+lt: kadagio uogos
+lv: čiekuroga
 mk: смрекинка
 ml: ജൂനിപ്പർ കായ
 mt: frotta tal-ġnibru
-nl: bessen van de jeneverbes
+nb: einebær, einerbær
+nl: bessen van de jeneverbes, jeneverbessen
+nn: einebær, einerbær
 pl: owoc jałowca, owoce jałowca
-pt: semente de zimbro, Baga de zimbro
-ru: Можжевельник
+pt: semente de zimbro, baga de zimbro
+ro: boabă de ienupăr
+ru: можжевельник
+sl: brinova jagoda
 sv: enbär
-uk: Ялівець
+tw: juniper nnuaba a wɔfrɛ no berry
+uk: ялівець
+uz: archa mevasi
+vi: bách xù
 zh: 杜松子
+description:en: A JUNIPER BERRY is the female seed cone produced by the various species of junipers. Juniper berries are used in northern European and particularly Scandinavian cuisine to "impart a sharp, clear flavor" to meat dishes. Besides Norwegian and Swedish dishes, juniper berries are also sometimes used in German, Austrian, Czech, Polish and Hungarian cuisine, often with roasts (such as German sauerbraten). Northern Italian cuisine, especially that of the South Tyrol, also incorporates juniper berries.
 wikidata:en: Q3251025
 wikipedia:en: https://en.wikipedia.org/wiki/Juniper_berry
 
@@ -77323,7 +77386,7 @@ fr: truffe d’été, Truffe blanche d'été
 hr: crni ljetni tartuf, tuber aestivum
 hu: Nyári szarvasgomba
 it: Tartufo Scorzione
-la: Tuber aestivum
+la: Tuber aestivum, tuber aestivum vitt, tuber aestivum vittad
 lt: Vasarinis trumas
 nl: Zomertruffel
 pl: trufla letnia, trufle letnie
@@ -86927,6 +86990,7 @@ fr: café en grains
 hr: zrna kave
 it: chicchi di caffè
 ja: コーヒー豆, 珈琲豆
+ko: 커피원두
 nl: koffiebonen
 
 < en: coffee
@@ -95809,7 +95873,7 @@ be: соевы соус
 bg: Соев сос
 bn: সয়া সস
 ca: salsa de soia
-cs: sójová omáčka
+cs: sójová omáčka, sójová omáčka shoyu
 da: sojasovs, sojasauce
 de: Sojasauce, Sojasoße, Sojasosse, Soja Sosse, Sojasoßen, Sojasossen, Sojasaucen, Soja soße, Soja Sauce
 el: Σάλτσα σόγιας
