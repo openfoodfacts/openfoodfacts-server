@@ -1545,6 +1545,18 @@ reference to an array of error messages
 
 =cut
 
+sub _calculate_recognition_rate ($ingredients_ref) {
+
+	return 0 if not defined $ingredients_ref or scalar(@$ingredients_ref) == 0;
+
+	my $recognized = 0;
+	foreach my $ingredient (@$ingredients_ref) {
+		$recognized++ if $ingredient->{is_in_taxonomy};
+	}
+
+	return $recognized / scalar(@$ingredients_ref);
+}
+
 sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
 	my $debug_ingredients = 0;
@@ -1592,6 +1604,10 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	}
 
 	my $text = $product_ref->{ingredients_text};
+
+	# If the original text contains newlines, we may need to try parsing with newlines as separators
+	my $has_newlines = ($product_ref->{ingredients_text} =~ /[\r\n]/);
+	my $original_ingredients_text = $product_ref->{ingredients_text};
 
 	$text = preparse_ingredients_text($ingredients_lc, $text);
 
@@ -2946,6 +2962,46 @@ Text to analyze
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, undef, 0, $text);
 
 	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
+
+	# If the original text had newlines (e.g. cooking recipe with 1 ingredient per line), try parsing with newlines as separators
+	# to see if we get a better recognition rate. If so, keep the new parse.
+	# Some ingredient lists may have new lines in the middle of an ingredient, so we don't want to always parse with newlines as separators.
+	if ($has_newlines) {
+		# Save Parse A results
+		my $parse_a_ingredients_ref = $product_ref->{ingredients};
+		my $parse_a_specific_ingredients_ref = $product_ref->{specific_ingredients};
+
+		# Replace newlines with ", " for Parse B
+		$product_ref->{ingredients_text} =~ s/\r\n/, /g;
+		$product_ref->{ingredients_text} =~ s/\n/, /g;
+		$product_ref->{ingredients_text} =~ s/\r/, /g;
+
+		# Call recursively for Parse B
+		parse_ingredients_text_service($product_ref, $updated_product_fields_ref, $errors_ref);
+
+		# Calculate recognition rates
+		my $rate_a = _calculate_recognition_rate($parse_a_ingredients_ref);
+		my $rate_b = _calculate_recognition_rate($product_ref->{ingredients});
+
+		$log->debug(
+			"parse_ingredients_text_service - dual-parse comparison",
+			{
+				rate_a => $rate_a,
+				rate_b => $rate_b,
+				kept_parse => ($rate_b > $rate_a * 1.10) ? 'B' : 'A'
+			}
+		) if $log->is_debug();
+
+		# Keep Parse B only if it's at least 10% better
+		if ($rate_b <= $rate_a * 1.10) {
+			# Restore Parse A
+			$product_ref->{ingredients} = $parse_a_ingredients_ref;
+			$product_ref->{specific_ingredients} = $parse_a_specific_ingredients_ref;
+		}
+
+		# Restore original ingredients_text
+		$product_ref->{ingredients_text} = $original_ingredients_text;
+	}
 
 	return;
 }

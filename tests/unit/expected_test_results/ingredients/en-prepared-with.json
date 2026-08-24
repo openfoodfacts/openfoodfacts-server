@@ -51,6 +51,33 @@
          "quantity" : "70 g",
          "quantity_g" : 70,
          "text" : "70g of onions per 100g"
+      },
+      {
+         "id" : "en:cucumber",
+         "ingredient" : "cucumber",
+         "quantity" : "100 g",
+         "quantity_g" : 100,
+         "text" : "prepared with 100g of cucumber per 100g of product"
+      },
+      {
+         "id" : "en:tomato",
+         "ingredient" : "tomatoes",
+         "quantity" : "150 g",
+         "quantity_g" : 150,
+         "text" : "made with 150 g of tomatoes per 100ml"
+      },
+      {
+         "id" : "en:potato",
+         "ingredient" : "potatoes",
+         "percent" : 50,
+         "text" : "prepared with: 50% of potatoes"
+      },
+      {
+         "id" : "en:onion",
+         "ingredient" : "onions",
+         "quantity" : "70 g",
+         "quantity_g" : 70,
+         "text" : "70g of onions per 100g"
       }
    ],
    "unknown_ingredients_n" : 0
