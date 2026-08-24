@@ -3825,8 +3825,6 @@ tr: yoğurt
 zh: 酸奶
 carbon_footprint_fr_foodges_ingredient:fr: Yaourt
 carbon_footprint_fr_foodges_value:fr: 2.9
-ciqual_food_code:en: 19624
-ciqual_food_name:en: Yoghurt, plain or fruit -average-
 ciqual_proxy_food_code:en: 19593
 ciqual_proxy_food_name:fr: Yaourt, lait fermenté ou spécialité laitière, nature
 usda_ndb_proxy_code:en: 1116
@@ -4547,7 +4545,6 @@ carbon_footprint_fr_foodges_ingredient:fr: Crème, 40% MG, pasteurisée
 carbon_footprint_fr_foodges_value:fr: 4.2
 ciqual_food_code:en: 19402
 ciqual_food_name:fr: Crème de lait ou spécialité à base de crème légère, teneur en matière grasse inconnue (aliment moyen)
-ciqual_proxy_food_name:en: Liquid cream, light, 15-20% fat, UHT
 description:en: CREAM is a dairy product composed of the higher-butterfat layer skimmed from the top of milk before homogenization.
 description:de: Als Rahm (Sahne, Obers, Nidel) wird die fetthaltige Phase der Milch bezeichnet, die beim Stehenlassen ungesäuerter Rohmilch natürlich an der Oberfläche aufschwimmt oder aus Rohmilch abzentrifugiert werden kann.
 description:es: La crema de leche o nata es una sustancia de consistencia grasa y tonalidad blanca o amarillenta dulce que se encuentra de forma emulsionada en la leche recién ordeñada o cruda
@@ -5719,9 +5716,9 @@ ru: сыр из овечьего молока
 sr: овчији сир
 sv: Fårost
 zh: 羊奶酪
+# de-ch:Schafskäse
 ciqual_food_code:en: 12824
 ciqual_food_name:en: Soft ripened cheese with bloomy rind, from ewe's milk, Camembert-type cheese
-# de-ch:Schafskäse
 description:en: SHEEP MILK CHEESE is a cheese prepared from sheep milk.
 wikidata:en: Q1411808
 wikipedia:en: https://en.wikipedia.org/wiki/Sheep_milk_cheese
@@ -6767,8 +6764,6 @@ tt: эремчек
 uk: домашній сир
 wa: Makêye
 zh: 奶渣
-ciqual_food_code:en: 19501
-ciqual_food_name:en: Quark, plain or fruit -average-
 # bar:Tschottn
 # be-tarask:тварог
 # bxr:Ээзгэй
@@ -6778,6 +6773,8 @@ ciqual_food_name:en: Quark, plain or fruit -average-
 # en-gb:Quark
 # olo:Ruahto
 # pt-br:Quark
+ciqual_food_code:en: 19501
+ciqual_food_name:en: Quark, plain or fruit -average-
 description:en: QUARK is a type of fresh dairy product made by warming soured milk until the desired amount of curdling is met, and then straining it.
 wikidata:en: Q259642
 wikipedia:en: https://en.wikipedia.org/wiki/Quark_(dairy_product)
@@ -11108,11 +11105,11 @@ ru: оленина
 uk: оленятина
 vi: Thịt nai
 zh: 鹿肉
-ciqual_food_code:en: 14005
-ciqual_food_name:en: Venison -roebuck-, raw
 # ast:Carne de venáu
 # sco:venison
 # yue:鹿肉
+ciqual_food_code:en: 14005
+ciqual_food_name:en: Venison -roebuck-, raw
 usda_ndb_code:en: 17164
 usda_ndb_name:en: Game meat, deer, raw
 wikidata:en: Q2296872
@@ -11935,8 +11932,6 @@ wa: Couenne
 wo: Couenne
 zh: 豬皮
 zu: Couenne
-ciqual_food_code:en: 28478
-ciqual_food_name:en: Pork, rind, raw
 # ast:Couenne
 # bar:schwoatn
 # be-tarask:Скварка
@@ -11963,6 +11958,8 @@ ciqual_food_name:en: Pork, rind, raw
 # vec:Couenne
 # vls:Couenne
 # yue:豬皮
+ciqual_food_code:en: 28478
+ciqual_food_name:en: Pork, rind, raw
 comment:en: Product translations can be wrong. The wikidata page translations often refers to disambiguations. Are these translations any good?
 description:en: Pork rind is the culinary term for the skin of a pig.
 wikidata:en: Q3695900
@@ -14827,10 +14824,10 @@ tr: Bitkisel yağ
 uk: Рослинні жири й олії
 vi: Dầu thực vật
 zh: 植物油
-ciqual_food_code:en: 17001
-ciqual_food_name:en: Vegetable oil -average-
 # roa-rup:Untulemnu
 # sco:Vegetable ile
+ciqual_food_code:en: 17001
+ciqual_food_name:en: Vegetable oil -average-
 density_g_per_ml:en: 0.92
 description:en: In common usage, vegetable oil may refer exclusively to vegetable fats which are liquid at room temperature
 wikipedia:en: https://en.wikipedia.org/wiki/Vegetable_oil
@@ -25357,9 +25354,6 @@ uz: marjumak
 vi: kiều mạch
 wa: boûkete
 zh: 蕎麥, 荞麦
-#1604 @2021-10-07
-ciqual_food_code:en: 9380
-ciqual_food_name:en: Buckwheat, whole, raw
 #azb:اکین قاراباشاغی
 #csb:bùkwita
 #dsb:hejduša
@@ -25791,10 +25785,10 @@ tr: amaranthus
 uk: Щириця
 vi: chi dền
 zh: 苋属
-ciqual_food_code:en: 9345
-ciqual_food_name:en: Amaranth, raw
 # hsb:Šćěrjenc
 # nah:huauhtli
+ciqual_food_code:en: 9345
+ciqual_food_name:en: Amaranth, raw
 ciqual_food_name:fr: Amarante, crue
 description:en: Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
 usda_ndb_code:en: 20001
@@ -26901,9 +26895,6 @@ tt: борай
 uk: спельта
 wa: speate
 zh: 斯佩耳特小麦
-allergens:en: en:gluten
-ciqual_food_code:en: 9001
-ciqual_food_name:en: Spelt, raw
 # als:Schwobakorn
 # ast:espelta
 # dag:sipɛlit
@@ -26913,6 +26904,7 @@ ciqual_food_name:en: Spelt, raw
 # nds:Dinkelweite
 # sco:spelt
 # yue:古麥
+allergens:en: en:gluten
 ciqual_food_proxy_code:en: 9001
 ciqual_food_proxy_name:en: Spelt, raw
 ciqual_food_proxy_name:fr: Épeautre, cru
@@ -30301,7 +30293,6 @@ nl: rijstzemelen
 pt: farelo de arroz
 sv: riskli
 zh: 米糠
-#772 in 9 @2021-10-03
 ciqual_food_code:en: 9643
 ciqual_food_name:en: Rice bran
 usda_ndb_proxy_code:en: 20060
@@ -32026,8 +32017,6 @@ uk: меляса
 ur: راب
 vi: Rỉ đường
 zh: 糖蜜
-ciqual_food_code:en: 31067
-ciqual_food_name:en: Cane molasses
 # ast:Melaza
 # atj:Naminas
 # de-ch:Melasse
@@ -32044,6 +32033,8 @@ ciqual_food_name:en: Cane molasses
 # zh-hk:糖蜜
 # zh-sg:糖蜜
 # zh-tw:糖蜜
+ciqual_food_code:en: 31067
+ciqual_food_name:en: Cane molasses
 description:en: Molasses (American English) or black treacle (British English) is a viscous product resulting from refining sugarcane or sugar beets into sugar.
 usda_ndb_code:en: 19304
 usda_ndb_name:en: Molasses
@@ -35618,11 +35609,6 @@ yo: Omi
 za: Raemx
 zh: 水
 zu: Amanzi
-carbon_footprint_fr_foodges_ingredient:fr: Eau en bouteille PET, plate, 0.5 L
-carbon_footprint_fr_foodges_value:fr: 0.4
-ciqual_food_code:en: 18066
-ciqual_food_name:fr: Eau du robinet
-ecobalyse:en: 36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 # als:Wasser
 # ang:Wæter
 # arc:ܡܝܐ
@@ -35705,12 +35691,15 @@ ecobalyse:en: 36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 # xmf:წყარი
 # zh-classical:水
 # zh-min-nan:Chúi
+carbon_footprint_fr_foodges_ingredient:fr: Eau en bouteille PET, plate, 0.5 L
+carbon_footprint_fr_foodges_value:fr: 0.4
+ciqual_food_code:en: 18066
+ciqual_food_name:fr: Eau du robinet
+ecobalyse:en: 36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q283
 wikipedia:en: https://en.wikipedia.org/wiki/Water
-ciqual_food_name:en: Water, bottled
-ciqual_food_name:en: Water, bottled -average-
 
 < en: water
 en: distilled water
@@ -35907,9 +35896,10 @@ uk: Мінеральні води
 uz: Mineral suvlar
 vi: Nước khoáng
 zh: 礦泉水
-ciqual_food_name:en: Water, mineral, bottled -average-
 # ast:Agua mineral
 # yue:礦泉水
+ciqual_food_code:en: 18044
+ciqual_food_name:en: Water, mineral, bottled -average-
 wikidata:en: Q178921
 wikipedia:en: https://en.wikipedia.org/wiki/Mineral_water
 
@@ -36000,13 +35990,14 @@ tr: Soda, sodalı su, karbonatlı su
 uk: Газована вода, підкислена вода, шипуча вода, содова вода
 yi: סאדע וואסער
 zh: 碳酸水
-ciqual_food_name:en: Water, mineral, carbonated, bottled -average-
 # ast:Agua carbonatao, soda
 # eu:Soda probably incorrect on wikipedia. Disambiguation issue
 # fa:سودا (نوشیدنی)i
 # hi:वातिल जल this needs to be checked
 # wuu:汽水
 # yue:荷蘭水
+ciqual_food_code:en: 18046
+ciqual_food_name:en: Water, mineral, carbonated, bottled -average-
 wikidata:en: Q264554
 wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
 
@@ -37580,9 +37571,7 @@ pt: frutas vermelhas
 ciqual_food_code:en: 13997
 ciqual_food_name:en: Red berries (raspberries, strawberries, red currants, black currants) , raw
 ciqual_food_name:fr: Fruits rouges, crus (framboises, fraises, groseilles, cassis)
-#461 in 8 @2021-10-15
 
-# description:en:A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
 
 < en: fruit
 en: berries, berry
@@ -37605,7 +37594,7 @@ ru: Ягоды
 sv: Bär
 ciqual_food_code:en: 13997
 ciqual_food_name:en: Red berries -raspberries, strawberries, red currants, black currants- , raw
-# ingredient/fr:fruits-rouges 205 products @2018-10-01
+description:en: A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
 eurocode_2_group_2:en: 9.30
 wikipedia:en: https://en.wikipedia.org/wiki/Berry
 
@@ -37779,8 +37768,6 @@ sv: Fruktjuice
 uk: Фруктовий сік
 ciqual_food_code:en: 2004
 ciqual_food_name:en: Fruit juice -average-
-ciqual_proxy_food_code:en: 2035
-ciqual_proxy_food_name:en: Mixed fruits juice, pure juice
 density_g_per_ml:en: 1.06
 vegan:en: yes
 vegetarian:en: yes
@@ -38518,12 +38505,12 @@ rw: Urubuto rw’umugati
 th: สาเก
 ty: Ùru
 vi: xa kê, sa kê
-ciqual_food_code:en: 54500
-ciqual_food_name:en: Breadfruit, raw
 #akr:levu
 # bcl:Rimas
 #msn:biēg
 #zdj:furiapa, friapa
+ciqual_food_code:en: 54500
+ciqual_food_name:en: Breadfruit, raw
 eurocode_2_group_3:en: 8.40.52
 usda_ndb_code:en: 9059
 usda_ndb_name:en: Breadfruit, raw
@@ -39917,11 +39904,11 @@ sk: dule
 sl: kutine
 sv: kvitten
 vo: Aiva
-ciqual_food_code:en: 13010
-ciqual_food_name:en: Quince, raw
 # ang:codæppel
 # pcd:Counhiasse
 # scn:Cutugnu
+ciqual_food_code:en: 13010
+ciqual_food_name:en: Quince, raw
 description:en: The QUINCE (Cydonia oblonga) is the sole member of the genus Cydonia in the family Rosaceae (which also contains apples and pears, among other fruits).
 usda_ndb_proxy_code:en: 9296
 usda_ndb_proxy_name:en: Quinces, raw
@@ -45852,8 +45839,6 @@ tl: milong kastila
 uk: канталуп
 vi: dưa vàng
 zh: 哈密瓜
-ciqual_food_code:en: 13026
-ciqual_food_name:en: Melon, cantaloupe -ex Cavaillon or Charentais melon-, pulp, raw
 # bho:खरबुज्जा
 # chy:mâhöhko
 # ku-arab:شەمامۆک
@@ -45862,6 +45847,8 @@ ciqual_food_name:en: Melon, cantaloupe -ex Cavaillon or Charentais melon-, pulp,
 # zh-cn:厚皮甜瓜
 # zh-hant:哈密瓜
 # zh-tw:甜瓜
+ciqual_food_code:en: 13026
+ciqual_food_name:en: Melon, cantaloupe -ex Cavaillon or Charentais melon-, pulp, raw
 description:en: Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
 usda_ndb_code:en: 9181
 usda_ndb_name:en: Melons, cantaloupe, raw
@@ -46838,8 +46825,6 @@ uk: Гранатове дерево
 ur: انار
 uz: Ahop
 za: Maksigloux
-ciqual_proxy_food_code:en: 13018
-ciqual_proxy_food_name:en: Pomegranate, pulp and pips, raw
 # bho:अनार
 # ckb:ھەنار
 # hak:Sa̍k-liù
@@ -46849,6 +46834,8 @@ ciqual_proxy_food_name:en: Pomegranate, pulp and pips, raw
 # mzn:انار
 # pnb:انار
 # vro:Granaatupin
+ciqual_proxy_food_code:en: 13018
+ciqual_proxy_food_name:en: Pomegranate, pulp and pips, raw
 usda_ndb_code:en: 9286
 usda_ndb_name:en: Pomegranates, raw
 wikidata:en: Q13222088
@@ -49990,13 +49977,12 @@ tr: hindiba
 uk: цикорій салатний
 vi: rau cúc đắng
 zh: 苦苣
-# wikidata:en:Q28604477 what is this?
-ciqual_food_code:en: 20090
-ciqual_food_name:en: Escaroles
 # nds-nl:andievie
 # pcd:indife
 # scn:nirvia
 # sr-ec:ендивија
+ciqual_food_code:en: 20090
+ciqual_food_name:en: Escaroles
 comment:en: Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root. Endive in english is different from endive in french.
 description:en: Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
 ecobalyse:en: d680c44f-8458-406a-ac2c-13cd83e90a07
@@ -51651,8 +51637,6 @@ carbon_footprint_fr_foodges_ingredient:fr: Chou-Fleur
 carbon_footprint_fr_foodges_value:fr: 0.5
 ciqual_food_code:en: 20016
 ciqual_food_name:en: Cauliflower, raw
-ciqual_proxy_food_code:en: 20016
-ciqual_proxy_food_name:en: Cauliflower, raw
 description:en: CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
 ecobalyse:en: cauliflower-fr
 ecobalyse_labels_en_organic:en: cauliflower-organic
@@ -54442,9 +54426,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Oignons
 carbon_footprint_fr_foodges_value:fr: 0.6
 ciqual_food_code:en: 20034
 ciqual_food_name:en: Onion, raw
-ciqual_proxy_food_code:en: 20034
-ciqual_proxy_food_name:en: Onion, raw
-ciqual_proxy_food_name:fr: Oignon, cru
+ciqual_food_name:fr: Oignon, cru
 ecobalyse:en: onion-non-eu
 ecobalyse_labels_en_organic:en: onion-organic
 ecobalyse_origins_en_european_union:en: onion-eu
@@ -55464,9 +55446,7 @@ hr: svježi češnjak
 it: aglio fresco
 ciqual_food_code:en: 11000
 ciqual_food_name:en: Garlic, fresh
-ciqual_proxy_food_code:en: 11000
-ciqual_proxy_food_name:en: Garlic, fresh
-ciqual_proxy_food_name:fr: Ail, cru
+ciqual_food_name:fr: Ail, cru
 usda_ndb_code:en: 11215
 usda_ndb_name:en: Garlic, raw
 
@@ -56687,9 +56667,6 @@ yi: מאניאק
 yo: ẹ̀gẹ́
 za: moegsawz
 zh: 木薯
-#650 in 10 @2021-10-18
-ciqual_food_code:en: 54031
-ciqual_food_name:en: Cassava or manioc, roots, raw
 #ban:kaséla
 #bcl:balinghoy
 #bjn:jawaw
@@ -56785,7 +56762,7 @@ zh: 木薯根淀粉
 #lfn:tapioca
 ciqual_food_code:en: 4000
 ciqual_food_name:en: Tapioca, raw
-ciqual_food_name:fr: Tapioca, raw
+ciqual_food_name:fr: Tapioca, cru
 description:en: TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
 ifct_food_code:en: F015
 ifct_food_name:en: Tapioca
@@ -57146,13 +57123,13 @@ th: มันฝรั่งบด
 tr: patates püresi
 uk: картопляне пюре
 zh: 馬鈴薯泥
-ciqual_food_code:en: 4047
-ciqual_food_name:en: Mashed potatoes -average-
 # bat_smg:bolbiu potra
 # szl:sztamfkartofle
 # vls:puree
 # wuu:土豆泥
 # zh_yue:薯茸
+ciqual_food_code:en: 4047
+ciqual_food_name:en: Mashed potatoes -average-
 wikidata:en: Q322787
 wikipedia:en: https://en.wikipedia.org/wiki/Mashed_potato
 
@@ -57567,9 +57544,6 @@ th: อาร์ทิโชก
 tr: devedikeni
 yi: ארטישאק
 zh: 刺苞菜蓟
-#30 in 5 @2021-10-21
-ciqual_food_code:en: 20054
-ciqual_food_name:en: Cardoon, raw
 #arz:خرشف
 #ast:cardu
 #kab:taga
@@ -57843,8 +57817,6 @@ zh: 茄子
 #carbon_footprint_fr_foodges_value:fr:1.2
 carbon_footprint_fr_foodges_ingredient:fr: Aubergine serre chauffée
 carbon_footprint_fr_foodges_value:fr: 6.2
-ciqual_food_code:en: 20053
-ciqual_food_name:en: Eggplant, raw
 ciqual_proxy_food_code:en: 20053
 ciqual_proxy_food_name:en: Eggplant, raw
 ecobalyse:en: eggplant-eu
@@ -58630,9 +58602,6 @@ sv: rucola, rucolasallad, ruccola, ruccolasallad
 tr: roka
 uk: рукола
 zh: 芝麻菜
-# 997 in 5 languages @2021-10-04
-ciqual_food_code:en: 20217
-ciqual_food_name:en: Roman rocket, raw
 # arz:جرجير
 # ast:guxanu
 # azb:اکین اینداوسو
@@ -60613,8 +60582,6 @@ zh: 南瓜
 # yue:南瓜
 carbon_footprint_fr_foodges_ingredient:fr: Citrouille - Courges -Potiron
 carbon_footprint_fr_foodges_value:fr: 1.2
-ciqual_food_code:en: 20044
-ciqual_food_name:en: Pumpkin, raw
 ciqual_proxy_food_code:en: 20139
 ciqual_proxy_food_name:en: Squash, all types, raw
 ciqual_proxy_food_name:fr: Courge, crue
@@ -63355,7 +63322,7 @@ hr: kuhana zelena leća
 it: lenticchie verdi cotte
 nl: gekookte groene linzen
 ciqual_food_code:en: 20587
-ciqual_food_name:en: -
+ciqual_food_name:en: Lentil, green, boiled/cooked in water
 
 < en: green lentils
 fr: lentilles vertes précuites
@@ -68967,8 +68934,6 @@ wo: jinjeer
 yi: אינגבער
 za: hing
 zh: 薑
-ciqual_food_code:en: 11074
-ciqual_food_name:en: Ginger, raw
 # ace:Halia
 # ang:Gingifer
 # arc:ܚܡܣܐ
@@ -78868,7 +78833,6 @@ ud: Нальым
 uk: минь річковий
 vi: Cá tuyết sông
 zh: 江鱈
-ciqual_food_name:en: Burbot, raw
 # ang:ǣlepūte
 # be-tarask:Мянтуз
 # csb:Mińtus
@@ -78896,6 +78860,8 @@ ciqual_food_name:en: Burbot, raw
 # zh-hk:江鱈
 # zh-sg:江鳕
 # zh-tw:江鱈
+ciqual_food_code:en: 27023
+ciqual_food_name:en: Burbot, raw
 description:en: Burbot (Lota lota) is a freshwater fish — and actually the only member of the cod family (Gadidae) that lives entirely in fresh water rather than the ocean. It's edible and considered quite good eating — sometimes nicknamed "poor man's lobster" because its liver and flesh are prized by some anglers, especially for winter ice-fishing.
 usda_ndb_code:en: 15006
 usda_ndb_name:en: Fish, burbot, raw
@@ -79426,7 +79392,9 @@ th: ปลากะพงแม่น้ำไนล์
 uk: Окунь нільський
 vi: Cá rô sông Nile
 zh: 尼羅尖吻鱸
-ciqual_food_name:en: Nile perch, raw
+ciqual_proxy_food_code:en: 27025
+ciqual_proxy_food_name:en: Nile perch, raw
+ciqual_proxy_food_name:fr: Perche du Nil, crue
 description:en: The Nile perch (Lates niloticus), also known as the African snook, Goliath perch, Giant lates or the Victoria perch, is a species of freshwater fish in family Latidae of order Perciformes. It is widespread throughout much of the Afrotropical realm.
 description:de: Der Nilbarsch (Lates niloticus), in Deutschland als Speisefisch meist Viktoriabarsch genannt, ist ein Süßwasser-Raubfisch aus der Familie der Riesenbarsche (Latidae). Er kommt im tropischen und subtropischen Afrika in allen bedeutenden Flusssystemen vor.
 description:es: La perca del Nilo (Lates niloticus) es un pez de la familia Latidae.
@@ -79471,7 +79439,9 @@ ru: Речной окунь
 sk: Ostriež zelenkastý
 sl: Perca fluviatilis
 sv: Abborre
-ciqual_food_name:en: European perch, raw
+ciqual_proxy_food_code:en: 27010
+ciqual_proxy_food_name:en: European perch, raw
+ciqual_proxy_food_name:fr: Perche, crue
 description:en: The European perch (Perca fluviatilis), also known as the common perch, redfin perch, big-scaled redfin, English perch, Eurasian perch, Eurasian river perch, Hatch or in Anglophone parts of Europe, simply the perch, is a predatory species of the freshwater perch native to Europe and northern Asia.
 description:de: Der Flussbarsch (Perca fluviatilis), am Bodensee Kretzer, in der Schweiz auch Egli genannt, ist ein in ganz Europa vorkommender Süßwasserfisch.
 description:es: La perca o perca de río (Perca fluviatilis) es una especie de pez de la familia Percidae muy abundante en los ríos y lagos de casi toda Europa central y occidental.
@@ -79708,12 +79678,11 @@ sh: Iverak zlatopjeg
 sv: Rödspätta
 uk: камбала європейська
 zh: 鰈魚
-# structure:inner:role:synonym, eg carrelet (Pleuronectes platessa)
-ciqual_food_name:en: European plaice, raw
-description:en: The European plaice (Pleuronectes platessa) is a commercially important flatfish
 # csb:Bańtka
 # frr:Skol
 # pcd:Càrlé
+ciqual_food_name:en: European plaice, raw
+description:en: The European plaice (Pleuronectes platessa) is a commercially important flatfish
 wikipedia:en: https://en.wikipedia.org/wiki/European_plaice
 
 #<en:European plaice
@@ -81176,7 +81145,9 @@ tr: Bayağı dil balığı
 uk: Солія звичайна
 vi: Cá bơn thông thường
 zh: 鰨
-ciqual_food_name:en: Common sole, raw
+ciqual_proxy_food_name:en: Common sole, raw
+ciqual_proxy_food_name:fr: Sole, crueame:en: Common sole, raw
+ciqual_proxy_food_nciqual_food_code:en: 26058
 description:en: The common sole, Dover sole, or black sole (Solea solea) is a species of flatfish in the family Soleidae.It is a largest fish in solea (fish) genus. Chefs prize Dover sole for its mild, buttery, sweet flavour and versatility, and for its ease of filleting.
 description:de: Die Seezunge (Solea solea) gehört zur Ordnung der Plattfische (Pleuronectiformes) und ist einer der begehrtesten und teuersten Speisefische.
 description:es: El lenguado común (Solea solea) es un pez plano que puede ser encontrado en los mares de aguas templadas, o en agua dulce.
@@ -82309,6 +82280,7 @@ sv: Tandbraxen
 tr: Sinarit
 uk: Зубань звичайний
 zh: 細點牙鯛
+ciqual_food_code:en: 26103
 ciqual_food_name:en: Common dentex, raw
 description:en: The common dentex (Dentex dentex) is a species of fish in the family Sparidae. Dentex is common in the Mediterranean Sea, but also seen in the Black Sea and the Eastern Atlantic Ocean from the British Isles to Mauritania.
 description:de: Die Zahnbrasse (Dentex dentex) ist ein Fisch aus der Familie der Meerbrassen (Sparidae). Ein gut schmeckender Speisefisch mit festem weißen Fleisch.
@@ -82565,14 +82537,14 @@ uk: Пструг
 uz: Gulmoyi
 vi: Cá hương
 zh: 鱒魚
-ciqual_food_code:en: 26092
-ciqual_food_name:en: Sea trout, raw
 # ang:Sceota
 # ast:Trucha
 # be-tarask:Стронга
 # chr:ᏧᎾᎦ
 # pnb:ٹراؤٹ
 # rue:Пструг
+ciqual_food_code:en: 26092
+ciqual_food_name:en: Sea trout, raw
 wikidata:en: Q2258881
 wikipedia:en: https://en.wikipedia.org/wiki/Trout
 
@@ -84187,8 +84159,6 @@ vi: Ốc
 wa: Caracole
 za: Saehaexma
 zh: 蜗牛
-ciqual_food_code:en: 10008
-ciqual_food_name:en: Snail, raw
 # ast:Cascoxu
 # atj:Pimerikockwatcic
 # azb:ایلبیز
@@ -84217,6 +84187,8 @@ ciqual_food_name:en: Snail, raw
 # zh-hk:蝸牛
 # zh-sg:蜗牛
 # zh-tw:蝸牛
+ciqual_food_code:en: 10008
+ciqual_food_name:en: Snail, raw
 description:en: A snail is, in loose terms, a shelled gastropod. The name is most often applied to land snails, terrestrial pulmonate gastropod molluscs.
 usda_ndb_code:en: 90560
 usda_ndb_name:en: Mollusks, snail, raw
@@ -84507,8 +84479,6 @@ pt: Amêijoa
 su: Kerang
 vi: Nghêu
 zh: 蛤蜊
-ciqual_food_code:en: 10017
-ciqual_food_name:en: Clam, raw
 # ast:Amasuela
 # cdo:Gák-lì
 # gom:Tisreo
@@ -84518,6 +84488,8 @@ ciqual_food_name:en: Clam, raw
 # zh-hans:蛤蜊
 # zh-hant:蛤蜊
 # zh-hk:蛤蜊
+ciqual_food_code:en: 10017
+ciqual_food_name:en: Clam, raw
 wikidata:en: Q1192868
 wikipedia:en: https://en.wikipedia.org/wiki/Clam
 
@@ -84760,9 +84732,6 @@ xh: Nonkala
 za: Baeu
 zh: 螃蟹
 zu: Inkalankala
-ciqual_food_code:en: 10039
-ciqual_food_name:en: Crab, raw
-description:en: CRABS are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail".
 # ang:Crabba
 # be-tarask:крабы
 # cdo:Chiĕk
@@ -84784,6 +84753,9 @@ description:en: CRABS are decapod crustaceans of the infraorder Brachyura, which
 # war:Masag
 # yue:蟹
 # zea:Krabb'n
+ciqual_food_code:en: 10039
+ciqual_food_name:en: Crab, raw
+description:en: CRABS are decapod crustaceans of the infraorder Brachyura, which typically have a very short projecting "tail".
 wikidata:en: Q40802
 wikipedia:en: https://en.wikipedia.org/wiki/Crab
 
@@ -85001,9 +84973,6 @@ uk: Омар
 ur: کَر کند
 vi: Họ Tôm hùm càng
 zh: 海螯蝦科
-ciqual_food_code:en: 10010
-ciqual_food_name:en: Lobster, raw
-description:en: LOBSTERS comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
 # ang:Loppestre
 # ats:Llagosta
 # bcl:Banagan
@@ -85015,6 +84984,9 @@ description:en: LOBSTERS comprise a family (Nephropidae, sometimes also Homarida
 # war:Tapusok
 # wuu:龙虾
 # yue:海螯蝦科
+ciqual_food_code:en: 10010
+ciqual_food_name:en: Lobster, raw
+description:en: LOBSTERS comprise a family (Nephropidae, sometimes also Homaridae) of large marine crustaceans.
 wikipedia:en: https://en.wikipedia.org/wiki/Lobster
 
 # description:en:Homarus gammarus, known as the European lobster or common lobster, is a species of clawed lobster from the eastern Atlantic Ocean, Mediterranean Sea and parts of the Black Sea.
@@ -85140,14 +85112,14 @@ sv: Europeisk langust
 th: กุ้งมังกร
 vi: Tôm rồng
 zh: 棘刺龍蝦
-ciqual_food_code:en: 10015
-ciqual_food_name:en: Spiny lobster, raw
-description:en: SPINY LOBSTERS, also known as langustas, langouste, or rock lobsters, are a family (Palinuridae) of about 60 species of achelate crustaceans
 # de-ch:Gewöhnliche Languste
 # nan:Liông-hê
 # pt-br:Lagosta
 # sr-ec:Лангуст
 # yue:龍蝦
+ciqual_food_code:en: 10015
+ciqual_food_name:en: Spiny lobster, raw
+description:en: SPINY LOBSTERS, also known as langustas, langouste, or rock lobsters, are a family (Palinuridae) of about 60 species of achelate crustaceans
 wikidata:en: Q916760
 
 < en: spiny lobster
@@ -86526,8 +86498,6 @@ uk: Пилок
 uz: Chang donachalari
 vi: Phấn hoa
 zh: 花粉
-ciqual_food_code:en: 31111
-ciqual_food_name:en: Pollen, fresh
 # ast:Polen
 # en-gb:pollen
 # glk:گَرده
@@ -86537,6 +86507,8 @@ ciqual_food_name:en: Pollen, fresh
 # sco:pollen
 # wuu:花粉
 # zh-hans:花粉
+ciqual_food_code:en: 31111
+ciqual_food_name:en: Pollen, fresh
 wikidata:en: Q79932
 wikipedia:en: https://en.wikipedia.org/wiki/Pollen
 
@@ -88893,9 +88865,6 @@ uk: Індичка
 vi: Họ Gà tây
 yi: אינדיק
 zh: 火雞
-# usage:en:meat extracts [turkey, chicken]
-ciqual_food_code:en: 36300
-ciqual_food_name:en: Turkey, meat and skin, raw
 # azb:هیندوشکا
 # chr:ᎬᎾ
 # chy:Ma'xêhë'ne
@@ -88914,6 +88883,8 @@ ciqual_food_name:en: Turkey, meat and skin, raw
 # pdc:Welschhinkel
 # sco:Bubbly-jock
 # yue:火雞
+ciqual_food_code:en: 36300
+ciqual_food_name:en: Turkey, meat and skin, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Turkey_(bird)
 
 # description:en:TURKEY MEAT, commonly referred to as just turkey, is the meat from turkeys, typically domesticated turkeys. Turkeys are sold sliced and ground, as well as "whole" in a manner similar to chicken with the head, feet, and feathers removed. Frozen whole turkeys remain popular. Sliced turkey is frequently used as a sandwich meat or served as cold cuts.
@@ -92469,11 +92440,6 @@ wo: Mburu
 yi: ברויט
 zh: 麵包
 zu: isinkwa
-carbon_footprint_fr_foodges_ingredient:fr: Pain
-carbon_footprint_fr_foodges_value:fr: 1.5
-ciqual_food_code:en: 7000
-ciqual_food_name:en: Bread -average-
-nova:en: 3
 # ang:hlāf
 # arc:לחמא
 # arz:عيش
@@ -92573,6 +92539,11 @@ nova:en: 3
 # zh-my:面包
 # zh-sg:面包
 # zh-tw:麵包
+carbon_footprint_fr_foodges_ingredient:fr: Pain
+carbon_footprint_fr_foodges_value:fr: 1.5
+ciqual_food_code:en: 7000
+ciqual_food_name:en: Bread -average-
+nova:en: 3
 vegan:en: maybe
 vegetarian:en: yes
 wikidata:en: Q7802
@@ -92763,11 +92734,11 @@ tr: pita
 uk: піта
 ur: پیتا
 zh: 皮塔饼
-ciqual_food_code:en: 7180
-ciqual_food_name:en: Pita bread
 # sco:pita
 # zh_min_nan:pita
 # zh_yue:比得包
+ciqual_food_code:en: 7180
+ciqual_food_name:en: Pita bread
 wikidata:en: Q211340
 wikipedia:en: https://en.wikipedia.org/wiki/Pita
 
@@ -92851,11 +92822,11 @@ tr: francala
 uk: французький багет
 vi: bánh mì pháp
 zh: 法式长棍面包
-ciqual_food_code:en: 7001
-ciqual_food_name:en: Bread, French bread, baguette
 # arz:عيش فرنسى
 # lfn:bagete
 # zh_yue:百吉包
+ciqual_food_code:en: 7001
+ciqual_food_name:en: Bread, French bread, baguette
 wikidata:en: Q208172
 wikipedia:en: https://en.wikipedia.org/wiki/Baguette
 
@@ -93867,8 +93838,6 @@ tl: Müesli
 tr: Müsli
 uk: Мюслі
 zh: 木斯里
-ciqual_food_code:en: 32004
-ciqual_food_name:en: Muesli -average-
 # be-tarask:Мюсьлі
 # ceb:Müesli
 # de-ch:Müesli
@@ -93878,6 +93847,8 @@ ciqual_food_name:en: Muesli -average-
 # lmo:Müesli
 # nan:Müsli
 # pt-br:muesli
+ciqual_food_code:en: 32004
+ciqual_food_name:en: Muesli -average-
 wikidata:en: Q52406
 wikipedia:en: https://en.wikipedia.org/wiki/Muesli
 
@@ -94371,12 +94342,11 @@ tt: Койка
 uk: Холодець
 yi: גאלער
 zh: 肉凍
-# usage:en:jelly [water, pork gelatin, cooking salt, sugar, maltodextrin, condiment, coloring:ordinary caramel, preservative:E 202, acidifier:citric acid]
-ciqual_proxy_food_code:en: 11176
-ciqual_proxy_food_name:en: Madeira wine aspic
 # bar:Sulz
 # myv:Терьге
 # sgs:Kuošelīna
+ciqual_proxy_food_code:en: 11176
+ciqual_proxy_food_name:en: Madeira wine aspic
 wikidata:en: Q837480
 wikipedia:en: https://en.wikipedia.org/wiki/Aspic
 
@@ -94762,9 +94732,6 @@ uk: лимонад
 ur: سکنجبین
 uz: Limonad
 zh: 檸檬水
-# usage:fr:Limonade  (eau gazéifiée, sucre, acidifiant :acide citrique ; anitioxydant :acide ascorbique ; arôme)
-ciqual_proxy_food_code:en: 18010
-ciqual_proxy_food_name:en: Lemonade, with sugar
 # ast:Llimonada
 # bar:Kracherl
 # be-tarask:ліманад
@@ -94778,6 +94745,8 @@ ciqual_proxy_food_name:en: Lemonade, with sugar
 # zh-cn:檸檬水
 # zh-hans:檸檬水
 # zh-hant:檸檬水
+ciqual_proxy_food_code:en: 18010
+ciqual_proxy_food_name:en: Lemonade, with sugar
 wikidata:en: Q893
 wikipedia:en: https://en.wikipedia.org/wiki/Lemonade
 
@@ -95457,6 +95426,7 @@ fr: pâte à tartiner aux noisettes
 hr: lješnjak krem proizvod
 it: crema di nocciole
 ciqual_proxy_food_code:en: 31032
+ciqual_proxy_food_name:en: Chocolate spread with hazelnuts
 vegan:en: maybe
 vegetarian:en: yes
 
@@ -96978,19 +96948,6 @@ tt: маргарин
 uk: маргарин
 vi: Bơ thực vật
 zh: 植物牛油
-carbon_footprint_fr_foodges_ingredient:fr: Margarine
-carbon_footprint_fr_foodges_value:fr: 2.7
-# ingredient/margarine 5892 in 34 @2021-08-21
-# TODO we should really have a proxy
-ciqual_proxy_food_code:en: 16737
-ciqual_proxy_food_name:en: Vegetable fat -margarine type-, spreadable, 50-63% fat, light, unsalted, rich in omega 3
-description:en: MARGARINE is a spread used for flavoring, baking, and cooking. Margarine is made mainly of refined vegetable oil and water.
-description:de: Margarine, Kunstbutter oder Oleomargarin ist ein industriell hergestelltes Streichfett. Sie dient als Ersatz für Butter und Schmalz.
-description:es: Margarina es un término genérico para denominar distintos tipos de grasas usadas en sustitución de la mantequilla.
-description:fr: La margarine est une émulsion d'eau et d'huile végétale stabilisée par l’addition d’émulsifiants et dont la teneur en lipides peut varier de 10 à 90 % en poids.
-description:it: La margarina è un grasso alimentare, costituito da due fasi: una lipidica (oli e grassi) e una acquosa intimamente mescolate.
-description:nl: Margarine is de benaming die in zwang kwam voor een vervangingsproduct voor boter.
-description:pt: Margarina é termo genérico para identificar gorduras alimentares de origem vegetal usadas em substituição da manteiga.
 # ast:Margarina
 # be-tarask:Маргарын
 # bjn:Margarin
@@ -97000,6 +96957,17 @@ description:pt: Margarina é termo genérico para identificar gorduras alimentar
 # war:Margarina
 # wuu:瑪淇淋
 # yue:人造牛油
+carbon_footprint_fr_foodges_ingredient:fr: Margarine
+carbon_footprint_fr_foodges_value:fr: 2.7
+ciqual_proxy_food_code:en: 16737
+ciqual_proxy_food_name:en: Vegetable fat -margarine type-, spreadable, 50-63% fat, light, unsalted, rich in omega 3
+description:en: MARGARINE is a spread used for flavoring, baking, and cooking. Margarine is made mainly of refined vegetable oil and water.
+description:de: Margarine, Kunstbutter oder Oleomargarin ist ein industriell hergestelltes Streichfett. Sie dient als Ersatz für Butter und Schmalz.
+description:es: Margarina es un término genérico para denominar distintos tipos de grasas usadas en sustitución de la mantequilla.
+description:fr: La margarine est une émulsion d'eau et d'huile végétale stabilisée par l’addition d’émulsifiants et dont la teneur en lipides peut varier de 10 à 90 % en poids.
+description:it: La margarina è un grasso alimentare, costituito da due fasi: una lipidica (oli e grassi) e una acquosa intimamente mescolate.
+description:nl: Margarine is de benaming die in zwang kwam voor een vervangingsproduct voor boter.
+description:pt: Margarina é termo genérico para identificar gorduras alimentares de origem vegetal usadas em substituição da manteiga.
 wikidata:en: Q4287
 wikipedia:en: https://en.wikipedia.org/wiki/Margarine
 
