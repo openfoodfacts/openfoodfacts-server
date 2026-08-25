@@ -971,9 +971,35 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => 'fr',
 			ingredients_text =>
-				'5 tasses de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel',
+				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
 		}
-	]
+	],
+	# percent_or_quantity_regexp
+	[
+		'en-percent-or-quantity-regexp',
+		{
+			lc => 'en',
+			ingredients_text => "cod 40g, salmon 30%, 20% tuna, mackerel (7%), 3g sardine",
+		}
+	],
+	# handling of */ and **/ in the tail of the ingredients list
+	[
+		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
+		'sv-asterisk-slash',
+		{
+			lc => 'sv',
+			ingredients_text =>
+				'Havssalt (93%)**, basilika*, timjan*, rosmarin*, lök*, salvia, oregano* och vitlök* */ ekologiskt odlat **/oraffinerat havssalt med låg natriumhalt',
+		},
+	],
+	[
+		'en-asterisk-slash',
+		{
+			lc => 'en',
+			ingredients_text =>
+				'Sea salt (93%)**, basil*, thyme*, rosemary*, onion*, sage, oregano* and garlic* */ organically grown **/fair trade',
+		},
+	],
 );
 
 foreach my $test_ref (@tests) {
