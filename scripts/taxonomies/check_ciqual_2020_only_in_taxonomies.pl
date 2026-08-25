@@ -96,8 +96,8 @@ foreach my $code (sort {$a <=> $b} keys %results) {
 		}
 	}
 
-	my $cat_prop = join(';', sort map {s/:en$//; $_} keys %category_props);
-	my $ing_prop = join(';', sort map {s/:en$//; $_} keys %ingredient_props);
+	my $cat_prop = join(';', sort map {my $p = $_; $p =~ s/:en$//; $p} keys %category_props);
+	my $ing_prop = join(';', sort map {my $p = $_; $p =~ s/:en$//; $p} keys %ingredient_props);
 
 	$output_rows{$code} = {
 		code => $code,
