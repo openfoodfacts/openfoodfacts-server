@@ -1,353 +1,353 @@
 {
-   "code": "4260392550101",
-   "errors": [],
-   "product": {
-      "attribute_groups": [
+   "code" : "4260392550101",
+   "errors" : [],
+   "product" : {
+      "attribute_groups" : [
          {
-            "attributes": [
+            "attributes" : [
                {
-                  "description": "",
-                  "description_short": "Qualité nutritionnelle moyenne",
-                  "grade": "c",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
-                  "id": "nutriscore",
-                  "match": 47.3333333333333,
-                  "name": "Nutri-Score",
-                  "panel_id": "nutriscore_2023",
-                  "status": "known",
-                  "title": "Nutri-Score C"
+                  "description" : "",
+                  "description_short" : "Qualité nutritionnelle moyenne",
+                  "grade" : "c",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c-new-fr.svg",
+                  "id" : "nutriscore",
+                  "match" : 47.3333333333333,
+                  "name" : "Nutri-Score",
+                  "panel_id" : "nutriscore_2023",
+                  "status" : "known",
+                  "title" : "Nutri-Score C"
                },
                {
-                  "description_short": "0.0502 g / 100 g",
-                  "grade": "a",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
-                  "id": "low_salt",
-                  "match": 96.6533333333333,
-                  "name": "Sel",
-                  "panel_id": "nutrient_level_salt",
-                  "status": "known",
-                  "title": "Sel en faible quantité"
+                  "description_short" : "0.0502 g / 100 g",
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-low.svg",
+                  "id" : "low_salt",
+                  "match" : 96.6533333333333,
+                  "name" : "Sel",
+                  "panel_id" : "nutrient_level_salt",
+                  "status" : "known",
+                  "title" : "Sel en faible quantité"
                },
                {
-                  "description_short": "8.5 g / 100 g",
-                  "grade": "b",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
-                  "id": "low_fat",
-                  "match": 60.5882352941176,
-                  "name": "Matières grasses",
-                  "panel_id": "nutrient_level_fat",
-                  "status": "known",
-                  "title": "Matières grasses en quantité modérée"
+                  "description_short" : "8.5 g / 100 g",
+                  "grade" : "b",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg",
+                  "id" : "low_fat",
+                  "match" : 60.5882352941176,
+                  "name" : "Matières grasses",
+                  "panel_id" : "nutrient_level_fat",
+                  "status" : "known",
+                  "title" : "Matières grasses en quantité modérée"
                },
                {
-                  "description_short": "12.5 g / 100 g",
-                  "grade": "e",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
-                  "id": "low_sugars",
-                  "match": 20,
-                  "name": "Sucres",
-                  "panel_id": "nutrient_level_sugars",
-                  "status": "known",
-                  "title": "Sucres en quantité modérée"
+                  "description_short" : "12.5 g / 100 g",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-medium.svg",
+                  "id" : "low_sugars",
+                  "match" : 20,
+                  "name" : "Sucres",
+                  "panel_id" : "nutrient_level_sugars",
+                  "status" : "known",
+                  "title" : "Sucres en quantité modérée"
                },
                {
-                  "description_short": "5.6 g / 100 g",
-                  "grade": "e",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
-                  "id": "low_saturated_fat",
-                  "match": 17.6,
-                  "name": "Acides gras saturés",
-                  "panel_id": "nutrient_level_saturated_fat",
-                  "status": "known",
-                  "title": "Acides gras saturés en quantité élevée"
+                  "description_short" : "5.6 g / 100 g",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-high.svg",
+                  "id" : "low_saturated_fat",
+                  "match" : 17.6,
+                  "name" : "Acides gras saturés",
+                  "panel_id" : "nutrient_level_saturated_fat",
+                  "status" : "known",
+                  "title" : "Acides gras saturés en quantité élevée"
                }
             ],
-            "id": "nutritional_quality",
-            "name": "Qualité nutritionnelle"
+            "id" : "nutritional_quality",
+            "name" : "Qualité nutritionnelle"
          },
          {
-            "attributes": [
+            "attributes" : [
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/gluten-content-unknown.svg",
-                  "id": "allergens_no_gluten",
-                  "name": "Gluten",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : gluten"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/gluten-content-unknown.svg",
+                  "id" : "allergens_no_gluten",
+                  "name" : "Gluten",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : gluten"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/milk-content-unknown.svg",
-                  "id": "allergens_no_milk",
-                  "name": "Lait",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : lait"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/milk-content-unknown.svg",
+                  "id" : "allergens_no_milk",
+                  "name" : "Lait",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : lait"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/eggs-content-unknown.svg",
-                  "id": "allergens_no_eggs",
-                  "name": "Œufs",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : œufs"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/eggs-content-unknown.svg",
+                  "id" : "allergens_no_eggs",
+                  "name" : "Œufs",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : œufs"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/nuts-content-unknown.svg",
-                  "id": "allergens_no_nuts",
-                  "name": "Fruits à coque",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : fruits à coque"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nuts-content-unknown.svg",
+                  "id" : "allergens_no_nuts",
+                  "name" : "Fruits à coque",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : fruits à coque"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/peanuts-content-unknown.svg",
-                  "id": "allergens_no_peanuts",
-                  "name": "Arachides",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : arachides"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/peanuts-content-unknown.svg",
+                  "id" : "allergens_no_peanuts",
+                  "name" : "Arachides",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : arachides"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/sesame-seeds-content-unknown.svg",
-                  "id": "allergens_no_sesame_seeds",
-                  "name": "Graines de sésame",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : graines de sésame"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/sesame-seeds-content-unknown.svg",
+                  "id" : "allergens_no_sesame_seeds",
+                  "name" : "Graines de sésame",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : graines de sésame"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/soybeans-content-unknown.svg",
-                  "id": "allergens_no_soybeans",
-                  "name": "Soja",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : soja"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/soybeans-content-unknown.svg",
+                  "id" : "allergens_no_soybeans",
+                  "name" : "Soja",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : soja"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/celery-content-unknown.svg",
-                  "id": "allergens_no_celery",
-                  "name": "Céleri",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : céleri"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/celery-content-unknown.svg",
+                  "id" : "allergens_no_celery",
+                  "name" : "Céleri",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : céleri"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/mustard-content-unknown.svg",
-                  "id": "allergens_no_mustard",
-                  "name": "Moutarde",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : moutarde"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/mustard-content-unknown.svg",
+                  "id" : "allergens_no_mustard",
+                  "name" : "Moutarde",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : moutarde"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/lupin-content-unknown.svg",
-                  "id": "allergens_no_lupin",
-                  "name": "Lupin",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : lupin"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/lupin-content-unknown.svg",
+                  "id" : "allergens_no_lupin",
+                  "name" : "Lupin",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : lupin"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/fish-content-unknown.svg",
-                  "id": "allergens_no_fish",
-                  "name": "Poisson",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : poisson"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/fish-content-unknown.svg",
+                  "id" : "allergens_no_fish",
+                  "name" : "Poisson",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : poisson"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/crustaceans-content-unknown.svg",
-                  "id": "allergens_no_crustaceans",
-                  "name": "Crustacés",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : crustacés"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/crustaceans-content-unknown.svg",
+                  "id" : "allergens_no_crustaceans",
+                  "name" : "Crustacés",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : crustacés"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/molluscs-content-unknown.svg",
-                  "id": "allergens_no_molluscs",
-                  "name": "Mollusques",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : mollusques"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/molluscs-content-unknown.svg",
+                  "id" : "allergens_no_molluscs",
+                  "name" : "Mollusques",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : mollusques"
                },
                {
-                  "debug": "too many unknown ingredients: 2 ingredients (1 unknown)",
-                  "description_short": "Certains ingrédients n'ont pas été reconnus",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/sulphur-dioxide-and-sulphites-content-unknown.svg",
-                  "id": "allergens_no_sulphur_dioxide_and_sulphites",
-                  "name": "Anhydride sulfureux et sulfites",
-                  "panel_id": "ingredients_analysis_details",
-                  "status": "unknown",
-                  "title": "Présence inconnue : anhydride sulfureux et sulfites"
+                  "debug" : "too many unknown ingredients: 2 ingredients (1 unknown)",
+                  "description_short" : "Certains ingrédients n'ont pas été reconnus",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/sulphur-dioxide-and-sulphites-content-unknown.svg",
+                  "id" : "allergens_no_sulphur_dioxide_and_sulphites",
+                  "name" : "Anhydride sulfureux et sulfites",
+                  "panel_id" : "ingredients_analysis_details",
+                  "status" : "unknown",
+                  "title" : "Présence inconnue : anhydride sulfureux et sulfites"
                }
             ],
-            "id": "allergens",
-            "name": "Allergènes",
-            "warning": "Il est toujours possible que les données sur les allergènes soient manquantes, incomplètes, incorrectes ou que la composition du produit ait changé. Si vous êtes allergique, vérifiez toujours les informations sur l'emballage réel du produit."
+            "id" : "allergens",
+            "name" : "Allergènes",
+            "warning" : "Il est toujours possible que les données sur les allergènes soient manquantes, incomplètes, incorrectes ou que la composition du produit ait changé. Si vous êtes allergique, vérifiez toujours les informations sur l'emballage réel du produit."
          },
          {
-            "attributes": [
+            "attributes" : [
                {
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/vegan-status-unknown.svg",
-                  "id": "vegan",
-                  "name": "Végétalien",
-                  "panel_id": "ingredients_analysis_en:vegan-status-unknown",
-                  "status": "unknown",
-                  "title": "Caractère végétalien inconnu"
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/vegan-status-unknown.svg",
+                  "id" : "vegan",
+                  "name" : "Végétalien",
+                  "panel_id" : "ingredients_analysis_en:vegan-status-unknown",
+                  "status" : "unknown",
+                  "title" : "Caractère végétalien inconnu"
                },
                {
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/vegetarian-status-unknown.svg",
-                  "id": "vegetarian",
-                  "name": "Végétarien",
-                  "panel_id": "ingredients_analysis_en:vegetarian-status-unknown",
-                  "status": "unknown",
-                  "title": "Caractère végétarien inconnu"
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/vegetarian-status-unknown.svg",
+                  "id" : "vegetarian",
+                  "name" : "Végétarien",
+                  "panel_id" : "ingredients_analysis_en:vegetarian-status-unknown",
+                  "status" : "unknown",
+                  "title" : "Caractère végétarien inconnu"
                },
                {
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/palm-oil-content-unknown.svg",
-                  "id": "palm_oil_free",
-                  "name": "Sans huile de palme",
-                  "panel_id": "ingredients_analysis_en:palm-oil-content-unknown",
-                  "status": "unknown",
-                  "title": "La présence d'huile de palme n'a pas été déterminée"
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/palm-oil-content-unknown.svg",
+                  "id" : "palm_oil_free",
+                  "name" : "Sans huile de palme",
+                  "panel_id" : "ingredients_analysis_en:palm-oil-content-unknown",
+                  "status" : "unknown",
+                  "title" : "La présence d'huile de palme n'a pas été déterminée"
                }
             ],
-            "id": "ingredients_analysis",
-            "name": "Ingrédients",
-            "warning": "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
+            "id" : "ingredients_analysis",
+            "name" : "Ingrédients",
+            "warning" : "Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."
          },
          {
-            "attributes": [
+            "attributes" : [
                {
-                  "grade": "a",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
-                  "id": "nova",
-                  "match": 100,
-                  "name": "Groupe NOVA",
-                  "panel_id": "nova",
-                  "status": "known",
-                  "title": "Aliments non transformés ou minimalement transformés"
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-1.svg",
+                  "id" : "nova",
+                  "match" : 100,
+                  "name" : "Groupe NOVA",
+                  "panel_id" : "nova",
+                  "status" : "known",
+                  "title" : "Aliments non transformés ou minimalement transformés"
                },
                {
-                  "grade": "a",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg",
-                  "id": "additives",
-                  "match": 100,
-                  "name": "Additifs",
-                  "panel_id": "ingredients",
-                  "status": "known",
-                  "title": "Sans additifs"
+                  "grade" : "a",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/0-additives.svg",
+                  "id" : "additives",
+                  "match" : 100,
+                  "name" : "Additifs",
+                  "panel_id" : "ingredients_analysis",
+                  "status" : "known",
+                  "title" : "Sans additifs"
                }
             ],
-            "id": "processing",
-            "name": "Transformation des aliments"
+            "id" : "processing",
+            "name" : "Transformation des aliments"
          },
          {
-            "attributes": [
+            "attributes" : [
                {
-                  "description_short": "Catégorie précise manquante",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
-                  "id": "ecoscore",
-                  "match": 0,
-                  "name": "Green-Score",
-                  "panel_id": "environmental_score",
-                  "status": "unknown",
-                  "title": "Green-Score non calculé"
+                  "description_short" : "Catégorie précise manquante",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/green-score-unknown.svg",
+                  "id" : "ecoscore",
+                  "match" : 0,
+                  "name" : "Green-Score",
+                  "panel_id" : "environmental_score",
+                  "status" : "unknown",
+                  "title" : "Green-Score non calculé"
                },
                {
-                  "description": "",
-                  "description_short": "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
-                  "grade": "e",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
-                  "id": "forest_footprint",
-                  "match": 0,
-                  "name": "Empreinte forêt",
-                  "panel_id": "forest_footprint",
-                  "status": "known",
-                  "title": "Empreinte forêt non calculée"
+                  "description" : "",
+                  "description_short" : "Pour l'instant seulement pour les produits avec du poulet ou des oeufs",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-not-computed.svg",
+                  "id" : "forest_footprint",
+                  "match" : 0,
+                  "name" : "Empreinte forêt",
+                  "panel_id" : "forest_footprint",
+                  "status" : "known",
+                  "title" : "Empreinte forêt non calculée"
                }
             ],
-            "id": "environment",
-            "name": "Environnement"
+            "id" : "environment",
+            "name" : "Environnement"
          },
          {
-            "attributes": [
+            "attributes" : [
                {
-                  "description": "L'agriculture biologique vise à protéger l'environnement et à conserver la biodiversité en prohibant ou limitant l'utilisation d'engrais synthétiques, de pesticides et d'additifs alimentaires.",
-                  "description_short": "Les produits bios encouragent la durabilité écologique et la biodiversité.",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/organic-unknown.svg",
-                  "id": "labels_organic",
-                  "name": "Agriculture biologique",
-                  "status": "unknown",
-                  "title": "Information manquante : produit bio ?"
+                  "description" : "L'agriculture biologique vise à protéger l'environnement et à conserver la biodiversité en prohibant ou limitant l'utilisation d'engrais synthétiques, de pesticides et d'additifs alimentaires.",
+                  "description_short" : "Les produits bios encouragent la durabilité écologique et la biodiversité.",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/organic-unknown.svg",
+                  "id" : "labels_organic",
+                  "name" : "Agriculture biologique",
+                  "status" : "unknown",
+                  "title" : "Information manquante : produit bio ?"
                },
                {
-                  "description": "Quand vous achetez des produits du commerce équitable, les producteurs dans les pays en développement sont payés un prix plus haut et plus équitable, ce qui les aide à atteindre des plus hauts standards sociaux et environnementaux et à les conserver.",
-                  "description_short": "Les produits du commerce équitable aident les producteurs des pays en voie de développement.",
-                  "grade": "unknown",
-                  "icon_url": "http://static.openfoodfacts.localhost/images/attributes/dist/fair-trade-unknown.svg",
-                  "id": "labels_fair_trade",
-                  "name": "Commerce équitable",
-                  "status": "unknown",
-                  "title": "Information manquante : produit de commerce équitable ?"
+                  "description" : "Quand vous achetez des produits du commerce équitable, les producteurs dans les pays en développement sont payés un prix plus haut et plus équitable, ce qui les aide à atteindre des plus hauts standards sociaux et environnementaux et à les conserver.",
+                  "description_short" : "Les produits du commerce équitable aident les producteurs des pays en voie de développement.",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/fair-trade-unknown.svg",
+                  "id" : "labels_fair_trade",
+                  "name" : "Commerce équitable",
+                  "status" : "unknown",
+                  "title" : "Information manquante : produit de commerce équitable ?"
                }
             ],
-            "id": "labels",
-            "name": "Labels"
+            "id" : "labels",
+            "name" : "Labels"
          }
       ]
    },
-   "result": {
-      "id": "product_found",
-      "lc_name": "Produit trouvé",
-      "name": "Product found"
+   "result" : {
+      "id" : "product_found",
+      "lc_name" : "Produit trouvé",
+      "name" : "Product found"
    },
-   "status": "success",
-   "warnings": []
+   "status" : "success",
+   "warnings" : []
 }
