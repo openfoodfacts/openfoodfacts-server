@@ -1034,6 +1034,25 @@ puffed orange and caramelized unknown_fruit4.",
 				"Water, Sugar, Glucose Syrup, Modified\nStarch, Citric Acid, Natural\nFlavouring, Fruit and\n Vegetable Concentrates (Carrot,\nBlackcurrant, Apple, Lemon, Safflower, \nSpirulina), Colours (Anthocyanins, Curcumin), Acidity\nRegulator (Sodium Citrates), Preservative (Potassium Sorbate)",
 		},
 	],
+	# Check that specific ingredients are not added twice when we parse ingredients twice (when they have newlines)
+	[
+		'en-ingredients-parsing-multiple-times-with-specific-ingredients-converting-newlines-to-commas',
+		{
+			lc => "en",
+			ingredients_text => "Black grapes (Italy)\nsugar\neggs\npaprika.\nOrigin of paprika: Hungary",
+			origin_en => "Origin of sugar: Guatemala",
+			labels => "French Eggs",
+		}
+	],
+	[
+		'en-ingredients-parsing-multiple-times-with-specific-ingredients-not-converting-newlines-to-commas',
+		{
+			lc => "en",
+			ingredients_text => "Black\ngrapes (Italy), sugar, eggs, paprika. Origin of paprika: Hungary",
+			origin_en => "Origin of sugar: Guatemala",
+			labels => "French Eggs",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

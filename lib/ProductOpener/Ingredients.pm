@@ -1608,9 +1608,13 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 
 	# If the original text contains newlines, we may need to try parsing with newlines as separators
 	my $has_newlines = ($product_ref->{ingredients_text} =~ /[\r\n]/);
-	my $original_ingredients_text = $product_ref->{ingredients_text};
+	my $original_ingredients_text;
 	# Make a deep copy of the original specific_ingredients structure, so that we can reset it if we need to reparse with newlines as separators
-	my $original_specific_ingredients_ref = dclone($product_ref->{specific_ingredients});
+	my $original_specific_ingredients_ref;
+	if ($has_newlines) {
+		$original_ingredients_text = $product_ref->{ingredients_text};
+		$original_specific_ingredients_ref = dclone($product_ref->{specific_ingredients});
+	}
 
 	$text = preparse_ingredients_text($ingredients_lc, $text);
 
@@ -2975,6 +2979,8 @@ Text to analyze
 		my $parse_a_specific_ingredients_ref = $product_ref->{specific_ingredients};
 
 		# Reset specific ingredients, to their original value, as they may have been modified by Parse A
+		# $parse_a_specific_ingredients_ref will be a reference to a different object
+		# that will not be affected by Parse B.
 		$product_ref->{specific_ingredients} = $original_specific_ingredients_ref;
 
 		# Replace newlines with ", " for Parse B
