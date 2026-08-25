@@ -53566,8 +53566,6 @@ nl: bietensap
 no: rødbetsaft
 pl: sok z buraka, sok buraczany
 sv: rödbetsjuice
-ciqual_food_code:en: 1
-ciqual_food_name:en: Beetroot juice, pure juice
 
 < en: beetroot juice
 en: beetroot juice concentrate
@@ -55195,7 +55193,6 @@ ru: Чесночный порошок
 sl: česen v prahu
 sv: vitlökspulver
 tr: sarimsak tozu
-# fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
 ciqual_food_code:en: 11023
 ciqual_food_name:en: Garlic, powder, dried
 usda_ndb_code:en: 2020
@@ -56250,8 +56247,6 @@ sr: koren celera
 sv: Rotselleri
 # ru:сельдерей пахучий translation error, see also en:celery
 allergens:en: en:celery
-ciqual_food_code:en: 20055
-ciqual_food_name:en: Celeriac, raw
 ciqual_proxy_food_code:en: 20055
 ciqual_proxy_food_name:en: Celeriac, raw
 ciqual_proxy_food_name:fr: Céleri-rave, cru
@@ -58420,6 +58415,7 @@ en: batavia
 fr: batavia
 sv: batavia
 ciqual_food_code:en: 20123
+ciqual_food_name:en: Lettuce, var. batavia, raw
 
 < en: batavia
 en: green baby batavia
@@ -81123,8 +81119,8 @@ uk: Солія звичайна
 vi: Cá bơn thông thường
 zh: 鰨
 ciqual_proxy_food_name:en: Common sole, raw
-ciqual_proxy_food_name:fr: Sole, crueame:en: Common sole, raw
-ciqual_proxy_food_nciqual_food_code:en: 26058
+ciqual_proxy_food_name:fr: Sole, crue
+ciqual_proxy_food_code:en: 26058
 description:en: The common sole, Dover sole, or black sole (Solea solea) is a species of flatfish in the family Soleidae.It is a largest fish in solea (fish) genus. Chefs prize Dover sole for its mild, buttery, sweet flavour and versatility, and for its ease of filleting.
 description:de: Die Seezunge (Solea solea) gehört zur Ordnung der Plattfische (Pleuronectiformes) und ist einer der begehrtesten und teuersten Speisefische.
 description:es: El lenguado común (Solea solea) es un pez plano que puede ser encontrado en los mares de aguas templadas, o en agua dulce.
@@ -92643,7 +92639,7 @@ fr: Pain de seigle
 hr: raženi kruh
 it: pane di segale
 pl: chleb żytni
-# category:en:Rye breads
+# category:en: Rye breads
 ciqual_food_code:en: 7125
 ciqual_food_name:en: Rye bread, and wheat
 wikidata:en: Q3893120
