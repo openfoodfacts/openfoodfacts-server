@@ -136,6 +136,7 @@ use JSON::MaybeXS;
 use Log::Any qw($log);
 use List::MoreUtils qw(uniq);
 use Data::DeepAccess qw(deep_get deep_exists);
+use Storable qw(dclone);
 
 my %allergens_stopwords = ();
 
@@ -1608,6 +1609,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# If the original text contains newlines, we may need to try parsing with newlines as separators
 	my $has_newlines = ($product_ref->{ingredients_text} =~ /[\r\n]/);
 	my $original_ingredients_text = $product_ref->{ingredients_text};
+	# Make a deep copy of the original specific_ingredients structure, so that we can reset it if we need to reparse with newlines as separators
+	my $original_specific_ingredients_ref = dclone($product_ref->{specific_ingredients});
 
 	$text = preparse_ingredients_text($ingredients_lc, $text);
 
@@ -2970,6 +2973,9 @@ Text to analyze
 		# Save Parse A results
 		my $parse_a_ingredients_ref = $product_ref->{ingredients};
 		my $parse_a_specific_ingredients_ref = $product_ref->{specific_ingredients};
+
+		# Reset specific ingredients, to their original value, as they may have been modified by Parse A
+		$product_ref->{specific_ingredients} = $original_specific_ingredients_ref;
 
 		# Replace newlines with ", " for Parse B
 		$product_ref->{ingredients_text} =~ s/\r\n/, /g;
