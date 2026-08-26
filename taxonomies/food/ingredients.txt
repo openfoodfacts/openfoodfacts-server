@@ -61559,6 +61559,22 @@ wikidata:en: Q74663825
 ###################################################################################################
 #
 #
+#                        Horse gram
+#
+#
+###################################################################################################
+
+< en: pulse
+en: horse gram, kulthi
+la: Macrotyloma uniflorum
+description:en: Native to South Asia, horse gram is an ancient, drought-resistant legume long cultivated across India, Nepal, and parts of Africa and Southeast Asia, where it's also used as livestock fodder. Small, flattish, and reddish-brown, it has a robust, earthy, slightly nutty flavor with a firm bite. Traditionally simmered into soups, stews, and sprouted dishes, or ground into flour, it's especially prized in South Indian cuisine (like kulith usal). Nutritionally, it stands out among pulses for its exceptional protein, iron, and calcium content, along with dietary fiber, making it a valued, if underappreciated, global superfood.
+ifct_food_code:en: B012
+ifct_food_name:en: Horse gram, whole
+ifct_food_process:en: en:dried
+
+###################################################################################################
+#
+#
 #                        Mung bean
 #
 #
@@ -63070,10 +63086,12 @@ ciqual_proxy_food_code:en: 20504
 ciqual_proxy_food_name:en: Lentil, dried
 ciqual_proxy_food_name:fr: Lentille, sèche
 comment:en: The wikidata entry is more about the plant, so translations can be wrong.
-description:en: The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
+description:en: Originating in the Fertile Crescent over 8,000 years ago, lentils spread across the Mediterranean, Middle East, South Asia, and beyond, becoming a dietary cornerstone worldwide. Known as "dal" in South Asia, they come in many varieties—red, green, brown, black, yellow—each with subtly different flavor, from mild and sweet to earthy. Quick-cooking and hulling-friendly, lentils are simmered into soups, stews, curries, and purées across cuisines, from Indian dal tadka to French lentille du Puy salads and Middle Eastern mujadara. Nutritionally, they're a powerhouse of plant protein, fiber, iron, and folate, making them a global staple for sustainable, affordable nutrition.
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
 eurocode_2_group_2:en: 8.45
+ifct_food_code:en: B013
+ifct_food_name:en: Lentil, dal
 rare_crop:en: yes
 usda_ndb_proxy_code:en: 16069
 usda_ndb_proxy_name:en: Lentils, raw
@@ -63180,6 +63198,8 @@ fr: lentilles vertes précuites
 en: yellow lentils
 fr: lentilles jaunes
 hu: sárga lencse
+ifct_food_code:en: B015
+ifct_food_name:en: Lentil whole, yellowish
 
 < en: lentils
 en: red lentils
@@ -63254,6 +63274,8 @@ hr: smeđa leća
 hu: barna lencse
 it: lenticchie marroni
 pl: soczewica brązowa
+ifct_food_code:en: B014
+ifct_food_name:en: Lentil whole, brown
 
 < en: red lentils
 en: red lentil flour
