@@ -455,32 +455,32 @@
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups_tags" : [],
       "forest_footprint_2026" : {
-         "grade" : "c",
+         "grade" : "b",
          "primary_ingredients" : {
             "en:cocoa" : {},
             "en:coffee" : {},
             "en:palm-oil" : {
-               "footprint_per_kg" : 0.004640625,
-               "grade" : "c",
+               "footprint_per_kg" : 0.00061875,
+               "grade" : "b",
                "ingredients" : [
                   {
                      "equivalence_ingredient" : 1,
                      "equivalence_ingredient_category" : 1,
-                     "footprint_per_kg" : 0.004640625,
+                     "footprint_per_kg" : 0.00061875,
                      "ingredient_category_id" : "en:palm-oil",
                      "ingredient_id" : "en:palm-oil-and-fat",
-                     "label_id" : "en:organic",
+                     "label_id" : "en:fairtrade-international",
                      "origin_footprint" : 0.055,
                      "origin_id" : "en:unknown",
                      "percent" : 9.375,
                      "primary_ingredient_id" : "en:palm-oil",
-                     "risk_factor" : 0.9,
+                     "risk_factor" : 0.12,
                      "transformation_factor" : 1
                   }
                ]
             }
          },
-         "total_footprint_per_kg" : 0.004640625
+         "total_footprint_per_kg" : 0.00061875
       },
       "forest_footprint_data" : {
          "footprint_per_kg" : 0.00145833333333333,
@@ -701,6 +701,7 @@
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-number-of-components-4",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group" : 1,

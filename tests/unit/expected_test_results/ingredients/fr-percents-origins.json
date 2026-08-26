@@ -13,6 +13,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13010",
          "id" : "en:quince",
          "is_in_taxonomy" : 1,
          "labels" : "en:organic",
@@ -79,10 +80,9 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [
-      "en:quince",
       "en:sodium-chloride"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:apple-juice",
       "en:quince",

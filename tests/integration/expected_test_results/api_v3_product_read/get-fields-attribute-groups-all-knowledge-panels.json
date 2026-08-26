@@ -293,7 +293,7 @@
                   "id" : "additives",
                   "match" : 100,
                   "name" : "Additives",
-                  "panel_id" : "additives",
+                  "panel_id" : "ingredients_analysis",
                   "status" : "known",
                   "title" : "Without additives"
                }
@@ -633,7 +633,7 @@
                   "id" : "additives",
                   "match" : 100,
                   "name" : "Additives",
-                  "panel_id" : "additives",
+                  "panel_id" : "ingredients_analysis",
                   "status" : "known",
                   "title" : "Without additives"
                }
@@ -2836,6 +2836,7 @@
          "en:packagings-not-empty",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-number-of-components-4",
+         "en:storage-conditions-not-set",
          "en:main-countries-new-product"
       ],
       "nova_group" : 1,

@@ -244,6 +244,28 @@ my @tests = (
 			ingredients_text => "huiles végétales (palme, colza), eau, sel",
 		}
 	],
+	[
+		'fr-ingredients-cocoa-paste-no-origin',
+		{
+			lc => "fr",
+			ingredients_text => "pâte de cacao",
+		}
+	],
+	[
+		'fr-ingredients-cocoa-paste-origin-not-in-database',
+		{
+			lc => "fr",
+			ingredients_text => "pâte de cacao (origine Afrique)",
+		}
+	],
+	[
+		'fr-ingredients-coffee-with-origin-and-multiple-labels',
+		{
+			lc => "fr",
+			ingredients_text => "café (origine : Colombie)",
+			labels_tags => ["en:organic", "en:fair-trade", "en:fairtrade-international"],
+		}
+	]
 );
 
 my $json = JSON->new->allow_nonref->canonical;
