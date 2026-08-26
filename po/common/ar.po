@@ -17,7 +17,7 @@ msgstr ""
 
 msgctxt "site_description_off"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "قاعدة بيانات تعاونية ومجانية ومفتوحة للمكونات وحقائق التغذية ومعلومات عن المنتجات الغذائية من جميع أنحاء العالم"
+msgstr "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -34,7 +34,7 @@ msgstr "/open-food-facts-mobile-app"
 
 msgctxt "product_description_off"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
-msgstr "المكونات، مسببات الحساسية، الإضافات، الحقائق الغذائية، الملصقات، المنشأ، تأثير ثاني أكسيد الكربون ومعلومات عن المنتج %s"
+msgstr "Ingredients, allergens, additives, nutrition facts, labels, origins, CO2 impact and information on product %s"
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -50,7 +50,7 @@ msgstr "قاعدة بيانات معاونة و مجانية و مفتوحة ع�
 
 msgctxt "product_description_obf"
 msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
-msgstr "المكونات (INCI)، مسببات الحساسية، الإضافات، الملصقات، منشأ المكونات ومعلومات عن المنتج %s"
+msgstr "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon
 msgctxt "get_the_app_link_obf"
@@ -67,7 +67,7 @@ msgstr "البحث عن منتج"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "صفحة المنتج هذه غير مكتملة. يمكنك المساعدة في إكماله عن طريق تحريره وإضافة المزيد من البيانات من الصور التي لدينا، أو عن طريق التقاط المزيد من الصور باستخدام تطبيق الجوال العام ل <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> أو <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. شكرا لك!"
+msgstr "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
 
 msgctxt "brands_example_beauty"
 msgid "Nivea, Nivea Men"
@@ -125,27 +125,27 @@ msgstr "صفحة المنتج هذه غير مكتملة. يمكنك المسا�
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
-msgstr ""
+msgstr "تايد، برسيل"
 
 msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
-msgstr ""
+msgstr "منظف غسيل سائل، منظف غسيل بودرة"
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
-msgstr ""
+msgstr "EMB 67890"
 
 msgctxt "generic_name_example_product"
 msgid "Laundry detergent"
-msgstr ""
+msgstr "مسحوق غسيل الملابس"
 
 msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
-msgstr ""
+msgstr "رائحة اللافندر فائقة النظافة"
 
 msgctxt "ingredients_text_example_product"
 msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
-msgstr ""
+msgstr "تحذير: لا تقم بإضافة المكونات إذا كان هذا غير ذي صلة بالفئة. العصابات لديها قوائم على الحزمة أو على الإنترنت، وبعض الفئات الأخرى كذلك"
 
 # OPFF
 msgctxt "site_description_opff"
@@ -271,7 +271,7 @@ msgstr "طلبك للانضمام إلى المنظمة في انتظار موا
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "تم استلام طلب مؤسستكم ويجري العمل على معالجته."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -401,12 +401,12 @@ msgstr ""
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
-msgstr ""
+msgstr "ملف APK لنظام Android"
 
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Arabic-Saudi-Arabia.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1091,7 +1091,7 @@ msgstr "لوح شوكولاتة بالحليب والبندق"
 
 msgctxt "goodbye"
 msgid "See you soon!"
-msgstr "مع السلامه!"
+msgstr "إلى اللقاء قريبًا!"
 
 msgctxt "graph_count"
 msgid "%d products match the search criteria, of which %i products have defined values for the graph's axis."
@@ -4177,7 +4177,7 @@ msgstr "<a href=\"\"> نحن بحاجة إلى مساعدتك وتبرعاتك <
 
 msgctxt "thank_you"
 msgid "Thank you!"
-msgstr ""
+msgstr "شكرًا لك!"
 
 msgctxt "thank_you_very_much"
 msgid "Thank you very much!"
@@ -4693,7 +4693,7 @@ msgstr "عندما تشتري منتجات التجارة العادلة، يح�
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
-msgstr ""
+msgstr "الجودة الغذائية"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
@@ -4798,7 +4798,7 @@ msgstr "المجموعة ٣ المجموعة ٣ Processed foods"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr ""
+msgstr "أغذية فائقة التجهيز"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -5510,7 +5510,7 @@ msgstr "الرؤية, الرسالة, القيم والبرامج"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -6045,6 +6045,46 @@ msgstr "كل تبرع يُحسب! نقدّر دعمكم لتعزيز الشفا�
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "انا ادعم"
+
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "لا نزال بحاجة إلى 120,000 يورو لإنهاء عام 2026!"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "انضم إلى رعاة برنامج حقائق الطعام المفتوحة"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "نستقبل شهرياً 8 ملايين زائر، وأضعاف هذا العدد عبر واجهة برمجة التطبيقات (API). دعمكم ضروري لـ:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "أبقوا قسم حقائق الطعام مفتوحاً ومتاحاً للجميع"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "البنية التحتية للدعم، والموقع الإلكتروني، وتطبيق الهاتف المحمول، وواجهة برمجة التطبيقات (API) مع فريق صغير دائم"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "ظل مستقلا عن صناعة الأغذية،"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "دعم المجتمع"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "دعم العلوم"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "إذا قام كل زائر هذا الشهر بالنقر على زر التبرع وتبرع بمبلغ 1 يورو فقط، فسنحصل على أكثر من 8 أضعاف ميزانيتنا السنوية!"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "تبرع"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6753,7 +6793,7 @@ msgstr "تم تحديث المنتج"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr ""
+msgstr "تم العثور على المستخدم"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6889,11 +6929,11 @@ msgstr "اسم المستخدم وكلمة المرور غير صحيحين"
 
 msgctxt "api_message_invalid_token"
 msgid "Invalid access_token"
-msgstr ""
+msgstr "رمز الوصول غير صالح"
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr ""
+msgstr "مطلوب المصادقة"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -7440,7 +7480,7 @@ msgstr "تصدير تلقائي يومي إلى منصة عامة"
 
 msgctxt "improvements_navigation"
 msgid "Improvements"
-msgstr ""
+msgstr "تحسينات"
 
 msgctxt "products_with_changes_since_last_export"
 msgid "Products with changes since last export"
@@ -7600,7 +7640,7 @@ msgstr "هل الرمز الشريطي {barcode} خاص بمنتج لديك؟ إ
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-ar.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7704,15 +7744,15 @@ msgstr "ابحث عن المنتجات في نفس الفئة بدون إضاف�
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr ""
+msgstr "لكل 100 غرام"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr ""
+msgstr "لكل 100 مل"
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr ""
+msgstr "لـ 1 لتر"
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7725,20 +7765,20 @@ msgstr "لكل وجبة"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "كما هو مباع"
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr ""
+msgstr "معد سابقا"
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
-msgstr ""
+msgstr "يتم تحديد المعلومات الغذائية للمنتج كما هو مباع:"
 
 msgctxt "nutrition_data_exists_prepared"
 msgid "Nutrition facts are specified for the prepared product:"
-msgstr ""
+msgstr "تم تحديد المعلومات الغذائية للمنتج المُجهز:"
 
 msgctxt "product_js_add_a_nutrient"
 msgid "Add a nutrient"
@@ -7782,7 +7822,7 @@ msgstr "تعتمد هذه التفضيلات على فهم Open Food Facts لق�
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"
-msgstr ""
+msgstr "بصمة التجهيز"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7834,23 +7874,23 @@ msgstr "حلول الاقتصاد الدائري القريبة"
 
 msgctxt "qfdmo_solutions_subtitle"
 msgid "Find places to repair, donate, sell or recycle"
-msgstr ""
+msgstr "البحث عن أماكن لإصلاح أو التبرع أو البيع أو إعادة التدوير"
 
 msgctxt "qfdmo_solutions_description"
 msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
-msgstr ""
+msgstr "إذا كنت في فرنسا، يمكنك العثور على حلول قريبة لهذا المنتج لتمديد عمره أو التخلص منه بشكل مسؤول."
 
 msgctxt "qfdmo_solutions_intro"
 msgid "Available solutions include:"
-msgstr ""
+msgstr "وتشمل الحلول المتاحة ما يلي:"
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr ""
+msgstr "إصلاح"
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
-msgstr ""
+msgstr "ابحث عن ورش إصلاح وخدمات لإصلاح منتجك بدلاً من التخلص منه"
 
 msgctxt "qfdmo_solution_donate"
 msgid "Donate"
@@ -7858,15 +7898,15 @@ msgstr "تبرع"
 
 msgctxt "qfdmo_solution_donate_description"
 msgid "Give your product a second life by donating it to associations or people in need"
-msgstr ""
+msgstr "منح منتجك حياة ثانية عن طريق التبرع به للجمعيات أو الأشخاص المحتاجين"
 
 msgctxt "qfdmo_solution_sell"
 msgid "Sell or exchange"
-msgstr ""
+msgstr "بيع أو استبدال"
 
 msgctxt "qfdmo_solution_sell_description"
 msgid "Sell or exchange your product on second-hand platforms"
-msgstr ""
+msgstr "قم ببيع أو استبدال منتجك على منصات بيع المنتجات المستعملة"
 
 msgctxt "qfdmo_solution_recycle"
 msgid "Recycle"
@@ -7874,19 +7914,19 @@ msgstr "إعادة التدوير"
 
 msgctxt "qfdmo_solution_recycle_description"
 msgid "Find collection points for proper recycling when the product reaches end of life"
-msgstr ""
+msgstr "العثور على نقاط جمع لإعادة التدوير بشكل سليم عندما يصل المنتج إلى نهاية العمر"
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
-msgstr ""
+msgstr "استخدام Que Faire De Me Objets (فرنسا) لإيجاد حلول قريبة:"
 
 msgctxt "qfdmo_solutions_find_nearby"
 msgid "Find solutions nearby on QFDMO"
-msgstr ""
+msgstr "البحث عن حلول قريبة على QFDMO"
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "فئة المنتج"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7938,65 +7978,101 @@ msgstr "لم يتم تقييم الأثر"
 
 msgctxt "detailed_data"
 msgid "Detailed data"
-msgstr ""
+msgstr "بيانات تفصيلية"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
-msgstr ""
+msgstr "يمكنك استخدام هذا النموذج لتحليل قائمة مكونات."
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
-msgstr ""
+msgstr "هذا النموذج هو أداة تجريبية وتوضيحية. للاستخدام الفعلي، يُرجى تثبيت برنامج تقدير الوصفات المتاح كمصدر مفتوح على الرابط التالي: <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
 
 msgctxt "test_ingredients_taxonomy_mapping_description"
 msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
-msgstr ""
+msgstr "يتم تعيين المكونات إلى تصنيف مكونات Open Food Facts ، ويتم تقدير كميتها باستخدام خوارزميات مختلفة."
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
-msgstr ""
+msgstr "لغة نص المكونات"
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
-msgstr ""
+msgstr "نص المكونات"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "اختر مُقَيِّر نسبة المكوّن:"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
-msgstr ""
+msgstr "يستخدم مزيجاً من القواعد واللوائح، ومجموعة محدودة من حقائق التغذية ومعوقات المكونات"
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "النسخة الأولى (جلوب) - تستخدم حقائق التغذية لتحديد كمية المكونات"
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "الإصدار الثاني (سيفي) - يستخدم حقائق التغذية لتحديد كمية المكونات"
+
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "الحقائق الغذائية"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
-msgstr ""
+msgstr "تحليل المكونات وتقدير الكمية"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
-msgstr ""
+msgstr "عامل تقدير النسبة المئوية:"
 
 msgctxt "test_ingredients_ecobalyse_experimental"
 msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
-msgstr ""
+msgstr "تجريبية: استخدام واجهة برمجة تطبيقات إيكوباليس لتقدير الأثر البيئي للمكونات."
 
 msgctxt "test_ingredients_ecobalyse_request"
 msgid "Ecobalyse request"
-msgstr ""
+msgstr "طلب إيكوبالايز"
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
+msgstr "استجابة إيكوبالايز"
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
 msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "إجمالي تأثير الغابات"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "al3alama"
 

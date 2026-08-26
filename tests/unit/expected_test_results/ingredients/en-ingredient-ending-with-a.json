@@ -42,6 +42,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_proxy_food_code" : "13037",
          "ecobalyse_code" : "bb00f430-ffda-46a3-ba45-267b0064a43e",
          "id" : "en:pear",
          "is_in_taxonomy" : 1,
@@ -93,10 +94,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:e120",
-      "en:e124",
-      "en:pear"
+      "en:e124"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:e120",
       "en:e124"

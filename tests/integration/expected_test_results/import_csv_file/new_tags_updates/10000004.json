@@ -6,6 +6,7 @@
       "beverage",
       "food",
       "fruit",
+      "fruit-based",
       "plant-based",
       "vegetable"
    ],
@@ -26,8 +27,9 @@
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruit-based-foods-and-beverages",
       "en:fruits-and-vegetables-based-foods",
-      "en:fruits-based-foods",
+      "en:fruit-based-foods",
       "en:fruits"
    ],
    "checkers_tags" : [],
@@ -414,6 +416,7 @@
       "en:packagings-empty",
       "en:packagings-not-complete",
       "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set",
       "en:main-countries-new-product"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",

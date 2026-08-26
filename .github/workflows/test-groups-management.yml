@@ -28,12 +28,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 1
     
     # Restore test groups cache to analyze current performance
-    - uses: actions/cache@v5
+    - uses: actions/cache@v6
       id: test_groups_cache
       with:
         path: ./.test_groups_cache

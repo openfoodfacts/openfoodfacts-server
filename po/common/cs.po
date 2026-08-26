@@ -5507,7 +5507,7 @@ msgstr "Vize, mise, hodnoty a programy"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -6042,6 +6042,46 @@ msgstr "Každý dar se počítá! Vážíme si vaší podpory při zavádění d
 msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr "PODPORUJI"
+
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr "Stále potřebujeme 120 000 eur, abychom dokončili rok 2026!"
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr "Staňte se patronem Open Food Facts"
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr "Každý měsíc obsloužíme 8 milionů návštěvníků a prostřednictvím API mnohonásobně více. Vaše podpora je nezbytná pro:"
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr "udržení Open Food Facts otevřené a dostupné pro všechny,"
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr "podporu infrastruktury,  webstránky, mobilní aplikace a API s malým stálým týmem"
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr "zůstat nezávislí na potravinářském průmyslu,"
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr "podporu komunity"
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr "podporu vědy"
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr "Kdyby každý návštěvník tento měsíc klikl na tlačítko „Darovat“ a daroval jen 1 €, získali bychom více než 8krát více než náš roční rozpočet!"
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr "Podpořit"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -7973,6 +8013,10 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr "2. verze (Scipy) - používá nutriční hodnoty k určení množství ingrediencí"
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "3. verze (CVXPY) – používá nutriční hodnoty k určení množství složek"
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
 msgstr "Nutriční hodnoty"
@@ -7996,4 +8040,36 @@ msgstr "Požadavek na Ecobalyse"
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr "Reakce Ecobalyse"
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Celková lesní stopa"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Štítek"
 
