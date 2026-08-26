@@ -61459,7 +61459,7 @@ fr: haricots blancs précuits
 fr: haricots blancs réhydratés
 
 < en: pulse
-en: black bean, black beans
+en: black bean, black beans, black field beans
 bg: черен боб
 da: sorte bønner
 de: schwarze Bohnen, Bohnen schwarz
@@ -61473,6 +61473,7 @@ nl: Zwarte bonen
 pl: fasola czarna, fasoli czarnej
 pt: Feijão preto
 sv: svarta bönor
+definition:en: Black field beans (Vicia faba) are a small, dark-seeded variety of the broad/fava bean family, traditionally grown across Europe and the UK as a hardy field crop suited to cooler climates. They have a rich, earthy, slightly sweet flavor with a dense, starchy texture. Commonly used in soups, stews, and traditional dishes, they're also valued in sustainable farming as a nitrogen-fixing rotation crop and livestock feed. Nutritionally, they're an excellent source of plant protein and fiber, along with iron, folate, and B vitamins, making them a hearty, economical addition to plant-based diets.
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.40
 
@@ -61564,7 +61565,7 @@ wikidata:en: Q74663825
 ###################################################################################################
 
 < en: pulse
-en: mung bean, mungbean, Mung dal, Moong dal
+en: mung bean, mungbean, Mung dal, Moong dal, green gram
 ar: بقلة الماش
 bg: птичи боб, бебриджа
 bn: মুগ
@@ -61636,8 +61637,11 @@ zh: 綠豆
 ciqual_proxy_food_code:en: 20530
 ciqual_proxy_food_name:en: Beans, mung, mature, seeds, dried
 ciqual_proxy_food_process:en: en:dried
+description:en: Green gram, whole (Vigna radiata), commonly known as mung bean or moong, originated in the Indian subcontinent and spread across Asia and beyond through centuries of trade and cultivation. Sold whole with its green skin intact, it has a mild, slightly sweet, earthy flavor and a firm texture that softens on cooking. It's used worldwide in soups, stews, curries, salads, and sprouts, and is especially popular in Asian cuisines from India to China and Southeast Asia. Nutritionally, it's rich in plant protein, dietary fiber, folate, potassium, and magnesium, making it a light, easily digestible legume valued globally for everyday and health-focused diets.
 eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.38
+ifct_food_code:en: B011
+ifct_food_name:en: Green gram, whole
 usda_ndb_code:en: 16080
 usda_ndb_name:en: Mung beans, mature seeds, raw
 usda_ndb_process:en: en:dried
@@ -61755,6 +61759,14 @@ eurocode_2_group_3:en: 7.10.46
 wikidata:en: Q3246973
 wikipedia:en: https://en.wikipedia.org/wiki/Black-eyed_pea
 
+###################################################################################################
+#
+#
+#                        Brown bean
+#
+#
+###################################################################################################
+
 < en: pulse
 en: brown beans
 da: brune bønner
@@ -61808,12 +61820,31 @@ nl: extra fijne groene flageolets
 ###################################################################################################
 
 < en: pulse
-en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
+en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans, safed val, sem
 la: Lablab purpureus
+comment:en: Note the IFCT name is confusing.
 description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
 usda_ndb_code:en: 16067
 usda_ndb_name:en: Hyacinth beans, mature seeds, raw
 usda_ndb_process:en: en:dried
+
+< en: hyacinth bean
+en: white hyacinth bean, white field bean
+ifct_food_code:en: B009
+ifct_food_name:en: Field bean, white
+ifct_food_process:en: en:dried
+
+< en: hyacinth bean
+en: brown hyacinth bean, brown field bean
+ifct_food_code:en: B008
+ifct_food_name:en: Field bean, brown
+ifct_food_process:en: en:dried
+
+< en: hyacinth bean
+en: black hyacinth bean, black field bean
+ifct_food_code:en: B007
+ifct_food_name:en: Field bean, black
+ifct_food_process:en: en:dried
 
 ###################################################################################################
 #
@@ -62241,9 +62272,24 @@ tr: Börülce
 uk: Вігна китайська
 vi: Đậu dải
 zh: 豇豆
+description:en: Cowpeas (Vigna unguiculata), also known as black-eyed peas or southern peas, originated in West Africa thousands of years ago before spreading to the Mediterranean, Asia, and the Americas via trade and slavery routes. They have an earthy, mildly nutty flavor with a creamy texture once cooked. Versatile in the kitchen, they're used in stews, salads, fritters (like akara), rice dishes (such as Hoppin' John), and purees. Nutritionally, cowpeas are a powerhouse: high in plant-based protein and fiber, rich in folate, iron, magnesium, and potassium, and naturally low in fat—making them a staple for heart-healthy, budget-friendly diets worldwide.
 usda_ndb_code:en: 11191
 usda_ndb_name:en: Cowpeas (blackeyes), immature seeds, raw
 wikidata:en: Q498940
+
+< en: cowpea
+< en: pulse
+en: brown cowpea
+la: Vigna catjang
+ifct_food_code:en: B005
+ifct_food_name:en: Cowpea, brown
+
+< en: cowpea
+< en: pulse
+en: white cowpea
+la: Vigna catjang
+ifct_food_code:en: B006
+ifct_food_name:en: Cowpea, white
 
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
