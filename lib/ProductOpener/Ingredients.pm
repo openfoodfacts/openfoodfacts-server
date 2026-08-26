@@ -1613,7 +1613,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	my $original_specific_ingredients_ref;
 	if ($has_newlines) {
 		$original_ingredients_text = $product_ref->{ingredients_text};
-		$original_specific_ingredients_ref = dclone($product_ref->{specific_ingredients});
+		$original_specific_ingredients_ref
+			= (defined $product_ref->{specific_ingredients}) ? dclone($product_ref->{specific_ingredients}) : undef;
 	}
 
 	$text = preparse_ingredients_text($ingredients_lc, $text);
@@ -2981,7 +2982,12 @@ Text to analyze
 		# Reset specific ingredients, to their original value, as they may have been modified by Parse A
 		# $parse_a_specific_ingredients_ref will be a reference to a different object
 		# that will not be affected by Parse B.
-		$product_ref->{specific_ingredients} = $original_specific_ingredients_ref;
+		if (defined $original_specific_ingredients_ref) {
+			$product_ref->{specific_ingredients} = $original_specific_ingredients_ref;
+		}
+		else {
+			delete $product_ref->{specific_ingredients};
+		}
 
 		# Replace newlines with ", " for Parse B
 		$product_ref->{ingredients_text} =~ s/\r\n/, /g;
