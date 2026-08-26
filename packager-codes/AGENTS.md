@@ -15,7 +15,7 @@ Any automated script or agent added to this directory should handle the followin
 
 ## 🛠️ Development Guidelines
 
-If you are writing a new agent to process codes (like the UK codes), please ensure your script adheres to the following rules:
+If you are writing a script to process codes (like the UK codes), please ensure your script adheres to the following rules:
 
 * **Link to the Wiki:** At the top of your script, include a comment linking to the specific section on the wiki where the source URL and methodology are documented. 
 * **Graceful Failures:** Official government URLs frequently change or go down. If the source is unreachable or the formatting breaks, the script must fail gracefully and log the error, rather than corrupting or wiping the existing database entries.
