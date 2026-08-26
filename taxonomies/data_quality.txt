@@ -12654,6 +12654,8 @@ description:ru: Категория «детское питание» была а
 en: Detected category from brand - Cigarettes
 description:en: Those are likely to be cigarettes, based on the brand. There might be some false positives. All cigarettes should be categorized as non-food products, and moved to Open Products Facts by inputting OPF in the Categories field.
 fix_action:en: add_categories
+# fix_action:en: change_product_type: product
+# fix_action:en: add_category: en:cigarettes not syntaxically correct
 # show_to:en: moderators
 
 < en: Categories warnings
@@ -12692,6 +12694,7 @@ description:ru: Этот продукт относится одновремен�
 en: Detected category from brand - Pet Foods
 description:en: Those are likely to be product for Open Pet Food Facts, based on the brand. There might be some false positives. All Pet Food products should be moved to Open Pet Food Facts by inputting OPFF in the Categories field.
 fix_action:en: add_categories
+# fix_action:en: change_product_type: pet_food
 # show_to:en: moderators
 
 < en: Categories warnings
@@ -13594,6 +13597,7 @@ description:th: เมื่อเทียบกับค่าเฉลี่�
 description:tr: Kategori ortalamasına kıyasla, şeker değeri anormal derecede yüksek.
 description:uk: Порівняно із середнім значенням для категорії, значення цукрів є ненормально високим.
 description:zh: 与类别平均值相比，糖的数值异常高。
+nutrition_field: en:sugar
 
 < en: Nutrition warnings
 en: Nutrition value very high for category - proteins
@@ -13612,6 +13616,7 @@ description:nl: De eiwitwaarde is zeer hoog in vergelijking met wat verwacht wor
 description:pl: Wartość białka jest bardzo wysoka w porównaniu z tym, czego oczekuje się dla kategorii tego produktu.
 description:pt: O valor de proteínas é muito elevado em comparação com o que é esperado para a categoria deste produto.
 description:ru: Значение белка очень высокое по сравнению с тем, что ожидается для категории этого продукта.
+nutrition_field: en:proteins
 
 < en: Nutrition warnings
 en: Nutrition value very low for category - Carbohydrates
