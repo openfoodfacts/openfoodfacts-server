@@ -8,11 +8,18 @@ synonyms:en: coloring, colouring, color, colour
 
 synonyms:en: GMOs, Genetically Modified Organisms
 
-synonyms:en: without, 0%
-synonyms:da: uden, ingen, intet, nul, 0%
-synonyms:es: sin, 0%
+synonyms:en: without, 0%, free, contains no, free from
+synonyms:da: uden, ingen, intet, nul, 0%, fri for
+synonyms:de: ohne, 0%, frei von, frei
+synonyms:es: sin, 0%, libre de
+synonyms:fi: ilman, 0%, vapaa
 synonyms:fr: sans, 0%
-synonyms:sv: utan, ingen, inget, noll, 0%
+synonyms:hu: nélkül, nem tartalmaz, mentes
+synonyms:it: senza, 0%, zero, nessuno, nessuna, nessun,
+synonyms:nl: zonder, 0%
+synonyms:pt: sem, 0%, livre de, zero
+synonyms:ru: без, 0%, 0 %
+synonyms:sv: utan, inga, ingen, inget, noll, 0%, fritt från, fri från, innehåller inga
 
 # already in food labels.txt
 # synonyms:fr: ajout, adjonction
@@ -35,10 +42,15 @@ synonyms:fr: fabrication, production
 synonyms:fr: testé, formule testée
 
 en: Ocean tested
+fr: Testé en mer
 
 en: Sensitive skin
+bg: Чувствителна кожа
+cs: Citlivá pokožka
+da: Følsom hud
 de: Empfindliche Haut
 es: Piel sensible
+fi: Herkkä iho
 fr: Peaux sensibles
 it: Pelle sensibile
 ja: 敏感肌
@@ -101,7 +113,18 @@ zh-CN: 不含推进气体
 zh-TW: 不含推進氣體
 
 en: Without butane
+bg: Без бутан
+cs: Bez butanu
+da: Uden butan
+de: Ohne Butan
+es: Sin butano
+fi: Ilman butaania
 fr: Sans butane
+it: Senza butano
+ja: ブタン不使用
+ko: 부탄 없음
+nl: Zonder butaan
+pt: Sem butano
 
 en: Without propane
 fr: Sans propane
@@ -114,7 +137,17 @@ zh-CN: 不含丙烷
 zh-TW: 不含丙烷
 
 en: Without isobutane
+bg: Без изобутан
+cs: Bez isobutanu
+da: Uden isobutan
+de: Ohne Isobutan
+es: Sin isobutano
 fr: Sans isobutane
+it: Senza isobutano
+ja: イソブタン不使用
+ko: 이소부탄 없음
+nl: Zonder isobutaan
+pt: Sem isobutano
 
 en: Without camphor
 de: Ohne Kampfer
@@ -173,7 +206,14 @@ zh: 无需冲洗, 無需沖洗
 #zh-TW: 無需沖洗
 
 en: Without sodium laureth sulfate
+bg: Без натриев лаурет сулфат
+cs: Bez sodného laurylsulfátu
+da: Uden natriumlaurethsulfat
+de: Ohne Natriumlaurethsulfat
+es: Sin sulfato de lauril de sodio
+fi: Ilman natriumlaurethsulfaattia
 fr: sans sodium-laureth-sulfate, sans sodium-lauryl-laureth-sulfate, sans sodium-laureth-sulfates
+
 
 en: Without titanium dioxide
 de: Ohne Titandioxid
@@ -200,6 +240,9 @@ zh-CN: 不含甲苯
 zh-TW: 不含甲苯
 
 en: Without methylisothiazolinone
+bg: Без метилизотиазолинона
+cs: Bez methylisothiazolinonu
+da: Uden methylisothiazolinon
 de: Ohne Methylisothiazolinon
 es: Sin metilisotiazolinona
 fr: Sans methylisothiazolinone
@@ -217,7 +260,13 @@ nl: Zonder aluminiumchlorohydraat
 pt: Sem cloridrato de alumínio
 
 en: Without cotton
+de: Ohne Baumwolle
+es: Sin algodón
+fi: Ilman puuvillaa
 fr: Sans Coton
+it: Senza cotone
+nl: Zonder katoen
+pt: Sem algodão
 
 en: Without soda
 fr: Sans soude
@@ -310,7 +359,14 @@ zh-CN: 不含皂
 zh-TW: 不含皂
 
 en: Without resorcinol
+de: Ohne Resorcin
+es: Sin resorcinol
 fr: Sans resorcine
+it: Senza resorcinolo
+ja: レゾルシノール不使用
+ko: 레조르시놀 없음
+nl: Zonder resorcinol
+pt: Sem resorcinol
 
 en: Without synthetic antiperspirant
 fr: Sans anti transpirant synthetique
@@ -396,6 +452,14 @@ zh-CN: 不含金属盐
 zh-TW: 不含金屬鹽
 
 en: Without peroxides
+bg: Без пероксиди
+cs: Bez peroxidů
+da: Uden peroxider
+de: Ohne Peroxide
+el: Χωρίς υπεροξείδια
+es: Sin peróxidos
+et: Ilma peroksiidideta
+fi: Ilman peroksideja
 fr: Sans peroxydes, sans peroxyde, sans peroxide d'hydrogene
 
 en: Without chlorine bleaching
@@ -464,35 +528,45 @@ zh-CN: 无氯漂白
 zh-TW: 無氯漂白
 
 en: Without water, Waterfree
+fr: Sans eau
 sv: Utan vatten, Vattenfri
 
 en: With glycerine, With glycerin
+fr: Avec glycérine
 sv: Med glycerin
 
 en: With rapeseed oil
+fr: Avec de l'huile de colza
 sv: Med rapsolja
 
 en: With vitamin E
+fr: Avec vitamine E
 sv: Med vitamin E
 
 en: With Q10
+fr: Avec Q10
 sv: Med Q10
 
 en: With fluoride
 fi: Lisätty fluoria
+fr: Avec fluor
 sv: Med fluorid
 
 en: Low foam
 fi: Vähän vaahtoava
+fr: Peu moussant
 sv: Lätt skummande
 
 en: Caries preventive
 fi: Ennaltaehkäisee kariesta
+fr: Prévention des caries, prévient les caries
 sv: Kariesförebyggande
 
 en: Developed by dental experts
+fr: Développé par des experts dentaires
 
 en: Developed in collaboration with dental experts
+fr: Développé en collaboration avec des experts dentaires
 
 en: Carbon compensated product, carbon neutral
 fr: Produit compensé carbone, Carbone neutre, neutre en carbone, carbone compensé
@@ -512,15 +586,14 @@ fr: Produit en coopérative, produit de coopérative
 wikidata:en: Q4539
 
 en: ISO 9001
+xx: ISO 9001
 fr: Iso 9001, Certifie iso 9001, La certification qualite iso 9001
 it: Iso 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
-#xx:ISO 9001
 
 < en: ISO 9001
 en: ISO-9001-2008, ISO 9001 2008 certified qms
-fr: Iso-9001-2008
+xx: ISO-9001-2008
 it: Iso-9001-2008
-#xx:ISO-9001-2008
 
 en: EU Agriculture, European Union agriculture
 de: EU-Landwirtschaft
@@ -556,6 +629,7 @@ fr: Fairtrade International, Fairtrade, FLO international, FLO
 
 < en: Fair trade
 en: TransFer, TransFer Canada
+xx: TransFer, TransFer Canada
 
 # already in food labels.txt
 # en: In braille
@@ -594,10 +668,22 @@ th: สินค้าใหม่
 tr: Yeni
 
 en: Without paraben, Paraben-free, No paraben, No parabens
+bg: Без парабени
+cs: Bez parabenů
 da: Uden parabener
 de: Ohne paraben, Parabenfrei
+el: Χωρίς παραβένες
 es: Sin Parabenos
+et: Parabeenivaba
+fi: Ilman parabeeneja
 fr: Sans paraben, Sans parabenes, 0 parabens, 0 paraben, Sans parabene, Sans parabens, Zero paraben
+he: ללא פרבנים  
+hr: Bez parabena
+hu: Parabénmentes
+id: Tanpa paraben
+is: Án parabena
+it: Senza parabeni
+ja: パラベン不使用
 nl: Zonder parabeen
 pt: Sem parabenos, livre de parabenos
 
@@ -667,6 +753,9 @@ zh-CN: 不含石蜡
 zh-TW: 不含石蠟
 
 en: Without EDTA, EDTA free, No EDTA
+bg: Без EDTA
+cs: Bez EDTA
+da: Uden EDTA
 de: Ohne EDTA
 es: Sin EDTA
 fr: Sans EDTA
@@ -680,6 +769,7 @@ zh-TW: 不含EDTA
 
 en: Good Environmental Choice
 xx: Bra Miljöval
+fr: Bon choix environnemental
 sv: Bra Miljöval
 country:en: en:Sweden
 image:sv: bra-miljöval.74x90.svg
@@ -713,6 +803,7 @@ en: BO-BIO-126
 
 < en: Organic
 en: India Organic
+fr: Inde Biologique
 
 # already in food labels.txt
 # < en:Organic
@@ -2034,6 +2125,7 @@ xx: Nordic Swan Ecolabel, Nordic Ecolabel
 en: Nordic Swan Ecolabel, Nordic Ecolabel
 da: Svanemærket, Nordisk miljømærkning
 fi: Joutsenmerkki, pohjoismainen ympäristömerkki, ympäristömerkki, ympäristömerkki miljömärkt
+fr: Écolabel Nordic Swan, Cygne nordique
 is: Svansmerkið, Svanurinn, Umhverfismerkið Svanurinn
 nb: Svanemerket, miljømerket
 sv: Svanenmärkt, Svanen, Svanenmärkt miljömärkt
