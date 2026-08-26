@@ -20,7 +20,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_proxy_food_code" : "20534",
+         "ciqual_food_code" : "20534",
          "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
          "id" : "en:lupin-flour",
          "is_in_taxonomy" : 1,
@@ -32,6 +32,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
          "ingredients" : [
             {
@@ -128,10 +129,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:celery",
-      "en:soya",
-      "en:spice"
+      "en:soya"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:mustard",
       "en:soya",

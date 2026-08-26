@@ -56,7 +56,7 @@
 
             [% IF country != 'en:world' %]
             <p>[% lang('countries_s').ucfirst %][% sep %]: [% display_taxonomy_tag("countries", country) %]
-                - <a href="[% world_link_url %]">[% world_link %]</a>
+                - <a href="[% world_link_url | html %]">[% world_link %]</a>
             </p>
             [% END %]
 

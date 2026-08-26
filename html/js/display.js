@@ -40,7 +40,7 @@ function doWebShare(e) {
             console.info('Successfully sent share');
 
             if (typeof _paq !== 'undefined') {
-                _paq.push(['trackEvent', 'Product', 'Share', 'Product Page']);
+                _paq.push(['trackEvent', 'product', 'share', 'product page']);
             }
         },
         (error) => console.error('Error sharing: ' + error)
