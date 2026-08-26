@@ -189,11 +189,11 @@ $flavor = "opf";
 	product_type => "product",
 	og_image_url =>
 		"https://static.openproductsfacts.org/images/logos/opf-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=opf&utf_medium=web",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opf&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opf&utf_medium=web",
-	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opf&utm_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opf&utm_medium=web",
+	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?&utm_source=opf&utm_medium=web",
 	#x_account => "OpenBeautyFacts",
 	# favicon HTML and images generated with https://realfavicongenerator.net/ using the SVG icon
 	favicons => <<HTML
@@ -321,6 +321,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openproductsfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -391,6 +392,7 @@ HTML
 	improvements
 	brands
 	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
