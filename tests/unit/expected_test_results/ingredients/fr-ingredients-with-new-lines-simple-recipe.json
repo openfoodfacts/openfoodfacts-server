@@ -78,6 +78,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 1.33928571428572,
@@ -139,10 +140,9 @@
    "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:spice",
       "fr:1 sachet de levure chimique"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "ingredients_without_ecobalyse_ids" : [
       "en:pepper",
       "en:salt",
