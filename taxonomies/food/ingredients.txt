@@ -61694,13 +61694,18 @@ wikidata:en: Q7635866
 #
 ###################################################################################################
 
-< en: legume
+< en: pulse
 en: black gram, urd bean, urd, Urad bean, Mungo bean, Black matpe bean, Urad Dal
 fr: haricot urd, haricots urd, urd, haricot mungio à grain noir
 hr: crni gram
 it: grammo nero
 la: vigna mungo, Phaseolus mungo
 # eurocode_2_group_3:en: 7.10.42
+ifct_food_2_code:en: B004
+ifct_food_2_name:en: Black gram, whole
+ifct_food_code:en: B003
+ifct_food_name:en: Black gram, dal
+ifct_food_process:en: en:husked, en:split
 usda_ndb_code:en: 16083
 usda_ndb_name:en: Mungo beans, mature seeds, raw
 usda_ndb_process:en: en:dried
@@ -62419,7 +62424,7 @@ usda_ndb_name:en: Pigeonpeas, immature seeds, raw
 # chickpea parent is NOT pea
 
 < en: legume
-en: chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas, Split Bengal gram, Chana dal
+en: chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas
 af: kekerertjie
 am: ሽምብራ
 ar: حمص شائع
@@ -62522,7 +62527,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
 carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
-description:en: The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
+description:en: Chickpeas (Cicer arietinum), also known as garbanzo beans, are one of the world's oldest cultivated legumes, originating in the Middle East over 7,000 years ago and now grown widely across the Mediterranean, India, and the Americas. They have a mild, slightly nutty, earthy flavor with a firm yet creamy texture once cooked, making them extremely versatile in the kitchen. Chickpeas star in dishes like hummus, falafel, curries, soups, salads, and roasted snacks, and can be ground into flour for flatbreads and fritters. Nutritionally, they're a powerhouse: rich in plant-based protein, fiber, complex carbohydrates, iron, folate, and manganese, while being naturally low in fat. Their high fiber and protein content supports digestion, blood sugar stability, and satiety, making chickpeas a staple for vegetarian, vegan, and heart-healthy diets worldwide.
 ecobalyse:en: chickpea-fr
 ecobalyse_labels_en_organic:en: chickpea-organic
 # eurocode_2_group_3:en: 7.10.15
@@ -62583,7 +62588,7 @@ pl: namoczona ciecierzyca
 
 < en: chickpea
 < en: pulse
-en: dried chickpea
+en: dried chickpea, Bengal gram
 cs: sušená cizrna
 fr: pois chiche secs
 hr: sušeni slanutak
@@ -62591,8 +62596,14 @@ it: ceci secchi
 ciqual_food_code:en: 20516
 ciqual_food_name:en: Chick pea, dried
 ciqual_food_name:fr: Pois chiche, sec
+comment:en: In food composition tables like IFCT, "dal" refers to the raw, dried, split legume itself.
 eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.15
+ifct_food_2_code:en: B002
+ifct_food_2_name:en: Bengal gram, whole
+ifct_food_code:en: B001
+ifct_food_name:en: Bengal gram, dal
+ifct_food_process:en: en:split, en:dehusked
 #204 @2021-10-15
 
 < en: chickpea
