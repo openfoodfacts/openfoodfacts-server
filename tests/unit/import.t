@@ -8,9 +8,13 @@ use Data::Dumper;
 $Data::Dumper::Terse = 1;
 use Log::Any::Adapter 'TAP', filter => "info";
 
+use HTTP::Headers;
+use HTTP::Response;
+
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+use ProductOpener::Import qw/get_image_urls_to_try get_google_drive_confirm_download_url download_image/;
 use ProductOpener::LoadData qw/load_data/;
 
 load_data();
@@ -433,5 +437,278 @@ $product_ref = {
 
 remove_quantity_from_field($product_ref, "product_name");
 is($product_ref->{product_name}, "Nutella");
+
+# get_image_urls_to_try
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/14308
+# Given an image URL from a CSV import, return the ordered list of URLs to try downloading,
+# rewriting known "viewer page" URLs to the corresponding direct-download / full-size URL first,
+# and keeping the original URL as a fallback.
+
+my @get_image_urls_to_try_tests = (
+	# Google Drive "view" share link -> direct download link
+	[
+		"https://drive.google.com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/view?usp=drive_link",
+		[
+			"https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+			"https://drive.google.com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/view?usp=drive_link",
+		],
+	],
+	# Google Drive "open?id=" link -> direct download link
+	[
+		"https://drive.google.com/open?id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+		[
+			"https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+			"https://drive.google.com/open?id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+		],
+	],
+	# Already a direct download link: left untouched, single candidate
+	[
+		"https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+		["https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0"],
+	],
+	# "uc?export=view&id=" (the form commonly recommended for embedding/hotlinking a Drive image)
+	# is also already a direct, fetchable URL: left untouched, single candidate. download_image()'s
+	# virus-scan-interstitial retry still applies to it too, since its guard only checks for the
+	# drive.google.com/uc? prefix, not the specific export mode - see the download_image tests below.
+	[
+		"https://drive.google.com/uc?export=view&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+		["https://drive.google.com/uc?export=view&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0"],
+	],
+	# Host match is case-insensitive (CSVs edited in Excel/Sheets can end up with an autocapitalized
+	# host), but the captured id must keep its original case - Drive file ids are case-sensitive
+	[
+		"https://Drive.Google.Com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/view?usp=drive_link",
+		[
+			"https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+			"https://Drive.Google.Com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/view?usp=drive_link",
+		],
+	],
+	# Equadis thumbnail -> full size (pre-existing behaviour, must not regress)
+	[
+		"https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG",
+		[
+			"https://secure.equadis.com/Equadis/MultimediaFileViewer?idFile=601231&file=10210/8076800105735.JPG",
+			"https://secure.equadis.com/Equadis/MultimediaFileViewer?thumb=true&idFile=601231&file=10210/8076800105735.JPG",
+		],
+	],
+	# elle-et-vire cache path -> full size (pre-existing behaviour, must not regress)
+	[
+		"https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png",
+		[
+			"https://www.elle-et-vire.com/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png",
+			"https://www.elle-et-vire.com/uploads/cache/400x400/uploads/recip/product_media/108/3451790013737-ev-bio-creme-epaisse-entiere-poche-33cl.png",
+		],
+	],
+	# Unrelated URL: unchanged, single candidate
+	["https://example.com/images/front.jpg", ["https://example.com/images/front.jpg"],],
+	# Google Drive "preview" link (another common share-link variant) -> direct download link
+	[
+		"https://drive.google.com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/preview",
+		[
+			"https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+			"https://drive.google.com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/preview",
+		],
+	],
+	# "uc?id=" without "export=download" is not rewritten: it's already a drive.google.com/uc URL,
+	# and download_image()'s confirm-token retry only triggers on that host+path anyway
+	[
+		"https://drive.google.com/uc?id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+		["https://drive.google.com/uc?id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0"],
+	],
+	# A Drive *folder* share link is not a single file: left untouched rather than mis-rewritten
+	# into a bogus /uc?...&id= URL (it will simply fail to download further down the pipeline)
+	[
+		"https://drive.google.com/drive/folders/1AbCdEfGhIjKlMnOpQrStUvWxYz0123456",
+		["https://drive.google.com/drive/folders/1AbCdEfGhIjKlMnOpQrStUvWxYz0123456"],
+	],
+	# Google Photos is a different product/domain from Google Drive: must not be matched
+	# by the Drive rewrite rule even though the two are visually easy to confuse
+	["https://photos.google.com/share/AF1QipXXX", ["https://photos.google.com/share/AF1QipXXX"],],
+	["https://photos.app.goo.gl/AbCdEfGhIjKlMnOp", ["https://photos.app.goo.gl/AbCdEfGhIjKlMnOp"],],
+	# The captured id is restricted to [\w-]+: anything after a non-word character (path separator,
+	# query separator, ...) is not swept into the rewritten URL - guards against the id capture
+	# being abused to smuggle extra path/query segments into the rewritten URL
+	[
+		"https://drive.google.com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/../evil?x=1/view",
+		[
+			"https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0",
+			"https://drive.google.com/file/d/1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0/../evil?x=1/view",
+		],
+	],
+);
+
+foreach my $test_ref (@get_image_urls_to_try_tests) {
+	my ($url, $expected_urls_ref) = @$test_ref;
+	my @urls = get_image_urls_to_try($url);
+	is(\@urls, $expected_urls_ref, "get_image_urls_to_try for $url") or diag Dumper \@urls;
+}
+
+# get_google_drive_confirm_download_url
+# For files Google Drive considers too large to scan for viruses, it returns an HTML
+# interstitial page instead of the file content. Build the URL to retry the download with
+# from that page.
+
+my @get_google_drive_confirm_download_url_tests = (
+	# Current (2026) interstitial: a GET form whose action + hidden inputs must be resubmitted,
+	# against a different host (drive.usercontent.google.com, not drive.google.com)
+	[
+		'<form id="download-form" action="https://drive.usercontent.google.com/download" method="get">'
+			. '<input type="submit" id="uc-download-link" value="Download anyway"/>'
+			. '<input type="hidden" name="id" value="1ZcRJVAU-uRhIeQpaBdZchhZpcRYPanl2">'
+			. '<input type="hidden" name="export" value="download">'
+			. '<input type="hidden" name="confirm" value="t">'
+			. '<input type="hidden" name="uuid" value="087411e0-09cb-41b9-9bd4-514f70f0f303"></form>',
+		"https://drive.usercontent.google.com/download?confirm=t&export=download&id=1ZcRJVAU-uRhIeQpaBdZchhZpcRYPanl2&uuid=087411e0-09cb-41b9-9bd4-514f70f0f303",
+	],
+	# Older interstitial format (pre-2026): a plain link with an embedded confirm= token and a
+	# relative href - kept as a fallback in case Google reverts or serves this to some clients
+	[
+		'<a id="uc-download-link" href="/uc?export=download&amp;id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0&amp;confirm=t7cO" ...',
+		"https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0&confirm=t7cO",
+	],
+	# content that is not a Google Drive confirm interstitial should not match
+	["not html at all, just some content", undef],
+	# A "you need permission" / file-not-found page is also HTML, but carries no confirm form or
+	# token: must not be mistaken for a virus-scan interstitial
+	[
+		'<html><head><title>Google Drive - Access Denied</title></head><body>'
+			. 'You need permission to access this file.</body></html>',
+		undef,
+	],
+);
+
+foreach my $test_ref (@get_google_drive_confirm_download_url_tests) {
+	my ($html, $expected_url) = @$test_ref;
+	is(get_google_drive_confirm_download_url($html), $expected_url, "get_google_drive_confirm_download_url");
+}
+
+# download_image
+# https://github.com/openfoodfacts/openfoodfacts-server/issues/14308
+# Exercise the actual retry wiring inside download_image() (as opposed to get_google_drive_confirm_token()
+# in isolation): does it detect the virus-scan interstitial, extract the token, and re-request with it?
+{
+	my @ua_requests;
+	my @ua_responses;
+
+	my $ua_module = mock 'LWP::UserAgent' => (
+		override => [
+			get => sub {
+				my ($ua, $url, @headers) = @_;
+				push @ua_requests, $url;
+				return shift @ua_responses;
+			}
+		]
+	);
+
+	# A normal, direct image response: no retry should be attempted
+	@ua_requests = ();
+	@ua_responses
+		= (HTTP::Response->new(200, "OK", HTTP::Headers->new(Content_Type => "image/jpeg"), "fake-image-bytes"));
+	my $response = download_image("https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0");
+	is(scalar @ua_requests, 1, "download_image - direct image response - only one request issued");
+	ok($response->is_success, "download_image - direct image response - success");
+	is($response->decoded_content, "fake-image-bytes", "download_image - direct image response - content untouched");
+
+	# The virus-scan interstitial (current, 2026 form-based format): download_image should notice
+	# it, build the confirm URL from the form's action + hidden inputs, and re-request with it -
+	# against a different host (drive.usercontent.google.com), not by appending to the original URL
+	@ua_requests = ();
+	@ua_responses = (
+		HTTP::Response->new(
+			200,
+			"OK",
+			HTTP::Headers->new(Content_Type => "text/html; charset=utf-8"),
+			'<form id="download-form" action="https://drive.usercontent.google.com/download" method="get">'
+				. '<input type="submit" id="uc-download-link" value="Download anyway"/>'
+				. '<input type="hidden" name="id" value="1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0">'
+				. '<input type="hidden" name="export" value="download">'
+				. '<input type="hidden" name="confirm" value="t">'
+				. '<input type="hidden" name="uuid" value="087411e0-09cb-41b9-9bd4-514f70f0f303"></form>'
+		),
+		HTTP::Response->new(200, "OK", HTTP::Headers->new(Content_Type => "image/jpeg"), "fake-image-bytes"),
+	);
+	$response = download_image("https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0");
+	is(scalar @ua_requests, 2, "download_image - virus scan interstitial - two requests issued");
+	is(
+		$ua_requests[1],
+		"https://drive.usercontent.google.com/download?confirm=t&export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0&uuid=087411e0-09cb-41b9-9bd4-514f70f0f303",
+		"download_image - virus scan interstitial - retried against the confirm form's action url"
+	);
+	ok($response->is_success, "download_image - virus scan interstitial - final response is success");
+	is($response->decoded_content,
+		"fake-image-bytes", "download_image - virus scan interstitial - final response has the image content");
+
+	# Older interstitial format (pre-2026, a plain link with an embedded confirm= token): still
+	# supported as a fallback, retried by appending it to the original URL
+	@ua_requests = ();
+	@ua_responses = (
+		HTTP::Response->new(
+			200,
+			"OK",
+			HTTP::Headers->new(Content_Type => "text/html; charset=utf-8"),
+			'<a id="uc-download-link" href="/uc?export=download&amp;id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0&amp;confirm=t7cO" ...'
+		),
+		HTTP::Response->new(200, "OK", HTTP::Headers->new(Content_Type => "image/jpeg"), "fake-image-bytes"),
+	);
+	$response = download_image("https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0");
+	is(scalar @ua_requests, 2, "download_image - older virus scan interstitial - two requests issued");
+	like($ua_requests[1], qr/&confirm=t7cO$/,
+		"download_image - older virus scan interstitial - retried with confirm token");
+	ok($response->is_success, "download_image - older virus scan interstitial - final response is success");
+
+	# A "you need permission" HTML page: also HTML, but has no confirm token to retry with, so
+	# download_image must not retry - it should just hand back the HTML response as-is (the caller,
+	# import_csv_file(), is responsible for later rejecting it as an unreadable image)
+	@ua_requests = ();
+	@ua_responses = (
+		HTTP::Response->new(
+			200, "OK",
+			HTTP::Headers->new(Content_Type => "text/html; charset=utf-8"),
+			'<html><body>You need permission to access this file.</body></html>'
+		),
+	);
+	$response = download_image("https://drive.google.com/uc?export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0");
+	is(scalar @ua_requests, 1, "download_image - permission denied page - no retry attempted (no confirm token)");
+	ok($response->is_success, "download_image - permission denied page - HTTP-level success");
+	like($response->header('Content-Type'),
+		qr{^text/html},
+		"download_image - permission denied page - content-type is still text/html (not swapped for an image)");
+
+	# A non-Google-Drive URL that happens to return an HTML content-type (e.g. a 404 page from some
+	# other host): the confirm-token retry is scoped to drive.google.com/uc? URLs and must not fire
+	@ua_requests = ();
+	@ua_responses
+		= (HTTP::Response->new(200, "OK", HTTP::Headers->new(Content_Type => "text/html"), "<html>not found</html>"));
+	$response = download_image("https://example.com/images/front.jpg");
+	is(scalar @ua_requests, 1, "download_image - unrelated host HTML response - no retry attempted");
+
+	# The retry guard only checks for the drive.google.com/uc? prefix, not the specific export mode,
+	# so it must also fire for "export=view" links (the form commonly recommended for embedding)
+	@ua_requests = ();
+	@ua_responses = (
+		HTTP::Response->new(
+			200,
+			"OK",
+			HTTP::Headers->new(Content_Type => "text/html; charset=utf-8"),
+			'<form id="download-form" action="https://drive.usercontent.google.com/download" method="get">'
+				. '<input type="submit" id="uc-download-link" value="Download anyway"/>'
+				. '<input type="hidden" name="id" value="1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0">'
+				. '<input type="hidden" name="export" value="download">'
+				. '<input type="hidden" name="confirm" value="t">'
+				. '<input type="hidden" name="uuid" value="087411e0-09cb-41b9-9bd4-514f70f0f303"></form>'
+		),
+		HTTP::Response->new(200, "OK", HTTP::Headers->new(Content_Type => "image/jpeg"), "fake-image-bytes"),
+	);
+	$response = download_image("https://drive.google.com/uc?export=view&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0");
+	is(scalar @ua_requests, 2, "download_image - export=view virus scan interstitial - two requests issued");
+	is(
+		$ua_requests[1],
+		"https://drive.usercontent.google.com/download?confirm=t&export=download&id=1cwIDauHR8svuiLDgzfxoW89TSMLm0Am0&uuid=087411e0-09cb-41b9-9bd4-514f70f0f303",
+		"download_image - export=view virus scan interstitial - retried against the confirm form's action url"
+	);
+	ok($response->is_success, "download_image - export=view virus scan interstitial - final response is success");
+
+	undef $ua_module;
+}
 
 done_testing();
