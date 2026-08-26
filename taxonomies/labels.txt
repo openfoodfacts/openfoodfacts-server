@@ -1243,8 +1243,12 @@ fr: Non issu du commerce équitable
 incompatible_with:en: labels:en:fair-trade
 opposite:en: en:fair-trade
 
-# Should not be translated, "Fairtrade International" is a label
+# Should not be translated
+< en: Fair trade
+en: World Fair Trade Organization, WFTO
+xx: World Fair Trade Organization, WFTO
 
+# Should not be translated, "Fairtrade International" is a label
 < en: Fair trade
 en: Fairtrade International, Fairtrade, FLO international, FLO
 xx: Fairtrade International, Fairtrade, FLO international, FLO
@@ -6334,6 +6338,10 @@ xx: NPOP-NAB-0041
 < en: fair trade
 < en: organic
 fr: Bio équitable en France
+
+# "Équitable en France" is a logo that seems to be only on Biocoop products
+< en: fair trade
+fr: Équitable en France
 
 < en: Organic
 en: EU Organic, European Organic, European leaf, European organic leaf, EU organic farming

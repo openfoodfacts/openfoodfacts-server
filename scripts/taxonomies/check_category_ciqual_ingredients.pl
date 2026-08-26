@@ -67,10 +67,19 @@ foreach my $tagid (sort keys %{$translations_to{"categories"}}) {
 
 	my @missing;
 	foreach my $entry (@props) {
-		my ($prop, $value) = @$entry;
+		my ($prop, $cat_value) = @$entry;
 		# Check if the ingredient (or its parents) has the same property value as the category
 		my $ing_value = $ingredient_tagid ? get_inherited_property("ingredients", $ingredient_tagid, $prop) : undef;
-		push @missing, [$prop, $value, $ing_value] unless defined $ing_value;
+
+		# If the property is a proxy property and the non-proxy property exists,
+		# do not list the proxy property as missing
+		if ((not defined $ing_value) and ($prop =~ /^ciqual_proxy_(.*)$/)) {
+			my $non_proxy_prop = "ciqual_" . $1;
+			$ing_value
+				= $ingredient_tagid ? get_inherited_property("ingredients", $ingredient_tagid, $non_proxy_prop) : undef;
+		}
+
+		push @missing, [$prop, $cat_value, $ing_value] unless defined $ing_value;
 	}
 
 	if (@missing) {

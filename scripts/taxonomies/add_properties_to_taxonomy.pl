@@ -116,26 +116,26 @@ foreach my $block (@blocks) {
 
 	my @props = @{$properties_to_add{$canonical_id}};
 
-	# Process each property
+	# Remove any existing occurrences of these properties from the block
+	my %props_to_add;
 	foreach my $prop_entry (@props) {
-		my $prop = $prop_entry->{property};
-		my $value = $prop_entry->{value};
+		$props_to_add{$prop_entry->{property}} = $prop_entry->{value};
+	}
 
-		# Check if property already exists in block
-		my $found = 0;
-		foreach my $line (@$block) {
-			if ($line =~ /^\s*$prop\s*:\s*(.*)/i) {
-				# Replace in place
-				$line = "$prop: $value\n";
-				$found = 1;
+	@$block = grep {
+		my $keep = 1;
+		foreach my $prop (keys %props_to_add) {
+			if ($_ =~ /^\s*$prop\s*:\s*(.*)/i) {
+				$keep = 0;
 				last;
 			}
 		}
+		$keep;
+	} @$block;
 
-		# If not found, append at end of block
-		unless ($found) {
-			push @$block, "$prop: $value\n";
-		}
+	# Add all properties at the end of the block, below any comments
+	foreach my $prop_entry (@props) {
+		push @$block, "$prop_entry->{property}: $prop_entry->{value}\n";
 	}
 
 	$modified = 1;
