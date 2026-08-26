@@ -210,6 +210,22 @@ sub iter_taxonomy_entries ($lines_iter) {
 						}
 					);
 				}
+				# detect “comment” typos
+				if ($prop =~ /^[coment]{6,8}$/ && $prop ne "comment") {
+					push(
+						@errors,
+						{
+							severity => "Warning",
+							type => "Correctness",
+							line => $line_num,
+							message => (
+									  "\"$prop\" might be a typo of \"comment\":\n" . "- "
+									. $props{"$prop:$lc"}->{line}
+									. "\n- $line"
+							)
+						}
+					);
+				}
 				# override to continue
 				$props{"$prop:$lc"}
 					= {line => $line, previous => [@previous_lines], line_num => $line_num, type => "property"};
@@ -365,7 +381,7 @@ sub add_entry_id($entry_ref, $errors_ref) {
 }
 
 # lint lines of an entry
-sub lint_entry($entry_ref, $do_sort) {
+sub lint_entry($entry_ref, $do_sort, $normalize_commas = 1) {
 	my @parents = @{$entry_ref->{parents}};
 	my $entry_id_line = $entry_ref->{entry_id_line};
 	my %entries = %{$entry_ref->{entries}};
@@ -389,32 +405,32 @@ sub lint_entry($entry_ref, $do_sort) {
 	# print parents, line id, synonyms, sorted props
 	for my $parent (@parents) {
 		push @output_lines, @{$parent->{previous}};
-		push @output_lines, normalized_line($parent);
+		push @output_lines, normalized_line($parent, $normalize_commas);
 	}
 	if (defined $entry_id_line) {
 		push @output_lines, @{$entry_id_line->{previous}};
-		push @output_lines, normalized_line($entry_id_line);
+		push @output_lines, normalized_line($entry_id_line, $normalize_commas);
 	}
 	for my $key (@sorted_entries) {
 		push @output_lines, @{$entries{$key}->{previous}};
-		push @output_lines, normalized_line($entries{$key});
+		push @output_lines, normalized_line($entries{$key}, $normalize_commas);
 	}
 	for my $key (@sorted_props) {
 		push @output_lines, @{$props{$key}->{previous}};
-		push @output_lines, normalized_line($props{$key});
+		push @output_lines, normalized_line($props{$key}, $normalize_commas);
 	}
 	push @output_lines, @tail_lines;
 	return join("", @output_lines);
 }
 
 # normalize spaces on a line
-sub normalized_line($entry) {
+sub normalized_line($entry, $normalize_commas = 1) {
 	my $line = $entry->{line};
-	my $normalize_commas
-		= (    ($entry->{type} eq "entry_lc")
-			|| ($entry->{type} eq "entry_id")
-			|| ($entry->{type} eq "synonyms")
-			|| ($entry->{type} eq "stopwords"));
+	my $should_normalize_commas = $normalize_commas
+		&& (($entry->{type} eq "entry_lc")
+		|| ($entry->{type} eq "entry_id")
+		|| ($entry->{type} eq "synonyms")
+		|| ($entry->{type} eq "stopwords"));
 	# ensure exactly one space after line prefix and one space after language
 	if ($entry->{type} eq "parent") {
 		$line =~ s/^< *([^:]+): *(.+)/< $1: $2/;
@@ -429,13 +445,13 @@ sub normalized_line($entry) {
 	}
 	# remove trailing space at end of line
 	$line =~ s/ +$//g;
-	if ($normalize_commas) {
+	if ($should_normalize_commas) {
 		# remove multiple commas
 		$line =~ s/,+/,/g;
 		# remove trailing space and comma at end of line
 		$line =~ s/[ ,]+$//g;
 		# first replace special cases by a lower comma
-		# but if is escape or within a number
+		# if the comma is escaped or within a number (chemical names in Open Beauty Facts categories)
 		# in numbers
 		$line =~ s/(\d),(\d)/$1‚$2/g;
 		# escaped comma \,
@@ -478,7 +494,7 @@ sub check_linted($entry_ref, $linted_output) {
 }
 
 # lint or check the taxonomy
-sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
+sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort, $normalize_commas = 1) {
 	my @errors = ();
 	while (my $entry_ref = $entries_iterator->()) {
 		my @entry_errors = @{$entry_ref->{errors}};
@@ -487,7 +503,7 @@ sub lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, $do_sort) {
 		# we will try to lint only if we don't have errors so far
 		my $linted_output;
 		if (!has_errors(\@entry_errors)) {
-			$linted_output = lint_entry($entry_ref, $do_sort);
+			$linted_output = lint_entry($entry_ref, $do_sort, $normalize_commas);
 		}
 		else {
 			# keep original lines
@@ -601,7 +617,13 @@ TXT
 			print("Processing $file =============\n\n") if $is_verbose;
 		}
 		my $entries_iterator = iter_taxonomy_entries(iter_taxonomy_lines($fd));
-		my $errors_ref = lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, !$no_sort);
+		my $normalize_commas = 1;
+		# Skip normalizing commas for beauty ingredients taxonomy (ingredients.txt or ingredients-cosing.txt),
+		# as it contains chemical names with commas that should not be normalized.
+		if ($file =~ m{/beauty/ingredients}) {
+			$normalize_commas = 0;
+		}
+		my $errors_ref = lint_taxonomy($entries_iterator, $out, $is_check, $is_quiet, !$no_sort, $normalize_commas);
 		close($fd);
 		close($out);
 		if ((!$is_check) and $out_path) {
