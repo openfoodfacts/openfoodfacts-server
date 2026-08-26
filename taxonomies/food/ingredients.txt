@@ -23599,6 +23599,14 @@ fr: grains de blé
 hr: zrno pšenice
 sv: vetekorn
 
+< en: wheat grain
+en: whole wheat kernels
+da: fuldkornshvedekerner
+sv: fullkornskärnor av vete
+description:en: Whole wheat grain (Triticum aestivum) is the raw, unprocessed wheat kernel — bran, germ, and endosperm all intact, unmilled. Cultivated for over 8,000 years since its Fertile Crescent origins, it's the source grain from which both atta and maida are later produced. Raw, it has a hard, chewy texture with an earthy, nutty taste; when cracked (dalia) or sprouted, it becomes softer and slightly sweet. Used for porridge, khichdi, upma, sprouted salads, or ground fresh into atta. Nutritionally, it's the most nutrient-dense wheat form — highest in fiber, iron, zinc, magnesium, and B-vitamins, since nothing has been removed.
+ifct_food_code:en: A020
+ifct_food_name:en: Wheat, whole
+
 < en: wheat
 en: wheat grit
 sv: vetegrits
@@ -23857,11 +23865,6 @@ sv: vetekross
 az: Manna yarması
 pl: kasza manna, kasza manna z pszenicy
 sr: griz
-
-< en: whole wheat
-en: whole wheat kernels
-da: fuldkornshvedekerner
-sv: fullkornskärnor av vete
 
 # Soft wheat
 
@@ -27394,6 +27397,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 9410
 ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
+commnet:en: IFCT classifies by processing description, while the French system is a legally defined ash-content standard — so the mapping is functional/nutritional rather than an exact technical equivalence.
 description:en: Wheat flour comes from wheat, one of the world's oldest cultivated grains, first domesticated in the Fertile Crescent around 10,000 years ago and now the dominant grain in global bread-making, especially in Europe, the Middle East, and the Americas. It has a mild, slightly sweet, neutral flavor with a texture that ranges from soft and fine (cake flour) to coarse and hearty (whole wheat), largely defined by its protein and gluten content, which gives dough its characteristic elasticity and chew. Wheat flour contains gluten and, depending on whether it's whole grain or refined, provides varying levels of fiber, B vitamins, iron, and protein—whole wheat retaining significantly more nutrients since the bran and germ aren't stripped away.
 ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
 ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
@@ -27726,6 +27730,13 @@ it: farina di grano tenero tipo 150
 ciqual_food_code:en: 9415
 ciqual_food_name:en: Wheat flour, type 150
 ciqual_food_name:fr: Farine de blé tendre ou froment T150
+
+< en: wheat flour
+en: atta
+comment:en: Indian atta (whole wheat flour, IFCT A013) would map to T150 ("farine intégrale") or sometimes T110, since these retain most or all of the bran and germ.
+description:en: Atta is whole wheat flour, stone-ground or milled from Triticum aestivum using the entire grain — bran, germ, and endosperm intact. This traditional chakki-milling method has been used across South Asia for centuries, predating industrial refining. Atta has a warm, nutty, slightly earthy taste with a denser, coarser texture than refined flour. It's the staple for everyday Indian breads — roti, chapati, paratha — and is also used in some baked goods. Nutritionally, it's rich in fiber, iron, magnesium, and B-vitamins (retained from the bran and germ), with a lower glycemic index than maida, making it more filling and slower-digesting.
+ifct_food_code:en: A019
+ifct_food_name:en: Wheat flour, atta
 
 < en: wheat flour
 en: Wheat flour type 110
