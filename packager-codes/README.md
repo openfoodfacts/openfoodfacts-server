@@ -1,11 +1,11 @@
-# Packager Codes Update Agents
+# Packager Codes Update Scripts
 
 This directory contains the automated scripts responsible for synchronizing food traceability and packaging codes from official national and international registries into the Open Food Facts database, and the output files.
 
 ## 🎯 Purpose
 To ensure our packaging code files remain accurate and up-to-date without manual intervention. These scripts systematically fetch data from the official source URLs documented on the [Food Traceability Codes Wiki](https://wiki.openfoodfacts.org/Food_Traceability_Codes).
 
-## 🤖 Agent Responsibilities
+## 🤖 Scripts Responsibilities
 Scripts added to this directory should handle the following pipeline:
 
 1. **Fetch:** Retrieve the latest packaging code data directly from the authoritative source (e.g., official government endpoints or registry files).
