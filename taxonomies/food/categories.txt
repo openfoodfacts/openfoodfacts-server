@@ -10037,16 +10037,11 @@ nl: Honeybush
 wikidata:en: Q1627092
 
 < en: Herbal teas
-en: Juniper berries
-de: Wacholderbeere
-es: Bayas de enebro
-fr: Baies de genévrier
-hr: Bobice kleke
-hu: Borókabogyó
-la: Juniperus communis
-lt: Kadagio uogos
-nl: Jeneverbes, Jeneverbessen
-wikidata:en: Q3251025
+en: Juniper berry teas
+da: Enebærsteer
+nb: Einebærteer, Einerbærteer
+nn: Einebærtear, Einerbærtear
+sv: Enbärsteer
 
 < en: Herbal teas
 en: Lavender
@@ -10060,7 +10055,7 @@ ja: ラベンダー
 la: Lavandula spica, Lavandula angustifolia
 lt: Levanda
 nl: Lavendel
-pl: Jałowiec, Owoce jałowca
+pl: Lawenda
 ro: Levănțică, Lavandă
 wikidata:en: Q42081
 
@@ -74531,6 +74526,24 @@ agribalyse_proxy_food_code:en: 11060
 agribalyse_proxy_food_name:en: Provence herbs, dried
 agribalyse_proxy_food_name:fr: Herbes de Provence, séchées
 
+< en: Seeds
+< en: Spices
+en: Dill seeds
+da: Dildfrø
+de: Dillsaat
+es: Semillas de eneldo
+fi: Tillinsiemen
+fr: Graines d'aneth
+hr: Sjeme kopra
+it: Semi di aneto
+nb: Dillfrø
+nl: Dillezaad
+nn: Dillfrø
+sv: Dillfrön
+ciqual_proxy_food_code:en: 11064
+ciqual_proxy_food_name:en: Caraway, seed
+wikidata:en: Q139678670
+
 < en: Plant-based foods
 en: Fresh chervil, Garden chervil products, Garden chervil, Chervil
 bg: Керевиз
@@ -74586,6 +74599,60 @@ lt: Isopas, juozažolė
 nl: Hyssoppen
 pl: Hyzop lekarski
 wikidata:en: Q137931
+
+< en: Aromatic plants
+en: Juniper berries
+af: Jenewerbessie
+ar: توت العرعر
+be: Ядловец
+br: Jenevra
+bs: Juniper
+ca: Ginebró
+cs: Jalovčinka
+da: Enebær
+de: Wacholderbeeren
+es: Bayas de enebro
+et: Marikäbi
+fa: جونیپر بری
+fi: Katajanmarjat, Katajanmarja
+fr: Baies de genévrier
+hr: Bobice kleke, Bobica kleke
+hu: Borókabogyó
+hy: Գիհու հատապտուղ
+id: Juniper beri
+it: Coccola di ginepro
+ja: 杜松果
+jv: Bèri juniper
+ko: 두송자
+la: Juniperi pseudo-fructus, Juniperus communis
+lt: Kadagio uogos
+lv: Čiekuroga
+mk: Смрекинка
+ml: ജൂനിപ്പർ കായ
+mt: Frotta tal-ġnibru
+nb: Einebær, Einerbær
+nl: Jeneverbes, Jeneverbessen, Bessen van de jeneverbes
+nn: Einebær, Einerbær
+pl: Owoce jałowca, Owoc jałowca, Jałowiec
+pt: Semente de zimbro, Baga de zimbro
+ro: Boabă de ienupăr
+ru: Можжевельник
+sl: Brinova jagoda
+sv: Enbär
+tw: Juniper nnuaba a wɔfrɛ no berry
+uk: Ялівець
+uz: Archa mevasi
+vi: Bách xù
+zh: 杜松子
+description:en: A JUNIPER BERRY is the female seed cone produced by the various species of junipers. Juniper berries are used in northern European and particularly Scandinavian cuisine to "impart a sharp, clear flavor" to meat dishes. Besides Norwegian and Swedish dishes, juniper berries are also sometimes used in German, Austrian, Czech, Polish and Hungarian cuisine, often with roasts (such as German sauerbraten). Northern Italian cuisine, especially that of the South Tyrol, also incorporates juniper berries.
+wikidata:en: Q3251025
+
+< en: Dried aromatic plants
+< en: Juniper berries
+< en: Spices
+en: Dried juniper berries
+da: Tørrede enebær
+sv: Torkade enbär
 
 < en: Aromatic herbs
 en: Marjoram
@@ -76156,6 +76223,28 @@ ciqual_food_name:fr: Sel au céleri
 wikidata:en: Q5057832
 
 < en: Flavoured salts
+< en: Garlics and their products
+en: Garlic salts
+af: Knoffelsout
+ar: ملح الثوم
+ca: Sal d'all
+da: Hvidløgssalte
+de: Knoblauchsalze
+eo: Ajlsaloj
+es: Sals de ajo
+fa: نمک سیر
+fi: Valkosipulisuola
+id: Garam bawang putih
+ja: ガーリックソルト
+ms: Garam bawang putih
+nl: Knoflookzout
+pl: Sól czosnkowa
+sv: Vitlökssalter
+uz: Sarimsoq tuzi
+zh: 蒜鹽
+wikidata:en: Q1935156
+
+< en: Flavoured salts
 en: Herbal salts
 da: Urtesalte
 de: Kräutersalz
@@ -76239,6 +76328,69 @@ ciqual_food_name:en: Spice (average)
 ciqual_food_name:fr: Epice (aliment moyen)
 intake24_category_code:en: SPCE
 wikidata:en: Q42527
+
+< en: Spices
+en: Allspices, All spices, Allspice, Jamaica pepper, Myrtle pepper
+af: Wonderpeper
+ar: فلفل إفرنجي
+az: İkievli pimenta
+be: Ангельскае зелле, Пімента лекавая
+bg: Бахар
+bn: কাবাব চিনি
+ca: Pebrer de Jamaica, Pebre de Jamaica
+cs: Nové koření, Pimentovník pravý
+da: Allehånde
+de: Jamaikapfeffer, Piment, Allgewürz, Viergewürz
+el: Μπαχάρι
+eo: Dioika pimentoj
+es: Pimientas de Jamaica
+et: Vürtspipar, Harilik pimendipuu
+fa: فلفل فرنگی
+fi: Maustepippuri
+fr: Piments de la Jamaïque, Piment de la Jamaïque, Piment de Jamaïque
+ga: Ilspíosra
+hr: Pimen
+ht: Malagèt
+hu: Szegfűbors
+hy: Բուրավետ պղպեղ
+id: Merica Jamaika
+is: Allrahanda
+it: Pepe di Giamaica, Pepe garofanato, Pimenteira
+ja: オールスパイス
+ko: 올스파이스나무
+la: Pimenta dioica
+lt: Kvapusis pipiras
+ml: സർവ സുഗന്ധി
+ms: Rempah tiga rasa
+nb: Allehånder
+nl: Piment, Jamaicaanse peper
+nn: Allehandar
+pl: Ziele angielskie, Ziela angielskiego, Pieprz z Jamajki, Korzennik lekarski
+pt: Pimenta da jamaica
+ro: Ienibahar
+ru: Душистый перец, Перец душистый, Перец душистый молотый, Пимента лекарственная
+sl: Piment, Pimentovec
+sr: Најгвирц
+sv: Kryddpeppar
+ta: ஆல்ஸ்பைஸ்
+th: ออลสไปซ์
+to: Sipaisi
+tr: Yeni bahar
+uk: Духмяний перець, Перець духмяний
+ur: سیتل چینی
+zh: 多香果
+description:en: ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
+wikidata:en: Q1963621
+wikipedia:en: https://en.wikipedia.org/wiki/Allspice
+
+< en: Allspices
+en: Whole allspices, Allspice peppercorns
+da: Hele allehånde
+sv: Kryddpepparkorn, Hela kryddpeppar
+
+< en: Allspices
+en: Ground allspices
+sv: Malen kryddpeppar, Malna kryddpepparkorn
 
 < en: Herbal teas
 < en: Spices
@@ -76521,7 +76673,7 @@ ar: كمون
 bg: Кимион
 ca: Comí, Comí castellà
 da: Spidskommen
-de: Kümmel, Kreuzkümmel
+de: Kreuzkümmel
 eo: Oficina kuminoj
 es: Comino
 fi: juustokumina
@@ -76582,17 +76734,65 @@ ciqual_food_name:fr: Cumin, graine
 wikidata:en: Q57328174
 
 < en: Aromatic herbs
+< en: Spices
 en: Caraway seeds
-es: semillas de alcaravea
-fr: Graines de carvi
+ca: Llavors d'alcaravia
+cs: Kmín
+da: Kommenfrø, Kommen
+de: Kümmelsamen, Kümmel
+es: Semillas de alcaravea
+et: Köömned
+fi: Kumina
+fr: Carvi
 hr: Sjemenke kima
+id: Jintan
+it: Seme di cumino dei prati
+ja: キャラウェイシード
+la: Carvi fructus
 lt: Kmynų sėklos
+lv: Ķimeņu sēklas
+nl: Karwijzaad
 pl: Kminek
+ro: Semințe de chimen
+ru: Семена тмина
+sl: Seme navadne kumine
+sv: Kumminfrön, Kummin
+yi: קימל זוימען
+zh: 葛缕子, 葛缕子籽, 葛縷子, 葛縷子籽
 agribalyse_food_code:en: 11064
 ciqual_food_code:en: 11064
 ciqual_food_name:en: Caraway, seed
 ciqual_food_name:fr: Carvi, graine
+comment:en: Caraway “seeds” are actually the fruits of the caraway plant.
 wikidata:en: Q21155816
+
+< en: Caraway seeds
+en: Whole caraway seeds
+da: Hele kommenfrø
+de: Ganze Kümmelsamen
+es: Semillas de alcaravea en grano
+fr: Graines de carvi
+hr: Cijele sjemenke kima
+nl: Grove karwijzaden
+sv: Hela kumminfrön
+
+< en: Caraway seeds
+< en: Ground dried aromatic plants
+en: Ground caraway seeds, Ground dried caraway seeds
+da: Malede kommenfrø, Malet kommen
+es: Semillas de alcaravea molido
+fr: Graines de carvi moulu
+hr: Mljevene sjemenke kima
+lt: Maltos kmynų sėklos
+nl: Gemalen karwijzaad
+sv: Malna kumminfrön, Malen kummin, Kummin malen
+
+< en: Ground caraway seeds
+en: Caraway seed powders, Caraway powders
+da: Kommenfrøpulvere, Kommenpulvere
+es: Semillas de alcaravea en polvo
+fr: Carvi en poudre
+sv: Kumminfrönpulver, Kumminpulver
 
 < en: Plant-based foods
 en: Fenugreek products, Fenugreek
@@ -76887,11 +77087,16 @@ it: Pepe
 ja: 胡椒, コショウ, こしょう
 la: Piper nigrum
 lt: Pipirai
+nb: Peppere, Peprer
 nl: Pepers
+nn: Peparar
 pl: Pieprz
 pt: Pimentas
 ru: Перцы
 sv: Peppar
+agribalyse_proxy_food_code:en: 11015
+ciqual_proxy_food_code:en: 11015
+ciqual_proxy_food_name:en: Black pepper, powder
 intake24_category_code:en: PEPR
 sales_format:en: package, weight
 wikidata:en: Q43084
@@ -76911,7 +77116,7 @@ gpc_category_description:en: Definition: Includes any products that can be descr
 gpc_category_name:en: Pepper Variety Packs
 
 < en: Peppers
-en: Ground peppers
+en: Ground peppers, Ground peppercorns
 bg: Млян пипер
 de: Gemahlene Paprikaschoten
 es: Pimienta molida
@@ -76925,17 +77130,44 @@ pl: Pieprz mielony
 incompatible_with:en: categories:en:peppercorns
 
 < en: Peppers
-en: Peppercorns
+en: Peppercorns, Whole peppercorns
+da: Peberkorn, Hele peberkorn
 de: Pfefferkörner
 es: Pimienta en grano
-fi: pippurit
+fi: Pippurit
 fr: Graines de poivre
 hr: Papar u zrnu
 it: Grani di pepe
 lt: Pipirų žirneliai
+nb: Pepperkorn
 nl: Peperkorrels
+nn: Peparkorn
 pl: Ziarna pieprzu
+sv: Pepparkorn, Hela pepparkorn
 incompatible_with:en: categories:en:ground-peppers
+wikidata:en: Q3143131
+
+< en: Peppercorns
+en: Dried peppercorns
+da: Tørrede peberkorn
+es: Pimienta en grano seco
+fr: Graines de poivre déshydraté
+hr: Sušeni papar u zrnu
+lt: Džiovinti pipirų žirneliai
+nl: Gedroogde peperkorrels
+sv: Torkade pepparkorn
+incompatible_with:en: categories:en:fresh-peppercorns
+
+< en: Peppercorns
+en: Fresh peppercorns
+da: Friske peberkorn
+es: Pimienta en grano fresca
+fr: Poivre fraîche en grains
+hr: Zrna svježeg papra
+lt: Švieži pipirų žirneliai
+nl: Verse peperkorrels
+sv: Färska pepparkorn
+incompatible_with:en: categories:en:dried-peppercorns
 
 < en: Peppers
 en: Black peppers
@@ -77037,6 +77269,7 @@ hr: Zeleni papar u zrnu
 lt: Žalieji pipirų žirneliai
 nl: Groene peperkorrels
 
+< en: Dried peppercorns
 < en: Green peppercorns
 en: Dried green peppercorns
 es: Pimienta verde en grano seca
@@ -77045,6 +77278,7 @@ hr: Sušeni zeleni papar u zrnu
 lt: Džiovinti žalieji pipirų žirneliai
 nl: Gedroogde groene peperkorrels
 
+< en: Fresh peppercorns
 < en: Green peppercorns
 en: Fresh green peppercorns
 es: Pimienta verde en grano fresca
@@ -77080,14 +77314,59 @@ nl: Gevriesdroogde gemalen groene peper
 
 < en: Peppers
 en: Pink peppers
+ar: حب فلفل زهري
+az: Çəhrayı istiot
 bg: Розов пипер
+ca: Pebre fals
+cs: Pepř růžový
+da: Rosépeber
+de: Rosa Pfeffer
 es: Pimienta rosa
-fr: Poivres roses
+fa: فلفل صورتی
+fi: Perunroseepippuri
+fr: Poivres roses, Poivre rose
 hr: Ružičaste paprike
+ht: Bè woz
+it: Pepe rosa
 ja: 赤胡椒, 赤コショウ, 赤こしょう, ピンクペッパー
+ko: 핑크페퍼
+la: Granum piperis roseum
 lt: Rausvieji pipirai
+ml: പിങ്ക് പെപ്പർകോൺ
 nl: Roze pepers
+ru: Розовый перец
+sl: Rožnati poper
+sv: Rosépeppar
+uk: Рожевий перець
 wikidata:en: Q2497744
+
+< en: Peppercorns
+< en: Pink peppers
+en: Pink peppercorns
+da: Rosépeberkorn
+de: Rosa Pfefferkörner
+es: Pimienta rosa en grano
+fr: Poivres roses en grains
+nl: Roze peperkorrels
+sv: Rosépepparkorn
+
+< en: Dried peppercorns
+< en: Pink peppercorns
+en: Dried pink peppercorns
+da: Tørrede rosépeberkorn
+es: Pimienta rosa en grano seca
+fr: Poivres roses déshydraté en grains
+nl: Gedroogde roze peperkorrels
+sv: Torkade rosépepparkorn
+
+< en: Fresh peppercorns
+< en: Pink peppercorns
+en: Fresh pink peppercorns
+da: Friske rosépeberkorn
+es: Pimienta rosa en grano fresca
+fr: Poivres roses fraîche en grains
+nl: Verse roze peperkorrels
+sv: Färska rosépepparkorn
 
 < en: Peppers
 en: White peppers
@@ -77478,23 +77757,25 @@ gpc_category_code:en: 10006102
 gpc_category_description:en: Definition: Includes any product that can be described/observed as a fresh commercial variety of Chili Peppers grown from capsicum annuum, c. baccatum, c. chinense, c. frutescens and c. pubescens with a minimum pungency level of  900 on the Scoville index. Definition Excludes: Specifically excludes any Prepared/Processed or Unprepared/Unprocessed and Shelf Stable or Frozen Chili Peppers and Chili peppers for industrial processing.
 gpc_category_name:en: Chilli Peppers
 sales_format:en: weight, package
+wikidata:en: Q165199
+wikipedia:en: https://en.wikipedia.org/wiki/Chili_pepper
 
 < en: Chili peppers
-en: Ground chili
+en: Ground chili, Ground chilli
 fi: Jauhettu chili
 nb: Kvernet chili
 sv: Mald chili
 zh: 磨碎辣椒
 
 < en: Chili peppers
-en: Chili powders
+en: Chili powders, Chilli powders
 hr: Čili u prahu
 lt: Čili milteliai
 nl: Chilipoeders, Chillipoeders
 pl: Chili w proszku, Chilli w proszku
 
 < en: Chili peppers
-en: Chili flakes
+en: Chili flakes, Chilli flakes
 da: Chiliflager
 de: Chiliflocken
 sv: Chiliflingor
@@ -112849,6 +113130,32 @@ gpc_category_description:en: Definition: Includes any product that can be descri
 gpc_category_name:en: Garlic
 season_in_country_fr:en: 7,8,9,10,11,12
 
+< en: Dried vegetables
+< en: Garlics
+en: Dried garlics
+da: Tørrede hvidløg
+sv: Torkade vitlökar
+ciqual_proxy_food_code:en: 11023
+ciqual_proxy_food_name:en: Garlic, dried, powder
+
+< en: Garlics
+en: Chopped garlics
+da: Hakkede hvidløg
+sv: Hackade vitlökar
+
+< en: Chopped garlics
+< en: Dried garlics
+en: Dried chopped garlics
+da: Tørrede hakkede hvidløg
+sv: Torkade hackade vitlökar
+ciqual_proxy_food_code:en: 11023
+ciqual_proxy_food_name:en: Garlic, dried, powder
+
+< en: Dried chopped garlics
+en: Dried finely chopped dried garlics, Dried fine chopped garlics
+da: Tørrede finthakkede hvidløg
+sv: Torkade finhackade vitlökar
+
 < en: Garlics
 en: Allium neapolitanum, Naples garlic
 de: Neapolitanischer Lauch
@@ -112915,7 +113222,7 @@ protected_name_file_number:en: PDO-FR-02103-AM01, PDO-FR-02103
 protected_name_type:en: pdo
 
 < en: Vegetables
-en: Green garlic
+en: Green garlics, Green garlic
 es: Ajos tiernos, Brotes de ajo
 fr: Aillets
 hr: Zeleni češnjak
@@ -120088,8 +120395,8 @@ en: Frozen chopped shallots
 da: Frosne hakkede skalotteløg
 sv: Frysta hackade schalottenlökar
 
+< en: Chopped garlics
 < en: Frozen vegetables
-< en: Garlics
 en: Frozen chopped garlic
 de: Tiefgefrorener gehackter Knoblauch
 es: Ajos troceados congelados, Ajos congelados troceados
@@ -120098,7 +120405,8 @@ hr: Smrznuti nasjeckani češnjak
 nl: Diepvries gehakte knoflook
 
 < en: Frozen vegetables
-en: Frozen green garlic
+< en: Green garlics
+en: Frozen green garlics, Frozen green garlic
 es: Ajos tiernos congelados, Brotes de ajo congelados
 fr: Aillets surgelés
 he: שום ירוק קפוא

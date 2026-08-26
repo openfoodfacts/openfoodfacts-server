@@ -819,7 +819,7 @@ fr: mono- et diglycérides d'acides gras et stéaroyl-2-lactylate de sodium
 en: nigari, bittern
 bg: Нигари
 ca: Nigari
-cs: nigari
+cs: nigari, mořská jedlá sůl nigari, mořská sůl nigari
 de: Nigari
 es: Nigari
 fi: nigari
@@ -11369,7 +11369,6 @@ nutriscore_red_meat:en: yes
 # sat:ᱥᱟᱫᱚᱢ
 # scn:cavaddu
 # sco:horse
-# simple:horse
 # srn:asi (pardi)
 # stq:hoangst (suugediert)
 # szl:kůń
@@ -13903,7 +13902,7 @@ vegetarian:en: yes
 # <en:rice
 en: rice starch
 bg: оризово нишесте
-cs: Rýžová škrob
+cs: rýžový škrob
 da: risstivelse
 de: Reisstärke
 es: almidon de arroz, amido de arroz
@@ -17112,6 +17111,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Shea_butter
 # < en:shea why is this here?
 < en: vegetable oil
 en: shea oil, sheanut oil
+cs: bambucký olej
 da: sheaolie
 de: Sheaöl
 hr: shea ulje
@@ -18159,7 +18159,7 @@ it: aceto bianco distillato
 en: wine vinegar
 bg: винен оцет
 ca: Vinagre de vi
-cs: vinný ocet
+cs: vinný ocet, ocet kvasný vinný
 da: Vineddike
 de: Weinessig
 es: vinagre de vino
@@ -19829,8 +19829,6 @@ description:en: Fortified wine is a wine to which a distilled spirit, usually br
 wikidata:en: Q722338
 wikipedia:en: https://en.wikipedia.org/wiki/Fortified_wine
 
-# description:en:MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
-
 < en: liqueur wine
 en: Madeira, Madeira wine
 an: Vin de Madeira
@@ -19876,11 +19874,10 @@ zh: 马德拉酒
 # frr:Madeira
 # pt-br:Vinho da Madeira
 # yue:孖爹剌
+description:en: MADEIRA is a fortified wine made on the Portuguese Madeira Islands, off the coast of Africa. Madeira is produced in a variety of styles ranging from dry wines which can be consumed on their own as an aperitif to sweet wines usually consumed with dessert.
 wikidata:en: Q27697
 wikipedia:en: https://en.wikipedia.org/wiki/Madeira_wine
 # usage:en:liqueur wine (Madeira)
-
-# description:en:MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily.
 
 < en: liqueur wine
 en: Marsala wine
@@ -19889,10 +19886,7 @@ ar: نبيذ مارسالا
 be: Марсала
 bg: Марсала
 cs: víno Marsala
-da: Marsala
-de: Marsala
 el: κρασί Μαρσάλα
-eo: Marsala
 es: Marsala, vino de Marsala
 fa: شراب مارسالا
 fi: Marsala, marsala-viini
@@ -19900,38 +19894,29 @@ fo: Marsalavín
 fr: vin marsala, vin Marsala AOC, marsala
 he: מרסלה
 hr: marsala
-hu: Marsala
 id: Anggur Marsala
 it: vino marsala, vino di Marsala
 ja: 強化ワイン
-lt: Marsala
-nb: Marsala
-nl: Marsala
-pl: Marsala
 pt: Vinho Marsala, vinho de Marsala
 ro: Vin de Marsala
 ru: Марсала
-sh: Marsala
 sk: Marsala, víno Marsala
 sv: Marsalavin
 uk: Марсала
-# da,de,es,fifr,hr,hu,lt,nb,nl,pl,sh
 zh: 玛萨拉酒
-ciqual_food_code:en: 1015
-ciqual_food_name:en: Marsala wine
-ciqual_food_name:fr: Marsala
-origins:en: en:france
-protected_name_type:en: en:aoc
 # be-tarask:Марсала
-# scn:Marsala
 # zh-hans:玛萨拉酒
 # zh-hant:瑪薩拉酒
 # zh-hk:瑪薩拉酒
+ciqual_food_code:en: 1015
+ciqual_food_name:en: Marsala wine
+ciqual_food_name:fr: Marsala
+description:en: MARSALA is a wine, dry or sweet, produced in the region surrounding the Italian city of Marsala in Sicily.
+origins:en: en:france
+protected_name_type:en: en:aoc
 wikidata:en: Q842052
 wikipedia:en: https://en.wikipedia.org/wiki/Marsala_wine
 #227 @2021-09-25
-
-# description:en:PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
 
 < en: liqueur wine
 en: port, port wine
@@ -19995,6 +19980,7 @@ zh: 波特酒
 # zh-hk:波特酒
 # zh-sg:波特酒
 # zh-tw:波特酒
+description:en: PORT wine (also known as vinho do Porto, Porto, and usually simply port) is a Portuguese fortified wine produced with distilled grape spirits exclusively in the Douro Valley in the northern provinces of Portugal.
 wikidata:en: Q191034
 wikipedia:en: https://en.wikipedia.org/wiki/Port_wine
 
@@ -20022,8 +20008,6 @@ it: porto rosso modificato
 en: ruby port
 hr: rubin luka
 it: porto Ruby
-
-# description:en:SHERRY is a fortified wine made from white grapes that are grown near the city of Jerez de la Frontera in Andalusia, Spain. Sherry is produced in a variety of styles made primarily from the Palomino grape, ranging from light versions similar to white table wines, such as Manzanilla and fino, to darker and heavier versions that have been allowed to oxidise as they age in barrel, such as Amontillado and oloroso.
 
 < en: liqueur wine
 en: sherry, sherry wine
@@ -20070,8 +20054,8 @@ ur: شیری
 vi: sherry
 zh: 雪利酒
 # frr:sherry
-# simple:sherry
 # zh_yue:些厘酒
+description:en: SHERRY is a fortified wine made from white grapes that are grown near the city of Jerez de la Frontera in Andalusia, Spain. Sherry is produced in a variety of styles made primarily from the Palomino grape, ranging from light versions similar to white table wines, such as Manzanilla and fino, to darker and heavier versions that have been allowed to oxidise as they age in barrel, such as Amontillado and oloroso.
 wikidata:en: Q16398
 wikipedia:en: https://en.wikipedia.org/wiki/Sherry
 
@@ -20086,8 +20070,6 @@ it: sherry Amontillado
 en: blackberry wine
 hr: kupinovo vino
 it: vino di more
-
-# description:en:BRANDY is a spirit produced by distilling wine. Brandy generally contains 35–60% alcohol by volume (70–120 US proof) and is typically consumed as an after-dinner digestif.
 
 < en: alcohol
 en: brandy
@@ -20161,6 +20143,7 @@ zh: 白兰地
 # xmf:ბრენდი
 # zh_min_nan:brandy
 # zh_yue:拔蘭地
+description:en: BRANDY is a spirit produced by distilling wine. Brandy generally contains 35–60% alcohol by volume (70–120 US proof) and is typically consumed as an after-dinner digestif.
 wikidata:en: Q146470
 wikipedia:en: https://en.wikipedia.org/wiki/Brandy
 # <category:en:brandys
@@ -20506,7 +20489,6 @@ usda_ndb_name:en: Alcoholic beverage, malt beer, hard lemonade
 < en: beer
 fr: bière blonde
 
-# description:en:ABSINTHE is historically described as a distilled, highly alcoholic beverage
 
 < en: alcohol
 en: absinthe, absinth
@@ -20520,6 +20502,7 @@ it: Assenzio
 nl: absinth
 pl: Absynt
 pt: absinto
+description:en: ABSINTHE is historically described as a distilled, highly alcoholic beverage
 wikidata:en: Q170210
 wikipedia:en: https://en.wikipedia.org/wiki/Absinthe
 
@@ -20706,6 +20689,7 @@ fr: arôme artificiel, arômes artificiels
 hr: umjetna aroma
 hu: mesterséges aroma, mesterséges aromák
 it: Aroma artificiale
+ko: 합성향료
 nl: Kunstmatige smaakstoffen
 pl: Sztuczny aromat, sztuczne aromaty
 pt: Aromatizante artificial
@@ -22941,9 +22925,6 @@ fr: arôme de salade grecque
 hr: aroma grčke salate
 it: aroma per insalata greca
 
-# description:en:Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
-# comment:en:It is assumed that the translations of smoke are the same as cooking smoke.
-
 en: smoke
 ar: دخان
 ay: Jiwq'i
@@ -23010,8 +22991,6 @@ uk: Дим
 ur: دھواں
 vi: Khói
 zh: 煙
-vegan:en: yes
-vegetarian:en: yes
 # arc:ܬܢܢܐ
 # be-tarask:Дым
 # bho:धुँआ
@@ -23034,6 +23013,10 @@ vegetarian:en: yes
 # zh-hk:煙
 # zh-sg:烟
 # zh-hk:煙
+comment:en: It is assumed that the translations of smoke are the same as cooking smoke.
+description:en: Smoke is a collection of airborne solid and liquid particulates and gases emitted when a material undergoes combustion or pyrolysis, together with the quantity of air that is entrained or otherwise mixed into the mass. Smoke is sometimes used as a flavoring agent, and preservative for various foodstuffs. Smoking is the process of flavoring, browning, cooking, or preserving food by exposing it to smoke from burning or smoldering material, most often wood. Meat, fish, and lapsang souchong tea are often smoked.
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q130768
 wikipedia:en: https://en.wikipedia.org/wiki/Smoking_(cooking)
 
@@ -23057,11 +23040,6 @@ en: fir wood smoke
 hr: dim jelovine
 it: fumo di legno di abete
 pl: dym z drewna jodłowego
-
-# description:en:LIQUID SMOKE is a water-soluble yellow to red liquid used for flavoring. It is used as a substitute for cooking with wood smoke while retaining a similar flavor. It can be used to flavor any meat or vegetable. It is generally made by concentrating the smoke from wood, but can contain any number of food additives.
-# description:de:FLÜSSIGRAUCH ist eine wasserlösliche gelb bis rote Flüssigkeit, die zum Würzen verwendet wird. Es wird als Ersatz für das Kochen mit Holzrauch verwendet und behält dabei einen ähnlichen Geschmack. Es kann zum Würzen von Fleisch oder Gemüse verwendet werden. Es wird in der Regel durch Konzentration des Rauchs aus Holz hergestellt, kann aber auch beliebige Lebensmittelzusatzstoffe enthalten.
-# description:es:EL HUMO LÍQUIDO es un líquido soluble en agua de color amarillo a rojo utilizado para dar sabor. Se utiliza como sustituto de la cocción con humo de madera manteniendo un sabor similar. Se puede utilizar para dar sabor a cualquier tipo de carne o vegetal. Generalmente se elabora concentrando el humo de la madera, pero puede contener cualquier cantidad de aditivos alimentarios.
-# description:fr:LA FUMÉE LIQUIDE est un liquide soluble dans l'eau de couleur jaune à rouge utilisé pour aromatiser. Il est utilisé comme substitut de la cuisson au fumage du bois tout en conservant une saveur similaire. Il peut être utilisé pour aromatiser n'importe quelle viande ou légume. Il est généralement fabriqué en concentrant la fumée du bois, mais peut contenir n'importe quel nombre d'additifs alimentaires.
 
 < en: smoke
 en: liquid smoke
@@ -23088,6 +23066,10 @@ zh: 煙熏液
 # zh-hans:煙熏液
 # zh-hant:煙熏液
 # zh-hk:煙熏液
+description:en: LIQUID SMOKE is a water-soluble yellow to red liquid used for flavoring. It is used as a substitute for cooking with wood smoke while retaining a similar flavor. It can be used to flavor any meat or vegetable. It is generally made by concentrating the smoke from wood, but can contain any number of food additives.
+description:de: FLÜSSIGRAUCH ist eine wasserlösliche gelb bis rote Flüssigkeit, die zum Würzen verwendet wird. Es wird als Ersatz für das Kochen mit Holzrauch verwendet und behält dabei einen ähnlichen Geschmack. Es kann zum Würzen von Fleisch oder Gemüse verwendet werden. Es wird in der Regel durch Konzentration des Rauchs aus Holz hergestellt, kann aber auch beliebige Lebensmittelzusatzstoffe enthalten.
+description:es: EL HUMO LÍQUIDO es un líquido soluble en agua de color amarillo a rojo utilizado para dar sabor. Se utiliza como sustituto de la cocción con humo de madera manteniendo un sabor similar. Se puede utilizar para dar sabor a cualquier tipo de carne o vegetal. Generalmente se elabora concentrando el humo de la madera, pero puede contener cualquier cantidad de aditivos alimentarios.
+description:fr: LA FUMÉE LIQUIDE est un liquide soluble dans l'eau de couleur jaune à rouge utilisé pour aromatiser. Il est utilisé comme substitut de la cuisson au fumage du bois tout en conservant une saveur similaire. Il peut être utilisé pour aromatiser n'importe quelle viande ou légume. Il est généralement fabriqué en concentrant la fumée du bois, mais peut contenir n'importe quel nombre d'additifs alimentaires.
 wikidata:en: Q909463
 wikipedia:en: https://en.wikipedia.org/wiki/Liquid_smoke
 
@@ -23387,8 +23369,6 @@ usda_ndb_name:en: Triticale flour, whole-grain
 #
 ##################################################################################
 
-# description:en:WHEAT is a grass widely cultivated for its seed.
-
 < en: cereal
 en: wheat
 af: koring
@@ -23500,12 +23480,6 @@ vi: lúa mì
 wa: frumint
 yi: ווייץ
 zh: 小麦
-allergens:en: en:gluten
-carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
-carbon_footprint_fr_foodges_value:fr: 0.6
-ciqual_proxy_food_code:en: 9410
-ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
-wikidata:en: Q15645384
 # als:weisse
 # arc:ܚܛܬܐ
 # arz:قمح
@@ -23562,6 +23536,13 @@ wikidata:en: Q15645384
 # zh-classical:麥
 # zh-min-nan:be̍h-á
 # yue:小麥
+allergens:en: en:gluten
+carbon_footprint_fr_foodges_ingredient:fr: Semoule de blé dur
+carbon_footprint_fr_foodges_value:fr: 0.6
+ciqual_proxy_food_code:en: 9410
+ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
+description:en: WHEAT is a grass widely cultivated for its seed.
+wikidata:en: Q15645384
 wikipedia:en: https://en.wikipedia.org/wiki/Wheat
 
 < en: wheat
@@ -23672,7 +23653,7 @@ hr: proizvodi od žitarica od cjelovitog zrna, cjelovite žitarice
 it: prodotti a base di cereali integrali
 
 < en: wheat
-en: wheat flakes
+en: wheat flakes, wheatflakes
 bg: пшеница люспи
 ca: flocs de blat
 cs: pšeničné vločky
@@ -23899,7 +23880,6 @@ ecobalyse_origins_en_france:en: 38788025-a65e-4edf-a92f-aab0b89b0d61
 #                        Durum wheat
 #
 ##################################################################################
-# description:en:Durum wheat (Triticum durum or Triticum turgidum subsp. durum) is a tetraploid species of wheat.
 
 < en: wheat
 en: durum wheat, hard wheat
@@ -23951,6 +23931,7 @@ zh: 硬粒小麦
 ciqual_proxy_food_code:en: 9060
 ciqual_proxy_food_name:en: Durum wheat, whole, raw
 ciqual_proxy_food_name:fr: Blé dur entier, cru
+description:en: Durum wheat (Triticum durum or Triticum turgidum subsp. durum) is a tetraploid species of wheat.
 ecobalyse:en: 2e196834-d2b1-4786-9265-db4440c8517c
 ecobalyse_origins_en_european_union:en: 0d5d65e0-6ffc-4ffa-9966-944bc3ed62c8
 ecobalyse_origins_en_france:en: 28013f55-a3ce-4ae6-9a97-133ce7724ece
@@ -23958,13 +23939,6 @@ usda_ndb_code:en: 20076
 usda_ndb_name:en: Wheat, durum
 wikidata:en: Q618324
 wikipedia:en: https://en.wikipedia.org/wiki/Durum
-
-#<en:durum wheat
-#en:organic durum wheat
-#fi:luomu durumvehnä
-#fr:Blé dur biologique
-#hu:bio durumbúza
-#sv:ekologiskt durumvete
 
 < en: durum wheat
 fr: blé dur concassé
@@ -24150,7 +24124,6 @@ it: semola di grano duro integrale bio, semola integrale di grano duro bio
 < en: durum wheat semolina
 fr: semoule de blé dur précuite
 
-# description:en:Freekeh (sometimes spelled frikeh) or farik is a cereal food made from green durum wheat (Triticum turgidum var. durum) that is roasted and rubbed to create its flavour.
 < en: durum wheat
 en: freekeh, frik, cooked spelt freekeh
 xx: freekeh
@@ -24166,6 +24139,7 @@ zh: 翡麦
 ciqual_food_code:en: 51510
 ciqual_food_name:en: Frik (crushed immature durum wheat), raw
 ciqual_food_name:fr: Frik (blé dur immature concassé), cru
+description:en: Freekeh (sometimes spelled frikeh) or farik is a cereal food made from green durum wheat (Triticum turgidum var. durum) that is roasted and rubbed to create its flavour.
 wikidata:en: Q771079
 wikipedia:en: https://en.wikipedia.org/wiki/Freekeh
 
@@ -24201,7 +24175,6 @@ sv: durumkärnor
 #                        Wheatgerm
 #
 ##################################################################################
-# description:en:WHEAT GERM is a concentrated source of several essential nutrients, including vitamin E, folate (folic acid), phosphorus, thiamin, zinc, and magnesium, as well as essential fatty acids and fatty alcohols. It is a good source of fiber. Wheat germ can be added to protein shakes, casseroles, muffins, pancakes, cereals, yogurt, smoothies, cookies, and other goods.
 
 < en: wheat
 en: wheat germ, wheatgerm
@@ -24222,6 +24195,7 @@ ro: germeni de grâu
 sv: vetegroddar
 ciqual_food_code:en: 9660
 ciqual_food_name:en: Wheat germ
+description:en: WHEAT GERM is a concentrated source of several essential nutrients, including vitamin E, folate (folic acid), phosphorus, thiamin, zinc, and magnesium, as well as essential fatty acids and fatty alcohols. It is a good source of fiber. Wheat germ can be added to protein shakes, casseroles, muffins, pancakes, cereals, yogurt, smoothies, cookies, and other goods.
 usda_ndb_code:en: 20078
 usda_ndb_name:en: Wheat germ, crude
 wikipedia:en: https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
@@ -24240,8 +24214,6 @@ nb: grahamsmel
 ro: făină graham
 sv: grahamsmjöl, fullkornsgrahamsmjöl, grahamsmjöl av vete
 wikipedia:en: https://en.wikipedia.org/wiki/Graham_flour
-
-# description:en:Wheat gluten is a food made from gluten, the main protein of wheat.
 
 < en: wheat
 en: seitan
@@ -24280,6 +24252,7 @@ zh: 面筋
 # zh-hk:麵筋
 ciqual_food_code:en: 25598
 ciqual_food_name:en: Seitan, prepacked
+description:en: Wheat gluten is a food made from gluten, the main protein of wheat.
 wikidata:en: Q943935
 wikipedia:en: https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 # seitan* (eau, protéine de blé)
@@ -24289,7 +24262,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Wheat_gluten_(food)
 #                        Semolina
 #
 ##################################################################################
-# Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
 
 < en: wheat
 en: semolina
@@ -24316,6 +24288,7 @@ pl: semolina, semoliny
 pt: Sêmola
 ru: манная крупа, крупа манная
 sv: mannagryn, semolinagryn
+coment:en: Be careful that in some languages semolina is also used for coarse grinded rice, maize, etc. Wikipedia is not very consistent.
 description:en: Semolina is the coarse, purified wheat middlings of durum wheat mainly used in making pasta and couscous.
 vegan:en: yes
 vegetarian:en: yes
@@ -24456,7 +24429,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Couscous
 #                        Bulgur
 #
 ##################################################################################
-# description:en:BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat.
 
 < en: durum wheat
 en: bulgur, bulgur wheat
@@ -24495,6 +24467,7 @@ zh: 布格麦
 ciqual_food_code:en: 9690
 ciqual_food_name:en: Wheat bulgur, raw
 ciqual_food_name:fr: Boulgour de blé, cru
+description:en: BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat.
 usda_ndb_code:en: 20012
 usda_ndb_name:en: Bulgur, dry
 wikidata:en: Q250432
@@ -24853,8 +24826,7 @@ ro: arpacș de orz
 sl: ješprenj
 tr: gevrek arpa
 #nds:pillegarste
-
-# Detailed info on different barley groats varietes on Polish wiki - https://pl.wikipedia.org/wiki/Kasza_j%C4%99czmienna#Rodzaje_kasz_j%C4%99czmiennych
+comment:en: Detailed info on different barley groats varietes on Polish wiki - https://pl.wikipedia.org/wiki/Kasza_j%C4%99czmienna#Rodzaje_kasz_j%C4%99czmiennych
 
 < en: barley groats
 en: hulled barley
@@ -24949,8 +24921,6 @@ it: sciroppo d'orzo
 #
 ##################################################################################
 
-# description:en:Malt is germinated cereal grains that have been dried in a process known as "malting".
-
 < en: cereal
 en: malt
 ar: ملت
@@ -25004,9 +24974,6 @@ uk: Солод
 vi: Mạch nha
 wa: Brå
 zh: 麦芽
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q152024
 # bat-smg:Salīkla
 # ksh:Malz
 # lbe:КӀут
@@ -25015,6 +24982,10 @@ wikidata:en: Q152024
 # myv:Ламбавтома
 # nds-nl:Malt
 # sco:Maut
+description:en: Malt is germinated cereal grains that have been dried in a process known as "malting".
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q152024
 wikipedia:en: https://en.wikipedia.org/wiki/Malt
 
 < en: malt
@@ -25199,8 +25170,6 @@ usda_ndb_name:en: Syrups, malt
 #
 ##################################################################################
 
-# description:en:BUCKWHEAT (Fagopyrum esculentum) is a plant cultivated for its grain-like seeds and as a cover crop.
-
 < en: cereal
 en: buckwheat
 af: bokwiet
@@ -25299,6 +25268,7 @@ zh: 蕎麥, 荞麦
 ciqual_proxy_food_code:en: 9380
 ciqual_proxy_food_name:en: Buckwheat, whole, raw
 ciqual_proxy_food_name:fr: Sarrasin entier, cru
+description:en: Buckwheat, despite its name, isn't a wheat relative at all—it's a fruit seed related to rhubarb, originating in Central Asia and cultivated in China for thousands of years before spreading through Europe and Russia. Its groats have an earthy, nutty flavor with a slight bitterness that deepens when toasted (as in kasha), and they're used whole, ground into flour, or sprouted in dishes ranging from soba noodles to porridge and pancakes. Naturally gluten-free, buckwheat is a good source of plant protein, fiber, magnesium, and manganese, plus rutin, an antioxidant linked to cardiovascular benefits.
 #plant:wikidata:en:Q132734
 usda_ndb_code:en: 20008
 usda_ndb_name:en: Buckwheat
@@ -25568,7 +25538,7 @@ ciqual_food_code:en: 9330
 ciqual_food_name:en: Millet, whole
 ciqual_food_name:fr: Mil entier, cru
 comment:en: does not contain gluten
-description:en: Millets are a group of highly variable small-seeded grasses, widely grown around the world as cereal crops or grains for fodder and human food
+description:en: Millet is an ancient cereal grain domesticated in East Asia and Africa thousands of years ago, historically a staple in China, India, and parts of Africa long before rice and wheat became dominant. It has a mild, slightly sweet, nutty flavor with a light, fluffy texture when cooked, and a firmer, chewier bite when toasted first. It's naturally gluten-free and used in porridges, pilafs, flatbreads, and baked goods, offering a solid source of magnesium, phosphorus, fiber, and plant protein, along with antioxidants.
 usda_ndb_proxy_code:en: 20031
 usda_ndb_proxy_name:en: Millet, raw
 wikidata:en: Q259438
@@ -25662,7 +25632,6 @@ en: barnyard millet
 hr: barnyard proso
 it: miglio di cortile
 
-#comment:en:be careful with the species Amaranthus, contains often the wrong translation.
 < en: cereal
 en: amaranth
 ar: الامارانت
@@ -25712,10 +25681,11 @@ zh: 苋属
 ciqual_food_code:en: 9345
 ciqual_food_name:en: Amaranth, raw
 ciqual_food_name:fr: Amarante, crue
-description:en: Amaranthus, collectively known as amaranth is a cosmopolitan genus of annual or short-lived perennial plants.
+comment:en: be careful with the species Amaranthus, contains often the wrong translation.
+description:en: Amaranth is an ancient pseudocereal native to Central and South America, prized by the Aztecs as a staple crop alongside corn and beans. It has an earthy, slightly peppery flavor with a distinctive sticky, porridge-like texture when cooked, and it pops like tiny popcorn when toasted dry in a hot pan. Naturally gluten-free, amaranth stands out for its unusually high protein content complete with lysine (an amino acid most grains lack), along with good levels of iron, magnesium, and calcium.
 usda_ndb_code:en: 20001
 usda_ndb_name:en: Amaranth grain, uncooked
-usda_ndb_process:en: uncooked
+usda_ndb_process:en: en:uncooked
 wikidata:en: Q10407363
 wikipedia:en: https://en.wikipedia.org/wiki/Amaranth_grain
 
@@ -25866,11 +25836,6 @@ vi: yến mạch
 wa: avoenne
 yi: האבער
 zh: 燕麦
-ciqual_food_code:en: 9310
-ciqual_food_name:en: Oat, raw
-ciqual_food_name:fr: Avoine, crue
-comment:en: oat does not contain gluten, but is often contaminated by gluten containing cereals.
-description:en: the oat (avena sativa) is a species of cereal grain grown for its seed.
 # als:haaber
 # arz:شوفان
 # azb:اکین یولافی
@@ -25898,17 +25863,12 @@ description:en: the oat (avena sativa) is a species of cereal grain grown for it
 # wuu:燕麦
 # nan:iàn-be̍h
 # yue:燕麥
+ciqual_food_code:en: 9310
+ciqual_food_name:en: Oat, raw
+ciqual_food_name:fr: Avoine, crue
+comment:en: Oats are a cereal grain that originated in Western Asia or Europe, historically used as animal fodder before rising to prominence as a hearty breakfast staple, especially in Scotland and Northern Europe. They have a mild, creamy, subtly sweet flavor with a soft, chewy texture that varies by processing—from firm steel-cut to quick-cooking rolled or instant forms. Oats are naturally gluten-free (though often cross-contaminated during processing) and are notable for their beta-glucan fiber, which supports heart health, along with solid amounts of protein, manganese, and iron.
 wikidata:en: Q24265484
 wikipedia:en: https://en.wikipedia.org/wiki/Oat
-
-#<en:oat
-#en:organic oat
-#de:Bio-Hafer
-#es:Avena orgánica
-#fi:luomukaura, luomu kaura
-#fr:avoine biologique
-#hu:bio zab
-#ru:Органический овес
 
 < en: oat
 en: oat grain
@@ -25947,7 +25907,6 @@ hr: zob bez glutena
 it: avena senza glutine
 sv: glutenfri havre
 
-# description:en:ROLLED OATS are a type of lightly processed whole-grain food. Traditionally, they are made from oat groats that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then stabilized by being lightly toasted. Rolled oats that are sold for porridge usually have had the tough outer bran removed. They have often, but not always, been lightly baked, pressure-cooked, or otherwise processed in some fashion.
 
 < en: oat
 en: oat flakes, oatflakes, rolled oats, oatmeal flakes
@@ -25999,6 +25958,7 @@ zh: 大燕麥片
 ciqual_food_code:en: 9311
 ciqual_food_name:en: Oatmeal flakes
 ciqual_food_name:fr: Flocon d'avoine
+description:en: Rolled oats are whole oat groats that have been steamed and pressed flat with large rollers, a processing method developed in the late 1800s to shorten cooking time while keeping the grain mostly intact. They have a mild, slightly sweet, nutty flavor with a soft, chewy texture that holds its shape better than instant oats, making them the classic choice for traditional oatmeal, granola, and baking. Like other oats, they're naturally gluten-free (if uncontaminated) and rich in beta-glucan fiber for heart health, plus protein, manganese, and iron, though their nutrition is nearly identical to whole oats since minimal processing preserves the bran and germ.
 wikidata:en: Q1208221
 wikipedia:en: https://en.wikipedia.org/wiki/Rolled_oats
 #6643 @2021-09-22
@@ -26104,6 +26064,7 @@ sv: fullkornshavremjöl
 < en: gluten free oats
 < en: oat flour
 en: gluten free oat flour
+cs: bezlepková ovesná mouka
 de: glutenfreies Hafermehl
 es: harina de avena libre de gluten, harina de avena sin gluten
 fr: farine d'avoine sans gluten
@@ -26266,8 +26227,6 @@ usda_ndb_name:en: Amaranth leaves, raw
 #
 ##################################################################################
 
-# QUINOA (Chenopodium quinoa) is a flowering plant in the amaranth family.
-
 < en: plant
 en: quinoa
 xx: quinoa
@@ -26326,11 +26285,16 @@ vi: diêm mạch
 ciqual_food_code:en: 9340
 ciqual_food_name:en: Quinoa, raw
 ciqual_food_name:fr: Quinoa, cru
+description:en: Quinoa is an ancient pseudocereal native to the Andean region of South America, cultivated by the Incas for thousands of years and revered as a sacred "mother grain." It has a light, slightly nutty and earthy flavor with a delicate crunch, and its grains form a small, curled tail when cooked that gives it a distinctive texture. Naturally gluten-free, quinoa is notable for being a complete protein containing all nine essential amino acids, and it's also a good source of fiber, iron, magnesium, and manganese.
 ifct_food_code:en: A009
 ifct_food_name:en: Quinoa
 nutriscore_fruits_vegetables_nuts:en: no
+usda_ndb_2_code:en: 20137
+usda_ndb_2_name:en: Quinoa, cooked
+usda_ndb_2_process:en: en:cooked
 usda_ndb_code:en: 20035
 usda_ndb_name:en: Quinoa, uncooked
+usda_ndb_process:en: en:uncooked
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q139925
@@ -26403,11 +26367,6 @@ en: red and white quinoa, white and red quinoa
 fr: quinoa rouge et blanc, quinoa blanc et rouge
 hr: crvena i bijela kvinoja
 it: quinoa rossa e bianca
-
-< en: quinoa
-en: cooked quinoa
-usda_ndb_code:en: 20137
-usda_ndb_name:en: Quinoa, cooked
 
 ##################################################################################
 #
@@ -26503,12 +26462,6 @@ vi: lúa mạch đen
 wa: swele
 yi: קארן
 zh: 裸麥
-allergens:en: en:gluten
-ciqual_food_code:en: 9390
-ciqual_food_name:en: Rye, whole, raw
-ciqual_food_name:fr: Seigle entier, cru
-description:en: rye (secale cereale) is a grass grown extensively as a grain, a cover crop and a forage crop.
-wikidata:en: Q12099
 # als:rogge
 # arz:زوؤان
 #azb:اکین چووداری
@@ -26540,6 +26493,12 @@ wikidata:en: Q12099
 # wuu:裸麦
 # nan:thǹg-theh-be̍h
 # yue:黑麥
+allergens:en: en:gluten
+ciqual_food_code:en: 9390
+ciqual_food_name:en: Rye, whole, raw
+ciqual_food_name:fr: Seigle entier, cru
+description:en: Rye is a cereal grain native to Southwest Asia and Eastern Europe, historically thriving in cold, poor soils where wheat struggled, making it a staple grain across Northern and Eastern Europe and Scandinavia. It has a bold, earthy, slightly sour and tangy flavor with a dense, hearty texture, most familiar in dark rye bread, pumpernickel, and crispbreads. Rye contains gluten (though less than wheat) and is valued for its high fiber content, particularly soluble fiber that supports blood sugar control, along with good levels of manganese, phosphorus, and B vitamins.
+wikidata:en: Q12099
 wikipedia:en: https://en.wikipedia.org/wiki/Rye
 
 # see ingredients_processing.txt
@@ -26830,16 +26789,12 @@ allergens:en: en:gluten
 ciqual_food_proxy_code:en: 9001
 ciqual_food_proxy_name:en: Spelt, raw
 ciqual_food_proxy_name:fr: Épeautre, cru
-description:en: SPELT (Triticum spelta; Triticum dicoccum) is a species of wheat.
-usda_ndb_proxy_code:en: 20140
-usda_ndb_proxy_name:en: Spelt, uncooked
-wikidata:en: Q158767
-wikipedia:en: https://en.wikipedia.org/wiki/Spelt
-
-< en: spelt
-en: raw spelt, uncooked spelt
+description:en: Spelt is an ancient wheat variety that originated in the Near East and was widely cultivated across Europe, particularly Germany and Switzerland, from the Bronze Age until being largely displaced by modern wheat. It has a mild, slightly sweet, nutty flavor with a tender yet chewy texture, used much like wheat in bread, pasta, and baked goods, often prized for its more digestible protein structure. Spelt does contain gluten and offers a good source of fiber, protein, manganese, and B vitamins, along with more zinc and iron than common wheat.
 usda_ndb_code:en: 20140
 usda_ndb_name:en: Spelt, uncooked
+usda_ndb_process:en: en:uncooked
+wikidata:en: Q158767
+wikipedia:en: https://en.wikipedia.org/wiki/Spelt
 
 < en: spelt
 en: whole spelt
@@ -26972,8 +26927,6 @@ fr: farine de blé semi-complète type 80, farine de blé semi-complète t80, fa
 < en: spelt flour
 fr: farine d'épeautre type 110, Farine de blé d'épeautre T110
 
-# Question
-
 < en: spelt flour
 < en: wholemeal flour
 en: wholemeal spelt flour, whole grain spelt flour, wholegrain spelt flour
@@ -27017,38 +26970,26 @@ usda_ndb_code:en: 20141
 usda_ndb_name:en: Spelt, cooked
 
 < en: cereal
-en: khorasan wheat, kamut
+en: khorasan wheat
+xx: kamut
 bg: камут
-cs: kamut
 de: Kamut
 el: σιτηρό kamut
 es: kamut, trigo de Jorasán Kamut
-et: kamut
-fi: kamut
 fr: blé khorasan, kamut
 ga: camut
 hr: horasanska pšenica
-hu: kamut
 it: kamut, khorasan kamut
 la: Triticum turgidum subsp. turanicum, Triticum turanicum
 lt: kamutas
-mt: kamut
-nl: kamut
-pl: kamut
-pt: kamut
 ru: камут
-sl: kamut
-sv: kamut
 allergens:en: en:gluten
-usda_ndb_proxy_code:en: 20138
-usda_ndb_proxy_name:en: Wheat, KAMUT khorasan, uncooked
-wikidata:en: Q11163068
-wikipedia:en: https://en.wikipedia.org/wiki/Khorasan_wheat
-
-< en: khorasan wheat
-en: uncooked kamut khorasan wheat
+description:en: Kamut (a trademarked name for Khorasan wheat) is an ancient grain with roots in the Fertile Crescent, popularized in the U.S. after seeds were reportedly brought over from Egypt in the mid-20th century, though its "King Tut's tomb" origin story is more legend than fact. It has a rich, buttery, nutty flavor with a firm, chewy texture, and its grains are notably large—up to twice the size of modern wheat kernels—making it popular in pastas, breads, and cereals. Kamut contains gluten but is prized for its higher protein and mineral content compared to common wheat, offering good levels of selenium, zinc, magnesium, and antioxidants.
 usda_ndb_code:en: 20138
 usda_ndb_name:en: Wheat, KAMUT khorasan, uncooked
+usda_ndb_process:en: en:uncooked
+wikidata:en: Q11163068
+wikipedia:en: https://en.wikipedia.org/wiki/Khorasan_wheat
 
 < en: cereal flour
 < en: khorasan wheat
@@ -27075,17 +27016,16 @@ it: farina integrale di kamut, farina integrale di grano kamut, farina integrale
 en: teff
 xx: teff
 de: Teff
-es: teff
 pl: teff, miłka abisyńska, tef, trawa abisyńska
 allergens:en: en:gluten
-usda_ndb_proxy_code:en: 20142
-usda_ndb_proxy_name:en: Teff, uncooked
-wikipedia:en: https://en.wikipedia.org/wiki/Teff
-
-< en: teff
-en: uncooked teff
+description:en: Teff is a tiny cereal grain native to the Horn of Africa, particularly Ethiopia and Eritrea, where it's been cultivated for thousands of years and remains the foundation of the fermented flatbread injera. It has a mild, slightly sweet, nutty and molasses-like flavor that deepens with fermentation, and its minuscule size means it's typically cooked whole or ground into flour rather than processed into flakes. Naturally gluten-free, teff is notably rich in iron, calcium, and resistant starch, along with a solid protein content, making it one of the more nutrient-dense ancient grains.
+usda_ndb_2_code:en: 20143
+usda_ndb_2_name:en: Teff, cooked
+usda_ndb_2_process:en: en:cooked
 usda_ndb_code:en: 20142
 usda_ndb_name:en: Teff, uncooked
+usda_ndb_process:en: en:uncooked
+wikipedia:en: https://en.wikipedia.org/wiki/Teff
 
 < en: teff
 en: teff seed
@@ -27135,11 +27075,6 @@ it: farina integrale di teff avorio
 < en: teff
 fr: teff soufflé
 
-< en: teff
-en: cooked teff
-usda_ndb_code:en: 20143
-usda_ndb_name:en: Teff, cooked
-
 ##################################################################################
 #
 #                        Mixed cereals
@@ -27163,7 +27098,6 @@ sv: malt av korn och vete
 #                        Flour
 #
 ##################################################################################
-# description:en:FLOUR is a powder made by grinding raw grains or roots and used to make many different foods.
 
 en: flour
 af: meel
@@ -27276,19 +27210,6 @@ wo: sunguf
 yi: מעל
 zh: 麵粉
 carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
-carbon_footprint_fr_foodges_value:fr: 1.2
-# this better reflects what is used in practice
-ciqual_proxy_food_code:en: 9435
-ciqual_proxy_food_name:fr: Farine de blé
-# density of flour varies a lot depending on sources, even for a specific type of flour like wheat flour. 0.6 is a rough average from https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
-density_g_per_ml:en: 0.6
-#ciqual_proxy_food_code:en: 9410
-#ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
-# Ecobalyse flour is Wheat flour at industrial mill
-ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
-ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
-vegan:en: yes
-vegetarian:en: yes
 # arc:ܩܡܚܐ
 # ast:fariña
 # azb:اون
@@ -27319,6 +27240,20 @@ vegetarian:en: yes
 # vec:farina
 # vep:Jauh
 # war:harina
+carbon_footprint_fr_foodges_value:fr: 1.2
+# this better reflects what is used in practice
+ciqual_proxy_food_code:en: 9435
+ciqual_proxy_food_name:fr: Farine de blé
+# density of flour varies a lot depending on sources, even for a specific type of flour like wheat flour. 0.6 is a rough average from https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
+density_g_per_ml:en: 0.6
+description:en: FLOUR is a powder made by grinding raw grains or roots and used to make many different foods.
+#ciqual_proxy_food_code:en: 9410
+#ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
+# Ecobalyse flour is Wheat flour at industrial mill
+ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
+ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
+vegan:en: yes
+vegetarian:en: yes
 wikidata:en: Q36465
 wikipedia:en: https://en.wikipedia.org/wiki/Flour
 
@@ -27410,12 +27345,6 @@ it: Farina di malto
 pt: farinha de malte, farinha de malte de cereais
 sv: maltmjöl
 
-# description:en:WHEAT FLOUR is a powder made from the grinding of wheat used for human consumption
-fr: farines de graines et céréales
-# usage:fr:farines de graines et céréales (riz, quinoa, millet, riz complet, maïs)
-
-# description:en:WHEAT FLOUR is a powder made from the grinding of wheat used for human consumption
-
 < en: cereal flour
 < en: wheat
 en: wheat flour, wheatflour
@@ -27465,6 +27394,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 9410
 ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
+description:en: Wheat flour comes from wheat, one of the world's oldest cultivated grains, first domesticated in the Fertile Crescent around 10,000 years ago and now the dominant grain in global bread-making, especially in Europe, the Middle East, and the Americas. It has a mild, slightly sweet, neutral flavor with a texture that ranges from soft and fine (cake flour) to coarse and hearty (whole wheat), largely defined by its protein and gluten content, which gives dough its characteristic elasticity and chew. Wheat flour contains gluten and, depending on whether it's whole grain or refined, provides varying levels of fiber, B vitamins, iron, and protein—whole wheat retaining significantly more nutrients since the bran and germ aren't stripped away.
 ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
 ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
 wikidata:en: Q2249305
@@ -27687,8 +27617,6 @@ fr: farine semi-complète
 hr: poluintegralno brašno
 it: farina semi-integrale
 
-# Question
-
 < en: wheat flour
 < en: wholemeal flour
 en: whole wheat flour, wholewheat flour, wholemeal wheat flour, atta
@@ -27849,8 +27777,6 @@ ciqual_food_name:fr: Farine d'orge
 usda_ndb_code:en: 20130
 usda_ndb_name:en: Barley flour or meal
 
-# Question
-
 < en: barley flour
 < en: wholemeal flour
 en: wholemeal barley flour, whole grain barley flour, wholegrain barley flour
@@ -27926,8 +27852,6 @@ tr: çavdar unu
 ciqual_proxy_food_code:en: 9532
 ciqual_proxy_food_name:en: Rye flour, type 85
 ciqual_proxy_food_name:fr: Farine de seigle T85
-
-# Question
 
 < en: rye flour
 en: Rye flour type 170, Rye flour T170
@@ -28058,7 +27982,6 @@ de: Hirsevollkornmehl, Hirse-Vollkornmehl, Hirsevollmehl
 hr: brašno od cijelog zrna prosa
 it: farina di miglio integrale
 
-#category/chestnut-flours
 < en: flour
 en: chestnut flour
 de: Kastanienmehl
@@ -28324,7 +28247,6 @@ en: yellow whole-grain corn flour
 usda_ndb_code:en: 20016
 usda_ndb_name:en: Corn flour, whole-grain, yellow
 
-#category/rice-flours
 < en: flour
 < en: rice
 en: rice flour, riceflour
@@ -28462,7 +28384,6 @@ es: Harina de guisantes partidos
 hr: brašno od graška
 it: Farina di piselli spezzati
 nl: Split erwtenmeel
-# 9@2019-06-05
 
 < en: flour
 < en: green peas
@@ -28491,8 +28412,6 @@ sv: kokosmjöl
 #
 ##################################################################################
 
-# description:en:Maize, also known as corn, is a cereal grain first domesticated by indigenous peoples in southern Mexico about 10,000 years ago.
-# comment:en:On ingredient lists it is known as corn (english/american issue?). Some translations refer to the latin name of the plant.
 
 < en: cereal
 en: corn, maize, corn cereal
@@ -28679,6 +28598,8 @@ carbon_footprint_fr_foodges_value:fr: 0.7
 ciqual_food_code:en: 9200
 ciqual_food_name:en: Corn or maize grain, raw
 ciqual_food_name:fr: Maïs entier, cru
+comment:en: On ingredient lists it is known as corn (english/american issue?). Some translations refer to the latin name of the plant.
+description:en: Corn flour comes from maize, a grain domesticated in southern Mexico around 9,000 years ago and later becoming a dietary cornerstone across the Americas, from Mexican tortillas to Southern U.S. cornbread. It has a mild, slightly sweet, distinctly corn flavor with a fine, slightly gritty texture that lends baked goods a tender crumb and golden color. Naturally gluten-free, corn flour offers decent fiber and is a good source of B vitamins and antioxidants like lutein and zeaxanthin, though its protein is incomplete and lower in quality compared to grains like quinoa.
 ifct_food_code:en: A006
 ifct_food_name:en: Maize, dry
 ifct_food_process:en: en:dry
@@ -28991,8 +28912,6 @@ sr: kukuruzni griz
 sv: majskärnor, majskorn
 # ingredient/fr:grains-de-maïs 41 products in 3 languages @2018-09-24
 
-# Question
-
 < en: corn kernel
 < en: sweetcorn
 fr: maïs doux en grains, grains de mais doux
@@ -29029,11 +28948,11 @@ fr: maïs extrudé, extrudat de maïs
 hr: ekstrudirani kukuruz
 it: mais estruso
 
-#######################################################################################################################################
+#############################################################################################################
 #
 #                                                 R I C E
 #
-#################################################################################################################
+#############################################################################################################
 
 #< en:cereal
 en: rice
@@ -29238,7 +29157,8 @@ carbon_footprint_fr_foodges_ingredient:fr: Riz jasmin (Thaïlande)
 carbon_footprint_fr_foodges_value:fr: 1.4
 ciqual_proxy_food_code:en: 9100
 ciqual_proxy_food_name:fr: Riz blanc, cru
-description:en: Rice is the seed of the grass species Oryza sativa (Asian rice) or Oryza glaberrima (African rice).
+comment:en: why is rice not marked as a cereal?
+description:en: Rice is a cereal grain domesticated independently in China and possibly India thousands of years ago, and it remains the staple food for over half the world's population, central to cuisines across Asia, Africa, and Latin America. It has a mild, subtly sweet flavor with a texture that varies widely by variety—from the fluffy separate grains of basmati to the sticky clumps of short-grain sushi rice. Naturally gluten-free, rice's nutrition depends heavily on processing: brown rice retains its bran and germ for fiber, B vitamins, magnesium, and manganese, while white rice is more refined and comparatively lower in nutrients.
 ifct_food_code:en: A015
 ifct_food_name:en: Rice, raw, milled
 ifct_food_process:en: en:milled
@@ -29306,7 +29226,6 @@ en: rice groats
 hr: rižina krupica
 it: chicchi di riso
 
-# comment:en:The origin of rice is an independent aspect and can be present for all rice entries.
 < en: rice
 en: rice from Italy, Italian rice
 de: italien. Reis
@@ -29319,8 +29238,8 @@ it: riso italiano
 nl: rijst uit Italië, italiaanse rijst
 pl: ryż włoski
 ro: orez italian
+comment:en: The origin of rice is an independent aspect and can be present for all rice entries.
 
-# comment:en:Parboiled rice is an independent aspect and can be present for all rice entries.
 < en: rice
 en: parboiled rice
 ca: arròs precuit, arròs vaporitzat
@@ -29337,6 +29256,7 @@ pt: arroz parboilizado. arroz estufado
 ciqual_food_code:en: 9101
 ciqual_food_name:en: Rice, parboiled, raw
 ciqual_food_name:fr: Riz blanc étuvé, cru
+comment:en: Parboiled rice is an independent aspect and can be present for all rice entries.
 ifct_food_code:en: A014
 ifct_food_name:en: Rice, parboiled, milled
 ifct_food_process:en: en:milled
@@ -29768,7 +29688,6 @@ fr: riz pour risotto étuvé
 
 ########################### RICE SPECIES #######################
 
-#category/wild-rices
 < en: cereal
 en: wild rice
 de: Wildreis
@@ -29786,21 +29705,14 @@ sv: vildris
 ciqual_food_code:en: 9108
 ciqual_food_name:en: Wild rice, raw
 ciqual_food_name:fr: Riz sauvage, cru
-usda_ndb_proxy_code:en: 20088
-usda_ndb_proxy_name:en: Wild rice, raw
-wikipedia:en: Q108537241
-# 499 in 7 languages @2021-09-13
-
-< en: wild rice
-en: raw wild rice
 usda_ndb_code:en: 20088
 usda_ndb_name:en: Wild rice, raw
+wikipedia:en: Q108537241
 
 < en: wild rice
 en: cooked wild rice
 fr: riz sauvage cuit
 
-#comment:en:This just seems a synonym of wild rice
 < en: wild rice
 en: black wild rice
 de: schwarzer Wildreis
@@ -29809,8 +29721,8 @@ hr: crna divlja riža
 hu: fekete vadrizs
 it: riso selvatico nero
 nl: zwarte wilde rijst
+comment:en: This just seems a synonym of wild rice
 
-#comment:en:Note that red rice is not really a rice. It is kept here for easy retrieval
 < en: rice
 en: red rice
 ar: أرز أحمر
@@ -29829,10 +29741,10 @@ th: ข้าวไรซ์เมอร์รี
 ciqual_food_code:en: 9109
 ciqual_food_name:en: Rice, red, raw
 ciqual_food_name:fr: Riz rouge, cru
+description:en: Red rice is a whole-grain rice variety that gets its reddish-brown hue from anthocyanin pigments in its bran layer, with well-known types grown in regions like Thailand, Bhutan, and the Camargue in France. It has a robust, earthy, slightly nutty flavor with a chewy, hearty texture, since the bran layer is left intact rather than polished away as with white rice. Naturally gluten-free, red rice is notably richer in fiber, antioxidants, and minerals like iron and magnesium than white rice, thanks to that retained bran layer.
 wikidata:en: Q7305375
 wikipedia:en: https://en.wikipedia.org/wiki/Red_rice
 
-# comment:en:cargo seems to mean whole/brown. I doubt the translations on the packages, seem more taken from Google
 < en: red rice
 en: red cargo rice
 de: Roten Cargo Reis
@@ -29846,6 +29758,7 @@ nl: rode cargo rijst
 th: ข้าวกล้องแดง
 vi: gạo lứt dỏ, gạo nâu đõ
 zh: 红糙米
+comment:en: cargo seems to mean whole/brown. I [who?] doubt the translations on the packages, seem more taken from Google
 wikidata:en: Q7303854
 wikipedia:en: https://en.wikipedia.org/wiki/Red_Cargo_rice
 
@@ -29874,7 +29787,6 @@ zh: 紫米
 wikidata:en: Q3434002
 wikipedia:en: https://en.wikipedia.org/wiki/Black_rice
 
-# <category:en:basmati-rices
 < en: long grain rice
 en: basmati rice, basmati
 ar: بسمتي
@@ -30086,7 +29998,6 @@ nl: Thaise langkorrelrijst van hoge kwaliteit
 < en: Thai rice
 fr: riz rouge complet thaï au jasmin
 
-# description:fr:Le riz de Camargue est protégé par une IGP dans ses différentes variétés.
 
 < en: rice
 en: Camargue rice
@@ -30096,6 +30007,7 @@ fr: riz de Camargue
 hr: camargue riža
 hu: Camargue rizs, Camargue-i rizs
 it: riso Camargue
+description:fr: Le riz de Camargue est protégé par une IGP dans ses différentes variétés.
 origins:en: en:france
 protected_name_type:en: en:pgi
 wikipedia:fr: https://fr.wikipedia.org/wiki/Riz_de_Camargue
@@ -30152,7 +30064,6 @@ it: Riso Arborio
 < en: long grain rice
 fr: Riz Arborio long grain de qualité supérieure, riz long grain Arborio de qualité supérieure, riz long arborio de qualite superieure
 
-# description:en:CARNAROLI is a medium-grained rice grown in the Pavia, Novara and Vercelli provinces of northern Italy. Carnaroli is used for making risotto, differing from the more common arborio rice due to its higher starch content and firmer texture, as well as having a longer grain.
 
 # <category:en:Carnaroli rices
 < en: long grain rice
@@ -30168,8 +30079,7 @@ ja: カルナローリ
 ko: 카르나롤리
 nl: Carnarolirijst
 ru: Карнароли
-# en-ca:Carnaroli
-# en-gb:Carnaroli
+description:en: CARNAROLI is a medium-grained rice grown in the Pavia, Novara and Vercelli provinces of northern Italy. Carnaroli is used for making risotto, differing from the more common arborio rice due to its higher starch content and firmer texture, as well as having a longer grain.
 wikidata:en: Q1043890
 wikipedia:en: https://en.wikipedia.org/wiki/Carnaroli
 
@@ -30211,15 +30121,9 @@ nl: rijstzemelen
 pt: farelo de arroz
 sv: riskli
 zh: 米糠
-usda_ndb_proxy_code:en: 20060
-usda_ndb_proxy_name:en: Rice bran, crude
-wikidata:en: Q34041491
-#772 in 9 @2021-10-03
-
-< en: rice bran
-en: crude rice bran
 usda_ndb_code:en: 20060
 usda_ndb_name:en: Rice bran, crude
+wikidata:en: Q34041491
 
 # see ingredients_processing.txt
 < en: rice
@@ -30249,6 +30153,7 @@ ifct_food_code:en: A011
 ifct_food_name:en: Rice, flakes
 
 # see ingredients_processing.txt
+# < en: compound
 < en: rice
 en: extruded rice
 bg: екструдиран ориз
@@ -30266,6 +30171,7 @@ sr: pirinač ekstrudat
 # sr-el:pirinač ekstrudat
 # comment:en::riz extrudé is a compound ingredient
 
+# < en: compound
 < en: rice
 en: puffed rice, crisped rice, rice crisps
 ca: arròs inflat, arròs inflats
@@ -30321,8 +30227,7 @@ ru: рис ферментированный
 < en: rice
 fr: riz précuit
 
-# fr:riz cuisiné is a compound product, eg:(eau, riz, sel)
-
+# < en: compound
 < en: rice
 en: cooked rice
 da: kogt ris
@@ -30337,6 +30242,7 @@ nl: gekookte rijst
 pl: ryż gotowany, gotowany ryż
 ro: orez fiert, orez gătit
 sv: kokt ris
+comment:en: fr:riz cuisiné is a compound product, eg:(eau, riz, sel)
 
 < en: cooked rice
 en: cooked white rice
@@ -30428,7 +30334,6 @@ nl: rijstmelk
 #
 ##################################################################################
 
-#comment:en:When used as ingredient, the kernels of the carob pod of the carob tree is used.
 < en: pulse
 en: carob bean, locust bean, carob seeds, carob, Carobin
 ca: garrofa, farina de garrofa
@@ -30447,6 +30352,7 @@ nl: carob, johannesbroodmeel, carobpoeder
 pl: karob, karobu, karobowy, karobowe, karobowa
 sl: rožič
 sv: Johannesbrödfrö
+comment:en: When used as ingredient, the kernels of the carob pod of the carob tree is used.
 description:en: Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
 eurocode_2_group_3:en: 7.10.xx
 vegan:en: yes
@@ -30457,9 +30363,6 @@ en: caroube dalmate
 hr: dalmatinski rogač
 it: caroube dalmate
 
-# question
-
-#comment:en:carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
 < en: carob
 < en: flour
 en: carob seed flour, carob kernel flour, carob flour
@@ -30478,6 +30381,7 @@ nl: johannesbroodpitmeel
 pl: Mączka chleba świętojańskiego
 pt: farinha de semente de alfarroba, Farinha de sementes de alfarroba, semente de alfarroba, sementes de alfarroba, goma de alfarroba
 sv: fruktkärnmjöl
+comment:en: carob seed flour is made from the seeds in a carob pod. If the word seed is missing the flour of the pulp of a carob pod is meant.
 description:en: Locust bean gum is produced from the endosperm, which accounts for 42–46% of the carob seed
 usda_ndb_code:en: 16055
 usda_ndb_name:en: Carob flour
@@ -30530,8 +30434,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Guar_gum
 < en: guar flour
 fr: farine de graines de caroube et farine de graines de guar
 
-# en:xanthan gum is listed under its E-number 415
-
 < en: guar gum
 < en: xanthan gum
 en: xanthan gum and guar gum
@@ -30543,6 +30445,7 @@ fr: gomme xanthane et gomme guar, gomme xanthane et gomme de guar
 hr: ksantan guma i guar guma
 hu: xantángumi és guargumi
 it: Gomma xanthan e gomma di guar
+comment:en: xanthan gum is listed under its E-number 415
 
 ##################################################################################
 #
@@ -30665,8 +30568,6 @@ tr: Monosakkarit
 uk: Моносахарид
 vi: Monosaccharide
 zh: 单糖
-
-# description:en:SUGAR is the generic name for sweet-tasting, soluble carbohydrates
 
 # nova
 < en: disaccharide
@@ -30811,6 +30712,7 @@ ciqual_proxy_food_name:fr: Sucre blanc
 comment:en: Generic sugar is vegan:maybe because some cane sugar is refined using bone char (charred cattle bones) as a decolorizing filter. This is primarily a North American practice. Beet sugar, organic sugar, and unrefined sugars never use bone char. Vegetarian status remains yes as bone char is a processing aid and the final product contains no animal-derived material.
 # density of sugar varies a lot depending on sources. 0.9 is one of the values from https://www.fao.org/fileadmin/templates/food_composition/documents/density_DB_v2_0_01.pdf
 density_g_per_ml:en: 0.9
+description:en: Sugar (sucrose) comes from sugarcane, first domesticated in New Guinea thousands of years ago and later spread through Asia and the Middle East to become the dominant global source, and from sugar beet, which took hold in Europe after Napoleon's early 1800s Continental Blockade cut off cane sugar imports and spurred domestic beet production, making it the region's primary source today. It has a pure, intensely sweet flavor with no notable aroma, available in forms ranging from fine granulated and powdered sugar to coarser raw and brown sugars with mild molasses notes. Used universally in baking, cooking, preserving, and sweetening beverages, sugar provides purely empty calories with no meaningful vitamins, minerals, or fiber, making it a source of energy without nutritional value.
 ecobalyse_proxy:en: 5fc8032f-ca1c-4497-844b-f9213075eab3
 ecobalyse_proxy_name:fr: Sucre de betterave par défaut (2025)
 vegan:en: maybe
@@ -30848,8 +30750,6 @@ vegetarian:en: yes
 
 < en: sugar
 fr: sucres extraits de fruits
-
-# description:en:BROWN SUGAR is a sucrose sugar product with a distinctive brown color due to the presence of molasses.
 
 < en: sugar
 en: brown sugar
@@ -30894,6 +30794,7 @@ zh: 紅糖
 ciqual_food_code:en: 31017
 ciqual_food_name:en: Sugar, brown
 ciqual_food_name:fr: Sucre roux
+description:en: Brown sugar is sugar—typically from sugarcane—that retains or has molasses added back in during processing, a practice with roots in unrefined "raw" sugars historically produced across the Caribbean, South Asia, and other cane-growing regions before fully refined white sugar became standard. It has a rich, warm, caramel-like flavor with subtle toffee and mineral notes from the molasses, and a moist, clumping texture ranging from light to dark depending on molasses content. Commonly used in baking, glazes, and sauces for its depth and moisture, brown sugar offers only trace minerals like calcium and iron from the molasses, making it nutritionally almost identical to white sugar—still primarily empty calories.
 usda_ndb_code:en: 19334
 usda_ndb_name:en: Sugars, brown
 wikidata:en: Q11190742
@@ -30957,6 +30858,7 @@ pl: Cukier inwertowany
 pt: açúcar invertido
 ro: zahăr invertit, zahar invertit
 sv: invertsocker
+description:en: Invert sugar is a liquid sugar syrup produced by splitting sucrose into its component parts—glucose and fructose—through hydrolysis using heat, acid, or enzymes, a process discovered in the 19th century and now widely used in food manufacturing rather than home kitchens. It has a flavor sweeter than regular sugar (since fructose tastes sweeter than sucrose) with a smooth, syrupy texture, and it's prized in baking and confectionery for resisting crystallization, retaining moisture, and extending shelf life in products like candies, jams, and soft baked goods. Like other sugars, invert sugar provides purely empty calories with no meaningful vitamins, minerals, or fiber, offering energy without nutritional value.
 nova:en: 4
 #nova:en: invert-sugar
 wikidata:en: Q412082
@@ -31114,8 +31016,6 @@ usda_ndb_name:en: Sugars, powdered
 wikidata:en: Q151070
 wikipedia:en: https://en.wikipedia.org/wiki/Powdered_sugar
 
-# description:en:VANILLA SUGAR is made of sugar and vanilla beans or sugar mixed with vanilla extract.
-
 #< en: compound
 < en: sugar
 en: vanilla sugar
@@ -31137,14 +31037,15 @@ pl: cukier waniliowy
 pt: açúcar de baunilha
 sv: vaniljsocker
 uk: ванільний цукор
-# usage:en:vanilla sugar (sugar, vanillin)
-# mainIngredient:en:sugar
-# <category:en:Vanilla sugars
+category:en: en:vanilla-sugars
 ciqual_food_code:en: 31044
 ciqual_food_name:en: Sugar, vanilla flavoured
 ciqual_food_name:fr: Sucre vanillé
+description:en: Vanilla sugar is granulated sugar infused or blended with vanilla flavor—either from real vanilla beans/extract or artificial vanillin—a tradition especially popular in European baking, particularly in Germany, Scandinavia, and Central Europe, where small sachets are a pantry staple. It has a sweet flavor layered with warm, floral, slightly woody vanilla notes, and a texture identical to regular granulated sugar. Commonly stirred into batters, whipped cream, custards, and beverages for a quick flavor boost, vanilla sugar offers no meaningful nutritional value beyond what plain sugar provides—purely empty calories with trace aromatic compounds.
 wikidata:en: Q3492989
 wikipedia:en: https://en.wikipedia.org/wiki/Vanilla_sugar
+# usage:en:vanilla sugar (sugar, vanillin)
+# mainIngredient:en:sugar
 
 < en: sugar
 en: nib sugar, pearl sugar
@@ -31435,6 +31336,7 @@ sv: ekologisk rörsocker
 < en: cane sugar
 en: brown cane sugar
 bg: кафява тръстикова захар
+cs: hnědý třtinový cukr
 da: brunt rørsukker
 de: Brauner Rohrzucker
 es: Azúcar moreno de caña
@@ -31677,9 +31579,7 @@ pt: Açúcar de uva
 sv: druvsocker
 wikidata:en: Q37525
 
-# description:en:Re vanilla sugar: "Cheaper vanilla sugar is also available, made only from sugar and vanillin."
-< en: sugar
-< en: vanillin
+< en: vanilla sugar
 fr: sucre vanilline
 de: Vanillinzucker
 fi: vanilliinisokeri
@@ -31789,8 +31689,6 @@ it: sciroppo di maltosio bio
 nl: biologische maltosestroop
 pt: xarope de maltose orgânica
 
-# description:en:SUCROSE is common table sugar. It is a disaccharide, a molecule composed of two monosaccharides:glucose and fructose.
-
 < en: sugar
 en: sucrose
 ar: سكروز
@@ -31872,6 +31770,7 @@ zh: 蔗糖
 # pt-br:Sacarose
 # sco:sucrose
 # yue:蔗醣
+description:en: Sucrose is a disaccharide composed of glucose and fructose, occurring naturally in many plants but concentrated commercially from sugarcane and sugar beet—the two primary sources refined into the table sugar found worldwide. It has a pure, intensely sweet flavor with no notable aroma, forming the chemical basis for the many refined sugar products (granulated, powdered, brown, etc.) that vary mainly in processing rather than composition. Used universally as a sweetener in food and beverages, sucrose provides purely empty calories with no meaningful vitamins, minerals, or fiber, serving as a source of energy without nutritional value.
 wikidata:en: Q4027534
 wikipedia:en: https://en.wikipedia.org/wiki/Sucrose
 
@@ -31975,7 +31874,6 @@ ciqual_food_code:en: 31067
 ciqual_food_name:en: Cane molasses
 ciqual_food_name:fr: Mélasse de canne
 
-# description:en: TREHALOSE is a sugar consisting of two molecules of glucose. It is also known as mycose or tremalose. Trehalose has about 45% the sweetness of sucrose at concentrations above 22%, but when the concentration is reduced, its sweetness decreases more quickly than that of sucrose, so that a 2.3% solution tastes 6.5 times less sweet as the equivalent sugar solution. It is commonly used in prepared frozen foods, like ice cream, because it lowers the freezing point of foods.
 
 < en: sugar
 en: trehalose
@@ -32027,26 +31925,24 @@ zh: 海藻糖
 # zh-hk:海藻糖
 # zh-sg:海藻糖
 # zh-tw:海藻糖
+description:en: Trehalose is a naturally occurring disaccharide made of two glucose molecules, found in trace amounts in mushrooms, honey, and various plants and insects, and produced commercially today mainly through enzymatic conversion of starch, largely pioneered by Japanese researchers in the 1990s who made large-scale production affordable. It has a mild sweetness—roughly 45% as sweet as sucrose—with no notable aroma, and is valued in food processing for its exceptional stability, ability to protect texture and moisture in frozen or dried foods, and resistance to browning at high heat. Used in baked goods, frozen desserts, and dried fruits as a stabilizer and mild sweetener, trehalose provides purely empty calories with no meaningful vitamins, minerals, or fiber, though it's digested more slowly than sucrose, giving it a gentler effect on blood sugar.
 wikidata:en: Q421773
 wikipedia:en: https://en.wikipedia.org/wiki/Trehalose
-# usage:en:trehalose (source of glucose)
 
 < en: molasses
-#description:en: Melado is a mixture of sugar and molasses; crude sugar as it comes from the pans without being drained.
 < en: sugar
 en: melado
 de: Melado
 hr: melado
 it: melado
 nl: melado
+description:en: Melado is an unrefined liquid sugar syrup made from concentrated sugarcane juice, a traditional product especially common in Brazil and other Latin American countries where it's produced as a byproduct or lighter-processed cousin of molasses, retaining more of the cane's natural sweetness. It has a rich, deep caramel flavor with molasses-like notes but milder and less bitter than true molasses, and a thick, syrupy texture. Used in traditional desserts, sauces, and as a spread or sweetener in Brazilian and Latin American cooking, melado retains modest amounts of minerals like calcium, iron, and potassium from the cane juice, making it slightly more nutritious than fully refined sugar.
 
 < en: coating
 < en: sugar
 en: sugar coating
 hr: šećer za dekoraciju
 it: rivestimento di zucchero
-
-# Warning:the wikipedia translations mixes syrup and glucose syrup
 
 < en: added sugar
 en: syrup
@@ -32103,13 +31999,12 @@ zh: 糖漿
 # mwl:Xarope
 # nah:Neucpahtli
 # yue:糖漿
+comment:en: Warning:the wikipedia translations mixes syrup and glucose syrup
 description:en: SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q6584340
 wikipedia:en: https://en.wikipedia.org/wiki/Syrup
-
-# description:en:GLUCOSE (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6.
 
 # nova:en:glucose
 < en: monosaccharide
@@ -32196,13 +32091,6 @@ ur: گلوکوز
 uz: Glukoza
 vi: Glucose
 zh: 葡萄糖
-# probably not a very good CIQUAL proxy
-ciqual_proxy_food_code:en: 31016
-ciqual_proxy_food_name:en: Sugar, white
-ciqual_proxy_food_name:fr: Sucre blanc
-vegan:en: yes
-vegetarian:en: yes
-wikidata:en: Q37525
 # ast:Glucosa
 # azb:گلوکوز
 # cdo:Buò-dò̤-tòng
@@ -32216,6 +32104,14 @@ wikidata:en: Q37525
 # xmf:გლუკოზა
 # zh-min-nan:Phû-tô-thn̂g
 # yue:葡萄醣
+ciqual_proxy_food_code:en: 31016
+ciqual_proxy_food_name:en: Sugar, white
+ciqual_proxy_food_name:fr: Sucre blanc
+comment:en: probably not a very good CIQUAL proxy
+description:en: Glucose is a simple sugar (monosaccharide) that occurs naturally in fruits, honey, and plants, and is produced commercially by breaking down starch—typically from corn in the U.S. or wheat and potatoes in Europe—through enzymatic or acid hydrolysis. It has a moderately sweet flavor, less sweet than sucrose or fructose, with no notable aroma, and is available as a syrup or dried/powdered form used widely in candy-making, baking, and brewing for its resistance to crystallization and browning properties. As the primary fuel source for the human body, glucose provides purely caloric energy with no fiber, vitamins, or minerals, and it's the sugar that directly raises blood glucose levels, giving it the highest glycemic index among common sugars.
+vegan:en: yes
+vegetarian:en: yes
+wikidata:en: Q37525
 wikipedia:en: https://en.wikipedia.org/wiki/Glucose
 
 # nova:en:glucose-syrup
@@ -32255,12 +32151,11 @@ sq: shurup glukoze
 sr: glukozni sirup
 sv: glukossirap, stärkelsesirap, glukos-sirap
 tr: glikoz şurubu, glukoz şurubu, glükoz şurubu
-# probably not a very good CIQUAL proxy
+# ast:Almíbar
 ciqual_proxy_food_code:en: 31016
 ciqual_proxy_food_name:en: Sugar, white
 ciqual_proxy_food_name:fr: Sucre blanc
-# ast:Almíbar
-# not always a UPF marker (Nova 4)
+comment:en: probably not a very good CIQUAL proxy; not always a UPF marker (Nova 4)
 wikidata:en: Q14770547
 wikipedia:en: https://en.wikipedia.org/wiki/Glucose_syrup
 
@@ -32305,9 +32200,9 @@ fa: میزوآمه
 ja: 麦水飴
 pa: ਮਿਜ਼ੂਆਮੇ
 zh: 水飴
+comment:en: in Japanese 水飴 (mizuame) is generic for glucose syrup
 description:en: A clear, thick, sticky liquid, it is made by converting starch to sugars.
 wikidata:en: Q3044475
-# in Japanese 水飴 (mizuame) is generic for glucose syrup
 
 < en: corn syrup
 en: corn glucose syrup, corn glucose
@@ -32354,8 +32249,6 @@ de: Glukosepulver
 fr: Poudre de glucose
 hr: glukoza u prahu
 it: glucosio in polvere
-
-# description:en:FRUCTOSE, or fruit sugar, is a simple ketonic monosaccharide found in many plants, where it is often bonded to glucose to form the disaccharide sucrose.
 
 < en: monosaccharide
 en: fructose
@@ -32432,6 +32325,7 @@ zh: 果糖
 ciqual_food_code:en: 31077
 ciqual_food_name:en: Fructose
 ciqual_food_name:fr: Fructose
+description:en: Fructose is a simple sugar (monosaccharide) that occurs naturally in fruits, honey, and some vegetables, and is produced commercially either by processing corn starch into high-fructose corn syrup (mainly in the U.S.) or by refining it from sucrose. It has the sweetest taste of all natural sugars—notably sweeter than sucrose or glucose—with no notable aroma, and is used in beverages, baked goods, and processed foods both for its intense sweetness and its ability to enhance flavor and browning. Fructose provides purely empty calories with no fiber, vitamins, or minerals, and is metabolized differently than glucose—processed primarily by the liver—which has made it a focus of concern around excessive consumption and links to metabolic issues.
 nova:en: 4
 vegan:en: yes
 vegetarian:en: yes
@@ -32465,9 +32359,6 @@ de: Fruktosepulver
 fi: fruktoosijauhe
 it: Fruttosio in polvere
 
-# description:en:oligofructose is used as an alternative sweetener. oligofructose is extracted from the blue Agave plant as well as fruits and vegetables such as bananas, onions, chicory root, garlic, asparagus, jícama, and leeks
-# comment:en:The wikidata names are not used on packages.
-
 en: oligofructose
 bg: олигофруктоза
 da: oligofruktose, oligofruktose
@@ -32485,6 +32376,8 @@ nl: oligofructose
 pl: oligofruktoza
 ro: oligofructoză
 sv: oligofruktos
+comment:en: The wikidata names are not used on packages.
+description:en: Oligofructose is a type of fructan—a short-chain fructose oligosaccharide—found naturally in plants like chicory root, onions, and bananas, and produced commercially mainly through partial enzymatic hydrolysis of chicory inulin, a process developed in Europe where chicory-based fibers are widely used. It has a mild sweetness, roughly 30-50% as sweet as sucrose, with a clean flavor and no notable aroma, and is used in food products as a low-calorie sweetener, fat replacer, and texture enhancer. Unlike simple sugars, oligofructose acts as a soluble prebiotic fiber that resists digestion in the small intestine and ferments in the colon, feeding beneficial gut bacteria while providing fewer calories than sucrose and supporting digestive health.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q418945
@@ -33021,8 +32914,6 @@ hr: sirup od smeđeg šećera
 it: sciroppo di zucchero di canna
 nl: bruine suikerstroop, bruine suiker siroop
 
-# description:en:Glucose (synonymous Dextrose) is a simple sugar with the molecular formula C6H12O6
-
 # nova:en:dextrose
 < en: glucose
 en: dextrose
@@ -33166,8 +33057,6 @@ fr: dextrose de tapioca
 fi: tapiokadekstroosi
 nl: tapiocadextrose
 
-# description:en:Agave nectar (more accurately, agave syrup) is a sweetener commercially produced from several species of agave, including Agave tequilana (blue agave) and Agave salmiana. The carbohydrate composition in agave syrup depends on the species from which the syrup was made
-
 < en: disaccharide
 en: agave syrup, agave nectar
 ar: شراب أغاف
@@ -33195,6 +33084,7 @@ sv: agavesirap
 zh: 龍舌蘭糖漿
 ciqual_food_code:en: 31089
 ciqual_food_name:en: Syrup, agave
+description:en: Agave syrup (or agave nectar) is a liquid sweetener extracted from the core of the agave plant, particularly Agave tequilana, with production centered in Mexico where the plant has long been used to make traditional sweeteners and beverages like pulque. It has a mild, neutral sweetness—often noted as sweeter than honey—with subtle caramel notes in darker varieties, and a thin, smooth, honey-like texture that dissolves easily in cold liquids. Popular as a vegan honey substitute in beverages, baking, and dressings, agave syrup is very high in fructose (often 70-90%), giving it a low glycemic index despite being calorie-dense, though its fructose concentration has raised similar metabolic concerns as high-fructose corn syrup.
 usda_ndb_code:en: 19912
 usda_ndb_name:en: Sweetener, syrup, agave
 vegan:en: yes
@@ -33246,7 +33136,6 @@ hr: oligosaharidi
 it: oligosaccaridi
 ja: オリゴ糖
 
-# description:en:Isomaltooligosaccharide (IMO), more commonly known as ISOMALTO-OLIGOSACCHARIDE, is a mixture of short-chain carbohydrates which may have a digestion-resistant property. IMO is found naturally in some foods, as well as being manufactured commercially.
 
 < en: oligosaccharides
 en: isomalto-oligosaccharide, isomaltooligosaccharide
@@ -33259,10 +33148,10 @@ hr: izomalto-oligosaharid
 pt: isomalto-oligossacandeos
 sv: isomalto-oligosackarider
 zh: 低聚异麦芽糖
+description:en: Isomaltooligosaccharide (IMO) is a short-chain carbohydrate composed of glucose units linked in branched α-1,6 bonds, found in trace amounts in fermented foods like miso, soy sauce, and sake, and produced commercially through enzymatic conversion of starch, a technology pioneered and widely commercialized in Japan since the 1980s. It has a mild sweetness, roughly 40-60% as sweet as sucrose, with a clean flavor and syrupy texture similar to corn syrup, making it a popular sugar substitute in protein bars, baked goods, and "low-sugar" products. Marketed as a prebiotic fiber that partially resists digestion and supports gut bacteria, IMO provides fewer calories than sucrose, though recent research has questioned how much of it is truly fermented in the colon versus digested as regular glucose, making its fiber and metabolic benefits somewhat contested.
 wikidata:en: Q6086060
 wikipedia:en: https://en.wikipedia.org/wiki/Isomaltooligosaccharide
 
-# description:en:FRUCTOOLIGOSACCHARIDES (FOS) also sometimes called oligofructose or oligofructan, are oligosaccharide fructans, used as an alternative sweetener. FOS is extracted from the blue Agave plant as well as fruits and vegetables such as bananas, onions, chicory root, garlic, asparagus, jícama, and leeks.
 
 < en: prebiotics
 < en: sweetener
@@ -33297,6 +33186,7 @@ zh: 果寡糖
 # zh-hk:果寡糖
 # zh-sg:果寡糖
 # zh-tw:果寡糖
+description:en: Fructooligosaccharide (FOS) is a short-chain fructan found naturally in foods like chicory root, onions, garlic, and bananas, and produced commercially either by extracting it from chicory or through enzymatic conversion of sucrose, with much of the technology developed in Japan and France. It has a mild sweetness, roughly 30-50% as sweet as sucrose, with a clean flavor and no notable aroma, and is used in food products as a low-calorie sweetener, texture enhancer, and fat replacer. Like oligofructose, FOS acts as a soluble prebiotic fiber that resists digestion in the small intestine and ferments in the colon to feed beneficial gut bacteria, providing fewer calories than sucrose while supporting digestive health.
 wikidata:en: Q418945
 wikipedia:en: https://en.wikipedia.org/wiki/Fructooligosaccharide
 
@@ -33460,7 +33350,7 @@ zh: 蛋白质
 #zh-classical: 朊
 #zh-min-nan: Nn̄g-pe̍h-chit
 #yue: 蛋白質
-description:en: PROTEINS are large biomolecules, or macromolecules, consisting of one or more long chains of amino acid residues.
+description:en: Protein is a macronutrient made of amino acid chains, sourced from a wide range of foods—animal sources like meat, fish, eggs, and dairy, and plant sources like legumes, grains, nuts, and soy—with humans relying on food-derived protein since prehistoric times as one of the three core macronutrients alongside fats and carbohydrates. Its flavor and texture vary enormously by source, from the rich, savory taste of meats to the neutral, often bland profile of isolated protein powders, which are typically processed from whey, soy, or pea into fine, mixable forms. Essential for building and repairing muscle, enzymes, and hormones, protein is measured by its amino acid completeness—animal proteins and a few plant sources like quinoa and soy are "complete," containing all nine essential amino acids, while most other plant proteins must be combined to achieve the same profile.
 vegan:en: maybe
 vegetarian:en: maybe
 wikidata:en: Q8054
@@ -33483,6 +33373,7 @@ sv: proteinhydrolysat
 
 < en: protein
 en: yeast protein
+cs: kvasnicová bílkovina
 fi: hiivaproteiini
 fr: protéine de levure
 hr: bjelančevine kvasca
@@ -33546,7 +33437,7 @@ en: mung bean protein isolate
 en: pea protein
 bg: грахов протеин
 ca: Proteïna de pèsol
-cs: hrachový protein
+cs: hrachový protein, hrachová bílkovina
 da: Ærteprotein
 de: Erbsenprotein, erbseneiweiß, Erbseneiweiss
 es: Proteína de guisante
@@ -33645,8 +33536,6 @@ pt: Proteína de batata
 ro: proteină de cartofi
 sv: potatisprotein
 
-# description:en:HYDROLYZED VEGETABLE PROTEIN -  products are foodstuffs obtained by protein hydrolysis
-
 < en: plant protein
 en: hydrolysed vegetable protein, HVP, vegetable hydrolysed proteins
 ca: Proteïna vegetal hidrolitzada
@@ -33665,6 +33554,7 @@ nl: gehydroliseerde plantaardige eiwit, gehydroliseerd plantaardig eiwit, gehydr
 pl: Hydrolizowane białko roślinne, hydrolizat białka roślinnego, hydrolizowane białka roślinne
 sv: hydrolyserat vegetabiliskt protein, hydroliserat vegetabiliskt protein
 zh: 酸水解植物蛋白
+description:en: Hydrolyzed vegetable protein (HVP) is a flavor enhancer made by chemically breaking down plant proteins—typically soy, corn, or wheat—using acid hydrolysis, a process developed in the early 20th century and widely adopted in industrial food manufacturing to create savory, meat-like flavors without meat. It has an intensely savory, umami-rich flavor with notes reminiscent of broth or bouillon, and comes as a fine powder or paste used in tiny quantities to boost taste. Commonly used in soups, sauces, snack seasonings, and processed foods as a cheaper alternative to natural flavor development, HVP contributes free glutamic acid (similar to MSG) along with trace amino acids, but is used in such small amounts that it offers negligible nutritional value beyond flavor enhancement.
 
 < en: hydrolysed vegetable protein
 < en: pea protein
@@ -34239,14 +34129,12 @@ th: เคซีน
 tr: Kazein
 uk: Казеїн
 zh: 酪蛋白
-description:en: Casein is a family of related phosphoproteins. These proteins are commonly found in mammalian milk, comprising c. 80% of the proteins in cow's milk and between 20% and 45% of the proteins in human milk.
+description:en: Casein is the primary protein found in milk, making up about 80% of milk's protein content, and has been used for centuries in cheese-making across dairy-producing regions worldwide, since it's the protein that coagulates to form curds. It has a neutral, mildly milky flavor with no strong aroma, and forms a thick, slow-digesting texture when consumed—clumping into a gel in the stomach, unlike whey which stays liquid. Widely used in cheese production and as a slow-release protein supplement (particularly popular before bed among athletes), casein is a complete protein containing all nine essential amino acids, along with calcium and phosphorus from its dairy origin.
 # als:Casein, Kasein
 # scn:Caseina
 # sco:Casein
 nova:en: 4
 wikipedia:en: https://en.wikipedia.org/wiki/Casein
-
-# description:en:Casein has a wide variety of uses, from being a major component of cheese, to use as a food additive. Any of several salts derived from casein via the coagulation of milk protein
 
 < en: dairy
 en: caseinate
@@ -34259,11 +34147,10 @@ hr: kazeinat
 hu: kazeinát
 it: caseinato
 nl: Calciumcaseïnaat
+description:en: Caseinate is a soluble form of casein—typically sodium or calcium caseinate—created by treating milk casein with an alkali to make it water-soluble, a processing method developed in the early-to-mid 20th century to allow casein's functional properties to be used more easily in manufactured foods. It has a neutral, mildly milky flavor with no strong aroma, and unlike regular casein, it dissolves smoothly in liquids and forms stable emulsions rather than clumping into curds. Widely used as an emulsifier and protein fortifier in coffee creamers, processed cheeses, and protein supplements, caseinate remains a complete protein containing all nine essential amino acids, along with calcium and phosphorus from its dairy origin.
 vegan:en: no
 vegetarian:en: yes
 wiktionary:en: https://en.wiktionary.org/wiki/caseinate
-
-# description:en:Casein has a wide variety of uses, from being a major component of cheese, to use as a food additive. The most common form of casein is SODIUM CASEINATE. Several foods, creamers, and toppings all contain a variety of caseinates. Sodium caseinate acts as a greater food additive for stabilizing processed foods
 
 < en: caseinate
 en: sodium caseinate
@@ -34406,6 +34293,8 @@ zh: 可可粉
 ciqual_proxy_food_code:en: 18100
 ciqual_proxy_food_name:en: Cocoa powder, without sugar, powder, instant
 ciqual_proxy_food_name:fr: Cacao, non sucré, poudre soluble
+ciqual_proxy_food_process:en: en:powder
+description:en: Cocoa comes from the seeds (beans) of the cacao tree, native to Central and South America and used by the Aztecs and Maya for thousands of years in ceremonial and medicinal drinks long before it spread to Europe in the 16th century and became the basis for modern chocolate. It has a rich, bitter, complex flavor with earthy, fruity, and slightly astringent notes that vary by origin and processing, and comes in forms ranging from raw beans and nibs to fine cocoa powder, defined by its fat content (cocoa butter) after pressing. Used in chocolate-making, baking, and beverages, cocoa is notably rich in flavanol antioxidants, along with magnesium, iron, and fiber, though its bitter compounds are often offset with added sugar in most commercial products.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q45912917
@@ -34846,11 +34735,6 @@ wo: sokolaa
 yi: שאקאלאד
 zh: 巧克力
 zu: shokoledi
-# usage:en:chocolate (cocoa mass, sugar, cocoa butter, emulsifiers:lecithins (soy), natural vanilla flavouring)
-carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau (noir)
-carbon_footprint_fr_foodges_value:fr: 4.9
-vegan:en: maybe
-vegetarian:en: yes
 # ang:Ceocōlāte
 # arz:شوكولاته
 # ast:Chicolate
@@ -34911,7 +34795,12 @@ vegetarian:en: yes
 # zh-my:巧克力
 # zh-sg:巧克力
 # zh-tw:朱古力
+carbon_footprint_fr_foodges_ingredient:fr: Chocolat en morceau (noir)
+carbon_footprint_fr_foodges_value:fr: 4.9
+vegan:en: maybe
+vegetarian:en: yes
 wikipedia:en: https://en.wikipedia.org/wiki/Chocolate
+# usage:en:chocolate (cocoa mass, sugar, cocoa butter, emulsifiers:lecithins (soy), natural vanilla flavouring)
 
 < en: chocolate
 en: belgian chocolate
@@ -35376,8 +35265,6 @@ nl: chocolade rijstextrudaat
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# description:en:WATER is a transparent, tasteless, odorless, and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms.
-
 en: water, drinking water, tap water
 ab: Аӡы
 af: Water
@@ -35522,11 +35409,6 @@ yo: Omi
 za: Raemx
 zh: 水
 zu: Amanzi
-carbon_footprint_fr_foodges_ingredient:fr: Eau en bouteille PET, plate, 0.5 L
-carbon_footprint_fr_foodges_value:fr: 0.4
-ciqual_food_code:en: 18066
-ciqual_food_name:fr: Eau du robinet
-ecobalyse:en: 36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 # als:Wasser
 # ang:Wæter
 # arc:ܡܝܐ
@@ -35609,6 +35491,12 @@ ecobalyse:en: 36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 # xmf:წყარი
 # zh-classical:水
 # zh-min-nan:Chúi
+carbon_footprint_fr_foodges_ingredient:fr: Eau en bouteille PET, plate, 0.5 L
+carbon_footprint_fr_foodges_value:fr: 0.4
+ciqual_food_code:en: 18066
+ciqual_food_name:fr: Eau du robinet
+description:en: Water is a naturally occurring compound of hydrogen and oxygen, found throughout the environment in oceans, rivers, lakes, and groundwater, and sourced for consumption from municipal supplies, wells, springs, and glaciers depending on region. It has a neutral, essentially flavorless and odorless profile, though mineral content can lend subtle differences—spring water often tastes slightly mineral-rich, while distilled water tastes notably flat. As the foundation of virtually all food and beverage preparation, water contains no calories, protein, fat, or carbohydrates, though mineral or spring varieties may carry trace amounts of minerals like calcium, magnesium, and potassium, and it remains essential for nearly every bodily function.
+ecobalyse:en: 36b3ffec-51e7-4e26-b1b5-7d52554e0aa6
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q283
@@ -35671,8 +35559,6 @@ fr: eau comme glaçure d'enrobage
 hr: voda poput ledenog omota
 it: acqua come involucro di ghiaccio
 
-# description:en:BREWING WATER - Brauwasser ist speziell für das Brauen von Bier aufbereitetes Wasser
-
 < en: water
 en: Brewing water
 cs: Pivovarská voda
@@ -35680,6 +35566,7 @@ de: Brauwasser
 fr: Eau de brassage
 hr: pivovarska voda
 it: acqua per infusione
+description:en: Brewing water is water specifically treated or selected for beer or coffee production, with mineral content—calcium, magnesium, sulfate, chloride, and bicarbonate—carefully adjusted to match regional styles, a practice tracing back to historic brewing centers like Burton-on-Trent (high sulfate, favoring hoppy pale ales) and Pilsen (very soft water, ideal for delicate lagers). It has a neutral base flavor, but its mineral balance subtly shapes the final beverage's taste—sulfate accentuates hop bitterness and dryness, while chloride enhances malt sweetness and mouthfeel. Used as the primary ingredient in brewing (making up roughly 90-95% of beer), water's mineral profile is often adjusted through filtration, dilution, or targeted mineral additions to achieve consistency and match desired beer or coffee styles. As with plain water, brewing water contains no calories, protein, fat, or carbohydrates, only trace minerals that influence flavor rather than nutrition.
 wikipedia:de: https://de.wikipedia.org/wiki/Brauwasser
 
 < en: water
@@ -35906,6 +35793,7 @@ zh: 碳酸水
 # hi:वातिल जल this needs to be checked
 # wuu:汽水
 # yue:荷蘭水
+description:en: Carbonated water is water infused with dissolved carbon dioxide gas under pressure, either occurring naturally in mineral springs—historically prized in spa towns like Perrier in France—or produced artificially through mechanical carbonation, a process commercialized in the late 18th century. It has a neutral base flavor with a distinctive sharp, slightly acidic bite and effervescent tingle from the carbonic acid formed as CO2 dissolves, and a lively, fizzy texture that fades once opened. Used as a refreshing standalone drink, a mixer in cocktails, and a base for flavored sodas, carbonated water contains no calories, protein, fat, or carbohydrates, and offers the same trace minerals as its source water, with no meaningful nutritional difference from still water beyond the carbonation itself.
 wikidata:en: Q264554
 wikipedia:en: https://en.wikipedia.org/wiki/Carbonated_water
 
@@ -35965,6 +35853,7 @@ fr: eau filtrée, eau purifiée
 hr: filtrirana voda
 hu: szűrt víz, tisztított víz
 it: Acqua filtrata
+ko: 정제수
 nl: gezuiverd water
 pl: Woda filtrowana
 pt: Água filtrada
@@ -35979,9 +35868,6 @@ fr: eau de cuisson
 hr: voda za kuhanje
 it: acqua di cottura
 nl: kookwater
-
-# description:en:Ice is water frozen into a solid state.
-# comment:en:We differentiate between ice and icecream. This is not posisible in every language. In french the accent is not respected and it should sometimes be glacé.
 
 < en: water
 en: ice
@@ -36123,6 +36009,8 @@ zu: Iqhwa
 # zh-cn:冰
 # zh-hk:冰
 # zh-tw:冰
+comment:en: We differentiate between ice and icecream. This is not posisible in every language. In french the accent is not respected and it should sometimes be glacé.
+description:en: Ice is water in its solid state, forming when temperatures drop to or below 0°C (32°F), found naturally in glaciers, polar regions, and frost, and produced commercially or at home through refrigeration for use in food and beverages. It has no flavor or aroma of its own, taking on a hard, crystalline texture that can range from clear and dense to cloudy and brittle depending on freezing speed and mineral content. Used primarily for chilling drinks and food, preserving perishables, and in ice sculptures or winter sports, ice contains no calories, protein, fat, or carbohydrates, offering the same trace minerals as its source water but purely a physical, non-nutritive ingredient.
 wikidata:en: Q23392
 wikipedia:en: https://en.wikipedia.org/wiki/Ice
 
@@ -36186,14 +36074,14 @@ tt: соя
 uk: соя
 uz: soya
 zh: 黄豆, 大豆类制品
-comment:en: Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max, note that soya is english and soy is american
-description:en: SOYA is used as a generic word to indicate it is made from soybeans
 #ast: soya
 #hsb: Soja
 #ilo: Soya
 #kbp: Soojaa
 #lfn: Soia
 #war: Soya
+comment:en: Using wikipedia as translation is difficult, sometimes it is translated as soya, soybean or glycine max, note that soya is english and soy is american
+description:en: Soy comes from the soybean, a legume domesticated in China around 3,000-5,000 years ago and long a dietary staple across East Asia, later spreading globally as both a food crop and major agricultural commodity. It has a mild, earthy, slightly nutty flavor with a texture that varies enormously by form—from the firm bite of tofu and edamame to the smooth creaminess of soy milk and the meaty chew of tempeh. Extremely versatile, soy is used in countless forms including tofu, milk, sauce, and protein isolates, and stands out nutritionally as a complete plant protein containing all nine essential amino acids, along with fiber, iron, and isoflavones linked to potential health benefits.
 vegan:en: yes
 vegetarian:en: yes
 
@@ -36292,7 +36180,6 @@ allergens:en: en:soybeans
 ciqual_food_code:en: 20901
 ciqual_food_name:en: Soybean, whole grain
 ciqual_food_name:fr: Soja, graine entière
-description:en: SOYBEAN (Glycine max), or soya bean is a species of legume native to East Asia.
 description:de: Die Sojabohne (Glycine max), häufig auch einfach als Soja bezeichnet, ist eine Pflanzenart aus der Unterfamilie Schmetterlingsblütler. Als Nahrung ist die Eiweißqualität des Sojaproteins mit der von tierischem Eiweiß vergleichbar, was die Sojabohne von anderen Pflanzen abhebt.
 description:es: Glycine max, llamada popularmente soya o soja, es una especie de la familia Fabaceae. El grano de soya y sus subproductos (aceite y harina de soya) se utilizan en la alimentación humana, del ganado y aves.
 description:fr: Le soja, (soya) (Glycine max), est une espèce de plante annuelle de la famille des légumineuses.
@@ -36441,7 +36328,7 @@ tr: Soya küspesi
 uk: Соєва пульпа
 vi: Bã đậu
 zh: 豆渣
-description:en: pulp consisting of insoluble parts of the soybean that remain after pureed soybeans are filtered in the production of soy milk and tofu.
+description:en: Okara is the fibrous pulp byproduct left over from pressing soybeans to make soy milk or tofu, a traditional ingredient in Japanese, Chinese, and Korean cooking where it's long been used to avoid food waste, particularly in dishes like Japanese unohana. It has a mild, slightly nutty, bean-like flavor with a dry, crumbly, fibrous texture similar to coarse meal. Used in stir-fries, veggie burgers, baked goods, and as a flour substitute, okara is notably rich in dietary fiber and retains a good amount of plant protein and calcium, though it's lower in protein than the soy milk or tofu it's derived from.
 usda_ndb_code:en: 16130
 usda_ndb_name:en: Okara
 wikidata:en: Q917043
@@ -36624,9 +36511,6 @@ es: maltodextrina de trigo
 fr: maltodextrine de blé
 it: maltodestrina di frumento
 
-# a raising agent is any one of a number of substances used in doughs and batters that cause a foaming action (gas bubbles) that lightens and softens the mixture.
-# This contains chemical and biological raising agents. Often a raising agent is synonymous to chemical.
-
 en: raising agent, leavening agent, leavening, dough raising agent
 ar: عامل نفاشية
 ca: gasificants
@@ -36667,10 +36551,9 @@ tr: Kabartma ajanı
 uk: Розпушувач харчовий
 zh: 膨松剂
 # zh-min-nan:Hoat-hún
+description:en: Raising agents are substances added to baked goods to produce carbon dioxide gas and create rise and lightness, with early forms like yeast used since ancient Egyptian times, while chemical versions such as baking soda and baking powder were developed in the 19th century as faster, more reliable alternatives. They are essentially flavorless or very mildly bitter/metallic on their own, though excess use can leave a soapy or tinny aftertaste, and they work by releasing gas bubbles that get trapped in dough or batter, creating a light, airy texture. Used across breads, cakes, and pastries—commonly as baking soda, baking powder, yeast, or ammonium bicarbonate—raising agents are used in such small quantities that they contribute negligible calories or nutrients, functioning purely as a leavening tool rather than a nutritional ingredient.
 wikidata:en: Q908833
 wikipedia:en: https://en.wikipedia.org/wiki/Leavening_agent
-
-# description:en:Yeasts are eukaryotic, single-celled microorganisms classified as members of the fungus kingdom.
 
 en: yeast
 af: Gis
@@ -36746,9 +36629,6 @@ vi: Nấm men
 wa: Yesse
 yi: הייוון
 zh: 酵母
-ciqual_proxy_food_code:en: 11009
-ciqual_proxy_food_name:en: Nutritional yeast
-ciqual_proxy_food_name:fr: Levure alimentaire
 # ast:Lleldu
 # bar:Germ
 # ext:Lua
@@ -36757,6 +36637,10 @@ ciqual_proxy_food_name:fr: Levure alimentaire
 # sco:Baurm
 # yue:依士
 # zh-min-nan:Kàⁿ-bú
+ciqual_proxy_food_code:en: 11009
+ciqual_proxy_food_name:en: Nutritional yeast
+ciqual_proxy_food_name:fr: Levure alimentaire
+description:en: Yeast is a single-celled fungus, most commonly Saccharomyces cerevisiae, used for thousands of years since ancient Egyptian and Mesopotamian times to leaven bread and ferment beverages like beer and wine, long before its microbial nature was understood. It has a mild, slightly savory, umami flavor with a subtly yeasty, bread-like aroma, and comes in fresh, active dry, or instant forms that vary in texture from soft and crumbly to fine granules. Used in baking, brewing, and winemaking, yeast works by converting sugars into carbon dioxide and alcohol through fermentation, and nutritional yeast (a deactivated form) is notably rich in B vitamins, protein, and often fortified with B12, making it a popular supplement for plant-based diets.
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q45422
@@ -36795,8 +36679,6 @@ hr: kvasac s vitaminom d
 it: lievito di vitamina D
 nl: vitamine D-gist
 
-# description:en:NUTRITIONAL YEAST is a deactivated yeast, often a strain of Saccharomyces cerevisiae, which is sold commercially as a food product.
-
 < en: yeast
 en: nutritional yeast
 ar: رقائق الخميرة المغذية
@@ -36817,6 +36699,7 @@ uk: харчові дріжджі
 ciqual_food_code:en: 11009
 ciqual_food_name:en: Nutritional yeast
 ciqual_food_name:fr: Levure alimentaire
+description:en: Nutritional yeast is a deactivated form of Saccharomyces cerevisiae yeast, typically grown on molasses and then heat-killed before being dried into flakes or powder, popularized in the mid-20th century as a health food, particularly within vegan and vegetarian communities. It has a distinctly savory, cheesy, nutty flavor with umami depth, making it a popular seasoning sprinkled over popcorn, pasta, and salads or blended into vegan cheese sauces. Unlike active baking yeast, it has no leavening power since it's deactivated, but it stands out nutritionally as a complete protein source rich in B vitamins—often fortified with B12—making it especially valued in plant-based diets for filling that typical nutritional gap.
 wikidata:en: Q1786540
 wikipedia:en: https://en.wikipedia.org/wiki/Nutritional_yeast
 
@@ -36833,7 +36716,6 @@ pl: płatki drożdżowe
 sv: näringsjästflinga, näringsjästflingor
 
 # see ingredients_processing.txt
-#comment:en: fr:poudre-a-lever is an additive class.
 < en: yeast
 en: yeast powder, raising powder
 bg: мая на прах
@@ -36853,7 +36735,6 @@ ru: Дрожжевой порошок
 sv: torrjäst, jästpulver
 
 #en:processing:en:powder
-#comment:en: misses a parent, so entries can not be removed
 #<en:raising agent???
 en: baking powder
 bg: бакпулвер
@@ -36878,6 +36759,7 @@ sv: bakpulver
 ciqual_food_code:en: 11046
 ciqual_food_name:en: Baking powder or raising agent
 ciqual_food_name:fr: Levure chimique ou Poudre à lever
+comment:en: misses a parent, so entries can not be removed
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q29476
@@ -36935,7 +36817,7 @@ zh: 釀酒酵母
 ciqual_food_code:en: 11045
 ciqual_food_name:en: Baker's yeast, dehydrated
 ciqual_food_name:fr: Levure de boulanger, déshydratée
-description:en: Baker's yeast is the common name for the strains of yeast commonly used as a leavening agent in baking bread and bakery products
+description:en: Baker's yeast is the common name for active Saccharomyces cerevisiae used specifically for baking, cultivated commercially since the late 19th century when compressed yeast production made it widely accessible, replacing older methods like sourdough starters and brewer's yeast. It has a mild, slightly savory flavor with little aroma on its own, though it develops the characteristic yeasty, bready aroma during fermentation, and is sold as fresh (compressed), active dry, or instant granules. Used to leaven bread, rolls, and pastries, baker's yeast works by converting sugars into carbon dioxide and alcohol, and while used in small quantities, it contributes trace amounts of B vitamins and protein alongside its primary leavening function.
 wikidata:en: Q911712
 wikipedia:en: https://en.wikipedia.org/wiki/Baker%27s_yeast
 
@@ -36989,8 +36871,6 @@ en: hops yeast
 hr: hmelj kvasac
 it: lievito di luppolo
 
-# description:en:YEAST EXTRACT is the common name for yeast products made by extracting the cell contents
-
 < en: yeast
 en: yeast extract
 bg: екстракт от мая, екстракти от мая
@@ -37024,6 +36904,7 @@ sv: jästextrakt
 tr: maya özütü
 uk: Екстракт дріжджів
 zh: 酵母抽提物
+description:en: Yeast extract is a savory paste or powder made by breaking down yeast cells—typically through autolysis (self-digestion using the yeast's own enzymes) or hydrolysis—a byproduct process refined in the late 19th century that led to iconic products like Marmite in the UK and Vegemite in Australia. It has an intensely savory, salty, umami-rich flavor with deep, almost meaty notes, and comes as a thick, sticky spread or dried into a fine powder used as a seasoning. Used as a flavor enhancer in soups, sauces, stocks, and spreads, yeast extract is naturally rich in glutamic acid (contributing its umami punch), B vitamins, and protein, making it both a flavor booster and a modest nutritional contributor.
 wikipedia:en: https://en.wikipedia.org/wiki/Yeast_extract
 
 < en: yeast extract
@@ -37085,7 +36966,7 @@ sr: Кисело тесто
 sv: surdeg
 zh: 老麵
 #nap: Criscito
-description:en: Sourdough bread is made by the fermentation of dough using naturally occurring lactobacilli and yeast.
+description:en: Sourdough is a naturally leavened bread made using a fermented starter of wild yeast and lactic acid bacteria rather than commercial yeast, a method dating back thousands of years to ancient Egypt and still central to regional baking traditions like San Francisco's tangy loaves. It has a distinctive tangy, slightly sour flavor with a chewy, dense crumb and crisp, often blistered crust, shaped by the specific microbial culture of its starter, which can vary by region and even household. Made simply from flour, water, salt, and the starter culture, sourdough's slow fermentation is thought to improve digestibility and lower the glycemic impact compared to conventionally leavened bread, while offering fiber, B vitamins, and modest protein from the flour base.
 likely_allergens:en: en:gluten
 wikidata:en: Q904889
 wikipedia:en: https://en.wikipedia.org/wiki/Sourdough
@@ -37307,8 +37188,6 @@ hr: inaktivni suhi kvasac
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# description:en:FRUIT is the seed-bearing structure in flowering plants (also known as angiosperms) formed from the ovary after flowering.
-
 en: fruit
 ak: Aduaba
 an: Fruita
@@ -37373,16 +37252,6 @@ xh: Isiqhamo
 yo: èso
 za: mak
 zh: 水果
-carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen importé par bateau et camion
-carbon_footprint_fr_foodges_value:fr: 1.3
-eurocode_2_group_1:en: 9
-nutriscore_fruits_vegetables_nuts:en: yes
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
-#carbon_footprint_fr_foodges_value:fr:2.3
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
-#carbon_footprint_fr_foodges_value:fr:27.4
-#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
-#carbon_footprint_fr_foodges_value:fr:0.3
 # aeb-arab:غلة
 # arz:فواكه
 # ast:Fruta
@@ -37428,6 +37297,17 @@ nutriscore_fruits_vegetables_nuts:en: yes
 # zh-my:水果
 # zh-sg:水果
 # zh-tw:水果
+carbon_footprint_fr_foodges_ingredient:fr: Fruit ou légume moyen importé par bateau et camion
+carbon_footprint_fr_foodges_value:fr: 1.3
+description:en: Fruit is the mature, seed-bearing structure of flowering plants, cultivated and foraged by humans since prehistoric times across virtually every inhabited region, with different varieties native to tropical, temperate, and Mediterranean climates worldwide. It has an enormously varied flavor and texture profile—from the crisp sweetness of apples to the juicy tang of citrus and the soft, custardy richness of tropical fruits like mango—generally balancing natural sugars with acidity. Eaten fresh, dried, juiced, or cooked into jams, desserts, and savory dishes, fruit is prized nutritionally for its fiber, vitamins (especially vitamin C), antioxidants, and natural sugars, making it a nutrient-dense counterpart to refined sweeteners.
+eurocode_2_group_1:en: 9
+nutriscore_fruits_vegetables_nuts:en: yes
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen, hors saison produit sous serre chauffée
+#carbon_footprint_fr_foodges_value:fr:2.3
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen , importé par avion (saison ou hors saison)
+#carbon_footprint_fr_foodges_value:fr:27.4
+#carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
+#carbon_footprint_fr_foodges_value:fr:0.3
 vegan:en: yes
 vegetarian:en: yes
 wikidata:en: Q1364
@@ -37479,9 +37359,6 @@ pt: frutas vermelhas
 ciqual_food_code:en: 13997
 ciqual_food_name:en: Red berries (raspberries, strawberries, red currants, black currants) , raw
 ciqual_food_name:fr: Fruits rouges, crus (framboises, fraises, groseilles, cassis)
-#461 in 8 @2021-10-15
-
-# description:en:A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
 
 < en: fruit
 en: berries, berry
@@ -37502,7 +37379,7 @@ pl: Owoce jagodowe
 pt: Bagas
 ru: Ягоды
 sv: Bär
-# ingredient/fr:fruits-rouges 205 products @2018-10-01
+description:en: Berries are small, fleshy, typically sweet-tart fruits produced by a wide range of flowering plants, growing wild across temperate and cold regions worldwide long before cultivation, with varieties like strawberries, blueberries, raspberries, and blackberries becoming widely farmed staples in Europe and North America. They have a flavor ranging from intensely sweet to sharply tart, often balanced with floral or earthy notes, and a soft, juicy texture that varies from the delicate burst of raspberries to the firmer bite of blueberries. Eaten fresh, dried, or used in jams, baking, and beverages, berries are notably rich in antioxidants (especially anthocyanins), fiber, and vitamin C, making them among the most nutrient-dense fruits.
 eurocode_2_group_2:en: 9.30
 wikipedia:en: https://en.wikipedia.org/wiki/Berry
 
@@ -37552,13 +37429,12 @@ nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
 
-# fruits and vegetables compound: do not make it a child of en:fruits and en:vegetables
-# needed in particular to recognize things like "fruits and vegetables content: 80%"
 en: fruits and vegetables, vegetables and fruits
 fr: fruits et légumes, légumes et fruits
 hr: voće i povrće
 it: frutta e verdura
 pl: owoce i warzywa, warzywa i owoce
+comment:en: fruits and vegetables compound: do not make it a child of en:fruits and en:vegetables. Needed in particular to recognize things like "fruits and vegetables content: 80%"
 nutriscore_fruits_vegetables_nuts:en: yes
 vegan:en: yes
 vegetarian:en: yes
@@ -37616,8 +37492,6 @@ ja: ドライフルーツ
 nl: gedroogd fruit
 pl: owoce suszone, suszone owoce, owoców suszonych
 
-# description:en:Juice is a drink made from the extraction or pressing of the natural liquid contained in fruit and vegetables.
-
 en: juice
 bg: сок
 de: Saft
@@ -37631,6 +37505,7 @@ nl: sap
 pl: sok, soki, soku, soków
 pt: suco, sumo
 ru: Сок
+description:en: Juice is the liquid extracted from fruits or vegetables, produced by pressing, squeezing, or blending, with a history stretching back to ancient civilizations that fermented or drank fruit juices, though modern commercial juicing scaled up dramatically in the 20th century with pasteurization and packaging advances. It has a flavor that mirrors its source—sweet, tart, or a mix—with a smooth, liquid texture, sometimes with pulp retained for added body. Consumed as a beverage or used in cooking, baking, and cocktails, juice retains vitamins (especially vitamin C) and antioxidants from its source, though it typically lacks the fiber of whole fruit and can be concentrated in natural sugars, giving it a higher glycemic impact than eating the fruit whole.
 vegan:en: maybe
 vegetarian:en: maybe
 
@@ -37752,9 +37627,6 @@ fr: pulpe de fruits, pulpes de fruits
 fi: hedelmäliha
 hr: kaša voća, pulpa voća
 pt: polpa de fruta, polpa de frutas, polpa de fruto, polpa de frutos
-# 41 in 1 language products @2018-10-04
-
-# Is an AGGREGATE ingredient, i.e.:fruit and plant concentrates:safflower, apple, spirulina, radish, lemon, sweet potato, carrot, blackcurrant, hibiscus;
 
 < en: fruit concentrate
 < en: plant concentrate
@@ -37768,8 +37640,7 @@ it: concentrati di frutta e plante
 nl: vruchten- en plantenconcentraten
 pl: koncentraty owocowe i roślinne, koncentraty roślinne i owocowe, owocowo-roślinne koncentraty
 sv: frukt- och plantkoncentrat
-
-# Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
+comment:en: Is an Compound ingredient, i.e.:fruit and plant concentrates:safflower, apple, spirulina, radish, lemon, sweet potato, carrot, blackcurrant, hibiscus;
 
 #<en:compound
 < en: concentrate
@@ -37785,6 +37656,7 @@ hr: koncentrirani sokovi
 it: concentrati di frutta
 nl: fruitconcentraat, vruchtconcentraten
 pt: concentrados de fruta, concentrados de fruto, concentrados de frutas, concentrados de frutos
+comment:en: Is an AGGREGATE ingredient, i.e.:concentrés de fruits (framboise, orange, citron)
 
 < en: concentrate
 < en: plant
@@ -37853,7 +37725,6 @@ usda_ndb_proxy_name:en: Abiyuch, raw
 #                                Apricot
 #
 ###################################################################################################
-# description:en:APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
 
 < en: prunus species fruit
 en: apricot
@@ -37987,6 +37858,7 @@ carbon_footprint_fr_foodges_value:fr: 1.1
 ciqual_food_code:en: 13000
 ciqual_food_name:en: Apricot, pitted, raw
 ciqual_food_name:fr: Abricot, dénoyauté, cru
+description:en: Apricots are stone fruits believed to have originated in China or Central Asia thousands of years ago, later spreading along the Silk Road through Persia and into the Mediterranean, where regions like Turkey and California became major modern producers. They have a delicate, sweet-tart flavor with subtle floral and honeyed notes, and a soft, velvety-skinned flesh that's juicy when ripe and firms into a chewy, concentrated sweetness when dried. Eaten fresh, dried, or used in jams, baking, and savory glazes, apricots are a good source of vitamin A (from beta-carotene), vitamin C, and fiber, with dried apricots also offering a notable concentration of iron and potassium.
 ecobalyse:en: c455b3b8-406b-407a-a525-b2c832522e49
 ecobalyse_labels_en_organic:en: 36158ea6-066c-4fd6-9e28-6477c7297b37
 ecobalyse_origins_en_france:en: e3865e84-12e7-4f7a-9fe3-132f67713d82
@@ -38122,7 +37994,6 @@ it: aroma (albicocca), aroma (albicocche), aroma di albicocca, aroma di albicocc
 #                                Banana
 #
 ###################################################################################################
-# description:en:BANANA is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa
 
 < en: fruit
 en: banana
@@ -38285,6 +38156,7 @@ ciqual_food_code:en: 13005
 ciqual_food_name:en: Banana, pulp, raw
 ciqual_food_name:fr: Banane, pulpe, crue
 ciqual_food_process:en: en:pulp, en:raw
+description:en: Bananas are tropical fruits believed to have originated in Southeast Asia and Papua New Guinea thousands of years ago, later spreading through Africa and eventually the Americas, where they became one of the world's most widely consumed and traded fruits. They have a sweet, mild, slightly tangy flavor with a soft, creamy texture that ripens from starchy and firm to soft and sugary as the fruit matures. Eaten fresh, cooked, or dried, and used in baking, smoothies, and desserts, bananas are notably rich in potassium, vitamin B6, and fiber, along with natural sugars that make them a popular quick energy source.
 ecobalyse:en: f79d155e-3f9e-4882-8dd0-b03f28c1ff76
 ecobalyse_labels_en_organic:en: b3f92ca9-3121-4e2d-9e1d-0cc2c5d392fe
 usda_ndb_2_code:en: 9041
@@ -38365,6 +38237,7 @@ wikidata:en: Q208032
 #                                Betula
 #
 ###################################################################################################
+
 < en: plant
 en: betula
 hr: betula, betula spp, breze
@@ -38376,7 +38249,6 @@ wikidata:en: Q25243
 #                                Breadfruit
 #
 ###################################################################################################
-# description:en:BREADFRUIT (Artocarpus altilis) is a species of flowering tree in the mulberry and jackfruit family (Moraceae). Breadfruit is a staple food in many tropical regions. Before being eaten, the fruits are roasted, baked, fried or boiled. When cooked, the taste of moderately ripe breadfruit is described as potato-like, or similar to freshly baked bread.
 
 < en: fruit
 < en: fruit vegetable
@@ -38411,6 +38283,7 @@ vi: xa kê, sa kê
 # bcl:Rimas
 #msn:biēg
 #zdj:furiapa, friapa
+description:en: Breadfruit is a starchy tropical fruit native to the South Pacific and Southeast Asia, long cultivated across Polynesian islands as a dietary staple, and historically significant for its role in the 18th-century Bounty voyage, which aimed to transplant it to the Caribbean as cheap food for enslaved laborers. It has a mild, slightly sweet flavor reminiscent of fresh bread or potato when cooked, with a starchy, dense texture similar to a potato when roasted, boiled, or fried. Typically eaten cooked rather than raw, breadfruit is a good source of complex carbohydrates, fiber, potassium, and vitamin C, making it a nutrient-dense staple food in many tropical regions.
 eurocode_2_group_3:en: 8.40.52
 usda_ndb_code:en: 9059
 usda_ndb_name:en: Breadfruit, raw
@@ -38434,10 +38307,11 @@ wikipedia:en: https://en.wikipedia.org/wiki/Jackfruit
 #                                Calluna vulgaris
 #
 ###################################################################################################
+
 < en: plant
 en: calluna vulgaris
-hr: calluna vulgaris, zelen vrijeska
-it: calluna vulgaris
+hr: zelen vrijeska
+la: calluna vulgaris
 wikidata:en: Q26615
 
 ###################################################################################################
@@ -38449,7 +38323,7 @@ wikidata:en: Q26615
 < en: prunus species fruit
 en: carissa, natal plum
 la: Carissa macrocarpa
-description:en: Carissa is a tropical/subtropical fruit-bearing shrub, native to South Africa. Taste: A mix of sweet and tart, often compared to cranberry or strawberry with a slightly milky, latex-like note
+description:en: Carissa (commonly known as natal plum) is a small, glossy red fruit native to southern Africa, particularly South Africa, growing on a spiny shrub traditionally used both as a food source and an ornamental hedge in its native range. It has a tart, slightly sweet flavor often compared to a mix of cranberry and strawberry, with a soft, juicy flesh surrounding small seeds, though the unripe fruit and other plant parts contain a milky sap that's toxic if consumed. Eaten fresh, or used in jams, jellies, and sauces once ripe, carissa is a good source of vitamin C and antioxidants, though it remains a minor, largely regional fruit outside southern Africa.
 usda_ndb_code:en: 9061
 usda_ndb_name:en: Carissa, (natal-plum), raw
 
@@ -38458,8 +38332,6 @@ usda_ndb_name:en: Carissa, (natal-plum), raw
 #                                Durian
 #
 ###################################################################################################
-# description:en:The DURIAN is the fruit of several tree species belonging to the genus Durio.
-# wikipedia and wikidata mix species, tree and fruit.
 
 < en: fruit
 en: durian
@@ -38480,6 +38352,8 @@ uk: Дуріан
 vi: Chi Sầu riêng
 zh: 榴槤屬
 # zh-min-nan:Liû-liân
+comment:en: wikipedia and wikidata mix species, tree and fruit.
+description:en: Durian is a large, spiky tropical fruit native to Southeast Asia, particularly Malaysia, Indonesia, and Thailand, where it's been cultivated for centuries and earned the nickname "king of fruits" despite—or because of—its notoriously divisive smell. It has a custardy, rich, creamy texture with a complex flavor often described as a blend of sweet caramel, almond, and savory onion notes, paired with a famously pungent, sulfurous odor strong enough to be banned on public transport in parts of Southeast Asia. Eaten fresh or used in desserts, candies, and ice cream, durian is notably rich in healthy fats, fiber, vitamin C, and potassium, making it more calorie-dense and nutritious than most other fruits.
 usda_ndb_code:en: 9422
 usda_ndb_name:en: Durian, raw or frozen
 wikipedia:en: https://en.wikipedia.org/wiki/Durian
@@ -38489,9 +38363,6 @@ wikipedia:en: https://en.wikipedia.org/wiki/Durian
 #                                Cranberry
 #
 ###################################################################################################
-# description:en:CRANBERRIES are a group of evergreen dwarf shrubs or trailing vines in the subgenus Oxycoccus of the genus Vaccinium.
-# It is possible that a subgroup needs to be created for the different species. The european and american varieties are mixed here.
-# In Britain, cranberry may refer to the native species Vaccinium oxycoccos, while in North America, cranberry may refer to Vaccinium macrocarpon.
 
 < en: fruit
 en: cranberry, cranberries
@@ -38563,6 +38434,8 @@ zh: 小紅莓
 ciqual_food_code:en: 13113
 ciqual_food_name:en: Cranberry, raw
 ciqual_food_name:fr: Canneberge ou cranberry, crue
+comment:en: It is possible that a subgroup needs to be created for the different species. The european and american varieties are mixed here. In Britain, cranberry may refer to the native species Vaccinium oxycoccos, while in North America, cranberry may refer to Vaccinium macrocarpon.
+description:en: Cranberries come in two main varieties: the American cranberry (Vaccinium macrocarpon), native to North America and long used by Indigenous peoples before becoming a major commercial crop in states like Massachusetts and Wisconsin, and the smaller European cranberry (Vaccinium oxycoccos), native to boggy regions across Northern Europe and Asia and traditionally foraged rather than farmed. Both have a sharply tart, astringent flavor with a firm, crisp bite when fresh, though the European variety tends to be smaller and even more tart than its larger American cousin. Eaten fresh, dried, juiced, or made into sauces, cranberries are notably rich in antioxidants, vitamin C, and compounds linked to urinary tract health, making them valued more for their functional benefits than their raw palatability.
 usda_ndb_code:en: 9078
 usda_ndb_name:en: Cranberries, raw
 wikidata:en: Q13181
@@ -38603,7 +38476,6 @@ hr: ušećerene brusnice
 it: mirtilli rossi zuccherati
 wikidata:en: Q26897677
 
-# description:en:Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium.
 < en: cranberry
 en: american cranberry
 cs: klikva velkoplodá, klikvy velkoplodé
@@ -38626,6 +38498,7 @@ sv: amerikanskt tranbär
 zh: 大果蔓越梅
 #dsb:Wjelikopłodowa žorawina
 #hsb:Wulkopłodowa tymjenka
+description:en: Vaccinium macrocarpon (also called large cranberry, American cranberry and bearberry) is a North American species of cranberry of the subgenus Oxycoccus and genus Vaccinium.
 wikidata:en: Q149397
 wikipedia:en: https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
 
@@ -38658,7 +38531,7 @@ it: aroma di mirtillo rosso
 < en: fruit
 en: mammy apple, mamey
 la: Mammea americana
-description:en: A mammy apple is a tropical fruit native to the Caribbean and tropical Americas. Despite the name, they are actually classified as a berry, not a true apple. The flesh is intensely aromatic and deep orange, with a flavour similar to an apricot or raspberry.
+description:en: Mammee apple (Mammea americana) is a large tropical fruit native to the Caribbean and northern South America, historically cultivated by Indigenous peoples across the region long before European colonization and still popular in Caribbean and Central American cuisines today. It has a sweet, aromatic flavor often compared to a blend of apricot, mango, and raspberry, with a firm, slightly fibrous orange flesh beneath a thick, rough brown-yellow rind that must be discarded along with the bitter seeds. Eaten fresh, or used in jams, juices, and desserts, mammee apple is a good source of vitamin C, fiber, and carotenoids, though it remains a relatively niche fruit outside its native tropical regions.
 usda_ndb_code:en: 9175
 usda_ndb_name:en: Mammy-apple, (mamey), raw
 
@@ -38671,7 +38544,7 @@ usda_ndb_name:en: Mammy-apple, (mamey), raw
 < en: fruit
 en: mamey sapote
 la: Pouteria sapota
-description:en: Mamey Sapote (Pouteria sapota). It has a rough brown skin like a football, and vibrant salmon-pink to reddish flesh with a rich, creamy flavor often compared to a mix of sweet potato, pumpkin, and almond. Widely used in smoothies and ice cream in Latin America and the Caribbean.
+description:en: Mamey sapote (Pouteria sapota) is a large tropical fruit native to Central America and southern Mexico, cultivated by the Maya and Aztecs long before Spanish colonization and still widely grown across Mexico, Central America, and the Caribbean today. It has a sweet, rich flavor often compared to a blend of sweet potato, pumpkin, and almond with honey-like notes, and a smooth, creamy, custard-like flesh beneath a rough, brown, sandpaper-textured skin. Eaten fresh, blended into milkshakes and desserts (notably popular in Cuban and Mexican cuisine), mamey sapote is a good source of vitamin C, vitamin A, and fiber, along with notable amounts of potassium.
 usda_ndb_code:en: 9314
 usda_ndb_name:en: Sapote, mamey, raw
 
@@ -41848,7 +41721,7 @@ it: estratto naturale di limone, estratto naturale di limoni
 en: concentrated lemon juice, Lemon juice concentrate
 bg: концентрат от лимонов сок, концентриран сок от лимони, концентриран лимонов сок
 ca: Suc de llimona concentrat, Concentrat de suc de llimona
-cs: koncentrovaná citrónová šťáva, citronová šťáva z koncentrátu
+cs: koncentrovaná citrónová šťáva, koncentrovaná citronová šťáva, koncentrát citronové šťávy, koncentrát citrónové šťávy
 da: citronsaftkonsentrat, citronjuicekoncentrat
 de: Zitronensaftkonzentrat, Zitronenkonzentrat
 es: zumo concentrado de limón, jugo concentrado de limón, zumo de limón concentrado, jugo de limón concentrado, concentrado de zumo de limón, concentrado de jugo de limón
@@ -43709,7 +43582,6 @@ eurocode_2_group_3:en: 9.30.28
 # hsb:žołty ćernjowc
 # olo:muur'oi
 # sah:бөллөхүнэ
-# simple:cloudberry
 # species:rubus chamaemorus
 # vep:murašk
 # war:rubus chamaemorus
@@ -56144,6 +56016,7 @@ sv: morotjuicekoncentrat
 #This is not the same as concentrate carrot juice, this one has been reconstructed with water
 < en: carrot juice
 en: carrot juice from concentrate
+cs: mrkvová šťáva z koncentrátu
 da: gulerodsjuice fra koncentrat, gulerodssaft fra koncentrat
 de: Karottensaft aus Karottensaftkonzentrat
 es: zumo de zanahoria a partir de concentrado, jugo de zanahoria a partir de concentrado
@@ -59226,22 +59099,56 @@ vi: ớt hiểm
 wikidata:en: Q432426
 wikipedia:en: https://en.wikipedia.org/wiki/Bird%27s_eye_chili
 
-< en: chili pepper
-en: allspice, all spice, jamaica pepper, myrtle pepper
+< en: spice
+en: allspice, all spice, Jamaica pepper, myrtle pepper
+af: wonderpeper
+ar: فلفل إفرنجي
+az: ikievli pimenta
+be: ангельскае зелле, пімента лекавая
 bg: бахар
-cs: nové koření
-de: Jamaikapfeffer, Piment
+bn: কাবাব চিনি
+ca: pebrer de Jamaica, pebre de Jamaica
+cs: nové koření, pimentovník pravý
+da: allehånde
+de: Jamaikapfeffer, Piment, Allgewürz, Viergewürz
+el: μπαχάρι
+eo: dioika pimento
 es: pimienta de Jamaica
+et: vürtspipar, harilik pimendipuu
+fa: فلفل فرنگی
 fi: maustepippuri
-fr: piment de la jamaïque, piment de jamaïque
+fr: piment de la Jamaïque, piment de Jamaïque
+ga: ilspíosra
 hr: pimen
-it: Pepe di Giamaica, pepe garofanato, pimenteira
+ht: malagèt
+hu: szegfűbors
+hy: բուրավետ պղպեղ
+id: merica Jamaika
+is: allrahanda
+it: pepe di Giamaica, pepe garofanato, pimenteira
+ja: オールスパイス
+ko: 올스파이스나무
+la: Pimenta dioica
+lt: kvapusis pipiras
+ml: സർവ സുഗന്ധി
+ms: rempah tiga rasa
 nb: allehånde
 nl: Jamaicaanse peper
-pl: ziele angielskie, ziela angielskiego
-ru: перец душистый, перец душистый молотый, душистый перец
+nn: allehande
+pl: ziele angielskie, ziela angielskiego, pieprz z Jamajki, korzennik lekarski
+pt: pimenta da Jamaica
+ro: ienibahar
+ru: перец душистый, перец душистый молотый, душистый перец, пимента лекарственная
+sl: piment, pimentovec
+sr: најгвирц
 sv: kryddpeppar
-uk: перець духмяний
+ta: ஆல்ஸ்பைஸ்
+th: ออลสไปซ์
+to: sipaisi
+tr: yeni bahar
+uk: перець духмяний, духмяний перець
+ur: سیتل چینی
+zh: 多香果
 description:en: ALLSPICE, also known as Jamaica pepper, myrtle pepper, pimenta, or pimento, is the dried unripe berry of Pimenta dioica, a midcanopy tree native to the Greater Antilles, southern Mexico, and Central America, now cultivated in many warm parts of the world.
 usda_ndb_code:en: 2001
 usda_ndb_name:en: Spices, allspice, ground
@@ -60875,7 +60782,7 @@ ba: Фасоль
 be: фасоля звычайная
 bg: фасул
 ca: fesol
-cs: fazol zahradní
+cs: fazol zahradní, fazole
 cy: Ffeuen Ffrengig
 da: Bønne, bønner
 de: Bohnen, Bohne, Gartenbohne
@@ -61835,7 +61742,7 @@ eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.35
 
 < en: pulse
-en: flageolets
+en: flageolets, flageolet beans
 de: Flageolette
 es: habichuelas
 fi: leikkopapu, leikkopavut
@@ -61848,6 +61755,8 @@ ecobalyse:en: flageolet-bean-eu
 ecobalyse_origins_en_france:en: flageolet-bean-fr
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.30
+wikidata:en: Q581040
+wikipedia:en: https://en.wikipedia.org/wiki/Flageolet_bean
 
 < en: flageolets
 en: green flageolets
@@ -62684,6 +62593,7 @@ ar: طحين حمص
 bg: брашно от нахут
 bn: বেসন
 ca: farina de cigro, farina de cigrons
+cs: cizrnová mouka
 da: kikærtemel
 de: Kichererbsenmehl
 el: ρεβυθάλευρο
@@ -63291,6 +63201,7 @@ ciqual_food_name:fr: Lentille, germée
 en: lentil flour
 bg: брашно от леща
 ca: farina de llentia
+cs: čočková mouka
 de: Linsenmehl
 es: harina de lenteja
 fi: linssijauho
@@ -63319,6 +63230,7 @@ sv: linsprotein
 < en: lentil protein
 < en: preparation
 en: lentil protein preparation
+cs: přípravek z čočkové bílkoviny
 da: linseproteinpræparat
 fi: linssiproteiinivalmiste
 sv: beredning av linsprotein
@@ -66500,8 +66412,6 @@ usda_ndb_process:en: en:dried
 #
 ###################################################################################################
 
-# description:en:Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
-
 < en: seed
 en: pepper
 ak: moko
@@ -66550,6 +66460,8 @@ ciqual_proxy_food_code:en: 11015
 ciqual_proxy_name:en: Black pepper, powder
 ciqual_proxy_name:fr: Poivre noir, poudre
 ciqual_proxy_process:en: en:powder
+comment:en: Non-black/white/green peppers are also children of this.
+description:en: Peppercorns and the ground pepper derived from them may be described simply as pepper, or more precisely as black pepper (cooked and dried unripe fruit), green pepper (dried unripe fruit), and white pepper (ripe fruit seeds).
 usda_ndb_proxy_code:en: 2030
 usda_ndb_proxy_name:en: Spices, pepper, black
 wikidata:en: Q3143131
@@ -66568,6 +66480,7 @@ fr: grains de poivre
 hr: papar u zrnu
 it: grani di pepe
 sv: pepparkorn
+wikidata:en: Q3143131
 
 < en: pepper
 en: pepper extract
@@ -67342,11 +67255,14 @@ en: caraway
 af: karwy
 ar: كروياء
 az: adi zirə
+be: кмен звычайны
 bg: ким
+bn: কারোয়া
 bo: གོ་སྙོད།
 bs: kim
 ca: alcaravia
-cs: kmín
+cs: kmín, kmín kořenný
+cv: ахаль çерçи кĕпçи
 cy: carwy
 da: kommen
 de: Kümmel
@@ -67365,19 +67281,23 @@ he: כרוויה תרבותית
 hi: शाहजीरा
 hr: kim
 hu: fűszerkömény
-hy: քիմիոն
+hy: քիմիոն, քիմոն սովորական
 id: jintan
+ig: cara way
 is: kúmen
 it: carvi
 ja: キャラウェイ
+jv: caraway
 ka: ძირა
 ko: 캐러웨이
 ku: jaj
-la: careum
-lt: kmynas
-lv: ķimenes
+la: Carum carvi, Careum
+lb: Kimmel
+lt: kmynas, paprastasis kmynas
+lv: ķimenes, pļavas ķimene
 mk: ким
 ml: കരിഞ്ചീരകം
+mn: гоньд
 mr: शहाजिरे
 ms: jintan
 mt: karwija
@@ -67385,21 +67305,26 @@ my: ကရဝေး
 nb: karve
 nl: karwij
 nn: karve
+os: хуымæтæджы фыдхос
 pa: زيره
-pl: kminek
+pl: kminek, kminek zwyczajny
+ps: زيره
 pt: alcaravia
 ro: chimen
+ru: тмин обыкновенный
 sh: kim
-sk: kmín
-sl: kumina
+sk: kmín, rasca lúčna
+sl: kumina, navadna kumina
 sq: qimnoni
 sr: ким, kim
 sv: kummin
 te: కరం కరవే
 tg: карвиё
 th: เทียนตากบ
-uk: кмин
-zh: 葛縷子
+tt: ак әнис
+uk: кмин, кмин звичайний
+uz: zira urug'lari
+zh: 葛缕子, 葛縷子
 # azb:عادی زیره
 # bar:kimme
 # dsb:garba
@@ -67421,30 +67346,40 @@ comment:en: The wikidata entry is a mix of plant, seed and latin name.
 description:en: CARAWAY (Carum carvi), is a biennial plant in the family Apiaceae. The fruits, usually used whole, have a pungent, anise-like flavor. Caraway is used as a spice in breads, especially rye bread. Caraway is also used in desserts, liquors, casseroles, and other foods.
 usda_ndb_proxy_code:en: 2005
 usda_ndb_proxy_name:en: Spices, caraway seed
+wikidata:en: Q26811
 wikipedia:en: https://en.wikipedia.org/wiki/Caraway
-# wikidata:en:Q26811 for the plant
-# wikidata:en:Q61670763 for the seed
 
 < en: caraway
 en: caraway seed
+ca: llavors d'alcaravia
+da: kommenfrø
 de: Kümmelsamen
 el: σπόρος κύμινου
-es: semilla de alcaravea
-fr: graine de carvi
-hr: sjeme kima
-it: seme di cumino, seme di carvi
+es: semilla de alcaravea, semillas de alcaravea
+et: köömned
+fr: graine de carvi, graines de carvi
+hr: sjeme kima, sjemenke kima
+it: seme di cumino, seme di carvi, seme di cumino dei prati
+ja: キャラウェイシード
+la: Carvi fructus
+lt: kmynų sėklos
+lv: ķimeņu sēklas
 nl: karwijzaad
 pl: nasiona kminku
 pt: semente de cominho, semente de alcaravia
 ro: semințe de chimen, seminte de chimen
 ru: семена тмина
+sl: seme navadne kumine
+sv: kumminfrön
+yi: קימל זוימען
+zh: 葛缕子籽, 葛縷子籽
 #ltg:čymynu sāklys
 ciqual_food_code:en: 11064
 ciqual_food_name:en: Caraway, seed
 ciqual_food_name:fr: Carvi, graine
 usda_ndb_code:en: 2005
 usda_ndb_name:en: Spices, caraway seed
-#498 @2021-09-19
+wikidata:en: Q61670763
 
 ###################################################################################################
 #
@@ -69245,26 +69180,32 @@ it: aroma di senape
 
 < en: pepper
 en: pink peppercorn, pink berries, pink pepper, rose pepper
+ar: حب فلفل زهري
+az: çəhrayı istiot
+ca: pebre fals
+cs: pepř růžový
 da: rosépeber
 de: Rosa Pfeffer, Rosa Beeren, rosa Pfefferbeeren
 es: pimienta rosa
 fa: فلفل صورتی
 fi: roseepippuri, rosépippuri, perunroseepippuri, ruusupippuri
-fr: baies roses, poivre rose
+fr: poivre rose, baies roses
 hr: ružčasti papar, Schinus jagoda
+ht: bè woz
 it: pepe rosa
 ja: ピンクペッパー
+ko: 핑크페퍼
 la: Granum piperis roseum
 ml: പിങ്ക് പെപ്പർകോൺ
 nl: roze bessen
 pt: pimenta rosa
-ru: Розовый перец
-sv: Rosépeppar
-uk: Рожевий перець
+ru: розовый перец
+sl: rožnati poper
+sv: rosépeppar
+uk: рожевий перець
 description:en: A PINK PEPPERCORN is a dried berry of the shrub Schinus molle, commonly known as the Peruvian peppertree. Although a peppercorn is the dried fruit of a plant from the genus Piper, pink peppercorns came to be called such because they resemble peppercorns, and because they, too, have a peppery flavour. As they are members of the cashew family, they may cause allergic reactions including anaphylaxis for persons with a tree nut allergy.
 wikidata:en: Q2497744
 wikipedia:en: https://en.wikipedia.org/wiki/Pink_peppercorn
-# usage:fr:épice (baies roses)
 
 # description:en:A spice commonly called star anise, staranise, star anise seed, Chinese star anise, or badian that closely resembles anise in flavor is obtained from the star-shaped pericarps of the fruit of I. verum which are harvested just before ripening. Star anise contains anethole, the same compound that gives the unrelated anise its flavor. Star anise is an ingredient of the traditional five-spice powder of Chinese cooking.
 
@@ -69544,20 +69485,22 @@ usda_ndb_name:en: Spices, dill weed, dried
 
 < en: dill
 en: dill seed, dill seeds
+da: dildfrø
 de: Dillsaat
 es: semillas de eneldo
-fr: Graines d'aneth
+fi: tillinsiemen
+fr: graines d'aneth
 hr: sjeme kopra
 it: semi di aneto
+nb: dillfrø
 nl: dillezaad
+nn: dillfrø
+sv: dillfrö, dillfrön
+ciqual_proxy_food_code:en: 11064
+ciqual_proxy_food_name:en: Caraway, seed
 usda_ndb_code:en: 2016
 usda_ndb_name:en: Spices, dill seed
-#184 @2021-09-16
-
-#<en:dill
-#en:organic dill seed
-#fi:luomu tillinsiemen
-#nl:biologisch dillezaad
+wikidata:en: Q139678670
 
 #processing:en: en:dried
 #<en:dill
@@ -72226,107 +72169,134 @@ en: jasmine petals
 fr: pétales de jasmin
 it: petali di gelsomino
 
-# description:en:JUNIPERS are coniferous plants in the genus Juniperus of the cypress family Cupressaceae. Juniper berries are a spice used in a wide variety of culinary dishes and best known for the primary flavoring in gin. Juniper berry sauce is often a popular flavoring choice for quail, pheasant, veal, rabbit, venison and other game dishes.
-# comment:en:Juniper as an ingredient most certainly implies a juniper berry.
-
 < en: plant
 en: juniper
 ar: عرعر شائع
-az: Adi ardıc
-ba: Артыш
-be: Ядловец звычайны
+az: adi ardıc
+ba: артыш
+be: ядловец звычайны
 bg: обикновена хвойна
-br: Jenevreg-boutin
-bs: Smreka
+br: jenevreg-boutin
+bs: smreka
 ca: ginebre comú
+co: ghjinepara
 cs: jalovec obecný
-cy: Merywen
-da: almindelig ene
-de: Wacholder, Wachholder
+cv: уртăш йывăççи
+cy: merywen
+da: enebærbusk, almindelig ene
+de: Wacholder, Wachholder, Gemeiner Wacholder
 el: άρκευθος
-eo: Ordinara junipero
-es: enebro
+eo: ordinara junipero
+es: enebro, enebro común
 et: kadakas, harilik kadakas
-eu: Ipar-ipuru
+eu: ipar-ipuru
 fa: پیرو
 fi: kataja
-fo: Baraldur
-fr: genièvre
+fo: baraldur
+fr: genièvre, genévrier commun
 ga: aiteal
-gl: Xenebreiro
+gl: xenebreiro
 he: ערער מצוי
 hr: obična borovica, borovica
 hu: közönséges boróka
 hy: գիհի ցածրաաճ
-is: Einir
+is: einir
 it: ginepro
 ja: セイヨウネズ
-kl: Kakillarnaq
+ka: ჩვეულებრივი ღვია
+kl: kakillarnaq
+ko: 두송
 la: Juniperus communis
-lt: Paprastasis kadagys
-lv: Parastais kadiķis
+lb: Wakelter
+lt: paprastasis kadagys
+lv: parastais kadiķis
 mk: обична смрека
-nb: einer
-nl: Jeneverbes
-nn: eine
-pl: jałowiec, jałowca, jałowcowy, jałowcowa, jałowcowe
-pt: zimbro
+nb: einerbusk, einebusk, einer
+nl: jeneverbes
+nn: einebusk, einerbusk, eine
+os: хуымæтæджы æхсæлы
+pl: jałowiec, jałowca, jałowcowy, jałowcowa, jałowcowe, jałowiec pospolity
+pt: zimbro, zimbro-rasteiro
+rm: ginaiver cumin
 ro: ienupăr
-ru: Можжевельник обыкновенный
-se: Reatká
-sh: Kleka
-sk: Borievka obyčajná
-sl: Navadni brin
-sq: Dëllinja
-sr: Клека
-sv: En
-tr: Adi ardıç
-tt: Артыш
-uk: Ялівець звичайний
+ru: можжевельник обыкновенный
+se: reatká
+sh: kleka
+sk: borievka obyčajná
+sl: navadni brin
+sq: dëllinja
+sr: клека
+su: juniper beri
+sv: enbuske
+tr: adi ardıç
+tt: артыш
+uk: ялівець звичайний
+wa: franc pectî
 zh: 刺柏
-# azb:عادی آردیج
-# bar:Kranawitt
-# be-tarask:Ядловец звычайны
-# csb:Zwëczajny jałówc
-# frr:Algemian wacholder
-# hsb:Holanski jałorc
-# koi:Верӧс
-# nap:Inipr
-# nds-nl:Jeneverbees
-# pnb:عام صنوبر
-# sgs:Ieglis
-# stq:Wacholder
-# vro:Katai
-# war:Franc pectî
+#azb: عادی آردیج
+#bar: Kranawitt
+#be-tarask: Ядловец звычайны
+#csb: Zwëczajny jałówc
+#frr: Algemian wacholder
+#hsb: Holanski jałorc
+#koi: Верӧс
+#nap: Inipr
+#nds-nl: Jeneverbees
+#pnb: عام صنوبر
+#sgs: Ieglis
+#stq: Wacholder
+#vro: Katai
+#war: Franc pectî
+comment:en: Juniper as an ingredient most certainly implies a juniper berry.
+description:en: JUNIPERS are coniferous plants in the genus Juniperus of the cypress family Cupressaceae. Juniper berries are a spice used in a wide variety of culinary dishes and best known for the primary flavoring in gin. Juniper berry sauce is often a popular flavoring choice for quail, pheasant, veal, rabbit, venison and other game dishes.
 wikidata:en: Q26325
 wikipedia:en: https://en.wikipedia.org/wiki/Juniper
 
-# description:en:A JUNIPER BERRY is the female seed cone produced by the various species of junipers. Juniper berries are used in northern European and particularly Scandinavian cuisine to "impart a sharp, clear flavor" to meat dishes. Besides Norwegian and Swedish dishes, juniper berries are also sometimes used in German, Austrian, Czech, Polish and Hungarian cuisine, often with roasts (such as German sauerbraten). Northern Italian cuisine, especially that of the South Tyrol, also incorporates juniper berries.
-
 < en: juniper
 en: juniper berry, juniper berries
-af: Jenewerbessie
-be: Ядловец
+af: jenewerbessie
+ar: توت العرعر
+be: ядловец
+br: jenevra
+bs: juniper
+ca: ginebró
+cs: jalovčinka
 da: enebær
 de: Wacholderbeere, Wacholderbeeren
-es: baya de enebro
+es: baya de enebro, bayas de enebro
+et: marikäbi
 fa: جونیپر بری
 fi: katajanmarja, katajanmarjat
-fr: baies de genièvre
-hr: bobica kleke
+fr: baies de genièvre, baies de genévrier
+hr: bobica kleke, bobice kleke
+hu: borókabogyó
+hy: գիհու հատապտուղ
+id: juniper beri
 it: coccola di ginepro
+ja: 杜松果
+jv: bèri juniper
 ko: 두송자
-lv: Čiekuroga
+la: Juniperi pseudo-fructus
+lt: kadagio uogos
+lv: čiekuroga
 mk: смрекинка
 ml: ജൂനിപ്പർ കായ
 mt: frotta tal-ġnibru
-nl: bessen van de jeneverbes
+nb: einebær, einerbær
+nl: bessen van de jeneverbes, jeneverbessen
+nn: einebær, einerbær
 pl: owoc jałowca, owoce jałowca
-pt: semente de zimbro, Baga de zimbro
-ru: Можжевельник
+pt: semente de zimbro, baga de zimbro
+ro: boabă de ienupăr
+ru: можжевельник
+sl: brinova jagoda
 sv: enbär
-uk: Ялівець
+tw: juniper nnuaba a wɔfrɛ no berry
+uk: ялівець
+uz: archa mevasi
+vi: bách xù
 zh: 杜松子
+description:en: A JUNIPER BERRY is the female seed cone produced by the various species of junipers. Juniper berries are used in northern European and particularly Scandinavian cuisine to "impart a sharp, clear flavor" to meat dishes. Besides Norwegian and Swedish dishes, juniper berries are also sometimes used in German, Austrian, Czech, Polish and Hungarian cuisine, often with roasts (such as German sauerbraten). Northern Italian cuisine, especially that of the South Tyrol, also incorporates juniper berries.
 wikidata:en: Q3251025
 wikipedia:en: https://en.wikipedia.org/wiki/Juniper_berry
 
@@ -77457,7 +77427,7 @@ fr: truffe d’été, Truffe blanche d'été
 hr: crni ljetni tartuf, tuber aestivum
 hu: Nyári szarvasgomba
 it: Tartufo Scorzione
-la: Tuber aestivum
+la: Tuber aestivum, tuber aestivum vitt, tuber aestivum vittad
 lt: Vasarinis trumas
 nl: Zomertruffel
 pl: trufla letnia, trufle letnie
@@ -87061,6 +87031,7 @@ fr: café en grains
 hr: zrna kave
 it: chicchi di caffè
 ja: コーヒー豆, 珈琲豆
+ko: 커피원두
 nl: koffiebonen
 
 < en: coffee
@@ -87285,7 +87256,6 @@ vegan:en: maybe
 vegetarian:en: maybe
 # ast:creatina
 # azb:کراتین فوسفات
-# simple:creatine
 wikidata:en: Q223600
 wikipedia:en: https://en.wikipedia.org/wiki/Creatine
 
@@ -91667,7 +91637,6 @@ ru: лингуине
 sv: linguine, linguini, linguinipasta
 th: ลิงกวีเน
 uk: лінґвіне
-# simple:linguine
 # zh_yue:扁意粉
 wikidata:en: Q20035
 wikipedia:en: https://en.wikipedia.org/wiki/Linguine
@@ -92088,7 +92057,6 @@ uk: начос
 vi: nacho
 zh: 烤乾酪辣味玉米片
 # be_x_old:начас
-# simple:nachos
 wikidata:en: Q466430
 wikipedia:en: https://en.wikipedia.org/wiki/Nachos
 
@@ -92614,7 +92582,6 @@ vi: bánh mì pháp
 zh: 法式长棍面包
 # arz:عيش فرنسى
 # lfn:bagete
-# simple:baguette
 # zh_yue:百吉包
 wikidata:en: Q208172
 wikipedia:en: https://en.wikipedia.org/wiki/Baguette
@@ -95947,7 +95914,7 @@ be: соевы соус
 bg: Соев сос
 bn: সয়া সস
 ca: salsa de soia
-cs: sójová omáčka
+cs: sójová omáčka, sójová omáčka shoyu
 da: sojasovs, sojasauce
 de: Sojasauce, Sojasoße, Sojasosse, Soja Sosse, Sojasoßen, Sojasossen, Sojasaucen, Soja soße, Soja Sauce
 el: Σάλτσα σόγιας
@@ -96596,7 +96563,6 @@ description:es: La salsa bearnesa es una salsa emulsionada a base de mantequilla
 description:fr: La sauce béarnaise, ou la béarnaise, est une sauce émulsifiée chaude à base de beurre clarifié, de jaune d'œuf, d'échalote, d'estragon et de cerfeuil, servie pour relever les viandes.
 description:it: La salsa bernese o salsa bearnaise o semplicemente la bernese, è una salsa di condimento.
 description:nl: Bearnaisesaus is een saus gemaakt van opgeklopte boter en eigeel met toevoeging van een gastrique, bestaande uit wijn, azijn, dragon, mignonettes, kervel, bouquet garni en sjalotten.
-# simple:béarnaise sauce
 # zh_yue:賓利士汁
 wikidata:en: Q58265
 wikipedia:en: https://en.wikipedia.org/wiki/B%C3%A9arnaise_sauce
@@ -96645,7 +96611,6 @@ description:pt: Pesto é um molho italiano composto tradicionalmente de folhas d
 # lij:pesto
 # nap:pisto
 # sco:pesto
-# simple:pesto
 # zh_yue:羅勒醬
 wikidata:en: Q9896
 wikipedia:en: https://en.wikipedia.org/wiki/Pesto
