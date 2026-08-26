@@ -38,6 +38,7 @@ package ProductOpener::IngredientsStrings;
 
 use ProductOpener::PerlStandards;
 use Exporter qw< import >;
+use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries/;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -73,6 +74,10 @@ BEGIN {
 		%min_regexp
 		%max_regexp
 		%ignore_strings_after_percent
+		%one_regexp
+
+		&convert_text_value_to_number
+
 		%percent_or_quantity_regexps
 
 		&init_percent_or_quantity_regexps
@@ -81,6 +86,8 @@ BEGIN {
 }
 
 use vars @EXPORT_OK;
+
+use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries/;
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 # U+00B7 "·" (Middle Dot). Is a common character in Catalan. To avoid to break ingredients,
@@ -478,27 +485,75 @@ including localized strings like "minimum"
 	sv => "fetthalt",
 );
 
+# Used to parse "a pinch of salt", "une pincée de sel" etc.
+%one_regexp = (
+	en => "a|an|one",
+	da => "en|et",
+	es => "un|una",
+	fr => "un|une",
+	it => "un|una",
+	nb => "[eé]n|[eé]i|ett?",
+	nl => "een",
+	nn => "[eé]in|[eé]i|eitt?",
+	sv => "en|ett",
+);
+
+sub convert_text_value_to_number($target_lc, $value) {
+	my $one_regexp_in_lc = $one_regexp{$target_lc};
+	if (defined $one_regexp_in_lc) {
+		if ($value =~ /^\s*$one_regexp_in_lc\s*$/i) {
+			return 1;
+		}
+	}
+	return $value;
+}
+
+my %units_regexps = ();
+
+sub init_units_regexps() {
+
+	# Create a list of regexps with each synonyms of all units
+	%units_regexps = %{
+		generate_regexps_matching_taxonomy_entries(
+			"units",
+			"unique_regexp",
+			{
+				match_space_with_dash => 1,
+				include_xx => 1,
+			}
+		)
+	};
+
+	return;
+}
+
 %percent_or_quantity_regexps = ();
 
 sub init_percent_or_quantity_regexps($ingredients_lc) {
 
+	(scalar keys %units_regexps) or init_units_regexps();
+
 	if (not exists $percent_or_quantity_regexps{$ingredients_lc}) {
 
-		my $prepared_with = $prepared_with{$ingredients_lc} || '',
-
-			my $min_regexp = $min_regexp{$ingredients_lc} || '';
-
+		my $prepared_with = $prepared_with{$ingredients_lc} || '';
+		my $min_regexp = $min_regexp{$ingredients_lc} || '';
 		my $max_regexp = $max_regexp{$ingredients_lc} || '';
 
 		my $ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc} || '';
 
 		# Regular expression to find percent or quantities
 		# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
+		my $units_regexp_in_lc = $units_regexps{$ingredients_lc} || '';
+		my $one_regexp_in_lc = $one_regexp{$ingredients_lc} || 'do not match';
 		$percent_or_quantity_regexps{$ingredients_lc} = '(?:' . "(?:$prepared_with )" . ' )?'   # optional produced with
 			. '(?:>|' . $max_regexp . '|<|' . $min_regexp . '|\s|\.|:)*'    # optional maximum, minimum, and separators
 			. '(?:\d+(?:[,.]\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
-			. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
-			. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
+			. '(' . '(?:\d+(?:(?:\,|\.)\d+)?)'    # number, possibly with a dot or comma
+			. '|(?:'
+			. $one_regexp_in_lc
+			. ')\b'    # 'une' (as in "une pincée"), needs a word boundary after it to avoid matching "une" to "un e"
+			. ')\s*' . '(' . $units_regexp_in_lc . '|\%)\s*'    # % or unit
+				# note: \% needs to be added individually as it seems ignored as a synonym in the units taxonomy
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
 			. $ignore_strings_after_percent
 			. '|\s|\)|\]|\}|(?:'

@@ -60,24 +60,15 @@
          "vegetarian" : "maybe"
       },
       {
-         "id" : "en:anti-caking-agent",
-         "ingredients" : [
-            {
-               "id" : "en:e460",
-               "is_in_taxonomy" : 1,
-               "percent_estimate" : 25,
-               "percent_max" : 50,
-               "percent_min" : 0,
-               "text" : "cel·lulosa",
-               "vegan" : "yes",
-               "vegetarian" : "yes"
-            }
-         ],
+         "additive_class" : "en:anti-caking-agent",
+         "id" : "en:e460",
          "is_in_taxonomy" : 1,
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "antiaglomerant"
+         "text" : "cel·lulosa",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
    "ingredients_analysis" : {
@@ -95,26 +86,25 @@
       "en:maybe-vegetarian"
    ],
    "ingredients_lc" : "ca",
-   "ingredients_n" : 7,
+   "ingredients_n" : 6,
    "ingredients_n_tags" : [
-      "7",
+      "6",
       "1-10"
    ],
    "ingredients_original_tags" : [
       "en:mozzarella",
-      "en:anti-caking-agent",
+      "en:e460",
       "en:cow-s-milk",
       "en:salt",
       "en:lactic-ferments",
-      "en:rennet",
-      "en:e460"
+      "en:rennet"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:mozzarella",
       "en:dairy",
       "en:cheese",
-      "en:anti-caking-agent",
+      "en:e460",
       "en:cow-s-milk",
       "en:milk",
       "en:salt",
@@ -123,8 +113,7 @@
       "en:microbial-culture",
       "en:rennet",
       "en:enzyme",
-      "en:coagulating-enzyme",
-      "en:e460"
+      "en:coagulating-enzyme"
    ],
    "ingredients_text" : "Formatge mozzarella (llet de vaca pasteuritzada, sal, ferments làctics i quall) i antiaglomerant (cel·lulosa).",
    "ingredients_with_specified_percent_n" : 0,
@@ -132,21 +121,19 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:anti-caking-agent",
       "en:e460",
       "en:lactic-ferments",
       "en:rennet"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "ingredients_without_ecobalyse_ids" : [
-      "en:anti-caking-agent",
       "en:e460",
       "en:lactic-ferments",
       "en:rennet",
       "en:salt"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 5,
-   "known_ingredients_n" : 7,
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 6,
    "lc" : "ca",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
