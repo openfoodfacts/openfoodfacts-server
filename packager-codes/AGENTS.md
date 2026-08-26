@@ -6,7 +6,7 @@ This directory contains the automated scripts responsible for synchronizing food
 To ensure our packaging code files remain accurate and up-to-date without manual intervention. These scripts systematically fetch data from the official source URLs documented on the [Food Traceability Codes Wiki](https://wiki.openfoodfacts.org/Food_Traceability_Codes).
 
 ## 🤖 Agent Responsibilities
-Any automated script or agent added to this directory should handle the following pipeline:
+Scripts added to this directory should handle the following pipeline:
 
 1. **Fetch:** Retrieve the latest packaging code data directly from the authoritative source (e.g., official government endpoints or registry files).
 2. **Parse & Transform:** Convert the raw source data (HTML, CSV, PDF, etc.) into the standardized format expected by the Open Food Facts taxonomy. Use the most deterministic methods available.
