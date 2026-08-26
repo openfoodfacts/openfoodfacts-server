@@ -1000,6 +1000,59 @@ puffed orange and caramelized unknown_fruit4.",
 				'Sea salt (93%)**, basil*, thyme*, rosemary*, onion*, sage, oregano* and garlic* */ organically grown **/fair trade',
 		},
 	],
+	# Ingredients list with new lines
+	[
+		'fr-ingredients-with-new-lines-simple-recipe',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 kg de sucre\r\n1 kg de farine\n\n1 litre d'eau\n1 pincée de sel\n1 sachet de levure chimique\npoivre, épices\n",
+		},
+	],
+	[
+		'en-ingredients-with-new-lines',
+		{
+			lc => 'en',
+			ingredients_text =>
+				"Water\nSugar\nGlucose Syrup\nModified Starch\nCitric Acid\nNatural Flavouring\nFruit and Vegetable Concentrates (Carrot, Blackcurrant, Apple, Lemon, Safflower, Spirulina)\nColours (Anthocyanins, Curcumin)\nAcidity Regulator (Sodium Citrates)\nPreservative (Potassium Sorbate)",
+		},
+	],
+	# Ingredients with commas and new lines in middle of ingredient names that should not be split into multiple ingredients
+	[
+		'fr-ingredients-with-new-lines-and-commas-simple',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"Eau, Sucre, Sirop de\nGlucose, Amidon Modifié, Acide\nCitrique, Arôme Naturel,\nConcentrés de Fruits\net Légumes",
+		},
+	],
+	[
+		'en-ingredients-with-new-lines-and-commas',
+		{
+			lc => 'en',
+			ingredients_text =>
+				"Water, Sugar, Glucose Syrup, Modified\nStarch, Citric Acid, Natural\nFlavouring, Fruit and\n Vegetable Concentrates (Carrot,\nBlackcurrant, Apple, Lemon, Safflower, \nSpirulina), Colours (Anthocyanins, Curcumin), Acidity\nRegulator (Sodium Citrates), Preservative (Potassium Sorbate)",
+		},
+	],
+	# Check that specific ingredients are not added twice when we parse ingredients twice (when they have newlines)
+	[
+		'en-ingredients-parsing-multiple-times-with-specific-ingredients-converting-newlines-to-commas',
+		{
+			lc => "en",
+			ingredients_text => "Black grapes (Italy)\nsugar\neggs\npaprika.\nOrigin of paprika: Hungary",
+			origin_en => "Origin of sugar: Guatemala",
+			labels => "French Eggs",
+		}
+	],
+	[
+		'en-ingredients-parsing-multiple-times-with-specific-ingredients-not-converting-newlines-to-commas',
+		{
+			lc => "en",
+			ingredients_text => "Black\ngrapes (Italy), sugar, eggs, paprika. Origin of paprika: Hungary",
+			origin_en => "Origin of sugar: Guatemala",
+			labels => "French Eggs",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
