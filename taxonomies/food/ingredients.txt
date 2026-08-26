@@ -24315,7 +24315,7 @@ usda_ndb_name:en: Semolina, enriched
 
 < en: semolina
 < en: wheat
-en: wheat semolina, Suji, Sooji
+en: wheat semolina, Suji, Sooji, rava
 ar: سميد
 bg: пшеничен грис
 ca: semola de blat
@@ -24338,16 +24338,17 @@ carbon_footprint_fr_foodges_value:fr: 0.6
 ciqual_proxy_food_code:en: 9610
 ciqual_proxy_food_name:en: Durum wheat semolina, raw
 ciqual_proxy_food_name:fr: Semoule de blé dur, crue
+description:en: Suji (semolina) is a coarsely milled wheat product, made by grinding the hard endosperm of wheat (often durum wheat) into granular particles, with bran and germ largely removed — similar refinement to maida but coarser in texture. Used across the Mediterranean and South Asia for centuries, it has a mild, slightly nutty taste and a distinctive grainy, granular texture that gives dishes a light, fluffy bite. Used for upma, sheera/halwa, dosa batter, idli, pasta, and as a coating for frying. Nutritionally, it's calorie-dense with moderate protein, but low in fiber like maida, retaining few micronutrients from the removed bran and germ.
+ifct_food_code:en: A022
+ifct_food_name:en: Wheat, semolinaA. Suji
 wikidata:en: Q381350
 wikipedia:en: https://en.wikipedia.org/wiki/Semolina
-#980 @2021-09-28
 
 #comment:en:This is in many languages synonym of en:wheat semolina
 < en: wheat semolina
 fr: semoule de blé tendre
 it: granito di grano tenero
 nl: zachte tarwegriesmeel
-# 22 in 1 language @2021-09-28
 
 < en: semolina
 en: semolina blend
@@ -24434,7 +24435,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Couscous
 ##################################################################################
 
 < en: durum wheat
-en: bulgur, bulgur wheat
+en: bulgur, bulgur wheat, bulgar
 xx: bulgur
 ar: برغل
 az: bulqur
@@ -24470,7 +24471,9 @@ zh: 布格麦
 ciqual_food_code:en: 9690
 ciqual_food_name:en: Wheat bulgur, raw
 ciqual_food_name:fr: Boulgour de blé, cru
-description:en: BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat.
+description:en: Bulgur is a parboiled wheat product made by steaming or boiling whole wheat kernels, drying them, then cracking them into coarse or fine granules. Originating in the Middle East/Mediterranean region thousands of years ago (a staple in Levantine and Turkish cuisine), it retains the bran and germ since it's made from whole wheat. It has a mild, nutty, slightly toasty taste and a light, fluffy texture once rehydrated. Used in tabbouleh, pilafs, soups, and as a quick-cooking rice substitute. Nutritionally, it's high in fiber and protein, with more iron, magnesium, and B-vitamins retained than refined flour, and a moderate glycemic index.
+ifct_food_code:en: A021
+ifct_food_name:en: Wheat, bulgar
 usda_ndb_code:en: 20012
 usda_ndb_name:en: Bulgur, dry
 wikidata:en: Q250432
@@ -92025,6 +92028,14 @@ nl: vermicelli
 pl: vermicelli
 uk: вермішель
 # vermicelli (mungbonenzetmeel, maïszetmeel)
+
+< en: vermicelli
+< en: wheat flour
+en: wheat vermicelli, seviyan
+comment:en: Typical ingredients: Wheat flour — usually refined flour (maida) or semolina (suji/durum wheat), sometimes a blend; Water — to form the dough. However some commericial variants are compound.
+description:en: Vermicelli (seviyan) is a thin, thread-like noodle made by extruding wheat dough — typically from refined flour or semolina — through fine dies, then drying (and often lightly roasting). Popular across South Asia and the Middle East, it has a mild, neutral-to-toasty taste depending on roasting, with a delicate, springy texture once cooked. Used in sweet dishes like seviyan kheer, and savory preparations like vermicelli upma. Nutritionally, it resembles maida — calorie-dense, low in fiber and micronutrients — though roasting doesn't significantly change its core nutrient profile.
+ifct_food_code:en: A023
+ifct_food_name:en: Wheat, vermicelli
 
 < en: vermicelli
 fr: vermicelles cuits
