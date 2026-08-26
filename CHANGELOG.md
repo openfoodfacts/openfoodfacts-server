@@ -1,5 +1,41 @@
 # Changelog
 
+## [2.103.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.102.0...v2.103.0) (2026-08-26)
+
+
+### Features
+
+* add misc tags for the number of uploaded images ([#14313](https://github.com/openfoodfacts/openfoodfacts-server/issues/14313)) ([f3eec91](https://github.com/openfoodfacts/openfoodfacts-server/commit/f3eec91e6a3751afecccac641fbb360a4193b535))
+* Add more columns to the Foodture extract ([#14302](https://github.com/openfoodfacts/openfoodfacts-server/issues/14302)) ([0c7be85](https://github.com/openfoodfacts/openfoodfacts-server/commit/0c7be85131ef264f8646243bdfe3f5325e876642))
+* Add more ingredient information to the Foodture export ([#14327](https://github.com/openfoodfacts/openfoodfacts-server/issues/14327)) ([c31313d](https://github.com/openfoodfacts/openfoodfacts-server/commit/c31313dd5b466b575898cb2c9326d4d3f6e76bf1))
+* **lint_taxonomy:** catch “comment” typos ([#14317](https://github.com/openfoodfacts/openfoodfacts-server/issues/14317)) ([9d5ff10](https://github.com/openfoodfacts/openfoodfacts-server/commit/9d5ff10c1f40a464f9064892ef9fff4cf35ccda2))
+* localized vignettes mobile app ([6abf196](https://github.com/openfoodfacts/openfoodfacts-server/commit/6abf196e594aea34a4fe0a21bf250b2a97acb65e))
+* localized vignettes mobile app ([#14273](https://github.com/openfoodfacts/openfoodfacts-server/issues/14273)) ([6abf196](https://github.com/openfoodfacts/openfoodfacts-server/commit/6abf196e594aea34a4fe0a21bf250b2a97acb65e))
+
+
+### Bug Fixes
+
+* [#1587](https://github.com/openfoodfacts/openfoodfacts-server/issues/1587) week and month name double utf8 encoding ([#14272](https://github.com/openfoodfacts/openfoodfacts-server/issues/14272)) ([2abbd94](https://github.com/openfoodfacts/openfoodfacts-server/commit/2abbd9472c660b75383af20f625d7ed97974cb83))
+* [#4431](https://github.com/openfoodfacts/openfoodfacts-server/issues/4431) Filtered taxonomy link to world results loses filter ([#14268](https://github.com/openfoodfacts/openfoodfacts-server/issues/14268)) ([c3b9a13](https://github.com/openfoodfacts/openfoodfacts-server/commit/c3b9a132afc0bbc0bcad548809124d8d2bdd3a80))
+* allow searching products with barcodes up to 40 digits ([#14278](https://github.com/openfoodfacts/openfoodfacts-server/issues/14278)) ([debaf66](https://github.com/openfoodfacts/openfoodfacts-server/commit/debaf662b0cdf95a8585cd5ccfb38251771de717))
+* **beauty categories:** duplicate synonyms, missing en: names and fr translations ([#14274](https://github.com/openfoodfacts/openfoodfacts-server/issues/14274)) ([548f5d3](https://github.com/openfoodfacts/openfoodfacts-server/commit/548f5d34fac905d2dba09b0326fdd20d5ffa062f))
+* fix broken lilo link ([f4bcc8b](https://github.com/openfoodfacts/openfoodfacts-server/commit/f4bcc8b49b8f2c4e99abdd10fe40b40d0b62322d))
+* fix broken lilo link ([#14316](https://github.com/openfoodfacts/openfoodfacts-server/issues/14316)) ([f4bcc8b](https://github.com/openfoodfacts/openfoodfacts-server/commit/f4bcc8b49b8f2c4e99abdd10fe40b40d0b62322d))
+* fixes for labels in Forest Footprint 2026 ([#14309](https://github.com/openfoodfacts/openfoodfacts-server/issues/14309)) ([7c0058c](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c0058cce57a3c58936a370e718b1e2f4a35e156))
+* Hide nutrition section from Open Beauty Facts product edit form ([#14270](https://github.com/openfoodfacts/openfoodfacts-server/issues/14270)) ([7051fd4](https://github.com/openfoodfacts/openfoodfacts-server/commit/7051fd4a946b3abc6fc27de9cdcb07a4dc532623))
+* make additives and nutrient level attributes clickable ([#8492](https://github.com/openfoodfacts/openfoodfacts-server/issues/8492)) ([#14321](https://github.com/openfoodfacts/openfoodfacts-server/issues/14321)) ([14e4fd2](https://github.com/openfoodfacts/openfoodfacts-server/commit/14e4fd205efa0559555553bc889c80aee603eace))
+* make report problem panel flavor-aware ([#14282](https://github.com/openfoodfacts/openfoodfacts-server/issues/14282)) ([50f5a1d](https://github.com/openfoodfacts/openfoodfacts-server/commit/50f5a1dbbd711c9c73c4ef20c05c6a2cef109710))
+* move foodture scripts and data to projets/foodture ([#14301](https://github.com/openfoodfacts/openfoodfacts-server/issues/14301)) ([c865195](https://github.com/openfoodfacts/openfoodfacts-server/commit/c865195c2b8d3d8315f5c665ccd6563687c21ec2))
+* remove unused code to check user short IP address ([#14307](https://github.com/openfoodfacts/openfoodfacts-server/issues/14307)) ([be295b4](https://github.com/openfoodfacts/openfoodfacts-server/commit/be295b4cc102ad6e70baf28806d59093628c9994))
+* render EAN barcodes with the correct format ([#14322](https://github.com/openfoodfacts/openfoodfacts-server/issues/14322)) ([913cf05](https://github.com/openfoodfacts/openfoodfacts-server/commit/913cf05ef1e245910634df68a22abeb64ce2d6a9))
+* support allergen markup in compound words ([#14311](https://github.com/openfoodfacts/openfoodfacts-server/issues/14311)) ([0c22ed5](https://github.com/openfoodfacts/openfoodfacts-server/commit/0c22ed5505aa3b3a61730a168440b6c551eb0181))
+* treat newlines / line feeds as ingredients separators sometime ([#14335](https://github.com/openfoodfacts/openfoodfacts-server/issues/14335)) ([cf70f91](https://github.com/openfoodfacts/openfoodfacts-server/commit/cf70f91a223729d2ff53010446552ff7c519b1d7))
+
+
+### Reverts
+
+* ci(pr_actions): deduplicate the git commit step(s) ([#14264](https://github.com/openfoodfacts/openfoodfacts-server/issues/14264)) ([99f9784](https://github.com/openfoodfacts/openfoodfacts-server/commit/99f9784f99238934992d866720c092765da8d149))
+
 ## [2.102.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.101.0...v2.102.0) (2026-08-13)
 
 

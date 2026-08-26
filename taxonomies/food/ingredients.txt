@@ -3257,25 +3257,22 @@ ru: буйволиное молоко
 si: මීකිරි
 sr: бивоље млеко
 uk: буйволине молоко
-usda_ndb_proxy_code:en: 1108
-usda_ndb_proxy_name:en: Milk, indian buffalo, fluid
-wikidata:en: Q16571278
-
-en: fluid indian buffalo milk
 usda_ndb_code:en: 1108
 usda_ndb_name:en: Milk, indian buffalo, fluid
+usda_ndb_process:en: en:fluid
+wikidata:en: Q16571278
 
-< en: buffalo milk
-en: pasteurised buffalo milk
-bg: пастьоризирано биволско мляко
-ca: llet de búfala pasteuritzada, llet pasteuritzada de búfala
-de: pasteurisierte Büffelmilch
-es: leche de búfala pasteurizada, leche pasteurizada de búfala
-fi: pastöroitu puhvelinmaito
-fr: lait de bufflonne pasteurisé, lait pasteurisé de bufflonne
-hr: pasterizirano bivolje mlijeko
-hu: pasztőrözött bivalytej
-it: latte di bufala pastorizzato
+#< en: buffalo milk
+#en: pasteurised buffalo milk
+#bg: пастьоризирано биволско мляко
+#ca: llet de búfala pasteuritzada, llet pasteuritzada de búfala
+#de: pasteurisierte Büffelmilch
+#es: leche de búfala pasteurizada, leche pasteurizada de búfala
+#fi: pastöroitu puhvelinmaito
+#fr: lait de bufflonne pasteurisé, lait pasteurisé de bufflonne
+#hr: pasterizirano bivolje mlijeko
+#hu: pasztőrözött bivalytej
+#it: latte di bufala pastorizzato
 
 ################################# CONCENTRATED MILKS ###########################
 
@@ -3606,7 +3603,7 @@ it: preparazione del latte
 ######################### MILK and CREAM related stuff #########################
 
 < en: cream
-< en: dairy
+< en: milk
 en: pasteurized milk and cream
 ca: llet i nata pasteuritzats, llet i crema pasteuritzats
 de: pasteurisiert Milch und Rahm
@@ -4224,20 +4221,20 @@ en: acid whey
 fr: Lactosérum acide
 hr: kisela sirutka
 it: siero di latte acido
-usda_ndb_proxy_code:en: 1112
-usda_ndb_proxy_name:en: Whey, acid, fluid
+usda_ndb_2_code:en: 1113
+usda_ndb_2_name:en: Whey, acid, dried
+usda_ndb_2_process:en: en:dried
+usda_ndb_code:en: 1112
+usda_ndb_name:en: Whey, acid, fluid
+usda_ndb_process:en: en: fluid
 vegan:en: no
 vegetarian:en: yes
 
 < en: acid whey
 en: dried acid whey
-usda_ndb_code:en: 1113
-usda_ndb_name:en: Whey, acid, dried
 
 < en: acid whey
 en: fluid acid whey
-usda_ndb_code:en: 1112
-usda_ndb_name:en: Whey, acid, fluid
 
 < en: whey
 en: whey powder, powdered whey, milk whey powder
@@ -4312,31 +4309,31 @@ it: Siero di latte dolce
 lv: saldas sūkalas
 nl: zoete wei
 pl: słodka serwatka
-usda_ndb_proxy_code:en: 1114
-usda_ndb_proxy_name:en: Whey, sweet, fluid
-
-#en:process:en:powder
-< en: sweet whey
-en: sweet whey powder
-bg: сладка суроватка на прах
-de: Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver, Süßmolken pulver
-es: suero de leche azucarado en polvo, lactosuero azucarado en polvo
-et: magus vadakupulber
-fi: makea herajauhe, makeutettu herajauhe
-fr: lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
-hr: slatka sirutka u prahu
-it: siero di latte dolce in polvere
-lv: salds sūkalu pulveris
-nl: zoete weipoeder
-pl: słodka serwatka w proszku
-ro: zer pudră îndulcit
-usda_ndb_code:en: 1115
-usda_ndb_name:en: Whey, sweet, dried
-
-< en: sweet whey
-en: fluid sweet whey
+usda_ndb_2_code:en: 1115
+usda_ndb_2_name:en: Whey, sweet, dried
+usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 1114
 usda_ndb_name:en: Whey, sweet, fluid
+usda_ndb_process:en: en:fluid
+
+#en:process:en:powder
+#< en: sweet whey
+#en: sweet whey powder
+#bg: сладка суроватка на прах
+#de: Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver, #Süßmolken pulver
+#es: suero de leche azucarado en polvo, lactosuero azucarado en polvo
+#et: magus vadakupulber
+#fi: makea herajauhe, makeutettu herajauhe
+#fr: lactosérum doux en poudre, poudre de lactosérum sucré, petit-lait doux en poudre
+#hr: slatka sirutka u prahu
+#it: siero di latte dolce in polvere
+#lv: salds sūkalu pulveris
+#nl: zoete weipoeder
+#pl: słodka serwatka w proszku
+#ro: zer pudră îndulcit
+#usda_ndb_code:en: 1115
+#usda_ndb_name:en: Whey, sweet, dried
+
 
 < en: sweet whey
 en: skimmed sweet whey
@@ -4531,6 +4528,18 @@ ur: ملائی
 uz: Qaymoq
 vi: Kem
 zh: 鮮奶油, 奶油
+# ast:Crema de lleche
+# bar:Rahm
+# bxr:Сүсэгы
+# lmo:Panera
+# nds-nl:Vlödde, flödde, vlodde, room
+# pdc:Raahm
+# roa-rup:Tearâ
+# sah:Сүөгэй
+# sco:Cream
+# tyv:Өреме
+# war:Krema
+# yue:忌廉
 carbon_footprint_fr_foodges_ingredient:fr: Crème, 40% MG, pasteurisée
 carbon_footprint_fr_foodges_value:fr: 4.2
 ciqual_food_code:en: 19402
@@ -4544,23 +4553,24 @@ description:nl: Room bestaat uit melkvet en kleine hoeveelheden van andere koeme
 description:pt: A nata ou creme de leite é a gordura do leite, um tipo de laticínio, muito utilizada em culinária e confeitaria e também como principal ingrediente da manteiga.
 vegan:en: no
 vegetarian:en: yes
-# ast:Crema de lleche
-# bar:Rahm
-# bxr:Сүсэгы
-# lmo:Panera
-# nds-nl:Vlödde, flödde, vlodde, room
-# pdc:Raahm
-# roa-rup:Tearâ
-# sah:Сүөгэй
-# sco:Cream
-# tyv:Өреме
-# war:Krema
-# yue:忌廉
 wikidata:en: Q13228
 wikipedia:en: https://en.wikipedia.org/wiki/Cream
 
-< en: Cream
+< en: cream
+en: fat free half and half cream
+description:en: Fat-free half and half is a bit of a paradox from a US regulatory standpoint. Real "half and half" has a legal minimum milkfat content — the standards of identity for half-and-half fall under 21 CFR Part 131, and specifically §131.180 sets the minimum at 10.5% milkfat. So it's technically an imitation or substitute product
+usda_ndb_code:en: 1199
+usda_ndb_name:en: Cream, half and half, fat free
+
+< en: cream
+en: lowfat half and half cream
+description:en: Fat-free half and half is a bit of a paradox from a US regulatory standpoint. Real "half and half" has a legal minimum milkfat content — the standards of identity for half-and-half fall under 21 CFR Part 131, and specifically §131.180 sets the minimum at 10.5% milkfat. So it's technically an imitation or substitute product.
+usda_ndb_code:en: 1303
+usda_ndb_name:en: Cream, half and half, lowfat
+
+< en: cream
 fr: Crème fleurette, Crèmes fleurettes
+description:en: "Crème fleurette" isn't a legally protected or defined term in French regulation and is used by dairy and food service professionals to designate a liquid fresh cream that has only undergone pasteurization.
 
 < en: cream
 en: buffalo milk cream
@@ -4575,9 +4585,12 @@ hr: krema bez laktoze
 sv: laktosfri grädde
 
 < en: cream
-en: cream with 10% milk fat
+en: cream with 10% milk fat, half and half cream
 fr: crème à 10% de matière grasse, crème à 10% de matière grasse laitière, crème à 10% de matière grasse du lait
 hr: vrhnje s 10% mliječne masti
+description:en: "Half and half" is a US product — equal parts whole milk and light cream, legally required to be at least 10.5% milkfat (usually closer to 10.5–18%).
+usda_ndb_code:en: 1049
+usda_ndb_name:en: Cream, fluid, half and half
 
 < en: cream
 en: cream with 12% milk fat
@@ -4610,9 +4623,12 @@ fr: crème à 33% de matière grasse, crème à 33% de matière grasse laitière
 hr: vrhnje s 33% mliječne masti
 
 < en: cream
-en: cream with 36% milk fat
+en: cream with 36% milk fat, heavy whipping cream
 fr: crème à 36% de matière grasse, crème à 36% de matière grasse laitière, crème à 36% de matière grasse du lait
 hr: vrhnje s 36% mliječne masti
+description:en: Under FDA standard of identity, 21 CFR §131.150: heavy cream is cream containing not less than 36 percent milkfat, and it must be pasteurized or ultra-pasteurized, with homogenization optional.
+usda_ndb_code:en: 1053
+usda_ndb_name:en: Cream, fluid, heavy whipping
 
 < en: cream
 fr: crème épaisse
@@ -4632,52 +4648,6 @@ hr: tekuće vrhnje s 30% masti
 ciqual_food_code:en: 19415
 ciqual_food_name:en: Liquid cream 30% fat, UHT
 ciqual_food_name:fr: Crème de lait, 30% MG, semi-épaisse, UHT
-
-#processing:en: en:pasteurised # see ingredients_processing.txt
-#<en:cream
-#en:pasteurized cream
-#bg:пастьоризирана сметана
-#ca:nata pasteuritzada, crema de llet pasteuritzada
-#de:pasteurisierte Sahne
-#es:nata pasteurizada, crema de leche pasteurizada
-#fi:pastöroitu kerma
-#fr:crème pasteurisée, crème de lait pasteurisée, crème de lait pasteurisé, crème pasteurisés
-#hr:pasterizirano vrhnje
-#hu:pasztőrözött tejszín, pasztörizált tejszín
-#it:crema pastorizzata
-#nl:gepasteuriseerde room
-#pl:Pasteryzowana śmietana
-#pt:nata pasteurizada
-#ru:пастеризованные сливки, сливки пастеризованные
-#sv:pastöriserad grädde
-
-#processing:en: en:powdered # see ingredients_processing.txt
-< en: cream
-en: cream powder, powdered cream
-da: flødepulver
-sv: gräddpulver
-#ca:nata en pols, crema de llet en polvo
-#de:Cremepulver, Sahnepulver
-#es:nata en polvo, crema de llet en polvo
-#et:koorepulber
-#fi:kermajauhe
-#fr:crème en poudre, poudre de crème
-#hu:tejszínpor
-#it:panna in polvere
-#lt:grietinėlės milteliai
-#nb:krempulver, pulverisert krem
-#nl:roompoeder, poederroom
-#ro:praf de frișcă
-#ru:сливки сухие
-
-#processing:en: en:rehydrated # see ingredients_processing.txt
-#processing:en: en:powdered
-#<en:cream powder
-#en:rehydrated cream powder
-#ca:crema de llet en pols rehidratada, crema de llet en pols reconstituida, nata en pols rehidratada, nata en pols reconstituida
-#de:Rehydriertes Sahnepulver
-#es:crema de leche en polvo rehidratada, crema de leche en polvo reconstituida, nata en pols rehidratada, nata en pols reconstituida
-#fr:crème en poudre réhydratée
 
 < en: cream
 en: british cream
@@ -4814,6 +4784,7 @@ fr: crème à fouetter
 hr: vrhnje za šlag
 it: panna da montare
 sv: vispgrädde
+description:en: Whipping cream is a high-fat dairy product (typically 30–36% milk fat) that, when chilled and beaten, traps air to form soft or stiff peaks. It is lightly sweetened for desserts, holds its shape for piping, and adds a rich, velvety mouthfeel to mousses, ganaches, and sauces. Because of its lower fat content than heavy cream, it whips faster but is less stable over time.
 
 < en: whipping cream
 en: pasteurized whipping cream
@@ -4874,10 +4845,8 @@ wikipedia:en: https://en.wikipedia.org/wiki/Clotted_cream
 #                                Sour cream
 #
 ###################################################################################################
-# description:SOUR CREAM is a dairy product obtained by fermenting regular cream with certain kinds of lactic acid bacteria. The bacterial culture, which is introduced either deliberately or naturally, sours and thickens the cream. Its name comes from the production of lactic acid by bacterial fermentation, which is called souring. Fat percentage is 18-20%
-# comment:en:In dutch zure room is sometimes wrongly translated to creme fraiche
 
-< en: Cream
+< en: cream
 en: sour cream, soured cream, grade a cultured cream, cultured cream
 ar: كريمة حامضة
 bg: заквасена сметана
@@ -4909,6 +4878,8 @@ vi: Kem chua
 zh: 酸忌廉
 # bxr:Зөөхэй
 # yue:酸忌廉
+comment:en: In dutch zure room is sometimes wrongly translated to creme fraiche
+description:en: SOUR CREAM is a dairy product obtained by fermenting regular cream with certain kinds of lactic acid bacteria. The bacterial culture, which is introduced either deliberately or naturally, sours and thickens the cream. Its name comes from the production of lactic acid by bacterial fermentation, which is called souring. Fat percentage is 18-20%.
 usda_ndb_proxy_code:en: 1179
 usda_ndb_proxy_name:en: Sour cream, light
 wikipedia:en: https://en.wikipedia.org/wiki/Sour_cream
@@ -4924,12 +4895,16 @@ usda_ndb_code:en: 1178
 usda_ndb_name:en: Sour cream, reduced fat
 
 < en: sour cream
-de: Schmand, Schmant
-
-# description:en:Smetana is a type of sour cream from Central and Eastern Europe. It is a dairy product produced by souring heavy cream. It is similar to crème fraîche (28% fat), but nowadays mainly sold with 9% to 36% milkfat content depending on the country. Its cooking properties are different from crème fraîche and the lighter sour creams sold in the US, which contain 12 to 16% butterfat. It is widely used in cooking and baking.
+en: cultured sour cream
+description:en: Cultured sour cream is the standard, "real" sour cream — cream that's been fermented with bacterial cultures to develop its characteristic tang and thickness, as opposed to "acidified sour cream," which is soured artificially with food-grade acids instead of live cultures.
+usda_ndb_code:en: 1056
+usda_ndb_name:en: Cream, sour, cultured
 
 < en: sour cream
-en: Smetana
+de: Schmand, Schmant
+
+< en: sour cream
+en: smetana
 az: Xama
 be: Смятана
 bs: Pavlaka
@@ -4970,59 +4945,29 @@ zh: 斯美塔那酸奶油
 # olo:Kannates
 # szl:Zana
 # vep:Kandatez
+description:en: Smetana is a type of sour cream from Central and Eastern Europe. It is a dairy product produced by souring heavy cream. It is similar to crème fraîche (28% fat), but nowadays mainly sold with 9% to 36% milkfat content depending on the country. Its cooking properties are different from crème fraîche and the lighter sour creams sold in the US, which contain 12 to 16% butterfat. It is widely used in cooking and baking.
 wikidata:en: Q326061
 wikipedia:en: https://en.wikipedia.org/wiki/Smetana_(dairy_product)
 
-#<en:Sour cream
-#en:sour cream powder
-#en:process:en:powder
-
-# comment:en:fr:Creme fraiche is often translated into creme.
-# description:en:Crème fraîche is a dairy product, a soured cream, with a pH of approximately 4.5. It is soured with a bacterial culture. European labeling regulations disallow any ingredients other than cream and bacterial culture. Fat percentage is more than 30%
-# comment:en:fr:Creme fraiche is often translated into creme. Even the wikidata page does this. The save approach seems to be to not translate it. Note that in french it means just fresh cream.
-
 < en: sour cream
-en: Crème fraîche
-af: Crème fraîche
-cs: Crème fraîche
-da: Cremefraiche, creme fraiche
+en: crème fraîche
+xx: crème fraîche, cremefraiche
 de: Crème fraîche, creme fraiche
-eu: Esne-gain gordina, esne-gain freskoa
+eu: esne-gain gordina, esne-gain freskoa
 fi: ranskankerma, crème fraîche
 fr: crème fraîche épaisse, crème fraîche fermentée
 he: קרם פרש
-hr: crème fraîche
-hu: creme fraiche, crème fraîche
 hy: Կրեմ-ֆրեշ
-is: Crème fraîche
-it: Crème fraîche
 ja: クレームフレーシュ
 ko: 크렘 프레슈
-ms: Crème fraîche
-nb: Crème fraîche
-nl: Crème fraîche
-pl: Crème fraîche
-pt: Crème fraîche
 ru: Крем-фреш
-sv: Crème fraîche, crème fraiche, creme fraiche
 uk: Крем-фреш
 vi: Kem fraîche
 zh: 法式酸奶油
+comment:en: Creme fraiche is often translated into creme. Even the wikidata page does this. The save approach seems to be to not translate it. Note that in french it means just fresh cream.
+description:en: Crème fraîche is a dairy product, a soured cream, with a pH of approximately 4.5. It is soured with a bacterial culture. European labeling regulations disallow any ingredients other than cream and bacterial culture. Fat percentage is more than 30%
 wikidata:en: Q1142459
 wikipedia:en: https://en.wikipedia.org/wiki/Crème_fraîche
-
-# comment:en:Is creme fraiche really different from creme. Not according to the translations.
-
-< en: cream
-en: pasteurized crème fraîche
-ca: crema de llet fresca pasteuritzada, nata fresca pasteuritzada
-de: pasteurisierte Crème fraîche, Crème fraîche pasteurisiert
-es: crema de leche fresca pasteurizada, nata fresca pasteurizada
-fi: pastöroitu crème fraîche
-fr: creme fraiche pasteurisée
-hr: pasterizirana crème fraîche
-it: panna fresca pastorizzata
-# usage:fr:Crème fraîche pasteurisée 99.99%, ferments lactiques
 
 ###################################################################################################
 #
@@ -5166,28 +5111,13 @@ ciqual_food_code:en: 19801
 ciqual_food_name:en: Fermented milk drink, plain, skimmed milk
 ciqual_food_name:fr: Lait fermenté à boire, nature, maigre
 description:en: BUTTERMILK was the liquid left behind after churning butter out of cultured cream.
+usda_ndb_code:en: 1094
+usda_ndb_name:en: Milk, buttermilk, dried
+usda_ndb_process:en: en:dried
 vegan:en: no
 vegetarian:en: yes
 wikidata:en: Q106612
 wikipedia:en: https://en.wikipedia.org/wiki/Buttermilk
-
-#processing:en: en:powder not relevant due to nutrition
-< en: buttermilk
-en: buttermilk powder
-ca: sèrum de mantega en pols, sèrum de mantega deshidratada
-da: kærnemælkspulver, kærnemælkpulver
-de: Buttermilchpulver
-es: suero de mantequilla en polvo
-fi: kirnumaitojauhe, kirnupiimäjauhe, piimäjauhe
-fr: babeurre en poudre, poudre de babeurre, babeurre déshydraté, lait battu en poudre
-hu: írópor
-it: latticello in polvere
-nl: karnemelkpoeder
-nn: kjernemelkpulver, pulverisert kjernemelk
-pt: leitelho em pó
-sv: kärnmjölkspulver
-usda_ndb_code:en: 1094
-usda_ndb_name:en: Milk, buttermilk, dried
 
 #processing:en: en:solids
 < en: buttermilk
@@ -14704,6 +14634,7 @@ zh: 酥油
 ciqual_food_code:en: 16401
 ciqual_food_name:en: Butter oil or concentrated butter
 ciqual_food_name:fr: Huile de beurre ou Beurre concentré
+description:en: Ghee is a type of clarified butter that's especially common in South Asian and Indian cooking. It has a rich, nutty, slightly caramelized taste. It's used in Indian cooking (dals, curries, rice dishes), for frying, drizzling over flatbreads.
 usda_ndb_code:en: 1323
 usda_ndb_name:en: Butter, Clarified butter (ghee)
 wikidata:en: Q323225
@@ -23288,8 +23219,7 @@ fr: billes de céréales
 #                        Sorghum
 #
 ##################################################################################
-# no gluten
-# do not mix with en:millet
+
 < en: cereal
 en: sorghum, jowar
 de: Sorghumhirsen
@@ -23305,6 +23235,7 @@ sk: cirok
 ciqual_food_code:en: 9360
 ciqual_food_name:en: Sorghum, whole, raw
 ciqual_food_name:fr: Sorgho entier, cru
+description:en: Sorghum originated in Africa thousands of years ago and remains a staple across Africa, Asia, and increasingly the Americas, prized for its drought tolerance. It has a mild, slightly sweet, nutty flavor with a chewy texture similar to farro. It's ground into flour for gluten-free baking, popped like popcorn, brewed into beer, or cooked whole as a side grain or porridge. Nutritionally, it's rich in fiber, protein, and antioxidants, and being naturally gluten-free, it's a popular wheat alternative.
 ifct_food_code:en: A005
 ifct_food_name:en: Jowar
 usda_ndb_code:en: 20067
@@ -23342,6 +23273,7 @@ en: triticale
 xx: triticale
 de: Triticale
 pl: pszenżyto, pszenżyta
+description:en: Triticale is a hybrid grain bred by crossing wheat and rye, first developed in the late 19th century and refined for commercial use in Europe through the 20th century. Its flour has an earthy, nutty flavor that combines wheat's mildness with rye's slight tanginess. It's used to make breads, pastas, and crackers, often blended with other flours for improved texture and rise. Nutritionally, whole-grain triticale flour is high in fiber, protein, and minerals like magnesium and iron, though it still contains gluten.
 usda_ndb_code:en: 20069
 usda_ndb_name:en: Triticale
 wikipedia:en: https://en.wikipedia.org/wiki/Triticale
@@ -23544,31 +23476,6 @@ ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
 description:en: WHEAT is a grass widely cultivated for its seed.
 wikidata:en: Q15645384
 wikipedia:en: https://en.wikipedia.org/wiki/Wheat
-
-< en: wheat
-en: hard red spring wheat
-usda_ndb_code:en: 20071
-usda_ndb_name:en: Wheat, hard red spring
-
-< en: wheat
-en: hard red winter wheat
-usda_ndb_code:en: 20072
-usda_ndb_name:en: Wheat, hard red winter
-
-< en: wheat
-en: hard white wheat
-usda_ndb_code:en: 20074
-usda_ndb_name:en: Wheat, hard white
-
-< en: wheat
-en: soft red winter wheat
-usda_ndb_code:en: 20073
-usda_ndb_name:en: Wheat, soft red winter
-
-< en: wheat
-en: soft white wheat
-usda_ndb_code:en: 20075
-usda_ndb_name:en: Wheat, soft white
 
 < en: wheat
 en: sprouted wheat
@@ -23866,7 +23773,16 @@ az: Manna yarması
 pl: kasza manna, kasza manna z pszenicy
 sr: griz
 
-# Soft wheat
+< en: whole wheat
+en: whole wheat kernels
+da: fuldkornshvedekerner
+sv: fullkornskärnor av vete
+
+##################################################################################
+#
+#                        Soft wheat
+#
+##################################################################################
 
 < en: wheat
 en: soft wheat, tender wheat
@@ -23877,6 +23793,18 @@ it: grano tenero
 ecobalyse:en: 48c1fc68-01bb-4541-a274-ce1de33db1f9
 ecobalyse_labels_en_organic:en: a98b8776-a96d-48e9-b218-976f5452907a
 ecobalyse_origins_en_france:en: 38788025-a65e-4edf-a92f-aab0b89b0d61
+
+< en: soft wheat
+en: soft white wheat
+description:en: Soft white wheat is a low-protein variety grown mainly in the Pacific Northwest, California, and parts of the Midwest, prized for its adaptability to temperate climates. It has a mild, delicate, slightly sweet flavor with a pale color. Its low gluten content makes it ideal for tender baked goods like cakes, pastries, crackers, and flatbreads rather than yeasted bread. Nutritionally, it's primarily a source of carbohydrates, with modest protein and fiber content, especially when refined.
+usda_ndb_code:en: 20075
+usda_ndb_name:en: Wheat, soft white
+
+< en: soft wheat
+en: soft red winter wheat
+description:en: Soft red winter wheat is grown primarily in the eastern and central United States, planted in fall and harvested in early summer to take advantage of its cold-hardiness. It has a mild, slightly sweet flavor with a subtle reddish-brown hue in the whole grain. Its low protein and gluten content make it well-suited for cakes, pastries, crackers, and flatbreads rather than yeasted bread. Nutritionally, it's mainly a carbohydrate source, with modest protein and fiber, especially in its refined form.
+usda_ndb_code:en: 20073
+usda_ndb_name:en: Wheat, soft red winter
 
 ##################################################################################
 #
@@ -23942,6 +23870,24 @@ usda_ndb_code:en: 20076
 usda_ndb_name:en: Wheat, durum
 wikidata:en: Q618324
 wikipedia:en: https://en.wikipedia.org/wiki/Durum
+
+< en: durum wheat
+en: hard red spring wheat
+description:en: Hard red spring wheat is grown mainly in the northern U.S. Great Plains and Canada, planted in spring and harvested in fall due to the region's harsh winters. It has a robust, nutty, earthy flavor, generally considered slightly more pronounced than winter wheat varieties. Its very high protein and gluten content make it prized for artisan breads, bagels, and pizza dough that require strong structure and chew. Nutritionally, it's rich in protein, fiber, and B vitamins, especially when milled as whole grain.
+usda_ndb_code:en: 20071
+usda_ndb_name:en: Wheat, hard red spring
+
+< en: durum wheat
+en: hard red winter wheat
+description:en: Hard red winter wheat is grown extensively across the U.S. Great Plains, planted in fall and harvested in early summer, making it one of the most widely cultivated wheat classes in the world. It has a robust, slightly nutty, earthy flavor with more depth than white wheat varieties. Its high protein and gluten content make it a top choice for yeasted breads, as well as all-purpose and bread flours. Nutritionally, it's rich in protein, fiber, and B vitamins, especially when milled as whole grain.
+usda_ndb_code:en: 20072
+usda_ndb_name:en: Wheat, hard red winter
+
+< en: durum wheat
+en: hard white wheat
+description:en: Hard white wheat is a relatively modern variety, developed and popularized in the U.S. during the 20th century as a milder alternative to traditional red wheat. It has a mild, slightly sweet flavor without the bitterness often found in red wheat varieties. Its high protein and gluten content make it well-suited for yeasted breads, while also working for pastries and tortillas. Nutritionally, it's a good source of protein, fiber, and B vitamins, particularly when milled as whole grain.
+usda_ndb_code:en: 20074
+usda_ndb_name:en: Wheat, hard white
 
 < en: durum wheat
 fr: blé dur concassé
@@ -24777,11 +24723,6 @@ pt: cevada integral
 ciqual_food_code:en: 9320
 ciqual_food_name:en: Barley, whole, raw
 ciqual_food_name:fr: Orge entière, crue
-#252 in 12 @2021-10-20
-
-#<en:barley
-#en:chopped barley
-#es:cebada trocead
 
 < en: barley
 en: barley flakes
@@ -24878,22 +24819,13 @@ th: ลูกเดือย
 uk: перлова крупа
 zh: 大麥米
 #nds:parelgorte
-ciqual_proxy_food_code:en: 9321
-ciqual_proxy_food_name:en: Pearled barley, raw
-ciqual_proxy_food_name:fr: Orge perlée, crue
-description:en: Pearl barley is barley that has been processed to remove its fibrous outer hull and polished to remove some or all of the bran layer.
-usda_ndb_proxy_code:en: 20005
-usda_ndb_proxy_name:en: Barley, pearled, raw
-wikidata:en: Q2743860
-# 94 @2021-10-22
-
-< en: barley
-en: raw pearled barley
 ciqual_food_code:en: 9321
 ciqual_food_name:en: Pearled barley, raw
 ciqual_food_name:fr: Orge perlée, crue
+description:en: Pearled barley is barley that has had its outer hull and bran layer removed through a polishing (pearling) process. This distinguishes it from "hulled barley," which only has the inedible outer hull removed and keeps the bran intact. Lower in fiber than hulled barley (since the bran is polished away). Good source of manganese, selenium, and B vitamins like niacin. Mild, nutty flavor with a pleasantly chewy, slightly sticky texture when cooked — it releases starch similarly to arborio rice, which is why it works well in risotto-style preparations.
 usda_ndb_code:en: 20005
 usda_ndb_name:en: Barley, pearled, raw
+wikidata:en: Q2743860
 
 < en: barley
 < en: wort
@@ -25872,7 +25804,9 @@ zh: 燕麦
 ciqual_food_code:en: 9310
 ciqual_food_name:en: Oat, raw
 ciqual_food_name:fr: Avoine, crue
-comment:en: Oats are a cereal grain that originated in Western Asia or Europe, historically used as animal fodder before rising to prominence as a hearty breakfast staple, especially in Scotland and Northern Europe. They have a mild, creamy, subtly sweet flavor with a soft, chewy texture that varies by processing—from firm steel-cut to quick-cooking rolled or instant forms. Oats are naturally gluten-free (though often cross-contaminated during processing) and are notable for their beta-glucan fiber, which supports heart health, along with solid amounts of protein, manganese, and iron.
+description:en: Oats are a cereal grain that originated in Western Asia or Europe, historically used as animal fodder before rising to prominence as a hearty breakfast staple, especially in Scotland and Northern Europe. They have a mild, creamy, subtly sweet flavor with a soft, chewy texture that varies by processing—from firm steel-cut to quick-cooking rolled or instant forms. Oats are naturally gluten-free (though often cross-contaminated during processing) and are notable for their beta-glucan fiber, which supports heart health, along with solid amounts of protein, manganese, and iron.
+usda_ndb_code:en: 20038
+usda_ndb_name:en: Oats (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q24265484
 wikipedia:en: https://en.wikipedia.org/wiki/Oat
 
@@ -26551,6 +26485,7 @@ hr: zrna raži
 it: chicchi di segale
 nl: roggegraan, roggegranen
 sv: rågkorn
+description:en: Rye grain hails from Central and Eastern Europe and Western Asia, favored for its hardiness in cold, poor soils. It has an earthy, slightly sour, tangy flavor with subtle spice notes. It's most often milled into flour for dense breads like pumpernickel, used for crispbreads, or malted for whiskey and beer. Nutritionally, it's high in fiber and B vitamins, with a lower glycemic impact than wheat.
 usda_ndb_code:en: 20062
 usda_ndb_name:en: Rye grain
 # in 4 @2021-10-28
@@ -26617,6 +26552,7 @@ sv: fullkornsråg, fullkorn av råg
 
 < en: rye flour
 en: medium rye flour
+description:en: Medium rye flour is milled from whole rye with some bran sifted out, a grain long grown across Northern and Eastern Europe for its hardiness in cool climates. It has an earthy, slightly tangy flavor and a denser character than wheat flour. It's prized for European-style breads, sourdoughs, and crackers, though its lower gluten content means it's often blended with wheat flour or given longer fermentation for a good rise. Nutritionally, it offers more fiber, B vitamins, and minerals than refined wheat flour, with a gentler effect on blood sugar.
 usda_ndb_code:en: 20064
 usda_ndb_name:en: Rye flour, medium
 
@@ -27024,7 +26960,7 @@ xx: teff
 de: Teff
 pl: teff, miłka abisyńska, tef, trawa abisyńska
 allergens:en: en:gluten
-description:en: Teff is a tiny cereal grain native to the Horn of Africa, particularly Ethiopia and Eritrea, where it's been cultivated for thousands of years and remains the foundation of the fermented flatbread injera. It has a mild, slightly sweet, nutty and molasses-like flavor that deepens with fermentation, and its minuscule size means it's typically cooked whole or ground into flour rather than processed into flakes. Naturally gluten-free, teff is notably rich in iron, calcium, and resistant starch, along with a solid protein content, making it one of the more nutrient-dense ancient grains.
+description:en: Teff is a tiny ancient grain native to Ethiopia and Eritrea, where it has been cultivated for thousands of years and remains a dietary staple, most famously as the base for injera flatbread. Despite its small size, it has a rich, slightly sweet, nutty, almost molasses-like flavor. It's typically ground into flour for fermented flatbreads and porridges, or cooked whole as a side grain similar to quinoa. Nutritionally, it's naturally gluten-free and notably high in iron, calcium, and fiber compared to most other grains.
 usda_ndb_2_code:en: 20143
 usda_ndb_2_name:en: Teff, cooked
 usda_ndb_2_process:en: en:cooked
@@ -27717,6 +27653,7 @@ hr: meko pšenično brašno
 it: farina di grano tenero
 pl: mąka z pszenicy miękkiej, mąka z miękkiej pszenicy
 ro: făină de grâu moale
+description:en: Soft wheat has been cultivated for millennia, with whole-grain flour production expanding globally as milling techniques evolved to preserve the bran and germ. It has a mild, slightly sweet, nutty flavor that's less robust than hard wheat varieties. Its lower protein and gluten content make it ideal for tender baked goods like cakes, pastries, cookies, and flatbreads rather than yeasted bread. Nutritionally, it retains more fiber, B vitamins, and minerals than refined flour, thanks to the whole grain remaining intact.
 
 < en: soft wheat flour
 < en: whole wheat flour
@@ -27725,7 +27662,7 @@ it: farina integrale di grano tenero, farina di grano tenero integrale
 usda_ndb_code:en: 20649
 usda_ndb_name:en: Wheat flour, whole-grain, soft wheat
 
-< en: wheat flour
+< en: soft wheat flour
 en: Wheat flour type 150
 fr: Farine de blé tendre T150, farine de blé T150, farine de froment T150
 hr: pšenično brašno tip 150
@@ -27741,7 +27678,7 @@ description:en: Atta is whole wheat flour, stone-ground or milled from Triticum 
 ifct_food_code:en: A019
 ifct_food_name:en: Wheat flour, atta
 
-< en: wheat flour
+< en: soft wheat flour
 en: Wheat flour type 110
 fr: Farine de blé tendre T110, farine de blé t110, farine de froment T110
 hr: pšenično brašno tip 110
@@ -27795,6 +27732,7 @@ tr: arpa unu
 ciqual_food_code:en: 9550
 ciqual_food_name:en: Barley flour
 ciqual_food_name:fr: Farine d'orge
+description:en: Barley flour or meal is made by grinding whole or pearled barley grains into a fine (flour) or coarse (meal) powder. Good source of dietary fiber, especially beta-glucan (a soluble fiber linked to cholesterol and blood sugar benefits), provides B vitamins, selenium, and manganese.
 usda_ndb_code:en: 20130
 usda_ndb_name:en: Barley flour or meal
 
@@ -28207,6 +28145,7 @@ it: Farina di mais modificata
 nl: gemodificeerd maïsmeel
 
 < en: corn flour
+< en: yellow corn
 en: yellow corn flour
 da: gult majsmel
 de: gelbes Maismehl
@@ -28221,6 +28160,7 @@ nl: geel maïsmeel
 sv: gult majsmjöl
 
 < en: corn flour
+< en: white corn
 en: white corn flour
 da: hvidt majsmel
 de: weisses Maismehl, weißes Maismehl
@@ -28236,9 +28176,11 @@ sv: vitt majsmjöl
 usda_ndb_proxy_code:en: 20316
 usda_ndb_proxy_name:en: Corn flour, whole-grain, white
 
+< en: blue corn
 < en: whole grain corn flour
 en: whole-grain blue corn flour
 es: harina de maiz morado
+description:en: Blue corn flour is a stone-ground flour made from whole kernels of blue (or purple) corn — a corn variety, distinct from standard yellow or white corn, that owes its color to natural anthocyanin pigments (the same class of antioxidant compounds found in blueberries and purple cabbage). it's generally comparable to other whole-grain corn flours in calories and carbohydrates, but the anthocyanin content gives it additional antioxidant properties and a naturally sweeter, nuttier flavor than yellow corn flour.
 usda_ndb_code:en: 20315
 usda_ndb_name:en: Corn flour, whole-grain, blue (harina de maiz morado)
 
@@ -28259,12 +28201,14 @@ usda_ndb_proxy_name:en: Corn flour, whole-grain, yellow
 < en: white corn flour
 < en: whole grain corn flour
 en: white whole grain corn flour, white whole-grain corn flour
+description:en: White corn flour is a flour ground from the whole kernel of white corn — a corn variety that lacks the yellow/orange carotenoid pigments found in standard yellow corn. it's very similar to whole-grain yellow corn flour in calories, protein, and fiber — the main practical difference is the near-absence of vitamin A precursors.
 usda_ndb_code:en: 20316
 usda_ndb_name:en: Corn flour, whole-grain, white
 
 < en: whole grain corn flour
 < en: yellow corn flour
 en: yellow whole-grain corn flour
+description:en: Yellow corn flour is flour ground from the whole kernel of yellow corn, the most common corn type used in the US. Yellow corn gets its color from carotenoids, including beta-carotene, which the body can convert to vitamin A — so unlike white corn flour, yellow corn flour has some vitamin A activity.
 usda_ndb_code:en: 20016
 usda_ndb_name:en: Corn flour, whole-grain, yellow
 
@@ -28668,11 +28612,7 @@ no: hvit mais
 pt: milho branco
 sv: gul majs
 tr: beyaz misir
-usda_ndb_proxy_code:en: 20314
-usda_ndb_proxy_name:en: Corn grain, white
-
-< en: white corn
-en: white corn grain
+description:en: White corn is from the whole kernel of white corn — a corn variety that lacks the yellow/orange carotenoid pigments found in standard yellow corn. it's very similar to whole-grain yellow corn flour in calories, protein, and fiber — the main practical difference is the near-absence of vitamin A precursors.
 usda_ndb_code:en: 20314
 usda_ndb_name:en: Corn grain, white
 
@@ -28698,11 +28638,7 @@ pl: żółta kukurydza
 pt: milho amarelo
 sv: vit majs
 tr: sari misir
-usda_ndb_proxy_code:en: 20014
-usda_ndb_proxy_name:en: Corn grain, yellow
-
-< en: yellow corn
-en: yellow corn grain
+description:en: Yellow corn is from the whole kernel of yellow corn, the most common corn type used in the US. Yellow corn gets its color from carotenoids, including beta-carotene, which the body can convert to vitamin A — so unlike white corn flour, yellow corn flour has some vitamin A activity.
 usda_ndb_code:en: 20014
 usda_ndb_name:en: Corn grain, yellow
 
@@ -36445,12 +36381,13 @@ ro: gluten de grâu, gluten din grâu
 sk: pšeničny gluten
 sl: pšenični gluten
 sv: vetegluten
-ciqual_proxy_food_code:en: 25598
-ciqual_proxy_food_name:en: Seitan, prepacked
+ciqual_proxy_food_code:en: 48052
+ciqual_proxy_food_name:en: Vital wheat gluten
 
 < en: wheat gluten
 en: vital wheat gluten
 fr: gluten vital de blé
+description:en: Vital wheat gluten is a concentrated protein extracted from wheat flour by washing away the starch, a process refined industrially in the 20th century to create a versatile baking additive. On its own it's bland and neutral in flavor, though it develops a chewy, meaty texture when hydrated and cooked. It's used to boost elasticity and rise in bread dough, and is a key ingredient in seitan and other plant-based meat substitutes. Nutritionally, it's exceptionally high in protein (over 75%) with very little fat or carbohydrate, though as pure gluten it's unsuitable for those with gluten intolerance or celiac disease.
 usda_ndb_code:en: 48052
 usda_ndb_name:en: Vital wheat gluten
 
@@ -56534,7 +56471,8 @@ wikidata:en: Q873761
 wikipedia:en: https://en.wikipedia.org/wiki/Tapioca
 
 < en: tapioca
-en: dry pearl tapioca
+en: dry tapioca pearls
+description:en: Tapioca pearls are made from cassava root starch, a plant native to South America but now cultivated widely across Brazil, Southeast Asia, and Africa. On their own, dry pearls are essentially flavorless and starchy, taking on a mild sweetness and chewy, translucent texture once cooked. They're most commonly used in bubble tea, puddings, and Southeast Asian desserts, or as a thickener in soups and pie fillings. Nutritionally, tapioca is mostly pure carbohydrate with very little protein, fiber, or micronutrients, making it a gluten-free energy source but not a significant source of other nutrients.
 usda_ndb_code:en: 20068
 usda_ndb_name:en: Tapioca, pearl, dry
 
@@ -69559,33 +69497,25 @@ zh: 蒔蘿
 # sgs:kraps
 # tyv:койнут
 # yue:莳萝
-ciqual_proxy_food_code:en: 11093
-ciqual_proxy_food_name:en: Dill, fresh
+ciqual_food_code:en: 11093
+ciqual_food_name:en: Dill, fresh
 comment:en: the wikidata page mixes the common name and latin name
 description:en: dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.32
-usda_ndb_proxy_code:en: 2045
-usda_ndb_proxy_name:en: Dill weed, fresh
+usda_ndb_2_code:en: 2017
+usda_ndb_2_name:en: Spices, dill weed, dried
+usda_ndb_2_process:en: en:dried
+usda_ndb_code:en: 2045
+usda_ndb_name:en: Dill weed, fresh
 wikidata:en: Q59659860
 #plant: wikidata:en:q26686
 wikipedia:en: https://en.wikipedia.org/wiki/Dill
 
-< en: dill
-en: fresh dill
-ciqual_food_code:en: 11093
-ciqual_food_name:en: Dill, fresh
-usda_ndb_code:en: 2045
-usda_ndb_name:en: Dill weed, fresh
-
-< en: dill
-en: dried dill
-usda_ndb_code:en: 2017
-usda_ndb_name:en: Spices, dill weed, dried
-
 #comment:en:kept separate as it is another ingredient than the leaves
 
 < en: dill
+< en: seed
 en: dill seed, dill seeds
 da: dildfrø
 de: Dillsaat
@@ -89582,17 +89512,15 @@ ja: 全卵
 nl: hele eieren, geheel eieren
 pl: Całe jajo
 pt: Ovo inteiro
+usda_ndb_code:en: 1133
+usda_ndb_name:en: Egg, whole, dried
+usda_ndb_process:en: en:dried
 
 < en: whole egg
 bg: пастьоризирани цели яйца
 de: Vollei pasteurisiert, pasteurisiertes Vollei
 fr: œuf entier pasteurisé, œufs entiers pasteurisés, oeuf entier pasteurisé, oeufs entiers pasteurisés
 it: uovo intero pastorizzato
-
-< en: whole egg
-en: dried whole egg
-usda_ndb_code:en: 1133
-usda_ndb_name:en: Egg, whole, dried
 
 < en: whole egg
 en: whole powdered egg
@@ -89776,26 +89704,29 @@ th: ไข่ขาว
 tr: Yumurta beyazı, Yumurta akı
 uk: Яєчний білок
 zh: 蛋白
-ciqual_food_code:en: 22001
-ciqual_food_name:en: Egg white, raw
-ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), cru
-description:en: EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
 # bar:Oagloa
 # eml:biuda
 # yue:蛋白
 # zh-hans:蛋白
 # zh-hant:蛋白
 # zh-hk:蛋白
+ciqual_food_2_code:en: 22008
+ciqual_food_2_name:en: Egg white, cooked
+ciqual_food_2_name:fr: Oeuf, blanc (blanc d'oeuf), cuit
+ciqual_food_2_process:en: en:cooked
+ciqual_food_3_code:en: 22004
+ciqual_food_3_name:en: Egg white, powder
+ciqual_food_3_name:fr: Oeuf, blanc (blanc d'oeuf), en poudre
+ciqual_food_3_process:en: en:powder
+ciqual_food_code:en: 22001
+ciqual_food_name:en: Egg white, raw
+ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), cru
+description:en: EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
+usda_ndb_code:en: 1173
+usda_ndb_name:en: Egg, white, dried
+usda_ndb_process:en: en:dried
 wikidata:en: Q796758
 wikipedia:en: https://en.wikipedia.org/wiki/Egg_white
-
-< en: egg white
-en: cooked egg white
-fr: blanc d'oeuf cuit
-it: albume d'uovo cotto
-ciqual_food_code:en: 22008
-ciqual_food_name:en: Egg white, cooked
-ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), cuit
 
 < en: egg white
 en: chicken egg white
@@ -89809,27 +89740,22 @@ pl: albumina jaja kurzego
 
 < en: egg white
 en: powdered egg white, dehydrated egg white, egg white powder
-bg: яйчен белтък на прах, яйчни белтъци на прах, прахов протеин
-ca: clara d'ou en pols, clara d'ou deshidratada, pols de clara d'ou
-da: æggehvidepulver
-de: Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
-el: ασπράδι αυγού σε σκόν
-es: clara de huevo en polvo, clara de huevos en polvo
-fi: munanvalkuaisjauhe, kuivattu munanvalkuainen
-fr: blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf déshydraté, blanc d'oeufs en poudre, poudre d'albumen
-hr: bjelanjak u prahu, bjelanjak jaja u prahu, bjelanjak jajate u prahu
-hu: porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
-it: albume d'uovo in polvere, albume in polvere
-lt: kiaušinių baltymų milteliai, kiaušinio baltymo milteliai
-nl: eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
-pl: sproszkowane białka jajek, białko jaja w proszku, białka jaj w proszku
-pt: clara de ovo em pó
-sv: äggvitepulver, äggvita i pulver
-ciqual_food_code:en: 22004
-ciqual_food_name:en: Egg white, powder
-ciqual_food_name:fr: Oeuf, blanc (blanc d'oeuf), en poudre
-usda_ndb_code:en: 1173
-usda_ndb_name:en: Egg, white, dried
+#bg: яйчен белтък на прах, яйчни белтъци на прах, прахов протеин
+#ca: clara d'ou en pols, clara d'ou deshidratada, pols de clara d'ou
+#da: æggehvidepulver
+#de: Eiweißpulver, Eiweisspulver, Eiklarpulver, Trockeneiweiß, Eiklar getrocknet
+#el: ασπράδι αυγού σε σκόν
+#es: clara de huevo en polvo, clara de huevos en polvo
+#fi: munanvalkuaisjauhe, kuivattu munanvalkuainen
+##fr: blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, blanc d'œuf déshydraté, blanc #d'œufs en poudre, blanc d'oeuf en poudre, blancs d'oeufs en poudre, poudre de blanc d’oeuf, blanc d'oeuf #déshydraté, blanc d'oeufs en poudre, poudre d'albumen
+#hr: bjelanjak u prahu, bjelanjak jaja u prahu, bjelanjak jajate u prahu
+#hu: porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
+#it: albume d'uovo in polvere, albume in polvere
+#lt: kiaušinių baltymų milteliai, kiaušinio baltymo milteliai
+#nl: eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
+#pl: sproszkowane białka jajek, białko jaja w proszku, białka jaj w proszku
+#pt: clara de ovo em pó
+#sv: äggvitepulver, äggvita i pulver
 
 < en: egg white
 en: free range egg white
@@ -89838,14 +89764,14 @@ hr: bjelanjak slobodnog uzgoja
 it: albume d'uovo allevato all'aperto
 nl: scharrelei-eiwit, vrije uitloopei-eiwit, vrije-uitloopei-eiwit, scharreleiwit
 
-< en: egg white
-en: dehydrated egg white
-de: Trockeneiweiß, Eiklar getrocknet
-fi: kuivattu munanvalkuainen
-fr: blanc d'œuf déshydraté, blanc d'oeuf déshydraté
-hr: suhi bjeljanjak
-hu: szárított tojásfehérje
-nl: gedroogd ei-eiwit
+#< en: egg white
+#en: dehydrated egg white
+#de: Trockeneiweiß, Eiklar getrocknet
+#fi: kuivattu munanvalkuainen
+#fr: blanc d'œuf déshydraté, blanc d'oeuf déshydraté
+#hr: suhi bjeljanjak
+#hu: szárított tojásfehérje
+#nl: gedroogd ei-eiwit
 
 < en: chicken egg white
 nl: scharrelkipeiwit, vrije uitloop kippenei-eiwit, kippenei-eiwit van scharreleieren
@@ -89995,7 +89921,6 @@ description:pt: Suspiro ou merengue é um doce feito de claras de ovos e açúca
 wikidata:en: Q276276
 # usage:fr:meringue (blanc d'OEUF, sucre)
 
-# description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
 
 < en: egg
 en: egg yolk, eggs yolk
@@ -90056,9 +89981,6 @@ tl: apyak
 tr: Yumurta sarısı
 uk: Жовток
 zh: 蛋黃
-ciqual_food_code:en: 22002
-ciqual_food_name:en: Egg yolk, raw
-ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
 # ang:ǽgergeolu
 # ast:yema
 # bar:Dodda
@@ -90073,18 +89995,25 @@ ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
 # zh-hk:蛋黃
 # zh-sg:蛋黃
 # zh-tw:蛋黃
+ciqual_food_2_code:en: 22009
+ciqual_food_2_name:en: Egg yolk, cooked
+ciqual_food_2_name:fr: Oeuf, jaune (jaune d'oeuf), cuit
+ciqual_food_2_process:en: en:cooked
+ciqual_food_3_code:en: 22003
+ciqual_food_3_name:en: Egg yolk, powder
+ciqual_food_3_name:fr: Oeuf, jaune (jaune d'oeuf), en poudre
+ciqual_food_3_process:en: en:powder
+ciqual_food_code:en: 22002
+ciqual_food_name:en: Egg yolk, raw
+ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
+# description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
+usda_ndb_code:en: 1137
+usda_ndb_name:en: Egg, yolk, dried
+usda_ndb_process:en: en:dried
 wikidata:en: Q1302994
 
 < en: egg yolk
 fr: jaune d'oeuf de poules élevées au sol
-
-< en: egg yolk
-en: Cooked egg yolk
-fr: jaune d'oeuf cuit
-it: tuorlo d'uovo cotto
-ciqual_food_code:en: 22009
-ciqual_food_name:en: Egg yolk, cooked
-ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cuit
 
 < en: egg yolk
 en: free range egg yolk
@@ -90135,11 +90064,6 @@ fr: jaune d'œufs de poules élevées en plein air pasteurisés, jaune d'oeufs d
 hr: pasterizirani žumanjak jaja slobodnog uzgoja
 it: tuorlo d'uovo pastorizzato allevato all'aperto
 nl: gepasteuriseerd eigeel van eieren van hennen met vrije uitloop
-
-< en: egg yolk
-en: dried yolk egg
-usda_ndb_code:en: 1137
-usda_ndb_name:en: Egg, yolk, dried
 
 < en: egg yolk
 en: egg yolk powder, eggs yolk powder, powdered egg yolk
@@ -94728,7 +94652,6 @@ fr: Gratinage
 
 de: Markklößchen
 
-# description:en:In cuisine, an OMELETTE is a dish made from beaten eggs fried with butter or oil in a frying pan (without stirring as in scrambled egg). It is quite common for the omelette to be folded around a filling such as cheese, chives, vegetables, mushrooms, meat (often ham or bacon), or some combination of the above. Whole eggs or egg whites are beaten, sometimes with a small amount of milk, cream, or water.
 
 #< en: compound
 # mainIngredient:en:egg (egg dish)
@@ -94801,6 +94724,7 @@ allergens:en: en:eggs
 # zh-cn:西式蛋餅
 # zh-hans:西式蛋餅
 # zh-hant:歐姆蛋
+description:en: In cuisine, an OMELETTE is a dish made from beaten eggs fried with butter or oil in a frying pan (without stirring as in scrambled egg). It is quite common for the omelette to be folded around a filling such as cheese, chives, vegetables, mushrooms, meat (often ham or bacon), or some combination of the above. Whole eggs or egg whites are beaten, sometimes with a small amount of milk, cream, or water.
 wikidata:en: Q20129
 wikipedia:en: https://en.wikipedia.org/wiki/Omelette
 # omelette (oeufs, lait écrémé, emmental 1.6%, amidon de riz, sel ; acidifiant :acide citrique)
