@@ -12654,8 +12654,8 @@ description:ru: Категория «детское питание» была а
 en: Detected category from brand - Cigarettes
 description:en: Those are likely to be cigarettes, based on the brand. There might be some false positives. All cigarettes should be categorized as non-food products, and moved to Open Products Facts by inputting OPF in the Categories field.
 fix_action:en: add_categories
-# fix_action:en: change_product_type: product
-# fix_action:en: add_category: en:cigarettes not syntaxically correct
+fix_action:en: replace_field: product_type: en:product
+fix_action:en: replace_field: categories: en:cigarettes
 # show_to:en: moderators
 
 < en: Categories warnings
@@ -12694,7 +12694,7 @@ description:ru: Этот продукт относится одновремен�
 en: Detected category from brand - Pet Foods
 description:en: Those are likely to be product for Open Pet Food Facts, based on the brand. There might be some false positives. All Pet Food products should be moved to Open Pet Food Facts by inputting OPFF in the Categories field.
 fix_action:en: add_categories
-# fix_action:en: change_product_type: pet_food
+fix_action:en: replace_field: product_type: en:petfood
 # show_to:en: moderators
 
 < en: Categories warnings
