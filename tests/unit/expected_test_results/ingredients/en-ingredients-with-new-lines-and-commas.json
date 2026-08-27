@@ -1,0 +1,310 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 54.5454545454545,
+         "percent_max" : 100,
+         "percent_min" : 9.09090909090909,
+         "text" : "Water",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 22.7272727272727,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Sugar",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "id" : "en:glucose-syrup",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 11.3636363636364,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "Glucose Syrup",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9510",
+         "id" : "en:modified-starch",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.68181818181818,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "Modified Starch",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e330",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.84090909090909,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "Citric Acid",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:natural-flavouring",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.42045454545455,
+         "percent_max" : "5",
+         "percent_min" : 0,
+         "text" : "Natural Flavouring",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:fruit-and-vegetable-concentrate",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "20009",
+               "ecobalyse_code" : "carrot-non-eu",
+               "id" : "en:carrot",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.355113636363637,
+               "percent_max" : "5",
+               "percent_min" : 0,
+               "text" : "Carrot",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "13007",
+               "id" : "en:blackcurrant",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.177556818181818,
+               "percent_max" : 2.5,
+               "percent_min" : 0,
+               "text" : "Blackcurrant",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "13050",
+               "ecobalyse_code" : "8c2299d6-49e4-493c-bafe-c0b4b7ef2079",
+               "id" : "en:apple",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0887784090909092,
+               "percent_max" : 1.66666666666667,
+               "percent_min" : 0,
+               "text" : "Apple",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_proxy_food_code" : "13009",
+               "ecobalyse_code" : "6ece5452-42de-4e0a-8c70-1d305e614cc8",
+               "id" : "en:lemon",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0443892045454546,
+               "percent_max" : 1.25,
+               "percent_min" : 0,
+               "text" : "Lemon",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:safflower",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0221946022727273,
+               "percent_max" : 1,
+               "percent_min" : 0,
+               "text" : "Safflower",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11086",
+               "id" : "en:spirulina",
+               "is_in_taxonomy" : 1,
+               "percent_estimate" : 0.0221946022727273,
+               "percent_max" : 0.833333333333333,
+               "percent_min" : 0,
+               "text" : "Spirulina",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.710227272727273,
+         "percent_max" : "5",
+         "percent_min" : 0,
+         "text" : "Fruit and Vegetable Concentrates",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "additive_class" : "en:colour",
+         "id" : "en:e163",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.35511363636364,
+         "percent_max" : "5",
+         "percent_min" : 0,
+         "text" : "Anthocyanins",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:colour",
+         "id" : "en:e100",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.17755681818182,
+         "percent_max" : "5",
+         "percent_min" : 0,
+         "text" : "Curcumin",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:acidity-regulator",
+         "id" : "en:e331",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0887784090909065,
+         "percent_max" : "5",
+         "percent_min" : 0,
+         "text" : "Sodium Citrates",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "additive_class" : "en:preservative",
+         "id" : "en:e202",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 0.0887784090909065,
+         "percent_max" : "5",
+         "percent_min" : 0,
+         "text" : "Potassium Sorbate",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar",
+         "en:natural-flavouring"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:natural-flavouring"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 17,
+   "ingredients_n_tags" : [
+      "17",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:water",
+      "en:sugar",
+      "en:glucose-syrup",
+      "en:modified-starch",
+      "en:e330",
+      "en:natural-flavouring",
+      "en:fruit-and-vegetable-concentrate",
+      "en:e163",
+      "en:e100",
+      "en:e331",
+      "en:e202",
+      "en:carrot",
+      "en:blackcurrant",
+      "en:apple",
+      "en:lemon",
+      "en:safflower",
+      "en:spirulina"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:water",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:glucose-syrup",
+      "en:monosaccharide",
+      "en:glucose",
+      "en:modified-starch",
+      "en:starch",
+      "en:e330",
+      "en:natural-flavouring",
+      "en:flavouring",
+      "en:fruit-and-vegetable-concentrate",
+      "en:fruit",
+      "en:vegetable",
+      "en:concentrate",
+      "en:preparation",
+      "en:fruit-concentrate",
+      "en:vegetable-concentrate",
+      "en:e163",
+      "en:e100",
+      "en:e331",
+      "en:e202",
+      "en:carrot",
+      "en:root-vegetable",
+      "en:taproot-vegetable",
+      "en:blackcurrant",
+      "en:berries",
+      "en:apple",
+      "en:malaceous-fruit",
+      "en:lemon",
+      "en:citrus-fruit",
+      "en:safflower",
+      "en:plant",
+      "en:spirulina",
+      "en:algae"
+   ],
+   "ingredients_text" : "Water, Sugar, Glucose Syrup, Modified\nStarch, Citric Acid, Natural\nFlavouring, Fruit and\n Vegetable Concentrates (Carrot,\nBlackcurrant, Apple, Lemon, Safflower, \nSpirulina), Colours (Anthocyanins, Curcumin), Acidity\nRegulator (Sodium Citrates), Preservative (Potassium Sorbate)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 16,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e100",
+      "en:e163",
+      "en:e202",
+      "en:e330",
+      "en:e331",
+      "en:fruit-and-vegetable-concentrate",
+      "en:natural-flavouring",
+      "en:safflower"
+   ],
+   "ingredients_without_ciqual_codes_n" : 8,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:blackcurrant",
+      "en:e100",
+      "en:e163",
+      "en:e202",
+      "en:e330",
+      "en:e331",
+      "en:fruit-and-vegetable-concentrate",
+      "en:glucose-syrup",
+      "en:modified-starch",
+      "en:natural-flavouring",
+      "en:safflower",
+      "en:spirulina"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 12,
+   "known_ingredients_n" : 17,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}
