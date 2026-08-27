@@ -81,13 +81,18 @@ BEGIN {
 		%percent_or_quantity_regexps
 
 		&init_percent_or_quantity_regexps
+		&init_sizes_regexps
+
+		%sizes_regexps
+		%sizes_stopwords_regexps
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries/;
+use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries generate_regexps_matching_taxonomy_stopwords/;
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 # U+00B7 "·" (Middle Dot). Is a common character in Catalan. To avoid to break ingredients,
@@ -506,6 +511,25 @@ sub convert_text_value_to_number($target_lc, $value) {
 		}
 	}
 	return $value;
+}
+
+sub init_sizes_regexps() {
+
+	# Create a list of regexps with each synonyms of all sizes
+	%sizes_regexps = %{
+		generate_regexps_matching_taxonomy_entries(
+			"sizes",
+			"unique_regexp",
+			{
+				match_space_with_dash => 1,
+				include_xx => 1,
+			}
+		)
+	};
+
+	# Create a list of regexps for the sizes stopwords (e.g. "size", "taille", "tamaño")
+	%sizes_stopwords_regexps = %{generate_regexps_matching_taxonomy_stopwords("sizes",)};
+	return;
 }
 
 my %units_regexps = ();

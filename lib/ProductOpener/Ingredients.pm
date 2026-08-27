@@ -1725,6 +1725,7 @@ Text to analyze
 		my $labels = undef;
 		my $vegan = undef;
 		my $vegetarian = undef;
+		my $size = undef;
 		my @processings = ();
 		my $previous_parser_additive_class;
 		my $started_additive_class_scope = 0;
@@ -2304,6 +2305,7 @@ Text to analyze
 
 				# 50% beef, 20g of oranges
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
+				# 3 carrots
 				my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
 				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
 					$percent_or_quantity_value = $1;
@@ -2402,10 +2404,10 @@ Text to analyze
 				$ingredient =~ s/^\s+//;
 				$ingredient =~ s/\s+$//;
 
-				$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+				$ingredient_id
+					= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient, \$ingredient_recognized);
 
-				if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
-					$ingredient_recognized = 1;
+				if ($ingredient_recognized) {
 					$debug_ingredients and $log->trace("ingredient recognized", {ingredient_id => $ingredient_id})
 						if $log->is_trace();
 				}
@@ -2577,6 +2579,41 @@ Text to analyze
 									"unknown ingredient is a label, add label and skip ingredient",
 									{ingredient => $ingredient, label_id => $label_id}
 								) if $log->is_debug();
+							}
+						}
+					}
+
+					# Check if we have a size (e.g. "small onions", "carottes moyennes", "carottes de taille moyenne")
+					if (not $ingredient_recognized) {
+
+						my $regexp = $sizes_regexps{$ingredients_lc};
+						my $stopwords_regexp = $sizes_stopwords_regexps{$ingredients_lc};
+						if (defined $regexp) {
+							my $size_of_ingredient;
+							my $ingredient_with_size;
+							if ($ingredient =~ /^($regexp)\s(.*$)/i) {
+								$size = $1;
+								$ingredient_with_size = $2;
+							}
+							elsif ($ingredient =~ /^(.*)\s+($regexp)$/i) {
+								$ingredient_with_size = $1;
+								$size = $2;
+							}
+							# Only remove the size if we recognize the ingredient without the size,
+							# to avoid removing words that are part of the ingredient name (e.g. "small leaved spinach")
+							if (defined $ingredient_with_size) {
+								$ingredient_id
+									= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_with_size,
+									\$ingredient_recognized);
+
+								if ($ingredient_recognized) {
+									$ingredient = $ingredient_with_size;
+									$size = canonicalize_taxonomy_tag($ingredients_lc, "sizes", $size);
+									$debug_ingredients
+										and $log->debug("ingredient with size found, remove size from ingredient",
+										{ingredient => $ingredient, size => $size})
+										if $log->is_debug();
+								}
 							}
 						}
 					}
@@ -2915,6 +2952,9 @@ Text to analyze
 				}
 				if (defined $vegetarian) {
 					$ingredient{vegetarian} = $vegetarian;
+				}
+				if (defined $size) {
+					$ingredient{size} = $size;
 				}
 
 				if (defined $labels) {
@@ -6681,6 +6721,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	}
 
 	init_percent_or_quantity_regexps($ingredients_lc);
+	init_sizes_regexps();
 
 	my $and = $and{$ingredients_lc} || " and ";
 	my $and_without_spaces = $and;
