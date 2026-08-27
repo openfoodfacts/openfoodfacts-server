@@ -2612,8 +2612,6 @@ Text to analyze
 
 						my $regexp = $sizes_regexps{$ingredients_lc};
 						my $stopwords_regexp = $sizes_stopwords_regexps{$ingredients_lc};
-						print STDERR "sizes regexp: $regexp\n";
-						print STDERR "sizes stopwords regexp: $stopwords_regexp\n";
 						if (defined $regexp) {
 							my $size_of_ingredient;
 							my $ingredient_without_size;
