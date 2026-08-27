@@ -2007,19 +2007,15 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 		# Compute all parents, breadth first
 
-		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";
-
 		my %longest_parent = ();
 
-		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {
 		foreach my $tagid (sort keys %{$translations_to{$tagtype}}) {
 
-			# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first - tagid: $tagid\n";
-
-			my @queue = ();
+			# For each tagid, we will compute all its parents, and assign (or increase) the level of each parent
+			my @tag_parents = ();
 
 			if (defined $direct_parents{$tagtype}{$tagid}) {
-				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
+				@tag_parents = sort keys %{$direct_parents{$tagtype}{$tagid}};
 			}
 			elsif (not defined $just_synonyms{$tagtype}{$tagid}) {
 				# Keep track of entries that are at the root level
@@ -2035,8 +2031,9 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			my %seen = ();
 
-			while ($#queue > -1) {
-				my $parentid = shift @queue;
+			# Go through each parent / ancestor
+			while ($#tag_parents > -1) {
+				my $parentid = shift @tag_parents;
 				#print "- $parentid\n";
 
 				if ($parentid eq $tagid) {
@@ -2048,14 +2045,16 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					push @{$all_parents{$tagtype}{$tagid}}, $parentid;
 					$seen{$parentid} = 1;
 
-					if (not defined $level{$tagtype}{$parentid}) {
-						$level{$tagtype}{$parentid} = 2;
+					if (   (not defined $level{$tagtype}{$parentid})
+						or ($level{$tagtype}{$parentid} <= $level{$tagtype}{$tagid}))
+					{
+						$level{$tagtype}{$parentid} = $level{$tagtype}{$tagid} + 1;
 						$longest_parent{$tagid} = $parentid;
 					}
 
 					if (defined $direct_parents{$tagtype}{$parentid}) {
 						foreach my $grandparentid (sort keys %{$direct_parents{$tagtype}{$parentid}}) {
-							push @queue, $grandparentid;
+							push @tag_parents, $grandparentid;
 							if (   (not defined $level{$tagtype}{$grandparentid})
 								or ($level{$tagtype}{$grandparentid} <= $level{$tagtype}{$parentid}))
 							{
