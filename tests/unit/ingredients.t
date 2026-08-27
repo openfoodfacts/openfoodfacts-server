@@ -1053,6 +1053,28 @@ puffed orange and caramelized unknown_fruit4.",
 			labels => "French Eggs",
 		}
 	],
+	# Ingredient unit quantities
+	[
+		'en-ingredient-unit-quantities-1-egg-2-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 egg, 2 carrots",
+		}
+	],
+	[
+		'en-ingredient-unit-quantities-1-large-egg-2-small-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 large egg, 2 small carrots",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-1-gros-oeuf-2-petites-carottes',
+		{
+			lc => "fr",
+			ingredients_text => "1 gros œuf, 2 petites carottes",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

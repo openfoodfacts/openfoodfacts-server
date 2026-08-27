@@ -1,0 +1,76 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "id" : "en:1 egg",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "1 egg"
+      },
+      {
+         "id" : "en:2 carrots",
+         "is_in_taxonomy" : 0,
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "2 carrots"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:1 egg",
+         "en:2 carrots"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:1 egg",
+         "en:2 carrots"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:1 egg",
+         "en:2 carrots"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:1 egg",
+      "en:2 carrots"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:1 egg",
+      "en:2 carrots"
+   ],
+   "ingredients_text" : "1 egg, 2 carrots",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:1 egg",
+      "en:2 carrots"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:1 egg",
+      "en:2 carrots"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 2,
+   "known_ingredients_n" : 0,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 2
+}
