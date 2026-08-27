@@ -552,7 +552,7 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. '|(?:'
 			. $one_regexp_in_lc
 			. ')\b'    # 'une' (as in "une pincée"), needs a word boundary after it to avoid matching "une" to "un e"
-			. ')\s*' . '(' . $units_regexp_in_lc . '|\%)\s*'    # % or unit
+			. ')\s*' . '(' . $units_regexp_in_lc . '|\%|)\s*'    # % or unit or empty string "3 carrots"
 				# note: \% needs to be added individually as it seems ignored as a synonym in the units taxonomy
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
 			. $ignore_strings_after_percent

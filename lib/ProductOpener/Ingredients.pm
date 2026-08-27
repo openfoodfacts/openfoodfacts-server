@@ -1500,11 +1500,28 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 
 	my ($percent, $quantity, $quantity_g, $quantity_ml);
 
+	# % unit
 	if ($percent_or_quantity_unit =~ /\%/) {
 		$percent = $percent_or_quantity_value;
 	}
+	# Empty unit
+	elsif ($percent_or_quantity_unit eq "") {
+		$quantity = $percent_or_quantity_value;
+		# Check if the ingredient has properties like:
+		# average_weight_per_unit:en: 70
+		# average_weight_per_unit_large:en: 100
+		# average_weight_per_unit_small:en: 50
+		my $average_weight_per_unit
+			= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit:en");
+		if (defined $average_weight_per_unit) {
+			$quantity_g = $average_weight_per_unit;
+		}
+	}
+	# Other units
 	else {
 		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
+		# unit may be an empty string
+		$quantity =~ s/\s+$//;
 		my $standard_unit = get_standard_unit($percent_or_quantity_unit);
 		if (defined $standard_unit) {
 			my $normalized_quantity = normalize_quantity($quantity);
@@ -2260,20 +2277,29 @@ Text to analyze
 
 				# Strawberry 10.3%
 				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
-					$percent_or_quantity_value = $1;
-					$percent_or_quantity_unit = $2;
-					$debug_ingredients and $log->debug(
-						"percent found after",
-						{
-							ingredient => $ingredient,
-							percent_or_quantity_value => $percent_or_quantity_value,
-							percent_or_quantity_unit => $percent_or_quantity_unit,
-							new_ingredient => $`
-						}
-					) if $log->is_debug();
-					$ingredient = $`;
-					$percent_or_quantity_value
-						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+
+					# False positive: "Red Cochineal A"
+					# "A" is a quantity (e.g. "A" = "1" in English)
+					# -> require a non-empty unit to avoid that false positive
+					# This means "Strawberry 2" will not be recognized, we could also check for "a" and "A",
+					# but "[something] [number]" might generate other false positives
+					if ($2 ne '') {
+
+						$percent_or_quantity_value = $1;
+						$percent_or_quantity_unit = $2;
+						$debug_ingredients and $log->debug(
+							"percent found after",
+							{
+								ingredient => $ingredient,
+								percent_or_quantity_value => $percent_or_quantity_value,
+								percent_or_quantity_unit => $percent_or_quantity_unit,
+								new_ingredient => $`
+							}
+						) if $log->is_debug();
+						$ingredient = $`;
+						$percent_or_quantity_value
+							= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+					}
 				}
 
 				# 50% beef, 20g of oranges
