@@ -28628,6 +28628,12 @@ wikidata:en: Q11575
 wikipedia:en: https://en.wikipedia.org/wiki/Maize
 
 < en: corn
+en: corn ear
+fr: épi de maïs, épis de maïs
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 90
+
+< en: corn
 en: local tender maize
 description:en: Native to Mesoamerica and introduced to India centuries ago, tender local maize (Zea mays) refers to indigenous Indian corn varieties harvested young, while the kernels are still soft and milky rather than fully mature and dried. It has a starchy, mildly sweet, earthy flavor—less sugary than sweet corn but with a satisfying bite. Widely enjoyed as street food, it's traditionally roasted over open coals and rubbed with lime, chili, and salt (bhutta), boiled as a snack, or grated into curries, soups, and flatbreads. Nutritionally, tender maize provides dietary fiber, complex carbohydrates, and moderate protein, along with B vitamins, magnesium, and antioxidants like lutein and zeaxanthin, making it a wholesome seasonal staple across India.
 ifct_food_code:en: A007
@@ -37864,6 +37870,8 @@ vo: brikod
 wa: åbricot
 yi: אַפּריקאָס
 zh: 杏
+# weight value: rough average from common weight ranges found online
+average_weight_per_unit:en: 50
 # aeb-arab:كعبة مشماش
 # aeb-latn:mech'mèch'
 # arz:مشمشة
@@ -38149,6 +38157,8 @@ yi: באנאן
 yo: Ọ̀gẹ̀dẹ̀
 za: Gyoijhom
 zh: 香蕉
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 130
 # als:Banane
 # arz:موز
 # ast:Plátanu
@@ -38885,6 +38895,8 @@ sk: Broskyňa
 sv: persika, persikor
 tr: şeftali
 zh: 桃子
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 150
 # nah:Durazno
 # scn:pèrsica
 # szl:Fyrzicha
@@ -39206,6 +39218,8 @@ zh: 梨
 #sco: peer
 #zh-min-nan: 梨
 agribalyse_proxy_food_code:en: 13037
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 170
 #carbon_footprint_fr_foodges_ingredient:fr:Poire (Belgique)
 #carbon_footprint_fr_foodges_value:fr:0.5
 carbon_footprint_fr_foodges_ingredient:fr: Poire (Argentine)
@@ -39524,6 +39538,8 @@ wa: pronne
 za: makmaenj
 zh: 李子
 agribalyse_proxy_food_code:en: 13100
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 75
 ciqual_food_code:en: 13100
 ciqual_food_name:en: Plum, raw
 ciqual_food_name:fr: Prune, crue
@@ -39981,6 +39997,9 @@ yo: èso òro òyìnbó
 za: Makbinzgoj
 zh: 蘋果
 zu: Ihhabhula
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 200
+average_weight_per_unit_large:en: 240
 #carbon_footprint_fr_foodges_ingredient:fr:Pomme France
 #carbon_footprint_fr_foodges_value:fr:0.3
 carbon_footprint_fr_foodges_ingredient:fr: Pomme amérique du Sud
@@ -40975,6 +40994,8 @@ uz: greypfrut
 vi: bưởi chùm
 yi: גרייפפרוכט
 zh: 西柚
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 300
 #azb:قرئیپفروت
 #chy:ma'xêheóvema'xemeno
 #dsb:grapefruit
@@ -40997,7 +41018,6 @@ ifct_food_code:en: E056
 ifct_food_name:en: Pummelo
 wikidata:en: Q21552830
 wikipedia:en: https://en.wikipedia.org/wiki/Grapefruit
-# 1494 @2021-10-25
 
 < en: grapefruit
 en: grapefruit pulp
@@ -41504,6 +41524,8 @@ uz: limon
 wa: limon
 za: makningzmungx
 zh: 柠檬, 檸檬
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 60
 ciqual_proxy_food_code:en: 13009
 ciqual_proxy_food_name:en: Lemon, pulp, raw
 ciqual_proxy_food_name:fr: Citron, pulpe, cru
@@ -41853,7 +41875,6 @@ sv: verna-citron, citroner verna
 # description:en:A lime is a hybrid citrus fruit
 
 < en: citrus fruit
-#  < en:fruit what is the reason for this parent?
 en: lime
 af: Lemmetjie
 ar: ليم
@@ -41920,6 +41941,8 @@ uk: Лайм
 ur: گلگل
 vi: Chanh
 zh: 青檸
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 60
 # aeb-arab:كعبة ليم
 # aeb-latn:lim
 # chr:ᎳᎢᎻ
@@ -42310,6 +42333,8 @@ yi: מאראנץ
 yo: ọsàn
 za: Makdoengj
 zh: 橙
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 150
 # ast:Naranxa
 # bho:संतरा
 # chr:ᎣᏂᏥ
@@ -43754,15 +43779,8 @@ vo: cel
 wa: Ceréjhe
 wo: sëriis
 zh: 樱
-carbon_footprint_fr_foodges_ingredient:fr: Cerise
-carbon_footprint_fr_foodges_value:fr: 1.3
-ciqual_food_code:en: 13008
-ciqual_food_name:en: Cherry, pitted, raw
-ciqual_food_name:fr: Cerise, dénoyautée, crue
-ecobalyse:en: 4e13ea5f-4ad1-4009-ae91-842cb18bd4dd
-ecobalyse_labels_en_organic:en: b4e8febc-6588-4599-8c58-c019144597c6
-ecobalyse_origins_en_france:en: 8ea6e0d1-a163-4059-8a6b-bd443f0168db
-wikidata:en: Q196
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 7
 # arz:كريز
 # ast:cereza
 # azb:گیلاس
@@ -43806,6 +43824,15 @@ wikidata:en: Q196
 # zh-hant:櫻桃
 # zh-hk:車厘子
 # zh-mo:車厘子
+carbon_footprint_fr_foodges_ingredient:fr: Cerise
+carbon_footprint_fr_foodges_value:fr: 1.3
+ciqual_food_code:en: 13008
+ciqual_food_name:en: Cherry, pitted, raw
+ciqual_food_name:fr: Cerise, dénoyautée, crue
+ecobalyse:en: 4e13ea5f-4ad1-4009-ae91-842cb18bd4dd
+ecobalyse_labels_en_organic:en: b4e8febc-6588-4599-8c58-c019144597c6
+ecobalyse_origins_en_france:en: 8ea6e0d1-a163-4059-8a6b-bd443f0168db
+wikidata:en: Q196
 wikipedia:en: https://en.wikipedia.org/wiki/Cherry
 
 < en: cherry
@@ -45293,6 +45320,8 @@ zu: kiwifruit
 #zh-hans: 奇異果
 #zh-hant: 奇異果
 agribalyse_food_code:en: 13021
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 75
 ciqual_food_code:en: 13021
 ciqual_food_name:en: Kiwi fruit, pulp and seeds, raw
 ciqual_food_name:fr: Kiwi, pulpe et graines, cru
@@ -45304,7 +45333,6 @@ usda_ndb_code:en: 9148
 usda_ndb_name:en: Kiwifruit, green, raw
 wikidata:en: Q13194
 wikipedia:en: https://en.wikipedia.org/wiki/Kiwifruit
-#1182 in 24 @2021-10-13
 
 ##################### Kiwifruit cultivars/varieties/types
 
@@ -45579,6 +45607,8 @@ tl: Milon
 tr: kavun
 uk: баштанні культури
 zh: 瓜
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 540
 # gsw:Melone
 # pnb:خربوزہ
 # scn:Muluni
@@ -45796,6 +45826,8 @@ vi: Dưa hấu
 yi: ארבוז
 za: Gvehoengz
 zh: 西瓜
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 5000
 # aeb-arab:دلّاع
 # aeb:latn:dellè3
 # azb:عادی قارپیز
@@ -45876,6 +45908,8 @@ ro: Honeydew
 sv: Honungsmelon
 tl: Milong lunti
 vi: Dưa lê
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 1340
 ciqual_food_code:en: 13742
 ciqual_food_name:en: Melon, honeydew, pulp, raw
 ciqual_food_name:fr: Melon miel ou melon honeydew, pulpe, cru
@@ -45885,7 +45919,6 @@ usda_ndb_code:en: 9184
 usda_ndb_name:en: Melons, honeydew, raw
 wikidata:en: Q104245646
 wikipedia:en: https://en.wikipedia.org/wiki/Honeydew_(melon)
-#27 @2021-10-10
 
 < en: melon
 en: casaba
@@ -46032,6 +46065,8 @@ zh: 桃駁李
 #udm: нектарин
 #yue: 桃駁李
 agribalyse_proxy_food_code:en: 13030
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 140
 ciqual_food_code:en: 13030
 ciqual_food_name:en: Nectarine, pulp and peel, raw
 ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
@@ -46039,8 +46074,6 @@ eurocode_2_group_3:en: 9.20.15
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
 wikidata:en: Q841156
-#plant:wikidata:en:Q3408651
-#94 in 5 @2021-10-28
 
 ##################### Nectarine cultivars/varieties/types
 
@@ -47369,6 +47402,8 @@ ur: تُوت علیق
 vi: Dâu tây vườn
 za: Godumh
 zh: 草莓
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 20
 # aeb-arab:كعبة فراز
 # ary:لفريز
 # ast:fresón
@@ -51337,6 +51372,8 @@ uk: броколі
 ur: شاخ گوبھی
 vi: Bông cải xanh
 zh: 西蘭花
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 150
 # bho:ब्रोकली
 # ckb:برۆکڵی
 # hsb:Brokoli
@@ -51421,6 +51458,8 @@ pt: romanesco
 ru: романеско
 uk: капуста романеско
 zh: 宝塔花菜
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 600
 ciqual_food_code:en: 20280
 ciqual_food_name:en: Romanesco cauliflower or romanesco broccoli, raw
 ciqual_food_name:fr: Chou romanesco ou brocoli à pomme, cru
@@ -51446,6 +51485,8 @@ ru: цветная капуста, капуста цветная
 sv: blomkål
 te: గోబీ పుష్పం
 zh: 花椰菜
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 600
 carbon_footprint_fr_foodges_ingredient:fr: Chou-Fleur
 carbon_footprint_fr_foodges_value:fr: 0.5
 ciqual_food_code:en: 20016
@@ -51635,6 +51676,8 @@ vi: cải bắp
 yi: קרויט
 za: byaekgienjsim
 zh: 卷心菜
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 1000
 ciqual_food_code:en: 20116
 ciqual_food_name:en: White cabbage, raw
 ciqual_food_name:fr: Chou blanc, cru
@@ -51719,6 +51762,8 @@ th: กะหล่ำปลีม่วง
 tr: kırmızı lahana
 uk: капуста червоноголова
 zh: 紫甘藍
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 1000
 ciqual_food_code:en: 20014
 ciqual_food_name:en: Red cabbage, raw
 ciqual_food_name:fr: Chou rouge, cru
@@ -52412,17 +52457,18 @@ usda_ndb_name:en: Celery, raw
 < en: celery
 en: celery stalk
 de: Stangensellerie
-fr: céleri branche
+fr: céleri branche, branche de céleri, branches de céleri
 hr: stabljika celera
 it: gambo di sedano
 nl: bleekselderij
 pl: seler naciowy, selera naciowego
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 55
 ciqual_food_code:en: 20023
 ciqual_food_name:en: Celery stalk, raw
 ciqual_food_name:fr: Céleri branche, cru
 ifct_food_code:en: D037
 ifct_food_name:en: Celery stalk
-# 88 in 3 languages @2021-12-01
 
 < en: celery
 < en: herb
@@ -53043,6 +53089,8 @@ vi: Măng tây
 wa: Aspedje
 yi: אספארגוס
 zh: 芦笋
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 20
 # als:Schbargl
 # ang:eorþnafela
 # ast:espárragu
@@ -54107,6 +54155,8 @@ th: กะหล่ำปลีม่วง
 tr: kırmızı lahana
 uk: капуста червоноголова
 zh: 紫甘藍
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 1000
 # bar:blaukraut
 # bho:लाल पत्ता गोभी
 # frr:ruadkual
@@ -54229,6 +54279,8 @@ tr: soğan
 uk: Цибуля
 vi: hành tây
 zh: 洋葱
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 150
 # aeb-arab:راس بصل
 # ckb:پیاز
 carbon_footprint_fr_foodges_ingredient:fr: Oignons
@@ -54323,6 +54375,8 @@ uk: зелена цибуля
 uz: ko'k piyoz
 vi: hành lá
 zh: 青蔥
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 100
 # arz:بصل اخضر
 # sco:sybae
 ciqual_food_code:en: 11003
@@ -54333,7 +54387,6 @@ usda_ndb_code:en: 11291
 usda_ndb_name:en: Onions, spring or scallions (includes tops and bulb), raw
 wikidata:en: Q774278
 wikipedia:en: https://en.wikipedia.org/wiki/Scallion
-# 3011 @2021-10-20
 
 < en: onion
 en: onion sproute
@@ -54704,6 +54757,8 @@ uk: Цибуля шалот
 ur: قفلوط
 vi: Hẹ tây
 zh: 火葱
+# weight value: rough average from common weight ranges found online
+average_weight_per_unit:en: 25
 # en-gb:shallot
 # mai:छ्यापी
 # nan:âng-chhang-thâu
@@ -55723,6 +55778,10 @@ wa: raecene
 xh: umnqathe
 za: lauxbaeghoengz
 zh: 胡萝卜
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 80
+average_weight_per_unit_large:en: 120
+average_weight_per_unit_small:en: 50
 #aeb-arab: جدر سنّارية
 #aeb-latn: jder sennèrya
 #ang: moru
@@ -56332,6 +56391,8 @@ wo: pataas
 yi: זיס־קארטאפל
 za: Maenz
 zh: 番薯
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 130
 # ang:Swētu eorþperu
 # arz:بطاطا
 # azb:قرامافونچیچک باتات
@@ -56760,6 +56821,8 @@ wa: Crompire
 za: Majlingzsuz
 zh: 馬鈴薯
 zu: Izambane
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 150
 #arz: بطاطس
 #bar: Eadäpfe
 #bho: आलू
@@ -57204,6 +57267,8 @@ uk: авокадо
 vo: Avokaado
 yi: אַװאָקאַדאָ
 zh: 鳄梨
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+average_weight_per_unit:en: 150
 #nah: Āhuacatl
 carbon_footprint_fr_foodges_ingredient:fr: Avocat
 carbon_footprint_fr_foodges_value:fr: 2.4
@@ -57582,6 +57647,8 @@ wa: Åberdjene
 yi: פאטלעזשאן
 za: lwggwz
 zh: 茄子
+# weight value: rough average from common weight ranges found online
+average_weight_per_unit:en: 350
 # ace:Truëng
 # ang:Ǣȝƿyrt
 # azb:بادیمجان
@@ -58570,6 +58637,8 @@ wa: poevron
 yi: פאפריקע
 yo: ata tàtàṣé
 zh: 菜椒
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 150
 #arz:فلفل حلو
 # ast:pimientu
 # en-ca:bell pepper
@@ -58830,6 +58899,8 @@ ur: مرچ
 vi: Ớt
 wo: kaani
 zh: 辣椒
+# weight value: rough average from common weight ranges found online
+average_weight_per_unit:en: 10
 # ace:Campli
 # bcl:sili
 # bjn:Lombok
@@ -58866,7 +58937,6 @@ usda_ndb_name:en: Peppers, hot chile, sun-dried
 usda_ndb_process:en: en:sun-dried
 wikidata:en: Q165199
 wikipedia:en: https://en.wikipedia.org/wiki/Chili_pepper
-# ingredient/chili-pepper 29007 in 39 @2021-08-22
 
 < en: chili pepper
 en: tabasco chile
@@ -59531,6 +59601,8 @@ ug: پەمىدۇر
 za: makyungz
 zh: 番茄
 zu: Utamatisi
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 150
 # aeb-arab:كعبة طماطم
 # ang:Heortæppel
 # ast:Tomate
@@ -60724,15 +60796,8 @@ tr: sakız kabağı
 uk: кабачок
 vi: bí ngòi
 zh: 西葫芦
-carbon_footprint_fr_foodges_ingredient:fr: Courgette
-carbon_footprint_fr_foodges_value:fr: 0.7
-ciqual_food_code:en: 20020
-ciqual_food_name:fr: Courgette, pulpe et peau, crue
-ecobalyse:en: zucchini-eu
-ecobalyse_labels_en_organic:en: zucchini-organic
-ecobalyse_origins_en_france:en: zucchini-fr
-# fr:courgette contains 2098 products in 9 languages @2018-10-26
-eurocode_2_group_3:en: 8.40.40
+# weight value: rough average from common weight ranges found online
+average_weight_per_unit:en: 250
 # chr:ᎧᏴᏎᏆ
 # csb:zwëczajnô bania
 # de-ch:Zucchetti
@@ -60746,6 +60811,14 @@ eurocode_2_group_3:en: 8.40.40
 # mzn:کچلیک
 # pt-br:abobrinha
 # yue:翠玉瓜
+carbon_footprint_fr_foodges_ingredient:fr: Courgette
+carbon_footprint_fr_foodges_value:fr: 0.7
+ciqual_food_code:en: 20020
+ciqual_food_name:fr: Courgette, pulpe et peau, crue
+ecobalyse:en: zucchini-eu
+ecobalyse_labels_en_organic:en: zucchini-organic
+ecobalyse_origins_en_france:en: zucchini-fr
+eurocode_2_group_3:en: 8.40.40
 wikidata:en: Q7533
 wikipedia:en: https://en.wikipedia.org/wiki/Zucchini
 
@@ -87464,6 +87537,8 @@ sv: gurka, gurkor
 tr: salatalık, hıyar
 za: lwgbieng
 zh: 黄瓜
+# weight value based (rounded) on https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/nutrition-information-raw-vegetables
+average_weight_per_unit:en: 300
 # ang:hwerhwette
 #carbon_footprint_fr_foodges_ingredient:fr:Concombre
 #carbon_footprint_fr_foodges_value:fr:1.7
@@ -89259,6 +89334,7 @@ vi: trứng
 wa: Oû
 zh: 雞蛋
 allergens:en: en:eggs
+average_weight_per_unit:en: 60
 # ingredient/egg 71.383 in 41 @2021-08-22
 carbon_footprint_fr_foodges_ingredient:fr: Oeuf, moyenne nationale
 carbon_footprint_fr_foodges_value:fr: 2.6
