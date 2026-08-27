@@ -1075,6 +1075,21 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "1 gros œuf, 2 petites carottes",
 		}
 	],
+	# sizes stopwords
+	[
+		'en-1-small-size-orange-2-medium-size-apples',
+		{
+			lc => "en",
+			ingredients_text => "1 small sized orange, 2 medium size apples",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-3-concombres-de-petite-taille-2-aubergines-de-taille-moyenne',
+		{
+			lc => "fr",
+			ingredients_text => "3 concombres de petite taille, 2 aubergines de taille moyenne",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

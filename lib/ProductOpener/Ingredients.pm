@@ -1495,7 +1495,7 @@ if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 =cut
 
 sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, $percent_or_quantity_value,
-	$percent_or_quantity_unit)
+	$percent_or_quantity_unit, $size = undef)
 {
 
 	my ($percent, $quantity, $quantity_g, $quantity_ml);
@@ -1514,7 +1514,12 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 		my $average_weight_per_unit
 			= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit:en");
 		if (defined $average_weight_per_unit) {
-			$quantity_g = $average_weight_per_unit;
+			# Check if we have a size and a conversion_factor:en property for it in the sizes taxonomy
+			my $size_conversion_factor
+				= (defined $size)
+				? get_inherited_property("sizes", $size, "conversion_factor:en") || 1
+				: 1;
+			$quantity_g = $quantity * $average_weight_per_unit * $size_conversion_factor;
 		}
 	}
 	# Other units
@@ -2588,31 +2593,46 @@ Text to analyze
 
 						my $regexp = $sizes_regexps{$ingredients_lc};
 						my $stopwords_regexp = $sizes_stopwords_regexps{$ingredients_lc};
+						print STDERR "sizes regexp: $regexp\n";
+						print STDERR "sizes stopwords regexp: $stopwords_regexp\n";
 						if (defined $regexp) {
 							my $size_of_ingredient;
-							my $ingredient_with_size;
-							if ($ingredient =~ /^($regexp)\s(.*$)/i) {
-								$size = $1;
-								$ingredient_with_size = $2;
+							my $ingredient_without_size;
+							# "small sized cucumber", "petite carotte"
+							if ($ingredient =~ /^(?:$stopwords_regexp|\s)*($regexp)(?:$stopwords_regexp|\s)*\s(.*$)/i) {
+								$size_of_ingredient = $1;
+								$ingredient_without_size = $2;
+								$ingredient_without_size =~ s/^($stopwords_regexp|\s)*//i;
 							}
-							elsif ($ingredient =~ /^(.*)\s+($regexp)$/i) {
-								$ingredient_with_size = $1;
-								$size = $2;
+							# "concombre de taille moyenne"
+							elsif (
+								$ingredient =~ /^(.*)\s+(?:$stopwords_regexp|\s)*($regexp)(?:$stopwords_regexp|\s)*$/i)
+							{
+								$ingredient_without_size = $1;
+								$size_of_ingredient = $2;
+								$ingredient_without_size =~ s/($stopwords_regexp|\s)*$//i;
 							}
 							# Only remove the size if we recognize the ingredient without the size,
 							# to avoid removing words that are part of the ingredient name (e.g. "small leaved spinach")
-							if (defined $ingredient_with_size) {
-								$ingredient_id
-									= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient_with_size,
-									\$ingredient_recognized);
+							if (defined $ingredient_without_size) {
+								my $ingredient_without_size_id
+									= canonicalize_taxonomy_tag($ingredients_lc, "ingredients",
+									$ingredient_without_size, \$ingredient_recognized);
 
 								if ($ingredient_recognized) {
-									$ingredient = $ingredient_with_size;
-									$size = canonicalize_taxonomy_tag($ingredients_lc, "sizes", $size);
+									$ingredient_id = $ingredient_without_size_id;
+									$size = canonicalize_taxonomy_tag($ingredients_lc, "sizes", $size_of_ingredient);
 									$debug_ingredients
-										and $log->debug("ingredient with size found, remove size from ingredient",
-										{ingredient => $ingredient, size => $size})
-										if $log->is_debug();
+										and $log->debug(
+										"ingredient with size found, remove size from ingredient",
+										{
+											ingredient => $ingredient,
+											size => $size,
+											size_of_ingredient => $size_of_ingredient,
+											new_ingredient => $ingredient_without_size,
+											ingredient_id => $ingredient_id
+										}
+										) if $log->is_debug();
 								}
 							}
 						}
@@ -2936,7 +2956,7 @@ Text to analyze
 				if (defined $percent_or_quantity_value) {
 					my ($percent, $quantity, $quantity_g, $quantity_ml)
 						= get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id,
-						$percent_or_quantity_value, $percent_or_quantity_unit);
+						$percent_or_quantity_value, $percent_or_quantity_unit, $size);
 
 					defined $percent and $ingredient{percent} = $percent + 0;
 					defined $quantity and $ingredient{quantity} = $quantity;
