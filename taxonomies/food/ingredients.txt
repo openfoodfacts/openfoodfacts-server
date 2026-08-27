@@ -4310,7 +4310,7 @@ de: Sauermolke
 en: sweet whey
 ca: sèrum de la llet ensucrat
 cs: sladká SYROVÁTKA
-de: Süßmolke, Süssmolke
+de: Süßmolke, Süssmolke, Süßmolken
 es: suero de leche azucarado, lactosuero azucarado
 fi: makea hera, makeutettu hera
 fr: lactosérum doux
@@ -4849,6 +4849,10 @@ ciqual_food_name:fr: Crème de lait ou spécialité à base de crème légère, 
 en: clotted cream
 wikidata:en: Q1373885
 wikipedia:en: https://en.wikipedia.org/wiki/Clotted_cream
+
+< en: cream
+en: sheeps cream
+fr: crème de brebis
 
 ###################################################################################################
 #
@@ -14821,6 +14825,14 @@ de: ungehärteter vegetarischer Suet
 hr: nehidrogenizirani biljni loj
 
 < en: vegetable fat
+en: vegetable stearin, vegetables stearins, vegetable stearic acid
+de: Pflanzenstearin, pflanzliches Stearin
+es: estearina vegetal
+fr: stéarines végétales, stéarine végétales
+it: stearina vegetale
+nl: plantaardige stearine
+
+< en: vegetable fat
 fr: matières grasses végétales de colza, matières grasses de colza
 
 #< en: compound
@@ -20679,6 +20691,13 @@ vegetarian:en: maybe
 < en: natural flavouring
 de: natürliches Pfirsich– und Holunderblütenaroma mit anderen natürlichen Aromen
 
+< en: natural flavouring
+en: natural oat flavouring
+fr: arôme naturel d'avoine
+
+< en: natural flavouring
+fr: arôme naturel de céleri-rave
+
 < en: flavouring
 en: nature identical flavouring
 hr: prirodno identična aroma
@@ -21905,7 +21924,7 @@ et: vanilliin
 eu: Bainilina
 fa: وانیلین
 fi: vanilliini, vaniliini, vanilliinia
-fr: vanilline
+fr: vanilline, vaniline
 he: ונילין
 hr: vanilin
 hu: vanillin
@@ -24818,7 +24837,7 @@ ciqual_proxy_food_name:en: Barley, wholegrain, raw
 en: whole grain barley flakes, wholegrain barley flakes
 de: Vollkorn-Gerstenflocken, Vollkorngerstenflocken, Gerstenvollkornflocken
 fi: täysjyväohrahiutale, täysjyväohrahiutaleet
-fr: flocons d'orge complète
+fr: flocons d'orge complète, flocons d'orge complets
 hr: ječmene pahuljice od cijelog zrna
 it: fiocchi d'orzo integrale
 nl: volkoren gerstvlokken
@@ -31069,9 +31088,9 @@ wikipedia:en: https://en.wikipedia.org/wiki/Vanilla_sugar
 # mainIngredient:en:sugar
 
 < en: sugar
-en: nib sugar, pearl sugar
+en: nib sugar, pearl sugar, sugar pearls
 de: Hagelzucker, Perlzucker
-fr: sucre perlé
+fr: sucre perlé, perles de sucre
 hr: sitni šećer
 it: granella di zucchero
 nl: parelsuiker, hagelsuiker
@@ -44282,6 +44301,10 @@ usda_ndb_name:en: Nuts, coconut milk, raw (liquid expressed from grated meat and
 wikidata:en: Q841779
 wikipedia:en: https://en.wikipedia.org/wiki/Coconut_milk
 
+< en: coconut milk
+en: coconut milk light
+fr: lait de coco allégé
+
 # < en:compound ?
 < en: coconut milk
 en: coconut milk drink
@@ -46067,6 +46090,13 @@ eurocode_2_group_3:en: 9.20.15
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
 wikidata:en: Q841156
+
+< en: nectarine
+en: white brugnon, clingstone nectarine
+fr: brugnon
+it: nucipesca, pesca noce spiccagnola
+comment:en: A "brugnon" is a French word for a type of stone fruit closely related to the nectarine. In French, there's actually a distinction: Nectarine – the flesh separates easily from the pit (freestone); Brugnon – the flesh clings tightly to the pit (clingstone)
+description:en: Native to China, brugnons spread along ancient trade routes into Persia and the Mediterranean, where Mediterranean climates now support major cultivation. The white-fleshed variety offers a delicate, low-acid sweetness compared to yellow varieties, with smooth, fuzz-free skin and flesh that clings to the pit. Consumed fresh as a snack or dessert fruit, it also features in salads, tarts, and preserves across various cuisines. Nutritionally, it provides vitamin C, potassium, and dietary fiber, along with natural sugars and antioxidant compounds, making it a commonly consumed seasonal stone fruit in temperate regions worldwide.
 
 ##################### Nectarine cultivars/varieties/types
 
@@ -55691,7 +55721,7 @@ et: porgand
 eu: azenario
 fa: هویج
 fi: porkkana, porkkanaa
-fr: carotte, carottes courtes
+fr: carotte, carottes courtes, carottes
 ga: cairéad
 gl: cenoria
 gn: sanaória
@@ -59918,6 +59948,10 @@ carbon_footprint_fr_foodges_value:fr: 1.4
 ciqual_food_code:en: 20169
 ciqual_food_name:fr: Tomate, pulpe, appertisée
 
+< en: tomato pulp
+en: tomato pulp with juice
+fr: pulpe de tomate au jus, pulpe de tomates au jus
+
 < en: tomato
 en: sifted tomato
 de: Passierte Tomaten
@@ -61545,7 +61579,7 @@ sv: stora vita bönor
 
 < en: white beans
 en: lingot beans, white lingot beans
-fr: lingots blancs, lingo blanc, haricots lingots blancs, haricots blancs lingots, lingot, lingots, lingots blancs
+fr: lingots blancs, lingo blanc, haricots lingots blancs, haricots blancs lingots, lingot, lingots, lingots blancs, haricots lingots
 hu: lingot bab, fehér bab
 it: fagioli lingotti
 rare_crop:en: yes
@@ -72725,7 +72759,19 @@ fr: gingseng
 pl: żeńszeń, żeń-szeń, żeń-szenia, żeńszenia
 
 < en: ginseng
-en: panax ginseng root extract
+en: ginseng root extract
+fr: extrait de racine de ginseng
+
+< en: ginseng
+en: American ginseng
+la: Panax quinquefolius
+
+< en: ginseng
+en: Korean ginseng, Asian ginseng
+la: Panax ginseng
+
+< en: Korean ginseng
+en: Korean ginseng root extract
 de: Panax ginseng Wurzelextrakt
 fi: panax ginseng-juuriuute
 fr: extrait de racine de panax ginseng
@@ -72733,6 +72779,10 @@ hr: ekstrakt korijena panaks ginsenga, panax ginseng
 it: estratto di radice di Panax ginseng
 ru: экстракт женьшеня
 sv: panax ginseng rotextrakt
+
+< en: ginseng
+en: Siberian ginseng
+la: Eleutherococcus senticosus
 
 ###################################################################################################
 #
@@ -73800,6 +73850,11 @@ usda_ndb_code:en: 9311
 usda_ndb_name:en: Roselle, raw
 wikidata:en: Q319390
 wikipedia:en: https://en.wikipedia.org/wiki/Roselle_(plant)
+
+< en: roselle flower
+en: white hibiscus
+fr: hibiscus blanc
+comment:en: It is assumed the flower petals are meant.
 
 < en: carrot
 < en: roselle flower
@@ -75601,7 +75656,7 @@ en: spirulina concentrate, spirulina extract
 de: Spirulina-konzentrat, Spirulinakonzentrat
 es: Concetrado de espirulina
 fi: spirulinatiiviste, spirulinauute
-fr: concentré de spiruline
+fr: concentré de spiruline, extrait couleur de spiruline
 hr: koncentrat spiruline
 it: concentrato di spirulina
 nl: Spirulinaconcentraat
@@ -77620,6 +77675,14 @@ es: rhizopus
 hr: rizopus
 it: rhizopus
 wikipedia:en: https://en.wikipedia.org/wiki/Rhizopus
+
+# <en:fungus
+la: Mortierella alpina
+
+< la: Mortierella alpina
+en: Mortierella alpina oil
+fr: Huile de Mortierella alpina
+description:en: Mortierella alpina oil is derived from a soil-dwelling filamentous fungus, first isolated and studied for its lipid content in various regions worldwide, including Japan, China, and Europe, where it is produced industrially through fermentation. The refined oil is essentially flavorless and odorless, making it unobtrusive when blended into other products. It is primarily used as an additive in infant formula, nutritional supplements, and functional foods across global markets, valued for standardized quality and non-animal, non-fish origin. Nutritionally, it is notable for its high concentration of arachidonic acid, an omega-6 polyunsaturated fatty acid also naturally present in human breast milk and various animal tissues.
 
 < en: ferment
 < en: rhizopus
@@ -90829,6 +90892,21 @@ ro: fibre de mazare
 sv: ärtfiber
 
 < en: vegetable fiber
+en: banana fiber
+fr: fibre de plantain
+nl: banaanvezel, bananenvezel
+
+< en: vegetable fiber
+en: wheat bran fiber
+de: Weizenkleiefaser
+es: fibra de salvado de trigo
+fr: fibre de son de blé
+it: fibra di crusca di grano
+nl: tarwezemelvezel
+sv: vetekli-fiber
+description:en: Wheat bran fiber is derived from the outer layer of the wheat kernel, removed during milling. It has a neutral, slightly nutty taste and a coarse, gritty texture. Widely used across global food industries, it serves as a bulking agent and fiber fortifier in baked goods, cereals, snacks, and pasta, and is also used as a texturizer in processed meats. Nutritionally, it is rich in insoluble dietary fiber, contributing to digestive bulk, along with modest amounts of protein, B vitamins, and minerals like magnesium and iron. Its low fat and calorie content make it valued as a functional, fiber-dense ingredient worldwide.
+
+< en: vegetable fiber
 en: chickpea fiber
 de: Kichererbsenfaser, Kichererbsenfasern
 fr: fibre de pois chiche, fibres de pois chiche
@@ -94490,6 +94568,9 @@ ciqual_food_name:en: Broth, stock or bouillon, beef, dehydrated
 ciqual_food_name:fr: Bouillon de boeuf, déshydraté
 
 < en: broth
+fr: bouillon de veau
+
+< en: broth
 en: dehydrated broth, dehydrated stock
 de: Bouillon getrocknet
 fr: bouillon déshydraté
@@ -97032,6 +97113,15 @@ vegan:en: no
 vegetarian:en: no
 
 # ingredient/oleomargarina-bovina 3 in 1 @2021-08-21
+
+# < en: compound
+en: almond milk
+fr: lait d'amande
+
+# < en: compound
+fr: fromage frais au lait ecreme pasteurise
+
+fr: billettes de riz souffle
 
 ###################################################################################################
 #
