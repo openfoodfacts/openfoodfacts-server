@@ -1511,14 +1511,33 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 		# average_weight_per_unit:en: 70
 		# average_weight_per_unit_large:en: 100
 		# average_weight_per_unit_small:en: 50
-		my $average_weight_per_unit
-			= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit:en");
+
+		my $average_weight_per_unit;
+		my $size_conversion_factor = 1;
+
+		# First check exact match for the size if we have one
+		if (defined $size) {
+			my $size_id = $size;
+			$size_id =~ s/^en://;
+			$size_id =~ s/-/_/g;
+			$average_weight_per_unit
+				= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit_${size_id}:en");
+		}
+		# Otherwise check for a generic average_weight_per_unit property
+		if (not defined $average_weight_per_unit) {
+			$average_weight_per_unit
+				= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit:en");
+
+			if (defined $average_weight_per_unit) {
+				# Check if we have a size and a conversion_factor:en property for it in the sizes taxonomy
+				$size_conversion_factor
+					= (defined $size)
+					? get_inherited_property("sizes", $size, "conversion_factor:en") || 1
+					: 1;
+			}
+		}
+
 		if (defined $average_weight_per_unit) {
-			# Check if we have a size and a conversion_factor:en property for it in the sizes taxonomy
-			my $size_conversion_factor
-				= (defined $size)
-				? get_inherited_property("sizes", $size, "conversion_factor:en") || 1
-				: 1;
 			$quantity_g = $quantity * $average_weight_per_unit * $size_conversion_factor;
 		}
 	}

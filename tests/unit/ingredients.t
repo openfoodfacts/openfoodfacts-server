@@ -1065,7 +1065,7 @@ puffed orange and caramelized unknown_fruit4.",
 		'en-ingredient-unit-quantities-1-large-egg-2-small-carrots',
 		{
 			lc => "en",
-			ingredients_text => "1 large egg, 2 small carrots",
+			ingredients_text => "1 large egg, 2 small carrots, 1 large apple",
 		}
 	],
 	[
