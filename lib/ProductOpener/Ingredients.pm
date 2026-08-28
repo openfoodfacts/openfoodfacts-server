@@ -977,7 +977,7 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 		lt => "(?:kilmės (?:šalis|valstybė)|kilmė)",
 		lv => "(?:izcelsmes valsts)",
 		mk => "(?:земја на потекло)",
-		mt => "(?:pajjiż ta' oriġini|oriġini)",
+		mt => "(?:(?:pajjiż ta' )?ori[gġ]ini)",
 		nb => "(?:opprinnelse)",
 		nl => "(?:oorsprong|herkomst|land van (?:oorsprong|herkomst))",
 		pl => "(?:kraj pochodzenia)",
