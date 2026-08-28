@@ -219,10 +219,7 @@ sub iter_taxonomy_entries ($lines_iter) {
 							severity => "Error",
 							type => "Correctness",
 							line => $line_num,
-							message => (
-									  "\"$prop\" might be a typo of \"comment\":"
-									. "\n- $line"
-							)
+							message => ("\"$prop\" might be a typo of \"comment\":" . "\n- $line")
 						}
 					);
 				}
