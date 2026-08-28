@@ -36232,6 +36232,7 @@ ciqual_food_code:en: 20901
 ciqual_food_name:en: Soybean, whole grain
 ciqual_food_name:fr: Soja, graine entière
 description:de: Die Sojabohne (Glycine max), häufig auch einfach als Soja bezeichnet, ist eine Pflanzenart aus der Unterfamilie Schmetterlingsblütler. Als Nahrung ist die Eiweißqualität des Sojaproteins mit der von tierischem Eiweiß vergleichbar, was die Sojabohne von anderen Pflanzen abhebt.
+description:en: Soybeans (Glycine max) are a legume native to East Asia, cultivated for thousands of years and now grown extensively worldwide, including major production regions in the Americas, East Asia, and South Asia. Their flavor is mild and slightly nutty, adapting well to countless preparations. Soybeans are among the most versatile and widely used legumes globally, forming the basis of foods like tofu, soy milk, soy sauce, miso, tempeh, edamame, and soybean oil, as well as animal feed. Nutritionally, they are notable for their high plant protein content, along with dietary fiber, healthy fats, and various vitamins and minerals.
 description:es: Glycine max, llamada popularmente soya o soja, es una especie de la familia Fabaceae. El grano de soya y sus subproductos (aceite y harina de soya) se utilizan en la alimentación humana, del ganado y aves.
 description:fr: Le soja, (soya) (Glycine max), est une espèce de plante annuelle de la famille des légumineuses.
 description:nl: De sojaboon is een peulvrucht, afkomstig van de sojaplant (Glycine max), die als grondstof voor veel sojaproducten wordt gebruikt.
@@ -36242,6 +36243,37 @@ usda_ndb_name:en: Soybeans, mature seeds, raw
 usda_ndb_process:en: en:dried
 wikidata:en: Q11006
 wikipedia:en: https://en.wikipedia.org/wiki/Soybean
+
+< en: soya bean
+en: green soy bean
+de: Grünaäe Sojabohnen
+fi: vihreä soijapapu
+fr: soja vert
+hr: zeleno sojino zrno
+it: fagioli di soia verdi
+usda_ndb_code:en: 11450
+usda_ndb_name:en: Soybeans, green, raw
+
+< en: soya bean
+en: black soy bean
+de: Schwarze Sojabohnen
+fr: soja noir
+ja: 黒大豆
+description:en: Black soybeans (Glycine max) are a dark-seed-coated variety of soybean cultivated across East Asia, including China, Korea, and Japan, with production also found in parts of North America and elsewhere. Their flavor is earthier and nuttier than yellow soybeans, with a subtle sweetness when cooked. Traditionally used in braised side dishes, black bean pastes, teas, fermented condiments, and specialty tofu, they hold cultural significance in many Asian culinary traditions. Nutritionally, they are rich in plant protein and dietary fiber, and their black seed coat contains anthocyanins, the same antioxidant pigments found in blueberries and black rice.
+
+< en: soya bean
+en: brown soybean
+description:en: Brown soybeans (Glycine max) are a tan-to-brown-seed-coated variety grown throughout East Asia, particularly in China, Japan, and Korea, alongside cultivation in other soybean-producing regions worldwide. Compared to common yellow soybeans, they offer a nuttier, slightly roasted, and subtly sweet flavor. They are traditionally used in specialty soy sauces, roasted soy snacks, and certain regional tofu preparations, valued for the distinct character their seed coat lends to fermented and cooked dishes. Nutritionally, brown soybeans provide a strong source of plant protein and dietary fiber, similar to other soybean varieties, with their color coming from natural pigments in the seed coat.
+ifct_food_code:en: B024
+ifct_food_name:en: Soybean, brown
+ifct_food_process:en: en:dried
+
+< en: soya bean
+en: white soybean, yellow soybean
+description:en: White soybeans, more accurately pale yellow in color, are the most widely cultivated variety of soybean (Glycine max), grown extensively across the Americas, East Asia, and other major agricultural regions worldwide. They have a mild, neutral flavor, making them highly versatile in food production. This variety forms the basis of most global soy products, including tofu, soy milk, soybean oil, tempeh, and edamame. As the dominant type in commercial and everyday use, white soybeans are valued nutritionally for their high plant protein content, dietary fiber, and essential fatty acids.
+ifct_food_code:en: B025
+ifct_food_name:en: Soybean, white
+ifct_food_process:en: en:dried
 
 < en: soya bean
 en: sprouted soybeans
@@ -36274,22 +36306,6 @@ it: fagioli di soia decorticati
 < en: hulled soya bean
 en: GMO-free hulled soya bean
 fr: fèves de soja sans ogm décortiquées
-
-< en: soya bean
-en: black soy bean
-de: Schwarze Sojabohnen
-fr: soja noir
-ja: 黒大豆
-
-< en: soya bean
-en: green soy bean
-de: Grünaäe Sojabohnen
-fi: vihreä soijapapu
-fr: soja vert
-hr: zeleno sojino zrno
-it: fagioli di soia verdi
-usda_ndb_code:en: 11450
-usda_ndb_name:en: Soybeans, green, raw
 
 #process:en: en:paste
 < en: soya bean
