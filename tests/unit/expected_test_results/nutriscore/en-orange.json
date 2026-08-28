@@ -8,27 +8,33 @@
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruit-based-foods-and-beverages",
       "en:fruits-and-vegetables-based-foods",
-      "en:fruits-based-foods",
+      "en:fruit-based-foods",
       "en:fruits",
       "en:citrus",
       "en:oranges"
    ],
    "categories_lc" : "en",
-   "categories_properties" : {},
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "13034"
+   },
    "categories_properties_tags" : [
       "all-products",
       "categories-known",
       "agribalyse-food-code-unknown",
-      "agribalyse-proxy-food-code-unknown",
+      "agribalyse-proxy-food-code-13034",
+      "agribalyse-proxy-food-code-known",
       "ciqual-food-code-unknown",
-      "agribalyse-unknown"
+      "agribalyse-known",
+      "agribalyse-13034"
    ],
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruit-based-foods-and-beverages",
       "en:fruits-and-vegetables-based-foods",
-      "en:fruits-based-foods",
+      "en:fruit-based-foods",
       "en:fruits",
       "en:citrus",
       "en:oranges"

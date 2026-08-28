@@ -2,6 +2,7 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "13043",
          "ecobalyse_code" : "fa9e9f34-acc9-4974-89c4-003d2428f502",
          "id" : "en:peach",
          "is_in_taxonomy" : 1,
@@ -75,10 +76,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:Some unknown ingredient",
-      "en:another unknown ingredient",
-      "en:peach"
+      "en:another unknown ingredient"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:Some unknown ingredient",
       "en:another unknown ingredient"

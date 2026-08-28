@@ -190,12 +190,12 @@ $flavor = "opff";
 	product_type => "petfood",
 	og_image_url =>
 		"https://static.openpetfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=opff&utf_medium=web",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utm_medium=web",
 	ios_app_link =>
-		"https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utf_medium=web",
-	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
+		"https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utm_medium=web",
+	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utm_medium=web",
 	#x_account => "OpenBeautyFacts",
 	default_preferences =>
 		'{ "nova" : "important", "labels_organic" : "important", "labels_fair_trade" : "important" }',
@@ -325,6 +325,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openpetfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -401,6 +402,8 @@ XML
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 	brands
+	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
@@ -558,6 +561,8 @@ XML
 	environmental_score_score
 	environmental_score_grade
 	nutrient_levels_tags
+	storage_conditions
+	storage_conditions_tags
 	product_quantity
 	owner
 	data_quality_errors_tags
@@ -615,7 +620,8 @@ $options{import_export_fields_groups} = [
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups} = [["labels", ["labels_organic", "labels_fair_trade"]],];
+$options{attribute_groups}
+	= [["labels", ["labels_organic", "labels_fair_trade"]], ["ingredients_analysis", ["unwanted_ingredients"]]];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {

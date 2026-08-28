@@ -32,6 +32,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
          "ingredients" : [
             {
@@ -51,7 +52,9 @@
                "percent_estimate" : 4.16666666666666,
                "percent_max" : 16.6666666666667,
                "percent_min" : 0,
-               "text" : "sinappi"
+               "text" : "sinappi",
+               "vegan" : "maybe",
+               "vegetarian" : "yes"
             },
             {
                "ecobalyse_code" : "celery-eu",
@@ -75,17 +78,14 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:mustard"
-      ],
-      "en:vegetarian-status-unknown" : [
+      "en:maybe-vegan" : [
          "en:mustard"
       ]
    },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:maybe-vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fi",
    "ingredients_n" : 6,
@@ -107,6 +107,7 @@
       "en:cereal",
       "en:lupin-flour",
       "en:vegetable",
+      "en:pod-and-seed-vegetable",
       "en:flour",
       "en:legume",
       "en:pulse",
@@ -128,10 +129,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:celery",
-      "en:soya",
-      "en:spice"
+      "en:soya"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:mustard",
       "en:soya",
