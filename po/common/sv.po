@@ -117,7 +117,7 @@ msgstr "/open-products-facts-mobile-app"
 
 msgctxt "search_description_opensearch_opf"
 msgid "Open Products Facts product search"
-msgstr "Öppna produktfaktas produktsökning"
+msgstr "Produktsökning i Open Products Facts"
 
 msgctxt "warning_not_complete_opf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -125,23 +125,23 @@ msgstr "Den här produktsidan är inte komplett. Du kan hjälpa till att komplet
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
-msgstr ""
+msgstr "Tide, Persil"
 
 msgctxt "categories_example_product"
 msgid "Liquid laundry detergent, Powder laundry detergent"
-msgstr ""
+msgstr "Flytande tvättmedel, pulvertvättmedel"
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
-msgstr ""
+msgstr "EMB 67890"
 
 msgctxt "generic_name_example_product"
 msgid "Laundry detergent"
-msgstr ""
+msgstr "Tvättmedel"
 
 msgctxt "product_name_example_product"
 msgid "Ultra Clean Lavender Scent"
-msgstr ""
+msgstr "Ultra Clean med lavendeldoft"
 
 msgctxt "ingredients_text_example_product"
 msgid "WARNING: Do not add ingredients if this is not relevant for the category. Detergents have on-pack or online lists, and some other categories as well"
@@ -158,7 +158,7 @@ msgstr "Open Pet Food Facts samlar information och data om djurfoderprodukter fr
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgstr "En gemensamt uppbyggd, fri och öppen databas med djurfoderprodukter från hela världen."
 
 msgctxt "product_description_opff"
 msgid "Ingredients, allergens, additives, nutrition facts, labels, origin of ingredients and information on product %s"
@@ -166,7 +166,7 @@ msgstr "Ingredienser, allergener, tillsatser, näringsfakta, etiketter, ingredie
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Open Pet Food Facts produktsök"
+msgstr "Produktsökning i Open Pet Food Facts"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -271,7 +271,7 @@ msgstr "Din begäran om att gå med i organisationen väntar på godkännande av
 
 msgctxt "add_user_requested_org_processing"
 msgid "Your organization request has been received and is being processed."
-msgstr ""
+msgstr "Din organisationsförfrågan har mottagits och behandlas."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
@@ -1854,7 +1854,7 @@ msgstr "lägg till en typ, form eller material"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr "Products without a %s packaging"
+msgstr "Produkter utan en förpackning av typen %s"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -3446,7 +3446,7 @@ msgstr "Nej"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr "Hoppa over"
+msgstr "Hoppa över"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -4800,7 +4800,7 @@ msgstr "Halvfabrikat"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra-processed foods"
-msgstr ""
+msgstr "Ultraprocessade livsmedel"
 
 msgctxt "attribute_nova_4_1_marker"
 msgid "1 ultra-processing marker"
@@ -5512,7 +5512,7 @@ msgstr "Vision, uppdrag, värden och program"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5977,7 +5977,7 @@ msgstr "% av ingredienserna"
 # medium as in "medium impact"
 msgctxt "medium"
 msgid "medium"
-msgstr "medium"
+msgstr "medel"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
@@ -6050,23 +6050,23 @@ msgstr "JAG STÖDJER"
 
 msgctxt "donation_hook_2026"
 msgid "We still need €120,000 to finish 2026!"
-msgstr ""
+msgstr "Vi behöver fortfarande 120 000 € för att klara oss genom 2026!"
 
 msgctxt "donation_title_2026"
 msgid "Become an Open Food Facts patron"
-msgstr ""
+msgstr "Bli regelbunden givare till Open Food Facts"
 
 msgctxt "donation_list_2026_main"
 msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
-msgstr ""
+msgstr "Varje månad når vi 8 miljoner besökare, och många gånger fler via API:et. Ditt stöd är avgörande för att:"
 
 msgctxt "donation_list_2026_first"
 msgid "keep Open Food Facts open & available to all,"
-msgstr ""
+msgstr "hålla Open Food Facts öppet och tillgängligt för alla,"
 
 msgctxt "donation_list_2026_first_sub"
 msgid "support infrastructure, the website, mobile app and API with a small permanent team"
-msgstr ""
+msgstr "stödja infrastrukturen, webbplatsen, mobilappen och API:et med ett litet fast team"
 
 msgctxt "donation_list_2026_second"
 msgid "remain independent of the food industry,"
@@ -6074,15 +6074,15 @@ msgstr "förbli oberoende av livsmedelsindustrin,"
 
 msgctxt "donation_list_2026_third"
 msgid "support the community"
-msgstr ""
+msgstr "stödja gemenskapen"
 
 msgctxt "donation_list_2026_fourth"
 msgid "support science"
-msgstr ""
+msgstr "stödja forskningen"
 
 msgctxt "donation_financial_2026_text"
 msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
-msgstr ""
+msgstr "Om varje besökare denna månad klickade på Donera och gav bara 1 € skulle vi få över åtta gånger vår årliga budget!"
 
 msgctxt "donation_button_2026_text"
 msgid "Donate"
@@ -6206,7 +6206,7 @@ msgstr "Bonus"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr "Malus"
+msgstr "Avdrag"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
@@ -6795,7 +6795,7 @@ msgstr "Produkt uppdaterad"
 
 msgctxt "api_result_user_found"
 msgid "User found"
-msgstr ""
+msgstr "Användare hittad"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
@@ -6931,11 +6931,11 @@ msgstr "Ogiltigt användar-ID och lösenord"
 
 msgctxt "api_message_invalid_token"
 msgid "Invalid access_token"
-msgstr ""
+msgstr "Ogiltig access_token"
 
 msgctxt "api_message_authentication_required"
 msgid "Authentication required"
-msgstr ""
+msgstr "Autentisering krävs"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
@@ -6944,11 +6944,11 @@ msgstr "Ogiltigt värde: måste vara 0 eller 1"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr "Ange antalet förpackningsenheter av samma form och material som produkten innehåller."
+msgstr "Ange antalet förpackningsenheter av samma form och material som ingår i produkten."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr "Ange formens namn som anges i återvinningsinstruktionerna om de är tillgängliga, eller välj en form."
+msgstr "Ange namnet på formen enligt återvinningsinstruktionerna om de finns tillgängliga, eller välj en form."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
@@ -6956,7 +6956,7 @@ msgstr "Ange det specifika materialet om det kan fastställas (en materialkod in
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr "Ange endast återvinningsinstruktioner om de finns listade på produkten."
+msgstr "Ange endast återvinningsanvisningar om de anges på produkten."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -7036,7 +7036,7 @@ msgstr "Genomsnittlig förpackningsvikt per 100 g produkt"
 
 msgctxt "total"
 msgid "Total"
-msgstr "Total"
+msgstr "Totalt"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
@@ -7292,6 +7292,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Kategori, etiketter, ingredienser, allergener, näringsinformation, foton etc."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr "Kategori, märkningar, ingredienser, allergener, foton osv."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr "Kategori, märkningar, ingredienser, produktegenskaper, foton osv."
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Kategori, etiketter, ingredienser, allergener, näringsinformation, foton etc."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Om informationen inte stämmer överens med informationen på förpackningen kan du komplettera eller korrigera den. Tack!"
@@ -7299,6 +7311,18 @@ msgstr "Om informationen inte stämmer överens med informationen på förpackni
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts är en samarbetsdatabas, och varje bidrag är användbart för alla."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Beauty Facts är en gemensamt uppbyggd databas, och varje bidrag är till nytta för alla."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Products Facts är en gemensamt uppbyggd databas, och varje bidrag är till nytta för alla."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Pet Food Facts är en gemensamt uppbyggd databas, och varje bidrag är till nytta för alla."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7627,6 +7651,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "I kontakt med livsmedel"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "I kontakt med produkten"
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Kontakta oss"
@@ -7642,7 +7670,7 @@ msgstr "Är {barcode} streckkoden för en produkt du har? Om så är fallet, vä
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-sv.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7746,15 +7774,15 @@ msgstr "Sök efter produkter i samma kategori utan tillsatt socker:"
 
 msgctxt "per_100g"
 msgid "for 100 g"
-msgstr ""
+msgstr "för 100 g"
 
 msgctxt "per_100ml"
 msgid "for 100 ml"
-msgstr ""
+msgstr "för 100 ml"
 
 msgctxt "per_1l"
 msgid "for 1 L"
-msgstr ""
+msgstr "för 1 L"
 
 msgctxt "per_1kg"
 msgid "for 1 kg"
@@ -7767,20 +7795,20 @@ msgstr "per portion"
 # Product as sold
 msgctxt "preparation_as_sold"
 msgid "As sold"
-msgstr ""
+msgstr "Som den säljs"
 
 # Prepared product
 msgctxt "preparation_prepared"
 msgid "Prepared"
-msgstr ""
+msgstr "Tillagad"
 
 msgctxt "nutrition_data_exists_as_sold"
 msgid "Nutrition facts are specified for the product as sold:"
-msgstr ""
+msgstr "Näringsfakta anges för produkten i det skick den säljs:"
 
 msgctxt "nutrition_data_exists_prepared"
 msgid "Nutrition facts are specified for the prepared product:"
-msgstr ""
+msgstr "Näringsfakta anges för den tillagade produkten:"
 
 msgctxt "product_js_add_a_nutrient"
 msgid "Add a nutrient"
@@ -7824,7 +7852,7 @@ msgstr "Dessa preferenser baseras på Open Food Facts förståelse av ingrediens
 
 msgctxt "external_sources_empreinte_souffrance_name"
 msgid "Suffering Footprint"
-msgstr ""
+msgstr "Suffering Footprint"
 
 msgctxt "external_sources_empreinte_souffrance_description"
 msgid "Indicator of animal suffering computed by product"
@@ -7868,31 +7896,31 @@ msgstr "Rökning är mycket beroendeframkallande. Börja inte. Rökning dödar �
 
 msgctxt "reuse_card_title"
 msgid "Reuse"
-msgstr ""
+msgstr "Återanvändning"
 
 msgctxt "qfdmo_solutions_title"
 msgid "Circular economy solutions nearby"
-msgstr ""
+msgstr "Cirkulära lösningar i närheten"
 
 msgctxt "qfdmo_solutions_subtitle"
 msgid "Find places to repair, donate, sell or recycle"
-msgstr ""
+msgstr "Hitta ställen för reparation, donation, försäljning eller återvinning"
 
 msgctxt "qfdmo_solutions_description"
 msgid "If you're in France, you can find nearby solutions for this product to extend its life or dispose of it responsibly."
-msgstr ""
+msgstr "Om du är i Frankrike kan du hitta lokala lösningar för denna produkt för att förlänga dess livslängd eller kassera den på ett ansvarsfullt sätt."
 
 msgctxt "qfdmo_solutions_intro"
 msgid "Available solutions include:"
-msgstr ""
+msgstr "Tillgängliga lösningar inkluderar:"
 
 msgctxt "qfdmo_solution_repair"
 msgid "Repair"
-msgstr ""
+msgstr "Reparera"
 
 msgctxt "qfdmo_solution_repair_description"
 msgid "Find repair shops and services to fix your product instead of throwing it away"
-msgstr ""
+msgstr "Hitta reparationsverkstäder och tjänster som kan laga produkten i stället för att du slänger den"
 
 msgctxt "qfdmo_solution_donate"
 msgid "Donate"
@@ -7900,35 +7928,35 @@ msgstr "Donera"
 
 msgctxt "qfdmo_solution_donate_description"
 msgid "Give your product a second life by donating it to associations or people in need"
-msgstr ""
+msgstr "Ge din produkt ett andra liv genom att donera den till föreningar eller personer i behov"
 
 msgctxt "qfdmo_solution_sell"
 msgid "Sell or exchange"
-msgstr ""
+msgstr "Sälj eller byt"
 
 msgctxt "qfdmo_solution_sell_description"
 msgid "Sell or exchange your product on second-hand platforms"
-msgstr ""
+msgstr "Sälj eller byt din produkt på begagnatplattformar"
 
 msgctxt "qfdmo_solution_recycle"
 msgid "Recycle"
-msgstr "Återvinna"
+msgstr "Återvinn"
 
 msgctxt "qfdmo_solution_recycle_description"
 msgid "Find collection points for proper recycling when the product reaches end of life"
-msgstr ""
+msgstr "Hitta insamlingsställen för korrekt återvinning när produkten är uttjänt"
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
-msgstr ""
+msgstr "Använd Que Faire De Mes Objets (Frankrike) för att hitta lösningar nära dig:"
 
 msgctxt "qfdmo_solutions_find_nearby"
 msgid "Find solutions nearby on QFDMO"
-msgstr ""
+msgstr "Hitta lösningar i närheten på QFDMO"
 
 msgctxt "qfdmo_category"
 msgid "Product category"
-msgstr ""
+msgstr "Produktkategori"
 
 msgctxt "public_price"
 msgid "Public price"
@@ -7980,69 +8008,101 @@ msgstr "Konsekvenser har inte bedömts"
 
 msgctxt "detailed_data"
 msgid "Detailed data"
-msgstr ""
+msgstr "Detaljerade data"
 
 msgctxt "test_ingredients_analyze_form_description"
 msgid "You can use this form to analyze an ingredient list."
-msgstr ""
+msgstr "Du kan använda detta formulär för att analysera en ingredienslista."
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
-msgstr ""
+msgstr "Detta formulär är ett demonstrations- och testverktyg. För produktionsanvändning installerar du programvaran Recipe Estimator, som finns tillgänglig med öppen källkod på <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
 
 msgctxt "test_ingredients_taxonomy_mapping_description"
 msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
-msgstr ""
+msgstr "Ingredienserna kopplas till Open Food Facts ingredienstaxonomi, och deras mängder uppskattas med hjälp av olika algoritmer."
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
-msgstr ""
+msgstr "Ingredienstextens språk"
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
-msgstr ""
+msgstr "Ingredienstext"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "Välj en metod för att uppskatta ingrediensandelar:"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
-msgstr ""
+msgstr "använder en kombination av regler och heuristik, samt ett begränsat urval av näringsfakta och ingrediensbegränsningar"
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "1:a versionen (Glop) - använder näringsfakta för att bestämma mängden ingredienser"
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "2:a versionen (Scipy) - använder näringsfakta för att bestämma mängden ingredienser"
 
 msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
 msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "3:e versionen (CVXPY) - använder näringsfakta för att bestämma mängden ingredienser"
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
-msgstr ""
+msgstr "Näringsdeklaration"
 
 msgctxt "test_ingredients_parsing_estimates_and_analysis"
 msgid "Ingredients parsing and quantity estimation"
-msgstr ""
+msgstr "Tolkning av ingredienser och uppskattning av mängder"
 
 msgctxt "test_ingredients_percent_estimator"
 msgid "Ingredient percent estimator:"
-msgstr ""
+msgstr "Metod för att uppskatta ingrediensandelar:"
 
 msgctxt "test_ingredients_ecobalyse_experimental"
 msgid "Experimental: use the Ecobalyse API to estimate the environmental impact of the ingredients."
-msgstr ""
+msgstr "Experimentellt: använd Ecobalyse-API:et för att uppskatta ingrediensernas miljöpåverkan."
 
 msgctxt "test_ingredients_ecobalyse_request"
 msgid "Ecobalyse request"
-msgstr ""
+msgstr "Ecobalyse-förfrågan"
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
-msgstr ""
+msgstr "Ecobalyse-svar"
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr "Forest Footprint 2026"
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr "Forest Footprint 2026 är för närvarande under utveckling och visas endast för moderatorer i felsökningssyfte."
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr "Forest Footprint-betyg"
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Totalt skogsavtryck"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr "Huvudingrediensbetyg"
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr "Huvudingrediens"
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr "Skogsavtryck för ursprung"
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Etikett"
 

@@ -406,7 +406,7 @@ msgstr "APK Android"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_French.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -4990,7 +4990,7 @@ msgstr "Très faible impact environnemental"
 
 msgctxt "attribute_environmental_score_b_description_short"
 msgid "Low environmental impact"
-msgstr "Faible impact environnemental"
+msgstr "Impact environnemental faible"
 
 msgctxt "attribute_environmental_score_c_description_short"
 msgid "Moderate environmental impact"
@@ -7294,6 +7294,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Catégorie, étiquettes, ingrédients, allergènes, informations nutritionnelles, photos etc."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Catégorie, étiquettes, ingrédients, allergènes, informations nutritionnelles, photos etc."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Si les informations ne correspondent pas à celles figurant sur l'emballage, vous pouvez les compléter ou les corriger. Merci !"
@@ -7301,6 +7313,18 @@ msgstr "Si les informations ne correspondent pas à celles figurant sur l'emball
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts est une base de données collaborative, et chaque contribution est utile pour tous."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr "Open Products Facts est une base de données collaborative, et chaque contribution est utile à tous."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7629,6 +7653,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "En contact avec l'aliment"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "Au contact du produit"
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Contactez nous"
@@ -7644,7 +7672,7 @@ msgstr "Est-ce que {barcode} est le code-barres d'un produit que vous avez ? Si 
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-fr.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -8079,3 +8107,4 @@ msgstr "Empreinte forêt pour l'origine"
 msgctxt "forest_footprint_2026_label"
 msgid "Label"
 msgstr "Label"
+

@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.98.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.97.0...v2.98.0) (2026-07-15)
+
+
+### Features
+
+* enable unwanted ingredients attribute for OPF and OPFF ([#13933](https://github.com/openfoodfacts/openfoodfacts-server/issues/13933)) ([9a8f55b](https://github.com/openfoodfacts/openfoodfacts-server/commit/9a8f55b9d8dfae549b68e9e19e1d8cb165236cce)), closes [#13830](https://github.com/openfoodfacts/openfoodfacts-server/issues/13830)
+* generate JSON files for product statistics ([#13929](https://github.com/openfoodfacts/openfoodfacts-server/issues/13929)) ([ceb3a8e](https://github.com/openfoodfacts/openfoodfacts-server/commit/ceb3a8e71cc069a143fa8d1676d5ab0c629dea1d))
+
+
+### Bug Fixes
+
+* "Explore by" button to point directly to /facets URLs ([#13860](https://github.com/openfoodfacts/openfoodfacts-server/issues/13860)) ([2203e1e](https://github.com/openfoodfacts/openfoodfacts-server/commit/2203e1e08dbec8cc0bdc92d27a2f1b527aa3d4af))
+* coconut water does not count as fruit for Nutri-Score ([#13717](https://github.com/openfoodfacts/openfoodfacts-server/issues/13717)) ([53ed11a](https://github.com/openfoodfacts/openfoodfacts-server/commit/53ed11affad2ac887dce7d425aa6e0c41de84c3a))
+* CORS, allow credentials on any uri ([#14001](https://github.com/openfoodfacts/openfoodfacts-server/issues/14001)) ([dc02a93](https://github.com/openfoodfacts/openfoodfacts-server/commit/dc02a933c09cdbc85f83885613c2b763833cd802)), closes [#13943](https://github.com/openfoodfacts/openfoodfacts-server/issues/13943)
+* restore nginx expose ([#13942](https://github.com/openfoodfacts/openfoodfacts-server/issues/13942)) ([a079cc1](https://github.com/openfoodfacts/openfoodfacts-server/commit/a079cc1607d564789cf6c33219cef761432539b7))
+* show Wikidata weblinks on facet pages ([#13944](https://github.com/openfoodfacts/openfoodfacts-server/issues/13944)) ([8ca9ed7](https://github.com/openfoodfacts/openfoodfacts-server/commit/8ca9ed7a60b63571aaf80b75ca5cb1460dee5ff9)), closes [#13810](https://github.com/openfoodfacts/openfoodfacts-server/issues/13810)
+* staging exporter access to nginx status ([#13934](https://github.com/openfoodfacts/openfoodfacts-server/issues/13934)) ([637d630](https://github.com/openfoodfacts/openfoodfacts-server/commit/637d6302d1ce5cbae6334cc4d7b18898a2e2b958))
+
 ## [2.97.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.96.0...v2.97.0) (2026-07-06)
 
 

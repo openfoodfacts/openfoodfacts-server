@@ -91,7 +91,7 @@ msgstr "Antitranspirante Stress Protect"
 
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr "AQUA / ÁGUA, SULFATO DE LÍTIO DE SÓDIO, COCOAMPHODIACETATE DE DISÓDIO, GLICOL DISTEARADO, COCAMIDE MEA"
+msgstr "ÁGUA, LAURIL ÉTER SULFATO DE SÓDIO, COCOANFODIACETATO DISSÓDICO, DIESTEARATO DE GLICOL, COCAMIDA MEA"
 
 # OPF
 msgctxt "site_description_opf"
@@ -133,7 +133,7 @@ msgstr "Sabão líquido para roupas, Sabão em pó para roupas"
 
 msgctxt "emb_codes_example_product"
 msgid "EMB 67890"
-msgstr "EMB 67890"
+msgstr "EMB 678 90"
 
 msgctxt "generic_name_example_product"
 msgid "Laundry detergent"
@@ -182,7 +182,7 @@ msgstr "Ração seca para cães, ração úmida para gatos"
 
 msgctxt "emb_codes_example_petfood"
 msgid "EMB 12345"
-msgstr "EMB 12345"
+msgstr "EMB 123 45"
 
 msgctxt "ingredients_text_example_petfood"
 msgid "CHICKEN, CORN GLUTEN MEAL, WHOLE GRAIN CORN, ANIMAL FAT, SOYBEAN MEAL"
@@ -406,7 +406,7 @@ msgstr "APK Android"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Portuguese-Brazil.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -2244,7 +2244,7 @@ msgstr "equivalente em sal"
 
 msgctxt "save"
 msgid "Save"
-msgstr "Guardar"
+msgstr "Salvar"
 
 msgctxt "saved"
 msgid "Saved."
@@ -7289,6 +7289,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "Categoria, rótulos, ingredientes, alérgenos, informações nutricionais, fotos etc."
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "Categoria, rótulos, ingredientes, alérgenos, informações nutricionais, fotos etc."
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "Se as informações não corresponderem às informações da embalagem, você pode completá-las ou corrigi-las. Obrigado!"
@@ -7296,6 +7308,18 @@ msgstr "Se as informações não corresponderem às informações da embalagem, 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "O Open Food Facts é um banco de dados colaborativo e cada contribuição é útil para todos."
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7624,6 +7648,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "Em contato com alimentos"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr "Em contato com o produto"
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "Fale Conosco"
@@ -7639,7 +7667,7 @@ msgstr "{barcode} é o código de barras de um produto que você possui? Se sim,
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-pt-br.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7917,11 +7945,11 @@ msgstr "Encontre pontos de coleta para reciclagem adequada quando o produto cheg
 
 msgctxt "qfdmo_solutions_action"
 msgid "Use the Que Faire De Mes Objets (France) to find solutions near you:"
-msgstr ""
+msgstr "Use o Que Faire De Mes Objets (França) para encontrar soluções perto de você:"
 
 msgctxt "qfdmo_solutions_find_nearby"
 msgid "Find solutions nearby on QFDMO"
-msgstr ""
+msgstr "Encontre soluções próximas no QFDMO"
 
 msgctxt "qfdmo_category"
 msgid "Product category"
@@ -7985,15 +8013,15 @@ msgstr "Você pode usar este formulário para analisar uma lista de ingredientes
 
 msgctxt "test_ingredients_recipe_estimator_note"
 msgid "This form is a demonstrator and test tool. For production use, please install the Recipe Estimator software available as open source on <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
-msgstr ""
+msgstr "Este formulário é uma ferramenta de demonstração e teste. Para uso em produção, instale o software Recipe Estimator, disponível como código aberto no <a href=\"https://github.com/openfoodfacts/recipe-estimator\">https://github.com/openfoodfacts/recipe-estimator</a>"
 
 msgctxt "test_ingredients_taxonomy_mapping_description"
 msgid "Ingredients are mapped to the Open Food Facts ingredients taxonomy, and their quantity is estimated using different algorithms."
-msgstr ""
+msgstr "Os ingredientes são mapeados conforme a taxonomia de ingredientes do Open Food Facts, e sua quantidade é estimada usando diferentes algoritmos."
 
 msgctxt "test_ingredients_text_language"
 msgid "Ingredients text language"
-msgstr ""
+msgstr "Ingredientes em linguagem de texto"
 
 msgctxt "test_ingredients_text"
 msgid "Ingredients text"
@@ -8001,23 +8029,23 @@ msgstr "Lista de Ingredientes"
 
 msgctxt "test_ingredients_select_estimator"
 msgid "Select an ingredient percent estimator:"
-msgstr ""
+msgstr "Selecione um estimador de porcentagem de ingredientes:"
 
 msgctxt "test_ingredients_product_opener_description"
 msgid "uses a combination of rules and heuristics, and a limited set of nutrition facts and ingredients constraints"
-msgstr ""
+msgstr "utiliza uma combinação de regras e heurísticas, além de um conjunto limitado de informações nutricionais e restrições de ingredientes"
 
 msgctxt "test_ingredients_recipe_estimator_glop_description"
 msgid "1st version (Glop) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "1ª versão (Glop) - utiliza informações nutricionais para determinar a quantidade de ingredientes"
 
 msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "2ª versão (Scipy) - utiliza informações nutricionais para determinar a quantidade de ingredientes"
 
 msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
 msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
-msgstr ""
+msgstr "3ª versão (CVXPY) - utiliza informações nutricionais para determinar a quantidade de ingredientes"
 
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
@@ -8037,9 +8065,41 @@ msgstr "Experimental: use a API Ecobalyse para estimar o impacto ambiental dos i
 
 msgctxt "test_ingredients_ecobalyse_request"
 msgid "Ecobalyse request"
-msgstr ""
+msgstr "solicitação para a Ecobalyse"
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
-msgstr ""
+msgstr "resposta da Ecobalyse"
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr "Pegada Florestal 2026"
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr "A projeção da pegada florestal para 2026 está atualmente em desenvolvimento e é mostrada aos moderadores somente para fins de depuração."
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr "Classificação da Pegada Florestal"
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Pegada florestal total"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr "Grade de ingredientes primários"
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr "Ingrediente primário"
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr "Impacto florestal da origem"
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Rótulo"
 

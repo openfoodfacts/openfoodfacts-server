@@ -406,7 +406,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Japanese.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -3092,7 +3092,7 @@ msgstr "%d 製品 %s"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_no"
 msgid "The European Food Safety Authority (EFSA) has determined that no population groups has more than 5% of members at risk of consuming more than the acceptable daily intake of <tag>."
-msgstr "欧州食品安全局 (EFSA) は、1日の許容摂取量である <tag> を超えて消費するリスクのあるメンバーが5％を超える人口グループは存在しないと判断しました。"
+msgstr "欧州食品安全局 (EFSA) は、1日の許容摂取量である <tag> を超えて摂取するリスクのあるメンバーが5％を超える人口グループは存在しないと判断しました。"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
@@ -4104,7 +4104,7 @@ msgstr "タンパク質のポイントは、製品がチーズのカテゴリー
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr "製品は脂肪カテゴリにあり、飽和脂肪分のポイントは飽和脂肪/脂肪比のポイントに置き換えられます。"
+msgstr "製品は脂肪カテゴリにあり、飽和脂肪酸分のポイントは飽和脂肪酸/脂肪比のポイントに置き換えられます。"
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -4120,7 +4120,7 @@ msgstr "飽和脂肪酸"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr "飽和脂肪/脂肪比"
+msgstr "飽和脂肪酸/脂肪比"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -4847,7 +4847,7 @@ msgstr "脂質レベルはNutri-Scoreで考慮されています。この設定�
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "飽和脂肪レベルはNutri-Scoreで考慮されています。この設定は、低飽和脂肪ダイエットをしている場合にのみ使用してください。"
+msgstr "飽和脂肪酸レベルはNutri-Scoreで考慮されています。この設定は、低飽和脂肪酸ダイエットをしている場合にのみ使用してください。"
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -6657,11 +6657,11 @@ msgstr "高血圧の人の多くは、症状がないことが多いので、そ
 
 msgctxt "nutrient_info_salt_high_consumption"
 msgid "Most people consume too much salt (on average 9 to 12 grams per day), around twice the recommended maximum level of intake."
-msgstr "ほとんどの人は塩分を過剰に消費し（平均して1日あたり9〜12グラム）、推奨される最大摂取量の約2倍です。"
+msgstr "ほとんどの人は塩分を過剰に摂取し（平均して1日あたり9〜12グラム）、推奨される最大摂取量の約2倍です。"
 
 msgctxt "nutrient_recommendation_salt_title"
 msgid "Limit the consumption of salt and salted food"
-msgstr "塩と塩が含まれている食品の消費を制限する"
+msgstr "塩と塩が含まれている食品の摂取を制限する"
 
 msgctxt "nutrient_recommendation_salt_cooking_and_table"
 msgid "Reduce the quantity of salt used when cooking, and don't salt again at the table."
@@ -6669,15 +6669,15 @@ msgstr "調理時に使用する塩の量を減らし、テーブルで再び塩
 
 msgctxt "nutrient_recommendation_salt_limit_salty_snacks"
 msgid "Limit the consumption of salty snacks and choose products with lower salt content."
-msgstr "塩味のあるスナックの消費を制限し、塩分が少ない製品を選択してください。"
+msgstr "塩味のあるスナックの摂取を制限し、塩分が少ない製品を選択してください。"
 
 msgctxt "nutrient_info_sugars_risk"
 msgid "A high consumption of sugar can cause weight gain and tooth decay. It also augments the risk of type 2 diabetes and cardio-vascular diseases."
-msgstr "砂糖の大量消費は、体重増加や虫歯を引き起こす可能性があります。また、2型糖尿病や心血管疾患のリスクを高めます。"
+msgstr "砂糖の大量摂取は、体重増加や虫歯を引き起こす可能性があります。また、2型糖尿病や心血管疾患のリスクを高めます。"
 
 msgctxt "nutrient_recommendation_sugars_title"
 msgid "Limit the consumption of sugar and sugary drinks"
-msgstr "砂糖と甘い飲み物の消費を制限する"
+msgstr "砂糖と甘い飲み物の摂取を制限する"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
@@ -6685,19 +6685,19 @@ msgstr "甘い飲み物（ソーダ、フルーツ飲料、フルーツジュー
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
-msgstr "糖度の低い製品を選び、糖分を加えた製品の消費を減らします。"
+msgstr "糖度の低い製品を選び、糖分を加えた製品の摂取を減らします。"
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+msgstr "脂肪、特に飽和脂肪酸を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr "脂肪と飽和脂肪の消費を減らしましょう"
+msgstr "脂肪と飽和脂肪酸の摂取を減らしましょう"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr "低脂肪および飽和脂肪含有量の製品を選択してください。"
+msgstr "低脂肪および飽和脂肪酸含有量の製品を選択してください。"
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -7014,7 +7014,7 @@ msgstr "糖質は炭水化物より高くてはなりません。"
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr "飽和脂肪は脂肪よりも高くてはいけません。"
+msgstr "飽和脂肪酸は脂肪よりも高くてはいけません。"
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -7090,7 +7090,7 @@ msgstr "エネルギー"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
-msgstr "飽和脂肪からのエネルギー"
+msgstr "飽和脂肪酸からのエネルギー"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
@@ -7102,7 +7102,7 @@ msgstr "飽和脂肪酸"
 
 msgctxt "nutriscore_component_saturated_fat_ratio"
 msgid "Saturated fat / fat"
-msgstr "飽和脂肪/脂肪"
+msgstr "飽和脂肪酸/脂肪"
 
 msgctxt "nutriscore_component_salt"
 msgid "Salt"
@@ -7190,7 +7190,7 @@ msgstr "ニュートリスコアは、製品の総合的な栄養品質を示す
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr "A から E までのスコアは、摂取すべき栄養素と食品（タンパク質、繊維、果物、野菜、豆類など）と制限すべき栄養素（カロリー、飽和脂肪、糖分、塩分）に基づいて計算されます。"
+msgstr "A から E までのスコアは、摂取すべき栄養素と食品（タンパク質、繊維、果物、野菜、豆類など）と制限すべき栄養素（カロリー、飽和脂肪酸、糖分、塩分）に基づいて計算されます。"
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
@@ -7210,15 +7210,15 @@ msgstr "エネルギー必要量を超えるエネルギー摂取は、体重増
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+msgstr "脂肪、特に飽和脂肪酸を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
 
 msgctxt "nutrient_info_saturated_fat_ratio_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+msgstr "脂肪、特に飽和脂肪酸を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
 
 msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "脂肪、特に飽和脂肪を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
+msgstr "脂肪、特に飽和脂肪酸を大量に摂取するとコレステロールが上昇し、心臓病のリスクが高まります。"
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
@@ -7290,6 +7290,18 @@ msgctxt "incomplete_or_incorrect_data_subtitle_off"
 msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
 msgstr "カテゴリー、ラベル、原材料、アレルゲン、栄養情報、写真など。"
 
+msgctxt "incomplete_or_incorrect_data_subtitle_obf"
+msgid "Category, labels, ingredients, allergens, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opf"
+msgid "Category, labels, ingredients, product characteristics, photos etc."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_subtitle_opff"
+msgid "Category, labels, ingredients, allergens, nutritional information, photos etc."
+msgstr "カテゴリー、ラベル、原材料、アレルゲン、栄養情報、写真など。"
+
 msgctxt "incomplete_or_incorrect_data_content_correct"
 msgid "If the information does not match the information on the packaging, you can complete or correct it. Thank you!"
 msgstr "情報がパッケージの情報と一致しない場合は、ご記入または修正いただけます。ありがとうございます！"
@@ -7297,6 +7309,18 @@ msgstr "情報がパッケージの情報と一致しない場合は、ご記入
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
 msgstr "Open Food Facts は共同データベースであり、すべての貢献はすべての人に役立ちます。"
+
+msgctxt "incomplete_or_incorrect_data_content_correct_obf"
+msgid "Open Beauty Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opf"
+msgid "Open Products Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
+
+msgctxt "incomplete_or_incorrect_data_content_correct_opff"
+msgid "Open Pet Food Facts is a collaborative database, and every contribution is useful for all."
+msgstr ""
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."
@@ -7625,6 +7649,10 @@ msgctxt "in_contact_with_food"
 msgid "In contact with food"
 msgstr "食品との接触"
 
+msgctxt "in_contact_with_the_product"
+msgid "In contact with the product"
+msgstr ""
+
 msgctxt "contact_us_producers"
 msgid "Contact Us"
 msgstr "お問い合わせ"
@@ -7640,7 +7668,7 @@ msgstr "{barcode} はお持ちの商品のバーコードですか？もしそ�
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-ja.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -8043,4 +8071,36 @@ msgstr ""
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "総森林フットプリント"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "ラベル"
 
