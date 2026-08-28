@@ -23606,6 +23606,14 @@ fr: grains de blé
 hr: zrno pšenice
 sv: vetekorn
 
+< en: wheat grain
+en: whole wheat kernels
+da: fuldkornshvedekerner
+sv: fullkornskärnor av vete
+description:en: Whole wheat grain (Triticum aestivum) is the raw, unprocessed wheat kernel — bran, germ, and endosperm all intact, unmilled. Cultivated for over 8,000 years since its Fertile Crescent origins, it's the source grain from which both atta and maida are later produced. Raw, it has a hard, chewy texture with an earthy, nutty taste; when cracked (dalia) or sprouted, it becomes softer and slightly sweet. Used for porridge, khichdi, upma, sprouted salads, or ground fresh into atta. Nutritionally, it's the most nutrient-dense wheat form — highest in fiber, iron, zinc, magnesium, and B-vitamins, since nothing has been removed.
+ifct_food_code:en: A020
+ifct_food_name:en: Wheat, whole
+
 < en: wheat
 en: wheat grit
 sv: vetegrits
@@ -24353,7 +24361,7 @@ usda_ndb_name:en: Semolina, enriched
 
 < en: semolina
 < en: wheat
-en: wheat semolina, Suji, Sooji
+en: wheat semolina, Suji, Sooji, rava
 ar: سميد
 bg: пшеничен грис
 ca: semola de blat
@@ -24376,16 +24384,17 @@ carbon_footprint_fr_foodges_value:fr: 0.6
 ciqual_proxy_food_code:en: 9610
 ciqual_proxy_food_name:en: Durum wheat semolina, raw
 ciqual_proxy_food_name:fr: Semoule de blé dur, crue
+description:en: Suji (semolina) is a coarsely milled wheat product, made by grinding the hard endosperm of wheat (often durum wheat) into granular particles, with bran and germ largely removed — similar refinement to maida but coarser in texture. Used across the Mediterranean and South Asia for centuries, it has a mild, slightly nutty taste and a distinctive grainy, granular texture that gives dishes a light, fluffy bite. Used for upma, sheera/halwa, dosa batter, idli, pasta, and as a coating for frying. Nutritionally, it's calorie-dense with moderate protein, but low in fiber like maida, retaining few micronutrients from the removed bran and germ.
+ifct_food_code:en: A022
+ifct_food_name:en: Wheat, semolinaA. Suji
 wikidata:en: Q381350
 wikipedia:en: https://en.wikipedia.org/wiki/Semolina
-#980 @2021-09-28
 
 #comment:en:This is in many languages synonym of en:wheat semolina
 < en: wheat semolina
 fr: semoule de blé tendre
 it: granito di grano tenero
 nl: zachte tarwegriesmeel
-# 22 in 1 language @2021-09-28
 
 < en: semolina
 en: semolina blend
@@ -24472,7 +24481,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Couscous
 ##################################################################################
 
 < en: durum wheat
-en: bulgur, bulgur wheat
+en: bulgur, bulgur wheat, bulgar
 xx: bulgur
 ar: برغل
 az: bulqur
@@ -24508,7 +24517,9 @@ zh: 布格麦
 ciqual_food_code:en: 9690
 ciqual_food_name:en: Wheat bulgur, raw
 ciqual_food_name:fr: Boulgour de blé, cru
-description:en: BULGUR is a cereal food made from the parboiled groats of several different wheat species, most often from durum wheat.
+description:en: Bulgur is a parboiled wheat product made by steaming or boiling whole wheat kernels, drying them, then cracking them into coarse or fine granules. Originating in the Middle East/Mediterranean region thousands of years ago (a staple in Levantine and Turkish cuisine), it retains the bran and germ since it's made from whole wheat. It has a mild, nutty, slightly toasty taste and a light, fluffy texture once rehydrated. Used in tabbouleh, pilafs, soups, and as a quick-cooking rice substitute. Nutritionally, it's high in fiber and protein, with more iron, magnesium, and B-vitamins retained than refined flour, and a moderate glycemic index.
+ifct_food_code:en: A021
+ifct_food_name:en: Wheat, bulgar
 usda_ndb_code:en: 20012
 usda_ndb_name:en: Bulgur, dry
 wikidata:en: Q250432
@@ -27426,6 +27437,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Farine de blé
 carbon_footprint_fr_foodges_value:fr: 1.2
 ciqual_proxy_food_code:en: 9410
 ciqual_proxy_food_name:fr: Farine de blé tendre ou froment T110
+comment:en: IFCT classifies by processing description, while the French system is a legally defined ash-content standard — so the mapping is functional/nutritional rather than an exact technical equivalence.
 description:en: Wheat flour comes from wheat, one of the world's oldest cultivated grains, first domesticated in the Fertile Crescent around 10,000 years ago and now the dominant grain in global bread-making, especially in Europe, the Middle East, and the Americas. It has a mild, slightly sweet, neutral flavor with a texture that ranges from soft and fine (cake flour) to coarse and hearty (whole wheat), largely defined by its protein and gluten content, which gives dough its characteristic elasticity and chew. Wheat flour contains gluten and, depending on whether it's whole grain or refined, provides varying levels of fiber, B vitamins, iron, and protein—whole wheat retaining significantly more nutrients since the bran and germ aren't stripped away.
 ecobalyse_proxy:en: a2e25aca-1f42-4bc8-bc0e-4d7c751775aa
 ecobalyse_proxy_labels_en_organic:en: db791ac8-02b9-41b0-bc2b-2913e745bd19
@@ -27476,6 +27488,13 @@ sv: karamelliserat vetemaltmjöl
 bg: пшенично брашно тип 450
 fr: farine de blé type 45, farine de blé t45
 pl: mąka pszenna typ 450, mąka pszenna 450, mąka pszenna tortowa typ 450, mąka pszenna tortowa
+
+< en: wheat flour
+en: maida
+comment:en: In France, "Wheat, flour, refined" (maida) corresponds most closely to farine de blé type 45 (T45), and to a lesser extent type 55 (T55).
+description:en: Maida is a highly refined wheat flour, milled from Triticum aestivum after the bran and germ are removed, leaving mostly starchy endosperm — a process that became widespread in India with industrial roller-milling. It has a mild, slightly sweet, neutral taste, making it a versatile base that readily takes on other flavors. Maida is used for naan, bhatura, puri, pastries, cakes, biscuits, and samosa wrappers, prized for its soft, elastic texture. Nutritionally, it's calorie-dense (~348 kcal/100g) but low in fiber and micronutrients (iron, zinc, B-vitamins), with a high glycemic index compared to whole wheat flour.
+ifct_food_code:en: A018
+ifct_food_name:en: Wheat, flour, refined
 
 < en: wheat flour
 fr: farine de blé type 55, farine de blé t55
@@ -27752,6 +27771,13 @@ it: farina di grano tenero tipo 150
 ciqual_food_code:en: 9415
 ciqual_food_name:en: Wheat flour, type 150
 ciqual_food_name:fr: Farine de blé tendre ou froment T150
+
+< en: wheat flour
+en: atta
+comment:en: Indian atta (whole wheat flour, IFCT A013) would map to T150 ("farine intégrale") or sometimes T110, since these retain most or all of the bran and germ.
+description:en: Atta is whole wheat flour, stone-ground or milled from Triticum aestivum using the entire grain — bran, germ, and endosperm intact. This traditional chakki-milling method has been used across South Asia for centuries, predating industrial refining. Atta has a warm, nutty, slightly earthy taste with a denser, coarser texture than refined flour. It's the staple for everyday Indian breads — roti, chapati, paratha — and is also used in some baked goods. Nutritionally, it's rich in fiber, iron, magnesium, and B-vitamins (retained from the bran and germ), with a lower glycemic index than maida, making it more filling and slower-digesting.
+ifct_food_code:en: A019
+ifct_food_name:en: Wheat flour, atta
 
 < en: soft wheat flour
 en: Wheat flour type 110
@@ -61545,7 +61571,7 @@ fr: haricots blancs précuits
 fr: haricots blancs réhydratés
 
 < en: pulse
-en: black bean, black beans
+en: black bean, black beans, black field beans
 bg: черен боб
 da: sorte bønner
 de: schwarze Bohnen, Bohnen schwarz
@@ -61559,6 +61585,7 @@ nl: Zwarte bonen
 pl: fasola czarna, fasoli czarnej
 pt: Feijão preto
 sv: svarta bönor
+definition:en: Black field beans (Vicia faba) are a small, dark-seeded variety of the broad/fava bean family, traditionally grown across Europe and the UK as a hardy field crop suited to cooler climates. They have a rich, earthy, slightly sweet flavor with a dense, starchy texture. Commonly used in soups, stews, and traditional dishes, they're also valued in sustainable farming as a nitrogen-fixing rotation crop and livestock feed. Nutritionally, they're an excellent source of plant protein and fiber, along with iron, folate, and B vitamins, making them a hearty, economical addition to plant-based diets.
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.40
 
@@ -61644,13 +61671,29 @@ wikidata:en: Q74663825
 ###################################################################################################
 #
 #
+#                        Horse gram
+#
+#
+###################################################################################################
+
+< en: pulse
+en: horse gram, kulthi
+la: Macrotyloma uniflorum
+description:en: Native to South Asia, horse gram is an ancient, drought-resistant legume long cultivated across India, Nepal, and parts of Africa and Southeast Asia, where it's also used as livestock fodder. Small, flattish, and reddish-brown, it has a robust, earthy, slightly nutty flavor with a firm bite. Traditionally simmered into soups, stews, and sprouted dishes, or ground into flour, it's especially prized in South Indian cuisine (like kulith usal). Nutritionally, it stands out among pulses for its exceptional protein, iron, and calcium content, along with dietary fiber, making it a valued, if underappreciated, global superfood.
+ifct_food_code:en: B012
+ifct_food_name:en: Horse gram, whole
+ifct_food_process:en: en:dried
+
+###################################################################################################
+#
+#
 #                        Mung bean
 #
 #
 ###################################################################################################
 
 < en: pulse
-en: mung bean, mungbean, Mung dal, Moong dal
+en: mung bean, mungbean, Mung dal, Moong dal, green gram
 ar: بقلة الماش
 bg: птичи боб, бебриджа
 bn: মুগ
@@ -61722,8 +61765,11 @@ zh: 綠豆
 ciqual_proxy_food_code:en: 20530
 ciqual_proxy_food_name:en: Beans, mung, mature, seeds, dried
 ciqual_proxy_food_process:en: en:dried
+description:en: Green gram, whole (Vigna radiata), commonly known as mung bean or moong, originated in the Indian subcontinent and spread across Asia and beyond through centuries of trade and cultivation. Sold whole with its green skin intact, it has a mild, slightly sweet, earthy flavor and a firm texture that softens on cooking. It's used worldwide in soups, stews, curries, salads, and sprouts, and is especially popular in Asian cuisines from India to China and Southeast Asia. Nutritionally, it's rich in plant protein, dietary fiber, folate, potassium, and magnesium, making it a light, easily digestible legume valued globally for everyday and health-focused diets.
 eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.38
+ifct_food_code:en: B011
+ifct_food_name:en: Green gram, whole
 usda_ndb_code:en: 16080
 usda_ndb_name:en: Mung beans, mature seeds, raw
 usda_ndb_process:en: en:dried
@@ -61780,13 +61826,18 @@ wikidata:en: Q7635866
 #
 ###################################################################################################
 
-< en: legume
+< en: pulse
 en: black gram, urd bean, urd, Urad bean, Mungo bean, Black matpe bean, Urad Dal
 fr: haricot urd, haricots urd, urd, haricot mungio à grain noir
 hr: crni gram
 it: grammo nero
 la: vigna mungo, Phaseolus mungo
 # eurocode_2_group_3:en: 7.10.42
+ifct_food_2_code:en: B004
+ifct_food_2_name:en: Black gram, whole
+ifct_food_code:en: B003
+ifct_food_name:en: Black gram, dal
+ifct_food_process:en: en:husked, en:split
 usda_ndb_code:en: 16083
 usda_ndb_name:en: Mungo beans, mature seeds, raw
 usda_ndb_process:en: en:dried
@@ -61835,6 +61886,14 @@ eurocode_2_group_3:en: 7.10.46
 # pnb:لوبیا
 wikidata:en: Q3246973
 wikipedia:en: https://en.wikipedia.org/wiki/Black-eyed_pea
+
+###################################################################################################
+#
+#
+#                        Brown bean
+#
+#
+###################################################################################################
 
 < en: pulse
 en: brown beans
@@ -61889,12 +61948,31 @@ nl: extra fijne groene flageolets
 ###################################################################################################
 
 < en: pulse
-en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans
+en: hyacinth bean, lablab beans, dolichos beans, Egyptian beans, safed val, sem
 la: Lablab purpureus
+comment:en: Note the IFCT name is confusing.
 description:en: Hyacinth beans (Lablab purpureus, also called lablab beans, dolichos beans, or Egyptian beans) are a fast-growing climbing vine grown both as an ornamental plant and a food crop. The young, immature pods can be cooked and eaten like green beans. However, the mature beans and pods contain cyanogenic glycosides and must be thoroughly cooked (usually boiled with water changes) before eating — they're toxic raw or undercooked. In parts of Africa and Asia, they're a significant food crop and protein source when properly prepared.
 usda_ndb_code:en: 16067
 usda_ndb_name:en: Hyacinth beans, mature seeds, raw
 usda_ndb_process:en: en:dried
+
+< en: hyacinth bean
+en: white hyacinth bean, white field bean
+ifct_food_code:en: B009
+ifct_food_name:en: Field bean, white
+ifct_food_process:en: en:dried
+
+< en: hyacinth bean
+en: brown hyacinth bean, brown field bean
+ifct_food_code:en: B008
+ifct_food_name:en: Field bean, brown
+ifct_food_process:en: en:dried
+
+< en: hyacinth bean
+en: black hyacinth bean, black field bean
+ifct_food_code:en: B007
+ifct_food_name:en: Field bean, black
+ifct_food_process:en: en:dried
 
 ###################################################################################################
 #
@@ -62301,7 +62379,7 @@ ja: ササゲ
 jv: Polong sapi
 ka: ძაძა
 ko: 동부 (식물)
-la: vigna unguiculata
+la: vigna unguiculata, Vigna catjang
 mg: Voanemba
 ml: വൻപയർ
 ne: बोडी
@@ -62322,9 +62400,22 @@ tr: Börülce
 uk: Вігна китайська
 vi: Đậu dải
 zh: 豇豆
+description:en: Cowpeas (Vigna unguiculata), also known as black-eyed peas or southern peas, originated in West Africa thousands of years ago before spreading to the Mediterranean, Asia, and the Americas via trade and slavery routes. They have an earthy, mildly nutty flavor with a creamy texture once cooked. Versatile in the kitchen, they're used in stews, salads, fritters (like akara), rice dishes (such as Hoppin' John), and purees. Nutritionally, cowpeas are a powerhouse: high in plant-based protein and fiber, rich in folate, iron, magnesium, and potassium, and naturally low in fat—making them a staple for heart-healthy, budget-friendly diets worldwide.
 usda_ndb_code:en: 11191
 usda_ndb_name:en: Cowpeas (blackeyes), immature seeds, raw
 wikidata:en: Q498940
+
+< en: cowpea
+< en: pulse
+en: brown cowpea
+ifct_food_code:en: B005
+ifct_food_name:en: Cowpea, brown
+
+< en: cowpea
+< en: pulse
+en: white cowpea
+ifct_food_code:en: B006
+ifct_food_name:en: Cowpea, white
 
 # description:en:The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Fresh peas are often eaten boiled and flavored with butter and/or spearmint as a side dish vegetable. Peas are usually boiled or steamed, which breaks down the cell walls and makes the taste sweeter and the nutrients more bioavailable.
 # comment:en:The wikidata translations are not clear between seed name, plant name and latin name.
@@ -62505,7 +62596,7 @@ usda_ndb_name:en: Pigeonpeas, immature seeds, raw
 # chickpea parent is NOT pea
 
 < en: legume
-en: chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas, Split Bengal gram, Chana dal
+en: chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas
 af: kekerertjie
 am: ሽምብራ
 ar: حمص شائع
@@ -62608,7 +62699,7 @@ carbon_footprint_fr_foodges_ingredient:fr: Pois surgelés
 carbon_footprint_fr_foodges_value:fr: 1.5
 ciqual_food_code:en: 20532
 ciqual_food_name:fr: Pois chiche, appertisé, égoutté
-description:en: The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
+description:en: Chickpeas (Cicer arietinum), also known as garbanzo beans, are one of the world's oldest cultivated legumes, originating in the Middle East over 7,000 years ago and now grown widely across the Mediterranean, India, and the Americas. They have a mild, slightly nutty, earthy flavor with a firm yet creamy texture once cooked, making them extremely versatile in the kitchen. Chickpeas star in dishes like hummus, falafel, curries, soups, salads, and roasted snacks, and can be ground into flour for flatbreads and fritters. Nutritionally, they're a powerhouse: rich in plant-based protein, fiber, complex carbohydrates, iron, folate, and manganese, while being naturally low in fat. Their high fiber and protein content supports digestion, blood sugar stability, and satiety, making chickpeas a staple for vegetarian, vegan, and heart-healthy diets worldwide.
 ecobalyse:en: chickpea-fr
 ecobalyse_labels_en_organic:en: chickpea-organic
 # eurocode_2_group_3:en: 7.10.15
@@ -62669,7 +62760,7 @@ pl: namoczona ciecierzyca
 
 < en: chickpea
 < en: pulse
-en: dried chickpea
+en: dried chickpea, Bengal gram
 cs: sušená cizrna
 fr: pois chiche secs
 hr: sušeni slanutak
@@ -62677,8 +62768,14 @@ it: ceci secchi
 ciqual_food_code:en: 20516
 ciqual_food_name:en: Chick pea, dried
 ciqual_food_name:fr: Pois chiche, sec
+comment:en: In food composition tables like IFCT, "dal" refers to the raw, dried, split legume itself.
 eurocode_2_group_2:en: 7.10
 eurocode_2_group_3:en: 7.10.15
+ifct_food_2_code:en: B002
+ifct_food_2_name:en: Bengal gram, whole
+ifct_food_code:en: B001
+ifct_food_name:en: Bengal gram, dal
+ifct_food_process:en: en:split, en:dehusked
 #204 @2021-10-15
 
 < en: chickpea
@@ -63101,10 +63198,12 @@ ciqual_proxy_food_code:en: 20504
 ciqual_proxy_food_name:en: Lentil, dried
 ciqual_proxy_food_name:fr: Lentille, sèche
 comment:en: The wikidata entry is more about the plant, so translations can be wrong.
-description:en: The lentil (Lens culinaris or Lens esculenta) is an edible legume. Lentils are consumed in many ways. They can be eaten soaked, germinated, boiled, fried and baked.
+description:en: Originating in the Fertile Crescent over 8,000 years ago, lentils spread across the Mediterranean, Middle East, South Asia, and beyond, becoming a dietary cornerstone worldwide. Known as "dal" in South Asia, they come in many varieties—red, green, brown, black, yellow—each with subtly different flavor, from mild and sweet to earthy. Quick-cooking and hulling-friendly, lentils are simmered into soups, stews, curries, and purées across cuisines, from Indian dal tadka to French lentille du Puy salads and Middle Eastern mujadara. Nutritionally, they're a powerhouse of plant protein, fiber, iron, and folate, making them a global staple for sustainable, affordable nutrition.
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
 eurocode_2_group_2:en: 8.45
+ifct_food_code:en: B013
+ifct_food_name:en: Lentil, dal
 rare_crop:en: yes
 usda_ndb_proxy_code:en: 16069
 usda_ndb_proxy_name:en: Lentils, raw
@@ -63213,6 +63312,8 @@ fr: lentilles vertes précuites
 en: yellow lentils
 fr: lentilles jaunes
 hu: sárga lencse
+ifct_food_code:en: B015
+ifct_food_name:en: Lentil whole, yellowish
 
 < en: lentils
 en: red lentils
@@ -63287,6 +63388,8 @@ hr: smeđa leća
 hu: barna lencse
 it: lenticchie marroni
 pl: soczewica brązowa
+ifct_food_code:en: B014
+ifct_food_name:en: Lentil whole, brown
 
 < en: red lentils
 en: red lentil flour
@@ -92215,6 +92318,14 @@ nl: vermicelli
 pl: vermicelli
 uk: вермішель
 # vermicelli (mungbonenzetmeel, maïszetmeel)
+
+< en: vermicelli
+< en: wheat flour
+en: wheat vermicelli, seviyan
+comment:en: Typical ingredients: Wheat flour — usually refined flour (maida) or semolina (suji/durum wheat), sometimes a blend; Water — to form the dough. However some commericial variants are compound.
+description:en: Vermicelli (seviyan) is a thin, thread-like noodle made by extruding wheat dough — typically from refined flour or semolina — through fine dies, then drying (and often lightly roasting). Popular across South Asia and the Middle East, it has a mild, neutral-to-toasty taste depending on roasting, with a delicate, springy texture once cooked. Used in sweet dishes like seviyan kheer, and savory preparations like vermicelli upma. Nutritionally, it resembles maida — calorie-dense, low in fiber and micronutrients — though roasting doesn't significantly change its core nutrient profile.
+ifct_food_code:en: A023
+ifct_food_name:en: Wheat, vermicelli
 
 < en: vermicelli
 fr: vermicelles cuits
