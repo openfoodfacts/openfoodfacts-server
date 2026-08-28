@@ -410,7 +410,31 @@
                "unit" : "% vol",
                "value" : 0
             },
+            "alpha-linolenic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.1032
+            },
+            "arachidonic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
             "beta-carotene" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "butyric-acid" : {
                "modifier" : "~",
                "source" : "estimate",
                "source_index" : 1,
@@ -425,6 +449,30 @@
                "source_per" : "100g",
                "unit" : "g",
                "value" : 0.0241596
+            },
+            "capric-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "caproic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "caprylic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
             },
             "carbohydrates" : {
                "modifier" : "~",
@@ -450,6 +498,30 @@
                "unit" : "g",
                "value" : 8.604e-05
             },
+            "crude-ash" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "%",
+               "value" : 0.4752
+            },
+            "docosahexaenoic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
+            "eicosapentaenoic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0
+            },
             "energy" : {
                "source" : "packaging",
                "source_index" : 0,
@@ -464,7 +536,7 @@
                "source_per" : "100g",
                "unit" : "kcal",
                "value" : 0,
-               "value_computed" : 22.56
+               "value_computed" : 33.536
             },
             "energy-kj" : {
                "source" : "packaging",
@@ -551,6 +623,22 @@
                "unit" : "g",
                "value" : 0
             },
+            "lauric-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.00136
+            },
+            "linoleic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.7232
+            },
             "magnesium" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -575,13 +663,45 @@
                "unit" : "g",
                "value" : 0.0001815544
             },
+            "monounsaturated-fat" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.3528
+            },
+            "myristic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.0036
+            },
+            "oleic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.348
+            },
+            "palmitic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.1544
+            },
             "pantothenic-acid" : {
                "modifier" : "~",
                "source" : "estimate",
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0
+               "value" : 0.0001088
             },
             "phosphorus" : {
                "modifier" : "~",
@@ -605,7 +725,15 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0
+               "value" : 0.04
+            },
+            "polyunsaturated-fat" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.864
             },
             "potassium" : {
                "modifier" : "~",
@@ -660,6 +788,14 @@
                "unit" : "g",
                "value" : 0.984
             },
+            "stearic-acid" : {
+               "modifier" : "~",
+               "source" : "estimate",
+               "source_index" : 1,
+               "source_per" : "100g",
+               "unit" : "g",
+               "value" : 0.056
+            },
             "sucrose" : {
                "modifier" : "~",
                "source" : "estimate",
@@ -689,7 +825,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0
+               "value" : 6.96e-05
             },
             "vitamin-b12" : {
                "modifier" : "~",
@@ -705,7 +841,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0
+               "value" : 6.96e-05
             },
             "vitamin-b6" : {
                "modifier" : "~",
@@ -753,7 +889,7 @@
                "source_index" : 1,
                "source_per" : "100g",
                "unit" : "g",
-               "value" : 0
+               "value" : 0.0001296
             },
             "water" : {
                "modifier" : "~",
@@ -831,7 +967,25 @@
                   "value" : 0,
                   "value_string" : "0"
                },
+               "alpha-linolenic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.1032,
+                  "value_string" : "0.1032"
+               },
+               "arachidonic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
                "beta-carotene" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "butyric-acid" : {
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0,
@@ -842,6 +996,24 @@
                   "unit" : "g",
                   "value" : 0.0241596,
                   "value_string" : "0.0241596"
+               },
+               "capric-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "caproic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "caprylic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
                },
                "carbohydrates" : {
                   "modifier" : "~",
@@ -861,6 +1033,24 @@
                   "value" : 8.604e-05,
                   "value_string" : "8.604e-05"
                },
+               "crude-ash" : {
+                  "modifier" : "~",
+                  "unit" : "%",
+                  "value" : 0.4752,
+                  "value_string" : "0.4752"
+               },
+               "docosahexaenoic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
+               "eicosapentaenoic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0,
+                  "value_string" : "0"
+               },
                "energy" : {
                   "modifier" : "~",
                   "unit" : "kJ",
@@ -871,14 +1061,14 @@
                   "modifier" : "~",
                   "unit" : "kcal",
                   "value" : 0,
-                  "value_computed" : 22.56,
+                  "value_computed" : 33.536,
                   "value_string" : "0"
                },
                "energy-kj" : {
                   "modifier" : "~",
                   "unit" : "kJ",
                   "value" : 0,
-                  "value_computed" : 93.44,
+                  "value_computed" : 140.08,
                   "value_string" : "0"
                },
                "fat" : {
@@ -941,6 +1131,18 @@
                   "value" : 0,
                   "value_string" : "0"
                },
+               "lauric-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.00136,
+                  "value_string" : "0.00136"
+               },
+               "linoleic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.7232,
+                  "value_string" : "0.7232"
+               },
                "magnesium" : {
                   "modifier" : "~",
                   "unit" : "g",
@@ -959,11 +1161,35 @@
                   "value" : 0.0001815544,
                   "value_string" : "0.0001815544"
                },
+               "monounsaturated-fat" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.3528,
+                  "value_string" : "0.3528"
+               },
+               "myristic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.0036,
+                  "value_string" : "0.0036"
+               },
+               "oleic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.348,
+                  "value_string" : "0.348"
+               },
+               "palmitic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.1544,
+                  "value_string" : "0.1544"
+               },
                "pantothenic-acid" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 0.0001088,
+                  "value_string" : "0.0001088"
                },
                "phosphorus" : {
                   "modifier" : "~",
@@ -980,8 +1206,14 @@
                "polyols" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 0.04,
+                  "value_string" : "0.04"
+               },
+               "polyunsaturated-fat" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.864,
+                  "value_string" : "0.864"
                },
                "potassium" : {
                   "modifier" : "~",
@@ -992,21 +1224,21 @@
                "proteins" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 2.76,
+                  "value_string" : "2.76"
                },
                "salt" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0.006992,
+                  "value" : 0.007592,
                   "value_computed" : 0.00612,
-                  "value_string" : "0.006992"
+                  "value_string" : "0.007592"
                },
                "saturated-fat" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 0.2176,
+                  "value_string" : "0.2176"
                },
                "selenium" : {
                   "modifier" : "~",
@@ -1018,7 +1250,7 @@
                   "modifier" : "~",
                   "unit" : "g",
                   "value" : 0.002448,
-                  "value_computed" : 0.0027968,
+                  "value_computed" : 0.0030368,
                   "value_string" : "0.002448"
                },
                "starch" : {
@@ -1026,6 +1258,12 @@
                   "unit" : "g",
                   "value" : 0.984,
                   "value_string" : "0.984"
+               },
+               "stearic-acid" : {
+                  "modifier" : "~",
+                  "unit" : "g",
+                  "value" : 0.056,
+                  "value_string" : "0.056"
                },
                "sucrose" : {
                   "modifier" : "~",
@@ -1048,8 +1286,8 @@
                "vitamin-b1" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 6.96e-05,
+                  "value_string" : "6.96e-05"
                },
                "vitamin-b12" : {
                   "modifier" : "~",
@@ -1060,8 +1298,8 @@
                "vitamin-b2" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 6.96e-05,
+                  "value_string" : "6.96e-05"
                },
                "vitamin-b6" : {
                   "modifier" : "~",
@@ -1096,8 +1334,8 @@
                "vitamin-pp" : {
                   "modifier" : "~",
                   "unit" : "g",
-                  "value" : 0,
-                  "value_string" : "0"
+                  "value" : 0.0001296,
+                  "value_string" : "0.0001296"
                },
                "water" : {
                   "modifier" : "~",
