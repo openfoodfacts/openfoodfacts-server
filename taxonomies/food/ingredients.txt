@@ -49811,6 +49811,21 @@ description:en: Bathua, also known as fat hen or lamb's quarters, is a wild leaf
 ifct_food_code:en: C008
 ifct_food_name:en: Bathua leaves
 
+##################################################################################
+#
+#                        Beet greens
+#
+##################################################################################
+
+< en: leaf vegetable
+en: beet greens, chukandar ke patte
+hi: चुकंदर के पत्ते
+description:en: Beet greens are the leafy tops of the beetroot plant (Beta vulgaris), native to the Mediterranean and Near East, where wild sea beet has been used since antiquity. They have an earthy, slightly bitter flavor with mild sweetness, similar to Swiss chard, and tender-crisp stems ranging from white to deep red. Widely used across Mediterranean, European, Middle Eastern, and South Asian cuisines, they are sautéed, steamed, added to soups, stews, and stir-fries, or eaten raw in salads when young. Nutritionally, beet greens are rich in vitamins A, C, and K, along with folate, potassium, magnesium, iron, and dietary fiber, plus antioxidant compounds including betalains.
+ifct_food_code:en: C009
+ifct_food_name:en: Beet greens
+usda_ndb_code:en: 11086
+usda_ndb_name:en: Beet greens, raw
+
 #########################################################################################
 #
 #                               Chicory greens
@@ -53497,12 +53512,6 @@ usda_ndb_name:en: Taro shoots, raw
 #                                Beet(root)
 #
 ###################################################################################################
-
-< en: vegetable
-en: beet greens
-comment:en: is this a salad? Or more like spinach and to be cooked?
-usda_ndb_code:en: 11086
-usda_ndb_name:en: Beet greens, raw
 
 #comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
 < en: taproot vegetable
