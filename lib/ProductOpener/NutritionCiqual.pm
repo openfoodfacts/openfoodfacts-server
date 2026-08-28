@@ -107,6 +107,10 @@ my %unit_factor = (
 
 Loads the Ciqual table. Some Ciqual categories may have missing values for some nutrients.
 
+As some CIQUAL codes can be removed in new version of the CIQUAL table, we load multiple tables.
+
+Versions to load are configured iun external-data/ciqual/ciqual/CIQUAL_versions.csv
+
 =cut
 
 sub load_ciqual_table() {
@@ -115,23 +119,18 @@ sub load_ciqual_table() {
 
 	my @version_files;
 
-	if (-f $ciqual_versions_file) {
-		open(my $fh, '<:encoding(UTF-8)', $ciqual_versions_file)
-			or die("Cannot open $ciqual_versions_file: " . $! . "\n");
-		while (my $line = <$fh>) {
-			chomp $line;
-			next if $line =~ /^\s*$/;
-			my ($year, $filename) = split /\t/, $line, 2;
-			push @version_files, {year => $year, file => "$ciqual_dir/$filename"};
-		}
-		close($fh);
-		@version_files = sort {$a->{year} <=> $b->{year}} @version_files;
-		$log->info("Loading Ciqual data from multiple versions", {versions => scalar(@version_files)})
-			if $log->is_info();
+	open(my $fh, '<:encoding(UTF-8)', $ciqual_versions_file)
+		or die("Cannot open $ciqual_versions_file: " . $! . "\n");
+	while (my $line = <$fh>) {
+		chomp $line;
+		next if $line =~ /^\s*$/;
+		my ($year, $filename) = split /\t/, $line, 2;
+		push @version_files, {year => $year, file => "$ciqual_dir/$filename"};
 	}
-	else {
-		push @version_files, {year => 0, file => "$ciqual_dir/CIQUAL.csv"};
-	}
+	close($fh);
+	@version_files = sort {$a->{year} <=> $b->{year}} @version_files;
+	$log->info("Loading Ciqual data from multiple versions", {versions => scalar(@version_files)})
+		if $log->is_info();
 
 	foreach my $version (@version_files) {
 		_load_ciqual_version($version->{file});
@@ -140,8 +139,15 @@ sub load_ciqual_table() {
 	return;
 }
 
-sub _load_ciqual_version {
-	my ($ciqual_csv_file) = @_;
+sub _load_ciqual_version ($ciqual_csv_file) {
+
+	# If the table contains nutrients that we cannot recognize with the nutrients taxonomy,
+	# this function will die, unless we explicitly ignore them here.
+	# This is to make sure that we do not miss any nutrients that we should recognize, especially when a new version of the CIQUAL table is released.
+	my %nutrients_that_can_be_ignored = (
+		"Protein, crude, N x 6.25" => 1,
+		"Organic acids" => 1,
+	);
 
 	my $encoding = "UTF-8";
 
@@ -185,9 +191,8 @@ sub _load_ciqual_version {
 						unit => $unit,
 						};
 				}
-				else {
-					# TODO: some nutrients are not automatically recognized yet
-					# (e.g. most fatty acids identified with column names like ag_18_3_a_lino_g)
+				elsif (not exists $nutrients_that_can_be_ignored{$nutrient_name}) {
+					die("Unrecognized nutrient in Ciqual CSV: $nutrient_name\n");
 				}
 			}
 			$col++;
