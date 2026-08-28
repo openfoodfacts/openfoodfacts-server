@@ -4948,7 +4948,7 @@ msgstr "環境"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "グリーンスコア"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4956,12 +4956,12 @@ msgstr "低環境負荷（Green-Score）"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "グリーンスコアは、A+からFまでの環境スコアであり、食品が環境に与える影響を簡単に比較できます。"
+msgstr "Green-Scoreは、A+からFまでの環境スコアであり、食品が環境に与える影響を簡単に比較できます。"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "グリーンスコア"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4969,12 +4969,12 @@ msgstr "低環境負荷（Green-Score）"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "グリーンスコアは、A+からFまでの環境スコアであり、食品が環境に与える影響を簡単に比較できます。"
+msgstr "Green-Scoreは、A+からFまでの環境スコアであり、食品が環境に与える影響を簡単に比較できます。"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "グリーンスコア %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5160,22 +5160,22 @@ msgstr "環境への影響"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "グリーンスコアスコア"
+msgstr "Green-Scoreスコア"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "グリーンスコアグレード"
+msgstr "Green-Scoreグレード"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "グリーンスコアの計算の詳細"
+msgstr "Green-Scoreの計算の詳細"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "グリーンスコアに関する情報"
+msgstr "Green-Scoreに関する情報"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5212,19 +5212,19 @@ msgstr "調理済み製品の栄養成分表示が不足している"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "グリーンスコア"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "グリーンスコア"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "グリーンスコア"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "グリーンスコア"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5530,7 +5530,7 @@ msgstr "ユーザーが削除されています。これには数分かかる場
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "グリーンスコアは適用されません"
+msgstr "Green-Scoreは適用されません"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5893,7 +5893,7 @@ msgstr "Green-Scoreの計算式は、より正確なものにするために定�
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "グリーンスコアは当初フランス向けに開発され、現在他のヨーロッパ諸国にも拡大されています。グリーンスコアの算出式は、各国の状況により適した、より正確なものとなるよう定期的に改良されているため、変更される可能性があります。"
+msgstr "Green-Scoreは当初フランス向けに開発され、現在他のヨーロッパ諸国にも拡大されています。Green-Scoreの算出式は、各国の状況により適した、より正確なものとなるよう定期的に改良されているため、変更される可能性があります。"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6549,7 +6549,7 @@ msgstr "エコスコアを計算できるように製品を分類していただ
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "この商品のカテゴリーは、グリーンスコアを計算するには精度が足りません。より精度の高い商品カテゴリーを追加していただけますか？"
+msgstr "この商品のカテゴリーは、Green-Scoreを計算するには精度が足りません。より精度の高い商品カテゴリーを追加していただけますか？"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"

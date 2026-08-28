@@ -4147,7 +4147,7 @@ msgstr "营养评分"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "营养价值评分"
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4157,7 +4157,7 @@ msgstr "营养分数"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "营养价值评分"
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4691,7 +4691,7 @@ msgstr "营养质量"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "营养价值评分"
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4942,7 +4942,7 @@ msgstr "环境影响"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4950,12 +4950,12 @@ msgstr "低环境影响（生态得分）"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "绿色评分是一个从 A+ 到 F 的环境评分，可以方便地比较食品对环境的影响。"
+msgstr "Green-Score是一个从 A+ 到 F 的环境评分，可以方便地比较食品对环境的影响。"
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4963,7 +4963,7 @@ msgstr "低环境影响（生态得分）"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "绿色评分是一个从 A+ 到 F 的环境评分，可以方便地比较食品对环境的影响。"
+msgstr "Green-Score是一个从 A+ 到 F 的环境评分，可以方便地比较食品对环境的影响。"
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5206,19 +5206,19 @@ msgstr "缺少预制产品的营养成分表"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5887,7 +5887,7 @@ msgstr "Green-Score 计算公式会定期更新改进，以获得更精确的数
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "绿色评分系统最初是为法国开发的，目前正在推广到其他欧洲国家。绿色评分系统的计算公式会定期更新，以使其更加精准，更适合各个国家的实际情况。"
+msgstr "Green-Score系统最初是为法国开发的，目前正在推广到其他欧洲国家。Green-Score系统的计算公式会定期更新，以使其更加精准，更适合各个国家的实际情况。"
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6543,7 +6543,7 @@ msgstr "您能否对产品进行分类，以便我们能够计算生态得分？
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "该产品的类别不够精确，无法计算绿色评分。您能否添加更精确的产品类别？"
+msgstr "该产品的类别不够精确，无法计算Green-Score。您能否添加更精确的产品类别？"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7466,7 +7466,7 @@ msgstr "没有 Nutri-Score 的产品数量"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr "计算营养价值评分的产品百分比"
+msgstr "计算Nutri-Score的产品百分比"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"

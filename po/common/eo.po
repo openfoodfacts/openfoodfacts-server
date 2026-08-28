@@ -1756,7 +1756,7 @@ msgstr "La tabelo defaŭlte listigas nutraĵojn, kiuj ofte estas specifitaj. Las
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr "Esencaj nutraĵoj por kalkuli la Nutri-Poentaron."
+msgstr "Esencaj nutraĵoj por kalkuli la Nutri-Scoren."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -4001,7 +4001,7 @@ msgstr "Ĉi tiu tabelo listigas eblajn ŝancojn plibonigi la nutran kvaliton, la
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr "Por akiri koncernajn rezultojn, bonvolu certigi, ke la produktaj datumoj estas kompletaj (nutraj faktoj kun valoroj por fibro kaj fruktoj kaj legomoj por kalkuli la Nutri-Poentaron, kaj preciza kategorio por kompari ĉiun produkton kun similaj produktoj)."
+msgstr "Por akiri koncernajn rezultojn, bonvolu certigi, ke la produktaj datumoj estas kompletaj (nutraj faktoj kun valoroj por fibro kaj fruktoj kaj legomoj por kalkuli la Nutri-Scoren, kaj preciza kategorio por kompari ĉiun produkton kun similaj produktoj)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -4070,15 +4070,15 @@ msgstr "Dosiero ricevita"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr "Detaloj pri la kalkulado de la Nutri-Poentaro"
+msgstr "Detaloj pri la kalkulado de la Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto estas konsiderata trinkaĵo por la kalkulado de la Nutri-Poentaro."
+msgstr "Ĉi tiu produkto estas konsiderata trinkaĵo por la kalkulado de la Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto ne estas konsiderata trinkaĵo por la kalkulado de la Nutri-Poentaro."
+msgstr "Ĉi tiu produkto ne estas konsiderata trinkaĵo por la kalkulado de la Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -4155,7 +4155,7 @@ msgstr "Nutra poentaro"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "Nutri-Poentaro"
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
@@ -4165,7 +4165,7 @@ msgstr "Nutri-Score-poentaro"
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "Nutri-Poentaro"
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4197,7 +4197,7 @@ msgstr "Meza valoro por la kategorio %s"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr "La Nutri-Poentaro povas esti ŝanĝita de %s al %s ŝanĝante la valoron %s de %s al %s (procenta diferenco%s )."
+msgstr "La Nutri-Score povas esti ŝanĝita de %s al %s ŝanĝante la valoron %s de %s al %s (procenta diferenco%s )."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
@@ -4573,7 +4573,7 @@ msgstr "Interna kodo uzata de la produktanto por identigi specifan version de pr
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr "Provizi kategorion estas tre grave por faciligi la serĉadon de la produkto kaj por kalkuli la Nutri-Poentaron."
+msgstr "Provizi kategorion estas tre grave por faciligi la serĉadon de la produkto kaj por kalkuli la Nutri-Scoren."
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
@@ -4699,7 +4699,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "Nutri-Poentaro"
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4707,24 +4707,24 @@ msgstr "Bona nutra kvalito (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
-msgstr "La Nutri-Poentaro estas kalkulita kaj povas esti konsiderata por ĉiuj produktoj, eĉ se ne estas montrata sur la pakaĵo."
+msgstr "La Nutri-Score estas kalkulita kaj povas esti konsiderata por ĉiuj produktoj, eĉ se ne estas montrata sur la pakaĵo."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "Nutri-Poentaro %s"
+msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr "Nutri-Poentaro nekonata"
+msgstr "Nutri-Score nekonata"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr "Mankas datumoj por kalkuli la Nutri-Poentaron"
+msgstr "Mankas datumoj por kalkuli la Nutri-Scoren"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutri-Poentaro ne aplikebla"
+msgstr "Nutri-Score ne aplikebla"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4837,19 +4837,19 @@ msgstr "Nekonata uzanto."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
-msgstr "La salnivelo estas konsiderata de la Nutri-Poentaro. Uzu ĉi tiun agordon nur se vi specife sekvas malalt-san dieton."
+msgstr "La salnivelo estas konsiderata de la Nutri-Score. Uzu ĉi tiun agordon nur se vi specife sekvas malalt-san dieton."
 
 msgctxt "attribute_low_sugars_setting_note"
 msgid "The sugars level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low sugars diet."
-msgstr "La sukernivelo estas konsiderata de la Nutri-Poentaro. Uzu ĉi tiun agordon nur se vi specife sekvas malalt-sukera dieton."
+msgstr "La sukernivelo estas konsiderata de la Nutri-Score. Uzu ĉi tiun agordon nur se vi specife sekvas malalt-sukera dieton."
 
 msgctxt "attribute_low_fat_setting_note"
 msgid "The fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low fat diet."
-msgstr "La grasnivelo estas konsiderata de la Nutri-Poentaro. Uzu ĉi tiun agordon nur se vi specife sekvas malaltgrasan dieton."
+msgstr "La grasnivelo estas konsiderata de la Nutri-Score. Uzu ĉi tiun agordon nur se vi specife sekvas malaltgrasan dieton."
 
 msgctxt "attribute_low_saturated_fat_setting_note"
 msgid "The saturated fat level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low saturated fat diet."
-msgstr "La nivelo de saturita graso estas konsiderata de la Nutri-Poentaro. Uzu ĉi tiun agordon nur se vi specife sekvas dieton kun malalta saturita graso."
+msgstr "La nivelo de saturita graso estas konsiderata de la Nutri-Score. Uzu ĉi tiun agordon nur se vi specife sekvas dieton kun malalta saturita graso."
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
@@ -4950,11 +4950,11 @@ msgstr "Medio"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Verda-Poentaro"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Malalta media efiko (Verda-Poentaro)"
+msgstr "Malalta media efiko (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -4963,11 +4963,11 @@ msgstr "La Verda Poentaro estas media poentaro de A+ ĝis F, kiu faciligas kompa
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Verda-Poentaro"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Malalta media efiko (Verda-Poentaro)"
+msgstr "Malalta media efiko (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -4976,7 +4976,7 @@ msgstr "La Verda Poentaro estas media poentaro de A+ ĝis F, kiu faciligas kompa
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Verda-Poentaro %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5172,12 +5172,12 @@ msgstr "Verda-Poentara grado"
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "Detaloj pri la kalkulo de la Verda-Poentaro"
+msgstr "Detaloj pri la kalkulo de la Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "Informoj pri la Verda-Poentaro"
+msgstr "Informoj pri la Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5214,19 +5214,19 @@ msgstr "Mankas nutraj informoj por preta produkto"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Verda-Poentaro"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Verda-Poentaro"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Verda-Poentaro"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Verda-Poentaro"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5474,7 +5474,7 @@ msgstr "Plej multaj skanitaj produktoj"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr "Produktoj kun la plej bona Nutri-Poentaro"
+msgstr "Produktoj kun la plej bona Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
@@ -5532,7 +5532,7 @@ msgstr "Uzanto estas forigata. Tio povas daŭri kelkajn minutojn."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "Verda-Poentaro ne aplikebla"
+msgstr "Green-Score ne aplikebla"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5549,7 +5549,7 @@ msgstr "La Verda Poentaro ankoraŭ ne aplikeblas por ĉi tiu kategorio, sed ni l
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Verda-Poentaro ne kalkulita"
+msgstr "Green-Score ne kalkulita"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5858,12 +5858,12 @@ msgstr "La informoj pri la pakaĵo de ĉi tiu produkto ne estas sufiĉe precizaj
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "Por pli preciza kalkulo de la Verda-Poentaro, vi povas modifi la produktan paĝon kaj aldoni ilin."
+msgstr "Por pli preciza kalkulo de la Green-Score, vi povas modifi la produktan paĝon kaj aldoni ilin."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Por pli preciza kalkulo de la Verda-Poentaro, vi povas redakti la produktan paĝon kaj aldoni ilin."
+msgstr "Por pli preciza kalkulo de la Green-Score, vi povas redakti la produktan paĝon kaj aldoni ilin."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5885,7 +5885,7 @@ msgstr "Se vi estas la fabrikanto de ĉi tiu produkto, vi povas sendi al ni la i
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "La <a href=\"/green-score\">Verda-Poentaro</a> estas eksperimenta poentaro kiu resumas la mediajn efikojn de nutraĵproduktoj."
+msgstr "La <a href=\\"/green-score\\">Green-Score</a> estas eksperimenta poentaro kiu resumas la mediajn efikojn de nutraĵproduktoj."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
@@ -5907,7 +5907,7 @@ msgstr "La plena efiko de transportado al via lando estas nuntempe nekonata."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "Skanu strekkodojn por ricevi la Nutri-Poentaron, la Verdan-Poentaron kaj pli!"
+msgstr "Skanu strekkodojn por ricevi la Nutri-Scoren, la Verdan-Poentaron kaj pli!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -5981,7 +5981,7 @@ msgstr "meza"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
-msgstr "Noto: la Nutri-Poentaro de teoj kaj herbaj teoj respondas al la produkto preparita nur kun akvo, sen sukero aŭ lakto."
+msgstr "Noto: la Nutri-Score de teoj kaj herbaj teoj respondas al la produkto preparita nur kun akvo, sen sukero aŭ lakto."
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
@@ -6250,11 +6250,11 @@ msgstr "Nutri-Score ne aplikeblas por ĉi tiu produkta kategorio."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr "La kategorio de la produkto devas esti specifita por kalkuli la Nutri-Poentaron."
+msgstr "La kategorio de la produkto devas esti specifita por kalkuli la Nutri-Scoren."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr "La nutraj informoj de la produkto devas esti specifitaj por kalkuli la Nutri-Poentaron."
+msgstr "La nutraj informoj de la produkto devas esti specifitaj por kalkuli la Nutri-Scoren."
 
 msgctxt "nutriscore_missing_nutrition_data_details"
 msgid "Missing nutrition facts:"
@@ -6266,7 +6266,7 @@ msgstr "Mankas nutraj informoj por la preta produkto:"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr "La kategorio kaj la nutraj informoj de la produkto devas esti specifitaj por kalkuli la Nutri-Poentaron."
+msgstr "La kategorio kaj la nutraj informoj de la produkto devas esti specifitaj por kalkuli la Nutri-Scoren."
 
 msgctxt "health"
 msgid "Health"
@@ -6497,7 +6497,7 @@ msgstr ""
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr "Lernu pli pri la Verda-Poentaro"
+msgstr "Lernu pli pri la Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6543,7 +6543,7 @@ msgstr "Ĉu vi povus aldoni la liston de ingrediencoj?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr "Ĉu vi povus aldoni la informojn necesajn por kalkuli la Nutri-Poentaron?"
+msgstr "Ĉu vi povus aldoni la informojn necesajn por kalkuli la Nutri-Scoren?"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
@@ -7136,11 +7136,11 @@ msgstr "Foresto"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto estas konsiderata akvo por la kalkulado de la Nutri-Poentaro."
+msgstr "Ĉi tiu produkto estas konsiderata akvo por la kalkulado de la Nutri-Score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto estas konsiderata kiel graso, oleo, nuksoj aŭ semoj por la kalkulo de la Nutri-Poentaro."
+msgstr "Ĉi tiu produkto estas konsiderata kiel graso, oleo, nuksoj aŭ semoj por la kalkulo de la Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
@@ -7148,7 +7148,7 @@ msgstr "Ĉi tiu produkto estas konsiderata fromaĝo por la kalkulado de la Nutri
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr "Ĉi tiu produkto estas konsiderata ruĝvianda produkto por la kalkulo de la Nutri-Poentaro."
+msgstr "Ĉi tiu produkto estas konsiderata ruĝvianda produkto por la kalkulo de la Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
@@ -7180,7 +7180,7 @@ msgstr "Malkovru la novan Nutri-Score!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr "<p>La kalkulado de la Nutri-Poentaro evoluas por provizi pli bonajn rekomendojn bazitajn sur la plej novaj sciencaj pruvoj.</p><p>Ĉefaj plibonigoj:</p><ul><li>Pli bona poentaro por iuj grasaj fiŝoj kaj oleoj riĉaj je bonaj grasoj</li><li>Pli bona poentaro por tutaj produktoj riĉaj je fibro</li><li>Pli malbona poentaro por produktoj enhavantaj multe da salo aŭ sukero</li><li>Pli malbona poentaro por ruĝa viando (kompare kun kokaĵo)</li></ul>"
+msgstr "<p>La kalkulado de la Nutri-Score evoluas por provizi pli bonajn rekomendojn bazitajn sur la plej novaj sciencaj pruvoj.</p><p>Ĉefaj plibonigoj:</p><ul><li>Pli bona poentaro por iuj grasaj fiŝoj kaj oleoj riĉaj je bonaj grasoj</li><li>Pli bona poentaro por tutaj produktoj riĉaj je fibro</li><li>Pli malbona poentaro por produktoj enhavantaj multe da salo aŭ sukero</li><li>Pli malbona poentaro por ruĝa viando (kompare kun kokaĵo)</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
@@ -7188,7 +7188,7 @@ msgstr "Malkovru ĉiujn plibonigojn de la nova Nutri-Score"
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr "La Nutri-Poentaro estas emblemo pri la ĝenerala nutra kvalito de produktoj."
+msgstr "La Nutri-Score estas emblemo pri la ĝenerala nutra kvalito de produktoj."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
@@ -7204,7 +7204,7 @@ msgstr "La montrado de ĉi tiu emblemo estas rekomendata de publikasanaj aŭtori
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr "Kio estas la Nutri-Poentaro?"
+msgstr "Kio estas la Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
@@ -7718,7 +7718,7 @@ msgstr "Raporti ĉi tiun bildon al niaj moderigantoj"
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "Mankas al ni la valoro de la porcio kaj/aŭ unuo por kalkuli la Nutri-Poentaron."
+msgstr "Mankas al ni la valoro de la porcio kaj/aŭ unuo por kalkuli la Nutri-Scoren."
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"

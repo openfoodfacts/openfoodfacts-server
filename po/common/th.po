@@ -3999,7 +3999,7 @@ msgstr "ตารางนี้แสดงรายการโอกาสท
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr "เพื่อให้ได้ผลลัพธ์ที่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าข้อมูลผลิตภัณฑ์ครบถ้วน (ข้อมูลโภชนาการพร้อมค่าใยอาหารและผักผลไม้เพื่อคำนวณคะแนนโภชนาการ และหมวดหมู่ที่ชัดเจนเพื่อเปรียบเทียบแต่ละผลิตภัณฑ์กับผลิตภัณฑ์ที่คล้ายคลึงกัน)"
+msgstr "เพื่อให้ได้ผลลัพธ์ที่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าข้อมูลผลิตภัณฑ์ครบถ้วน (ข้อมูลโภชนาการพร้อมค่าใยอาหารและผักผลไม้เพื่อคำนวณNutri-Score และหมวดหมู่ที่ชัดเจนเพื่อเปรียบเทียบแต่ละผลิตภัณฑ์กับผลิตภัณฑ์ที่คล้ายคลึงกัน)"
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -4153,17 +4153,17 @@ msgstr "คะแนนโภชนาการ"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "คะแนนโภชนาการ"
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr "คะแนนโภชนาการ"
+msgstr "Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "คะแนนโภชนาการ"
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4334,7 +4334,7 @@ msgstr "นำเข้าหมวดหมู่"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "คะแนนโภชนาการจากผู้ผลิต"
+msgstr "Nutri-Scoreจากผู้ผลิต"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
@@ -4342,11 +4342,11 @@ msgstr "คะแนน Nutri-Score ที่คำนวณได้"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr "คะแนนโภชนาการจากผู้ผลิต"
+msgstr "Nutri-Scoreจากผู้ผลิต"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "คะแนนโภชนาการที่คำนวณได้"
+msgstr "Nutri-Scoreที่คำนวณได้"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4697,7 +4697,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "คะแนนโภชนาการ"
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4710,7 +4710,7 @@ msgstr "ค่าโภชนาการ (Nutri-Score) จะถูกคำน
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "คะแนนโภชนาการ %s"
+msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
@@ -4718,7 +4718,7 @@ msgstr "ไม่ทราบค่าโภชนาการ"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr "ข้อมูลไม่ครบถ้วนสำหรับการคำนวณคะแนนโภชนาการ"
+msgstr "ข้อมูลไม่ครบถ้วนสำหรับการคำนวณNutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
@@ -4948,11 +4948,11 @@ msgstr "สิ่งแวดล้อม"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "คะแนนสีเขียว"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "ผลกระทบต่อสิ่งแวดล้อมต่ำ (คะแนนสีเขียว)"
+msgstr "ผลกระทบต่อสิ่งแวดล้อมต่ำ (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -4961,11 +4961,11 @@ msgstr "คะแนนสีเขียว (Green-Score) เป็นคะแ
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "คะแนนสีเขียว"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "ผลกระทบต่อสิ่งแวดล้อมต่ำ (คะแนนสีเขียว)"
+msgstr "ผลกระทบต่อสิ่งแวดล้อมต่ำ (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -4974,7 +4974,7 @@ msgstr "คะแนนสีเขียว (Green-Score) เป็นคะแ
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "คะแนนสีเขียว %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5170,12 +5170,12 @@ msgstr "เกรดกรีนสกอร์"
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "รายละเอียดการคำนวณคะแนนสีเขียว"
+msgstr "รายละเอียดการคำนวณGreen-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "ข้อมูลเกี่ยวกับคะแนนสีเขียว"
+msgstr "ข้อมูลเกี่ยวกับGreen-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5212,19 +5212,19 @@ msgstr "ข้อมูลโภชนาการที่ขาดหายไ
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "คะแนนสีเขียว"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "คะแนนสีเขียว"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "คะแนนสีเขียว"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "คะแนนสีเขียว"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5472,11 +5472,11 @@ msgstr "สินค้าที่ถูกสแกนมากที่สุ
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr "ผลิตภัณฑ์ที่มีคะแนนโภชนาการดีที่สุด"
+msgstr "ผลิตภัณฑ์ที่มีNutri-Scoreดีที่สุด"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "ผลิตภัณฑ์ที่มีคะแนนสีเขียวดีที่สุด"
+msgstr "ผลิตภัณฑ์ที่มีGreen-Scoreดีที่สุด"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5530,7 +5530,7 @@ msgstr "กำลังลบผู้ใช้ อาจใช้เวลา�
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "คะแนนสีเขียวไม่สามารถใช้งานได้"
+msgstr "Green-Scoreไม่สามารถใช้งานได้"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5543,11 +5543,11 @@ msgstr "ยังไม่สามารถใช้งานได้ในห
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "คะแนนสีเขียวยังไม่สามารถใช้งานได้ในหมวดหมู่นี้ แต่เรากำลังดำเนินการเพิ่มการรองรับคะแนนดังกล่าวอยู่"
+msgstr "Green-Scoreยังไม่สามารถใช้งานได้ในหมวดหมู่นี้ แต่เรากำลังดำเนินการเพิ่มการรองรับคะแนนดังกล่าวอยู่"
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "ไม่ได้คำนวณคะแนนสีเขียว"
+msgstr "ไม่ได้คำนวณGreen-Score"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5559,7 +5559,7 @@ msgstr "ขาดหมวดหมู่ที่ชัดเจน"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "เราไม่สามารถคำนวณคะแนนสีเขียวของผลิตภัณฑ์นี้ได้ เนื่องจากข้อมูลบางส่วนไม่ครบถ้วน คุณช่วยกรอกข้อมูลให้ครบถ้วนได้หรือไม่"
+msgstr "เราไม่สามารถคำนวณGreen-Scoreของผลิตภัณฑ์นี้ได้ เนื่องจากข้อมูลบางส่วนไม่ครบถ้วน คุณช่วยกรอกข้อมูลให้ครบถ้วนได้หรือไม่"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5701,7 +5701,7 @@ msgstr "หากคุณเป็นผู้ผลิตผลิตภัณ
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "คำเตือน: ข้อมูลบางส่วนที่จำเป็นสำหรับการคำนวณคะแนนสีเขียวอย่างแม่นยำนั้นไม่ได้ระบุไว้ (โปรดดูรายละเอียดการคำนวณด้านล่าง)"
+msgstr "คำเตือน: ข้อมูลบางส่วนที่จำเป็นสำหรับการคำนวณGreen-Scoreอย่างแม่นยำนั้นไม่ได้ระบุไว้ (โปรดดูรายละเอียดการคำนวณด้านล่าง)"
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5856,12 +5856,12 @@ msgstr "ข้อมูลเกี่ยวกับบรรจุภัณฑ
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "เพื่อให้ได้การคำนวณคะแนนสีเขียวที่แม่นยำยิ่งขึ้น คุณสามารถแก้ไขหน้าผลิตภัณฑ์และเพิ่มข้อมูลเหล่านั้นได้"
+msgstr "เพื่อให้ได้การคำนวณGreen-Scoreที่แม่นยำยิ่งขึ้น คุณสามารถแก้ไขหน้าผลิตภัณฑ์และเพิ่มข้อมูลเหล่านั้นได้"
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "หากต้องการคำนวณคะแนนสีเขียวให้แม่นยำยิ่งขึ้น คุณสามารถแก้ไขหน้าผลิตภัณฑ์และเพิ่มข้อมูลเหล่านั้นได้"
+msgstr "หากต้องการคำนวณGreen-Scoreให้แม่นยำยิ่งขึ้น คุณสามารถแก้ไขหน้าผลิตภัณฑ์และเพิ่มข้อมูลเหล่านั้นได้"
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5883,12 +5883,12 @@ msgstr "หากคุณเป็นผู้ผลิตผลิตภัณ
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "คะแนนสีเขียว <a href=\"/green-score\"></a> เป็นคะแนนทดลองที่สรุปผลกระทบต่อสิ่งแวดล้อมของผลิตภัณฑ์อาหาร"
+msgstr "Green-Score <a href=\\"/green-score\\"></a> เป็นคะแนนทดลองที่สรุปผลกระทบต่อสิ่งแวดล้อมของผลิตภัณฑ์อาหาร"
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "สูตรการคำนวณคะแนนสีเขียวอาจมีการเปลี่ยนแปลงได้ เนื่องจากมีการปรับปรุงอย่างสม่ำเสมอเพื่อให้มีความแม่นยำยิ่งขึ้น"
+msgstr "สูตรการคำนวณGreen-Scoreอาจมีการเปลี่ยนแปลงได้ เนื่องจากมีการปรับปรุงอย่างสม่ำเสมอเพื่อให้มีความแม่นยำยิ่งขึ้น"
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
@@ -5905,7 +5905,7 @@ msgstr "ผลกระทบอย่างเต็มรูปแบบขอ
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "สแกนบาร์โค้ดเพื่อดูคะแนนโภชนาการ คะแนนความเป็นมิตรต่อสิ่งแวดล้อม และอื่นๆ อีกมากมาย!"
+msgstr "สแกนบาร์โค้ดเพื่อดูNutri-Score คะแนนความเป็นมิตรต่อสิ่งแวดล้อม และอื่นๆ อีกมากมาย!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -6541,15 +6541,15 @@ msgstr "คุณช่วยเพิ่มรายการส่วนผส
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr "คุณช่วยเพิ่มข้อมูลที่จำเป็นในการคำนวณคะแนนโภชนาการได้ไหม"
+msgstr "คุณช่วยเพิ่มข้อมูลที่จำเป็นในการคำนวณNutri-Scoreได้ไหม"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "คุณช่วยระบุหมวดหมู่สินค้าให้ชัดเจนยิ่งขึ้นได้ไหม เพื่อที่เราจะสามารถคำนวณคะแนนสีเขียวได้"
+msgstr "คุณช่วยระบุหมวดหมู่สินค้าให้ชัดเจนยิ่งขึ้นได้ไหม เพื่อที่เราจะสามารถคำนวณGreen-Scoreได้"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "หมวดหมู่ที่เรามีสำหรับผลิตภัณฑ์นี้ไม่แม่นยำพอที่จะคำนวณคะแนนสีเขียว คุณสามารถเพิ่มหมวดหมู่ผลิตภัณฑ์ที่แม่นยำยิ่งขึ้นได้ไหม"
+msgstr "หมวดหมู่ที่เรามีสำหรับผลิตภัณฑ์นี้ไม่แม่นยำพอที่จะคำนวณGreen-Score คุณสามารถเพิ่มหมวดหมู่ผลิตภัณฑ์ที่แม่นยำยิ่งขึ้นได้ไหม"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"

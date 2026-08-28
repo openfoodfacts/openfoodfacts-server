@@ -4948,7 +4948,7 @@ msgstr "البيئة"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "النتيجة البيئية"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4961,7 +4961,7 @@ msgstr "يُعدّ مؤشر Green-Score مؤشراً بيئياً يتراوح �
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "النتيجة البيئية"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4974,7 +4974,7 @@ msgstr "يُعدّ مؤشر Green-Score مؤشراً بيئياً يتراوح �
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "النتيجة البيئية %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5160,22 +5160,22 @@ msgstr "التأثير البيئي"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "النتيجة البيئية"
+msgstr "Green-Score"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "درجة النتيجة البيئية"
+msgstr "درجة Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "تفاصيل حساب النتيجة البيئية"
+msgstr "تفاصيل حساب Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "معلومات عن النتيجة البيئية"
+msgstr "معلومات عن Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5212,19 +5212,19 @@ msgstr "معلومات غذائية مفقودة للمنتج المُحضر"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "النتيجة البيئية"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "النتيجة البيئية"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "النتيجة البيئية"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "النتيجة البيئية"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5530,7 +5530,7 @@ msgstr "جاري حذف المستخدم. قد يستغرق هذا بضع دقا
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "النتيجة البيئية غير قابلة للتطبيق"
+msgstr "Green-Score غير قابلة للتطبيق"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5701,7 +5701,7 @@ msgstr "إذا كنت الشركة المصنعة لهذا المنتج، فيم
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "تحذير: بعض المعلومات اللازمة لحساب النتيجة البيئية بدقة غير متوفرة (انظر تفاصيل الحساب أدناه)."
+msgstr "تحذير: بعض المعلومات اللازمة لحساب Green-Score بدقة غير متوفرة (انظر تفاصيل الحساب أدناه)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5883,12 +5883,12 @@ msgstr "إذا كنت الشركة المصنعة لهذا المنتج، فيم
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/green-score\">النتيجة البيئية</a> هي نتيجة تجريبية تلخص التأثيرات البيئية للمنتجات الغذائية."
+msgstr "<a href=\\"/green-score\\">Green-Score</a> هي نتيجة تجريبية تلخص التأثيرات البيئية للمنتجات الغذائية."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "إن صيغة النتيجة البيئية قابلة للتغيير حيث يتم تحسينها بانتظام لجعلها أكثر دقة."
+msgstr "إن صيغة Green-Score قابلة للتغيير حيث يتم تحسينها بانتظام لجعلها أكثر دقة."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
@@ -5905,7 +5905,7 @@ msgstr "إن التأثير الكامل للنقل إلى بلدك غير مع�
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "قم بمسح الباركود للحصول على درجة الجودة الغذائية و النتيجة البيئية والمزيد!"
+msgstr "قم بمسح الباركود للحصول على درجة الجودة الغذائية و Green-Score والمزيد!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -6216,7 +6216,7 @@ msgstr "المكافآت والعقوبات"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "النتيجة البيئية لهذا المنتج"
+msgstr "Green-Score لهذا المنتج"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6545,7 +6545,7 @@ msgstr "هل بإمكانك إضافة المعلومات اللازمة لحس�
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "هل بإمكانك إضافة فئة منتج محددة حتى نتمكن من حساب النتيجة البيئية؟"
+msgstr "هل بإمكانك إضافة فئة منتج محددة حتى نتمكن من حساب Green-Score؟"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
