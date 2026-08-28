@@ -26240,41 +26240,6 @@ it: malto d'avena
 
 ##################################################################################
 #
-#                        Amaranth leaves
-#
-##################################################################################
-
-< en: plant
-en: amaranth leaves
-la: Amaranthus gangeticus
-description:en: Amaranth leaves come from the amaranth plant, native to Central and South America but now cultivated widely across Africa, Asia, and the Caribbean, where they form a staple leafy vegetable. Varieties range from vivid red-purple to deep green, with spined and spineless forms differing mainly in stem texture. The leaves have a mild, slightly earthy, spinach-like flavor with a subtle sweetness. They're commonly boiled, steamed, sautéed, or added to soups, stews, and stir-fries, softening quickly when cooked. Nutritionally, amaranth leaves are notably rich in vitamins A, C, and K, folate, calcium, iron, and dietary fiber, alongside plant-based protein.
-ifct_proxy_food_code:en: C004
-ifct_proxy_food_name:en: Amaranth leaves, red and green mix
-usda_ndb_code:en: 11003
-usda_ndb_name:en: Amaranth leaves, raw
-
-< en: amaranth leaves
-en: green amaranth leaves
-ifct_food_code:en: C002
-ifct_food_name:en: Amaranth leaves, green
-
-< en:amaranth leaves
-en: red amaranth leaves
-ifct_food_code:en: C003
-ifct_food_name:en: Amaranth leaves, red
-
-< en:amaranth leaves
-en: green spined amaranth leaves
-ifct_food_code:en: C005
-ifct_food_name:en: Amaranth, spined, leaves, green
-
-< en:amaranth leaves
-en: red and green spined amaranth leaves
-ifct_food_code:en: C006
-ifct_food_name:en: Amaranth, spined, leaves, red and green
-
-##################################################################################
-#
 #                        Quinoa
 #
 ##################################################################################
@@ -49784,6 +49749,42 @@ la: Sesbania grandiflora
 description:en: Agathi leaves (Sesbania grandiflora) originate from South and Southeast Asia, where the tree grows widely across tropical and subtropical regions. The leaves have a mildly bitter, slightly grassy taste that softens when cooked. Culinarily, they're used in soups, stir-fries, lentil dishes, and traditional preparations across Indian, Sri Lankan, Thai, and Filipino cuisines, often paired with tamarind, coconut, or spices. Nutritionally, agathi leaves are notable for their high vitamin A, vitamin C, calcium, and iron content, along with protein and dietary fiber. They also contain antioxidants and various phytonutrients, making them a traditionally valued leafy green in many regional food cultures worldwide.
 ifct_food_code:en: C001
 ifct_food_name:en: Agathi leaves
+
+
+##################################################################################
+#
+#                        Amaranth leaves
+#
+##################################################################################
+
+< en: leaf vegetable
+en: amaranth leaves
+la: Amaranthus gangeticus
+description:en: Amaranth leaves come from the amaranth plant, native to Central and South America but now cultivated widely across Africa, Asia, and the Caribbean, where they form a staple leafy vegetable. Varieties range from vivid red-purple to deep green, with spined and spineless forms differing mainly in stem texture. The leaves have a mild, slightly earthy, spinach-like flavor with a subtle sweetness. They're commonly boiled, steamed, sautéed, or added to soups, stews, and stir-fries, softening quickly when cooked. Nutritionally, amaranth leaves are notably rich in vitamins A, C, and K, folate, calcium, iron, and dietary fiber, alongside plant-based protein.
+ifct_proxy_food_code:en: C004
+ifct_proxy_food_name:en: Amaranth leaves, red and green mix
+usda_ndb_code:en: 11003
+usda_ndb_name:en: Amaranth leaves, raw
+
+< en: amaranth leaves
+en: green amaranth leaves
+ifct_food_code:en: C002
+ifct_food_name:en: Amaranth leaves, green
+
+< en:amaranth leaves
+en: red amaranth leaves
+ifct_food_code:en: C003
+ifct_food_name:en: Amaranth leaves, red
+
+< en:amaranth leaves
+en: green spined amaranth leaves
+ifct_food_code:en: C005
+ifct_food_name:en: Amaranth, spined, leaves, green
+
+< en:amaranth leaves
+en: red and green spined amaranth leaves
+ifct_food_code:en: C006
+ifct_food_name:en: Amaranth, spined, leaves, red and green
 
 #########################################################################################
 #
