@@ -215,12 +215,12 @@ sub iter_taxonomy_entries ($lines_iter) {
 					push(
 						@errors,
 						{
-							severity => "Warning",
+							# demote severity to Warning if this begins returning false positives
+							severity => "Error",
 							type => "Correctness",
 							line => $line_num,
 							message => (
-									  "\"$prop\" might be a typo of \"comment\":\n" . "- "
-									. $props{"$prop:$lc"}->{line}
+									  "\"$prop\" might be a typo of \"comment\":"
 									. "\n- $line"
 							)
 						}
