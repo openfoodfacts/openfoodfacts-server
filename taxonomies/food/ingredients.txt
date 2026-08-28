@@ -62516,12 +62516,31 @@ it: pisello giallo
 < en: legume
 en: pigeon pea, red gram, pigeon peas, gandules, toor, arhar, gungo peas
 la: Cajanus cajan
-description:en: Pigeon peas (Cajanus cajan) differ quite a bit depending on whether they're picked green or left to dry on the plant. The green peas have a mild, slightly sweet flavor; the dried peas have Earthier, nuttier flavor — closer to lentils or other dried pulses
+description:en: Pigeon pea (Cajanus cajan), also called toor, arhar, or gungo pea, originated in India and has been cultivated across South Asia, East Africa, and the Caribbean for millennia. It's a small, round legume with an earthy, mildly sweet, nutty flavor. Dried and split (toor dal), it's simmered into soups, stews, and the Indian dish sambar; in Africa and the Caribbean it appears in rice dishes, curries, and peas-and-rice preparations, and fresh green pods are eaten as a vegetable in some regions. Nutritionally, pigeon pea is rich in protein, dietary fiber, complex carbohydrates, folate, potassium, and iron, making it a significant plant-based protein source globally.
+ifct_food_2_code:en: B021
+ifct_food_2_name:en: Red gram, dal
+ifct_food_2_process:en: en:dehusked
+ifct_food_code:en: B022
+ifct_food_name:en: Red gram, whole
 usda_ndb_2_code:en: 16101
 usda_ndb_2_name:en: Pigeon peas (red gram), mature seeds, raw
 usda_ndb_2_process:en: en:dried
 usda_ndb_code:en: 11344
 usda_ndb_name:en: Pigeonpeas, immature seeds, raw
+
+< en: pigeon pea
+< en: pulse
+en: dried pigeon pea
+comment:en: Has been split from the fresh immature seeds, so that it ingegrates into the eurocodes
+ifct_food_2_code:en: B021
+ifct_food_2_name:en: Red gram, dal
+ifct_food_2_process:en: en:dehusked
+ifct_food_code:en: B022
+ifct_food_name:en: Red gram, whole
+ifct_food_process:en: en:dried
+usda_ndb_code:en: 16101
+usda_ndb_name:en: Pigeon peas (red gram), mature seeds, raw
+usda_ndb_process:en: en:dried
 
 ###################################################################################################
 #
