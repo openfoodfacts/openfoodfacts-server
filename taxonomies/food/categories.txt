@@ -36199,15 +36199,17 @@ zh: 早餐
 en: Cocoa and its products
 bg: Какаови изделия, какаови продукти
 ca: Cacau i derivats
-de: Kakao und Kakaoprodukte
+da: Kakao og kakaoprodukter, Chokoladeprodukter
+de: Kakao und Kakaoprodukte, Schokoladenprodukte
 es: Cacao y sus productos
-fr: Cacao et dérivés
-hr: Kakao i njegovi proizvodi
+fr: Cacao et dérivés, produits chocolatés, produits au chocolat
+hr: Kakao i njegovi proizvodi, csokoládé termékek
 it: Cacao e i suoi derivati
-lt: Kakava ir jos produktai
-nl: Cacao en afgeleide producten
-pl: Kakao i produkty na bazie kakao
-pt: Cacau e derivados
+lt: Kakava ir jos produktai, Šokoladiniai gaminiai
+nl: Cacao en afgeleide producten, Chocoladeproducten
+pl: Kakao i produkty na bazie kakao, Produkty czekoladowe
+pt: Cacau e derivados, produtos com chocolate
+sv: Kakao och kakaoprodukter, Kakao och produkter därav, Chokladprodukter
 tr: Kakao ve kakao ürünleri
 zh: 可可及其制品
 
@@ -38031,27 +38033,27 @@ wikidata:en: Q34674117
 
 < en: Cocoa and its products
 < en: Sweet snacks
-en: Chocolates, chocolate products
+en: Chocolates
 bg: Шоколади
 ca: Xocolata
 cs: Čokolády
 da: Chokolader, chokolade
-de: Schokoladen, Schokolade, Schokoladenprodukte
+de: Schokoladen, Schokolade
 es: Chocolates
 fi: suklaat
-fr: Chocolats, chocolat, produits chocolatés, produits au chocolat
+fr: Chocolats, chocolat, Chocolat en tablette
 he: שוקולדים
 hr: čokolade, čokolada
-hu: Csokoládék, csokoládé termékek
+hu: Csokoládék
 it: Cioccolato
 ja: チョコレート
-lt: Šokoladai, Šokoladiniai gaminiai
-nl: Chocoladeproducten
-pl: Czekolada, Produkty czekoladowe
-pt: Chocolates, produtos com chocolate
+lt: Šokoladai
+nl: Chocolade
+pl: Czekolada
+pt: Chocolates
 ro: Ciocolată, ciocolata
 ru: Шоколад, шоколадные продукты
-sv: Choklad, Chokladprodukter
+sv: Choklad
 th: ช็อกโกแลต
 tr: Çikolatalar, Çikolatalı ürünler
 zh: 巧克力
@@ -39078,46 +39080,63 @@ nl: Chocolade dinosauriërs
 
 < en: Bars
 < en: Chocolate candies
-en: Candy chocolate bars, Bars covered with chocolate, Chocolate bars
+en: Candy chocolate bars, Bars covered with chocolate
 bg: Шоколадови барове
 ca: Barretes de xocolata
 de: Schokoriegel, Schokoladenriegel
 es: Barritas de chocolate
-fi: suklaapatukat
-fr: Barres chocolatées, barres au chocolat, Chocolat en tablette
+fi: Suklaapatukat
+fr: Barres chocolatées, barres au chocolat, Barre chocolatée non biscuitée enrobée, Barre au chocolat sans biscuit
 he: חטיפי שוקולד
 hr: čokoladice, čokoladica
 hu: Csokoládés szelet, Csoki
 it: Barrette di cioccolato
 ja: チョコレートバー, チョコバー
 lt: Šokoladiniai batonėliai
-nl: Chocolade repen
+nl: Chocoladesnackrepen
+pl: Batony czekoladowe
 pt: Barras de chocolate
-ro: Paleuri de ciocolată
+ro: Batoane de ciocolată
 ru: Шоколадные плитки, плитки шоколада, шоколадная плитка, плитка шоколада
 zh: 巧克力棒
+agribalyse_proxy_food_code:en: 31001
+ciqual_proxy_food_code:en: 31001
+ciqual_proxy_food_name:en: Chocolate bar, chocolate-coated, without biscuit
+ciqual_proxy_food_name:fr: Barre chocolatée non biscuitée enrobée
 wikidata:en: Q1361086
-#, barre chocolatée, barre au chocolat, barres au chocolat
 
-< en: Bars covered with chocolate
-en: Chocolate biscuity bars
-de: Schokoladenbiscuits
+< en: Candy chocolate bars
+en: Candy chocolate bars filled with biscuit, Chocolate biscuity bars
+de: Schokoriegel mit Keksfüllung
 fi: Keksisuklaapatukat
 fr: Barres chocolatées biscuitées
 hr: Čokoladni biskvit
-it: Barrette biscottate al cioccolato
+it: Barrette di cioccolato con biscotto
 lt: Šokoladiniai batonėliai su sausainiais
 nl: Chocorepen met biscuit
 agribalyse_food_code:en: 31000
 
 # Kitkat
-< en: Chocolate biscuity bars
-fr: Barre chocolatée biscuitée type KitKat, Barre chocolatée biscuitée, Kitkat
+< en: Candy chocolate bars filled with biscuit
+en: Candy chocolate bars filled with wafer
+de: Schokoriegel mit Waffelfüllung
+fr: Barres chocolatées aux gaufrettes, Barre chocolatée biscuitée type KitKat, Barre chocolatée biscuitée, Kitkat
 # Q367251
 
+# Twix and Lion type bars
+< en: Candy chocolate bars filled with biscuit
+en: Candy chocolate bars filled with biscuit and caramel, Caramel chocolate cookie bars
+de: Schokoriegel mit Keks- und Karamellfüllung
+fr: Barres chocolatées biscuitées au caramel
+hr: Čokoladice punjene biskvitom i karamelom
+it: Barrette di cioccolato ripiene di biscotto e caramello
+lt: Šokoladiniai batonėliai su karamele ir sausainiais
+nl: Chocorepen gevuld met koekje en karamel
+
 # Bounty-style bars
-< en: Bars covered with chocolate
-< en: Coconuts and their products
+< en: Candy chocolate bars
+en: Candy chocolate bars filled with coconut
+de: Schokoriegel mit Kokosfüllung
 fr: Barres chocolatées à la noix de coco, barre chocolatée à la noix de coco type Bounty, Bounty
 nl: Chocorepen met kokosvulling
 agribalyse_food_code:en: 31002
@@ -39125,33 +39144,35 @@ ciqual_food_code:en: 31002
 ciqual_food_name:en: Coconut bar, with chocolate coating
 
 # Kinder country style bars
-< en: Bars covered with chocolate
-en: Chocolate covered bars with milk and cereals, Milky cereal breakfast bar with chocolate fortified with vitamins and minerals, Milky cereal breakfast bar fortified with vitamins and minerals
+< en: Candy chocolate bars
+en: Candy chocolate bars filled with milk and cereals, Chocolate covered bars with milk and cereals, Milky cereal breakfast bar with chocolate fortified with vitamins and minerals, Milky cereal breakfast bar fortified with vitamins and minerals
 fr: Barres chocolatées au lait et aux céréales, barre chocolatée au lait et aux céréales type Kinder Country, Kinder Country, barre de céréales au lait et au chocolat
 #Q3815377
 agribalyse_food_code:en: 31100
 ciqual_food_code:en: 31100
 ciqual_food_name:en: Milky cereal breakfast bar, with chocolate or not, fortified with vitamins and minerals
 
-< en: Bars covered with chocolate
-fr: Barres chocolatées aux fruits oléagineux, barre chocolatée aux fruits oléagineux type Snickers, Snickers
+< en: Candy chocolate bars
+en: Candy chocolate bars filled with caramel and peanuts
+de: Schokoriegel mit Karamell- und Erdnussfüllung
+fr: Barres chocolatées au caramel et cacahuètes, Barres chocolatées aux fruits oléagineux, barre chocolatée aux fruits oléagineux type Snickers, Snickers
 #Q714179
 
-< en: Bars covered with chocolate
+< en: Candy chocolate bars
 fr: Barres chocolatées fourrées aux fruits, barre chocolatée fourrée aux fruits
 
-< en: Bars covered with chocolate
-en: Caramel chocolate bars
+< en: Candy chocolate bars
+en: Candy chocolate bars filled with caramel, Caramel chocolate bars
 de: Schokoriegel mit Karamell, Schokoriegel mit Karamellüberzug, Schokoriegel mit Karamellfüllung
 fi: Toffee-suklaapatukat
 fr: Barres chocolatées au caramel
-hr: Karamel čokoladne pločice
+hr: Čokoladice punjene karamelom
 it: Barrette di cioccolato al caramello
 lt: Šokoladiniai batonėliai su karamele
 nl: Chococaramelrepen, Chocolade-caramelrepen
 pt: Barras de chocolate caramelo
 
-< en: Bars covered with chocolate
+< en: Candy chocolate bars
 en: Chocolate nuts cookie bars
 de: Schokoladenkekse mit Nüssen
 fr: Barres chocolatées biscuitées aux noisettes
@@ -39160,32 +39181,23 @@ it: Barrette biscottate alle noci e cioccolato
 lt: Šokoladiniai batonėliai su riešutais ir sausainiais
 nl: Chocorepen met noten en biscuit
 
-< en: Bars covered with chocolate
-en: Caramel chocolate cookie bars
-de: Kekse mit Karamellschokolade
-fr: Barres chocolatées biscuitées au caramel
-hr: Karamel čokoladne keksiće
-it: Barrette biscottate al cioccolato e caramello
-lt: Šokoladiniai batonėliai su karamele ir sausainiais
-nl: Koekjesrepen met caramel en chocola
-
-< en: Bars covered with chocolate
-en: Chocolate confectionery with dairy filling, Chocolate bar with dairy filling
+< en: Candy chocolate bars
+en: Candy chocolate bars filled with a dairy cream, Chocolate confectionery with dairy filling, Chocolate bar with dairy filling
 fr: Barres chocolatées au lait, Confiserie chocolatées au lait, Barres chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi
 hr: Čokoladni slatkiši s mliječnim punjenjem
-ro: Miniprajituri pe baza de lapte
+ro: Batoane de ciocolată cu lapte
 agribalyse_food_code:en: 31012
 ciqual_food_code:en: 31012
 ciqual_food_name:en: Chocolate confectionery or bar, with dairy filling
 
-< en: Bars covered with chocolate
+< en: Candy chocolate bars
 en: Chocolate snack bar dairy filling
 fr: Barre de chocolat au lait frais
 agribalyse_food_code:en: 31073
 ciqual_food_code:en: 31073
 ciqual_food_name:en: Chocolate snack bar, dairy filling
 
-< en: Bars covered with chocolate
+< en: Candy chocolate bars
 en: Chocolate snack bar dairy filling with sponge cake
 fr: barre de chocolat au lait frais avec génoise
 agribalyse_food_code:en: 31099
@@ -57436,7 +57448,7 @@ da: Sprøde jordnøddesmør, Crunchy jordnøddesmør
 fr: Beurres de cacahuetes croustillants
 hr: Hrskavi maslaci od kikirikija
 lt: Traškūs žemės riešutų sviestai
-nl: Pindakzen met stukjes pinda
+nl: Pindakazen met stukjes pinda
 pt: Manteigas de amendoim crocantes
 sv: Jordnötssmör med bitar, Crunchy jordnötssmör
 incompatible_with:en: categories:en:creamy-peanut-butters
@@ -100327,18 +100339,6 @@ ciqual_food_code:en: 24030
 ciqual_food_name:en: Biscuit (cookie), with milk
 ciqual_food_name:fr: Biscuit sec au lait
 
-< en: Biscuits and cakes
-en: Coated chocolate bar without biscuit
-de: Schokoladenriegel ohne Keks
-es: Barra de chocolate sin galleta
-fr: Barre au chocolat sans biscuit
-hr: Obložena čokoladica bez keksa
-it: Barretta di cioccolato senza biscotto
-nl: Chocoladereep zonder biscuit
-agribalyse_food_code:en: 31001
-ciqual_food_code:en: 31001
-ciqual_food_name:en: Coated chocolate bar without biscuit
-
 < en: Filled biscuits
 en: Biscuits with nuts
 de: Nusskekse
@@ -121231,7 +121231,7 @@ hu: Müzliszelet
 it: Barrette di cereali
 ja: シリアルバー, グラノーラバー
 nl: Graanrepen, Mueslirepen
-pl: Batoniki zbożowe
+pl: Batony zbożowe, Batoniki zbożowe
 pt: Barras de cereais
 ru: Мюсли-батончики
 google_product_taxonomy_id:en: 543651
