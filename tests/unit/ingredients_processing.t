@@ -407,9 +407,10 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:pasteurized-creme-fraiche',
+				'text' => "cr\x{e8}me fra\x{ee}che",
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me fra\x{ee}che pasteuris\x{e9}e"
+				'id' => 'en:fresh-cream',
+				'processing' => 'en:pasteurised',
 			},
 			{
 				'id' => 'en:banana',
