@@ -49762,7 +49762,7 @@ eurocode_2_group_2:en: 8.10
 
 #########################################################################################
 #
-#                               Chicory greens
+#                               Betel leaves
 #
 ##########################################################################################
 
@@ -49804,6 +49804,8 @@ usda_ndb_name:en: Chicory greens, raw
 en: collard greens, collard
 description:en: Collards (collard greens) are a leafy green vegetable in the cabbage family — the same species as kale, cabbage, and broccoli (Brassica oleracea), just bred for large, loose, dark green leaves rather than a tight head. Earthy, slightly bitter, and hearty — milder than mustard greens, tougher and more assertive than spinach. Traditionally slow-cooked (often with smoked meat, onion, garlic, vinegar, and pepper flakes in Southern U.S. cooking) until tender — but they can also be sautéed, steamed, or even eaten raw/massaged in salads if sliced thin. It's the same species as cabbage (Brassica oleracea), but not a cabbage in the way we normally mean the word.
 species:en: Brassica oleracea
+ifct_food_code:en: C014
+ifct_food_name:en: Cabbage, collard greens
 usda_ndb_code:en: 11161
 usda_ndb_name:en: Collards, raw
 wikidata:en: Q14879985
@@ -51828,7 +51830,11 @@ eurocode_2_group_3:en: 8.15.24
 wikidata:en: q263203
 wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
 
-#comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
+###################################################################################################
+#
+#                                Chinese cabbage
+#
+###################################################################################################
 
 < en: cabbage
 en: Chinese cabbage, Napa cabbage
@@ -51872,17 +51878,20 @@ uk: капуста пекінська
 uz: pekin karami
 vi: cải thảo
 zh: 大白菜
-ciqual_food_code:en: 20167
-ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-ecobalyse:en: chinese-cabbage-fr
-ecobalyse_labels_en_organic:en: chinese-cabbage-organic
-# 200 @2021-09-29
-eurocode_2_group_3:en: 8.15.28
 #arz:ملفوف برند
 #lzh:菘
 #szy:mamumuway
 # yue:紹菜
+ciqual_food_code:en: 20167
+ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
+description:en: Chinese cabbage (Brassica rapa subsp. pekinensis) originated in East Asia, likely China, and has been cultivated for over 1,500 years before spreading worldwide. It features pale green, crinkled leaves with wide white ribs and a mild, slightly sweet flavor with subtle peppery notes. Globally, it's used in stir-fries, soups, dumplings, salads, and most famously as the base for Korean kimchi; it also appears in Japanese, Chinese, and Western cuisines as a crunchy, versatile vegetable. Nutritionally, it's low in calories and contains vitamins C and K, folate, potassium, and dietary fiber, along with various antioxidant compounds, making it a widely valued leafy vegetable across cultures.
+ecobalyse:en: chinese-cabbage-fr
+ecobalyse_labels_en_organic:en: chinese-cabbage-organic
+eurocode_2_group_3:en: 8.15.28
+ifct_food_code:en: C013
+ifct_food_name:en: Cabbage, Chinese
 wikidata:en: Q13360268
 wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
 
@@ -52187,8 +52196,11 @@ hr: pire od kelja
 it: purea di cavolo
 pl: przecier z liści jarmużu
 
-# description:en:Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea.
-# be careful with the translation found on packages.
+###################################################################################################
+#
+#                                Green cabbage
+#
+###################################################################################################
 
 < en: cabbage
 en: savoy cabbage, green cabbage
@@ -52239,9 +52251,13 @@ zh: 野甘蓝
 ciqual_food_code:en: 20069
 ciqual_food_name:en: Green cabbage, raw
 ciqual_food_name:fr: Chou vert, cru
+comment:en: be careful with the translation found on packages.
+description:en: Green cabbage (Brassica oleracea var. capitata) originated in the Mediterranean and Western Europe, cultivated from wild mustard plants over 2,000 years ago before spreading worldwide through trade and colonization. Today it's a staple across Europe, Asia, Africa, and the Americas. Its tightly packed, pale-green leaves offer a crisp texture and mild, slightly peppery flavor that turns sweeter when cooked, with a subtle sulfurous note. Used raw in slaws and salads, fermented into sauerkraut and kimchi, or cooked in soups, stir-fries, stews, and stuffed dishes, it adapts to countless culinary traditions. Nutritionally, green cabbage provides vitamin C, vitamin K, fiber, and small amounts of various minerals, while being low in calories.
 ecobalyse:en: green-cabbage-fr
 ecobalyse_labels_en_organic:en: green-cabbage-organic
 eurocode_2_group_3:en: 8.15.20
+ifct_food_code:en: C015
+ifct_food_name:en: Cabbage, green
 wikidata:en: Q154013
 wikipedia:en: https://en.wikipedia.org/wiki/Savoy_cabbage
 
