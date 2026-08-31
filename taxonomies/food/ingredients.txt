@@ -132,7 +132,7 @@ stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, ind
 stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
+stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
 stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
@@ -12339,12 +12339,15 @@ ciqual_food_name:fr: Chipolata, crue
 fr: chipolatas aux herbes
 
 < en: pork
-en: pork skin, sausage skin
+en: pork skin
 bg: свинска кожа, свински кожички
 de: Schweinehaut
 fr: Peau de porc
 hr: svinjska koža
 it: pelle di maiale
+
+< en: pork skin
+en: pork drinde
 
 #< en: compound
 < en: pork meat
@@ -13497,6 +13500,12 @@ carbon_footprint_fr_foodges_value:fr: 5.1
 
 < en: meat
 fr: saucisse de strasbourg
+
+en: sausage skin
+comment:en: Not necessarily meat-based
+vegan:en: maybe
+vegetarian:en: maybe
+wikidata:en: Q1372144
 
 fr: plasma déshydraté
 
@@ -15078,7 +15087,7 @@ description:en: argan oil is found in argan tree
 wikipedia:en: Q45418
 
 < en: vegetable oil
-en: avocado oil
+en: avocado oil, avocado vegetable oil
 bg: авокадово масло, авокадово олио
 da: avocadoolie
 de: Avocadoöl
@@ -15274,7 +15283,7 @@ it: grasso di semi di cotone
 from_palm_oil:en: no
 
 < en: vegetable oil
-en: cottonseed oil, cotton seed oil
+en: cottonseed oil, cotton seed oil, cottonseed vegetable oil
 ar: زيت بذرة القطن
 az: Pambıq yağı
 be: Баваўняны алей
@@ -15751,7 +15760,7 @@ hr: mješavina palminog ulja i palminog superoleina
 it: miscela di olio di palma e superoleina di palma
 
 < en: palm oil
-en: Palm stearin
+en: palm stearin, palm stearin vegetable oil
 da: palme stearin
 de: Palmstearin
 fi: palmusteariini
@@ -16274,7 +16283,7 @@ usda_ndb_code:en: 4588
 usda_ndb_name:en: Oil, oat
 
 < en: vegetable oil
-en: olive oil
+en: olive oil, olive vegetable oil
 ar: زيت زيتون
 az: Zeytun yağı
 ba: Зәйтүн майы
@@ -16698,7 +16707,7 @@ sv: rypsoljeberedning
 # mainIngredient:en:canola oil
 
 < en: rapeseed oil
-en: colza oil
+en: colza oil, colza vegetable oil
 bg: рапично олио
 ca: Oli de colza
 de: Kolzaöl, Kohlsaatöl
@@ -17272,7 +17281,7 @@ nl: zonnebloemvet geheel gehard, geheel geharde zonnebloem
 
 < en: vegetable oil
 # <en:en:safflower
-en: safflower oil
+en: safflower oil, safflower vegetable oil
 bg: шафраново масло
 de: Distelöl, Färberdistelöl
 es: aceite ce cártamo

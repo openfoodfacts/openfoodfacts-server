@@ -879,6 +879,35 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 
+	# Multi-word oils inside a generic name: "palm kernel" and "palm stearin"
+	# must be expanded as a single ingredient each, not left as a dangling word
+	# after "palm" was matched (e.g. "palm, palm, stearin, palm kernel").
+	[
+		"en-vegetable-oils-palm-stearin-palm-kernel",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (palm stearin, palm, palm kernel)",
+		}
+	],
+
+	[
+		"en-vegetable-oils-palm-stearin-palm-kernel-with-other-oils",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (coconut, palm stearin, palm, palm kernel)",
+		}
+	],
+
+	# Oils that resolve to their taxonomy id via an "X vegetable oil(s)" synonym
+	# (ingredients.txt). Guards the synonym entries added for these oils.
+	[
+		"en-vegetable-oils-five-resolved-oils",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (avocado, olive, colza, cottonseed, safflower)",
+		}
+	],
+
 	# émulsifiant : lécithines (tournesol)
 	[
 		"fr-emulsifiant-lecithines-tournesol",
