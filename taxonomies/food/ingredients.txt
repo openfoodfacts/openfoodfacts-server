@@ -132,7 +132,7 @@ stopwords:da: og, eller, samt, av, af, blandt andet, bl a, inklusive, heraf, ind
 stopwords:de: Allergene Zutaten, und, mit, von, aus, enthält, enthalten, mindestens, naturbelassen, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el: περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
-stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
+stopwords:en: and, or, added to enhance freshness, added to maintain flavor and freshness, assorted, based, contains, contains less than 2% of the following, contains one or more of the following, contain, edible, for freshness, from, including, inter alia, in varying portions, in varying proportions, less than 1% of:, may contain one or more of the following, minimum, possibly some, produced with, roasted in, substances, with, with added
 stopwords:es: contiene, de, del, la, el, las, los, con, y, e, en, minimo, maximo, puede, contener, por, categoria, calibre, minimo, min, vereidad, variedad, de cultivo, origen, nota, produccion, controlada, equivalente, equivale
 stopwords:fi: allergiatiedot, jossa, käymisen aikana muodostuva, koskenlaskija, muun muassa, noin, sisältää, snellmanin, valio
 stopwords:fr: aux, au, de, le, du, la, a, et, avec, ou, en, proportion, variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves, dont, avec, autres, d'autres, d', avec ajout, sachet, marquants, demeter, minimum, base
@@ -12284,12 +12284,15 @@ ciqual_food_name:fr: Chipolata, crue
 fr: chipolatas aux herbes
 
 < en: pork
-en: pork skin, sausage skin
+en: pork skin
 bg: свинска кожа, свински кожички
 de: Schweinehaut
 fr: Peau de porc
 hr: svinjska koža
 it: pelle di maiale
+
+< en: pork skin
+en: pork drinde
 
 #< en: compound
 < en: pork meat
@@ -13438,6 +13441,9 @@ carbon_footprint_fr_foodges_value:fr: 5.1
 
 < en: meat
 fr: saucisse de strasbourg
+
+en: sausage skin
+comment:en: Not necessarily meat-based
 
 fr: plasma déshydraté
 
