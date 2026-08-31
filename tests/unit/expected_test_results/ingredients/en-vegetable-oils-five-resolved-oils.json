@@ -2,48 +2,71 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
+         "ciqual_food_code" : "17001",
          "from_palm_oil" : "maybe",
          "id" : "en:vegetable-oil",
          "ingredients" : [
             {
-               "id" : "en:avocado vegetable oils",
-               "is_in_taxonomy" : 0,
+               "ciqual_food_code" : "17100",
+               "from_palm_oil" : "no",
+               "id" : "en:avocado-oil",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 60,
                "percent_max" : 100,
                "percent_min" : 20,
-               "text" : "avocado vegetable oils"
+               "text" : "avocado vegetable oils",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "en:olive vegetable oils",
-               "is_in_taxonomy" : 0,
+               "ciqual_food_code" : "17001",
+               "ecobalyse_code" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
+               "from_palm_oil" : "no",
+               "id" : "en:olive-oil",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 20,
                "percent_max" : 50,
                "percent_min" : 0,
-               "text" : "olive vegetable oils"
+               "text" : "olive vegetable oils",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "en:colza vegetable oils",
-               "is_in_taxonomy" : 0,
+               "ciqual_food_code" : "17130",
+               "ecobalyse_code" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "from_palm_oil" : "no",
+               "id" : "en:colza-oil",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 10,
                "percent_max" : 33.3333333333333,
                "percent_min" : 0,
-               "text" : "colza vegetable oils"
+               "text" : "colza vegetable oils",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "en:cottonseed vegetable oils",
-               "is_in_taxonomy" : 0,
+               "ciqual_food_code" : "17170",
+               "from_palm_oil" : "no",
+               "id" : "en:cottonseed-oil",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 5,
                "percent_max" : 25,
                "percent_min" : 0,
-               "text" : "cottonseed vegetable oils"
+               "text" : "cottonseed vegetable oils",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "en:safflower vegetable oils",
-               "is_in_taxonomy" : 0,
+               "ciqual_food_code" : "17126",
+               "from_palm_oil" : "no",
+               "id" : "en:safflower-oil",
+               "is_in_taxonomy" : 1,
                "percent_estimate" : 5,
                "percent_max" : 20,
                "percent_min" : 0,
-               "text" : "safflower vegetable oils"
+               "text" : "safflower vegetable oils",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "is_in_taxonomy" : 1,
@@ -55,33 +78,11 @@
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "en:avocado vegetable oils",
-         "en:olive vegetable oils",
-         "en:colza vegetable oils",
-         "en:cottonseed vegetable oils",
-         "en:safflower vegetable oils"
-      ],
-      "en:vegan-status-unknown" : [
-         "en:avocado vegetable oils",
-         "en:olive vegetable oils",
-         "en:colza vegetable oils",
-         "en:cottonseed vegetable oils",
-         "en:safflower vegetable oils"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:avocado vegetable oils",
-         "en:olive vegetable oils",
-         "en:colza vegetable oils",
-         "en:cottonseed vegetable oils",
-         "en:safflower vegetable oils"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "en",
    "ingredients_n" : 6,
@@ -91,50 +92,42 @@
    ],
    "ingredients_original_tags" : [
       "en:vegetable-oil",
-      "en:avocado vegetable oils",
-      "en:olive vegetable oils",
-      "en:colza vegetable oils",
-      "en:cottonseed vegetable oils",
-      "en:safflower vegetable oils"
+      "en:avocado-oil",
+      "en:olive-oil",
+      "en:colza-oil",
+      "en:cottonseed-oil",
+      "en:safflower-oil"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:vegetable-oil",
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
-      "en:avocado vegetable oils",
-      "en:olive vegetable oils",
-      "en:colza vegetable oils",
-      "en:cottonseed vegetable oils",
-      "en:safflower vegetable oils"
+      "en:avocado-oil",
+      "en:olive-oil",
+      "en:colza-oil",
+      "en:rapeseed-oil",
+      "en:cottonseed-oil",
+      "en:safflower-oil"
    ],
    "ingredients_text" : "vegetable oils (avocado, olive, colza, cottonseed, safflower)",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:avocado vegetable oils",
-      "en:colza vegetable oils",
-      "en:cottonseed vegetable oils",
-      "en:olive vegetable oils",
-      "en:safflower vegetable oils",
-      "en:vegetable-oil"
-   ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
-      "en:avocado vegetable oils",
-      "en:colza vegetable oils",
-      "en:cottonseed vegetable oils",
-      "en:olive vegetable oils",
-      "en:safflower vegetable oils",
+      "en:avocado-oil",
+      "en:cottonseed-oil",
+      "en:safflower-oil",
       "en:vegetable-oil"
    ],
-   "ingredients_without_ecobalyse_ids_n" : 6,
-   "known_ingredients_n" : 1,
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 6,
    "lc" : "en",
    "misc_tags" : [
       "en:estimated-ingredients-with-product-opener"
    ],
-   "unknown_ingredients_n" : 5
+   "unknown_ingredients_n" : 0
 }
