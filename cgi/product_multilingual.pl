@@ -346,6 +346,12 @@ else {
 	elsif (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		require_post_method($request_ref);
 		validate_csrf_token($request_ref);
+
+		$product_id = product_id_for_owner($Owner_id, $code);
+		$product_ref = retrieve_product($product_id, $User{moderator});
+		if (not defined $product_ref) {
+			display_error_and_exit($request_ref, sprintf(lang("no_product_for_barcode"), $code), 404);
+		}
 	}
 	else {
 		if (    ((defined $server_options{private_products}) and ($server_options{private_products}))

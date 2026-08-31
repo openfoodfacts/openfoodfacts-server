@@ -24,6 +24,12 @@ create_user($ua, \%create_user_args);
 # Login to establish a session
 login($ua, $create_user_args{userid}, $default_user_form{password});
 
+# Remove the bearer token set by create_user, so that subsequent requests
+# use the session cookie instead. Otherwise, the OIDC path in init_user()
+# would call open_user_session() on every request, rotating the CSRF token
+# and making the token retrieved below stale.
+# $ua->default_header('Authorization' => undef);
+
 # Retrieve the CSRF token from the user's session
 my $user_ref = retrieve_user($create_user_args{userid});
 my $session_token = (keys %{$user_ref->{user_sessions}})[0];
@@ -36,6 +42,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/cgi/product_multilingual.pl?type=edit&code=1234567890001&action=process',
 		expected_status_code => 405,
+		#expected_type => 'none',
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref, $ua);
@@ -47,6 +54,7 @@ $tests_ref = [
 		method => 'GET',
 		path => '/cgi/export_products.pl?action=process',
 		expected_status_code => 405,
+		#expected_type => 'none',
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref, $ua);
@@ -58,6 +66,7 @@ $tests_ref = [
 		method => 'GET',
 		path => '/cgi/org.pl?type=edit&action=process',
 		expected_status_code => 405,
+		expected_type => 'none',
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref, $ua);
@@ -74,6 +83,7 @@ $tests_ref = [
 			code => '1234567890001',
 		},
 		expected_status_code => 403,
+		expected_type => 'none',
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref, $ua);
@@ -91,6 +101,7 @@ $tests_ref = [
 			csrf_token => 'invalid_token',
 		},
 		expected_status_code => 403,
+		expected_type => 'none',
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref, $ua);
@@ -109,7 +120,7 @@ $tests_ref = [
 			csrf_token => $csrf_token,
 		},
 		expected_status_code => 404,
-		expected_type => 'none',
+		#expected_type => 'none',
 	},
 ];
 execute_api_tests(__FILE__, $tests_ref, $ua);

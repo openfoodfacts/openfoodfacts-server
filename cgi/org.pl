@@ -73,21 +73,24 @@ if (not defined $org_ref) {
 	$template_data_ref->{org_does_not_exist} = 1;
 }
 
-# Does the user have permission to edit the org profile?
-
-if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{admin} or $request_ref->{pro_moderator})) {
-	$log->debug("user does not have permission to edit org",
-		{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
-		if $log->is_debug();
-	display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
-}
-
 my @errors = ();
 
 if ($action eq 'process') {
 
 	require_post_method($request_ref);
 	validate_csrf_token($request_ref);
+
+	if (
+		not(   is_user_in_org_group($org_ref, $User_id, "admins")
+			or $request_ref->{admin}
+			or $request_ref->{pro_moderator})
+		)
+	{
+		$log->debug("user does not have permission to edit org",
+			{orgid => $orgid, org_admins => $org_ref->{admins}, User_id => $User_id})
+			if $log->is_debug();
+		display_error_and_exit($request_ref, $Lang{error_no_permission}{$lc}, 403);
+	}
 
 	if ($type eq 'edit') {
 		#11867: Add a honeypot field
