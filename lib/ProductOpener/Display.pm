@@ -1133,6 +1133,7 @@ sub require_post_method ($request_ref) {
 	if (not($request_ref->{method} eq 'POST')) {
 		display_error_and_exit($request_ref, lang("invalid_method"), 405);
 	}
+	return;
 }
 
 =head2 validate_csrf_token ($request_ref)
@@ -1150,6 +1151,7 @@ sub validate_csrf_token ($request_ref) {
 	if (not($submitted && $expected && $submitted eq $expected)) {
 		display_error_and_exit($request_ref, lang("invalid_csrf_token"), 403);
 	}
+	return;
 }
 
 =head2 display_no_index_page_and_exit ()

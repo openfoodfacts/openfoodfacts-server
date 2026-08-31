@@ -343,6 +343,10 @@ else {
 	elsif (not is_valid_code($code)) {
 		display_error_and_exit($request_ref, $Lang{invalid_barcode}{$lc}, 403);
 	}
+	elsif (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
+		require_post_method($request_ref);
+		validate_csrf_token($request_ref);
+	}
 	else {
 		if (    ((defined $server_options{private_products}) and ($server_options{private_products}))
 			and (not defined $Owner_id))
@@ -422,9 +426,6 @@ if ($request_ref->{admin}) {
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
-
-	require_post_method($request_ref);
-	validate_csrf_token($request_ref);
 
 	# Process edit rules
 
