@@ -42711,7 +42711,7 @@ usda_ndb_name:en: Oranges, raw, Florida
 
 < en: orange
 en: raw navel orange
-usda_fdc_code:en: 169917
+usda_fdc_code:en: 169917, 327501
 usda_ndb_code:en: 9202
 usda_ndb_name:en: Oranges, raw, navels (Includes foods for USDA's Food Distribution Program)
 
@@ -45249,7 +45249,7 @@ ciqual_food_code:en: 13012
 ciqual_food_name:en: Fig, raw
 ciqual_food_name:fr: Figue, crue
 openfoodfacts:en: https://world.openfoodfacts.org/ingredient/fig
-usda_fdc_2_code:en: 174665
+usda_fdc_2_code:en: 174665, 326905
 usda_fdc_code:en: 173021
 usda_ndb_2_code:en: 9094
 usda_ndb_2_name:en: Figs, dried, uncooked
@@ -45670,7 +45670,7 @@ description:en: KIWIFRUIT (often abbreviated as KIWI), or Chinese gooseberry is 
 ecobalyse:en: 5c5663f5-3075-4814-92ff-1f65c99ad518
 ecobalyse_origins_en_european_union:en: cf4d7abd-8cd6-48ef-bc83-212ad3f672b9
 ecobalyse_origins_en_france:en: f3ed8d7b-21be-4d21-aae0-fee3ae914224
-usda_fdc_code:en: 168153
+usda_fdc_code:en: 168153, 327046
 usda_ndb_code:en: 9148
 usda_ndb_name:en: Kiwifruit, green, raw
 wikidata:en: Q13194
@@ -46038,7 +46038,7 @@ zh: 哈密瓜
 ciqual_food_code:en: 13026
 ciqual_food_name:en: Melon, cantaloupe -ex Cavaillon or Charentais melon-, pulp, raw
 description:en: Cantaloupe (muskmelon, mushmelon, rockmelon, sweet melon) or spanspek (South Africa) is a variety of the Cucumis melo species in the Cucurbitaceae family.
-usda_fdc_code:en: 169092
+usda_fdc_code:en: 169092, 327198
 usda_ndb_code:en: 9181
 usda_ndb_name:en: Melons, cantaloupe, raw
 wikidata:en: Q477179
@@ -46418,7 +46418,7 @@ ciqual_food_code:en: 13030
 ciqual_food_name:en: Nectarine, pulp and peel, raw
 ciqual_food_name:fr: Nectarine ou brugnon, pulpe et peau, crue
 eurocode_2_group_3:en: 9.20.15
-usda_fdc_code:en: 169914
+usda_fdc_code:en: 169914, 327357
 usda_ndb_code:en: 9191
 usda_ndb_name:en: Nectarines, raw
 wikidata:en: Q841156
@@ -47824,7 +47824,7 @@ eurocode_2_group_3:en: 9.30.15
 ifct_food_code:en: E063
 ifct_food_name:en: Strawberry
 usda_fdc_2_code:en: 168173
-usda_fdc_code:en: 167762
+usda_fdc_code:en: 167762, 327699
 usda_ndb_2_code:en: 9318
 usda_ndb_2_name:en: Strawberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)
 usda_ndb_2_process:en: en:frozen, en:unsweetened
@@ -50578,7 +50578,7 @@ zh: 蘿蔓萵苣
 ciqual_food_code:en: 20171
 ciqual_food_name:en: Cos or romaine lettuce, raw
 ciqual_food_name:fr: Laitue romaine, crue
-usda_fdc_code:en: 169247
+usda_fdc_code:en: 169247, 327923
 usda_ndb_code:en: 11251
 usda_ndb_name:en: Lettuce, cos or romaine, raw
 wikidata:en: Q1762893
@@ -90235,6 +90235,7 @@ nl: grote eieren
 # 3@2019-05-31
 
 < en: egg
+< en: whole egg
 en: free range eggs, free range whole egg
 bg: яйца от свободни кокошки
 de: Freilandeier
@@ -90452,6 +90453,7 @@ fr: Gros Œufs de Poules Élevées en Plein Air
 fr: œuf moyen de poule élevé en plein air sans antibiotiques
 
 < en: free range chicken eggs
+< en: whole egg
 en: free range pasteurised egg, free range pasteurised whole egg
 fr: œufs de poules élevées en plein air pasteurisés, oeufs de poules élevées en plein air pasteurisés
 hr: pasterizirano jaje slobodnog uzgoja
@@ -90527,7 +90529,7 @@ nl: hele eieren, geheel eieren
 pl: Całe jajo
 pt: Ovo inteiro
 usda_fdc_2_code:en: 323604
-usda_fdc_code:en: 172188
+usda_fdc_code:en: 172188, 329490
 usda_foundation_2_name:en: Egg, whole, raw, frozen, pasteurized
 usda_foundation_2_process:en: en:frozen, en:pasteurized
 usda_ndb_code:en: 1133
