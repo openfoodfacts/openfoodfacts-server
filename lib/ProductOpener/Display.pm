@@ -1130,7 +1130,7 @@ to block GET-based CSRF attacks.
 =cut
 
 sub require_post_method ($request_ref) {
-	if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
+	if (not ($request_ref->{method} eq 'POST')) {
 		display_error_and_exit($request_ref, lang("invalid_method"), 405);
 	}
 }
