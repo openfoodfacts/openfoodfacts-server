@@ -29,7 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::HTTP qw/single_param redirect_to_url/;
 use ProductOpener::Web qw/display_knowledge_panel get_languages_options_list/;
 use ProductOpener::Tags qw/:all/;
@@ -231,6 +231,9 @@ if ($type eq 'search_or_add') {
 	}
 	else {
 
+		require_post_method($request_ref);
+		validate_csrf_token($request_ref);
+
 		# barcode in image?
 		my $filename;
 		if ((not defined $code) or ($code eq "")) {
@@ -419,6 +422,9 @@ if ($request_ref->{admin}) {
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
+
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 
 	# Process edit rules
 
@@ -1361,6 +1367,8 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 }
 elsif ($action eq 'process') {
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 	# process the form
 
 	my $template_data_ref_process = {type => $type};

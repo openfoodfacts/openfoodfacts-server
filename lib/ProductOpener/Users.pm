@@ -1141,6 +1141,8 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 		access_expires_at => $access_expires_at,
 		id_token => $id_token
 	};
+	# Rotate CSRF token on each new login
+	$user_ref->{csrf_token} = generate_token(32);
 	$user_ref->{last_login_t} = time();
 
 	# Store user data
@@ -1660,6 +1662,11 @@ sub init_user ($request_ref) {
 							if $session_ref->{refresh_expires_at};
 						$request_ref->{id_token} = $session_ref->{id_token} if $session_ref->{id_token};
 					}
+					if (not defined $user_ref->{csrf_token}) {
+						$user_ref->{csrf_token} = generate_token(32);
+						store_user_preferences($user_ref);
+					}
+					$request_ref->{csrf_token} = $user_ref->{csrf_token};
 				}
 			}
 			else {

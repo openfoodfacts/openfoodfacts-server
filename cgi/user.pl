@@ -26,7 +26,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Web qw/get_countries_options_list get_languages_options_list/;
 use ProductOpener::Users qw/:all/;
@@ -107,6 +107,9 @@ my $debug = 0;
 my @errors = ();
 
 if ($action eq 'process') {
+
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 
 	if (get_oidc_implementation_level() < 5) {
 		# Keep legacy method until we have moved account management to Keycloak
@@ -429,6 +432,9 @@ if ($action eq 'display') {
 }
 
 elsif ($action eq 'process') {
+
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);

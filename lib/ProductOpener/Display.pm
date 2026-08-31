@@ -65,6 +65,8 @@ BEGIN {
 		&display_search_results
 		&display_error
 		&display_error_and_exit
+		&require_post_method
+		&validate_csrf_token
 
 		&compare_product_nutrition_facts_to_categories
 		&data_to_display_nutrition_table
@@ -357,6 +359,7 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	(not defined $template_data_ref->{user}) and $template_data_ref->{user} = \%User;
 	(not defined $template_data_ref->{org_id}) and $template_data_ref->{org_id} = $Org_id;
 	$template_data_ref->{owner_pretty_path} = get_owner_pretty_path($Owner_id);
+	$template_data_ref->{csrf_token} = $request_ref->{csrf_token} // '';
 	# webcomponents configuration
 	$template_data_ref->{robotoff_url} = $robotoff_url;
 	$template_data_ref->{folksonomy_uri} = $folksonomy_url;
@@ -1116,6 +1119,37 @@ sub display_error_and_exit ($request_ref, $error_message, $status_code) {
 
 	display_error($request_ref, $error_message, $status_code);
 	exit();
+}
+
+=head2 require_post_method ($request_ref)
+
+Verify that the current request uses the POST method. If not, render a 405 error
+and exit. This should be called at the start of any state-changing process branch
+to block GET-based CSRF attacks.
+
+=cut
+
+sub require_post_method ($request_ref) {
+	if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
+		display_error_and_exit($request_ref, lang("invalid_method"), 405);
+	}
+}
+
+=head2 validate_csrf_token ($request_ref)
+
+Verify that the request contains a CSRF token matching the token stored in the
+current session. If not, render a 403 error and exit. This should be called at
+the start of any destructive process branch to block same-site POST forgeries.
+
+=cut
+
+sub validate_csrf_token ($request_ref) {
+	my $submitted = single_param('csrf_token') // '';
+	my $expected = $request_ref->{csrf_token} // '';
+	$log->debug("CSRF check", {submitted => $submitted, expected => $expected}) if $log->is_debug();
+	if (not($submitted && $expected && $submitted eq $expected)) {
+		display_error_and_exit($request_ref, lang("invalid_csrf_token"), 403);
+	}
 }
 
 =head2 display_no_index_page_and_exit ()

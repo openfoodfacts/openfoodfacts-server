@@ -12,7 +12,7 @@
 	sequentialUploads: true,
 	dataType: 'json',
 	url: "/cgi/import_file_upload.pl",
-	formData : [{name: 'action', value: 'process'}],
+	formData : [{name: 'action', value: 'process'}, {name: 'csrf_token', value: '[% csrf_token %]'}],
 	done: function (e, data) {
 		if (data.result.location) {
 			\$(location).attr('href',data.result.location);

@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_fileid/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/:all/;
+use ProductOpener::Display qw/:all require_post_method validate_csrf_token/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/$lc %Lang lang/;
@@ -85,6 +85,9 @@ if (not(is_user_in_org_group($org_ref, $User_id, "admins") or $request_ref->{adm
 my @errors = ();
 
 if ($action eq 'process') {
+
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 
 	if ($type eq 'edit') {
 		#11867: Add a honeypot field
@@ -377,6 +380,9 @@ if ($action eq 'display') {
 	}
 }
 elsif ($action eq 'process') {
+
+	require_post_method($request_ref);
+	validate_csrf_token($request_ref);
 
 	if ($type eq "edit") {
 		#11867: Set main contact to the current user if not an admin or moderator
