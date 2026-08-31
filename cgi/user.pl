@@ -109,7 +109,9 @@ my @errors = ();
 if ($action eq 'process') {
 
 	require_post_method($request_ref);
-	validate_csrf_token($request_ref);
+	if (($type eq 'edit') or ($type eq 'delete')) {
+		validate_csrf_token($request_ref);
+	}
 
 	if (get_oidc_implementation_level() < 5) {
 		# Keep legacy method until we have moved account management to Keycloak
@@ -434,7 +436,9 @@ if ($action eq 'display') {
 elsif ($action eq 'process') {
 
 	require_post_method($request_ref);
-	validate_csrf_token($request_ref);
+	if (($type eq 'edit') or ($type eq 'delete')) {
+		validate_csrf_token($request_ref);
+	}
 
 	if (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref, $request_ref);
