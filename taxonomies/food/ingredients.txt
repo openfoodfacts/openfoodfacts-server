@@ -2830,10 +2830,17 @@ ciqual_food_name:en: Milk, skimmed, UHT
 ciqual_food_name:fr: Lait écrémé, UHT
 comment:en: kept due to ciqual
 
+# < en:compound
 < en: skimmed milk
 en: vitamin enriched skimmed milk
 usda_fdc_code:en: 322559
 usda_foundation_name:en: Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)
+
+# < en: compound
+< en: skimmed milk
+en: vitamin enriched lowfat milk
+usda_fdc_code:en: 322228
+usda_foundation_name:en: Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D
 
 ################################# SEMI-SKIMMED MILK ############################
 
@@ -2966,6 +2973,12 @@ ro: lapte integral pasteurizat
 ciqual_food_code:en: 19024
 ciqual_food_name:en: Milk, whole, pasteurised
 ciqual_food_name:fr: Lait entier, pasteurisé
+
+# < en: compound
+< en: whole milk
+en: vitamin enhanced whole milk
+usda_fdc_code:en: 322892
+usda_foundation_name:en: Milk, whole, 3.25% milkfat, with added vitamin D
 
 ################################## COW MILKS ###################################
 
