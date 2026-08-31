@@ -2830,6 +2830,11 @@ ciqual_food_name:en: Milk, skimmed, UHT
 ciqual_food_name:fr: Lait écrémé, UHT
 comment:en: kept due to ciqual
 
+< en: skimmed milk
+en: vitamin enriched skimmed milk
+usda_fdc_code:en: 322559
+usda_foundation_name:en: Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)
+
 ################################# SEMI-SKIMMED MILK ############################
 
 < en: milk
@@ -51437,6 +51442,7 @@ en: raw broccoli
 ciqual_food_code:en: 20057
 ciqual_food_name:en: Broccoli, raw
 ciqual_food_name:fr: Brocoli, cru
+usda_fdc_code:en: 321900
 usda_ndb_code:en: 11090
 usda_ndb_name:en: Broccoli, raw
 
@@ -61099,6 +61105,9 @@ ecobalyse:en: french-bean-non-eu
 ecobalyse_origins_en_european_union:en: french-bean-eu
 ecobalyse_origins_en_france:en: french-bean-fr
 eurocode_2_group_3:en: 8.45.30
+usda_fdc_code:en: 321611
+usda_foundation_name:en: Beans, snap, green, canned, regular pack, drained solids
+usda_foundation_process:en: en:canned
 wikidata:en: Q2987371
 #4192 in 16 @2021-10-01
 
