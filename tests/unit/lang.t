@@ -72,6 +72,24 @@ is($Lang{months}{en},
 );
 is($Lang{weekdays}{en}, "[\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"]");
 
+# Regression tests: months/weekdays for non-ASCII languages must be Perl character
+# strings, not UTF-8 byte strings.  When a byte string is later interpolated into
+# a heredoc and written through a ">:encoding(UTF-8)" filehandle (as done in
+# gen_top_tags_per_country.pl), Perl double-encodes the bytes, producing mojibake
+# in the Highcharts tooltip labels (e.g. "DÃ©ardaoin" instead of "Déardaoin").
+#
+# With "use utf8" active, regex literals are compiled with Unicode code points.
+# qr/février/ contains U+00E9 (one code point).  A byte string stores "é" as the
+# two-byte UTF-8 sequence \xc3\xa9, which does NOT match U+00E9, so the like()
+# below would fail if encode_json() were used without the subsequent decode().
+like($Lang{months}{fr}, qr/février/,
+	'French months contain février as a Unicode character string (not double-encoded bytes)');
+
+# Russian weekdays are Cyrillic; any match on a Cyrillic letter confirms the value
+# is a character string and not raw UTF-8 bytes.
+like($Lang{weekdays}{ru},
+	qr/\x{43f}\x{43e}\x{43d}/, 'Russian weekdays contain Cyrillic as Unicode code points (not double-encoded bytes)');
+
 # https://github.com/openfoodfacts/openfoodfacts-server/issues/1116
 sub test_logo_exists {
 	my $logo = shift;

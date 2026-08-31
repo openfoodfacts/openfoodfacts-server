@@ -146,6 +146,7 @@ use ProductOpener::Units qw/normalize_product_quantity_and_serving_size/;
 use ProductOpener::Slack qw/send_slack_message/;
 use ProductOpener::Nutrition
 	qw/has_non_estimated_nutrition_data get_nutrition_data_as_key_values_pairs has_no_nutrition_data_on_packaging/;
+use ProductOpener::ProductsFeatures qw/feature_enabled/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -1835,13 +1836,43 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 	my @states_tags = ();
 
 	# Images
+	my $uploaded_images_n
+		= defined $current_ref->{uploaded_images} ? scalar keys %{$current_ref->{uploaded_images}} : 0;
+
+	# Add misc tags for ranges of uploaded images. Unlike states tags, misc tags are
+	# searchable but are not displayed in the product page footer.
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags}
+			= [grep {$_ !~ /^en:number-of-uploaded-images-/} @{$product_ref->{misc_tags}}];
+	}
+
+	if ($uploaded_images_n > 0) {
+		if ($uploaded_images_n <= 3) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-1-to-3");
+		}
+		elsif ($uploaded_images_n <= 6) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-4-to-6");
+		}
+		elsif ($uploaded_images_n <= 10) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-7-to-10");
+		}
+		elsif ($uploaded_images_n <= 50) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-11-to-50");
+		}
+		elsif ($uploaded_images_n <= 100) {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-51-to-100");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:number-of-uploaded-images-more-than-100");
+		}
+	}
 
 	my $complete = 1;
 	my $notempty = 0;
 	my $step = 1.0 / 10.0;    # Currently, we check for 10 items.
 	my $completeness = 0.0;
 
-	if (scalar keys %{$current_ref->{uploaded_images}} < 1) {
+	if ($uploaded_images_n < 1) {
 		push @states_tags, "en:photos-to-be-uploaded";
 		$complete = 0;
 	}
@@ -1850,11 +1881,18 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		my $half_step = $step * 0.5;
 		$completeness += $half_step;
 
-		my $image_step = $half_step * (1.0 / 4.0);
+		# Product types for which the nutrition feature is disabled (e.g. beauty products)
+		# do not need a nutrition photo
+		my @image_types = qw(front ingredients nutrition packaging);
+		if (not feature_enabled("nutrition", $product_ref)) {
+			@image_types = grep {$_ ne "nutrition"} @image_types;
+		}
+
+		my $image_step = $half_step * (1.0 / scalar @image_types);
 
 		my $images_completeness = 0;
 
-		foreach my $imagetype (qw(front ingredients nutrition packaging)) {
+		foreach my $imagetype (@image_types) {
 
 			if (defined $current_ref->{selected_images}{$imagetype . "_" . $lc}) {
 				$images_completeness += $image_step;
@@ -1949,14 +1987,18 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
-		push @states_tags, "en:nutrition-facts-completed";
-		$notempty++;
-		$completeness += $step;
-	}
-	else {
-		push @states_tags, "en:nutrition-facts-to-be-completed";
-		$complete = 0;
+	# Product types for which the nutrition feature is disabled (e.g. beauty products)
+	# do not need nutrition facts
+	if (feature_enabled("nutrition", $product_ref)) {
+		if ((has_no_nutrition_data_on_packaging($product_ref)) or (has_non_estimated_nutrition_data($product_ref))) {
+			push @states_tags, "en:nutrition-facts-completed";
+			$notempty++;
+			$completeness += $step;
+		}
+		else {
+			push @states_tags, "en:nutrition-facts-to-be-completed";
+			$complete = 0;
+		}
 	}
 
 	if ($complete) {
