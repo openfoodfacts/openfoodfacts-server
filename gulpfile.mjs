@@ -73,11 +73,47 @@ const imagesSrc = [
   ),
 ];
 
+import fs from "node:fs";
+import path from "node:path";
+import { Transform } from "node:stream";
+
+function resolveSymlinkPointers() {
+  return new Transform({
+    objectMode: true,
+    transform(file, encoding, callback) {
+      if (file.isBuffer()) {
+        let content = file.contents.toString("utf8").trim();
+        let attempts = 0;
+        while (!content.startsWith("<") && attempts < 5) {
+          attempts++;
+          const candidates = [
+            path.resolve(file.dirname, content),
+            path.resolve(file.base, content),
+            path.resolve(file.cwd || "", "icons", content),
+            path.resolve(file.cwd || "", "html/images/attributes/src", content),
+            path.resolve(process.cwd(), "icons", content),
+            path.resolve(process.cwd(), "html/images/attributes/src", content),
+          ];
+          const found = candidates.find((p) => fs.existsSync(p) && fs.statSync(p).isFile());
+          if (found) {
+            file.contents = fs.readFileSync(found);
+            content = file.contents.toString("utf8").trim();
+          } else {
+            break;
+          }
+        }
+      }
+      callback(null, file);
+    },
+  });
+}
+
 // nginx needs both uncompressed and compressed files as we use try_files with gzip_static always & gunzip
 
 export function icons() {
   const processed = gulp
     .src("*.svg", { cwd: "./icons" })
+    .pipe(resolveSymlinkPointers())
     .pipe(
       svgmin({
         // @ts-ignore
@@ -98,6 +134,7 @@ export function icons() {
 export function attributesIcons() {
   const processed = gulp
     .src("*.svg", { cwd: "./html/images/attributes/src" })
+    .pipe(resolveSymlinkPointers())
     .pipe(svgmin())
     .pipe(gulp.dest("./html/images/attributes/dist"))
     .on('error', gulpLogAndExit);
