@@ -91032,7 +91032,10 @@ ciqual_food_code:en: 22002
 ciqual_food_name:en: Egg yolk, raw
 ciqual_food_name:fr: Oeuf, jaune (jaune d'oeuf), cru
 # description:en:EGG YOLK is the part of an egg which feeds the developing chicken embryo.
-usda_fdc_code:en: 173428
+usda_fdc_2_code:en: 329596
+usda_fdc_code:en: 173428, 329716
+usda_foundation_name:en: Egg, yolk, raw, frozen, pasteurized
+usda_foundation_process:en: en:raw, en:frozen, en:pasteurized
 usda_ndb_code:en: 1137
 usda_ndb_name:en: Egg, yolk, dried
 usda_ndb_process:en: en:dried
