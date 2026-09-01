@@ -39640,7 +39640,7 @@ zh: 威廉斯梨
 agribalyse_proxy_food_code:en: 13189
 ciqual_proxy_food_code:en: 13189
 ciqual_proxy_food_name:en: Pear, var. Williams, flesh without skin, raw
-usda_fdc_code:en: 167776
+usda_fdc_code:en: 167776, 332597
 usda_ndb_code:en: 9412
 usda_ndb_name:en: Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)
 wikidata:en: Q498862
@@ -60153,6 +60153,8 @@ ecobalyse_labels_en_organic_origins_en_france:en: tomato-organic-fr
 ecobalyse_origins_en_european_union:en: tomato-greehouse-eu
 ecobalyse_origins_en_france:en: tomato-greenhouse-fr
 eurocode_2_group_3:en: 8.40.10
+usda_fdc_code:en: 333281
+usda_foundation_name:en: Tomatoes, canned, red, ripe, diced
 wikidata:en: Q20638126
 
 < en: tomato
@@ -80596,7 +80598,7 @@ ciqual_food_code:en: 26122
 ciqual_food_name:en: Haddock, raw
 ciqual_food_name:fr: Églefin, cru
 description:en: Haddock is a saltwater fish, closely related to cod and are found mainly in the North Atlantic. Flavor and texture: Mild, slightly sweet flavor with white, flaky flesh. It's often described as a bit more delicate than cod. It's the classic fish used in British fish and chips
-usda_fdc_code:en: 171964
+usda_fdc_code:en: 171964, 333374
 usda_ndb_code:en: 15033
 usda_ndb_name:en: Fish, haddock, raw
 wikidata:en: Q202406
@@ -81174,12 +81176,14 @@ sq: pollock
 sv: gråsej, sej
 uk: Сайда
 zh: 綠青鱈
+# ast:carboneru
+# en-gb:Saithe
 ciqual_food_code:en: 26134
 ciqual_food_name:en: Saithe, raw
 ciqual_food_name:fr: Lieu noir, cru
 description:en: The saithe (Pollachius virens) is a species of marine fish in the Pollachius genus.
-# ast:carboneru
-# en-gb:Saithe
+usda_fdc_code:en: 333476
+usda_foundation_name:en: Fish, pollock, raw
 wikipedia:en: https://en.wikipedia.org/wiki/Pollachius_virens
 
 #<en:saithe
