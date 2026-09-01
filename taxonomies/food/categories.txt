@@ -78450,9 +78450,16 @@ fi: Taco-kastikkeet
 sv: Tacosåser
 
 < en: Taco sauces
+en: Mild taco sauces
+da: Milde tacosovse
+sv: Milda tacosåser
+incompatible_with:en: categories:en:medium-hot-taco-sauces
+
+< en: Taco sauces
 en: Medium-hot taco sauces, Medium-spicy taco sauces
 fi: Keskivahvat taco-kastikkeet
-sv: Mellanstarka tacosåser
+sv: Mellanstarka tacosåser, Medium tacosåser
+incompatible_with:en: categories:en:mild-taco-sauces
 
 < en: Sauces
 en: Walnut sauces
