@@ -68,10 +68,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v7
+    - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
       with:
         node-version: '22.x'
         cache: 'npm'
@@ -101,18 +101,18 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           # needs depth to run git log below
           fetch-depth: 50
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
+        uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
         with:
           driver: docker-container
           use: true
 
       # Restore taxonomies cache
-      - uses: actions/cache@v6
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         id: cache
         with:
           path: ./build-cache
@@ -127,7 +127,7 @@ jobs:
           echo "gid=$(id -g)" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub to enable pushing buildx cache
-        uses: docker/login-action@v4
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -139,7 +139,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/backend-buildx-cache:${{ hashFiles('Dockerfile*', 'docker-compose.yml', 'docker/**', 'cpanfile*', 'conf/apache*') }} >> $GITHUB_OUTPUT
 
       - name: Build backend image with cache
-        uses: docker/build-push-action@v7
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
           context: .
           file: ./Dockerfile
@@ -324,12 +324,12 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           fetch-depth: 1
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
+        uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
         with:
           driver: docker-container
           use: true
@@ -341,7 +341,7 @@ jobs:
           echo "gid=$(id -g)" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub to enable pushing buildx cache
-        uses: docker/login-action@v4
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -353,7 +353,7 @@ jobs:
           echo registry_ref=ghcr.io/${{ github.repository }}/frontend-buildx-cache:${{ hashFiles('Dockerfile.frontend', 'package*.json', 'gulpfile.mjs', 'html/**', 'icons/**', 'scss/**') }} >> $GITHUB_OUTPUT
 
       - name: Build frontend image with cache
-        uses: docker/build-push-action@v7
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
         with:
           context: .
           file: ./Dockerfile.frontend
@@ -383,7 +383,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true'
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
     - name: Setup Git and Restore Taxonomies
@@ -422,7 +422,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.perl_sbom == 'true'
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
     - name: Download backend image from artifacts
@@ -447,7 +447,7 @@ jobs:
           --validate \
           --output /workspace/perl-sbom.json
     - name: Upload Perl SBOM as artifact
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
       with:
         name: perl-sbom
         path: perl-sbom.json
@@ -467,7 +467,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.docker_sbom == 'true'
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
     - name: Download backend image from artifacts
@@ -518,7 +518,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ((github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request') && needs.filter.outputs.frontend_sbom == 'true'
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
     - name: Download frontend image from artifacts
@@ -569,12 +569,12 @@ jobs:
       unit_test_groups: ${{ steps.matrix.outputs.unit_test_groups }}
       integration_test_groups: ${{ steps.matrix.outputs.integration_test_groups }}
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
 
     # Cache dynamic test groups and timing data
-    - uses: actions/cache@v6
+    - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -617,7 +617,7 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.unit_test_groups) }}
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
 
@@ -632,7 +632,7 @@ jobs:
 
     # Cache dynamic test groups and timing data
     # This enables persistent learning and avoids regenerating groups unnecessarily
-    - uses: actions/cache@v6
+    - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -734,7 +734,7 @@ jobs:
       matrix:
         test-group: ${{ fromJson(needs.calculate_test_matrix.outputs.integration_test_groups) }}
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
 
@@ -747,7 +747,7 @@ jobs:
 
     # Cache dynamic test groups and timing data for integration tests
     # Integration tests typically have more variable execution times
-    - uses: actions/cache@v6
+    - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       id: test_groups_cache
       with:
         path: ./.test_groups_cache
@@ -870,7 +870,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
     - uses: actions/cache/restore@v6
@@ -905,7 +905,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && needs.filter.outputs.code_modified == 'true' && needs.filter.outputs.taxonomy_only == 'false'
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         fetch-depth: 1
     - name: verify apache2 envvars is correct
