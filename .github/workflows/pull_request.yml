@@ -73,7 +73,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v7
       with:
-        node-version: '22.x'
+        node-version: '26.x'
         cache: 'npm'
         cache-dependency-path: 'package-lock.json'
     - name: gulp build
