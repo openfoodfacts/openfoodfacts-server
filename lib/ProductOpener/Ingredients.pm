@@ -1500,11 +1500,23 @@ sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, 
 
 	my ($percent, $quantity, $quantity_g, $quantity_ml);
 
+	# Normalize protected solidus (U+2044) and fullwidth solidus back to '/'
+	# and drop whitespace around slashes only (e.g. "mg / kg" -> "mg/kg").
+	# Do not strip spaces inside multi-word units such as "fl oz".
+	$percent_or_quantity_unit =~ s/[\N{U+2044}\N{U+FF0F}]/\//g;
+	$percent_or_quantity_unit =~ s/\s*\/\s*/\//g;
+
+	# Normalize decimal separators in the numeric value (plain comma and U+201A lower comma
+	# used to protect decimals from list splitting) to a dot for storage / math.
+	$percent_or_quantity_value =~ s/[\N{U+201A},]/./g;
+
 	if ($percent_or_quantity_unit =~ /\%/) {
 		$percent = $percent_or_quantity_value;
 	}
 	else {
 		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
+		# Concentrations (mg/kg) and activity units (IU, UFC) have a standard_unit
+		# that is neither g nor ml, so they keep quantity and do not get quantity_g.
 		my $standard_unit = get_standard_unit($percent_or_quantity_unit);
 		if (defined $standard_unit) {
 			my $normalized_quantity = normalize_quantity($quantity);
@@ -1649,6 +1661,17 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# replace by a lower comma ‚
 
 	$text =~ s/(\d),(\d)/$1‚$2/g;
+
+	# Protect mg/kg, IU/kg, UFC/g, … so '/' is not treated as an ingredient separator
+	# (issue #6132). Additive lists like E322/E333 are left untouched.
+	$text = protect_compound_unit_slashes($text);
+
+	# Now that the solidus of compound units is protected, the accidental '/'
+	# splits that used to separate e.g. "L-carnitine 450 mg/kg sulfate de
+	# glucosamine" are gone: restore list boundaries around compound-unit
+	# quantities glued between two words, so quantities can be extracted and
+	# the following ingredient can be matched (#6132 follow-up).
+	$text = isolate_compound_unit_quantities($text);
 
 	my $and = $and{$ingredients_lc} || " and ";
 
@@ -2918,7 +2941,33 @@ Text to analyze
 					# ingredients tags that are too long (greater than 1024, mongodb max index key size)
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 					if (length($ingredient{id}) < 500) {
+						# Only flatten an additive class when at least one of its children is
+						# recognizable (#6132 follow-up): protecting the solidus of compound
+						# units removed the accidental '/' splits that used to create list
+						# boundaries, so e.g. "Antioxygènes : Avec antioxydant naturel :
+						# mg/kg 1b306(i)" would otherwise be flattened into unknown junk
+						# children and the class tag would be lost entirely.
+						my $flatten_children = 0;
 						if ($is_flattenable_additive_class && $between ne "") {
+							foreach my $raw_chunk (split(/$separators/, $between)) {
+								# $separators contains capturing groups, so split
+								# also yields undef delimiter slots.
+								next if not defined $raw_chunk;
+								# copy: chunks aliased to split captures are read-only
+								my $chunk = $raw_chunk;
+								$chunk =~ s/^\s+|\s+$//g;
+								next if $chunk eq '';
+								if (   exists_taxonomy_tag("additives",
+										canonicalize_taxonomy_tag($ingredients_lc, "additives", $chunk))
+									or exists_taxonomy_tag("ingredients",
+										canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $chunk)))
+								{
+									$flatten_children = 1;
+									last;
+								}
+							}
+						}
+						if ($flatten_children) {
 							$previous_parser_additive_class = $current_parser_additive_class;
 							$started_additive_class_scope = 1;
 							$current_parser_additive_class = $ingredient{id};
