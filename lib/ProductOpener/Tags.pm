@@ -155,6 +155,7 @@ BEGIN {
 		&get_all_taxonomy_entries
 		&get_taxonomy_tag_synonyms
 
+		&generate_regexps_matching_taxonomy_stopwords
 		&generate_regexps_matching_taxonomy_entries
 
 		&cmp_taxonomy_tags_alphabetically
@@ -4772,6 +4773,38 @@ sub add_users_translations_to_taxonomy ($tagtype) {
 	}
 
 	return;
+}
+
+=head2 generate_regexps_matching_taxonomy_stopwords($taxonomy)
+
+Create regular expressions that will match stopwords of a taxonomy.
+
+=head3 Arguments
+
+=head4 $taxonomy
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head3 Return values
+
+A reference to a hash of strings, with the language code as key, and a string containing a regular expression
+that will match all stopwords of the taxonomy in that language.
+
+=cut
+
+sub generate_regexps_matching_taxonomy_stopwords ($taxonomy) {
+
+	my $result_ref = {};
+
+	foreach my $language (sort keys %{$stopwords{$taxonomy}}) {
+		my $stopwords_ref = deep_get(\%stopwords, $taxonomy, $language . ".strings");
+		if (defined $stopwords_ref) {
+			my $regexp = join('|', map {regexp_escape($_)} @$stopwords_ref);
+			$result_ref->{$language} = $regexp;
+		}
+	}
+
+	return $result_ref;
 }
 
 =head2 generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref)
