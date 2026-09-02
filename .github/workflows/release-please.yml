@@ -17,37 +17,29 @@ jobs:
         # only if a new release was created
         if: ${{ env.IS_RELEASE }}
         id: wait-build
-        uses: tomchv/wait-my-workflow@v1.1.0
+        uses: lewagon/wait-on-check-action@v1.9.1
+        timeout-minutes: 20
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build (frontend)
           ref: ${{ env.RELEASE_SHA }}
-          intervalSeconds: 10
-          timeoutSeconds: 1200 # 20m
+          check-name: build (frontend)
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+          checks-discovery-timeout: 300
+          allowed-conclusions: success
 
       - name: Wait for backend container build workflow
         # only if a new release was created
         if: ${{ env.IS_RELEASE }}
-        uses: tomchv/wait-my-workflow@v1.1.0
         id: wait-build2
+        uses: lewagon/wait-on-check-action@v1.9.1
+        timeout-minutes: 20
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build (backend)
           ref: ${{ env.RELEASE_SHA }}
-          intervalSeconds: 10
-          timeoutSeconds: 1200 # 20m
-
-      - name: Do something if build isn't launch
-        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'does not exist' || steps.wait-build2.outputs.conclusion == 'does not exist') }}
-        run: echo job does not exist && false # fail if build doesn't exist
-
-      - name: Do something if build fail
-        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'failure' || steps.wait-build2.outputs.conclusion == 'failure') }}
-        run: echo fail && false # fail if build fail
-
-      - name: Do something if build timeout
-        if: ${{ env.IS_RELEASE && (steps.wait-build.outputs.conclusion == 'timed_out' || steps.wait-build2.outputs.conclusion == 'timed_out') }}
-        run: echo Timeout && false # fail if build time out
+          check-name: build (backend)
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+          checks-discovery-timeout: 300
+          allowed-conclusions: success
 
       - name: Prepare folder for assets to upload to release
         if: ${{ env.IS_RELEASE }}
