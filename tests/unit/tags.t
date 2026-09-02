@@ -71,7 +71,7 @@ is(
 	\@tags,
 	[
 		'en:fruit', 'en:added-sugar', 'en:citrus-fruit', 'en:disaccharide',
-		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
+		'en:juice', 'en:fruit-juice', 'en:sugar', 'en:orange',
 		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
 ) or diag Dumper(\@tags);
@@ -85,13 +85,26 @@ is(
 is(
 	\@tags,
 	[
-		'en:concentrated-orange-juice', 'en:fruit', 'en:citrus-fruit', 'en:juice',
-		'en:fruit-juice', 'en:orange', 'en:orange-juice', 'en:sugar',
-		'en:added-sugar', 'en:disaccharide', 'en:salt'
+		'en:concentrated-orange-juice', 'en:orange-juice', 'en:fruit-juice', 'en:orange',
+		'en:fruit', 'en:juice', 'en:citrus-fruit', 'en:sugar',
+		'en:disaccharide', 'en:added-sugar', 'en:salt'
 	]
 ) or diag Dumper(\@tags);
 
 ProductOpener::Tags::retrieve_tags_taxonomy("test");
+
+cmp_ok(
+	$level{test}{"en:lemon-yogurts"},
+	'>',
+	$level{test}{"fr:yaourts-au-citron-alleges"},
+	"direct parent level should be greater than child level"
+);
+cmp_ok(
+	$level{test}{"fr:yaourts-alleges"},
+	'>',
+	$level{test}{"fr:yaourts-au-citron-alleges"},
+	"second direct parent level should be greater than child level"
+);
 
 is(get_property("test", "en:meat", "vegan:en"), "no");
 is($properties{test}{"en:meat"}{"vegan:en"}, "no");
@@ -261,7 +274,7 @@ is(get_string_id_for_lang("fr", "Yaourts à la fraise"), "yaourts-a-la-fraise");
 
 @tags = gen_tags_hierarchy_taxonomy("en", "labels", "gmo free and organic");
 
-is(\@tags, ['en:organic', 'en:no-gmos',]) or diag Dumper(\@tags);
+is(\@tags, ['en:no-gmos', 'en:organic']) or diag Dumper(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "commerce équitable, label rouge et bio");
 
@@ -585,5 +598,12 @@ is(cc_to_country(undef), '');
 is(get_taxonomy_tag_path("test", "en:lemon-yogurts"), ["en:yogurts", "en:lemon-yogurts"]);
 
 is(display_taxonomy_tag("en", "ingredients", "en:apple"), "apple");
+
+is([get_tag_with_parents("test", "en:lemon-yogurts")], ["en:lemon-yogurts", "en:yogurts"]);
+
+is([get_tag_with_parents("test", "fr:yaourts-au-citron-alleges")],
+	["fr:yaourts-au-citron-alleges", "en:lemon-yogurts", "fr:yaourts-alleges", "en:yogurts"]);
+
+is([get_tag_with_parents("test", "en:z-yogurts")], ["en:z-yogurts", "en:yogurts", "en:z"]);
 
 done_testing();
