@@ -9825,6 +9825,33 @@ it: manzo Angus
 en: beef steak
 ciqual_food_code:en: 6201
 ciqual_food_name:en: Beef, steak or beef steak, raw
+usda_fdc_code:en: 334849
+usda_foundation_name:en: Beef, loin, top loin steak, boneless, lip-on, separable lean only, trimmed to 1/8" fat, choice, raw
+
+< en: beef meat
+en: tenderloin beef
+usda_fdc_code:en: 334897
+usda_foundation_name:en: Beef, loin, tenderloin roast, separable lean only, boneless, trimmed to 0" fat, select, cooked, roasted
+
+< en: beef meat
+en: eye of round roast beef
+usda_fdc_code:en: 334898
+usda_foundation_name:en: Beef, round, eye of round roast, boneless, separable lean only, trimmed to 0" fat, select, raw
+
+< en: beef meat
+en: top round roast beef
+usda_fdc_code:en: 334963
+usda_foundation_name:en: Beef, round, top round roast, boneless, separable lean only, trimmed to 0" fat, select, raw
+
+< en: beef steak
+en: t-bone steak beef
+usda_fdc_code:en: 335061
+usda_foundation_name:en: Beef, short loin, t-bone steak, bone-in, separable lean only, trimmed to 1/8" fat, choice, cooked, grilled
+
+< en: beef steak
+en: porterhouse steak
+usda_fdc_code:en: 335109
+usda_foundation_name:en: Beef, short loin, porterhouse steak, separable lean only, trimmed to 1/8" fat, select, raw
 
 < en: beef meat
 en: cooked beef meat, cooked beef
@@ -31372,7 +31399,7 @@ nl: Kristalsuiker
 pt: Açúcar granulado
 comment:en: "granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
 description:en: Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
-usda_fdc_code:en: 169655
+usda_fdc_code:en: 169655, 334247
 usda_ndb_code:en: 19335
 usda_ndb_name:en: Sugars, granulated
 
@@ -63146,6 +63173,21 @@ usda_ndb_name:en: Pigeonpeas, immature seeds, raw
 ###################################################################################################
 #
 #
+#                        Horse gram
+#
+#
+###################################################################################################
+
+< en: pulse
+en: pink bean, pink beans, habichuelas rosadas
+es: habichuelas rosadas
+usda_fdc_code:en: 335306
+usda_foundation_name:en: Beans, Dry, Pink (0% moisture)
+usda_foundation_process:en: en:dried
+
+###################################################################################################
+#
+#
 #                        Chickpeas
 #
 #
@@ -82203,6 +82245,8 @@ description:nl: Tonijnen zijn enkele soorten oceaanvissen uit de familie van mak
 description:pt: Os atuns (género Thunnus) são um dos grupos de espécies de peixes mais importantes do ponto de vista pesqueiro.
 ifct_food_code:en: P084
 ifct_food_name:en: Tuna
+usda_fdc_code:en: 334194
+usda_foundation_name:en: Fish, tuna, light, canned in water, drained solids
 wikidata:en: Q2346039
 wikipedia:en: https://en.wikipedia.org/wiki/Tuna
 # 2838 @2021-09-02
