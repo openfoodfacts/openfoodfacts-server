@@ -63682,7 +63682,7 @@ bg: леща
 bn: মসুর ডাল
 bo: སྲན་ལེབ་ཆུང་ངུ།
 ca: llentilla
-cs: čočka jedlá
+cs: čočka jedlá, čočka
 cv: Ясмăк
 cy: Corbysen corbys
 da: Linser
@@ -63779,7 +63779,6 @@ carbon_footprint_fr_foodges_value:fr: 0.3
 ciqual_proxy_food_code:en: 20504
 ciqual_proxy_food_name:en: Lentil, dried
 ciqual_proxy_food_name:fr: Lentille, sèche
-comment:en: The wikidata entry is more about the plant, so translations can be wrong.
 description:en: Originating in the Fertile Crescent over 8,000 years ago, lentils spread across the Mediterranean, Middle East, South Asia, and beyond, becoming a dietary cornerstone worldwide. Known as "dal" in South Asia, they come in many varieties—red, green, brown, black, yellow—each with subtly different flavor, from mild and sweet to earthy. Quick-cooking and hulling-friendly, lentils are simmered into soups, stews, curries, and purées across cuisines, from Indian dal tadka to French lentille du Puy salads and Middle Eastern mujadara. Nutritionally, they're a powerhouse of plant protein, fiber, iron, and folate, making them a global staple for sustainable, affordable nutrition.
 ecobalyse:en: lentils-uncooked-eu
 ecobalyse_origins_en_france:en: lentils-uncooked-fr
@@ -63789,7 +63788,7 @@ ifct_food_name:en: Lentil, dal
 rare_crop:en: yes
 usda_ndb_proxy_code:en: 16069
 usda_ndb_proxy_name:en: Lentils, raw
-wikidata:en: Q131226
+wikidata:en: Q61505177
 wikipedia:en: https://en.wikipedia.org/wiki/Lentil
 
 < en: lentils
@@ -63797,15 +63796,6 @@ en: raw lentils
 usda_fdc_code:en: 172420
 usda_ndb_code:en: 16069
 usda_ndb_name:en: Lentils, raw
-
-< en: lentils
-en: pardina lentils
-de: Pardina Linsen
-es: lenteja pardina
-fr: lentilles pardina
-hr: pardina leća
-it: lenticchie pardina
-pt: lentilhas pardina
 
 < en: lentils
 < en: pulse
@@ -63844,6 +63834,7 @@ hr: leća žuta
 < en: lentils
 en: green lentils
 bg: зелена леща
+cs: zelená čočka
 de: grüne Linsen, Linsen grün
 es: lentejas verdes
 fi: vihreä linssi, vihreät linssit
@@ -63857,6 +63848,7 @@ pt: lentilhas verde
 sv: gröna linser
 carbon_footprint_fr_foodges_ingredient:fr: Lentilles vertes
 carbon_footprint_fr_foodges_value:fr: 0.3
+wikidata:en: Q67445346
 
 < en: green lentils
 en: organic green lentils
@@ -63876,6 +63868,7 @@ en: Puy lentils
 fr: lentilles vertes du Puy, lentilles vertes du Puy AOP
 hu: Puy lencse
 la: lens culinaris puyensis
+wikidata:en: Q67445428
 
 < en: green lentils
 en: cooked green lentils
@@ -63897,10 +63890,12 @@ fr: lentilles jaunes
 hu: sárga lencse
 ifct_food_code:en: B015
 ifct_food_name:en: Lentil whole, yellowish
+wikidata:en: Q67445315
 
 < en: lentils
 en: red lentils
 bg: червена леща
+cs: červená čočka
 de: Rote Linsen
 es: lentejas rojas
 fi: punainen linssi, punaiset linssit
@@ -63918,6 +63913,7 @@ ciqual_food_name:fr: Lentille corail, sèche
 usda_fdc_code:en: 174284
 usda_ndb_code:en: 16144
 usda_ndb_name:en: Lentils, pink or red, raw
+wikidata:en: Q67445480
 
 # <en:aggregate
 < en: green lentils
@@ -63941,14 +63937,17 @@ fr: lentilles rouges décortiquées
 
 < en: lentils
 en: black lentils
+cs: černá čočka
 fr: lentilles noires
 hr: crna leća
 hu: fekete lencse
 it: lenticchie nere
 pl: soczewica czarna, soczewicy czarnej, czarna soczewica, czarnej soczewicy
+wikidata:en: Q67445270
 
 < fr: lentilles noires
 en: Beluga lentils
+cs: Beluga čočka
 de: Beluga Linsen, Belugalinsen
 fr: lentilles noires Beluga, lentilles Béluga
 hr: beluga leća
@@ -63956,6 +63955,7 @@ hu: beluga lencse
 it: lenticchie beluga
 pl: soczewica Beluga, soczewica czarna Beluga
 # 8@2019-06-06
+wikidata:en: Q21741341
 
 < en: black lentils
 en: black lentil flour
@@ -63965,15 +63965,19 @@ it: farina di lenticchie nere
 pl: mąka z soczewicy czarnej, mąka z czarnej soczewicy
 
 < en: lentils
-en: brown lentils
-de: braune Linsen
-fr: lentilles brunes
-hr: smeđa leća
+en: brown lentils, pardina lentils
+cs: hnědá čočka
+de: braune Linsen, Pardina Linsen
+es: lenteja pardina
+fr: lentilles brunes, lentilles pardina
+hr: smeđa leća, pardina leća
 hu: barna lencse
-it: lenticchie marroni
+it: lenticchie marroni, lenticchie pardina
 pl: soczewica brązowa
+pt: lentilhas pardina
 ifct_food_code:en: B014
 ifct_food_name:en: Lentil whole, brown
+wikidata:en: Q20921902
 
 < en: red lentils
 en: red lentil flour
@@ -64023,6 +64027,7 @@ it: farina integrale di lenticchie
 
 < en: plant protein
 en: lentil protein
+cs: čočkový protein, čočková bílkovina
 da: linseprotein
 fi: linssiproteiinia
 sv: linsprotein
