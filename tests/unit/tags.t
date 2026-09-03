@@ -35,6 +35,11 @@ is(display_taxonomy_tag("fr", "categories", "en:doesnotexist"), "en:doesnotexist
 is(display_taxonomy_tag_link("fr", "categories", "en:doesnotexist"),
 	'<a href="/facets/categories/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
 
+is(display_taxonomy_tag_link("en", "brands", "cape herb & spice"),
+	'<a href="/facets/brands/cape%20herb%20%26%20spice" class="tag user_defined">cape herb & spice</a>');
+
+is(canonicalize_taxonomy_tag_link("en", "brands", "cape herb & spice"), '/brands/cape%20herb%20%26%20spice');
+
 is(display_tags_hierarchy_taxonomy("fr", "categories", ["en:doesnotexist"]),
 	'<a href="/facets/categories/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
 
