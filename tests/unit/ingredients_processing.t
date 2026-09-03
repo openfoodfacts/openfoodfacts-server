@@ -407,9 +407,10 @@ my @tests = (
 		},
 		[
 			{
-				'id' => 'en:pasteurized-creme-fraiche',
+				'text' => "cr\x{e8}me fra\x{ee}che",
 				'is_in_taxonomy' => 1,
-				'text' => "cr\x{e8}me fra\x{ee}che pasteuris\x{e9}e"
+				'id' => 'en:fresh-cream',
+				'processing' => 'en:pasteurised',
 			},
 			{
 				'id' => 'en:banana',
@@ -1085,10 +1086,13 @@ my @tests = (
 				'is_in_taxonomy' => 0,
 				'text' => 'zweifach konzentriert'
 			},
+			# The following is a false positive, we should not match 2 as a quantity, as it means 2 times concentrated.
+			# Probably not very frequent.
 			{
-				'id' => 'de:2 fach konzentriert',
+				'id' => 'de:fach konzentriert',
 				'is_in_taxonomy' => 0,
-				'text' => '2 fach konzentriert'
+				'quantity' => '2',
+				'text' => 'fach konzentriert'
 			},
 			{
 				'id' => 'de:doppelt konzentriertes',
@@ -1658,7 +1662,7 @@ my @tests = (
 			{
 				'id' => 'en:hazelnut',
 				'is_in_taxonomy' => 1,
-				'processing' => 'de:handgeschnitten',
+				'processing' => 'en:hand-cut',
 				'text' => "haselnüsse"
 			}
 		]

@@ -431,7 +431,6 @@
                         "footprint_per_kg" : 0.00515625,
                         "ingredient_category_id" : "en:palm-oil",
                         "ingredient_id" : "en:palm-oil-and-fat",
-                        "label_id" : null,
                         "origin_footprint" : 0.055,
                         "origin_id" : "en:unknown",
                         "percent" : 9.375,
@@ -643,6 +642,7 @@
             "en:packagings-not-empty",
             "en:packagings-not-empty-but-not-complete",
             "en:packagings-number-of-components-3",
+            "en:storage-conditions-not-set",
             "en:main-countries-new-product"
          ],
          "nova_group" : 1,
@@ -1563,6 +1563,7 @@
             "en:packagings-empty",
             "en:packagings-not-complete",
             "en:packagings-number-of-components-0",
+            "en:storage-conditions-not-set",
             "en:main-countries-new-product"
          ],
          "nova_group" : 1,
@@ -2292,6 +2293,7 @@
             "en:packagings-empty",
             "en:packagings-not-complete",
             "en:packagings-number-of-components-0",
+            "en:storage-conditions-not-set",
             "en:main-countries-new-product"
          ],
          "nova_group" : 1,
@@ -3068,7 +3070,6 @@
                         "footprint_per_kg" : 0.00916666666666666,
                         "ingredient_category_id" : "en:palm-oil",
                         "ingredient_id" : "en:palm-oil-and-fat",
-                        "label_id" : null,
                         "origin_footprint" : 0.055,
                         "origin_id" : "en:unknown",
                         "percent" : 16.6666666666667,
@@ -3232,6 +3233,7 @@
             "en:packagings-empty",
             "en:packagings-not-complete",
             "en:packagings-number-of-components-0",
+            "en:storage-conditions-not-set",
             "en:main-countries-new-product"
          ],
          "nova_group" : 1,
@@ -4284,6 +4286,7 @@
             "en:packagings-empty",
             "en:packagings-not-complete",
             "en:packagings-number-of-components-0",
+            "en:storage-conditions-not-set",
             "en:main-countries-new-product"
          ],
          "nova_group" : 1,
@@ -5272,7 +5275,7 @@
             },
             {
                "ciqual_proxy_food_code" : "31016",
-               "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+               "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
                "id" : "en:sugar",
                "is_in_taxonomy" : 1,
                "percent" : 20,
@@ -5394,6 +5397,7 @@
             "en:packagings-not-complete",
             "en:packagings-number-of-components-0",
             "en:some-ingredients-with-specified-percent",
+            "en:storage-conditions-not-set",
             "en:main-countries-new-product"
          ],
          "nova_group" : 3,

@@ -109,6 +109,8 @@ BEGIN {
 		$serialize_to_json
 
 		$health_check_api_key
+
+		$ecobalyse_api_token
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -196,9 +198,9 @@ $flavor = 'off';
 	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases/latest",
 	f_droid_app_link => "https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood",
 	android_app_link =>
-		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web",
-	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web",
-	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utf_medium=web",
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utm_medium=web",
+	ios_app_link => "https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utm_medium=web",
+	facebook_page_url => "https://www.facebook.com/OpenFoodFacts?utm_source=off&utm_medium=web",
 	facebook_page_url_fr => "https://www.facebook.com/OpenFoodFacts.fr",
 	x_account => "OpenFoodFacts",
 	x_account_fr => "OpenFoodFactsfr",
@@ -458,6 +460,9 @@ $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
 # or "product_opener" to use the legacy Product Opener algorithm
 $recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
 
+# Ecobalyse API token, needs to be generated on https://ecobalyse.beta.gouv.fr/
+$ecobalyse_api_token = $ProductOpener::Config2::ecobalyse_api_token;
+
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
 
@@ -524,6 +529,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -740,7 +746,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 # vitamins
 
 @taxonomy_fields = qw(
-	units
+	units sizes
 	languages states countries
 	allergens origins additives_classes ingredients
 	packaging_shapes packaging_materials packaging_recycling packaging
@@ -754,6 +760,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	improvements
 	brands
 	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable

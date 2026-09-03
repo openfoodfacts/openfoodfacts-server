@@ -1,0 +1,155 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+         "id" : "en:sugar",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 57.1428571428571,
+         "percent_max" : 100,
+         "percent_min" : 14.2857142857143,
+         "quantity" : "1 kg",
+         "quantity_g" : 1000,
+         "text" : "sucre",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9435",
+         "ecobalyse_code" : "a2e25aca-1f42-4bc8-bc0e-4d7c751775aa",
+         "id" : "en:flour",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 21.4285714285714,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "quantity" : "1 kg",
+         "quantity_g" : 1000,
+         "text" : "farine",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "ecobalyse_code" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+         "id" : "en:water",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 10.7142857142857,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "quantity" : "1 litre",
+         "quantity_g" : 1000,
+         "quantity_ml" : 1000,
+         "text" : "eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 5.35714285714286,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "quantity" : "1 pincée",
+         "quantity_g" : 1,
+         "quantity_ml" : 1,
+         "text" : "sel",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11046",
+         "id" : "en:baking-powder",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 2.67857142857143,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "quantity" : "1",
+         "text" : "sachet de levure chimique",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "11015",
+         "id" : "en:pepper",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.33928571428572,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "poivre",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11081",
+         "id" : "en:spice",
+         "is_in_taxonomy" : 1,
+         "percent_estimate" : 1.33928571428572,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "épices",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegan" : [
+         "en:sugar"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:maybe-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 7,
+   "ingredients_n_tags" : [
+      "7",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:sugar",
+      "en:flour",
+      "en:water",
+      "en:salt",
+      "en:baking-powder",
+      "en:pepper",
+      "en:spice"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:flour",
+      "en:water",
+      "en:salt",
+      "en:baking-powder",
+      "en:pepper",
+      "en:seed",
+      "en:spice",
+      "en:condiment"
+   ],
+   "ingredients_text" : "1 kg de sucre\r\n1 kg de farine\n\n1 litre d'eau\n1 pincée de sel\n1 sachet de levure chimique\npoivre, épices\n",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 7,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [
+      "en:baking-powder",
+      "en:pepper",
+      "en:salt",
+      "en:spice"
+   ],
+   "ingredients_without_ecobalyse_ids_n" : 4,
+   "known_ingredients_n" : 7,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

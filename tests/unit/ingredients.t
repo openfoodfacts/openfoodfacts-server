@@ -879,6 +879,35 @@ puffed orange and caramelized unknown_fruit4.",
 		}
 	],
 
+	# Multi-word oils inside a generic name: "palm kernel" and "palm stearin"
+	# must be expanded as a single ingredient each, not left as a dangling word
+	# after "palm" was matched (e.g. "palm, palm, stearin, palm kernel").
+	[
+		"en-vegetable-oils-palm-stearin-palm-kernel",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (palm stearin, palm, palm kernel)",
+		}
+	],
+
+	[
+		"en-vegetable-oils-palm-stearin-palm-kernel-with-other-oils",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (coconut, palm stearin, palm, palm kernel)",
+		}
+	],
+
+	# Oils that resolve to their taxonomy id via an "X vegetable oil(s)" synonym
+	# (ingredients.txt). Guards the synonym entries added for these oils.
+	[
+		"en-vegetable-oils-five-resolved-oils",
+		{
+			lc => "en",
+			ingredients_text => "vegetable oils (avocado, olive, colza, cottonseed, safflower)",
+		}
+	],
+
 	# émulsifiant : lécithines (tournesol)
 	[
 		"fr-emulsifiant-lecithines-tournesol",
@@ -971,9 +1000,125 @@ puffed orange and caramelized unknown_fruit4.",
 		{
 			lc => 'fr',
 			ingredients_text =>
-				'5 tasses de farine, 30 g de sucre, 20 cl de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel',
+				"3 kilos d'huile de palme, un kilo de farine, 5 tasses de farine, 30 g de sucre, une tasse de lait, 10 ml d’huile, 2 pincées de poivre, une pincée de sel",
 		}
-	]
+	],
+	# percent_or_quantity_regexp
+	[
+		'en-percent-or-quantity-regexp',
+		{
+			lc => 'en',
+			ingredients_text => "cod 40g, salmon 30%, 20% tuna, mackerel (7%), 3g sardine",
+		}
+	],
+	# handling of */ and **/ in the tail of the ingredients list
+	[
+		# https://se.openfoodfacts.org/product/7350056848709/%C3%B6rtsalt-original-spicemaster
+		'sv-asterisk-slash',
+		{
+			lc => 'sv',
+			ingredients_text =>
+				'Havssalt (93%)**, basilika*, timjan*, rosmarin*, lök*, salvia, oregano* och vitlök* */ ekologiskt odlat **/oraffinerat havssalt med låg natriumhalt',
+		},
+	],
+	[
+		'en-asterisk-slash',
+		{
+			lc => 'en',
+			ingredients_text =>
+				'Sea salt (93%)**, basil*, thyme*, rosemary*, onion*, sage, oregano* and garlic* */ organically grown **/fair trade',
+		},
+	],
+	# Ingredients list with new lines
+	[
+		'fr-ingredients-with-new-lines-simple-recipe',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"1 kg de sucre\r\n1 kg de farine\n\n1 litre d'eau\n1 pincée de sel\n1 sachet de levure chimique\npoivre, épices\n",
+		},
+	],
+	[
+		'en-ingredients-with-new-lines',
+		{
+			lc => 'en',
+			ingredients_text =>
+				"Water\nSugar\nGlucose Syrup\nModified Starch\nCitric Acid\nNatural Flavouring\nFruit and Vegetable Concentrates (Carrot, Blackcurrant, Apple, Lemon, Safflower, Spirulina)\nColours (Anthocyanins, Curcumin)\nAcidity Regulator (Sodium Citrates)\nPreservative (Potassium Sorbate)",
+		},
+	],
+	# Ingredients with commas and new lines in middle of ingredient names that should not be split into multiple ingredients
+	[
+		'fr-ingredients-with-new-lines-and-commas-simple',
+		{
+			lc => 'fr',
+			ingredients_text =>
+				"Eau, Sucre, Sirop de\nGlucose, Amidon Modifié, Acide\nCitrique, Arôme Naturel,\nConcentrés de Fruits\net Légumes",
+		},
+	],
+	[
+		'en-ingredients-with-new-lines-and-commas',
+		{
+			lc => 'en',
+			ingredients_text =>
+				"Water, Sugar, Glucose Syrup, Modified\nStarch, Citric Acid, Natural\nFlavouring, Fruit and\n Vegetable Concentrates (Carrot,\nBlackcurrant, Apple, Lemon, Safflower, \nSpirulina), Colours (Anthocyanins, Curcumin), Acidity\nRegulator (Sodium Citrates), Preservative (Potassium Sorbate)",
+		},
+	],
+	# Check that specific ingredients are not added twice when we parse ingredients twice (when they have newlines)
+	[
+		'en-ingredients-parsing-multiple-times-with-specific-ingredients-converting-newlines-to-commas',
+		{
+			lc => "en",
+			ingredients_text => "Black grapes (Italy)\nsugar\neggs\npaprika.\nOrigin of paprika: Hungary",
+			origin_en => "Origin of sugar: Guatemala",
+			labels => "French Eggs",
+		}
+	],
+	[
+		'en-ingredients-parsing-multiple-times-with-specific-ingredients-not-converting-newlines-to-commas',
+		{
+			lc => "en",
+			ingredients_text => "Black\ngrapes (Italy), sugar, eggs, paprika. Origin of paprika: Hungary",
+			origin_en => "Origin of sugar: Guatemala",
+			labels => "French Eggs",
+		}
+	],
+	# Ingredient unit quantities
+	[
+		'en-ingredient-unit-quantities-1-egg-2-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 egg, 2 carrots",
+		}
+	],
+	[
+		'en-ingredient-unit-quantities-1-large-egg-2-small-carrots',
+		{
+			lc => "en",
+			ingredients_text => "1 large egg, 2 small carrots, 1 large apple",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-1-gros-oeuf-2-petites-carottes',
+		{
+			lc => "fr",
+			ingredients_text => "1 gros œuf, 2 petites carottes",
+		}
+	],
+	# sizes stopwords
+	[
+		'en-1-small-size-orange-2-medium-size-apples',
+		{
+			lc => "en",
+			ingredients_text => "1 small sized orange, 2 medium size apples",
+		}
+	],
+	[
+		'fr-ingredient-unit-quantities-3-concombres-de-petite-taille-2-aubergines-de-taille-moyenne',
+		{
+			lc => "fr",
+			ingredients_text => "3 concombres de petite taille, 2 aubergines de taille moyenne",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
