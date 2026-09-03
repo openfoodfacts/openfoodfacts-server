@@ -1251,16 +1251,16 @@ CSS
 	# to indicate which nutrition facts columns should be displayed on the product page
 	# %input_sets contains the input sets for which we have at least one nutrient value
 
-	# If we don't have nutrition data for the prepared product, we will display the column for the product as sold even if it is empty
-	if (not deep_exists(\%input_sets, 'prepared')) {
+	# If we don't have as_sold nutrition data, we will display the default column for the product as sold even if it is empty
+	if (not deep_exists(\%input_sets, 'as_sold')) {
 		my $default_per = get_default_per_for_product($product_ref);
 		$input_sets{'as_sold'}{$default_per}{'shown'} = 1;
+	}
 
-		# if the product is in a category that should have prepared nutrition data, we will check the checkbox for prepared nutrition data
-		if (has_category_that_should_have_prepared_nutrition_data($product_ref)) {
-			my $default_prepared_per = get_default_per_for_product($product_ref, "prepared");
-			$input_sets{'prepared'}{$default_prepared_per}{'shown'} = 1;
-		}
+	# if we don't have prepared nutrition data and the product is in a category that should have prepared nutrition data, we will check the checkbox for prepared nutrition data
+	if ((not deep_exists(\%input_sets, 'prepared')) and has_category_that_should_have_prepared_nutrition_data($product_ref)) {
+		my $default_prepared_per = get_default_per_for_product($product_ref, "prepared");
+		$input_sets{'prepared'}{$default_prepared_per}{'shown'} = 1;
 	}
 
 	# Create a list of the nutrients that are hidden in the displayed in the nutrition facts table in the product edit form
