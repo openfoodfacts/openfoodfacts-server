@@ -3061,11 +3061,14 @@ make<span class="w"> </span>up
 </code></pre></div>
 to
 <div class="highlight"><pre><span></span><code><span class="nv">COMPOSE_PROJECT_NAME</span><span class="o">=</span>po_obf
-<span class="nv">COMPOSE_PROFILES</span><span class="o">=</span>obf
+<span class="nv">COMPOSE_PROFILES</span><span class="o">=</span>off
 <span class="nv">PRODUCT_OPENER_DOMAIN</span><span class="o">=</span>openbeautyfacts.localhost
 <span class="nv">PRODUCT_OPENER_PORT</span><span class="o">=</span><span class="m">81</span>
+<span class="nv">PRODUCT_OPENER_HOST_PORT</span><span class="o">=</span><span class="m">81</span>
+<span class="nv">PRODUCT_OPENER_NETWORK</span><span class="o">=</span>po_obf_network
 <span class="nv">PRODUCT_OPENER_FLAVOR</span><span class="o">=</span>openbeautyfacts
 <span class="nv">PRODUCT_OPENER_FLAVOR_SHORT</span><span class="o">=</span>obf
+<span class="nv">MONGODB_DATABASE</span><span class="o">=</span>obf
 </code></pre></div>
 Run:
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ENV_FILE</span><span class="o">=</span>.env.obf
