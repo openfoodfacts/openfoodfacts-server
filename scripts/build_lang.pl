@@ -43,7 +43,7 @@ retrieve_tags_taxonomy("languages");
 init_languages();
 
 ProductOpener::Lang::build_lang(\%Languages);
-my $tags_ref = ProductOpener::Lang::build_lang_tags();
+my $tags_ref = ProductOpener::Lang::build_lang_tags(\%Languages);
 
 print STDERR "Build \%Lang - done, saving sto files \n";
 # use $server_domain in part of the name so that we have different files
