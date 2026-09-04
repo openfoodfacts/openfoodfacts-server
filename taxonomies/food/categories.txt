@@ -57488,20 +57488,21 @@ nl: Gearomatiseerde pindkazen, Pindakazen (gearomatiseerd)
 comment:en: Peanut butters with added ingredients, like spices, peppers, etc.
 
 < en: Nut butters
-en: Pistachio butters
+< en: Sweet spreads
+en: Pistachio butters, Pistachio spreads
 es: Mantecas de pistachos
-fr: Beurres de pistaches, Purées de pistaches
-hr: Maslaci od pistacija
-it: Burri di pistacchio
+fr: Beurres de pistaches, Purées de pistaches, Crèmes de pistaches, Crèmes de pistache
+hr: Maslaci od pistacija, Namazi od pistacija
+it: Burri di pistacchio, Crema di pistacchio
 ja: ピスタチオバター
 lt: Pistacijų sviestai
 nl: Pistachenotenpasta's, Pistachepastas
+pl: Kremy pistacjowe do smarowania
 pt: Manteigas de pistácios
 agribalyse_proxy_food_code:en: 15202
 agribalyse_proxy_food_name:en: Peanut butter or peanut paste
 agribalyse_proxy_food_name:fr: Beurre de cacahuète ou Pâte d'arachide
-
-# Reason: pistachios, walnuts and peanuts have roughly the same score. Almonds don't.
+comment:en: Reason: pistachios, walnuts and peanuts have roughly the same score. Almonds don't.
 
 < en: Nut butters
 en: Walnut butters
@@ -107497,13 +107498,6 @@ en: Confectionary based spreads
 gpc_category_code:en: 10000187
 gpc_category_description:en: Definition: Includes any products that can be described/observed as spreadable liquid confection specifically intended for use as a filling for sandwiches and cakes, or to be spread on toast, croissants and biscuits. These products have been treated or packaged in such a way as to extend their consumable life. Includes nut based, chocolate based and combination based spreads. Definition Excludes: Excludes products such as Jams, Marmalades and Confitures and Honey Spreads.
 gpc_category_name:en: Confectionery Based Spreads (Shelf Stable)
-
-< en: Sweet spreads
-fr: Crèmes de pistaches, Crèmes de pistache
-en: Pistachio spreads
-hr: Namazi od pistacija
-it: Crema di pistacchio
-pl: Kremy pistacjowe do smarowania
 
 #Do not put it in plant-based spreads, some fruit curd contains only fruit oil.
 #Fruit curd is a spread made of sugar, eggs, butter and fruits or fruit aroma.
