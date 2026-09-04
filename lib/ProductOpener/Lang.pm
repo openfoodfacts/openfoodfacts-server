@@ -293,8 +293,9 @@ else {
 my @debug_taxonomies = ("categories", "labels", "additives");
 
 # Build hashes to map a translated tag type (e.g. "catégorie") in singular or plural to the tag type (e.g. "categories")
+# The registry must include en, which supplies the fallback paths for all languages.
 
-sub build_lang_tags() {
+sub build_lang_tags ($Languages_ref) {
 
 	# Tags types to path components in URLS: in ascii, lowercase, unaccented,
 	# transliterated (in Roman characters)
@@ -302,11 +303,13 @@ sub build_lang_tags() {
 	# Note: a lot of plurals are currently missing below, commented-out are
 	# the singulars that need to be changed to plurals
 	my ($tag_type_singular_ref, $tag_type_plural_ref)
-		= ProductOpener::I18N::split_tags(ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
+		= ProductOpener::I18N::split_tags(ProductOpener::I18N::read_po_files("$data_root/po/tags/", $Languages_ref));
 	%tag_type_singular = %{$tag_type_singular_ref};
 	%tag_type_plural = %{$tag_type_plural_ref};
+	%tag_type_from_singular = ();
+	%tag_type_from_plural = ();
 
-	foreach my $l (@Langs) {
+	foreach my $l (sort keys %{$Languages_ref}) {
 
 		my $short_l = undef;
 		if ($l =~ /_/) {
@@ -372,7 +375,9 @@ sub build_lang ($Languages_ref) {
 	# UI strings, non-Roman characters can be used
 	my $path = "$data_root/po/common/";
 	$log->info("Loading common \%Lang", {path => $path});
-	%Lang = %{ProductOpener::I18N::read_po_files($path)};
+	# Only compile registered languages. Otherwise, regional entries in the 'add' key
+	# would become selectable languages when Lang.sto is loaded, without initialization.
+	%Lang = %{ProductOpener::I18N::read_po_files($path, $Languages_ref)};
 
 	# Load the .pot file
 	my %common_keys = %{ProductOpener::I18N::read_pot_file($path . "common.pot")};
