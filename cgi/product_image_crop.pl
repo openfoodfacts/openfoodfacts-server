@@ -27,7 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Texts qw/:all/;
-use ProductOpener::Display qw/init_request/;
+use ProductOpener::Display qw/init_request require_post_method validate_csrf_token/;
 use ProductOpener::HTTP qw/single_param/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/$Owner_id $User_id %User/;
@@ -44,6 +44,11 @@ use Log::Any qw($log);
 use Data::DeepAccess qw(deep_get);
 
 my $request_ref = ProductOpener::Display::init_request();
+
+require_post_method($request_ref);
+# This endpoint is called by apps that do not use API v3 for images upload
+# So we don't have a CSRF token in the request.
+# validate_csrf_token($request_ref);
 
 my $type = single_param('type') || 'add';
 my $action = single_param('action') || 'display';
