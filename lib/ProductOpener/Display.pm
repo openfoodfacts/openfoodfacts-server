@@ -57,6 +57,7 @@ BEGIN {
 		&display_no_index_page_and_exit
 		&display_robots_txt_and_exit
 		&display_page
+		&display_facets_index
 		&display_text
 		&display_stats
 		&display_points
@@ -7548,6 +7549,28 @@ sub search_permalink ($request_ref) {
 			. "</a><br>";
 	}
 	return $html;
+}
+
+sub display_facets_index ($request_ref) {
+	my $template_data_ref = {facets => []};
+	foreach my $tagtype (@drilldown_fields) {
+		my $plural_key = $ProductOpener::Lang::tag_type_plural{$tagtype}{$request_ref->{lc}} || $tagtype;
+		push @{$template_data_ref->{facets}},
+			{
+			url => "/facets/" . $plural_key,
+			name => lang($tagtype . '_p') || $tagtype,
+			};
+	}
+	# Sort alphabetically by translated name
+	@{$template_data_ref->{facets}} = sort {$a->{name} cmp $b->{name}} @{$template_data_ref->{facets}};
+
+	$request_ref->{title} = lang('facets') || 'Facets';
+
+	my $html;
+	process_template('web/facets_index.tt.html', $template_data_ref, \$html);
+	$request_ref->{html} = $html;
+	display_page($request_ref);
+	return;
 }
 
 sub display_page ($request_ref) {

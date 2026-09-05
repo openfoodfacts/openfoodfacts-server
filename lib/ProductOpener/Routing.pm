@@ -680,6 +680,11 @@ sub facets_route($request_ref) {
 		set_request_stats_value($request_ref->{stats}, "route", "facets_tags");
 		set_request_stats_value($request_ref->{stats}, "groupby_tagtype", $request_ref->{groupby_tagtype});
 	}
+	elsif (scalar @{$request_ref->{tags}} == 0) {
+		$request_ref->{facets_index} = 1;
+		$request_ref->{rate_limiter_bucket} = "facet_products";
+		set_request_stats_value($request_ref->{stats}, "route", "facets_index");
+	}
 	else {
 		$request_ref->{rate_limiter_bucket} = "facet_products";
 		set_request_stats_value($request_ref->{stats}, "route", "facets_products");
