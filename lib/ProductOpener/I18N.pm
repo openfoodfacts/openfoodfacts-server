@@ -79,16 +79,27 @@ my @metadata_fields = qw<
 
 =head1 FUNCTIONS
 
-=head2 read_po_files()
+=head2 read_po_files( $dir, $languages_ref )
 
 C<read_po_files()> takes directory of the .po files as an input parameter, reads and merges them in one hash
 That hash is returned as a reference. (Done to spare the stack) Returning a reference uses a bit less memory since there's no copy.
 This function also cleans up the %Lexicon from gettext metadata 
 and cleans up the empty values that are put in .po files by Crowdin when the string is not translated.
 
+Catalog filenames must use a two- or three-letter language code, optionally followed by an
+underscore and a two-letter uppercase or three-digit region code, for example C<pt_BR.po>,
+C<kmr_TR.po> or C<es_419.po>. The full code is preserved as the language key. Loading a regional
+catalog does not merge it with its base language or apply translation fallbacks.
+
 =head3 Arguments
 
-The directory containing .po files are passed as an argument.
+The first argument is the directory containing .po files.
+
+The optional second argument is a hash reference whose keys are the language codes
+to load. If omitted, all supported catalog filenames are loaded. This lets callers
+read regional translations without enabling them throughout the server before its
+language registry and request handling support them.
+Registry keys must match the catalog codes exactly, including case (C<pt_BR>, not C<pt_br>).
 
 =head3 Return values
 
@@ -96,7 +107,7 @@ Returns a reference to a hash on successful execution.
 
 =cut
 
-sub read_po_files ($dir) {
+sub read_po_files ($dir, $languages_ref = undef) {
 
 	local $log->context->{directory} = $dir;
 	$log->debug("Reading po files from disk");
@@ -111,16 +122,22 @@ sub read_po_files ($dir) {
 
 	for my $file (sort @files) {
 		# read the .po file
-		local $log->context->{file} = basename($file);
+		my $filename = basename($file);
+		local $log->context->{file} = $filename;
 		$log->debug("Reading po file");
 
 		my $lc;
 
-		if ($file =~ /\/(\w\w).po/) {
+		if ($filename =~ /\A([a-z]{2,3}(?:_(?:[A-Z]{2}|[0-9]{3}))?)\.po\z/) {
 			$lc = $1;
 		}
 		else {
-			$log->debug("Skipping file (not in [2-letter code].po format)");
+			$log->debug("Skipping file (not in language.po or language_REGION.po format)");
+			next;
+		}
+
+		if ((defined $languages_ref) and (not exists $languages_ref->{$lc})) {
+			$log->debug("Skipping file (language code is not registered with this exact case)", {lc => $lc});
 			next;
 		}
 
