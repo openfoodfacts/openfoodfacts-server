@@ -18,14 +18,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-    ca-certificates
-
-# Install Carton and cpanminus for Perl dependency management
-# Carton provides reproducible builds via cpanfile.snapshot lockfile
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    apt-get update || true && \
-    apt-get install -y --no-install-recommends \
         apache2 \
         apt-utils \
         ca-certificates \
@@ -241,7 +233,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Use cpanm for initial installation or when features are needed
         # This will generate snapshot on next Carton run
         cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .; \
-    fi \
+    fi && \
+    # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
+    # without adding an unresolved dependency back into cpanfile.
+    # It is intentionally not in cpanfile (breaks SBOM dependency resolution).
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Test2::Harness::Renderer::JUnit" \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
 
