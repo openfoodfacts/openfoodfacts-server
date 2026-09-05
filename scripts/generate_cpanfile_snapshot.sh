@@ -14,7 +14,7 @@ echo ""
 
 # Check if Docker is available
 if ! command -v docker &> /dev/null; then
-    echo "ERROR: Docker is not installed or not in PATH"
+    echo "ERROR: Docker is not installed or not in PATH" >&2
     exit 1
 fi
 
@@ -22,7 +22,7 @@ fi
 cd "$REPO_ROOT"
 
 # Clean up any existing snapshot to force regeneration
-if [ -f cpanfile.snapshot ]; then
+if [[ -f cpanfile.snapshot ]]; then
     echo "🥫 Backing up existing cpanfile.snapshot..."
     mv cpanfile.snapshot cpanfile.snapshot.backup
     echo "🥫 Backup saved as cpanfile.snapshot.backup"
@@ -56,7 +56,7 @@ if docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-sna
     # Clean up the container
     docker rm "$CONTAINER_ID" > /dev/null 2>&1
     
-    if [ -f cpanfile.snapshot ] && [ -s cpanfile.snapshot ]; then
+    if [[ -f cpanfile.snapshot && -s cpanfile.snapshot ]]; then
         echo "🥫 Successfully generated cpanfile.snapshot!"
         echo "🥫 Snapshot size: $(du -h cpanfile.snapshot | cut -f1)"
         echo "🥫 Number of distributions: $(grep -c "^  " cpanfile.snapshot || echo "0")"
@@ -68,7 +68,7 @@ if docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-sna
         echo "   4. Commit the snapshot: git add cpanfile.snapshot && git commit -m 'chore: update cpanfile.snapshot'"
         
         # Remove backup if generation was successful
-        if [ -f cpanfile.snapshot.backup ]; then
+        if [[ -f cpanfile.snapshot.backup ]]; then
             rm cpanfile.snapshot.backup
             echo "🥫 Removed backup file"
         fi
@@ -78,9 +78,9 @@ if docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-sna
         
         exit 0
     else
-        echo "ERROR: cpanfile.snapshot was not created or is empty"
+        echo "ERROR: cpanfile.snapshot was not created or is empty" >&2
         # Restore backup if it exists
-        if [ -f cpanfile.snapshot.backup ]; then
+        if [[ -f cpanfile.snapshot.backup ]]; then
             mv cpanfile.snapshot.backup cpanfile.snapshot
             echo "🥫 Restored backup snapshot"
         fi
@@ -88,15 +88,15 @@ if docker build --target builder --build-arg CPANMOPTS=--with-develop -t off-sna
     fi
 else
     echo ""
-    echo "ERROR: Docker build failed"
-    echo "🥫 Check the error messages above for details"
+    echo "ERROR: Docker build failed" >&2
+    echo "🥫 Check the error messages above for details" >&2
     echo "🥫 Common issues:"
     echo "   - Network connectivity problems"
     echo "   - Insufficient disk space"
     echo "   - Dependency conflicts in cpanfile"
     
     # Restore backup if it exists
-    if [ -f cpanfile.snapshot.backup ]; then
+    if [[ -f cpanfile.snapshot.backup ]]; then
         mv cpanfile.snapshot.backup cpanfile.snapshot
         echo "🥫 Restored backup snapshot"
     fi

@@ -239,7 +239,11 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     # It is intentionally not in cpanfile (breaks SBOM dependency resolution).
     cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Test2::Harness::Renderer::JUnit" \
     # in case of errors show build.log, but still, fail
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
+    || ( for f in /root/.cpanm/work/*/build.log; do \
+            echo "$f= start ============="; \
+            cat "$f"; \
+            echo "$f= end ============="; \
+        done; false )
 
 ######################
 # backend production image stage
