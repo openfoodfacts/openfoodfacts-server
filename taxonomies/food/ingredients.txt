@@ -62263,7 +62263,7 @@ ifct_food_process:en: en:dried
 ###################################################################################################
 
 < en: pulse
-en: mung bean, mungbean, Mung dal, Moong dal, green gram
+en: mung bean, mungbean, green gram
 ar: بقلة الماش
 bg: птичи боб, бебриджа
 bn: মুগ
@@ -62389,6 +62389,14 @@ ciqual_food_name:fr: Haricot mungo germé ou pousse de ""soja"", cru
 wikidata:en: Q7635866
 #135 in 10 @2021-10-28
 
+< en: mung bean
+en: mung dal, moong dal
+description:en: Split mung bean
+
+< en: mung dal
+en: yellow mung dal, yellow moong dal
+description:en: Hulled and split mung bean
+
 ###################################################################################################
 #
 #
@@ -62413,6 +62421,12 @@ usda_fdc_code:en: 174259
 usda_ndb_code:en: 16083
 usda_ndb_name:en: Mungo beans, mature seeds, raw
 usda_ndb_process:en: en:dried
+wikidata:en: Q369447
+wikipedia:en: https://en.wikipedia.org/wiki/Vigna_mungo
+
+< en: black gram
+en: white lentil, Ivory White Lentils
+description:en: Hulled and split black gram. Hulling removes the black skin which gives it a white color.
 
 ###################################################################################################
 #
