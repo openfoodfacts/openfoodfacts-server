@@ -69,7 +69,7 @@ use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Minion qw/get_minion write_minion_log/;
 use ProductOpener::HTTP qw/create_user_agent/;
-use ProductOpener::Config qw/%oidc_options/;
+use ProductOpener::Config qw/%admins %oidc_options/;
 use ProductOpener::Auth qw/get_oidc_implementation_level get_token_using_password_credentials/;
 use ProductOpener::Tags qw/country_to_cc/;
 use ProductOpener::TestDefaults qw/:all/;
@@ -398,6 +398,7 @@ sub create_test_users($admin = undef, $moderator = undef) {
 	if ($admin or $moderator) {
 		# Create an admin
 		$admin_ua = new_client();
+		$admins{$admin_user_form{userid}} = 1;
 		create_user($admin_ua, \%admin_user_form);
 		$users{admin} = $admin_ua;
 	}

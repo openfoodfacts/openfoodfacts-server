@@ -110,20 +110,8 @@ autoload("ProductOpener::Config_$flavor");
 	},
 );
 
-%ProductOpener::Config::admins = map {$_ => 1} qw(
-	alex-off
-	charlesnepote
-	galina-off
-	meriem1994
-	hangy
-	manoncorneille
-	mellie-mellow
-	raphael0202
-	stephane
-	tacinte
-	teolemon
-	g123k
-);
+# Administrators need to be defined in Config2.pm
+%ProductOpener::Config::admins = %ProductOpener::Config2::admins || ();
 
 =head2 Available product types and flavors
 
