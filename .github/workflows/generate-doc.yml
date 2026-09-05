@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           fetch-depth: 1
 
@@ -82,7 +82,7 @@ jobs:
 
 
       - name: Deploy API documentation to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.9.0
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         # we only deploy on push to main
         if: |
           github.event_name == 'push' && github.event.ref == 'refs/heads/main'
