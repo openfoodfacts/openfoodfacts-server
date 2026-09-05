@@ -50133,6 +50133,27 @@ eurocode_2_group_2:en: 8.10
 
 #########################################################################################
 #
+#                               Betel leaves
+#
+##########################################################################################
+
+< en: leaf vegetable
+en: betel leaves
+la: Piper betle
+description:en: Betel leaf (Piper betle) is a heart-shaped, glossy leaf native to Southeast Asia, now cultivated across South and Southeast Asia and parts of the Pacific. It has a pungent, peppery, slightly bitter flavor with an aromatic, faintly numbing quality from natural essential oils. Globally, it's best known as the wrapper for paan, but is also used to wrap savory bites (as in Thai miang kham), chopped into chutneys, or used to wrap fish before steaming. Nutritionally, the leaf contains vitamins A and C, calcium, and trace minerals, along with aromatic compounds like eugenol and chavicol that contribute to its distinctive taste and traditional uses.
+
+< en: betel leaves
+en: big betel leaves
+ifct_food_code:en: C010
+ifct_food_name:en: Betel, leaves, big
+
+< en: betel leaves
+en: small betel leaves
+ifct_food_code:en: C011
+ifct_food_name:en: Betel, leaves, small
+
+#########################################################################################
+#
 #                               Chicory greens
 #
 ##########################################################################################
@@ -50144,6 +50165,22 @@ species:en: Cichorium intybus
 usda_fdc_code:en: 169992
 usda_ndb_code:en: 11152
 usda_ndb_name:en: Chicory greens, raw
+
+#########################################################################################
+#
+#                               Collard greens
+#
+##########################################################################################
+
+< en: leaf vegetable
+en: collard greens, collard
+description:en: Collards (collard greens) are a leafy green vegetable in the cabbage family — the same species as kale, cabbage, and broccoli (Brassica oleracea), just bred for large, loose, dark green leaves rather than a tight head. Earthy, slightly bitter, and hearty — milder than mustard greens, tougher and more assertive than spinach. Traditionally slow-cooked (often with smoked meat, onion, garlic, vinegar, and pepper flakes in Southern U.S. cooking) until tender — but they can also be sautéed, steamed, or even eaten raw/massaged in salads if sliced thin. It's the same species as cabbage (Brassica oleracea), but not a cabbage in the way we normally mean the word.
+ifct_food_code:en: C014
+ifct_food_name:en: Cabbage, collard greens
+species:en: Brassica oleracea
+usda_ndb_code:en: 11161
+usda_ndb_name:en: Collards, raw
+wikidata:en: Q14879985
 
 #########################################################################################
 #
@@ -50176,6 +50213,7 @@ usda_ndb_2_code:en: 11698
 usda_ndb_2_name:en: Chrysanthemum leaves, raw
 usda_ndb_code:en: 11157
 usda_ndb_name:en: Chrysanthemum, garland, raw
+
 
 #########################################################################################
 #
@@ -52208,7 +52246,11 @@ eurocode_2_group_3:en: 8.15.24
 wikidata:en: q263203
 wikipedia:en: https://en.wikipedia.org/wiki/Red_cabbage
 
-#comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
+###################################################################################################
+#
+#                                Chinese cabbage
+#
+###################################################################################################
 
 < en: cabbage
 en: Chinese cabbage, Napa cabbage
@@ -52252,17 +52294,20 @@ uk: капуста пекінська
 uz: pekin karami
 vi: cải thảo
 zh: 大白菜
-ciqual_food_code:en: 20167
-ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
-ecobalyse:en: chinese-cabbage-fr
-ecobalyse_labels_en_organic:en: chinese-cabbage-organic
-# 200 @2021-09-29
-eurocode_2_group_3:en: 8.15.28
 #arz:ملفوف برند
 #lzh:菘
 #szy:mamumuway
 # yue:紹菜
+ciqual_food_code:en: 20167
+ciqual_food_name:en: Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr: Chou chinois ou pak-choi ou pé-tsai, cru
+comment:en: IN french chou chinois is used for both varieties. And in other languages as well.
+description:en: Chinese cabbage (Brassica rapa subsp. pekinensis) originated in East Asia, likely China, and has been cultivated for over 1,500 years before spreading worldwide. It features pale green, crinkled leaves with wide white ribs and a mild, slightly sweet flavor with subtle peppery notes. Globally, it's used in stir-fries, soups, dumplings, salads, and most famously as the base for Korean kimchi; it also appears in Japanese, Chinese, and Western cuisines as a crunchy, versatile vegetable. Nutritionally, it's low in calories and contains vitamins C and K, folate, potassium, and dietary fiber, along with various antioxidant compounds, making it a widely valued leafy vegetable across cultures.
+ecobalyse:en: chinese-cabbage-fr
+ecobalyse_labels_en_organic:en: chinese-cabbage-organic
+eurocode_2_group_3:en: 8.15.28
+ifct_food_code:en: C013
+ifct_food_name:en: Cabbage, Chinese
 wikidata:en: Q13360268
 wikipedia:en: https://en.wikipedia.org/wiki/Chinese_cabbage
 
@@ -52310,6 +52355,12 @@ eurocode_2_group_3:en: 8.15.28
 #yue:白菜
 wikidata:en: Q18968514
 wikipedia:en: https://en.wikipedia.org/wiki/Bok_choy
+
+###################################################################################################
+#
+#                                Brussels sprouts
+#
+###################################################################################################
 
 < en: brassica
 < en: cabbage
@@ -52399,9 +52450,12 @@ zh: 抱子甘藍
 ciqual_food_code:en: 20058
 ciqual_food_name:en: Brussels sprout, raw
 ciqual_food_name:fr: Chou de Bruxelles, cru
+description:en: Brussels sprouts are small, leafy green vegetables belonging to the cabbage family, believed to have originated in Belgium, from which they take their name, though similar plants trace back to ancient Rome. They grow in tight, bud-like clusters along a thick stalk. Raw, they have a slightly bitter, peppery bite; cooked, they turn nuttier and sweeter, especially when roasted, caramelized, or charred. Popular worldwide, they're prepared by roasting, steaming, sautéing, or shredding into slaws, often paired with garlic, bacon, nuts, or citrus. Nutritionally, they're rich in fiber, vitamin C, vitamin K, folate, and antioxidant compounds, while remaining low in calories.
 ecobalyse:en: brussels-sprout-fr
 ecobalyse_labels_en_organic:en: brussels-sprout-organic
 eurocode_2_group_3:en: 8.15.40
+ifct_food_code:en: C012
+ifct_food_name:en: Brussels sprouts
 usda_fdc_code:en: 170383
 usda_ndb_code:en: 11098
 usda_ndb_name:en: Brussels sprouts, raw
@@ -52538,15 +52592,6 @@ en: komatsuna
 it: komatsuna
 ja: 小松菜, コマツナ
 
-< en: leaf vegetable
-en: collard greens, collard
-description:en: Collards (collard greens) are a leafy green vegetable in the cabbage family — the same species as kale, cabbage, and broccoli (Brassica oleracea), just bred for large, loose, dark green leaves rather than a tight head. Earthy, slightly bitter, and hearty — milder than mustard greens, tougher and more assertive than spinach. Traditionally slow-cooked (often with smoked meat, onion, garlic, vinegar, and pepper flakes in Southern U.S. cooking) until tender — but they can also be sautéed, steamed, or even eaten raw/massaged in salads if sliced thin. It's the same species as cabbage (Brassica oleracea), but not a cabbage in the way we normally mean the word.
-species:en: Brassica oleracea
-usda_fdc_code:en: 170406
-usda_ndb_code:en: 11161
-usda_ndb_name:en: Collards, raw
-wikidata:en: Q14879985
-
 < en: kale
 en: baby kale
 de: Kohlsprossen
@@ -52571,8 +52616,11 @@ hr: pire od kelja
 it: purea di cavolo
 pl: przecier z liści jarmużu
 
-# description:en:Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea.
-# be careful with the translation found on packages.
+###################################################################################################
+#
+#                                Green cabbage
+#
+###################################################################################################
 
 < en: cabbage
 en: savoy cabbage, green cabbage
@@ -52623,9 +52671,13 @@ zh: 野甘蓝
 ciqual_food_code:en: 20069
 ciqual_food_name:en: Green cabbage, raw
 ciqual_food_name:fr: Chou vert, cru
+comment:en: be careful with the translation found on packages.
+description:en: Green cabbage (Brassica oleracea var. capitata) originated in the Mediterranean and Western Europe, cultivated from wild mustard plants over 2,000 years ago before spreading worldwide through trade and colonization. Today it's a staple across Europe, Asia, Africa, and the Americas. Its tightly packed, pale-green leaves offer a crisp texture and mild, slightly peppery flavor that turns sweeter when cooked, with a subtle sulfurous note. Used raw in slaws and salads, fermented into sauerkraut and kimchi, or cooked in soups, stir-fries, stews, and stuffed dishes, it adapts to countless culinary traditions. Nutritionally, green cabbage provides vitamin C, vitamin K, fiber, and small amounts of various minerals, while being low in calories.
 ecobalyse:en: green-cabbage-fr
 ecobalyse_labels_en_organic:en: green-cabbage-organic
 eurocode_2_group_3:en: 8.15.20
+ifct_food_code:en: C015
+ifct_food_name:en: Cabbage, green
 wikidata:en: Q154013
 wikipedia:en: https://en.wikipedia.org/wiki/Savoy_cabbage
 
@@ -54625,7 +54677,7 @@ average_weight_per_unit:en: 1000
 # bar:blaukraut
 # bho:लाल पत्ता गोभी
 # frr:ruadkual
-#hsb:čerwjeny kał
+# hsb:čerwjeny kał
 # nan:âng ko-lê-chhài
 # pcd:colé'd vaque
 # szl:modro kapusta
@@ -54633,10 +54685,13 @@ average_weight_per_unit:en: 1000
 ciqual_food_code:en: 20014
 ciqual_food_name:en: Red cabbage, raw
 ciqual_food_name:fr: Chou rouge, cru
-description:en: The red cabbage (purple-leaved varieties of Brassica oleracea Capitata Group) is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation.
+description:en: Native to coastal Europe and cultivated worldwide since antiquity, red cabbage is a dense, round vegetable with deep purple-red leaves, colored by anthocyanin pigments that shift hue with soil acidity. Its flavor is peppery and slightly sweet when raw, mellowing into a tangy, earthy sweetness when cooked, often enhanced with vinegar or apples in European cuisines. Globally, it's eaten raw in salads and slaws, pickled, fermented, braised, or stewed alongside meats in German, Scandinavian, and Eastern European dishes. Nutritionally, it's a good source of vitamin C, vitamin K, fiber, and various antioxidant compounds, contributing to its widespread culinary and cultural presence.
 ecobalyse:en: red-cabbage-non-eu
 ecobalyse_labels_en_organic:en: red-cabbage-organic
 eurocode_2_group_3:en: 8.15.24
+ifct_food_code:en: C016
+ifct_food_name:en: Cabbage, violet
+
 usda_fdc_code:en: 169977
 usda_ndb_code:en: 11112
 usda_ndb_name:en: Cabbage, red, raw
