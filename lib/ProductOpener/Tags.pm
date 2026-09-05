@@ -3095,9 +3095,10 @@ sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = un
 
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
+	my $tagurl = get_tag_url_id($tagtype, $tag);
 
 	my $path = $tag_type_plural{$tagtype}{$target_lc};
-	return "/$path/" . ($tag_prefix // '') . $tag;
+	return "/$path/" . ($tag_prefix // '') . $tagurl;
 }
 
 # The display_taxonomy_tag_link function makes many calls to other functions, in particular it calls twice display_taxonomy_tag_link
@@ -3110,7 +3111,7 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $taxonomy, $tag);
 	my $tagid = $tag;
-	my $tagurl = $tag;
+	my $tagurl = get_tag_url_id($tagtype, $tagid);
 
 	my $tag_lc;
 	if ($tag =~ /^(\w\w):/) {
