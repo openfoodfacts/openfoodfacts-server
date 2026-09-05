@@ -832,6 +832,65 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size cannot be parsed', 0
 );
 
+# stale per-serving set without nutrient values should not trigger missing serving size
+# and per-100g nutrient values should still be validated
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "serving",
+				nutrients => {}
+			},
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"fat" => {value => 120, unit => "g"}
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-missing-serving-size',
+	'empty per-serving input set should not trigger missing serving size error', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-producer-as-sold-100g-value-over-105-fat',
+	'per-100g values should still be validated when a stale per-serving set exists', 1
+);
+
+# stale per-serving set without nutrients key should also not trigger missing serving size
+$product_ref = {
+	nutrition => {
+		input_sets => [
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "serving"
+			},
+			{
+				source => "producer",
+				preparation => "as_sold",
+				per => "100g",
+				nutrients => {
+					"energy-kj" => {value => 200, unit => "kj"}
+				}
+			}
+		]
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-missing-serving-size',
+	'per-serving input set without nutrients should not trigger missing serving size error', 0
+);
+
 # serving size not recognized (leading to undefined serving quantity)
 $product_ref = {serving_size => "50",};
 check_quality_and_test_product_has_quality_tag(

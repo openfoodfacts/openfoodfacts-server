@@ -926,7 +926,8 @@ sub check_nutrition_data ($product_ref) {
 				}
 			}
 
-			if ($per eq "serving") {
+			# Only consider per-serving nutrition present when the set still has nutrient values.
+			if (($per eq "serving") and (defined $set_ref->{nutrients}) and (scalar keys %{$set_ref->{nutrients}})) {
 				$has_nutrition_per_serving = 1;
 			}
 		}
