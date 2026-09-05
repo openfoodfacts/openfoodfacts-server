@@ -17,7 +17,7 @@ jobs:
         # only if a new release was created
         if: ${{ env.IS_RELEASE }}
         id: wait-build
-        uses: lewagon/wait-on-check-action@v1.9.1
+        uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
         timeout-minutes: 20
         with:
           ref: ${{ env.RELEASE_SHA }}
@@ -31,7 +31,7 @@ jobs:
         # only if a new release was created
         if: ${{ env.IS_RELEASE }}
         id: wait-build2
-        uses: lewagon/wait-on-check-action@v1.9.1
+        uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
         timeout-minutes: 20
         with:
           ref: ${{ env.RELEASE_SHA }}

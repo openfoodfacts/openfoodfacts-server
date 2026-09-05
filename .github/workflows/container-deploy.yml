@@ -68,7 +68,7 @@ jobs:
 
     - name: Wait for frontend container build workflow
       id: wait-build
-      uses: lewagon/wait-on-check-action@v1.9.1
+      uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
       timeout-minutes: 10
       with:
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -80,7 +80,7 @@ jobs:
 
     - name: Wait for backend container build workflow
       id: wait-build2
-      uses: lewagon/wait-on-check-action@v1.9.1
+      uses: lewagon/wait-on-check-action@369769072fe522a3a8a85c03c96af1e5242a1994 # v1.9.1
       timeout-minutes: 10
       with:
         ref: ${{ github.event.pull_request.head.sha || github.sha }}
