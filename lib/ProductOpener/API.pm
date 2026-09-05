@@ -722,6 +722,44 @@ sub customize_packagings ($request_ref, $product_ref) {
 	return $customized_packagings_ref;
 }
 
+=head2 customize_components ($request_ref, $product_ref)
+
+Multi-food components data (for variety packs, meal kits with separate nutrition tables/ingredients).
+
+This function returns a customized array reference for product components.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $product_ref (input)
+
+Reference to the product object.
+
+=head3 Return value
+
+Reference to the customized product components array object.
+
+=cut
+
+sub customize_components ($request_ref, $product_ref) {
+
+	my $customized_components_ref = $product_ref->{components};
+
+	if (defined $product_ref->{components}) {
+		$customized_components_ref = [];
+
+		foreach my $component_ref (@{$product_ref->{components}}) {
+			my $customized_component_ref = dclone($component_ref);
+			push @$customized_components_ref, $customized_component_ref;
+		}
+	}
+
+	return $customized_components_ref;
+}
+
 =head2 api_compatibility_for_field ($field, $api_version)
 
 To support older API versions that can request fields that have been renamed or changed,
@@ -1019,6 +1057,12 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 		# Packagings data
 		if ($field eq "packagings") {
 			$customized_product_ref->{$field} = customize_packagings($request_ref, $product_ref);
+			next;
+		}
+
+		# Components data (multi-food packages: variety packs, meal kits)
+		if ($field eq "components") {
+			$customized_product_ref->{$field} = customize_components($request_ref, $product_ref);
 			next;
 		}
 
