@@ -47,6 +47,9 @@ my $request = { api_version => 3 };
 my $customized_components = ProductOpener::API::customize_components($request, $product);
 
 is($customized_components, $product->{components}, "customize_components returns matching structure for multi-food components");
+ok($customized_components != $product->{components}, "customize_components returns a cloned arrayref");
+ok($customized_components->[0] != $product->{components}[0], "customize_components clones component hashrefs");
+ok($customized_components->[0]{nutriments} != $product->{components}[0]{nutriments}, "customize_components clones nested nutriments hashrefs");
 
 # Test customize_response_for_product requesting components field
 my $customized_product = customize_response_for_product($request, $product, "components,code");
@@ -54,4 +57,6 @@ my $customized_product = customize_response_for_product($request, $product, "com
 is($customized_product->{components}, $product->{components}, "customize_response_for_product returns components array when requested");
 is($customized_product->{code}, "055795740289", "customize_response_for_product returns code");
 
+my $customized_product_no_components = customize_response_for_product($request, $product, "code");
+ok(!exists $customized_product_no_components->{components}, "customize_response_for_product does not include components unless requested");
 done_testing();
