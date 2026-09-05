@@ -32,7 +32,7 @@ jobs:
       frontend_sbom: ${{ steps.filter-some.outputs.frontend_sbom }}
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
         id: filter
         with:
           # FIXME: we need to consider more than these files
@@ -47,7 +47,7 @@ jobs:
             - '**/*'           # Catch everything
             - '!taxonomies/**' # Except taxonomy files
           predicate-quantifier: 'every'
-      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
         id: filter-some
         with:
           # FIXME: since this uses 'some' it isn’t able to exclude files (e.g., docker/*.md)
@@ -454,7 +454,7 @@ jobs:
         retention-days: 90
     - name: Submit Perl SBOM to Dependency Graph
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: advanced-security/spdx-dependency-submission-action@v0.2.0
+      uses: advanced-security/spdx-dependency-submission-action@v0.3.2
       with:
         filePath: perl-sbom.json
 
