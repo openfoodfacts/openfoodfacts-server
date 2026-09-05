@@ -712,17 +712,19 @@ jobs:
       if: needs.filter.outputs.taxonomy_only == 'false'
       with:
         files: cover_db/codecov.json
+        report-type: coverage
         token: ${{ secrets.CODECOV_TOKEN }}
         flags: unit-test-group-${{ matrix.test-group }}
         name: unit-coverage-${{ matrix.test-group }}
 
     - name: Upload test results to Codecov
       if: ${{ needs.filter.outputs.taxonomy_only == 'false' && !cancelled() }}
-      uses: codecov/test-results-action@0fa95f0e1eeaafde2c782583b36b28ad0d8c77d3 # v1.2.1
+      uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0v7
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./tests/unit/outputs/junit_group_${{ matrix.test-group }}.xml
         flags: unit-test-group-${{ matrix.test-group }}
+        report-type: test_results
 
   integration_tests:
     name: 🐪 Perl Integration Tests
@@ -834,16 +836,18 @@ jobs:
       with:
         files: cover_db/codecov.json
         token: ${{ secrets.CODECOV_TOKEN }}
+        report-type: coverage
         flags: integration-test-group-${{ matrix.test-group }}
         name: integration-coverage-${{ matrix.test-group }}
 
     - name: Upload test results to Codecov
       if: ${{ needs.filter.outputs.taxonomy_only == 'false' && !cancelled() }}
-      uses: codecov/test-results-action@0fa95f0e1eeaafde2c782583b36b28ad0d8c77d3 # v1.2.1
+      uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0v7
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./tests/integration/outputs/junit_group_${{ matrix.test-group }}.xml
         flags: integration-test-group-${{ matrix.test-group }}
+        report-type: test_results
 
   tests_summary:
     # if all tests did run correctly acknowledge the branch protection rule
