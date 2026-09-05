@@ -1,0 +1,24 @@
+{
+   "categories_tags" : [
+      "en:olive-oils"
+   ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "packaging" : {
+            "category" : "en:olive-oils",
+            "ecs" : 22.74,
+            "id" : "fd3d43c3-01b9-47a8-acd5-219e4ef2dafc",
+            "name" : "Olive oil, 1L | Packaging System, N0, All, Plastic bottle (opaque) {FR} U",
+            "name_fr" : "Bouteille en plastique (PET) pour huile d'olive - 1L"
+         }
+      }
+   },
+   "packagings" : [
+      {
+         "material" : "en:pp-5-polypropylene",
+         "quantity_per_unit" : 1,
+         "shape" : "en:bottle"
+      }
+   ],
+   "product_quantity" : 1
+}
