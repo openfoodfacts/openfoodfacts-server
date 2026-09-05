@@ -5,6 +5,7 @@
     ],
     "size": "small",
     "title_element": {
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/additives-unknown.svg",
         "title": `[% display_taxonomy_tag_name("additives", panel.additive) %]`
     },        
     "elements": [
