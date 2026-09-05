@@ -71711,13 +71711,12 @@ wikipedia:en: https://en.wikipedia.org/wiki/Thai_basil
 #                                Chervil
 #
 ###################################################################################################
-# description:en:CHERVIL is a delicate annual herb related to parsley. It is commonly used to season mild-flavoured dishes and is a constituent of the French herb mixture fines herbes.
-# comment:en:The wikidata entries describe the plant. Not used. IATE has been used.
 
-#category/fresh-chervil
 < en: herb
 en: chervil
 bg: керевиз
+br: serfilh
+ca: cerfull
 da: kørvel
 de: Kerbel
 el: σκαντζίκι
@@ -71727,22 +71726,30 @@ et: aed, harakputk
 fi: kirveli
 fr: cerfeuil
 ga: costóg
+gl: cerefolio
 hr: krasuljica
 hu: turbolya
+id: cerwil
+io: cerfolio
+is: kerfill
 it: cerfoglio
-la: Anthriscus cerefolium
+kw: serfel
+lb: Kierwel
 lv: kārvele
+ms: cervil
 mt: sorfolja
 nl: kervel
-pl: trybula, trybuli, Trybula ogrodowa
+oc: cerfuèlh
+pl: trybula, trybuli
 pt: cerefólio
 ro: asmățui
+ru: кервель
 sk: trebuľka voňavá
 sl: krebuljica
 sv: körvel
-ciqual_proxy_food_code:en: 11002
-ciqual_proxy_food_name:en: Chervil, fresh
-ciqual_proxy_food_name:fr: Cerfeuil, frais
+ciqual_food_code:en: 11002
+ciqual_food_name:en: Chervil, raw
+description:en: CHERVIL is a delicate annual herb related to parsley. It is commonly used to season mild-flavoured dishes and is a constituent of the French herb mixture fines herbes.
 eurocode_2_group_2:en: 12.20
 eurocode_2_group_3:en: 12.20.22
 usda_ndb_proxy_code:en: 2008
@@ -71751,12 +71758,49 @@ wikidata:en: Q21281535
 wikipedia:en: https://en.wikipedia.org/wiki/Chervil
 
 < en: chervil
-en: fresh chervil
-it: cerfoglio fresco
-nl: verse kervel
-ciqual_food_code:en: 11002
-ciqual_food_name:en: Chervil, fresh
-ciqual_food_name:fr: Cerfeuil, frais
+en: garden chervil, French parsley
+ar: سرفيل بستاني
+be: маркоўнік цмяналісты
+bg: див керевиз
+co: pedi puddinu
+cs: kerblík třebule
+cy: gorthyfail y gerddi
+da: havekørvel, have-kørvel, dansk kørvel
+de: Echter Kerbel
+el: μυρώνι
+eo: cerefolio
+es: perejil francés
+et: aed-harakputk
+eu: apoperrexil
+fa: جعفری فرنگی
+fi: maustekirveli
+fr: cerfeuil commun
+hi: चेवील
+hu: zamatos turbolya
+hy: կերբելուկ մոմատերև
+is: garðakerfill
+ja: チャービル
+ka: ჭყიმამხალი
+ko: 처빌
+la: Anthriscus cerefolium
+lt: daržinis builis
+mk: крбулица
+nb: hagekjørvel
+nl: echte kervel
+nn: hagekjørvel
+os: гæнгæлы
+pl: trybula ogrodowa
+ro: hasmațuchi
+ru: кервель ажурный
+sl: prava krebuljica
+sr: krbuljica
+sv: trädgårdskörvel, dansk körvel
+ta: தோட்டப் பூண்டு
+th: เชอร์วิล
+tr: frenk maydanozu
+uk: кервель
+zh: 雪维菜, 法國芫荽, 蜡叶峨参
+wikidata:en: Q218462
 
 < en: chervil
 en: dried chervil
