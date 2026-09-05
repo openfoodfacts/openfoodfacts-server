@@ -1,4 +1,5 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
          "ciqual_food_code" : "11058",
@@ -36,7 +37,7 @@
          "vegetarian" : "no"
       },
       {
-         "ciqual_proxy_food_code" : "17270",
+         "ciqual_food_code" : "17001",
          "ecobalyse_code" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
          "from_palm_oil" : "no",
          "id" : "en:olive-oil",
@@ -74,7 +75,7 @@
       },
       {
          "ciqual_proxy_food_code" : "31016",
-         "ecobalyse_code" : "8f075c25-9ebf-430c-b41d-51d165c6e0d8",
+         "ecobalyse_code" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
          "id" : "en:sugar",
          "is_in_taxonomy" : 1,
          "origins" : "en:outside-japan,en:japan",
@@ -82,7 +83,7 @@
          "percent_max" : 14.2857142857143,
          "percent_min" : 0,
          "text" : "糖類",
-         "vegan" : "yes",
+         "vegan" : "maybe",
          "vegetarian" : "yes"
       },
       {
@@ -110,6 +111,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "54500",
          "id" : "en:breadfruit",
          "is_in_taxonomy" : 1,
          "origins" : "en:sanriku",
@@ -191,6 +193,7 @@
       "en:plant",
       "en:edamame",
       "en:vegetable",
+      "en:pod-and-seed-vegetable",
       "en:legume",
       "en:pulse",
       "en:soya",
@@ -207,11 +210,10 @@
    "ingredients_with_unspecified_percent_n" : 11,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:breadfruit",
       "en:malt",
       "en:meat"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "ingredients_without_ecobalyse_ids" : [
       "en:breadfruit",
       "en:cocoa",
@@ -225,11 +227,8 @@
    "ingredients_without_ecobalyse_ids_n" : 8,
    "known_ingredients_n" : 11,
    "lc" : "ja",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0.355113636363633,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0.355113636363633,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 6.03693181818181,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 6.03693181818181
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

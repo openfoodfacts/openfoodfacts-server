@@ -55,7 +55,7 @@ my @expected_headers = (
 is($results_ref->{headers}, \@expected_headers,);
 # we have 3 rows
 my @rows = @{$results_ref->{rows}};
-is(scalar @rows, 3);
+is(scalar @rows, 4);
 foreach my $row (@rows) {
 	# each row has as many columns as headers
 	is(scalar @{$row}, scalar @{$results_ref->{headers}});
@@ -64,6 +64,8 @@ foreach my $row (@rows) {
 is($rows[0]->[0], "7622210449283");
 is($rows[1]->[0], "3168930010906");
 is($rows[2]->[0], "3263670011456");
+# Note that blank code is no longer discarded at this stage, but at a later stage in the import
+is($rows[3]->[0], "");
 # clean csv
 unlink $inputs_dir . "eco-score-template.xlsx.csv";
 done_testing();

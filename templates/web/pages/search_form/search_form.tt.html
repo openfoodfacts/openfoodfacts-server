@@ -51,7 +51,8 @@
             [% END %]
         </div>
 
-        <!-- Ingredients Form -->
+        [% IF options.product_type == 'food' || options.product_type == 'petfood' || options.product_type == 'beauty' %]
+        <!-- Ingredients Form - only on food, petfood and beauty -->
 
         <h3>[% lang('search_ingredients') %]</h3>
 
@@ -69,8 +70,10 @@
                 </div>
             [% END %]
         </div>
+        [% END %]
 
-        <!-- Nutriments Form -->
+        [% IF options.product_type == 'food' || options.product_type == 'petfood' %]
+        <!-- Nutriments Form - only of food and petfood -->
 
         <h3>[% lang('search_nutriments') %]</h3>
 
@@ -99,6 +102,7 @@
                 </div>
             [% END %]
         </div>
+        [% END %]
 
         <!-- Different types to display results -->
 

@@ -60,8 +60,8 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags
-	qw/%level display_taxonomy_tag display_taxonomy_tag_name has_tag get_inherited_property_from_tags/;
+use ProductOpener::Tags qw/%level display_taxonomy_tag display_taxonomy_tag_name get_inherited_property_from_tags/;
+use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/@nutrient_levels/;
 use ProductOpener::Ingredients qw/:all/;
@@ -136,22 +136,23 @@ The return value is a reference to an array of attribute groups that contains in
 
 =head3 Caching
 
-The return value is cached for each language in the %localized_attribute_groups hash.
+The return value is cached for each language in the %cached_attribute_groups hash.
 
 =cut
 
-# Global structure to cache the return structure for each language
-my %localized_attribute_groups = ();
+# Global structure to cache the return structure for each language and API version
+my %cached_attribute_groups = ();
 
 sub list_attributes ($target_lc, $api_version) {
 
-	$log->debug("list attributes", {target_lc => $target_lc}) if $log->is_debug();
+	my $cache_key = $target_lc . "_" . $api_version;
+	$log->debug("list attributes", {cache_key => $cache_key}) if $log->is_debug();
 
 	# Construct the return structure only once for each language
 
-	if (not defined $localized_attribute_groups{$target_lc}) {
+	if (not defined $cached_attribute_groups{$cache_key}) {
 
-		$localized_attribute_groups{$target_lc} = [];
+		$cached_attribute_groups{$cache_key} = [];
 
 		if (defined $options{attribute_groups}) {
 
@@ -196,12 +197,12 @@ sub list_attributes ($target_lc, $api_version) {
 					push @{$group_ref->{attributes}}, $attribute_ref;
 				}
 
-				push @{$localized_attribute_groups{$target_lc}}, $group_ref;
+				push @{$cached_attribute_groups{$cache_key}}, $group_ref;
 			}
 		}
 	}
 
-	return $localized_attribute_groups{$target_lc};
+	return $cached_attribute_groups{$cache_key};
 }
 
 =head2 initialize_attribute_group ( $group_id, $target_lc )
@@ -362,7 +363,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 
 			my $allergen = display_taxonomy_tag($target_lc, "allergens", $allergen_id);
 
-			$attribute_ref->{name} = $allergen;
+			$attribute_ref->{name} = ucfirst($allergen);
 			$attribute_ref->{setting_name} = sprintf(
 				lang_in_other_lc($target_lc, "without_s"),
 				display_taxonomy_tag($target_lc, "allergens", $allergen_id)
@@ -1058,6 +1059,18 @@ sub compute_attribute_additives ($product_ref, $target_lc) {
 
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$n-additives.svg";
 
+		if ($additives > 0) {
+			$attribute_ref->{panel_id} = "additives";
+		}
+		elsif (not($product_ref->{ingredients_n})) {
+			# If we don't have ingredients, link to the ingredients panel (with add action)
+			$attribute_ref->{panel_id} = "ingredients";
+		}
+		else {
+			# If we have ingredients, link to the ingredients analysis panel
+			$attribute_ref->{panel_id} = "ingredients_analysis";
+		}
+
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
@@ -1069,6 +1082,15 @@ sub compute_attribute_additives ($product_ref, $target_lc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_additives_unknown_description_short");
 			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_ingredients_list");
+		}
+
+		if (not($product_ref->{ingredients_n})) {
+			# If we don't have ingredients, link to the ingredients panel (with add action)
+			$attribute_ref->{panel_id} = "ingredients";
+		}
+		else {
+			# If we have ingredients, link to the ingredients analysis panel
+			$attribute_ref->{panel_id} = "ingredients_analysis";
 		}
 	}
 
@@ -1227,6 +1249,8 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 	if ((not defined $product_ref->{nutrient_levels}) or (not defined $product_ref->{nutrient_levels}{$nid})) {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-unknown.svg";
+		$attribute_ref->{panel_id} = "nutrition_facts_table";
+
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = sprintf(
 				lang_in_other_lc($target_lc, "nutrient_in_quantity"),
@@ -1239,17 +1263,10 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 			else {
 				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
 			}
-			$attribute_ref->{panel_id} = "nutrition_facts_table";
 		}
 	}
 	else {
 		$attribute_ref->{status} = "known";
-
-		my $prepared = "";
-
-		if (has_tag($product_ref, "categories", "en:dried-products-to-be-rehydrated")) {
-			$prepared = '_prepared';
-		}
 
 		foreach my $nutrient_level_ref (@nutrient_levels) {
 			my ($nutrient_level_nid, $low, $high) = @{$nutrient_level_ref};
@@ -1263,7 +1280,20 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 				$high = $high / 2;
 			}
 
-			my $value = $product_ref->{nutriments}{$nid . $prepared . "_100g"};
+			my $value = deep_get($product_ref, "nutrition", "aggregated_set", "nutrients", $nid, "value");
+
+			$log->debug(
+				"compute attributes nutrient quantity for product - known",
+				{
+					code => $product_ref->{code},
+					level => $level,
+					nid => $nid,
+					value => $value,
+					low => $low,
+					high => $high,
+					xproduct => $product_ref
+				}
+			) if $log->is_debug();
 
 			my $match;
 
@@ -1286,6 +1316,9 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 
 			$attribute_ref->{match} = $match;
 
+			$attribute_ref->{panel_id} = "nutrient_level_" . $nid;
+			$attribute_ref->{panel_id} =~ s/-/_/g;
+
 			if ($target_lc ne "data") {
 				$attribute_ref->{title} = sprintf(
 					lang_in_other_lc($target_lc, "nutrient_in_quantity"),
@@ -1296,9 +1329,6 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 					$attribute_ref->{description_short}
 						= sprintf(lang_in_other_lc($target_lc, 'g_per_100g'), (sprintf('%.2e', $value) + 0.0));
 				}
-
-				$attribute_ref->{panel_id} = "nutrient_level_" . $nid;
-				$attribute_ref->{panel_id} =~ s/-/_/g;
 			}
 		}
 	}
@@ -1345,10 +1375,6 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 	$allergen =~ s/_/-/g;
 
 	my $allergen_id = "en:" . $allergen;
-
-	$log->debug("compute attribute allergen for product",
-		{code => $product_ref->{code}, attribute_id => $attribute_id, allergen_id => $allergen_id})
-		if $log->is_debug();
 
 	# Initialize general values that do not depend on the product (or that will be overriden later)
 
@@ -1626,10 +1652,6 @@ e.g. nutritional_quality, allergens, labels
 
 sub add_attribute_to_group ($product_ref, $target_lc, $group_id, $attribute_ref) {
 
-	$log->debug("add_attribute_to_group",
-		{target_lc => $target_lc, group_id => $group_id, attribute_ref => $attribute_ref})
-		if $log->is_debug();
-
 	if (defined $attribute_ref) {
 
 		# Delete fields that are returned only by /api/v2/attribute_groups to list all the available attributes
@@ -1664,8 +1686,6 @@ sub add_attribute_to_group ($product_ref, $target_lc, $group_id, $attribute_ref)
 		my $group_ref;
 		# Select the requested group
 		foreach my $each_group_ref (@{$product_ref->{"attribute_groups_" . $target_lc}}) {
-			$log->debug("add_attribute_to_group - existing group", {group_ref => $group_ref, group_id => $group_id})
-				if $log->is_debug();
 			if ($each_group_ref->{id} eq $group_id) {
 				$group_ref = $each_group_ref;
 				last;

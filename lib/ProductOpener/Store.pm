@@ -40,6 +40,7 @@ BEGIN {
 		&object_path_exists
 		&store_config
 		&retrieve_config
+		&encode_canonical_json
 		&link_object
 		&move_object
 		&remove_object
@@ -47,6 +48,9 @@ BEGIN {
 		&write_json
 		&write_canonical_json
 		&read_json
+
+		$json_for_config
+		$json_for_objects
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -71,8 +75,8 @@ use Carp qw/carp/;
 # Use Cpanel::JSON::XS directly rather than JSON::MaybeXS as otherwise check_perl gives error:
 # Can't locate object method "indent_length" via package "JSON::XS"
 # Make sure we include convert_blessed to cater for blessed objects, like booleans
-my $json_for_config = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->canonical->indent->indent_length(1)->utf8;
-my $json_for_objects = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->utf8;
+$json_for_config = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->canonical->indent->indent_length(1)->utf8;
+$json_for_objects = Cpanel::JSON::XS->new->allow_nonref->convert_blessed->utf8;
 
 # Text::Unaccent unac_string causes Apache core dumps with Apache 2.4 and mod_perl 2.0.9 on jessie
 
@@ -142,6 +146,8 @@ sub get_string_id_for_lang ($lc, $string) {
 		# (app)Waistline: e2e782b4-4fe8-4fd6-a27c-def46a12744c
 		if ($string !~ /^[a-z\-]+\.[a-zA-Z0-9-_]{8}[a-zA-Z0-9-_]+$/) {
 			$string =~ tr/\N{U+1E9E}/\N{U+00DF}/;    # Actual lower-case for capital ß
+				# Remove UTF-16 surrogate characters (U+D800–U+DFFF) that cause lc() to warn
+			$string =~ s/[\x{D800}-\x{DFFF}]//g;
 			$string = lc($string);
 			$string =~ tr/./-/;
 		}
@@ -229,6 +235,7 @@ sub get_url_id_for_lang ($lc, $input) {
 
 	my $string = $input;
 
+	# 2024/04/13 tags refactor - tags in urls are now not normalized
 	$string = get_string_id_for_lang($lc, $string);
 
 	if ($string =~ /[^a-zA-Z0-9-]/) {
@@ -244,7 +251,8 @@ sub get_urlid ($input, $unaccent = undef, $lc = undef) {
 
 	my $file = $input;
 
-	$file = get_fileid($file, $unaccent, $lc);
+	# 2024/04/13 tags refactor - tags in urls are now not normalized
+	# $file = get_fileid($file, $unaccent, $lc);
 
 	if ($file =~ /[^a-zA-Z0-9-]/) {
 		$file = URI::Escape::XS::encodeURIComponent($file);
@@ -287,6 +295,12 @@ Write a JSON file with exclusive file locking
 
 =cut
 
+# Remove nul characters from JSON text.
+sub _strip_nul_characters_from_json($json) {
+	$json =~ s/\000//g;
+	return $json;
+}
+
 sub write_json($file_path, $ref) {
 	# If $ref is to a scalar then dereference it first
 	if (ref $ref eq 'SCALAR') {
@@ -305,7 +319,7 @@ sub write_json($file_path, $ref) {
 	my $json = $json_for_objects->encode($ref);
 	# Strip out any nul characters as many parsers can't cope with these
 	# This doesn't seem to add too much overhead
-	$json =~ s/\000//g;
+	$json = _strip_nul_characters_from_json($json);
 	print $OUT $json;
 
 	# Release the lock. Some docs say this isn't needed but tests show otherwise
@@ -313,6 +327,21 @@ sub write_json($file_path, $ref) {
 	close($OUT);
 
 	return;
+}
+
+=head2 encode_canonical_json($ref, $strip_nuls = 0)
+
+Return a canonical JSON string for a reference.
+Set $strip_nuls to a true value to remove nul characters from the JSON text.
+
+=cut
+
+sub encode_canonical_json($ref, $strip_nuls = 0) {
+	my $json = $json_for_config->encode($ref);
+	if ($strip_nuls) {
+		$json = _strip_nul_characters_from_json($json);
+	}
+	return $json;
 }
 
 =head2 write_canonical_json($file_path, $ref)
@@ -323,7 +352,7 @@ Write a JSON file in canonical, indented format without any file locking
 
 sub write_canonical_json($file_path, $ref) {
 	open(my $OUT, ">", $file_path) or die "Can't write to $file_path";
-	print $OUT $json_for_config->encode($ref);
+	print $OUT encode_canonical_json($ref);
 	close($OUT);
 	return;
 }
@@ -411,7 +440,7 @@ sub store_object ($path, $ref) {
 	}
 	else {
 		# Remove the STO file if it exists
-		if (-e ($sto_path)) {
+		if (-e ($sto_path) || -l ($sto_path)) {
 			unlink($sto_path);
 		}
 	}
@@ -597,15 +626,16 @@ sub remove_object($path) {
 	return;
 }
 
-=head2 object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef)
+=head2 object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef)
 
 Iterates over the path returning a cursor that can return object paths whose
-name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern
+name matches the $name_pattern regex and whose path does not match the $exclude_path_pattern.
+If $skip_until_path is provided, skips all object paths that are lexicographically less than $skip_until_path.
 
 =cut
 
-sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = undef) {
-	my @dirs = ($initial_path);
+sub object_iter($base_path, $name_pattern = undef, $exclude_path_pattern = undef, $skip_until_path = undef) {
+	my @dirs = ($base_path);
 	my @object_paths = ();
 	return sub {
 		if (scalar @object_paths == 0) {
@@ -616,6 +646,13 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 				# Sort files so that we always explore them in the same order (useful for tests)
 				my @candidates = sort readdir(DIR);
 				closedir(DIR);
+				my $skip_until;
+				# If this is a subset of the skip path then we want to skip all files up to the
+				# next part of the skip path
+				if (defined $skip_until_path and $skip_until_path =~ /^\Q$current_dir\E\/([^\/]*)/) {
+					$skip_until = $1;
+				}
+				my @sub_dirs = ();
 				my $last_name = '';
 				foreach my $file (@candidates) {
 					# avoid ..
@@ -623,9 +660,10 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					# avoid conflicting-codes and invalid-codes
 					next if $exclude_path_pattern and $file =~ $exclude_path_pattern;
 					my $path = "$current_dir/$file";
+					next if defined $skip_until and $file lt $skip_until;
 					if (-d $path) {
 						# explore sub dirs
-						push @dirs, $path;
+						push @sub_dirs, $path;
 						next;
 					}
 					# Have a file. Strip off any extension before pattern matching
@@ -638,6 +676,8 @@ sub object_iter($initial_path, $name_pattern = undef, $exclude_path_pattern = un
 					next if ($name_pattern and $object_name !~ $name_pattern);
 					push(@object_paths, "$current_dir/$object_name");
 				}
+				# Insert sub-dirs before others at this level so that we go deep first
+				unshift @dirs, @sub_dirs;
 			}
 		}
 		# if we still have object_paths, return a name

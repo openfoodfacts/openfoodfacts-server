@@ -11,7 +11,17 @@ import sassLib from "sass";
 import svgmin from "gulp-svgmin";
 import terser from "gulp-terser";
 
+
 const sass = gulpSass(sassLib);
+
+function sassLogAndExit(error) {
+  sass.logError(error);
+  throw new Error(error.message);
+}
+function gulpLogAndExit(error) {
+  gulp.log(error);
+  throw new Error(error.message);
+}
 
 const jsSrc = [
   "./html/js/display*.js",
@@ -24,6 +34,7 @@ const jsSrc = [
   "./html/js/barcode-scanner*.js",
   "./html/js/rewind-browser.js",
   "./html/js/external-knowledge-panels.js",
+  "./html/js/matomo-events.js",
 ];
 
 const sassSrc = "./scss/**/*.scss";
@@ -73,11 +84,13 @@ export function icons() {
         configFile: "icons/svgo.config.js",
       }),
     )
-    .pipe(gulp.dest("./html/images/icons/dist"));
+    .pipe(gulp.dest("./html/images/icons/dist"))
+    .on('error', gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
-    .pipe(gulp.dest("./html/images/icons/dist"));
+    .pipe(gulp.dest("./html/images/icons/dist"))
+    .on('error', gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -86,11 +99,13 @@ export function attributesIcons() {
   const processed = gulp
     .src("*.svg", { cwd: "./html/images/attributes/src" })
     .pipe(svgmin())
-    .pipe(gulp.dest("./html/images/attributes/dist"));
+    .pipe(gulp.dest("./html/images/attributes/dist"))
+    .on('error', gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
-    .pipe(gulp.dest("./html/images/attributes/dist"));
+    .pipe(gulp.dest("./html/images/attributes/dist"))
+    .on('error', gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -105,14 +120,18 @@ export function css() {
       sass({
         errLogToConsole: true,
         outputStyle: "expanded",
-        includePaths: ["./node_modules"],
-      }).on("error", sass.logError),
+        loadPaths: ["./node_modules"],
+      }).on("error", sassLogAndExit),
     )
     .pipe(minifyCSS())
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/css/dist"));
+    .pipe(gulp.dest("./html/css/dist"))
+    .on('error', gulpLogAndExit);
 
-  const compressed = processed.pipe(gzip()).pipe(gulp.dest("./html/css/dist"));
+  const compressed = processed
+    .pipe(gzip())
+    .pipe(gulp.dest("./html/css/dist"))
+    .on('error', gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -126,9 +145,13 @@ export function copyJs() {
     .pipe(sourcemaps.init())
     .pipe(terser())
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/js/dist"));
+    .pipe(gulp.dest("./html/js/dist"))
+    .on('error', gulpLogAndExit);
 
-  const compressed = processed.pipe(gzip()).pipe(gulp.dest("./html/js/dist"));
+  const compressed = processed
+    .pipe(gzip())
+    .pipe(gulp.dest("./html/js/dist"))
+    .on('error', gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -141,9 +164,13 @@ export function buildJs() {
     .pipe(sourcemaps.init())
     .pipe(terser())
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/js/dist"));
+    .pipe(gulp.dest("./html/js/dist"))
+    .on('error', gulpLogAndExit);
 
-  const compressed = processed.pipe(gzip()).pipe(gulp.dest("./html/js/dist"));
+  const compressed = processed
+    .pipe(gzip())
+    .pipe(gulp.dest("./html/js/dist"))
+    .on('error', gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -164,9 +191,13 @@ function buildjQueryUi() {
     .pipe(terser())
     .pipe(concat("jquery-ui.js"))
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/js/dist"));
+    .pipe(gulp.dest("./html/js/dist"))
+    .on('error', gulpLogAndExit);
 
-  const compressed = processed.pipe(gzip()).pipe(gulp.dest("./html/js/dist"));
+  const compressed = processed
+    .pipe(gzip())
+    .pipe(gulp.dest("./html/js/dist"))
+    .on('error', gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -183,11 +214,13 @@ function jQueryUiThemes() {
     .pipe(minifyCSS())
     .pipe(concat("jquery-ui.css"))
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base"));
+    .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base"))
+    .on('error', gulpLogAndExit);
 
   const compressed = processed
     .pipe(gzip())
-    .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base"));
+    .pipe(gulp.dest("./html/css/dist/jqueryui/themes/base"))
+    .on('error', gulpLogAndExit);
 
   return processed && compressed;
 }
@@ -204,9 +237,13 @@ function copyCss() {
     .pipe(sourcemaps.init())
     .pipe(minifyCSS())
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest("./html/css/dist"));
+    .pipe(gulp.dest("./html/css/dist"))
+    .on('error', gulpLogAndExit);
 
-  const compressed = processed.pipe(gzip()).pipe(gulp.dest("./html/css/dist"));
+  const compressed = processed
+    .pipe(gzip())
+    .pipe(gulp.dest("./html/css/dist"))
+    .on('error', gulpLogAndExit);
 
   return processed && compressed;
 }

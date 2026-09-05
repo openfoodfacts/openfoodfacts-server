@@ -1,7 +1,8 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "17270",
+         "ciqual_food_code" : "17001",
          "ecobalyse_code" : "f1b219e6-7a77-429b-b372-461e3ad0d3bd",
          "from_palm_oil" : "no",
          "id" : "en:olive-oil",
@@ -99,13 +100,8 @@
    "lc" : "en",
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
-      "en:all-ingredients-with-specified-percent"
+      "en:all-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
    ],
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 80,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 80
-   },
    "unknown_ingredients_n" : 0
 }

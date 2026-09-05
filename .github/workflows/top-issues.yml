@@ -12,10 +12,11 @@ on:
 jobs:
   ShowAndLabelTopIssues:
     name: Display and label top issues.
+    if: github.repository == 'openfoodfacts/openfoodfacts-server'
     runs-on: ubuntu-latest
     steps:
     - name: Run top issues action
-      uses: rickstaa/top-issues-action@v1
+      uses: rickstaa/top-issues-action@7e8dda5d5ae3087670f9094b9724a9a091fc3ba1 # v1.3.101
       env:
         github_token: ${{ secrets.GITHUB_TOKEN }}
       with:

@@ -29,6 +29,7 @@ my $EXPECTED_BASE_PATHS = {
 	LOGS => "$data_root/logs",
 	ORGS => "$data_root/orgs",
 	PRIVATE_DATA => "$data_root/data",
+	PRIVATE_DATA_TESTS => "$src_root/tests/data",
 	PRODUCTS => "$data_root/products",
 	PRODUCTS_IMAGES => "$www_root/images/products",
 	PUBLIC_DATA => "$www_root/data",

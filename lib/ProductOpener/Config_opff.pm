@@ -61,6 +61,7 @@ BEGIN {
 		$events_password
 
 		$rate_limiter_blocking_enabled
+		$rate_limiter_disabled
 		$facets_kp_url
 		$redis_url
 		$folksonomy_url
@@ -71,7 +72,7 @@ BEGIN {
 		$mongodb_timeout_ms
 
 		$recipe_estimator_url
-		$recipe_estimator_scipy_url
+		$recipe_estimator_service
 
 		$memd_servers
 
@@ -105,6 +106,8 @@ BEGIN {
 
 		$build_cache_repo
 		$serialize_to_json
+
+		$health_check_api_key
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -185,11 +188,14 @@ $flavor = "opff";
 %options = (
 	site_name => "Open Pet Food Facts",
 	product_type => "petfood",
-	og_image_url => "https://static.openpetfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
-	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases?utm_source=opff&utf_medium=web",
-android_app_link => "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utf_medium=web",
-ios_app_link => "https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utf_medium=web",
-	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utf_medium=web",
+	og_image_url =>
+		"https://static.openpetfoodfacts.org/images/logos/opff-logo-vertical-white-social-media-preview.png",
+	android_apk_app_link => "https://github.com/openfoodfacts/smooth-app/releases",
+	android_app_link =>
+		"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=opff&utm_medium=web",
+	ios_app_link =>
+		"https://apps.apple.com/app/open-food-facts-product-scan/id588797948?utm_source=opff&utm_medium=web",
+	#facebook_page_url => "https://www.facebook.com/openbeautyfacts?utm_source=opff&utm_medium=web",
 	#x_account => "OpenBeautyFacts",
 	default_preferences =>
 		'{ "nova" : "important", "labels_organic" : "important", "labels_fair_trade" : "important" }',
@@ -253,13 +259,17 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
 $query_url = $ProductOpener::Config2::query_url;
 
-# recipe-estimator product service
-# To test a locally running recipe-estimator with product opener in a docker dev environment:
-# - run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
-# $recipe_estimator_url = "http://host.docker.internal:8000/api/v3/estimate_recipe";
-
+# Set this to your instance of https://recipe-estimator.openfoodfacts.org/api/v3/estimate_recipe
+# to enable recipe estimation features in Product Opener
 $recipe_estimator_url = $ProductOpener::Config2::recipe_estimator_url;
-$recipe_estimator_scipy_url = $ProductOpener::Config2::recipe_estimator_scipy_url;
+# To test a locally running recipe-estimator with Product Opener in a docker dev environment:
+# run recipe-estimator with `uvicorn recipe_estimator.main:app --reload --host 0.0.0.0`
+# $recipe_estimator_url = "http://host.docker.internal:5521/api/v3/estimate_recipe";
+
+# Set recipe_estimator_service to "estimate_recipe" to get default algorithm,
+# or "estimate_recipe_[glop|scipy|cvxpy] to use a specific algorithm
+# or "product_opener" to use the legacy Product Opener algorithm
+$recipe_estimator_service = $ProductOpener::Config2::recipe_estimator_service;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
@@ -275,6 +285,10 @@ $process_global_redis_events = 0;
 # If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
 # by returning a 429 error code instead of a 200 code
 $rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
+
+# If $rate_limiter_disabled is set to 1, rate limiting is completely disabled
+# Default is 0/undefined (rate limiting ENABLED) for production safety
+$rate_limiter_disabled = $ProductOpener::Config2::rate_limiter_disabled;
 
 # Set this to your instance of https://github.com/openfoodfacts/folksonomy_api/ to
 # enable folksonomy features
@@ -311,6 +325,7 @@ $analytics = <<HTML
   _paq.push(["setDomains", ["*.openpetfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -387,6 +402,8 @@ XML
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 	brands
+	origins_adjectives
+	storage_conditions
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
@@ -544,6 +561,8 @@ XML
 	environmental_score_score
 	environmental_score_grade
 	nutrient_levels_tags
+	storage_conditions
+	storage_conditions_tags
 	product_quantity
 	owner
 	data_quality_errors_tags
@@ -601,7 +620,8 @@ $options{import_export_fields_groups} = [
 
 # Used to generate the list of possible product attributes, which is
 # used to display the possible choices for user preferences
-$options{attribute_groups} = [["labels", ["labels_organic", "labels_fair_trade"]],];
+$options{attribute_groups}
+	= [["labels", ["labels_organic", "labels_fair_trade"]], ["ingredients_analysis", ["unwanted_ingredients"]]];
 
 # default preferences for attributes
 $options{attribute_default_preferences} = {

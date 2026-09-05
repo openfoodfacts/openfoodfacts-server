@@ -1,7 +1,8 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
-         "ciqual_proxy_food_code" : "2070",
+         "ciqual_food_code" : "2004",
          "ecobalyse_code" : "f3c21efc-5e7b-4c24-a7f6-6ffbcb34d5b1",
          "id" : "en:orange-juice",
          "is_in_taxonomy" : 1,
@@ -82,11 +83,8 @@
       "en:no-gluten"
    ],
    "lc" : "fi",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 75,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 75,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }

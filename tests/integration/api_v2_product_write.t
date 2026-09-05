@@ -151,8 +151,9 @@ my $tests_ref = [
 			categories => "Sausages",
 			quantity => "250 g",
 			serving_size => '20 g',
-			ingredients_text => "Pork meat, salt",
+			ingredients_text => "Pork meat, wheat, salt",
 			traces => "Moutarde, milk, abcd",
+			allergens => "Eggs"
 		}
 	},
 	{
@@ -489,6 +490,134 @@ my $tests_ref = [
 		test_case => 'get-product-nutrition-new-fields-nutrition_data_per-100g-v3',
 		method => 'GET',
 		path => '/api/v3.5/product/2234567890001',
+	},
+	# New fields for new nutrition schema for Open Pet Food Facts
+	{
+		test_case => 'post-product-nutrition-new-fields-open-pet-food-facts',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			code => "2234567890002",
+			product_type => 'petfood',    # This works only partly, it will allow using the 1kg fields,
+			 # but we will only get nutrients that exists for food (so we will get biotin and beta-carotene but not the others)
+			product_name_en => "Test new nutrition fields - Open Pet Food Facts",
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-fat_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-protein_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-ash_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_crude-fibre_value_string" => '1',
+			"nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_value_string" => '3',
+			"nutrition_input_sets_as_sold_1kg_nutrients_beta-carotene_unit" => 'mg',
+			"nutrition_input_sets_as_sold_1kg_nutrients_biotin_value_string" => '50',
+			"nutrition_input_sets_as_sold_1kg_nutrients_biotin_unit" => 'µg',
+		}
+	},
+	{
+		test_case => 'get-product-nutrition-new-fields-open-pet-food-facts-v3',
+		method => 'GET',
+		path => '/api/v3.5/product/2234567890002?fields=raw'
+		,    # we need to specify fields=raw so that we are not redirected to the petfood site
+	},
+	# Facets (aka tags)
+	{
+		test_case => 'post-product-facets',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "es",    # lc is the language of the interface
+			lang => "fr",    # lang is the main language of the product
+			code => "1234567890341",
+			categories => "Sausages",
+			traces => "Moutarde, milk, abcd",
+			allergens => "Eggs, xyz",
+			brands => "ACME, ACME Incorporated, ALDI",
+			emb_codes => "FR 56081 CE",
+			labels => "Bio, Fair trade"
+		}
+	},
+	{
+		test_case => 'get-product-facets',
+		method => 'GET',
+		path => '/api/v2/product/1234567890341',
+	},
+	# Add facets with add_categories etc.
+	{
+		test_case => 'post-product-add-facets',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "es",    # lc is the language of the interface
+			lang => "fr",    # lang is the main language of the product
+			code => "1234567890341",
+			add_categories => "Milk, Café",
+			add_traces => "Gluten",
+			add_allergens => "Crustaceans",
+			add_brands => "Another brand 1, Another brand 2",
+			add_emb_codes => "FR 56082 CE",
+			add_labels => "Gold meal",
+			add_stores => "Ecomarché, Carrefour"
+		}
+	},
+	{
+		test_case => 'get-product-add-facets',
+		method => 'GET',
+		path => '/api/v2/product/1234567890341',
+	},
+	# Remove facets
+	{
+		test_case => 'post-product-remove-facets',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "es",    # lc is the language of the interface
+			lang => "fr",    # lang is the main language of the product
+			code => "1234567890341",
+			categories => "",
+			traces => "",
+			allergens => "",
+			brands => "",
+			emb_codes => "",
+			labels => ""
+		}
+	},
+	{
+		test_case => 'get-product-remove-facets',
+		method => 'GET',
+		path => '/api/v2/product/1234567890341',
+	},
+	# Some apps (such as the OFF app as of 2026/05) are sending back existing values from categories_tags
+	# that include tags from tags_sources + their parents. We will change the API to remove parents and keep only children.
+	# This test verifies that we only keep the children tags.
+	{
+		test_case => 'post-product-categories-tags-with-parents',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			user_id => "tests",
+			password => 'testtest',
+			cc => "uk",
+			lc => "en",    # lc is the language of the interface
+			lang => "en",    # lang is the main language of the product
+			code => "1234567890342",
+			categories => "dairies, yogurts, strawberry yogurts, flavoured yogurts",
+			labels => "organic, AB Agriculture biologique, rainforest alliance, fair trade"
+		}
+	},
+	# we use v3.6 to get the tag_sources
+	{
+		test_case => 'get-product-categories-tags-with-parents',
+		method => 'GET',
+		path => '/api/v3.6/product/1234567890342',
 	},
 ];
 

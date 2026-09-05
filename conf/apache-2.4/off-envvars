@@ -45,20 +45,20 @@ fi
 # MPM settings -----------
 
 # StartServers: number of server processes to start
-export APACHE_MPM_START_SERVERS=2
+export APACHE_MPM_START_SERVERS=4
 # MaxRequestWorkers: maximum number of server processes allowed to start
-export APACHE_MPM_MAX_REQUEST_WORKERS=20
+export APACHE_MPM_MAX_REQUEST_WORKERS=40
 # MaxConnectionsPerChild: maximum number of requests a server process serves
 # keep this a bit low to avoid memory issues
 export APACHE_MPM_MAX_CONN_PER_CHILD=100
 # specific MPM settings
 if [ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off" ]
 then
-    export APACHE_MPM_START_SERVERS=5
-    export APACHE_MPM_MAX_REQUEST_WORKERS=25
+    export APACHE_MPM_START_SERVERS=10
+    export APACHE_MPM_MAX_REQUEST_WORKERS=50
     if [ "$INSTANCE_NAME" = "priority" ]
     then
-        export APACHE_MPM_MAX_REQUEST_WORKERS=50
+        export APACHE_MPM_MAX_REQUEST_WORKERS=200
     fi
 fi
 if [ "$PRODUCT_OPENER_FLAVOR_SHORT" = "off-pro" ]

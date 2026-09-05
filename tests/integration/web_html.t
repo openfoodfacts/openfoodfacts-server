@@ -368,6 +368,8 @@ foreach my $product_ref (@products) {
 # Upload 1 image for the last product 3300000000013 so that we can test image display and caching of image urls in search results
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
 
+# Note: the tests below rely on having category stats loaded from tests/integration/data/category_stats/
+
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	# Add an image to one product
@@ -435,13 +437,18 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-categories',
-		path => 'facets/categories/desserts',
+		path => 'facets/categories/Desserts',
+		expected_type => 'html',
+	},
+	{
+		test_case => 'world-categories-nid-stats-sugars',
+		path => 'facets/categories?stats_nid=sugars',
 		expected_type => 'html',
 	},
 	{
 		test_case => 'fr-categories',
 		subdomain => 'fr',
-		path => 'facets/categories/desserts',
+		path => 'facets/categories/Desserts',
 		expected_type => 'html',
 	},
 	{
@@ -479,7 +486,7 @@ my $tests_ref = [
 	},
 	{
 		test_case => 'world-label-organic',
-		path => 'facets/labels/organic',
+		path => 'facets/labels/Organic',
 		expected_type => 'html',
 	},
 	{
@@ -597,6 +604,11 @@ my $tests_ref = [
 		test_case => 'world-search-histogram-nutrition-sugars',
 		path => '/cgi/search.pl?action=process&search_terms=apple&axis_x=sugars&graph_type=histogram&graph=1',
 		expected_type => 'html',
+	},
+	# manifest file
+	{
+		test_case => 'manifest',
+		path => '/cgi/manifest.pl',
 	},
 ];
 

@@ -1,6 +1,8 @@
 {
+   "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
+         "ciqual_food_code" : "17001",
          "from_palm_oil" : "maybe",
          "id" : "en:non-hydrogenated-vegetable-oils",
          "ingredients" : [
@@ -78,10 +80,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:non-hydrogenated-vegetable-oils"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
       "en:non-hydrogenated-vegetable-oils"
    ],
@@ -98,11 +98,8 @@
       "en:sustainable-palm-oil"
    ],
    "lc" : "fr",
-   "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25
-   },
+   "misc_tags" : [
+      "en:estimated-ingredients-with-product-opener"
+   ],
    "unknown_ingredients_n" : 0
 }
