@@ -50,7 +50,7 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 	my $base_product_ref = {
 		code => "3000000000042",
-		categories_hierarchy => ["en:generic", "en:test-category"],
+		categories_tags => ["en:generic", "en:test-category"],
 		knowledge_panels_fr => {}
 	};
 
@@ -61,10 +61,10 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 	is(ProductOpener::KnowledgePanels::create_epargnonsnosressources_panel($product_ref, "fr", "fr", {}, {}), 0);
 	is($product_ref, $base_product_ref);
 	# must have a category
-	$product_ref = {%$base_product_ref, categories_hierarchy => []};
+	$product_ref = {%$base_product_ref, categories_tags => []};
 	$options{product_type} = 'product';
 	is(ProductOpener::KnowledgePanels::create_epargnonsnosressources_panel($product_ref, "fr", "fr", {}, {}), 0);
-	is($product_ref, {%$base_product_ref, categories_hierarchy => []});
+	is($product_ref, {%$base_product_ref, categories_tags => []});
 	# only for france
 	$product_ref = {%$base_product_ref};
 	is(ProductOpener::KnowledgePanels::create_epargnonsnosressources_panel({}, "fr", "es", {}, {}), 0);

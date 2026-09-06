@@ -87,14 +87,9 @@ else {
 
 my $json = JSON::MaybeXS->new->allow_nonref->canonical->utf8->encode($response_ref);
 
-# We need to send the header Access-Control-Allow-Credentials=true so that websites
-# such has hunger.openfoodfacts.org that send a query to world.openfoodfacts.org/cgi/auth.pl
-# can read the resulting response.
-
 # The Access-Control-Allow-Origin header must be set to the value of the Origin header
 my $r = Apache2::RequestUtil->request();
-my $allow_credentials = 1;
-write_cors_headers($allow_credentials);
+
 # Write a session cookie if we were passed a user id and password
 if ($request_ref->{cookie}) {
 	$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});

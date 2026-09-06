@@ -60,8 +60,8 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags
-	qw/%level display_taxonomy_tag display_taxonomy_tag_name has_tag get_inherited_property_from_tags/;
+use ProductOpener::Tags qw/%level display_taxonomy_tag display_taxonomy_tag_name get_inherited_property_from_tags/;
+use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/@nutrient_levels/;
 use ProductOpener::Ingredients qw/:all/;
@@ -363,7 +363,7 @@ sub initialize_attribute ($attribute_id, $target_lc) {
 
 			my $allergen = display_taxonomy_tag($target_lc, "allergens", $allergen_id);
 
-			$attribute_ref->{name} = $allergen;
+			$attribute_ref->{name} = ucfirst($allergen);
 			$attribute_ref->{setting_name} = sprintf(
 				lang_in_other_lc($target_lc, "without_s"),
 				display_taxonomy_tag($target_lc, "allergens", $allergen_id)
@@ -1059,6 +1059,18 @@ sub compute_attribute_additives ($product_ref, $target_lc) {
 
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/$n-additives.svg";
 
+		if ($additives > 0) {
+			$attribute_ref->{panel_id} = "additives";
+		}
+		elsif (not($product_ref->{ingredients_n})) {
+			# If we don't have ingredients, link to the ingredients panel (with add action)
+			$attribute_ref->{panel_id} = "ingredients";
+		}
+		else {
+			# If we have ingredients, link to the ingredients analysis panel
+			$attribute_ref->{panel_id} = "ingredients_analysis";
+		}
+
 	}
 	else {
 		$attribute_ref->{status} = "unknown";
@@ -1070,6 +1082,15 @@ sub compute_attribute_additives ($product_ref, $target_lc) {
 			$attribute_ref->{description_short}
 				= lang_in_other_lc($target_lc, "attribute_additives_unknown_description_short");
 			$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_ingredients_list");
+		}
+
+		if (not($product_ref->{ingredients_n})) {
+			# If we don't have ingredients, link to the ingredients panel (with add action)
+			$attribute_ref->{panel_id} = "ingredients";
+		}
+		else {
+			# If we have ingredients, link to the ingredients analysis panel
+			$attribute_ref->{panel_id} = "ingredients_analysis";
 		}
 	}
 
@@ -1228,6 +1249,8 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 	if ((not defined $product_ref->{nutrient_levels}) or (not defined $product_ref->{nutrient_levels}{$nid})) {
 		$attribute_ref->{status} = "unknown";
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/dist/nutrient-level-$nid-unknown.svg";
+		$attribute_ref->{panel_id} = "nutrition_facts_table";
+
 		if ($target_lc ne "data") {
 			$attribute_ref->{title} = sprintf(
 				lang_in_other_lc($target_lc, "nutrient_in_quantity"),
@@ -1240,7 +1263,6 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 			else {
 				$attribute_ref->{missing} = lang_in_other_lc($target_lc, "missing_nutrition_facts");
 			}
-			$attribute_ref->{panel_id} = "nutrition_facts_table";
 		}
 	}
 	else {
@@ -1294,6 +1316,9 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 
 			$attribute_ref->{match} = $match;
 
+			$attribute_ref->{panel_id} = "nutrient_level_" . $nid;
+			$attribute_ref->{panel_id} =~ s/-/_/g;
+
 			if ($target_lc ne "data") {
 				$attribute_ref->{title} = sprintf(
 					lang_in_other_lc($target_lc, "nutrient_in_quantity"),
@@ -1304,9 +1329,6 @@ sub compute_attribute_nutrient_level ($product_ref, $target_lc, $level, $nid) {
 					$attribute_ref->{description_short}
 						= sprintf(lang_in_other_lc($target_lc, 'g_per_100g'), (sprintf('%.2e', $value) + 0.0));
 				}
-
-				$attribute_ref->{panel_id} = "nutrient_level_" . $nid;
-				$attribute_ref->{panel_id} =~ s/-/_/g;
 			}
 		}
 	}

@@ -135,6 +135,7 @@ my %fixed_product;
 # product_ok is there
 $product_ref = retrieve_product("2000000000001");
 delete $product_ref->{schema_version};
+delete $product_ref->{tags_sources};
 is($product_ref, \%product_ok) or print STDERR Dumper $product_ref;
 $product_ref = $products_collection->find_id("2000000000001");
 is($product_ref, \%product_ok);
@@ -142,16 +143,19 @@ is($product_ref, \%product_ok);
 # product has no more int code
 $product_ref = retrieve_product("2000000000002");
 delete $product_ref->{schema_version};
+delete $product_ref->{tags_sources};
 %fixed_product = (%product_int_code, code => "2000000000002", _id => "2000000000002", lc => "en");
 is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id("2000000000002");
 delete $product_ref->{schema_version};
+delete $product_ref->{tags_sources};
 is($product_ref, \%fixed_product);
 $product_ref = $products_collection->find_id(2000000000002);
 is($product_ref, undef);
 # product has no more int code even deleted
 $product_ref = retrieve_product("2000000000003", "include_deleted");
 delete $product_ref->{schema_version};
+delete $product_ref->{tags_sources};
 %fixed_product = (%product_int_code_deleted, code => "2000000000003", _id => "2000000000003", lc => "en");
 is($product_ref, \%fixed_product);
 # but not indexed

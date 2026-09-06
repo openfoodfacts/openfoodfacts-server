@@ -47,6 +47,8 @@ BEGIN {
 		&push_ocr_ready_to_redis
 
 		&process_xread_stream_reply
+
+		&perform_health_check
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -63,9 +65,11 @@ use ProductOpener::Store qw/get_string_id_for_lang retrieve_object store_object/
 use ProductOpener::Auth qw/get_oidc_implementation_level/;
 use ProductOpener::Cache qw/$memd/;
 use ProductOpener::Tags qw/cc_to_country/;
+use ProductOpener::Health qw/:all/;
 
 use AnyEvent;
 use AnyEvent::RipeRedis;
+use Time::HiRes qw/gettimeofday tv_interval/;
 
 =head2 $redis_client
 
@@ -726,6 +730,110 @@ sub increment_rate_limit_requests ($ip, $bucket) {
 
 	return;
 
+}
+
+=head2 perform_health_check()
+
+Execute a component health check and return a health-check result object.
+
+This sub documents the expected interface for health checks used by
+C<ProductOpener::APIHealth>. Implementations should perform one focused check and
+return an array reference of check objects compatible with
+L<https://inadarei.github.io/rfc-healthcheck/>.
+
+Each check object in the returned array reference must include:
+
+=over 4
+
+=item * C<status>
+
+String indicating the check result. Expected values are C<pass>, C<warn> or
+C<fail>.
+
+=item * C<output>
+
+Human-readable message describing the outcome.
+
+=back
+
+Additional RFC fields (for example C<componentType>, C<time>,
+C<observedValue>, C<observedUnit> and C<links>) may be included when relevant.
+If C<componentId> is included, it should be a stable UUID.
+
+The sub should not die. If an internal error occurs, return one check object
+with C<status =E<gt> 'fail'> and a meaningful C<output> message.
+
+=cut
+
+sub perform_health_check() {
+	if (!defined $redis_client) {
+		init_redis();
+	}
+
+	if (!defined $redis_client) {
+		my $sanitized = sanitize_url($redis_url);
+		my $self_url
+			= defined($sanitized)
+			? (($sanitized =~ m{://}) ? $sanitized : 'redis://' . $sanitized)
+			: undef;
+		return [
+			{
+				status => $status_fail,
+				componentType => 'datastore',
+				output => 'Redis client is not connected',
+				time => current_time_iso8601(),
+				(defined($self_url) ? (links => {self => $self_url}) : ()),
+			}
+		];
+	}
+
+	my $start = [gettimeofday()];
+
+	my $ok = eval {
+		my $cv = AE::cv;
+		$redis_client->ping(
+			sub {
+				my ($reply, $err) = @_;
+				$cv->send($err ? 0 : 1);
+			}
+		);
+		$cv->recv;
+	};
+
+	my $duration_ms = 0 + sprintf('%.3f', tv_interval($start) * 1000);
+
+	my $time = current_time_iso8601();
+
+	my $redis_sanitized = sanitize_url($redis_url);
+	my $redis_self_url
+		= defined($redis_sanitized)
+		? (($redis_sanitized =~ m{://}) ? $redis_sanitized : 'redis://' . $redis_sanitized)
+		: undef;
+	my $links = defined($redis_self_url) ? {self => $redis_self_url} : {};
+
+	if ($ok) {
+		return [
+			{
+				status => $status_pass,
+				componentType => 'datastore',
+				observedValue => $duration_ms,
+				observedUnit => 'ms',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
+	else {
+		return [
+			{
+				status => $status_fail,
+				componentType => 'datastore',
+				output => 'Redis did not respond to PING',
+				time => $time,
+				links => $links,
+			}
+		];
+	}
 }
 
 1;

@@ -2,14 +2,7 @@
    "_id" : "3003004006005",
    "_keywords" : [],
    "added_countries_tags" : [],
-   "allergens" : "en:nuts",
-   "allergens_from_ingredients" : "",
-   "allergens_from_user" : "(en) Nuts",
-   "allergens_hierarchy" : [
-      "en:nuts"
-   ],
    "allergens_imported" : "Nuts",
-   "allergens_lc" : "en",
    "allergens_tags" : [
       "en:nuts"
    ],
@@ -39,15 +32,8 @@
    ],
    "complete" : 0,
    "completeness" : 0.0,
-   "correctors_tags" : [
-      "test-user"
-   ],
-   "countries" : "en",
-   "countries_hierarchy" : [
-      "en:en"
-   ],
+   "correctors_tags" : [],
    "countries_imported" : "en",
-   "countries_lc" : "en",
    "countries_tags" : [
       "en:en"
    ],
@@ -117,11 +103,10 @@
       "en:environmental-score-production-system-no-label",
       "en:environmental-score-threatened-species-ingredients-missing"
    ],
-   "data_sources" : "Producers, Producer - test-org",
    "data_sources_imported" : "Producers, Producer - test-org",
    "data_sources_tags" : [
-      "producers",
-      "producer-test-org"
+      "Producer - test-org",
+      "Producers"
    ],
    "ecoscore_tags" : [
       "unknown"
@@ -352,10 +337,10 @@
                   "environmental_score_material_score" : 81,
                   "environmental_score_shape_ratio" : 1,
                   "material" : "en:glass",
-                  "number_of_units" : "1",
+                  "number_of_units" : 1,
                   "quantity_per_unit" : "15ml",
                   "quantity_per_unit_unit" : "ml",
-                  "quantity_per_unit_value" : "15",
+                  "quantity_per_unit_value" : 15,
                   "shape" : "en:pot",
                   "weight_measured" : 55.32,
                   "weight_specified" : 55.2
@@ -365,7 +350,7 @@
                   "environmental_score_shape_ratio" : 0.2,
                   "material" : "en:pet-1-polyethylene-terephthalate",
                   "non_recyclable_and_non_biodegradable" : "no",
-                  "number_of_units" : "1",
+                  "number_of_units" : 1,
                   "shape" : "en:lid",
                   "weight_specified" : 3.3
                }
@@ -455,6 +440,7 @@
       "en:packagings-with-all-weights",
       "en:packagings-with-all-weights-complete",
       "en:packagings-with-weights",
+      "en:storage-conditions-not-set",
       "en:main-countries-new-product"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",
@@ -598,7 +584,7 @@
    "product_type" : "food",
    "removed_countries_tags" : [],
    "rev" : 2,
-   "schema_version" : 1003,
+   "schema_version" : 1004,
    "sources" : [
       {
          "fields" : [
@@ -631,22 +617,6 @@
       }
    ],
    "states" : "en:empty, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
-   "states_hierarchy" : [
-      "en:empty",
-      "en:to-be-completed",
-      "en:nutrition-facts-to-be-completed",
-      "en:ingredients-to-be-completed",
-      "en:expiration-date-to-be-completed",
-      "en:packaging-code-to-be-completed",
-      "en:characteristics-to-be-completed",
-      "en:origins-to-be-completed",
-      "en:categories-to-be-completed",
-      "en:brands-to-be-completed",
-      "en:packaging-to-be-completed",
-      "en:quantity-to-be-completed",
-      "en:product-name-to-be-completed",
-      "en:photos-to-be-uploaded"
-   ],
    "states_tags" : [
       "en:empty",
       "en:to-be-completed",
@@ -663,14 +633,50 @@
       "en:product-name-to-be-completed",
       "en:photos-to-be-uploaded"
    ],
-   "traces" : "en:celery",
-   "traces_from_ingredients" : "",
-   "traces_from_user" : "(en) Celery",
-   "traces_hierarchy" : [
-      "en:celery"
-   ],
+   "tags_sources" : {
+      "allergens" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:nuts"
+            ]
+         }
+      },
+      "countries" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:en"
+            ]
+         }
+      },
+      "data_sources" : {
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "Producers",
+               "Producer - test-org"
+            ]
+         }
+      },
+      "traces" : {
+         "ingredients" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : []
+         },
+         "packaging" : {
+            "last_updated_t" : "--ignore--",
+            "tags" : [
+               "en:celery"
+            ]
+         }
+      }
+   },
    "traces_imported" : "Celery",
-   "traces_lc" : "en",
    "traces_tags" : [
       "en:celery"
    ],

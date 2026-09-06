@@ -406,7 +406,7 @@ msgstr "APK Android"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_French.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -7644,7 +7644,7 @@ msgstr "Est-ce que {barcode} est le code-barres d'un produit que vous avez ? Si 
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr "/images/misc/f-droid/svg/get-it-on-en.svg"
+msgstr "/images/misc/f-droid/svg/get-it-on-fr.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -8020,6 +8020,10 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr "2ème version (Scipy) - utilise les informations nutritionnelles pour déterminer la quantité d'ingrédients"
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr "3ème version (CVXPY) - utilise les informations nutritionnelles pour déterminer la quantité d'ingrédients"
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
 msgstr "Informations nutritionnelles"
@@ -8043,4 +8047,36 @@ msgstr "Requête vers Ecobalyse"
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr "Réponse d'Ecobalyse"
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr "Empreinte forêt 2026"
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr "L'empreinte forêt 2026 est actuellement en développement et affichée aux modérateurs uniquement à des fins de débogage."
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr "Note de l'empreinte forêt"
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "Empreinte forêt totale"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr "Note de l'ingrédient primaire"
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr "Ingrédient primaire"
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr "Empreinte forêt pour l'origine"
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "Label"
 

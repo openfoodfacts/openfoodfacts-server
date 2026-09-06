@@ -64,6 +64,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/get_string_id_for_lang/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::ProductsTags qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Ingredients qw/has_specific_ingredient_property/;
 

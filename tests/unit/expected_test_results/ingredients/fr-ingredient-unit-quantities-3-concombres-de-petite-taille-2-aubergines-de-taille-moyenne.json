@@ -1,0 +1,73 @@
+{
+   "estimate_ingredients_percent_service" : "product_opener",
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20019",
+         "ecobalyse_code" : "cucumber-eu",
+         "id" : "en:cucumber",
+         "is_in_taxonomy" : 1,
+         "percent" : 49.0909090909091,
+         "percent_estimate" : 49.0909090909091,
+         "quantity" : "3",
+         "quantity_g" : 675,
+         "size" : "en:small",
+         "text" : "concombres de petite taille",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "20053",
+         "ecobalyse_code" : "eggplant-eu",
+         "id" : "en:aubergine",
+         "is_in_taxonomy" : 1,
+         "percent" : 50.9090909090909,
+         "percent_estimate" : 50.9090909090909,
+         "quantity" : "2",
+         "quantity_g" : 700,
+         "size" : "en:medium",
+         "text" : "aubergines de taille moyenne",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_lc" : "fr",
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:cucumber",
+      "en:aubergine"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:cucumber",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:aubergine"
+   ],
+   "ingredients_text" : "3 concombres de petite taille, 2 aubergines de taille moyenne",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "ingredients_without_ecobalyse_ids" : [],
+   "ingredients_without_ecobalyse_ids_n" : 0,
+   "known_ingredients_n" : 2,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:estimated-ingredients-with-product-opener"
+   ],
+   "unknown_ingredients_n" : 0
+}

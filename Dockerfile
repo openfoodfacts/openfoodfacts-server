@@ -149,6 +149,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Test::Number::Delta
         libtest-number-delta-perl \
         libdevel-size-perl \
+        # Net-IDN-Encode (needs Debian patch for Perl 5.40+ compat)
+        libnet-idn-encode-perl \
         gnumeric \
         # for dev
         # gnu readline
@@ -204,14 +206,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     set -x && \
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
-    )
-
-# Not well handled by cpm for some reason, and not available in apt: install them first
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
-    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
-    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
-    set -x && \
+    ) && \
     # Install package dependencies in $PO_LIB_DIR
     export PERL_MM_OPT="INSTALL_BASE=$PO_LIB_DIR" && \
     export PERL_MB_OPT="--install_base $PO_LIB_DIR" && \
