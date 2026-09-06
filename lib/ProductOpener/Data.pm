@@ -385,7 +385,7 @@ sub get_mongodb_client ($timeout = undef) {
 		# default is 30000 ms
 		socket_timeout_ms => $max_time_ms + 5000,
 
-		 monitoring_callback => sub {
+		monitoring_callback => sub {
 			my ($event) = @_;
 			eval {
 				_mongo_monitoring_callback($event);
@@ -551,8 +551,11 @@ sub _mongo_monitoring_callback ($event) {
 		# parent undef makes the span a root span: correct for queries run
 		# outside a web request (cron, scripts) or when the request has no
 		# span (disabled SDK).
-		my $span = $o->{tracer}->start($commandName . ' ' . $collection,
-			kind => 3, parent => parent_context());
+		my $span = $o->{tracer}->start(
+			$commandName . ' ' . $collection,
+			kind => 3,
+			parent => parent_context()
+		);
 		return if not(defined $span);
 
 		# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/

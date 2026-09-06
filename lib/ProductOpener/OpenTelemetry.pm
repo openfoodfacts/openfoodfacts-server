@@ -62,12 +62,12 @@ use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 my $instance = undef;
 
 sub get_otel {
-    if ($instance) {
-        return $instance;
-    }
-    
-    $instance = ProductOpener::OpenTelemetry->new();
-    return $instance;
+	if ($instance) {
+		return $instance;
+	}
+
+	$instance = ProductOpener::OpenTelemetry->new();
+	return $instance;
 }
 
 # The current request's span as the parent context shape start() takes
@@ -75,16 +75,18 @@ sub get_otel {
 # web request, or when the SDK is disabled. eval keeps a missing or broken
 # Apache request object from breaking outbound HTTP requests.
 sub parent_context {
-    my $span;
-    my $ok = eval {
-        require Apache2::RequestUtil;
-        my $r = Apache2::RequestUtil->request();
-        $span = (defined $r and $r->can('pnotes'))
-            ? $r->pnotes->{OTEL_SPAN_PNOTES_KEY} : undef;
-        defined $span;
-    };
-    return unless $ok;
-    return eval { $span->child_of };
+	my $span;
+	my $ok = eval {
+		require Apache2::RequestUtil;
+		my $r = Apache2::RequestUtil->request();
+		if (defined $r and $r->can('pnotes')) {
+			# the getter form; $r->pnotes->{KEY} reads undef in mod_perl
+			$span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
+		}
+		defined $span;
+	};
+	return unless $ok;
+	return eval {$span->child_of};
 }
 
 my $lwp_instrumented = 0;
@@ -103,147 +105,157 @@ my $lwp_instrumented = 0;
 # disabled (get_otel has no tracer) requests pass through untouched, and the
 # original method is always the one that performs the network I/O.
 sub install_lwp_instrumentation {
-    return if $lwp_instrumented;
-    $lwp_instrumented = 1;
+	return if $lwp_instrumented;
+	$lwp_instrumented = 1;
 
-    require LWP::UserAgent;
-    no warnings 'redefine';
-    my $orig = \&LWP::UserAgent::request;
-    *LWP::UserAgent::request = sub {
-        my ($self, $request, @rest) = @_;
-        my $o = get_otel();
+	require LWP::UserAgent;
+	no warnings 'redefine';
+	my $orig = \&LWP::UserAgent::request;
+	*LWP::UserAgent::request = sub {
+		my ($self, $request, @rest) = @_;
+		my $o = get_otel();
 
-        my $span;
-        if ($o->{tracer}) {
-            my $parent = parent_context();
-            $span = $o->{tracer}->start($request->method . ' ' . $request->uri,
-                kind => 3, parent => $parent);
-        }
+		my $span;
+		if ($o->{tracer}) {
+			my $parent = parent_context();
+			$span = $o->{tracer}->start(
+				$request->method . ' ' . $request->uri,
+				kind => 3,
+				parent => $parent
+			);
+		}
 
-        if ($span) {
-            $span->attr('http.method' => $request->method);
-            $span->attr('http.url' => $request->uri);
-            my $uri = $request->uri;
-            if (UNIVERSAL::can($uri, 'host') and my $host = $uri->host) {
-                $span->attr('http.host' => $host);
-            }
-            my $headers = Punk::OpenTelemetry::Propagate::inject(
-                $span->trace_id, $span->span_id, $span->sampled);
-            $request->header($_, $headers->{$_}) for keys %$headers;
-        }
+		if ($span) {
+			$span->attr('http.method' => $request->method);
+			$span->attr('http.url' => $request->uri);
+			my $uri = $request->uri;
+			if (UNIVERSAL::can($uri, 'host') and my $host = $uri->host) {
+				$span->attr('http.host' => $host);
+			}
+			my $headers = Punk::OpenTelemetry::Propagate::inject($span->trace_id, $span->span_id, $span->sampled);
+			$request->header($_, $headers->{$_}) for keys %$headers;
+		}
 
-        my $response;
-        my $ok = eval { $response = $orig->($self, $request, @rest); 1 };
-        my $err = $@;
+		my $response;
+		my $ok = eval {$response = $orig->($self, $request, @rest); 1};
+		my $err = $@;
 
-        if ($span) {
-            if ($ok and defined $response) {
-                $span->attr('http.status_code' => $response->code);
-                # A 4xx is a failure of the call this process made (see
-                # Punk::OpenTelemetry::Instrument). Success stays UNSET: a
-                # wrapper has no opinion on whether the operation succeeded.
-                if (!$response->is_success) {
-                    $span->status(2, $response->message);
-                }
-            }
-            else {
-                $span->status(2, $err // 'no response');
-                $span->event('exception', {'exception.message' => $err // 'no response'});
-            }
-            $o->{tracer}->enqueue($span);
-        }
+		if ($span) {
+			if ($ok and defined $response) {
+				$span->attr('http.status_code' => $response->code);
+				# A 4xx is a failure of the call this process made (see
+				# Punk::OpenTelemetry::Instrument). Success stays UNSET: a
+				# wrapper has no opinion on whether the operation succeeded.
+				if (!$response->is_success) {
+					$span->status(2, $response->message);
+				}
+			}
+			else {
+				$span->status(2, $err // 'no response');
+				$span->event('exception', {'exception.message' => $err // 'no response'});
+			}
+			$o->{tracer}->enqueue($span);
+		}
 
-        die $err if !$ok;
-        return $response;
-    };
-    return;
+		die $err if !$ok;
+		return $response;
+	};
+	return;
 }
 
 sub new($class) {
 	my $self = {};
 	bless $self, $class;
 
-    my $cfg = Punk::OpenTelemetry::Config::from_env();
-    $self->{config} = $cfg;
+	my $cfg = Punk::OpenTelemetry::Config::from_env();
+	$self->{config} = $cfg;
 
-    if (Punk::OpenTelemetry::Config::disabled($cfg)) {
-        $self->{disabled} = 1;
-        $log->info(Punk::OpenTelemetry::Config::diagnostic($cfg));
-        return $self;
-    }
+	if (Punk::OpenTelemetry::Config::disabled($cfg)) {
+		$self->{disabled} = 1;
+		$log->info(Punk::OpenTelemetry::Config::diagnostic($cfg));
+		return $self;
+	}
 
-    my $resource = Punk::OpenTelemetry::Resource::detect(
-        (defined $cfg->{service_name}
-            ? (service_name => $cfg->{service_name}) : ()),
-        %{ $cfg->{resource_attributes} || {} },
-    );
+	my $resource = Punk::OpenTelemetry::Resource::detect(
+		(defined $cfg->{service_name} ? (service_name => $cfg->{service_name}) : ()),
+		%{$cfg->{resource_attributes} || {}},
+	);
 
-    my ($sampler, $ratio) = _sampler($cfg);
-    my $tracer = $self->{tracer} = Punk::OpenTelemetry::Tracer->new(
-        resource         => $resource,
-        scope_name       => 'OpenFoodFacts::OpenTelemetry',
-        scope_version    => $Punk::OpenTelemetry::VERSION,
-        schema_url       => Punk::OpenTelemetry::Instrument::schema_url(),
-        scope_schema_url => Punk::OpenTelemetry::Instrument::schema_url(),
-        sampler          => $sampler,
-        ratio            => $ratio,
-    );
+	my ($sampler, $ratio) = _sampler($cfg);
+	my $tracer = $self->{tracer} = Punk::OpenTelemetry::Tracer->new(
+		resource => $resource,
+		scope_name => 'OpenFoodFacts::OpenTelemetry',
+		scope_version => $Punk::OpenTelemetry::VERSION,
+		schema_url => Punk::OpenTelemetry::Instrument::schema_url(),
+		scope_schema_url => Punk::OpenTelemetry::Instrument::schema_url(),
+		sampler => $sampler,
+		ratio => $ratio,
+	);
 
-    $self->{exporter} = Punk::OpenTelemetry::Exporter->new(
-        (defined $cfg->{endpoint}    ? (endpoint    => $cfg->{endpoint})    : ()),
-        (defined $cfg->{endpoints}   ? (endpoints   => $cfg->{endpoints})   : ()),
-        (defined $cfg->{protocol}    ? (protocol    => $cfg->{protocol})    : ()),
-        (defined $cfg->{headers}     ? (headers     => $cfg->{headers})     : ()),
-        (defined $cfg->{compression} ? (compression => $cfg->{compression}) : ()),
-        (defined $cfg->{timeout} ? (timeout => $cfg->{timeout} / 1000) : ()),
-        (defined $cfg->{ua} ? (ua => $cfg->{ua}) : ()),
-    );
+	$self->{exporter} = Punk::OpenTelemetry::Exporter->new(
+		(defined $cfg->{endpoint} ? (endpoint => $cfg->{endpoint}) : ()),
+		(defined $cfg->{endpoints} ? (endpoints => $cfg->{endpoints}) : ()),
+		(defined $cfg->{protocol} ? (protocol => $cfg->{protocol}) : ()),
+		(defined $cfg->{headers} ? (headers => $cfg->{headers}) : ()),
+		(defined $cfg->{compression} ? (compression => $cfg->{compression}) : ()),
+		(defined $cfg->{timeout} ? (timeout => $cfg->{timeout} / 1000) : ()),
+		(defined $cfg->{ua} ? (ua => $cfg->{ua}) : ()),
+	);
 
-    $self->{meter} = Punk::OpenTelemetry::Meter->new(
-        resource    => $resource,
-        scope_name  => 'OpenFoodFacts::OpenTelemetry',
-        temporality => $cfg->{temporality_preference} || 'cumulative',
-    ) if _want($cfg, 'metrics');
+	$self->{meter} = Punk::OpenTelemetry::Meter->new(
+		resource => $resource,
+		scope_name => 'OpenFoodFacts::OpenTelemetry',
+		temporality => $cfg->{temporality_preference} || 'cumulative',
+	) if _want($cfg, 'metrics');
 
-    $self->{logs} = Punk::OpenTelemetry::Logs->new(
-        resource   => $resource,
-        scope_name => 'OpenFoodFacts::OpenTelemetry',
-    ) if _want($cfg, 'logs');
+	$self->{logs} = Punk::OpenTelemetry::Logs->new(
+		resource => $resource,
+		scope_name => 'OpenFoodFacts::OpenTelemetry',
+	) if _want($cfg, 'logs');
 
 	return $self;
 }
 
 sub flush {
-    my ($st) = @_;
-    return unless $st->{exporter};
+	my ($st) = @_;
+	return unless $st->{exporter};
 
-    # ONE EVAL PER SIGNAL, not one around all three.
-    #
-    # A single eval means the first signal that throws takes the other two
-    # with it - and the drain that never ran leaves its records queued, so
-    # they are not even lost loudly. That is how metrics failing to encode
-    # silently stopped logs from being exported at all: two signals gone to
-    # one broken encoder, with nothing in the output to say so.
-    my @futures;
-    eval { if (my $t = $st->{tracer}) { my $p = $t->drain;   my $f = _send($st, traces  => $p); push @futures, $f if $f } 1 }
-        or do { $st->{exporter}{stats}{failures}++ };
-    eval { if (my $m = $st->{meter})  { my $p = $m->collect; my $f = _send($st, metrics => $p); push @futures, $f if $f } 1 }
-        or do { $st->{exporter}{stats}{failures}++ };
-    eval { if (my $l = $st->{logs})   { my $p = $l->drain;   my $f = _send($st, logs    => $p); push @futures, $f if $f } 1 }
-        or do { $st->{exporter}{stats}{failures}++ };
+	# ONE EVAL PER SIGNAL, not one around all three.
+	#
+	# A single eval means the first signal that throws takes the other two
+	# with it - and the drain that never ran leaves its records queued, so
+	# they are not even lost loudly. That is how metrics failing to encode
+	# silently stopped logs from being exported at all: two signals gone to
+	# one broken encoder, with nothing in the output to say so.
+	my @futures;
+	eval {
+		if (my $t = $st->{tracer}) {my $p = $t->drain; my $f = _send($st, traces => $p); push @futures, $f if $f}
+		1;
+	}
+		or do {$st->{exporter}{stats}{failures}++};
+	eval {
+		if (my $m = $st->{meter}) {my $p = $m->collect; my $f = _send($st, metrics => $p); push @futures, $f if $f}
+		1;
+	}
+		or do {$st->{exporter}{stats}{failures}++};
+	eval {
+		if (my $l = $st->{logs}) {my $p = $l->drain; my $f = _send($st, logs => $p); push @futures, $f if $f}
+		1;
+	}
+		or do {$st->{exporter}{stats}{failures}++};
 
-    # AWAIT THE EXPORTS. The request has only been started by the time the
-    # ua's future exists; nothing pumps the export to its reply. That is the
-    # right shape for a long-lived event loop that will run the future, and
-    # the wrong one for mod_perl - which has no loop driving it, so a flush
-    # nobody awaits is a request nobody sends. In a child-exit handler the
-    # process dies a moment later and the queued telemetry dies with it.
-    # Awaiting is the honest read of "flush": block until the attempt settles
-    # (bounded by the exporter timeout), then report what came back.
-    for my $f (@futures) {
-        eval { $f->get } or do { $st->{exporter}{stats}{failures}++ };
-    }
-    return;
+	# AWAIT THE EXPORTS. The request has only been started by the time the
+	# ua's future exists; nothing pumps the export to its reply. That is the
+	# right shape for a long-lived event loop that will run the future, and
+	# the wrong one for mod_perl - which has no loop driving it, so a flush
+	# nobody awaits is a request nobody sends. In a child-exit handler the
+	# process dies a moment later and the queued telemetry dies with it.
+	# Awaiting is the honest read of "flush": block until the attempt settles
+	# (bounded by the exporter timeout), then report what came back.
+	for my $f (@futures) {
+		eval {$f->get} or do {$st->{exporter}{stats}{failures}++};
+	}
+	return;
 }
 
 # The request-thread counterpart of the plugin's after-dispatch tick. Product
@@ -253,81 +265,84 @@ sub flush {
 # exports, so the block is bounded by whatever OTEL_BSP_EXPORT_TIMEOUT and
 # OTEL_EXPORTER_OTLP_TIMEOUT are configured to.
 sub tick {
-    my ($st) = @_;
-    my $t = $st->{tracer} or return;
+	my ($st) = @_;
+	my $t = $st->{tracer} or return;
 
-    # Batch flushing exists to amortize the transport cost across many spans,
-    # which requires a background loop to ever emit them; without one, a batch
-    # that misses its tick stays queued until a worker happens to get a second
-    # request more than schedule_delay later. End-of-request export is the
-    # whole transport here.
-    return if $t->queued < 1;
-    $st->flush();
-    return;
+	# Batch flushing exists to amortize the transport cost across many spans,
+	# which requires a background loop to ever emit them; without one, a batch
+	# that misses its tick stays queued until a worker happens to get a second
+	# request more than schedule_delay later. End-of-request export is the
+	# whole transport here.
+	return if $t->queued < 1;
+	$st->flush();
+	return;
 }
 
 sub _send {
-    my ($st, $signal, $payload, $attempt) = @_;
-    $attempt //= 0;
-    my $exp   = $st->{exporter};
-    my $stats = $exp->{stats};
+	my ($st, $signal, $payload, $attempt) = @_;
+	$attempt //= 0;
+	my $exp = $st->{exporter};
+	my $stats = $exp->{stats};
 
-    Punk::OpenTelemetry::Instrument::suppress_begin();
-    my ($bytes, $f);
-    my $ok = eval {
-        $bytes = $exp->encode($signal => $payload);
-        $f     = $exp->_attempt($signal, $bytes);
-        1;
-    };
-    my $err = $@;
-    Punk::OpenTelemetry::Instrument::suppress_end();
-    die $err if !$ok;
-    return unless $f;
+	Punk::OpenTelemetry::Instrument::suppress_begin();
+	my ($bytes, $f);
+	my $ok = eval {
+		$bytes = $exp->encode($signal => $payload);
+		$f = $exp->_attempt($signal, $bytes);
+		1;
+	};
+	my $err = $@;
+	Punk::OpenTelemetry::Instrument::suppress_end();
+	die $err if !$ok;
+	return unless $f;
 
-    $f->on_ready(sub {
-        my ($fut) = @_;
-        my $res = eval { $fut->get };
-        my ($verdict, $after) = $res
-            ? $exp->_classify($res->status, $res->headers, $res->content)
-            : $exp->_classify(undef);
+	$f->on_ready(
+		sub {
+			my ($fut) = @_;
+			my $res = eval {$fut->get};
+			my ($verdict, $after)
+				= $res
+				? $exp->_classify($res->status, $res->headers, $res->content)
+				: $exp->_classify(undef);
 
-        if    ($verdict eq 'ok')      { $stats->{exported}++ }
-        elsif ($verdict eq 'partial') { $stats->{exported}++; $stats->{partial}++ }
-        elsif ($verdict eq 'permanent') {
-            $stats->{rejected}++;
-            $stats->{dropped}++;
-        }
-        elsif ($attempt >= ($exp->{max_retries} // 5)) {
-            $stats->{failures}++;
-            $stats->{dropped}++;
-        }
-        else {
-            $stats->{retries}++;
-            my $wait = $exp->backoff($attempt + 1, $after);
-            $exp->_sleep($wait, sub { _send($st, $signal, $payload, $attempt + 1) });
-        }
-        return;
-    });
-    return $f;
+			if ($verdict eq 'ok') {$stats->{exported}++}
+			elsif ($verdict eq 'partial') {$stats->{exported}++; $stats->{partial}++}
+			elsif ($verdict eq 'permanent') {
+				$stats->{rejected}++;
+				$stats->{dropped}++;
+			}
+			elsif ($attempt >= ($exp->{max_retries} // 5)) {
+				$stats->{failures}++;
+				$stats->{dropped}++;
+			}
+			else {
+				$stats->{retries}++;
+				my $wait = $exp->backoff($attempt + 1, $after);
+				$exp->_sleep($wait, sub {_send($st, $signal, $payload, $attempt + 1)});
+			}
+			return;
+		}
+	);
+	return $f;
 }
 
 sub _sampler {
-    my ($cfg) = @_;
-    my $name  = $cfg->{sampler} // 'parentbased_always_on';
-    my $arg   = $cfg->{sampler_arg};
-    my $ratio = defined $arg && $arg =~ /^[0-9.]+$/ ? $arg + 0 : 1.0;
+	my ($cfg) = @_;
+	my $name = $cfg->{sampler} // 'parentbased_always_on';
+	my $arg = $cfg->{sampler_arg};
+	my $ratio = defined $arg && $arg =~ /^[0-9.]+$/ ? $arg + 0 : 1.0;
 
-    return ('always_off', $ratio)
-        if $name eq 'always_off' || $name eq 'parentbased_always_off';
-    return ('always_on', $ratio)
-        if $name eq 'always_on';
-    return ('parent_ratio', $ratio);
+	return ('always_off', $ratio)
+		if $name eq 'always_off' || $name eq 'parentbased_always_off';
+	return ('always_on', $ratio)
+		if $name eq 'always_on';
+	return ('parent_ratio', $ratio);
 }
 
 sub _want {
-    my ($cfg, $what) = @_;
-    return 1 unless exists $cfg->{$what};
-    return $cfg->{$what} ? 1 : 0;
+	my ($cfg, $what) = @_;
+	return 1 unless exists $cfg->{$what};
+	return $cfg->{$what} ? 1 : 0;
 }
 
 1;

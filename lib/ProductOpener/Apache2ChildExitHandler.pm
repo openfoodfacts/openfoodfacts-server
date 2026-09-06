@@ -38,7 +38,7 @@ use Apache2::Const qw(:common);
 
 sub handler {
 	my $flush_result;
-	eval {$flush_result = get_otel()->flush(); };
+	eval {$flush_result = get_otel()->flush();};
 	my $err = $@;
 	if ($err) {
 		$log->warn('ProductOpener::Apache2ChildExitHandler::handler: provider flush error', {error => $err})

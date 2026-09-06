@@ -66,7 +66,7 @@ sub handler {
 		# names, while Apache's headers_in hashref is keyed in the case the
 		# client used.
 		my $headers_in = $r->headers_in;
-		my %headers = (map { lc($_) => $headers_in->{$_} } keys %$headers_in);
+		my %headers = (map {lc($_) => $headers_in->{$_}} keys %$headers_in);
 		my $ctx = Punk::OpenTelemetry::Propagate::extract(\%headers);
 		$span = $o->{tracer}->start($r->method . ' ' . $r->uri, kind => 2, parent => $ctx);
 		if ($span) {
