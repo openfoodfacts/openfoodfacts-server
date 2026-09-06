@@ -132,9 +132,7 @@ requires 'Unicode::GCString';
 requires 'Net::CIDR'; # libnet-cidr-perl
 
 # OpenTelemetry
-requires 'OpenTelemetry', '== 0.037';
-requires 'OpenTelemetry::SDK', '== 0.028';
-requires 'OpenTelemetry::Exporter::OTLP', '== 0.021';
+requires 'Punk::OpenTelemetry', '== 0.08';
 
 on 'test' => sub {
   requires 'Test2::V0';

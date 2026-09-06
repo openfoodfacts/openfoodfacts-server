@@ -32,11 +32,10 @@ package ProductOpener::Apache2PostRequestHandler;
 
 use ProductOpener::PerlStandards;
 use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
+use ProductOpener::OpenTelemetry qw/get_otel/;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 use Apache2::Const qw(:common);
-use OpenTelemetry::Trace::Span;
-use OpenTelemetry;
 
 sub handler {
 	my $r = shift;
@@ -44,18 +43,22 @@ sub handler {
 	# Retrieve the current span from the context
 	my $span = $r->pnotes(OTEL_SPAN_PNOTES_KEY);
 	if (defined $span) {
-		$log->info('ProductOpener::Apache2PostRequestHandler::handler: span found, ending it',
-			{recording => $span->recording})
+		$log->info('ProductOpener::Apache2PostRequestHandler::handler: span found, ending it')
 			if $log->is_info();
-		$span->set_attribute('http.response.status_code', $r->status);
-		$span->end();
+		$span->attr('http.response.status_code', $r->status);
+		$span->status(2, 'upstream refused') if $r->status >= 500;
+		get_otel()->{tracer}->enqueue($span);
 	}
 	else {
 		$log->debug('ProductOpener::Apache2PostRequestHandler::handler: span not found')
 			if $log->is_debug();
 	}
 
-	OpenTelemetry::Context->current = OpenTelemetry::Context->new();
+	# Flush the exporter queue in-time: there is no background loop in
+	# Product Opener, so the request that just enqueued its spans is the
+	# tick. Bounded by the configured BSP/OTLP timeouts (see
+	# ProductOpener::OpenTelemetry::tick).
+	get_otel()->tick();
 
 	return Apache2::Const::OK;
 }

@@ -31,21 +31,14 @@ C<ProductOpener::Apache2ChildExitHandler> is a Apache 2.0 child exit handler tha
 package ProductOpener::Apache2ChildExitHandler;
 
 use ProductOpener::PerlStandards;
+use ProductOpener::OpenTelemetry qw/get_otel/;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 use Apache2::Const qw(:common);
 
-use OpenTelemetry;
-
 sub handler {
-	my $provider = OpenTelemetry->tracer_provider;
-	if (not($provider)) {
-		return;
-	}
-
-	my $flush_future = $provider->force_flush();
 	my $flush_result;
-	eval {$flush_result = $flush_future->get();};
+	eval {$flush_result = get_otel()->flush(); };
 	my $err = $@;
 	if ($err) {
 		$log->warn('ProductOpener::Apache2ChildExitHandler::handler: provider flush error', {error => $err})

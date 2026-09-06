@@ -45,16 +45,9 @@ CGI->compile(':all');
 use Fcntl qw/:mode/;
 use Storable ();
 
-# Load OpenTelemetry modules (but don't create objects yet - will be done in PostConfigHandler)
-use OpenTelemetry::SDK;
-use OpenTelemetry::SDK::Trace::TracerProvider;
-use OpenTelemetry::SDK::Trace::Span::Processor::Simple;
-use OpenTelemetry::Exporter::OTLP::Traces;
-use OpenTelemetry;
-
 # Load LWP::UserAgent with OpenTelemetry integration
 use LWP::UserAgent ();
-use OpenTelemetry::Integration 'LWP::UserAgent';
+# use OpenTelemetry::Integration 'LWP::UserAgent';
 use Image::Magick ();
 use File::Copy ();
 use XML::Encoding ();
@@ -133,6 +126,7 @@ use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::RequestStats qw/:all/;
 use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Auth qw/:all/;
+use ProductOpener::OpenTelemetry qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();

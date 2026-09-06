@@ -47,65 +47,32 @@ use ProductOpener::PerlStandards;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 use Apache2::Const qw(:common);
-use OpenTelemetry;
-use OpenTelemetry::Context;
-use OpenTelemetry::Propagator::TraceContext;
-use OpenTelemetry::Trace;
-use OpenTelemetry::SDK;
 use ProductOpener::Version qw/$version/;
 use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
+use ProductOpener::OpenTelemetry qw/get_otel/;
+
+use Punk::OpenTelemetry();
 
 # Obtain the current default tracer provider
 sub handler {
 	my ($r) = @_;
 
-	my $provider = OpenTelemetry->tracer_provider;
-	if (not($provider)) {
-		return Apache2::Const::OK;
-	}
+	my $o = get_otel();
 
-	# Create a trace
-	my $tracer = $provider->tracer(name => 'ProductOpener', version => $version);
-
-	# Extract trace context from HTTP headers
-	my $trace_context = OpenTelemetry::Propagator::TraceContext->new;
-	my $headers_in = $r->headers_in;
-	my $traceparent_string = $headers_in->{'traceparent'};
-	my $context;
-	if (defined $traceparent_string) {
-		# If traceparent header is available, extract context from headers
-		$log->debug('extracted traceparent from headers', {traceparent_string => $traceparent_string})
-			if $log->is_debug();
-		$context = $trace_context->extract(
-			$headers_in,
-			$context,
-			sub {
-				my ($carrier, $field) = @_;
-
-				return $carrier->{$field};
-			}
-		);
-	}
-	else {
-		# If traceparent header is not available, create a new context
-		$log->debug('creating new trace context') if $log->is_debug();
-		$context = OpenTelemetry::Context->new();
-	}
-
-	# Start a new span with the extracted context
-	my $span = $tracer->create_span(
-		name => $r->method . ' ' . $r->uri,
-		parent => $context,
-		attributes => {
-			'http.method' => $r->method,
-			'http.url' => $r->uri,
-			'http.host' => $r->hostname,
+	my $span;
+	if (defined $o->{tracer}) {
+		# Extract trace context from HTTP headers
+		my $headers_in = $r->headers_in;
+		my $ctx = Punk::OpenTelemetry::Propagate::extract($headers_in);
+		$span = $o->{tracer}->start($r->method . ' ' . $r->uri, kind => 2, parent => $ctx);
+		if ($span) {
+			$span->attr('http.method' => $r->method);
+			$span->attr('http.url' => $r->uri);
+			$span->attr('http.host' => $r->hostname);
 		}
-	);
+	}
 
 	# Store the span in the context
-	$context = OpenTelemetry::Trace->context_with_span($span);
-	OpenTelemetry::Context->current = $context;
 	$r->pnotes(OTEL_SPAN_PNOTES_KEY, $span);
 
 	return Apache2::Const::OK;

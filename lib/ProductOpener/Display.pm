@@ -192,9 +192,6 @@ use Data::DeepAccess qw(deep_get deep_set deep_exists);
 use Log::Log4perl;
 use Tie::IxHash;
 
-use OpenTelemetry::Context;
-use OpenTelemetry::Integration 'LWP::UserAgent';
-
 use Log::Any '$log', default_adapter => 'Stderr';
 use List::Util qw(any);
 
@@ -537,7 +534,7 @@ sub init_request ($request_ref = {}) {
 
 		# Set span attribute after request ID is initialized
 		if (defined $log->context->{request}) {
-			$span->set_attribute('productopener.request', $log->context->{request});
+			$span->attr('productopener.request', $log->context->{request});
 		}
 	}
 
@@ -627,9 +624,8 @@ sub init_request ($request_ref = {}) {
 	local $log->context->{query_string} = $request_ref->{original_query_string};
 
 	if (defined $span) {
-		$span->set_attribute('url.query', $request_ref->{original_query_string});
-		$span->set_attribute('client.address', remote_addr());
-		$span->set_name($r->method . ' ' . $ENV{SCRIPT_NAME});
+		$span->attr('url.query', $request_ref->{original_query_string});
+		$span->attr('client.address', remote_addr());
 	}
 
 	$subdomain =~ s/\..*//;
@@ -891,7 +887,7 @@ sub init_request ($request_ref = {}) {
 
 	$request_ref->{user_id} = $User_id;
 	if (defined $span) {
-		$span->set_attribute('user.id', $User_id);
+		$span->attr('user.id', $User_id);
 	}
 
 	# %admin is defined in Config.pm
@@ -1189,7 +1185,7 @@ sub display_no_index_page_and_exit () {
 
 	my $r = Apache2::RequestUtil->request();
 	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
-	$span->set_attribute('http.response.status_code', 200) if (defined $span);
+	$span->attr('http.response.status_code', 200) if (defined $span);
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
 	# Send 200 instead.
@@ -1216,7 +1212,7 @@ sub display_too_many_requests_page_and_exit() {
 
 	my $r = Apache2::RequestUtil->request();
 	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
-	$span->set_attribute('http.response.status_code', 429) if (defined $span);
+	$span->attr('http.response.status_code', 429) if (defined $span);
 	$r->rflush;
 	$r->custom_response(429, $html);
 	exit();
@@ -7963,7 +7959,7 @@ sub display_page ($request_ref) {
 
 	print header(%$http_headers_ref);
 
-	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
+	$span->attr('http.response.status_code', $status_code) if (defined $span);
 	$r->rflush;
 	# Setting the status makes mod_perl append a default error to the body
 	# Send 200 instead.
@@ -10090,7 +10086,7 @@ sub display_structured_response ($request_ref) {
 
 	my $r = Apache2::RequestUtil->request();
 	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
-	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
+	$span->attr('http.response.status_code', $status_code) if (defined $span);
 	$r->rflush;
 	$r->status(200);
 

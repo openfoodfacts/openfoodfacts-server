@@ -65,9 +65,11 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 use ProductOpener::Cursor;
 use ProductOpener::Health qw/:all/;
 use ProductOpener::HTTP qw/request_param single_param get_http_request_header create_user_agent/;
+use ProductOpener::OpenTelemetry qw/get_otel/;
 
 use Storable qw(freeze);
 use MongoDB;
@@ -76,16 +78,7 @@ use CGI ':cgi-lib';
 use Log::Any qw($log);
 use Time::HiRes qw/gettimeofday tv_interval/;
 
-use Feature::Compat::Try;
-use Syntax::Keyword::Dynamically;
-
 use LWP::UserAgent;
-
-use OpenTelemetry::Constants qw( SPAN_KIND_CLIENT SPAN_STATUS_OK SPAN_STATUS_ERROR );
-use OpenTelemetry::Context;
-use OpenTelemetry::Integration 'LWP::UserAgent';
-use OpenTelemetry::Trace;
-use OpenTelemetry;
 
 # OTEL Span context for MongoDB queries
 my %spans = ();
@@ -393,67 +386,13 @@ sub get_mongodb_client ($timeout = undef) {
 		# default is 30000 ms
 		socket_timeout_ms => $max_time_ms + 5000,
 
-		monitoring_callback => sub {
+		 monitoring_callback => sub {
 			my ($event) = @_;
-			if (not(defined $event->{type})) {
-				return;
-			}
-
-			if ($event->{type} eq 'command_started') {
-				my $commandName = $event->{commandName};
-				my $collection = $event->{command}->{$commandName} // 'unknown';
-
-				my $provider = OpenTelemetry->tracer_provider;
-				if (not defined $provider) {
-					return;
-				}
-				my $tracer = $provider->tracer();
-				if (not defined $tracer) {
-					return;
-				}
-
-				my $span = $tracer->create_span(
-					name => $commandName . ' ' . $collection,
-					kind => SPAN_KIND_CLIENT,
-					attributes => {
-						# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/
-						'db.namespace' => $event->{databaseName},
-						'db.collection.name' => $collection,
-						'db.system' => 'mongodb',
-						'db.operation.name' => $commandName,
-						'server.address' => $event->{connectionId},
-					},
-				);
-
-				my $previous_context = OpenTelemetry::Context->current;
-				$spans{$event->{requestId}} = {
-					'span' => $span,
-					'previous_context' => $previous_context,
-				};
-				OpenTelemetry::Context->current = OpenTelemetry::Trace->context_with_span($span);
-			}
-			elsif ($event->{type} eq 'command_succeeded') {
-				if (exists $spans{$event->{requestId}}) {
-					my %span_and_context = %{delete $spans{$event->{requestId}}};
-					my $span = $span_and_context{'span'};
-					my $previous_context = $span_and_context{'previous_context'};
-					$span->set_status(SPAN_STATUS_OK);
-					$span->end();
-					OpenTelemetry::Context->current = $previous_context;
-				}
-			}
-			elsif ($event->{type} eq 'command_failed') {
-				if (exists $spans{$event->{requestId}}) {
-					my %span_and_context = %{delete $spans{$event->{requestId}}};
-					my $span = $span_and_context{'span'};
-					my $previous_context = $span_and_context{'previous_context'};
-					$span->set_status(SPAN_STATUS_ERROR, $event->{failure}->{message});
-					$span->record_exception($event->{failure});
-					$span->end();
-					OpenTelemetry::Context->current = $previous_context;
-				}
-			}
-		}
+			eval {
+				_mongo_monitoring_callback($event);
+				1;
+			} or $log->error('MongoDB monitoring callback error', {error => $@}) if $log->is_error();
+		},
 	);
 
 	if (!defined($client)) {
@@ -594,6 +533,73 @@ sub perform_health_check() {
 			links => $links,
 		}
 	];
+}
+
+# The MongoDB ::monitoring_callback fires once per command, inside the query
+# call stack, with command_started / command_succeeded / command_failed events.
+# It instruments the command as a CLIENT database span. Telemetry must never
+# break the query path, so the callback wraps this in eval.
+sub _mongo_monitoring_callback ($event) {
+	return if (not(defined $event->{type}));
+
+	my $o = get_otel();
+	return if not(defined $o->{tracer});
+
+	if ($event->{type} eq 'command_started') {
+		my $commandName = $event->{commandName};
+		my $collection = $event->{command}->{$commandName} // 'unknown';
+
+		# parent undef makes the span a root span: correct for queries run
+		# outside a web request (cron, scripts) or when the request has no
+		# span (disabled SDK).
+		my $span = $o->{tracer}->start($commandName . ' ' . $collection,
+			kind => 3, parent => _mongo_parent_context());
+		return if not(defined $span);
+
+		# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/
+		$span->attr('db.namespace' => $event->{databaseName});
+		$span->attr('db.collection.name' => $collection);
+		$span->attr('db.system' => 'mongodb');
+		$span->attr('db.operation.name' => $commandName);
+		$span->attr('server.address' => $event->{connectionId});
+
+		$spans{$event->{requestId}} = $span;
+	}
+	elsif ($event->{type} eq 'command_succeeded') {
+		if (exists $spans{$event->{requestId}}) {
+			my $span = delete $spans{$event->{requestId}};
+			$span->status(1);
+			$o->{tracer}->enqueue($span);
+		}
+	}
+	elsif ($event->{type} eq 'command_failed') {
+		if (exists $spans{$event->{requestId}}) {
+			my $span = delete $spans{$event->{requestId}};
+			my $failure = $event->{failure};
+			my $message = ref $failure ? ($failure->{message} // "$failure") : $failure;
+			$span->status(2, $message);
+			$span->event('exception', {'exception.message' => $message});
+			$o->{tracer}->enqueue($span);
+		}
+	}
+	return;
+}
+
+# The current request's span as the parent context shape start() takes
+# ({ trace_id, span_id, sampled }), or undef when there is none: outside a
+# web request, or when the SDK is disabled. eval keeps a missing or broken
+# Apache request object from breaking MongoDB queries.
+sub _mongo_parent_context () {
+	my $span;
+	my $ok = eval {
+		require Apache2::RequestUtil;
+		my $r = Apache2::RequestUtil->request();
+		$span = (defined $r and $r->can('pnotes'))
+			? $r->pnotes->{OTEL_SPAN_PNOTES_KEY} : undef;
+		defined $span;
+	};
+	return unless $ok;
+	return eval { $span->child_of };
 }
 
 1;

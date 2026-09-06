@@ -419,7 +419,7 @@ sub send_api_response ($request_ref) {
 
 	my $r = Apache2::RequestUtil->request();
 	my $span = get_http_request_pnote(OTEL_SPAN_PNOTES_KEY, $r);
-	$span->set_attribute('http.response.status_code', $status_code) if (defined $span);
+	$span->attr('http.response.status_code', $status_code) if (defined $span);
 
 	$r->rflush;
 
