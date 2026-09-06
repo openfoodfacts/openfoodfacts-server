@@ -3118,8 +3118,9 @@ sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = un
 
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
-	my $tagurl = get_tag_url_id($tagtype, $tag);
-
+	my $tagurl = $tag;
+	$tagurl =~ s/ /%20/g;
+	$tagurl =~ s/&/%26/g;
 	my $path = $tag_type_plural{$tagtype}{$target_lc};
 	return "/$path/" . ($tag_prefix // '') . $tagurl;
 }
