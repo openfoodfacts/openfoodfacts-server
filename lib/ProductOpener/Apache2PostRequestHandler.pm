@@ -50,7 +50,9 @@ sub handler {
 		get_otel()->{tracer}->enqueue($span);
 	}
 	else {
-		$log->debug('ProductOpener::Apache2PostRequestHandler::handler: span not found')
+		# Usually a subrequest/internal redirect whose own pnotes have no
+		# span: the main request's span (if any) was already enqueued.
+		$log->debug("ProductOpener::Apache2PostRequestHandler::handler: span not found for " . $r->uri)
 			if $log->is_debug();
 	}
 

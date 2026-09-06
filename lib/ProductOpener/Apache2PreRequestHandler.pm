@@ -62,8 +62,12 @@ sub handler {
 	my $span;
 	if (defined $o->{tracer}) {
 		# Extract trace context from HTTP headers
+		# Punk::OpenTelemetry::Propagate::extract expects lowercased header
+		# names, while Apache's headers_in hashref is keyed in the case the
+		# client used.
 		my $headers_in = $r->headers_in;
-		my $ctx = Punk::OpenTelemetry::Propagate::extract($headers_in);
+		my %headers = (map { lc($_) => $headers_in->{$_} } keys %$headers_in);
+		my $ctx = Punk::OpenTelemetry::Propagate::extract(\%headers);
 		$span = $o->{tracer}->start($r->method . ' ' . $r->uri, kind => 2, parent => $ctx);
 		if ($span) {
 			$span->attr('http.method' => $r->method);

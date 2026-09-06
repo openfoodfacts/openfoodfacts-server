@@ -155,21 +155,21 @@ sub flush {
 }
 
 # The request-thread counterpart of the plugin's after-dispatch tick. Product
-# Opener has no persistent background loop to drain the exporter queue, so the
-# request that just enqueued its spans is the tick: after enough time has
-# elapsed, or enough spans have piled up, the queue is flushed. Flush blocks
-# on its exports, so the block is bounded by whatever OTEL_BSP_EXPORT_TIMEOUT
-# and OTEL_EXPORTER_OTLP_TIMEOUT are configured to.
+# Opener has no persistent background loop (and mod_perl prefork workers see
+# few requests each), so the request that just enqueued its spans is the only
+# tick there will ever be: flush whatever is queued. Flush blocks on its
+# exports, so the block is bounded by whatever OTEL_BSP_EXPORT_TIMEOUT and
+# OTEL_EXPORTER_OTLP_TIMEOUT are configured to.
 sub tick {
     my ($st) = @_;
     my $t = $st->{tracer} or return;
 
-    my $cfg   = $st->{config};
-    my $batch = $cfg->{bsp}{max_export_batch_size} || 512;
-    my $delay = ($cfg->{bsp}{schedule_delay} || 5000) / 1000;
-    $st->{last_flush} ||= time;
-    return if $t->queued < $batch && time - $st->{last_flush} < $delay;
-    $st->{last_flush} = time;
+    # Batch flushing exists to amortize the transport cost across many spans,
+    # which requires a background loop to ever emit them; without one, a batch
+    # that misses its tick stays queued until a worker happens to get a second
+    # request more than schedule_delay later. End-of-request export is the
+    # whole transport here.
+    return if $t->queued < 1;
     $st->flush();
     return;
 }
