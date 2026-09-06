@@ -83,13 +83,18 @@ BEGIN {
 		&init_percent_or_quantity_regexps
 		&protect_compound_unit_slashes
 		&isolate_compound_unit_quantities
+		&init_sizes_regexps
+
+		%sizes_regexps
+		%sizes_stopwords_regexps
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
-use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries/;
+use ProductOpener::Tags qw/generate_regexps_matching_taxonomy_entries generate_regexps_matching_taxonomy_stopwords/;
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 # U+00B7 "·" (Middle Dot). Is a common character in Catalan. To avoid to break ingredients,
@@ -510,6 +515,25 @@ sub convert_text_value_to_number($target_lc, $value) {
 	return $value;
 }
 
+sub init_sizes_regexps() {
+
+	# Create a list of regexps with each synonyms of all sizes
+	%sizes_regexps = %{
+		generate_regexps_matching_taxonomy_entries(
+			"sizes",
+			"unique_regexp",
+			{
+				match_space_with_dash => 1,
+				include_xx => 1,
+			}
+		)
+	};
+
+	# Create a list of regexps for the sizes stopwords (e.g. "size", "taille", "tamaño")
+	%sizes_stopwords_regexps = %{generate_regexps_matching_taxonomy_stopwords("sizes",)};
+	return;
+}
+
 my %units_regexps = ();
 
 sub init_units_regexps() {
@@ -678,15 +702,17 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 		# Number separators: plain comma, dot, and U+201A lower comma (used by the parser to
 		# protect decimal commas so they are not treated as ingredient list separators).
 		my $decimal_sep = '(?:\,|\.|\N{U+201A})';
+		# A protected decimal comma needs a unit; otherwise "0,1,2" is parsed as unitless quantities.
+		my $number = '(?:\d+(?:[,.]\d+)?|\d+\N{U+201A}\d+(?=\s*(?:' . $units_except_percent . '|\%)))';
 
 		$percent_or_quantity_regexps{$ingredients_lc} = '(?:' . "(?:$prepared_with )" . ' )?'   # optional produced with
 			. '(?:>|' . $max_regexp . '|<|' . $min_regexp . '|\s|\.|:)*'    # optional maximum, minimum, and separators
 			. '(?:\d+(?:' . $decimal_sep . '\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
-			. '(' . '(?:\d+(?:' . $decimal_sep . '\d+)?)'    # number, possibly with a decimal separator
+			. '(' . $number    # number, possibly with a decimal separator
 			. '|(?:'
 			. $one_regexp_in_lc
 			. ')\b'    # 'une' (as in "une pincée"), needs a word boundary after it to avoid matching "une" to "un e"
-			. ')\s*' . '(' . $units_except_percent . '|\%)\s*'    # % or unit
+			. ')\s*' . '(' . $units_except_percent . '|\%|)\s*'    # % or unit or empty string "3 carrots"
 				# note: \% needs to be added individually as it seems ignored as a synonym in the units taxonomy
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
 			. $ignore_strings_after_percent
