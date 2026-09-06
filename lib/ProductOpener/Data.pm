@@ -65,11 +65,10 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 use ProductOpener::Cursor;
 use ProductOpener::Health qw/:all/;
 use ProductOpener::HTTP qw/request_param single_param get_http_request_header create_user_agent/;
-use ProductOpener::OpenTelemetry qw/get_otel/;
+use ProductOpener::OpenTelemetry qw/get_otel parent_context/;
 
 use Storable qw(freeze);
 use MongoDB;
@@ -553,7 +552,7 @@ sub _mongo_monitoring_callback ($event) {
 		# outside a web request (cron, scripts) or when the request has no
 		# span (disabled SDK).
 		my $span = $o->{tracer}->start($commandName . ' ' . $collection,
-			kind => 3, parent => _mongo_parent_context());
+			kind => 3, parent => parent_context());
 		return if not(defined $span);
 
 		# As per https://opentelemetry.io/docs/specs/semconv/database/mongodb/
@@ -583,23 +582,6 @@ sub _mongo_monitoring_callback ($event) {
 		}
 	}
 	return;
-}
-
-# The current request's span as the parent context shape start() takes
-# ({ trace_id, span_id, sampled }), or undef when there is none: outside a
-# web request, or when the SDK is disabled. eval keeps a missing or broken
-# Apache request object from breaking MongoDB queries.
-sub _mongo_parent_context () {
-	my $span;
-	my $ok = eval {
-		require Apache2::RequestUtil;
-		my $r = Apache2::RequestUtil->request();
-		$span = (defined $r and $r->can('pnotes'))
-			? $r->pnotes->{OTEL_SPAN_PNOTES_KEY} : undef;
-		defined $span;
-	};
-	return unless $ok;
-	return eval { $span->child_of };
 }
 
 1;

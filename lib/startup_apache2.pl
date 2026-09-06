@@ -47,7 +47,8 @@ use Storable ();
 
 # Load LWP::UserAgent with OpenTelemetry integration
 use LWP::UserAgent ();
-# use OpenTelemetry::Integration 'LWP::UserAgent';
+use ProductOpener::OpenTelemetry ();
+ProductOpener::OpenTelemetry::install_lwp_instrumentation();
 use Image::Magick ();
 use File::Copy ();
 use XML::Encoding ();

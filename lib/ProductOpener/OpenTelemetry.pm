@@ -46,6 +46,8 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&get_otel
+		&install_lwp_instrumentation
+		&parent_context
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -55,6 +57,7 @@ use vars @EXPORT_OK;
 
 use Punk::OpenTelemetry ();
 use Log::Any qw($log);
+use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 
 my $instance = undef;
 
@@ -65,6 +68,95 @@ sub get_otel {
     
     $instance = ProductOpener::OpenTelemetry->new();
     return $instance;
+}
+
+# The current request's span as the parent context shape start() takes
+# ({ trace_id, span_id, sampled }), or undef when there is none: outside a
+# web request, or when the SDK is disabled. eval keeps a missing or broken
+# Apache request object from breaking outbound HTTP requests.
+sub parent_context {
+    my $span;
+    my $ok = eval {
+        require Apache2::RequestUtil;
+        my $r = Apache2::RequestUtil->request();
+        $span = (defined $r and $r->can('pnotes'))
+            ? $r->pnotes->{OTEL_SPAN_PNOTES_KEY} : undef;
+        defined $span;
+    };
+    return unless $ok;
+    return eval { $span->child_of };
+}
+
+my $lwp_instrumented = 0;
+
+# Instrument LWP::UserAgent so every outbound HTTP request:
+#  - starts a CLIENT span whose parent is the current request's span
+#  - injects the traceparent (and b3) headers so the far side joins the trace
+#  - records the response status on the span when it completes
+#
+# This is the Punk equivalent of the old `OpenTelemetry::Integration
+# 'LWP::UserAgent'`. Everything (get/post/head/put/delete, request, mirror,
+# and the LWP::UserAgent::Plugin UA) flows through one choke point,
+# LWP::UserAgent::request, so wrapping it alone covers every outbound call.
+#
+# The wrapper is deliberately idempotent and transparent: when the SDK is
+# disabled (get_otel has no tracer) requests pass through untouched, and the
+# original method is always the one that performs the network I/O.
+sub install_lwp_instrumentation {
+    return if $lwp_instrumented;
+    $lwp_instrumented = 1;
+
+    require LWP::UserAgent;
+    no warnings 'redefine';
+    my $orig = \&LWP::UserAgent::request;
+    *LWP::UserAgent::request = sub {
+        my ($self, $request, @rest) = @_;
+        my $o = get_otel();
+
+        my $span;
+        if ($o->{tracer}) {
+            my $parent = parent_context();
+            $span = $o->{tracer}->start($request->method . ' ' . $request->uri,
+                kind => 3, parent => $parent);
+        }
+
+        if ($span) {
+            $span->attr('http.method' => $request->method);
+            $span->attr('http.url' => $request->uri);
+            my $uri = $request->uri;
+            if (UNIVERSAL::can($uri, 'host') and my $host = $uri->host) {
+                $span->attr('http.host' => $host);
+            }
+            my $headers = Punk::OpenTelemetry::Propagate::inject(
+                $span->trace_id, $span->span_id, $span->sampled);
+            $request->header($_, $headers->{$_}) for keys %$headers;
+        }
+
+        my $response;
+        my $ok = eval { $response = $orig->($self, $request, @rest); 1 };
+        my $err = $@;
+
+        if ($span) {
+            if ($ok and defined $response) {
+                $span->attr('http.status_code' => $response->code);
+                # A 4xx is a failure of the call this process made (see
+                # Punk::OpenTelemetry::Instrument). Success stays UNSET: a
+                # wrapper has no opinion on whether the operation succeeded.
+                if (!$response->is_success) {
+                    $span->status(2, $response->message);
+                }
+            }
+            else {
+                $span->status(2, $err // 'no response');
+                $span->event('exception', {'exception.message' => $err // 'no response'});
+            }
+            $o->{tracer}->enqueue($span);
+        }
+
+        die $err if !$ok;
+        return $response;
+    };
+    return;
 }
 
 sub new($class) {

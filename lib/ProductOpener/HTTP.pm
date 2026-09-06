@@ -66,7 +66,8 @@ use Encode;
 use CGI qw(:cgi :cgi-lib :form escapeHTML charset cookie url_param);
 use Data::DeepAccess qw(deep_get);
 use LWP::UserAgent;
-# use OpenTelemetry::Integration 'LWP::UserAgent';
+use ProductOpener::OpenTelemetry ();
+ProductOpener::OpenTelemetry::install_lwp_instrumentation();
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::RequestStats qw(:all);
