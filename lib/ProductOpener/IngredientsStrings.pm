@@ -609,7 +609,7 @@ sub protect_compound_unit_slashes ($text) {
 	return $text;
 }
 
-=head2 isolate_compound_unit_quantities ($text)
+=head2 isolate_compound_unit_quantities ($ingredients_lc, $text)
 
 Wrap compound-unit quantities (C<450 mg/kg>, C<500 IU/kg>, ...) in list
 separators when they are glued between two words, so that the parser's
@@ -623,21 +623,26 @@ matching (#6132 follow-up).
 
 Only compound units are isolated: simple units and percents have established
 boundary behaviors (e.g. "12% de matière grasse") that must not change.
+Localized minimum and maximum qualifiers after a quantity are kept at the
+segment end so the existing quantity parser can consume them.
 
 =cut
 
-sub isolate_compound_unit_quantities ($text) {
+sub isolate_compound_unit_quantities ($ingredients_lc, $text) {
 
 	return $text if not defined $text;
 
 	my $compound_units = join('|', _compound_unit_regexp_alternatives());
+	my $qualifiers = join('|', grep {defined} ($min_regexp{$ingredients_lc}, $max_regexp{$ingredients_lc}));
+	$qualifiers = "(?!(?i:$qualifiers)\\b)" if length $qualifiers;
 
 	# Isolate a compound quantity glued between two words:
 	# "L-carnitine 450 mg/kg sulfate" -> "L-carnitine, 450 mg/kg, sulfate".
 	# Left context: letter, digit or closing bracket (additive codes like
 	# "3b103 110 mg/kg"); right context: a letter. Trailing quantities and
 	# quantities already at a separator are consumed by existing rules.
-	$text =~ s/(?<=[\p{L}\p{N}\)\]])\s+(\d+(?:[\.\,\N{U+201A}]\d+)?\s*(?:$compound_units))\s+(?=\p{L})/, $1, /g;
+	$text
+		=~ s/(?<=[\p{L}\p{N}\)\]])\s+(\d+(?:[\.\,\N{U+201A}]\d+)?\s*(?:$compound_units))\s+$qualifiers(?=\p{L})/, $1, /g;
 
 	return $text;
 }
@@ -682,7 +687,7 @@ sub init_percent_or_quantity_regexps($ingredients_lc) {
 			. $one_regexp_in_lc
 			. ')\b'    # 'une' (as in "une pincée"), needs a word boundary after it to avoid matching "une" to "un e"
 			. ')\s*' . '(' . $units_except_percent . '|\%)\s*'    # % or unit
-			# note: \% needs to be added individually as it seems ignored as a synonym in the units taxonomy
+				# note: \% needs to be added individually as it seems ignored as a synonym in the units taxonomy
 			. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
 			. $ignore_strings_after_percent
 			. '|\s|\)|\]|\}|(?:'

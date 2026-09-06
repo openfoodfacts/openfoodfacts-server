@@ -963,7 +963,7 @@ puffed orange and caramelized unknown_fruit4.",
 		},
 	],
 	# origins adjectives
-[
+	[
 		'fr-origins-adjectives',
 		{
 			lc => 'fr',
@@ -1022,6 +1022,20 @@ puffed orange and caramelized unknown_fruit4.",
 				"Hierro 30 mg/kg, ácido fólico 2,2 mg/kg, tiamina 6,3 mg/kg, riboflavina 1,3 mg/kg, niacina 13 mg/kg",
 		}
 	],
+	[
+		"en-compound-unit-minimum-qualifier",
+		{
+			lc => "en",
+			ingredients_text => "Vitamin A 100 mg/kg minimum",
+		}
+	],
+	[
+		"en-label-promoted-compound-unit-slash",
+		{
+			lc => "en",
+			ingredients_text => "organic (mg/kg 1b306)",
+		}
+	],
 	# French petfood dosages (Open Pet Food Facts / related to #6132)
 	[
 		"fr-petfood-mg-per-kg",
@@ -1054,8 +1068,7 @@ puffed orange and caramelized unknown_fruit4.",
 		"fr-petfood-mid-segment-mg-per-kg",
 		{
 			lc => "fr",
-			ingredients_text =>
-				"L-carnitine 450 mg/kg sulfate de glucosamine 450 mg/kg, chondroïtine 450 mg/kg",
+			ingredients_text => "L-carnitine 450 mg/kg sulfate de glucosamine 450 mg/kg, chondroïtine 450 mg/kg",
 		}
 	],
 	# An additive class followed only by unit junk / unknown codes keeps its

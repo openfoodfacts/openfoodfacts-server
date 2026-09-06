@@ -1671,7 +1671,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	# glucosamine" are gone: restore list boundaries around compound-unit
 	# quantities glued between two words, so quantities can be extracted and
 	# the following ingredient can be matched (#6132 follow-up).
-	$text = isolate_compound_unit_quantities($text);
+	$text = isolate_compound_unit_quantities($ingredients_lc, $text);
 
 	my $and = $and{$ingredients_lc} || " and ";
 
@@ -2399,6 +2399,9 @@ Text to analyze
 				$ingredient =~ s/^\s+//;
 				$ingredient =~ s/\s+$//;
 
+				# Restore protected solidus after structural handling and label promotion.
+				$ingredient =~ s/\N{U+2044}/\//g;
+
 				$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
 
 				if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
@@ -2957,10 +2960,13 @@ Text to analyze
 								my $chunk = $raw_chunk;
 								$chunk =~ s/^\s+|\s+$//g;
 								next if $chunk eq '';
-								if (   exists_taxonomy_tag("additives",
+								if (
+									exists_taxonomy_tag("additives",
 										canonicalize_taxonomy_tag($ingredients_lc, "additives", $chunk))
-									or exists_taxonomy_tag("ingredients",
-										canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $chunk)))
+									or exists_taxonomy_tag(
+										"ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $chunk)
+									)
+									)
 								{
 									$flatten_children = 1;
 									last;
