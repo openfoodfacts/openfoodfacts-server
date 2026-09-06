@@ -28,7 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Constants qw(OTEL_SPAN_PNOTES_KEY);
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/init_request/;
-use ProductOpener::HTTP qw/write_cors_headers single_param get_http_request_pnote/;
+use ProductOpener::HTTP qw/single_param get_http_request_pnote/;
 use ProductOpener::Users qw/$User_id %User is_admin_user/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/country_to_cc/;
