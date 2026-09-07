@@ -2,10 +2,11 @@
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [
       {
+         "ciqual_food_code" : "11081",
          "id" : "en:spice",
          "ingredients" : [
             {
-               "ciqual_proxy_food_code" : "11089",
+               "ciqual_food_code" : "11081",
                "id" : "en:turmeric",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 58.3333333333333,
@@ -16,7 +17,7 @@
                "vegetarian" : "yes"
             },
             {
-               "ciqual_proxy_food_code" : "11074",
+               "ciqual_food_code" : "11081",
                "id" : "en:ginger",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 20.8333333333333,
@@ -51,6 +52,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "11080",
                "id" : "en:coriander",
                "is_in_taxonomy" : 1,
                "percent_estimate" : 2.60416666666666,
@@ -127,11 +129,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:coriander",
-      "en:spice"
-   ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "ingredients_without_ecobalyse_ids" : [
       "en:coriander",
       "en:ginger",
