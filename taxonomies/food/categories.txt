@@ -78453,13 +78453,19 @@ sv: Tacosåser
 en: Mild taco sauces
 da: Milde tacosovse
 sv: Milda tacosåser
-incompatible_with:en: categories:en:medium-hot-taco-sauces
+incompatible_with:en: categories:en:medium-hot-taco-sauces, categories:en:hot-taco-sauces
 
 < en: Taco sauces
 en: Medium-hot taco sauces, Medium-spicy taco sauces
 fi: Keskivahvat taco-kastikkeet
 sv: Mellanstarka tacosåser, Medium tacosåser
-incompatible_with:en: categories:en:mild-taco-sauces
+incompatible_with:en: categories:en:mild-taco-sauces, categories:en:hot-taco-sauces
+
+< en: Taco sauces
+en: Hot taco sauces, Spicy taco sauces
+da: Stærke tacosovse
+sv: Starka tacosåser
+incompatible_with:en: categories:en:mild-taco-sauces, categories:en:medium-hot-taco-sauces
 
 < en: Sauces
 en: Walnut sauces
