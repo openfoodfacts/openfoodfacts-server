@@ -1141,8 +1141,11 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 		access_expires_at => $access_expires_at,
 		id_token => $id_token
 	};
-	# Rotate CSRF token if the last login was more than 1 day ago
-	if ((not defined $user_ref->{last_login_t}) or (time() - $user_ref->{last_login_t} > 86400)) {
+	# Rotate CSRF token if the last login was more than 1 day ago,
+	# or if no CSRF token has been generated yet
+	if ((not defined $user_ref->{last_login_t})
+		or (time() - $user_ref->{last_login_t} > 86400)
+		or (not defined $user_ref->{csrf_token})) {
 		$log->debug("rotating CSRF token") if $log->is_debug();
 		$user_ref->{csrf_token} = generate_token(32);
 	}
