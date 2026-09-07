@@ -58,7 +58,7 @@ jobs:
 
     - name: Determine Cache Bust value
       id: cache-buster
-      run: echo "CALENDAR_WEEK=$(date --utc +%Y-W%V)" >> "$GITHUB_OUTPUT"
+      run: echo "CALENDAR_WEEK=$(date --utc +%G-W%V)" >> "$GITHUB_OUTPUT"
 
     - name: Build and push
       uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
