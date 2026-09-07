@@ -318,7 +318,7 @@ my %synonyms = ();
 my %synonyms_for_extended = ();
 %translations_from = ();
 %translations_to = ();
-%level = ();
+%level = ();    # level of a tag is the maximum length of the chain of children from that tag to a leaf
 my %direct_parents = ();
 my %direct_children = ();
 my %all_parents = ();
@@ -2007,10 +2007,13 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		}    # wikipedia file
 
 		# Compute all parents, breadth first
+		# Also compute the level of each tag
+		# The level of leaves is 1, the level of their parents is 2, etc.
+		# If a parent has multiple children, its level is the maximum of the levels of its children + 1
+		# So the level of a tag is the maximum length of the chain of children from that tag to a leaf
+		# The level of each tag is used in gen_tags_list_with_parents() to sort the resulting tags
 
-		my %longest_parent = ();
-
-		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {
+		# Loop over all tags, and for each tag, loop over its parents, then their parents, etc.
 		foreach my $tagid (sort keys %{$translations_to{$tagtype}}) {
 
 			my @queue = ();
@@ -2027,9 +2030,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			if (not defined $level{$tagtype}{$tagid}) {
 				$level{$tagtype}{$tagid} = 1;
-				if (defined $direct_parents{$tagtype}{$tagid}) {
-					$longest_parent{$tagid} = (sort keys %{$direct_parents{$tagtype}{$tagid}})[0];
-				}
 			}
 
 			my %seen = ();
@@ -2038,7 +2038,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			while ($#queue > -1) {
 				my ($parentid, $parent_level, $path_ref) = @{shift @queue};
-				#print "- $parentid\n";
 
 				if ($parentid eq $tagid) {
 					my $msg = "$tagid is a parent of itself\n";
@@ -2052,11 +2051,12 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					}
 					$seen_with_level{"$parentid\t$parent_level"} = 1;
 
+					# Check that the level of the parent is at least the level of the child + 1 (parent level)
 					if ((not defined $level{$tagtype}{$parentid}) or ($level{$tagtype}{$parentid} < $parent_level)) {
 						$level{$tagtype}{$parentid} = $parent_level;
-						$longest_parent{$tagid} = $parentid;
 					}
 
+					# Add the parent's parents to the queue
 					if (defined $direct_parents{$tagtype}{$parentid}) {
 						foreach my $grandparentid (sort keys %{$direct_parents{$tagtype}{$parentid}}) {
 							if (defined $path_ref->{$grandparentid}) {
@@ -2078,7 +2078,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 								or ($level{$tagtype}{$grandparentid} < $grandparent_level))
 							{
 								$level{$tagtype}{$grandparentid} = $grandparent_level;
-								$longest_parent{$parentid} = $grandparentid;
 							}
 						}
 					}
@@ -2127,7 +2126,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			$taxonomy_full_json{$tagid} = {name => {}};
 			$taxonomy_extended_json{$tagid} = {name => {}};
 
-			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				$taxonomy_json{$tagid}{parents} = [];
 				$taxonomy_full_json{$tagid}{parents} = [];
@@ -2819,6 +2817,20 @@ my %and = (
 	pt => " e ",
 );
 
+=head2 gen_tags_hierarchy_taxonomy($tag_lc, $tagtype, $tags_list)
+
+Generate a list of tags including the parents of the tags in the input list.
+
+Tags are sorted by level (length of the longest chain of children: 1 for leaf nodes) and then alphabetically.
+
+=head3 Parameters
+
+=head4 tag type $tagtype
+
+=head4 comma-separated list of tags $tags_list
+
+=cut
+
 sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 
 	# $tags_list  ->  comma-separated list of tags, not in a specific order
@@ -2833,6 +2845,8 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 =head2 gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref)
 
 Generate a list of tags including the parents of the tags in the input list.
+
+Tags are sorted by level (length of the longest chain of children: 1 for leaf nodes) and then alphabetically.
 
 =head3 Parameters
 
