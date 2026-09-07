@@ -16,7 +16,7 @@ jobs:
     steps:
     - &step-reaction-seen
       name: Add “seen” reaction to comment
-      uses: peter-evans/create-or-update-comment@v5
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
         comment-id: ${{ github.event.comment.id }}
         reactions: eyes
@@ -34,7 +34,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
     - &checkout-fork-repo
       name: Checkout
-      uses: actions/checkout@v7
+      uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         # we need to checkout the fork repository
         # see https://github.com/stefanzweifel/git-auto-commit-action?tab=readme-ov-file#workflow-should-run-in-base-repository
@@ -55,7 +55,7 @@ jobs:
       name: Run linting
       run: make lint front_lint
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v7
+      uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
       with:
         commit_message: "chore: Linting changes"
         branch: "${{ steps.get-branch.outputs.branch }}"
@@ -68,7 +68,7 @@ jobs:
         create_branch: no
     - &step-reaction-completed
       name: Add “completed” reaction to comment
-      uses: peter-evans/create-or-update-comment@v5
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
       with:
         comment-id: ${{ github.event.comment.id }}
         reactions: rocket
@@ -89,7 +89,7 @@ jobs:
       name: Run update tests results
       run: make update_tests_results
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v7
+      uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
       with:
         commit_message: "test: Update tests results"
         branch: "${{ steps.get-branch.outputs.branch }}"
@@ -122,7 +122,7 @@ jobs:
     - *run-linting
     - *run-update-tests-results
     - name: Push changes if needed
-      uses: stefanzweifel/git-auto-commit-action@v7
+      uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
       with:
         commit_message: "chore: Linting and test results changes"
         branch: "${{ steps.get-branch.outputs.branch }}"
