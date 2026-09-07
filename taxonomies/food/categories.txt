@@ -78453,17 +78453,44 @@ sv: Tacosåser
 en: Mild taco sauces
 da: Milde tacosovse
 sv: Milda tacosåser
-incompatible_with:en: categories:en:medium-hot-taco-sauces
+incompatible_with:en: categories:en:medium-hot-taco-sauces, categories:en:hot-taco-sauces
 
 < en: Taco sauces
 en: Medium-hot taco sauces, Medium-spicy taco sauces
 fi: Keskivahvat taco-kastikkeet
 sv: Mellanstarka tacosåser, Medium tacosåser
-incompatible_with:en: categories:en:mild-taco-sauces
+incompatible_with:en: categories:en:mild-taco-sauces, categories:en:hot-taco-sauces
+
+< en: Taco sauces
+en: Hot taco sauces, Spicy taco sauces
+da: Stærke tacosovse
+sv: Starka tacosåser
+incompatible_with:en: categories:en:mild-taco-sauces, categories:en:medium-hot-taco-sauces
 
 < en: Sauces
 en: Walnut sauces
 fr: Sauces au noix
+
+< en: Sauces
+en: Marinades, Marinade
+cs: Marináda
+da: Marinader, Marinade
+de: Marinade
+es: Marinados
+et: Marinaad
+eu: Marinada
+fi: Marinadi
+fr: Marinade
+it: Marinata
+ko: 마리네이드
+lt: Marinatas
+nb: Marinader
+nl: Marinade
+nn: Marinadar
+pl: Marynata
+pt: Marinada
+sv: Marinader
+wikidata:en: Q56296569
 
 < en: Sauces
 en: Warm sauces
@@ -78937,16 +78964,34 @@ wikidata:en: Q1572278
 en: Salad creams
 description:en: Salad cream is a creamy, pale yellow condiment based on an emulsion of about 25–50 percent oil in water, emulsified by egg yolk and acidulated by spirit
 intake24_category_code:en: SDCM
+wikidata:en: Q6128321
 
 < en: Salad dressings
-en: Salad dressing with reduced fat, Low fat salad dressing, Light salad dressing
+en: Salad dressings with reduced fat, Salad dressing with reduced fat, Low fat salad dressing, Light salad dressing
+da: Lette salatdressinger
 fr: Sauces crudités allégées, Sauces crudités light, Sauce crudités allégée en matière grasse, Sauce salade allégée en matière grasse
 hr: Preljev za salatu sa smanjenom masnoćom
 lt: Salotų padažai su sumažintu riebalų kiekiu
+sv: Lätta salladsdressingar
 agribalyse_food_code:en: 11198
 ciqual_food_code:en: 11198
 ciqual_food_name:en: Salad dressing, reduced fat, prepacked
 ciqual_food_name:fr: Sauce crudités ou Sauce salade, allégée en matière grasse, préemballée
+
+< en: Salad dressings
+en: Rhode Island dressings
+da: Rhode Island-dressinger
+sv: Rhode Island-dressingar, Rhode Island-såser
+description:en: Swedish salad dressing similar to Thousand Island, with no known relation to Rhode Island.
+
+< en: Rhode Island dressings
+< en: Salad dressings with reduced fat
+en: Rhode Island dressings with reduced fat, Light Rhode Island dressings
+sv: Lätta Rhode Island-dressingar, Rhode Island lätt dressing
+agribalyse_proxy_food_code:en: 11198
+ciqual_proxy_food_code:en: 11198
+ciqual_proxy_food_name:en: Salad dressing, reduced fat, prepacked
+ciqual_proxy_food_name:fr: Sauce crudités ou Sauce salade, allégée en matière grasse, préemballée
 
 < en: Salad dressings
 en: Thousand Island dressings, Thousand Island dressing
@@ -79918,6 +79963,11 @@ hu: Édes mustár
 it: Senapi dolci
 nl: Zoete mosterds
 pl: Musztardy słodkie
+
+< en: Mustards
+en: Sweet and strong mustards, Sweet and spicy mustards, Sötstark mustards
+fi: Sinappi makea-väkevä
+sv: Sötstarka senap, Sötstark senap
 
 < en: Mustards
 en: Tomato mustards
