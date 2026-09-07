@@ -5,19 +5,42 @@ stopwords:fr: aux, au, de, le, du, la, a, et, avec, pour
 synonyms:en: flavoured, flavored
 
 en: Incorrect product type
-bg: Неправилен product type
+ar: نوع المنتج غير صحيح
+bg: Неправилен тип продукт
 ca: Tipus de producte incorrecte
+cs: Nesprávný typ produktu
 da: Forkert produkttype
-de: Falscher product type
+de: Falscher Produkttyp
+el: Εσφαλμένος τύπος προϊόντος
 es: Tipo de producto incorrecto
-fi: Väärä product type
-fr: Mauvais product type
-hr: Pogrešan product type
+et: Vale tootetüüp
+fi: Väärä tuotetyyppi
+fr: Type de produit incorrect
+he: סอย מוצר שגוי
+hi: अमान्य उत्पाद प्रकार
+hr: Pogrešna vrsta proizvoda
+hu: Hibás terméktípus
+id: Tipe produk salah
 it: Tipo di prodotto errato
-nl: Verkeerd product type
+ja: 不正な製品タイプ
+ko: 잘못된 제품 유형
+lt: Neteisingas produkto tipas
+lv: Nepareizs produkta veids
+ms: Jenis produk salah
+nl: Verkeerd producttype
+no: Feil produkttype
+pl: Nieprawidłowy typ produktu
 pt: Tipo de produto incorreto
-ru: Неправильный product type
+ro: Tip de produs incorect
+ru: Неправильный тип продукта
+sk: Nesprávny typ produktu
+sl: Napačna vrsta izdelka
 sv: Fel produkttyp
+th: ประเภทสินค้าไม่ถูกต้อง
+tr: Yanlış ürün tipi
+uk: Неправильний тип продукту
+vi: Sai loại sản phẩm
+zh: 错误的产品类型
 
 < en: Incorrect product type
 en: Non beauty products
@@ -46,7 +69,6 @@ en: Open Products Facts, OPF
 xx: Open Products Facts, OPF
 
 # Can you add translations in all European, Asian languages (and more), following alphabetical order for language ordering, except for english which comes first ?
-
 
 ###### CATEGORIE HYGIENE
 
@@ -487,10 +509,12 @@ wikidata:en: Q34396
 
 < en: Soaps
 en: Scented soaps
+fr: Savons parfumés, Savon parfumé
 incompatible_with:en: categories:en:unscented-soaps
 
 < en: Soaps
 en: Unscented soaps
+fr: Savons non parfumés, Savon non parfumé, Savons sans parfum
 incompatible_with:en: categories:en:scented-soaps
 
 < en: Soaps
@@ -606,6 +630,7 @@ wikidata:en: Q97925317
 
 < en: Soaps
 en: Bar soaps
+fr: Savons solides, Savon solide, Pains de savon, Pain de savon
 google_product_taxonomy_id:en: 2503
 incompatible_with:en: categories:en:liquid-soaps
 wikidata:en: Q27883554
@@ -613,6 +638,7 @@ wikidata:en: Q27883554
 < en: Bar soaps
 < en: Scented soaps
 en: Scented bar soaps
+fr: Savons solides parfumés, Savon solide parfumé
 
 < en: Hygiene
 en: Hydro-alcoholic gels, alcohol-based gels
@@ -845,9 +871,11 @@ google_product_taxonomy_id:en: 2747
 wikidata:en: Q1267611
 
 < en: Showers and baths
+en: Shower creams, Cream shower gels
 fr: Crèmes douche, Douche crème
 
 < en: Showers and baths
+en: Shower oils
 fr: Huiles douche
 
 #### Hygiène intime
@@ -964,6 +992,7 @@ google_product_taxonomy_id:en: 2564
 wikidata:en: Q976338
 
 < fr: Tampons hygiéniques
+en: Regular tampons
 fr: Tampons réguliers
 
 < en: Intimate hygiene
@@ -1582,10 +1611,12 @@ wikidata:en: Q47471797
 
 < en: Depilatory wax
 en: Cold depilatory wax
+fr: Cire épilatoire à froid
 wikidata:en: Q47471806
 
 < en: Depilatory wax
 en: Face depilatory wax
+fr: Cire épilatoire visage
 
 #### Rasage
 
@@ -1646,6 +1677,7 @@ vi: Cạo râu
 zh: 剃须
 
 < en: Shaving
+en: Pre-shave products, Pre-shave
 fr: Avant rasage
 
 < en: Shaving
@@ -1655,7 +1687,7 @@ google_product_taxonomy_id:en: 529
 wikidata:en: Q1545022
 
 < en: Aftershaves
-fr: Lotion post-rasage
+en: Aftershave lotions, After-shave lotions
 ar: غسول بعد الحلاقة
 az: Tıraşdan sonra losyon
 bg: Лосион след бръснене
@@ -1669,6 +1701,7 @@ es: Loción para después del afeitado
 et: Pärast raseerimist losjoon
 fa: لوسیون بعد از اصلاح
 fi: Parranajon jälkeen käytettävä lotion
+fr: Lotion post-rasage
 ga: Lóis iar-bhearrtha
 he: תחליב לאחר גילוח
 hr: Losion poslije brijanja
@@ -1709,7 +1742,7 @@ vi: Sữa dưỡng sau khi cạo râu
 zh: 剃须后乳液
 
 < en: Aftershaves
-fr: Baumes Après-rasage, Lotion Après-rasage, Baume Après-rasage
+en: Aftershave balms, After-shave balms
 ar: بلسم بعد الحلاقة
 az: Tıraşdan sonra balzam
 bg: Балсам след бръснене
@@ -1723,6 +1756,7 @@ es: Bálsamo para después del afeitado
 et: Pärast raseerimist palsam
 fa: بالم بعد از اصلاح
 fi: Parranajon jälkeen käytettävä balsami
+fr: Baumes Après-rasage, Lotion Après-rasage, Baume Après-rasage
 ga: Balm iar-bhearrtha
 he: באלם לאחר גילוח
 hr: Balzam poslije brijanja
@@ -1931,7 +1965,6 @@ vi: Xà phòng cạo râu
 zh: 剃须皂
 wikidata:en: Q1189777
 
-
 ###### CATEGORIE CORPS
 
 en: Body
@@ -2045,6 +2078,7 @@ vi: Kem dưỡng thể
 zh: 身体乳霜
 
 < en: Body creams
+en: Foot creams
 ar: كريمات للقدم
 az: Ayaq kremləri
 bg: Кремове за крака
@@ -2096,9 +2130,11 @@ vi: Kem dưỡng da chân
 zh: 护脚霜
 
 < en: Body creams
+en: Body balms and butters, Body butters
 fr: Baumes et beurres pour le corps, baumes et beurres corporels
 
 < en: Body creams
+en: Moisturizing creams, Moisturising creams
 ar: كريمات مرطبة
 az: Nəmləndirici kremlər
 bg: Хидратиращи кремове
@@ -2202,6 +2238,7 @@ vi: Dầu dưỡng thể
 zh: 身体油
 
 < en: Body oils
+en: Massage oils
 ar: زيت التدليك
 az: Masaj yağı
 bg: Масажно олио
@@ -2253,15 +2290,19 @@ vi: Dầu mát-xa
 zh: 按摩油
 
 < fr: Huile de massage
+en: Edible massage oils
 fr: Huile de massage comestible
 
 < en: Body
 en: Body gels
+fr: Gels pour le corps, Gel pour le corps, Gels corporels
 
 < en: Body gels
+en: Slimming gels, Anti-cellulite gels
 fr: Gel Amincissant
 
 < en: Body gels
+en: Massage gels
 fr: Gel de massage
 
 < en: Body
@@ -2273,7 +2314,7 @@ en: Body scrubs, body exfoliants
 fr: Gommages pour le corps, Gommages corporels, Gommage pour le corps, Gommage corporel
 
 < en: Body
-fr: Soins pour les jambes, Soin pour les jambes
+en: Leg care products, Leg care
 ar: العناية بالساقين
 az: Ayaq baxımı
 bg: Грижа за краката
@@ -2287,6 +2328,7 @@ es: Cuidado de las piernas
 et: Jalgade hooldus
 fa: مراقبت از پا
 fi: Jalkojen hoito
+fr: Soins pour les jambes, Soin pour les jambes
 ga: Cúram cos
 he: טיפוח רגליים
 hr: Njega stopala
@@ -2570,7 +2612,7 @@ es: Cremas de día y de noche
 et: Päeva- ja öökreemid
 fa: کرم های روز و شب
 fi: Päivä- ja yövoiteet
-fr: Crèmes jour et nuit, Crèmes jour et nuit, Soin jour et nuit
+fr: Crèmes jour et nuit, Crème jour et nuit, Soin jour et nuit
 ga: Uachtair lae agus oíche
 he: קרמי יום ולילה
 hr: Dnevne i noćne kreme
@@ -2614,7 +2656,7 @@ zh: 日霜和晚霜
 
 < en: Facial creams
 en: Anti-aging face care products
-fr: Soins anti-âge visage, Crête anti-âge visage
+fr: Soins anti-âge visage, Soin anti-âge visage, Crème anti-âge visage
 
 < en: Anti-aging face care products
 en: Anti-wrinkles creams
@@ -2671,6 +2713,7 @@ zh: 抗皱霜
 ####
 
 < en: Face
+en: Eye contour creams, Eye creams
 fr: Contours des yeux
 
 < en: Face
@@ -2831,7 +2874,7 @@ nl: Reinigers, make-up removers
 no: Rensemidler, sminkefjernere
 pl: Oczyszczacze, zmywacze do makijażu
 pt: Produtos de limpeza, removedores de maquiagem
-ro: Demachiante, demachiante
+ro: Demachiante
 ru: Очищающие средства, средства для снятия макияжа
 sk: Čistiace prostriedky, odličovače
 sl: Čistila, odstranjevalci ličil
@@ -4193,7 +4236,6 @@ uk: Шампуні проти лупи
 uz: Qazg'oqqa qarshi shampunlar
 vi: Dầu gội trị gàu
 
-
 < en: Shampoos
 en: Shampoos for children
 ar: شامبو للأطفال
@@ -4345,6 +4387,7 @@ vi: Dầu gội có chiết xuất tự nhiên
 zh: 天然提取物洗发水
 
 < fr: Shampooings aux extraits naturels
+en: Linden shampoos
 ar: شامبو بخلاصة الزيزفون
 az: Şampunlar cövhəri ilə
 bg: Шампоани с екстракт от липа
@@ -4401,15 +4444,19 @@ vi: Dầu gội có chiết xuất từ cây Linden
 zh: 菩提树提取物洗发水
 
 < fr: Shampooings aux extraits naturels
+en: Nettle shampoos
 fr: Shampooings à l'ortie
 
 < fr: Shampooings aux extraits naturels
+en: Lemon balm shampoos
 fr: Shampooings à la mélisse
 
 < fr: Shampooings aux extraits naturels
+en: Chamomile shampoos
 fr: Shampooings à la camomille
 
 < fr: Shampooings aux extraits naturels
+en: Honey shampoos
 fr: Shampooings au miel, shampooings au miel de fleurs
 
 < en: Shampoos
@@ -4517,6 +4564,7 @@ vi: Dầu gội gỡ rối tóc
 zh: 柔顺洗发水
 
 < en: Shampoos
+en: Anti-dryness shampoos
 ar: شامبو مضاد للجفاف
 az: Quruluğa qarşı şampunlar
 bg: Шампоани против изсушаване
@@ -4568,6 +4616,7 @@ vi: Dầu gội chống khô
 zh: 防干燥洗发水
 
 < en: Shampoos
+en: Anti-hair loss shampoos
 ar: شامبو ضد تساقط الشعر
 az: Saç tökülməsinə qarşı şampunlar
 bg: Шампоани против косопад
@@ -4844,6 +4893,7 @@ vi: Duỗi tóc
 zh: 拉直头发
 
 < en: Hair
+en: Hair styling products, Styling products
 fr: Coiffants
 
 < fr: Coiffants
@@ -5007,6 +5057,7 @@ zh: 化妆品
 
 en: Eyes
 da: Øjne
+fr: Yeux
 sv: Ögon
 
 #### Maquillage pour les yeux
@@ -5248,11 +5299,13 @@ zh: 煤精铅笔
 < en: Eyes
 en: Eyewash
 da: Øjenskyl
+fr: Solutions de lavage oculaire, Bains oculaires
 sv: Ögonskölj
 
 < en: Eyes
 en: Eye drops
 da: Øjendråber
+fr: Collyres, Collyre, Gouttes pour les yeux
 sv: Ögondroppar
 wikidata:xx: Q552308
 
@@ -5309,6 +5362,7 @@ vi: Trang điểm mặt
 zh: 脸部彩妆
 
 < en: Face Makeup
+en: Foundations, Foundation
 az: Tonal krem
 bg: Фон дьо тен
 da: Foundation
@@ -5357,9 +5411,11 @@ zh: 粉底
 wikidata:en: Q1418455
 
 < fr: Fonds de teint
+en: Powder foundations
 fr: Fond de teint poudre
 
 < fr: Fonds de teint
+en: Liquid foundations
 ar: كريم أساس سائل
 az: Maye tonal krem
 bg: Течен фон дьо тен
@@ -5411,9 +5467,11 @@ vi: Kem nền dạng lỏng
 zh: 粉底液
 
 < en: Face Makeup
+en: Bronzing powders, Bronzers
 fr: Poudres bronzantes
 
 < en: Face Makeup
+en: Loose powders, Loose face powders
 fr: Poudres libres
 
 < fr: Poudres libres
@@ -5423,6 +5481,7 @@ es: Polvos fijadores
 fr: Poudres fixantes
 
 < en: Face Makeup
+en: Makeup primers, Face primers
 fr: Primer
 
 < en: Face Makeup
@@ -6000,7 +6059,7 @@ es: Protector solar
 et: Päikesekaitsekreem
 fa: کرم ضد آفتاب
 fi: Aurinkovoide
-fr: Crèmes solaire, crème solaire
+fr: Crèmes solaires, crème solaire, Écrans solaires, Écran solaire
 ga: Grianchosaint
 he: קרם הגנה
 hr: Krema za sunčanje
@@ -6045,10 +6104,12 @@ wikidata:en: Q827658
 < en: Lip balms
 < en: Sunscreen
 en: Lip balms with sun protection
+fr: Baumes à lèvres solaires, Baume à lèvres solaire
 
 < en: Facial creams
 < en: Sunscreen
 en: Facial sunscreens, Face sunscreens
+fr: Solaires visage, Solaire visage, Crèmes solaires visage
 sv: Ansiktssolkrämer
 
 < en: Suncare
@@ -6336,7 +6397,7 @@ es: Perfumes de mujer
 et: Naiste parfüümid
 fa: عطر زنانه
 fi: Naisten parfyymit
-fr: Parfums femme, Parfum femmes, Parfum femme, Parfum femmes
+fr: Parfums femme, Parfums femmes, Parfum femme, Parfum femmes
 ga: Cumhráin ban
 hr: Ženski parfemi
 hu: Női parfümök
@@ -6388,7 +6449,7 @@ es: Perfumes para niños
 et: Lasteparfüümid
 fa: عطر کودکانه
 fi: Lasten hajuvedet
-fr: Parfums enfants, Parfum enfants, Parfum enfant, Parfum enfant
+fr: Parfums enfants, Parfums enfant, Parfum enfants, Parfum enfant
 ga: Cumhráin páistí
 hr: Dječji parfemi
 hu: Gyerekparfümök
@@ -6544,6 +6605,7 @@ zh: 科隆香水
 wikidata:en: Q2863
 
 < en: Perfumes
+en: Body mists, Body sprays
 fr: Brumes corporelles, Brumes corporelle, Brume corporelles, Brume corporelle
 
 ######## CATEGORIE Accessoires
@@ -6960,7 +7022,7 @@ mk: Лубрикантни гелови, лубриканти
 ms: Gel pelincir, pelincir
 mt: Ġellijiet lubrifikanti, lubrifikanti
 nb: Glidemidler, Smøremidler, smøregeler
-nl: Glijmiddelen, glijmiddelen
+nl: Glijmiddelen
 pl: Żele intymne, Żele nawilżające, lubrykanty
 pt: Lubrificantes pessoais, Géis lubrificantes, lubrificantes
 ro: Geluri lubrifiante, lubrifianți
@@ -7049,7 +7111,7 @@ es: Toallitas húmedas para bebés
 et: Niisked salvrätikud beebidele
 fa: دستمال مرطوب کودک
 fi: Vauvojen kosteuspyyhkeet
-fr: Lingettes pour bébé, Lingettes bébé, Lingettes bébés, Lingette bébés, Lingette bébés
+fr: Lingettes pour bébé, Lingettes bébé, Lingettes bébés, Lingette bébé
 ga: Tuáillíní fliucha do leanaí
 he: מגבונים לחים לתינוקות
 hr: Vlažne maramice za bebe
@@ -7093,16 +7155,19 @@ zh: 婴儿湿巾
 en: Cotton buds, Cotton swabs
 da: Vatpinde
 de: Wattestäbchen
+fr: Cotons-tiges, Coton-tige, Bâtonnets ouatés
 nb: Bomullspinner
 sv: Bomullspinnar
 google_product_taxonomy_id:en: 2934
 wikidata:en: Q12201
 
 en: Petroleum jellies, Vaseline
+fr: Vaselines, Vaseline
 sv: Petroleumgeléer, Vaselin
 google_product_taxonomy_id:en: 6753
 wikidata:en: Q457239
 
 en: Halloween cosmetics, Halloween makeup, Halloween products, Halloween supplies
 xx: Halloween-makeup
+fr: Maquillage d'Halloween, Cosmétiques d'Halloween
 

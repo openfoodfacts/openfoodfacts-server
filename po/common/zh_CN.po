@@ -406,7 +406,7 @@ msgstr "Android APK文件"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Chinese-China.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -4780,11 +4780,11 @@ msgstr "小组%s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr "未加工或低度加工的食品"
+msgstr "1.  未加工或低度加工的食品"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr "加工过的烹饪原料"
+msgstr "2. 加工过的烹饪原料"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
@@ -6494,22 +6494,22 @@ msgstr "了解有关生态评分的更多信息"
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr "优秀的配对"
+msgstr "匹配度高"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr "不错的配对"
+msgstr "匹配度较高"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr "较差的配对"
+msgstr "匹配度低"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr "未知匹配"
+msgstr "匹配度未知"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
@@ -7634,7 +7634,7 @@ msgstr "{barcode} 是您产品的条形码吗？如果是，请将其添加到�
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-zh-cn.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -8010,6 +8010,10 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
 msgstr ""
@@ -8033,4 +8037,36 @@ msgstr ""
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
 msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr "森林足迹总数"
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
+msgstr "标签"
 

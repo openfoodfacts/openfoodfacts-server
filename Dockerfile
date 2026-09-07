@@ -8,22 +8,7 @@ ARG CPANMOPTS=""
 ######################
 # Base modperl image stage
 ######################
-FROM debian:bullseye-slim AS modperl
-
-# BEGIN zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
-
-# Install ca-certificates, so that apt can connect to github pages with HTTPS
-RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
-    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt set -x && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends \
-    ca-certificates
-
-# Add backport repo
-COPY --chown=root:root ./docker/zxing-cpp-backport.gpg /usr/share/keyrings/
-COPY --chown=root:root  ./docker/zxing-cpp-backport.sources /etc/apt/sources.list.d/
-
-# END zxing-cpp 2.x backport. Can be removed after moving to trixie or later.
+FROM debian:trixie-slim AS modperl
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
@@ -164,6 +149,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         # Test::Number::Delta
         libtest-number-delta-perl \
         libdevel-size-perl \
+        # Net-IDN-Encode (needs Debian patch for Perl 5.40+ compat)
+        libnet-idn-encode-perl \
         gnumeric \
         # for dev
         # gnu readline
@@ -174,19 +161,20 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
         libapache2-mod-perl2-dev \
         # OpenSSL dev needed by OIDC::Lite
         libssl-dev \
-        # needed for  Imager::File::WEBP
-        libwebpmux3 \
+        # libheif 1.19+ in trixie uses plugins for codec support
+        # needed by Imager::File::HEIF configure test
+        libheif-plugin-x265 \
+        libheif-plugin-libde265 \
         # Imager::zxing - build deps
         pkg-config \
         libzxing-dev \
-        # Imager::zxing - decoders
+        # Imager and Imager::File::* build dependencies
         libavif-dev \
         libde265-dev \
         libheif-dev \
         libjpeg-dev \
         libpng-dev \
-        libwebp-dev \
-        libx265-dev
+        libwebp-dev
 
 RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm -o /tmp/cpm && \
     mv /tmp/cpm /usr/bin/cpm && \
@@ -210,16 +198,12 @@ ARG PO_LIB_DIR=/tmp/local
 
 WORKDIR /tmp
 
-# Install Product Opener from the workdir.
-COPY ./cpanfile* /tmp/
-# Add ProductOpener runtime dependencies from cpan
-# we also add apt cache as some libraries might be installed from apt
+# run apt update if needed because some package might need to apt install
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
     --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
     set -x && \
-    # also run apt update if needed because some package might need to apt install
     ( ( [ ! -e /var/cache/apt/pkgcache.bin ] || [ $(($(date +%s) - $(stat --format=%Y /var/cache/apt/pkgcache.bin))) -gt 3600 ] ) && \
       apt-get update || true \
     ) && \
@@ -230,10 +214,22 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
     export PATH="$PO_LIB_DIR/bin:$PATH" && \
     # first install some dependencies that are not well handled
     cpm install --show-build-log-on-failure -w $(nproc) -g "Apache::Bootstrap" && \
-    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g && \
     # Install the JUnit renderer separately so tests can keep using --renderer=JUnit
     # without adding an unresolved dependency back into cpanfile.
     cpm install --show-build-log-on-failure -w $(nproc) -g "Test2::Harness::Renderer::JUnit"
+
+# Add ProductOpener runtime dependencies from cpan
+COPY ./cpanfile* /tmp/
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt \
+    --mount=type=cache,id=lib-apt-cache,target=/var/lib/apt \
+    --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    --mount=type=cache,id=cpm-cache,target=/root/.perl-cpm \
+    set -x && \
+    # Install package dependencies in $PO_LIB_DIR
+    export PERL_MM_OPT="INSTALL_BASE=/tmp/local/" && \ 
+    export PERL_MB_OPT="--install_base /tmp/local/" && \
+    export PERL5LIB="/tmp/local/lib/perl5/" && \
+    cpm install $CPANMOPTS --show-build-log-on-failure -w $(nproc) -g
 
 ######################
 # backend production image stage

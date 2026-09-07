@@ -340,7 +340,7 @@
                   "non_recyclable_and_non_biodegradable" : "no",
                   "quantity_per_unit" : "1l",
                   "quantity_per_unit_unit" : "l",
-                  "quantity_per_unit_value" : "1",
+                  "quantity_per_unit_value" : 1,
                   "shape" : "en:bottle",
                   "weight_specified" : 42.3
                }
@@ -430,6 +430,7 @@
       "en:packagings-with-all-weights",
       "en:packagings-with-all-weights-complete",
       "en:packagings-with-weights",
+      "en:storage-conditions-not-set",
       "en:main-countries-new-product"
    ],
    "nova_group_debug" : "no nova group when the product does not have ingredients",

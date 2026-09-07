@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2024 Association Open Food Facts
+// Copyright (C) 2011-2026 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -654,7 +654,7 @@ const maximumRecentEntriesPerTag = 10;
 
                                     $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
                                     change_image(imagefield, data.result.image.imgid);
-                                    trackMatomoEvent('Product', 'Image Upload', imagefield);
+                                    trackMatomoEvent('product', 'image upload', imagefield);
                                 }
 
                                 if (data.result.error) {
@@ -750,7 +750,7 @@ const maximumRecentEntriesPerTag = 10;
     };
 
     $('#back-btn').click(function () {
-        window.location.href = window.location.origin + '/product/' + code;
+        window.location.href = window.location.origin + '/product/' + encodeURIComponent(code);
     });
 
     initLanguageAdding();
@@ -1266,8 +1266,25 @@ $(function () {
         check_nutrient(nutrient_id, per, preparation, id);
     });
 
-     $('.nutrient_unit').on('change', function () {
-        $('.nutrient_value').trigger('input');
+    $('.nutrient_unit').on('change', function () {
+        // Only re-check the nutrient row(s) whose unit actually changed,
+        // plus the related nutrients used in cross-checks (fat/carbs/sugars/saturated-fat)
+        const $tr = $(this).closest('tr');
+        const trId = $tr.attr('id'); // e.g. "nutrient_sugars_tr"
+        const nutrient_id = trId ? trId.replace(/^nutrient_/, '').replace(/_tr$/, '') : null;
+
+        const related = ['fat', 'carbohydrates', 'sugars', 'saturated-fat'];
+        let idsToRecheck = [];
+        if (nutrient_id && related.includes(nutrient_id)) {
+            idsToRecheck = related;
+        }
+        else if (nutrient_id) {
+            idsToRecheck = [nutrient_id];
+        }
+
+        idsToRecheck.forEach(function (id) {
+            $(`.nutrient_value[id*="_nutrients_${id}_value_string"]`).trigger('input');
+        });
     });
     
     }

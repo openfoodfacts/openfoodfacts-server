@@ -83,16 +83,10 @@ my @tests = (
 						'text' => 'water'
 					},
 					{
-						'id' => 'en:raising-agent',
-						'ingredients' => [
-							{
-								'id' => 'en:e501',
-								'is_in_taxonomy' => 1,
-								'text' => 'e501'
-							}
-						],
+						'id' => 'en:e501',
+						'additive_class' => 'en:raising-agent',
 						'is_in_taxonomy' => 1,
-						'text' => 'raising agents'
+						'text' => 'e501'
 					},
 					{
 						'id' => 'en:salt',
@@ -149,16 +143,10 @@ my @tests = (
 				'text' => 'sal'
 			},
 			{
-				'id' => 'en:acid',
-				'ingredients' => [
-					{
-						'id' => 'en:e330',
-						'is_in_taxonomy' => 1,
-						'text' => "\x{e1}cido c\x{ed}trico"
-					}
-				],
+				'id' => 'en:e330',
+				'additive_class' => 'en:acid',
 				'is_in_taxonomy' => 1,
-				'text' => 'acidulante'
+				'text' => "\x{e1}cido c\x{ed}trico"
 			}
 		]
 	],

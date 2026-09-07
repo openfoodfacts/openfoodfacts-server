@@ -278,7 +278,7 @@
                "id" : "additives",
                "match" : 100,
                "name" : "Additives",
-               "panel_id" : "additives",
+               "panel_id" : "ingredients_analysis",
                "status" : "known",
                "title" : "Without additives"
             }
@@ -933,7 +933,8 @@
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:packagings-empty",
       "en:packagings-not-complete",
-      "en:packagings-number-of-components-0"
+      "en:packagings-number-of-components-0",
+      "en:storage-conditions-not-set"
    ],
    "nova_group_debug" : "no nova group if too many ingredients are unknown: 1 out of 1",
    "nova_group_error" : "too_many_unknown_ingredients",
@@ -951,7 +952,7 @@
             "fiber" : 0,
             "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
             "is_beverage" : 0,
-            "is_cheese" : 1,
+            "is_cheese" : true,
             "is_fat" : 0,
             "is_water" : 0,
             "proteins" : null,
@@ -973,7 +974,7 @@
             "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
-            "is_cheese" : 1,
+            "is_cheese" : true,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
             "is_water" : 0,

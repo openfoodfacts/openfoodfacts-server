@@ -38,15 +38,15 @@ msgstr "Comhábhair, ailléirginí, breiseáin, fíricí cothaithe, lipéid, bun
 
 msgctxt "site_description_obf"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "Bunachar sonraí comhoibríoch, saor in aisce agus oscailte de chomhábhair, agus faisnéis faoi tháirgí cosmaideacha ó ar fud an domhain"
 
 msgctxt "tagline_obf"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "Bailíonn Open Beauty Facts faisnéis agus sonraí faoi tháirgí cosmaideacha ó gach cearn den domhan."
 
 msgctxt "footer_tagline_obf"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "Bunachar sonraí comhoibríoch, saor in aisce agus oscailte de tháirgí cosmaideacha ó ar fud an domhain."
 
 msgctxt "product_description_obf"
 msgid "Ingredients INCI, allergens, additives, labels, origin of ingredients and information on product %s"
@@ -59,7 +59,7 @@ msgstr ""
 
 msgctxt "footer_and_the_facebook_group_obf"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "agus an grúpa Facebook <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">do rannpháirtithe</a>"
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
@@ -75,7 +75,7 @@ msgstr "Nivea, Nivea Men"
 
 msgctxt "categories_example_beauty"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
+msgstr "Seampú frith-dandruff, Taos fiacla bánúcháin"
 
 msgctxt "emb_codes_example_beauty"
 msgid "EMB 53062"
@@ -83,11 +83,11 @@ msgstr "EMB 53062"
 
 msgctxt "generic_name_example_beauty"
 msgid "Anti-dandruff shampoo"
-msgstr ""
+msgstr "Seampú frith-dandruff"
 
 msgctxt "product_name_example_beauty"
 msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgstr "Cosaint Strus Frith-Allasach"
 
 msgctxt "ingredients_text_example_beauty"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
@@ -406,7 +406,7 @@ msgstr "Android APK"
 # Please change GetItOnGooglePlay_Badge_Web_color_English.svg to GetItOnGooglePlay_Badge_Web_color_<Language>.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_<Language>.svg . Note remove '<' and '>'. Also first letter of language should be capital.
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg"
-msgstr ""
+msgstr "/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_Irish.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -6028,6 +6028,46 @@ msgctxt "donation_button_2024_text"
 msgid "I SUPPORT"
 msgstr ""
 
+msgctxt "donation_hook_2026"
+msgid "We still need €120,000 to finish 2026!"
+msgstr ""
+
+msgctxt "donation_title_2026"
+msgid "Become an Open Food Facts patron"
+msgstr ""
+
+msgctxt "donation_list_2026_main"
+msgid "Every month, we serve 8 million visitors, and many times that through the API. Your support is essential to:"
+msgstr ""
+
+msgctxt "donation_list_2026_first"
+msgid "keep Open Food Facts open & available to all,"
+msgstr ""
+
+msgctxt "donation_list_2026_first_sub"
+msgid "support infrastructure, the website, mobile app and API with a small permanent team"
+msgstr ""
+
+msgctxt "donation_list_2026_second"
+msgid "remain independent of the food industry,"
+msgstr ""
+
+msgctxt "donation_list_2026_third"
+msgid "support the community"
+msgstr ""
+
+msgctxt "donation_list_2026_fourth"
+msgid "support science"
+msgstr ""
+
+msgctxt "donation_financial_2026_text"
+msgid "If every visitor this month clicked on Donate and gave just 1€, we'd get over 8 times our yearly budget!"
+msgstr ""
+
+msgctxt "donation_button_2026_text"
+msgid "Donate"
+msgstr ""
+
 msgctxt "donation_cta"
 msgid "Donate"
 msgstr ""
@@ -7582,7 +7622,7 @@ msgstr ""
 # Please change get-it-on-en.svg to get-it-on-XX.svg. check the url https://static.openfoodfacts.org/images/misc/f-droid/svg/get-it-on-XX.svg
 msgctxt "f_droid_app_icon_url"
 msgid "/images/misc/f-droid/svg/get-it-on-en.svg"
-msgstr ""
+msgstr "/images/misc/f-droid/svg/get-it-on-ga.svg"
 
 msgctxt "f_droid_app_icon_alt_text"
 msgid "Available on F-Droid"
@@ -7958,6 +7998,10 @@ msgctxt "test_ingredients_recipe_estimator_scipy_description"
 msgid "2nd version (Scipy) - uses nutrition facts to determine the quantity of ingredients"
 msgstr ""
 
+msgctxt "test_ingredients_recipe_estimator_cvxpy_description"
+msgid "3rd version (CVXPY) - uses nutrition facts to determine the quantity of ingredients"
+msgstr ""
+
 msgctxt "test_ingredients_key_nutrition_facts"
 msgid "Nutritional facts"
 msgstr ""
@@ -7980,5 +8024,37 @@ msgstr ""
 
 msgctxt "test_ingredients_ecobalyse_response"
 msgid "Ecobalyse response"
+msgstr ""
+
+msgctxt "forest_footprint_2026"
+msgid "Forest Footprint 2026"
+msgstr ""
+
+msgctxt "forest_footprint_2026_under_development"
+msgid "The 2026 Forest Footprint is currently under development and shown to moderators only for debugging purposes."
+msgstr ""
+
+msgctxt "forest_footprint_2026_overall_grade"
+msgid "Forest footprint grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_total"
+msgid "Total forest footprint"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient_grade"
+msgid "Primary ingredient grade"
+msgstr ""
+
+msgctxt "forest_footprint_2026_primary_ingredient"
+msgid "Primary ingredient"
+msgstr ""
+
+msgctxt "forest_footprint_2026_origin_footprint"
+msgid "Forest footprint for the origin"
+msgstr ""
+
+msgctxt "forest_footprint_2026_label"
+msgid "Label"
 msgstr ""
 

@@ -103,7 +103,7 @@ use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::Brevo qw/add_contact_to_list/;
 use ProductOpener::CRM qw/update_contact_last_login/;
 use ProductOpener::Auth qw/:all/;
-use ProductOpener::Keycloak qw/:all/;
+use ProductOpener::Keycloak;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Minion qw/queue_job write_minion_log/;
 use ProductOpener::Tags qw/display_taxonomy_tag_name country_to_cc cc_to_country/;
@@ -1626,19 +1626,9 @@ sub init_user ($request_ref) {
 					}
 				) if $log->is_debug();
 
-				# Try to keep sessions opened for users with dynamic IPs
-				my $short_ip = sub ($) {
-					my $ip = shift;
-					# Remove the last two bytes
-					$ip =~ s/(\.\d+){2}$//;
-					return $ip;
-				};
-
 				if (   (not defined $user_ref->{'user_sessions'})
 					or (not defined $user_session)
 					or (not defined $user_ref->{'user_sessions'}{$user_session}))
-					# disable the restriction of sessions by ip address (issue 6842 57E0 C2C7 F629 E4CE 5605 42)
-					#	or (not is_ip_known_or_whitelisted($user_ref, $user_session, remote_addr(), $short_ip)))
 				{
 					$log->debug("no matching session for user") if $log->is_debug();
 					$user_id = undef;
@@ -1776,33 +1766,6 @@ sub set_owner_id ($request_ref) {
 	}
 
 	return;
-}
-
-=head2 is_ip_known_or_whitelisted ()
-
-This sub introduces a server option to whitelist IPs for all cookies.
-
-=cut
-
-sub is_ip_known_or_whitelisted ($user_ref, $user_session, $ip, $shorten_ip) {
-
-	my $short_ip = $shorten_ip->($ip);
-
-	if (    (defined $user_ref->{'user_sessions'}{$user_session}{'ip'})
-		and ($shorten_ip->($user_ref->{'user_sessions'}{$user_session}{'ip'}) eq $short_ip))
-	{
-		return 1;
-	}
-
-	if (defined $server_options{ip_whitelist_session_cookie}) {
-		foreach (@{$server_options{ip_whitelist_session_cookie}}) {
-			if ($_ eq $ip) {
-				return 1;
-			}
-		}
-	}
-
-	return 0;
 }
 
 sub check_session ($user_id, $user_session) {

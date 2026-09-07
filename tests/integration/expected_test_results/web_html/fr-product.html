@@ -14,10 +14,10 @@
     
     <meta property="og:image" content="//static.openfoodfacts.org/images/logos/off-logo-vertical-white-social-media-preview.png">
     <meta property="og:description" content="Ingrédients, allergènes, additifs, valeurs nutritionnelles, étiquettes, origines, impact CO2 et informations sur le produit Apple pie – Bob's pies – 100 g">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
+    <link rel="manifest" href="/cgi/manifest.pl">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/off/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/off/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/off/favicon-16x16.png">
-<link rel="manifest" href="/images/favicon/off/site.webmanifest">
 <link rel="mask-icon" href="/images/favicon/off/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="/images/favicon/off/favicon.ico">
 <meta name="msapplication-TileColor" content="#00aba9">
@@ -88,6 +88,7 @@
   _paq.push(["setDomains", ["*.openfoodfacts.org"]]);
   _paq.push(["setDoNotTrack", true]);
   _paq.push(["disableCookies"]);
+  _paq.push(['enableHeartBeatTimer']);
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -171,7 +172,7 @@
 									<li class="divider"></li>
 									<li><label>Ajouter des produits</label></li>
                 <!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
-									<li><a href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
+									<li><a href="/application-mobile-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=pro_platform_install_the_app_to_add_products_fr">Installez l'application pour ajouter des produits</a></li>
 									<li><a href="/cgi/product.pl?type=search_or_add&action=display">Ajouter un produit</a></li>
 								
 
@@ -282,7 +283,7 @@
 						<li><a href="/decouvrir" class="top-bar-links">Découvrir</a></li>
 						<li><a href="/contribuer" class="top-bar-links">Contribuer</a></li>
 						<li class="show-for-xlarge-up"><a href="//fr.pro.openfoodfacts.org/" class="top-bar-links">Producteurs</a></li>
-						<li class="flex-grid getapp"><a href="/application-mobile-open-food-facts?utm_source=off&utf_medium=web&utm_campaign=search_and_links_promo_fr" class="buttonbar button" style="top:0;"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="bt-text">Installer l'app</span></a></li>
+						<li class="flex-grid getapp"><a href="/application-mobile-open-food-facts?utm_source=off&utm_medium=web&utm_campaign=search_and_links_promo_fr" class="buttonbar button" style="top:0;"><svg xmlns="//www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false"><path d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zm-2 20h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z"/><path d="M0 0h24v24H0z" fill="none"/></svg> <span class="bt-text">Installer l'app</span></a></li>
 				<!-- For reference: get_the_app_link_off" = /open-food-facts-mobile-app" -->
           </ul>
 					</section>
@@ -588,14 +589,31 @@
                                 <!-- Display with SVG if not mobile -->
                                 <div id="barcode_div_svg">
                                     <svg id="barcode_svg"
-                                        jsbarcode-format="auto"
+                                        jsbarcode-format="EAN13"
                                         jsbarcode-value="3300000000001"
                                         jsbarcode-displayValue="false"
                                         jsbarcode-height="40">
                                     </svg>
                                 </div>
                             </div>
-                            <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
+                            <script>
+                            if (screen && screen.width >= 600) {
+                                var barcodeSvg = document.getElementById("barcode_svg");
+                                try {
+                                    JsBarcode(barcodeSvg).init();
+                                }
+                                catch (e) {
+                                    // JsBarcode refuses to render EAN13/EAN8 values with an invalid
+                                    // check digit (internal codes assigned by assign_new_code(), typos...),
+                                    // fall back to CODE128 so that the barcode is still displayed.
+                                    JsBarcode(barcodeSvg, barcodeSvg.getAttribute("jsbarcode-value"), {
+                                        format: "CODE128",
+                                        displayValue: false,
+                                        height: 40
+                                    });
+                                }
+                            }
+                            </script>
                             <div property="gr:hasEAN_UCC-13" content="3300000000001" datatype="xsd:string"></div>
                         
 
@@ -3170,7 +3188,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
             >
                 
                 
-                    11 ingrédients
+                    9 ingrédients
                 
             </h4>
             
@@ -3579,7 +3597,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
             >
                 
                 
-                    Acidifiant : < 2% (estimation)
+                    E330 : < 2% (estimation)
                 
             </h4>
             
@@ -3622,7 +3640,7 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
             >
                 
                 
-                    — E330 : < 2% (estimation)
+                    E500ii : 2.3% (estimation)
                 
             </h4>
             
@@ -3641,92 +3659,6 @@ Le score est calculé à partir des données du tableau de la déclaration nutri
 </ul>
 
 	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_9 -->
-              
-
-	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_10 -->
-
-	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_10"
-    
-        style="margin-top:0.2rem;margin-bottom:0.2rem;"
-    
->
-<li class="accordion-navigation accordion-navigation-inactive">
-
-    
-        <div href="#panel_ingredient_10_content" class="panel_title"
-            
-                style="padding:0.1rem;padding-left:1rem;"
-            
-        >
-            
-            <h4 
-                
-                style="font-size:1.1rem;"
-            >
-                
-                
-                    Agent levant : 2.3% (estimation)
-                
-            </h4>
-            
-            <hr class="floatclear">
-        </div>
-    
-
-	   	 <div
-	   	    id="panel_ingredient_10_content"
-	   	    class="content panel_content"
-	   	  >
-          
-	   	 </div>
-	
-</li>
-</ul>
-
-	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_10 -->
-              
-
-	<!-- start templates/web/panels/panel.tt.html - panel_id: ingredient_11 -->
-
-	<ul data-accordion class="panel_accordion accordion" id="panel_ingredient_11"
-    
-        style="margin-top:0.2rem;margin-bottom:0.2rem;"
-    
->
-<li class="accordion-navigation accordion-navigation-inactive">
-
-    
-        <div href="#panel_ingredient_11_content" class="panel_title"
-            
-                style="padding:0.1rem;padding-left:1rem;"
-            
-        >
-            
-            <h4 
-                
-                style="font-size:1.1rem;"
-            >
-                
-                
-                    — E500ii : 2.3% (estimation)
-                
-            </h4>
-            
-            <hr class="floatclear">
-        </div>
-    
-
-	   	 <div
-	   	    id="panel_ingredient_11_content"
-	   	    class="content panel_content"
-	   	  >
-          
-	   	 </div>
-	
-</li>
-</ul>
-
-	<!-- end templates/web/panels/panel.tt.html - panel_id: ingredient_11 -->
 	   	 </div>
 	
 </li>
@@ -4582,7 +4514,7 @@ Tartes aux pommes
 
     
            <div class="panel_text">
-             en: <span>Wheat flour</span>, <span>apples</span>, <span>sugar</span>, <span>butter</span>, <span>eggs</span>, <span>salt</span>, <span>palm oil</span>, <span>acidifier</span> (<span>citric acid</span>), <span>raising agent</span> (<span>sodium bicarbonate</span>)
+             en: <span>Wheat flour</span>, <span>apples</span>, <span>sugar</span>, <span>butter</span>, <span>eggs</span>, <span>salt</span>, <span>palm oil</span>, <span>citric acid</span>, <span>sodium bicarbonate</span>
            </div>
     
 
@@ -4609,10 +4541,8 @@ Tartes aux pommes
 <tr><td style="padding:2px 6px"><span>eggs</span></td><td style="padding:2px 6px">en:egg</td><td style="padding:2px 6px">no</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px">22000</td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">3.1</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">20.0</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
 <tr><td style="padding:2px 6px"><span>salt</span></td><td style="padding:2px 6px">en:salt</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px">11058</td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">0.2</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">0.5</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
 <tr><td style="padding:2px 6px"><span>palm oil</span></td><td style="padding:2px 6px">en:palm-oil</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">16129</td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">0.2</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">0.5</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
-<tr><td style="padding:2px 6px"><span>acidifier</span></td><td style="padding:2px 6px">en:acid</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">0.2</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">0.5</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
-<tr><td style="padding-left:1.5em" style="padding:2px 6px"><span>citric acid</span></td><td style="padding:2px 6px">en:e330</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">0.2</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">0.5</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
-<tr><td style="padding:2px 6px"><span>raising agent</span></td><td style="padding:2px 6px">en:raising-agent</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">2.3</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">0.5</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
-<tr><td style="padding-left:1.5em" style="padding:2px 6px"><span>sodium bicarbonate</span></td><td style="padding:2px 6px">en:e500ii</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">2.3</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">0.5</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
+<tr><td style="padding:2px 6px"><span>citric acid</span></td><td style="padding:2px 6px">en:e330</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">0.2</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">0.5</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
+<tr><td style="padding:2px 6px"><span>sodium bicarbonate</span></td><td style="padding:2px 6px">en:e500ii</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px">yes</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td><td style="text-align:right;padding:2px 6px">2.3</td><td style="text-align:right;padding:2px 6px">0.0</td><td style="text-align:right;padding:2px 6px">0.5</td><td style="padding:2px 6px"></td><td style="padding:2px 6px"></td></tr>
 </tbody></table>
 
            </div>
@@ -6660,15 +6590,15 @@ un outil de la Direction générale de la concurrence, de la consommation et de 
 						<div class="row">
 							<div class="small-12 medium-12 large-12 v-space-normal column badge-container">
 								<!-- android_app_link - //play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en -->
-								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utf_medium=web&utm_campaign=install_the_app_android_footer_fr"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Disponible sur Google Play" loading="lazy" height="40" width="120"></a>
+								<a  href="//play.google.com/store/apps/details?id=org.openfoodfacts.scanner&utm_source=off&utm_medium=web&utm_campaign=install_the_app_android_footer_fr"><img src="/images/misc/playstore/img/latest/GetItOnGooglePlay_Badge_Web_color_French.svg" alt="Disponible sur Google Play" loading="lazy" height="40" width="120"></a>
 
-								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-en.svg" alt="Disponible sur F-Droid" loading="lazy" height="40" width="120"></a>
+								<a href="//f-droid.org/packages/openfoodfacts.github.scrachx.openfood"><img src="/images/misc/f-droid/svg/get-it-on-fr.svg" alt="Disponible sur F-Droid" loading="lazy" height="40" width="120"></a>
 
 								<!-- android_apk_app_link - //world.openfoodfacts.org/images/apps/off.apk -->
-								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utf_medium=web&utm_campaign=install_the_app_apk_footer_fr"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="APK Android" loading="lazy" height="40" width="120"></a>
+								<a href="//github.com/openfoodfacts/smooth-app/releases/latest?utm_source=off&utm_medium=web&utm_campaign=install_the_app_apk_footer_fr"><img src="/images/misc/app-landing-page/download-apk/download-apk_en.svg" alt="APK Android" loading="lazy" height="40" width="120"></a>
 
 								<!-- msgid "//apps.apple.com/app/open-beauty-facts/id1122926380" -->
-								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utf_medium=web&utm_campaign=install_the_app_ios_footer_fr"><img src="/images/misc/appstore/black/appstore_FR.svg" alt="Disponible sur l'App Store"  loading="lazy" height="40" width="120"></a>
+								<a href="//apps.apple.com/app/open-food-facts/id588797948?utm_source=off&utm_medium=web&utm_campaign=install_the_app_ios_footer_fr"><img src="/images/misc/appstore/black/appstore_FR.svg" alt="Disponible sur l'App Store"  loading="lazy" height="40" width="120"></a>
 							</div>
 						</div>
 					</div>
@@ -6844,7 +6774,7 @@ display_product_summary("#product_summary", product);
 var page_type = "product";
 var default_preferences = {"ecoscore":"important","nova":"important","nutriscore":"very_important"};
 var preferences_text = "Classer les produits suivant vos préférences";
-var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Moins bonne qualité nutritionnelle","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg","id":"nutriscore","match":33.6666666666667,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"description_short":"0.5 g / 100 g","grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg","id":"low_salt","match":70,"name":"Sel","panel_id":"nutrient_level_salt","status":"known","title":"Sel en quantité modérée"},{"description_short":"10 g / 100 g","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg","id":"low_fat","match":55.2941176470588,"name":"Matières grasses","panel_id":"nutrient_level_fat","status":"known","title":"Matières grasses en quantité modérée"},{"description_short":"20 g / 100 g","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg","id":"low_sugars","match":8,"name":"Sucres","panel_id":"nutrient_level_sugars","status":"known","title":"Sucres en quantité élevée"},{"description_short":"5 g / 100 g","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-medium.svg","id":"low_saturated_fat","match":20,"name":"Acides gras saturés","panel_id":"nutrient_level_saturated_fat","status":"known","title":"Acides gras saturés en quantité modérée"}],"id":"nutritional_quality","name":"Qualité nutritionnelle"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contient : gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Lait","status":"known","title":"Contient : lait"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Œufs","status":"known","title":"Contient : œufs"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Fruits à coque","status":"known","title":"Ne contient pas : fruits à coque"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Arachides","status":"known","title":"Ne contient pas : arachides"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Graines de sésame","status":"known","title":"Ne contient pas : graines de sésame"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soja","status":"known","title":"Ne contient pas : soja"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Céleri","status":"known","title":"Ne contient pas : céleri"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Moutarde","status":"known","title":"Ne contient pas : moutarde"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Ne contient pas : lupin"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Poisson","status":"known","title":"Ne contient pas : poisson"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustacés","status":"known","title":"Ne contient pas : crustacés"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Mollusques","status":"known","title":"Ne contient pas : mollusques"},{"debug":"11 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Anhydride sulfureux et sulfites","status":"known","title":"Ne contient pas : anhydride sulfureux et sulfites"}],"id":"allergens","name":"Allergènes","warning":"Il est toujours possible que les données sur les allergènes soient manquantes, incomplètes, incorrectes ou que la composition du produit ait changé. Si vous êtes allergique, vérifiez toujours les informations sur l'emballage réel du produit."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Végétalien","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non végétalien"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Végétarien","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Végétarien"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Sans huile de palme","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Huile de palme"}],"id":"ingredients_analysis","name":"Ingrédients","warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"Groupe NOVA","panel_id":"nova","status":"known","title":"Aliments transformés"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additifs","panel_id":"additives","status":"known","title":"2 additifs"}],"id":"processing","name":"Transformation des aliments"},{"attributes":[{"description":"","description_short":"Impact modéré sur l'environnement","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg","id":"ecoscore","match":52,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score C"},{"description":"","description_short":"Pas de risque de déforestation","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg","id":"forest_footprint","match":99.903037037037,"name":"Empreinte forêt","panel_id":"forest_footprint","status":"known","title":"Très petite empreinte forêt"}],"id":"environment","name":"Environnement"},{"attributes":[{"description":"L'agriculture biologique vise à protéger l'environnement et à conserver la biodiversité en prohibant ou limitant l'utilisation d'engrais synthétiques, de pesticides et d'additifs alimentaires.","description_short":"Les produits bios encouragent la durabilité écologique et la biodiversité.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Agriculture biologique","status":"known","title":"Pas un produit bio"},{"description":"Quand vous achetez des produits du commerce équitable, les producteurs dans les pays en développement sont payés un prix plus haut et plus équitable, ce qui les aide à atteindre des plus hauts standards sociaux et environnementaux et à les conserver.","description_short":"Aide les producteurs des pays en développement.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Commerce équitable","status":"known","title":"Produit du commerce équitable"}],"id":"labels","name":"Labels"}]};
+var product = {"attribute_groups":[{"attributes":[{"description":"","description_short":"Moins bonne qualité nutritionnelle","grade":"d","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutriscore-d-new-fr.svg","id":"nutriscore","match":33.6666666666667,"name":"Nutri-Score","panel_id":"nutriscore_2023","status":"known","title":"Nutri-Score D"},{"description_short":"0.5 g / 100 g","grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-salt-medium.svg","id":"low_salt","match":70,"name":"Sel","panel_id":"nutrient_level_salt","status":"known","title":"Sel en quantité modérée"},{"description_short":"10 g / 100 g","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-fat-medium.svg","id":"low_fat","match":55.2941176470588,"name":"Matières grasses","panel_id":"nutrient_level_fat","status":"known","title":"Matières grasses en quantité modérée"},{"description_short":"20 g / 100 g","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-sugars-high.svg","id":"low_sugars","match":8.0,"name":"Sucres","panel_id":"nutrient_level_sugars","status":"known","title":"Sucres en quantité élevée"},{"description_short":"5 g / 100 g","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nutrient-level-saturated-fat-medium.svg","id":"low_saturated_fat","match":20,"name":"Acides gras saturés","panel_id":"nutrient_level_saturated_fat","status":"known","title":"Acides gras saturés en quantité modérée"}],"id":"nutritional_quality","name":"Qualité nutritionnelle"},{"attributes":[{"debug":"en:gluten in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-gluten.svg","id":"allergens_no_gluten","match":0,"name":"Gluten","status":"known","title":"Contient : gluten"},{"debug":"en:milk in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-milk.svg","id":"allergens_no_milk","match":0,"name":"Lait","status":"known","title":"Contient : lait"},{"debug":"en:eggs in allergens","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-eggs.svg","id":"allergens_no_eggs","match":0,"name":"Œufs","status":"known","title":"Contient : œufs"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-nuts.svg","id":"allergens_no_nuts","match":100,"name":"Fruits à coque","status":"known","title":"Ne contient pas : fruits à coque"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-peanuts.svg","id":"allergens_no_peanuts","match":100,"name":"Arachides","status":"known","title":"Ne contient pas : arachides"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sesame-seeds.svg","id":"allergens_no_sesame_seeds","match":100,"name":"Graines de sésame","status":"known","title":"Ne contient pas : graines de sésame"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-soybeans.svg","id":"allergens_no_soybeans","match":100,"name":"Soja","status":"known","title":"Ne contient pas : soja"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-celery.svg","id":"allergens_no_celery","match":100,"name":"Céleri","status":"known","title":"Ne contient pas : céleri"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-mustard.svg","id":"allergens_no_mustard","match":100,"name":"Moutarde","status":"known","title":"Ne contient pas : moutarde"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-lupin.svg","id":"allergens_no_lupin","match":100,"name":"Lupin","status":"known","title":"Ne contient pas : lupin"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-fish.svg","id":"allergens_no_fish","match":100,"name":"Poisson","status":"known","title":"Ne contient pas : poisson"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-crustaceans.svg","id":"allergens_no_crustaceans","match":100,"name":"Crustacés","status":"known","title":"Ne contient pas : crustacés"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-molluscs.svg","id":"allergens_no_molluscs","match":100,"name":"Mollusques","status":"known","title":"Ne contient pas : mollusques"},{"debug":"9 ingredients (0 unknown)","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg","id":"allergens_no_sulphur_dioxide_and_sulphites","match":100,"name":"Anhydride sulfureux et sulfites","status":"known","title":"Ne contient pas : anhydride sulfureux et sulfites"}],"id":"allergens","name":"Allergènes","warning":"Il est toujours possible que les données sur les allergènes soient manquantes, incomplètes, incorrectes ou que la composition du produit ait changé. Si vous êtes allergique, vérifiez toujours les informations sur l'emballage réel du produit."},{"attributes":[{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/non-vegan.svg","id":"vegan","match":0,"name":"Végétalien","panel_id":"ingredients_analysis_en:non-vegan","status":"known","title":"Non végétalien"},{"grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/vegetarian.svg","id":"vegetarian","match":100,"name":"Végétarien","panel_id":"ingredients_analysis_en:vegetarian","status":"known","title":"Végétarien"},{"grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/contains-palm-oil.svg","id":"palm_oil_free","match":0,"name":"Sans huile de palme","panel_id":"ingredients_analysis_en:palm-oil","status":"known","title":"Huile de palme"}],"id":"ingredients_analysis","name":"Ingrédients","warning":"Ces préférences sont basées sur la compréhension de la liste des ingrédients par Open Food Facts et il y a toujours une possibilité qu'elles ne soient pas exactes ou complètes, vérifiez toujours le produit vous-même."},{"attributes":[{"grade":"b","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg","id":"nova","match":75,"name":"Groupe NOVA","panel_id":"nova","status":"known","title":"Aliments transformés"},{"grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/2-additives.svg","id":"additives","match":60,"name":"Additifs","panel_id":"additives","status":"known","title":"2 additifs"}],"id":"processing","name":"Transformation des aliments"},{"attributes":[{"description":"","description_short":"Impact modéré sur l'environnement","grade":"c","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/green-score-c.svg","id":"ecoscore","match":52,"name":"Green-Score","panel_id":"environmental_score","status":"known","title":"Green-Score C"},{"description":"","description_short":"Pas de risque de déforestation","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/forest-footprint-a.svg","id":"forest_footprint","match":99.903037037037,"name":"Empreinte forêt","panel_id":"forest_footprint","status":"known","title":"Très petite empreinte forêt"}],"id":"environment","name":"Environnement"},{"attributes":[{"description":"L'agriculture biologique vise à protéger l'environnement et à conserver la biodiversité en prohibant ou limitant l'utilisation d'engrais synthétiques, de pesticides et d'additifs alimentaires.","description_short":"Les produits bios encouragent la durabilité écologique et la biodiversité.","grade":"e","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/not-organic.svg","id":"labels_organic","match":0,"name":"Agriculture biologique","status":"known","title":"Pas un produit bio"},{"description":"Quand vous achetez des produits du commerce équitable, les producteurs dans les pays en développement sont payés un prix plus haut et plus équitable, ce qui les aide à atteindre des plus hauts standards sociaux et environnementaux et à les conserver.","description_short":"Aide les producteurs des pays en développement.","grade":"a","icon_url":"//static.openfoodfacts.localhost/images/attributes/dist/fair-trade.svg","id":"labels_fair_trade","match":100,"name":"Commerce équitable","status":"known","title":"Produit du commerce équitable"}],"id":"labels","name":"Labels"}]};
 var product_type = "food";
 </script>
 

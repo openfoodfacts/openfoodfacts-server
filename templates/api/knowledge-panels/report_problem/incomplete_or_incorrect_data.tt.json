@@ -7,8 +7,8 @@
     "evaluation": "neutral",
     "title_element": {
         "title": "[% edq(lang('incomplete_or_incorrect_data_title')) %]",
-        "subtitle": "[% edq(lang('incomplete_or_incorrect_data_subtitle_off')) %]",
-        "icon_url": "[% static_subdomain %]/images/logos/off-logo-icon-light.svg",
+        "subtitle": "[% edq(lang_flavor('incomplete_or_incorrect_data_subtitle')) %]",
+        "icon_url": "[% static_subdomain %]/images/logos/[% flavor %]-logo-icon-light.svg",
     },
     "elements": [
         {
@@ -16,7 +16,7 @@
             "text_element": {
                 "html": `
                 [% lang('incomplete_or_incorrect_data_content_correct') %]
-                [% lang('incomplete_or_incorrect_data_content_correct_off') %]
+                [% lang_flavor('incomplete_or_incorrect_data_content_correct') %]
                 `         
             },
         },
