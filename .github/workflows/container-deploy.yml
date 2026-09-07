@@ -7,6 +7,10 @@ on:
       - main
       - deploy-*
 
+permissions:
+  contents: read
+  actions: read
+
 # Note on secrets used for connection
 # SSH_PRIVATE_KEY is the private key (shared between VM and host)
 

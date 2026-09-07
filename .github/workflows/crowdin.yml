@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - crowdin-trigger
-  
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:         
   synchronize-with-crowdin:
     name: Synchronisation of translations using Crowdin

@@ -10,6 +10,9 @@ on:
     paths:
       - 'docs/api/ref/**/*.yaml'
 
+permissions:
+  contents: read
+  checks: write
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
