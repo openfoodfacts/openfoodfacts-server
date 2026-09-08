@@ -45,6 +45,15 @@ my @tests = (
 		}'
 	],
 
+	# Olive oil with no packaging data: no candidate
+	[
+		'pkg_olive_oil_no_packaging',
+		'{
+			"categories_tags": ["en:olive-oils"],
+			"product_quantity": 0.75
+		}'
+	],
+
 	# Sardines in a glass jar: Ecobalyse only has sardines in metal box for the exact category,
 	# so the category-less glass jar proxy must be selected (material+shape match beats exact-category metal box).
 	[

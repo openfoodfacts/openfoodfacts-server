@@ -142,10 +142,11 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		ingredients => [],
 		packaging => [],
 		distribution => "ambient",
-		preparation => ["refrigeration"]
 	};
 
-	# Estimating the environmental impact
+	# Add ingredients
+	# Currently we only add parent ingredients,
+	# but we should use leaf ingredients (without their parents) instead
 	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
 		# TODO: when we don't have an ecobalyse_code or ecobalyse_proxy_code,
 		# we can ignore the ingredient, but we need to record the quantity of unrecognized ingredients
@@ -157,25 +158,30 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			};
 	}
 
-	# Adding a transformation
-	if (defined $product_ref->{transform}) {
-		$payload->{transform} = {
-			id => $product_ref->{transform}->{id},
-			mass => $product_ref->{transform}->{mass}
-			}
-			if defined $product_ref->{transform}->{id} && defined $product_ref->{transform}->{mass};
+	# Add packaging
+	my $packaging_entry = get_ecobalyse_packaging_entry($product_ref);
+	if (defined $packaging_entry) {
+		push @{$payload->{packaging}},
+			{
+			id => $packaging_entry->{id},
+			amount => 1
+			};
+		$product_ref->{environmental_impact}{ecobalyse_input}{packaging} = {
+			id => $packaging_entry->{id},
+			name => $packaging_entry->{activityName},
+			name_fr => $packaging_entry->{displayName},
+			ecs => $packaging_entry->{ecs},
+			category => $packaging_entry->{categories_tagid},
+		};
 	}
 
-	# Adding a packaging
-	if (defined $product_ref->{packaging}) {
-		foreach my $packaging_ref (@{$product_ref->{packaging}}) {
-			next unless defined $packaging_ref->{id} && defined $packaging_ref->{mass};
-			push @{$payload->{packaging}},
-				{
-				id => $packaging_ref->{id},
-				mass => $packaging_ref->{mass}
-				};
-		}
+	# Add distribution
+	if (defined $product_ref->{storage_conditions}) {
+		my $distribution = $product_ref->{storage_conditions};
+		$distribution =~ s/^[a-z]{2}://;
+		$payload->{distribution} = $distribution;
+		$product_ref->{environmental_impact}{ecobalyse_input}{distribution}
+			= $distribution;
 	}
 
 	# API URL
@@ -262,6 +268,10 @@ sub call_ecobalyse($url_recipe, $payload) {
 	# the token is now required, the API request will fail without a token
 	if (defined $ecobalyse_api_token) {
 		$request->header('token' => $ecobalyse_api_token);
+	}
+	else {
+		$log->error("ECOBALYSE_API_TOKEN is not defined, the API request will fail without a token")
+			if $log->is_error();
 	}
 	$request->content(decode_utf8(encode_json($payload)));
 
