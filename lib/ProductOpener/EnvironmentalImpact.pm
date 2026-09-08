@@ -280,22 +280,7 @@ sub call_ecobalyse($url_recipe, $payload) {
 	return ($response->decoded_content, $response->is_success);
 }
 
-=head2 get_ecobalyse_packaging_entry ($product_ref)
-
-Select the best-matching Ecobalyse packaging entry for a product, based on its
-categories, packaging materials, shapes and quantity.
-
-The match is scored with the following weighted factors:
-- Material match: 100 (exact), 80 (is_a parent/child in either direction), 0
-- Shape match: 70 (exact), 56 (is_a parent/child in either direction), 0
-- Category specificity: raw taxonomy level (0-10) of the matched category,
-  via get_taxonomy_tag_level() (0 for category-less entries)
-- Quantity distance: 0-5, only counted if material and shape both match
-- ECS tiebreaker: higher ecs wins when total scores are equal
-
-The selected entry (or undef when no candidate matched) is returned as a hashref.
-
-=cut
+# Packaging data from Ecobalyse is stored in a JSON file (processes_packaging_matched.json) that is loaded and indexed on first call.
 
 # Load and index the Ecobalyse packaging data. Cached on first call in a state variable.
 # The packaging material/shape fields in the data have already been canonicalized to
@@ -425,7 +410,18 @@ sub _shape_match_score ($off_tag, $ecobalyse_tag) {
 
 =head2 get_ecobalyse_packaging_entry ($product_ref)
 
-Returns the best matching Ecobalyse packaging entry for a product, or undef if no match is found.
+Select the best-matching Ecobalyse packaging entry for a product, based on its
+categories, packaging materials, shapes and quantity.
+
+The match is scored with the following weighted factors:
+- Material match: 100 (exact), 80 (is_a parent/child in either direction), 0
+- Shape match: 70 (exact), 56 (is_a parent/child in either direction), 0
+- Category specificity: raw taxonomy level (0-10) of the matched category,
+  via get_taxonomy_tag_level() (0 for category-less entries)
+- Quantity distance: 0-5, only counted if material and shape both match
+- ECS tiebreaker: higher ecs wins when total scores are equal
+
+The selected entry (or undef when no candidate matched) is returned as a hashref.
 
 =cut
 
@@ -437,7 +433,6 @@ sub get_ecobalyse_packaging_entry ($product_ref) {
 	my %proxies_manual = %{$cache->{proxies_manual}};
 
 	my @packagings = @{$product_ref->{packagings} // []};
-	return if scalar @packagings == 0;
 
 	my @categories_tags = @{$product_ref->{categories_tags} // []};
 	my $product_quantity = $product_ref->{product_quantity} // 0;

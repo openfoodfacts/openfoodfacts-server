@@ -45,7 +45,7 @@ my @tests = (
 		}'
 	],
 
-	# Olive oil with no packaging data: no candidate
+	# Olive oil with no packaging data
 	[
 		'pkg_olive_oil_no_packaging',
 		'{
