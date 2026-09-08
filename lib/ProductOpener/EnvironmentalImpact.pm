@@ -93,9 +93,15 @@ reference to a hash of product fields that have been created or updated
 
 reference to an array of error messages
 
+=head4 $skip_ecobalyse_call
+
+Boolean flag indicating whether to skip the Ecobalyse API call, in which case we only prepare the request payload and store it in the product.
+
 =cut
 
-sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
+sub estimate_environmental_impact_service ($product_ref, $updated_product_fields_ref, $errors_ref,
+	$skip_ecobalyse_call = 0)
+{
 
 	# $updated_product_fields_ref, $errors_ref sont des outputs : chaque service
 	# dit quels champs sont modifiés
@@ -175,61 +181,70 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# API URL
 	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
 
-	# Debug information for the request
-	$log->debug("send_event request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
-
 	$product_ref->{environmental_impact} = {ecobalyse_request => {url => $url_recipe, data => $payload}};
 
-	# Send the request and get the response
-	my ($response_content, $is_success) = (call_ecobalyse($url_recipe, $payload));
-
-	# Parse the JSON response
-	my $response_data = $response_content;
-	# if the response is JSON, decode it
-	eval {$response_data = decode_json($response_content);};
-
-	$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
-
-	# Handle the response based on success or failure
-	if ($is_success) {
-
-		# Access the specific "ecs" value
-		if (exists $response_data->{results}{total}{ecs}) {
-			my $ecs_value = $response_data->{results}{total}{ecs};
-			# If 'ecs' is defined, store it in the product reference
-			if (defined $ecs_value) {
-				$product_ref->{environmental_impact}{ecs} = $ecs_value;
-			}
-		}
+	if ($skip_ecobalyse_call) {
+		$log->debug("Skipping Ecobalyse API call, only preparing request payload",
+			{endpoint => $url_recipe, payload => $payload})
+			if $log->is_debug();
 	}
 	else {
-		# If the request failed, log the error
-		$log->error("send_event request failed",
-			{endpoint => $url_recipe, payload => $payload, response => $response_content})
-			if $log->is_error();
-		# Add an error message to the errors array
+
+		# Debug information for the request
+		$log->debug("Send Ecobalyse API request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
+
+		# Send the request and get the response
+		my ($response_content, $is_success) = (call_ecobalyse($url_recipe, $payload));
+
+		# Parse the JSON response
+		my $response_data = $response_content;
+		# if the response is JSON, decode it
+		eval {$response_data = decode_json($response_content);};
+
 		$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
 
-		push @{$errors_ref},
-			{
-			message => {id => "error_response_from_ecobalyse"},
-			field => {
-				id => "ecobalyse_response",
-				value => $response_content,
-			},
-			impact => {id => "failure"},
-			service => {id => "estimate_environmental_impact_service"},
-			};
+		# Handle the response based on success or failure
+		if ($is_success) {
+
+			# Access the specific "ecs" value
+			if (exists $response_data->{results}{total}{ecs}) {
+				my $ecs_value = $response_data->{results}{total}{ecs};
+				# If 'ecs' is defined, store it in the product reference
+				if (defined $ecs_value) {
+					$product_ref->{environmental_impact}{ecs} = $ecs_value;
+				}
+			}
+		}
+		else {
+			# If the request failed, log the error
+			$log->error("send_event request failed",
+				{endpoint => $url_recipe, payload => $payload, response => $response_content})
+				if $log->is_error();
+			# Add an error message to the errors array
+			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
+
+			push @{$errors_ref},
+				{
+				message => {id => "error_response_from_ecobalyse"},
+				field => {
+					id => "ecobalyse_response",
+					value => $response_content,
+				},
+				impact => {id => "failure"},
+				service => {id => "estimate_environmental_impact_service"},
+				};
+		}
+
+		# If necessary, return error as well
+		# (number of unattributed ingredients,
+		# percentage of unattributed mass, etc...)
+
+		# add_error
+		# add_warning
+
+		# $product_ref->{environmental_impact} = 5;
+
 	}
-
-	# If necessary, return error as well
-	# (number of unattributed ingredients,
-	# percentage of unattributed mass, etc...)
-
-	# add_error
-	# add_warning
-
-	# $product_ref->{environmental_impact} = 5;
 
 	return;
 }
