@@ -591,14 +591,31 @@
                                 <!-- Display with SVG if not mobile -->
                                 <div id="barcode_div_svg">
                                     <svg id="barcode_svg"
-                                        jsbarcode-format="auto"
+                                        jsbarcode-format="EAN13"
                                         jsbarcode-value="3300000000002"
                                         jsbarcode-displayValue="false"
                                         jsbarcode-height="40">
                                     </svg>
                                 </div>
                             </div>
-                            <script>if (screen && screen.width >= 600) JsBarcode("#barcode_svg").init()</script>
+                            <script>
+                            if (screen && screen.width >= 600) {
+                                var barcodeSvg = document.getElementById("barcode_svg");
+                                try {
+                                    JsBarcode(barcodeSvg).init();
+                                }
+                                catch (e) {
+                                    // JsBarcode refuses to render EAN13/EAN8 values with an invalid
+                                    // check digit (internal codes assigned by assign_new_code(), typos...),
+                                    // fall back to CODE128 so that the barcode is still displayed.
+                                    JsBarcode(barcodeSvg, barcodeSvg.getAttribute("jsbarcode-value"), {
+                                        format: "CODE128",
+                                        displayValue: false,
+                                        height: 40
+                                    });
+                                }
+                            }
+                            </script>
                             <div property="gr:hasEAN_UCC-13" content="3300000000002" datatype="xsd:string"></div>
                         
 
@@ -631,7 +648,7 @@
 <p id="field_labels">
     <span class="field">Labels, certifications, récompenses : </span>
     <span class="field_value" id="field_labels_value"><a href="/facets/labels/Commerce équitable" class="tag well_known">Commerce équitable</a>, <a href="/facets/labels/Bio" class="tag well_known">Bio</a><br /><img src="/images/lang/fr/labels/commerce-equitable.96x90.png" width="96" height="90"/ style="display:inline" alt="Commerce équitable">
-<img src="/images/lang/fr/labels/bio.96x90.png" width="96" height="90"/ style="display:inline" alt="Bio">
+<img src="/images/lang/fr/labels/bio.96x90.svg" width="96" height="90"/ style="display:inline" alt="Bio">
 </span>
 </p>
 

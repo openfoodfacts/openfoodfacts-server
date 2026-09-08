@@ -136,6 +136,7 @@ use JSON::MaybeXS;
 use Log::Any qw($log);
 use List::MoreUtils qw(uniq);
 use Data::DeepAccess qw(deep_get deep_exists);
+use Storable qw(dclone);
 
 my %allergens_stopwords = ();
 
@@ -1494,16 +1495,57 @@ if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
 =cut
 
 sub get_ingredient_percent_or_quantity_and_normalized_quantity ($ingredient_id, $percent_or_quantity_value,
-	$percent_or_quantity_unit)
+	$percent_or_quantity_unit, $size = undef)
 {
 
 	my ($percent, $quantity, $quantity_g, $quantity_ml);
 
+	# % unit
 	if ($percent_or_quantity_unit =~ /\%/) {
 		$percent = $percent_or_quantity_value;
 	}
+	# Empty unit
+	elsif ($percent_or_quantity_unit eq "") {
+		$quantity = $percent_or_quantity_value;
+		# Check if the ingredient has properties like:
+		# average_weight_per_unit:en: 70
+		# average_weight_per_unit_large:en: 100
+		# average_weight_per_unit_small:en: 50
+
+		my $average_weight_per_unit;
+		my $size_conversion_factor = 1;
+
+		# First check exact match for the size if we have one
+		if (defined $size) {
+			my $size_id = $size;
+			$size_id =~ s/^en://;
+			$size_id =~ s/-/_/g;
+			$average_weight_per_unit
+				= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit_${size_id}:en");
+		}
+		# Otherwise check for a generic average_weight_per_unit property
+		if (not defined $average_weight_per_unit) {
+			$average_weight_per_unit
+				= get_inherited_property("ingredients", $ingredient_id, "average_weight_per_unit:en");
+
+			if (defined $average_weight_per_unit) {
+				# Check if we have a size and a conversion_factor:en property for it in the sizes taxonomy
+				$size_conversion_factor
+					= (defined $size)
+					? get_inherited_property("sizes", $size, "conversion_factor:en") || 1
+					: 1;
+			}
+		}
+
+		if (defined $average_weight_per_unit) {
+			$quantity_g = $quantity * $average_weight_per_unit * $size_conversion_factor;
+		}
+	}
+	# Other units
 	else {
 		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
+		# unit may be an empty string
+		$quantity =~ s/\s+$//;
 		my $standard_unit = get_standard_unit($percent_or_quantity_unit);
 		if (defined $standard_unit) {
 			my $normalized_quantity = normalize_quantity($quantity);
@@ -1544,6 +1586,18 @@ reference to a hash of product fields that have been created or updated
 reference to an array of error messages
 
 =cut
+
+sub _calculate_recognition_rate ($ingredients_ref) {
+
+	return 0 if not defined $ingredients_ref or scalar(@$ingredients_ref) == 0;
+
+	my $recognized = 0;
+	foreach my $ingredient (@$ingredients_ref) {
+		$recognized++ if $ingredient->{is_in_taxonomy};
+	}
+
+	return $recognized / scalar(@$ingredients_ref);
+}
 
 sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $errors_ref) {
 
@@ -1592,6 +1646,17 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref, $
 	}
 
 	my $text = $product_ref->{ingredients_text};
+
+	# If the original text contains newlines, we may need to try parsing with newlines as separators
+	my $has_newlines = ($product_ref->{ingredients_text} =~ /[\r\n]/);
+	my $original_ingredients_text;
+	# Make a deep copy of the original specific_ingredients structure, so that we can reset it if we need to reparse with newlines as separators
+	my $original_specific_ingredients_ref;
+	if ($has_newlines) {
+		$original_ingredients_text = $product_ref->{ingredients_text};
+		$original_specific_ingredients_ref
+			= (defined $product_ref->{specific_ingredients}) ? dclone($product_ref->{specific_ingredients}) : undef;
+	}
 
 	$text = preparse_ingredients_text($ingredients_lc, $text);
 
@@ -1684,6 +1749,7 @@ Text to analyze
 		my $labels = undef;
 		my $vegan = undef;
 		my $vegetarian = undef;
+		my $size = undef;
 		my @processings = ();
 		my $previous_parser_additive_class;
 		my $started_additive_class_scope = 0;
@@ -2236,24 +2302,34 @@ Text to analyze
 
 				# Strawberry 10.3%
 				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
-					$percent_or_quantity_value = $1;
-					$percent_or_quantity_unit = $2;
-					$debug_ingredients and $log->debug(
-						"percent found after",
-						{
-							ingredient => $ingredient,
-							percent_or_quantity_value => $percent_or_quantity_value,
-							percent_or_quantity_unit => $percent_or_quantity_unit,
-							new_ingredient => $`
-						}
-					) if $log->is_debug();
-					$ingredient = $`;
-					$percent_or_quantity_value
-						= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+
+					# False positive: "Red Cochineal A"
+					# "A" is a quantity (e.g. "A" = "1" in English)
+					# -> require a non-empty unit to avoid that false positive
+					# This means "Strawberry 2" will not be recognized, we could also check for "a" and "A",
+					# but "[something] [number]" might generate other false positives
+					if ($2 ne '') {
+
+						$percent_or_quantity_value = $1;
+						$percent_or_quantity_unit = $2;
+						$debug_ingredients and $log->debug(
+							"percent found after",
+							{
+								ingredient => $ingredient,
+								percent_or_quantity_value => $percent_or_quantity_value,
+								percent_or_quantity_unit => $percent_or_quantity_unit,
+								new_ingredient => $`
+							}
+						) if $log->is_debug();
+						$ingredient = $`;
+						$percent_or_quantity_value
+							= convert_text_value_to_number($ingredients_lc, $percent_or_quantity_value);
+					}
 				}
 
 				# 50% beef, 20g of oranges
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
+				# 3 carrots
 				my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
 				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
 					$percent_or_quantity_value = $1;
@@ -2352,10 +2428,10 @@ Text to analyze
 				$ingredient =~ s/^\s+//;
 				$ingredient =~ s/\s+$//;
 
-				$ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+				$ingredient_id
+					= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient, \$ingredient_recognized);
 
-				if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
-					$ingredient_recognized = 1;
+				if ($ingredient_recognized) {
 					$debug_ingredients and $log->trace("ingredient recognized", {ingredient_id => $ingredient_id})
 						if $log->is_trace();
 				}
@@ -2527,6 +2603,54 @@ Text to analyze
 									"unknown ingredient is a label, add label and skip ingredient",
 									{ingredient => $ingredient, label_id => $label_id}
 								) if $log->is_debug();
+							}
+						}
+					}
+
+					# Check if we have a size (e.g. "small onions", "carottes moyennes", "carottes de taille moyenne")
+					if (not $ingredient_recognized) {
+
+						my $regexp = $sizes_regexps{$ingredients_lc};
+						my $stopwords_regexp = $sizes_stopwords_regexps{$ingredients_lc};
+						if (defined $regexp) {
+							my $size_of_ingredient;
+							my $ingredient_without_size;
+							# "small sized cucumber", "petite carotte"
+							if ($ingredient =~ /^(?:$stopwords_regexp|\s)*($regexp)(?:$stopwords_regexp|\s)*\s(.*$)/i) {
+								$size_of_ingredient = $1;
+								$ingredient_without_size = $2;
+								$ingredient_without_size =~ s/^($stopwords_regexp|\s)*//i;
+							}
+							# "concombre de taille moyenne"
+							elsif (
+								$ingredient =~ /^(.*)\s+(?:$stopwords_regexp|\s)*($regexp)(?:$stopwords_regexp|\s)*$/i)
+							{
+								$ingredient_without_size = $1;
+								$size_of_ingredient = $2;
+								$ingredient_without_size =~ s/($stopwords_regexp|\s)*$//i;
+							}
+							# Only remove the size if we recognize the ingredient without the size,
+							# to avoid removing words that are part of the ingredient name (e.g. "small leaved spinach")
+							if (defined $ingredient_without_size) {
+								my $ingredient_without_size_id
+									= canonicalize_taxonomy_tag($ingredients_lc, "ingredients",
+									$ingredient_without_size, \$ingredient_recognized);
+
+								if ($ingredient_recognized) {
+									$ingredient_id = $ingredient_without_size_id;
+									$size = canonicalize_taxonomy_tag($ingredients_lc, "sizes", $size_of_ingredient);
+									$debug_ingredients
+										and $log->debug(
+										"ingredient with size found, remove size from ingredient",
+										{
+											ingredient => $ingredient,
+											size => $size,
+											size_of_ingredient => $size_of_ingredient,
+											new_ingredient => $ingredient_without_size,
+											ingredient_id => $ingredient_id
+										}
+										) if $log->is_debug();
+								}
 							}
 						}
 					}
@@ -2849,7 +2973,7 @@ Text to analyze
 				if (defined $percent_or_quantity_value) {
 					my ($percent, $quantity, $quantity_g, $quantity_ml)
 						= get_ingredient_percent_or_quantity_and_normalized_quantity($ingredient_id,
-						$percent_or_quantity_value, $percent_or_quantity_unit);
+						$percent_or_quantity_value, $percent_or_quantity_unit, $size);
 
 					defined $percent and $ingredient{percent} = $percent + 0;
 					defined $quantity and $ingredient{quantity} = $quantity;
@@ -2865,6 +2989,9 @@ Text to analyze
 				}
 				if (defined $vegetarian) {
 					$ingredient{vegetarian} = $vegetarian;
+				}
+				if (defined $size) {
+					$ingredient{size} = $size;
 				}
 
 				if (defined $labels) {
@@ -2946,6 +3073,56 @@ Text to analyze
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, undef, 0, $text);
 
 	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
+
+	# If the original text had newlines (e.g. cooking recipe with 1 ingredient per line), try parsing with newlines as separators
+	# to see if we get a better recognition rate. If so, keep the new parse.
+	# Some ingredient lists may have new lines in the middle of an ingredient, so we don't want to always parse with newlines as separators.
+	if ($has_newlines) {
+		# Save Parse A results
+		my $parse_a_ingredients_ref = $product_ref->{ingredients};
+		my $parse_a_specific_ingredients_ref = $product_ref->{specific_ingredients};
+
+		# Reset specific ingredients, to their original value, as they may have been modified by Parse A
+		# $parse_a_specific_ingredients_ref will be a reference to a different object
+		# that will not be affected by Parse B.
+		if (defined $original_specific_ingredients_ref) {
+			$product_ref->{specific_ingredients} = $original_specific_ingredients_ref;
+		}
+		else {
+			delete $product_ref->{specific_ingredients};
+		}
+
+		# Replace newlines with ", " for Parse B
+		$product_ref->{ingredients_text} =~ s/\r\n/, /g;
+		$product_ref->{ingredients_text} =~ s/\n/, /g;
+		$product_ref->{ingredients_text} =~ s/\r/, /g;
+
+		# Call recursively for Parse B
+		parse_ingredients_text_service($product_ref, $updated_product_fields_ref, $errors_ref);
+
+		# Calculate recognition rates
+		my $rate_a = _calculate_recognition_rate($parse_a_ingredients_ref);
+		my $rate_b = _calculate_recognition_rate($product_ref->{ingredients});
+
+		$log->debug(
+			"parse_ingredients_text_service - dual-parse comparison",
+			{
+				rate_a => $rate_a,
+				rate_b => $rate_b,
+				kept_parse => ($rate_b > $rate_a * 1.10) ? 'B' : 'A'
+			}
+		) if $log->is_debug();
+
+		# Keep Parse B only if it's at least 10% better
+		if ($rate_b <= $rate_a * 1.10) {
+			# Restore Parse A
+			$product_ref->{ingredients} = $parse_a_ingredients_ref;
+			$product_ref->{specific_ingredients} = $parse_a_specific_ingredients_ref;
+		}
+
+		# Restore original ingredients_text
+		$product_ref->{ingredients_text} = $original_ingredients_text;
+	}
 
 	return;
 }
@@ -5990,8 +6167,13 @@ my %ingredients_categories_and_types = (
 			# categories
 			categories => ["oil", "vegetable oil", "vegetal oil",],
 			# types
-			types =>
-				["avocado", "coconut", "colza", "cottonseed", "olive", "palm", "rapeseed", "safflower", "sunflower",],
+			# note: multi-word types (e.g. "palm kernel", "palm stearin") must be listed
+			# before "palm", otherwise the regex matches only "palm" and leaves the
+			# trailing word (e.g. "stearin") as an unexpanded ingredient.
+			types => [
+				"avocado", "coconut", "colza", "cottonseed", "olive", "palm kernel",
+				"palm stearin", "palm", "rapeseed", "safflower", "sunflower",
+			],
 		},
 	],
 
@@ -6581,6 +6763,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	}
 
 	init_percent_or_quantity_regexps($ingredients_lc);
+	init_sizes_regexps();
 
 	my $and = $and{$ingredients_lc} || " and ";
 	my $and_without_spaces = $and;
@@ -6686,7 +6869,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# we will need to be careful that we don't match a single letter K, E etc. that is not a vitamin, and if it happens, check for a "vitamin" prefix
 
 	# colorants alimentaires E (124,122,133,104,110)
-	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv";
+	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv";
 	my $additivesregexp;
 	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
 	# in these cases, we fetch variant only if there is no space before
@@ -7812,11 +7995,10 @@ sub detect_allergens_from_text ($product_ref) {
 
 			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b__([^,;_\(\)\[\]]+?)__\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			# _Weizen_eiweiß is not caught in last regex because of \b (word boundary).
-			if ($language eq 'de') {
-				$text =~ s/\b_([^,;_\(\)\[\]]+?)_/replace_allergen($language,$product_ref,$1,$`)/iesg;
-			}
+			# Do not require a word boundary after the closing underscore: in some
+			# languages, the marked allergen can be the beginning of a compound word
+			# (e.g. Dutch _soja_lecithine or Swedish _vete_mjöl).
+			$text =~ s/\b_([^,;_\(\)\[\]]+?)_/replace_allergen($language,$product_ref,$1,$`)/iesg;
 
 			# allergens in all caps, with other ingredients not in all caps
 

@@ -156,6 +156,7 @@ BEGIN {
 		&get_all_taxonomy_entries
 		&get_taxonomy_tag_synonyms
 
+		&generate_regexps_matching_taxonomy_stopwords
 		&generate_regexps_matching_taxonomy_entries
 
 		&cmp_taxonomy_tags_alphabetically
@@ -318,7 +319,7 @@ my %synonyms = ();
 my %synonyms_for_extended = ();
 %translations_from = ();
 %translations_to = ();
-%level = ();
+%level = ();    # level of a tag is the maximum length of the chain of children from that tag to a leaf
 my %direct_parents = ();
 my %direct_children = ();
 my %all_parents = ();
@@ -1015,7 +1016,7 @@ sub get_file_from_cache ($source, $target) {
 # e.g. if the taxonomy building algorithm or configuration has changed
 # This needs to be done also when the unaccenting parameters for languages set in Config.pm are changed
 
-my $BUILD_TAGS_VERSION = "20260413 - do not capitalize the first letter of all entries names and synonyms";
+my $BUILD_TAGS_VERSION = "20260806 - fix the computation of levels for parents";
 
 sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
@@ -2027,20 +2028,21 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 		}    # wikipedia file
 
 		# Compute all parents, breadth first
+		# Also compute the level of each tag
+		# The level of leaves is 1, the level of their parents is 2, etc.
+		# If a parent has multiple children, its level is the maximum of the levels of its children + 1
+		# So the level of a tag is the maximum length of the chain of children from that tag to a leaf
+		# The level of each tag is used in gen_tags_list_with_parents() to sort the resulting tags
 
-		# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first\n";
-
-		my %longest_parent = ();
-
-		# foreach my $tagid (keys %{$direct_parents{$tagtype}}) {
+		# Loop over all tags, and for each tag, loop over its parents, then their parents, etc.
 		foreach my $tagid (sort keys %{$translations_to{$tagtype}}) {
-
-			# print STDERR "Tags.pm - load_tags_hierarchy - lc: $lc - tagtype: $tagtype - compute all parents breadth first - tagid: $tagid\n";
 
 			my @queue = ();
 
 			if (defined $direct_parents{$tagtype}{$tagid}) {
-				@queue = sort keys %{$direct_parents{$tagtype}{$tagid}};
+				foreach my $parentid (sort keys %{$direct_parents{$tagtype}{$tagid}}) {
+					push @queue, [$parentid, 2, {$tagid => 1, $parentid => 1}];
+				}
 			}
 			elsif (not defined $just_synonyms{$tagtype}{$tagid}) {
 				# Keep track of entries that are at the root level
@@ -2049,39 +2051,54 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 
 			if (not defined $level{$tagtype}{$tagid}) {
 				$level{$tagtype}{$tagid} = 1;
-				if (defined $direct_parents{$tagtype}{$tagid}) {
-					$longest_parent{$tagid} = (sort keys %{$direct_parents{$tagtype}{$tagid}})[0];
-				}
 			}
 
 			my %seen = ();
+			my %seen_with_level = ();
+			my %seen_cycle = ();
 
 			while ($#queue > -1) {
-				my $parentid = shift @queue;
-				#print "- $parentid\n";
+				my ($parentid, $parent_level, $path_ref) = @{shift @queue};
 
 				if ($parentid eq $tagid) {
 					my $msg = "$tagid is a parent of itself\n";
 					push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg));
 				}
-				elsif (not defined $seen{$parentid}) {
+				elsif (not defined $seen_with_level{"$parentid\t$parent_level"}) {
 					defined $all_parents{$tagtype}{$tagid} or $all_parents{$tagtype}{$tagid} = [];
-					push @{$all_parents{$tagtype}{$tagid}}, $parentid;
-					$seen{$parentid} = 1;
+					if (not defined $seen{$parentid}) {
+						push @{$all_parents{$tagtype}{$tagid}}, $parentid;
+						$seen{$parentid} = 1;
+					}
+					$seen_with_level{"$parentid\t$parent_level"} = 1;
 
-					if (not defined $level{$tagtype}{$parentid}) {
-						$level{$tagtype}{$parentid} = 2;
-						$longest_parent{$tagid} = $parentid;
+					# Check that the level of the parent is at least the level of the child + 1 (parent level)
+					if ((not defined $level{$tagtype}{$parentid}) or ($level{$tagtype}{$parentid} < $parent_level)) {
+						$level{$tagtype}{$parentid} = $parent_level;
 					}
 
+					# Add the parent's parents to the queue
 					if (defined $direct_parents{$tagtype}{$parentid}) {
 						foreach my $grandparentid (sort keys %{$direct_parents{$tagtype}{$parentid}}) {
-							push @queue, $grandparentid;
+							if (defined $path_ref->{$grandparentid}) {
+								my $cycle_key = "$parentid\t$grandparentid";
+								if (not defined $seen_cycle{$cycle_key}) {
+									my $msg
+										= "$tagid has an indirect circular parent relation through $parentid -> $grandparentid\n";
+									push(@taxonomy_errors, _taxonomy_error("ERROR", "circular_parent", $msg));
+									$seen_cycle{$cycle_key} = 1;
+								}
+								next;
+							}
+
+							my $grandparent_level = $parent_level + 1;
+							my %next_path = %{$path_ref};
+							$next_path{$grandparentid} = 1;
+							push @queue, [$grandparentid, $grandparent_level, \%next_path];
 							if (   (not defined $level{$tagtype}{$grandparentid})
-								or ($level{$tagtype}{$grandparentid} <= $level{$tagtype}{$parentid}))
+								or ($level{$tagtype}{$grandparentid} < $grandparent_level))
 							{
-								$level{$tagtype}{$grandparentid} = $level{$tagtype}{$parentid} + 1;
-								$longest_parent{$parentid} = $grandparentid;
+								$level{$tagtype}{$grandparentid} = $grandparent_level;
 							}
 						}
 					}
@@ -2098,12 +2115,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 				$key = '! synonyms ';    # synonyms first
 			}
 			if (defined $all_parents{$tagtype}{$tagid}) {
-				# sort parents according to level
-				@{$all_parents{$tagtype}{$tagid}} = sort {
-					(((defined $level{$tagtype}{$b}) ? $level{$tagtype}{$b} : 0)
-						<=> ((defined $level{$tagtype}{$a}) ? $level{$tagtype}{$a} : 0))
-						|| ($a cmp $b)
-				} @{$all_parents{$tagtype}{$tagid}};
 				$key .= '> ' . join((' > ', reverse @{$all_parents{$tagtype}{$tagid}})) . ' ';
 			}
 			$key .= '> ' . $tagid;
@@ -2136,7 +2147,6 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			$taxonomy_full_json{$tagid} = {name => {}};
 			$taxonomy_extended_json{$tagid} = {name => {}};
 
-			# print "taxonomy - compute all children - $tagid - level: $level{$tagtype}{$tagid} - longest: $longest_parent{$tagid} - syn: $just_synonyms{$tagtype}{$tagid} - sort_key: $sort_key_parents{$tagid} \n";
 			if (defined $direct_parents{$tagtype}{$tagid}) {
 				$taxonomy_json{$tagid}{parents} = [];
 				$taxonomy_full_json{$tagid}{parents} = [];
@@ -2828,6 +2838,20 @@ my %and = (
 	pt => " e ",
 );
 
+=head2 gen_tags_hierarchy_taxonomy($tag_lc, $tagtype, $tags_list)
+
+Generate a list of tags including the parents of the tags in the input list.
+
+Tags are sorted by level (length of the longest chain of children: 1 for leaf nodes) and then alphabetically.
+
+=head3 Parameters
+
+=head4 tag type $tagtype
+
+=head4 comma-separated list of tags $tags_list
+
+=cut
+
 sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 
 	# $tags_list  ->  comma-separated list of tags, not in a specific order
@@ -2842,6 +2866,8 @@ sub gen_tags_hierarchy_taxonomy ($tag_lc, $tagtype, $tags_list) {
 =head2 gen_tags_list_with_parents($tag_lc, $tagtype, $tags_ref)
 
 Generate a list of tags including the parents of the tags in the input list.
+
+Tags are sorted by level (length of the longest chain of children: 1 for leaf nodes) and then alphabetically.
 
 =head3 Parameters
 
@@ -2940,8 +2966,6 @@ sub get_tag_with_parents ($tagtype, $tagid) {
 	my @tag_with_parents = ($tagid);
 
 	if (defined $all_parents{$tagtype}{$tagid}) {
-		print STDERR
-			"get_tag_with_parents - tagtype: $tagtype - tagid: $tagid - parents: @{$all_parents{$tagtype}{$tagid}} \n";
 		push @tag_with_parents, @{$all_parents{$tagtype}{$tagid}};
 	}
 
@@ -4795,6 +4819,38 @@ sub add_users_translations_to_taxonomy ($tagtype) {
 	return;
 }
 
+=head2 generate_regexps_matching_taxonomy_stopwords($taxonomy)
+
+Create regular expressions that will match stopwords of a taxonomy.
+
+=head3 Arguments
+
+=head4 $taxonomy
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head3 Return values
+
+A reference to a hash of strings, with the language code as key, and a string containing a regular expression
+that will match all stopwords of the taxonomy in that language.
+
+=cut
+
+sub generate_regexps_matching_taxonomy_stopwords ($taxonomy) {
+
+	my $result_ref = {};
+
+	foreach my $language (sort keys %{$stopwords{$taxonomy}}) {
+		my $stopwords_ref = deep_get(\%stopwords, $taxonomy, $language . ".strings");
+		if (defined $stopwords_ref) {
+			my $regexp = join('|', map {regexp_escape($_)} @$stopwords_ref);
+			$result_ref->{$language} = $regexp;
+		}
+	}
+
+	return $result_ref;
+}
+
 =head2 generate_regexps_matching_taxonomy_entries($taxonomy, $return_type, $options_ref)
 
 Create regular expressions that will match entries of a taxonomy.
@@ -5092,6 +5148,8 @@ Returns the path of the tag in the taxonomy (from the root to the tag, included)
 
 If there are multiple parents for the tag (or one of its parents), we take the first parent.
 
+See also: get_tags_parents() if you need a list with all parents.
+
 =head3 Arguments
 
 =head4 $tagtype
@@ -5100,7 +5158,7 @@ If there are multiple parents for the tag (or one of its parents), we take the f
 
 =head3 Return value
 
-The path of the tag in the taxonomy (from the root to the tag, included), as an array of tagids.
+The path of the tag in the taxonomy (from the root to the tag, included), as a reference to an array of tagids.
 
 =cut
 
