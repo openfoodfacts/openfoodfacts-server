@@ -52,6 +52,7 @@ BEGIN {
 		&decode_json_request_body
 		&normalize_requested_code
 		&customize_response_for_product
+		&customize_components
 		&check_user_permission
 		&process_auth_header
 		&sanitize
@@ -746,14 +747,13 @@ Reference to the customized product components array object.
 
 sub customize_components ($request_ref, $product_ref) {
 
-	my $customized_components_ref = $product_ref->{components};
+	my $customized_components_ref;
 
 	if (defined $product_ref->{components}) {
 		$customized_components_ref = [];
 
 		foreach my $component_ref (@{$product_ref->{components}}) {
-			my $customized_component_ref = dclone($component_ref);
-			push @$customized_components_ref, $customized_component_ref;
+			push @$customized_components_ref, dclone($component_ref);
 		}
 	}
 
