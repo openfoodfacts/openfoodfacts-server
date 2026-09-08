@@ -37,6 +37,43 @@
       "en:vegetable-oils",
       "en:rapeseed-oils"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+               "mass" : 100,
+               "name" : "Huile de colza"
+            }
+         ],
+         "packaging" : {
+            "category" : "en:rapeseed-oils",
+            "ecs" : 37.99,
+            "id" : "1843135c-3fb4-49e9-a691-1e1a6029c1df",
+            "name" : "Rapeseed oil, 0,5L | Packaging System, N0, All, Glass bottle {FR} U",
+            "name_fr" : "Bouteille en verre pour huile végétale (sauf huile d'olive) - 0,5L à 0,75L"
+         }
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "96b301d9-d21b-4cea-8903-bd7917e95a30",
+                  "mass" : 100
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "1843135c-3fb4-49e9-a691-1e1a6029c1df"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fats",
    "food_groups_tags" : [

@@ -35,6 +35,52 @@
       "en:syrups",
       "en:flavoured-syrups"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+               "mass" : 18.75,
+               "name" : "water"
+            },
+            {
+               "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+               "mass" : 9.375,
+               "name" : "sugar"
+            }
+         ],
+         "packaging" : {
+            "category" : "en:syrups",
+            "ecs" : 44.06,
+            "id" : "a358ef07-0591-489f-808d-2b94a7396eb2",
+            "name" : "Sirop, 500g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+            "name_fr" : "Bouteille en acier pour sirop - 500g - Proxy"
+         }
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "36b3ffec-51e7-4e26-b1b5-7d52554e0aa6",
+                  "mass" : 18.75
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 9.375
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "a358ef07-0591-489f-808d-2b94a7396eb2"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:sweetened-beverages",
    "food_groups_tags" : [

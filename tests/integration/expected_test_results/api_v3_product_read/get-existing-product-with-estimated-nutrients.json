@@ -569,6 +569,61 @@
          "tests"
       ],
       "entry_dates_tags" : "--ignore--",
+      "environmental_impact" : {
+         "ecobalyse_input" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                  "mass" : 68.75,
+                  "name" : "milk"
+               },
+               {
+                  "id" : "egg-indoor-code3",
+                  "mass" : 15.625,
+                  "name" : "eggs"
+               },
+               {
+                  "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                  "mass" : 15.625,
+                  "name" : "sugar"
+               }
+            ],
+            "packaging" : {
+               "category" : "en:biscuits",
+               "ecs" : 9.29,
+               "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5",
+               "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+               "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
+            }
+         },
+         "ecobalyse_request" : {
+            "data" : {
+               "distribution" : "ambient",
+               "ingredients" : [
+                  {
+                     "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                     "mass" : 68.75
+                  },
+                  {
+                     "id" : "egg-indoor-code3",
+                     "mass" : 15.625
+                  },
+                  {
+                     "id" : "5fc8032f-ca1c-4497-844b-f9213075eab3",
+                     "mass" : 15.625
+                  }
+               ],
+               "packaging" : [
+                  {
+                     "amount" : 1,
+                     "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5"
+                  }
+               ]
+            },
+            "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+         }
+      },
       "estimate_ingredients_percent_service" : "product_opener",
       "food_groups" : "en:biscuits-and-cakes",
       "food_groups_tags" : [

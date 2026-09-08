@@ -31,6 +31,43 @@
       "en:milks-liquid-and-powder",
       "en:milks"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+               "mass" : 100,
+               "name" : "Milk"
+            }
+         ],
+         "packaging" : {
+            "category" : "en:milks",
+            "ecs" : 15.87,
+            "id" : "d585c6ab-c4c1-4bc7-ba8d-a06e943ad065",
+            "name" : "Milk, other than from cow, 1000g | Packaging System, N0, All, PET bottle {FR} U",
+            "name_fr" : "Bouteille en plastique (PET) pour lait - 1L"
+         }
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "8f3863e7-f981-4367-90a2-e1aaa096a6e0",
+                  "mass" : 100
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "d585c6ab-c4c1-4bc7-ba8d-a06e943ad065"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:milk-and-yogurt",
    "food_groups_tags" : [

@@ -37,6 +37,43 @@
       "en:coffees",
       "en:ground-coffees"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [
+            {
+               "id" : "coffee-ground",
+               "mass" : 100,
+               "name" : "ground coffee"
+            }
+         ],
+         "packaging" : {
+            "category" : "en:ground-coffees",
+            "ecs" : 2.433,
+            "id" : "b227b85d-b77c-4a34-8a81-a1e17fcefbdf",
+            "name" : "Coffee (grounded), 250g | Packaging System, Proxy Pack, Plastic film {FR} U",
+            "name_fr" : "Sachet en plastique (PE) pour café moulu - 250g - Proxy"
+         }
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [
+               {
+                  "id" : "coffee-ground",
+                  "mass" : 100
+               }
+            ],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "b227b85d-b77c-4a34-8a81-a1e17fcefbdf"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:unsweetened-beverages",
    "food_groups_tags" : [
