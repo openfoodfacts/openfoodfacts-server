@@ -60,7 +60,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Tags qw/%level display_taxonomy_tag display_taxonomy_tag_name get_inherited_property_from_tags/;
+use ProductOpener::Tags qw/display_taxonomy_tag display_taxonomy_tag_name get_inherited_property_from_tags/;
 use ProductOpener::ProductsTags qw/has_tag/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/@nutrient_levels/;
