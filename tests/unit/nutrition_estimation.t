@@ -34,6 +34,11 @@ my @tests = (
 		desc => 'ingredient in CIQUAL table but not in CALNUT extended table',
 		product => {lc => "en", ingredients_text => "frik"},
 	},
+	{
+		id => 'ciqual-2020-but-not-2025-lentils',
+		desc => 'ingredient in ciqual 2020 but not ciqual 2025',
+		product => {lc => "en", ingredients_text => "lentils"},
+	},
 );
 
 foreach my $test_ref (@tests) {

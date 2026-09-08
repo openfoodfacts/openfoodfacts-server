@@ -55512,7 +55512,7 @@ ciqual_food_name:en: Soy dessert, plain, refrigerated
 ciqual_food_name:fr: Dessert au soja, nature, rayon frais
 
 < en: Soy desserts
-en: Flavoured soy dessert
+en: Soy-based creamy puddings, Flavoured soy dessert
 fr: Dessert au soja aromatisé
 hr: Desert s okusom soje
 lt: Aromatizuoti sojų desertai
@@ -55521,8 +55521,9 @@ ciqual_food_code:en: 20911
 ciqual_food_name:en: Soy dessert, flavoured, refrigerated
 ciqual_food_name:fr: Dessert au soja aromatisé, rayon frais
 
-< en: Flavoured soy dessert
-en: Chocolate soy desserts, cocoa soy desserts
+< en: Soy-based creamy puddings
+< en: Vegan chocolate puddings
+en: Chocolate soy puddings, cocoa soy puddings, Chocolate soy desserts, cocoa soy desserts
 de: Soja Schokodessert, Soja Schokoladen Nachspeisen
 es: Postres de soja con cacao, Postres de soja con chocolate
 fr: Desserts de soja au chocolat, Desserts de soja au cacao
@@ -55531,11 +55532,7 @@ it: Dessert di soia al cioccolato
 lt: Šokoladiniai sojų desertai
 nl: Sojadesserts met chocola
 
-< en: Chocolate soy desserts
-< en: Vegan chocolate puddings
-en: Chocolate soy puddings, cocoa soy puddings
-
-< en: Flavoured soy dessert
+< en: Soy-based creamy puddings
 < en: Vegan vanilla puddings
 en: Vanilla soy desserts
 es: Postres de soja con vainilla
@@ -55545,21 +55542,11 @@ it: Dessert di soia alla vaniglia
 lt: Vaniliniai sojų desertai
 nl: Sojadesserts met vanille
 
-< en: Flavoured soy dessert
+< en: Soy-based creamy puddings
 en: Caramel soy desserts
 fr: Desserts de soja au caramel
 hr: Deserti od karamele soje
 lt: Karameliniai sojų desertai
-
-< en: Soy desserts
-en: Soy dessert with fruits
-fr: Dessert au soja aux fruits
-hr: Desert od soje s voćem
-lt: Vaisių sojų desertai
-agribalyse_food_code:en: 19692
-ciqual_food_code:en: 19692
-ciqual_food_name:en: Soy dessert, w fruits, refrigerated
-ciqual_food_name:fr: Dessert au soja, aux fruits, rayon frais
 
 < en: Dairy substitutes
 < en: Fermented foods
@@ -55670,6 +55657,8 @@ lt: Vaisių sojų jogurtai
 nl: Fruit sojayoghurts
 agribalyse_food_code:en: 19692
 ciqual_food_code:en: 19692
+ciqual_food_name:en: Soy dessert, with fruits, with sugar(s), fortified with calcium, fermented, refrigerated
+ciqual_food_name:fr: Dessert au soja, aux fruits, sucré, enrichi en calcium, fermenté, rayon frais
 
 < en: Fruit soy yogurts
 en: Strawberry soy yogurts, Strawberry soygurts
@@ -67112,14 +67101,21 @@ nl: Plantaardige ijswafels
 
 < en: Plant-based ice creams
 < en: Soy desserts
-en: Soy-based ice creams
+en: Soy-based ice creams, Soy ice creams
 sv: Sojaglasser
 wikidata:en: Q133892366
 
-< en: Chocolate soy desserts
 < en: Soy-based ice creams
 en: Chocolate soy ice creams
 sv: Kakaosojaglasser
+
+< en: Soy-based ice creams
+en: Strawberry soy ice creams
+sv: Jordgubbssojaglasser
+
+< en: Soy-based ice creams
+en: Vanilla soy ice creams
+sv: Vaniljsojaglasser
 
 < en: Ice creams and sorbets
 en: Ice pops, Popsicle, Freeze pop, Ice lolly, Ice block, Icy pole, Freezer pop
@@ -78453,17 +78449,44 @@ sv: Tacosåser
 en: Mild taco sauces
 da: Milde tacosovse
 sv: Milda tacosåser
-incompatible_with:en: categories:en:medium-hot-taco-sauces
+incompatible_with:en: categories:en:medium-hot-taco-sauces, categories:en:hot-taco-sauces
 
 < en: Taco sauces
 en: Medium-hot taco sauces, Medium-spicy taco sauces
 fi: Keskivahvat taco-kastikkeet
 sv: Mellanstarka tacosåser, Medium tacosåser
-incompatible_with:en: categories:en:mild-taco-sauces
+incompatible_with:en: categories:en:mild-taco-sauces, categories:en:hot-taco-sauces
+
+< en: Taco sauces
+en: Hot taco sauces, Spicy taco sauces
+da: Stærke tacosovse
+sv: Starka tacosåser
+incompatible_with:en: categories:en:mild-taco-sauces, categories:en:medium-hot-taco-sauces
 
 < en: Sauces
 en: Walnut sauces
 fr: Sauces au noix
+
+< en: Sauces
+en: Marinades, Marinade
+cs: Marináda
+da: Marinader, Marinade
+de: Marinade
+es: Marinados
+et: Marinaad
+eu: Marinada
+fi: Marinadi
+fr: Marinade
+it: Marinata
+ko: 마리네이드
+lt: Marinatas
+nb: Marinader
+nl: Marinade
+nn: Marinadar
+pl: Marynata
+pt: Marinada
+sv: Marinader
+wikidata:en: Q56296569
 
 < en: Sauces
 en: Warm sauces
@@ -78937,16 +78960,34 @@ wikidata:en: Q1572278
 en: Salad creams
 description:en: Salad cream is a creamy, pale yellow condiment based on an emulsion of about 25–50 percent oil in water, emulsified by egg yolk and acidulated by spirit
 intake24_category_code:en: SDCM
+wikidata:en: Q6128321
 
 < en: Salad dressings
-en: Salad dressing with reduced fat, Low fat salad dressing, Light salad dressing
+en: Salad dressings with reduced fat, Salad dressing with reduced fat, Low fat salad dressing, Light salad dressing
+da: Lette salatdressinger
 fr: Sauces crudités allégées, Sauces crudités light, Sauce crudités allégée en matière grasse, Sauce salade allégée en matière grasse
 hr: Preljev za salatu sa smanjenom masnoćom
 lt: Salotų padažai su sumažintu riebalų kiekiu
+sv: Lätta salladsdressingar
 agribalyse_food_code:en: 11198
 ciqual_food_code:en: 11198
 ciqual_food_name:en: Salad dressing, reduced fat, prepacked
 ciqual_food_name:fr: Sauce crudités ou Sauce salade, allégée en matière grasse, préemballée
+
+< en: Salad dressings
+en: Rhode Island dressings
+da: Rhode Island-dressinger
+sv: Rhode Island-dressingar, Rhode Island-såser
+description:en: Swedish salad dressing similar to Thousand Island, with no known relation to Rhode Island.
+
+< en: Rhode Island dressings
+< en: Salad dressings with reduced fat
+en: Rhode Island dressings with reduced fat, Light Rhode Island dressings
+sv: Lätta Rhode Island-dressingar, Rhode Island lätt dressing
+agribalyse_proxy_food_code:en: 11198
+ciqual_proxy_food_code:en: 11198
+ciqual_proxy_food_name:en: Salad dressing, reduced fat, prepacked
+ciqual_proxy_food_name:fr: Sauce crudités ou Sauce salade, allégée en matière grasse, préemballée
 
 < en: Salad dressings
 en: Thousand Island dressings, Thousand Island dressing
@@ -79918,6 +79959,11 @@ hu: Édes mustár
 it: Senapi dolci
 nl: Zoete mosterds
 pl: Musztardy słodkie
+
+< en: Mustards
+en: Sweet and strong mustards, Sweet and spicy mustards, Sötstark mustards
+fi: Sinappi makea-väkevä
+sv: Sötstarka senap, Sötstark senap
 
 < en: Mustards
 en: Tomato mustards
@@ -126439,3 +126485,4 @@ zh: 全杜兰小麦螺旋意面
 en: Semi whole durum wheat spirals
 fr: Spirales de blé dur semi-complet
 zh: 半杜兰小麦螺旋意面
+
