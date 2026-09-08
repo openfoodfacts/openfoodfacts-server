@@ -112,7 +112,6 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 	# indicate that the service is modifying the "ingredients" structure
 	$updated_product_fields_ref->{environmental_impact} = 1;
-	$product_ref->{environmental_impact} = 0;
 
 	# Example Ecobalyse food2 API request:
 	#
@@ -141,53 +140,77 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	my $payload = {
 		ingredients => [],
 		packaging => [],
-		distribution => "ambient",
 	};
 
+	# Keep a separate structure with more information for debugging and analysis
+	$product_ref->{environmental_impact}{ecobalyse_input}{ingredients} = [];
+
 	# Add ingredients
-	# Currently we only add parent ingredients,
-	# but we should use leaf ingredients (without their parents) instead
-	foreach my $ingredient_ref (@{$product_ref->{ingredients}}) {
-		# TODO: when we don't have an ecobalyse_code or ecobalyse_proxy_code,
-		# we can ignore the ingredient, but we need to record the quantity of unrecognized ingredients
-		next unless defined $ingredient_ref->{id} && defined $ingredient_ref->{percent_estimate};
-		push @{$payload->{ingredients}},
-			{
-			id => $ingredient_ref->{ecobalyse_code} || $ingredient_ref->{ecobalyse_proxy_code},
-			mass => $ingredient_ref->{percent_estimate}
-			};
-	}
+	# We only add leaf ingredients (without their parents)
 
-	# Add packaging
-	my $packaging_entry = get_ecobalyse_packaging_entry($product_ref);
-	if (defined $packaging_entry) {
-		push @{$payload->{packaging}},
-			{
-			id => $packaging_entry->{id},
-			amount => 1
-			};
-		$product_ref->{environmental_impact}{ecobalyse_input}{packaging} = {
-			id => $packaging_entry->{id},
-			name => $packaging_entry->{activityName},
-			name_fr => $packaging_entry->{displayName},
-			ecs => $packaging_entry->{ecs},
-			category => $packaging_entry->{categories_tagid},
-		};
-	}
+	my @ingredients_queue = @{$product_ref->{ingredients} // []};
+	my $total_ingredients_quantity = 0;
+	my $total_ingredients_quantity_with_ecobalyse_code = 0;
 
-	# Add distribution
-	if (defined $product_ref->{storage_conditions}) {
-		my $distribution = $product_ref->{storage_conditions};
-		$distribution =~ s/^[a-z]{2}://;
-		$payload->{distribution} = $distribution;
-		$product_ref->{environmental_impact}{ecobalyse_input}{distribution}
-			= $distribution;
+	while (@ingredients_queue) {
+		my $ingredient_ref = shift @ingredients_queue;
+		if (defined $ingredient_ref->{ingredients}) {
+			push @ingredients_queue, @{$ingredient_ref->{ingredients}};
+		}
+		else {
+			# We use the quantity_estimate if available (not set by the current product opener % estimation),
+			# or the percent_estimate
+			my $quantity = $ingredient_ref->{quantity_estimate} // $ingredient_ref->{percent_estimate};
+			next unless defined $quantity;
+
+			$total_ingredients_quantity += $quantity;
+
+			my $id = $ingredient_ref->{ecobalyse_code} || $ingredient_ref->{ecobalyse_proxy_code};
+			if (defined $id) {
+				$total_ingredients_quantity_with_ecobalyse_code += $quantity;
+				push @{$payload->{ingredients}},
+					{
+					id => $id,
+					mass => $quantity
+					};
+				# Also store the ingredient in the ecobalyse_input structure for debugging and analysis
+				push @{$product_ref->{environmental_impact}{ecobalyse_input}{ingredients}},
+					{
+					id => $id,
+					mass => $quantity,
+					name => $ingredient_ref->{text} // '',
+					};
+			}
+		}
 	}
 
 	# API URL
 	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
 
-	$product_ref->{environmental_impact} = {ecobalyse_request => {url => $url_recipe, data => $payload}};
+	$product_ref->{environmental_impact}{ecobalyse_request} = {url => $url_recipe, data => $payload};
+
+	# Add packaging
+	my $packaging_entry_ref = get_ecobalyse_packaging_entry($product_ref);
+	if (defined $packaging_entry_ref) {
+		push @{$payload->{packaging}},
+			{
+			id => $packaging_entry_ref->{id},
+			amount => 1
+			};
+		$product_ref->{environmental_impact}{ecobalyse_input}{packaging} = {
+			id => $packaging_entry_ref->{id},
+			name => $packaging_entry_ref->{activityName},
+			name_fr => $packaging_entry_ref->{displayName},
+			ecs => $packaging_entry_ref->{ecs},
+			category => $packaging_entry_ref->{categories_tagid},
+		};
+	}
+
+	# Add distribution
+	my $distribution = $product_ref->{storage_conditions} || "en:ambient";
+	$distribution =~ s/^[a-z]{2}://;
+	$payload->{distribution} = $distribution;
+	$product_ref->{environmental_impact}{ecobalyse_input}{distribution} = $distribution;
 
 	if ($skip_ecobalyse_call) {
 		$log->debug("Skipping Ecobalyse API call, only preparing request payload",
@@ -247,9 +270,6 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 
 		# add_error
 		# add_warning
-
-		# $product_ref->{environmental_impact} = 5;
-
 	}
 
 	return;
