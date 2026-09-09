@@ -3045,14 +3045,11 @@ Text to analyze
 					# ingredients tags that are too long (greater than 1024, mongodb max index key size)
 					# will cause issues for the mongodb ingredients_tags index, just drop them
 					if (length($ingredient{id}) < 500) {
-						# Only flatten an additive class when at least one of its children is
-						# recognizable (#6132 follow-up): protecting the solidus of compound
-						# units removed the accidental '/' splits that used to create list
-						# boundaries, so e.g. "Antioxygènes : Avec antioxydant naturel :
-						# mg/kg 1b306(i)" would otherwise be flattened into unknown junk
-						# children and the class tag would be lost entirely.
-						my $flatten_children = 0;
-						if ($is_flattenable_additive_class && $between ne "") {
+						# Only require recognizable children when protected compound-unit slashes
+						# could flatten the class into unknown text, e.g. "mg/kg 1b306(i)".
+						my $flatten_children = $is_flattenable_additive_class && $between ne '';
+						if ($flatten_children && $between =~ /\N{U+2044}/) {
+							$flatten_children = 0;
 							foreach my $raw_chunk (split(/$separators/, $between)) {
 								# $separators contains capturing groups, so split
 								# also yields undef delimiter slots.
@@ -3061,17 +3058,38 @@ Text to analyze
 								my $chunk = $raw_chunk;
 								$chunk =~ s/^\s+|\s+$//g;
 								next if $chunk eq '';
-								if (
-									exists_taxonomy_tag("additives",
-										canonicalize_taxonomy_tag($ingredients_lc, "additives", $chunk))
-									or exists_taxonomy_tag(
-										"ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $chunk)
-									)
-									)
-								{
-									$flatten_children = 1;
-									last;
+
+								my @candidate_chunks = ($chunk);
+								if ($chunk =~ /$and/i) {
+									push @candidate_chunks, ($`, $');
 								}
+
+								foreach my $candidate_chunk (@candidate_chunks) {
+									$candidate_chunk =~ s/^\s+|\s+$//g;
+									if ($candidate_chunk =~ /\s$percent_or_quantity_regexp$/i && $2 ne '') {
+										$candidate_chunk = $`;
+									}
+									next if $candidate_chunk eq '';
+
+									my $candidate_recognized
+										= exists_taxonomy_tag("additives",
+										canonicalize_taxonomy_tag($ingredients_lc, "additives", $candidate_chunk))
+										|| exists_taxonomy_tag("ingredients",
+										canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $candidate_chunk));
+
+									if ((not $candidate_recognized)
+										and defined $ingredients_processing_regexps{$ingredients_lc})
+									{
+										(undef, undef, undef, $candidate_recognized)
+											= parse_processing_from_ingredient($ingredients_lc, $candidate_chunk);
+									}
+
+									if ($candidate_recognized) {
+										$flatten_children = 1;
+										last;
+									}
+								}
+								last if $flatten_children;
 							}
 						}
 						if ($flatten_children) {
