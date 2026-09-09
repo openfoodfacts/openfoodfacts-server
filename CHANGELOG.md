@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.104.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.103.0...v2.104.0) (2026-09-07)
+
+
+### Features
+
+* ingredient parsing for 1 egg, 2 small carrots ([#14366](https://github.com/openfoodfacts/openfoodfacts-server/issues/14366)) ([791cf54](https://github.com/openfoodfacts/openfoodfacts-server/commit/791cf54f832a68568175499d383757acafc37eeb))
+* **lint_taxonomy:** “comment” typo check, round 2 ([#14379](https://github.com/openfoodfacts/openfoodfacts-server/issues/14379)) ([c2cc721](https://github.com/openfoodfacts/openfoodfacts-server/commit/c2cc7216b29e278f87e80bfd3c9346d99ba38ac1))
+* use Ciqual table 2025 version in addition to 2020 ([#14306](https://github.com/openfoodfacts/openfoodfacts-server/issues/14306)) ([945e2c5](https://github.com/openfoodfacts/openfoodfacts-server/commit/945e2c524a3093b2fca63fa6efbb5ee09f3e6871))
+
+
+### Bug Fixes
+
+* **docker:** support multi-instance deployment for OBF and custom flavors ([#14271](https://github.com/openfoodfacts/openfoodfacts-server/issues/14271)) ([db60176](https://github.com/openfoodfacts/openfoodfacts-server/commit/db6017687253e795e1ef90bf414c794cc0e39a6c))
+* encode product code in URL redirection ([#14486](https://github.com/openfoodfacts/openfoodfacts-server/issues/14486)) ([f3d9ad5](https://github.com/openfoodfacts/openfoodfacts-server/commit/f3d9ad5015e5bd55f5fdd0dd909f59dcb7fcd3d4))
+* Rename readme.md to README.md ([#14368](https://github.com/openfoodfacts/openfoodfacts-server/issues/14368)) ([297b31d](https://github.com/openfoodfacts/openfoodfacts-server/commit/297b31dfe7880073a658769871e3036e67264777))
+* vector bio image for hunger-games ([3114e7a](https://github.com/openfoodfacts/openfoodfacts-server/commit/3114e7a31b9a9b96ac51d233e88fedfc8a258e8d))
+* vector bio image for hunger-games ([#14230](https://github.com/openfoodfacts/openfoodfacts-server/issues/14230)) ([3114e7a](https://github.com/openfoodfacts/openfoodfacts-server/commit/3114e7a31b9a9b96ac51d233e88fedfc8a258e8d))
+* **workflow:** update auto-author-assign action to specific commit hash ([#14476](https://github.com/openfoodfacts/openfoodfacts-server/issues/14476)) ([12d795a](https://github.com/openfoodfacts/openfoodfacts-server/commit/12d795add127b7a8e7e5dbb5b26844e367a0e58d))
+
 ## [2.103.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.102.0...v2.103.0) (2026-08-26)
 
 
