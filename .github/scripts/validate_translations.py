@@ -279,7 +279,8 @@ def check_po_files():
                 placeholder_issues.append(f"- **Placeholder mismatch** in `{po_file}`: Expected `{id_placeholders}`, found `{str_placeholders}` in `{msgstr}`")
             
             # Check URL consistency
-            if "world.openfoodfacts.org" in msgid:
+            msgid_urls = re.findall(r'https?://[^\s\"\'>]+', msgid)
+            if any((urllib.parse.urlparse(u).hostname or "").lower() == "world.openfoodfacts.org" for u in msgid_urls):
                 msgstr_urls = re.findall(r'https?://[^\s\"\'>]+', msgstr)
                 if any((urllib.parse.urlparse(u).hostname or "").lower() == "world.openfoodfacts.org" for u in msgstr_urls):
                     url_issues.append(f"- **URL not localized** in `{po_file}`: expected `{url_locale}.openfoodfacts.org` or `world-{url_locale}.openfoodfacts.org`, but found `world.openfoodfacts.org`")
