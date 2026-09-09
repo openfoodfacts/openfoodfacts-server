@@ -148,12 +148,18 @@ closest ".select_crop" element, and the list of images / image path from "window
 [%# Markup given to the cropperjs factory as its "template" option
 (image-editor.js, loadImage). It is rendered in the crop container: the
 <img id="crop-image"> element of the main template is passed to the factory
-as the cropper source.
+as the cropper source, and the factory copies its src onto <cropper-image>.
+The <cropper-image> element is required: without it the cropper has no image
+to display, getCropperImage() returns null and the editor never becomes ready.
+"rotatable scalable skewable translatable" let the image follow rotations
+(rotate buttons) and zoom, and make getSelectionCoordinates() return raster
+coordinates that match what the server applied.
 Note: no "initial-coverage" attribute, so no selection is created until the
 user clicks and drags on the canvas (same behavior as the previous
 implementation, which used "autoCrop: false"). %]
 <template id="image-editor-cropper-template">
   <cropper-canvas background>
+    <cropper-image rotatable scalable skewable translatable></cropper-image>
     <cropper-shade hidden></cropper-shade>
     <cropper-handle action="select" plain></cropper-handle>
     <cropper-selection movable resizable>
