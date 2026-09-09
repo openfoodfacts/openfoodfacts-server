@@ -3833,7 +3833,7 @@ Return 1 if the field value was provided by the owner (producer) and the field i
 sub is_owner_field ($product_ref, $field) {
 
 	my $base_field = $field;
-	if ($field =~ /^(.*)_(\w\w)$/) {
+	if ($field =~ /^(.*)_([a-z]{2,5}(?:-[a-z0-9]+)?)$/i) {
 		$base_field = $1;
 	}
 

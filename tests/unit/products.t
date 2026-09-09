@@ -454,6 +454,7 @@ my $owner_product_ref = {
 
 is(is_owner_field($owner_product_ref, 'ingredients_text'), 1, 'is_owner_field detects base owner field');
 is(is_owner_field($owner_product_ref, 'ingredients_text_fr'), 1, 'is_owner_field detects localized owner field via base name');
+is(is_owner_field($owner_product_ref, 'ingredients_text_und'), 1, 'is_owner_field detects 3-letter localized owner field');
 is(is_owner_field($owner_product_ref, 'quantity'), 1, 'is_owner_field detects simple owner field');
 is(is_owner_field($owner_product_ref, 'product_name'), 0, 'is_owner_field returns 0 for non-owner field');
 
