@@ -52,6 +52,7 @@ BEGIN {
 
 		&estimate_environmental_impact_service
 		&get_ecobalyse_packaging_entry
+		&get_ecobalyse_transformation_entries
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -67,9 +68,10 @@ use Encode qw(decode_utf8 encode_utf8);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::HTTP qw/create_user_agent/;
-use ProductOpener::Tags qw/is_a get_taxonomy_tag_level/;
+use ProductOpener::Tags qw/is_a get_taxonomy_tag_level get_property/;
 use File::Basename qw/dirname/;
 use Scalar::Util qw/looks_like_number/;
+use Data::DeepAccess qw(deep_exists deep_get);
 
 =head1 FUNCTIONS
 
@@ -159,10 +161,7 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# }
 
 	# Initialisation of the payload structure
-	my $payload = {
-		ingredients => [],
-		packaging => [],
-	};
+	my $payload_ref = {ingredients => [],};
 
 	# Keep a separate structure with more information for debugging and analysis
 	$product_ref->{environmental_impact}{ecobalyse_input}{ingredients} = [];
@@ -190,10 +189,10 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 			my $id = $ingredient_ref->{ecobalyse_code} || $ingredient_ref->{ecobalyse_proxy_code};
 			if (defined $id) {
 				$total_ingredients_quantity_with_ecobalyse_code += $quantity;
-				push @{$payload->{ingredients}},
+				push @{$payload_ref->{ingredients}},
 					{
 					id => $id,
-					mass => $quantity
+					mass => $quantity,
 					};
 				# Also store the ingredient in the ecobalyse_input structure for debugging and analysis
 				push @{$product_ref->{environmental_impact}{ecobalyse_input}{ingredients}},
@@ -206,46 +205,72 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		}
 	}
 
-	# API URL
-	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
-
-	$product_ref->{environmental_impact}{ecobalyse_request} = {url => $url_recipe, data => $payload};
+	# Add transformations / processing
+	my @transformation_entries = get_ecobalyse_transformation_entries($product_ref);
+	if (@transformation_entries) {
+		$payload_ref->{transformations} = [];
+		$product_ref->{environmental_impact}{ecobalyse_input}{transformations} = [];
+		foreach my $entry (@transformation_entries) {
+			push @{$payload_ref->{transformations}},
+				{
+				id => $entry->{id},
+				mass => $total_ingredients_quantity,
+				};
+			push @{$product_ref->{environmental_impact}{ecobalyse_input}{transformations}},
+				{
+				id => $entry->{id},
+				name => $entry->{name},
+				name_fr => $entry->{name_fr},
+				mass => $total_ingredients_quantity,
+				};
+		}
+	}
 
 	# Add packaging
 	my $packaging_entry_ref = get_ecobalyse_packaging_entry($product_ref);
 	if (defined $packaging_entry_ref) {
-		push @{$payload->{packaging}},
+		$payload_ref->{packaging} = [];
+		$product_ref->{environmental_impact}{ecobalyse_input}{packaging} = [];
+		push @{$payload_ref->{packaging}},
 			{
 			id => $packaging_entry_ref->{id},
 			amount => 1
 			};
-		$product_ref->{environmental_impact}{ecobalyse_input}{packaging} = {
+		push @{$product_ref->{environmental_impact}{ecobalyse_input}{packaging}},
+			{
 			id => $packaging_entry_ref->{id},
 			name => $packaging_entry_ref->{activityName},
 			name_fr => $packaging_entry_ref->{displayName},
-			ecs => $packaging_entry_ref->{ecs},
 			category => $packaging_entry_ref->{categories_tagid},
-		};
+			};
 	}
 
 	# Add distribution
 	my $distribution = $product_ref->{storage_conditions} || "en:ambient";
 	$distribution =~ s/^[a-z]{2}://;
-	$payload->{distribution} = $distribution;
+	$payload_ref->{distribution} = $distribution;
 	$product_ref->{environmental_impact}{ecobalyse_input}{distribution} = $distribution;
 
+	# API URL
+	my $url_recipe = "https://ecobalyse.beta.gouv.fr/api/food";
+
+	$product_ref->{environmental_impact}{ecobalyse_request} = {url => $url_recipe, data => $payload_ref};
+
 	if ($skip_ecobalyse_call) {
-		$log->debug("Skipping Ecobalyse API call, only preparing request payload",
-			{endpoint => $url_recipe, payload => $payload})
-			if $log->is_debug();
+		$log->debug(
+			"Skipping Ecobalyse API call, only preparing request payload",
+			{endpoint => $url_recipe, payload => $payload_ref}
+		) if $log->is_debug();
 	}
 	else {
 
 		# Debug information for the request
-		$log->debug("Send Ecobalyse API request", {endpoint => $url_recipe, payload => $payload}) if $log->is_debug();
+		$log->debug("Send Ecobalyse API request", {endpoint => $url_recipe, payload => $payload_ref})
+			if $log->is_debug();
 
 		# Send the request and get the response
-		my ($response_content, $is_success) = (call_ecobalyse($url_recipe, $payload));
+		# For tests, we pass a testid to call_ecobalyse() so that the mock response is used instead of a real API call.
+		my ($response_content, $is_success) = (call_ecobalyse($url_recipe, $payload_ref, $product_ref->{testid}));
 
 		# Parse the JSON response
 		my $response_data = $response_content;
@@ -258,18 +283,16 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 		if ($is_success) {
 
 			# Access the specific "ecs" value
-			if (exists $response_data->{results}{total}{ecs}) {
-				my $ecs_value = $response_data->{results}{total}{ecs};
+			my $ecs_value = deep_get($response_data, 'results', 'total', 'ecs');
+			if (defined $ecs_value) {
 				# If 'ecs' is defined, store it in the product reference
-				if (defined $ecs_value) {
-					$product_ref->{environmental_impact}{ecs} = $ecs_value;
-				}
+				$product_ref->{environmental_impact}{ecs} = $ecs_value;
 			}
 		}
 		else {
 			# If the request failed, log the error
 			$log->error("send_event request failed",
-				{endpoint => $url_recipe, payload => $payload, response => $response_content})
+				{endpoint => $url_recipe, payload => $payload_ref, response => $response_content})
 				if $log->is_error();
 			# Add an error message to the errors array
 			$product_ref->{environmental_impact}{ecobalyse_response} = $response_data;
@@ -297,13 +320,13 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	return;
 }
 
-sub call_ecobalyse($url_recipe, $payload) {
+sub call_ecobalyse($url_recipe, $payload_ref, $testid) {
 	# Create a UserAgent object to make the API request
 	my $ua = create_user_agent();
 	$ua->timeout(5);
 
 	# Prepare the POST request with the payload
-	my $request = POST $url_recipe, $payload;
+	my $request = POST $url_recipe, $payload_ref;
 	$request->header('content-type' => 'application/json');
 
 	# Send the ECOBALYSE API_TOKEN token in the token header if it's defined
@@ -315,7 +338,7 @@ sub call_ecobalyse($url_recipe, $payload) {
 		$log->error("ECOBALYSE_API_TOKEN is not defined, the API request will fail without a token")
 			if $log->is_error();
 	}
-	$request->content(decode_utf8(encode_json($payload)));
+	$request->content(decode_utf8(encode_json($payload_ref)));
 
 	# Send the request and get the response
 	my $response = $ua->request($request);
@@ -550,6 +573,54 @@ sub get_ecobalyse_packaging_entry ($product_ref) {
 	}
 
 	return $best_entry_ref;
+}
+
+=head2 get_ecobalyse_transformation_entries ($product_ref)
+
+Return the list of Ecobalyse transformation entries applicable to the product,
+based on the ingredients_processing properties of its categories.
+
+Each returned entry is a hashref with keys: id, name, name_fr, ecs, unit.
+Returns an empty list when no transformation applies.
+
+=cut
+
+sub get_ecobalyse_transformation_entries ($product_ref) {
+
+	my %transforms = (
+		'a2836bb8-7f45-5cfa-bb00-8b38046291cf' => {
+			id => 'a2836bb8-7f45-5cfa-bb00-8b38046291cf',
+			name => 'Cooking, industrial, 1kg of cooked product {FR} U',
+			name_fr => 'Cuisson',
+			ecs => 17.42,
+			unit => 'kg',
+		},
+		'a83c94af-6e31-5599-8022-7ae795862a99' => {
+			id => 'a83c94af-6e31-5599-8022-7ae795862a99',
+			name => 'Canning fruits or vegetables, industrial, 1kg of canned product {FR} U',
+			name_fr => 'Mise en conserve',
+			ecs => 19.54,
+			unit => 'kg',
+		},
+	);
+
+	my %seen = ();
+	my @entries = ();
+
+	for my $category_id (@{$product_ref->{categories_tags} // []}) {
+		my $processing = get_property("categories", $category_id, "ingredients_processing:en");
+		next unless defined $processing;
+		for my $proc_id (split(/,/, $processing)) {
+			$proc_id =~ s/^\s+|\s+$//g;
+			next if $proc_id eq '';
+			my $transformation_id = get_property("ingredients_processing", $proc_id, "ecobalyse_transformation:en");
+			next unless defined $transformation_id;
+			next if $seen{$transformation_id}++;
+			push @entries, $transforms{$transformation_id} if exists $transforms{$transformation_id};
+		}
+	}
+
+	return @entries;
 }
 
 1;
