@@ -63,7 +63,7 @@ msgstr "dan kumpulan Facebook <a href=\"https://www.facebook.com/groups/OpenBeau
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Carian produk Fakta Kecantikan Terbuka"
+msgstr "Carian produk Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -121,7 +121,7 @@ msgstr ""
 
 msgctxt "warning_not_complete_opf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "Halaman produk ini belum lengkap. Anda boleh membantu melengkapkannya dengan mengeditnya dan menambah lebih banyak data daripada foto yang kami ada, atau dengan mengambil lebih banyak foto menggunakan aplikasi Fakta Makanan Terbuka universal untuk <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Terima kasih!"
+msgstr "Halaman produk ini belum lengkap. Anda boleh membantu melengkapkannya dengan mengeditnya dan menambah lebih banyak data daripada foto yang kami ada, atau dengan mengambil lebih banyak foto menggunakan aplikasi Open Food Facts universal untuk <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Terima kasih!"
 
 msgctxt "brands_example_product"
 msgid "Tide, Persil"
@@ -170,7 +170,7 @@ msgstr ""
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
-msgstr "Halaman produk ini belum lengkap. Anda boleh membantu melengkapkannya dengan mengeditnya dan menambah lebih banyak data daripada foto yang kami ada, atau dengan mengambil lebih banyak foto menggunakan aplikasi Fakta Makanan Terbuka universal untuk <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Terima kasih!"
+msgstr "Halaman produk ini belum lengkap. Anda boleh membantu melengkapkannya dengan mengeditnya dan menambah lebih banyak data daripada foto yang kami ada, atau dengan mengambil lebih banyak foto menggunakan aplikasi Open Food Facts universal untuk <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> atau <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Terima kasih!"
 
 msgctxt "brands_example_petfood"
 msgid "Purina, Pedigree"
@@ -1766,11 +1766,6 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Gred pemakanan"
 
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
-
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
@@ -2902,7 +2897,7 @@ msgstr "Penterjemah kami"
 
 msgctxt "translators_lead"
 msgid "We would like to say THANK YOU to the awesome translators that make it possible to present Open Food Facts, Open Beauty Facts, and Open Pet Food Facts to you in all these different languages! <a href=\"https://translate.openfoodfacts.org/\">You can join us in this global effort: it doesn't require any technical knowledge.</a>"
-msgstr "Kami ingin mengucapkan TERIMA KASIH kepada penterjemah hebat yang memungkinkan untuk membentangkan Fakta Makanan Terbuka, Fakta Kecantikan Terbuka, dan Fakta Makanan Binatang Terbuka kepada anda dalam semua bahasa yang berbeza ini! <a href=\"https://translate.openfoodfacts.org/\">Anda boleh menyertai kami dalam usaha global ini: ia tidak memerlukan pengetahuan teknikal.</a>"
+msgstr "Kami ingin mengucapkan TERIMA KASIH kepada penterjemah hebat yang memungkinkan untuk membentangkan Open Food Facts, Open Beauty Facts, dan Open Pet Food Facts kepada anda dalam semua bahasa yang berbeza ini! <a href=\"https://translate.openfoodfacts.org/\">Anda boleh menyertai kami dalam usaha global ini: ia tidak memerlukan pengetahuan teknikal.</a>"
 
 msgctxt "translators_renewal_notice"
 msgid "Please note that this table is refreshed nightly and might be out of date."
@@ -4956,7 +4951,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Skor Hijau ialah skor alam sekitar dari A+ hingga F yang memudahkan perbandingan impak produk makanan terhadap alam sekitar."
+msgstr "Green-Score ialah skor alam sekitar dari A+ hingga F yang memudahkan perbandingan impak produk makanan terhadap alam sekitar."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4969,7 +4964,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Skor Hijau ialah skor alam sekitar dari A+ hingga F yang memudahkan perbandingan impak produk makanan terhadap alam sekitar."
+msgstr "Green-Score ialah skor alam sekitar dari A+ hingga F yang memudahkan perbandingan impak produk makanan terhadap alam sekitar."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5689,7 +5684,7 @@ msgstr "Jejak hutan dikira dengan mengambil kira ramuan yang penghasilannya meme
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Skor Eko hanya dapat dikira jika produk mempunyai kategori tepat yang mencukupi."
+msgstr "Green-Score hanya dapat dikira jika produk mempunyai kategori tepat yang mencukupi."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
@@ -5701,7 +5696,7 @@ msgstr "Sekiranya anda pengilang produk ini, anda boleh menghantar kepada kami m
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Amaran: sesetengah maklumat yang diperlukan untuk mengira Skor Eko dengan tepat tidak diberikan (lihat perincian pengiraan di bawah)."
+msgstr "Amaran: sesetengah maklumat yang diperlukan untuk mengira Green-Score dengan tepat tidak diberikan (lihat perincian pengiraan di bawah)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5861,7 +5856,7 @@ msgstr ""
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Untuk pengiraan Skor Eko yang lebih tepat, anda boleh menyunting halaman produk dan menambahkannya."
+msgstr "Untuk pengiraan Green-Score yang lebih tepat, anda boleh menyunting halaman produk dan menambahkannya."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5883,17 +5878,17 @@ msgstr "Sekiranya anda pengilang produk ini, anda boleh menghantar kepada kami m
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/green-score\">Skor Eko</a> adalah skor eksperimental yang mengikhtisarkan kesan persekitaran produk makanan."
+msgstr "<a href=\"/green-score\">Green-Score</a> adalah skor eksperimental yang mengikhtisarkan kesan persekitaran produk makanan."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "Formula Skor Eko adalah tertakluk kepada perubahan kerana ia ditambah baik secara berkala untuk menjadikannya lebih tepat."
+msgstr "Formula Green-Score adalah tertakluk kepada perubahan kerana ia ditambah baik secara berkala untuk menjadikannya lebih tepat."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Skor Hijau pada mulanya dibangunkan untuk Perancis dan ia sedang diperluaskan ke negara-negara Eropah yang lain. Formula Skor Hijau tertakluk kepada perubahan kerana ia sentiasa diperbaiki untuk menjadikannya lebih tepat dan lebih sesuai untuk setiap negara."
+msgstr "Green-Score pada mulanya dibangunkan untuk Perancis dan ia sedang diperluaskan ke negara-negara Eropah yang lain. Formula Green-Score tertakluk kepada perubahan kerana ia sentiasa diperbaiki untuk menjadikannya lebih tepat dan lebih sesuai untuk setiap negara."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6549,7 +6544,7 @@ msgstr ""
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Kategori yang kami ada untuk produk ini tidak cukup tepat untuk mengira Skor Hijau. Bolehkah anda menambah kategori produk yang lebih tepat?"
+msgstr "Kategori yang kami ada untuk produk ini tidak cukup tepat untuk mengira Green-Score. Bolehkah anda menambah kategori produk yang lebih tepat?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7688,7 +7683,7 @@ msgstr "Laporkan imej ini kepada moderator kami"
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "Kami kehilangan nilai saiz hidangan dan/atau unit untuk mengira Skor Nutri"
+msgstr "Kami kehilangan nilai saiz hidangan dan/atau unit untuk mengira Nutri-Score"
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"

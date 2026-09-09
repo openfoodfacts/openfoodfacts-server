@@ -154,7 +154,7 @@ msgstr "Kolaborativna, besplatna i otvorena baza podataka o sastojcima, nutritiv
 
 msgctxt "tagline_opff"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world."
-msgstr "Open Products Facts prikuplja informacije i podatke o širokom spektru proizvoda za kućne ljubimce iz cijelog svijeta."
+msgstr "Open Pet Food Facts prikuplja informacije i podatke o širokom spektru proizvoda za kućne ljubimce iz cijelog svijeta."
 
 msgctxt "footer_tagline_opff"
 msgid "A collaborative, free and open database of pet food products from around the world."
@@ -1756,11 +1756,6 @@ msgstr ""
 
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
-msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 msgstr ""
 
 # Do not change the lang code if the blog doesn't exist in your language
@@ -4938,7 +4933,7 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Zeleni rezultat je ekološka ocjena od A+ do F koja olakšava poređenje utjecaja prehrambenih proizvoda na okoliš."
+msgstr "Green-Score je ekološka ocjena od A+ do F koja olakšava poređenje utjecaja prehrambenih proizvoda na okoliš."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
@@ -4951,7 +4946,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "Zeleni rezultat je ekološka ocjena od A+ do F koja olakšava poređenje utjecaja prehrambenih proizvoda na okoliš."
+msgstr "Green-Score je ekološka ocjena od A+ do F koja olakšava poređenje utjecaja prehrambenih proizvoda na okoliš."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
@@ -5875,7 +5870,7 @@ msgstr ""
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Zeleni rezultat je prvobitno razvijen za Francusku, a proširuje se i na druge evropske zemlje. Formula Zelenog rezultata podložna je promjenama jer se redovno poboljšava kako bi bila preciznija i bolje prilagođena svakoj zemlji."
+msgstr "Green-Score je prvobitno razvijen za Francusku, a proširuje se i na druge evropske zemlje. Formula Green-Score podložna je promjenama jer se redovno poboljšava kako bi bila preciznija i bolje prilagođena svakoj zemlji."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."

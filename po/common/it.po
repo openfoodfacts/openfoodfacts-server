@@ -1766,11 +1766,6 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Punteggio nutrizionale"
 
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
@@ -2976,7 +2971,7 @@ msgstr "Unità"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr "Gruppo Nova"
+msgstr "Gruppo NOVA"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
@@ -3509,7 +3504,7 @@ msgstr "Carica un foglio di calcolo (file Excel o una virgola o tab separato di 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr "Puoi caricare una tabella con le colonne in formato di importazione Apri fatti alimentari, oppure puoi caricare una tabella in qualsiasi formato e quindi selezionare le colonne da importare."
+msgstr "Puoi caricare una tabella con le colonne in formato di importazione Open Food Facts, oppure puoi caricare una tabella in qualsiasi formato e quindi selezionare le colonne da importare."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
@@ -4763,7 +4758,7 @@ msgstr "Trasformazione alimentare"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
-msgstr "Gruppo Nova"
+msgstr "Gruppo NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
@@ -4825,7 +4820,7 @@ msgstr "Filtro query"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
-msgstr "Gruppo Nova"
+msgstr "Gruppo NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
@@ -6493,7 +6488,7 @@ msgstr "Deseleziona Immagine"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Ulteriori informazioni su Punteggio-Nutri"
+msgstr "Ulteriori informazioni su Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
