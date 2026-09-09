@@ -841,7 +841,7 @@ msgstr "Hasło oraz hasło potwierdzające są różne."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr "Adres e-mail jest używany przez innego użytkownika. Może masz już konto? Możesz <a href=\"\"<a href=\"/cgi/reset_password.pl\"> zresetować hasło </a> do swojego konta."
+msgstr "Adres e-mail jest używany przez innego użytkownika. Może masz już konto? Możesz <a href=\"/cgi/reset_password.pl\"> zresetować hasło </a> do swojego konta."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -1490,7 +1490,7 @@ msgstr "Produkty wytworzone lub przetworzone poza %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr "%s produktów odpowiada kryteriom wyszukiwania, miejsce produkcji jest znane dla %s z nich."
+msgstr "%d produktów odpowiada kryteriom wyszukiwania, miejsce produkcji jest znane dla %d z nich."
 
 msgctxt "map_title"
 msgid "Map title"
@@ -1537,7 +1537,7 @@ msgstr "Misja została zakończona przez:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr "Ukończona przez %s osoby."
+msgstr "Ukończona przez %d osoby."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
@@ -1678,7 +1678,7 @@ msgstr "Wartości odżywcze"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Średnie wartości odżywcze dla %s produktów z kategorii %s dla których wartość odżywcza jest znana (z %s produktów)."
+msgstr "Średnie wartości odżywcze dla %d produktów z kategorii %s, dla których wartość odżywcza jest znana (z %d produktów)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -1852,11 +1852,11 @@ msgstr "Produkty niezapakowane w %s"
 
 msgctxt "page_x"
 msgid "Page %d"
-msgstr "Strona %s"
+msgstr "Strona %d"
 
 msgctxt "page_x_out_of_y"
 msgid "Page %d out of %d."
-msgstr "Strona %s z %d."
+msgstr "Strona %d z %d."
 
 msgctxt "pages"
 msgid "Pages:"
