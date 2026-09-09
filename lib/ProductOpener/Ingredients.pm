@@ -3061,17 +3061,36 @@ Text to analyze
 								my $chunk = $raw_chunk;
 								$chunk =~ s/^\s+|\s+$//g;
 								next if $chunk eq '';
-								if (
-									exists_taxonomy_tag("additives",
-										canonicalize_taxonomy_tag($ingredients_lc, "additives", $chunk))
-									or exists_taxonomy_tag(
-										"ingredients", canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $chunk)
-									)
-									)
-								{
-									$flatten_children = 1;
-									last;
+
+								my @candidate_chunks = ($chunk);
+								if ($chunk =~ /$and/i) {
+									push @candidate_chunks, ($`, $');
 								}
+
+								foreach my $candidate_chunk (@candidate_chunks) {
+									$candidate_chunk =~ s/^\s+|\s+$//g;
+									$candidate_chunk =~ s/\s$percent_or_quantity_regexp$//i;
+									next if $candidate_chunk eq '';
+
+									my $candidate_recognized
+										= exists_taxonomy_tag("additives",
+										canonicalize_taxonomy_tag($ingredients_lc, "additives", $candidate_chunk))
+										|| exists_taxonomy_tag("ingredients",
+										canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $candidate_chunk));
+
+									if ((not $candidate_recognized)
+										and defined $ingredients_processing_regexps{$ingredients_lc})
+									{
+										(undef, undef, undef, $candidate_recognized)
+											= parse_processing_from_ingredient($ingredients_lc, $candidate_chunk);
+									}
+
+									if ($candidate_recognized) {
+										$flatten_children = 1;
+										last;
+									}
+								}
+								last if $flatten_children;
 							}
 						}
 						if ($flatten_children) {
