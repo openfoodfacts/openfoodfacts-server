@@ -39,6 +39,32 @@
       "en:vegetable-oils",
       "en:olive-oils"
    ],
+   "environmental_impact" : {
+      "ecobalyse_input" : {
+         "distribution" : "ambient",
+         "ingredients" : [],
+         "packaging" : {
+            "category" : "en:olive-oils",
+            "ecs" : 38.66,
+            "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58",
+            "name" : "Olive oil, 0,75L | Packaging System, N0, All, Glass bottle {FR} U",
+            "name_fr" : "Bouteille en verre et bouchon plastique pour huile d'olive - 0,5L à 1L"
+         }
+      },
+      "ecobalyse_request" : {
+         "data" : {
+            "distribution" : "ambient",
+            "ingredients" : [],
+            "packaging" : [
+               {
+                  "amount" : 1,
+                  "id" : "8d66bdcf-ee30-43ab-af80-f5565bab0e58"
+               }
+            ]
+         },
+         "url" : "https://ecobalyse.beta.gouv.fr/api/food"
+      }
+   },
    "estimate_ingredients_percent_service" : "product_opener",
    "food_groups" : "en:fats",
    "food_groups_tags" : [
