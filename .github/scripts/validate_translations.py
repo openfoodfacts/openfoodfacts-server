@@ -4,6 +4,7 @@ import re
 import sys
 import glob
 import urllib.request
+import urllib.parse
 
 BRAND_TERMS = [
     "Open Food Facts",
@@ -279,7 +280,8 @@ def check_po_files():
             
             # Check URL consistency
             if "world.openfoodfacts.org" in msgid:
-                if "world.openfoodfacts.org" in msgstr:
+                msgstr_urls = re.findall(r'https?://[^\s\"\'>]+', msgstr)
+                if any((urllib.parse.urlparse(u).hostname or "").lower() == "world.openfoodfacts.org" for u in msgstr_urls):
                     url_issues.append(f"- **URL not localized** in `{po_file}`: expected `{url_locale}.openfoodfacts.org` or `world-{url_locale}.openfoodfacts.org`, but found `world.openfoodfacts.org`")
             
             # Check images resolve (both static.openfoodfacts.org URLs and local relative paths)
