@@ -194,13 +194,6 @@ with real ECS values.
 
 Note: for now, we only look at the processings associated with the product's category. In the future, we may also look at the product's ingredients and their processing tags, if we want to capture transformations that happen at the ingredient level. This seems to be the direction of the new food2 API in Ecobalyse.
 
-### Step 4: Scale and aggregate
-
-Since all transformation entries are per-kg (`unit == "kg"`), scale each
-entry's `ecs` by the product's `product_quantity` (converted to kg). If a
-product has multiple applicable transformations (e.g., canned then cooked),
-sum their scaled impacts.
-
 ## Implementation plan
 
 ### 1. Extend `ingredients_processing.txt`
@@ -240,4 +233,20 @@ Create `tests/unit/ecobalyse_transformation_matching.t`:
 1. `ingredients_processing.txt` parses correctly with new properties.
 2. `categories.txt` parses correctly with new `ingredients_processing:en:` properties.
 3. Unit tests pass for all 3 scenarios above.
+
+## Implementation status
+
+- [x] **Step 1**: Extend `ingredients_processing.txt` with Ecobalyse properties
+  - Added `ecobalyse_transformation:en:` UUID to `en:cooked, boiled` (maps to "Cooking, industrial")
+  - Added `ecobalyse_transformation:en:` UUID to `en:canned` (maps to "Canning fruits or vegetables")
+- [x] **Step 2**: Extend `categories.txt` with `ingredients_processing:en:` properties
+  - Added `ingredients_processing:en: en:cooked` to `en:Cooked meats, Cooked meat`
+  - Added `ingredients_processing:en: en:canned` to `en:Canned vegetables`
+  - Added `ingredients_processing:en: en:cooked` to `en:Meals, Prepared meals, Prepared dishes`
+- [x] **Step 3**: Implement `get_ecobalyse_transformation_entries()` in `EnvironmentalImpact.pm`
+  - Returns list of transformation entries with id, name, name_fr, ecs, unit
+  - Uses `get_property("categories", ...)` to look up `ingredients_processing:en:`
+  - Deduplicates transformations across categories
+- [x] **Step 4**: Unit tests created in `tests/unit/ecobalyse_transformation_matching.t`
+  - Test cases: canned_vegetables, cooked_meat, no_transformation, multiple_transformations
 

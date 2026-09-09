@@ -113,6 +113,28 @@ sub estimate_environmental_impact_service ($product_ref, $updated_product_fields
 	# indicate that the service is modifying the "ingredients" structure
 	$updated_product_fields_ref->{environmental_impact} = 1;
 
+	# Example Ecobalyse food API request:
+
+	# {
+	# 	"ingredients": [
+	# 		{
+	# 		"id": "5fc8032f-ca1c-4497-844b-f9213075eab3",
+	# 		"mass": 100
+	# 		}
+	# 	],
+	# 	"transform": {
+	# 		"id": "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+	# 		"mass": 100
+	# 	},
+	# 	"packaging": [
+	# 		{
+	# 		"id": "6bc3e083-e989-4bb0-bf49-99a8e68694a4",
+	# 		"amount": 1
+	# 		}
+	# 	],
+	# 	"distribution": "frozen"
+	# }
+
 	# Example Ecobalyse food2 API request:
 	#
 	# {
