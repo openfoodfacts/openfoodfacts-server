@@ -371,9 +371,9 @@ sub display_select_crop_init ($object_ref) {
 	return <<HTML
 
 	window.imageEditorConfig = { images: $images_json, img_path: "//images.$server_domain/images/products/$path/" };
-	\$([]).selectcrop('init_images', window.imageEditorConfig.images);
-	\$(".select_crop").selectcrop('init', { img_path : window.imageEditorConfig.img_path });
-	\$(".select_crop").selectcrop('show');
+	window.imageFieldUI.setImages(window.imageEditorConfig.images);
+	window.imageFieldUI.init(\$(".select_crop"), { img_path : window.imageEditorConfig.img_path });
+	window.imageFieldUI.show(\$(".select_crop"));
 
 HTML
 		;

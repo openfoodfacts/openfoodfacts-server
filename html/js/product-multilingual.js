@@ -109,8 +109,8 @@ function add_language_tab(lc, language) {
 
         $clone.addClass('active').removeClass('new_lc').removeClass('hide');
 
-        $(".select_crop").filter(":visible").selectcrop('init');
-        $(".select_crop").filter(":visible").selectcrop('show');
+        window.imageFieldUI.init($(".select_crop").filter(":visible"));
+        window.imageFieldUI.show($(".select_crop").filter(":visible"));
 
     });
 
@@ -319,52 +319,45 @@ const maximumRecentEntriesPerTag = 10;
         'thumb_height': 100
     };
 
-    const methods = {
-        init: function (options) {
+    // Image field management: the thumbnail list, the upload UI and the display
+    // panel that surround the crop editor. The cropping itself is handled by the
+    // <image-editor> web component (html/js/image-editor.js).
+    // Exposed as window.imageFieldUI for the initialization script emitted by
+    // display_select_crop_init (Images.pm).
+    function imageFieldsInit($fields, options) {
 
-            // Create some defaults, extending them with any options that were provided
-            settings = $.extend(settings, options);
-            img_path = settings.img_path;
-            code = $("#code").val();
-            code = code.replace(/\s/g, '');
+        // Create some defaults, extending them with any options that were provided
+        settings = $.extend(settings, options);
+        img_path = settings.img_path;
+        code = $("#code").val();
+        code = code.replace(/\s/g, '');
 
-            return this.each(function () {
+        $fields.each(function () {
 
-                const $this = $(this),
-                    data = $this.data('selectcrop');
-                //data = $this.data('tooltip'),
-                //tooltip = $('<div />', {
-                //  text : $this.attr('title')
-                //});
+            // If the field hasn't been initialized yet
+            if (!$(this).data('imagefield-init')) {
 
-                // If the plugin hasn't been initialized yet
-                if (!data) {
+                $(this).data('imagefield-init', true);
+                imagefield_url[$(this).attr('id')] = $("#" + $(this).attr('id') + '_display_url').val();
 
-                    /*
-                      Do more setup stuff here
-                    */
+            }
+        });
+    }
 
-                    $(this).data('selectcrop', {
-                        init_id: $this.attr('id'),
-                        target: $this
-                    });
-                    imagefield_url[$this.attr('id')] = $("#" + $this.attr('id') + '_display_url').val();
+    function imageFieldsSetImages(images_data) {
 
-                }
-            });
-        },
-        init_images: function (images_data) {
+        images = images_data;
 
-            images = images_data;
+        //$("#add_nutriment").change(add_nutriment);
+    }
 
-            //$("#add_nutriment").change(add_nutriment);
-        },
-        add_image: function (image_data) {
-            images.push(image_data);
-        },
-        show: function () {
+    function imageFieldsAddImage(image_data) {
+        images.push(image_data);
+    }
 
-            this.each(function () {
+    function imageFieldsShow($fields) {
+
+        $fields.each(function () {
 
                 const $this = $(this);
                 const id = $this.attr('id');
@@ -378,7 +371,7 @@ const maximumRecentEntriesPerTag = 10;
                         if (($("input:hidden[name=\"" + id + ".imgid\"]").val()) == image.imgid) {
                             selected = ' ui-selected';
                         }
-                        html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
+                        html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '" tabindex="0">';
                         html += '<img src="' + settings.img_path + image.thumb_url + '" title="' + image.uploaded + ' - ' + image.uploader + '"/>';
 
                         if ((stringStartsWith(id, 'manage')) && (admin)) {
@@ -491,8 +484,8 @@ const maximumRecentEntriesPerTag = 10;
                                 if (data.result.image) {
                                     $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
                                     $("input:hidden[name=\"" + data.imagefield + ".imgid\"]").val(data.result.image.imgid);
-                                    $([]).selectcrop('add_image', data.result.image);
-                                    $(".select_crop").selectcrop('show');
+                                    imageFieldsAddImage(data.result.image);
+                                    imageFieldsShow($(".select_crop"));
 
                                     $('#' + imagefield + '_' + data.result.image.imgid).addClass("ui-selected").siblings().removeClass("ui-selected");
                                     change_image(imagefield, data.result.image.imgid);
@@ -570,25 +563,27 @@ const maximumRecentEntriesPerTag = 10;
                 }
             });
 
+            // Keyboard operability for the thumbnail list (WCAG 2.1.1): the items
+            // are focusable (tabindex="0") and Enter / Space activate them like a click.
+            $(".single-selectable li").on("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    $(this).trigger("click");
+                }
+            });
+
             $(document).foundation('equalizer', 'reflow');
 
-            return this;
-        },
-
-    };
-
-
-    $.fn.selectcrop = function (method) {
-
-        // Method calling logic
-        if (methods[method]) {
-            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || !method) {
-            return methods.init.apply(this, arguments);
-        } else {
-            $.error('Method ' + method + ' does not exist on jQuery.selectcrop');
+            return $fields;
         }
 
+    // Expose the functions for the initialization script emitted by
+    // display_select_crop_init (Images.pm).
+    window.imageFieldUI = {
+        init: imageFieldsInit,
+        setImages: imageFieldsSetImages,
+        addImage: imageFieldsAddImage,
+        show: imageFieldsShow,
     };
 
     $('#back-btn').click(function () {
@@ -875,8 +870,8 @@ async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copy
             msgDiv.innerHTML = escapeHtml(successMsg) + linkHtml;
             msgDiv.style.opacity = '1';
         }
-        $([]).selectcrop('init_images', data.images);
-        $(".select_crop").selectcrop('show');
+        window.imageFieldUI.setImages(data.images);
+        window.imageFieldUI.show($(".select_crop"));
     } catch (error) {
         msgDiv.innerHTML = escapeHtml(errorMsg) + ' - ' + escapeHtml(error.message);
         msgDiv.style.opacity = '1';
