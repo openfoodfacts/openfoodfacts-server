@@ -1,0 +1,153 @@
+<!-- start templates/[% template.name %] -->
+
+[%# This is a meta-template for the image editor web component.
+Having the HTML template in a HTML file enables easier maintenance and separation of concerns,
+as well as linting and validation of the HTML structure.
+%]
+
+<template id="image-editor-template">
+  <style>
+    :host { display: block; width: 100%; max-width: 100px; margin: 0 auto; }
+  </style>
+
+  <cropper-canvas background>
+    <cropper-image src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/1.jpg" alt="Picture"></cropper-image>
+    <cropper-shade hidden></cropper-shade>
+    <cropper-handle action="select" plain></cropper-handle>
+    <cropper-selection movable resizable initial-coverage="1" outlined>
+      <cropper-grid role="grid" covered></cropper-grid>
+      <cropper-crosshair centered></cropper-crosshair>
+      <cropper-handle action="move" theme-color="rgba(255, 255, 255, 0.35)"></cropper-handle>
+      <cropper-handle action="n-resize"></cropper-handle>
+      <cropper-handle action="e-resize"></cropper-handle>
+      <cropper-handle action="s-resize"></cropper-handle>
+      <cropper-handle action="w-resize"></cropper-handle>
+      <cropper-handle action="ne-resize"></cropper-handle>
+      <cropper-handle action="nw-resize"></cropper-handle>
+      <cropper-handle action="se-resize"></cropper-handle>
+      <cropper-handle action="sw-resize"></cropper-handle>
+    </cropper-selection>
+  </cropper-canvas>
+
+  <!--
+  <label for="selector">Ingredients picture (<span class="tab_language">English</span>)</label>
+  <p class="note">→ If the picture is neat enough, the ingredients can be extracted automatically</p>
+  <div class="select_crop" id="selector">
+    <ul class="ui-selectable single-selectable">
+      <li id="ingredients_en_1" class="ui-state-default ui-selectee ui-selected"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/1.100.jpg"
+          title="July 23, 2021, 2:26:40 AM CEST - kiliweb"></li>
+      <li id="ingredients_en_2" class="ui-state-default ui-selectee"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/2.100.jpg"
+          title="July 23, 2021, 2:26:41 AM CEST - kiliweb"></li>
+      <li id="ingredients_en_3" class="ui-state-default ui-selectee"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/3.100.jpg"
+          title="March 21, 2022, 7:17:37 PM CET - kiliweb"></li>
+      <li id="ingredients_en_4" class="ui-state-default ui-selectee"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/4.100.jpg"
+          title="April 27, 2023, 6:36:19 PM CEST - waistline-app"></li>
+      <li id="ingredients_en_5" class="ui-state-default ui-selectee"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/5.100.jpg"
+          title="March 15, 2024, 3:47:10 PM CET - inf"></li>
+      <li id="ingredients_en_6" class="ui-state-default ui-selectee"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/6.100.jpg"
+          title="August 7, 2025, 4:15:05 AM CEST - municorn-calorie-counter-app"></li>
+      <li id="ingredients_en_7" class="ui-state-default ui-selectee"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/7.100.jpg"
+          title="August 7, 2025, 4:15:06 AM CEST - municorn-calorie-counter-app"></li>
+      <li id="ingredients_en_8" class="ui-state-default ui-selectee"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/8.100.jpg"
+          title="August 13, 2025, 10:16:09 AM CEST - macrofactor"></li>
+      <li id="ingredients_en_9" class="ui-state-default ui-selectee"><img
+          src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/9.100.jpg"
+          title="August 13, 2025, 10:16:11 AM CEST - macrofactor"></li>
+    </ul>
+    <div style="clear:both" class="command upload_image_div"><a class="button small expand"
+        id="imgsearchbutton_ingredients_en"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon">
+          <circle cx="12" cy="12" r="3.2"></circle>
+          <path
+            d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z">
+          </path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>Add a picture<input type="file" accept="image/*" class="img_input" name="imgupload_ingredients_en"
+          id="imgupload_ingredients_en" data-url="/cgi/product_image_upload.pl" multiple=""
+          style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;width:100%;height:100%;"></a>
+    </div>
+    <p class="note">→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients,
+      nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot.</p>
+    <div id="progressbar_ingredients_en" class="progress" style="display:none"><span id="progressmeter_ingredients_en"
+        class="meter" style="width:0%"></span></div>
+    <div id="imgsearchmsg_ingredients_en" data-alert="" class="alert-box info" style="display:none">Uploading image<a
+        href="#" class="close">×</a></div>
+    <div id="imgsearcherror_ingredients_en" data-alert="" class="alert-box alert" style="display:none">Error while
+      uploading image<a href="#" class="close">×</a></div><input type="checkbox" class="use_low_res_images"
+      name="use_low_res_images_ingredients_en" id="use_low_res_images_ingredients_en"><label
+      for="use_low_res_images_ingredients_en">Load lower resolution images (for slow connections)</label>
+    <div class="row">
+      <div class="columns small-12 medium-12 large-6 xlarge-8">
+        <div class="cropbox" id="cropbox_ingredients_en">
+          <div class="command">Rotate the image if necessary, then click and drag to select the interesting zone:
+          </div>
+          <div class="row">
+            <div class="small-6 medium-7 large-8 columns">
+              <div class="command"><a id="rotate_left_ingredients_en" class="small button" type="button"
+                  disabled="disabled">Rotate left</a> &nbsp;<a id="rotate_right_ingredients_en" class="small button"
+                  type="button" disabled="disabled">Rotate right</a><br><a
+                  href="//images.openfoodfacts.localhost/images/products/004/157/014/4107/1.jpg" target="_blank">Open
+                  the picture in original size in a new windows</a><br><input type="checkbox"
+                  id="zoom_on_wheel_ingredients_en" name="zoom_on_wheel_ingredients_en" value=""><label
+                  for="zoom_on_wheel_ingredients_en" style="margin-top:0px;">Enable zooming with the mouse
+                  wheel.</label></div>
+            </div>
+            <div class="small-6 medium-5 large-4 columns" style="float:right">
+              <div class="cropbutton_ingredients_en"><button class="crop_ingredients_en_button small button"
+                  type="button" disabled="disabled">Validate and/or resize image</button></div>
+              <div class="cropbuttonmsg_ingredients_en"
+                style="padding:2px;margin-top:10px;margin-bottom:10px;display:none"></div>
+            </div>
+          </div>
+          <div id="cropimgdiv_ingredients_en" class="cropimgdiv" style="height: 787px;"><img
+              src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/1.jpg" id="crop_ingredients_en">
+          </div>
+          <div class="row">
+            <div class="small-6 medium-7 large-8 columns"><input type="checkbox" id="normalize_ingredients_en"
+                onchange="update_image('ingredients_en');blur();"><label for="normalize_ingredients_en">Normalise
+                colours</label><br><input type="checkbox" id="white_magic_ingredients_en" style="display:inline"><label
+                for="white_magic_ingredients_en" style="display:inline">Photo on white
+                background: try to remove the background</label></div>
+            <div class="small-6 medium-5 large-4 columns" style="float:right;padding-top:1rem">
+              <div class="cropbutton_ingredients_en"><button class="crop_ingredients_en_button small button"
+                  type="button" disabled="disabled">Validate and/or resize image</button></div>
+              <div class="cropbuttonmsg_ingredients_en"
+                style="padding:2px;margin-top:10px;margin-bottom:10px;display:none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns small-12 medium-12 large-6 xlarge-4">
+        <div class="display" id="display_ingredients_en">Current image:<br><img
+            src="//images.openfoodfacts.localhost/images/products/004/157/014/4107/ingredients_en.18.400.jpg">
+          <div class="button_div" id="unselectbuttondiv_ingredients_en"><button id="unselectbutton_ingredients_en"
+              class="small button" type="button">Unselect image</button></div>
+          <div id="ocrbutton_loading_ingredients_en"></div>
+          <div class="button_div" id="ocrbuttondiv_ingredients_en"> <button
+              id="ocrbuttongooglecloudvision_ingredients_en" class="small button" type="button">Extract the
+              ingredients from the picture</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="floatclear">
+  <input type="hidden" name="ingredients_en_imgid" id="ingredients_en_imgid" value="">
+  <input type="hidden" name="ingredients_en_x1" id="ingredients_en_x1" value="">
+  <input type="hidden" name="ingredients_en_y1" id="ingredients_en_y1" value="">
+  <input type="hidden" name="ingredients_en_x2" id="ingredients_en_x2" value="">
+  <input type="hidden" name="ingredients_en_y2" id="ingredients_en_y2" value="">
+  <input type="hidden" name="ingredients_en_display_url" id="ingredients_en_display_url"
+    value="ingredients_en.18.400.jpg">
+  -->
+</template>
+
+<script type="module" src="[% static_subdomain %]/js/dist/image-editor.js"></script>
+
+<!-- end templates/[% template.name %] -->
