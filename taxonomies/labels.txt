@@ -1779,6 +1779,9 @@ fr: Société Française de Contrôle de Viande Halal, SFCVH, S-f-c-v-h
 
 < en: Halal
 en: Islamic Food and Nutrition Council of Canada, IFANCC, Halal IFANCC Certified
+country:en: en:Canada
+image:xx: islamic-food-and-nutrition-council-of-canada.90x90.png
+web:en: https://www.ifancc.org/
 
 < en: Halal
 en: Islamic Food and Nutrition Council of America, IFANCA, Halal IFANCA Certified
@@ -3974,6 +3977,43 @@ description:en: At least 98% of the product's content originates in Canada
 description:fr: Le contenu du produit est originaire du Canada à au moins 98%
 label_categories:en: en:Geographic label
 # https://bureau-concurrence.canada.ca/comment-nous-favorisons-concurrence/education-sensibilisation/publications/indications-produit-canada-fait-canada
+
+# Aliments du Québec: two distinct marks (not parent/child), each with an organic "Bio" variant.
+# The logo is the same regardless of the surrounding text language (French is legally required
+# to be at least as prominent on packaging sold in Quebec, so the mark itself is not translated).
+en: Aliments du Québec
+xx: Aliments du Québec
+country:en: en:Canada
+description:en: At least 85% of the product's ingredients are of Quebec origin, and the product is processed and packaged in Quebec.
+description:fr: Le produit est composé d'au moins 85 % d'ingrédients d'origine québécoise, et est transformé et emballé au Québec.
+image:xx: aliments-du-quebec.95x90.png
+label_categories:en: en:Geographic label
+web:en: https://alimentsduquebec.com/en
+web:fr: https://alimentsduquebec.com/
+
+< en: Aliments du Québec
+en: Aliments du Québec Bio
+xx: Aliments du Québec Bio
+description:en: Organic version of the Aliments du Québec certification: at least 85% of the product's ingredients are of Quebec origin and certified organic, and the product is processed and packaged in Quebec.
+description:fr: Version biologique de la certification Aliments du Québec : le produit est composé d'au moins 85 % d'ingrédients d'origine québécoise et certifiés biologiques, et est transformé et emballé au Québec.
+image:xx: aliments-du-quebec-bio.103x90.png
+
+en: Aliments préparés au Québec
+xx: Aliments préparés au Québec
+country:en: en:Canada
+description:en: The product is processed and packaged in Quebec, using Quebec and/or imported ingredients. Unlike "Aliments du Québec", there is no minimum percentage requirement of Quebec-origin ingredients, though principal ingredients must be sourced from Quebec when available there in sufficient quantity.
+description:fr: Le produit est transformé et emballé au Québec, avec des ingrédients québécois et/ou importés. Contrairement au sceau « Aliments du Québec », il n'y a pas de seuil minimal d'ingrédients québécois, bien que les ingrédients principaux doivent provenir du Québec lorsqu'ils y sont disponibles en quantité suffisante.
+image:xx: aliments-prepares-au-quebec.98x90.png
+label_categories:en: en:Geographic label
+web:en: https://alimentsduquebec.com/en
+web:fr: https://alimentsduquebec.com/
+
+< en: Aliments préparés au Québec
+en: Aliments préparés au Québec Bio
+xx: Aliments préparés au Québec Bio
+description:en: Organic version of the Aliments préparés au Québec certification: the product's organic ingredients (Quebec and/or imported) are processed and packaged in Quebec.
+description:fr: Version biologique de la certification Aliments préparés au Québec : les ingrédients biologiques du produit (québécois et/ou importés) sont transformés et emballés au Québec.
+image:xx: aliments-prepares-au-quebec-bio.103x90.png
 
 # [CL] Chile
 
