@@ -441,4 +441,23 @@ foreach my $test_ref (@uploaded_images_misc_tags_tests) {
 		[], 'uploaded image count tags are not exposed as product states');
 }
 
+# Test is_owner_field and skip_protected_field
+use ProductOpener::APIProductWrite qw/skip_protected_field/;
+
+my $owner_product_ref = {
+	code => '1234567890123',
+	owner_fields => {
+		'ingredients_text' => 1620000000,
+		'quantity' => 1620000000,
+	},
+};
+
+is(is_owner_field($owner_product_ref, 'ingredients_text'), 1, 'is_owner_field detects base owner field');
+is(is_owner_field($owner_product_ref, 'ingredients_text_fr'), 1, 'is_owner_field detects localized owner field via base name');
+is(is_owner_field($owner_product_ref, 'quantity'), 1, 'is_owner_field detects simple owner field');
+is(is_owner_field($owner_product_ref, 'product_name'), 0, 'is_owner_field returns 0 for non-owner field');
+
+is(skip_protected_field($owner_product_ref, 'ingredients_text_fr', 0), 1, 'skip_protected_field skips owner field for regular user');
+is(skip_protected_field($owner_product_ref, 'ingredients_text_fr', 1), 0, 'skip_protected_field allows owner field for moderator');
+
 done_testing();
