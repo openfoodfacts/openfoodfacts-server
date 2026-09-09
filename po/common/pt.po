@@ -2860,25 +2860,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "outra substância nutricional adicionada"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Como vendido"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Preparado"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Unidade"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "As informações nutricionais são especificados para o produto conforme é vendido."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "As informações nutricionais são especificadas para o produto preparado."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -7771,3 +7755,20 @@ msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "Impacto não avaliado"
 
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Como vendido"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Preparado"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "As informações nutricionais são especificados para o produto conforme é vendido:"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "As informações nutricionais são especificadas para o produto preparado:"
