@@ -40,6 +40,92 @@ PLAYSTORE_LOCALES = {
     "uk": "Ukranian", "ur": "Urdu", "uz": "Uzbek", "vi": "Vietnamese", "zu": "Zulu"
 }
 
+APPSTORE_LOCALES = {
+    "ar": "appstore_AR.svg",
+    "az": "appstore_AZ.svg",
+    "bg": "appstore_BG.svg",
+    "zh": "appstore_CN_SC.svg",
+    "zh_cn": "appstore_CN_SC.svg",
+    "zh_hans": "appstore_CN_SC.svg",
+    "zh_tw": "appstore_CN_TC.svg",
+    "zh_hk": "appstore_CN_TC.svg",
+    "zh_hant": "appstore_CN_TC.svg",
+    "cs": "appstore_CZ.svg",
+    "de": "appstore_DE.svg",
+    "de_at": "appstore_DE.svg",
+    "de_ch": "appstore_DE.svg",
+    "da": "appstore_DK.svg",
+    "et": "appstore_EE.svg",
+    "es": "appstore_ES.svg",
+    "fi": "appstore_FI.svg",
+    "fr": "appstore_FR.svg",
+    "fr_be": "appstore_FR.svg",
+    "fr_ch": "appstore_FR.svg",
+    "fr_ca": "appstore_FR_CA.svg",
+    "el": "appstore_GR.svg",
+    "he": "appstore_HB.svg",
+    "iw": "appstore_HB.svg",
+    "hu": "appstore_HU.svg",
+    "id": "appstore_ID.svg",
+    "it": "appstore_IT.svg",
+    "ja": "appstore_JP.svg",
+    "ko": "appstore_KR.svg",
+    "lt": "appstore_LT.svg",
+    "lv": "appstore_LV.svg",
+    "mt": "appstore_MT.svg",
+    "ms": "appstore_MY.svg",
+    "nl": "appstore_NL.svg",
+    "nl_be": "appstore_NL.svg",
+    "nl_nl": "appstore_NL.svg",
+    "no": "appstore_NO.svg",
+    "nb": "appstore_NO.svg",
+    "nn": "appstore_NO.svg",
+    "fil": "appstore_PH.svg",
+    "tl": "appstore_PH.svg",
+    "pl": "appstore_PL.svg",
+    "pt_br": "appstore_PT_BR.svg",
+    "pt": "appstore_PT_PT.svg",
+    "pt_pt": "appstore_PT_PT.svg",
+    "ro": "appstore_RO.svg",
+    "ru": "appstore_RU.svg",
+    "sv": "appstore_SE.svg",
+    "sl": "appstore_SI.svg",
+    "sk": "appstore_SK.svg",
+    "th": "appstore_TH.svg",
+    "tr": "appstore_TR.svg",
+    "en_gb": "appstore_UK.svg",
+    "vi": "appstore_VN.svg",
+}
+
+FDROID_LOCALES = {
+    "af": "get-it-on-af.svg", "am": "get-it-on-am.svg", "ar": "get-it-on-ar.svg", "az": "get-it-on-az.svg",
+    "be": "get-it-on-be.svg", "bg": "get-it-on-bg.svg", "bn": "get-it-on-bn.svg", "bs": "get-it-on-bs.svg",
+    "ca": "get-it-on-ca.svg", "cs": "get-it-on-cs.svg", "cy": "get-it-on-cy.svg", "da": "get-it-on-da.svg",
+    "de": "get-it-on-de.svg", "el": "get-it-on-el.svg", "en_au": "get-it-on-en-au.svg", "en_ca": "get-it-on-en-ca.svg",
+    "en_gb": "get-it-on-en-gb.svg", "en_us": "get-it-on-en-us.svg", "eo": "get-it-on-eo.svg",
+    "es": "get-it-on-es.svg", "es_419": "get-it-on-es-419.svg", "et": "get-it-on-et.svg", "eu": "get-it-on-eu.svg",
+    "fa": "get-it-on-fa.svg", "fi": "get-it-on-fi.svg", "fil": "get-it-on-fil.svg", "tl": "get-it-on-fil.svg",
+    "fr_ca": "get-it-on-fr-ca.svg", "fr": "get-it-on-fr.svg", "fy": "get-it-on-fy.svg", "ga": "get-it-on-ga.svg",
+    "gd": "get-it-on-gd.svg", "gl": "get-it-on-gl.svg", "gu": "get-it-on-gu.svg", "he": "get-it-on-he.svg",
+    "iw": "get-it-on-he.svg", "hi": "get-it-on-hi.svg", "hr": "get-it-on-hr.svg", "hu": "get-it-on-hu.svg",
+    "hy": "get-it-on-hy.svg", "id": "get-it-on-id.svg", "is": "get-it-on-is.svg", "it": "get-it-on-it.svg",
+    "ja": "get-it-on-ja.svg", "ka": "get-it-on-ka.svg", "kk": "get-it-on-kk.svg", "km": "get-it-on-km.svg",
+    "kn": "get-it-on-kn.svg", "ko": "get-it-on-ko.svg", "ky": "get-it-on-ky.svg", "lb": "get-it-on-lb.svg",
+    "lo": "get-it-on-lo.svg", "lt": "get-it-on-lt.svg", "lv": "get-it-on-lv.svg", "mk": "get-it-on-mk.svg",
+    "ml": "get-it-on-ml.svg", "mn": "get-it-on-mn.svg", "mr": "get-it-on-mr.svg", "ms": "get-it-on-ms.svg",
+    "my": "get-it-on-my.svg", "ne": "get-it-on-ne.svg", "nl": "get-it-on-nl.svg", "nl_be": "get-it-on-nl.svg",
+    "nl_nl": "get-it-on-nl.svg", "nn": "get-it-on-nn.svg", "no": "get-it-on-no.svg", "nb": "get-it-on-no.svg",
+    "pa": "get-it-on-pa.svg", "pl": "get-it-on-pl.svg", "pt_br": "get-it-on-pt-br.svg", "pt": "get-it-on-pt.svg",
+    "pt_pt": "get-it-on-pt.svg", "ro": "get-it-on-ro.svg", "ru": "get-it-on-ru.svg", "si": "get-it-on-si.svg",
+    "sk": "get-it-on-sk.svg", "sl": "get-it-on-sl.svg", "sq": "get-it-on-sq.svg", "sr": "get-it-on-sr.svg",
+    "sr_cs": "get-it-on-sr.svg", "sr_rs": "get-it-on-sr.svg", "sv": "get-it-on-sv.svg", "sw": "get-it-on-sw.svg",
+    "ta": "get-it-on-ta.svg", "te": "get-it-on-te.svg", "th": "get-it-on-th.svg", "tr": "get-it-on-tr.svg",
+    "uk": "get-it-on-ua.svg", "ur": "get-it-on-ur.svg", "uz": "get-it-on-uz.svg", "vi": "get-it-on-vi.svg",
+    "zh": "get-it-on-zh-cn.svg", "zh_cn": "get-it-on-zh-cn.svg", "zh_hans": "get-it-on-zh-hans.svg",
+    "zh_hant": "get-it-on-zh-hant.svg", "zh_hk": "get-it-on-zh-hk.svg", "zh_tw": "get-it-on-zh-tw.svg",
+    "zu": "get-it-on-zu.svg"
+}
+
 def parse_po(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
@@ -140,16 +226,41 @@ def check_po_files():
         if locale.lower() in ['zh_hk', 'zh_tw']:
             url_locale = 'zh'
         
+        loc_key = locale.lower()
+        has_playstore = False
+        has_appstore = False
+        has_fdroid = False
+
         entries = parse_po(po_file)
         for msgctxt, msgid, msgstr in entries:
             # Check Google Play badge localization (even if untranslated / msgstr is empty)
             if msgctxt == "android_app_icon_url":
+                has_playstore = True
                 badge_val = msgstr if msgstr else msgid
-                loc_key = locale.lower()
                 expected_lang = PLAYSTORE_LOCALES.get(loc_key) or PLAYSTORE_LOCALES.get(loc_key.split("_")[0])
                 if expected_lang and "English" in badge_val and not loc_key.startswith("en"):
                     badge_issues.append(
                         f"- **Unlocalized Google Play badge** in `{po_file}`: uses English badge (`{badge_val}`) but localized badge exists for `{expected_lang}`."
+                    )
+
+            # Check Apple App Store badge localization
+            if msgctxt == "ios_app_icon_url":
+                has_appstore = True
+                badge_val = msgstr if msgstr else msgid
+                expected_badge = APPSTORE_LOCALES.get(loc_key) or APPSTORE_LOCALES.get(loc_key.split("_")[0])
+                if expected_badge and os.path.basename(badge_val) != expected_badge and not (loc_key == "en" and expected_badge == "appstore_US.svg"):
+                    badge_issues.append(
+                        f"- **Unlocalized Apple App Store badge** in `{po_file}`: uses `{os.path.basename(badge_val)}` but localized badge `{expected_badge}` exists."
+                    )
+
+            # Check F-Droid badge localization
+            if msgctxt == "f_droid_app_icon_url":
+                has_fdroid = True
+                badge_val = msgstr if msgstr else msgid
+                expected_badge = FDROID_LOCALES.get(loc_key) or FDROID_LOCALES.get(loc_key.split("_")[0])
+                if expected_badge and os.path.basename(badge_val) != expected_badge and not (loc_key == "en" and expected_badge == "get-it-on-en.svg"):
+                    badge_issues.append(
+                        f"- **Unlocalized F-Droid badge** in `{po_file}`: uses `{os.path.basename(badge_val)}` but localized badge `{expected_badge}` exists."
                     )
 
             if not msgstr: continue
@@ -192,6 +303,17 @@ def check_po_files():
                     if not check_image_exists(img):
                         image_issues.append(f"- **Local image does not resolve** in `{po_file}`: `{img}` not found.")
                 
+        if not loc_key.startswith("en") and "common" in po_file:
+            expected_play = PLAYSTORE_LOCALES.get(loc_key) or PLAYSTORE_LOCALES.get(loc_key.split("_")[0])
+            if expected_play and not has_playstore:
+                badge_issues.append(f"- **Missing Google Play badge** in `{po_file}`: localized badge exists for `{expected_play}`.")
+            expected_app = APPSTORE_LOCALES.get(loc_key) or APPSTORE_LOCALES.get(loc_key.split("_")[0])
+            if expected_app and not has_appstore:
+                badge_issues.append(f"- **Missing Apple App Store badge** in `{po_file}`: localized badge `{expected_app}` exists.")
+            expected_fdr = FDROID_LOCALES.get(loc_key) or FDROID_LOCALES.get(loc_key.split("_")[0])
+            if expected_fdr and not has_fdroid:
+                badge_issues.append(f"- **Missing F-Droid badge** in `{po_file}`: localized badge `{expected_fdr}` exists.")
+
     return brand_issues, url_issues, image_issues, placeholder_issues, badge_issues
 
 def check_html_files():
@@ -281,7 +403,7 @@ def main():
         if len(image_issues) > 50: print(f"...and {len(image_issues) - 50} more issues.\n")
 
     if badge_issues:
-        print("### ⚠️ Google Play Badges Should Be Localized")
+        print("### ⚠️ Mobile App Badges Should Be Localized")
         print(f"Found {len(badge_issues)} issues:")
         for issue in badge_issues[:50]: print(issue)
         if len(badge_issues) > 50: print(f"...and {len(badge_issues) - 50} more issues.\n")
