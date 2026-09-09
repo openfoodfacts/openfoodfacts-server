@@ -25,37 +25,13 @@ import Cropper from 'cropperjs';
 const ROTATE_LEFT = -90;
 const ROTATE_RIGHT = 90;
 
-// The cropper.js v2 markup, rendered by the Cropper factory in the crop container
-// (the <img id="crop-image"> element is passed to the factory as the cropper source).
-// Note: no "initial-coverage" attribute, so no selection is created until the user
-// clicks and drags on the canvas (same behavior as the previous implementation,
-// which used "autoCrop: false").
-const CROPPER_TEMPLATE = [
-  '<cropper-canvas background>',
-  '  <cropper-shade hidden></cropper-shade>',
-  '  <cropper-handle action="select" plain></cropper-handle>',
-  '  <cropper-selection movable resizable>',
-  '    <cropper-grid role="grid" covered></cropper-grid>',
-  '    <cropper-crosshair centered></cropper-crosshair>',
-  '    <cropper-handle action="move" theme-color="rgba(255, 255, 255, 0.35)"></cropper-handle>',
-  '    <cropper-handle action="n-resize"></cropper-handle>',
-  '    <cropper-handle action="e-resize"></cropper-handle>',
-  '    <cropper-handle action="s-resize"></cropper-handle>',
-  '    <cropper-handle action="w-resize"></cropper-handle>',
-  '    <cropper-handle action="ne-resize"></cropper-handle>',
-  '    <cropper-handle action="nw-resize"></cropper-handle>',
-  '    <cropper-handle action="se-resize"></cropper-handle>',
-  '    <cropper-handle action="sw-resize"></cropper-handle>',
-  '  </cropper-selection>',
-  '</cropper-canvas>',
-].join('\n');
-
 class ImageEditorComponent extends HTMLElement {
   constructor() {
     super();
-    // The template is maintained in templates/web/pages/product_edit/image_editor_template.tt.html
-    const template = document.getElementById('image-editor-template');
-    const templateContent = template.content;
+    // The templates are maintained in templates/web/pages/product_edit/image_editor_template.tt.html
+    this.template = document.getElementById('image-editor-template');
+    this.cropperTemplate = document.getElementById('image-editor-cropper-template');
+    const templateContent = this.template.content;
 
     // Create open Shadow DOM and append the template content
     this.attachShadow({ mode: 'open' });
@@ -114,6 +90,10 @@ class ImageEditorComponent extends HTMLElement {
     this.normalizeCheckbox.addEventListener('change', () => this.updateImagePreview());
     this.whiteMagicCheckbox.addEventListener('change', () => this.updateImagePreview());
     this.saveButton.addEventListener('click', () => this.save());
+
+    // The image is copied into the cropper canvas on load: give it a localized
+    // accessible name so that assistive technologies describe what is displayed.
+    this.cropImage.alt = messages.product_image || '';
 
     // Clicking the canvas (without dragging) removes the selection, so that the
     // full image can be saved, as in the previous implementation.
@@ -192,9 +172,16 @@ class ImageEditorComponent extends HTMLElement {
     this.cropImage.setAttribute('src', this.imageUrl);
 
     const token = this.loadToken;
+    if (!this.cropperTemplate) {
+      this.setStatusMessage(lang().not_saved);
+
+      return;
+    }
+    // The cropper markup (cropper-canvas, selection, handles...) is kept in the
+    // image_editor_template.tt.html file (template#image-editor-cropper-template).
     this.cropper = new Cropper(this.cropImage, {
       container: this.cropContainer,
-      template: CROPPER_TEMPLATE,
+      template: this.cropperTemplate.content.innerHTML,
     });
     this.applyThemeColor();
 

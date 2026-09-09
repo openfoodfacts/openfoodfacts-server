@@ -1,10 +1,15 @@
 <!-- start templates/[% template.name %] -->
 
 [%# This is a meta-template for the image editor web component.
-Having the HTML template in a HTML file enables easier maintenance and separation of concerns,
+Having the HTML templates in a HTML file enables easier maintenance and separation of concerns,
 as well as linting and validation of the HTML structure.
 
-The <image-editor> element (see html/js/image-editor.js) renders this template in its shadow DOM.
+The <image-editor> element (see html/js/image-editor.js) renders the template
+#image-editor-template in its shadow DOM, and passes the content of the template
+#image-editor-cropper-template to the cropperjs factory (its "template" option):
+keeping the cropper markup out of the JavaScript source improves code scanning
+(sonarqube / codeql) and maintainability.
+
 No attribute is set on the <image-editor> element on purpose: it derives the image field from its
 closest ".select_crop" element, and the list of images / image path from "window.imageEditorConfig"
 (emitted by display_select_crop_init in Images.pm).
@@ -114,19 +119,19 @@ closest ".select_crop" element, and the list of images / image path from "window
       <button id="rotate-left" class="small-button" type="button" disabled></button>
       <button id="rotate-right" class="small-button" type="button" disabled></button>
       <br />
-      <a id="open-full-size" target="_blank" hidden></a>
+      <a id="open-full-size" target="_blank" rel="noopener noreferrer" hidden></a>
       <br />
       <input type="checkbox" id="zoom-on-wheel" />
       <label for="zoom-on-wheel" id="zoom-on-wheel-label"></label>
     </div>
     <div class="editor-actions-right">
       <button id="save" class="small-button" type="button" disabled></button>
-      <div id="save-status" class="editor-status" hidden></div>
+      <div id="save-status" class="editor-status" hidden aria-live="polite"></div>
     </div>
   </div>
 
   <div id="crop-container">
-    <img id="crop-image" alt="The image to crop" />
+    <img id="crop-image" alt="" />
   </div>
 
   <div class="editor-options">
@@ -138,6 +143,33 @@ closest ".select_crop" element, and the list of images / image path from "window
       <label for="white-magic" id="white-magic-label"></label>
     </div>
   </div>
+</template>
+
+[%# Markup given to the cropperjs factory as its "template" option
+(image-editor.js, loadImage). It is rendered in the crop container: the
+<img id="crop-image"> element of the main template is passed to the factory
+as the cropper source.
+Note: no "initial-coverage" attribute, so no selection is created until the
+user clicks and drags on the canvas (same behavior as the previous
+implementation, which used "autoCrop: false"). %]
+<template id="image-editor-cropper-template">
+  <cropper-canvas background>
+    <cropper-shade hidden></cropper-shade>
+    <cropper-handle action="select" plain></cropper-handle>
+    <cropper-selection movable resizable>
+      <cropper-grid role="grid" covered></cropper-grid>
+      <cropper-crosshair centered></cropper-crosshair>
+      <cropper-handle action="move" theme-color="rgba(255, 255, 255, 0.35)"></cropper-handle>
+      <cropper-handle action="n-resize"></cropper-handle>
+      <cropper-handle action="e-resize"></cropper-handle>
+      <cropper-handle action="s-resize"></cropper-handle>
+      <cropper-handle action="w-resize"></cropper-handle>
+      <cropper-handle action="ne-resize"></cropper-handle>
+      <cropper-handle action="nw-resize"></cropper-handle>
+      <cropper-handle action="se-resize"></cropper-handle>
+      <cropper-handle action="sw-resize"></cropper-handle>
+    </cropper-selection>
+  </cropper-canvas>
 </template>
 
 <script type="module" src="[% static_subdomain %]/js/dist/image-editor.js"></script>
