@@ -165,7 +165,7 @@ stopwords:nl: aangezuurd, bevat, bevatten, behandeld papier, cacaobestanddelen, 
 stopwords:nn: og, av
 stopwords:pl: w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne, inne
 stopwords:pt: de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo
-stopwords:ro: Produsul poate conține
+stopwords:ro: produs, produsul, conține, poate conține, și, sau, de, din, cu, în proporții variabile, minim
 stopwords:sk: obsahuje
 stopwords:sl: vsebuje, sestavine
 stopwords:sv: och, eller, samt, av, bl a, bland annat, certifierad, droppar, en, for allergener, från, innehåller, innehållande, innehålle, ingredienser, inklusive, liten, maximum, med, minimum, några, skvätt, tillsatt, valio, varav, bäst före, i varierande proportion, motsvarande 0\,016 mg fluor/tablett
@@ -1683,7 +1683,7 @@ ca: quall
 co: Pirrulu
 cs: Syřidlo
 da: osteløbe, animalsk og mikrobiel løbe, microbiel løbe
-de: Lab, Labaustauschstoff
+de: Lab
 el: πυτιά
 es: cuajo
 et: Laap
@@ -1768,7 +1768,7 @@ description:en: CALF RENNET is extracted from the inner mucosa of the fourth sto
 < en: rennet
 en: vegetarian rennet, vegetable rennet, non animal rennet
 da: vegetabilsk osteløbe
-de: vegetarisches Lab
+de: vegetarisches Lab, Labaustauschstoff
 fi: kasviperäinen juustonjuoksutin, kasviperäinen juoksete
 fr: Présure végétarienne, présure végétale
 hr: vegetarijansko sirilo
@@ -16657,8 +16657,8 @@ ja: キャノーラ油, なたね油
 nl: canola olie, canolaolie
 # sv: rybsolja, rypsolja # duplicate, unclear which is correct
 tr: kanola yağı
-comment:en: Use only the word canola in this ingredient, as it is only for the american variety of rapeseed
-description:en: Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
+comment:en: Use only the word canola in this ingredient. "Canola" is a Canadian-bred and trademarked variety of low erucic acid rapeseed (the name is a portmanteau of "Canadian oil, low acid"), not a generic synonym for any rapeseed variety.
+description:en: Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed bred in Canada (Saskatchewan and Manitoba, 1960s-1970s) to be low in erucic acid, as opposed to colza oil.
 description:es: El aceite de colza (aceite de nabina o de canola) es el extracto de la semilla de la colza, usado sobre todo en el norte de Europa como condimento y para el alumbrado.
 description:pt: Canola é um cultivo criado para ter baixo teor de ácido erúcico. O termo canola (Brassica napus L., Brassica rapa L., e Brassica juncea) se refere a variedades de plantas de três espécies da família das crucíferas, pertencentes ao gênero Brassica, que produzem um óleo comestível.
 usda_fdc_code:en: 172336
@@ -30373,15 +30373,9 @@ sv: riskli
 zh: 米糠
 ciqual_food_code:en: 9643
 ciqual_food_name:en: Rice bran
-usda_ndb_proxy_code:en: 20060
-usda_ndb_proxy_name:en: Rice bran, crude
-wikidata:en: Q34041491
-
-< en: rice bran
-en: crude rice bran
-usda_fdc_code:en: 169713
 usda_ndb_code:en: 20060
 usda_ndb_name:en: Rice bran, crude
+wikidata:en: Q34041491
 
 # see ingredients_processing.txt
 < en: rice
@@ -33632,7 +33626,7 @@ wikidata:en: Q8054
 
 # nova:en:hydrolysed-proteins
 < en: protein
-en: hydrolysed proteins, hydrolysed protein
+en: hydrolysed protein, hydrolysed proteins
 da: hydrolyseret protein, hydrolyserede proteiner
 de: Proteinhydrolysat, Eiweißhydrolysat
 es: proteína hidrolizada
@@ -33678,6 +33672,7 @@ vegan:en: yes
 vegetarian:en: yes
 
 < en: plant protein
+en: rehydrated plant protein
 fr: protéines végétales réhydratées
 hu: rehidratált növényi fehérjék
 nl: gehydrolyseerde plantaardige eiwitten, plantaardig eiwithydrolysaat
@@ -33754,6 +33749,7 @@ pl: teksturat białka grochu, teksturowane białko grochu
 ro: texturat proteic de mazăre
 
 < en: pea protein
+< en: rehydrated plant protein
 en: rehydrated pea protein
 de: Rehydriertes Erbsenprotein, Erbsenprotein rehydriert
 fi: vedellä turvotettu herneproteiini
@@ -33843,11 +33839,11 @@ it: proteina di pisello idrolizzata
 pl: hydrolizowane białko grochu, hydrolizat białka grochu
 sv: hydrolyserat ärtprotein
 
-< en: hydrolysed proteins
+< en: hydrolysed vegetable protein
 < en: rice protein
 en: hydrolysed rice protein, hydrolyzed rice protein
 da: hydrolyseret risprotein
-de: hydrolisiertes reisprotein
+de: hydrolisiertes Reisprotein
 fr: protéine de riz hydrolysée
 it: proteine di riso idrolizzate
 pl: hydrolizat białka ryżowego, hydrolizowane białko ryżowe
@@ -52957,21 +52953,29 @@ fi: selleriuute
 nl: selderextract
 
 < en: celery
-# < en:seed
+< en: seed
 en: celery seed
+ca: llavor d'api
+da: sellerifrø
 de: Selleriesamen, Selleriesaat
-es: Semilla de apio
+es: semilla de apio
 fi: sellerinsiemen
 fr: graines de céleri
 hr: sjeme celera
-it: Semi di sedano
+ig: celery seed
+it: semi di sedano
 ja: セロリシード
+nb: sellerifrø
 nl: selderij zaad, selderijzaad
+nn: sellerifrø
 pl: nasiona selera
+ru: семечки сельдерея
+sl: seme zelene
 sv: sellerifrö
 usda_fdc_code:en: 170920
 usda_ndb_code:en: 2007
 usda_ndb_name:en: Spices, celery seed
+wikidata:en: Q102256772
 
 < en: celery
 en: celery powder
@@ -59091,6 +59095,46 @@ hr: miješana salata
 it: insalata composta
 # usage:fr: Salade composée 88% : Scarole, carotte râpées, maïs (maïs, sucre, sel), emmental 12%, dés de jambon cuit supérieur 12% (jambon de porc 10,9%, sel, sirop de glucose, dextrose, arômes naturels, antioxydant : ascorbate de sodium, conservateur: nitrite de sodium), frisée, chicorée rouge.
 
+< en: plant
+en: thistle
+am: ኮሸሽላ
+ar: شوك
+cv: куршанак
+cy: ysgallen
+da: tidsel
+de: Distel
+eo: kardo
+eu: kardu
+fa: گل خار
+fr: chardon
+ga: feochadán
+gd: cluaran
+gv: onnane
+hu: bogáncs
+hy: տատասկափուշ
+id: rumput duri
+io: kardono
+ja: アザミ
+ko: 엉겅퀴류
+kw: askallen
+lb: Dëschtelen
+mg: roy
+nb: tistel
+nl: distel
+nn: tistel
+oc: cardon
+pl: oset
+ru: репей
+sn: rukato
+sq: gjembaçi
+sv: tistel, tistlar
+tl: dawag
+to: longolongoʻuha
+wa: tcherdon
+zh: 薊草, 薊花
+description:en: Thistle is the popular name of a group of flowering plants characterised by leaves with sharp spikes on the margins, mostly in the family Asteraceae. (Wikipedia)
+wikidata:en: Q538906
+
 # do not make pepper a synonym of bell pepper
 
 < en: fruit vegetable
@@ -62263,7 +62307,7 @@ ifct_food_process:en: en:dried
 ###################################################################################################
 
 < en: pulse
-en: mung bean, mungbean, Mung dal, Moong dal, green gram
+en: mung bean, mungbean, green gram
 ar: بقلة الماش
 bg: птичи боб, бебриджа
 bn: মুগ
@@ -62389,6 +62433,14 @@ ciqual_food_name:fr: Haricot mungo germé ou pousse de ""soja"", cru
 wikidata:en: Q7635866
 #135 in 10 @2021-10-28
 
+< en: mung bean
+en: mung dal, moong dal
+description:en: Split mung bean
+
+< en: mung dal
+en: yellow mung dal, yellow moong dal
+description:en: Hulled and split mung bean
+
 ###################################################################################################
 #
 #
@@ -62413,6 +62465,12 @@ usda_fdc_code:en: 174259
 usda_ndb_code:en: 16083
 usda_ndb_name:en: Mungo beans, mature seeds, raw
 usda_ndb_process:en: en:dried
+wikidata:en: Q369447
+wikipedia:en: https://en.wikipedia.org/wiki/Vigna_mungo
+
+< en: black gram
+en: white lentil, Ivory White Lentils
+description:en: Hulled and split black gram. Hulling removes the black skin which gives it a white color.
 
 ###################################################################################################
 #
@@ -67819,7 +67877,7 @@ bg: билка, билки
 bs: aromatično bilje
 ca: Herbes, herbes aromàtiques, plantes aromàtiques
 cs: Bylina, byliny
-da: urt, krydderurter
+da: urt, urter, krydderurter
 de: Gewürz, Kräuter
 es: hierba, hierbas, plantas aromáticas, planta aromática, hierbas aromaticas, finas hierbas, mezcla de finas hierbas
 fi: yrtti, yrtit, mausteyrtit
@@ -67877,17 +67935,19 @@ sv: örtextrakt, kryddextrakt, kryddextrakter
 < en: herb
 < en: spice
 en: herbs and spices
-da: Krydderurter og krydderier
+bn: ভেষজ ও মসলা
+da: krydderurter og krydderier, krydderier og urter
 de: Kräuter und Gewürze
 es: hierbas y especias
 fi: yrtit ja mausteet
 fr: épices et plantes aromatique, épice et plante aromatique, épices et plante aromatique, plantes aromatiques et épices, extraits d'épices et d'herbes, herbe et épice, herbes et épices, épices et herbes, épices et herbes aromatiques, épice et aromate, épices et aromates, épices et aromate, épice et aromates, épices et arômes, aromates et épices
 hr: bilja i začina
-it: Erbe e spezie
+it: erbe e spezie
 nl: kruiden en specerijen
-pl: Zioła i przyprawy, mieszanka ziół i przypraw
-pt: Ervas e especiarias
-sv: Örter och kryddor, kryddor och örtkryddor
+pl: zioła i przyprawy, mieszanka ziół i przypraw
+pt: ervas e especiarias
+sv: örter och kryddor, kryddor och örtkryddor
+wikidata:en: Q115619194
 
 < en: spice
 fr: préparation d'épices
@@ -69927,7 +69987,7 @@ hr: zrno žute gorušice
 it: chicchi di senape gialla
 nl: geel mosterdzaad, gele mosterdzaden
 pl: gorczyca biała, gorczycy białej, gorczyca żółta, gorczycy żółtej
-sv: gult senapsfrö
+sv: gult senapsfrö, gula senapsfrön
 
 < en: mustard
 en: brown mustard
@@ -69943,7 +70003,7 @@ fr: Graines de moutarde brune
 hr: smeđe sjeme gorušice
 it: semi di senape bruna
 nl: bruin mosterdzaad
-sv: brunt senapsfrö
+sv: brunt senapsfrö, bruna senapsfrön
 
 < en: mustard seed
 en: black mustard seed
@@ -69953,10 +70013,9 @@ hr: sjeme crne gorušice
 it: semi di senape nera
 nl: zwart mosterdzaad
 pl: gorczyca czarna
-#93 @2021-09-09
 
+#< en: aggregate
 < en: brown mustard seed
-# <en:aggregate
 < en: yellow mustard seed
 en: yellow and brown mustard seeds
 de: gelbe und braune Senfkörner, gelbe und braune Senfsamen, gelbe und braune Senfsaat
@@ -69964,7 +70023,7 @@ fi: keltaiset ja ruskeat sinapinsiemenet
 fr: graines de moutarde jaune et brune
 hr: žute i smeđe sjemenke gorušice
 it: semi di senape gialla e marrone
-sv: gult och brunt senapsfrö
+sv: gult och brunt senapsfrö, gula och bruna senapsfrön, senapsfrön (gula och bruna)
 
 #processing:en: en:powder
 < en: mustard seed
