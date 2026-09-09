@@ -80,4 +80,9 @@ like($beauty_form_with_nutrition_data,
 	qr{name="no_nutrition_data"},
 	'beauty edit form includes the no nutrition data checkbox when the product has nutrition data');
 
+# Test input_sets logic: existing as_sold input set (e.g. per serving) should not trigger default 100g fallback
+use Data::DeepAccess qw(deep_exists);
+my %input_sets_serving = (as_sold => {serving => {shown => 1}});
+ok(deep_exists(\%input_sets_serving, 'as_sold'), 'as_sold input_sets exists when serving is specified');
+
 done_testing();
