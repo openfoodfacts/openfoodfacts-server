@@ -21,7 +21,7 @@
 /*eslint dot-location: "off"*/
 /*eslint no-console: "off"*/
 /*global lang admin initializeTagifyInput other_nutrients:writable trackMatomoEvent*/ // we change other_nutrients to remove nutrients when they are added
-/* exported upload_image update_image update_nutrition_image_copy */
+/* exported upload_image update_nutrition_image_copy */
 
 //Polyfill, just in case
 if (!Array.isArray) {
@@ -35,9 +35,10 @@ let current_cropbox;
 let images = [];
 const imgids = {};
 let img_path;
-const angles = {};
-const imagefield_imgid = {};
 const imagefield_url = {};
+// The <image-editor> elements emitted by the server (one per .select_crop field),
+// detached when the field is re-rendered and re-appended in the crop box.
+const image_editors = {};
 let use_low_res_images = false;
 
 function stringStartsWith(string, prefix) {
@@ -118,215 +119,42 @@ function add_language_tab(lc, language) {
     $(document).foundation('tab', 'reflow');
 }
 
-function update_image(imagefield) {
-
-    $('#crop_' + imagefield).attr("src", "/cgi/product_image_rotate.pl?code=" + code + "&imgid=" + imagefield_imgid[imagefield] +
-        "&angle=" + angles[imagefield] + "&normalize=" + $("#normalize_" + imagefield).prop('checked') +
-        "&white_magic=" + $("#white_magic_" + imagefield).prop('checked'));
-    $('div[id="cropbuttonmsg_' + imagefield + '"]').hide();
-}
-
-function rotate_image(event) {
-
-    const imagefield = event.data.imagefield;
-    const angle = event.data.angle;
-    angles[imagefield] += angle;
-    angles[imagefield] = (360 + angles[imagefield]) % 360;
-
-    $('img#crop_' + imagefield).cropper('rotate', angle);
-
-    const selection = $('img#crop_' + imagefield).cropper('getCropBoxData');
-
-    selection.x = selection.left;
-    selection.y = selection.top;
-
-    console.log("selection - current - x:" + selection.x + " - y:" + selection.y + " - width:" + selection.width + " - height:" + selection.height);
-
-    if (selection.width > 0) {
-        const x1 = selection.x;
-        const y1 = selection.y;
-        const x2 = selection.x + selection.width;
-        const y2 = selection.y + selection.height;
-
-        const container = $('img#crop_' + imagefield).cropper('getContainerData');
-        const w = container.width;
-        const h = container.height;
-        console.log("selection - image - w:" + w + ' - h:' + h);
-
-
-        if (angle === 90) {
-            selection.x = h - y2;
-            selection.y = x1;
-            selection.width = y2 - y1;
-            selection.height = x2 - x1;
-        } else {
-            selection.x = y1;
-            selection.y = w - x2;
-            selection.width = y2 - y1;
-            selection.height = x2 - x1;
-        }
-
-        selection.left = selection.x;
-        selection.top = selection.y;
-
-        $('img#crop_' + imagefield).cropper('setCropBoxData', selection);
-
-        console.log("selection - new - x:" + selection.x + " - y:" + selection.y + " - width:" + selection.width + " - height:" + selection.height);
-    }
-
-
-    event.stopPropagation();
-    event.preventDefault();
-}
-
 function change_image(imagefield, imgid) {
 
-    //alert("field: " + imagefield + " - imgid: " + imgid);
-
-    const image = images[imgids[imgid]];
-    angles[imagefield] = 0;
-    imagefield_imgid[imagefield] = imgid;
-
     // load small 400 pixels image if the use_low_res_images checkbox is checked
-
     let image_size = '';
-    let cropimgdiv_style = '';
     let coordinates_image_size = "full";
-
     if ($("#use_low_res_images_" + imagefield).is(':checked')) {
         image_size = '.400';
-        cropimgdiv_style = 'style="max-width:400px"';
         coordinates_image_size = "400";
     }
 
-    let html = '';
-
-    html += '<div class="command">' + lang().product_js_image_rotate_and_crop + '</div>';
-
-    html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
-    html += '<div class="command"><a id="rotate_left_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_left + '</a> &nbsp;';
-    html += '<a id="rotate_right_' + imagefield + '" class="small button" type="button">' + lang().product_js_image_rotate_right + '</a>';
-    html += '<br><a href="' + img_path + image.imgid + '.jpg" target="_blank">' + lang().product_js_image_open_full_size_image + '</a>';
-    html += '<br/><input type="checkbox" id="zoom_on_wheel_' + imagefield + '" name="zoom_on_wheel_' + imagefield + '" value="">';
-    html += '<label for="zoom_on_wheel_' + imagefield + '" style="margin-top:0px;">' + lang().product_js_zoom_on_wheel + '</label>';
-    html += '</div>';
-    html += '</div><div class="small-6 medium-5 large-4 columns" style="float:right">';
-
-    html += '<div class="cropbutton_' + imagefield + '"></div>';
-    html += '<div class="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
-    html += '</div></div>';
-    html += '<div id="cropimgdiv_' + imagefield + '" class="cropimgdiv" ' + cropimgdiv_style + '><img src="' + img_path + image.imgid + image_size + '.jpg" id="' + 'crop_' + imagefield + '"/></div>';
-
-    html += '<div class="row"><div class="small-6 medium-7 large-8 columns">';
-    html += '<input type="checkbox" id="normalize_' + imagefield + '" onchange="update_image(\'' + imagefield + '\');blur();" /><label for="normalize_' + imagefield + '">' + lang().product_js_image_normalize + '</label><br/>';
-    html += '<input type="checkbox" id="white_magic_' + imagefield + '" style="display:inline" /><label for="white_magic_' + imagefield +
-        '" style="display:inline">' + lang().product_js_image_white_magic + '</label>';
-    html += '</div><div class="small-6 medium-5 large-4 columns" style="float:right;padding-top:1rem">';
-    html += '<div class="cropbutton_' + imagefield + '"></div>';
-    html += '<div class="cropbuttonmsg_' + imagefield + '" class="ui-state-highlight ui-corner-all" style="padding:2px;margin-top:10px;margin-bottom:10px;display:none" ></div>';
-    html += '</div></div>';
-
+    // Unload the image editor previously displayed in a crop box
     if (current_cropbox) {
-        $('div[id="' + current_cropbox + '"]').html('');
+        const editor = $('div[id="' + current_cropbox + '"]').find('image-editor')[0];
+        if (editor && editor.unload) {
+            editor.unload();
+        }
     }
     current_cropbox = 'cropbox_' + imagefield;
-    $('div[id="cropbox_' + imagefield + '"]').html(html);
-    $('div[id="cropimgdiv_' + imagefield + '"]').height($('div[id="cropimgdiv_' + imagefield + '"]').width());
 
-    $("#white_magic_" + imagefield).change(function () {
-        $('.cropbuttonmsg_' + imagefield).hide();
-    });
-
-    const crop_button = 'crop_' + imagefield + '_button';
-    $('.cropbutton_' + imagefield).html('<button class="' + crop_button + ' small button" type="button">' + lang().product_js_image_save + '</button>');
-    $("." + crop_button).click({ imagefield: imagefield }, function (event) {
-        event.stopPropagation();
-        event.preventDefault();
-
-        let selection = $('img#crop_' + imagefield).cropper('getData');
-
-        if (!selection) {
-            selection = { 'x1': -1, 'y1': -1, 'x2': -1, 'y2': -1 };
+    // Load the image in the <image-editor> web component of the crop box
+    $('div[id="' + current_cropbox + '"]').find('image-editor').each(function () {
+        if (this.loadImage) {
+            this.loadImage({ imgid: imgid, image_size: image_size, coordinates_image_size: coordinates_image_size });
         }
-        // alert(event.data.imagefield);
-        $("." + crop_button).blur();
-        $('.cropbutton_' + imagefield).hide();
-        $('.cropbuttonmsg_' + imagefield).html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_image_saving);
-        $('.cropbuttonmsg_' + imagefield).show();
-        $.post(
-            '/cgi/product_image_crop.pl', {
-            code: code,
-            id: imagefield,
-            imgid: imagefield_imgid[imagefield],
-            x1: selection.x,
-            y1: selection.y,
-            x2: selection.x + selection.width,
-            y2: selection.y + selection.height,
-            coordinates_image_size: coordinates_image_size,
-            angle: angles[imagefield],
-            normalize: $("#normalize_" + imagefield).prop('checked'),
-            white_magic: $("#white_magic_" + imagefield).prop('checked')
-        },
-            null,
-            'json'
-        )
-            .done(function (data) {
-                imagefield_url[imagefield] = data.image.display_url;
-                update_display(imagefield, false, false);
-                $('.cropbuttonmsg_' + imagefield).html(lang().product_js_image_saved);
-            })
-            .fail(function () {
-                $('.cropbuttonmsg_' + imagefield).html(lang().not_saved);
-            })
-            .always(function () {
-                $('.cropbutton_' + imagefield).show();
-                $(document).foundation('equalizer', 'reflow');
-            });
-    });
-
-    $('img#crop_' + imagefield).on('ready', function () {
-        $("#rotate_left_" + imagefield).attr("disabled", false);
-        $("#rotate_right_" + imagefield).attr("disabled", false);
-        $("." + crop_button).attr("disabled", false);
-    });
-    $("#rotate_left_" + imagefield).attr("disabled", true);
-    $("#rotate_right_" + imagefield).attr("disabled", true);
-    $("." + crop_button).attr("disabled", true);
-
-    $("#rotate_left_" + imagefield).click({ imagefield: imagefield, angle: -90 }, rotate_image);
-    $("#rotate_right_" + imagefield).click({ imagefield: imagefield, angle: 90 }, rotate_image);
-
-    $('img#crop_' + imagefield).click(function () {
-        $('img#crop_' + imagefield).cropper('clear');
-    });
-
-    $('img#crop_' + imagefield).cropper({
-        "viewMode": 2,
-        "guides": false,
-        "autoCrop": false,
-        "zoomable": true,
-        "zoomOnWheel": false,
-        "zoomOnTouch": false,
-        "toggleDragModeOnDblclick": true,
-        "checkCrossOrigin": false
-    });
-
-    $("#zoom_on_wheel_" + imagefield).change(function () {
-        const zoomOnWheel = $("#zoom_on_wheel_" + imagefield).is(':checked');
-        $('img#crop_' + imagefield).cropper('destroy').cropper({
-            "viewMode": 2,
-            "guides": false,
-            "autoCrop": false,
-            "zoomable": true,
-            "zoomOnWheel": zoomOnWheel,
-            "zoomOnTouch": false,
-            "toggleDragModeOnDblclick": true,
-            "checkCrossOrigin": false
-        });
     });
 
     $(document).foundation('equalizer', 'reflow');
 }
+
+// Listen for images saved by the <image-editor> web component and update the
+// displayed image accordingly.
+document.addEventListener('crop-saved', function (event) {
+    const imagefield = event.detail.imagefield;
+    imagefield_url[imagefield] = event.detail.display_url;
+    update_display(imagefield, false, false);
+});
 
 // https://jsperf.com/jquery-visibility-test
 $.fn.isVisible = function () {
@@ -599,7 +427,21 @@ const maximumRecentEntriesPerTag = 10;
                     }
                 }
 
+                // The <image-editor> web component is emitted by the server inside the
+                // .select_crop div (for non-protected fields): detach it so that it is
+                // not destroyed when the field is re-rendered, and re-append it in the
+                // crop box below.
+                const editor = $this.find('image-editor')[0];
+                if (editor) {
+                    image_editors[id] = editor;
+                    editor.remove();
+                }
+
                 $this.html(html);
+
+                if ((typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")) && image_editors[id]) {
+                    $('div[id="cropbox_' + id + '"]').append(image_editors[id]);
+                }
 
                 if (use_low_res_images) {
                     $("#use_low_res_images_" + id).prop("checked", true);

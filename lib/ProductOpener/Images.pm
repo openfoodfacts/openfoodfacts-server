@@ -279,7 +279,9 @@ HTML
 		$html .= <<HTML;
 	<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
-<div class=\"select_crop\" id=\"$id\"></div>
+<div class=\"select_crop\" id=\"$id\">
+<image-editor></image-editor>
+</div>
 <hr class="floatclear" />
 HTML
 	}
@@ -363,10 +365,14 @@ sub display_select_crop_init ($object_ref) {
 
 	my $images_json = JSON::MaybeXS->new->encode(\@images);
 
+	# The image editor web component reads the uploaded images and the image path
+	# from window.imageEditorConfig (it cannot have attributes: the select_crop
+	# markup is cloned when a language tab is added).
 	return <<HTML
 
-	\$([]).selectcrop('init_images', $images_json);
-	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
+	window.imageEditorConfig = { images: $images_json, img_path: "//images.$server_domain/images/products/$path/" };
+	\$([]).selectcrop('init_images', window.imageEditorConfig.images);
+	\$(".select_crop").selectcrop('init', { img_path : window.imageEditorConfig.img_path });
 	\$(".select_crop").selectcrop('show');
 
 HTML

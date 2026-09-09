@@ -106,4 +106,18 @@ padding:0.5rem 1rem;
 	line-height:2.5rem;
 }
 
+// Custom properties consumed by the <image-editor> web component.
+// CSS custom properties inherit into the component's shadow DOM, so the
+// component uses var(--editor-*) for its controls and the site color for
+// the cropper selection outline / handles.
+.select_crop {
+	--editor-button-bg: #{$primary-button-color};
+	--editor-button-bg-hover: #{scale-color($primary-button-color, $lightness: $button-function-factor)};
+	--editor-button-text: #{$button-font-color};
+	--editor-button-radius: #{$global-radius};
+	--editor-font-size: #{$button-font-sml};
+	--editor-link-color: #{$anchor-font-color};
+	--cropper-theme-color: #{$off-blue};
+}
+
 
