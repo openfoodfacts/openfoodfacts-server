@@ -3,9 +3,6 @@ name: 🌐 Translations check
 on:
   pull_request:
     paths: ["**.po", "**.pot", ".github/workflows/translation-check.yml"]
-  push:
-    branches:
-    - main
     
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
