@@ -2818,25 +2818,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "ibang nutrisyonal na sangkap na idinagdag"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "Kapag binenta"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "Handa"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "Yunit"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "Ang mga katotohanan sa nutrisyon ay nakasaad para sa produkto na kapag binenta."
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "Ang mga katotohanan sa nutrisyon ay nakasaad para sa nakahandang produkto."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -7220,3 +7204,20 @@ msgctxt "attribute_repairability_index_france_bad_description_short"
 msgid "Bad repairability"
 msgstr ""
 
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "Kapag binenta"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "Handa"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "Ang mga katotohanan sa nutrisyon ay nakasaad para sa produkto na kapag binenta:"
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "Ang mga katotohanan sa nutrisyon ay nakasaad para sa nakahandang produkto:"

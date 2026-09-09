@@ -2857,25 +2857,9 @@ msgctxt "other_nutritional_substances_s"
 msgid "other nutritional substance added"
 msgstr "添加的其他营养物质"
 
-msgctxt "product_as_sold"
-msgid "As sold"
-msgstr "已售出的"
-
-msgctxt "prepared_product"
-msgid "Prepared"
-msgstr "已准备"
-
 msgctxt "unit"
 msgid "Unit"
 msgstr "单位"
-
-msgctxt "nutrition_data_exists"
-msgid "Nutrition facts are specified for the product as sold."
-msgstr "营养事实是针对所售产品所规定的。"
-
-msgctxt "nutrition_data_prepared_exists"
-msgid "Nutrition facts are specified for the prepared product."
-msgstr "营养事实是为准备好的产品规定的。"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
@@ -7728,3 +7712,20 @@ msgctxt "impact_non_assessed"
 msgid "Impact not assessed"
 msgstr "影响尚未评估"
 
+# Product as sold
+msgctxt "preparation_as_sold"
+msgid "As sold"
+msgstr "已售出的"
+
+# Prepared product
+msgctxt "preparation_prepared"
+msgid "Prepared"
+msgstr "已准备"
+
+msgctxt "nutrition_data_exists_as_sold"
+msgid "Nutrition facts are specified for the product as sold:"
+msgstr "营养事实是针对所售产品所规定的："
+
+msgctxt "nutrition_data_exists_prepared"
+msgid "Nutrition facts are specified for the prepared product:"
+msgstr "营养事实是为准备好的产品规定的："
