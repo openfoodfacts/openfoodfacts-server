@@ -187,12 +187,9 @@ def check_url_exists(url):
 
 def check_image_exists(img_ref):
     rel = img_ref
-    if rel.startswith("https://static.openfoodfacts.org/"):
-        rel = rel[len("https://static.openfoodfacts.org/"):]
-    elif rel.startswith("http://static.openfoodfacts.org/"):
-        rel = rel[len("http://static.openfoodfacts.org/"):]
-    elif rel.startswith("//static.openfoodfacts.org/"):
-        rel = rel[len("//static.openfoodfacts.org/"):]
+    parsed = urllib.parse.urlparse(img_ref)
+    if parsed.netloc == "static.openfoodfacts.org" and parsed.scheme in ("http", "https", ""):
+        rel = parsed.path
 
     if rel.startswith("/"):
         rel = rel.lstrip("/")
