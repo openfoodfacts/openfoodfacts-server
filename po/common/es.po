@@ -166,7 +166,7 @@ msgstr "Ingredientes, alérgenos, aditivos, información nutricional, etiquetado
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Búsqueda de productos en Open Pets Food Facts"
+msgstr "Búsqueda de productos en Open Pet Food Facts"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -1764,11 +1764,6 @@ msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Grado de nutrición"
 
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
@@ -2973,11 +2968,11 @@ msgstr "Unidad"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr "Grupo Nova"
+msgstr "Grupo NOVA"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr "Grupos Nova"
+msgstr "Grupos NOVA"
 
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
@@ -4700,7 +4695,7 @@ msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
-msgstr "Buena información nutricional (Nutri-score)"
+msgstr "Buena información nutricional (Nutri-Score)"
 
 msgctxt "attribute_nutriscore_setting_note"
 msgid "The Nutri-Score is computed and can be taken into account for all products, even if is not displayed on the packaging."
@@ -4760,7 +4755,7 @@ msgstr "Procesamiento de alimentos"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
-msgstr "Grupo Nova"
+msgstr "Grupo NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
@@ -4822,7 +4817,7 @@ msgstr "Filtro de consulta"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
-msgstr "Grupo Nova"
+msgstr "Grupo NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
@@ -5666,7 +5661,7 @@ msgstr "La información y datos sobre porcentajes %s provienen de %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr "Los fabricantes o comercializadores pueden utilizar la <a href=\"<producers_platform_url>\"> para que los productores</a> complementen la información del producto y tengan acceso a informes, análisis e indicadores que ofrezcan oportunidades de mejora continua de su productos (por ejemplo: Obtener mejor Nutri-Score)."
+msgstr "Los fabricantes o comercializadores pueden utilizar la plataforma de Open Food Facts <a href=\"<producers_platform_url>\"> para que los productores</a> complementen la información del producto y tengan acceso a informes, análisis e indicadores que ofrezcan oportunidades de mejora continua de su productos (por ejemplo: Obtener mejor Nutri-Score)."
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
@@ -5855,12 +5850,12 @@ msgstr "La información sobre el envase de este producto no está suficientement
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "Para un cálculo más preciso de la puntuación ecológica, puede modificar la página del producto y añadirlas."
+msgstr "Para un cálculo más preciso de la Green-Score, puede modificar la página del producto y añadirlas."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Para un cálculo más preciso de la puntuación ecológica, puedes editar la página del producto y añadirlas."
+msgstr "Para un cálculo más preciso de la Green-Score, puedes editar la página del producto y añadirlas."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -6215,7 +6210,7 @@ msgstr "Bonificaciones y penalizaciones"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Eco-puntuación para este producto"
+msgstr "Green-Score para este producto"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -7295,7 +7290,7 @@ msgstr "Si la información no coincide con la información del envase, puedes co
 
 msgctxt "incomplete_or_incorrect_data_content_correct_off"
 msgid "Open Food Facts is a collaborative database, and every contribution is useful for all."
-msgstr "Open Food Facts es una base de datos colaborativa, por lo que cada contribución es útil para todas las personas."
+msgstr "Open Food Facts es una base de datos colaborativa, por lo que cada contribución es útil para todas las personas."
 
 msgctxt "report_to_nutripatrol_explain"
 msgid "If you want to report vandalism, inappropriate content or erroneous data you can't fix yourself, report it to our moderators team."

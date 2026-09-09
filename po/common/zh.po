@@ -21,7 +21,7 @@ msgstr "全球共同开发一个免费开放的数据库，其中涵盖了食品
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "打开Food Facts收集来自全世界各地的化妆品产品信息和数据"
+msgstr "Open Food Facts收集来自全世界各地的化妆品产品信息和数据"
 
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -976,7 +976,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "向制造商公开食品成分"
+msgstr "面向生产者的 Open Food Facts"
 
 msgctxt "for"
 msgid "for"
@@ -1657,7 +1657,7 @@ msgstr "表格默认列出了经常指定的营养素，如果不在标签上，
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr "计算营养分数的必需营养素。"
+msgstr "计算Nutri-Score的必需营养素。"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1666,11 +1666,6 @@ msgstr "营养等级"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "营养等级"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -3417,7 +3412,7 @@ msgstr "上传包含产品数据的电子表格文件(Excel文件或逗号或tab
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr "您可以上传一个带公开食物事实网站导入格式的表，或者您可以上传任何格式的表，然后选择要导入的列。"
+msgstr "您可以上传一个带Open Food Facts导入格式的表，或者您可以上传任何格式的表，然后选择要导入的列。"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
@@ -3646,17 +3641,17 @@ msgstr "平台生产商"
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr "该平台允许生产商轻松管理他们的产品照片和数据在公开食品事实网站。"
+msgstr "该平台允许生产商轻松管理他们的产品照片和数据在Open Food Facts网站。"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr "你在平台上为生产者发送的产品数据和照片存储在一个私有数据库中。您将能够检查所有的数据是正确的，然后将其公开食品事实网站数据库。"
+msgstr "你在平台上为生产者发送的产品数据和照片存储在一个私有数据库中。您将能够检查所有的数据是正确的，然后将其Open Food Facts网站数据库。"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr "产品数据和照片将在开放食品事实数据库中公开，根据<a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">开放数据库许可证</a>。数据库的个别内容可在<a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">数据库内容许可证</a>下获得，产品图片可在<a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike许可证</a>下获得。"
+msgstr "产品数据和照片将在Open Food Facts数据库中公开，根据<a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">开放数据库许可证</a>。数据库的个别内容可在<a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">数据库内容许可证</a>下获得，产品图片可在<a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike许可证</a>下获得。"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
@@ -3905,11 +3900,11 @@ msgstr "有改进机会的产品数量"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr "该表列出了改善营养质量、营养分数和食品成分的可能机会。"
+msgstr "该表列出了改善营养质量、Nutri-Score和食品成分的可能机会。"
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr "为了得到相关结果，请确保产品数据完整(含纤维和水果蔬菜值的营养事实，以计算营养评分，以及一个精确的类别，以比较每个产品与类似的产品)。"
+msgstr "为了得到相关结果，请确保产品数据完整(含纤维和水果蔬菜值的营养事实，以计算Nutri-Score，以及一个精确的类别，以比较每个产品与类似的产品)。"
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
@@ -3978,15 +3973,15 @@ msgstr "文件收到了"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr "详细计算营养分数"
+msgstr "详细计算Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr "该产品被认为是一种饮料的计算营养分数。"
+msgstr "该产品被认为是一种饮料的计算Nutri-Score。"
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr "在计算营养分数时，产品是否不被认为是饮料"
+msgstr "在计算Nutri-Score时，产品是否不被认为是饮料"
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
@@ -4063,17 +4058,17 @@ msgstr "营养评分"
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr "营养价值评分"
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr "营养分数"
+msgstr "Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr "营养价值评分"
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
@@ -4105,7 +4100,7 @@ msgstr "%s类别的平均值"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr "通过将%s的值从%s更改为%s (%s的百分比差异)，可以将营养分数从%s更改为%s。"
+msgstr "通过将%s的值从%s更改为%s (%s的百分比差异)，可以将Nutri-Score从%s更改为%s。"
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
@@ -4244,19 +4239,19 @@ msgstr "导入类别"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr "来自制作人的营养评分"
+msgstr "来自制作人的Nutri-Score"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr "计算营养分数"
+msgstr "计算Nutri-Score"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr "由生产商提供的营养评分等级"
+msgstr "由生产商提供的Nutri-Score等级"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr "计算营养等级"
+msgstr "计算Nutri-Score"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
@@ -4481,7 +4476,7 @@ msgstr "生产者在产品变化时用来识别特定版本的内部代码。"
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr "提供一个类别对于使产品易于搜索和计算营养分数非常重要"
+msgstr "提供一个类别对于使产品易于搜索和计算Nutri-Score非常重要"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
@@ -4501,7 +4496,7 @@ msgstr "产品标签上显示从A到E的Nutri-Score等级"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr "公开食物事实网站根据提供的信息(营养事实和类别) 计算营养评分等级。如果我们计算的等级与您提供的等级不同，您将在生产者平台上获得一个私有通知，以便解决差异。"
+msgstr "Open Food Facts根据提供的信息(营养事实和类别) 计算Nutri-Score等级。如果我们计算的等级与您提供的等级不同，您将在生产者平台上获得一个私有通知，以便解决差异。"
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
@@ -4509,7 +4504,7 @@ msgstr "Nutri-Score 分数（A 至 E 等级的数值）"
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr "公开食物事实网站根据提供的信息(营养事实和类别) 计算营养得分。如果我们计算的分数与您提供的分数不同，您将在生产者平台上获得一个私有通知，以便解决差异。"
+msgstr "Open Food Facts根据提供的信息(营养事实和类别) 计算Nutri-Score。如果我们计算的分数与您提供的分数不同，您将在生产者平台上获得一个私有通知，以便解决差异。"
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
@@ -4607,7 +4602,7 @@ msgstr "营养质量"
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr "营养价值评分"
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4620,7 +4615,7 @@ msgstr "Nutri-Score 是经过计算得到的，可以用于所有产品，即使
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "营养分数 %s"
+msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
@@ -4675,7 +4670,7 @@ msgstr "NOVA集团"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr "小组不计算"
+msgstr "NOVA不计算"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
@@ -4683,7 +4678,7 @@ msgstr "食品加工水平未知"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
-msgstr "没有或很少进行食品加工(小组)"
+msgstr "没有或很少进行食品加工(NOVA)"
 
 msgctxt "attribute_nova_setting_note"
 msgid "To determine the level of processing of a product, we rely on the list of ingredients (markers, processing methods) and categories."
@@ -4692,7 +4687,7 @@ msgstr "为了确定产品的加工水平，我们依靠配料表（标记、加
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr "小组%s"
+msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4858,11 +4853,11 @@ msgstr "环境影响"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "低环境影响（生态得分）"
+msgstr "低环境影响（Green-Score）"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
@@ -4871,11 +4866,11 @@ msgstr "Green-Score 是从 A 到 E 的环境评分，可以轻松比较食品对
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "低环境影响（生态得分）"
+msgstr "低环境影响（Green-Score）"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A to E which makes it easy to compare the impact of food products on the environment."
@@ -4884,7 +4879,7 @@ msgstr "Green-Score 是从 A 到 E 的环境评分，可以轻松比较食品对
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "生态得分 %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5122,19 +5117,19 @@ msgstr "缺少预制产品的营养成分表"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "绿色评分"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5457,7 +5452,7 @@ msgstr "Green-Score 尚不适用于此类别，但我们正在努力增加对它
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "未计算的生态分数"
+msgstr "未计算的Green-Score"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -6365,7 +6360,7 @@ msgstr "了解有关 Nutri-Score 的更多信息"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr "了解有关生态评分的更多信息"
+msgstr "了解有关Green-Score的更多信息"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6415,11 +6410,11 @@ msgstr "您能否添加计算 Nutri-Score 所需的信息？"
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "您能否对产品进行分类，以便我们能够计算生态得分？"
+msgstr "您能否对产品进行分类，以便我们能够计算Green-Score？"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "该产品的类别不够精确，无法计算绿色评分。您能否添加更精确的产品类别？"
+msgstr "该产品的类别不够精确，无法计算Green-Score。您能否添加更精确的产品类别？"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7311,7 +7306,7 @@ msgstr "没有 Nutri-Score 的产品数量"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr "计算营养价值评分的产品百分比"
+msgstr "计算Nutri-Score的产品百分比"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
@@ -7551,7 +7546,7 @@ msgstr "向我们的版主举报此图片"
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "我们缺少计算营养评分所需的份量值和/或单位"
+msgstr "我们缺少计算Nutri-Score所需的份量值和/或单位"
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"

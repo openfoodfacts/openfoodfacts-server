@@ -63,7 +63,7 @@ msgstr "და <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Face
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "გახსენით სილამაზის ფაქტების პროდუქტის ძიება"
+msgstr "გახსენით Open Beauty Facts პროდუქტის ძიება"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -448,7 +448,7 @@ msgstr "შტრიხკოდის ნომერი:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr "ასევე შეგიძლიათ დაეხმაროთ ღია საკვების ფაქტების პროექტის დაფინანსებაში"
+msgstr "ასევე შეგიძლიათ დაეხმაროთ Open Food Facts პროექტის დაფინანსებაში"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
@@ -1063,7 +1063,7 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "ღია სილამაზის ფაქტები - კოსმეტიკა"
+msgstr "ღია Open Beauty Facts - კოსმეტიკა"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -1071,7 +1071,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "ღია საკვების ფაქტები მწარმოებლებისთვის"
+msgstr "Open Food Facts მწარმოებლებისთვის"
 
 msgctxt "for"
 msgid "for"
@@ -1763,11 +1763,6 @@ msgstr ""
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr ""
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2973,7 +2968,7 @@ msgstr "ერთეული"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr "ნოვა ჯგუფი"
+msgstr "NOVA"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
@@ -3740,7 +3735,7 @@ msgstr "მწარმოებლებისთვის განკუთ�
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr "მწარმოებლებისთვის პლატფორმაზე თქვენს მიერ გაგზავნილი პროდუქტის მონაცემები და ფოტოები ინახება კერძო მონაცემთა ბაზაში. თქვენ შეძლებთ გადაამოწმოთ ყველა მონაცემის სისწორე, სანამ მათ საჯარო ღია საკვების ფაქტების მონაცემთა ბაზაში განთავსებას შეძლებთ."
+msgstr "მწარმოებლებისთვის პლატფორმაზე თქვენს მიერ გაგზავნილი პროდუქტის მონაცემები და ფოტოები ინახება კერძო მონაცემთა ბაზაში. თქვენ შეძლებთ გადაამოწმოთ ყველა მონაცემის სისწორე, სანამ მათ საჯარო Open Food Facts მონაცემთა ბაზაში განთავსებას შეძლებთ."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
@@ -4713,7 +4708,7 @@ msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr "კვებითი ღირებულება უცნობია"
+msgstr "Nutri-Score უცნობია"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
@@ -4760,7 +4755,7 @@ msgstr "საკვების გადამუშავება"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
-msgstr "ნოვა ჯგუფი"
+msgstr "NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
@@ -4781,7 +4776,7 @@ msgstr "პროდუქტის დამუშავების დონ�
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr "ნოვა %s"
+msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4822,7 +4817,7 @@ msgstr "მოთხოვნის ფილტრი"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
-msgstr "ნოვა ჯგუფი"
+msgstr "NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
@@ -4947,33 +4942,33 @@ msgstr ""
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "მწვანე ქულა"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "დაბალი გარემოზე ზემოქმედება (მწვანე ქულა)"
+msgstr "დაბალი გარემოზე ზემოქმედება (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "მწვანე ქულა არის გარემოსდაცვითი ქულა A+-დან F-მდე, რაც აადვილებს საკვები პროდუქტების გარემოზე ზემოქმედების შედარებას."
+msgstr "Green-Score არის გარემოსდაცვითი ქულა A+-დან F-მდე, რაც აადვილებს საკვები პროდუქტების გარემოზე ზემოქმედების შედარებას."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "მწვანე ქულა"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "დაბალი გარემოზე ზემოქმედება (მწვანე ქულა)"
+msgstr "დაბალი გარემოზე ზემოქმედება (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "მწვანე ქულა არის გარემოსდაცვითი ქულა A+-დან F-მდე, რაც აადვილებს საკვები პროდუქტების გარემოზე ზემოქმედების შედარებას."
+msgstr "Green-Score არის გარემოსდაცვითი ქულა A+-დან F-მდე, რაც აადვილებს საკვები პროდუქტების გარემოზე ზემოქმედების შედარებას."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "მწვანე ქულა %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5159,7 +5154,7 @@ msgstr "გარემოზე ზემოქმედება"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "მწვანე ქულის ქულა"
+msgstr "Green-Score ქულა"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
@@ -5169,12 +5164,12 @@ msgstr "Green-Score შეფასება"
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "მწვანე ქულის გაანგარიშების დეტალები"
+msgstr "Green-Score გაანგარიშების დეტალები"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "ინფორმაცია მწვანე ქულის შესახებ"
+msgstr "ინფორმაცია Green-Score შესახებ"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5211,19 +5206,19 @@ msgstr "მომზადებული პროდუქტის კვე�
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "მწვანე ქულა"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "მწვანე ქულა"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "მწვანე ქულა"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "მწვანე ქულა"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5471,11 +5466,11 @@ msgstr "ყველაზე ხშირად დასკანირებ�
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr "პროდუქტები საუკეთესო ნუტრიციული ინდექსით"
+msgstr "პროდუქტები საუკეთესო Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "საუკეთესო მწვანე ქულის მქონე პროდუქტები"
+msgstr "საუკეთესო Green-Score მქონე პროდუქტები"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5529,7 +5524,7 @@ msgstr "მომხმარებელი იშლება. ამას �
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "მწვანე ქულა არ გამოიყენება"
+msgstr "Green-Score არ გამოიყენება"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5542,11 +5537,11 @@ msgstr "ჯერ არ არის შესაფერისი შემ�
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "მწვანე ქულა ჯერ არ არის გამოყენებული ამ კატეგორიაში, მაგრამ ჩვენ ვმუშაობთ მისი მხარდაჭერის დამატებაზე."
+msgstr "Green-Score ჯერ არ არის გამოყენებული ამ კატეგორიაში, მაგრამ ჩვენ ვმუშაობთ მისი მხარდაჭერის დამატებაზე."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "მწვანე ქულა არ არის გამოთვლილი"
+msgstr "Green-Score არ არის გამოთვლილი"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5558,7 +5553,7 @@ msgstr "ზუსტი კატეგორია აკლია"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "ამ პროდუქტის მწვანე ქულის გამოთვლა ვერ შევძელით, რადგან მას გარკვეული მონაცემები აკლია. შეგიძლიათ დაგვეხმაროთ მის შევსებაში?"
+msgstr "ამ პროდუქტის Green-Score გამოთვლა ვერ შევძელით, რადგან მას გარკვეული მონაცემები აკლია. შეგიძლიათ დაგვეხმაროთ მის შევსებაში?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5666,7 +5661,7 @@ msgstr "%s -ის პროდუქტების ზოგიერთი �
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr "მწარმოებლებს შეუძლიათ გამოიყენონ ღია კვების ფაქტები <a href=\"<producers_platform_url>\">უფასო პლატფორმა მწარმოებლებისთვის</a> ამ მონაცემებზე წვდომისა და მათი შევსების, ასევე ანგარიშების, ანალიზისა და პროდუქტის გაუმჯობესების შესაძლებლობების მისაღებად (მაგ., უკეთესი Nutri-Score)."
+msgstr "მწარმოებლებს შეუძლიათ გამოიყენონ Open Food Facts <a href=\"<producers_platform_url>\">უფასო პლატფორმა მწარმოებლებისთვის</a> ამ მონაცემებზე წვდომისა და მათი შევსების, ასევე ანგარიშების, ანალიზისა და პროდუქტის გაუმჯობესების შესაძლებლობების მისაღებად (მაგ., უკეთესი Nutri-Score)."
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
@@ -5688,7 +5683,7 @@ msgstr "ტყის კვალი გამოითვლება იმ �
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "მწვანე ქულის გამოთვლა მხოლოდ იმ შემთხვევაშია შესაძლებელი, თუ პროდუქტს საკმარისად ზუსტი კატეგორია აქვს."
+msgstr "Green-Score გამოთვლა მხოლოდ იმ შემთხვევაშია შესაძლებელი, თუ პროდუქტს საკმარისად ზუსტი კატეგორია აქვს."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
@@ -5700,7 +5695,7 @@ msgstr "თუ თქვენ ხართ ამ პროდუქტის �
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "გაფრთხილება: მწვანე ქულის ზუსტად გამოსათვლელად საჭირო ზოგიერთი ინფორმაცია არ არის მოცემული (გამოთვლის დეტალები იხილეთ ქვემოთ)."
+msgstr "გაფრთხილება: Green-Score ზუსტად გამოსათვლელად საჭირო ზოგიერთი ინფორმაცია არ არის მოცემული (გამოთვლის დეტალები იხილეთ ქვემოთ)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5855,12 +5850,12 @@ msgstr "ამ პროდუქტის შეფუთვის შესა
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "მწვანე ქულის უფრო ზუსტი გამოთვლისთვის, შეგიძლიათ შეცვალოთ პროდუქტის გვერდი და დაამატოთ ისინი."
+msgstr "Green-Score უფრო ზუსტი გამოთვლისთვის, შეგიძლიათ შეცვალოთ პროდუქტის გვერდი და დაამატოთ ისინი."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "მწვანე ქულის უფრო ზუსტი გამოთვლისთვის, შეგიძლიათ შეცვალოთ პროდუქტის გვერდი და დაამატოთ ისინი."
+msgstr "Green-Score უფრო ზუსტი გამოთვლისთვის, შეგიძლიათ შეცვალოთ პროდუქტის გვერდი და დაამატოთ ისინი."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5882,17 +5877,17 @@ msgstr "თუ თქვენ ხართ ამ პროდუქტის �
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "<a href=\"/green-score\">მწვანე ქულა</a> არის ექსპერიმენტული ქულა, რომელიც აჯამებს საკვები პროდუქტების გარემოზე ზემოქმედებას."
+msgstr "<a href=\"/green-score\">Green-Score</a> არის ექსპერიმენტული ქულა, რომელიც აჯამებს საკვები პროდუქტების გარემოზე ზემოქმედებას."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "მწვანე ქულის ფორმულა შეიძლება შეიცვალოს, რადგან ის რეგულარულად იხვეწება უფრო ზუსტი რომ იყოს."
+msgstr "Green-Score ფორმულა შეიძლება შეიცვალოს, რადგან ის რეგულარულად იხვეწება უფრო ზუსტი რომ იყოს."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "„მწვანე ქულის“ ფორმულა თავდაპირველად საფრანგეთისთვის შემუშავდა და ამჟამად სხვა ევროპულ ქვეყნებშიც ვრცელდება. „მწვანე ქულის“ ფორმულა შეიძლება შეიცვალოს, რადგან ის რეგულარულად იხვეწება, რათა უფრო ზუსტი და თითოეული ქვეყნისთვის უკეთ მორგებული გახდეს."
+msgstr "Green-Score ფორმულა თავდაპირველად საფრანგეთისთვის შემუშავდა და ამჟამად სხვა ევროპულ ქვეყნებშიც ვრცელდება. Green-Score ფორმულა შეიძლება შეიცვალოს, რადგან ის რეგულარულად იხვეწება, რათა უფრო ზუსტი და თითოეული ქვეყნისთვის უკეთ მორგებული გახდეს."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6215,7 +6210,7 @@ msgstr "ბონუსები და მალუსები"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "მწვანე ქულა ამ პროდუქტისთვის"
+msgstr "Green-Score ამ პროდუქტისთვის"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6548,7 +6543,7 @@ msgstr "შეგიძლიათ დაამატოთ პროდუქ�
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "ამ პროდუქტისთვის ჩვენს მიერ შემუშავებული კატეგორია საკმარისად ზუსტი არ არის მწვანე ქულის გამოსათვლელად. შეგიძლიათ დაამატოთ უფრო ზუსტი პროდუქტის კატეგორია?"
+msgstr "ამ პროდუქტისთვის ჩვენს მიერ შემუშავებული კატეგორია საკმარისად ზუსტი არ არის Green-Score გამოსათვლელად. შეგიძლიათ დაამატოთ უფრო ზუსტი პროდუქტის კატეგორია?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
@@ -7687,7 +7682,7 @@ msgstr "შეატყობინეთ ამ სურათის შეს
 
 msgctxt "missing_serving_size_value_and_or_unit"
 msgid "We are missing the serving size value and/or unit to calculate the Nutri-Score"
-msgstr "ნუტრი-ქულის გამოსათვლელად პორციის ზომის მნიშვნელობა და/ან ერთეული არ გვაქვს მითითებული."
+msgstr "Nutri-Score გამოსათვლელად პორციის ზომის მნიშვნელობა და/ან ერთეული არ გვაქვს მითითებული."
 
 msgctxt "bottom_content_split"
 msgid "<<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by donating to Open Food Facts.<br/><b>Thank you!</b>"

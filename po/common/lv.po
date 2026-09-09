@@ -21,7 +21,7 @@ msgstr "Sadarbības, bezmaksas un atvērta datubāze ar sastāvdaļām, uzturvē
 
 msgctxt "tagline_off"
 msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "Atvērtie pārtikas fakti apkopo informāciju un datus par pārtikas produktiem no visas pasaules."
+msgstr "Open Food Facts apkopo informāciju un datus par pārtikas produktiem no visas pasaules."
 
 msgctxt "footer_tagline_off"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -63,7 +63,7 @@ msgstr "un <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Atvērt Beauty Facts produktu meklēšanu"
+msgstr "Atvērt Open Beauty Facts produktu meklēšanu"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -166,7 +166,7 @@ msgstr "Sastāvdaļas, alergēni, piedevas, uzturvērtības fakti, etiķetes, sa
 
 msgctxt "search_description_opensearch_opff"
 msgid "Open Pet Food Facts product search"
-msgstr "Atvērt mājdzīvnieku barības faktu produktu meklēšanu"
+msgstr "Atvērt Open Pet Food Facts produktu meklēšanu"
 
 msgctxt "warning_not_complete_opff"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal Open Food Facts app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -1065,7 +1065,7 @@ msgstr "https://wiki.openfoodfacts.org"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Atklāti skaistumkopšanas fakti - kosmētika"
+msgstr "Atklāti Open Open Beauty Facts - kosmētika"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -1073,7 +1073,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "Atklāti pārtikas fakti ražotājiem"
+msgstr "Open Food Facts ražotājiem"
 
 msgctxt "for"
 msgid "for"
@@ -1762,11 +1762,6 @@ msgstr "Uztura pakāpes"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Uztura pakāpe"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4945,7 +4940,7 @@ msgstr "Vide"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Zaļais rādītājs"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4958,7 +4953,7 @@ msgstr "Green-Score ir vides vērtējums no A+ līdz F, kas ļauj viegli salīdz
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Zaļais rādītājs"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4971,7 +4966,7 @@ msgstr "Green-Score ir vides vērtējums no A+ līdz F, kas ļauj viegli salīdz
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Zaļais rādītājs %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5157,7 +5152,7 @@ msgstr "Ietekme uz vidi"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "Zaļā vērtējuma rādītājs"
+msgstr "Green-Score rādītājs"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
@@ -5167,12 +5162,12 @@ msgstr "Green-Score vērtējums"
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "Zaļā rādītāja aprēķināšanas detaļas"
+msgstr "Green-Score aprēķināšanas detaļas"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "Informācija par Zaļo punktu skaitu"
+msgstr "Informācija par Green-Score"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5209,19 +5204,19 @@ msgstr "Trūkstoša uzturvērtības informācija pagatavotajam produktam"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Zaļais rādītājs"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Zaļais rādītājs"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Zaļais rādītājs"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Zaļais rādītājs"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5473,7 +5468,7 @@ msgstr "Produkti ar labāko Nutri-Score vērtējumu"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Produkti ar vislabāko zaļo vērtējumu"
+msgstr "Produkti ar vislabāko Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5527,7 +5522,7 @@ msgstr "Lietotājs tiek dzēsts. Tas var aizņemt dažas minūtes."
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "Zaļais rādītājs nav piemērojams"
+msgstr "Green-Score nav piemērojams"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5540,11 +5535,11 @@ msgstr "Vēl nav piemērojams kategorijai: {category}"
 
 msgctxt "environmental_score_not_applicable_coming_soon"
 msgid "The Green-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr "Zaļais rādītājs šajā kategorijā vēl nav piemērojams, taču mēs strādājam pie atbalsta pievienošanas."
+msgstr "Green-Score šajā kategorijā vēl nav piemērojams, taču mēs strādājam pie atbalsta pievienošanas."
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Zaļais rādītājs nav aprēķināts"
+msgstr "Green-Score nav aprēķināts"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5556,7 +5551,7 @@ msgstr "Trūkst precīzas kategorijas"
 
 msgctxt "environmental_score_unknown_call_to_help"
 msgid "We could not compute the Green-Score of this product as it is missing some data, could you help complete it?"
-msgstr "Mēs nevarējām aprēķināt šī produkta zaļo vērtējumu, jo trūkst dažu datu. Vai jūs varētu palīdzēt to papildināt?"
+msgstr "Mēs nevarējām aprēķināt šī produkta Green-Score, jo trūkst dažu datu. Vai jūs varētu palīdzēt to papildināt?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5686,7 +5681,7 @@ msgstr "Meža pēdas nospiedumu aprēķina, ņemot vērā sastāvdaļas, kuru ra
 
 msgctxt "environmental_score_agribalyse_match_warning"
 msgid "The Green-Score can only be calculated if the product has a sufficiently precise category."
-msgstr "Zaļo vērtējumu var aprēķināt tikai tad, ja produktam ir pietiekami precīza kategorija."
+msgstr "Green-Score var aprēķināt tikai tad, ja produktam ir pietiekami precīza kategorija."
 
 msgctxt "environmental_score_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
@@ -5698,7 +5693,7 @@ msgstr "Ja esat šī produkta ražotājs, varat nosūtīt mums informāciju, izm
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Brīdinājums: daļa informācijas, kas nepieciešama, lai precīzi aprēķinātu Zaļo punktu skaitu, nav sniegta (sīkāku informāciju par aprēķinu skatiet tālāk)."
+msgstr "Brīdinājums: daļa informācijas, kas nepieciešama, lai precīzi aprēķinātu Green-Score, nav sniegta (sīkāku informāciju par aprēķinu skatiet tālāk)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5853,12 +5848,12 @@ msgstr "Informācija par šī produkta iepakojumu nav pietiekami precīza (prec�
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can modify the product page and add them."
-msgstr "Lai precīzāk aprēķinātu Zaļo rādītāju, varat modificēt produkta lapu un pievienot tos."
+msgstr "Lai precīzāk aprēķinātu Green-Score, varat modificēt produkta lapu un pievienot tos."
 
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Lai precīzāk aprēķinātu Zaļo vērtējumu, varat rediģēt produkta lapu un pievienot tos."
+msgstr "Lai precīzāk aprēķinātu Green-Score, varat rediģēt produkta lapu un pievienot tos."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -5880,17 +5875,17 @@ msgstr "Ja esat šī produkta ražotājs, varat nosūtīt mums informāciju, izm
 # do not translate Green-Score and the link
 msgctxt "environmental_score_description"
 msgid "The <a href=\"/green-score\">Green-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr "Zaļais rādītājs <a href=\"/green-score\"></a> ir eksperimentāls rādītājs, kas apkopo pārtikas produktu ietekmi uz vidi."
+msgstr "Green-Score <a href=\"/green-score\"></a> ir eksperimentāls rādītājs, kas apkopo pārtikas produktu ietekmi uz vidi."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_fr"
 msgid "The Green-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr "Zaļā rādītāja formula var tikt mainīta, jo tā tiek regulāri uzlabota, lai padarītu to precīzāku."
+msgstr "Green-Score formula var tikt mainīta, jo tā tiek regulāri uzlabota, lai padarītu to precīzāku."
 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "Zaļais rādītājs sākotnēji tika izstrādāts Francijai, un tas tiek paplašināts uz citām Eiropas valstīm. Zaļā rādītāja formula var tikt mainīta, jo tā tiek regulāri uzlabota, lai padarītu to precīzāku un labāk piemērotu katrai valstij."
+msgstr "Green-Score sākotnēji tika izstrādāts Francijai, un tas tiek paplašināts uz citām Eiropas valstīm. Green-Score formula var tikt mainīta, jo tā tiek regulāri uzlabota, lai padarītu to precīzāku un labāk piemērotu katrai valstij."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6213,7 +6208,7 @@ msgstr "Bonusi un zaudējumi"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "Zaļais vērtējums šim produktam"
+msgstr "Green-Score šim produktam"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -6488,11 +6483,11 @@ msgstr "Noņemt attēla atlasi"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Paldies"
+msgstr "Uzziniet vairāk par Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"
-msgstr "Uzziniet vairāk par Zaļo rādītāju"
+msgstr "Uzziniet vairāk par Green-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
@@ -6542,11 +6537,11 @@ msgstr "Vai varētu pievienot informāciju, kas nepieciešama, lai aprēķinātu
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Vai varētu pievienot precīzu produktu kategoriju, lai mēs varētu aprēķināt Zaļo vērtējumu?"
+msgstr "Vai varētu pievienot precīzu produktu kategoriju, lai mēs varētu aprēķināt Green-Score?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
-msgstr "Šī produkta kategorija, kas mums ir, nav pietiekami precīza, lai aprēķinātu zaļo punktu skaitu. Vai varētu pievienot precīzāku produkta kategoriju?"
+msgstr "Šī produkta kategorija, kas mums ir, nav pietiekami precīza, lai aprēķinātu Green-Score. Vai varētu pievienot precīzāku produkta kategoriju?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"

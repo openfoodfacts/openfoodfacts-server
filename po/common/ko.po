@@ -687,7 +687,7 @@ msgstr "삭제됨:"
 
 msgctxt "donate"
 msgid "Donate to Open Food Facts"
-msgstr "Open Beauty Facts에게 기부하기"
+msgstr "Open Food Facts에게 기부하기"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
@@ -1072,7 +1072,7 @@ msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr "생산자를 위한 식품 정보 공개"
+msgstr "생산자를 위한 Open Food Facts"
 
 msgctxt "for"
 msgid "for"
@@ -1754,7 +1754,7 @@ msgstr "표에는 기본적으로 자주 지정되는 영양분이 나열되어 
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr "뉴트리스코어 계산에 필요한 필수 영양소."
+msgstr "Nutri-Score 계산에 필요한 필수 영양소."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1763,11 +1763,6 @@ msgstr "영양 등급"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "영양 등급"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2973,11 +2968,11 @@ msgstr "단위"
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr "노바 그룹"
+msgstr "NOVA"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr "노바 그룹"
+msgstr "NOVA"
 
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
@@ -4194,7 +4189,7 @@ msgstr "%s 카테고리의 평균값"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr "%s 값을 %s(%s 차이)에서 %s(%s 차이)로 변경하여 뉴트리-스코어를 %s에서 %s(%s 차이)로 변경할 수 있습니다."
+msgstr "%s 값을 %s(%s 차이)에서 %s(%s 차이)로 변경하여 Nutri-Score를 %s에서 %s(%s 차이)로 변경할 수 있습니다."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
@@ -4709,7 +4704,7 @@ msgstr "Nutri-Score는 포장에 표시되지 않더라도 모든 제품에 대�
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr "뉴트리스코어 %s"
+msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
@@ -4760,7 +4755,7 @@ msgstr "식품 가공"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
-msgstr "노바 그룹"
+msgstr "NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
@@ -4822,7 +4817,7 @@ msgstr "쿼리 필터"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
-msgstr "노바 그룹"
+msgstr "NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
@@ -4948,7 +4943,7 @@ msgstr "환경"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "친환경 점수"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4956,12 +4951,12 @@ msgstr "낮은 환경 영향(Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "그린스코어는 A+부터 F까지 등급으로 나뉜 환경 점수로, 식품이 환경에 미치는 영향을 쉽게 비교할 수 있도록 해줍니다."
+msgstr "Green-Score는 A+부터 F까지 등급으로 나뉜 Green-Score로, 식품이 환경에 미치는 영향을 쉽게 비교할 수 있도록 해줍니다."
 
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "친환경 점수"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
@@ -4969,12 +4964,12 @@ msgstr "낮은 환경 영향(Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
-msgstr "그린스코어는 A+부터 F까지 등급으로 나뉜 환경 점수로, 식품이 환경에 미치는 영향을 쉽게 비교할 수 있도록 해줍니다."
+msgstr "Green-Score는 A+부터 F까지 등급으로 나뉜 Green-Score로, 식품이 환경에 미치는 영향을 쉽게 비교할 수 있도록 해줍니다."
 
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "환경 점수 %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5160,22 +5155,22 @@ msgstr "환경적 영향"
 # Numerical score for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_score"
 msgid "Green-Score score"
-msgstr "그린스코어 점수"
+msgstr "Green-Score 점수"
 
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "그린스코어 등급"
+msgstr "Green-Score 등급"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "그린스코어 계산 세부 정보"
+msgstr "Green-Score 계산 세부 정보"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
 msgid "Information about the Green-Score"
-msgstr "그린스코어에 대한 정보"
+msgstr "Green-Score에 대한 정보"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
@@ -5212,19 +5207,19 @@ msgstr "준비된 제품의 영양 정보가 누락되었습니다."
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "친환경 점수"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "친환경 점수"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "친환경 점수"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "친환경 점수"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5395,7 +5390,7 @@ msgstr "이 플랫폼은 또한 제품에 대한 심층 분석을 제공합니�
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Green-Score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr "이 시스템은 뉴트리스코어, NOVA, 그린스코어와 같은 지표를 계산하고, 이를 개선할 수 있는 방안을 자동으로 제시합니다(예: 성분 구성을 약간만 변경하면 뉴트리스코어 등급이 향상되는 모든 제품)."
+msgstr "이 시스템은 Nutri-Score, NOVA, Green-Score와 같은 지표를 계산하고, 이를 개선할 수 있는 방안을 자동으로 제시합니다(예: 성분 구성을 약간만 변경하면 Nutri-Score 등급이 향상되는 모든 제품)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
@@ -5530,7 +5525,7 @@ msgstr "사용자 정보가 삭제되고 있습니다. 몇 분 정도 소요될 
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "그린스코어는 적용되지 않습니다."
+msgstr "Green-Score는 적용되지 않습니다."
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5547,7 +5542,7 @@ msgstr "Green-Score는 아직 이 범주에 적용할 수 없지만 이에 대�
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "에코 점수가 계산되지 않음"
+msgstr "Green-Score가 계산되지 않음"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5893,7 +5888,7 @@ msgstr "Green-Score 공식은 더 정확하게 만들기 위해 정기적으로 
 # do not translate Green-Score
 msgctxt "environmental_score_warning_international"
 msgid "The Green-Score was initially developed for France and it is being extended to other European countries. The Green-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr "그린스코어는 원래 프랑스를 위해 개발되었으며 현재 다른 유럽 국가로 확대 적용되고 있습니다. 그린스코어 공식은 각 국가에 더욱 적합하고 정확도를 높이기 위해 정기적으로 개선되므로 변경될 수 있습니다."
+msgstr "Green-Score는 원래 프랑스를 위해 개발되었으며 현재 다른 유럽 국가로 확대 적용되고 있습니다. Green-Score 공식은 각 국가에 더욱 적합하고 정확도를 높이기 위해 정기적으로 개선되므로 변경될 수 있습니다."
 
 msgctxt "environmental_score_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -6216,7 +6211,7 @@ msgstr "보너스 및 과오"
 
 msgctxt "environmental_score_for_this_product"
 msgid "Green-Score for this product"
-msgstr "이 제품의 에코 점수"
+msgstr "이 제품의 Green-Score"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
@@ -7134,19 +7129,19 @@ msgstr "결석"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr "이 제품은 뉴트리스코어 계산 시 물로 간주됩니다."
+msgstr "이 제품은 Nutri-Score 계산 시 물로 간주됩니다."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr "이 제품은 뉴트리스코어 계산 시 지방, 기름, 견과류 또는 씨앗류로 간주됩니다."
+msgstr "이 제품은 Nutri-Score 계산 시 지방, 기름, 견과류 또는 씨앗류로 간주됩니다."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr "이 제품은 뉴트리스코어 계산 시 치즈로 간주됩니다."
+msgstr "이 제품은 Nutri-Score 계산 시 치즈로 간주됩니다."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr "이 제품은 뉴트리스코어 계산 시 붉은 육류 제품으로 간주됩니다."
+msgstr "이 제품은 Nutri-Score 계산 시 붉은 육류 제품으로 간주됩니다."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
@@ -7174,19 +7169,19 @@ msgstr "단백질 점수는 마이너스 점수가 11점 이상이기 때문에 
 
 msgctxt "nutriscore_new_computation_title"
 msgid "Discover the new Nutri-Score!"
-msgstr "새로운 뉴트리스코어를 만나보세요!"
+msgstr "새로운 Nutri-Score를 만나보세요!"
 
 msgctxt "nutriscore_new_computation_description"
 msgid "<p>The computation of the Nutri-Score is evolving to provide better recommendations based on the latest scientific evidence.</p><p>Main improvements:</p><ul><li>Better score for some fatty fish and oils rich in good fats</li><li>Better score for whole products rich in fiber</li><li>Worse score for products containing a lot of salt or sugar</li><li>Worse score for red meat (compared to poultry)</li></ul>"
-msgstr "<p>뉴트리스코어 계산 방식은 최신 과학적 근거를 바탕으로 더 나은 권장 사항을 제공하기 위해 지속적으로 발전하고 있습니다.</p><p>주요 개선 사항:</p><ul><li>지방이 풍부한 생선과 좋은 지방이 풍부한 오일의 점수 향상</li><li>식이섬유가 풍부한 가공식품의 점수 향상</li><li>소금이나 설탕 함량이 높은 제품의 점수 하락</li><li>붉은 육류(가금류 대비)의 점수 하락</li></ul>"
+msgstr "<p>Nutri-Score 계산 방식은 최신 과학적 근거를 바탕으로 더 나은 권장 사항을 제공하기 위해 지속적으로 발전하고 있습니다.</p><p>주요 개선 사항:</p><ul><li>지방이 풍부한 생선과 좋은 지방이 풍부한 오일의 점수 향상</li><li>식이섬유가 풍부한 가공식품의 점수 향상</li><li>소금이나 설탕 함량이 높은 제품의 점수 하락</li><li>붉은 육류(가금류 대비)의 점수 하락</li></ul>"
 
 msgctxt "nutriscore_new_computation_link_text"
 msgid "Discover all the improvements of the new Nutri-Score"
-msgstr "새로운 뉴트리스코어의 모든 개선 사항을 확인해 보세요."
+msgstr "새로운 Nutri-Score의 모든 개선 사항을 확인해 보세요."
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr "뉴트리스코어는 제품의 전반적인 영양 품질을 나타내는 로고입니다."
+msgstr "Nutri-Score는 제품의 전반적인 영양 품질을 나타내는 로고입니다."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
@@ -7202,7 +7197,7 @@ msgstr "이 로고의 표시는 공중 보건 당국에서 권장하는 사항�
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
-msgstr "뉴트리스코어란 무엇인가요?"
+msgstr "Nutri-Score란 무엇인가요?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
@@ -7444,11 +7439,11 @@ msgstr "제품 데이터가 포함된 파일을 선택하세요."
 
 msgctxt "number_of_products_without_nutriscore"
 msgid "Number of products without Nutri-Score"
-msgstr "뉴트리스코어가 없는 제품 수"
+msgstr "Nutri-Score가 없는 제품 수"
 
 msgctxt "percent_of_products_with_nutriscore"
 msgid "% of products where Nutri-Score is computed"
-msgstr "뉴트리스코어가 계산되는 제품의 비율"
+msgstr "Nutri-Score가 계산되는 제품의 비율"
 
 msgctxt "products_to_be_exported"
 msgid "Products to be exported"
@@ -7460,7 +7455,7 @@ msgstr "수출 제품"
 
 msgctxt "opportunities_to_improve_nutriscore"
 msgid "Opp. for Nutri-Score improvements"
-msgstr "뉴트리스코어 개선에 반대합니다."
+msgstr "Nutri-Score 개선에 반대합니다."
 
 msgctxt "date_of_last_update"
 msgid "Date of last update"
@@ -7615,7 +7610,7 @@ msgstr "여러 연구에 따르면 초가공식품 섭취량을 줄이는 것이
 
 msgctxt "discover_the_evolution_of_the_nutriscore_grades_of_your_products"
 msgid "Discover the evolution of the Nutri-Score grades of your products"
-msgstr "귀사 제품의 뉴트리스코어 등급 변화 추이를 확인해 보세요."
+msgstr "귀사 제품의 Nutri-Score 등급 변화 추이를 확인해 보세요."
 
 msgctxt "add_products_to_discover_the_evolution_of_their_nutriscore_grades"
 msgid "Add products with a category, ingredients list and nutrition facts to discover the evolution of their Nutri-Score grades."
