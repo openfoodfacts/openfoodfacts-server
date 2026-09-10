@@ -63,7 +63,7 @@ msgstr "a facebooková skupina <a href=\"https://www.facebook.com/groups/OpenBea
 
 msgctxt "search_description_opensearch_obf"
 msgid "Open Beauty Facts product search"
-msgstr "Hledání produktů na Open Products Facts"
+msgstr "Hledání produktů na Open Beauty Facts"
 
 msgctxt "warning_not_complete_obf"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the universal mobile app for <a href=\"https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-food-facts-product-scan/id588797948\">iPhone/iPad</a>. Thank you!"
@@ -1760,11 +1760,6 @@ msgstr "Nutriční hodnoty"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Výživová hodnota"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4719,7 +4714,7 @@ msgstr "Chybějící data pro výpočet Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not applicable"
-msgstr "Nutriční skóre se nepoužije"
+msgstr "Nutri-Score se nepoužije"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -4945,11 +4940,11 @@ msgstr "Životní prostředí"
 
 msgctxt "attribute_environmental_score_name"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
 
 msgctxt "attribute_environmental_score_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Nízký dopad na životní prostředí (Eko-skóre)"
+msgstr "Nízký dopad na životní prostředí (Green-Score)"
 
 msgctxt "attribute_environmental_score_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -4958,11 +4953,11 @@ msgstr "Green-Score je environmentální skóre od A+ do F, které usnadňuje po
 # Note: the Eco-Score is renamed to Green-Score, but we keep the ecoscore identifier as it is stored in clients
 msgctxt "attribute_ecoscore_name"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Green-Score)"
-msgstr "Nízký dopad na životní prostředí (Eko-skóre)"
+msgstr "Nízký dopad na životní prostředí (Green-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Green-Score is an environmental score from A+ to F which makes it easy to compare the impact of food products on the environment."
@@ -5209,19 +5204,19 @@ msgstr "Chybějící nutriční hodnoty u připraveného produktu"
 
 msgctxt "ecoscore_p"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
 
 msgctxt "ecoscore_s"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_p"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
 
 msgctxt "environmental_score_s"
 msgid "Green-Score"
-msgstr "Eco-score"
+msgstr "Green-Score"
 
 msgctxt "misc_p"
 msgid "Miscellaneous"
@@ -5544,7 +5539,7 @@ msgstr "Green-Score ještě není pro tuto kategorii použitelný, ale pracujeme
 
 msgctxt "attribute_environmental_score_unknown_title"
 msgid "Green-Score not computed"
-msgstr "Eko-skóre není vypočítáno"
+msgstr "Green-Score není vypočítáno"
 
 msgctxt "attribute_environmental_score_unknown_description_short"
 msgid "Unknown environmental impact"
@@ -5698,7 +5693,7 @@ msgstr "Pokud jste výrobcem tohoto produktu, můžete nám zaslat informace pro
 
 msgctxt "environmental_score_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Green-Score with precision is not provided (see the details of the calculation below)."
-msgstr "Upozornění: Některé informace potřebné k přesnému výpočtu Eco-score nejsou poskytnuty (viz podrobnosti výpočtu níže)."
+msgstr "Upozornění: Některé informace potřebné k přesnému výpočtu Green-Score nejsou poskytnuty (viz podrobnosti výpočtu níže)."
 
 msgctxt "environmental_score_add_missing_information"
 msgid "You can edit the product to add the missing information."
@@ -5858,7 +5853,7 @@ msgstr "Pro přesnější výpočet Green-Score můžete upravit stránku produk
 # duplicate
 msgctxt "environmental_score_edit_for_more_precise_environmental_score"
 msgid "For a more precise calculation of the Green-Score, you can edit the product page and add them."
-msgstr "Pro přesnější výpočet Eko-skóre můžete upravit stránku produktu a přidat je."
+msgstr "Pro přesnější výpočet Green-Score můžete upravit stránku produktu a přidat je."
 
 msgctxt "environmental_score_final_score"
 msgid "Final score"
@@ -6488,7 +6483,7 @@ msgstr "Zrušit výběr obrázku"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
-msgstr "Děkujeme"
+msgstr "Zjistěte více o Nutri-Score"
 
 msgctxt "environmental_score_learn_more"
 msgid "Learn more about the Green-Score"

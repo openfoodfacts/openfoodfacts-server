@@ -1065,7 +1065,7 @@ msgstr "https://wiki.openfoodfacts.org/"
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr "Відкрити факти про красу-косметика"
+msgstr "Open Beauty Facts — косметика"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -1393,7 +1393,7 @@ msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr "Додаючи інформацію, дату і/або зображення, ви погоджуєтеся внести свій вклад за <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</а> ліцензія, для інформації та даних, а також за <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> ліцензія для зображень.\n"
+msgstr "Додаючи інформацію, дату і/або зображення, ви погоджуєтеся внести свій вклад за <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> ліцензія, для інформації та даних, а також за <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> ліцензія для зображень.\n"
 "Ви приймаєте його за допомогою посилання на продукт, який ви вносите."
 
 msgctxt "link"
@@ -1763,11 +1763,6 @@ msgstr "Харчові цінності"
 msgctxt "nutrition_grades_s"
 msgid "Nutrition grade"
 msgstr "Харчова цінність"
-
-# Make sure the translated link works (eg that the image already exists in your language)
-msgctxt "og_image_url"
-msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -4075,7 +4070,7 @@ msgstr "Деталі розрахунку Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr "Цей товар вважається важелем для обчислення Нутрі-Скора."
+msgstr "Цей товар вважається важелем для обчислення Nutri-Scoreа."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
@@ -4198,7 +4193,7 @@ msgstr "Середнє значення для категорії %s"
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr "Сайт Nutri-Score може варіювати цінність від %s до %s змінюючи її від %s до %s (%s різниця у відсотку)."
+msgstr "Nutri-Score можна змінити з %s на %s, змінивши значення %s з %s на %s (%s різниця у відсотках)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
@@ -4977,7 +4972,7 @@ msgstr "Green-Score – це екологічний бал від A+ до F, я�
 # keep %s, it will be replaced by the letter A+, A, B, C, D, E or F
 msgctxt "attribute_environmental_score_grade_title"
 msgid "Green-Score %s"
-msgstr "Зелена оцінка %s"
+msgstr "Green-Score %s"
 
 msgctxt "attribute_environmental_score_a_plus_description_short"
 msgid "Very low environmental impact"
@@ -5168,12 +5163,12 @@ msgstr "Оцінка Green-Score"
 # Letter grade from A to E for the Green-Score (do not translate Green-Score)
 msgctxt "environmental_score_grade"
 msgid "Green-Score grade"
-msgstr "Оцінка за шкалою Зеленої оцінки"
+msgstr "Оцінка за шкалою Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_calculation_details"
 msgid "Details of the calculation of the Green-Score"
-msgstr "Подробиці розрахунку Зеленої оцінки"
+msgstr "Подробиці розрахунку Green-Score"
 
 # do not translate Green-Score
 msgctxt "environmental_score_information"
@@ -5475,11 +5470,11 @@ msgstr "Найпопулярніші товари"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr "Продукти з найкращим показником харчової цінності"
+msgstr "Продукти з найкращим Nutri-Score"
 
 msgctxt "sort_by_environmental_score_score"
 msgid "Products with the best Green-Score"
-msgstr "Продукти з найкращим показником впливу на довкілля"
+msgstr "Продукти з найкращим Green-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
@@ -5533,7 +5528,7 @@ msgstr "Користувач видаляється. Це може зайнят�
 
 msgctxt "attribute_environmental_score_not_applicable_title"
 msgid "Green-Score not applicable"
-msgstr "Green Score не застосовується"
+msgstr "Green-Score не застосовується"
 
 msgctxt "attribute_environmental_score_not_applicable_description_short"
 msgid "Not applicable for the category"
@@ -5908,7 +5903,7 @@ msgstr "Повний вплив транспортування на вашу к�
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Green-Score and more!"
-msgstr "Скануйте штрих-коди, щоб отримати показник харчової цінності, впливу на довкілля та багато іншого!"
+msgstr "Скануйте штрих-коди, щоб отримати Nutri-Score, Green-Score та багато іншого!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -6548,7 +6543,7 @@ msgstr "Чи не могли б ви додати інформацію, необ
 
 msgctxt "actions_to_compute_environmental_score"
 msgid "Could you add a precise product category so that we can compute the Green-Score?"
-msgstr "Чи не могли б ви додати точну категорію товару, щоб ми могли обчислити екологічний бал?"
+msgstr "Чи не могли б ви додати точну категорію товару, щоб ми могли обчислити Green-Score?"
 
 msgctxt "actions_to_compute_environmental_score_unprecise_category"
 msgid "The category we have for this product is not precise enough to compute the Green-Score. Could you add a more precise product category?"
