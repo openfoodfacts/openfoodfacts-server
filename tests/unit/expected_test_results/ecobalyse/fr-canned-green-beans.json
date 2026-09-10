@@ -81,12 +81,7 @@
          },
          "url" : "https://ecobalyse.beta.gouv.fr/api/food"
       },
-      "ecobalyse_response" : {
-         "documentation" : "https://ecobalyse.beta.gouv.fr/#/api",
-         "error" : {
-            "decoding" : "Problem with the value at json.ingredients[0].id: \"french-bean-non-eu\" Not a valid UUID"
-         }
-      }
+      "ecobalyse_response" : "read timeout at /usr/share/perl5/Net/HTTP/Methods.pm line 274.\n"
    },
    "estimate_ingredients_percent_service" : "product_opener",
    "ingredients" : [

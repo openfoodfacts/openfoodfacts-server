@@ -178,13 +178,14 @@
                   "name" : "sugar"
                }
             ],
-            "packaging" : {
-               "category" : "en:biscuits",
-               "ecs" : 9.29,
-               "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5",
-               "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-               "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
-            }
+            "packaging" : [
+               {
+                  "category" : "en:biscuits",
+                  "id" : "99353d1b-77a3-4fcd-8c99-25ef7dd404c5",
+                  "name" : "Cookies, 200g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                  "name_fr" : "Barquette en plastique (PP) pour cookies - 200g - Proxy"
+               }
+            ]
          },
          "ecobalyse_request" : {
             "data" : {

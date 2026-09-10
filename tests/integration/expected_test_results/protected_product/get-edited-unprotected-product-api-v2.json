@@ -476,13 +476,14 @@
                   "name" : "palm oil"
                }
             ],
-            "packaging" : {
-               "category" : "",
-               "ecs" : 4.383,
-               "id" : "604c4bbf-c35a-4717-bc27-6b80940440c9",
-               "name" : "Soft cheeses - cat A, 250g | Packaging System, N0, All, Wooden box {FR} U",
-               "name_fr" : "Boîte en bois pour fromage à pâte molle - 250g"
-            }
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "604c4bbf-c35a-4717-bc27-6b80940440c9",
+                  "name" : "Soft cheeses - cat A, 250g | Packaging System, N0, All, Wooden box {FR} U",
+                  "name_fr" : "Boîte en bois pour fromage à pâte molle - 250g"
+               }
+            ]
          },
          "ecobalyse_request" : {
             "data" : {

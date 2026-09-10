@@ -424,13 +424,14 @@
                "name" : "palm oil"
             }
          ],
-         "packaging" : {
-            "category" : "",
-            "ecs" : 79.89,
-            "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-            "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-            "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-         }
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {

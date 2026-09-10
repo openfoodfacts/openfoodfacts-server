@@ -83,13 +83,22 @@
                "name" : "ail"
             }
          ],
-         "packaging" : {
-            "category" : "",
-            "ecs" : 79.89,
-            "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-            "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-            "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-         }
+         "packaging" : [
+            {
+               "category" : "",
+               "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+               "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+               "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+            }
+         ],
+         "transformations" : [
+            {
+               "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+               "mass" : 100,
+               "name" : "Cooking, industrial, 1kg of cooked product {FR} U",
+               "name_fr" : "Cuisson"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
@@ -128,6 +137,12 @@
                {
                   "amount" : 1,
                   "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b"
+               }
+            ],
+            "transformations" : [
+               {
+                  "id" : "a2836bb8-7f45-5cfa-bb00-8b38046291cf",
+                  "mass" : 100
                }
             ]
          },

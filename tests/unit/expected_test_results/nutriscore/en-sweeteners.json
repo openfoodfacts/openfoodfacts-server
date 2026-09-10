@@ -56,13 +56,14 @@
                "name" : "sugar"
             }
          ],
-         "packaging" : {
-            "category" : "en:soft-drinks",
-            "ecs" : 27.78,
-            "id" : "931774ee-c237-4bf9-8330-a84a5c64b2da",
-            "name" : "Soft drinks, 1500g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
-            "name_fr" : "Bouteille en plastique (PET) pour boisson sans alcool - 1500g - Proxy"
-         }
+         "packaging" : [
+            {
+               "category" : "en:soft-drinks",
+               "id" : "931774ee-c237-4bf9-8330-a84a5c64b2da",
+               "name" : "Soft drinks, 1500g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
+               "name_fr" : "Bouteille en plastique (PET) pour boisson sans alcool - 1500g - Proxy"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {

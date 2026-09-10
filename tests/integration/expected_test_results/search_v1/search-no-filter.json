@@ -439,13 +439,14 @@
                      "name" : "palm oil"
                   }
                ],
-               "packaging" : {
-                  "category" : "",
-                  "ecs" : 59.21,
-                  "id" : "1c624a8a-afe8-4c7a-9c00-50b057b26b27",
-                  "name" : "Sparkling wine, 75cl | Packaging System, N0, All, Glass bottle (green) 560g with cork stopper {FR} U",
-                  "name_fr" : "Bouteille en verre vert de 560g pour vin effervescent - 75cl"
-               }
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "1c624a8a-afe8-4c7a-9c00-50b057b26b27",
+                     "name" : "Sparkling wine, 75cl | Packaging System, N0, All, Glass bottle (green) 560g with cork stopper {FR} U",
+                     "name_fr" : "Bouteille en verre vert de 560g pour vin effervescent - 75cl"
+                  }
+               ]
             },
             "ecobalyse_request" : {
                "data" : {
@@ -1525,13 +1526,14 @@
             "ecobalyse_input" : {
                "distribution" : "ambient",
                "ingredients" : [],
-               "packaging" : {
-                  "category" : "",
-                  "ecs" : 79.89,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-                  "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-                  "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-               }
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
             },
             "ecobalyse_request" : {
                "data" : {
@@ -2247,13 +2249,14 @@
                      "name" : "eggs"
                   }
                ],
-               "packaging" : {
-                  "category" : "",
-                  "ecs" : 79.89,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-                  "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-                  "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-               }
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
             },
             "ecobalyse_request" : {
                "data" : {
@@ -3254,13 +3257,14 @@
                      "name" : "palm oil"
                   }
                ],
-               "packaging" : {
-                  "category" : "",
-                  "ecs" : 79.89,
-                  "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
-                  "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
-                  "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
-               }
+               "packaging" : [
+                  {
+                     "category" : "",
+                     "id" : "a84f815c-11e8-43d2-ac5a-ddcfe918766b",
+                     "name" : "Beer, 1500g | Packaging System, Proxy Pack, Glass {FR} U",
+                     "name_fr" : "Bouteille en verre pour bière - 1500g - Proxy"
+                  }
+               ]
             },
             "ecobalyse_request" : {
                "data" : {
@@ -4417,13 +4421,14 @@
                      "name" : "water"
                   }
                ],
-               "packaging" : {
-                  "category" : "en:cereals-and-their-products",
-                  "ecs" : 18.24,
-                  "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
-                  "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-                  "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
-               }
+               "packaging" : [
+                  {
+                     "category" : "en:cereals-and-their-products",
+                     "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
+                     "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                     "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
+                  }
+               ]
             },
             "ecobalyse_request" : {
                "data" : {
@@ -5569,13 +5574,14 @@
                      "name" : "sugar"
                   }
                ],
-               "packaging" : {
-                  "category" : "en:cereals-and-their-products",
-                  "ecs" : 18.24,
-                  "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
-                  "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-                  "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
-               }
+               "packaging" : [
+                  {
+                     "category" : "en:cereals-and-their-products",
+                     "id" : "da5657ee-fdfe-45cf-a031-7f8ea8a85e08",
+                     "name" : "Baby biscuits and cereals, 340g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+                     "name_fr" : "Sachet en plastique (PE) pour dessert pour bébés - 340g - Proxy"
+                  }
+               ]
             },
             "ecobalyse_request" : {
                "data" : {

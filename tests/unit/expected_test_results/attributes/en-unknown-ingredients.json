@@ -444,13 +444,14 @@
       "ecobalyse_input" : {
          "distribution" : "ambient",
          "ingredients" : [],
-         "packaging" : {
-            "category" : "en:cheeses",
-            "ecs" : 15.26,
-            "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec",
-            "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
-            "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
-         }
+         "packaging" : [
+            {
+               "category" : "en:cheeses",
+               "id" : "4a242067-c13d-4cdb-8b69-c113ffd365ec",
+               "name" : "Semihard cheeses - cat B, 200g | Packaging System, N0, All, PET tray with PET lid for sliced cheese {FR} U",
+               "name_fr" : "Barquette en plastique (PET) pour fromage en tranches - 200g"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {

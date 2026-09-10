@@ -50,13 +50,14 @@
                "name" : "sugar"
             }
          ],
-         "packaging" : {
-            "category" : "en:syrups",
-            "ecs" : 44.06,
-            "id" : "a358ef07-0591-489f-808d-2b94a7396eb2",
-            "name" : "Sirop, 500g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
-            "name_fr" : "Bouteille en acier pour sirop - 500g - Proxy"
-         }
+         "packaging" : [
+            {
+               "category" : "en:syrups",
+               "id" : "a358ef07-0591-489f-808d-2b94a7396eb2",
+               "name" : "Sirop, 500g | Packaging System, Proxy Pack, Rigid plastic, other than bottles {FR} U",
+               "name_fr" : "Bouteille en acier pour sirop - 500g - Proxy"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {

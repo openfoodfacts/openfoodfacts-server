@@ -37,13 +37,14 @@
                "name" : "sugar"
             }
          ],
-         "packaging" : {
-            "category" : "en:sugars",
-            "ecs" : 1.496,
-            "id" : "ada440c9-f18f-4df5-bac6-4145040320e0",
-            "name" : "Sugar, 1000g | Packaging System, Proxy Pack, Cardboard {FR} U",
-            "name_fr" : "Sachet en papier pour sucre - 1000g - Proxy"
-         }
+         "packaging" : [
+            {
+               "category" : "en:sugars",
+               "id" : "ada440c9-f18f-4df5-bac6-4145040320e0",
+               "name" : "Sugar, 1000g | Packaging System, Proxy Pack, Cardboard {FR} U",
+               "name_fr" : "Sachet en papier pour sucre - 1000g - Proxy"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {

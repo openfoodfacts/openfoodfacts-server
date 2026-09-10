@@ -477,13 +477,14 @@
                   "name" : "palm oil"
                }
             ],
-            "packaging" : {
-               "category" : "",
-               "ecs" : 59.21,
-               "id" : "1c624a8a-afe8-4c7a-9c00-50b057b26b27",
-               "name" : "Sparkling wine, 75cl | Packaging System, N0, All, Glass bottle (green) 560g with cork stopper {FR} U",
-               "name_fr" : "Bouteille en verre vert de 560g pour vin effervescent - 75cl"
-            }
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "1c624a8a-afe8-4c7a-9c00-50b057b26b27",
+                  "name" : "Sparkling wine, 75cl | Packaging System, N0, All, Glass bottle (green) 560g with cork stopper {FR} U",
+                  "name_fr" : "Bouteille en verre vert de 560g pour vin effervescent - 75cl"
+               }
+            ]
          },
          "ecobalyse_request" : {
             "data" : {

@@ -637,13 +637,14 @@
                   "name" : "palm oil"
                }
             ],
-            "packaging" : {
-               "category" : "",
-               "ecs" : 7.377,
-               "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
-               "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
-               "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
-            }
+            "packaging" : [
+               {
+                  "category" : "",
+                  "id" : "3fe0e81a-1f6d-40af-9ee2-b31302d7ca9b",
+                  "name" : "Soft cheeses - cat E, 120g | Packaging System, N0, All, Plastic box with label (double) {FR} U",
+                  "name_fr" : "Boîte en plastique (PET) pour fromage à pâte molle - 120g"
+               }
+            ]
          },
          "ecobalyse_request" : {
             "data" : {

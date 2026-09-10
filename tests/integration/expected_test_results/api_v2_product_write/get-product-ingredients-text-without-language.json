@@ -401,13 +401,14 @@
          "ecobalyse_input" : {
             "distribution" : "ambient",
             "ingredients" : [],
-            "packaging" : {
-               "category" : "en:sausages",
-               "ecs" : 13.31,
-               "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
-               "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
-               "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
-            }
+            "packaging" : [
+               {
+                  "category" : "en:sausages",
+                  "id" : "ae3b4667-1f8e-4b48-849e-f5f3810faa27",
+                  "name" : "Fresh sausages, 330g | Packaging System, N0, All, APET Tray with Lid {FR} U",
+                  "name_fr" : "Barquette en plastique (APET) pour saucisse fraîche - 250g à 330g"
+               }
+            ]
          },
          "ecobalyse_request" : {
             "data" : {

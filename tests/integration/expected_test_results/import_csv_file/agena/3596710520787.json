@@ -162,13 +162,14 @@
       "ecobalyse_input" : {
          "distribution" : "ambient",
          "ingredients" : [],
-         "packaging" : {
-            "category" : "en:eggs",
-            "ecs" : 21.44,
-            "id" : "a560affc-90ca-4219-b4a3-6520906e834c",
-            "name" : "Eggs, powder, 800g | Packaging System, Proxy Pack, Steel {FR} U",
-            "name_fr" : "Pot en acier pour œufs en poudre - 800g - Proxy"
-         }
+         "packaging" : [
+            {
+               "category" : "en:eggs",
+               "id" : "a560affc-90ca-4219-b4a3-6520906e834c",
+               "name" : "Eggs, powder, 800g | Packaging System, Proxy Pack, Steel {FR} U",
+               "name_fr" : "Pot en acier pour œufs en poudre - 800g - Proxy"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {

@@ -41,13 +41,14 @@
                "name" : "Milk"
             }
          ],
-         "packaging" : {
-            "category" : "en:milks",
-            "ecs" : 15.87,
-            "id" : "d585c6ab-c4c1-4bc7-ba8d-a06e943ad065",
-            "name" : "Milk, other than from cow, 1000g | Packaging System, N0, All, PET bottle {FR} U",
-            "name_fr" : "Bouteille en plastique (PET) pour lait - 1L"
-         }
+         "packaging" : [
+            {
+               "category" : "en:milks",
+               "id" : "d585c6ab-c4c1-4bc7-ba8d-a06e943ad065",
+               "name" : "Milk, other than from cow, 1000g | Packaging System, N0, All, PET bottle {FR} U",
+               "name_fr" : "Bouteille en plastique (PET) pour lait - 1L"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {

@@ -64,13 +64,14 @@
                "name" : "Carrots"
             }
          ],
-         "packaging" : {
-            "category" : "en:fruit-nectars",
-            "ecs" : 23.96,
-            "id" : "2fb5bed2-2a08-41cd-8b7d-e3e0e200fa6d",
-            "name" : "Nectars, 1000g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
-            "name_fr" : "Bouteille en plastique (PET) pour nectars - 1000g - Proxy"
-         }
+         "packaging" : [
+            {
+               "category" : "en:fruit-nectars",
+               "id" : "2fb5bed2-2a08-41cd-8b7d-e3e0e200fa6d",
+               "name" : "Nectars, 1000g | Packaging System, Proxy Pack, Plastic bottles {FR} U",
+               "name_fr" : "Bouteille en plastique (PET) pour nectars - 1000g - Proxy"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {

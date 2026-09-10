@@ -47,13 +47,14 @@
                "name" : "Huile de colza"
             }
          ],
-         "packaging" : {
-            "category" : "en:rapeseed-oils",
-            "ecs" : 37.99,
-            "id" : "1843135c-3fb4-49e9-a691-1e1a6029c1df",
-            "name" : "Rapeseed oil, 0,5L | Packaging System, N0, All, Glass bottle {FR} U",
-            "name_fr" : "Bouteille en verre pour huile végétale (sauf huile d'olive) - 0,5L à 0,75L"
-         }
+         "packaging" : [
+            {
+               "category" : "en:rapeseed-oils",
+               "id" : "1843135c-3fb4-49e9-a691-1e1a6029c1df",
+               "name" : "Rapeseed oil, 0,5L | Packaging System, N0, All, Glass bottle {FR} U",
+               "name_fr" : "Bouteille en verre pour huile végétale (sauf huile d'olive) - 0,5L à 0,75L"
+            }
+         ]
       },
       "ecobalyse_request" : {
          "data" : {
