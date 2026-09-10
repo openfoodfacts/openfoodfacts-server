@@ -147,8 +147,6 @@ The list of Redis streams to subscribe to. Defaults to all streams if not provid
 
 =cut
 
-=cut
-
 sub subscribe_to_redis_streams ($search_from = undef, $search_to = undef, @streams) {
 	if (get_oidc_implementation_level() < 2) {
 		$log->info("OIDC implementation level is less than 2, not listening to Redis stream") if $log->is_info();
