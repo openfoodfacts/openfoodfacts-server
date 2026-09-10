@@ -1399,6 +1399,32 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 	my $product_ref = retrieve_product($product_id);
 	defined $product_ref->{images} or $product_ref->{images} = {};
 
+	# Check permission if user is not a moderator
+	if (not $User{moderator}) {
+		if ($move_to ne "trash") {
+			return "You must be a moderator to move images to another product.";
+		}
+		my @check_queue = split(/,/, $imgids);
+		my $now = time();
+		foreach my $imgid (@check_queue) {
+			next if ($imgid !~ /^\d+$/);
+			if (defined $product_ref->{images}{uploaded}{$imgid}) {
+				my $image_info = $product_ref->{images}{uploaded}{$imgid};
+				my $uploader = $image_info->{uploader};
+				if ((not defined $user_id) or ($user_id eq "") or (not defined $uploader) or ($user_id ne $uploader)) {
+					return "You can only remove images uploaded by yourself.";
+				}
+				my $uploaded_t = $image_info->{uploaded_t};
+				if (defined $uploaded_t and ($now - $uploaded_t > 86400)) {
+					return "Images uploaded more than 24 hours ago can only be removed by a moderator.";
+				}
+			}
+			else {
+				return "imgid $imgid not found in product $product_id";
+			}
+		}
+	}
+
 	# New product to which the images are moved
 	my $move_to_product_ref;
 

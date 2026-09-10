@@ -972,10 +972,16 @@ function get_list_of_imgids() {
 
 function toggle_manage_images_buttons() {
     $("#delete_images").addClass("disabled");
-    $("#move_images").addClass("disabled");
+    // Only access move_images button if it exists (moderator-only feature)
+    const moveBtn = $("#move_images");
+    if (moveBtn.length > 0) {
+        moveBtn.addClass("disabled");
+    }
     $("#manage .ui-selected").first().each(function () {
         $("#delete_images").removeClass("disabled");
-        $("#move_images").removeClass("disabled");
+        if (moveBtn.length > 0) {
+            moveBtn.removeClass("disabled");
+        }
     });
 }
 
@@ -994,11 +1000,15 @@ function escapeHtml(text) {
 async function performImageAction(loadingMsg, successMsg, errorMsg, moveTo, copyData = null) {
 
     const deleteBtn = document.getElementById('delete_images');
-    const moveBtn = document.getElementById('move_images');
+    const moveBtn = document.getElementById('move_images'); // May not exist for non-moderators
     const msgDiv = document.querySelector('div[id="moveimagesmsg"]');
 
-    deleteBtn.classList.add('disabled');
-    moveBtn.classList.add('disabled');
+    if (deleteBtn) {
+        deleteBtn.classList.add('disabled');
+    }
+    if (moveBtn) {
+        moveBtn.classList.add('disabled');
+    }
 
     msgDiv.innerHTML = '<img src="/images/misc/loading2.gif" /> ' + escapeHtml(loadingMsg);
     msgDiv.style.display = 'block';
