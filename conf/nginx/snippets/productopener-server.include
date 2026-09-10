@@ -57,6 +57,18 @@ location ~ ^/(favicon.ico|robots.txt) {
     try_files $uri $uri/ =404;
 }
 
+# Tagline feeds and assets proxy from smooth-app_assets
+location ^~ /data/tagline/ {
+    proxy_pass https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/;
+    proxy_ssl_server_name on;
+    proxy_set_header Host raw.githubusercontent.com;
+    include snippets/cors-headers.include;
+    proxy_cache tagline;
+    proxy_cache_valid 200 10m;
+    proxy_cache_use_stale error timeout updating;
+    add_header X-Cache-Status $upstream_cache_status always;
+}
+
 # Static files are served directly by NGINX
 location ~ ^/(.well-known|files|data|exports|dump)/ {
     include snippets/cors-headers.include;

@@ -358,7 +358,7 @@
 [% ELSE %]
 <!-- Donation banner TOP start -->
 <section id="donation-banner-top" style="position: relative;">
-  <donation-banner donate-url="[% link %]" news-url="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/web/main.json"></donation-banner>
+  <donation-banner donate-url="[% link %]" news-url="/data/tagline/web/main.json"></donation-banner>
   <div class="donation-banner__close" style="position: absolute; top: 0.3rem; right: 0.3rem; z-index: 2;">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -409,7 +409,7 @@
 <!-- Donation banner @ footer start-->
 [% banner_footer = BLOCK %]
 
-<donation-banner donate-url="[% link %]" news-url="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/web/main.json"></donation-banner>
+<donation-banner donate-url="[% link %]" news-url="/data/tagline/web/main.json"></donation-banner>
 
 [% END %]
 <!-- Donation banner @ footer end-->
